@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 07/05/2017
 ms.author: samacha
+ms.openlocfilehash: f5a605e0b0809c27feedc98390175fd383a371eb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 8ea05e1c3419f3e9c6b5806c1a2d4035239809d8
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>Conexão de dados: saiba mais sobre entradas de fluxo de dados de eventos para o Stream Analytics
 A conexão de dados para um trabalho do Stream Analytics é um fluxo de eventos de uma fonte de dados, que é conhecido como a *entrada* de um trabalho. O Stream Analytics tem integração de primeira classe com fontes de fluxo de dados do Azure, incluindo [Hubs de Eventos do Azure](https://azure.microsoft.com/services/event-hubs/), [Hub IoT do Azure](https://azure.microsoft.com/services/iot-hub/) e [Armazenamento de Blobs do Azure](https://azure.microsoft.com/services/storage/blobs/). Essas fontes de entrada podem ser da mesma assinatura do Azure que o trabalho de análise ou de uma assinatura diferente.
@@ -35,6 +34,12 @@ Um fluxo de dados é uma sequência ilimitada de eventos ao longo do tempo. Os t
 O Stream Analytics também dá suporte à entrada conhecida como *dados de referência*. Esses são dados auxiliares que são estáticos ou que são alterados lentamente. Ela é normalmente usada para executar correlação e pesquisas. Por exemplo, você pode unir dados na entrada de fluxo de dados a dados nos dados de referência, assim como você realizaria uma junção SQL para pesquisar valores estáticos. O Armazenamento de Blob do Azure é a única fonte de entrada com suporte para dados de referência. Os blobs de fonte de dados de referência estão limitados a 100 MB de tamanho.
 
 Para saber como criar entradas de dados de referência, veja [Usar dados de referência](stream-analytics-use-reference-data.md).  
+
+## <a name="compression"></a>Compactação
+
+O Azure Stream Analytics em breve implantará um recurso de compactação em todas as fontes de entrada de fluxo de dados (armazenamento de blobs, Hub IoT e Hubs de Eventos). Este recurso adiciona uma nova opção de lista suspensa à folha **Nova entrada** no Portal do Azure, permitindo que você opte por compactar os fluxos de dados. Os tipos de compactação com suporte no momento são Nenhuma, GZip e Deflate. 
+
+A compactação não tem suporte em combinação com a serialização Avro e não é aplicável a dados de referência. 
 
 ## <a name="create-data-stream-input-from-event-hubs"></a>Criar entrada de fluxo de dados dos Hubs de Eventos
 
@@ -57,6 +62,7 @@ A tabela a seguir explica cada propriedade na folha **Nova Entrada** no Portal d
 | **Grupo de consumidores de Hub de Eventos** (opcional) |O grupo de consumidores para ingerir dados do Hub de Eventos. Se nenhum grupo de consumidores for especificado, o trabalho do Stream Analytics usará o grupo de consumidores padrão. É recomendável usar um grupo de consumidores distinto para cada trabalho do Stream Analytics. |
 | **Formato de serialização do evento** |O formato de serialização (JSON, CSV ou Avro) do fluxo de dados de entrada. |
 | **Codificação** | UTF-8 é o único formato de codificação com suporte no momento. |
+| **Compactação** (opcional) | O tipo de compactação (Nenhuma, GZip ou Deflate) do fluxo de dados de entrada. |
 
 Quando seus dados forem provenientes de uma fonte de Hub de Eventos, você poderá acessar alguns campos de metadados em sua consulta do Stream Analytics:
 
@@ -102,6 +108,7 @@ A tabela a seguir explica cada propriedade na folha **Nova Entrada** no Portal d
 | **Grupo de Consumidores** (opcional) |O grupo de consumidores para ingerir dados do Hub IoT. Se nenhum grupo de consumidores for especificado, um trabalho do Stream Analytics usará o grupo de consumidores padrão. É recomendável usar um grupo de consumidores distinto para cada trabalho do Stream Analytics. |
 | **Formato de serialização do evento** |O formato de serialização (JSON, CSV ou Avro) do fluxo de dados de entrada. |
 | **Codificação** |UTF-8 é o único formato de codificação com suporte no momento. |
+| **Compactação** (opcional) | O tipo de compactação (Nenhuma, GZip ou Deflate) do fluxo de dados de entrada. |
 
 Quando seus dados forem provenientes de uma fonte de Hub IoT, você poderá acessar alguns campos de metadados em sua consulta do Stream Analytics:
 
@@ -144,6 +151,7 @@ A tabela a seguir explica cada propriedade na folha **Nova entrada** no Portal d
 | **Formato de hora** (opcional) |  Se você usar a variável de hora no caminho, o formato de hora no qual os arquivos são organizados. Atualmente, o único valor com suporte é `HH`. |
 | **Formato de serialização do evento** | O formato de serialização (JSON, CSV ou Avro) para fluxos de dados de entrada. |
 | **Codificação** | Para CSV e JSON, UTF-8 é o único formato de codificação com suporte no momento. |
+| **Compactação** (opcional) | O tipo de compactação (Nenhuma, GZip ou Deflate) do fluxo de dados de entrada. |
 
 Quando seus dados forem provenientes de uma fonte de Armazenamento de Blobs, você poderá acessar alguns campos de metadados em sua consulta do Stream Analytics:
 
@@ -182,4 +190,3 @@ Você aprendeu sobre as opções de conexão de dados no Azure para seus trabalh
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
-

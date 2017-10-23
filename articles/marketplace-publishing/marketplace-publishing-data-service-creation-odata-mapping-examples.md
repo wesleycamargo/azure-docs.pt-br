@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 08/26/2016
 ms.author: hascipio; avikova
 ms.openlocfilehash: 2ab624941fc385f14b62bb5d743927f157955845
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="examples-of-mapping-an-existing-web-service-to-odata-through-csdls"></a>Exemplos de mapeamento de um serviço Web existente para OData por meio de CSDL
 > [!IMPORTANT]
@@ -27,7 +27,7 @@ ms.lasthandoff: 07/11/2017
 > 
 
 ## <a name="example-functionimport-for-raw-data-returned-using-post"></a>Exemplo: FunctionImport para dados “Brutos” retornados usando "POST"
-Use Dados brutos de POST para criar uma nova subordinada e retornar sua URL(local) definida de servidor ou atualizar parte da subordinada na URL definida do servidor.  Onde a subordinada é uma transmissão, por exemplo, não estruturada, por exemplo, um arquivo de texto.  Esteja ciente de que POST não é idempotente sem um local.
+Use Dados brutos de POST para criar uma nova subordinada e retornar sua URL(local) definida de servidor ou atualizar parte da subordinada na URL definida do servidor.  No qual a subordinada é um stream, ou seja, não estruturada, por exemplo, um arquivo de texto.  Esteja ciente de que POST não é idempotente sem um local.
 
         <!--  No EntitySet or EntityType nodes required for Raw output-->
         <FunctionImport Name="AddUsageEvent" ReturnType="Raw(text/plain)" d:EncodeParameterValues="true" d:AllowedHttpMethods="POST" d:BaseUri="http://services.organization.net/MyServicePath?name={name}&amp;AccountKey=22AC643">
@@ -106,7 +106,7 @@ Use PUT para criar uma nova subordinada ou atualizar a subordinada por completo 
 
 
 ## <a name="example-functionimport-for-raw-data-returned-using-put"></a>Exemplo: FunctionImport para dados “Brutos” retornados usando "PUT"
-Use Dados brutos PUT para criar uma nova subordinada ou atualizar a subordinada por completo em uma URL definida do servidor.  Onde a subordinada é uma transmissão, por exemplo, não estruturada, por exemplo, um arquivo de texto.  PUT é idempotente para várias ocorrências resultando no mesmo estado, ou seja, x = 5.  PUT deve ser usado com o conteúdo completo do recurso especificado.
+Use Dados brutos PUT para criar uma nova subordinada ou atualizar a subordinada por completo em uma URL definida do servidor.  No qual a subordinada é um stream, ou seja, não estruturada, por exemplo, um arquivo de texto.  PUT é idempotente para várias ocorrências resultando no mesmo estado, ou seja, x = 5.  PUT deve ser usado com o conteúdo completo do recurso especificado.
 
         <!--  No EntitySet or EntityType nodes required for Raw output-->
         <FunctionImport Name="CancelBuild” ReturnType="Raw(text/plain)" d:AllowedHttpMethods="PUT" d:EncodeParameterValues="true" d:BaseUri=” http://services.organization.net/MyServicePath?name={name}&amp;AccountKey=22AC643">

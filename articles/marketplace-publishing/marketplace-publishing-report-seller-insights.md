@@ -15,10 +15,10 @@ ms.workload: na
 ms.date: 06/16/2017
 ms.author: v-jeana; hascipio; v-dabosl
 ms.openlocfilehash: e098e27e32f7b7ae2009580a430f262aa7225206
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understand-your-seller-insights-report"></a>Entenda o relatório de insights do vendedor
 **O que são os Insights do Vendedor?**
@@ -84,8 +84,7 @@ Leia atentamente a isenção de responsabilidade legal. Se você tiver perguntas
 Navegue para https://publish.windowsazure.com/ e entre com as credenciais da sua conta da Microsoft.
 ![passwordreminder][7]
 
-Selecione a guia **Editoras** .
-![selectpublisherstab][8]
+Selecione a guia **Editores**. ![selectpublisherstab][8]
 
 Localize a ID do publicador na URL:
 

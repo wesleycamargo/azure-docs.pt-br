@@ -12,14 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/19/2017
+ms.date: 09/28/2017
 ms.author: alkohli
+ms.openlocfilehash: 13ff24c24a881297775fa5f65821e53ceb83c351
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: 01e1e7447d6951d1b2c89f3b0ef726af9c03fd66
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/20/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-device-manager-service-to-modify-your-storsimple-device-configuration"></a>Usar o serviço Gerenciador de Dispositivos do StorSimple para modificar a configuração do dispositivo StorSimple
 
@@ -138,14 +137,14 @@ Para cada interface de rede, os parâmetros a seguir são exibidos:
 
 ### <a name="configure-data-0"></a>Configurar DATA 0
 
-DATA 0 é habilitada para nuvem por padrão. Ao configurar DATA 0, também é necessário configurar dois endereços IP fixos, um para cada controlador. Esses endereços IP fixos podem ser usados para acessar diretamente os controladores de dispositivo e são úteis quando você instala atualizações no dispositivo ou quando acessa os controladores para fins de solução de problemas.
+DATA 0 é habilitada para nuvem por padrão. Ao configurar DATA 0, também é necessário configurar dois endereços IP fixos, um para cada controlador. Esses endereços IP fixos podem ser usados para acessar diretamente os controladores de dispositivo e são úteis quando você instala atualizações no dispositivo para a coleta de lixo funcionar corretamente ou quando acessa os controladores para fins de solução de problemas.
 
 É possível reconfigurar os controladores fixos de IP por meio da folha de configurações DATA 0.
 
 ![Configurar adaptador de rede – DATA 0](./media/storsimple-8000-modify-device-config/modify-network-settings2.png)
 
 > [!NOTE]
-> Os endereços IP fixos do controlador são usados para atender às atualizações do dispositivo. Portanto, os IPs fixos devem ser roteáveis e conseguir se conectar à Internet.
+> Os endereços IP fixos do controlador são usados para atender às atualizações do dispositivo e para que algoritmos de recuperação de espaço (coleta de lixo) funcionem corretamente. Portanto, os IPs fixos devem ser roteáveis e conseguir se conectar à Internet.
 
 ### <a name="configure-data-1---data-5"></a>Configurar DATA 1 – DATA 5
 
@@ -169,5 +168,4 @@ Realize as etapas a seguir para alternar ou reatribuir os VIPs para qualquer uma
 
 * Saiba como [configurar o MPIO para seu dispositivo StorSimple](storsimple-8000-configure-mpio-windows-server.md).
 * Saiba como [usar o serviço Gerenciador de Dispositivos do StorSimple para administrar o dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
-
 

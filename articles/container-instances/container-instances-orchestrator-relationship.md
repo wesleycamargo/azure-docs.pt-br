@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 07/24/2017
 ms.author: seanmck
 ms.custom: mvc
+ms.openlocfilehash: b960d56188abf102cf4a8894582203205eaa9a03
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a678700884b612cad6281eb8f3b74ce63a0ebb69
-ms.openlocfilehash: 6f0a1e5263a034e825d4c12860fd6f97a4c556c6
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/26/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-container-instances-and-container-orchestrators"></a>Instâncias de Contêiner do Azure e orquestradores de contêiner
 
 Devido ao seu tamanho reduzido e a orientação a aplicativos, os contêineres são adequados para ambientes de entrega com agilidade e arquiteturas baseadas em microsserviço. A tarefa de automatizar e gerenciar um grande número de contêineres e como eles interagem é conhecida como *orquestração*. Orquestradores de contêiner populares incluem Kubernetes, DC/SO e Docker Swarm, que estão disponíveis no [Serviço de Contêiner do Azure](https://docs.microsoft.com/azure/container-service/).
@@ -66,9 +64,9 @@ Para cargas de trabalho estáveis de longa execução, orquestrar contêineres e
 
 ## <a name="sample-implementation-azure-container-instances-connector-for-kubernetes"></a>Exemplo de implementação: conector de Instâncias de Contêiner do Azure para Kubernetes
 
-Para demonstrar como as plataformas de orquestração de contêiner podem se integrar com as Instâncias de Contêiner do Azure, começamos a criar um [conector de exemplo para Kubernetes][aci-connector-k8s]. 
+Para demonstrar como as plataformas de orquestração de contêiner podem se integrar com as Instâncias de Contêiner do Azure, começamos a criar um [conector de exemplo para Kubernetes][aci-connector-k8s].
 
-O conector para Kubernetes imita a [kubelet][kubelet-doc] ao registrar-se como um nó com capacidade ilimitada e expedir a criação de [pods][pod-doc] como grupos de contêineres nas Instâncias de Contêiner do Azure. 
+O conector para Kubernetes imita a [kubelet][kubelet-doc] ao registrar-se como um nó com capacidade ilimitada e expedir a criação de [pods][pod-doc] como grupos de contêineres nas Instâncias de Contêiner do Azure.
 
 <!-- ![ACI Connector for Kubernetes][aci-connector-k8s-gif] -->
 

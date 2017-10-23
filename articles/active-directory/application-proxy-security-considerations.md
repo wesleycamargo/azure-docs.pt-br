@@ -15,14 +15,12 @@ ms.date: 09/08/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
+ms.openlocfilehash: 031632aa9e01c66e836d607d588ededb7140589f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
-ms.openlocfilehash: 4eef4f00bb407f97a68d09a39f3e99d1bc325d0e
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/09/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="security-considerations-for-accessing-apps-remotely-with-azure-ad-application-proxy"></a>Considerações de segurança para acessar aplicativos remotamente com o Proxy de Aplicativo do Azure AD
 
 Este artigo explica os componentes que funcionam para manter usuários e aplicativos seguros quando você usar o Proxy de Aplicativo do Azure Active Directory.
@@ -87,7 +85,7 @@ Os aplicativos publicados por meio do Proxy de Aplicativo estão protegidos cont
 
 O serviço Proxy de Aplicativo monitora a quantidade de tráfego tentando acessar seus aplicativos e rede. Se o número de dispositivos solicitando acesso remoto aos seus aplicativos atingir um pico, a Microsoft limita o acesso à rede. 
 
-A Microsoft inspeciona os padrões de tráfego para aplicativos individuais em sua assinatura como um todo. Se um aplicativo receber mais do que as solicitações normais, as solicitações aguardando para acessar esse aplicativo serão negadas por um curto período de tempo. Se você receber mais do que o número normal de solicitações em sua assinatura inteira, as solicitações aguardando para acessar qualquer um dos seus aplicativos serão negadas. Essa medida preventiva impede que os servidores de aplicativo sejam sobrecarregados com solicitações de acesso remoto, de forma que os usuários locais possam continuar acessando seus aplicativos. 
+A Microsoft inspeciona os padrões de tráfego para aplicativos individuais em sua assinatura como um todo. Se um aplicativo receber mais do que as solicitações normais, as solicitações aguardando para acessar esse aplicativo serão negadas por um curto período de tempo. Se você receber mais do que o número normal de solicitações em toda a sua assinatura, as solicitações para acessar qualquer um dos seus aplicativos serão negadas. Essa medida preventiva impede que os servidores de aplicativo sejam sobrecarregados com solicitações de acesso remoto, de forma que os usuários locais possam continuar acessando seus aplicativos. 
 
 ## <a name="under-the-hood"></a>Nos bastidores
 
@@ -187,4 +185,3 @@ Algum processamento do aplicativo pode ocorrer aqui. Se você configurou o Proxy
 [Considerações de topologia de rede ao usar o Proxy de Aplicativo do Azure AD](application-proxy-network-topology-considerations.md)
 
 [Noções básicas sobre conectores de Proxy de Aplicativo do Azure AD](application-proxy-understand-connectors.md)
-

@@ -12,29 +12,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/12/2017
-ms.author: shvija;sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: b085091ea7bfd601efb0eee84144ddd091422d6e
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/13/2017
-
-
+ms.date: 10/05/2017
+ms.author: sethm
+ms.openlocfilehash: 1cd31e0866ee6088483f88e8f80d01f75764c771
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Escalar verticalmente automaticamente unidade de produtividade do Hub de Eventos do Azure
 
-## <a name="overview"></a>Visão geral
+Hubs de Eventos do Azure é uma plataforma de streaming de dados altamente escalonável. Dessa forma, os clientes do Hubs de Eventos geralmente aumentam seu uso após a migração para o serviço. Tal aumento exige o aumento de unidades de taxa de transferência predeterminadas para dimensionar os Hubs de Eventos e lidar com taxas de transferência maiores. O recurso *inflar automaticamente* dos Hubs de Eventos escala verticalmente automaticamente o número de unidades de taxa de transferência para atender às necessidades de uso. O aumento de unidades de taxa de transferência evita cenários de limitação, nos quais:
 
-Hubs de Eventos do Azure é uma plataforma de streaming de dados altamente escalonável. Dessa forma, os clientes do Hubs de Eventos geralmente aumentam seu uso após a migração para o serviço. Tal aumento exige o aumento de TUs (unidades de produtividade) predeterminadas para dimensionar os Hubs de Eventos e lidar com taxas de transferência maiores. O recurso *inflar automaticamente* dos Hubs de Eventos escala verticalmente automaticamente o número delas para atender às necessidades de uso. O aumento de TUs evita cenários com limitação, nos quais:
-
-* As taxas de entrada de dados excedem as TUs definidas.
-* As taxas de solicitação de saída de dados excedem as TUs definidas.
+* As taxas de entrada de dados excedem as unidades de taxa de transferência definidas.
+* As taxas de solicitação de saída de dados excedem as unidades de taxa de transferência definidas.
 
 ## <a name="how-auto-inflate-works"></a>Como o Inflar automaticamente funciona
 
-O tráfego dos Hubs de Eventos é controlado por unidades de produtividade. Uma única TU permite o ingresso de 1 MB/s ou saída com duas vezes essa quantidade. Hubs de Evento Standard podem ser configurados com 1-20 unidades de produtividade. Inflar automaticamente permite que você comece pequeno, com o mínimo de unidades de produtividade necessárias. O recurso então dimensiona automaticamente para o limite máximo de unidades de produtividade que você precisa, dependendo do aumento de seu tráfego. O Inflar automaticamente oferece os seguintes benefícios:
+O tráfego dos Hubs de Eventos é controlado por unidades de produtividade. Uma única unidade de taxa de transferência permite o ingresso de 1 MB por segundo e duas vezes essa quantidade de saída. Hubs de Evento Standard podem ser configurados com 1-20 unidades de produtividade. Inflar automaticamente permite que você comece pequeno, com o mínimo de unidades de produtividade necessárias. O recurso então dimensiona automaticamente para o limite máximo de unidades de produtividade que você precisa, dependendo do aumento de seu tráfego. O Inflar automaticamente oferece os seguintes benefícios:
 
 - Um mecanismo eficiente de colocação em escala para começar pequeno e escalar verticalmente conforme o crescimento.
 - Dimensione automaticamente para o limite superior especificado sem problemas de limitação.
@@ -53,7 +48,7 @@ Você pode habilitar o recurso Inflar automaticamente em um namespace durante a 
  
 ![](./media/event-hubs-auto-inflate/event-hubs-auto-inflate1.png)
 
-Com essa opção habilitada, você pode começar pequeno em suas unidades de produtividade e escalar verticalmente à medida que suas necessidades de seu uso aumentam. O limite superior para inflação não afeta os preços, que dependem do número de TUs usadas por hora.
+Com essa opção habilitada, você pode começar pequeno em suas unidades de produtividade e escalar verticalmente à medida que suas necessidades de seu uso aumentam. O limite superior para inflação não afeta os preços, que dependem do número de unidades de taxa de transferência usadas por hora.
 
 Você também pode habilitar o Inflar automaticamente usando a opção **Dimensionar** na folha de configurações no portal:
  
@@ -112,4 +107,3 @@ Você pode saber mais sobre Hubs de Eventos visitando os links abaixo:
 
 * [Visão Geral dos Hubs de Eventos](event-hubs-what-is-event-hubs.md)
 * [Criar um Hub de Eventos](event-hubs-create.md)
-

@@ -16,14 +16,12 @@ ms.workload: na
 ms.date: 07/18/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017, mvc
+ms.openlocfilehash: 467a08b1ba9f7c0070dfa0cf3df18326cf49ca70
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 0e862492c9e17d0acb3c57a0d0abd1f77de08b6a
-ms.openlocfilehash: 6a03f668c6b9e18bf80cb04ea9feddeef4b6bd9e
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/27/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-kubernetes-cluster-for-windows-containers"></a>Implantar um cluster Kubernetes para contêineres do Windows
 
 A CLI do Azure é usada para criar e gerenciar recursos do Azure da linha de comando ou em scripts. Este guia detalha o uso da CLI do Azure para implantar um cluster [Kubernetes](https://kubernetes.io/docs/home/) no [Serviço de Contêiner do Azure](../container-service-intro.md). Depois que o cluster é implantado, você se conecta a ele com a ferramenta de linha de comando `kubectl` Kubernetes e implanta o primeiro contêiner do Windows.
@@ -168,7 +166,7 @@ Para expor o pod ao mundo com um endereço IP público, digite o seguinte comand
 kubectl expose pods iis --port=80 --type=LoadBalancer
 ```
 
-Com este comando, o Kubernetes cria um serviço e uma [regra de balanceador de carga do Azure](container-service-kubernetes-load-balancing.md) com um endereço IP público para o serviço. 
+Com este comando, o Kubernetes cria um serviço e uma regra de Azure Load Balancer com um endereço IP público para o serviço. 
 
 Execute o seguinte comando para ver o status do serviço.
 
@@ -203,4 +201,3 @@ Neste início rápido, você implantou um cluster Kubernetes, conectou-o a um `k
 
 > [!div class="nextstepaction"]
 > [Gerenciar um cluster ACS Kubernetes](container-service-tutorial-kubernetes-prepare-app.md)
-

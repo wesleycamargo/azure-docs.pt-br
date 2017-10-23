@@ -13,15 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/10/2017
+ms.date: 9/20/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 9b788b1d95c821a4bb76cd4dea1d689d36e2f92b
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/15/2017
-
-
+ms.openlocfilehash: 755b8e7414f6e77d0013d2678e8d4228091e1e4d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de implantação para Serviços de Nuvem do Azure: perguntas frequentes
 
@@ -56,7 +54,7 @@ Para verificar os tamanhos disponíveis em sua região, consulte [Microsoft Azur
 ## <a name="why-does-deploying-a-cloud-service-sometime-fail-due-to-limitsquotasconstraints-on-my-subscription-or-service"></a>Por que implantar um serviço de nuvem às vezes falha devido a limites/cotas/restrições em minha assinatura ou o serviço?
 A implantação de um serviço de nuvem poderá falhar se os recursos que precisam ser alocados excederem a cota padrão ou máxima permitida para o serviço no nível da região/do datacenter. Para obter mais informações, consulte [Limites de Serviços de Nuvem](../azure-subscription-service-limits.md#cloud-services-limits).
 
-Você também pode controlar a cota/uso atual para sua assinatura no portal: Portal do Azure => Assinaturas => \<assinatura adequada> => "Uso + cota".
+Também é possível controlar a cota/uso atual da sua assinatura no portal: portal do Azure => Assinaturas => \<assinatura adequada>=> "Uso + cota".
 
 Informações relacionadas ao uso/consumo de recursos também podem ser recuperadas por meio das APIs de Cobrança do Azure. Confira [API de uso de recursos do Azure (versão prévia)](../billing/billing-usage-rate-card-overview.md#azure-resource-usage-api-preview).
 
@@ -65,5 +63,15 @@ Você não pode alterar o tamanho de uma VM de serviço de nuvem implantada sem 
 
 Para obter mais informações, consulte [Como atualizar um serviço de nuvem](cloud-services-update-azure-service.md).
 
- 
+## <a name="why-am-i-not-able-to-deploy-cloud-services-through-service-management-apis-or-powershell-when-using-azure-resource-manager-storage-account"></a>Por que eu não consigo implantar os Serviços de Nuvem por meio das APIs de Gerenciamento de Serviços ou PowerShell ao usar a conta de armazenamento do Azure Resource Manager? 
 
+Como o Serviço de Nuvem é um recurso clássico que não é diretamente compatível com o modelo do Azure Resource Manager, não é possível associá-lo com as contas de armazenamento do Azure Resource Manager. Veja algumas opções: 
+ 
+- Implantar por meio da API REST.
+
+    Quando você implanta por meio da API REST do Gerenciamento de Serviços, é possível contornar a limitação especificando uma URL SAS para o armazenamento de blobs, que funcionará com a conta de armazenamento clássica e do Azure Resource Manager. Leia mais sobre a propriedade 'PackageUrl' [aqui](https://msdn.microsoft.com/library/azure/ee460813.aspx).
+  
+- Implantar por meio do [Portal do Azure](https://portal.azure.com).
+
+    Isso funcionará no [Portal do Azure](https://portal.azure.com), uma vez que a chamada passa por um proxy/shim que permite a comunicação entre os recursos clássicos e do Azure Resource Manager. 
+ 

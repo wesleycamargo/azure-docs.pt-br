@@ -8,14 +8,12 @@ ms.author: cbrooks
 ms.date: 08/25/2017
 ms.topic: article
 ms.service: storage
+ms.openlocfilehash: c760cf5a9bdd4b64a60470fa48cb9b57ec4ab5fc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: b9b117bdeb62f5ebb2e4e3fbfe71572068927082
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="reacting-to-blob-storage-events-preview"></a>Reagir a eventos do Armazenamento de Blobs (versão prévia)
 
 Os eventos do Armazenamento de Blobs do Azure permitem que os aplicativos reajam à criação e exclusão de blobs usando arquiteturas modernas sem servidor, e sem a necessidade de código complicado ou serviços de sondagem ineficientes e caros.  Em vez disso, os eventos são enviados por push pela [Grade de Eventos do Azure](https://azure.microsoft.com/services/event-grid/) aos assinantes como [Azure Functions](https://azure.microsoft.com/services/functions/), [Aplicativos Lógicos do Azure](https://azure.microsoft.com/services/logic-apps/), ou até mesmo seu próprio ouvinte http personalizado, e você só pague pelo que usa.
@@ -36,7 +34,7 @@ As assinaturas são adicionadas ao Programa de Visualização à medida que a ca
 ```azurecli-interactive
 az feature show --name storageEventSubscriptions --namespace Microsoft.EventGrid
 ```
-Após a alteração do estado do registro para "Registrado", você terá sido admitido no programa de visualização e você poderá assinar os eventos do Armazenamento de Blobs para contas no local *Centro-Oeste dos EUA*.  Dê uma olhada em [Rotear eventos do Armazenamento de Blobs para um ponto de extremidade da Web personalizado](storage-blob-event-quickstart.md) para obter um exemplo rápido.
+Após a alteração do estado do registro para "Registrado", você terá sido admitido no programa de versão prévia e poderá assinar os eventos do Armazenamento de Blobs para contas na localização ***Centro-Oeste dos EUA*** ou ***Oeste dos EUA 2***.  Dê uma olhada em [Rotear eventos do Armazenamento de Blobs para um ponto de extremidade da Web personalizado](storage-blob-event-quickstart.md) para obter um exemplo rápido.
 
 ## <a name="blob-storage-accounts"></a>Contas de Armazenamento de Blobs
 Os eventos do Armazenamento de Blobs estão disponíveis em [contas do Armazenamento de Blobs](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) (e não em contas de armazenamento de finalidade geral).  Uma conta de Armazenamento de Blobs é uma conta de armazenamento especializada para armazenar dados não estruturados como blobs (objetos) no Armazenamento do Azure. As contas de armazenamento de Blobs são como contas de armazenamento de finalidade geral existentes e compartilham todos os excelentes recursos de durabilidade, disponibilidade, escalabilidade e desempenho que você usa atualmente, incluindo 100% de consistência de API para blobs de bloco e blobs de acréscimo. Para aplicativos que exigem apenas o armazenamento de blobs em bloco ou acréscimo, recomendamos o uso de contas de Armazenamento de Blobs.

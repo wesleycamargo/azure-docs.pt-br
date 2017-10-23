@@ -11,17 +11,15 @@ ms.workload: na
 ms.date: 08/22/2017
 ms.author: routlaw
 ms.custom: mvc
+ms.openlocfilehash: daa202ddf0dc934c491ead3951ddc4fdc3dd819c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 720d4c592256389f9494cb1b2be56393f4e9f03f
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-and-jenkins"></a>Azure e Jenkins
 
-O [Jenkins](https://jenkins.io/) é um servidor de automação de software livre popular usado para configurar a integração e entrega contínuas (CI/CD) em projetos de software. Hospede a implantação do Jenkins no Azure ou estenda a configuração existente do Jenkins usando os recursos do Azure. Os plug-ins do Jenkins também estão disponíveis para simplificar a CI/CD dos aplicativos para o Azure.
+O [Jenkins](https://jenkins.io/) é um servidor de automação de software livre popular usado para configurar a integração e entrega contínuas (CI/CD) em projetos de software. Você pode hospedar a implantação do Jenkins no Azure ou estender a configuração existente do Jenkins usando os recursos do Azure. Os plug-ins do Jenkins também estão disponíveis para simplificar a CI/CD dos aplicativos para o Azure.
 
 Este artigo é uma introdução ao uso do Azure com o Jenkins, fornecendo detalhes dos principais recursos do Azure disponíveis para os usuários do Jenkins. Para começar a usar seu próprio servidor do Jenkins no Azure, consulte nosso [guia de início rápido](install-jenkins-solution-template.md).
 
@@ -46,11 +44,10 @@ Depois de configurados com uma [entidade de serviço do Azure](/azure/azure-reso
 
 ## <a name="deploy-your-code-into-azure-services"></a>Implantar o código nos serviços do Azure
 
-Use os plug-ins do Jenkins para implantar seus aplicativos no Azure como parte dos pipelines de CI/CD do Jenkins. A implantação no [Serviço de Aplicativo do Azure](/azure/app-service-web/) e no [Serviço de Contêiner do Azure](/azure/container-service/kubernetes/) permite preparar, testar e liberar atualizações para os aplicativos sem gerenciar a infraestrutura subjacente.
+Use os plug-ins do Jenkins para implantar seus aplicativos no Azure como parte dos pipelines de CI/CD do Jenkins. A implantação no [Serviço de Aplicativo do Azure](/azure/app-service/) e no [Serviço de Contêiner do Azure](/azure/container-service/kubernetes/) permite preparar, testar e liberar atualizações para os aplicativos sem gerenciar a infraestrutura subjacente.
 
  Plug-ins estão disponíveis para serem implantados nos seguintes serviços e ambientes:
 
-- [Aplicativo Web do Azure no Linux](/azure/app-service-web/app-service-linux-intro). Consulte o [tutorial](java-deploy-webapp-tutorial.md) para começar.
+- [Aplicativo Web do Azure no Linux](/azure/app-service/containers/app-service-linux-intro). Consulte o [tutorial](java-deploy-webapp-tutorial.md) para começar.
 - [Aplicativo Web do Azure](/azure/app-service/app-service-web-overview). Consulte as [instruções](deploy-Jenkins-app-service-plugin.md) para começar.
-
 

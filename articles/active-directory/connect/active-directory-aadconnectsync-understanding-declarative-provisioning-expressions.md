@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.openlocfilehash: e3a03a97b10e04fb85261620879b2102e1db8465
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Sincronização do Azure AD Connect: noções básicas sobre expressões de provisionamento declarativo
 A sincronização do Azure AD Connect criada com base em provisionamento declarativo foi introduzida pela primeira vez no Forefront Identity Manager 2010. Ela permite a você implementar sua lógica completa de negócios de integração de identidade sem a necessidade de escrever código compilado.
@@ -81,7 +81,7 @@ As funções podem operar em atributos de valor único e de vários valores. Par
 
 Por exemplo:   
 `Trim([proxyAddresses])` Faz um corte de todos os valores no atributo proxyAddress.  
-`Word([proxyAddresses],1,"@") & "@contoso.com"`Para cada valor com um @-sign, substitua o domínio com @contoso.com.  
+@-sign Para cada valor com um `Word([proxyAddresses],1,"@") & "@contoso.com"`, substitua o domínio por @contoso.com.  
 `IIF(InStr([proxyAddresses],"SIP:")=1,NULL,[proxyAddresses])` Procure o endereço SIP e remova-o dos valores.
 
 ## <a name="next-steps"></a>Próximas etapas

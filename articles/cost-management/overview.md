@@ -5,19 +5,17 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2017
+ms.date: 09/29/2017
 ms.topic: overview
 ms.service: Cost Management
 manager: carmonm
 ms.custom: mvc
+ms.openlocfilehash: 9edcfa20b25d7048c2066fba86203a29ba1f84fc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: d68e11757717ed23e2413c683d6e82c44c719010
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="what-is-azure-cost-management"></a>O que é o Gerenciamento de Custo do Azure?
 
 O Gerenciamento de Custo do Azure pelo Cloudyn permite acompanhar o uso da nuvem e as despesas de seus recursos do Azure e de outros provedores de nuvem, incluindo AWS e Google. Os relatórios do painel fáceis de entender ajudam com a alocação de custos e showbacks/estornos também. O Gerenciamento de Custo ajuda a otimizar seus gastos na nuvem identificando os recursos subutilizados que, posteriormente, você pode gerenciar e ajustar.
@@ -39,11 +37,11 @@ A alocação de custos gerencia os custos analisando os custos de acordo com a p
 
 O controle de acesso ajuda a gerenciar os custos garantindo que os usuários e as equipes acessem somente os dados de gerenciamento de custo necessários. Use a estrutura de entidades, o gerenciamento de usuários e os relatórios agendados com listas de destinatários para atribuir o acesso.
 
-Os alertas ajudam a gerenciar os custos notificando-o automaticamente quando ocorrem gastos incomuns ou excesso de gastos. Os alertas podem notificar outros stakeholders automaticamente sobre anomalias de gastos e riscos de excesso de gastos. Vários relatórios dão suporte a alertas com base no orçamento e nos limites de custo.
+Os alertas ajudam a gerenciar os custos notificando-o automaticamente quando ocorrem gastos incomuns ou excesso de gastos. Os alertas podem notificar outros stakeholders automaticamente sobre anomalias de gastos e riscos de excesso de gastos. Vários relatórios dão suporte a alertas com base no orçamento e nos limites de custo. No entanto, atualmente não há suporte para alertas em contas de parceiro ou assinaturas do CSP.
 
 ## <a name="improve-efficiency"></a>Melhorar a eficiência
 
-Determine o uso ideal de VM e identifique as VMs ociosas ou remova VMs ociosas e os discos desanexados com o Gerenciamento de Custo. Usando as informações contidas nos relatórios de Ineficiência e Otimização de Dimensionamento, você pode criar um plano para reduzir ou remover as VMs ociosas.
+Determine o uso ideal de VM e identifique as VMs ociosas ou remova VMs ociosas e os discos desanexados com o Gerenciamento de Custo. Usando as informações contidas nos relatórios de Ineficiência e Otimização de Dimensionamento, você pode criar um plano para reduzir ou remover as VMs ociosas. No entanto, atualmente não há suporte para relatórios de otimização em contas de parceiro ou assinaturas do CSP.
 
 ![recomendações de dimensionamento](.\media\overview\sizing.png)
 
@@ -54,4 +52,3 @@ Se você provisionou instâncias Reservadas do AWS, melhore a utilização das i
 Agora que você está familiarizado com o Gerenciamento de Custo, a próxima etapa é registrar seu ambiente de nuvem e começar a explorar seus dados.
 
 - [Registrar uma assinatura individual do Azure](quick-register-azure-sub.md)
-

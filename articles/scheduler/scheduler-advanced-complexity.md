@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 08/18/2016
 ms.author: deli
 ms.openlocfilehash: 20c3e3c1cb85308cad47054c2efa87f61cae0f22
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-build-complex-schedules-and-advanced-recurrence-with-azure-scheduler"></a>Como criar agendamentos complexos e recorrência avançada com o Agendador do Azure
 ## <a name="overview"></a>Visão geral
@@ -108,9 +108,9 @@ A tabela a seguir mostra como *startTime* controla a execução de um trabalho.
 
 Vejamos um exemplo do que acontece quando *startTime* está no passado, com *recurrence*, mas sem *schedule*.  Suponha que a hora atual seja 2015-04-08 13:00, que *startTime* seja 2015-04-07 14:00 e que *recurrence* seja a cada dois dias (definida com *frequency*: day e *interval*: 2.) Observe que *startTime* está no passado e ocorre antes da hora atual
 
-Sob essas condições, o *primeira execução* será 2015-04-09 às 14:00\. O mecanismo do Agendador calcula as ocorrências de execução desde a hora de início.  As instâncias no passado serão descartadas. O mecanismo usa a próxima instância que ocorrer no futuro.  Nesse caso, *startTime* é 2015-04-07, às 14:00; portanto, a próxima instância ocorrerá dois dias depois desse momento, o que será 2015-04-09, às 14:00.
+Nessas condições, a *primeira execução* será em 09-04-2015 às 14:00\. O mecanismo do Agendador calcula as ocorrências de execução desde a hora de início.  As instâncias no passado serão descartadas. O mecanismo usa a próxima instância que ocorrer no futuro.  Nesse caso, *startTime* é 2015-04-07, às 14:00; portanto, a próxima instância ocorrerá dois dias depois desse momento, o que será 2015-04-09, às 14:00.
 
-Observe que a primeira execução deve ser do mesmo se a mesmo hora de início 2015-04-05 14:00 ou 14:00\ 2015-04-01. Após a primeira execução, as execuções subsequentes são calculadas usando a agendada; portanto, seriam em 11-04-2015 às 14:00, 13-04-2015 às 14:00, 15-04-2015 às 14:00, etc.
+Observe que a primeira execução deve ser a mesma que o startTime seja 05-04-2015 14:00 ou 01-04-2015 14:00\. Após a primeira execução, as execuções subsequentes são calculadas usando a agendada; portanto, seriam em 11-04-2015 às 14:00, 13-04-2015 às 14:00, 15-04-2015 às 14:00, etc.
 
 Finalmente, quando um trabalho tiver um agendamento, se as horas e/ou minutos não estiverem definidos no agendamento, serão adotadas as horas e/ou minutos da primeira execução, respectivamente.
 
@@ -134,7 +134,7 @@ A tabela a seguir descreve elementos de *schedule* em detalhes.
 ## <a name="examples-recurrence-schedules"></a>Exemplos: agendamentos de recorrência
 Seguem diversos exemplos de agendamentos de recorrência voltados para o objeto de agendamento e seus subelementos.
 
-As agendas abaixo todos presumem que o *intervalo* é definido como 1\. Além disso, um deve assumir a frequência de direito de acordo com o que há de *agenda* – por exemplo, não é possível usar a frequência de "dia" e ter uma modificação "dias do mês" no agendamento. As restrições estão descritas acima.
+Todos os agendamentos abaixo pressupõem que o *intervalo* é definido como 1\. Além disso, deve assumir a frequência correta de acordo com o que está no *agendamento*, por exemplo, não é possível usar a frequência "day" e ter uma modificação de "monthDays" no agendamento. As restrições estão descritas acima.
 
 | **Exemplo** | **Descrição** |
 |:--- |:--- |

@@ -12,16 +12,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2017
+ms.date: 09/27/2017
 ms.author: raynew
+ms.openlocfilehash: 27491e34ad9e47aec2f424cfc439fad614f0e435
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 2984daa3b99fa9c858d43c3dcfb930add2040e2e
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuidade dos negócios e recuperação de desastres (BCDR): Regiões Emparelhadas do Azure
 
 ## <a name="what-are-paired-regions"></a>O que são regiões emparelhadas?
@@ -51,9 +49,8 @@ Figura 1 – Diagrama do par da região do Azure
 | Japão |Leste do Japão |Oeste do Japão |
 | Brasil |Sul do Brasil (1) |Centro-Sul dos Estados Unidos |
 | Governo dos EUA |Gov do Iowa nos EUA |Gov. dos EUA – Virgínia |
-| Governo dos EUA |Gov. dos EUA – Virgínia |Governo dos EUA do Texas |
-| Governo dos EUA |Governo dos EUA do Texas |Governo dos EUA do Arizona |
 | Governo dos EUA |Governo dos EUA do Arizona |Governo dos EUA do Texas |
+| Departamento de Defesa dos EUA |DoD do Leste dos EUA |DoD Central dos EUA |
 | Reino Unido |Oeste do Reino Unido |Sul do Reino Unido |
 | Alemanha |Alemanha Central |Nordeste da Alemanha |
 
@@ -99,4 +96,3 @@ Como mencionado na Figura 2.
 
 ![Dados](./media/best-practices-availability-paired-regions/9Orange.png)
 **Residência dos dados** – Uma região reside na mesma região geográfica que seu par (com exceção do Sul do Brasil) para atender aos requisitos de residência de dados para fins de jurisdição de imposição fiscal e legal.
-

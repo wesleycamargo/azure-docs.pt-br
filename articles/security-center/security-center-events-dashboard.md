@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/11/2017
+ms.date: 10/05/2017
 ms.author: terrylan
+ms.openlocfilehash: 367067874b167268bd690a9e0b55412e92e08122
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 01ac75244839c0e3c1ac350d4271677feb21a9d7
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitoring-and-processing-security-events-in-azure-security-center"></a>Monitoramento e processamento de eventos de segurança na Central de Segurança do Azure
 O painel Eventos fornece uma visão geral do número de eventos de segurança coletado ao longo do tempo, além de uma lista de eventos notáveis que possam demandar sua atenção.  
@@ -48,13 +47,16 @@ O **painel Eventos** fornece uma visão geral do número de eventos processados 
  - Os **eventos notáveis** incluem as consultas de eventos que a Central de Segurança fornece e as consultas de evento que você cria e adiciona. O painel também oferece uma exibição rápida da contagem de cada evento notável.
  - **Todos os eventos por tipo** mostra os tipos de eventos que estão sendo recebidos e uma contagem de cada tipo. Exemplos de tipo de evento são SecurityEvent, CommonSecurityLog, WindowsFirewall e W3CIISLog.
 
+> [!NOTE]
+> Eventos importantes incluem a [avaliação de linha de base da Web](https://docs.microsoft.com/azure/operations-management-suite/oms-security-web-baseline-assessment). O objetivo da avaliação de linha de base da Web é localizar as possíveis configurações de servidor Web vulneráveis.
+
 ## <a name="view-processed-event-details"></a>Exibir detalhes de eventos processados
-1. No menu principal da **Central de Segurança**, selecione **Eventos Processados**.
-2. O seletor de espaço de trabalho **Eventos Processados** poderá ser aberto. Se você tiver apenas um espaço de trabalho, esse seletor de espaço de trabalho não aparecerá. Se você tiver mais de um espaço de trabalho, você precisará selecionar um espaço de trabalho para exibir os respectivos detalhes de eventos processados. Selecione um espaço de trabalho na lista, se você tiver mais de um espaço de trabalho.
+1. No menu principal da **Central de Segurança**, selecione **Eventos**.
+2. O seletor de espaço de trabalho do **Painel de eventos** pode ser aberto. Se você tiver apenas um espaço de trabalho, esse seletor de espaço de trabalho não aparecerá. Se você tiver mais de um espaço de trabalho, você precisará selecionar um espaço de trabalho para exibir os respectivos detalhes de eventos processados. Selecione um espaço de trabalho na lista, se você tiver mais de um espaço de trabalho.
 
   ![Lista de espaço de trabalho][3]
 
-3. O painel **Eventos Processados** é aberto, mostrando detalhes de eventos do espaço de trabalho selecionado. Você pode exibir os eventos notáveis e todos os eventos por tipo.  Neste exemplo, selecionamos **Eventos notáveis**.
+3. O **Painel de eventos** é aberto, mostrando detalhes de eventos do espaço de trabalho selecionado. Você pode exibir os eventos notáveis e todos os eventos por tipo.  Neste exemplo, selecionamos **Eventos notáveis**.
 
   ![Eventos notáveis][4]
 
@@ -67,7 +69,7 @@ O **painel Eventos** fornece uma visão geral do número de eventos processados 
   ![Pesquisa de log][6]
 
 ## <a name="add-a-notable-event"></a>Adicionar um evento notável
-A Central de Segurança fornece eventos notáveis prontos para uso. Você pode adicionar eventos notáveis com base em sua própria consulta usando a [linguagem de consulta do Log Analytics](../log-analytics/log-analytics-search-reference.md). Retornaremos ao painel **Eventos Processados** para adicionar um evento notável.
+A Central de Segurança fornece eventos notáveis prontos para uso. Você pode adicionar eventos notáveis com base em sua própria consulta usando a [linguagem de consulta do Log Analytics](../log-analytics/log-analytics-search-reference.md). Retornaremos ao **Painel de eventos** para adicionar um evento notável.
 
 1. Selecione **Adicionar Evento Notável**.
 
@@ -80,7 +82,7 @@ A Central de Segurança fornece eventos notáveis prontos para uso. Você pode a
 4. Selecione **OK**.
 
 ## <a name="update-your-workspace-for-events-processing"></a>Atualizar seu espaço de trabalho para processamento de eventos
-Seu espaço de trabalho deve estar executando a versão 2 do Log Analytics e estar na camada Standard da Central de Segurança para usar o processamento de eventos na Central de Segurança. O seletor de espaço de trabalho **Eventos** identifica os espaços de trabalho que não atendem a esses requisitos.
+Seu espaço de trabalho deve estar executando a versão 2 do Log Analytics e estar na camada Standard da Central de Segurança para usar o processamento de eventos na Central de Segurança. O seletor de espaço de trabalho do **Painel de eventos** identifica os espaços de trabalho que não atendem a esses requisitos.
 
 ![O espaço de trabalho não atende aos requisitos][9]
 
@@ -91,7 +93,7 @@ Se a linha do espaço de trabalho:
 - Está em branco – seu espaço de trabalho atende aos requisitos e, ao selecionar um espaço de trabalho, você será levado ao painel
 
 > [!NOTE]
-> Em **Eventos**, a coluna **EVENTOS** indica a quantidade de eventos em cada espaço de trabalho.  Essa coluna aparece em branco para alguns espaços de trabalho porque a camada Gratuita da Central de Segurança está aplicada a esse espaço de trabalho. Na camada Gratuita, a Central de Segurança coletará eventos, mas os eventos não serão salvos no Log Analytics e não estarão disponíveis no painel.
+> No **Painel de eventos**, a coluna **EVENTOS** indica a quantidade de eventos em cada espaço de trabalho.  Essa coluna aparece em branco para alguns espaços de trabalho porque a camada Gratuita da Central de Segurança está aplicada a esse espaço de trabalho. Na camada Gratuita, a Central de Segurança coletará eventos, mas os eventos não serão salvos no Log Analytics e não estarão disponíveis no painel.
 >
 >
 
@@ -103,7 +105,7 @@ Se a linha do espaço de trabalho:
 
 ## <a name="upgrade-to-security-centers-standard-tier"></a>Atualizar para a camada Standard da Central de Segurança
 1. Selecione um espaço de trabalho com **ATUALIZAR PLANO**.
-2. O **Painel de eventos** é aberto. Selecione **Experimentar o painel Eventos Processados**.
+2. O **Painel de eventos** é aberto. Selecione **Testar o Painel de eventos**.
 
   ![Experimentar o painel][11]
 
@@ -114,7 +116,7 @@ Se a linha do espaço de trabalho:
   ![Atualizar para a camada Standard][12]
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste artigo, você aprendeu a usar o painel de Eventos Processados da Central de Segurança. Para saber mais sobre como funciona o painel e escrever suas próprias consultas de evento, consulte:
+Neste artigo, você aprendeu a usar o Painel de eventos da Central de Segurança. Para saber mais sobre como funciona o painel e escrever suas próprias consultas de evento, consulte:
 
 - [O que é o Log Analytics?](../log-analytics/log-analytics-overview.md) – Visão geral sobre o Log Analytics
 - [Compreender as pesquisas de logs no Log Analytics](../log-analytics/log-analytics-log-search-new.md) – Descreve como as pesquisas de logs são utilizadas no Log Analytics e fornece conceitos que deverão ser compreendidos antes de criar uma pesquisa de logs
@@ -137,4 +139,3 @@ Para saber mais sobre a Central de Segurança, confira:
 [10]: ./media/security-center-events-dashboard/search-upgrade.png
 [11]: ./media/security-center-events-dashboard/try-dashboard.png
 [12]: ./media/security-center-events-dashboard/onboard-workspace.png
-

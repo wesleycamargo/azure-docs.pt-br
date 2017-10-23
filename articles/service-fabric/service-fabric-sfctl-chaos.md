@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
+ms.openlocfilehash: 336e74d8f69cb04e6bd0e85fc68ba38b218fabae
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cb9130243bdc94ce58d6dfec3b96eb963cdaafb0
-ms.openlocfilehash: 7118ec3f5aeae40fa7ecc592309a28b585c651a1
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/26/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
 Iniciar, parar e emitir relatórios sobre o serviço de teste de caos.
@@ -43,11 +42,9 @@ Você pode especificar o ContinuationToken para obter o próximo segmento do rel
 |Argumento|Descrição|
 | --- | --- |
 | --continuation-token| O parâmetro do token de continuação é usado para obter o próximo conjunto de resultados. Um token de continuação com um valor não vazio será incluso na resposta da API quando os resultados do sistema não couberem em uma única resposta. Quando esse valor for passado para a próxima chamada de API, a API retornará o próximo conjunto de resultados. Se não houver mais resultados, então, o token de continuação não conterá um valor. O valor desse parâmetro não deve ser codificado em URL.|
-| --hora de término utc   | A contagem de tiques representando a hora de término do intervalo de tempo para o qual um
-                          Chaos report is to be generated. Please consult [DateTime.Ticks
-                          Property](https://msdn.microsoft.com/en-
-                          us/library/system.datetime.ticks%28v=vs.110%29) for details about tick.|
-| – hora de início utc | A contagem de tiques que representa a hora de início do intervalo de tempo para o qual um relatório Chaos é gerado. Consulte [DateTime.Ticks Property](https://msdn.microsoft.com/en- us/library/system.datetime.ticks%28v=vs.110%29) para obter detalhes sobre tiques.| | --tempo esgotado -t     | Tempo esgotado de servidor em segundos.  Padrão: 60.|
+| --hora de término utc   | A contagem de tiques que representa a hora de término do intervalo de tempo para o qual um relatório Chaos deve ser gerado. Consulte [Propriedade DateTime.Ticks](https://msdn.microsoft.com/en-us/library/system.datetime.ticks%28v=vs.110%29) para obter detalhes sobre o tique.|
+| --start-time-utc | A contagem de tiques que representa a hora de início do intervalo de tempo para o qual um relatório Chaos deve ser gerado. Consulte [Propriedade DateTime.Ticks](https://msdn.microsoft.com/en-us/library/system.datetime.ticks%28v=vs.110%29) para obter detalhes sobre o tique.|
+| --timeout -t     | Tempo limite do servidor em segundos.  Padrão: 60.|
 
 ### <a name="global-arguments"></a>Argumentos globais
 

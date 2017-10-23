@@ -3,7 +3,7 @@ title: "Solução de problemas comuns de Automação do Azure | Microsoft Docs"
 description: "Este artigo fornece informações para ajudar a solucionar problemas e corrigir erros comuns da Automação do Azure."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: stevenka
 editor: tysonn
 tags: top-support-issue
@@ -14,15 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/26/2017
+ms.date: 09/22/2017
 ms.author: sngun; v-reagie
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
-ms.openlocfilehash: 64548d91e98754210cc5185d9d759141cc0621d3
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/26/2017
-
-
+ms.openlocfilehash: 19b1d772236c14c8403d1056e5c9dcda7b741501
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-common-issues-in-azure-automation"></a>Solução de problemas comuns na Automação do Azure 
 Este artigo fornece ajuda para solucionar erros comuns quem pode ser encontrados na Automação do Azure e sugere possíveis soluções para eles.
@@ -104,7 +102,7 @@ qualquer uma das três seguintes soluções corrigirá o problema:
 1. Entre em sua assinatura do Azure  
 2. Selecione a conta de Automação que deseja atualizar  
 3. Clique em **Configurações** > **Tipo de preço e Uso** > **Tipo de preço**  
-4. Na folha **Escolha seu tipo de preço**, selecione **Básico**    
+4. Na página **Escolha seu tipo de preço**, selecione **Básico**    
 
 ### <a name="scenario-cmdlet-not-recognized-when-executing-a-runbook"></a>Cenário: cmdlet não reconhecido ao se executar um runbook
 **Erro:** falha no trabalho de runbook com o erro "``<cmdlet name>``: o termo ``<cmdlet name>`` não é reconhecido como o nome de um cmdlet, uma função, um arquivo de script ou um programa operável."
@@ -119,7 +117,7 @@ qualquer uma das três seguintes soluções corrigirá o problema:
 * Se você está executando o runbook local em um grupo do Hybrid Worker, certifique-se de que o módulo/cmdlet esteja instalado no computador que hospeda o Hybrid Worker.
 
 ### <a name="scenario-a-long-running-runbook-consistently-fails-with-the-exception-the-job-cannot-continue-running-because-it-was-repeatedly-evicted-from-the-same-checkpoint"></a>Cenário: um runbook de execução longa falha consistentemente com a exceção: "O trabalho não pode continuar em execução porque foi removido repetidamente do mesmo ponto de verificação".
-**Motivo do erro:** isso faz parte do comportamento do design devido ao monitoramento de "Fração Justa" de processos na Automação do Azure, que suspende automaticamente um runbook caso ele esteja sendo executado por mais de três horas. No entanto, a mensagem de erro retornada não oferece opções sobre “o que fazer agora”. Um runbook pode ser suspenso por vários motivos. As suspensões acontecem principalmente devido a erros. Por exemplo, uma exceção não tratada em um runbook, uma falha de rede ou uma falha no Runbook Worker que estiver executando o runbook farão com que o runbook seja suspenso e inicie do último ponto de verificação quando retomado.
+**Motivo do erro:** este comportamento faz parte do design devido ao monitoramento de "Fração Justa" de processos na Automação do Azure, que suspende automaticamente um runbook caso ele esteja sendo executado por mais de três horas. No entanto, a mensagem de erro retornada não oferece opções sobre “o que fazer agora”. Um runbook pode ser suspenso por vários motivos. As suspensões acontecem principalmente devido a erros. Por exemplo, uma exceção não tratada em um runbook, uma falha de rede ou uma falha no Runbook Worker que estiver executando o runbook farão com que o runbook seja suspenso e inicie do último ponto de verificação quando retomado.
 
 **Dicas de solução de problemas:** a solução documentada para evitar esse problema é usar Pontos de Verificação em um fluxo de trabalho.  Para saber mais, consulte [Noções Básicas dos Fluxos de Trabalho do PowerShell](automation-powershell-workflow.md#checkpoints).  Veja uma explicação mais detalhada sobre a “Fração Justa” e sobre o Ponto de Verificação neste artigo de blog: [Uso de Pontos de Verificação em Runbooks](https://azure.microsoft.com/en-us/blog/azure-automation-reliable-fault-tolerant-runbook-execution-using-checkpoints/).
 
@@ -135,7 +133,7 @@ qualquer uma das três seguintes soluções corrigirá o problema:
 * O cmdlet **New-AzureRmAutomationModule** está sendo usado para carregar o módulo, e você não forneceu o caminho de armazenamento completo ou não carregou o módulo usando uma URL acessível publicamente.  
 
 **Dicas de solução de problemas:**  
-qualquer uma das soluções a seguir corrigirá o problema:  
+Qualquer uma das soluções a seguir corrige o problema:  
 
 * Certifique-se de que o módulo segue o formato a seguir:  
   NomeMódulo.Zip **->** NomeMódulo ou Número de Versão **->** (NomeMódulo.psm1, NomeMódulo.psd1)
@@ -146,23 +144,23 @@ qualquer uma das soluções a seguir corrigirá o problema:
 ### <a name="scenario-node-is-in-failed-status-with-a-not-found-error"></a>Cenário: o nó está com um status de falha e um erro "Não encontrado"
 **Erro:** o nó apresenta um relatório de status **Falha** contendo o erro "A tentativa de obter a ação do servidor https://``<url>``//accounts/``<account-id>``/Nodes(AgentId=``<agent-id>``)/GetDscAction falhou porque não foi possível encontrar uma configuração válida ``<guid>``."
 
-**Motivo do erro:** esse erro normalmente ocorre quando o nó é atribuído a um nome de configuração (por exemplo, ABC) em vez de a um nome de configuração de nó (por exemplo, ABC.WebServer).  
+**Motivo do erro:** este erro normalmente ocorre quando o nó é atribuído a um nome de configuração (por exemplo, ABC) e não a um nome de configuração de nó (por exemplo, ABC.WebServer).  
 
 **Dicas de solução de problemas:**  
 
 * Verifique se você está atribuindo o nó com o "nome de configuração de nó" e não o "nome de configuração".  
 * Você pode atribuir uma configuração de nó para um nó usando o Portal do Azure ou com um cmdlet do PowerShell.
 
-  * Para atribuir uma configuração de nó a um nó que usa o portal do Azure, abra a folha **Nós de DSC**, selecione um nó e clique no botão **Atribuir configuração de nó**.  
+  * Para atribuir uma configuração de nó a um nó usando o portal do Azure, abra a página **Nós de DSC**, selecione um nó e clique no botão **Atribuir configuração de nó**.  
   * Para atribuir uma configuração de nó a um nó usando um cmdlet do PowerShell, use o cmdlet **Set-AzureRmAutomationDscNode**
 
 ### <a name="scenario--no-node-configurations-mof-files-were-produced-when-a-configuration-is-compiled"></a>Cenário: nenhuma configuração de nó (arquivos MOF) foi produzida quando uma compilação foi compilada
 **Erro:** seu trabalho de compilação de DSC foi suspenso com o seguinte erro: "Compilação concluída com êxito, mas nenhum arquivo .mofs de configuração de nó foi gerado".
 
-**Motivo do erro:** quando a expressão após a palavra-chave **Node** na configuração de DSC for avaliada como $null, nenhuma configuração de nó será produzida.    
+**Motivo do erro:** quando a expressão após a palavra-chave **Node** na configuração do DSC for avaliada como $null, nenhuma configuração de nó será produzida.    
 
 **Dicas de solução de problemas:**  
-qualquer uma das soluções a seguir corrigirá o problema:  
+Qualquer uma das soluções a seguir corrige o problema:  
 
 * Verifique se a expressão ao lado da palavra-chave **Node** na definição de configuração não está sendo avaliada como $null.  
 * Se você estiver passando ConfigurationData ao compilar a configuração, certifique-se de que esteja passando os valores esperados e que a configuração exige de [ConfigurationData](automation-dsc-compile.md#configurationdata).
@@ -190,4 +188,3 @@ Se tiver seguido as etapas de solução de problemas acima e não tiver encontra
 * Registrar um incidente de suporte do Azure. Vá até o [Site de Suporte do Azure](https://azure.microsoft.com/support/options/) e clique em **Obter suporte** em **Suporte técnico e de cobrança**.
 * Publique uma Solicitação de Script no [Script Center](https://azure.microsoft.com/documentation/scripts/) se estiver procurando uma solução de runbook ou um módulo de integração da Automação do Azure.
 * Poste comentários ou solicitações de recursos para a Automação do Azure no [User Voice](https://feedback.azure.com/forums/34192--general-feedback).
-

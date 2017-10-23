@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: b7ce6f353cf8cf48d5fb038ee77b0d3fdae16fb7
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="security-frame-input-validation--mitigations"></a>Estrutura de segurança: validação de entrada | Atenuações 
 | Produto/Serviço | Artigo |
 | --------------- | ------- |
@@ -686,4 +684,3 @@ No exemplo de código anterior, o valor de entrada não pode ter mais de 11 cara
 | **Atributos**              | N/D  |
 | **Referências**              | [MSDN](https://msdn.microsoft.com/library/ff647875.aspx) |
 | **Etapas** | <p>A validação de dados e entrada representa uma linha de defesa importante na proteção do aplicativo WCF. Você deve validar todos os parâmetros expostos em operações de serviço WCF para proteger o serviço contra ataques de um cliente mal-intencionado. Por outro lado, você também deve validar todos os valores de retorno recebidos pelo cliente para proteg&e-lo contra ataques de um serviço mal-intencionado</p><p>O WCF fornece pontos de extensibilidade diferentes que permitem que você personalize o comportamento de tempo de execução do WCF criando extensões personalizadas. Inspetores de mensagem e inspetores de parâmetro são dois mecanismos de extensibilidade usados para obter maior controle sobre os dados que passam entre um cliente e um serviço. Você deve usar inspetores de parâmetro para validação de entrada e usar inspetores de mensagem somente quando precisar inspecionar a mensagem inteira que entra e sai de um serviço.</p><p>Para executar a validação de entrada, você criará uma classe .NET e implementará um inspetor de parâmetro personalizado para validar parâmetros nas operações no serviço. Em seguida, você implementará um comportamento de ponto de extremidade personalizado para habilitar a validação no cliente e no serviço. Finalmente, você implementará um elemento de configuração personalizado na classe que permite expor o comportamento de ponto de extremidade personalizado estendido no arquivo de configuração do serviço ou cliente</p>|
-

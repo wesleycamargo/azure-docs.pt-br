@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: douglasl
+ms.openlocfilehash: ed2266004e60843749233f92c8f4b069e4c17ba5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 926938a8ed20167e1f17a9883007cd993897f14a
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Sincronizar dados entre vários bancos de dados locais e de nuvem com a Sincronização de Dados SQL
 
@@ -98,11 +97,13 @@ Como a Sincronização de Dados é baseada no gatilho, a consistência transacio
 
 ### <a name="requirements"></a>Requisitos
 
--   Cada tabela deve ter uma chave primária.
+-   Cada tabela deve ter uma chave primária. Não altere o valor da chave primária em nenhuma linha. Se você precisar fazer isso, exclua a linha e recrie-a com o novo valor de chave primária. 
 
 -   Uma tabela não pode uma coluna de identidade que não seja a chave primária.
 
 -   Os nomes de objetos (bancos de dados, tabelas e colunas) não podem conter os caracteres imprimíveis ponto (.), colchete esquerdo ([) ou colchete direito (]).
+
+-   O isolamento de instantâneo deve estar habilitado. Para obter mais informações, consulte [Isolamento de instantâneo no SQL Server](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
 
 ### <a name="limitations-on-service-and-database-dimensions"></a>Limitações nas dimensões de serviço e do banco de dados
 
@@ -140,6 +141,11 @@ Essa mensagem de erro indica que um dos dois problemas a seguir está ocorrendo:
 ### <a name="how-does-data-sync-handle-circular-references-that-is-when-the-same-data-is-synced-in-multiple-sync-groups-and-keeps-changing-as-a-result"></a>Como a Sincronização de Dados trata referências circulares? Ou seja, quando os mesmos dados são sincronizados em vários grupos de sincronização, fazendo com que sejam continuamente alterados?
 A Sincronização de Dados não trata referências circulares. Evite usá-las. 
 
+### <a name="how-can-i-export-and-import-a-database-with-data-sync"></a>Como exportar e importar um banco de dados com a Sincronização de Dados?
+Depois de exportar um banco de dados como um arquivo .bacpac e importá-lo para criar um novo banco de dados, você precisa realizar as duas ações a seguir para usar a Sincronização de Dados no novo banco de dados:
+1.  Limpe os objetos de Sincronização de Dados e tabelas laterais no **novo banco de dados** usando [esse script](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/clean_up_data_sync_objects.sql). Esse script exclui todos os objetos de Sincronização de Dados necessários do banco de dados.
+2.  Recrie o grupo de sincronização com o novo banco de dados. Se você não precisar mais do grupo de sincronização antigo, exclua-o.
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre a Sincronização de Dados SQL, veja:
@@ -159,4 +165,3 @@ Para saber mais sobre o Banco de Dados SQL, veja:
 -   [Visão geral do Banco de Dados SQL](sql-database-technical-overview.md)
 
 -   [Gerenciamento de ciclo de vida do banco de dados](https://msdn.microsoft.com/library/jj907294.aspx)
-

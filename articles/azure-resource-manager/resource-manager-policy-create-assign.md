@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2017
+ms.date: 09/19/2017
 ms.author: tomfitz
+ms.openlocfilehash: 64bdd6ed41e98079c8d4112e895aaeddcd629282
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: f461efbc2a23f85e8b6d3fdec156a0df1636708a
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="assign-and-manage-resource-policies"></a>Atribuir e gerenciar políticas de recursos
 
@@ -31,6 +30,23 @@ Para implantar uma política, é necessário executar as seguintes etapas:
 4. Para qualquer caso, atribua a política a um escopo (como uma assinatura ou grupo de recursos). As regras da política agora são impostas.
 
 Este artigo ressalta as etapas para criação de uma definição de política e atribuição dessa definição a um escopo por meio da API REST, do PowerShell ou da CLI do Azure. Se preferir usar o portal para atribuir políticas, consulte [Usar o portal do Azure para atribuir e gerenciar políticas de recurso](resource-manager-policy-portal.md). Este artigo não tem como foco a sintaxe para criação da definição de política. Para obter informações sobre a sintaxe da política, confira [Visão geral da política de recursos](resource-manager-policy.md).
+
+## <a name="exclusion-scopes"></a>Escopos de exclusão
+
+Ao atribuir uma política, você pode excluir um escopo. Esse recurso simplifica a atribuição de políticas porque você pode atribuir uma política no nível da assinatura e especificar onde ela não será aplicada. Por exemplo, em sua assinatura, você tem um grupo de recursos destinado à infraestrutura de rede. Equipes de aplicativo implantam seus recursos em outros grupos de recursos. Você não quer que essas equipes criem recursos de rede que possam levar a problemas de segurança. No entanto, no grupo de recursos de rede, você deseja permitir recursos de rede. Você atribui a política no nível da assinatura, mas exclui o grupo de recursos de rede. É possível especificar vários escopos secundários.
+
+```json
+{
+    "properties":{
+        "policyDefinitionId":"<ID for policy definition>",
+        "notScopes":[
+            "/subscriptions/<subid>/resourceGroups/networkresourceGroup1"
+        ]
+    }
+}
+```
+
+Se você especificar um escopo de exclusão em sua atribuição, use a versão **2017-06-01-preview** da API.
 
 ## <a name="rest-api"></a>API REST
 
@@ -168,8 +184,28 @@ Antes de continuar a criar uma definição de política, observe as políticas i
 ### <a name="create-policy-definition"></a>Criar definição de política
 Você pode criar uma definição de política usando o cmdlet `New-AzureRmPolicyDefinition`.
 
+Para criar uma definição de política de um arquivo, passe o caminho para o arquivo. Para um arquivo externo, use:
+
 ```powershell
-$definition = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Policy to specify access tier." -Policy '{
+$definition = New-AzureRmPolicyDefinition `
+    -Name denyCoolTiering `
+    -DisplayName "Deny cool access tiering for storage" `
+    -Policy 'https://raw.githubusercontent.com/Azure/azure-policy-samples/master/samples/Storage/storage-account-access-tier/azurepolicy.rules.json'
+```
+
+Para um arquivo local, use:
+
+```powershell
+$definition = New-AzureRmPolicyDefinition `
+    -Name denyCoolTiering `
+    -Description "Deny cool access tiering for storage" `
+    -Policy "c:\policies\coolAccessTier.json"
+```
+
+Para criar uma definição de política com uma regra embutida, use:
+
+```powershell
+$definition = New-AzureRmPolicyDefinition -Name denyCoolTiering -Description "Deny cool access tiering for storage" -Policy '{
   "if": {
     "allOf": [
       {
@@ -195,12 +231,6 @@ $definition = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Pol
 ```            
 
 A saída é armazenada em um objeto `$definition`, que é usado durante a atribuição da política. 
-
-Em vez de especificar o JSON como um parâmetro, você pode fornecer o caminho para um arquivo .json que contém a regra de política.
-
-```powershell
-$definition = New-AzureRmPolicyDefinition -Name coolAccessTier -Description "Policy to specify access tier." -Policy "c:\policies\coolAccessTier.json"
-```
 
 O exemplo a seguir cria uma definição de política que inclui parâmetros:
 
@@ -319,8 +349,10 @@ Antes de continuar a criar uma definição de política, observe as políticas i
 
 Você pode criar uma definição de política usando a CLI do Azure com o comando de definição de política.
 
+Para criar uma definição de política com uma regra embutida, use:
+
 ```azurecli
-az policy definition create --name coolAccessTier --description "Policy to specify access tier." --rules '{
+az policy definition create --name denyCoolTiering --description "Deny cool access tiering for storage" --rules '{
   "if": {
     "allOf": [
       {
@@ -371,5 +403,4 @@ az policy assignment delete --name coolAccessTier --scope /subscriptions/{subscr
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para obter orientação sobre como as empresas podem usar o Resource Manager para gerenciar assinaturas de forma eficaz, consulte [Azure enterprise scaffold – controle de assinatura prescritivas](resource-manager-subscription-governance.md).
-
 

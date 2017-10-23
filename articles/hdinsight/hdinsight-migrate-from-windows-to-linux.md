@@ -13,20 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/12/2017
+ms.date: 10/04/2017
 ms.author: larryfr
+ms.openlocfilehash: f2695d4f15fe984cd02cba9ff66033b90d0a4dc3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 4ea38d3b47ff4b50446f4ffdc3dc544fdcf938e7
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrate-from-a-windows-based-hdinsight-cluster-to-a-linux-based-cluster"></a>Migrar de um cluster HDInsight baseado no Windows para um cluster baseado em Linux
 
-Este documento fornece detalhes sobre as diferenças entre o HDInsight no Windows e no Linux, bem como instruções sobre como migrar cargas de trabalho existentes para um cluster baseado em Linux.
+Esse documento fornece detalhes sobre as diferenças entre o HDInsight no Windows e Linux. Ele também oferece orientação sobre como migrar cargas de trabalho existentes para um cluster com base em Linux.
 
-Embora o HDInsight baseado no Windows forneça uma maneira fácil de usar o Hadoop na nuvem, você poderá precisar migrar para um cluster baseado em Linux. Por exemplo, para aproveitar as ferramentas e tecnologias baseadas em Linux que são necessárias para sua solução. Muitos itens no ecossistema do Hadoop são desenvolvidos em sistemas baseados em Linux e podem não estar disponíveis para uso com o HDInsight baseado no Windows. Além disso, muitos livros, vídeos e outros materiais de treinamento supõem que você esteja usando um sistema Linux quando trabalha com o Hadoop.
+Embora o HDInsight baseado no Windows forneça uma maneira fácil de usar o Hadoop na nuvem, você poderá precisar migrar para um cluster baseado em Linux. Por exemplo, para aproveitar as ferramentas e tecnologias baseadas em Linux que são necessárias para sua solução. Muitos itens no ecossistema do Hadoop são desenvolvidos em sistemas baseados em Linux e podem não estar disponíveis para uso com o HDInsight baseado no Windows. Muitos livros, vídeos e outros materiais de treinamento presumem que você está usando um sistema Linux ao trabalhar com Hadoop.
 
 > [!NOTE]
 > Os clusters HDInsight usam o Ubuntu LTS (suporte de longo prazo) como o sistema operacional para os nós no cluster. Para obter informações sobre a versão do Ubuntu disponível com o HDInsight, além de outras informações de controle de versão do componente, confira [Versões de componente do HDInsight](hdinsight-component-versioning.md).
@@ -37,7 +36,7 @@ Veja a seguir o fluxo de trabalho geral da migração.
 
 ![Diagrama do fluxo de trabalho da migração](./media/hdinsight-migrate-from-windows-to-linux/workflow.png)
 
-1. Leia cada seção deste documento para entender as alterações que podem ser necessárias ao migrar fluxos de trabalho, trabalhos etc. existentes para um cluster baseado em Linux.
+1. Leia cada seção deste documento para entender as alterações que podem ser necessárias ao migrar.
 
 2. Crie um cluster baseado em Linux como um ambiente de teste/controle de qualidade. Para saber mais sobre como criar um cluster baseado em Linux, confira [Criar clusters Hadoop baseados em Linux em HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
 
@@ -76,9 +75,9 @@ Use as etapas a seguir para copiar os dados do cluster de produção para o clus
 
 2. Para criar um ambiente de teste, siga as etapas descritas no documento Criar clusters baseados em Linux no HDInsight. Pare antes de criar o cluster e escolha **Configuração Opcional**.
 
-3. Na folha Configuração Opcional, escolha **Contas de Armazenamento Vinculadas**.
+3. Na seção Configuração Opcional, selecione **Contas de Armazenamento Vinculadas**.
 
-4. Escolha **Adicionar uma chave de armazenamento**e, quando solicitado, escolha a conta de armazenamento que foi retornada pelo script do PowerShell na etapa 1. Clique em **Selecionar** em cada folha. E por último, crie o cluster.
+4. Escolha **Adicionar uma chave de armazenamento**e, quando solicitado, escolha a conta de armazenamento que foi retornada pelo script do PowerShell na etapa 1. Clique em **Selecionar** em cada seção. E por último, crie o cluster.
 
 5. Assim que o cluster tiver sido criado, conecte-o usando **SSH.** Para obter mais informações, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -114,10 +113,10 @@ A tabela a seguir fornece orientações de como migrar componentes do lado servi
 | **PowerShell** (scripts do lado do servidor, incluindo as Ações de Script usadas durante a criação do cluster) |Reescreva-os como scripts Bash. Para as Ações de Script, confira [Personalizar clusters HDInsight baseados em Linux usando as Ações de Script](hdinsight-hadoop-customize-cluster-linux.md) e [Desenvolvimento de ação de script com o HDInsight](hdinsight-hadoop-script-actions-linux.md). |
 | **CLI do Azure** (scripts de servidor) |Embora a CLI do Azure esteja disponível no Linux, ela não vem pré-instalada nos nós principais do cluster HDInsight. Para obter mais informações sobre como instalar a CLI do Azure, consulte [Introdução à CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli). |
 | **Componentes do .NET** |O .NET tem suporte no HDInsight do Linux por meio do [Mono](https://mono-project.com). Para obter mais informações, consulte [Migrar soluções .NET para HDInsight baseado em Linux](hdinsight-hadoop-migrate-dotnet-to-linux.md). |
-| **Componentes do Win32 ou de outra tecnologia exclusiva do Windows** |As diretrizes dependem do componente ou da tecnologia. Você poderá encontrar uma versão compatível com Linux, talvez precise encontrar uma solução alternativa ou reescrever esse componente. |
+| **Componentes do Win32 ou de outra tecnologia exclusiva do Windows** |As diretrizes dependem do componente ou da tecnologia. Você poderá encontrar uma versão compatível com o Linux. Caso contrário, você deve encontrar uma solução alternativa ou regenerar esse componente. |
 
 > [!IMPORTANT]
-> O SDK de gerenciamento de HDInsight não é totalmente compatível com o Mono. Ele não deve ser usado como parte das soluções implantadas para o cluster HDInsight no momento.
+> O SDK de gerenciamento de HDInsight não é totalmente compatível com o Mono. Não o use como parte das soluções que são implantadas no cluster do HDInsight.
 
 ## <a name="cluster-creation"></a>Criação do cluster
 
@@ -135,7 +134,7 @@ Para obter mais informações, confira [Usar SSH com HDInsight](hdinsight-hadoop
 
 ### <a name="cluster-customization"></a>Personalização do cluster
 
-**Ações de Script** usadas com clusters baseados em Linux devem ser escritas no script Bash. Embora as Ações de Script possam ser usadas durante a criação do cluster, em clusters baseados em Linux, elas também podem ser usadas na personalização depois que um cluster estiver ativo. Para obter mais informações, confira [Personalizar clusters HDInsight baseados em Linux usando as Ação de Script](hdinsight-hadoop-customize-cluster-linux.md) e [Desenvolvimento de ação de script com o HDInsight](hdinsight-hadoop-script-actions-linux.md).
+**Ações de Script** usadas com clusters baseados em Linux devem ser escritas no script Bash. Clusters baseados em Linux podem usar ações de script durante ou após a criação do cluster. Para obter mais informações, confira [Personalizar clusters HDInsight baseados em Linux usando as Ação de Script](hdinsight-hadoop-customize-cluster-linux.md) e [Desenvolvimento de ação de script com o HDInsight](hdinsight-hadoop-script-actions-linux.md).
 
 Outro recurso de personalização é a **inicialização**. Em clusters Windows, esse recurso permite especificar a localização das bibliotecas adicionais para uso com o Hive. Após a criação do cluster, essas bibliotecas são automaticamente disponibilizadas para uso com as consultas do Hive sem a necessidade de usar o `ADD JAR`.
 
@@ -145,7 +144,7 @@ O recurso Inicialização para clusters baseados em Linux não fornece essa func
 
 Os clusters HDInsight baseados em Windows funcionam apenas com Rede Virtuais Clássicas, enquanto os clusters HDInsight baseados em Linux exigem Redes Virtuais do Resource Manager. Se você tiver recursos em uma Rede Virtual Clássica à qual o cluster HDInsight Linux deve se conectar, confira [Conectando redes virtuais clássicas a novas redes virtuais](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
 
-Para saber mais sobre os requisitos de configuração para usar as Redes Virtuais do Azure com o HDInsight, confira [Extend HDInsight capabilities by using a Virtual Network](hdinsight-extend-hadoop-virtual-network.md)(Estender os recursos do HDInsight usando uma Rede Virtual).
+Para saber mais sobre os requisitos de configuração, confira [Estender recursos do HDInsight usando uma Rede virtual](hdinsight-extend-hadoop-virtual-network.md).
 
 ## <a name="management-and-monitoring"></a>Gerenciamento e monitoramento
 
@@ -164,8 +163,6 @@ O Ambari tem um sistema de alerta que pode informar a você sobre problemas pote
 > Os alertas do Ambari indicam que *pode* haver um problema, e não que *há* um problema. Por exemplo, você pode receber um alerta de que HiveServer2 não pode ser acessado, mesmo que consiga acessá-lo normalmente.
 >
 > Vários alertas são implementados como consultas baseadas em intervalo em um serviço e esperam uma resposta por um período específico. Portanto, o alerta não significa necessariamente que o serviço está inativo, apenas que ele não retornou resultados dentro do tempo esperado.
-
-Antes de tomar alguma medida, você deve avaliar se um alerta vem ocorrendo por um longo período ou se representa problemas do usuário que foram relatados.
 
 ## <a name="file-system-locations"></a>Locais do sistema de arquivos
 
@@ -230,7 +227,7 @@ A tabela a seguir fornece instruções para migrar as cargas de trabalho do Hive
 
 Fluxos de trabalho do Oozie permitem realizar ações de shell. Ações de shell usam o shell padrão do sistema operacional para executar comandos de linha de comando. Se você tiver fluxos de trabalho do Oozie que dependem do shell do Windows, reescreva os fluxos de trabalho para dependerem do ambiente de shell do Linux (Bash). Para obter mais informações sobre como usar ações de shell com Oozie, consulte [Extensão da ação de shell do Oozie](http://oozie.apache.org/docs/3.3.0/DG_ShellActionExtension.html).
 
-Se você tiver fluxos de trabalho do Oozie que dependem de aplicativos C# invocados por meio de ações do shell, valide esses aplicativos em um ambiente Linux. Para obter mais informações, consulte [Migrar soluções .NET para HDInsight baseado em Linux](hdinsight-hadoop-migrate-dotnet-to-linux.md).
+Se você tiver um fluxo de trabalho que usa um aplicativo C#, valide esses aplicativos em um ambiente do Linux. Para obter mais informações, consulte [Migrar soluções .NET para HDInsight baseado em Linux](hdinsight-hadoop-migrate-dotnet-to-linux.md).
 
 ## <a name="storm"></a>Storm
 
@@ -238,7 +235,7 @@ Se você tiver fluxos de trabalho do Oozie que dependem de aplicativos C# invoca
 | --- | --- |
 | Painel de Controle do Storm |O Painel Storm não está disponível. Confira [Deploy and Manage Storm topologies on Linux-based HDInsight](hdinsight-storm-deploy-monitor-topology-linux.md) (Implantar e gerenciar topologias Storm no HDInsight baseado em Linux) para saber como enviar topologias |
 | Interface do Usuário do Storm |A interface de usuário do Storm está disponível em https://NOMEDOCLUSTER.azurehdinsight.net/stormui |
-| Visual Studio para criar, implantar e gerenciar topologias híbridas ou do C# |O Visual Studio pode ser usado para criar, implantar e gerenciar topologias do C# (SCP.NET) ou híbridas em clusters Storm no HDInsight baseados em Linux criados após 28/10/2016. |
+| Visual Studio para criar, implantar e gerenciar topologias híbridas ou do C# |O Visual Studio pode ser usado para criar, implantar e gerenciar topologias do C# (SCP.NET) ou híbridas em Storm no HDInsight baseado em Linux. Ele só pode ser usado com clusters criados após 28/10/2016. |
 
 ## <a name="hbase"></a>HBase
 
@@ -261,13 +258,13 @@ Atualmente, atividades personalizadas do .NET no Azure Data Factory não são co
 
 ### <a name="line-endings"></a>Terminações de linha
 
-No geral, as terminações de linha em sistemas baseados no Windows usam CRLF, enquanto os sistemas baseados no Linux usam LF. Se você produzir, ou esperar, dados com terminações de linha CRLF, talvez seja preciso modificar os produtores ou consumidores para trabalhar com a terminação de linha LF.
+No geral, as terminações de linha em sistemas baseados no Windows usam CRLF, enquanto os sistemas baseados no Linux usam LF. Talvez seja necessário modificar os produtores de dados existentes e consumidores para trabalhar com LF.
 
-Por exemplo, usar o Azure PowerShell para consultar o HDInsight em um cluster baseado no Windows retorna dados com CRLF. A mesma consulta com um cluster baseado em Linux retorna LF. Você deve testar para ver se a terminação de linha causa um problema na solução antes de migrar para um cluster baseado em Linux.
+Por exemplo, usar o Azure PowerShell para consultar o HDInsight em um cluster baseado no Windows retorna dados com CRLF. A mesma consulta com um cluster baseado em Linux retorna LF. Teste para ver se a terminação de linha causa um problema na solução antes de migrar para um cluster baseado em Linux.
 
-Caso tenha scripts que são executados diretamente nos nós do cluster do Linux, sempre use LF como o final da linha. Caso use CRLF, você poderá ver erros ao executar os scripts em um cluster baseado em Linux.
+Sempre use LF como a linha final para scripts que são executados em nós de cluster. Caso use CRLF, você poderá ver erros ao executar os scripts em um cluster baseado em Linux.
 
-Se você souber que os scripts não contêm cadeia com caracteres CR inseridos, será possível fazer uma alteração em massa nas terminações de linha usando um dos métodos a seguir:
+Se os scripts não contiverem cadeias com caracteres CR inseridos, será possível fazer uma alteração em massa nas terminações de linha usando um dos métodos a seguir:
 
 * **Antes de carregar para o cluster**: use as seguintes instruções do PowerShell para alterar as terminações de linha de CRLF para LF antes de carregar o script para o cluster.
 
@@ -290,4 +287,3 @@ Se você souber que os scripts não contêm cadeia com caracteres CR inseridos, 
 * [Saiba como criar clusters HDInsight baseados em Linux](hdinsight-hadoop-provision-linux-clusters.md)
 * [Usar SSH para se conectar ao HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
 * [Gerenciar um cluster baseado em Linux usando o Ambari](hdinsight-hadoop-manage-ambari.md)
-

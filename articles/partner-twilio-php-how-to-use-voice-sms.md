@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 11/25/2014
 ms.author: microsofthelp@twilio.com
 ms.openlocfilehash: bd50eac7390e8639f77894689388e6926cdb619c
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-twilio-for-voice-and-sms-capabilities-in-php"></a>Como usar o Twilio para obter recursos de voz e SMS no PHP
 Este guia demonstra como executar tarefas comuns de programação com o serviço de API do Twilio no Azure. Os cenários abrangidos incluem fazer uma chamada telefônica e enviar uma mensagem serviço de mensagem curta (SMS). Para obter mais informações sobre o Twilio e o uso de voz e SMS em seus aplicativos, consulte a seção [Próximas etapas](#NextSteps) .
@@ -74,14 +74,14 @@ Quando estiver pronto para obter uma conta do Twilio, inscreva-se em [Experiment
 Quando você se inscrever para uma conta de Twilio, você receberá uma ID de conta e um token de autenticação. Eles serão necessários para fazer chamadas de API do Twilio. Para evitar o acesso não autorizado em sua conta, mantenha o token da autenticação seguro. A ID de sua conta e o token de autenticação estão visíveis na [página da conta do Twilio][twilio_account], nos campos rotulados **ACCOUNT SID** e **AUTH TOKEN**, respectivamente.
 
 ## <a id="create_app"></a>Criar um aplicativo PHP
-Um aplicativo PHP que usa o serviço do Twilio e está em execução no Azure não é diferente de qualquer outro aplicativo PHP que usa o serviço do Twilio. Enquanto Twilio serviços são baseados em REST e podem ser chamados de PHP de várias maneiras, este artigo abordará como usar os serviços do Twilio com [Twilio biblioteca para PHP do GitHub][twilio_php]. Para obter mais informações sobre como usar a biblioteca do Twilio para PHP, consulte [http://readthedocs.org/docs/twilio-php/en/latest/index.html][twilio_lib_docs].
+Um aplicativo PHP que usa o serviço do Twilio e está em execução no Azure não é diferente de qualquer outro aplicativo PHP que usa o serviço do Twilio. Enquanto os serviços do Twilio são baseados em REST e podem ser chamados do PHP de várias maneiras, este artigo concentra-se em como usar esses serviços com a [Biblioteca do Twilio para PHP no GitHub][twilio_php]. Para obter mais informações sobre como usar a biblioteca do Twilio para PHP, consulte [http://readthedocs.org/docs/twilio-php/en/latest/index.html][twilio_lib_docs].
 
-Instruções detalhadas para criar e implantar um aplicativo PHP/Twilio para o Azure estão disponíveis em [como fazer uma chamada telefônica usando o Twilio em um aplicativo PHP no Azure][howto_phonecall_php].
+Instruções detalhadas para compilar e implantar um aplicativo Twilio/PHP no Azure estão disponíveis em [Como fazer uma chamada telefônica usando o Twilio em um aplicativo PHP no Azure][howto_phonecall_php].
 
 ## <a id="configure_app"></a>Configurar seu aplicativo para usar bibliotecas Twilio
 Você pode configurar seu aplicativo para usar a biblioteca do Twilio para PHP de duas maneiras:
 
-1. Baixar a biblioteca do Twilio para PHP do GitHub ([https://github.com/twilio/twilio-php][twilio_php]) e adicione o **serviços** diretório para seu aplicativo.
+1. Baixe a biblioteca do Twilio para PHP no GitHub ([https://github.com/twilio/twilio-php][twilio_php]) e adicione o diretório **Serviços** ao seu aplicativo.
    
     -OU-
 2. Instalar a biblioteca da Twilio para PHP como um pacote PEAR. Ela pode ser instalada com os seguintes comandos:
@@ -225,7 +225,7 @@ Uma vez que a página PHP estiver configurada para fornecer respostas TwiML, use
         echo 'Error: ' . $e->getMessage();
     }
 
-Para obter informações adicionais sobre como usar o Twilio no Azure com o PHP, consulte [como fazer uma chamada telefônica usando o Twilio em um aplicativo PHP no Azure][howto_phonecall_php].
+Para obter informações adicionais sobre como usar Twilio no Azure com PHP, consulte [Como fazer uma chamada telefônica usando o Twilio em um aplicativo PHP no Azure][howto_phonecall_php].
 
 ## <a id="AdditionalServices"></a>Como Usar os Serviços Adicionais do Twilio
 Além dos exemplos mostrados aqui, o Twilio oferece APIs baseadas na Web que podem ser usadas para aproveitar a funcionalidade adicional do Twilio do aplicativo Azure. Para obter detalhes completos, consulte a [Documentação da API do Twilio][twilio_api_documentation].

@@ -12,15 +12,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 07/06/2017
+ms.date: 09/15/2017
 ms.author: sdanie
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 71b0d4add7e642487f6d67cda692c500ee78b0e6
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/08/2017
-
-
+ms.openlocfilehash: 332326ce4188385aa6e569c812e16c3daa68bd5d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-configure-geo-replication-for-azure-redis-cache"></a>Como configurar a replicação geográfica para o Cache Redis do Azure
 
@@ -103,6 +101,9 @@ Depois de configurar a replicação geográfica, as seguintes restrições se ap
 - [Posso vincular dois caches com tamanhos diferentes?](#can-i-link-two-caches-with-different-sizes)
 - [Posso usar a replicação geográfica com o clustering habilitado?](#can-i-use-geo-replication-with-clustering-enabled)
 - [Posso usar a replicação geográfica com meus caches em uma VNET?](#can-i-use-geo-replication-with-my-caches-in-a-vnet)
+- [O que é o cronograma de replicação para replicação geográfica do Redis?](#what-is-the-replication-schedule-for-redis-geo-replication)
+- [Quanto tempo leva a replicação de replicação geográfica?](#how-long-does-geo-replication-replication-take)
+- [O ponto de recuperação de replicação é garantido?](#is-the-replication-recovery-point-guaranteed)
 - [Posso usar o PowerShell ou a CLI do Azure para gerenciar a replicação geográfica?](#can-i-use-powershell-or-azure-cli-to-manage-geo-replication)
 - [Quanto custa para replicar meus dados entre regiões do Azure?](#how-much-does-it-cost-to-replicate-my-data-across-azure-regions)
 - [Por que a operação falhou quando tentei excluir meu cache vinculado?](#why-did-the-operation-fail-when-i-tried-to-delete-my-linked-cache)
@@ -141,6 +142,18 @@ Sim, há suporte para replicação geográfica de caches em redes virtuais.
 - Há suporte para a replicação geográfica entre caches na mesma VNET.
 - Também há suporte para replicação geográfica entre caches em VNETs diferentes, desde que as duas VNETs sejam configuradas de forma que recursos nas VNETs sejam capazes de alcançar uns aos outros por meio de conexões TCP.
 
+### <a name="what-is-the-replication-schedule-for-redis-geo-replication"></a>O que é o cronograma de replicação para replicação geográfica do Redis?
+
+A replicação não ocorre em um cronograma específico, ela é contínua e assíncrona, isto é, todas as gravações feitas no principal são instantânea e assincronamente replicadas no secundário.
+
+### <a name="how-long-does-geo-replication-replication-take"></a>Quanto tempo leva a replicação de replicação geográfica?
+
+A replicação é contínua, incremental e assíncrona e o tempo gasto geralmente não é muito diferente da latência entre regiões. Em determinadas circunstâncias, às vezes, o secundário pode precisar fazer uma sincronização completa dos dados do primário. O tempo de replicação nesse caso depende de diversos fatores como a carga no cache primário, a largura de banda disponível no computador do cache, a latência entre regiões etc. Por exemplo, com base em alguns testes encontramos que o tempo de replicação para um par com replicação geográfica de 53 GB completo nas regiões do Leste dos EUA e do Oeste dos EUA pode ser algo entre cinco e dez minutos.
+
+### <a name="is-the-replication-recovery-point-guaranteed"></a>O ponto de recuperação de replicação é garantido?
+
+No momento, para caches em um modo de replicação geográfica, a funcionalidade de importação/exportação e persistência está desabilitada. Portanto, no caso de um failover iniciado pelo cliente ou em casos em que o link de replicação foi interrompido entre o par de replicação geográfica, o secundário reterá os dados na memória que ele sincronizou do primário até aquele momento. Não há nenhuma garantia de ponto de recuperação fornecida em tais situações.
+
 ### <a name="can-i-use-powershell-or-azure-cli-to-manage-geo-replication"></a>Posso usar o PowerShell ou a CLI do Azure para gerenciar a replicação geográfica?
 
 Neste momento, você só pode gerenciar a replicação geográfica usando o portal do Azure.
@@ -167,5 +180,4 @@ No momento, para iniciar o failover, você precisa remover o link de replicaçã
 ## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre a [Camada Premium do Cache Redis do Azure](cache-premium-tier-intro.md).
-
 

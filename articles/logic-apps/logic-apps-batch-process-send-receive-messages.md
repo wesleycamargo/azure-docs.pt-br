@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/7/2017
 ms.author: LADocs; estfan; jonfan
+ms.openlocfilehash: c58cf6485a8a7248e5b8ffce0d279485a80f36ef
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
-ms.openlocfilehash: 480ffce5dbe7c25181bb0ba5639de884e98ff4e6
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/10/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="send-receive-and-batch-process-messages-in-logic-apps"></a>Enviar, receber e processar mensagens em lote nos aplicativos lógicos
 
 Para processar mensagens em grupos, você pode enviar itens de dados, ou mensagens, para um *lote* e depois processar esses itens como um lote. Essa abordagem é útil quando você deseja certificar-se de que os itens de dados estão agrupados de forma específica e são processados em conjunto. 
@@ -62,13 +60,22 @@ Os aplicativos lógicos remetentes precisam saber para onde enviar os itens, enq
 3. Forneça um nome para o lote e especifique critérios para liberação do lote, por exemplo:
 
    * **Nome do Lote**: o nome usado para identificar o lote, que é "LoteTeste" neste exemplo.
+   * **Critérios de liberação**: os critérios de liberação de lote, que podem ser baseados na contagem de mensagens, na agenda ou em ambas.
+   
+     ![Fornecer detalhes sobre o gatilho Lote](./media/logic-apps-batch-process-send-receive-messages/receive-batch-release-criteria.png)
+
    * **Contagem de Mensagens**: o número de mensagens para agrupar como um lote antes de liberar para processamento, neste exemplo é "5".
 
-   ![Fornecer detalhes sobre o gatilho Lote](./media/logic-apps-batch-process-send-receive-messages/receive-batch-trigger-details.png)
+     ![Fornecer detalhes sobre o gatilho Lote](./media/logic-apps-batch-process-send-receive-messages/receive-batch-count-based.png)
 
-4. Adicione outra ação que envia um email quando o gatilho lote é acionado. Cada vez que o lote acumular cinco itens, o aplicativo lógico enviará um email.
+   * **Agenda**: a agenda de liberação de lote para processamento, que é "a cada 5 minutos" neste exemplo.
 
-   1. No gatilho lote, escolha **+ Nova Etapa** > **Adicionar uma ação**.
+     ![Fornecer detalhes sobre o gatilho Lote](./media/logic-apps-batch-process-send-receive-messages/receive-batch-schedule-based.png)
+
+
+4. Adicione outra ação que envia um email quando o gatilho lote é acionado. Cada vez que o lote acumular cinco itens ou passar de 5 minutos, o aplicativo lógico enviará um email.
+
+   1. No gatilho de lote, escolha **+ Nova etapa** > **Adicionar uma ação**.
 
    2. Na caixa de pesquisa, insira "email" como filtro.
    Com base em seu provedor de email, selecione um conector de email.
@@ -194,4 +201,3 @@ Seu aplicativo lógico RemetenteLote é executado a cada minuto, gera um número
 * [Compilar definições de aplicativo lógico usando JSON](../logic-apps/logic-apps-author-definitions.md)
 * [Compilar um aplicativo sem servidor no Visual Studio com o Aplicativo Lógico do Azure e o Functions](../logic-apps/logic-apps-serverless-get-started-vs.md)
 * [Tratamento de exceção e registro em log de erros para aplicativos lógicos](../logic-apps/logic-apps-scenario-error-and-exception-handling.md)
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/28/2017
 ms.author: asgang
+ms.openlocfilehash: b7b03442ba815c86e5defa1018b66f56c0b379df
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
-ms.openlocfilehash: 468b99002b867768d1ef03ca3ef67946caa4919d
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Solução de problemas da instalação por push do Serviço de Mobilidade
 
@@ -81,7 +80,7 @@ Esse erro pode ser gerado pelo serviço por vários motivos. Escolha o erro do p
 
 **Código de erro** | **Possíveis causas:** | **Recomendações específicas ao erro**
 --- | --- | ---
-95265 </br>**Mensagem:** A instalação por push do serviço de mobilidade para o computador de origem foi bem-sucedida, mas o computador de origem requer uma reinicialização para que algumas mudanças façam efeito no sistema. <br>| Uma versão mais antiga do serviço de mobilidade já foi instalada no servidor.| A replicação da máquina virtual continua perfeitamente.M<br> Reinicialize o servidor durante a próxima janela de manutenção para obter os benefícios das novas melhorias no serviço de mobilidade.|
+95265 </br>**Mensagem:** A instalação por push do serviço de mobilidade para o computador de origem foi bem-sucedida, mas o computador de origem requer uma reinicialização para que algumas mudanças façam efeito no sistema. <br>| Uma versão mais antiga do serviço de mobilidade já foi instalada no servidor.| A replicação da máquina virtual continua perfeitamente.<br> Reinicialize o servidor durante a próxima janela de manutenção para obter os benefícios das novas melhorias no serviço de mobilidade.|
 
 
 ## <a name="error-95224---protection-could-not-be-enabled-ep0883"></a>Erro 95224 - Não foi possível habilitar a proteção (EP0883)
@@ -103,4 +102,3 @@ Esse erro pode ser gerado pelo serviço por vários motivos. Escolha o erro do p
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Habilitar a replicação em máquinas virtuais do VMware](vmware-walkthrough-enable-replication.md)
-

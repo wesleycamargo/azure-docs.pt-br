@@ -13,15 +13,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 09/19/2017
+ms.date: 10/02/2017
 ms.author: glenga
 ms.custom: 
+ms.openlocfilehash: 1ff4c2e024faba777fc479b3cd5864e097bbfce1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 04da2dda961eb2c6bc53f0aed1c0cd12372a2332
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Criar uma função disparada pelo Azure Cosmos DB
 
@@ -66,11 +65,11 @@ Em seguida, crie uma nova função no novo aplicativo de funções.
     | **Nome da coleção** | Itens | Nome da coleção a ser monitorada. |
     | **Crie a coleção de concessão, se ela não existir** | Verificado | A coleção ainda não existe, então crie uma. |
 
-4. Selecione **Novo** ao lado do rótulo **Conexão da conta do Azure Cosmos DB** e selecione **+ Criar novo**. 
+4. Selecione **Novo** ao lado do rótulo **Conexão da conta do Azure Cosmos DB** e escolha uma conta existente do Cosmos DB ou **+ Criar novo**. 
  
     ![Configurar a conexão do Azure Cosmos DB](./media/functions-create-cosmos-db-triggered-function/functions-create-CosmosDB.png)
 
-6. Use as configurações da **Nova conta** conforme especificado na tabela.
+6. Ao criar uma nova conta do Cosmos DB, use as configurações de **Nova conta**, conforme especificado na tabela.
 
     | Configuração      | Valor sugerido  | Descrição                                |
     | ------------ | ---------------- | ------------------------------------------ |
@@ -151,4 +150,3 @@ Você criou uma função que é executada quando um documento é adicionado ou m
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
 Para obter mais informações sobre gatilhos de Armazenamento de Filas, consulte [Associações de fila do Armazenamento do Azure Functions](functions-bindings-storage-queue.md).
-

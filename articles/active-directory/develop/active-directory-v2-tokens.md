@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3d5ad974c01e0ee3954da4f990da87338b2d1756
-ms.openlocfilehash: 3a3d5c8bf4da9255015fab64f2b59637c4c030ea
-ms.contentlocale: pt-br
-ms.lasthandoff: 02/23/2017
-
-
+ms.openlocfilehash: ec25d4375647a2c8983d7573b9912e544fc3e7b2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-v20-tokens-reference"></a>Referência de tokens do Azure Active Directory v2.0
 O ponto de extremidade do Azure AD (Azure Active Directory) v 2.0 emite vários tipos de tokens de segurança em cada [fluxo de autenticação](active-directory-v2-flows.md). Esta referência descreve o formato, as características de segurança e o conteúdo de cada tipo de token.
@@ -70,7 +68,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VL
 | nonce |`nonce` |`12345` |O nonce é uma estratégia para migrar ataques de reprodução de token. O aplicativo pode especificar um nonce em uma solicitação de autorização usando o parâmetro de consulta `nonce` . O valor que você fornece na solicitação é emitido na declaração `nonce` do token de ID, sem modificação. O aplicativo pode verificar o valor em relação ao valor especificado por ele na solicitação, o que associa a sessão do aplicativo a um token de ID específico. O aplicativo deve executar essa validação durante o processo de validação do token de ID. |
 | name |`name` |`Babe Ruth` |A declaração de nome fornece um valor legível por humanos que identifica o assunto do token. Não há garantia de que o valor seja exclusivo. Ele é mutável e foi projetado para ser usado apenas para fins de exibição. O escopo `profile` é necessário para receber essa declaração. |
 | email |`email` |`thegreatbambino@nyy.onmicrosoft.com` |O endereço de email principal associado à conta de usuário, se houver um. Seu valor é mutável e pode ser alterado ao longo do tempo. O escopo `email` é necessário para receber essa declaração. |
-| nome de usuário preferencial |`preferred_username` |`thegreatbambino@nyy.onmicrosoft.com` |O nome de usuário principal que representa o usuário no ponto de extremidade v 2.0. Ele pode ser um endereço de email, número de telefone ou nome de usuário genérico sem um formato especificado. Seu valor é mutável e pode ser alterado ao longo do tempo. O escopo `profile` é necessário para receber essa declaração. |
+| nome de usuário preferencial |`preferred_username` |`thegreatbambino@nyy.onmicrosoft.com` |O nome de usuário principal que representa o usuário no ponto de extremidade v 2.0. Ele pode ser um endereço de email, número de telefone ou nome de usuário genérico sem um formato especificado. Seu valor é mutável e pode ser alterado ao longo do tempo. Uma vez que é mutável, esse valor não deve ser usado para tomar decisões de autorização. O escopo `profile` é necessário para receber essa declaração. |
 | subject |`sub` |`MF4f-ggWMEji12KynJUNQZphaUTvLcQug5jdF2nl01Q` | O item mais importante sobre o qual o token declara informações, como o usuário de um aplicativo. Esse valor é imutável e não pode ser reatribuído nem reutilizado. Pode ser usado para executar verificações de autorização de forma segura, por exemplo, quando o token é usado para acessar um recurso, e pode ser usado como uma chave nas tabelas de banco de dados. Como a entidade está sempre presente nos tokens emitidos pelo Azure AD, é recomendável usar esse valor em um sistema de autorização de uso geral. O assunto é, no entanto, um identificador de paridade - é exclusivo a uma ID de aplicativo específica.  Portanto, se um único usuário entra em dois aplicativos diferentes usando duas IDs de cliente diferentes, esses aplicativos receberão dois valores diferentes para a declaração do assunto.  Isso pode ou não ser desejável, dependendo dos requisitos de arquitetura e de privacidade. |
 | ID do objeto |`oid` |`a1dbdde8-e4f9-4571-ad93-3059e3750d23` | O identificador imutável de um objeto do sistema de identidade da Microsoft, nesse caso, uma conta de usuário.  Também pode ser usada para realizar verificações de autorização com segurança e como uma chave em tabelas de banco de dados. Essa ID identifica exclusivamente o usuário entre os aplicativos - dois aplicativos diferentes autenticando o mesmo usuário receberão o mesmo valor na declaração `oid`.  Isso significa que pode ser usada ao fazer consultas nos serviços online da Microsoft, como o Microsoft Graph.  O Microsoft Graph retornará essa ID como a propriedade `id` para uma determinada conta de usuário.  Como o `oid` permite que vários aplicativos correlacionem usuários, o escopo `profile` é necessário a fim de receber essa declaração. Observe que, se um único usuário existir em vários locatários, o usuário conterá uma ID de objeto diferentes em cada locatário - são consideradas contas diferentes, mesmo que o usuário faça logon em cada conta com as mesmas credenciais. |
 
@@ -155,4 +153,3 @@ Fornecemos os tempos de vida de token a seguir para fins informativos. As inform
 | Tokens de atualização (contas pessoais) |Até 1 ano |Um único token de atualização é válido para um máximo de 1 ano. No entanto, o token de atualização pode se tornar inválido a qualquer momento por vários motivos. Portanto, o aplicativo deve continuar a tentar usar um token de atualização até falhar. |
 | Códigos de autorização (contas corporativas ou de estudante) |10 minutos |Os códigos de autorização são propositadamente de curta duração e devem ser resgatados imediatamente para tokens de acesso e tokens de atualização quando os tokens são recebidos. |
 | Códigos de autorização (contas pessoais) |5 minutos |Os códigos de autorização são propositadamente de curta duração e devem ser resgatados imediatamente para tokens de acesso e tokens de atualização quando os tokens são recebidos. Códigos de autorização que são emitidos em nome de contas pessoais são para uso ocasional. |
-

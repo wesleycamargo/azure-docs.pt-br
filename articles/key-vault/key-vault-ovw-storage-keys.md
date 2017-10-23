@@ -9,12 +9,11 @@ author: BrucePerlerMS
 ms.author: bruceper
 manager: mbaldwin
 ms.date: 09/14/2017
+ms.openlocfilehash: 83bcb339c16b8a1be15773ba35208461ecf8120e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: b7b8583e8923e65ff068a2bec060a27a14905485
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Chaves de conta de Armazenamento do Azure Key Vault
 
@@ -139,10 +138,15 @@ A saída do comando anterior incluirá o ServicePrincipal, que chamaremos de *yo
 
 ### <a name="set-permissions"></a>Definir permissões
 
-Verifique se as permissões de armazenamento estão definidas como *todos*.
+Verifique se as permissões de armazenamento estão definidas como *todos*. Você pode obter yourUserPrincipalId e definir permissões no cofre usando os seguintes comandos.
 
 ```powershell
-Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourtest1' -ObjectId yourServicePrincipalId -PermissionsToStorage all
+Get-AzureRmADUser -SearchString "your name"
+```
+Agora, pesquise o nome e receba o ObjectId relacionado, que será usado na definição de permissões no cofre.
+
+```powershell
+Set-AzureRmKeyVaultAccessPolicy -VaultName 'yourtest1' -ObjectId yourUserPrincipalId -PermissionsToStorage all
 ```
 
 ### <a name="allow-access"></a>Permitir o acesso
@@ -238,4 +242,3 @@ O token OBO só funcionará quando você usar os aplicativos cliente nativos de 
 
 - [Sobre chaves, segredos e certificados](https://docs.microsoft.com/rest/api/keyvault/)
 - [Blog da equipe do Key Vault](https://blogs.technet.microsoft.com/kv/)
-

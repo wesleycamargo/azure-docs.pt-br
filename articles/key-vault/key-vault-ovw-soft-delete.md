@@ -5,13 +5,12 @@ ms.service: key-vault
 author: BrucePerlerMS
 ms.author: bruceper
 manager: mbaldwin
-ms.date: 07/10/2017
+ms.date: 09/25/2017
+ms.openlocfilehash: 384b65bc89401780b174c143d84b3b8f552fba3d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: c873b153ef9c7d5f55672a5918c9dc4fb7256701
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/12/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Visão geral de exclusão reversível do Azure Key Vault
 
@@ -22,7 +21,9 @@ O recurso de exclusão reversível do Azure Key Vault permite a recuperação de
 
 ## <a name="supporting-interfaces"></a>Interfaces de suporte
 
-O recurso de exclusão reversível está inicialmente disponível por meio das interfaces da REST, do .NET/C# e do PowerShell. Consulte as referências para obter esses e mais detalhes, [Referência do Key Vault](https://docs.microsoft.com/azure/key-vault/).
+O recurso de exclusão reversível está inicialmente disponível por meio das interfaces da REST, do .NET/C#, do PowerShell e do CLI.
+
+Consulte as referências para obter esses e mais detalhes, [Referência do Azure Key Vault](https://docs.microsoft.com/azure/key-vault/).
 
 ## <a name="scenarios"></a>Cenários
 
@@ -36,7 +37,7 @@ Os Azure Key Vaults são recursos controlados, gerenciados pelo Azure Resource M
 
 Com esse recurso, a operação DELETE em um cofre de chaves ou objeto do cofre de chaves é uma exclusão reversível, efetivamente mantendo os recursos por um período de retenção especificado, ao mesmo tempo aparentando ter excluído o objeto. Além disso, o serviço fornece um mecanismo para recuperar o objeto excluído, basicamente, desfazendo a exclusão. 
 
-A exclusão reversível é um comportamento opcional do Key Vault e **não está habilitado por padrão** nesta versão. Para obter detalhes sobre como habilitar a exclusão reversível em seu cofre de chaves, consulte as diretrizes específicas na referência da interface de sua escolha, [Referência do Key Vault](https://docs.microsoft.com/azure/key-vault/).
+A exclusão reversível é um comportamento opcional do Key Vault e **não está habilitado por padrão** nesta versão. 
 
 ### <a name="key-vault-recovery"></a>Recuperação do cofre de chaves
 
@@ -67,6 +68,10 @@ A exclusão permanente, limpeza, de um cofre de chaves é possível por meio de 
 
 Uma exceção é quando a assinatura do Azure foi marcada como *não excluível*. Neste caso, apenas o serviço pode executar a exclusão real e ele o fará como um processo agendado. 
 
+## <a name="next-steps"></a>Próximas etapas
 
+As duas guias a seguir oferecem os cenários de uso primário para usar a exclusão reversível.
 
+- [Como usar a exclusão reversível do Key Vault com o PowerShell](key-vault-soft-delete-powershell.md) 
+- [Como usar a exclusão reversível do Key Vault com a CLI](key-vault-soft-delete-cli.md)
 

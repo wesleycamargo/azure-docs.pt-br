@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 09/07/2017
 ms.author: markvi
 ms.reviewer: jairoc
+ms.openlocfilehash: 3325aa48db36426a8cf1c9859390c357267ee5fa
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: 4580075df9fce74664b22aa24065ba1885692384
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-configure-hybrid-azure-active-directory-joined-devices"></a>Como configurar dispositivos adicionados ao Azure Active Directory híbrido
 
@@ -133,8 +132,9 @@ O script a seguir mostra um exemplo de uso do cmdlet. Nesse script, `$aadAdminCr
 
 O cmdlet `Initialize-ADSyncDomainJoinedComputerSync`:
 
-- Usa o módulo Active Directory PowerShell, que se baseia nos Serviços Web do Active Directory em execução em um controlador de domínio. Os Serviços Web do Active Directory têm suporte em controladores de domínio executando o Windows Server 2008 R2 e posterior.
+- Usa o módulo do Active Directory PowerShell e Ferramentas do AD DS, que se baseiam nos Serviços Web do Active Directory em execução em um controlador de domínio. Os Serviços Web do Active Directory têm suporte em controladores de domínio executando o Windows Server 2008 R2 e posterior.
 - Há suporte somente para a **versão do módulo 1.1.166.0 do MSOnline PowerShell**. Para baixar este módulo, use este [link](http://connect.microsoft.com/site1164/Downloads/DownloadDetails.aspx?DownloadID=59185).   
+- Se as ferramentas do AD DS não estiverem instaladas, o `Initialize-ADSyncDomainJoinedComputerSync` falhará.  As ferramentas do AD DS podem ser instaladas pelo Gerenciador do Servidor em Recursos – Ferramentas de Administração de Servidor Remoto – Ferramentas de Administração de Função.
 
 Para controladores de domínio executando o Windows Server 2008 ou versões anteriores, use o script abaixo para criar o ponto de conexão de serviço.
 
@@ -583,4 +583,3 @@ A saída desse cmdlet mostra os dispositivos que foram registrados e adicionados
 
 <!--Image references-->
 [1]: ./media/active-directory-conditional-access-automatic-device-registration-setup/12.png
-

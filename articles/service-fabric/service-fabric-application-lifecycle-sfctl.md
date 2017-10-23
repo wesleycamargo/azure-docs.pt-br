@@ -8,12 +8,11 @@ ms.service: service-fabric
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: edwardsa
+ms.openlocfilehash: 6eb58b31f20f239d310415d44f61e7455918dae9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: c3a2eb3e6e54f952ef963bb2a0292d9ad7b53bc5
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-an-azure-service-fabric-application-by-using-azure-service-fabric-cli"></a>Gerenciar um aplicativo do Azure Service Fabric usando a CLI do Azure Service Fabric
 
@@ -31,14 +30,14 @@ Para implantar um novo aplicativo, execute estas etapas:
 
 1. Faça upload de um pacote de aplicativos no repositório de imagens do Service Fabric.
 2. Provisione um tipo de aplicativo.
-3. Especifique e crie um aplicativo.
-4. Especifique e crie serviços.
+3. Exclua o conteúdo do repositório de imagens.
+4. Especifique e crie um aplicativo.
+5. Especifique e crie serviços.
 
 Para remover um aplicativo existente, execute estas etapas:
 
 1. Exclua o aplicativo.
 2. Desprovisione o tipo de aplicativo associado.
-3. Exclua o conteúdo do repositório de imagens.
 
 ## <a name="deploy-a-new-application"></a>Implantar um novo aplicativo
 
@@ -65,6 +64,18 @@ sfctl application provision --application-type-build-path app_package_dir
 ```
 
 O valor de `application-type-build-path` é o nome do diretório em que você carregou o pacote de aplicativos.
+
+### <a name="delete-the-application-package"></a>Excluir o pacote de aplicativos
+
+É recomendável que você remova o pacote de aplicativos depois que o aplicativo for registrado com êxito.  Excluir pacotes de aplicativos do repositório de imagens libera recursos do sistema.  Manter pacotes de aplicativos não utilizados consome o armazenamento em disco e leva a problemas de desempenho do aplicativo. 
+
+Para excluir o pacote de aplicativos do repositório de imagens, use o seguinte comando:
+
+```azurecli
+sfctl store delete --content-path app_package_dir
+```
+
+`content-path` deve ser o nome do diretório que você carregou ao criar o aplicativo.
 
 ### <a name="create-an-application-from-an-application-type"></a>Criar um aplicativo com base em um tipo de aplicativo
 
@@ -127,18 +138,6 @@ sfctl application unprovision --application-type-name TestAppTye --application-t
 
 O nome e a versão do tipo devem corresponder ao nome e à versão no manifesto do aplicativo provisionado anteriormente.
 
-### <a name="delete-the-application-package"></a>Excluir o pacote de aplicativos
-
-Depois de haver desprovisionado o tipo de aplicativo, você pode excluir o pacote de aplicativos do repositório de imagens, caso ele não seja mais necessário. A exclusão de pacotes de aplicativos ajuda a recuperar o espaço em disco. 
-
-Para excluir o pacote de aplicativos do repositório de imagens, use o seguinte comando:
-
-```azurecli
-sfctl store delete --content-path app_package_dir
-```
-
-`content-path` deve ser o nome do diretório que você carregou ao criar o aplicativo.
-
 ## <a name="upgrade-application"></a>Atualizar aplicativo
 
 Após criar seu aplicativo, você pode repetir o mesmo conjunto de etapas para provisionar uma segunda versão do aplicativo. Em seguida, com uma atualização do aplicativo do Service Fabric, você pode fazer a transição para executar a segunda versão do aplicativo. Para obter mais informações, consulte a documentação sobre [Atualizações de aplicativo do Service Fabric](service-fabric-application-upgrade.md).
@@ -148,6 +147,7 @@ Para realizar uma atualização, primeiro provisione a próxima versão do aplic
 ```azurecli
 sfctl application upload --path ~/app_package_dir_2
 sfctl application provision --application-type-build-path app_package_dir_2
+sfctl store delete --content-path app_package_dir_2
 ```
 
 Em seguida, é recomendável realizar uma atualização automática monitorada. Inicie a atualização executando o seguinte comando:
@@ -169,4 +169,3 @@ Por fim, se uma atualização estiver em andamento e precisar ser cancelada, voc
 * [Noções básicas do Service Fabric](service-fabric-cli.md)
 * [Introdução ao Service Fabric no Linux](service-fabric-get-started-linux.md)
 * [Iniciar uma atualização de aplicativo do Service Fabric](service-fabric-application-upgrade.md)
-

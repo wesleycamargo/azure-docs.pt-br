@@ -12,18 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/19/2017
+ms.date: 10/02/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: oldportal
+ms.openlocfilehash: 168829494de33a21df68d3fc5e2a174f435c5ad5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: f2541b906a2c3a5bbdd384476ce99cad766a6c09
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="populate-groups-dynamically-based-on-object-attributes"></a>Popular grupos dinamicamente com base em atributos de objeto
 O portal clássico do Azure possibilita habilitar associações dinâmicas baseadas em atributos mais complexas de grupos do Azure AD (Azure Active Directory).  
 
@@ -266,26 +264,26 @@ Você pode criar um grupo contendo todos os subordinados diretos de um gerente. 
 ## <a name="using-attributes-to-create-rules-for-device-objects"></a>Usando atributos para criar regras para objetos de dispositivo
 Você também pode criar uma regra que seleciona objetos de dispositivo para associação em um grupo. Os seguintes atributos de dispositivo podem ser usados:
 
-| Propriedades              | Valores permitidos                  | Uso                                                       |
-|-------------------------|---------------------------------|-------------------------------------------------------------|
-| accountEnabled          | verdadeiro, falso                      | (device.accountEnabled -eq true)                            |
-| displayName             | Um valor de cadeia de caracteres.                | (device.displayName -eq "Rob Iphone”)                       |
-| deviceOSType            | Um valor de cadeia de caracteres.                | (device.deviceOSType -eq "IOS")                             |
-| deviceOSVersion         | Um valor de cadeia de caracteres.                | (device.OSVersion -eq "9.1")                                |
-| deviceCategory          | o nome de uma categoria de dispositivo válida    | (device.deviceCategory -eq "BYOD")                          |
-| deviceManufacturer      | Um valor de cadeia de caracteres.                | (device.deviceManufacturer -eq "Microsoft")                 |
-| deviceModel             | Um valor de cadeia de caracteres.                | (device.deviceModel -eq "IPhone 7+")                        |
-| deviceOwnership         | Pessoal, empresa               | (device.deviceOwnership -eq "Company")                      |
-| domainName              | Um valor de cadeia de caracteres.                | (device.domainName -eq "contoso.com")                       |
-| enrollmentProfileName   | Um valor de cadeia de caracteres.                | (device.enrollmentProfileName -eq "")                       |
-| isRooted                | verdadeiro, falso                      | (device.deviceOSType -eq true)                              |
-| managementType          | Um valor de cadeia de caracteres.                | (device.managementType -eq "")                              |
-| organizationalUnit      | Um valor de cadeia de caracteres.                | (device.organizationalUnit -eq "")                          |
-| deviceId                | um deviceId válido                | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d") |
-| ID do objeto                | um objectId válido do AAD            | (device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d") |
+| Propriedades              | Valores permitidos                     | Uso                                                       |
+|-------------------------|------------------------------------|-------------------------------------------------------------|
+| accountEnabled          | verdadeiro, falso                         | (device.accountEnabled -eq true)                            |
+| displayName             | Um valor de cadeia de caracteres.                   | (device.displayName -eq "Rob Iphone”)                       |
+| deviceOSType            | Um valor de cadeia de caracteres.                   | (device.deviceOSType -eq "Android")                         |
+| deviceOSVersion         | Um valor de cadeia de caracteres.                   | (device.OSVersion -eq "9.1")                                |
+| deviceCategory          | o nome de uma categoria de dispositivo válida       | (device.deviceCategory -eq "BYOD")                          |
+| deviceManufacturer      | Um valor de cadeia de caracteres.                   | (device.deviceManufacturer -eq "Samsung")                   |
+| deviceModel             | Um valor de cadeia de caracteres.                   | (device.deviceModel -eq "iPad Air”)                         |
+| deviceOwnership         | Pessoal, empresa                  | (device.deviceOwnership -eq "Company")                      |
+| domainName              | Um valor de cadeia de caracteres.                   | (device.domainName -eq "contoso.com")                       |
+| enrollmentProfileName   | Nome do perfil de registro do dispositivo da Apple    | (device.enrollmentProfileName -eq "DEP iPhones")       |
+| isRooted                | verdadeiro, falso                         | (device.isRooted -eq true)                              |
+| managementType          | "MDM" para dispositivos móveis, "Computador" para computadores gerenciado por meio do agente de computador do Intune    | (device.managementType -eq "MDM")                  |
+| organizationalUnit      | qualquer valor de cadeia de caracteres correspondente à unidade organizacional definida pelo Active Directory local | (device.organizationalUnit -eq "US PCs")      |
+| deviceId                | um deviceId Intune válido                | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d") |
+| ID do objeto                | uma objectId do Azure AD válida            | (device.objectId -eq "76ad43c9-32c5-45e8-a272-7b58b58f596d") |
 
 > [!NOTE]
-> Essas regras de dispositivo não podem ser criadas usando o menu suspenso "regra simples" no portal clássico do Azure.
+> As regras de dispositivo não podem ser criadas usando o menu suspenso "regra simples" no portal clássico do Azure.
 >
 >
 
@@ -310,4 +308,3 @@ Esses artigos fornecem mais informações sobre o Active Directory do Azure.
 * [Cmdlets do Azure Active Directory para definir configurações de grupo](active-directory-accessmanagement-groups-settings-cmdlets.md)
 * [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
-

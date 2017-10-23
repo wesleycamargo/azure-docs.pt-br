@@ -15,10 +15,10 @@ ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
 ms.openlocfilehash: fb5e399d4ab02a7f2805cc280b213bf5b44f6993
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="microsoft-cloud-services-and-network-security"></a>Segurança de rede e serviços em nuvem da Microsoft
 Os serviços em nuvem da Microsoft entregam serviços e estrutura em larga escala, recursos de nível empresarial e várias opções de conectividade híbrida. Os clientes podem optar por acessar esses serviços através da Internet ou com a Azure ExpressRoute, que fornece conectividade de rede privada. A plataforma Microsoft Azure permite que os clientes estendam facilmente sua infra-estrutura para a nuvem e criem arquiteturas com várias camadas. Além disso, terceiros podem habilitar recursos avançados oferecendo serviços de segurança e soluções de virtualização. Este white paper fornece uma visão geral sobre segurança e problemas de arquitetura que os clientes devem considerar ao usar os serviços em nuvem da Microsoft acessados através do ExpressRoute. Ele também aborda a criação de serviços mais seguros em redes virtuais do Azure.
@@ -533,12 +533,12 @@ A adição de uma conexão de rede de emparelhamento privado de ExpressRoute pod
 [9]: ./media/best-practices-network-security/example3design.png "DMZ bidirecional com NVA, NSG e UDR"
 [10]: ./media/best-practices-network-security/example3firewalllogical.png "Exibição lógica das regras de firewall"
 [11]: ./media/best-practices-network-security/example3designoptions.png "DMZ com rede híbrida conectada com NVA"
-[12]: ./media/best-practices-network-security/example4designs2s.png "DMZ com NVA conectado usando VPN site a site"
+[12]: ./media/best-practices-network-security/example4designs2s.png "DMZ com NVA conectado usando uma VPN site a site"
 [13]: ./media/best-practices-network-security/example4networklogical.png "Rede lógica da perspectiva de NVA"
 [14]: ./media/best-practices-network-security/example5designoptions.png "DMZ com rede híbrida site a site conectada ao Gateway do Azure"
 [15]: ./media/best-practices-network-security/example5designs2s.png "DMZ com Gateway do Azure usando VPN site a site"
-[16]: ./media/best-practices-network-security/example6designoptions.png "DMZ com rede híbrida da ExpressRoute conectada ao Gateway do Azure"
-[17]: ./media/best-practices-network-security/example6designexpressroute.png "DMZ com Gateway do Azure usando uma conexão ExpressRoute"
+[16]: ./media/best-practices-network-security/example6designoptions.png "DMZ com rede híbrida do ExpressRoute conectada ao Gateway do Azure"
+[17]: ./media/best-practices-network-security/example6designexpressroute.png "DMZ com Gateway do Azure usando uma conexão do ExpressRoute"
 
 <!--Link References-->
 [TrustCenter]: https://azure.microsoft.com/support/trust-center/compliance/

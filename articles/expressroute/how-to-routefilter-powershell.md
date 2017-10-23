@@ -3,8 +3,8 @@ title: 'Configurar os filtros de rota para o emparelhamento da Microsoft do Azur
 description: Este artigo descreve como configurar filtros de rota para o Emparelhamento da Microsoft usando o PowerShell
 documentationcenter: na
 services: expressroute
-author: cherylmc
-manager: timlt
+author: ganesr
+manager: rossort
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,20 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/16/2017
-ms.author: ganesr;cherylmc
+ms.date: 09/26/2017
+ms.author: ganesr
+ms.openlocfilehash: 76077be4f443f8e0dd6341d1a87539277f23e1c5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
-ms.openlocfilehash: de3550c20439fa809869d98b8a57ea3be9c03e7c
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="configure-route-filters-for-microsoft-peering"></a>Configurar os filtros de rota para o emparelhamento da Microsoft
+# <a name="configure-route-filters-for-microsoft-peering-powershell"></a>Configurar os filtros de rota para o emparelhamento da Microsoft: PowerShell
+> [!div class="op_single_selector"]
+> * [Portal do Azure](how-to-routefilter-portal.md)
+> * [PowerShell do Azure](how-to-routefilter-powershell.md)
+> * [CLI do Azure](how-to-routefilter-cli.md)
+> 
 
 Filtros de rota são uma maneira de consumir um subconjunto de serviços com suporte por meio do emparelhamento da Microsoft. As etapas neste artigo lhe ajudam a configurar e gerenciar filtros de rota para circuitos de ExpressRoute.
 
-Serviços do Dynamics 365 e serviços do Office 365, tais como o Exchange Online, o SharePoint Online e o Skype for Business, são acessíveis por meio do emparelhamento da Microsoft. Quando emparelhamento da Microsoft é configurado em um circuito de ExpressRoute, todos os prefixos relacionados a esses serviços são publicados por meio das sessões de BGP que são estabelecidas. Um valor de comunidade BGP é anexado a cada prefixo, pelo qual se pode identificar o serviço que é oferecido. Para obter uma lista dos valores de comunidade BGP e os serviços para os quais eles são mapeados, consulte [comunidades BGP](expressroute-routing.md#bgp).
+Os serviços do Dynamics 365 e os serviços do Office 365, tais como o Exchange Online, o SharePoint Online e o Skype for Business, bem como os serviços do Azure como o armazenamento e o BD SQL estão acessíveis por meio do emparelhamento da Microsoft. Quando emparelhamento da Microsoft é configurado em um circuito de ExpressRoute, todos os prefixos relacionados a esses serviços são publicados por meio das sessões de BGP que são estabelecidas. Um valor de comunidade BGP é anexado a cada prefixo, pelo qual se pode identificar o serviço que é oferecido. Para obter uma lista dos valores de comunidade BGP e os serviços para os quais eles são mapeados, consulte [comunidades BGP](expressroute-routing.md#bgp).
 
 Se você precisa de conectividade para todos os serviços, um grande número de prefixos é anunciado através do BGP. Isso aumenta consideravelmente o tamanho das tabelas de rotas mantidas por roteadores em sua rede. Se você planeja consumir apenas um subconjunto de serviços oferecidos pelo emparelhamento da Microsoft, você pode reduzir o tamanho de suas tabelas de rotas de duas maneiras. Você pode:
 
@@ -100,7 +104,7 @@ Especifique a assinatura que você quer usar.
 Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_name"
 ```
 
-## <a name="prefixes"></a>Etapa 1. Obter uma lista de prefixos e valores de comunidade BGP
+## <a name="prefixes"></a>Etapa 1: obter uma lista de prefixos e valores de comunidade BGP
 
 ### <a name="1-get-a-list-of-bgp-community-values"></a>1. Obter uma lista de valores de comunidade BGP
 
@@ -113,7 +117,7 @@ Get-AzureRmBgpServiceCommunity
 
 Faça uma lista de valores de comunidade BGP que você deseja usar no filtro de rota. Por exemplo, o valor de comunidade BGP para serviços do Dynamics 365 é 12076:5040.
 
-## <a name="filter"></a>Etapa 2. Criar um filtro de rota e uma regra de filtro
+## <a name="filter"></a>Etapa 2: criar um filtro de rota e uma regra de filtro
 
 Um filtro de rota pode ter apenas uma regra, que deve ser do tipo 'Permitir'. Essa regra pode ter uma lista de valores de comunidade BGP associados a ela.
 
@@ -143,7 +147,7 @@ $routefilter.Rules.Add($rule)
 Set-AzureRmRouteFilter -RouteFilter $routefilter
 ```
 
-## <a name="attach"></a>Etapa 3. Anexar o filtro de rota a um circuito de ExpressRoute
+## <a name="attach"></a>Etapa 3: anexar o filtro de rota a um circuito de ExpressRoute
 
 Execute o seguinte comando para anexar o filtro de rota ao circuito ExpressRoute, supondo que você tenha apenas emparelhamento da Microsoft:
 
@@ -152,7 +156,9 @@ $ckt.Peerings[0].RouteFilter = $routefilter
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-## <a name="getproperties"></a>Para obter as propriedades de um filtro de rota
+## <a name="tasks"></a>Tarefas comuns
+
+### <a name="getproperties"></a>Para obter as propriedades de um filtro de rota
 
 Para obter as propriedades de um filtro de rota, use as seguintes etapas:
 
@@ -168,9 +174,9 @@ Para obter as propriedades de um filtro de rota, use as seguintes etapas:
   $rule = $routefilter.Rules[0]
   ```
 
-## <a name="updateproperties"></a>Para atualizar as propriedades de um filtro de rota
+### <a name="updateproperties"></a>Para atualizar as propriedades de um filtro de rota
 
-Se o filtro de rota já está anexado a um circuito, atualizações para a lista de comunidades BGP propagam automaticamente as alterações de anúncio de prefixo apropriadas por meio das sessões de BGP estabelecidas. Você pode atualizar a lista de comunidades BGP de seu filtro de rota usando o seguinte comando:
+Se o filtro de rota já está anexado a um circuito, as atualizações à lista de comunidade BGP propagam automaticamente as alterações de anúncio de prefixo apropriadas por meio das sessões de BGP estabelecidas. Você pode atualizar a lista de comunidades BGP de seu filtro de rota usando o seguinte comando:
 
 ```powershell
 $routefilter = Get-AzureRmRouteFilter -Name "RouteFilterName" -ResourceGroupName "ExpressRouteResourceGroupName"
@@ -178,7 +184,7 @@ $routefilter.rules[0].Communities = "12076:5030", "12076:5040"
 Set-AzureRmRouteFilter -RouteFilter $routefilter
 ```
 
-## <a name="detach"></a>Para desanexar um filtro de rota de um circuito de ExpressRoute
+### <a name="detach"></a>Para desanexar um filtro de rota de um circuito de ExpressRoute
 
 Depois que um filtro de rota é desanexado do circuito de ExpressRoute, nenhum prefixo é anunciado através da sessão de BGP. Você pode desanexar um filtro de rota de um circuito de ExpressRoute usando o seguinte comando:
   
@@ -187,7 +193,7 @@ $ckt.Peerings[0].RouteFilter = $null
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-## <a name="delete"></a>Para excluir um filtro de rota
+### <a name="delete"></a>Para excluir um filtro de rota
 
 Você só pode excluir um filtro de rota se ele não está anexado a nenhum circuito. Verifique se o filtro de rota não está anexado a algum circuito antes de tentar excluí-lo. Você pode excluir um filtro de rota usando o seguinte comando:
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2016
 ms.author: glenga
+ms.openlocfilehash: ee64913629124f886e91478c21304956fbec9f90
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
-ms.openlocfilehash: 06e85d02d82bcc7d57989c1dce97028b24b9f317
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="article-top"></a>Migrar seu Serviço Móvel do Azure existente para o Serviço de Aplicativo do Azure
 Com a [disponibilidade geral do Serviço de Aplicativo do Azure], sites de Serviços Móveis do Azure podem ser migrados facilmente no local para aproveitar todos os recursos do Serviço de Aplicativo do Azure.  Este documento explica o que esperar ao migrar seu site dos Serviços Móveis do Azure para o Serviço de Aplicativo do Azure.
@@ -32,7 +31,7 @@ A migração do Serviço Móvel do Azure torna o serviço móvel um aplicativo d
 ## <a name="why-migrate"></a>Por que você deve migrar seu site
 A Microsoft está recomendando que você migre o serviço móvel do Azure para aproveitar os recursos do Serviço de Aplicativo do Azure, incluindo:
 
-* Novos recursos de host, incluindo [Trabalhos Web] e [nomes de domínio personalizados].
+* Novos recursos de host, incluindo [WebJobs] e [nomes de domínio personalizados].
 * Monitorando e solucionando problemas com o New Relic ou o [Application Insights].
 * Ferramentas do DevOps internas, incluindo [Slots de preparo], reversão e testes em produção.
 * [Dimensionamento automático], balanceamento de carga e [monitoramento de desempenho].
@@ -229,7 +228,7 @@ Os trabalhos agendados são listados com a frequência especificada antes da mig
 3. Clique em **Configurações** e em **Agenda**.
 4. Selecione uma Recorrência de **Uma vez** e clique em **Salvar**
 
-Os trabalhos sob demanda estão localizados em `App_Data/config/scripts/scheduler post-migration`.  É recomendável converter todos os trabalhos sob demanda para [Trabalhos Web] ou [Funções].  Grave novos trabalhos de agendador como [Trabalhos Web] ou [Funções].
+Os trabalhos sob demanda estão localizados em `App_Data/config/scripts/scheduler post-migration`.  É recomendável converter todos os trabalhos sob demanda para [WebJobs] ou [Funções].  Grave novos trabalhos de agendador como [WebJobs] ou [Funções].
 
 ### <a name="notification-hubs"></a>Hubs de Notificação
 Os Serviços Móveis usam os Hubs de Notificação para notificações por push.  As seguintes configurações de aplicativo são usadas para vincular o Hub de Notificação ao Serviço Móvel após a migração:
@@ -358,7 +357,7 @@ Ao criar um perfil do Gerenciador de Tráfego, você não pode escolher diretame
 Agora que o aplicativo foi migrado para o serviço de aplicativo, há ainda mais recursos que você pode usar:
 
 * [Slots de preparo] de implantação permitem testar alterações ao seu site e executar um teste A/B.
-* [Trabalhos Web] fornecem uma substituição para trabalhos agendados sob demanda.
+* [WebJobs] fornecem uma substituição para trabalhos agendados sob demanda.
 * Você pode [implantar continuamente] o site vinculando-o a GitHub, TFS ou Mercurial.
 * Você pode usar o [Application Insights] para monitorar seu site.
 * Atenda a um site e a uma API móvel com o mesmo código.
@@ -375,29 +374,26 @@ Agora que o aplicativo foi migrado para o serviço de aplicativo, há ainda mais
 <!-- Links -->
 [Preços do Serviço de Aplicativo]: https://azure.microsoft.com/en-us/pricing/details/app-service/
 [Application Insights]: ../application-insights/app-insights-overview.md
-[Dimensionamento automático]: ../app-service-web/web-sites-scale.md
-[Serviço de Aplicativo do Azure]: ../app-service/app-service-value-prop-what-is.md
-[Documentação de implantação do Serviço de Aplicativo do Azure]: ../app-service-web/web-sites-deploy.md
+[Dimensionamento automático]: ../app-service/web-sites-scale.md
+[Serviço de Aplicativo do Azure]: ../app-service/app-service-web-overview.md
 [Portal Clássico do Azure]: https://manage.windowsazure.com
 [portal do Azure]: https://portal.azure.com
 [Azure Region]: https://azure.microsoft.com/en-us/regions/
 [Planos do Agendador do Azure]: ../scheduler/scheduler-plans-billing.md
-[implantar continuamente]: ../app-service-web/app-service-continuous-deployment.md
+[implantar continuamente]: ../app-service/app-service-continuous-deployment.md
 [Converta seus namespaces mistos]: https://azure.microsoft.com/en-us/blog/updates-from-notification-hubs-independent-nuget-installation-model-pmt-and-more/
 [curl]: http://curl.haxx.se/
-[nomes de domínio personalizados]: ../app-service-web/web-sites-custom-domain-name.md
+[nomes de domínio personalizados]: ../app-service/app-service-web-tutorial-custom-domain.md
 [Fiddler]: http://www.telerik.com/fiddler
 [disponibilidade geral do Serviço de Aplicativo do Azure]: https://azure.microsoft.com/blog/announcing-general-availability-of-app-service-mobile-apps/
 [Hybrid Connections]: ../app-service/app-service-hybrid-connections.md
-[Logs]: ../app-service-web/web-sites-enable-diagnostic-log.md
+[Logs]: ../app-service/web-sites-enable-diagnostic-log.md
 [SDK do Node.js de Aplicativos Móveis]: https://github.com/azure/azure-mobile-apps-node
 [Serviços Móveis vs. Serviço de Aplicativo]: app-service-mobile-value-prop-migration-from-mobile-services.md
 [Hubs de Notificação]: ../notification-hubs/notification-hubs-push-notification-overview.md
-[monitoramento de desempenho]: ../app-service-web/web-sites-monitor.md
+[monitoramento de desempenho]: ../app-service/web-sites-monitor.md
 [Postman]: http://www.getpostman.com/
-[Slots de preparo]: ../app-service-web/web-sites-staged-publishing.md
-[VNet]: ../app-service-web/web-sites-integrate-with-vnet.md
-[Trabalhos Web]: ../app-service-web/websites-webjobs-resources.md
+[Slots de preparo]: ../app-service/web-sites-staged-publishing.md
+[VNet]: ../app-service/web-sites-integrate-with-vnet.md
 [Exemplos de Transformação XDT]: https://github.com/projectkudu/kudu/wiki/Xdt-transform-samples
 [Funções]: ../azure-functions/functions-overview.md
-

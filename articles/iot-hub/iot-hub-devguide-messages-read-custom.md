@@ -11,15 +11,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/25/2017
+ms.date: 09/19/2017
 ms.author: dobett
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: a21f1c61f344f96e2e03422e41fd8c5f7f841a0c
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
-
-
+ms.openlocfilehash: a499783fc02e1371562edd41b827758e19fbd823
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-message-routes-and-custom-endpoints-for-device-to-cloud-messages"></a>Usar rotas de mensagens e pontos de extremidade personalizados para mensagens de dispositivo para a nuvem
 
@@ -34,7 +32,10 @@ O Hub IoT habilita o direcionamento de [mensagens de dispositivo para a nuvem][l
 
 Uma única mensagem pode corresponder à condição em várias regras de roteamentos, caso em que o Hub IoT entrega a mensagem para o ponto de extremidade associado a cada regra correspondente. O Hub IoT também elimina a duplicação da entrega de mensagem automaticamente, portanto, se uma mensagem corresponder a várias regras que têm o mesmo destino, ela será gravada apenas uma vez no destino.
 
-Um hub IoT tem um [ponto de extremidade interno][lnk-built-in] padrão. Você pode criar pontos de extremidade personalizados para direcionar mensagens ou vinculando outros serviços em sua assinatura ao hub. O Hub IoT atualmente dá suporte aos Hubs de Eventos, filas do Barramento de Serviço e tópicos do Barramento de Serviço como pontos de extremidade personalizados.
+Um hub IoT tem um [ponto de extremidade interno][lnk-built-in] padrão. Você pode criar pontos de extremidade personalizados para direcionar mensagens ou vinculando outros serviços em sua assinatura ao hub. O Hub IoT atualmente dá suporte aos contêineres de Armazenamento do Microsoft Azure, Hubs de Eventos, filas do Barramento de Serviço e tópicos do Barramento de Serviço como pontos de extremidade personalizados.
+
+> [!NOTE]
+> O Hub IoT somente dá suporte à gravação de dados em contêineres de Armazenamento do Microsoft Azure como blobs.
 
 > [!WARNING]
 > As filas e os tópicos do Barramento de Serviço com **Sessões** ou **Detecção de Duplicidades** habilitadas não têm suporte como pontos de extremidade personalizados.
@@ -43,6 +44,7 @@ Para obter mais informações sobre a criação de pontos de extremidade persona
 
 Para saber mais sobre a leitura de pontos de extremidade personalizados, confira:
 
+* Leitura de [contêineres do Microsoft Azure][lnk-getstarted-storage].
 * Leitura de [Hubs de Eventos][lnk-getstarted-eh].
 * Leitura de [filas do Barramento de Serviço][lnk-getstarted-queue].
 * Leitura de [tópicos do Barramento de Serviço][lnk-getstarted-topic].
@@ -63,4 +65,4 @@ O tutorial [Processar mensagens de dispositivo para a nuvem do Hub IoT usando ro
 [lnk-getstarted-eh]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md
 [lnk-getstarted-queue]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
 [lnk-getstarted-topic]: ../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md
-
+[lnk-getstarted-storage]: ../storage/blobs/storage-blobs-introduction.md

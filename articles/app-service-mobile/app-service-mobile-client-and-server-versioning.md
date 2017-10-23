@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 10/01/2016
 ms.author: glenga
 ms.openlocfilehash: f79e819b1547f81498ea213858faf3c75e374782
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Controle de versão de cliente e servidor em Aplicativos Móveis e Serviços Móveis
 A versão mais recente dos Serviços Móveis do Azure é o recurso **Aplicativos Móveis** do Serviço de Aplicativo do Azure.
@@ -79,7 +79,7 @@ Observação: os SDKs do cliente dos Serviços Móveis *não* enviam um valor de
 ### <a name="mobile-services-server-sdks"></a>SDKs de servidor de *Serviços* Móveis
 | Plataforma servidor | Versão | Cabeçalho de versão aceito |
 | --- | --- | --- |
-| .NET |[WindowsAzure.MobileServices.Backend.* versão 1.0. x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) |* * Nenhum cabeçalho de versão * * |
+| .NET |[WindowsAzure.MobileServices.Backend.* versão 1.0. x](https://www.nuget.org/packages/WindowsAzure.MobileServices.Backend/) |**Nenhum cabeçalho de versão** |
 | Node.js |(em breve) |**Nenhum cabeçalho de versão** |
 
 <!-- TODO: add Node npm version -->

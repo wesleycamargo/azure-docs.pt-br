@@ -8,28 +8,26 @@ editor: jasonwhowell
 manager: jhubbard
 ms.service: mysql-database
 ms.topic: article
-ms.date: 06/12/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 2f40da41bcfda7e35f6fc63ead5d055246ab390c
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/30/2017
-
+ms.date: 09/15/2017
+ms.openlocfilehash: c9fe0a892bd5e81d2b33987b6ca55ec753550a01
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-connect-applications-to-azure-database-for-mysql"></a>Como conectar aplicativos ao Banco de Dados do Azure para MySQL
-Este documento lista os tipos de cadeia de conexão com suporte no Banco de Dados do Azure para MySQL, juntamente com modelos e exemplos. Você pode ter parâmetros e configurações diferentes na cadeia de conexão.
+Este tópico lista os tipos de cadeia de conexão com suporte do Banco de Dados do Azure para MySQL, juntamente com modelos e exemplos. Você pode ter parâmetros e configurações diferentes na cadeia de conexão.
 
 - Para obter o certificado, consulte [Como configurar o SSL](./howto-configure-ssl.md).
 - {your_host} = <servername>.mysql.database.azure.com
-- Formato {your_user}@{servername} = userID para realizar a autenticação corretamente.  Usar apenas a userID causará uma falha da autenticação.
+- Formato {your_user}@{servername} = userID para realizar a autenticação corretamente.  Se você usar somente a ID do usuário, a autenticação falhará.
 
 ## <a name="adonet"></a>ADO.NET
 ```ado.net
 Server={your_host};Port={your_port};Database={your_database};Uid={username@servername};Pwd={your_password};[SslMode=Required;]
 ```
 
-Neste exemplo, o nome do servidor é `myserver4demo`, o nome do banco de dados é `wpdb`, o nome de usuário é `WPAdmin` e a senha é `mypassword!2`. Depois, a cadeia de conexão deverá ser:
+Neste exemplo, o nome do servidor é `myserver4demo`, o nome do banco de dados é `wpdb`, o nome de usuário é `WPAdmin` e a senha é `mypassword!2`. Como resultado, a cadeia de conexão deverá ser:
 
 ```ado.net
 Server= "myserver4demo.mysql.database.azure.com"; Port=3306; Database= "wpdb"; Uid= "WPAdmin@myserver4demo"; Pwd="mypassword!2"; SslMode=Required;
@@ -66,10 +64,9 @@ client = Mysql2::Client.new(username: {username@servername}, password: {your_pas
 ```
 
 ## <a name="get-the-connection-string-details-from-the-azure-portal"></a>Obter os detalhes da cadeia de conexão no portal do Azure
-No [portal do Azure](https://portal.azure.com), acesse o Banco de Dados do Azure para MySQL Server e clique em **Cadeias de conexão** para obter a lista de cadeia de caracteres de sua instância: ![O painel Cadeias de conexão no portal do Azure](./media/howto-connection-strings/connection-strings-on-portal.png)
+No [Portal do Azure](https://portal.azure.com), acesse o servidor de Banco de Dados do Azure para MySQL e clique em **Cadeias de conexão** para obter a lista de cadeia de caracteres da sua instância: ![O painel Cadeias de conexão no Portal do Azure](./media/howto-connection-strings/connection-strings-on-portal.png)
 
-A cadeia de caracteres fornece detalhes como o driver, servidor e outros parâmetros de conexão de banco de dados. Modifique esses exemplos usando seus próprios parâmetros, como o nome do banco de dados, a senha e assim por diante. Depois, use essa cadeia de caracteres para se conectar ao servidor por meio do código e dos aplicativos.
+A cadeia de caracteres fornece detalhes como o driver, servidor e outros parâmetros de conexão de banco de dados. Modifique esses exemplos para usar seus próprios parâmetros, como o nome do banco de dados, a senha e assim por diante. Depois, use essa cadeia de caracteres para se conectar ao servidor por meio do código e dos aplicativos.
 
 ## <a name="next-steps"></a>Próximas etapas
 - Para obter mais informações sobre bibliotecas de conexões, consulte [Conceitos – Bibliotecas de conexões](./concepts-connection-libraries.md).
-

@@ -1,5 +1,5 @@
 ---
-title: "Quem está usando a pesquisa do Azure: estudos de caso e histórias | Microsoft Docs"
+title: "Quem está usando o Azure Search: estudos de caso e relatos de cliente | Microsoft Docs"
 description: "Estudos de caso e histórias de clientes sobre a Pesquisa do Azure, um serviço de pesquisa de nuvem hospedado do Microsoft Azure."
 services: search
 documentationcenter: 
@@ -16,10 +16,10 @@ ms.tgt_pltfrm: na
 ms.date: 08/29/2016
 ms.author: heidist
 ms.openlocfilehash: e7cbbdc606920b9698b30e4b7a9c3325a0f866e2
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="whos-using-azure-search-case-studies-and-customer-stories"></a>Quem está usando a Pesquisa do Azure: estudos de caso e relatos de clientes
 Saiba como as organizações a seguir desenvolverem seus negócios por meio da integração de experiências avançadas da Pesquisa do Azure a seus aplicativos online.

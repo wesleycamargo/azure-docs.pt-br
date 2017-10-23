@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2017
 ms.author: spelluru
+ms.openlocfilehash: 02d9102bfc9b0d8084988609282f2c78b5789e7e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
-ms.openlocfilehash: ddbba4b45c5c7cd8ee69390581cd78b820d19259
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Unir o tempo de execução de integração do Azure-SSIS a uma rede virtual
 Você deve unir o tempo de execução de integração (IR) do Azure-SSIS a uma rede virtual (VNet) do Azure se uma das seguintes condições for verdadeira: 
 
@@ -40,8 +38,9 @@ Se os pacotes do SSIS acessam armazenamentos de dados locais, una o tempo de exe
 - Se já houver uma VNet do Azure Resource Manager conectada à sua rede local, primeiro crie uma [VNet clássica](../virtual-network/virtual-networks-create-vnet-classic-pportal.md) para unir o tempo de execução de integração do Azure SSIS a ela. Em seguida, configure uma conexão entre [VNet clássica e Azure Resource Manager](../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md).
 
 ## <a name="domain-name-services-server"></a>Servidor de Serviços de Nome de Domínio 
-Se você precisar usar seu próprio servidor de Serviços de Nome de Domínio (DNS) em uma VNet unida por seu tempo de execução de integração do Azure-SSIS, siga esta orientação e certifique-se de que os nós de seu tempo de execução de integração do Azure-SSIS na VNet possam resolver pontos de extremidade do Azure.
+Se você precisar usar seu próprio servidor de Serviços de Nome de Domínio (DNS) em uma VNet ingressada por seu tempo de execução de integração do Azure-SSIS, siga a diretriz para [certificar-se de que os nós de seu tempo de execução de integração do Azure-SSIS na VNet possam resolver pontos de extremidade do Azure](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server).
 
+## <a name="network-security-group"></a>Grupo de Segurança de Rede
 Se você precisar implementar o Grupo de Segurança de Rede (NSG) em uma VNet unida por seu tempo de execução de integração do Azure-SSIS, permita o tráfego de entrada/saída pelas seguintes portas:
 
 | Portas | Direção | Protocolo de Transporte | Finalidade | Origem da entrada/destino da saída |
@@ -101,4 +100,3 @@ Confira estes tópicos para obter mais informações sobre o tempo de execução
 - [Como: Criar um tempo de execução de integração do Azure-SSIS](create-azure-ssis-integration-runtime.md). Este artigo expande o tutorial e fornece instruções sobre como usar a Instância Gerenciada do SQL do Azure (visualização particular) e unir o IR para uma VNet. 
 - [Monitore um IR do Azure-SSIS](monitor-integration-runtime.md#azure-ssis-integration-runtime). Este artigo mostra como recuperar informações sobre um IR do Azure-SSIS e descrições de status nas informações retornadas. 
 - [Gerencie um IR do Azure-SSIS](manage-azure-ssis-integration-runtime.md). Este artigo mostra como parar, iniciar ou remover um IR do Azure-SSIS. Ele também mostra como expandir o IR do Azure-SSIS adicionando mais nós ao IR. 
-

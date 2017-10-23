@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
 ms.author: juanpere
+ms.openlocfilehash: ed93463153e3fba154aae733da27dea3e8d47689
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: 6e4ca8ad0c444930f5e45eed0a024412de82dbb1
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="schedule-jobs-on-multiple-devices"></a>Agendar trabalhos em vários dispositivos
 ## <a name="overview"></a>Visão geral
@@ -33,7 +32,7 @@ Considere o uso de trabalhos quando: um back-end da solução precisar agendar e
 * Chamar métodos diretos
 
 ## <a name="job-lifecycle"></a>Ciclo de vida do trabalho
-Os trabalhos são iniciados pelo back-end da solução e mantidos pelo Hub IoT.  Você pode iniciar um trabalho por meio de um URI voltado para o serviço (`{iot hub}/jobs/v2/{device id}/methods/<jobID>?api-version=2016-11-14`) e consultar o andamento de um trabalho em execução por meio de um URI voltado para o serviço (`{iot hub}/jobs/v2/<jobId>?api-version=2016-11-14`).  Após o início de um trabalho, a consulta aos trabalhos permite que o aplicativo back-end atualize o status dos trabalhos em execução.
+Os trabalhos são iniciados pelo back-end da solução e mantidos pelo Hub IoT.  Você pode iniciar um trabalho por meio de um URI voltado para o serviço (`{iot hub}/jobs/v2/{device id}/methods/<jobID>?api-version=2016-11-14`) e consultar o andamento de um trabalho em execução por meio de um URI voltado para o serviço (`{iot hub}/jobs/v2/<jobId>?api-version=2016-11-14`). Para atualizar o status de trabalhos em execução quando um trabalho é iniciado, execute uma consulta de trabalho.
 
 > [!NOTE]
 > Quando você inicia um trabalho, os valores e nomes de propriedade só podem conter caracteres alfanuméricos imprimíveis US-ASCII, exceto pelo seguinte conjunto: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``.
@@ -44,7 +43,7 @@ Os trabalhos são iniciados pelo back-end da solução e mantidos pelo Hub IoT. 
 Os tópicos de referência a seguir fornecem a você mais informações sobre como usar os trabalhos.
 
 ## <a name="jobs-to-execute-direct-methods"></a>Trabalhos para execução de métodos diretos
-Veja a seguir os detalhes da solicitação HTTP 1.1 para execução de um [método direto][lnk-dev-methods] em um conjunto de dispositivos usando um trabalho:
+O trecho de código a seguir mostra os detalhes da solicitação HTTPS 1.1 para execução de um [método direto][lnk-dev-methods] em um conjunto de dispositivos usando um trabalho:
 
     ```
     PUT /jobs/v2/<jobId>?api-version=2016-11-14
@@ -67,7 +66,7 @@ Veja a seguir os detalhes da solicitação HTTP 1.1 para execução de um [méto
         maxExecutionTimeInSeconds: <maxExecutionTimeInSeconds>        
     }
     ```
-A condição de consulta também pode ser em uma única ID de dispositivo ou em uma lista de IDs de dispositivos, conforme mostrado abaixo
+A condição de consulta também pode ser em uma única ID de dispositivo ou em uma lista de IDs de dispositivo, conforme mostrado nos exemplos a seguir:
 
 **Exemplos**
 ```
@@ -78,7 +77,7 @@ queryCondition = "deviceId IN ['MyDevice1']
 A [Linguagem de consulta de Hub IoT][lnk-query] aborda a linguagem de consulta de Hub IoT em detalhes adicionais.
 
 ## <a name="jobs-to-update-device-twin-properties"></a>Trabalhos para atualização das propriedades do dispositivo gêmeo
-Veja a seguir os detalhes da solicitação HTTP 1.1 de atualização das propriedades do dispositivo gêmeo usando um trabalho:
+O trecho de código a seguir mostra os detalhes da solicitação HTTPS 1.1 de atualização das propriedades do dispositivo gêmeo usando um trabalho:
 
     ```
     PUT /jobs/v2/<jobId>?api-version=2016-11-14
@@ -98,7 +97,7 @@ Veja a seguir os detalhes da solicitação HTTP 1.1 de atualização das proprie
     ```
 
 ## <a name="querying-for-progress-on-jobs"></a>Consultar o andamento dos trabalhos
-Veja a seguir os detalhes da solicitação HTTP 1.1 para [consultar trabalhos][lnk-query]:
+O trecho de código a seguir mostra os detalhes da solicitação HTTPS 1.1 para [consultar trabalhos][lnk-query]:
 
     ```
     GET /jobs/v2/query?api-version=2016-11-14[&jobType=<jobType>][&jobStatus=<jobStatus>][&pageSize=<pageSize>][&continuationToken=<continuationToken>]
@@ -112,7 +111,7 @@ Veja a seguir os detalhes da solicitação HTTP 1.1 para [consultar trabalhos][l
 O continuationToken é fornecido pela resposta.  
 
 ## <a name="jobs-properties"></a>Propriedades dos trabalhos
-Veja a seguir uma lista de propriedades e descrições correspondentes que podem ser usadas durante a consulta por trabalhos ou por resultados do trabalho.
+A lista a seguir mostra as propriedades e descrições correspondentes que podem ser usadas durante a consulta por trabalhos ou por resultados do trabalho.
 
 | Propriedade | Descrição |
 | --- | --- |
@@ -120,15 +119,15 @@ Veja a seguir uma lista de propriedades e descrições correspondentes que podem
 | **startTime** |Hora de início fornecida pelo aplicativo (ISO 8601) para o trabalho. |
 | **endTime** |Data fornecida pelo Hub IoT (ISO-8601) para a conclusão do trabalho. Válida somente após o trabalho atingir o estado 'concluído'. |
 | **tipo** |Tipos de trabalhos: |
-| **scheduledUpdateTwin**: Um trabalho usado para atualizar um conjunto de propriedades ou marcas desejadas. | |
-| **scheduledDeviceMethod**: um trabalho usado para invocar um método de dispositivo em um conjunto de dispositivos gêmeos. | |
+| | **scheduledUpdateTwin**: Um trabalho usado para atualizar um conjunto de propriedades ou marcas desejadas. |
+| | **scheduledDeviceMethod**: um trabalho usado para invocar um método de dispositivo em um conjunto de dispositivos gêmeos. |
 | **status** |Estado atual do trabalho. Valores possíveis para o status: |
-| **pendente**: agendado e aguardando ser selecionado pelo serviço do trabalho. | |
-| **agendado**: agendado para um horário no futuro. | |
-| **executando**: trabalho ativo no momento. | |
-| **cancelado**: o trabalho foi cancelado. | |
-| **falha**: o trabalho falhou. | |
-| **concluído**: o trabalho foi concluído. | |
+| | **pendente**: agendado e aguardando ser selecionado pelo serviço do trabalho. |
+| | **agendado**: agendado para um horário no futuro. |
+| | **executando**: trabalho ativo no momento. |
+| | **cancelado**: o trabalho foi cancelado. |
+| | **falha**: o trabalho falhou. |
+| | **concluído**: o trabalho foi concluído. |
 | **deviceJobStatistics** |Estatísticas sobre a execução do trabalho. |
 
 Propriedades **deviceJobStatistics**.
@@ -167,4 +166,3 @@ Se você quiser experimentar alguns dos conceitos descritos neste artigo, talvez
 [lnk-dev-methods]: iot-hub-devguide-direct-methods.md
 [lnk-get-started-twin]: iot-hub-node-node-twin-getstarted.md
 [lnk-twin-devguide]: iot-hub-devguide-device-twins.md
-

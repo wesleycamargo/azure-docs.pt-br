@@ -11,14 +11,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/13/2017
 ms.author: mahender
+ms.openlocfilehash: fd63d53697ccd529c144482202e2fd8c6b184991
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 6e1fa23bffc03a8a77c0c9e3342609c042fc4a5b
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-use-azure-managed-service-identity-public-preview-in-app-service-and-azure-functions"></a>Como usar o Azure Managed Service Identity (visualização pública) no Serviço de Aplicativo e no Azure Functions
 
 > [!NOTE] 
@@ -29,6 +27,10 @@ Este tópico mostra como criar uma identidade de aplicativo gerenciado para apli
 ## <a name="creating-an-app-with-an-identity"></a>Criar um aplicativo com uma identidade
 
 Criar um aplicativo com uma identidade exige que uma propriedade adicional seja definida no aplicativo.
+
+> [!NOTE] 
+> Apenas o slot principal de um site receberá a identidade. Ainda não há suporte para identidades de serviço gerenciadas para slots de implantação.
+
 
 ### <a name="using-the-azure-portal"></a>Usando o portal do Azure
 
@@ -46,7 +48,7 @@ Para configurar uma identidade de serviço gerenciado no portal, primeiro, crie 
 
 ### <a name="using-an-azure-resource-manager-template"></a>Usando um modelo do Azure Resource Manager
 
-Um modelo do Azure Resource Manager pode ser usado para automatizar a implantação de recursos do Azure. Para saber mais sobre a implantação do Serviço de Aplicativo e do Azure Functions, consulte [Automatizar a implantação de recursos no Serviço de Aplicativo](../app-service-web/app-service-deploy-complex-application-predictably.md) e [Automatizar a implantação de recursos no Azure Functions](../azure-functions/functions-infrastructure-as-code.md).
+Um modelo do Azure Resource Manager pode ser usado para automatizar a implantação de recursos do Azure. Para saber mais sobre a implantação do Serviço de Aplicativo e do Azure Functions, consulte [Automatizar a implantação de recursos no Serviço de Aplicativo](../app-service/app-service-deploy-complex-application-predictably.md) e [Automatizar a implantação de recursos no Azure Functions](../azure-functions/functions-infrastructure-as-code.md).
 
 Qualquer recurso do tipo `Microsoft.Web/sites` pode ser criado com uma identidade, incluindo a propriedade a seguir na definição de recurso:
 ```json
@@ -145,6 +147,7 @@ Uma resposta bem-sucedida de 200 OK inclui um corpo JSON com as seguintes propri
 > |recurso|O URI da ID de aplicativo do serviço Web de recebimento.|
 > |token_type|Indica o valor do tipo de token. O único tipo com suporte do Azure AD é Portador Para saber mais sobre os tokens de portador, consulte [Estrutura de Autorização do OAuth 2.0: Uso do Token de Portador (RFC 6750)](http://www.rfc-editor.org/rfc/rfc6750.txt).|
 
+
 Essa resposta é igual a [resposta à solicitação do AAD de token de acesso de serviço para serviço](../active-directory/develop/active-directory-protocols-oauth-service-to-service.md#service-to-service-access-token-response).
 
 ### <a name="rest-protocol-examples"></a>Exemplos de protocolo REST
@@ -194,3 +197,11 @@ const getToken = function(resource, apiver, cb) {
 }
 ```
 
+No PowerShell:
+```powershell
+$apiVersion = "2017-09-01"
+$resourceURI = "https://<AAD-resource-URI-for-resource-to-obtain-token>"
+$tokenAuthURI = $env:MSI_ENDPOINT + "?resource=$resourceURI&api-version=$apiVersion"
+$tokenResponse = Invoke-RestMethod -Method Get -Headers @{"Secret"="$env:MSI_SECRET"} -Uri $tokenAuthURI
+$accessToken = $tokenResponse.access_token
+```

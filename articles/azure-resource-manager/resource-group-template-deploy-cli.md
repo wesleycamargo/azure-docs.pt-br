@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: tomfitz
+ms.openlocfilehash: 13154e41ebd4867de9af74340a69446400814f5a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
-ms.openlocfilehash: 4f1d5f4cc48470f8906edb28628006dd1996bd3a
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/01/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Implantar recursos com modelos do Resource Manager e a CLI do Azure
 
@@ -79,55 +78,11 @@ az group deployment create \
 
 O exemplo anterior requer um URI acessível publicamente para o modelo, que funciona na maioria dos cenários, pois o modelo não deve incluir dados confidenciais. Se você precisar especificar dados confidenciais (como uma senha de administrador), passe esse valor como um parâmetro seguro. No entanto, se não quiser que o modelo seja acessível publicamente, você pode protegê-lo armazenando-o em um contêiner de armazenamento privado. Para obter informações sobre como implantar um modelo que exige um token SAS (assinatura de acesso compartilhado), confira [Implantar modelo particular com o token SAS](resource-manager-cli-sas-token.md).
 
-## <a name="deploy-template-from-cloud-shell"></a>Implantar o modelo do Cloud Shell
+[!INCLUDE [resource-manager-cloud-shell-deploy.md](../../includes/resource-manager-cloud-shell-deploy.md)]
 
-Você pode usar o [Cloud Shell](../cloud-shell/overview.md) para executar os comandos da CLI do Azure a fim de implantar o modelo. No entanto, você deve carregar o modelo primeiro para o compartilhamento de arquivos do seu Cloud Shell. Se você ainda não usou o Cloud Shell, confira [Visão geral do Azure Cloud Shell](../cloud-shell/overview.md) para saber mais sobre como configurá-lo.
+No Cloud Shell, use os seguintes comandos:
 
-1. Faça logon no [Portal do Azure](https://portal.azure.com).   
-
-2. Selecione o grupo de recursos do Cloud Shell. O nome padrão é `cloud-shell-storage-<region>`.
-
-   ![Escolha o grupo de recursos](./media/resource-group-template-deploy-cli/select-cs-resource-group.png)
-
-3. Selecione a conta de armazenamento do Cloud Shell.
-
-   ![Escolher conta de armazenamento](./media/resource-group-template-deploy-cli/select-storage.png)
-
-4. Selecionar **Arquivos**.
-
-   ![Selecionar arquivos](./media/resource-group-template-deploy-cli/select-files.png)
-
-5. Selecione o compartilhamento de arquivos para o Cloud Shell. O nome padrão é `cs-<user>-<domain>-com-<uniqueGuid>`.
-
-   ![Selecionar compartilhamento de arquivos](./media/resource-group-template-deploy-cli/select-file-share.png)
-
-6. Selecione **Adicionar diretório**.
-
-   ![Adicionar diretório](./media/resource-group-template-deploy-cli/select-add-directory.png)
-
-7. Dê a ele o nome de **modelos**e selecione **OK**.
-
-   ![Nomear diretório](./media/resource-group-template-deploy-cli/name-templates.png)
-
-8. Selecione o novo diretório.
-
-   ![Selecionar diretório](./media/resource-group-template-deploy-cli/select-templates.png)
-
-9. Escolha **Carregar**.
-
-   ![Selecionar Carregar](./media/resource-group-template-deploy-cli/select-upload.png)
-
-10. Localizar e carregar o modelo.
-
-   ![Carregar arquivo](./media/resource-group-template-deploy-cli/upload-files.png)
-
-11. Abra o prompt.
-
-   ![Abrir Cloud Shell](./media/resource-group-template-deploy-cli/start-cloud-shell.png)
-
-12. Digite os seguintes comandos no Cloud Shell:
-
-   ```azurecli
+   ```azurecli-interactive
    az group create --name examplegroup --location "South Central US"
    az group deployment create --resource-group examplegroup --template-file clouddrive/templates/azuredeploy.json --parameters storageAccountType=Standard_GRS
    ```
@@ -282,4 +237,3 @@ O modelo a seguir é usado para os exemplos deste tópico. Copie-o e salve-o com
 * Para dicas sobre como resolver erros de implantação, consulte [Solução de erros comuns de implantação do Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md).
 * Para obter mais informações sobre a implantação de um modelo que exija um token SAS, veja [Implantar modelo particular com o token SAS](resource-manager-cli-sas-token.md).
 * Para obter orientação sobre como as empresas podem usar o Resource Manager para gerenciar assinaturas de forma eficaz, consulte [Azure enterprise scaffold – controle de assinatura prescritivas](resource-manager-subscription-governance.md).
-

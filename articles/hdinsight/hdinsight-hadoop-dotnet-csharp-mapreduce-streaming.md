@@ -14,14 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 10/04/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: f98d769542f5a52d659f561e970f0a7e9dce9fd9
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/02/2017
-
+ms.openlocfilehash: 96f0be021a2b362c702f91ec4b532df8a334529f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-c-with-mapreduce-streaming-on-hadoop-in-hdinsight"></a>Use C# com streaming de MapReduce no Hadoop no HDInsight
 
@@ -227,7 +226,7 @@ Use o seguinte script de PowerShell para executar um trabalho MapReduce e baixar
 
 [!code-powershell[main](../../powershell_scripts/hdinsight/use-csharp-mapreduce/use-csharp-mapreduce.ps1?range=5-87)]
 
-Esse script solicita nome e senha da conta de logon do cluster, juntamente com o nome do cluster HDInsight. Após a conclusão do trabalho, o resultado será baixado no arquivo `output.txt` no diretório em que o script foi executado. O seguinte texto é um exemplo dos dados no arquivo `output.txt`:
+Esse script solicita nome e senha da conta de logon do cluster, juntamente com o nome do cluster HDInsight. Depois que o trabalho é concluído, a saída é baixada em um arquivo chamado `output.txt`. O seguinte texto é um exemplo dos dados no arquivo `output.txt`:
 
     you     1128
     young   38

@@ -12,15 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 5/26/2017
+ms.date: 9/20/2017
 ms.author: raiye
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 488a6e144b16c57c137e60b918ee68c78db1a54f
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
-
-
+ms.openlocfilehash: 4bc2d57cf4c7d6e0981aa1a5c7c989860600b897
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-guest-os-supportability-and-retirement-policy"></a>Capacidade de suporte e política de desativação do SO convidado do Azure
 As informações nesta página se relacionam ao sistema operacional convidado do Azure[(SO Convidado)](cloud-services-guestos-update-matrix.md)para serviços de nuvem funções web e de trabalho (PaaS). Não se aplicam às Máquinas Virtuais (IaaS).
@@ -38,7 +36,7 @@ A política é
 ## <a name="when-a-guest-os-family-or-version-is-retired"></a>Quando uma família ou versão de sistemas operacionais convidados for desativada
 Uma nova **família** de SOs convidados é introduzida algum tempo após o lançamento de uma nova versão oficial do sistema operacional Windows Server. Sempre que uma nova família de sistemas operacionais convidados é introduzida, a Microsoft desativa a família mais antiga do sistema operacional convidado.
 
-As novas **versões** do SO convidado são lançadas a cada mês para incorporar as atualizações mais recentes do MSRC. Devido às atualizações regulares mensais, uma versão do sistema operacional convidado é desabilitada normalmente 60 dias após seu lançamento. Essa atividade mantém pelo menos duas versões de sistema operacional convidado para cada família disponíveis para uso.
+As novas **versões** do SO convidado são lançadas a cada mês para incorporar as atualizações mais recentes do MSRC. Devido às atualizações regulares mensais, uma versão do SO convidado é desabilitada normalmente cerca de 60 dias após seu lançamento. Essa atividade mantém pelo menos duas versões de sistema operacional convidado para cada família disponíveis para uso.
 
 ### <a name="process-during-a-guest-os-family-retirement"></a>Processo durante a desativação de uma família de sistemas operacionais convidados
 Depois que a desativação é anunciada, os clientes têm um período de "transição" de 12 meses antes de a família mais antiga ser oficialmente removida do serviço. Esse período de transição pode ser estendido a critério da Microsoft. As atualizações serão postadas na [Matriz de compatibilidade do SDK e lançamentos do SO convidado do Azure](cloud-services-guestos-update-matrix.md).
@@ -63,8 +61,8 @@ Depois de se tornar "desabilitada" por algum tempo, a versão SO Convidado "*exp
 Esses períodos podem ser mais longos, a critério da Microsoft, para facilitar as transições do cliente. Quaisquer alterações serão comunicadas na [Matriz de compatibilidade do SDK e lançamentos do SO convidado do Azure](cloud-services-guestos-update-matrix.md).
 
 ### <a name="notifications-during-retirement"></a>Notificações durante a desativação
-* **Desativação de família** <br>A Microsoft usará postagens de blog e notificação no portal. Os clientes que ainda estiverem usando uma família desativada do sistema operacional convidado serão notificados por meio de comunicação direta (email, mensagens do portal, telefonema) para administradores de serviço atribuídos. Todas as alterações serão postadas nessa página e o RSS feed será listado no início desta página.
-* **Desativação de versão** <br>Todas as alterações, e as datas nas quais ocorreram, serão postadas nessa página, e o feed RSS será listado no início desta página, incluindo as datas de lançamento, desabilitação e expiração. Os administradores de serviços receberão emails se tiverem implantações em execução em uma família ou versão do SO convidado desabilitada. O intervalo desses emails pode variar. Geralmente, eles são enviados pelo menos um mês antes da desabilitação, embora esse intervalo não seja um SLA oficial.
+* **Desativação de família** <br>A Microsoft usará postagens de blog e notificação no portal. Os clientes que ainda estiverem usando uma família desativada do sistema operacional convidado serão notificados por meio de comunicação direta (email, mensagens do portal, telefonema) para administradores de serviço atribuídos. Todas as atualizações serão postadas na [Azure Guest OS Releases and SDK Compatibility Matrix](cloud-services-guestos-update-matrix.md) (Matriz de compatibilidade do SDK e lançamentos do SO convidado do Azure).
+* **Desativação de versão** <br>Todas as alterações e as datas em que elas ocorrem serão postadas na [Matriz de compatibilidade do SDK e lançamentos do SO convidado do Azure](cloud-services-guestos-update-matrix.md), incluindo o lançamento, desabilitação e expiração. Os administradores de serviços receberão emails se tiverem implantações em execução em uma família ou versão do SO convidado desabilitada. O intervalo desses emails pode variar. Geralmente, eles são enviados pelo menos um mês antes da desabilitação, embora esse intervalo não seja um SLA oficial.
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes
 **Como posso reduzir os impactos da migração?**
@@ -81,4 +79,3 @@ Se a arquitetura do aplicativo Web depender de recursos subjacentes do sistema o
 
 ## <a name="next-steps"></a>Próximas etapas
 Examine as últimas [versões do SO convidado](cloud-services-guestos-update-matrix.md).
-
