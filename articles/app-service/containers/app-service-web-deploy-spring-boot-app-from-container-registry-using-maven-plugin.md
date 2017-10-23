@@ -14,14 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: robmcm;kevinzha
-ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
 ms.openlocfilehash: b087003b3a1e236e4a306678904107b8bf99395e
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-use-the-maven-plugin-for-azure-web-apps-to-deploy-a-spring-boot-app-in-azure-container-registry-to-azure-app-service"></a>Como usar o Plug-in do Maven para Aplicativos Web do Azure para implantar um aplicativo Spring Boot no Registro de Contêiner do Azure ao Serviço de Aplicativo do Azure
 
 **[Spring Framework]** é um framework de software livre popular que ajuda os desenvolvedores de Java a criar aplicativos de API, Web e móveis. Este tutorial usa um aplicativo de exemplo criado usando o [Spring Boot], uma abordagem controlada por convenção para o uso do Spring para começar rapidamente.
@@ -401,4 +399,3 @@ Para saber mais sobre as diversas tecnologias discutidas neste artigo, veja os a
 [CR01]: ./media/app-service-web-deploy-spring-boot-app-from-container-registry-using-maven-plugin/CR01.png
 [AP01]: ./media/app-service-web-deploy-spring-boot-app-from-container-registry-using-maven-plugin/AP01.png
 [AP02]: ./media/app-service-web-deploy-spring-boot-app-from-container-registry-using-maven-plugin/AP02.png
-

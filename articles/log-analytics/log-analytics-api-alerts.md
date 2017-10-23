@@ -15,13 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 05/12/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
 ms.openlocfilehash: 5ce72ffef4394bf3bbe39fa420c4fcaa965ae35c
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/12/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Criar e gerenciar regras de alerta no Log Analytics com a API REST
 A API de REST do Log Analytics permite criar e gerenciar alertas no OMS (Operations Management Suite).  Este artigo fornece detalhes da API e vários exemplos para executar operações diferentes.
@@ -324,5 +322,4 @@ Use o método Put com uma ID de ação existente para modificar uma ação de we
 
 ## <a name="next-steps"></a>Próximas etapas
 * Use a [API REST para executar pesquisas de log](log-analytics-log-search-api.md) no Log Analytics.
-
 

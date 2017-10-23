@@ -14,14 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 1/19/2017
 ms.author: tamram
+ms.openlocfilehash: c768bdbb8e1ce2aae3eb5b6db0e48977366c83fb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 1d9ccc1c81260379b5e645d338cbf1fa265e18d4
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="what-to-do-if-an-azure-storage-outage-occurs"></a>O que fazer se uma interrupção no Armazenamento do Azure ocorrer
 Na Microsoft, trabalhamos muito para garantir que nossos serviços estejam sempre disponíveis. Às vezes, forças além do nosso controle nos afetam de formas que causam interrupções de serviço não planejadas em uma ou mais regiões. Para ajudá-lo a lidar com essas ocorrências raras, fornecemos as seguintes diretrizes de alto nível para serviços de Armazenamento do Azure.
 
@@ -54,7 +52,7 @@ Quando um desastre regional afeta sua região primária, primeiro tentaremos res
 Alguns pontos sobre a experiência de failover geográfico de armazenamento:
 
 * O failover geográfico de armazenamento somente será disparado pela equipe do Armazenamento do Azure – não é necessária nenhuma ação do cliente.
-* Os pontos de extremidade de serviço armazenamento existente para blobs, tabelas, filas e arquivos permanecerão os mesmos após o failover; a entrada DNS precisa ser atualizada para alternar da região primária para a região secundária.
+* Os pontos de extremidade de serviço armazenamento existente para blobs, tabelas, filas e arquivos permanecerão os mesmos após o failover; a entrada DNS fornecida pela Microsoft precisa ser atualizada para mudar da região primária para a região secundária.  A Microsoft executará essa atualização automaticamente como parte do processo de failover geográfico.
 * Antes e durante o failover geográfico, você não terá acesso de gravação à conta de armazenamento devido ao impacto do desastre, mas você poderá ler por meio do secundário se sua conta de armazenamento tiver sido configurada como RA-GRS.
 * Quando o failover geográfico for concluído e as alterações DNS propagadas, o acesso de leitura e gravação à sua conta de armazenamento será retomado. Isso indica o que costumava ser seu ponto de extremidade secundário. 
 * Observe que você terá acesso de gravação se tiver GRS ou RA-GRS configurado para a conta de armazenamento. 
@@ -71,5 +69,4 @@ Há algumas abordagens recomendadas para fazer backup de seus dados de armazenam
 * Arquivos – use [AzCopy](storage-use-azcopy.md) ou [Azure PowerShell](storage-powershell-guide-full.md) para copiar os arquivos para outra conta de armazenamento em outra região.
 
 Para obter informações sobre como criar aplicativos que se beneficiam do recurso RA-GRS, confira [Criação de aplicativos altamente disponíveis usando o Armazenamento de RA-GRS](../storage-designing-ha-apps-with-ragrs.md)
-
 

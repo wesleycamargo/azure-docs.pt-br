@@ -15,13 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/01/2017
-ms.author: nitinme
+ms.author: maxluk
+ms.openlocfilehash: 48c6a24f6c820eaf09da6fa3a0a496ddbef1e7a0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 108b2e25dee63a15ac703d2a9b617bfb155f95da
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="run-spark-from-the-spark-shell"></a>Execute o Spark no Shell do Spark
 
@@ -79,5 +78,4 @@ O comando shell do Spark (`spark-shell`, `pyspark` ou `sparkR`) dá suporte a v�
 - Consulte [Introdução ao Spark no Azure HDInsight](hdinsight-apache-spark-overview.md) para obter uma visão geral.
 - Consulte [Criar um cluster Apache Spark no Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md) para trabalhar com clusters Spark e SparkSQL.
 - Consulte [O que é o Streaming Estruturado do Spark?](hdinsight-spark-streaming-overview.md) para gravar aplicativos que processam dados de streaming com o Spark.
-
 

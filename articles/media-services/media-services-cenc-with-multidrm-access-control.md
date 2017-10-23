@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: willzhan;kilroyh;yanmf;juliako
+ms.openlocfilehash: 730917b6859f8dbd800ef2cb141062f45d7779ac
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
-ms.openlocfilehash: 527d011476b046add0842b1c7275fc6507be31d4
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/20/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="cenc-with-multi-drm-and-access-control-a-reference-design-and-implementation-on-azure-and-azure-media-services"></a>CENC com vários DRM e Controle de Acesso: design e implementação de referência no Azure e nos Serviços de Mídia do Azure
  
@@ -457,4 +456,3 @@ Neste documento, vimos CENC com vários DRM nativos e controle de acesso por mei
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
  
-

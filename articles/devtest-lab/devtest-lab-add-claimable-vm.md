@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/17/2017
 ms.author: tarcher
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
 ms.openlocfilehash: 98950d72e90b0e178bae2fffa7644fd824a25eea
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/03/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-a-claimable-vm-to-a-lab-in-azure-devtest-labs"></a>Adicionar uma VM declarável a um laboratório no Azure DevTest Labs
 Você adiciona uma VM declarável a um laboratório de maneira semelhante a como [adiciona uma VM padrão](devtest-lab-add-vm.md) – de uma *base* que é uma [imagem personalizada](devtest-lab-create-template.md), [fórmula](devtest-lab-manage-formulas.md), ou [imagem do Marketplace](devtest-lab-configure-marketplace-images.md). Este tutorial explica como usar o portal do Azure para adicionar uma VM declarável a um laboratório no DevTest Labs e mostra o processo que um usuário segue para declarar a VM.
@@ -76,4 +74,3 @@ Depois que um usuário declara uma VM, ela é movida para cima em sua lista de �
 ## <a name="next-steps"></a>Próximas etapas
 * Após a criação da VM, você poderá se conectar à VM selecionando **Conectar** na folha da VM.
 * Explorar a [galeria de modelos de Início Rápido do Azure Resource Manager do DevTest Labs](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates)
-

@@ -16,12 +16,11 @@ ms.workload: identity
 ms.date: 08/17/2017
 ms.author: curtand
 ms.reviewer: aaronsm
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: fc0d297598c334ca8f6f8a2bd3ae948c87956342
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="integrate-azure-active-directory-single-sign-on-with-saas-apps"></a>Integrar o logon único do Azure AD com aplicativos de SaaS
 > [!div class="op_single_selector"]
@@ -78,4 +77,3 @@ Se o aplicativo não estiver na Galeria de Aplicativos, você poderá [adicioná
 Há muito mais detalhes sobre todos esses temas na biblioteca do Azure.com, começando com [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 Além disso, não perca o [Índice de artigos para Gerenciamento de Aplicativos no Azure Active Directory](active-directory-apps-index.md).
-

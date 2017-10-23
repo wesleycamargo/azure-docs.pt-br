@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 05/31/2017
 ms.author: bsiva
-ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
 ms.openlocfilehash: b3c0727a279649f4f7dae30d41027129ce5b04ee
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrate-virtual-machines-in-amazon-web-services-aws-to-azure-with-azure-site-recovery"></a>Migrar máquinas virtuais no AWS (Amazon Web Services) para Azure com o Azure Site Recovery
 
@@ -81,4 +80,3 @@ Aqui está o que você precisa para essa implantação:
 
 - [Prepare as máquinas migradas para habilitar a replicação](site-recovery-azure-to-azure-after-migration.md) em outra região para necessidades de recuperação de desastres.
 - Inicie a proteção de suas cargas de trabalho ao [replicar máquinas virtuais do Azure.](site-recovery-azure-to-azure.md)
-

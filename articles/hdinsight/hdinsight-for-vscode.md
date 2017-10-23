@@ -14,17 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/21/2017
+ms.date: 09/26/2017
 ms.author: jejiang
+ms.openlocfilehash: fdf1911f4f5b515592b6197ea738d808104cb43e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 17900c88fcfccd9c56ac548d1e9167b16a92b433
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
-# <a name="use-azure-hdinsight-tool-for-visual-studio-code-hive-llap-or-pyspark"></a>Use as Ferramentas do Azure HDInsight para Visual Studio Code (Hive, LLAP ou pySpark)
+# <a name="use-azure-hdinsight-tool-for-visual-studio-code"></a>Usar a Ferramenta do Azure HDInsight para Visual Studio Code
 
 Saiba como usar as Ferramentas do Azure HDInsight para VSCode (Visual Studio Code) para criar e enviar trabalhos em lotes do Hive, consultas interativas do Hive e scripts pySpark. As Ferramentas do Azure HDInsight podem ser instaladas nas plataformas compatíveis com o VSCode, que incluem Windows, Linux e MacOS. Você pode encontrar os pré-requisitos para diferentes plataformas.
 
@@ -44,7 +42,7 @@ Depois de instalar os pré-requisitos, você pode instalar as Ferramentas do Azu
 **Para instalar as Ferramentas do Azure HDInsight**
 
 1. Abra o **Visual Studio Code**.
-2. Clique em **Extensões** no painel esquerdo. Digite **Ferramentas do Azure HDInsight** na caixa de pesquisa.
+2. Clique em **Extensões** no painel esquerdo. Digite **HDInsight** na caixa de pesquisa.
 3. Clique em **Instalar** ao lado de **Ferramentas do Azure HDInsight**. Depois de alguns segundos, o botão **Instalar** será alterado para **Recarregar**.
 4. Clique em **Recarregar** para ativar a extensão **Ferramentas do Azure HDInsight**.
 5. Clique na **Janela Recarregar** para confirmar. Você pode ver as **Ferramentas do Azure HDInsight** no painel Extensões.
@@ -86,13 +84,9 @@ Antes que você possa enviar scripts para clusters HDInsight do VSCode, você pr
 2. Clique com o botão direito do mouse no editor de scripts e, em seguida, selecione **HDInsight: Logon** no menu de contexto. Você também pode pressionar **CTRL + SHIFT + P** e inserir **HDInsight: Logon**.
 
     ![Logon das Ferramentas do HDInsight para Visual Studio Code](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png)
-3. Clique em **Azure** ou **AzureChina**, dependendo da sua assinatura.
-
-    ![Opções de logon das Ferramentas do HDInsight para Visual Studio Code](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login-options.png)
-
 3. Siga as instruções de logon no painel **SAÍDA** para fazer logon.
 
-    **Azure:** ![Informações de logon das Ferramentas do HDInsight para Visual Studio Code](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-Azurelogin-info.png) **AzureChina:** ![Informações de logon das Ferramentas do HDInsight para Visual Studio Code para a China](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-AzureChinalogin-info.png)
+    **Azure:** ![informações de logon das Ferramentas do HDInsight para Visual Studio Code](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-Azurelogin-info.png)
 
     Uma vez conectado, o nome da sua conta do Azure será mostrado na barra de status na parte inferior esquerda da janela do VSCode. 
 
@@ -243,10 +237,8 @@ O HDInsight para VSCode dá suporte aos seguintes recursos:
 
 ### <a name="scenarios"></a>Cenários
 * [Spark com BI: executar análise de dados interativa usando o Spark no HDInsight com ferramentas de BI](hdinsight-apache-spark-use-bi-tools.md)
-* 
-            [Spark com Machine Learning: usar o Spark no HDInsight para analisar a temperatura de prédios usando dados HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
-* 
-            [Spark com Machine Learning: usar o Spark no HDInsight para prever resultados da inspeção de alimentos](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+* [Spark com Aprendizado de Máquina: usar o Spark no HDInsight para analisar a temperatura de prédios usando dados do sistema HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
+* [Spark com Machine Learning: usar o Spark no HDInsight para prever resultados da inspeção de alimentos](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Streaming Spark: usar o Spark no HDInsight para a criação de aplicativos de streaming em tempo real](hdinsight-apache-spark-eventhub-streaming.md)
 * [Análise de log do site usando o Spark no HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
@@ -257,7 +249,6 @@ O HDInsight para VSCode dá suporte aos seguintes recursos:
 ### <a name="managing-resources"></a>Gerenciando recursos
 * [Gerenciar os recursos de cluster do Apache Spark no Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 * [Rastrear e depurar trabalhos em execução em um cluster do Apache Spark no HDInsight](hdinsight-apache-spark-job-debugging.md)
-
 
 
 

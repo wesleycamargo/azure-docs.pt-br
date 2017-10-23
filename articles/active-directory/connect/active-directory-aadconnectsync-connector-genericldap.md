@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: 9245a2ce63746f039a3015a5a0cda2ff05cf950e
-ms.contentlocale: pt-br
-ms.lasthandoff: 03/14/2017
-
+ms.openlocfilehash: adb174526bc377f484be5fb0a71b28e8daaaa6fd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="generic-ldap-connector-technical-reference"></a>Referência técnica do Conector LDAP genérico
 Este artigo descreve o Conector LDAP genérico. O artigo se aplica aos seguintes produtos:
@@ -270,4 +269,3 @@ Para diretórios com um log de alterações de delta com base na data/hora, é a
 
 ## <a name="troubleshooting"></a>Solucionar problemas
 * Para saber mais sobre como habilitar o registro em log para solucionar problemas do conector, confira [How to Enable ETW Tracing for Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
-

@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/20/2017
 ms.author: kumud
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 769eb86af3e0506ddf03d1ec616d5a17b7e5f714
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 #  <a name="create-a-public-load-balancer-standard-with-zone-redundant-frontend-using-azure-cli"></a>Criar um Load Balancer Standard público com frontend com redundância de zona usando a CLI do Azure
 
 Este artigo segue as etapas para a criação de um [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) público com um front-end com redundância de zona usando um endereço IP Público Standard.
@@ -90,7 +88,6 @@ az network lb rule create --resource-group myResourceGroup --lb-name myLoadBalan
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba como [criar um IP público em uma zona de disponibilidade](../virtual-network/create-public-ip-availability-zone-cli.md)
-
 
 
 

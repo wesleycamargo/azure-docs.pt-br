@@ -15,14 +15,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/31/2017
 ms.author: robmcm;zhijzhao;yidon
-ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
 ms.openlocfilehash: 7a6ec549654d00975494bac8594a6777af5ec415
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/02/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-configure-a-spring-boot-initializer-app-to-use-redis-cache"></a>Como configurar o aplicativo Inicializador do Spring Boot para usar o Cache Redis
 
 ## <a name="overview"></a>Visão geral
@@ -229,4 +227,3 @@ Para saber mais sobre como começar a usar o Cache Redis com Java no Azure, cons
 
 [RE01]: ./media/cache-java-spring-boot-initializer-with-redis-cache/RE01.png
 [RE02]: ./media/cache-java-spring-boot-initializer-with-redis-cache/RE02.png
-

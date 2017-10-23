@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: kgremban
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
 ms.openlocfilehash: 7288f8fa173f8018570cd17aa7274f56a4eead41
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/15/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Usar Restrições de Locatário para gerenciar o acesso aos aplicativos de nuvem de SaaS
 
@@ -124,9 +122,9 @@ Se você quiser experimentar as Restrições de Locatário antes de implementá-
 
 O Fiddler é um proxy de depuração da Web gratuito que pode ser usado para capturar e modificar o tráfego HTTP/HTTPS, incluindo a inserção de cabeçalhos HTTP. Para configurar o Fiddler para testar as Restrições de Locatário, execute as seguintes etapas:
 
-1.    [Baixe e instale o Fiddler](http://www.telerik.com/fiddler).
-2.    Configure o Fiddler para descriptografar o tráfego HTTPS, de acordo com a [documentação de ajuda do Fiddler](http://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS).
-3.    Configure o Fiddler para inserir os cabeçalhos *Restrict-Access-To-Tenants* e *Restrict-Access-Context* usando regras personalizadas:
+1.  [Baixe e instale o Fiddler](http://www.telerik.com/fiddler).
+2.  Configure o Fiddler para descriptografar o tráfego HTTPS, de acordo com a [documentação de ajuda do Fiddler](http://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS).
+3.  Configure o Fiddler para inserir os cabeçalhos *Restrict-Access-To-Tenants* e *Restrict-Access-Context* usando regras personalizadas:
   1. Na ferramenta Depurador da Web Fiddler Web, selecione o menu **Regras** e selecione **Personalizar Regras...** para abrir o arquivo CustomRules.
   2. Adicione as seguintes linhas no início da função *OnBeforeRequest*. Substitua \<tenant domain\> por um domínio registrado com seu locatário, por exemplo, contoso.onmicrosoft.com. Substitua \<directory ID\> pelo identificador de GUID do Azure AD do locatário.
 
@@ -148,8 +146,8 @@ Depois de configurar o Fiddler, você pode capturar o tráfego indo para o menu 
 
 Dependendo dos recursos da sua infraestrutura de proxy, você poderá liberar em etapas a distribuição de configurações para seus usuários. Aqui estão algumas opções de alto nível para consideração:
 
-1.    Use arquivos PAC para apontar os usuários de teste para uma infraestrutura de proxy de teste, enquanto os usuários normais continuam a usar a infraestrutura do proxy de produção.
-2.    Alguns servidores proxy podem dar suporte a configurações diferentes usando grupos.
+1.  Use arquivos PAC para apontar os usuários de teste para uma infraestrutura de proxy de teste, enquanto os usuários normais continuam a usar a infraestrutura do proxy de produção.
+2.  Alguns servidores proxy podem dar suporte a configurações diferentes usando grupos.
 
 Consulte a documentação do servidor proxy para obter detalhes específicos.
 
@@ -158,4 +156,3 @@ Consulte a documentação do servidor proxy para obter detalhes específicos.
 - Leia sobre a [Updated Office 365 modern authentication](https://blogs.office.com/2015/11/19/updated-office-365-modern-authentication-public-preview/) (Autenticação moderna do Office 365 atualizada)
 
 - Examine as [URLs e intervalos de endereços IP do Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2)
-

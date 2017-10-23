@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 97d3485030b0f9f2a6036cdae14e3c37ca89fd6e
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: d78f9c59c069664fa77bdf9a16a48bb3745b1224
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="problems-using-the-application-access-panel-website-or-mobile-application"></a>Problemas ao usar o site do painel de acesso do aplicativo ou o aplicativo móvel
 
 
@@ -40,4 +38,3 @@ ms.lasthandoff: 04/17/2017
   Os documentos a seguir podem ajudá-lo a resolver alguns dos problemas mais comuns nessa categoria.
   * [Não sei como usar o acesso a aplicativo de autoatendimento](https://docs.microsoft.com/azure/active-directory/application-access-panel-self-service-applications-how-to/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [Eu encontrei um problema ao usar o acesso a aplicativo de autoatendimento](https://docs.microsoft.com/azure/active-directory/application-access-panel-self-service-applications-problem/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
-

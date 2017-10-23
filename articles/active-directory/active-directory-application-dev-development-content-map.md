@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 69d366e9babcd1035b194de69933a3691c952c47
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: 82215b5b1a47069b5000a13f82f19139ed2c63dc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="problems-developing-my-application"></a>Problemas no desenvolvimento do meu aplicativo
 
 
@@ -32,4 +30,3 @@ ms.lasthandoff: 04/17/2017
   * [Estou confuso a respeito de como o consentimento do aplicativo funciona](https://docs.microsoft.com/azure/active-directory/application-dev-consent-framework/?/?WT.mc_id=DMC_AAD_Develop_Apps_Troubleshooting_Nav)
   * [Não sei como conceder permissões ao meu aplicativo](https://docs.microsoft.com/azure/active-directory/application-dev-registration-config-grant-permissions-how-to/?/?WT.mc_id=DMC_AAD_Develop_Apps_Troubleshooting_Nav)
   * [Não compreendo a diferença entre as permissões delegadas e permissões do aplicativo](https://docs.microsoft.com/azure/active-directory/application-dev-delegated-and-app-perms/?/?WT.mc_id=DMC_AAD_Develop_Apps_Troubleshooting_Nav)
-

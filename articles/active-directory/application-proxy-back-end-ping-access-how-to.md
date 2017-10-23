@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 72591111f417267c1daaf13a40a499da42a2c303
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: a9da67373465cebbdbecae5c8fb8bd0a0ee3c171
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-configure-an-application-proxy-application-to-use-pingaccess"></a>Como configurar um aplicativo de Application Proxy para usar o PingAccess
 
 Nossa colaboração com PingAccess agora permite que você estenda os benefícios do Application Proxy para aplicativos que usam autenticação baseada em cabeçalho. Se seus aplicativos não usam cabeçalhos, consulte nossa [Documentação de Logon único](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-sso-using-kcd) para obter detalhes sobre outras opções.
@@ -38,4 +36,3 @@ Para configurar um aplicativo com PingAccess, há quatro etapas:
 4.  Configurar aplicativos no PingAccess
 
 Para obter detalhes sobre cada uma dessas etapas, consulte nossa [Documentação de Logon único com cabeçalhos](https://docs.microsoft.com/azure/active-directory/application-proxy-ping-access).
-

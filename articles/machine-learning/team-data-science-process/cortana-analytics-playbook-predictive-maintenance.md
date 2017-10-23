@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: fboylu
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: aafa395f8c0593d9597f74cd5cd2a41f26897c6f
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Guia Estratégico do Modelo de Solução do Cortana Intelligence para a manutenção preditiva no setor aeroespacial e outras indústrias.
 ## <a name="executive-summary"></a>Resumo executivo
@@ -369,5 +368,4 @@ Os mesmos data warehouses podem ser usados para a pontuação por lote dos exemp
 Figura 8. Arquitetura de solução de exemplo para manutenção preditiva
 
 Para saber mais sobre cada um dos componentes da arquitetura, consulte a documentação do [Azure](https://azure.microsoft.com/) .
-
 

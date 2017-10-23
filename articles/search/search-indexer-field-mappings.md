@@ -14,14 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 08/30/2017
 ms.author: eugenesh
-ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
 ms.openlocfilehash: 3f2ead208ea1525489a40d1fb637da47cd8a9b24
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="field-mappings-in-azure-search-indexers"></a>Mapeamentos de campo em indexadores do Azure Search
 Ao usar indexadores de Pesquisa do Azure, ocasionalmente você pode se encontrar em situações em que seus dados de entrada não correspondem ao esquema de seu índice de destino. Nesses casos, você pode usar **mapeamentos de campo** para transformar seus dados na forma desejada.
 
@@ -206,4 +204,3 @@ O banco de dados SQL do Azure não tem um tipo de dados interno que é mapeado n
 
 ## <a name="help-us-make-azure-search-better"></a>Ajude-nos a aprimorar a Pesquisa do Azure
 Se você tiver solicitações de recursos ou ideias para o aperfeiçoamentos, entre em contato conosco pelo [site UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
-

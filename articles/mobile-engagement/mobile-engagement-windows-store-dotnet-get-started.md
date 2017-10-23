@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 08/12/2016
 ms.author: piyushjo;ricksal
-ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
 ms.openlocfilehash: 40db7e4dd151ec391c754dc6d4145aeeb8058eca
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-windows-universal-apps"></a>Introdução ao Azure Mobile Engagement para aplicativos universais do Windows
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
@@ -163,7 +162,7 @@ Você está pronto para enviar uma saudação. Em seguida, verificamos se você 
 6. Você navegará para a seção Credenciais de push. Verifique se você está na seção **Configurações do Aplicativo**, em seguida, copie o **SID do Pacote** e o **Segredo do cliente**
 
     ![][13]
-7. Navegue até **Configurações** do portal do Engajamento Móvel e clique na seção **Push Nativo** à esquerda. Em seguida, clique no botão **Editar** para inserir seu **identificador de segurança (SID) do pacote** e sua **Chave Secreta** mostrado:
+7. Navegue até **Configurações** do portal do Mobile Engagement e clique na seção **Push Nativo** à esquerda. Em seguida, clique no botão **Editar** para inserir seu **identificador de segurança (SID) do pacote** e sua **Chave Secreta** mostrado:
 
     ![][6]
 8. Por fim, certifique-se de que você tenha associado o aplicativo do Visual Studio a este aplicativo criado na Loja de aplicativos. Clique em **Associar Aplicativo à Loja** no Visual Studio.
@@ -197,4 +196,3 @@ Se você vir uma notificação no aplicativo, mas não uma notificação do toas
 [11]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push.png
 [12]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_1.png
 [13]: ./media/mobile-engagement-windows-store-dotnet-get-started/dashboard_services_push_creds.png
-

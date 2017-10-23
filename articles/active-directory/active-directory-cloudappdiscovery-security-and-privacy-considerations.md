@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 09/25/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: cec3d2cb02dd34dd5ac631e572936cfd7c8de033
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="cloud-app-discovery-security-and-privacy-considerations"></a>Considerações de privacidade e segurança no Cloud App Discovery
 Este tópico explica como os dados são coletados, processados e protegidos dentro do Cloud App Discovery do Azure Active Directory. A Microsoft está comprometida em proteger sua privacidade e os seus dados. A Microsoft segue práticas seguras de ciclo de vida de desenvolvimento de software para a operação de um serviço. Segurança e proteção de dados é uma prioridade principal da Microsoft.
@@ -160,5 +159,4 @@ Qualquer usuário que acesse dados no portal deve ser licenciado com uma licenç
 ## <a name="additional-resources"></a>Recursos adicionais
 * [Como descobrir aplicativos na nuvem não aprovados, usados em minha organização](active-directory-cloudappdiscovery-whatis.md)
 * [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
-
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/21/2016
 ms.author: zarizvi
-translationtype: Human Translation
-ms.sourcegitcommit: 078833a21cd309087b842e21e3fc730695c254dd
-ms.openlocfilehash: 89fdeca4ffc1a36e8aff829b00483f208fa03e0f
-ms.lasthandoff: 12/21/2016
-
-
+ms.openlocfilehash: 1b5059dc052005b6079f70ecf6771a3771df8d87
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="supported-move-configurations"></a>Configurações de movimentação com suporte
 Você pode mover recursos de Aplicativo Web do Azure usando a [API Mover Recursos do Resource Manager](../azure-resource-manager/resource-group-move-resources.md).
@@ -31,6 +30,5 @@ Atualmente, os aplicativos Web do Azure dão suporte para os seguintes cenários
    > O grupo de recursos de destino não pode conter nenhum recurso Microsoft.Web nesse cenário.
 
 * Mover aplicativos Web individuais para um grupo de recursos diferente, enquanto ainda os hospeda em seu plano do serviço de aplicativo atual (o plano do serviço de aplicativo permanece no grupo de recursos antigo).
-
 
 

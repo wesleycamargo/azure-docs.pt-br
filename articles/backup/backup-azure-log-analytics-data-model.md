@@ -15,12 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 07/24/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
 ms.openlocfilehash: 041a8835a1dd185739b23d4073fd5811bb4490b5
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Modelo de dados do Log Analytics para dados de Backup do Azure
 Este artigo descreve o modelo de dados utilizado para enviar dados de relatório para o Log Analytics. Utilizando esse modelo de dados é possível criar consultas personalizadas, painéis e utilizá-lo no OMS. 
@@ -288,4 +287,3 @@ Esta tabela fornece detalhes sobre campos relacionados ao cofre.
 
 ## <a name="next-steps"></a>Próximas etapas
 Após revisar o modelo de dados para criar relatórios de Backup do Azure, você poderá iniciar a [criação de painel](../log-analytics/log-analytics-dashboards.md) no Log Analytics e OMS.
-

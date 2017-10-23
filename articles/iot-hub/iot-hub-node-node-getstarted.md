@@ -15,12 +15,11 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: f3398e38cf7d3d28d9ca4edef5a9bca96aeaf2ab
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: ffc6cfaadae07cb019bc64954343dab21ed23638
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/31/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-your-simulated-device-to-your-iot-hub-using-node"></a>Conectar o dispositivo simulado ao hub IoT usando o Node
 
@@ -37,7 +36,7 @@ No fim deste tutorial, você terá três aplicativos de console do Node.js:
 
 Para concluir este tutorial, você precisará do seguinte:
 
-* Node.js versão 0.10.x ou posterior.
+* Node.js versão 4.0.x ou posterior.
 * Uma conta ativa do Azure. (Se você não tem uma conta, pode criar uma [conta gratuita][lnk-free-trial] em apenas alguns minutos.)
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
@@ -325,4 +324,3 @@ Para saber como estender sua solução IoT e processar as mensagens entre o disp
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
 [lnk-iot-edge]: iot-hub-linux-iot-edge-get-started.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/
-

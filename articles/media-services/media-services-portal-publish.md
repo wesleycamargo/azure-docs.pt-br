@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: juliako
-ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
 ms.openlocfilehash: 6759d3f49e15a3b01022df318a83563ad6bd859f
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="publish-content-in-the-azure-portal"></a>Publicar conteúdo no Portal do Azure
 > [!div class="op_single_selector"]
@@ -38,9 +37,9 @@ ms.lasthandoff: 09/01/2017
 Para fornecer a seus usuários uma URL que eles podem usar para transmitir ou baixar seu conteúdo, primeiro você deve publicar o ativo criando um localizador. Os localizadores fornecem acesso aos arquivos de ativo. Os Serviços de Mídia do Azure dão suporte a dois tipos de localizadores: 
 
 * **Localizadores de streaming (OnDemandOrigin)**. Os localizadores de streaming são usados para streaming adaptável. Exemplos de streaming adaptável incluem Apple HLS (HTTP Live Streaming), Microsoft Smooth Streaming e DASH (Dynamic Adaptive Streaming por HTTP), também chamado de MPEG-DASH. Para criar um localizador de streaming, seu ativo deve conter um arquivo .ism. 
-* **Localizadores de Assinatura de Acesso Compartilhado progressivos**. Localizadores progressivos são usados para a entrega de vídeo por meio do download progressivo.
+* **Localizadores de URL por SAS (Assinatura de Acesso Compartilhado)**. Localizadores progressivos são usados para a entrega de vídeo por meio do download progressivo.
 
-Para criar uma URL de streaming de HLS, acrescente *(format=m3u8-aapl)* à URL:
+Para criar uma URL de streaming de HLS, anexe *(format=m3u8-aapl)* à URL:
 
     {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest(format=m3u8-aapl)
 
@@ -48,7 +47,7 @@ Para criar uma URL de streaming para reproduzir ativos de Smooth Streaming, use 
 
     {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest
 
-Para criar uma URL de streaming MPEG-DASH, acrescente *(format=mpd-time-csf)* à URL:
+Para criar uma URL de streaming MPEG DASH, anexe *(format=mpd-time-csf)* à URL:
 
     {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{file name}.ism/Manifest(format=mpd-time-csf)
 
@@ -66,12 +65,12 @@ Para obter mais informações, consulte [visão geral sobre entrega de conteúdo
 Para atualizar uma data de validade em um localizador, você pode usar uma [API REST](https://docs.microsoft.com/rest/api/media/operations/locator#update_a_locator) ou uma [API .NET](http://go.microsoft.com/fwlink/?LinkID=533259). 
 
 > [!NOTE]
-> Quando você atualiza a data de validade de um localizador de Assinatura de Acesso Compartilhado, a URL é alterada.
+> Quando você atualiza a data de validade de um localizador SAS, a URL é alterada.
 
 ### <a name="to-use-the-portal-to-publish-an-asset"></a>Para usar o portal para publicar um ativo
 1. No [Portal do Azure](https://portal.azure.com/), selecione sua conta dos Serviços de Mídia do Azure.
 2. Selecione **Configurações** > **Ativos**. Selecione o ativo que você deseja publicar.
-3. Selecione o botão **Publicar**.
+3. Clique no botão **Publicar**.
 4. Selecione o tipo de localizador.
 5. Selecione **Adicionar**.
    
@@ -88,7 +87,7 @@ Selecione o vídeo e, em seguida, selecione o botão **Reproduzir**.
 
 Algumas considerações se aplicam:
 
-* Verifique se o vídeo foi publicado.
+* Verifique se que o vídeo foi publicado.
 * O player de mídia do Portal do Azure reproduz do ponto de extremidade de streaming padrão. Se você quiser reproduzir de um ponto de extremidade de streaming não padrão, selecione e copie a URL e cole-a em outro player. Por exemplo, você pode testar o vídeo no [Player de Mídia do Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 * O ponto de extremidade de streaming do qual você estiver transmitindo deverá estar em execução.  
 
@@ -97,5 +96,4 @@ Algumas considerações se aplicam:
 
 ## <a name="next-steps"></a>Próximas etapas
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
-
 

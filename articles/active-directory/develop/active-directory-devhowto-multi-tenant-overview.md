@@ -15,19 +15,18 @@ ms.workload: identity
 ms.date: 09/26/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: b409aa762b60c6bed0ee26f4b9fa7c347d9eb997
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-ad-user-using-the-multi-tenant-application-pattern"></a>Como entrar em qualquer usuário do Azure AD (Active Directory) usando o padrão de aplicativo multilocatário
 Se você oferecer um aplicativo Software como Serviço para muitas organizações, poderá configurar seu aplicativo para aceitar entradas de qualquer locatário do Azure AD.  No Azure AD, essa configuração é chamada de tornar seu aplicativo multilocatário.  Os usuários em qualquer locatário do Azure AD poderão entrar em seu aplicativo após o consentimento para usar sua conta com o aplicativo.  
 
 Se você tiver um aplicativo que tem seu próprio sistema de contas ou que dá suporte a outros tipos de conexão por meio de outros provedores de nuvem, a adição da conexão do Azure AD em qualquer locatário será simples. Basta registrar o aplicativo, adicionar o código de conexão pelo OAuth2, OpenID Connect ou SAML e colocar um botão “Entrar com a Microsoft” em seu aplicativo. Clique no botão a seguir para saber mais sobre a identidade visual de seu aplicativo.
 
-[![Sign in button][AAD-Sign-In]][AAD-App-Branding]
+[![Botão Entrar][AAD-Sign-In]][AAD-App-Branding]
 
 Este artigo pressupõe que você já está familiarizado com a criação de um aplicativo de locatário único do Azure AD.  Se não estiver, retorne à [home page do guia do desenvolvedor][AAD-Dev-Guide] e experimente um de nossos inícios rápidos!
 
@@ -62,7 +61,7 @@ Em seguida, a resposta de conexão para o aplicativo conterá um token que repre
 
 Como mencionado anteriormente, os aplicativos multilocatário também devem fornecer uma experiência de entrada consistente para usuários, seguindo as diretrizes de identidade visual do aplicativo do Azure AD. Clique no botão a seguir para saber mais sobre a identidade visual de seu aplicativo.
 
-[![Sign in button][AAD-Sign-In]][AAD-App-Branding]
+[![Botão Entrar][AAD-Sign-In]][AAD-App-Branding]
 
 Vamos examinar o uso do ponto de extremidade /common e a sua implementação de código em mais detalhes.
 
@@ -240,7 +239,6 @@ Use a seção de comentários a seguir para fornecer seus comentários e nos aju
 [OAuth2-Role-Def]: https://tools.ietf.org/html/rfc6749#page-6
 [OpenIDConnect]: http://openid.net/specs/openid-connect-core-1_0.html
 [OpenIDConnect-ID-Token]: http://openid.net/specs/openid-connect-core-1_0.html#IDToken
-
 
 
 

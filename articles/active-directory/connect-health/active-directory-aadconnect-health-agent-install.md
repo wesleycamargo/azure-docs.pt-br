@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
+ms.openlocfilehash: bfdcc4aadab18091b2f57e8bc751b37d1bac4d26
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: 8ef8a1cc2393f0befbf83c3124b67b405ae06898
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/01/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Instalação do Agente do Azure AD Connect Health
 Este documento explica como instalar e configurar os Agentes do Azure AD Connect Health. Você pode baixar os agentes [daqui](active-directory-aadconnect-health.md#download-and-install-azure-ad-connect-health-agent).
@@ -37,7 +36,19 @@ A tabela a seguir é uma lista de requisitos para o uso do Azure AD Connect Heal
 | A inspeção de SSL para tráfego de saída está filtrada ou desabilitada | A etapa de registro do agente ou as operações de carregamento de dados podem falhar se houver inspeção de SSL o terminação para tráfego de saída na camada de rede. |
 | Portas de firewall no servidor que executa o agente. |O agente requer que as seguintes portas de firewall estejam abertas para que o agente se comunique com os pontos de extremidade de serviço do Azure AD Health.</br></br><li>Porta TCP 443</li><li>Porta TCP 5671</li> |
 | Permita os sites a seguir se a segurança reforçada do IE estiver habilitada |Se a Segurança Aprimorada do IE estiver habilitada, os sites a seguir precisarão receber permissão no servidor no qual o agente será instalado.</br></br><li>https://login.microsoftonline.com</li><li>https://secure.aadcdn.microsoftonline-p.com</li><li>https://login.windows.net</li><li>O servidor de federação da sua organização confiável pelo Azure Active Directory. Por exemplo: https://sts.contoso.com</li> |
+| Certifique-se de que o PowerShell v4.0 ou mais recente esteja instalado | <li>O Windows Server 2008 R2 é fornecido com o PowerShell v 2.0, que não é suficiente para o agente.  Atualize o PowerShell como explicado abaixo em [Instalação do agente em servidores do Windows Server 2008 R2](#agent-installation-on-windows-server-2008-r2-servers).</li><li>O Windows Server 2012 é fornecido com o PowerShell v 3.0, que não é suficiente para o agente.  [Atualize](http://www.microsoft.com/en-us/download/details.aspx?id=40855) o Windows Menagement Framework.</li><li>O Windows Server 2012 R2 e posterior é fornecido com uma versão suficientemente recente do PowerShell.</li>|
 |Desabilitar FIPS|Não há suporte para FIPS nos agentes do Azure AD Connect Health.|
+
+## <a name="download-and-install-the-azure-ad-connect-health-agent"></a>Baixar e instalar o Agente do Azure AD Connect Health
+* Verifique se você [atende aos requisitos](active-directory-aadconnect-health-agent-install.md#requirements) para o Azure AD Connect Health.
+* Introdução ao uso do Azure AD Connect Health do AD FS
+    * [Baixe o Agente do Azure AD Connect Health para AD FS.](http://go.microsoft.com/fwlink/?LinkID=518973)
+    * [Veja as instruções de instalação](#installing-the-azure-ad-connect-health-agent-for-ad-fs).
+* Introdução ao uso do Azure AD Connect Health para sincronização
+    * [Baixe e instale a versão mais recente do Azure AD Connect](http://go.microsoft.com/fwlink/?linkid=615771). O Agente de Integridade para sincronização será instalado como parte da instalação do Azure AD Connect (versão 1.0.9125.0 ou superior).
+* Introdução ao uso do Azure AD Connect Health para o AD DS
+    * [Baixe o Agente do Azure AD Connect Health para AD DS](http://go.microsoft.com/fwlink/?LinkID=820540).
+    * [Veja as instruções de instalação](#installing-the-azure-ad-connect-health-agent-for-ad-ds).
 
 ## <a name="installing-the-azure-ad-connect-health-agent-for-ad-fs"></a>Instalando o Agente do Azure AD Connect Health para AD FS
 Para iniciar a instalação do agente, dê um clique duplo no arquivo .exe que você baixou. Na primeira tela, clique em instalar.
@@ -89,11 +100,11 @@ Para que o recurso de Análise de Uso colete e analise dados, o agente do Azure 
 
 #### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2008-r2"></a>Para habilitar a auditoria do AD FS no Windows Server 2008 R2
 1. Clique em **Iniciar**, aponte para **Programas**, aponte para **Ferramentas Administrativas** e clique em **Política de Segurança Local**.
-2. Navegue até a pasta **Configurações de segurança\Políticas locais\Gerenciamento de direitos de usuário** e, em seguida, clique duas vezes em Gerar auditorias de segurança.
+2. Navegue até a pasta **Configurações de Segurança\Políticas Locais\Atribuição de Direitos de Usuário** e clique duas vezes em **Gerar auditorias de segurança**.
 3. Na guia **Configuração de Segurança Local** , verifique se a conta de serviço do AD FS 2.0 está listada. Se ela não estiver presente, clique em **Adicionar Usuário ou Grupo** e adicione-a à lista e clique em **OK**.
 4. Para habilitar a auditoria, abra um prompt de comando com privilégios elevados e execute o seguinte comando: <code>auditpol.exe /set /subcategory:"Application Generated" /failure:enable /success:enable</code>
-5. Feche a Política de segurança Local e, em seguida, abra o snap-in de Gerenciamento. Para abrir o snap-in de Gerenciamento, clique em **Iniciar**, aponte para **Programas**, aponte para **Ferramentas Administrativas** e clique em Gerenciamento do AD FS 2.0.
-6. No painel de ações, clique em Editar propriedades do serviço de federação.
+5. Feche **Política de Segurança Local** e então abra o snap-in **Gerenciamento do AD FS**. Para abrir o snap-in Gerenciamento do AD FS, clique em **Iniciar**, aponte para **Programas**, aponte para **Ferramentas Administrativas** e clique em **Gerenciamento do AD FS 2.0**.
+6. No painel **Ações**, clique em **Editar Propriedades do Serviço de Federação**.
 7. Na caixa de diálogo **Propriedades do Serviço de Federação**, clique na guia **Eventos**.
 8. Marque as caixas de seleção **Auditorias com êxito** e **Auditorias com falha**.
 9. Clique em **OK**.
@@ -303,4 +314,3 @@ Você pode usar o sinalizador -ShowResults no comando para exibir logs detalhado
 * [Usar o Azure AD Connect Health com o AD DS](active-directory-aadconnect-health-adds.md)
 * [Perguntas frequentes do Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Histórico de versão do Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
-

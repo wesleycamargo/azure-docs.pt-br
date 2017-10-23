@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 07/25/2017
 ms.author: elbutter
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: e250fa59204be14614a4c91fb5a0c1af5a8d5281
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/02/2017
-
+ms.openlocfilehash: 24e43205c0c562fca9b1c2c0e5eed4da54e17ed7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-compute-power-in-azure-sql-data-warehouse-rest"></a>Gerenciar poder de computação no SQL Data Warehouse do Azure (REST)
 > [!div class="op_single_selector"]
@@ -98,4 +97,3 @@ Para outras tarefas de gerenciamento, consulte [Visão geral de gerenciamento][M
 <!--Other Web references-->
 
 [Azure portal]: http://portal.azure.com/
-

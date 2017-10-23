@@ -16,12 +16,11 @@ ms.date: 06/28/2017
 ms.author: andredm
 ms.reviewer: 
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 7f1aa292e6c15e2702f939b9751fe13a27bc5b7f
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/30/2017
-
+ms.openlocfilehash: 9a5de00793621cfdecea887c53a22d482a25d1b8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="built-in-roles-for-azure-role-based-access-control"></a>Funções internas para o controle de acesso baseado em função do Azure
 O RBAC (Controle de Acesso baseado em função do Azure) é fornecido com as seguintes funções internas que podem ser atribuídas a usuários, grupos e serviços. Você não pode modificar as definições de funções internas. No entanto, você pode criar [Funções personalizadas no RBAC do Azure](role-based-access-control-custom-roles.md) para atender às necessidades específicas de sua organização.
@@ -378,7 +377,7 @@ Pode gerenciar contas do Azure Cosmos DB
 | **Ações** |  |
 | --- | --- |
 | Microsoft.Authorization/*/read |Ler funções e atribuições de função |
-| Microsoft.DocumentDb/databaseAccounts/* |Criar e gerenciar contas do Banco de Dados de Documentos |
+| Microsoft.DocumentDb/databaseAccounts/* |Criar e gerenciar contas do DocumentDB |
 | Microsoft.Insights/alertRules/* |Criar e gerenciar regras de alerta |
 | Microsoft.ResourceHealth/availabilityStatuses/read |Ler a integridade dos recursos |
 | Microsoft.Resources/deployments/* |Criar e gerenciar implantações do grupo de recursos |
@@ -873,4 +872,3 @@ Pode gerenciar sites, mas não os planos da Web ao quais eles estão conectados
 * [Funções personalizadas no Azure RBAC](role-based-access-control-custom-roles.md): aprenda a criar funções personalizadas para atender às suas necessidades de acesso.
 * [Criar um relatório de histórico de alterações de acesso](role-based-access-control-access-change-history-report.md): mantenha o controle das alterações de atribuições de função no RBAC.
 * [Solução de problemas de Controle de Acesso Baseado em Função](role-based-access-control-troubleshooting.md): obtenha sugestões para corrigir problemas comuns.
-

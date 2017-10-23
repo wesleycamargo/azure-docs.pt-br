@@ -16,14 +16,12 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 05/10/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 82b7e6662986573d139691bb9e2cc216c1c5a535
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
-
+ms.openlocfilehash: caad9212649dd3dc47ddb21555b5b8496c3d2da1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-cosmos-db-create-a-firewall-using-powershell"></a>Banco de Dados Cosmos do Azure: Criar um firewall usando PowerShell
 
 Este exemplo de script do PowerShell cria um firewall para qualquer tipo de conta de API do Banco de Dados Cosmos do Azure. 
@@ -32,7 +30,7 @@ Este exemplo de script do PowerShell cria um firewall para qualquer tipo de cont
 
 ## <a name="sample-script"></a>Script de exemplo
 
-[!code-powershell[main](../../../powershell_scripts/cosmosdb/create-firewall/create-firewall.ps1?highlight=35-36,39-43 "Criar um firewall para o Banco de Dados Cosmos do Azure")]
+[!code-powershell[main](../../../powershell_scripts/cosmosdb/create-firewall/create-firewall.ps1?highlight=35-36,39-43 "Create a firewall for Azure Cosmos DB")]
 
 ## <a name="clean-up-deployment"></a>Limpar implantação
 

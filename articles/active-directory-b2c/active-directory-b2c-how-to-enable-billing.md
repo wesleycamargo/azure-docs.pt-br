@@ -12,13 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/05/2016
 ms.author: joroja
-ms.translationtype: Human Translation
-ms.sourcegitcommit: d9ae8e8948d82b9695d7d144d458fe8180294084
 ms.openlocfilehash: 5b9955b2af7f20a79981315fa33a0eb5380a5465
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/23/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="linking-an-azure-subscription-to-an-azure-b2c-tenant-to-pay-for-usage-charges"></a>Vinculação de uma assinatura do Azure a um locatário do Azure B2C para pagar encargos de uso
 
@@ -77,4 +75,3 @@ Clicando no recurso de locatário do B2C, será possível
 Quando essas etapas forem concluídas para cada um dos seus locatários do B2C, sua assinatura do Azure será cobrada de acordo com os detalhes do Azure Direct ou Enterprise Agreement.
 - Examinar o uso e a cobrança selecionados para a assinatura do Azure
 - Examine os relatórios de uso detalhado do dia a dia usando a [API de Relatórios de Uso](active-directory-b2c-reference-usage-reporting-api.md)
-

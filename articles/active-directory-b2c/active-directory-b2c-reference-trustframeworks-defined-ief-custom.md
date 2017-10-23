@@ -14,14 +14,12 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: joroja
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: 4e2de9c4d1c0f92970911e132fffaacbd01d9ad0
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="define-trust-frameworks-with-azure-ad-b2c-identity-experience-framework"></a>Definir estruturas confiáveis com a Estrutura de Experiência de Identidade do Azure AD B2C
 
 As políticas personalizadas do Azure AD B2C (Azure Active Directory B2C) que usam a Identity Experience Framework fornecem um serviço centralizado à sua organização. Esse serviço reduz a complexidade da federação de identidade em uma grande comunidade de interesse. A complexidade é reduzida para uma relação de confiança única e uma troca única de metadados.
@@ -130,4 +128,3 @@ A interoperabilidade é outro desafio significativo. Os verificadores/provedores
 Os percursos do usuário incluem perfis de protocolo e metadados que são usados para inserir interoperabilidade "durante a transmissão" entre a terceira parte confiável e outros participantes. Também há regras de tempo de execução operacional que são aplicadas a mensagens de solicitação/resposta de informações de identidade para impor a conformidade com políticas publicadas como parte da especificação da TF. A ideia de jornadas do usuário é fundamental para a personalização da experiência do cliente. Ela também esclarece como o sistema funciona no nível do protocolo.
 
 Com essa base, portais e aplicativos de terceira parte confiável podem, dependendo de seu contexto, invocar as políticas personalizadas do Azure AD B2C que aproveitam a Estrutura de Experiência de Identidade ao passar o nome de uma política específica e obter exatamente o comportamento e a troca de informações desejadas sem qualquer problema, confusão ou risco.
-

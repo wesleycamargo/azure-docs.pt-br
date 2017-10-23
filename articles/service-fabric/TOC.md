@@ -26,8 +26,8 @@
 
 ## Criar e gerenciar um cluster
 ### 1 – Criar um cluster no Azure
-#### [1a– Criar um cluster do Windows seguro no Azure](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
-#### [1b– Criar um cluster do Linux seguro no Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
+#### [1a – Crie um cluster do Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
+#### [1b – Crie um cluster do Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 ### [2– Implantar o Gerenciamento de API com o Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
 # Exemplos
@@ -198,7 +198,6 @@
 ### Compilar um serviço de Reliable Actors
 #### Introdução
 ##### [C# em Windows](service-fabric-reliable-actors-get-started.md)
-##### [Java no Linux](service-fabric-reliable-actors-get-started-java.md)
 ##### [Ator Java no Linux](service-fabric-create-your-first-linux-application-with-java.md)
 #### [Enviar notificações](service-fabric-reliable-actors-events.md)
 #### [Definir lembretes e temporizadores](service-fabric-reliable-actors-timers-reminders.md)
@@ -241,6 +240,7 @@
 
 ### Implantar ou remover aplicativos
 #### [Implantar aplicativos em um cluster local](service-fabric-get-started-with-a-local-cluster.md)
+#### [Gerenciador de Recursos do Azure](service-fabric-application-arm-resource.md)
 #### [PowerShell do Azure](service-fabric-deploy-remove-applications.md)
 #### [CLI do Service Fabric](service-fabric-application-lifecycle-sfctl.md)
 #### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
@@ -342,8 +342,8 @@
 # Referência
 ## [PowerShell do Azure](/powershell/module/azurerm.servicefabric/)
 ## [PowerShell](/powershell/module/servicefabric/?view=azureservicefabricps)
-## [CLI do Azure](/cli/azure/sf)
-## [CLI do Service Fabric](service-fabric-sfctl.md)
+## [CLI do Azure (az sf)](/cli/azure/sf)
+## [CLI do Service Fabric (sfctl)](service-fabric-sfctl.md)
 ### [aplicativo sfctl](service-fabric-sfctl-application.md)
 ### [caos sfctl](service-fabric-sfctl-chaos.md)
 ### [cluster sfctl](service-fabric-sfctl-cluster.md)

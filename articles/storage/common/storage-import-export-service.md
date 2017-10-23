@@ -12,14 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2017
+ms.date: 10/03/2017
 ms.author: muralikk
+ms.openlocfilehash: 8fb4713589963c649d650a7661c2a6b540b65a5e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: e05028ad46ef6ec2584cd2d3f4843cf38bb54f9e
-ms.openlocfilehash: d96c2f565e6462716ccf702188bdac03dcde9dce
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/16/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Usar o serviço de Importação/Exportação do Microsoft Azure para transferir dados para o armazenamento do Azure
 O serviço de Importação/Exportação do Azure permite a você transferir com segurança grandes quantidades de dados para o armazenamento do Azure por meio do envio de unidades de disco rígido para um data center do Azure. Você também pode usar esse serviço para transferir dados do armazenamento do Azure para as unidades de disco rígido e enviar para seu site local. Esse serviço é adequado em situações em que você deseja transferir vários terabytes (TB) de dados para dentro ou fora do Azure, mas o upload ou download pela rede não é viável devido à largura de banda limitada ou aos os altos custos de rede.
@@ -51,7 +50,7 @@ Você pode usar o serviço de Importação/Exportação do Azure para copiar os 
 Para começar o processo de importação para o armazenamento ou de exportação desse armazenamento, primeiro crie um trabalho. que pode ser um trabalho de importação ou um trabalho de exportação:
 
 * Crie um trabalho de importação quando desejar transferir dados locais para blobs em sua conta de armazenamento do Azure.
-* Criar um trabalho de exportação quando desejar transferir os dados atualmente armazenados como blobs na conta de armazenamento para unidades de disco rígido que são enviados para você. Quando você criar um trabalho, notifique o serviço de Importação/Exportação que você enviará um ou mais unidades de disco rígido para um data center do Azure.
+* Crie um trabalho de exportação quando desejar transferir os dados armazenados atualmente como blobs na sua conta de armazenamento para discos rígidos enviados a nós. Ao criar um trabalho, você notifica o serviço de Importação/Exportação de que enviará um ou mais discos rígidos para um data center do Azure.
 
 * Para um trabalho de importação, você enviará discos rígidos contendo seus dados.
 * Para um trabalho de exportação, você enviará discos rígidos vazios.
@@ -138,13 +137,13 @@ Locais de envio com suporte:
 
 Ao criar um trabalho de importação ou exportação, você receberá um endereço de envio de um dos locais com suporte para enviar suas unidades. O endereço de envio fornecido depende do local de sua conta de armazenamento, mas não pode ser o mesmo que o local da conta de armazenamento.
 
-Você pode usar operadoras como FedEx, DHL, UPS ou o Serviço Postal para enviar suas unidades para o endereço de envio.
+FedEx, UPS ou DHL pode ser usado para enviar suas unidades para o endereço de envio.
 
 **Enviando unidades a partir do data center:**
 
 Ao criar um trabalho de importação ou exportação, você deve fornecer um endereço de retorno para a Microsoft usar ao enviar de volta as unidades após a conclusão do trabalho. Certifique-se de que fornecer um endereço de retorno válido para evitar atrasos no processamento.
 
-Use uma transportadora de sua escolha para enviar o disco rígido. A transportadora deve ter o controle apropriado para manter a cadeia de custódia. Você também deve fornecer um número de conta da transportadora FedEx ou DHL válido para ser usado pela Microsoft para enviar de volta as unidades. Um número de conta FedEx é necessário para enviar de volta as unidades de locais nos Estados Unidos e na Europa. Um número de conta DHL é necessário para enviar de volta as unidades de locais na Ásia e na Austrália. Você poderá criar uma conta da carrier [FedEx](http://www.fedex.com/us/oadr/) (para os EUA e a Europa) ou [DHL](http://www.dhl.com/) (Ásia e Austrália) se não tiver uma. Se você já tiver um número de conta da transportadora, verifique se ele é válido.
+A transportadora deve ter o controle apropriado para manter a cadeia de custódia. Você deve fornecer um número de conta da transportadora FedEx, UPS ou DHL válido para ser usado pela Microsoft para enviar de volta as unidades. Um número de conta FedEx, UPS ou DHL é necessário para enviar de volta as unidades de locais nos EUA e na Europa. Um número de conta DHL é necessário para enviar de volta as unidades de locais na Ásia e na Austrália. Você poderá criar uma conta da carrier [FedEx](http://www.fedex.com/us/oadr/) (para os EUA e a Europa) ou [DHL](http://www.dhl.com/) (Ásia e Austrália) se não tiver uma. Se você já tiver um número de conta da transportadora, verifique se ele é válido.
 
 Ao enviar seus pacotes, você deve seguir os [Termos de Serviço do Microsoft Azure](https://azure.microsoft.com/support/legal/services-terms/).
 
@@ -175,11 +174,10 @@ Em um alto nível, um trabalho de importação envolve as seguintes etapas:
 
 ### <a name="inside-an-export-job"></a>Dentro de um trabalho de exportação
 > [!IMPORTANT]
-79 O serviço só oferece suporte à exportação de Blobs do Azure e não oferece suporte à exportação de arquivos do Azure.
-> 80
+> O serviço só oferece suporte à exportação de Blobs do Azure e não oferece suporte à exportação de arquivos do Azure.
 > 
-81
-> 
+>
+
 Em um alto nível, um trabalho de exportação envolve as seguintes etapas:
 
 * Determine os dados a serem exportados e o número de unidades necessárias.
@@ -362,25 +360,25 @@ Veja mais detalhes sobre como usar a ferramenta WAImportExport em [Preparação 
 Além disso, confira o [Fluxo de trabalho de exemplo para preparo dos discos rígidos para um trabalho de importação](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md) para obter instruções passo a passo mais detalhadas.  
 
 ### <a name="create-the-import-job"></a>Criar o trabalho de importação
-1. Depois de preparar a unidade, navegue até a conta de armazenamento no Portal do Azure e exiba o Painel. Em **Visão Rápida**, clique em **Criar um Trabalho de Importação**. Examine as etapas e marque a caixa de seleção para indicar que você preparou a unidade e que o arquivo de diário de unidade está disponível.
-2. Na Etapa 1, forneça as informações de contato da pessoa responsável por esse trabalho de importação e um endereço de retorno válido. Se desejar salvar dados de log detalhados para o trabalho de importação, marque a opção para **Salvar o log detalhado no meu contêiner de blob 'waimportexport'**.
-3. Na Etapa 2, carregue os arquivos de diário de unidade obtidos durante a etapa de preparação de unidade. Você precisa carregar um arquivo para cada unidade preparada.
+1. Depois de preparar a unidade, navegue até Mais serviços -> ARMAZENAMENTO -> "Trabalhos de importação/exportação" no Portal do Azure. Clique em **Criar Trabalho de Importação/Exportação**.
+
+2. Na Etapa 1, Básico, selecione "Importar para o Azure", digite uma cadeia de caracteres para nome do trabalho, selecione uma assinatura, insira ou selecione um grupo de recursos. Digite um nome descritivo para o trabalho de importação. Observe que o nome fornecido pode conter somente letras minúsculas, números, hifens e sublinhados, deve começar com letra e não pode conter espaços. Você usará o nome escolhido para acompanhar os trabalhos enquanto eles estiverem em andamento e quando eles estiverem concluídos.
+
+3. Na Etapa 2, Detalhes do trabalho, carregue os arquivos de diário de unidade obtidos durante a etapa de preparação de unidade. Se a versão1 de waimportexport.exe foi usada, você precisa carregar um arquivo para cada unidade preparada. Selecione a conta de armazenamento para a qual os dados serão importados na seção Conta de armazenamento de "Destino de importação". O local de redistribuição será populado automaticamente com base na região da conta de armazenamento especificada.
    
    ![Criar o trabalho de importação - Etapa 3](./media/storage-import-export-service/import-job-03.png)
-4. Na Etapa 3, digite um nome descritivo para o trabalho de importação. Observe que o nome fornecido pode conter somente letras minúsculas, números, hifens e sublinhados, deve começar com letra e não pode conter espaços. Você usará o nome escolhido para acompanhar os trabalhos enquanto eles estiverem em andamento e quando eles estiverem concluídos.
+4. Na Etapa 3, Retornar informações de envio, selecione a carrier na lista suspensa e insira um número de conta da carrier válido que você criou com essa carrier. A Microsoft usará essa conta para enviar de volta as unidades para você após a conclusão do seu trabalho de importação. Forneça um nome de contato válido e completo, bem como telefone, email, endereço, cidade, zip, estado/município e país/região.
    
-   Em seguida, selecione a região do data center na lista. A região do data center indica o data center e o endereço para o qual você deve enviar seu pacote. Consulte as Perguntas Frequentes abaixo para obter mais informações.
-5. Na Etapa 4, selecione sua operadora de retorno na lista e insira o número da conta da operadora. A Microsoft usará essa conta para enviar de volta as unidades para você após a conclusão do seu trabalho de importação.
+5. Na Página de Resumo, o endereço de envio do Azure DataCenter é fornecido para ser usado para envio de discos para o controlador de domínio do Azure. Certifique-se de que o nome do trabalho e o endereço completo são mencionados no rótulo de envio. 
+
+6. Clique em OK na Página de Resumo para concluir a criação do trabalho de Importação.
+
+7. Após o envio dos discos, retorne para a página **Importação/Exportação** no Portal do Azure, a) Navegue e clique no trabalho de importação b) Clique em **Atualizar status do trabalho e informações de acompanhamento quando as unidades são enviadas**. 
+     c) Selecione a caixa de seleção "Marcar como enviado" d) Informe a Carrier e Número de controle.
+    
+   Se o número de acompanhamento não está atualizado em 2 semanas após a criação do trabalho, este irá expirar.
    
-   Se você tiver um número de controle, selecione a transportadora de entrega na lista e insira seu número de controle.
-   
-   Se ainda não tiver um número de controle, escolha **Fornecerei minhas informações de remessa para este trabalho de importação após enviar meu pacote**e, em seguida, conclua o processo de importação.
-6. Para inserir o número de acompanhamento após enviar o pacote, volte à página **Importação/Exportação** da sua conta de armazenamento no Portal do Azure, selecione seu trabalho na lista e escolha **Informações de Remessa**. Navegue pelo assistente e insira o número de acompanhamento na Etapa 2.
-   
-    Se o número de acompanhamento não está atualizado em 2 semanas após a criação do trabalho, este irá expirar.
-   
-    Você também pode atualizar o número da conta da transportadora na Etapa 2 do assistente, caso o trabalho esteja nas fases Criando, Enviando ou Transferindo. Você não poderá atualizar o número da conta da transportadora para o trabalho em questão quando ele estiver na fase de Empacotamento.
-7. Você pode acompanhar o andamento do trabalho no painel do portal. Veja o que significa cada estado do trabalho na seção anterior em [Exibindo o status do trabalho](#viewing-your-job-status).
+8. Você pode acompanhar o andamento do trabalho no painel do portal. Veja o que significa cada estado do trabalho na seção anterior em [Exibindo o status do trabalho](#viewing-your-job-status).
 
 ## <a name="create-an-export-job"></a>Criar um trabalho de exportação
 Crie um trabalho de exportação para notificar o serviço de Importação/Exportação que você enviará uma ou mais unidades vazias para o data center para que os dados possam ser exportados de sua conta de armazenamento para as unidades e as unidades, então, sejam enviadas para você.
@@ -392,9 +390,10 @@ As pré-verificações a seguir são recomendadas para preparar suas unidades pa
 2. Verifique se você pode ler/gravar no disco rígido que será enviado para o trabalho de exportação.
 
 ### <a name="create-the-export-job"></a>Criar o trabalho de exportação
-1. Para criar um trabalho de exportação, navegue até a sua conta de armazenamento no Portal do Azure e exiba o Painel. Em **Visão Rápida**, clique em **Criar um Trabalho de Exportação** e continue com o assistente.
-2. Na Etapa 2, forneça as informações de contato da pessoa responsável por esse trabalho de exportação. Se desejar salvar dados de log detalhados para o trabalho de exportação, marque a opção para **Salvar o log detalhado no meu contêiner de blob 'waimportexport'**.
-3. Na Etapa 3, especifique quais dados de blob deseja exportar da sua conta de armazenamento para a(s) unidade(s) em branco. Você pode optar por exportar todos os dados de blob na conta de armazenamento ou especificar quais blobs ou conjuntos de blobs serão exportados.
+1. Para criar um trabalho de exportação, navegue até Mais serviços -> ARMAZENAMENTO -> "Trabalhos de importação/exportação" no Portal do Azure. Clique em **Criar Trabalho de Importação/Exportação**.
+2. Na Etapa 1, Básico, selecione "Exportar do Azure", digite uma cadeia de caracteres para nome do trabalho, selecione uma assinatura, insira ou selecione um grupo de recursos. Digite um nome descritivo para o trabalho de importação. Observe que o nome fornecido pode conter somente letras minúsculas, números, hifens e sublinhados, deve começar com letra e não pode conter espaços. Você usará o nome escolhido para acompanhar os trabalhos enquanto eles estiverem em andamento e quando eles estiverem concluídos. Forneça as informações de contato da pessoa responsável por esse trabalho de exportação. 
+
+3. Nos Detalhes do trabalho da Etapa 2, selecione a conta de armazenamento da qual os dados serão exportados na seção Conta de armazenamento. O local de redistribuição será populado automaticamente com base na região da conta de armazenamento especificada. Especifique quais dados de blob deseja exportar da sua conta de armazenamento para a(s) unidade(s) em branco. Você pode optar por exportar todos os dados de blob na conta de armazenamento ou especificar quais blobs ou conjuntos de blobs serão exportados.
    
    Para especificar um blob para exportação, use o seletor **Igual a** e especifique o caminho relativo do blob, começando pelo nome do contêiner. Use *$root* para especificar o contêiner raiz.
    
@@ -415,26 +414,26 @@ As pré-verificações a seguir são recomendadas para preparar suas unidades pa
    Você deve fornecer os caminhos de blob nos formatos válidos para evitar erros durante o processamento, como mostrado nesta captura de tela.
    
    ![Criar o trabalho de exportação - Etapa 3](./media/storage-import-export-service/export-job-03.png)
-4. Na Etapa 4, digite um nome descritivo para o trabalho de exportação. O nome fornecido pode conter somente letras minúsculas, números, hifens e sublinhados, deve começar por letra e não pode conter espaços.
+
+4. Na Etapa 3, Retornar informações de envio, selecione a carrier na lista suspensa e insira um número de conta da carrier válido que você criou com essa carrier. A Microsoft usará essa conta para enviar de volta as unidades para você após a conclusão do seu trabalho de importação. Forneça um nome de contato válido e completo, bem como telefone, email, endereço, cidade, zip, estado/município e país/região.
    
-   A região do data center indicará o data center para o qual você deverá enviar seu pacote. Consulte as Perguntas Frequentes abaixo para obter mais informações.
-5. Na Etapa 5, selecione sua operadora de retorno na lista e insira o número da conta da operadora. A Microsoft irá usar esta conta para enviar suas unidades de volta para você após a conclusão do seu trabalho de exportação.
+ 5. Na Página de Resumo, o endereço de envio do Azure DataCenter é fornecido para ser usado para envio de discos para o controlador de domínio do Azure. Certifique-se de que o nome do trabalho e o endereço completo são mencionados no rótulo de envio. 
+
+6. Clique em OK na Página de Resumo para concluir a criação do trabalho de Importação
+
+7. Após o envio dos discos, retorne para a página **Importação/Exportação** no Portal do Azure, a) Navegue e clique no trabalho de importação b) Clique em **Atualizar status do trabalho e informações de acompanhamento quando as unidades são enviadas**. 
+     c) Selecione a caixa de seleção "Marcar como enviado" d) Informe a Carrier e Número de controle.
+    
+   Se o número de acompanhamento não está atualizado em 2 semanas após a criação do trabalho, este irá expirar.
    
-   Se você tiver um número de controle, selecione a transportadora de entrega na lista e insira seu número de controle.
-   
-   Se ainda não tiver um número de controle, escolha **Fornecerei minhas informações de remessa para este trabalho de exportação após enviar meu pacote**e, em seguida, conclua o processo de exportação.
-6. Para inserir o número de acompanhamento após enviar o pacote, volte à página **Importação/Exportação** da sua conta de armazenamento no Portal do Azure, selecione seu trabalho na lista e escolha **Informações de Remessa**. Navegue pelo assistente e insira o número de acompanhamento na Etapa 2.
-   
-    Se o número de acompanhamento não está atualizado em 2 semanas após a criação do trabalho, este irá expirar.
-   
-    Você também pode atualizar o número da conta da transportadora na Etapa 2 do assistente, caso o trabalho esteja nas fases Criando, Enviando ou Transferindo. Você não poderá atualizar o número da conta da transportadora para o trabalho em questão quando ele estiver na fase de Empacotamento.
-   
+8. Você pode acompanhar o andamento do trabalho no painel do portal. Veja o que significa cada estado do trabalho na seção anterior em [Exibindo o status do trabalho](#viewing-your-job-status).
+
    > [!NOTE]
    > Se o blob a ser exportado estiver em uso no momento da cópia do disco rígido, o serviço de Importação/Exportação do Azure tira um instantâneo do blob e copia o instantâneo.
    > 
    > 
-7. Você pode acompanhar o andamento do trabalho no painel do Portal do Azure. Veja o que significa cada estado do trabalho na seção anterior em “Exibindo o status do trabalho”.
-8. Depois de receber as unidades com os dados exportados, você poderá exibir e copiar as chaves do BitLocker geradas pelo serviço para a unidade. No Portal do Azure, navegue até a sua conta de armazenamento e clique na guia Importação/Exportação. Selecione o trabalho de exportação na lista e clique no botão Exibir Chaves. As chaves do BitLocker aparecem como mostrado abaixo:
+ 
+9. Depois de receber as unidades com os dados exportados, você poderá exibir e copiar as chaves do BitLocker geradas pelo serviço para a unidade. No Portal do Azure, navegue até o Portal do Azure e clique na guia Importação/Exportação. Selecione o trabalho de exportação na lista e clique na opção Chaves do BitLocker. As chaves do BitLocker aparecem como mostrado abaixo:
    
    ![Exibir chaves do BitLocker para um trabalho de exportação](./media/storage-import-export-service/export-job-bitlocker-keys.png)
 
@@ -553,5 +552,4 @@ G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-25261
 * [Configuração da ferramenta WAImportExport](storage-import-export-tool-how-to.md)
 * [Transferir dados com o utilitário de linha de comando AzCopy](storage-use-azcopy.md)
 * [Exemplo de API REST de importação e exportação do Azure](https://azure.microsoft.com/documentation/samples/storage-dotnet-import-export-job-management/)
-
 

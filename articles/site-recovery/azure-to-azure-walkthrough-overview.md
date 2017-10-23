@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
 ms.openlocfilehash: 9258613161a61e36b1d0c5796d5763c916d66859
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/02/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="replicate-azure-vms-between-regions-with-azure-site-recovery"></a>Você pode replicar VMs do Azure entre regiões usando o Site Recovery
 
 >Este artigo fornece uma visão geral das etapas necessárias para replicar VMs (máquinas virtuais) em uma região do Azure para VMs do Azure em uma região diferente. 
@@ -74,6 +72,5 @@ Acesse a [Etapa 5: habilitar a replicação](azure-to-azure-walkthrough-enable-r
 Após a conclusão da replicação inicial e a replicação delta estiver em execução, você poderá executar um failover de teste para verificar se tudo está funcionando como esperado.
 
 Acesse a [Etapa 6: executar um failover de teste](azure-to-azure-walkthrough-test-failover.md)
-
 
 

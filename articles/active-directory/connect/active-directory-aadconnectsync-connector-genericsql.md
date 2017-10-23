@@ -14,16 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
-ms.openlocfilehash: b7e99f8a4d7bc1cd30c71ce08ad38c13203f8b69
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/12/2017
-
+ms.openlocfilehash: a84096ba53a308855beedd76d9dec827c025cd57
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-<a id="generic-sql-connector-technical-reference" class="xliff"></a>
-
-# Referência técnica do conector SQL genérico
+# <a name="generic-sql-connector-technical-reference"></a>Referência técnica do conector SQL genérico
 Este artigo descreve o conector SQL genérico. O artigo se aplica aos seguintes produtos:
 
 * Microsoft Identity Manager 2016 (MIM2016)
@@ -34,9 +31,7 @@ Para MIM2016 e FIM2010R2 o conector está disponível para download do [Centro d
 
 Para ver esse conector em ação, consulte o artigo [Generic SQL Connector step-by-step](active-directory-aadconnectsync-connector-genericsql-step-by-step.md) .
 
-<a id="overview-of-the-generic-sql-connector" class="xliff"></a>
-
-## Visão geral do conector SQL genérico
+## <a name="overview-of-the-generic-sql-connector"></a>Visão geral do conector SQL genérico
 O conector SQL genérico permite que você integre o serviço de sincronização com um sistema de banco de dados que oferece conectividade ODBC.  
 
 Partindo de um ponto de vista detalhado, os seguintes recursos têm suporte na versão atual do conector:
@@ -48,37 +43,27 @@ Partindo de um ponto de vista detalhado, os seguintes recursos têm suporte na v
 | Operações |<li>Importação completa e importação delta, exportação</li><li>Para exportar: Adicionar, Excluir, Atualizar e Substituir</li><li>Definir senha, alterar senha</li> |
 | Esquema |<li>Detecção dinâmica de objetos e atributos</li> |
 
-<a id="prerequisites" class="xliff"></a>
-
-### Pré-requisitos
+### <a name="prerequisites"></a>Pré-requisitos
 Para usar o conector, verifique se você tem os seguintes itens no servidor de sincronização:
 
 * Microsoft .NET 4.5.2 Framework ou posterior
 * Drivers de cliente ODBC de 64 bits
 
-<a id="permissions-in-connected-data-source" class="xliff"></a>
-
-### Permissões na fonte de dados conectada
+### <a name="permissions-in-connected-data-source"></a>Permissões na fonte de dados conectada
 Para criar ou executar qualquer uma das tarefas com suporte no conector SQL genérico, você deve ter:
 
 * db_datareader
 * db_datawriter
 
-<a id="ports-and-protocols" class="xliff"></a>
-
-### Portas e protocolos
+### <a name="ports-and-protocols"></a>Portas e protocolos
 Para as portas necessárias ao funcionamento do driver ODBC, confira a documentação do fornecedor do banco de dados.
 
-<a id="create-a-new-connector" class="xliff"></a>
-
-## Criar um novo conector
+## <a name="create-a-new-connector"></a>Criar um novo conector
 Para criar um conector SQL genérico, em **Serviço de Sincronização** selecione **Agente de Gerenciamento** e **Criar**. Selecione o **Conector SQL genérico (Microsoft)** .
 
 ![CreateConnector](./media/active-directory-aadconnectsync-connector-genericsql/createconnector.png)
 
-<a id="connectivity" class="xliff"></a>
-
-### Conectividade
+### <a name="connectivity"></a>Conectividade
 O conector usa um arquivo DSN ODBC para conectividade. Crie o arquivo DSN usando **Fontes de Dados ODBC** encontrado no menu Iniciar em **Ferramentas Administrativas**. A ferramenta administrativa, cria um **DSN de Arquivo** para que ele possa ser fornecido ao conector.
 
 ![CreateConnector](./media/active-directory-aadconnectsync-connector-genericsql/connectivity.png)
@@ -102,9 +87,7 @@ O banco de dados deve dar suporte a um dos seguintes métodos de autenticação:
 
 **Tipo de Exportação: Substituir Objeto**: durante a exportação, quando apenas alguns atributos tiverem sido alteradas, o objeto inteiro com todos os atributos será exportado e substituirá o objeto existente.
 
-<a id="schema-1-detect-object-types" class="xliff"></a>
-
-### Esquema 1 (Detectar tipos de objeto)
+### <a name="schema-1-detect-object-types"></a>Esquema 1 (Detectar tipos de objeto)
 Nesta página você configurará como o conector localizará tipos de objeto diferentes no banco de dados.
 
 Cada tipo de objeto é apresentado como uma partição e configurado ainda mais em **Configurar Partições e Hierarquias**.
@@ -119,9 +102,7 @@ Cada tipo de objeto é apresentado como uma partição e configurado ainda mais 
   ![schema1c](./media/active-directory-aadconnectsync-connector-genericsql/schema1c.png)
 * **Consulta SQL**: essa opção permite que você forneça uma consulta SQL que retorna uma única coluna com tipos de objeto, por exemplo, `SELECT [Column Name] FROM TABLENAME`. A coluna retornada deve ser do tipo cadeia de caracteres (varchar).
 
-<a id="schema-2-detect-attribute-types" class="xliff"></a>
-
-### Esquema 2 (Detectar tipos de atributo)
+### <a name="schema-2-detect-attribute-types"></a>Esquema 2 (Detectar tipos de atributo)
 Nesta página, você configurará como os nomes e tipos de atributos serão detectados. As opções de configuração são listadas para cada tipo de objeto detectado na página anterior.
 
 ![schema2a](./media/active-directory-aadconnectsync-connector-genericsql/schema2a.png)
@@ -131,9 +112,7 @@ Nesta página, você configurará como os nomes e tipos de atributos serão dete
 * **Tabela/exibição/procedimento armazenado**: forneça o nome da tabela/exibição/procedimento armazenado que deve ser usado para localizar nomes de atributo. Se você usar um procedimento armazenado, forneça também parâmetros para ele no formato **[Nome]:[Direção]:[Valor]**. Forneça cada parâmetro em uma linha separada (use Ctrl + Enter para obter uma nova linha). Para detectar nomes de atributo em um atributo de valores múltiplos, forneça uma lista separada por vírgulas de tabelas ou exibições. Não haverá suporte para cenários de valores múltiplos quando a tabela pai e filho tiverem os mesmos nomes de coluna.
 * **Consulta SQL**: essa opção permite que você forneça uma consulta SQL que retorna uma única coluna com nomes de atributo, por exemplo, `SELECT [Column Name] FROM TABLENAME`. A coluna retornada deve ser do tipo cadeia de caracteres (varchar).
 
-<a id="schema-3-define-anchor-and-dn" class="xliff"></a>
-
-### Esquema 3 (Definir âncora e DN)
+### <a name="schema-3-define-anchor-and-dn"></a>Esquema 3 (Definir âncora e DN)
 Esta página permite que você configure a âncora e o atributo DN para cada tipo de objeto detectado. Você pode selecionar vários atributos para tornar a âncora exclusiva.
 
 ![schema3a](./media/active-directory-aadconnectsync-connector-genericsql/schema3a.png)
@@ -144,9 +123,7 @@ Esta página permite que você configure a âncora e o atributo DN para cada tip
 
   ![schema3b](./media/active-directory-aadconnectsync-connector-genericsql/schema3b.png)
 
-<a id="schema-4-define-attribute-type-reference-and-direction" class="xliff"></a>
-
-### Esquema 4 (Definir tipo de atributo, referência e direção)
+### <a name="schema-4-define-attribute-type-reference-and-direction"></a>Esquema 4 (Definir tipo de atributo, referência e direção)
 Essa página permite que você configure o tipo de atributo, como inteiro, binário ou Booliano, e a direção para cada atributo. Todos os atributos da página **Esquema 2** estão listados como atributos de valores múltiplos.
 
 ![schema4a](./media/active-directory-aadconnectsync-connector-genericsql/schema4a.png)
@@ -162,9 +139,7 @@ Observações:
 * **Tabelas aninhadas** podem ser consideradas tabelas de banco de dados de uma coluna. O Oracle armazena as linhas de uma tabela aninhada sem nenhuma ordem específica. No entanto, quando você recupera a tabela aninhada em uma variável de PL/SQL, as linhas recebem subscritos consecutivos, começando em 1. Que lhe dá acesso do tipo matriz a linhas individuais.
 * **VARRYS** não têm suporte no conector.
 
-<a id="schema-5-define-partition-for-reference-attributes" class="xliff"></a>
-
-### Esquema 5 (Definir partição para atributos de referência)
+### <a name="schema-5-define-partition-for-reference-attributes"></a>Esquema 5 (Definir partição para atributos de referência)
 Nesta página você configura todos os atributos de referência a cuja partição (tipo de objeto) um atributo está se referindo.
 
 ![schema5](./media/active-directory-aadconnectsync-connector-genericsql/schema5.png)
@@ -189,9 +164,7 @@ Após a importação você verá algo semelhante à imagem a seguir:
 
 
 
-<a id="global-parameters" class="xliff"></a>
-
-### Parâmetros Globais
+### <a name="global-parameters"></a>Parâmetros Globais
 A página Parâmetros Globais é usada para configurar importação Delta, formato de data/hora e método de senha.
 
 ![globalparameters1](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters1.png)
@@ -230,9 +203,7 @@ O conector fornece dois métodos para dar suporte à sincronização de senha:
 Você também deve habilitar o Gerenciamento de senhas na página **Configurar Extensão** .
 ![globalparameters5](./media/active-directory-aadconnectsync-connector-genericsql/globalparameters5.png)
 
-<a id="configure-partitions-and-hierarchies" class="xliff"></a>
-
-### Configurar Partições e Hierarquias
+### <a name="configure-partitions-and-hierarchies"></a>Configurar Partições e Hierarquias
 Na página de partições e hierarquias, selecione todos os tipos de objeto. Cada tipo de objeto está em sua própria partição.
 
 ![partitions1](./media/active-directory-aadconnectsync-connector-genericsql/partitions1.png)
@@ -241,21 +212,15 @@ Você também pode substituir os valores definidos na página **Conectividade** 
 
 ![partitions2](./media/active-directory-aadconnectsync-connector-genericsql/partitions2.png)
 
-<a id="configure-anchors" class="xliff"></a>
-
-### Configurar Âncoras
+### <a name="configure-anchors"></a>Configurar Âncoras
 Esta página é somente leitura, pois a âncora já foi definida. O atributo de âncora selecionado sempre é acrescentado com o tipo de objeto para garantir que ele permaneça exclusivo em todos os tipos de objeto.
 
 ![ancoras](./media/active-directory-aadconnectsync-connector-genericsql/anchors.png)
 
-<a id="configure-run-step-parameter" class="xliff"></a>
-
-## Configurar parâmetros da etapa de execução
+## <a name="configure-run-step-parameter"></a>Configurar parâmetros da etapa de execução
 Essas etapas são configuradas em perfis de execução do conector. Essas configurações fazem o trabalho real de importar e exportar dados.
 
-<a id="full-and-delta-import" class="xliff"></a>
-
-### Importação completa e Delta
+### <a name="full-and-delta-import"></a>Importação completa e Delta
 O conector SQL genérico oferece suporte a importação completa e Delta usando estes métodos genérico:
 
 * Tabela
@@ -294,9 +259,7 @@ Faça o seguinte:
 * Consultas com vários conjuntos de resultados não têm suporte.
 * A consulta SQL dá suporte a paginação e fornece o índice inicial e final como uma variável para dar suporte à paginação.
 
-<a id="delta-import" class="xliff"></a>
-
-### Importação de delta
+### <a name="delta-import"></a>Importação de delta
 ![runstep6](./media/active-directory-aadconnectsync-connector-genericsql/runstep6.png)
 
 A configuração de Importação de Delta exige alguma configuração adicional, em comparação com a Importação Completa.
@@ -307,9 +270,7 @@ A configuração de Importação de Delta exige alguma configuração adicional,
 * Se você escolher a Marca d'água para acompanhar as alterações delta, forneça o nome da coluna que contém as informações de operação em **Nome de Coluna de Marca d'água**.
 * A coluna **alterar atributo de tipo** é necessária para o tipo de alteração. Essa coluna mapeia uma alteração que ocorre na tabela primária ou tabela de valores múltiplos para um tipo de alteração na exibição de delta. Esta coluna pode conter o tipo de alteração Modify_Attribute para a alteração de nível de atributo ou um tipo de alteração Adicionar, Modificar ou Excluir, para um tipo de alteração de nível de objeto. Se for algo diferente do valor padrão de Adicionar, Modificar ou Excluir, você poderá definir esses valores usando essa opção.
 
-<a id="export" class="xliff"></a>
-
-### Exportação
+### <a name="export"></a>Exportação
 ![runstep7](./media/active-directory-aadconnectsync-connector-genericsql/runstep7.png)
 
 O conector SQL genérico oferece suporte à exportação usando quatro métodos:
@@ -343,8 +304,5 @@ Se você escolher a opção de consulta SQL, a Exportação exigirá três consu
 * **Consulta Delete**: esta consulta será executada se houver objetos para exclusão no conector, na respectiva tabela.
 * Atributo selecionado do esquema, usado como um valor de parâmetro na consulta, por exemplo, `Insert into Employee (ID, Name) Values (@ID, @EmployeeName)`
 
-<a id="troubleshooting" class="xliff"></a>
-
-## Solucionar problemas
+## <a name="troubleshooting"></a>Solucionar problemas
 * Para saber mais sobre como habilitar o registro em log para solucionar problemas do conector, confira [How to Enable ETW Tracing for Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
-

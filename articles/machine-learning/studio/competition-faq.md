@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: haining;garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 809df66042f6c765ed56836db40f72a5cd8ca7f6
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>Perguntas frequentes sobre as Competições do Microsoft Cortana Intelligence
 **O que são as Competições do Cortana Intelligence?**
@@ -42,8 +41,7 @@ Acesse a home page das [Competições](https://gallery.cortanaintelligence.com/c
 
 2. Crie um Teste Preditivo com o modelo treinado fora do Teste Inicial. Em seguida, ajuste cuidadosamente o esquema de entrada e saída do serviço Web para garantir que eles estejam em conformidade com os requisitos especificados nas regras da competição. Geralmente, o documento do tutorial terá instruções detalhadas sobre como fazer isso. Também será possível assistir ao vídeo do tutorial, se ele estiver disponível.   
 
-3. Implante um serviço Web fora do Teste Preditivo. Teste o serviço Web usando o botão **Teste**
-ou o modelo do Excel criado automaticamente para verificar se ele está funcionando corretamente.   
+3. Implante um serviço Web fora do Teste Preditivo. Teste o serviço Web usando o botão **Teste**ou o modelo do Excel criado automaticamente para verificar se ele está funcionando corretamente.   
 
 4. Envie seu serviço Web como entrada da competição e veja sua pontuação pública na página da competição da Galeria do Cortana Intelligence. Comemore se você estiver no placar de líderes!  
 
@@ -115,5 +113,4 @@ Atualmente, a plataforma de competição dá suporte somente a entradas enviadas
 **Podemos manter as soluções e entradas das competições dos usuários?**
 
 As entradas de usuário são mantidas somente para fins de avaliação para identificar as soluções vencedoras. Consulte nossos [Termos e Condições](http://aka.ms/comptermsandconditions) para obter informações específicas.
-
 

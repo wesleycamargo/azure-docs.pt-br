@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: guybo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: c7093e221ff8fe69ded1cfbce4f3ddeb1a195666
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="upgrade-a-virtual-machine-scale-set"></a>Atualizar um conjunto de escala de máquina virtual
 Este artigo descreve como você pode implementar uma atualização de sistema operacional para um conjunto de escala de máquina virtual do Azure sem nenhum tempo de inatividade. Nesse contexto, uma atualização do SO envolve uma alteração da versão ou SKU do SO, ou alteração do URI de uma imagem personalizada. Atualizar sem tempo de inatividade significa atualizar uma máquina virtual por vez ou em grupos (por exemplo, um domínio de falha por vez), em vez de todas de uma só vez. Ao fazer isso, todas as máquinas virtuais que não estiverem sendo atualizadas podem continuar em execução.
@@ -100,5 +98,4 @@ A captura de tela a seguir mostra um modelo de um conjunto escala para o Ubuntu 
 Depois de clicar em **Atualizar** e em **Obter Detalhes**, as máquinas virtuais em UD 0 começam a ser atualizadas.
 
 ![Vmsseditor mostrando atualização em andamento](./media/virtual-machine-scale-sets-upgrade-scale-set/vmssEditor2.png)
-
 

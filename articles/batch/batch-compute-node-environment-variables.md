@@ -12,14 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 05/05/2017
 ms.author: tamram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: 29f642754430957e77ef68946f721f8e15dba065
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-batch-compute-node-environment-variables"></a>Variáveis de ambiente do nó de computação do Lote do Azure
 O [serviço Lote do Azure](https://azure.microsoft.com/services/batch/) define as seguintes variáveis de ambiente em nós de computação. Você pode consultar essas variáveis de ambiente nas linhas de comando da tarefa e nos programas e scripts executados pelas linhas de comando.
 
@@ -66,4 +64,3 @@ As linhas de comando executadas por tarefas nos nós de computação não são e
 [multi_instance]: https://azure.microsoft.com/documentation/articles/batch-mpi/
 [coord_cmd]: https://azure.microsoft.com/documentation/articles/batch-mpi/#coordination-command
 [app_cmd]: https://azure.microsoft.com/documentation/articles/batch-mpi/#application-command
-

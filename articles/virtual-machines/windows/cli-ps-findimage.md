@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 07/12/2017
 ms.author: danlep
+ms.openlocfilehash: c9b35ff5f3fbd33639805b5a4f105df32562a691
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
-ms.openlocfilehash: 630f555b003b0efc45b372a7009dbf036aa8c737
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/14/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Como localizar imagens de VM do Windows no Azure Marketplace com o Azure PowerShell
 
@@ -159,4 +158,3 @@ Nesta lista, copie o nome da SKU escolhida e você terá todas as informações 
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora você pode escolher exatamente a imagem que deseja usar. Para criar uma máquina virtual rapidamente usando as informações da imagem que você acabou de encontrar, consulte [Criar uma máquina virtual do Windows com o PowerShell](quick-create-powershell.md).
-

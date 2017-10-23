@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2017
 ms.author: alkohli
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 8fae7bb357f8e5e8eff249edfe3a2aaafe04283c
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-diagnostics-tool-to-troubleshoot-8000-series-device-issues"></a>Use a Ferramenta de Diagnóstico do StorSimple para solucionar problemas de dispositivo da série 8000
 
@@ -443,4 +442,3 @@ Aqui está uma tabela que descreve o mapeamento dos vários parâmetros do Windo
 * Aprenda a [sintaxe do cmdlet Invoke-HcsDiagnostics](https://technet.microsoft.com/library/mt795371.aspx).
 
 * Saiba mais sobre como [solucionar problemas de implantação](storsimple-troubleshoot-deployment.md) no seu dispositivo StorSimple.
-

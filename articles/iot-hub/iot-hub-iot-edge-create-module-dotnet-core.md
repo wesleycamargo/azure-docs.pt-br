@@ -12,12 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2017
 ms.author: jcline
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 91ff3c96e4d7928131eba83c0e8c1951782447be
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/04/2017
-
+ms.openlocfilehash: 7175ffc8de2c043593d61143b402484d33e4a8cc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-azure-iot-edge-module-with-cx23"></a>Criar um módulo do Azure IoT Edge com o C&#x23;
 
@@ -58,7 +57,7 @@ Veja este [rápido tutorial em vídeo](https://channel9.msdn.com/Blogs/dotnet/Ge
     - Digite **dotnet new classlib -o IoTEdgeConverterModule -f netstandard1.3**. 
     - Este comando cria uma classe vazia chamada `Class1.cs` em seu diretório de projetos.
 2. Navegue até a pasta onde acabamos de criar o projeto de biblioteca de classes digitando **cd IoTEdgeConverterModule**.
-3. Abra o projeto no `Visual Studio Code` digitando **code .**.
+3. Abra o projeto no `Visual Studio Code` digitando **code** .
 4. Se o projeto for aberto no `Visual Studio Code`, clique em **IoTEdgeConverterModule.csproj** para abrir o arquivo, como mostrado na imagem a seguir:
 
     ![Janela de edição do Visual Studio Code](media/iot-hub-iot-edge-create-module/vscode-edit-csproj.png)
@@ -386,5 +385,4 @@ Veja este [rápido tutorial em vídeo](https://channel9.msdn.com/Blogs/dotnet/Ge
 
 >[!IMPORTANT]
 Não é recomendável usar `Ctrl` + `C` para encerrar o aplicativo de gateway do `IoT Edge` (isto é, **gw.exe**). Essa ação pode causar uma anomalia no encerramento do processo.
-
 

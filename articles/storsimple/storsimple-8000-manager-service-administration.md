@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2017
 ms.author: alkohli
-ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
 ms.openlocfilehash: 0e7d7f44a70278a7777ba6c32c8e546074953fdc
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-device-manager-service-to-administer-your-storsimple-device"></a>Usar o serviço de Gerenciador de Dispositivos do StorSimple para administrar o dispositivo StorSimple
 
@@ -88,5 +87,4 @@ Se você tiver problemas com a operação diária do seu dispositivo StorSimple 
 * [Usar LEDs indicadores de monitoramento do StorSimple](storsimple-monitoring-indicators.md)
 
 Se você não conseguir resolver os problemas e precisar criar uma solicitação de serviço, consulte [Contate o Suporte da Microsoft](storsimple-8000-contact-microsoft-support.md).
-
 

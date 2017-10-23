@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
 ms.openlocfilehash: a1f3f6e6cba074647195e2b0cbcdc7b4f3dec475
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="step-3-plan-networking-for-hyper-v-vm-replication-to-a-secondary-vmm-site"></a>Etapa 3: planejar a rede para replicação de VM Hyper-V para um site secundário do VMM
 
@@ -217,6 +216,5 @@ Vamos examinar um cenário no qual você está planejando usar endereços IP dif
 ## <a name="next-steps"></a>Próximas etapas
 
 Vá para a [Etapa 4: preparar o VMM e o Hyper-V](vmm-to-vmm-walkthrough-vmm-hyper-v.md).
-
 
 

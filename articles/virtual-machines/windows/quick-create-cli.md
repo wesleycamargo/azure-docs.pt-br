@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/11/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
 ms.openlocfilehash: 5939af4cf071664415d57ccbaee3413d61aa69e9
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-windows-virtual-machine-with-the-azure-cli"></a>Criar uma máquina virtual do Windows com a CLI do Azure
 
 A CLI do Azure é usada para criar e gerenciar recursos do Azure da linha de comando ou em scripts. Este guia detalha o uso da CLI do Azure para implantar uma máquina virtual executando o Windows Server 2016. Depois que a implantação for concluída, nos conectamos ao servidor e instalamos o IIS.
@@ -116,4 +114,3 @@ Neste início rápido, você implantou uma máquina virtual simples, uma regra d
 
 > [!div class="nextstepaction"]
 > [Tutoriais de máquina virtual do Windows Azure](./tutorial-manage-vm.md)
-

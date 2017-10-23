@@ -14,12 +14,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: piyushjo
-ms.translationtype: HT
-ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
 ms.openlocfilehash: c179c39a43da0aa35e945acceacbf27fe8e328f3
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/18/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="release-notes"></a>Notas de versão
 
@@ -83,11 +82,10 @@ ms.lasthandoff: 07/18/2017
 * Atualizar EULA.
 
 ## <a name="300-02172015"></a>3.0.0 (17/02/2015)
-* Versão Inicial do Mobile Engagement do Azure
+* Versão Inicial do Azure Mobile Engagement
 * A configuração do appId é substituída por uma configuração de cadeia de conexão.
 * Removida a API para enviar e receber mensagens XMPP arbitrárias de entidades XMPP arbitrárias.
 * Removida a API para enviar e receber mensagens entre dispositivos.
 * Aprimoramentos de segurança.
 * Acompanhamento do Google Play e SmartAd removido.
-
 

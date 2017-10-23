@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 10/13/2017
 ms.author: cherylmc
 ms.translationtype: HT
 ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
@@ -165,7 +165,7 @@ New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
 1. Crie uma cadeia de caracteres segura para o segredo RADIUS.
 
   ```powershell
-  $Secure_Secret=Read-Host -AsSecureStrinng -Prompt "RadiusSecret"
+  $Secure_Secret=Read-Host -AsSecureString -Prompt "RadiusSecret"
   ```
 
 2. Você precisará inserir o segredo do RADIUS. Os caracteres que você inserir não serão exibidos e, ao invés disso, serão substituídos pelo caractere "*".
@@ -178,26 +178,27 @@ New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
   Para configurações SSTP:
 
     ```powershell
-    $Gateway = Get-AzureRmVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName '
-    Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $Gateway '
-    -VpnClientAddressPool "172.16.201.0/24" VpnClientProtocols "SSTP" '
+    $Gateway = Get-AzureRmVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName
+    Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $Gateway `
+    -VpnClientAddressPool "172.16.201.0/24" -VpnClientProtocol "SSTP" `
     -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
     ```
 
   Para configurações IKEv2:
 
     ```powershell
-    $Gateway = Get-AzureRmVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName '
-    Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $Gateway '
-    -VpnClientAddressPool "172.16.201.0/24" VpnClientProtocols "IKEv2" '
+    $Gateway = Get-AzureRmVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName
+    Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $Gateway `
+    -VpnClientAddressPool "172.16.201.0/24" -VpnClientProtocol "IKEv2" `
     -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
     ```
 
   Para SSTP + IKEv2
 
     ```powershell
-    Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $Gateway '
-    -VpnClientAddressPool "172.16.201.0/24" VpnClientProtocols @{ "SSTP", "IkeV2" } '
+    $Gateway = Get-AzureRmVirtualNetworkGateway -ResourceGroupName $RG -Name $GWName
+    Set-AzureRmVirtualNetworkGateway -VirtualNetworkGateway $Gateway `
+    -VpnClientAddressPool "172.16.201.0/24" -VpnClientProtocol @( "SSTP", "IkeV2" ) `
     -RadiusServerAddress "10.51.0.15" -RadiusServerSecret $Secure_Secret
     ```
 
@@ -253,3 +254,4 @@ As Perguntas frequentes aplicam-se ao P2S usando a autenticação RADIUS
 ## <a name="next-steps"></a>Próximas etapas
 
 Quando sua conexão for concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Para saber mais, veja [Máquinas virtuais](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). Para saber mais sobre redes e máquinas virtuais, consulte [Visão geral de rede do Azure e VM Linux](../virtual-machines/linux/azure-vm-network-overview.md).
+

@@ -16,14 +16,12 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 05/10/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 610701a56eb2eea771061577e50758f0103d9a50
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
-
+ms.openlocfilehash: 187d7b0839e1cd94122d4455c11eda05673f5acc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="regenerate-an-azure-cosmos-db-account-key-using-powershell"></a>Regenere uma chave de conta do BD Cosmos do Azure usando o PowerShell
 
 Este exemplo regenera qualquer tipo de chave de conta do BD Cosmos do Azure usando a CLI do Azure.  
@@ -32,7 +30,7 @@ Este exemplo regenera qualquer tipo de chave de conta do BD Cosmos do Azure usan
 
 ## <a name="sample-script"></a>Script de exemplo
 
-[!code-powershell[principal](../../../powershell_scripts/cosmosdb/regenerate-account-keys/regenerate-account-keys.ps1?highlight=36-41 "Regenerar chaves de conta do BD Cosmos do Azure")]
+[!code-powershell[main](../../../powershell_scripts/cosmosdb/regenerate-account-keys/regenerate-account-keys.ps1?highlight=36-41 "Regenerate Azure Cosmos DB account keys")]
 
 ## <a name="clean-up-deployment"></a>Limpar implantação
 
@@ -58,4 +56,4 @@ Este script usa os seguintes comandos. Cada comando na tabela redireciona para a
 
 Para obter mais informações sobre o Azure PowerShell, confira [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/).
 
-Exemplos adicionais de scripts do PowerShell do BD Cosmos do Azure podem ser encontrados nos [Scripts do PowerShell do BD Cosmos do Azure](../powershell-samples.md).
+Exemplos adicionais de scripts do PowerShell do Banco de Dados Cosmos do Azure podem ser encontrados nos [Scripts do PowerShell do Banco de Dados Cosmos do Azure](../powershell-samples.md).

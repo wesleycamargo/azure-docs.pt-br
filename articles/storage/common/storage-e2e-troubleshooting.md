@@ -13,12 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: tamram
+ms.openlocfilehash: 13d01e63cfecdc826eba19b8eb0dc539019409dc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 1aa40c4de48c0117e9d3f9d434972adecccdb548
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="end-to-end-troubleshooting-using-azure-storage-metrics-and-logging-azcopy-and-message-analyzer"></a>Solução de problemas ponta a ponta usando métricas de Armazenamento do Azure e registro em log, AzCopy e Analisador de Mensagem
 [!INCLUDE [storage-selector-portal-e2e-troubleshooting](../../../includes/storage-selector-portal-e2e-troubleshooting.md)]
@@ -374,4 +373,3 @@ Para obter mais informações sobre cenários de ponta a ponta para solução de
 * [Monitorar uma conta de armazenamento no portal do Azure](storage-monitor-storage-account.md)
 * [Transferir dados com o Utilitário de Linha de Comando AzCopy](storage-use-azcopy.md)
 * [Guia Operacional do Analisador de Mensagem da Microsoft](http://technet.microsoft.com/library/jj649776.aspx)
-

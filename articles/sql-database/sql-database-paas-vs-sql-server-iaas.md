@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2017
 ms.author: carlrab
+ms.openlocfilehash: 44546b423cd7f3a49d3699aa39f2437a42de86a8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: d136b71c9587d4035009a2ef2296fd93f9e984fe
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>Escolher uma opção do SQL Server de nuvem: Banco de Dados do SQL Azure (PaaS) ou SQL Server em VMs do Azure (IaaS)
 O Azure tem duas opções para hospedar cargas de trabalho do SQL Server no Microsoft Azure:
@@ -66,7 +65,6 @@ A seguinte tabela resume as principais características do Banco de Dados SQL e 
 |  | Equipes que precisam da atualização, recuperação de desastres e alta disponibilidade interna para o banco de dados. |Equipes que podem configurar e gerenciar a alta disponibilidade, recuperação de desastres e aplicação de patch para o SQL Server. Alguns recursos automatizados fornecidos simplificam muito isso. | |
 |  | Equipes que não desejam gerenciar o sistema operacional subjacente e definições de configuração. |Você precisa de um ambiente personalizado com direitos administrativos completos. | |
 |  | Bancos de dados de até 4 TB ou maiores que podem ser [particionados horizontal ou verticalmente](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling) usando um padrão expansão horizontal. |Instâncias do SQL Server com até 64 TB de armazenamento. A instância pode suportar quantos bancos de dados forem necessários. | |
-|  | [Compilar aplicativos SaaS (Software como Serviço)](sql-database-design-patterns-multi-tenancy-saas-applications.md). |Migrar e compilar aplicativos híbridos e corporativos. | |
 |  | | |
 | **Recursos:** |Você não deseja empregar recursos de TI para a configuração e o gerenciamento da infraestrutura subjacente, mas deseja se concentrar na camada do aplicativo. |Você tem alguns recursos de TI para a configuração e o gerenciamento. Alguns recursos automatizados fornecidos simplificam muito isso. |
 | **Custo total de propriedade:** |Elimina os custos de hardware e reduz os custos administrativos. |Elimina os custos de hardware. |
@@ -146,5 +144,4 @@ Escolha **SQL Server em VMs do Azure** se:
 * Consulte [Seu primeiro Banco de Dados SQL do Azure](sql-database-get-started-portal.md) para uma introdução ao Banco de Dados SQL.
 * Confira [Preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 * Confira [Provisionar uma máquina virtual do SQL Server no Azure](../virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision.md) para obter uma introdução ao SQL Server em VMs do Azure.
-
 

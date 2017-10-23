@@ -10,14 +10,12 @@ ms.service: mysql
 ms.topic: tutorial
 ms.date: 06/06/2017
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: c7b76cacbdc4e483353f64cc4e50c974867bb5b7
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/17/2017
-
+ms.openlocfilehash: 92ae809646cb956b0b7cb71cf2a21610bb2d610f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="design-your-first-azure-database-for-mysql-database"></a>Projetar seu primeiro Banco de Dados do Azure para o banco de dados MySQL
 O Banco de Dados do Azure para MySQL é um serviço gerenciado que permite executar, gerenciar e dimensionar bancos de dados altamente disponíveis do MySQL na nuvem. Usando o Portal do Azure, você pode gerenciar facilmente seu servidor e projetar um banco de dados.
 
@@ -168,4 +166,3 @@ Neste tutorial, você usará o Portal do Azure para aprender a:
 
 > [!div class="nextstepaction"]
 > [Como conectar aplicativos ao Banco de Dados do Azure para MySQL](./howto-connection-string.md)
-

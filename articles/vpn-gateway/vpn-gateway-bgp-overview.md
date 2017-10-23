@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/12/2017
 ms.author: yushwang
-ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
 ms.openlocfilehash: 13a17eb3d78e70a09864bf218f1027d6e98486a6
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-of-bgp-with-azure-vpn-gateways"></a>Visão geral de BGP com Gateways de VPN do Azure
 Este artigo fornece uma visão geral do suporte a BGP (Border Gateway Protocol) em Gateways de VPN do Azure.
@@ -56,5 +55,4 @@ O seguinte diagrama mostra um exemplo de uma topologia de vários saltos com vá
 
 ## <a name="next-steps"></a>Próximas etapas
 Confira [Introdução ao BGP em gateways de VPN do Azure](vpn-gateway-bgp-resource-manager-ps.md) para obter as etapas de configuração do BGP para suas conexões entre locais e VNet para VNet.
-
 

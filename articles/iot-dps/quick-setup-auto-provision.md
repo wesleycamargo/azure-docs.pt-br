@@ -12,14 +12,12 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: a96f64e41b090cb60bbbb007a3913fd23ce8f609
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="set-up-the-iot-hub-device-provisioning-service-preview-with-the-azure-portal"></a>Configurar o Serviço de Provisionamento de Dispositivos do Hub IoT do Azure (versão prévia) no portal do Azure
 
 Estas etapas mostram como configurar os recursos de nuvem do Azure no portal para provisionar seus dispositivos. Isso inclui criar o Hub IoT, criar um novo IoT Serviço de Provisionamento de Dispositivos no Hub IoT e vincular os dois serviços. 
@@ -84,4 +82,3 @@ Neste Guia de Início Rápido, você implantou um Hub IoT e uma instância do Se
 
 > [!div class="nextstepaction"]
 > [Guia de Início Rápido para criar dispositivo simulado](./quick-create-simulated-device.md)
-

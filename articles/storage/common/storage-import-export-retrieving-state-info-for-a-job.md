@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/16/2016
 ms.author: muralikk
-translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
 ms.openlocfilehash: 13169716c47cf9389c8f2651393ac744441bdd6f
-ms.lasthandoff: 03/30/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="retrieving-state-information-for-an-importexport-job"></a>Recuperação de informações de estado para um trabalho de Importação/Exportação
 Você pode chamar a operação [Get Job](/rest/api/storageimportexport/jobs#Jobs_Get) para recuperar informações sobre trabalhos de importação e de exportação. As informações retornadas incluem:
 
@@ -94,4 +92,3 @@ Quando um trabalho ou uma unidade não puder progredir normalmente por seu ciclo
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Usando a API REST do serviço de Importação/Exportação](storage-import-export-using-the-rest-api.md)
-

@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: govindk
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: e6399831fe7c6cc727e92b13719df3b69e9981bf
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="monitoring-and-debugging-with-metrics-in-azure-cosmos-db"></a>Monitoramento e a depuração com métricas no Azure Cosmos DB
 
 O Azure Cosmos DB fornece métricas de taxa de transferência, armazenamento, consistência, disponibilidade e latência. O [Portal do Azure](https://portal.azure.com) fornece uma exibição agregada dessas métricas; para métricas mais granulares, tanto o SDK do cliente quanto os [logs de diagnóstico](./logging.md) estão disponíveis.
@@ -101,4 +99,3 @@ Agora que você aprendeu como monitorar e depurar problemas usando as métricas 
 
 * [Teste de desempenho e escala com o Azure Cosmos DB](performance-testing.md)
 * [Dicas de desempenho para o Azure Cosmos DB](performance-tips.md)
-

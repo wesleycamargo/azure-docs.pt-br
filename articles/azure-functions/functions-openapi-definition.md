@@ -16,14 +16,12 @@ ms.topic: tutorial
 ms.date: 08/25/2017
 ms.author: mblythe; glenga
 ms.custom: mvc
+ms.openlocfilehash: a196df5b4ab47b234b48594da45cd4d72f604086
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
-ms.openlocfilehash: be871b1c5f131b0ff6de1f74ed3e6f12b7a482ce
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-an-openapi-definition-for-a-function"></a>Criar uma definição de OpenAPI para uma função
 APIs REST geralmente são descritas usando uma definição de OpenAPI (anteriormente conhecida como um arquivo [Swagger](http://swagger.io/)). Esta definição contém informações sobre as operações que estão disponíveis em uma API e como os dados de solicitação e resposta para a API devem ser estruturados.
 
@@ -39,7 +37,7 @@ Neste tutorial, você aprenderá como:
 
 ## <a name="create-a-function-app"></a>Criar um aplicativo de funções
 
-Você deve ter um aplicativo de funções para hospedar a execução de suas funções. Um aplicativo de funções permite a você agrupar funções como uma unidade lógica para facilitar o gerenciamento, implantação e compartilhamento de recursos. 
+Você deve ter um aplicativo de funções para hospedar a execução de suas funções. Um aplicativo de funções lhe permite agrupar funções como uma unidade lógica para facilitar o gerenciamento, a implantação, o dimensionamento e o compartilhamento de recursos. 
 
 [!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
@@ -113,7 +111,7 @@ Agora você tem uma função que determina o custo-benefício de reparos de emer
 
 ## <a name="generate-the-openapi-definition"></a>Gerar a definição de OpenAPI
 
-Agora você está pronto para gerar a definição de OpenAPI. Essa definição pode ser usada por outras tecnologias da Microsoft, como [aplicativos de API](../app-service-api/app-service-api-dotnet-get-started.md), [PowerApps](functions-powerapps-scenario.md) e [Microsoft Flow](../app-service/app-service-export-api-to-powerapps-and-flow.md), bem como ferramentas de desenvolvedores terceiros como [Postman](https://www.getpostman.com/docs/importing_swagger) e [muitos outros pacotes](http://swagger.io/tools/).
+Agora você está pronto para gerar a definição de OpenAPI. Essa definição pode ser usada por outras tecnologias da Microsoft, como aplicativos de API, [PowerApps](functions-powerapps-scenario.md) e [Microsoft Flow](../azure-functions/app-service-export-api-to-powerapps-and-flow.md), bem como ferramentas de desenvolvedores terceiros como [Postman](https://www.getpostman.com/docs/importing_swagger) e [muitos outros pacotes](http://swagger.io/tools/).
 
 1. Selecione apenas os *verbos* que sua API dá suporte (neste caso, POST). Isso torna a definição de API gerada mais clara.
 
@@ -175,20 +173,9 @@ Agora você está pronto para gerar a definição de OpenAPI. Essa definição p
     Essa definição é descrita como um _modelo_ porque ela requer mais metadados para ser uma definição de OpenAPI completa. Você modificará a definição na próxima etapa.
 
 ## <a name="modify-the-openapi-definition"></a>Modificar a definição de OpenAPI
-Agora que tem uma definição de modelo, você faz a modificação para fornecer metadados adicionais sobre estruturas de dados e operações da API. Para este tutorial, você pode simplesmente colar a definição modificada abaixo no painel **Definição de API** e clicar em **Salvar**.
+Agora que tem uma definição de modelo, você faz a modificação para fornecer metadados adicionais sobre estruturas de dados e operações da API. Em **definição de API**, exclua a definição gerada de `post` até a parte inferior da definição, cole o conteúdo abaixo e clique em **Salvar**.
 
 ```yaml
-swagger: '2.0'
-info:
-  title: Turbine Repair
-  version: 1.0.0
-host: function-demo-energy.azurewebsites.net
-basePath: /
-schemes:
-  - https
-  - http
-paths:
-  /api/TurbineRepair:
     post:
       operationId: CalculateCosts
       description: Determines if a technician should be sent for repair
@@ -248,7 +235,7 @@ securityDefinitions:
     in: query
 ```
 
-Dito isso, é importante entender os tipos de modificações feitas por nós para o modelo padrão:
+Nesse caso você poderia apenas colar os metadados carregados, mas é importante entender os tipos de modificações que fizemos ao modelo padrão:
 
 + Foi especificado que a API produz e consome dados em um formato JSON.
 
@@ -308,4 +295,3 @@ Neste tutorial, você aprendeu como:
 Avance para o próximo tópico para aprender a criar um aplicativo de PowerApps que usa a definição de OpenAPI que você criou.
 > [!div class="nextstepaction"]
 > [Chamar uma função do PowerApps](functions-powerapps-scenario.md)
-

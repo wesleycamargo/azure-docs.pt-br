@@ -15,14 +15,12 @@ ms.topic: article
 ms.date: 09/16/2017
 ms.author: snmuvva
 ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: aeeb6c2fb87e6c19991ef243ee7230f4e8f4e251
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="near-real-time-metric-alerts-preview"></a>Alertas de Métrica Quase em Tempo Real (Versão Prévia)
 Agora, o Azure Monitor dá suporte a um novo tipo de alertas de métrica chamado Alertas de Métrica Quase em Tempo Real (Versão Prévia). Esse recurso está atualmente em visualização pública.
 Esses alertas diferem dos alertas de métrica comuns de algumas maneiras
@@ -95,7 +93,6 @@ Depois de criar um alerta, você poderá selecioná-lo e:
 * Exibir um gráfico mostrando o limite de métrica e os valores reais do dia anterior.
 * Editar ou exclui-lo.
 * **Desabilitar** ou **Habilitar** se você quiser interromper temporariamente ou continuar recebendo notificações do alerta.
-
 
 
 

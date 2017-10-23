@@ -16,14 +16,12 @@ ms.workload: web
 ms.date: 03/20/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: f287941ba919625e181752b3aaad5164dee7214a
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 34a3dd318cb9896342fce870922ecd113b3ed08d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="monitor-a-web-app-with-web-server-logs"></a>Monitorar um aplicativo web com logs do servidor Web
 
 Neste cenário você criará um grupo de recursos, o Plano do Serviço de Aplicativo, o aplicativo Web e configurar o aplicativo Web para habilitar logs de servidor web. Em seguida, você baixará os arquivos de log para análise.
@@ -32,7 +30,7 @@ Se necessário, instale o Azure PowerShell usando a instrução encontrada no [g
 
 ## <a name="sample-script"></a>Script de exemplo
 
-[!code-powershell[principal](../../../powershell_scripts/app-service/monitor-with-logs/monitor-with-logs.ps1 "Monitorar um aplicativo web com logs do servidor Web")]
+[!code-powershell[main](../../../powershell_scripts/app-service/monitor-with-logs/monitor-with-logs.ps1 "Monitor a web app with web server logs")]
 
 ## <a name="clean-up-deployment"></a>Limpar implantação 
 
@@ -59,4 +57,3 @@ Este script usa os seguintes comandos. Cada comando na tabela redireciona para a
 Para saber mais sobre o módulo do Azure PowerShell, confira a [Documentação do Azure PowerShell](/powershell/azure/overview).
 
 Exemplos adicionais do Azure PowerShell para Aplicativos Web do Serviço de Aplicativo do Azure podem ser encontrados nos [exemplos do Azure PowerShell](../app-service-powershell-samples.md).
-

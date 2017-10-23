@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: maheshu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
 ms.openlocfilehash: 8005be7ded6ea005af086aeaf594963a5f2d4ac2
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-domain-services"></a>Azure AD Domain Services
 ## <a name="features"></a>Recursos
@@ -41,4 +39,3 @@ Os seguintes recursos estão disponíveis nos domínios gerenciados dos Serviço
 * **Disponível em várias regiões do Azure:** consulte a página [Serviços do Azure por região](https://azure.microsoft.com/regions/#services/) para saber as regiões do Azure nas quais os Azure AD Domain Services estão disponíveis.
 * **Alta disponibilidade:** os Azure AD Domain Services oferecem alta disponibilidade para seu domínio. Esse recurso oferece a garantia de maior tempo de atividade de serviço e resiliência a falhas. O monitoramento da integridade interna oferece a correção automatizada de falhas gerando novas instâncias para substituir instâncias com falha e fornecer um serviço contínuo para seu domínio.
 * **Usar ferramentas de gerenciamento conhecidas:** você pode usar ferramentas de gerenciamento conhecidas do Active Directory do Windows Server, como o Centro Administrativo do Active Directory ou o Active Directory PowerShell, para administrar domínios gerenciados.
-

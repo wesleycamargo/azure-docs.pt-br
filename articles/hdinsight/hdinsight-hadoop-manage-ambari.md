@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/31/2017
 ms.author: larryfr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 0bcf8f0d1c5fc44a31de9be9adbdad3893ff111f
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: dc0f9ff030f70985dad0f3b74ba0ee3dda1d9f4b
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-web-ui"></a>Gerenciar clusters HDInsight usando a interface de usuário do Ambari Web
 
@@ -237,4 +236,3 @@ As Exibições do Ambari permitem que os desenvolvedores conectem elementos de i
 * Exibição do Hive: a Exibição do Hive permite executar consultas de Hive diretamente do seu navegador da Web. Você pode salvar consultas, exibir os resultados, salvar os resultados no armazenamento de cluster ou baixar os resultados no sistema local. Para obter mais informações sobre como usar Exibições do Hive, consulte [Usar Exibições do Hive com o HDInsight](hdinsight-hadoop-use-hive-ambari-view.md).
 
 * Exibição Tez: a exibição Tez permite que você compreenda melhor e otimize os trabalhos. Você pode exibir informações sobre como os trabalhos do Tez são executados e quais recursos são usados.
-

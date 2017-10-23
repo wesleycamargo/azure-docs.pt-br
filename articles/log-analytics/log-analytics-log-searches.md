@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2017
 ms.author: bwren
-ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
 ms.openlocfilehash: bf237a837297cb8f1ab3a3340139133adcd2b244
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="find-data-using-log-searches-in-log-analytics"></a>Localizar dados usando as pesquisas de logs no Log Analytics
 
@@ -598,4 +597,3 @@ Para obter outras informações sobre pesquisas de log, veja:
 
 * Use [Campos personalizados no Log Analytics](log-analytics-custom-fields.md) para estender as pesquisas de log.
 * Examine a [referência de pesquisa de log do Log Analytics](log-analytics-search-reference.md) para exibir todos os campos de pesquisa e as facetas disponíveis no Log Analytics.
-

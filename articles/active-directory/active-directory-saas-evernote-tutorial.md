@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
 ms.openlocfilehash: be94152a84bbbeacb623d7dd8b540e3981931a8e
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/10/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-evernote"></a>Tutorial: Integração do Azure Active Directory ao Evernote
 
@@ -266,5 +265,4 @@ Ao clicar no bloco do Evernote no Painel de Acesso, você deverá ser conectado 
 [201]: ./media/active-directory-saas-evernote-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-evernote-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-evernote-tutorial/tutorial_general_203.png
-
 

@@ -12,18 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/25/2017
+ms.date: 10/10/2017
 ms.author: nberdy
+ms.openlocfilehash: 3eafa32907c8f68cfc44cb2771d625349ff42003
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
-ms.openlocfilehash: b6de5c5df5f9401a41be152bfa06eb994594e83d
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/28/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="iot-hub-operations-monitoring"></a>Monitoramento de operações do Hub IoT
 
 O monitoramento das operações do Hub IoT permite monitorar o status das operações no seu Hub IoT em tempo real. O Hub IoT controla eventos em várias categorias de operações. Você pode aceitar o envio de eventos de uma ou mais categorias para um ponto de extremidade do seu Hub IoT para processamento. É possível monitorar os dados em busca de erros ou configurar processamento mais complexo com base nos padrões de dados.
+
+>[!NOTE]
+>O monitoramento de operações do Hub IoT foi preterido e será removido do Hub IoT no futuro. Para monitorar as operações e a integridade do Hub IoT, consulte [Monitorar a integridade do Hub IoT do Azure e diagnosticar problemas rapidamente][lnk-monitor]. Para obter mais informações sobre a linha do tempo de substituição, consulte [Monitorar suas soluções de IoT do Azure com o Azure Monitor e o Azure Resource Health][lnk-blog-announcement].
 
 O Hub IoT monitora seis categorias de eventos:
 
@@ -33,6 +35,9 @@ O Hub IoT monitora seis categorias de eventos:
 * Conexões
 * Carregamentos de arquivos
 * Roteamento de mensagem
+
+> [!IMPORTANT]
+> O monitoramento de operações do Hub IoT não garante a entrega confiável ou ordenada de eventos. Dependendo da infraestrutura subjacente do Hub IoT, alguns eventos podem ser perdidos ou entregues fora de ordem. Use o monitoramento de operações para gerar alertas com base nos sinais de erro, como tentativas de conexão com falha ou desconexões de alta frequência de dispositivos específicos. Você não deve confiar em eventos do monitoramento de operações para criar um repositório consistente para o estado do dispositivo, por exemplo, um repositório de controle do estado de um dispositivo conectado ou desconectado. 
 
 ## <a name="how-to-enable-operations-monitoring"></a>Como habilitar o monitoramento de operações
 
@@ -294,6 +299,8 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 [img-endpoints]: media/iot-hub-operations-monitoring/monitoring-endpoint.png
 [img-service-key]: media/iot-hub-operations-monitoring/service-key.png
 
+[lnk-blog-announcement]: https://azure.microsoft.com/blog/monitor-your-azure-iot-solutions-with-azure-monitor-and-azure-resource-health
+[lnk-monitor]: iot-hub-monitor-resource-health.md
 [lnk-get-started]: iot-hub-csharp-csharp-getstarted.md
 [lnk-diagnostic-metrics]: iot-hub-metrics.md
 [lnk-scaling]: iot-hub-scaling.md

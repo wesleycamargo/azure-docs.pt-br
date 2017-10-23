@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: saurse;markgal;jimpark;nkolli;trinadhk
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: d3f165c749af0553c4918b33b0d24cc1e21af2a9
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>Implantar e gerenciar o backup no Azure para o Windows Server/Windows Client usando o PowerShell
 > [!div class="op_single_selector"]
@@ -661,4 +660,3 @@ Para obter mais informações sobre o Backup do Azure para Windows Server/Client
 
 * [Introdução ao Backup do Azure](backup-introduction-to-azure-backup.md)
 * [Fazer backup de servidores Windows](backup-configure-vault.md)
-

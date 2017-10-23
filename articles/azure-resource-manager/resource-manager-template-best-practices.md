@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: tomfitz
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: a23301ba88279af3f7bf4d353ae808e9eeb0900d
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="best-practices-for-creating-azure-resource-manager-templates"></a>Práticas recomendadas para criação de modelos do Azure Resource Manager
 Estas diretrizes podem ajudar a criar modelos do Azure Resource Manager que sejam confiáveis e fáceis de usar. As diretrizes são apenas sugestões. Elas não são requisitos, exceto onde apontadas. Seu cenário pode exigir uma variação de uma das abordagens ou dos exemplos que se seguem.
@@ -396,5 +395,4 @@ Também convém formatar o JSON para melhorar a legibilidade. Você pode usar um
 * Para obter diretrizes sobre a arquitetura de sua solução para máquinas virtuais, confira [Run a Windows VM in Azure](../guidance/guidance-compute-single-vm.md) (Executar uma VM Windows no Azure) e [Run a Linux VM in Azure](../guidance/guidance-compute-single-vm-linux.md) (Executar uma VM Linux no Azure).
 * Para obter orientação sobre como configurar uma conta de armazenamento, confira [Lista de verificação de desempenho e escalabilidade do armazenamento do Azure](../storage/common/storage-performance-checklist.md).
 * Para saber mais sobre como uma empresa pode usar o Resource Manager para gerenciar assinaturas com eficiência, confira [Andaime empresarial do Azure: governança de assinatura prescritiva](resource-manager-subscription-governance.md).
-
 

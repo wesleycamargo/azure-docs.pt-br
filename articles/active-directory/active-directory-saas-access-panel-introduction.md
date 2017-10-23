@@ -15,12 +15,11 @@ ms.date: 07/31/2017
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 7bf5d568e59ead343ff2c976b310de79a998673b
 ms.openlocfilehash: bd9066c251188c0f18fe1a9403baa2beaeeb987c
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-the-access-panel"></a>O que é o painel de acesso?
 
@@ -193,4 +192,3 @@ Por exemplo, se um aplicativo for configurado para autenticar usuários usando o
 [3]: ./media/active-directory-saas-access-panel-introduction/03.png
 [4]: ./media/active-directory-saas-access-panel-introduction/04.png
 [5]: ./media/active-directory-saas-access-panel-introduction/05.png
-

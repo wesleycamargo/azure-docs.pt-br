@@ -15,13 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 06/06/2017
 ms.author: heidist
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
 ms.openlocfilehash: bb4cb64260f489e1b316140e4214933cf2b334cd
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/08/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-search-code-samples-demos-videos-and-tutorials"></a>Pesquisa do Azure: exemplos de código, demonstrações, vídeos e tutoriais
 Atualize-se mais rapidamente com os seguintes vídeos, demonstrações, tutoriais e aplicativos de exemplo.
@@ -76,7 +74,7 @@ Demonstrações em várias sessões e laboratórios do Azure Search.
 | Link | Lançamento | Detalhes |
 | --- | --- | --- |
 | [Channel9 Build 2016: "Applications That Learn & Adapt: Azure Machine Learning + Search"](https://channel9.msdn.com/Events/Build/2016/P458) ("Aplicativos que aprendem e se adaptam: Machine Learning + Pesquisa") |Maio de 2016 |17 minutos. Liam Cavanagh explica os benefícios da adição de recursos 'recomendados para você' para o aplicativo de Pesquisa do Azure e como obter informações sobre as preferências do usuário do Aprendizado de Máquina. |
-| [Channel9 Build 2016: "Intelligent Data Driven Applications that Learn and Adapt" ("Aplicativos inteligentes orientados a dados que aprendem e adaptam")](https://channel9.msdn.com/Events/Build/2016/B857) |Maio de 2016 |1 hora. Saiba como o Aprendizado de Máquina e a Pesquisa do Azure podem ser usados juntos para criar aplicativos orientados a dados sofisticados. |
+| [Channel9 Build 2016: "Intelligent Data Driven Applications that Learn and Adapt" ("Aplicativos inteligentes orientados a dados que aprendem e adaptam")](https://channel9.msdn.com/Events/Build/2016/B857) |Maio de 2016 |1 hora. Saiba como o Machine Learning e o Azure Search podem ser usados juntos para criar aplicativos orientados a dados sofisticados. |
 | [Channel9 Data Exposed: "Custom Analyzers, Search Analytics, & Portal Querying in Azure Search"](https://channel9.msdn.com/Shows/Data-Exposed/Custom-Analyzers-Search-Analytics--Portal-Querying-in-Azure-Search) ("Analisadores personalizados, Análise de Pesquisa e Consulta do Portal no Azure Search") |Janeiro de 2016 |15 minutos. Os analisadores personalizados permitem a configuração de criadores de token e de filtros de token. A Análise de Pesquisa fornece informações sobre termos de pesquisa inseridos pelos usuários e eficácia do seu índice de pesquisa. O Gerenciador de Pesquisa é uma ferramenta interna de consulta que permite testar consultas dentro do portal. |
 | [Channel9 Data Exposed: "Azure Search Enhancements"](http://channel9.msdn.com/Shows/Data-Exposed/Azure-Search-Enhancements) |Novembro de 2015 |17 minutos. Inclusão de dados do StackExchange. Crie um índice no Portal do Azure. Saiba como as fontes de dados com suporte de rastreamento de indexadores extraem dados em um índice de Pesquisa do Azure. Analisadores de linguagem. Expressões de consulta Lucene. |
 | [AzureCon 2015: Best Practices for Azure Search](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-search-best-practices-for-web-and-mobile-applications/) |Setembro de 2015 |Conselhos práticos sobre dimensionamento horizontal, otimização de desempenho e como atingir eficiência de codificação ao criar aplicativos para cenários na Web e móveis, apresentados por Pablo Castro. |
@@ -102,5 +100,4 @@ Demonstrações em várias sessões e laboratórios do Azure Search.
 | [Como adicionar sugestões aos aplicativos de pesquisa](https://azure.microsoft.com/blog/2015/01/20/azure-search-how-to-add-suggestions-auto-complete-to-your-search-applications/) |Aprenda a implementar as sugestões, normalmente chamadas de preenchimento automático. Esta demonstração apresenta uma série de tópicos, incluindo a criação de aplicativos MVC4 que aproveitam as sugestões do Azure Search, o uso da biblioteca Twitter typeahead.js para criar um componente de sugestão automática eficaz em JavaScript e o uso de sugestões imperfeitas para permitir a recuperação de sugestões mesmo quando o usuário digitar a palavra incorretamente. |
 | [Laboratório virtual do TechNet: construindo um aplicativo de Pesquisa do Microsoft Azure](http://go.microsoft.com/?linkid=9874663) |Laboratório virtual que fornece um ambiente de desenvolvimento, ferramentas, documentação e dados. Você precisará de uma conta do Azure, uma assinatura de avaliação ou assinatura do Azure pessoal para concluir o laboratório. |
 | [Sincronizar dados do SQL Server com a Pesquisa do Azure](https://azure.microsoft.com/blog/2014/11/10/how-to-sync-sql-server-data-with-azure-search/) |Publicação de blog que explica como carregar dados de bancos de dados relacionais do SQL Server para um índice da Pesquisa do Azure. |
-
 

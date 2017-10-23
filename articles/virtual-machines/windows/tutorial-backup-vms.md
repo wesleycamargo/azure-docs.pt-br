@@ -16,12 +16,11 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
 ms.openlocfilehash: 8e58a2290e5034ef393f65cbcddb86e18cf4a6ec
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="back-up-windows-virtual-machines-in-azure"></a>Fazer backup de máquinas virtuais do Windows no Azure
 
@@ -106,7 +105,6 @@ Avance para o próximo tutorial para saber mais sobre o monitoramento de máquin
 
 > [!div class="nextstepaction"]
 > [Monitorar máquinas virtuais](tutorial-monitoring.md)
-
 
 
 

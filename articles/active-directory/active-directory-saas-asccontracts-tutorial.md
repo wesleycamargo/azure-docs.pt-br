@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/21/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: afa23b1395b8275e72048bd47fffcf38f9dcd334
 ms.openlocfilehash: 87ea3cc55f9683e7d5b9912a87d675575cea0347
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/12/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-asc-contracts"></a>Tutorial: Integração do Azure Active Directory ao ASC Contracts
 
@@ -223,5 +221,4 @@ Ao clicar no bloco ASC Contracts no painel de acesso, você deverá entrar autom
 [201]: ./media/active-directory-saas-asccontracts-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-asccontracts-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-asccontracts-tutorial/tutorial_general_203.png
-
 

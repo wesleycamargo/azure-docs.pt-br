@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
 ms.openlocfilehash: 42f35c53eec06a346281fd90c97aecfd2269307d
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/29/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="step-10-enable-replication-for-physical-servers-to-azure"></a>Etapa 10: Habilitar a replicação de servidores físicos para o Azure
 
@@ -68,5 +66,4 @@ Por padrão, todos os discos em um computador são replicados. Você pode exclui
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Ir para a [Etapa 11: Executar um failover de teste](physical-walkthrough-test-failover.md)
-
+Acesse a [Etapa 11: Executar um failover de teste](physical-walkthrough-test-failover.md)

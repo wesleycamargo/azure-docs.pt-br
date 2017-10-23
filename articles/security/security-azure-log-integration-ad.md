@@ -15,14 +15,12 @@ ums.workload: na
 ms.date: 08/08/2017
 ms.author: barclayn
 ms.custom: azlog
+ms.openlocfilehash: 8a1295cc86057ed72940e774d0bd423d61142e31
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 4a5c1cf7ee6f9e7ad43bb47f798520384606969c
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/23/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="integrate-azure-active-directory-audit-logs"></a>Integrar o Azure Active Directory a logs de auditoria
 
 Eventos de auditoria do Azure AD (Azure Active Directory) ajudam a identificar ações privilegiadas que ocorreram no Azure Active Directory. Você pode ver os tipos de eventos que você pode acompanhar examinando os [eventos de relatório de auditoria do Azure Active Directory](/active-directory/active-directory-reporting-audit-events#list-of-audit-report-events.md).
@@ -76,4 +74,3 @@ Para saber mais sobre a Integração de Log do Azure, veja:
 * [Perguntas frequentes sobre a Integração do Log do Azure](security-azure-log-integration-faq.md): este artigo responde perguntas sobre a Integração do Log do Azure.
 * [Integração dos alertas da Central de Segurança com a Integração de Log do Azure](../security-center/security-center-integrating-alerts-with-log-integration.md): este artigo mostra como sincronizar os alertas da Central de Segurança, juntamente com os eventos de segurança de máquina virtual coletados pelo Diagnóstico do Azure e pelos logs de auditoria do Azure, com o Log Analytics ou com a solução SIEM.
 * [Novos recursos para o Diagnóstico do Azure e para os Logs de Auditoria do Azure](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/): esta postagem de blog apresenta os logs de auditoria do Azure e outros recursos que ajudam você a obter ideias sobre as operações de seus recursos do Azure.
-

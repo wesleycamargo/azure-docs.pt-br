@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/27/2017
 ms.author: TomSh
-ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
 ms.openlocfilehash: ec9e0fc7d67537a47d5c0d3bb376b60dc6ccffcd
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-operational-security"></a>Segurança Operacional do Azure
 ## <a name="introduction"></a>Introdução
 
@@ -341,5 +339,4 @@ A Microsoft projeta seus serviços e softwares com a segurança em mente, a fim 
 Use dados de segurança e a análise da Microsoft para executar uma detecção de ameaças mais inteligente e eficaz.
 
 - [Planejamento e operações da Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide) Um conjunto de etapas e tarefas que você pode seguir para otimizar seu uso da Central de Segurança de acordo com o modelo de gerenciamento em nuvem e os requisitos de segurança de sua organização.
-
 

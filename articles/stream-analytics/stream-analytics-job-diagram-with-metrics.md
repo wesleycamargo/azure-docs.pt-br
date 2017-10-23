@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 05/01/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: 5b689c07bf8baa531c7a50ca50ed5140c1787e7b
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="data-driven-debugging-by-using-the-job-diagram"></a>Depuração orientada a dados usando o diagrama de trabalho
 
 O diagrama de trabalho na folha **Monitoramento** do Portal do Azure pode ajudar a visualizar o pipeline de trabalho. Ele mostra entradas, saídas e etapas de consulta. Você pode usar o diagrama de trabalho para examinar as métricas de cada etapa e isolar mais rapidamente a origem de um problema ao solucioná-lo.
@@ -96,4 +94,3 @@ Para obter mais ajuda, teste nosso [fórum do Stream Analytics do Azure](https:/
 * [Dimensionar trabalhos do Stream Analytics](stream-analytics-scale-jobs.md)
 * [Referência da linguagem de consulta do Stream Analytics](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referência da API REST de gerenciamento do Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-

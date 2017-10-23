@@ -15,14 +15,12 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 6/2/2017
 ms.author: shigu;barbkess
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: f0e0b839b4a0c216eee2eb5134d43b91d8f83289
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>Maximizando a qualidade do grupo de linhas para o columnstore
 
 A qualidade do grupo de linhas é determinada pelo número de linhas em um grupo de linhas. Reduza os requisitos de memória ou aumente a memória disponível para maximizar o número de linhas que um índice columnstore compacta em cada rowgroup.  Use estes métodos para melhorar as taxas de compactação e o desempenho da consulta em índices columnstore.
@@ -164,4 +162,3 @@ Para encontrar mais maneiras de melhorar o desempenho no SQL Data Warehouse, con
 <!--MSDN references-->
 
 <!--Other Web references-->
-

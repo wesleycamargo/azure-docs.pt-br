@@ -12,17 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2017
+ms.date: 09/26/2017
 ms.author: banders
+ms.openlocfilehash: 0b0d91b130172eb3506fdebb9547ab6ba5cc3780
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
-ms.openlocfilehash: cab45cc6dd621eb4a95ef5f1842ec38c25e980b6
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Monitorar o Banco de Dados SQL do Azure usando a Análise do Azure SQL (Visualização) no Log Analytics
 
 ![Símbolo da Análise de SQL do Azure](./media/log-analytics-azure-sql/azure-sql-symbol.png)
@@ -45,7 +42,7 @@ A tabela a seguir descreve as fontes conectadas que têm suporte dessa solução
 | [Agentes do Linux](log-analytics-linux-agents.md) | Não | Agentes do Linux diretos não são usados pela solução. |
 | [Grupo de gerenciamento do SCOM](log-analytics-om-agents.md) | Não | Uma conexão direta do agente do SCOM ao Log Analytics não é usada pela solução. |
 | [Conta de armazenamento do Azure](log-analytics-azure-storage.md) | Não | O Log Analytics não lê os dados pré-existentes de uma conta de armazenamento. |
-| [Diagnóstico do Azure](log-analytics-azure-storage.md) | Sim | Os dados de métricas do Azure são enviados para o Log Analytics diretamente pelo Azure. |
+| [Diagnóstico do Azure](log-analytics-azure-storage.md) | Sim | Os dados de métrica e de log do Azure são enviados ao Log Analytics diretamente pelo Azure. |
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -63,9 +60,9 @@ Realize as etapas a seguir para adicionar a solução Análise de SQL do Azure a
 3. Na lista **Monitoramento + Gerenciamento**, clique em **Ver todos**.
 4. Na lista **Recomendado**, clique em **Mais** e, na nova lista, localize **Análise do Azure SQL (Visualização)** e selecione-a.  
     ![Solução de Análise do Azure SQL](./media/log-analytics-azure-sql/azure-sql-solution-portal.png)
-5. Na folha **Análise do Azure SQL (Visualização)**, clique em **Criar**.  
+5. No painel **Análise de SQL do Azure (Versão prévia)**, clique em **Criar**.  
     ![Criar](./media/log-analytics-azure-sql/portal-create.png)
-6. Na folha **Criar nova solução**, selecione o espaço de trabalho ao qual você deseja adicionar a solução e clique em **Criar**.  
+6. No painel **Criar nova solução**, selecione o espaço de trabalho ao qual você deseja adicionar a solução e clique em **Criar**.  
     ![adicionar ao espaço de trabalho](./media/log-analytics-azure-sql/add-to-workspace.png)
 
 
@@ -85,39 +82,71 @@ PS C:\> .\Enable-AzureRMDiagnostics.ps1 -WSID $WSID
 
 ## <a name="using-the-solution"></a>Usando a solução
 
+>[!NOTE]
+> Atualize seu espaço de trabalho do Log Analytics para obter a última versão da Análise de SQL do Azure.
+>
+
 Quando você adiciona a solução ao espaço de trabalho, o bloco de Análise do Azure SQL é adicionado ao espaço de trabalho e aparece na Visão geral. O bloco mostra o número de bancos de dados do Azure SQL e pools elásticos do Azure SQL aos quais a solução está conectada.
 
 ![Bloco de Análise do SQL Azure](./media/log-analytics-azure-sql/azure-sql-sol-tile.png)
 
 ### <a name="viewing-azure-sql-analytics-data"></a>Exibindo dados da Análise de SQL do Azure
 
-Clique no bloco **Análise de SQL do Azure** para abrir o painel da Análise de SQL do Azure. O painel inclui as folhas definidas abaixo. Cada folha lista até 15 recursos (assinatura, servidor, pool elástico e banco de dados). Clique em um dos recursos para abrir o painel do recurso específico. Pool elástico ou Banco de dados contém os gráficos com as métricas de um recurso selecionado. Clique em um gráfico para abrir a caixa de diálogo Pesquisa de Logs.
+Clique no bloco **Análise de SQL do Azure** para abrir o painel da Análise de SQL do Azure. O painel inclui a visão geral de todos os bancos de dados monitorados por meio de diferentes perspectivas. Para que as diferentes perspectivas funcionem, é necessário permitir que métricas ou logs adequados em seus recursos SQL sejam transmitidos para o espaço de trabalho do Azure Log Analytics. 
 
-| Folha | Descrição |
-|---|---|
-| Assinaturas | Lista de assinaturas com o número de servidores, pools e bancos de dados conectados. |
-| Servidores | Lista de servidores com o número de pools e bancos de dados conectados. |
-| Pools elásticos | Lista de pools elásticos conectados com GBs e eDTUs máximos no período observado. |
-|Bancos de dados | Lista de bancos de dados conectados com GBs e DTUs máximos no período observado.|
+![Visão geral da Análise de SQL do Azure](./media/log-analytics-azure-sql/azure-sql-sol-overview.png)
 
+Selecionar qualquer bloco abre um relatório de detalhamento sobre a perspectiva específica.
+
+![Tempos limite da Análise de SQL do Azure](./media/log-analytics-azure-sql/azure-sql-sol-timeouts.png)
+
+Cada perspectiva fornece resumos sobre a assinatura, o servidor, o pool elástico e o nível de banco de dados. Além disso, cada perspectiva mostra o relatório específico da perspectiva à direita. Selecionar a assinatura, o servidor, o pool ou o banco de dados na lista continua o drill down.
+
+| Perspectiva | Descrição |
+| --- | --- |
+| Recurso por tipo | Perspectiva que conta todos os recursos monitorados. O drill down fornece um resumo das métricas DTU e GB. |
+| Insights | Fornece o drill down hierárquico para Insights inteligentes. Saiba mais sobre insights inteligentes. |
+| Errors | Fornece drill down hierárquico sobre erros do SQL que ocorreram nos bancos de dados. |
+| Tempos limite | Fornece drill down hierárquico sobre tempos limite do SQL que ocorreram nos bancos de dados. |
+| Bloqueios | Fornece drill down hierárquico sobre bloqueios do SQL que ocorreram nos bancos de dados. |
+| Esperas do banco de dados | Fornece drill down hierárquico sobre estatísticas de espera do SQL sobre o nível do banco de dados. Inclui resumos de tempo de espera total e o tempo de espera por tipo de espera. |
+| Duração da consulta | Fornece drill down hierárquico sobre as estatísticas de execução de consulta como duração da consulta, uso da CPU, uso de E/S dos dados, uso de E/S do log. |
+| Esperas da consulta | Fornece drill down hierárquico sobre as estatísticas de espera da consulta por categoria de espera. |
+
+### <a name="intelligent-insights-report"></a>Relatório de Insights inteligentes
+
+Todos os insights inteligentes coletados podem ser visualizados e acessados por meio da perspectiva de Insights. [Clique aqui para saber mais sobre Insights inteligentes](../sql-database/sql-database-intelligent-insights.md)
+
+![Insights de Análise de SQL do Azure](./media/log-analytics-azure-sql/azure-sql-sol-insights.png)
+
+### <a name="elastic-pool-and-database-reports"></a>Relatórios do pool elástico e do banco de dados
+
+Os pools elásticos e os bancos de dados têm seus próprios relatórios específicos que mostram todos os dados coletados para o recurso no horário especificado.
+
+![Banco de dados de Análise de SQL do Azure](./media/log-analytics-azure-sql/azure-sql-sol-database.png)
+
+![Pool Elástico de Análise de SQL do Azure](./media/log-analytics-azure-sql/azure-sql-sol-pool.png)
+
+### <a name="query-reports"></a>Relatórios de consulta
+
+Por meio da duração da consulta e da perspectiva de esperas de consulta, é possível correlacionar o desempenho de qualquer consulta por meio do relatório de consulta. Este relatório compara o desempenho de consultas em bancos de dados diferentes e torna mais fácil identificar bancos de dados que executam a consulta selecionada em comparação com as lentas.
+
+![Consultas de Análise de SQL do Azure](./media/log-analytics-azure-sql/azure-sql-sol-queries.png)
 
 ### <a name="analyze-data-and-create-alerts"></a>Analisar dados e criar alertas
 
 Você pode criar facilmente alertas com os dados provenientes de recursos de Banco de Dados SQL do Azure. Aqui estão algumas das consultas de [pesquisa de logs](log-analytics-log-searches.md) úteis que você pode usar para alertas:
 
-[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
-
-
 *DTU alta no Banco de Dados SQL do Azure*
 
 ```
-Type=AzureMetrics ResourceProvider="MICROSOFT.SQL" ResourceId=*"/DATABASES/"* MetricName=dtu_consumption_percent | measure Avg(Average) by Resource interval 5minutes
+AzureMetrics | where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/DATABASES/" and MetricName=="dtu_consumption_percent" | summarize avg(Maximum) by ResourceId
 ```
 
 *Alta DTU no pool elástico do Banco de Dados SQL do Azure*
 
 ```
-Type=AzureMetrics ResourceProvider="MICROSOFT.SQL" ResourceId=*"/ELASTICPOOLS/"* MetricName=dtu_consumption_percent | measure avg(Average) by Resource interval 5minutes
+AzureMetrics | where ResourceProvider=="MICROSOFT.SQL" and ResourceId contains "/ELASTICPOOLS/" and MetricName=="dtu_consumption_percent" | summarize avg(Maximum) by ResourceId
 ```
 
 Você pode usar essas consultas com base no alerta para alertar sobre limites específicos para o Banco de Dados SQL do Azure e pools elásticos. Para configurar um alerta para seu espaço de trabalho OMS:
@@ -133,28 +162,8 @@ Você pode usar essas consultas com base no alerta para alertar sobre limites es
 6. Na página **Adicionar Regra de Alerta**, defina as propriedades adequadas e os limites específicos que você deseja e clique em **Salvar**.  
 ![adicionar regra de alerta](./media/log-analytics-azure-sql/create-alert02.png)
 
-### <a name="act-on-azure-sql-analytics-data"></a>Tomar decisões com base em dados da Análise de SQL do Azure
-
-Por exemplo, uma das consultas mais úteis que você pode executar é comparar a utilização de DTU para todos os Pools Elásticos do Azure SQL em todas as suas assinaturas do Azure. A DTU (Unidade de Taxa de Transferência de Banco de Dados) fornece uma maneira de descrever a capacidade relativa de um nível de desempenho de pools e bancos de dados Basic, Standard e Premium. DTUs são baseadas em uma medida combinada de CPU, memória, leituras e gravações. À medida que as DTUs aumentam, aumenta a capacidade oferecida pelo nível de desempenho. Por exemplo, um nível de desempenho com cinco DTUs tem cinco vezes mais energia do que um nível de desempenho com uma DTU. Uma cota de DTU máxima aplica-se a cada servidor e pool elástico.
-
-Executando a consulta de Pesquisa de Log a seguir, você pode saber facilmente se está subutilizando ou sobreutilizando os pools elásticos do SQL Azure.
-
-```
-Type=AzureMetrics ResourceId=*"/ELASTICPOOLS/"* MetricName=dtu_consumption_percent | measure avg(Average) by Resource | display LineChart
-```
-
->[!NOTE]
-> Se o seu espaço de trabalho fosse atualizado para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), a consulta acima seria alterada para o demonstrado a seguir.
->
->`search in (AzureMetrics) isnotempty(ResourceId) and "/ELASTICPOOLS/" and MetricName == "dtu_consumption_percent" | summarize AggregatedValue = avg(Average) by bin(TimeGenerated, 1h), Resource | render timechart`
-
-No exemplo a seguir, você pode ver que um pool elástico tem alto uso de quase 100% de DTU, enquanto outros têm pouca utilização. Você pode investigar mais para solucionar possíveis alterações recentes no ambiente usando os logs de atividade do Azure.
-
-![Resultados de pesquisa de log - alta utilização](./media/log-analytics-azure-sql/log-search-high-util.png)
-
 ## <a name="see-also"></a>Consulte também
 
 - Usar [Pesquisas de Log](log-analytics-log-searches.md) no Log Analytics para exibir dados detalhados do Azure SQL.
 - [Criar seus próprios painéis](log-analytics-dashboards.md) mostrando os dados do Azure SQL.
 - [Criar alertas](log-analytics-alerts.md) quando ocorrerem eventos específicos do Azure SQL.
-

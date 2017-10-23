@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: elbutter;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 12743b3594a0a62b0b974fb6dd1c39972c1bd3fa
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/03/2017
-
-
+ms.openlocfilehash: 6adfa1264c9d196d6c6e57f1d108710b9ee73265
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-data-factory-with-sql-data-warehouse"></a>Use o Azure Data Factory com o SQL Data Warehouse
 O Azure Data Factory fornece um método totalmente gerenciado para orquestrar a transferência de dados e a execução de procedimentos armazenados no SQL Data Warehouse.  Isso permitirá que você configure e programe mais facilmente procedimentos complexos de Extração, Transformação e Carga (ELT) com o SQL Data Warehouse. Para obter uma visão mais completa do Azure Data Factory, consulte a [documentação do Azure Data Factory][Azure Data Factory documentation].
@@ -47,7 +45,7 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral de desenvolvime
 
 <!--Article references-->
 
-[Copy data with Azure Data Factory]: ../data-factory/data-factory-data-movement-activities.md
+[Copy data with Azure Data Factory]: ../data-factory/copy-activity-overview.md
 [SQL Data Warehouse development overview]: ./sql-data-warehouse-overview-develop.md
 [SQL Data Warehouse integration overview]: ./sql-data-warehouse-overview-integrate.md
 
@@ -55,5 +53,4 @@ Para obter mais dicas de desenvolvimento, consulte [Visão geral de desenvolvime
 
 <!--Other Web references-->
 [Azure Data Factory documentation]:https://azure.microsoft.com/documentation/services/data-factory/
-
 

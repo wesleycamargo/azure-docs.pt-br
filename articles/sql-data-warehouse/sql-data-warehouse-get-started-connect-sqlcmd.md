@@ -15,18 +15,16 @@ ms.workload: data-services
 ms.custom: connect
 ms.date: 10/31/2016
 ms.author: anvang;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 3508cdf6dcfa3d7122e1e3b635f3cd37863dbf62
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/03/2017
-
-
+ms.openlocfilehash: 5a3fe1046c3417070ba8ff5bd18a0485e2152eff
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-to-sql-data-warehouse-with-sqlcmd"></a>Conecte-se ao SQL Data Warehouse com sqlcmd
 > [!div class="op_single_selector"]
 > * [Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md)
-> * [Aprendizado de Máquina do Azure](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
+> * [Azure Machine Learning](sql-data-warehouse-get-started-analyze-with-azure-machine-learning.md)
 > * [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 > * [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md) 
 > * [SSMS](sql-data-warehouse-query-ssms.md)
@@ -100,4 +98,3 @@ Confira a [documentação do sqlcmd][sqlcmd] para obter mais detalhes sobre as o
 [Azure portal]: https://portal.azure.com
 
 <!--Other Web references-->
-

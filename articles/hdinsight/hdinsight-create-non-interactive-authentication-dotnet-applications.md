@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/21/2017
 ms.author: jgao
+ms.openlocfilehash: c1aeed8c6fe4f83b170838e4efb9d9c4744fb951
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
-ms.openlocfilehash: 9ad482a932c56aa2585560eb74cf4cef06a6fa52
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/09/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-non-interactive-authentication-net-hdinsight-application"></a>Criar um aplicativo .NET HDInsight de autenticação não interativa
 É possível executar seu aplicativo Microsoft .NET do Azure HDInsight na própria identidade do aplicativo (não interativo) ou na identidade do usuário conectado do aplicativo (interativo). Este artigo mostra como criar um aplicativo .NET de autenticação não interativa para se conectar ao Azure e gerenciar o HDInsight. Para obter um exemplo de um aplicativo interativo, consulte [Conectar-se ao Azure HDInsight](hdinsight-administer-use-dotnet-sdk.md#connect-to-azure-hdinsight). 
@@ -129,4 +128,3 @@ Atribua a seu aplicativo do Azure AD uma [função](../active-directory/role-bas
 * [Criar uma entidade de serviço e um aplicativo do Azure Active Directory no Portal do Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md).
 * Saiba como [autenticar uma entidade de serviço com o Azure Resource Manager](../azure-resource-manager/resource-group-authenticate-service-principal.md).
 * Saiba mais sobre o [Azure RBAC (Controle de Acesso Baseado em Função)](../active-directory/role-based-access-control-configure.md).
-

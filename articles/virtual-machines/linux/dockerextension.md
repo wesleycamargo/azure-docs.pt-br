@@ -4,7 +4,7 @@ description: "Saiba como usar a extensão de VM do Docker para implantar de mane
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 936d67d7-6921-4275-bf11-1e0115e66b7f
 ms.service: virtual-machines-linux
@@ -12,14 +12,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/11/2017
+ms.date: 09/26/2017
 ms.author: iainfou
+ms.openlocfilehash: 0cef78edaeec9d45aa733b1912d82d5a058ba289
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 63d0d80999fd57d014c74d5c6aef3733ec2afe85
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-docker-environment-in-azure-using-the-docker-vm-extension"></a>Criar um ambiente de Docker no Azure usando a extensão de VM do Docker
 O Docker é uma plataforma popular de geração de imagens e gerenciamento de contêineres que permite que você trabalhe rapidamente com contêineres no Linux. No Azure, há várias maneiras de que você pode implantar o Docker de acordo com suas necessidades. Este artigo se concentra no uso de modelos do Azure Resource Manager e da extensão de VM do Docker com a CLI 2.0 do Azure. Você também pode executar essas etapas com a [CLI do Azure 1.0](dockerextension-nodejs.md).
@@ -35,13 +34,13 @@ Para obter mais informações sobre os diferentes métodos de implantação, inc
 ## <a name="deploy-a-template-with-the-azure-docker-vm-extension"></a>Implantar um modelo com a extensão de VM do Docker do Azure
 Vamos usar um modelo existente de início rápido para criar uma VM do Ubuntu que use a extensão de VM do Docker do Azure para instalar e configurar o host do Docker. Você pode conferir o modelo aqui: [Simple deployment of an Ubuntu VM with Docker (Implantação simples de uma VM do Ubuntu com o Docker)](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). É preciso ter a [CLI 2.0 do Azure](/cli/azure/install-az-cli2) mais recente instalada e conectada a uma conta do Azure usando [az login](/cli/azure/#login).
 
-Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group#create). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *westus*:
+Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group#create). O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *eastus*:
 
 ```azurecli
-az group create --name myResourceGroup --location westus
+az group create --name myResourceGroup --location eastus
 ```
 
-Em seguida, implante uma VM com [az group deployment create](/cli/azure/group/deployment#create), o que inclui a extensão da VM do Docker do Azure [deste modelo do Azure Resource Manager no GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Forneça seus próprios valores para *newStorageAccountName*, *adminUsername*, *adminPassword* e *dnsNameForPublicIP* da seguinte maneira:
+Em seguida, implante uma VM com [az group deployment create](/cli/azure/group/deployment#create), o que inclui a extensão da VM do Docker do Azure [deste modelo do Azure Resource Manager no GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). Forneça seus próprios valores exclusivos para *newStorageAccountName*, *adminUsername*, *adminPassword* e *dnsNameForPublicIP* da seguinte maneira:
 
 ```azurecli
 az group deployment create --resource-group myResourceGroup \
@@ -68,20 +67,31 @@ az vm show \
 
 Quando esse comando retornar *Succeeded*, a implantação terá sido concluída e você poderá usar SSH na VM na etapa a seguir.
 
-## <a name="deploy-your-first-nginx-container"></a>Implantar seu primeiro contêiner nginx
-Para exibir detalhes de sua VM, incluindo o nome DNS, use `az vm show -g myResourceGroup -n myDockerVM -d --query [fqdns] -o tsv`. Use o SSH para o host do seu novo Docker no computador local, como se segue:
+## <a name="deploy-your-first-nginx-container"></a>Implantar seu primeiro contêiner NGINX
+Para exibir detalhes de sua VM, incluindo o nome DNS, use [az vm show](/cli/azure/vm#show):
 
-```bash
-ssh azureuser@mypublicdns.westus.cloudapp.azure.com
+```azurecli
+az vm show \
+    --resource-group myResourceGroup \
+    --name myDockerVM \
+    --show-details \
+    --query [fqdns] \
+    --output tsv
 ```
 
-Após fazer logon no host do Docker, vamos executar um contêiner nginx:
+SSH para seu novo host do Docker. Fornece seu próprio nome DNS da seguinte maneira:
+
+```bash
+ssh azureuser@mypublicdns.eastus.cloudapp.azure.com
+```
+
+Após fazer logon no host do Docker, executaremos um contêiner NGINX:
 
 ```bash
 sudo docker run -d -p 80:80 nginx
 ```
 
-A saída é semelhante ao exemplo a seguir, conforme a imagem de nginx é baixada um contêiner é iniciado:
+A saída é semelhante ao exemplo a seguir, conforme a imagem de NGINX é baixada e um contêiner é iniciado:
 
 ```bash
 Unable to find image 'nginx:latest' locally
@@ -101,7 +111,7 @@ Verifique o status dos contêineres em execução no host do Docker da seguinte 
 sudo docker ps
 ```
 
-A saída é semelhante ao exemplo a seguir, mostrando que o contêiner nginx está em execução nas portas TCP 80 e 443 e está sendo encaminhado:
+A saída é semelhante ao exemplo a seguir, mostrando que o contêiner NGINX está em execução nas portas TCP 80 e 443 e está sendo encaminhado:
 
 ```bash
 CONTAINER ID        IMAGE               COMMAND                  CREATED              STATUS              PORTS                         NAMES
@@ -145,5 +155,4 @@ Leia mais informações sobre as opções de implantação adicionais do Docker 
 * [Usar o computador Docker com o driver do Azure](docker-machine.md)  
 * [Introdução ao Docker e Compose para definir e executar um aplicativo de vários contêineres em uma máquina virtual do Azure](docker-compose-quickstart.md).
 * [Implantar um cluster do Serviço de Contêiner do Azure](../../container-service/dcos-swarm/container-service-deployment.md)
-
 

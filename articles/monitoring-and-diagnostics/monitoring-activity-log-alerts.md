@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2017
 ms.author: johnkem
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: 3885469ec0e1fcc31386dd0ad7fe6cb5d03ab28e
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-activity-log-alerts"></a>Criar alertas do log de atividades
 
@@ -130,4 +129,3 @@ Depois de criar um alerta, ele ficará visível na seção Alertas da folha Moni
 - Saiba mais sobre as [notificações de integridade do serviço](monitoring-service-notifications.md).
 - Crie um [alerta de log de atividades para monitorar todas as operações de mecanismo de dimensionamento automático em sua assinatura](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert).
 - Crie um [alerta de log de atividades para monitorar todas as operações de escalar horizontalmente/reduzir horizontalmente com falha na sua assinatura](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert).
-

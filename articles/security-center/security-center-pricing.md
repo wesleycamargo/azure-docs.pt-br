@@ -1,5 +1,5 @@
 ---
-title: "Preços da Central de Segurança do Azure | Microsoft Docs"
+title: "Atualizar para a camada Standard da Central de Segurança para segurança aprimorada | Microsoft Docs"
 description: "Este artigo fornece informações sobre os preços para a Central de Segurança do Azure."
 services: security-center
 documentationcenter: na
@@ -12,22 +12,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/11/2017
+ms.date: 09/15/2017
 ms.author: terrylan
+ms.openlocfilehash: 14513c37964246397d9f748322975ef40ef3e8ae
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: cd4001a3280c83875f30b04d5d38caec26f4f0b1
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="azure-security-center-pricing"></a>Preços da Central de Segurança do Azure
+# <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>Atualizar para a camada Standard da Central de Segurança para segurança aprimorada
 A Central de Segurança do Azure fornece gerenciamento de segurança unificado e proteção avançada contra ameaças para cargas de trabalho em execução no Azure, localmente e em outras nuvens. Ela proporciona visibilidade e controle sobre cargas de trabalho de nuvem híbrida, defesas ativas que reduzem a exposição a ameaças e detecção inteligente para ajudá-lo a acompanhar o ritmo veloz da evolução dos ataques cibernéticos.
 
 ## <a name="pricing-tiers"></a>Tipos de preço
 A Central de Segurança é oferecida em duas camadas:
 
-- A camada **gratuita** é habilitada automaticamente em todas as assinaturas do Azure e oferece política de segurança, avaliação de segurança contínua e recomendações de práticas de segurança para ajudar a proteger seus recursos do Azure
+- A camada **Gratuita** é habilitada automaticamente em todas as assinaturas do Azure e oferece política de segurança, avaliação de segurança contínua e recomendações de práticas de segurança para ajudar a proteger seus recursos do Azure.
 - A camada **Standard** estende os recursos da Camada gratuita para cargas de trabalho em execução em outras nuvens públicas e privadas, fornecendo gerenciamento unificado de segurança e proteção contra ameaças em suas cargas de trabalho de nuvem híbrida. A camada Standard também adiciona recursos avançados de detecção de ameaças, que usam análise comportamental interna e aprendizado de máquina para identificar ataques e explorações de dia zero, controles de acesso e de aplicativos a fim de reduzir a exposição a ataques de rede e malware, e muito mais. A camada Standard é gratuita pelos 60 primeiros dias.
 
 Para obter mais informações, confira a [página de preços](https://azure.microsoft.com/pricing/details/security-center/) da Central de Segurança.
@@ -68,4 +67,3 @@ Neste artigo, foram apresentados os preços da Central de Segurança. Para saber
 
 <!--Image references-->
 [1]: ./media/security-center-pricing/get-standard.png
-

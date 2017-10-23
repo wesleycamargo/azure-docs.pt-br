@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: bryanla
+ms.openlocfilehash: fe276fe802eceb1f062ed8bda685dd44a1e3d175
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: 03fb9cc6633f81e284ae299f7b2ba4018d19cc73
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/22/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="configure-a-vm-managed-service-identity-msi-using-azure-cli"></a>Configurar um MSI (Identidade do Serviço Gerenciado) da VM usando a CLI do Azure
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
@@ -45,7 +43,7 @@ Para executar os exemplos de script da CLI, você tem três opções:
 
 Para criar uma VM habilitado MSI:
 
-1. Se você não estiver usando o Azure Cloud Shell no portal do Azure, primeiro entre no Azure usando [az login](/cli/azure/#login). Use uma conta que esteja associada à assinatura do Azure sob a qual você deseja implantar a VM:
+1. Se você estiver usando a CLI do Azure em um console local, primeiro entre no Azure usando o [logon az](/cli/azure/#login). Use uma conta que esteja associada à assinatura do Azure sob a qual você deseja implantar a VM:
 
    ```azurecli-interactive
    az login
@@ -67,7 +65,7 @@ Para criar uma VM habilitado MSI:
 
 Se você precisar habilitar o MSI em uma máquina virtual existente:
 
-1. Se você não estiver usando o Azure Cloud Shell no portal do Azure, primeiro entre no Azure usando [az login](/cli/azure/#login). Use uma conta que esteja associada com uma assinatura do Azure que contenha uma VM. Verifique também se sua conta pertence a uma função que fornece permissões de gravação na VM, como "Colaborador da Máquina Virtual":
+1. Se você estiver usando a CLI do Azure em um console local, primeiro entre no Azure usando o [logon az](/cli/azure/#login). Use uma conta que esteja associada com uma assinatura do Azure que contenha uma VM. Verifique também se sua conta pertence a uma função que fornece permissões de gravação na VM, como "Colaborador da Máquina Virtual":
 
    ```azurecli-interactive
    az login
@@ -83,7 +81,7 @@ Se você precisar habilitar o MSI em uma máquina virtual existente:
 
 Se você tiver uma Máquina Virtual que não precisa mais de um MSI:
 
-1. Se você não estiver usando o Azure Cloud Shell no portal do Azure, primeiro entre no Azure usando [az login](/cli/azure/#login). Use uma conta que esteja associada com uma assinatura do Azure que contenha uma VM. Verifique também se sua conta pertence a uma função que fornece permissões de gravação na VM, como "Colaborador da Máquina Virtual":
+1. Se você estiver usando a CLI do Azure em um console local, primeiro entre no Azure usando o [logon az](/cli/azure/#login). Use uma conta que esteja associada com uma assinatura do Azure que contenha uma VM. Verifique também se sua conta pertence a uma função que fornece permissões de gravação na VM, como "Colaborador da Máquina Virtual":
 
    ```azurecli-interactive
    az login
@@ -104,7 +102,6 @@ Se você tiver uma Máquina Virtual que não precisa mais de um MSI:
   - [Crie máquinas virtuais Linux com o CLI](../virtual-machines/linux/quick-create-cli.md) 
 
 Use a seção de comentários a seguir para fornecer seus comentários e nos ajudar a aprimorar e adaptar nosso conteúdo.
-
 
 
 

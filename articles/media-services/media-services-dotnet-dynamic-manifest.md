@@ -14,12 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: juliako;cenkdin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e126076717eac275914cb438ffe14667aad6f7c8
-ms.openlocfilehash: 07239a392438afd9807ce69fba657c27e853a219
-ms.contentlocale: pt-br
-ms.lasthandoff: 01/13/2017
-
+ms.openlocfilehash: 6c43473b86c14679ace558de478bd95f41d476da
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="creating-filters-with-azure-media-services-net-sdk"></a>Criando filtros com o SDK do .NET dos Serviços de Mídia do Azure
 > [!div class="op_single_selector"]
@@ -134,5 +133,4 @@ Os exemplos a seguir mostram como adicionar filtros às URLs de streaming.
 
 ## <a name="see-also"></a>Consulte também
 [Visão geral de manifestos dinâmicos](media-services-dynamic-manifest-overview.md)
-
 

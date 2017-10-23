@@ -16,13 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/16/2016
 ms.author: hermannd
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
 ms.openlocfilehash: 91eed294077ff72d0760018b10c98f32db88f3be
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/23/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-sap-ides-ehp7-sp3-for-sap-erp-60-on-azure"></a>Implantar SAP IDES EHP7 SP3 para SAP ERP 6.0 no Azure
 Este artigo descreve como implantar o sistema SAP IDES em execução com o SQL Server e o sistema operacional Windows no Azure via SAP Cloud Appliance Library (SAP CAL) 3.0. As capturas de tela mostram o processo passo a passo. Para implantar uma solução diferente, siga as mesmas etapas.
@@ -126,5 +124,4 @@ Antes de implantar a solução SAP IDES com base no Windows e no SQL Server, voc
 Em algumas horas, um sistema de SAP IDES íntegro é implantado no Azure.
 
 Se você comprou uma assinatura da CAL SAP, a SAP dará total suporte a implantações por meio da CAL SAP no Azure. A fila de suporte é BC-VCM-CAL.
-
 

@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/13/2017
 ms.author: navale;tomfitz;
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
 ms.openlocfilehash: 2f7ba23775545637de865f9ef63680ae22c62164
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/25/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="resource-manager-rest-apis"></a>APIs REST do Gerenciador de Recursos
 > [!div class="op_single_selector"]
@@ -254,4 +252,3 @@ A resposta JSON longa para essa solicitação foi omitida para melhorar a legibi
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para saber mais sobre como lidar com operações assíncronas de REST, confira [Rastrear operações assíncronas do Azure](resource-manager-async-operations.md).
-

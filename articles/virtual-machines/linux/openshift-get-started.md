@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 
 ms.author: jbinder
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1e6f2b9de47d1ce84c4043f5f6e73d462e0c1271
 ms.openlocfilehash: e03da05625e440eab29ccc28a2343d3433fc7607
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-openshift-origin-to-azure-virtual-machines"></a>Implantar o OpenShift Origin mas Máquinas Virtuais do Azure 
 
 [OpenShift Origin](https://www.openshift.org/) é uma plataforma de contêiner de software livre criada em [Kubernetes](https://kubernetes.io/). Simplifica o processo de implantação, dimensionamento e operação de aplicativos multilocatário. 
@@ -164,4 +162,3 @@ Neste tutorial, vimos como:
 > * Instale e configure a [CLI do OpenShift](https://docs.openshift.org/latest/cli_reference/index.html#cli-reference-index) para gerenciar o cluster.
 
 Agora esse cluster de origem OpenShift é implantado. Você pode seguir os tutoriais do OpenShift para aprender a implantar seu primeiro aplicativo e usar as ferramentas do OpenShift. Confira [Introdução ao OpenShift Origin](https://docs.openshift.org/latest/getting_started/index.html) para começar. 
-

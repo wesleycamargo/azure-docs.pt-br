@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/21/2017
 ms.author: genli
+ms.openlocfilehash: 58e7acc91fc048c8204608aa857134323abdab14
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: 99a790617baa65116bfba976cd9279627e8775f3
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/26/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshooting-azure-site-to-site-vpn-disconnects-intermittently"></a>Solução de problemas: desconexão intermitente da VPN Site a Site do Azure
 
 Você poderá observar o problema em que uma conexão VPN Ponto a Site nova ou existente do Microsoft Azure não é estável ou se desconecta regularmente. Este artigo fornece etapas de solução de problemas para ajudá-lo a identificar e resolver a causa do problema. 
@@ -75,5 +73,4 @@ O recurso **PFS** pode causar problemas de desconexão. Se o dispositivo VPN tiv
 
 - [Configurar uma conexão Site a Site para uma rede virtual](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 - [Configure a política IPsec/IKE para conexões VPN Site a Site](vpn-gateway-ipsecikepolicy-rm-powershell.md)
-
 

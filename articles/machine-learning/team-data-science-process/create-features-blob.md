@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev;garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: ea6712fcedcc61c9f88e9daa8d576ac3d202da51
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-features-for-azure-blob-storage-data-using-panda"></a>Criar recursos para dados de armazenamento de blob do Azure usando o Panda
 Este documento mostra como criar recursos para os dados armazenados no contêiner de blobs do Azure usando o pacote Python [Pandas](http://pandas.pydata.org/) . Depois de descrever como carregar os dados em um quadro de dados do Panda, ele mostrará como gerar recursos categóricos usando os scripts Python com os valores de indicador e recursos de agrupamento.
@@ -94,9 +93,7 @@ Para gerar recursos compartimentalizados, faça o seguinte:
    
         dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)
 
-## 
-            <a name="sql-featuregen">
-            </a>Gravar dados de volta ao blob do Azure e consumi-los no Azure Machine Learning
+## <a name="sql-featuregen"></a>Gravar dados de volta ao blob do Azure e consumi-los no Azure Machine Learning
 Depois que você já explorou os dados e criou os recursos necessários, pode carregar os dados (amostra ou recurso) para um blob do Azure e consumi-los no Azure Machine Learning usando as seguintes etapas: observe que os recursos adicionais podem ser criados no Azure Machine Learning Studio também.
 
 1. Grave o quadro de dados no arquivo local
@@ -126,5 +123,4 @@ Depois que você já explorou os dados e criou os recursos necessários, pode ca
 3. Agora, os dados podem ser lidos do blob usando o módulo [Importar Dados](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) do Azure Machine Learning, como mostra a tela abaixo:
 
 ![blob de leitor](./media/data-blob/reader_blob.png)
-
 

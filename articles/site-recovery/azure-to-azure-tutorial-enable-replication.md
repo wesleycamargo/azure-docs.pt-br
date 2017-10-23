@@ -12,12 +12,11 @@ ms.workload: storage-backup-recovery
 ms.date: 09/18/2017
 ms.author: rajanaki
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 9a92bf402863fd1ee688fba7c20d3a2cd3e299da
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>Configurar a recuperação de desastre para VMs do Azure para uma região do Azure secundária (versão prévia)
 
@@ -44,7 +43,7 @@ Crie o cofre em qualquer região, exceto a região de origem.
 
 1. Entre no [portal do Azure](https://portal.azure.com) > **Serviços de Recuperação**.
 2. Clique em **Novo** > **Monitoramento e Gerenciamento** > **Backup e Site Recovery**.
-3. Em **Nome**, especifique um nome amigável para identificar o cofre. Se você tiver mais de uma assinatura, selecione aquela adequada.
+3. Em **Nome**, especifique um nome amigável para identificar o cofre. Se você tiver mais de uma assinatura, selecione uma delas.
 4. Crie um grupo de recursos ou selecione um existente. Especifique uma região do Azure. Para verificar as regiões com suporte, confira a disponibilidade geográfica nos [Detalhes dos Preços de Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
 5. Para acessar rapidamente o cofre no painel, clique em **Fixar no painel** e em **Criar**.
 
@@ -165,4 +164,3 @@ Neste tutorial, você configurou a recuperação de desastre para uma VM do Azur
 
 > [!div class="nextstepaction"]
 > [Realizar uma simulação de recuperação de desastre](azure-to-azure-tutorial-dr-drill.md)
-

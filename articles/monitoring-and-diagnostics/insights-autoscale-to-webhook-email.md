@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: ancav
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: f0ab9d4bea3a3f7f1e1a0af2206e7b5641be1288
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/03/2017
-
+ms.openlocfilehash: 16caf14028494800e9259f0296c292b606d0210a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-autoscale-actions-to-send-email-and-webhook-alert-notifications-in-azure-monitor"></a>Use ações de dimensionamento automático para enviar notificações de alerta por email e webhook no Azure Monitor
 Este artigo mostra como configurar gatilhos para que você possa chamar URLs da web específicas ou enviar emails com base em ações de escala automática no Azure.  
@@ -126,4 +125,3 @@ Quando a notificação de escala automática é gerada, os metadados a seguir s�
 | oldCapacity |sim |A atual (antiga) contagem de instância quando Escala Automática adotou uma ação de escala |
 | newCapacity |sim |A nova contagem de instância para a qual a Escala Automática escalou o recurso |
 | propriedades |Não |Opcional. Conjunto de pares de <Chave, Valor> (por exemplo, Dicionário <Cadeia de caracteres, Cadeia de caracteres>). O campo de propriedades é opcional. Em uma interface do usuário personalizada ou fluxo de trabalho de aplicativo Lógico, você pode inserir as chaves e valores que podem ser passados usando a carga útil. Uma maneira alternativa de passar as propriedades personalizadas de volta para a chamada de saída do webhook é usar o URI do webhook em si (como parâmetros de consulta) |
-

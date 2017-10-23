@@ -14,14 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 12/14/2016
 ms.author: v-livech
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: 2e46a0f3c9bdbe267d121b4bf62e25d5d411fcc2
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="join-a-redhat-linux-vm-to-an-azure-active-directory-domain-service"></a>Ingressar uma VM RedHat do Linux em um Azure Active Directory Domain Service
 
 Este artigo mostra como ingressar uma máquina virtual RHEL (Red Hat Enterprise Linux) 7 em um domínio gerenciado do AADDS (Azure Active Directory Domain Services).  Esses requisitos são:
@@ -112,4 +110,3 @@ ssh -l ahmet@mydomain.com mydomain.cloudapp.net
 * [RHUI (Infraestrutura de Atualização do Red Hat) para as VMs Red Hat Enterprise do Linux sob demanda no Azure](update-infrastructure-redhat.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Configurar o Cofre de Chaves para máquinas virtuais no Azure Resource Manager](key-vault-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Implantar e gerenciar máquinas virtuais usando modelos do Azure Resource Manager e a CLI do Azure](../linux/create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-

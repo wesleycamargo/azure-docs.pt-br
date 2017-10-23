@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 04/20/2017
 ms.author: suchiagicha
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
 ms.openlocfilehash: 53119244f8f09c0c6c43f43761af1cc074f8d0af
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/29/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="help-secure-communication-for-services-in-azure-service-fabric"></a>Ajudar a proteger a comunicação para serviços no Azure Service Fabric
 > [!div class="op_single_selector"]
@@ -313,4 +311,3 @@ Usamos um [exemplo](service-fabric-reliable-services-communication-wcf.md) exist
 
 ## <a name="next-steps"></a>Próximas etapas
 * [API Web com OWIN no Reliable Services](service-fabric-reliable-services-communication-webapi.md)
-

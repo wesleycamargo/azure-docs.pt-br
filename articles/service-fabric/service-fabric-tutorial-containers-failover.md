@@ -16,14 +16,12 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 21dd9dfbc90c26236c43e2c334305ca97f63d361
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="demonstrate-fail-over-and-scaling-of-container-services-with-service-fabric"></a>Demonstrar o failover e o dimensionamento de serviços de contêiner com o Service Fabric
 
 Este tutorial é a parte três de uma série. Neste tutorial, você aprenderá como o failover é manipulado em aplicativos de contêiner do Service Fabric. Além disso, você aprenderá como dimensionar contêineres. Neste tutorial, você:
@@ -38,7 +36,7 @@ O aplicativo da [Parte 2](service-fabric-tutorial-package-containers.md) está e
 ## <a name="fail-over-a-container-in-a-cluster"></a>Fazer failover de um contêiner em um cluster
 O Service Fabric certifica-se de que suas instâncias de contêiner sejam movidas automaticamente para outros nós no cluster caso ocorra uma falha. Também é possível drenar um nó de contêineres manualmente e movê-los normalmente para outros nós no cluster. Há vários modos de dimensionar seus serviços. Neste exemplo, estamos usando o Service Fabric Explorer.
 
-Para fazer failover do contêiner de front-end, siga as etapas a seguir:
+Para fazer failover do contêiner de front-end, execute as seguintes etapas:
 
 1. Abra o Service Fabric Explorer no cluster – por exemplo, `http://lin4hjim3l4.westus.cloudapp.azure.com:19080`.
 2. Clique no nó **fabric:/TestContainer/azurevotefront** no modo de exibição de árvore e expanda o nó de partição (representado por um GUID). Observe que o nome de nó no modo de exibição de árvore, que mostra os nós no qual o contêiner está em execução no momento – por exemplo `_nodetype_1`
@@ -89,4 +87,3 @@ Nesta série de tutoriais, você aprendeu a:
 [noderestart]: ./media/service-fabric-tutorial-containers-failover/containersfailovertutorialnoderestart.png
 [sfxscale]: ./media/service-fabric-tutorial-containers-failover/containersfailovertutorialscale.png
 [sfxscaledone]: ./media/service-fabric-tutorial-containers-failover/containersfailovertutorialscaledone.png
-

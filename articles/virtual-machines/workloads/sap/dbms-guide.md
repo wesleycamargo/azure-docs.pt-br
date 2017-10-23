@@ -17,12 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 1046d32a0b4b6ede027ef1931314a188c64c94bb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: 4af0621c4ba0f0c283a6292824cc1ff819c1d232
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/03/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Implantação de Máquinas Virtuais do Azure do DBMS para SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -1505,5 +1504,4 @@ Não use a replicação geográfica para as contas de armazenamento que armazena
 Todos os outros tópicos gerais, como o monitoramento do SAP ou conjuntos de disponibilidade do Azure, se aplicam como descrito nos três primeiros capítulos desse documento para implantações de VMs com o IBM DB2 para LUW.
 
 Veja também o capítulo [Resumo geral do SQL Server para SAP no Azure][dbms-guide-5.8].
-
 

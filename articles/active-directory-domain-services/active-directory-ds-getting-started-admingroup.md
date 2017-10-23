@@ -1,6 +1,6 @@
 ---
 title: "Azure Active Directory Domain Services: introdução | Microsoft Docs"
-description: "Habilite o Azure Active Directory Domain Services usando o portal do Azure (Versão prévia)"
+description: Habilite o Azure Active Directory Domain Services usando o portal do Azure
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
@@ -12,16 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/15/2017
+ms.date: 09/26/2017
 ms.author: maheshu
+ms.openlocfilehash: 32d51f883ad92b5be6b1f455dfb1a865748f3102
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
-ms.openlocfilehash: f87bcf33d3b1eb21c7d84814e4c4086f664e293d
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/17/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="enable-azure-active-directory-domain-services-using-the-azure-portal-preview"></a>Habilite o Azure Active Directory Domain Services usando o portal do Azure (Versão prévia)
+# <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Habilite o Azure Active Directory Domain Services usando o portal do Azure
 
 
 ## <a name="task-3-configure-administrative-group"></a>Tarefa 3: configurar um grupo administrativo
@@ -61,7 +60,7 @@ O processo de provisionamento de seu domínio gerenciado pode levar até uma hor
 
     ![Domain Services – estado de provisionamento](./media/getting-started/domain-services-provisioning-state.png)
 
-3. A guia **Visão Geral** mostra que o domínio está sendo provisionado. Você não pode configurar o domínio gerenciado até que ele esteja totalmente provisionado. Pode levar até uma hora para que o domínio gerenciado seja totalmente provisionado.
+3. A guia **Visão Geral** mostra que o domínio gerenciado está sendo provisionado no momento. Você não pode configurar o domínio gerenciado até que ele esteja totalmente provisionado. Pode levar até uma hora para que o domínio gerenciado seja totalmente provisionado.
 
     ![Serviços de domínio – guia Visão Geral no estado de provisionamento ](./media/getting-started/domain-services-provisioning-state-details.png)
 
@@ -74,6 +73,9 @@ O processo de provisionamento de seu domínio gerenciado pode levar até uma hor
     ![Serviços de domínio – guia Propriedades após a conclusão do provisionado](./media/getting-started/domain-services-provisioned-properties.png)
 
 
+## <a name="need-help"></a>Precisa de ajuda?
+Pode levar uma hora ou duas para ambos os controladores de domínio para seu domínio gerenciado serem provisionados. Se a sua implantação tiver falhado ou estiver presa no estado “Pendente” por mais de duas horas, fique à vontade para [contatar a equipe de produto para obter ajuda](active-directory-ds-contact-us.md).
+
+
 ## <a name="next-step"></a>Próxima etapa
 Tarefa 4: [atualizar as configurações do DNS para a rede virtual do Azure](active-directory-ds-getting-started-dns.md)
-

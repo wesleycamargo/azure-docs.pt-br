@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 ms.author: tomfitz
-ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
 ms.openlocfilehash: dcc31f7a8c85a8f7fbd554371a66fb1e348bca17
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="design-patterns-for-azure-resource-manager-templates-when-deploying-complex-solutions"></a>Padrões de design para modelos do Azure Resource Manager ao implantar soluções complexas
 Usando uma abordagem flexível com base em modelos do Azure Resource Manager, você pode implantar topologias complexas de forma rápida e consistente. Você pode adaptar essas implantações facilmente conforme as ofertas de núcleo evoluem ou para acomodar variantes para cenários de exceção ou clientes.
@@ -347,5 +346,4 @@ Se desejar publicar seu modelo no marketplace, estabeleça cópias distintas do 
 ## <a name="next-steps"></a>Próximas etapas
 * Para saber mais sobre como compartilhar o estado dentro e fora dos modelos, consulte [Compartilhando estado em modelos do Gerenciador de Recursos do Azure](best-practices-resource-manager-state.md).
 * Para obter orientação sobre como as empresas podem usar o Resource Manager para gerenciar assinaturas de forma eficaz, consulte [Azure enterprise scaffold – controle de assinatura prescritivas](resource-manager-subscription-governance.md).
-
 

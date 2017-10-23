@@ -15,12 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 09/13/2017
 ms.author: pajosh
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: e817e327b8890c91bd7db640b083fd6c5c11aa14
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 597c3eb49bc3d4f9b2311f232e4280027636266c
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-azure-backup-reports"></a>Configurar relatórios de Backup do Azure
 Este artigo aborda as etapas para configurar relatórios para o Backup do Azure usando o cofre dos Serviços de Recuperação e para acessar esses relatórios usando o Power BI. Depois de executar essas etapas, você poderá ir diretamente para o Power BI para exibir todos os relatórios, personalizar e criar relatórios. 
@@ -66,7 +65,7 @@ Use as etapas a seguir para configurar a conta de armazenamento para o cofre de 
 7. Examine todas as alterações e clique no botão **Salvar** na parte superior, conforme mostrado na figura acima. Esta ação garante que todas as alterações sejam salvas e a conta de armazenamento agora está configurada para armazenar os dados de relatório.
 
 > [!NOTE]
-> Após configurar os relatórios salvando a conta de armazenamento, você deverá **aguardar 24 horas** para concluir o push de dados iniciais. Você deverá importar o pacote de conteúdo do Backup do Azure no Power BI somente após esse período. Para obter mais detalhes, consulte a seção [Perguntas frequentes](#frequently-asked-questions). 
+> Após configurar os relatórios salvando a conta de armazenamento, você deverá **aguardar 24 horas** para concluir o push de dados iniciais. Você deverá importar o pacote de conteúdo do Backup do Azure no Power BI somente após esse período. Para obter mais detalhes, consulte a [seção de Perguntas Frequentes](#frequently-asked-questions). 
 >
 >
 
@@ -152,5 +151,4 @@ Agora que você configurou a conta de armazenamento e importou o pacote de conte
 * [Usando o modelo de dados de relatórios de Backup do Azure](backup-azure-reports-data-model.md)
 * [Filtrando relatórios no Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-about-filters-and-highlighting-in-reports/)
 * [Criando relatórios no Power BI](https://powerbi.microsoft.com/documentation/powerbi-service-create-a-new-report/)
-
 

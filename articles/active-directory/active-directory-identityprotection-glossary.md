@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: f31188ed3216034ef8ec056023472844ec4debd6
-ms.contentlocale: pt-br
-ms.lasthandoff: 12/29/2016
-
+ms.openlocfilehash: 2cf64925cff9a78cf83532a1cfd231f7a1d98304
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Glossário do Azure Active Directory Identity Protection
 ### <a name="at-risk-user"></a>Em risco (Usuário)
@@ -99,7 +98,7 @@ Uma ação que visa proteger uma identidade ou um dispositivo que sofreu comprom
 Um status de evento de risco definido manualmente por um usuário do Identity Protection que indica que o usuário executou uma ação de correção apropriada fora do Identity Protection e que o evento deve ser considerado fechado.
 
 ### <a name="risk-event-status"></a>Status de evento de risco
-Uma propriedade de um evento de risco que indica se o evento está ativo e, se fechado, o motivo para estar fechado..
+Uma propriedade de um evento de risco que indica se o evento está ativo e, se fechado, o motivo para estar fechado.
 
 ### <a name="risk-event-type"></a>Tipo de evento de risco
 Uma categoria para o evento de risco que indica o tipo de anomalia que fez com que o evento fosse considerado arriscado.
@@ -163,5 +162,4 @@ Uma configuração ou condição no Azure Active Directory que torna o diretóri
 
 ## <a name="see-also"></a>Confira também
 * [Azure Active Directory Identity Protection](active-directory-identityprotection.md)
-
 

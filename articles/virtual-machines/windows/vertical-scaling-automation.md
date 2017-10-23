@@ -16,14 +16,12 @@ ms.topic: article
 ms.date: 03/29/2016
 ms.author: kasing
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: ea5169c1a95f00e78ae3f5f177812466eb7a0deb
-ms.lasthandoff: 03/31/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="vertically-scale-windows-vms-with-azure-automation"></a>Escalar verticalmente as VMs do Windows com a Automação do Azure
 
 A escala vertical é o processo de aumentar ou diminuir os recursos de um computador em resposta à carga de trabalho. No Azure, isso pode ser feito alterando o tamanho da máquina virtual. Isso pode ajudar nos cenários a seguir
@@ -93,5 +91,4 @@ Copie o webhook antes de fechar a caixa de diálogo do webhook, pois você preci
 ![Adicionar alerta à máquina virtual 1](./media/vertical-scaling-automation/add-alert-webhook-1.png)
 
 ![Adicionar alerta à máquina virtual 2](./media/vertical-scaling-automation/add-alert-webhook-2.png)
-
 

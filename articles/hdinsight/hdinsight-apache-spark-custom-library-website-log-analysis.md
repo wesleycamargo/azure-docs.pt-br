@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: 41275f8264353e7158ca42e5cfc089b2fbaa556d
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/07/2017
-
+ms.openlocfilehash: 96d897d4e4eb50abae2b145abd4f794523da6a2b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="analyze-website-logs-using-a-custom-python-library-with-spark-cluster-on-hdinsight"></a>Analisar logs do site usando uma biblioteca personalizada do Python com cluster Spark no HDInsight
 
@@ -229,4 +228,3 @@ Depois que os dados são salvos como uma tabela Hive, na próxima seção, vamos
 ### <a name="manage-resources"></a>Gerenciar recursos
 * [Gerenciar os recursos de cluster do Apache Spark no Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 * [Rastrear e depurar trabalhos em execução em um cluster do Apache Spark no HDInsight](hdinsight-apache-spark-job-debugging.md)
-

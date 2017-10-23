@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
+ms.openlocfilehash: 2acbc47970acf0eb2aa1aea8535d7157bc73cbb6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 9de4b2a0bdda7ffbd269883877a708d67312092f
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-azure-cli-10"></a>Como solucionar problemas de conexões e gateway de rede virtual do usando a CLI do Azure 1.0 do Observador de Rede do Azure
 
 > [!div class="op_single_selector"]
@@ -106,4 +104,3 @@ Para obter instruções sobre como baixar os arquivos de contas de armazenamento
 ## <a name="next-steps"></a>Próximas etapas
 
 Se as configurações para a conectividade VPN foram alteradas, confira [Gerenciamento de grupos de segurança de rede](../virtual-network/virtual-network-manage-nsg-arm-portal.md) para acompanhar quais são as regras de segurança e o grupo de segurança de rede envolvidos na questão.
-

@@ -13,12 +13,11 @@ ms.workload: identity
 ms.date: 08/02/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
 ms.openlocfilehash: 8ebc6f2dd7502fd75ffdd4d5d68338382cb1a46b
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Inicie com uma autenticação baseada em certificado do Azure Active Directory
 
@@ -223,5 +222,4 @@ Um perfil do EAS pode ser configurado e colocado no dispositivo por meio da util
 
 1. Configure um perfil do EAS no aplicativo que atenda aos requisitos acima.  
 2. Abra o aplicativo e verifique a sincronização de email. 
-
 

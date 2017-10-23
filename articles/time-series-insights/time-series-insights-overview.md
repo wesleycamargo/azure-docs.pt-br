@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/20/2017
 ms.author: omravi
+ms.openlocfilehash: 1814459e47280af62450a4093140ab6ab9b765fc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8021f8641ff3f009104082093143ec8eb087279e
-ms.openlocfilehash: abd66208ab7ac30831f3f1eddb2891ed7bcd3995
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/21/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="what-is-azure-time-series-insights"></a>O que é o Azure Time Series Insights
 
 O Azure Time Series Insights é um serviço de nuvem totalmente gerenciado com componentes de armazenamento, análise e visualização que facilitam muito ingerir, armazenar, explorar e analisar bilhões de eventos simultaneamente. O Azure Time Series Insights oferece uma visão global dos dados, permitindo que você valide rapidamente suas Soluções de IoT e evite o tempo de inatividade dispendioso ajudando você a descobrir tendências ocultas e anomalias e realizar análises de causa raiz em tempo quase real. A Análise de Séries Temporais ingerem os dados de série temporal de agentes de evento (por exemplo, Hubs IoT ou Hubs de eventos), indexa os dados e desativa os dados com base em uma política de retenção configurável. Os usuários consomem os dados por meio de uma experiência do usuário intuitiva ou APIs de Consulta REST.
@@ -51,4 +49,3 @@ O Azure Time Series Insights é um serviço de nuvem totalmente gerenciado com c
 * **Ambiente**: Um é um recurso do Azure com capacidade de entrada e armazenamento.  Os clientes provisionam os ambientes por meio do portal do Azure com a capacidade necessária.
 * **Origem de Evento**: Uma Origem de Evento é derivada de um agente de evento, como o Hubs de Eventos do Azure.  O Time Series Insights se conecta diretamente às Origens de Eventos, ingerindo o fluxo de dados sem escrever uma única linha de código. Atualmente, a Análise de Séries Temporais dá suporte a Hubs de Eventos do Azure e a Hubs IoT do Azure.
 * **Dados de referência**: A Análise de Séries Temporais fornece aos usuários a capacidade de unir dados de séries temporais com os dados de referência.  Os dados de referência podem incluir metadados sobre dispositivos ou outros dados estáticos que não são alterados com tanta frequência. A Análise de Séries Temporais une dados de referência com fluxos de dados, permitindo aos usuários visualizar e analisar esses dados quase em tempo real.
-

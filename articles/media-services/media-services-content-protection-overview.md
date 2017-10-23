@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 555e0b6340d09517bfd87efe209f0304f3266788
-ms.openlocfilehash: bf2bd9bca8817f64790ac62d2981a51aa36566a3
-ms.contentlocale: pt-br
-ms.lasthandoff: 01/27/2017
-
+ms.openlocfilehash: 64be4ea104bd11b8e191e2c8d4170a2de88acb47
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="protecting-content-overview"></a>Visão geral sobre a proteção de conteúdo
 Os Serviços de Mídia do Microsoft Azure permitem proteger a mídia desde o momento em que ela deixa computador e durante o armazenamento, processamento e entrega. Os Serviços de Mídia permitem que você entregue o conteúdo ao vivo e sob demanda criptografado dinamicamente com o Standard de Criptografia Avançada (AES) (usando chaves de criptografia de 128 bits) ou quaisquer DRMs principais: Microsoft PlayReady, Google Widevine e Apple FairPlay. Os serviços de mídia também fornecem um serviço de distribuição de chaves AES e licenças DRM (PlayReady, Widevine e FairPlay) para os clientes autorizados. 
@@ -115,4 +114,3 @@ Os tópicos a seguir demonstram como proteger o conteúdo no armazenamento, entr
 [Usar o ACS do Azure para emitir tokens](http://mingfeiy.com/acs-with-key-services).
 
 [content-protection]: ./media/media-services-content-protection-overview/media-services-content-protection.png
-

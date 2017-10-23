@@ -10,12 +10,11 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: article
 ms.date: 06/01/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: a4ddb9d4f672de6cf1ebe137bf06e5e2c8b7796f
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/16/2017
-
+ms.openlocfilehash: 38988fc5c0dc05331ea078534cd1a05e9eca2493
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Limitações no Banco de Dados do Azure para PostgreSQL
 O Banco de Dados do Azure para o serviço PostgreSQL está em visualização pública. As seções a seguir descrevem a capacidade e os limites funcionais no serviço de banco de dados.
@@ -64,4 +63,3 @@ Quando um número excessivo de conexões for atingido, você receberá o seguint
 - Entenda [O que está disponível em cada tipo de preço](concepts-service-tiers.md)
 - Entenda as [Versões de banco de dados PostgreSQL com suporte](concepts-supported-versions.md)
 - Veja [Como fazer backup e restaurar um servidor no Banco de Dados do Azure para PostgreSQL usando o Portal do Azure](howto-restore-server-portal.md)
-

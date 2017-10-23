@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
-ms.openlocfilehash: 391ea72390c589bf86ed9be58e44ce8b20eab837
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/05/2017
-
+ms.openlocfilehash: 8b9159b7bc4f7b2dac12d9012c6c903e75a6ac16
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-data-assets-in-azure-data-catalog"></a>Gerenciar ativos de dados no Catálogo de Dados do Azure
 ## <a name="introduction"></a>Introdução
@@ -74,4 +73,3 @@ Os administradores do Catálogo de Dados são, implicitamente, coproprietários 
 
 ## <a name="summary"></a>Resumo
 O modelo de crowdsourcing do Catálogo de Dados para descoberta de ativos de dados e metadados permite que todos os usuários do catálogo contribuam e descubram. A Edição Standard do Catálogo de Dados é desenvolvida para propriedade e gerenciamento para limitar a visibilidade e o uso de ativos de dados específicos.
-

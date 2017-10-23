@@ -14,198 +14,133 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/05/2017
 ms.author: ryanwi
+ms.openlocfilehash: 42a2542b7564f1692146b3e3927792ac339f30be
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
-ms.openlocfilehash: 78306672e812745fd1902ae264c2adea196ab721
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
-# <a name="deploy-a-service-fabric-linux-container-application-on-azure"></a>Implantar um aplicativo de contêiner Linux do Service Fabric no Azure
+# <a name="deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>Implantar um aplicativo de contêiner Linux do Azure Service Fabric no Azure
 O Azure Service Fabric é uma plataforma de sistemas distribuídos para implantação e gerenciamento de contêineres e microsserviços escalonáveis e confiáveis. 
 
-A execução de um aplicativo existente em um contêiner do Linux em um cluster do Service Fabric não requer alterações no seu aplicativo. Este guia de início rápido mostra como implantar uma imagem de contêiner do Docker predefinida em um aplicativo do Service Fabric. Quando você terminar, terá um contêiner nginx em execução.  Este guia de início rápido descreve a implantação de um contêiner do Linux; leia [este guia de início rápido](service-fabric-quickstart-containers.md) para implantar um contêiner do Windows.
+Este guia de início rápido mostra como implantar contêineres do Linux em um cluster do Service Fabric. Uma vez concluído, você terá um aplicativo de votação que consiste em um front-end de Web em Python e um back-end em Redis em execução em um cluster do Service Fabric. 
 
-![Nginx][nginx]
+![quickstartpic][quickstartpic]
 
 Neste guia de início rápido, você aprende a:
 > [!div class="checklist"]
-> * Empacotar um contêiner de imagem do Docker
-> * Configurar a comunicação
-> * Compilar e empacotar o aplicativo do Service Fabric
-> * Implantar o aplicativo de contêiner no Azure
+> * Implantar contêineres do Linux no Service Fabric
+> * Contêineres de escala e failover no Service Fabric
 
-## <a name="prerequisites"></a>Pré-requisitos
-Instale o [SDK do Service Fabric, a CLI do Service Fabric e os geradores de modelo yeoman do Service Fabric](service-fabric-get-started-linux.md).
+## <a name="prerequisite"></a>Pré-requisito
+Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/en-us/free/) antes de começar.
   
-## <a name="package-a-docker-image-container-with-yeoman"></a>Empacotar um recipiente de imagem do Docker com o Yeoman
-O SDK do Service Fabric para Linux inclui um gerador [Yeoman](http://yeoman.io/) que facilita a criação de seu aplicativo e a adição de uma imagem de contêiner. 
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Para criar um aplicativo de contêiner do Service Fabric, abra uma janela do terminal e execute `yo azuresfcontainer`.  
+Se você optar por instalar e usar a CLI (interface de linha de comando) localmente, execute a CLI do Azure versão 2.0.4 ou posterior. Para localizar a versão, execute az – version. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli).
 
-Chame o aplicativo de "MyFirstContainer" e chame o serviço de aplicativo de "MyContainerService".
+## <a name="get-application-package"></a>Obter pacote de aplicativos
+Para implantar os contêineres no Service Fabric, você precisa de um conjunto de arquivos de manifesto (a definição do aplicativo) que descreve os contêineres individuais e o aplicativo.
 
-Forneça o nome para a imagem de contêiner “nginx:latest" (a [imagem de contêiner nginx](https://hub.docker.com/r/_/nginx/) no Hub do Docker). 
+No Cloud Shell, use o git para clonar uma cópia da definição do aplicativo.
 
-Esta imagem tem um ponto de entrada de carga de trabalho definido e, portanto, você precisa especificar explicitamente os comandos de entrada. 
+```azurecli-interactive
+git clone https://github.com/Azure-Samples/service-fabric-dotnet-containers.git
 
-Especifique a contagem de instâncias como "1".
-
-![Gerador de Yeoman do Service Fabric para contêineres][sf-yeoman]
-
-## <a name="configure-communication-and-container-port-to-host-port-mapping"></a>Configurar o mapeamento de porta para porta do host de comunicação e do contêiner
-Configure um ponto de extremidade HTTP para que os clientes possam se comunicar com o serviço.  Abra o arquivo *./MyFirstContainer/MyContainerServicePkg/ServiceManifest.xml* e declare um recurso de ponto de extremidade no elemento **ServiceManifest**.  Adicione protocolo, porta e nome. Para este guia de início rápido, o serviço escuta na porta 80: 
-
-```xml
-<Resources>
-  <Endpoints>
-    <!-- This endpoint is used by the communication listener to obtain the port on which to 
-           listen. Please note that if your service is partitioned, this port is shared with 
-           replicas of different partitions that are placed in your code. -->
-    <Endpoint Name="myserviceTypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
-  </Endpoints>
-</Resources>
-
-```
-Ao fornecer `UriScheme`, o ponto de extremidade do contêiner é registrado automaticamente no serviço de Nomenclatura do Service Fabric para capacidade de descoberta. Um arquivo de exemplo servicemanifest. XML completo é fornecido no final deste artigo. 
-
-Mapeie uma porta de contêiner para um `Endpoint` do serviço usando uma política `PortBinding` em `ContainerHostPolicies` do arquivo ApplicationManifest.xml.  Para este guia de início rápido, `ContainerPort` é 80 (o contêiner expõe a porta 80) e `EndpointRef` é "myserviceTypeEndpoint" (o ponto de extremidade definido anteriormente no manifesto do serviço).  As solicitações de entrada para o serviço na porta 80 são mapeadas para a porta 80 no contêiner.  
-
-```xml
-<Policies>
-  <ContainerHostPolicies CodePackageRef="Code">
-    <PortBinding ContainerPort="80" EndpointRef="myserviceTypeEndpoint"/>
-  </ContainerHostPolicies>
-</Policies>
+cd service-fabric-dotnet-containers/Linux/container-tutorial/Voting
 ```
 
-## <a name="build-and-package-the-service-fabric-application"></a>Compilar e empacotar o aplicativo do Service Fabric
-Os modelos Yeoman do Service Fabric incluem um script de compilação para [Gradle](https://gradle.org/), que pode ser usado para compilar o aplicativo no terminal. Salve todas as alterações.  Para compilar e empacotar o aplicativo, execute o seguinte:
+## <a name="deploy-the-containers-to-a-service-fabric-cluster-in-azure"></a>Implantar os contêineres em um cluster do Service Fabric no Azure
+Para implantar o aplicativo em um cluster do Azure, use seu próprio cluster ou um cluster de entidade.
 
-```bash
-cd MyFirstContainer
-gradle
-```
-## <a name="create-a-cluster"></a>Criar um cluster
-Para implantar o aplicativo em um cluster do Azure, você pode optar por criar seu próprio cluster ou usar um cluster de entidade.
-
-Os clusters Party são clusters gratuitos de duração limitada do Service Fabric, hospedados no Azure e executados pela equipe do Service Fabric, nos quais qualquer pessoa pode implantar aplicativos e aprender mais sobre a plataforma. Para obter acesso a um cluster de entidade, [siga as instruções](http://aka.ms/tryservicefabric).  
+Clusters de entidade são clusters do Service Fabric gratuitos e com tempo limitado hospedados no Azure. Eles são mantidos pela equipe do Service Fabric em que qualquer pessoa pode implantar aplicativos e conhecer a plataforma. Para obter acesso a um cluster de entidade, [siga as instruções](http://aka.ms/tryservicefabric). 
 
 Para obter informações sobre como criar seu próprio cluster, consulte [Criar seu primeiro cluster do Service Fabric no Azure](service-fabric-get-started-azure-cluster.md).
 
-Observe o ponto de extremidade de conexão, que você usará na etapa a seguir.
+> [!Note]
+> O serviço de front-end da Web está configurado para escutar o tráfego de entrada na porta 80. Verifique se a porta está aberta no cluster. Se você estiver usando um cluster de entidade, essa porta estará aberta.
+>
 
-## <a name="deploy-the-application-to-azure"></a>Implantar o aplicativo no Azure
-Após a compilação do aplicativo, você pode implantá-lo no cluster do Azure usando a CLI do Service Fabric.
+### <a name="deploy-the-application-manifests"></a>Implantar os manifestos do aplicativo 
+Instalar a [CLI do Service Fabric (sfctl)](service-fabric-cli.md) em seu ambiente de CLI
 
-Conectar-se ao cluster do Service Fabric no Azure.
+```azurecli-interactive
+pip3 install --user sfctl 
+export PATH=$PATH:~/.local/bin
+```
+Conecte-se ao cluster do Service Fabric no Azure usando a CLI do Azure. O ponto de extremidade é o ponto de extremidade de gerenciamento do cluster, por exemplo, `http://linh1x87d1d.westus.cloudapp.azure.com:19080`.
 
-```bash
-sfctl cluster select --endpoint http://lnxt10vkfz6.westus.cloudapp.azure.com:19080
+```azurecli-interactive
+sfctl cluster select --endpoint http://linh1x87d1d.westus.cloudapp.azure.com:19080
 ```
 
-Use o script de instalação fornecido no modelo para copiar o pacote de aplicativo no repositório de imagens do cluster, registrar o tipo de aplicativo e criar uma instância do aplicativo.
+Use o script de instalação fornecido para copiar a definição do aplicativo de votação para o cluster, registrar o tipo de aplicativo e criar uma instância do aplicativo.
 
-```bash
+```azurecli-interactive
 ./install.sh
 ```
 
-Abra um navegador e navegue até o Service Fabric Explorer em http://lnxt10vkfz6.westus.cloudapp.azure.com:19080/Explorer. Expanda o nó Aplicativos e observe que agora há uma entrada para o seu tipo de aplicativo e outra para a primeira instância desse tipo.
+Abra um navegador e vá para o Service Fabric Explorer em http://\<my-azure-service-fabric-cluster-url>:19080/Explorer – por exemplo, `http://linh1x87d1d.westus.cloudapp.azure.com:19080/Explorer`. Expanda o nó de aplicativos para ver que agora há uma entrada para o tipo de aplicativo de votação e a instância que você criou.
 
 ![Service Fabric Explorer][sfx]
 
-Conectar-se ao contêiner em execução.  Abra um navegador da Web apontando para o endereço IP retornado na porta 80, por exemplo "lnxt10vkfz6.westus.cloudapp.azure.com:80". Você deve ver a página de boas-vindas do nginx exibida no navegador.
+Conectar-se ao contêiner em execução.  Abra um navegador da Web apontando para a URL do cluster, por exemplo,`http://linh1x87d1d.westus.cloudapp.azure.com:80`. Você deve ver o aplicativo de votação no navegador.
 
-![Nginx][nginx]
+![quickstartpic][quickstartpic]
+
+## <a name="fail-over-a-container-in-a-cluster"></a>Fazer failover de um contêiner em um cluster
+O Service Fabric certifica-se de que suas instâncias de contêiner sejam movidas automaticamente para outros nós no cluster caso ocorra uma falha. Também é possível drenar um nó para contêineres manualmente e movê-los normalmente para outros nós no cluster. Há vários modos de dimensionar seus serviços. Neste exemplo, estamos usando o Service Fabric Explorer.
+
+Para fazer failover do contêiner de front-end, execute as seguintes etapas:
+
+1. Abra o Service Fabric Explorer no cluster – por exemplo, `http://linh1x87d1d.westus.cloudapp.azure.com:19080/Explorer`.
+2. Clique no nó **fabric:/Voting/azurevotef** do modo de exibição de árvore e expanda o nó de partição (representado por um GUID). Observe que o nome de nó no modo de exibição de árvore, que mostra os nós no qual o contêiner está em execução no momento, por exemplo, `_nodetype_4`
+3. Expanda o nó **Nós** no modo de exibição de árvore. Clique nas reticências (três pontos) ao lado do nó, que está executando o contêiner.
+4. Escolha **Reiniciar** para reiniciar o nó e confirmar a ação de reinicialização. A reinicialização faz o contêiner fazer failover para outro nó no cluster.
+
+![sfxquickstartshownodetype][sfxquickstartshownodetype]
+
+## <a name="scale-applications-and-services-in-a-cluster"></a>Dimensionar aplicativos e serviços em um cluster
+Os serviços do Service Fabric podem ser facilmente dimensionados em um cluster para acomodar a carga dos serviços. Dimensione um serviço alterando o número de instâncias em execução no cluster.
+
+Para dimensionar o serviço de front-end da Web, realize as seguintes etapas:
+
+1. Abra o Service Fabric Explorer no cluster – por exemplo, `http://linh1x87d1d.westus.cloudapp.azure.com:19080`.
+2. Clique nas reticências (três pontos) ao lado do nó **fabric:/Voting/azurevotefront** no modo de exibição de árvore e escolha **Dimensionar Serviço**.
+
+    ![containersquickstartscale][containersquickstartscale]
+
+  Agora, você pode optar por dimensionar o número de instâncias do serviço de front-end da Web.
+
+3. Altere o número para **2** e clique em **Dimensionar Serviço**.
+4. Clique no nó **fabric:/Voting/VotingWeb** do modo de exibição de árvore e expanda o nó de partição (representado por um GUID).
+
+    ![containersquickstartscaledone][containersquickstartscaledone]
+
+    Agora é possível ver que o serviço tem duas instâncias. No modo de exibição de árvore, você pode ver em quais nós as instâncias são executadas.
+
+Com essa tarefa de gerenciamento simples, dobramos o número de recursos disponíveis para nosso serviço de front-end para processar a carga do usuário. É importante entender que você não precisa de várias instâncias de um serviço para que ele seja executado de forma confiável. Se um serviço falhar, o Service Fabric garantirá que uma nova instância de serviço seja executada no cluster.
 
 ## <a name="clean-up"></a>Limpar
-Use o script de desinstalação fornecido com o modelo para excluir a instância do aplicativo no cluster e cancelar o registro do tipo de aplicativo.
+Use o script de desinstalação fornecido com o modelo para excluir a instância do aplicativo no cluster e cancelar o registro do tipo de aplicativo. Esse comando leva algum tempo para limpar a instância e o comando 'install.sh' não deve ser executado imediatamente após esse script. 
 
 ```bash
 ./uninstall.sh
 ```
 
-## <a name="complete-example-service-fabric-application-and-service-manifests"></a>Exemplo completo de manifestos de serviço e aplicativo do Service Fabric
-Aqui estão os manifestos de aplicativo e serviço completos usados neste guia rápido.
-
-### <a name="servicemanifestxml"></a>ServiceManifest.xml
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<ServiceManifest Name="MyContainerServicePkg" Version="1.0.0"
-                 xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" >
-
-   <ServiceTypes>
-      <StatelessServiceType ServiceTypeName="MyContainerServiceType" UseImplicitHost="true">
-   </StatelessServiceType>
-   </ServiceTypes>
-   
-   <CodePackage Name="code" Version="1.0.0">
-      <EntryPoint>
-         <ContainerHost>
-            <ImageName>nginx:latest</ImageName>
-            <Commands></Commands>
-         </ContainerHost>
-      </EntryPoint>
-      <EnvironmentVariables> 
-      </EnvironmentVariables> 
-   </CodePackage>
-<Resources>
-    <Endpoints>
-      <!-- This endpoint is used by the communication listener to obtain the port on which to 
-           listen. Please note that if your service is partitioned, this port is shared with 
-           replicas of different partitions that are placed in your code. -->
-      <Endpoint Name="myserviceTypeEndpoint" UriScheme="http" Port="80" Protocol="http"/>
-    </Endpoints>
-  </Resources>
- </ServiceManifest>
-
-```
-### <a name="applicationmanifestxml"></a>ApplicationManifest.xml
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<ApplicationManifest  ApplicationTypeName="MyFirstContainerType" ApplicationTypeVersion="1.0.0"
-                      xmlns="http://schemas.microsoft.com/2011/01/fabric" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-   
-   <ServiceManifestImport>
-      <ServiceManifestRef ServiceManifestName="MyContainerServicePkg" ServiceManifestVersion="1.0.0" />
-   <Policies>
-      <ContainerHostPolicies CodePackageRef="Code">
-        <PortBinding ContainerPort="80" EndpointRef="myserviceTypeEndpoint"/>
-      </ContainerHostPolicies>
-    </Policies>
-</ServiceManifestImport>
-   
-   <DefaultServices>
-      <Service Name="MyContainerService">
-        <!-- On a local development cluster, set InstanceCount to 1.  On a multi-node production 
-        cluster, set InstanceCount to -1 for the container service to run on every node in 
-        the cluster.
-        -->
-        <StatelessService ServiceTypeName="MyContainerServiceType" InstanceCount="1">
-            <SingletonPartition />
-        </StatelessService>
-      </Service>
-   </DefaultServices>
-   
-</ApplicationManifest>
-
-```
-
 ## <a name="next-steps"></a>Próximas etapas
-Neste guia de início rápido, você aprende a:
+Neste guia de início rápido, você aprendeu a:
 > [!div class="checklist"]
-> * Empacotar um contêiner de imagem do Docker
-> * Configurar a comunicação
-> * Compilar e empacotar o aplicativo do Service Fabric
-> * Implantar o aplicativo de contêiner no Azure
+> * Implantar um aplicativo de contêiner do Linux no Azure
+> * Failover de um contêiner em um cluster do Service Fabric
+> * Dimensionar um contêiner em um cluster do Service Fabric
 
 * Saiba mais sobre como executar [contêineres no Service Fabric](service-fabric-containers-overview.md).
-* Leia o tutorial [Como implantar um aplicativo .NET em um contêiner](service-fabric-host-app-in-a-container.md).
 * Leia mais sobre o [ciclo de vida do aplicativo](service-fabric-application-lifecycle.md) do Service Fabric.
 * Confira os [exemplos de código do Service Fabric](https://github.com/Azure-Samples/service-fabric-dotnet-containers) no GitHub.
 
-[sfx]: ./media/service-fabric-quickstart-containers-linux/SFX.png
-[nginx]: ./media/service-fabric-quickstart-containers-linux/nginx.png
-[sf-yeoman]: ./media/service-fabric-quickstart-containers-linux/YoSF.png
-
+[sfx]: ./media/service-fabric-quickstart-containers-linux/containersquickstartappinstance.png
+[quickstartpic]: ./media/service-fabric-quickstart-containers-linux/votingapp.png
+[sfxquickstartshownodetype]:  ./media/service-fabric-quickstart-containers-linux/containersquickstartrestart.png
+[containersquickstartscale]: ./media/service-fabric-quickstart-containers-linux/containersquickstartscale.png
+[containersquickstartscaledone]: ./media/service-fabric-quickstart-containers-linux/containersquickstartscaledone.png

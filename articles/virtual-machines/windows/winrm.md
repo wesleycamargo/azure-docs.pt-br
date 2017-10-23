@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2016
 ms.author: kasing
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: 2d6533462400bc1d93d0d3b0227769784e2658a9
-ms.lasthandoff: 03/31/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="setting-up-winrm-access-for-virtual-machines-in-azure-resource-manager"></a>Configurando o acesso do WinRM para as máquinas virtuais no Azure Resource Manager
 ## <a name="winrm-in-azure-service-management-vs-azure-resource-manager"></a>WinRM no Gerenciamento de Serviços do Azure vs. Azure Resource Manager
@@ -165,4 +164,3 @@ Antes de poder se conectar à VM você precisará se certificar de que seu compu
 Quando a instalação estiver concluída, você poderá se conectar à VM usando o comando abaixo
 
     Enter-PSSession -ConnectionUri https://<public-ip-dns-of-the-vm>:5986 -Credential $cred -SessionOption (New-PSSessionOption -SkipCACheck -SkipCNCheck -SkipRevocationCheck) -Authentication Negotiate
-

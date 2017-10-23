@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 5/17/2017
 ms.author: rclaus
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 9a2293f13b90e9a4cb11b4169fad969dd622a9a6
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="back-up-and-recover-an-oracle-database-12c-database-on-an-azure-linux-virtual-machine"></a>Fazer backup e recuperar um banco de dados Oracle Database 12c em uma máquina virtual Linux do Azure
 
 Você pode usar a CLI do Azure para criar e gerenciar recursos do Azure em um prompt de comando, ou usar scripts. Neste artigo, usamos scripts da CLI do Azure para implantar um banco de dados Oracle Database 12c de uma imagem da galeria do Azure Marketplace.
@@ -568,7 +566,6 @@ az group delete --name myResourceGroup
 [Tutorial: criar VMs altamente disponíveis](../../linux/create-cli-complete.md)
 
 [Explorar exemplos da CLI do Azure de implantação de VM](../../linux/cli-samples.md)
-
 
 
 

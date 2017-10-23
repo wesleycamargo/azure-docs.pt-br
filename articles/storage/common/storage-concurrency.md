@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: jasontang501
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 937cca66a0af0674b868e6a87681adbea330e91c
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="managing-concurrency-in-microsoft-azure-storage"></a>Gerenciando a simultaneidade no Armazenamento do Microsoft Azure
 ## <a name="overview"></a>Visão geral
@@ -290,5 +289,4 @@ Para obter mais informações sobre Armazenamento do Azure, consulte:
 * [Introdução ao Armazenamento do Azure](storage-introduction.md)
 * Introdução ao Armazenamento para [Blob](../blobs/storage-dotnet-how-to-use-blobs.md), [Tabela](../../cosmos-db/table-storage-how-to-use-dotnet.md), [Filas](../storage-dotnet-how-to-use-queues.md) e [Arquivos](../storage-dotnet-how-to-use-files.md)
 * Arquitetura de Armazenamento – [Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx) (Armazenamento do Azure: um serviço de armazenamento em nuvem altamente disponível com coerência forte)
-
 

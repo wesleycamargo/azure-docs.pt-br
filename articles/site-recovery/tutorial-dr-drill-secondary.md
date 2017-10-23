@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/18/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8737c2a22bd729cfc15d5448e1ec0becef643fd5
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="run-a-disaster-recovery-drill-for-hyper-v-vms-to-your-secondary-on-premises-site"></a>Execute uma análise detalhada da recuperação de desastre de VMs do Hyper-V em seu site local secundário
 
@@ -56,7 +55,6 @@ Este tutorial mostra como executar uma análise detalhada da recuperação de de
 ## <a name="next-steps"></a>Próximas etapas
 
 [Executar um failover de produção](tutorial-vmm-to-vmm-failover-failback.md)
-
 
 
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/01/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
 ms.openlocfilehash: c75c6ed40754aee964e2b68f4f569dc1422507f2
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/03/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-multipath-io-on-windows-server-host-for-the-storsimple-virtual-array"></a>Configurar o Multipath I/O no host do Windows Server para a Matriz Virtual StorSimple
 ## <a name="overview"></a>Visão geral
@@ -158,5 +157,4 @@ Depois de configurar o MPIO no Windows Server, os volumes criados na matriz Stor
    
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre como [usar o Gerenciador de Dispositivo StorSimple para administrar a Matriz Virtual StorSimple](storsimple-virtual-array-manager-service-administration.md).
-
 

@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/07/2017
 ms.author: larryfr
+ms.openlocfilehash: 7960d83bce22d4f671d61e9aaf55561bc24308f8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: bc6eee6ff3e6c7006509cdd175b488e320ed912a
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/08/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-ambari-rest-api"></a>Gerenciar clusters HDInsight usando a API REST do Ambari
 
@@ -577,5 +576,4 @@ Neste ponto, se você examinar a interface do usuário da Web do Ambari, o servi
 ## <a name="next-steps"></a>Próximas etapas
 
 Para obter uma referência completa da API REST, consulte [Referência de API do Ambari, V1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
-
 

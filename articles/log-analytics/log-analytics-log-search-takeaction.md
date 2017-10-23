@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
 ms.openlocfilehash: ff938697add98f3d21b4971175432335ee2e39ba
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="take-action-with-an-automation-runbook-from-a-log-analytics-log-search-result"></a>Realizar uma ação com um Runbook de Automação de um resultado de pesquisa do Log Analytics
 
 De um resultado de pesquisa do Azure Log Analytics, você pode agora selecionar **Agir** para executar um runbook de Automação.  O runbook pode ser usado para corrigir o problema ou executar alguma outra ação, como coletar informações de solução de problemas, enviar um email ou criar uma solicitação de serviço. 

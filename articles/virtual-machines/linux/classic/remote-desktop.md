@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: mingzhan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
 ms.openlocfilehash: 68031d548bdbeda9a83d1bceaaea7c5bbcab3188
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/26/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-remote-desktop-to-connect-to-a-microsoft-azure-linux-vm"></a>Usando a Área de Trabalho Remota para se conectar a uma VM do Linux do Microsoft Azure
 > [!IMPORTANT] 
@@ -114,4 +112,3 @@ Faça logon com o nome de usuário e a senha da sua VM Linux.
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações sobre o uso do xrdp, consulte [http://www.xrdp.org/](http://www.xrdp.org/).
-

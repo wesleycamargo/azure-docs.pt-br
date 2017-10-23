@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
-ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
 ms.openlocfilehash: 62ec48ab067cf02bc8409aca6da704a5418ec270
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-enable-multi-factor-authentication-in-your-consumer-facing-applications"></a>Azure Active Directory B2C: habilitar a Multi-Factor Authentication nos seus aplicativos voltados para o consumidor
 O Azure AD (Azure Active Directory) B2C integra-se diretamente ao [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) para facilitar a adição de uma segunda camada de segurança para as experiências de inscrição e entrada nos seus aplicativos voltados para o consumidor. E você pode fazer isso sem escrever uma única linha de código. No momentos damos suporte à verificação por ligação telefônica e mensagem de texto. Se você já tiver criado as políticas de credenciais e de entrada, ainda poderá habilitar a Multi-Factor Authentication.
@@ -58,5 +57,4 @@ Quando o consumidor entra (usando uma conta local ou social), se um número de t
 
 ## <a name="multi-factor-authentication-on-other-policies"></a>Multi-Factor Authentication em outras políticas
 Conforme descrito para as políticas de inscrição e entrada acima, também é possível habilitar a autenticação multifator nas políticas de inscrição ou entrada e nas políticas de redefinição de senha. Ela estará disponível em breve nas políticas de edição de perfil.
-
 

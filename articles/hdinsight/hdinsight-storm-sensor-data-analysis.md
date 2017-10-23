@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/09/2017
 ms.author: larryfr
+ms.openlocfilehash: 3c66f9ea025a2d245cdf907be9f3c586f1ed45ba
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
-ms.openlocfilehash: 0d1cc959c87bd64ed728f8b56c9b9156fa492a8b
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/10/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="analyze-sensor-data-with-apache-storm-event-hub-and-hbase-in-hdinsight-hadoop"></a>Analisar dados de sensor com o Apache Storm e com o HBase no HDInsight (Hadoop)
 
@@ -379,7 +378,7 @@ Para gravar no HBase usando o cluster Storm, você deve fornecer o bolt do HBase
     > Quando solicitado, insira a senha para o logon de administrador do HDInsight.
 
     ```powershell
-    $clusterName = 'your_HDInsight_cluster_name`
+    $clusterName = 'your_HDInsight_cluster_name'
     $creds = Get-Credential -UserName "admin" -Message "Enter the HDInsight login"
     $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/HBASE/components/HBASE_MASTER" -Credential $creds
     $respObj = ConvertFrom-Json $resp.Content
@@ -524,4 +523,3 @@ Para saber mais sobre como criar topologias em Java, confira [Desenvolver topolo
 Para saber mais sobre como se conectar ao cluster Storm, confira [Desenvolver topologias C# para Apache Storm no HDInsight usando o Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md).
 
 [azure-portal]: https://portal.azure.com
-

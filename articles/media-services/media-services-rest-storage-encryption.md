@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: juliako
+ms.openlocfilehash: 1979f5bf5e8cab88dab5fba49018afacf24504b3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 17cf10fe1edd46d84806ac4fe09b757c75730356
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="encrypting-your-content-with-storage-encryption"></a>Criptografia do seu conteúdo com criptografia de armazenamento
 
@@ -361,4 +360,3 @@ Depois de carregar seu arquivo de mídia digital em um contêiner de blobs, voc�
        "MimeType":"video/mp4",
        "ContentChecksum":null
     }
-

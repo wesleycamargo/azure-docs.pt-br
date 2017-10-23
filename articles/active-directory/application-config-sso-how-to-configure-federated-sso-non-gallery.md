@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
-ms.openlocfilehash: 54e092e4bb8d83a59d05d8aca2760f9098ecd548
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/20/2017
-
+ms.openlocfilehash: da7bc05c6452cde4d0236806f249559f178dd4e1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-configure-federated-single-sign-on-for-a-non-gallery-application"></a>Como configurar o logon único federado para um aplicativo inexistente na galeria
 
 Para configurar um aplicativo inexistente na galeria, é necessário ter o Azure AD Premium e o aplicativo com suporte SAML 2.0. Para obter mais informações sobre as versões do Azure AD, visite [Preços do Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -118,7 +116,7 @@ Para selecionar o Identificador de Usuário ou adicionar os atributos de usuári
 
 ## <a name="download-the-azure-ad-metadata-or-certificate"></a>Baixar o certificado ou metadados do Azure AD
 
-Para baixar o certificado ou metadados do aplicativo do Azure AD, siga as etapas abaixo:
+Para baixar o certificado ou metadados do aplicativo Azure AD, siga as etapas abaixo:
 
 1.  Abra o [**Portal do Azure**](https://portal.azure.com/) e entre como um **Administrador Global** ou **Coadministrador.**
 
@@ -184,4 +182,3 @@ Para saber como personalizar as declarações de atributo SAML enviadas para seu
 
 ## <a name="next-steps"></a>Próximas etapas
 [Fornecer logon único para seus aplicativos com Proxy de Aplicativo](active-directory-application-proxy-sso-using-kcd.md)
-

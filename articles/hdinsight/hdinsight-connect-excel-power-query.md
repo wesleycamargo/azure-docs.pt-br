@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: jgao
+ms.openlocfilehash: c8ba8743fbadc2c40762d555a8c573c741a75282
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 415ecc7398e9fc5b29522265e17084000ad4588b
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-excel-to-hadoop-by-using-power-query"></a>Conectar o Excel ao Hadoop usando Power Query
 Um dos principais recursos da solução de big data da Microsoft é a integração dos componentes de BI (business intelligence) da Microsoft com os clusters Hadoop do HDInsight do Azure. Um dos principais exemplos é a capacidade de conectar o Excel com a conta de Armazenamento do Azure, que contém os dados associados ao seu cluster Hadoop usando o suplemento Microsoft Power Query para Excel. Este artigo explica como configurar e usar o Power Query para consultar dados associados a um cluster Hadoop gerenciado com o HDInsight.
@@ -79,7 +78,7 @@ Neste artigo, você aprendeu como usar o Power Query para recuperar dados do HDI
 * [Usar Zeppelin para executar consultas do Hive no Azure HDInsight ](./hdinsight-connect-hive-zeppelin.md).
 * [Conectar o Excel ao HDInsight com o Driver ODBC do Microsoft Hive](./hdinsight-connect-excel-hive-odbc-driver.md).
 * [Conectar-se ao Azure HDInsight e executar consultas Hive usando Ferramentas do Data Lake para Visual Studio](./hdinsight-hadoop-visual-studio-tools-get-started.md).
-* [Usar o Visual Studio Code para o Hive, o LLAP ou o pySpark](hdinsight-for-vscode.md).
+* [Use a Ferramenta do Azure HDInsight para Visual Studio Code](hdinsight-for-vscode.md).
 * [Carregue os dados no HDInsight](./hdinsight-upload-data.md).
 
 [image-hdi-powerquery-hdi-source]: ./media/hdinsight-connect-excel-power-query/hdi.powerquery.selecthdisource.png
@@ -87,4 +86,3 @@ Neste artigo, você aprendeu como usar o Power Query para recuperar dados do HDI
 [image-hdi-powerquery-imported-table]: ./media/hdinsight-connect-excel-power-query/hdi.powerquery.importedtable.PNG
 
 [powerquery-download]: http://go.microsoft.com/fwlink/?LinkID=286689
-

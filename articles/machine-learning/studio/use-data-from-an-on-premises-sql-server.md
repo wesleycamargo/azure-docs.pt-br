@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
 ms.author: garye;krishnan
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 79ae5cd78ce07fcc84be49c2693773d58a15771e
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="perform-advanced-analytics-with-azure-machine-learning-using-data-from-an-on-premises-sql-server-database"></a>Executar análises avançadas com o Azure Machine Learning usando os dados de um banco de dados do SQL Server local
 
@@ -69,11 +68,7 @@ Considere o seguinte ao configurar e usar um Gateway de Gerenciamento de Dados:
 
 Você pode encontrar informações detalhadas sobre pré-requisitos de instalação, etapas de instalação e dicas de solução de problemas no artigo [Gateway de Gerenciamento de Dados](../../data-factory/v1/data-factory-data-management-gateway.md).
 
-## <a name="span-idusing-the-data-gateway-step-by-step-walk-classanchorspan-idtoc450838866-classanchorspanspaningress-data-from-your-on-premises-sql-server-database-into-azure-machine-learning"></a>
-            <span id="using-the-data-gateway-step-by-step-walk" class="anchor">
-            <span id="_Toc450838866" class="anchor">
-            </span>
-            </span>Ingressar dados do banco de dados SQL Server local no Azure Machine Learning
+## <a name="span-idusing-the-data-gateway-step-by-step-walk-classanchorspan-idtoc450838866-classanchorspanspaningress-data-from-your-on-premises-sql-server-database-into-azure-machine-learning"></a><span id="using-the-data-gateway-step-by-step-walk" class="anchor"><span id="_Toc450838866" class="anchor"></span></span>Ingressar dados do banco de dados SQL Server local no Azure Machine Learning
 Nesse passo a passo, você vai configurar um Gateway de Gerenciamento de Dados em um espaço de trabalho de Azure Machine Learning, configurá-lo e, em seguida, ler os dados de um banco de dados do SQL Server local.
 
 > [!TIP]
@@ -153,4 +148,3 @@ Depois de configurar o gateway, você pode adicionar um módulo **Importar Dados
 Quando o experimento concluir a execução, você poderá visualizar os dados importados do banco de dados clicando na porta de saída do módulo **Importar Dados** e selecionando **Visualizar**.
 
 Depois de concluir o desenvolvimento de seu experimento, você poderá implantar e colocar o modelo em operação. Usando o Serviço de Execução em Lotes, os dados do banco de dados do SQL Server local configurados no módulo **Importar Dados** serão lidos e usados para pontuação. Embora você possa usar o Serviço de Resposta de Solicitação para pontuar dados locais, a Microsoft recomenda usar o [Suplemento do Excel](excel-add-in-for-web-services.md) . Atualmente, gravar em um banco de dados do SQL Server local por meio de **Exportar Dados** não é permitido em seus experimentos ou em serviços Web publicados.
-

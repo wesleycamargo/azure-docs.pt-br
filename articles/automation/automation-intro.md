@@ -3,7 +3,7 @@ title: "O que é a Automação do Azure | Microsoft Docs"
 description: "Saiba qual valor a Automação do Azure fornece e obtenha respostas para perguntas comuns para que você pode começar a criar usando runbooks e DSC de Automação do Azure."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: 
 keywords: "o que é automação, automação do azure, exemplos de automação do azure"
@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/10/2016
 ms.author: magoedte;bwren
+ms.openlocfilehash: c9f5c346350a62540ba29444b1b00cc9dc398d56
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: 6b1fb9e7ae810df21cbcd592fef2b43309e2269c
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/11/2017
-
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-automation-overview"></a>Visão geral da Automação do Azure
 A Automação do Microsoft Azure fornece uma maneira para os usuários automatizarem tarefas manuais, longas, sujeitas a erros e repetidas com frequência que normalmente são executadas em um ambiente de nuvem e corporativo. Ele economiza tempo e aumenta a confiabilidade das tarefas administrativas regulares e até mesmo agenda a sua execução automática em intervalos regulares. Você pode automatizar processos usando runbooks ou automatizar o gerenciamento de configuração usando Configuração de Estado Desejado. Este artigo fornece uma visão geral da Automação do Azure e responde a perguntas comuns. Você pode consultar outros artigos desta biblioteca para obter informações mais detalhadas sobre os diferentes tópicos.
@@ -85,5 +83,4 @@ Uma variedade de recursos está disponível para você aprender mais sobre a Aut
 
 ## <a name="can-i-provide-feedback"></a>Posso fornecer comentários?
 **Envie-nos comentários!** Se você estiver procurando por uma solução de runbook de Automação do Azure ou por um módulo de integração, poste uma Solicitação de script no Script Center. Se você tiver comentários ou solicitações de recurso para a Automação do Azure, poste-os em [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback). Obrigado! 
-
 

@@ -15,14 +15,12 @@ ms.date: 07/28/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
 ms.openlocfilehash: 11244e0044eef8441e3a37ab8aeff0da30dacdb8
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/05/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Considerações de topologia de rede ao usar o Proxy de Aplicativo do Azure Active Directory
 
 Este artigo explica as considerações de topologia de rede ao usar o Proxy de Aplicativo do Azure AD (Azure Active Directory) para publicar e acessar seus aplicativos remotamente.
@@ -178,4 +176,3 @@ Você também pode considerar o uso de uma outra variante nessa situação. Se a
 - [Habilitar o logon único](active-directory-application-proxy-sso-using-kcd.md)
 - [Habilitar o acesso condicional](active-directory-application-proxy-conditional-access.md)
 - [Solucionar problemas que surgirem com o Proxy de Aplicativo](active-directory-application-proxy-troubleshoot.md)
-

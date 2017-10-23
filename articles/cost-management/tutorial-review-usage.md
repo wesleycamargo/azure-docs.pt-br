@@ -10,15 +10,12 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: 4440ca81545978ab7438f1684ce71ded24c326e9
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="review-usage-and-costs"></a>Examinar o uso e os custos
 
 O Azure Cost Management da Cloudyn mostra o uso e os custos para que seja possível acompanhar tendências, detectar ineficiências e criar alertas. Todos os dados de uso e de custo são exibidos em relatórios e painéis da Cloudyn. Os exemplos neste tutorial demonstram como examinar o uso e os custos usando painéis e relatórios. Neste tutorial, você aprenderá como:
@@ -101,4 +98,3 @@ Avance para o próximo tutorial para saber mais sobre como controlar o acesso a 
 
 > [!div class="nextstepaction"]
 > [Controlar o acesso a dados](tutorial-user-access.md)
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: a29f1e7b39b7f35073aa5aa6c6bd964ffaa6ffd0
 ms.openlocfilehash: 2e5cce26bc8bebbe6b9f8ba3c3d03e8c3db8c87c
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-azure-cosmos-db"></a>Monitorar o Azure Cosmos DB
 Monitore suas contas do Azure Cosmos DB no [portal do Azure](https://portal.azure.com/). Para cada conta do Azure Cosmos DB, um conjunto completo de métricas está disponível para monitorar a taxa de transferência, o armazenamento, a disponibilidade, a latência e a consistência.
@@ -87,5 +86,4 @@ Para saber mais, confira [Retrieving Resource Metrics via the Azure Monitor REST
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre o planejamento de capacidade do Azure Cosmos DB, consulte a [calculadora do planejador de capacidade do Azure Cosmos DB](https://www.documentdb.com/capacityplanner).
-
 

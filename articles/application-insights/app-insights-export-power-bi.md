@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 02c51e6a576b5a91044eae784c72d7529497b814
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/15/2017
-
+ms.openlocfilehash: 350a65b1c6432baf258e014c9e63133d2b29e34f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Alimentar o Power BI do Application Insights
 O [Power BI](http://www.powerbi.com/) é um conjunto de ferramentas de análise de negócios que ajudam a analisar dados e a compartilhar informações. Painéis avançados estão disponíveis em cada dispositivo. Você pode combinar dados de várias fontes, incluindo consultas do Analytics do [Azure Application Insights](app-insights-overview.md).
@@ -119,5 +118,4 @@ Se seu aplicativo enviar muitos dados, a funcionalidade de amostragem adaptável
 ## <a name="next-steps"></a>Próximas etapas
 * [Power BI - Saiba mais](http://www.powerbi.com/learning/)
 * [Tutorial do Analytics](app-insights-analytics-tour.md)
-
 

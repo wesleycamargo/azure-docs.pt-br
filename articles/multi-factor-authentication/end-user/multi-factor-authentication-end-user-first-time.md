@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: barlan
 ms.custom: end-user
+ms.openlocfilehash: 492d5dc4e20f67bcb9f72a022fec19f5ba86caac
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
-ms.openlocfilehash: b05672744dadb15f2780af100f3dd41412e55265
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Configurar minha conta para verificação em duas etapas
 A verificação em duas etapas é uma etapa adicional de segurança que ajuda a proteger sua conta, tornando mais difícil para outras pessoas invadi-la. Se você está lendo este artigo, é provável que tenha um email de seu administrador do trabalho ou escola sobre Autenticação Multifator. Ou talvez você tenha tentado entrar e recebido uma mensagem pedindo para configurar uma verificação de segurança adicional. Se esse for o caso, **você não poderá entrar até concluir o processo de registro automático**.
@@ -30,7 +29,7 @@ Este artigo ajuda você a configurar sua **conta corporativa ou de estudante**. 
 
 ## <a name="set-up-your-account"></a>Configurar sua conta
 
-Quando o departamento de TI exigir que você comece a usar a verificação em duas etapas, você verá uma tela que diz **Seu administrador exigiu que você configure esta conta para verificação de segurança adicional**:
+Quando o departamento de TI exigir que você comece a usar a verificação em duas etapas, uma tela que diz **Seu administrador exigiu que você configure esta conta para verificação de segurança adicional** será exibida:
 
 ![Configuração](./media/multi-factor-authentication-end-user-first-time/first.png)
 
@@ -107,4 +106,3 @@ Se você quiser adicionar uma conta ao aplicativo móvel manualmente em vez de u
 * Altere suas opções preferenciais e [gerencie suas configurações de verificação em duas etapas](multi-factor-authentication-end-user-manage-settings.md)
 * Configure [senhas de aplicativo](multi-factor-authentication-end-user-app-passwords.md) para aplicativos de dispositivo nativo que não dão suporte à verificação em duas etapas.
 * Confira o [aplicativo Microsoft Authenticator](microsoft-authenticator-app-how-to.md) para obter autenticação segura mesmo quando você não tiver um serviço de célula.
-

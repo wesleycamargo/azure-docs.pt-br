@@ -1,5 +1,5 @@
 ## <a name="application-gateway"></a>Application Gateway
-O Application Gateway o fornece uma solução de balanceamento de carga HTTP gerenciada pelo Azure com base no balanceamento de carga de camada 7. O balanceamento de carga de aplicativo permite usar regras de roteamento para o tráfego de rede com base em HTTP. 
+O Gateway de Aplicativo o fornece uma solução de balanceamento de carga HTTP gerenciada pelo Azure com base no balanceamento de carga de camada 7. O balanceamento de carga de aplicativo permite usar regras de roteamento para o tráfego de rede com base em HTTP. 
 <BR>
 
 | Propriedade | Descrição |

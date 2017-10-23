@@ -8,14 +8,12 @@ ms.service: event-grid
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: babanisa
+ms.openlocfilehash: eff2352066a76010d6d882a7b7e1961870cd2d46
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: cce058e75ebf49f53d11e3b5a87ea4625994db0f
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="event-grid-subscription-schema"></a>Esquema de assinatura de Grade de Eventos
 
 Para criar uma assinatura de grade de eventos, você envia uma solicitação para a operação de assinatura Create Event. Use o seguinte formato:
@@ -79,4 +77,4 @@ O artigo descreve as propriedades e o esquema para o corpo da solicitação.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para obter uma introdução à Grade de Eventos, confira [O que é a Grade de Eventos?](overview.md)
+* Para ver uma introdução à Grade de Eventos, confira [O que é uma Grade de eventos?](overview.md)

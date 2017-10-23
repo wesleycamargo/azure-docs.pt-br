@@ -14,17 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 243c1cd5ebf34f2d8a8fda234fa3875298390336
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: fb5e399d4ab02a7f2805cc280b213bf5b44f6993
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="microsoft-cloud-services-and-network-security"></a>Segurança de rede e serviços em nuvem da Microsoft
-Os serviços em nuvem da Microsoft entregam serviços e estrutura em larga escala, recursos de nível empresarial e várias opções de conectividade híbrida. Os clientes podem optar por acessar esses serviços através da Internet ou com a Rota Expressa do Azure, que fornece conectividade de rede privada. A plataforma Microsoft Azure permite que os clientes estendam facilmente sua infra-estrutura para a nuvem e criem arquiteturas com várias camadas. Além disso, terceiros podem habilitar recursos avançados oferecendo serviços de segurança e soluções de virtualização. Este white paper fornece uma visão geral sobre segurança e problemas de arquitetura que os clientes devem considerar ao usar os serviços em nuvem da Microsoft acessados através da Rota Expressa. Ele também aborda a criação de serviços mais seguros em redes virtuais do Azure.
+Os serviços em nuvem da Microsoft entregam serviços e estrutura em larga escala, recursos de nível empresarial e várias opções de conectividade híbrida. Os clientes podem optar por acessar esses serviços através da Internet ou com a Azure ExpressRoute, que fornece conectividade de rede privada. A plataforma Microsoft Azure permite que os clientes estendam facilmente sua infra-estrutura para a nuvem e criem arquiteturas com várias camadas. Além disso, terceiros podem habilitar recursos avançados oferecendo serviços de segurança e soluções de virtualização. Este white paper fornece uma visão geral sobre segurança e problemas de arquitetura que os clientes devem considerar ao usar os serviços em nuvem da Microsoft acessados através do ExpressRoute. Ele também aborda a criação de serviços mais seguros em redes virtuais do Azure.
 
 ## <a name="fast-start"></a>Início rápido
 O gráfico lógico a seguir pode direcioná-lo a um exemplo específico das várias técnicas de segurança disponíveis na plataforma Azure. Para referência rápida, encontre o exemplo que melhor se ajusta a seu caso. Para obter explicações mais completas, continue lendo o artigo.
@@ -80,7 +77,7 @@ Antes que o tráfego da Internet possa acessar as redes virtuais do Azure, há d
 
 1.    **Proteção DDoS**: a proteção DDoS é uma camada de rede física do Azure que protege a plataforma do Azure em si contra ataques em larga escala baseados na Internet. Esses ataques usam vários nós de "bot" em uma tentativa de sobrecarregar um serviço de Internet. O Azure tem uma malha de proteção sólida contra DDoS em todas as conexões de entrada, saída e entre regiões do Azure. Essa camada de proteção contra DDoS não tem atributos configuráveis pelo usuário e não é acessível ao cliente. A camada de proteção contra DDoS protege o Azure como uma plataforma de ataques em grande escala, além de monitorar o tráfego de saída e o tráfego entre regiões do Azure. Usando soluções de virtualização de rede na VNet, camadas adicionais de resiliência podem ser configuradas pelo cliente contra um ataque de menor escala que não ative a proteção no nível de plataforma. Um exemplo de DDoS em ação: se um endereço IP voltado para a Internet fosse atacado por um ataque de DDoS em larga escala, o Azure detectaria as origens dos ataques e eliminaria o tráfego ofensivo antes que este atingisse seu destino pretendido. Em quase todos os casos, o ponto de extremidade atacado não é afetado pelo ataque. Nos raros casos em que um ponto de extremidade é afetado, nenhum tráfego é afetado para outros pontos de extremidade, apenas para o ponto de extremidade atacado. Assim, outros clientes e serviços não veem nenhum impacto vindo desse ataque. É fundamental observar que o Azure DDoS está procurando apenas por ataques em grande escala. É possível que seu serviço específico seja sobrecarregado antes que os limites de proteção no nível de plataforma sejam excedidos. Por exemplo, um site da Web em um único servidor IIS A0 poderia ficar offline devido a um ataque de DDoS antes que a proteção contra DDoS no nível de plataforma do Azure registrasse uma ameaça.
 
-2.    **Endereços IP públicos**: endereços IP públicos (habilitados por meio de pontos de extremidade de serviço, endereços IP públicos, Gateway de Aplicativo e outros recursos do Azure que apresentam um endereço IP público para a Internet roteado para o seu recurso) permitem que serviços de nuvem ou grupos de recursos tenham portas e endereços IP públicos de Internet expostos. O ponto de extremidade usa NAT (Conversão de Endereços de Rede) para rotear o tráfego para a porta e endereço internos na rede virtual do Azure. Esse caminho é a principal rota para que o tráfego externo passe para dentro da rede virtual. Os endereços IP públicos são configuráveis pelo usuário para determinar tanto qual tráfego pode passar quanto como e para onde esse tráfego deve ser convertido na rede virtual.
+2.  **Endereços IP públicos**: endereços IP públicos (habilitados por meio de pontos de extremidade de serviço, endereços IP públicos, Gateway de Aplicativo e outros recursos do Azure que apresentam um endereço IP público para a Internet roteado para o seu recurso) permitem que serviços de nuvem ou grupos de recursos tenham portas e endereços IP públicos de Internet expostos. O ponto de extremidade usa NAT (Conversão de Endereços de Rede) para rotear o tráfego para a porta e endereço internos na rede virtual do Azure. Esse caminho é a principal rota para que o tráfego externo passe para dentro da rede virtual. Os endereços IP públicos são configuráveis pelo usuário para determinar tanto qual tráfego pode passar quanto como e para onde esse tráfego deve ser convertido na rede virtual.
 
 Depois que o tráfego alcança a rede virtual, há muitos recursos que entram em cena. Redes virtuais do Azure são a base para que clientes possam anexar suas cargas de trabalho e o local em que a segurança no nível da rede básica se aplica. É uma rede privada (uma sobreposição de rede virtual) no Azure para clientes com os seguintes recursos e características:
 
@@ -92,7 +89,7 @@ Depois que o tráfego alcança a rede virtual, há muitos recursos que entram em
 >
 
 * **Topologia multicamada**: as redes virtuais permitem que os clientes definam a topologia multicamada alocando sub-redes e designando os espaços de endereço separados para elementos ou "camadas" diferentes de suas cargas de trabalho. Esses agrupamentos e topologias lógicos permitem que os clientes definam políticas de acesso diferentes baseadas nos tipos de carga de trabalho e também controlam fluxos de tráfego entre as camadas.
-* **Conectividade entre locais**: os clientes podem estabelecer a conectividade entre locais entre uma rede virtual e vários sites locais ou outras redes virtuais no Azure. Para criar uma conexão, os clientes podem usar o emparelhamento de VNet, Gateways de VPN do Azure, soluções de virtualização de rede de terceiros ou ExpressRoute. O Azure dá suporte a VPNs site a site (S2S) usando protocolos padrão de IPsec/IKE e conectividade privada de Rota Expressa.
+* **Conectividade entre locais**: os clientes podem estabelecer a conectividade entre locais entre uma rede virtual e vários sites locais ou outras redes virtuais no Azure. Para criar uma conexão, os clientes podem usar o emparelhamento de VNet, Gateways de VPN do Azure, soluções de virtualização de rede de terceiros ou ExpressRoute. O Azure dá suporte a VPNs site a site (S2S) usando protocolos padrão de IPsec/IKE e conectividade privada de ExpressRoute.
 * **NSG** permite que os clientes criem regras (ACLs) no nível desejado de granularidade: sub-redes virtuais, VMs individuais ou interfaces de rede. Os clientes podem controlar o acesso permitindo ou negando a comunicação entre as cargas de trabalho em uma rede virtual, de sistemas nas redes do cliente por meio de conectividade entre locais ou comunicação direta via Internet.
 * **UDR** e **Encaminhamento IP** permitem que os clientes definam os caminhos de comunicação entre camadas diferentes em uma rede virtual. Os clientes podem implantar firewall, IDS/IPS e outras soluções de virtualização, além de rotear o tráfego de rede por meio dessas soluções de segurança para a aplicação, auditoria e inspeção das políticas de limites de segurança.
 * **Soluções de virtualização de rede** no Azure Marketplace: dispositivos de segurança, como firewalls, balanceadores de carga e IDS/IPS estão disponíveis no Azure Marketplace e na Galeria de Imagens de VM. Os clientes podem implantar essas soluções em suas redes virtuais e, especificamente, em seus limites de segurança (incluindo as sub-redes da rede de perímetro) para completar um ambiente de rede segura com várias camadas.
@@ -146,7 +143,7 @@ Para habilitar essas características, siga essas diretrizes sobre requisitos de
 ### <a name="questions-to-be-asked-when-building-network-boundaries"></a>Perguntas a serem feitas durante a criação de limites de rede
 Nesta seção, a menos que especificamente mencionadas, o termo "redes" refere-se a redes virtuais privadas do Azure criadas por um administrador de assinatura. O termo não se refere às redes físicas subjacentes no Azure.
 
-Além disso, as redes virtuais do Azure geralmente são usadas para estender redes locais tradicionais. É possível incorporar soluções de rede híbridas site a site ou de Rota Expressa com arquiteturas de rede de perímetro. Esse link híbrido é uma consideração importante na criação de limites de segurança de rede.
+Além disso, as redes virtuais do Azure geralmente são usadas para estender redes locais tradicionais. É possível incorporar soluções de rede híbridas site a site ou de ExpressRoute com arquiteturas de rede de perímetro. Esse link híbrido é uma consideração importante na criação de limites de segurança de rede.
 
 É essencial responder as três perguntas a seguir quando você está criando uma rede com uma rede de perímetro e vários limites de segurança.
 
@@ -352,7 +349,7 @@ Depois que as tabelas de roteamento forem criadas, elas deverão ser associadas 
 > [!NOTE]
 > O UDR agora pode ser aplicado à sub-rede de gateway a qual o circuito de ExpressRoute está conectado.
 >
-> Exemplos de como habilitar a rede de perímetro com a rede site a site ou de Rota Expressa são mostrados nos exemplos 3 e 4.
+> Exemplos de como habilitar a rede de perímetro com a rede site a site ou de ExpressRoute são mostrados nos exemplos 3 e 4.
 >
 >
 
@@ -428,7 +425,7 @@ Uma rede híbrida usando um NVA (solução de virtualização de rede) pode ser 
 Conforme mostrado na figura anterior, uma conexão VPN pela Internet (site a site) é usada para conectar uma rede local a uma rede virtual do Azure através de um NVA.
 
 > [!NOTE]
-> Se você usar a Rota Expressa com a opção de Emparelhamento Público do Azure habilitada, uma rota estática deverá ser criada. Essa rota estática deve rotear para o endereço IP de VPN de NVA fora de sua Internet corporativa e não através da conexão do ExpressRoute. A NAT necessária na opção de Emparelhamento Público de Rota Expressa do Azure pode interromper a sessão de VPN.
+> Se você usar o ExpressRoute com a opção de Emparelhamento Público do Azure habilitada, uma rota estática deverá ser criada. Essa rota estática deve rotear para o endereço IP de VPN de NVA fora de sua Internet corporativa e não através da conexão do ExpressRoute. A NAT necessária na opção de Emparelhamento Público de ExpressRoute do Azure pode interromper a sessão de VPN.
 >
 >
 
@@ -464,7 +461,7 @@ Uma rede híbrida usando um gateway de VPN do Azure pode ser adicionada a qualqu
 Conforme mostrado na figura anterior, uma conexão VPN pela Internet (site a site) é usada para conectar uma rede local a uma rede virtual do Azure através de um gateway de VPN do Azure.
 
 > [!NOTE]
-> Se você usar a Rota Expressa com a opção de Emparelhamento Público do Azure habilitada, uma rota estática deverá ser criada. Essa rota estática deve rotear para o endereço IP de VPN de NVA fora de sua Internet corporativa e não através da WAN do ExpressRoute. A NAT necessária na opção de Emparelhamento Público de Rota Expressa do Azure pode interromper a sessão de VPN.
+> Se você usar o ExpressRoute com a opção de Emparelhamento Público do Azure habilitada, uma rota estática deverá ser criada. Essa rota estática deve rotear para o endereço IP de VPN de NVA fora de sua Internet corporativa e não através da WAN do ExpressRoute. A NAT necessária na opção de Emparelhamento Público de ExpressRoute do Azure pode interromper a sessão de VPN.
 >
 >
 
@@ -489,12 +486,12 @@ A adição de uma conexão de rede híbrida VPN site a site para uma rede virtua
 [![16]][16]
 
 #### <a name="environment-description"></a>Descrição do ambiente
-Uma rede híbrida usando uma conexão de emparelhamento privado de Rota Expressa pode ser adicionada a qualquer tipo de rede de perímetro descrita nos exemplos 1 ou 2.
+Uma rede híbrida usando uma conexão de emparelhamento privado de ExpressRoute pode ser adicionada a qualquer tipo de rede de perímetro descrita nos exemplos 1 ou 2.
 
-Conforme mostrado na figura anterior, o emparelhamento privado de Rota Expressa fornece uma conexão direta entre sua rede local e de rede virtual do Azure. O tráfego transmite apenas a rede do provedor de serviços e a rede do Microsoft Azure, nunca em contato com a Internet.
+Conforme mostrado na figura anterior, o emparelhamento privado de ExpressRoute fornece uma conexão direta entre sua rede local e de rede virtual do Azure. O tráfego transmite apenas a rede do provedor de serviços e a rede do Microsoft Azure, nunca em contato com a Internet.
 
 > [!TIP]
-> Usar o ExpressRoute mantém o tráfego de rede corporativa fora da Internet. Ele também permite SLAs do seu provedor da Rota Expressa. O Gateway do Azure pode passar até 10 Gbps com o ExpressRoute, enquanto com VPNs site a site, a taxa de transferência máxima do Gateway do Azure é de 200 Mbps.
+> Usar o ExpressRoute mantém o tráfego de rede corporativa fora da Internet. Ele também permite SLAs do seu provedor do ExpressRoute. O Gateway do Azure pode passar até 10 Gbps com o ExpressRoute, enquanto com VPNs site a site, a taxa de transferência máxima do Gateway do Azure é de 200 Mbps.
 >
 >
 
@@ -502,12 +499,12 @@ Conforme mostrado no diagrama abaixo, com essa opção, o ambiente agora tem dua
 
 Os fluxos de tráfego devem ser considerados com cuidado, já que podem ser otimizados ou degradados por esse padrão de design dependendo do caso de uso específico.
 
-Usar o ambiente criado no exemplo 1 e então adicionar uma conexão de rede híbrida de Rota Expressa gera o design a seguir:
+Usar o ambiente criado no exemplo 1 e então adicionar uma conexão de rede híbrida de ExpressRoute gera o design a seguir:
 
 [![17]][17]
 
 #### <a name="conclusion"></a>Conclusão
-A adição de uma conexão de rede de emparelhamento privado de Rota Expressa pode estender a rede local para o Azure de forma segura, com baixa latência e alto desempenho. Além disso, o uso de Gateway do Azure nativo, como visto neste exemplo, fornece uma opção de menor custo (sem licenciamento adicional nem NVAs de terceiros). Para obter mais informações, consulte as instruções detalhadas de build (próximo). Essas instruções incluem:
+A adição de uma conexão de rede de emparelhamento privado de ExpressRoute pode estender a rede local para o Azure de forma segura, com baixa latência e alto desempenho. Além disso, o uso de Gateway do Azure nativo, como visto neste exemplo, fornece uma opção de menor custo (sem licenciamento adicional nem NVAs de terceiros). Para obter mais informações, consulte as instruções detalhadas de build (próximo). Essas instruções incluem:
 
 * Como criar essa rede de perímetro de exemplo com scripts do PowerShell.
 * Como criar esse exemplo com um modelo do Azure Resource Manager.
@@ -536,12 +533,12 @@ A adição de uma conexão de rede de emparelhamento privado de Rota Expressa po
 [9]: ./media/best-practices-network-security/example3design.png "DMZ bidirecional com NVA, NSG e UDR"
 [10]: ./media/best-practices-network-security/example3firewalllogical.png "Exibição lógica das regras de firewall"
 [11]: ./media/best-practices-network-security/example3designoptions.png "DMZ com rede híbrida conectada com NVA"
-[12]: ./media/best-practices-network-security/example4designs2s.png "DMZ com NVA conectado usando VPN site a site"
+[12]: ./media/best-practices-network-security/example4designs2s.png "DMZ com NVA conectado usando uma VPN site a site"
 [13]: ./media/best-practices-network-security/example4networklogical.png "Rede lógica da perspectiva de NVA"
 [14]: ./media/best-practices-network-security/example5designoptions.png "DMZ com rede híbrida site a site conectada ao Gateway do Azure"
 [15]: ./media/best-practices-network-security/example5designs2s.png "DMZ com Gateway do Azure usando VPN site a site"
-[16]: ./media/best-practices-network-security/example6designoptions.png "DMZ com rede híbrida da ExpressRoute conectada ao Gateway do Azure"
-[17]: ./media/best-practices-network-security/example6designexpressroute.png "DMZ com Gateway do Azure usando uma conexão ExpressRoute"
+[16]: ./media/best-practices-network-security/example6designoptions.png "DMZ com rede híbrida do ExpressRoute conectada ao Gateway do Azure"
+[17]: ./media/best-practices-network-security/example6designexpressroute.png "DMZ com Gateway do Azure usando uma conexão do ExpressRoute"
 
 <!--Link References-->
 [TrustCenter]: https://azure.microsoft.com/support/trust-center/compliance/
@@ -553,4 +550,3 @@ A adição de uma conexão de rede de emparelhamento privado de Rota Expressa po
 [Example6]: ./virtual-network/virtual-networks-hybrid-expressroute-asm.md
 [Example7]: ./virtual-network/virtual-networks-vnet2vnet-direct-asm.md
 [Example8]: ./virtual-network/virtual-networks-vnet2vnet-transit-asm.md
-

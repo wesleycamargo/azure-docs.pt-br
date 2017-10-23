@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 1f1c453267ea17d749a251539f4232131dae53d3
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/13/2017
-
+ms.openlocfilehash: 902e5bdfbbf04ab70989be8c41e16eb69e475908
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Perguntas frequentes do Azure AD Connect Health
 Este artigo inclui respostas para FAQs (perguntas frequentes) sobre o Azure AD (Azure Active Directory) Connect Health. Essas perguntas frequentes abordam perguntas sobre como usar o serviço, o que inclui o modelo de cobrança, os recursos, as limitações e o suporte.
@@ -186,4 +185,3 @@ CheckForMS17-010
 * [Usando o Azure AD Connect Health para sincronização](active-directory-aadconnect-health-sync.md)
 * [Usar o Azure AD Connect Health com o AD DS](active-directory-aadconnect-health-adds.md)
 * [Histórico de versão do Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
-

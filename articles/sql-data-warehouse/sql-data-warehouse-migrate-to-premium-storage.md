@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: migrate
 ms.date: 11/29/2016
 ms.author: elbutter;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e66f808da8d301e0adc393ba0ae67ab8618ce814
-ms.openlocfilehash: e73e52665dd22e33054745907613c269b6d57915
-ms.contentlocale: pt-br
-ms.lasthandoff: 02/16/2017
-
-
+ms.openlocfilehash: 860e50b532b4b0a21d3be54f087730070b0e56bb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrate-your-data-warehouse-to-premium-storage"></a>Migrar seu data warehouse para o armazenamento premium
 Recentemente, o Azure SQL Data Warehouse apresentou o [Armazenamento premium para maior previsibilidade de desempenho][premium storage for greater performance predictability]. Agora, os data warehouses existentes atualmente no armazenamento standard podem ser migrados para o armazenamento premium. Você pode aproveitar a migração automática ou, se preferir controlar quando migrar (o que envolve algum tempo de inatividade), você mesmo pode fazer a migração.
@@ -118,7 +116,7 @@ Com a alteração para o armazenamento premium, também aumentamos o número de 
 **Pré-requisitos:**
 
 - O data warehouse deve ser executado com 1.000 unidades de data warehouse ou mais (consulte [capacidade de computação de escala][scale compute power]).
-- O usuário que executa o script deve estar na [função mediumrc][mediumrc role] ou superior. Para adicionar um usuário a essa função, execute o seguinte:     ````EXEC sp_addrolemember 'xlargerc', 'MyUser'````
+- O usuário que executa o script deve estar na [função mediumrc][mediumrc role] ou superior. Para adicionar um usuário a essa função, execute o seguinte: ````EXEC sp_addrolemember 'xlargerc', 'MyUser'````
 
 ````sql
 -------------------------------------------------------------------------------
@@ -184,4 +182,3 @@ Se você tiver algum problema com o data warehouse, [crie um tíquete de suporte
 <!--Other Web references-->
 [Premium Storage for greater performance predictability]: https://azure.microsoft.com/en-us/blog/azure-sql-data-warehouse-introduces-premium-storage-for-greater-performance/
 [Azure Portal]: https://portal.azure.com
-

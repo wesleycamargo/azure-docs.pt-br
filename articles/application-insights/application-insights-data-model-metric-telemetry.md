@@ -12,12 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
-ms.openlocfilehash: 069457d7ef7855749f64e299e0db579e6bb2b590
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/19/2017
-
+ms.openlocfilehash: 42e55db4f932de85ee1a71c408b889e0ff9fe3e1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="metric-telemetry-application-insights-data-model"></a>Telemetria de métricas: modelo de dados do Application Insights
 
@@ -74,4 +73,3 @@ Desvio padrão da métrica agregada. Não deve ser definido para uma medida.
 - Saiba como usar a [API do Application Insights para métricas e eventos personalizados](app-insights-api-custom-events-metrics.md#trackmetric).
 - Consulte [modelo de dados](application-insights-data-model.md) para modelo de dados e tipos do Application Insights.
 - Confira as [plataformas](app-insights-platforms.md) com suporte do Application Insights.
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/10/2017
 ms.author: alkohli
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: e7f58c8c1414f41d1d43e98b2faa327165f6eb75
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Como implantar e gerenciar um Dispositivo de Nuvem StorSimple no Azure (Atualização 3 e posteriores)
 
@@ -265,4 +264,3 @@ A etapa da criação de um dispositivo de nuvem falhará se não houver nenhuma 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba como [usar o serviço do gerenciador de dispositivos StorSimple para gerenciar um dispositivo de nuvem](storsimple-8000-manager-service-administration.md).
 * Entenda como [restaurar um volume do StorSimple de um conjunto de backups](storsimple-8000-restore-from-backup-set-u2.md).
-

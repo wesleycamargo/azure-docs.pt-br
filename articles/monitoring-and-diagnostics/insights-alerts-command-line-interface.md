@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: robb
-translationtype: Human Translation
-ms.sourcegitcommit: f41fbee742daf2107b57caa528e53537018c88c6
 ms.openlocfilehash: 92246a8da73a244a1c9a924bed55711d71a20fd8
-ms.lasthandoff: 03/31/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-metric-alerts-in-azure-monitor-for-azure-services---cross-platform-cli"></a>Criar alertas de métricas no Azure Monitor para Serviços do Azure – CLI de plataforma cruzada
 > [!div class="op_single_selector"]
@@ -142,4 +141,3 @@ Você sempre pode receber ajuda sobre os comandos digitando um comando e colocan
 * Saiba mais sobre [Runbooks da Automação do Azure](../automation/automation-starting-a-runbook.md).
 * Tenha uma [visão geral da coleta de logs de diagnóstico](monitoring-overview-of-diagnostic-logs.md) para coletar métricas detalhadas de alta frequência em seu serviço.
 * Tenha uma [visão geral da coleção de métricas](insights-how-to-customize-monitoring.md) para verificar se o serviço está disponível e responsivo.
-

@@ -14,25 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6ad01761f7498512bbce82d85e9e5a3db618191e
-ms.openlocfilehash: 16bf75f97e735d3d5feab4d0d1446ca34c00ccfa
-ms.contentlocale: pt-br
-ms.lasthandoff: 02/06/2017
-
+ms.openlocfilehash: 32a693c059a1b4261f33a3d6f50f397365e9dac4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# Sincronização do Azure AD Connect: noções básicas sobre a configuração padrão
-<a id="azure-ad-connect-sync-understanding-the-default-configuration" class="xliff"></a>
+# <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Sincronização do Azure AD Connect: noções básicas sobre a configuração padrão
 Este artigo explica as regras da configuração pronta para uso. Ele documenta as regras e como elas afetarão a configuração. Ele também o orienta durante a configuração padrão da sincronização do Azure AD Connect. O objetivo é que o leitor compreenda como o modelo de configuração, chamado de provisionamento declarativo, está funcionando em um exemplo do mundo real. Este artigo pressupõe que você já instalou e configurou a sincronização do Azure AD Connect usando o assistente de instalação.
 
 Para entender os detalhes do modelo de configuração, leia [Noções básicas do provisionamento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
 
-## Regras prontas para uso do local ao AD do Azure
-<a id="out-of-box-rules-from-on-premises-to-azure-ad" class="xliff"></a>
+## <a name="out-of-box-rules-from-on-premises-to-azure-ad"></a>Regras prontas para uso do local ao AD do Azure
 As expressões a seguir podem ser encontradas na configuração pronta para uso.
 
-### Regras prontas para uso do usuário
-<a id="user-out-of-box-rules" class="xliff"></a>
+### <a name="user-out-of-box-rules"></a>Regras prontas para uso do usuário
 Essas regras também são aplicadas ao tipo de objeto iNetOrgPerson.
 
 Um objeto de usuário deve atender ao seguinte para ser sincronizado:
@@ -74,15 +70,14 @@ As regras de atributos a seguir se aplicam:
   4. Atributos relacionados ao Exchange (atributos técnicos não visíveis na GAL) são a contribuição da floresta em que `mailNickname ISNOTNULL`.
   5. Se houver várias florestas que atendam a uma dessas regras, a ordem de criação (data/hora) dos conectores (florestas) será usada para determinar qual floresta contribuirá com os atributos.
 
-### Regras prontas para uso de contato
-<a id="contact-out-of-box-rules" class="xliff"></a>
+### <a name="contact-out-of-box-rules"></a>Regras prontas para uso de contato
 Um objeto de contato deve atender ao seguinte para ser sincronizado:
 
 * O contato deve ser habilitado para email. É verificado com as seguintes regras:
   * `IsPresent([proxyAddresses]) = True)`. O atributo proxyAddresses deve ser preenchido.
-  * Um endereço de email principal pode ser encontrado no atributo proxyAddresses ou no atributo de email. A presença de uma @ é usada para verificar se o conteúdo é um endereço de email. Uma dessas duas regras deve ser avaliada como True.
-    * `(Contains([proxyAddresses], "SMTP:") > 0) && (InStr(Item([proxyAddresses], Contains([proxyAddresses], "SMTP:")), "@") > 0))`. Existe uma entrada com "SMTP:" e, se houver, uma @ pode ser encontrado na cadeia de caracteres?
-    * `(IsPresent([mail]) = True && (InStr([mail], "@") > 0)`. O atributo de email está preenchido e, se estiver, uma @ pode ser encontrado na cadeia de caracteres?
+  * Um endereço de email principal pode ser encontrado no atributo proxyAddresses ou no atributo de email. A presença de @ é usada para verificar se o conteúdo é um endereço de email. Uma dessas duas regras deve ser avaliada como True.
+    * `(Contains([proxyAddresses], "SMTP:") > 0) && (InStr(Item([proxyAddresses], Contains([proxyAddresses], "SMTP:")), "@") > 0))`. Existe uma entrada com "SMTP:" e, se houver, é possível encontrar @ na cadeia de caracteres?
+    * `(IsPresent([mail]) = True && (InStr([mail], "@") > 0)`. O atributo de email está preenchido e, se estiver, é possível encontrar @ na cadeia de caracteres?
 
 Os seguintes objetos de contato **não** estão sincronizados ao AD do Azure:
 
@@ -91,8 +86,7 @@ Os seguintes objetos de contato **não** estão sincronizados ao AD do Azure:
 * `(Left([mailNickname], 4) = "CAS_" && (InStr([mailNickname], "}") > 0))`. Esses objetos não funcionam no Exchange Online.
 * `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`. Não sincronize nenhum objetos vítima de replicação.
 
-### Grupo prontas para uso de grupo
-<a id="group-out-of-box-rules" class="xliff"></a>
+### <a name="group-out-of-box-rules"></a>Grupo prontas para uso de grupo
 Um objeto de grupo deve atender ao seguinte para ser sincronizado:
 
 * Deve ter menos de 50 mil membros. Essa contagem é o número de membros do grupo local.
@@ -108,18 +102,15 @@ Os seguintes objetos de grupo **não** estão sincronizados ao AD do Azure:
 * `BitAnd([msExchRecipientTypeDetails],&amp;H40000000)`. Grupo de funções.
 * `CBool(InStr(DNComponent(CRef([dn]),1),"\\0ACNF:")>0)`. Não sincronize nenhum objetos vítima de replicação.
 
-### Regras prontas para uso de ForeignSecurityPrincipal
-<a id="foreignsecurityprincipal-out-of-box-rules" class="xliff"></a>
+### <a name="foreignsecurityprincipal-out-of-box-rules"></a>Regras prontas para uso de ForeignSecurityPrincipal
 FSPs são associados a "qualquer" objeto (\*) no metaverso. Na verdade, essa junção ocorre apenas para usuários e grupos de segurança. Essa configuração garante que as associações entre florestas sejam resolvidas e representadas corretamente no Azure AD.
 
-### Regras prontas para uso de computador
-<a id="computer-out-of-box-rules" class="xliff"></a>
+### <a name="computer-out-of-box-rules"></a>Regras prontas para uso de computador
 Um objeto de computador deve atender ao seguinte para ser sincronizado:
 
 * `userCertificate ISNOTNULL`. Somente os computadores Windows 10 populam esse atributo. Todos os objetos de computador com um valor nesse atributo serão sincronizados.
 
-## Noções básicas sobre o cenário de regras prontas para uso
-<a id="understanding-the-out-of-box-rules-scenario" class="xliff"></a>
+## <a name="understanding-the-out-of-box-rules-scenario"></a>Noções básicas sobre o cenário de regras prontas para uso
 Neste exemplo, estamos usando uma implantação com uma floresta de contas (A), uma floresta de recursos (R) e um diretório do Azure AD.
 
 ![Imagem com a descrição do cenário](./media/active-directory-aadconnectsync-understanding-default-configuration/scenario.png)
@@ -132,8 +123,7 @@ Nosso objetivo com a configuração padrão é:
 * Atributos que podem ser encontrados na GAL (Lista de Endereços Global) são sincronizados da floresta com a caixa de correio. Se nenhuma caixa de correio for encontrada, nenhuma outra floresta será usada.
 * Se uma caixa de correio vinculada for encontrada, a conta habilitada vinculada deverá encontrada para que o objeto seja exportado para o AD do Azure.
 
-### Editor de Regra de Sincronização
-<a id="synchronization-rule-editor" class="xliff"></a>
+### <a name="synchronization-rule-editor"></a>Editor de Regra de Sincronização
 O SRE (Editor de Regras de Sincronização) pode exibir e alterar a configuração, e um atalho para ele pode ser encontrado no menu Iniciar.
 
 ![Ícone do Editor de Regras de Sincronização](./media/active-directory-aadconnectsync-understanding-default-configuration/sre.png)
@@ -144,8 +134,7 @@ O SRE é uma ferramenta do kit de recursos e é instalado com a sincronização 
 
 Nesse painel, você vê todas as regras de sincronização criadas para sua configuração. Cada linha na tabela é uma regra de sincronização. À esquerda, em Tipos de Regra, são listados os dois tipos diferentes: entrada e saída. Entrada e saída é da exibição do metaverso. Você se concentrará principalmente nas regras de entrada nesta visão geral. A lista atual de Regras de Sincronização depende do esquema detectado no AD. Na figura acima, a conta de florestas (fabrikamonline.com) não tem serviços, como o Exchange e o Lync, e nenhuma regra de sincronização foi criada para esses serviços. No entanto, na floresta de recursos (res.fabrikamonline.com), você encontra Regras de Sincronização para esses serviços. O conteúdo das regras é diferente dependendo da versão detectada. Por exemplo, em uma implantação com o Exchange 2013, há mais fluxos de atributo configurados do que no Exchange 2010/2007.
 
-### Regra de Sincronização
-<a id="synchronization-rule" class="xliff"></a>
+### <a name="synchronization-rule"></a>Regra de Sincronização
 Uma regra de sincronização é um objeto de configuração com um conjunto de atributos que fluem quando uma condição é atendida. Ela também é usado para descrever como um objeto em um espaço de conector está relacionado a um objeto no metaverso, conhecido como **associação** ou **correspondência**. As Regras de Sincronização têm um valor de precedência indicando como elas se relacionam entre si. Uma regra de sincronização com um valor numérico mais baixo tem maior precedência e, em um conflito de fluxo de atributo, a precedência mais alta vence na resolução de conflitos.
 
 Por exemplo, examinaremos a Regra de Sincronização **Entrada do AD – usuário AccountEnabled**. Marque essa linha no SRE e selecione **Editar**.
@@ -156,8 +145,7 @@ Como essa regra é pronta para uso, você receberá um aviso quando abrir a regr
 
 Uma Regra de Sincronização tem quatro seções de configuração: descrição, filtro de escopo, regras de associação e transformações.
 
-#### Descrição
-<a id="description" class="xliff"></a>
+#### <a name="description"></a>Descrição
 A primeira seção fornece informações básicas, como nome e descrição.
 
 ![Guia Descrição no Editor de regras de sincronização ](./media/active-directory-aadconnectsync-understanding-default-configuration/syncruledescription.png)
@@ -166,8 +154,7 @@ Você também encontra informações sobre a qual sistema conectado essa regra e
 
 Você também pode ver que essa regra de sincronização é usada para a sincronização de senha. Se um usuário estiver no escopo dessa regra de sincronização, a senha será sincronizada do local para a nuvem (supondo que você tenha habilitado o recurso de sincronização de senha).
 
-#### Filtro de escopo
-<a id="scoping-filter" class="xliff"></a>
+#### <a name="scoping-filter"></a>Filtro de escopo
 A seção Filtro de Escopo é usada para configurar quando uma Regra de Sincronização deve ser aplicada. Como o nome da Regra de Sincronização que você está vendo indica que ela só deve ser aplicada para usuários habilitados, o escopo está configurado para que o atributo do AD **userAccountControl** não precise ter o bit 2 definido. Quando o mecanismo de sincronização encontra um usuário no AD, ele se aplica a essa regra de sincronização quando **userAccountControl** é definido como o valor decimal 512 (usuário normal habilitado). A regra não é aplicável quando o usuário tem **userAccountControl** definido como 514 (usuário normal desabilitado).
 
 ![Guia Escopo no Editor de regras de sincronização ](./media/active-directory-aadconnectsync-understanding-default-configuration/syncrulescopingfilter.png)
@@ -178,8 +165,7 @@ O filtro de escopo tem Grupos e Cláusulas que podem ser aninhados. Todas as cl�
 
 Essa regra é usada para definir quais grupos devem ser provisionados ao Azure AD. Grupos de Distribuição devem ser habilitados para email para serem sincronizados com o Azure AD, mas, para os grupos de segurança, o email não é obrigatório.
 
-#### Regras de associação
-<a id="join-rules" class="xliff"></a>
+#### <a name="join-rules"></a>Regras de associação
 A terceira seção é usada para configurar como os objetos no espaço do conector se relacionam aos objetos no metaverso. A regra que você viu anteriormente não tem qualquer configuração para Regras de Associação. Então, você vai examinar **Entrada do AD – Associar Usuário**.
 
 ![Guia Regras de junção no Editor de regras de sincronização ](./media/active-directory-aadconnectsync-understanding-default-configuration/syncrulejoinrules.png)
@@ -192,8 +178,7 @@ Ao serem avaliadas Regras de Sincronização, apenas uma Regra de Sincronizaçã
 
 Se você examinar a figura acima, poderá ver que a regra está tentando associar **objectSID** a **msExchMasterAccountSid** (Exchange) e a **msRTCSIP OriginatorSid (Lync)**, que é o que esperamos em uma topologia de floresta de recurso de conta. Você encontrará a mesma regra em todas as florestas. Pressupõe-se que cada floresta possa ser uma conta ou um recurso de floresta. Essa configuração também funcionará se você tiver contas que residam em uma única floresta e não precisem ser unidas.
 
-#### Transformações
-<a id="transformations" class="xliff"></a>
+#### <a name="transformations"></a>Transformações
 A seção de transformação define todos os fluxos de atributo que serão aplicados ao objeto de destino quando os objetos forem associados e o filtro de escopo for satisfeito. Voltando à Regra de Sincronização **Entrada do AD – usuário AccountEnabled** , você encontra as seguintes transformações:
 
 ![Guia Transformações no Editor de regras de sincronização ](./media/active-directory-aadconnectsync-understanding-default-configuration/syncruletransformations.png)
@@ -222,16 +207,14 @@ NULL
 
 Veja [Noções básicas sobre expressões de provisionamento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md) para obter mais informações sobre a linguagem de expressão para fluxos de atributo.
 
-### Precedência
-<a id="precedence" class="xliff"></a>
+### <a name="precedence"></a>Precedência
 Agora você analisou algumas Regras de Sincronização individuais, mas as regras trabalham juntas na configuração. Em alguns casos, um valor de atributo vêm de várias regras de sincronização para o mesmo atributo de destino. Nesse caso, precedência do atributo é usada para determinar qual atributo vence. Como exemplo, examine o atributo sourceAnchor. É um atributo importante para se conseguir entrar no AD do Azure. Você pode encontrar um fluxo de atributo para esse atributo em duas diferentes regras de sincronização, **Entrada do AD – usuário AccountEnabled** e **Entrada do AD – usuário comum**. Devido à precedência de Regra de Sincronização, o atributo sourceAnchor terá a contribuição da floresta com uma conta habilitada primeiro se houver vários objetos associados ao objeto metaverso. Se nenhuma conta estiver habilitada, o mecanismo de sincronização usará a Regra de Sincronização para capturar tudo **Entrada do AD – Usuário Comum**. Essa configuração garante que, até mesmo para contas desabilitadas, ainda haja um sourceAnchor.
 
 ![Regras de Sincronização Entrada](./media/active-directory-aadconnectsync-understanding-default-configuration/syncrulesinbound.png)
 
 A precedência de Regras de Sincronização é definida em grupos pelo assistente de instalação. Todas as regras em um grupo têm o mesmo nome, mas elas são conectadas a diferentes diretórios conectados. O assistente de instalação dá à regra **Entrada do AD – Associação de Usuário** maior precedência e itera por todos os diretórios do AD conectados. Em seguida, ele continua com os próximos grupos de regras em uma ordem predefinida. Dentro de um grupo, as regras são adicionadas na ordem em que os conectores foram adicionados ao assistente. Se outro conector for adicionado usando o assistente, as Regras de Sincronização serão reordenadas e as novas regras do conector serão inseridas por último em cada grupo.
 
-### Juntando as peças
-<a id="putting-it-all-together" class="xliff"></a>
+### <a name="putting-it-all-together"></a>Juntando as peças
 Agora sabemos o suficiente sobre Regras de Sincronização para poder entender como a configuração funciona com diferentes Regras de Sincronização. Se você observar um usuário e os atributos que contribuíram para o metaverso, as regras são aplicadas na seguinte ordem:
 
 | Nome | Comentário |
@@ -243,8 +226,7 @@ Agora sabemos o suficiente sobre Regras de Sincronização para poder entender c
 | Entrada do AD – usuário do Exchange |Existe somente se o Exchange foi detectado. Flui todos os atributos do Exchange de infraestrutura. |
 | Entrada do AD – usuário Lync |Existe somente se o Lync foi detectado. Flui todos os atributos do Lync de infraestrutura. |
 
-## Próximas etapas
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Próximas etapas
 * Leia mais sobre o modelo de configuração em [Noções básicas do provisionamento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning.md).
 * Leia mais sobre a linguagem de expressão em [Noções básicas sobre expressões de provisionamento declarativo](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md).
 * Continue lendo sobre como a configuração pronta para uso funciona em [Noções básicas sobre usuários e contatos](active-directory-aadconnectsync-understanding-users-and-contacts.md)
@@ -254,5 +236,4 @@ Agora sabemos o suficiente sobre Regras de Sincronização para poder entender c
 
 * [Sincronização do Azure AD Connect: compreender e personalizar a sincronização](active-directory-aadconnectsync-whatis.md)
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
-
 

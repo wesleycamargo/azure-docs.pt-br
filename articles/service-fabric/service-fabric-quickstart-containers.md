@@ -12,16 +12,14 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/05/2017
+ms.date: 10/02/2017
 ms.author: ryanwi
+ms.openlocfilehash: bc7bee3caed2eba0a3f49d79241cd8685333ba13
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
-ms.openlocfilehash: c4f8c94e23a165b22533ffd74e04c9a7310f2d22
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-a-service-fabric-windows-container-application-on-azure"></a>Implantar um aplicativo de contêiner Windows do Service Fabric
 O Azure Service Fabric é uma plataforma de sistemas distribuídos para implantação e gerenciamento de contêineres e microsserviços escalonáveis e confiáveis. 
 
@@ -51,7 +49,7 @@ Selecione **Aplicativo do Service Fabric**, nomeie-o como "MyFirstContainer" e c
 
 Selecione **Contêiner** na lista de **modelos de serviço**.
 
-Em **Nome da Imagem**, digite "nanoserver iis", a [imagem de base do Windows Server 2016 Nano Server e IIS](https://hub.docker.com/r/nanoserver/iis/). 
+Em **Nome da Imagem**, insira "microsoft/iis:nanoserver", a [imagem de base do Windows Server Nano Server e IIS](https://hub.docker.com/r/microsoft/iis/). 
 
 Chame o serviço de "MyContainerService" e clique em **OK**.
 
@@ -68,6 +66,7 @@ Configure o mapeamento de porta, da porta para o host, do contêiner especifican
 ```xml
 <ServiceManifestImport>
 ...
+  <ConfigOverrides />
   <Policies>
     <ContainerHostPolicies CodePackageRef="Code">
       <PortBinding ContainerPort="80" EndpointRef="MyContainerServiceTypeEndpoint"/>
@@ -94,7 +93,7 @@ Clique com botão direito do mouse em **MyFirstContainer** no Gerenciador de Sol
 
 ![Caixa de diálogo Publicar](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
-Digite o Ponto de Extremidade de Conexão do cluster no campo **Ponto de Extremidade de Conexão** e clique em **Publicar**. Ao se inscrever no cluster de entidade, o Ponto de Extremidade de Conexão será fornecido no navegador, por exemplo, `winh1x87d1d.westus.cloudapp.azure.com:19000`.
+Digite o ponto de extremidade de conexão do cluster no campo **Ponto de Extremidade de Conexão**. Ao se inscrever no cluster de entidade, o ponto de extremidade de conexão será fornecido no navegador, por exemplo, `winh1x87d1d.westus.cloudapp.azure.com:19000`.  Clique em **Publicar** e o aplicativo será implantado.
 
 Abra um navegador e navegue até http://winh1x87d1d.westus.cloudapp.azure.com:80. Você deve ver a página da Web do IIS padrão: ![Página da Web do IIS padrão][iis-default]
 
@@ -120,7 +119,7 @@ Aqui estão os manifestos de aplicativo e serviço completos usados neste guia r
     <EntryPoint>
       <!-- Follow this link for more information about deploying Windows containers to Service Fabric: https://aka.ms/sfguestcontainers -->
       <ContainerHost>
-        <ImageName>nanoserver/iis</ImageName>
+        <ImageName>microsoft/iis:nanoserver</ImageName>
       </ContainerHost>
     </EntryPoint>
     <!-- Pass environment variables to your container: -->
@@ -198,4 +197,3 @@ Neste guia de início rápido, você aprendeu a:
 
 [iis-default]: ./media/service-fabric-quickstart-containers/iis-default.png
 [publish-dialog]: ./media/service-fabric-quickstart-containers/publish-dialog.png
-

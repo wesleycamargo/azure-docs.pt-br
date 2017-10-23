@@ -13,12 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 06/26/2017
 ms.author: ashmaka
-ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
 ms.openlocfilehash: baf73639eb6506b14d0d3a4de1bf55b66e973b95
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/12/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-azure-search"></a>O que é o Azure Search?
 O Azure Search é uma solução de pesquisa como serviço na nuvem que oferece aos desenvolvedores APIs e ferramentas para adicionar uma experiência de pesquisa avançada aos dados em aplicativos Web, móveis e empresariais.
@@ -129,6 +128,5 @@ Neste vídeo de 9 minutos com o gerente de programa Liam Cavanagh, saiba como a 
 + O vídeo de 3-4 minutos aborda o provisionamento de serviços. 
 + O vídeo de 4-6 minutos aborda o Assistente para Importar Dados usado para criar um índice com o conjunto de dados interno de imóveis.
 + O vídeo de 6-9 minutos aborda o Gerenciador de Pesquisa e várias consultas.
-
 
 

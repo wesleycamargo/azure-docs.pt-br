@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: juliako
+ms.openlocfilehash: b4d25f07349043da8cb745930fde3371c98f9960
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: ac35031290ec9ca6af3a8b05dc6fc82737fda0dd
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/20/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="customizing-media-encoder-standard-presets"></a>Personalizando as predefinições do Media Encoder Standard
 
@@ -259,5 +258,4 @@ Configure seu ambiente de desenvolvimento e preencha o arquivo de configuração
 
 ## <a name="see-also"></a>Consulte também
 [Visão geral da codificação de serviços de mídia](media-services-encode-asset.md)
-
 

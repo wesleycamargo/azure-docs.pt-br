@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 05/26/2017
 ms.author: asgang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
 ms.openlocfilehash: 6ebec2e06566b1e2d6834fdd81c0d8b2801b80b9
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/02/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-on-premises-vmwarephysical-server-replication-issues"></a>Solução de problemas de replicação de servidor local VMware/Físico
 Você pode receber uma mensagem de erro específica ao proteger suas máquinas virtuais VMware ou servidores físicos usando o Azure Site Recovery. Este artigo detalha algumas das mensagens de erro mais comuns encontradas, junto com as etapas para resolvê-las.

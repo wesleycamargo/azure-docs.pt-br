@@ -14,13 +14,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/15/2017
 ms.author: rclaus
-ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
 ms.openlocfilehash: 9174f7c8d16ff311312980fbe4d35996ec7ac832
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/10/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="oracle-solutions-and-their-deployment-on-microsoft-azure"></a>Soluções da Oracle e sua implantação no Microsoft Azure
 Este artigo aborda informações necessárias para implantar com êxito várias soluções da Oracle no Microsoft Azure. Essas soluções são baseadas em imagens de Máquina Virtual publicadas pela Oracle no Azure Marketplace. Para obter uma lista de imagens disponíveis no momento, execute o seguinte comando:

@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/10/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 8aa00757ff11ed9086cd178e4c7190b93ee62701
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/15/2017
-
-
+ms.openlocfilehash: a893a6d009dd018ad440964419e0a5a1963084b4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="application-and-service-availability-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Perguntas frequentes sobre problemas de aplicativo e disponibilidade de serviço para Serviços de Nuvem do Azure
 
@@ -48,4 +46,3 @@ Os documentos a seguir ajudarão você a entender e atenuar esse problema:
 Se você quiser alterar o comportamento padrão do IIS, precisará usar as tarefas de inicialização, porque se você aplicar as alterações manualmente às instâncias de Função Web, as alterações acabarão sendo perdidas.
 
 Para obter mais informações, consulte [Como configurar e executar tarefas de inicialização para um serviço de nuvem](cloud-services-startup-tasks.md).
-

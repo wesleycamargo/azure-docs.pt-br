@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 5fb86c60b2d1f258dde5636ff8854b6f30f7f1c8
-ms.contentlocale: pt-br
-ms.lasthandoff: 03/31/2017
-
+ms.openlocfilehash: 995a1f37a3fd68b39c14a95d46109c0f7814018d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="advisor-performance-recommendations"></a>Recomendações de desempenho do Advisor
 
 As recomendações de desempenho do Assistente do Azure ajudam a melhorar a velocidade e a capacidade de resposta dos aplicativos críticos para os negócios. Você pode obter recomendações de desempenho do Assistente na guia **Desempenho** do painel do Assistente.
@@ -78,5 +76,4 @@ Para saber mais sobre as recomendações do Assistente, consulte:
 * [Recomendações de custo do Advisor](advisor-performance-recommendations.md)
 * [Recomendações de alta disponibilidade do Advisor](advisor-high-availability-recommendations.md)
 * [Recomendações de segurança do Advisor](advisor-security-recommendations.md)
-
 

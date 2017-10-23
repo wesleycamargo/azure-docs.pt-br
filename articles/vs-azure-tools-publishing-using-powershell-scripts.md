@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: kraigb
+ms.openlocfilehash: 92753860ec820172e46f483831eb0c1cf1acb038
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: ba36ad0f46ce681b61acc576448fd36441b43f72
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-windows-powershell-scripts-to-publish-to-dev-and-test-environments"></a>Usando scripts do Windows PowerShell para publicar para ambientes de desenvolvimento e teste
 Quando você cria um aplicativo Web no Visual Studio, pode gerar um script do Windows PowerShell que pode usar posteriormente para automatizar a publicação de seu site no Azure como um aplicativo Web no Serviço de Aplicativo do Azure ou em uma máquina virtual. Você pode editar e estender o script do Windows PowerShell no editor do Visual Studio para atender às suas necessidades ou integrar o script a scripts de compilação, teste e publicação existentes.
@@ -344,4 +343,3 @@ Para obter ajuda para as funções que você pode usar no prompt de comando do W
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre os scripts do PowerShell ao ler [Criando scripts com o Windows PowerShell](https://technet.microsoft.com/library/bb978526.aspx) e confira outros scripts do Azure PowerShell no [Script Center](https://azure.microsoft.com/documentation/scripts/).
-

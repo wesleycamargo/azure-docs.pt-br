@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 09/20/2017
 ms.author: sstein
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 53bfbd602c2c395d510529eacd5b8075b20437ab
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="performance-recommendations"></a>Recomendações do desempenho
 
@@ -81,6 +80,5 @@ Monitore suas recomendações e continue a aplicá-las para refinar o desempenho
 * Consulte [Insights inteligentes do SQL Azure](sql-database-intelligent-insights.md) para monitorar automaticamente o desempenho do banco de dados com diagnóstico automatizado e análise de causa raiz de problemas de desempenho.
 * Confira [Recomendações de desempenho no portal do Azure](sql-database-advisor-portal.md) para obter etapas sobre como usar as recomendações de desempenho no portal do Azure.
 * Consulte [Análise de desempenho de consultas](sql-database-query-performance.md) para saber mais e visualizar o impacto no desempenho de suas principais consultas.
-
 
 

@@ -9,12 +9,11 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: jasonzio
-ms.translationtype: HT
-ms.sourcegitcommit: 760543dc3880cb0dbe14070055b528b94cffd36b
 ms.openlocfilehash: 525d706bd709ae72f2dca1c21e06db533ccf32b4
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/10/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Use a Extensão de Diagnóstico Linux para monitorar as métricas e os logs
 
@@ -705,4 +704,3 @@ Consulte a [Documentação de EventHubs](../../event-hubs/event-hubs-what-is-eve
 * Criar alertas de métricas no [Azure Monitor](../../monitoring-and-diagnostics/insights-alerts-portal.md) para as métricas que você coletar.
 * Criar [gráficos de monitoramento](../../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md) para suas métricas.
 * Aprenda a [criar um conjunto de dimensionamento de máquinas virtuais](/azure/virtual-machines/linux/tutorial-create-vmss) usando suas métricas para controlar o dimensionamento automático.
-

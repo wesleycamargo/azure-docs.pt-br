@@ -6,12 +6,11 @@ author: BrucePerlerMS
 ms.author: bruceper
 manager: mbaldwin
 ms.date: 06/21/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
 ms.openlocfilehash: fe700e22c5323c2a0bdc315e349cd119798bcf40
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/22/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-key-vault-throttling-guidance"></a>Diretrizes de limitação do Azure Key Vault
 
@@ -51,5 +50,4 @@ Neste ponto, você não deve estar obtendo códigos de resposta HTTP 429.
 ## <a name="see-also"></a>Consulte também
 
 Para obter uma orientação mais profunda de limitação no Microsoft Cloud, consulte [Padrão de Limitação](https://docs.microsoft.com/azure/architecture/patterns/throttling).
-
 

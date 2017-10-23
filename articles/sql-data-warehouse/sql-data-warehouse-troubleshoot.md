@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: manage
 ms.date: 03/30/2017
 ms.author: kevin;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 3107e918a12ba17e72dbbe3660d42527e9e9f051
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: d269e62b8d49a6c96ce40c2e31c4096e16e07793
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Solução de problemas do Azure SQL Data Warehouse
 Este tópico lista algumas das perguntas mais comuns que ouvimos de nossos clientes sobre solução de problemas.
@@ -137,4 +135,3 @@ Se você não é capaz de encontrar uma solução para seu problema acima, aqui 
 [Fórum Stack Overflow]: http://stackoverflow.com/questions/tagged/azure-sqldw
 [Twitter]: https://twitter.com/hashtag/SQLDW
 [Vídeos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
-

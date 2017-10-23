@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: be282f79445c505ece7c6115df7a29c20a6a5f02
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-virtual-machine-from-a-snapshot-with-cli"></a>Criar uma máquina virtual de um instantâneo com a CLI
 
 Esse script cria uma máquina virtual de um instantâneo de um disco do sistema operacional.
@@ -34,7 +32,7 @@ Esse script cria uma máquina virtual de um instantâneo de um disco do sistema 
 
 ## <a name="sample-script"></a>Script de exemplo
 
-[!code-azurecli-interactive[principal](../../../cli_scripts/virtual-machine/create-vm-from-snapshot/create-vm-from-snapshot.sh "Criar VM por meio do instantâneo")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-vm-from-snapshot/create-vm-from-snapshot.sh "Create VM from snapshot")]
 
 ## <a name="clean-up-deployment"></a>Limpar implantação 
 
@@ -59,4 +57,3 @@ Este script usa os comandos a seguir para criar um disco gerenciado, uma máquin
 Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
 
 Os exemplos de script da CLI de máquina virtual adicionais podem ser encontrados na [documentação da VM Linux do Azure](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-

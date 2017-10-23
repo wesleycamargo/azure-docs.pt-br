@@ -15,15 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
 ms.openlocfilehash: 581e5d1fb5fb08d0dc89ed2c85edcb5f0005650b
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/25/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="limitations-of-azure-ad-b2b-collaboration"></a>Limitações da colaboração B2B do Azure AD
 A colaboração B2B do Azure Active Directory (Azure AD) está sujeita, atualmente, às limitações descritas neste artigo.
 
@@ -47,4 +44,3 @@ Procure nossos outros artigos sobre a colaboração B2B do AD do Azure:
 * [Tokens de usuário de colaboração B2B](active-directory-b2b-user-token.md)
 * [Mapeamento de declarações de usuário de colaboração B2B](active-directory-b2b-claims-mapping.md)
 * [Compartilhamento externo do Office 365](active-directory-b2b-o365-external-user.md)
-

@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2017
 ms.author: LADocs; padmavc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 39d9661adc90e6113e2152d844473f9f4caa755a
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/17/2017
-
-
+ms.openlocfilehash: e3787b48037360bf6066ddce2bacba6842213b2d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="decode-edifact-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>Decodificar mensagens EDIFACT para o Aplicativo Lógico do Azure com o Enterprise Integration Pack
 
 Com o conector Decodificar mensagem EDIFACT, você pode validar EDI e propriedades específicas de parceiro, dividir intercâmbios em conjuntos de transações ou preservar intercâmbios inteiros e gerar confirmações para transações processadas. Para usar esse conector, você deve adicionar o conector para um gatilho existente em seu aplicativo lógico.
@@ -87,13 +84,13 @@ O conector EDIFACT de decodificação executa as seguintes tarefas:
   * Verifica o número de controle de grupo em relação a outros números de controle no intercâmbio. 
   * Verifica o número de controle do conjunto de transações em relação a outros números de controle de conjunto de transações nesse grupo.
 * Divide o intercâmbio em conjuntos de transações ou preserva todo o intercâmbio:
-  * Divide o intercâmbio como conjuntos de transações – suspende conjuntos de transação em caso de erro: divide o intercâmbio em conjuntos de transações e analisa cada conjunto de transações. 
-  A ação Decodificação X12 gera apenas os conjuntos de transações que falharam na validação em `badMessages` e gera os conjuntos de transações restantes em `goodMessages`.
-  * Divide o intercâmbio como conjuntos de transações – suspende intercâmbios em caso de erro: divide o intercâmbio em conjuntos de transações e analisa cada conjunto de transações. 
-  Se um ou mais conjuntos de transações no intercâmbio falharem na validação, a ação Decodificação X12 gerará todos os conjuntos de transações no intercâmbio em `badMessages`.
-  * Preservar intercâmbio – suspender conjuntos de transação em caso de erro: preservar o intercâmbio e processar todo o intercâmbio em lote. 
-  A ação Decodificação X12 gera apenas os conjuntos de transações que falharam na validação em `badMessages` e gera os conjuntos de transações restantes em `goodMessages`.
-  * Preservar intercâmbio – suspender intercâmbio em caso de erro: preservar o intercâmbio e processar todo o intercâmbio em lote. 
+  * Dividir o Intercâmbio como conjuntos de transações – suspender conjuntos de transações em caso de erro: divide o intercâmbio em conjuntos de transações e analisa cada conjunto de transações. 
+  A ação Decodificar X12 gera apenas os conjuntos de transações que falharam na validação em `badMessages` e gera os conjuntos de transações restantes em `goodMessages`.
+  * Dividir o Intercâmbio como conjuntos de transações – suspender o intercâmbio em caso de erro: divide o intercâmbio em conjuntos de transações e analisa cada conjunto de transações. 
+  Se um ou mais conjuntos de transações no intercâmbio falharem na validação, a ação Decodificar X12 gerará todos os conjuntos de transações no intercâmbio em `badMessages`.
+  * Preservar intercâmbio – suspender conjuntos de transação em caso de erro: preserve o intercâmbio e processe todo o intercâmbio em lote. 
+  A ação Decodificar X12 gera apenas os conjuntos de transações que falharam na validação em `badMessages` e gera os conjuntos de transações restantes em `goodMessages`.
+  * Preservar intercâmbio – suspender intercâmbio em caso de erro: preserve o intercâmbio e processe todo o intercâmbio em lote. 
   Se um ou mais conjuntos de transações no intercâmbio falharem na validação, a ação Decodificação X12 gerará todos os conjuntos de transações no intercâmbio em `badMessages`.
 * Gera uma confirmação técnica (controle) e/ou funcional (se configurado).
   * Uma confirmação técnica ou o CONTRL ACK reporta os resultados de uma verificação sintática do intercâmbio completo recebido.
@@ -104,5 +101,4 @@ Para exibir os detalhes de Swagger para o conector do EDIFACT, consulte [EDIFACT
 
 ## <a name="next-steps"></a>Próximas etapas
 [Saiba mais sobre o Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack") 
-
 

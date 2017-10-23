@@ -16,12 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 04/05/2017
 ms.author: zachal
-translationtype: Human Translation
-ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
 ms.openlocfilehash: b61b0acf3072569ab733a13defb465c921d26187
-ms.lasthandoff: 04/07/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-virtual-machine-scale-sets-with-the-azure-dsc-extension"></a>Uso de Conjuntos de Escala de Máquina Virtual com a Extensão de DSC do Azure
 [Os Conjuntos de Dimensionamento de Máquina Virtual](virtual-machine-scale-sets-overview.md) podem ser usados com o manipulador de extensão [DSC (Configuração de Estado Desejado) do Azure](../virtual-machines/windows/extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Os conjuntos de dimensionamento de máquina virtual fornecem uma maneira de implantar e gerenciar uma grande quantidade de máquinas virtuais e podem ser reduzidos e escalados horizontalmente de forma elástica em resposta ao carregamento. O DSC é usado para configurar as VMs quando elas ficam online, para que executem o software de produção.
@@ -108,5 +107,4 @@ Saiba como a [extensão DSC manipula com segurança as credenciais](../virtual-m
 Para saber mais sobre o manipulador de extensões DSC do Azure, confira [Introduction to the Azure Desired State Configuration extension handler (Introdução ao manipulador de extensões Configuração de Estado Desejado do Azure)](../virtual-machines/windows/extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
 Para saber mais sobre a DSC do PowerShell, [visite o centro de documentação do PowerShell](https://msdn.microsoft.com/powershell/dsc/overview). 
-
 

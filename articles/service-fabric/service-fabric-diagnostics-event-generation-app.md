@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/26/2017
+ms.date: 10/15/2017
 ms.author: dekapur
 ms.translationtype: Human Translation
 ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: 3c472904641108b7383cd0f1416c47460f8de11a
 ms.contentlocale: pt-br
 ms.lasthandoff: 05/31/2017
-
 
 ---
 

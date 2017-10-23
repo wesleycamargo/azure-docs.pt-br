@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 7551c290858251b6dbbd131049dbee14e5353785
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: fe56f56162ba7186f1b660a5b44fcef38f1dee9d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="problem-creating-an-application-proxy-application"></a>Problemas ao criar um aplicativo de Application Proxy 
 
 Abaixo estão alguns dos problemas comuns que as pessoas enfrentam ao criar um novo aplicativo de Application Proxy.
@@ -51,4 +49,3 @@ A mensagem de erro deve ser exibida no canto superior direito ao criar o aplicat
 
 ## <a name="next-steps"></a>Próximas etapas
 [Habilitar o Proxy de Aplicativo no portal do Azure](active-directory-application-proxy-enable.md)
-

@@ -13,11 +13,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 01/21/2016
 ms.author: priyamo
-ms.translationtype: HT
-ms.sourcegitcommit: 8bdd78473b506fd3946ab12839ccbc20ca697f38
 ms.openlocfilehash: 42ce8dfd30cda7d4085778954350550fd9fdf13d
-ms.contentlocale: pt-br
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 ## Registrar seu aplicativo no seu locatário do AD
 Primeiro, você precisará registrar seu aplicativo em seu locatário do Azure AD (Azure Active Directory). Isso dará a você uma ID do Aplicativo para seu aplicativo e permitirá que ele receba tokens.
@@ -31,4 +31,3 @@ Primeiro, você precisará registrar seu aplicativo em seu locatário do Azure A
 <!--TODO: add once App ID URI is configurable: The **App ID URI** is a unique identifier for your application. The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`-->
   * Para os Aplicativos Nativos, forneça um **URI de redirecionamento**, que será usado pelo Azure AD para retornar respostas de token. Insira um valor específico para seu aplicativo, por exemplo, `http://MyFirstAADApp`
 * Depois de concluir o registro, o Azure AD atribuirá a seu aplicativo um identificador de cliente único, a ID do Aplicativo. Você precisará desse valor nas próximas seções, então copie-o da página do aplicativo.
-

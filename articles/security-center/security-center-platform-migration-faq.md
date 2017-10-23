@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2017
 ms.author: terrylan
-ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
 ms.openlocfilehash: 4b88b5015fcf44e8979b8b1a3aa1eb26f0fbb704
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="security-center-platform-migration-faq"></a>Perguntas frequentes sobre a migração da plataforma da Central de Segurança
 No início de junho de 2017, a Central de Segurança do Azure começou a usar o Microsoft Monitoring Agent para coletar e armazenar dados. Para saber mais, veja [Migração da Plataforma Central de Segurança do Azure](security-center-platform-migration.md). Encontre respostas para perguntas frequentes sobre a migração da plataforma.
@@ -195,4 +194,3 @@ Para saber mais sobre a migração de plataforma da Central de Segurança, confi
 [4]: ./media/security-center-platform-migration-faq/solutions.png
 [5]: ./media/security-center-platform-migration-faq/use-another-workspace.png
 [6]: ./media/security-center-platform-migration-faq/reconfigure-monitored-vm.png
-

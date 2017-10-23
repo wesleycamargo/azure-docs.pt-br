@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
 ms.openlocfilehash: f2b0a1d4bc44f8d0cd57c61e2d78950cb6a99854
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/28/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insideview"></a>Tutorial: Integração do Active Directory do Azure com o InsideView
 
@@ -253,5 +251,4 @@ Ao clicar no bloco InsideView no Painel de Acesso, você deverá ser conectado a
 [201]: ./media/active-directory-saas-insideview-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-insideview-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-insideview-tutorial/tutorial_general_203.png
-
 

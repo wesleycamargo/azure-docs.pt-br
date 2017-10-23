@@ -15,13 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/30/2017
 ms.author: asaxton
-ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
 ms.openlocfilehash: 65bada117e7d005362b0ac0ce7cc5336a92e0889
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/11/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>Business Intelligence do SQL Server em máquinas virtuais do Azure
 > [!IMPORTANT] 
@@ -353,5 +351,4 @@ O diagrama a seguir ilustra as portas a serem abertas no firewall da VM a fim de
 
 ### <a name="community-content"></a>Conteúdo da comunidade
 * [Gerenciamento de banco de dados SQL do Azure com o PowerShell](http://blogs.msdn.com/b/windowsazure/archive/2013/02/07/windows-azure-sql-database-management-with-powershell.aspx)
-
 

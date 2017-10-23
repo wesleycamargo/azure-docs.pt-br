@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 10/04/2017
 ms.author: jgao
 ROBOTS: NOINDEX
 ms.translationtype: HT
@@ -435,7 +435,7 @@ Atualmente, o PowerShell do Azure não fornece nenhum cmdlet para definir trabal
     $hiveOutputFolder = "$storageUri/tutorials/useoozie/output"
 
     #Sqoop action variables
-    $sqlDatabaseConnectionString = "jdbc:sqlserver://$sqlDatabaseServer.database.windows.net;user=$sqlDatabaseLogin@$sqlDatabaseServer;password=$sqlDatabaseLoginPassword;database=$sqlDatabaseName"
+    $sqlDatabaseConnectionString = "Data Source=$sqlDatabaseServer.database.windows.net;user=$sqlDatabaseLogin@$sqlDatabaseServer;password=$sqlDatabaseLoginPassword;database=$sqlDatabaseName"  
     $sqlDatabaseTableName = "log4jLogsCount"
 
     $passwd = ConvertTo-SecureString $clusterPassword -AsPlainText -Force
@@ -561,7 +561,6 @@ Atualmente, o PowerShell do Azure não fornece nenhum cmdlet para definir trabal
         if($oozieServerSatus -notmatch "NORMAL")
         {
             Write-Host "Oozie server status is $oozieServerSatus...cannot submit Oozie jobs. Check the server status and re-run the job."
-            exit 1
         }
     }
     ```
@@ -616,7 +615,6 @@ Atualmente, o PowerShell do Azure não fornece nenhum cmdlet para definir trabal
         if($JobStatus -notmatch "SUCCEEDED")
         {
             Write-Host "Check logs at http://headnode0:9014/cluster for detais."
-            exit -1
         }
     }
     ```
@@ -665,7 +663,8 @@ Atualmente, o PowerShell do Azure não fornece nenhum cmdlet para definir trabal
     # killOozieJob($oozieJobId)
     ```
 
-    Remova os sinais # se desejar executar as funções adicionais.
+Remova os sinais # se desejar executar as funções adicionais.
+
 9. Se seu cluster HDinsight for versão 2.1, substitua "https://$clusterName.azurehdinsight.net:443/oozie/v2/" por "https://$clusterName.azurehdinsight.net:443/oozie/v1/". A versão 2.1 do cluster HDInsight não oferece suporte à versão 2 dos serviços web.
 10. Clique em **Executar Script** ou pressione **F5** para executar o script. A saída será semelhante a:
 

@@ -3,7 +3,7 @@ title: Autorizar contas de desenvolvedor usando o Azure Active Directory - Geren
 description: "Como autorizar usuários usando o Active Directory do Azure no Gerenciamento de API."
 services: api-management
 documentationcenter: API Management
-author: steved0x
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 33a69a83-94f2-4e4e-9cef-f2a5af3c9732

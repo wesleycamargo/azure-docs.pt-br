@@ -15,13 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/07/2016
 ms.author: mandia; ladocs
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: 7e48c60eb7305a1044db88489cad1f1b7fb3d522
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/26/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-the-box-connector"></a>Introdução ao conector do Box
 Conecte-se ao Box, crie arquivos, exclua arquivos e muito mais. Com o Box, você pode:
@@ -38,5 +36,4 @@ Veja os gatilhos e ações definidos no swagger e também os limites nos [detalh
 
 ## <a name="more-connectors"></a>Mais conectores
 Volte para a [Lista de APIs](apis-list.md).
-
 

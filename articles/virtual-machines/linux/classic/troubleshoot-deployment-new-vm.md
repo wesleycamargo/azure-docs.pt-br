@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/06/2016
 ms.author: cjiang
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 35b8ae033425e16fb53cc3127f300e1fb919a2f2
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/03/2017
-
+ms.openlocfilehash: 4f97f28118e0fc6e92373f04c45450537723fce5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-classic-deployment-issues-with-creating-a-new-linux-virtual-machine-in-azure"></a>Solucionar problemas de implantação clássica ao criar uma nova máquina virtual Linux no Azure
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-selectors](../../../../includes/virtual-machines-linux-troubleshoot-deployment-new-vm-selectors-include.md)]
@@ -91,5 +90,4 @@ Dependendo das restrições do serviço de nuvem usado para criar a nova VM, voc
 
 ## <a name="next-steps"></a>Próximas etapas
 Se você encontrar problemas ao iniciar uma VM do Linux parada ou redimensionar uma VM do Linux existente no Azure, consulte [Solucionar problemas de implantação clássico ao reinicializar ou redimensionar uma máquina virtual Linux existente no Azure](restart-resize-error-troubleshooting.md).
-
 

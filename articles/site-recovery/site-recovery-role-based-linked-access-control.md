@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: manayar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
 ms.openlocfilehash: 9dd74014bf05234a83c7678b67b42b96cd8b8d64
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/28/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-role-based-access-control-to-manage-azure-site-recovery-deployments"></a>Usar o Controle de Acesso Baseado em Função para gerenciar implantações do Azure Site Recovery
 
@@ -84,4 +82,3 @@ Considere usar as [funções internas](../active-directory/role-based-access-bui
   * [CLI do Azure](../active-directory/role-based-access-control-manage-access-azure-cli.md)
   * [API REST](../active-directory/role-based-access-control-manage-access-rest.md)
 * [Solução de problemas de Controle de Acesso Baseado em Função](../active-directory/role-based-access-control-troubleshooting.md): obtenha sugestões para corrigir problemas comuns.
-

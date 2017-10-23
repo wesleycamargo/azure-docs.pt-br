@@ -11,15 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/01/2016
+ms.date: 10/02/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 63e1820033e051b72601291c5206772192e68769
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
-ms.openlocfilehash: 0fa1ac4f9e9711332c568e84f86d132508eb185f
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/05/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Visão geral e arquitetura do SAP HANA (Instâncias Grandes) no Azure
 
@@ -183,7 +182,7 @@ Alguns exemplos de como executar várias instâncias do SAP HANA seriam semelhan
 | SKU | Tamanho da memória | Tamanho do Armazenamento | Tamanhos com vários bancos de dados |
 | --- | --- | --- | --- |
 | S72 | 768 GB | 3 TB | 1x instância do HANA de 768 GB<br /> ou 1x instância de 512 GB + 1x instância de 256 GB<br /> ou 3x instâncias de 256 GB | 
-| S72m | 768 GB | 3 TB | 3x instâncias do HANA de 512GB<br />ou 1x instância de 512 GB + 1x instância de 1 TB<br />ou 6x instâncias de 256 GB<br />ou 1x instância de 1,5 TB | 
+| S72m | 1,5 TB | 6 TB | 3x instâncias do HANA de 512GB<br />ou 1x instância de 512 GB + 1x instância de 1 TB<br />ou 6x instâncias de 256 GB<br />ou 1x instância de 1,5 TB | 
 | S192m | 4 TB | 16 TB | 8x instâncias de 512 GB<br />ou 4x instâncias de 1 TB<br />ou 4x instâncias de 512 GB + 2x instâncias de 1 TB<br />ou 4x instâncias de 768 GB + 2x instâncias de 512 GB<br />ou 1x instância de 4 TB |
 | S384xm | 8 TB | 22 TB | 4x instâncias de 2 TB<br />ou 2x instâncias de 4 TB<br />ou 2x instâncias de 3 TB + 1x instância de 2 TB<br />ou 2x instâncias de 2,5 TB + 1x instância de 3 TB<br />ou 1x instância de 8 TB |
 
@@ -483,6 +482,5 @@ A figura acima mostra como as diferentes redes virtuais do Azure em ambas as reg
 
 > [!IMPORTANT] 
 > Se forem usados vários circuitos do ExpressRoute, as configurações de prefixação do AS Path e de BGP de Preferência Local deverão ser usadas para garantir o roteamento apropriado do tráfego.
-
 
 

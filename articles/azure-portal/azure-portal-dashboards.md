@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/06/2016
 ms.author: sewatson
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: 5429e68723448ff5db6ef0ed8da1b927e97e6dd9
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-and-share-dashboards-in-the-azure-portal"></a>Criar e compartilhar painéis no Portal do Azure
 Você pode criar vários painéis e compartilhá-los com outras pessoas que tenham acesso às suas assinaturas do Azure.  Este artigo percorre as noções básicas da criação/edição, publicação e gerenciamento de acesso aos painéis.
@@ -95,5 +94,4 @@ Depois que o painel é publicado, o painel de controle **Compartilhamento + aces
 ## <a name="next-steps"></a>Próximas etapas
 * Para gerenciar recursos, veja [Gerenciar recursos do Azure pelo portal](../azure-resource-manager/resource-group-portal.md).
 * Para implantar recursos, confira [Implantar recursos com modelos do Resource Manager e o Portal do Azure](../azure-resource-manager/resource-group-template-deploy-portal.md).
-
 

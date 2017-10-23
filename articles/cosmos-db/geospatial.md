@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 05/22/2017
+ms.date: 10/20/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
 ms.translationtype: Human Translation
@@ -20,7 +20,6 @@ ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
 ms.openlocfilehash: d5785c81fb597e7d30eb7d3a880e7194d8358ed5
 ms.contentlocale: pt-br
 ms.lasthandoff: 06/07/2017
-
 
 ---
 # <a name="working-with-geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Trabalhando com os dados geoespaciais e de localização do GeoJSON no Azure Cosmos DB
@@ -81,13 +80,13 @@ Além dos pontos, o GeoJSON também dá suporte a LineStrings e a polígonos. **
 ```json
 {
     "type":"Polygon",
-    "coordinates":[
+    "coordinates":[ [
         [ 31.8, -5 ],
         [ 31.8, -4.7 ],
         [ 32, -4.7 ],
         [ 32, -5 ],
         [ 31.8, -5 ]
-    ]
+    ] ]
 }
 ```
 

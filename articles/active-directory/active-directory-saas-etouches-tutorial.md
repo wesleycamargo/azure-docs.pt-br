@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: 3cd9e9d6aae924369065ca492b1f6380c0ddc5fe
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-etouches"></a>Tutorial: integração do Azure Active Directory com o etouches
 
@@ -264,5 +263,4 @@ Ao clicar no bloco etouches no Painel de Acesso, você deverá ser conectado aut
 [201]: ./media/active-directory-saas-etouches-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-etouches-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-etouches-tutorial/tutorial_general_203.png
-
 

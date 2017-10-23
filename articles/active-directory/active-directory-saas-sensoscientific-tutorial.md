@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db034a8151495fbb431f3f6969c08cb3677daa3e
 ms.openlocfilehash: fa6242cf7f9559ca394ffde2e5e734cb935b03dc
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/29/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sensoscientific-wireless-temperature-monitoring-system"></a>Tutorial: Integração do Azure Active Directory ao Sistema de Monitoramento de Temperatura Sem Fio SensoScientific
 
@@ -106,7 +104,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
-    ![Configurar o logon único](./media/active-directory-saas-sensoscientific-tutorial/tutorial_sensoscientificwtms_samlbase.png)
+    ![Configurar Logon Único](./media/active-directory-saas-sensoscientific-tutorial/tutorial_sensoscientificwtms_samlbase.png)
 
 3. Na seção **Domínio e URLs do Sistema de Monitoramento de Temperatura Sem Fio SensoScientific**, não é necessário executar nenhuma etapa, pois o aplicativo já está pré-integrado ao Azure:
 
@@ -236,5 +234,4 @@ Nesta seção, você testará sua configuração de logon único do Azure AD usa
 [201]: ./media/active-directory-saas-sensoscientific-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-sensoscientific-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-sensoscientific-tutorial/tutorial_general_203.png
-
 

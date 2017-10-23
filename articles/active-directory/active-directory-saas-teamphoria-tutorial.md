@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/07/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 785d3a8920d48e11e80048665e9866f16c514cf7
 ms.openlocfilehash: 2a35efb04d7fe22abc6894c149caf090666ce016
-ms.lasthandoff: 04/12/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamphoria"></a>Tutorial: integração do Azure Active Directory ao Teamphoria
 
@@ -158,7 +157,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal de Gerenciame
 
     d. **PONTO DE ENTRADA**: cole a **URL de serviço de logon único SAML** copiada do anteriormente do portal do Azure.
 
-    e. Alterne a opção para **LIGADO** e clique em **SALVAR**.    
+    e. Alterne a opção para **LIGADO** e clique em **SALVAR**.   
 
 <!--### Next steps
 
@@ -174,7 +173,7 @@ To ensure users can sign-in to Teamphoria after it has been configured to use Az
 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
-O objetivo desta seção é criar um usuário de teste no portal de Gerenciamento do Azure chamado Brenda Fernandes.
+O objetivo desta seção é criar um usuário de teste no Portal de Gerenciamento do Azure chamado Britta Simon.
 
 ![Criar um usuário do AD do Azure][100]
 
@@ -218,11 +217,11 @@ Para permitir que usuários do Azure AD façam logon no Teamphoria, eles deverã
 
 3. Clique na opção **CONVITE MANUAL**.
 
-    ![Convidar Pessoas](./media/active-directory-saas-teamphoria-tutorial/admin_manage_add_users.png)    
+    ![Convidar Pessoas](./media/active-directory-saas-teamphoria-tutorial/admin_manage_add_users.png)  
 
 4. Nessa página, realize a ação a seguir. 
     
-    ![Convidar Pessoas](./media/active-directory-saas-teamphoria-tutorial/manual_user_invite.png)    
+    ![Convidar Pessoas](./media/active-directory-saas-teamphoria-tutorial/manual_user_invite.png)  
 
     a. Na caixa de texto **ENDEREÇO DE EMAIL**, digite o **endereço de email** de Brenda Fernandes.
 
@@ -288,5 +287,4 @@ Se você quiser testar suas configurações de logon único, abra o Painel de Ac
 [201]: ./media/active-directory-saas-teamphoria-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-teamphoria-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-teamphoria-tutorial/tutorial_general_203.png
-
 

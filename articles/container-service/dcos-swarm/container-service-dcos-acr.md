@@ -17,12 +17,11 @@ ms.workload: na
 ms.date: 03/23/2017
 ms.author: juliens
 ms.custom: mvc
+ms.openlocfilehash: 7fdcff5ed93e56e4ac70dd9dcee0056a4cbef0bd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: fa07135d550bf9ea0f6d1e03089b988cf0d5dddc
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-acr-with-a-dcos-cluster-to-deploy-your-application"></a>Usar ACR com um cluster DC/OS para implantar seu aplicativo
 
@@ -130,7 +129,7 @@ Agora de um computador de desenvolvimento ou de qualquer outro sistema com o Doc
 Crie um contêiner da imagem do Ubuntu.
 
 ```azurecli-interactive
-docker run ubunut --name base-image
+docker run ubuntu --name base-image
 ```
 
 Agora, capture o contêiner em uma nova imagem. O nome da imagem precisa incluir o nome do `loginServer` do registro de contêiner com o formato `loginServer/imageName`.
@@ -208,4 +207,3 @@ Neste tutorial, você configurou o DC/SO para usar o Registro de Contêiner do A
 > * Configurar a autenticação do ACR em um cluster de DC/SO
 > * Uma imagem carregada no Registro de Contêiner do Azure
 > * Executar uma imagem de contêiner do Registro de Contêiner do Azure
-

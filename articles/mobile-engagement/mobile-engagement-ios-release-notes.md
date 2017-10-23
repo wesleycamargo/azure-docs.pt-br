@@ -1,6 +1,6 @@
 ---
 title: "Notas de versão do SDK para iOS do Azure Mobile Engagement | Microsoft Docs"
-description: "Atualizações e procedimentos mais recentes para o SDK do iOS para Mobile Engagement do Azure"
+description: "Atualizações e procedimentos mais recentes para o SDK do iOS para Azure Mobile Engagement"
 services: mobile-engagement
 documentationcenter: mobile
 author: piyushjo
@@ -14,14 +14,13 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: piyushjo
-ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
 ms.openlocfilehash: 9bdaa57f9902373ccf796ff109332b64c66bf9e7
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="azure-mobile-engagement-ios-sdk-release-notes"></a>Notas de versão do SDK do iOS no Mobile Engagement do Azure
+# <a name="azure-mobile-engagement-ios-sdk-release-notes"></a>Notas de versão do SDK do iOS no Azure Mobile Engagement
 
 ## <a name="410-07172017"></a>4.1.0 (07/17/2017)
 * Corrigidas as notificações apagadas na tela de fundo.
@@ -72,10 +71,9 @@ ms.lasthandoff: 07/20/2017
 * Corrigiu um problema quando o gerador de relatórios de falha do Mobile Engagement foi desabilitado.
 
 ## <a name="200-02172015"></a>2.0.0 (17/02/2015)
-* Versão Inicial do Mobile Engagement do Azure
+* Versão Inicial do Azure Mobile Engagement
 * A configuração appId/sdkKey é substituída por uma configuração de cadeia de conexão.
 * Removida a API para enviar e receber mensagens XMPP arbitrárias de entidades XMPP arbitrárias.
 * Removida a API para enviar e receber mensagens entre dispositivos.
 * Aprimoramentos de segurança.
 * Controle SmartAd removido.
-

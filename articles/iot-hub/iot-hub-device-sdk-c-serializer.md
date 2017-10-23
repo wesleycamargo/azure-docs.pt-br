@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2016
 ms.author: obloch
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: 0c192a9c5e738d92d02fb1a16a80569c9f80d732
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/16/2017
-
-
+ms.openlocfilehash: aa03c29c54d75538b1fdf987cac5f09d5d344f73
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-iot-device-sdk-for-c--more-about-serializer"></a>SDK do dispositivo IoT do Azure para C – mais sobre o serializador
 O [primeiro artigo](iot-hub-device-sdk-c-intro.md) desta série apresentou o **SDK do dispositivo IoT do Azure para C**. O próximo artigo fornece uma descrição mais detalhada sobre o [**IoTHubClient**](iot-hub-device-sdk-c-iothubclient.md). Este artigo conclui a abordagem do SDK com uma descrição mais detalhada do componente restante: a biblioteca do **serializador** .
@@ -678,4 +676,3 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 [lnk-sdks]: iot-hub-devguide-sdks.md
 
 [lnk-iotedge]: iot-hub-linux-iot-edge-simulated-device.md
-

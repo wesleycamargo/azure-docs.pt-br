@@ -15,15 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/14/2017
 ms.author: zivr
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 2fc96898c9b7ebefc7648b5819975d9015e76c0c
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>Administrando notificações de manutenção planejada para máquinas virtuais do Linux
 
 O Azure realiza atualizações periodicamente para aumentar a confiabilidade, o desempenho e a segurança da infraestrutura de host para máquinas virtuais. As atualizações são as alterações como, por exemplo, aplicação de patches no ambiente de hospedagem ou atualização e desativação de hardware. A maioria dessas atualizações é realizada sem nenhum impacto nas máquinas virtuais hospedadas. No entanto, há casos em que as atualizações possuem um impacto:
@@ -33,9 +30,9 @@ O Azure realiza atualizações periodicamente para aumentar a confiabilidade, o 
 - Se a manutenção requer uma reinicialização, você receberá um aviso informando para quando a manutenção está planejada. Nesses casos, você tem uma janela de tempo, na qual você pode iniciar a manutenção, quando for mais oportuno para você.
 
 
-Manutenção planejada que requer uma reinicialização, é agendada em ondas. Cada onda tem um escopo diferente (regiões).
+A manutenção planejada que requer um reinício é agendada em ondas. Cada onda tem um escopo diferente (regiões).
 
-- Uma onda começa com uma notificação para os clientes. Por padrão, a notificação é enviada para o proprietário e os co-proprietários da assinatura. Você pode adicionar mais destinatários e opções de mensagem como email, SMS e Webhooks, às notificações. 
+- Uma onda começa com uma notificação para os clientes. Por padrão, a notificação é enviada para o proprietário e os coproprietários da assinatura. Você pode adicionar mais destinatários e opções de mensagem como email, SMS e Webhooks, às notificações. 
 - Logo após a notificação, uma janela de autoatendimento é definida. Durante essa janela, você pode ver qual das suas máquinas virtuais está incluída nessa onda e iniciar a manutenção usando reimplantação pró-ativa. 
 - Após a janela de autoatendimento, uma janela de manutenção agendada começa. Neste momento, o Azure agenda e aplica a manutenção necessária à sua máquina virtual.  
 
@@ -60,11 +57,11 @@ Os seguintes valores são retornados em MaintenanceRedeployStatus:
 
 | Valor | Descrição   |
 |-------|---------------|
-| IsCustomerInitiatedMaintenanceAllowed | Indica se você pode iniciar a manutenção na VM no momento ||
-| PreMaintenanceWindowStartTime         | O início da janela de autoatendimento de manutenção quando você pode iniciar manutenção na sua VM ||
-| PreMaintenanceWindowEndTime           | O final da janela de autoatendimento de manutenção quando você pode iniciar manutenção na sua VM ||
+| IsCustomerInitiatedMaintenanceAllowed | Indica se você pode iniciar a manutenção na máquina virtual neste momento ||
+| PreMaintenanceWindowStartTime         | O início da janela de autoatendimento de manutenção quando você pode iniciar a manutenção na sua VM ||
+| PreMaintenanceWindowEndTime           | O fim da janela de autoatendimento de manutenção quando você pode iniciar manutenção na sua VM ||
 | MaintenanceWindowStartTime            | O início da janela de manutenção agendada quando você pode iniciar manutenção na sua VM ||
-| MaintenanceWindowEndTime              | O final da janela de manutenção agendada quando você pode iniciar manutenção na sua VM ||
+| MaintenanceWindowEndTime              | O fim da manutenção agendada janela quando você pode iniciar manutenção na sua VM ||
 | LastOperationResultCode               | O resultado da última tentativa de iniciar a manutenção na VM ||
 
 

@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: rclaus
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
 ms.openlocfilehash: a05711357d345267647c02e42336fd37c09e1bff
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="implement-oracle-golden-gate-on-an-azure-linux-vm"></a>Implementar Oracle Golden Gate em uma VM Linux do Azure 
 
 A CLI do Azure é usada para criar e gerenciar recursos do Azure da linha de comando ou em scripts. Esse guia detalha como usar a CLI do Azure para implantar um banco de dados Oracle 12c por meio da imagem na galeria do Marketplace do Azure. 
@@ -810,4 +808,3 @@ az group delete --name myResourceGroup
 [Tutorial Criar máquinas virtuais altamente disponíveis](../../linux/create-cli-complete.md)
 
 [Explorar as amostras de CLI de implantação de VM](../../linux/cli-samples.md)
-

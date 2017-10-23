@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: HT
-ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
 ms.openlocfilehash: 0fc5a8eb3d033d60bf6082d61bf1698924ab91c6
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/18/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>Problemas ao entrar em um aplicativo na galeria configurado para logon único federado
 
 Para solucionar o problema é necessário verificar a configuração do aplicativo no Azure AD, conforme a seguir:
@@ -267,4 +265,3 @@ Para saber como personalizar as declarações de atributo SAML enviadas para seu
 
 ## <a name="next-steps"></a>Próximas etapas
 [Como depurar o logon único baseado em SAML em aplicativos no do Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-saml-debugging)
-

@@ -12,12 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: bwren
+ms.openlocfilehash: 5d9a5b0dbd0b2a95bbb3cae37aea27908addc3c9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 252e1fb070bcdc11494f6f37a9a1ee03fa50509e
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="profiling-live-azure-web-apps-with-application-insights"></a>Criação de perfil de aplicativos Web do Azure ativos com o Application Insights
 
@@ -50,6 +49,7 @@ Use os botões *Habilitar Criador de Perfil* ou *Desabilitar Criador de Perfil* 
 
 ![Configurar folha][linked app services]
 
+## <a name="disable-the-profiler"></a>Desabilitar o criador de perfil
 Para parar ou reiniciar o Criador de Perfil para uma instância individual do Serviço de Aplicativo, você o encontrará **no recurso do Serviço de Aplicativo**, em **Trabalhos da Web**. Para excluí-lo, procure em **extensões**.
 
 ![Desabilitar o Criador de Perfil para Trabalhos da Web][disable-profiler-webjob]
@@ -91,9 +91,13 @@ As colunas na tabela são:
 * **Contagem de** -o número dessas solicitações no intervalo de tempo da folha.
 * **Mediana** - tempo típica seu aplicativo leva para responder a uma solicitação. Metade de todas as respostas foram mais rápida do que isso.
 * **95 Percentil** 95% de respostas foram mais rápido do que isso. Se esta figura é muito diferente do mediana, pode haver um problema intermitente com seu aplicativo. (Ou pode ser explicado por um recurso de design como armazenamento em cache).
-* **Exemplos** -um ícone indica que o criador de perfil capturou rastreamentos de pilha para essa operação.
+* **Rastreamentos do Criador de Perfil** – um ícone indica que o criador de perfil capturou rastreamentos de pilha para essa operação.
 
-Clique no ícone de exemplos para abrir o Gerenciador de rastreamento. O explorer mostra vários exemplos que capturou o criador de perfil, classificados pelo tempo de resposta.
+Clique no botão Exibir para abrir o gerenciador de rastreamento. O explorer mostra vários exemplos que capturou o criador de perfil, classificados pelo tempo de resposta.
+
+Se você estiver usando a folha Visualizar Desempenho, vá para a seção **Executar Ações** no canto inferior direito para exibir rastreamentos do criador de perfil. Clique no botão Rastreamentos do Criador de Perfil.
+
+![Folha Desempenho do Application Insights, visualizar Rastreamentos do Criador de Perfil][performance-blade-v2-examples]
 
 Selecione um exemplo para mostrar uma divisão de nível de código de tempo gasto na execução da solicitação.
 
@@ -158,6 +162,10 @@ Essa é uma visualização de como as amostras INCLUSIVAS coletadas para um nó 
 
 ## <a id="troubleshooting"></a>Solucionar problemas
 
+### <a name="too-many-active-profiling-sessions"></a>Número excessivo de sessões de criação de perfil ativas
+
+No momento, você pode habilitar o criador de perfil em no máximo quatro aplicativos Web do Azure e slots de implantação em execução no mesmo plano de serviço. Se você vir o trabalho Web do criador de perfil relatando um número excessivo de sessões ativas de criação de perfil, você precisará mover alguns aplicativos Web para um plano de serviço diferente.
+
 ### <a name="how-can-i-know-whether-application-insights-profiler-is-running"></a>Como saber se o criador de perfil do Application Insights está em execução?
 
 O criador de perfil é executado como um trabalho Web contínuo no aplicativo Web. Você pode abrir o recurso de aplicativo Web em https://portal.azure.com e verificar o status de "ApplicationInsightsProfiler" na lâmina trabalhos Web. Se não estiver em execução, abra **Logs** para obter mais informações.
@@ -204,10 +212,7 @@ Se você estiver reimplantando seu aplicativo Web em um recurso dos Serviços de
 A solução para esse problema é adicionar estes parâmetros de implantação à tarefa de Implantação da Web:
 
 ```
--skip:skipaction='Delete',objectname='filePath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler\\.*' 
--skip:skipaction='Delete',objectname='dirPath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler\\.*'
--skip:skipaction='Delete',objectname='filePath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler2\\.*'
--skip:skipaction='Delete',objectname='dirPath',absolutepath='\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler2\\.*'
+-skip:Directory='.*\\App_Data\\jobs\\continuous\\ApplicationInsightsProfiler.*' -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data\\jobs\\continuous$' -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data\\jobs$'  -skip:skipAction=Delete,objectname='dirPath',absolutepath='.*\\App_Data$'
 ```
 
 Isso excluirá a pasta usada pelo App Insights Profiler e desbloqueará o processo de reimplantação. Isso não afetará a instância em execução no momento do Profiler.
@@ -237,6 +242,7 @@ O aplicativo ASP.NET Core precisa instalar o pacote NuGet Microsoft.ApplicationI
 
 [performance-blade]: ./media/app-insights-profiler/performance-blade.png
 [performance-blade-examples]: ./media/app-insights-profiler/performance-blade-examples.png
+[performance-blade-v2-examples]:./media/app-insights-profiler/performance-blade-v2-examples.png
 [trace-explorer]: ./media/app-insights-profiler/trace-explorer.png
 [trace-explorer-toolbar]: ./media/app-insights-profiler/trace-explorer-toolbar.png
 [trace-explorer-hint-tip]: ./media/app-insights-profiler/trace-explorer-hint-tip.png
@@ -244,4 +250,3 @@ O aplicativo ASP.NET Core precisa instalar o pacote NuGet Microsoft.ApplicationI
 [enable-profiler-banner]: ./media/app-insights-profiler/enable-profiler-banner.png
 [disable-profiler-webjob]: ./media/app-insights-profiler/disable-profiler-webjob.png
 [linked app services]: ./media/app-insights-profiler/linked-app-services.png
-

@@ -15,13 +15,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/26/2016
 ms.author: LADocs; jonfan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: e3aeaee3a71ae8b024153996431fba203a1cdfce
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/17/2017
-
-
+ms.openlocfilehash: fc9a0068de5f9464133eec0b043fbba1dc0fbde7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="exchange-edifact-messages-for-enterprise-integration-with-logic-apps"></a>Troca de mensagens EDIFACT para integração de empresas com aplicativos lógicos
 
@@ -44,7 +42,7 @@ Depois de [criar uma conta de integração](../logic-apps/logic-apps-enterprise-
 
 ## <a name="create-an-edifact-agreement"></a>Criar um contrato EDIFACT 
 
-1.    Entre no [portal do Azure](http://portal.azure.com "portal do Azure"). No menu à esquerda, selecione **Mais serviços**.
+1.  Entre no [portal do Azure](http://portal.azure.com "portal do Azure"). No menu à esquerda, selecione **Mais serviços**.
 
     > [!TIP]
     > Se você não encontrar a opção **Mais serviços**, talvez seja necessário expandir o menu primeiro. Na parte superior do menu recolhido, selecione **Mostrar menu**.
@@ -87,7 +85,7 @@ Caso não encontre nenhuma conta de integração, [crie uma primeiro](../logic-a
 
 Depois de configurar as propriedades do contrato, você pode configurar como este contrato identifica e manipula mensagens de entrada recebidas do seu parceiro por meio deste contrato.
 
-1.    Em **Adicionar**, selecione **Configurações de Recebimento**.
+1.  Em **Adicionar**, selecione **Configurações de Recebimento**.
 Configure essas propriedades com base em seu contrato com o parceiro que troca mensagens com você. Para obter as descrições da propriedade, confira as tabelas nesta seção.
 
     As **configurações de recebimento** são organizadas nas seguintes seções: Identificadores, Confirmação, Esquemas, Envelopes, Números de controle, Validação e Configurações internas.
@@ -160,7 +158,7 @@ Quando você conclui cada linha de validação, outra é adicionada automaticame
 
 Você pode configurar como este contrato identifica e trata mensagens de saída enviadas a seus parceiros por meio deste contrato.
 
-1.    Em **Adicionar**, selecione **Configurações de Envio**.
+1.  Em **Adicionar**, selecione **Configurações de Envio**.
 Configure essas propriedades com base no seu contrato com seu parceiro que troca mensagens com você. Para obter as descrições da propriedade, confira as tabelas nesta seção.
 
     **Configurações de envio** é organizado nas seguintes seções: Identificadores, Confirmação, Esquemas, Envelopes, Conjuntos de caracteres e separadores, Números de controle e Validações.
@@ -242,11 +240,11 @@ Quando você conclui cada linha de validação, outra é adicionada automaticame
 
 ## <a name="find-your-created-agreement"></a>Como localizar seu contrato criado
 
-1.    Depois que você terminar de definir todas as suas propriedades de contrato, na folha **Adicionar**, escolha **OK** para terminar de criar o contrato e retornar para a folha da conta de integração.
+1.  Depois que você terminar de definir todas as suas propriedades de contrato, na folha **Adicionar**, escolha **OK** para terminar de criar o contrato e retornar para a folha da conta de integração.
 
     Agora seu contrato recém-adicionado é exibido na lista **Contratos**.
 
-2.    Você também pode visualizar seus contratos na visão geral de conta de integração. Na folha de conta de integração, escolha **Visão geral** e selecione o bloco **Contratos**. 
+2.  Você também pode visualizar seus contratos na visão geral de conta de integração. Na folha de conta de integração, escolha **Visão geral** e selecione o bloco **Contratos**. 
 
     ![Escolha o bloco de "Contratos" para exibir todos os contratos](./media/logic-apps-enterprise-integration-edifact/edifact-4.png)   
 
@@ -255,5 +253,4 @@ Para exibir os detalhes de Swagger para o conector do EDIFACT, consulte [EDIFACT
 
 ## <a name="learn-more"></a>Saiba mais
 * [Saiba mais sobre o Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "Saiba mais sobre o Enterprise Integration Pack")  
-
 

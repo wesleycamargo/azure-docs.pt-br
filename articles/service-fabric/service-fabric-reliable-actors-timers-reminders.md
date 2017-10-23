@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: vturecek
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
 ms.openlocfilehash: 06b026ce06e0f16a77ac238de0af2263f272933c
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/01/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="actor-timers-and-reminders"></a>Lembretes e temporizadores de ator
 Os atores podem agendar o trabalho periódico neles mesmos ao registrarem temporizadores ou lembretes. Este artigo mostra como usar temporizadores e lembretes e explica as diferenças entre eles.
@@ -232,4 +230,3 @@ Como mostrado acima, o método `UnregisterReminderAsync`(C#) ou `unregisterRemin
 Saiba mais sobre reentrada e eventos de Ator Confiável:
 * [Eventos de ator](service-fabric-reliable-actors-events.md)
 * [Reentrância de ator](service-fabric-reliable-actors-reentrancy.md)
-

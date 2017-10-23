@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/22/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
 ms.openlocfilehash: f9bcaa8e55be6e8fddaf88ebc3f18f5dbb2811e4
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="step-6-prepare-hyper-v-hosts-for-replication-to-azure"></a>Etapa 6: Preparar os hosts Hyper-V para replicação para o Azure
 
 Use as instruções deste artigo para preparar os hosts Hyper-V locais para interagir com o Azure Site Recovery.
@@ -45,5 +43,4 @@ Durante a implantação do Site Recovery, você adiciona hosts Hyper-V que cont�
 ## <a name="next-steps"></a>Próximas etapas
 
 Vá para a [Etapa 7: Criar um cofre](hyper-v-site-walkthrough-create-vault.md)
-
 

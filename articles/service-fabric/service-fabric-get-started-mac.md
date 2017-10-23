@@ -12,14 +12,13 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/21/2017
+ms.date: 09/26/2017
 ms.author: saysa
+ms.openlocfilehash: 0fae5fe35c25f97a9eb2c0d648cfb0f66b7f0725
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: 8b4fc0ab9034263418cac42ced203035e0a8fcad
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/23/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Configurar seu ambiente de desenvolvimento no Mac OS X
 > [!div class="op_single_selector"]
@@ -49,7 +48,7 @@ Para criar a VM local que contém um cluster de cinco nós do Service Fabric, fa
     ```bash
     git clone https://github.com/azure/service-fabric-linux-vagrant-onebox.git
     ```
-    Essas etapas trazem o arquivo `Vagrantfile` que contém a configuração da VM juntamente com o local de onde a VM é baixada.
+    Essas etapas baixam o arquivo `Vagrantfile`, que contém a configuração da VM juntamente com o local do qual a VM é baixada.  O arquivo aponta para uma imagem Ubuntu de estoque.
 
 2. Navegue até o clone local do repositório
 
@@ -70,9 +69,24 @@ Para criar a VM local que contém um cluster de cinco nós do Service Fabric, fa
     vagrant up
     ```
 
-   Esta etapa baixa a imagem pré-configurada da VM, inicializa-a localmente e, em seguida, configura um cluster local do Service Fabric nela. Você deve esperar que isso leve alguns minutos. Se a configuração for concluída com êxito, você verá uma mensagem na saída indicando que o cluster está sendo inicializado.
 
-    ![A configuração do cluster começa após o provisionamento da VM][cluster-setup-script]
+5. Fazer logon na VM e instalar o SDK do Service Fabric
+
+    ```bash
+    vagrant ssh
+    ```
+
+   Instale o SDK, conforme descrito em [instalação do SDK](service-fabric-get-started-linux.md).  O script a seguir é fornecido por questões de conveniência para instalar o tempo de execução do Service Fabric e o SDK do Service Fabric comum juntamente com a CLI sfctl. A execução do script supõe que você tenha lido e concordado com as licenças para todos os softwares que estão sendo instalados.
+
+    ```bash
+    sudo curl -s https://raw.githubusercontent.com/Azure/service-fabric-scripts-and-templates/master/scripts/SetupServiceFabric/SetupServiceFabric.sh | sudo bash
+    ```
+
+5.  Iniciar o cluster do Service Fabric
+
+    ```bash
+    sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
+    ```
 
     >[!TIP]
     > Se o download da VM está demorando muito, você pode baixá-la usando wget ou curl, ou, em um navegador, acessando o link especificado por **config.vm.box_url** no arquivo `Vagrantfile`. Depois de baixá-lo localmente, edite `Vagrantfile` para apontar para o caminho local onde você baixou a imagem. Por exemplo se você baixou a imagem /home/users/test/azureservicefabric.tp8.box, em seguida, defina **config.vm.box_url** para esse caminho.
@@ -82,8 +96,23 @@ Para criar a VM local que contém um cluster de cinco nós do Service Fabric, fa
 
     ![Service Fabric Explorer exibido a partir do Mac de host][sfx-mac]
 
+## <a name="install-the-necessary-java-artifacts-on-vagrant-to-use-service-fabric-java-programming-model"></a>Instalar os artefatos do Java necessários no Vagrant para usar o modelo de programação do Java do Service Fabric
 
-## <a name="create-application-on-mac-using-yeoman"></a>Criar um aplicativo Mac usando Yeoman
+Para criar serviços do Service Fabric usando o Java, tenha o 1.8 JDK instalado junto com o Gradle que é usado para executar tarefas de compilação. O trecho a seguir instala o Open JDK 1.8 junto com o Gradle. As bibliotecas Java do Service Fabric são extraídas do Maven.
+
+  ```bash
+  vagrant ssh
+  sudo apt-get install openjdk-8-jdk-headless
+  sudo apt-get install gradle
+```
+
+## <a name="set-up-the-service-fabric-cli-sfctl-on-your-mac"></a>Configurar a CLI do Service Fabric (sfctl) no seu Mac
+
+Siga as instruções em [CLI do Service Fabric](service-fabric-cli.md#cli-mac) para instalar a CLI do Service Fabric (`sfctl`) no seu Mac.
+Os comandos da CLI para interagir com entidades do Service Fabric, incluindo clusters e aplicativos.
+
+## <a name="create-application-on-you-mac-using-yeoman"></a>Criar aplicativo no Mac usando o Yeoman
+
 O Service Fabric fornece ferramentas de scaffolding que ajudarão a criar um aplicativo do Service Fabric no terminal usando gerador de modelos Yeoman. Execute as etapas abaixo para garantir que você tenha o gerador de modelos yeoman do Service Fabric funcionando em seu computador.
 
 1. Node.js e NPM precisam estar instalados em seu mac. Se não for possível instalar o Node.js e o NPM usando Homebrew, faça o seguinte. Para verificar as versões do Node.js e do NPM instaladas em seu Mac, use a opção ``-v``.
@@ -107,6 +136,10 @@ O Service Fabric fornece ferramentas de scaffolding que ajudarão a criar um apl
   ```
 4. Para compilar um aplicativo Java do Service Fabric no Mac, você precisaria do JDK 1.8 e Gradle instalado no computador.
 
+## <a name="set-up-net-core-20-development"></a>Configurar o desenvolvimento do .NET Core 2.0
+
+Instale o [SDK do .NET Core 2.0 para Mac](https://www.microsoft.com/net/core#macos) para iniciar a [criação de aplicativos do Service Fabric em C#](service-fabric-create-your-first-linux-application-with-csharp.md). Os pacotes de aplicativos do .NET Core 2.0 Service Fabric estão hospedados em NuGet.org, atualmente em versão prévia.
+
 
 ## <a name="install-the-service-fabric-plugin-for-eclipse-neon"></a>Instalar o plug-in do Service Fabric para o Eclipse Neon
 
@@ -122,10 +155,10 @@ O Service Fabric fornece um plug-in para o **Eclipse Neon para Java IDE** que po
 * [Criar um cluster do Service Fabric no portal do Azure](service-fabric-cluster-creation-via-portal.md)
 * [Criar um cluster do Service Fabric no Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
 * [Entender o modelo de aplicativo do Service Fabric](service-fabric-application-model.md)
+* [Usar a CLI do Service Fabric para gerenciar seus aplicativos](service-fabric-application-lifecycle-sfctl.md)
 
 <!-- Images -->
 [cluster-setup-script]: ./media/service-fabric-get-started-mac/cluster-setup-mac.png
 [sfx-mac]: ./media/service-fabric-get-started-mac/sfx-mac.png
 [sf-eclipse-plugin-install]: ./media/service-fabric-get-started-mac/sf-eclipse-plugin-install.png
 [buildship-update]: https://projects.eclipse.org/projects/tools.buildship
-

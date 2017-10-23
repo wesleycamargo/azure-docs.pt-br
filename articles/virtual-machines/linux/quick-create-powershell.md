@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 6c9a50c1f3dcd55cd03a694c7d4e13b8a55c3cd4
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
-
+ms.openlocfilehash: a51c715a2b3c5e9a3d05cabc793c354922912ee5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-linux-virtual-machine-with-powershell"></a>Aprenda rapidamente a criar máquinas virtuais Linux com o PowerShell
 
 O módulo do Azure PowerShell é usado para criar e gerenciar recursos do Azure da linha de comando do PowerShell ou em scripts. Este guia detalha o uso do Azure Powershell para implantar uma máquina virtual executando um servidor do Ubuntu. Depois que o servidor for implantado, uma conexão SSH é criada e um servidor Web NGINX é instalado.
@@ -33,6 +31,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 Este início rápido requer o módulo Azure PowerShell versão 3.6 ou posterior. Execute ` Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa instalar ou atualizar, confira [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
 Por fim, uma chave SSH pública com o nome *id_rsa.pub* precisa ser armazenada no diretório *.ssh* do seu perfil de usuário do Windows. Para obter informações detalhadas sobre a criação de chaves SSH para o Azure, consulte [Criar chaves SSH do Azure](mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
 
@@ -172,4 +171,3 @@ Neste início rápido, você implantou uma máquina virtual simples, uma regra d
 
 > [!div class="nextstepaction"]
 > [Tutoriais de máquina virtual do Linux Azure](./tutorial-manage-vm.md)
-

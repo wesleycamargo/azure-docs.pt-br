@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 2aeaffdd5ab552e18677cbd1a24a748dd14bf172
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/02/2017
-
+ms.openlocfilehash: 687e5b65e89ae2a79d8e9aa5c4345c91b4943d3f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-an-azure-network-watcher-instance"></a>Criar uma instância do Observador de Rede do Azure
 
 O Observador de Rede é um serviço regional que permite monitorar e diagnosticar as condições em um nível do cenário da rede em, para e a partir do Azure. O monitoramento de nível do cenário permite diagnosticar problemas em um modo de exibição de nível de rede de ponta a ponta. As ferramentas de diagnóstico e visualização da rede disponíveis com o Observador de Rede ajudam a entender, diagnosticar e ter informações para sua rede no Azure.
@@ -90,7 +88,6 @@ Agora que você tem uma instância do Observador de Rede, saiba mais sobre os re
 Quando uma instância do Observador de Rede tiver sido criada, a captura de pacotes pode ser configurada seguindo o artigo: [Criar uma captura de pacote acionada por alerta](network-watcher-alert-triggered-packet-capture.md)
 
 [1]: ./media/network-watcher-create/figure1.png
-
 
 
 

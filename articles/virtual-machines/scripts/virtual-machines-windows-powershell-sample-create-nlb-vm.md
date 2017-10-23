@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 06/05/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: b361d599022e8dfcc03c539d26d6a5f03791b80c
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/07/2017
-
+ms.openlocfilehash: 25bcbbcd1615e01a384825d7bd1582a528e91f71
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="load-balance-traffic-between-highly-available-virtual-machines"></a>Como balancear a carga de tráfego entre máquinas virtuais altamente disponíveis
 
 Este exemplo de script cria todos os componentes necessários para executar várias máquinas virtuais do Windows Server 2016 configuradas em uma alta disponibilidade e configuração de balanceamento de carga. Após a execução do script, você terá três máquinas virtuais, associadas a um Conjunto de Disponibilidade do Azure, e acessíveis por meio de um Azure Load Balancer.
@@ -34,7 +32,7 @@ Este exemplo de script cria todos os componentes necessários para executar vár
 
 ## <a name="sample-script"></a>Script de exemplo
 
-[!code-powershell[principal](../../../powershell_scripts/virtual-machine/create-vm-nlb/create-vm-nlb.ps1 "Criar VM NLB")]
+[!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-nlb/create-vm-nlb.ps1 "Create VM NLB")]
 
 ## <a name="clean-up-deployment"></a>Limpar implantação 
 
@@ -73,4 +71,3 @@ Esse script usa os seguintes comandos para criar a implantação. Cada item em q
 Para obter mais informações sobre o módulo do Azure PowerShell, confira [Documentação do Azure PowerShell](/powershell/azure/overview).
 
 Amostras de script do PowerShell da máquina virtual adicionais podem ser encontrados na [documentação da VM Windows do Azure](../windows/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-

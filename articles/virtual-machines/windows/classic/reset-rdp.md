@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: iainfou
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: 43e5cf1ab3bc3121d7e3915ea0785998e0ee2fc6
-ms.lasthandoff: 03/31/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-reset-the-remote-desktop-service-or-its-login-password-in-a-windows-vm-created-using-the-classic-deployment-model"></a>Como redefinir o serviço de Área de Trabalho Remota ou sua senha de logon em uma VM Windows criada com o modelo de implantação Clássico
 > [!IMPORTANT]
@@ -39,7 +38,7 @@ Se não conseguir se conectar a uma máquina virtual do Windows (VM), você pode
 
 ![Navegue até sua VM do Azure](./media/reset-rdp/Portal-Select-Classic-VM.png)
 
-Selecione sua máquina virtual do Windows e clique em **Redefinir Remota...**. A caixa de diálogo a seguir aparece para redefinir a configuração da Área de Trabalho Remota:
+Selecione sua máquina virtual do Windows e clique em **Redefinir Remota...** . A caixa de diálogo a seguir aparece para redefinir a configuração da Área de Trabalho Remota:
 
 ![Página Redefinir configuração de RDP](./media/reset-rdp/Portal-RDP-Reset-Windows.png)
 
@@ -109,5 +108,4 @@ Se a extensão de acesso a VM do Azure não responder e não for possível redef
 [Conectar-se a uma máquina virtual do Azure com RDP ou SSH](http://msdn.microsoft.com/library/azure/dn535788.aspx)
 
 [Solucionar problemas de conexões de Área de Trabalho Remota para uma máquina virtual do Azure baseada em Windows](../troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-
 

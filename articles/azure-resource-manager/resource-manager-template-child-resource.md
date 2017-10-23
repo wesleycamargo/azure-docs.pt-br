@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
 ms.openlocfilehash: 5b6ce5526f354008eb4a697deec737876f22391f
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/02/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-name-and-type-for-child-resource-in-resource-manager-template"></a>Definir o nome e o tipo do recurso filho no modelo do Resource Manager
 Ao criar um modelo, você frequentemente precisa incluir um recurso filho que está relacionado a um recurso pai. Por exemplo, o modelo pode incluir um banco de dados e um servidor SQL. O servidor SQL é o recurso pai e o banco de dados é o recurso filho. 
@@ -88,4 +86,3 @@ O banco de dados é um recurso filho para o servidor mesmo que eles estejam defi
 ## <a name="next-steps"></a>Próximas etapas
 * Para ver recomendações sobre como criar modelos, consulte [Práticas recomendadas para criação de modelos do Azure Resource Manager](resource-manager-template-best-practices.md).
 * Para obter um exemplo de como criar vários recursos filho, consulte [Implantar várias instâncias de recursos nos modelos do Azure Resource Manager](resource-group-create-multiple.md).
-

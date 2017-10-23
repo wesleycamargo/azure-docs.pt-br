@@ -1,4 +1,3 @@
-
 ---
 title: Perguntas frequentes do agente de Backup do Azure | Microsoft Docs
 description: "Respostas a perguntas comuns sobre: como funciona o agente de backup do Azure, o backup e os limites de retenção."
@@ -16,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
+ms.openlocfilehash: 227cdc87f3e2c8ed393145f4bbde7f74606bdf3b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
-ms.openlocfilehash: b9d022c780b618825bb2416f3834e4ada280092f
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/20/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="questions-about-the-azure-backup-agent"></a>Perguntas sobre o agente de Backup do Azure
 Este artigo possui respostas para perguntas comuns para ajudar você a compreender rapidamente os componentes do agente de Backup do Azure. Em algumas das respostas, há links para artigos com informações abrangentes. Você também pode postar perguntas sobre o serviço de Backup do Azure no [fórum de discussão](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
@@ -128,4 +125,3 @@ O agente de Backup do Azure baseia-se em NTFS. A [especificação de comprimento
  
 ### <a name="i-receive-the-warning-azure-backups-have-not-been-configured-for-this-server-even-though-i-configured-a-backup-policy-br"></a>Recebo o aviso "Os Backups do Azure não foram configurados para este servidor" embora tenha agendado configurado uma política de backup <br/>
 Esse aviso ocorre quando as configurações de agendamento de backup armazenadas no servidor local não são iguais às configurações armazenadas no cofre de backup. Quando o servidor ou as configurações tiverem sido recuperadas para um bom estado conhecido, os agendamentos de backup podem perder a sincronização. Se você receber esse aviso, [reconfigure a política de backup](backup-azure-manage-windows-server.md) e escolha **Executar o Backup Agora** para sincronizar novamente o servidor local com o Azure.
-

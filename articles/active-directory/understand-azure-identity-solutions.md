@@ -13,12 +13,11 @@ ms.service: azure
 ms.technology: 
 ms.assetid: 
 ms.custom: it-pro
-ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
 ms.openlocfilehash: e368f14638c480a632afa7c17023aa8ae4c8833f
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/22/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understand-azure-identity-solutions"></a>Compreender as soluções de identidade do Azure
 O Microsoft Azure Active Directory (Azure AD) é um dispositivo de nuvem de gerenciamento de identidade e acesso que fornece serviços de diretório, governança de identidade e gerenciamento de acesso do aplicativo. O Azure AD rapidamente [habilita SSO (logon único)](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) para milhares de aplicativos comerciais e personalizados pré-integrados na [Galeria de aplicativos do Azure AD](https://azure.microsoft.com/marketplace/active-directory/all/). Muitos desses aplicativos você provavelmente já usa, como o Office 365, Salesforce.com, Box, ServiceNow e Workday.
@@ -128,4 +127,3 @@ Agora que você entende os conceitos de identidade do Azure e as opções dispon
 [Saiba mais em um ambiente de prova de conceito do Azure](https://aka.ms/aad-poc)
 
 [Implantar o Azure AD em produção](https://aka.ms/aad-onboard)
-

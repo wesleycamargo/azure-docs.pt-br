@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: genli
+ms.openlocfilehash: daecef7962ddee2f5e4b6a36c418619285f3ba5a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: ae17a712b0b2a6ba0b9cdf4749fe2aa8b7f535fb
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Perguntas frequentes sobre implantação de Aplicativos Web no Azure
 
@@ -46,7 +45,7 @@ Para resolver esse erro, atualize para o [último SDK](https://azure.microsoft.c
 ## <a name="how-do-i-deploy-an-aspnet-application-from-visual-studio-to-app-service"></a>Como fazer para implantar um aplicativo ASP.NET por meio do Visual Studio no Serviço de Aplicativo?
 <a id="deployasp"></a>
 
-O tutorial [Criar seu primeiro aplicativo Web ASP.NET no Azure em cinco minutos](https://docs.microsoft.com/azure/app-service-web/web-sites-dotnet-get-started/) mostra como implantar um aplicativo Web ASP.NET em um aplicativo Web no Serviço de Aplicativo usando o Visual Studio 2015.
+O tutorial [Criar seu primeiro aplicativo Web ASP.NET no Azure em cinco minutos](app-service-web-get-started-dotnet.md) mostra como implantar um aplicativo Web ASP.NET em um aplicativo Web no Serviço de Aplicativo usando o Visual Studio 2017.
 
 ## <a name="what-are-the-different-types-of-deployment-credentials"></a>Quais são os diferentes tipos de credenciais de implantação?
 
@@ -100,4 +99,3 @@ A implantação contínua de código para essas duas opções depende dos fluxos
 ## <a name="how-do-i-use-ftp-or-ftps-to-deploy-my-app-to-app-service"></a>Como fazer para usar o FTP ou o FTPS para implantar meu aplicativo no Serviço de Aplicativo?
 
 Para obter informações sobre como usar o FTP ou o FTPS para implantar o aplicativo Web no Serviço de Aplicativo, consulte [Implantar o aplicativo no Serviço de Aplicativo usando o FTP/S](app-service-deploy-ftp.md).
-

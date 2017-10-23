@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: bradsev;hangzh;weig
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 9a913533074bfd9b077d66d133f0ad02319a53ad
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>O Processo de Ciência de Dados de Equipe em ação: usando o SQL Data Warehouse
 Neste tutorial, explicamos como criar e implantar de um modelo de Machine Learning usando o SQL DW (SQL Data Warehouse) para um conjunto de dados publicamente disponível – o conjunto de dados [Corridas de Táxi de NYC](http://www.andresmh.com/nyctaxitrips/). O modelo de classificação binária construído prevê se uma gorjeta foi paga ou não por uma corrida. Também discutimos os modelos de regressão e classificação multiclasse que preveem a distribuição das gorjetas pagas.
@@ -805,9 +804,7 @@ Nesta seção, exploraremos distribuições de dados usando os dados de amostra 
     query = '''SELECT TOP 100 * FROM <schemaname>.<nyctaxi_sample>'''
     pd.read_sql(query,conn)
 
-## 
-            <a name="mlmodel">
-            </a>Compilar modelos no Azure Machine Learning
+## <a name="mlmodel"></a>Compilar modelos no Azure Machine Learning
 Agora estamos prontos para prosseguir com a criação e implantação de modelo no [Azure Machine Learning](https://studio.azureml.net). Os dados estão prontos para serem usados em qualquer um dos problemas de previsão identificados anteriormente, ou seja:
 
 1. **Classificação binária**: para prever se uma gorjeta foi ou não paga em uma corrida.
@@ -923,4 +920,3 @@ Este passo a passo do exemplo, os scripts que o acompanham e os IPython Notebook
 [edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
 [import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-

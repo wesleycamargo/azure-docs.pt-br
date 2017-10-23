@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/10/2016
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 773043f2841ec7539b0d49357dec6bcb9f4f78a1
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/03/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="instance-level-public-ip-classic-overview"></a>Visão geral de IP público em nível de instância (Clássico)
 Um ILPIP (IP público em nível de instância) é um endereço IP público que pode ser atribuído diretamente a uma VM ou instância de função dos Serviços de Nuvem, em vez de ao serviço de nuvem no qual a VM ou a instância de função reside. Ele não substitui o VIP (IP virtual) que é atribuído ao serviço de nuvem. Ao contrário, é um endereço IP adicional que você pode usar para se conectar diretamente à sua VM ou instância de função.
@@ -93,7 +91,7 @@ Saída esperada:
     AvailabilitySetName         : 
     DNSName                     : http://ftpservice888.cloudapp.net/
     Status                      : ReadyRole
-    GuestAgentStatus            :     Microsoft.WindowsAzure.Commands.ServiceManagement.Model.GuestAgentStatus
+    GuestAgentStatus            :   Microsoft.WindowsAzure.Commands.ServiceManagement.Model.GuestAgentStatus
     ResourceExtensionStatusList : {Microsoft.Compute.BGInfo}
     PublicIPAddress             : 104.43.142.188
     PublicIPName                : ftpip
@@ -149,4 +147,3 @@ Para adicionar um ILPIP a uma instância de função dos Serviços de Nuvem, con
 ## <a name="next-steps"></a>Próximas etapas
 * Entenda como o [endereçamento IP](virtual-network-ip-addresses-overview-classic.md) funciona no modelo de implantação clássica.
 * Saiba mais sobre [IPs reservados](virtual-networks-reserved-public-ip.md).
-

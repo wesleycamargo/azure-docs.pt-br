@@ -14,16 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ab8c601d862868018fdffb4cd49e8b26acb878c9
-ms.openlocfilehash: 65e5e6938ce67b6ba9751e38d23715f3512c4b93
-ms.contentlocale: pt-br
-ms.lasthandoff: 02/06/2017
-
+ms.openlocfilehash: 0e5ccf5a38072e31d85bbc63eb0c608b0c34cfc2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-<a id="windows-powershell-connector-technical-reference" class="xliff"></a>
-
-# Referência técnica do Windows PowerShell Connector
+# <a name="windows-powershell-connector-technical-reference"></a>Referência técnica do Windows PowerShell Connector
 Este artigo descreve o conector do Windows PowerShell. O artigo se aplica aos seguintes produtos:
 
 * Microsoft Identity Manager 2016 (MIM2016)
@@ -32,14 +29,10 @@ Este artigo descreve o conector do Windows PowerShell. O artigo se aplica aos se
 
 Para MIM2016 e FIM2010R2 o conector está disponível para download do [Centro de Download da Microsoft](http://go.microsoft.com/fwlink/?LinkId=717495).
 
-<a id="overview-of-the-powershell-connector" class="xliff"></a>
-
-## Visão geral do conector do PowerShell
+## <a name="overview-of-the-powershell-connector"></a>Visão geral do conector do PowerShell
 O conector do PowerShell o habilita a integrar o serviço de sincronização a sistemas externos que oferecem que APIs baseadas no Windows PowerShell. O conector fornece uma ponte entre os recursos da estrutura do ECMA2 (agente de gerenciamento de conectividade extensível 2) baseada em chamada e o Windows PowerShell. Para obter mais informações sobre a estrutura do ECMA, confira [Extensible Connectivity 2.2 Management Agent Reference](https://msdn.microsoft.com/library/windows/desktop/hh859557.aspx).
 
-<a id="prerequisites" class="xliff"></a>
-
-### Pré-requisitos
+### <a name="prerequisites"></a>Pré-requisitos
 Para usar o conector, verifique se você tem os seguintes itens no servidor de sincronização:
 
 * Microsoft .NET 4.5.2 Framework ou posterior
@@ -48,9 +41,7 @@ Para usar o conector, verifique se você tem os seguintes itens no servidor de s
 A política de execução no servidor do Serviço de Sincronização deve ser configurada para permitir que o conector execute scripts do Windows PowerShell. A menos que os scripts que o conector executa sejam digitalmente assinados, configure a política de execução usando este comando:   
 `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned`
 
-<a id="create-a-new-connector" class="xliff"></a>
-
-## Criar um novo conector
+## <a name="create-a-new-connector"></a>Criar um novo conector
 Para criar um conector Windows PowerShell no serviço de sincronização, você deve fornecer uma série de scripts do Windows PowerShell que execute as etapas solicitadas pelo serviço de sincronização. Os scripts que você deve implementar variam de acordo com a fonte de dados com a qual você vai se conectar e da funcionalidade que vai exigir. Esta seção descreve cada um dos scripts que podem ser implementados e quando eles são exigidos.
 
 O conector Windows PowerShell foi desenvolvido para armazenar cada um dos scripts dentro do banco de dados do Serviço de Sincronização. Embora seja possível executar scripts que são armazenados no sistema de arquivos, é mais fácil inserir o corpo de cada script diretamente na configuração do conector.
@@ -59,9 +50,7 @@ Para criar um conector PowerShell, em **Serviço de Sincronização**, selecione
 
 ![Criar o conector](./media/active-directory-aadconnectsync-connector-powershell/createconnector.png)
 
-<a id="connectivity" class="xliff"></a>
-
-### Conectividade
+### <a name="connectivity"></a>Conectividade
 Forneça parâmetros de configuração para se conectar a um sistema remoto. Esses valores são armazenados com segurança pelo Serviço de Sincronização e disponibilizados para os scripts do Windows PowerShell quando o conector for executado.
 
 ![Conectividade](./media/active-directory-aadconnectsync-connector-powershell/connectivity.png)
@@ -126,9 +115,7 @@ Para especificar as definições de configuração personalizadas, separe o nome
 
 Para acessar as definições de configuração personalizadas em um script, você deve colocar o sufixo com um sublinhado ( \_ ) no nome e o escopo do parâmetro (Global, Partição ou RunStep). Por exemplo, para acessar o parâmetro Global FileName, use este trecho de código: `$ConfigurationParameters["FileName_Global"].Value`
 
-<a id="capabilities" class="xliff"></a>
-
-### Funcionalidades
+### <a name="capabilities"></a>Funcionalidades
 A guia Recursos do Designer do Agente de Gerenciamento define o comportamento e a funcionalidade do conector. As seleções feitas nessa guia não podem ser modificadas depois que o conector tiver sido criado. Esta tabela lista as configurações de recurso.
 
 ![Funcionalidades](./media/active-directory-aadconnectsync-connector-powershell/capabilities.png)
@@ -153,9 +140,7 @@ A guia Recursos do Designer do Agente de Gerenciamento define o comportamento e 
 | Habilitar Operações de Senha |Quando marcada, há suporte para scripts de sincronização de senha. |
 | Habilitar Exportar Senha na Primeira Passagem |Quando marcada, as senhas definidas durante o provisionamento são exportadas quando o objeto é criado. |
 
-<a id="global-parameters" class="xliff"></a>
-
-### Parâmetros Globais
+### <a name="global-parameters"></a>Parâmetros Globais
 A guia Parâmetros Globais no Designer de Agente de Gerenciamento permite que você configure os scripts do Windows PowerShell que são executados pelo conector. Você também pode configurar valores globais para configurações personalizadas definidas na guia Conectividade.
 
 **Descoberta de Partição**  
@@ -183,9 +168,7 @@ O script de descoberta de hierarquia recebe os seguintes parâmetros do conector
 
 O script deve retornar um único objeto filho HierarchyNode ou uma Lista[T] de objetos filho HierarchyNode para o pipeline.
 
-<a id="import" class="xliff"></a>
-
-#### Importar
+#### <a name="import"></a>Importar
 Os conectores que oferecem suporte às operações de importação devem implementar três scripts.
 
 **Iniciar Importação**  
@@ -231,9 +214,7 @@ O script de finalização de importação recebe os seguintes parâmetros do con
 
 O script deve retornar um único objeto [CloseImportConnectionResults][cicres] para o pipeline, por exemplo: `Write-Output (New-Object Microsoft.MetadirectoryServices.CloseImportConnectionResults)`
 
-<a id="export" class="xliff"></a>
-
-#### Exportação
+#### <a name="export"></a>Exportação
 Assim como a arquitetura de importação do conector, os conectores que oferecem suporte à exportação devem implementar três scripts.
 
 **Iniciar Importação**  
@@ -279,9 +260,7 @@ O script de finalização de exportação recebe os seguintes parâmetros do con
 
 O script não deve retornar saídas para o pipeline.
 
-<a id="password-synchronization" class="xliff"></a>
-
-#### Sincronização de senha
+#### <a name="password-synchronization"></a>Sincronização de senha
 Os conectores do Windows PowerShell podem ser usados como um destino para alterações/redefinições de senha.
 
 O script de senha recebe os seguintes parâmetros do conector:
@@ -303,17 +282,11 @@ Não é comum que o script de senha retorne algum resultado para o pipeline do W
 * [PasswordIllFormedException][pwdex2] – lançada se a senha não for aceitável para o sistema conectado.
 * [PasswordExtension][pwdex3] – lançada para todos os outros erros no script de senha.
 
-<a id="sample-connectors" class="xliff"></a>
-
-## Conectores de exemplo
+## <a name="sample-connectors"></a>Conectores de exemplo
 Para obter uma visão geral completa dos conectores de exemplo disponíveis, confira [Windows PowerShell Connector Sample Connector Collection][samp].
 
-<a id="other-notes" class="xliff"></a>
-
-## Outras observações
-<a id="additional-configuration-for-impersonation" class="xliff"></a>
-
-### Configuração adicional para representação
+## <a name="other-notes"></a>Outras observações
+### <a name="additional-configuration-for-impersonation"></a>Configuração adicional para representação
 Conceda ao usuário que é representado as seguintes permissões no servidor do Serviço de Sincronização:
 
 Acesso de leitura para as seguintes chaves do registro:
@@ -336,9 +309,7 @@ Acesso de leitura para as seguintes pastas do sistema de arquivos:
 
 Substitua o nome do conector Windows PowerShell para o espaço reservado {ConnectorName}.
 
-<a id="troubleshooting" class="xliff"></a>
-
-## Solucionar problemas
+## <a name="troubleshooting"></a>Solucionar problemas
 * Para saber mais sobre como habilitar o registro em log para solucionar problemas do conector, confira [How to Enable ETW Tracing for Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
@@ -371,4 +342,3 @@ Substitua o nome do conector Windows PowerShell para o espaço reservado {Connec
 [pwdex2]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.passwordillformedexception.aspx
 [pwdex3]: https://msdn.microsoft.com/library/windows/desktop/microsoft.metadirectoryservices.passwordextensionexception.aspx
 [samp]: http://go.microsoft.com/fwlink/?LinkId=394291
-

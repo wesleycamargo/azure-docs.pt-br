@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/21/2017
 ms.author: tomsh
-ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
 ms.openlocfilehash: 5bd6fe0dd369b3bbc7ca0d697c964badda557cb8
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/03/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-database-security-best-practices"></a>Melhores práticas de segurança do banco de dados do Azure
 
 A segurança é uma das principais preocupações durante o gerenciamento de bancos de dados e sempre foi uma prioridade para o Banco de Dados SQL do Azure. Seus bancos de dados podem ser totalmente protegidos para ajudar a atender a maioria dos requisitos regulamentares ou de segurança, como HIPAA, ISO 27001/27002 e PCI DSS Nível 1, entre outros. Uma lista atual das certificações de conformidade de segurança está disponível no [site da Central de Confiabilidade da Microsoft](http://azure.microsoft.com/support/trust-center/services/). Você também pode optar por colocar seus bancos de dados em datacenters do Azure específico com base em requisitos regulamentares.
@@ -172,4 +170,3 @@ O Banco de Dados do Azure é uma plataforma robusta de banco de dados, com uma g
 - Para saber mais sobre regras de firewall, consulte [Regras de firewall](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure).
 - Para saber mais sobre logons e usuários, veja [Gerenciar logons](https://docs.microsoft.com/azure/sql-database/sql-database-manage-logins).
 - Para obter um tutorial, consulte [Proteger o Banco de Dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial).
-

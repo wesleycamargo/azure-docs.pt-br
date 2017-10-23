@@ -15,12 +15,11 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/22/2017
 ms.author: arramac
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8be2bcb9179e9af0957fcee69680ac803fd3d918
-ms.openlocfilehash: 29e7eebda5177d6e852ef04ad82d9d38a8d30ed8
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/23/2017
-
+ms.openlocfilehash: 9d347f37ed6e0ddcde9d2f9a7a8d1d8ff65ab4f9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-build-a-net-application-using-the-table-api"></a>BD Cosmos do Azure: compilar um aplicativo .NET usando a API de Tabela
 
@@ -87,18 +86,24 @@ Façamos uma rápida análise do que está acontecendo no aplicativo. Abra o arq
     table.CreateIfNotExists();
     ```
 
-* Um novo contêiner de Tabela é criado. Você observará que esse código é muito semelhante a um SDK normal de Armazenamento de Tabelas do Azure. 
+* Uma série de etapas são executadas na tabela usando a classe `TableOperation`.
 
-    ```csharp
-    CustomerEntity item = new CustomerEntity()
-                {
-                    PartitionKey = Guid.NewGuid().ToString(),
-                    RowKey = Guid.NewGuid().ToString(),
-                    Email = $"{GetRandomString(6)}@contoso.com",
-                    PhoneNumber = "425-555-0102",
-                    Bio = GetRandomString(1000)
-                };
-    ```
+   ```csharp
+   TableOperation insertOperation = TableOperation.Insert(item);
+   table.Execute(insertOperation);
+   ```
+   
+   ```csharp
+   TableOperation retrieveOperation = TableOperation.Retrieve<T>(items[i].PartitionKey, items[i].RowKey);
+   table.Execute(retrieveOperation);
+   ```
+   
+   
+   ```csharp
+   TableOperation deleteOperation = TableOperation.Delete(items[i]);
+   table.Execute(deleteOperation);
+   ```
+
 
 ## <a name="update-your-connection-string"></a>Atualizar sua cadeia de conexão
 
@@ -117,9 +122,9 @@ Agora vamos atualizar as informações de cadeia de conexão para que o seu apli
 
     Você pode deixar o StandardStorageConnectionString como está.
 
-Agora, você atualizou o aplicativo com todas as informações necessárias para se comunicar com o BD Cosmos do Azure. 
+Agora, você atualizou o aplicativo com todas as informações necessárias para se comunicar com o Azure Cosmos DB. 
 
-## <a name="run-the-web-app"></a>Executar o aplicativo Web
+## <a name="run-the-console-app"></a>Execute o aplicativo de console
 
 1. No Visual Studio, clique com o botão direito do mouse no projeto **PremiumTableGetStarted** no **Gerenciador de Soluções** e clique em **Gerenciar Pacotes NuGet**. 
 
@@ -158,5 +163,4 @@ Neste início rápido, você aprendeu como criar uma conta do BD Cosmos do Azure
 
 > [!div class="nextstepaction"]
 > [Consultar usando a API de Tabela](tutorial-query-table.md)
-
 

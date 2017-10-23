@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2016
 ms.author: ilanr9;yijichen;garye
-ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
 ms.openlocfilehash: 275e387878900154660d044b26ff5ac03a17a65a
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/11/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>Manual do Modelo de Solução do Cortana Intelligence para a previsão de demanda de energia
 ## <a name="executive-summary"></a>Resumo executivo
@@ -173,7 +171,7 @@ Por fim, não há necessidade de investir em manutenção de TI ou em desenvolvi
 Para uma empresa que esteja iniciando sua transição para a nuvem, é altamente recomendável adotar uma abordagem gradual ao implementar um roteiro de migração na nuvem. Acreditamos que, para empresas de serviços e para as empresas no domínio de energia, os casos de uso abordados neste manual representam uma excelente oportunidade para a criação de pilotos de soluções de análise preditiva na nuvem.
 
 #### <a name="business-case-justification-considerations"></a>Considerações sobre a Justificativa de Casos de Negócios
-Em muitos casos, o cliente pode estar interessado em criar uma justificativa de negócios para um determinado caso de uso em que uma solução baseada em nuvem e o aprendizado de máquina são componentes importantes. Ao contrário de uma solução local, no caso de uma solução baseada em nuvem, o componente de custo inicial é mínimo e a maioria dos elementos de custo está associada ao uso real. Quando se trata de implantar uma solução de previsão de energia no Cortana Intelligence Suite, vários serviços podem ser integrados a uma única estrutura de custo comum. Por exemplo, os bancos de dados (*por exemplo*, o SQL Azure) podem ser usados para armazenar os dados brutos e, para as previsões reais, o AM do Azure será usado para hospedar os serviços de previsão. Neste exemplo, a estrutura de custo poderia incluir componentes transacionais e de armazenamento.
+Em muitos casos, o cliente pode estar interessado em criar uma justificativa de negócios para um determinado caso de uso em que uma solução baseada em nuvem e o Machine Learning são componentes importantes. Ao contrário de uma solução local, no caso de uma solução baseada em nuvem, o componente de custo inicial é mínimo e a maioria dos elementos de custo está associada ao uso real. Quando se trata de implantar uma solução de previsão de energia no Cortana Intelligence Suite, vários serviços podem ser integrados a uma única estrutura de custo comum. Por exemplo, os bancos de dados (*por exemplo*, o SQL Azure) podem ser usados para armazenar os dados brutos e, para as previsões reais, o AM do Azure será usado para hospedar os serviços de previsão. Neste exemplo, a estrutura de custo poderia incluir componentes transacionais e de armazenamento.
 
 Por outro lado, você deve ter uma boa compreensão do valor de negócio da operação de uma previsão de demanda de energia (a curto ou a longo prazo). Na verdade, é importante perceber o valor de negócio de cada operação de previsão. Por exemplo, prever uma carga de energia para as próximas 24 horas com precisão pode impedir a produção em excesso ou pode ajudar a impedir sobrecargas na rede, Isso pode ser quantificado em termos de economia financeira diariamente.
 
@@ -402,5 +400,4 @@ O diagrama a seguir ilustra uma arquitetura típica do Cortana Intelligence que 
 ![Arquitetura de Implantação Completa](media/cortana-analytics-playbook-demand-forecasting-energy/architecture.png)
 
 Para saber mais sobre cada um dos componentes e sobre a arquitetura inteira, veja o Modelo de Solução de Energia.
-
 

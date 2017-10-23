@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2017
 ms.author: ddove
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: ff9f3ee4e44f7d0b51a6724304b0ec0f967f7d88
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 6b68bbb0133afd1493acdb58f79f3eeaf6a8d7cd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="data-dependent-routing"></a>Roteamento dependente de dados
 **Roteamento dependente de dados** é a capacidade de usar os dados em uma consulta para encaminhar a solicitação para um banco de dados apropriado. Trata-se de um padrão fundamental ao trabalhar com bancos de dados fragmentados. O contexto da solicitação também poderá ser usado para encaminhar a solicitação, especialmente se a chave de fragmentação não fizer parte da consulta. Cada consulta específica ou a transação em um aplicativo que usa o roteamento dependentes de dados é restrita a acessar um banco de dados individual por solicitação. Para as ferramentas do Banco de Dados Elástico SQL do Azure, esse encaminhamento é feito com a **[classe ShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx)** nos aplicativos ADO.NET.
@@ -128,5 +126,4 @@ Propriedades transacionais são garantidas para todas as operações locais para
 Para desanexar um fragmento ou anexar um fragmento novamente, consulte [Usando a classe RecoveryManager para corrigir problemas do mapa de fragmentos](sql-database-elastic-database-recovery-manager.md)
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
-
 

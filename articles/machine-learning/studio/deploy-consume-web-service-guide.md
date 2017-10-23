@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 9841b61c21586976ee06ffc1fe4d01e3fc3428b6
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-machine-learning-web-services-deployment-and-consumption"></a>Serviços Web do Azure Machine Learning: implantação e consumo
 Você pode usar o Azure Machine Learning para implantar fluxos de trabalho e modelos de aprendizado de máquina como serviços Web. Esses serviços Web podem ser usados para chamar os modelos de aprendizado de máquina de aplicativos pela Internet para fazer previsões em tempo real ou no modo de lote. Como os serviços Web são RESTful, você pode chamá-los por meio de várias linguagens de programação e plataformas, como .NET e Java, e de aplicativos, como o Excel.
@@ -37,8 +36,7 @@ Os seguintes links fornecem informações gerais sobre como implantar um novo se
 * Para obter um passo a passo completo de como criar e implantar um serviço Web, consulte [Etapa 1 do passo a passo: Criar um espaço de trabalho do Machine Learning](walkthrough-1-create-ml-workspace.md).
 * Para obter exemplos específicos que implantam um serviço Web, consulte:
 
-  * 
-            [Etapa 5 do passo-a-passo: Implantar o serviço Web de Azure Machine Learning](walkthrough-5-publish-web-service.md)
+  * [Etapa 5 do passo-a-passo: Implantar o serviço Web de Azure Machine Learning](walkthrough-5-publish-web-service.md)
   * [Como implantar um serviço Web em várias regiões](how-to-deploy-to-multiple-regions.md)
 
 ### <a name="with-web-services-resource-provider-apis-azure-resource-manager-apis"></a>Com as APIs do provedor de recursos dos serviços Web (APIs do Azure Resource Manager)
@@ -79,8 +77,7 @@ Aqui está um exemplo:
 
 Consulte os seguintes artigos e o código de exemplo para obter mais detalhes:
 
-* 
-            [cmdlets do Azure Machine Learning](https://msdn.microsoft.com/library/azure/mt767952.aspx) no MSDN
+* [cmdlets do Azure Machine Learning](https://msdn.microsoft.com/library/azure/mt767952.aspx) no MSDN
 * [Passo a passo](https://github.com/raymondlaghaeian/azureml-webservices-arm-powershell/blob/master/sample-commands.txt) de exemplo no GitHub
 
 ## <a name="consume-the-web-services"></a>Consumir os serviços Web
@@ -88,10 +85,8 @@ Consulte os seguintes artigos e o código de exemplo para obter mais detalhes:
 Você pode testar o serviço Web no portal dos Serviços Web do Azure Machine Learning. Isso inclui o teste das interfaces do RRS (serviço de Solicitação-Resposta) e do BES (serviço de Execução em Lotes).
 
 * [Implantar um novo serviço Web](publish-a-machine-learning-web-service.md)
-* 
-            [Implantar um serviço Web de Azure Machine Learning](publish-a-machine-learning-web-service.md)
-* 
-            [Etapa 5 do passo-a-passo: Implantar o serviço Web de Azure Machine Learning](walkthrough-5-publish-web-service.md)
+* [Implantar um serviço Web de Azure Machine Learning](publish-a-machine-learning-web-service.md)
+* [Etapa 5 do passo-a-passo: Implantar o serviço Web de Azure Machine Learning](walkthrough-5-publish-web-service.md)
 
 ### <a name="from-excel"></a>No Excel
 Você pode baixar um modelo do Excel que consome o serviço Web:
@@ -101,4 +96,3 @@ Você pode baixar um modelo do Excel que consome o serviço Web:
 
 ### <a name="from-a-rest-based-client"></a>Em um cliente baseado em REST
 Os Serviços Web do Azure Machine Learning são APIs RESTful. Você pode consumir essas APIs em várias plataformas, como .NET, Python, R, Java, etc. A página **Consumo** do serviço Web no [portal dos Serviços Web do Microsoft Azure Machine Learning](https://services.azureml.net) traz um código de exemplo que pode ajudá-lo a se familiarizar. Para saber mais, veja [Como consumir um serviço Web do Azure Machine Learning](consume-web-services.md).
-

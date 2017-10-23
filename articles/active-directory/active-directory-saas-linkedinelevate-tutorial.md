@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 5336543e06d60be555722a615568b12048c2aa2f
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-elevate"></a>Tutorial: integração do Azure Active Directory com o LinkedIn Elevate
 
@@ -257,4 +256,3 @@ Quando você clica no bloco LinkedIn Elevate no Painel de Acesso, você deve obt
 [201]: ./media/active-directory-saas-linkedinElevate-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-linkedinElevate-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-linkedinElevate-tutorial/tutorial_general_203.png
-

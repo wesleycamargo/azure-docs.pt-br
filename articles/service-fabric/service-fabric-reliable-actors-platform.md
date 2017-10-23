@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/07/2017
+ms.date: 09/20/2017
 ms.author: vturecek
-translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: 0a12da52b6e74c721cd25f89e7cde3c07153a396
-ms.lasthandoff: 04/14/2017
-
-
+ms.openlocfilehash: 43b3f758fe7017c0ec949ba6e28b76438cf1bc13
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-reliable-actors-use-the-service-fabric-platform"></a>Como Reliable Actors usam a plataforma do Service Fabric
 Este artigo explica sobre o funcionamento dos Reliable Actors na plataforma do Azure Service Fabric. Os Reliable Actors são executados em uma estrutura hospedada em uma implementação de um serviço confiável com estado chamado *serviço de ator*. O serviço de ator contém todos os componentes necessários para gerenciar o ciclo de vida e a expedição de mensagens para seus atores:
@@ -31,7 +30,7 @@ Este artigo explica sobre o funcionamento dos Reliable Actors na plataforma do A
 Juntos, esses componentes formam a estrutura do Reliable Actor.
 
 ## <a name="service-layering"></a>Disposição em camadas de serviço
-Como o próprio serviço de ator é um serviço confiável, todos os conceitos de [modelo de aplicativo](service-fabric-application-model.md), ciclo de vida, [empacotamento](service-fabric-package-apps.md), [implantação](service-fabric-deploy-remove-applications.md), atualização e dimensionamento dos Reliable Services aplicam-se da mesma maneira aos serviços de ator. 
+Como o próprio serviço de ator é um serviço confiável, todos os conceitos de [modelo de aplicativo](service-fabric-application-model.md), ciclo de vida, [empacotamento](service-fabric-package-apps.md), [implantação](service-fabric-deploy-remove-applications.md), atualização e dimensionamento dos Reliable Services aplicam-se da mesma maneira aos serviços de ator.
 
 ![Disposição em camadas do serviço de ator][1]
 
@@ -373,6 +372,35 @@ ActorProxyBase.create(MyActor.class, new ActorId(1234));
 
 Ao usar GUIDs/UUIDs e cadeias de caracteres, os valores são codificados em hash para um Int64. No entanto, ao fornecer explicitamente um Int64 para uma `ActorId`, o Int64 será mapeado diretamente para uma partição sem hash adicional. Você pode usar essa técnica para controlar em qual partição os atores serão colocados.
 
+## <a name="actor-using-remoting-v2-stack"></a>Ator utilizando Pilha V2 de Comunicação Remota
+Com o pacote NuGet 2.8, os usuários agora podem usar a pilha V2 de Comunicação Remota que é mais eficaz e fornece recursos como Serialização personalizada. A V2 de Comunicação Remota não é compatível com a pilha de Comunicação Remota existente (agora denominada como Pilha de Comunicação Remota V1).
+
+As seguintes alterações são necessárias para usar a Pilha V2 de Comunicação Remota.
+ 1. Adicione o seguinte atributo de assembly nas Interfaces de Ator.
+   ```csharp
+   [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.V2Listener,RemotingClient = RemotingClient.V2Client)]
+   ```
+
+ 2. Compile e atualize os projetos ActorClient e ActorService para começar a usar a Pilha V2.
+
+### <a name="actor-service-upgrade-to-remoting-v2-stack-without-impacting-service-availability"></a>Atualize o ActorService para Pilha V2 de Comunicação Remota sem afetar a Disponibilidade do Serviço.
+Essa alteração será uma atualização da etapa 2. Siga as etapas na mesma sequência, conforme listado.
+
+1.  Adicione o seguinte atributo de assembly nas Interfaces de Ator. Este atributo iniciará dois ouvintes para ActorService, Ouvinte V1 (existente) e V2. Atualize ActorService com essa alteração.
+
+  ```csharp
+  [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.CompatListener,RemotingClient = RemotingClient.V2Client)]
+  ```
+
+2. Atualize ActorClients após concluir a atualização anterior.
+Esta etapa garante que o Proxy do Ator esteja usando a Pilha V2 de Comunicação Remota.
+
+3. Esta etapa é opcional. Altere o atributo acima para remover o Ouvinte V1.
+
+    ```csharp
+    [assembly:FabricTransportActorRemotingProvider(RemotingListener = RemotingListener.V2Listener,RemotingClient = RemotingClient.V2Client)]
+    ```
+
 ## <a name="next-steps"></a>Próximas etapas
 * [Gerenciamento de estado do ator](service-fabric-reliable-actors-state-management.md)
 * [Ciclo de vida do ator e coleta de lixo](service-fabric-reliable-actors-lifecycle.md)
@@ -386,4 +414,3 @@ Ao usar GUIDs/UUIDs e cadeias de caracteres, os valores são codificados em hash
 [3]: ./media/service-fabric-reliable-actors-platform/actor-partition-info.png
 [4]: ./media/service-fabric-reliable-actors-platform/actor-replica-role.png
 [5]: ./media/service-fabric-reliable-actors-introduction/distribution.png
-

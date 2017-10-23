@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/08/2017
 ms.author: danlep
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 7f572adf499dd1fcd0db19500c9049af1e31cdea
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 66837a3a153cda041f5351c52c8ccb1f8ccfea50
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-ssh-keys-with-windows-on-azure"></a>Como usar chaves SSH com o Windows no Azure
 > [!div class="op_single_selector"]
@@ -184,4 +183,3 @@ Você também pode gerar as chaves públicas e privadas [usando OS X e Linux](ma
 Para saber mais sobre o Bash para Windows e os benefícios de ter ferramentas OSS prontamente disponíveis no seu computador Windows, confira [Bash on Ubuntu on Windows](https://msdn.microsoft.com/commandline/wsl/about) (Bash no Ubuntu no Windows).
 
 Se você tiver problemas ao usar o SSH para se conectar às suas VMs Linux, confira [Solucionar problemas de conexão SSH com uma VM do Linux do Azure](troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-

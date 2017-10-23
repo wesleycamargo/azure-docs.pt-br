@@ -15,12 +15,11 @@ ms.devlang: PHP
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm;cephalin
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: c072cb3a7d376d1e3c2b9f741f5410106e701256
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-and-connect-to-a-mysql-database-in-azure"></a>Criar e conectar-se a um banco de dados MySQL no Azure
 Este tutorial mostrará como criar um banco de dados MySQL no [Portal do Azure](https://portal.azure.com) (o provedor é[ClearDB](http://www.cleardb.com/)) e como conectar a ele a partir de um aplicativo Web PHP em execução no [Serviço de Aplicativo do Azure](app-service/app-service-web-overview.md).
@@ -71,4 +70,3 @@ Agora você pode usar essas informações de conexão em qualquer aplicativo Web
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações, consulte o [Centro de Desenvolvimento PHP](/develop/php/).
-

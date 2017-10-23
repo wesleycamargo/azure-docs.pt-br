@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/13/2017
 ms.author: cgronlun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 3423f704a435c3bab463461d05ede468a7a2dd93
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="ask-a-question-you-can-answer-with-data"></a>Fazer uma pergunta que você possa responder com dados
 ## <a name="video-3-data-science-for-beginners-series"></a>Vídeo 3: Série de ciência de dados para iniciantes
@@ -99,4 +98,3 @@ Confira outros vídeos da série "Ciência de dados para iniciantes" no Microsof
 ## <a name="next-steps"></a>Próximas etapas
 * [Teste um primeiro experimento da ciência de dados com o Machine Learning Studio](create-experiment.md)
 * [Obtenha uma introdução ao Machine Learning no Microsoft Azure](what-is-machine-learning.md)
-

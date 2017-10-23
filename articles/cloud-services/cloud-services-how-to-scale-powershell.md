@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2016
 ms.author: mmccrory
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4acea8e7f4714754e6b3e54e9aaa622219ca9f7f
-ms.openlocfilehash: f16d981a0dc33295c1981d9c282beb1d3243d9ef
-ms.contentlocale: pt-br
-ms.lasthandoff: 12/03/2016
-
-
+ms.openlocfilehash: a7ae8ff202d403dff19b8c9a6a09492235db27ac
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-scale-a-cloud-service-in-powershell"></a>Como escalar um serviço de nuvem no PowerShell
 
@@ -81,4 +79,3 @@ Você pode reduzir horizontalmente uma função removendo instâncias da mesma m
 ## <a name="next-steps"></a>Próximas etapas
 
 Não é possível configurar o dimensionamento automático para serviços de nuvem do PowerShell. Para fazer isso, veja [Como dimensionar automaticamente um serviço de nuvem](cloud-services-how-to-scale-portal.md).
-

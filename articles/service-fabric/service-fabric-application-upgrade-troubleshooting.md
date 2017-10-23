@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 10/03/2017
 ms.author: subramar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1cc1ee946d8eb2214fd05701b495bbce6d471a49
-ms.openlocfilehash: 7fc832ff23f5ad652df3cb9c689180c92952ba8e
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/26/2017
-
+ms.openlocfilehash: acfd26674aafab4ed1925d6b33967f917058b1be
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-application-upgrades"></a>Solucionar problemas de atualizações de aplicativo
 Este artigo aborda alguns dos problemas comuns na atualização de um aplicativo do Service Fabric e como resolvê-los.
@@ -86,6 +85,8 @@ O comando **Get-ServiceFabricNode** pode ser usado para verificar se esses dois 
 Uma *UpgradePhase* de *PreUpgradeSafetyCheck* significa que houve problemas na preparação do domínio de atualização antes de a atualização ser executada. Nesse caso, os problemas mais comuns são erros de serviço no fechamento ou rebaixamento de caminhos de código principal.
 
 O **UpgradeState** atual é *RollingBackCompleted*; portanto, a atualização original deve ter sido realizada com uma reversão **FailureAction**, que automaticamente reverteu a atualização em caso de falha. Se a atualização original tivesse sido realizada com um **FailureAction**manual, a atualização estaria em um estado suspenso para permitir a depuração dinâmica do aplicativo.
+
+Em casos raros, o campo **UpgradeDomainProgressAtFailure** poderá estar vazio se a atualização geral atingir o tempo limite assim que o sistema concluir todo o trabalho para o domínio de atualização atual. Se isso acontecer, experimente aumentar os valores de parâmetro de atualização **UpgradeTimeout** e **UpgradeDomainTimeout** e tente novamente a atualização.
 
 ### <a name="investigate-health-check-failures"></a>Investigar falhas de verificação de integridade
 As falhas de verificação de integridade podem ser acionadas por vários problemas que podem ocorrer depois que todos os nós em um domínio de atualização terminam a atualização e passam por todas as verificações de segurança. A saída após este parágrafo é típica de uma falha na atualização devido a falhas de verificação de integridade. O campo **UnhealthyEvaluations** captura um instantâneo das verificações de integridade com falha no momento da atualização de acordo com a [política de integridade](service-fabric-health-introduction.md)especificada.
@@ -222,4 +223,3 @@ Controle como seu aplicativo é atualizado usando [Parâmetros de Atualização]
 Torne suas atualizações de aplicativo compatíveis aprendendo a usar a [Serialização de Dados](service-fabric-application-upgrade-data-serialization.md).
 
 Saiba como usar a funcionalidade avançada ao atualizar seu aplicativo consultando os [Tópicos avançados](service-fabric-application-upgrade-advanced.md).
-

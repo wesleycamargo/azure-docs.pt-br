@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2017
 ms.author: adegeo
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: c4ec436df17926114e3e27eabc8ed12761c9614e
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
-
+ms.openlocfilehash: 4650cebe18153e3b10bbec685a66a590348c99e9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-manage-cloud-services"></a>Como gerenciar serviços de nuvem
 > [!div class="op_single_selector"]
@@ -128,4 +127,3 @@ A folha **Visão geral** tem uma barra de status na parte superior. Quando você
 * Saiba como [implantar um serviço de nuvem](cloud-services-how-to-create-deploy-portal.md).
 * Configurar um [nome de domínio personalizado](cloud-services-custom-domain-name-portal.md).
 * Configurar [certificados SSL](cloud-services-configure-ssl-certificate-portal.md).
-

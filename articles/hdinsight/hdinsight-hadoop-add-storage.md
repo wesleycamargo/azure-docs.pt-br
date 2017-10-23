@@ -15,14 +15,12 @@ ms.workload: big-data
 ms.date: 08/04/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
 ms.openlocfilehash: 0853e8605e07c28867676e9c13b89263ade67c88
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/04/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>Adicionar outras contas de armazenamento ao HDInsight
 
 Saiba como usar ações de script para adicionar outras contas de armazenamento do Azure para o HDInsight. As etapas neste documento adicionam uma conta de armazenamento a um cluster HDInsight baseado em Linux existente.
@@ -152,4 +150,3 @@ Se a conta de armazenamento estiver em uma região diferente do cluster do HDIns
 ## <a name="next-steps"></a>Próximas etapas
 
 Você aprendeu a adicionar outras contas de armazenamento a um cluster HDInsight existente. Para saber mais sobre as ações de script, confira [Personalizar clusters HDInsight com base em Linux usando a ação de script](hdinsight-hadoop-customize-cluster-linux.md)
-

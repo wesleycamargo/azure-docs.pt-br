@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: f7ecb22ee46d83867453e035f8a639bc7f7f2d81
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/08/2017
-
+ms.openlocfilehash: f8e78030182b93259238a4f154de11f616915ec6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>Implantar redefinição de senha sem exigir registro do usuário final
 
@@ -138,7 +137,7 @@ Get-AzureADUser | select DisplayName,UserPrincipalName,otherMails,Mobile,Telepho
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Os links a seguir fornecem mais informações sobre a redefinição de senha usando o Azure AD
+Os links a seguir fornecem informações adicionais sobre a redefinição de senha usando o Azure AD
 
 * [**Início Rápido**](active-directory-passwords-getting-started.md): comece agora mesmo a usar o gerenciamento de autoatendimento de senhas do Azure AD 
 * [**Licenciamento**](active-directory-passwords-licensing.md): configure o licenciamento do Azure AD
@@ -148,5 +147,4 @@ Os links a seguir fornecem mais informações sobre a redefinição de senha usa
 * [**Relatórios**](active-directory-passwords-reporting.md): descubra se, quando e onde os usuários estão acessando a funcionalidade SSPR
 * [**Detalhamento Técnico**](active-directory-passwords-how-it-works.md): veja os bastidores para entender como o recurso funciona
 * [**Perguntas frequentes**](active-directory-passwords-faq.md): como? Por quê? O quê? Onde? Quem? Quando? – respostas para perguntas que você sempre quis fazer
-* [**Solucionar problemas**](active-directory-passwords-troubleshoot.md): saiba como resolver problemas comuns encontrados no SSPR
-
+* [**Solução de problemas**](active-directory-passwords-troubleshoot.md) - Saiba como resolver problemas comuns que vemos com a SSPR

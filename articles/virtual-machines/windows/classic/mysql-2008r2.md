@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: cynthn
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: 11850e5ce20efae88a7af9c1d2e4761ed2b70cd7
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-mysql-on-a-virtual-machine-created-with-the-classic-deployment-model-running-windows-server-2016"></a>Instalar o MySQL em uma máquina virtual criada com o modelo de implantação clássico que executa o Windows Server 2016
 [MySQL](https://www.mysql.com) é um banco de dados SQL fonte aberto popular. Este tutorial mostra como instalar e executar a **versão de comunidade do MySQL 5.7.18** como um Servidor MySQL em uma máquina virtual que executa o **Windows Server 2016**. Sua experiência pode ser um pouco diferente em outras versões do MySQL ou do Windows Server.
@@ -122,4 +121,3 @@ Para testar sua conexão remota com a VM do Azure que está executando o serviç
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre como executar o MySQL, consulte a [Documentação do MySQL](http://dev.mysql.com/doc/).
-

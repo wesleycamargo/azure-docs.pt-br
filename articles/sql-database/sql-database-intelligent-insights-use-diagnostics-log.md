@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: NA
 ms.date: 09/25/2017
 ms.author: v-daljep
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 4890baa4ead3323834a82b3f9340cf751bf0c755
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Use o log de diagnóstico de desempenho do Banco de dados SQL do Azure com Insights inteligentes
 
 Esta página fornece informações sobre como usar o log de diagnóstico de desempenho de Banco de dados SQL do Azure gerados pelo [Insights inteligentes](sql-database-intelligent-insights.md), o formato e dados que ele contém para suas necessidades desenvolvimento personalizadas. Esse log de diagnóstico pode ser enviado para [Log Analytics do Azure](../log-analytics/log-analytics-azure-sql.md), [Hub de eventos do Azure](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md), [Armazenamento do Azure](sql-database-metrics-diag-logging.md#stream-into-azure-storage) ou uma solução de terceiros para recursos personalizados de alertas e relatórios de DevOps.
@@ -147,7 +145,6 @@ O log de desempenho do Insights inteligentes pode ser usado com a [Log Analytics
 - Saiba como [Solucionar problemas de desempenho do Banco de dados SQL do Azure com Insights inteligentes](sql-database-intelligent-insights-troubleshoot-performance.md)
 - Saiba como [monitorar o Banco de dados SQL do Azure usando a Análise de SQL do Azure](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql)
 - [Colete e consuma dados de log de recursos do Azure](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
-
 
 
 

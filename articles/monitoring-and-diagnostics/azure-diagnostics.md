@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/18/2017
 ms.author: robb
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 0c6e4d9d2a3744f607b72364f3944c700acd070c
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-azure-diagnostics"></a>O que é o Diagnóstico do Azure
 O Diagnóstico do Azure é a capacidade do Azure que habilita a coleta de dados de diagnóstico em um aplicativo implantado. Você pode usar a extensão de diagnóstico de várias fontes diferentes. As que têm suporte no momento são as Funções de Trabalho ou Web do Serviço de Nuvem, as Máquinas Virtuais do Azure que executam o Microsoft Windows e o Service Fabric. Outros serviços do Azure têm seu próprios diagnósticos separados.
@@ -79,4 +78,3 @@ Comece em [Monitorar um aplicativo do Service Fabric](../service-fabric/service-
 * Saiba como [usar os Contadores de Desempenho no Diagnóstico do Azure](../cloud-services/cloud-services-dotnet-diagnostics-performance-counters.md).
 * Saiba como [Rotear informações de diagnóstico do Azure para o Application Insights](azure-diagnostics-configure-application-insights.md)
 * Se você tiver problemas com o início do diagnóstico ou com a localização de seus dados nas tabelas do Armazenamento do Azure, veja [Solução de Problemas do Diagnóstico do Azure](azure-diagnostics-troubleshooting.md)
-

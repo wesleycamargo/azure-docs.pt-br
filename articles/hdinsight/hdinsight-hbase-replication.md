@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2017
+ms.date: 10/09/2017
 ms.author: jgao
+ms.openlocfilehash: fbd6ff573a1d4f7fe2754935dd8c199092076725
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
-ms.openlocfilehash: 87f4d219a678cab78980af2ff8b98ae55739f04c
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/09/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurar a replicação de cluster HBase nas redes virtuais do Azure
 
@@ -57,7 +56,7 @@ Há três opções de configuração:
 
 Para facilitar a configuração dos ambientes, alguns [modelos do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) foram criados. Se você preferir configurar os ambientes usando outros métodos, consulte:
 
-- [Criar clusters Hadoop baseados em Linux em HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
+- [Criar clusters Hadoop no HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 - [Criar clusters HBase na rede virtual do Azure](hdinsight-hbase-provision-vnet.md)
 
 ### <a name="set-up-one-virtual-network"></a>Configurar uma rede virtual
@@ -97,11 +96,54 @@ Para o cenário entre redes virtuais, é necessário usar a opção **-ip** ao c
 
 ### <a name="set-up-two-virtual-networks-in-two-different-regions"></a>Configurar duas redes virtuais em duas regiões diferentes
 
-Para criar duas redes virtuais em duas regiões diferentes, selecione a imagem a seguir. O modelo está armazenado em um contêiner de blob global do Azure.
+Para criar duas redes virtuais em duas regiões diferentes e a conexão VPN entre VNets, clique na imagem a seguir. O modelo está armazenado em [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-replication-geo/).
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhbaseha%2Fdeploy-hbase-geo-replication.json" target="_blank"><img src="./media/hdinsight-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-replication-geo%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
-Crie um gateway de VPN entre duas redes virtuais. Para obter instruções, consulte [Criar uma rede virtual com uma conexão site a site](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+Alguns dos valores embutidos em código no modelo:
+
+**VNet 1**
+
+| Propriedade | Valor |
+|----------|-------|
+| Local | Oeste dos EUA |
+| Nome da VNet | &lt;ClusterNamePrevix>-vnet1 |
+| Prefixo de espaço de endereço | 10.1.0.0/16 |
+| Nome da sub-rede | Sub-rede 1 |
+| Prefixo de sub-rede | 10.1.0.0/24 |
+| Nome da sub-rede (gateway) | GatewaySubnet (não pode ser alterado) |
+| Prefixo da sub-rede (gateway) | 10.1.255.0/27 |
+| Nome do Gateway | vnet1gw |
+| Tipo de gateway | Vpn |
+| Tipo de VPN de gateway | RouteBased |
+| SKU de gateway | Basic |
+| IP do gateway | vnet1gwip |
+| Nome do cluster | &lt;ClusterNamePrefix>1 |
+| Versão do cluster | 3.6 |
+| Tipo de cluster | hbase |
+| Contagem de nós de trabalho do cluster | 2 |
+
+
+**VNet 2**
+
+| Propriedade | Valor |
+|----------|-------|
+| Local | Leste dos EUA |
+| Nome da VNet | &lt;ClusterNamePrevix>-vnet2 |
+| Prefixo de espaço de endereço | 10.2.0.0/16 |
+| Nome da sub-rede | Sub-rede 1 |
+| Prefixo de sub-rede | 10.2.0.0/24 |
+| Nome da sub-rede (gateway) | GatewaySubnet (não pode ser alterado) |
+| Prefixo da sub-rede (gateway) | 10.2.255.0/27 |
+| Nome do Gateway | vnet2gw |
+| Tipo de gateway | Vpn |
+| Tipo de VPN de gateway | RouteBased |
+| SKU de gateway | Basic |
+| IP do gateway | vnet1gwip |
+| Nome do cluster | &lt;ClusterNamePrefix>2 |
+| Versão do cluster | 3.6 |
+| Tipo de cluster | hbase |
+| Contagem de nós de trabalho do cluster | 2 |
 
 A replicação de HBase usa os endereços IP das VMs do ZooKeeper. É necessário configurar endereços IP estáticos para os nós de destino do HBase ZooKeeper. Para configurar o endereço IP estático, consulte [Configurar duas redes virtuais na mesma região](#set-up-two-virtual-networks-in-the-same-region), neste artigo.
 
@@ -111,11 +153,11 @@ Para o cenário entre redes virtuais, é necessário usar a opção **-ip** ao c
 
 Ao replicar um cluster, é necessário especificar as tabelas a serem replicadas. Nesta seção, você carrega alguns dados no cluster de origem. Na próxima seção, você habilitará a replicação entre os dois clusters.
 
-Siga as instruções em **Tutorial do HBase: Introdução ao uso do Apache HBase com o Hadoop baseado em Linux no HDInsight** para criar uma tabela [Contatos](hdinsight-hbase-tutorial-get-started-linux.md) e inserir alguns dados na tabela.
+Para criar uma tabela de **Contatos** e inserir alguns dados na tabela, siga as instruções em [Tutorial HBase: Introdução ao uso do Apache HBase no HDInsight](hdinsight-hbase-tutorial-get-started-linux.md).
 
 ## <a name="enable-replication"></a>Habilitar a replicação
 
-As etapas a seguir mostram como chamar o script de ação de script no Portal do Azure. Para obter informações sobre como executar uma ação de script usando o Azure PowerShell e a ferramenta de linha de comando do Azure (CLI do Azure), consulte [Personalizar clusters HDInsight baseados em Linux usando a ação de script](hdinsight-hadoop-customize-cluster-linux.md).
+As etapas a seguir mostram como chamar o script de ação de script no Portal do Azure. Para obter informações sobre como executar uma ação de script usando o Azure PowerShell e a ferramenta de linha de comando do Azure (CLI do Azure), consulte [Personalizar clusters HDInsight usando a ação de script](hdinsight-hadoop-customize-cluster-linux.md).
 
 **Para habilitar a replicação de HBase no Portal do Azure**
 
@@ -130,7 +172,11 @@ As etapas a seguir mostram como chamar o script de ação de script no Portal do
   3.  **Cabeçalho**: verifique se essa opção está selecionada. Desmarque os outros tipos de nós.
   4. **Parâmetros**: os seguintes parâmetros de exemplo habilitam a replicação de todas as tabelas existentes e copiam todos os dados do cluster de origem para o cluster de destino:
 
-            -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
+          -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -copydata
+    
+    >[!note]
+    >
+    > Use o nome do host em vez de FQDN para o nome DNS do cluster de origem e de destino.
 
 6. Selecione **Criar**. O script pode demorar, especialmente quando o argumento **-copydata** for usado.
 
@@ -237,7 +283,6 @@ Neste tutorial, você aprendeu a configurar a replicação de HBase em uma rede 
 * [Introdução ao Apache HBase no HDInsight][hdinsight-hbase-get-started]
 * [Visão geral do HDInsight HBase][hdinsight-hbase-overview]
 * [Criar clusters HBase na rede virtual do Azure][hdinsight-hbase-provision-vnet]
-* [Analisar o sentimento do Twitter em tempo real com o HBase][hdinsight-hbase-twitter-sentiment]
 * [Analisar dados de sensor com o Storm e o HBase no HDInsight (Hadoop)][hdinsight-sensor-data]
 
 [hdinsight-hbase-geo-replication-vnet]: hdinsight-hbase-geo-replication-configure-vnets.md
@@ -250,8 +295,6 @@ Neste tutorial, você aprendeu a configurar a replicação de HBase em uma rede 
 [hdinsight-hbase-get-started]: hdinsight-hbase-tutorial-get-started-linux.md
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-provision]: hdinsight-hadoop-provision-linux-clusters.md
-[hdinsight-hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
 [hdinsight-sensor-data]: hdinsight-storm-sensor-data-analysis.md
 [hdinsight-hbase-overview]: hdinsight-hbase-overview.md
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
-

@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 05/15/2017
 ms.author: adegeo
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: bb5897a392e500de685421769c414441ddfeb6a3
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-cloud-services-and-aspnet"></a>Introdução aos Serviços de Nuvem do Azure e ao ASP.NET
 
@@ -780,4 +779,3 @@ Para saber mais, consulte os recursos a seguir:
 * [Como gerenciar serviços de nuvem](cloud-services-how-to-manage.md)
 * [Armazenamento do Azure](/documentation/services/storage/)
 * [Como escolher um provedor de serviço de nuvem](https://azure.microsoft.com/overview/choosing-a-cloud-service-provider/)
-

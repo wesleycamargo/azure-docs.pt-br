@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 10/18/2017
 ms.author: curtand
 ms.reviewer: kexia
 custom: it-pro
@@ -83,11 +83,11 @@ A entrada do Azure AD permite que o usuário permaneça conectado ao fechar e re
 1. Entre no [Portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
 2. Escolha **Mais serviços**, insira **Usuários e grupos** na caixa de texto e selecione **Enter**.
 
-   ![Abrir o gerenciamento de usuários](./media/active-directory-branding-custom-signon-azure-portal/user-management.png)
+   ![Abrir o gerenciamento de usuários](./media/customize-branding/user-management.png)
 3. Na folha **Usuários e grupos**, selecione **Identidade visual da empresa**.
 4. Na folha **Usuários e grupos - Identidade visual da empresa**, selecione o comando **Editar**.
 
-    ![Editar identidade visual personalizada](./media/active-directory-branding-custom-signon-azure-portal/edit-branding.png)
+    ![Editar identidade visual personalizada](./media/customize-branding/edit-branding.png)
 5. Modifique os elementos que você deseja personalizar. Todos os elementos são opcionais.
 6. Clique em **Salvar**.
 
@@ -98,11 +98,11 @@ Pode demorar até uma hora para que apareçam todas as alterações feitas à id
 1. Entre no [centro de administração do Azure AD](https://aad.portal.azure.com) com uma conta que seja um administrador global para o diretório.
 2. Escolha **Usuários e grupos** na caixa de texto e então selecione **Enter**.
 
-   ![Abrir o gerenciamento de usuários](./media/active-directory-branding-localize-azure-portal/user-management.png)
+   ![Abrir o gerenciamento de usuários](./media/customize-branding/user-management.png)
 3. Na folha **Usuários e grupos**, selecione **Identidade visual da empresa**.
 4. Na folha **Usuários e grupos - identidade visual da empresa**, selecione o comando **Adicionar idioma**.
 
-    ![Adicionar elementos de identidade visual específicos do idioma](./media/active-directory-branding-localize-azure-portal/add-language.png)
+    ![Adicionar elementos de identidade visual específicos do idioma](./media/customize-branding/add-language.png)
 5. Modifique os elementos que você deseja personalizar. Todos os elementos são opcionais.
 6. Clique em **Salvar**.
 

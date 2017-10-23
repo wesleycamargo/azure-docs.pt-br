@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
 ms.author: bwren
+ms.openlocfilehash: e03911d589aaab0d0e80da5d58f14d6df417f4be
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
-ms.openlocfilehash: 951e76d3fb18d9e433b148e82d4d6cee9417ce6d
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understanding-alerts-in-log-analytics"></a>Noções básicas sobre alertas no Log Analytics
 
@@ -146,4 +145,3 @@ Há outros tipos de registros de alerta criados pela [solução de Gerenciamento
 * Leia mais sobre [pesquisas de log](log-analytics-log-searches.md) que podem gerar alertas.
 * Conclua um passo a passo para [configurar um webhook](log-analytics-alerts-webhooks.md) com uma regra de alerta.  
 * Aprenda a criar [runbooks na Automação do Azure](https://azure.microsoft.com/documentation/services/automation) para corrigir os problemas identificados por alertas.
-

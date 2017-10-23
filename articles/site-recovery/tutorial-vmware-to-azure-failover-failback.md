@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 09/18/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 45f1c61189b338d38681c8e93be01953da65913f
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>Executar failover e failback de VMs VMware e de servidores físicos replicados para Azure
 
@@ -154,4 +153,3 @@ Os dados agora devem estar de volta no site local, mas eles não estão sendo re
 2. Selecione o servidor de processo que é usado para enviar os dados replicados para o Azure e, em seguida, clique em **OK**.
 
 Depois que a nova proteção for concluída, a VM será replicada novamente para o Azure e você poderá executar failover conforme o necessário.
-

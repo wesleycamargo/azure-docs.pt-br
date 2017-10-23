@@ -14,13 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 04/05/2017
 ms.author: betorres
-translationtype: Human Translation
-ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
 ms.openlocfilehash: 303ca5c820f573dc0b58f1910f258403c3baad2a
-ms.lasthandoff: 04/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="what-is-search-traffic-analytics"></a>O que é análise de tráfego de pesquisa
 Análise de tráfego de pesquisa é um padrão de implementação de um loop de comentários para seu serviço de pesquisa. Esse padrão descreve os dados necessários e como coletá-los usando o Application Insights, líder no setor de serviços de monitoramento em várias plataformas.
 
@@ -176,11 +175,11 @@ Para instanciar o modelo de área de trabalho do Power BI, você precisa de trê
 
 Métricas incluídas no modelo de área de trabalho do Power BI:
 
-*    Taxa de cliques (CTR): proporção de usuários que clicam em um documento específico com relação ao número total de pesquisas.
-*    Pesquisa sem cliques: termos das principais consultas que não registraram nenhum clique
-*    Documentos mais clicados: documentos mais clicados por ID nas últimas 24 horas, sete dias e 30 dias.
-*    Pares de documento/termo populares: termos que resultam no mesmo documento clicado, ordenados por cliques.
-*    Hora do clique: cliques classificados por tempo desde a consulta de pesquisa
+*   Taxa de cliques (CTR): proporção de usuários que clicam em um documento específico com relação ao número total de pesquisas.
+*   Pesquisa sem cliques: termos das principais consultas que não registraram nenhum clique
+*   Documentos mais clicados: documentos mais clicados por ID nas últimas 24 horas, sete dias e 30 dias.
+*   Pares de documento/termo populares: termos que resultam no mesmo documento clicado, ordenados por cliques.
+*   Hora do clique: cliques classificados por tempo desde a consulta de pesquisa
 
 ![Modelo do Power BI para leitura do Application Insights][3]
 
@@ -196,4 +195,3 @@ Saiba mais sobre como criar relatórios incríveis. Confira [Introdução ao Pow
 [1]: ./media/search-traffic-analytics/AzureSearch-TrafficAnalytics.png
 [2]: ./media/search-traffic-analytics/AzureSearch-AppInsightsData.png
 [3]: ./media/search-traffic-analytics/AzureSearch-PBITemplate.png
-

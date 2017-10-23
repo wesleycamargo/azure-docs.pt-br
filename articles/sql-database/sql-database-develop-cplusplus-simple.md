@@ -15,12 +15,11 @@ ms.devlang: cpp
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: edmacauley
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 713e4a29550f37b03af3547bead42146a84a417f
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/15/2017
-
+ms.openlocfilehash: ee7398304b7ba864eff17eb6e7d7c3777f4a9fe6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-to-sql-database-using-c-and-c"></a>Conectar-se ao Banco de Dados SQL usando C e C++
 Esta postagem é destinada a desenvolvedores de C e C++ que tentam se conectar ao Banco de Dados de SQL do Azure. Ele é dividido em seções para que você possa ir direto para aquela que melhor captura seu interesse. 
@@ -135,5 +134,4 @@ Você pode encontrar a solução GetStarted que contém todos os exemplos neste 
 ## <a name="additional-resources"></a>Recursos adicionais
 * [Padrões de design para aplicativos SaaS multilocatários com o Banco de Dados SQL do Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md)
 * Explore todos os [recursos do Banco de Dados SQL](https://azure.microsoft.com/services/sql-database/)
-
 

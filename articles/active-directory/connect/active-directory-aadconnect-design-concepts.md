@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: bfb41f254d74bef843461a058ee5b2ced7fc45ec
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/17/2017
-
+ms.openlocfilehash: f23443d438c95a784f655fb9a5f20dfcf37be189
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: conceitos de design
 O objetivo deste tópico é descrever as áreas que devem ser consideradas durante o design de implementação do Azure AD Connect. Este tópico é um aprofundamento em determinadas áreas e esses conceitos também são descritos brevemente em outros tópicos.
@@ -192,4 +191,3 @@ O Azure AD Connect detecta se você está executando em um ambiente de domínio 
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
-

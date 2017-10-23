@@ -14,12 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: b802f880c1131abb7eb9ba00dd8f2e65017bc802
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="nodejs-web-application-using-storage"></a>Aplicativo Web do Node.js usando Armazenamento
 ## <a name="overview"></a>Visão geral
@@ -415,6 +414,5 @@ As etapas a seguir mostram como parar e excluir o aplicativo.
 [Aplicativo Web do Node.js usando o Expresso]: http://azure.microsoft.com/develop/nodejs/tutorials/web-app-with-express/
 [Armazenando e acessando dados no Azure]: http://msdn.microsoft.com/library/azure/gg433040.aspx
 [Aplicativo Web do Node.js]: http://azure.microsoft.com/develop/nodejs/tutorials/getting-started/
-
 
 

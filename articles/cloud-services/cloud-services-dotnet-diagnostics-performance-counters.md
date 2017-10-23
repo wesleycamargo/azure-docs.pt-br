@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/29/2016
 ms.author: robb
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 2cf765cb034725199127c547a9b8b997a4a6089c
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-and-use-performance-counters-in-an-azure-application"></a>Criar e usar contadores de desempenho em um aplicativo do Azure
 Este artigo descreve os benefícios de e como colocar os contadores de desempenho no seu aplicativo do Azure. Você pode usá-los para coletar dados, encontrar afunilamentos e ajustar o desempenho do sistema e do aplicativo.
@@ -321,4 +320,3 @@ public class PerformanceCountersEntity : TableEntity
 
 ## <a name="next-steps"></a>Próximas etapas
 [Exibir artigos adicionais sobre o Diagnóstico do Azure](../azure-diagnostics.md)
-

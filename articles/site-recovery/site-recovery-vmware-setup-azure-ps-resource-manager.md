@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/29/2017
 ms.author: anoopkv
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
 ms.openlocfilehash: 2b9b31abd5d11d02935a74e47d26be9803cdc920
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-a-process-server-running-in-azure-resource-manager"></a>Gerenciar um servidor de processo em execução no Azure (Gerenciador de recursos)
 > [!div class="op_single_selector"]
 > * [Gerenciador de Recursos](./site-recovery-vmware-setup-azure-ps-resource-manager.md)
@@ -79,4 +77,3 @@ Durante o failback, é recomendável implantar o servidor de processo no Azure s
 ## <a name="unregistering-the-process-server-running-in-azure-from-a-configuration-server-running-on-premises"></a>Cancelando o registro de servidor de processo (em execução no Azure) de um servidor de configuração (em execução local)
 
 [!INCLUDE [site-recovery-vmware-unregister-process-server](../../includes/site-recovery-vmware-unregister-process-server.md)]
-

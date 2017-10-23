@@ -16,14 +16,12 @@ ms.topic: article
 ms.date: 03/21/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: f153a740e4814e2573e53b9c051d24c30ff9088f
-ms.lasthandoff: 04/03/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-the-availability-of-linux-virtual-machines"></a>Gerenciar a disponibilidade de máquinas virtuais do Linux
 
 Aprenda como configurar e gerenciar várias máquinas virtuais para garantir a alta disponibilidade do aplicativo Linux no Azure. Você também pode [gerenciar a disponibilidade das máquinas virtuais do Windows](../windows/manage-availability.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -36,5 +34,4 @@ Para obter instruções sobre como criar um conjunto de disponibilidade usando a
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre o balanceamento de carga das máquinas virtuais, veja [Balanceamento de carga de máquinas virtuais](../virtual-machines-linux-load-balance.md).
-
 

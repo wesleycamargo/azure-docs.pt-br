@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2017
 ms.author: vturecek
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
 ms.openlocfilehash: a87924faaf5c6c43716b06b6d70ab5100c61f097
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/01/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="advanced-usage-of-the-reliable-services-programming-model"></a>Uso avançado do modelo de programação de Serviços Confiáveis
 O Service Fabric do Azure simplifica o desenvolvimento e o gerenciamento de serviços confiáveis com e sem estado. Este guia trata dos usos avançados dos Reliable Services para obter mais controle e flexibilidade sobre seus serviços. Antes de ler este guia, familiarize-se com [o do modelo de programação de Serviços Confiáveis](service-fabric-reliable-services-introduction.md).
@@ -71,4 +69,3 @@ Para tópicos mais avançados relacionados ao Service Fabric, consulte os artigo
 * [Introdução à integridade da Malha do Serviço](service-fabric-health-introduction.md)
 * [Usando relatórios de integridade do sistema para solução de problemas](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
 * [Configurando serviços com o Gerenciador de Recursos de Cluster do Service Fabric](service-fabric-cluster-resource-manager-configure-services.md)
-

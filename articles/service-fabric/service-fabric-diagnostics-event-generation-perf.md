@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: dekapur
-ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
 ms.openlocfilehash: 9d63148c182c705b6b49733c59ed8fdd13872d72
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="performance-metrics"></a>Métricas de desempenho
 
 As métricas devem ser coletadas para entender o desempenho de seu cluster, bem como os aplicativos em execução nele. Para clusters do Service Fabric, recomendamos coletar os seguintes contadores de desempenho.
@@ -81,4 +79,3 @@ Se você usar Coleções Confiáveis, recomendamos adicionar o `Avg. Transaction
 
 * Saiba mais sobre a [geração de eventos no nível de plataforma](service-fabric-diagnostics-event-generation-infra.md) do Service Fabric
 * Coletar métricas de desempenho por meio dos [Diagnóstico do Azure](service-fabric-diagnostics-event-aggregation-wad.md)
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: juliako
+ms.openlocfilehash: 796f3b5a4dd56a0160986600cbbcf38faf8add56
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 4ec324d94717fa1f93eda6f24d9dbd9fc0cdc455
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/12/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Como codificar um ativo usando o Media Encoder Standard
 > [!div class="op_single_selector"]
@@ -278,4 +277,3 @@ Agora que você sabe como criar um trabalho para codificar um ativo, consulte [C
 
 ## <a name="see-also"></a>Consulte também
 [Obter processadores de mídia](media-services-rest-get-media-processor.md)
-

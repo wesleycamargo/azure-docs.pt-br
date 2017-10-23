@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: sama
-ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
 ms.openlocfilehash: daad3af089afdf76b930053728bb11a5cf4c2a92
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-built-in-policies"></a>Azure Active Directory B2C: políticas internas
 
@@ -105,5 +104,4 @@ A política de entrada é recomendada se você não precisar localizar suas pol�
 ## <a name="next-steps"></a>Próximas etapas
 * [Configuração de token, de sessão e de logon único](active-directory-b2c-token-session-sso.md)
 * [Desabilitar a verificação de email durante a inscrição do consumidor](active-directory-b2c-reference-disable-ev.md)
-
 

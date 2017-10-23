@@ -12,15 +12,12 @@ ms.tgt_pltfrm: na
 ms.date: 04/17/2017
 ms.author: rasquill
 ms.custom: mvc
+ms.openlocfilehash: 4a20091b59f2643ea71cce99c159a5075706e35d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: db2e0bd43161aad02ffce61b4cd9325892844dde
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="canary-release-microservices-with-vamp-on-an-azure-container-service-dcos-cluster"></a>Microsserviços da versão canário com Vamp no cluster de DC/SO do Serviço de Contêiner do Azure
 
 Neste passo a passo, configuramos o Vamp no Serviço de Contêiner do Azure com um cluster de DC/SO. Fizemos a versão canário do serviço de demonstração do Vamp “sava” e, em seguida, resolvemos uma incompatibilidade do serviço com o Firefox aplicando a filtragem de tráfego inteligente. 
@@ -299,5 +296,4 @@ Também abordamos alguns recursos avançados do Vamp: mesclar uma nova variante 
 * Crie scripts de automação do Vamp no Node.js e execute-os como [Fluxos de trabalho do Vamp](http://vamp.io/documentation/tutorials/create-a-workflow/).
 
 * Consulte [Tutoriais do VAMP](http://vamp.io/documentation/tutorials/overview/) adicionais.
-
 

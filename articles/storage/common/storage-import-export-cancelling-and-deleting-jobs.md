@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 1e989c72fc03697bf6d2e515ff53003703665d1a
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="canceling-and-deleting-azure-importexport-jobs"></a>Cancelando e excluindo trabalhos de Importação/Exportação do Azure
 
  Para solicitar que um trabalho seja cancelado antes que ele entre no estado `Packaging`, chame a operação [Atualizar Propriedades do Trabalho](/rest/api/storageimportexport/jobs#Jobs_Update) e defina o elemento `CancelRequested` como `true`. O trabalho é cancelado com os melhores esforços. Se as unidades estiverem transferindo dados, os dados poderão continuar sendo transferidos mesmo depois que o cancelamento tiver sido solicitado.
@@ -33,4 +31,3 @@ ms.lasthandoff: 08/23/2017
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Usando a API REST do serviço de Importação/Exportação](storage-import-export-using-the-rest-api.md)
-

@@ -200,7 +200,7 @@ Nesta seção, você cria um aplicativo de console .NET que se conecta ao seu hu
             InitTelemetry();
 
             Console.WriteLine("Wait for desired telemetry...");
-            Client.SetDesiredPropertyUpdateCallback(OnDesiredPropertyChanged, null).Wait();
+            Client.SetDesiredPropertyUpdateCallbackAsync(OnDesiredPropertyChanged, null).Wait();
             Console.ReadKey();
         }
         catch (AggregateException ex)

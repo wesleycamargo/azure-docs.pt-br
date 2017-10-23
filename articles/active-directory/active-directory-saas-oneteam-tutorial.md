@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
 ms.openlocfilehash: c4381ca3166bd75bda1179b9a67b2224ba58ae68
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/04/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-oneteam"></a>Tutorial: integração do Azure Active Directory com o Oneteam
 
@@ -238,5 +236,4 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 [201]: ./media/active-directory-saas-oneteam-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-oneteam-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-oneteam-tutorial/tutorial_general_203.png
-
 

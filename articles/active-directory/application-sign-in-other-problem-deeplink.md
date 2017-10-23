@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 7e7c19173229586cc788dbb5a6a01a9b075d33e9
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: 798015ab68afc65378cffc75afec9c7f91fc1926
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="problems-signing-in-to-an-application-using-a-deeplink"></a>Problemas para entrar em um aplicativo usando um DeepLink
 
 O Painel de Acesso é um portal baseado na Web que permite a um usuário com uma conta corporativa ou de estudante no Azure Active Directory (Azure AD) exibir e iniciar aplicativos baseados em nuvem para os quais o administrador do Azure AD concedeu acesso. 
@@ -61,9 +59,9 @@ Para verificar se você tem o DeepLink correto, siga as etapas abaixo:
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
-5.  clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
+5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
   * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
 
@@ -73,9 +71,9 @@ Para verificar se você tem o DeepLink correto, siga as etapas abaixo:
 
 8.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-9.  clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+9.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
-10. clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
+10. Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
    * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
 
@@ -89,7 +87,7 @@ Para instalar a extensão do Navegador do Painel de Acesso, siga as etapas a seg
 
 1.  Abra o [Painel de Acesso](https://myapps.microsoft.com) em um dos navegadores compatíveis e entre como um **usuário** no Azure AD.
 
-2.  Clique em **aplicativo de SSO de senha** no Painel de Acesso.
+2.  Clique no **aplicativo de SSO com senha** no Painel de Acesso.
 
 3.  No prompt solicitando a instalação do software, selecione **Instalar Agora**.
 
@@ -137,7 +135,7 @@ Para adicionar um aplicativo da Galeria do Azure AD, siga as etapas abaixo:
 
 9.  Clique no botão **Adicionar** para adicionar o aplicativo.
 
-Após um curto período de tempo, você poderá ver a folha de configuração do aplicativo.
+Após um breve período, você verá a folha de configuração do aplicativo.
 
 ### <a name="configure-the-application-for-password-single-sign-on"></a>Configurar o aplicativo para logon único com senha
 
@@ -149,15 +147,15 @@ Para configurar o logon único para um aplicativo, siga as etapas abaixo:
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
-5.  clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
+5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
   * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
 
-6.  Selecione o aplicativo para o qual deseja configurar o logon único.
+6.  Selecione o aplicativo para o qual você deseja configurar o logon único.
 
-7.  Após o carregamento do aplicativo, clique em **Logon único** no menu de navegação esquerdo do aplicativo.
+7.  Após o carregamento do aplicativo, clique em **Logon único** no menu de navegação à esquerda do aplicativo.
 
 8.  Selecione o modo **Logon baseado em Senha.**
 
@@ -203,17 +201,17 @@ Para configurar o logon único para um aplicativo, siga as etapas abaixo:
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
-5.  clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
+5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
     1.  Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
 
-6.  Selecione o aplicativo para o qual deseja configurar o logon único.
+6.  Selecione o aplicativo para o qual você deseja configurar o logon único.
 
-7.  Após o carregamento do aplicativo, clique em **Logon único** no menu de navegação esquerdo do aplicativo.
+7.  Após o carregamento do aplicativo, clique em **Logon único** no menu de navegação à esquerda do aplicativo.
 
-8.  Selecione o modo **Logon baseado em Senha.**
+8.  Selecione o modo **Logon baseado em senha.**
 
 9.  Insira a **URL de Logon**. Trata-se da URL em que os usuários inserem o nome de usuário e senha para entrar. Verifique se os campos de entrada estão visíveis na URL.
 
@@ -231,21 +229,21 @@ Para atribuir um ou mais usuários diretamente a um aplicativo, siga as etapas a
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
-5.  clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
+5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
   * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
 
-6.  Na lista, selecione o aplicativo ao qual você deseja atribuir um usuário.
+6.  Na lista, selecione o aplicativo ao qual deseja atribuir um usuário.
 
 7.  Após o carregamento do aplicativo, clique em **Usuários e Grupos** no menu de navegação esquerdo do aplicativo.
 
-8.  Clique no botão **Adicionar** na parte superior da lista **Usuários e Grupos** para abrir a folha **Adicionar atribuição**.
+8.  Clique no botão **Adicionar** na parte superior da lista **Usuários e Grupos** para abrir a folha **Adicionar Atribuição**.
 
-9.  Clique no seletor **Usuários e grupos** da folha **Adicionar atribuição**.
+9.  Clique no seletor **Usuários e grupos** da folha **Adicionar Atribuição**.
 
-10. Digite o **nome completo** ou **endereço de email** do usuário que você deseja atribuir na caixa de pesquisa **Pesquisar por nome ou endereço de email**.
+10. Digite o **nome completo** ou o **endereço de email** do usuário que você deseja atribuir na caixa de pesquisa **Pesquisar por nome ou endereço de email**.
 
 11. Passe o mouse sobre o **usuário** na lista para mostrar uma **caixa de seleção**. Clique na caixa de seleção ao lado do logotipo ou da foto de perfil do usuário para adicioná-lo à lista **Selecionado**.
 
@@ -276,5 +274,4 @@ Abra um tíquete de suporte com as informações a seguir, se estiverem disponí
 -   Rastreamentos do Fiddler
 
 ## <a name="next-steps"></a>Próximas etapas
-[Fornecer logon único para seus aplicativos com o Proxy de Aplicativo](active-directory-application-proxy-sso-using-kcd.md)
-
+[Fornecer logon único para seus aplicativos com Proxy de Aplicativo](active-directory-application-proxy-sso-using-kcd.md)

@@ -10,12 +10,11 @@ ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: article
 ms.date: 06/13/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
-ms.openlocfilehash: 920656aabe21191470f2611279977a763ac14c36
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/16/2017
-
+ms.openlocfilehash: 26f8e12c493904f722cad5191ee053feff20f7fc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-and-access-server-logs-using-azure-cli"></a>Configurar e acessar logs de servidor usando a CLI do Azure
 Você pode listar e baixar logs de erro do servidor PostgreSQL do Azure usando a interface de linha de comando (Azure CLI). No entanto, não há suporte para acesso aos logs de transação. 
@@ -50,4 +49,3 @@ az postgres server-logs download --name 20170414-mypgserver-20170401-postgresql.
 ## <a name="next-steps"></a>Próximas etapas
 - Para saber mais sobre os logs de servidor, confira [Logs de servidor no Banco de Dados do Azure para PostgreSQL](concepts-server-logs.md)
 - Para saber mais sobre os parâmetros de servidor, veja [Personalizar os parâmetros de configuração de servidor usando a CLI do Azure](howto-configure-server-parameters-using-cli.md)
-

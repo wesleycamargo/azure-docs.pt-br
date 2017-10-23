@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2016
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 298e0218c51385caa2de6a684ac40503fc07f5fa
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 64675c51abf80daa3a55220f910aa8fdee1042ca
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>Usar o PowerShell para configurar alertas no Application Insights
 Você pode automatizar a configuração de [alertas](app-insights-alerts.md) no [Application Insights](app-insights-overview.md).
@@ -140,4 +139,3 @@ Você pode [automatizar sua resposta a um alerta](../monitoring-and-diagnostics/
 * [Criar recursos de teste da Web e do Application Insights por meio de modelos](app-insights-powershell.md)
 * [Automatizar o acoplamento do Diagnóstico do Microsoft Azure ao Application Insights](app-insights-powershell-azure-diagnostics.md)
 * [Automatizar sua resposta a um alerta](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
-

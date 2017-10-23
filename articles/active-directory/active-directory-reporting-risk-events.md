@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 08/15/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.translationtype: HT
-ms.sourcegitcommit: 1e6fb68d239ee3a66899f520a91702419461c02b
 ms.openlocfilehash: 71ab5cb02ac70871fb8207ab9220b45d1c842dde
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-risk-events"></a>Eventos de risco do Azure Active Directory
 
@@ -184,4 +183,3 @@ Há dois locais em que você examinar os eventos de risco relatados:
 
 Embora a detecção de eventos de risco já represente um aspecto importante da proteção de suas identidades, você também tem a opção de solucioná-los manualmente ou até mesmo implementar respostas automatizadas por meio da configuração de políticas de acesso condicional. Para obter mais detalhes, confira [Azure Active Directory Identity Protection](active-directory-identityprotection.md).
  
-

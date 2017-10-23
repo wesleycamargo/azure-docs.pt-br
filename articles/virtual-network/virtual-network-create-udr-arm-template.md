@@ -15,13 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 78936ac34cc582684e938efa74133426f1b53741
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: b2c962d5449d18b51cfd84b0e1992695b54d1c48
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-user-defined-routes-udr-using-a-template"></a>Criar UDR (Rotas Definidas pelo Usuário) usando um modelo
 
@@ -47,7 +45,7 @@ A seção a seguir mostra a definição de UDR de front-end no arquivo **azurede
     "name": "[parameters('frontEndRouteTableName')]",
     "location": "[resourceGroup().location]",
     "tags": {
-      "displayName": "UDR - FrontEnd"    
+      "displayName": "UDR - FrontEnd"   
     },
     "properties": {
       "routes": [
@@ -408,4 +406,3 @@ Para implantar o modelo ARM usando a CLI do Azure, siga as etapas a seguir:
 > [!TIP]
 > Se você não encontrar todos os recursos, execute o comando `azure group deployment show` para garantir que o estado de provisionamento da implantação seja *Êxito*.
 > 
-

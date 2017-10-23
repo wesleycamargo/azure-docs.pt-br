@@ -16,14 +16,12 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 05/10/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 5dd4ab4b70cf7f33e2adf2f74bf95a3828ba8b20
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
-
+ms.openlocfilehash: e44e35cc7d11db48cd82e470ce8226b3c8cc220a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-an-azure-cosmos-db-connection-string-for-mongodb-apps-using-powershell"></a>Obtenha uma cadeia de conexão do BD Cosmos do Azure para aplicativos MongoDB usando o PowerShell
 
 Este exemplo obtém uma cadeia de conexão do BD Cosmos do Azure para aplicativos MongoDB usando o PowerShell. 
@@ -32,7 +30,7 @@ Este exemplo obtém uma cadeia de conexão do BD Cosmos do Azure para aplicativo
 
 ## <a name="sample-script"></a>Script de exemplo
 
-[!code-powershell[principal](../../../powershell_scripts/cosmosdb/get-mongodb-connection-string/get-mongodb-connection-string.ps1?highlight=37-41 "Obter a cadeia de conexão do MongoDB de uma conta do BD Cosmos do Azure")]
+[!code-powershell[main](../../../powershell_scripts/cosmosdb/get-mongodb-connection-string/get-mongodb-connection-string.ps1?highlight=37-41 "Get the MongoDB connection string from an Azure Cosmos DB account")]
 
 ## <a name="clean-up-deployment"></a>Limpar implantação
 
@@ -58,4 +56,4 @@ Este script usa os seguintes comandos. Cada comando na tabela redireciona para a
 
 Para obter mais informações sobre o Azure PowerShell, confira [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/).
 
-Exemplos adicionais de scripts do PowerShell do BD Cosmos do Azure podem ser encontrados nos [Scripts do PowerShell do BD Cosmos do Azure](../powershell-samples.md).
+Exemplos adicionais de scripts do PowerShell do Banco de Dados Cosmos do Azure podem ser encontrados nos [Scripts do PowerShell do Banco de Dados Cosmos do Azure](../powershell-samples.md).

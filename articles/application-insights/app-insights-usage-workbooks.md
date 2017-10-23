@@ -12,14 +12,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 06/12/2017
 ms.author: bwren
+ms.openlocfilehash: 75028b4fbda43d90f56690a33c7eb624fce049c8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: 4e7ca1f4b3ca7734b00f4d9ce60b466ecf2aeb3f
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="investigate-and-share-usage-data-with-interactive-workbooks-in-application-insights"></a>Investigar e compartilhar dados de uso com pastas de trabalho interativas no Application Insights
 
 As pastas de trabalho combinam as visualizações de dados do [Azure Application Insights](app-insights-overview.md), as [consultas do Analytics](app-insights-analytics.md) e textos em documentos interativos. As pastas de trabalho são editáveis por outros membros da equipe com acesso ao mesmo recurso do Azure. Isso significa que as consultas e os controles usados para criar uma pasta de trabalho estão disponíveis para outras pessoas que estão lendo a pasta de trabalho, facilitando a exploração, extensão e verificação de erros.
@@ -127,4 +125,3 @@ Para fixar um link em uma pasta de trabalho em um Painel do Azure:
     - [Fluxos de Usuário](app-insights-usage-flows.md)
     - [Adicionar contexto de usuário](app-insights-usage-send-user-context.md)
     
-

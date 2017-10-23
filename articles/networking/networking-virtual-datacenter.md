@@ -11,14 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/26/2017
 ms.author: jonor
+ms.openlocfilehash: 7dcc6b77bde8b8a7b485525105c1a07c53301f8e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
-ms.openlocfilehash: fd656c68b5c3b6858b0aa04c51bdd28f3f0adc24
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/11/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="microsoft-azure-virtual-data-center"></a>Data center virtual do Microsoft Azure
 **Microsoft Azure**: avance mais rapidamente, economize dinheiro, integre aplicativos e dados locais
 
@@ -349,7 +347,7 @@ Os seguintes recursos foram discutidos neste documento. Clique nos links para sa
 [0]: ./media/networking-virtual-datacenter/redundant-equipment.png "Exemplos de sobreposição de componente" 
 [1]: ./media/networking-virtual-datacenter/vdc-high-level.png "Exemplo de alto nível de vDC de hub e spoke"
 [2]: ./media/networking-virtual-datacenter/hub-spokes-cluster.png "Cluster de hubs e spokes"
-[3]: ./media/networking-virtual-datacenter/spoke-to-spoke.png "Spoke a spoke"
+[3]: ./media/networking-virtual-datacenter/spoke-to-spoke.png "Spoke-to-spoke"
 [4]: ./media/networking-virtual-datacenter/vdc-block-level-diagram.png "Diagrama em nível de bloco do vDC"
 [5]: ./media/networking-virtual-datacenter/users-groups-subsciptions.png "Usuários, grupos, assinaturas e projetos"
 [6]: ./media/networking-virtual-datacenter/infrastructure-high-level.png "Diagrama de alto nível de infraestrutura"
@@ -382,9 +380,8 @@ Os seguintes recursos foram discutidos neste documento. Clique nos links para sa
 [DiagLog]: https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs
 [NSGLog]: https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log
 [OMS]: https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview
-[WebApps]: https://docs.microsoft.com/azure/app-service-web/
+[WebApps]: https://docs.microsoft.com/azure/app-service/
 [HDI]: https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-introduction
 [EventHubs]: https://docs.microsoft.com/azure/event-hubs/event-hubs-what-is-event-hubs 
 [ServiceBus]: https://docs.microsoft.com/azure/service-bus-messaging/service-bus-messaging-overview
 [TM]: https://docs.microsoft.com/azure/traffic-manager/traffic-manager-overview
-

@@ -3,7 +3,7 @@ title: "Criação Gráfica na Automação do Azure | Microsoft Docs"
 description: "A criação gráfica permite criar runbooks para a Automação do Azure sem trabalhar com código. Este artigo fornece uma introdução à criação gráfica e todos os detalhes necessários para iniciar a criação de um runbook gráfico."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: tysonn
 ms.assetid: 4b6f840c-e941-4293-a728-b33407317943
@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2017
 ms.author: magoedte;bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7948c99b7b60d77a927743c7869d74147634ddbf
-ms.openlocfilehash: 417fceb0961165d96ece000f95c8a3f973f4f75b
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/20/2017
-
-
+ms.openlocfilehash: 137e8503b9759136510db59700c3032853246c89
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Criação gráfica na Automação do Azure
 ## <a name="introduction"></a>Introdução
@@ -383,5 +381,4 @@ O exemplo a seguir usam a saída de uma atividade chamada *Obter conexão do Twi
 * Para começar a usar os runbooks Gráficos, consulte [Meu primeiro runbook gráfico](automation-first-runbook-graphical.md)
 * Para saber mais sobre os tipos de runbook, suas vantagens e limitações, consulte [Tipos de runbook de Automação do Azure](automation-runbook-types.md)
 * Para entender como autenticar usando a conta Executar Como de automação, consulte [Configurar Conta Executar Como do Azure](automation-sec-configure-azure-runas-account.md)
-
 

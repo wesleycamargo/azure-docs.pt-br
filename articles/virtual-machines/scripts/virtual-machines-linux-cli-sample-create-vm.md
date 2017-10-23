@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 02/27/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: 350084edbf1b604e2dc3674fd06288738a87a31a
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-fully-configured-virtual-machine"></a>Criar uma máquina virtual totalmente configurada
 
 Este script cria uma Máquina Virtual do Azure com um sistema operacional Ubuntu. Após a execução do script, é possível acessar a máquina virtual por SSH.
@@ -34,7 +32,7 @@ Este script cria uma Máquina Virtual do Azure com um sistema operacional Ubuntu
 
 ## <a name="sample-script"></a>Script de exemplo
 
-[!code-azurecli-interactive[principal](../../../cli_scripts/virtual-machine/create-vm-detailed/create-vm-detailed.sh "Criação rápida de VM")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-vm-detailed/create-vm-detailed.sh "Quick Create VM")]
 
 ## <a name="clean-up-deployment"></a>Limpar implantação 
 
@@ -64,4 +62,3 @@ Este script usa os comandos a seguir para criar um grupo de recursos, uma máqui
 Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
 
 Os exemplos de script da CLI de máquina virtual adicionais podem ser encontrados na [documentação da VM Linux do Azure](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-

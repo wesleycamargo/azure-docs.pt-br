@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/15/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
 ms.openlocfilehash: 1ba1bb02c27fa040cc2daef4baf5c9ecc827d323
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-azure-log-analytics-management-solutions-to-your-workspace"></a>Adicionar soluções de gerenciamento de Log Analytics do Azure a seu espaço de trabalho
 
@@ -281,4 +280,3 @@ Nós o convidamos clientes para previews particulares por meio de várias maneir
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Pesquise logs](log-analytics-log-searches.md) para exibir informações detalhadas coletadas pelas soluções de gerenciamento.
-

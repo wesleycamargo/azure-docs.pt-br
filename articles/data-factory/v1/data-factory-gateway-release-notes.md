@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 06/19/2017
 ms.author: abnarain
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 50406e50363054fb92a1783751ba62ca7b3455e4
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Notas de versão para o Gateway de Gerenciamento de Dados
 Um dos desafios da integração de dados moderna é mover dados entre o local e a nuvem. O Data Factory faz essa integração com o Gateway de Gerenciamento de Dados, que é um agente que você pode instalar localmente para habilitar a movimentação de dados híbridos.
@@ -252,4 +251,3 @@ Veja os artigos a seguir para obter informações detalhadas sobre o Gateway de 
 ### <a name="1051442"></a>1.0.5144.2
 
 *  Nenhuma alteração que afeta os cenários do Azure Data Factory.
-

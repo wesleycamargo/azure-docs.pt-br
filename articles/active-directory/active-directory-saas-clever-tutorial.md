@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: 84082ff567e37d7fff80be9e089c67cfab911861
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clever"></a>Tutorial: integração do Active Directory do Azure ao Clever
 
@@ -136,7 +135,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-clever-tutorial/tutorial_attribute_04.png)
+    ![Configurar o logon único](./media/active-directory-saas-clever-tutorial/tutorial_attribute_04.png)
     
     ![Configurar Logon Único](./media/active-directory-saas-clever-tutorial/tutorial_attribute_05.png)
     
@@ -221,7 +220,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](./media/active-directory-saas-clever-tutorial/create_aaduser_04.png)
 
-    a. Na caixa **Nome**, digite **BrittaSimon**.
+    a. Na caixa **Nome**, digite **BrendaFernandes**.
 
     b. Na caixa **Nome de usuário**, digite o endereço de email do usuário Brenda Fernandes.
 
@@ -293,5 +292,4 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 [201]: ./media/active-directory-saas-clever-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-clever-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-clever-tutorial/tutorial_general_203.png
-
 

@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 06/29/2017
 ms.author: robinsh
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: c9175cce0cb93e73009fb8d751e54f631603d482
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-storage-account-using-powershell"></a>Criar uma conta de armazenamento usando o PowerShell
 
 O módulo do Azure PowerShell é usado para criar e gerenciar recursos do Azure da linha de comando do PowerShell ou em scripts. Este guia detalha o uso do PowerShell para criar uma conta de armazenamento do Azure. 
@@ -39,7 +37,7 @@ Faça logon na sua assinatura do Azure com o comando `Login-AzureRmAccount` e si
 Login-AzureRmAccount
 ```
 
-Se você não souber qual localização você deseja usar, poderá listar as localizações disponíveis. Depois que a lista for exibida, encontre a que deseja usar. Este exemplo usará **eastus**. Armazene-a em uma variável e use a variável para que você pode alterá-la em um único local.
+Se você não sabe qual localização deseja usar, você pode listar as localizações disponíveis. Depois que a lista for exibida, encontre a que deseja usar. Este exemplo usará **eastus**. Armazene-a em uma variável e use a variável para que você possa alterá-la em um único local.
 
 ```powershell
 Get-AzureRmLocation | select Location 

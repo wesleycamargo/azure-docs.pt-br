@@ -15,12 +15,11 @@ ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.date: 08/15/2016
 ms.author: seasa
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: a635b214fcc9b37ac426df227420b643e2a02cc7
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: aa51c846efef12461ec382274199bc049c42aaa3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-your-azure-search-service-with-powershell"></a>Gerencie o serviço de Pesquisa do Azure com o PowerShell
 > [!div class="op_single_selector"]
@@ -138,5 +137,4 @@ Agora que o serviço foi criado, você pode executar as próximas etapas: compil
 * [Configurar um indexador para carregar dados de outros serviços](search-indexer-overview.md)
 * [Como usar a pesquisa do Azure no .NET](search-howto-dotnet-sdk.md)
 * [Analisar o tráfego da Pesquisa do Azure](search-traffic-analytics.md)
-
 

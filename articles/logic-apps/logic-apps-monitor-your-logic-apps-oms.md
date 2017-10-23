@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/9/2017
 ms.author: LADocs; divswa
-ms.translationtype: HT
-ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
 ms.openlocfilehash: 5afe01e713516277abc3c2dfcccfc6d36cfc70d4
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="monitor-and-get-insights-about-logic-app-runs-with-operations-management-suite-oms-and-log-analytics"></a>Monitorar e obter informações sobre execuções de aplicativo lógico com o OMS (Operations Management Suite) e o Log Analytics
 
 Para obter informações monitoramento e depuração mais detalhadas, ative o Log Analytics durante a criação de um aplicativo lógico. O Log Analytics fornece o registro em log de diagnóstico e o monitoramento de suas execuções de aplicativo lógico por meio do portal do OMS (Operations Management Suite). Quando você adiciona a solução de Gerenciamento de Aplicativos Lógicos ao OMS, você obtém o status agregado das execuções de seu aplicativo lógico e detalhes específicos, como status, tempo de execução, status de reenvio e IDs de correlação.
@@ -140,4 +138,3 @@ Se você já ativou o Log Analytics durante a criação de seu aplicativo lógic
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Monitorar mensagens do B2B](../logic-apps/logic-apps-monitor-b2b-message.md)
-

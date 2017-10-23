@@ -13,13 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f6006d5e83ad74f386ca23fe52879bfbc9394c0f
-ms.openlocfilehash: 74bf865d796c965b4843092215639b32f033d807
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/03/2017
-
-
+ms.openlocfilehash: 7543811eb9448222b6e7c266756e68debc7d54be
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="export-azure-resource-manager-templates-with-powershell"></a>Exportar modelos do Azure Resource Manager com o PowerShell
 
@@ -223,4 +221,3 @@ Reimplante o modelo modificado.
 * Para obter informações sobre como usar o portal para exportar um modelo, confira [Exportar um modelo do Azure Resource Manager de recursos existentes](resource-manager-export-template.md).
 * Para definir os parâmetros no modelo, consulte [Criando modelos](resource-group-authoring-templates.md#parameters).
 * Para dicas sobre como resolver erros de implantação, consulte [Solução de erros comuns de implantação do Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md).
-

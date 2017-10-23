@@ -15,17 +15,15 @@ ms.topic: article
 ms.date: 09/25/2017
 ms.author: curtand
 ms.reviewer: nigu
+ms.openlocfilehash: af54b77dc985f2ca6abeab29165278dfa598f5e2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 2943e0b119726b31dd6e6507d279f6c8f74df98b
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
+# <a name="set-up-cloud-app-discovery-in-azure-ad"></a>Configurar o Cloud App Discovery no Azure AD
 
-# <a name="get-started-using-cloud-app-discovery-in-azure-ad"></a>Introdução ao uso do Cloud App Discovery no Azure AD
-
-A visualização pública dos aprimoramentos do Cloud App Discovery no Azure AD agora está disponível com uma licença do Azure Active Directory Premium P1. Esses aprimoramentos são baseados na integração com o Microsoft Cloud App Security. O Cloud App Discovery compara os logs de tráfego ao catálogo de mais de 15.000 aplicativos de nuvem do Cloud App Security para fornecer informações em tempo real sobre o uso de nuvem e TI sombra. 
+Os novos aprimoramentos do Cloud App Discovery no Azure AD agora estão disponível com uma licença do Azure Active Directory Premium P1. Esses aprimoramentos são baseados na integração com o Microsoft Cloud App Security. O Cloud App Discovery compara os logs de tráfego ao catálogo de mais de 15.000 aplicativos de nuvem do Cloud App Security para fornecer informações em tempo real sobre o uso de nuvem e TI sombra. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -33,14 +31,14 @@ Sua organização deve ter uma licença Azure AD Premium P1 para usar o produto.
 
 Para configurar o Cloud App Discovery, você deve ser um Administrador Global ou um Leitor de Segurança no Azure Active Directory. Um usuário a quem uma função de administrador é atribuída tem as mesmas permissões em todos os serviços de nuvem assinados pela sua organização.
 
-## <a name="snapshot-and-continuous-reports"></a>Instantâneo e relatórios contínuos
+## <a name="setup-steps"></a>Etapas de instalação
 
-Você pode gerar dois tipos de relatórios:
+1. [Configurar relatórios de instantâneo](cloudappdiscovery-set-up-snapshots.md) para conferir seu formato de log e verificar se os logs fornecem informações úteis ao Cloud App Discovery. Eles também podem fornecer visibilidade ad hoc nos logs de tráfego que você carrega manualmente dos seus firewalls e servidores proxy.
 
-* **Relatórios de instantâneo** fornecem visibilidade ad hoc nos logs de tráfego que você carrega manualmente dos seus firewalls e servidores proxy. Você pode usá-los para garantir que seus logs forneçam informações úteis ao Cloud App Discovery.
+2. [Configure relatórios contínuos](https://docs.microsoft.com/cloud-app-security/discovery-docker) para analisar todos os logs que são encaminhados da sua rede usando o coletor de logs do Cloud App Security. Você pode usá-los para identificar tendências de uso e aplicativos novos.
 
-* **Relatórios contínuos** analisam todos os logs que são encaminhados da sua rede usando o [coletor de logs do Cloud App Security](https://docs.microsoft.com/cloud-app-security/discovery-docker). Você pode usá-los para identificar tendências de uso e aplicativos novos.
-
+3. Se os logs não têm suporte no momento, [configure um analisador de logs personalizado](https://docs.microsoft.com/en-us/cloud-app-security/custom-log-parser) para que o Cloud App Discovery possa analisá-los.
+  
 ## <a name="log-processing-flow"></a>Fluxo de processamento de log
 
 A geração de relatórios pode levar de alguns minutos a várias horas, dependendo da quantidade de dados. Eis o que é analisado:
@@ -134,8 +132,8 @@ Se não há suporte para o seu log, selecione **Outro** como a **Fonte de dados*
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Use os links a seguir para continuar a configurar o Cloud App Discovery aprimorado no Azure AD.
+Use os links a seguir para continuar a configurar o Cloud App Discovery no Azure AD.
 
-* [Criar relatórios de instantâneo do Cloud App Discovery](cloudappdiscovery-set-up-snapshots.md)
-* [Configurar o upload automático de logs para relatório contínuo](https://docs.microsoft.com/cloud-app-security/discovery-docker)
+* [Criar relatórios de instantâneo](cloudappdiscovery-set-up-snapshots.md)
+* [Configurar relatório contínuo](https://docs.microsoft.com/cloud-app-security/discovery-docker)
 * [Usar um analisador de log personalizado](https://docs.microsoft.comcommit/cloud-app-security/custom-log-parser)

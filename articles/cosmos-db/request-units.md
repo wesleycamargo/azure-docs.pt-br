@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: mimig
+ms.openlocfilehash: 83cbc622975344ec2a5700d2e10a5c77371e9899
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 7a4efc0fb9b3855b9dbbe445768ceb2a9940d0b2
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/11/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unidades de Solicitação no Azure Cosmos DB
 Agora disponível: [calculadora de unidades de solicitação](https://www.documentdb.com/capacityplanner) do Azure Cosmos DB. Saiba mais em [Estimativa das necessidades de produção](request-units.md#estimating-throughput-needs).
@@ -40,7 +39,7 @@ Após ler este artigo, você poderá responder as perguntas a seguir:
 * Como estimar as necessidades de unidades de solicitação de meu aplicativo?
 * O que acontecerá se eu exceder a capacidade da unidade de solicitação de uma coleção?
 
-Como o Azure Cosmos DB é um multimodelo de banco de dados, é importante observar que nos referiremos a uma coleção ou um documento como uma API de documento, um gráfico/nó como uma API de gráfico e uma tabela/entidade como uma API de tabela. Neste documento, para produtividade, generalizaremos como os conceitos de contêiner/item.
+Como o Azure Cosmos DB é um multimodelo de banco de dados, é importante observar que nos referiremos a uma coleção ou um documento como uma API de documento, um gráfico/nó como uma API de gráfico e uma tabela/entidade como uma API de tabela. Neste documento generalizaremos para os conceitos de contêiner/item.
 
 ## <a name="request-units-and-request-charges"></a>Unidades de solicitação e solicitações de encargos
 O Azure Cosmos DB fornece desempenho rápido e previsível *reservando* recursos para atender às necessidades de produtividade do aplicativo.  Como os padrões de carga e acesso do aplicativo mudam com o tempo, o Azure Cosmos DB permite que você aumente ou diminua facilmente a quantidade de produtividade reservada disponível para o aplicativo.
@@ -365,4 +364,3 @@ Para obter uma introdução aos testes de escala e desempenho com o Azure Cosmos
 [4]: ./media/request-units/RUEstimatorResults.png
 [5]: ./media/request-units/RUCalculator2.png
 [6]: ./media/request-units/api-for-mongodb-metrics.png
-

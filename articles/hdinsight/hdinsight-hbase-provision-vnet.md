@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 07/17/2017
 ms.author: jgao
+ms.openlocfilehash: 77ddfc0210fdbd6aea44bc50e18406e4d9c285c7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
-ms.openlocfilehash: c78f1b16328c5b3a92f530ca06e6f5aeaeefca78
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/18/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Criar clusters HBase no HDInsight na Rede Virtual do Azure
 Saiba como criar clusters HBase do Azure HDInsight em uma [Rede Virtual do Azure][1].
@@ -252,7 +251,6 @@ Neste tutorial, você aprendeu a criar um cluster do HBase. Para obter mais info
 * [Configurar a replicação do HBase no HDInsight](hdinsight-hbase-replication.md)
 * [Criar clusters Hadoop no HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 * [Introdução ao uso do HBase com Hadoop no HDInsight](hdinsight-hbase-tutorial-get-started.md)
-* [Analisar dados de sentimento no Twitter com o HBase no HDInsight](hdinsight-hbase-analyze-twitter-sentiment.md)
 * [Visão geral da Rede Virtual][vnet-overview]
 
 [1]: http://azure.microsoft.com/services/virtual-network/
@@ -260,7 +258,6 @@ Neste tutorial, você aprendeu a criar um cluster do HBase. Para obter mais info
 [3]: http://technet.microsoft.com/library/hh847889.aspx
 
 [hbase-get-started]: hdinsight-hbase-tutorial-get-started.md
-[hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
 [vnet-overview]: ../virtual-network/virtual-networks-overview.md
 [vm-create]: ../virtual-machines/virtual-machines-windows-hero-tutorial.md
 
@@ -300,4 +297,3 @@ Neste tutorial, você aprendeu a criar um cluster do HBase. Para obter mais info
 [img-provision-cluster-page5]: ./media/hdinsight-hbase-provision-vnet/hbasewizard5.png "Usar a Ação de Script para personalizar um cluster HBase"
 
 [azure-preview-portal]: https://portal.azure.com
-

@@ -16,20 +16,14 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 06/07/2017
 ms.author: donnam
+ms.openlocfilehash: c224955d5d3592fb9afaaf31e6e4e531250b138e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 25c5f72be8dc79d8b33a598c7be494bd955eb850
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-functions-c-script-developer-reference"></a>Referência do desenvolvedor de scripts C# do Azure Functions
-> [!div class="op_single_selector"]
-> * [Script C#](functions-reference-csharp.md)
-> * [Script em F#](functions-reference-fsharp.md)
-> * [Node.js](functions-reference-node.md)
->
->
+[!INCLUDE [functions-selector-languages](../../includes/functions-selector-languages.md)]
 
 A experiência de scripts C# do Azure Functions baseia-se no SDK do Azure WebJobs. Fluxos de dados na sua função C# por meio de argumentos de método. Os nomes de argumentos são especificados em `function.json`e há nomes predefinidos para acessar itens como a função logger e os tokens de cancelamento.
 
@@ -83,7 +77,7 @@ public static string Run(string input, TraceWriter log)
 
 Para gravar vários valores em uma associação de saída, use os tipos [`ICollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) ou [`IAsyncCollector`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs). Esses tipos são coleções somente gravação que são gravadas na associação de saída quando o método é concluído.
 
-Este exemplo grava várias mensagens de fila usando `ICollector`:
+Este exemplo grava várias mensagens de fila na mesma fila usando `ICollector`:
 
 ```csharp
 public static void Run(ICollector<string> myQueueItem, TraceWriter log)
@@ -96,7 +90,7 @@ public static void Run(ICollector<string> myQueueItem, TraceWriter log)
 ## <a name="logging"></a>Registro em log
 Para registrar a saída nos logs de streaming em C#, inclua um argumento do tipo `TraceWriter`. Recomendamos nomeá-lo como `log`. Evite usar `Console.Write` no Azure Functions. 
 
-`TraceWriter` é definido no [SDK do Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/TraceWriter.cs). O nível de log para `TraceWriter` pode ser configurado em [host\.json].
+`TraceWriter` é definido no [SDK do Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/TraceWriter.cs). O nível de log para `TraceWriter` pode ser configurado em [host.json](functions-host-json.md).
 
 ```csharp
 public static void Run(string myBlob, TraceWriter log)
@@ -153,7 +147,7 @@ Os seguintes namespaces são automaticamente importados e, portanto, são opcion
 * `Microsoft.Azure.WebJobs`
 * `Microsoft.Azure.WebJobs.Host`
 
-## <a name="referencing-external-assemblies"></a>Referenciando Assemblies Externos
+## <a name="referencing-external-assemblies"></a>Referenciando assemblies externos
 Para assemblies da estrutura, adicione referências usando a diretiva `#r "AssemblyName"` .
 
 ```csharp
@@ -198,7 +192,7 @@ Para obter informações sobre como carregar arquivos na pasta da função, cons
 
 ### <a name="watched-directories"></a>Diretórios inspecionados
 
-O diretório que contém o arquivo de script da função é inspecionado automaticamente quanto às alterações nos assemblies. Para inspecionar alterações de assembly em outros diretórios, adicione-os à lista `watchDirectories` em [host\.json].
+O diretório que contém o arquivo de script da função é inspecionado automaticamente quanto às alterações nos assemblies. Para inspecionar alterações de assembly em outros diretórios, adicione-os à lista `watchDirectories` em [host.json](functions-host-json.md).
 
 ## <a name="using-nuget-packages"></a>Usando pacotes NuGet
 Para usar pacotes NuGet em uma função C#, carregue um arquivo *project.json* na pasta da função, no sistema de arquivos do aplicativo de funções. Aqui está um arquivo *project.json* de exemplo que adiciona uma referência à versão 1.1.0 do Microsoft.ProjectOxford.Face:
@@ -217,7 +211,7 @@ Para usar pacotes NuGet em uma função C#, carregue um arquivo *project.json* n
 
 Somente o .NET Framework 4.6 tem suporte. Desse modo, tenha certeza de que o arquivo *project.json* especifica `net46`, como mostrado aqui.
 
-Quando você carrega um arquivo *project.json* , o tempo de execução obtém os pacotes e adiciona referências automaticamente aos assemblies do pacote. Você não precisa adicionar diretivas `#r "AssemblyName"` . Para usar os tipos definidos nos pacotes NuGet, adicione as instruções `using` obrigatórias ao arquivo *run.csx* 
+Quando você carrega um arquivo *project.json* , o tempo de execução obtém os pacotes e adiciona referências automaticamente aos assemblies do pacote. Você não precisa adicionar diretivas `#r "AssemblyName"` . Para usar os tipos definidos nos pacotes NuGet, adicione as instruções `using` obrigatórias ao arquivo *run.csx*. 
 
 No tempo de execução do Functions, a restauração do NuGet funciona comparando `project.json` e `project.lock.json`. Se os carimbos de data/hora dos arquivos **não** forem correspondentes, uma restauração do NuGet será executada e o NuGet baixará os pacotes atualizados. No entanto, se os carimbos de data/hora dos arquivos **forem** correspondentes, o NuGet não executará nenhuma restauração. Portanto, `project.lock.json` não deve ser implantado, pois faz com que o NuGet ignore a restauração do pacote. Para evitar a implantação do arquivo de bloqueio, adicione o `project.lock.json` ao arquivo `.gitignore`.
 
@@ -379,7 +373,7 @@ using (var output = await binder.BindAsync<T>(new BindingTypeAttribute(...)))
 }
 ```
 
-em que `BindingTypeAttribute` é o atributo do .NET que define a associação e `T` é o tipo de entrada ou saída com suporte nesse tipo de associação. `T` também não pode ser um tipo de parâmetro `out` (como `out JObject`). Por exemplo, a associação de saída de tabela dos Aplicativos Móveis dá suporte a [seis tipos de saída](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), mas você só pode usar [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) ou [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) para `T`.
+`BindingTypeAttribute` é o atributo do .NET que define a associação e `T` é o tipo de entrada ou saída com suporte nesse tipo de associação. `T` também não pode ser um tipo de parâmetro `out` (como `out JObject`). Por exemplo, a associação de saída de tabela dos Aplicativos Móveis dá suporte a [seis tipos de saída](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), mas você só pode usar [ICollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) ou [IAsyncCollector<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) para `T`.
 
 O código de exemplo a seguir cria uma [associação de saída do Armazenamento de Blobs](functions-bindings-storage-blob.md#using-a-blob-output-binding) com o caminho do blob definido em tempo de execução e grava uma cadeia de caracteres no blob.
 
@@ -397,7 +391,7 @@ public static async Task Run(string input, Binder binder)
 ```
 
 [BlobAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/BlobAttribute.cs) define a associação de entrada ou saída do [Armazenamento de Blobs](functions-bindings-storage-blob.md) e [TextWriter](https://msdn.microsoft.com/library/system.io.textwriter.aspx) é um tipo de associação de saída com suporte.
-No estado em que se encontra, o código obtém a configuração de aplicativo padrão para a cadeia de conexão da conta de armazenamento (`AzureWebJobsStorage`). Especifique uma configuração de aplicativo personalizada a ser usada adicionando [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) e passando a matriz de atributo para `BindAsync<T>()`. Por exemplo,
+No exemplo de código anterior, o código obtém a configuração do aplicativo para a cadeia de conexão da conta de armazenamento principal do aplicativo de funções (que é `AzureWebJobsStorage`). É possível especificar uma configuração de aplicativo personalizada a ser usada para a conta de armazenamento adicionando [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs) e passando a matriz de atributos para `BindAsync<T>()`. Por exemplo,
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -440,9 +434,4 @@ Para saber mais, consulte os recursos a seguir:
 
 * [Práticas recomendadas para o Azure Functions](functions-best-practices.md)
 * [Referência do desenvolvedor do Azure Functions](functions-reference.md)
-* [Referência do desenvolvedor em F# do Azure Functions](functions-reference-fsharp.md)
-* [Referência do desenvolvedor de NodeJS do Azure Functions](functions-reference-node.md)
-* [Gatilhos e associações de Azure Functions](functions-triggers-bindings.md)
-
-[host\.json]: https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json
-
+* [Gatilhos e de associações do Azure Functions](functions-triggers-bindings.md)

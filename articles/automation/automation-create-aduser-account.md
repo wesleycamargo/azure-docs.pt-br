@@ -3,7 +3,7 @@ title: "Criação de conta de usuário do Azure AD | Microsoft Docs"
 description: "Este artigo descreve como criar uma credencial de conta de usuário do Azure AD para runbooks na automação do Azure para autenticar no Azure e no Azure clássico."
 services: automation
 documentationcenter: 
-author: MGoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 keywords: "usuário do azure active directory, gerenciamento de serviço do azure, conta de usuário do azure ad"
@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2017
 ms.author: magoedte
+ms.openlocfilehash: 8f24e6e57c2eec5950c8c12d9f4383ce11cf5c11
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: 4eaa3e36ededddeb5268ec4f49b9daee2f824cee
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/15/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="authenticate-runbooks-with-azure-classic-deployment-and-resource-manager"></a>Autenticar Runbooks com implantação clássica do Azure e do Resource Manager
 Este artigo descreve as etapas que você deve executar para configurar uma conta de Usuário do Azure AD para runbooks de Automação do Azure em execução em relação a modelo de implantação clássico do Azure ou recursos do Azure Resource Manager.  Embora essa continue a ser uma identidade de autenticação com suporte para runbooks com base no Azure Resource Manager, o método recomendado é usar a nova conta Executar como do Azure.       
@@ -91,5 +90,4 @@ Repita essas linhas após qualquer [ponto de verificação](http://technet.micro
 
 ## <a name="next-steps"></a>Próximas etapas
 * Examine os diferentes tipos de runbook e as etapas para criar seus próprios runbooks no artigo [Tipos de runbook da Automação do Azure](automation-runbook-types.md)
-
 

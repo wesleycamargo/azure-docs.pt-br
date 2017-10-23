@@ -15,13 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 02/09/2017
 ms.author: carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
 ms.openlocfilehash: dc0244f0e0949b172c391825057f5c14893a5158
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/17/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>Ajustando o desempenho no Banco de Dados SQL do Azure
 
@@ -282,5 +280,4 @@ Alguns aplicativos de banco de dados têm cargas de trabalho de leitura pesada. 
 * Para obter mais informações sobre as camadas de serviço, consulte [Opções e desempenho de Banco de Dados SQL](sql-database-service-tiers.md)
 * Para saber mais sobre pools elásticos, consulte [O que é um pool elástico do Azure?](sql-database-elastic-pool.md)
 * Para obter informações sobre desempenho e pools elásticos, consulte [Quando considerar um pool elástico](sql-database-elastic-pool-guidance.md)
-
 

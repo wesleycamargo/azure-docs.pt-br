@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: jgao
-ms.translationtype: HT
-ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
 ms.openlocfilehash: 015435270c31bafea0ebf5303b459338755c1410
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/17/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="run-mapreduce-jobs-using-hdinsight-net-sdk"></a>Executar trabalhos MapReduce usando o SDK do .NET do HDInsight
 [!INCLUDE [mapreduce-selector](../../includes/hdinsight-selector-use-mapreduce.md)]
@@ -178,5 +177,4 @@ Neste artigo, você aprendeu várias maneiras de criar um cluster HDInsight. Par
 * Para gerenciar clusters HDInsight, consulte [Gerenciar clusters Hadoop no HDInsight](hdinsight-administer-use-portal-linux.md).
 * Para aprender sobre o SDK do .NET do HDInsight, consulte [referência do SDK do .NET do HDInsight](https://msdn.microsoft.com/library/mt271028.aspx).
 * Para autenticação não interativa no Azure, confira [Criar aplicativos .NET HDInsight de autenticação não interativa](hdinsight-create-non-interactive-authentication-dotnet-applications.md).
-
 

@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: aelnably;wesmc
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: b783f7e8cfef991e7028ba4b4c7b1d0935397580
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-app-service-web-app-for-containers-faq"></a>Perguntas frequentes sobre o Aplicativo Web para Contêineres do Serviço de Aplicativo do Azure
 
@@ -138,4 +137,3 @@ Você pode usar apenas letras (A-Z, a-z), números (0-9) e o caractere de sublin
 * [O que é o Aplicativo Web do Azure para Contêineres?](app-service-linux-intro.md)
 * [Configurar ambientes de preparo no Serviço de Aplicativo do Azure](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 * [Implantação contínua com o Aplicativo Web do Azure para Contêineres](./app-service-linux-ci-cd.md)
-

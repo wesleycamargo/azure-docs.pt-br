@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2016
 ms.author: andrl
-ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
 ms.openlocfilehash: 8cddc7a8c9aa677b9c93bee3a7e05c226cc1f655
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Programação do lado do servidor do Azure Cosmos DB: procedimentos armazenados, gatilhos de banco de dados e UDFs
 Saiba como a execução transacional e integrada de linguagem do JavaScript pelo Azure Cosmos DB permite que desenvolvedores escrevam **procedimentos armazenados**, **gatilhos** e **UDFs (funções definidas pelo usuário)** nativamente em um JavaScript [ECMAScript 2015](http://www.ecma-international.org/ecma-262/6.0/). Isso permite que você escreva uma lógica de aplicativo de programa de banco de dados que pode ser enviada e executada diretamente nas partições de armazenamento do banco de dados. 
@@ -480,7 +479,7 @@ A UDF pode, subsequentemente, ser usada em consultas como na amostra a seguir:
     });
 
 ## <a name="javascript-language-integrated-query-api"></a>API de consulta integrada da linguagem JavaScript
-Além de emitir consultas usando a gramática SQL do Banco de Dados de Documentos, o SDK do servidor permite que você execute consultas otimizadas usando uma interface fluente do JavaScript sem qualquer conhecimento de SQL. A API de consulta JavaScript permite que você crie consultas programaticamente ao passar funções de predicado em chamadas a função encadeáveis, com uma sintaxe semelhantes a bibliotecas JavaScript internas e conhecidas da Matriz ECMAScript5, como lodash. As consultas são analisadas no tempo de execução do JavaScript para serem executadas com eficiência usando índices do Azure Cosmos DB.
+Além de emitir consultas usando a gramática SQL do DocumentDB, o SDK do servidor permite que você execute consultas otimizadas usando uma interface fluente do JavaScript sem qualquer conhecimento de SQL. A API de consulta JavaScript permite que você crie consultas programaticamente ao passar funções de predicado em chamadas a função encadeáveis, com uma sintaxe semelhantes a bibliotecas JavaScript internas e conhecidas da Matriz ECMAScript5, como lodash. As consultas são analisadas no tempo de execução do JavaScript para serem executadas com eficiência usando índices do Azure Cosmos DB.
 
 > [!NOTE]
 > `__` (double-underscore) é um alias para `getContext().getCollection()`.
@@ -804,11 +803,10 @@ Depois de criar um ou mais procedimentos armazenados, gatilhos e funções defin
 Você também pode achar as seguintes referências e recursos úteis em seu caminho para saber mais sobre a programação no servidor do Azure Cosmos DB:
 
 * [SDKs do Azure Cosmos DB](documentdb-sdk-dotnet.md)
-* [Estudo do Banco de Dados de Documentos](https://github.com/mingaliu/DocumentDBStudio/releases)
+* [Estudo do DocumentDB](https://github.com/mingaliu/DocumentDBStudio/releases)
 * [JSON](http://www.json.org/) 
 * [JavaScript ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm)
 * [Extensibilidade de banco de dados seguro e portátil](http://dl.acm.org/citation.cfm?id=276339) 
 * [Arquitetura de banco de dados orientada a serviços](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 
 * [Hospedando o Runtime do .NET no Microsoft SQL Server](http://dl.acm.org/citation.cfm?id=1007669)
-
 

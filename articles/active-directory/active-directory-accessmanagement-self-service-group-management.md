@@ -16,12 +16,11 @@ ms.date: 09/07/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: oldportal;it-pro;
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: 7a7370eb076ba8602a58a260a14bb863c55bc803
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-azure-active-directory-for-self-service-group-management"></a>Configurar o Azure Active Directory para gerenciamento de grupo de autoatendimento
 Os usuários podem criar e gerenciar seus próprios grupos de segurança ou grupos do Office 365 no Azure Active Directory (Azure AD). Os usuários também podem solicitar associações ao grupo de segurança ou ao grupo do Office 365, e o proprietário do grupo pode aprovar ou recusar a associação. O controle diário da associação de grupo pode ser delegado a pessoas que compreendem o contexto de negócios da associação. Os recursos de gerenciamento de grupo de autoatendimento só estão disponíveis para grupos de segurança e para grupos do Office 365, mas não para grupos de segurança habilitados para email ou listas de distribuição.
@@ -51,4 +50,3 @@ Esses artigos fornecem mais informações sobre o Active Directory do Azure.
 * [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 * [O que é o Active Directory do Azure?](active-directory-whatis.md)
 * [Integrar suas identidades locais com o Azure Active Directory](active-directory-aadconnect.md)
-

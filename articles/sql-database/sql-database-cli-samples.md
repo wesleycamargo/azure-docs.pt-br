@@ -16,14 +16,12 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 06/23/2017
 ms.author: janeng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
 ms.openlocfilehash: 91b02d1099dc1683abb1042b3dc65cbee5aeae5b
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-cli-samples-for-azure-sql-database"></a>Amostras da CLI do Azure para o Banco de Dados SQL do Azure
 
 A tabela a seguir inclui links para exemplos de scripts da CLI do Azure para o Banco de Dados SQL.
@@ -37,4 +35,3 @@ A tabela a seguir inclui links para exemplos de scripts da CLI do Azure para o B
 | [Dimensionar um banco de dados individual](scripts/sql-database-monitor-and-scale-database-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Este exemplo de script da CLI dimensiona um banco de dados SQL do Azure individual para um nível de desempenho diferente depois de consultar as informações de tamanho do banco de dados. |
 | [Dimensionar um pool elástico](scripts/sql-database-scale-pool-cli.md?toc=%2fcli%2fazure%2ftoc.json) | Este exemplo de script da CLI dimensiona um pool elástico do SQL para um nível de desempenho diferente.  |
 |||
-

@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
 ms.openlocfilehash: 800ee1269556e7c2d56fbbf2b497c10509b5c78c
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/09/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="collecting-custom-json-data-sources-with-the-oms-agent-for-linux-in-log-analytics"></a>Coletar fontes de dados JSON personalizados com o Agente do OMS para Linux em Log Analytics
 Fontes de dados JSON personalizados podem ser coletadas no Log Analytics usando o Agente do OMS para Linux.  Essas fontes de dados personalizados podem ser scripts simples retornando JSON, assim como [curl](https://curl.haxx.se/) ou um dos [mais de 300 plug-ins do FluentD](http://www.fluentd.org/plugins/all). Este artigo descreve a configuração necessária para essa coleta de dados.

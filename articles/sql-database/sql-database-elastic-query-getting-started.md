@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2016
 ms.author: mlandzic
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: b817577d835f2f4a912356366ab24d1f812e1e11
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/10/2017
-
+ms.openlocfilehash: 8eb56d44c3a261f6325d4fc91f169d09bf108160
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>Relatórios entre bancos de dados expandidos na nuvem (preview)
 Você pode criar relatórios de vários bancos de dados do SQL Azure de um ponto de conexão única usando uma [consulta elástica](sql-database-elastic-query-overview.md). Os bancos de dados devem ser particionados horizontalmente (também conhecido como "fragmentados").
@@ -145,4 +144,3 @@ Para obter informações sobre os preços, consulte [Detalhes de preços do Banc
 [4]: ./media/sql-database-elastic-query-getting-started/details.png
 [5]: ./media/sql-database-elastic-query-getting-started/exel-sources.png
 <!--anchors-->
-

@@ -11,14 +11,12 @@ ms.topic: article
 ms.workload: big-compute
 ms.date: 07/20/2017
 ms.author: markscu
-ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
 ms.openlocfilehash: 6b91466da46d1f4ca9f25bf1718be783603efc58
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>Usar modelos CLI do Lote do Azure e o arquivo de transferência (Versão prévia)
 
 Ao usar a CLI do Azure é possível executar trabalhos do Lote sem escrever código.
@@ -265,4 +263,3 @@ Experimente a extensão do Lote para a CLI do Azure e forneça comentários ou s
 
 - Veja a postagem de blog de modelos do Lote: [Executando trabalhos do Lote do Azure usando a CLI do Azure – não há necessidade de código](https://azure.microsoft.com/en-us/blog/running-azure-batch-jobs-using-the-azure-cli-no-code-required/).
 - Documentação detalhada de instalação e uso, amostras e código-fonte estão disponíveis no [repositório GitHub do Azure](https://github.com/Azure/azure-batch-cli-extensions).
-

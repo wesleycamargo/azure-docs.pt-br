@@ -15,14 +15,12 @@ ms.workload: identity
 ms.date: 07/19/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: a13e27474d4c23024ee4e5b5c7a4a8cbff04b7ed
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 307e6ddc9b3d5a85a25b185144a548e0101a9877
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="articles-in-the-azure-ad-developer-guide"></a>Artigos no guia do desenvolvedor do Azure AD
 Veja a seguir uma lista de todos os tópicos abordados no guia do desenvolvedor do Azure Active Directory.
 
@@ -31,7 +29,7 @@ Estes artigos descrevem conceitos e recursos específicos do Azure Active Direct
 
 |                                                                                                                                 |  |
 | ------------------------------------------------------------------------------------------------------------------------------- | --- |
-| [Aplicativos multilocatário](active-directory-devhowto-multi-tenant-overview.md)                                                         | Como entrar em qualquer conta de trabalho da Microsoft |
+| [Aplicativos multilocatário](active-directory-devhowto-multi-tenant-overview.md)                                                         | Como entrar em qualquer conta corporativa da Microsoft |
 | [OAuth e OpenID Connect](active-directory-protocols-openid-connect-code.md)                                                     | Como conectar usuários e chamar APIs Web usando nossos modernos protocolos de autenticação |
 | [SAML 2.0](active-directory-saml-protocol-reference.md)                                                                         | Como conectar usuários usando o protocolo de autenticação SAML |
 | [Registro do Aplicativo](active-directory-integrating-applications.md)                                                                | Como registrar um aplicativo no Azure AD |

@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
+ms.openlocfilehash: d09f59715ac4dac1482e6ca5f79e8426f1f01ced
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: 2c7c8e241010e86bf9ffe5b70921da71b8ace9da
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-container-images-to-be-used-with-azure-container-service"></a>Criar imagens de contêiner a serem usadas com o Serviço de Contêiner do Azure
 
 Neste tutorial, parte um de sete, um aplicativo de vários contêineres é preparado para uso em Kubernetes. As etapas concluídas incluem:  
@@ -45,6 +43,8 @@ Nos tutoriais subsequentes, a imagem de contêiner é carregada em um Registro d
 Este tutorial assume uma compreensão básica dos conceitos fundamentais do Docker como contêineres, imagens de contêiner e comandos básicos do docker. Se necessário, consulte [Get started with Docker]( https://docs.docker.com/get-started/) (Introdução ao Docker) para conhecer os conceitos básicos de contêiner. 
 
 Para concluir este tutorial, você precisa de um ambiente de desenvolvimento do Docker. O Docker fornece pacotes que configuram facilmente o Docker em qualquer sistema [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) ou [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
+
+Azure Cloud Shell não inclui os componentes de Docker necessários para concluir cada etapa neste tutorial. Portanto, é recomendável usar um ambiente de desenvolvimento completo do Docker.
 
 ## <a name="get-application-code"></a>Obter o código de aplicativo
 
@@ -140,4 +140,3 @@ Avance para o próximo tutorial para saber mais sobre como armazenar imagens de 
 
 > [!div class="nextstepaction"]
 > [Enviar imagens por push ao Registro de Contêiner do Azure](./container-service-tutorial-kubernetes-prepare-acr.md)
-

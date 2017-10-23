@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeedakhter-msft
+ms.openlocfilehash: 37e9f06555063ceea00b9162c79344130414b82e
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 122fa997ea11b369aae3c59edf0043ab19d21aea
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-customize-the-azure-ad-b2c-user-interface-ui"></a>Azure Active Directory B2C: Personalizar a IU (interface do usuário) do Azure AD B2C
 
@@ -28,6 +27,7 @@ A experiência do usuário é fundamental em um aplicativo voltado ao cliente.  
 > [!NOTE]
 > O recurso de personalização da interface do usuário da página descrito neste artigo não se aplica à política de entrada, à página de redefinição de senha que a acompanha e aos emails de verificação.  Esses recursos usam o [recurso de identidade visual da empresa](../active-directory/active-directory-add-company-branding.md) em vez disso.
 >
+> Da mesma forma, se um usuário de inicia uma política de edição de perfil *antes de* se conectar, o usuário será redirecionado para uma página que poderá ser personalizada usando o [recurso de identidade visual da empresa](../active-directory/active-directory-add-company-branding.md).
 
 Este artigo aborda os seguintes tópicos:
 
@@ -348,4 +348,3 @@ Se você estiver planejando usar o recurso de personalização de interface do u
   * Suporte limitado para o Internet Explorer 9, 8
   * Google Chrome 42.0 e superior
   * Mozilla Firefox 38.0 e superior
-

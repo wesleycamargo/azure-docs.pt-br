@@ -8,12 +8,11 @@ ms.service: batch
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: tamram
-ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
 ms.openlocfilehash: ceff59d7063b60a1344a47489d3d73e0e8ee07df
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/10/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="count-tasks-by-state-to-monitor-a-jobs-progress-preview"></a>Contagem de tarefas por estado para monitorar o andamento de um trabalho (versão prévia)
 
@@ -80,4 +79,3 @@ A operação obter contagens de tarefa não está disponível em versões do ser
 [rest_get_task_counts]: https://docs.microsoft.com/rest/api/batchservice/get-the-task-counts-for-a-job
 [rest_get_task]: https://docs.microsoft.com/rest/api/batchservice/get-information-about-a-task
 [rest_list_tasks]: https://docs.microsoft.com/rest/api/batchservice/list-the-tasks-associated-with-a-job
-

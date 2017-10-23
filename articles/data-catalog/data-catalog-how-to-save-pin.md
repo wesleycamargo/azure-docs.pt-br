@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
-ms.openlocfilehash: 23f38693939ef0dc893ef77267811b176d3083d1
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/05/2017
-
+ms.openlocfilehash: 8c319d0dcbe8b95af11b8be2368a9348b260446c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="save-searches-and-pin-data-assets-in-azure-data-catalog"></a>Salva pesquisas e fixa ativos de dados no Catálogo de Dados do Azure
 ## <a name="introduction"></a>Introdução
@@ -85,4 +84,3 @@ A home page do portal do Catálogo de Dados inclui uma seção **Meus Ativos** q
 
 ## <a name="summary"></a>Resumo
 O Catálogo de Dados do Azure fornece recursos que tornam mais fácil de descobrir as fontes de dados de que você precisa para que você e outros membros da organização possam gastar menos tempo procurando dados e mais tempo trabalhando com eles. As pesquisas salvas e os ativos de dados fixos aprimoram esses recursos principais para que os usuários possam facilmente identificar fontes de dados com as quais eles trabalham repetidamente.
-

@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
 ms.author: gwallace
-ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
 ms.openlocfilehash: d4b0aa817c3fd7f3304b5122ac584166d8079d3c
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-dns-records-for-a-web-app-in-a-custom-domain"></a>Criar registros DNS para um aplicativo Web em um domínio personalizado
 
 Você pode usar o DNS do Azure para hospedar um domínio personalizado para seus aplicativos Web. Por exemplo, você está criando um aplicativo Web do Azure e quer que os usuários o acessem usando contoso.com ou www.contoso.com como FQDN.
@@ -203,4 +201,3 @@ Set-AzureRMDnsRecordSet -RecordSet $rs
 ## <a name="next-steps"></a>Próximas etapas
 
 Siga as etapas em [Configurar um nome de domínio personalizado para o serviço de aplicativo](../app-service/app-service-web-tutorial-custom-domain.md) para configurar o aplicativo Web para usar um domínio personalizado.
-

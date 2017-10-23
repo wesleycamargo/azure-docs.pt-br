@@ -14,14 +14,13 @@ ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 09/28/2017
 ms.author: sstein
+ms.openlocfilehash: 9f9dfd039b76e4bedfb7f59d042123fa54d6b615
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: bcf5f4027764b6be3880d597cdf85e83eb967169
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>Códigos de erro de SQL em aplicativos cliente do Banco de Dados SQL: erros de conexão de banco de dados e outros problemas
 
@@ -180,7 +179,7 @@ Os erros a seguir não se enquadram em nenhuma categoria anterior.
 | 40607 |16 |Logons do Windows não têm suporte nesta versão do SQL Server. |
 | 40611 |16 |Os servidores podem ter no máximo 128 regras de firewall definidas. |
 | 40614 |16 |O endereço IP inicial da regra de firewall não pode ultrapassar o endereço IP final. |
-| 40615 |16 |Não é possível abrir o servidor '{0}' solicitado pelo logon. O cliente com o endereço IP '{1}' não tem permissão para acessar o servidor.  Para habilitar o acesso, use o Portal do Banco de Dados SQL ou execute sp_set_firewall_rule no banco de dados mestre para criar uma regra de firewall este endereço ou intervalo de endereços IP.  Pode levar até cinco minutos para que essa alteração tenha efeito. |
+| 40615 |16 |Não é possível abrir o servidor '{0}' solicitado pelo logon. O cliente com o endereço IP '{1}' não tem permissão para acessar o servidor.<br /><br />Para habilitar o acesso, use o Portal do Banco de Dados SQL ou execute sp\_set\_firewall\_rule no banco de dados mestre para criar uma regra de firewall este endereço ou intervalo de endereços IP. Pode levar até cinco minutos para que essa alteração tenha efeito. |
 | 40617 |16 |O nome da regra de firewall que começa com (nome da regra) é muito longo. O comprimento máximo é 128. |
 | 40618 |16 |O nome da regra de firewall não pode estar vazio. |
 | 40620 |16 |Falha no logon do usuário “%.&#x2a;ls”. Falha na alteração da senha do usuário. A alteração de senha durante o logon não tem suporte nesta versão do SQL Server. |
@@ -205,12 +204,12 @@ Os erros a seguir não se enquadram em nenhuma categoria anterior.
 | 40651 |16 |Falha ao criar o servidor porque a assinatura (subscription-id) está desabilitada. |
 | 40652 |16 |Não é possível mover ou criar o servidor. A assinatura (subscription-id) excederá a cota do servidor. |
 | 40671 |17 |Falha de comunicação entre o gateway e o serviço de gerenciamento. Tente novamente mais tarde. |
-| 40852 |16 |Não é possível abrir o banco de dados '%.*ls' no servidor '%.*ls' solicitado pelo logon. O acesso ao banco de dados é permitido apenas usando uma cadeia de conexão habilitada para segurança. Para acessar esse banco de dados, modifique as cadeias de conexão para conter “secure” no servidor FQDN – 'server name'.database.windows.net deve ser modificado para 'server name'.database`secure`.windows.net. |
+| 40852 |16 |Não é possível abrir o banco de dados '%.\*ls' no servidor '%.\*ls' solicitado pelo logon. O acesso ao banco de dados é permitido apenas usando uma cadeia de conexão habilitada para segurança. Para acessar esse banco de dados, modifique as cadeias de conexão para conter “secure” no servidor FQDN – 'server name'.database.windows.net deve ser modificado para 'server name'.database`secure`.windows.net. |
+| 40914 | 16 | Não é possível abrir o servidor '*[nome-do-servidor]*' solicitado pelo logon. O cliente não tem permissão para acessar o servidor.<br /><br />Para corrigir, considere adicionar uma [regra de rede virtual](sql-database-vnet-service-endpoint-rule-overview.md). |
 | 45168 |16 |O sistema do SQL Azure está sob carga e está estabelecendo um limite superior para operações CRUD de BD simultâneas para um único servidor (por exemplo, criar banco de dados). O servidor especificado na mensagem de erro ultrapassou o número máximo de conexões simultâneas. Tente novamente mais tarde. |
 | 45169 |16 |O sistema SQL Azure está sob carga e está estabelecendo um limite superior para o número de operações CRUD de servidor simultâneas para uma única assinatura (por exemplo, criar servidor). A assinatura especificada na mensagem de erro ultrapassou o número máximo de conexões simultâneas e a solicitação foi negada. Tente novamente mais tarde. |
 
 ## <a name="next-steps"></a>Próximas etapas
 * Leia mais sobre os [Recursos do Banco de Dados SQL do Azure](sql-database-features.md).
 * Leia mais sobre as [Camadas de serviço](sql-database-service-tiers.md).
-
 

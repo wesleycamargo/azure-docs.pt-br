@@ -14,15 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: renash
+ms.openlocfilehash: 192680efe07368666c5a9d037549c7686189d0b0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 6c80c6814dacf90a0a50dab691899c3a8cc2bf82
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-files-with-linux"></a>Usar o Arquivos do Azure com o Linux
-O [Arquivos do Azure](storage-files-introduction.md) é o sistema de arquivos de fácil utilização da Microsoft. Compartilhamentos de Arquivos do Azure podem ser montados em distribuições do Linux usando o [pacote cifs-utils](https://wiki.samba.org/index.php/LinuxCIFS_utils) do [projeto Samba](https://www.samba.org/). Este artigo mostra duas maneiras de montar um Compartilhamento de Arquivos do Azure: sob demanda com o comando `mount` e na inicialização criando uma entrada em `/etc/fstab`.
+[Arquivos do Azure](storage-files-introduction.md) é o sistema de arquivos de nuvem de fácil acesso da Microsoft. Compartilhamentos de Arquivos do Azure podem ser montados em distribuições do Linux usando o [pacote cifs-utils](https://wiki.samba.org/index.php/LinuxCIFS_utils) do [projeto Samba](https://www.samba.org/). Este artigo mostra duas maneiras de montar um Compartilhamento de Arquivos do Azure: sob demanda com o comando `mount` e na inicialização criando uma entrada em `/etc/fstab`.
 
 > [!NOTE]  
 > Para montar um Compartilhamento de Arquivos do Azure fora da região do Azure no qual ele está hospedado, como local ou em uma região diferente do Azure, o sistema operacional deve dar suporte à funcionalidade de criptografia do SMB 3.0. O recurso de criptografia do SMB 3.0 para Linux foi introduzido no kernel 4.11. Este recurso permite a montagem do Compartilhamento de Arquivos do Azure do local ou de uma região diferente do Azure. No momento da publicação deste artigo, essa funcionalidade foi retrocompatibilizada para o Ubuntu 16.04 e superior.
@@ -81,7 +80,7 @@ O [Arquivos do Azure](storage-files-introduction.md) é o sistema de arquivos de
 3. **Use o comando de montagem para montar o Compartilhamento de Arquivos do Azure**: lembre-se de substituir `<storage-account-name>`, `<share-name>` e `<storage-account-key>` pelas informações apropriadas.
 
     ```
-    sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> ./mymountpoint -o vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
+    sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> ./mymountpoint -o vers=2.1,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino
     ```
 
 > [!Note]  
@@ -99,7 +98,7 @@ O [Arquivos do Azure](storage-files-introduction.md) é o sistema de arquivos de
 3. **Use este comando para acrescentar a linha a seguir a `/etc/fstab`**: lembre-se de substituir `<storage-account-name>`, `<share-name>` e `<storage-account-key>` pelas informações apropriadas.
 
     ```
-    sudo bash -c 'echo "//<storage-account-name>.file.core.windows.net/<share-name> /mymountpoint cifs vers=3.0,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino" >> /etc/fstab'
+    sudo bash -c 'echo "//<storage-account-name>.file.core.windows.net/<share-name> /mymountpoint cifs vers=2.1,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino" >> /etc/fstab'
     ```
 
 > [!Note]  
@@ -117,4 +116,3 @@ Veja estes links para obter mais informações sobre o Arquivos do Azure.
 * [Usando a CLI do Azure com o Armazenamento do Azure](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
 * [Perguntas frequentes](../storage-files-faq.md)
 * [Solução de problemas](storage-troubleshoot-linux-file-connection-problems.md)
-

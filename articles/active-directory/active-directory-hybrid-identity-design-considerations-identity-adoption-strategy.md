@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
 ms.openlocfilehash: 2c57b394beb6382807a4c8c83de975a0ae68d726
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definir uma estratégia de adoção de identidade híbrida
 Nesta tarefa, você vai definir uma estratégia de adoção para sua solução de identidade híbrida para atender aos requisitos de negócios que abordamos nos tópicos:
@@ -213,5 +212,4 @@ A autenticação multifator está disponível por padrão para administradores g
 
 ## <a name="see-also"></a>Confira também
 [Visão geral sobre as considerações de design](active-directory-hybrid-identity-design-considerations-overview.md)
-
 

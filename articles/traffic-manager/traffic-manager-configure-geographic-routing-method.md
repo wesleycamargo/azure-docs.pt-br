@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
+ms.openlocfilehash: 13190189074b24b2d28cd3ce46cf8571f3e1e1d1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: 770b1b8418baba78371dda43eb255dde8a1d13e8
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/26/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>Configurar o método de roteamento de tráfego geográfico usando o Gerenciador de Tráfego
 
 O método de roteamento de tráfego geográfico permite direcionar tráfego para pontos de extremidade específicos com base na localização geográfica em que as solicitações são originadas. Este tutorial mostra como criar um perfil do Gerenciador de Tráfego com esse método de roteamento e configurar os pontos de extremidade para receber tráfego de regiões geográficas específicas.
@@ -65,4 +63,3 @@ O método de roteamento de tráfego geográfico permite direcionar tráfego para
 
 - Saiba mais sobre [Método de roteamento de tráfego geográfico](traffic-manager-routing-methods.md#geographic).
 - Saiba como [testar as configurações do Gerenciador de Tráfego](traffic-manager-testing-settings.md).
-

@@ -15,12 +15,11 @@ ms.workload: NA
 ms.custom: backup-restore
 ms.date: 10/31/2016
 ms.author: lakshmir;barbkess
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 54c0149a769e654139bbdf709802d49127f041ac
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sql-data-warehouse-backups"></a>Backups do SQL Data Warehouse
 O SQL Data Warehouse oferece backups locais e geográficos como parte de suas funcionalidades de backup do data warehouse. Essas funcionalidades incluem instantâneos de Blob de Armazenamento do Azure e armazenamento com redundância geográfica. Use backups de data warehouse para restaurar o data warehouse para um ponto de restauração na região primária ou restaurá-lo para uma região geográfica diferente. Este artigo explica as especificidades de backups no SQL Data Warehouse.
@@ -119,5 +118,4 @@ O uso principal para backups do SQL data warehouse é restaurar o data warehouse
 * Para restaurar um data warehouse, veja [Restaurar um SQL data warehouse](sql-data-warehouse-restore-database-overview.md)
 
 <!-- ### Tutorials -->
-
 

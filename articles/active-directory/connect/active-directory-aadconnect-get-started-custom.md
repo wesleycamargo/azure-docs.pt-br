@@ -12,14 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/02/2017
+ms.date: 10/02/2017
 ms.author: billmath
+ms.openlocfilehash: a4b3c7543efc33d07dbd4f6c01b6e1bc354d1ed2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 51906e8d68b5f951a75b8141644bbaf4cf6a43ce
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/04/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Instalação personalizada do Azure AD Connect
 As **Configurações personalizadas** do Azure AD Connect são usadas quando você deseja mais opções para a instalação. Essa opção é usada se você tem várias florestas ou se quer configurar recursos opcionais não incluídos na instalação expressa. Ela é usada em todos os casos em que a opção de [**instalação expressa**](active-directory-aadconnect-get-started-express.md) não satisfaz à sua implantação ou a topologia.
@@ -50,12 +49,12 @@ Depois de instalar os componentes necessários, será solicitado que você selec
 
 | Opção de logon único | Descrição |
 | --- | --- |
-| Sincronização de senha |Os usuários podem entrar em serviços de nuvem da Microsoft, como o Office 365, usando a mesma senha usada na rede local deles. As senhas dos usuários são sincronizadas com o AD do Azure por meio de um hash de senha, e a autenticação ocorre na nuvem. Veja [Sincronização de senha](active-directory-aadconnectsync-implement-password-synchronization.md) para obter mais informações. |
-|Autenticação de Passagem (Visualização)|Os usuários podem entrar em serviços de nuvem da Microsoft, como o Office 365, usando a mesma senha usada na rede local deles.  A senha dos usuários é passada para o controlador do Active Directory local a ser validado.
+| Sincronização de hash de senha |Os usuários podem entrar em serviços de nuvem da Microsoft, como o Office 365, usando a mesma senha usada na rede local deles. As senhas dos usuários são sincronizadas com o AD do Azure por meio de um hash de senha, e a autenticação ocorre na nuvem. Para obter mais informações, consulte [Sincronização de hash de senha](active-directory-aadconnectsync-implement-password-synchronization.md). |
+|Autenticação de Passagem|Os usuários podem entrar em serviços de nuvem da Microsoft, como o Office 365, usando a mesma senha usada na rede local deles.  A senha dos usuários é passada para o controlador do Active Directory local a ser validado.
 | Federação com o AD FS |Os usuários podem entrar em serviços de nuvem da Microsoft, como o Office 365, usando a mesma senha usada na rede local deles.  Os usuários são redirecionados para a instância local do AD FS para entrar e a autenticação ocorre no local. |
 | Não configurar |Nenhum dos recursos é instalado e configurado. Escolha essa opção se você já tiver um servidor de federação de terceiros ou outra solução existente em vigor. |
 |Habilitar o Logon Único|Essa opção está disponível com a sincronização de senha e a autenticação de passagem e fornece uma experiência de logon único para usuários da área de trabalho na rede corporativa.  Para obter mais informações, veja [Logon único](active-directory-aadconnect-sso.md). </br>Observação para os clientes do AD FS: essa opção não está disponível porque o AD FS já oferece o mesmo nível de logon único.</br>(se PTA não for lançado ao mesmo tempo)
-|Opção de Logon|Essa opção está disponível para clientes com sincronização de senha e fornece uma experiência de logon único para usuários da área de trabalho na rede corporativa.  </br>Para obter mais informações, veja [Logon único](active-directory-aadconnect-sso.md). </br>Observação para os clientes do AD FS: essa opção não está disponível porque o AD FS já oferece o mesmo nível de logon único.
+|Opção de Logon|Essa opção está disponível para clientes com sincronização de hash de senha e fornece uma experiência de logon único para usuários da área de trabalho na rede corporativa.  </br>Para obter mais informações, veja [Logon único](active-directory-aadconnect-sso.md). </br>Observação para os clientes do AD FS: essa opção não está disponível porque o AD FS já oferece o mesmo nível de logon único.
 
 
 ### <a name="connect-to-azure-ad"></a>Conecte-se ao AD do Azure
@@ -71,7 +70,7 @@ A conta de administrador global também pode ter o [Privileged Identity Manageme
 
 Se você encontrar um erro e tiver problemas de conectividade, confira [Solucionar problemas de conectividade](active-directory-aadconnect-troubleshoot-connectivity.md).
 
-## <a name="pages-under-the-section-sync"></a>Páginas na seção Sincronização
+## <a name="pages-under-the-sync-section"></a>Páginas na seção Sincronização
 
 ### <a name="connect-your-directories"></a>Conectar seus diretórios
 Para se conectar a seu Serviço de Domínio do Active Directory, o Azure AD Connect precisa do nome da floresta e das credenciais de uma conta com permissões suficientes.
@@ -169,7 +168,7 @@ Essa tela permite que você selecione os recursos opcionais para seus cenários 
 | Implantação híbrida do Exchange  |O recurso de implantação híbrida do Exchange permite a coexistência de caixas de correio do Exchange no local e no Office 365. O Azure AD Connect está sincronizando um conjunto específico de [atributos](active-directory-aadconnectsync-attributes-synchronized.md#exchange-hybrid-writeback) do Azure AD em seu diretório local. |
 | Pastas públicas do Exchange Mail | O recurso Pastas públicas do Exchange Mail permite sincronizar objetos de pasta pública habilitada para email do seu Active Directory local com o Azure AD. |
 | Aplicativo AD do Azure e filtragem de atributos |Ao habilitar o aplicativo AD do Azure e filtragem de atributo, o conjunto de atributos sincronizados pode ser adaptado. Essa opção adiciona mais duas páginas de configuração ao assistente. Para saber mais, confira [Aplicativo e filtragem de atributos do Azure AD](#azure-ad-app-and-attribute-filtering). |
-| Sincronização de senha |Se você tiver selecionado a federação como a solução de entrada, então poderá habilitar essa opção. Em seguida, a sincronização de senha pode ser usada como uma opção de backup. Para saber mais, confira [Sincronização de senha](active-directory-aadconnectsync-implement-password-synchronization.md). </br></br>Se você tiver selecionado Autenticação de Passagem, essa opção será habilitada por padrão para garantir o suporte para clientes herdados e como uma opção de backup. Para saber mais, confira [Sincronização de senha](active-directory-aadconnectsync-implement-password-synchronization.md).|
+| Sincronização de senha |Se você tiver selecionado a federação como a solução de entrada, então poderá habilitar essa opção. Em seguida, a sincronização de senha pode ser usada como uma opção de backup. Para saber mais, confira [Sincronização de senha](active-directory-aadconnectsync-implement-password-synchronization.md). </br></br>Se você selecionou Autenticação de Passagem, essa opção também poderá ser habilitada para garantir suporte para clientes herdados e como uma opção de backup. Para saber mais, confira [Sincronização de senha](active-directory-aadconnectsync-implement-password-synchronization.md).|
 | Write-back de senha |Ao habilitar o write-back de senha, as alterações de senha que se originam no AD do Azure serão gravadas no diretório local. Para saber mais, confira [Introdução ao gerenciamento de senhas](../active-directory-passwords-getting-started.md). |
 | Write-back de grupo |Se usar o recurso **Grupos do Office 365** , você poderá ter esses grupos representados no Active Directory local. Essa opção só estará disponível se você tiver o Exchange presente no seu Active Directory local. Para saber mais, confira [Write-back de grupo](active-directory-aadconnect-feature-preview.md#group-writeback). |
 | Write-back de dispositivo |Permite o write-back de objetos de dispositivo no AD do Azure para seu Active Directory local para cenários de acesso condicional. Para saber mais, confira [Habilitar o write-back de dispositivo no Azure AD Connect](active-directory-aadconnect-feature-device-writeback.md). |
@@ -232,9 +231,12 @@ Em um computador que tem as ferramentas de Gerenciamento de Política de Grupo.
 ## <a name="configuring-federation-with-ad-fs"></a>Configurando a federação com o AD FS
 Configurar o AD FS com o Azure AD Connect é simples, com apenas alguns cliques. É necessário o seguinte antes da configuração.
 
-* Um servidor Windows Server 2012 R2 para o servidor de federação com gerenciamento remoto habilitado
-* Um servidor Windows Server 2012 R2 para o servidor de proxy de aplicativo Web com gerenciamento remoto habilitado
+* Um servidor Windows Server 2012 R2 ou posterior para o servidor de federação com gerenciamento remoto habilitado
+* Um servidor Windows Server 2012 R2 ou posterior para o servidor de proxy de aplicativo Web com gerenciamento remoto habilitado
 * Um certificado SSL para o nome do serviço de federação que você pretende usar (por exemplo, sts.contoso.com)
+
+>[!NOTE]
+>Você pode atualizar o certificado SSL para o farm do AD FS usando o Azure AD Connect, mesmo se não usá-lo para gerenciar sua relação de confiança de federação.
 
 ### <a name="ad-fs-configuration-pre-requisites"></a>Pré-requisitos de configuração do AD FS
 Para configurar o farm do AD FS usando o Azure AD Connect, verifique se o WinRM está habilitado nos servidores remotos. Além disso, confira o requisito de portas listado na [Tabela 3 ‒ Azure AD Connect e Servidores de Federação/WAP](active-directory-aadconnect-ports.md#table-3---azure-ad-connect-and-ad-fs-federation-serverswap).
@@ -245,6 +247,9 @@ Você pode usar um farm do AD FS existente ou pode optar por criar um novo farm 
 ![Farm do AD FS](./media/active-directory-aadconnect-get-started-custom/adfs1.png)
 
 Se optar por usar um farm existente do AD FS, você será levado diretamente para a tela de configuração da relação de confiança entre o AD FS e o Azure AD.
+
+>[!NOTE]
+>O Azure AD Connect pode ser usado para gerenciar somente um farm do AD FS. Se você tiver uma relação de confiança de federação existente com o Azure AD configurada no farm do AD FS selecionado, a relação de confiança será recriada novamente do zero pelo Azure AD Connect.
 
 ### <a name="specify-the-ad-fs-servers"></a>Especificar os servidores do AD FS
 Insira os servidores específicos em que deseja instalar o AD FS. Você pode adicionar um ou mais servidores com base em sua necessidades de planejamento de capacidade. Una todos os servidores do Active Directory antes de executar essa configuração. A Microsoft recomenda instalar um único servidor do AD FS para implantações de teste e piloto. Em seguida, adicione e implante mais servidores para atender às suas necessidades de dimensionamento executando o Azure AD Connect novamente após a configuração inicial.
@@ -350,4 +355,3 @@ Saiba mais sobre estes recursos, que foram habilitados com a instalação: [impe
 Saiba mais sobre estes tópicos comuns: [Agendador e como disparar a sincronização](active-directory-aadconnectsync-feature-scheduler.md).
 
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
-

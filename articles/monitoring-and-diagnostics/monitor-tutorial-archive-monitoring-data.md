@@ -10,14 +10,12 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 445901a740920a74f259aaa9c6b862680c1c807e
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="archive-azure-monitoring-data"></a>Arquivar dados de monitoramento do Azure
 
 Várias camadas do ambiente do Azure produzem dados de log e de métrica que podem ser arquivados em uma Conta de Armazenamento do Azure. Talvez você deseje fazer isso para preservar um histórico dos dados de monitoramento ao longo do tempo em um repositório de baixo custo e não pesquisável depois que os dados passaram seu período de retenção no Log Analytics ou no Azure Monitor. Este tutorial executa em etapas o processo de configuração do ambiente do Azure para arquivar dados em uma conta de armazenamento.
@@ -164,4 +162,3 @@ Neste tutorial, você aprendeu a configurar os dados de monitoramento do ambient
 
 > [!div class="nextstepaction"]
 > [Introdução ao Log Analytics](../log-analytics/log-analytics-get-started.md)
-

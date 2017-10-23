@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5cce99eff6ed75636399153a846654f56fb64a68
-ms.openlocfilehash: c7ea129346c5fddcff9f824dc69478cf6fb1c67a
-ms.contentlocale: pt-br
-ms.lasthandoff: 03/31/2017
-
+ms.openlocfilehash: d85281c02b792921f12cc62e6d60bef3e7c13b3f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-health-notifications"></a>Notificações de integridade do serviço
 ## <a name="overview"></a>Visão geral
@@ -83,4 +82,3 @@ Properties.communicationId | A comunicação à qual esse evento está associado
 ## <a name="next-steps"></a>Próximas etapas:
 Receber [notificações de alerta sempre que uma notificação de integridade do serviço](monitoring-activity-log-alerts-on-service-notifications.md) é postada  
 Saiba mais sobre os [alertas do log de atividades](monitoring-activity-log-alerts.md)
-

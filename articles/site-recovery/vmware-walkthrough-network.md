@@ -14,15 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
 ms.openlocfilehash: f164ac68ba6ec650bb3996b4aa870e1b98533a23
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/29/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="step-4-plan-networking-for-vmware-to-azure-replication"></a>Etapa 4: Planejar a rede para VMware para replicação do Azure
 
 Este artigo resume as considerações sobre planejamento de rede ao replicar VMs do VMware locais para o Azure usando o serviço [Azure Site Recovery](site-recovery-overview.md).
@@ -53,7 +50,7 @@ Vejamos um exemplo de failover para o Azure.
 - A conectividade entre as VMs do Woodgrove Bank no Azure e os servidores locais é fornecida por uma conexão (VPN) site a site entre a rede de borda local e a rede virtual do Azure.
 - Essa VPN significa que a rede virtual da empresa no Azure aparece como uma extensão de sua rede local.
 - O Woodgrove deseja usar o Site Recovery para replicar as cargas de trabalho locais para o Azure.
- - O Woodgrove precisa lidar com aplicativos e configurações que dependem de endereços IP embutidos em código e, portanto, precisa manter endereços IP para seus aplicativos após o failover para o Azure.
+ - O Woodgrove precisa lidar com aplicativos e configurações que dependem de endereços IP embutidos em código e, portanto, precisa reter endereços IP para seus aplicativos após o failover para o Azure.
  - O Woodgrove atribuiu endereços IP do intervalo 172.16.1.0/24 a 172.16.2.0/24 aos seus recursos em execução no Azure.
 
 
@@ -87,9 +84,8 @@ Caso você não tenha uma rede do Azure, conforme ilustrado acima, poderá criar
 
 ## <a name="change-ip-addresses"></a>Alterar os endereços IP
 
-Esta [postagem no blog](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) explica como configurar a infraestrutura de rede do Azure quando você não precisa reter os endereços IP após o failover. Ela começa com uma descrição do aplicativo, explica como configurar a rede no local e no Azure e termina com informações sobre como executar failovers.  
+Esta [postagem no blog](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) explica como configurar a infraestrutura de rede do Azure quando você não precisa reter os endereços IP após o failover. Ela começa com uma descrição do aplicativo, explica como configurar a rede local e no Azure e termina com informações sobre como executar failovers.  
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Ir para a [Etapa 5: Preparar o Azure](vmware-walkthrough-prepare-azure.md)
-

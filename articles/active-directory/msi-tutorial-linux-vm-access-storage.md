@@ -13,15 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
 ms.author: elkuzmen
+ms.openlocfilehash: 16d96494c2e97604ed2116c6b1a28e099b4e61bd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 8e4b3466143dc8b19df399913baca864b0af9bc0
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="use-a-linux-vm-managed-service-identity-to-access-azure-storage"></a>Usar uma Identidade de Serviço Gerenciado de VM do Linux para acessar o armazenamento do Azure
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
@@ -138,7 +135,7 @@ Agora, usaremos CURL para fazer uma chamada ao Resource Manager usando o acesso 
 > O texto na URL diferencia maiúsculas de minúsculas, portanto, verifique se você está usando letras maiúsculas e minúsculas para os Grupos de Recursos refletirem adequadamente. Além disso, é importante saber que se trata de uma solicitação POST, não uma solicitação GET, e passe um valor para capturar um limite de comprimento com -d que pode ser NULL.  
 
 ```bash 
-curl https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>/listKeys?api-version=2016-12-01 –request POST -d"" -H "Authorization: Bearer <ACCESS TOKEN>" 
+curl https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>/listKeys?api-version=2016-12-01 –-request POST -d "" -H "Authorization: Bearer <ACCESS TOKEN>" 
 ```
 
 A resposta de CURL fornece a lista de chaves:  
@@ -158,11 +155,7 @@ Em seguida, carregue o arquivo usando a CLI do Azure e se autentique com a Chave
  
 
 ```azurecli-interactive
- az storage blob upload --container-name 
-                        --file 
-                        --name 
-                        [--account-name] 
-                        [--account-key] 
+az storage blob upload -c <CONTAINER NAME> -n test.txt -f test.txt --account-name <STORAGE ACCOUNT NAME> --account-key <STORAGE ACCOUNT KEY>
 ```
 
 Resposta: 
@@ -180,11 +173,7 @@ além disso, baixe o arquivo usando a CLI do Azure e autentique com a Chave de A
 Solicitação: 
 
 ```azurecli-interactive
-az storage blob download --container-name
-                         --file 
-                         --name 
-                         [--account-name]
-                         [--account-key]  
+az storage blob download -c <CONTAINER NAME> -n test.txt -f test-download.txt --account-name <STORAGE ACCOUNT NAME> --account-key <STORAGE ACCOUNT KEY>
 ```
 
 Resposta: 
@@ -193,18 +182,18 @@ Resposta:
 {
   "content": null,
   "metadata": {},
-  "name": "testblob",
+  "name": "test.txt",
   "properties": {
     "appendBlobCommittedBlockCount": null,
     "blobType": "BlockBlob",
-    "contentLength": 16,
-    "contentRange": "bytes 0-15/16",
+    "contentLength": 21,
+    "contentRange": "bytes 0-20/21",
     "contentSettings": {
       "cacheControl": null,
       "contentDisposition": null,
       "contentEncoding": null,
       "contentLanguage": null,
-      "contentMd5": "Aryr///Rb+D8JQ8IytleDA==",
+      "contentMd5": "LSghAvpnElYyfUdn7CO8aw==",
       "contentType": "text/plain"
     },
     "copy": {
@@ -215,8 +204,8 @@ Resposta:
       "status": null,
       "statusDescription": null
     },
-    "etag": "\"0x8D4F9929765C139\"",
-    "lastModified": "2017-09-12T03:58:56+00:00",
+    "etag": "\"0x8D5067F30D0C283\"",
+    "lastModified": "2017-09-28T14:42:49+00:00",
     "lease": {
       "duration": null,
       "state": "available",
@@ -234,5 +223,4 @@ Resposta:
 Para obter uma visão geral do MSI, confira [Visão geral da Identidade de Serviço Gerenciado](../active-directory/msi-overview.md).
 
 Use a seção de comentários a seguir para fornecer seus comentários e nos ajudar a aprimorar e adaptar nosso conteúdo.
-
 

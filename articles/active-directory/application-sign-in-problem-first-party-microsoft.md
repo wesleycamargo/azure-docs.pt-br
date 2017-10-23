@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3716c7699732ad31970778fdfa116f8aee3da70b
-ms.openlocfilehash: 77f8f10c764013e539480138fb1479d0326b5eef
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/30/2017
-
+ms.openlocfilehash: 5638434270ee82d2b9737ea8eed8b5a8c62f7121
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 ## <a name="problems-signing-in-to-a-microsoft-application"></a>Problemas ao entrar em um aplicativo Microsoft
 
 Os aplicativos Microsoft (como o Office 365 Exchange, SharePoint, Yammer, etc.) são atribuídos e gerenciados de forma um pouco diferente dos aplicativos SaaS de terceiros ou outros aplicativos que você integra com o Azure AD para o logon único.
@@ -59,9 +57,9 @@ A seguir, são apresentados alguns problemas comuns que as pessoas se deparam qu
 
   * Certifique-se de que a**conta do usuário existe** no Azure Active Directory. [Verificar se uma conta de usuário existe no Azure Active Directory](#problems-with-the-users-account)
 
-  * Certifique-se de que a conta do usuário está **habilitada** para entrar. [Verificar o status da conta do usuário](#problems-with-the-users-account)
+  * Verifique se a conta do usuário está **habilitada** para entradas. [Verificar o status da conta do usuário](#problems-with-the-users-account)
 
-  * Certifique-se de que a **senha do usuário não está expirada ou esquecida.** [Redefinir uma senha do usuário](#reset-a-users-password) ou [Habilitar a redefinição de senha por autoatendimento](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
+  * Verifique se a **senha do usuário não expirou ou foi esquecida.** [Redefinir uma senha do usuário](#reset-a-users-password) ou [Habilitar a redefinição de senha por autoatendimento](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
 
    * Certifique-se de que a **Autenticação Multifator** não está bloqueando o acesso do usuário. [Verificar o status de autenticação multifator do usuário](#check-a-users-multi-factor-authentication-status) ou [Verificar informações de contato de autenticação do usuário](#check-a-users-authentication-contact-info)
 
@@ -528,5 +526,4 @@ O acesso do aplicativo pode ser bloqueado porque a operação de consentimento d
 
 ## <a name="next-steps"></a>Próximas etapas
 [Usando o ponto de extremidade de consentimento do administrador](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-scopes#using-the-admin-consent-endpoint)
-
 

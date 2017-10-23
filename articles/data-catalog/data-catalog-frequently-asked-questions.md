@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 08/15/2017
 ms.author: maroche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 532ff423ff53567b6ce40c0ea7ec09a689cee1e7
-ms.openlocfilehash: ea6b6651a32b9f259186991d9609301fd4dfa131
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/05/2017
-
+ms.openlocfilehash: 11e4bc7e71b4a94c3a0eda4275745b1beb44974d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Perguntas frequentes sobre o Catálogo de Dados do Azure
 Este artigo apresenta respostas para perguntas frequentes relacionadas ao serviço de Catálogo de Dados do Azure.
@@ -129,4 +128,3 @@ Para atualizar os metadados para ativos de dados que já estão registrados no c
 
 ## <a name="my-question-isnt-answered-here-where-can-i-go-for-answers"></a>Minha dúvida não é respondida aqui. Como posso obter respostas?
 Acesse o [fórum Catálogo de Dados do Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). As perguntas feitas serão posteriormente incluídas aqui.
-

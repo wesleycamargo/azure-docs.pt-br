@@ -186,13 +186,15 @@
           href: 'quickstart-create-data-factory-dot-net.md#monitor-pipeline-run'
         - name: Usar o Azure Monitor
           href: monitor-using-azure-monitor.md
+        - name: Monitorar visualmente
+          href: monitor-visually.md
         - name: Gerenciar tempo de execução de integração do Azure-SSIS
           href: manage-azure-ssis-integration-runtime.md
         - name: Monitorar tempo de execução de integração
           href: monitor-integration-runtime.md
     - name: Criar tempo de execução de integração
       items:
-        - name: Tempo de execução de integração do Azure
+        - name: Integration Runtime do Azure
           href: create-azure-integration-runtime.md
         - name: Tempo de execução de integração auto-hospedado
           href: create-self-hosted-integration-runtime.md

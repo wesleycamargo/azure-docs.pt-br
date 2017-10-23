@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2017
 ms.author: glenga
+ms.openlocfilehash: 5f0b346ec1c4a42d11ef74ab8ac8701dd45b00eb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: b69bbd00b85fdf093ac1ccf021515d9b44ea7f55
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-functions-tools-for-visual-studio"></a>Ferramentas do Azure Functions para Visual Studio 2017  
 
@@ -57,7 +56,7 @@ Para criar e implantar funções, você também precisa:
 
 Quando você cria um novo projeto usando o modelo do Azure Functions, você obtém um projeto C# vazio que contém os seguintes arquivos:
 
-* **host.json**: Permite que você configure o host do Functions. Essas configurações se aplicam para execução local e no Azure. Para obter mais informações, consulte o artigo de referência para [host.json](https://github.com/Azure/azure-webjobs-sdk-script/wiki/host.json).
+* **host.json**: Permite que você configure o host do Functions. Essas configurações se aplicam para execução local e no Azure. Para obter mais informações, consulte a [referência para host.json](functions-host-json.md).
     
 * **local.Settings.json**: Mantém as configurações usadas ao executar as funções localmente. Essas configurações não são usadas pelo Azure, elas são usadas pelas [Ferramentas Básicas do Azure Functions](functions-run-local.md). Use esse arquivo para especificar as configurações, como cadeias de conexão a outros serviços do Azure. Adicione uma nova chave na matriz **Valores** para cada conexão exigida pelas funções em seu projeto. Para obter mais informações, consulte [Arquivo de configurações locais](functions-run-local.md#local-settings-file) no tópico Ferramentas Básicas do Azure Functions.
 
@@ -138,4 +137,3 @@ Para obter mais informações sobre as Ferramentas do Azure Functions, consulte 
 
 Para saber mais sobre as Ferramentas Básicas do Azure Functions, consulte [Codificar e testar o Azure Functions localmente](functions-run-local.md).  
 Para saber mais sobre como desenvolver funções como bibliotecas de classes do .NET, veja [Como usar bibliotecas de classes do .NET com o Azure Functions](functions-dotnet-class-library.md). Este tópico também fornece exemplos de como usar atributos para declarar os vários tipos de associações com suporte pelo Azure Functions.    
-

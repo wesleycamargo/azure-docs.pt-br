@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 06/26/2017
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: b18be0d81d6fad7328edb47c9b69af4eecd3b971
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="example-azure-infrastructure-walkthrough-for-linux-vms"></a>Passo a passo de infraestrutura do Azure de exemplo para VMs Linux
 
@@ -118,4 +117,3 @@ Essa configuração inclui:
 * Um conjunto de balanceamento de carga externo para tráfego da Web baseado em HTTPS da Internet para os servidores Web
 * Um conjunto de balanceamento de carga interno para tráfego da Web dos servidores Web para os servidores de aplicativos
 * Um único grupo de recursos
-

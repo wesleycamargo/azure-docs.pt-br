@@ -15,12 +15,11 @@ ms.workload: na
 ms.date: 08/24/2017
 ms.author: micflan
 ms.custom: accessibility
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: d5f837d0017ca885144b91d35f489a6fc0e5670e
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="keyboard-shortcuts-in-the-azure-portal"></a>Atalhos de teclado no portal do Azure
 Este artigo mostra os atalhos de teclado que funcionam em todo o portal do Azure. Serviços individuais podem ter seus próprios atalhos de teclado.

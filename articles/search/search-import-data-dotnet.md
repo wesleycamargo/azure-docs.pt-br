@@ -15,12 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 01/13/2017
 ms.author: brjohnst
-ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
 ms.openlocfilehash: bdd952869143c6ca6374bb9264db5bcba1f32b50
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="upload-data-to-azure-search-using-the-net-sdk"></a>Carregar dados para a Pesquisa do Azure usando o SDK do .NET
 > [!div class="op_single_selector"]
@@ -238,5 +237,4 @@ Por esse motivo, sugerimos que você use tipos anuláveis nas suas classes de mo
 
 ## <a name="next-steps"></a>Próximas etapas
 Depois de popular o índice de Pesquisa do Azure, você estará pronto para começar a emitir consultas para pesquisar documentos. Veja [Consultar seu Índice de Pesquisa do Azure](search-query-overview.md) para obter detalhes.
-
 

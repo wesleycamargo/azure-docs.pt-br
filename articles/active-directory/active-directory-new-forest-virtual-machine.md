@@ -15,13 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/06/2017
 ms.author: joflore
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 516240ccc82a522a414d837ec334712196edf7dd
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: 0a45a563d8aed45dd30cc76a13b0e197c248be84
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-a-new-active-directory-forest-on-an-azure-virtual-network"></a>Instalar uma nova floresta do Active Directory em uma rede virtual do Azure
 Este tópico mostra como criar um novo ambiente do Active Directory do Windows Server em uma rede virtual do Azure em uma máquina virtual (VM) em uma [rede virtual do Azure](../virtual-network/virtual-networks-overview.md). Nesse caso, a rede virtual do Azure não está conectada a uma rede local.
@@ -125,4 +123,3 @@ Para obter mais informações sobre como usar o Windows PowerShell, consulte [In
 
 <!--Image references-->
 [1]: ./media/active-directory-new-forest-virtual-machine/AD_Forest.png
-

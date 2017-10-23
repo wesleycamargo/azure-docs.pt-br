@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 07/19/2017
 ms.author: cabailey
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 924fce8245a88fd7c12636182336e503237fe4dc
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/03/2017
-
+ms.openlocfilehash: e9a4f16f048833dab49f7db79892fe47a5aeff37
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-key-vault-logging"></a>Logs do Cofre da Chave do Azure
 O Cofre da Chave do Azure está disponível na maioria das regiões. Para obter mais informações, consulte a [Página de preços do Cofre da Chave](https://azure.microsoft.com/pricing/details/key-vault/).
@@ -275,4 +274,3 @@ Para referências de programação, consulte [Guia do desenvolvedor do Cofre da 
 Para obter uma lista dos cmdlets do Azure PowerShell 1.0 para o Cofre de Chaves do Azure, confira [Cmdlets do Cofre de Chaves do Azure](/powershell/module/azurerm.keyvault/#key_vault).
 
 Para obter um tutorial sobre a rotação de chaves e o log de auditoria com o Cofre de Chaves do Azure, confira [Como configurar o Cofre de Chaves com a rotação de chaves e auditoria de ponta a ponta](key-vault-key-rotation-log-monitoring.md).
-

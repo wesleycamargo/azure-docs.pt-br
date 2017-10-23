@@ -12,13 +12,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/15/2017
 ms.author: harahma
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: ca7092a06a9ffce8383ca8bc9f70ce312cdf9de4
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-fabric-hosting-model"></a>Modelo de hospedagem do Service Fabric
 Este artigo fornece uma visão geral dos modelos de hospedagem de aplicativos fornecidos pelo Service Fabric e descreve as diferenças entre os modelos de **Processo Compartilhado** e **Processo Exclusivo**. Ele descreve a aparência de um aplicativo implantado em um nó do Service Fabric e a relação entre réplicas (ou instâncias) do serviço e o processo de host do serviço.

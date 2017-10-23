@@ -14,20 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2016
 ms.author: dariagrigoriu
-translationtype: Human Translation
-ms.sourcegitcommit: 2ea002938d69ad34aff421fa0eb753e449724a8f
-ms.openlocfilehash: ddda0e60dc9d5414142791175b77a5a65e3f40e3
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 010e7dc492abefaa3afe814c0322af9f6fe5acd2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sync-content-from-a-cloud-folder-to-azure-app-service"></a>Sincronizar o conteúdo de uma pasta de nuvem para o Serviço de Aplicativo do Azure
 Este tutorial mostra como implantar o [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714) sincronizando o conteúdo de serviços populares de armazenamento em nuvem como o Dropbox e o OneDrive. 
 
-## <a name="a-nameoverviewaoverview-of-content-sync-deployment"></a><a name="overview"></a>Visão geral da implantação de sincronização de conteúdo
+## <a name="overview"></a>Visão geral da implantação de sincronização de conteúdo
 A implantação de sincronização de conteúdo sob demanda é proveniente da plataforma do [mecanismo de implantação do Kudu](https://github.com/projectkudu/kudu/wiki) integrado ao Serviço de Aplicativo. No [Portal do Azure](https://portal.azure.com), é possível designar uma pasta em seu armazenamento em nuvem, trabalhar com o código e o conteúdo do aplicativo nessa pasta e sincronizá-la com o Serviço de Aplicativo com apenas um clique. A sincronização de conteúdo utiliza o processo do Kudu para build e implantação. 
 
-## <a name="a-namecontentsyncahow-to-enable-content-sync-deployment"></a><a name="contentsync"></a>Como habilitar a implantação de sincronização de conteúdo
+## <a name="contentsync"></a>Como habilitar a implantação de sincronização de conteúdo
 Para habilitar a sincronização de conteúdo por meio do [Portal do Azure](https://portal.azure.com), siga estas etapas:
 
 1. Na folha do aplicativo no Portal do Azure, clique em **Configurações** > **Origem da Implantação**. Clique em **Escolher Origem** e selecione **OneDrive** ou **Dropbox** como a origem da implantação. 
@@ -48,5 +47,4 @@ Para habilitar a sincronização de conteúdo por meio do [Portal do Azure](http
     ![Histórico de implantação](./media/app-service-deploy-content-sync/onedrive_sync.png)
 
 Mais informações para a implantação do Dropbox estão disponíveis em [Implantar por meio do Dropbox](http://blogs.msdn.com/b/windowsazure/archive/2013/03/19/new-deploy-to-windows-azure-web-sites-from-dropbox.aspx). 
-
 

@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/02/2017
 ms.author: larryfr
-ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
 ms.openlocfilehash: 3ee89b6644ba395e0a6c28ecc2c082c2f7393ac8
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/03/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Desenvolver topologias C# para Apache Storm usando ferramentas do Data Lake para Visual Studio
 
@@ -772,4 +771,3 @@ Para obter outras maneiras de trabalhar com o HDInsight e mais amostras do Storm
 **Apache HBase no HDInsight**
 
 * [Introdução ao HBase no HDInsight](hdinsight-hbase-tutorial-get-started.md)
-

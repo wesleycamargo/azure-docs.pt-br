@@ -15,13 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: sql-database
 ms.date: 10/12/2016
 ms.author: bonova
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8c4e33a63f39d22c336efd9d77def098bd4fa0df
-ms.openlocfilehash: 3870a6ddb8c40a619e3aa6ed1a040f2070e2598c
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/20/2017
-
-
+ms.openlocfilehash: 8975d7a7d39114b2758d64a4df9f992cba6bf561
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-historical-data-in-temporal-tables-with-retention-policy"></a>Gerenciar dados históricos em Tabelas Temporais com a política de retenção
 Tabelas Temporais podem aumentar o tamanho do banco de dados mais do que tabelas regulares, especialmente se você mantiver os dados históricos por um período maior de tempo. Portanto, a política de retenção de dados históricos é um aspecto importante do planejamento e gerenciamento do ciclo de vida de cada tabela temporal. Tabelas temporais no Banco de Dados SQL do Azure vem com um mecanismo de retenção de fácil utilização que ajuda você a realizar essa tarefa.
@@ -188,5 +186,4 @@ Para aprender a usar Tabelas Temporais em seus aplicativos, consulte [Introduç�
 Visite o Channel 9 para ouvir uma [história de sucesso real de implementação temporal do cliente](https://channel9.msdn.com/Blogs/jsturtevant/Azure-SQL-Temporal-Tables-with-RockStep-Solutions) e assista a uma [demonstração temporal dinâmica](https://channel9.msdn.com/Shows/Data-Exposed/Temporal-in-SQL-Server-2016).
 
 Para obter informações detalhadas sobre as Tabelas Temporais, leia a [documentação do MSDN](https://msdn.microsoft.com/library/dn935015.aspx).
-
 

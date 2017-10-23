@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: NA
 ms.date: 04/14/2017
 ms.author: carlrab
-ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
 ms.openlocfilehash: da3399b9c6642435dc7b40ed1c843217c984d15e
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="database-transaction-units-dtus-and-elastic-database-transaction-units-edtus"></a>DTUs (Unidades de transação de banco de dados) e eDTUs (Unidades de transação de banco de dados elástico)
 Este artigo explica as DTUs (Unidades de transação de banco de dados) e eDTUs (Unidades de transação de banco de dados elástico), e o que acontece quando você atinge o máximo de DTUs ou eDTUs.  
@@ -65,4 +64,3 @@ Os níveis de desempenho são calibrados e controlados para fornecer os recursos
 * Consulte [Camada de serviço](sql-database-service-tiers.md) para saber mais sobre os DTUs e os eDTUs disponíveis para bancos de dados individuais e para pools elásticos, bem como limites de recursos além da CPU, memória, E/S de dados e E/S de log de transações.
 * Confira [Análise de Desempenho de Consultas de Banco de Dados SQL](sql-database-query-performance.md) para compreender o consumo (DTUs).
 * Confira [Visão geral do parâmetro de Banco de Dados SQL](sql-database-benchmark-overview.md) para entender a metodologia por trás da carga de trabalho OLTP de parâmetro usada para determinar a combinação de DTU.
-

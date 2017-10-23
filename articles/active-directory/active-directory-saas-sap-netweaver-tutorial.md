@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: ad4140eb1183094a67822ad92eabcd35101360b6
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/16/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-netweaver"></a>Tutorial: Integração do Azure Active Directory com o SAP NetWeaver
 
@@ -117,7 +115,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<your company instance of SAP NetWeaver>`
 
-    c. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão:  `https://<your company instance of SAP NetWeaver>/sap/saml2/sp/acs/100`
+    c. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<your company instance of SAP NetWeaver>/sap/saml2/sp/acs/100`
      
     > [!NOTE] 
     > Esses não são os valores reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais. Aqui, sugerimos que você use o valor exclusivo de cadeia de caracteres no Identificador. Contate a [equipe de suporte do cliente SAP NetWeaver](https://www.sap.com/support.html) para obter esses valores. 
@@ -229,5 +227,4 @@ Ao clicar no bloco do SAP NetWeaver no Painel de Acesso, você deverá ser conec
 [201]: ./media/active-directory-saas-sap-netweaver-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-sap-netweaver-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-sap-netweaver-tutorial/tutorial_general_203.png
-
 

@@ -25,7 +25,7 @@
 #### [Aplicativo de jogos](mobile-engagement-gaming-scenario.md)
 
 ## Desenvolver
-### [Criar um aplicativo de Engajamento Móvel](mobile-engagement-create.md)
+### [Criar um aplicativo de Mobile Engagement](mobile-engagement-create.md)
 
 ### [Android](mobile-engagement-android-sdk-overview.md)
 #### [Integrar a um aplicativo Android](mobile-engagement-android-integrate-engagement.md)

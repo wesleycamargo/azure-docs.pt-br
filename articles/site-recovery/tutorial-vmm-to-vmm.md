@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 9764e48e04eb0c83afea09934ce64d2485ab15d5
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-your-secondary-on-premises-site"></a>Configurar a recuperação de desastre de VMs do Hyper-V para seu site local secundário
 
@@ -163,4 +162,3 @@ Antes de começar, verifique se todos os hosts que estão usando a política tê
 ## <a name="next-steps"></a>Próximas etapas
 
 [Realizar uma simulação de recuperação de desastre](tutorial-dr-drill-secondary.md)
-

@@ -16,13 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 03/17/2017
 ms.author: rickbyh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 105255696c59346f3a8f0013d98602c9f17b7661
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/18/2017
-
-
+ms.openlocfilehash: c4efec378a31852feacfce4ed4f040f80284e230
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Resolvendo diferenças de Transact-SQL durante a migração para o Banco de Dados SQL   
 Quando [migrar seu banco de dados](sql-database-cloud-migrate.md) do SQL Server para o SQL Server do Azure, você poderá descobrir que seu banco de dados requer alguma reengenharia antes que o SQL Server possa ser migrado. Este tópico fornece diretrizes para ajudá-lo tanto a realizar essa reengenharia quanto a entender os motivos subjacentes pelos quais a reengenharia é necessária. Para detectar incompatibilidades, use o [DMA (Data Migration Assistant)](https://www.microsoft.com/download/details.aspx?id=53595).
@@ -92,5 +90,4 @@ Em alguns casos, o assunto geral de um tópico pode ser usado em um produto, mas
 ## <a name="next-steps"></a>Próximas etapas
 
 Para obter uma lista dos recursos com e sem suporte no Banco de Dados SQL, consulte [Comparação de recursos do Banco de Dados SQL do Azure](sql-database-features.md). A lista nesta página complementa o tópico Diretrizes e recursos e se concentra nas instruções Transact-SQL.
-
 

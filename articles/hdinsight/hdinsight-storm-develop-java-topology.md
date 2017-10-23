@@ -14,15 +14,14 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/07/2017
+ms.date: 09/28/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
+ms.openlocfilehash: c72de1c83fe73019ac3ad8b8487aa25bbd078555
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: 36285fbaf1da3c566d338bd5612eebad327eaf50
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/13/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Criar uma topologia Apache Storm em Java
 
@@ -38,7 +37,7 @@ Depois de concluir as etapas neste documento, você pode implantar a topologia p
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* [Java Developer Kit (JDK) versão 7](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html)
+* [JDK (Java Developer Kit) versão 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
 
 * [Maven (https://maven.apache.org/download.cgi)](https://maven.apache.org/download.cgi): Maven é um sistema de compilação do projeto para projetos Java.
 
@@ -48,7 +47,7 @@ Depois de concluir as etapas neste documento, você pode implantar a topologia p
 
 As seguintes variáveis de ambiente podem ser definidas quando você instala o Java e o JDK. No entanto, você deve verificar se elas existem e se contêm os valores corretos para o seu sistema.
 
-* **JAVA_HOME** - deve apontar para o diretório onde o JRE (Java runtime environment) está instalado. Por exemplo, em uma distribuição Unix ou Linux, ele deve ter um valor semelhante a `/usr/lib/jvm/java-7-oracle`. No Windows, ele teria um valor semelhante a `c:\Program Files (x86)\Java\jre1.7`
+* **JAVA_HOME** - deve apontar para o diretório onde o JRE (Java runtime environment) está instalado. Por exemplo, em uma distribuição Unix ou Linux, ele deve ter um valor semelhante a `/usr/lib/jvm/java-8-oracle`. No Windows, ele teria um valor semelhante a `c:\Program Files (x86)\Java\jre1.8`
 
 * **PATH** - deve conter os seguintes caminhos:
 
@@ -133,9 +132,9 @@ O Maven permite que você defina valores de nível de projeto chamados proprieda
 <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <!--
-    This is a version of Storm from the Hortonworks repository that is compatible with HDInsight.
+    This is a version of Storm from the Hortonworks repository that is compatible with HDInsight 3.5.
     -->
-    <storm.version>1.0.1.2.5.3.0-37</storm.version>
+    <storm.version>1.1.0.2.6.1.9-1</storm.version>
 </properties>
 ```
 
@@ -611,40 +610,42 @@ Para saber mais sobre o Flux, veja [Estrutura do Flux (https://storm.apache.org/
 
 2. No diretório `resources`, crie um novo arquivo chamado `topology.yaml`. Use o seguinte texto como o conteúdo desse arquivo.
 
-        name: "wordcount"       # friendly name for the topology
+    ```yaml
+    name: "wordcount"       # friendly name for the topology
+
+    config:                 # Topology configuration
+      topology.workers: 1     # Hint for the number of workers to create
+
+    spouts:                 # Spout definitions
+    - id: "sentence-spout"
+      className: "com.microsoft.example.RandomSentenceSpout"
+      parallelism: 1      # parallelism hint
+
+    bolts:                  # Bolt definitions
+    - id: "splitter-bolt"
+      className: "com.microsoft.example.SplitSentence"
+      parallelism: 1
         
-        config:                 # Topology configuration
-        topology.workers: 1     # Hint for the number of workers to create
-        
-        spouts:                 # Spout definitions
-        - id: "sentence-spout"
-            className: "com.microsoft.example.RandomSentenceSpout"
-            parallelism: 1      # parallelism hint
-        
-        bolts:                  # Bolt definitions
-        - id: "splitter-bolt"
-            className: "com.microsoft.example.SplitSentence"
-            parallelism: 1
-         
-        - id: "counter-bolt"
-            className: "com.microsoft.example.WordCount"
-            constructorArgs:
-                - 10
-            parallelism: 1
-        
-        streams:                # Stream definitions
-            - name: "Spout --> Splitter" # name isn't used (placeholder for logging, UI, etc.)
-            from: "sentence-spout"       # The stream emitter
-            to: "splitter-bolt"          # The stream consumer
-            grouping:                    # Grouping type
-                type: SHUFFLE
-          
-            - name: "Splitter -> Counter"
-            from: "splitter-bolt"
-            to: "counter-bolt"
-            grouping:
-            type: FIELDS
-                args: ["word"]           # field(s) to group on
+    - id: "counter-bolt"
+      className: "com.microsoft.example.WordCount"
+      constructorArgs:
+        - 10
+      parallelism: 1
+
+    streams:                # Stream definitions
+    - name: "Spout --> Splitter" # name isn't used (placeholder for logging, UI, etc.)
+      from: "sentence-spout"       # The stream emitter
+      to: "splitter-bolt"          # The stream consumer
+      grouping:                    # Grouping type
+        type: SHUFFLE
+    
+    - name: "Splitter -> Counter"
+      from: "splitter-bolt"
+      to: "counter-bolt"
+      grouping:
+        type: FIELDS
+        args: ["word"]           # field(s) to group on
+    ```
 
 3. Faça as alterações a seguir no arquivo `pom.xml`.
    
@@ -722,14 +723,14 @@ Para saber mais sobre o Flux, veja [Estrutura do Flux (https://storm.apache.org/
     ```
 
     > [!WARNING]
-    > Se a topologia usar bits do Storm 1.0.1, esse comando falhará. Essa falha é causada por [https://issues.apache.org/jira/browse/STORM-2055](https://issues.apache.org/jira/browse/STORM-2055). Em vez disso, [instale o Storm no ambiente de desenvolvimento](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html) e use as informações a seguir.
-
-    Se você tiver [instalado o Storm no ambiente de desenvolvimento](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html), poderá usar os seguintes comandos em vez disso:
-
-    ```bash
-    mvn compile package
-    storm jar target/WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --local -R /topology.yaml
-    ```
+    > Se a topologia usar bits do Storm 1.0.1, esse comando falhará. Essa falha é causada por [https://issues.apache.org/jira/browse/STORM-2055](https://issues.apache.org/jira/browse/STORM-2055). Em vez disso, [instale o Storm no ambiente de desenvolvimento](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html) e use as informações a seguir:
+    >
+    > Se você tiver [instalado o Storm no ambiente de desenvolvimento](http://storm.apache.org/releases/0.10.0/Setting-up-development-environment.html), poderá usar os seguintes comandos em vez disso:
+    >
+    > ```bash
+    > mvn compile package
+    > storm jar target/WordCount-1.0-SNAPSHOT.jar org.apache.storm.flux.Flux --local -R /topology.yaml
+    > ```
 
     O parâmetro `--local` executa a topologia no modo local no ambiente de desenvolvimento. O parâmetro `-R /topology.yaml` usa o recurso de arquivo `topology.yaml` do arquivo jar para definir a topologia.
 
@@ -791,5 +792,4 @@ Você aprendeu a criar uma topologia do Storm usando Java. Agora saiba como:
 * [Desenvolver topologias C# para o Apache Storm no HDInsight usando o Visual Studio](hdinsight-storm-develop-csharp-visual-studio-topology.md)
 
 Para obter mais topologias Storm, consulte [Topologias de exemplo para o Storm no HDInsight](hdinsight-storm-example-topology.md).
-
 

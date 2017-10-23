@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: c1e0be0e305ba4d53d8e26c55a92b63e1291171d
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-vm-with-docker"></a>Criar uma máquina virtual com o Docker
 
 Esse script cria uma máquina virtual com o Docker habilitado e inicia um contêiner do Docker que executa o NGINX. Após a execução do script, é possível acessar o servidor Web NGINX por meio do FQDN da máquina virtual do Azure. 
@@ -34,7 +32,7 @@ Esse script cria uma máquina virtual com o Docker habilitado e inicia um contê
 
 ## <a name="sample-script"></a>Script de exemplo
 
-[!code-azurecli-interactive[principal](../../../cli_scripts/virtual-machine/create-docker-host/create-docker-host.sh "Host Docker")]
+[!code-azurecli-interactive[main](../../../cli_scripts/virtual-machine/create-docker-host/create-docker-host.sh "Docker Host")]
 
 ## <a name="clean-up-deployment"></a>Limpar implantação 
 
@@ -61,4 +59,3 @@ Esse script usa os seguintes comandos para criar a implantação. Cada item em q
 Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
 
 Os exemplos de script da CLI de máquina virtual adicionais podem ser encontrados na [documentação da VM Linux do Azure](../linux/cli-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-

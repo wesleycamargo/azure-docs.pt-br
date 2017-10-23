@@ -14,14 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/07/2017
+ms.date: 09/28/2017
 ms.author: larryfr
+ms.openlocfilehash: c7a911474d6fb90f45565c90a72bfd407898ceba
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: ad930ca023a36fa5874483873c82fdba11d117c7
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/13/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-and-use-solr-on-hdinsight-hadoop-clusters"></a>Instalar e usar o Solr em clusters HDInsight do Hadoop
 
@@ -59,7 +58,7 @@ Um script de exemplo para instalar o Solr em um cluster HDInsight está disponí
 
 Para criar um cluster com Solr instalado, use as etapas no documento [Criar clusters do HDInsight](hdinsight-hadoop-create-linux-clusters-portal.md). Durante o processo de criação, use as seguintes etapas para instalar o Solr:
 
-1. Na folha __Resumo do cluster__, selecione__Configurações avançadas__ e __Ações de script__. Use as informações a seguir para popular o formulário:
+1. Na seção __Resumo do cluster__, selecione__Configurações avançadas__ e __Ações de script__. Use as informações a seguir para popular o formulário:
 
    * **NOME**: insira um nome amigável para a ação de script.
    * **URI do SCRIPT**: https://hdiconfigactions.blob.core.windows.net/linuxsolrconfigactionv01/solr-installer-v01.sh
@@ -68,7 +67,7 @@ Para criar um cluster com Solr instalado, use as etapas no documento [Criar clus
    * **ZOOKEEPER**: marque esta opção para instalar no nó Zookeeper
    * **PARÂMETROS**: deixe este campo em branco
 
-2. Na parte inferior da folha **Ações de script**, use o botão **Selecionar** para salvar a configuração. Por fim, use o botão **Próximo** para retornar ao __Resumo do cluster__
+2. Na parte inferior da seção **Ações de Script**, use o botão **Selecionar** para salvar a configuração. Por fim, use o botão **Próximo** para retornar ao __Resumo do cluster__
 
 3. Na página __Resumo do cluster__, selecione __Criar__ para criar o cluster.
 
@@ -329,4 +328,3 @@ Para obter mais informações sobre como trabalhar com backups e restaurações 
 * [Instalar matiz em clusters HDInsight](hdinsight-hadoop-hue-linux.md). Use a personalização do cluster para instalar o Hue em clusters de Hadoop do HDInsight. A Matiz é um conjunto de aplicativos da Web usado para interagir com um cluster Hadoop.
 
 [hdinsight-cluster-customize]: hdinsight-hadoop-customize-cluster-linux.md
-

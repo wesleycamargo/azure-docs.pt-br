@@ -12,16 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 09/26/2017
 ms.author: billmath
+ms.openlocfilehash: 7e05c469260a445578c80cdf77fab2d5ffb48022
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 9a33e83c7453d5b80043599acca3ac4310446562
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-active-directory-pass-through-authentication-smart-lockout"></a>Autenticação de passagem do Azure Active Directory: bloqueio inteligente
 
 ## <a name="overview"></a>Visão geral
@@ -56,7 +54,7 @@ Use as instruções a seguir para verificar suas políticas de bloqueio de conta
 
 ![Políticas de bloqueio de conta do AD](./media/active-directory-aadconnect-pass-through-authentication/pta5.png)
 
-## <a name="use-the-graph-api-to-manage-your-tenants-smart-lockout-values"></a>Use a API do Graph para gerenciar os valores do Bloqueio Inteligente de seu locatário
+## <a name="use-the-graph-api-to-manage-your-tenants-smart-lockout-values-needs-premium-license"></a>Utilize a API do Graph para gerenciar os valores de Bloqueio Inteligente do locatário (é necessário licença Premium)
 
 >[!IMPORTANT]
 >Modificar os valores de Limite de bloqueio e de Duração de bloqueio do Azure AD usando a API do Graph é um recurso do Azure AD Premium P2. Também é necessário que você seja um Administrador Global em seu locatário.
@@ -149,4 +147,3 @@ Verifique se você atualizou os valores do Bloqueio Inteligente de seu locatári
 
 ## <a name="next-steps"></a>Próximas etapas
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) – para registrar solicitações de novos recursos.
-

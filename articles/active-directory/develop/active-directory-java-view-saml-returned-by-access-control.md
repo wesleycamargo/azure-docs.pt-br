@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 06d30b8222cd0590809b2fd5a1241394056c6338
-ms.openlocfilehash: ac91a1c753611f4002a930dadeaeba2fcd53a324
-ms.contentlocale: pt-br
-ms.lasthandoff: 01/18/2017
-
-
+ms.openlocfilehash: 1552e624a4703138ab82f7133ceaec3dbd04e1db
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-view-saml-returned-by-the-azure-access-control-service"></a>Como exibir o SAML retornado pelo Access Control Service do Azure
 Este guia mostrará como exibir o SAML adjacente retornado a seu aplicativo pelo ACS (Serviço de Controle de Acesso) do Azure. O guia baseia-se no tópico [Como autenticar usuários da Web com o Serviço de Controle de Acesso do Azure usando o Eclipse](active-directory-java-authenticate-users-access-control-eclipse.md), fornecendo um código que exibe as informações de SAML. O aplicativo concluído será semelhante ao seguinte.
@@ -197,4 +195,3 @@ Para explorar melhor a funcionalidade do ACS e experimentar mais cenários sofis
 [Access Control Service 2.0]: http://go.microsoft.com/fwlink/?LinkID=212360
 [How to Authenticate Web Users with Azure Access Control Service Using Eclipse]: active-directory-java-authenticate-users-access-control-eclipse
 [saml_output]: ./media/active-directory-java-view-saml-returned-by-access-control/SAML_Output.png
-

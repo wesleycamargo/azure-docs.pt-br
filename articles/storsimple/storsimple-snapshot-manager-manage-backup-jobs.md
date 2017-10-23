@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: b31f6d51399dc0533d8cbefcafc3b55762cb6cf1
-ms.contentlocale: pt-br
-ms.lasthandoff: 11/17/2016
-
-
+ms.openlocfilehash: 03e306b62250f2bb033cc14e856a59760b5406c3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-storsimple-snapshot-manager-to-view-and-manage-backup-jobs"></a>Usar o StorSimple Snapshot Manager para exibir e gerenciar trabalhos de backup
 
@@ -88,5 +86,4 @@ Use o procedimento a seguir para exibir os trabalhos que estão sendo executados
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba como [usar o StorSimple Snapshot Manager para administrar sua solução do StorSimple](storsimple-snapshot-manager-admin.md).
 * Saiba como [usar o StorSimple Snapshot Manager para gerenciar o catálogo de backup](storsimple-snapshot-manager-manage-backup-catalog.md).
-
 

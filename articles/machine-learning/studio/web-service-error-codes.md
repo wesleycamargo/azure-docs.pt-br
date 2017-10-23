@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 11/16/2016
 ms.author: garye
-translationtype: Human Translation
-ms.sourcegitcommit: e8a6db7963203d747b1f506d0cfae8b3e98d58d3
-ms.openlocfilehash: 4b5c9e4c62fbcf548aad1dbe242e2df0f2f5d41f
-ms.lasthandoff: 11/18/2016
-
-
+ms.openlocfilehash: 5cf7d5bb878f323e4e3559822dc745359e43608e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
- 
 # <a name="machine-learning-rest-api-error-codes"></a>Códigos de Erro da API REST do Machine Learning
  
 Os seguintes códigos de erro podem ser retornados por uma operação em um serviço Web do Machine Learning do Azure.
@@ -255,4 +253,3 @@ A operação não pôde ser concluída dentro do tempo permitido ou do número m
 | BackendInitializationTimeout | A inicialização do serviço Web não pôde ser concluída dentro do tempo permitido. |
 | BackendScoreTimeout | A execução de solicitação do serviço Web não pôde ser concluída no tempo permitido. |
  
-

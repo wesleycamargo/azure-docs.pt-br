@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: shlo
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8f6c428d6b7d5b9cab823c2a2408b895bb2c05a3
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="transform-data-in-azure-data-factory"></a>Transformar dados no Azure Data Factory
 > [!div class="op_single_selector"]
@@ -28,8 +27,7 @@ ms.lasthandoff: 09/25/2017
 > * [Pig](data-factory-pig-activity.md)  
 > * [MapReduce](data-factory-map-reduce.md)  
 > * [Streaming do Hadoop](data-factory-hadoop-streaming-activity.md)
-> * 
-            [Machine Learning](data-factory-azure-ml-batch-execution-activity.md) 
+> * [Machine Learning](data-factory-azure-ml-batch-execution-activity.md) 
 > * [Procedimento armazenado](data-factory-stored-proc-activity.md)
 > * [U-SQL da Análise Data Lake](data-factory-usql-activity.md)
 > * [Personalizado do .NET](data-factory-use-custom-activities.md)
@@ -98,5 +96,4 @@ O Azure Data Factory dá suporte às atividades de transformação de dados e am
 | [Procedimento armazenado](data-factory-stored-proc-activity.md) |SQL Azure, Azure SQL Data Warehouse ou SQL Server |
 | [U-SQL da Análise Data Lake](data-factory-usql-activity.md) |Análise Azure Data Lake |
 | [DotNet](data-factory-use-custom-activities.md) |HDInsight [Hadoop] ou Lote do Azure |
-
 

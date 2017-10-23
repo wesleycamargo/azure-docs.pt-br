@@ -9,17 +9,15 @@ editor: jasonwhowell
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 07/12/2017
+ms.date: 09/22/2017
+ms.openlocfilehash: 2af5871e8bf67070c83b5faebc1f9e44b0de609e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 92c34e7ac074ded1702e0df96298d33c60227ab3
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-database-for-mysql-use-php-to-connect-and-query-data"></a>Banco de Dados do Azure para MySQL: usar PHP para se conectar e consultar dados
-Este guia de início rápido demonstra como se conectar a um banco de dados do Azure para MySQL usando aplicativo [PHP](http://php.net/manual/intro-whatis.php). Ele mostra como usar instruções SQL para consultar, inserir, atualizar e excluir dados no banco de dados. Este artigo pressupõem que você está familiarizado com o desenvolvimento usando PHP, mas que começou recentemente a trabalhar com o Banco de Dados do Azure para MySQL.
+Este guia de início rápido demonstra como se conectar a um banco de dados do Azure para MySQL usando aplicativo [PHP](http://php.net/manual/intro-whatis.php). Ele mostra como usar instruções SQL para consultar, inserir, atualizar e excluir dados no banco de dados. Este tópico pressupõe que você está familiarizado com o desenvolvimento usando PHP e começou recentemente a trabalhar com o Banco de Dados do Azure para MySQL.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Este guia de início rápido usa os recursos criados em um destes guias como ponto de partida:
@@ -30,16 +28,16 @@ Este guia de início rápido usa os recursos criados em um destes guias como pon
 Instalar o PHP em seu próprio servidor ou crie um [aplicativo Web](../app-service/app-service-web-overview.md) do Azure que inclua o PHP.
 
 ### <a name="macos"></a>MacOS
-- Baixar o [PHP 7.1.4 versão](http://php.net/downloads.php)
-- Instalar o PHP e consultar o [manual do PHP](http://php.net/manual/install.macosx.php) para outras configurações
+- Baixar o [PHP 7.1.4 versão](http://php.net/downloads.php).
+- Instalar o PHP e consultar o [manual do PHP](http://php.net/manual/install.macosx.php) para outras configurações.
 
 ### <a name="linux-ubuntu"></a>Linux (Ubuntu)
-- Baixar o [PHP 7.1.4 versão protegida não thread (x64)](http://php.net/downloads.php)
-- Instalar o PHP e consultar o [manual do PHP](http://php.net/manual/install.unix.php) para outras configurações
+- Baixar o [PHP 7.1.4 versão protegida não thread (x64)](http://php.net/downloads.php).
+- Instalar o PHP e consultar o [manual do PHP](http://php.net/manual/install.unix.php) para outras configurações.
 
 ### <a name="windows"></a>Windows
-- Baixar o [PHP 7.1.4 versão protegida não thread (x64)](http://windows.php.net/download#php-7.1)
-- Instalar o PHP e consultar o [manual do PHP](http://php.net/manual/install.windows.php) para outras configurações
+- Baixar o [PHP 7.1.4 versão protegida não thread (x64)](http://windows.php.net/download#php-7.1).
+- Instalar o PHP e consultar o [manual do PHP](http://php.net/manual/install.windows.php) para outras configurações.
 
 ## <a name="get-connection-information"></a>Obter informações de conexão
 Obtenha as informações de conexão necessárias para se conectar ao Banco de Dados do Azure para MySQL. Você precisa das credenciais de logon e do nome do servidor totalmente qualificado.
@@ -47,14 +45,14 @@ Obtenha as informações de conexão necessárias para se conectar ao Banco de D
 1. Faça logon no [Portal do Azure](https://portal.azure.com/).
 2. No painel esquerdo, clique em **Todos os recursos** e, em seguida, procure o servidor que você criou (por exemplo, **myserver4demo**).
 3. Clique no nome do servidor.
-4. Selecione a página **Propriedades** do servidor. Anote o **Nome do servidor** e o **Nome de logon de administrador do servidor**.
+4. Selecione a página **Propriedades** do servidor e anote o **Nome do servidor** e o **Nome de logon do administrador do servidor**.
  ![Nome do servidor do Banco de Dados do Azure para MySQL](./media/connect-php/1_server-properties-name-login.png)
 5. Se você se esquecer das informações de logon do servidor, navegue até a página **Visão Geral** para exibir o nome de logon do Administrador do servidor e, se necessário, redefinir a senha.
 
 ## <a name="connect-and-create-a-table"></a>Conectar-se e criar uma tabela
 Use o código a seguir para se conectar e criar uma tabela usando a instrução SQL **CREATE TABLE**. 
 
-O código usa a classe (mysqli) **Extensão aprimorada MySQL** classe (mysqli) incluída em PHP. Os métodos de chamada de código [mysqli_init](http://php.net/manual/mysqli.init.php) e [mysqli_real_connect](http://php.net/manual/mysqli.real-connect.php) para se conectar ao MySQL. Em seguida, ele chama o método [mysqli_query](http://php.net/manual/mysqli.query.php) para executar a consulta. Em seguida, ele chama o método [mysqli_close](http://php.net/manual/mysqli.close.php) para fechar a conexão.
+O código usa a classe (mysqli) **Extensão aprimorada MySQL** classe (mysqli) incluída em PHP. Os métodos de chamadas de código [mysqli_init](http://php.net/manual/mysqli.init.php) e [mysqli_real_connect](http://php.net/manual/mysqli.real-connect.php) para se conectar ao MySQL. Em seguida, ele chama o método [mysqli_query](http://php.net/manual/mysqli.query.php) para executar a consulta. Em seguida, ele chama o método [mysqli_close](http://php.net/manual/mysqli.close.php) para fechar a conexão.
 
 Substitua os parâmetros host, username, password e db_name pelos seus próprios valores. 
 
@@ -128,7 +126,7 @@ mysqli_close($conn);
 ```
 
 ## <a name="read-data"></a>Ler dados
-Use o código a seguir para conectar-se e ler os dados usando uma instrução SQL **SELECT**.  O código usa a classe (mysqli) **Extensão aprimorada MySQL** classe (mysqli) incluída em PHP. O código usa o método [mysqli_query](http://php.net/manual/mysqli.query.php) para executar a consulta sql e usa o método [mysqli_fetch_assoc](http://php.net/manual/mysqli-result.fetch-assoc.php) para buscar as linhas resultantes.
+Use o código a seguir para conectar-se e ler os dados usando uma instrução SQL **SELECT**.  O código usa a classe (mysqli) **Extensão aprimorada MySQL** classe (mysqli) incluída em PHP. O código usa o método [mysqli_query](http://php.net/manual/mysqli.query.php) para executar a consulta sql e o método [mysqli_fetch_assoc](http://php.net/manual/mysqli-result.fetch-assoc.php) para buscar as linhas resultantes.
 
 Substitua os parâmetros host, username, password e db_name pelos seus próprios valores. 
 
@@ -234,4 +232,3 @@ mysqli_close($conn);
 ## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"]
 > [Compilar um aplicativo Web PHP e MySQL no Azure](../app-service/app-service-web-tutorial-php-mysql.md?toc=%2fazure%2fmysql%2ftoc.json)
-

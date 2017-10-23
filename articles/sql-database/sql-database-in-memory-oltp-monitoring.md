@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: jodebrui
-ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
 ms.openlocfilehash: e953b60493c5a7c7a7ad74533471bd321d42abef
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-in-memory-oltp-storage"></a>Monitorar o armazenamento OLTP In-Memory
 Ao usar o [In-Memory OLTP](sql-database-in-memory.md), os dados em tabelas com otimização de memória e as variáveis de tabela residem no armazenamento OLTP in-memory. Cada camada de serviço Premium tem um tamanho máximo de armazenamento OLTP In-Memory, que está documentado em [limites de recursos do banco de dados individual](sql-database-resource-limits.md#single-database-storage-sizes-and-performance-levels) e [limites de recursos do pool elástico](sql-database-resource-limits.md#elastic-pool-change-storage-size). Quando esse limite for excedido, as operações insert e update poderão começar a falhar (com o erro 41823). Nesse ponto, você precisará excluir dados para obter memória ou atualizar a camada de desempenho do seu banco de dados.
@@ -56,4 +55,3 @@ Para resolver esse erro:
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter diretrizes sobre monitoramento, consulte [Monitoramento de Banco de Dados SQL do Azure usando exibições de gerenciamento dinâmico](sql-database-monitoring-with-dmvs.md).
-

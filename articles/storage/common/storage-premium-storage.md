@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: ramankum
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 559753d7ff3da7e8b5dc8f976368a1d35dd6258b
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Armazenamento Premium de alto desempenho e discos gerenciados para VMs
 O Armazenamento Premium do Azure dá suporte de disco de alto desempenho e baixa latência para máquinas virtuais (VMs) com cargas de trabalho com uso intensivo de E/S (entrada/saída). Os discos de VM que usam Armazenamento Premium armazenam dados em SSDs (unidades de estado sólido). Para tirar proveito da velocidade e do desempenho dos discos de armazenamento premium, você pode migrar os discos de VM existentes para o Armazenamento Premium.
@@ -329,4 +328,3 @@ Para obter mais informações sobre o Armazenamento Premium, confira os artigos 
 ### <a name="blog-posts"></a>Postagens no blog
 * [Armazenamento Premium do Azure com disponibilidade geral](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/)
 * [Anúncio da série GS: como adicionar suporte ao Armazenamento Premium para as maiores VMs na nuvem pública](https://azure.microsoft.com/blog/azure-has-the-most-powerful-vms-in-the-public-cloud/)
-

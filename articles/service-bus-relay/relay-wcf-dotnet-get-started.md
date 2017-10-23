@@ -14,14 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: 1af1ac78398d65e6a87f0d24d6198f3dfbc82ffd
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-use-azure-relay-wcf-relays-with-net"></a>Como usar as retransmissões WCF da Retransmissão do Azure com .NET
 Este artigo descreve como usar o serviço Retransmissão do Azure. Os exemplos são escritos em C# e usam a API da WCF (Windows Communication Foundation) com extensões contidas no assembly do Barramento de Serviço. Para obter mais informações sobre a retransmissão do Azure, consulte a [Visão geral da Retransmissão do Azure](relay-what-is-it.md).
 
@@ -227,4 +225,3 @@ Agora que você já sabe os conceitos básicos sobre a Retransmissão do Azure, 
 [Shared Access Signature Authentication with Service Bus]: ../service-bus-messaging/service-bus-shared-access-signature-authentication.md
 [Azure samples]: https://code.msdn.microsoft.com/site/search?query=service%20bus&f%5B0%5D.Value=service%20bus&f%5B0%5D.Type=SearchText&ac=2
 [overview of Service Bus samples]: ../service-bus-messaging/service-bus-samples.md
-

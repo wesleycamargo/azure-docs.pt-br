@@ -15,12 +15,11 @@ ms.date: 06/14/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: H1Hack27Feb2017, it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e4ef137656c12cf6495a00450eed308ac6a8a872
-ms.openlocfilehash: ea0853929cd8670b6458a546e7fb1b3a229c09d7
-ms.contentlocale: pt-br
-ms.lasthandoff: 02/28/2017
-
+ms.openlocfilehash: a05219398aefa158321ae63934743dd43841e33f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-server-to-work-with-ad-fs-20"></a>Configurar o Servidor de Autenticação Multifator do Azure para trabalhar com o AD FS 2.0
 Este artigo é para organizações que estão federadas com o Azure Active Directory e desejam proteger recursos locais ou na nuvem. Proteja seus recursos usando o servidor de autenticação multifator do Azure e configure-o para trabalhar com o AD FS para que a verificação em duas etapas seja disparada para pontos de extremidade de alto valor.
@@ -38,12 +37,12 @@ Para proteger o AD FS 2.0 com um proxy, instale o Servidor da Autenticação Mul
    <center>![Configuração](./media/multi-factor-authentication-get-started-adfs-adfs2/setup1.png)</center>
 
 4. Para detectar o nome do usuário, a senha e as variáveis de domínio automaticamente, insira a URL de Logon (como https://sso.contoso.com/adfs/ls) na caixa de diálogo Configurar Automaticamente Site Baseado em Formulário e clique em **OK**.
-5. Marque a caixa correspondente a **Exigir correspondência de usuário de Autenticação Multifator do Microsoft Azure** se todos os usuários tiverem sido ou forem importados para o servidor e estiverem sujeitos à verificação em duas etapas. Se um número significativo de usuários ainda não tiver sido importado no Servidor e/ou for isentado da verificação em duas etapas, deixe a caixa desmarcada.
+5. Marque a caixa correspondente a **Exigir correspondência de usuário de Autenticação Multifator do Microsoft Azure**  se todos os usuários tiverem sido ou forem importados para o servidor e estiverem sujeitos à verificação em duas etapas. Se um número significativo de usuários ainda não tiver sido importado no Servidor e/ou for isentado da verificação em duas etapas, deixe a caixa desmarcada.
 6. Se as variáveis de página não puderem ser detectadas automaticamente, clique no botão **Especificar Manualmente...** na caixa de diálogo Configurar Automaticamente Site Baseado em Formulário.
 7. Na caixa de diálogo Adicionar Site Baseado em Formulário, insira a URL à página de logon do AD FS no campo URL de Envio (como https://sso.contoso.com/adfs/ls) e insira um nome para o aplicativo (opcional). O nome do aplicativo aparece nos relatórios do Azure Multi-Factor Authentication e pode ser exibido nas mensagens de autenticação por SMS ou Aplicativo Móvel.
 8. Defina o formato da solicitação como **POST ou GET**.
 9. Insira a variável do Nome do usuário (ctl00$ContentPlaceHolder1$UsernameTextBox) e a variável da Senha (ctl00$ContentPlaceHolder1$PasswordTextBox). Se a página de logon baseada em formulário exibir uma caixa de texto de domínio, insira a variável do domínio também. Para localizar os nomes das caixas de entrada na página de logon, vá até a página de logon em um navegador da Web, clique com o botão direito do mouse na página e selecione **Exibir Fonte**.
-10. Marque a caixa correspondente a **Exigir correspondência de usuário de Autenticação Multifator do Microsoft Azure** se todos os usuários tiverem sido ou forem importados para o servidor e estiverem sujeitos à verificação em duas etapas. Se um número significativo de usuários ainda não tiver sido importado no Servidor e/ou for isentado da verificação em duas etapas, deixe a caixa desmarcada.
+10. Marque a caixa correspondente a **Exigir correspondência de usuário de Autenticação Multifator do Microsoft Azure**  se todos os usuários tiverem sido ou forem importados para o servidor e estiverem sujeitos à verificação em duas etapas. Se um número significativo de usuários ainda não tiver sido importado no Servidor e/ou for isentado da verificação em duas etapas, deixe a caixa desmarcada.
     <center>![Configuração](./media/multi-factor-authentication-get-started-adfs-adfs2/manual.png)</center>
 11. Clique em **Avançado...** para examinar as configurações avançadas. As configurações que você pode definir incluem:
 
@@ -117,4 +116,3 @@ Os IPs Confiáveis permitem que os usuários ignorem a Autenticação Multifator
 4. Insira o endereço IP, o intervalo dos endereços IP ou a sub-rede que devem ser colocados na lista branca. Se inserir uma sub-rede, selecione a Máscara de Rede apropriada e clique no botão **OK**. O IP confiável foi adicionado.
 
 <center>![Configuração](./media/multi-factor-authentication-get-started-adfs-adfs2/trusted.png)</center>
-

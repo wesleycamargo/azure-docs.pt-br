@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: johnkem
-ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
 ms.openlocfilehash: 08a457029d3721f5c38dbcd2d2aab7d09a241d8f
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/15/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrate-azure-alerts-on-management-events-to-activity-log-alerts"></a>Migrar alertas do Azure em eventos de gerenciamento para alertas do Log de Atividades
 
@@ -122,4 +121,3 @@ Os alertas em eventos de gerenciamento que você criou anteriormente não serão
 * Examine o [esquema do webhook de alertas do Log de Atividade](monitoring-activity-log-alerts-webhook.md)
 * Saiba mais sobre as [Notificações de Serviço](monitoring-service-notifications.md)
 * Saiba mais sobre [Grupos de Ação](monitoring-action-groups.md)
-

@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 04/03/2017
 ms.author: alkohli@microsoft.com
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 89e1054117f19e787da5330932021351fb016209
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Usar o Windows PowerShell para StorSimple para administrar o seu dispositivo
 
@@ -187,5 +185,4 @@ Você pode atualizar facilmente a Ajuda na interface do Windows PowerShell. Exec
 ## <a name="next-steps"></a>Próximas etapas
 
 Se você tiver problemas com seu dispositivo StorSimple ao executar um dos fluxos de trabalho acima, consulte [Ferramentas para solucionar problemas em implantações de StorSimple](storsimple-troubleshoot-deployment.md#tools-for-troubleshooting-storsimple-deployments).
-
 

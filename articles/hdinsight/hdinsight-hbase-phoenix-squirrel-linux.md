@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/22/2017
 ms.author: jgao
+ms.openlocfilehash: 41bfef95059b7c5343d952b4fe372e3baae6f9d7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: 07646927f7f2e829e4f4cc6ac5f51b2b381e9c5a
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/22/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-apache-phoenix-with-linux-based-hbase-clusters-in-hdinsight"></a>Usar o Apache Phoenix com clusters do HBase baseados em Linux no HDInsight
 Saiba como usar o [Apache Phoenix](http://phoenix.apache.org/) no Azure HDInsight e como usar o SQLLine. Para obter mais informações sobre o Phoenix, consulte [Phoenix em 15 minutos ou menos](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). Para conhecer a gramática do Phoenix, consulte [Gramática do Phoenix](http://phoenix.apache.org/language/index.html).
@@ -77,8 +76,7 @@ Neste artigo, você aprendeu a usar o Apache Phoenix no HDInsight. Para saber ma
 * [Provisionar clusters HBase na Rede Virtual do Azure][hdinsight-hbase-provision-vnet].
   Com a integração da rede virtual, os clusters HBase podem ser implantados na mesma rede virtual que seus aplicativos, de modo que os aplicativos possam se comunicar diretamente com o HBase.
 * [Configurar a replicação do HBase no HDInsight](hdinsight-hbase-replication.md). Saiba como configurar a replicação do HBase em dois datacenters Azure.
-* [Analisar dados de sentimento no Twitter com o HBase no HDInsight][hbase-twitter-sentiment].
-  Saiba como fazer a [análise de sentimento](http://en.wikipedia.org/wiki/Sentiment_analysis) em tempo real de Big Data usando o HBase em um cluster Hadoop no HDInsight.
+
 
 [azure-portal]: https://portal.azure.com
 [vnet-point-to-site-connectivity]: https://msdn.microsoft.com/library/azure/09926218-92ab-4f43-aa99-83ab4d355555#BKMK_VNETPT
@@ -86,7 +84,6 @@ Neste artigo, você aprendeu a usar o Apache Phoenix no HDInsight. Para saber ma
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp
 [hdinsight-hbase-provision-vnet]: hdinsight-hbase-provision-vnet.md
 [hdinsight-hbase-overview]: hdinsight-hbase-overview.md
-[hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
 
 [hdinsight-hbase-phoenix-sqlline]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-phoenix-sqlline.png
 [img-certificate]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-vpn-certificate.png
@@ -95,4 +92,3 @@ Neste artigo, você aprendeu a usar o Apache Phoenix no HDInsight. Para saber ma
 [img-squirrel-alias]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-squirrel-alias.png
 [img-squirrel]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-squirrel.png
 [img-squirrel-sql]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-squirrel-sql.png
-

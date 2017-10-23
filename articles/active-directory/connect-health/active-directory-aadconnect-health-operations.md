@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: fa9983a3d53cf8d6278163a2b7d08c86ae2f0637
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/04/2017
-
+ms.openlocfilehash: 06afc6b4149ea1590a2994d1638d6979a89035e3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-connect-health-operations"></a>Operações do Azure Active Directory Connect Health
 Este tópico descreve as várias operações que você pode executar usando o Azure AD (Azure Active Directory) Connect Health.
@@ -157,4 +156,3 @@ Você pode remover um usuário ou grupo adicionado ao RBAC do Azure AD Connect H
 * [Usar o Azure AD Connect Health com o AD DS](active-directory-aadconnect-health-adds.md)
 * [Perguntas frequentes do Azure AD Connect Health](active-directory-aadconnect-health-faq.md)
 * [Histórico de versão do Azure AD Connect Health](active-directory-aadconnect-health-version-history.md)
-

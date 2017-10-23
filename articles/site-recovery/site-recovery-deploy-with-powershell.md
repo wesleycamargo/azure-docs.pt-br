@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/31/2017
 ms.author: bsiva
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 581daaaa5cc0cf8be782f834c6bdb3f27ee413fb
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="replicate-hyper-v-vms-to-azure-with-powershell-in-the-classic-portal"></a>Replicar VMs do Hyper-V no Azure com o PowerShell no Portal Clássico
 > [!div class="op_single_selector"]
@@ -405,4 +404,3 @@ Use os seguintes comandos para monitorar a atividade. Observe que é necessário
 
 ## <a name="next-steps"></a>Próximas etapas
 [Leia mais](/powershell/azure/overview) sobre os cmdlets do PowerShell do Azure Site Recovery. </a>.
-

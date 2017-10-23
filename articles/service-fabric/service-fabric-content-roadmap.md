@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/30/2017
 ms.author: ryanwi
+ms.openlocfilehash: 3b20583d04a820d925260b4da574a4cb304efbe2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: bbad2e501acf024fb5b7f5c62ebe5fa81e19cce7
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Então você deseja saber mais sobre o Service Fabric?
 O Azure Service Fabric é uma plataforma de sistemas distribuídos que facilita o empacotamento, implantação e gerenciamento de microsserviços escalonáveis e confiáveis.  No entanto, o Service Fabric tem uma área de superfície grande, e há muito a aprender.  Este artigo fornece um resumo do Service Fabric e descreve os principais conceitos, modelos de programação, ciclo de vida do aplicativo, teste, clusters e monitoramento de integridade. Leia a [Visão geral](service-fabric-overview.md) e [O que são microsserviços?](service-fabric-overview-microservices.md) para obter uma introdução e saber como o Service Fabric pode ser usado para criar microsserviços. Este artigo não contém uma lista abrangente de conteúdo, mas vincula a visão geral e os artigos de introdução de cada área do Service Fabric. 
@@ -185,7 +184,7 @@ Os componentes do Service Fabric apresentam relatórios de integridade prontos p
 
 O Service Fabric fornece várias maneiras de [exibir relatórios de integridade](service-fabric-view-entities-aggregated-health.md) agregados no repositório de integridade:
 * [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) ou outras ferramentas de visualização.
-* Consultas de integridade (por meio do [PowerShell](/powershell/module/ServiceFabric/), das [APIs FabricClient de C#](/api/system.fabric.fabricclient.healthclient) e das [APIs FabricClient de Java](/java/api/system.fabric._health_client), ou das [APIs REST](/rest/api/servicefabric)).
+* Consultas de integridade (por meio do [PowerShell](/powershell/module/ServiceFabric/), das [APIs FabricClient de C#](/dotnet/api/system.fabric.fabricclient.healthclient) e das [APIs FabricClient de Java](/java/api/system.fabric._health_client), ou das [APIs REST](/rest/api/servicefabric)).
 * Consultas gerais que retornam uma lista de entidades que têm a integridade como uma das propriedades (por meio do PowerShell, da API ou de REST).
 
 O vídeo da Microsoft Virtual Academy a seguir descreve o modelo de integridade do Service Fabric e seu uso: <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tevZw56yC_1906218965">
@@ -206,4 +205,3 @@ O vídeo da Microsoft Virtual Academy a seguir descreve o modelo de integridade 
 
 [cluster-application-instances]: media/service-fabric-content-roadmap/cluster-application-instances.png
 [cluster-imagestore-apptypes]: ./media/service-fabric-content-roadmap/cluster-imagestore-apptypes.png
-

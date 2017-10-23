@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 6ec74ae0b0931f3fed99a43f4f7e58f9d425b138
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="previewing-drive-usage-for-an-export-job"></a>Visualizando o uso da unidade de um trabalho de exportação
 Antes de criar um trabalho de exportação, você precisa escolher um conjunto de blobs a ser exportado. O serviço de Importação/Exportação do Microsoft Azure permite que você use uma lista de caminhos ou prefixos de blob para representar os blobs selecionados.  
   
@@ -80,4 +78,3 @@ Number of drives needed:        3
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Referência da Ferramenta de Importação/Exportação do Azure](../storage-import-export-tool-how-to-v1.md)
-

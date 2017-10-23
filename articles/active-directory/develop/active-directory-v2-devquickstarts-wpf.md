@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 07/30/2016
 ms.author: jmprieur
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
-ms.openlocfilehash: d0602a61b0335ef2bb92e27051c286852bc08d35
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/25/2017
-
-
+ms.openlocfilehash: 7389f55ee6fef9548abb0ca4ac1bbd0399868d47
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-sign-in-to-a-windows-desktop-app"></a>Adicionar credenciais a um aplicativo da Área de Trabalho do Windows
 Com o ponto de extremidade v2.0, você pode adicionar autenticação rapidamente a seus aplicativos do área de trabalho com suporte a contas pessoais da Microsoft e contas corporativas ou de estudante.  Ele também permite que seu aplicativo se comunique de forma segura com uma API Web de back-end, bem como com o [Microsoft Graph](https://graph.microsoft.io) e algumas das [APIs Unificadas do Office 365](https://www.msdn.com/office/office365/howto/authenticate-Office-365-APIs-using-v2).
@@ -262,5 +260,4 @@ Para obter recursos adicionais, consulte:
 
 ## <a name="get-security-updates-for-our-products"></a>Obter atualizações de segurança para nossos produtos
 Recomendamos que você obtenha notificações sobre a ocorrência de incidentes de segurança visitando [esta página](https://technet.microsoft.com/security/dd252948) e assinando os alertas do Security Advisory.
-
 

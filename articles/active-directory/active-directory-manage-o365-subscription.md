@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/25/2017
+ms.date: 10/10/2017
 ms.author: curtand
+ms.reviewer: rodejo
 ms.custom: oldportal;it-pro;
+ms.openlocfilehash: 497beb75d1bd4c0709929948a9f857a034364f44
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 349fe8129b0f98b3ed43da5114b9d8882989c3b2
-ms.openlocfilehash: b520a5e96417fb766a757fabc384a1fc4eb0f14e
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/26/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-the-directory-for-your-office-365-subscription-in-azure"></a>Gerenciar o diretório para sua assinatura do Office 365 no Azure
 Este artigo descreve como gerenciar um diretório criado para uma assinatura do Office 365 usando o portal clássico do Azure. Você deve ser o Administrador de Serviços ou coadministrador de uma assinatura do Azure para entrar no portal clássico do Azure. Se ainda não tiver uma assinatura do Azure, você poderá se inscrever em uma [avaliação gratuita de 30 dias](https://azure.microsoft.com/trial/get-started-active-directory/) hoje mesmo e implantar sua primeira solução de nuvem em menos de cinco minutos, usando este link. Use a conta corporativa ou de estudante que usa para entrar no Office 365.
@@ -34,8 +34,8 @@ Se você já tiver uma assinatura do Azure, o processo para gerenciar um diretó
 
 | Assinatura | Office 365 | As tabelas |
 | --- | --- | --- |
-|   Nome de exibição |Contoso |Diretório padrão do Azure AD (Azure Active Directory) |
-|   Nome de domínio |contoso.com |msmithhotmail.onmicrosoft.com |
+|   Nome de exibição | Contoso | Diretório padrão do Azure AD (Azure Active Directory) |
+|   Nome de domínio | contoso.com | msmithhotmail.onmicrosoft.com |
 
 Ele deseja gerenciar as identidades de usuário no diretório Contoso enquanto está conectado ao Azure usando sua conta da Microsoft, para que possa habilitar os recursos do Azure AD, como a autenticação multifator. O diagrama a seguir pode ajudar a ilustrar o processo.
 
@@ -70,4 +70,3 @@ Agora vamos supor que Brenda Fernandes precise administrar sites e recursos de b
 
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações sobre a relação entre assinaturas e diretórios, confira [Como uma assinatura é associada a um diretório](active-directory-how-subscriptions-associated-directory.md).
-

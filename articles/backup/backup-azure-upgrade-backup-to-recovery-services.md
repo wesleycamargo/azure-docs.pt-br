@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/03/2017
 ms.author: sogup;markgal;arunak
+ms.openlocfilehash: c7eb4514dca806d6e6470091423785b30a7d4bcb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 28e8b0be0b69f279685109d611fbfb369b96101a
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="upgrade-a-backup-vault-to-a-recovery-services-vault"></a>Atualizar um cofre de Backup para um cofre dos Serviços de Recuperação
 
@@ -70,6 +69,7 @@ RecoveryServicesVaultUpgrade-1.0.2.ps1 **-SubscriptionID** `<subscriptionID>` **
 > Nomes de Grupo de Recursos têm restrições. Siga as diretrizes; não as seguir pode provocar falha das atualizações do cofre.
 >
 >Os clientes do **Azure do governo dos EUA** precisam definir o ambiente para "AzureUSGovernment" ao executar o script.
+>Clientes do **Azure China** precisam definir o ambiente como "AzureChinaCloud" ao executar o script.
 
 O trecho de código a seguir é um exemplo de como o comando do PowerShell deve ser:
 
@@ -159,4 +159,3 @@ Use o seguinte artigo para:</br>
 [Fazer backup de uma VM IaaS](backup-azure-arm-vms-prepare.md)</br>
 [Fazer backup de um Servidor de Backup do Azure](backup-azure-microsoft-azure-backup.md)</br>
 [Fazer backup de um Windows Server](backup-configure-vault.md).
-

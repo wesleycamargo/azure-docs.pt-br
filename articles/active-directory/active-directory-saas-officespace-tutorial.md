@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
 ms.openlocfilehash: 43d2ecfe851d8f6c43cd4ce7fc4bd872818f4137
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-officespace-software"></a>Tutorial: Integração do Active Directory do Azure com o OfficeSpace Software
 
@@ -277,5 +276,4 @@ Ao clicar no bloco OfficeSpace Software no Painel de Acesso, você deverá ser c
 [201]: ./media/active-directory-saas-officespace-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-officespace-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-officespace-tutorial/tutorial_general_203.png
-
 

@@ -14,15 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.translationtype: HT
-ms.sourcegitcommit: f2ac16c2f514aaa7e3f90fdf0d0b6d2912ef8485
 ms.openlocfilehash: 44028b2ef268cb2deff273f755d2f5aeab5bdc17
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cdn-pop-locations"></a>Locais POP da CDN do Azure
-Este tópico lista os locais atuais de POP para **Azure CDN da Verizon** e ** Azure CDN da Akamai**.
+Este tópico lista os locais atuais de POP para **Azure CDN da Verizon** e **Azure CDN da Akamai**.
 
 > [!IMPORTANT]
 > \*Os locais de cidade POP do **Azure CDN da Akamai** não são divulgados individualmente.  
@@ -46,5 +45,4 @@ Este tópico lista os locais atuais de POP para **Azure CDN da Verizon** e ** Az
 
 ## <a name="see-also"></a>Consulte também
 * [API de Nós do Edge de CDN do Azure para obter os endereços IP mais recentes para colocar na lista de permissões](https://docs.microsoft.com/en-us/rest/api/cdn/edgenodes)
-
 

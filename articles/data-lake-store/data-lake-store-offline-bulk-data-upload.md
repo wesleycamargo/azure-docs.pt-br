@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 1309b44ea99af6d20a4d0f730dd68969f3c3082b
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-data-lake-store"></a>Usar o Serviço de Importação/Exportação do Azure para uma cópia offline dos dados para o Data Lake Store
 Nesse artigo, você aprenderá a copiar grandes conjuntos de dados (> 200 GB) para um Azure Data Lake Store usando métodos de cópia offline, como o [Serviço de Importação/Exportação do Azure](../storage/common/storage-import-export-service.md). Especificamente, o arquivo usado como exemplo nesse artigo tem 339.420.860.416 bytes, ou aproximadamente 319 GB em disco. Vamos chamar esse arquivo de 319GB.tsv.
@@ -212,4 +211,3 @@ Join-AzureRmDataLakeStoreItem -AccountName "<adls_account_name" -Paths "/importe
 * [Proteger dados no Repositório Data Lake](data-lake-store-secure-data.md)
 * [Usar a Análise Data Lake do Azure com o Repositório Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Usar o Azure HDInsight com o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
-

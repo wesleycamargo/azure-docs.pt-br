@@ -16,20 +16,20 @@ ms.topic: article
 ms.date: 08/25/2017
 ms.author: mblythe
 ms.custom: 
+ms.openlocfilehash: 1e262fde37b68bcfcee3c974deb91bd07965de19
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 0fd127293edfaf7eb19a4561ab8d0a19f993bcad
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="call-a-function-from-powerapps"></a>Chamar uma função do PowerApps
 A plataforma [PowerApps](https://powerapps.microsoft.com) destina-se a especialistas comerciais para o build de aplicativos sem código de aplicativo tradicional. Desenvolvedores profissionais podem usar o Azure Functions para estender os recursos do PowerApps e, ao mesmo tempo, proteger os construtores de aplicativo do PowerApps de detalhes técnicos.
 
 Compile um aplicativo neste tópico, com base em um cenário de manutenção de turbinas eólicas. Este tópico mostra como chamar a função que você definiu em [Criar uma definição de OpenAPI para uma função](functions-openapi-definition.md). A função determina se um reparo de emergência em uma turbina eólica é econômico.
 
 ![Aplicativo concluído no PowerApps](media/functions-powerapps-scenario/finished-app.png)
+
+Para obter informações sobre como chamar a mesma função do Microsoft Flow, consulte [Chamar uma função do Microsoft Flow](functions-flow-scenario.md).
 
 Neste tópico, você aprenderá a:
 
@@ -251,4 +251,4 @@ Neste tópico, você aprendeu a:
 
 Para saber mais sobre o PowerApps, consulte [Introdução ao PowerApps](https://powerapps.microsoft.com/tutorials/getting-started/).
 
-Para saber mais sobre outro cenário interessante que usa Azure Functions, consulte [Criar uma função que se integra com Aplicativos Lógicos do Azure](functions-twitter-email.md).
+Para saber mais sobre outros cenários interessantes que usam Azure Functions, consulte [Chamar uma função do Microsoft Flow](functions-flow-scenario.md) e [Criar uma função que se integre ao Aplicativo Lógico do Azure](functions-twitter-email.md).

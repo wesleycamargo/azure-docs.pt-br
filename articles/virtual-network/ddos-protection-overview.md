@@ -15,17 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/22/2017
 ms.author: kumud
+ms.openlocfilehash: 0130823b6a6f5a4883ad640c9bcefc89b82b2cd1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: b0fa58c8bf0e50314c61272eb221878eca2c3def
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Visão geral de Proteção contra DDoS do Azure Standard
 
 >[!IMPORTANT]
->A Proteção contra DDoS do Azure Standard está atualmente em versão prévia. O suporte à Proteção contra DDoS Standard só é dado por um número limitado de recursos do Azure e em um número seleto de regiões. Você precisa [registrar-se para o serviço](http://aka.ms/ddosprotection) durante a versão prévia limitada para habilitar a Proteção contra DDoS Standard para a sua assinatura. Você é contatado pela equipe de DDoS do Azure após o registro para lhe orientar durante o processo de habilitação. A Proteção contra DDoS Standard está disponível nas regiões Leste dos EUA, Oeste dos EUA e Centro dos EUA. Durante a versão prévia, você não será cobrado pelo uso do serviço.
+>A Proteção contra DDoS do Azure Standard está atualmente em versão prévia. O suporte à Proteção contra DDoS Standard só é dado por um número limitado de recursos do Azure e em um número seleto de regiões. Você precisa [registrar-se para o serviço](http://aka.ms/ddosprotection) durante a versão prévia limitada para habilitar a Proteção contra DDoS Standard para a sua assinatura. Você é contatado pela equipe de DDoS do Azure após o registro para lhe orientar durante o processo de habilitação. A Proteção contra DDoS Standard está disponível nas regiões Leste dos EUA, Oeste dos EUA e Centro-oeste dos EUA. Durante a versão prévia, você não será cobrado pelo uso do serviço.
 
 Ataques de DDoS (negação de serviço distribuído) são uma das maiores preocupações de disponibilidade e de segurança enfrentadas pelos clientes que estão movendo seus aplicativos para a nuvem. Um ataque de DDoS tenta esgotar os recursos de um aplicativo fazendo com que o aplicativo não fique disponível para usuários legítimos. Ataques de DDoS podem ser direcionadas a qualquer ponto de extremidade publicamente acessível pela Internet.
 

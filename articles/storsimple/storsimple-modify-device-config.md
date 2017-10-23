@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/19/2017
 ms.author: v-sharos
-ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
 ms.openlocfilehash: 5bfbeb038dbedae2bf77016abbc19458c3dc22c9
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-modify-your-storsimple-device-configuration"></a>Usar o serviço StorSimple Manager para modificar a configuração do dispositivo StorSimple
 ## <a name="overview"></a>Visão geral
@@ -119,5 +118,4 @@ Realize as etapas a seguir para alternar ou reatribuir os VIPs para qualquer uma
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba como [configurar o MPIO para seu dispositivo StorSimple](storsimple-configure-mpio-windows-server.md).
 * Saiba como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
-
 

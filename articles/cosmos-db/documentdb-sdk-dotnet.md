@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/11/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: 317792e04244a96cf8e47bc7e4a7f633f7a6d8c3
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-net-sdk-download-and-release-notes"></a>SDK do .NET do Azure Cosmos DB: download e notas de versão
 > [!div class="op_single_selector"]
@@ -303,5 +302,4 @@ Qualquer solicitação feita ao BD Cosmos do Azure usando um SDK obsoleto é rej
 
 ## <a name="see-also"></a>Consulte também
 Para saber mais sobre o Cosmos DB, consulte a página de serviço do [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 
-
 

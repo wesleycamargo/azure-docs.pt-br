@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2017
 ms.author: bwren
+ms.openlocfilehash: ccea92dda99c3b76cbb7d37b20ce810b210a8217
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: edcf294856582569c00f7cf49beb3a481e28d7d8
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/02/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>Um tour pela Análise no Application Insights
 O [Analytics](app-insights-analytics.md) é o recurso de pesquisa avançado do [Application Insights](app-insights-overview.md). Essas páginas descrevem a linguagem de consulta do Log Analytics.
@@ -58,6 +57,16 @@ Expanda algum item para ver os detalhes:
 > Clique no cabeçalho de uma coluna para reordenar os resultados disponíveis no navegador da Web. Mas lembre-se de que, para um conjunto de resultados grande, o número de linhas baixadas para o navegador é limitado. Portanto, classificar dessa maneira não mostra sempre a você os reais itens maiores ou menores. Para classificar itens de forma confiável, use o `top` ou o operador `sort`.
 >
 >
+
+## <a name="query-across-applications"></a>Consulta entre aplicativos
+Se você quiser combinar dados de vários aplicativos do Application Insights, use a palavra-chave **aplicativo** para especificar o aplicativo junto com o nome da tabela.  Essa consulta combina as solicitações de dois aplicativos diferentes usando o comando **union**.
+
+
+```AIQL
+
+    union app('fabrikamstage').requests, app('fabrikamprod').requests
+    
+```
 
 ## <a name="tophttpsdocsloganalyticsioquerylanguagequerylanguagetopoperatorhtml-and-sorthttpsdocsloganalyticsioquerylanguagequerylanguagesortoperatorhtml"></a>[Superior](https://docs.loganalytics.io/queryLanguage/query_language_topoperator.html) e [classificação](https://docs.loganalytics.io/queryLanguage/query_language_sortoperator.html)
 `take` é útil para obter um exemplo rápido de um resultado, mas mostra linhas da tabela sem uma ordem específica. Para obter uma exibição ordenada, use `top` (para obter um exemplo) ou `sort` (na tabela inteira).
@@ -704,4 +713,3 @@ Consultas avançadas:
 * [Roteiro dos usuários do SQL](https://aka.ms/sql-analytics) converte as linguagens mais comuns.
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
-

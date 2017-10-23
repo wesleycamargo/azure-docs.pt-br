@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: davidmu
-ms.translationtype: HT
-ms.sourcegitcommit: 94d1d4c243bede354ae3deba7fbf5da0652567cb
 ms.openlocfilehash: bd1c860db026f948202cd1f3aa763b4547c597b4
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/18/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>Implantar uma Máquina Virtual do Azure usando C# e um modelo do Resource Manager
 Este artigo mostra como implantar um modelo do Azure Resource Manager usando o C#. O modelo criado implanta uma única máquina virtual que executa o Windows Server em uma nova rede virtual com uma única sub-rede.
@@ -330,4 +329,3 @@ Devem ser necessários cerca de cinco minutos para o aplicativo de console execu
 ## <a name="next-steps"></a>Próximas etapas
 * Se houver problemas com a implantação, a próxima etapa será examinar [Troubleshoot common Azure deployment errors with Azure Resource Manager](../../resource-manager-common-deployment-errors.md) (Solucionar erros comuns de implantação do Azure com o Azure Resource Manager).
 * Saiba como implantar uma máquina virtual e seus recursos de suporte examinando [Implantar uma máquina virtual do Azure usando o C#](csharp.md).
-

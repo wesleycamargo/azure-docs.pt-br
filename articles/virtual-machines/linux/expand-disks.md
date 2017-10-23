@@ -14,14 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/21/2017
 ms.author: iainfou
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: b82cc0473c003da767ee230ab485c69b233977d1
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Como expandir discos rígidos virtuais em uma VM Linux com a CLI do Azure
 Normalmente, o tamanho do disco rígido virtual padrão do sistema operacional é de 30 GB em uma VM (máquina virtual) do Linux no Azure. É possível [adicionar discos de dados](add-disk.md) para fornecer espaço de armazenamento adicional, mas você também pode desejar expandir um disco de dados existente. Este artigo fornece detalhes de como expandir discos gerenciados de uma VM Linux com a CLI do Azure 2.0. Você também pode expandir o disco do sistema operacional não gerenciado com a [CLI do Azure 1.0](expand-disks-nodejs.md).
 
@@ -145,4 +143,3 @@ Nas amostras a seguir, substitua os nomes de parâmetro de exemplo por seus pró
 
 ## <a name="next-steps"></a>Próximas etapas
 Se precisar de armazenamento adicional, também [adicione discos de dados a uma VM do Linux](add-disk.md). Para obter mais informações sobre a criptografia de disco, consulte [Criptografar discos em uma VM do Linux usando a CLI do Azure](encrypt-disks.md).
-

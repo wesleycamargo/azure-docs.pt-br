@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: v-semcev
-ms.translationtype: HT
-ms.sourcegitcommit: 7429de05ba1d583348b0b03b69135c2bbab0be45
 ms.openlocfilehash: 02cd0fe30a2a14f42a16ed12f714d496bbb23b36
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/15/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="media-streaming-optimization-via-the-azure-content-delivery-network"></a>Otimização de streaming de mídia por meio da Rede de Distribuição de Conteúdo do Azure 
  
@@ -98,5 +97,4 @@ O compartilhamento de cache parcial permite que a CDN forneça o conteúdo armaz
 ### <a name="cache-fill-wait-time"></a>Tempo de espera de preenchimento do cache
 
  O recurso de tempo de espera do preenchimento do cache força o servidor de borda a reter todas as solicitações posteriores para o mesmo recurso até os cabeçalhos de resposta HTTP chegarem do servidor de origem. Se os cabeçalhos de resposta HTTP da origem chegarem antes da expiação do temporizador, todas as solicitações que foram colocadas em espera serão atendidas fora do cache em crescimento. Ao mesmo tempo, o cache é preenchido por dados da origem. Por padrão, o tempo de espera de preenchimento de cache é definido como 3.000 milissegundos. 
-
 

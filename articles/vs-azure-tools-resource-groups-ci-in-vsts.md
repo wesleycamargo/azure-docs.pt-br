@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
 ms.openlocfilehash: e7d98ca3fa281a136595c37ed9b7e71de0cf7bff
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/02/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="continuous-integration-in-visual-studio-team-services-using-azure-resource-group-deployment-projects"></a>Integração contínua no Visual Studio Team Services usando os projetos de implantação do Grupo de recursos do Azure
 Para implantar um modelo do Azure, você precisa executar tarefas de vários estágios: Compilar, Testar, Copiar para o Azure (também chamado de "Preparo") e Implantar Modelo. Há duas maneiras diferentes de implantar modelos no Visual Studio Team Services (VS Team Services). Os dois métodos oferecem os mesmos resultados, então escolha aquele que melhor se adapta ao seu fluxo de trabalho.
@@ -198,4 +196,3 @@ Leia [Visão geral do Azure Resource Manager](azure-resource-manager/resource-gr
 [15]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough16.png
 [16]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough17.png
 [17]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough18.png
-

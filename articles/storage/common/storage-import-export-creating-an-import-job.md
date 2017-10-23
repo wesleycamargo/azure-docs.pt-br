@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
 ms.openlocfilehash: d373d2a0e601f2796719fc5efb8761f276ab24d9
-ms.lasthandoff: 04/06/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>Criando um trabalho de importação para o serviço de Importação/Exportação do Azure
 
@@ -108,4 +107,3 @@ Depois que tiver o número de rastreamento, chame a operação [Update Job Prope
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Usando a API REST do serviço de Importação/Exportação](storage-import-export-using-the-rest-api.md)
-

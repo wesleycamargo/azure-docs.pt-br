@@ -14,12 +14,11 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 5fc61fed674f0d2fc64bc29c064e7e872b4f2e68
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="upgrade-your-existing-nodejs-azure-mobile-service-to-app-service"></a>Atualizar seu Serviço Móvel do Azure Node.js para o Serviço de Aplicativo
 Os Aplicativos Móveis do Serviço de Aplicativo é uma nova maneira de compilar aplicativos móveis usando o Microsoft Azure. Para saber mais, confira [O que são Aplicativos Móveis?].
@@ -160,9 +159,9 @@ Quando a nova versão do cliente estiver pronta, faça um teste em seu projeto d
 [How to use the .NET server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Migrate from Mobile Services to an App Service Mobile App]: app-service-mobile-migrating-from-mobile-services.md
 [Migrate your existing Mobile Service to App Service]: app-service-mobile-migrating-from-mobile-services.md
-[Preços do Serviço de Aplicativo]: https://azure.microsoft.com/en-us/pricing/details/app-service/
+[preços do Serviço de Aplicativo]: https://azure.microsoft.com/en-us/pricing/details/app-service/
 [.NET server SDK overview]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
-[Conceitos de autenticação]: ../app-service/app-service-authentication-overview.md
+[Conceitos de Autenticação]: ../app-service/app-service-authentication-overview.md
 [Início Rápido da Autenticação]: app-service-mobile-auth.md
 
 [Portal do Azure]: https://portal.azure.com/
@@ -178,4 +177,3 @@ Quando a nova versão do cliente estiver pronta, faça um teste em seu projeto d
 [Microsoft SQL Server 2014 Express]: http://www.microsoft.com/en-us/server-cloud/Products/sql-server-editions/sql-server-express.aspx
 [ExpressJS Middleware]: http://expressjs.com/guide/using-middleware.html
 [Winston]: https://github.com/winstonjs/winston
-

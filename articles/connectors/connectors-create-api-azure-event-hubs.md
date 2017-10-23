@@ -16,14 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2017
 ms.author: estfan; LADocs
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: 2ca27fb8269d1796fb1181fc4d0a8744a592d548
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="monitor-receive-and-send-events-with-the-event-hubs-connector"></a>Monitorar, receber e enviar eventos com o conector do Hubs de Eventos
 
 Para configurar um monitor de eventos para que seu aplicativo lógico possa detectar eventos, receber eventos e enviar eventos, conecte-se a um [Hub de Eventos do Azure](https://azure.microsoft.com/services/event-hubs) de seu aplicativo lógico. Saiba mais sobre [Hubs de Eventos do Azure](../event-hubs/event-hubs-what-is-event-hubs.md).

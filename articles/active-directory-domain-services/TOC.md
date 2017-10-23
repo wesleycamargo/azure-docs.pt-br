@@ -15,9 +15,10 @@
 
 # Como
 ## Ingressar em um domínio gerenciado
-### [Ingressar em uma VM do Windows Server](active-directory-ds-admin-guide-join-windows-vm-portal.md)
-### [Ingressar em uma VM do Windows Server usando o Azure PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
-### [Ingressar em VM do Linux](active-directory-ds-admin-guide-join-rhel-linux-vm.md)
+### [VM do Windows Server](active-directory-ds-admin-guide-join-windows-vm-portal.md)
+### [VM do Windows usando o PowerShell](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
+### [RedHat Enterprise Linux](active-directory-ds-join-rhel-linux-vm.md)
+### [Ubuntu Server](active-directory-ds-join-ubuntu-linux-vm.md)
 ## Administrar um domínio gerenciado
 ### [Administrar um domínio gerenciado](active-directory-ds-admin-guide-administer-domain.md)
 ### [Administrar o DNS em um domínio gerenciado](active-directory-ds-admin-guide-administer-dns.md)
@@ -36,7 +37,6 @@
 ## Solucionar problemas
 ### [Perguntas frequentes](active-directory-ds-faqs.md)
 ### [Guia de Solução de problemas](active-directory-ds-troubleshooting.md)
-### [Habilitar a experiência de versão prévia do portal do Azure](active-directory-ds-azure-portal-enable-preview-access.md)
 ### [Resolver erros de locatário incompatíveis](active-directory-ds-mismatched-tenant-error.md)
 
 # Referência

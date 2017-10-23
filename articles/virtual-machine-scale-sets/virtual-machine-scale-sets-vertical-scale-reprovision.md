@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: guybo
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: 9159a5a9041864fe06785829121233379c46bb03
-ms.lasthandoff: 03/31/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Dimensionamento vertical automático com conjuntos de Dimensionamento de Máquina Virtual
 Este artigo descreve como dimensionar verticalmente os [Conjuntos de Escala de Máquina Virtual](https://azure.microsoft.com/services/virtual-machine-scale-sets/) do Azure com ou sem reprovisionamento. Para dimensionar verticalmente as VMs que não estão nos conjuntos de escala, consulte [Dimensionar verticalmente a máquina virtual do Azure com a Automação do Azure](../virtual-machines/windows/vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -127,4 +126,3 @@ Este artigo mostrou exemplos simples de dimensionamento vertical. Com essa base 
 
 [runbooks]: ./media/virtual-machine-scale-sets-vertical-scale-reprovision/runbooks.png
 [gallery]: ./media/virtual-machine-scale-sets-vertical-scale-reprovision/runbooks-gallery.png
-

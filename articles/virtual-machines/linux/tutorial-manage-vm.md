@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: bef7f6ef13f6d31c16d40deb46f168ae52a9e61b
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-and-manage-linux-vms-with-the-azure-cli"></a>Criar e gerenciar VMs do Linux com a CLI do Azure
 
 Máquinas virtuais do Azure fornecem um ambiente de computação totalmente configurável e flexível. Este tutorial aborda itens básicos de implantação de máquina virtual do Azure, como a seleção de um tamanho de VM, seleção de uma imagem de VM e implantação de uma VM. Você aprenderá como:
@@ -325,4 +323,3 @@ Avança para o próximo tutorial para saber mais sobre os discos de VM.
 
 > [!div class="nextstepaction"]
 > [Criar e gerenciar discos de VM](./tutorial-manage-disks.md)
-

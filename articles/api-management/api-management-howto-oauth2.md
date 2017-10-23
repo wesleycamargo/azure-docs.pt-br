@@ -3,7 +3,7 @@ title: Autorizar contas de desenvolvedor usando o OAuth 2.0 no Gerenciamento de 
 description: "Aprenda a autorizar os usuários usando o OAuth 2.0 no Gerenciamento de API."
 services: api-management
 documentationcenter: 
-author: steved0x
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 78c48247-64f0-4708-b2d0-98b61a821283

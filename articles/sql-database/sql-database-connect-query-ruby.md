@@ -15,14 +15,12 @@ ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 07/14/2017
 ms.author: carlrab
+ms.openlocfilehash: 7322b1f36017adb32735c4c1e1f0af73bff70c97
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
-ms.openlocfilehash: 25ff9a9cfaa5494dbb006c84e235099fe51e6545
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/17/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-ruby-to-query-an-azure-sql-database"></a>Como usar o Ruby para consultar um banco de dados SQL do Azure
 
 Este tutorial de início rápido demonstra como usar o [Ruby](https://www.ruby-lang.org) para criar um programa para se conectar a um banco de dados SQL do Azure e usar instruções Transact-SQL para consultar dados.
@@ -99,4 +97,3 @@ end
 - [Repositório GitHub do TinyTDS](https://github.com/rails-sqlserver/tiny_tds)
 - [Relatar problemas ou fazer perguntas sobre o TinyTDS](https://github.com/rails-sqlserver/tiny_tds/issues)
 - [Drivers Ruby para SQL Server](https://docs.microsoft.com/sql/connect/ruby/ruby-driver-for-sql-server/)
-

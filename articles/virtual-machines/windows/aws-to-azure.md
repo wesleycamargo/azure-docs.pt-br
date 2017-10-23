@@ -15,15 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: cynthn
+ms.openlocfilehash: 7d2b498d3f84c4fd6cccf97c6d7781f293f5b395
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: b382e545e47353a177b3b02b3931001ab22d53c8
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/26/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="move-a-windows-vm-from-amazon-web-services-aws-to-azure-using-powershell"></a>Mover uma VM do Windows do AWS (Amazon Web Services) para o Azure usando o PowerShell
 
 Se você estiver avaliando máquinas virtuais do Azure para hospedar suas cargas de trabalho, poderá exportar uma instância existente de VM do Windows EC2 do AWS (Amazon Web Services) e carregar o VHD (disco rígido virtual) no Azure. Após o carregamento do VHD, você pode criar uma nova VM no Azure a partir do VHD. 
@@ -71,4 +68,3 @@ Agora você pode carregar o VHD no Azure e criar uma nova VM.
 - Se você não tiver executado o Sysprep antes da exportação, o VHD será considerado **especializado**, consulte [Carregar um VHD especializado no Azure e criar uma nova VM](create-vm-specialized.md)
 
  
-

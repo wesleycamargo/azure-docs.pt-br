@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/24/2017
 ms.author: dekapur
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: c5857515ae8357b003f0999c4b11bd666c32bbf9
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="platform-level-event-and-log-generation"></a>Geração de eventos e logs no nível de plataforma
 
 ## <a name="monitoring-the-cluster"></a>Monitoramento de cluster
@@ -113,4 +111,3 @@ Aqui estão duas maneiras com as quais você pode configurar a coleta de dados d
 ## <a name="next-steps"></a>Próximas etapas
 
 Seus logs e eventos precisam ser agregados antes que eles possam ser enviados para qualquer plataforma de análise. Leia sobre o [EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md) e o [WAD](service-fabric-diagnostics-event-aggregation-wad.md) para entender melhor algumas das opções recomendadas.
-

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: jdial
+ms.openlocfilehash: 086a853d0849ee22f992c9d3265f6988bcc7bd83
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: bc61be74d85a309c158716460b918baaf4fa94dc
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher"></a>Como solucionar problemas de conexões e gateway de rede virtual do usando o observador de rede do Azure
 
 > [!div class="op_single_selector"]
@@ -82,8 +80,8 @@ $requestBody = @"
 }
 "@
 
-}
-armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${NWresourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/troubleshoot?api-version=2016-03-30 "
+
+armclient post "https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${NWresourceGroupName}/providers/Microsoft.Network/networkWatchers/${networkWatcherName}/troubleshoot?api-version=2016-03-30" -verbose
 ```
 
 Como essa operação tem execução longa, o URI para consultar a operação e o URI para o resultado são retornados no cabeçalho de resposta, como mostra a seguinte resposta:
@@ -116,7 +114,7 @@ null
 Use as operações de URI para consulta do andamento da operação conforme mostrado no exemplo a seguir:
 
 ```powershell
-armclient get "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/locations/westcentralus/operations/8a1167b7-6768-4ac1-85dc-703c9c9b9247?api-version=2016-03-30"
+armclient get "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/locations/westcentralus/operations/8a1167b7-6768-4ac1-85dc-703c9c9b9247?api-version=2016-03-30" -verbose
 ```
 
 Enquanto a operação está em andamento, a resposta mostra **InProgress** conforme mostrado no exemplo a seguir:
@@ -140,7 +138,7 @@ Quando a operação estiver concluída o status será alterado para **Succeeded*
 Assim que o status é definido com **Succeeded**, chame um método GET no URI do operationResult para recuperar os resultados.
 
 ```powershell
-armclient get "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/locations/westcentralus/operationResults/8a1167b7-6768-4ac1-85dc-703c9c9b9247?api-version=2016-03-30"
+armclient get "https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/locations/westcentralus/operationResults/8a1167b7-6768-4ac1-85dc-703c9c9b9247?api-version=2016-03-30" -verbose
 ```
 
 As respostas a seguir são exemplos de uma resposta típica e degradada retornada ao consultar os resultados de um gateway de solução de problemas. Confira [Compressão dos resultados](#understanding-the-results) para aprender os significados das propriedades das respostas.
@@ -332,4 +330,3 @@ Para obter instruções sobre como baixar os arquivos de contas de armazenamento
 ## <a name="next-steps"></a>Próximas etapas
 
 Se as configurações para a conectividade VPN foram alteradas, confira [Gerenciamento de grupos de segurança de rede](../virtual-network/virtual-network-manage-nsg-arm-portal.md) para acompanhar quais são as regras de segurança e o grupo de segurança de rede envolvidos na questão.
-

@@ -3,7 +3,7 @@ title: "Solução Iniciar/Parar VMs fora do horário comercial [versão prévia]
 description: "As soluções de Gerenciamento de VM iniciam e param suas Máquinas Virtuais do Azure Resource Manager com agendamento e as monitoram proativamente no Log Analytics."
 services: automation
 documentationCenter: 
-authors: mgoedtel
+authors: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 06c27f72-ac4c-4923-90a6-21f46db21883
@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 43aab8d52e854636f7ea2ff3aae50d7827735cc7
-ms.openlocfilehash: e44f04b3492ac07822b0842864f84a5f16dc3f5b
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/03/2017
-
+ms.openlocfilehash: b4271d07858eacf2fa55e748f276c8252b0dedf9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="startstop-vms-during-off-hours-preview-solution-in-automation"></a>Solução Iniciar/Parar VMs fora do horário comercial [Visualização] na Automação
 
 A solução Iniciar/Parar VMs fora do horário comercial [Visualização] inicia e para máquinas virtuais do Azure Resource Manager em um agendamento definido pelo usuário e fornece informações sobre o sucesso dos trabalhos de Automação que iniciam e param as máquinas virtuais com o Log Analytics do OMS.  
@@ -245,5 +243,4 @@ A conta de Automação e o espaço de trabalho do OMS não serão excluídos com
 
 
    
-
 

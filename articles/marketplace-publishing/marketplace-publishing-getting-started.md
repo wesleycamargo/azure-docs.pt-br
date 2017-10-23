@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
 ms.openlocfilehash: 8fbf201343f6710d2781a4b56ae54833ed4c06cf
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/25/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="publish-and-manage-an-offer-in-the-azure-marketplace"></a>Publicar e gerenciar uma oferta no Azure Marketplace
 Este artigo é fornecido para ajudar os desenvolvedores a criar, implantar e gerenciar suas soluções listadas no Azure Marketplace para outros clientes e parceiros do Azure as comprarem e usarem.
@@ -107,4 +105,3 @@ Gerencie sua solução com a ajuda dos seguintes recursos:
 
 ## <a name="additional-resources"></a>Recursos adicionais
 [Configurar o Azure PowerShell](marketplace-publishing-powershell-setup.md)
-

@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/24/2017
 ms.author: markgal;
-ms.translationtype: HT
-ms.sourcegitcommit: 141270c353d3fe7341dfad890162ed74495d48ac
 ms.openlocfilehash: ad331dffb7c31d12290f4223967c568e4535fe3c
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="back-up-a-vmware-server-to-azure"></a>Fazer backup de um servidor do VMware no Azure
 
@@ -385,4 +384,3 @@ Se você não usou o System Center Data Protection Manager nem o Servidor de Bac
 Se você usar o Servidor de Backup do Azure para proteger cargas de trabalho do VMware, talvez esteja interessado em usar o Servidor de Backup do Azure para ajudar a proteger um [Microsoft Exchange Server](./backup-azure-exchange-mabs.md), um [farm do Microsoft SharePoint](./backup-azure-backup-sharepoint-mabs.md) ou um [banco de dados do SQL Server](./backup-azure-sql-mabs.md).
 
 Para obter informações sobre problemas ao registrar o agente, configurar o grupo de proteção ou fazer backup de trabalhos, consulte [Solucionar problemas do Servidor de Backup do Azure](./backup-azure-mabs-troubleshoot.md).
-

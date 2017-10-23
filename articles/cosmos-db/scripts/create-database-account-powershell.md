@@ -16,14 +16,12 @@ ms.tgt_pltfrm: cosmosdb
 ms.workload: database
 ms.date: 05/10/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
-ms.openlocfilehash: 13bbce6fd02979fb3b59f1dbe7f7010d3ca4b7ac
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
-
+ms.openlocfilehash: 9b54236ce3446fe1c6a2a30b31f6d91ad43a92d5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-cosmos-db-create-a-documentdb-api-account-using-powershell"></a>Banco de Dados Cosmos do Azure: Criar uma conta da API do DocumentDB usando PowerShell
 
 Este exemplo de script do PowerShell cria uma conta de API do Banco de Dados Cosmos do Azure. 
@@ -32,7 +30,7 @@ Este exemplo de script do PowerShell cria uma conta de API do Banco de Dados Cos
 
 ## <a name="sample-script"></a>Script de exemplo
 
-[!code-powershell[main](../../../powershell_scripts/cosmosdb/create-and-configure-database/create-and-configure-database.ps1?highlight=9,12-15,18,21-23,26-29,32-37 "Criar uma conta do Banco de Dados Cosmos do Azure")]
+[!code-powershell[main](../../../powershell_scripts/cosmosdb/create-and-configure-database/create-and-configure-database.ps1?highlight=9,12-15,18,21-23,26-29,32-37 "Create an Azure Cosmos DB account")]
 
 ## <a name="clean-up-deployment"></a>Limpar implantação
 

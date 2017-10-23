@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: davidmu
+ms.openlocfilehash: b94e879de8136eeaddbf2a277d9634025dc99bc1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 75c3279d2d02cb3c6e949d191c88a1eb18b58a27
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/04/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="url-path-based-routing-overview"></a>Visão geral do Roteamento Baseado em Caminho de URL
 
@@ -102,4 +101,3 @@ Trecho de código da regra de PathBasedRouting:
 ## <a name="next-steps"></a>Próximas etapas
 
 Depois de conhecer o roteamento de conteúdo baseado em URL, acesse [criar um application gateway usando o roteamento baseado em URL](application-gateway-create-url-route-portal.md) para criar um application gateway com as regras de roteamento de URL.
-

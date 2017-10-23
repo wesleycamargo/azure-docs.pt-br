@@ -15,14 +15,12 @@ ms.date: 08/04/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
+ms.openlocfilehash: 426056d394af0a9ded28202615cb80c7b50e59fc
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 99523f27fe43f07081bd43f5d563e554bda4426f
-ms.openlocfilehash: 67f7f5b8d411d11c97a8666d1bfc3c0c5f1174ce
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/05/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-provide-secure-remote-access-to-on-premises-applications"></a>Como fornecer acesso remoto seguro a aplicativos locais
 
 Os funcionários de hoje querem ser produtivos em qualquer lugar, a qualquer momento e com qualquer dispositivo. Desejam trabalhar em seus próprios dispositivos, sejam eles laptops, telefones ou tablets. Além disso, eles esperam para poder acessar todos os seus aplicativos, tanto aplicativos SaaS na nuvem como aplicativo corporativos no local. O fornecimento de acesso a aplicativos locais sempre envolveu VPNs (redes virtuais privadas) ou DMZs (zonas desmilitarizadas). Essas soluções são complexas e difíceis de proteger, além de serem caras para configurar e gerenciar.
@@ -81,7 +79,7 @@ O Proxy de Aplicativo Azure AD oferece SSO (logon único ) a aplicativos que usa
 Para obter mais informações sobre o Kerberos, consulte [Tudo o que você deseja saber sobre a delegação restrita de Kerberos (KCD)](https://blogs.technet.microsoft.com/applicationproxyblog/2015/09/21/all-you-want-to-know-about-kerberos-constrained-delegation-kcd).
 
 ### <a name="managing-apps"></a>Gerenciando aplicativos
-Assim que o aplicativo é publicado com o Proxy de Aplicativo, você pode gerenciá-lo como qualquer outro aplicativo corporativo no Portal do Azure. Você pode usar recursos de segurança do Azure Active Directory como a verificação em duas etapas e o acesso condicional, controlar permissões de usuário e personalizar a identidade visual do seu aplicativo. 
+Assim que o aplicativo for publicado com o Proxy de Aplicativo, será possível gerenciá-lo como qualquer outro aplicativo corporativo no Portal Azure. Você pode usar recursos de segurança do Azure Active Directory como a verificação em duas etapas e o acesso condicional, controlar permissões de usuário e personalizar a identidade visual do seu aplicativo. 
 
 ## <a name="get-started"></a>Introdução
 
@@ -102,5 +100,4 @@ Depois de publicar seu primeiro aplicativo, há muito mais você pode fazer com 
 * [Definir uma home page personalizada](application-proxy-office365-app-launcher.md)
 
 Para obter as últimas notícias e atualizações, confira o [blog do Proxy de Aplicativo](http://blogs.technet.com/b/applicationproxyblog/)
-
 

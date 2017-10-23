@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
 ms.openlocfilehash: 3e1c589030210c2eae1ad9c02811775d9d6365d4
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="step-6-prepare-on-premises-vmware-replication-to-azure"></a>Etapa 6: Preparar a replicação da VMware local para o Azure
 
@@ -65,4 +64,3 @@ Se você quiser usar a instalação por push, precisará preparar uma conta que 
 ## <a name="next-steps"></a>Próximas etapas
 
 Vá para a [Etapa 7: Criar um cofre](vmware-walkthrough-create-vault.md)
-

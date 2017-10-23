@@ -11,16 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/19/2017
+ms.date: 09/26/2017
 ms.author: billmath
+ms.openlocfilehash: d803e814828132aa5c8355de6192e45cd9e902b0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 6dee1ae6adc6a15d29cb97d815279b7e89306e86
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-ad-access-reviews-preview"></a>Revisões de acesso do Azure AD (Visualização)
 
 Revisões de acesso permitem que as organizações gerenciem com eficiência as associações de grupos e o acesso a aplicativos corporativos. 
@@ -41,4 +39,3 @@ Revisões de acesso permitem que as organizações gerenciem com eficiência as 
 - [Gerenciar os programas e os controles para análises de acesso do Azure AD](active-directory-azure-ad-controls-manage-programs-controls.md)
 - [Como criar uma revisão de acesso para os membros de um grupo ou para o acesso a um aplicativo](active-directory-azure-ad-controls-create-access-review.md)
 - [Criar uma revisão de acesso de usuários em uma função administrativa do Azure AD](active-directory-privileged-identity-management-how-to-start-security-review.md)
-

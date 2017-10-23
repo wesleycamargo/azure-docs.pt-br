@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/01/2017
+ms.date: 09/26/2017
 ms.author: cherylmc
+ms.openlocfilehash: 2bcd95da36cd577ece8ad87d00c3e276f28ad340
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 5a6360b56963d219ab576fb3e2636b6c51dd72ac
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/02/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="verifying-expressroute-connectivity"></a>Verificando a conectividade do ExpressRoute
 O ExpressRoute, que estende uma rede local para a Microsoft Cloud por uma conexão privada que é facilitada por um provedor de conectividade, envolve as três seguintes zonas da rede distintas:
@@ -97,7 +96,7 @@ Para listar todos os circuitos do ExpressRoute em um grupo de recursos, use o se
     Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG"
 
 >[!TIP]
->Você pode obter o nome do seu grupo de recursos por meio do Portal do Azure. Consulte a subseção anterior deste documento e observe que o nome do grupo de recursos está listado na captura de tela de exemplo.
+>Você pode obter o nome do seu grupo de recursos por meio do Azure. Consulte a subseção anterior deste documento e observe que o nome do grupo de recursos está listado na captura de tela de exemplo.
 >
 >
 
@@ -172,14 +171,9 @@ Para confirmar se um circuito do ExpressRoute está funcionando, preste atençã
 Depois que o provedor de serviços concluir o provisionamento do circuito do ExpressRoute, uma configuração de roteamento poderá ser criada no circuito do ExpressRoute entre MSEE-PRs (4) e MSEEs (5). Cada circuito do ExpressRoute pode ter um, dois ou três contextos de roteamento habilitados: emparelhamento privado do Azure (tráfego para redes virtuais privadas no Azure), emparelhamento público do Azure (tráfego para endereços IP públicos no Azure) e emparelhamento da Microsoft (tráfego para Office 365 e Dynamic 365). Para obter mais informações sobre como criar e modificar a configuração de roteamento, consulte o artigo [Create and modify routing for an ExpressRoute circuit][CreatePeering] (Criar e modificar o roteamento para um circuito do ExpressRoute).
 
 ###<a name="verification-via-the-azure-portal"></a>Verificação por meio do Portal do Azure
->[!IMPORTANT]
->Há um bug conhecido no Portal do Azure no qual os emparelhamentos do ExpressRoute *NÃO* são mostrados no portal se configurados pelo provedor de serviços. Adicionar emparelhamentos do ExpressRoute por meio do portal ou do PowerShell *substitui as configurações do provedor de serviços*. Essa ação interrompe o roteamento no circuito do ExpressRoute e requer o suporte do provedor de serviços para restaurar as configurações e restabelecer o roteamento normal. Modifique os emparelhamentos do ExpressRoute apenas se você tiver certeza de que o provedor de serviços está fornecendo apenas serviços de camada 2!
->
->
 
-<p/>
 >[!NOTE]
->Se a camada 3 for fornecida pelo provedor de serviços e os emparelhamentos estiverem em branco no portal, o PowerShell poderá ser usado para ver as configurações definidas pelo provedor de serviços.
+>Se a camada 3 for fornecida pelo provedor de serviços e os emparelhamentos estiverem em branco no portal, atualize a configuração Circuito usando o botão Atualizar no portal. Essa operação aplicará a configuração de roteamento correta em seu circuito. 
 >
 >
 
@@ -410,7 +404,6 @@ Para obter mais informações ou ajuda, confira os seguintes links:
 [CreatePeering]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-routing-portal-resource-manager
 [OldPortal]: https://manage.windowsazure.com
 [ARP]: https://docs.microsoft.com/en-us/azure/expressroute/expressroute-troubleshooting-arp-resource-manager
-
 
 
 

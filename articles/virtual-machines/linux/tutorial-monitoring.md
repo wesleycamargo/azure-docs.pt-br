@@ -16,12 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/08/2017
 ms.author: davidmu
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 70c17d9a8f7bf6d9106efcb56eee7cd996460c18
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-monitor-and-update-a-linux-virtual-machine-in-azure"></a>Como monitorar e atualizar uma máquina virtual do Linux no Azure
 
@@ -290,4 +289,3 @@ Avance para o próximo tutorial para saber mais sobre a Central de Segurança do
 
 > [!div class="nextstepaction"]
 > [Gerenciar a segurança da VM](./tutorial-azure-security.md)
-

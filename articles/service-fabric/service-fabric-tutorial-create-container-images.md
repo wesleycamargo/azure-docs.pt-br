@@ -16,14 +16,12 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
+ms.openlocfilehash: 08b3cc4a52c09ee03818b563794ef9b009d12ef4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: e84a0a05cbe1952d8325a9aed1c1df411bfcb877
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-container-images-for-service-fabric"></a>Criar imagens de contêiner para o Service Fabric
 
 Este tutorial é a parte um de uma série de tutoriais que demonstra como usar contêineres em um cluster do Service Fabric do Linux. Neste tutorial, um aplicativo com vários contêineres é preparado para uso com o Service Fabric. Nos tutoriais subsequentes, essas imagens são usadas como parte de um aplicativo do Service Fabric. Neste tutorial, você aprenderá a: 
@@ -57,12 +55,7 @@ Use o git para baixar uma cópia do aplicativo em seu ambiente de desenvolviment
 ```bash
 git clone https://github.com/Azure-Samples/service-fabric-dotnet-containers.git
 
-```
-
-No diretório clonado, use o comando a seguir para inserir o diretório de trabalho. 
-
-```bash 
-cd Linux/container-tutorial/
+cd service-fabric-dotnet-containers/Linux/container-tutorial/
 ```
 
 O diretório 'container-tutorial' contém uma pasta chamada 'azure-vote'. Esta pasta 'azure-vote' contém o código-fonte de front-end e um Dockerfile para criar front-end. O diretório 'container-tutorial' também contém o diretório 'redis' que tem o Dockerfile para montar a imagem do redis. Esses diretórios contêm os ativos necessários para este conjunto de tutoriais. 
@@ -242,4 +235,3 @@ Avança para o próximo tutorial para saber mais sobre empacotamento de contêin
 
 > [!div class="nextstepaction"]
 > [Empacotar e implantar contêineres como um aplicativo do Service Fabric](service-fabric-tutorial-package-containers.md)
-

@@ -3,7 +3,7 @@ title: "Habilitando métricas de armazenamento no Portal do Azure | Microsoft Do
 description: "Como habilitar métricas de armazenamento para os serviços Blob, Fila, Tabela e Arquivo"
 services: storage
 documentationcenter: 
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 0407adfc-2a41-4126-922d-b76e90b74563
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/14/2017
-ms.author: robinsh
+ms.author: tamram
+ms.openlocfilehash: 8abb4f968c1fa84e03c8cc807826d3684713847a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 1525a2258dd6ab8e72e8607826523eca8121483c
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enabling-azure-storage-metrics-and-viewing-metrics-data"></a>Habilitando métricas do Armazenamento do Azure e exibição de dados de métricas
 [!INCLUDE [storage-selector-portal-enable-and-view-metrics](../../../includes/storage-selector-portal-enable-and-view-metrics.md)]
@@ -27,19 +26,19 @@ ms.lasthandoff: 08/21/2017
 ## <a name="overview"></a>Visão geral
 As Métricas de Armazenamento são habilitadas por padrão quando você cria uma nova conta de armazenamento. Você pode configurar o monitoramento por meio do [Portal do Azure](https://portal.azure.com) ou o Windows PowerShell ou programaticamente por meio de uma das bibliotecas de cliente de armazenamento.
 
-Você pode configurar um período de retenção para os dados de métricas: este período determina quanto tempo o serviço de armazenamento mantém as métricas e as cobranças para o espaço necessário para armazená-los. Normalmente, você deve usar um período de retenção mais curto para métricas de minuto em vez de métricas por hora por causa do espaço extra significativo necessário para métricas de minuto. Você deve escolher um período de retenção que você tenha tempo suficiente para analisar os dados e baixar qualquer métricas que você deseja manter para análise offline ou para fins de relatório. Lembre-se de que você também será cobrado para baixar dados de métrica de sua conta de armazenamento.
+Você pode configurar um período de retenção para os dados de métricas: este período determina quanto tempo o serviço de armazenamento mantém as métricas e as cobranças para o espaço necessário para armazená-los. Normalmente, você deve usar um período de retenção mais curto para métricas de minuto em vez de métricas por hora por causa do espaço extra significativo necessário para métricas de minuto. Escolha um período de retenção que você tenha tempo suficiente para analisar os dados e baixar qualquer métricas que você deseja manter para análise offline ou para fins de relatório. Lembre-se de que você também será cobrado para baixar dados de métrica de sua conta de armazenamento.
 
 ## <a name="how-to-enable-metrics-using-the-azure-portal"></a>Como habilitar métricas usando o portal do Azure
 Siga estas etapas para habilitar as métricas no [portal do Azure](https://portal.azure.com):
 
 1. Navegue até sua conta de armazenamento.
-1. Selecione **diagnóstico** sobre o **Menu** folha
+1. Selecione o **Diagnóstico** a partir do **painel do** Menu.
 1. O **Status** deve ser definido como **Ativado**.
 1. Selecione as métricas para os serviços que deseja monitorar.
 1. Especifica uma política de retenção para indicar por quanto tempo deve-se manter as métricas e os dados de log.
 1. Selecione **Salvar**.
 
-Observe que o [portal do Azure](https://portal.azure.com) não permite atualmente configurar métricas de minuto em sua conta de armazenamento. Habilite a métrica de minutos usando o PowerShell ou programaticamente.
+O [portal do Azure](https://portal.azure.com) não permite atualmente configurar métricas de minuto em sua conta de armazenamento. Habilite a métrica de minutos usando o PowerShell ou programaticamente.
 
 ## <a name="how-to-enable-metrics-using-powershell"></a>Como habilitar métricas usando o PowerShell
 Você pode usar o PowerShell no computador local para configurar as métricas de armazenamento na sua conta de armazenamento usando o cmdlet do PowerShell do Azure Get-AzureStorageServiceMetricsProperty para recuperar as configurações atuais, e o cmdlet Set-AzureStorageServiceMetricsProperty para alterar as configurações atuais.
@@ -101,18 +100,18 @@ blobClient.SetServiceProperties(properties);
 Após configurar as métricas Análise de Armazenamento para monitorar sua conta de armazenamento, a Análise de Armazenamento registra as métricas em um conjunto conhecido de tabelas na sua conta de armazenamento. Você pode configurar gráficos para exibir as métricas por hora no [portal do Azure](https://portal.azure.com):
 
 1. Navegue até sua conta de armazenamento no [portal do Azure](https://portal.azure.com).
-1. Selecione **métricas** no **Menu** folha para o serviço cujas métricas que você deseja exibir.
+1. Selecione **Métricas** no painel do **Menu** para o serviço cujas métricas você deseja exibir.
 1. Selecione **editar** no gráfico que você deseja configurar.
-1. No **Editar gráfico** folha, selecione o **intervalo de tempo**, **tipo de gráfico**e as métricas que deseja exibir no gráfico.
+1. No painel **Editar gráfico**, selecione o **intervalo de tempo**, **tipo de gráfico**e as métricas que você deseja exibir no gráfico.
 1. Selecione **OK**
 
-Se você quiser baixar as métricas para armazenamento de longo prazo ou para analisá-las localmente, precisará:
+Se você quiser baixar as métricas para um armazenamento a longo prazo ou para analisá-las localmente, você precisa:
 
 * Usar uma ferramenta que reconheça essas tabelas e permita que você as exiba e as baixe.
 * Escrever um aplicativo ou script personalizado para ler e armazenar as tabelas.
 
 Muitas ferramentas de navegação de armazenamento de terceiros reconhecem essas tabelas e permitem que você as exiba diretamente.
-Confira [Ferramentas de Cliente do Armazenamento do Azure](storage-explorers.md) para obter uma lista de ferramentas disponíveis.
+Consulte as [ferramentas do cliente de armazenamento do Microsoft Azure](storage-explorers.md) para obter uma lista das ferramentas disponíveis.
 
 > [!NOTE]
 > Da versão 0.8.0 do [Gerenciador de Armazenamento do Microsoft Azure](http://storageexplorer.com/) em diante, você pode exibir e baixar as tabelas de métricas de análise.
@@ -143,7 +142,7 @@ Você pode encontrar detalhes completos dos esquemas para essas tabelas no [Esqu
 | 20140522T1100 |user;QueryEntity |2014-05-22T11:01:16.7650250Z |1 |1 |538 |633 |100 |3 |3 |100 |
 | 20140522T1100 |user;UpdateEntity |2014-05-22T11:01:16.7650250Z |1 |1 |771 |217 |100 |9 |6 |100 |
 
-Neste exemplo dos dados de métrica de minutos, a chave de partição usa o tempo de resolução minuto. A chave de linha identifica o tipo de informação que é armazenado na linha, e isso é composto de duas partes de informações, o tipo de acesso e o tipo de solicitação:
+Neste exemplo dos dados de métrica de minutos, a chave de partição usa o tempo de resolução minuto. A tecla de registro identifica o tipo de informação que é armazenado na linha. A tecla de registro é composta por duas partes de informações, o tipo de acesso e o tipo de solicitação:
 
 * O tipo de acesso é um usuário ou sistema, onde o usuário refere-se a todas as solicitações de usuário para o serviço de armazenamento e o sistema refere-se às solicitações feitas pela análise de armazenamento.
 * O tipo de solicitação é tudo que nesse caso é uma linha de resumo, ou ele identifica a API específica, como QueryEntity ou UpdateEntity.
@@ -151,10 +150,10 @@ Neste exemplo dos dados de métrica de minutos, a chave de partição usa o temp
 Os dados de exemplo acima mostram todos os registros de um minuto (iniciando às 11h00), para o número de solicitações de QueryEntities mais o número de solicitações de QueryEntity mais o número de solicitações de UpdateEntity adicionam até sete, que é o total mostrado na linha user:All. Da mesma forma, você pode derivar a latência média de ponta a ponta 104.4286 na linha user:All ao calcular ((143.8 * 5) + 3 + 9)/7.
 
 ## <a name="metrics-alerts"></a>Alertas de métricas
-Considere configurar alertas no [Portal do Azure](https://portal.azure.com) para que as Métricas de Armazenamento possam notificá-lo automaticamente sobre todas as alterações importantes no comportamento dos seus serviços de armazenamento. Se você usar uma ferramenta de Gerenciador de armazenamento para baixar esses dados de métricas em um formato delimitado, você pode usar o Microsoft Excel para analisar os dados. Confira [Ferramentas de Cliente do Armazenamento do Azure](storage-explorers.md) para obter uma lista de ferramentas do gerenciador de armazenamento disponíveis. Você pode configurar alertas na folha **Regras de alerta**, acessível em **Monitoramento** na folha Menu da conta de armazenamento.
+Considere configurar alertas no [Portal do Azure](https://portal.azure.com) para que as Métricas de Armazenamento possam notificá-lo automaticamente sobre todas as alterações importantes no comportamento dos seus serviços de armazenamento. Se você usar uma ferramenta de Gerenciador de armazenamento para baixar esses dados de métricas em um formato delimitado, você pode usar o Microsoft Excel para analisar os dados. Confira [Ferramentas de Cliente do Armazenamento do Azure](storage-explorers.md) para obter uma lista de ferramentas do gerenciador de armazenamento disponíveis. Você pode configurar os alertas no painel de **Regras de alerta**, acessível em **Monitoramento** no painel do Menu da conta de armazenamento.
 
 > [!IMPORTANT]
-> Pode haver um atraso entre um evento de armazenamento e quando os dados de métricas por hora ou minuto correspondentes são registrados. No caso de métricas por minuto, diversos minutos de dados podem ser gravados de uma só vez. Isso pode levar à agregação de transações de minutos anteriores à transação do minuto atual. Quando isso acontece, o serviço de alerta pode não ter todos os dados de métricas disponíveis para o intervalo de alerta configurado, o que pode levar ao acionamento inesperado de alertas.
+> Pode haver um atraso entre um evento de armazenamento e quando os dados de métricas por hora ou minuto correspondentes são registrados. Ao registrar as métricas de minutos, diversos minutos de dados podem ser gravados de uma só vez. As transações de minutos anteriores podem ser agregadas na transação do minuto atual. Quando isso acontece, o serviço de alerta pode não ter todos os dados de métricas disponíveis para o intervalo de alerta configurado, o que pode levar ao acionamento inesperado de alertas.
 >
 
 ## <a name="accessing-metrics-data-programmatically"></a>Acessando dados de métrica programaticamente
@@ -215,4 +214,3 @@ A capacidade usada pelas tabelas de métricas também é faturável. Você pode 
 
 ## <a name="next-steps"></a>Próximas etapas
 [Habilitando o armazenamento de log e acessando os dados de log](/rest/api/storageservices/Enabling-Storage-Logging-and-Accessing-Log-Data)
-

@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: manayar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 97edbe67c25036dc1156f0f0ca5431a617d7a004
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="multi-tenant-support-in-azure-site-recovery-for-replicating-vmware-virtual-machines-to-azure-through-csp"></a>Suporte a multilocatários no Azure Site Recovery para replicar máquinas virtuais do VMware no Azure por meio do CSP
 
@@ -222,4 +220,3 @@ Os parceiros também podem adicionar um novo usuário à assinatura do locatári
     ![Adicionar um usuário](./media/site-recovery-multi-tenant-support-vmware-using-csp/add-user-subscription.png)
 
     Para a maioria das operações de gerenciamento, a função de *Colaborador* é suficiente. Usuários com esse nível de acesso podem fazer tudo em uma assinatura, exceto alterar os níveis de acesso (para tal é necessário o nível de acesso *Proprietário*). Você também pode ajustar os níveis de acesso conforme o necessário.
-

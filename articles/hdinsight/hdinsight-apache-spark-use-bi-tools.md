@@ -17,12 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: nitinme
+ms.openlocfilehash: 869a000909813e607620c47ef802b4043e37dfa9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 49dd161049ac442081fe6d26cf8bd3a56a2e0687
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="apache-spark-bi-using-data-visualization-tools-with-azure-hdinsight"></a>Apache Spark BI usando ferramentas de visualização de dados com o Azure HDInsight
 
@@ -146,7 +145,7 @@ Depois de salvar os dados como uma tabela, você poderá usar o Power BI para co
 
       ![Listar tabelas no painel do Apache Spark BI](./media/hdinsight-apache-spark-use-bi-tools/apache-spark-bi-display-tables.png "Listar tabelas no painel do Apache Spark BI")
 
-8. Crie uma visualização para mostrar a variação entre a temperatura almejada e a temperatura real para cada edifício. Para visualizar seus dados, selecione **Gráfico de Áreas** (mostrado na caixa vermelha). Para definir o eixo, arraste e solte o campo **BuildingID** em **Eixo** e os campos **ActualTemp**/**TargetTemp** em **Valor**.
+8. Crie uma visualização para mostrar a variação entre a temperatura almejada e a temperatura real para cada edifício. Para visualizar os dados, escolha **Gráfico de Áreas** (mostrado na caixa vermelha). Para definir o eixo, arraste e solte o campo **BuildingID** em **Eixo** e os campos **ActualTemp**/**TargetTemp** em **Valor**.
 
     ![Criar visualizações de dados Spark usando o Apache Spark BI](./media/hdinsight-apache-spark-use-bi-tools/apache-spark-bi-add-value-columns.png "Criar visualizações de dados Spark usando o Apache Spark BI")
 
@@ -210,5 +209,4 @@ Até agora, você aprendeu como criar um cluster, criar quadros de dados do Spar
 
 * [Gerenciar os recursos de cluster do Apache Spark no Azure HDInsight](hdinsight-apache-spark-resource-manager.md)
 * [Rastrear e depurar trabalhos em execução em um cluster do Apache Spark no HDInsight](hdinsight-apache-spark-job-debugging.md)
-
 

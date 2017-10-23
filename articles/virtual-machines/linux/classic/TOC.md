@@ -72,9 +72,9 @@
 ## [Java](/java/api)
 ## [Criar modelos do Resource Manager](../../../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Modelos da comunidade](https://azure.microsoft.com/documentation/templates)
-## [REST de computação](/rest/api/compute)
-## [REST de rede](/rest/api)
-## [REST de armazenamento](/rest/api/storageservices)
+## [REST de computação](https://msdn.microsoft.com/library/jj157206.aspx)
+## [REST de rede](https://msdn.microsoft.com/library/jj157182.aspx)
+## [REST de armazenamento](https://msdn.microsoft.com/library/ee460790.aspx)
 
 
 # Recursos

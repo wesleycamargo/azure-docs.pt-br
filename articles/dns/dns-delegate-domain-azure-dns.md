@@ -87,7 +87,7 @@ Metadata          :
 ### <a name="azure-cli"></a>CLI do Azure
 
 ```azurecli
-az network dns record-set show --resource-group contosoRG --zone-name contoso.net --type NS --name @
+az network dns record-set list --resource-group contosoRG --zone-name contoso.net --type NS --name @
 ```
 
 O exemplo a seguir é a resposta.

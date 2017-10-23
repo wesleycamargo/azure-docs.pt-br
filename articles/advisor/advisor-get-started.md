@@ -14,13 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/10/2017
 ms.author: makohli
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: a662841bebda460d4225e080f16705b3f16fdc46
-ms.lasthandoff: 03/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-started-with-azure-advisor"></a>Introdução ao Azure Advisor
 
 Saiba como acessar o Assistente por meio do portal do Azure e obter, implementar, pesquisar e atualizar recomendações.
@@ -94,4 +93,3 @@ Para saber mais sobre o Assistente, consulte:
 * [Recomendações de segurança do Advisor](advisor-security-recommendations.md)
 -  [Recomendações de desempenho do Advisor](advisor-performance-recommendations.md)
 * [Recomendações de custo do Advisor](advisor-performance-recommendations.md)
-

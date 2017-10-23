@@ -16,12 +16,11 @@ ms.date: 07/06/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: end-user
-ms.translationtype: HT
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
 ms.openlocfilehash: 9dbe88a59b68bfb424c43dd89acf55d8c73fdf39
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-help-with-two-step-verification"></a>Obter ajuda com a verificação em duas etapas
 Este artigo responde às perguntas mais comuns que as pessoas fazem sobre verificação em duas etapas. 
@@ -95,5 +94,4 @@ Se você tiver tentado essas etapas de solução de problemas, mas ainda estiver
 ## <a name="related-topics"></a>Tópicos relacionados
 * [Gerenciar as configurações de verificação em duas etapas](multi-factor-authentication-end-user-manage-settings.md)  
 * [Perguntas frequentes sobre o aplicativo Microsoft Authenticator](microsoft-authenticator-app-faq.md)
-
 

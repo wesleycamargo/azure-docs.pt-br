@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: mfussell
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: e673b45a43a06d18040c3437caf8765704d5c36a
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
-
-
+ms.openlocfilehash: aae828489b708a5b538df1d63c12be23d0423da7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-security-policies-for-your-application"></a>Configurar políticas de segurança para seu aplicativo
 Usando o Azure Service Fabric, é possível proteger aplicativos em execução no cluster em contas de usuário diferentes. O Service Fabric também protege os recursos usados pelos aplicativos no momento da implantação nas contas de usuário, por exemplo, arquivos, diretórios e certificados. Isso torna os aplicativos em execução, mesmo em um ambiente hospedado compartilhado, mais protegidos uns dos outros.
@@ -140,6 +138,8 @@ Em geral, é preferível executar o script de inicialização usando uma conta d
    </Principals>
 </ApplicationManifest>
 ```
+
+Para clusters do Linux, para executar um serviço ou o ponto de entrada de instalação como **raiz**, é possível especificar o **AccountType** como **LocalSystem**.
 
 ## <a name="start-powershell-commands-from-a-setup-entry-point"></a>Iniciar comandos do PowerShell em um ponto de entrada de instalação
 Para executar o PowerShell do ponto **SetupEntryPoint**, execute **PowerShell.exe** em um arquivo em lotes que aponte para um arquivo do PowerShell. Primeiro, adicione um arquivo do PowerShell ao projeto de serviço, por exemplo, **MySetup.ps1**. Não deixe de definir a propriedade *Copiar se for mais recente* para que esse arquivo também seja incluído no pacote de serviço. O exemplo a seguir mostra um exemplo de arquivo em lotes que inicia um arquivo do PowerShell chamado MySetup.ps1, que define uma variável de ambiente do sistema chamada **TestVariable**.
@@ -423,4 +423,3 @@ O manifesto do aplicativo a seguir mostra várias configurações diferentes:
 * [Implantar um aplicativo](service-fabric-deploy-remove-applications.md)
 
 [image1]: ./media/service-fabric-application-runas-security/copy-to-output.png
-

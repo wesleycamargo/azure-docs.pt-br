@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/03/2017
 ms.author: carlrab
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: 74b04cb7737011423556cbd956ecef770ac82ad4
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-sql-database-customer-implementation-technical-studies"></a>Aspectos técnicos de implementações do cliente do Banco de Dados SQL do Azure
 
@@ -39,4 +38,3 @@ ms.lasthandoff: 09/09/2017
 - [Microsoft Dynamics](https://customers.microsoft.com/story/dynamics365operationsproductteam): esse breve estudo de caso realça as práticas recomendadas e lições aprendidas com a experiência da equipe do produto Dynamics 365 for Operations em migrar para o Banco de Dados SQL do Azure a fim de fornecer aos clientes uma oferta de SaaS (software como serviço) totalmente gerenciado. Usando o Banco de Dados SQL do Azure, a equipe do Dynamics 365 for Operations foi capaz de gerenciar e operar o serviço com menos pessoal e dimensionar com facilidade usando recursos de gerenciamento prontos para uso, como backups automáticos de banco de dados, retenção de backup do banco de dados, alta disponibilidade e recuperação de desastres. Isso, junto com a capacidade de provisionar bancos de dados com a automação trivial, permitiu que o Banco de Dados SQL se tornasse uma excelente plataforma para manter os serviços em larga escala.
 
 - [Microsoft OneDrive e SharePoint Online](https://customers.microsoft.com/story/microsoft-azure-sql-database-dicrete-manufacturing-united-states): esse breve estudo de caso conta a história por trás da decisão do Microsoft OneDrive e do SharePoint Online de migrar para o Banco de Dados SQL do Azure e descreve como essa migração proporcionou um gerenciamento de capacidade elástica quase ilimitadas, reduzindo também de forma significativa os custos operacionais e a sobrecarga de infraestrutura.
-

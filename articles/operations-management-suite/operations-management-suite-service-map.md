@@ -14,15 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
 ms.openlocfilehash: 2e5475a0563549ddfaa2c146e4acf94c019841ec
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/14/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-the-service-map-solution-in-operations-management-suite"></a>Usar a solução Mapa do Serviço no Operations Management Suite
 O Mapa do Serviço detecta automaticamente os componentes de aplicativos em sistemas Windows e Linux e mapeia a comunicação entre os serviços. Com o Mapa do Serviço é possível exibir seus servidores da maneira desejada: como sistemas interconectados que fornecem serviços críticos. O Mapa do Serviço mostra conexões entre servidores, processos e portas em qualquer arquitetura conectada a TCP sem nenhuma configuração necessária além da instalação de um agente.
 
@@ -368,4 +365,3 @@ Consulte a [seção Solução de problemas do documento Configurando o mapa do s
 
 ## <a name="feedback"></a>Comentários
 Você tem algum comentário sobre o Mapa de Serviço ou sobre esta documentação?  Visita nossa [página Voz do Usuário](https://feedback.azure.com/forums/267889-log-analytics/category/184492-service-map), onde você pode sugerir recursos ou votar em sugestões existentes.
-

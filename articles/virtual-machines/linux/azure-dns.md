@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2016
 ms.author: rclaus
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: cc06ee9305b4d3034154a0825c1aea53fe446f80
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="dns-name-resolution-options-for-linux-virtual-machines-in-azure"></a>Opções de resolução de nomes DNS para máquinas virtuais Linux no Azure
 O Azure fornece resolução de nomes DNS por padrão para todas as máquinas virtuais que estão em uma única rede virtual. Você pode implementar sua própria solução de resolução de nomes DNS configurando seus próprios serviços DNS em suas máquinas virtuais que o Azure hospeda. Os cenários a seguir devem ajudá-lo a escolher a que funciona para sua situação.
@@ -141,4 +139,3 @@ Se o encaminhamento de consultas para o Azure não atender às suas necessidades
 > Para obter o melhor desempenho, quando usar máquinas virtuais em servidores DNS do Azure, desabilite o IPv6 e atribua um [IP público em nível de instância](../../virtual-network/virtual-networks-instance-level-public-ip.md) para cada máquina virtual do servidor DNS.  
 >
 >
-

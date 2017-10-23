@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/02/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: d7cd31dcb2278284ada6e7ac1d8beab9e1b5b1df
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="technical-specifications-and-compliance-for-the-storsimple-device"></a>Especificações técnicas e conformidade para o dispositivo StorSimple
 
@@ -198,5 +196,4 @@ Para as interfaces de rede 10 GbE, DATA 2 e DATA 3, consulte a [lista de módulo
 ## <a name="next-steps"></a>Próximas etapas
 
 Agora, você está pronto para implantar um dispositivo StorSimple em seu datacenter. Para saber mais, confira [Implantando o dispositivo local](storsimple-8000-deployment-walkthrough-u2.md).
-
 

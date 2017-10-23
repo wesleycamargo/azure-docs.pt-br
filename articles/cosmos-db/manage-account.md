@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: kirillg
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
 ms.openlocfilehash: a0c6ec8d490e1adacc96758971ab91d8eaeab45c
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-manage-an-azure-cosmos-db-account"></a>Como gerenciar uma conta do Azure Cosmos DB
 Saiba como definir a consistência global, trabalhar com chaves e excluir uma conta do Azure Cosmos DB no portal do Azure.
@@ -111,4 +109,3 @@ Saiba como [começar a usar sua conta do Azure Cosmos DB](http://go.microsoft.co
 [consistency]: consistency-levels.md
 [azureregions]: https://azure.microsoft.com/regions/#services
 [offers]: https://azure.microsoft.com/pricing/details/cosmos-db/
-

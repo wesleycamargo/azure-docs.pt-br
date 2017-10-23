@@ -11,14 +11,12 @@ ms.topic: hero-article
 ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shwetams
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: c48171d8634a651718a0775183414f463c6a468c
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/16/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Introdução ao SDK do lote para o Node.js
 
 > [!div class="op_single_selector"]
@@ -363,5 +361,4 @@ O portal tem exibições detalhadas nas tarefas e nos status do trabalho. Você 
 
 - Examine o artigo [Visão geral dos recursos do Lote do Azure](batch-api-basics.md) , que é recomendável se ainda não estiver familiarizado com o serviço.
 - Confira a [referência Node.js em lotes](http://azure.github.io/azure-sdk-for-node/azure-batch/latest/) para explorar a API do lote.
-
 

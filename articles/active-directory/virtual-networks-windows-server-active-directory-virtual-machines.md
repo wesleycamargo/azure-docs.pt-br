@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/06/2017
 ms.author: joflore
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: 928de285e126a7f62ee075d1c02688bf8f388cb7
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="windows-server-active-directory-on-azure-vms"></a>Windows Server Active Directory nas VMs do Azure
 Este tópico de navegação contém links para outros tópicos sobre como implantar os serviços de domínio do Windows Server Active Directory (AD DS) ou os serviços de federação do Active Directory (AD FS) em uma máquina virtual do Azure (VM).
@@ -37,5 +36,4 @@ Este tópico de navegação contém links para outros tópicos sobre como implan
 ## <a name="additional-resources"></a>Recursos adicionais
 * [Inscrever-se no Azure como uma organização](sign-up-organization.md)
 * [Identidade do Azure](fundamentals-identity.md)
-
 

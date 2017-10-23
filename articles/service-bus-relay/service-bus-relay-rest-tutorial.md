@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/17/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
 ms.openlocfilehash: 0db9dbd2d2743907e3f0b259228201d4f5d0c3c2
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/17/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-wcf-relay-rest-tutorial"></a>Tutorial do REST de Retransmissão de WCF do Azure
 
@@ -567,4 +565,3 @@ Agora que você compilou um aplicativo que usa o serviço de retransmissão do B
 * [Como usar o serviço de Retransmissão de WCF com o .NET](relay-wcf-dotnet-get-started.md)
 
 [Azure portal]: https://portal.azure.com
-

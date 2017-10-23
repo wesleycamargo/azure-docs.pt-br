@@ -13,15 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/20/2017
+ms.date: 09/27/2017
 ms.author: markvi
 ms.reviewer: calebb
+ms.openlocfilehash: 4cf30130907151ade9eaf9db28748b8141dac8e7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 9424f43db504964ba5ea3cbd84f305d1a6697208
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Acesso condicional no Azure Active Directory
 
@@ -119,7 +118,7 @@ Na implementação atual do Azure Active Directory, você pode definir condiçõ
 - Plataformas de dispositivo
 - Locais
 - Aplicativos cliente
-- Hora
+
 
 ![Condições](./media/active-directory-conditional-access-azure-portal/01.png)
 
@@ -221,4 +220,3 @@ Muitos clientes do Intune estão usando o acesso condicional para garantir que s
 - Se você quiser saber como configurar uma política de acesso condicional, veja [Introdução ao acesso condicional no Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
 
 - Se você estiver pronto para configurar políticas de acesso condicional para seu ambiente, confira as [melhores práticas para o acesso condicional no Azure Active Directory](active-directory-conditional-access-best-practices.md). 
-

@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: 2d940b42108948f4cd36a585f1e79def05fe8fd3
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="getting-started-with-the-threat-modeling-tool"></a>Introdução ao Threat Modeling Tool
 
 A equipe de Ferramentas de Segurança Corporativa e na Nuvem lançou este ano a versão prévia do Threat Modeling Tool como um componente gratuito**[clique para baixar](https://aka.ms/tmtpreview)**. A alteração no mecanismo de entrega nos permite efetuar push dos aprimoramentos mais recentes e correções de bug para os clientes toda vez que eles abrem a ferramenta, facilitando a manutenção e o uso da ferramenta.

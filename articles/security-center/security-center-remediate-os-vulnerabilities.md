@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2017
 ms.author: terrylan
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: 39879c22278a55f841e294cda5a89bec2bdf6988
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="remediate-os-vulnerabilities-in-azure-security-center"></a>Corrigir as vulnerabilidades do sistema operacional na Central de Segurança do Azure
 A Central de Segurança do Azure analisa diariamente o SO (sistema operacional) de suas VMs (máquinas virtuais) e computadores para verificar a existência de configuração que possa tornar as VMs e computadores mais vulneráveis a ataques. A Central de Segurança recomenda que você resolva as vulnerabilidades quando sua configuração de sistema operacional não coincide com as regras de configuração recomendada e sugere alterações de configuração para resolver essas vulnerabilidades.
@@ -111,4 +110,3 @@ Para saber mais sobre a Central de Segurança, confira os seguintes recursos:
 [4]: ./media/security-center-remediate-os-vulnerabilities/search.png
 [5]: ./media/security-center-remediate-os-vulnerabilities/log-search.png
 [6]: ./media/security-center-remediate-os-vulnerabilities/search-results.png
-

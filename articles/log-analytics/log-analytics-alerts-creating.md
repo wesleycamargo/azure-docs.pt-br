@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/23/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
 ms.openlocfilehash: c34fb7295e8f386f0e7cf2c1db6b26a3e49eae98
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/25/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="working-with-alert-rules-in-log-analytics"></a>Trabalhar com regras de alerta no Log Analytics
 Os alertas são criados por regras de alerta que executam pesquisas de log automaticamente em intervalos regulares.  Eles criarão um registro de alerta se os resultados corresponderem a critérios específicos.  A regra pode então executar automaticamente uma ou mais ações para notificar você proativamente do alerta ou invocar outro processo.   
@@ -156,5 +154,4 @@ Ações de runbook iniciam um runbook na Automação do Azure.
 * Leia mais sobre [pesquisas de log](log-analytics-log-searches.md) que podem gerar alertas.
 * Conclua um passo a passo para [configurar um webhook](log-analytics-alerts-webhooks.md) com uma regra de alerta.  
 * Aprenda a criar [runbooks na Automação do Azure](https://azure.microsoft.com/documentation/services/automation) para corrigir os problemas identificados por alertas.
-
 

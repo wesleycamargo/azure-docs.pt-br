@@ -12,16 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 09/29/2017
 ms.author: billmath
+ms.openlocfilehash: e0c93cefb135d3ea1c5f0a3797602124aed85c5c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: cfc95726c535aa49add98d700740b24bde5ea0f7
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticação de passagem do Azure Active Directory: perguntas frequentes
 
 Neste artigo, respondemos perguntas frequentes sobre a Autenticação de Passagem do Azure AD (Azure Active Directory). Continue verificando para ver novo conteúdo.
@@ -97,11 +95,11 @@ Se o AD FS tiver sido configurado como o método de entrada _fora_ do assistente
 
 Sim. Ambientes de várias florestas têm suporte se houver relações de confiança entre suas florestas do AD e se o encaminhamento de sufixo de nome estiver configurado corretamente.
 
-## <a name="do-pass-through-authentication-agents-provide-load-balancing-capability"></a>Os Agentes de Autenticação de Passagem fornecem a capacidade de balanceamento de carga?
+## <a name="how-many-pass-through-authentication-agents-do-i-need-to-install"></a>Quantos Agentes de Autenticação de Passagem preciso instalar?
 
-Não, a instalação de vários Agentes de Autenticação de Passagem garante a [alta disponibilidade](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability), mas não o balanceamento de carga. Um ou dois Agentes Autenticação poderão acabar tratando a maior parte das solicitações de entrada.
+A instalação de vários Agentes de Autenticação de Passagem garante a [alta disponibilidade](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability). No entanto, ela não fornece balanceamento de carga. Um ou dois Agentes Autenticação poderão acabar tratando a maior parte das solicitações de entrada.
 
-As solicitações de validação de senha com que os Agentes de Autenticação precisam lidar são leves. Portanto, as cargas máxima e média da maioria dos clientes é facilmente manipulada pelos dois ou três Agentes de Autenticação no total.
+Considere o horário de pico e a carga média de solicitações de entrada que você espera ver no seu locatário. Como um parâmetro de comparação, um único agente de autenticação pode manipular de 300 mil a 400 mil autenticações por segundo em um servidor padrão com CPU de 4 núcleos e 16 GB de RAM. Para a maioria dos clientes, um total de dois ou três agentes de autenticação é o suficiente para alta disponibilidade e capacidade.
 
 Nós recomendamos que você instale os Agentes de Autenticação perto de seus Controladores de Domínio para melhorar a latência de entrada.
 
@@ -129,10 +127,11 @@ Execute novamente o assistente Azure AD Connect e altere o método de entrada do
 Desinstalar um Agente de Autenticação de Passagem de um servidor faz com que ele pare de aceitar solicitações de entrada. Verifique se você tem outro Agente de Autenticação em execução antes de realizar essa operação, a fim de evitar a interrupção de entrada de usuários em seu locatário.
 
 ## <a name="next-steps"></a>Próximas etapas
-- [**Limitações atuais**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) – saiba quais cenários têm suporte e quais não têm.
+- [**Limitações atuais**](active-directory-aadconnect-pass-through-authentication-current-limitations.md) - Saiba quais cenários têm suporte e quais não têm.
 - [**Início rápido**](active-directory-aadconnect-pass-through-authentication-quick-start.md) – instale e execute a autenticação de passagem do Azure AD.
+- [**Bloqueio Inteligente**](active-directory-aadconnect-pass-through-authentication-smart-lockout.md) – configura a capacidade de Bloqueio Inteligente no seu locatário para proteger as contas de usuário.
 - [**Aprofundamento técnico**](active-directory-aadconnect-pass-through-authentication-how-it-works.md) – entenda como esse recurso funciona.
 - [**Solução de problemas**](active-directory-aadconnect-troubleshoot-pass-through-authentication.md) – Saiba como resolver problemas comuns do recurso.
+- [**Aprofundamento em Segurança**](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md) – informações técnicas aprofundadas adicionais sobre o recurso.
 - [**SSO contínuo do Azure AD**](active-directory-aadconnect-sso.md) – Saiba mais sobre esse recurso complementar.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) – para registrar solicitações de novos recursos.
-

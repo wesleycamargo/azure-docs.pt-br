@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 65bfb0a759a624c98a19f3c2c9c72aa5a6780df7
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: f8521d1386bba8004e84fe8862a5f59a65ea19ad
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="problems-signing-in-to-an-azure-ad-gallery-application-configured-for-federated-single-sign-on"></a>Problemas ao entrar em um aplicativo na Galeria do Azure AD configurado para logon único federado
 
 O Painel de Acesso é um portal baseado na Web que permite a um usuário que tenha uma conta corporativa ou de estudante no Azure Active Directory (Azure AD) exibir e iniciar aplicativos baseados em nuvem para os quais o administrador do Azure AD concedeu acesso. Um usuário com as edições do Azure AD também pode usar os recursos de gerenciamento de grupo de autoatendimento e aplicativo por meio do Painel de Acesso. O Painel de Acesso é separado do Portal do Azure e não exige que os usuários tenham uma assinatura do Azure.
@@ -49,7 +47,7 @@ Para instalar a extensão do Navegador do Painel de Acesso, siga as etapas a seg
 
 1.  Abra o [Painel de Acesso](https://myapps.microsoft.com) em um dos navegadores compatíveis e entre como um **usuário** no Azure AD.
 
-2.  clique no **aplicativo de SSO com senha** no Painel de Acesso.
+2.  Clique no **aplicativo de SSO com senha** no Painel de Acesso.
 
 3.  No prompt solicitando a instalação do software, selecione **Instalar Agora**.
 
@@ -101,7 +99,7 @@ Para adicionar um aplicativo da Galeria do Azure AD, siga as etapas abaixo:
 
 2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
 
-3.  Digite **"Azure Active Directory**" na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
+3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
 4.  clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
@@ -125,9 +123,9 @@ Para configurar o logon único para um aplicativo, siga as etapas abaixo:
 
 2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
 
-3.  Digite **"Azure Active Directory**" na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
+3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
 5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
@@ -151,9 +149,9 @@ Para atribuir um ou mais usuários diretamente a um aplicativo, siga as etapas a
 
 2.  Abra a **Extensão do Azure Active Directory** clicando em **Mais serviços** na parte inferior do menu de navegação esquerdo principal.
 
-3.  Digite **"Azure Active Directory**" na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
+3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
 5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
@@ -165,9 +163,9 @@ Para atribuir um ou mais usuários diretamente a um aplicativo, siga as etapas a
 
 8.  Clique no botão **Adicionar** na parte superior da lista **Usuários e Grupos** para abrir a folha **Adicionar Atribuição**.
 
-9.  clique no seletor **Usuários e grupos** da folha **Adicionar Atribuição**.
+9.  Clique no seletor **Usuários e grupos** da folha **Adicionar Atribuição**.
 
-10. Digite o **nome completo** ou **endereço de email** do usuário que você deseja atribuir na caixa de pesquisa **Pesquisar por nome ou endereço de email**.
+10. Digite o **nome completo** ou o **endereço de email** do usuário que você deseja atribuir na caixa de pesquisa **Pesquisar por nome ou endereço de email**.
 
 11. Passe o mouse sobre o **usuário** na lista para mostrar uma **caixa de seleção**. Clique na caixa de seleção ao lado do logotipo ou da foto de perfil do usuário para adicioná-lo à lista **Selecionado**.
 
@@ -192,10 +190,9 @@ Abra um tíquete de suporte com as informações a seguir, se estiverem disponí
 
 -   Tipo de navegador
 
--   Fuso horário e hora/período em que o erro ocorre
+-   Fuso horário e hora/cronograma durante o erro
 
 -   Rastreamentos do Fiddler
 
 ## <a name="next-steps"></a>Próximas etapas
-[Fornecer logon único para seus aplicativos com Application Proxy](active-directory-application-proxy-sso-using-kcd.md)
-
+[Fornecer logon único para seus aplicativos com Proxy de Aplicativo](active-directory-application-proxy-sso-using-kcd.md)

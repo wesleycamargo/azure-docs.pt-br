@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
-translationtype: Human Translation
-ms.sourcegitcommit: 0af5a4e2139a202c7f62f48c7a7e8552457ae76d
-ms.openlocfilehash: 81772fb5801ec620d1c1996509a275e4bb29fb12
-
-
+ms.openlocfilehash: 0b9f55d69c824e86245738a082f95fc529583f58
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-sdk-for-net-28-281-and-282"></a>SDK do Azure para .NET 2.8, 2.8.1 e 2.8.2
 ## <a name="overview"></a>Visão geral
@@ -86,10 +86,4 @@ Para obter outras atualizações, confira a [postagem de comunicado do SDK do Az
 [Postagem de anúncio do SDK 2.8 do Azure](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/)
 
 [Informações de suporte e de desativação do SDK do Azure para .NET e APIs](https://msdn.microsoft.com/library/azure/dn479282.aspx)
-
-
-
-
-<!--HONumber=Dec16_HO2-->
-
 

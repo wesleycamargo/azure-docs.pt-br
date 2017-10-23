@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/31/2017
 ms.author: arijitt
-ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
 ms.openlocfilehash: 84b78fe4eb60162f3cad0ae4ae7f98864d5bbf2b
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/02/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshoot-spark-by-using-azure-hdinsight"></a>Solucionar problemas do Spark usando o Azure HDInsight
 
 Saiba mais sobre os principais problemas e suas soluções ao trabalhar com cargas de Apache Spark no Apache Ambari.
@@ -228,5 +226,4 @@ A causa mais provável dessa exceção é que não há memória de heap suficien
 
 - [Visão geral do gerenciamento de memória do Spark](http://spark.apache.org/docs/latest/tuning.html#memory-management-overview)
 - [Depurar um aplicativo Spark em um cluster HDInsight](https://blogs.msdn.microsoft.com/azuredatalake/2016/12/19/spark-debugging-101/)
-
 

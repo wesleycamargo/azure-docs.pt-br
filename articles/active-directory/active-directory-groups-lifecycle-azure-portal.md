@@ -16,14 +16,12 @@ ms.date: 08/09/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
+ms.openlocfilehash: 8a43df84fd050d7b4bd8d937b8c55e744cb805d3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: f4efac7b74620e68e727292e02a5a904b03d6e2f
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/08/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="configure-office-365-groups-expiration-preview"></a>Como configurar o vencimento de grupos do Office 365 (visualização)
 
 Agora é possível gerenciar o ciclo de vida de grupos do Office 365, definindo o vencimento de todos os grupos Office 365 que você selecionar. Depois de definir o vencimento, os proprietários desses grupos receberão uma solicitação para renovar seus grupos, se assim desejarem. Os grupos do Office 365 que não forem renovados, serão excluídos. Os proprietários ou os administradores de grupos poderão restaurar qualquer grupo do Office 365 excluído em um prazo de 30 dias.  
@@ -81,4 +79,3 @@ Esses artigos fornecem mais informações sobre os grupos do Azure AD.
 * [Gerenciar membros de um grupo](active-directory-groups-members-azure-portal.md)
 * [Gerenciar associações de um grupo](active-directory-groups-membership-azure-portal.md)
 * [Gerenciar regras dinâmicas para usuários em um grupo](active-directory-groups-dynamic-membership-azure-portal.md)
-

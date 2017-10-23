@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
 ms.openlocfilehash: e03d17992ee0b12049636e40188950bcc4a6f31e
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/02/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="step-4-set-up-a-vault-for-azure-to-azure-replication"></a>Etapa 4: configurar um cofre para replicação de Azure para Azure
 
 Após [planejar as redes](azure-to-azure-walkthrough-network.md), utilize este artigo para configurar um cofre para VMs (máquinas virtuais) do Azure replicando para outra região do Azure, utilizando o serviço do [Azure Site Recovery](site-recovery-overview.md) no portal do Azure.
@@ -50,4 +48,3 @@ Após [planejar as redes](azure-to-azure-walkthrough-network.md), utilize este a
 ## <a name="next-steps"></a>Próximas etapas
 
 Acesse a [Etapa 5: habilitar a replicação](azure-to-azure-walkthrough-enable-replication.md)
-

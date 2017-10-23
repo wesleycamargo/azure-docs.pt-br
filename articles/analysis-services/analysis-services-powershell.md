@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: owend
-ms.translationtype: HT
-ms.sourcegitcommit: 0425da20f3f0abcfa3ed5c04cec32184210546bb
-ms.openlocfilehash: 5d50ee78da27149278edbd9521ddae8fcfe42c3b
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/20/2017
-
+ms.openlocfilehash: 95593053950f96a83e093c29516e9f66ebad53bf
+ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/03/2017
 ---
-
 # <a name="manage-azure-analysis-services-with-powershell"></a>Gerenciar o Azure Analysis Services com PowerShell
 
 Este artigo descreve os cmdlets do PowerShell usados para executar tarefas de gerenciamento de banco de dados e servidor do Azure Analysis Services. 
@@ -73,4 +71,3 @@ O módulo SqlServer fornece cmdlets de gerenciamento de banco de dados de tarefa
 * [Baixar o SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)   
 * [Módulo SqlServer na Galeria do PowerShell](https://www.powershellgallery.com/packages/SqlServer)    
 * [Tabular Model Programming for Compatibility Level 1200 and higher](https://msdn.microsoft.com/library/mt712541.aspx) (Programação de Modelo Tabular para o Nível de Compatibilidade 1200 e superior)
-

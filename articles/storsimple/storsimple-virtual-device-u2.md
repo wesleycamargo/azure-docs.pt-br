@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/07/2017
 ms.author: alkohli
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 4ed93f9783efcd700db18aa21b5867c951bd2b97
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-and-manage-a-storsimple-virtual-device-in-azure"></a>Implantar e gerenciar um dispositivo virtual StorSimple no Azure
 ## <a name="overview"></a>Visão geral
@@ -236,4 +235,3 @@ Durante a criação de um dispositivo virtual, se não houver nenhuma conectivid
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba como [Usar o serviço StorSimple Manager para gerenciar um dispositivo virtual](storsimple-manager-service-administration.md).
 * Entenda como [restaurar um volume do StorSimple de um conjunto de backups](storsimple-restore-from-backup-set.md).
-

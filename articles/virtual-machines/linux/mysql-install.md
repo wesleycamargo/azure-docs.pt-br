@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/01/2016
 ms.author: mingzhan
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 0ee70bda954cf0a193d43b5b47702e7b2c37844d
-ms.lasthandoff: 04/03/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-install-mysql-on-azure"></a>Como instalar o MySQL no Azure
 Neste artigo, você aprenderá a instalar e configurar o MySQL em uma máquina virtual do Azure que executa o Linux.
@@ -178,5 +177,4 @@ Usaremos a VM do Linux com OpenSUSE aqui.
 
 ### <a name="next-step"></a>Próxima etapa
 Encontre mais informações e uso sobre o MySQL [aqui](https://www.mysql.com/).
-
 

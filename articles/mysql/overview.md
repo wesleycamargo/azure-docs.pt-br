@@ -10,15 +10,12 @@ ms.service: mysql-database
 ms.topic: article
 ms.date: 09/15/2017
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
 ms.openlocfilehash: 3eff97a9e7568566cd01a4eb3c7ee66806eac4cc
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="what-is-azure-database-for-mysql-service-introduction"></a>O que é o Banco de Dados do Azure para MySQL? Introdução ao serviço
 O Banco de Dados do Azure para MySQL é um serviço de banco de dados relacional no Microsoft Cloud, baseado no mecanismo de banco de dados [MySQL Community Edition](https://www.mysql.com/products/community/).  O Banco de Dados do Azure para MySQL fornece:
 
@@ -59,4 +56,3 @@ Agora que leu uma introdução ao Banco de Dados do Azure para MySQL e respondeu
 - Consultar a página de preços para ver comparações de custo e calculadoras. [Preços](https://azure.microsoft.com/pricing/details/mysql/)
 - Comece com a criação do seu primeiro servidor. [Criar um servidor de Banco de Dados do Azure para MySQL usando o portal do Azure](quickstart-create-mysql-server-database-using-azure-portal.md)
 - Crie seu primeiro aplicativo no Python, PHP, Ruby, C\#, Java, Node.js: [Bibliotecas de conectividade usadas para se conectar ao Banco de Dados do Azure para MySQL](concepts-connection-libraries.md)
-

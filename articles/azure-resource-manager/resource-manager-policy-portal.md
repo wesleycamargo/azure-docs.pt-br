@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/30/2017
 ms.author: tomfitz
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: 868b2cc1559053057d17b34c03e2e31347f399bf
-ms.lasthandoff: 03/31/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-portal-to-assign-and-manage-resource-policies"></a>Usar o portal do Azure para atribuir e gerenciar políticas de recurso
 O portal do Azure permite que você atribua políticas de recurso a grupos de recursos e assinaturas. A interface do usuário facilita a seleção da política que você deseja atribuir e a especificação de valores de parâmetros para essa política para personalizar as configurações de política. 
@@ -84,5 +83,4 @@ Se você tiver definido políticas personalizadas na assinatura, essas política
 * Para saber mais sobre a sintaxe JSON para definição de políticas, consulte [Visão geral da política de recurso](resource-manager-policy.md).
 * Para obter orientação sobre como as empresas podem usar o Resource Manager para gerenciar assinaturas de forma eficaz, consulte [Azure enterprise scaffold – controle de assinatura prescritivas](resource-manager-subscription-governance.md).
 * O esquema da política é publicado em [http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json](http://schema.management.azure.com/schemas/2015-10-01-preview/policyDefinition.json). 
-
 

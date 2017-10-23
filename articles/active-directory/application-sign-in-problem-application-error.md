@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: c04cfea4c6c0a8211db2579eccc0c05a93cc0a35
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: a8cd93256f79ece268ec3411dfbdf590f4b24447
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="error-on-an-applications-page-after-signing-in"></a>Erro em uma página de aplicativo após a entrada
 
 Nesse cenário, o Azure AD conectou o usuário mas o aplicativo está exibindo um erro que não permite ao usuário concluir o fluxo de entrada com êxito. Nesse cenário, o aplicativo não está aceitando a resposta emitida pelo AD do Azure.
@@ -43,13 +41,13 @@ Para adicionar um atributo na configuração do Azure AD para ser enviado na res
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
-5.  clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
+5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
    * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
 
-6.  Selecione o aplicativo para o qual deseja configurar o logon único.
+6.  Selecione o aplicativo para o qual você deseja configurar o logon único.
 
 7.  Após o carregamento do aplicativo, clique em **Logon único** no menu de navegação esquerdo do aplicativo.
 
@@ -79,13 +77,13 @@ Para alterar o valor do Identificador de Usuário, siga as etapas abaixo:
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
-5.  clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
+5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
    * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
 
-6.  Selecione o aplicativo para o qual deseja configurar o logon único.
+6.  Selecione o aplicativo para o qual você deseja configurar o logon único.
 
 7.  Após o carregamento do aplicativo, clique em **Logon único** no menu de navegação esquerdo do aplicativo.
 
@@ -107,13 +105,13 @@ Para alterar quais partes do token SAML são assinadas digitalmente pelo Active 
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
-5.  clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
+5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
   * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
 
-6.  Selecione o aplicativo para o qual deseja configurar o logon único.
+6.  Selecione o aplicativo para o qual você deseja configurar o logon único.
 
 7.  Após o carregamento do aplicativo, clique em **Logon único** no menu de navegação esquerdo do aplicativo.
 
@@ -141,13 +139,13 @@ Para alterar o algoritmo de assinatura, siga as etapas abaixo:
 
 3.  Digite **“Azure Active Directory**” na caixa de pesquisa do filtro e selecione o item **Azure Active Directory**.
 
-4.  clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
+4.  Clique em **Aplicativos Empresariais** no menu de navegação esquerdo do Azure Active Directory.
 
-5.  clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
+5.  Clique em **Todos os Aplicativos** para exibir uma lista com todos os seus aplicativos.
 
    * Se não vir o aplicativo desejado, use o controle **Filtro** na parte superior da **Lista com Todos os Aplicativos** e defina a opção **Mostrar** como **Todos os Aplicativos.**
 
-6.  Selecione o aplicativo para o qual deseja configurar o logon único.
+6.  Selecione o aplicativo para o qual você deseja configurar o logon único.
 
 7.  Após o carregamento do aplicativo, clique em **Logon único** no menu de navegação esquerdo do aplicativo.
 
@@ -159,4 +157,3 @@ Na próxima vez em que o usuário entrar no aplicativo, o Azure AD assinará o t
 
 ## <a name="next-steps"></a>Próximas etapas
 [Como depurar o logon único baseado em SAML em aplicativos no Active Directory do Azure](https://azure.microsoft.com/documentation/articles/active-directory-saml-debugging)
-

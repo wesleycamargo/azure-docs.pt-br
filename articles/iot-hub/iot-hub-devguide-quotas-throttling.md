@@ -12,14 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/16/2017
+ms.date: 09/18/2017
 ms.author: dobett
+ms.openlocfilehash: 8ffe25f1950f8535983c2c344b5c4331b7157869
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 9569f94d736049f8a0bb61beef0734050ecf2738
-ms.openlocfilehash: 3f4f19eba5ed1a7b3176be4d3505998f97667200
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/31/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referência - Cotas e limitação do Hub IoT
 
@@ -41,7 +40,7 @@ A tabela a seguir mostra as limitações impostas. Os valores referem-se a um hu
 | Conexões do dispositivo | Máximo de 100/s ou 12/s/unidade <br/> Por exemplo, duas unidades de S1 são 2\*12 = 24/s, mas você tem pelo menos 100/s em suas unidades. Com nove unidades S1 você tem 108/s (9\*12) em suas unidades. | 120/s/unidade | 6000/s/unidade |
 | Envios do dispositivo para a nuvem | Máximo de 100/s ou 12/s/unidade <br/> Por exemplo, duas unidades de S1 são 2\*12 = 24/s, mas você tem pelo menos 100/s em suas unidades. Com nove unidades S1 você tem 108/s (9\*12) em suas unidades. | 120/s/unidade | 6000/s/unidade |
 | Envios da nuvem para o dispositivo | 1,67/s/unidade (100/min/unidade) | 1,67/s/unidade (100/min/unidade) | 83,33/s/unidade (5000/min/unidade) |
-| Recebimentos da nuvem para o dispositivo <br/> (somente quando o dispositivo usar HTTP)| 16,67/s/unidade (1000/min/unidade) | 16,67/s/unidade (1000/min/unidade) | 833,33/s/unidade (50000/min/unidade) |
+| Recebimentos da nuvem para o dispositivo <br/> (somente quando o dispositivo usar HTTPS)| 16,67/s/unidade (1000/min/unidade) | 16,67/s/unidade (1000/min/unidade) | 833,33/s/unidade (50000/min/unidade) |
 | Upload de arquivos | 1,67 notificações de carregamento de arquivo/s/unidade (100/min/unidade) | 1,67 notificações de carregamento de arquivo/s/unidade (100/min/unidade) | 83,33 notificações de carregamento de arquivo/s/unidade (5000/min/unidade) |
 | Métodos diretos | 20/s/unidade | 60/s/unidade | 3000/s/unidade | 
 | Leituras de dispositivo gêmeo | 10/s | Máximo de 10/s ou 1/s/unidade | 50/s/unidade |
@@ -70,7 +69,7 @@ IoT Hub impõe outros limites operacionais:
 | Operação | Limite |
 | --------- | ----- |
 | URIs de upload de arquivos | 10000 URIs de SAS podem estar fora de uma conta de armazenamento ao mesmo tempo. <br/> 10 URIs de SAS/dispositivo podem estar fora ao mesmo tempo. |
-| Trabalhos | O histórico do trabalho é retido por até 30 dias <br/> O máximo de trabalhos simultâneos é 1 (para Gratuito e S1, 5 (para S2), 10 (para S3). |
+| Trabalhos | O histórico do trabalho é retido por até 30 dias <br/> O máximo de trabalhos simultâneos é 1 (para Gratuito) e S1, 5 (para S2), 10 (para S3). |
 | Pontos de extremidade adicionais | Hubs SKU pagos podem ter 10 pontos de extremidade adicionais. Hubs SKU gratuitos podem ter um ponto de extremidade adicional. |
 | Regras de roteamento de mensagem | Hubs SKU pagos podem ter 100 regras de roteamento. Hubs SKU gratuitos podem ter cinco regras de roteamento. |
 | Mensagens do dispositivo para a nuvem | Tamanho máximo da mensagem 256 KB |
@@ -104,4 +103,3 @@ Outros tópicos de referência neste Guia do desenvolvedor do Hub IoT incluem:
 [lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
 [lnk-devguide-query]: iot-hub-devguide-query-language.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
-

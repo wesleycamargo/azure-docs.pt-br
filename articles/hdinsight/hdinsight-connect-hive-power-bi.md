@@ -14,14 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 09/26/2017
 ms.author: jgao
+ms.openlocfilehash: 9a17c984f5ca801dfa017f1d6fc8fa5ccdeaf39b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: e81c58beb6e220c62ee2287090561d1744cdc749
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="visualize-hive-data-with-microsoft-power-bi-in-azure-hdinsight"></a>Visualizar dados de Hive com o Microsoft Power BI no Azure HDInsight
 
@@ -70,6 +69,5 @@ Neste artigo, você aprendeu como visualizar os dados de HDInsight usando o Powe
 * [Conectar o Excel ao HDInsight com o Driver ODBC do Microsoft Hive](./hdinsight-connect-excel-hive-odbc-driver.md).
 * [Conectar o Excel ao Hadoop usando Power Query](./hdinsight-connect-excel-power-query.md).
 * [Conectar-se ao Azure HDInsight e executar consultas Hive usando Ferramentas do Data Lake para Visual Studio](./hdinsight-hadoop-visual-studio-tools-get-started.md).
-* [Usar o Visual Studio Code para o Hive, o LLAP ou o pySpark](hdinsight-for-vscode.md).
+* [Use a Ferramenta do Azure HDInsight para Visual Studio Code](hdinsight-for-vscode.md).
 * [Carregue os Dados no HDInsight](./hdinsight-upload-data.md).
-

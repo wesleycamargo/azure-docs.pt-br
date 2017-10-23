@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2017
 ms.author: garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 2f90234bdd5c917a502d24cd16256bc11c7fbed0
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-an-azure-machine-learning-workspace"></a>Gerenciar um espaço de trabalho do Azure Machine Learning
 
@@ -136,5 +135,4 @@ Na página Configurar, você pode atualizar as seguintes propriedades:
 * **Descrição** permite inserir uma descrição para o serviço Web. Descrição é um campo obrigatório.
 * **Registrar em log** permite habilitar ou desabilitar o registro de erros em log no ponto de extremidade. Para obter mais informações sobre Registrar em Log, veja Habilitar [registro em log de serviços Web do Machine Learning](web-services-logging.md).
 * **Habilitar dados de Exemplo** permite que você forneça dados de exemplo que podem ser usados para testar o seu serviço de Solicitação-Resposta. Se você criou o serviço Web no Machine Learning Studio, os dados de exemplo são retirados dos dados usados para treinar seu modelo. Se você criou o serviço programaticamente, os dados foram extraídos dos dados de exemplo fornecidos como parte do pacote JSON.
-
 

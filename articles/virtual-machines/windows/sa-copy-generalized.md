@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2017
 ms.author: cynthn
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: d7f4a9558175835eba9096e6845726f21c7459d3
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-create-an-unmanaged-vm-image-from-an-azure-vm"></a>Como criar uma imagem de VM não gerenciada a partir de uma VM do Azure
 
 Este artigo abrange o uso de contas de armazenamento. É recomendável que você utilize discos gerenciados e imagens gerenciadas em vez de uma conta de armazenamento. Para obter mais informações, consulte [Capture uma imagem gerenciada de uma VM generalizada no Azure](capture-image-resource.md).
@@ -255,6 +253,5 @@ Ao concluir, você deverá ver a VM recém-criada no [portal do Azure](https://p
 
 ## <a name="next-steps"></a>Próximas etapas
 Para gerenciar sua nova máquina virtual com o Azure PowerShell, consulte [Gerenciar máquinas virtuais usando o PowerShell e o Azure Resource Manager](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
 
 

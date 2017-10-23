@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2017
 ms.author: matp; LADocs
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: d35647921ff540167a3a591fb489d3bab031a5c1
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="connect-to-dynamics-365-from-logic-app-workflows"></a>Conectar-se ao Dynamics 365 de fluxos de trabalho de aplicativo lógico
 
 Com Aplicativos Lógicos, você pode se conectar ao Dynamics 365 (online) e criar fluxos de negócios úteis que criam registros, atualizam itens ou retornam uma lista de registros. Com o conector do Dynamics 365, você pode:
@@ -38,27 +36,27 @@ Este tópico mostra como criar um aplicativo lógico que cria uma tarefa no Dyna
 
 ## <a name="create-a-task-when-a-new-lead-is-created-in-dynamics-365"></a>Criar uma tarefa sempre que um novo cliente em potencial é criado no Dynamics 365
 
-1.    [Entrar no Azure](https://portal.azure.com).
+1.  [Entrar no Azure](https://portal.azure.com).
 
-2.    Na caixa de pesquisa do Azure, digite `Logic apps` e pressione ENTER.
+2.  Na caixa de pesquisa do Azure, digite `Logic apps` e pressione ENTER.
 
       ![Localizar aplicativos lógicos](./media/connectors-create-api-crmonline/find-logic-apps.png)
 
-3.    Em **Aplicativos lógicos**, clique em **Adicionar**.
+3.  Em **Aplicativos lógicos**, clique em **Adicionar**.
 
       ![Adicionar LogicApp](./media/connectors-create-api-crmonline/add-logic-app.png)
 
-4.    Para criar o aplicativo lógico, complete os campos **Nome**, **Assinatura**, **Grupo de Recursos** e **Local** e, em seguida, clique em **Criar**.
+4.  Para criar o aplicativo lógico, complete os campos **Nome**, **Assinatura**, **Grupo de Recursos** e **Local** e, em seguida, clique em **Criar**.
 
-5.    Selecione o novo aplicativo lógico. Quando você receber a notificação **Implantação bem-sucedida**, clique em **Atualizar**.
+5.  Selecione o novo aplicativo lógico. Quando você receber a notificação **Implantação bem-sucedida**, clique em **Atualizar**.
 
-6.    Em **Ferramentas de Desenvolvimento**, clique em **Designer de Aplicativo Lógico**. Na lista de modelos, clique em **Aplicativo Lógico em Branco**.
+6.  Em **Ferramentas de Desenvolvimento**, clique em **Designer de Aplicativo Lógico**. Na lista de modelos, clique em **Aplicativo Lógico em Branco**.
 
-7.    Na caixa de pesquisa, digite `Dynamics 365`. Na lista de disparadores Dynamics 365, selecione **Dynamics 365 – Quando um registro é criado**.
+7.  Na caixa de pesquisa, digite `Dynamics 365`. Na lista de disparadores Dynamics 365, selecione **Dynamics 365 – Quando um registro é criado**.
 
-8.    Se for solicitado que você entre no Dynamics 365, faça isso agora.
+8.  Se for solicitado que você entre no Dynamics 365, faça isso agora.
 
-9.    Nos detalhes do gatilho, insira as seguintes informações:
+9.  Nos detalhes do gatilho, insira as seguintes informações:
 
   * **Nome da organização**. Selecione a instância do Dynamics 365 que você deseja que o aplicativo lógico ouça.
 
@@ -170,8 +168,7 @@ Para obter mais informações sobre como solucionar problemas de aplicativos ló
 
 ## <a name="connector-specific-details"></a>Detalhes específicos do conector
 
-Veja os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/crm/). 
+Exiba os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/crm/). 
 
 ## <a name="next-steps"></a>Próximas etapas
 Explore os outros conectores disponíveis nos Aplicativos Lógicos em nossa [lista de APIs](apis-list.md).
-

@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/05/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 9fe3fa3a2df63d111de742ecb48b1469aad543cd
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 07/11/2017
 ---
 # <a name="configure-multipath-io-for-your-storsimple-device"></a>Configurar o MPIO (Multipath I/O) para seu dispositivo StorSimple
 
@@ -192,5 +190,4 @@ O procedimento a seguir descreve como adicionar sessões quando um dispositivo S
 ## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre [como usar o serviço do Gerenciador de Dispositivos StorSimple para modificar sua configuração do dispositivo StorSimple](storsimple-8000-modify-device-config.md).
-
 

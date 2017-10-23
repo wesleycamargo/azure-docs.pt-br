@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: f30a450c7d3aa73bb2fb196ca7de94436916bed0
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: f88e3cf6672d975793b4836434ec31d9f7d37016
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="creating-an-internet-facing-load-balancer-using-a-template"></a>Criar um balanceador de carga voltado para a Internet usando um modelo
 
 > [!div class="op_single_selector"]
@@ -86,4 +84,3 @@ Para implantar o modelo usando a CLI do Microsoft Azure, faça o seguinte:
 [Configurar um modo de distribuição do balanceador de carga](load-balancer-distribution-mode.md)
 
 [Definir configurações de tempo limite de TCP ocioso para o balanceador de carga](load-balancer-tcp-idle-timeout.md)
-

@@ -13,15 +13,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 8/11/2017
+ms.date: 9/29/2017
 ms.author: markgal;trinadhk;anuragm
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 120810b2b112649e21ec4bfe0c0f58b1fe3d80ae
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
-ms.openlocfilehash: 699ec578832e894b5bfc0cfad35528eac377c4ff
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/05/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Visão geral dos recursos do Backup do Azure
 O Backup do Azure é o serviço baseado no Azure que você pode usar para fazer backup (ou proteger) e restaurar os dados na nuvem da Microsoft. Ele substitui a solução de backup local ou externa existente por uma solução confiável, segura e econômica baseada em nuvem. O Backup do Azure oferece vários componentes que você pode baixar e implantar em um computador, servidor, ou na nuvem. O componente ou o agente que você implanta depende daquilo que deseja proteger. Todos os componentes do Backup do Azure (independentemente de você estar protegendo dados localmente ou na nuvem) podem ser usados para fazer backup de dados em um cofre dos Serviços de Recuperação no Azure. Confira a [Tabela de componentes do Backup do Azure](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (mais adiante neste artigo) para obter informações sobre qual componente usar para proteger dados, aplicativos ou cargas de trabalho específicos.
@@ -68,9 +67,7 @@ Se não tiver certeza de qual componente do Backup do Azure atende às suas nece
 | Backup de VM IaaS do Azure |<p>**Sim**</p><p>Parte da malha do Azure</p><p>Especializado para [backup de máquinas virtuais IaaS (infraestrutura do Azure como serviço)](backup-azure-vms-introduction.md).</p> |<p>**Não**</p> <p>Use o System Center DPM para fazer backup de máquinas virtuais em seu datacenter.</p> |<p>Cofre dos Serviços de Recuperação</p> |
 
 ## <a name="which-applications-and-workloads-can-be-backed-up"></a>Quais aplicativos e cargas de trabalho podem passar por backup?
-A tabela a seguir fornece uma matriz de dados e cargas de trabalho que podem ser protegidos usando o Backup do Azure. A coluna de solução do Backup do Azure tem links para a documentação de implantação da solução. Cada componente do Backup do Azure pode ser implantado em um ambiente de modelo de implantação Clássico (implantação do Service Manager) ou do Gerenciador de Recursos.
-
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-include.md)]
+A tabela a seguir fornece uma matriz de dados e cargas de trabalho que podem ser protegidos usando o Backup do Azure. A coluna de solução do Backup do Azure tem links para a documentação de implantação da solução. 
 
 | Dados ou carga de trabalho | Ambiente de origem | Solução de Backup do Azure |
 | --- | --- | --- |
@@ -93,7 +90,7 @@ A tabela a seguir mostra os componentes do Backup do Azure com suporte para Linu
 | Agente de Backup do Azure (MARS) |Não (somente agente baseado no Windows) |
 | System Center DPM |<li> Backup consistente de arquivos das VMs Convidadas Linux no Hyper-V e VMWare<br/> <li> Restauração da VM do Hyper-V e VMs Convidadas Linux do VMWare </br> </br>  *Backup consistente com o arquivo indisponível para a VM do Azure* <br/> |
 | Servidor de Backup do Azure |<li>Backup consistente de arquivos das VMs Convidadas Linux no Hyper-V e VMWare<br/> <li> Restauração da VM do Hyper-V e VMs Convidadas Linux do VMWare </br></br> *Backup consistente com o arquivo indisponível para a VM do Azure*  |
-| Backup de VM IaaS do Azure |Backup consistente de aplicativos usando uma [estrutura pré e pós-script](backup-azure-linux-app-consistent.md)<br/> [Recuperação granular de arquivos](backup-azure-restore-files-from-vm.md)<br/> [Restaurar todos os discos da VM](backup-azure-arm-restore-vms.md#restore-backed-up-disks)<br/> [Restauração da VM](backup-azure-arm-restore-vms.md#create-a-new-vm-from-restore-point) |
+| Backup de VM IaaS do Azure |Backup consistente de aplicativos usando uma [estrutura pré e pós-script](backup-azure-linux-app-consistent.md)<br/> [Recuperação granular de arquivos](backup-azure-restore-files-from-vm.md)<br/> [Restaurar todos os discos da VM](backup-azure-arm-restore-vms.md#restore-backed-up-disks)<br/> [Restauração da VM](backup-azure-arm-restore-vms.md#create-a-new-vm-from-a-restore-point) |
 
 ## <a name="using-premium-storage-vms-with-azure-backup"></a>Usando máquinas virtuais de Armazenamento Premium com o Backup do Azure
 O Backup do Azure protege VMs de Armazenamento Premium. O Armazenamento Premium do Azure é um armazenamento baseado em SSD (unidade de estado sólido) desenvolvida para dar suporte a cargas de trabalho com E/S intenso. O Armazenamento Premium é uma opção interessante para cargas de trabalho de máquina virtual (VM). Para saber mais sobre o Armazenamento Premium, confira o artigo [Armazenamento Premium: armazenamento de alto desempenho para cargas de trabalho de máquina virtual do Azure](../storage/common/storage-premium-storage.md).
@@ -224,13 +221,12 @@ Alguns exemplos comuns de instâncias protegidas são máquinas virtuais, servid
 ## <a name="what-is-a-recovery-services-vault"></a>O que é um cofre dos Serviços de Recuperação?
 Um cofre dos Serviços de Recuperação é uma entidade de armazenamento online no Azure usada para armazenar dados como cópias de backup, pontos de recuperação e políticas de backup. Você pode usar cofres dos Serviços de Recuperação para armazenar dados de backup de serviços do Azure, servidores e estações de trabalho locais. Os cofres dos Serviços de Recuperação facilitam a organização dos dados de backup, minimizando a sobrecarga de gerenciamento. Você pode criar quantos cofres dos Serviços de Recuperação desejar dentro de uma assinatura.
 
-Os cofres de backup, que são baseados no Gerenciador de Serviços do Azure, foram a primeira versão do cofre. Os cofres dos Serviços de Recuperação, que adicionam os recursos do Azure Resource Manager, são a segunda versão do cofre. Consulte o [artigo de visão geral do cofre dos Serviços de Recuperação](backup-azure-recovery-services-vault-overview.md) para obter uma descrição completa das diferenças entre os recursos. Você não pode mais criar nem usar o portal para criar cofres de Backup, mas eles ainda têm suporte.
+Os cofres de backup, que são baseados no Gerenciador de Serviços do Azure, foram a primeira versão do cofre. Os cofres dos Serviços de Recuperação, que adicionam os recursos do Azure Resource Manager, são a segunda versão do cofre. Consulte o [artigo de visão geral do cofre dos Serviços de Recuperação](backup-azure-recovery-services-vault-overview.md) para obter uma descrição completa das diferenças entre os recursos. Você não pode mais criar nem usar o portal para criar cofres de Backup, mas eles ainda têm suporte. Você deve usar o portal do Azure para gerenciar os cofres de Backup.
 
 > [!IMPORTANT]
-> Agora você pode atualizar os cofres de Backup para cofres dos Serviços de Recuperação. Para obter detalhes, veja o artigo [Atualizar um cofre de Backup para um cofre dos Serviços de Recuperação](backup-azure-upgrade-backup-to-recovery-services.md). A Microsoft incentiva você a atualizar os cofres de Backup para os cofres dos Serviços de Recuperação.<br/> **15 de outubro de 2017**, você não poderá mais usar o PowerShell para criar cofres de Backup. <br/> **Em 1º de novembro de 2017**:
->- Nenhum cofre de Backup restante será atualizado automaticamente para os cofres dos Serviços de Recuperação.
->- Você não poderá acessar os dados de backup no portal clássico. Em vez disso, use o portal do Azure para acessar os dados de backup nos cofres dos Serviços de Recuperação.
->
+> Agora você pode atualizar os cofres de Backup para cofres dos Serviços de Recuperação. Para obter detalhes, veja o artigo [Atualizar um cofre de Backup para um cofre dos Serviços de Recuperação](backup-azure-upgrade-backup-to-recovery-services.md). A Microsoft incentiva você a atualizar os cofres de Backup para os cofres dos Serviços de Recuperação.<br/> Depois de **15 de outubro de 2017**, você não poderá mais usar o PowerShell para criar cofres de Backup. <br/> Até **1º de novembro de 2017**, todos os cofres de Backup restantes serão automaticamente atualizados para os cofres dos Serviços de Recuperação.
+
+
 
 ## <a name="how-does-azure-backup-differ-from-azure-site-recovery"></a>Qual a diferença entre o Backup do Azure e o Azure Site Recovery?
 O Backup do Azure e o Azure Site Recovery são relacionados, pois ambos são serviços de backup de dados e podem restaurar esses dados. No entanto, esses serviços têm finalidades diferentes para permitir a continuidade dos negócios e a recuperação de desastres no seu negócio. Use o Backup do Azure para proteger e restaurar dados em um nível mais detalhado. Por exemplo, se uma apresentação em um laptop fosse corrompida, você usaria o Azure Backup para restaurar a apresentação. Se você quiser replicar a configuração e os dados de uma máquina virtual em outro datacenter, use o Azure Site Recovery.
@@ -260,4 +256,3 @@ Para obter detalhes sobre como proteger outras cargas de trabalho, experimente u
 [green]: ./media/backup-introduction-to-azure-backup/green.png
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png
 [red]: ./media/backup-introduction-to-azure-backup/red.png
-

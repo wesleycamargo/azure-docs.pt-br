@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: markgal;trinadhk
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 0c930c7413b24a811707c3a1ff3d7d70585bc528
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>Planejar sua infraestrutura de backup da VM no Azure
 Este artigo fornece sugestões de desempenho e recursos para ajudá-lo a planejar a infraestrutura de backup da VM. Ele também define os principais aspectos do serviço de Backup. Esses aspectos podem ser críticos para determinar a arquitetura, o planejamento de capacidade e o agendamento. Se você [preparou o ambiente](backup-azure-vms-prepare.md), o planejamento será a próxima etapa antes de começar a [fazer backup das VMs](backup-azure-vms.md). Se você precisa de mais informações sobre máquinas virtuais do Azure, confira a [documentação da Máquina Virtual](https://azure.microsoft.com/documentation/services/virtual-machines/).
@@ -153,4 +152,3 @@ Se você tiver dúvidas ou gostaria de ver algum recurso incluído, [envie-nos s
 * [Gerenciar o backup de máquinas virtuais](backup-azure-manage-vms.md)
 * [Restaurar máquinas virtuais](backup-azure-restore-vms.md)
 * [Solucionar problemas de backup da VM](backup-azure-vms-troubleshoot.md)
-

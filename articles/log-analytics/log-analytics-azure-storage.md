@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: 7a3785e39f0d1cf849dbbf0d83d89eaed58c5b0b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: b62df3074779559ffab55c52a902e7473753868e
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Coletar logs e as métricas do serviço do Azure para uso no Log Analytics
 
@@ -153,4 +152,3 @@ A Galeria de modelos do Azure tem [exemplos de como usar a Automação do Azure]
 * [Use o armazenamento de blobs para IIS e armazenamento de tabelas para eventos](log-analytics-azure-storage-iis-table.md) para ler os logs de serviços do Azure que gravam diagnósticos em armazenamento de tabelas ou de logs do IIS gravados para armazenamento de blobs.
 * [Habilitar Soluções](log-analytics-add-solutions.md) para fornecer informações sobre os dados.
 * [Usar consultas de pesquisa](log-analytics-log-searches.md) para analisar os dados.
-

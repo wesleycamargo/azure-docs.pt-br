@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 8c0fc8d11a872b99fee2efa3a32a9e1ccce67f3c
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="load-balancing-on-multiple-ip-configurations-using-the-azure-portal"></a>Balanceamento de carga em várias configurações de IP usando o portal do Azure
 
 > [!div class="op_single_selector"]
@@ -131,4 +129,3 @@ Por fim, você deve configurar os registros de recurso DNS para apontar para o e
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre como combinar os serviços de balanceamento de carga no Azure em [Usando os serviços de balanceamento de carga no Azure](../traffic-manager/traffic-manager-load-balancing-azure.md).
 - Saiba como é possível usar diferentes tipos de logs para gerenciar e solucionar problemas do balanceador de carga em [Log Analytics para o Azure Load Balancer](../load-balancer/load-balancer-monitor-log.md).
-

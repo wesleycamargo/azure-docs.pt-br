@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: ponatara
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: dc064352b1841ff346b705dc63186b12d79350b3
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/16/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="replicate-a-multi-tier-citrix-xenapp-and-xendesktop-deployment-using-azure-site-recovery"></a>Replicar uma implantação do Citrix XenApp e XenDesktop de várias camadas usando o Azure Site Recovery
 
@@ -200,4 +198,3 @@ Siga [este guia](site-recovery-failover.md) quando estiver realizando um failove
 ## <a name="next-steps"></a>Próximas etapas
 
 Você pode [saber mais](https://aka.ms/citrix-xenapp-xendesktop-with-asr) sobre replicação de implantações do Citrix XenApp e XenDesktop neste white paper. Examine as orientações para [replicar outros aplicativos](site-recovery-workload.md) usando o Site Recovery.
-

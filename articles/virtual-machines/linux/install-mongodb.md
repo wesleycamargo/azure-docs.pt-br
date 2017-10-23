@@ -14,13 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/23/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
 ms.openlocfilehash: e19c09558285497f29eb78b4f4ae5b15d7f1a191
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/26/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-install-and-configure-mongodb-on-a-linux-vm"></a>Como instalar e configurar o MongoDB em uma VM Linux
 [O MongoDB](http://www.mongodb.org) é um popular banco de dados NoSQL de código-fonte aberto e de alto desempenho. Este artigo mostra como instalar e configurar o MongoDB em uma VM Linux com a CLI 2.0 do Azure. Você também pode executar essas etapas com a [CLI do Azure 1.0](install-mongodb-nodejs.md). São mostrados exemplos que explicam em detalhes como:
@@ -227,5 +225,4 @@ Esses exemplos implantam o ambiente do MongoDB principal para fins de desenvolvi
 Para obter mais informações sobre a criação de modelos, veja a [Visão geral do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
 
 Os modelos do Azure Resource Manager usam a Extensão de Script Personalizado para baixar e executar scripts em suas VMs. Para obter mais informações, veja [Uso da extensão de script personalizado do Azure com máquinas virtuais do Linux](extensions-customscript.md).
-
 

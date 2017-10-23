@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/14/2017
 ms.author: echuvyrov
-ms.translationtype: HT
-ms.sourcegitcommit: e05028ad46ef6ec2584cd2d3f4843cf38bb54f9e
 ms.openlocfilehash: a4a418a3b277d41b62aa049941a4c65e3bb82808
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/16/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-complete-linux-virtual-machine-infrastructure-in-azure-with-terraform"></a>Criar uma infraestrutura completa de máquina virtual do Linux no Azure usando o Terraform
 O Terraform permite definir e criar implantações de infraestrutura completa no Azure. Você cria modelos do Terraform em um formato legível que criar e configurar os recursos do Azure de maneira consistente e reproduzível. Este artigo mostra como criar um ambiente Linux completo e os recursos de apoio com o Terraform. Você também pode aprender como [instalar e configurar o Terraform](terraform-install-configure.md).
 

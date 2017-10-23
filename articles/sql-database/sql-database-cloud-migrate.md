@@ -16,12 +16,11 @@ ms.tgt_pltfrm: NA
 ms.workload: sqldb-migrate
 ms.date: 02/08/2017
 ms.author: carlrab
-ms.translationtype: HT
-ms.sourcegitcommit: 5b6c261c3439e33f4d16750e73618c72db4bcd7d
 ms.openlocfilehash: 90c78007368c2679e1c5afdb9369869adde77f0d
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sql-server-database-migration-to-sql-database-in-the-cloud"></a>Migração de banco de dados do SQL Server para o Banco de Dados SQL na nuvem
 Neste artigo, você aprenderá sobre os dois principais métodos para migrar um banco de dados SQL Server 2005 ou posterior para o Banco de Dados SQL. O primeiro método é mais simples, mas requer algum tempo de inatividade, possivelmente substancial, durante a migração. O segundo método é mais complexo, mas elimina substancialmente o tempo de inatividade durante a migração.
@@ -119,6 +118,5 @@ Além de pesquisar na Internet e usar esses recursos, use os [fóruns da comunid
 * Para ler uma postagem de blog da Equipe de Consultoria ao Cliente do SQL Server sobre a migração usando arquivos BACPAC, confira [Migrando do SQL Server para o Banco de Dados do Azure SQL usando arquivos BACPAC](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/).
 * Para obter informações sobre como trabalhar com a hora UTC após a migração, confira [Modificando o fuso horário padrão para o fuso horário local](https://blogs.msdn.microsoft.com/azuresqlemea/2016/07/27/lesson-learned-4-modifying-the-default-time-zone-for-your-local-time-zone/).
 * Para obter informações sobre como alterar o idioma padrão de um banco de dados após a migração, confira [Como alterar o idioma padrão do Banco de Dados Azure SQL](https://blogs.msdn.microsoft.com/azuresqlemea/2017/01/13/lesson-learned-16-how-to-change-the-default-language-of-azure-sql-database/).
-
 
 

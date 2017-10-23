@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 7bfda602dbc0ea47828a7c9243b8b9b09ec78432
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshooting-the-azure-importexport-tool"></a>Solução de problemas da Ferramenta de Importação/Exportação do Azure
 A Ferramenta de Importação/Exportação do Microsoft Azure retorna mensagens de erro em caso de problemas. Este tópico lista alguns problemas comuns que os usuários poderão enfrentar.  
   
@@ -45,4 +43,3 @@ A Ferramenta de Importação/Exportação do Microsoft Azure retorna mensagens d
 * [Revisão do status do trabalho com arquivos de log de cópia](../storage-import-export-tool-reviewing-job-status-v1.md)   
 * [Reparação de um trabalho de importação](../storage-import-export-tool-repairing-an-import-job-v1.md)   
 * [Reparação de um trabalho de exportação](../storage-import-export-tool-repairing-an-export-job-v1.md)
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: oanapl
+ms.openlocfilehash: 8815d4409b9b18d34fae737c1c0dc22d2ed633a8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: f5c887487ab74934cb65f9f3fa512baeb5dcaf2f
-ms.openlocfilehash: ddc7d4faf50129911103d6ebb6a17c8ee76c8767
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/08/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="view-service-fabric-health-reports"></a>Como exibir relatórios de integridade do Service Fabric
 O Azure Service Fabric apresenta um [modelo de integridade](service-fabric-health-introduction.md) com entidades de integridade nas quais os componentes do sistema e watchdogs podem relatar condições locais que estão monitorando. O [repositório de integridade](service-fabric-health-introduction.md#health-store) agrega todos os dados de integridade para determinar se as entidades estão íntegras.
@@ -36,15 +35,9 @@ Para demonstrar essas opções, vamos usar um cluster local com cinco nós e o [
 
 ```xml
 <Service Name="WordCountService">
-<<<<<<< HEAD
-    <StatefulService ServiceTypeName="WordCountServiceType" TargetReplicaSetSize="7" MinReplicaSetSize="3">
-      <UniformInt64Partition PartitionCount="1" LowKey="1" HighKey="26" />
-    </StatefulService>
-=======
   <StatefulService ServiceTypeName="WordCountServiceType" TargetReplicaSetSize="7" MinReplicaSetSize="2">
     <UniformInt64Partition PartitionCount="[WordCountService_PartitionCount]" LowKey="1" HighKey="26" />
   </StatefulService>
->>>>>>> 5e84dbdd8e45a5d6b36f435a550b7433b873bf11
 </Service>
 ```
 
@@ -1254,4 +1247,3 @@ HealthEvents          :
 [Monitorar e diagnosticar serviços localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 [Atualização de aplicativos do Service Fabric](service-fabric-application-upgrade.md)
-

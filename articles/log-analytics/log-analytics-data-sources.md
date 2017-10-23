@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/23/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
 ms.openlocfilehash: 00d030a502cf70ea9a5dea767f560cdf2919573e
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/25/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="data-sources-in-log-analytics"></a>Fontes de dados no Log Analytics
 O Log Analytics coleta dados das fontes conectadas em seu espaço de trabalho do OMS e os armazena no repositório do OMS.  Os dados que são coletados de cada uma são definidos pelas fontes de dados que você configurar.  Os dados no repositório do OMS são armazenados como um conjunto de registros.  Cada fonte de dados cria registros de um determinado tipo com cada tipo de tendo seu próprio conjunto de propriedades.
@@ -68,4 +66,3 @@ Todos os dados coletados pelo Log Analytics são armazenados no repositório do 
 * Saiba mais sobre [soluções](log-analytics-add-solutions.md) que adicionam funcionalidades ao Log Analytics e também coletam dados para o repositório do OMS.
 * Saiba mais sobre [pesquisas de log](log-analytics-log-searches.md) para analisar os dados coletados de fontes de dados e soluções.  
 * Configure [alertas](log-analytics-alerts.md) para notificá-lo proativamente sobre dados críticos coletados de fontes de dados e soluções.
-

@@ -10,17 +10,15 @@ ms.service: mysql
 ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
-ms.date: 07/13/2017
+ms.date: 09/22/2017
+ms.openlocfilehash: 10f774262015cb19e158a687138b4618ce50063b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
-ms.openlocfilehash: e54f1dccbae060c52f48bfeb277c045b99a91715
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/17/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-database-for-mysql-use-ruby-to-connect-and-query-data"></a>Banco de dados do Azure para MySQL: como usar Ruby para conectar e consultar dados
-Este guia de início rápido mostra como se conectar a um banco de dados do Azure para MySQL usando um aplicativo [Ruby](https://www.ruby-lang.org) e o [mysql2](https://rubygems.org/gems/mysql2) gem de plataformas Mac, Ubuntu Linux e Windows. Ele mostra como usar instruções SQL para consultar, inserir, atualizar e excluir dados no banco de dados. Este artigo pressupõe que você está familiarizado com o desenvolvimento usando Ruby, mas que começou a trabalhar recentemente com o banco de dados do Azure para MySQL.
+Este guia de início rápido mostra como se conectar a um banco de dados do Azure para MySQL usando um aplicativo [Ruby](https://www.ruby-lang.org) e o [mysql2](https://rubygems.org/gems/mysql2) gem de plataformas Mac, Ubuntu Linux e Windows. Ele mostra como usar instruções SQL para consultar, inserir, atualizar e excluir dados no banco de dados. Este tópico pressupõe que você está familiarizado com o desenvolvimento usando Ruby e começou recentemente a trabalhar com o Banco de Dados do Azure para MySQL.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Este guia de início rápido usa os recursos criados em um destes guias como ponto de partida:
@@ -57,17 +55,17 @@ Instale o Ruby, o Gem e a biblioteca MySQL2 no seu computador.
 Obtenha as informações de conexão necessárias para se conectar ao Banco de Dados do Azure para MySQL. Você precisa das credenciais de logon e do nome do servidor totalmente qualificado.
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com/).
-2. No menu à esquerda no Portal do Azure, clique em **Todos os recursos** e pesquise pelo servidor que você criou, como **myserver4demo**.
+2. No menu à esquerda do Portal do Azure, clique em **Todos os recursos** e pesquise pelo servidor que você criou (como **myserver4demo**).
 3. Clique no nome do servidor **myserver4demo**.
-4. Selecione a página **Propriedades** do servidor. Anote o **Nome do servidor** e o **Nome de logon de administrador do servidor**.
+4. Selecione a página **Propriedades** do servidor e anote o **Nome do servidor** e o **Nome de logon do administrador do servidor**.
  ![Banco de Dados do Azure para MySQL – Logon de administrador do servidor](./media/connect-ruby/1_server-properties-name-login.png)
 5. Se você se esquecer das informações de logon do servidor, navegue até a página **Visão Geral** para exibir o nome de logon do Administrador do servidor e, se necessário, redefinir a senha.
 
 ## <a name="run-ruby-code"></a>Executar código Ruby 
-1. Cole o código Ruby das seções abaixo em arquivos de texto e os salve em uma pasta de projeto com a extensão de arquivo .rb, como `C:\rubymysql\createtable.rb` ou `/home/username/rubymysql/createtable.rb`.
-2. Para executar o código, inicie o prompt de comando ou o shell bash. Altere o diretório para a pasta do seu projeto `cd rubymysql`
-3. Digite o comando ruby seguido pelo nome do arquivo, como `ruby createtable.rb`, para executar o aplicativo.
-4. No sistema operacional Windows, se o aplicativo ruby não estiver no seu caminho de variável de ambiente, você precisará usar o caminho completo para iniciar o aplicativo de nó, como `"c:\Ruby23-x64\bin\ruby.exe" createtable.rb`
+1. Cole o código Ruby das seções abaixo em arquivos de texto e salve-os em uma pasta de projeto com a extensão de arquivo .rb (como `C:\rubymysql\createtable.rb` ou `/home/username/rubymysql/createtable.rb`).
+2. Para executar o código, inicie o prompt de comando ou o shell Bash. Altere o diretório para a pasta do seu projeto `cd rubymysql`
+3. Digite o comando Ruby seguido pelo nome do arquivo, como `ruby createtable.rb`, para executar o aplicativo.
+4. No sistema operacional Windows, se o aplicativo Ruby não estiver no seu caminho de variável de ambiente, você precisará usar o caminho completo para iniciar o aplicativo de nó, como `"c:\Ruby23-x64\bin\ruby.exe" createtable.rb`
 
 ## <a name="connect-and-create-a-table"></a>Conectar-se e criar uma tabela
 Use o código a seguir para se conectar e criar uma tabela usando a instrução SQL **CREATE TABLE**, seguida por instruções SQL **INSERT INTO** para adicionar linhas à tabela.
@@ -117,7 +115,7 @@ end
 ## <a name="read-data"></a>Ler dados
 Use o código a seguir para conectar-se e ler os dados usando uma instrução SQL **SELECT**. 
 
-O código usa um método .new() de classe [mysql2::client](http://www.rubydoc.info/gems/mysql2/0.4.8) para se conectar ao banco de dados do Azure para MySQL. Em seguida, ele chama o método [query ()](http://www.rubydoc.info/gems/mysql2/0.4.8#Usage) para executar os comandos SELECT. Em seguida, ele chama o método [close()](http://www.rubydoc.info/gems/mysql2/0.4.8/Mysql2/Client#close-instance_method) para fechar a conexão antes de encerrar.
+O código usa um método .new() de classe [mysql2::client](http://www.rubydoc.info/gems/mysql2/0.4.8) para se conectar ao Banco de Dados do Azure para MySQL. Em seguida, ele chama o método [query ()](http://www.rubydoc.info/gems/mysql2/0.4.8#Usage) para executar os comandos SELECT. Em seguida, ele chama o método [close()](http://www.rubydoc.info/gems/mysql2/0.4.8/Mysql2/Client#close-instance_method) para fechar a conexão antes de encerrar.
 
 Substitua as cadeias de caracteres `host`, `database`, `username` e `password` pelos seus próprios valores. 
 
@@ -229,4 +227,3 @@ end
 ## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"]
 > [Migre seu banco de dados usando Exportar e Importar](./concepts-migrate-import-export.md)
-

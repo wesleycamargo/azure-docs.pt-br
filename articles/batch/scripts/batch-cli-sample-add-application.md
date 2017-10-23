@@ -14,14 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/02/2017
 ms.author: antisch
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: cbfe8ab565ecf7f298a9a6c0f0c8298c675f178c
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="adding-applications-to-azure-batch-with-azure-cli"></a>Adicionar aplicativos ao Lote do Azure com a CLI do Azure
 
 Este script demonstra como configurar um aplicativo para uso com um pool ou tarefa do Lote do Azure. Para configurar um aplicativo, coloque seu executável, junto com quaisquer dependências, em um arquivo .zip. Neste exemplo, o arquivo executável zip é chamado 'my-application-exe.zip'.
@@ -33,7 +31,7 @@ Este script demonstra como configurar um aplicativo para uso com um pool ou tare
 
 ## <a name="sample-script"></a>Script de exemplo
 
-[!code-azurecli[principal](../../../cli_scripts/batch/add-application/add-application.sh "Adicionar aplicativo")]
+[!code-azurecli[main](../../../cli_scripts/batch/add-application/add-application.sh "Add Application")]
 
 ## <a name="clean-up-application"></a>Limpar aplicativo
 
@@ -60,4 +58,3 @@ Cada comando na tabela redireciona para a documentação específica do comando.
 Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
 
 As amostras de script da CLI do Lote adicionais podem ser encontrados na [documentação do Lote do Azure](../batch-cli-samples.md).
-

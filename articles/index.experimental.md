@@ -1,14 +1,13 @@
---- 
+---
 layout: HubPage
-hide_bc: true
+hide_bc: True
 title: "Documentação do Microsoft Azure"
 description: "Saiba como compilar e gerenciar aplicativos avançados com os serviços de nuvem do Microsoft Azure. Obtenha documentação, código de exemplo, tutoriais e muito mais."
-ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
 ms.openlocfilehash: aba00d7c90d173ecf58fedc1b8af5d1be418358c
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -1847,7 +1846,7 @@ ms.lasthandoff: 09/07/2017
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Cosmos DB</h3>
-                                                    <p>Multimodelo de banco de dados distribuído globalmente para qualquer escala</p>
+                                                    <p>Banco de dados multimodelo distribuído globalmente para qualquer escala</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3603,4 +3602,3 @@ ms.lasthandoff: 09/07/2017
         </ul>
     </div>
 </div>
-

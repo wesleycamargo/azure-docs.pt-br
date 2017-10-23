@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: adegeo
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: e8053b74e0e4d721523f49bcbb9e33b08bb7a1dc
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="should-i-choose-cloud-services-or-something-else"></a>Devo escolher os serviços de nuvem ou algo mais?
 Os Serviços de Nuvem do Azure são a escolha certa para você? A Azure fornece diferentes modelos de hospedagem para executar aplicativos. Cada um deles fornece um conjunto de serviços diferente, portanto, qual deles você escolhe depende exatamente do que você está tentando fazer.
@@ -63,5 +62,4 @@ A natureza da PaaS dos Serviços de Nuvem tem outras implicações também. Uma 
 [Criar um aplicativo de serviço de nuvem em Node.js](cloud-services-nodejs-develop-deploy-app.md)  
 [Criar um aplicativo de serviço de nuvem em PHP](../cloud-services-php-create-web-role.md)  
 [Criar um aplicativo de serviço de nuvem no Python](cloud-services-python-ptvs.md)
-
 

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/08/2016
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
 ms.openlocfilehash: 9a0126235c9ff3fec05d7709bdee95ab4832a33b
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/16/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="plan-and-design-azure-virtual-networks"></a>Planejar e projetar redes virtuais do Azure
 Criar uma rede virtual para fazer experiências com ela é bastante simples, mas as chances são: você implantará múltiplas redes virtuais ao longo do tempo para dar suporte às necessidades de produção da sua organização. Com algum planejamento e design, você poderá implantar redes virtuais e conectar-se aos recursos de que precisa com mais eficiência. Se você não estiver familiarizado com redes virtuais, recomenda-se que você [saiba mais sobre redes virtuais](virtual-networks-overview.md) e [como implantar](virtual-networks-create-vnet-arm-pportal.md) uma antes de continuar.
@@ -106,7 +105,7 @@ Considere criar várias redes virtuais nos seguintes cenários:
 * **VMs que precisam ser colocadas em diferentes locais do Azure**. As redes virtuais no Azure são regionais. Eles não podem abranger locais. Portanto, é necessário pelo menos uma rede virtual para cada local do Azure em que você deseja VMs de host.
 * **Cargas de trabalho que precisam ser completamente isoladas uma da outra**. Você pode criar redes virtuais separadas, que até mesmo usam os mesmo espaços de endereço IP, para isolar as diferentes cargas de trabalho umas das outras.
 
-Tenha em mente que os limites que você pode ver acima são por região, por assinatura. Isso significa que você pode usar várias assinaturas para aumentar o limite de recursos que você pode manter no Azure. Você pode usar uma VPN site a site ou um circuito de Rota Expressa para conectar redes virtuais em assinaturas diferentes.
+Tenha em mente que os limites que você pode ver acima são por região, por assinatura. Isso significa que você pode usar várias assinaturas para aumentar o limite de recursos que você pode manter no Azure. Você pode usar uma VPN site a site ou um circuito de ExpressRoute para conectar redes virtuais em assinaturas diferentes.
 
 ### <a name="subscription-and-vnet-design-patterns"></a>Assinatura e padrões de design de rede virtual
 A tabela a seguir mostra alguns padrões de design comuns para usar assinaturas e redes virtuais.
@@ -123,7 +122,7 @@ Você deve considerar várias sub-redes em uma rede virtual nos seguintes cenár
 
 * **Não há endereços IP particulares para todas as NICs em uma sub-rede**. Se o seu espaço de endereço de sub-rede não contém endereços IP suficientes para o número de NICs na sub-rede, você precisa criar várias sub-redes. Tenha em mente que o Azure reserva 5 endereços IP privados de cada sub-rede que não podem ser usados: os endereços e o sobrenome do espaço de endereço (para o endereço de sub-rede e multicast) e 3 endereços a serem usados internamente (para fins de DHCP e DNS).
 * **Segurança**. Você pode usar sub-redes para separar grupos de VMs uns dos outros para cargas de trabalho que têm uma estrutura multi-camadas e aplicar diferentes [Grupos de segurança de rede (NSGs)](virtual-networks-nsg.md#subnets) para essas sub-redes.
-* **Conectividade híbrida**. Você pode usar gateways de VPN e circuitos do ExpressRoute para [conectar](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti) suas redes virtuais entre si e seus datacenters locais. Gateways de VPN e circuitos de Rota Expressa exigem a criação de uma sub-rede própria.
+* **Conectividade híbrida**. Você pode usar gateways de VPN e circuitos do ExpressRoute para [conectar](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti) suas redes virtuais entre si e seus datacenters locais. Gateways de VPN e circuitos de ExpressRoute exigem a criação de uma sub-rede própria.
 * **Dispositivos virtuais**. Você pode usar um dispositivo virtual, como um firewall, acelerador de WAN ou gateway de VPN em uma rede virtual do Azure. Quando você fizer isso, precisará [rotear o tráfego](virtual-networks-udr-overview.md) para esses dispositivos e isolá-los em sua própria sub-rede.
 
 ### <a name="subnet-and-nsg-design-patterns"></a>Padrões de design de sub-rede e NSG
@@ -253,4 +252,3 @@ Com base nesses requisitos, você pode adicionar usuários da equipe de rede par
 * Entender como [balancear a carga](../load-balancer/load-balancer-overview.md) de VMs de IaaS e [gerenciar o roteamento por meio de várias regiões do Azure](../traffic-manager/traffic-manager-overview.md).
 * Saiba mais sobre [NSGs e como planejar e projetar](virtual-networks-nsg.md) uma solução NSG.
 * Saiba mais sobre os [Locais cruzados e opções de conectividade de rede virtual](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti).
-

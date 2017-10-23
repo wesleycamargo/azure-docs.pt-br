@@ -14,12 +14,11 @@ ms.devlang: ruby
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: sethm
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 357a7277dd42b6973cf35a9f642b8eec36a745e3
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-service-bus-queues-with-ruby"></a>Como usar filas do Barramento de Serviço com Ruby
 
@@ -98,5 +97,4 @@ Agora que você já sabe as noções básicas das filas de Barramento de Serviç
 * Visite o repositório [SDK do Azure para o Ruby](https://github.com/Azure/azure-sdk-for-ruby) no GitHub.
 
 Para fazer uma comparação entre as filas de Barramento de Serviço do Azure discutidas nesse artigo e as filas do Azure discutidas no artigo [Como usar o armazenamento de Filas no Ruby](../storage/queues/storage-ruby-how-to-use-queue-storage.md), confira [Filas do Azure e filas de Barramento de Serviço do Azure - Comparadas e Contrastadas](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
-
 

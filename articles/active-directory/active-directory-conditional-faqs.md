@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 07/05/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e81c5e943d8e9e9cc322d19900c48377f22a8968
-ms.openlocfilehash: 62e8cecf3177d08f2614bd76956b45da75af0947
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/17/2017
-
+ms.openlocfilehash: 5bc6f90100e5c09eac2b6e5d0e114d4445daa7c8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-conditional-access-faqs"></a>Perguntas frequentes sobre o acesso condicional ao Azure Active Directory
 
@@ -55,10 +54,10 @@ No momento, não.
 No momento, as políticas de acesso condicional são impostas seletivamente aos usuários de dispositivos com Android e iOS. Os aplicativos em outras plataformas de dispositivo não são, por padrão, afetados pela política de acesso condicional para dispositivos iOS e Android. A administração de locatário poderá substituir a política global para não permitir o acesso a usuários em plataformas sem suporte.
 
 
-## <a name="how-do-conditional-access-policies-work-for-microsoft-teams"></a>Como as políticas de acesso condicional funcionam para o Microsoft Teams?  
+## <a name="how-do-conditional-access-policies-work-for-microsoft-teams"></a>Como as políticas de acesso condicional funcionam para o Microsoft Teams?
 
 O Microsoft Teams depende muito do Exchange Online e do SharePoint Online para cenários de produtividade de núcleo, como reuniões, calendários e compartilhamento de arquivos. As políticas de acesso condicional definidas para esses aplicativos de nuvem se aplicam ao Microsoft Teams quando um usuário se conecta.
 
-O Microsoft Teams também tem suporte separadamente como um aplicativo de nuvem em políticas de acesso condicional do Azure Active Directory. As políticas de autoridade de certificado definidas para um aplicativo de nuvem se aplicam ao Microsoft Teams quando um usuário se conecta.
+O Microsoft Teams também tem suporte separadamente como um aplicativo de nuvem em políticas de acesso condicional do Azure Active Directory. As políticas de acesso condicional definidas para um aplicativo de nuvem se aplicam ao Microsoft Teams quando um usuário entra.
 
 Os clientes de área de trabalho do Microsoft Teams para Windows e Mac oferecem suporte a autenticação moderna. A autenticação moderna traz a entrada com base no Azure Active Directory Authentication Library (ADAL) para aplicativos cliente do Microsoft Office entre plataformas. 

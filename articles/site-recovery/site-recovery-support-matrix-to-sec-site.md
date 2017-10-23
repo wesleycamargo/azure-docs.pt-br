@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 05/24/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: db7ee5251f2e2016081e55ca4b295e284c8b08cf
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/15/2017
-
-
+ms.openlocfilehash: 69c5d09b6608484210870e1a69c51b112b497810
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="support-matrix-for-replication-to-a-secondary-site-with-azure-site-recovery"></a>Suporte a matriz para replicação em um site secundário com o Azure Site Recovery
 
@@ -45,7 +43,7 @@ Este artigo resume o que tem suporte quando você usa o Azure Site Recovery para
 
   >[!Note]
   > No momento, não há suporte para nuvens VMM 2016 com uma combinação de hosts do Windows Server 2016 e 2012 R2.
-
+  > As configurações que incluem o upgrade de um SCVMM 2012 R2 existente para 2016 não são suportadas atualmente.
 ### <a name="host-servers"></a>Servidores de host
 
 **Implantação** | **Suporte**
@@ -139,4 +137,3 @@ Mover armazenamento, rede, VMs do Azure entre grupos de recursos (dentro de uma 
 
 - [Replicar as VMs do Hyper-V em nuvens de VMM para um site secundário](site-recovery-vmm-to-vmm.md)
 - [Replicar VMs VMware e servidores físicos para um site secundário](site-recovery-vmware-to-vmware.md)
-

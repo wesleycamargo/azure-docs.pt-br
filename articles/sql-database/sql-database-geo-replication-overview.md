@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: NA
-ms.date: 07/10/2017
+ms.date: 10/11/2017
 ms.author: sashan
+ms.openlocfilehash: 0725d5747ab343dcf99ad8f2dc0e47d7304c9f1e
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 290d672146765b9273697ba35e99231a5b854679
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="overview-failover-groups-and-active-geo-replication"></a>Visão geral: grupos de failover e replicação geográfica ativa
 A replicação geográfica ativa permite que você configure até quatro bancos de dados secundários legíveis, na mesma localização de centro de dados ou em localizações (regiões) diferentes. Os bancos de dados secundários estão disponíveis para consulta e failover no caso de uma paralisação do data center ou da incapacidade de conectar ao banco de dados primário. O failover deve ser iniciado manualmente pelo aplicativo do usuário. Após o failover, o novo banco de dados primário terá um ponto de extremidade de conexão diferente. 
@@ -176,7 +175,7 @@ Conforme discutido anteriormente, os grupos de failover automático (em versão 
 | [Criar ou atualizar banco de dados (createMode=Restore)](/rest/api/sql/Databases/CreateOrUpdate) |Cria, atualiza ou restaura um banco de dados primário ou secundário. |
 | [Obter, Criar ou Atualizar o Status de um Banco de Dados](/rest/api/sql/Databases/CreateOrUpdate) |Retorna o status durante uma operação de criação. |
 | [Definir o banco de dados secundário como primário (Failover planejado)](/rest/api/sql/replicationlinks/failover) |Define qual banco de dados de réplica é primário ao realizar failover do banco de dados de réplica primária atual. |
-| [Definir o banco de dados secundário como primário r (Failover não planejado)](https://docs.microsoft.com/rest/api/sql/replicationlinks#failoverallowdataloss) |Define qual banco de dados de réplica é primário ao realizar failover do banco de dados de réplica primária atual. Esta operação pode resultar em perda de dados. |
+| [Definir o banco de dados secundário como primário r (Failover não planejado)](/rest/api/sql/replicationlinks/failoverallowdataloss) |Define qual banco de dados de réplica é primário ao realizar failover do banco de dados de réplica primária atual. Esta operação pode resultar em perda de dados. |
 | [Obter link de replicação](/rest/api/sql/replicationlinks/get) |Obtém um link de replicação específico para um determinado Banco de Dados SQL em uma parceria de replicação geográfica. Recupera as informações visíveis no modo de exibição de catálogo sys.geo_replication_links. |
 | [Links de Replicação - Listar pelo Banco de Dados](/rest/api/sql/replicationlinks/listbydatabase) | Obtém todos os links de replicação para um determinado Banco de Dados SQL em uma parceria de replicação geográfica. Recupera as informações visíveis no modo de exibição de catálogo sys.geo_replication_links. |
 | [Excluir links de replicação](/rest/api/sql/databases/delete) | Exclui um link de replicação do banco de dados. Não pode ser feito durante o failover. |
@@ -198,5 +197,4 @@ Conforme discutido anteriormente, os grupos de failover automático (em versão 
 * Para saber mais sobre backups automatizados do Banco de Dados SQL do Azure, confira [Backups automatizados do Banco de Dados SQL](sql-database-automated-backups.md).
 * Para saber mais sobre como usar backups automatizados de recuperação, confira [Restaurar um banco de dados de backups iniciados pelo serviço](sql-database-recovery-using-backups.md).
 * Para saber mais sobre requisitos de autenticação para um novo servidor primário e banco de dados, consulte [Segurança do Banco de Dados SQL após a recuperação de desastres](sql-database-geo-replication-security-config.md).
-
 

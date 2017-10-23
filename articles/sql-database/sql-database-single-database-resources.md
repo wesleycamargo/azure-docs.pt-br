@@ -13,14 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 08/25/2017
+ms.date: 10/11/2017
 ms.author: carlrab
+ms.openlocfilehash: 70f512ef5742346df742e0718e2ccffd076a979e
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: 48dfc0fa4c9ad28c4c64c96ae2fc8a16cd63865c
-ms.openlocfilehash: 12bf76deebda27cdc7e7611e0585dc0bf92bde2f
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="manage-resources-for-a-single-database-in-azure-sql-database"></a>Gerenciar recursos para um banco de dados individual no Banco de Dados SQL do Azure
 
@@ -37,7 +36,7 @@ Para definir ou alterar o nível de serviço, o nível de desempenho ou a quanti
 ![Definir o nível de serviço e o nível de desempenho](./media/sql-database-single-database-resources/change-service-tier.png)
 
 > [!IMPORTANT]
-> Revise [Limitações atuais de bancos de dados P11 e P15 com tamanho máximo de 4 TB](#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb) ao selecionar um nível de serviço P11 ou P15.
+> Revise [Limitações atuais de bancos de dados P11 e P15 com tamanho máximo de 4 TB](sql-database-resource-limits.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb) ao selecionar um nível de serviço P11 ou P15.
 >
 
 ## <a name="manage-single-database-resources-using-powershell"></a>Gerenciar recursos de um banco de dados individual usando o PowerShell
@@ -60,12 +59,12 @@ Para definir ou alterar os níveis de serviço, níveis de desempenho e a quanti
 
 | Cmdlet | Descrição |
 | --- | --- |
-|[az sql db create](/cli/azure/sql/db#create) |Cria um banco de dados|
-|[az sql db list](/cli/azure/sql/db#list)|Lista todos os bancos de dados e data warehouses em um servidor, ou todos os bancos de dados em um pool elástico|
-|[az sql db list-editions](/cli/azure/sql/db#list-editions)|Lista os objetivos de serviço disponíveis e os limites de armazenamento|
-|[az sql db list-usages](/cli/azure/sql/db#list-usages)|Retorna os usos do banco de dados|
-|[az sql db show](/cli/azure/sql/db#show)|Obtém um banco de dados ou data warehouse|
-|[az sql db update](/cli/azure/sql/db#update)|Atualiza um banco de dados|
+|[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_create)|Cria uma regra de firewall de servidor|
+|[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_list)|Lista as regras de firewall em um servidor|
+|[az sql server firewall-rule show](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_show)|Mostra os detalhes de uma regra de firewall|
+|[az sql server firewall-rule update](/cli/azure/sql/server/firewall-rule##az_sql_server_firewall_rule_update)|Atualiza uma regra de firewall|
+|[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|Exclui uma regra de firewall|
+
 
 > [!TIP]
 > Para ver um script de exemplo da CLI do Azure que escala um único Banco de Dados SQL do Azure para um nível de desempenho diferente depois de consultar as informações de tamanho do banco de dados, consulte [Usar a CLI para monitorar e escalar um único Banco de Dados SQL](scripts/sql-database-monitor-and-scale-database-cli.md).
@@ -102,7 +101,7 @@ Para definir ou alterar os níveis de serviço, níveis de desempenho e a quanti
 |[Bancos de Dados – Listar por Pool Elástico](/rest/api/sql/databases/listbyelasticpool)|Retorna uma lista de bancos de dados em um pool elástico.|
 |[Bancos de Dados – Listar por Pool Elástico Recomendado](/rest/api/sql/databases/listbyrecommendedelasticpool)|Retorna uma lista de bancos de dados dentro de um pool elástico recomendado.|
 |[Bancos de Dados – Listar por Servidor](/rest/api/sql/databases/listbyserver)|Retorna uma lista de bancos de dados em um servidor.|
-|[Bancos de Dados – Atualizar](/api/sql/databases/update)|Atualiza um banco de dados existente.|
+|[Banco de Dados - Atualização]((/rest/api/sql/databases/update)|Atualiza um banco de dados existente.|
 
 
 
@@ -111,4 +110,3 @@ Para definir ou alterar os níveis de serviço, níveis de desempenho e a quanti
 - Saiba mais sobre as camadas de serviço, níveis de desempenho e quantidades de armazenamento em [Camadas de serviço](sql-database-service-tiers.md).
 - Saiba mais sobre pools elásticos em [Pools elásticos](sql-database-elastic-pool.md).
 - Saiba mais sobre a [Assinatura do Azure e limites de serviços, cotas e restrições](../azure-subscription-service-limits.md)
-

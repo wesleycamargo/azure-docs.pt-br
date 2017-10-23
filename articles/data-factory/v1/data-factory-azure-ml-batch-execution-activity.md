@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: shlo
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 38c0798bc14b094fa788e6e414bad35b34a93d2c
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Criar pipelines de previsão usando Azure Machine Learning e o Azure Data Factory
 
@@ -68,8 +67,7 @@ Você usa o Azure Data Factory para orquestrar o processamento e movimentação 
 1. Criar um serviço vinculado de Azure Machine Learning. Você precisará dos seguintes valores:
 
    1. **URI de Solicitação** para a API de Execução do Lote. Encontre o URI da Solicitação clicando no link **EXECUÇÃO EM LOTE** na página de serviços Web.
-   2. 
-            **Chave de API** para o serviço Web publicado do Azure Machine Learning. Encontre a chave de API clicando no serviço Web que você publicou.
+   2. **Chave de API** para o serviço Web publicado do Azure Machine Learning. Encontre a chave de API clicando no serviço Web que você publicou.
    3. Use a atividade **AzureMLBatchExecution** .
 
       ![Painel de Machine Learning](./media/data-factory-azure-ml-batch-execution-activity/AzureMLDashboard.png)
@@ -630,10 +628,8 @@ Você também pode usar [Funções do Data Factory](data-factory-functions-varia
 >
 
 ## <a name="see-also"></a>Consulte também
-* 
-            [Postagem do blog do Azure: Introdução ao Azure Data Factory e Azure Machine Learning](https://azure.microsoft.com/blog/getting-started-with-azure-data-factory-and-azure-machine-learning-4/)
+* [Postagem do blog do Azure: Introdução ao Azure Data Factory e Azure Machine Learning](https://azure.microsoft.com/blog/getting-started-with-azure-data-factory-and-azure-machine-learning-4/)
 
 [adf-build-1st-pipeline]: data-factory-build-your-first-pipeline.md
 
 [azure-machine-learning]: http://azure.microsoft.com/services/machine-learning/
-

@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2017
 ms.author: tomfitz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
-ms.openlocfilehash: eea616b03c95dea7f09d86a29b5dda8d8c20981a
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/21/2017
-
-
+ms.openlocfilehash: b7a7dda1da653d084e02e6724d2f0cb5aa76807a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-resource-manager-template-deployment---powershell-script"></a>Implantação do Azure Resource Manager - script do PowerShell
 
@@ -123,5 +121,4 @@ Esse script usa os seguintes comandos para criar a implantação. Cada item em q
 * Para saber mais sobre como implantar um modelo que exija um token SAS, veja [Implantar o modelo particular com o token SAS](resource-manager-powershell-sas-token.md).
 * Para definir os parâmetros no modelo, consulte [Criando modelos](resource-group-authoring-templates.md#parameters).
 * Para obter orientação sobre como as empresas podem usar o Resource Manager para gerenciar assinaturas de forma eficaz, consulte [Azure enterprise scaffold – controle de assinatura prescritivas](resource-manager-subscription-governance.md).
-
 

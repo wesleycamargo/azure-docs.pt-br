@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/21/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
 ms.openlocfilehash: da10b213bc2543942b5ac77cf5c5d8547c00220c
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="replicate-hyper-v-virtual-machines-without-vmm-to-azure"></a>Replicar máquinas virtuais do Hyper-V (sem o VMM) para o Azure 
 
 > [!div class="op_single_selector"]
@@ -109,4 +107,3 @@ Ir para a [Etapa 10: Habilitar a replicação](hyper-v-site-walkthrough-enable-r
 Após a conclusão da replicação inicial e a replicação delta estiver em execução, você poderá executar um failover de teste para verificar se tudo está funcionando como esperado.
 
 Ir para a [Etapa 11: Executar um failover de teste](hyper-v-site-walkthrough-test-failover.md)
-

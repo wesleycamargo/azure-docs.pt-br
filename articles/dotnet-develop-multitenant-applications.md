@@ -14,13 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/05/2015
 ms.author: wpickett
-ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
 ms.openlocfilehash: 57ba0e46139bda2d74c9f7db0ffab2f2122b0df2
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/11/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="multitenant-applications-in-azure"></a>Aplicativos multilocatários no Azure
 Um aplicativo multilocatário é um recurso compartilhado que permite que usuários distintos ou "locatários" exibam o aplicativo como se ele fosse de sua propriedade. Um cenário típico que pode ser usado como um aplicativo multilocatário é aquele em que todos os usuários do aplicativo talvez queiram personalizar a experiência do usuário, mas que, de outra forma, têm os mesmos requisitos de negócios básico. Exemplos de grandes aplicativos multilocatários são o Office 365, o Outlook.com e o visualstudio.com.
@@ -94,4 +92,3 @@ O Azure fornece várias maneiras de provisionar novos locatários para o aplicat
 
 [Hosting a Multi-Tenant Application on Azure]: http://msdn.microsoft.com/library/hh534480.aspx
 [Designing Multitenant Applications on Azure]: http://msdn.microsoft.com/library/windowsazure/hh689716
-

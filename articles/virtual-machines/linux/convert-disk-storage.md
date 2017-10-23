@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: ramankum
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: 0380b4aaa23b4aaba4c67d05e2d62f3ef41d6a32
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-and-vice-versa"></a>Converter o armazenamento de Managed Disks do Azure de padrão em premium, e vice-versa
 
 Os Managed Disks oferecem duas opções de armazenamento: [Premium](../../storage/storage-premium-storage.md) (baseado em SSD) e [Padrão](../../storage/storage-standard-storage.md) (baseado em HDD). O recurso permite alternar facilmente entre as duas opções com mínimo tempo de inatividade de acordo com suas necessidades de desempenho. Ele não está disponível para discos não gerenciados. Porém, você pode [convertê-los em Managed Disks](convert-unmanaged-to-managed-disks.md) facilmente para alternar com facilidade entre as duas opções.
@@ -110,5 +108,4 @@ az vm start --ids $vmId
 ## <a name="next-steps"></a>Próximas etapas
 
 Faça uma cópia somente leitura de uma VM usando [instantâneos](snapshot-copy-managed-disk.md).
-
 

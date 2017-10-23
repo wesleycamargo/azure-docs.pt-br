@@ -16,12 +16,11 @@ ms.workload: na
 ms.date: 4/17/2017
 ms.author: xshi
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
 ms.openlocfilehash: edbdbe0230f742cd7228f04a4a83c9bd567527e8
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="connect-intel-edison-to-azure-iot-hub-c"></a>Conectar o Intel Edison ao Hub IoT do Azure (C)
 
@@ -241,4 +240,3 @@ Você deverá ver a seguinte saída, mostrando os dados do sensor e as mensagens
 Você executou um aplicativo de exemplo para coletar dados de sensor e enviá-los ao seu Hub IoT.
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
-

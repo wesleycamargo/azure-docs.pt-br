@@ -3,7 +3,7 @@ title: "Implementar a recuperação de desastre usando backup e restauração no
 description: "Saiba como usar o backup e restauração para executar a recuperação de desastres no Gerenciamento de API no Azure."
 services: api-management
 documentationcenter: 
-author: steved0x
+author: vladvino
 manager: erikre
 editor: 
 ms.assetid: 6f10be3c-f796-4a6c-bacd-7931b6aa82af

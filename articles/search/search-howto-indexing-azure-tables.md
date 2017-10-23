@@ -14,14 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 04/10/2017
 ms.author: eugenesh
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: b167f69f853f6ecdfd56179e6ffb946cdf2f45b8
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="index-azure-table-storage-with-azure-search"></a>Indexação do Armazenamento de Tabelas do Azure com a Pesquisa do Azure
 Este artigo mostra como usar a Pesquisa do Azure para indexar dados armazenados no Armazenamento de Tabelas do Azure.
 
@@ -171,4 +169,3 @@ Aqui estão duas abordagens possíveis para melhorar o desempenho de indexação
 
 ## <a name="help-us-make-azure-search-better"></a>Ajude-nos a aprimorar a Pesquisa do Azure
 Se você tiver solicitações de recursos ou ideias para aperfeiçoamentos, envie-os por meio do nosso [site UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
-

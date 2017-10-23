@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/22/2017
 ms.author: chackdan
+ms.openlocfilehash: d26a97ee0e5416fb1fe38ef0fb18fa4eb0e2963d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
-ms.openlocfilehash: 32d8fca81c20e77db4ed3aae05d017ccc2ce1be3
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/12/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scale-a-service-fabric-cluster-in-or-out-using-auto-scale-rules"></a>Escalar ou reduzir horizontalmente um cluster do Service Fabric usando regras de autoescala
 Os conjuntos de escala de Máquina Virtual são um recurso de Computação do Azure que você pode usar para implantar e gerenciar uma coleção de máquinas virtuais como um conjunto. Cada tipo de nó definido em um cluster do Service Fabric está configurado como um conjunto de dimensionamento de máquinas virtuais separado. Cada tipo de nó pode ser escalado ou reduzido horizontalmente de forma independente, ter conjuntos diferentes de portas abertas e métricas de capacidade diferentes. Leia mais sobre isso no documento [Tipos de nó do Service Fabric](service-fabric-cluster-nodetypes.md) . Uma vez que os tipos de nó do Service Fabric no cluster são compostos por conjuntos de dimensionamento de máquinas virtuais no back-end, você precisa configurar regras de dimensionamento automático para cada tipo de nó/conjunto de dimensionamento de máquinas virtuais.
@@ -53,7 +52,7 @@ Atualmente, o recurso de escala automática não é controlado pelas cargas que 
 Siga estas instruções [para configurar o dimensionamento automático para cada conjunto de dimensionamento de máquinas virtuais](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md).
 
 > [!NOTE]
-> Em um cenário de redução vertical, a menos que o tipo de nó tenha um nível de durabilidade Gold ou Silver, você precisará chamar o cmdlet [Remove-ServiceFabricNodeState](https://msdn.microsoft.com/library/azure/mt125993.aspx) pelo nome de nó apropriado.
+> Em um cenário de redução vertical, a menos que o tipo de nó tenha um nível de durabilidade Gold ou Silver, você precisará chamar o cmdlet [Remove-ServiceFabricNodeState](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricnodestate) pelo nome de nó apropriado.
 > 
 > 
 
@@ -100,7 +99,7 @@ Os nós listados no Service Fabric Explorer são um reflexo do que os serviços 
 
 Para certificar-se de que um nó será removido quando uma VM for removida, você tem duas opções:
 
-1) Escolha um nível de durabilidade Gold ou Silver (disponível em breve) para os tipos de nó no cluster, o que fornece a integração da infraestrutura. Isso, em seguida, removerá automaticamente os nós do estado (FM) dos serviços do sistema ao reduzir verticalmente.
+1) Escolha um nível de durabilidade de Gold ou Silver para os tipos de nó no seu cluster, o que fornece a integração de infraestrutura. Isso, em seguida, removerá automaticamente os nós do estado (FM) dos serviços do sistema ao reduzir verticalmente.
 Confira [os detalhes sobre os níveis de durabilidade aqui](service-fabric-cluster-capacity.md)
 
 2) Depois que a instância VM tiver sido reduzida verticalmente, você precisará chamar o [cmdlet Remove-ServiceFabricNodeState](https://msdn.microsoft.com/library/mt125993.aspx).
@@ -120,4 +119,3 @@ Leia os seguintes artigos para saber também sobre como planejar a capacidade do
 <!--Image references-->
 [BrowseServiceFabricClusterResource]: ./media/service-fabric-cluster-scale-up-down/BrowseServiceFabricClusterResource.png
 [ClusterResources]: ./media/service-fabric-cluster-scale-up-down/ClusterResources.png
-

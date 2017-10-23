@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 05/23/2017
 ms.author: barlan
 ms.custom: end-user
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 847a8bdcf880b56f587f6759058825fd1965d29e
-ms.openlocfilehash: 6ad91429794e465be7cb26963d032d9357143053
-ms.contentlocale: pt-br
-ms.lasthandoff: 03/01/2017
-
+ms.openlocfilehash: 2328fe6e6b35ce523f8bf90cbe6159c7ba23d697
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-your-settings-for-two-step-verification"></a>Gerenciar as configurações de verificação em duas etapas
 Este artigo responde a perguntas sobre como atualizar as configurações de autenticação multifator ou de verificação em duas etapas. Se você estiver tendo problemas ao se conectar à sua conta, confira [Tendo problemas com a verificacão em duas etapas](multi-factor-authentication-end-user-troubleshoot.md) para a resolução de problemas.
@@ -71,4 +70,3 @@ Quando você desinstala o aplicativo do dispositivo ou reinicia o dispositivo, e
 ## <a name="next-steps"></a>Próximas etapas
 * Obter dicas de solução de problemas e ajuda em [Tendo problemas com a verificação em duas etapas](multi-factor-authentication-end-user-troubleshoot.md)
 * Configure [senhas de aplicativo](multi-factor-authentication-end-user-app-passwords.md) para quaisquer aplicativos que não dão suporte à verificação em duas etapas.
-

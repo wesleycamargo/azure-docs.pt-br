@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: kumud
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
 ms.openlocfilehash: 765d12bc283d991783fb3190ce7917b573f9fc78
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="add-disable-enable-or-delete-endpoints"></a>Adicionar, desabilitar, habilitar ou excluir pontos de extremidade
 
 O recurso de aplicativos Web no Serviço de Aplicativo do Azure já fornecem failover e funcionalidade de roteamento de tráfego de round robin para sites em um datacenter, independentemente do modo do site. O Gerenciador de Tráfego do Azure permite que você especifique o failover e o roteamento de tráfego para sites e serviços de nuvem em datacenters diferentes. A primeira etapa necessária fornecer essa funcionalidade é adicionar o serviço de nuvem ou ponto de extremidade de site ao Gerenciador de Tráfego.
@@ -31,8 +29,7 @@ Você também pode desabilitar pontos de extremidade individuais que fazem parte
 > [!NOTE]
 > A desabilitação de um ponto de extremidade não tem nada a ver com seu estado de implantação no Azure. Um ponto de extremidade íntegro permanecerá ativo e capaz de receber tráfego mesmo quando for desabilitado no Gerenciador de Tráfego. Além disso, a desabilitação de um ponto de extremidade em um perfil não afeta seu status em outro perfil.
 
-## <a name="to-add-a-cloud-service-or-an-app-service-endpoint-to-a-traffic-manager-profile"></a>Para adicionar um serviço de nuvem ou um ponto de extremidade de serviço de 
-Aplicativo a um perfil do Gerenciador de Tráfego
+## <a name="to-add-a-cloud-service-or-an-app-service-endpoint-to-a-traffic-manager-profile"></a>Para adicionar um serviço de nuvem ou um ponto de extremidade de serviço de Aplicativo a um perfil do Gerenciador de Tráfego
 
 1. Usando um navegador, entre no [portal do Azure](http://portal.azure.com).
 2. Na barra de pesquisa do portal, pesquise o nome do **perfil do Gerenciador de Tráfego** que você deseja modificar e clique no perfil do Gerenciador de Tráfego nos resultados exibidos.
@@ -46,8 +43,8 @@ Aplicativo a um perfil do Gerenciador de Tráfego
     5. Para **Prioridade**, selecione **1**. Isso faz com que todo o tráfego passe para esse ponto de extremidade, se ele estiver íntegro.
     6. Mantenha a opção **Adicionar como desabilitado** desmarcada.
     7. Clique em **OK**
-6.    Repita as etapas 4 e 5 para adicionar o próximo ponto de extremidade do Azure. Certifique-se de adicioná-lo com o valor de **Prioridade** definido como **2**.
-7.    Quando a adição de ambos os pontos de extremidade estiver concluída, eles serão exibidos na folha **Perfil do Gerenciador de Tráfego** com seu status de monitoramento como **Online**.
+6.  Repita as etapas 4 e 5 para adicionar o próximo ponto de extremidade do Azure. Certifique-se de adicioná-lo com o valor de **Prioridade** definido como **2**.
+7.  Quando a adição de ambos os pontos de extremidade estiver concluída, eles serão exibidos na folha **Perfil do Gerenciador de Tráfego** com seu status de monitoramento como **Online**.
 
 > [!NOTE]
 > Depois de adicionar ou remover um ponto de extremidade de um perfil usando o método de roteamento de tráfego *Failover*, a lista de prioridade de failover poderá não ser ordenada da forma desejada. Você pode ajustar a ordem da Lista de Prioridade de Failover na página de Configuração. Para obter mais informações, consulte [Configurar roteamento de tráfego de Failover](traffic-manager-configure-failover-routing-method.md).
@@ -86,5 +83,4 @@ Aplicativo a um perfil do Gerenciador de Tráfego
 * [Solucionando problemas de estado degradado do Gerenciador de Tráfego](traffic-manager-troubleshooting-degraded.md)
 * [Considerações sobre desempenho do Gerenciador de Tráfego](traffic-manager-performance-considerations.md)
 * [Operações no Gerenciador de Tráfego (referência de API REST)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
-
 

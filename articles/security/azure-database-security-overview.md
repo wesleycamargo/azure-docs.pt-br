@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/19/2017
 ms.author: TomSh
-ms.translationtype: HT
-ms.sourcegitcommit: 0aae2acfbf30a77f57ddfbaabdb17f51b6938fd6
 ms.openlocfilehash: 036ce3dce28e7951bb39754c4351661fae85f06c
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-database-security-overview"></a>Visão geral de segurança do banco de dados do Azure
 
 A segurança é uma das principais preocupações durante o gerenciamento de bancos de dados e sempre foi uma prioridade para o Banco de Dados SQL do Azure. O Banco de Dados SQL do Azure dá suporte à segurança de conexão com regras de firewall e criptografia da conexão. Ele dá suporte à autenticação com nome de usuário e senha e a Autenticação do Azure Active Directory, que usa identidades gerenciadas pelo Azure Active Directory. A autorização usa o controle de acesso baseado em função.
@@ -219,4 +217,3 @@ O Azure Marketplace combina ecossistemas de parceiros do Microsoft Azure em uma 
 - Saiba mais sobre a [Central de Segurança do Azure e o serviço Banco de Dados SQL do Azure](https://docs.microsoft.com/azure/security-center/security-center-sql-database).
 - Para saber mais sobre a detecção de ameaças, consulte [Detecção de ameaças do Banco de Dados SQL](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection).
 - Para saber mais, consulte [Melhorar o desempenho do banco de dados SQL](https://docs.microsoft.com/azure/sql-database/sql-database-performance-tutorial). 
-

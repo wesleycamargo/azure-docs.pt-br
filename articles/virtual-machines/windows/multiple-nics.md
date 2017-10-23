@@ -4,7 +4,7 @@ description: "Saiba como criar e gerenciar uma VM do Windows que tem várias NIC
 services: virtual-machines-windows
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 9bff5b6d-79ac-476b-a68f-6f8754768413
 ms.service: virtual-machines-windows
@@ -12,15 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 07/05/2017
+ms.date: 09/26/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: bb794ba3b78881c967f0bb8687b1f70e5dd69c71
-ms.openlocfilehash: 92f5181dbf36ef0f7e2568d557faa7c5f2144ad9
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
-
-
+ms.openlocfilehash: 9e84e18c5d6c205d320c6c9c565ce6723d8fa6e9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-and-manage-a-windows-virtual-machine-that-has-multiple-nics"></a>Cria e gerencia uma máquina virtual do Windows que tem várias NICs
 As máquinas virtuais (VMs) no Azure podem ter várias placas de interface de rede virtual (NICs) anexadas a elas. Um cenário comum é ter sub-redes diferentes para conectividade de front-end e de back-end ou uma rede dedicada a uma solução de monitoramento ou de backup. Este artigo fornece detalhes sobre como criar uma VM que tem várias NICs anexadas. Você também aprenderá a adicionar ou remover as NICs de uma VM existente. Diferentes [tamanhos de VM](sizes.md) dão suporte a um número variável de NICs, sendo assim, dimensione sua VM adequadamente.
@@ -127,7 +125,7 @@ Agora, comece a criar sua configuração de VM. Cada tamanho de VM tem um limite
     ```
 
 ## <a name="add-a-nic-to-an-existing-vm"></a>Adicionar uma NIC a uma VM existente
-Para adicionar uma NIC virtual a uma VM existente, você desalocar a VM, adiciona a NIC virtual e inicia a VM.
+Para adicionar uma NIC virtual a uma VM existente, você desalocar a VM, adiciona a NIC virtual e inicia a VM. Diferentes [tamanhos de VM](sizes.md) dão suporte a um número variável de NICs, sendo assim, dimensione sua VM adequadamente. Se necessário, é possível [redimensionar uma VM](resize-vm.md).
 
 1. Desaloque a VM com o [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm). O seguinte exemplo desaloca a VM chamada *myVM* no *myResourceGroup*:
 
@@ -239,6 +237,5 @@ Você pode ler um exemplo completo em [criando várias NICs usando modelos do Re
 
 ## <a name="next-steps"></a>Próximas etapas
 Analise os [tamanhos de VM do Windows](sizes.md) quando estiver tentando criar uma VM que tem várias NICs. Preste atenção ao número máximo de NICs a que cada VM dá suporte. 
-
 
 

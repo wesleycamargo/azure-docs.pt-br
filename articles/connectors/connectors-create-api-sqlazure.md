@@ -15,13 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2016
 ms.author: mandia; ladocs
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: a3d5cb909dbfcb00f3fbfa0165bb6cd58eb18688
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/26/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-the-azure-sql-database-connector"></a>Introdução ao conector do Banco de Dados SQL
 Usando o conector do Banco de Dados SQL, crie fluxos de trabalho para sua organização que gerenciam dados nas tabelas. 
@@ -70,9 +68,8 @@ Uma ação é uma operação executada pelo fluxo de trabalho definido em um apl
 
 ## <a name="connector-specific-details"></a>Detalhes específicos do conector
 
-Veja os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/sql/). 
+Exiba os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/sql/). 
 
 ## <a name="next-steps"></a>Próximas etapas
 [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md). Explore os outros conectores disponíveis nos Aplicativos Lógicos em nossa [lista de APIs](apis-list.md).
-
 

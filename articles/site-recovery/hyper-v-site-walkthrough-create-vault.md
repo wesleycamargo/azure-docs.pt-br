@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/22/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
 ms.openlocfilehash: 8212ff011633c3a89d3310e828b6d5f1cda6ce3f
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="step-7-set-up-a-vault-for-hyper-v-replication"></a>Etapa 7: configurar um cofre para replicação do Hyper-V
 
 Este artigo descreve como configurar um cofre e especifica o que você deseja replicar de sua localização local para o Azure, usando o serviço [Azure Site Recovery](site-recovery-overview.md) no portal do Azure.
@@ -50,4 +48,3 @@ Selecione o que você deseja replicar e para onde deseja replicar.
 ## <a name="next-steps"></a>Próximas etapas
 
 Vá para a [Etapa 8: definir a origem e o destino](hyper-v-site-walkthrough-source-target.md)
-

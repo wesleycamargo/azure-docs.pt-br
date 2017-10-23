@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: genli
+ms.openlocfilehash: 55cfba5e9730b123bba20dfdc5d10c1157352a35
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 2411b2ccd30f2155164d65272f999fdd1f6ba760
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshooting-an-azure-site-to-site-vpn-connection-cannot-connect-and-stops-working"></a>Solução de problemas: uma conexão VPN site a site do Azure não consegue se conectar e deixa de funcionar
 
 Depois de configurar uma conexão VPN site a site entre uma rede local e uma rede virtual do Azure, a conexão VPN repentinamente deixa de funcionar e não pode ser reconectada. Este artigo apresenta etapas para a solução de problemas para ajudá-lo a resolver esse problema. 
@@ -109,4 +107,3 @@ O recurso PFS pode causar os problemas de desconexão. Se o dispositivo VPN esti
 
 -   [Configurar uma conexão site a site para uma rede virtual](vpn-gateway-howto-site-to-site-resource-manager-portal.md)
 -   [Configurar uma política IPsec/IKE para conexões VPN site a site](vpn-gateway-ipsecikepolicy-rm-powershell.md)
-

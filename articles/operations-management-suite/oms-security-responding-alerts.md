@@ -15,13 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/13/2017
 ms.author: yurid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: 0cf9b83d7023641ec445a59a5e61d3da038695fa
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/17/2017
-
-
+ms.openlocfilehash: df82afab2c38431e134146143524edc080ee38f9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitoring-and-responding-to-security-alerts-in-operations-management-suite-security-and-audit-solution"></a>Monitorando e respondendo a alertas de segurança na solução de Segurança e Auditoria do Operations Management Suite
 Este documento o ajuda a usar a opção de inteligência contra ameaças disponível na Segurança e Auditoria do OMS para monitorar e responder a alertas de segurança.
@@ -34,7 +32,7 @@ Em um ambiente empresarial no qual os usuários têm amplo acesso à rede e usam
 
 Ao usar a opção **Inteligência contra Ameaças** disponível na Segurança e Auditoria do OMS, os administradores de TI podem identificar as ameaças à segurança no ambiente, por exemplo, identificar se determinado computador faz parte de um [botnet](https://www.microsoft.com/security/sir/story/default.aspx#!botnetsection). Os computadores podem se tornar nós em um botnet quando os invasores instalam de forma ilícita malware que se conecta secretamente esse computador ao comando e controle. Ela também pode identificar ameaças potenciais recebidas de canais de comunicação underground, como [darknet](https://www.microsoft.com/security/sir/story/default.aspx#!botnetsection_honeypots_darkents). 
 
-A fim de criar essa inteligência contra ameaças, a Segurança e Auditoria do OMS usam dados recebidos de várias fontes da Microsoft. A Segurança e Auditoria do OMS aproveitará esses dados para identificar ameaças potenciais ao seu ambiente.
+A fim de criar essa inteligência contra ameaças, a solução de Segurança e Auditoria do OMS usa dados recebidos de várias fontes da Microsoft. A Segurança e Auditoria do OMS aproveitará esses dados para identificar ameaças potenciais ao seu ambiente.
 
 O painel Inteligência contra Ameaças é formado por três opções principais:
 
@@ -43,7 +41,7 @@ O painel Inteligência contra Ameaças é formado por três opções principais:
 * Mapa de inteligência contra ameaças
 
 > [!NOTE]
-> para obter uma visão geral de todas essas opções, leia [Introdução à solução de Segurança e Auditoria do Operations Management Suite](oms-security-getting-started.md).
+> Para obter uma visão geral de todas essas opções, leia [Introdução à solução de Segurança e Auditoria do Operations Management Suite](oms-security-getting-started.md).
 > 
 > 
 
@@ -56,7 +54,7 @@ Uma das etapas de um processo de [resposta a incidentes de segurança](https://t
 * Identificar os sistemas que foram comprometidos
 * Identificar os arquivos que foram acessados e determinar a confidencialidade desses arquivos
 
-Você pode aproveitar as informações da **Inteligência contra Ameaças** na solução de Segurança e Auditoria do OMS para ajudar com essas tarefas. Siga as etapas abaixo para acessar estas opções da **Inteligência contra Ameaças** :
+Você pode aproveitar as informações da **Inteligência contra Ameaças** na solução de Segurança e Auditoria do OMS para ajudar com essas tarefas. Siga as etapas abaixo para acessar estas opções da **Inteligência contra Ameaças**:
 
 1. No painel principal do **Microsoft Operations Management Suite**, clique no bloco **Segurança e Auditoria**.
    
@@ -88,7 +86,7 @@ O **mapa de inteligência contra ameaças** o ajudará a identificar os locais a
 ### <a name="responding-to-distinct-malicious-ip-accessed"></a>Respondendo a IP mal-intencionado distinto acessado
 Em alguns cenários, você pode observar um potencial IP mal-intencionado que foi acessado de um computador monitorado:
 
-![mapa do threat intel](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig6.png)
+![mapa do threat intel](./media/oms-security-responding-alerts/oms-security-responding-alerts-fig6.PNG)
 
 Este e outros alertas na mesma categoria são gerados via Segurança do OMS, aproveitando a [Inteligência contra Ameaças da Microsoft](https://youtu.be/O4WtxgUrDc8). Os dados de Inteligência contra Ameaças são coletados pela Microsoft e também adquiridos dos principais provedores de inteligência contra ameaças. Esses dados são atualizados com frequência e adaptados para ameaças ágeis. Devido à sua natureza, ele deve ser combinado com outras fontes de informações de segurança durante a [investigação](https://blogs.technet.microsoft.com/msoms/2016/12/08/investigating-suspicious-activity-in-a-hybrid-cloud-with-oms-security/) de um alerta de segurança. 
 
@@ -104,5 +102,4 @@ Neste documento, você aprendeu a usar a opção **Inteligência contra Ameaças
 * [Operations Management Suite (OMS) overview](operations-management-suite-overview.md)
 * [Introdução à solução de Segurança e Auditoria do Operations Management Suite](oms-security-getting-started.md)
 * [Monitorando recursos na solução de Segurança e Auditoria do Operations Management Suite](oms-security-monitoring-resources.md)
-
 

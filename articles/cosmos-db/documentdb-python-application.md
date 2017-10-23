@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 08/09/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: c62520846ebdc102204e42b50e52383167c6aa14
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="build-a-python-flask-web-application-using-azure-cosmos-db"></a>Compilar um aplicativo Web do Python Flask usando o Azure Cosmos DB
 > [!div class="op_single_selector"]
@@ -95,7 +94,7 @@ Agora vamos mostrar como criar um novo aplicativo Web Python Flask desde o iníc
 
 ## <a name="step-3-modify-the-python-flask-web-application"></a>Etapa 3: Modificar o aplicativo Web Python Flask
 ### <a name="add-the-python-flask-packages-to-your-project"></a>Adicionar pacotes do Python Flask ao seu projeto
-Depois que seu projeto estiver configurado, você precisará adicionar alguns pacotes Flask necessários ao projeto, incluindo pydocumentdb, o pacote do Python para o Banco de Dados de Documentos.
+Depois que seu projeto estiver configurado, você precisará adicionar alguns pacotes Flask necessários ao projeto, incluindo pydocumentdb, o pacote do Python para o DocumentDB.
 
 1. No Gerenciador de Soluções, abra o arquivo denominado **requirements.txt** e substitua o conteúdo pelo seguinte:
    
@@ -403,4 +402,3 @@ Para obter outros tutoriais do Python Flask, consulte [The Flask Mega-Tutorial, 
 [3]: https://www.microsoft.com/download/details.aspx?id=44266
 [Microsoft Web Platform Installer]: http://www.microsoft.com/web/downloads/platform.aspx
 [Azure portal]: http://portal.azure.com
-

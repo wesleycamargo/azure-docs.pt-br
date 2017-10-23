@@ -15,13 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/02/2017
 ms.author: mandia; ladocs
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: bc7908868828bd1628633cf9e57f8c44f8000827
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/26/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-azure-blob-storage-connector-in-a-logic-app"></a>Usar o conector do armazenamento de blobs do Azure em um aplicativo lógico
 Use o conector do armazenamento de Blobs do Azure para carregar, atualizar, obter e excluir blobs de sua conta de armazenamento, tudo em um aplicativo lógico.  
@@ -73,9 +71,8 @@ Uma ação é uma operação executada pelo fluxo de trabalho definido em um apl
 
 ## <a name="connector-specific-details"></a>Detalhes específicos do conector
 
-Veja os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/azureblobconnector/). 
+Exiba os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/azureblobconnector/). 
 
 ## <a name="next-steps"></a>Próximas etapas
 [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md). Explore os outros conectores disponíveis nos Aplicativos Lógicos em nossa [lista de APIs](apis-list.md).
-
 

@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 07/12/2017
 ms.author: andredm
 ms.reviewer: rqureshi
+ms.openlocfilehash: 407c030ea159915d4d7ac21760a3d17ec2204372
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: 9ad194308d30ca652b32ec3b76750b0e838472f4
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/20/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="role-based-access-control-troubleshooting"></a>Solução de problemas de Controle de Acesso baseado em função
 
@@ -94,5 +93,4 @@ Se você não conseguir acessar nenhum desses blocos, solicite ao administrador 
 * [Funções internas](role-based-access-built-in-roles.md): obter detalhes sobre as funções que são incluídas por padrão no RBAC.
 * [Funções personalizadas no Azure RBAC](role-based-access-control-custom-roles.md): aprenda a criar funções personalizadas para atender às suas necessidades de acesso.
 * [Criar um relatório de histórico de alterações de acesso](role-based-access-control-access-change-history-report.md): mantenha o controle das alterações de atribuições de função no RBAC.
-
 

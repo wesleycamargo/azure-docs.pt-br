@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 07/04/2017
+ms.date: 09/25/2017
 ms.author: pratshar
+ms.openlocfilehash: 9c00cf88fa8b754c92cfd0f01be61a596d04d7c6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
-ms.openlocfilehash: 8be405f01d919e9581afca9101d811a045f4469a
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/19/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="failover-in-site-recovery"></a>Failover na Recuperação de Site
 Este artigo descreve como executar o failover de máquinas virtuais e servidores físicos protegidos pelo Site Recovery.
@@ -28,7 +27,7 @@ Este artigo descreve como executar o failover de máquinas virtuais e servidores
 1. Antes de realizar um failover, faça um [failover de teste](site-recovery-test-failover-to-azure.md) para verificar se tudo está funcionando conforme o esperado.
 1. [Prepare a rede](site-recovery-network-design.md) no local de destino antes de realizar um failover.  
 
-Use a tabela a seguir para saber sobre as opções de failover fornecidas pelo Azure Site Recovery para diferentes cenários de failover.
+Use a tabela a seguir para saber sobre as opções de failover fornecidas pelo Azure Site Recovery. Essas opções também são listadas para diferentes cenários de failover.
 
 | Cenário | Requisito de recuperação de aplicativo | Fluxo de trabalho para Hyper-V | Fluxo de trabalho para VMware
 |---|--|--|--|
@@ -44,7 +43,7 @@ Este procedimento descreve como executar um failover para um [plano de recupera�
 
 1. Selecione **Planos de Recuperação** > *recoveryplan_name*. Clique em **Failover**.
 2. Na tela de **Failover**, selecione um **Ponto de Recuperação** para o qual fazer o failover. Você pode usar uma das seguintes opções:
-    1.  **Mais recente** (padrão): Essa opção primeiro processa todos os dados que foram enviados ao serviço de Site Recovery para criar um ponto de recuperação para cada máquina virtual antes de fazer o failover para ele. Essa opção oferece o menor RPO (Objetivo de Ponto de Recuperação), pois a máquina virtual criada após o failover terá todos os dados que tiverem sido replicados para o serviço de Site Recovery quando o failover for disparado.
+    1.  **Mais recente** (padrão): essa opção inicia o trabalho primeiro processando todos os dados que foram enviados ao serviço Site Recovery. O processamento dos dados cria um ponto de recuperação para cada máquina virtual. Esse ponto de recuperação é usado pela máquina virtual durante o failover. Essa opção oferece o menor RPO (Objetivo de Ponto de Recuperação), pois a máquina virtual criada após o failover terá todos os dados que tiverem sido replicados para o serviço de Site Recovery quando o failover for disparado.
     1.  **Mais recentes processados**: Essa opção faz failover em todas as máquinas virtuais do plano de recuperação para o último ponto de recuperação que já foi processado pelo serviço de Site Recovery. Quando você estiver realizando o failover de teste de uma máquina virtual, o carimbo de data/hora do último ponto de recuperação processado também é mostrado. Se estiver fazendo o failover de um plano de recuperação, você pode ir para a máquina virtual individual e visualizar o bloco **Últimos Pontos de Recuperação** para obter essas informações. Como nenhum tempo é gasto para processar os dados não processados, esta opção fornece uma opção de failover de baixo RTO (objetivo de tempo de recuperação).
     1.  **Consistente de aplicativo mais recente**: essa opção realiza failover em todas as máquinas virtuais do plano de recuperação para o último ponto de recuperação consistente de aplicativo que já foi processado pelo serviço do Site Recovery. Quando você estiver realizando failover de teste de uma máquina virtual, o carimbo de data/hora do ponto mais recente recuperação consistentes com o aplicativo também é mostrado. Se estiver fazendo o failover de um plano de recuperação, você pode ir para a máquina virtual individual e visualizar o bloco **Últimos Pontos de Recuperação** para obter essas informações.
     1.  **Várias VMs processadas mais recentemente**: essa opção só está disponível para os planos de recuperação que têm pelo menos uma máquina virtual com consistência de várias VMs ativada. As máquinas virtuais que fazem parte de um failover de grupo de replicação para o ponto de recuperação consistente de várias VMs comuns mais recentes. Outras máquinas virtuais fazem failover para seus últimos pontos de recuperação processados.  
@@ -62,16 +61,16 @@ Este procedimento descreve como executar um failover para um [plano de recupera�
 1. Selecione **Desligue o computador antes do início do failover** se quiser que o Site Recovery tente realizar um desligamento das máquinas virtuais de origem antes de disparar o failover. O failover continuará mesmo o desligamento falhar.  
 
     > [!NOTE]
-    > No caso de máquinas virtuais Hyper-v, essa opção também tenta sincronizar os dados locais que ainda não foram enviados para o serviço antes de disparar o failover.
+    > Se máquinas virtuais Hyper-V estão protegidas, a opção de desligar também tenta sincronizar os dados locais que ainda não foram enviados para o serviço antes de disparar o failover.
     >
     >
 
 1. Você pode acompanhar o progresso do failover na página **Trabalhos** . Mesmo que ocorram erros durante um failover não planejado, o plano de recuperação será executado até que seja concluído.
 1. Após o failover, valide a máquina virtual, efetuando logon nela. Se desejar ir a outro ponto de recuperação para a máquina virtual, você pode usar a opção **Alterar ponto de recuperação**.
-1. Quando estiver satisfeito com a máquina virtual que passou por failover, você pode **Confirmar** o failover. Isso exclui todos os pontos de recuperação disponíveis no serviço e a opção **Alterar ponto de recuperação** não estará mais disponível.
+1. Quando estiver satisfeito com a máquina virtual que passou por failover, você pode **Confirmar** o failover. A confirmação exclui todos os pontos de recuperação disponíveis no serviço e a opção **Alterar ponto de recuperação** não estará mais disponível.
 
 ## <a name="planned-failover"></a>Failover planejado
-Máquinas virtuais/servidores físicos protegidos usando o Site Recovery também dão suporte ao **Failover planejado**. Essa é uma opção de failover com perda de dados zero. Quando um failover planejado é disparado, em primeiro lugar, as máquinas virtuais de origem são desligadas, os dados com sincronização pendente são sincronizados e, então, um failover é disparado.
+Máquinas virtuais/servidores físicos protegidos usando o Site Recovery também dão suporte ao **Failover planejado**. O failover planejado é uma opção de failover sem nenhuma perda de dados. Quando um failover planejado é disparado, em primeiro lugar, as máquinas virtuais de origem são desligadas, os dados com sincronização pendente são sincronizados e, então, um failover é disparado.
 
 > [!NOTE]
 > Ao executar o failover de máquinas virtuais Hyper-v de um site local para outro site local, antes de voltar ao site local principal, você precisa fazer a **replicação inversa** da máquina virtual para o site principal e, depois, disparar um failover. Se a máquina virtual principal não estiver disponível, você vai precisar restaurar a máquina virtual de um backup antes de iniciar a **replicação inversa**.   
@@ -95,7 +94,7 @@ Quando é disparado, um failover envolve as seguintes etapas:
 
 ## <a name="time-taken-for-failover-to-azure"></a>Tempo necessário para failover do Azure
 
-Em certos casos, o failover de máquinas virtuais requer uma etapa intermediária extra que geralmente leva cerca de oito a 10 minutos para ser concluída. Esses casos são os seguintes:
+Em certos casos, o failover de máquinas virtuais requer uma etapa intermediária extra que geralmente leva cerca de oito a 10 minutos para ser concluída. Nos casos a seguir, o tempo necessário para o failover será maior que o normal:
 
 * Máquinas virtuais VMware usando o serviço de mobilidade da versão anterior a 9.8
 * Servidores físicos 
@@ -124,9 +123,10 @@ Você talvez queira automatizar determinadas ações durante um failover. É pos
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Após o failover das máquinas virtuais, quando o datacenter local estiver disponível, você deve [ **Proteger novamente** ](site-recovery-how-to-reprotect.md) as máquinas virtuais VMware no datacenter local.
+
+> [!WARNING]
+> Após o failover das máquinas virtuais, quando o datacenter local estiver disponível, você deverá [**Proteger novamente**](site-recovery-how-to-reprotect.md) as máquinas virtuais VMware no datacenter local.
 
 Use a opção [ **Failover planejado** ](site-recovery-failback-from-azure-to-hyper-v.md) para fazer o **Failback** das máquinas virtuais Hyper-v para o local com o Azure.
 
 Se fizer o failover de uma máquina virtual Hyper-v para outro datacenter local gerenciado por um servidor VMM e o datacenter principal estiver disponível, use a opção **Replicação inversa** para iniciar a replicação para o datacenter principal.
-

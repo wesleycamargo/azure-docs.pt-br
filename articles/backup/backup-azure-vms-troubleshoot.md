@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: trinadhk;markgal;jpallavi;
+ms.openlocfilehash: 096c97f4cb41ff8df2e646f59dbc0bf845721ac7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 890acae2aebf7684e567b9b49377ca7b6da95245
-ms.openlocfilehash: d555f7a93a980a35c6b50d480c43de6bdc5c86df
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Solucionar problemas de backup de máquinas virtuais do Azure
 > [!div class="op_single_selector"]
@@ -82,7 +81,7 @@ Atualmente, o Backup do Azure não dá suporte a tamanhos de disco [maiores que 
 ## <a name="restore"></a>Restaurar
 | Detalhes do erro | Solução alternativa |
 | --- | --- |
-| A restauração falhou com erro interno de nuvem |<ol><li>O serviço de nuvem no qual você está tentando restaurar está definido com configurações de DNS. Você pode verificar  <br>$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production"     Get-AzureDns -DnsSettings $deployment.DnsSettings<br>Se houver um endereço configurado, isso significa que as configurações de DNS estão definidas.<br> <li>O serviço de nuvem para o qual você está tentando restaurar está configurado com ReservedIP e as VMs existentes no serviço de nuvem estão no estado parado.<br>Você pode verificar se um serviço de nuvem tem IP reservado usando os seguintes cmdlets do Powershell:<br>$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName <br><li>Você está tentando restaurar uma máquina virtual com as configurações de rede especiais a seguir no mesmo serviço de nuvem. <br>– Máquinas virtuais sob configuração do balanceador de carga (interno e externo)<br>– Máquinas virtuais com vários IPs reservados<br>– Máquinas virtuais com várias NICs<br>Selecione um novo serviço de nuvem na interface do usuário ou confira as [considerações sobre a restauração](backup-azure-arm-restore-vms.md#restoring-vms-with-special-network-configurations) para VMs com configurações de rede especiais.</ol> |
+| A restauração falhou com erro interno de nuvem |<ol><li>O serviço de nuvem no qual você está tentando restaurar está definido com configurações de DNS. Você pode verificar  <br>$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production"     Get-AzureDns -DnsSettings $deployment.DnsSettings<br>Se houver um endereço configurado, isso significa que as configurações de DNS estão definidas.<br> <li>O serviço de nuvem para o qual você está tentando restaurar está configurado com ReservedIP e as VMs existentes no serviço de nuvem estão no estado parado.<br>Você pode verificar se um serviço de nuvem tem IP reservado usando os seguintes cmdlets do Powershell:<br>$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName <br><li>Você está tentando restaurar uma máquina virtual com as configurações de rede especiais a seguir no mesmo serviço de nuvem. <br>– Máquinas virtuais sob configuração do balanceador de carga (interno e externo)<br>– Máquinas virtuais com vários IPs reservados<br>– Máquinas virtuais com várias NICs<br>Selecione um novo serviço de nuvem na interface do usuário ou confira as [considerações sobre a restauração](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations) para VMs com configurações de rede especiais.</ol> |
 | O nome DNS selecionado já existe - especifique um nome DNS diferente e tente novamente. |O nome DNS aqui se refere ao nome do serviço de nuvem (geralmente terminando em .cloudapp.net). Isso precisa ser exclusivo. Se você encontrar esse erro, precisa escolher um nome de VM diferente durante a restauração. <br><br> Este erro é mostrado apenas para os usuários do portal do Azure. A operação de restauração por meio do PowerShell terá êxito porque apenas restaura os discos e não cria a VM. O erro será enfrentado quando a VM está explicitamente criada por você após a operação de restauração no disco. |
 | A configuração de rede virtual especificada não está correta - especifique uma configuração de rede virtual diferente e tente novamente. |Nenhum |
 | O serviço de nuvem especificado está usando um IP reservado, o que não corresponde à configuração da máquina virtual que está sendo restaurada. Especifique um serviço de nuvem diferente que não esteja usando o IP reservado ou escolha outro ponto de recuperação para restaurar. |Nenhum |
@@ -92,7 +91,7 @@ Atualmente, o Backup do Azure não dá suporte a tamanhos de disco [maiores que 
 | O tipo de conta de armazenamento especificado para a operação de restauração não está online - Certifique-se de que a conta de armazenamento especificada na operação de restauração está online |Isso pode acontecer devido a um erro transitório no armazenamento do Azure ou devido a uma interrupção. Escolha outra conta de armazenamento. |
 | A Cota do Grupo de Recursos foi alcançada - Exclua alguns grupos de recursos do portal do Azure ou entre em contato com o suporte do Azure para aumentar os limites. |Nenhum |
 | A subrede selecionada não existe - selecione uma subrede que exista |Nenhum |
-| O Serviço de Backup não tem autorização para acessar recursos em sua assinatura. |Para resolver o problema, primeiro restaure discos, usando as etapas mencionadas na seção **Restaurar discos de backup** em [Escolha da configuração da VM](backup-azure-arm-restore-vms.md#choosing-a-vm-restore-configuration). Depois disso, use as etapas do PowerShell mencionadas em [Criar uma máquina virtual de discos restaurados](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) para criar VMs completas de discos restaurados. |
+| O Serviço de Backup não tem autorização para acessar recursos em sua assinatura. |Para resolver o problema, primeiro restaure discos, usando as etapas mencionadas na seção **Restaurar discos de backup** em [Escolha da configuração da VM](backup-azure-arm-restore-vms.md#choose-a-vm-restore-configuration). Depois disso, use as etapas do PowerShell mencionadas em [Criar uma máquina virtual de discos restaurados](backup-azure-vms-automation.md#create-a-vm-from-restored-disks) para criar VMs completas de discos restaurados. |
 
 ## <a name="backup-or-restore-taking-time"></a>Backup ou restauração demorando
 Se você observar que o backup (>12 horas) ou a restauração (>6 horas) está demorando:
@@ -173,4 +172,3 @@ Após a resolução de nomes ser feita corretamente, o acesso às IPs Azure tamb
 > Exiba mais informações sobre [Como definir um IP interno estático privado](../virtual-network/virtual-networks-reserved-private-ip.md).
 >
 >
-

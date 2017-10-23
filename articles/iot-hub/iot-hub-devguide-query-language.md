@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/25/17
 ms.author: elioda
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
-ms.openlocfilehash: 32d5baf404efddd2e3ce122b14ea8c256bf56299
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
-
-
+ms.openlocfilehash: a7650104eda58923558892f6f0f6666d16dbce28
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="reference---iot-hub-query-language-for-device-twins-jobs-and-message-routing"></a>Referência – linguagem de consulta do Hub IoT para dispositivos gêmeos, trabalhos e roteamento de mensagens
 
@@ -538,4 +536,3 @@ Saiba como executar consultas em seus aplicativos usando [SDKs do IoT do Azure][
 [lnk-devguide-messaging-routes]: ./iot-hub-devguide-messages-read-custom.md
 
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
-

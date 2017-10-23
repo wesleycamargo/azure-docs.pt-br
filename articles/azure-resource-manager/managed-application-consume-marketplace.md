@@ -10,14 +10,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/11/2017
 ms.author: gauravbh; tomfitz
-ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
 ms.openlocfilehash: baf456740bddd562391ed64d707f990c8921d710
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="consume-azure-managed-applications-in-the-marketplace"></a>Consumir aplicativos gerenciados do Azure no Marketplace
 
 Conforme discutido no artigo [Visão geral de aplicativos gerenciados](managed-application-overview.md), há dois cenários na experiência de ponta a ponta. Um é o publicador ou fornecedor que deseja criar um aplicativo gerenciado para uso pelos clientes. O outro é o cliente final ou o cliente do aplicativo gerenciado. Este artigo aborda o segundo cenário. Descreve como você pode implantar um aplicativo gerenciado do Microsoft Azure Marketplace.

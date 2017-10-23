@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/18/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: 9e486e2e4ff2a08b161db44f9cc4785c5d174954
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="back-up-a-virtual-machine-in-azure"></a>Fazer backup de uma máquina virtual no Azure
 Os backups do Azure podem ser criados por meio do portal do Azure. Esse método fornece uma interface de usuário baseada em navegador para criar e configurar os backups do Azure e todos os recursos relacionados. Você pode proteger seus dados fazendo backups em intervalos regulares. O Backup do Azure cria pontos de recuperação que são armazenados em cofres de recuperação com redundância geográfica. Este artigo fornece detalhes sobre como fazer backup de uma máquina virtual (VM) com o portal do Azure. 
 
@@ -99,4 +97,3 @@ Neste início rápido, você criou um cofre dos Serviços de Recuperação, habi
 
 > [!div class="nextstepaction"]
 > [Fazer backup de várias VMs do Azure](./tutorial-backup-vm-at-scale.md)
-

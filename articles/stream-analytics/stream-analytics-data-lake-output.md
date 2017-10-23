@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 03/28/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: 3d867df3ef875d5cc41de418c3d1d269ff751fda
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="stream-analytics-data-lake-store-output"></a>Saída do Repositório Data Lake do Stream Analytics
 Trabalhos do Stream Analytics dão suporte a vários métodos de saída, sendo um deles um [Repositório Azure Data Lake](https://azure.microsoft.com/services/data-lake-store/). O Repositório Azure Data Lake é um repositório em hiper-escala corporativo para cargas de trabalho de análise de big data. O Repositório Data Lake permite que você armazene dados de qualquer tamanho, tipo e velocidade de ingestão para análises operacionais e exploratórias.
@@ -88,5 +87,4 @@ Atualmente, há uma limitação em que o token de autenticação deve ser atuali
 Para resolver esse problema, pare seu trabalho em execução e vá para a saída do Repositório Data Lake. Clique no link "Renovar autorização" e por um curto período uma página será exibida indicando "Redirecionando para autorização...". A página será fechada automaticamente e, se for bem-sucedida, indicará "A autorização foi renovada com êxito". Em seguida, você precisa clicar em "Salvar" na parte inferior da página e poderá continuar reiniciando seu trabalho da última vez em que foi interrompido para evitar perda de dados.
 
 ![](media/stream-analytics-data-lake-output/stream-analytics-data-lake-output-renew-authorization.png)
-
 

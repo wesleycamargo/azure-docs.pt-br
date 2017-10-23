@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/18/2016
 ms.author: kraigb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: e346640f6cbf7969bf373b84d8a20a24a74f654e
-ms.contentlocale: pt-br
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: 9a35de7ca0e7161468181b21709e1bd9915d566f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-upgrade-projects-to-the-current-version-of-the-azure-tools-for-visual-studio"></a>Como atualizar projetos para a versão atual das ferramentas do Azure para Visual Studio
 ## <a name="overview"></a>Visão geral
@@ -47,5 +46,4 @@ Se um projeto é atualizado automaticamente ou se você especificar que deseja a
     A guia **Aplicativo** exibe a versão das ferramentas que está associada com o projeto. Se for exibida a versão atual das ferramentas do Azure, o projeto já foi atualizado. Se você instalou uma versão mais recente das ferramentas do que aquela mostrada pela guia, um botão **Atualizar** é exibido.
 3. Escolha o botão **Atualizar** para atualizar um projeto para a versão atual das ferramentas.
 4. Compile o projeto e resolva os erros resultantes das alterações de API. Para obter informações sobre como modificar seu código para a nova versão, consulte a documentação da API específica.
-
 

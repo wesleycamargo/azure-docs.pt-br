@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2016
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0c4554d6289fb0050998765485d965d1fbc6ab3e
-ms.openlocfilehash: 878badf2753b4ceb471abc789e388fd784c4c42a
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/13/2017
-
+ms.openlocfilehash: a2731e3e44f8f3d104d8abc7dbe71fe3a4c3a690
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="application-insights-for-java-web-apps-that-are-already-live"></a>Application Insights para aplicativos Web Java que já estão em modo dinâmico
 
@@ -137,5 +136,4 @@ Ao exibir as propriedades de uma solicitação, você pode ver os eventos de tel
 * [Configure os testes da Web](app-insights-monitor-web-app-availability.md) para certificar-se de manter seu aplicativo operante e responsivo.
 * [Capturar rastreamentos de log](app-insights-java-trace-logs.md)
 * [Pesquise eventos e logs](app-insights-diagnostic-search.md) para ajudar a diagnosticar problemas.
-
 

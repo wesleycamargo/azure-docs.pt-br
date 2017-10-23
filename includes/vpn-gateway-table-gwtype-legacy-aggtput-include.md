@@ -4,7 +4,7 @@ Os preços diferem entre os SKUs de gateway. Para saber mais, veja [Preços do G
 
 Observe que a SKU do gateway UltraPerformance não é representada nesta tabela. Para saber mais sobre a SKU do UltraPerformance, veja a documentação do [ExpressRoute](../articles/expressroute/expressroute-about-virtual-network-gateways.md).
 
-|  | **Taxa de transferência de Gateway de VPN (1)** | **Túneis IPsec máximo de Gateway de VPN (2)** | **Taxa de transferência de Gateway de Rota Expressa** | **Coexistência de Gateway de VPN e a Rota Expressa** |
+|  | **Taxa de transferência de Gateway de VPN (1)** | **Túneis IPsec máximo de Gateway de VPN (2)** | **Taxa de transferência de Gateway de ExpressRoute** | **Coexistência de Gateway de VPN e o ExpressRoute** |
 | --- | --- | --- | --- | --- |
 | **SKU Básica (3)(5)(6)** |100 Mbps |10 |500 Mbps (6) |Não |
 | **SKU padrão (4)(5)** |100 Mbps |10 |1000 Mbps |Sim |

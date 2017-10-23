@@ -14,15 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 4/12/2017
 ms.author: anuragm;markgal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc4172b27b93a49c613eb915252895e845b96892
 ms.openlocfilehash: 378c65bec8fd1f880ed459e76f5e4b5d85e49d2a
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/12/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="application-consistent-backup-of-azure-linux-vms-preview"></a>Backup consistente com o aplicativo de VMs Linux do Azure (versão prévia)
 
 Este artigo fala sobre a estrutura pré e pós-script do Linux e como ela pode ser usada para fazer backups consistentes com o aplicativo de VMs Linux do Azure.
@@ -87,11 +84,11 @@ Adicione os logs apropriados ao escrever seu pré-script e pós-script e examine
 
 | Erro | Mensagem de erro | Ação recomendada |
 | ------------------------ | -------------- | ------------------ |
-| Pre-ScriptExecutionFailed |O pré-script retornou um erro, portanto talvez o backup não seja consistente com o aplicativo.    | Examine os logs de falha do script para corrigir o problema.|  
-|    Post-ScriptExecutionFailed |    O pós-script retornou um erro que pode afetar o estado do aplicativo. |    Examine os logs de falha do script para corrigir o problema e verificar o estado do aplicativo. |
-| Pre-ScriptNotFound |    O pré-script não foi encontrado no local especificado no arquivo de configuração **VMSnapshotScriptPluginConfig.json**. |    Verifique se o pré-script está presente no caminho especificado no arquivo de configuração para garantir o backup consistente com o aplicativo.|
-| Post-ScriptNotFound |    O pós-script não foi encontrado no local especificado no arquivo de configuração **VMSnapshotScriptPluginConfig.json**. |    Verifique se o pós-script está presente no caminho especificado no arquivo de configuração para garantir o backup consistente com o aplicativo.|
-| IncorrectPluginhostFile |    O arquivo **Pluginhost**, que vem com a extensão VmSnapshotLinux, está corrompido, portanto, o pré-script e o pós-script não podem ser executados e o backup não será consistente com o aplicativo.    | Desinstale a extensão **VmSnapshotLinux** e ela será automaticamente instalada novamente com o próximo backup para corrigir o problema. |
+| Pre-ScriptExecutionFailed |O pré-script retornou um erro, portanto talvez o backup não seja consistente com o aplicativo.   | Examine os logs de falha do script para corrigir o problema.|  
+|   Post-ScriptExecutionFailed |    O pós-script retornou um erro que pode afetar o estado do aplicativo. |    Examine os logs de falha do script para corrigir o problema e verificar o estado do aplicativo. |
+| Pre-ScriptNotFound |  O pré-script não foi encontrado no local especificado no arquivo de configuração **VMSnapshotScriptPluginConfig.json**. |   Verifique se o pré-script está presente no caminho especificado no arquivo de configuração para garantir o backup consistente com o aplicativo.|
+| Post-ScriptNotFound | O pós-script não foi encontrado no local especificado no arquivo de configuração **VMSnapshotScriptPluginConfig.json**. |   Verifique se o pós-script está presente no caminho especificado no arquivo de configuração para garantir o backup consistente com o aplicativo.|
+| IncorrectPluginhostFile | O arquivo **Pluginhost**, que vem com a extensão VmSnapshotLinux, está corrompido, portanto, o pré-script e o pós-script não podem ser executados e o backup não será consistente com o aplicativo. | Desinstale a extensão **VmSnapshotLinux** e ela será automaticamente instalada novamente com o próximo backup para corrigir o problema. |
 | IncorrectJSONConfigFile | O arquivo **VMSnapshotScriptPluginConfig.json** está incorreto, portanto, o pré-script e pós-script não podem ser executados e o backup não será consistente com o aplicativo. | Baixe a cópia do [GitHub](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig) e configure-a novamente. |
 | InsufficientPermissionforPre-Script | Para executar scripts, o usuário "raiz" deve ser o proprietário do arquivo e o arquivo deve ter permissões "700" (ou seja, somente o proprietário deve ter permissões de "leitura", "gravação" e "execução"). | Verifique se o usuário "raiz" é o "proprietário" do arquivo de script e se somente o "proprietário" tem permissões de "leitura", "gravação" e "execução". |
 | InsufficientPermissionforPost-Script | Para executar scripts, o usuário raiz deve ser o proprietário do arquivo e o arquivo deve ter permissões "700" (ou seja, somente o proprietário deve ter permissões de "leitura", "gravação" e "execução"). | Verifique se o usuário "raiz" é o "proprietário" do arquivo de script e se somente o "proprietário" tem permissões de "leitura", "gravação" e "execução". |
@@ -100,4 +97,3 @@ Adicione os logs apropriados ao escrever seu pré-script e pós-script e examine
 
 ## <a name="next-steps"></a>Próximas etapas
 [Configurar o backup da VM para um cofre dos Serviços de Recuperação](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms)
-

@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 09/15/2017
 ms.author: genemi
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 0b8e6464ba5a895d1e961709139993f6adc30d7f
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-powershell-to-create-a-virtual-service-endpoint-and-rule-for-azure-sql-database"></a>Use o PowerShell para criar uma regra e um ponto de extremidade de Serviço virtual para o banco de dados SQL do Azure
 
@@ -497,7 +496,7 @@ Este é o fim do nosso script do PowerShell principal.
 
 ## <a name="verify-your-subnet-is-an-endpoint"></a>Verificar se sua sub-rede é um ponto de extremidade
 
-Você pode ter uma sub-rede que já foi atribuída ao nome de tipo **Microsoft.Sql**, o que significa que já é um ponto de extremidade do Serviço virtual. Você pode usar o [portal do Azure] [ http-azure-portal-link-ref-477t] para criar uma regra de rede virtual do ponto de extremidade.
+Você pode ter uma sub-rede que já foi atribuída ao nome de tipo **Microsoft.Sql**, o que significa que já é um ponto de extremidade do Serviço virtual. Você pode usar o [portal do Azure][http-azure-portal-link-ref-477t] para criar uma regra de rede virtual do ponto de extremidade.
 
 Ou, talvez você não tenha certeza se a sua sub-rede tem o nome do tipo **Microsoft.Sql**. É possível executar o seguinte script do PowerShell para executar estas ações:
 
@@ -647,5 +646,4 @@ Good: Subnet found, and is already tagged as an endpoint of type 'Microsoft.Sql'
 [sql-db-vnet-service-endpoint-rule-overview-735r]: sql-database-vnet-service-endpoint-rule-overview.md
 
 [http-azure-portal-link-ref-477t]: https://portal.azure.com/
-
 

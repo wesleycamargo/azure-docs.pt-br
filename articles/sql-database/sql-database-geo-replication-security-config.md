@@ -15,13 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 10/13/2016
 ms.author: sashan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: de5e1732dab570b80692efcdd08e4ed2d8c98800
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/18/2017
-
-
+ms.openlocfilehash: 48b35f761273c68b03af1fc5e977bb99455a01e0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-and-manage-azure-sql-database-security-for-geo-restore-or-failover"></a>Configurar e gerenciar a segurança do Banco de Dados SQL para restauração geográfica ou failover 
 
@@ -104,5 +102,4 @@ A última etapa é acessar o servidor de destino, ou servidores, e gerar os logo
 * Para saber mais sobre usuários de bancos de dados independentes, confira [Usuários de bancos de dados independentes - Tornando seu banco de dados portátil](https://msdn.microsoft.com/library/ff929188.aspx).
 * Para saber como usar e configurar a replicação geográfica ativa, confira [replicação geográfica ativa](sql-database-geo-replication-overview.md)
 * Para obter informações sobre como usar a restauração geográfica, confira [restauração geográfica](sql-database-recovery-using-backups.md#geo-restore)
-
 

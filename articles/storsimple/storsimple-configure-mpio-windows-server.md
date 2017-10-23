@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/03/2017
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
 ms.openlocfilehash: 77f06b6ef146bdea8dc2f6cb920979e827626e35
-ms.lasthandoff: 04/06/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-multipath-io-for-your-storsimple-device"></a>Configurar o MPIO (Multipath I/O) para seu dispositivo StorSimple
 A Microsoft criou o suporte para o recurso MPIO (Multipath I/O) no Windows Server para ajudar a criar configurações de rede SAN altamente disponíveis e tolerantes a falhas. O MPIO usa componentes redundantes do caminho físico — adaptadores, cabos e comutadores — para criar caminhos lógicos entre o servidor e o dispositivo de armazenamento. Se houver uma falha de componente, fazendo com que um caminho lógico falha, a lógica de vários caminhos usará um caminho alternativo de E/S para que os aplicativos ainda possam acessar seus dados. Além disso, dependendo da configuração, o MPIO também pode melhorar o desempenho balanceando novamente a carga em todos esses caminhos. Para obter mais informações, consulte [Visão geral do MPIO](https://technet.microsoft.com/library/cc725907.aspx "Visão geral do MPIO and features").  
@@ -54,7 +53,7 @@ Para instalar esse recurso no host do Windows Server, conclua o procedimento a s
    
    * Na página **Antes de Começar**, clique em **Avançar**.
    * Na página **Selecionar tipo de instalação**, aceite a configuração padrão da instalação **Baseada em função ou recurso**. Clique em **Próximo**.![Adicionar Assistente de Funções e Recursos 2](./media/storsimple-configure-mpio-windows-server/IC740999.png)
-   * Na página **Selecionar servidor de destino**, escolha **Selecionar um servidor no pool de servidores**. O servidor host deve ser descoberto automaticamente. Clique em **Próximo**.
+   * Na página **Selecionar servidor de destino**, escolha **Selecionar um servidor no pool de servidores**. O servidor host deve ser descoberto automaticamente. Clique em **Avançar**.
    * Na página **Selecionar funções do servidor**, clique em **Avançar**.
    * Na página **Selecionar recursos**, marque **Multipath I/O** e clique em **Próximo**.![Adicionar Assistente de Funções e Recursos 5](./media/storsimple-configure-mpio-windows-server/IC741000.png)
    * Na página **Confirmar seleções da instalação**, confirme a seleção e selecione **Reiniciar o servidor de destino automaticamente se necessário**, conforme mostrado abaixo. Clique em **Instalar**.![Adicionar Assistente de Funções e Recursos 8](./media/storsimple-configure-mpio-windows-server/IC741001.png)
@@ -115,8 +114,7 @@ Depois do MPIO ser configurado no Windows Server, o(s) volume(s) criado(s) no di
 13. Inicialize o disco e crie um novo volume. Durante o processo de formato, selecione um tamanho de bloco de 64 KB.
     ![Gerenciamento de Disco](./media/storsimple-configure-mpio-windows-server/IC741008.png)
 14. Em **Gerenciamento de Disco**, clique com o botão direito do mouse em **Disco** e selecione **Propriedades**.
-15. No Modelo StorSimple ####, na caixa de diálogo **Propriedades do Dispositivo de Disco com Vários Caminhos**, clique na guia **MPIO**.
-    ![Prop do Dispositivo de Disco com Vários Caminhos do StorSimple 8100.](./media/storsimple-configure-mpio-windows-server/IC741009.png)
+15. No Modelo StorSimple ####, na caixa de diálogo **Propriedades do Dispositivo de Disco com Vários Caminhos**, clique na guia **MPIO**. ![Prop do Dispositivo de Disco com Vários Caminhos do StorSimple 8100.](./media/storsimple-configure-mpio-windows-server/IC741009.png)
 16. Na seção **Nome DSM**, clique em **Detalhes** e verifique se os parâmetros estão definidos para os parâmetros padrão. Os parâmetros padrão são:
     
     * Período de Verificação do Caminho = 30
@@ -169,5 +167,4 @@ O procedimento a seguir descreve como adicionar sessões quando um dispositivo S
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [usar o serviço StorSimple Manager para modificar a configuração do dispositivo StorSimple](storsimple-modify-device-config.md).
-
 

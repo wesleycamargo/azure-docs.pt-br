@@ -15,12 +15,11 @@ ums.workload: na
 ms.date: 08/29/2017
 ms.author: barclayn
 ms.custom: azlog
+ms.openlocfilehash: 9acce21d544a43adcd0c0983771c02c6bb39caec
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 46758e9aa8d95bb10d91c315c1d712ab8f607188
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-get-your-security-center-alerts-in-azure-log-integration"></a>Como obter os alertas da Central de segurança na integração de log do Azure
 
@@ -58,4 +57,3 @@ Para saber mais sobre a Integração do Log do Azure, consulte os seguintes docu
 * [Etapas de configuração de parceiro](https://blogs.msdn.microsoft.com/azuresecurity/2016/08/23/azure-log-siem-configuration-steps/) – esta postagem de blog mostra a você como configurar a integração de log do Azure para trabalhar com as soluções de parceiros Splunk, HP ArcSight e IBM QRadar.
 * [Perguntas frequentes sobre o log de integração do Azure](security-azure-log-integration-faq.md) – encontre as respostas para as perguntas frequentes sobre a integração de log do Azure.
 * [Novos recursos para o Diagnóstico do Azure e para os Logs de Auditoria do Azure](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/) – esta postagem de blog apresenta os Logs de Auditoria do Azure e outros recursos que ajudam você a obter ideias sobre as operações de seus recursos do Azure.
-

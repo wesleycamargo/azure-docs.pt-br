@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
 ms.openlocfilehash: 3c4b7ad16e6a03fb605447def18f7475d502fdd1
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/29/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="step-9-set-up-a-replication-policy-for-vmware-vm-replication-to-azure"></a>Etapa 9: configurar uma política de replicação para a replicação dd VM do VMware para o Azure
 
@@ -48,4 +46,3 @@ Obtenha uma rápida visão geral em vídeo antes de começar:
 ## <a name="next-steps"></a>Próximas etapas
 
 Vá para a [Etapa 10: instalar o Serviço de mobilidade](vmware-walkthrough-install-mobility.md)
-

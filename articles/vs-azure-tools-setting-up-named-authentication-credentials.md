@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 8/22/2017
 ms.author: kraigb
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 953b1aa459ddf5b7be00b9d32432e6dda97143e1
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="set-up-named-authentication-credentials"></a>Configurar credenciais de autenticação nomeadas
 Para publicar um aplicativo no Azure do Visual Studio ou para monitorar um serviço de nuvem existente, você deve fornecer credenciais que o Visual Studio pode usar para autenticar solicitações no Azure. Existem diversos lugares no Visual Studio nos quais você pode entrar para fornecer essas credenciais. Por exemplo, no Gerenciador de Servidores, você pode abrir o menu de atalho do nó do **Azure** e selecionar **Conectar-se à Assinatura do Microsoft Azure**. Quando você entra, as informações de assinatura associadas à sua conta do Azure estão disponíveis no Visual Studio. Você não precisa fazer mais nada.

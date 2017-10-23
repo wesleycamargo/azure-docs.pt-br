@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/02/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
 ms.openlocfilehash: ec67e96309a8877e6fb65b30da1501e4f34a9ee4
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/04/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-novatus"></a>Tutorial: Integração do Active Directory do Azure com o Novatus
 
@@ -234,5 +232,4 @@ Ao clicar no bloco Novatus no Painel de Acesso, você deverá ser conectado auto
 [201]: ./media/active-directory-saas-novatus-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-novatus-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-novatus-tutorial/tutorial_general_203.png
-
 

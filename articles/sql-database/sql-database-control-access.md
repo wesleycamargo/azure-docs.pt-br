@@ -16,12 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 02/06/2017
 ms.author: rickbyh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6adaf7026d455210db4d7ce6e7111d13c2b75374
 ms.openlocfilehash: 0ca1ccd273317d67537d31724d566625a4eb2c85
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/22/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-sql-database-access-control"></a>Controle de acesso do Banco de Dados SQL do Azure
 Para fornecer segurança, o Banco de Dados SQL controla o acesso com regras de firewall que limitam a conectividade por endereço IP,mecanismos de autenticação que exigem que usuários comprovem suas identidade e mecanismos de autorização que limitam os usuários a ações e dados específicos. 
@@ -68,4 +67,3 @@ Você deve estar familiarizado com os seguintes recursos que podem ser usados pa
 - Para saber mais sobre logons e usuários, veja [Gerenciar logons](sql-database-manage-logins.md). 
 - Para obter uma discussão sobre monitoramento proativo, confira [Auditoria do Banco de Dados](sql-database-auditing.md) e [Detecção de Ameaças do Banco de Dados SQL](sql-database-threat-detection.md).
 - Para obter um tutorial, consulte [Proteger o Banco de Dados SQL do Azure](sql-database-security-tutorial.md).
-

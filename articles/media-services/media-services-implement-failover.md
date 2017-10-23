@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a087df444c5c88ee1dbcf8eb18abf883549a9024
-ms.openlocfilehash: eaa87671a90ab6b090fb04f346ef551edba4d173
-ms.contentlocale: pt-br
-ms.lasthandoff: 03/15/2017
-
+ms.openlocfilehash: aed104c9c74606e0ad69fc2d0bfb2f38d85d795d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="implement-failover-streaming-with-azure-media-services"></a>Implementar streaming de failover com os Serviços de Mídia do Azure
 
@@ -948,5 +947,4 @@ Agora você pode usar um gerenciador de tráfego para rotear solicitações entr
 
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

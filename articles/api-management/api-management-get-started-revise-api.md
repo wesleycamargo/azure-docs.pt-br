@@ -11,14 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 08/18/2017
 ms.author: apimpm
-ms.translationtype: HT
-ms.sourcegitcommit: 212b163c49fdd133b0ed2d99b33035fcc391aec6
 ms.openlocfilehash: 0d67166a16ae4d640080ad83e7625e594b0dc246
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="make-non-breaking-changes-safely-using-revisions"></a>Fazer alterações sem interrupção com segurança usando as revisões
 Este tutorial descreve como fazer alterações em sua API com segurança e comunicar as alterações aos desenvolvedores.
 
@@ -37,7 +35,7 @@ Neste passo a passo, adicionamos uma nova revisão, adicionamos uma operação a
 3. Selecione **+ Adicionar Revisão**
 
     > [!TIP]
-    > Você também pode escolher **Adicionar Revisão** no menu de contexto (**... **) na API.
+    > Você também pode escolher **Adicionar Revisão** no menu de contexto (**...**) na API.
 ![Menu Revisões perto da parte superior da tela](media/api-management-getstarted-revise-api/TopMenu.PNG)
 
 4. Forneça uma descrição para a nova revisão, para ajudar você a se lembrar de sua função.

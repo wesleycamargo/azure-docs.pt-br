@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/02/2017
 ms.author: dekapur
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
-ms.openlocfilehash: 42b7ea3ec1efa6eb7f3ac31ecefa615c29f7d495
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/07/2017
-
+ms.openlocfilehash: 9c6035e97de38ff63ef074109afd9f3c7484f828
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-or-remove-nodes-to-a-standalone-service-fabric-cluster-running-on-windows-server"></a>Adicionar ou remover nós de um cluster do Service Fabric autônomo em execução no Windows Server
 Depois de ter [criado seu cluster autônomo do Service Fabric em computadores com Windows Server](service-fabric-cluster-creation-for-windows-server.md), suas necessidades de negócios podem mudar e você talvez precise adicionar ou remover nós do seu cluster. Este artigo fornece as etapas detalhadas para fazer isso. Observe que não há suporte para a funcionalidade de adicionar/remover nó em clusters de desenvolvimento local.
@@ -131,5 +130,4 @@ A substituição de nós primários deve ser realizada um nó após o outro, em 
 * [Definições de configuração para o cluster autônomo no Windows](service-fabric-cluster-manifest.md)
 * [Proteger um cluster autônomo no Windows usando os certificados X509](service-fabric-windows-cluster-x509-security.md)
 * [Criar um cluster do Service Fabric autônomo com VMs do Azure executando o Windows](service-fabric-cluster-creation-with-windows-azure-vms.md)
-
 

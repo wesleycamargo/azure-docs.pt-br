@@ -14,13 +14,11 @@ ms.tgt_pltfrm: Windows
 ms.workload: infrastructure-services
 ms.date: 05/09/2016
 ms.author: markscu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: b86f13f49c6390a90609bba9141564d2ac69246d
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: b302c6b3c6acbb8552796e7fb1bfd153d23dceb3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-matlab-distributed-computing-server-clusters-on-azure-vms"></a>Criar clusters de Servidor de Computação Distribuída MATLAB em VMs do Azure
 Use máquinas virtuais do Microsoft Azure para criar um ou mais clusters de Servidor de Computação Distribuída MATLAB para executar suas cargas de trabalho MATLAB paralelas de computação intensiva. Instale o software de Servidor de Computação Distribuída MATLAB em uma VM para usar como uma imagem de base e usar um modelo de início rápido do Azure ou um script do Azure PowerShell (disponível no [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/matlab-cluster)) para implantar e gerenciar o cluster. Após a implantação, conecte-se ao cluster para executar as cargas de trabalho.
@@ -74,4 +72,3 @@ Como com outros tipos de clusters de Servidor de Computação Distribuída MATLA
 ## <a name="next-steps"></a>Próximas etapas
 * Para obter instruções detalhadas implantar e gerenciar clusters de Servidor de Computação Distribuída MATLAB no Azure, consulte o repositório do [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/matlab-cluster) que contém os modelos e scripts.
 * Acesse o site da [MathWorks](http://www.mathworks.com/) para obter a documentação detalhada para MATLAB e Servidor de Computação Distribuída MATLAB.
-

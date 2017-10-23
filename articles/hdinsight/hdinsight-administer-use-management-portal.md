@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 05/25/2017
 ms.author: jgao
 ROBOTS: NOINDEX
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 3f1c7bb1795828899148a8ba8a0461a06947d40d
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-windows-based-hadoop-clusters-in-hdinsight-by-using-the-azure-portal"></a>Gerenciar clusters Hadoop baseados no Windows no HDInsight usando o Portal do Azure
 
@@ -136,8 +135,7 @@ Não há suporte para a instalação de software personalizado no cluster usando
    * **Tipo**: Hadoop, HBase, Storm, Spark.
    * **Versão**. Consulte [versões do HDInsight](hdinsight-component-versioning.md)
    * **Assinatura**: nome da assinatura.
-   * <seg>
-  **ID da assinatura**.</seg>
+   * **ID da assinatura**.
    * **Fonte de dados primária**. A conta de armazenamento de Blob do Azure usada como o sistema de arquivos Hadoop padrão.
    * **Faixa de preço dos nós de trabalho**.
    * **Faixa de preço do nó de cabeça**.
@@ -379,4 +377,3 @@ Neste artigo, você aprendeu como criar um cluster HDInsight usando o Portal e c
 
 [azure-portal]: https://portal.azure.com
 [image-hadoopcommandline]: ./media/hdinsight-administer-use-management-portal/hdinsight-hadoop-command-line.png "Linha de comando do Hadoop"
-

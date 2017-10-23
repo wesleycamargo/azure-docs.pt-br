@@ -15,13 +15,11 @@ ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
 ms.openlocfilehash: 00cb963e85111274c36c3a84489894811ad2dabd
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/25/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 ## <a name="test-your-code"></a>Testar seu código
 
@@ -84,5 +82,4 @@ GlobalFilters.Filters.Add(new AuthorizeAttribute());
 > Para permitir usuários apenas de uma lista de organizações específicas, defina `ValidateIssuer` como verdadeiro e use o parâmetro `ValidIssuers` para especificar uma lista de organizações.
 
 > Outra opção é implementar um método personalizado para validar os emissores usando o parâmetro IssuerValidator. Para saber mais sobre `TokenValidationParameters`, veja [este artigo do MSDN](https://msdn.microsoft.com/library/system.identitymodel.tokens.tokenvalidationparameters.aspx "TokenValidationParameters").
-
 

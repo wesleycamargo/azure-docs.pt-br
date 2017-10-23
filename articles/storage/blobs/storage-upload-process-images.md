@@ -14,14 +14,12 @@ ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: gwallace
 ms.custom: mvc
+ms.openlocfilehash: a204498016ff837c5247009eaaffbd4f79285d0b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: b0b043f0e30eec7a9456ef15b28b9c89fccf33df
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="upload-image-data-in-the-cloud-with-azure-storage"></a>Carregar dados de imagem na nuvem com o Armazenamento do Azure
 
 Este tutorial é a primeira parte de uma série. Este tutorial mostra como implantar um aplicativo Web que usa a Biblioteca de Clientes do Armazenamento do Azure para carregar imagens para uma conta de armazenamento. Ao terminar, você tem um aplicativo Web armazenando e exibindo imagens do Armazenamento do Azure.
@@ -46,18 +44,18 @@ Se você optar por instalar e usar a CLI localmente, este tutorial exigirá que 
 
 Crie um grupo de recursos com o comando [az group create](/cli/azure/group#create). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados.
  
-O seguinte exemplo cria um grupo de recursos chamado `myResourceGroup`.   
+O seguinte exemplo cria um grupo de recursos chamado `myResourceGroup`.
  
 ```azurecli-interactive 
 az group create --name myResourceGroup --location westcentralus 
 ``` 
 
-## <a name="create-an-azure-storage-account"></a>Criar uma conta de Armazenamento do Azure
+## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
  
 O exemplo carrega imagens em um contêiner de blob em uma conta de armazenamento do Azure. Uma conta de armazenamento fornece um namespace exclusivo para armazenar e acessar os objetos de dados do Armazenamento do Azure. Crie uma conta de armazenamento no grupo de recursos que você criou ao utilizar o comando [az storage account create](/cli/azure/storage/account#create). 
 
 > [!IMPORTANT] 
-> Na parte 2 do tutorial você usa assinaturas de evento para o armazenamento de blobs. As assinaturas de evento atualmente têm suporte apenas para contas de armazenamento de blobs no Centro-oeste dos EUA e Oeste dos EUA. Por causa dessa restrição, você deve criar uma conta de armazenamento de blobs que é usada pelo aplicativo de exemplo para armazenar imagens e miniaturas.   
+> Na parte 2 do tutorial você usa assinaturas de evento para o armazenamento de blobs. As assinaturas de evento atualmente têm suporte apenas para contas de armazenamento de blobs no Centro-oeste dos EUA e Oeste dos EUA 2. Por causa dessa restrição, você deve criar uma conta de armazenamento de blobs que é usada pelo aplicativo de exemplo para armazenar imagens e miniaturas.   
 
 No comando a seguir, substitua seu próprio nome global exclusivo da conta de armazenamento de blobs quando o espaço reservado `<blob_storage_account>` for exibido.  
 
@@ -67,7 +65,7 @@ az storage account create --name <blob_storage_account> \
 --sku Standard_LRS --kind blobstorage --access-tier hot 
 ``` 
  
-## <a name="create-blob-storage-containers"></a>Criar contêineres de armazenamento de blobs 
+## <a name="create-blob-storage-containers"></a>Criar contêineres de armazenamento de blobs
  
 O aplicativo usa dois contêineres na conta de armazenamento de blobs. Os contêineres são semelhantes às pastas e são usados para armazenar blobs. O contêiner de _imagens_ é onde o aplicativo carrega as imagens de alta resolução. Em uma parte posterior da série, um aplicativo de função do Azure carrega miniaturas de imagem redimensionada para o contêiner _miniaturas_. 
 
@@ -107,7 +105,7 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 
 ## <a name="create-a-web-app"></a>Criar um aplicativo Web 
 
-O aplicativo Web fornece um espaço de hospedagem para o código do aplicativo de exemplo que é implantado do repositório de exemplo do GitHub. Crie um [aplicativo Web](../../app-service-web/app-service-web-overview.md) no plano do Serviço de Aplicativo do `myAppServicePlan` com o comando [az webapp create](/cli/azure/webapp#create).  
+O aplicativo Web fornece um espaço de hospedagem para o código do aplicativo de exemplo que é implantado do repositório de exemplo do GitHub. Crie um [aplicativo Web](../../app-service/app-service-web-overview.md) no plano do Serviço de Aplicativo do `myAppServicePlan` com o comando [az webapp create](/cli/azure/webapp#create).  
  
 No comando a seguir, substitua `<web_app>` por um nome exclusivo (os caracteres válidos são `a-z`, `0-9` e `-`). Se `<web_app>` não for exclusivo, você receberá a mensagem de erro: _O site com o nome `<web_app>` fornecido já existe._ A URL padrão do aplicativo Web é `https://<web_app>.azurewebsites.net`.  
 
@@ -222,8 +220,7 @@ Na primeira parte da série, você aprendeu sobre como configurar um aplicativo 
 > * Implantar um aplicativo Web no Azure
 > * Interagir com o aplicativo Web
 
-Prossiga para a parte dois da série para saber mais sobre como usar a Grade de Eventos para disparar uma função do Azure para redimensionar uma imagem.  
+Prossiga para a parte dois da série para saber mais sobre como usar a Grade de Eventos para disparar uma função do Azure para redimensionar uma imagem.
 
 > [!div class="nextstepaction"]
 > [Usar a Grade de Eventos para disparar uma função do Azure para redimensionar uma imagem carregada](../../event-grid/resize-images-on-storage-blob-upload-event.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/11/2017
 ms.author: terrylan
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: 513c98237a322dabd6b2bf13443e8998ca843b1d
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-security-center-search"></a>Pesquisa da Central de Segurança do Azure
 A Central de Segurança do Azure usa a [pesquisa do Log Analytics](../log-analytics/log-analytics-log-searches.md) para recuperar e analisar seus dados de segurança. O Log Analytics inclui uma linguagem de consulta para recuperar e consolidar dados rapidamente. Na Central de Segurança, você pode aproveitar a pesquisa do Log Analytics para construir consultas e analisar os dados coletados.
@@ -54,17 +53,16 @@ Confira [Linguagem de consulta do Log Analytics](../log-analytics/log-analytics-
 ## <a name="next-steps"></a>Próximas etapas
 Neste artigo, você aprendeu a acessar a pesquisa na Central de Segurança. A Central de Segurança usa a pesquisa do Log Analytics. Para saber mais sobre a pesquisa do Log Analytics, confira:
 
-- [O que é o Log Analytics?](../log-analytics/log-analytics-overview.md) – Visão geral do Log Analytics
+- [O que é o Log Analytics?](../log-analytics/log-analytics-overview.md) – Visão geral sobre o Log Analytics
 - [Compreender as pesquisas de logs no Log Analytics](../log-analytics/log-analytics-log-search-new.md) - descreve como as pesquisas de logs são utilizadas no Log Analytics e fornece conceitos que deverão ser compreendidos antes de criar uma pesquisa de log
 - [Localizar dados usando as pesquisas de logs no Log Analytics](../log-analytics/log-analytics-log-searches.md) – tutorial sobre como usar a pesquisa de log
 - [Referência de pesquisa do Log Analytics](../log-analytics/log-analytics-search-reference.md) – descreve a linguagem de consulta no Log Analytics
 
 Para saber mais sobre a Central de Segurança, confira:
 
-- [Visão geral da Central de Segurança](security-center-intro.md) – descreve as principais funcionalidades da Central de Segurança
+- [Visão geral da Central de Segurança](security-center-intro.md) – Descreve as principais funcionalidades da Central de Segurança
 
 <!--Image references-->
 [1]: ./media/security-center-search/search.png
 [2]: ./media/security-center-search/workspace-selector.png
 [3]: ./media/security-center-search/log-search.png
-

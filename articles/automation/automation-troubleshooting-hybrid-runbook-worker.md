@@ -3,7 +3,7 @@ title: "Solução de Problemas do Hybrid Runbook Workers da Automação do Azure
 description: "Descreve os sintomas, causas e solução dos problemas mais comuns do Hybrid Runbook Worker na Automação do Azure."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: jwhit
 editor: tysonn
 ms.assetid: 02c6606e-8924-4328-a196-45630c2255e9
@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: magoedte
+ms.openlocfilehash: 1a72fcf2493396b4744a49b01f3c6da8eed0de40
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
-ms.openlocfilehash: 9d1ceda5a072f494651a751a25a8ccf66e4c72ef
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/28/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshooting-tips-for-hybrid-runbook-worker"></a>Dicas de solução de problemas para o Hybrid Runbook Worker
 
 Este artigo fornece ajuda para solucionar erros que podem ser encontrados no Hybrid Runbook Worker da Automação do Azure e sugere possíveis soluções para resolvê-los.

@@ -15,18 +15,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/04/2017
 ms.author: haining;garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f4e53fa46a6b7f8811e4fee67b1466786b81cdc9
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-diagram-of-azure-machine-learning-studio-capabilities"></a>Diagrama de visão geral dos recursos do Estúdio do Azure Machine Learning
 O diagrama **Visão geral dos recursos do Microsoft Azure Machine Learning Studio** fornece uma visão geral de alto nível sobre como você pode usar o Machine Learning para desenvolver o modelo da análise preditiva na nuvem do Azure.
 
-
-            [Azure Machine Learning Studio](https://studio.azureml.net/) tem disponível um grande número de algoritmos de aprendizado de máquina, juntamente com os módulos que ajudam com dados de entrada, saída, preparação e visualização. Usando esses componentes você pode desenvolver uma experiência de análise preditiva, itere sobre ela e usá-la para treinar o modelo.
+[Azure Machine Learning Studio](https://studio.azureml.net/) tem disponível um grande número de algoritmos de aprendizado de máquina, juntamente com os módulos que ajudam com dados de entrada, saída, preparação e visualização. Usando esses componentes você pode desenvolver uma experiência de análise preditiva, itere sobre ela e usá-la para treinar o modelo.
 Em seguida, com um clique você pode colocar em operação o seu modelo na nuvem do Azure para que ele possa ser usado para pontuar novos dados.
 
 Este diagrama demonstra como todas essas peças se encaixam.
@@ -52,5 +50,4 @@ Baixe o diagrama de **Visão geral de recursos do Microsoft Azure Machine Learni
 * Para obter uma discussão detalhada sobre a algoritmos disponíveis no Machine Learning Studio, consulte [Como escolher algoritmos para o Microsoft Azure Machine Learning](algorithm-choice.md).
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
-
 

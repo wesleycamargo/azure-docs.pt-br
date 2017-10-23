@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2017
 ms.author: sethm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e7da3c6d4cfad588e8cc6850143112989ff3e481
-ms.openlocfilehash: 0cf21ea9a820de0396b54dd26a625a046de39291
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/16/2017
-
+ms.openlocfilehash: 88851ed3ee5757f1ba635683fc00a5dde8b3b846
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="service-bus-messaging-samples"></a>Exemplos de mensagens do Barramento de Serviço
 
@@ -44,5 +43,4 @@ Confira os tópicos a seguir para obter visões gerais conceituais do Barramento
 * [Visão geral de mensagens do Barramento de Serviço](service-bus-messaging-overview.md)
 * [Arquitetura do Barramento de Serviço](service-bus-architecture.md)
 * [Conceitos fundamentais do barramento de serviço](service-bus-fundamentals-hybrid-solutions.md)
-
 

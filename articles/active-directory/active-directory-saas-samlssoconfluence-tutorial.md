@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5edc47e03ca9319ba2e3285600703d759963e1f3
 ms.openlocfilehash: 9a36d686ba39b5168860a20e8c4db357888df6a7
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-confluence-by-resolution-gmbh"></a>Tutorial: Integração do Azure Active Directory com o SSO do SAML para Confluence da Resolution GmbH
 
@@ -133,7 +131,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 6. Clique no botão **Salvar** .
 
-    ![Configurar Logon Único](./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_general_400.png)    
+    ![Configurar Logon Único](./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_general_400.png)  
     
 7. Em uma janela diferente do navegador da Web, faça logon no **portal do administrador do SSO do SAML para Confluence da Resolution GmbH** como administrador.
 
@@ -159,7 +157,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurar Logon Único](./media/active-directory-saas-samlssoconfluence-tutorial/addon9.png)
 
-13.    Clique em **Gerenciar**.
+13. Clique em **Gerenciar**.
 
     ![Configurar Logon Único](./media/active-directory-saas-samlssoconfluence-tutorial/addon10.png)
     
@@ -187,7 +185,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     d. Clique no botão **Carregar**.
 
-    e. Ele lê os metadados IdP e preenche os campos conforme destacado na captura de tela.    
+    e. Ele lê os metadados IdP e preenche os campos conforme destacado na captura de tela. 
 18. Clique no botão **Salvar Configurações** para salvar as configurações.
 
     ![Configurar Logon Único](./media/active-directory-saas-samlssoconfluence-tutorial/addon6.png)
@@ -312,5 +310,4 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 [201]: ./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-samlssoconfluence-tutorial/tutorial_general_203.png
-
 

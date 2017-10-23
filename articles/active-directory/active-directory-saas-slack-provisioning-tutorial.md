@@ -15,14 +15,12 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: asmalser-msft
 ms.reviewer: asmalser
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3c339de98250f43c71f7dd9706888c6715ca2ef
-ms.openlocfilehash: e39f2202e83cdf66b85f1cc02a9320ec9e31472e
-ms.contentlocale: pt-br
-ms.lasthandoff: 02/08/2017
-
+ms.openlocfilehash: 3cb49a4abb26c34a938c963c4cf326b5ccd490de
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="tutorial-configuring-slack-for-automatic-user-provisioning"></a>Tutorial: Configurar o Slack para provisionamento automático de usuário
 
 
@@ -116,4 +114,3 @@ Isso resulta na sincronização total de qualquer objeto de grupo atribuído ao 
 
 * [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](active-directory-enterprise-apps-manage-provisioning.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-

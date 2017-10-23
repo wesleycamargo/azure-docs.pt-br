@@ -14,15 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: 21c42a747a08c5386c65d10190baf0054a7adef8
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/26/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-oms-management-solution-preview"></a>Adicionando alertas e pesquisas salvas do Log Analytics à solução de gerenciamento do OMS (Versão prévia)
 
 > [!NOTE]
@@ -511,5 +508,4 @@ O arquivo de parâmetro a seguir fornece valores de amostras para esta solução
 ## <a name="next-steps"></a>Próximas etapas
 * [Adicionar exibições](operations-management-suite-solutions-resources-views.md) à sua solução de gerenciamento.
 * [Adicionar runbooks de automação e outros recursos](operations-management-suite-solutions-resources-automation.md) à sua solução de gerenciamento.
-
 

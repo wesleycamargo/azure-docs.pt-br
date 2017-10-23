@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/11/2016
 ms.author: v-sharos
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
 ms.openlocfilehash: 31ed9dad8ba56a3746873b7b35e678e97743fbfe
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-manager-service-to-manage-volumes"></a>Usar o serviço StorSimple Manager para gerenciar volumes
 [!INCLUDE [storsimple-version-selector-manage-volumes](../../includes/storsimple-version-selector-manage-volumes.md)]
@@ -179,5 +177,4 @@ Execute as seguintes etapas para habilitar ou desabilitar o monitoramento para u
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba como [Clonar um volume StorSimple](storsimple-clone-volume.md).
 * Saiba como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
-
 

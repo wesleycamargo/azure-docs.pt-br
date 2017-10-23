@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2017
 ms.author: saurabh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
 ms.openlocfilehash: 4001ca908ff00b1a40829d687589080e9b07b18a
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/02/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-cloud-services-using-application-insights"></a>Solucionar problemas de Serviços de Nuvem usando o Application Insights
 Com o [Azure SDK 2.8](https://azure.microsoft.com/downloads/) e a extensão de diagnóstico do Azure 1.5, você pode enviar seus dados do Diagnóstico do Azure para seu serviço de nuvem diretamente para o Application Insights. Os logs coletados pelo Diagnóstico do Azure&mdash;incluindo logs de aplicativo, Logs de Eventos do Windows, Logs do ETW e contadores de desempenho&mdash;podem ser enviados ao Application Insights. Em seguida, você pode visualizar essas informações na interface do usuário do portal do Application Insights. Então, você pode usar o SDK do Application Insights para obter informações sobre as métricas e os logs que vêm do seu aplicativo, bem sobre dados em nível de sistema e infraestrutura que vêm do Diagnóstico do Azure.
@@ -81,4 +79,3 @@ Para exibir dados de diagnóstico do Azure no Application Insights, siga um dest
 [4]: ./media/cloud-services-dotnet-diagnostics-applicationinsights/role-designer-appinsights-serviceconfig.png
 [5]: ./media/cloud-services-dotnet-diagnostics-applicationinsights/metrics-explorer-custom-metrics.png
 [6]: ./media/cloud-services-dotnet-diagnostics-applicationinsights/search-windowseventlog-error.png
-

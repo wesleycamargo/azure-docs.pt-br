@@ -15,12 +15,11 @@ ms.workload: na
 ms.date: 08/24/2017
 ms.author: barclayn
 ms.custom: 
+ms.openlocfilehash: 3a941389713a4d3dbffbbfe8a717409927d85c6d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
-ms.openlocfilehash: 8738ffc13734437f4c61cf7be76590e5d73adf42
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/28/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="protect-personal-data-from-breaches-and-attacks-azure-security-center"></a>Proteger dados pessoais contra violações e ataques: Central de Segurança do Azure
 
@@ -207,4 +206,3 @@ Para obter mais instruções sobre como implementar uma solução de avaliação
 - [Integrando alertas da Central de Segurança do Azure com a integração de logs do Azure](https://docs.microsoft.com/azure/security-center/security-center-integrating-alerts-with-log-integration)
 
 - [Melhorar a Central de Segurança do Azure com a avaliação de vulnerabilidade integrada](https://blogs.msdn.microsoft.com/azuresecurity/2016/12/16/boost-azure-security-center-with-integrated-vulnerability-assessment/)
-

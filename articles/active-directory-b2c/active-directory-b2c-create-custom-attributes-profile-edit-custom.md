@@ -14,12 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: joroja
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: f3e4eb6fedf850dbb827fd2a10593249d2f17ef1
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-active-directory-b2c-creating-and-using-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C: Como criar e usar atributos personalizados em uma política e edição de perfil personalizado
 
@@ -299,4 +298,3 @@ extension_<app-guid>_ActivationStatus via the Graph API.
 
 >[!NOTE]
 >Atributos de extensão na API do Graph são nomeados usando a convenção `extension_ApplicationObjectID_attributename`. Políticas personalizadas se referem aos atributos de extensões como extension_attributename, omitindo o ApplicationObjectId no XML
-

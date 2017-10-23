@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/01/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
 ms.openlocfilehash: 8babb0d016729f318442af93596d206c38d91206
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/02/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="step-6-run-a-test-failover-for-azure-vm-replication"></a>Etapa 6: executar um failover de teste para replicação de VM do Azure
 
 Após habilitar a replicação para VMs (máquinas virtuais) do Azure, siga as etapas neste artigo para executar o failover de teste de uma região do Azure para outra, utilizando o serviço do [Azure Site Recovery](site-recovery-overview.md) no portal do Azure.
@@ -66,5 +64,4 @@ Depois de testar o failover, esse passo a passo estará concluído. Agora, saiba
 - Saiba mais sobre a falha em várias VMs[utilizando um plano de recuperação](site-recovery-create-recovery-plans.md).
 - Saiba mais sobre [utilizar planos de recuperação](site-recovery-create-recovery-plans.md).
 - Saiba mais sobre [proteger novamente as VMs do Azure](site-recovery-how-to-reprotect.md) após o failover.
-
 

@@ -1,4 +1,4 @@
----   
+---
 title: "Visão geral da política SSL para o Gateway de Aplicativo do Azure | Microsoft Docs"
 description: "Saiba mais sobre como o Gateway de Aplicativo do Azure permite que você configure a política SSL"
 services: application gateway
@@ -14,15 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure services
 ms.date: 08/03/2017
 ms.author: amsriva
-ms.translationtype: HT
-ms.sourcegitcommit: 4eb426b14ec72aaa79268840f23a39b15fee8982
 ms.openlocfilehash: ec36af282bbfdc22ff88082412dd18cd2a85f245
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-   
-
 # <a name="application-gateway-ssl-policy-overview"></a>Visão geral da política SSL do Gateway de Aplicativo
 
 É possível usar o Gateway de Aplicativo do Azure para centralizar o gerenciamento de certificados SSL e reduzir a sobrecarga de criptografia e descriptografia de um farm de servidores de back-end. Esse tratamento SSL centralizado também permite que você especifique uma política SSL central adequada aos seus requisitos de segurança organizacional. Isso ajuda a atender aos requisitos de conformidade, bem como às diretrizes de segurança e às práticas recomendadas.
@@ -107,4 +104,3 @@ O Gateway de Aplicativo dá suporte aos seguintes conjuntos de criptografia dos 
 ## <a name="next-steps"></a>Próximas etapas
 
 Se desejar aprender a configurar uma política SSL, confira [Configurar política SSL em um gateway de aplicativo](application-gateway-configure-ssl-policy-powershell.md).
-

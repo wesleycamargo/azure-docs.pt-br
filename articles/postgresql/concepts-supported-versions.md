@@ -9,12 +9,11 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 07/06/2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.openlocfilehash: 12744ae66a22b16339f9a1549a4d2d25b545c29b
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/08/2017
-
+ms.openlocfilehash: cdc8f570c66630e210efa3163f8ee419337df3a1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="supported-postgresql-database-versions"></a>Versões de banco de dados PostgreSQL com suporte
 No momento, o Banco de Dados do Azure para PostgreSQL oferece suporte às seguintes versões:
@@ -30,4 +29,3 @@ O Banco de Dados do Azure para PostgreSQL gerencia automaticamente a aplicação
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre o suporte a extensões PostgreSQL diferentes, veja [Extensões do PostgreSQL](concepts-extensions.md)
-

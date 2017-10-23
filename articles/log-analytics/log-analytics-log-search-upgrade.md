@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2017
 ms.author: magoedte;bwren
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: 4a3ee3c4d1fa9b626a51f24997603adceed8311f
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="upgrade-your-azure-log-analytics-workspace-to-new-log-search"></a>Atualizar seu espaço de trabalho do Azure Log Analytics para uma nova pesquisa de logs
 
 > [!NOTE]
@@ -84,4 +82,3 @@ Basta digitar sua consulta herdada e, em seguida, clique em **Converter** para v
 - Confira um [tutorial sobre a nova linguagem](https://go.microsoft.com/fwlink/?linkid=856078).
 - Percorra um [tutorial sobre como usar o portal de Pesquisa de Logs](log-analytics-log-search-log-search-portal.md) com a nova linguagem de consulta.
 - Obtenha uma introdução ao novo [portal Análise Avançada](https://go.microsoft.com/fwlink/?linkid=856587).
-

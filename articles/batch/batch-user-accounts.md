@@ -14,14 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: tamram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
 ms.openlocfilehash: d408c0565c0ed81fc97cc2b3976a4fc233e31302
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="run-tasks-under-user-accounts-in-batch"></a>Executar tarefas em contas de usuário no Lote
 
 Uma tarefa no Lote do Azure sempre é executada em uma conta de usuário. Por padrão, as tarefas são executadas em contas de usuário padrão, sem permissões de administrador. Essas configurações da conta de usuário padrão normalmente são suficientes. No entanto, para determinados cenários, é útil ser capaz de configurar a conta de usuário sob a qual você deseja executar uma tarefa. Este artigo descreve os tipos de conta de usuário e como configurá-los para seu cenário.

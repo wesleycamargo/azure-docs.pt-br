@@ -15,14 +15,12 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 12/19/2016
 ms.author: LADocs; klam
-ms.translationtype: HT
-ms.sourcegitcommit: 9633e79929329470c2def2b1d06d95994ab66e38
 ms.openlocfilehash: a5bf24de1a7a2b6d4c1ae6416c95d83ef7506da3
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/04/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-your-logic-apps-with-visual-studio-cloud-explorer"></a>Gerenciar os aplicativos lógicos com o Visual Studio Cloud Explorer
 
 Embora o [Portal do Azure](https://portal.azure.com/) ofereça uma excelente maneira para criar e gerenciar Aplicativo Lógico do Azure, é possível usar o Visual Studio Cloud Explorer para gerenciar vários ativos do Azure, incluindo aplicativos lógicos. O Visual Studio Cloud Explorer lhe permite procurar, gerenciar, editar e baixar aplicativos lógicos publicados. As tarefas de gerenciamento incluem habilitar, desabilitar e visualizar o histórico de execução. 
@@ -92,4 +90,3 @@ Para mostrar o histórico de execução de uma instância para poder ver os resu
 * [Veja exemplos e cenários comuns](logic-apps-examples-and-scenarios.md)
 * [Vídeo: Automatizar processos de negócios com os Aplicativos Lógicos do Azure](http://channel9.msdn.com/Events/Build/2016/T694)
 * [Vídeo: integrar seus sistemas com os Aplicativos Lógicos do Azure](http://channel9.msdn.com/Events/Build/2016/P462)
-

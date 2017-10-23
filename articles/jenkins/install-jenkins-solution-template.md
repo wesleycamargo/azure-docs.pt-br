@@ -10,14 +10,12 @@ ms.topic: hero-article
 ms.date: 08/21/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: 7bb74f297d52fb25171817175cce64187b397c38
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-jenkins-server-on-an-azure-linux-vm-from-the-azure-portal"></a>Criar um servidor Jenkins em uma VM Linux do Azure no portal do Azure
 
 Este guia de início rápido mostra como instalar o [Jenkins](https://jenkins.io) em uma VM Linux Ubuntu com as ferramentas e os plug-ins configurados para funcionar com o Azure. Ao concluir, você terá um servidor Jenkins em execução no Azure criando um aplicativo Java de exemplo do [GitHub](https://github.com).
@@ -59,7 +57,7 @@ Navegue até sua máquina virtual (por exemplo, http://jenkins2517454.eastus.clo
 
 ![Desbloquear Jenkins](./media/install-jenkins-solution-template/jenkins-ssh-instructions.png)
 
-Configure o túnel usando o comando `ssh` na página a partir da linha de comando, substituindo `username` pelo nome do usuário administrador da máquina virtual escolhido anteriormente ao configurar a máquina virtual no modelo de solução.
+Configure o túnel usando o comando `ssh` na página a partir da linha de comando, substituindo `username` pelo nome do usuário administrador da máquina virtual escolhido anteriormente durante a configuração da máquina virtual no modelo de solução.
 
 ```bash
 ssh -L 127.0.0.1:8080:localhost:8080 jenkinsadmin@jenkins2517454.eastus.cloudapp.azure.com
@@ -67,7 +65,7 @@ ssh -L 127.0.0.1:8080:localhost:8080 jenkinsadmin@jenkins2517454.eastus.cloudapp
 
 Depois de iniciar o túnel, navegue para http://localhost:8080/ em seu computador local. 
 
-Obtenha a senha inicial executando o seguinte comando na linha de comando durante a conexão por meio de SSH à VM Jenkins.
+Obtenha a senha inicial executando o comando abaixo na linha de comando, enquanto estiver conectado à VM Jenkins por meio do SSH.
 
 ```bash
 `sudo cat /var/lib/jenkins/secrets/initialAdminPassword`.
@@ -105,7 +103,7 @@ Selecione **Avançado** e digite `complete` no campo **Script da Compilação da
 
 Selecione **Criar agora** para compilar o código e empacotar o aplicativo de exemplo. Quando a compilação for concluída, selecione o link **Espaço de Trabalho** para o projeto.
 
-![Navegue até o espaço de trabalho para obter o arquivo JAR da build](./media/install-jenkins-solution-template/jenkins-access-workspace.png) 
+![Navegue até o espaço de trabalho para obter o arquivo JAR da compilação](./media/install-jenkins-solution-template/jenkins-access-workspace.png) 
 
 Navegue até `complete/build/libs` e verifique se o `gs-spring-boot-0.1.0.jar` está disponível a fim de verificar se a compilação foi bem-sucedida. O servidor Jenkins agora está pronto para criar seus próprios projetos no Azure.
 
@@ -113,4 +111,3 @@ Navegue até `complete/build/libs` e verifique se o `gs-spring-boot-0.1.0.jar` e
 
 > [!div class="nextstepaction"]
 > [Adicionar VMs do Azure como agentes do Jenkins](jenkins-azure-vm-agents.md)
-

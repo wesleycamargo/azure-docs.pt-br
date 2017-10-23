@@ -12,14 +12,12 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: c99279413b50e7bf1e6058a4151890e3a8f83892
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Configurar um dispositivo para provisionar usando o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure
 
 No tutorial anterior, você aprendeu como configurar o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure para provisionar automaticamente os dispositivos para o Hub IoT. Este tutorial fornece diretrizes para configurar seu dispositivo durante o processo de fabricação, de modo que você possa configurar o Serviço de Provisionamento de Dispositivos para seu dispositivo com base no respectivo [HSM (módulo de segurança de hardware)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security) e o dispositivo possa se conectar ao Serviço de Provisionamento de Dispositivos quando ele for inicializado pela primeira vez. Este tutorial aborda os processos para:
@@ -52,7 +50,7 @@ Como um fabricante de dispositivos, você precisa selecionar chips/módulos de s
 
 O SDK de cliente do Serviço de Provisionamento de Dispositivos ajuda a implementar o mecanismo de segurança selecionado no software. As etapas a seguir mostram como usar o SDK para o chip do HSM selecionado:
 
-1. Se você seguiu o [Guia de início rápido para criar dispositivo simulado](./quick-create-simulated-device.md), você tem a configuração pronta para compilar o SDK. Caso contrário, siga as quatro primeiras etapas na seção intitulada [Preparar o ambiente de desenvolvimento](./quick-create-simulated-device.md#setupdevbox). Essas etapas clonam o repositório GitHub para o SDK do cliente do Serviço de Provisionamento de Dispositivos, bem como instalam a ferramenta de build `cmake`. 
+1. Se você seguiu o [Guia de início rápido para criar dispositivo simulado](./quick-create-simulated-device.md), você tem a configuração pronta para compilar o SDK. Caso contrário, siga as quatro primeiras etapas da seção intitulada [Preparar o ambiente de desenvolvimento](./quick-create-simulated-device.md#setupdevbox). Essas etapas clonam o repositório GitHub para o SDK do cliente do Serviço de Provisionamento de Dispositivos, bem como instalam a ferramenta de build `cmake`. 
 
 1. Compile o SDK para o tipo de HSM que você selecionou para seu dispositivo, usando um dos seguintes comandos no prompt de comando:
     - Para dispositivos TPM:
@@ -91,7 +89,7 @@ Depois que a biblioteca for compilada com êxito por conta própria, você pode 
     ```cmd/sh
     cmake -Ddps_auth_type=<custom_hsm> -Ddps_hsm_custom_repo=<github_repo_name> -Ddps_hsm_custom_lib=<path_and_name_of library> <PATH_TO_AZURE_IOT_SDK>
     ```
-   Substitua o `<custom_hsm>` nesse comando com um `tpm` ou `x509`. Esse comando cria um marcador para seu repositório HSM personalizado dentro do diretório `cmake`. Observe que o HSM personalizado ainda deve ser baseado nos mecanismos de segurança do TPM ou X.509.
+   Substitua `<custom_hsm>` nesse comando por `tpm` ou `x509`. Esse comando cria um marcador para seu repositório HSM personalizado dentro do diretório `cmake`. Observe que o HSM personalizado ainda deve ser baseado nos mecanismos de segurança do TPM ou X.509.
 
 1. Abra o SDK no visual studio e compile-o. 
 
@@ -186,5 +184,4 @@ Avance para o próximo tutorial para aprender a provisionar o dispositivo para o
 
 > [!div class="nextstepaction"]
 > [Provisionar o dispositivo para o Hub IoT](tutorial-provision-device-to-hub.md)
-
 

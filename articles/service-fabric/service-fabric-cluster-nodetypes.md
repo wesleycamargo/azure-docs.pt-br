@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/05/2017
 ms.author: chackdan
+ms.openlocfilehash: 2bd3053d645d9acd4850fddf7f27237ff954e8c7
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: 6cc3be57ed283cafa686d46d4b376c69f06301ea
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Tipos de nó do Service Fabric e os conjuntos de dimensionamento da máquina virtual
 Conjuntos de dimensionamento de máquinas virtuais são um recurso de computação do Azure. Você pode usar os conjuntos de dimensionamento para implantar e gerenciar uma coleção de máquinas virtuais como um conjunto. Defina um conjunto de dimensionamento separado para cada tipo de nó que você define em um cluster do Azure Service Fabric. Cada tipo de nó pode ser escalada verticalmente ou horizontalmente de forma independente, tem conjuntos diferentes de portas abertas e pode ter métricas de capacidade diferentes.
@@ -150,4 +149,3 @@ Para alterar a senha para todos os nós de um tipo de nó específico, siga as s
 [LBBlade]: ./media/service-fabric-cluster-nodetypes/LBBlade.png
 [NATRules]: ./media/service-fabric-cluster-nodetypes/NATRules.png
 [RDP]: ./media/service-fabric-cluster-nodetypes/RDP.png
-

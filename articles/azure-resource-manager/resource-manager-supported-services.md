@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: tomfitz
-ms.translationtype: HT
-ms.sourcegitcommit: a678700884b612cad6281eb8f3b74ce63a0ebb69
 ms.openlocfilehash: 6a9128f45d4199404019cee594842d59c7f1aaf3
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="resource-providers-and-types"></a>Provedores e tipos de recursos
 
 Ao implantar recursos, com frequência você precisa recuperar informações sobre os provedores e tipos de recursos. Neste artigo, você aprende a:
@@ -293,5 +291,4 @@ A versão disponível da API corresponde a uma versão das operações da API RE
 * Para saber mais sobre a criação de modelos do Gerenciador de Recursos, confira [Criando modelos do Gerenciador de Recursos do Azure](resource-group-authoring-templates.md).
 * Para saber mais sobre como implantar recursos, confira [Implantar um aplicativo com o modelo do Gerenciador de Recursos do Azure](resource-group-template-deploy.md).
 * Para exibir as operações para um provedor de recursos, consulte [API REST do Azure](/rest/api/).
-
 

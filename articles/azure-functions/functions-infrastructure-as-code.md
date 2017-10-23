@@ -3,7 +3,7 @@ title: "Automatizar a implantação de recursos para um aplicativo de funções 
 description: "Aprenda a criar um modelo do Azure Resource Manager que implanta o aplicativo de funções."
 services: Functions
 documtationcenter: na
-author: lindydonna
+author: ggailey777
 manager: cfowler
 editor: 
 tags: 

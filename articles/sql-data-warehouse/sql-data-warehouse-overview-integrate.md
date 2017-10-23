@@ -15,20 +15,18 @@ ms.workload: data-services
 ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: martinle;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: d1cd23eac464d48ebc6dd618c52c252444b47e21
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/03/2017
-
-
+ms.openlocfilehash: d407c29f99fd7537590ec787febd84a9e3f4f353
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="leverage-other-services-with-sql-data-warehouse"></a>Aproveitar outros serviços com o SQL Data Warehouse
 Além de suas funcionalidades principais, o SQL Data Warehouse permite aos usuários aproveitar muitos dos outros serviços no Azure juntamente com ele.  Especificamente, atualmente tomamos medidas para maior integração com o seguinte:
 
 * Power BI
 * Fábrica de dados do Azure
-* Aprendizado de Máquina do Azure
+* Azure Machine Learning
 * Stream Analytics do Azure
 
 Estamos trabalhando para nos conectar com mais serviços em todo o ecossistema do Azure.
@@ -49,8 +47,8 @@ O Azure Data Factory oferece aos usuários uma plataforma gerenciada ao criar pi
 
 Confira [Integrar com o Azure Data Factory](sql-data-warehouse-integrate-azure-data-factory.md) ou a [Documentação do Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) para obter mais informações.
 
-## <a name="azure-machine-learning"></a>Aprendizado de Máquina do Azure
-O Aprendizado de Máquina do Azure é um serviço de análise totalmente gerenciado que permite aos usuários criar modelos complexos utilizando um grande conjunto de ferramentas de previsão.  O SQL Data Warehouse tem suporte como uma origem e um destino para esses modelos com a seguinte funcionalidade:
+## <a name="azure-machine-learning"></a>Azure Machine Learning
+O Azure Machine Learning é um serviço de análise totalmente gerenciado que permite aos usuários criar modelos complexos utilizando um grande conjunto de ferramentas de previsão.  O SQL Data Warehouse tem suporte como uma origem e um destino para esses modelos com a seguinte funcionalidade:
 
 * **Ler Dados:** encaminhe modelos em escala usando o T-SQL no SQL Data Warehouse.
 * **Gravar Dados:** confirme as alterações de qualquer modelo de volta para o SQL Data Warehouse.
@@ -78,4 +76,3 @@ Confira [Integrar com o Stream Analytics do Azure](sql-data-warehouse-integrate-
 <!--MSDN references-->
 
 <!--Other Web references-->
-

@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: ancav
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: bde645624ab1860d19ba18470f55845855a7d1fb
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="rate-limiting-for-sms-messages-emails-and-webhook-posts"></a>Taxa de limitação mensagens SMS, emails e postagens de webhook postagens
 A limitação de taxa é uma suspensão de notificações que ocorre quando um excesso de notificações é enviado para determinado número de telefone ou endereço de email. A limitação de taxa assegura que os alertas sejam gerenciáveis e acionáveis.
 
@@ -42,4 +40,3 @@ Não há nenhuma limitação de taxa em vigor para webhooks.
 * Saiba mais sobre o [comportamento de alertas por SMS](monitoring-sms-alert-behavior.md).
 * Obtenha uma [visão geral dos alertas do log de atividades](monitoring-overview-alerts.md) e saiba como receber alertas.  
 * Saiba como [configurar alertas sempre que uma notificação de integridade do serviço é postada](monitoring-activity-log-alerts-on-service-notifications.md).
-

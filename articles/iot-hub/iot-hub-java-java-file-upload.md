@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/28/2017
 ms.author: dobett
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 37a45bb0dd3927a131fc216fe9452962a0fdacfa
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Carregar arquivos do seu dispositivo para a nuvem com o Hub IoT
 
@@ -284,7 +283,7 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
 
 
-[Centro de Desenvolvedores do IoT do Azure]: http://www.azure.com/develop/iot
+[Central de Desenvolvedores do IoT do Azure]: http://www.azure.com/develop/iot
 
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Azure Storage]:../storage/common/storage-create-storage-account.md#create-a-storage-account
@@ -297,6 +296,5 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 [lnk-sdks]: iot-hub-devguide-sdks.md
 
 [lnk-iotedge]: iot-hub-windows-iot-edge-simulated-device.md
-
 
 

@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 55bfd5b283e6159e0a06b3107de31d1722796bf1
-ms.openlocfilehash: 3fd820da176db4437f535b02b643171b23354608
-ms.contentlocale: pt-br
-ms.lasthandoff: 11/29/2016
-
+ms.openlocfilehash: 29934b255a6f9f303f427bf5fb3875634da89b0f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="h264-multiple-bitrate-720p-audio-51"></a>H264 Taxas de Bits Múltiplas 720p Audio 5.1
 `Media Encoder Standard` define um conjunto de predefinições de codificação que pode ser usado ao criar trabalhos de codificação. Você pode usar um `preset name` para especificar em qual formato deseja codificar o arquivo de mídia. Ou, pode criar suas próprias predefinições com base em JSON ou XML (usando a codificação UTF-8 ou UTF-16). Em seguida, você passaria a predefinição personalizada ao codificador. Para obter a lista de todos os nomes de predefinição com suporte por este codificador `Media Encoder Standard`, consulte [Predefinições de tarefa para o Media Encoder Standard](media-services-mes-presets-overview.md).  
   
@@ -263,4 +261,3 @@ ms.lasthandoff: 11/29/2016
   ]  
 }  
 ```
-

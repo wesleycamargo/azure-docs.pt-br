@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: f9f19d75a37351b3562ce8c2f3629df14c5437c6
-ms.lasthandoff: 04/03/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="optimizing-transactions-for-sql-data-warehouse"></a>Otimização de transações para o SQL Data Warehouse
 Este artigo explica como otimizar o desempenho do seu código transacional ao minimizar o risco para reversões longas.
@@ -438,5 +437,4 @@ Confira [Transações no SQL Data Warehouse][Transactions in SQL Data Warehouse]
 [RENAME]: https://msdn.microsoft.com/library/mt631611.aspx
 
 <!-- Other web references -->
-
 

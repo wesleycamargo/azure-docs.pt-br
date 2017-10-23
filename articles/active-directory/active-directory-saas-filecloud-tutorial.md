@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
 ms.openlocfilehash: ad03516f684acc59912ffc57f6e0712828bd03f2
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-filecloud"></a>Tutorial: integração do Azure Active Directory ao FileCloud
 
@@ -249,5 +248,4 @@ Ao clicar no bloco FileCloud no Painel de Acesso, você deve entrar automaticame
 [201]: ./media/active-directory-saas-filecloud-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-filecloud-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-filecloud-tutorial/tutorial_general_203.png
-
 

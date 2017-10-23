@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: jeannt
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: b3dca9e75df2d057d7ee1b314faac490e5f10a08
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="analyzing-customer-churn-by-using-azure-machine-learning"></a>Analisando a Variação do Cliente usando o Machine Learning do Microsoft Azure
 ## <a name="overview"></a>Visão geral
@@ -128,8 +127,7 @@ O diagrama a seguir ilustra uma parte da superfície de design do teste, que ind
 
 ![][6]  
 
-
-            *Figura 8: Criando modelos no Machine Learning Studio*  
+*Figura 8: Criando modelos no Machine Learning Studio*  
 
 ### <a name="scoring-methods"></a>Métodos de pontuação
 Pontuamos quatro modelos usando um conjunto de dados de treinamento rotulado.  
@@ -252,4 +250,3 @@ Seu feedback nos ajudará a melhorar a qualidade dos white papers que produzirmo
 [8]: ./media/azure-ml-customer-churn-scenario/churn-8.png
 [9]: ./media/azure-ml-customer-churn-scenario/churn-9.png
 [10]: ./media/azure-ml-customer-churn-scenario/churn-10.png
-

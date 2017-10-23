@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
 ms.openlocfilehash: 2891838b56dd15cb5f97dcae391770143a80c781
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-atlassian-cloud"></a>Tutorial: Integração do Azure Active Directory com o Atlassian Cloud
 
@@ -296,5 +295,4 @@ Ao clicar no bloco Atlassian Cloud no Painel de Acesso, você deve entrar automa
 [201]: ./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_general_203.png
-
 

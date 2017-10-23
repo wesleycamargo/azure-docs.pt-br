@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: cenkd;juliako
+ms.openlocfilehash: 6250b73504bec765b8299060a29e84e771791cc9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: d1a9328333bb8198d77e4b5d11fd8c6637a9e440
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Especificação da ingestão dinâmica de MP4 fragmentado para os Serviços de Mídia do Azure
 Esta especificação descreve o protocolo e o formato para ingestão de transmissão ao vivo baseada em MP4 fragmentado para os Serviços de Mídia do Azure. Os Serviços de Mídia fornecem um serviço de transmissão ao vivo, que os clientes podem usar para transmitir eventos ao vivo e difundir conteúdo em tempo real usando o Azure como a plataforma de nuvem. Este documento também aborda as práticas recomendadas para criação de mecanismos robustos de ingestão dinâmica e altamente redundantes.
@@ -202,4 +201,3 @@ A implementação a seguir é recomendada para faixas de áudio redundantes:
 [image5]: ./media/media-services-fmp4-live-ingest-overview/media-services-image5.png
 [image6]: ./media/media-services-fmp4-live-ingest-overview/media-services-image6.png
 [image7]: ./media/media-services-fmp4-live-ingest-overview/media-services-image7.png
-

@@ -15,12 +15,11 @@ ms.topic: hero-article
 ms.date: 09/05/2017
 ms.author: mimig
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
 ms.openlocfilehash: 622a26da8b7d5f5c3a242c5c88a4ae479095bf6f
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-mongodb-app-with-react-and-azure-cosmos-db"></a>Criar um aplicativo do MongoDB com React e Azure Cosmos DB  
 
@@ -116,4 +115,3 @@ Agora, você pode seguir para o próximo tutorial e saber como importar dados do
 > [!div class="nextstepaction"]
 > [Importar dados do MongoDB no BD Cosmos do Azure](mongodb-migrate.md)
  
-

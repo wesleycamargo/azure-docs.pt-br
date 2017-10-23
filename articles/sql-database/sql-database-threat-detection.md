@@ -15,13 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 06/19/2017
 ms.author: ronmat; ronitr
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 64bd7f356673b385581c8060b17cba721d0cf8e3
-ms.openlocfilehash: 5c2742a1d8ed6df7496a14226a38e02ca993abf3
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/02/2017
-
-
+ms.openlocfilehash: bd3de9ed0131edc683763b0fe7f4a2ae74533944
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="sql-database-threat-detection"></a>Detecção de Ameaças do Banco de Dados SQL
 
@@ -95,6 +93,5 @@ A Detecção de Ameaças do Banco de Dados SQL integra seus alertas à [Central 
 [6]: ./media/sql-database-threat-detection/6_td_security_tile_view_alerts.png
 [7]: ./media/sql-database-threat-detection/7_td_SQL_security_alerts_list.png
 [8]: ./media/sql-database-threat-detection/8_td_SQL_security_alert_details.png
-
 
 

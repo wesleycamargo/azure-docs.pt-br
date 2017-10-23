@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2017
 ms.author: muralikk
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 20a720833842f9579fd4fccaa39e964def48197e
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="using-the-azure-importexport-tool"></a>Usando a Ferramenta de Importação/Exportação do Azure 
 
 A Ferramenta de Importação/Exportação do Azure (WAImportExport.exe) é usada para criar e gerenciar trabalhos do serviço de Importação/Exportação do Azure, permitindo a transferência de grandes quantidades de dados para dentro ou fora do Armazenamento de Blobs do Azure.

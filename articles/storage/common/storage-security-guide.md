@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
+ms.openlocfilehash: 592a8716dd15b25b14fed145c11e5f5714cdd41c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: c4a0b047ce5c6706b51e96e8cc160c610625869e
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-storage-security-guide"></a>Guia de segurança do Armazenamento do Azure
 ## <a name="overview"></a>Visão geral
@@ -275,7 +274,7 @@ Observe que, embora os Compartilhamentos de Arquivos do Azure possam ser usados 
 
   Esse artigo fornece uma visão geral dos compartilhamentos dos Arquivos do Azure e de como montá-los e usá-los no Windows.
 
-* [Como usar os Arquivos do Azure com o Linux](../files/storage-how-to-use-files-linux.md)
+* [Como usar os Arquivos do Azure com Linux](../files/storage-how-to-use-files-linux.md)
 
   Esse artigo mostra como montar um Compartilhamento de Arquivos do Azure em um sistema Linux e carregar/baixar arquivos.
 
@@ -518,7 +517,7 @@ Para obter mais informações sobre o CORS e como habilitá-lo, verifique estes 
 
    **Recursos**
 
-* [Por que não estamos recomendando mais o "Modo FIPS"](http://blogs.technet.com/b/secguide/archive/2014/04/07/why-we-re-not-recommending-fips-mode-anymore.aspx)
+* [Por que não estamos recomendando mais o "Modo FIPS"](https://blogs.technet.microsoft.com/secguide/2014/04/07/why-were-not-recommending-fips-mode-anymore/)
 
   Esse artigo de blog fornece uma visão geral do FIPS e explica por que o modo FIPS não é habilitado por padrão.
 * [FIPS 140 Validation (Validação do FIPS 140)](https://technet.microsoft.com/library/cc750357.aspx)
@@ -527,4 +526,3 @@ Para obter mais informações sobre o CORS e como habilitá-lo, verifique estes 
 * ["Criptografia de sistema: usar algoritmos em conformidade com o FIPS para criptografia, hash e assinatura", efeitos das configurações de segurança no Windows XP e em versões posteriores do Windows](https://support.microsoft.com/kb/811833)
 
   Esse artigo fala sobre o uso do modo FIPS em computadores Windows antigos.
-

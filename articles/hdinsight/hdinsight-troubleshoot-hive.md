@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/7/2017
 ms.author: dharmeshkakadia
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 53e9685458190efe6a586504721b8e7baadaed60
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshoot-hive-by-using-azure-hdinsight"></a>Solucionar problemas do Hive usando o Azure HDInsight
 
 Saiba mais sobre as principais perguntas e suas resoluções ao trabalhar com cargas de Apache Hive no Apache Ambari.
@@ -33,7 +31,7 @@ Saiba mais sobre as principais perguntas e suas resoluções ao trabalhar com ca
 
 ### <a name="resolution-steps"></a>Etapas de resolução
 
-1. Conecte-se ao cluster do HDInsight usando um cliente SSH (Secure Shell). Para obter mais informações, consulte [Leituras adicionais](#additional-reading-end).
+1. Conecte-se ao cluster HDInsight com um cliente SSH (Secure Shell). Para obter mais informações, consulte [Leituras adicionais](#additional-reading-end).
 
 2. Execute o seguinte comando no cluster do HDInsight do qual você deseja exportar o metastore:
 
@@ -117,7 +115,7 @@ O código nas etapas de resolução supõe que os caminhos de dados no novo clus
 
 ### <a name="resolution-steps"></a>Etapas de resolução
  
-1. Para analisar um DAG (gráfico acíclico direcionado) do Apache Tez em um gráfico crítico do cluster, conecte-se ao cluster do HDInsight usando SSH. Para obter mais informações, consulte [Leituras adicionais](#additional-reading-end).
+1. Para analisar um DAG (gráfico acíclico direcionado) do Apache Tez em um gráfico crítico do cluster, conecte-se ao cluster do HDInsight usando SSH. Para saber mais, veja [Leituras adicionais](#additional-reading-end).
 
 2. No prompt de comando, execute o comando a seguir:
    
@@ -177,7 +175,6 @@ Há duas maneiras de coletar os dados de DAG do Tez:
 ### <a name="additional-reading-end"></a>Leitura adicional
 
 [Conectar-se a um cluster HDInsight usando SSH](hdinsight-hadoop-linux-use-ssh-unix.md)
-
 
 
 

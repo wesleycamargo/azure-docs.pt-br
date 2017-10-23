@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2017
 ms.author: tomsh
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
 ms.openlocfilehash: 5047635555a6b4592c0714677c2b942e50bad344
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-database-security-checklist"></a>Lista de verificação de segurança do banco de dados do Azure
 
 Para ajudar a melhorar a segurança, o banco de dados do Azure inclui uma série de controles de segurança internos que você pode usar para limitar e controlar o acesso.
@@ -65,5 +63,4 @@ Você pode melhorar a proteção do banco de dados contra usuários mal-intencio
 - Configurar [regras de firewall](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-firewall-configure) para seu servidor e/ou banco de dados.
 - Proteger seus dados com [criptografia](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/sql-server-encryption).
 - Habilitar a [auditoria do Banco de Dados SQL](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-auditing).
-
 

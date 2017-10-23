@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/25/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: d936bc50a66ac2a3c17038ff08351edf9902c99f
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-front"></a>Tutorial: integração do Azure Active Directory ao Front
 
@@ -124,7 +123,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
 5. Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado no computador.
 
-    ![Configurar Logon Único](./media/active-directory-saas-front-tutorial/tutorial_front_certificate.png) 
+    ![Configurar o logon único](./media/active-directory-saas-front-tutorial/tutorial_front_certificate.png) 
 
 6. Clique no botão **Salvar** .
 
@@ -194,7 +193,7 @@ O objetivo desta seção é criar um usuário de teste no Portal do Azure chamad
 
     ![A caixa de diálogo Usuário](./media/active-directory-saas-front-tutorial/create_aaduser_04.png)
 
-    a. Na caixa **Nome**, digite **BrittaSimon**.
+    a. Na caixa **Nome**, digite **BrendaFernandes**.
 
     b. Na caixa **Nome de usuário**, digite o endereço de email do usuário Brenda Fernandes.
 
@@ -260,5 +259,4 @@ Ao clicar no bloco do Front no Painel de Acesso, você deverá ser conectado aut
 [201]: ./media/active-directory-saas-front-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-front-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-front-tutorial/tutorial_general_203.png
-
 

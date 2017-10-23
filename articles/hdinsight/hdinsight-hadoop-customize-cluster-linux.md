@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2017
 ms.author: larryfr
+ms.openlocfilehash: 0c5d00b6cb9f68a1a0e474f81c969eb1b5654c67
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
-ms.openlocfilehash: cbfdc3c4b6a6d0f3174c9d7512c3aadd926a56df
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/15/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-action"></a>Personalizar clusters HDInsight baseados em Linux usando a Ação de Script
 
@@ -722,4 +721,3 @@ Há duas exceções:
 * [Acrescentar armazenamento adicional a um cluster HDInsight](hdinsight-hadoop-add-storage.md)
 
 [img-hdi-cluster-states]: ./media/hdinsight-hadoop-customize-cluster-linux/HDI-Cluster-state.png "Estágios durante a criação de cluster"
-

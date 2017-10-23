@@ -13,15 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 10/06/2017
 ms.author: joflore
 ms.custom: it-pro
+ms.openlocfilehash: a457ba3109625ab43ae3a88b95a3e7e1e9641921
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: fed9008d41b43b2c118aba4939260e819c211d67
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="password-management-frequently-asked-questions"></a>Perguntas frequentes sobre gerenciamento de senhas
 
@@ -178,7 +177,7 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   >
 * **P: por quanto tempo vale a senha de uso único por email e SMS?**
 
-  > **R:** a duração da sessão para a redefinição de senha é de 105 minutos. Desde o início da operação de redefinição de senha, o usuário tem 105 minutos para redefinir sua senha. A senha de uso único por email e SMS perde a validade depois que esse período de tempo expira.
+  > **R:** O tempo de vida da sessão para a redefinição de senha é de 15 minutos. Desde o início da operação de redefinição de senha, o usuário tem 15 minutos para redefinir sua senha. A senha de uso único por email e SMS perde a validade depois que esse período de tempo expira.
   >
   >
 
@@ -280,4 +279,3 @@ Os links a seguir fornecem informações adicionais sobre a redefinição de sen
 * [**Write-back de Senha**](active-directory-passwords-writeback.md) – como o write-back de senha funciona com o diretório local
 * [**Aprofundamento Técnico**](active-directory-passwords-how-it-works.md) – vá para os bastidores para entender como ele funciona
 * [**Resolver problemas**](active-directory-passwords-troubleshoot.md) – saiba como resolver problemas comuns encontrados no SSPR
-

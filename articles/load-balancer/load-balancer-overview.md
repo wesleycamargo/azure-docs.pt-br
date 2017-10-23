@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: ecf1fc38d2b9fd54fe5b00db616224a0848179fe
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-load-balancer-overview"></a>Visão geral do Balanceador de Carga do Azure
 
 O Balanceador de Carga do Azure oferece alta disponibilidade e desempenho de rede para seus aplicativos. É um balanceador de carga do tipo Camada 4 (TCP, UDP) que distribui o tráfego de entrada entre as instâncias de serviço íntegras definidas em um conjunto de balanceadores de carga.
@@ -103,5 +101,4 @@ Pools de back-end do Load Balancer podem conter qualquer SKU de VM exceto camada
 - Criar um [balanceador de carga para a Internet](load-balancer-get-started-internet-portal.md)
 
 - Saiba mais sobre algumas das outras principais [funcionalidades de rede](../networking/networking-overview.md) do Azure
-
 

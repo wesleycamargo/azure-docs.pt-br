@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a3ca1527eee068e952f81f6629d7160803b3f45a
-ms.openlocfilehash: 2c581a2d152a6d3f16de8f249e27a426aa9f844f
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: f4175875b68c52e68588b8d0debd003ab73427ec
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="introduction-to-network-security-group-view-in-azure-network-watcher"></a>Introdução à exibição do grupo de segurança da rede no Observador de Rede do Azure
 
 Os grupos Segurança da Rede podem ser associados no nível da sub-rede ou no nível da NIC. Quando associado no um nível da sub-rede, ele se aplica a todas as instâncias de VM na sub-rede. A exibição Grupo de Segurança da Rede retorna todo NSG configurado e regras associadas no nível da NIC e da sub-rede para uma máquina virtual que fornece informações sobre a configuração. Além disso, as regras de segurança efetivas são retornadas para cada NIC em uma VM. Usando a exibição Grupo de Segurança da Rede, você pode avaliar uma VM quanto às vulnerabilidades da rede, como as portas abertas. Também é possível validar se o Grupo de Segurança da Rede está funcionando como o esperado com base em uma [comparação entre as regras de segurança configuradas e as efetivas](network-watcher-nsg-auditing-powershell.md).
@@ -42,7 +40,6 @@ Saiba como fazer a auditoria das configurações do Grupo de Segurança da Rede 
 
 [1]: ./media/network-watcher-security-group-view-overview/securitygroupview.png
 [2]: ./media/network-watcher-security-group-view-overview/figure1.png
-
 
 
 

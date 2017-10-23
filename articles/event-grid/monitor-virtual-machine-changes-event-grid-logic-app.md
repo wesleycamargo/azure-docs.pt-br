@@ -11,14 +11,12 @@ ms.service: logic-apps
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: LADocs; estfan
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 4d4c16860dbec10162797a13c8f9f57106abd17f
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/19/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Como monitorar alterações de máquina virtual com a Grade de Eventos do Azure e os aplicativos lógicos
 
 Você pode iniciar um [fluxo de trabalho do aplicativo lógico](../logic-apps/logic-apps-what-are-logic-apps.md) automatizado quando eventos específicos ocorrem em recursos do Azure ou de terceiros. Esses recursos podem publicar esses eventos em uma [Grade de Eventos do Azure](../event-grid/overview.md). Por sua vez, a grade de eventos envia os eventos aos assinantes com filas, webhooks, ou [hubs de eventos](../event-hubs/event-hubs-what-is-event-hubs.md) como pontos de extremidade. Como um assinante, o seu aplicativo lógico pode aguardar os eventos da grade de eventos antes de executar fluxos de trabalho automatizados para realizar tarefas - sem escrever qualquer código.

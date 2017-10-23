@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
+ms.openlocfilehash: b55eed31ddb5be23dc28a23b2f0588b8c8ff8833
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
-ms.openlocfilehash: 1607ca31a81c0941895611f626d54f6fbb294a20
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/24/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glossário do Microsoft Azure: um dicionário de terminologia de nuvem na plataforma do Azure
 
@@ -37,7 +36,7 @@ veja [inscrever-se para uma assinatura do Azure com sua conta do Office 365](bil
 Outro nome para o [aplicativo de Serviço de Aplicativo](#app-service-app).
 
 ## <a name="app-service-app"></a>Aplicativo de Serviço de Aplicativo
-Os recursos de computação que o [Serviço de Aplicativo do Azure](app-service/app-service-value-prop-what-is.md) fornece para hospedar um [site ou aplicativo Web](app-service-web/app-service-web-overview.md), [API Web](app-service-api/app-service-api-apps-why-best-platform.md) ou [back-end de aplicativo móvel](app-service-mobile/app-service-mobile-value-prop.md). Aplicativos de Serviços de Aplicativos também são conhecidos como *Serviços de Aplicativos*, *aplicativos Web*, *aplicativos de API* e *aplicativos móveis*.
+Os recursos de computação que o [Serviço de Aplicativo do Azure](app-service/app-service-web-overview.md) fornece para hospedar um site ou aplicativo Web, API Web ou [back-end de aplicativo móvel](app-service-mobile/app-service-mobile-value-prop.md). Aplicativos de Serviços de Aplicativos também são conhecidos como *Serviços de Aplicativos*, *aplicativos Web*, *aplicativos de API* e *aplicativos móveis*.
 
 ## <a name="availability-set"></a>conjunto de disponibilidade
 Uma coleção de máquinas virtuais gerenciadas em conjunto a fim de fornecer redundância e confiabilidade de aplicativo. O uso de um conjunto de disponibilidade garante que durante um evento de manutenção planejada ou não planejada, pelo menos uma máquina virtual esteja disponível.  
@@ -159,5 +158,4 @@ Outro nome para o [Aplicativo de Serviço de Aplicativo](#app-service-app).
 * [Centro de Recurso de Nuvem](https://azure.microsoft.com/resources/)  
 * [Azure para seus aplicativos de negócios](https://azure.microsoft.com/overview/business-apps-on-azure/)
 * [Azure em seu datacenter](https://azure.microsoft.com/overview/business-apps-on-azure/)
-
 

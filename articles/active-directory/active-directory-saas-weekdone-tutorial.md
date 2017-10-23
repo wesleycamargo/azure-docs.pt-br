@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
 ms.openlocfilehash: 84aa0069dce55a6623398a99e1cac6bb21bf52f7
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/12/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-weekdone"></a>Tutorial: integração do Azure Active Directory ao Weekdone
 
@@ -236,5 +235,4 @@ Quando você clica no bloco Weekdone no Painel de Acesso, deve fazer logon autom
 [201]: ./media/active-directory-saas-weekdone-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-weekdone-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-weekdone-tutorial/tutorial_general_203.png
-
 

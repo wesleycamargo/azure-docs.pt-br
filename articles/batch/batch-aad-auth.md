@@ -3,7 +3,7 @@ title: "Usar o Azure Active Directory para autenticar as soluções do serviço 
 description: "O Lote dá suporte ao Azure AD para autenticação por meio do serviço do Lote."
 services: batch
 documentationcenter: .net
-author: tamram
+author: v-dotren
 manager: timlt
 editor: 
 tags: 
@@ -13,16 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
-ms.date: 06/20/2017
+ms.date: 09/28/2017
 ms.author: tamram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4f68f90c3aea337d7b61b43e637bcfda3c98f3ea
-ms.openlocfilehash: 9c03bde919c46cd301229255c0b12ee69dda6f78
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/20/2017
-
+ms.openlocfilehash: a5dd04e992bd181e512d176fd913a7395fd6b702
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Autenticar soluções do serviço do Lote no Active Directory
 
 O Lote do Azure dá suporte à autenticação com o [Azure AD][aad_about] (Azure Active Directory). O Azure AD é o serviço de gerenciamento de identidade e diretório multilocatário com base em nuvem da Microsoft. O Azure em si usa o Azure AD para autenticar seus clientes, administradores de serviços e usuários organizacionais.
@@ -33,13 +31,6 @@ Ao usar a autenticação do Azure AD com o Lote do Azure, você pode fazer a aut
 - Usando uma **entidade de serviço** para autenticar um aplicativo autônomo. Uma entidade de serviço define a política e as permissões de um aplicativo, a fim de representar o aplicativo ao acessar recursos em tempo de execução.
 
 Para saber mais sobre o Azure AD, veja a [documentação do Azure Active Directory](https://docs.microsoft.com/azure/active-directory/).
-
-## <a name="authentication-and-pool-allocation-mode"></a>Autenticação e modo de alocação de pool
-
-Ao criar uma conta do Lote, você poderá especificar o local ao qual os pools criados para essa conta devem ser alocados. Você pode optar por alocar pools na assinatura padrão do serviço do Lote ou em uma assinatura de usuário. Sua escolha afeta como você autentica o acesso aos recursos nessa conta.
-
-- **Assinatura do serviço do Lote**. Por padrão, os pools de lote são alocados em uma assinatura de serviço de lote. Se você escolher essa opção, poderá autenticar o acesso aos recursos nessa conta com uma [Chave Compartilhada](https://docs.microsoft.com/rest/api/batchservice/authenticate-requests-to-the-azure-batch-service) ou com o Azure AD.
-- **Assinatura de usuário.** Você pode optar por alocar pools do Lote em uma assinatura de usuário especificada. Se você escolher essa opção, deverá autenticar no Azure AD.
 
 ## <a name="endpoints-for-authentication"></a>Pontos de extremidade para autenticação
 
@@ -332,4 +323,3 @@ Para autenticar aplicativos do Gerenciamento de Lotes usando o Azure AD, consult
 [aad_auth_scenarios]: ../active-directory/active-directory-authentication-scenarios.md "Cenários de autenticação do Azure AD"
 [aad_integrate]: ../active-directory/active-directory-integrating-applications.md "Integrando aplicativos com o Azure Active Directory"
 [azure_portal]: http://portal.azure.com
-

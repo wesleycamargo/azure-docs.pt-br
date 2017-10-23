@@ -21,21 +21,30 @@ sections:
         style: icon48
         items:
           - image:
-              src: 'https://docs.microsoft.com/en-us/azure/app-service-web/media/index/logo_net.svg'
+              src: 'https://docs.microsoft.com/en-us/azure/app-service/media/index/logo_net.svg'
             text: .NET Core
             href: 'https://docs.microsoft.com/en-us/azure/app-service/containers/quickstart-dotnetcore'
           - image:
-              src: 'https://docs.microsoft.com/en-us/azure/app-service-web/media/index/logo_nodejs.svg'
+              src: 'https://docs.microsoft.com/en-us/azure/app-service/media/index/logo_nodejs.svg'
             text: Node.js
             href: 'https://docs.microsoft.com/en-us/azure/app-service/containers/quickstart-nodejs'
           - image:
-              src: 'https://docs.microsoft.com/en-us/azure/app-service-web/media/index/logo_php.svg'
+              src: 'https://docs.microsoft.com/en-us/azure/app-service/media/index/logo_php.svg'
             text: PHP
             href: 'https://docs.microsoft.com/en-us/azure/app-service/containers/quickstart-php'
           - image:
-              src: 'https://docs.microsoft.com/en-us/azure/app-service-web/media/index/logo_java.svg'
+              src: 'https://docs.microsoft.com/en-us/azure/app-service/media/index/logo_java.svg'
             text: Java
-            href: 'https://docs.microsoft.com/en-us/azure/azure-toolkit-for-intellij-hello-world-web-app-linux?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json'
+            href: 'https://docs.microsoft.com/en-us/azure/azure-toolkit-for-intellij-hello-world-web-app-linux?toc=/azure/app-service/containers/toc.json'
+      - type: paragraph
+        text: 'Saiba como implantar continuamente:'
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: 'https://docs.microsoft.com/en-us/azure/media/index/logo_vs-team-services.svg'
+            text: VSTS
+            href: 'https://docs.microsoft.com/en-us/vsts/build-release/apps/cd/deploy-docker-webapp??toc=/vsts/deploy-azure/toc.json&bc=/vsts/deploy-azure/breadcrumb/toc.json'
   - title: Tutoriais Passo a Passo
     items:
       - type: paragraph
@@ -44,9 +53,9 @@ sections:
         style: ordered
         items:
           - html: Crie um aplicativo usando o <a href="en-us/azure/app-service/containers/tutorial-dotnetcore-sqldb-app">.NET Core com o Banco de Dados SQL do Azure</a> ou o <a href="en-us/azure/app-service/containers/tutorial-nodejs-mongodb-app">Node.js com MongoDB</a>
-          - html: <a href="/en-us/azure/app-service-web/app-service-web-tutorial-custom-domain">Mapeie um domínio personalizado existente para seu aplicativo </a>
-          - html: <a href="/en-us/azure/app-service-web/app-service-web-tutorial-custom-SSL">Associar um certificado SSL existente ao seu aplicativo</a>
-          - html: <a href="/en-us/azure/app-service-web/app-service-web-tutorial-content-delivery-network">Adicionar um CDN ao seu aplicativo</a>
+          - html: <a href="/en-us/azure/app-service/app-service-web-tutorial-custom-domain">Mapeie um domínio personalizado existente para seu aplicativo </a>
+          - html: <a href="/en-us/azure/app-service/app-service-web-tutorial-custom-SSL">Associar um certificado SSL existente ao seu aplicativo</a>
+          - html: <a href="/en-us/azure/app-service/app-service-web-tutorial-content-delivery-network">Adicionar um CDN ao seu aplicativo</a>
   - title: Exemplos
     items:
       - type: paragraph

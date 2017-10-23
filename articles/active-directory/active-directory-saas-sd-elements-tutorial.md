@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
 ms.openlocfilehash: 624eff0a0da8f548877e4a4346b21df89cd37b67
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/11/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sd-elements"></a>Tutorial: Integração do Active Directory do Azure com SD Elements
 
@@ -296,5 +294,4 @@ Quando você clica no bloco SD Elements no Painel de Acesso, deve fazer logon au
 [201]: ./media/active-directory-saas-sd-elements-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-sd-elements-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-sd-elements-tutorial/tutorial_general_203.png
-
 

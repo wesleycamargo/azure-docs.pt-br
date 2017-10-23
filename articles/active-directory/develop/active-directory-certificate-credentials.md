@@ -15,15 +15,12 @@ ms.topic: article
 ms.date: 06/02/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
 ms.openlocfilehash: 08bb5140bb35bbd120aaa506afeab8ad247f81e1
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/17/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="certificate-credentials-for-application-authentication"></a>Credenciais de certificado para autenticação do aplicativo
 
 O Azure Active Directory permite que um aplicativo use suas próprias credenciais para autenticação, por exemplo, nos fluxos Concessão de Credenciais de Cliente e Em Nome de do OAuth 2.0.
@@ -105,4 +102,3 @@ No registro de aplicativo do Azure do aplicativo cliente, abra o manifesto do ap
 ```
 
 Salve as edições no manifesto do aplicativo e carregue-o no Azure AD. A propriedade keycredentials tem valores múltiplos, portanto você pode carregar vários certificados de gerenciamento de chave mais avançados.
-

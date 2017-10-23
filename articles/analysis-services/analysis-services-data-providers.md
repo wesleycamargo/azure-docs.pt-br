@@ -15,14 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/15/2017
 ms.author: owend
+ms.openlocfilehash: a96e7fe671dc051da35168fa7b49ecba53b4c4a5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 19be73fd0aec3a8f03a7cd83c12cfcc060f6e5e7
-ms.openlocfilehash: 949f34158f4fc8ee6d86cf3dd408c3c903234109
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/13/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Bibliotecas de cliente para conectar-se ao Azure Analysis Services
 
 Bibliotecas de cliente são necessárias para que ferramentas e aplicativos cliente se conectem aos servidores do Analysis Services. 
@@ -44,4 +42,3 @@ Use as bibliotecas de cliente a seguir se estiver em um ambiente de produção e
 ## <a name="next-steps"></a>Próximas etapas
 [Conectar com Excel](analysis-services-connect-excel.md)    
 [Conectar com o Power BI](analysis-services-connect-pbi.md)
-

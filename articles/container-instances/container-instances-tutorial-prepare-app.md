@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 08/01/2017
 ms.author: seanmck
 ms.custom: mvc
+ms.openlocfilehash: ca4cd00b3e9e58fd1137b896e7aac96549bf6d05
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 07ad1a6edbcb4d6160b37b4923586e23058f3c04
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/02/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-container-for-deployment-to-azure-container-instances"></a>Criar contêiner para implantação nas Instâncias de Contêiner do Azure
 
 As Instâncias de Contêiner do Azure permitem a implantação de contêineres do Docker na infraestrutura do Azure sem o provisionamento de máquinas virtuais ou a adoção de serviço de nível superior. Neste tutorial, você criará um aplicativo Web simples no Node.js e o empacotará em um contêiner que pode ser executado usando as Instâncias de Contêiner do Azure. Abordaremos:
@@ -41,6 +39,8 @@ Nos tutoriais subsequentes, você carregará sua imagem em um Registro de Contê
 Este tutorial assume uma compreensão básica dos conceitos fundamentais do Docker como contêineres, imagens de contêiner e comandos básicos do docker. Se necessário, consulte [Get started with Docker]( https://docs.docker.com/get-started/) (Introdução ao Docker) para conhecer os conceitos básicos de contêiner. 
 
 Para concluir este tutorial, você precisa de um ambiente de desenvolvimento do Docker. O Docker fornece pacotes que configuram facilmente o Docker em qualquer sistema [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) ou [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
+
+Azure Cloud Shell não inclui os componentes de Docker necessários para concluir cada etapa neste tutorial. Portanto, é recomendável usar um ambiente de desenvolvimento completo do Docker.
 
 ## <a name="get-application-code"></a>Obter o código de aplicativo
 

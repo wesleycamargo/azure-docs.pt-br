@@ -1,6 +1,6 @@
 ---
 title: Anexar um disco de dados a uma VM do Linux | Microsoft Docs
-description: "Como anexar um disco de dados novo ou existente a uma VM do Linux no portal do Azure usando o modelo de implantação do Gerenciador de Recursos."
+description: Utilize o portal para anexar disco de dados novo ou existente a uma VM Linux.
 services: virtual-machines-linux
 documentationcenter: 
 author: cynthn
@@ -13,17 +13,16 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 03/07/2017
+ms.date: 09/25/2017
 ms.author: cynthn
+ms.openlocfilehash: 787f729732accd74c212b3be9520af50a2f04261
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 1599ee241c3d9fb3623ebd89ae30f2795cae1930
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="how-to-attach-a-data-disk-to-a-linux-vm-in-the-azure-portal"></a>Como anexar um disco de dados a uma VM Linux no Portal do Azure
-Este artigo mostra como anexar discos novos e existentes a uma máquina virtual Linux por meio do portal do Azure. Você também pode [anexar um disco de dados a uma VM do Windows no Portal do Azure](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Você pode optar por usar o Azure Managed Disks ou discos não gerenciado. O Managed Disks são tratados pela plataforma do Azure e não exigem nenhuma preparação ou local para armazenamento. Discos não gerenciados exigem uma conta de armazenamento e têm algumas [cotas e limites que se aplicam](../../azure-subscription-service-limits.md#storage-limits). Para saber mais sobre Azure Managed Disks, veja [Visão geral dos Azure Managed Disks](../windows/managed-disks-overview.md).
+# <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>Utilize o portal para anexar um disco de dados a uma VM Linux 
+Este artigo mostra como anexar discos novos e existentes a uma máquina virtual Linux por meio do portal do Azure. Você também pode [anexar um disco de dados a uma VM do Windows no Portal do Azure](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
 Antes de anexar discos à sua VM, veja estas dicas:
 
@@ -34,19 +33,16 @@ Antes de anexar discos à sua VM, veja estas dicas:
 
 ## <a name="find-the-virtual-machine"></a>Localizar a máquina virtual
 1. Entre no [Portal do Azure](https://portal.azure.com/).
-2. No menu Hub, clique em **Máquinas Virtuais**.
+2. No menu à esquerda, clique em **Máquinas Virtuais**.
 3. Selecione a máquina virtual na lista.
-4. Na folha Máquinas Virtuais, em **Essentials**, clique em **Discos**.
+4. Na página Máquinas Virtuais, em **Essentials**, clique em **Discos**.
    
     ![Abrir configurações de disco](./media/attach-disk-portal/find-disk-settings.png)
 
-Continue seguindo as instruções para anexar um [disco gerenciado](#use-azure-managed-disks) ou um [disco não gerenciado](#use-unmanaged-disks).
 
-## <a name="use-azure-managed-disks"></a>Usar o Azure Managed Disks
+## <a name="attach-a-new-disk"></a>Anexar um novo disco
 
-### <a name="attach-a-new-disk"></a>Anexar um novo disco
-
-1. Na folha **Discos**, clique em **+ Adicionar disco de dados**.
+1. No painel **Discos**, clique em **+ Adicionar disco de dados**.
 2. Clique no menu suspenso para **Nome** e selecione **Criar disco**:
 
     ![Criar disco gerenciado do Azure](./media/attach-disk-portal/create-new-md.png)
@@ -63,8 +59,8 @@ Continue seguindo as instruções para anexar um [disco gerenciado](#use-azure-m
 
    ![Azure Managed Disk no grupo de recursos](./media/attach-disk-portal/view-md-resource-group.png)
 
-### <a name="attach-an-existing-disk"></a>Anexar um disco existente
-1. Na folha **Discos**, clique em **+ Adicionar disco de dados**.
+## <a name="attach-an-existing-disk"></a>Anexar um disco existente
+1. No painel **Discos**, clique em **+ Adicionar disco de dados**.
 2. Clique no menu suspenso para **Nome** para exibir uma lista de discos gerenciados existentes acessíveis à sua assinatura do Azure. Selecione o disco gerenciado a ser anexado:
 
    ![Anexar um Azure Managed Disk existente](./media/attach-disk-portal/select-existing-md.png)
@@ -75,29 +71,7 @@ Continue seguindo as instruções para anexar um [disco gerenciado](#use-azure-m
 
 4. Depois que o Azure anexa o disco à máquina virtual, ele é listado nas configurações de disco da máquina virtual em **Discos de Dados**.
 
-## <a name="use-unmanaged-disks"></a>Usar discos não gerenciados
-
-### <a name="attach-a-new-disk"></a>Anexar um novo disco
-
-1. Na folha **Discos**, clique em **+ Adicionar disco de dados**.
-2. Examine as configurações padrão, atualize conforme necessário e clique em **OK**.
-   
-   ![Analisar configurações de disco](./media/attach-disk-portal/attach-new.png)
-3. Depois que o Azure cria o disco e o anexa à máquina virtual, o novo disco é listado nas configurações de disco da máquina virtual em **Discos de Dados**.
-
-### <a name="attach-an-existing-disk"></a>Anexar um disco existente
-1. Na folha **Discos**, clique em **+ Adicionar disco de dados**.
-2. Em **Anexar disco existente**, clique em **Arquivo VHD**.
-   
-   ![Anexar disco existente](./media/attach-disk-portal/attach-existing.png)
-3. Em **Contas de armazenamento**, selecione a conta e o contêiner que mantém o arquivo .vhd.
-   
-   ![Localização do VHD](./media/attach-disk-portal/find-storage-container.png)
-4. Selecionar o arquivo .vhd
-5. Em **Anexar disco existente**, o arquivo que você selecionou é listado em **Arquivo VHD**. Clique em **OK**.
-6. Depois que o Azure anexa o disco à máquina virtual, ele é listado nas configurações de disco da máquina virtual em **Discos de Dados**.
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Depois que o disco for adicionado, você precisará prepará-lo para uso. Para obter mais informações, veja [Como: inicializar um novo disco de dados no Linux](add-disk.md).
-
+Você também pode [anexar um disco de dados](add-disk.md) utilizando a CLI do Azure.

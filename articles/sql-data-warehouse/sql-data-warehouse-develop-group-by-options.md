@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: queries
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: da71cb834c13da5d0f5690f471efc6c696163f30
-ms.lasthandoff: 04/03/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="group-by-options-in-sql-data-warehouse"></a>Agrupar por opções de SQL Data Warehouse
 A cláusula [GROUP BY][GROUP BY] é usada para agregar dados a um conjunto de linhas de resumo. Ela também tem algumas opções que ampliam sua funcionalidade que precisam ser solucionadas pois não tem suporte diretamente pelo SQL Data Warehouse do Azure.
@@ -196,4 +195,3 @@ Para obter mais dicas de desenvolvimento, confira [visão geral de desenvolvimen
 
 
 <!--Other Web references-->
-

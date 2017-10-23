@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2017
 ms.author: andredm
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: 6decf3e228bf31f9da4ea2bfa4d0ada0b2ffad61
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/17/2017
-
+ms.openlocfilehash: a5c19fd87ce1ae3e199bf1dfc8cf82f5653baac2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-role-based-access-control-with-the-rest-api"></a>Gerenciar o Controle de Acesso com Base em Função com a API REST
 > [!div class="op_single_selector"]
@@ -651,4 +650,3 @@ Código de status: 200
 ## <a name="next-steps"></a>Próximas etapas
 
 [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: raymondl;garye;v-donglo
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: c56ce659766536772d203d0366ef6b53e544a82b
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="retrain-machine-learning-models-programmatically"></a>Readaptar os modelos do Machine Learning de forma programática
 Neste passo a passo, você aprenderá como programaticamente readaptar um serviço Web do Machine Learning do Azure usando C# e o serviço de Execução de Lote do Machine Learning.
@@ -187,4 +186,3 @@ Se você tiver implantado um Novo serviço Web clicando em **Implantar o Serviç
 
 <!-- Module References -->
 [train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
-

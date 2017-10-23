@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: backup-restore
 ms.date: 09/21/2016
 ms.author: lakshmir;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 763ae02d1196a924bbf89e423871af2ec22e9e6c
-ms.openlocfilehash: 84f582e8d767466ce9dec83203ec78047648caea
-ms.contentlocale: pt-br
-ms.lasthandoff: 12/21/2016
-
-
+ms.openlocfilehash: f6bc8671410dc7015a8d2a4bea1ba11f9ae526c3
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="restore-azure-sql-data-warehouse-portal"></a>Restaurar SQL Data Warehouse do Azure (Portal)
 > [!div class="op_single_selector"]
@@ -114,4 +112,3 @@ Para saber mais sobre os recursos de continuidade dos negócios das edições do
 
 <!--Other Web references-->
 [Azure portal]: https://portal.azure.com/
-

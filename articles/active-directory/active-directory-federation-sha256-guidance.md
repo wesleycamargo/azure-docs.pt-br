@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2016
 ms.author: anandy
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f7479260c7c2e10f242b6d8e77170d4abe8634ac
 ms.openlocfilehash: c581b1468630a9f28204592c936360b72f42f0d8
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/21/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="change-signature-hash-algorithm-for-office-365-relying-party-trust"></a>Alterar o algoritmo de hash de assinatura para o objeto de confiança de terceira parte confiável Office 365
 ## <a name="overview"></a>Visão geral
@@ -50,5 +48,4 @@ Depois que você define o algoritmo de assinatura com um dos dois processos abai
 
 ## <a name="also-read"></a>Leia também
 * [Reparar a confiança do Office 365 com o Azure AD Connect](connect/active-directory-aadconnect-federation-management.md#repairthetrust)
-
 

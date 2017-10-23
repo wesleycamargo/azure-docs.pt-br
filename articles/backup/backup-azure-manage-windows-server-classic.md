@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: markgal;
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 91451b2cdc42ed05ef7c1ba9c66ad5b4b45dd788
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-azure-backup-vaults-and-servers-using-the-classic-deployment-model"></a>Gerenciar servidores e cofres de Backup do Azure usando o modelo de implantação clássico
 > [!div class="op_single_selector"]
@@ -199,4 +198,3 @@ Para habilitar a limitação:
 * [Restaurar o Windows Server ou o Windows Client do Azure](backup-azure-restore-windows-server.md)
 * Para saber mais sobre o Backup do Azure, confira [Visão geral do backup do Azure](backup-introduction-to-azure-backup.md)
 * Visite o [Fórum de backup do Azure](http://go.microsoft.com/fwlink/p/?LinkId=290933)
-

@@ -1,6 +1,7 @@
 - name: Documentação de Máquina Virtual de Ciência de Dados
   items: null
 - name: Visão geral
+  expanded: true
   items:
     - name: O que é a VM de Ciência de Dados?
       href: overview.md
@@ -25,7 +26,10 @@
     - name: Usar uma VM de Aprendizado Profundo
       href: use-deep-learning-dsvm.md
 - name: Referência
+  expanded: true
   items:
+    - name: Descobrir o DSVM
+      href: dsvm-tools-overview.md
     - name: Estruturas de Aprendizado Profundo e de AI
       href: dsvm-deep-learning-ai-frameworks.md
     - name: Ferramentas de ciência de dados e de aprendizado de máquina

@@ -17,14 +17,12 @@ ms.date: 07/31/2017
 ms.author: billmath
 ms.reviewer: jesakowi
 ms.custom: oldportal;it-pro;
-ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
 ms.openlocfilehash: 6f6baf5e1538fb280a899065c64ca5688473c04a
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/01/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="apps-permissions-and-consent-in-azure-active-directory"></a>Aplicativos, permissões e consentimento no Azure Active Directory
 Dentro do Azure Active Directory, você pode adicionar aplicativos ao seu diretório.  Os aplicativos podem variar dependendo do tipo de aplicativo.  Para exibir os aplicativos no portal clássico, selecione um diretório e escolha os aplicativos.
 
@@ -220,5 +218,4 @@ No caso de FabrikamMail, ele tem esta aparência:
 (**ClientId** é a ID de objeto da entidade de serviço do FabrikamMail (aquele recém-criado), **PrincipalId** é a ID de objeto de usuário (do usuário que deu consentimento), **ResourceId** é a ID de objeto da entidade de serviço do Exchange, Scope é a permissão no Exchange para a qual o consentimento foi dado).
 
 Se os usuários não têm permissão para dar consentimento, eles verão uma tela que diz que essa permissão é necessária.
-
 

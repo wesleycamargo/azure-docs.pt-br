@@ -15,12 +15,11 @@ ms.topic: overview
 ms.date: 01/04/2017
 ms.author: cephalin
 ms.custom: mvc
+ms.openlocfilehash: c1b3feb79328269f4692d744e7a473397d0328c1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: ebafcb2463bc92f15c1299963e054fcddd47b0b3
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="web-apps-overview"></a>Visão geral de aplicativos Web
 *Aplicativos Web do Serviço de Aplicativo* é uma plataforma de computação totalmente gerenciada que é otimizada para hospedagem de sites e aplicativos Web. Essa oferta de [PaaS](https://en.wikipedia.org/wiki/Platform_as_a_service) (plataforma como serviço) do Microsoft Azure permite que você se concentre na lógica de negócios enquanto o Azure cuida da infraestrutura para executar e dimensionar os aplicativos.
@@ -40,7 +39,7 @@ No Serviço de Aplicativo, um *aplicativo Web* consiste nos recursos de computa�
 
 Os recursos de computação podem estar em VMs (máquinas virtuais) compartilhadas ou dedicadas, dependendo da camada de preços que você escolher. O código do aplicativo é executado em uma VM gerenciada que é isolada de outros clientes.
 
-O código pode estar em qualquer linguagem ou estrutura com suporte no [Serviço de Aplicativo do Azure](../app-service/app-service-web-overview.md), como ASP.NET, Node.js, Java, PHP ou Python. Você também pode executar scripts que usam o [PowerShell e outras linguagens de script](web-sites-create-web-jobs.md#acceptablefiles) em um aplicativo Web.
+O código pode estar em qualquer linguagem ou estrutura com suporte no Serviço de Aplicativo do Azure, como ASP.NET, Node.js, Java, PHP ou Python. Você também pode executar scripts que usam o [PowerShell e outras linguagens de script](web-sites-create-web-jobs.md#acceptablefiles) em um aplicativo Web.
 
 Para obter exemplos de cenários típicos de aplicativos nos quais você pode usar aplicativos Web, veja [Cenários de aplicativos Web](https://azure.microsoft.com/documentation/scenarios/web-app/) e a seção **Cenários e recomendações** de [Comparação entre o Serviço de Aplicativo do Azure, as Máquinas Virtuais, o Service Fabric e os Serviços de Nuvem](choose-web-site-cloud-service-vm.md#scenarios).
 
@@ -76,4 +75,3 @@ Para começar com a implantação do código de exemplo em um novo aplicativo We
 > Você pode [Experimentar o Serviço de Aplicativo](https://azure.microsoft.com/try/app-service/) sem uma conta do Azure. Crie um aplicativo inicial e brinque com ele por até uma hora: não é necessário cartão de crédito ou compromissos.
 > 
 > 
-

@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
-ms.openlocfilehash: 32c6d4ed5470077856d4ab175a5df5188b3690a6
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/13/2017
-
+ms.openlocfilehash: 58d29996a922fac6d295e753ba5d66d32e745a57
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="problem-configuring-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Problema ao configurar o logon único com senha para um aplicativo na Galeria do Azure AD
 
 Este artigo ajuda você a compreender os problemas comuns que as pessoas enfrentam ao configurar o **Logon Único com Senha** com um aplicativo na Galeria do Azure AD.
@@ -109,5 +107,4 @@ Também é possível baixar a extensão para Chrome e Firefox diretamente pelos 
 
 ## <a name="next-steps"></a>Próximas etapas
 [Fornecer logon único para seus aplicativos com Proxy de Aplicativo](active-directory-application-proxy-sso-using-kcd.md)
-
 

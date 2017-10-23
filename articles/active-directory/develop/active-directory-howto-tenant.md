@@ -15,12 +15,11 @@ ms.topic: hero-article
 ms.date: 07/19/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c300ba45cd530e5a606786aa7b2b254c2ed32fcd
-ms.openlocfilehash: b4232f2d27624e44a720047ad44991059316413e
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/14/2017
-
+ms.openlocfilehash: fe33d490b754e2f793f5c7a13dc55ca038b1b71c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-get-an-azure-active-directory-tenant"></a>Como obter um locatário do Active Directory do Azure
 No AD do Azure, um [locatário](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) é representativo de uma organização.  Ele é uma instância dedicada do serviço Azure AD que uma organização recebe e detém como sua propriedade quando se inscreve em um serviço de nuvem da Microsoft, como o Azure, o Microsoft InTune ou o Office 365.  Cada locatário do AD do Azure é distinto e separado de outros diretórios do AD do Azure.  
@@ -65,4 +64,3 @@ Se você já se inscreveu anteriormente para uma assinatura do Azure com sua con
 Se todos os itens acima forem sem sentido para você, não se preocupe.  Basta visitar [https://account.windowsazure.com/organization](https://account.windowsazure.com/organization) para inscrever-se no Azure com uma nova organização.  Depois de concluir o processo, você terá seu próprio locatário do AD do Azure com o nome de domínio escolhido durante a inscrição.  No [Portal do Azure](https://portal.azure.com), você pode localizar seu locatário navegando até "Azure Active Directory" no painel de navegação à esquerda.
 
 Como parte do processo de inscrição para o Azure, será solicitado que você forneça detalhes de cartão de crédito.  Você pode prosseguir com confiança - você não será cobrado para publicar aplicativos no AD do Azure nem para criar novos locatários.
-

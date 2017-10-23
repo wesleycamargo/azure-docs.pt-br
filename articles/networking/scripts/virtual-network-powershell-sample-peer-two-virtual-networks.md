@@ -15,14 +15,12 @@ ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 05/16/2017
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
 ms.openlocfilehash: 51c0b98727e148671cfd7ab2b31ffd1c705d8a4e
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="peer-two-virtual-networks"></a>Emparelhar duas redes virtuais
 
 Este script cria e conecta duas redes virtuais na mesma região através da rede do Azure. Depois de executar o script, você criará um emparelhamento entre duas redes virtuais.
@@ -33,7 +31,7 @@ Se necessário, instale o Azure PowerShell usando a instrução encontrada no [g
 
 ## <a name="sample-script"></a>Script de exemplo
 
-[!code-azurepowershell[principal](../../../powershell_scripts/virtual-network/peer-two-virtual-networks/peer-two-virtual-networks.ps1 "Emparelhar duas redes")]
+[!code-azurepowershell[main](../../../powershell_scripts/virtual-network/peer-two-virtual-networks/peer-two-virtual-networks.ps1 "Peer two networks")]
 
 ## <a name="clean-up-deployment"></a>Limpar implantação 
 

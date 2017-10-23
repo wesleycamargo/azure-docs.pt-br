@@ -16,13 +16,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/29/2016
 ms.author: LADocs; b-hoedid
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
 ms.openlocfilehash: 044de27c75da93c95609110d2b73336c42f746fe
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Cenário: Tratamento de exceção e log de erros de aplicativos lógicos
 
@@ -43,7 +41,7 @@ O projeto tinha dois requisitos principais:
 * Uma maneira de exibir os erros ocorridos no fluxo de trabalho
 
 > [!TIP]
-> Para assistir a um vídeo de alto nível sobre esse projeto, consulte [Grupo de usuários de integração](http://www.integrationusergroup.com/logic-apps-support-error-handling/ "Integration User Group").
+> Para assistir a um vídeo de alto nível sobre esse projeto, consulte [Grupo de usuários de integração](http://www.integrationusergroup.com/logic-apps-support-error-handling/ "Grupo de usuários de integração").
 
 ## <a name="how-we-solved-the-problem"></a>Como solucionamos o problema
 
@@ -432,14 +430,14 @@ Para exibir os logs, também criamos um aplicativo Web do MVC. Estes são exempl
 
 Nosso aplicativo de API de gerenciamento de exceções do Aplicativo Lógico do Azure de software livre fornece a funcionalidade conforme descrito a seguir - existem dois controladores:
 
-* **ErrorController** insere um registro de erro (documento) em uma coleção do Banco de Dados de Documentos.
-* **LogController** insere um registro de log (documento) em uma coleção do Banco de Dados de Documentos.
+* **ErrorController** insere um registro de erro (documento) em uma coleção do DocumentDB.
+* **LogController** insere um registro de log (documento) em uma coleção do DocumentDB.
 
 > [!TIP]
 > Ambos os controladores usam operações `async Task<dynamic>`, permitindo que as operações sejam resolvidas em tempo de execução, para que possamos criar o esquema do DocumentDB no corpo da operação. 
 > 
 
-Todos os documentos do Banco de Dados de Documentos devem ter uma ID exclusiva. Estamos usando o `PatientId` e adicionando um carimbo de data/hora convertido em um valor de carimbo de data/hora do Unix (double). Truncamos o valor para remover o valor fracionário.
+Todos os documentos do DocumentDB devem ter uma ID exclusiva. Estamos usando o `PatientId` e adicionando um carimbo de data/hora convertido em um valor de carimbo de data/hora do Unix (double). Truncamos o valor para remover o valor fracionário.
 
 Você pode exibir o código-fonte da nossa API de controlador erro [o GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/Logic App Exception Management API/Controllers/ErrorController.cs).
 
@@ -481,7 +479,7 @@ A expressão no exemplo de código anterior verifica o status de *Create_NewPati
 ## <a name="summary"></a>Resumo
 
 * Você pode implementar facilmente o tratamento de logs e de erros em um aplicativo lógico.
-* Você pode usar o Banco de Dados de Documentos como o repositório de registros de log e de erros (documentos).
+* Você pode usar o DocumentDB como o repositório de registros de log e de erros (documentos).
 * Você pode usar o MVC para criar um portal para exibir os registros de log e de erros.
 
 ### <a name="source-code"></a>Código-fonte
@@ -493,4 +491,3 @@ O código-fonte para o aplicativo de API de gerenciamento de exceções de Aplic
 * [Exibir mais exemplos e cenários de aplicativos lógicos](../logic-apps/logic-apps-examples-and-scenarios.md)
 * [Saiba mais sobre como monitorar aplicativos lógicos](../logic-apps/logic-apps-monitor-your-logic-apps.md)
 * [Criar modelos de implantação automatizados para aplicativos lógicos](../logic-apps/logic-apps-create-deploy-template.md)
-

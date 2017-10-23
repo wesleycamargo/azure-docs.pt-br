@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: barclayn
-ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: 3b57c92bd744644ea81878712b4272ed3ece4e2e
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-personal-data-in-microsoft-azure"></a>Gerenciar dados pessoais no Microsoft Azure
 
@@ -129,5 +128,4 @@ Para obter uma visão geral das etapas do assistente, visite a página da Web [E
 [Banco de Dados SQL do Azure](https://azure.microsoft.com/services/sql-database/?v=16.50) 
 
 [Active Directory do Azure](https://azure.microsoft.com/services/active-directory/)
-
 

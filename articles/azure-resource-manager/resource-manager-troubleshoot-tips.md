@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/12/2017
 ms.author: tomfitz
-ms.translationtype: HT
-ms.sourcegitcommit: 9afd12380926d4e16b7384ff07d229735ca94aaa
 ms.openlocfilehash: b67bb30fa259fa08e37e11afec724c8b8c3eb633
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/15/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="understand-azure-deployment-errors"></a>Entender os erros de implantação do Azure
 Este tópico descreve os erros de implantação e como você pode descobrir mais informações sobre um erro. Para obter resoluções de erros comuns de implantação, consulte [Solução de erros comuns de implantação do Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md).
 
@@ -207,4 +205,3 @@ A mesma abordagem funciona para aplicativos de serviço de aplicativo. Considere
 * Para obter resoluções de erros comuns de implantação, consulte [Solução de erros comuns de implantação do Azure com o Azure Resource Manager](resource-manager-common-deployment-errors.md).
 * Para saber sobre as ações de auditoria, consulte [Auditar operações com o Gerenciador de Recursos](resource-group-audit.md).
 * Para saber sobre as ações para determinar os erros durante a implantação, consulte [Exibir operações de implantação](resource-manager-deployment-operations.md).
-

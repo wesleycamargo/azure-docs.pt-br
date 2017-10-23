@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: markgal,masaran
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
 ms.openlocfilehash: 30f70a702d7d9a3e1196c04096708c035e406607
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="back-up-system-state-and-restore-to-bare-metal-with-azure-backup-server"></a>Fazer backup de estado do sistema e restaurar bare-metal com o servidor de Backup do Azure
 
 Use o Servidor de Backup do Azure para fazer backup do estado do sistema e fornecer proteção de recuperação bare-metal (BMR).
@@ -227,5 +225,4 @@ Fazer backup do Windows Server:
     Use o identificador de versão para iniciar a restauração de estado do sistema. No prompt de comando, insira: ```wbadmin start systemstaterecovery -version:<versionidentified> -backuptarget:<servername\sharename>```
 
     Confirme que você deseja iniciar a recuperação. Você pode ver o processo na janela do Prompt de Comando. Um log de restauração é criado. Após a restauração, reinicie o servidor.
-
 

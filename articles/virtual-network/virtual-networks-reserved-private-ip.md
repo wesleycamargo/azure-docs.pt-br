@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2016
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
 ms.openlocfilehash: cf9ee59ca4e44ed01836c2efb1f4df5f073bf6e0
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/28/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-set-a-static-internal-private-ip-address-using-powershell-classic"></a>Como definir um endereço IP privado interno estático usando o PowerShell (clássico)
 Na maioria dos casos, você não precisará especificar um endereço IP interno estático para sua máquina virtual. As VMs de uma rede virtual receberão automaticamente endereço IP interno de um intervalo especificado por você. Mas, em alguns casos, a especificação de um endereço IP estático para uma determinada VM fará sentido. Por exemplo, se a sua VM se destinar à execução de DNS ou a ser um controlador de domínio. Um endereço IP interno estático permanece com a VM mesmo em um estado de interrupção/desprovisionamento. 
@@ -109,5 +107,4 @@ Para adicionar um IP interno estático à VM criada usando o script acima, execu
 [IP Público em Nível de Instância (ILPIP)](virtual-networks-instance-level-public-ip.md)
 
 [APIs REST com IP Reservado](https://msdn.microsoft.com/library/azure/dn722420.aspx)
-
 

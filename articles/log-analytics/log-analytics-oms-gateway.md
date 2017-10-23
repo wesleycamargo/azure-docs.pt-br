@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/20/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
-ms.openlocfilehash: ce2f9311775389366c66323070254f721f0896ab
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/22/2017
-
+ms.openlocfilehash: a4d3a45d4bf83754fba363cdb3f3688d7218baa4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="connect-computers-without-internet-access-to-oms-using-the-oms-gateway"></a>Conectar computadores sem acesso à Internet ao OMS usando o Gateway do OMS
 
 Este documento descreve como computadores monitorados pelo System Center Operations Manager e gerenciados pelo OMS podem enviar dados ao serviço OMS quando eles não tiverem acesso à Internet. O Gateway do OMS, que é um proxy de encaminhamento de HTTP que dá suporte a túnel HTTP usando o comando HTTP CONNECT, pode coletar dados e enviá-los para o serviço OMS em seu nome.  
@@ -109,7 +107,7 @@ Para instalar um gateway, execute as etapas a seguir.  Se você instalou uma ver
    1. Digite o número da porta TCP a ser usada para o gateway. A instalação configura uma regra de entrada com esse número de porta no firewall do Windows.  O valor padrão é 8080.
       O intervalo válido do número de porta é de 1 a 65535. Se a entrada não estiver dentro desse intervalo, uma mensagem de erro será exibida.
    2. Como opção, se o servidor onde o gateway estiver instalado precisar se comunicar por meio de um proxy, digite o endereço do proxy onde o gateway precisa para se conectar. Por exemplo: `http://myorgname.corp.contoso.com:80`.  Se estiver em branco, o gateway tentará se conectar à Internet diretamente.  Se o servidor proxy exigir autenticação, insira um nome de usuário e senha.<br><br> ![Configuração de proxy do Assistente de Gateway](./media/log-analytics-oms-gateway/gateway-wizard02.png)<br>   
-   3. Clique em **Próximo**.
+   3. Clique em **Avançar**.
 5. Se o Microsoft Update não estiver habilitado, a página Microsoft Update será exibida, onde você pode optar por habilitá-lo. Faça uma seleção e clique em **Avançar**. Caso contrário, prossiga para a próxima etapa.
 6. Na página **Pasta de Destino**, deixe a pasta padrão C:\ProgramFiles\OMS Gateway ou digite o local em que deseja instalar o gateway e clique em **Avançar**.
 7. Na página **Pronto para instalar**, clique em **Instalar**. O Controle de Conta de Usuário pode aparecer solicitando permissão para instalação. Nesse caso, clique em **Sim**.
@@ -212,13 +210,13 @@ Use as seguintes tabelas para identificar a URL de cada local:
 
 Se o computador for registrado como um Hybrid Runbook Worker automaticamente para aplicação de patch usando a solução Gerenciamento de Atualizações, siga estas etapas:
 
-1. Adicione as URLs de serviço de dados de tempo de execução do trabalho à lista Hosts Permitidos no Gateway do OMS. Por exemplo:  `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
+1. Adicione as URLs de serviço de dados de tempo de execução do trabalho à lista Hosts Permitidos no Gateway do OMS. Por exemplo: `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
 2. Reinicie o serviço do Gateway do OMS usando o seguinte cmdlet do PowerShell: `Restart-Service OMSGatewayService`
 
 Se o computador estiver integrado à Automação do Azure usando o cmdlet de registro do Hybrid Runbook Worker, siga estas etapas:
 
 1. Adicione a URL do registro de serviço do agente à lista Hosts Permitidos no Gateway do OMS. Por exemplo: `Add-OMSGatewayAllowedHost ncus-agentservice-prod-1.azure-automation.net`
-2. Adicione as URLs de serviço de dados de tempo de execução do trabalho à lista Hosts Permitidos no Gateway do OMS. Por exemplo:  `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
+2. Adicione as URLs de serviço de dados de tempo de execução do trabalho à lista Hosts Permitidos no Gateway do OMS. Por exemplo: `Add-OMSGatewayAllowedHost we-jobruntimedata-prod-su1.azure-automation.net`
 3. Reinicie o serviço do Gateway do OMS.
     `Restart-Service OMSGatewayService`
 
@@ -292,4 +290,3 @@ Você também pode deixar comentários sobre o OMS ou o Log Analytics no [Fórum
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Adicionar fontes de dados](log-analytics-data-sources.md) para coletar dados das Fontes Conectadas em seu espaço de trabalho do OMS e armazená-los no repositório do OMS.
-

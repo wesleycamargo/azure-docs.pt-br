@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 8f291186c6a68dea8aa00b846a2e6f3ad0d7996c
 ms.openlocfilehash: c19f81da495eb7116b62797d1755d312a23f3805
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/28/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lcvista"></a>Tutorial: Integração do Azure Active Directory ao LCVista
 
@@ -102,11 +100,11 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
 
 1. No Portal do Azure, na página de integração de aplicativos do **LCVista**, clique em **Logon único**.
 
-    ![Configurar o logon único][4]
+    ![Configurar Logon Único][4]
 
 2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
-    ![Configurar o logon único](./media/active-directory-saas-lcvista-tutorial/tutorial_lcvista_samlbase.png)
+    ![Configurar Logon Único](./media/active-directory-saas-lcvista-tutorial/tutorial_lcvista_samlbase.png)
 
 3. Na seção **Domínio e URLs do LCVista**, execute as seguintes etapas:
 
@@ -114,7 +112,7 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
 
     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<subdomain>.lcvista.com/rainier/login`
 
-    b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<subdomain>.lcvista.com`    
+    b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<subdomain>.lcvista.com` 
      
     > [!NOTE] 
     > Esses não são os valores reais. Atualize esses valores com o Identificador e a URL de Logon reais. Contate a [equipe de suporte do Cliente LCVista](https://lcvista.com/contact) para obter esses valores. 
@@ -246,5 +244,4 @@ Nesta seção, você testará sua configuração de logon único do Azure AD usa
 [201]: ./media/active-directory-saas-lcvista-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-lcvista-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-lcvista-tutorial/tutorial_general_203.png
-
 

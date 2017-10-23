@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
 ms.openlocfilehash: 04ea6f728e59ec8b47e54fe45e1adc6cbbfb85ff
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/09/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-log-analytics"></a>Coletar contadores de desempenho para aplicativos Linux no Log Analytics 
 Este artigo fornece detalhes para configurar o [Agente do OMS para Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) para coletar contadores de desempenho para aplicativos específicos.  Os aplicativos incluídos neste artigo são:  

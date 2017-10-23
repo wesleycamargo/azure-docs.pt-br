@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/01/2017
 ms.author: larryfr
+ms.openlocfilehash: 245bee7c1dbb0236afdc2506e7ab84b5573cbc85
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
-ms.openlocfilehash: b73ab6914bad3d08e1833338634abf62aa3e9c05
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/03/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="connect-to-kafka-on-hdinsight-preview-through-an-azure-virtual-network"></a>Conectar-se ao Kafka no HDInsight (preview) por meio de uma Rede Virtual do Azure
 
 Saiba como se conectar diretamente ao Kafka no HDInsight usando Redes Virtuais do Azure. Este documento fornece informações sobre como se conectar ao Kafka usando as seguintes configurações:
@@ -391,4 +389,3 @@ Para saber mais sobre como trabalhar com o Kafka no HDInsight, veja os seguintes
 
 * [Introdução ao Kafka no HDInsight](hdinsight-apache-kafka-get-started.md)
 * [Usar o espelhamento com o Kafka no HDInsight](hdinsight-apache-kafka-mirroring.md)
-

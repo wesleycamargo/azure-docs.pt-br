@@ -14,13 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 05/22/2017
 ms.author: brjohnst
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
 ms.openlocfilehash: 552a7ab193e12d2e72da494166d774e974c85d47
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/22/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-azure-search-from-a-net-application"></a>Como usar a Pesquisa do Azure de um aplicativo .NET
 Este artigo é um passo a passo para ajudar você a usar o [SDK do .NET da Pesquisa do Azure](https://aka.ms/search-sdk). Você pode usar o SDK do .NET para implementar uma experiência de pesquisa avançada em seu aplicativo usando a Pesquisa do Azure.
@@ -589,4 +587,3 @@ Essa etapa conclui o tutorial, mas não pare aqui. **Próximas etapas** fornece 
 * Aprofunde seus conhecimentos por meio de [vídeos e outros exemplos e tutoriais](search-video-demo-tutorial-list.md).
 * Revise as [convenções de nomenclatura](https://docs.microsoft.com/rest/api/searchservice/Naming-rules) para saber as regras de nomeação de vários objetos.
 * Examine os [tipos de dados com suporte](https://docs.microsoft.com/rest/api/searchservice/Supported-data-types) na Pesquisa do Azure.
-

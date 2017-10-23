@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/01/2017
 ms.author: andret
+ms.openlocfilehash: c888760ab311e8ac08b1e625bb837f91047db645
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: c559c80781da3631a783d96539622c4c89fe7e17
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/19/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 ## <a name="test-your-code"></a>Testar seu código
 
@@ -63,4 +62,3 @@ A API do Microsoft Graph requer o escopo `user.read` para ler o perfil do usuár
 Se uma API de back-end não exigir um escopo (não recomendado), será possível usar o `clientId` como o escopo nas chamadas `acquireTokenSilent` e/ou `acquireTokenRedirect`.
 
 <!--end-collapse-->
-

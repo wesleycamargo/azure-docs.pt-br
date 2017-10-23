@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: juliako
+ms.openlocfilehash: 4ad90ad979c5bd74fc55155098c88d5c13cb12e2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 0650d3727df1b6738f140439ce4c22078d188d83
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/12/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-get-a-media-processor-instance"></a>Como obter uma instância do Processador de Mídia
 > [!div class="op_single_selector"]
@@ -91,5 +90,4 @@ Resposta:
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você já sabe como obter uma instância do processador de mídia, vá para o tópico [Como Codificar um Ativo](media-services-rest-get-started.md) , que mostrará como usar o Codificador de Mídia Standard para codificar um ativo.
-
 

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 40641910f904aa0c0516f96d84d0ebbbbe8e5501
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-batch-service-for-machine-learning-jobs"></a>Serviço do Lote do Azure para trabalhos do Machine Learning
 
@@ -112,4 +111,3 @@ Caso você crie um Pool do Lote com 4 máquinas virtuais e o exclua após 12 hor
 | **Use o Processamento Pool do Lote quando**    | **Use o processamento em lotes clássico quando**  |
 |---|---|
 |Você precisar executar um grande número de trabalhos<br>Ou<br/>Você precisar saber que seus trabalho serão executados imediatamente<br/>Ou<br/>Você precisar de taxa de transferência garantida. Por exemplo, você precisa executar vários trabalhos em um determinado intervalo e deseja expandir os recursos de computação para atender às suas necessidades.    | Você estiver executando apenas alguns trabalhos<br/>e<br/> Você não precisar que os trabalhos sejam executados imediatamente |
-

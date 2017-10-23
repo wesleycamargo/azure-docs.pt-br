@@ -14,13 +14,11 @@ ms.devlang: javascript
 ms.topic: hero-article
 ms.date: 01/07/2017
 ms.author: xerners
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3b5d9162e2d39e2b0f011383a478545644c57861
-ms.openlocfilehash: c9742c7f505417577857889ef307083afb9bab18
-ms.contentlocale: pt-br
-ms.lasthandoff: 02/14/2017
-
-
+ms.openlocfilehash: 2315f5d0ebb142561c65224cd9d06299466a7ee4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-b2c-secure-a-web-api-by-using-nodejs"></a>Azure AD B2C: proteger uma API Web usando o Node .js
 <!-- TODO [AZURE.INCLUDE [active-directory-b2c-devquickstarts-web-switcher](../../includes/active-directory-b2c-devquickstarts-web-switcher.md)]-->
@@ -37,7 +35,7 @@ Com o Active Directory B2C do Azure (AD do Azure), você pode proteger uma API W
 Para realizar este exemplo, você precisa:
 
 1. Registrar um aplicativo com o Azure AD.
-2. Configurar seu aplicativo para usar o plug-in `azure-ad-passport` do Passport.
+2. Configurar seu aplicativo para usar o plug-in `passport-azure-ad` do Passport.
 3. Configurar um aplicativo cliente para chamar a API Web de "lista de tarefas pendentes".
 
 ## <a name="get-an-azure-ad-b2c-directory"></a>Obter um diretório AD B2C do Azure
@@ -762,4 +760,3 @@ Você implementou uma API REST usando Restify e OAuth! Agora você tem código s
 Agora você pode ir para tópicos mais avançados, como:
 
 [Conectar-se a uma API Web usando o iOS com o B2C](active-directory-b2c-devquickstarts-ios.md)
-

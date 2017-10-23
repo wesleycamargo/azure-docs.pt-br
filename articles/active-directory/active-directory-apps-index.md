@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 07/31/2017
 ms.author: markvi
 ms.reviewer: asteen
+ms.openlocfilehash: e3cc6bddd67b70f603d5c0d26af6563ae207e3db
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: ea2dc2762b556da837fa1d6674e01aba32face92
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/20/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Índice de artigos sobre gerenciamento de aplicativos no Active Directory do Azure
 Esta página fornece uma lista abrangente com todos os documentos escritos sobre os vários recursos relacionados ao aplicativo no Active Directory do Azure (AD do Azure).
@@ -213,4 +212,3 @@ Para ver quais relatórios estão incluídos em edições diferentes do Azure Ac
 [Serviços de Domínio do Active Directory do Azure](https://azure.microsoft.com/services/active-directory-ds/)
 
 [Autenticação Multifator do Azure](https://azure.microsoft.com/services/multi-factor-authentication/)
-

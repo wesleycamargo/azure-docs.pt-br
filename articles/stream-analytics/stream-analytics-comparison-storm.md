@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/27/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: 97044cb5d7b0b3fcb3b85328df618a265bc59b61
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="choosing-a-streaming-analytics-platform-comparing-apache-storm-and-azure-stream-analytics"></a>Escolher uma plataforma de análise de streaming: comparação do Apache Storm com o Stream Analytics do Azure
 O Azure fornece várias soluções para analisar dados de streaming: [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) e [Apache Storm no Azure HDInsight](https://azure.microsoft.com/services/hdinsight/apache-storm/). Ambas as plataformas de análise oferecem os benefícios de uma solução de PaaS. Mas as plataformas têm algumas diferenças significativas em suas funcionalidades e também em como configurá-las e gerenciá-las. 
@@ -560,4 +559,3 @@ Disponível por meio de bolts do Storm.
         </tr>
     </tbody>
 </table>
-

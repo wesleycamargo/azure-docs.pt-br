@@ -13,16 +13,14 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
-ms.topic: support-article
+ms.topic: troubleshooting
 ms.date: 05/26/2017
 ms.author: genli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 4f2b70b79e52df902e0f659fc97158d446efdf50
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/03/2017
-
-
+ms.openlocfilehash: 803ca6cb9e7c5633920ab44e45cf211eca1517a6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshooting-specific-rdp-error-messages-to-a-windows-vm-in-azure"></a>Solucionar problemas de mensagens de erro específicas ao RDP para uma VM do Windows no Azure
 Você pode receber mensagens de erro específicas ao usar a conexão de Área de Trabalho Remota para uma VM (máquina virtual) do Windows no Azure. Este artigo detalha algumas das mensagens de erro mais comuns encontradas, junto com as etapas para resolvê-las. Se você estiver enfrentando problemas para se conectar à sua VM usando o RDP, mas não encontrar uma mensagem de erro específica, consulte o [guia de solução de Área de Trabalho Remota](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
@@ -111,5 +109,4 @@ Se nenhum desses erros ocorrerem e você tiver um problema desconhecido com a co
 
 * Para obter etapas de solução de problema de acesso a aplicativos em execução, consulte [Solucionar problemas de acesso a um aplicativo em execução em uma VM do Azure](../linux/troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 * Se você estiver enfrentando problemas ao usar o Secure Shell (SSH) para se conectar a uma VM do Linux no Azure, consulte [Solucionar problemas de conexões SSH a uma VM do Linux no Azure](../linux/troubleshoot-ssh-connection.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
 

@@ -15,21 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
-ms.openlocfilehash: 9778db69e94e9f1d033cc8c16fdb9554df3eddcc
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/03/2017
-
+ms.openlocfilehash: eb455477547f3db8245cf3601576eba9c6fdc56f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# Sincronização do Azure AD Connect: habilitar a lixeira do AD
-<a id="azure-ad-connect-sync-enable-ad-recycle-bin" class="xliff"></a>
+# <a name="azure-ad-connect-sync-enable-ad-recycle-bin"></a>Sincronização do Azure AD Connect: habilitar a lixeira do AD
 É recomendável que você habilite o recurso Lixeira do AD para seus Active Directories locais, sincronizados com o Azure AD. 
 
 Se você excluiu acidentalmente um objeto de usuário do AD local e o restaurou usando o recurso, o Azure AD restaura o objeto de usuário do Azure AD correspondente.  Para obter informações sobre o recurso Lixeira do AD, consulte o artigo [Scenario Overview for Restoring Deleted Active Directory Objects (Visão geral do cenário de restauração de objetos do Active Directory excluídos)](https://technet.microsoft.com/library/dd379542.aspx).
 
-## Benefícios da habilitação da lixeira do AD
-<a id="benefits-of-enabling-the-ad-recycle-bin" class="xliff"></a>
+## <a name="benefits-of-enabling-the-ad-recycle-bin"></a>Benefícios da habilitação da lixeira do AD
 Esse recurso ajuda a restaurar os objetos de usuário do Azure AD, fazendo o seguinte:
 
 * Se você excluiu acidentalmente um objeto de usuário do AD local, o objeto de usuário do Azure AD correspondente será excluído no próximo ciclo de sincronização. Por padrão, o Azure AD mantém o objeto de usuário excluído do Azure AD em estado de exclusão temporária durante 30 dias.
@@ -43,11 +40,9 @@ Esse recurso ajuda a restaurar os objetos de usuário do Azure AD, fazendo o seg
 
 
 
-## Próximas etapas
-<a id="next-steps" class="xliff"></a>
+## <a name="next-steps"></a>Próximas etapas
 **Tópicos de visão geral**
 
 * [Sincronização do Azure AD Connect: compreender e personalizar a sincronização](active-directory-aadconnectsync-whatis.md)
 
 * [Integração de suas identidades locais com o Active Directory do Azure](active-directory-aadconnect.md)
-

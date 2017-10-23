@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 644713d365191bf5e51517d0cc565efbc2abc144
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/26/2017
-
+ms.openlocfilehash: b541cd5cb7e49468af2c522b16c3a3b9fe75fd54
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-aure-network-watcher-using-azure-rest-api"></a>Descubra qual o tipo do próximo salto é usando o recurso de próximo salto no Observador de Rede do Azure usando a API REST do Azure
 
 > [!div class="op_single_selector"]
@@ -132,7 +130,6 @@ Veja a seguir os resultados no formato json.
 ## <a name="next-steps"></a>Próximas etapas
 
 Depois que você conseguir descobrir o próximo salto para uma máquina virtual, exiba a segurança de seus recursos de rede visitando [Visão geral do modo de segurança](network-watcher-security-group-view-overview.md)
-
 
 
 

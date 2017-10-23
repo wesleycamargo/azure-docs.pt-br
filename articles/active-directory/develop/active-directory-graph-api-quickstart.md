@@ -16,13 +16,11 @@ ms.workload: identity
 ms.date: 04/28/2017
 ms.author: viviali
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7c4d5e161c9f7af33609be53e7b82f156bb0e33f
-ms.openlocfilehash: adefef44d9d3d8e986b26ebe813ecd5d3a6c6f3f
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/04/2017
-
-
+ms.openlocfilehash: fad5c315a247673b7a2ad52b4a78b49c567a997a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="quickstart-for-the-azure-ad-graph-api"></a>Guia de início rápido para a Graph API do AD do Azure
 A Graph API do Active Directory do Azure fornece acesso programático ao AD do Azure por meio de pontos de extremidade OData REST API. Os aplicativos podem usar a Graph API para realizar operações de criação, leitura, atualização e exclusão (CRUD) nos objetos e dados do diretório. Por exemplo, você pode usar a Graph API para criar um novo usuário, exibir ou atualizar as propriedades do usuário, alterar a senha do usuário, verificar a associação de grupo para acesso baseado em função, desabilitar ou excluir o usuário. Para obter mais informações sobre os recursos da API do Graph e cenários de aplicativo, consulte a [API do Graph do Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) e [Pré-requisitos da API do Graph do Azure AD](https://msdn.microsoft.com/library/hh974476.aspx). 
@@ -119,5 +117,4 @@ Para saber mais sobre entidades e tipos do AD do Azure que são expostos pelo Gr
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre a [API do Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)
 * Saiba mais sobre [Escopos de Permissão da API do Graph do Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-permission-scopes)
-
 

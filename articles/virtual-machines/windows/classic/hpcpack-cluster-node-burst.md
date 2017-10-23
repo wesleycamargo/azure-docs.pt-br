@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 10/14/2016
 ms.author: danlep
-ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
 ms.openlocfilehash: 9336743b92130e37b1df2992aab806696f8276aa
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/12/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-on-demand-burst-nodes-to-an-hpc-pack-cluster-in-azure"></a>Adicionar nós de “intermitência” sob demanda a um cluster HPC Pack no Azure
 Se você configurar um cluster [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) no Azure, poderá preferir uma maneira de dimensionar rapidamente a capacidade de cluster para mais ou menos, sem manter um conjunto de VMs do nó de computação pré-configuradas. Este artigo mostra como adicionar os nós de “disparo contínuo” sob demanda (instâncias de função de trabalho em execução em um serviço de nuvem) como recursos de computação para um nó de cabeçalho no Azure. 
@@ -82,4 +81,3 @@ Se tiver problemas ao implantar nós do Azure, veja [Troubleshoot Deployments of
 
 <!--Image references-->
 [burst]: ./media/hpcpack-cluster-node-burst/burst.png
-

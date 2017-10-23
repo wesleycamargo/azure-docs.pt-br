@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.date: 08/22/2017
 ms.author: denlee
-ms.translationtype: HT
-ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
 ms.openlocfilehash: 7b1053a7ec879294cb2240c9d6b4cd32f923ef9c
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="build-a-java-web-application-using-azure-cosmos-db-and-the-documentdb-api"></a>Compilar um aplicativo Web Java usando o Azure Cosmos DB e a API de DocumentDB
 > [!div class="op_single_selector"]
@@ -87,8 +86,7 @@ Para criar o aplicativo JSP:
    
     ![Hello World — tutorial de aplicativo Java](./media/documentdb-java-application/image12.png)
 
-## <a id="InstallSDK">
-            </a>Etapa 3: Instalar o SDK do Java do DocumentDB
+## <a id="InstallSDK"></a>Etapa 3: Instalar o SDK do Java do DocumentDB
 É a maneira mais fácil de obter o SDK do Java do DocumentDB e suas dependências por meio do [Apache Maven](http://maven.apache.org/).
 
 Para fazer isso, você precisará converter o projeto para um projeto Maven concluindo as etapas a seguir:
@@ -758,4 +756,3 @@ Todos os exemplos neste tutorial foram incluídos no projeto [tarefas](https://g
 22. Para implantar o projeto em um site do Azure, consulte a [Etapa 6. Implante o aplicativo nos Sites do Azure](#Deploy).
 
 [1]: media/documentdb-java-application/keys.png
-

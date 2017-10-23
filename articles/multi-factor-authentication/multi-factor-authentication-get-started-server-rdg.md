@@ -15,12 +15,11 @@ ms.date: 06/27/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 4c2be7c35f678430d0ad83a3374ef25f68fd2509
 ms.openlocfilehash: 3b4181701c5df03a3df7e0446b313eac201ad99e
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="remote-desktop-gateway-and-azure-multi-factor-authentication-server-using-radius"></a>Gateway de Área de Trabalho Remota e Servidor de Autenticação Multifator do Azure usando RADIUS
 Muitas vezes, o Gateway RD (Área de Trabalho Remota) usa os NPS (Serviços de Política de Rede) locais para autenticar usuários. Este artigo descreve como rotear a solicitação RADIUS do Gateway de Área de Trabalho Remota (por meio do NPS local) até o Servidor de Autenticação Multifator. A combinação do Azure MFA e do Gateway de Área de Trabalho Remota significa que os usuários podem acessar seus ambientes de trabalho de qualquer lugar mantendo uma autenticação forte. 
@@ -83,4 +82,3 @@ O Servidor de Autenticação Multifator do Azure é configurado como um proxy RA
 - Integrar o Azure MFA e [aplicativos web do IIS](multi-factor-authentication-get-started-server-iis.md)
 
 - Obtenha respostas no [FAQ de autenticação multifator do Azure](multi-factor-authentication-faq.md)
-

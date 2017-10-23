@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/04/2017
 ms.author: elioda
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f0be85d661807f36890fc79090c3f820ae8c376d
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-using-net"></a>Carregar arquivos do seu dispositivo para a nuvem com o Hub IoT usando .NET
 
@@ -193,10 +192,10 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 
 [Portal do Azure]: https://portal.azure.com/
 
-[Centro de Desenvolvedores do IoT do Azure]: http://www.azure.com/develop/iot
+[Central de Desenvolvedores do IoT do Azure]: http://www.azure.com/develop/iot
 
-[Tratamento de Falhas Transitórias]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
-[Pacote NuGet do SDK do serviço IoT do Azure]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
+[Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
+[pacote NuGet do SDK do serviço IoT do Azure]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [lnk-create-hub]: iot-hub-rm-template-powershell.md
@@ -204,4 +203,3 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 [lnk-sdks]: iot-hub-devguide-sdks.md
 
 [lnk-iotedge]: iot-hub-windows-iot-edge-simulated-device.md
-

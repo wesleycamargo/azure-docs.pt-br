@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/07/2017
 ms.author: motanv
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7033955fa9c18b2fa1a28d488ad5268d598de287
-ms.openlocfilehash: 8975df6b0fe594b092c9890352c7b3787733d8db
-ms.contentlocale: pt-br
-ms.lasthandoff: 01/24/2017
-
-
+ms.openlocfilehash: d06026c750e01ad5825338a78d9af331265f434a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="testability-scenarios"></a>Cenários da possibilidade de teste
 Sistemas grandes distribuídos como infraestruturas de nuvem não são confiáveis por natureza. O Service Fabric do Azure permite aos desenvolvedores gravar os serviços para serem executados em infraestruturas não confiáveis. Para gravar serviços de alta qualidade, os desenvolvedores precisam ser capazes de induzir essa infraestrutura não confiável a testar a estabilidade dos seus serviços.
@@ -255,4 +253,3 @@ Connect-ServiceFabricCluster $connection
 
 Invoke-ServiceFabricFailoverTestScenario -TimeToRunMinute $timeToRun -MaxServiceStabilizationTimeoutSec $maxStabilizationTimeSecs -WaitTimeBetweenFaultsSec $waitTimeBetweenFaultsSec -ServiceName $serviceName -PartitionKindSingleton
 ```
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/26/2017
 ms.author: kraigb
+ms.openlocfilehash: 35638083cd75e1b751d00a9c8163a3bc7480f0cd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 2fc396c93c3156054277d592eb2772fd29eed832
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="adding-azure-storage-by-using-visual-studio-connected-services"></a>Adicionando armazenamento do Azure usando os serviços conectados do Visual Studio
 Com o Visual Studio, você pode conectar qualquer um dos seguintes Armazenamentos do Azure usando a caixa de diálogo **Adicionar Serviços Conectados**:
@@ -75,4 +74,3 @@ Quando você acaba de fazer suas escolhas na caixa de diálogo, o Visual Studio 
 - [Fórum do MSDN: Armazenamento do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata)
 - [Blog da equipe do Armazenamento do Microsoft Azure](http://blogs.msdn.com/b/windowsazurestorage/)
 - [Documentação do Armazenamento do Azure](https://docs.microsoft.com/azure/storage/)
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: terrylan
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: 6787877deabafd0b7308e190cb45b4036049b05b
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-security-management-and-monitoring-overview"></a>Visão geral de monitoramento e gerenciamento de segurança do Azure
 O Azure fornece mecanismos de segurança para auxiliar no gerenciamento e monitoramento de serviços de nuvem e máquinas virtuais do Azure. Este artigo fornece uma visão geral desses recursos e serviços de segurança básicos. São fornecidos links para artigos que apresentam detalhes de cada um para que você possa saber mais sobre eles.
@@ -38,7 +37,7 @@ Aqui estão os principais recursos que serão abordados neste artigo:
 
 * Controle de Acesso Baseado em Função
 * Antimalware
-* Autenticação Multifator
+* Multi-Factor Authentication
 * ExpressRoute
 * Gateways de rede virtual
 * Privileged Identity Management
@@ -70,17 +69,17 @@ Saiba mais:
 * [Como instalar e configurar o Symantec Endpoint Protection em uma VM do Windows](../virtual-machines/windows/classic/install-symantec.md)
 * [New Antimalware Options for Protecting Azure Virtual Machines – McAfee Endpoint Protection](https://azure.microsoft.com/blog/new-antimalware-options-for-protecting-azure-virtual-machines/)
 
-## <a name="multi-factor-authentication"></a>Autenticação Multifator
-O MFA (Autenticação Multifator) é um método de autenticação que exige o uso de mais de um método de verificação e adiciona uma segunda camada crítica de segurança às entradas e transações dos usuários. O MFA ajuda a proteger o acesso a dados e aplicativos, ao mesmo tempo que atende à demanda dos usuários por um processo de entrada simples. Ele fornece autenticação forte por meio de uma variedade de opções de verificação – chamada telefônica, mensagem de texto, notificação de aplicativo móvel ou código de verificação e tokens OATH de terceiros.
+## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
+O MFA (Multi-Factor Authentication) é um método de autenticação que exige o uso de mais de um método de verificação e adiciona uma segunda camada crítica de segurança às entradas e transações dos usuários. O MFA ajuda a proteger o acesso a dados e aplicativos, ao mesmo tempo que atende à demanda dos usuários por um processo de entrada simples. Ele fornece autenticação forte por meio de uma variedade de opções de verificação – chamada telefônica, mensagem de texto, notificação de aplicativo móvel ou código de verificação e tokens OATH de terceiros.
 
 Saiba mais:
 
 * [Autenticação multifator](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
-* [O que é a Autenticação Multifator do Azure?](../multi-factor-authentication/multi-factor-authentication.md)
-* [Como funciona a Autenticação Multifator do Azure](../multi-factor-authentication/multi-factor-authentication-how-it-works.md)
+* [O que é o Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
+* [Como funciona o Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-how-it-works.md)
 
 ## <a name="expressroute"></a>ExpressRoute
-O Microsoft Azure ExpressRoute permite que você estenda suas redes locais até a nuvem da Microsoft por meio de uma conexão privada dedicada, facilitada por um provedor de conectividade. Com o ExpressRoute, você pode estabelecer conexões com os serviços de nuvem da Microsoft, como o Microsoft Azure, o Office 365 e o CRM Online. A conectividade pode ocorrer de uma rede “qualquer para qualquer” (VPN IP), uma rede Ethernet ponto a ponto ou uma conexão cruzada virtual por meio de um provedor de conectividade em uma colocalização. As conexões do Expresss Route não passam pela Internet pública. Isso permite que as conexões do ExpressRoute ofereçam mais confiabilidade, mais velocidade, latências menores e muito mais segurança do que as conexões típicas pela Internet.
+A Microsoft Azure ExpressRoute permite que você estenda suas redes locais até a nuvem da Microsoft por meio de uma conexão privada dedicada, facilitada por um provedor de conectividade. Com o ExpressRoute, você pode estabelecer conexões com os serviços de nuvem da Microsoft, como o Microsoft Azure, o Office 365 e o CRM Online. A conectividade pode ocorrer de uma rede “qualquer para qualquer” (VPN IP), uma rede Ethernet ponto a ponto ou uma conexão cruzada virtual por meio de um provedor de conectividade em uma colocalização. As conexões do ExpressRoute não passam pela Internet pública. Isso permite que as conexões do ExpressRoute ofereçam mais confiabilidade, mais velocidade, latências menores e muito mais segurança do que as conexões típicas pela Internet.
 
 Saiba mais:
 
@@ -130,4 +129,3 @@ Saiba mais:
 
 <!--Image references-->
 [1]: ./media/security-management-and-monitoring-overview/shared-responsibility.png
-

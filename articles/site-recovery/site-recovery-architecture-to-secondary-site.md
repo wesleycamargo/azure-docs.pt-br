@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/29/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
 ms.openlocfilehash: fca95c63964b955db7ddfbe53250702cc8af122e
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/15/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-does-on-premises-machine-replication-to-a-secondary-site-work-in-site-recovery"></a>Como funciona a replicação de computadores locais para um site secundário no Site Recovery?
 
@@ -106,4 +104,3 @@ Replique VMs VMware ou servidores físicos para um site secundário usando o InM
 ## <a name="next-steps"></a>Próximas etapas
 
 Examine a [matriz de suporte](site-recovery-support-matrix-to-sec-site.md)
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: barclayn
-ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
 ms.openlocfilehash: 0ec9ceb63c3e1872e9815a7895b624276fc46123
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/30/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="document-protection-of-personal-data-with-azure-reporting-tools"></a>Documentar a proteção de dados pessoais com ferramentas de relatório do Azure
 
@@ -276,4 +275,3 @@ Para obter mais informações sobre como exibir e usar o Relatório de Inteligê
 [Visão geral do monitoramento no Microsoft Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview)
 
 [Introdução ao Log de Atividades do Azure (vídeo)](https://azure.microsoft.com/resources/videos/intro-activity-log/)
-

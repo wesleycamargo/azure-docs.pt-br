@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/20/2017
 ms.author: kumud
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: e28983f6015f8dcaa546c20fd9bc8d986a15ab5d
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 #  <a name="create-a-public-load-balancer-standard-with-zone-redundant-public-ip-address-frontend-using-azure-portal"></a>Criar um Load Balancer Standard público com frontend de endereço IP Público com redundância de zona usando o Portal do Azure
 
 Este artigo segue as etapas para a criação de um [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) público com um front-end com redundância de zona usando um endereço IP Público Standard.
@@ -41,7 +39,7 @@ Antes de selecionar uma opção de zona ou com redundância de zona para Endere�
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure 
 
-Faça logon no portal do Azure em https://portal.azure.com.
+Faça logon no Portal do Azure em https://portal.azure.com.
 
 ## <a name="create-a-zone-redundant-load-balancer"></a>Criar um balanceador de carga com redundância de zona
 
@@ -58,7 +56,6 @@ Faça logon no portal do Azure em https://portal.azure.com.
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba como [criar um IP público em uma zona de disponibilidade](../virtual-network/create-public-ip-availability-zone-portal.md)
-
 
 
 

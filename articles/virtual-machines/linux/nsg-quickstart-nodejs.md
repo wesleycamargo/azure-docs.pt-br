@@ -13,14 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
 ms.openlocfilehash: 847bc76c37ed929851712ba1c12463a01032e267
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/11/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="opening-ports-and-endpoints-to-a-linux-vm-in-azure-using-the-azure-cli-10"></a>Abrindo portas e pontos de extremidade para uma VM Linux no Azure usando a CLI 1.0 do Azure
 No Azure, você abre uma porta, ou cria um ponto de extremidade, para uma VM (máquina virtual) criando um filtro de rede ou uma sub-rede ou interface de rede de VM. Coloque os filtros, que controlam o tráfego de entrada e saída, em um Grupo de Segurança de Rede anexado ao recurso que recebe o tráfego. Vamos usar um exemplo comum de tráfego da Web na porta 80. Este artigo mostra como abrir uma porta para uma VM usando a CLI 1.0 do Azure.
 
@@ -95,5 +93,4 @@ Neste exemplo, você criou uma regra simples para permitir o tráfego HTTP. Voc�
 * [Visão geral do Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md)
 * [O que é um NSG (grupo de segurança de rede)?](../../virtual-network/virtual-networks-nsg.md)
 * [Visão Geral do Azure Resource Manager para Balanceadores de Carga](../../load-balancer/load-balancer-arm.md)
-
 

@@ -13,12 +13,11 @@ ms.devlang: terminal
 ms.topic: quickstart
 ms.date: 07/27/2017
 ms.author: denlee
+ms.openlocfilehash: ef1a54b6b9245ad091171d5c9b2966f8596edbab
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
-ms.openlocfilehash: fd5cc93ce1ed2a8c7da090666ef539b338ac61c3
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/23/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-create-query-and-traverse-a-graph-in-the-gremlin-console"></a>BD Cosmos do Azure: criar, consultar e percorrer um gráfico no console do Gremlin
 
@@ -28,7 +27,7 @@ Este início rápido demonstra como criar uma conta do Azure Cosmos DB, um banco
 
 ![BD Cosmos do Azure do console do Apache Gremlin](./media/create-graph-gremlin-console/gremlin-console.png)
 
-O console Gremlin é baseado em Groovy/Java e é executado no Linux, Mac e Windows. Você pode baixá-lo no [site do Apache TinkerPop](https://www.apache.org/dyn/closer.lua/tinkerpop/3.2.5/apache-tinkerpop-gremlin-console-3.2.5-bin.zip).
+O console Gremlin é baseado em Groovy/Java e é executado no Linux, Mac e Windows. Você pode baixá-lo no [site do Apache TinkerPop](http://tinkerpop.apache.org/downloads.html).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -38,7 +37,7 @@ Você precisa ter uma assinatura do Azure para criar uma conta do BD Cosmos do A
 
 Também é necessário instalar o [Console do Gremlin](http://tinkerpop.apache.org/). Use a versão 3.2.5 ou posterior.
 
-## <a name="create-a-database-account"></a>Crie uma conta de banco de dados
+## <a name="create-a-database-account"></a>Criar uma conta de banco de dados
 
 [!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
 
@@ -307,4 +306,3 @@ Neste início rápido, você aprendeu a criar uma conta do BD Cosmos do Azure, c
 
 > [!div class="nextstepaction"]
 > [Consultar usando o Gremlin](tutorial-query-graph.md)
-

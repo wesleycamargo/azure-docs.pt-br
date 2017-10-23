@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/10/2017
 ms.author: v-sharos@microsoft.com
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 86b8300553caa0741e8aca3c0e7621ec80cc5b21
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="storsimple-8000-series-a-hybrid-cloud-storage-solution"></a>Série 8000 StorSimple: uma solução de armazenamento em nuvem híbrida
 ## <a name="overview"></a>Visão geral
@@ -312,5 +311,4 @@ Antes de implantar sua solução de Microsoft Azure StorSimple, recomendamos que
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre a [Segurança do StorSimple](storsimple-8000-security.md).
-
 

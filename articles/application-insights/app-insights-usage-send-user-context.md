@@ -1,8 +1,22 @@
-título: Enviar IDs de contexto do usuário para permitir experiências de uso no Azure Application Insights | Microsoft Docs descrição: Controle como os usuários navegam pelo seu serviço atribuindo a cada um deles uma cadeia de ID exclusiva e persistente no Application Insights.
-services: application-insights documentationcenter: '' author: abgreg manager: carmonm
-
-ms.service: application-insights ms.workload: tbd ms.tgt_pltfrm: ibiza ms.devlang: csharp ms.topic: article ms.date: 08/02/2017 ms.author: bwren
-
+---
+title: "Enviar IDs de contexto de usuário para permitir experiências de uso no Azure Application Insights | Microsoft Docs"
+description: "Acompanhe como os usuários navegam pelo serviço, atribuindo a cada um deles uma cadeia de identificação exclusiva e persistente no Application Insights."
+services: application-insights
+documentationcenter: 
+author: abgreg
+manager: carmonm
+ms.service: application-insights
+ms.workload: tbd
+ms.tgt_pltfrm: ibiza
+ms.devlang: csharp
+ms.topic: article
+ms.date: 08/02/2017
+ms.author: bwren
+ms.openlocfilehash: e16866501fd34f0b998ba929771a423866759b55
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 #  <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Enviar IDs de contexto de usuário para permitir experiências de uso no Azure Application Insights
 

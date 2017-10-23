@@ -15,14 +15,12 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: jonatul
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9568210d4df6cfcf5b89ba8154a11ad9322fa9cc
 ms.openlocfilehash: 5818986c939c464a364c52ab31225e15130ab30e
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/15/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="overview-of-dns-zones-and-records"></a>Visão geral de zonas e registros DNS
 
 Esta página explica os principais conceitos de domínios, zonas DNS, conjuntos de registros e registros DNS, e como eles têm suporte no DNS do Azure.
@@ -69,7 +67,7 @@ Essas restrições são provenientes dos padrões DNS e não são limitações d
 
 O conjunto de registros de NS no apex da zona (nome '@') é criado automaticamente com cada zona DNS e excluído automaticamente quando a zona é excluída (não pode ser excluído separadamente).
 
-Esse conjunto de registros contém os nomes dos servidores de nome DNS do Azure atribuídos à zona. Você pode adicionar servidores de nome adicionais a esse conjunto de registros NS para dar suporte à coospedagem de domínios com mais de um provedor DNS. Você também pode modificar o TTL e os metadados para esse conjunto de registros. No entanto, você não pode remover nem modificar os servidores de nome DNS do Azure previamente preenchidos. 
+Esse conjunto de registros contém os nomes dos servidores de nome DNS do Azure atribuídos à zona. Você pode adicionar servidores de nome adicionais a esse conjunto de registros NS para dar suporte à coospedagem de domínios com mais de um provedor DNS. Você também pode modificar o TTL e os metadados para esse conjunto de registros. No entanto, você não pode remover nem modificar os servidores de nome DNS do Azure previamente populados. 
 
 Observe que isso se aplica somente ao conjunto de registros NS definido no apex da zona. Outros conjuntos de registros NS na sua zona (conforme utilizados para delegar zonas filho) podem ser criados, modificados e excluídos sem restrição.
 
@@ -140,4 +138,3 @@ Os limites padrão abaixo se aplicam ao usar o DNS do Azure:
 
 * Para começar a usar o DNS do Azure, aprenda a [criar uma zona DNS](dns-getstarted-create-dnszone-portal.md) e a [criar registros DNS](dns-getstarted-create-recordset-portal.md).
 * Para migrar uma zona DNS existente, saiba como [importar e exportar um arquivo de zona DNS](dns-import-export.md).
-

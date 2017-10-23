@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 01/12/2017
 ms.author: seguler
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: fd27e1ac9a773e7b0f5245aa74acdb0521cd098c
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-storage-samples-using-java"></a>Exemplos de armazenamento do Azure usando Java
 
@@ -217,4 +216,3 @@ Para saber mais sobre exemplos para outras linguagens:
 
 * .NET: [Exemplos de armazenamento do Azure usando .NET](../storage-samples-dotnet.md)
 * Todas as outras linguagens: [Exemplos de Armazenamento do Azure](../storage-samples.md)
-

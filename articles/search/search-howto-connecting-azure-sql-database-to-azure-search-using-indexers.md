@@ -14,14 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/13/2017
 ms.author: eugenesh
-ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
 ms.openlocfilehash: 49f614fdf3ba84de238139387ea97ee62077b072
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/17/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="connecting-azure-sql-database-to-azure-search-using-indexers"></a>Conectando o Banco de Dados SQL do Azure ao Azure Search usando indexadores
 
 Antes de consultar um [índice do Azure Search](search-what-is-an-index.md), você deve populá-lo com seus dados. Se os dados residirem em um banco de dados SQL do Azure, um **indexador do Azure Search para o Banco de Dados SQL do Azure** (ou em um **indexador do SQL do Azure**, para abreviar) poderá automatizar o processo de indexação, o que significa menos código para escrever e menos infraestrutura com a qual se preocupar.
@@ -358,4 +356,3 @@ Isso não é recomendável. Somente **rowversion** permite a sincronização de 
 + Você puder garantir que, quando o indexador for executado, não existem transações pendentes na tabela que está sendo indexada (por exemplo, todas as atualizações de tabela ocorrem como um lote com base em um agendamento e o agendamento do indexador do Azure Search estiver definido para evitar a sobreposição com o agendamento da atualização de tabela).  
 
 + Periodicamente, você fizer uma reindexação completa para selecionar as linhas ausentes. 
-

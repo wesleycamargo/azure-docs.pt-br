@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/15/2017
 ms.author: asmalser-msft
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
 ms.openlocfilehash: 5eb2b1594eedb2a135d7b8cd501a33d8264e136b
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="tutorial-configuring-linkedin-learning-for-automatic-user-provisioning"></a>Tutorial: Configurar o LinkedIn Learning para provisionamento automático de usuário
 
 
@@ -48,9 +46,9 @@ Antes de configurar e habilitar o serviço de provisionamento, você precisará 
 
 ### <a name="important-tips-for-assigning-users-to-linkedin-learning"></a>Dicas importantes para atribuir usuários ao LinkedIn Learning
 
-*    Recomendamos a atribuição de um único usuário do Azure AD ao LinkedIn Learning para testar a configuração de provisionamento. Outros usuários e/ou grupos podem ser atribuídos mais tarde.
+*   Recomendamos a atribuição de um único usuário do Azure AD ao LinkedIn Learning para testar a configuração de provisionamento. Outros usuários e/ou grupos podem ser atribuídos mais tarde.
 
-*    Ao atribuir um usuário ao LinkedIn Learning, selecione a função **Usuário** na caixa de diálogo de atribuição. A função de "Acesso Padrão" não funciona para provisionamento.
+*   Ao atribuir um usuário ao LinkedIn Learning, selecione a função **Usuário** na caixa de diálogo de atribuição. A função de "Acesso Padrão" não funciona para provisionamento.
 
 
 ## <a name="configuring-user-provisioning-to-linkedin-learning"></a>Como configurar o provisionamento de usuários no LinkedIn Learning
@@ -93,9 +91,9 @@ A primeira etapa é recuperar o token de acesso do LinkedIn. Se você for um adm
 
 8) Se você já tiver configurado o LinkedIn Learning para logon único, pesquise por sua instância do LinkedIn Learning usando o campo de pesquisa. Caso contrário, selecione **Adicionar** e pesquise por **LinkedIn Learning** na galeria de aplicativos. Selecione o LinkedIn Learning nos resultados da pesquisa e adicione-o à lista de aplicativos.
 
-9)    Selecione sua instância do LinkedIn Learning e selecione a guia **Provisionamento**.
+9)  Selecione sua instância do LinkedIn Learning e selecione a guia **Provisionamento**.
 
-10)    Defina o **Modo de Provisionamento** como **Automático**.
+10) Defina o **Modo de Provisionamento** como **Automático**.
 
 ![Provisionamento do LinkedIn Learning](./media/active-directory-saas-linkedinlearning-provisioning-tutorial/linkedin_3.PNG)
 
@@ -126,4 +124,3 @@ Isso iniciará a sincronização inicial de todos os usuários e/ou grupos atrib
 
 * [Gerenciamento do provisionamento de conta de usuário para Aplicativos Empresariais](active-directory-enterprise-apps-manage-provisioning.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-

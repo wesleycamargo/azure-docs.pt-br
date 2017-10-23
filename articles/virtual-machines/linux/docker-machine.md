@@ -14,12 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: iainfou
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: 7772381e9796ddc2e0db215bab4f230473eaa462
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-docker-machine-to-create-hosts-in-azure"></a>Como usar o Docker Machine para criar hosts no Azure
 Este artigo fornece detalhes de como usar o [Docker Machine](https://docs.docker.com/machine/) para criar hosts no Azure. O comando `docker-machine` cria uma VM (máquina virtual) Linux no Azure e, em seguida, instala o Docker. Depois, você pode gerenciar seus hosts do Docker no Azure usando os mesmos fluxos de trabalho e ferramentas locais. Para usar docker-machine no Windows 10, use o Bash do Linux.
@@ -138,4 +137,3 @@ Para ver o contêiner em ação, abra um navegador da Web e insira o endereço I
 
 ## <a name="next-steps"></a>Próximas etapas
 Você também pode criar hosts com a [Extensão de VM do Docker](dockerextension.md). Para obter exemplos de como usar o Docker Compose, consulte [Introdução ao Docker e ao Compose no Azure](docker-compose-quickstart.md).
-

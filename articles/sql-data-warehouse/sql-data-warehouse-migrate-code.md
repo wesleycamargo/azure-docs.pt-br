@@ -15,13 +15,11 @@ ms.workload: data-services
 ms.custom: migrate
 ms.date: 06/23/2017
 ms.author: joeyong;barbkess
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 1500c02fa1e6876b47e3896c40c7f3356f8f1eed
 ms.openlocfilehash: c6e6b890f5e2d0e31b10bbb6803adad02bf60248
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/30/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrate-your-sql-code-to-sql-data-warehouse"></a>Migrar seu código SQL para o SQL Data Warehouse
 Este artigo explica as alterações de código que você provavelmente terá que fazer ao migrar seu código de outro banco de dados para o SQL Data Warehouse. Alguns recursos do SQL Data Warehouse podem melhorar consideravelmente o desempenho, pois foram criados para funcionar diretamente de uma maneira distribuída. No entanto, para manter o desempenho e a escala, alguns recursos também não estão disponíveis.
@@ -34,8 +32,7 @@ A lista a seguir resume os recursos mais comuns aos quais o SQL Data Warehouse n
 * [instrução merge][merge statement]
 * junções entre bancos de dados
 * [cursores][cursors]
-* <seg>
-  [INSERT..EXEC][INSERT..EXEC]</seg>
+* [INSERT..EXEC][INSERT..EXEC]
 * cláusula output
 * funções definidas pelo usuário embutidas
 * funções com várias instruções
@@ -139,4 +136,3 @@ Para obter uma lista completa de todas as instruções T-SQL com suporte, confir
 <!--MSDN references-->
 
 <!--Other Web references-->
-

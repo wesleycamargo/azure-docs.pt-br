@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/24/2017
 ms.author: huvalo;bradsev
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 104999f3e667457892efb76a32123f8d64a8ffc7
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Acessar os conjuntos de dados com o Python usando a biblioteca de cliente do Python de Azure Machine Learning
 A visualização da biblioteca de cliente do Python de Microsoft Azure Machine Learning pode habilitar o acesso seguro a seus conjuntos de dados de Azure Machine Learning em um ambiente Python local e habilita a criação e o gerenciamento de conjuntos de dados no espaço de trabalho.
@@ -47,9 +46,7 @@ Ela tem uma dependência nos seguintes pacotes:
 
 É recomendável usar uma distribuição do Python como [Anaconda](http://continuum.io/downloads#all) ou [Canopy](https://store.enthought.com/downloads/), que acompanham o Python, IPython e os três pacotes listados acima e instalados. Embora o IPython não seja estritamente necessário, é um ótimo ambiente para manipular e visualizar dados interativamente.
 
-### 
-            <a name="installation">
-            </a>Como instalar a biblioteca de cliente do Python de Azure Machine Learning
+### <a name="installation"></a>Como instalar a biblioteca de cliente do Python de Azure Machine Learning
 A biblioteca de cliente do Python de Azure Machine Learning também deve ser instalada para concluir as tarefas descritas neste tópico. Ela está disponível no [Índice de Pacote do Python](https://pypi.python.org/pypi/azureml). Para instalá-la em seu ambiente Python, execute o seguinte comando no seu ambiente local Python:
 
     pip install azureml
@@ -102,9 +99,7 @@ Os tokens de autorização são gerenciados na página **TOKENS DE AUTORIZAÇÃO
    
     ![Bloco de notas][ipython-dataset]
 
-## 
-            <a name="accessingIntermediateDatasets">
-            </a>Acesse os conjuntos intermediários de testes de Machine Learning
+## <a name="accessingIntermediateDatasets"></a>Acesse os conjuntos intermediários de testes de Machine Learning
 Depois de um teste ser executado no Machine Learning Studio, é possível acessar os conjuntos de dados intermediários de nós de saída dos módulos. Os conjuntos de dados intermediários são dados que foram criados e usados para etapas intermediárias quando uma ferramenta de modelo tiver sido executada.
 
 Os conjuntos de dados intermediários podem ser acessados conforme o formato de dados for compatível com a biblioteca de cliente do Python.
@@ -148,9 +143,7 @@ As etapas a seguir mostram um exemplo que cria um teste, executa-o e acessa o co
     
     ![Histograma][ipython-histogram]
 
-## 
-            <a name="clientApis">
-            </a>Use a biblioteca de cliente do Python de Machine Learning para acessar, ler, criar e gerenciar conjuntos de dados
+## <a name="clientApis"></a>Use a biblioteca de cliente do Python de Machine Learning para acessar, ler, criar e gerenciar conjuntos de dados
 ### <a name="workspace"></a>Espaço de trabalho
 O espaço de trabalho é o ponto de entrada para a biblioteca de cliente do Python. Forneça a classe `Workspace` com a sua ID de espaço de trabalho e token de autorização para criar uma instância:
 
@@ -341,5 +334,4 @@ Se os seus dados já estiverem serializados, use `update_from_raw_data` em vez d
 <!-- Module References -->
 [convert-to-csv]: https://msdn.microsoft.com/library/azure/faa6ba63-383c-4086-ba58-7abf26b85814/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-
 

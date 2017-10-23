@@ -12,12 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: bwren
+ms.openlocfilehash: 511070e139c2d0fb2862e8cc61ed8ead242c71e6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
-ms.openlocfilehash: a2487aac712542d86cb3a7f34c45e21c8d035496
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/06/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="application-insights-telemetry-data-model"></a>Modelo de dados do Application Insights Telemetry
 
@@ -57,4 +56,3 @@ Para relatar problemas de esquema ou modelo de dados e sugestões, use o reposit
 - Saiba como [estender e filtrar a telemetria](app-insights-api-filtering-sampling.md).
 - Use [amostragem](app-insights-sampling.md) para minimizar a quantidade de telemetria com base no modelo de dados.
 - Confira as [plataformas](app-insights-platforms.md) com suporte do Application Insights.
-

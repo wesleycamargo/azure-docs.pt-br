@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/23/2017
 ms.author: davidmu
+ms.openlocfilehash: 9540522a945e1ea2a09456b42d64b7b94753791f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: bba6f2afb79063409f2a0a5119f7809a2445e29f
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-an-application-gateway-for-ssl-offload-by-using-the-classic-deployment-model"></a>Configurar um Application Gateway para o descarregamento SSL usando o modelo implantação clássico
 
@@ -211,4 +210,3 @@ Para saber mais sobre opções de balanceamento de carga no geral, confira:
 
 * [Balanceador de carga do Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 * [Gerenciador de Tráfego do Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
-

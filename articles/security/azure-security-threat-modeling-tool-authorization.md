@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 312a66544a5e64daa86b4902b57d4050f1f66af5
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="security-frame-authorization--mitigations"></a>Estrutura de segurança: Autorização | Atenuações 
 | Produto/serviço | Artigo |
 | --------------- | ------- |
@@ -226,7 +224,7 @@ Observe que a RLS, como um recurso de banco de dados pronto para uso, tem suport
 | **Tecnologias aplicáveis** | Genérico |
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
-| **Etapas** | Um token de recurso é associado a um recurso de permissão do Banco de Dados de Documentos e captura a relação entre o usuário de um banco de dados e a permissão que ele tem para acessar um recurso de aplicativo específico do Banco de Dados de Documentos (como uma coleção ou documento). Use sempre um token de recurso para acessar o DocumentDB se o cliente não puder processar uma chave mestra ou chaves somente leitura, como clientes de dispositivos móveis ou desktop do usuário final. Use a chave mestra ou chaves somente leitura em aplicativos back-end capazes de armazenar esses tipos de chave com segurança.|
+| **Etapas** | Um token de recurso é associado a um recurso de permissão do DocumentDB e captura a relação entre o usuário de um banco de dados e a permissão que ele tem para acessar um recurso de aplicativo específico do DocumentDB (como uma coleção ou documento). Use sempre um token de recurso para acessar o DocumentDB se o cliente não puder processar uma chave mestra ou chaves somente leitura, como clientes de dispositivos móveis ou desktop do usuário final. Use a chave mestra ou chaves somente leitura em aplicativos back-end capazes de armazenar esses tipos de chave com segurança.|
 
 ## <a id="grained-rbac"></a>Habilitar o gerenciamento de acesso refinado à assinatura do Azure usando o RBAC
 
@@ -462,4 +460,3 @@ public class CustomController : ApiController
 | **Atributos**              | N/D  |
 | **Referências**              | N/D  |
 | **Etapas** | O Gateway de Campo deve autorizar o chamador para verificar se ele tem as permissões necessárias para executar a ação solicitada. Por exemplo, deve haver permissões diferentes para uma API/interface utilizada por um usuário administrador para configurar um gateway de campo e para os dispositivos que se conectam a ele.|
-

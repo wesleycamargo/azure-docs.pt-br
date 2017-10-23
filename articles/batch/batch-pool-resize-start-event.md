@@ -12,13 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: tamram
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
 ms.openlocfilehash: 826cd984d26b923ba38562e05a2e75c399be9121
-ms.lasthandoff: 04/22/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="pool-resize-start-event"></a>Evento inicial de redimensionamento de pool
 
  Esse evento é emitido quando um redimensionamento de pool é iniciado. Como o redimensionamento do pool é um evento assíncrono, você pode esperar que um evento completo de redimensionamento de pool seja emitido quando a operação de redimensionamento é concluída.
@@ -44,4 +43,3 @@ ms.lasthandoff: 04/22/2017
 |targetDedicated|Int32|O número de nós de computação solicitados para o pool.|
 |enableAutoScale|Bool|Especifica se o tamanho do pool é ajustado automaticamente com o tempo.|
 |isAutoPool|Bool|Especifica se o pool foi criado por meio de um mecanismo de AutoPool do trabalho.|
-

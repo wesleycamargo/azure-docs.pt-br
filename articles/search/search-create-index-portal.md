@@ -13,12 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 06/20/2017
 ms.author: heidist
-ms.translationtype: HT
-ms.sourcegitcommit: 2ad539c85e01bc132a8171490a27fd807c8823a4
 ms.openlocfilehash: a7d98ab0937a7d3f932d5df34c19ae091129804e
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/12/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-azure-search-index-using-the-azure-portal"></a>Criar um índice do Azure Search usando o portal do Azure
 > [!div class="op_single_selector"]
@@ -111,5 +110,4 @@ Como alternativa, você também poderá examinar os índices mais detalhadamente
 
  [Como funciona a pesquisa de texto completo](search-lucene-query-architecture.md)  
  [API REST do serviço Search](https://docs.microsoft.com/rest/api/searchservice/) [SDK do .NET](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)
-
 

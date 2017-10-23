@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 757d6f778774e4439f2c290ef78cbffd2c5cf35e
-ms.openlocfilehash: d063ea881c82b158a196cb5f63e7514777732846
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/10/2017
-
-
+ms.openlocfilehash: bb332196aef59a497a1f80b67ab5c1eeef3dee0a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="secure-an-mvc-web-api"></a>Proteger uma API Web do MVC
 Com o ponto de extremidade v2.0 do Azure Active Directory, você pode proteger uma API Web usando tokens de acesso [OAuth 2.0](active-directory-v2-protocols.md) , permitindo que usuários com contas pessoais, corporativas ou de estudante da Microsoft acessem sua API Web com segurança.
@@ -126,7 +124,7 @@ public class TodoListController : ApiController
 {
 ```
 
-* Quando um chamador autorizado invoca com êxito uma das `TodoListController` APIs, a ação pode precisar ter acesso às informações sobre o chamador.  O OWIN fornece acesso às declarações dentro do token de portador por meio do objeto `ClaimsPrincpal` .  
+* Quando um chamador autorizado invoca com êxito uma das `TodoListController` APIs, a ação pode precisar ter acesso às informações sobre o chamador.  O OWIN fornece acesso às declarações dentro do token de portador por meio do objeto `ClaimsPrincipal` .  
 
 ```C#
 public IEnumerable<TodoItem> Get()
@@ -170,4 +168,3 @@ Para obter recursos adicionais, consulte:
 
 ## <a name="get-security-updates-for-our-products"></a>Obter atualizações de segurança para nossos produtos
 Recomendamos que você obtenha notificações sobre a ocorrência de incidentes de segurança visitando [esta página](https://technet.microsoft.com/security/dd252948) e assinando os alertas do Security Advisory.
-

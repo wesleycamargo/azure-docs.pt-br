@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/25/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: b7411fa6aba04ffd34f3f4bd03e706ca75afc9c8
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="step-5-prepare-azure-resources-for-physical-server-replication-to-azure"></a>Etapa 5: preparar os recursos do Azure para a replicação de servidor físico para o Azure
 
@@ -62,4 +61,3 @@ Não se esqueça de ler os [pré-requisitos](physical-walkthrough-prerequisites.
 ## <a name="next-steps"></a>Próximas etapas
 
 Vá para a [Etapa 6: configurar um cofre](physical-walkthrough-create-vault.md)
-

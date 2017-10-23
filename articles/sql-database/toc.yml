@@ -135,12 +135,16 @@
           href: sql-database-disaster-recovery.md
         - name: Executar análise de recuperação
           href: sql-database-disaster-recovery-drills.md
-    - name: Carregar e mover dados
+    - name: Migrar para o Banco de Dados SQL
       items:
         - name: Migrar Banco de dados do SQL Server
           href: sql-database-cloud-migrate.md
         - name: Alterações no T-SQL
           href: sql-database-transact-sql-information.md
+        - name: Gerenciar banco de dados após migração
+          href: sql-database-manage-after-migration.md
+    - name: Carregar e mover dados
+      items:
         - name: Copiar um Banco de Dados
           href: sql-database-copy.md
         - name: Importar um Banco de Dados
@@ -159,7 +163,7 @@
           href: sql-database-advisor.md
         - name: Ajuste automático
           href: sql-database-automatic-tuning.md
-        - name: Insights Inteligentes
+        - name: Insights inteligentes
           href: sql-database-intelligent-insights.md
         - name: Log de diagnóstico dos Insights Inteligentes
           href: sql-database-intelligent-insights-use-diagnostics-log.md
@@ -169,8 +173,6 @@
           href: sql-database-operate-query-store.md
         - name: Eventos estendidos
           href: sql-database-xevent-db-diff-from-svr.md
-        - name: Níveis de compatibilidade
-          href: sql-database-compatibility-level-query-performance-130.md
         - name: Monitorar na memória
           href: sql-database-in-memory-oltp-monitoring.md
     - name: Expansão
@@ -266,6 +268,12 @@
         - name: Regras de rede virtual pelo PowerShell
           href: sql-database-vnet-service-endpoint-rule-powershell.md
     - name: Continuidade dos negócios
+      items:
+        - name: Configurar o cofre - backups
+          href: sql-database-long-term-backup-retention-configure.md
+        - name: Replicação geográfica - Portal
+          href: sql-database-geo-replication-portal.md
+    - name: Carregar e mover dados
       items:
         - name: Carregar dados com o BCP
           href: sql-database-load-from-csv-with-bcp.md

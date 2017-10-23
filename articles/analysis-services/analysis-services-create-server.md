@@ -15,12 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/15/2017
 ms.author: owend
+ms.openlocfilehash: 95b367e7cd74405088190c1fe19cf92990759d90
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 8ff39e31d790b9d7040ec0398a42fb104890915f
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/04/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-azure-analysis-services-server-in-azure-portal"></a>Criar um servidor do Azure Analysis Services no portal do Azure
 Este artigo orienta você pela criação de um recurso de servidor do Analysis Services em sua assinatura do Azure.
@@ -60,5 +59,4 @@ Normalmente, a criação demora menos de um minuto; com frequência, apenas algu
 Depois de ter criado seu servidor, você poderá [implantar um modelo](analysis-services-deploy.md) a ele usando o SSDT ou com o SSMS.
 
 Se um modelo implantado em seu servidor se conectar às fontes de dados locais, você precisará instalar um [Gateway de dados local](analysis-services-gateway.md) em um computador em sua rede.
-
 

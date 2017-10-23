@@ -13,7 +13,7 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 05/13/2017
+ms.date: 10/16/2017
 ms.author: mimig
 ms.translationtype: HT
 ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
@@ -132,11 +132,11 @@ Agora, volte ao portal do Azure para obter informações sobre a cadeia de conex
 
 3. Copie o valor do URI do portal (usando o botão de cópia) e transforme-o no valor da chave do ponto de extremidade em `DocumentDBGetStarted.py`. 
 
-    `config.ENDPOINT : "https://FILLME.documents.azure.com"`
+    `'ENDPOINT': 'https://FILLME.documents.azure.com',`
 
 4. Em seguida, copie o valor da CHAVE PRIMÁRIA do portal e transforme-o no valor de `config.MASTERKEY` em `DocumentDBGetStarted.py`. Agora, você atualizou o aplicativo com todas as informações necessárias para se comunicar com o Azure Cosmos DB. 
 
-    `config.MASTERKEY : "FILLME"`
+    `'MASTERKEY': 'FILLME',`
     
 ## <a name="run-the-app"></a>Execute o aplicativo
 1. No Visual Studio, clique com o botão direito do mouse no projeto no **Gerenciador de Soluções**, selecione o ambiente atual do Python e, em seguida, clique com o botão direito do mouse.

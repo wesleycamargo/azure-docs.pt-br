@@ -12,16 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2017
+ms.date: 08/26/2017
 ms.author: billmath
+ms.openlocfilehash: 7eea3621a52bf13dc44e89c342c503905ff24a0d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 4d96f96d6b9d6808d6a7c7ad8d720c2c2773d7d5
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Solucionar problemas do Logon Único Contínuo do Azure Active Directory
 
 Este artigo ajuda você a localizar informações de solução de problemas comuns relacionados ao Logon Único Contínuo do Azure AD.
@@ -43,9 +41,9 @@ Verifique se o recurso SSO ainda está **Habilitado** em seu locatário. Você p
 
 ![Centro de administração do Azure Active Directory - folha Azure AD Connect](./media/active-directory-aadconnect-sso/sso10.png)
 
-## <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center"></a>Motivos de falha de conexão no centro de administração do Azure Active Directory
+## <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center-needs-premium-license"></a>Motivos de falha de conexão no centro de administração do Azure Active Directory (é necessário licença Premium)
 
-Um bom local para iniciar a solução de problemas de conexão de usuário com o SSO Contínuo é observar o [relatório de atividade de entrada](../active-directory-reporting-activity-sign-ins.md) no [Centro de administração do Azure Active Directory](https://aad.portal.azure.com/).
+Se o locatário tiver uma licença do Azure AD Premium associada a ele, você também poderá analisar o [relatório de atividade de entrada](../active-directory-reporting-activity-sign-ins.md) no [Centro de administração do Azure Active Directory](https://aad.portal.azure.com/).
 
 ![Centro de administração do Azure Active Directory - relatório Entradas](./media/active-directory-aadconnect-sso/sso9.png)
 
@@ -122,4 +120,3 @@ Se a solução de problemas não ajudar, você poderá redefinir manualmente o r
 ### <a name="step-5-enable-the-feature-on-your-tenant"></a>Etapa 5. Habilitar o recurso em seu locatário
 
 Chame `Enable-AzureADSSO` e digite "true" no prompt `Enable: ` para ativar o recurso em seu locatário.
-

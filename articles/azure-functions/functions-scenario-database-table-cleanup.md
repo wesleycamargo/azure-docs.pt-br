@@ -15,12 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/22/2017
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
-ms.openlocfilehash: 6fd0e32374827b249f5aba1cbfc39117c88c6272
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/25/2017
-
+ms.openlocfilehash: ac0399867e0cdab1825022c4ed73ce003cc8c7e6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Usar o Azure Functions para conectar a um banco de dados SQL do Azure
 Este tópico mostra como usar o Azure Functions para criar um trabalho agendado que limpa linhas em uma tabela em um banco de dados SQL do Azure. A nova função C# é criada com base em um gatilho de temporizador predefinido no Portal do Azure. Para dar suporte a esse cenário, você também precisa definir uma cadeia de conexão de banco de dados como uma configuração no aplicativo de funções. Esse cenário usa uma operação em massa no banco de dados. Para que sua função processe operações CRUD individuais em uma tabela dos Aplicativos Móveis, você deve usar as [Associações de aplicativos móveis](functions-bindings-mobile-apps.md).
@@ -125,4 +124,3 @@ Confira estes tópicos para obter mais informações sobre o Functions:
   Referência do programador para codificação de funções e definição de gatilhos e de associações.
 * [Testando o Azure Functions](functions-test-a-function.md)  
   Descreve várias ferramentas e técnicas para testar suas funções.  
-

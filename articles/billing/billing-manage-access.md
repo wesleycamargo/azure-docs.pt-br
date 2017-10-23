@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: vikdesai
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: c70904097f139bc2178feed83f1cf1274f3c738d
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-access-to-billing-information-for-azure-using-role-based-access-control"></a>Gerenciar o acesso a informações de cobrança do Azure usando o controle de acesso baseado em função
 
@@ -80,4 +79,3 @@ Somente o Administrador da Conta pode acessar o Centro de Contas do Azure. O Adm
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Entre em contato com o suporte.
 
 Se ainda tiver dúvidas, [entre em contato com o suporte](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para resolver seu problema rapidamente.
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/02/2017
 ms.author: msfussell
+ms.openlocfilehash: 91f4d1658875245f023e7546650e7b2592b48af1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 7429de05ba1d583348b0b03b69135c2bbab0be45
-ms.openlocfilehash: d90b8c41d130526607adb035c5c6d4c02c5f7c4f
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/15/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="why-a-microservices-approach-to-building-applications"></a>Por que usar uma abordagem de microsserviço para construir aplicativos?
 Para nós, desenvolvedores de software, não há qualquer novidade no modo como pensamos sobre a decomposição de um aplicativo em partes componentes. É o paradigma central da orientação de objetos, das abstrações de software e da “componentização”. Atualmente, essa fatoração tende a assumir a forma de classes e interfaces entre as camadas de tecnologia e as bibliotecas compartilhadas. Em geral, uma abordagem em camadas é adotada com um repositório de back-end, lógica de negócios de camada intermediária e uma IU (interface do usuário) de front-end. O que *mudou* nos últimos anos é que nós, como desenvolvedores, estamos compilando aplicativos distribuídos para a nuvem orientados pelos negócios.
@@ -111,7 +110,7 @@ Na abordagem dos microsserviços, cada serviço gerencia e armazena seu próprio
 O controle da versão é específico da versão implantada de um microsserviço, de modo que diversas versões diferentes são implantadas e executadas lado a lado. O controle da versão aborda os cenários nos quais uma versão mais recente de um microsserviço falha durante a atualização e precisa reverter para uma versão anterior. O outro cenário para controle de versão é a realização de um teste ao estilo A/B, no qual usuários diferentes experimentam versões diferentes do serviço. Por exemplo, é comum atualizar um microsserviço para um conjunto específico de clientes testar a nova funcionalidade, antes de fazê-lo mais amplamente. Após o gerenciamento do ciclo de vida de microsserviço, isso nos leva à comunicação entre eles.
 
 ### <a name="interacts-with-other-microservices-over-well-defined-interfaces-and-protocols"></a>Interage com outros microservices em protocolos e interfaces bem-definidos
-Este tópico precisa de pouca atenção aqui, pois ampla literatura sobre arquitetura orientada a serviços publicada nos últimos 10 anos descreve padrões de comunicação. Em geral, a comunicação do serviço usa uma abordagem do REST com os protocolos TCP e HTTP, e XML ou JSON como formato de serialização. Do ponto de vista da interface, isso se resume à adoção da abordagem de design da Web. Mas nada o impede de usar protocolos binários ou seus próprios formatos de dados. Esteja preparado para a possibilidade de as pessoas terem mais dificuldade em usar seus microsserviços se eles estiverem abertamente disponíveis.
+Este tópico precisa de pouca atenção aqui, pois ampla literatura sobre arquitetura orientada a serviços publicada nos últimos 10 anos descreve padrões de comunicação. Em geral, a comunicação do serviço usa uma abordagem do REST com os protocolos TCP e HTTP, e XML ou JSON como formato de serialização. Do ponto de vista da interface, isso se resume à adoção da abordagem de design da Web. Mas nada o impede de usar protocolos binários ou seus próprios formatos de dados. Esteja preparado para a possibilidade de as pessoas terem mais dificuldade em usar seus microsserviços se esses protocolos e formatos não estiverem abertamente disponíveis.
 
 ### <a name="has-a-unique-name-url-used-to-resolve-its-location"></a>Tem um nome exclusivo (URL) usado para determinar sua localização
 Lembra-se de como continuamos afirmando que a abordagem de microsserviço é como a Web? Assim como a Web, seu microsserviço precisa ser endereçável em qualquer lugar que esteja sendo executado. Se você ficar pensando em máquinas, e qual delas está executando um determinado microsserviço, as coisas vão dar errado rapidamente. 
@@ -156,9 +155,9 @@ Uma abordagem chave para o Service Fabric é reutilizar o código existente, o q
 
 ![Migração para Microsserviços][Image3]
 
-É importante enfatizar novamente, que você pode **iniciar e parar em qualquer um desses estágios**. Você não é forçado a passar para o próximo estágio. Agora vamos ver exemplos de cada um desses estágios.
+É importante enfatizar novamente que é possível **iniciar e parar em qualquer um desses estágios**. Você não é forçado a passar para o próximo estágio. Agora vamos ver exemplos de cada um desses estágios.
 
-**Lift and Shift** - um grande número de empresas estão fazendo o lift-and-shift dos aplicativos monolíticos existentes em contêineres por duas razões;
+**Lift-and-Shift** – um grande número de empresas estão fazendo o lift-and-shift dos aplicativos monolíticos existentes em contêineres por duas razões;
 
 - Redução de custos devido à consolidação e à remoção de aplicativos existentes de hardware ou executando a uma densidade mais alta. 
 - Contrato de implantação consistente entre o desenvolvimento e as operações.
@@ -187,4 +186,3 @@ O objetivo do Service Fabric é reduzir a complexidade da criação de aplicativ
 [Image1]: media/service-fabric-overview-microservices/monolithic-vs-micro.png
 [Image2]: media/service-fabric-overview-microservices/statemonolithic-vs-micro.png
 [Image3]: media/service-fabric-overview-microservices/microservices-migration.png
-

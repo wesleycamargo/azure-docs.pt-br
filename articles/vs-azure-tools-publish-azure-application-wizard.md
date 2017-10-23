@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/21/2017
 ms.author: kraigb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 424d8654a047a28ef6e32b73952cf98d28547f4f
-ms.openlocfilehash: 4d9e1564c3fcbdfd59edb0e24158df9954c26026
-ms.contentlocale: pt-br
-ms.lasthandoff: 03/22/2017
-
+ms.openlocfilehash: 25b3ca9af2639860d9cfcb1492aef745fb47beb9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-the-visual-studio-publish-azure-application-wizard"></a>Uso do Assistente Publicar Aplicativo do Azure do Visual Studio
 Depois de desenvolver um aplicativo Web no Visual Studio, você poderá publicá-lo em um serviço de nuvem do Azure usando o assistente **Publicar Aplicativo do Azure**. 

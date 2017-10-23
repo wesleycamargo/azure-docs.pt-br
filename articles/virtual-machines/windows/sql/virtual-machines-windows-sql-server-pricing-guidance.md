@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 04/18/2017
 ms.author: jroth
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
 ms.openlocfilehash: 29a92f0c70bffedeb75c50b7fc3b687ee5ee227d
-ms.lasthandoff: 04/21/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Diretrizes de preços para VMs do Azure do SQL Server
 
@@ -120,4 +119,3 @@ Para obter diretrizes gerais de preços do Azure, confira [Evitar custos inesper
 Para obter os preços das Máquinas Virtuais mais recentes, incluindo o SQL Server, veja a [página de preços de VM do Azure](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-standard).
 
 Examine outros tópicos sobre Máquinas Virtuais do SQL Server em [Visão geral do SQL Server nas Máquinas Virtuais do Azure](virtual-machines-windows-sql-server-iaas-overview.md).
-

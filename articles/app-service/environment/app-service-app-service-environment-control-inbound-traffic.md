@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
 ms.author: stefsch
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: ed72bf3202d6cb2d2161bc0df693d3e6a1fc58ef
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-control-inbound-traffic-to-an-app-service-environment"></a>Como controlar o tráfego de entrada para um ambiente de serviço de aplicativo
 ## <a name="overview"></a>Visão geral
@@ -132,5 +131,4 @@ Para saber mais sobre aplicativos que se conectam com segurança a recursos do b
 [NewPortal]:  https://portal.azure.com  
 
 <!-- IMAGES -->
-
 

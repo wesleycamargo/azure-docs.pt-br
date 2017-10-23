@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/3/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 2db2ba16c06f49fd851581a1088df21f5a87a911
 ms.openlocfilehash: 7e1dad18ff0ae9a9102b789b2cb32e7b96ed3d38
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/09/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-servicechannel"></a>Tutorial: integração do Azure Active Directory com o ServiceChannel
 
@@ -122,7 +120,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal de Gerenciame
 4. Seu aplicativo ServiceChannel espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados de acordo com a sua configuração de atributos do token SAML. A captura de tela a seguir mostra um exemplo disso. **NameIdentifier (identificador de usuário)** é única declaração obrigatória e o valor padrão é **user.userprincipalname**, mas o ServiceChannel espera que isso seja mapeada com **user.mail**. Se você planeja habilitar o provisionamento do usuário Just-In-Time, você deve adicionar as declarações a seguir conforme mostrado abaixo. A declaração **Função** precisa ser mapeada para **user.assignedroles**, que contém a função do usuário.  
 
     Você pode consultar o guia do ServiceChannel [aqui](https://servicechannel.zendesk.com/hc/en-us/articles/217514326-Azure-AD-Configuration-Example) para obter diretrizes sobre declarações.
-      
+    
     ![Configurar Logon Único](./media/active-directory-saas-servicechannel-tutorial/tutorial_servicechannel_attribute.png)
 
     > [!NOTE] 

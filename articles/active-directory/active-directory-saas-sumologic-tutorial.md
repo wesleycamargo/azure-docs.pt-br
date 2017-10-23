@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
 ms.openlocfilehash: e739106472ccf930b2942eb810dd844f2b1ade7c
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sumologic"></a>Tutorial: Integração do Azure Active Directory ao SumoLogic
 
@@ -296,5 +295,4 @@ Ao clicar no bloco do SumoLogic no Painel de Acesso, você deverá ser conectado
 [201]: ./media/active-directory-saas-sumologic-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-sumologic-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-sumologic-tutorial/tutorial_general_203.png
-
 

@@ -15,16 +15,15 @@ ms.topic: quickstart
 ms.date: 05/05/2017
 ms.author: cephalin
 ms.custom: mvc
+ms.openlocfilehash: 571ae5eabae93cf0a7fa98110f8329eac1a74b12
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 6a7e2a99af7bca9bd0b12f877511f765593acb0a
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-nodejs-web-app-in-a-linux-container-in-azure"></a>Criar um aplicativo Web Node.js em um contêiner do Linux no Azure
 
-Os [Aplicativos Web para Contêineres](app-service-linux-intro.md) fornecem um serviço de hospedagem na Web altamente escalonável e com aplicação de patch automática no sistema operacional Linux. Este guia de início rápido mostra como implantar um aplicativo Node.js no Aplicativo Web do Azure para Contêineres. Crie o aplicativo Web usando a [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) e use o Git para implantar o código Node.js no aplicativo Web.
+O [Aplicativo Web para Contêineres](app-service-linux-intro.md) fornecem um serviço de hospedagem na Web altamente escalonável e com aplicação de patch automática no sistema operacional Linux. Este guia de início rápido mostra como implantar um aplicativo Node.js no Aplicativo Web do Azure para Contêineres. Crie o aplicativo Web usando a [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) e use o Git para implantar o código Node.js no aplicativo Web.
 
 ![Aplicativo de exemplo em execução no Azure](media/quickstart-nodejs/hello-world-in-browser.png)
 
@@ -180,4 +179,3 @@ O menu à esquerda fornece páginas diferentes para configurar seu aplicativo.
 
 > [!div class="nextstepaction"]
 > [Node.js com o MongoDB](tutorial-nodejs-mongodb-app.md)
-

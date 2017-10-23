@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: iainfou
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: db1a550b9273925b304fe4280f2a1b0e115f856d
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-and-configure-mongodb-on-a-windows-vm-in-azure"></a>Instalar e configurar o MongoDB em uma VM do Windows no Azure
 [O MongoDB](http://www.mongodb.org) é um popular banco de dados NoSQL de código-fonte aberto e de alto desempenho. Este artigo lhe orienta pela instalação e configuração do MongoDB em uma VM (máquina virtual) do Windows Server 2012 R2 no Azure. Você também pode [instalar o MongoDB em uma VM do Linux no Azure](../linux/install-mongodb.md).
@@ -164,5 +163,4 @@ Se necessário, crie uma regra de Grupo de Segurança de Rede para permitir o ac
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste tutorial, você também aprendeu como instalar e configurar o MongoDB na VM do Windows. Agora você pode acessar o MongoDB na VM do Windows seguindo os tópicos avançados na [documentação do MongoDB](https://docs.mongodb.com/manual/).
-
 

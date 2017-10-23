@@ -16,12 +16,11 @@ ms.workload: na
 ms.date: 05/31/2017
 ms.author: glenga
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: ba8db575c8731e4f9067a6635e745da12c8667dd
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/02/2017
-
+ms.openlocfilehash: 3fd5a5b9d2e2eec485fd9ecc5380ad6adb9851d0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-function-triggered-by-azure-queue-storage"></a>Criar uma função disparada pelo Armazenamento de Filas do Azure
 
@@ -59,9 +58,9 @@ Em seguida, crie uma nova função no novo aplicativo de funções.
     
     | Configuração | Valor sugerido | Descrição |
     |---|---|---|
-    | **Nome da fila**   | myqueue-items    | Nome da fila à qual se conectar em sua conta de armazenamento. |
-    | **Conexão da conta de armazenamento** | AzureWebJobStorage | Você pode usar a conexão da conta de armazenamento que já está sendo usada por seu aplicativo de funções ou criar uma nova.  |
     | **Nomeie sua função** | Exclusivo no aplicativo de funções | O nome dessa função disparada por filas. |
+    | **Nome da fila**   | myqueue-items    | Nome da fila à qual se conectar em sua conta de armazenamento. |
+    | **Conexão da conta de armazenamento** | AzureWebJobStorage | Você pode usar a conexão da conta de armazenamento que já está sendo usada por seu aplicativo de funções ou criar uma nova.  |    
 
 3. Clique em **Criar** para criar a função.
 
@@ -69,9 +68,9 @@ Em seguida, você pode se conectar à sua conta de armazenamento do Azure e cria
 
 ## <a name="create-the-queue"></a>Criar a fila
 
-1. Em sua função, clique em **Integrar**, expanda **Documentação**e copie **Nome da conta** e **Chave de conta**. Você usa essas credenciais para conectar-se à conta de armazenamento. Se você já tiver se conectado à conta de armazenamento, vá para a etapa 4.
+1. Em sua função, clique em **Integrar**, expanda **Documentação**e copie **Nome da conta** e **Chave de conta**. Você usa essas credenciais para conectar-se à conta de armazenamento no Gerenciador de Armazenamento do Microsoft Azure. Se você já tiver se conectado à conta de armazenamento, vá para a etapa 4.
 
-    ![Obtenha as credenciais de conexão da conta de armazenamento.](./media/functions-create-storage-queue-triggered-function/functions-storage-account-connection.png)v
+    ![Obtenha as credenciais de conexão da conta de armazenamento.](./media/functions-create-storage-queue-triggered-function/functions-storage-account-connection.png)
 
 1. Execute a ferramenta [Gerenciador de Armazenamento do Microsoft Azure](http://storageexplorer.com/), clique no ícone conectar-se à esquerda, escolha **Usar um nome e chave de conta de armazenamento** e clique em **Avançar**.
 
@@ -81,7 +80,7 @@ Em seguida, você pode se conectar à sua conta de armazenamento do Azure e cria
 
     ![Insira as credenciais de armazenamento e conecte-se.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-connect-2.png)
 
-1. Expanda a conta de armazenamento anexada, clique com o botão direito do mouse em **Filas**, clique em **Criar fila**, digite `myqueue-items` e pressione enter.
+1. Expanda a conta de armazenamento anexada, clique com o botão direito do mouse em **Filas**, clique em **Criar Fila**, digite `myqueue-items` e pressione enter.
 
     ![Crie uma fila de armazenamento.](./media/functions-create-storage-queue-triggered-function/functions-storage-manager-create-queue.png)
 

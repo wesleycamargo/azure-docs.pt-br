@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: milanga;juliako;
+ms.openlocfilehash: 5d5afdaf22ffea8f3b77a154acb5d0a8dda74405
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: c8e760460668aca89a754e2d8536282160de0e0a
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/20/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Usar as Miniaturas de Vídeo de Mídia do Azure para criar um resumo de vídeo
 ## <a name="overview"></a>Visão geral
@@ -269,5 +268,4 @@ Configure seu ambiente de desenvolvimento e preencha o arquivo de configuração
 [Visão geral do Azure Media Services Analytics](media-services-analytics-overview.md)
 
 [Demonstrações do Azure Media Analytics](http://azuremedialabs.azurewebsites.net/demos/Analytics.html)
-
 

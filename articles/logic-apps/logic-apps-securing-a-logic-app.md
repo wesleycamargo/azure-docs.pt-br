@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 11/22/2016
 ms.author: LADocs; jehollan
-ms.translationtype: HT
-ms.sourcegitcommit: 12c20264b14a477643a4bbc1469a8d1c0941c6e6
 ms.openlocfilehash: 45a4e476f930e0f5f6633dc5b3b35b66dc6dfa20
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="secure-access-to-your-logic-apps"></a>Proteger o acesso aos aplicativos lógicos
 
 Há muitas ferramentas disponíveis para ajudar a proteger seu aplicativo lógico.
@@ -275,4 +273,3 @@ O [Gerenciamento de API do Azure](https://azure.microsoft.com/services/api-manag
 [Manipulação de exceção](logic-apps-exception-handling.md)  
 [Monitorar seus aplicativos lógicos](logic-apps-monitor-your-logic-apps.md)  
 [Diagnosticando falhas e problemas nos aplicativos lógicos](logic-apps-diagnosing-failures.md)  
-

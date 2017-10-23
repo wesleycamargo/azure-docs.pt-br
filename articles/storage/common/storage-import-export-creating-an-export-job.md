@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-translationtype: Human Translation
-ms.sourcegitcommit: 988e7fe2ae9f837b661b0c11cf30a90644085e16
 ms.openlocfilehash: bdeac373aa8270bd9de8f135ec7166d744fd83ae
-ms.lasthandoff: 04/06/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="creating-an-export-job-for-the-azure-importexport-service"></a>Criando um trabalho de exportação para o serviço de Importação/Exportação do Azure
 A criação de um trabalho de exportação do serviço de Importação/Exportação do Microsoft Azure usando a API REST envolve as seguintes etapas:
 
@@ -97,4 +95,3 @@ Siga as etapas abaixo para obter a localização de envio:
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Usando a API REST do serviço de Importação/Exportação](storage-import-export-using-the-rest-api.md)
-

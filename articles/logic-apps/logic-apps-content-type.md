@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 10/18/2016
 ms.author: LADocs; jehollan
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a30a90682948b657fb31dd14101172282988cbf0
 ms.openlocfilehash: ac67838344bbd10384299c086ff096fbe5dec6a9
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="handle-content-types-in-logic-apps"></a>Gerenciamento de tipos de conteúdo em aplicativos lógicos
 
@@ -112,5 +110,4 @@ Como a solicitação não é texto sem formatação, nem JSON, ela é armazenada
 ```
 
 Quando não houver uma função nativa para dados de formulário, você ainda pode usar esses dados em um fluxo de trabalho ao acessar manualmente os dados com uma função como `@string(body('formdataAction'))`. Se desejar que a solicitação de saída também tenha o cabeçalho de tipo de conteúdo `application/x-www-url-formencoded` , você pode adicionar a solicitação ao corpo de ação sem conversões, como `@body('formdataAction')`. No entanto, esse método só funciona se o corpo é o único parâmetro na entrada `body`. Se você tentar usar `@body('formdataAction')` em uma solicitação `application/json`, o corpo codificado será enviado causando erro de tempo de execução.
-
 

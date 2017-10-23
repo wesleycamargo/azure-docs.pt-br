@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
 ms.author: davidmu
+ms.openlocfilehash: 10d01d5d80e2d111d6b39598eed3612f80162b23
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: c617006bcb122cd3191f5da3ff08191e3c55b04b
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-application-gateway-by-using-path-based-routing-with-azure-cli-20"></a>Criar um Gateway de Aplicativo usando roteamento com base em caminho com a CLI do Azure 2.0
 
@@ -100,7 +99,7 @@ Esta etapa configura o caminho relativo de URL usado pelo gateway de aplicativo 
 > [!IMPORTANT]
 > Cada caminho deve começar com "/", e o único lugar no qual um asterisco é permitido é no final. Exemplos válidos são /xyz, /xyz* ou /xyz/*. A cadeia de caracteres inserida no correspondente de caminho não inclui qualquer texto após o primeiro “?” ou “#”, e esses caracteres não são permitidos. 
 
-O exemplo a seguir cria uma regra para o caminho /images/*, roteando o tráfego para o **imagesBackendPool** do back-end. Essa regra garante que o tráfego para cada conjunto de URLs seja roteado para o back-end. Por exemplo, http://adatum.com/images/figure1.jpg vai para **imagesBackendPool**. A configuração de mapa do caminho de regra também configurará um pool de endereços de back-end padrão se o caminho não corresponder a nenhuma das regras de caminho predefinidas. Por exemplo, http://adatum.com/shoppingcart/test.html vai para o **pool1**, já que ele está definido como o pool padrão para tráfego sem correspondência.
+O exemplo a seguir cria uma regra para o caminho /images/\* roteando o tráfego para o **imagesBackendPool** do back-end. Essa regra garante que o tráfego para cada conjunto de URLs seja roteado para o back-end. Por exemplo, http://adatum.com/images/figure1.jpg vai para **imagesBackendPool**. A configuração de mapa do caminho de regra também configurará um pool de endereços de back-end padrão se o caminho não corresponder a nenhuma das regras de caminho predefinidas. Por exemplo, http://adatum.com/shoppingcart/test.html vai para o **pool1**, já que ele está definido como o pool padrão para tráfego sem correspondência.
 
 ```azurecli-interactive
 az network application-gateway url-path-map create \
@@ -124,4 +123,3 @@ Se você quiser aprender sobre o descarregamento de protocolo SSL, consulte [Con
 [1]: ./media/application-gateway-create-url-route-cli/figure1.png
 [2]: ./media/application-gateway-create-url-route-cli/figure2.png
 [3]: ./media/application-gateway-create-url-route-cli/figure3.png
-

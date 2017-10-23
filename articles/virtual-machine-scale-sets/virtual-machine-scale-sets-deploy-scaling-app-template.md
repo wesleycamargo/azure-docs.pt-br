@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/24/2017
 ms.author: ryanwi
-ms.translationtype: HT
-ms.sourcegitcommit: 646886ad82d47162a62835e343fcaa7dadfaa311
 ms.openlocfilehash: 07883a33382cc660b043c99872312a9e77228253
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-an-autoscaling-app-using-a-template"></a>Implantar um aplicativo de dimensionamento automático usando um modelo
 
 Os [modelos do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) são uma excelente maneira de implantar grupos de recursos relacionados. Esse tutorial se baseia em [Implantar um conjunto de dimensionamento simples](virtual-machine-scale-sets-mvss-start.md) e descreve como implantar um aplicativo de dimensionamento automático simples em um conjunto de dimensionamento usando um modelo do Azure Resource Manager.  Também é possível configurar o dimensionamento automático usando o PowerShell, a CLI ou o portal. Para obter mais informações, consulte [Visão geral do dimensionamento automático](virtual-machine-scale-sets-autoscale-overview.md).
@@ -309,4 +307,3 @@ fi
 ## <a name="next-steps"></a>Próximas etapas
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]
-

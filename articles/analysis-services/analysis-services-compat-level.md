@@ -15,14 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 08/16/2017
 ms.author: owend
-ms.translationtype: HT
-ms.sourcegitcommit: 368589509b163cacf495fd0be893a8953fe2066e
 ms.openlocfilehash: b11ba54c2cdc2675ec535368e7076613a5290212
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/17/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="compatibility-level-for-analysis-services-tabular-models"></a>Nível de compatibilidade para modelos de tabela do Analysis Services
 
 *Nível de compatibilidade* refere-se a comportamentos específicos à versão no mecanismo do Analysis Services. As alterações para o nível de compatibilidade geralmente coincidem com as versões principais do SQL Server. Essas alterações também são implementadas no Azure Analysis Services para manter a paridade entre as duas plataformas. Alterações de nível de compatibilidade também afetam os recursos disponíveis em modelos de tabela. Por exemplo, o DirectQuery e os metadados de objeto de tabela têm implementações diferentes dependendo do nível de compatibilidade. 
@@ -58,4 +56,3 @@ O nível de compatibilidade mais recente é 1400. Esse nível coincide com o Ana
 ## <a name="next-steps"></a>Próximas etapas
   [Como criar um modelo no portal do Azure](analysis-services-create-model-portal.md)   
   [Gerenciar o Analysis Services](analysis-services-manage.md)  
-

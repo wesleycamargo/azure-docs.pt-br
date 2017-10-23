@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/26/2017
 ms.author: davidmu
+ms.openlocfilehash: a2c4062db821e39e1af4fa1d54da0121d3993db4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: 032a514ddab625e4f7c5ef23a1da03a0162f43e3
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/30/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-an-application-gateway-for-ssl-offload-by-using-azure-cli-20"></a>Configurar um Gateway de Aplicativo para descarregamento SSL usando a CLI do Azure 2.0
 
@@ -138,7 +137,7 @@ az network application-gateway create \
   --public-ip-address-allocation "dynamic"
 ```
 
-## <a name="get-an-application-gateway-dns-name"></a>Obter um nome DNS do gateway de aplicativo
+## <a name="get-an-application-gateway-dns-name"></a>Como obter um nome DNS do gateway de aplicativo
 
 Depois de criar o gateway, a próxima etapa é configurar o front-end para comunicação.  O Gateway de Aplicativo requer um nome DNS atribuído dinamicamente ao usar um IP público, o que não é amigável. Para garantir que os usuários finais possam acessar o gateway de aplicativo, você poderá usar um registro CNAME para apontar para o ponto de extremidade público do gateway de aplicativo. Para saber mais, confira [Configurando um nome de domínio personalizado no Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). 
 
@@ -193,4 +192,3 @@ Para saber mais sobre opções de balanceamento de carga no geral, confira:
 
 * [Balanceador de carga do Azure](https://azure.microsoft.com/documentation/services/load-balancer/)
 * [Gerenciador de Tráfego do Azure](https://azure.microsoft.com/documentation/services/traffic-manager/)
-

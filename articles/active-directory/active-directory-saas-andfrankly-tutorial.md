@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: ea18a9f9bff258337a3de6d7703b4c548efa37df
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/16/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-frankly"></a>Tutorial: integração do Azure Active Directory ao &frankly
 
@@ -228,5 +226,4 @@ Quando você clicar no bloco &frankly no Painel de Acesso, deverá ser automatic
 [201]: ./media/active-directory-saas-andfrankly-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-andfrankly-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-andfrankly-tutorial/tutorial_general_203.png
-
 

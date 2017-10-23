@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: bwren
+ms.openlocfilehash: 49edbaad0af2eeef4b8c348b9fd34e37ba7e80e9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c30998a77071242d985737e55a7dc2c0bf70b947
-ms.openlocfilehash: 28d32d1e2d82519fc7b2ad4edca8435c3759594f
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/02/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="using-analytics-in-application-insights"></a>Usando Análise no Application Insights
 O [Analytics](app-insights-analytics.md) é o recurso de pesquisa avançado do [Application Insights](app-insights-overview.md). Essas páginas descrevem a linguagem de consulta do Log Analytics.
@@ -135,7 +134,7 @@ Em um gráfico de tempo, se houver uma alteração ou pico repentino em seus dad
 ![Diagnóstico de análise](./media/app-insights-analytics-using/analytics-diagnostics.png)
 
 ## <a name="pin-to-dashboard"></a>Fixar no painel
-Você pode fixar um diagrama ou tabela em um dos seus [painéis compartilhados](app-insights-dashboards.md) , basta clicar no marcador. (Talvez seja necessário [atualizar o pacote de preços do seu aplicativo](app-insights-pricing.md) para ativar esse recurso). 
+Você pode fixar um diagrama ou tabela em um dos seus [painéis compartilhados](app-insights-dashboards.md) , basta clicar no marcador. 
 
 ![Clicar no marcador](./media/app-insights-analytics-using/pin-01.png)
 
@@ -238,5 +237,4 @@ Se você usar [LogStash](https://www.elastic.co/guide/en/logstash/current/gettin
 > [!VIDEO https://channel9.msdn.com/events/Connect/2016/123/player] 
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
-
 

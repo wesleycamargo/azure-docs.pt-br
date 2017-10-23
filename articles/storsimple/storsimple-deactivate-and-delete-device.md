@@ -15,13 +15,11 @@ ms.workload: na
 ms.date: 05/17/2017
 ms.author: anbacker
 ms.custom: H1Hack27Feb2017
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
 ms.openlocfilehash: c000a642aa088ac80cc7077453b87e9a47f96900
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/18/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deactivate-and-delete-a-storsimple-8000-series-device-via-storsimple-manager-service"></a>Desativar e excluir um dispositivo StorSimple série 8000 por meio do serviço StorSimple Manager
 ## <a name="overview"></a>Visão geral
@@ -96,5 +94,4 @@ A desativação resulta nas seguintes ações:
 * Para restaurar os dispositivos desativados para os padrões de fábrica, acesse [Redefinir o dispositivo para as configurações padrão de fábrica](storsimple-manage-device-controller.md#reset-the-device-to-factory-default-settings).
 * Para obter assistência técnica, [contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md).
 * Para saber como usar o serviço StorSimple Manager, acesse [Usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md). 
-
 

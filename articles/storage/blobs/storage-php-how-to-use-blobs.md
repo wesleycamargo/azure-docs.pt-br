@@ -3,7 +3,7 @@ title: Como usar o armazenamento de blobs (armazenamento de objeto) do PHP | Mic
 description: "Armazene dados não estruturados na nuvem com o armazenamento de blobs do Azure (armazenamento de objeto)."
 documentationcenter: php
 services: storage
-author: mmacy
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: 1af56b59-b3f0-4b46-8441-aab463ae088e
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
 ms.date: 12/08/2016
-ms.author: marsma
+ms.author: tamram
+ms.openlocfilehash: 9de2f7e81d75669267fe6448030c118d06b3f88a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: ae57d8bb5ecf495538f7de703c3a4033488fe93e
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-use-blob-storage-from-php"></a>Como usar o armazenamento de blob no PHP
 [!INCLUDE [storage-selector-blob-include](../../../includes/storage-selector-blob-include.md)]
@@ -76,7 +75,7 @@ UseDevelopmentStorage=true
 Para criar qualquer cliente de serviço do Azure, é necessário usar a classe **ServicesBuilder** . Você pode:
 
 * Passar a cadeia de conexão diretamente para ele ou
-* Use variáveis de ambiente em seu Aplicativo Web para armazenar a cadeia de conexão. Consulte o documento [Configurações do aplicativo web do Azure](../../app-service-web/web-sites-configure.md) para configurar cadeias de conexão.
+* Use variáveis de ambiente em seu Aplicativo Web para armazenar a cadeia de conexão. Consulte o documento [Configurações do aplicativo web do Azure](../../app-service/web-sites-configure.md) para configurar cadeias de conexão.
 
 Para os exemplos descritos aqui, a cadeia de conexão é passada diretamente.
 
@@ -313,4 +312,3 @@ Para saber mais, veja também a [Central de desenvolvedores do PHP](/develop/php
 [require_once]: http://php.net/require_once
 [fopen]: http://www.php.net/fopen
 [stream-get-contents]: http://www.php.net/stream_get_contents
-

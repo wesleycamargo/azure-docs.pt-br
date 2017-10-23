@@ -15,7 +15,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 07/28/2017
+ms.date: 10/19/2017
 ms.author: larryfr
 ms.translationtype: HT
 ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 06/14/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 958b61f5de732a882e0a2682b8dd4e18504a6ae7
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="replicate-hyper-v-virtual-machines-in-vmm-clouds-to-azure-using-site-recovery-in-the-azure-portal"></a>Replicar máquinas virtuais Hyper-V em nuvens VMM no Azure usando o Site Recovery no Portal do Azure
 > [!div class="op_single_selector"]
@@ -475,4 +474,3 @@ O valor do registro **UploadThreadsPerVM** controla o número de threads usados 
 ## <a name="next-steps"></a>Próximas etapas
 
 Depois que a replicação inicial for concluída e você tiver testado a implantação, você poderá invocar failovers conforme a necessidade. [Saiba mais](site-recovery-failover.md) sobre diferentes tipos de failovers e como executá-los.
-

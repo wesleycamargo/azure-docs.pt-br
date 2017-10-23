@@ -14,13 +14,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 05/01/2017
 ms.author: eugenesh
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: 356ceb98106d080d8c24dedc3547bee33750156e
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/10/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="indexer-operations-azure-search-service-rest-api-2015-02-28-preview"></a>Operações de indexador (API REST do serviço Azure Search: 2015-02-28-Preview)
 > [!NOTE]
@@ -136,11 +134,11 @@ A contém as seguintes propriedades:
 * `container`, obrigatório: especifica os dados a serem indexados com as propriedades `name` e `query`: 
   * `name`, obrigatório:
     * SQL Azure: especifica a tabela ou a exibição. Você pode usar nomes qualificados pelo esquema, como `[dbo].[mytable]`.
-    * Banco de Dados de Documentos: especifica a coleção. 
+    * DocumentDB: especifica a coleção. 
     * Armazenamento de Blobs do Azure: especifica o contêiner de armazenamento.
     * Armazenamento de Tabelas do Azure: especifica o nome da tabela. 
   * `query`, opcional:
-    * Banco de Dados de Documentos: permite especificar uma consulta que nivela um layout de documento JSON arbitrário em um esquema simples que pode ser indexado pela Pesquisa do Azure.  
+    * DocumentDB: permite especificar uma consulta que nivela um layout de documento JSON arbitrário em um esquema simples que pode ser indexado pelo Azure Search.  
     * Armazenamento de Blobs do Azure: permite que você especifique uma pasta virtual dentro do contêiner de blob. Por exemplo, para o caminho de blob `mycontainer/documents/blob.pdf`, `documents` pode ser usada como a pasta virtual.
     * Armazenamento de Tabelas do Azure: permite que você especifique uma consulta que filtra o conjunto de linhas a serem importadas.
     * SQL Azure: não há suporte para consulta. Se você precisar dessa funcionalidade, vote [nesta sugestão](https://feedback.azure.com/forums/263029-azure-search/suggestions/9893490-support-user-provided-query-in-sql-indexer)
@@ -798,4 +796,3 @@ Código de status: 204 sem Conteúdo para uma resposta bem-sucedida.
 <td>Sem suporte; no momento, o Azure Search dá suporte apenas a tipos primitivos e coleções de cadeias de caracteres</td>
 </tr>
 </table>
-

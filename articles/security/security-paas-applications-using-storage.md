@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: TomShinder
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: 62c7b6706268e3c6e329f90651125fe299f61d67
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="securing-paas-web-and-mobile-applications-using-azure-storage"></a>Proteger aplicativos móveis e Web de PaaS usando o Armazenamento do Azure
 Neste artigo, discutiremos um conjunto de práticas recomendadas de segurança do Armazenamento do Azure para proteger seus aplicativos móveis e Web de PaaS. Essas práticas recomendadas derivam da nossa experiência com o Azure e da experiência de clientes como você.
@@ -111,4 +110,3 @@ Este artigo apresentou a você um conjunto de melhores práticas de segurança d
 - [Proteção de implantações de PaaS](security-paas-deployments.md)
 - [Securing PaaS web and mobile applications using Azure App Services](security-paas-applications-using-app-services.md) (Proteção dos aplicativos Web e móveis de PaaS usando os Serviços de Aplicativos do Azure)
 - [Protegendo bancos de dados de PaaS no Azure](security-paas-applications-using-sql.md)
-

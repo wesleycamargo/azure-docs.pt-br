@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 06e16033435ed0a37d5688055743875827d3aec2
-ms.openlocfilehash: d609231d6d9913b0f40b6e311aeedeb9a2391c7c
-ms.contentlocale: pt-br
-ms.lasthandoff: 03/01/2017
-
+ms.openlocfilehash: b5878d8a2e18cf08b6e9074ecf40cd732624f0c0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-offline-sync-for-your-xamarinios-mobile-app"></a>Habilitar sincronização offline para seu aplicativo móvel Xamarin.iOS
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -49,7 +48,7 @@ Nesta seção, você interrompe a conexão com seu Aplicativo Móvel de back-end
 2. Compile e execute o aplicativo. Observe a falha de sincronização na atualização, quando o aplicativo é iniciado.
 3. Insira os novos itens e observe que o envio falha com um status [CancelledByNetworkError] toda vez que você clicar em **Salvar**. Contudo, os novos itens de tarefas pendentes existem apenas no repositório local até serem enviados por push para o back-end do aplicativo móvel.  Em um aplicativo de produção, se você suprimir essas exceções, o aplicativo cliente se comportará como se ainda estivesse conectado ao back-end do aplicativo móvel.
 4. Feche o aplicativo e reinicie-o para verificar se os novos itens que você criou persistem no armazenamento local.
-5. (Opcional) Se você tiver o Visual Studio instalado em um computador, abra o **Gerenciador de Servidores**. Navegue até o banco de dados em **Azure**-> **Bancos de dados SQL**. Clique com o botão direito do mouse em seu banco de dados e selecione **Abrir no Gerenciador de Objetos do SQL Server**. Agora você pode navegar até sua tabela de banco de dados SQL e seu conteúdo. Verifique se os dados no banco de dados back-end não foram alterados.
+5. (Opcional) Se você tiver o Visual Studio instalado em um computador, abra o **Gerenciador de Servidores**. Navegue até o banco de dados em **Azure**-> **Bancos de dados SQL**. Clique com o botão direito do mouse em seu banco de dados e selecione **Abrir no Pesquisador de Objetos do SQL Server**. Agora você pode navegar até sua tabela de banco de dados SQL e seu conteúdo. Verifique se os dados no banco de dados back-end não foram alterados.
 6. (Opcional) Use uma ferramenta REST, como o Fiddler ou Postman, para consultar seu back-end móvel, usando uma consulta GET no formulário `https://<your-mobile-app-backend-name>.azurewebsites.net/tables/TodoItem`.
 
 ## <a name="update-online-app"></a>Atualize o aplicativo para reconectar o back-end do Aplicativo Móvel
@@ -115,4 +114,3 @@ O projeto de cliente Xamarin que você baixou ao concluir o tutorial [Criar um a
 [Sincronização de dados offline nos Aplicativos Móveis do Azure]: app-service-mobile-offline-data-sync.md
 [SyncContext]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mobileservices.mobileserviceclient.synccontext(v=azure.10).aspx
 [8]: app-service-mobile-dotnet-how-to-use-client-library.md
-

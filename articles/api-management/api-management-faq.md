@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
+ms.openlocfilehash: a9740cf527e4a9811b510ad5c96e5ab769efc2d9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
-ms.openlocfilehash: a0bf8995913511b0e14304a1259f13de4aa9e04b
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/26/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-api-management-faqs"></a>Perguntas frequentes sobre Gerenciamento de API do Azure
 Obtenha as respostas a perguntas comuns, padrões e práticas recomendadas do Gerenciamento de API do Azure.
@@ -138,10 +137,19 @@ O Gerenciamento de API usa o [método de roteamento de tráfego de desempenho](.
 Sim. Confira os modelos de Início Rápido do [Serviço de Gerenciamento de API do Azure](http://aka.ms/apimtemplate) .
 
 ### <a name="can-i-use-a-self-signed-ssl-certificate-for-a-back-end"></a>Posso usar um certificado SSL autoassinado para um back-end?
-Sim. Veja como usar um certificado autoassinado do protocolo SSL (Secure Sockets Layer) para um back-end:
+Sim. Isso pode ser feito usando o PowerShell ou enviando diretamente à API. Isso desabilitará a validação da cadeia de certificados e permitirá que você use certificados autoassinados ou assinados de forma privada ao se comunicar do Gerenciamento de API com os serviços de back-end.
 
-1. Criar uma entidade [back-end](https://msdn.microsoft.com/library/azure/dn935030.aspx) usando o Gerenciamento de API.
-2. Defina a propriedade **skipCertificateChainValidation** como **true**.
+#### <a name="powershell-method"></a>Método com o PowerShell ####
+Use os cmdlets [`New-AzureRmApiManagementBackend`](https://docs.microsoft.com/en-us/powershell/module/azurerm.apimanagement/new-azurermapimanagementbackend) (para um novo back-end) ou [`Set-AzureRmApiManagementBackend`](https://docs.microsoft.com/en-us/powershell/module/azurerm.apimanagement/set-azurermapimanagementbackend) (para um back-end existente) do PowerShell e defina o parâmetro `-SkipCertificateChainValidation` como `True`. 
+
+```
+$context = New-AzureRmApiManagementContext -resourcegroup 'ContosoResourceGroup' -servicename 'ContosoAPIMService'
+New-AzureRmApiManagementBackend -Context  $context -Url 'https://contoso.com/myapi' -Protocol http -SkipCertificateChainValidation $true
+```
+
+#### <a name="direct-api-update-method"></a>Método de atualização direta da API ####
+1. Criar uma entidade [back-end](https://msdn.microsoft.com/library/azure/dn935030.aspx) usando o Gerenciamento de API.       
+2. Defina a propriedade **skipCertificateChainValidation** como **true**.     
 3. Se você não quiser mais permitir certificados autoassinados, exclua a entidade de back-end ou defina a propriedade **skipCertificateChainValidation** como **false**.
 
 ### <a name="why-do-i-get-an-authentication-failure-when-i-try-to-clone-a-git-repository"></a>Por que obtenho uma falha de autenticação ao tentar clonar um repositório Git?
@@ -162,4 +170,3 @@ Sim. Para saber como, confira [Mover recursos para um novo grupo de recursos ou 
 
 ### <a name="are-there-restrictions-on-or-known-issues-with-importing-my-api"></a>Há restrições ou problemas conhecidos com a importação da minha API?
 [Restrições e problemas conhecidos](api-management-api-import-restrictions.md) para formatos Open API (Swagger), WSDL e WADL.
-

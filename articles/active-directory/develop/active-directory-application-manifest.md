@@ -16,12 +16,11 @@ ms.date: 07/20/2017
 ms.author: sureshja
 ms.custom: aaddev
 ms.reviewer: elisol
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 7d6525f4614c6301f0ddb621b0483da70842a71b
-ms.openlocfilehash: 2dc166a346c58d43e9ed60332f47619c1de89816
-ms.contentlocale: pt-br
-ms.lasthandoff: 02/11/2017
-
+ms.openlocfilehash: d5e18f41d6eb69ccb7eafaa4de2646c4c38df5e2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="understanding-the-azure-active-directory-application-manifest"></a>Noções básicas sobre o manifesto de aplicativo do Active Directory do Azure
 Os aplicativos que se integram com o Active Directory do Azure (AD) devem ser registrados em um locatário do Azure AD, fornecendo uma configuração persistente de identidade para o aplicativo. Essa configuração é consultada em tempo de execução, permitindo cenários que permitem que um aplicativo terceirize e agencie autenticação/autorização por meio do Azure AD. Para saber mais sobre o modelo de aplicativo Azure AD, consulte o artigo [Adição, atualização e remoção de um aplicativo][ADD-UPD-RMV-APP].
@@ -115,5 +114,4 @@ Use a seção de comentários abaixo para nos dar sua opinião e ajudar a refina
 [O365-PERM-DETAILS]: https://msdn.microsoft.com/office/office365/HowTo/application-manifest
 [O365-SERVICE-DAEMON-APPS]: https://msdn.microsoft.com/office/office365/howto/building-service-apps-in-office-365
 [RBAC-CLOUD-APPS-AZUREAD]: http://www.dushyantgill.com/blog/2014/12/10/roles-based-access-control-in-cloud-applications-using-azure-ad/
-
 

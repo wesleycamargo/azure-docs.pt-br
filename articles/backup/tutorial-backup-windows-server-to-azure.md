@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 09/23/2017
 ms.author: saurabhsensharma;markgal;
 ms.custom: 
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f81f23862e783de07b5ec5aebad7f0a781168bd1
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="back-up-windows-server-to-azure"></a>Fazer backup do Windows Server para o Azure
 
@@ -161,5 +160,4 @@ Continue no próximo tutorial para recuperar arquivos do Azure para o Windows Se
 
 > [!div class="nextstepaction"] 
 > [Restaurar arquivos do Azure para o Windows Server](./tutorial-backup-restore-files-windows-server.md) 
-
 

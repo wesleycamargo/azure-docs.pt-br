@@ -16,14 +16,12 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
+ms.openlocfilehash: 9b1498d76680185b45edf9ac7e1747bfa6794eec
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 8274d48db034c8a2634ab28bd634c024b8ea055c
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="package-and-deploy-containers-as-a-service-fabric-application"></a>Empacotar e implantar contêineres como um aplicativo do Service Fabric
 
 Este tutorial é a parte dois de uma série. Neste tutorial, uma ferramenta geradora de modelos (Yeoman) é usada para gerar uma definição de aplicativo do Service Fabric. Este aplicativo pode ser usado para implantar contêineres no Service Fabric. Neste tutorial, você aprenderá a: 
@@ -101,7 +99,7 @@ As entradas para adicionar o serviço usado são todas mostradas:
 
 ```bash
 ? Name of the application service: azurevoteback
-? Input the Image Name: suhuruli.azurecr.io/azure-vote-back:v1
+? Input the Image Name: <acrName>.azurecr.io/azure-vote-back:v1
 ? Commands: 
 ? Number of instances of guest container application: 1
    create TestContainer/azurevotebackPkg/ServiceManifest.xml
@@ -375,6 +373,5 @@ Passe para o próximo tutorial para saber mais sobre o failover e o dimensioname
 
 [votingapp]: ./media/service-fabric-tutorial-deploy-run-containers/votingapp.png
 [sfx]: ./media/service-fabric-tutorial-deploy-run-containers/containerspackagetutorialsfx.png
-
 
 

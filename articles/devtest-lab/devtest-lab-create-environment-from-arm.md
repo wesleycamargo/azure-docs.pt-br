@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: tarcher
-ms.translationtype: Human Translation
-ms.sourcegitcommit: fc27849f3309f8a780925e3ceec12f318971872c
 ms.openlocfilehash: 4e1aae6c041e4572e7e2281203f969e7649e1480
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/14/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Criar ambientes de várias VMs e recursos de PaaS com modelos do Azure Resource Manager
 
 O [portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) permite que você [crie e adicione facilmente uma VM a um laboratório](https://docs.microsoft.com/en-us/azure/devtest-lab/devtest-lab-add-vm). Isso funciona bem para criar uma VM por vez. No entanto, se o ambiente contiver várias VMs, cada VM terá de ser criada individualmente. Para cenários como um aplicativo Web com várias camadas ou um farm do SharePoint, é necessário um mecanismo para permitir a criação de várias VMs em uma única etapa. Usando os modelos do Azure Resource Manager, agora você pode definir a infraestrutura e a configuração de sua solução do Azure e implantar repetidamente várias VMs em um estado consistente. Esse recurso oferece os seguintes benefícios:
@@ -133,4 +130,3 @@ Assim que um repositório de modelos do Azure Resource Manager for configurado n
 * Após a criação da VM, você pode conectar a VM selecionando **Conectar** na folha da VM.
 * Exiba e gerencie recursos em um ambiente selecionando-o na lista **Minhas máquinas virtuais** no seu laboratório. 
 * Explorar os [modelos do Azure Resource Manager na galeria de modelos de Início Rápido do Azure](https://github.com/Azure/azure-quickstart-templates)
-

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/29/2017
 ms.author: alkohli
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 36058ad69ea670998b50cf9038741c294a5b79ab
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-the-storsimple-device-manager-service-to-manage-your-storage-account-credentials"></a>Usar o serviço do Gerenciador de Dispositivos do StorSimple para gerenciar as credenciais da sua conta de armazenamento
 
 ## <a name="overview"></a>Visão geral
@@ -180,5 +178,4 @@ Você será notificado depois que a chave tiver sido sincronizada com êxito.
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre a [segurança do StorSimple](storsimple-8000-security.md).
 * Saiba mais sobre como [usar o serviço Gerenciador de Dispositivos do StorSimple para administrar o dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
-
 

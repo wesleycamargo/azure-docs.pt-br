@@ -15,15 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 05/10/2017
 ms.author: govindk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
 ms.openlocfilehash: e59cfa85c6bf584e44bdc6e88cc19d67df390041
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-cosmos-db-how-to-query-table-data-by-using-the-table-api-preview"></a>Azure Cosmos DB: Como consultar os dados da tabela utilizando a API de Tabela (versão prévia)?
 
 A [API de Tabela](table-introduction.md) (visualização) do Azure Cosmos DB oferece suporte a consultas de OData e [LINQ](https://docs.microsoft.com/rest/api/storageservices/fileservices/writing-linq-queries-against-the-table-service) em dados de chave/valor (tabela).  
@@ -118,4 +115,3 @@ Agora você pode prosseguir para o próximo tutorial e aprender a distribuir seu
 
 > [!div class="nextstepaction"]
 > [Distribuir os dados globalmente](tutorial-global-distribution-documentdb.md)
-

@@ -14,14 +14,12 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 08/04/2017
 ms.author: asirveda;robmcm
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 8776142d5452bf5057990702c89aa1a541382ffc
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-a-spring-boot-application-to-the-azure-app-service"></a>Implantar um aplicativo Spring Boot no Serviço de Aplicativo do Azure
 
 O **[Spring Framework]** é uma solução de software livre que ajuda os desenvolvedores de Java a criar aplicativos de nível empresarial. Um dos projetos mais populares que se baseia nessa plataforma é o [Spring Boot], que fornece uma abordagem simplificada para a criação de aplicativos Java autônomos.
@@ -214,18 +212,18 @@ Para obter mais informações sobre como definir configurações adicionais para
 
 [Serviço de Aplicativo do Azure]: https://azure.microsoft.com/services/app-service/
 [Azure Container Service]: https://azure.microsoft.com/services/container-service/
-[Central de desenvolvimento Java do Azure]: https://azure.microsoft.com/develop/java/
+[Centro de Desenvolvedores Java do Azure]: https://azure.microsoft.com/develop/java/
 [Portal do Azure]: https://portal.azure.com/
 [Configurar aplicativos Web no Serviço de Aplicativo do Azure]: /azure/app-service/web-sites-configure
 [Implantar o aplicativo no Serviço de Aplicativo do Azure usando FTP/S]: https://docs.microsoft.com/azure/app-service/app-service-deploy-ftp
-[conta do Azure gratuita]: https://azure.microsoft.com/pricing/free-trial/
+[conta gratuita do Azure]: https://azure.microsoft.com/pricing/free-trial/
 [Git]: https://github.com/
 [JDK (Java Developer Kit)]: http://www.oracle.com/technetwork/java/javase/downloads/
 [Ferramentas Java para Visual Studio Team Services]: https://java.visualstudio.com/
 [Maven]: http://maven.apache.org/
-[Benefícios do assinante do MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
+[benefício de assinante do MSDN]: https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/
 [Spring Boot]: http://projects.spring.io/spring-boot/
-[Introdução ao Spring Boot]: https://github.com/spring-guides/gs-spring-boot
+[Spring Boot Getting Started]: https://github.com/spring-guides/gs-spring-boot
 [Spring Framework]: https://spring.io/
 
 <!-- IMG List -->
@@ -243,4 +241,3 @@ Para obter mais informações sobre como definir configurações adicionais para
 [AZ08]: ./media/app-service-deploy-spring-boot-web-app-on-azure/AZ08.png
 [AZ09]: ./media/app-service-deploy-spring-boot-web-app-on-azure/AZ09.png
 [AZ10]: ./media/app-service-deploy-spring-boot-web-app-on-azure/AZ10.png
-

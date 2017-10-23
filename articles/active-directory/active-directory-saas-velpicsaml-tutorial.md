@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
 ms.openlocfilehash: 5325f3cca00167e6b7b687509ce43435447ad2f4
-ms.lasthandoff: 04/07/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-velpic-saml"></a>Tutorial: Integração do Azure Active Directory ao Velpic SAML
 
@@ -163,7 +162,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal de Gerenciame
     f. Clique em **Salvar**.
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
-O objetivo desta seção é criar um usuário de teste no portal de Gerenciamento do Azure chamado Brenda Fernandes.
+O objetivo desta seção é criar um usuário de teste no Portal de Gerenciamento do Azure chamado Britta Simon.
 
 ![Criar um usuário do AD do Azure][100]
 
@@ -217,7 +216,7 @@ Entre no site da empresa do seu Velpic SAML como um administrador e execute as s
 
     e. O restante das informações é opcional, você pode preenchê-las se necessário.
     
-    f. Clique em **SALVAR**.    
+    f. Clique em **SALVAR**.  
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
 
@@ -280,5 +279,4 @@ Nesta seção, você testará sua configuração de logon único do Azure AD usa
 [201]: ./media/active-directory-saas-velpicsaml-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-velpicsaml-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-velpicsaml-tutorial/tutorial_general_203.png
-
 

@@ -41,7 +41,7 @@ Há quatro áreas principais nas quais é possível solucionar problemas de aces
 4. Seu dispositivo de borda da Internet.
    * As regras de firewall estão impedindo o tráfego de fluir corretamente?
 
-Para computadores cliente que acessam o aplicativo em uma conexão VPN site a site ou da Rota Expressa, as principais áreas que podem causar problemas são o aplicativo e a máquina virtual do Azure.
+Para computadores cliente que acessam o aplicativo em uma conexão VPN site a site ou do ExpressRoute, as principais áreas que podem causar problemas são o aplicativo e a máquina virtual do Azure.
 
 Para determinar a origem do problema e sua correção, siga estas etapas.
 

@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: rclaus
-ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
 ms.openlocfilehash: 11492b85e95ddb39489e36c572af2a168b4c7af8
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/11/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="implement-oracle-data-guard-on-an-azure-linux-virtual-machine"></a>Implementar o Oracle Data Guard em uma máquina virtual Linux do Azure 
 
 A CLI do Azure é usada para criar e gerenciar recursos do Azure da linha de comando ou em scripts. Este artigo descreve como usar a CLI do Azure para implantar um banco de dados Oracle Database 12c da imagem do Azure Marketplace. Este artigo mostra a você passo a passo como instalar e configurar o Data Guard em uma VM (máquina virtual) do Azure.
@@ -692,4 +690,3 @@ az group delete --name myResourceGroup
 [Tutorial: criar máquinas virtuais altamente disponíveis](../../linux/create-cli-complete.md)
 
 [Explorar exemplos da CLI do Azure de implantação de VM](../../linux/cli-samples.md)
-

@@ -18,7 +18,6 @@
 ### [PowerShell do Azure](vpn-gateway-create-site-to-site-rm-powershell.md)
 ### [CLI do Azure](vpn-gateway-howto-site-to-site-resource-manager-cli.md)
 ### [Portal do Azure (clássico)](vpn-gateway-howto-site-to-site-classic-portal.md)
-### [Portal clássico (clássico)](vpn-gateway-site-to-site-create.md)
 
 ## Configurar conexões ponto a site - autenticação de certificado do Azure nativo
 ### Configurar um VPN P2S
@@ -57,6 +56,7 @@
 ### [PowerShell do Azure](vpn-gateway-activeactive-rm-powershell.md)
 ## Configurar o BGP para um gateway de VPN
 ### [PowerShell do Azure](vpn-gateway-bgp-resource-manager-ps.md)
+### [CLI do Azure](bgp-how-to-cli.md)
 ## Configurar o túnel forçado
 ### [PowerShell do Azure](vpn-gateway-forced-tunneling-rm.md)
 ### [Azure PowerShell (clássico)](vpn-gateway-about-forced-tunneling.md)
@@ -81,6 +81,7 @@
 ### [Problema de conexão Ponto a Site](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
 ### [A conexão Site a Site desconecta-se intermitentemente](vpn-gateway-troubleshoot-site-to-site-disconnected-intermittently.md)
 ### [Não é possível conectar a conexão Site a Site](vpn-gateway-troubleshoot-site-to-site-cannot-connect.md) 
+### [Configurar e validar as conexões de VNet ou VPN](https://support.microsoft.com/help/4032151/configuring-and-validating-vnet-or-vpn-connections)
 
 # Referência
 ## [PowerShell do Azure](/powershell/module/azurerm.network/?view=azurermps-4.0.0#vpn)

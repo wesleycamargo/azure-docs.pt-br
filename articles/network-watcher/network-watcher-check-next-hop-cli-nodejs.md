@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: ff88e945060ae033717ceb29db1352e112f05a3f
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/26/2017
-
+ms.openlocfilehash: e849f7952962d177f40ce99307ef1c305e089827
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="find-out-what-the-next-hop-type-is-using-the-next-hop-capability-in-azure-network-watcher-using-azure-cli-10"></a>Descubra qual o tipo do próximo salto é usando o recurso de próximo salto no Observador de Rede do Azure usando a CLI 1.0 do Azure
 
 > [!div class="op_single_selector"]
@@ -81,4 +79,3 @@ A lista a seguir mostra os valores de NextHopType disponíveis no momento:
 ## <a name="next-steps"></a>Próximas etapas
 
 Aprenda a analisar as configurações de Grupo de Segurança de Rede por meio de programação visitando [NSG auditoria com o Observador de Rede](network-watcher-nsg-auditing-powershell.md)
-

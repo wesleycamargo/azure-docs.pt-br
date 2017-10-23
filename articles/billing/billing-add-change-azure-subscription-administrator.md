@@ -12,19 +12,19 @@ ms.service: billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 09/12/2017
+ms.topic: troubleshooting
+ms.date: 10/19/2017
 ms.author: genli
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 29fee079bd8b2775d7b45fa37cadb73635a2eb60
+ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
+ms.openlocfilehash: 38742fd84dafc3fb68829a55ab7be0827ad0b451
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/13/2017
+ms.lasthandoff: 09/22/2017
 
 ---
 # <a name="add-or-change-azure-administrator-roles-that-manage-the-subscription-or-services"></a>Adicionar ou alterar as funções de administrador do Azure que gerenciam a assinatura ou serviços
 
-Altere o administrador do Azure que gerencia sua assinatura do Azure ou que gerencia os serviços do Azure usados em sua assinatura. Para exibir as informações de cobrança do Azure e gerenciar as assinaturas, entre no [Centro de Contas](https://account.windowsazure.com/Home/Index) como o Administrador da Conta. 
+Altere o administrador do Azure que gerencia sua assinatura do Azure ou que gerencia os serviços do Azure usados em sua assinatura. Para exibir as informações de cobrança do Azure e gerenciar as assinaturas, entre no Centro de Contas como o Administrador da Conta. 
 
 <a name="add-an-admin-for-a-subscription"></a>
 
@@ -39,7 +39,7 @@ Para adicionar alguém como administrador para uma assinatura no Portal do Azure
 
     ![Captura de tela que mostra a função Proprietário selecionada](./media/billing-add-change-azure-subscription-administrator/add-role.png)
 
-### <a name="add-or-change-co-administrator"></a>Adicionar ou alterar coadministrador
+## <a name="add-or-change-co-administrator"></a>Adicionar ou alterar coadministrador
 
 Somente um proprietário pode ser adicionado como um coadministrador. Outros usuários com funções como colaborador e leitor não podem ser adicionados como coadministradores.
 
@@ -101,7 +101,7 @@ Para alterar o Administrador de Conta de uma assinatura, consulte [Transferir a 
 
 | Função administrativa | Limite | Descrição |
 | --- | --- | --- |
-| AA (Administrador da Conta) |1 por conta do Azure |Essa é a pessoa que se inscreveu ou que comprou assinaturas do Azure e que está autorizada a acessar o [Centro de Contas](https://account.windowsazure.com/Home/Index) e realizar várias tarefas de gerenciamento. A capacidade de criar assinaturas, cancelar assinaturas, alterar a cobrança para uma assinatura e alterar o Administrador de Serviços são algumas dessas tarefas. |
+| AA (Administrador da Conta) |1 por conta do Azure |Essa é a pessoa que se inscreveu ou que comprou assinaturas do Azure e que está autorizada a acessar o [Centro de Contas](https://account.azure.com/Subscriptions) e realizar várias tarefas de gerenciamento. A capacidade de criar assinaturas, cancelar assinaturas, alterar a cobrança para uma assinatura e alterar o Administrador de Serviços são algumas dessas tarefas. |
 | SA (Administrador de Serviços) |1 por assinatura do Azure |Essa função está autorizada a gerenciar serviços no [Portal do Azure](https://portal.azure.com). Por padrão, para uma nova assinatura, o Administrador da Conta também é o Administrador de Serviços. |
 | Coadministrador (CA) no [portal clássico do Azure](https://manage.windowsazure.com) |200 por assinatura |Essa função tem os mesmos privilégios de acesso que o Administrador de Serviços, mas não pode alterar a associação de assinaturas nos diretórios do Azure. |
 

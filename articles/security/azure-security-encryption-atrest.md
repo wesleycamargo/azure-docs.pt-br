@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/25/2017
 ms.author: yurid
+ms.openlocfilehash: 53b6f03d43b5525e5c5dea42e6a9a36042b65d52
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: 6af94c795ec5153013f4a9c5c937beed08f44e7a
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-data-encryption-at-rest"></a>Criptografia de dados em repouso no Azure
 Há várias ferramentas no Microsoft Azure para proteger os dados de acordo com as necessidades de segurança e a conformidade de sua empresa. Este artigo concentra-se em como os dados são protegidos em repouso no Microsoft Azure, discute os vários componentes que participam da implementação da proteção de dados e revisa os prós e contras das diferentes abordagens de proteção de gerenciamento de chaves. 
@@ -273,12 +272,11 @@ A criptografia do lado do cliente dos dados do SQL Azure possui suporte através
 | Power BI                         |                | Sim                 | -                            | -                            | -      |
 | **Serviços de IoT**                     |                |                     |                              |                              |        |
 | Hub IoT                          |                | -                   | -                            | -                            | Sim    |
-| Barramento de Serviço                      |                | -              | -                            | -                            | Sim    |
-| Hubs de Eventos                       |                | -             | -                            | -                            | -      |
+| Barramento de Serviço                      |                | Sim (camada Premium)              | -                            | -                            | Sim    |
+| Hubs de Eventos                       |                | Sim             | -                            | -                            | -      |
 
 
 ## <a name="conclusion"></a>Conclusão
 
 A proteção dos dados do cliente armazenados nos Serviços do Azure é de fundamental importância para a Microsoft. Todos os serviços hospedados do Azure estão comprometido em fornecer opções de criptografia em repouso. Os serviços fundamentais, como o Armazenamento do Microsoft Azure, SQL Azure e os principais serviços de análise e inteligência, já oferecem opções de criptografia em repouso. Alguns desses serviços oferecem suporte para chaves controladas pelo cliente e criptografia do lado do cliente, assim como criptografia e chaves de serviço gerenciado. Os serviços do Microsoft Azure estão aprimorando amplamente a disponibilidade de Criptografia em Repouso e novas opções estarão planejadas para versão prévia e disponibilidade geral nos próximos meses.
-
 

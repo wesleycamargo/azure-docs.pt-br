@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: jdial
-ms.translationtype: HT
-ms.sourcegitcommit: b309108b4edaf5d1b198393aa44f55fc6aca231e
 ms.openlocfilehash: 74aace2136136c25bc56327d38cfbab168265401
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/15/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-change-or-delete-a-virtual-network"></a>Criar, alterar ou excluir uma rede virtual
 
@@ -199,4 +198,3 @@ Você pode excluir uma rede virtual somente se não houver recursos conectados a
 - Para filtrar o tráfego de rede entre as sub-redes em uma rede virtual, consulte [Criar grupos de segurança de rede](virtual-networks-create-nsg-arm-pportal.md).
 - Para emparelhar uma rede virtual para outra rede virtual, consulte [Criar um emparelhamento de rede virtual](virtual-network-create-peering.md#portal).
 - Para saber mais sobre as opções para conectar uma rede virtual a uma rede local, consulte [Sobre o gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#diagrams).
-

@@ -12,12 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 178b1ec0edce5a3fb20dc5c591e12cfe6e721cf2
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: e1da0d6a6fbd9ca5486936c326ade667d7b01006
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="trace-telemetry-application-insights-data-model"></a>Telemetria de rastreamento: modelo de dados do Application Insights
 
@@ -44,4 +43,3 @@ Nível de severidade de rastreamento. O valor pode ser `Verbose`, `Information`,
 - Consulte [modelo de dados](application-insights-data-model.md) para modelo de dados e tipos do Application Insights.
 - [Escrever telemetria personalizada de rastreamento](app-insights-api-custom-events-metrics.md#tracktrace)
 - Confira as [plataformas](app-insights-platforms.md) com suporte do Application Insights.
-

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: 2a6559551f608cf435e89997392a6a0ba995c583
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-stream-analytics-window-functions"></a>Introdução às funções de janela do Stream Analytics
 Em muitos cenários de streaming em tempo real, é necessário executar operações apenas nos dados contidos nas janelas temporais. O suporte nativo para funções de janela é um importante recurso do Stream Analytics do Azure, que faz toda a diferença na produtividade do desenvolvedor em trabalhos complexos de processamento de fluxo. O Stream Analytics permite aos desenvolvedores usar as janelas [**Em cascata**](https://msdn.microsoft.com/library/dn835055.aspx), [**De salto**](https://msdn.microsoft.com/library/dn835041.aspx) e [**Deslizante**](https://msdn.microsoft.com/library/dn835051.aspx) para executar operações temporais nos dados de streaming. Vale a pena observar que toda saída de operações de [Janela](https://msdn.microsoft.com/library/dn835019.aspx) resulta no **fim** da janela. A saída da janela será um evento único baseado na função agregada usada. O evento terá o carimbo de data/hora do término da janela e todas as funções de Janela serão definidas com um comprimento fixo. Por fim, é importante observar que todas as funções de Janela devem ser usadas em uma cláusula [**GROUP BY**](https://msdn.microsoft.com/library/dn835023.aspx).
@@ -51,5 +50,4 @@ Para obter mais assistência, experimente nosso [Fórum do Stream Analytics do A
 * [Dimensionar trabalhos do Stream Analytics do Azure](stream-analytics-scale-jobs.md)
 * [Referência de Linguagem de Consulta do Stream Analytics do Azure](https://msdn.microsoft.com/library/azure/dn834998.aspx)
 * [Referência da API REST do Gerenciamento do Azure Stream Analytics](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
 

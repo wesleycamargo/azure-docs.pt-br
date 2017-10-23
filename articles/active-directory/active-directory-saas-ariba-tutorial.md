@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/02/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: 214367847055ba38ee03a28d0afdcc58f68333cc
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/16/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ariba"></a>Tutorial: Integração do Active Directory do Azure ao Ariba
 
@@ -228,5 +226,4 @@ Ao clicar no bloco do Ariba no Painel de Acesso, você deverá ser conectado aut
 [201]: ./media/active-directory-saas-ariba-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-ariba-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-ariba-tutorial/tutorial_general_203.png
-
 

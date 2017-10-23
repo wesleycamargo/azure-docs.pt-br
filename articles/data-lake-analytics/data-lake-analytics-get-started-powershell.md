@@ -20,7 +20,6 @@ ms.openlocfilehash: faf17bcac66a70fc78bb171e172886fd2dcadca8
 ms.contentlocale: pt-br
 ms.lasthandoff: 06/16/2017
 
-
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-powershell"></a>Introdução ao Azure Data Lake Analytics usando o Azure PowerShell
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -101,7 +100,7 @@ OUTPUT @a
 Enviar o script.
 
 ```
-$job = Submit-AdlJob -AccountName $adla –Script $script
+$job = Submit-AdlJob -Account $adla -Name "My Job" –Script $script
 ```
 
 Como alternativa, você pode salvar o script como um arquivo e enviar com o seguinte comando:
@@ -109,14 +108,14 @@ Como alternativa, você pode salvar o script como um arquivo e enviar com o segu
 ```
 $filename = "d:\test.usql"
 $script | out-File $filename
-$job = Submit-AdlJob -AccountName $adla –ScriptPath $filename
+$job = Submit-AdlJob -Account $adla -Name "My Job" –ScriptPath $filename
 ```
 
 
 Obter o status de um trabalho específico. Continue a usar este cmdlet até perceber que o trabalho foi concluído.
 
 ```
-$job = Get-AdlJob -AccountName $adla -JobId $job.JobId
+$job = Get-AdlJob -Account $adla -JobId $job.JobId
 ```
 
 Em vez de chamar Get-AdlAnalyticsJob repetidamente até que um trabalho seja concluído, você pode usar o cmdlet espera Wait-AdlJob.
@@ -128,7 +127,7 @@ Wait-AdlJob -Account $adla -JobId $job.JobId
 Baixe o arquivo de saída.
 
 ```
-Export-AdlStoreItem -AccountName $adls -Path "/data.csv" -Destination "C:\data.csv"
+Export-AdlStoreItem -Account $adls -Path "/data.csv" -Destination "C:\data.csv"
 ```
 
 ## <a name="see-also"></a>Consulte também

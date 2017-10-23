@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
+ms.openlocfilehash: 948693c8501ecc46a1508e5ea085846d0910783e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
-ms.openlocfilehash: e1a28c70edddca878c18d860b3029324955fff15
-ms.contentlocale: pt-br
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="call-the-microsoft-graph-api-from-an-ios-app"></a>Chamar a API do Microsoft Graph em um aplicativo iOS
 
 Este guia demonstra como um aplicativo iOS nativo (Swift) pode obter um token de acesso e chamar a API do Microsoft Graph ou outras APIs que exigem tokens de acesso por meio do ponto de extremidade do Azure Active Directory v2.
@@ -53,5 +52,4 @@ Este guia usa os seguintes pacotes NuGet:
 |Biblioteca|Descrição|
 |---|---|
 |[MSAL.framework](https://github.com/AzureAD/microsoft-authentication-library-for-objc)|Versão prévia da Biblioteca de Autenticação da Microsoft para iOS|
-
 

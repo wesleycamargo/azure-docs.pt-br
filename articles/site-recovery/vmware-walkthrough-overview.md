@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
 ms.openlocfilehash: db6f5f95929503e82a529dba26b56af1edb0767f
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/29/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="replicate-vmware-vms-to-azure-with-site-recovery"></a>Replicar VMs do VMware no Azure com o Site Recovery
 
@@ -42,7 +40,7 @@ Ir para a [Etapa 1: Examinar a arquitetura](vmware-walkthrough-architecture.md)
 
 Verifique se os pré-requisitos estão em vigor para cada componente de implantação:
 
-- **Pré-requisitos do Azure**: Você precisa de uma conta do Microsoft Azure, redes do Azure e contas de armazenamento.
+- **Pré-requisitos do Azure**: você precisa de uma conta do Microsoft Azure, redes do Azure e contas de armazenamento.
 - **Componentes locais do Site Recovery**: Você precisa de uma máquina que execute os componentes locais do Site Recovery.
 - **Pré-requisitos do VMware local**: Você precisa configurar as contas para que o Site Recovery possa acessar os servidores e VMs do VMware.
 - **VMs replicadas**: As VMs que você deseja replicar precisam atender aos requisitos do Azure e ter o componente de serviço de Mobilidade instalado.
@@ -112,4 +110,3 @@ Vá para a [Etapa 11: Habilitar a replicação](vmware-walkthrough-enable-replic
 Após a conclusão da replicação inicial e a replicação delta estiver em execução, você poderá executar um failover de teste para verificar se tudo está funcionando como esperado.
 
 Vá para a [Etapa 12: Executar um failover de teste](vmware-walkthrough-test-failover.md)
-

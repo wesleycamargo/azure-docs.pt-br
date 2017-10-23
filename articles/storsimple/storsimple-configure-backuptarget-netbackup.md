@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2017
 ms.author: hkanna
+ms.openlocfilehash: b1878c181a77ac6d54654fc55228907743243c45
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 4d5acd0be4a237f46d79800a44124b8c4269c5b9
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="storsimple-as-a-backup-target-with-netbackup"></a>StorSimple como um destino de backup com o NetBackup
 
 ## <a name="overview"></a>Visão geral
@@ -545,4 +543,3 @@ Os documentos a seguir foram mencionados neste artigo:
 
 - Saiba mais sobre como [restaurar de um conjunto de backup](storsimple-restore-from-backup-set-u2.md).
 - Sobre mais sobre como executar [failover e recuperação de desastre no dispositivo](storsimple-device-failover-disaster-recovery.md).
-

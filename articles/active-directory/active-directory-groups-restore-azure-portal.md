@@ -16,14 +16,12 @@ ms.date: 08/28/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e22bd56e0d111add6ab4c08b6cc6e51c364c7f22
-ms.openlocfilehash: 795b711542c0a200b80e414397094a102213caf2
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/19/2017
-
+ms.openlocfilehash: 5d06cee492e3360bcaf8c7663c97d0c8ed3e243f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="restore-a-deleted-office-365-group-in-azure-active-directory"></a>Restaurar um grupo do Office 365 excluído na visualização do Azure Active Directory
 
 Quando você exclui um grupo do Office 365 no Azure AD (Azure Active Directory), o grupo excluído é mantido, mas não fica visível por 30 dias a partir da data de exclusão. Isso é para que o grupo e seu conteúdo possam ser restaurados se necessário. Essa funcionalidade é restrita exclusivamente a grupos do Office 365 no Azure AD. Ele não fica disponível para grupos de segurança e de distribuição.
@@ -85,4 +83,3 @@ Esses artigos fornecem mais informações sobre grupos do Azure Active Directory
 * [Gerenciar membros de um grupo](active-directory-groups-members-azure-portal.md)
 * [Gerenciar associações de um grupo](active-directory-groups-membership-azure-portal.md)
 * [Gerenciar regras dinâmicas para usuários em um grupo](active-directory-groups-dynamic-membership-azure-portal.md)
-

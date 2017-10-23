@@ -52,7 +52,7 @@ Você pode usar essa janela de terminal para executar todos os comandos neste gu
 Altere para o diretório que contém o código de exemplo.
 
 ```bash
-cd Python-docs-hello-world
+cd python-docs-hello-world
 ```
 
 ## <a name="run-the-app-locally"></a>Executar o aplicativo localmente

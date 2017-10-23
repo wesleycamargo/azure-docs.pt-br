@@ -15,14 +15,12 @@ ms.date: 09/06/2017
 ms.author: kgremban
 ms.custom: it-pro
 ms.reviewer: harshja
-ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
 ms.openlocfilehash: fa8f63c8da5019ed42ea8ec067d3d3d174976dd8
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Publicar a Área de Trabalho Remota com o Proxy de Aplicativo do Azure AD
 
 O Serviço de Área de Trabalho Remota e o Proxy de Aplicativo do Azure AD trabalham juntos para aumentar a produtividade dos trabalhos que estão fora da rede corporativa. 
@@ -133,4 +131,3 @@ Para usar a autenticação de passagem, há apenas duas modificações às etapa
 
 [Habilitar acesso remoto ao SharePoint com o Proxy de Aplicativo do Azure AD](application-proxy-enable-remote-access-sharepoint.md)  
 [Considerações de segurança para acessar aplicativos remotamente usando o Proxy de Aplicativo do Azure AD](application-proxy-security-considerations.md)
-

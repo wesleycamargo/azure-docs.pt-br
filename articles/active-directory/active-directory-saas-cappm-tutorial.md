@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: 4ca9268c26f681fcc96955b6161fe4a119b2dcf4
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/16/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ca-ppm"></a>Tutorial: Integração do Azure Active Directory ao CA PPM
 
@@ -112,9 +110,9 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurar Logon Único](./media/active-directory-saas-cappm-tutorial/tutorial_cappm_url.png)
 
-    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:  `https://ca.ondemand.saml.20.post.<companyname>`
+    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://ca.ondemand.saml.20.post.<companyname>`
     
-    b. Na caixa de texto **URL de Resposta**, digite:  `https://fedsso.ondemand.ca.com/affwebservices/public/saml2assertionconsumer`
+    b. Na caixa de texto **URL de Resposta**, digite: `https://fedsso.ondemand.ca.com/affwebservices/public/saml2assertionconsumer`
 
     > [!NOTE] 
     > Esse valor não é real. Atualize esse valor com o Identificador real. Contate a [equipe de suporte do CA PPM](mailto:catechnicalsupport@ca.com) para obter esse valor.
@@ -226,5 +224,4 @@ Ao clicar no bloco do CA PPM no Painel de Acesso, você deverá ser conectado au
 [201]: ./media/active-directory-saas-cappm-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-cappm-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-cappm-tutorial/tutorial_general_203.png
-
 

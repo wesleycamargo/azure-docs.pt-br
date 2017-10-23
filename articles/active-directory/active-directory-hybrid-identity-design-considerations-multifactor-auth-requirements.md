@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cfb4104dd58f2af8b3ffed7491c91ae6c6557ddc
-ms.openlocfilehash: f5006b6ce1b409fae5e540d8414e8e56651f9349
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/05/2017
-
+ms.openlocfilehash: 5b3a8ce6e4203dfb3700f324e32687dd910118af
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="determine-multi-factor-authentication-requirements-for-your-hybrid-identity-solution"></a>Determinar os requisitos de autenticação multifator para sua solução de identidade híbrida
 Em um mundo de mobilidade, com os usuários que acessam dados e aplicativos na nuvem e de qualquer dispositivo, proteger essas informações tornou imprescindível.  Todos os dias há um novo título sobre violação de segurança.  No entanto, não há nenhuma garantia contra falhas desse tipo, a autenticação multifator, fornece uma camada adicional de segurança para ajudar a evitar essas violações.
@@ -62,5 +61,4 @@ Depois de responder às perguntas anteriores, você poderá determinar se há au
 
 ## <a name="see-also"></a>Confira também
 [Visão geral sobre as considerações de design](active-directory-hybrid-identity-design-considerations-overview.md)
-
 

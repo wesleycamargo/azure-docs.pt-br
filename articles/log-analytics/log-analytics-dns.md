@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: banders
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
-ms.openlocfilehash: 1b2f9c3fc59a83b384a63db00d2d039cab8679e8
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/09/2017
-
+ms.openlocfilehash: 0e8fc0ffb8e0d0bdf00bea46594fe050c00b6c8e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Coletar informações sobre a infraestrutura DNS com a solução Visualização da Análise de DNS
 
 ![Símbolo da Análise de DNS](./media/log-analytics-dns/dns-analytics-symbol.png)
@@ -192,4 +190,3 @@ Há duas maneiras de enviar comentários:
 ## <a name="next-steps"></a>Próximas etapas
 
 [Pesquisar logs](log-analytics-log-searches.md) para exibir registros de log DNS detalhados.
-

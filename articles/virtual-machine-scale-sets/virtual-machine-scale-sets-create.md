@@ -15,14 +15,12 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 07/21/2017
 ms.author: adegeo
-ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
 ms.openlocfilehash: 32af01aa545c541688128a7ae6bbb82a0e046f2d
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-and-deploy-a-virtual-machine-scale-set"></a>Criar e implantar um conjunto de dimensionamento de máquinas virtuais
 Os conjuntos de escala de máquina virtual facilitam a implantação e o gerenciamento de máquinas virtuais idênticas como um conjunto. Os conjuntos de dimensionamento fornecem uma camada de computação altamente escalonável e personalizável para aplicativos de hiperescala e suporte a imagens da plataforma Windows, imagens da plataforma Linux, imagens personalizadas e extensões. Para obter mais informações sobre conjuntos de dimensionamento, consulte [Conjuntos de dimensionamento de máquinas virtuais](virtual-machine-scale-sets-overview.md).
 
@@ -209,4 +207,3 @@ O portal do Azure é uma maneira conveniente de criar rapidamente um conjunto de
 Saiba mais sobre [discos de dados](virtual-machine-scale-sets-attached-disks.md).
 
 Saiba como [gerenciar seus aplicativos](virtual-machine-scale-sets-deploy-app.md).
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2017
 ms.author: alkohli
-ms.translationtype: HT
-ms.sourcegitcommit: 79bebd10784ec74b4800e19576cbec253acf1be7
 ms.openlocfilehash: 3c00867a29cf8343a57e74e2aabe3971ae6837af
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/03/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deactivate-and-delete-a-storsimple-device"></a>Desativar e excluir um dispositivo StorSimple
 
@@ -121,5 +120,4 @@ Depois que o dispositivo de nuvem é desativado, você poderá excluí-lo da lis
 * Para restaurar os dispositivos desativados para os padrões de fábrica, acesse [Redefinir o dispositivo para as configurações padrão de fábrica](storsimple-8000-manage-device-controller.md#reset-the-device-to-factory-default-settings).
 * Para obter assistência técnica, [contate o Suporte da Microsoft](storsimple-8000-contact-microsoft-support.md).
 * Para saber como usar o serviço do Gerenciador de Dispositivos do StorSimple, acesse [Usar o serviço do Gerenciador de Dispositivos do StorSimple para administrar seu dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
-
 

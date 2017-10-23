@@ -1,9 +1,9 @@
---- 
+---
 title: "Introdução à Automação do Azure | Microsoft Docs"
 description: "Este artigo fornece uma visão geral do serviço de Automação do Azure, revisando o design e os detalhes de implementação na preparação para carregar a oferta do Azure Marketplace."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 
@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/31/2017
 ms.author: magoedte
+ms.openlocfilehash: fad13053895c5d6e3c41835fea3cf0bdd3380cd4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a16daa1f320516a771f32cf30fca6f823076aa96
-ms.openlocfilehash: 3269af400d091435af56b0093abbb839d8dd7068
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/02/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="getting-started-with-azure-automation"></a>Introdução à Automação do Azure
 
 Este guia de Introdução apresenta os conceitos principais relacionados à implantação da Automação do Azure. Se você for novo na Automação no Azure ou tem experiência com softwares de automação de fluxo de trabalho como o System Center Orchestrator, este guia vai lhe ensinar a preparar e carregar a Automação.  Posteriormente, você aprenderá a desenvolver runbooks para oferecer suporte às suas necessidades de automação de processo. 
@@ -191,6 +189,5 @@ Depois de carregar a oferta, você pode começar a criar runbooks, trabalhar com
 ## <a name="next-steps"></a>Próximas etapas
 * Você pode confirmar que a sua nova conta de automação pode autenticar em recursos do Azure em [Como testar a autenticação da conta Executar como de Automação do Azure](automation-verify-runas-authentication.md).
 * Para começar a criação de runbooks, primeiro examine os [Tipos de automação de runbook](automation-runbook-types.md) com suporte e com considerações relacionadas antes de você começar a criar.
-
 
 

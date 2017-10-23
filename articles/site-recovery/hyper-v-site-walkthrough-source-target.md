@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/22/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
 ms.openlocfilehash: b38eb3a011d46f2239891ea1d1bcac2a4059a866
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="step-8-set-up-the-source-and-target-for-hyper-v-replication-to-azure"></a>Etapa 8: configurar a origem e o destino para replicação do Hyper-V para o Azure
 
 Este artigo descreve como definir as configurações de origem e destino ao replicar máquinas virtuais Hyper-V locais (sem o System Center VMM) para o Azure utilizando o serviço [Azure Site Recovery](site-recovery-overview.md) no portal do Azure.
@@ -94,4 +92,3 @@ Especifique a conta de armazenamento do Azure para a replicação e a rede do Az
 ## <a name="next-steps"></a>Próximas etapas
 
 Vá para a [Etapa 9: Configurar uma política de replicação](hyper-v-site-walkthrough-replication.md)
-

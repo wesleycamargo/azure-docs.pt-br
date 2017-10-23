@@ -14,13 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/05/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
-ms.openlocfilehash: 77ebe20940bce0e21caa60567e1ccffaba7351b3
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
-
-
+ms.openlocfilehash: f4dfe430fba51bd009431ca72279a21be55e3a40
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrate-to-azure-with-site-recovery"></a>Migrar para o Azure com o Site Recovery
 
@@ -83,4 +81,3 @@ Você pode migrar instâncias do AWS para VMs do Azure. Nesse cenário, apenas a
 - [Migrar instâncias do AWS para o Azure](site-recovery-migrate-aws-to-azure.md)
 - [Prepare as máquinas migradas para habilitar a replicação](site-recovery-azure-to-azure-after-migration.md) em outra região para necessidades de recuperação de desastres.
 - Inicie a proteção de suas cargas de trabalho ao [replicar máquinas virtuais do Azure.](site-recovery-azure-to-azure.md)
-

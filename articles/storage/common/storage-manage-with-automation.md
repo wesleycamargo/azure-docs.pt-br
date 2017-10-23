@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/23/2016
 ms.author: eamono
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 4649e42a628307e15f8b067503e4e8e13f16f1af
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="managing-azure-storage-using-azure-automation"></a>Gerenciando o armazenamento do Azure usando a Automação do Azure
 Este guia apresentará o serviço de Automação do Azure e como ele pode ser usado para simplificar o gerenciamento dos bancos de dados SQL do Azure.
@@ -44,5 +43,4 @@ A [Galeria de runbooks de Automação do Azure](https://azure.microsoft.com/blog
 Agora que você aprendeu os fundamentos de Automação do Azure e como ela pode ser usada para gerenciar blobs de Armazenamento do Azure, siga estes links para obter mais informações sobre a Automação do Azure.
 
 Consulte o tutorial de Automação do Azure [Criando ou importando um runbook na Automação do Azure](../../automation/automation-creating-importing-runbook.md).
-
 

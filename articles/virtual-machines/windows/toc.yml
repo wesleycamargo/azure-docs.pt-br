@@ -145,7 +145,7 @@
           href: prepare-for-upload-vhd-image.md
         - name: Como usar imagem generalizada
           href: create-vm-generalized-managed.md
-        - name: Como usar imagem especializada
+        - name: Usar disco especializado
           href: create-vm-specialized.md
         - name: Como capturar uma VM para imagem
           href: capture-image-resource.md
@@ -344,6 +344,8 @@
               href: troubleshoot-recovery-disks-portal.md
         - name: Como usar PerfInsights
           href: how-to-use-perfInsights.md
+        - name: Extensão de VM de Diagnóstico de Desempenho
+          href: performance-diagnostics-vm-extension.md
 - name: Referência
   items:
     - name: CLI do Azure

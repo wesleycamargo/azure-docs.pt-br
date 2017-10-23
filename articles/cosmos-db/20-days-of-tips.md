@@ -10,17 +10,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/03/2017
 ms.author: mimig
 ms.custom: cda
+ms.openlocfilehash: 7d26974f67b69b2b861ef11ad8d76f34f53d453f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
-ms.openlocfilehash: 947920783be3e2a8cd299cdcc667456adf140b57
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="20-days-of-azure-cosmos-db-tips"></a>20 dias de dicas do Azure Cosmos DB
 
 ![Aprenda uma nova dica do Azure Cosmos DB por dia](./media/20-days-of-tips/20-days-of-azure-cosmos-db-tips-header.png)
@@ -141,9 +139,50 @@ Dica 15: crie uma nova conta do Azure #CosmosDB sem jamais sair de @code. Instal
 
 [![Retweetar no twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/912384598486679557)   [![Compartilhar no LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6318150514613850112)
 
+
+## <a name="tip-16-functions-and-twilio-demo"></a>Dica 16: demonstração do Functions e do Twilio
+
+Dica 16: demonstração incrível! Integre o Azure #cosmosDB, o Functions e o @twilio para enviar um SMS em qualquer alteração de banco de dados. Veja os documentos em [https://aka.ms/Kjkc2d](https://aka.ms/Kjkc2d) 
+
+> [!VIDEO https://www.youtube.com/embed/3Q7WffTeaKY]
+
+[![Retweetar no twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/912703755988160512)   [![Compartilhar no LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6318469696291246081)
+
+
+## <a name="tip-17-using-mongoose-discriminators"></a>Dica 17: usando discriminadores Mongoose
+
+Dica 17: otimize o custo usando discriminadores Mongoose para armazenar várias entidades em uma única coleção #CosmosDB [https://aka.ms/M488jm](https://aka.ms/M488jm)
+
+Blog: [Usando discriminadores Mongoose para armazenar várias entidades em uma única coleção do Cosmos DB por Antônio Chu](https://aka.ms/M488jm)
+
+[![Retweetar no twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/913076502429933569)   [![Compartilhar no LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6318842474928443393)
+
+## <a name="tip-18-request-units"></a>Dica 18: Unidades de Solicitação
+
+Dica 18: saiba o que são as RU (Unidades de Solicitação) e como configurá-las no Azure #CosmosDB. Mais informações sobre documentos em [https://aka.ms/Kt2nbn](https://aka.ms/Kt2nbn) 
+
+Artigo: [Unidades de Solicitação no Azure Cosmos DB](https://aka.ms/Kt2nbn)
+
+[![Retweetar no twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/913449916026032128)   [![Compartilhar no LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6319223402796326912)
+
+## <a name="tip-19-partition-partition-partition"></a>Dica 19: partição! Partition! Partition! 
+
+Dica 19: partição! Partition! Partition! O porquê e o como no Azure #CosmosDB. Documentos em [https://aka.ms/Ts5pon](https://aka.ms/Ts5pon)  
+
+> [!VIDEO https://www.youtube.com/embed/I_tVk3hKvSI]
+
+[![Retweetar no twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/913773131499794433)   [![Compartilhar no LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6319541726637883392)
+
+## <a name="tip-20-cheatsheet"></a>Dica 20: cola
+
+Dica 20: todos adoram a boa e velha cola. O Azure #CosmosDB também tem uma. Dê uma olhadinha em [https://aka.ms/Nt01nl](https://aka.ms/Nt01nl)
+
+Cola: [Azure Cosmos DB: PDF de cola de consulta SQL da API do DocumentDB](https://aka.ms/Nt01nl)
+
+[![Retweetar no twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/913793292474732544)   [![Compartilhar no LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6319559027986698241)
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Saiba mais sobre o Azure Cosmos DB lendo [Bem-vindo ao Azure Cosmos DB](introduction.md) e [Uma visão geral técnica sobre o Azure Cosmos DB](https://azure.microsoft.com/blog/a-technical-overview-of-azure-cosmos-db/).
-
 
 

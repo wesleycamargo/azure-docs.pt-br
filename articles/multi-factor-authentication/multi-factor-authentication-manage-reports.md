@@ -3,7 +3,7 @@ title: "Relatórios de acesso e uso para o MFA do Azure | Microsoft Docs"
 description: "Descreve como usar o recurso de relatórios do Azure Multi-Factor Authentication."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 editor: curtand
 ms.assetid: 3f6b33c4-04c8-47d4-aecb-aa39a61c4189
@@ -13,16 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
-ms.author: kgremban
+ms.author: joflore
+ms.reviewer: alexwe
+ms.openlocfilehash: 77d6742faadfaf3d7afccfbe888b910c80278737
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 42a87adef740cc2c1d77c9f02eef8aaa5f207258
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Relatórios no Azure Multi-Factor Authentication
-O Azure Multi-Factor Authentication fornece vários relatórios que podem ser usados por você e sua organização. Esses relatórios podem ser acessados por meio do Portal de Gerenciamento da Autenticação Multifator. Veja a seguir uma lista dos relatórios disponíveis:
+
+O Azure Multi-Factor Authentication fornece vários relatórios que podem ser usados por você e sua organização. Esses relatórios podem ser acessados por meio do Portal de Gerenciamento da Autenticação Multifator. A tabela a seguir lista os relatórios possíveis:
 
 | Relatório | Descrição |
 |:--- |:--- |
@@ -34,6 +35,7 @@ O Azure Multi-Factor Authentication fornece vários relatórios que podem ser us
 | Em fila |Lista os relatórios em fila para processamento e seu status. Um link para baixar ou exibir o relatório é fornecido quando o relatório é concluído. |
 
 ## <a name="view-reports"></a>Exibir relatórios
+
 1. Entre no [portal clássico do Azure](https://manage.windowsazure.com).
 2. Selecione Active Directory à esquerda.
 3. Siga uma destas duas opções, dependendo de se você usa Provedores de Autenticação:
@@ -43,9 +45,17 @@ O Azure Multi-Factor Authentication fornece vários relatórios que podem ser us
 
 <center>![Nuvem](./media/multi-factor-authentication-manage-reports/report.png)</center>
 
+## <a name="powershell-reporting"></a>Relatórios do PowerShell
+
+Identifique os usuários que se registraram para MFA usando o Powershell a seguir.
+
+```Get-MsolUser -All | where {$_.StrongAuthenticationMethods -ne $null} | Select-Object -Property UserPrincipalName```
+
+Identifique os usuários que não se registraram para MFA usando o Powershell a seguir.
+
+```Get-MsolUser -All | where {$_.StrongAuthenticationMethods.Count -eq 0} | Select-Object -Property UserPrincipalName```
 
 **Recursos adicionais**
 
 * [Para usuários](end-user/multi-factor-authentication-end-user.md)
 * [Azure Multi-Factor Authentication no MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx)
-

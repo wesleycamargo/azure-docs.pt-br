@@ -3,7 +3,7 @@ title: "Criar conta Executar como de Automação do Azure com o PowerShell | Mic
 description: "Este artigo descreve como atualizar sua conta de automação com o PowerShell para criar as contas executar como se você não realizou esta etapa durante a criação inicial do portal."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 
@@ -14,13 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/14/2017
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: d34bb4a285f77f5c21a4af2d544bda3221d59e8d
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: fb23b3ea41910687fd586f80e5dd327344991e0f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="update-automation-run-as-account-using-powershell"></a>Como atualizar conta Executar como de Automação usando o PowerShell
 Você poderá usar o PowerShell para atualizar a conta de automação existente se:
 
@@ -271,4 +270,3 @@ Depois que o script for executado com êxito, observe o seguinte:
 ## <a name="next-steps"></a>Próximas etapas
 * Para saber mais sobre Entidades de Serviço, veja [Objetos de aplicativo e objetos de entidade de serviço](../active-directory/active-directory-application-objects.md).
 * Para saber mais sobre certificados e serviços do Azure, confira [Visão geral dos certificados de serviços de nuvem do Azure](../cloud-services/cloud-services-certs-create.md).
-

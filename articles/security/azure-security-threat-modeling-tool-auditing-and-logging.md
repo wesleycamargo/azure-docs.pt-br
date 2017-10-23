@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 3f1933fc59862eca7ae6ee40bbd5136e449e5cf1
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="security-frame-auditing-and-logging--mitigations"></a>Quadro de segurança: Auditoria e log | Atenuações 
 | Produto/Serviço | Artigo |
 | --------------- | ------- |
@@ -32,7 +30,7 @@ ms.lasthandoff: 08/23/2017
 | **WCF** | <ul><li>[Implementar o log suficiente](#sufficient-logging)</li><li>[Implementar o tratamento de falha de auditoria suficiente](#audit-failure-handling)</li></ul> |
 | **API da Web** | <ul><li>[Certifique-se de que a auditoria e registro em log é imposto no API da Web](#logging-web-api)</li></ul> |
 | **Gateway de Campo de IoT** | <ul><li>[Certifique-se de que a auditoria e log apropriado é imposta no campo Gateway](#logging-field-gateway)</li></ul> |
-| **Gateway de Nuvem de IoT** | <ul><li>[Certifique-se de que a auditoria e log apropriado é imposta no Gateway de nuvem](#logging-cloud-gateway)</li></ul> |
+| **Gateway de Nuvem IoT** | <ul><li>[Certifique-se de que a auditoria e log apropriado é imposta no Gateway de nuvem](#logging-cloud-gateway)</li></ul> |
 
 ## <a id="sensitive-entities"></a>Identificar entidades sensíveis em sua solução e implementar a auditoria de alteração
 

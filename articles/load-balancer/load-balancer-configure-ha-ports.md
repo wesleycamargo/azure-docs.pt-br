@@ -13,19 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/17/2017
+ms.date: 09/26/2017
 ms.author: kumud
+ms.openlocfilehash: 7256548b988812c64ca9a9f8a84fec377646635d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 17fee798661b7db4f9933684fceefbfed51409cd
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-configure-high-availability-ports-for-internal-load-balancer"></a>Como configurar a alta disponibilidade de portas para o Load Balancer Interno
 
 Este artigo fornece um exemplo de implantação de portas de HA (alta disponibilidade) em um Load Balancer Interno. Para configurações específicas de dispositivos virtuais de rede, consulte os sites do provedor correspondente.
+
+>[!NOTE]
+> O recurso de Portas de alta disponibilidade está atualmente em versão prévia. Durante a versão prévia, o recurso pode não ter o mesmo nível de disponibilidade e confiabilidade que os recursos que estão na versão de disponibilidade geral. Para obter mais informações, consulte [Termos de Uso Complementares do Microsoft Azure para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 A Figura 1 ilustra a configuração a seguir do exemplo de implantação descrito neste artigo:
 - Os NVAs são implantados no pool de back-end de um Load Balancer Interno por trás da configuração de portas de HA. 
@@ -37,6 +38,22 @@ A Figura 1 ilustra a configuração a seguir do exemplo de implantação descrit
 ![exemplo de implantação de portas de HA](./media/load-balancer-configure-ha-ports/haports.png)
 
 Figura 1 – dispositivos de rede Virtual implantados atrás de um Load Balancer Interno com portas de alta disponibilidade 
+
+## <a name="preview-sign-up"></a>Inscrição na versão prévia
+
+Para participar da versão prévia do recurso de portas de HA no SKU do Load Balancer Standard, registre sua assinatura para obter acesso usando o PowerShell ou CLI do Azure 2.0.
+
+- Inscrever-se usando o PowerShell
+
+   ```powershell
+   Register-AzureRmProviderFeature -FeatureName AllowILBAllPortsRule -ProviderNamespace Microsoft.Network
+    ```
+
+- Inscrever-se usando a CLI do Azure 2.0
+
+    ```cli
+  az feature register --name AllowILBAllPortsRule --namespace Microsoft.Network  
+    ```
 
 ## <a name="configuring-ha-ports"></a>Configurando portas de HA
 
@@ -71,4 +88,3 @@ azure network lb rule create --resource-group contoso-rg --lb-name contoso-ilb -
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre [portas de alta disponibilidade](load-balancer-ha-ports-overview.md)
-

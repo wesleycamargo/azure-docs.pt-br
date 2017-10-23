@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: markgal;trinadhk;
-ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
 ms.openlocfilehash: a8daa6a4655b72936b6299c0fa5b80459ffa5da3
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/12/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="back-up-a-windows-server-or-workstation-to-azure-using-the-classic-portal"></a>Fazer backup de um servidor ou estação de trabalho do Windows no Azure usando o portal clássico
 > [!div class="op_single_selector"]
@@ -171,4 +170,3 @@ Para saber mais sobre como fazer backup de VMs ou de outras cargas de trabalho, 
 * [Fazer backup de VMs IaaS](backup-azure-vms-prepare.md)
 * [Backup de cargas de trabalho no Azure com o Servidor de Backup do Microsoft Azure](backup-azure-microsoft-azure-backup.md)
 * [Fazer backup de cargas de trabalho no Azure com o DPM](backup-azure-dpm-introduction.md)
-

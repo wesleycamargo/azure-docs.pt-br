@@ -37,8 +37,8 @@ O ouvinte do grupo de disponibilidade é um nome de rede e endereço IP que o gr
 
    ![Recurso de IP](./media/virtual-machines-ag-listener-configure/96-ipresource.png) 
 
-    <!-----------------------Não vejo esta opção no servidor 2016
-    1. Desabilite o NetBIOS para este endereço e clique em **OK**. Repita essa etapa para cada recurso IP se sua solução abrange diversas VNets do Azure. 
+    <!-----------------------I don't see this option on server 2016
+    1. Disable NetBIOS for this address and click **OK**. Repeat this step for each IP resource if your solution spans multiple Azure VNets. 
     ------------------------->
 
 4. <a name = "dependencyGroup"></a>Torne o recurso de grupo de disponibilidade do SQL Server dependente do ponto de acesso para cliente.

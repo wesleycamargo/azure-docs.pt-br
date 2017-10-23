@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: de674af369080ad7eb608608685e293f2326c8e6
 ms.openlocfilehash: 8c76fb64229abcad0cabb910e7c170979a79d839
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/04/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wingspan-etmf"></a>Tutorial: integração do Azure Active Directory com o Wingspan eTMF
 
@@ -226,5 +224,4 @@ Clique no bloco Wingspan eTMF no Painel de Acesso e você será redirecionado pa
 [201]: ./media/active-directory-saas-wingspanetmf-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-wingspanetmf-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-wingspanetmf-tutorial/tutorial_general_203.png
-
 

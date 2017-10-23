@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/25/2017
 ms.author: ancav
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 05830547a5b8a24a59571edf6dd44d101b660189
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Métricas compatíveis com o Azure Monitor
 O Azure Monitor fornece várias maneiras de interagir com as métricas, incluindo a criação de gráficos para os mesmos no portal, acessá-las por meio da API REST ou consultá-las usando o PowerShell ou a CLI. Abaixo está uma lista completa de todas as métricas atualmente disponíveis do pipeline de métrica do Azure Monitor.
@@ -1000,4 +999,3 @@ O Azure Monitor fornece várias maneiras de interagir com as métricas, incluind
 * [Leia sobre as métricas no Azure Monitor](monitoring-overview-metrics.md)
 * [Criar alertas para métricas](insights-receive-alert-notifications.md)
 * [Exportar as métricas de armazenamento, Hub de eventos ou Log Analytics](monitoring-overview-of-diagnostic-logs.md)
-

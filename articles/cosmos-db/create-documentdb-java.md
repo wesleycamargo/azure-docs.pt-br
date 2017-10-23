@@ -8,19 +8,18 @@ manager: jhubbard
 editor: 
 ms.assetid: 89ea62bb-c620-46d5-baa0-eefd9888557c
 ms.service: cosmos-db
-ms.custom: quick start connect, mvc
+ms.custom: quick start connect, mvc, devcenter
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 08/02/2017
 ms.author: mimig
+ms.openlocfilehash: f4bf1992b1f13c61f44695f641b3cb3248b5672b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
-ms.openlocfilehash: df1a25d703a7b8082bdabb4f7d593cb005d416fe
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/17/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-create-a-document-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Criar um banco de dados de documentos usando o Java e o portal do Azure
 
@@ -34,9 +33,9 @@ Este início rápido cria um banco de dados de documentos usando as ferramentas 
     * No Ubuntu, execute `apt-get install default-jdk` para instalar o JDK.
     * Defina a variável de ambiente JAVA_HOME para apontar para a pasta onde o JDK está instalado.
 * [Baixar](http://maven.apache.org/download.cgi) e [instalar](http://maven.apache.org/install.html) um armazenamento binário [Maven](http://maven.apache.org/)
-    * No Ubuntu, você pode executar `apt-get install maven` instalar o Maven.
+    * No Ubuntu, você pode executar `apt-get install maven` para instalar o Maven.
 * [Git](https://www.git-scm.com/)
-    * No Ubuntu, você pode executar `sudo apt-get install git` instalar o Git.
+    * No Ubuntu, você pode executar `sudo apt-get install git` para instalar o Git.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
@@ -202,6 +201,5 @@ Neste início rápido, você aprendeu como criar uma conta do Azure Cosmos DB, u
 
 > [!div class="nextstepaction"]
 > [Importar dados no Azure Cosmos DB](import-data.md)
-
 
 

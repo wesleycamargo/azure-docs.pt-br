@@ -12,16 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 09/26/2017
 ms.author: billmath
+ms.openlocfilehash: 9d91c59d3e4d73879d95ab193949d54f7b86d6cd
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 75c361cca556c797fd3ea5480cacbbc14799aca8
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Logon Único Contínuo do Azure Active Directory: Início Rápido
 
 ## <a name="how-to-deploy-seamless-sso"></a>Como implantar o SSO Contínuo
@@ -70,7 +68,10 @@ Siga estas instruções para verificar se você habilitou o SSO Contínuo corret
 
 ## <a name="step-3-roll-out-the-feature"></a>Etapa 3: distribuir o recurso
 
-Para implementar o recurso para os usuários, você precisa adicionar algumas URLs do Azure AD às configurações de zona de Intranet dos usuários usando a Política de Grupo no Active Directory.
+Para implementar o recurso para os usuários, você precisa adicionar as seguintes URLs do Azure AD às configurações de zona de Intranet dos usuários usando a Política de Grupo no Active Directory:
+
+- https://autologon.microsoftazuread-sso.com
+- https://aadg.windows.net.nsatc.net
 
 >[!NOTE]
 > As instruções a seguir só funcionam para o Internet Explorer e Google Chrome no Windows (se ele compartilha o conjunto de URLs de sites confiáveis com o Internet Explorer). Leia a próxima seção para obter instruções para configurar o Mozilla Firefox e Google Chrome no Mac.
@@ -154,4 +155,3 @@ Na etapa 2, o Azure AD Connect cria contas de computador (representando o AD do 
 - [**Perguntas frequentes**](active-directory-aadconnect-sso-faq.md) – respostas para perguntas frequentes.
 - [**Solução de problemas**](active-directory-aadconnect-troubleshoot-sso.md) – Saiba como resolver problemas comuns do recurso.
 - [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) – para registrar solicitações de novos recursos.
-

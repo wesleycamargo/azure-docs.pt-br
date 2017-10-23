@@ -13,14 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/22/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: ca5bec5cf1152e6259b9fe7a869edd2d62b88e1a
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="step-9-set-up-a-replication-policy-for-hyper-v-vm-replication-to-azure"></a>Etapa 9: configurar uma política de replicação para a replicação da VM Hyper-V para o Azure
 
 Este artigo descreve como configurar uma política de replicação quando você estiver replicando VMs Hyper-V para o Azure (sem o System Center VMM) usando o serviço [Azure Site Recovery](site-recovery-overview.md) no portal do Azure.
@@ -58,4 +56,3 @@ Quando você cria uma nova política, ela é automaticamente associada ao site d
 ## <a name="next-steps"></a>Próximas etapas
 
 Acesse a [Etapa 10: Habilitar a replicação](hyper-v-site-walkthrough-enable-replication.md)
-

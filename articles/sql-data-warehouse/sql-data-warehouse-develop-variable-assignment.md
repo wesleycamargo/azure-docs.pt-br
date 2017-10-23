@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.custom: t-sql
 ms.date: 10/31/2016
 ms.author: jrj;barbkess
-translationtype: Human Translation
-ms.sourcegitcommit: eeb56316b337c90cc83455be11917674eba898a3
 ms.openlocfilehash: 045d5148cd3f12dac63c961ccf7c953d355ed725
-ms.lasthandoff: 04/03/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="assign-variables-in-sql-data-warehouse"></a>Atribuir variáveis no SQL Data Warehouse
 As variáveis no SQL Data Warehouse são definidas usando a instrução `DECLARE` ou a instrução `SET`.
@@ -79,4 +78,3 @@ Para obter mais dicas de desenvolvimento, confira [visão geral de desenvolvimen
 <!--MSDN references-->
 
 <!--Other Web references-->
-

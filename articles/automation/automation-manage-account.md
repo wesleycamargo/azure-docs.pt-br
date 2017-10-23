@@ -3,7 +3,7 @@ title: "Gerenciamento de conta de automação do Azure | Microsoft Docs"
 description: "Este artigo descreve como gerenciar a configuração da sua conta de automação, como renovação de certificados, exclusão e uma configuração incorreta."
 services: automation
 documentationcenter: 
-author: mgoedtel
+author: eslesar
 manager: carmonm
 editor: 
 ms.assetid: 
@@ -14,15 +14,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/13/2017
 ms.author: magoedte
-translationtype: Human Translation
-ms.sourcegitcommit: e851a3e1b0598345dc8bfdd4341eb1dfb9f6fb5d
-ms.openlocfilehash: 41efdbcacede74bac038342688362ff480cadc7e
-ms.lasthandoff: 04/15/2017
-
+ms.openlocfilehash: fa3109f15cf14a95af35e814fb61a505d3130462
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-azure-automation-account"></a>Como gerenciar uma conta de Automação do Azure
-Em algum momento antes que a conta de Automação expire, você precisará renovar o certificado. Se achar que a conta Executar como foi comprometida, você poderá excluí-la e recriá-la. Esta seção descreve como realizar essas operações.
+Em algum momento antes que a conta de Automação expire, será necessário renovar o certificado. Se achar que a conta Executar como foi comprometida, você poderá excluí-la e recriá-la. Esta seção descreve como realizar essas operações.
 
 ## <a name="self-signed-certificate-renewal"></a>Renovação do certificado autoassinado
 O certificado autoassinado que você criou para a conta Executar como expira um ano a contar da data de criação. Você pode renová-lo a qualquer momento antes que ele expire. Quando você o renova, o certificado atual é mantido para garantir que todos os runbooks que estão enfileiradas ou ativamente em execução e que se autenticam com a conta Executar como não sejam afetados negativamente. O certificado permanece válido até a data de expiração.
@@ -34,12 +33,13 @@ Para renovar o certificado, faça o seguinte:
 
 1. No Portal do Azure, abra a Conta de automação.
 
-2. Na folha **Conta de Automação**, no painel **Propriedades da conta**, em **Configurações da Conta**, selecione **Contas Executar como**.
+2. Na **Conta de Automação**, 
+3. no painel **Propriedades da conta**, em **Configurações da Conta**, selecione **Contas Executar como**.
 
     ![Painel de propriedades da conta de Automação](media/automation-manage-account/automation-account-properties-pane.png)
-3. Na folha de propriedades **Contas Executar como**, selecione a conta Executar como ou a conta Executar como Clássica para a qual você deseja renovar o certificado.
+3. Na página de propriedades **Contas Executar como**, selecione a conta Executar como ou a conta Executar como Clássica para a qual você deseja renovar o certificado.
 
-4. Na folha **Propriedades** da conta selecionada, clique em **Renovar certificado**.
+4. No painel **Propriedades** da conta selecionada, clique em **Renovar certificado**.
 
     ![Renovar o certificado da conta Executar como](media/automation-manage-account/automation-account-renew-runas-certificate.png)
 
@@ -50,15 +50,15 @@ Esta seção descreve como excluir e recriar uma conta Executar como ou Executar
 
 1. No Portal do Azure, abra a Conta de automação.
 
-2. Na folha **Conta de Automação**, no painel de propriedades de conta, selecione **Contas Executar como**.
+2. Na página **Conta de automação**, selecione **Contas Executar como**.
 
-3. Na folha de propriedades de **Contas Executar como**, selecione a conta Executar como ou a conta Executar como Clássica que você deseja excluir. Em seguida, na folha **Propriedades** da conta selecionada, clique em **Excluir**.
+3. Na página de propriedades de **Contas Executar como**, selecione a conta Executar como ou a conta Executar como Clássica que você deseja excluir. Em seguida, no painel **Propriedades** da conta selecionada, clique em **Excluir**.
 
  ![Excluir Conta Executar como](media/automation-manage-account/automation-account-delete-runas.png)
 
 4. Enquanto a conta está sendo excluída, você poderá acompanhar o andamento em **Notificações** no menu.
 
-5. Depois que a conta for excluída, você poderá recriá-la na folha de propriedades **Contas Executar como** selecionando a opção de criação **Executar como Conta do Azure**.
+5. Depois que a conta for excluída, você poderá recriá-la na página de propriedades **Contas Executar como** selecionando a opção de criação **Executar como Conta do Azure**.
 
  ![Recriar a conta de Automação Executar como](media/automation-manage-account/automation-account-create-runas.png)
 
@@ -70,7 +70,7 @@ Alguns itens de configuração necessários para que a conta Executar como ou Ex
 * A Conta Executar como foi removida da função de Colaborador
 * Entidade de serviço ou aplicativo no Azure AD
 
-Nos casos anteriores e em outras instâncias de uma configuração incorreta, a conta de Automação detecta as alterações e exibe o status *Incompleto* na folha de propriedades **Contas Executar como** para a conta.
+Nos casos anteriores e em outras instâncias de uma configuração incorreta, a conta de Automação detecta as alterações e exibe o status *Incompleto* na página de propriedades **Contas Executar como** para a conta.
 
 ![Status incompleto de configuração de conta Executar como](media/automation-manage-account/automation-account-runas-incomplete-config.png)
 

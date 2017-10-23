@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/03/2017
 ms.author: jeedes
-translationtype: Human Translation
-ms.sourcegitcommit: 0b53a5ab59779dc16825887b3c970927f1f30821
 ms.openlocfilehash: 869e5284c71904fcc817ceee0f39d94fab1bc6f3
-ms.lasthandoff: 04/07/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-te-express"></a>Tutorial: integração do Azure Active Directory com o T&E Express
 
@@ -136,11 +135,11 @@ Nesta seção, você habilita o logon único do Azure AD no Portal de Gerenciame
 
     ![Configurar o logon único](./media/active-directory-saas-tyeexpress-tutorial/tyeAdmin.png)
 
-11. Clique no botão **Salvar** para salvar as configurações.    
+11. Clique no botão **Salvar** para salvar as configurações. 
 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
-O objetivo desta seção é criar um usuário de teste no portal de Gerenciamento do Azure chamado Brenda Fernandes.
+O objetivo desta seção é criar um usuário de teste no Portal de Gerenciamento do Azure chamado Britta Simon.
 
 ![Criar um usuário do AD do Azure][100]
 
@@ -250,5 +249,4 @@ Quando clicar no bloco T&E Express no Painel de Acesso, você deve ser conectado
 [201]: ./media/active-directory-saas-tyeexpress-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-tyeexpress-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-tyeexpress-tutorial/tutorial_general_203.png
-
 

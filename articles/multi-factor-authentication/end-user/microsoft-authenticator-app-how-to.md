@@ -15,14 +15,12 @@ ms.date: 08/15/2017
 ms.author: barlan
 ms.reviewer: librown
 ms.custom: H1Hack27Feb2017, end-user
+ms.openlocfilehash: e1e979319e53d222be33032acd0a79697dd09ab6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 540180e7d6cd02dfa1f3cac8ccd343e965ded91b
-ms.openlocfilehash: 6bcb6d9f7a1e9b241fa70690016b03d6eb5887ab
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/16/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="get-started-with-the-microsoft-authenticator-app"></a>Introdução ao aplicativo Microsoft Authenticator
 O aplicativo Microsoft Authenticator fornece um nível adicional de segurança em sua conta corporativa ou de estudante (por exemplo, bsimon@contoso.com) ou conta da Microsoft (por exemplo, bsimon@outlook.com).
 
@@ -109,4 +107,3 @@ Desse ponto em diante, quando você precisar verificar sua entrada, selecionará
 Depois que sua conta for adicionada ao aplicativo, você precisará fazer uma verificação de teste para verificar se tudo foi configurado corretamente. Depois disso, você terminou! Você não precisa fazer mais nada até a próxima vez que entrar.
 
 Se você optar por usar códigos de verificação no aplicativo, começará a vê-los na home page. Eles são alterados a cada 30 segundos para que você sempre tenha um novo código quando precisar de um. Mas você não precisa fazer nada com eles até que você entre e seja solicitado que você insira um código de verificação.  
-

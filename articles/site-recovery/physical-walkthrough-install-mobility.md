@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 138f04f8e9f0a9a4f71e43e73593b03386e7e5a9
 ms.openlocfilehash: d73267d7a64221a3138af19e9a2d5dd15809b927
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="step-9-install-the-mobility-service"></a>Etapa 9: instalar o Serviço de mobilidade manualmente
 
 
@@ -65,5 +63,4 @@ Se você desejar enviar a instalação do Serviço de mobilidade por push por me
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Ir para a [Etapa 10: Habilitar a replicação](physical-walkthrough-enable-replication.md)
-
+Acesse a [Etapa 10: Habilitar a replicação](physical-walkthrough-enable-replication.md)

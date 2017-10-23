@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: ancav
-ms.translationtype: HT
-ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
 ms.openlocfilehash: d171538ea57839eccddcc74ca099a39aee34ea10
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/18/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="scale-instance-count-manually-or-automatically"></a>Dimensionar a contagem de instância manualmente ou automaticamente
 No [Portal do Azure](https://portal.azure.com/), você pode definir manualmente a contagem de instâncias de seu serviço ou definir parâmetros para que o dimensionamento seja feito automaticamente com base na demanda. Isso é normalmente conhecido como *escala horizontal* ou *redução horizontal*.
@@ -128,5 +127,4 @@ No entanto, você talvez queira ter um dimensionamento mais agressivo durante o 
 * [Monitore o desempenho do aplicativo](../application-insights/app-insights-azure-web-apps.md) se você quiser compreender exatamente como seu código está sendo executado na nuvem.
 * [Exiba eventos e logs de atividade](insights-debugging-with-events.md) para saber tudo o que aconteceu no seu serviço.
 * [Monitore a disponibilidade e a capacidade de resposta de qualquer página da Web](../application-insights/app-insights-monitor-web-app-availability.md) com o Application Insights para que você possa descobrir se a página está inativa.
-
 

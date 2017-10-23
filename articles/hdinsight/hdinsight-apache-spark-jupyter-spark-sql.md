@@ -4,7 +4,7 @@ description: "Guia de início rápido sobre como criar um cluster do Apache Spar
 keywords: "início rápido do spark,spark interativo,consulta interativa,hdinsight spark,azure spark"
 services: hdinsight
 documentationcenter: 
-author: nitinme
+author: maxluk
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -16,13 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/07/2017
-ms.author: nitinme
+ms.author: maxluk
+ms.openlocfilehash: e64720efa168a84193dc3f351def0e58979f7f86
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 78051b9df15c62d4caf56d800c9a5f4421ea2254
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-apache-spark-cluster-in-azure-hdinsight"></a>Criar um cluster do Apache Spark no Azure HDInsight
 
@@ -131,7 +130,6 @@ Neste artigo, você aprendeu a criar um cluster HDInsight Spark e executar uma c
 
 > [!div class="nextstepaction"]
 >[Executar consultas interativas em um cluster HDInsight Spark](hdinsight-apache-spark-load-data-run-query.md)
-
 
 
 

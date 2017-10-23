@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 80be19618bd02895d953f80e5236d1a69d0811af
-ms.openlocfilehash: 9a588a28312388a524d91df7363234e0f609660e
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/07/2017
-
+ms.openlocfilehash: 7f2ba122dfea7fa200fe065d32ab438fdd74691d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Usar notebooks Zeppelin com cluster Apache Spark no Azure HDInsight
 
@@ -193,7 +192,6 @@ Nesse caso, você deverá executar as etapas a seguir antes de iniciar a execuç
 [azure-member-offers]: http://azure.microsoft.com/pricing/member-offers/
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [azure-create-storageaccount]:../storage/common/storage-create-storage-account.md 
-
 
 
 

@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-translationtype: Human Translation
-ms.sourcegitcommit: cc9e81de9bf8a3312da834502fa6ca25e2b5834a
 ms.openlocfilehash: d430febee23081b26eee0a68d4beb43228549f52
-ms.lasthandoff: 04/11/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-always-on-availability-groups-in-azure-virtual-machines-automatically-resource-manager"></a>Configurar um grupo de disponibilidade AlwaysOn nas máquinas virtuais do Azure automaticamente: Resource Manager
 
@@ -212,4 +211,3 @@ Para usar o RDP no SQL Server, siga estas etapas:
 7. **Área de Trabalho Remota** pode avisar você de que o computador remoto não pôde ser autenticado devido a problemas com o certificado de segurança. Ela mostra o nome do certificado de segurança. Se você seguiu o tutorial, o nome será **sqlserver-0.contoso.com**. Clique em **Sim**.
 
 Agora você está conectado à máquina virtual do SQL Server com protocolo RDP. É possível abrir o SQL Server Management Studio, conectar-se à instância padrão do SQL Server e verificar se o grupo de disponibilidade está configurado.
-

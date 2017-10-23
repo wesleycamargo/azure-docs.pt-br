@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: masaran;markgal
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
 ms.openlocfilehash: 751b9b495fd368dff1f72429707f5f33a0ccb569
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="add-storage-to-azure-backup-server-v2"></a>Adicionar armazenamento ao Servidor de Backup do Azure v2
 
 Servidor de Backup do Azure v2 vem com o System Center 2016 Data Protection Manager armazenamento de backup moderno. O armazenamento de Backup moderno oferece economia de armazenamento de 50%, backups de armazenamento três vezes mais rápido e mais eficiente. Ele também oferece o armazenamento com reconhecimento de carga de trabalho. 
@@ -99,10 +97,9 @@ As alterações feitas por meio do PowerShell são refletidas no Console do admi
 ![Discos e volumes no Console do administrador](./media/backup-mabs-add-storage/mabs-add-storage-9.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-Depois de instalar o servidor de Backup, saiba como preparar seu servidor, ou começar a proteger uma carga de trabalho.
+Depois de instalar o Servidor de Backup, saiba como preparar seu servidor, ou começar a proteger uma carga de trabalho.
 
-- [Preparar as cargas de trabalho do servidor de Backup](backup-azure-microsoft-azure-backup.md)
-- [Usar o Servidor de Backup para fazer backup de um servidor do VMware](backup-azure-backup-server-vmware.md)
+- [Preparar as cargas de trabalho do Servidor de Backup](backup-azure-microsoft-azure-backup.md)
+- [Usar o Servidor de Backup para fazer backup de um Servidor do VMware](backup-azure-backup-server-vmware.md)
 - [Usar o Servidor de Backup para fazer backup de um SQL Server](backup-azure-sql-mabs.md)
-
 

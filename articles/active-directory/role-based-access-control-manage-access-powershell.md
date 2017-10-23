@@ -14,12 +14,11 @@ ms.workload: identity
 ms.date: 07/12/2017
 ms.author: andredm
 ms.reviewer: rqureshi
+ms.openlocfilehash: d7b11df21650b5cb27f9c3dd8306f8d12664185e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3ea7cfba9fbf1064e2bd58344a7a00dc81eb148
-ms.openlocfilehash: e7323325c303c26e2ea4d9f2a8ac5178fa33b875
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/20/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="manage-role-based-access-control-with-azure-powershell"></a>Gerenciar o Controle de Acesso baseado em função com o Azure PowerShell
 > [!div class="op_single_selector"]
@@ -280,5 +279,4 @@ No exemplo a seguir, a função personalizada *Operador de Máquina Virtual* nã
 ## <a name="see-also"></a>Consulte também
 * [Usando o Azure PowerShell com o Azure Resource Manager](../powershell-azure-resource-manager.md)
   [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
-
 

@@ -12,14 +12,12 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 266b9b7eb228744075627e1e80710e63c27880cc
 ms.openlocfilehash: c230e73f83d8acd0f142e037f70a80c9e0e4107e
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/06/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="how-to-manage-device-enrollments-in-the-iot-hub-device-provisioning-service"></a>Como gerenciar registros de dispositivo no Serviço de Provisionamento de Dispositivos no Hub IoT
 
 Um *registro de dispositivos* cria um registro de um único dispositivo ou um grupo de dispositivos que pode em algum momento registrar com o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure. O registro contém a configuração inicial desejada para os dispositivos como parte desse registro, incluindo o Hub IoT desejado. Este artigo mostra como gerenciar registros de dispositivo para o serviço de provisionamento.
@@ -76,7 +74,6 @@ Em casos em que os dispositivos não precisam ser provisionados para nenhum Hub 
 5. Depois que a ação for concluída, você verá sua entrada removida da lista de registros do dispositivo. 
  
     ![Remover registro no portal](./media/how-to-manage-enrollments/remove-enrollment.png)
-
 
 
 

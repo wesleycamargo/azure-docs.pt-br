@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 61fd58063063d69e891d294e627ae40cb878d65b
 ms.openlocfilehash: 2ceb3c0833edcd4ecd875c5e8006961ed7216c66
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/22/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-digicert"></a>Tutorial: integração do Azure Active Directory com o DigiCert
 
@@ -243,5 +241,4 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 [201]: ./media/active-directory-saas-digicert-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-digicert-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-digicert-tutorial/tutorial_general_203.png
-
 

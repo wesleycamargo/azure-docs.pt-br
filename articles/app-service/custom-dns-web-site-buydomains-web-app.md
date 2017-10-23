@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: cephalin
+ms.openlocfilehash: 3cb22b935624041ab51e64028a1b668fd694f9b5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
-ms.openlocfilehash: 44d350d2d098be14ad254066a8528fe117200ec4
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/04/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>Comprar um nome de domínio personalizado para aplicativos Web do Azure
 
@@ -240,4 +239,3 @@ Se o período de cancelamento do domínio adquirido não tiver se passado, selec
 Selecione **OK** para confirmar a operação. Se você não quiser continuar, clique em qualquer lugar fora da caixa de diálogo de confirmação.
 
 Depois que a operação estiver concluída, o domínio será liberado da sua assinatura e ficará disponível para qualquer pessoa comprar novamente. 
-

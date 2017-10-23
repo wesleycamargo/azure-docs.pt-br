@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/21/2017
 ms.author: cynthn
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 087d5cda354f6e1780bddd3725859444177abd16
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="attach-a-data-disk-to-a-windows-virtual-machine-created-with-the-classic-deployment-model"></a>Anexe um disco de dados a uma máquina virtual do Windows criada com o modelo de implantação clássico
 <!--
@@ -114,4 +113,3 @@ Caso seu aplicativo precise usar a unidade D: para armazenar dados, é possível
 
 ## <a name="additional-resources"></a>Recursos adicionais
 [Sobre discos e VHDs para máquinas virtuais](../../virtual-machines-linux-about-disks-vhds.md)
-

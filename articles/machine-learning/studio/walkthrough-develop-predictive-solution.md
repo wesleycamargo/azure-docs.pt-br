@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/23/2017
 ms.author: garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: fe504d826b6c40099f1f8706ef7e8780eed5cf9a
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="walkthrough-develop-a-predictive-analytics-solution-for-credit-risk-assessment-in-azure-machine-learning"></a>Passo a passo: Desenvolver uma solução de análise preditiva para avaliação de risco de crédito no Azure Machine Learning
 
@@ -48,8 +47,7 @@ Neste passo a passo detalhado, vamos começar falando sobre os dados de risco de
 
 Para criar essa solução de avaliação de risco de crédito, vamos seguir estas etapas:  
 
-1. 
-            [Criar um espaço de trabalho do Machine Learning](walkthrough-1-create-ml-workspace.md)
+1. [Criar um espaço de trabalho do Machine Learning](walkthrough-1-create-ml-workspace.md)
 2. [Carregar dados existentes](walkthrough-2-upload-data.md)
 3. [Criar um experimento](walkthrough-3-create-new-experiment.md)
 4. [Treinar e avaliar os modelos](walkthrough-4-train-and-evaluate-models.md)
@@ -60,4 +58,3 @@ Para criar essa solução de avaliação de risco de crédito, vamos seguir esta
 > Você pode encontrar uma cópia funcional do experimento que desenvolvemos neste passo a passo na [Galeria do Cortana Intelligence](https://gallery.cortanaintelligence.com). Vá até **[Passo a passo – Previsão de risco de crédito](https://gallery.cortanaintelligence.com/Experiment/Walkthrough-Credit-risk-prediction-1)** e clique em **Abrir no Studio** para baixar uma cópia do experimento no seu espaço de trabalho do Machine Learning Studio.
 > 
 > Este passo a passo baseia-se em uma versão simplificada do experimento de exemplo, [Classificação binária: previsão de risco de crédito](http://go.microsoft.com/fwlink/?LinkID=525270) disponível também na [Galeria](http://gallery.cortanaintelligence.com/).
-

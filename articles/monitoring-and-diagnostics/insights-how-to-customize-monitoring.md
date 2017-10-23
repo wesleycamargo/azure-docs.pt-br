@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: robb
-ms.translationtype: HT
-ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
 ms.openlocfilehash: 3f9ebb0f5737714dd685f0dcc1ff4b1c0c89528f
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/18/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Visão Geral das métricas no Microsoft Azure
 Todos os serviços do Azure monitoram métricas-chave que permitem que você monitore a integridade, o desempenho, a disponibilidade e o uso de seus serviços. Você pode exibir essas métricas no portal do Azure e também pode usar a [API REST](https://msdn.microsoft.com/library/azure/dn931930.aspx) ou o [SDK .NET](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor) para acessar o conjunto completo de métricas programaticamente.
@@ -68,5 +67,4 @@ Assim como com as métricas, você pode usar a [API REST](https://msdn.microsoft
 * [Monitore o desempenho do aplicativo](../application-insights/app-insights-azure-web-apps.md) se você quiser compreender exatamente como seu código está sendo executado na nuvem.
 * Use os [aplicativos e páginas da Web do Application Insights para JavaScript](../application-insights/app-insights-web-track-usage.md) para obter a análise do cliente sobre os navegadores que visitam uma página da Web.
 * [Monitore a disponibilidade e a capacidade de resposta de qualquer página da Web](../application-insights/app-insights-monitor-web-app-availability.md) com o Application Insights para que você possa descobrir se a página está inativa.
-
 

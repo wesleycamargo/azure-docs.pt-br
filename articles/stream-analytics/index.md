@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 05/23/2017
 ms.author: carolz
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
-ms.openlocfilehash: f82be4ff7bd0839be4f826f9a04ba0876f4ec91d
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/25/2017
-
+ms.openlocfilehash: dc8aa21d89ce575d29d3a9c08909eb5617d7b8a5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="stream-analytics-documentation"></a>Documentação do Stream Analytics
 
 Saiba como executar a análise da IoT (Internet das Coisas) na nuvem com o Stream Analytics, um mecanismo de processamento de eventos totalmente gerenciado. Os tutoriais e as outras documentações mostram como analisar dados em tempo real desde aplicativos, sensores, dispositivos, mídia social e muito mais. 
@@ -177,6 +175,5 @@ Saiba como executar a análise da IoT (Internet das Coisas) na nuvem com o Strea
         </div>
     </li>
 </ul>
-
 
 

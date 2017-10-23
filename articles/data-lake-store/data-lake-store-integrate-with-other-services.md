@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: de7aff6b31d937576da65498c5fcce2ae9abdbf1
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="integrating-data-lake-store-with-other-azure-services"></a>Integrando o Repositório Data Lake com outros Serviços do Azure
 O Repositório Azure Data Lake pode ser usado em conjunto com outros serviços do Azure para habilitar uma maior variedade de cenários. O artigo a seguir lista os serviços com os quais o Repositório Data Lake pode ser integrado.
@@ -71,5 +70,4 @@ Você pode usar o Azure Data Lake Store para arquivar e capturar dados recebidos
 * [Visão geral do Repositório Azure Data Lake](data-lake-store-overview.md)
 * [Introdução ao Repositório Data Lake usando o Portal](data-lake-store-get-started-portal.md)
 * [Introdução ao Repositório Data Lake usando o PowerShell](data-lake-store-get-started-powershell.md)  
-
 

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 74b75232b4b1c14dbb81151cdab5856a1e4da28c
 ms.openlocfilehash: aab491f162fd4d24c6ff4d8858f2edd96dda30d4
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/26/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoom"></a>Tutorial: Integração do Active Directory do Azure com o Zoom
 
@@ -269,5 +268,4 @@ Ao clicar no bloco do Zoom no Painel de Acesso, você deverá ser conectado auto
 [201]: ./media/active-directory-saas-zoom-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-zoom-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-zoom-tutorial/tutorial_general_203.png
-
 

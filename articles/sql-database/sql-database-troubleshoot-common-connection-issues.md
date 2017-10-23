@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 06/13/2017
 ms.author: daleche
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
-ms.openlocfilehash: b8abf1285318e491d51aadf90f921103d84ce1a4
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/17/2017
-
+ms.openlocfilehash: 2748768e88c046c39232492396872e1c7ed590a6
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="troubleshoot-connection-issues-to-azure-sql-database"></a>Solucionar problemas de conexão no Banco de Dados SQL do Azure
 Quando a conexão com o banco de dados SQL falha, você recebe [mensagens de erro](sql-database-develop-error-messages.md). Este artigo é um tópico centralizado que ajuda a solucionar problemas de conectividade do Banco de Dados SQL do Azure. Ele apresenta [as causas comuns](#cause) de problemas de conexão, recomenda [uma ferramenta de solução de problemas](#try-the-troubleshooter-for-azure-sql-database-connectivity-issues) que ajuda a identificar o problema e fornece etapas de solução de problemas para resolver [erros transitórios](#troubleshoot-transient-errors) e [erros persistentes ou não transitórios](#troubleshoot-persistent-errors). 
@@ -90,5 +89,4 @@ Se o aplicativo falhar persistentemente em se conectar ao Banco de Dados SQL do 
 * [Visão geral do desenvolvimento de Banco de Dados SQL](sql-database-develop-overview.md)
 * [Diretrizes gerais para tratamento de falhas transitórias](../best-practices-retry-general.md)
 * [Bibliotecas de conexão para Banco de Dados SQL e SQL Server](sql-database-libraries.md)
-
 

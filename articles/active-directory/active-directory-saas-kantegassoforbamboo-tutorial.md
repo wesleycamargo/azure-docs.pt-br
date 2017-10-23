@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.translationtype: HT
-ms.sourcegitcommit: 818f7756189ed4ceefdac9114a0b89ef9ee8fb7a
 ms.openlocfilehash: cc259bb6f9bdb2293b6935e45e2df52b9fee6873
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-bamboo"></a>Tutorial: Integração do Azure Active Directory ao SSO do Kantega para o Bamboo
 
@@ -335,5 +334,4 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 [201]: ./media/active-directory-saas-kantegassoforbamboo-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-kantegassoforbamboo-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-kantegassoforbamboo-tutorial/tutorial_general_203.png
-
 

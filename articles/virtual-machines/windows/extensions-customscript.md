@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/16/2017
 ms.author: nepeters
+ms.openlocfilehash: 4117b6020d2d75a953fd5f032b378e49d2c752ab
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: caaf10d385c8df8f09a076d0a392ca0d5df64ed2
-ms.openlocfilehash: a6f417ea6575b81258998ae3b31c10e9df59b603
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/08/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="custom-script-extension-for-windows"></a>Extensão de script personalizado para o Windows
 
@@ -32,7 +31,7 @@ Este documento detalha como usar a Extensão de Script Personalizado usando o m�
 
 ### <a name="operating-system"></a>Sistema operacional
 
-A Extensão de Script Personalizado para Windows pode ser executada nas versões 2008 R2, 2012, 2012 R2 e 2016 do Windows Server.
+A Extensão de Script Personalizado para Windows pode ser executada no Windows 10 Client e nas versões Windows Server 2008 R2, 2012, 2012 R2 e 2016.
 
 ### <a name="script-location"></a>Local do script
 
@@ -49,7 +48,7 @@ O JSON a seguir mostra o esquema para a Extensão de Script Personalizado. A ext
 ```json
 {
     "apiVersion": "2015-06-15",
-    "type": "extensions",
+    "type": "Microsoft.Compute/virtualMachines/extensions",
     "name": "config-app",
     "location": "[resourceGroup().location]",
     "dependsOn": [
@@ -151,4 +150,3 @@ As informações de caminho após o primeiro segmento do URI são retidas para o
 ### <a name="support"></a>Suporte
 
 Caso precise de mais ajuda a qualquer momento neste artigo, entre em contato com os especialistas do Azure nos [fóruns do Azure e do Stack Overflow no MSDN] (https://azure.microsoft.com/en-us/support/forums/). Como alternativa, você pode registrar um incidente de suporte do Azure. Vá para o [site de suporte do Azure](https://azure.microsoft.com/en-us/support/options/) e selecione Obter suporte. Para saber mais sobre como usar o suporte do Azure, leia as [Perguntas frequentes sobre o suporte do Microsoft Azure](https://azure.microsoft.com/en-us/support/faq/).
-

@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/10/2017
 ms.author: raynew
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a1ba750d2be1969bfcd4085a24b0469f72a357ad
 ms.openlocfilehash: 9ca33057f6030fdcc233f6053fdc392d62f8f9f4
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/20/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="replicate-azure-vms-between-regions-with-azure-site-recovery"></a>Você pode replicar VMs do Azure entre regiões usando o Site Recovery
 
 >[!NOTE]
@@ -148,4 +145,3 @@ Depois de você testar a implantação:
 
 - [Saiba mais](site-recovery-failover.md) sobre diferentes tipos de failovers e como executá-los.
 - Saiba mais sobre [usando planos de recuperação](site-recovery-create-recovery-plans.md) para reduzir o RTO.
-

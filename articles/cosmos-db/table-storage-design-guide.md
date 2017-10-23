@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 02/28/2017
 ms.author: mimig
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: fd34fb135c76eed4041c29e00e98dde330dfe3f3
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guia de Design de tabela de armazenamento do Azure: projetando tabelas escalonáveis e de alto desempenho
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -1545,5 +1544,4 @@ Também gostaríamos de agradecer aos seguintes MVPs da Microsoft por seus valio
 [27]: ./media/storage-table-design-guide/storage-table-design-IMAGE27.png
 [28]: ./media/storage-table-design-guide/storage-table-design-IMAGE28.png
 [29]: ./media/storage-table-design-guide/storage-table-design-IMAGE29.png
-
 

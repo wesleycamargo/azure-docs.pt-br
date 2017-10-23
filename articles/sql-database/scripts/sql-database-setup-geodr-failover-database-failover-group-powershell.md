@@ -16,14 +16,12 @@ ms.tgt_pltfrm: sql-database
 ms.workload: database
 ms.date: 06/23/2017
 ms.author: janeng
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
-ms.openlocfilehash: 0fcddfd7e224fc763616573e5cd8b3345cc46ded
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/28/2017
-
+ms.openlocfilehash: 50d1c0827ee7efac2b0f16a44705030184a3c07e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-powershell-to-configure-an-active-geo-replication-failover-group-for-a-single-azure-sql-database"></a>Use o PowerShell para configurar um grupo de failover da replicação geográfica ativa para um banco de dados SQL individual do Azure
 
 Esse exemplo de script do PowerShell configura um grupo de failover da replicação geográfica ativa para um banco de dados SQL individual do Azure e faz o failover para uma réplica secundária do banco de dados SQL do Azure.
@@ -32,7 +30,7 @@ Esse exemplo de script do PowerShell configura um grupo de failover da replicaç
 
 ## <a name="sample-scripts"></a>Exemplos de scripts
 
-[!code-powershell[principal](../../../powershell_scripts/sql-database/setup-geodr-and-failover-database/setup-geodr-and-failover-database-failover-group.ps1?highlight=19-22 "Configurar o grupo de failover para um banco de dados individual")]
+[!code-powershell[main](../../../powershell_scripts/sql-database/setup-geodr-and-failover-database/setup-geodr-and-failover-database-failover-group.ps1?highlight=19-22 "Set up failover group for single database")]
 
 ## <a name="clean-up-deployment"></a>Limpar implantação
 
@@ -66,4 +64,3 @@ Este script usa os seguintes comandos. Cada comando na tabela redireciona para a
 Para obter mais informações sobre o Azure PowerShell, confira [Documentação do Azure PowerShell](/powershell/azure/overview).
 
 Os exemplos de script do PowerShell do Banco de Dados SQL adicionais podem ser encontrados nos [scripts do PowerShell do Banco de Dados SQL do Azure](../sql-database-powershell-samples.md).
-

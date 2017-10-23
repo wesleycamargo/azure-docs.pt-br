@@ -16,6 +16,7 @@
 ### [Criar VMs](devtest-lab-add-vm.md)
 ### [Criar VM declarável](devtest-lab-add-claimable-vm.md)
 ### [Criar e gerenciar VMs com a CLI do Azure](devtest-lab-vmcli.md)
+### [Reiniciar uma VM](devtest-lab-restart-vm.md)
 
 ## Usar ambientes em um laboratório
 ### [Criar um ambiente](devtest-lab-create-environment-from-arm.md)
@@ -28,6 +29,7 @@
 ### [Definir políticas e agendas](devtest-lab-set-lab-policy.md)
 ### [Configurar o gerenciamento de custo](devtest-lab-configure-cost-management.md)
 ### [Configurar imagens do Marketplace](devtest-lab-configure-marketplace-images.md)
+### [Habilitar uma imagem licenciada](devtest-lab-enable-licensed-images.md)
 ### [Para adicionar marcas a um laboratório](devtest-lab-add-tag.md)
 
 ## [Selecionar imagem personalizada ou fórmula](devtest-lab-comparing-vm-base-image-types.md)
@@ -56,8 +58,8 @@
 ## [Dimensionar seu laboratório](devtest-lab-scale-lab.md)
 
 # Referência
-## [CLI do Azure](/cli/azure/lab)
-## [PowerShell do Azure](/powershell/module/azurerm.devtestlabs/#devtest_labs)
+## [CLI 2.0](/cli/azure/lab)
+## [PowerShell](/powershell/module/azurerm.devtestlabs/#devtest_labs)
 ### [Criar ou modificar laboratórios automaticamente](devtest-lab-use-arm-and-powershell-for-lab-resources.md)
 ## [API REST](https://docs.microsoft.com/rest/api/dtl/)
 ## [Modelos do Gerenciador de Recursos](https://github.com/Azure/azure-devtestlab/tree/master/Samples)

@@ -12,13 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: tamram
-translationtype: Human Translation
-ms.sourcegitcommit: 9eafbc2ffc3319cbca9d8933235f87964a98f588
 ms.openlocfilehash: 67edaa55d7ccd00d4aebb309f11bcf95486e87fa
-ms.lasthandoff: 04/22/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="pool-create-event"></a>Evento de criação de pool
 
  Esse evento é emitido quando um pool é criado. O conteúdo do log expõe as informações gerais do pool. Observe que, se o tamanho de destino do pool for maior que 0 nós de computação, um evento inicial de redimensionamento do pool seguirá imediatamente esse evento.
@@ -98,4 +97,3 @@ ms.lasthandoff: 04/22/2017
 |Nome do elemento|Tipo|Observações|
 |------------------|--------------|----------|
 |subnetId|Cadeia de caracteres|Especifica o identificador do recurso da sub-rede em que nós de computação do pool são criados.|
-

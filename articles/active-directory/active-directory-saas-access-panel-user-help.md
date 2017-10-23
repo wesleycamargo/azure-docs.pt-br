@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 07/15/2017
 ms.author: markvi
 ms.reviewer: japere
-ms.translationtype: HT
-ms.sourcegitcommit: c999eb5d6b8e191d4268f44d10fb23ab951804e7
 ms.openlocfilehash: 613c68d5c13793a3b696b6afbfc0e1a31595e201
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/17/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="do-you-need-help-with-the-my-apps-portal"></a>Precisa de ajuda com o portal Meus Aplicativos?
 
@@ -109,5 +108,4 @@ Após a instalação, tente executar estas etapas se houver problemas:
 ## <a name="next-steps"></a>Próximas etapas
 
 Para solucionar problemas de informações relacionadas, consulte [Problemas ao usar o site do painel de acesso do aplicativo ou o aplicativo móvel](active-directory-application-access-panel-content-map.md)
-
 

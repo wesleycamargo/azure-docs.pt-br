@@ -3,7 +3,7 @@ title: "Associações de armazenamento de Blobs do Azure Functions | Microsoft D
 description: "Entenda como usar gatilhos e associações do Armazenamento do Azure em Azure Functions."
 services: functions
 documentationcenter: na
-author: lindydonna
+author: ggailey777
 manager: cfowler
 editor: 
 tags: 

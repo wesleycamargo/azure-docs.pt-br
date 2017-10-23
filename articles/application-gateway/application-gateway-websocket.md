@@ -1,6 +1,6 @@
 ---
 title: Suporte para WebSocket no Gateway de Aplicativo do Azure | Microsoft Docs
-description: "Esta página oferece uma visão geral do suporte ao WebSocket do Application Gateway."
+description: "Esta página oferece uma visão geral do suporte ao WebSocket do Gateway de Aplicativo."
 documentationcenter: na
 services: application-gateway
 author: amsriva
@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: amsriva
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
 ms.openlocfilehash: 75b06ddd02da231b7813c609c848c75e42116da5
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/07/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="overview-of-websocket-support-in-application-gateway"></a>Visão geral do suporte para WebSocket no Gateway de Aplicativo
 
@@ -124,5 +122,4 @@ Outro motivo é que a investigação de integridade de back-end do gateway de ap
 ## <a name="next-steps"></a>Próximas etapas
 
 Depois de aprender sobre o suporte ao WebSocket, vá para [criar um gateway de aplicativo](application-gateway-create-gateway.md) para começar a usar um aplicativo Web habilitado para WebSocket.
-
 

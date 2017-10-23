@@ -16,12 +16,11 @@ ms.workload: na
 ms.date: 08/26/2016
 ms.author: saudas
 ms.custom: mvc
+ms.openlocfilehash: c9ef5913859cf3a55a2de2107a9304f1d28a4829
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 25eb3b5d379f58022e9e516c51f67c52becf9087
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-public-access-to-an-azure-container-service-application"></a>Habilitar acesso público a um aplicativo do Serviço de Contêiner do Azure
 Todos os contêineres DC/OS no [pool de agentes públicos](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) do ACS são automaticamente expostos à Internet. Por padrão, as portas **80**, **443**, **8080** estão abertas e qualquer contêiner (público) que esteja ouvindo nessas portas estará acessível. Este artigo mostra como abrir mais portas para seus aplicativos no Serviço de Contêiner do Azure.
@@ -88,5 +87,4 @@ Em seguida, precisamos adicionar uma regra de segurança que encaminhe o tráfeg
 Saiba mais sobre a diferença entre [agentes DC/OS públicos e privados](container-service-dcos-agents.md).
 
 Leia mais informações sobre [como gerenciar seus contêineres de DC/OS](container-service-mesos-marathon-ui.md).
-
 

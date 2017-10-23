@@ -1,5 +1,5 @@
 ---
-title: 'Configurar um firewall de aplicativo Web: Gateway de Aplicativo do Azure | Microsoft Docs'
+title: Como configurar o firewall do aplicativo Web - Gateway de Aplicativo do Azure | Microsoft Docs
 description: "Este artigo oferece orientação sobre como começar a usar o firewall do aplicativo Web em um gateway de aplicativo novo ou existente."
 documentationcenter: na
 services: application-gateway
@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
 ms.author: davidmu
+ms.openlocfilehash: e8106805d21b325e33fb3ab376db75cd783b9042
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 3d01763709e58d25047a6dec4361bcf6553d54e0
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-a-web-application-firewall-on-a-new-or-existing-application-gateway"></a>Configurar um firewall de aplicativo Web em um Gateway de Aplicativo novo ou existente
 
@@ -28,15 +27,15 @@ ms.lasthandoff: 08/29/2017
 > * [PowerShell](application-gateway-web-application-firewall-powershell.md)
 > * [CLI do Azure](application-gateway-web-application-firewall-cli.md)
 
-Saiba como criar um gateway de aplicativo habilitado para WAF (firewall do aplicativo Web). Aprenda também a adicionar um WAF a um gateway de aplicativo existente.
+Saiba como criar um gateway de aplicativo habilitado para firewall do aplicativo Web (WAF). Saiba também como adicionar um WAF a um gateway de aplicativo existente.
 
 O WAF no Gateway de Aplicativo do Azure protege aplicativos Web contra ataques comuns baseados na Web, como injeção de SQL, ataques de scripts entre sites e sequestros de sessão.
 
- O Gateway de Aplicativo é um balanceador de carga de camada 7. Ele fornece o failover e solicitações HTTP de roteamento de desempenho entre diferentes servidores, estejam eles na nuvem ou no local. O Gateway de Aplicativo fornece muitos recursos de ADC (controlador de entrega de aplicativo):
+ O Gateway de Aplicativo é um balanceador de carga Layer 7. Ele fornece o failover e solicitações HTTP de roteamento de desempenho entre diferentes servidores, estejam eles na nuvem ou no local. O Gateway de Aplicativo fornece muitos recursos do controlador de entrega de aplicativos (ADC):
 
  * Balanceamento de carga HTTP
  * Afinidade de sessão baseada em cookie
- * Descarregamento de SSL (Secure Sockets Layer)
+ * Descarregamento de protocolo SSL
  * Investigações de integridade personalizadas
  * Suporte para a funcionalidade multissite
  
@@ -52,9 +51,9 @@ Se você tiver lido [Criar um gateway de aplicativo com o PowerShell](applicatio
 
 | **Configuração** | **Detalhes**
 |---|---|
-|**SKU** |Um gateway de aplicativo normal sem WAF dá suporte aos tamanhos **Standard\_Small**, **Standard\_Medium** e **Standard\_Large**. Com a introdução de um WAF, há duas SKUs adicionais, **WAF\_Medium** e **WAF\_Large**. Não há suporte para WAF em gateways de aplicativo pequenos.|
+|**SKU** |Um gateway de aplicativo normal sem WAF suporta os tamanhos **Padrão\_Pequeno**, **Padrão\_Médio** e **Padrão\_Grande**. Com a introdução do WAF, há duas SKUs adicionais, **WAF\_Médio** e **WAF\_Grande**. Não há suporte para WAF em gateways de aplicativos pequenos.|
 |**Camada** | Os valores disponíveis são **Standard** ou **WAF**. Quando você usa um WAF, deve escolher **WAF**.|
-|**Modo** | Essa configuração é o modo do WAF. Os valores permitidos são **detecção** e **prevenção**. Quando o WAF estiver configurado no modo de **Detecção**, todas as ameaças são armazenadas em um arquivo de log. No modo de **Prevenção**, os eventos ainda estão conectados, mas o invasor recebe uma resposta 403 não autorizado do gateway de aplicativo.|
+|**Modo** | Essa configuração é o modo do WAF. Os valores permitidos são **Detecção** e **Prevenção**. Quando o WAF estiver configurado no modo de **Detecção**, todas as ameaças são armazenadas em um arquivo de log. No modo de **Prevenção**, os eventos ainda estão conectados, mas o invasor recebe uma resposta 403 não autorizado do gateway de aplicativo.|
 
 ## <a name="add-a-web-application-firewall-to-an-existing-application-gateway"></a>Adicionar um firewall do aplicativo Web a um gateway de aplicativo existente
 
@@ -96,7 +95,7 @@ Use a versão mais recente do Azure PowerShell. Para saber mais, confira [Usar o
     Set-AzureRmApplicationGateway -ApplicationGateway $gw
     ```
 
-Este comando atualiza o gateway de aplicativo com um WAF. Para entender como ver logs para seu gateway de aplicativo, confira [Diagnósticos Gateway de Aplicativo](application-gateway-diagnostics.md). Devido à natureza de segurança de um WAF, examine regularmente os logs para compreender a postura de segurança de seus aplicativos Web.
+Este comando atualiza o gateway de aplicativo com um WAF. Confira [Diagnósticos do Gateway de Aplicativo](application-gateway-diagnostics.md) para entender como exibir os logs do seu Gateway de Aplicativo. Devido à natureza de segurança do WAF, examine regularmente os logs para compreender a postura de segurança de seus aplicativos Web.
 
 ## <a name="create-an-application-gateway-with-a-web-application-firewall"></a>Criar um gateway de aplicativo com um firewall do aplicativo Web
 
@@ -197,13 +196,13 @@ $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-
 ```
 
 > [!NOTE]
-> Os gateways de aplicativo criados com a configuração básica do WAF são definidos com o CRS 3.0 para proteções.
+> Os gateways de aplicativos criados com a configuração básica do WAF são definidos com o CRS 3.0 para proteções.
 
-## <a name="get-an-application-gateway-dns-name"></a>Obter um nome DNS do gateway de aplicativo
+## <a name="get-an-application-gateway-dns-name"></a>Como obter um nome DNS do gateway de aplicativo
 
-Depois de criar o gateway, a próxima etapa é configurar o front-end para comunicação. Ao usar um IP público, o gateway de aplicativo requer um nome DNS atribuído dinamicamente, o que não é amigável. Para garantir que os usuários finais possam acessar o gateway de aplicativo, use um registro CNAME para apontar para o ponto de extremidade público do gateway de aplicativo. Para saber mais, confira [Configurar um nome de domínio personalizado no serviço de nuvem do Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). 
+Depois de criar o gateway, a próxima etapa é configurar o front-end para comunicação. Ao usar um IP público, o gateway de aplicativo requer um nome DNS atribuído dinamicamente, o que não é amigável. Para garantir que os usuários finais possam acessar o gateway de aplicativo, você pode usar um registro CNAME para apontar para o ponto de extremidade público do gateway de aplicativo. Para saber mais, confira [Configurar um nome de domínio personalizado no serviço de nuvem do Azure](../cloud-services/cloud-services-custom-domain-name-portal.md). 
 
-Para configurar um alias, recupere os detalhes do gateway de aplicativo e seu nome DNS/IP associado usando o elemento PublicIPAddress anexado ao gateway de aplicativo. Use o nome DNS do gateway de aplicativo para criar um registro CNAME que aponte os dois aplicativos Web para esse nome DNS. Não recomendamos o uso de registros A, pois o VIP pode mudar quando o gateway de aplicativo for reiniciado.
+Para configurar um alias, recupere os detalhes do gateway de aplicativo e seu nome DNS/IP associado usando o elemento PublicIPAddress anexado ao gateway de aplicativo. Use o nome DNS do gateway de aplicativo para criar um registro CNAME que aponte os dois aplicativos Web para esse nome DNS. Não recomendamos usar registros, pois o VIP pode ser alterado quando o gateway de aplicativo reiniciar.
 
 ```powershell
 Get-AzureRmPublicIpAddress -ResourceGroupName appgw-RG -Name publicIP01
@@ -236,4 +235,3 @@ DnsSettings              : {
 Para saber como configurar o log de diagnósticos para registrar os eventos que são detectados ou evitados com o WAF, confira [Diagnóstico do Gateway de Aplicativo](application-gateway-diagnostics.md).
 
 [scenario]: ./media/application-gateway-web-application-firewall-powershell/scenario.png
-

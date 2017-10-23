@@ -15,14 +15,12 @@ ms.workload: na
 ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
+ms.openlocfilehash: 99c27c37218a35d2a3416d6edd5e0a871cd5c011
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: b6687b4e5df73e61acc599133e53385987742937
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-visual-studio-team-services"></a>Pipeline de CI/CD completo para implantar um aplicativo com vários contêineres no Serviço de Contêiner do Azure com Docker Swarm usando o Visual Studio Team Services
 
 Um dos maiores desafios ao desenvolver aplicativos modernos para a nuvem é ser capaz de fornecer esses aplicativos continuamente. Neste artigo, você aprenderá a implementar uma integração contínua completa e o pipeline de implantação (IC/CD) usando o Serviço de Contêiner do Azure com Docker Swarm, Registro de Contêiner do Azure, compilação do Visual Studio Team Services e gerenciamento da versão.
@@ -231,4 +229,3 @@ Agora que você concluiu a configuração, é hora de testar esse novo pipeline 
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para obter mais informações sobre a CI/CD com o Visual Studio Team Services, consulte a [Visão geral da Compilação do VSTS](https://www.visualstudio.com/docs/build/overview).
-

@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: juliako
+ms.openlocfilehash: 2f4f464f8604b6f453d6b50b736c6a3a889a3408
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 26c07d30f9166e0e52cb396cdd0576530939e442
-ms.openlocfilehash: 2aecdd9337a74a27c8116ee14efac8103b3eb548
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/19/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-streaming-endpoints-with-net-sdk"></a>Gerenciar pontos de extremidade de streaming com o SDK .NET
 
 >[!NOTE]
@@ -141,5 +139,4 @@ Examine os roteiros de aprendizagem dos Serviços de Mídia.
 
 ## <a name="provide-feedback"></a>Fornecer comentários
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
 

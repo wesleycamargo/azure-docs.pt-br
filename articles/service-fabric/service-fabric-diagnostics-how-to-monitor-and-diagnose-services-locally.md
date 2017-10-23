@@ -12,14 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 04/24/2017
+ms.date: 10/15/2017
 ms.author: dekapur
 ms.translationtype: Human Translation
 ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 08998340afb2f242b9a268331607b0d1ddb9b0c6
 ms.contentlocale: pt-br
 ms.lasthandoff: 07/08/2017
-
 
 ---
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>Monitorar e diagnosticar serviços em uma configuração de desenvolvimento do computador local

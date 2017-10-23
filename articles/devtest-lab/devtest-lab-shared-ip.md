@@ -14,14 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2017
 ms.author: casoper
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 857267f46f6a2d545fc402ebf3a12f21c62ecd21
 ms.openlocfilehash: 9f6e1980bf5ea5b41da98a135d89f1c5159921a7
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="understand-shared-ip-addresses-in-azure-devtest-labs"></a>Entender os endereços IP compartilhados no Azure DevTest Labs
 
 O Azure DevTest Labs permite que VMs de laboratório compartilhem o mesmo endereço IP para minimizar o número de endereços IP públicos necessários para acessar as VMs de seu laboratório individual.  Este artigo descreve como funcionam os IPs compartilhados e suas opções de configuração relacionadas.
@@ -56,7 +54,6 @@ Sempre que uma VM com IP compartilhado habilitado é adicionada à sub-rede, o D
 
 * [Definir políticas de laboratório no Azure DevTest Labs](devtest-lab-set-lab-policy.md)
 * [Configurar uma rede virtual no Azure DevTest Labs](devtest-lab-configure-vnet.md)
-
 
 
 

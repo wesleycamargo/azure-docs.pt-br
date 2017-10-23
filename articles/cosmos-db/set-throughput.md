@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 5bbeb9d4516c2b1be4f5e076a7f63c35e4176b36
 ms.openlocfilehash: d541bb19ba7e5ecb44c9fe91b1e232d4d9c2170e
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/13/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="set-throughput-for-azure-cosmos-db-containers"></a>Definir a produtividade de contêineres do Azure Cosmos DB
 
 Você pode definir a produtividade dos contêineres do Azure Cosmos DB no portal do Azure ou usando os SDKs do cliente. 
@@ -89,4 +86,3 @@ Não há nenhuma extensão de API do MongoDB para definir a produtividade. A rec
 ## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre o provisionamento e atingir uma escala mundial com o Cosmos DB, consulte [Particionamento e escala com o Cosmos DB](partition-data.md).
-

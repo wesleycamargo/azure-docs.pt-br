@@ -15,12 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/29/2017
 ms.author: jroth
-ms.translationtype: HT
-ms.sourcegitcommit: 8351217a29af20a10c64feba8ccd015702ff1b4e
 ms.openlocfilehash: 4b8cc80f2d1ed6f09ec917118dc9495d20394b94
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="provision-a-sql-server-virtual-machine-using-azure-powershell-resource-manager"></a>Provisionar uma máquina virtual SQL Server usando o Azure PowerShell (Gerenciador de Recursos)
 > [!div class="op_single_selector"]
@@ -343,4 +342,3 @@ New-AzureRmVM -ResourceGroupName $ResourceGroupName -Location $Location -VM $Vir
 
 ## <a name="next-steps"></a>Próximas etapas
 Depois que a máquina virtual for criada, você estará pronto para se conectar à máquina virtual usando a conectividade de instalação e RDP. Para obter mais informações, confira [Conectar-se a uma Máquina Virtual do SQL Server (Gerenciador de Recursos)](virtual-machines-windows-sql-connect.md).
-

@@ -39,7 +39,11 @@ sections:
               src: 'https://docs.microsoft.com/media/common/java.svg'
             text: Java
             href: app-insights-java-quick-start
-  - title: Tutoriais passo a passo
+          - image:
+              src: /azure/application-insights/media/index/mobile-center.png
+            text: Móvel
+            href: app-insights-mobile-center-quickstart
+  - title: Tutoriais Passo a Passo
     items:
       - type: paragraph
         text: Saiba como melhorar continuamente o desempenho e o uso dos aplicativos Web.
@@ -51,7 +55,7 @@ sections:
           - html: <a href="app-insights-tutorial-alert">Monitorar e alertar sobre a integridade do aplicativo</a>
           - html: <a href="app-insights-tutorial-users">Analisar as informações e o uso do cliente</a>
           - html: <a href="app-insights-tutorial-dashboards">Criar painéis personalizados de KPI</a>
-  - title: Treinamento em vídeo PluralSight gratuito
+  - title: Treinamento em Vídeo Pluralsight gratuito
     items:
       - type: list
         style: cards

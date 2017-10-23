@@ -15,16 +15,15 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 2d5c8901e3deb126e216b58264c820b374b5670b
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-a-php-web-app-in-a-linux-container-in-azure"></a>Criar um aplicativo Web PHP em um contêiner do Linux no Azure
 
-Os [Aplicativos Web para Contêineres](app-service-linux-intro.md) fornecem um serviço de hospedagem na Web altamente escalonável e com aplicação de patch automática no sistema operacional Linux. Este tutorial de início rápido mostra como implantar um aplicativo PHP no aplicativo Web para Contêineres do Azure. Crie o aplicativo Web usando a [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) no Cloud Shell e use o Git para implantar o código PHP no aplicativo Web.
+O [Aplicativo Web para Contêineres](app-service-linux-intro.md) fornecem um serviço de hospedagem na Web altamente escalonável e com aplicação de patch automática no sistema operacional Linux. Este tutorial de início rápido mostra como implantar um aplicativo PHP no aplicativo Web para Contêineres do Azure. Crie o aplicativo Web usando a [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) no Cloud Shell e use o Git para implantar o código PHP no aplicativo Web.
 
 ![Aplicativo de exemplo em execução no Azure]](media/quickstart-php/hello-world-in-browser.png)
 
@@ -166,4 +165,3 @@ O menu à esquerda fornece páginas diferentes para configurar seu aplicativo.
 
 > [!div class="nextstepaction"]
 > [PHP com MySQL](tutorial-php-mysql-app.md)
-

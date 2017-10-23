@@ -14,14 +14,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 09/07/2017
 ms.author: eugenesh
-ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
 ms.openlocfilehash: bf4d3a517e1308a142d21cffff64f3c6e104eb62
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Indexando blobs JSON com o indexador de blobs da Pesquisa do Azure
 Este artigo mostra como configurar o indexador de pesquisa de blob da Pesquisa do Azure para extrair o conteúdo estruturado de blobs que contêm JSON.
 
@@ -172,4 +170,3 @@ use esta configuração para indexar a matriz contida na propriedade `level2`:
 
 ## <a name="help-us-make-azure-search-better"></a>Ajude-nos a aprimorar a Pesquisa do Azure
 Se você tiver solicitações de recursos ou ideias para aperfeiçoamentos, entre em contato conosco pelo [site UserVoice](https://feedback.azure.com/forums/263029-azure-search/).
-

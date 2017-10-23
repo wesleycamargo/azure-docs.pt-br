@@ -13,12 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: bwren
+ms.openlocfilehash: 99f81f33a1f8a981fc00161f463a28a8459fa7ac
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 54454e98a2c37736407bdac953fdfe74e9e24d37
-ms.openlocfilehash: fe769fb433d65374109fec60c6c6d032b1ad97fb
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/13/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API do Application Insights para métricas e eventos personalizados
 
@@ -46,6 +45,7 @@ Se você ainda não tem uma referência no SDK do Application Insights:
 
   * [Projeto do ASP.NET](app-insights-asp-net.md)
   * [Projeto Java](app-insights-java-get-started.md)
+  * [Projeto do Node.js](app-insights-nodejs.md)
   * [JavaScript em cada página da Web](app-insights-javascript.md) 
 * Em seu código de servidor Web ou dispositivo, inclua:
 
@@ -54,9 +54,11 @@ Se você ainda não tem uma referência no SDK do Application Insights:
     *Visual Basic:* `Imports Microsoft.ApplicationInsights`
 
     *Java:* `import com.microsoft.applicationinsights.TelemetryClient;`
+    
+    *Node.js:* `var applicationInsights = require("applicationinsights");`
 
-## <a name="constructing-a-telemetryclient-instance"></a>Construção de uma instância de TelemetryClient
-Construa uma instância de `TelemetryClient` (exceto em JavaScript nas páginas da Web):
+## <a name="get-a-telemetryclient-instance"></a>Obter uma instância do TelemetryClient
+Obter uma instância de `TelemetryClient` (exceto em JavaScript em páginas da Web):
 
 *C#*
 
@@ -69,10 +71,17 @@ Construa uma instância de `TelemetryClient` (exceto em JavaScript nas páginas 
 *Java*
 
     private TelemetryClient telemetry = new TelemetryClient();
+    
+*Node.js*
+
+    var telemetry = applicationInsights.defaultClient;
+
 
 TelemetryClient é thread-safe.
 
-É recomendável usar uma instância de TelemetryClient para cada módulo do seu aplicativo. Por exemplo, você pode ter uma instância de TelemetryClient em seu serviço Web para relatar solicitações HTTP de entrada e outra em uma classe de middleware para relatar eventos de lógica de negócios. Você pode definir propriedades como `TelemetryClient.Context.User.Id` para rastrear usuários e sessões ou `TelemetryClient.Context.Device.Id` para identificar o computador. Essas informações são anexadas a todos os eventos que a instância envia.
+Para projetos em Java e ASP.NET, é recomendável criar uma instância de TelemetryClient para cada módulo de seu aplicativo. Por exemplo, você pode ter uma instância de TelemetryClient em seu serviço Web para relatar solicitações HTTP de entrada e outra em uma classe de middleware para relatar eventos de lógica de negócios. Você pode definir propriedades como `TelemetryClient.Context.User.Id` para rastrear usuários e sessões ou `TelemetryClient.Context.Device.Id` para identificar o computador. Essas informações são anexadas a todos os eventos que a instância envia.
+
+Em projetos de Node.js, é possível usar `new applicationInsights.TelemetryClient(instrumentationKey?)` para criar uma nova instância, mas isso só é recomendado para cenários que exigem a configuração isolada do `defaultClient` singleton.
 
 ## <a name="trackevent"></a>TrackEvent
 No Application Insights, um *evento personalizado* é um ponto de dados que você pode exibir no [Metrics Explorer](app-insights-metrics-explorer.md) como uma contagem agregada e na [Pesquisa de Diagnóstico](app-insights-diagnostic-search.md) como ocorrências individuais. (Ele não está relacionado ao MVC ou a outros “eventos” de estrutura.)
@@ -96,6 +105,10 @@ Por exemplo, em um aplicativo de jogo, envie um evento sempre que um usuário ga
 *Java*
 
     telemetry.trackEvent("WinGame");
+    
+*Node.js*
+
+    telemetry.trackEvent({name: "WinGame"});
 
 ### <a name="view-your-events-in-the-microsoft-azure-portal"></a>Exibir eventos no Portal do Microsoft Azure
 Para ver uma contagem de seus eventos, abra uma folha do [Metrics Explorer](app-insights-metrics-explorer.md), adicione um novo gráfico e selecione **Eventos**.  
@@ -151,6 +164,12 @@ Para enviar um único valor de métrica:
     sample.Value = 42.3;
     telemetryClient.TrackMetric(sample);
 ```
+
+*Node.js*
+
+ ```Javascript
+     telemetry.trackMetric({name: "queueLength", value: 42.0});
+ ```
 
 #### <a name="aggregating-metrics"></a>Métricas de agregação
 
@@ -426,7 +445,7 @@ No Search, o contexto de operação é usado para criar a lista **Itens Relacion
 
 ![Itens relacionados](./media/app-insights-api-custom-events-metrics/21.png)
 
-Consulte [application-insights-custom-operations-tracking.md] para obter mais informações sobre operações personalizadas de acompanhamento.
+Consulte [Acompanhar operações personalizadas com o SDK do .NET do Application Insights](application-insights-custom-operations-tracking.md) para obter mais informações sobre o acompanhamento de operações personalizadas.
 
 ### <a name="requests-in-analytics"></a>Consultas na Análise 
 
@@ -467,6 +486,17 @@ Os relatórios incluem os rastreamentos de pilha.
     catch (ex)
     {
        appInsights.trackException(ex);
+    }
+    
+*Node.js*
+
+    try
+    {
+       ...
+    }
+    catch (ex)
+    {
+       telemetry.trackException({exception: ex});
     }
 
 Os SDKs capturam muitas exceções automaticamente; portanto, você não precisa chamar sempre explicitamente o TrackException.
@@ -514,6 +544,10 @@ Os [Adaptadores de log](app-insights-asp-net-trace-logs.md) usam essa API para e
 *C#*
 
     telemetry.TrackTrace(message, SeverityLevel.Warning, properties);
+    
+*Node.js*
+
+    telemetry.trackTrace({message: message, severity:applicationInsights.Contracts.SeverityLevel.Warning, properties:properties});
 
 
 Você pode pesquisar no conteúdo da mensagem, mas (diferentemente de valores de propriedade) não é possível filtrar nele.
@@ -555,6 +589,20 @@ finally
 }
 ```
 
+```Javascript
+var success = false;
+var startTime = new Date().getTime();
+try
+{
+    success = dependency.Call();
+}
+finally
+{
+    var elapsed = new Date() - startTime;
+    telemetry.trackDependency({dependencyTypeName: "myDependency", name: "myCall", duration: elapsed, success:success});
+}
+```
+
 Lembre-se de que os SDKs de servidor incluem um [módulo de dependência](app-insights-asp-net-dependencies.md) que descobre e rastreia automaticamente determinadas chamadas de dependência; por exemplo, para bancos de dados e APIs REST. Você precisa instalar um agente em seu servidor para fazer com que o módulo funcione. Use essa chamada se quiser rastrear chamadas que o rastreamento automatizado não captura ou se não quiser instalar o agente.
 
 Para desativar o módulo padrão de rastreamento de dependência, edite [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md) e exclua a referência a `DependencyCollector.DependencyTrackingTelemetryModule`.
@@ -585,6 +633,10 @@ Normalmente, o SDK envia dados em momentos escolhidos para minimizar o impacto s
 
     // Allow some time for flushing before shutdown.
     System.Threading.Thread.Sleep(1000);
+    
+*Node.js*
+
+    telemetry.flush();
 
 Observe que a função é assíncrona para o [canal de telemetria do servidor](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/).
 
@@ -671,6 +723,15 @@ Há alguns [limites no número de propriedades, valores de propriedade e métric
 
     // Send the event:
     telemetry.TrackEvent("WinGame", properties, metrics);
+
+*Node.js*
+
+    // Set up some properties and metrics:
+    var properties = {"game": currentGame.Name, "difficulty": currentGame.Difficulty};
+    var metrics = {"Score": currentGame.Score, "Opponents": currentGame.OpponentCount};
+
+    // Send the event:
+    telemetry.trackEvent({name: "WinGame", properties: properties, measurements: metrics});
 
 
 *Visual Basic*
@@ -818,6 +879,13 @@ Se quiser definir valores de propriedade padrão para alguns dos eventos persona
     context.getProperties().put("Game", currentGame.Name);
 
     gameTelemetry.TrackEvent("WinGame");
+    
+*Node.js*
+
+    var gameTelemetry = new applicationInsights.TelemetryClient();
+    gameTelemetry.commonProperties["Game"] = currentGame.Name;
+
+    gameTelemetry.TrackEvent({name: "WinGame"});
 
 
 
@@ -851,6 +919,28 @@ Para *parar e iniciar dinamicamente* a coleta e a transmissão de telemetria:
 ```
 
 Para *desabilitar os coletores padrão selecionados* – por exemplo, contadores de desempenho, solicitações HTTP ou dependências – exclua ou comente as linhas relevantes em [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Você poderá fazer isso, por exemplo, se quiser enviar seus próprios dados de TrackRequest.
+
+*Node.js*
+
+```Javascript
+
+    telemetry.config.disableAppInsights = true;
+```
+
+Para *desabilitar coletores padrão selecionados* – por exemplo, contadores de desempenho, solicitações HTTP ou dependências – no momento da inicialização, vincule os métodos de configuração ao código de inicialização do SDK:
+
+```Javascript
+
+    applicationInsights.setup()
+        .setAutoCollectRequests(false)
+        .setAutoCollectPerformance(false)
+        .setAutoCollectExceptions(false)
+        .setAutoCollectDependencies(false)
+        .setAutoCollectConsole(false)
+        .start();
+```
+
+Para desabilitar esses coletores após a inicialização, use o objeto de configuração: `applicationInsights.Configuration.setAutoCollectRequests(false)`
 
 ## <a name="debug"></a>Modo de desenvolvedor
 Durante a depuração, é útil ter sua telemetria emitida pelo pipeline para que você possa ver os resultados imediatamente. Você também obtém mensagens adicionais que ajudarão a rastrear problemas com a telemetria. Desative-a na produção, pois isso pode tornar seu aplicativo mais lento.
@@ -942,10 +1032,11 @@ Para determinar por quanto tempo os dados são mantidos, confira [Retenção e p
 * [SDK do iOS](https://github.com/Microsoft/ApplicationInsights-iOS)
 
 ## <a name="sdk-code"></a>Código do SDK
-* [SDK de Núcleo do ASP.NET](https://github.com/Microsoft/ApplicationInsights-dotnet)
-* [ASP.NET 5](https://github.com/Microsoft/ApplicationInsights-aspnet5)
+* [SDK de Núcleo do ASP.NET](https://github.com/Microsoft/ApplicationInsights-aspnetcore)
+* [ASP.NET 5](https://github.com/Microsoft/ApplicationInsights-dotnet)
 * [Pacotes do Windows Server](https://github.com/Microsoft/applicationInsights-dotnet-server)
 * [Java SDK](https://github.com/Microsoft/ApplicationInsights-Java)
+* [SDK do Node.js](https://github.com/Microsoft/ApplicationInsights-Node.js)
 * [SDK do JavaScript](https://github.com/Microsoft/ApplicationInsights-JS)
 * [Todas as plataformas](https://github.com/Microsoft?utf8=%E2%9C%93&query=applicationInsights)
 
@@ -961,6 +1052,5 @@ Para determinar por quanto tempo os dados são mantidos, confira [Retenção e p
 * [Pesquisar eventos e logs](app-insights-diagnostic-search.md)
 
 * [Solução de problemas](app-insights-troubleshoot-faq.md)
-
 
 

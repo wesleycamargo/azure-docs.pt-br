@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: johnkem
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: ba4e8fe0d54deb4a980174ff7d0904854c794d3d
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-azure-monitor"></a>Introdução ao Azure Monitor
 O Azure Monitor é o serviço de plataforma que fornece uma única fonte para monitorar os recursos do Azure. Com o Azure Monitor, você pode visualizar, consultar, rotear, arquivar e tomar medidas relacionadas às métricas e aos logs provenientes dos recursos do Azure. Você pode trabalhar com esses dados usando a folha do portal do Monitor, [Cmdlets do PowerShell do Monitor](insights-powershell-samples.md), [CLI de plataforma cruzada](insights-cli-samples.md) ou [APIs REST do Azure Monitor](https://msdn.microsoft.com/library/dn931943.aspx). Neste artigo, veremos alguns dos principais componentes do Azure Monitor usando o portal para demonstração.
@@ -103,4 +102,3 @@ Seguindo essas etapas e fixando todos os blocos relevantes em um painel, você p
 
 ## <a name="next-steps"></a>Próximas etapas
 * Leia a [Visão Geral do Azure Monitor](monitoring-overview.md)
-

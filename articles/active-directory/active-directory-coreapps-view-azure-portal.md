@@ -16,12 +16,11 @@ ms.date: 08/28/2017
 ms.author: curtand
 ms.reviewer: asteen
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 14b335d14d893640d469508d6f34b4e7ec6bee8b
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/05/2017
-
+ms.openlocfilehash: 13a45733b3b8d9ea0593e3b546b6ea58aa5f1a46
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="view-all-the-enterprise-apps-that-i-can-manage-in-azure-active-directory"></a>Exibir todos os aplicativos empresariais que posso gerenciar no Azure Active Directory
 Você pode gerenciar seus aplicativos empresariais no Azure AD (Azure Active Directory). Isso inclui exibir os aplicativos que você pode gerenciar, atribuir usuários ou grupos a um aplicativo, manter propriedades para o aplicativo, como o nome/logotipo do aplicativo e, até mesmo, desabilitar um aplicativo para que nenhum usuário possa entrar nele.
@@ -39,4 +38,3 @@ Você pode gerenciar seus aplicativos empresariais no Azure AD (Azure Active Dir
 * [Remover uma atribuição de usuário ou de grupo de um aplicativo empresarial](active-directory-coreapps-remove-assignment-azure-portal.md)
 * [Desabilitar as entradas de usuário em um aplicativo empresarial](active-directory-coreapps-disable-app-azure-portal.md)
 * [Alterar o nome ou logotipo de um aplicativo empresarial](active-directory-coreapps-change-app-logo-user-azure-portal.md)
-

@@ -15,12 +15,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: raprasa
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 84b26c9ff354adef3f1bc1e61f235c520b63df13
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>Backup e restauração online automáticos com o Azure Cosmos DB
 O Azure Cosmos DB faz backup automaticamente de todos os seus dados em intervalos regulares. Os backups automáticos são feitos sem afetar o desempenho nem a disponibilidade das operações de banco de dados. Todos os backups são armazenados separadamente em outro serviço de armazenamento, e esses backups são replicados globalmente para resiliência contra desastres regionais. Os backups automáticos são destinados a cenários em que você exclui acidentalmente seu contêiner do Cosmos DB e, mais tarde, precisa de uma solução de recuperação de desastre ou de dados.  
@@ -65,5 +64,4 @@ O Azure Cosmos DB retém os últimos dois backups de todas as partições na con
 Para replicar o banco de dados em vários data centers, consulte [Distribuir os dados globalmente com o Cosmos DB](distribute-data-globally.md). 
 
 Para entrar em contato com o Suporte do Azure, [crie um tíquete no portal do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-
 

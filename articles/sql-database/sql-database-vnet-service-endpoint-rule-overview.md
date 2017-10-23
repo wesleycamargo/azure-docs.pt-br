@@ -14,18 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 09/15/2017
+ms.date: 10/09/2017
 ms.author: genemi
+ms.openlocfilehash: f62184d97b18d72b91d63db0e449bbab6c20a179
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: eb409b6e5cb0f6bfbf6bfa8103c01482abf928cf
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Use pontos de extremidade e regras de serviço de rede virtual para o Banco de dados SQL do Azure
 
-*Regras de rede Virtual* do Microsoft Azure são um recurso de firewall que controlam se o servidor de banco de dados SQL do Azure aceita comunicações que são enviadas de sub-redes específicas em redes virtuais. Este artigo explica por que o recurso de regra de rede virtual, às vezes, é a melhor opção para permitir a comunicação segura com seu banco de dados SQL do Azure.
+*Regras de rede Virtual* são um recurso de segurança de firewall que controla se o servidor do banco de dados SQL do Azure aceita comunicações que sejam enviadas de sub-redes particulares em redes virtuais. Este artigo explica por que o recurso de regra de rede virtual, às vezes, é a melhor opção para permitir a comunicação segura com seu banco de dados SQL do Azure.
+
+Para criar uma regra de rede virtual, primeiro, é preciso que haja um [ponto de extremidade de serviço de rede virtual] [ vm-virtual-network-service-endpoints-overview-649d] para a regra de referência.
 
 #### <a name="how-to-create-a-virtual-network-rule"></a>Como criar uma regra de rede virtual
 
@@ -44,7 +45,7 @@ Se você só criar uma regra de rede virtual, poderá pular para as etapas e exp
 
 **Sub-rede:** uma rede virtual contém **sub-redes**. Todas as máquinas virtuais do Azure (VMs) que você tem são atribuídas a sub-redes. Uma sub-rede pode conter várias VMs ou outros nós de computadores. Nós de computadores que estão fora da sua rede virtual não podem acessar sua rede virtual, a menos que você configure a segurança para permitir o acesso.
 
-**Ponto de extremidade de serviço de rede virtual:** um ponto de extremidade de serviço de uma rede Virtual é uma sub-rede cujos valores de propriedade incluem um ou mais nomes de tipo formais de serviço do Azure. Neste artigo, estamos interessados no nome do tipo de **Microsoft.Sql**, que faz referência ao serviço do Azure chamado banco de dados SQL.
+**Ponto de extremidade de serviço de rede virtual:** um [ponto de extremidade de serviço de uma rede Virtual][vm-virtual-network-service-endpoints-overview-649d] é uma sub-rede cujos valores de propriedade incluem um ou mais nomes de tipo formais de serviço do Azure. Neste artigo, estamos interessados no nome do tipo de **Microsoft.Sql**, que faz referência ao serviço do Azure chamado banco de dados SQL.
 
 **Regra de rede virtual:** uma regra de rede virtual para o servidor de Banco de dados SQL do Microsoft Azure é uma sub-rede listada na lista de controle de acesso (ACL) do seu servidor de Banco de dados SQL do Microsoft Azure. Para estar na ACL do seu banco de dados SQL, a sub-rede deve conter o nome do tipo **Microsoft.Sql**.
 
@@ -116,17 +117,30 @@ As funções de Administrador de banco de dados e Administrador de rede têm mai
 
 Você tem a opção de usar o [controle de acesso baseado em função (RBAC)][rbac-what-is-813s] no Azure para criar uma única função personalizada que tenha apenas o subconjunto necessário de recursos. A função personalizada pode ser usada em vez de envolver o Administrador de rede ou o Administrador de banco de dados. A área da superfície da sua exposição de segurança é menor, se você adicionar um usuário a uma função personalizada, em vez de adicionar o usuário às outras duas funções de administrador principal.
 
-#### <a name="limitations"></a>Limitações
 
-O recurso de regras de rede virtual tem as seguintes limitações:
 
-- Cada servidor de banco de dados SQL do Azure pode ter até 128 entradas de ACL de IP para qualquer rede virtual especificada.
+
+
+
+## <a name="limitations"></a>Limitações
+
+Para o Banco de Dados SQL do Azure, o recurso de regras de rede virtual tem as seguintes limitações:
+
+- No firewall do Banco de Dados SQL, cada regra de rede virtual faz referência a uma sub-rede. Todas essas sub-redes referenciadas devem ser hospedadas na mesma região geográfica que hospeda o Banco de Dados SQL.
+
+- Cada servidor de banco de dados SQL do Azure pode ter até 128 entradas de ACL para qualquer rede virtual especificada.
 
 - As regras de rede virtual se aplicam somente a redes virtuais do Azure Resource Manager; e não a redes do [modelo de implantação clássico][arm-deployment-model-568f].
 
-- As regras de rede virtual não são estendidas para nenhum dos seguintes itens de rede:
-    - No local por meio de [ExpressRoute][expressroute-indexmd-744v]
+- No firewall, os intervalos de endereços IP se aplicam aos seguintes itens de rede, mas as regras de rede virtual não:
     - [Rede privada virtual (VPN) de site a site (S2S)][vpn-gateway-indexmd-608y]
+    - No local por meio de [ExpressRoute][expressroute-indexmd-744v]
+
+#### <a name="expressroute"></a>ExpressRoute
+
+Se sua rede estiver conectada à rede do Azure através do [ExpressRoute][expressroute-indexmd-744v], cada circuito é configurado com dois endereços IP públicos no Microsoft Edge. Os dois endereços IP são usados para se conectar aos serviços da Microsoft, como o Armazenamento do Azure, usando o emparelhamento público do Azure.
+
+Para permitir a comunicação do seu circuito para o Banco de Dados SQL do Azure, você deve criar regras de rede IP para os endereços IP públicos dos seus circuitos. Para localizar os endereços IP públicos do seu circuito do ExpressRoute, abra um tique de suporte com o ExpressRoute por meio do Portal do Azure.
 
 
 <!--
@@ -138,9 +152,36 @@ When searching for blogs about ASM, you probably need to use this old and now-fo
 
 
 
+## <a name="errors-40914-and-40615"></a>Erros 40914 e 40615
+
+O erro de conexão 40914 está relacionado a *regras de rede virtual*, conforme especificado no painel Firewall no Portal do Azure. O erro 40615 é semelhante, exceto pelo fato de que ele se relaciona com *regras de endereço IP* no Firewall.
+
+#### <a name="error-40914"></a>Erro 40914
+
+*Texto da mensagem:* não é possível abrir o servidor '*[nome-do-servidor]*' solicitado pelo logon. O cliente não tem permissão para acessar o servidor.
+
+*Descrição do erro:* o cliente está em uma sub-rede que tem pontos de extremidade de servidor de rede virtual. Mas o servidor de Banco de Dados SQL do Azure não tem nenhuma regra de rede virtual que conceda à sub-rede o direito de se comunicar com o Banco de Dados SQL.
+
+*Resolução de erro:* no painel Firewall do Portal do Azure, use o controle de regras de rede virtual para [adicionar uma regra de rede virtual](#anchor-how-to-by-using-firewall-portal-59j) à sub-rede.
+
+#### <a name="error-40615"></a>Erro 40615
+
+*Texto da mensagem:* não é possível abrir o servidor '{0}' solicitado pelo logon. O cliente com o endereço IP '{1}' não tem permissão para acessar o servidor.
+
+*Descrição do erro:* o cliente está tentando conectar-se de um endereço IP que não está autorizado a se conectar ao servidor de Banco de Dados SQL do Azure. O firewall do servidor não tem nenhuma regra de endereço IP que permita que um cliente se comunique do endereço IP fornecido para o Banco de Dados SQL.
+
+*Resolução de erro:* digite o endereço IP do cliente como uma regra de IP. Faça isso usando o painel Firewall no Portal do Azure.
+
+
+Uma lista de várias mensagens de erro de Banco de Dados SQL está documentada [aqui][sql-database-develop-error-messages-419g].
+
+
+
+
+
 <a name="anchor-how-to-by-using-firewall-portal-59j" />
 
-## <a name="how-to-create-a-virtual-network-rule-by-using-the-portal"></a>Como criar uma regra de rede virtual usando o portal
+## <a name="portal-can-create-a-virtual-network-rule"></a>O Portal pode criar uma regra de rede virtual
 
 Esta seção ilustra como você pode usar o [portal do Azure][http-azure-portal-link-ref-477t] para criar uma *regra de rede virtual* no banco de dados SQL do Azure. A regra informa ao Banco de dados SQL do Microsoft Azure para aceitar a comunicação de uma sub-rede específica que foi marcada como sendo um *ponto de extremidade de serviço de rede virtual*.
 
@@ -195,6 +236,7 @@ Você já deve ter uma sub-rede que esteja marcada com o ponto de extremidade de
 ## <a name="related-articles"></a>Artigos relacionados
 
 - [Usar o PowerShell para criar um ponto de extremidade de serviço de Rede virtual e, em seguida, uma regra de rede virtual para o banco de dados SQL do Azure][sql-db-vnet-service-endpoint-rule-powershell-md-52d]
+- [Pontos de extremidade de serviço de rede virtual do Azure][vm-virtual-network-service-endpoints-overview-649d]
 - [Regras de firewall de nível do banco de dados e de nível do servidor de banco de dados SQL do Microsoft Azure][sql-db-firewall-rules-config-715d]
 
 O recurso de pontos de extremidade de serviço de Rede virtual do Microsoft Azure e o recurso de regra de rede virtual para o banco de dados SQL do Azure, ambos se tornaram disponíveis em setembro de 2017.
@@ -223,11 +265,15 @@ O recurso de pontos de extremidade de serviço de Rede virtual do Microsoft Azur
 
 [sql-db-firewall-rules-config-715d]: sql-database-firewall-configure.md
 
+[sql-database-develop-error-messages-419g]: sql-database-develop-error-messages.md
+
 [sql-db-vnet-service-endpoint-rule-powershell-md-52d]: sql-database-vnet-service-endpoint-rule-powershell.md
 
 [sql-db-vnet-service-endpoint-rule-powershell-md-a-verify-subnet-is-endpoint-ps-100]: sql-database-vnet-service-endpoint-rule-powershell.md#a-verify-subnet-is-endpoint-ps-100
 
 [vm-configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-portal-321w]: ../virtual-network/virtual-networks-static-private-ip-arm-pportal.md
+
+[vm-virtual-network-service-endpoints-overview-649d]: https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview
 
 [vpn-gateway-indexmd-608y]: ../vpn-gateway/index.md
 
@@ -251,5 +297,4 @@ O recurso de pontos de extremidade de serviço de Rede virtual do Microsoft Azur
 
 - ARM templates
 -->
-
 

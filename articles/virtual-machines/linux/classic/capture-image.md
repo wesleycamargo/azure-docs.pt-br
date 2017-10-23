@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: iainfou
-ms.translationtype: Human Translation
-ms.sourcegitcommit: cb4d075d283059d613e3e9d8f0a6f9448310d96b
 ms.openlocfilehash: ecde5dd3211bfbb290e6910d7d55136d079c6cf3
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/26/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-capture-a-classic-linux-virtual-machine-as-an-image"></a>Como capturar uma máquina virtual clássica do Linux como uma imagem
 > [!IMPORTANT]
@@ -113,4 +111,3 @@ Como alternativa, use o [Portal do Azure](http://portal.azure.com) para criar um
 [How to Create a Custom Virtual Machine]:create-custom.md
 [How to Attach a Data Disk to a Virtual Machine]:attach-disk.md
 [How to Create a Linux Virtual Machine]:create-custom.md
-

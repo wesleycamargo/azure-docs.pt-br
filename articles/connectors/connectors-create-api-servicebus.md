@@ -15,13 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 08/02/2016
 ms.author: mandia; ladocs
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
 ms.openlocfilehash: 1e2ce06f5993280dbdb67121849591e67f7979e9
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/26/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="get-started-with-the-azure-service-bus-connector"></a>Introdução ao conector do Barramento de Serviço do Azure
 Conecte-se ao Barramento de Serviço do Azure para enviar e receber mensagens. Você pode executar ações como enviar para a fila, enviar para o tópico, receber da fila e receber da assinatura.
@@ -49,9 +47,8 @@ Uma ação é uma operação executada pelo fluxo de trabalho definido em um apl
 
 ## <a name="connector-specific-details"></a>Detalhes específicos do conector
 
-Veja os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/servicebus/). 
+Exiba os gatilhos e ações definidos no swagger e também os limites nos [detalhes do conector](/connectors/servicebus/). 
 
 ## <a name="next-steps"></a>Próximas etapas
 [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md).
-
 

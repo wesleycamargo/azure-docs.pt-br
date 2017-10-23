@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/15/2016
+ms.date: 09/27/2016
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 293ac7a275398f05e3abe815413403efeaadc6e0
+ms.sourcegitcommit: a6bba6b3b924564fe7ae16fa1265dd4d93bd6b94
+ms.openlocfilehash: c7f3da9a92d5e9c60355c93a7205d16dc9ab8390
 ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
+ms.lasthandoff: 09/28/2017
 
 ---
 # <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>Alta disponibilidade e recuperação de desastre de instâncias grandes do SAP HANA no Azure 
@@ -155,7 +155,7 @@ As etapas para configurar instantâneos de armazenamento com Instâncias Grandes
 
 ### <a name="step-1-install-the-sap-hana-hdb-client"></a>Etapa 1: Instalar o cliente do SAP HANA HDB
 
-O sistema operacional Linux instalado no SAP HANA no Azure (Instâncias Grandes) inclui as pastas e os scripts necessários para executar instantâneos de armazenamento SAP HANA para fins de backup e de recuperação de desastre. Procure versões mais recentes em [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts). A versão mais recente dos scripts é a 2.0.
+O sistema operacional Linux instalado no SAP HANA no Azure (Instâncias Grandes) inclui as pastas e os scripts necessários para executar instantâneos de armazenamento SAP HANA para fins de backup e de recuperação de desastre. Procure versões mais recentes em [GitHub](https://github.com/Azure/hana-large-instances-self-service-scripts). A versão mais recente dos scripts é a 2.1.
 No entanto, é sua responsabilidade instalar o cliente do SAP HANA HDB nas unidades de Instância Grande do HANA durante a instalação do SAP HANA. (A Microsoft não instala o cliente do HDB nem do SAP HANA.)
 
 ### <a name="step-2-change-the-etcsshsshconfig"></a>Etapa 2: Alterar o /etc/ssh/ssh\_config

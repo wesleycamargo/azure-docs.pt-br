@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 7762f8499c67672f0a2ffed99e98baea4c940fa0
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-device-manager-service-to-change-your-storsimple-passwords"></a>Usar o serviço do Gerenciador de Dispositivos do StorSimple para alterar suas senhas do StorSimple
 
@@ -97,5 +95,4 @@ A senha do StorSimple Snapshot Manager agora deve ser atualizada.
 * Saiba mais sobre a [segurança do StorSimple](storsimple-8000-security.md).
 * Saiba mais sobre [como modificar a configuração do dispositivo](storsimple-8000-modify-device-config.md).
 * Saiba mais sobre como [usar o serviço Gerenciador de Dispositivos do StorSimple para administrar o dispositivo StorSimple](storsimple-8000-manager-service-administration.md).
-
 

@@ -15,14 +15,12 @@ ms.workload: identity
 ms.date: 07/15/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9ae7e129b381d3034433e29ac1f74cb843cb5aa6
-ms.openlocfilehash: 18af51e95a283a5cd33688484a0d7477eb4b957d
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/08/2017
-
+ms.openlocfilehash: 47617f8f727027de113a0f503308c8accc58859e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="i-cant-find-some-actions-that-i-performed-in-the-azure-active-directory-activity-log"></a>Não consigo localizar algumas ações que executei no log de atividades do Azure Active Directory
 
 
@@ -44,5 +42,4 @@ Aguarde de 15 minutos a uma hora e verifique se as ações aparecem no log. Se v
 
 ## <a name="next-steps"></a>Próximas etapas
 Veja as [Perguntas frequentes sobre os relatórios do Azure Active Directory](active-directory-reporting-faq.md).
-
 

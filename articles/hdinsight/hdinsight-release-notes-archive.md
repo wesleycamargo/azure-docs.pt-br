@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 06/29/2017
 ms.author: nitinme
 ROBOTS: NOINDEX
-ms.translationtype: HT
-ms.sourcegitcommit: 8b857b4a629618d84f66da28d46f79c2b74171df
 ms.openlocfilehash: 04278aac85171601b5801b0890d14a9076060444
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/04/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="release-notes-archive-for-hadoop-components-on-azure-hdinsight"></a>Notas de versão (arquivadas) dos componentes do Hadoop no Azure HDInsight
 
@@ -1516,4 +1515,3 @@ As notas de versão para os HDPs (plataformas de dados Hortonworks) que são usa
 
 [hdinsight-install-spark]: ../hdinsight-hadoop-spark-install/
 [hdinsight-r-scripts]: ../hdinsight-hadoop-r-scripts/
-

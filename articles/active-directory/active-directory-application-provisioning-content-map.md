@@ -12,14 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: asteen
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 0d6f6fb24f1f01d703104f925dcd03ee1ff46062
-ms.openlocfilehash: 4d33237833f34495e6049e348ad4518a2b70ee51
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/17/2017
-
+ms.openlocfilehash: 55c5abccb2472d653a4e355e39a19a224b979b85
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="problems-configuring-and-provisioning-users-to-an-application"></a>Problemas ao configurar e provisionar usuários para um aplicativo
 
 
@@ -35,4 +33,3 @@ ms.lasthandoff: 04/17/2017
   * [Eu encontrei um problema ao configurar o provisionamento de usuário para um aplicativo da Galeria do Azure AD](https://docs.microsoft.com/azure/active-directory/application-provisioning-config-problem/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [Eu configurei o provisionamento para o meu aplicativo da Galeria do Azure AD, mas nenhum usuário está sendo provisionado](https://docs.microsoft.com/azure/active-directory/application-provisioning-config-problem-no-users-provisioned/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
   * [O provisionamento para o meu aplicativo da Galeria do Azure AD está funcionando, mas o conjunto incorreto de usuários está sendo provisionado](https://docs.microsoft.com/azure/active-directory/application-provisioning-config-problem-wrong-users-provisioned/?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)
-

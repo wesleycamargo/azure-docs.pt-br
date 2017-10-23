@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
 ms.openlocfilehash: 00a6749d00c6e66a957b0a89c6658511a1bafe4d
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="should-i-use-the-v20-endpoint"></a>Devo usar o ponto de extremidade da v2.0?
 Ao criar aplicativos que se integram ao Azure Active Directory, você precisa decidir se os protocolos de autenticação e o ponto de extremidade v2.0 atendem às suas necessidades. O ponto de extremidade original do Azure Active Directory ainda tem suporte completo e, em alguns aspectos, tem mais recursos do que o v2.0. No entanto, o ponto de extremidade v2.0 [apresenta vantagens consideráveis](active-directory-v2-compare.md) para desenvolvedores.

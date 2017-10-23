@@ -15,13 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
-ms.openlocfilehash: a2f3c2d97df37e067670af48b37cc2e2dd3a36cc
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/25/2017
-
-
+ms.openlocfilehash: ecafb02a6ac13d1c3cd1fe77ef710cd8525e32b0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="federation-metadata"></a>Metadados de federação
 O Azure Active Directory (Azure AD) publica um documento de metadados federados para serviços que são configurados para aceitar os tokens de segurança que o Azure AD emite. O formato de documento de metadados federados é descrito no [Web Services Federation Language (WS-Federation) Version 1.2](http://docs.oasis-open.org/wsfed/federation/v1.2/os/ws-federation-1.2-spec-os.html), que se estende para [Metadata for the OASIS Security Assertion Markup Language (SAML) v2.0](http://docs.oasis-open.org/security/saml/v2.0/saml-metadata-2.0-os.pdf).
@@ -158,4 +156,3 @@ Da mesma forma, os pontos de extremidade para os pontos de extremidade de protoc
     <SingleSignOnService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect" Location="https://login.microsoftonline.com/common/saml2" />
   </IDPSSODescriptor>
 ```
-

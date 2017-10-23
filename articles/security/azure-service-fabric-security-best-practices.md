@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: 5f02b6be1fde4026057000bed4e8014cb56ccf9a
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Melhores práticas de segurança do Azure Service Fabric
 Implantar um aplicativo no Azure é rápido, fácil e econômico. Antes de implantar seu aplicativo na nuvem em produção, examine a nossa lista de melhores práticas recomendadas e essenciais para a implementação de clusters seguros no seu aplicativo.
@@ -186,4 +185,3 @@ O Azure Service Fabric dá suporte a dois tipos de controle de acesso diferentes
 ## <a name="next-steps"></a>Próximas etapas
 - Configurar o [ambiente de desenvolvimento](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started) do Service Fabric.
 - Saiba mais sobre as [opções de suporte do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-support).
-

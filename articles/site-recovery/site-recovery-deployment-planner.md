@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 08/28/2017
 ms.author: nisoneji
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: 60b0641076c2fa8ed2feb5c64e7b119519f46cf4
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-site-recovery-deployment-planner"></a>Planejador de implantação do Azure Site Recovery
 Este artigo é o guia do usuário do Planejador de Implantação do Azure Site Recovery para implantações de produção do VMware para o Azure.
@@ -612,4 +611,3 @@ A visualização pública do Planejador de Implantação 1.0 do Azure Site Recov
 * A ferramenta funciona apenas para os cenários do VMware para o Azure, não para implantações do Hyper-V para o Azure. Para o cenário de Hyper-v para o Azure, use a [ferramenta de planejador de capacidade do Hyper-V](./site-recovery-capacity-planning-for-hyper-v-replication.md).
 * Não há suporte para a operação GetThroughput nas regiões do Microsoft Azure do governo dos EUA e da China.
 * A ferramenta não poderá criar o de perfil VMs se o servidor vCenter tiver duas ou mais VMs com o mesmo nome ou endereço IP em vários hosts ESXi. Nesta versão, a ferramenta ignora a criação de perfil para nomes de VM ou endereços IP duplicados em VMListFile. A solução alternativa é criar um perfil das VMs usando um host ESXi em vez do servidor vCenter. Você deve executar uma instância de cada host ESXi.
-

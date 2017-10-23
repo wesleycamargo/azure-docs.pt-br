@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 3bbc9e9a22d962a6ee20ead05f728a2b706aee19
-ms.openlocfilehash: 6b0fd60e79308b75c3a2797ff25065b8a500a3b4
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/10/2017
-
+ms.openlocfilehash: bce5867017647764546d872d97943d5d4f01f2d2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-ad-federation-compatibility-list"></a>Lista de compatibilidade de federação do AD do Azure
 O Azure Active Directory fornece logon único e segurança aprimorada de acesso ao aplicativo para o Office 365 e outros serviços do Microsoft Online para implementações híbridas e apenas de nuvem, sem a necessidade de qualquer solução de terceiros. O Office 365, como a maioria dos serviços online da Microsoft, é integrado ao Azure Active Directory para autorização, autenticação e serviços de diretório. O Azure Active Directory também fornece logon único a milhares de aplicativos SaaS e aplicativos Web locais. Consulte a galeria de aplicativos do Azure Active Directory para aplicativos SaaS com suporte.
@@ -377,5 +376,4 @@ A seguir, a matriz de suporte de cenário para esta experiência de logon único
 | Clientes de email avançados, como o Outlook e o ActiveSync |Suportado |Nenhum |
 
 Para obter mais informações, consulte [VMware Workspace One](http://www.vmware.com/pdf/vidm-office365-saml.pdf)
-
 

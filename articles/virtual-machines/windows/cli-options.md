@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/14/2017
 ms.author: nepeters
-ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
 ms.openlocfilehash: 0ac4aa10db43fb84119ab97cf78b2d5592cfd277
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="using-the-azure-cli-on-windows"></a>Utilização da CLI do Azure no Windows
 
 A Interface de linha de comando (CLI) do Azure fornece um ambiente de script e linha de comando para criar e gerenciar recursos do Azure. A CLI do Azure está disponível para os sistemas operacionais macOS, Linux e Windows. Entre esses sistemas operacionais, os comandos da CLI são idênticos, mas a sintaxe de script específica do sistema operacional pode ser diferente.
@@ -65,4 +63,3 @@ Depois de concluído, uma sessão Bash pré-carregada com as ferramentas da CLI 
 [Amostras de CLI para aplicativos Web do Azure](../../app-service/app-service-cli-samples.md)
 
 [Amostras de CLI para Azure SQL](../../sql-database/sql-database-cli-samples.md)
-

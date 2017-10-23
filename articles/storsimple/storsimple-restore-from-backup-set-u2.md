@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 03/22/2017
 ms.author: alkohli
-translationtype: Human Translation
-ms.sourcegitcommit: abdbb9a43f6f01303844677d900d11d984150df0
 ms.openlocfilehash: 99b76e3bc2939c65654cbf606fda6f8a45e0c44b
-ms.lasthandoff: 04/21/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="restore-a-storsimple-volume-from-a-backup-set-update-2"></a>Restaurar um volume do StorSimple de um conjunto de backup (Atualização 2)
 [!INCLUDE [storsimple-version-selector-restore-from-backup](../../includes/storsimple-version-selector-restore-from-backup.md)]
@@ -53,7 +52,7 @@ Para dispositivos que estão executando a Atualização 4 ou posterior, uma rest
 O controle baseado em mapa de calor é habilitado somente para volumes com camadas, e não há suporte para volumes fixados localmente. Também não há suporte para a restauração baseada em mapa de calor ao clonar um volume para outro dispositivo. Se houver uma restauração local, e existir um instantâneo local para o volume a ser restaurado no dispositivo, não reidrataremos (pois os dados já estão disponíveis localmente). Por padrão, quando você restaura, os trabalhos de reidratação começam e reidratam proativamente os dados com base no mapa de calor. Na Atualização 4, os cmdlets do Windows PowerShell podem ser usados para consultar trabalhos reidratação em execução, cancelar um trabalho de reidratação e obter o status do trabalho de reidratação.
 
 * `Get-HcsRehydrationJob` - Este cmdlet obtém o status do trabalho de reidratação. Um único trabalho de reidratação é disparado para um volume.
-* `Set-HcsRehydrationJob` - Este cmdlet permite que você pause, interrompa, continue o trabalho de reidratação, quando a reidratação estiver em andamento.    
+* `Set-HcsRehydrationJob` - Este cmdlet permite que você pause, interrompa, continue o trabalho de reidratação, quando a reidratação estiver em andamento. 
 
 Para saber mais sobre como usar esse cmdlet, acesse [Referência de cmdlets do Windows PowerShell para StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
 
@@ -120,5 +119,4 @@ Para concluir a operação de restauração, coloque o volume offline no host e 
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba como [Gerenciar volumes do StorSimple](storsimple-manage-volumes-u2.md).
 * Saiba como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
-
 

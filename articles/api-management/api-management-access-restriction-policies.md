@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
+ms.openlocfilehash: a8bbe6c4f6919f150012163b0c7559d2986e072f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 07e5e15f4f4c4281a93c8c3267c0225b1d79af45
-ms.openlocfilehash: 70cccd5ac7fbea36f02150e3da319a043c22c677
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/31/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="api-management-access-restriction-policies"></a>Políticas de restrição de acesso do Gerenciamento de API
 Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -387,7 +386,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
     <!-- if there are multiple possible issuers, then add additional issuer elements -->  
   </issuers>  
   <required-claims>  
-    <claim name="name of the claim as it appears in the token" match="all|any">  
+    <claim name="name of the claim as it appears in the token" match="all|any" separator="separator character in a multi-valued claim">
       <value>claim value as it is expected to appear in the token</value>  
       <!-- if there is more than one allowed values, then add additional value elements -->  
     </claim>  
@@ -517,6 +516,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 |require-expiration-time|Booliano. Especifica se uma declaração de expiração é necessária no token.|Não|verdadeiro|
 |require-scheme|O nome do esquema do token, por exemplo, "Portador". Quando esse atributo for definido, a política garantirá que o esquema especificado esteja presente no valor do cabeçalho de Autorização.|Não|N/D|
 |require-signed-tokens|Booliano. Especifica se é necessário que um determinado token seja assinado.|Não|verdadeiro|  
+|separador|Cadeia de caracteres. Especifica um separador (por exemplo, ",") a ser usado para extrair um conjunto de valores de uma declaração com valores múltiplos.|Não|N/D| 
 |url|URL ponto de extremidade de configuração de Open ID da qual é possível obter os metadados de configuração de Open ID. Para o Azure Active Directory, use a seguinte URL: `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration` substituindo o seu nome de locatário do diretório, por exemplo, `contoso.onmicrosoft.com`.|Sim|N/D|  
   
 ### <a name="usage"></a>Uso  
@@ -528,4 +528,3 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre como trabalhar com políticas, veja [Políticas em Gerenciamento de API](api-management-howto-policies.md).  
-

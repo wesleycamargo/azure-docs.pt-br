@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 08/08/2017
 ms.author: davidmu
 ms.custom: mvc
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: 1d74ead08dfb63276afb08bdcb7f4e3e3db5bfd3
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-vm-in-azure"></a>Criar uma pilha MongoDB, Expresso, AngularJS e Node.js (MEAN) em uma VM do Linux no Azure
 
 Este tutorial mostra como implementar uma pilha MongoDB, Expresso, AngularJS e Node.js (MEAN) em uma VM do Linux no Azure. A pilha MEAN que será criada permite adição, exclusão e listagem de livros em um banco de dados. Você aprenderá como:
@@ -355,4 +353,3 @@ Vá para o próximo tutorial para saber como proteger servidores Web com certifi
 
 > [!div class="nextstepaction"]
 > [Proteger servidor Web com SSL](tutorial-secure-web-server.md)
-

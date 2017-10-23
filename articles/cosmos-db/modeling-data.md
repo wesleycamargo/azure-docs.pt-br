@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2016
 ms.author: arramac
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
 ms.openlocfilehash: 16c387fe574243544cf54cf283c7713ddcaa1942
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="modeling-document-data-for-nosql-databases"></a>Modelando dados de documentos para bancos de dados NoSQL
 Embora bancos de dados sem esquemas, como o Azure Cosmos DB, facilitem muito a adoção de mudanças em seu modelo de dados, ainda é recomendável dedicar algum tempo para considerar os dados. 
@@ -398,4 +396,3 @@ Assim como não há apenas uma forma de representar um dado em uma tela, não h�
 Para saber mais sobre o Azure Cosmos DB, consulte a página de [documentação](https://azure.microsoft.com/documentation/services/cosmos-db/) do serviço. 
 
 Para entender como fragmentar seus dados em várias partições, consulte [Particionando dados no Azure Cosmos DB](documentdb-partition-data.md). 
-

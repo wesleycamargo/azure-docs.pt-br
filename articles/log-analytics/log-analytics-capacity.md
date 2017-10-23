@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: banders
-ms.translationtype: HT
-ms.sourcegitcommit: 137671152878e6e1ee5ba398dd5267feefc435b7
 ms.openlocfilehash: 5ca005127721092b8efcf0ac83cc967ab15fe72d
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="plan-hyper-v-virtual-machine-capacity-with-the-capacity-and-performance-solution-preview"></a>Planeje a capacidade da máquina virtual do Hyper-V com a solução de capacidade e desempenho (visualização)
 
@@ -147,4 +146,3 @@ A tabela a seguir fornece as pesquisas de log de exemplo para dados de desempenh
 
 ## <a name="next-steps"></a>Próximas etapas
 * Use [pesquisas de log no Log Analytics](log-analytics-log-searches.md) para exibir dados detalhados de capacidade e desempenho.
-

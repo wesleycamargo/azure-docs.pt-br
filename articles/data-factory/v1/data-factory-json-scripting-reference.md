@@ -14,12 +14,11 @@ ms.topic: article
 ms.date: 07/10/2017
 ms.author: spelluru
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 2424aa2cd5b6c7935338a593fa25a6a5772f4e62
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-data-factory---json-scripting-reference"></a>Azure Data Factory - Referência de Script do JSON
 Este artigo fornece esquemas JSON e exemplos para definir entidades do Azure Data Factory (pipeline, atividade, conjunto de dados e serviço vinculado).  
@@ -218,7 +217,7 @@ Observe os seguintes pontos:
 
 * Na seção de atividades, há apenas uma atividade cujo **tipo** é definido como **HDInsightHive**.
 * O arquivo de script do Hive, **partitionweblogs.hql**, é armazenado na conta de armazenamento do Azure (especificada pelo scriptLinkedService chamado **AzureStorageLinkedService**) e na pasta **script** no contêiner **adfgetstarted**.
-* A seção **defines`${hiveconf:partitionedtable}` é usada para especificar as configurações de tempo de execução passadas para o script do hive como valores de configuração de Hive (por exemplo, **, `${hiveconf:inputtable}`).
+* A seção **defines`${hiveconf:partitionedtable}` é usada para especificar as configurações de tempo de execução passadas para o script do hive como valores de configuração de Hive (por exemplo,** , `${hiveconf:inputtable}`).
 
 Consulte [ATIVIDADES DE TRANSFORMAÇÃO DE DADOS](#data-transformation-activities) neste artigo para obter exemplos de JSON que definem atividades de transformação em um pipeline.
 
@@ -4819,8 +4818,7 @@ A tabela a seguir lista os ambientes de computação com suporte do Data Factory
 | --- | --- |
 | [Cluster HDInsight sob demanda](#on-demand-azure-hdinsight-cluster) ou [seu próprio cluster HDInsight](#existing-azure-hdinsight-cluster) |[Atividade personalizada de .NET](#net-custom-activity), [Atividade de Hive](#hdinsight-hive-activity), [Pig activity](#hdinsight-pig-activity, [Atividade de MapReduce](#hdinsight-mapreduce-activity), [Atividade de transmissão do Hadoop](#hdinsight-streaming-activityd), [Atividade do Spark](#hdinsight-spark-activity) |
 | [Lote do Azure](#azure-batch) |[Atividade personalizada do .NET](#net-custom-activity) |
-| 
-            [Azure Machine Learning](#azure-machine-learning) | [Atividade de Execução de Lote de Machine Learning](#machine-learning-batch-execution-activity), [Atividade de Atualização de Recursos de Machine Learning](#machine-learning-update-resource-activity) |
+| [Azure Machine Learning](#azure-machine-learning) | [Atividade de Execução de Lote de Machine Learning](#machine-learning-batch-execution-activity), [Atividade de Atualização de Recursos de Machine Learning](#machine-learning-update-resource-activity) |
 | [Análise Azure Data Lake](#azure-data-lake-analytics) |[U-SQL da Análise Data Lake](#data-lake-analytics-u-sql-activity) |
 | [Banco de Dados SQL do Azure](#azure-sql-database-1), [SQL Data Warehouse do Azure](#azure-sql-data-warehouse-1), [SQL Server](#sql-server-1) |[Procedimento armazenado](#stored-procedure-activity) |
 

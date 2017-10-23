@@ -14,18 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: garye
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: a8f1764204740a8f5ef757e5e2ad63cfd43af150
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="walkthrough-step-3-create-a-new-azure-machine-learning-experiment"></a>Passo a passo Etapa 3: Criar um novo teste de Azure Machine Learning
 Esta é a terceira etapa do passo a passo, [Desenvolver uma solução de análise preditiva com o Azure Machine Learning](walkthrough-develop-predictive-solution.md)
 
-1. 
-            [Criar um espaço de trabalho do Machine Learning](walkthrough-1-create-ml-workspace.md)
+1. [Criar um espaço de trabalho do Machine Learning](walkthrough-1-create-ml-workspace.md)
 2. [Carregar dados existentes](walkthrough-2-upload-data.md)
 3. **Criar um novo teste**
 4. [Treinar e avaliar os modelos](walkthrough-4-train-and-evaluate-models.md)
@@ -132,7 +130,7 @@ Podemos fazer essa replicação usando o código R:
 
 3. Clique duas vezes no módulo [Executar Script R][execute-r-script] e insira o comentário "Definir ajuste de custo".
 
-4. No painel **Propriedades**, exclua o texto padrão no parâmetro** Script R** e insira esse script:
+4. No painel **Propriedades**, exclua o texto padrão no parâmetro **Script R** e insira esse script:
    
        dataset1 <- maml.mapInputPort(1)
        data.set<-dataset1[dataset1[,21]==1,]
@@ -181,4 +179,3 @@ Para obter mais informações sobre como usar scripts R em seus testes, consulte
 [execute-r-script]: https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/
 [edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
 [split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-

@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 81549c4bc0cabcf46bc7dc66d7e6662d7f787b1e
-ms.openlocfilehash: df6353f84f898a1722e3e985244a90dbd6b22522
-ms.contentlocale: pt-br
-ms.lasthandoff: 01/26/2017
-
+ms.openlocfilehash: a5697686bd1f41d581554b27ce78897963e38c74
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="select-which-installation-type-to-use-for-azure-ad-connect"></a>Selecione o tipo de instalação para o Azure AD Connect
 O Azure AD Connect oferece dois tipos de instalação para uma nova instalação: Expressa e personalizado. Este tópico ajuda você a decidir qual opção usar durante a instalação.
@@ -74,4 +73,3 @@ Se você estiver usando o Forefront Identity Manager 2010 ou o Microsoft Identit
 
 ## <a name="next-steps"></a>Próximas etapas
 Dependendo da opção selecionada, use o índice à esquerda para localizar o artigo com as etapas detalhadas.
-

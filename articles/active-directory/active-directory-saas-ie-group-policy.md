@@ -15,12 +15,11 @@ ms.date: 08/02/2017
 ms.author: markvi
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
+ms.openlocfilehash: b402ae326ab34ec71ad9de966e22be00045fee3e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: cddb80997d29267db6873373e0a8609d54dd1576
-ms.openlocfilehash: 53ce95811bbeb306ae986fda91d3387db4e71998
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/18/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Como implantar a Extensão do Painel de Acesso no Internet Explorer usando a Política de Grupo
 Este tutorial mostra como usar a política de grupo para instalar remotamente a extensão do Painel de Acesso para o Internet Explorer nos computadores dos usuários. Essa extensão é necessária para os usuários do Internet Explorer que precisam entrar em aplicativos configurados usando o [logon único baseado em senha](active-directory-appssoaccess-whatis.md#password-based-single-sign-on).
@@ -165,5 +164,4 @@ Siga as etapas abaixo para verificar se a implantação da extensão obteve êxi
 * [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)
 * [Acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md)
 * [Solucionando problemas da extensão do painel de acesso para o Internet Explorer](active-directory-saas-ie-troubleshooting.md)
-
 

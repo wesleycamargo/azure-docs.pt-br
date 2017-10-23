@@ -15,13 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/24/2017
 ms.author: jdial;annahar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 7c93a02f7a290aab3d451da72dabd431f9d40b0c
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
-
-
+ms.openlocfilehash: 29f64aeefc2a7deb1f84d759c2323347536b9c27
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-powershell"></a>Atribuir vários endereços IP a máquinas virtuais usando o PowerShell
 
@@ -268,7 +266,7 @@ Você pode adicionar endereços IP públicos e privados a um NIC executando as e
         -AllocationMethod Static
         ```
 
-         Para criar uma nova configuração de IP com um endereço IP privado estático e o recurso de endereço IP público *myPublicIp3* associado, insira o seguinte comando:
+        Para criar uma nova configuração de IP com um endereço IP privado estático e o recurso de endereço IP público *myPublicIp3* associado, insira o seguinte comando:
 
         ```powershell
         Add-AzureRmNetworkInterfaceIpConfig `
@@ -289,7 +287,7 @@ Você pode adicionar endereços IP públicos e privados a um NIC executando as e
 
         Você verá uma saída semelhante ao seguinte:
 
-        ```        
+        ```     
         Name       PrivateIpAddress PublicIpAddress                                           Primary
         
         IPConfig-1 10.0.0.4         Microsoft.Azure.Commands.Network.Models.PSPublicIpAddress    True
@@ -330,4 +328,3 @@ Você pode adicionar endereços IP públicos e privados a um NIC executando as e
 8. Adicione o endereço IP privado ao sistema operacional da VM executando as etapas para seu sistema operacional na seção [Adicionar endereços IP ao sistema operacional de uma VM](#os-config) deste artigo. Não adicione o endereço IP público ao sistema operacional.
 
 [!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]
-

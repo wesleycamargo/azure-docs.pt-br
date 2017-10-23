@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 4/6/2017
 ms.author: tedway; neerajkh
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: e4941ccf8c6d7a0c77527e9c1d722bc3a770114a
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="multi-geo-help-documentation"></a>Documentação da Ajuda para diversas áreas geográficas
 Este artigo descreve como você pode criar um espaço de trabalho e publicar um serviço Web em diferentes regiões do Azure.  A página [Produtos do Azure por região](https://azure.microsoft.com/en-us/regions/services/) lista regiões em que o Azure Machine Learning está disponível.
@@ -46,7 +45,7 @@ Para gerenciar os serviços Web de forma programática, como um novo treinamento
 * https://europewest.management.azureml.net
 
 ### <a name="things-to-note"></a>Elementos a serem observados
-1. Dessa maneira, você só pode copiar experimentos entre espaços de trabalho que pertençam à mesma região. Se precisar copiar experimentos entre espaços de trabalho em regiões diferentes, você poderá usar o cmdlet do [PowerShell](http://aka.ms/amlps), [*Copy-AmlExperiment *](https://github.com/hning86/azuremlps/blob/master/README.md#copy-amlexperiment) para fazer isso. Outra solução alternativa é publicar o experimento na Galeria no modo não listado e depois abri-lo no espaço de trabalho da outra região.
+1. Dessa maneira, você só pode copiar experimentos entre espaços de trabalho que pertençam à mesma região. Se precisar copiar experimentos entre espaços de trabalho em regiões diferentes, você poderá usar o cmdlet do [PowerShell](http://aka.ms/amlps), [*Copy-AmlExperiment* ](https://github.com/hning86/azuremlps/blob/master/README.md#copy-amlexperiment) para fazer isso. Outra solução alternativa é publicar o experimento na Galeria no modo não listado e depois abri-lo no espaço de trabalho da outra região.
 2. O seletor de região mostrará apenas os espaços de trabalho para uma região por vez.  
 3. Um espaço de trabalho livre ou de acesso de convidado (anônimo) será criado e hospedado no Centro-Sul dos EUA  
 4. Os serviços Web implantados por meio de um espaço de trabalho no Sudeste Asiático também serão hospedados no Sudeste Asiático.  
@@ -59,4 +58,3 @@ Fazer uma pergunta no [fórum de Azure Machine Learning](https://social.msdn.mic
 [2]: ./media/multi-geo/multi-geo_2.png
 [3]: ./media/multi-geo/multi-geo_3.png
 [4a]: ./media/multi-geo/multi-geo_4a.png
-

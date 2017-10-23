@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/02/2017
 ms.author: msfussell;mikhegn
-ms.translationtype: Human Translation
-ms.sourcegitcommit: b1d56fcfb472e5eae9d2f01a820f72f8eab9ef08
-ms.openlocfilehash: b71723034e5f663986c49481072bfd6779d3d57b
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/06/2017
-
-
+ms.openlocfilehash: 53614d4d2e3101e8ea0bfa6a29256cc817055843
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-multiple-guest-executables"></a>Implantar vários executáveis de convidado
 Este artigo mostra como empacotar e implantar vários executáveis de convidado no Azure Service Fabric. Para criar e implantar um pacote de Service Fabric único, leia como [implantar um executável de convidado no Service Fabric](service-fabric-deploy-existing-app.md).
@@ -74,7 +72,7 @@ Veja a seguir uma descrição dos parâmetros que estão sendo usados:
 * **/target** : define o diretório no qual o pacote deve ser criado. Esse diretório deve ser diferente do diretório de origem.
 * **/appname** : define o nome do aplicativo existente. É importante entender que isso significa o nome do serviço no manifesto, e não o nome do aplicativo do Service Fabric.
 * **/exe** define o arquivo executável que o Service Fabric deve iniciar, neste caso `node.exe`.
-* **/ma** : define o argumento usado para iniciar o arquivo executável. Como o Node.js não está instalado, o Service Fabric precisa iniciar o servidor Web do Node.js executando `node.exe bin/www`.  `/ma:'bin/www'` diz à ferramenta de empacotamento para usar `bin/ma` como argumento para node.exe.
+* **/ma** : define o argumento usado para iniciar o arquivo executável. Como o Node.js não está instalado, o Service Fabric precisa iniciar o servidor Web do Node.js executando `node.exe bin/www`.  `/ma:'bin/www'` diz à ferramenta de empacotamento para usar `bin/www` como argumento para node.exe.
 * **/AppType** : define o nome do tipo de aplicativo do Service Fabric.
 
 Se você navegar até o diretório especificado no parâmetro /target, será possível ver que a ferramenta criou um pacote totalmente funcional do Service Fabric, como mostrado abaixo:
@@ -220,4 +218,3 @@ Para adicionar outro serviço a um aplicativo já criado usando `yo`, execute as
 * Saiba mais sobre como implantar contêineres com a [Visão geral de contêineres e do Service Fabric](service-fabric-containers-overview.md)
 * [Exemplo de empacotamento e implantação de um executável convidado](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
 * [Exemplo de dois executáveis convidados (C# e nodejs) se comunicando por meio do Serviço de nomenclatura usando REST](https://github.com/Azure-Samples/service-fabric-dotnet-containers)
-

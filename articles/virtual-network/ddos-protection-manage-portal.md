@@ -15,18 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/22/2017
 ms.author: kumud
+ms.openlocfilehash: 5c599b4cc867dbc9a081af3a081195b998f63954
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 2b55341a9d5107376557147913f4fb6cb3966bae
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="manage-azure-ddos-protection-standard-using-the-azure-portal"></a>Gerenciar a Proteção contra DDoS do Azure Standard usando o Portal do Azure
 
 >[!IMPORTANT]
->A Proteção contra DDoS do Azure Standard (Proteção contra DDoS) está atualmente em versão prévia. O suporte à Proteção contra DDoS só é dado por um número limitado de recursos do Azure e em um número seleto de regiões. Você precisa [registrar-se para o serviço](http://aka.ms/ddosprotection) durante a versão prévia limitada para habilitar a Proteção contra DDoS para a sua assinatura. Você é contatado pela equipe de DDoS do Azure após o registro para lhe orientar durante o processo de habilitação. A Proteção contra DDoS está disponível nas regiões Leste dos EUA, Oeste dos EUA e Centro dos EUA. Durante a versão prévia, você não será cobrado pelo uso do serviço.
+>A Proteção contra DDoS do Azure Standard (Proteção contra DDoS) está atualmente em versão prévia. O suporte à Proteção contra DDoS só é dado por um número limitado de recursos do Azure e em um número seleto de regiões. Você precisa [registrar-se para o serviço](http://aka.ms/ddosprotection) durante a versão prévia limitada para habilitar a Proteção contra DDoS para a sua assinatura. Você é contatado pela equipe de DDoS do Azure após o registro para lhe orientar durante o processo de habilitação. A Proteção contra DDoS está disponível nas regiões Leste dos EUA, Oeste dos EUA e Centro-oeste dos EUA. Durante a versão prévia, você não será cobrado pelo uso do serviço.
 
 Este artigo lhe mostra como usar o Portal do Azure para habilitar a Proteção contra DDoS, como desabilitá-la e como usar a telemetria para mitigar um ataque. 
 

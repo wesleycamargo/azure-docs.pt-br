@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef1e603ea7759af76db595d95171cdbe1c995598
 ms.openlocfilehash: e7b36b692ad2a8bc3a3f5203d93882af96fd2109
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/16/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-yardi-elearning"></a>Tutorial: integração do Azure Active Directory ao Yardi eLearning
 
@@ -229,5 +227,4 @@ Quando você clicar no bloco Yardi eLearning no Painel de Acesso, deverá fazer 
 [201]: ./media/active-directory-saas-yardielearning-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-yardielearning-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-yardielearning-tutorial/tutorial_general_203.png
-
 

@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: cynthn
+ms.openlocfilehash: 7f26f357268d6a3190557b7099ef07c7ef805119
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 54afcf1e37f696979bfe270a473c72aedf20dc43
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="convert-a-windows-virtual-machine-from-unmanaged-disks-to-managed-disks"></a>Converter uma máquina virtual do Windows de discos não gerenciados em Managed Disks
 
 Se você tiver VMs (máquinas virtuais) do Windows existentes que usam discos não gerenciados, será possível converter as VMs para usar Managed Disks por meio do serviço [Azure Managed Disks](managed-disks-overview.md). Esse processo converte o disco do sistema operacional e os discos de dados anexados.
@@ -44,7 +42,7 @@ Esta seção aborda como converter suas VMs de instância única do Azure de dis
 
 1. Desaloque a VM usando o cmdlet [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm). O seguinte exemplo desaloca a VM `myVM` no grupo de recursos chamado `myResourceGroup`: 
 
-  ```powershell
+  ```azurepowershell-interactive
   $rgName = "myResourceGroup"
   $vmName = "myVM"
   Stop-AzureRmVM -ResourceGroupName $rgName -Name $vmName -Force
@@ -52,13 +50,13 @@ Esta seção aborda como converter suas VMs de instância única do Azure de dis
 
 2. Converter a VM em Managed Disks usando o cmdlet [ConvertTo-AzureRmVMManagedDisk](/powershell/module/azurerm.compute/convertto-azurermvmmanageddisk). O processo a seguir converte a VM anterior incluindo o disco do sistema operacional e eventuais discos de dados:
 
-  ```powershell
+  ```azurepowershell-interactive
   ConvertTo-AzureRmVMManagedDisk -ResourceGroupName $rgName -VMName $vmName
   ```
 
 3. Inicie a VM após a conversão em Managed Disks usando [Start-AzureRmVM](/powershell/module/azurerm.compute/start-azurermvm). O exemplo a seguir reinicia a VM anterior:
 
-  ```powershell
+  ```azurepowershell-interactive
   Start-AzureRmVM -ResourceGroupName $rgName -Name $vmName
   ```
 
@@ -69,7 +67,7 @@ Se as VMs que você deseja converter em discos gerenciados estão em um conjunto
 
 1. Converter o conjunto de disponibilidade usando o cmdlet [Update-AzureRmAvailabilitySet](/powershell/module/azurerm.compute/update-azurermavailabilityset). O exemplo a seguir atualiza o conjunto de disponibilidade nomeado `myAvailabilitySet` no grupo de recursos nomeado`myResourceGroup`:
 
-  ```powershell
+  ```azurepowershell-interactive
   $rgName = 'myResourceGroup'
   $avSetName = 'myAvailabilitySet'
 
@@ -79,14 +77,14 @@ Se as VMs que você deseja converter em discos gerenciados estão em um conjunto
 
   Se a região em que o conjunto de disponibilidade está localizado tem apenas 2 domínios de falha gerenciados, mas o número de domínios de falha não gerenciado é 3, este comando mostra um erro semelhante a "O total de domínio de falha especificado é 3 e deve estar no intervalo de 1 a 2". Para resolver o erro, atualize o domínio de falha para 2 e atualize `Sku` para `Aligned` da seguinte maneira:
 
-  ```powershell
+  ```azurepowershell-interactive
   $avSet.PlatformFaultDomainCount = 2
   Update-AzureRmAvailabilitySet -AvailabilitySet $avSet -Sku Aligned
   ```
 
 2. Desaloque e converta as VMs no conjunto de disponibilidade. O script a seguir desaloca cada VM usando o cmdlet [Stop-AzureRmVM](/powershell/module/azurerm.compute/stop-azurermvm), converte-a usando [ConvertTo-AzureRmVMManagedDisk](/powershell/module/azurerm.compute/convertto-azurermvmmanageddisk) e a reinicia usando [Start-AzureRmVM](/powershell/module/azurerm.compute/start-azurermvm):
 
-  ```powershell
+  ```azurepowershell-interactive
   $avSet = Get-AzureRmAvailabilitySet -ResourceGroupName $rgName -Name $avSetName
 
   foreach($vmInfo in $avSet.VirtualMachinesReferences)
@@ -109,5 +107,4 @@ Se houver um erro durante a conversão ou se uma VM estiver em um estado de falh
 [Converter Managed Disks padrão em premium](convert-disk-storage.md)
 
 Faça uma cópia somente leitura de uma VM usando [instantâneos](snapshot-copy-managed-disk.md).
-
 

@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2017
 ms.author: rodend;karlku;tomfitz
-ms.translationtype: HT
-ms.sourcegitcommit: f76de4efe3d4328a37f86f986287092c808ea537
 ms.openlocfilehash: 3a19f2cf7566f38f80639d7c966638a3ec900cf4
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/11/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-enterprise-scaffold---prescriptive-subscription-governance"></a>Andaime empresarial do Azure — governança de assinatura prescritiva
 As empresas estão adotando cada vez mais a nuvem pública em busca de agilidade e flexibilidade. Elas estão usando os pontos fortes da nuvem para gerar receita ou otimizar recursos para os negócios. O Microsoft Azure fornece uma variedade de serviços que as empresas podem montar como blocos de construção para atender a uma ampla gama de aplicativos e cargas de trabalho. 
@@ -256,5 +254,4 @@ A [Central de Segurança do Azure](../security-center/security-center-intro.md) 
 
 ## <a name="next-steps"></a>Próximas etapas
 * Agora que você aprendeu sobre governança de assinatura, é hora de ver essas recomendações na prática. Veja [Exemplos de implementação da governança de assinatura do Azure](resource-manager-subscription-examples.md).
-
 

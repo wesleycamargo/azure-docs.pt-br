@@ -15,12 +15,11 @@ ms.workload: na
 ms.date: 07/14/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 49bc337dac9d3372da188afc3fa7dff8e907c905
 ms.openlocfilehash: ba3637a3a8b15b45c16bf5a00c1f4225bcfc5af8
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-the-storsimple-manager-service-in-the-azure-classic-portal"></a>Implantar o serviço StorSimple Manager no portal clássico do Azure
 
@@ -102,4 +101,3 @@ Execute as etapas a seguir para regenerar uma chave de registro de serviço.
 * Saiba mais sobre o [processo de implantação do StorSimple](storsimple-deployment-walkthrough-u2.md).
 * [Saiba mais sobre como gerenciar sua conta de armazenamento do StorSimple](storsimple-manage-storage-accounts.md).
 * Saiba mais sobre como [usar o serviço StorSimple Manager para administrar seu dispositivo StorSimple](storsimple-manager-service-administration.md).
-

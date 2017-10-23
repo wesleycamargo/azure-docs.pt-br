@@ -15,13 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/10/2017
 ms.author: carlrab
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 95b8c100246815f72570d898b4a5555e6196a1a0
-ms.openlocfilehash: 61d62cde5311c8e447acf8890e0a32339585bb42
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/18/2017
-
-
+ms.openlocfilehash: 3e43494721f03ce8e56cb069638ad24df7222386
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="daxkocsi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services-and-performance"></a>Daxko/CSI usou o Azure para acelerar o ciclo de desenvolvimento e aprimorar o serviço de atendimento ao cliente e o desempenho
 ![Logotipo da CSI/Daxko](./media/sql-database-implementation-daxko/csidaxkologo25.png)
@@ -96,5 +94,4 @@ O Banco de Dados SQL do Azure não é apenas uma dádiva para os clientes do Spe
 * Para saber mais sobre funções web e funções de trabalho, confira [funções de trabalho](../fundamentals-introduction-to-azure.md#compute).    
 * Para saber mais sobre o Barramento de Serviço, confira [Barramento de Serviço do Azure](https://azure.microsoft.com/services/service-bus/).
 * Para saber mais sobre dimensionamento automático, confira o artigo sobre o [dimensionamento de serviços de nuvem](../cloud-services/cloud-services-how-to-scale.md).
-
 

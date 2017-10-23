@@ -14,14 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/02/2017
 ms.author: antisch
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: 73d93622d418359be421e043d0af4e4befc6f4b4
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="running-jobs-on-azure-batch-with-azure-cli"></a>Executar trabalhos no Lote do Azure com a CLI do Azure
 
 Esse script cria um trabalho no Lote e adiciona uma série de tarefas ao trabalho. Ele também demonstra como monitorar um trabalho e suas tarefas. Por fim, ele mostra como consultar o serviço de lote com eficiência para obter informações sobre tarefas do trabalho.
@@ -35,7 +33,7 @@ Esse script cria um trabalho no Lote e adiciona uma série de tarefas ao trabalh
 
 ## <a name="sample-script"></a>Script de exemplo
 
-[!code-azurecli[principal](../../../cli_scripts/batch/run-job/run-job.sh "Executar trabalhos")]
+[!code-azurecli[main](../../../cli_scripts/batch/run-job/run-job.sh "Run Job")]
 
 ## <a name="clean-up-job"></a>Trabalho de limpeza
 
@@ -64,4 +62,3 @@ Esse script usa os seguintes comandos para criar um trabalho do Lote e suas tare
 Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
 
 As amostras de script da CLI do Lote adicionais podem ser encontrados na [documentação do Lote do Azure](../batch-cli-samples.md).
-

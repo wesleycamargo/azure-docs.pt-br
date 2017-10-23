@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
 ms.author: v-jeana; hascipio; v-dabosl
-ms.translationtype: Human Translation
-ms.sourcegitcommit: dcda8b30adde930ab373a087d6955b900365c4cc
-ms.openlocfilehash: 11b5fb0ed1b3939d8278156fcf2c831befc5f7ff
-ms.contentlocale: pt-br
-ms.lasthandoff: 12/08/2016
-
-
+ms.openlocfilehash: dcd87ae977d5b4b4a2353e446ab89ac81b239195
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-troubleshoot-common-azure-marketplace-publisher-issues"></a>Como solucionar problemas comuns de editora do Azure Marketplace
 Este artigo explica como resolver ou obter suporte para alguns cenários comuns do Marketplace.
@@ -123,4 +121,3 @@ Para os problemas a seguir, crie uma solicitação de suporte em [http://go.micr
 [6]: ./media/marketplace-publishing-support-common-issues/protectacct.png
 [7]: ./media/marketplace-publishing-support-common-issues/acctdetails.png
 [8]: ./media/marketplace-publishing-support-common-issues/manageadmins.png
-

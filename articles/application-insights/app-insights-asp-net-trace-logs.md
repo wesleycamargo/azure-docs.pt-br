@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: bwren
+ms.openlocfilehash: 21e4ae78653977efc7a47f984bc309afac870a59
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: ce0189706a3493908422df948c4fe5329ea61a32
-ms.openlocfilehash: 91ffe6fa182f0d5e4294031787b853c33ea460df
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/05/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="explore-net-trace-logs-in-application-insights"></a>Explorar os logs de rastreamento do .NET no Application Insights
 Se você usar NLog, log4Net ou System.Diagnostics.Trace para o rastreamento de diagnóstico em seu aplicativo ASP.NET, os logs poderão ser enviados ao [Azure Application Insights][start], onde será possível explorá-los e pesquisá-los. Os logs serão mesclados à outra telemetria proveniente de seu aplicativo para que você possa identificar os rastreamentos associados ao atendimento de cada solicitação de usuário e correlacioná-los com outros relatórios de eventos e exceções.
@@ -213,4 +212,3 @@ Se o aplicativo enviar muitos dados e se você estiver usando o SDK do Applicati
 [portal]: https://portal.azure.com/
 [qna]: app-insights-troubleshoot-faq.md
 [start]: app-insights-overview.md
-

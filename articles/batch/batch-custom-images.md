@@ -8,14 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: tamram
+ms.openlocfilehash: 0816c464b6b52747148cc42a55445048901e7595
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 3d655766b4f2a5efb0c8c29ffa81a89f84b3e17c
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="use-a-custom-image-to-create-a-pool-of-virtual-machines"></a>Usar uma imagem personalizada para criar um pool de máquinas virtuais
 
 Quando cria um pool de máquinas virtuais no Lote do Azure, você especifica uma imagem de VM (máquina virtual) que fornece o sistema operacional para cada nó de computação no pool. Você pode criar um pool de máquinas virtuais usando uma imagem do Azure Marketplace ou fornecendo uma imagem de VHD personalizada que você preparou. Quando você fornece uma imagem personalizada, você tem controle sobre como o sistema operacional é configurado no momento em que cada nó de computação é provisionado. Sua imagem personalizada também pode incluir aplicativos e dados de referência que estão disponíveis no nó de computação, assim que ela é provisionada.
@@ -31,7 +29,7 @@ Alguns motivos para usar uma imagem personalizada configurada para seu cenário 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- **Uma conta do Lote criada com o modo de alocação de pools de Assinatura de Usuário.** Para usar uma imagem personalizada e provisionar os pools de Máquina Virtual, crie sua conta do Lote com o [modo de alocação de pools](batch-api-basics.md#pool-allocation-mode) de Assinatura de Usuário. Com esse modo, os pools do Lote são alocados para a assinatura onde reside a conta. Confira a seção [Conta](batch-api-basics.md#account) em [Desenvolver soluções de computação paralela em larga escala com o Lote](batch-api-basics.md) para saber mais sobre como definir o modo de alocação de pool ao criar uma conta do Lote.
+- **Uma conta do Lote criada com o modo de alocação de pools de Assinatura de Usuário.** Com esse modo, os pools do Lote são alocados para a assinatura onde reside a conta. Veja a seção [Conta](batch-api-basics.md#account) em [Desenvolver soluções de computação paralela em grande escala com o Lote](batch-api-basics.md) para obter mais informações.
 
 - **Uma conta de Armazenamento do Azure.** Para criar um pool de máquinas virtuais usando uma imagem personalizada, você precisa de uma conta padrão de uso geral do Armazenamento do Azure na mesma assinatura e região. Se criar uma imagem personalizada de uma VM do Azure, você copiará a imagem para a conta de armazenamento em que o disco do SO da VM reside e não será necessário criar uma conta de armazenamento separada. 
     

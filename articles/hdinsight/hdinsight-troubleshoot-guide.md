@@ -12,15 +12,12 @@ ms.devlang: na
 ms.topic: landing - page
 ms.date: 7/06/2017
 ms.author: arijitt
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: f246c6d1355220314a2f56aa91634625ec352c69
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
-
 # <a name="troubleshoot-by-using-azure-hdinsight"></a>Solucionar problemas usando o Azure HDInsight
 
 | Carga de trabalho do Apache | Principais perguntas |
@@ -38,6 +35,5 @@ ms.lasthandoff: 08/23/2017
 | --- | --- |
 | HDInsight no Linux e otimização | - [Informações sobre o uso do HDInsight no Linux](hdinsight-hadoop-linux-information.md)<br>- [Solução de problemas de desempenho e memória do Hadoop](hdinsight-hadoop-stack-trace-error-messages.md)<br>- [Desempenho de consulta de Hive](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/) |
 | Logs e despejos de memória | - [Acesso aos logs de aplicativo Hadoop YARN no Linux](hdinsight-hadoop-access-yarn-app-logs-linux.md)<br>- [Habilitar despejos de heap para serviços Hadoop no Linux](hdinsight-hadoop-collect-debug-heap-dump-linux.md)<br>- [Analisar logs do HDInsight](hdinsight-debug-jobs.md)|
-| Erros | - [Entenda e resolva erros do WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md)<br>- [Configurações de Hive para corrigir o erro OutofMemory](hdinsight-hadoop-hive-out-of-memory-error-oom.md) |
+| Errors | - [Entenda e resolva erros do WebHCat](hdinsight-hadoop-templeton-webhcat-debug-errors.md)<br>- [Configurações de Hive para corrigir o erro OutofMemory](hdinsight-hadoop-hive-out-of-memory-error-oom.md) |
 | Ferramentas | - [Usar Exibições do Ambari para depurar trabalhos do Tez](hdinsight-debug-ambari-tez-view.md)<br>- [Otimizar consultas de Hive](hdinsight-hadoop-optimize-hive-query.md) |
-

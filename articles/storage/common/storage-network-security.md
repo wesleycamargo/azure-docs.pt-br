@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 09/25/2017
 ms.author: cbrooks
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: de52e9cb32e28d2f40a56743ed759b5d5d0a63f0
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>Configurar redes virtuais e firewalls de armazenamento do Azure (versão prévia)
 O Armazenamento do Azure fornece um modelo de segurança em camadas, permitindo que você proteja suas contas de armazenamento para um conjunto específico de redes permitidas.  Quando as regras de rede são configuradas, somente aplicativos das redes permitidas podem acessar uma conta de armazenamento.  Ao chamar de uma rede permitida, os aplicativos continuam a exigir a autorização apropriada (uma chave de acesso ou token SAS válido) para acessar a conta de armazenamento.
@@ -367,4 +366,3 @@ az storage account update --resource-group "myresourcegroup" --name "mystorageac
 Saiba mais sobre os Pontos de Extremidade do Serviço de Rede do Azure em [Pontos de Extremidade de Serviço](/azure/virtual-network/virtual-network-service-endpoints-overview).
 
 Aprofunde-se na segurança do Armazenamento do Azure no [Guia de segurança do Armazenamento do Azure](storage-security-guide.md).
-

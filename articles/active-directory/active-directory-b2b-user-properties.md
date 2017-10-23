@@ -15,15 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/25/2017
 ms.author: sasubram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 67ee6932f417194d6d9ee1e18bb716f02cf7605d
 ms.openlocfilehash: 6e49cb202ed03bf50fb9ca34d34924cda434829c
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/26/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Propriedades de um usuário de colaboração B2B do Azure Active Directory
 
 Um usuário de colaboração entre empresas (B2B) do Azure Active Directory (AD do Azure) é um usuário com UserType = Convidado. Normalmente, esse usuário convidado representa uma organização parceira e, por padrão, tem privilégios limitados no diretório que convida.
@@ -108,4 +105,3 @@ Procure nossos outros artigos sobre a colaboração B2B do AD do Azure:
 * [Mapeamento de declarações de usuário de colaboração B2B](active-directory-b2b-claims-mapping.md)
 * [Compartilhamento externo do Office 365](active-directory-b2b-o365-external-user.md)
 * [Limitações atuais da colaboração B2B](active-directory-b2b-current-limitations.md)
-

@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 125f05f5dce5a0e4127348de5b280f06c3491d84
-ms.openlocfilehash: 0ee19b46a0e882571f6193471be69fa097d98936
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/22/2017
-
+ms.openlocfilehash: f51fa4639aaa60686cc349683713c6e5f9732bb9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>Separação da telemetria de desenvolvimento, teste e produção
 
@@ -161,4 +160,3 @@ Se usar o Visual Studio Team Services, você poderá [obter um marcador de anota
 
 * [Recursos compartilhados para várias funções](app-insights-monitor-multi-role-apps.md)
 * [Criar um Inicializador de Telemetria para distinguir variantes A | B](app-insights-api-filtering-sampling.md#add-properties)
-

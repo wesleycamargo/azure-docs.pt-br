@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 08/14/2017
 ms.author: shlo
 robots: noindex
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 578ccb162e91d3ec7befb53b09400fc49c5ba37a
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-case---product-recommendations"></a>Caso de uso - recomendações de produtos
 O Azure Data Factory é um dos muitos serviços usados para implementar o Cortana Intelligence Suite de aceleradores de solução.  Consulte a página [Cortana Intelligence Suite](http://www.microsoft.com/cortanaanalytics) para obter detalhes sobre este pacote. Neste documento, descrevemos um caso de uso comum que usuários do Azure já resolveram e implementaram usando o Azure Data Factory e outros serviços de componente do Cortana Intelligence.
@@ -60,5 +59,4 @@ Por fim, o conjunto de resultados de recomendações de produtos personalizadas 
 Ao otimizar sua estratégia de recomendação de produtos e alinhá-la com as metas de negócios, a solução atendeu aos objetivos de marketing e gerenciamento de mercadorias do revendedor online. Além disso, eles conseguiram operacionalizar e gerenciar o fluxo de trabalho de recomendação de produtos de maneira eficiente, confiável e econômica. A abordagem facilitou para que eles possam atualizar seus modelos e ajustar sua eficácia com base em medidas de vendas bem-sucedidas de conversão de clique. Usando o Azure Data Factory, eles conseguiram abandonar seu gerenciamento de recursos de nuvem manual dispendioso e demorado e passar a usar o gerenciamento de recursos de nuvem sob demanda. Portanto, eles conseguiram economizar tempo, dinheiro e reduzir o tempo para implantação de soluções. Tornou-se fácil visualizar e solucionar problemas nas exibições de linhagem de dados e integridade do serviço operacional com a interface de usuário intuitiva de monitoramento e gerenciamento do Data Factory, disponível no Portal do Azure. Sua solução agora pode ser agendada e gerenciada de modo que os dados concluídos sejam produzidos e entregues aos usuários de maneira confiável e que os dados em dependências de processamento sejam gerenciados automaticamente, sem intervenção humana.
 
 Ao fornecer essa experiência personalizada de compra, o revendedor online criou uma experiência de cliente mais competitiva, atraente e, consequentemente, haverá aumento da satisfação geral e das vendas.
-
 

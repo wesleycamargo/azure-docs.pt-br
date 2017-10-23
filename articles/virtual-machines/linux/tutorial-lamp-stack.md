@@ -15,12 +15,11 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 08/03/2017
 ms.author: danlep
+ms.openlocfilehash: c00e6a190633348411f47490808739d570cafd69
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 9148ac9646e4e1cfeff8f20c096e390499437e78
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="install-a-lamp-web-server-on-an-azure-vm"></a>Instalar um servidor Web LAMP em uma VM do Azure
 Este artigo explica como implantar um servidor Web Apache, MySQL e PHP (a pilha LAMP) em uma VM do Ubuntu no Azure. Se você prefere o servidor Web NGINX, consulte o tutorial da [Pilha LEMP](tutorial-lemp-stack.md). Para ver o servidor LAMP em ação, opcionalmente, você pode instalar e configurar um site de WordPress. Neste tutorial, você aprenderá a:
@@ -76,7 +75,7 @@ Com o Apache instalado e a porta 80 aberta para a sua VM, o servidor Web agora p
 Verifique a versão do MySQL com o seguinte comando (observe o parâmetro `V` em letra maiúscula):
 
 ```bash
-msql -V
+mysql -V
 ```
 
 É recomendável executar o seguinte script para ajudar a proteger a instalação do MySQL:

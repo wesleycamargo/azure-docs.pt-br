@@ -14,23 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 17c4dc6a72328b613f31407aff8b6c9eacd70d9a
-ms.openlocfilehash: fe7f508ed1c4eb57663f7e252d286719af03dbb1
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/16/2017
-
+ms.openlocfilehash: 63f69756b3933fecdec75cc677e1098447e5b94e
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-<a id="azure-ad-connect-sync-scheduler" class="xliff"></a>
-
-# Sincronização do Azure AD Connect: agendador
+# <a name="azure-ad-connect-sync-scheduler"></a>Sincronização do Azure AD Connect: agendador
 Este tópico descreve o agendador interno na sincronização do Azure AD Connect (também conhecido como mecanismo de sincronização).
 
 Esse recurso foi introduzido com a compilação 1.1.105.0 (lançada em fevereiro de 2016).
 
-<a id="overview" class="xliff"></a>
-
-## Visão geral
+## <a name="overview"></a>Visão geral
 A sincronização do Azure AD Connect sincroniza mudanças ocorridas em seu diretório local usando um agendador. Há dois processos de agendador, um para sincronização de senha e outro para sincronização de atributo/objeto e tarefas de manutenção. Este tópico aborda a última opção.
 
 Em versões anteriores, o agendador de objetos e atributos era separado do mecanismo de sincronização. Ele usava o agendador de tarefas do Windows ou um serviço do Windows separado para disparar o processo de sincronização. O agendador faz parte dos recursos internos nas versões 1.1 do mecanismo de sincronização e permite alguma personalização. A frequência de sincronização do novo padrão é de 30 minutos.
@@ -42,9 +37,7 @@ O agendador é responsável por duas tarefas:
 
 O agendador em si está sempre em execução, mas ele pode ser configurado para executar apenas uma ou nenhuma dessas tarefas. Por exemplo, se você precisar ter seu próprio processo de ciclo de sincronização, poderá desabilitar essa tarefa no agendador, mas ainda executar a tarefa de manutenção.
 
-<a id="scheduler-configuration" class="xliff"></a>
-
-## Configuração do agendador
+## <a name="scheduler-configuration"></a>Configuração do agendador
 Para ver as configurações atuais, acesse o PowerShell e execute `Get-ADSyncScheduler`. Ele mostra algo parecido com esta imagem:
 
 ![GetSyncScheduler](./media/active-directory-aadconnectsync-feature-scheduler/getsynccyclesettings2016.png)
@@ -74,9 +67,7 @@ Em builds anteriores do Azure AD Connect, **isStagingModeEnabled** era exposto e
 
 A configuração do agendador é armazenada no Azure AD. Se você tiver um servidor de preparo, uma alteração no servidor primário também afetará o servidor de preparo (exceto IsStagingModeEnabled).
 
-<a id="customizedsynccycleinterval" class="xliff"></a>
-
-### CustomizedSyncCycleInterval
+### <a name="customizedsynccycleinterval"></a>CustomizedSyncCycleInterval
 Sintaxe: `Set-ADSyncScheduler -CustomizedSyncCycleInterval d.HH:mm:ss`  
 d - dias, HH - horas, mm - minutos, ss - segundos
 
@@ -86,9 +77,7 @@ Altera o Agendador para executar a cada três horas.
 Exemplo: `Set-ADSyncScheduler -CustomizedSyncCycleInterval 1.0:0:0`  
 Altera o Agendador para executar diariamente.
 
-<a id="disable-the-scheduler" class="xliff"></a>
-
-### Desabilitar o agendador  
+### <a name="disable-the-scheduler"></a>Desabilitar o agendador  
 Se você precisar fazer alterações de configuração, talvez seja melhor desabilitar o agendador. Por exemplo, quando você [configura a filtragem](active-directory-aadconnectsync-configure-filtering.md) ou [faz alterações nas regras de sincronização](active-directory-aadconnectsync-change-the-configuration.md).
 
 Execute `Set-ADSyncScheduler -SyncCycleEnabled $false` para desabilitar o agendador.
@@ -97,9 +86,7 @@ Execute `Set-ADSyncScheduler -SyncCycleEnabled $false` para desabilitar o agenda
 
 Quando você fizer as alterações, não se esqueça de habilitar o agendador novamente com `Set-ADSyncScheduler -SyncCycleEnabled $true`.
 
-<a id="start-the-scheduler" class="xliff"></a>
-
-## Iniciar o agendador
+## <a name="start-the-scheduler"></a>Iniciar o agendador
 Por padrão, o agendador é executado a cada 30 minutos. Em alguns casos, é bom executar um ciclo de sincronização entre os ciclos agendados ou terá que executar um tipo diferente.
 
 **Ciclo de sincronização delta**  
@@ -126,9 +113,7 @@ Se você tiver realizado uma dessas alterações, precisará executar um ciclo d
 
 Para iniciar um ciclo de sincronização completo, execute `Start-ADSyncSyncCycle -PolicyType Initial` em um prompt do PowerShell. Esse comando inicia um ciclo de sincronização completa.
 
-<a id="stop-the-scheduler" class="xliff"></a>
-
-## Parar o agendador
+## <a name="stop-the-scheduler"></a>Parar o agendador
 Se o agendador estiver executando um ciclo de sincronização, talvez seja necessário interrompê-lo. Por exemplo, se você iniciar o assistente de instalação e receber este erro:
 
 ![SyncCycleRunningError](./media/active-directory-aadconnectsync-feature-scheduler/synccyclerunningerror.png)
@@ -141,16 +126,12 @@ Se um ciclo de sincronização estiver em execução, você não poderá alterar
 
 O agendador ainda está ativo e será iniciado novamente na próxima oportunidade.
 
-<a id="custom-scheduler" class="xliff"></a>
-
-## Agendador personalizado
+## <a name="custom-scheduler"></a>Agendador personalizado
 Os cmdlets documentados nesta seção só estão disponíveis no build [1.1.130.0](active-directory-aadconnect-version-history.md#111300) e posteriores.
 
 Se o agendador interno não atender às suas necessidades, você poderá fazer o agendamento dos Conectores usando o PowerShell.
 
-<a id="invoke-adsyncrunprofile" class="xliff"></a>
-
-### Invoke-ADSyncRunProfile
+### <a name="invoke-adsyncrunprofile"></a>Invoke-ADSyncRunProfile
 Você pode iniciar um perfil para um Conector desta forma:
 
 ```
@@ -174,9 +155,7 @@ Quando você agendar seus Conectores, a recomendação é agendá-los na seguint
 
 Essa ordem é como o agendador interno executa os conectores.
 
-<a id="get-adsyncconnectorrunstatus" class="xliff"></a>
-
-### Get-ADSyncConnectorRunStatus
+### <a name="get-adsyncconnectorrunstatus"></a>Get-ADSyncConnectorRunStatus
 Você também pode monitorar o mecanismo de sincronização para ver se ele está ocupado ou ocioso. Esse cmdlet retornará um resultado vazio se o mecanismo de sincronização estiver ocioso e não estiver executando um Conector. Se um Conector estiver em execução, ele retornará o nome do Conector.
 
 ```
@@ -186,15 +165,10 @@ Get-ADSyncConnectorRunStatus
 ![Status de execução do conector](./media/active-directory-aadconnectsync-feature-scheduler/getconnectorrunstatus.png)  
 Na imagem acima, a primeira linha é de um estado em que o mecanismo de sincronização está ocioso. A segunda linha é de quando o Conector do Azure AD está em execução.
 
-<a id="scheduler-and-installation-wizard" class="xliff"></a>
-
-## Agendador e o assistente de instalação
+## <a name="scheduler-and-installation-wizard"></a>Agendador e o assistente de instalação
 Se você iniciar o assistente de instalação, o agendador será temporariamente suspenso. Esse comportamento ocorre porque ele pressupõe que você fará alterações na configuração e as definições não poderão ser aplicadas se o mecanismo de sincronização estiver ativamente em execução. Por esse motivo, não deixe o assistente de instalação aberto, já que ele impede que o mecanismo de sincronização execute ações de sincronização.
 
-<a id="next-steps" class="xliff"></a>
-
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre a configuração de [sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md) .
 
 Saiba mais sobre [Como integrar suas identidades locais ao Active Directory do Azure](active-directory-aadconnect.md).
-

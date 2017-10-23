@@ -15,13 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: nepeters
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
 ms.openlocfilehash: cc3c705f1c9123de75ced016a5b39eb1a86b0f73
-ms.lasthandoff: 03/31/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="exporting-resource-groups-that-contain-vm-extensions"></a>Exportar Grupos de Recursos que contêm extensões de VM
 
 Os Grupos de Recursos do Azure podem ser exportados para um novo modelo do Resource Manager que, depois, pode ser reimplantado. O processo de exportação interpreta os recursos existentes e cria um modelo do Resource Manager que, quando implantado, resulta em um Grupo de Recursos semelhante. Ao usar a opção de exportação do Grupo de Recursos em um Grupo de Recursos que contém extensões da máquina virtual, vários itens devem ser considerados, como a compatibilidade da extensão e configurações protegidas.
@@ -165,4 +164,3 @@ No exemplo da extensão `IaasDiagnostic`, os parâmetros a seguir seriam criados
 ```
 
 Neste ponto, o modelo pode ser implantado usando qualquer método de implantação de modelo.
-

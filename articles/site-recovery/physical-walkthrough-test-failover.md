@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2017
 ms.author: raynew
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: 94aa3bfc700cad3de9fc5516c0c9a4d86ade3fed
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="step-11-run-a-test-failover-of-physical-servers-to-azure"></a>Etapa 11: Executar um failover de teste de servidores físicos para Azure
 
@@ -120,4 +119,3 @@ Lembre-se de que atualmente não é possível executar o failback do Azure para 
 ## <a name="next-steps"></a>Próximas etapas
 
 - [Executar failovers](site-recovery-failover.md) conforme necessário.
-

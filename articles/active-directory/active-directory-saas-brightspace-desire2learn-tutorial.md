@@ -13,13 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 31ecec607c78da2253fcf16b3638cc716ba3ab89
 ms.openlocfilehash: 7076b476ba71c5d94ae4728e5f6032b0d7e047ad
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/23/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-brightspace-by-desire2learn"></a>Tutorial: Integração do Active Directory do Azure ao Brightspace by Desire2Learn
 
@@ -118,7 +116,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     | `https://<companyname>.tenants.brightspace.com/samlLogin`|
     | `https://<companyname>.desire2learn.com/shibboleth-sp`|
 
-    b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão:  `https://<companyname>.desire2learn.com/d2l/lp/auth/login/samlLogin.d2l`
+    b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<companyname>.desire2learn.com/d2l/lp/auth/login/samlLogin.d2l`
 
     > [!NOTE] 
     > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais. Contate a [equipe de suporte do Brightspace by Desire2Learn](https://www.d2l.com/contact/) para obter esses valores.
@@ -234,5 +232,4 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 [201]: ./media/active-directory-saas-brightspace-desire2learn-tutorial/tutorial_general_201.png
 [202]: ./media/active-directory-saas-brightspace-desire2learn-tutorial/tutorial_general_202.png
 [203]: ./media/active-directory-saas-brightspace-desire2learn-tutorial/tutorial_general_203.png
-
 

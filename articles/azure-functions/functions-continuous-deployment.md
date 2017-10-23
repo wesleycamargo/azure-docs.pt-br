@@ -15,12 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/25/2016
 ms.author: glenga
-ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
 ms.openlocfilehash: 35a0b0faa61cf4b42ba1d8696c85f5724ff73f23
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/29/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Implantação contínua para Azure Functions
 As Funções do Azure facilitam a implantação do seu aplicativo de função utilizando a integração contínua do Serviço de Aplicativo. Funções integram BitBucket, Dropbox, GitHub e Visual Studio Team Services (VSTS). Isso permite que um fluxo de trabalho em que atualizações de código de função feitas utilizando um desses serviços integrados acione a implantação ao Azure. Se você for iniciante no Azure Functions, comece pela [Visão geral do Azure Functions](functions-overview.md).
@@ -153,4 +152,3 @@ Antes de baixar arquivos do aplicativo de funções com o FTP ou repositório Gi
 
 > [!div class="nextstepaction"]
 > [Práticas recomendadas para o Azure Functions](functions-best-practices.md)
-

@@ -15,14 +15,12 @@ ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 05/16/2017
 ms.author: gwallace
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 09f24fa2b55d298cfbbf3de71334de579fbf2ecd
 ms.openlocfilehash: c77def8906b151f2cc6e4bbc4188be8ecbeac732
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/07/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="load-balance-traffic-to-vms-for-high-availability"></a>Balancear o tráfego de VMs para alta disponibilidade
 
 Este exemplo de script cria todos os componentes necessários para executar várias máquinas virtuais do Windows com uma configuração de alta disponibilidade e com balanceamento de carga. Após a execução do script, você terá três máquinas virtuais, associadas a um Conjunto de Disponibilidade do Azure, e acessíveis por meio de um Azure Load Balancer.
@@ -33,7 +31,7 @@ Se necessário, instale o Azure PowerShell usando a instrução encontrada no [g
 
 ## <a name="sample-script"></a>Script de exemplo
 
-[!code-powershell[principal](../../../powershell_scripts/virtual-machine/create-vm-nlb/create-vm-nlb.ps1 "Criação rápida de VM")]
+[!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-nlb/create-vm-nlb.ps1 "Quick Create VM")]
 
 ## <a name="clean-up-deployment"></a>Limpar implantação 
 
@@ -69,5 +67,4 @@ Esse script usa os seguintes comandos para criar um grupo de recursos, uma máqu
 
 Para obter mais informações sobre o Azure PowerShell, confira [Documentação do Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview).
 
-Exemplos adicionais de script de PowerShell de rede podem ser encontrados na [Documentação de Visão Geral da Rede do Azure](../powershell-samples.md?toc=%2fazure%2fnetworking%2ftoc.json).
-
+Exemplos adicionais de script de PowerShell de rede podem ser encontrados na [Documentação de visão geral da rede do Azure](../powershell-samples.md?toc=%2fazure%2fnetworking%2ftoc.json).

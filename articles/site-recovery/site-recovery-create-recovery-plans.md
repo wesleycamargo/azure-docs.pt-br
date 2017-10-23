@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 07/23/2017
+ms.date: 09/25/2017
 ms.author: raynew
+ms.openlocfilehash: 81d8a6e3015ddc4241cce8e888d51d6e2b2cb173
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
-ms.openlocfilehash: 1b0d64cd592c4738311797b826e490639340f92a
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/12/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-recovery-plans"></a>Criar planos de recuperação
 
@@ -77,10 +76,13 @@ Se você estiver usando a VMM em sua implantação:
 * Verifique se você possui pelo menos um servidor de biblioteca na sua implantação do VMM. Por padrão, o caminho de compartilhamento da biblioteca de um servidor VMM pode ser encontrado localmente no servidor VMM com o nome de pasta MSCVMMLibrary.
     * Se o caminho de compartilhamento da biblioteca for remoto (ou local, mas não compartilhado com MSCVMMLibrary), configure o compartilhamento da seguinte forma (usando \\libserver2.contoso.com\share\ como um exemplo):
       * Abra o Editor do Registro e navegue até **HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\Azure Site Recovery\Registration**.
-      * Edite o valor de **ScriptLibraryPath** e coloque o valor como \\libserver2.contoso.com\share\. Especifique o FQDN completo. Forneça permissões para o local de compartilhamento.
+      * Edite o valor de **ScriptLibraryPath** e coloque o valor como \\libserver2.contoso.com\share\. Especifique o FQDN completo. Forneça permissões para o local de compartilhamento. Observe que este é o nó raiz do compartilhamento. **Para verificar isso, abra a biblioteca no nó raiz no VMM. O caminho aberto será a raiz, aquela que você precisará usar na variável**.
       * Certifique-se de que você teste o script com uma conta de usuário que tenha as mesmas permissões que a conta de serviço do VMM. Isso verifica que autônomos testados os scripts são executados da mesma maneira como serão nos planos de recuperação. No servidor VMM, defina a política de execução a ser ignorada da seguinte maneira:
-        * Abra o console do Windows PowerShell de 64 bits usando privilégios elevados.
+        * Abra o console do **Windows PowerShell de 64 bits** usando privilégios elevados.
         * Digite: **Set-executionpolicy bypass**. [Saiba mais](https://technet.microsoft.com/library/ee176961.aspx).
+
+> [!IMPORTANT]
+> Você deve definir a política de execução para Ignorar apenas o PowerShell de 64 bits. Se você tiver definido isso para o PowerShell de 32 bits, os scripts não serão executados.
 
 ## <a name="add-a-script-or-manual-action-to-a-plan"></a>Adicionar uma ação de script ou manual de um plano
 
@@ -106,4 +108,3 @@ Se você tiver um site de origem do VMM, será possível criar um script no serv
 ## <a name="next-steps"></a>Próximas etapas
 
 [Saiba mais](site-recovery-failover.md) sobre a execução de failovers.
-

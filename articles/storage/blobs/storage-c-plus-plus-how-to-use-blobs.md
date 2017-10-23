@@ -3,7 +3,7 @@ title: Como usar o armazenamento de blobs (armazenamento de objeto) do C++ | Mic
 description: "Armazene dados não estruturados na nuvem com o armazenamento de blobs do Azure (armazenamento de objeto)."
 services: storage
 documentationcenter: .net
-author: michaelhauss
+author: MichaelHauss
 manager: vamshik
 editor: tysonn
 ms.assetid: 53844120-1c48-4e2f-8f77-5359ed0147a4
@@ -58,6 +58,8 @@ Adicione as seguintes instruções include à parte superior do arquivo C++ no q
 ```cpp
 #include <was/storage_account.h>
 #include <was/blob.h>
+#include <cpprest/filestream.h>  
+#include <cpprest/containerstream.h> 
 ```
 
 ## <a name="setup-an-azure-storage-connection-string"></a>Configurar uma cadeia de conexão de armazenamento do Azure

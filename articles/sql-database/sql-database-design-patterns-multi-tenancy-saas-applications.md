@@ -16,13 +16,11 @@ ms.tgt_pltfrm: NA
 ms.workload: sqldb-design
 ms.date: 02/01/2017
 ms.author: srinia
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 245ce9261332a3d36a36968f7c9dbc4611a019b2
 ms.openlocfilehash: 0f6ba62a01f3211ccaae6b6c48f72e0de54aad78
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/09/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="design-patterns-for-multi-tenant-saas-applications-and-azure-sql-database"></a>Padrões de design para aplicativos SaaS multilocatários e o Banco de Dados SQL do Azure
 Neste artigo, você pode aprender sobre os requisitos e padrões comuns de arquitetura de dados de aplicativos de banco de dados SaaS (software como serviço) multilocatários em execução em um ambiente de nuvem. Ele também explica os fatores que você precisa considerar e as compensações dos diferentes padrões de design. O pool elástico e as ferramentas elásticas no Banco de Dados SQL podem ajudar você a atender os requisitos específicos sem comprometer outros objetivos.
@@ -169,5 +167,4 @@ Aprenda como [monitorar e gerenciar um pool elástico](sql-database-elastic-pool
 ## <a name="questions-and-feature-requests"></a>Perguntas e solicitações de recursos
 
 Para fazer perguntas, encontre-se no [Fórum do Banco de Dados SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted). Adicione uma solicitação de recursos no [Fórum de comentários do Banco de Dados SQL](https://feedback.azure.com/forums/217321-sql-database/).
-
 

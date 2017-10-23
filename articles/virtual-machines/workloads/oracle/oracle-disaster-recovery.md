@@ -15,14 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 6/2/2017
 ms.author: rclaus
-ms.translationtype: HT
-ms.sourcegitcommit: b6c65c53d96f4adb8719c27ed270e973b5a7ff23
 ms.openlocfilehash: f17ebb2b74cd7ad872f88483ed7cdb4f239ee069
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/17/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="disaster-recovery-for-an-oracle-database-12c-database-in-an-azure-environment"></a>Recuperação de desastre para um banco de dados Oracle Database 12c em um ambiente do Azure
 
 ## <a name="assumptions"></a>Suposições
@@ -109,4 +107,3 @@ Veja aqui um resumo da configuração do Azure:
 
 - [Tutorial: criar VMs altamente disponíveis](../../linux/create-cli-complete.md)
 - [Explorar exemplos da CLI do Azure de implantação de VM](../../linux/cli-samples.md)
-

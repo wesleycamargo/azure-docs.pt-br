@@ -16,12 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/01/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c308183ffe6a01f4d4bf6f5817945629cbcedc92
-ms.openlocfilehash: ec4b06a341f74e021a8745bfb324358c0a12b6ec
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/17/2017
-
+ms.openlocfilehash: adb00e28b0b204858a763f83836ee2ac96f8f9e4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-virtual-machine-security-by-using-azure-security-center"></a>Monitorar a segurança da máquina virtual usando a Central de Segurança do Azure
 
@@ -149,4 +148,3 @@ Avance para o próximo tutorial para aprender a criar um pipeline de CI/CD com o
 
 > [!div class="nextstepaction"]
 > [Pipeline de CI/CD do Visual Studio Team Services](./tutorial-vsts-iis-cicd.md)
-

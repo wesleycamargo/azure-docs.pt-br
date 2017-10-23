@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/11/2017
 ms.author: ruturajd
-ms.translationtype: Human Translation
-ms.sourcegitcommit: db18dd24a1d10a836d07c3ab1925a8e59371051f
-ms.openlocfilehash: 3116e2c15242ea7be8eeb77281b40bc4b38b846e
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/15/2017
-
+ms.openlocfilehash: 7f478a61ee448d2d18b3ac7bc0a579b6e341c30d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="failback-in-site-recovery-for-hyper-v-virtual-machines"></a>Failback no Site Recovery para máquinas virtuais do Hyper-V
 
 Este artigo descreve como executar o failback para máquinas virtuais protegidas pela Recuperação de Site.
@@ -38,6 +36,9 @@ Quando você inicia um failover, a folha informa sobre a direção do trabalho. 
 ## <a name="why-is-there-only-a-planned-failover-gesture-to-failback"></a>Por que há apenas um gesto de failover planejado para failback?
 O Azure é um ambiente altamente disponível, e as máquinas virtuais estarão sempre disponíveis. O failback é uma atividade planejada em que você decide ter um breve intervalo de inatividade, para que as cargas de trabalho possam começar a ser executadas no local novamente. Isso não tem expectativa de perda de dados. Portanto, só está disponível um gesto de failover planejado, que desativará as VMs no Azure, baixará as últimas alterações e garantirá que não haja perda de dados.
 
+## <a name="do-i-need-a-process-server-in-azure-to-failback-to-hyper-v"></a>Preciso de um servidor de processo no Azure para realizar o failback para o Hyper-v?
+Não, um servidor de processo só é necessário quando você está protegendo as máquinas virtuais VMware. Nenhum componente adicional precisa ser implantado ao proteger/realizar o failback de máquinas virtuais Hyper-v.
+
 ## <a name="initiate-failback"></a>Iniciar o failback
 Depois do failover do local primário no secundário, as máquinas virtuais replicadas não são protegidas pela Recuperação de Site, e o local secundário agora atuará como local ativo. Siga estes procedimentos para fazer failback no site primário original. Este procedimento descreve como executar um failover planejado para um plano de recuperação. Como alternativa, você pode executar o failover de uma única máquina virtual na guia **Máquinas Virtuais** .
 
@@ -53,10 +54,6 @@ Depois do failover do local primário no secundário, as máquinas virtuais repl
 
     >[!NOTE]
     >É recomendável usar essa opção se você já está executando o Azure há algum tempo (um mês ou mais) ou se a máquina virtual local foi excluída. Essa opção não executa cálculos de soma de verificação.
-    >
-    >
-
-
 
 
 4. Se a criptografia de dados estiver habilitada para a nuvem, em **Chave de Criptografia**, selecione o certificado que foi emitido quando você habilitou a criptografia de dados durante a instalação do provedor no servidor VMM.
@@ -85,9 +82,13 @@ Se você implantou a proteção entre um [site do Hyper-V e o Azure](site-recove
 
     > [!NOTE]
     > Se você cancelar o trabalho de failback durante a etapa de Sincronização de Dados, a VM local ficará em um estado corrompido. Isso ocorre porque a Sincronização de Dados copia os dados mais recentes dos discos da VM do Azure para os discos de dados locais e, até que a sincronização seja concluída, o disco de dados pode não estar em um estado consistente. Se a VM local for inicializada após o cancelamento da Sincronização de Dados, talvez ela não seja inicializada. Dispare novamente o failover para concluir a Sincronização de Dados.
-    >
-    >
 
+## <a name="time-taken-to-failback"></a>Tempo necessário para o failback
+O tempo necessário para concluir a sincronização de dados e iniciar a máquina virtual depende de vários fatores. Para ter uma ideia do tempo gasto, explicaremos o que acontece durante a sincronização de dados.
+
+A sincronização de dados tira um instantâneo dos discos da máquina virtual e inicia a verificação bloco a bloco, depois calcula a soma de verificação. Essa soma de verificação calculada é enviada ao local para comparação com a soma de verificação local do mesmo bloco. Caso as somas de verificação correspondam, o bloco de dados não será transferido. Se não corresponderem, o bloco de dados será transferido para o local. Esse tempo de transferência depende da largura de banda disponível. A velocidade da soma de verificação é de alguns GBs por minuto. 
+
+Para acelerar o download dos dados, configure o agente MARS para usar mais threads a fim de paralisar o download. Consulte [este documento](https://support.microsoft.com/en-us/help/3056159/how-to-manage-on-premises-to-azure-protection-network-bandwidth-usage) sobre como alterar os threads de download no agente.
 
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -95,4 +96,3 @@ Se você implantou a proteção entre um [site do Hyper-V e o Azure](site-recove
 Depois de concluir o trabalho de failback, **Confirme** a máquina virtual. A confirmação exclui a máquina virtual do Azure e seus discos e prepara a VM para ser protegida novamente.
 
 Depois de **Confirmar**, você poderá iniciar a *Replicação Inversa*. Isso iniciará a proteção da máquina virtual do local para o Azure. Observe que isso só replicará as alterações, pois a VM foi desativada no Azure e, assim, enviará somente alterações diferenciais.
-

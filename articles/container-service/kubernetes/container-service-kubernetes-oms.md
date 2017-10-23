@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
+ms.openlocfilehash: bd5c81435c091d25bc14710589b7c043e9f56a25
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: bcb4a7a7d0b712ebe35a5a5bb063124be5095148
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="monitor-an-azure-container-service-cluster-with-microsoft-operations-management-suite-oms"></a>Monitorar um cluster do Serviço de Contêiner do Azure com o Microsoft Operations Management Suite (OMS)
 
 ## <a name="prerequisites"></a>Pré-requisitos
@@ -75,8 +73,7 @@ Para saber mais sobre a Solução de Contêiner, veja [Solução de Contêiner d
 ## <a name="installing-oms-on-kubernetes"></a>Instalando o OMS em Kubernetes
 
 ### <a name="obtain-your-workspace-id-and-key"></a>Obter sua ID do espaço de trabalho e a chave
-Para o OMS agente para conversar com o serviço deve ser configurado com uma id do espaço de trabalho e uma chave do espaço de trabalho. Para obter a id do espaço de trabalho e você precisa criar uma conta do OMS no <https://mms.microsoft.com>.
-Execute as etapas a seguir para criar uma conta. Depois de criar a conta, você precisará obter sua id e chave clicando em **Configurações** e em **Fontes Conectadas**; depois em **Servidores Linux**, conforme mostrado abaixo.
+Para o OMS agente para conversar com o serviço deve ser configurado com uma id do espaço de trabalho e uma chave do espaço de trabalho. Para obter a id do espaço de trabalho e você precisa criar uma conta do OMS no <https://mms.microsoft.com>. Execute as etapas a seguir para criar uma conta. Depois de criar a conta, você precisará obter sua id e chave clicando em **Configurações** e em **Fontes Conectadas**; depois em **Servidores Linux**, conforme mostrado abaixo.
 
  ![](media/container-service-monitoring-oms/image5.png)
 
@@ -131,4 +128,3 @@ Para proteger a ID e a chave de espaço de trabalho do OMS, você pode usar o se
 
 ### <a name="conclusion"></a>Conclusão
 É isso! Depois de alguns minutos, você deve ser capaz de ver os dados que fluem para o painel do OMS.
-

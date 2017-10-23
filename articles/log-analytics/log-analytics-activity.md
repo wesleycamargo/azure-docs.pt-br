@@ -14,15 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: banders
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 74f34bdbf5707510c682814716aa0b95c19a5503
 ms.openlocfilehash: 1ad56a54f094f3c314596b3a7c9fecd09647d065
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/09/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="view-azure-activity-logs"></a>Exibir logs de atividade do Azure
 
 ![Símbolo dos logs de atividades do Azure](./media/log-analytics-activity/activity-log-analytics.png)
@@ -104,4 +101,3 @@ Os dados do log de atividades aparecem apenas *depois* que você os configura pa
 
 - Crie um [alerta](log-analytics-alerts-creating.md) quando ocorrer uma atividade específica.
 - Use a [Pesquisa de Logs](log-analytics-log-searches.md) para exibir informações detalhadas de seus logs de atividade.
-

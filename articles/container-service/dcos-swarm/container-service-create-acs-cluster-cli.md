@@ -17,12 +17,11 @@ ms.workload: na
 ms.date: 03/01/2017
 ms.author: saudas
 ms.custom: H1Hack27Feb2017, mvc
+ms.openlocfilehash: ecac5c255735b588ebb512b183e8a8bbbdcc905f
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: a165cb9248274a97b242707bb96a1c4ad7d4716b
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-a-docker-container-hosting-solution-using-the-azure-cli-20"></a>Implante uma solução de hospedagem de contêiner do Docker usando a CLI 2.0 do Azure
 

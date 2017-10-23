@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/20/2017
 ms.author: davidmu
+ms.openlocfilehash: c9c740a3a1a28a1a9a4f2abf579fe2adb54e4f47
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: a0b98d400db31e9bb85611b3029616cc7b2b4b3f
-ms.openlocfilehash: 999d1ad3ee54d84e155254655dbb7a39ac60572c
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/29/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-a-web-application-firewall-on-a-new-or-existing-application-gateway-with-azure-cli"></a>Como configurar o firewall do aplicativo Web em um gateway de aplicativo novo ou existente com a CLI do Azure
 
@@ -30,9 +29,9 @@ ms.lasthandoff: 08/29/2017
 
 Saiba como criar um gateway de aplicativo habilitado para firewall do aplicativo Web (WAF). Saiba também como adicionar um WAF a um gateway de aplicativo existente.
 
-O WAF no Gateway de aplicativo do Azure protege aplicativos Web contra ataques comuns baseados na Web, como injeção de SQL, ataques de scripts entre sites e sequestros de sessão.
+O WAF no Gateway de Aplicativo do Azure protege aplicativos Web contra ataques comuns baseados na Web, como injeção de SQL, ataques de scripts entre sites e sequestros de sessão.
 
- O Gateway de Aplicativo é um balanceador de carga Layer 7. Ele fornece o failover e solicitações HTTP de roteamento de desempenho entre diferentes servidores, estejam eles na nuvem ou no local. O gateway de aplicativo fornece muitos recursos do controlador de entrega de aplicativos (ADC):
+ O Gateway de Aplicativo é um balanceador de carga Layer 7. Ele fornece o failover e solicitações HTTP de roteamento de desempenho entre diferentes servidores, estejam eles na nuvem ou no local. O Gateway de Aplicativo fornece muitos recursos do controlador de entrega de aplicativos (ADC):
 
  * Balanceamento de carga HTTP 
  * Afinidade de sessão baseada em cookie 
@@ -73,7 +72,7 @@ az network application-gateway waf-config set \
   --resource-group "AdatumAppGatewayRG"
 ```
 
-Esse comando atualiza o gateway de aplicativo com um WAF. Confira [Diagnósticos do gateway de aplicativo](application-gateway-diagnostics.md) para entender como exibir os logs do seu gateway de aplicativo. Devido à natureza de segurança do WAF, examine regularmente os logs para compreender a postura de segurança de seus aplicativos Web.
+Esse comando atualiza o gateway de aplicativo com um WAF. Confira [Diagnósticos do Gateway de Aplicativo](application-gateway-diagnostics.md) para entender como exibir os logs do seu Gateway de Aplicativo. Devido à natureza de segurança do WAF, examine regularmente os logs para compreender a postura de segurança de seus aplicativos Web.
 
 ## <a name="create-an-application-gateway-with-a-web-application-firewall"></a>Como criar um gateway de aplicativo com um firewall do aplicativo Web
 
@@ -161,4 +160,3 @@ az network public-ip show \
 Saiba como personalizar regras de WAF visitando: [Como personalizar as regras de firewall do aplicativo Web por meio da CLI 2.0 do Azure](application-gateway-customize-waf-rules-cli.md).
 
 [scenario]: ./media/application-gateway-web-application-firewall-cli/scenario.png
-

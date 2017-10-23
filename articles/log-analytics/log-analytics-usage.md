@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/21/2017
 ms.author: magoedte
-ms.translationtype: HT
-ms.sourcegitcommit: 54774252780bd4c7627681d805f498909f171857
 ms.openlocfilehash: 9a4709f298131722e9c473a19f7eee0aebf7e1e6
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analisar o uso de dados no Log Analytics
 O Log Analytics inclui informações sobre a quantidade de dados coletados, quais computadores enviaram os dados e os tipos diferentes de dados enviados.  Utilize o painel **Uso do Log Analytics** para ver a quantidade de dados enviados para o serviço Log Analytics. O painel mostra quantos dados são coletados por cada solução e quantos dados são enviados pelos seus computadores.
@@ -173,4 +172,3 @@ Use [direcionamento de solução](../operations-management-suite/operations-mana
 * Altere a [configuração do contador de desempenho](log-analytics-data-sources-performance-counters.md)
 * Altere a [configuração de log de eventos](log-analytics-data-sources-windows-events.md)
 * Altere a [configuração do syslog](log-analytics-data-sources-syslog.md)
-

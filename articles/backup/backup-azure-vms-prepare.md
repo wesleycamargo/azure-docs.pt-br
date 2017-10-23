@@ -13,15 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 4/25/2017
+ms.date: 9/10/2017
 ms.author: markgal;trinadhk;
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 07584294e4ae592a026c0d5890686eaf0b99431f
-ms.openlocfilehash: 072efdccaa8df5d430314d753a437b524986b53c
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/02/2017
-
-
+ms.openlocfilehash: 35b40f80c5a9ccc67830429a5a75d2974d0d138c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="prepare-your-environment-to-back-up-azure-virtual-machines"></a>Preparar o seu ambiente para o backup das máquinas virtuais do Azure
 > [!div class="op_single_selector"]
@@ -69,7 +67,7 @@ O cofre de backup é uma entidade que armazena todos os pontos de backups e recu
 > A partir de março de 2017, você não poderá mais usar o portal clássico para criar os cofres de Backup. Ainda há suporte para os cofres de Backup existentes, e é possível [usar o Azure PowerShell para criar os Cofres de Backup](./backup-client-automation-classic.md#create-a-backup-vault). No entanto, a Microsoft recomenda a criação de cofres dos Serviços de Recuperação para todas as implantações, pois aperfeiçoamentos futuros só se aplicam aos cofres dos Serviços de Recuperação.
 
 
-Esta imagem mostra os relacionamentos entre as várias entidades do Backup do Azure:     ![Entidades e relacionamentos do Backup do Azure](./media/backup-azure-vms-prepare/vault-policy-vm.png)
+Esta imagem mostra os relacionamentos entre as várias entidades do Backup do Azure: ![Entidades e relacionamentos do Backup do Azure](./media/backup-azure-vms-prepare/vault-policy-vm.png)
 
 
 
@@ -189,13 +187,13 @@ Set-AzureNetworkSecurityRule -Name "allow-proxy " -Action Allow -Protocol TCP -T
 Antes de iniciar o backup da máquina virtual do Azure, verifique se o agente de VM do Azure está instalado corretamente na máquina virtual. Como o agente de VM é um componente opcional no momento em que a máquina virtual é criada, verifique se a caixa de seleção do Agente de VM está marcada antes que a máquina virtual seja provisionada.
 
 ### <a name="manual-installation-and-update"></a>Atualização e instalação manual
-O agente de VM já está presente em VMs criadas na galeria do Azure. No entanto, as máquinas virtuais que são migradas de datacenters locais não teriam o agente de VM instalado. Para essas VMs, o agente de VM precisa ser instalado explicitamente. Leia mais sobre [Instalando o Agente de VM em uma VM existente](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx).
+O agente de VM já está presente em VMs criadas na galeria do Azure. No entanto, as máquinas virtuais que são migradas de datacenters locais não teriam o agente de VM instalado. Para essas VMs, o agente de VM precisa ser instalado explicitamente. 
 
 | **Operação** | **Windows** | **Linux** |
 | --- | --- | --- |
-| Instalando o agente de VM |<li>Baixe e instale o [agente MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Você precisará de privilégios de Administrador para concluir a instalação. <li>[Atualize a propriedade de VM](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) para indicar que o agente está instalado. |<li> Instale o [agente Linux](https://github.com/Azure/WALinuxAgent) mais recente do GitHub. Você precisará de privilégios de Administrador para concluir a instalação. <li> [Atualize a propriedade de VM](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) para indicar que o agente está instalado. |
-| Atualizando o agente de VM |A atualização do agente de VM é tão simples quanto reinstalar os [binários do agente de VM](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br><br>Verifique se nenhuma operação de backup está em execução enquanto o agente de VM está sendo atualizado. |Siga as instruções em [Atualizando o agente de VM do Linux ](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). <br><br>Verifique se nenhuma operação de backup está em execução enquanto o agente de VM está sendo atualizado. |
-| Validação da instalação do agente de VM |<li>Navegue até a pasta *C:\WindowsAzure\Packages* na VM do Azure. <li>Você deve encontrar o arquivo WaAppAgent.exe presente.<li> Clique com o botão direito do mouse no arquivo, vá para **Propriedades** e selecione a guia **Detalhes**. O campo Versão do Produto deve ser 2.6.1198.718 ou mais recente. |N/D |
+| Instalação do agente de VM |Baixe e instale o [agente MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Você precisará de privilégios de Administrador para concluir a instalação.<li>[Atualize a propriedade de VM](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) para indicar que o agente está instalado. |<li> Instale o [agente Linux](../virtual-machines/linux/agent-user-guide.md) mais recente. Você precisará de privilégios de Administrador para concluir a instalação. É recomendável instalar o agente do seu repositório de distribuição. **Não é recomendável** instalar o agente de VM Linux diretamente do GitHub.  |
+| Atualizar o Agente de VM |Atualizar o agente de VM é tão simples quanto reinstalar os [Binários do Agente de VM](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). <br>Verifique se nenhuma operação de backup está em execução enquanto o agente de VM está sendo atualizado. |Siga as instruções em [atualizando o agente de VM Linux](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). É recomendável atualizar o agente do seu repositório de distribuição. **Não é recomendável** atualizar o agente de VM Linux diretamente do GitHub.<br>Verifique se nenhuma operação de backup está em execução enquanto o agente de VM está sendo atualizado. |
+| Validação da instalação do Agente de VM |<li>Navegue até a pasta *C:\WindowsAzure\Packages* na VM do Azure. <li>Você deve encontrar o arquivo WaAppAgent.exe presente.<li> Clique com o botão direito do mouse no arquivo, vá para **Propriedades** e selecione a guia **Detalhes**. O campo Versão do Produto deve ser 2.6.1198.718 ou mais recente. |N/D |
 
 Saiba mais sobre o [Agente de VM](https://go.microsoft.com/fwLink/?LinkID=390493&clcid=0x409) e [como instalá-lo](https://azure.microsoft.com/blog/2014/04/15/vm-agent-and-extensions-part-2/).
 
@@ -213,4 +211,3 @@ Agora que você já preparou seu ambiente para fazer backup de sua VM, a próxim
 * [Backup de máquinas virtuais](backup-azure-vms.md)
 * [Planeje sua infraestrutura de backup da VM](backup-azure-vms-introduction.md)
 * [Gerenciar backups de máquinas virtuais](backup-azure-manage-vms.md)
-

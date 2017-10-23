@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2017
 ms.author: alkohli
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: 90724099842eac513c39dccf113ad1c0a63983f2
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-hardware-components-and-status"></a>Usar o serviço Gerenciador de Dispositivos do StorSimple para monitorar componentes e status de hardware
 ## <a name="overview"></a>Visão geral
@@ -148,5 +146,4 @@ A tabela a seguir descreve os componentes físicos e lógicos contidos no compar
 * Se você precisar solucionar problemas de um componente do dispositivo que apresente um status degradado ou com falha, consulte [Indicadores de monitoramento do StorSimple](storsimple-monitoring-indicators.md).
 * Para substituir um componente de hardware com falha, consulte [substituição de componentes de hardware do StorSimple](storsimple-hardware-component-replacement.md).
 * Se você continuar enfrentando problemas de dispositivo, [contate o Suporte da Microsoft](storsimple-8000-contact-microsoft-support.md).
-
 

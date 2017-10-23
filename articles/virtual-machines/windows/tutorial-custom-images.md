@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/08/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 18d4994f303a11e9ce2d07bc1124aaedf570fc82
-ms.openlocfilehash: 773b37ec8f775d68f1faca0d252f3064c7de0317
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/09/2017
-
+ms.openlocfilehash: c7cb5353585373af8de0d30b06bcfa49a3278c17
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-custom-image-of-an-azure-vm-using-powershell"></a>Criar uma imagem personalizada de uma VM do Azure usando o PowerShell
 
 Imagens personalizadas são como imagens do marketplace, mas você mesmo as cria. As imagens personalizadas podem ser usadas para configurações de inicialização como o pré-carregamento de aplicativos, configurações de aplicativos e outras configurações do sistema operacional. Neste tutorial, você criará sua própria imagem personalizada de uma máquina virtual do Azure. Você aprenderá como:
@@ -211,7 +209,6 @@ Avance para o próximo tutorial para saber mais sobre a alta disponibilidade das
 
 > [!div class="nextstepaction"]
 > [Criar VMs altamente disponíveis](tutorial-availability-sets.md)
-
 
 
 

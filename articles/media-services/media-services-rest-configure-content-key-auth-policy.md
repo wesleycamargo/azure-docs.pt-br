@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: juliako
+ms.openlocfilehash: ed20fca35070c190bb63925d0a57cf919bcdd96c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fff84ee45818e4699df380e1536f71b2a4003c71
-ms.openlocfilehash: 3f457b1b82d1f75ec8796152b5c93f852175e1a5
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/01/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="dynamic-encryption-configure-content-key-authorization-policy"></a>Criptografia dinâmica: configurar a política de autorização de chave de conteúdo
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -39,8 +38,7 @@ Para obter mais informações, consulte
 
 [Autenticação do token JWT](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
 
-<seg>
-  [Integrar o aplicativo do MVC OWIN dos serviços de mídia do Azure com base no aplicativo com Active Directory do Azure e restringir o fornecimento da chave de conteúdo com base em declarações JWT](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).</seg>
+[Integrar o aplicativo do MVC OWIN dos serviços de mídia do Azure com base no aplicativo com Active Directory do Azure e restringir o fornecimento da chave de conteúdo com base em declarações JWT](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).
 
 [Usar o ACS do Azure para emitir tokens](http://mingfeiy.com/acs-with-key-services).
 
@@ -448,5 +446,4 @@ Adicionar AuthorizationPolicy para o ContentKey, como mostrado [aqui](#AddAuthor
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você configurou a política de autorização da chave de conteúdo, vá para o tópico [Como configurar a política de entrega de ativos](media-services-rest-configure-asset-delivery-policy.md) .
-
 

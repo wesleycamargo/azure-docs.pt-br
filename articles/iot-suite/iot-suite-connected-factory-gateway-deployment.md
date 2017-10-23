@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/24/2017
 ms.author: dobett
+ms.openlocfilehash: b0e6ae705911d7c18643c77b7fe08fdffffa5eb1
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: caa12f4ef55006cd3edbe2d9606397d34fed3a3e
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/24/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="deploy-a-gateway-on-windows-or-linux-for-the-connected-factory-preconfigured-solution"></a>Implantar um gateway no Windows ou Linux para a solução pré-configurada de fábrica conectada
 
 O software necessário para implantar um gateway para a solução pré-configurada de fábrica conectada tem dois componentes:

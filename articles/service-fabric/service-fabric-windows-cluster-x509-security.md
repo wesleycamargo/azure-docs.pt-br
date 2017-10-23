@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/16/2017
 ms.author: dekapur
+ms.openlocfilehash: d66f02051279d1cfe685fdae6aa8a035f4edd5aa
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: e37a68fcf645cf1056b70e520545fb3ce7c22946
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="secure-a-standalone-cluster-on-windows-using-x509-certificates"></a>Proteger um cluster autônomo no Windows usando os certificados X.509
 Este artigo descreve como proteger a comunicação entre os diversos nós do seu cluster do Windows autônomo, bem como autenticar os clientes que estejam se conectando a esse cluster, usando os certificados X.509. Isso garante que somente usuários autorizados possam acessar o cluster e os aplicativos implantados e executar tarefas de gerenciamento.  A segurança do certificado deve ser habilitada no cluster quando o cluster é criado.  
@@ -327,5 +326,4 @@ Para remover o cluster, conecte-se ao nó no cluster em que você baixou o pacot
 > Configuração incorreta de certificado pode impedir que o cluster apareça durante a implantação. Para autodiagnosticar problemas de segurança, procure no grupo de visualizador de eventos *Logs Aplicativos e Serviços* > *Microsoft Service Fabric*.
 > 
 > 
-
 

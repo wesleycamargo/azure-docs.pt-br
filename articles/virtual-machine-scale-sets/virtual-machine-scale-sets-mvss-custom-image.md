@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/10/2017
 ms.author: negat
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 97fa1d1d4dd81b055d5d3a10b6d812eaa9b86214
 ms.openlocfilehash: cf52fc9e95267c4bc5c0106aadf626685ddd5c24
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/11/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="add-a-custom-image-to-an-azure-scale-set-template"></a>Adicionar uma imagem personalizada a um modelo de conjunto de dimensionamento do Azure
 
 Esse artigo mostra como modificar o [modelo do conjunto de dimensionamento mínimo viável](./virtual-machine-scale-sets-mvss-start.md) para a implantação de uma imagem personalizada.
@@ -119,4 +117,3 @@ Neste exemplo, usamos a função `resourceId` para obter a ID de recurso da imag
 ## <a name="next-steps"></a>Próximas etapas
 
 [!INCLUDE [mvss-next-steps-include](../../includes/mvss-next-steps.md)]
-

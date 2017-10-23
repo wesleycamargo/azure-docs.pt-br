@@ -15,14 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: cynthn
-ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
 ms.openlocfilehash: e6fc49855b449a7723a7f8a0c1c41516b3a44ee5
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/11/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>Upload de um VHD generalizado para o Azure para criar uma nova VM
 
 Este tópico abrange o upload de um disco não gerenciado generalizado para uma conta de armazenamento e, em seguida, criar uma nova VM utilizando o disco carregado. Uma imagem VHD generalizada teve todas as informações da sua conta pessoal removidas usando o Sysprep. 
@@ -292,6 +290,5 @@ Ao concluir, você deverá ver a VM recém-criada no [portal do Azure](https://p
 
 ## <a name="next-steps"></a>Próximas etapas
 Para gerenciar sua nova máquina virtual com o Azure PowerShell, consulte [Gerenciar máquinas virtuais usando o PowerShell e o Azure Resource Manager](tutorial-manage-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-
 
 

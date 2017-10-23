@@ -15,12 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/03/2017
 ms.author: kgremban
+ms.openlocfilehash: 231028a7389dba50efe7d197837855b39826f9b9
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: 6239e0affd778f8f64222abce769841b27d6be1d
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="what-is-azure-multi-factor-authentication"></a>O que é o Azure Multi-Factor Authentication?
 A verificação em duas etapas é um método de autenticação que exige mais de um método de verificação e adiciona uma segunda camada crítica de segurança aos logons e às transações dos usuários. Ela funciona, exigindo dois ou mais dos métodos de verificação a seguir:
@@ -55,4 +54,3 @@ O Azure Multi-Factor Authentication é uma solução fácil de usar, escalonáve
 - Saiba mais sobre [Como funciona a Autenticação Multifator do Azure](multi-factor-authentication-how-it-works.md)
 
 - Leia sobre os diferentes [métodos de consumo e versões para a Autenticação Multifator do Azure](multi-factor-authentication-versions-plans.md)
-

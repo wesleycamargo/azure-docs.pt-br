@@ -14,14 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/02/2017
 ms.author: antisch
-ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
 ms.openlocfilehash: ae7eab97c1da1113b0248b74a9dd67de8ce49e36
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/09/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="managing-azure-batch-pools-with-azure-cli"></a>Gerenciando pools do Lote do Azure com CLI do Azure
 
 Esses scripts demonstram algumas das ferramentas disponíveis na CLI do Azure para criar e gerenciar pools de nós de computação no serviço de Lote do Azure.
@@ -39,11 +37,11 @@ Pools de Lote podem ser configurados de duas maneiras, com uma configuração de
 
 ## <a name="pool-with-cloud-service-configuration-sample-script"></a>Pool com o script de exemplo de configuração de serviço de nuvem
 
-[!code-azurecli[principal](../../../cli_scripts/batch/manage-pool/manage-pool-windows.sh "Gerenciar Pools de Serviços de Nuvem")]
+[!code-azurecli[main](../../../cli_scripts/batch/manage-pool/manage-pool-windows.sh "Manage Cloud Services Pools")]
 
 ## <a name="pool-with-virtual-machine-configuration-sample-script"></a>Pool com o script de exemplo de configuração de máquina virtual
 
-[!code-azurecli[principal](../../../cli_scripts/batch/manage-pool/manage-pool-linux.sh "Gerenciar Pools de Máquina Virtual")]
+[!code-azurecli[main](../../../cli_scripts/batch/manage-pool/manage-pool-linux.sh "Manage Virtual Machine Pools")]
 
 ## <a name="clean-up-pools"></a>Limpar pools
 
@@ -79,5 +77,4 @@ Cada comando na tabela redireciona para a documentação específica do comando.
 Para saber mais sobre a CLI do Azure, veja a [documentação da CLI do Azure](https://docs.microsoft.com/cli/azure/overview).
 
 As amostras de script da CLI do Lote adicionais podem ser encontrados na [documentação do Lote do Azure](../batch-cli-samples.md).
-
 

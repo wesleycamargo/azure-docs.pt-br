@@ -14,13 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/22/2017
 ms.author: mikeray
-ms.translationtype: Human Translation
-ms.sourcegitcommit: e72275ffc91559a30720a2b125fbd3d7703484f0
-ms.openlocfilehash: 800a37dba526a43e490c7bdff55e3b48e5234a20
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/05/2017
-
-
+ms.openlocfilehash: 74fa1e4c9cfa608a9a385f3dd82a0599fbcc421c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Configurar um ou mais ouvintes de grupo de disponibilidade AlwaysOn – Resource Manager
 Este tópico mostra como:
@@ -209,4 +207,3 @@ Use os cmdlets do PowerShell a seguir para criar um balanceador de carga interno
 * [New-AzureRmLoadBalancerBackendAddressPoolConfig](http://msdn.microsoft.com/library/mt603791.aspx) cria uma configuração de pool de endereços de back-end para um balanceador de carga. 
 * [New-AzureRmLoadBalancerProbeConfig](http://msdn.microsoft.com/library/mt603847.aspx) cria uma configuração de investigação para um balanceador de carga.
 * [Remove-AzureRmLoadBalancer](http://msdn.microsoft.com/library/mt603862.aspx) remove um balanceador de carga de um grupo de recursos do Azure.
-

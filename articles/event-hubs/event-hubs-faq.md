@@ -12,16 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2017
-ms.author: sethm;shvija
+ms.date: 10/05/2017
+ms.author: sethm
+ms.openlocfilehash: c4faa071c4f2401fe3e852e787e3b7d4da0c7d44
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
-ms.openlocfilehash: e208e970de58505553802a4ed27d7f9da4070866
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/28/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="event-hubs-frequently-asked-questions"></a>Perguntas frequentes sobre os Hubs de Eventos
 
 ## <a name="general"></a>Geral
@@ -44,7 +42,7 @@ Você seleciona unidades de taxa de transferência de Hubs de Eventos de forma e
 * Até 2 MB por segundo de eventos de saída (eventos consumidos de um Hub de Eventos).
 * Até 84 GB de armazenamento de eventos (suficiente para o período de retenção padrão de 24 horas).
 
-As unidades de produtividade dos Hubs de Eventos são cobradas por hora, com base no número máximo de unidades selecionadas durante determinada hora.
+As unidades de produtividade dos Hubs de Eventos são cobradas por hora, com base no número máximo de unidades selecionadas durante determinada hora. Você pode [aumentar o número de unidades de taxa de transferência](event-hubs-auto-inflate.md) automaticamente à medida que o uso aumentar.
 
 ### <a name="how-are-event-hubs-throughput-unit-limits-enforced"></a>Como os limites de unidades de produtividade dos Hubs de Eventos são aplicados?
 Se a produtividade de entrada total ou a taxa de eventos de entrada total em todos os Hubs de Eventos em um namespace exceder os limites de unidades de produtividade totais agregados, os remetentes serão limitados e receberão erros indicando que a cota de entrada foi excedida.
@@ -53,6 +51,8 @@ Se a produtividade de saída total ou a taxa de eventos de saída total em todos
 
 ### <a name="is-there-a-limit-on-the-number-of-throughput-units-that-can-be-selected"></a>Há um limite para o número de unidades de produtividade que podem ser selecionadas?
 Há uma cota padrão de 20 unidades de produtividade por namespace. Você pode solicitar uma cota maior de unidades de produtividade preenchendo um tíquete de suporte. Além do limite de 20 unidades de produtividade, há pacotes disponíveis de 20 e 100 unidades de produtividade. Observe que o uso de mais de 20 unidades de produtividade impossibilita a alteração do número de unidades de produtividade sem o preenchimento de um tíquete de suporte.
+
+Usando o recurso [Inflação automática](event-hubs-auto-inflate.md), você pode aumentar o número de unidades de taxa de transferência automaticamente à medida que o uso aumentar.
 
 ### <a name="can-i-use-a-single-amqp-connection-to-send-and-receive-from-multiple-event-hubs"></a>Posso usar uma única conexão AMQP para enviar e receber de vários Hubs de Eventos?
 Sim, contanto que todos os Hubs de Eventos estejam no mesmo namespace.
@@ -92,7 +92,7 @@ Eventos consumidos de um Hub de Eventos, bem como operações de gerenciamento e
 Cobranças de conexão são aplicadas somente quando o protocolo AMQP é usado. Não há cobranças de conexão para enviar eventos usando HTTP, independentemente do número de sistemas ou dispositivos remetentes. Se você pretende usar o AMQP (por exemplo, para obter transmissões de eventos mais eficientes ou para habilitar a comunicação bidirecional em cenários de comando e controle da IoT), consulte a página [Informações sobre preços dos Hubs de Eventos](https://azure.microsoft.com/pricing/details/event-hubs/) para obter detalhes sobre quantas conexões estão incluídas em cada camada de serviço.
 
 ### <a name="how-is-event-hubs-capture-billed"></a>Como a Captura de Hubs de Eventos é cobrada?
-A Captura de Hubs de Eventos será habilitada quando qualquer Hub de Eventos no namespace tiver o recurso Captura habilitado. A Captura de Hubs de Eventos é cobrada por hora de acordo com a Unidade de Produtividade comprada. À medida que a contagem das Unidades de Produtividade aumentar ou diminuir, a cobrança da Captura de Hubs de Eventos refletirá essas mudanças em incrementos de hora cheia. Para obter mais informações sobre a cobrança da Captura de Hubs de Eventos, confira [informações de preços de Hubs de Eventos](https://azure.microsoft.com/pricing/details/event-hubs/).
+A Captura de Hubs de Eventos será habilitada quando qualquer Hub de Eventos no namespace tiver o recurso Captura habilitado. A Captura de Hubs de Eventos é cobrada por hora de acordo com a unidade de taxa de transferência comprada. À medida que a contagem das unidades de taxa de transferência aumentar ou diminuir, a cobrança da Captura de Hubs de Eventos refletirá essas mudanças em incrementos de hora cheia. Para obter mais informações sobre a cobrança da Captura de Hubs de Eventos, confira [informações de preços de Hubs de Eventos](https://azure.microsoft.com/pricing/details/event-hubs/).
 
 ### <a name="will-i-be-billed-for-the-storage-account-i-select-for-event-hubs-capture"></a>Serei cobrado pela conta de armazenamento selecionada para a Captura de Hubs de Eventos?
 A Captura usa uma conta de armazenamento fornecida quando habilitado em um Hub de Eventos. Como essa é sua conta de armazenamento, todas as alterações nessa configuração serão cobradas em sua assinatura do Azure.
@@ -120,4 +120,4 @@ Você pode saber mais sobre Hubs de Eventos visitando os links abaixo:
 
 * [Visão Geral dos Hubs de Eventos](event-hubs-what-is-event-hubs.md)
 * [Criar um Hub de Eventos](event-hubs-create.md)
-
+* [Inflar automaticamente de Hubs de Eventos](event-hubs-auto-inflate.md)

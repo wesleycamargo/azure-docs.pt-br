@@ -13,12 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 07/31/2017
 ms.author: rajani-janaki-ram
-ms.translationtype: HT
-ms.sourcegitcommit: 25e4506cc2331ee016b8b365c2e1677424cf4992
 ms.openlocfilehash: fdb33ea0d08353b491f2934fcf885fcb6910b9a2
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/24/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="upgrade-a-site-recovery-vault-to-an-azure-resource-manager-based-recovery-services-vault"></a>Atualizar um cofre do Site Recovery para um cofre dos Serviços de Recuperação com base no Azure Resource Manager
 
@@ -186,4 +185,3 @@ A imagem a seguir mostra o fluxo de trabalho para exibir seus itens replicados e
 No cofre do Site Recovery, cada grupo de proteção é definido com frequência de cópia, retenção do ponto de recuperação, frequência dos instantâneos consistentes com aplicativo e outras configurações de replicação. No cofre dos Serviços de Recuperação, essas configurações são definidas como uma política de replicação. O nome da política é o nome do grupo de proteção ou da *primarycloud_Policy*.
 
 Para obter mais informações sobre a política de replicação, consulte [Gerenciar a política de replicação para VMware para Azure](site-recovery-setup-replication-settings-vmware.md).
-

@@ -14,14 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/21/2017
 ms.author: LADocs; jehollan
-ms.translationtype: HT
-ms.sourcegitcommit: 14915593f7bfce70d7bf692a15d11f02d107706b
 ms.openlocfilehash: 6befc5b26f2b01113f1aa813125b33eb66ad6f6a
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/10/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="workflow-definition-language-schema-for-azure-logic-apps"></a>Esquema de linguagem de definição de fluxo de trabalho para Aplicativo Lógico do Azure
 
 Uma definição de fluxo de trabalho contém a lógica real que é executada como parte do seu aplicativo lógico. Essa definição inclui um ou mais gatilhos que iniciam o aplicativo lógico e uma ou mais ações a serem executadas pelo aplicativo lógico.  
@@ -338,4 +336,3 @@ Essas funções ajudarão a obter informações sobre o próprio fluxo de trabal
 ## <a name="next-steps"></a>Próximas etapas
 
 [Gatilhos e ações do fluxo de trabalho](logic-apps-workflow-actions-triggers.md)
-

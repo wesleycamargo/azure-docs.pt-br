@@ -13,14 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 03/01/2017
+ms.date: 09/29/2017
 ms.author: cynthn
-translationtype: Human Translation
-ms.sourcegitcommit: 197ebd6e37066cb4463d540284ec3f3b074d95e1
-ms.openlocfilehash: 88431377a36d5bc36220c630f0c8d4a46ab4a434
-ms.lasthandoff: 03/31/2017
-
-
+ms.openlocfilehash: 91a437345858cf3a9b00b6b4e8e72cd253f8f069
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="how-to-connect-and-log-on-to-an-azure-virtual-machine-running-windows"></a>Como se conectar e fazer logon em uma máquina virtual do Azure executando o Windows
 Você usará o botão **Conectar** no portal do Azure para iniciar uma sessão da Área de Trabalho Remota (RDP) a partir de uma área de trabalho do Windows. Primeiro, conecte-se à máquina virtual, em seguida, faça logon.
@@ -29,9 +28,9 @@ Se você estiver tentando se conectar a uma VM do Windows a partir de um Mac, se
 
 ## <a name="connect-to-the-virtual-machine"></a>Conectar-se à máquina virtual
 1. Se ainda não tiver feito isso, entre no [portal do Azure](https://portal.azure.com/).
-2. No menu Hub, clique em **Máquinas Virtuais**.
+2. No menu à esquerda, clique em **Máquinas Virtuais**.
 3. Selecione a máquina virtual na lista.
-4. Na folha da máquina virtual, clique em **Conectar**.
+4. Na página da máquina virtual, clique em **Conectar**.
    
     ![Captura de tela do portal do Azure mostrando como conectar sua VM.](./media/connect-logon/connect.png)
    
@@ -45,5 +44,4 @@ Se você estiver tentando se conectar a uma VM do Windows a partir de um Mac, se
 
 ## <a name="next-steps"></a>Próximas etapas
 Se você tiver problemas ao tentar se conectar, consulte [Solucionar Problemas de conexões da Área de Trabalho Remota](troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Este artigo orienta você no diagnóstico e na solução de problemas comuns.
-
 

@@ -11,16 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2017
+ms.date: 10/09/2017
 ms.author: bwren
+ms.openlocfilehash: 356a73b406544b91191d5e9a03b2fa52ec501327
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 85d4f9bc11de18f171b923b4ae55950fb0a360c0
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="log-analytics-new-log-search-faq-and-known-issues"></a>Perguntas frequentes e problemas conhecidos sobre a nova pesquisa de logs do Log Analytics
 
 Este artigo inclui as perguntas frequentes e os problemas conhecidos sobre o upgrade do [Log Analytics para a nova linguagem de consulta](log-analytics-log-search-upgrade.md).  Leia o artigo na íntegra antes de tomar a decisão de fazer upgrade de seu espaço de trabalho.
@@ -30,6 +28,10 @@ Este artigo inclui as perguntas frequentes e os problemas conhecidos sobre o upg
 
 ### <a name="question-i-have-a-lot-of-alert-rules-do-i-need-to-create-them-again-in-the-new-language-after-i-upgrade"></a>Pergunta: Tenho várias regras de alerta. É necessário criá-las novamente na nova linguagem depois de atualizar?  
 Não, as regras de alerta são convertidas automaticamente para a nova linguagem de pesquisa durante a atualização.  
+
+### <a name="question-i-have-alert-rules-with-webhook-and-runbook-actions-will-these-continue-to-work-when-i-upgrade"></a>Pergunta: Eu tenho regras de alerta com ações de webhook e runbook. Elas continuarão funcionando quando eu atualizar?
+
+Não, há algumas alterações nas ações de webhook e runbook que podem exigir que você faça alterações no modo de processamento de carga. Fizemos essas alterações para padronizar os diversos formatos de saída e reduzir o tamanho da carga. Detalhes sobre esses formatos podem ser obtidos em [Adicionar ações a regras de alerta no Log Analytics](log-analytics-alerts-actions.md).
 
 
 ## <a name="computer-groups"></a>Grupos de computadores
@@ -48,7 +50,7 @@ Uma consulta de exemplo para criar um novo grupo de computadores que inclui um g
 ## <a name="dashboards"></a>Painéis
 
 ### <a name="question-can-i-still-use-dashboards-in-an-upgraded-workspace"></a>Pergunta: Ainda posso usar painéis em um espaço de trabalho atualizado?
-Você pode continuar usando os blocos adicionados ao **Meu Painel** antes do upgrade do espaço de trabalho, mas não pode editar esses blocos nem adicionar novos.  Você pode continuar criando e editando as exibições com o [Designer de Exibição](log-analytics-view-designer.md) e também criar painéis no portal do Azure.
+Com a atualização, estamos começando o processo de retirada de **Meu Painel**.  Você pode continuar usando os blocos adicionados ao painel antes do upgrade do espaço de trabalho, mas não pode editar esses blocos nem adicionar novos.  Você pode continuar criando e editando as exibições com o [Designer de Exibição](log-analytics-view-designer.md), que tem um conjunto de recursos mais avançado e também criar painéis no portal do Azure.
 
 
 ## <a name="log-searches"></a>Pesquisas de log
@@ -58,6 +60,21 @@ Você pode usar a ferramenta de conversão de linguagem na página de pesquisa d
 
 ### <a name="question-why-are-my-query-results-not-sorted"></a>Pergunta: Por que os resultados de minha consulta não são classificados?
 Os resultados não são classificados por padrão na nova linguagem de consulta.  Use o [operador sort](https://go.microsoft.com/fwlink/?linkid=856079) para classificar os resultados por uma ou mais propriedades.
+
+### <a name="question-where-did-the-metrics-view-go-after-i-upgraded"></a>Pergunta: Para onde a exibição de métricas foi desde do upgrade?
+O modo de exibição de métricas fornecia uma representação gráfica dos dados de desempenho de uma pesquisa de logs.  Essa exibição não está mais disponível após a atualização.  Você pode usar o [operador renderizar](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/render-operator) para formatar a saída de uma consulta em um gráfico.
+
+### <a name="question-where-did-minify-go-after-i-upgraded"></a>Pergunta: Para onde Minify foi desde do upgrade?
+O Minify é um recurso que fornece uma exibição resumida dos resultados da pesquisa.  Após a atualização, a opção Minify não aparece no portal de pesquisa de logs.  Você pode obter uma funcionalidade semelhante com o novo idioma de pesquisa utilizando [reduzir](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/reduce-operator) ou [autocluster_v2](https://docs.loganalytics.io/docs/Language-Reference/Tabular-operators/evaluate-operator/autocluster). 
+
+    Event
+    | where TimeGenerated > ago(10h)
+    | reduce by RenderedDescription
+
+    Event
+    | where TimeGenerated > ago(10h)
+    | evaluate autocluster_v2()
+
 
 ### <a name="known-issue-search-results-in-a-list-may-include-properties-with-no-data"></a>Problema conhecido: os resultados da pesquisa em uma lista podem incluir propriedades sem dados
 Os resultados da pesquisa de logs em uma lista podem exibir propriedades sem dados.  Antes do upgrade, essas propriedades não seriam incluídas.  Esse problema será corrigido para que propriedades vazias não sejam exibidas.
@@ -125,9 +142,6 @@ Todas as soluções continuarão funcionando em um espaço de trabalho atualizad
 ### <a name="known-issue-capacity-and-performance-solution"></a>Problema conhecido: solução Capacidade e Desempenho
 Algumas partes da exibição [Capacidade e Desempenho](log-analytics-capacity.md) podem estar vazias.  Uma correção para esse problema estará disponível em breve.
 
-### <a name="known-issue-device-health-solution"></a>Problema conhecido: solução Integridade do Dispositivo
-A [solução Integridade do Dispositivo](https://docs.microsoft.com/windows/deployment/update/device-health-monitor) não coletará dados em um espaço de trabalho atualizado.  Uma correção para esse problema estará disponível em breve.
-
 ### <a name="known-issue-application-insights-connector"></a>Problema conhecido: conector do Application Insights
 Atualmente, não há suporte para perspectivas na [solução Conector do Application Insights](log-analytics-app-insights-connector.md) em um espaço de trabalho atualizado.  Uma correção para esse problema está atualmente em análise.
 
@@ -164,4 +178,3 @@ Ao clicar na opção *Ver tudo* na parte inferior de uma parte do gráfico de li
 ## <a name="next-steps"></a>Próximas etapas
 
 - Saiba mais sobre [atualizar seu espaço de trabalho para a nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md).
-

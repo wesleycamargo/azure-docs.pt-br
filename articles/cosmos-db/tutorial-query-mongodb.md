@@ -15,15 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 05/10/2017
 ms.author: mimig
-ms.translationtype: Human Translation
-ms.sourcegitcommit: a643f139be40b9b11f865d528622bafbe7dec939
 ms.openlocfilehash: feffc553a9aa931d96cec71c101674fce08a466b
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/31/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="azure-cosmos-db-how-to-query-with-api-for-mongodb"></a>Azure Cosmos DB: Como consultar com a API para MongoDB?
 
 A [API para MongoDB](mongodb-introduction.md) do Azure Cosmos DB oferece suporte a [consultas do shell do MongoDB](https://docs.mongodb.com/manual/tutorial/query-documents/). 
@@ -155,8 +152,7 @@ A próxima consulta retorna todas as famílias registradas.
 **Consulta**
     
     db.families.find( { "isRegistered" : true })
-**Resultados** 
- Nenhum documento retornará. 
+**Resultados** Nenhum documento retornará. 
 
 ## <a id="examplequery4"></a>Exemplo de consulta 4
 
@@ -316,5 +312,4 @@ Agora você pode prosseguir para o próximo tutorial e aprender a distribuir seu
 
 > [!div class="nextstepaction"]
 > [Distribuir os dados globalmente](tutorial-global-distribution-documentdb.md)
-
 

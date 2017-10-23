@@ -15,12 +15,11 @@ ms.workload: na
 ms.date: 08/10/2017
 ms.author: TomSh
 ms.custom: azlog
+ms.openlocfilehash: 6c3a2ac18fdb7a7a722447af720b9dee28adef08
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 398efef3efd6b47c76967563251613381ee547e9
-ms.openlocfilehash: 1aa93ac52d1d5c4efe222c6da505e3639170cf55
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/11/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="introduction-to-microsoft-azure-log-integration"></a>Introdução à integração de log do Microsoft Azure
 Saiba mais sobre a integração de log do Azure, seus principais recursos e como ela funciona.
@@ -64,4 +63,3 @@ Neste documento, você foi apresentado à integração de log do Azure. Para sab
 
 <!--Image references-->
 [1]: ./media/security-azure-log-integration-overview/azure-log-integration.png
-

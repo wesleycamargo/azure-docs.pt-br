@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/11/2016
 ms.author: kraigb
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 219dcbfdca145bedb570eb9ef747ee00cc0342eb
-ms.openlocfilehash: bedcbc3218022b36cc9f961c7621db3c5a639828
-ms.contentlocale: pt-br
-ms.lasthandoff: 11/17/2016
-
+ms.openlocfilehash: 2738fc1dff50a177a227ae2c7719bd9a192d82ad
+ms.sourcegitcommit: 18ad9bc049589c8e44ed277f8f43dcaa483f3339
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 08/29/2017
 ---
 # <a name="publish-webapplicationvm-windows-powershell-script"></a>Publish-WebApplicationVM (script do Windows PowerShell)
 Implanta um aplicativo Web em uma máquina virtual. Se os recursos necessários não existirem, o script criará tais recursos em sua assinatura do Azure.
@@ -80,7 +79,7 @@ Se for verdadeiro, permite o uso de certificados que não está assinado por uma
 | Aceitar caracteres curinga? |false |
 
 ### <a name="vmpassword"></a>VMPassword
-As credenciais da conta de máquina virtual. Exemplo: -VMPassword @{Name = "admin"; Password = "password"}
+As credenciais da conta de máquina virtual. Exemplo: - VMPassword @{nome = "admin"; Senha = "password"}
 
 | Aliases | nenhum |
 | --- | --- |
@@ -91,7 +90,7 @@ As credenciais da conta de máquina virtual. Exemplo: -VMPassword @{Name = "admi
 | Aceitar caracteres curinga? |false |
 
 ### <a name="databaseserverpassword"></a>DatabaseServerPassword
-As credenciais do banco de dados SQL no Azure. Exemplo:-DatabaseServerPassword @{Name = "admin"; Password = "password"}
+As credenciais do banco de dados SQL no Azure. Exemplo: - DatabaseServerPassword @{nome = "admin"; Senha = "password"}
 
 | Aliases | nenhum |
 | --- | --- |
@@ -185,5 +184,4 @@ O arquivo de configuração JSON especifica os detalhes daquilo que está para s
 ```
 
 Você pode editar o arquivo de configuração do JSON para alterar o que é provisionado. Uma máquina virtual e um serviço de nuvem são necessários, mas a seção de banco de dados é opcional.
-
 

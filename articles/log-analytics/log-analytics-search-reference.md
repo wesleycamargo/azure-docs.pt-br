@@ -15,12 +15,11 @@ ms.topic: article
 ms.date: 07/13/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.translationtype: HT
-ms.sourcegitcommit: 7456da29aa07372156f2b9c08ab83626dab7cc45
 ms.openlocfilehash: fc9c9b0a6292dab256997a86a6db16367fc48cd3
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/28/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="log-analytics-search-reference"></a>Referência da pesquisa do Log Analytics
 
@@ -890,4 +889,3 @@ Para saber mais sobre pesquisas de log:
 
 * Familiarize-se com as [pesquisas de log](log-analytics-log-searches.md) para exibir informações detalhadas reunidas por soluções.
 * Use [campos personalizados no Log Analytics](log-analytics-custom-fields.md) para estender as pesquisas de log.
-

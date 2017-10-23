@@ -12,14 +12,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: bwren
+ms.openlocfilehash: edf15e72c822ea5e045895c6f03477c613c0a6c0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
-ms.openlocfilehash: 12876bff2de5738068f033ecc4ef14b81a68f0f6
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/09/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="usage-analysis-for-web-applications-with-application-insights"></a>Análise de uso para aplicativos Web com o Application Insights
 
 Quais recursos de seu aplicativo Web são mais populares? Os usuários atingem as metas deles com seu aplicativo? Eles deixam o aplicativo em determinados pontos? E retornam posteriormente?  O [Application Insights do Azure](app-insights-overview.md) ajuda você a ter insights profundos sobre como as pessoas usam seu aplicativo Web. Sempre que atualiza seu aplicativo, você pode avaliar como ele funciona para os usuários. Com esse conhecimento, você pode tomar decisões baseadas em dados sobre os próximos ciclos de desenvolvimento.
@@ -32,7 +30,7 @@ A melhor experiência é obtida, instalando o Application Insights tanto no cód
 
     * *Não quer instalar o código do servidor? Apenas [crie um recurso do Azure Application Insights](app-insights-create-new-resource.md).*
 
-2. ** Código de página da Web:** Abra o [Portal do Azure](https://portal.azure.com), abra o recurso do Application Insights para seu aplicativo e abra o **Introdução > Monitorar e diagnosticar aplicativos do lado do cliente**. 
+2.  **Código de página da Web:** Abra o [Portal do Azure](https://portal.azure.com), abra o recurso do Application Insights para seu aplicativo e abra o **Introdução > Monitorar e diagnosticar aplicativos do lado do cliente**. 
 
     ![Copie o script no cabeçalho da página da web mestra.](./media/app-insights-usage-overview/02-monitor-web-page.png)
 
@@ -176,4 +174,3 @@ Todos os novos TelemetryClients adicionam automaticamente o valor da propriedade
    - [Fluxos de Usuário](app-insights-usage-flows.md)
    - [Pastas de trabalho](app-insights-usage-workbooks.md)
    - [Adicionar contexto de usuário](app-insights-usage-send-user-context.md)
-

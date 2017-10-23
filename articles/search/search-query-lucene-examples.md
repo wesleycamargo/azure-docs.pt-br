@@ -15,14 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 07/21/2017
 ms.author: liamca
-ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
 ms.openlocfilehash: 1faed621039ecd04064cb074e6b9011418e6ec47
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/14/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="lucene-query-syntax-examples-for-building-queries-in-azure-search"></a>Exemplos de sintaxe de consulta Lucene para criar consultas no Azure Search
 Ao construir consultas do Azure Search, você pode usar a [sintaxe de consulta simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) padrão ou a alternativa [Lucene Query Parser no Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search). O Analisador de Consulta Lucene dá suporte a constructos de consulta mais complexos, como consultas com escopo de campo, pesquisa difusa, pesquisa por proximidade, aumento de termo e pesquisa de expressão regular.
 

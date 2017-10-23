@@ -16,14 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/02/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: e7ac7c596bcc731761b0263678015ec661c699de
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 2bf1031e5481bbb662873f57904e889a2908e692
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="create-a-fully-configured-virtual-machine-with-powershell"></a>Criar uma máquina virtual totalmente configurada com o PowerShell
 
 Este script cria uma Máquina Virtual do Azure com um sistema operacional Ubuntu. Após a execução do script, é possível acessar a máquina virtual por SSH.
@@ -34,7 +32,7 @@ Este script cria uma Máquina Virtual do Azure com um sistema operacional Ubuntu
 
 ## <a name="sample-script"></a>Script de exemplo
 
-[!code-powershell[principal](../../../powershell_scripts/virtual-machine/create-vm-detailed/create-vm-detailed.ps1 "Criar uma VM detalhada")]
+[!code-powershell[main](../../../powershell_scripts/virtual-machine/create-vm-detailed/create-vm-detailed.ps1 "Create VM detailed")]
 
 ## <a name="clean-up-deployment"></a>Limpar implantação 
 
@@ -67,4 +65,3 @@ Esse script usa os seguintes comandos para criar a implantação. Cada item em q
 Para obter mais informações sobre o módulo do Azure PowerShell, confira [Documentação do Azure PowerShell](/powershell/azure/overview).
 
 Amostras de script do PowerShell da máquina virtual adicionais podem ser encontrados na [documentação da VM Linux do Azure](../linux/powershell-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-

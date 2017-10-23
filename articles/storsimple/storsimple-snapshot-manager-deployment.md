@@ -14,13 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
 ms.author: v-sharos
-ms.translationtype: Human Translation
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
 ms.openlocfilehash: cde355381b0d726a1ab340bc4230b2dc8f6e2c56
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/08/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="deploy-the-storsimple-snapshot-manager-mmc-snap-in"></a>Implantar o snap-in do MMC StorSimple Snapshot Manager
 
@@ -216,5 +214,4 @@ Para reinstalar o StorSimple Snapshot Manager, siga as etapas em [Instalar um no
 * Para saber mais sobre o StorSimple Snapshot Manager, acesse [O que é o StorSimple Snapshot Manager?](storsimple-what-is-snapshot-manager.md)
 * Para saber mais sobre a interface do usuário do StorSimple Snapshot Manager, acesse a [Interface do usuário do StorSimple Snapshot Manager](storsimple-use-snapshot-manager.md).
 * Para saber mais sobre como usar o StorSimple Snapshot Manager, acesse [Usar o StorSimple Snapshot Manager para administrar sua solução de StorSimple](storsimple-snapshot-manager-admin.md).
-
 

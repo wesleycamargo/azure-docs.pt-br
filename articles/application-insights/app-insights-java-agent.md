@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2016
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 08ce387dd37ef2fec8f4dded23c20217a36e9966
-ms.openlocfilehash: a481c7c62383c92a5dfab0e3f2b1b4f4f0e5ddf5
-ms.contentlocale: pt-br
-ms.lasthandoff: 01/25/2017
-
+ms.openlocfilehash: 4e56998382610ad3d7224e6a8de5aee5419ebe43
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="monitor-dependencies-exceptions-and-execution-times-in-java-web-apps"></a>Monitorar dependências, exceções e tempos de execução em aplicativos Web em Java
 
@@ -112,4 +111,3 @@ Para procurar instâncias individuais de dependência, exceções e relatórios 
 [java]: app-insights-java-get-started.md
 [javalogs]: app-insights-java-trace-logs.md
 [metrics]: app-insights-metrics-explorer.md
-

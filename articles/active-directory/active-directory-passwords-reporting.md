@@ -16,12 +16,11 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.translationtype: Human Translation
-ms.sourcegitcommit: be3ac7755934bca00190db6e21b6527c91a77ec2
-ms.openlocfilehash: 4d7f05d626e6f718ca3597dff00715af4055f046
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/03/2017
-
+ms.openlocfilehash: 10963ab0b84b48c35df3022649363bbc8fc112a5
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opções de relatórios para o gerenciamento de senhas do Azure AD
 
@@ -268,12 +267,11 @@ Os links a seguir fornecem mais informações sobre a redefinição de senha com
 
 * [Atalho para logs de auditoria do gerenciamento de usuários](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/Audit) – acesse diretamente os logs de auditoria do gerenciamento de usuários do locatário
 * [**Início Rápido**](active-directory-passwords-getting-started.md) – comece agora mesmo a usar o gerenciamento de senhas de autoatendimento do Azure AD 
-* [**Licenciamento**](active-directory-passwords-licensing.md) – configure o licenciamento do Azure AD
-* [**Dados**](active-directory-passwords-data.md) – entenda os dados que são necessários e como eles são usados para o gerenciamento de senhas
-* [**Distribuição**](active-directory-passwords-best-practices.md) – planeje e implante o SSPR em seus usuários usando as diretrizes descritas aqui
+* [**Licenciamento**](active-directory-passwords-licensing.md): configure o licenciamento do Azure AD
+* [**Dados**](active-directory-passwords-data.md): entenda os dados que são necessários e como eles são usados para o gerenciamento de senhas
+* [**Distribuição**](active-directory-passwords-best-practices.md): planeje e implante o SSPR para seus usuários usando as diretrizes descritas aqui
 * [**Personalizar**](active-directory-passwords-customize.md) – personalize a aparência da experiência do SSPR em sua empresa.
 * [**Aprofundamento Técnico**](active-directory-passwords-how-it-works.md) – vá para os bastidores para entender como ele funciona
-* [**Perguntas frequentes**](active-directory-passwords-faq.md) – Como? Por quê? O que? Onde? Quem? Quando? – respostas para perguntas que você sempre quis fazer
+* [**Perguntas frequentes**](active-directory-passwords-faq.md): como? Por quê? O quê? Onde? Quem? Quando? – respostas para perguntas que você sempre quis fazer
 * [**Resolver problemas**](active-directory-passwords-troubleshoot.md) – saiba como resolver problemas comuns encontrados no SSPR
 * [**Política**](active-directory-passwords-policy.md) – entenda e defina políticas de senha do Azure AD
-

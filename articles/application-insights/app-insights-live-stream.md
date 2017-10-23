@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/24/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c785ad8dbfa427d69501f5f142ef40a2d3530f9e
-ms.openlocfilehash: 68820f9c018b1076bae8dc0195906d0f34590748
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/26/2017
-
+ms.openlocfilehash: 1eb2e0c467d4fb4cb263047caf58d36231578d9a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: monitorar e diagnosticar com latência de um segundo 
 
 Teste a pulsação do aplicativo Web ao vivo em produção usando o Live Metrics Stream do [Application Insights](app-insights-overview.md). Selecione e filtre os contadores de desempenho e as métricas para observar em tempo real, sem qualquer perturbação para o serviço. Inspecione os rastreamentos de pilha de exceções e solicitações de amostra com falha. Juntamente com [Criador de perfil](app-insights-profiler.md), [Depurador de instantâneo](app-insights-snapshot-debugger.md) e [testes de desempenho](app-insights-monitor-web-app-availability.md#performance-tests), o Live Metrics Stream fornece uma ferramenta de diagnóstico poderosa e não invasiva para seu site ao vivo.
@@ -161,4 +159,3 @@ Não há dados? Se seu aplicativo estiver em uma rede protegida: o Fluxo de mét
 * [Usando a Pesquisa de diagnóstico](app-insights-diagnostic-search.md)
 * [Criador de perfil](app-insights-profiler.md)
 * [Depurador instantâneo](app-insights-snapshot-debugger.md)
-

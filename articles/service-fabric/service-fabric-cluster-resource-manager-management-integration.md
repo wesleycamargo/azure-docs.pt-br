@@ -14,12 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.translationtype: HT
-ms.sourcegitcommit: 847eb792064bd0ee7d50163f35cd2e0368324203
 ms.openlocfilehash: 70c0cc37a1d362c937ab86bd630c5ab051e63870
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/15/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="cluster-resource-manager-integration-with-service-fabric-cluster-management"></a>Integração do Gerenciador de Recursos de Cluster com o gerenciamento de cluster do Service Fabric
 O Gerenciador de recursos de Cluster do Service Fabric não realiza as atualizações no Service Fabric, mas está envolvido. A primeira maneira que o Cluster Resource Manager pode ajudar no gerenciamento é rastreando o estado desejado do cluster e dos serviços dentro dele. O Cluster Resource Manager envia relatórios de integridade quando não consegue deixar o cluster na configuração desejada. Por exemplo, se não houver capacidade suficiente, o Gerenciador de Recursos de Cluster enviará avisos de integridade e erros indicando o problema. Outra parte de integração tem a ver com a forma como as atualizações funcionam. O Gerenciador de Recursos de Cluster altera ligeiramente seu comportamento durante as atualizações.  
@@ -210,4 +209,3 @@ Em geral, convém concluir a atualização mesmo se o cluster estiver sob restri
 
 ## <a name="next-steps"></a>Próximas etapas
 * Comece do princípio e [veja uma introdução ao Resource Manager de Cluster do Service Fabric](service-fabric-cluster-resource-manager-introduction.md)
-

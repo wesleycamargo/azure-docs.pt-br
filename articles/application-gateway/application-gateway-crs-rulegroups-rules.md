@@ -15,14 +15,12 @@ ms.custom:
 ms.workload: infrastructure-services
 ms.date: 03/28/2017
 ms.author: davidmu
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 432752c895fca3721e78fb6eb17b5a3e5c4ca495
-ms.openlocfilehash: 9f4445b7ceb5b39c7907b1ca4c7bf0ad52ba8212
-ms.contentlocale: pt-br
-ms.lasthandoff: 03/30/2017
-
+ms.openlocfilehash: 9265be4ac4258115c9302189d84b20e4894d42bb
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="list-of-web-application-firewall-crs-rule-groups-and-rules-offered"></a>Lista de regras e grupos de regras CRS de firewall do aplicativo Web oferecidos
 
 O WAF (Firewall do aplicativo Web) do Gateway de Aplicativo protege os aplicativos Web de vulnerabilidades e explorações. Isso é feito por meio de regras que são definidas com base nos conjuntos de regra do núcleo OWASP 2.2.9 ou 3.0. Essas regras podem ser desabilitadas com base em cada regra. Este artigo contém as regras e os conjuntos de regras oferecidos atualmente.

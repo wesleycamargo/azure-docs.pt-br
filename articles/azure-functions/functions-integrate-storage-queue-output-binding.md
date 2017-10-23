@@ -1,5 +1,5 @@
 ---
-title: "Criar uma função no Azure disparada por mensagens na fila | Microsoft Docs"
+title: Adicionar mensagens a uma fila do Armazenamento do Azure usando Functions | Microsoft Docs
 description: "Use o Azure Functions para criar uma função sem servidor que é invocada por uma mensagem enviada para uma fila do Armazenamento do Azure."
 services: azure-functions
 documentationcenter: na
@@ -13,15 +13,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/17/2017
+ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: mvc
+ms.openlocfilehash: 822879861ee8189cdd413f0061f26fb91819d88d
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
-ms.openlocfilehash: 57c59273a9da55f3e357764c522b444ae2d73cb5
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Adicionar mensagens a uma fila do Armazenamento do Azure usando o Functions
 
@@ -128,7 +127,6 @@ Você adicionou uma associação de saída a uma função existente.
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
 Para obter mais informações sobre associação a Armazenamento de Filas, consulte [Associações de fila do Armazenamento do Azure Functions](functions-bindings-storage-queue.md). 
-
 
 
 

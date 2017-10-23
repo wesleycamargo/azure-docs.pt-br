@@ -14,13 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
 ms.author: mcoskun
-ms.translationtype: Human Translation
-ms.sourcegitcommit: de674af369080ad7eb608608685e293f2326c8e6
 ms.openlocfilehash: 3452473f5b2f86d29e46339c997193bc6403736a
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/04/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="transactions-and-lock-modes-in-azure-service-fabric-reliable-collections"></a>Transações e modos de bloqueio em Coleções Confiáveis do Azure Service Fabric
 
@@ -95,5 +93,4 @@ Esse cenário de deadlock é um ótimo exemplo de como um Bloqueio de atualizaç
 * [Backup e restauração do Reliable Services (recuperação de desastre)](service-fabric-reliable-services-backup-restore.md)
 * [Configuração do Gerenciador de Estado Confiável](service-fabric-reliable-services-configuration.md)
 * [Referência do desenvolvedor para Coleções Confiáveis](https://msdn.microsoft.com/library/azure/microsoft.servicefabric.data.collections.aspx)
-
 

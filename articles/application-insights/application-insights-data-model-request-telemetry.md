@@ -12,12 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: bwren
-ms.translationtype: Human Translation
-ms.sourcegitcommit: aaf97d26c982c1592230096588e0b0c3ee516a73
-ms.openlocfilehash: 5036ce23e602c7723f5fafef60ab45d533c1fe7d
-ms.contentlocale: pt-br
-ms.lasthandoff: 04/27/2017
-
+ms.openlocfilehash: 8e782e45b706cadec66e7404dd9abc2e01dea917
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="request-telemetry-application-insights-data-model"></a>Telemetria de solicitações: modelo de dados do Application Insights
 
@@ -85,4 +84,3 @@ Você pode ler mais sobre código de status e código de resultados de solicita�
 - Consulte [modelo de dados](application-insights-data-model.md) para modelo de dados e tipos do Application Insights.
 - Saiba como [configurar o aplicativo ASP.NET Core](app-insights-asp-net.md) com o Application Insights.
 - Confira as [plataformas](app-insights-platforms.md) com suporte do Application Insights.
-

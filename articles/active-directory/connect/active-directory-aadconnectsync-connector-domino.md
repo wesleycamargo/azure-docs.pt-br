@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.translationtype: Human Translation
-ms.sourcegitcommit: c1cd1450d5921cf51f720017b746ff9498e85537
-ms.openlocfilehash: aebe0b74c952045375e264bed88d33d936e34b92
-ms.contentlocale: pt-br
-ms.lasthandoff: 03/14/2017
-
+ms.openlocfilehash: 328e2039bbaa8988dc35b46712fd0de6f8bcbee8
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="lotus-domino-connector-technical-reference"></a>Referência técnica do conector Lotus Domino
 Este artigo descreve o conector Lotus Domino. O artigo se aplica aos seguintes produtos:
@@ -495,4 +494,3 @@ Há várias maneiras no Domino de estender o esquema, de modo que ele parece um 
 
 ## <a name="troubleshooting"></a>Solucionar problemas
 * Para saber mais sobre como habilitar o registro em log para solucionar problemas do conector, confira [How to Enable ETW Tracing for Connectors](http://go.microsoft.com/fwlink/?LinkId=335731).
-

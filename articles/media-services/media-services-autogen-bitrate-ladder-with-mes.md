@@ -14,12 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako
+ms.openlocfilehash: b5616aa9f8b15ab576d914fbae89a56f64c27f4a
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: 22aa82e5cbce5b00f733f72209318c901079b665
-ms.openlocfilehash: e4bc03c624c9930d7a9b0bef22d3179633de3365
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/24/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 #  <a name="use-azure-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Usar o Codificador de Mídia do Azure Standard para gerar automaticamente uma escada de taxa de bits
 
@@ -201,5 +200,4 @@ Fonte com altura "360" e taxa de quadros "29.970" produz três camadas de vídeo
 
 ## <a name="see-also"></a>Consulte também
 [Visão geral da codificação de serviços de mídia](media-services-encode-asset.md)
-
 

@@ -1,6 +1,13 @@
-**Configuração**| **Método/modelo de implantação** | **Portal do Azure** | **Portal clássico** | **PowerShell** |
-| --- | --- | --- | --- | --- |
-| **Autenticação de certificado nativa do Azure** | **Clássico** |[Artigo](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md) |Suportado |Suportado |
-| **Autenticação de certificado nativa do Azure** | **Gerenciador de Recursos** |[Artigo](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md) |Sem suporte |[Artigo](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md) |
-| **Autenticação Radius** | **Clássico** | Sem suporte | Sem suporte | Sem suporte |
-| **Autenticação Radius** | **Gerenciador de Recursos** | - | Sem suporte | [Artigo](point-to-site-how-to-radius-ps.md) |
+**Autenticação de certificado nativo do Azure**
+
+**Método/modelo de implantação** | **Portal do Azure** | **PowerShell** |
+|---|---|---|
+| Gerenciador de Recursos | [Artigo](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md) | [Artigo](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)|
+| Clássico | [Artigo](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md) | Suportado |
+
+**Autenticação RADIUS**
+
+**Método/modelo de implantação** | **Portal do Azure** | **PowerShell** |
+|---|---|---|
+| Gerenciador de Recursos | Suportado | [Artigo](../articles/vpn-gateway/point-to-site-how-to-radius-ps.md)|
+| Clássico | Sem suporte | Sem suporte |

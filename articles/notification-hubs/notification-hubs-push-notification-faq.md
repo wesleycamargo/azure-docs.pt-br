@@ -15,12 +15,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/19/2017
 ms.author: yuaxu
-ms.translationtype: HT
-ms.sourcegitcommit: 83f19cfdff37ce4bb03eae4d8d69ba3cbcdc42f3
 ms.openlocfilehash: f3bfda250b7f8ed679d05057682b95683d402535
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/21/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="push-notifications-with-azure-notification-hubs-frequently-asked-questions"></a>Notificações por push com os Hubs de Notificação do Azure: perguntas frequentes
 ## <a name="general"></a>Geral
@@ -220,4 +219,3 @@ Também fornecemos a capacidade de exportar a telemetria programaticamente (na c
 [complete samples]: https://github.com/Azure/azure-notificationhubs-samples
 [Aplicativos Móveis]: https://azure.microsoft.com/services/app-service/mobile/
 [preços do serviço de aplicativo]: https://azure.microsoft.com/pricing/details/app-service/
-

@@ -14,12 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/27/2017
 ms.author: alkohli
-ms.translationtype: HT
-ms.sourcegitcommit: 71fea4a41b2e3a60f2f610609a14372e678b7ec4
 ms.openlocfilehash: d987a4ae170f21532a886552cbe1eb5a0d25fc3f
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/12/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="use-the-service-summary-blade-for-storsimple-8000-series-device"></a>Use a folha de resumo do serviço do dispositivo StorSimple 8000 series
 
@@ -88,5 +87,4 @@ Para exibir as diversas operações executadas no StorSimple Device Manager, cli
 ## <a name="next-steps"></a>Próximas etapas
 
 * Saiba mais sobre como [usar o serviço StorSimple Device Manager para administrar dispositivos StorSimple](storsimple-8000-manager-service-administration.md).
-
 

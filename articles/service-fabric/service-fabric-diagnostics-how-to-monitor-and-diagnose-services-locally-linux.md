@@ -14,14 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 72b2d9142479f9ba0380c5bd2dd82734e370dee7
-ms.openlocfilehash: 86ed3f25f0bdd6bb5d8a93f124a0d2bcd7e2b07a
-ms.contentlocale: pt-br
-ms.lasthandoff: 03/08/2017
-
+ms.openlocfilehash: 4bc73f581f4855ebc724df19dd56fab8bf103854
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>Monitorar e diagnosticar serviços em uma configuração de desenvolvimento do computador local
 
 
@@ -145,4 +143,3 @@ Os exemplos neste [Exemplos de C#](https://github.com/Azure-Samples/service-fabr
 ## <a name="next-steps"></a>Próximas etapas
 O mesmo código de rastreamento adicionado ao seu aplicativo também funciona com o diagnóstico do seu aplicativo em um cluster do Azure. Consulte estes artigos que discutem as diferentes opções para as ferramentas e descrevem como configurá-las.
 * [Como coletar logs com o Diagnóstico do Azure](service-fabric-diagnostics-how-to-setup-lad.md)
-

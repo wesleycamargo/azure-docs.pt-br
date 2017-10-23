@@ -12,12 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: johnkem
+ms.openlocfilehash: a4ceb822e0ec3e1c1dc31ece1db761834e795f6c
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: bfd49ea68c597b109a2c6823b7a8115608fa26c3
-ms.openlocfilehash: 5c96a1cfa56d1535549cb15d5a7bcf03bd11e723
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-activity-log-event-schema"></a>Esquema sobre eventos do Log de Atividades do Azure
 O **Log de Atividades do Azure** é um log que fornece informações sobre eventos no nível da assinatura que ocorreram no Azure. Este artigo descreve o esquema de evento por categoria de dados.
@@ -415,4 +414,3 @@ Essa categoria contém o registro de todos os eventos relacionados à operação
 ## <a name="next-steps"></a>Próximas etapas
 * [Saiba mais sobre o Log de Atividades (anteriormente conhecido como Logs de Auditoria)](monitoring-overview-activity-logs.md)
 * [Transmissão do Log de Atividades do Azure para os Hubs de Eventos](monitoring-stream-activity-logs-event-hubs.md)
-

@@ -14,14 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/31/2017
 ms.author: xshi
-ms.translationtype: HT
-ms.sourcegitcommit: cf381b43b174a104e5709ff7ce27d248a0dfdbea
 ms.openlocfilehash: 1b1a9dc960846cbc15ce09d0fd106e1492937439
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/23/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="connect-raspberry-pi-to-azure-iot-hub-python"></a>Conectar o Raspberry Pi ao Hub IoT do Azure (Python)
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
@@ -211,4 +209,3 @@ Use um dos seguintes clientes SSH do seu computador host para se conectar ao Ras
 Você executou um aplicativo de exemplo para coletar dados de sensor e enviá-los ao seu Hub IoT. Para ver as mensagens que o seu Raspberry Pi enviou ao seu Hub IoT ou enviar mensagens para o Raspberry Pi em uma interface de linha de comando, consulte o [tutorial Gerenciar mensagens em dispositivo de nuvem com o gerenciador de Hubs IoT](https://docs.microsoft.com/en-gb/azure/iot-hub/iot-hub-explorer-cloud-device-messaging).
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
-

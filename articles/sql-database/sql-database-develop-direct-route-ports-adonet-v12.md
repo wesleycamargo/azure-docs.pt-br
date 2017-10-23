@@ -15,13 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: sstein
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 9edcaee4d051c3dc05bfe23eecc9c22818cf967c
 ms.openlocfilehash: d47ee8c794d1e231507dae6bb4aa88bf19ce6418
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/08/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="ports-beyond-1433-for-adonet-45"></a>Portas além da 1433 para ADO.NET 4.5
 Este tópico descreve o comportamento de conexão do Banco de Dados SQL do Azure para clientes que usam ADO.NET 4.5 ou uma versão mais recente. 
@@ -70,5 +68,4 @@ Esta seção explica os identificadores que se referem a versões do produto. El
 * [Visão geral do desenvolvimento de Banco de Dados SQL](sql-database-develop-overview.md)
 * [Firewall do Banco de Dados SQL do Azure](sql-database-firewall-configure.md)
 * [Como definir as configurações de firewall no Banco de Dados SQL](sql-database-configure-firewall-settings.md)
-
 

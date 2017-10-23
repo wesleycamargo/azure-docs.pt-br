@@ -15,14 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 06/01/2017
 ms.author: valthom; ladocs
-ms.translationtype: HT
-ms.sourcegitcommit: 9b7316a5bffbd689bdb26e9524129ceed06606d5
 ms.openlocfilehash: 9fb0258df3f45d121cda49d3b5c274bd9548c832
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/08/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="connect-to-an-ibm-mq-server-from-logic-apps-using-the-mq-connector"></a>Conectar-se a um servidor do IBM MQ de aplicativos lógicos usando o conector MQ 
 
 O Conector Microsoft para MQ envia e recupera mensagens armazenadas em um servidor MQ local ou no Azure. Esse conector inclui um cliente Microsoft MQ para se comunicar com um servidor MQ IBM remoto em uma rede TCP/IP. Este documento é um guia introdutório para usar o conector MQ. É recomendável que você comece procurando uma única mensagem em uma fila e, em seguida, tente as outras ações.    
@@ -126,4 +124,3 @@ Exiba os gatilhos e ações definidos no swagger e também os limites nos [detal
 
 ## <a name="next-steps"></a>Próximas etapas
 [Criar um aplicativo lógico](../logic-apps/logic-apps-create-a-logic-app.md). Explore os outros conectores disponíveis nos Aplicativos Lógicos em nossa [lista de APIs](apis-list.md).
-

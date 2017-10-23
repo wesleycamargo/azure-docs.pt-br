@@ -15,15 +15,12 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/24/2017
 ms.author: sasubram
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
 ms.openlocfilehash: cad0ce8f745f3d6ca14436fd714b08c60de0e459
-ms.contentlocale: pt-br
-ms.lasthandoff: 05/25/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="office-365-external-sharing-and-azure-active-directory-b2b-collaboration"></a>Compartilhamento externo do Office 365 e colaboração B2B do Azure Active Directory
 
 O compartilhamento externo no Office 365 (OneDrive, SharePoint Online, Unified Groups etc.) e a colaboração B2B do Azure AD (Azure Active Directory) são tecnicamente a mesma coisa. Todo compartilhamento externo, (com exceção do OneDrive/SharePoint Online), incluindo convidados em Grupos do Office 365, já usa as APIs de convite de colaboração B2B do Azure AD para compartilhamento.
@@ -54,4 +51,3 @@ Procure nossos outros artigos sobre a colaboração B2B do AD do Azure:
 * [Tokens de usuário de colaboração B2B](active-directory-b2b-user-token.md)
 * [Mapeamento de declarações do usuário de colaboração B2B](active-directory-b2b-claims-mapping.md)
 * [Limitações atuais da colaboração B2B](active-directory-b2b-current-limitations.md)
-
