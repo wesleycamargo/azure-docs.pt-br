@@ -1,6 +1,6 @@
 ---
-title: "O recurso Insights inteligentes monitora o uso do banco de dados – Banco de dados SQL do Azure| Microsoft Docs"
-description: "O recurso Insights inteligentes permite que você saiba o que está acontecendo com o desempenho do banco de dados"
+title: "Monitorar o uso do banco de dados com o Intelligent Insights – Banco de dados SQL do Azure| Microsoft Docs"
+description: "O Intelligent Insights do Banco de Dados SQL do Azure usa uma inteligência interna para monitorar continuamente o uso de banco de dados por meio de inteligência artificial e detecta os eventos de interrupção que causam baixo desempenho."
 services: sql-database
 documentationcenter: 
 author: danimir
@@ -15,18 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: NA
 ms.date: 09/25/2017
 ms.author: v-daljep
+ms.openlocfilehash: 8e55fa02d5edda21fbf547397d63f9d1cf987a60
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: c3b11dd50fa8c94d3bf80e02a8a319030c375133
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="intelligent-insights"></a>Insights inteligentes
 
 O recurso ***&#8220;Insights inteligentes permite que você saiba o que está acontecendo com o desempenho do banco de dados.&#8221;***
 
-A inteligência interna do banco de dados SQL do Azure monitora continuamente o uso de banco de dados por meio de inteligência artificial e detecta os eventos de interrupção que causam baixo desempenho. Quando detectados, uma análise detalhada é executada gerando um log de diagnóstico com avaliação inteligente do problema. Essa avaliação consiste em uma análise da causa raiz do problema de desempenho do banco de dados e possíveis recomendações para melhorias de desempenho – ou seja, ***&#8220; insights inteligentes. &#8221;.*** 
+O Intelligent Insights do Banco de Dados SQL do Azure usa uma inteligência interna para monitorar continuamente o uso de banco de dados por meio de inteligência artificial e detecta os eventos de interrupção que causam baixo desempenho. Quando detectados, uma análise detalhada é executada gerando um log de diagnóstico com avaliação inteligente do problema. Essa avaliação consiste em uma análise da causa raiz do problema de desempenho do banco de dados e possíveis recomendações para melhorias de desempenho – ou seja, ***&#8220; insights inteligentes. &#8221;.*** 
 
 ## <a name="what-can-intelligent-insights-do-for-you"></a>O que o recurso Insights inteligentes pode fazer por você?
 
@@ -161,6 +160,5 @@ No caso de alguma exceção crítica monitorada ir acima dos limites absolutos g
 * Use o [log de diagnóstico de desempenho do Banco de dados SQL do Azure com Insights inteligentes](sql-database-intelligent-insights-use-diagnostics-log.md)
 * Saiba como [monitorar o Banco de dados SQL do Azure usando a Análise de SQL do Azure](../log-analytics/log-analytics-azure-sql.md)
 * Saiba como [coletar e consumir dados de log dos recursos do Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)
-
 
 

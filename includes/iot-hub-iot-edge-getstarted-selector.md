@@ -31,7 +31,7 @@ O módulo do agente consome apenas as mensagens do agente; ele nunca publica nov
 
 ![Como o agente roteia mensagens entre módulos no IoT Edge do Azure][5]
 
-A figura acima mostra a arquitetura da amostra do Hello World e os caminhos relativos para os arquivos de origem que implementam partes diferentes da amostra no [repositório][lnk-iot-edge]. Explore o código por conta própria ou use os trechos de código abaixo como guia.
+A figura anterior mostra a arquitetura da amostra do Hello World e os caminhos relativos para os arquivos de origem que implementam partes diferentes da amostra no [repositório][lnk-iot-edge]. Explore o código por conta própria ou use os trechos de código neste artigo como guia.
 
 <!-- Images -->
 [4]: media/iot-hub-iot-edge-getstarted-selector/high_level_architecture.png

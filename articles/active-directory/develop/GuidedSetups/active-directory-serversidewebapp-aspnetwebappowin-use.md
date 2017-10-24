@@ -15,23 +15,21 @@ ms.workload: identity
 ms.date: 05/09/2017
 ms.author: andret
 ms.custom: aaddev
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ef74361c7a15b0eb7dad1f6ee03f8df707a7c05e
 ms.openlocfilehash: 3b7d29e48c91f40e8782a5e32a52998b815fe331
-ms.contentlocale: pt-br
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 ## <a name="add-a-controller-to-handle-sign-in-and-sign-out-requests"></a>Adicionar um controlador para manipular solicitações de entrada e saída
 
 Esta etapa mostra como criar um novo controlador para expor métodos de entrada e saída.
 
-1.    Clique com o botão direito do mouse na pasta `Controllers` e selecione `Add` > `Controller`
-2.    Selecione `MVC (.NET version) Controller – Empty`.
-3.    Clique em *Adicionar*
-4.    Nomeie-o `HomeController` e clique em *Adicionar*
-5.    Adicione referências *OWIN* à classe:
+1.  Clique com o botão direito do mouse na pasta `Controllers` e selecione `Add` > `Controller`
+2.  Selecione `MVC (.NET version) Controller – Empty`.
+3.  Clique em *Adicionar*
+4.  Nomeie-o `HomeController` e clique em *Adicionar*
+5.  Adicione referências *OWIN* à classe:
 
 ```csharp
 using Microsoft.Owin.Security;
@@ -75,9 +73,9 @@ public void SignOut()
 
 No Visual Studio, crie uma nova exibição para adicionar o botão de conexão e exibir informações de usuário após a autenticação:
 
-1.    Clique com o botão direito do mouse na pasta `Views\Home` e selecione `Add View`
-2.    Nomeie-o `Index`.
-3.    Adicione o seguinte HTML, que inclui o botão de conexão, ao arquivo:
+1.  Clique com o botão direito do mouse na pasta `Views\Home` e selecione `Add View`
+2.  Nomeie-o `Index`.
+3.  Adicione o seguinte HTML, que inclui o botão de conexão, ao arquivo:
 
 ```html
 <html>
@@ -118,17 +116,17 @@ else
 ```
 <!--start-collapse-->
 ### <a name="more-information"></a>Mais informações
-> Esta página adiciona um botão de conexão no formato SVG com uma tela de fundo preta:<br/>![Entrar com uma Conta da Microsoft](media/active-directory-serversidewebapp-aspnetwebappowin-use/aspnetsigninbuttonsample.png)<br/> Para obter mais botões de conexão, acesse [esta página](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "Branding guidelines").
+> Esta página adiciona um botão de conexão no formato SVG com uma tela de fundo preta:<br/>![Entrar com uma Conta da Microsoft](media/active-directory-serversidewebapp-aspnetwebappowin-use/aspnetsigninbuttonsample.png)<br/> Para obter mais botões de conexão, acesse [esta página](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "Diretrizes de identidade visual").
 <!--end-collapse-->
 
 ## <a name="add-a-controller-to-display-users-claims"></a>Adicionar um controlador para exibir as declarações do usuário
 Esse controlador demonstra os usos do atributo `[Authorize]` para proteger um controlador. Esse atributo restringe o acesso ao controlador permitindo apenas usuários autenticados. O código abaixo usa o atributo para exibir as declarações de usuário que foram recuperadas como parte da conexão.
 
-1.    Clique com o botão direito do mouse na pasta `Controllers`: `Add` > `Controller`
-2.    Selecione `MVC {version} Controller – Empty`.
-3.    Clique em *Adicionar*
-4.    Nomeie-o `ClaimsController`
-5.    Substitua o código da classe de controlador pelo código abaixo – isso adiciona o atributo `[Authorize]` à classe:
+1.  Clique com o botão direito do mouse na pasta `Controllers`: `Add` > `Controller`
+2.  Selecione `MVC {version} Controller – Empty`.
+3.  Clique em *Adicionar*
+4.  Nomeie-o `ClaimsController`
+5.  Substitua o código da classe de controlador pelo código abaixo – isso adiciona o atributo `[Authorize]` à classe:
 
 ```csharp
 [Authorize]
@@ -167,9 +165,9 @@ public class ClaimsController : Controller
 
 No Visual Studio, crie uma nova exibição para exibir as declarações do usuário em uma página da Web:
 
-1.    Clique com o botão direito do mouse na pasta `Views\Claims` e: `Add View`
-2.    Nomeie-o `Index`.
-3.    Adicione o seguinte HTML ao arquivo:
+1.  Clique com o botão direito do mouse na pasta `Views\Claims` e: `Add View`
+2.  Nomeie-o `Index`.
+3.  Adicione o seguinte HTML ao arquivo:
 
 ```html
 <html>
@@ -200,4 +198,3 @@ No Visual Studio, crie uma nova exibição para exibir as declarações do usuá
 </body>
 </html>
 ```
-

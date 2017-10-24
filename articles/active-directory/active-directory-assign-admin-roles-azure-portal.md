@@ -12,25 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 10/10/2017
 ms.author: curtand
 ms.reviewer: Vince.Smith
 ms.custom: it-pro;
+ms.openlocfilehash: 3cce18d7a5cb67a53a90bd7e13c9f4c7b8c2da89
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 190ca4b228434a7d1b30348011c39a979c22edbd
-ms.openlocfilehash: bea45d6ad01c92cf05821da9da8069dd1f667d31
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/09/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Atribuindo funções de administrador no Azure Active Directory
-> [!div class="op_single_selector"]
-> * [Portal do Azure](active-directory-assign-admin-roles-azure-portal.md)
-> * [Portal clássico do Azure](active-directory-assign-admin-roles.md)
->
->
 
-Usando o Azure Active Directory (Azure AD), você pode designar administradores separados para atender a diferentes funções. Esses administradores terão acesso a vários recursos no portal do Azure ou portal clássico do Azure e, dependendo da sua função, poderão criar ou editar usuários, atribuir funções administrativas a outros usuários, redefinir senhas de usuários, gerenciar licenças de usuários e gerenciar domínios, entre outras coisas. Um usuário ao qual é atribuída uma função administrativa terá as mesmas permissões em todos os serviços de nuvem que sua organização tenha assinado, independentemente de você ter atribuído a função no portal do Office 365 ou no portal clássico do Azure ou usando o módulo do Azure AD para Windows PowerShell.
+Usando o Azure Active Directory (Azure AD), você pode designar administradores separados para atender a diferentes funções. Os administradores terão acesso a vários recursos no portal do Azure ou no portal clássico do Azure e, dependendo da sua função, podem criar ou editar usuários, atribuir funções administrativas a outros usuários, redefinir senhas de usuários, gerenciar licenças de usuários e gerenciar domínios, entre outras coisas. Um usuário ao qual é atribuída uma função administrativa terá as mesmas permissões em todos os serviços de nuvem que sua organização tenha assinado, independentemente de você ter atribuído a função no portal do Office 365 ou no portal clássico do Azure ou usando o módulo do Azure AD para Windows PowerShell.
 
 As seguintes funções de administrador estão disponíveis:
 
@@ -184,4 +178,3 @@ As seguintes funções não devem ser usadas. Elas foram preteridas e serão rem
 * [Gerenciar usuários](active-directory-create-users.md)
 * [Gerenciar senhas](active-directory-manage-passwords.md)
 * [Gerenciar grupos](active-directory-manage-groups.md)
-

@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/28/2017
+ms.date: 10/10/2017
 ms.author: jonbeck
-ms.openlocfilehash: b7a3844ce86b4efac8a4fc3c2540e7b6460873a2
-ms.sourcegitcommit: 02e69c4a9d17645633357fe3d46677c2ff22c85a
-ms.translationtype: MT
+ms.openlocfilehash: fecc0656264f1c1d44aa8ad3aea321aa8cc4a0c8
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/03/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="high-performance-compute-linux-vm-sizes"></a>Tamanhos de VM Linux de computação de alto desempenho
 
@@ -32,35 +32,33 @@ ms.lasthandoff: 08/03/2017
 ## <a name="rdma-capable-instances"></a>Instâncias compatíveis com RDMA
 Um subconjunto das instâncias de computação intensiva (H16r, H16mr, A8 e A9) apresenta um adaptador de rede para conectividade RDMA (acesso remoto direto à memória). Essa interface é além do adaptador de rede do Azure padrão disponível para outros tamanhos de VM. 
   
-Essa interface permite que instâncias compatíveis com RDMA se comuniquem em uma rede InfiniBand, operando em taxas FDR para máquinas virtuais H16r e H16mr e taxas QDR para máquinas virtuais A8 e A9. Esses recursos RDMA podem melhorar a escalabilidade e o desempenho de aplicativos MPI (Interface de Transmissão de Mensagens).
+Essa interface permite que instâncias compatíveis com RDMA se comuniquem em uma rede InfiniBand, operando em taxas FDR para máquinas virtuais H16r e H16mr e taxas QDR para máquinas virtuais A8 e A9. Esses recursos RDMA podem melhorar a escalabilidade e o desempenho de aplicativos de Interface de Transmissão de Mensagens (MPI) que são executados no Intel MPI 5.x ou uma versão posterior.
 
-Estes são os requisitos para VMs Linux compatíveis com RDMA acessarem a rede RDMA do Azure:
+Implante as VMs compatíveis com RDMA no mesmo conjunto de disponibilidade (se usar o modelo de implantação do Azure Resource Manager) ou no mesmo serviço de nuvem (se usar o modelo de implantação clássica). A seguir estão os requisitos adicionais para VMs Linux compatíveis com RDMA acessarem a rede RDMA do Azure.
+
+### <a name="distributions"></a>Distribuições
  
-* **Distribuições** – Você deve implantar as VMs de imagens HPC com base em Rogue Wave Software (anteriormente OpenLogic) CentOS ou SLES (SUSE Linux Enterprise Server) compatíveis com RDMA no Azure Marketplace. As seguintes imagens do Marketplace dão suporte à conectividade RDMA:
+Implante uma VM de computação intensiva de uma das imagens no Azure Marketplace que dá suporte à conectividade RDMA:
   
-    * SLES 12 SP1 para HPC ou SLES 12 SP1 para HPC (Premium)
+* **Ubuntu** – Ubuntu Server 16.04 LTS. Configure os drivers RDMA na VM e registre-se na Intel para baixar o Intel MPI:
+
+  [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
+
+* **SUSE Linux Enterprise Server** - SLES 12 SP3 para HPC, SLES 12 SP3 para HPC (Premium), SLES 12 SP1 para HPC, SLES 12 SP1 para HPC (Premium). Os drivers RDMA são instalados e os pacotes do Intel MPI são distribuídos na VM. Instale o MPI executando o seguinte comando:
+
+  ```bash
+  sudo rpm -v -i --nodeps /opt/intelMPI/intel_mpi_packages/*.rpm
+  ```
     
-    * HPC 7.3, 7.1, 6.8 ou 6.5 baseado em CentOS  
+* **HPC baseado em CentOS** - HPC baseado em CentOS 7.3, HPC baseado em CentOS 7.1, HPC baseado em CentOS 6.8, ou HPC baseado em CentOS 6.5 (para a série H, recomenda-se a versão 7.1 ou posterior). OS drivers RDMA e o Intel MPI 5.1 são instalados na VM.  
  
-        > [!NOTE]
-        > Para VMs da série H, recomendamos o SLES 12 SP1 para imagem do HPC ou imagem do HPC 7.1 baseado em CentOS.
-        >
-        > Nas imagens do HPC baseado em CentOS, as atualizações de kernel estão desabilitadas no arquivo de configuração **yum** . Isso ocorre porque os drivers RDMA do Linux são distribuídos como um pacote RPM, e as atualizações de driver poderão não funcionar caso o kernel seja atualizado.
-        > 
-        > 
-* **MPI** - Intel MPI Library 5.x
-  
-    Dependendo da imagem do Marketplace escolhida, podem ser necessários licenciamento, instalação ou configuração separada do Intel MPI, da seguinte maneira: 
-  
-  * **SLES 12 SP1 para imagem HPC** – pacotes Intel MPI são distribuídos na VM. Instale o executando o seguinte comando:
-
-      ```bash
-      sudo rpm -v -i --nodeps /opt/intelMPI/intel_mpi_packages/*.rpm
-      ```
-
-  * **Imagens do HPC baseado em CentOS** – O Intel MPI 5.1 já está instalado.  
+  > [!NOTE]
+  > Nas imagens do HPC baseado em CentOS, as atualizações de kernel estão desabilitadas no arquivo de configuração **yum** . Isso ocorre porque os drivers RDMA do Linux são distribuídos como um pacote RPM, e as atualizações de driver poderão não funcionar caso o kernel seja atualizado.
+  > 
+ 
+### <a name="cluster-configuration"></a>Configuração do cluster 
     
-    Configurações adicionais do sistema são necessárias para executar trabalhos MPI em máquinas virtuais clusterizadas. Por exemplo, em um cluster de máquinas virtuais, você precisa estabelecer confiança entre os nós de computação. Para configurações típicas, consulte [Configurar um cluster de RDMA do Linux para executar aplicativos MPI](classic/rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
+Configurações adicionais do sistema são necessárias para executar trabalhos MPI em máquinas virtuais clusterizadas. Por exemplo, em um cluster de máquinas virtuais, você precisa estabelecer confiança entre os nós de computação. Para configurações típicas, consulte [Configurar um cluster de RDMA do Linux para executar aplicativos MPI](classic/rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 ### <a name="network-topology-considerations"></a>Considerações de topologia de rede
 * Em VMs Linux habilitadas para RDMA no Azure, Eth1 é reservado para o tráfego de rede RDMA. Não altere as configurações de Eth1 ou as informações no arquivo de configuração que se refere a essa rede. Eth0 é reservado para o tráfego de rede regular do Azure.

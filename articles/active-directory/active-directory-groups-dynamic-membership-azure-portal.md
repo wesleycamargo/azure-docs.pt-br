@@ -12,16 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 09/29/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
+ms.openlocfilehash: 3ff347ab23c9150246940f563e562c8de92be45d
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: 57278d02a40aa92f07d61684e3c4d74aa0ac1b5b
-ms.openlocfilehash: 44748f3152718f3cec348d7e2bdccdbe0f79091e
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/28/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Criar regras baseadas em atributo para associação dinâmica de grupo no Azure Active Directory
 No Azure AD (Azure Active Directory), você pode criar regras avançadas para habilitar associações dinâmicas baseadas em atributos complexas para grupos. Este artigo detalha os atributos e a sintaxe para criar regras de associação dinâmica para usuários ou dispositivos.
@@ -40,17 +39,19 @@ Quando os atributos de um usuário ou um dispositivo são alterados, o sistema a
 ## <a name="to-create-an-advanced-rule"></a>Para criar uma regra avançada
 1. Entre no [centro de administração do Azure AD](https://aad.portal.azure.com) com uma conta que seja um administrador global ou um administrador da conta de usuário.
 2. Selecione **Usuários e grupos**.
-3. Selecione **Todos os grupos**.
+3. Selecione **Todos os grupos** e selecione **Novo grupo**.
 
-   ![Abrir a folha de grupos](./media/active-directory-groups-dynamic-membership-azure-portal/view-groups-blade.png)
-4. Em **Todos os grupos**, selecione **Novo grupo**.
+   ![Adicione o novo grupo](./media/active-directory-groups-dynamic-membership-azure-portal/new-group-creation.png)
 
-   ![Adicione o novo grupo](./media/active-directory-groups-dynamic-membership-azure-portal/add-group-type.png)
-5. Na folha **Grupo** , insira um nome e uma descrição para o novo grupo. Selecione o **Tipo de associação** **Usuário Dinâmico** ou **Dispositivo Dinâmico**, dependendo se você deseja criar uma regra para usuários ou dispositivos e, em seguida, selecione **Adicionar consulta dinâmica**. Para os atributos usados para regras de dispositivo, consulte [Usando atributos para criar regras para objetos de dispositivo](#using-attributes-to-create-rules-for-device-objects).
+4. Na folha **Grupo** , insira um nome e uma descrição para o novo grupo. Selecione o **Tipo de associação** **Usuário Dinâmico** ou **Dispositivo Dinâmico**, dependendo se você deseja criar uma regra para usuários ou dispositivos e, em seguida, selecione **Adicionar consulta dinâmica**. Você pode usar o construtor de regra para criar uma regra simples ou gravar uma regra avançada por conta própria. Este artigo contém mais informações sobre os atributos de usuário e dispositivo disponíveis, bem como exemplos de regras avançadas.
 
    ![Adicionar regra de associação dinâmica](./media/active-directory-groups-dynamic-membership-azure-portal/add-dynamic-group-rule.png)
-6. Na folha **Regras de associação dinâmica**, insira sua regra na caixa **Adicionar regra avançada de associação dinâmica** pressione Enter e selecione **Criar** na parte inferior da folha.
-7. Selecione **Criar** on the **Grupo** para criar o grupo.
+
+5. Depois de criar a regra, selecione **Adicionar consulta** na parte inferior da folha.
+6. Selecione **Criar** on the **Grupo** para criar o grupo.
+
+> [!TIP]
+> A criação de grupo pode falhar se a regra avançada que você inseriu estava incorreta. Será exibida uma notificação no canto superior direito do portal; ela contém uma explicação do porquê da regra não ter sido aceita pelo sistema. Leia com cuidado para entender como você precisa ajustar a regra para torná-la válida.
 
 ## <a name="constructing-the-body-of-an-advanced-rule"></a>Construção do corpo de uma regra avançada
 A regra avançada que você pode criar para os membros dinâmicos para grupos é essencialmente uma expressão binária que consiste em três partes e resulta em um resultado verdadeiro ou falso. As três partes são:
@@ -276,7 +277,7 @@ Você também pode criar uma regra que seleciona objetos de dispositivo para ass
  ----- | ----- | ----------------
  accountEnabled | verdadeiro, falso | (device.accountEnabled -eq true)
  displayName | Um valor de cadeia de caracteres. |(device.displayName -eq "Rob Iphone”)
- deviceOSType | Um valor de cadeia de caracteres. | (device.deviceOSType -eq "IOS")
+ deviceOSType | Um valor de cadeia de caracteres. | (device.deviceOSType -eq "iPad") -or (device.deviceOSType -eq "iPhone")
  deviceOSVersion | Um valor de cadeia de caracteres. | (device.OSVersion -eq "9.1")
  deviceCategory | o nome de uma categoria de dispositivo válida | (device.deviceCategory -eq "BYOD")
  deviceManufacturer | Um valor de cadeia de caracteres. | (device.deviceManufacturer -eq "Samsung")
@@ -305,9 +306,7 @@ Estamos atualizando o portal do Azure para oferecer suporte a essa funcionalidad
 **Usando o PowerShell para alterar o gerenciamento de associação em um grupo**
 
 > [!NOTE]
-> Para alterar as propriedades de grupo dinâmico, você precisará usar os cmdlets da [versão 2 do PowerShell do Azure AD](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
->
-> No momento, somente a última versão de visualização da biblioteca contém os cmdlets necessários. Você pode instalá-lo clicando [aqui](https://www.powershellgallery.com/packages/AzureADPreview).
+> Para alterar as propriedades de grupo dinâmico, você precisará usar os cmdlets da [versão 2 do PowerShell do Azure AD](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). Você pode instalá-lo clicando [aqui](https://www.powershellgallery.com/packages/AzureADPreview).
 
 Aqui está um exemplo de funções que alternam o gerenciamento de associação em um grupo existente. Observe que toma-se cuidado ao manipular a propriedade GroupTypes corretamente e preservar quaisquer valores que possam existir, não relacionados à associação dinâmica.
 
@@ -369,4 +368,3 @@ Esses artigos fornecem mais informações sobre grupos no Azure Active Directory
 * [Gerenciar configurações de um grupo](active-directory-groups-settings-azure-portal.md)
 * [Gerenciar associações de um grupo](active-directory-groups-membership-azure-portal.md)
 * [Gerenciar regras dinâmicas para usuários em um grupo](active-directory-groups-dynamic-membership-azure-portal.md)
-

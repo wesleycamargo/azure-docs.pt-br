@@ -4,28 +4,28 @@ O exemplo a seguir mostra a saída gravada no arquivo de log pela amostra do Ol�
 
 ```json
 [{
-    "time": "Mon Apr 11 13:48:07 2016",
+    "time": "Mon Apr 11 13:42:50 2016",
     "content": "Log started"
 }, {
-    "time": "Mon Apr 11 13:48:48 2016",
+    "time": "Mon Apr 11 13:42:50 2016",
     "properties": {
         "helloWorld": "from Azure IoT Gateway SDK simple sample!"
     },
     "content": "aGVsbG8gd29ybGQ="
 }, {
-    "time": "Mon Apr 11 13:48:55 2016",
+    "time": "Mon Apr 11 13:42:55 2016",
     "properties": {
         "helloWorld": "from Azure IoT Gateway SDK simple sample!"
     },
     "content": "aGVsbG8gd29ybGQ="
 }, {
-    "time": "Mon Apr 11 13:49:01 2016",
+    "time": "Mon Apr 11 13:43:00 2016",
     "properties": {
         "helloWorld": "from Azure IoT Gateway SDK simple sample!"
     },
     "content": "aGVsbG8gd29ybGQ="
 }, {
-    "time": "Mon Apr 11 13:49:04 2016",
+    "time": "Mon Apr 11 13:45:00 2016",
     "content": "Log stopped"
 }]
 ```
@@ -36,11 +36,11 @@ Esta seção aborda algumas partes fundamentais do código na amostra do Hello\_
 
 ### <a name="iot-edge-gateway-creation"></a>Criação do gateway do Edge IoT
 
-Você deve implementar um *processo de gateway*. Este programa cria a infraestrutura interna (o agente), carrega os módulos do IoT Edge e configura o processo do gateway. O Edge IoT fornece a função **Gateway\_Create\_From\_JSON** para que você possa inicializar um gateway em um arquivo JSON. Para usar a função **Gateway\_Create\_From\_JSON**, passe para ela o caminho para um arquivo JSON que especifica os módulos do IoT Edge a serem carregados.
+Para criar um gateway, implemente um *processo de gateway*. Este programa cria a infraestrutura interna (o agente), carrega os módulos do IoT Edge e configura o processo do gateway. O Edge IoT fornece a função **Gateway\_Create\_From\_JSON** para que você possa inicializar um gateway em um arquivo JSON. Para usar a função **Gateway\_Create\_From\_JSON**, passe para ela o caminho para um arquivo JSON que especifica os módulos do IoT Edge a serem carregados.
 
 É possível encontrar o código para o processo de gateway na amostra do *Olá, Mundo* no arquivo [main.c][lnk-main-c]. Para legibilidade, o trecho de código abaixo mostra uma versão abreviada do código do processo de gateway. Este exemplo de programa cria um gateway e aguarda até que o usuário pressione a tecla **ENTER** antes de eliminar o gateway.
 
-```c
+```C
 int main(int argc, char** argv)
 {
     GATEWAY_HANDLE gateway;
@@ -119,7 +119,7 @@ O código a seguir mostra o JSON usado para configurar links entre os módulos u
 
 É possível encontrar o código usado pelo módulo hello\_world para publicar mensagens no arquivo ['hello_world.c'][lnk-helloworld-c]. O trecho de código abaixo mostra uma versão corrigida do código com comentários adicionais sem alguns códigos de tratamento de erro para manter a legibilidade:
 
-```c
+```C
 int helloWorldThread(void *param)
 {
     // create data structures used in function.
@@ -165,24 +165,22 @@ int helloWorldThread(void *param)
 }
 ```
 
-### <a name="helloworld-module-message-processing"></a>Processamento de mensagem do módulo do Hello\_World
-
 O módulo do hello\_world nunca processa as mensagens publicadas no agente por outros módulos do Edge IoT. Isso torna a implementação do retorno de chamada de mensagem no módulo do Hello\_World uma função não operacional.
 
-```c
+```C
 static void HelloWorld_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHandle)
 {
     /* No action, HelloWorld is not interested in any messages. */
 }
 ```
 
-### <a name="logger-module-message-publishing-and-processing"></a>Publicação e processamento de mensagem de módulo do agente
+### <a name="logger-module-message-processing"></a>Processamento de mensagem do módulo do agente
 
 O módulo do Agente recebe mensagens do agente e as grava em um arquivo. Ele nunca publica as mensagens. Portanto, o código do módulo do agente nunca chama a função **Broker_Publish**.
 
 A função **Logger_Receive** no arquivo [logger.c][lnk-logger-c] é o retorno de chamada que invoca o agente para entregar mensagens ao módulo do agente. O trecho de código abaixo mostra uma versão corrigida com comentários adicionais sem alguns códigos de tratamento de erro para manter a legibilidade:
 
-```c
+```C
 static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHandle)
 {
 
@@ -223,7 +221,10 @@ static void Logger_Receive(MODULE_HANDLE moduleHandle, MESSAGE_HANDLE messageHan
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você executou um gateway IoT Edge simples que grava mensagens em um arquivo de log. Para executar um exemplo que envia mensagens para o Hub IoT, veja [borda IoT – enviar mensagens de dispositivo para a nuvem com um dispositivo simulado usando Linux][lnk-gateway-simulated-linux] ou [IoT Edge – enviar mensagens de dispositivo para a nuvem com um dispositivo simulado usando Windows][lnk-gateway-simulated-windows].
+Neste artigo, você executou um gateway IoT Edge simples que grava mensagens em um arquivo de log. Para executar um exemplo que envia mensagens para o Hub IoT, consulte:
+
+- [IoT Edge - enviar mensagens do dispositivo para a nuvem com um dispositivo simulado usando o Linux][lnk-gateway-simulated-linux] 
+- [IoT Edge - enviar mensagens do dispositivo para a nuvem com um dispositivo simulado usando o Windows][lnk-gateway-simulated-windows].
 
 
 <!-- Links -->

@@ -14,12 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 9/06/2017
 ms.author: tamram
+ms.openlocfilehash: 4100e8b90e37d6f4ab5123dfd682452c21c77998
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 57f458770ea5d57b4c155adf4fa793867f392c3b
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="designing-highly-available-applications-using-ra-grs"></a>Criando aplicativos altamente disponíveis usando RA-GRS
 
@@ -244,4 +243,3 @@ Se você tiver tornado configuráveis os limites para alternar o aplicativo para
 * Para obter mais informações sobre a Redundância Geográfica com Acesso de Leitura, incluindo outro exemplo de como LastSyncTime é definido, consulte [Opções de redundância de armazenamento do Microsoft Azure e o Armazenamento com Redundância Geográfica com Acesso de Leitura](https://blogs.msdn.microsoft.com/windowsazurestorage/2013/12/11/windows-azure-storage-redundancy-options-and-read-access-geo-redundant-storage/).
 
 * Para obter um exemplo completo que mostra como fazer a alternância entre os pontos de extremidade primário e secundário, confira [Exemplos do Azure – usando o padrão de Disjuntor com o armazenamento de RA-GRS](https://github.com/Azure-Samples/storage-dotnet-circuit-breaker-pattern-ha-apps-using-ra-grs).
-

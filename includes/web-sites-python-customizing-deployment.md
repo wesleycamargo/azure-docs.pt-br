@@ -21,7 +21,7 @@ Para obter mais controle sobre a implantação, você pode substituir o script d
     \.deployment
     \deploy.cmd
 
-Você pode usar o [interface de linha de comando do Azure] [ Azure command-line interface] para criar os arquivos.  Use este comando da pasta do projeto:
+Você pode usar a [interface de linha de comando do Azure][Azure command-line interface] para criar os arquivos.  Use este comando da pasta do projeto:
 
     azure site deploymentscript --python
 

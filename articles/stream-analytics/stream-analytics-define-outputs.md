@@ -15,12 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
+ms.openlocfilehash: 33d0b9aa37cc92dda27f1cf21f1d393b42b8c09b
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: eeed445631885093a8e1799a8a5e1bcc69214fe6
-ms.openlocfilehash: 52d131384c61b57d31873530304c644d6e9c11f1
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/07/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="stream-analytics-outputs-options-for-storage-analysis"></a>Saídas do Stream Analytics: opções de armazenamento, análise
 Ao criar um trabalho do Stream Analytics, considere como os dados resultantes serão consumidos. Como você exibirá os resultados do trabalho do Stream Analytics e onde os armazenará?
@@ -57,7 +56,7 @@ A tabela abaixo lista os nomes de propriedade e sua descrição para a criação
 </tr>
 <tr>
 <td>Padrão de prefixo de caminho</td>
-<td>O caminho do arquivo usado para gravar seus arquivos na Conta do Repositório Data Lake especificada. <BR>{data}, {hora}<BR>Exemplo 1: pasta1/logs/{data}/{hora}<BR>Exemplo 2: pasta1/logs/{data}</td>
+<td>A nomenclatura de arquivo seguirá a seguinte convenção: <BR>{Padrão de prefixo de caminho}/schemaHashcode_Guid_Number.extension <BR> <BR>Exemplo de arquivos de saída:<BR>Myoutput/20170901/00/45434_gguid_1.csv <BR>Myoutput/20170901/01/45434_gguid_1.csv <BR> <BR>Além disso, esta são as situações nas quais um novo arquivo é criado:<BR>1. Alteração no esquema de saída <BR>2. Reinicialização interna ou externa de um trabalho<BR><BR>Além disso, se o padrão de caminho do arquivo não contiver uma "/" à direita, o último padrão no caminho do arquivo será tratado como um prefixo de nome de arquivo.<BR><BR>Exemplo:<BR>Para o padrão de caminho: folder1/logs/HH, o arquivo gerado pode parecer com o seguinte: folder1/logs/02_134343_gguid_1.csv</td>
 </tr>
 <tr>
 <td>Formato de data [<I>opcional</I>]</td>
@@ -81,7 +80,7 @@ A tabela abaixo lista os nomes de propriedade e sua descrição para a criação
 </tr>
 <tr>
 <td>Formatar</td>
-<td>Aplicável somente para serialização JSON. Uma linha separada especifica que a saída será formatada com cada objeto JSON separado por uma nova linha. Matriz especifica que a saída será formatada como uma matriz de objetos JSON.</td>
+<td>Aplicável somente para serialização JSON. Uma linha separada especifica que a saída será formatada com cada objeto JSON separado por uma nova linha. Matriz especifica que a saída será formatada como uma matriz de objetos JSON. Essa matriz será fechada somente quando o trabalho for interrompido ou o Stream Analytics tiver passado para a próxima janela de tempo. Em geral, é preferível usar JSON separado por linha, já que não exige nenhuma manipulação especial enquanto o arquivo de saída ainda estiver sendo gravado.</td>
 </tr>
 </tbody>
 </table>
@@ -137,7 +136,7 @@ A tabela a seguir lista os nomes de propriedade e sua descrição para a criaç�
 </tr>
 <tr>
 <td>Padrão de prefixo do caminho [opcional]</td>
-<td>O caminho do arquivo usado para gravar seus blobs no contêiner especificado.<BR>No caminho, você pode optar por usar uma ou mais instâncias das duas variáveis a seguir para especificar a frequência com a qual os blobs são gravados:<BR>{data}, {hora}<BR>Exemplo 1: cluster1/logs /{data}/{hora}<BR>Exemplo 2: cluster1/logs/{data}</td>
+<td>O padrão do caminho do arquivo usado para gravar seus blobs no contêiner especificado. <BR> No padrão de caminho, você pode optar por usar uma ou mais instâncias das duas variáveis a seguir para especificar a frequência com a qual os blobs são gravados: <BR> {data}, {hora} <BR> Exemplo 1: cluster1/logs /{data}/{hora} <BR> Exemplo 2: cluster1/logs/{data} <BR> <BR> A nomenclatura de arquivo seguirá a seguinte convenção: <BR> {Padrão de prefixo de caminho}/schemaHashcode_Guid_Number.extension <BR> <BR> Exemplo de arquivos de saída: <BR> Myoutput/20170901/00/45434_gguid_1.csv <BR> Myoutput/20170901/01/45434_gguid_1.csv <BR> <BR> Além disso, esta são as situações nas quais um novo arquivo é criado: <BR> 1. O arquivo atual excede o número máximo permitido de blocos (atualmente 50.000) <BR> 2. Alteração no esquema de saída <BR> 3. Reinicialização interna ou externa de um trabalho  </td>
 </tr>
 <tr>
 <td>Formato de data [opcional]</td>
@@ -182,7 +181,7 @@ Há alguns parâmetros que são necessários para configurar fluxos de dados de 
 | Formato de serialização do evento |Formato de serialização para dados de saída.  Há suporte para JSON, CSV e Avro. |
 | Codificação |Para CSV e JSON, UTF-8 é o único formato de codificação com suporte no momento. |
 | Delimitador |Aplicável somente à serialização de CSV. O Stream Analytics é compatível com vários delimitadores comuns para serialização de dados no formato CSV. Os valores suportados são vírgula, ponto e vírgula, espaço, tab e barra vertical. |
-| Formatar |Aplicável somente para o tipo JSON. Uma linha separada especifica que a saída será formatada com cada objeto JSON separado por uma nova linha. Matriz especifica que a saída será formatada como uma matriz de objetos JSON. |
+| Formatar |Aplicável somente para serialização JSON. Uma linha separada especifica que a saída será formatada com cada objeto JSON separado por uma nova linha. Matriz especifica que a saída será formatada como uma matriz de objetos JSON. Essa matriz será fechada somente quando o trabalho for interrompido ou o Stream Analytics tiver passado para a próxima janela de tempo. Em geral, é preferível usar JSON separado por linha, já que não exige nenhuma manipulação especial enquanto o arquivo de saída ainda estiver sendo gravado. |
 
 ## <a name="power-bi"></a>Power BI
 [Power BI](https://powerbi.microsoft.com/) pode ser usado como saída de um trabalho do Stream Analytics para fornecer uma experiência rica de visualização dos resultados da análise. Essa funcionalidade pode ser usada para painéis operacionais, geração de relatórios e relatórios orientados por métricas.
@@ -267,7 +266,7 @@ A tabela a seguir lista os nomes de propriedade e sua descrição para a criaç�
 | Chave de partição |O nome da coluna de saída que contém a chave da partição. A chave de partição é um identificador exclusivo para a partição em uma determinada tabela que forma a primeira parte da chave primária da entidade. É um valor de cadeia de caracteres que pode ter até 1 KB em tamanho. |
 | Chave de linha |O nome da coluna de saída que contém a chave de linha. A chave de linha é um identificador exclusivo para uma entidade em uma determinada partição. Ela forma a segunda parte da chave primária da entidade. A chave de linha é um valor de cadeia de caracteres que pode ter até 1 KB em tamanho. |
 | Tamanho do lote |É o número de registros para uma operação em lote. Normalmente, o padrão é suficiente para a maioria dos trabalhos; consulte a [especificação da Operação em Lote de Tabela](https://msdn.microsoft.com/library/microsoft.windowsazure.storage.table.tablebatchoperation.aspx) para obter mais detalhes sobre como modificar essa configuração. |
-
+ 
 ## <a name="service-bus-queues"></a>Filas de barramento de serviço
 [Filas do barramento de serviço](https://msdn.microsoft.com/library/azure/hh367516.aspx) oferecem entrega de mensagem do tipo PEPS (primeiro a entrar, primeiro a sair) para um ou mais consumidores concorrentes. Normalmente, espera-se que as mensagens sejam recebidas e processadas pelos receptores na ordem cronológica em que foram adicionadas à fila, sendo que cada mensagem é recebida e processada por apenas um consumidor de mensagem.
 
@@ -298,7 +297,7 @@ A tabela a seguir lista os nomes de propriedade e sua descrição para a criaç�
 | Nome da política de tópico |Ao criar um tópico, você também pode criar políticas de acesso compartilhado na guia Configurar tópico. Cada política de acesso compartilhado terá um nome, as permissões definidas por você e as chaves de acesso. |
 | Chave de política do tópico |A chave de acesso compartilhado usada para autenticar o acesso ao namespace do Barramento de Serviço |
 | Formato de serialização do evento |Formato de serialização para dados de saída.  Há suporte para JSON, CSV e Avro. |
-| Codificação |Se o formato for CSV ou JSON, uma codificação deve ser especificada. UTF-8 é o único formato de codificação com suporte no momento. |
+ | Codificação |Se o formato for CSV ou JSON, uma codificação deve ser especificada. UTF-8 é o único formato de codificação com suporte no momento. |
 | Delimitador |Aplicável somente à serialização de CSV. O Stream Analytics é compatível com vários delimitadores comuns para serialização de dados no formato CSV. Os valores suportados são vírgula, ponto e vírgula, espaço, tab e barra vertical. |
 
 ## <a name="azure-cosmos-db"></a>Azure Cosmos DB
@@ -315,6 +314,23 @@ A lista abaixo fornece detalhes dos nomes de propriedade e sua descrição para 
   2\) MyCollection{partition} – estas coleções devem existir – "MyCollection0”, “MyCollection1”, “MyCollection2” e assim por diante.  
 * **Chave de Partição** — opcional. Isso só será necessário se você estiver usando um token {partition} no seu padrão de nome de coleção. O nome do campo nos eventos de saída usado para especificar a chave para o particionamento de saída em várias coleções. Para uma saída de coleção única, nenhuma coluna de saída arbitrária pode ser usada, por exemplo, PartitionId.  
 * **ID do Documento** : opcional. O nome do campo em eventos de saída usado para especificar a chave primária que serve de base para as operações de inserção ou atualização.  
+
+## <a name="azure-functions-in-preview"></a>Azure Functions (em versão prévia)
+O Azure Functions é um serviço de computação sem servidor que lhe permite executar código sob demanda sem a necessidade de provisionar explicitamente ou gerenciar a infraestrutura. Ele permite que você implemente código que é disparado por eventos que ocorrem no Azure ou por serviços de terceiros.  Essa capacidade do Azure Functions de responder a gatilhos o torna uma saída natural para o Azure Stream Analytics. Este adaptador de saída permite aos usuários se conectar o Stream Analytics ao Azure Functions e executar um script ou trecho de código em resposta a vários eventos.
+
+O Azure Stream Analytics chama o Azure Functions por meio de gatilhos de HTTP. O novo Adaptador de saída do Azure Functions está disponível com as seguintes propriedades configuráveis:
+
+| Nome da Propriedade | Descrição |
+| --- | --- |
+| Aplicativo de Funções |Nome de seu aplicativo do Azure Functions |
+| Função |Nome da função em seu aplicativo do Azure Functions |
+| Tamanho Máximo do Lote |Essa propriedade pode ser usada para definir o tamanho máximo de cada lote de saída que será enviado ao seu Azure Functions. Por padrão, esse valor é 256 KB |
+| Contagem Máxima do Lote  |Como o nome indica, essa propriedade permite que você especifique o número máximo de eventos em cada lote que serão enviados ao Azure Functions. O valor da contagem máxima de lote padrão é de 100 |
+| Chave |Se você quiser usar um Azure Function de outra assinatura, você pode fazer isso fornecendo a chave para acessar sua função |
+
+Observe que quando o Azure Stream Analytics recebe a exceção 413 (Entidade de Solicitação http muito grande) da função do Azure, ele reduz o tamanho dos lotes que envia para o Azure Functions. Em seu código de função do Azure, use essa exceção para certificar-se de que o Azure Stream Analytics não envie lotes muito grandes. Além disso, certifique-se de que os valores de contagem e tamanho máximo do lote usados na função sejam consistentes com os valores inseridos no portal do Stream Analytics. 
+
+Além disso, em uma situação em que não há nenhum evento caindo em uma janela de tempo, nenhuma saída é gerada. Como resultado, a função computeResult não será chamada. Esse comportamento é consistente com as funções de agregação em janelas internas.
 
 
 ## <a name="get-help"></a>Obter ajuda
@@ -335,4 +351,3 @@ Você foi apresentado ao Stream Analytics, um serviço gerenciado para análise 
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
 [stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
 [stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
-

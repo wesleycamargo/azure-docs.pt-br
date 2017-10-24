@@ -1,5 +1,5 @@
 ---
-title: "Implantar e explorar um aplicativo SaaS multilocatário que usa o Banco de Dados SQL do Azure | Microsoft Docs"
+title: "Tutorial de SaaS multilocatário- Banco de Dados SQL do Azure | Microsoft Docs"
 description: "Implantar e explore o aplicativo SaaS do Wingtip multilicatário, que demonstra os padrões SaaS usando o Banco de dados SQL do Azure."
 keywords: tutorial do banco de dados SQL
 services: sql-database
@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2017
 ms.author: sstein
+ms.openlocfilehash: 2e6816ce2740b0325c6f59338f0365c6b40539f3
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 14d2fd007e88c9cb20cf2b4a24262e2bebc42d63
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="deploy-and-explore-a-multi-tenant-application-that-uses-azure-sql-database---wingtip-saas"></a>Implantar e explorar um aplicativo SaaS multilocatário que usa o Banco de dados SQL do Azure
 
@@ -203,4 +202,3 @@ Agora, tente fazer o [Tutorial para provisionar e catalogar](sql-database-saas-t
 * Para saber mais sobre pools elásticos, consulte [*O que é um pool elástico do SQL do Azure*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-pool)
 * Para saber mais sobre os trabalhos elásticos, consulte [*Gerenciando bancos de dados de nuvem com escalonamento horizontal*](https://docs.microsoft.com/azure/sql-database/sql-database-elastic-jobs-overview)
 * Para saber mais sobre aplicativos SaaS multilocatários, consulte [*Padrões de design para aplicativos SaaS multilocatários*](https://docs.microsoft.com/azure/sql-database/sql-database-design-patterns-multi-tenancy-saas-applications)
-

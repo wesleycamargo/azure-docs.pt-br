@@ -6,7 +6,7 @@ Abra um shell e execute os seguintes comandos para instalar os pacotes de pré-r
 
 ```bash
 sudo apt-get update
-sudo apt-get install curl build-essential libcurl4-openssl-dev git cmake libssl-dev uuid-dev valgrind libglib2.0-dev libtool autoconf
+sudo apt-get install curl build-essential libcurl4-openssl-dev git cmake pkg-config libssl-dev uuid-dev valgrind libglib2.0-dev libtool autoconf
 ```
 
 No shell, execute o seguinte comando para clonar o repositório GitHub do Azure IoT Edge para seu computador local:

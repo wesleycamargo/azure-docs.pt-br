@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/25/2017
 ms.author: dobett
-ms.openlocfilehash: e6eafb1a0030b022da2b5d0b787e092f3067c99f
-ms.sourcegitcommit: 50e23e8d3b1148ae2d36dad3167936b4e52c8a23
-ms.translationtype: MT
+ms.openlocfilehash: 793a2cdd55c4e9213e5097f4e318c0790960a64d
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 08/18/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-and-read-iot-hub-messages"></a>Criar e ler mensagens do Hub IoT
 
@@ -30,7 +30,7 @@ Para suportar a interoperabilidade contínua entre protocolos, o Hub IoT define 
 
 Valores e nomes de propriedade podem conter somente caracteres alfanuméricos ASCII, mais ``{'!', '#', '$', '%, '&', "'", '*', '*', '+', '-', '.', '^', '_', '`', '|', '~'}`` quando você:
 
-* Envia mensagens do dispositivo para a nuvem utilizando o protocolo HTTP.
+* Envia mensagens do dispositivo para a nuvem usando o protocolo HTTPS.
 * Enviar mensagens da nuvem para o dispositivo.
 
 Para obter mais informações sobre como codificar e decodificar mensagens enviadas utilizando diferentes protocolos, consulte [SDKs do IoT do Azure][lnk-sdks].

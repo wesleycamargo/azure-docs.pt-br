@@ -11,12 +11,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: junyi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6dbb88577733d5ec0dc17acf7243b2ba7b829b38
-ms.openlocfilehash: 682feb4d889ecd881abe1a70d36e0a5a4df3d910
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/04/2017
-
+ms.openlocfilehash: eddeb5cc13aac7ab33305adcd266465a5b143462
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-azure-iot-edge-module-with-java"></a>Como criar um módulo do Azure IoT Edge com Java
 
@@ -128,7 +127,7 @@ A entrada pode ser dados de hardware (como um detector de movimento), uma mensag
 
 O resultado é semelhante à entrada, ele pode disparar o comportamento de hardware (como o LED piscando), uma mensagem para outros módulos e outros como, por exemplo, impressão para o console.
 
-Os módulos comunicam entre si usando classe `com.microsoft.azure.gateway.messaging.Message`. O **conteúdo** de um `Message` é uma matriz de bytes capaz de representar qualquer tipo de dados que você quiser. As **propriedades** também estão disponíveis no `Message` e são simplesmente um mapeamento de cadeia de caracteres. Você pode pensar em **propriedades** como cabeçalhos em uma solicitação HTTP, ou em metadados de um arquivo.
+Os módulos comunicam entre si usando classe `com.microsoft.azure.gateway.messaging.Message`. O **conteúdo** de um `Message` é uma matriz de bytes capaz de representar qualquer tipo de dados que você quiser. As **propriedades** também estão disponíveis no `Message` e são simplesmente um mapeamento de cadeia de caracteres. Você pode pensar em **Propriedades** como sendo os cabeçalhos em uma solicitação HTTPS, ou os metadados de um arquivo.
 
 Para desenvolver um módulo do Azure IoT Edge em Java, você precisa criar uma nova classe de módulo que herda de `com.microsoft.azure.gateway.core.GatewayModule` e implementa os métodos abstratos necessários `receive()` e `destroy()`. Neste ponto, você também pode optar por também implementar os métodos`start()` ou `create()` opcionais. O trecho de código a seguir mostra como começar a criação de um módulo do Azure IoT Edge.
 
@@ -299,5 +298,4 @@ Se você deseja encerrar o aplicativo, pressione a chave `<Enter>`.
 
 > [!IMPORTANT]
 > Não é recomendável usar Ctrl + C para encerrar o aplicativo de gateway do IoT Edge. Uma vez que isso pode causar uma anomalia no encerramento do processo.
-
 

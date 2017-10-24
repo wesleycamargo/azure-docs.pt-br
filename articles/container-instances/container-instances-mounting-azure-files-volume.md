@@ -17,14 +17,12 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: seanmck
 ms.custom: mvc
+ms.openlocfilehash: 41c3a449b39d6ef77e1dd0cf10699f8debcad475
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: 3eb68cba15e89c455d7d33be1ec0bf596df5f3b7
-ms.openlocfilehash: c68f0239bcb95aa5e9d8194f7b358f30588ea600
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/01/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/12/2017
 ---
-
 # <a name="mounting-an-azure-file-share-with-azure-container-instances"></a>Montar um compartilhamento de arquivos do Azure com Instâncias de Contêiner do Azure
 
 Por padrão, as Instâncias de Contêiner do Azure são sem monitoração de estado. Se o contêiner parar ou falhar, todo o seu estado será perdido. Para persistir o estado além do tempo de vida do contêiner, você deve montar um volume de um repositório externo. Este artigo mostra como montar um compartilhamento de arquivos do Azure para ser usado com Instâncias de Contêiner do Azure.
@@ -57,14 +55,14 @@ Para montar um compartilhamento de arquivos do Azure como um volume nas Instânc
 Se você usou o script acima, o nome da conta de armazenamento foi criado com um valor aleatório no final. Para consultar a cadeia de caracteres final (incluindo a parte aleatória), use os seguintes comandos:
 
 ```azurecli-interactive
-STORAGE_ACCOUNT=$(az storage account list --resource-group myResourceGroup --query "[?contains(name,'mystorageaccount')].[name]" -o tsv)
+STORAGE_ACCOUNT=$(az storage account list --resource-group $ACI_PERS_RESOURCE_GROUP --query "[?contains(name,'$ACI_PERS_STORAGE_ACCOUNT_NAME')].[name]" -o tsv)
 echo $STORAGE_ACCOUNT
 ```
 
 O nome do compartilhamento já é conhecido (é *acishare* no script acima), portanto, só falta a chave de conta de armazenamento, que pode ser encontrada usando o seguinte comando:
 
 ```azurecli-interactive
-STORAGE_KEY=$(az storage account keys list --resource-group myResourceGroup --account-name $STORAGE_ACCOUNT --query "[0].value" -o tsv)
+STORAGE_KEY=$(az storage account keys list --resource-group $ACI_PERS_RESOURCE_GROUP --account-name $STORAGE_ACCOUNT --query "[0].value" -o tsv)
 echo $STORAGE_KEY
 ```
 
@@ -76,7 +74,7 @@ Crie um cofre de chaves com a CLI do Azure:
 
 ```azurecli-interactive
 KEYVAULT_NAME=aci-keyvault
-az keyvault create -n $KEYVAULT_NAME --enabled-for-template-deployment -g myResourceGroup
+az keyvault create -n $KEYVAULT_NAME --enabled-for-template-deployment -g $ACI_PERS_RESOURCE_GROUP
 ```
 
 A opção `enabled-for-template-deployment` permite que o Azure Resource Manager efetue pull de segredos do seu cofre de chaves no momento da implantação.
@@ -205,4 +203,3 @@ Você pode usar uma ferramenta como o [Gerenciador de Armazenamento do Microsoft
 
 - Implantar seu primeiro contêiner usando o [início rápido](container-instances-quickstart.md) das Instâncias de Contêiner do Azure
 - Saiba mais sobre o [relacionamento entre as Instâncias de Contêiner do Azure e os orquestradores de contêiner](container-instances-orchestrator-relationship.md)
-
