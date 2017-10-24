@@ -17,13 +17,17 @@ ms.workload: na
 ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 05476e35488c104a483f52f88540d33c55e5bc3c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: 05476e35488c104a483f52f88540d33c55e5bc3c
+ms.contentlocale: pt-br
+ms.lasthandoff: 09/14/2017
+
 ---
+
 # <a name="deploy-a-kubernetes-cluster-in-azure-container-service"></a>Implantar um cluster Kubernetes no Serviço de Contêiner do Azure
+
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
 Kubernetes fornece uma plataforma distribuída para aplicativos em contêineres. Com o Serviço de Contêiner do Azure, o provisionamento de um cluster Kubernetes pronto para produção é simples e rápido. Neste tutorial, parte 3 de 7, um cluster Kubernetes do Serviço de Contêiner do Azure é implantado. As etapas concluídas incluem:
 
@@ -105,3 +109,4 @@ Avance para o próximo tutorial para saber mais sobre como executar o aplicativo
 
 > [!div class="nextstepaction"]
 > [Implantar o aplicativo no Kubernetes](./container-service-tutorial-kubernetes-deploy-application.md)
+

@@ -17,13 +17,17 @@ ms.workload: na
 ms.date: 09/14/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: b8f747b15bf491b7221a71b5beaa595aa7f1b49b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
+ms.openlocfilehash: b8f747b15bf491b7221a71b5beaa595aa7f1b49b
+ms.contentlocale: pt-br
+ms.lasthandoff: 09/14/2017
+
 ---
+
 # <a name="run-applications-in-kubernetes"></a>Executar aplicativos no Kubernetes
+
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
 Neste tutorial, parte quatro de sete, um aplicativo de exemplo é implantado em um cluster Kubernetes. As etapas concluídas incluem:
 

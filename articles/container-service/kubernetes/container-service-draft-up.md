@@ -26,6 +26,8 @@ ms.lasthandoff: 09/25/2017
 
 # <a name="use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>Use o Rascunho com o Serviço de Contêiner do Azure e o Registro de Contêiner do Azure para criar e implantar um aplicativo no Kubernetes
 
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
+
 [Rascunho](https://aka.ms/draft) é uma nova ferramenta de software livre que facilita o desenvolvimento de aplicativos baseados em contêiner e a implantação em clusters Kubernetes sem saber muito sobre Docker e Kubernetes, ou até mesmo sem instalá-los. O uso de ferramentas como o Rascunho permite que você e sua equipe se concentrem na criação do aplicativo com Kubernetes sem prestar muita atenção à infraestrutura.
 
 Você pode usar o Rascunho com qualquer registro de imagem do Docker e qualquer cluster Kubernetes, incluindo os locais. Este tutorial mostra como usar o ACS com Kubernetes e o ACR para criar um pipeline de desenvolvedor em tempo real, mas seguro no Kubernetes usando o Rascunho e como usar o DNS do Azure para expor esse pipeline de desenvolvedor para outras pessoas verem em um domínio.

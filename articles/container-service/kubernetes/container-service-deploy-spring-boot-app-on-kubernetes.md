@@ -15,13 +15,17 @@ ms.topic: article
 ms.date: 08/04/2017
 ms.author: asirveda;robmcm
 ms.custom: mvc
-ms.openlocfilehash: 7f726436b2d459b8c16abb02e07de099abfd8974
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.sourcegitcommit: a9cfd6052b58fe7a800f1b58113aec47a74095e3
+ms.openlocfilehash: 7f726436b2d459b8c16abb02e07de099abfd8974
+ms.contentlocale: pt-br
+ms.lasthandoff: 08/12/2017
+
 ---
+
 # <a name="deploy-a-spring-boot-application-on-a-kubernetes-cluster-in-the-azure-container-service"></a>Implantar um Aplicativo Spring Boot em um Cluster Kubernetes no Serviço de Contêiner do Azure
+
+[!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
 **[Spring Framework]** é um framework de software livre popular que ajuda os desenvolvedores de Java a criar aplicativos de API, Web e móveis. Este tutorial usa um aplicativo de exemplo criado usando o [Spring Boot], uma abordagem controlada por convenção para o uso do Spring para começar rapidamente.
 
@@ -363,3 +367,4 @@ Para obter mais exemplos sobre como usar imagens personalizadas do Docker com o 
 [KB05]: ./media/container-service-deploy-spring-boot-app-on-kubernetes/KB05.png
 [KB06]: ./media/container-service-deploy-spring-boot-app-on-kubernetes/KB06.png
 [KB07]: ./media/container-service-deploy-spring-boot-app-on-kubernetes/KB07.png
+
