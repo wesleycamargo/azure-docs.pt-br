@@ -14,12 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: glenga
+ms.openlocfilehash: b6ab081311822abd9c0a24b4cc241291bf56af68
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
-ms.openlocfilehash: 38f6f5ebe0c53bc4314fa11f0f8d4f00af6086dd
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/29/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Codificar e testar o Azure Functions localmente
 
@@ -161,6 +160,7 @@ Para definir um valor para cadeias de conexão, você pode realizar uma das segu
     ```
     Os dois comandos exigem que você entre no Azure primeiro.
 
+<a name="create-func"></a>
 ## <a name="create-a-function"></a>Criar uma função
 
 Para criar uma função, execute o seguinte comando:
@@ -187,7 +187,7 @@ Para criar uma função ativada por fila, execute:
 ```
 func new --language JavaScript --template QueueTrigger --name QueueTriggerJS
 ```
-
+<a name="start"></a>
 ## <a name="run-functions-locally"></a>Executar funções localmente
 
 Para executar um projeto de funções, execute o host de funções. O host permite os gatilhos para todas as funções no projeto:
@@ -237,7 +237,60 @@ Em seguida, no Visual Studio Code, na exibição **Depurar**, selecione **Anexar
 
 ### <a name="passing-test-data-to-a-function"></a>Transferência dos dados de teste para uma função
 
-Você também pode invocar uma função diretamente usando `func run <FunctionName>` e fornecer dados de entrada para a função. Esse comando é semelhante à execução de uma função usando a guia **Testar** no Portal do Azure. Esse comando inicia todo o host de funções.
+Para testar as funções localmente, [inicie o host do Functions](#start) e chame os pontos de extremidade no servidor local usando solicitações HTTP. O ponto de extremidade que você chama depende do tipo de função. 
+
+>[!NOTE]  
+> Os exemplos neste tópico usam a ferramenta cURL para enviar solicitações HTTP do terminal ou de um prompt de comando. Você pode usar uma ferramenta de sua escolha para enviar solicitações HTTP para o servidor local. Observe que a ferramenta cURL está disponível por padrão nos sistemas baseados em Linux. No Windows, você deve primeiro baixar e instalar o [cURL ferramenta](https://curl.haxx.se/).
+
+Para ter informações mais gerais sobre o teste de funções, confira [Estratégias para testar seu código no Azure Functions](functions-test-a-function.md).
+
+#### <a name="http-and-webhook-triggered-functions"></a>Funções disparadas por HTTP e webhook
+
+Chame o seguinte ponto de extremidade para executar localmente funções disparadas por HTTP e webhook:
+
+    http://localhost:{port}/api/{function_name}
+
+Use o mesmo nome de servidor e porta no qual o host do Functions está escutando. Veja isso na saída gerada ao iniciar o host do Function. Chame essa URL usando qualquer método HTTP com suporte do disparador. 
+
+O seguinte comando cURL dispara a função de início rápido `MyHttpTrigger` de uma solicitação GET com o parâmetro _name_ transmitido na cadeia de consulta. 
+
+```
+curl --get http://localhost:7071/api/MyHttpTrigger?name=Azure%20Rocks
+```
+O exemplo a seguir é a mesma função chamada a partir de uma solicitação POST passando _name_ no corpo da solicitação:
+
+```
+curl --request POST http://localhost:7071/api/MyHttpTrigger --data '{"name":"Azure Rocks"}'
+```
+
+Observe que você pode fazer solicitações GET de um navegador passando dados na cadeia de consulta. Para todos os outros métodos HTTP, você deve usar cURL, Fiddler, Postman ou uma ferramenta de teste HTTP semelhante.  
+
+#### <a name="non-http-triggered-functions"></a>Funções disparadas por algo diferente de HTTP
+Para todos os tipos de funções que não sejam gatilhos HTTP e webhooks, você pode testar suas funções localmente chamando um ponto de extremidade de administração. Chamar esse ponto de extremidade no servidor local dispara a função. Opcionalmente, você pode passar dados de teste para a execução. Essa funcionalidade é semelhante á guia **Teste** no Portal do Azure.  
+
+Chame o seguinte ponto de extremidade de administrador para disparar a funções que não são HTTP com uma solicitação HTTP POST:
+
+    http://localhost:{port}/admin/functions/{function_name}
+
+Embora você passe dados de teste para o ponto de extremidade administrador de uma função, é necessário fornecer os dados no corpo de uma mensagem de solicitação POST. O corpo da mensagem deve ter o seguinte formato JSON:
+
+```JSON
+{
+    "input": "<trigger_input>"
+}
+```` 
+O valor `<trigger_input>` contém dados em um formato esperado pela função. O exemplo de cURL a seguir é um POST para uma função `QueueTriggerJS`. Nesse caso, a entrada é uma cadeia de caracteres equivalente à mensagem esperada na fila.      
+
+```
+curl --request POST -H "Content-Type:application/json" --data '{"input":"sample queue data"}' http://localhost:7071/admin/functions/QueueTriggerJS
+```
+
+#### <a name="using-the-func-run-command-in-version-1x"></a>Usar o comando `func run` na versão 1.x
+
+>[!IMPORTANT]  
+> O comando `func run` não tem suporte na versão 2.x das ferramentas. Para saber mais, consulte o tópico [Como direcionar para versões de tempo de execução do Azure Functions](functions-versions.md).
+
+Você também pode invocar uma função diretamente usando `func run <FunctionName>` e fornecer dados de entrada para a função. Esse comando é semelhante à execução de uma função usando a guia **Testar** no Portal do Azure. 
 
 `func run` dá suporte para as seguintes opções:
 
@@ -292,4 +345,3 @@ Para arquivar uma solicitação de bug ou recurso, [abra um problema do GitHub](
 
 [Ferramentas básicas do Azure Functions]: https://www.npmjs.com/package/azure-functions-core-tools
 [Portal do Azure]: https://portal.azure.com 
-

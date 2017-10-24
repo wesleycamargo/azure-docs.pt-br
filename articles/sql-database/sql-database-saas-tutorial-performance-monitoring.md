@@ -16,12 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2017
 ms.author: sstein
+ms.openlocfilehash: f05e769a8c5d26c0149dcba05c0973de4bd30313
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
-ms.openlocfilehash: 115aa01ee6e3bd539086d80df1dcd94b3b7e2723
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/13/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Monitore e gerencie o desempenho dos pools e dos bancos de dados SQL do Azure em um aplicativo SaaS multilocatário
 
@@ -48,7 +47,7 @@ Para concluir este tutorial, verifique se todos os pré-requisitos a seguir são
 
 O gerenciamento de desempenho do banco de dados consiste na compilação e análise de dados de desempenho e, em seguida, reagir a esses dados, ajustando parâmetros para manter um tempo de resposta aceitável para o seu aplicativo. Ao hospedar vários locatários, os pools de banco de dados elástico são uma maneira econômica de fornecer e gerenciar os recursos de um grupo de bancos de dados com cargas de trabalho imprevisíveis. Com determinados padrões carga de trabalho, não mais que dois bancos de dados S3 poderiam se beneficiar sendo gerenciados em um pool.
 
-![mídia](./media/sql-database-saas-tutorial-performance-monitoring/app-diagram.png)
+![diagrama de aplicativo](./media/sql-database-saas-tutorial-performance-monitoring/app-diagram.png)
 
 Os pools e os bancos de dados nos pools, devem ser monitorados para garantir que permaneçam dentro dos intervalos de desempenho aceitáveis. Ajuste a configuração do pool para atender às necessidades da carga de trabalho agregada de todos os bancos de dados, garantindo que os eDTUs do pool são adequados à carga de trabalho geral. Ajuste os valores de eDTU mínimo por banco de dados e máximo por banco de dados com valores apropriados para os requisitos específicos do seu aplicativo.
 
@@ -115,11 +114,11 @@ Observe os gráficos **Monitoramento do pool elástico** e **Monitoramento do ba
 
 A utilização de recursos do pool é a utilização de agregação de banco de dados para todos os bancos de dados no pool. O gráfico de banco de dados mostra os cinco bancos de dados mais ativos:
 
-![](./media/sql-database-saas-tutorial-performance-monitoring/pool1.png)
+![gráfico de banco de dados](./media/sql-database-saas-tutorial-performance-monitoring/pool1.png)
 
 Como há outros bancos de dados no pool além dos cinco mais utilizados, a utilização do pool mostra a atividade que não está refletida no gráfico dos cinco bancos de dados mais utilizados. Para obter mais detalhes, clique em **Utilização de Recursos do Banco de Dados**:
 
-![](./media/sql-database-saas-tutorial-performance-monitoring/database-utilization.png)
+![utilização de recursos do banco de dados](./media/sql-database-saas-tutorial-performance-monitoring/database-utilization.png)
 
 
 ## <a name="set-performance-alerts-on-the-pool"></a>Definir alertas de desempenho para o pool
@@ -249,4 +248,3 @@ Neste tutorial, você aprenderá a:
 * [Pools elásticos do SQL](sql-database-elastic-pool.md)
 * [Automação do Azure](../automation/automation-intro.md)
 * [Log Analytics](sql-database-saas-tutorial-log-analytics.md) – Tutorial de configuração e uso do Log Analytics
-

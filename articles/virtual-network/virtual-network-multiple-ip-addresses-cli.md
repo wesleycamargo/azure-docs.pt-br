@@ -16,10 +16,10 @@ ms.workload: infrastructure-services
 ms.date: 11/17/2016
 ms.author: annahar
 ms.openlocfilehash: 0e9b2ef89ca39a7988a7b2573496a605dfc604b4
-ms.sourcegitcommit: f537befafb079256fba0529ee554c034d73f36b0
-ms.translationtype: MT
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 07/11/2017
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="assign-multiple-ip-addresses-to-virtual-machines-using-the-azure-cli-20"></a>Como atribuir vários endereços IP a máquinas virtuais usando a CLI 2.0 do Azure
 
@@ -216,7 +216,7 @@ Você pode adicionar endereços IP públicos e privados adicionais para um NIC e
         --public-ip-address myPublicIP3
         ```
 
-    - **Associar o recurso a uma configuração de IP existente** só pode ser associado a uma configuração de IP que ainda não tiver associado um recurso de endereço IP público. Você pode determinar se uma configuração de IP tem um endereço IP público associado inserindo o seguinte comando:
+    - **Associar o recurso a uma configuração de IP existente** Um recurso de endereço IP público só pode ser associado a uma configuração de IP que ainda não tenha um associado. Você pode determinar se uma configuração de IP tem um endereço IP público associado inserindo o seguinte comando:
 
         ```bash
         az network nic ip-config list \

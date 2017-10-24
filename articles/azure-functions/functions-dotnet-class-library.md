@@ -14,14 +14,13 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 06/09/2017
+ms.date: 10/10/2017
 ms.author: donnam
+ms.openlocfilehash: ad71a32d82e9b5aa4efda6d7ea67a9326ffcc4ff
+ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
 ms.translationtype: HT
-ms.sourcegitcommit: 8ad98f7ef226fa94b75a8fc6b2885e7f0870483c
-ms.openlocfilehash: f45b3f705ba3d11dd20221e3a7a465796d7a86a1
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/29/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="using-net-class-libraries-with-azure-functions"></a>Usando bibliotecas de classes .NET com o Azure Functions
 
@@ -31,8 +30,8 @@ Além dos arquivos de script, o Azure Functions oferece suporte à publicação 
 
 Este artigo tem os seguintes pré-requisitos:
 
-- [Visual Studio 2017 15.3 Preview](https://www.visualstudio.com/vs/preview/). Instale as cargas de trabalho **ASP.NET e desenvolvimento Web** e **desenvolvimento do Azure**.
-- [Ferramentas do Azure Functions para Visual Studio 2017](https://marketplace.visualstudio.com/items?itemName=AndrewBHall-MSFT.AzureFunctionToolsforVisualStudio2017)
+- [Visual Studio 2017 versão 15.3](https://www.visualstudio.com/vs/) ou uma versão posterior.
+- Instalar a carga de trabalho de **desenvolvimento do Azure**.
 
 ## <a name="functions-class-library-project"></a>Projeto de biblioteca de classes de funções
 
@@ -50,14 +49,15 @@ Quando você compila um projeto do Azure Functions, um arquivo *function.json* �
 
 Essa conversão é executada pelo pacote NuGet [Microsoft\.NET\.Sdk\.Functions](http://www.nuget.org/packages/Microsoft.NET.Sdk.Functions). A fonte está disponível no repositório GitHub [azure\-functions\-vs\-build\-sdk](https://github.com/Azure/azure-functions-vs-build-sdk).
 
-## <a name="triggers-and-bindings"></a>Gatilhos e associações
+## <a name="triggers-and-bindings"></a>Gatilhos e associações 
 
 A tabela a seguir lista os gatilhos e as associações que estão disponíveis em um projeto de biblioteca de classes do Azure Functions. Todos os atributos estão no namespace `Microsoft.Azure.WebJobs`.
 
 | Associação | Atributo | Pacote NuGet |
 |------   | ------    | ------        |
 | [Gatilho de armazenamento de blobs, entrada, saída](#blob-storage) | [BlobAttribute], [StorageAccountAttribute] | [Microsoft.Azure.WebJobs] | [O armazenamento de blobs] |
-| [Associação de entrada e saída do Cosmos DB](#cosmos-db) | [DocumentDBAttribute] | [Microsoft.Azure.WebJobs.Extensions.DocumentDB] | 
+| [Gatilho do Azure Cosmos DB](#cosmos-db) | [CosmosDBTriggerAttribute] | [Microsoft.Azure.WebJobs.Extensions.DocumentDB] | 
+| [Entrada e saída do Cosmos DB](#cosmos-db) | [DocumentDBAttribute] | [Microsoft.Azure.WebJobs.Extensions.DocumentDB] |
 | [Gatilho de Hubs de Eventos e saída](#event-hub) | [EventHubTriggerAttribute], [EventHubAttribute] | [Microsoft.Azure.WebJobs.ServiceBus] |
 | [Entrada e saída do arquivo externo](#api-hub) | [ApiHubFileAttribute] | [Microsoft.Azure.WebJobs.Extensions.ApiHub] |
 | [Gatilho HTTP e webhook](#http) | [HttpTriggerAttribute] | [Microsoft.Azure.WebJobs.Extensions.Http] |
@@ -72,11 +72,11 @@ A tabela a seguir lista os gatilhos e as associações que estão disponíveis e
 
 <a name="blob-storage"></a>
 
-### <a name="blob-storage-trigger-input-and-output-bindings"></a>Associações de entrada, saída e gatilho armazenamento de blobs
+### <a name="blob-storage-trigger-input-bindings-and-output-bindings"></a>Associações de entrada, associações de saída e gatilho de armazenamento de blobs
 
 O Azure Functions dá suporte a associações de entrada, saída e gatilho para o Azure Blob Storage. Para obter mais informações sobre expressões de associação e os metadados, consulte [Associações de armazenamento de blobs do Azure Functions](functions-bindings-storage-blob.md).
 
-Um gatilho de blob é definido com o atributo `[BlobTrigger]`. Você pode usar o atributo `[StorageAccount]` para definir a conta de armazenamento que é usada por uma classe ou função inteira.
+Um gatilho de blob é definido com o atributo `[BlobTrigger]`. Você pode usar o atributo `[StorageAccount]` para definir o nome da configuração do aplicativo que contém a cadeia de conexão para a conta de armazenamento que é usada por uma classe ou função inteira.
 
 ```csharp
 [StorageAccount("AzureWebJobsStorage")]
@@ -121,17 +121,30 @@ private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dict
 
 <a name="cosmos-db"></a>
 
-### <a name="cosmos-db-input-and-output-bindings"></a>Associações de entrada e saída do Cosmos DB
+### <a name="cosmos-db-trigger-input-bindings-and-output-bindings"></a>Gatilho do Cosmos DB, associações de entrada e associações de saída
 
-O Azure Functions dá suporte a associações de entrada e saída para o Cosmos DB. Para saber mais sobre os recursos da associação do Cosmos DB, consulte [Associações do Cosmos DB do Azure Functions](functions-bindings-documentdb.md).
+O Azure Functions dá suporte a gatilhos e associações de entrada e saída para o Cosmos DB. Para saber mais sobre os recursos da associação do Cosmos DB, consulte [Associações do Cosmos DB do Azure Functions](functions-bindings-documentdb.md).
 
-Para associar a um documento do Cosmos DB, use o atributo `[DocumentDB]` no pacote NuGet [Microsoft.Azure.WebJobs.Extensions.DocumentDB]. O exemplo a seguir tem um gatilho de fila e uma associação de saída da API DocumentDB:
+Para um gatilho a partir de um documento do Cosmos DB, use o atributo `[CosmosDBTrigger]` no pacote NuGet [Microsoft.Azure.WebJobs.Extensions.DocumentDB]. O exemplo a seguir é disparado a partir de `database` e `collection` específicos. A configuração `myCosmosDB` contém a conexão à instância do Cosmos DB. 
+
+```csharp
+[FunctionName("DocumentUpdates")]
+public static void Run(
+    [CosmosDBTrigger("database", "collection", ConnectionStringSetting = "myCosmosDB")]
+IReadOnlyList<Document> documents, TraceWriter log)
+{
+        log.Info("Documents modified " + documents.Count);
+        log.Info("First document Id " + documents[0].Id);
+}
+```
+
+Para associar a um documento do Cosmos DB, use o atributo `[DocumentDB]` no pacote NuGet [Microsoft.Azure.WebJobs.Extensions.DocumentDB]. O exemplo a seguir tem um gatilho de fila e uma associação de saída da API DocumentDB.
 
 ```csharp
 [FunctionName("QueueToDocDB")]        
 public static void Run(
     [QueueTrigger("myqueue-items", Connection = "AzureWebJobsStorage")] string myQueueItem, 
-    [DocumentDB("ToDoList", "Items", ConnectionStringSetting = "DocDBConnection")] out dynamic document)
+    [DocumentDB("ToDoList", "Items", ConnectionStringSetting = "myCosmosDB")] out dynamic document)
 {
     document = new { Text = myQueueItem, id = Guid.NewGuid() };
 }
@@ -232,7 +245,7 @@ O Azure Functions oferece suporte a uma associação de saída para Hubs de Noti
 
 O Azure Functions dá suporte a associações de gatilho e de saída para filas do Azure. Para obter mais informações, consulte [Associações do Armazenamento de Filas do Azure Functions](functions-bindings-storage-queue.md).
 
-O exemplo a seguir mostra como usar o tipo de retorno de função com uma associação de saída de fila, usando o atributo `[Queue]`. Para definir um gatilho de fila, use o atributo `[QueueTrigger]`.
+O exemplo a seguir mostra como usar o tipo de retorno de função com uma associação de saída de fila, usando o atributo `[Queue]`. 
 
 ```csharp
 [StorageAccount("AzureWebJobsStorage")]
@@ -246,7 +259,15 @@ public static class QueueFunctions
         log.Info($"C# function processed: {input.Text}");
         return input.Text;
     }
+}
 
+```
+
+Para definir um gatilho de fila, use o atributo `[QueueTrigger]`.
+```csharp
+[StorageAccount("AzureWebJobsStorage")]
+public static class QueueFunctions
+{
     // Queue trigger
     [FunctionName("QueueTrigger")]
     [StorageAccount("AzureWebJobsStorage")]
@@ -258,13 +279,16 @@ public static class QueueFunctions
 
 ```
 
+
 <a name="sendgrid"></a>
 
 ### <a name="sendgrid-output"></a>Saída do SendGrid
 
 O Azure Functions oferece suporte a uma associação de saída do SendGrid para enviar email programaticamente. Para saber mais, consulte [Associações do SendGrid do Azure Functions](functions-bindings-sendgrid.md).
 
-O atributo `[SendGrid]` é definido no pacote NuGet [Microsoft.Azure.WebJobs.Extensions.SendGrid].
+O atributo `[SendGrid]` é definido no pacote NuGet [Microsoft.Azure.WebJobs.Extensions.SendGrid]. Uma associação SendGrid requer um configuração de aplicativo denominada `AzureWebJobsSendGridApiKey`, que contém sua chave de API do SendGrid. Este é o nome da configuração padrão para a sua chave de API do SendGrid. Se você precisa ter mais de uma chave SendGrid ou escolher um nome de configuração diferente, você pode definir esse nome usando a propriedade `ApiKey` do atributo de associação `SendGrid`, como no exemplo a seguir:
+
+    [SendGrid(ApiKey = "MyCustomSendGridKeyName")]
 
 A seguir está um exemplo de usar um gatilho de fila do Barramento de Serviço e uma associação de saída SendGrid usando `SendGridMessage`:
 
@@ -289,6 +313,7 @@ public class OutgoingEmail
     public string Body { get; set; }
 }
 ```
+Observe que este exemplo requer a chave de API do SendGrid para ser o armazenamento em um configuração de aplicativo denominada `AzureWebJobsSendGridApiKey`.
 
 <a name="service-bus"></a>
 
@@ -365,7 +390,7 @@ O Azure Functions tem uma associação de gatilho de timer que permite executar 
 
 No plano de Consumo, você pode definir agendas com uma [expressão CRON](http://en.wikipedia.org/wiki/Cron#CRON_expression). Se você estiver usando um Plano do Serviço de Aplicativo, você também pode usar uma cadeia de caracteres do período de tempo. 
 
-O exemplo a seguir define um gatilho de temporizador que é executado a cada 5 minutos:
+O exemplo a seguir define um gatilho de tempo que é executado a cada 5 minutos:
 
 ```csharp
 [FunctionName("TimerTriggerCSharp")]
@@ -411,7 +436,7 @@ Para obter mais informações sobre como usar funções do Azure no script de C#
 
 <!-- NuGet packages --> 
 [Microsoft.Azure.WebJobs]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs/2.1.0-beta1
-[Microsoft.Azure.WebJobs.Extensions.DocumentDB]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB/1.1.0-beta1
+[Microsoft.Azure.WebJobs.Extensions.DocumentDB]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB/1.1.0-beta4
 [Microsoft.Azure.WebJobs.ServiceBus]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus/2.1.0-beta1
 [Microsoft.Azure.WebJobs.Extensions.MobileApps]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.MobileApps/1.1.0-beta1
 [Microsoft.Azure.WebJobs.Extensions.NotificationHubs]: http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.NotificationHubs/1.1.0-beta1
@@ -426,6 +451,7 @@ Para obter mais informações sobre como usar funções do Azure no script de C#
 
 <!-- Links to source --> 
 [DocumentDBAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs
+[CosmosDBTriggerAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/Trigger/CosmosDBTriggerAttribute.cs
 [EventHubAttribute]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs
 [EventHubTriggerAttribute]: https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs
 [MobileTableAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs
@@ -441,4 +467,3 @@ Para obter mais informações sobre como usar funções do Azure no script de C#
 [HttpTriggerAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs
 [ApiHubFileAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.ApiHub/ApiHubFileAttribute.cs
 [TimerTriggerAttribute]: https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerTriggerAttribute.cs
-

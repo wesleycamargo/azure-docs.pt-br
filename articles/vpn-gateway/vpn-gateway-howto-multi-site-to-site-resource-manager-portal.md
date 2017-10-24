@@ -15,13 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/20/2017
 ms.author: cherylmc
-ms.translationtype: Human Translation
-ms.sourcegitcommit: ff2fb126905d2a68c5888514262212010e108a3d
 ms.openlocfilehash: 7ec57789ee76f4ec54e4f7b68ea75c19522f3d7c
-ms.contentlocale: pt-br
-ms.lasthandoff: 06/17/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection"></a>Adicione uma conexão Site a Site a uma rede virtual com uma conexão de gateway de VPN existente
 
@@ -57,24 +55,24 @@ Verifique os itens a seguir:
 2. Clique em **Todos os recursos** e localize seu **gateway de rede virtual** na lista de recursos e clique nele.
 3. Na folha do **gateway de rede virtual**, clique em **Conexões**.
    
-    ![Folha Conexões](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/connectionsblade.png "Connections blade")<br>
+    ![Folha Conexões](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/connectionsblade.png "Folha Conexões")<br>
 4. Na folha **Conexões**, clique em **+Adicionar**.
    
-    ![Botão Adicionar conexão](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addbutton.png "Add connection button")<br>
+    ![Adicionar botão de conexão](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addbutton.png "Adicionar botão de conexão")<br>
 5. Na folha **Adicionar conexão**, preencha os campos a seguir:
    
    * **Nome:** o nome que deseja dar ao site para o qual você está criando a conexão.
    * **Tipo de conexão:** selecione **Site a site (IPsec)**.
      
-     ![Adicionar folha de conexão](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addconnectionblade.png "Add connection blade")<br>
+     ![Adicionar folha de conexão](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/addconnectionblade.png "Adicionar folha de conexão")<br>
 
 ## <a name="part2"></a>Parte 2 - Adicionar um gateway de rede local
 1. Clique em **Gateway de rede Local** ***Escolher um gateway de rede local***. Isso abrirá a folha **Escolher gateway de rede local** .
    
-    ![Escolher gateway de rede local](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/chooselng.png "Choose local network gateway")<br>
+    ![Escolher gateway de rede local](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/chooselng.png "Escolher gateway de rede local")<br>
 2. Clique em **Criar novo** para abrir a folha **Criar gateway de rede local**.
    
-    ![Criar folha de gateway de rede local](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/createlngblade.png "Create local network gateway")<br>
+    ![Criar folha de gateway de rede local](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/createlngblade.png "Criar folha de gateway de rede local")<br>
 3. Na folha **Criar gateway de rede local**, preencha os campos a seguir:
    
    * **Nome:** o nome que você deseja atribuir ao seu recursos de gateway de rede local.
@@ -85,7 +83,7 @@ Verifique os itens a seguir:
 ## <a name="part3"></a>Parte 3 - Adicionar a chave compartilhada e criar a conexão
 1. Na folha **Adicionar conexão**, adicione a chave compartilhada que você deseja usar para criar a conexão. Você pode obter a chave compartilhada do seu dispositivo VPN, ou fazer uma aqui e, em seguida, configurar seu dispositivo VPN para usar a mesma chave compartilhada. O importante é que as chaves sejam exatamente as mesmas.
    
-    ![Chave compartilhada](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/sharedkey.png "Shared key")<br>
+    ![Chave compartilhada](./media/vpn-gateway-howto-multi-site-to-site-resource-manager-portal/sharedkey.png "Chave compartilhada")<br>
 2. Na parte inferior da folha, clique em **OK** para criar a conexão.
 
 ## <a name="part4"></a>Parte 4 - Verificar a conexão VPN
@@ -96,4 +94,3 @@ Verifique os itens a seguir:
 ## <a name="next-steps"></a>Próximas etapas
 
 Quando sua conexão for concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Consulte o roteiro de aprendizagem das [máquinas virtuais](https://azure.microsoft.com/documentation/learning-paths/virtual-machines) para obter mais informações.
-

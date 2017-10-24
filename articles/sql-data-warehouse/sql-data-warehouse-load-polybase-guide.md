@@ -15,12 +15,11 @@ ms.workload: data-services
 ms.date: 9/13/2017
 ms.custom: loading
 ms.author: cakarst;barbkess
+ms.openlocfilehash: e8ae0eb96200c167a8758df4ce20b51452cc59a4
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: d24c6777cc6922d5d0d9519e720962e1026b1096
-ms.openlocfilehash: 7594a0730477fe3f3bd34b0b6207478de70c7595
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="guide-for-using-polybase-in-sql-data-warehouse"></a>Guia para usar o PolyBase no SQL Data Warehouse
 Este guia fornece informações práticas para usar o PolyBase no SQL Data Warehouse.
@@ -134,7 +133,7 @@ Para obter o desempenho de carregamento ideal com o PolyBase, sugerimos o seguin
 
 ## <a name="polybase-limitations"></a>Limitações do PolyBase
 O PolyBase no SQL DW tem as seguintes limitações que precisam ser levadas em consideração durante a criação de um trabalho de carregamento:
-- Uma única linha não pode ser maior que 1.000.000 bytes. Isso é verdadeiro, independentemente do esquema de tabela definido, incluindo colunas (n)varchar(max). Isso significa que, para Tabelas Externas, as colunas (n)varchar(max) podem ter, no máximo, 1.000.000 bytes de largura, não o limite de 2 GB definido pelo tipo de dados.
+- Uma única linha não pode ser maior que 1.000.000 bytes. Isso é verdadeiro, independentemente do esquema de tabela definido.
 - Ao exportar dados para um Formato de Arquivo ORC do SQL Server ou do SQL Data Warehouse do Azure, as colunas pesadas de texto podem ser limitadas a apenas 50 colunas, devido a erros de memória insuficiente do Java. Para resolver isso, exporte apenas um subconjunto das colunas.
 
 
@@ -174,4 +173,3 @@ Para saber mais sobre como mover dados para o SQL Data Warehouse, consulte o [Vi
 [DROP CREDENTIAL (Transact-SQL)]: https://msdn.microsoft.com/library/ms189450.aspx
 
 <!-- External Links -->
-

@@ -24,7 +24,7 @@ O programa em C# contém:
 Este programa C# é logicamente um arquivo .cs. Mas aqui o programa é dividido fisicamente em vários blocos de código, para facilitar a visualização e a compreensão de cada bloco. Para compilar e executar esse programa, faça o seguinte:
 
 1. Crie um novo projeto em C# no Visual Studio.
-    - O tipo de projeto deve ser um *console* aplicativo de algo parecido com a seguinte hierarquia: **modelos** > **Visual C#** >  **Área de trabalho clássica do Windows** > **(.NET Framework) do aplicativo de Console**.
+    - O tipo de projeto deve ser um aplicativo de *console*, de algo parecido com a seguinte hierarquia: **Modelos** > **Visual C#** > **Área de Trabalho Clássica do Windows** > **Aplicativo de Console (.NET Framework)**.
 3. No arquivo **Program.cs**, apague as linhas iniciais do código.
 3. Em Program.cs, copie e cole cada um dos blocos a seguir, na mesma sequência em que são apresentados aqui.
 4. Em Program.cs, edite os seguintes valores no método **principal**:

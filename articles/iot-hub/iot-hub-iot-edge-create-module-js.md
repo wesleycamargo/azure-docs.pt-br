@@ -11,12 +11,11 @@ ms.devlang: js
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: sushi
-ms.translationtype: Human Translation
-ms.sourcegitcommit: 6efa2cca46c2d8e4c00150ff964f8af02397ef99
-ms.openlocfilehash: 12e0702c31f36368fd95127abeede1a0d4ff2c87
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/01/2017
-
+ms.openlocfilehash: e23c4aa7bb3eb4fab18d5a13cbad28e07c18d8f2
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="create-an-azure-iot-edge-module-with-nodejs"></a>Criar um módulo do Azure IoT Edge com o Node.js
 
@@ -118,11 +117,11 @@ O `app.js` define a forma de inicializar a instância do Edge. Aqui, não precis
 ### <a name="interface-of-module"></a>Interface do módulo
 É possível tratar um módulo do Azure IoT Edge como um processador de dados cujo trabalho é: receber uma entrada, processá-la e produzir uma saída.
 
-A entrada pode ser dados de hardware (como um detector de movimento), uma mensagem de outros módulos ou qualquer outra coisa (como um número aleatório gerado periodicamente por um temporizador).
+A entrada pode ser dados de hardware (como um detector de movimento), uma mensagem de outros módulos e outros como, por exemplo, um número aleatório gerado periodicamente por um timer.
 
 A saída é semelhante à entrada: ela pode disparar o comportamento de hardware (como o LED intermitente), uma mensagem para outros módulos ou qualquer outra coisa (como a impressão para o console).
 
-Os módulos se comunicam usando o objeto `message`. O **conteúdo** de uma `message` é uma matriz de bytes que pode representar qualquer tipo de dados desejado. **Propriedades** também estão disponíveis na `message` e são simplesmente um mapeamento de cadeia de caracteres para cadeia de caracteres. Você pode considerar as **propriedades** como os cabeçalhos em uma solicitação HTTP ou os metadados de um arquivo.
+Os módulos se comunicam usando o objeto `message`. O **conteúdo** de uma `message` é uma matriz de bytes que pode representar qualquer tipo de dados desejado. As **propriedades** também estão disponíveis no `message` e são simplesmente um mapeamento de cadeia de caracteres. Você pode pensar em **Propriedades** como sendo os cabeçalhos em uma solicitação HTTPS, ou os metadados de um arquivo.
 
 Para desenvolver um módulo do Azure IoT Edge no JS, você precisa criar um novo objeto de módulo que implementa os métodos necessários `receive()`. Neste ponto, você também pode optar por implementar os métodos `create()`, `start()` ou `destroy()` opcionais também. O trecho de código a seguir mostra o scaffolding do objeto de módulo JS.
 
@@ -155,11 +154,11 @@ module.exports = {
 ```
 
 ### <a name="converter-module"></a>Módulo de conversor
-| Entrada                    | Processador                              | Saída                 | Arquivo de origem            |
+| Entrada                    | Processador                              | Saída                 | Arquivo de código-fonte            |
 | ------------------------ | -------------------------------------- | ---------------------- | ---------------------- |
-| Mensagem de dados de temperatura | Analisar e construir uma nova mensagem JSON | Estruturar a mensagem JSON | `converter.js` |
+| Mensagem de dados de temperatura | Análise e criação de uma nova mensagem JSON | Mensagem de JSON de estrutura | `converter.js` |
 
-Esse módulo é um módulo típico do Azure IoT Edge. Ele aceita mensagens de temperatura de outros módulos (um módulo de hardware ou, nesse caso, nosso módulo BLE simulado); em seguida, normaliza a mensagem de temperatura em uma mensagem JSON estruturada (incluindo acrescentar a ID da mensagem, definir a propriedade, caso precisemos disparar o alerta de temperatura e assim por diante).
+Este é um módulo típico do Azure IoT Edge. Ele aceita mensagens de temperatura de outros módulos (um módulo de hardware, ou, nesse caso, nosso módulo BLE simulado), e, em seguida, normaliza a mensagem de temperatura em uma mensagem de JSON estruturada (incluindo o ID da mensagem, definindo a propriedade do que for necessário para disparar o alerta de temperatura e assim por diante).
 
 ```javascript
 receive: function (message) {
@@ -196,8 +195,8 @@ receive: function (message) {
 },
 ```
 
-### <a name="printer-module"></a>Módulo de impressora
-| Entrada                          | Processador | Saída                     | Arquivo de origem          |
+### <a name="printer-module"></a>Módulo de impressão
+| Entrada                          | Processador | Saída                     | Arquivo de código-fonte          |
 | ------------------------------ | --------- | -------------------------- | -------------------- |
 | Qualquer mensagem de outros módulos | N/D       | Registrar a mensagem no console | `printer.js` |
 
@@ -290,4 +289,3 @@ Se desejar encerrar o aplicativo, pressione a tecla `<Enter>`.
 
 > [!IMPORTANT]
 > Não é recomendável usar Ctrl + C para encerrar o aplicativo IoT Edge. Isso poderá fazer com que o processo seja terminado de maneira anormal.
-

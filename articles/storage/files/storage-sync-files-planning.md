@@ -12,18 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 10/08/2017
 ms.author: wgries
+ms.openlocfilehash: d8ac076334a7ed9476b4830596d6ea54c29c0e3c
+ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 3c003d498600a2cfd12ef2adfb7c16f9dfaddb37
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planejando uma implantação de Sincronização de Arquivo do Azure (versão prévia)
-Com a Sincronização de Arquivo do Azure (versão prévia), os compartilhamentos podem ser replicados para Servidores Windows locais ou no Azure. Você e seus usuários acessam o compartilhamento de arquivos por meio do Windows Server, por exemplo, por meio de um compartilhamento NFS ou SMB. Isso é especialmente útil para cenários nos quais os dados serão acessados e modificados longe de um datacenter do Azure, como em um cenário de filial. Os dados podem ser replicados entre vários pontos de extremidade do Windows Server, por exemplo, entre várias filiais. 
+A Sincronização de Arquivos do Azure (versão prévia) permite que você centralize os compartilhamentos de arquivos da sua organização em Arquivos do Azure sem abrir mão da flexibilidade, do desempenho e da compatibilidade de um servidor de arquivos local. Ele faz isso transformando Windows Servers em um cache rápido do seu compartilhamento de Arquivos do Azure. Você pode usar qualquer protocolo disponível no Windows Server para acessar seus dados localmente (incluindo SMB, NFS e FTPS) e pode ter todos os caches de que precisar ao redor do mundo.
 
 Este guia descreve o que considerar ao implantar a Sincronização de Arquivo do Azure. É recomendável que você leia o teste de guia [Planning for an Azure Files deployment](storage-files-planning.md) (Planejando uma implantação de Arquivos do Azure). 
 
@@ -67,7 +65,7 @@ No momento, as versões com suporte do Windows Server para a Sincronização de 
 | Windows Server 2016 | Datacenter e Standard | Completo (servidor com uma interface do usuário) |
 | Windows Server 2012 R2 | Datacenter e Standard | Completo (servidor com uma interface do usuário) |
 
-Versões futuras do Windows Server serão adicionadas à medida que elas forem lançadas, as versões mais antigas do Windows podem ser adicionadas com base nos comentários do usuário.
+Versões futuras do Windows Server serão adicionadas à medida que elas forem lançadas e as versões mais antigas do Windows podem ser adicionadas com base nos comentários do usuário.
 
 > [!Important]  
 > É recomendável manter todos os Windows Server usados com a Sincronização de Arquivo do Azure atualizados com as atualizações mais recentes do Windows Update. 
@@ -139,14 +137,9 @@ A Sincronização de Arquivo do Azure está disponível apenas nas seguintes reg
 Na versão prévia, há suporte apenas para a sincronização com um compartilhamento de Arquivo do Azure na mesma região que o Serviço de Sincronização de Armazenamento.
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Política de atualização do agente de Sincronização de Arquivo do Azure
-As atualizações para o agente de Sincronização de Arquivo do Azure serão lançadas regularmente para adicionar novos recursos e resolver quaisquer problemas encontrados. É recomendável habilitar o Microsoft Update para obter todas as atualizações para o agente de Sincronização de Arquivo do Azure conforme as lançarmos. Dito isso, entendemos que algumas organizações gostam de controlar rigidamente as atualizações. Para implantações usando versões mais antigas do agente de Sincronização de Arquivo do Azure:
-
-- O Serviço de Sincronização de Armazenamento manterá a versão principal anterior por três meses após o lançamento inicial de uma nova versão principal. Por exemplo, a versão 1.\* deve ter o suporte pelo Serviço de Sincronização de Armazenamento até três meses após o lançamento da versão 2.\*
-- Depois de três meses, o Serviço de Sincronização de Armazenamento começará a bloquear a sincronização dos servidores registrados usando a versão expirada com seus Grupos de Sincronização.
-- Dentro de três meses para uma versão principal anterior, todas as correções de bug irão somente para a versão principal atual.
+[!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Planejando uma implantação de Arquivos do Azure](storage-files-planning.md)
 * [Implantando Arquivos do Azure](storage-files-deployment-guide.md)
 * [Implantando a Sincronização de Arquivos do Azure](storage-sync-files-deployment-guide.md)
-

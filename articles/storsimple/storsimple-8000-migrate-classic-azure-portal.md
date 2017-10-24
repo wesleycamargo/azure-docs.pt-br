@@ -12,14 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2017
+ms.date: 09/26/2017
 ms.author: alkohli
+ms.openlocfilehash: edac2635086106f83b30316ab190bead5245f195
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
 ms.translationtype: HT
-ms.sourcegitcommit: fda37c1cb0b66a8adb989473f627405ede36ab76
-ms.openlocfilehash: a64cf0ba2a4646a03c864193fb93de4f54f38039
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/14/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="migrate-subscriptions-and-storage-accounts-associated-with-storsimple-device-manager-service"></a>Migrar assinaturas e contas de armazenamento associadas ao serviço Gerenciador de Dispositivos do StorSimple
 
@@ -33,11 +32,13 @@ Talvez seja necessário mover o serviço StorSimple para um novo registro ou uma
 | Um serviço StorSimple de uma conta existente para um novo registro?    | Sim       | Não       | **Transferência de Conta**<br>Use:<li>Quando você não deseja fazer uma transferência completa de registro.</li><li>Você deseja apenas mover contas específicas para um novo registro.</li>| **Etapa 1: Abrir um tíquete de Suporte de Operação do Azure Enterprise.**<li>Acesse [http://aka.ms/AzureEnt](http://aka.ms/AzureEnt).</li><li>Selecione **Administração do Registro** e, em seguida, selecione **Transferir uma Conta do EA para um novo registro**.<br>**Etapa 2: fornecer as informações solicitadas**<br>Inclua:<li>número de registro de origem</li><li> número de registro de destino</li><li>data de efetivação de transferência|
 | Um serviço StorSimple de uma assinatura para outra assinatura?      | Não        |    Sim         | Nenhum, processo manual|<li>Migre dados para fora do dispositivo StorSimple.</li><li>Execute uma redefinição de fábrica do dispositivo. Isso excluirá todos os dados locais do dispositivo.</li><li>Registre o dispositivo com a nova assinatura para um serviço Gerenciador de Dispositivos do StorSimple.</li><li>Migre os dados novamente para o dispositivo.|
 | Um dispositivo StorSimple de um serviço Gerenciador de Dispositivos do StorSimple para outro serviço em outra região?      | Não        | Sim            | Nenhum, processo manual |Mesmo que acima.|
+| Conta de armazenamento para uma nova assinatura ou grupo de recursos?     | Sim        | Não             |Mova a conta de armazenamento para uma assinatura ou grupo de recursos diferente |Após movê-la, se as chaves de acesso da conta de armazenamento forem atualizadas, o usuário precisará configurar as chaves de acesso manualmente para a conta de armazenamento migrada por meio do serviço do Gerenciador de Dispositivos do StorSimple.|
+| Conta de armazenamento clássico para uma conta de armazenamento do Azure Resource Manager      | Sim        | Não             |Migrar de Clássica para o Azure Resource Manager |<li>Para obter instruções detalhadas sobre como migrar uma conta de armazenamento de clássico para Azure Resource Manager, vá para [Migrar uma conta de armazenamento clássica](../virtual-machines/windows/migration-classic-resource-manager-ps.md#step-62-migrate-a-storage-account).</li><li> Se as chaves de acesso da conta de armazenamento forem atualizadas após a migração, o usuário precisará sincronizar as chaves de acesso para a conta de armazenamento migrada por meio do serviço do Gerenciador de Dispositivos do StorSimple. Isso é para garantir que os dispositivos do StorSimple continuem a funcionar normalmente e sejam capazes de armazenar camadas de dados principais/backup para o Azure. Para obter instruções detalhadas sobre como sincronizar as chaves de acesso, acesse [Fluxo de trabalho de rotação](storsimple-8000-manage-storage-accounts.md#key-rotation-of-storage-accounts).</li><li> No caso de um dispositivo de nuvem do StorSimple, se a conta de armazenamento clássico for migrada, mas a máquina virtual subjacente permanecer no modo clássico, o dispositivo deve funcionar corretamente. Se a máquina virtual subjacente para o dispositivo de nuvem for migrada, a funcionalidade de desativar e excluir não funcionará.</li><li> Você deve criar um novo Dispositivo de Nuvem do StorSimple no portal do Azure e, em seguida, fazer o failover dos dispositivos de nuvem mais antigos. Não é possível criar um Dispositivo de Nuvem do StorSimple no novo portal do Azure usando uma conta de armazenamento clássico, eles precisam ter uma conta de armazenamento do Azure Resource Manager. Para obter mais informações, acesse [Implantar e gerenciar um Dispositivo de Nuvem StorSimple](storsimple-8000-cloud-appliance-u2.md).</li>|Mesmo que acima.|
 
 ## <a name="datacenter-changes"></a>Alterações no datacenter
 
 | Você pode mover...| Suportado|Tempo de inatividade| Processo de Suporte do Azure| Abordagem|
-|-----|-----|-----|-----|-----|-----|
+|-----|-----|-----|-----|-----|
 | Um serviço StorSimple de um datacenter do Azure para outro? | Não | Sim |Nenhum, processo manual  |<li>Migre dados para fora do dispositivo StorSimple.</li><li>Execute uma redefinição de fábrica do dispositivo. Isso excluirá todos os dados locais do dispositivo.</li><li>Registre o dispositivo com a nova assinatura para um novo serviço Gerenciador de Dispositivos do StorSimple.</li><li>Migre os dados novamente para o dispositivo.|
 | Uma conta de armazenamento de um datacenter do Azure para outro? | Não |Sim  |Nenhum, processo manual  | Mesmo que acima.|
 
