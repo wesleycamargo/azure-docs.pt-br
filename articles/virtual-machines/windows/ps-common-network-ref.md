@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: davidmu
-ms.openlocfilehash: 41a26e8b13fdb2531924ba441017c4c01e664995
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 26378ff9f16af9724db08cc4013654557f1c838b
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="common-powershell-commands-for-azure-virtual-networks"></a>Comandos comuns do PowerShell para Redes Virtuais do Azure
 
@@ -74,5 +74,5 @@ Algumas variáveis poderão ser úteis para você se estiver executando mais de 
 
 ## <a name="next-steps"></a>Próximas etapas
 * Usar o adaptador de rede que você cria quando [cria uma VM](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-* Saiba mais sobre como você pode [criar uma VM com várias interfaces de rede](../../virtual-network/virtual-networks-multiple-nics.md).
+* Saiba mais sobre como você pode [criar uma VM com várias interfaces de rede](../../virtual-network/virtual-network-deploy-multinic-classic-ps.md).
 

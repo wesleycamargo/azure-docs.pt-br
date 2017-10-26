@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: cbb33988f5db47e35db406c037caa9133616d191
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b363616792b35420644154cc0f8b878f2c83f1c7
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Aprofundamento no autoatendimento de redefinição de senha no Azure AD
 
@@ -77,7 +77,7 @@ Por padrão, somente os atributos de nuvem Telefone Comercial e Telefone Celular
 
 Os usuários somente poderão redefinir suas senhas se tiverem dados presentes nos métodos de autenticação habilitados e definidos como obrigatórios pelo administrador.
 
-Se os usuários não desejarem que seus números de telefone celular fiquem visíveis no diretório, mas ainda desejarem usá-los para a redefinição de senha, os administradores não deverão populá-los no diretório e, em seguida, o usuário deverá popular seu atributo **Telefone de Autenticação** por meio do [portal de registro de redefinição de senha](http://aka.ms/ssprsetup). Os administradores poderão ver essas informações no perfil do usuário, mas elas não serão publicadas em nenhum outro lugar. Se uma conta do Administrador do Azure registrar o número de telefone de autenticação, ela será populada no campo de telefone celular e ficará visível.
+Se os usuários não desejarem que seus números de telefone celular fiquem visíveis no diretório, mas ainda desejarem usá-los para a redefinição de senha, os administradores não deverão populá-los no diretório e, em seguida, o usuário deverá popular seu atributo **Telefone de Autenticação** por meio do [portal de registro de redefinição de senha](http://aka.ms/ssprsetup). Os administradores poderão ver essas informações no perfil do usuário, mas elas não serão publicadas em nenhum outro lugar.
 
 ### <a name="number-of-authentication-methods-required"></a>Quantidade necessária de métodos de autenticação
 

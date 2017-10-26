@@ -9,14 +9,14 @@ ms.service: event-grid
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 10/20/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 358015d6cfd9961508b209f628b2d648a75e3c2c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 709d23ab590c06d5da9b03e2767bc0be5905355b
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="automate-resizing-uploaded-images-using-event-grid"></a>Automatizar o redimensionamento de imagens carregadas usando a Grade de Eventos
 
@@ -25,8 +25,6 @@ A [Grade de Eventos do Azure](overview.md) é um serviço de eventos para a nuve
 Este tutorial é a segunda parte de uma série de tutoriais sobre o Armazenamento. Ele estende o [tutorial anterior sobre o Armazenamento][previous-tutorial] para adicionar a geração automática de miniaturas sem servidor usando a Grade de Eventos do Azure e o Azure Functions. A Grade de Eventos permite que o [Azure Functions](..\azure-functions\functions-overview.md) responda aos eventos do [armazenamento de Blobs do Azure](..\storage\blobs\storage-blobs-introduction.md) e gere miniaturas das imagens carregadas. Uma assinatura de evento é criada no evento de criação do armazenamento de Blobs. Quando um blob é adicionado a um contêiner de armazenamento de Blobs específico, um ponto de extremidade de função é chamado. Os dados passados para a associação de função da Grade de Eventos são usados para acessar o blob e gerar a imagem em miniatura. 
 
 Use a CLI do Azure e o portal do Azure para adicionar a funcionalidade de redimensionamento a um aplicativo de upload de imagens existente.
-
-[!INCLUDE [storage-events-note.md](../../includes/storage-events-note.md)]
 
 ![Aplicativo Web publicado no navegador Edge](./media/resize-images-on-storage-blob-upload-event/tutorial-completed.png)
 
@@ -42,7 +40,6 @@ Neste tutorial, você aprenderá como:
 Para concluir este tutorial:
 
 + Você deve ter concluído o tutorial anterior sobre o armazenamento de Blobs: [Carregar dados de imagem na nuvem com o Armazenamento do Azure][previous-tutorial]. 
-+ Você deve se inscrever e ter acesso à funcionalidade de eventos do armazenamento de Blobs. [Solicite o acesso aos eventos do armazenamento de Blobs](#request-storage-access) antes de continuar com as outras etapas do tópico.  
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -51,32 +48,6 @@ Para concluir este tutorial:
 Se você optar por instalar e usar a CLI localmente, este tópico exigirá a execução da CLI do Azure versão 2.0.14 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
 
 Se você não estiver usando o Cloud Shell, primeiro você deve entrar usando `az login`.
-
-## <a name="enable-blob-storage-events"></a>Habilitar os eventos do armazenamento de Blobs
-
-No momento, é necessário solicitar o acesso ao recurso de eventos do armazenamento de Blobs.  
-
-### <a name="request-storage-access"></a>Solicitar o acesso aos eventos do armazenamento de Blobs
-
-Solicite o acesso com o comando `az feature register`.
-
-> [!IMPORTANT]  
-> Aceitamos os participantes da versão prévia dos eventos do armazenamento de Blobs na ordem em que eles solicitaram a participação. Pode haver um atraso de 1 a 2 dias úteis para obter o acesso a esse recurso. 
-
-```azurecli-interactive
-az feature register --name storageEventSubscriptions --namespace Microsoft.EventGrid
-```
-
-### <a name="check-access-status"></a>Verificar o status de aprovação
-
-Você receberá um email da Microsoft notificando que você obteve o acesso aos eventos do armazenamento de Blobs. Verifique o status de sua solicitação de acesso a qualquer momento com o comando `az feature show`.
-
-```azurecli-interactive
-az feature show --name storageEventSubscriptions --namespace Microsoft.EventGrid --query properties.state
-```
-Depois de obter o acesso ao recurso de eventos do armazenamento de Blobs, esse comando retornará um valor `"Registered"`. 
- 
-Após o registro, você poderá continuar com este tutorial.
 
 ## <a name="create-an-azure-storage-account"></a>Criar uma conta de Armazenamento do Azure
 

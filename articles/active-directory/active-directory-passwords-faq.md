@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/06/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: a457ba3109625ab43ae3a88b95a3e7e1e9641921
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fda60c9dfde64c526ad4cbf7fc4ccc5b56becafb
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="password-management-frequently-asked-questions"></a>Perguntas frequentes sobre gerenciamento de senhas
 
@@ -56,10 +56,6 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
 * **P: meus usuários podem registrar dados de forma que outros usuários não possam ver esses dados?**
 
   > **R:** Sim. Quando os usuários registram dados usando o Portal de Registro de Redefinição de Senha, eles são salvos em campos de autenticação privada visíveis apenas por Administradores Globais e pelo usuário.
-    >
-    > [!NOTE]
-    > Se uma **conta do Administrador do Azure** registrar o número de telefone de autenticação, ela também será populada no campo de telefone celular e ficará visível.
-    >
   >
   >
 * **P: meus usuários precisam ser registrados antes de poder usar a redefinição de senha?**

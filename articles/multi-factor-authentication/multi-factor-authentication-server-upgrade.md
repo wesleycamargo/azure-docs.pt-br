@@ -15,11 +15,11 @@ ms.date: 06/16/2017
 ms.author: kgremban
 ms.reviewer: yossib
 ms.custom: it-pro
-ms.openlocfilehash: 6e4e09f8539aad56f92ad9137f4a6b9eb0d82370
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3a2fb7413fa1391969d00ad281fd1ade3e0f40a8
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>Atualizar para o último Servidor de Autenticação Multifator do Azure
 
@@ -29,7 +29,7 @@ Se estiver atualizando da v6.x ou anterior para a v7.x ou mais nova, todos os co
 
 ## <a name="install-the-latest-version-of-azure-mfa-server"></a>Instalar a última versão do Servidor do Azure MFA
 
-1. Use as instruções descritas em [Baixar o Servidor de Autenticação Multifator do Azure](multi-factor-authentication-get-started-server.md#download-the-azure-multi-factor-authentication-server) para obter a última versão do Servidor do Azure MFA.
+1. Use as instruções descritas em [Baixar o Servidor de Autenticação Multifator do Azure](multi-factor-authentication-get-started-server.md#download-the-mfa-server) para obter a última versão do Servidor do Azure MFA.
 2. Faça um backup do arquivo de dados do Servidor MFA localizado em C:\Program Files\Multi-Factor Authentication Server\Data\PhoneFactor.pfdata (considerando o local de instalação padrão) no Servidor mestre do MFA.
 3. Se você executar vários servidores para alta disponibilidade, altere os sistemas cliente que se autenticam no Servidor MFA, para que eles interrompam o envio de tráfego para os servidores que estão sendo atualizados. Se você usar um balanceador de carga, remova um Servidor MFA do balanceador de carga, faça a atualização e, em seguida, adicione o servidor novamente ao farm.
 4. Execute o novo instalador em cada Servidor MFA. Atualize os servidores subordinados primeiro, pois eles poderão ler o arquivo de dados antigo que está sendo replicado pelo mestre. 

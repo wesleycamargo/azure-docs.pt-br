@@ -15,12 +15,11 @@ ms.topic: quickstart
 ms.date: 03/17/2017
 ms.author: cfowler
 ms.custom: mvc, devcenter
+ms.openlocfilehash: b3908aa6534d08c5f3bd41d439556f48067dc466
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
-ms.sourcegitcommit: 8f9234fe1f33625685b66e1d0e0024469f54f95c
-ms.openlocfilehash: 9331039cef4ef047820e088cc84b92655336d12c
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/20/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="create-a-python-web-app-in-azure"></a>Criar um aplicativo Web do Python no Azure
 
@@ -200,4 +199,3 @@ O menu à esquerda fornece páginas diferentes para configurar seu aplicativo.
 
 > [!div class="nextstepaction"]
 > [Mapear um nome DNS personalizado existente para aplicativos Web do Azure](app-service-web-tutorial-custom-domain.md)
-

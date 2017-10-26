@@ -12,16 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/23/2017
+ms.date: 10/19/2017
 ms.author: raynew
+ms.openlocfilehash: d070fffd398a9a0ed6549b134ecbd1415baf2273
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
-ms.sourcegitcommit: 1868e5fd0427a5e1b1eeed244c80a570a39eb6a9
-ms.openlocfilehash: 490833c14b6856cdaf6f6bfd2f67ce54fb0414a2
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/19/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/25/2017
 ---
-
 #  <a name="prerequisites-for-replication-from-on-premises-to-azure-by-using-site-recovery"></a>Pré-requisitos para replicação do local para o Azure usando o Site Recovery
 
 > [!div class="op_single_selector"]
@@ -112,7 +110,7 @@ Os seguintes componentes são necessários para recuperação de desastre de VMs
 
 | **Componente** | **Detalhes** |
 | --- | --- |
-| **Virtual Machine Manager** |  Recomendamos a implantação de um servidor VMM tanto no site primário quanto no site secundário.<br/><br/> Você pode [replicar entre nuvens em um único servidor VMM](site-recovery-vmm-to-vmm.md#prepare-for-single-server-deployment). Para replicar entre nuvens em um único servidor VMM, você precisará de pelo menos duas nuvens configuradas no servidor VMM.<br/><br/> Os servidores VMM devem executar pelo menos o System Center 2012 SP1 com as atualizações mais recentes.<br/><br/> Cada servidor VMM deve ter uma ou mais nuvens. Todas as nuvens devem ter o Perfil de Capacidade do Hyper-V definido. <br/><br/>As nuvens devem ter um ou mais grupos de hosts do VMM. Para obter mais informações sobre como configurar nuvens do VMM, consulte [Preparar para a implantação do Azure Site Recovery](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric). |
+| **Virtual Machine Manager** |  Recomendamos a implantação de um servidor VMM tanto no site primário quanto no site secundário.<br/><br/> Para replicar entre nuvens em um único servidor VMM, você precisará de pelo menos duas nuvens configuradas no servidor VMM.<br/><br/> Os servidores VMM devem executar pelo menos o System Center 2012 SP1 com as atualizações mais recentes.<br/><br/> Cada servidor VMM deve ter uma ou mais nuvens. Todas as nuvens devem ter o Perfil de Capacidade do Hyper-V definido. <br/><br/>As nuvens devem ter um ou mais grupos de hosts do VMM. Para obter mais informações sobre como configurar nuvens do VMM, consulte [Preparar para a implantação do Azure Site Recovery](https://msdn.microsoft.com/library/azure/dn469075.aspx#BKMK_Fabric). |
 | **Hyper-V** | Os servidores Hyper-V devem executar, pelo menos, o Windows Server 2012 com a função Hyper-V habilitada e ter as últimas atualizações instaladas.<br/><br/> Um servidor Hyper-V deve ter uma ou mais VMs.<br/><br/>  Os servidores host do Hyper-V devem estar localizados em grupos de hosts nas nuvens primárias e secundárias do VMM.<br/><br/> Se você executar o Hyper-V em um cluster no Windows Server 2012 R2, é recomendável que você instale a atualização descrita no artigo da Base de Dados de Conhecimento [2961977](https://support.microsoft.com/kb/2961977).<br/><br/> Se você executar o Hyper-V em um cluster no Windows Server 2012 e tiver um cluster baseado em endereço IP estático, o agente de cluster não será criado automaticamente. Você deverá configurar o agente de cluster manualmente. Para obter mais informações sobre o agente de cluster, consulte [Configurar a função de agente de réplica para replicação cluster a cluster](http://social.technet.microsoft.com/wiki/contents/articles/18792.configure-replica-broker-role-cluster-to-cluster-replication.aspx). |
 | **Provedor** | Durante a implantação do Site Recovery, instale o provedor do Azure Site Recovery em servidores VMM. O provedor se comunica com o Site Recovery por HTTPS (porta 443) para orquestrar a replicação. A replicação de dados ocorre entre os servidores primário e secundário do Hyper-V por LAN ou por meio de uma conexão VPN.<br/><br/> O provedor em execução no servidor VMM precisa de acesso às seguintes URLs:<br/><br/>[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)] <br/><br/>O provedor do Site Recovery deve permitir a comunicação do firewall de servidores VMM para [intervalos IP do datacenter do Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) e permitir o protocolo HTTPS (porta 443). |
 
@@ -130,4 +128,3 @@ Essas URLs devem estar disponíveis no VMware, no VMM e nos servidores host do H
 |``https://dev.mysql.com/get/archives/mysql-5.5/mysql-5.5.37-win32.msi`` | Não requerido | Não requerido | Não requerido | Permitir download do SQL |
 |``time.windows.com`` | PERMITIR | Permitir | Permitir | Permitir|
 |``time.nist.gov`` | Permitir | Permitir | Permitir | PERMITIR |
-

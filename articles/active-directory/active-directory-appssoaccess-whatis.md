@@ -16,11 +16,11 @@ ms.date: 09/11/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: f5d3f7fce863f6b868a03eff481ae0dda5a7a812
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: 89bffc9726a2c54e59281045d16472335b2a7fed
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>O que é o acesso a aplicativos e logon único com o Azure Active Directory?
 Sign-on único significa poder acessar todos os aplicativos e recursos que você precisa para fazer negócios, inscrevendo-se apenas uma vez usando uma conta de usuário único. Depois de conectado, você pode acessar todos os aplicativos sem a exigência de autenticação (por exemplo, digite uma senha) uma segunda vez.
@@ -75,12 +75,10 @@ Em ambos os casos, as credenciais são armazenadas em um estado criptografado no
 O SSO baseado em senha conta com uma extensão de navegador para recuperar as informações específicas do aplicativo e de usuário do AD do Azure e aplicá-la ao serviço com segurança. A maioria dos aplicativos SaaS de terceiros que são suportados pelo AD do Azure oferecem suporte a esse recurso.
 
 Para SSO baseado em senha, os navegadores do usuário final podem ser:
-
-* Internet Explorer 8, 9, 10 e 11 – no Windows 7 ou posterior (Consulte também [guia de implantação de extensão do IE](active-directory-saas-ie-group-policy.md))
+* Internet Explorer 8, 9, 10, 11 - no Windows 7 ou posterior
+* Edge no Windows 10 Anniversary Edition ou posterior 
 * Chrome – No Windows 7 ou posterior e no MacOS X ou posterior
 * Firefox 26.0 ou posterior, no Windows XP SP2 ou posterior e no Mac OS X 10.6 ou posterior
-
-**Observação:** a extensão SSO baseada em senha será disponibilizada para borda no Windows 10 quando extensões do navegador se tornarem compatíveis para borda.
 
 ### <a name="existing-single-sign-on"></a>Logon único existente
 Ao configurar o logon único para um aplicativo, o portal de gerenciamento do Azure fornece uma terceira opção de "Logon único existente". Simplesmente, essa opção permite ao administrador criar um link para um aplicativo e colocá-lo no painel de acesso para os usuários selecionados.

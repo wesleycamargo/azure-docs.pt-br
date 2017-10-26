@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 10/19/2017
 ms.author: maheshu
-ms.openlocfilehash: d86b9e99619dea408e784f32d76ba6296948bdc0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3f00cbfb5348919c38dc2dd905f1c141a39736f4
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Habilite o Azure Active Directory Domain Services usando o portal do Azure
 Este artigo mostra como habilitar o Azure AD DS (Azure Active Directory Domain Services) usando o portal do Azure.
@@ -62,19 +62,13 @@ Na página **Básico** do assistente, você pode especificar o nome de domínio 
 
    * Você tiver um serviço de nuvem existente com esse nome na rede virtual.
 
-3. Escolha o **tipo de rede virtual**. Por padrão, o tipo de rede virtual **Gerenciador de Recursos** está selecionado. Recomendamos o uso desse tipo de rede virtual para todos os domínios gerenciados recém-criados.
+3. Selecione a **Assinatura** do Azure na qual você deseja criar o domínio gerenciado.
 
-    > [!TIP]
-    > **Suporte de rede virtual clássica está agendado para ser interrompido.** Selecione o tipo de rede virtual Resource Manager para todas as novas implantações. Redes virtuais clássicas logo não terão mais suporte para novas implantações. Domínios gerenciados existentes implantados em redes virtuais clássicas continuarão tendo suporte.
-    >
+4. Selecione o **Grupo de recursos** a que o domínio gerenciado deve pertencer. Você pode escolher as opções **Criar novo** ou **Usar existente** para selecionar o grupo de recursos.
 
-4. Selecione a **Assinatura** do Azure na qual você deseja criar o domínio gerenciado.
+5. Escolha o **Local** do Azure no qual o domínio gerenciado deve ser criado. Na página **Rede** do assistente, você vê somente redes virtuais que pertencem ao local selecionado.
 
-5. Selecione o **Grupo de recursos** a que o domínio gerenciado deve pertencer. Você pode escolher as opções **Criar novo** ou **Usar existente** para selecionar o grupo de recursos.
-
-6. Escolha o **Local** do Azure no qual o domínio gerenciado deve ser criado. Na página **Rede** do assistente, você vê somente redes virtuais que pertencem ao local selecionado.
-
-7. Quando terminar, clique em **OK** para ir para a página **Rede** do assistente.
+6. Quando terminar, clique em **OK** para ir para a página **Rede** do assistente.
 
 
 ## <a name="next-step"></a>Próxima etapa

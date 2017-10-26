@@ -15,14 +15,12 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: magoedte
 ms.custom: mvc
+ms.openlocfilehash: 272945134b534a5ded794379ce5e96b0902a4227
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: b065269a27ad3764399802b4a2bc3076b7349623
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/24/2017
 ---
-
 # <a name="create-and-share-dashboards-of-log-analytics-data"></a>Criar e compartilhar painéis de dados do Log Analytics
 
 Os painéis do Log Analytics podem visualizar todas as pesquisas de logs salvas, oferecendo a você a capacidade de localizar, correlacionar e compartilhar dados operacionais de TI na organização.  Este tutorial aborda a criação de uma pesquisa de logs que será usada para dar suporte a um painel compartilhado que, por sua vez, será acessado por sua equipe de suporte de operações de TI.  Você aprenderá como:

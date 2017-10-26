@@ -11,11 +11,11 @@ ms.workload: integration
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: apimpm
-ms.openlocfilehash: cf5cd03bd9147ac81b07dc453a919a3c74de44fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 22cc917eb6f296724bf535e48b0dd6ba8927e5d3
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="upgrade-and-scale-an-api-management-instance"></a>Atualizar e dimensionar uma instância de Gerenciamento de API 
 
@@ -23,10 +23,10 @@ Os clientes podem dimensionar uma instância de APIM (Gerenciamento de API) adic
 
 A capacidade e o preço de cada unidade dependem de uma **camada** na qual a unidade existe. Você pode escolher entre três camadas: **Desenvolvedor**, **Standard**, **Premium**. Se você precisar aumentar a capacidade de um serviço dentro de uma camada, deverá adicionar uma unidade. Se a camada selecionada no momento em sua instância de APIM não permitir a adição de mais unidades, será preciso atualizar para uma camada de nível superior. 
 
-O preço de cada unidade, a capacidade de adicionar/remover unidades e se você tem ou não alguns recursos (por exemplo, implantação em várias regiões) dependem da camada que você escolheu para sua instância APIM. O artigo [detalhes de preços](https://azure.microsoft.com/pricing/details/api-management/) explica quais preços por unidade e recursos você obtém em cada camada. 
+O preço de cada unidade, a capacidade de adicionar/remover unidades e se você tem ou não alguns recursos (por exemplo, implantação em várias regiões) dependem da camada que você escolheu para sua instância APIM. O artigo [detalhes de preços](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) explica quais preços por unidade e recursos você obtém em cada camada. 
 
 >[!NOTE]
->O artigo [detalhes de preços](https://azure.microsoft.com/pricing/details/api-management/) mostra o número aproximado de capacidade da unidade em cada camada. Para obter números mais precisos, você precisará examinar um cenário realista para suas APIs. Consulte a seção "Como planejar a capacidade" que segue.
+>O artigo [detalhes de preços](https://azure.microsoft.com/pricing/details/api-management/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) mostra o número aproximado de capacidade da unidade em cada camada. Para obter números mais precisos, você precisará examinar um cenário realista para suas APIs. Consulte a seção "Como planejar a capacidade" que segue.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
