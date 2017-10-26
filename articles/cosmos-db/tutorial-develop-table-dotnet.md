@@ -12,14 +12,14 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 05/10/2017
+ms.date: 10/12/2017
 ms.author: arramac
 ms.custom: mvc
-ms.openlocfilehash: 5322fa5cc8e841ecea97a69d15cf130a4426ad95
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c969696b7489a9a8c45e10428cdeaa833f63d6d2
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB: Desenvolver com a API de Tabela no .NET
 
@@ -43,7 +43,7 @@ Este tutorial cobre as seguintes tarefas:
 
 O Azure Cosmos DB fornece a [API de Tabela](table-introduction.md) (visualização) para aplicativos que precisam de um repositório de chave-valor com um design menos esquemático. Os SDKs e as APIs REST do [Armazenamento de Tabelas do Azure](../storage/common/storage-introduction.md) podem ser usados para trabalhar com o Azure Cosmos DB. Você pode usar o Azure Cosmos DB para criar tabelas com requisitos de alta taxa de transferência. O Azure Cosmos DB dá suporte a tabelas com otimização de taxa de transferência (chamadas informalmente de "tabelas premium"), atualmente em visualização pública. 
 
-Você pode continuar usando o Armazenamento de Tabelas do Azure para tabelas com alto requisitos de armazenamento e menores taxa de transferência. O Azure Cosmos DB apresentará o suporte para tabelas com otimização de armazenamento em uma atualização futura, e contas de armazenamento de tabelas do Azure novas e existentes serão atualizadas automaticamente para o Azure Cosmos DB.
+Você pode continuar usando o Armazenamento de Tabelas do Azure para tabelas com alto requisitos de armazenamento e menores taxa de transferência.
 
 Caso utilize o Armazenamento de Tabelas do Azure neste momento, você recebe os seguintes benefícios com a visualização de "tabela premium":
 
