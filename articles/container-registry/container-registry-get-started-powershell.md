@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/07/2017
+ms.date: 10/08/2017
 ms.author: nepeters
-ms.openlocfilehash: 15046d1d2aabafd72df590233f416dd266c661de
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b58b10e644e934cc38a6e0512ba7642ab8bf27c4
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="create-an-azure-container-registry-using-powershell"></a>Criar um Registro de Contêiner do Azure usando o PowerShell
 
@@ -49,8 +49,8 @@ Crie uma instância do ACR usando o comando [New-AzureRMContainerRegistry](/powe
 
 O nome do registro **deve ser exclusivo**. No exemplo a seguir o nome *myContainerRegistry007* é usado. Atualize-o para um valor exclusivo.
 
-```PowerShell
-$Registry = New-AzureRMContainerRegistry -ResourceGroupName "myResourceGroup" -Name "myContainerRegistry007" -EnableAdminUser -Sku Basic
+```powershell
+$registry = New-AzureRMContainerRegistry -ResourceGroupName "myResourceGroup" -Name "myContainerRegistry007" -EnableAdminUser -Sku Basic
 ```
 
 ## <a name="log-in-to-acr"></a>Fazer logon no ACR
@@ -58,13 +58,13 @@ $Registry = New-AzureRMContainerRegistry -ResourceGroupName "myResourceGroup" -N
 Antes de enviar por push e pull imagens de contêiner, você deverá fazer logon na instância ACR. Primeiro, use o comando [Get-AzureRmContainerRegistryCredential](/powershell/module/containerregistry/get-azurermcontainerregistrycredential) para obter as credenciais de administrador da instância do ACR.
 
 ```powershell
-$creds = Get-AzureRmContainerRegistryCredential -Registry $Registry
+$creds = Get-AzureRmContainerRegistryCredential -Registry $registry
 ```
 
 Depois, use o comando [docker login](https://docs.docker.com/engine/reference/commandline/login/) para fazer logon na instância do ACR.
 
 ```bash
-docker login $Registry.LoginServer -u $creds.Username -p $creds.Password
+docker login $registry.LoginServer -u $creds.Username -p $creds.Password
 ```
 
 O comando retorna uma mensagem de 'Logon bem-sucedido' assim que ele for concluído.
@@ -79,10 +79,11 @@ docker pull microsoft/aci-helloworld
 
 A imagem precisa ser marcada com o nome do servidor de logon do ACR. Execute o comando [Get-AzureRmContainerRegistry](/powershell/module/containerregistry/Get-AzureRmContainerRegistry) para retornar o nome do servidor de logon da instância do ACR.
 
-```powershell` Get-AzureRmContainerRegistry | Selecionar Loginserver
+```powershell
+Get-AzureRmContainerRegistry | Select Loginserver
 ```
 
-Tag the image using the [docker tag](https://docs.docker.com/engine/reference/commandline/tag/) command. Replace *acrLoginServer* with the login server name of your ACR instance.
+Marque a imagem usando o comando [docker tag](https://docs.docker.com/engine/reference/commandline/tag/). Substitua o *acrLoginServer* pelo nome do servidor de logon da sua instância do ACR.
 
 ```bash
 docker tag microsoft/aci-helloworld <acrLoginServer>/aci-helloworld:v1

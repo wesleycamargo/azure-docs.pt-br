@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/12/2017
+ms.date: 09/28/2017
 ms.author: bwren
-ms.openlocfilehash: 2114bdafb3b9fe2eb0632271840b8b70a76d10f1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 20155e7f0ad817993b5926a1a83b8683ab124075
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="iis-logs-in-log-analytics"></a>Logs do IIS no Log Analytics
 O IIS (Serviços de Informações da Internet) armazena a atividade do usuário em arquivos de log que podem ser coletados pelo Log Analytics.  
@@ -69,17 +69,6 @@ Os registros log do IIS têm um tipo de **W3CIISLog** e têm as propriedades na 
 A tabela a seguir fornece diferentes exemplos de consultas de log que recuperam registros do log do IIS.
 
 | Consultar | Descrição |
-|:--- |:--- |
-| Type=W3CIISLog |Todos os registros de log do IIS. |
-| Type=W3CIISLog scStatus=500 |Todos os registros de log do IIS com um status de retorno de 500. |
-| Type=W3CIISLog &#124; Measure count() by cIP |Contagem das entradas do log do IIS por endereço IP do cliente. |
-| Type=W3CIISLog csHost="www.contoso.com" &#124; Measure count() by csUriStem |Contagem das entradas de log do IIS por URL para o host www.contoso.com. |
-| Type=W3CIISLog &#124; Measure Sum(csBytes) by Computer &#124; top 500000 |Total de bytes recebidos por cada computador com IIS. |
-
->[!NOTE]
-> Se o seu espaço de trabalho fosse atualizado para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), as consultas acima seriam alteradas para o demonstrado a seguir.
-
-> | Consultar | Descrição |
 |:--- |:--- |
 | W3CIISLog |Todos os registros de log do IIS. |
 | W3CIISLog &#124; where scStatus==500 |Todos os registros de log do IIS com um status de retorno de 500. |
