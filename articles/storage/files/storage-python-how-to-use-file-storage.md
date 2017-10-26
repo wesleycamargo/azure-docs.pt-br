@@ -14,18 +14,17 @@ ms.devlang: python
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: robinsh
-ms.openlocfilehash: 48bfe97c42cad237ad7b395eeeac4e993201848a
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 17fdbbe2ea1d22c6f0ac287c4afbe17a44563f41
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="develop-for-azure-files-with-python"></a>Desenvolvimento para o Arquivos do Azure com Python
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-files](../../../includes/storage-try-azure-tools-files.md)]
 
-## <a name="about-this-tutorial"></a>Sobre este tutorial
 Este tutorial demonstrará as noções básicas do uso do Python para desenvolver aplicativos ou serviços que usam os Arquivos do Azure para armazenar dados de arquivo. Neste tutorial, criaremos um aplicativo de console simples e mostraremos como executar ações básicas com Python e os Arquivos do Azure:
 
 * Criar Compartilhamentos de Arquivos do Azure
@@ -38,7 +37,7 @@ Este tutorial demonstrará as noções básicas do uso do Python para desenvolve
 
 ## <a name="download-and-install-azure-storage-sdk-for-python"></a>Baixar e instalar o SDK do Armazenamento do Azure para Python
 
-O SDK do Armazenamento do Azure para Python requer Python 2.7, 3.3, 3.4, 3.5 ou 3.6 e é fornecido em quatro pacotes diferentes: `azure-storage-blob`, `azure-storage-file`, `azure-storage-table` e `azure-storage-queue`. Neste tutorial, usaremos o pacote `azure-storage-file`.
+O SDK do Armazenamento do Azure para Python requer Python 2.7, 3.3, 3.4, 3.5 ou 3.6 e é fornecido em 4 pacotes diferentes: `azure-storage-blob`, `azure-storage-file`, `azure-storage-table` e `azure-storage-queue`. Neste tutorial, usaremos o pacote `azure-storage-file`.
  
 ## <a name="install-via-pypi"></a>Instalar por meio de PyPi
 

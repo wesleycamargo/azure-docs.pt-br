@@ -14,11 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
-ms.openlocfilehash: 649c656b08c03ca9c902b0d80e77d9b3b662635b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ce61687e0f64b5971daca85265ef0e7d2b6f43b8
+ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="how-to-use-queue-storage-from-nodejs"></a>Como usar o Armazenamento de Fila do Node.js
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -333,14 +333,21 @@ queueSAS = queueSvc.generateSharedAccessSignature('myqueue', { Id: 'user2' });
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você aprendeu os conceitos básicos do armazenamento de fila, siga estes links para saber mais sobre tarefas de armazenamento mais complexas.
 
-* Visite o [Blog da equipe de Armazenamento do Azure][Blog da equipe de Armazenamento do Azure].
+* Visite o [Blog da equipe do Armazenamento do Azure][Azure Storage Team Blog].
 * Visite o repositório [Microsoft Azure Storage SDK for Node.js][Azure Storage SDK for Node] (SDK do Armazenamento do Azure para Node.js) no GitHub.
 
+
+
 [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
+
 [using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
+
 [Azure Portal]: https://portal.azure.com
+
 [Criar um aplicativo Web do Node.js no Serviço de Aplicativo do Azure](../../app-service/app-service-web-get-started-nodejs.md)
 
+[Criar e implantar um aplicativo Node.js para um Serviço de Nuvem do Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md)
 
+[Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
 
-[Construir e implementar um aplicativo Node.js para um serviço de nuvem da Azure](../../cloud-services/cloud-services-nodejs-develop-deploy-app.md) [Blog da equipe de Armazenamento do Azure]: http://blogs.msdn.com/b/windowsazurestorage/ [Criar e implantar um aplicativo Web Node.js no Azure usando a Matriz da Web]: https://www.microsoft.com/web/webmatrix/
+[Build and deploy a Node.js web app to Azure using Web Matrix]: https://www.microsoft.com/web/webmatrix/
