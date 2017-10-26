@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 10/31/2016
 ms.author: shigu;barbkess
-ms.openlocfilehash: 4608d0e3a98c2e9de322e630c26ae28f09706416
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b3a7755281ceb2818f80e0e6b31cf51a46c8f650
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="best-practices-for-azure-sql-data-warehouse"></a>Práticas recomendadas para o Azure SQL Data Warehouse
 Este artigo é uma coleção de muitas práticas recomendadas que ajudarão você a obter o desempenho ideal do seu Azure SQL Data Warehouse.  Alguns conceitos neste artigo são básicos e fáceis de explicar, outros são mais avançados e os abordamos apenas superficialmente neste artigo.  A finalidade deste artigo é dar algumas orientações básicas e aumentar o reconhecimento dos pontos importantes a serem considerados ao criar seu data warehouse.  Cada seção apresenta um conceito e aponta para artigos mais detalhados que abordam o conceito com maior profundidade.
@@ -166,4 +166,4 @@ Por fim, use a página [Comentários do SQL Data Warehouse do Azure][Azure SQL D
 [Azure SQL Data Warehouse Feedback]: https://feedback.azure.com/forums/307516-sql-data-warehouse
 [Azure SQL Data Warehouse MSDN Forum]: https://social.msdn.microsoft.com/Forums/sqlserver/home?forum=AzureSQLDataWarehouse
 [Azure SQL Data Warehouse Stack Overflow Forum]:  http://stackoverflow.com/questions/tagged/azure-sqldw
-[Azure SQL Data Warehouse loading patterns and strategies]: https://blogs.msdn.microsoft.com/sqlcat/2016/02/06/azure-sql-data-warehouse-loading-patterns-and-strategies
+[Azure SQL Data Warehouse loading patterns and strategies]: http://blogs.msdn.microsoft.com/sqlcat/2017/05/17/azure-sql-data-warehouse-loading-patterns-and-strategies/
