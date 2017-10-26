@@ -63,6 +63,7 @@
 #### [Processamento de transação](service-bus-transactions.md)
 #### [Implementação do namespace emparelhado](service-bus-paired-namespaces.md)
 ## Gerenciar
+### [Monitorar Barramento de Serviço com o Monitoramento do Azure](service-bus-metrics-azure-monitor.md)
 ### [Bibliotecas de gerenciamento do Barramento de Serviço](service-bus-management-libraries.md)
 ### [Logs de diagnóstico](service-bus-diagnostic-logs.md)
 ### [Suspender e reativar as entidades de mensagens](entity-suspend.md)

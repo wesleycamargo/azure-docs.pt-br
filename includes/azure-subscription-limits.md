@@ -10,7 +10,7 @@
 | IPs reservados por assinatura |20 |100 |
 | Certificados de serviço hospedado por assinatura |400 |400 |
 | [Grupos de afinidade](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) por assinatura |256 |256 |
-| Regras de alerta por assinatura |250 |250 |
+
 
 <sup>1</sup>Instâncias muito pequenas contam como um núcleo para o limite de núcleos, apesar de utilizarem um núcleo parcial.
 

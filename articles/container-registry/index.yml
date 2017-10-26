@@ -38,13 +38,15 @@ sections:
   - title: Tutoriais Passo a Passo
     items:
       - type: paragraph
-        text: Saiba como usar o Registro de Contêiner do Azure com o Serviço de Contêiner do Azure e as Instâncias de Contêiner do Azure.
+        text: Saiba como usar o Registro de Contêiner do Azure com esses tutoriais.
       - type: list
         style: unordered
         className: spaced noBullet
         items:
+          - html: <a href="/azure/container-registry/container-registry-tutorial-prepare-registry">Replicação geográfica do Registro de Contêiner</a>
           - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Registro de Contêiner com Instâncias de Contêiner do Azure</a>
           - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app">Registro de Contêiner com Serviço de Contêiner do Azure</a>
+          - html: <a href="/azure/service-fabric/service-fabric-tutorial-create-container-images">Registro de Contêiner com Service Fabric</a>
   - title: Referência
     items:
       - type: list

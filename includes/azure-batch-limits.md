@@ -2,7 +2,7 @@
 | --- | --- | --- |
 | Contas do Lote por região e assinatura | 3 |50 |
 | Núcleos dedicados por conta do Lote | 20 | N/A<sup>1</sup> |
-| Núcleos de baixa prioridade por conta do Lote | 50 | N/A<sup>2</sup> |
+| Núcleos de baixa prioridade por conta do Lote | 20 | N/A<sup>2</sup> |
 | Trabalhos ativos e agendas de trabalho<sup>3</sup> por Conta de lote | 20 | 5.000<sup>4</sup> |
 | Núcleos por conta do Lote | 20 | 2500 |
 

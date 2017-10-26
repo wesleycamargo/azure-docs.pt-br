@@ -21,6 +21,8 @@
 ### [APIs Disponíveis](relay-api-overview.md)
 #### [.NET](relay-hybrid-connections-dotnet-api-overview.md)
 #### [Node](relay-hybrid-connections-node-ws-api-overview.md)
+## Gerenciar
+### [Monitorar Retransmissão do Azure com o Monitoramento do Azure](relay-metrics-azure-monitor.md)
 
 # Referência
 ## .NET

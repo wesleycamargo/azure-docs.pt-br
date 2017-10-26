@@ -1,0 +1,61 @@
+- name: Serviço de Contêiner do Azure (AKS)
+  href: ./index.yml
+- name: Visão geral
+  items:
+    - name: Sobre o AKS
+      href: intro-kubernetes.md
+- name: Guia de início rápido
+  expanded: true
+  items:
+    - name: Criar um cluster AKS
+      href: kubernetes-walkthrough.md
+- name: Tutoriais
+  items:
+    - name: 1 - Preparar aplicativo para o AKS
+      href: tutorial-kubernetes-prepare-app.md
+    - name: 2 - Criar um registro de contêiner
+      href: tutorial-kubernetes-prepare-acr.md
+    - name: 3 - Criar cluster Kubernetes
+      href: tutorial-kubernetes-deploy-cluster.md
+    - name: 4 - Executar o aplicativo
+      href: tutorial-kubernetes-deploy-application.md
+    - name: 5 - Dimensionar o aplicativo
+      href: tutorial-kubernetes-scale.md
+    - name: 6 - Atualizar o aplicativo
+      href: tutorial-kubernetes-app-update.md
+    - name: 7 - Monitor com Log Analytics
+      href: tutorial-kubernetes-monitor.md
+    - name: 8 - Atualizar cluster
+      href: tutorial-kubernetes-upgrade-cluster.md
+- name: Guias de instruções
+  items:
+    - name: Dimensionar um cluster AKS
+      href: scale-cluster.md
+    - name: Atualizar um cluster AKS
+      href: upgrade-cluster.md
+    - name: Executar aplicativos com Helm
+      href: kubernetes-helm.md
+    - name: Desenvolver aplicativos com Draft
+      href: kubernetes-draft.md
+    - name: Usar painel do Kubernetes
+      href: kubernetes-dashboard.md
+    - name: Criar uma entidade de serviço
+      href: kubernetes-service-principal.md
+- name: Referência
+  items:
+    - name: CLI do Azure
+      href: /cli/azure/aks
+    - name: REST
+      href: /rest/api/container-service
+- name: Recursos
+  items:
+    - name: Roteiro do Azure
+      href: 'https://azure.microsoft.com/roadmap/'
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/container-service/'
+    - name: Disponibilidade de região
+      href: 'https://azure.microsoft.com/regions/services/'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-container-service'
+    - name: Vídeos
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest'

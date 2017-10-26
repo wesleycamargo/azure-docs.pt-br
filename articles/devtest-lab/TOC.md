@@ -14,7 +14,7 @@
 # Guias de instruções
 ## Usar VMs em um laboratório
 ### [Criar VMs](devtest-lab-add-vm.md)
-### [Criar VM declarável](devtest-lab-add-claimable-vm.md)
+### [Criar e gerenciar VMs requisitáveis](devtest-lab-add-claimable-vm.md)
 ### [Criar e gerenciar VMs com a CLI do Azure](devtest-lab-vmcli.md)
 ### [Reiniciar uma VM](devtest-lab-restart-vm.md)
 
