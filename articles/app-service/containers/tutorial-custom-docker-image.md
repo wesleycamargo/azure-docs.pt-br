@@ -1,6 +1,6 @@
 ---
-title: "Usar uma imagem personalizada do Docker para o Aplicativo Web para Contêineres do Azure | Microsoft Docs"
-description: "Como usar uma imagem personalizada do Docker para o Aplicativo Web para Contêineres do Azure."
+title: "Usar uma imagem personalizada do Docker para o Aplicativo Web para Contêineres – Azure | Microsoft Docs"
+description: "Como usar uma imagem personalizada do Docker para o Aplicativo Web para Contêineres."
 keywords: "serviço de aplicativo do azure, aplicativo web, linux, docker, contêiner"
 services: app-service
 documentationcenter: 
@@ -16,13 +16,13 @@ ms.topic: tutorial
 ms.date: 09/03/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 760772d1d1c79dd4a1114c36971de0b3693ab74f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc268bce48a42607d4404758e744a006dfbd6c19
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="use-a-custom-docker-image-for-azure-web-app-for-containers"></a>Usar uma imagem personalizada do Docker para o Aplicativo Web para Contêineres do Azure
+# <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Usar uma imagem personalizada do Docker para o Aplicativo Web para Contêineres
 
 O [Aplicativo Web para Contêineres](app-service-linux-intro.md) fornece imagens internas do Docker no Linux com suporte para versões específicas, como PHP 7.0 e Node.js 4.5. O Aplicativo Web para Contêineres utiliza a tecnologia de contêiner do Docker para hospedar imagens internas e imagens personalizadas como uma plataforma como serviço. Neste tutorial, você aprenderá a criar uma imagem personalizada do Docker para uso no Aplicativo Web para Contêineres, que é um padrão comum se não há uma imagem interna para a linguagem ou se o aplicativo exige uma configuração específica que não é fornecida nas imagens internas.
 
@@ -210,7 +210,7 @@ v1: digest: sha256:a910d5b77e6960c01745a87c35f3d1a13ba73231ac9a4664c5011b1422d59
 
 ## <a name="create-web-app-for-containers"></a>Criar um Aplicativo Web para Contêineres
 
-Hospede aplicativos Linux nativos na nuvem usando os Aplicativos Web do Azure. Para criar um Aplicativo Web para Contêineres, você deve executar os comandos da CLI do Azure que cria um grupo, um plano de serviço e, finalmente, o aplicativo Web em si. Primeiro, execute o comando [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) e passe um local e um nome exclusivo.
+É possível hospedar aplicativos Linux nativos na nuvem usando o Serviço de Aplicativo do Azure no Linux. Para criar um Aplicativo Web para Contêineres, você deve executar os comandos da CLI do Azure que cria um grupo, um plano de serviço e, finalmente, o aplicativo Web em si. Primeiro, execute o comando [az group create](https://docs.microsoft.com/cli/azure/group#az_group_create) e passe um local e um nome exclusivo.
 
 ```azurecli-interactive
 az group create --location "West Europe" --name myResourceGroup
@@ -220,7 +220,7 @@ Você verá um resultado semelhante à amostra apresentada aqui:
 
 ```json
 {
-  "id": "/subscriptions/432849d3e4-4f90-a782-87c11e-5e59d6dd/resourceGroups/myResourceGroup",
+  "id": "/subscriptions/<subscriptionId>/resourceGroups/myResourceGroup",
   "location": "westeurope",
   "managedBy": null,
   "name": "myResourceGroup",
@@ -245,8 +245,7 @@ A criação de um plano de serviço produz resultados semelhantes à seguinte am
   "appServicePlanName": "myServicePlan",
   "geoRegion": "West Europe",
   "hostingEnvironmentProfile": null,
-  "id": "/subscriptions/resourceGroups/myResourceGroup/provide
-rs/Microsoft.Web/serverfarms/myServicePlan",
+  "id": "/subscriptions/<subscriptionId>/resourceGroups/myResourceGroup/providers/Microsoft.Web/serverfarms/myServicePlan",
   "kind": "linux",
   "location": "West Europe", 
   "resourceGroup": "myResourceGroup",
@@ -292,7 +291,7 @@ O comando para criar um aplicativo Web produz o resultado mostrado aqui:
   ],
   "hostNamesDisabled": false,
   "hostingEnvironmentProfile": null,
-  "id": "/subscriptions/5e59d6dd-d3e4-4f90-a782-43284987c11e/resourceGroups/myResourceGroup/providers/Microsoft.
+  "id": "/subscriptions/<subscriptionId>/resourceGroups/myResourceGroup/providers/Microsoft.
 Web/sites/<web-app-name>",
   "lastModifiedTimeUtc": "2017-08-08T21:09:33.693333",
   "location": "West Europe",
@@ -462,7 +461,7 @@ PID USER      PR  NI    VIRT    RES    SHR S %CPU %MEM     TIME+ COMMAND
 77 root      20   0   21920   2304   1972 R  0.0  0.1   0:00.00 top
 ```
 
-Parabéns! Você configurou uma imagem personalizada do Docker para um Aplicativo Web para Contêineres do Azure.
+Parabéns! Você configurou uma imagem personalizada do Docker para um Aplicativo Web para Contêineres.
 
 ## <a name="push-a-docker-image-to-private-registry-optional"></a>Enviar uma imagem do Docker por push para um Registro Particular (opcional)
 
@@ -486,7 +485,7 @@ Use an existing service principal and assign access:
 {
   "adminUserEnabled": false,
   "creationDate": "2017-08-09T04:21:09.654153+00:00",
-  "id": "/subscriptions/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/{azure-container-registry-name>",
+  "id": "/subscriptions/<subscriptionId>/resourceGroups/myResourceGroup/providers/Microsoft.ContainerRegistry/registries/<azure-container-registry-name>",
   "location": "westeurope",
   "loginServer": "<azure-container-registry-name>.azurecr.io",
   "name": "<azure-container-registry-name>",
@@ -621,4 +620,4 @@ O comando revela um resultado semelhante à seguinte cadeia de caracteres JSON, 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Perguntas frequentes sobre o Aplicativo Web para Contêineres do Serviço de Aplicativo do Azure](app-service-linux-faq.md)
+[Serviço de Aplicativo do Azure nas Perguntas Frequentes do Linux](app-service-linux-faq.md)
