@@ -369,8 +369,7 @@
 ## [Restrições e limites de serviço](active-directory-service-limits-restrictions.md)
 
 # Relacionados
-## 
-            [Autenticação Multifator](/azure/multi-factor-authentication/)
+## [Autenticação Multifator](/azure/multi-factor-authentication/)
 ## [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ## [Azure AD Connect Health](./connect-health/active-directory-aadconnect-health.md)
 ## [Azure AD para desenvolvedores](./develop/active-directory-how-to-integrate.md)
