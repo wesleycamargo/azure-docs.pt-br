@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 010/04/2017
+ms.date: 10/12/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f182dff164b8baa7e2144231667adbd12fcc717d
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: f277f59982251eb66ca02e72b4ced7f765935b9d
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Desenvolva soluções de computação paralela em larga escala com o Lote
 
@@ -75,7 +75,7 @@ Você pode criar uma conta do Lote do Azure usando o [portal do Azure](batch-acc
 Você pode executar várias cargas de trabalho do Lote em uma única conta do Lote ou distribuir suas cargas de trabalho entre contas do Lote que estão na mesma assinatura mas em diferentes regiões do Azure.
 
 > [!NOTE]
-> Ao criar uma conta do Lote, escolha o modo **Serviço em Lotes**, no qual os pools são alocados em segundo plano nas assinaturas gerenciadas do Azure. No modo alternativo **Assinatura de usuário**, o qual não é mais recomendado, as VMs do Lote e outros recursos são criados diretamente em sua assinatura, quando um pool é criado.
+> Ao criar uma conta do Lote, escolha o modo **Serviço em Lotes**, no qual os pools são alocados em segundo plano nas assinaturas gerenciadas do Azure. No modo alternativo **Assinatura de usuário**, o qual não é mais recomendado, as VMs do Lote e outros recursos são criados diretamente em sua assinatura, quando um pool é criado. Para criar uma conta do Lote no modo de usuário de assinatura, você também deverá associar a conta em um Azure Key Vault.
 >
 
 
@@ -129,7 +129,7 @@ Quando você cria um pool do Lote, pode especificar a configuração de máquina
 
 - A **configuração de máquina virtual**, que especifica que o pool é composto de máquinas virtuais do Azure. Essas máquinas virtuais podem ser criadas de imagens Linux ou Windows. 
 
-    Ao criar um pool baseado na Configuração da Máquina Virtual, você deverá especificar não apenas o tamanho dos nós e a origem das imagens usadas para criá-los, mas também a **referência da imagem da máquina virtual** e a **SKU do agente de nó** do Lote a ser instalada nos nós. Para saber mais sobre como especificar essas propriedades de pool, confira [Provisionar nós de computação do Linux em pools do Lote do Azure](batch-linux-nodes.md).
+    Ao criar um pool baseado na Configuração da Máquina Virtual, você deverá especificar não apenas o tamanho dos nós e a origem das imagens usadas para criá-los, mas também a **referência da imagem da máquina virtual** e a **SKU do agente de nó** do Lote a ser instalada nos nós. Para saber mais sobre como especificar essas propriedades de pool, confira [Provisionar nós de computação do Linux em pools do Lote do Azure](batch-linux-nodes.md). Opcionalmente, você pode anexar um ou mais discos de dados vazios ao pool de máquinas virtuais criadas desde imagens do Marketplace ou incluir discos de dados em imagens personalizadas usadas para criar as máquinas virtuais.
 
 - A **configuração dos Serviços de Nuvem**, que especifica que o pool é composto de nós dos Serviços de Nuvem do Azure. Os Serviços de Nuvem fornecem *somente* nós de computação do Windows.
 
@@ -148,9 +148,11 @@ Para usar uma imagem personalizada, você precisará preparar a imagem generaliz
 
 Para obter requisitos e etapas detalhadas, consulte [Usar uma imagem personalizada para criar um pool de máquinas virtuais](batch-custom-images.md).
 
+#### <a name="container-support-in-virtual-machine-pools"></a>Suporte de contêiner em pools de Máquina Virtual
 
+Ao criar um pool de Configuração de Máquina Virtual usando as APIs do Lote, você pode configurar o pool para executar tarefas em contêineres do Docker. No momento, você deve criar o pool usando o Windows Server 2016 Datacenter com a imagem de Contêineres do Azure Marketplace, ou fornecer uma imagem de VM personalizada que inclua o Docker Community Edition e todos os drivers necessários. As configurações de pool devem incluir uma [configuração de contêiner](/rest/api/batchservice/pool/add#definitions_containerconfiguration) que copie as imagens de contêiner para as máquinas virtuais quando o pool é criado. As tarefas executadas no pool podem fazer referência a imagens de contêiner e a opções de execução do contêiner.
 
-### <a name="compute-node-type-and-target-number-of-nodes"></a>Tipo de nó de computação e número de nós de destino
+## <a name="compute-node-type-and-target-number-of-nodes"></a>Tipo de nó de computação e número de nós de destino
 
 Quando você cria um pool, você pode especificar os tipos de nós de computação que você deseja e o número de destino para cada um. Os dois tipos de nós de computação são:
 
@@ -258,6 +260,7 @@ Ao criar uma tarefa, você pode especificar:
 * As **variáveis de ambiente** que são exigidas pelo aplicativo. Para obter mais informações, consulte a seção [Configurações do ambiente para tarefas](#environment-settings-for-tasks) .
 * As **restrições** de acordo com as quais a tarefa deve ser executada. Por exemplo, as restrições incluem o tempo máximo que a tarefa pode ser executada, o número máximo de vezes que uma tarefa com falha deve ser repetida e o tempo máximo que os arquivos no diretório de trabalho da tarefa são mantidos.
 * **Pacotes de aplicativos** para implantar no nó de computação no qual a tarefa está agendada para ser executada. [Application packages](#application-packages) fornecem uma implantação simplificada e controle de versão dos aplicativos que suas tarefas executam. Os pacotes de aplicativos de nível de tarefa são especialmente úteis em ambientes de pool compartilhado, em que diferentes trabalhos são executados em um pool e o pool não é excluído quando um trabalho é concluído. Se o trabalho tiver menos tarefas do que os nós no pool, pacotes de aplicativos de tarefa poderão minimizar a transferência de dados, pois o aplicativo é implantado apenas para os nós que executam tarefas.
+* Uma referência de **imagem de contêiner** no Hub do Docker ou um registro particular e configurações adicionais para criar um contêiner do Docker no qual a tarefa é executada no nó. Só será possível especificar essas informações se o pool for definido com uma configuração de contêiner.
 
 Além das tarefas que você pode definir para realizar computação em um nó, as tarefas especiais a seguir também são fornecidas pelo serviço Lote:
 
@@ -386,39 +389,12 @@ Uma abordagem combinada normalmente é usada para lidar com uma carga variável,
 
 ## <a name="virtual-network-vnet-and-firewall-configuration"></a>Configuração de firewall e VNet (rede virtual) 
 
-Quando você provisiona um pool de nós de computação no Lote, pode associar o pool de uma sub-rede de uma [VNet (rede virtual)](../virtual-network/virtual-networks-overview.md) do Azure. Para saber mais sobre como criar uma rede virtual com sub-redes, confira [Criar uma rede virtual do Azure com sub-redes](../virtual-network/virtual-networks-create-vnet-arm-pportal.md). 
+Quando você provisiona um pool de nós de computação no Lote, pode associar o pool de uma sub-rede de uma [VNet (rede virtual)](../virtual-network/virtual-networks-overview.md) do Azure. Para usar uma rede virtual do Azure, a API do cliente do Lote deverá usar a autenticação do Azure Active Directory (AD). O suporte ao Lote do Azure para o Azure AD está documentado em [Autenticar soluções do serviço Lote com o Active Directory](batch-aad-auth.md).  
 
-Requisitos de VNet:
+### <a name="vnet-requirements"></a>Requisitos de rede virtual
+[!INCLUDE [batch-virtual-network-ports](../../includes/batch-virtual-network-ports.md)]
 
-* A rede virtual deve estar na mesma **região** e **assinatura** do Azure que a conta do Lote do Azure.
-
-* Para pools criados com uma configuração de máquina virtual, somente redes virtuais baseadas no ARM (Azure Resource Manager) têm suporte. Para pools criados com uma configuração de serviços de nuvem, as redes virtuais ARM e clássicas têm suporte. 
-
-* Para usar uma rede baseada em ARM, a API de cliente do Lote deve usar a [autenticação do Azure Active Directory](batch-aad-auth.md). Para usar uma rede virtual clássica, a entidade de serviço "MicrosoftAzureBatch" deve ter a função de RBAC (controle de acesso baseado em função) Colaborador de Máquina Virtual Clássica para a rede virtual especificada. 
-
-* A sub-rede especificada deve ter **endereços IP** suficientemente livres para acomodar o número total de nós de destino; ou seja, a soma das propriedades `targetDedicatedNodes` e `targetLowPriorityNodes` do pool. Se a sub-rede não tiver endereços IP suficientes livres, o serviço de Lote alocará parcialmente os nós de computação no pool e retornará um erro de redimensionamento.
-
-* A sub-rede especificada deve permitir a comunicação do serviço do Lote para que seja capaz de agendar tarefas nos nós de computação. Se a comunicação com os nós de computação for negada por um **NSG (grupo de segurança de rede)** associado com a VNet, o serviço de lote definirá o estado de nós de computação para **inutilizável**.
-
-* Se a VNet especificada tiver **NSGs (grupos de segurança de rede)** e/ou um **firewall** associados, algumas portas reservadas do sistema devem ser habilitadas para comunicação de entrada:
-
-- Para pools criados com uma configuração de máquina virtual, habilite as portas 29876 e 29877, bem como a porta 22 para Linux e a porta 3389 para Windows. 
-- Para pools criados com uma configuração de serviço de nuvem, habilite as portas 10100, 20100 e 30100. 
-- Permita as conexões de saída para o Armazenamento do Azure na porta 443. Além disso, verifique se seu ponto de extremidade do Armazenamento do Azure pode ser resolvido por servidores DNS personalizados que servem sua rede virtual. Especificamente, uma URL do formato `<account>.table.core.windows.net` deve ser resolvida.
-
-    A tabela a seguir descreve as portas de entrada que você precisa habilitar para grupos criados com a configuração da máquina virtual:
-
-    |    Portas de destino    |    Endereço IP de origem      |    O Lote adiciona NSGs?    |    Necessário para que a máquina virtual possa ser usada?    |    Ação do usuário   |
-    |---------------------------|---------------------------|----------------------------|-------------------------------------|-----------------------|
-    |    <ul><li>Para pools criados com a configuração de máquina virtual: 29876, 29877</li><li>Para pools criados com a configuração de serviço de nuvem: 10100, 20100, 30100</li></ul>         |    Endereços IP com função de serviço Somente Lote |    Sim. O Lote adiciona os NSGs no nível dos NIC (adaptadores de rede) anexados às VMs. Essas NSGs permitem o tráfego somente de endereços IP com função de serviço do Lote. Mesmo que você abra essas portas para toda a Web, o tráfego será bloqueado no NIC. |    Sim  |  Não é necessário especificar um NSG, pois o Lote permite somente os endereços IP do Lote. <br /><br /> No entanto, se você especificar um NSG, verifique se essas portas estão abertas para tráfego de entrada. <br /><br /> Se você especificar * como o IP de origem em seu NSG, o Lote ainda adicionará os NSGs no nível de NIC anexados às VMs. |
-    |    3389, 22               |    Máquinas de usuário, usadas para depuração, para que você possa acessar a máquina virtual remotamente.    |    Não                                    |    Não                     |    Adicione os NSGs se quiser permitir o acesso remoto (RDP/SSH) à máquina virtual.   |                 
-
-    A tabela abaixo descreve a porta de saída que você precisa habilitar para permitir o acesso ao Armazenamento do Azure:
-
-    |    Portas de saída    |    Destino    |    O Lote adiciona NSGs?    |    Necessário para que a máquina virtual possa ser usada?    |    Ação do usuário    |
-    |------------------------|-------------------|----------------------------|-------------------------------------|------------------------|
-    |    443    |    Armazenamento do Azure    |    Não    |    Sim    |    Se você adicionar NSGs, verifique se essa porta está aberta para tráfego de saída.    |
-
+Para saber mais sobre como configurar um pool do Lote em uma rede virtual, veja [Criar um pool de máquinas virtuais com sua rede virtual](batch-virtual-network.md).
 
 ## <a name="scaling-compute-resources"></a>Dimensionando os recursos de computação
 Com o [dimensionamento automático](batch-automatic-scaling.md), você pode deixar que o serviço de Lote ajuste dinamicamente o número de nós de computação em um pool de acordo com a carga de trabalho e o uso de recursos atuais do cenário de computação. Isso permite reduzir o custo geral de execução do aplicativo usando apenas os recursos necessários e liberando os que você não precisa.
@@ -525,11 +501,7 @@ Em situações em que algumas das tarefas falham, o aplicativo cliente ou o serv
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba mais sobre as [Ferramentas e APIs do Lote](batch-apis-tools.md) disponíveis para a criação de soluções do Lote.
 * Veja o passo a passo do aplicativo de exemplo do Lote em [Introdução à Biblioteca do Lote do Azure para .NET](batch-dotnet-get-started.md). Também há uma [versão em Python](batch-python-tutorial.md) do tutorial que executa uma carga de trabalho nos nós de computação do Linux.
-* Baixe e compile o projeto de exemplo [Gerenciador do Lote][github_batchexplorer] para usar durante o desenvolvimento de suas soluções de Lote. Usando o Gerenciador do Lote, você pode executar o seguinte e muito mais:
-
-  * Monitorar e manipular pools, trabalhos e tarefas em sua conta do Lote
-  * Baixe `stdout.txt`, `stderr.txt` e outros arquivos de nós
-  * Criar usuários em nós e baixar arquivos RDP para logon remoto
+* Baixe e instale o [BatchLabs][batch_labs] para usá-lo ao desenvolver suas soluções do Lote. Use o BatchLabs para ajudar a criar, depurar e monitorar aplicativos do Lote do Azure. 
 * Saiba como [criar pools de nós de computação do Linux](batch-linux-nodes.md).
 * Visite o [fórum do Lote do Azure][batch_forum] no MSDN. O fórum é um bom lugar para fazer perguntas se você está apenas aprendendo ou se é especialista no Lote.
 
@@ -541,7 +513,7 @@ Em situações em que algumas das tarefas falham, o aplicativo cliente ou o serv
 [msmpi]: https://msdn.microsoft.com/library/bb524831.aspx
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [github_sample_taskdeps]:  https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies
-[github_batchexplorer]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/BatchExplorer
+[batch_labs]: https://azure.github.io/BatchLabs/
 [batch_net_api]: https://msdn.microsoft.com/library/azure/mt348682.aspx
 [msdn_env_vars]: https://msdn.microsoft.com/library/azure/mt743623.aspx
 [net_cloudjob_jobmanagertask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.jobmanagertask.aspx

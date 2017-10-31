@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/01/2017
 ms.author: omravi
-ms.openlocfilehash: 5258bf5de6f7aa1ea246f1235e7d362b1b7d0181
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6a0f04d79ac5487a347e28445c1a6677d5b8b16a
+ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="grant-data-access-to-a-time-series-insights-environment-using-azure-portal"></a>Conceder acesso a dados em um ambiente de Análise de Séries Temporais usando o portal do Azure
 
@@ -42,12 +42,13 @@ Os dois tipos de políticas permitem uma separação clara entre o acesso ao ger
 As etapas a seguir mostram como conceder acesso a dados para uma entidade de usuário:
 
 1.  Entre no [Portal do Azure](https://portal.azure.com).
-2.  Clique em "Todos os recursos" no menu à esquerda do portal do Azure.
-3.  Selecione o seu ambiente de Análise de Séries Temporais.
+2.  Digite "Time Series" na janela de pesquisa.
+3.  Clicar em Ambiente de Série de Tempo
+4.  Selecione o seu ambiente de Análise de Séries Temporais na lista.
 
   ![Gerenciar a fonte das Análise de Séries Temporais - ambiente](media/data-access/getstarted-grant-data-access1.png)
 
-4.  Selecione "Acesso ao plano de dados", clique em "Adicionar"
+4.  Selecione "Políticas de Acesso a Dados”, então clique em "Adicionar"
 
   ![Gerenciar a fonte das Análise de Séries Temporais - adicionar](media/data-access/getstarted-grant-data-access2.png)
 

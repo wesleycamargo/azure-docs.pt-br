@@ -12,16 +12,16 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 04/11/2017
+ms.date: 10/16/2017
 ms.author: sethm
-ms.openlocfilehash: 8b502f5ac5d89801d390a872e7a8b06e094ecbba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 754548a0beb4251d0fa4eef1fba73aabf02151ec
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Aplicativo multicamadas .NET usando filas do Barramento de Serviço do Azure
-## <a name="introduction"></a>Introdução
+
 O desenvolvimento para o Microsoft Azure é fácil usando o Visual Studio e o SDK do Azure gratuito para o .NET. Este tutorial orienta você nas etapas para criar um aplicativo que usa vários recursos do Azure em execução no seu ambiente local.
 
 Você aprenderá o seguinte:
@@ -68,7 +68,7 @@ Antes começar a desenvolver os aplicativos do Azure, obtenha as ferramentas e c
 5. Quando a instalação estiver concluída, você terá tudo o que é necessário para iniciar o desenvolvimento do aplicativo. O SDK inclui ferramentas que permitem que você desenvolva facilmente aplicativos do Azure no Visual Studio.
 
 ## <a name="create-a-namespace"></a>Criar um namespace
-A próxima etapa é para criar um namespace de serviço e obter uma chave de Assinatura de Acesso Compartilhado (SAS). Um namespace fornece um limite de aplicativo para cada aplicativo exposto por meio do Barramento de Serviço. A chave SAS é gerada pelo sistema quando um namespace de serviço é criado. A combinação do namespace e a chave SAS fornece as credenciais para o Barramento de Serviço autenticar o acesso a um aplicativo.
+A próxima etapa é criar um *namespace* de serviço e obter uma [chave de Assinatura de Acesso Compartilhado (SAS)](service-bus-sas.md) para o namespace. Um namespace fornece um limite de aplicativo para cada aplicativo exposto por meio do Barramento de Serviço. A chave SAS é gerada pelo sistema quando um namespace de serviço é criado. A combinação do nome do namespace e a chave SAS fornece as credenciais para o Barramento de Serviço autenticar o acesso a um aplicativo.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
@@ -83,7 +83,7 @@ Depois, adiciona o código que envia os itens para uma fila do Barramento de Ser
 2. Em **Modelos Instalados**, em **Visual C#**, clique em **Nuvem** e em **Serviço de Nuvem do Azure**. Nomeie o projeto como **AppVáriasCamadas**. Em seguida, clique em **OK**.
    
    ![][9]
-3. Em funções do **.NET Framework 4.5**, clique duas vezes em **Função Web do ASP.NET**.
+3. No painel **Funções**, clique duas vezes em **Função Web ASP.NET**.
    
    ![][10]
 4. Focalize **WebRole1** em solução do **Serviço de Nuvem do Azure**, clique no ícone de lápis e renomeie a função web para **FrontendWebRole**. Em seguida, clique em **OK**. (Certifique-se de inserir "Frontend" com "e" minúsculo, não "FrontEnd".)
@@ -92,12 +92,12 @@ Depois, adiciona o código que envia os itens para uma fila do Barramento de Ser
 5. Na caixa de diálogo **Novo Projeto ASP.NET** na lista **Selecionar um modelo**, clique em **MVC**.
    
    ![][12]
-6. Ainda na caixa de diálogo **Novo projeto ASP.NET**, clique no botão **Alterar Autenticação**. Na caixa de diálogo **Alterar Autenticação**, clique em **Sem Autenticação** e clique em **OK**. Para este tutorial, você está implantando um aplicativo que não precisa de um logon de usuário.
+6. Ainda na caixa de diálogo **Novo projeto ASP.NET**, clique no botão **Alterar Autenticação**. Na caixa de diálogo **Alterar Autenticação**, garanta que **Sem Autenticação** esteja selecionado e clique em **OK**. Para este tutorial, você está implantando um aplicativo que não precisa de um logon de usuário.
    
     ![][16]
 7. De novo na caixa de diálogo **Novo Projeto ASP .NET**, clique em **OK** para criar o projeto.
 8. No **Gerenciador de Soluções**, no projeto **FrontendWebRole**, clique com botão direito do mouse em **Referências** e clique em **Gerenciar Pacotes NuGet**.
-9. Clique na guia **Procurar** e procure `Microsoft Azure Service Bus`. Selecione o pacote **WindowsAzure.ServiceBus**, clique em **Instalar** e aceite os termos de uso.
+9. Clique na guia **Procurar** e então procure **WindowsAzure.ServiceBus**. Selecione o pacote **WindowsAzure.ServiceBus**, clique em **Instalar** e aceite os termos de uso.
    
    ![][13]
    
@@ -182,12 +182,12 @@ Nesta seção, você cria várias páginas que exibem seu aplicativo.
 5. Agora, crie a exibição do método `Submit()` criado anteriormente. Clique com o botão direito no método `Submit()` (a sobrecarga de `Submit()` que não usa nenhum parâmetro), em seguida, escolha **Adicionar Exibição**.
    
    ![][14]
-6. É exibida uma caixa de diálogo para criar a exibição. Na lista **Modelo**, escolha **Criar**. Na lista **Classe do modelo**, clique na classe **OnlineOrder**.
+6. É exibida uma caixa de diálogo para criar a exibição. Na lista **Modelo**, escolha **Criar**. Na lista **Classe do modelo**, selecione a classe **OnlineOrder**.
    
    ![][15]
 7. Clique em **Adicionar**.
 8. Agora, você alterará o nome exibido de seu aplicativo. No **Gerenciador de Soluções**, clique duas vezes no arquivo **Views\Shared\\_Layout.cshtml** para abrir no editor do Visual Studio.
-9. Substitua todas as ocorrências de **Meu Aplicativo ASP.NET** para **Produtos da LITWARE**.
+9. Substitua todas as ocorrências de **Meu Aplicativo ASP.NET** para **Produtos da Northwind Traders**.
 10. Remova os links **Página Inicial**, **Sobre** e **Contato**. Exclua o código destacado:
     
     ![][28]
@@ -361,9 +361,9 @@ Agora você criará a função de trabalho que processa o envio de pedidos. Este
 ## <a name="next-steps"></a>Próximas etapas
 Para obter mais informações sobre o Barramento de Serviço, consulte os seguintes recursos:  
 
-* [Documentação do Barramento de Serviço do Azure][sbdocs]  
+* [Conceitos fundamentais do barramento de serviço](service-bus-fundamentals-hybrid-solutions.md)
+* [Introdução ao uso de filas do Barramento de Serviço][sbacomqhowto]
 * [Página de serviço do Barramento de Serviço][sbacom]  
-* [Como usar filas do Barramento de Serviço][sbacomqhowto]  
 
 Para saber mais sobre os cenários com várias camadas, consulte:  
 
@@ -390,7 +390,6 @@ Para saber mais sobre os cenários com várias camadas, consulte:
 [26]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/SBNewWorkerRole.png
 [28]: ./media/service-bus-dotnet-multi-tier-app-using-service-bus-queues/getting-started-multi-tier-40.png
 
-[sbdocs]: /azure/service-bus-messaging/  
 [sbacom]: https://azure.microsoft.com/services/service-bus/  
 [sbacomqhowto]: service-bus-dotnet-get-started-with-queues.md  
 [mutitierstorage]: https://code.msdn.microsoft.com/Windows-Azure-Multi-Tier-eadceb36

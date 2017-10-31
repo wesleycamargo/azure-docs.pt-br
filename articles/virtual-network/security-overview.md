@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: 98559cbb0acab91c4b2c30c6d0129e955eef85f9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c5b5d79a18d8c4d370b1deb506285519fdbfbcf8
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="network-security"></a>Segurança de rede
 
@@ -151,7 +151,10 @@ Se você criar outras regras, especificando outros grupos de segurança de aplic
  
 Para saber mais sobre limites durante a criação de grupos de segurança de aplicativo e sua especificação nas regras de segurança, confira [Limites do Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
-Os grupos de segurança de aplicativo estão disponíveis na versão prévia. Antes de usar grupos de segurança de aplicativo, você deve se registrar para usá-los concluindo as etapas de 1 a 5 em [Criar um grupo de segurança de rede com grupos de segurança de aplicativo](create-network-security-group-preview.md#powershell) e lendo [Recursos de versão prévia](#preview-features) para obter informações importantes. Durante a versão prévia, os grupos de segurança de aplicativo ficam limitados ao escopo da rede virtual. As redes virtuais emparelhadas com referências cruzadas a grupos de segurança de aplicativo em um grupo de segurança de rede não se aplicam. 
+Os grupos de segurança de aplicativo estão disponíveis na versão prévia. Antes de usar grupos de segurança de aplicativo, você deve se registrar para usá-los concluindo as etapas de 1 a 5 em [Criar um grupo de segurança de rede com grupos de segurança de aplicativo](create-network-security-group-preview.md#powershell) e lendo [Recursos de versão prévia](#preview-features) para obter informações importantes. Os grupos de segurança do aplicativo têm as seguintes restrições:
+
+-   Todas as interfaces de rede dentro de um grupo de segurança do aplicativo devem existir na mesma rede virtual. Você não pode adicionar interfaces de rede de redes virtuais diferentes ao mesmo grupo de segurança do aplicativo. A primeira interface de rede da rede virtual atribuída ao grupo de segurança do aplicativo define a rede virtual em que todas as interfaces de rede subsequentes deverão existir.
+- Se você especificar grupos de segurança do aplicativo como a origem e o destino em uma regra de segurança, as interfaces de rede em ambos os grupos de segurança do aplicativo deverão existir na mesma rede virtual. Por exemplo, se ASG1 contiver interfaces de rede da VNet1 e se ASG2 contiver interfaces de rede da VNet2, você não poderá atribuir ASG1 como a origem e o ASG2 como o destino em uma regra, todas as interfaces de rede precisam existir em VNet1. 
 
 Os recursos da versão prévia não têm o mesmo nível de disponibilidade e confiabilidade dos recursos da versão geral. Antes de usar grupos de segurança de aplicativo, você deve primeiro se registrar para usá-los. Os recursos estarão disponíveis somente nas seguintes regiões: Centro-oeste dos EUA.
 

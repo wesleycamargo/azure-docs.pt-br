@@ -1,12 +1,12 @@
 ---
-title: "Definir políticas de segurança na Central de Segurança do Azure | Microsoft Docs"
-description: "Este documento ajuda você a configurar políticas de segurança na Central de segurança do Azure."
+title: "Integração de políticas de segurança da Central de Segurança do Azure com o Azure Policy | Microsoft Docs"
+description: "Este documento ajuda você a configurar a integração de políticas de segurança da Central de Segurança do Azure com o Azure Policy."
 services: security-center
 documentationcenter: na
 author: YuriDio
 manager: mbaldwin
 editor: 
-ms.assetid: 3b9e1c15-3cdb-4820-b678-157e455ceeba
+ms.assetid: cd906856-f4f9-4ddc-9249-c998386f4085
 ms.service: security-center
 ms.devlang: na
 ms.topic: hero-article
@@ -14,36 +14,48 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: 1cebb6edecd13c6ab32c6854bfd6fe908c1f71f4
+ms.openlocfilehash: 5e07cd6891a5ab04012f819b5f6b9379312e530d
 ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/13/2017
 ---
-# <a name="set-security-policies-in-security-center"></a>Definir políticas de segurança na Central de Segurança
-Este documento ajuda a configurar as políticas de segurança na Central de Segurança, guiando você nas etapas necessárias para executar essa tarefa. 
+# <a name="set-security-policies-in-security-center-powered-by-azure-policy"></a>Definir políticas de segurança na Central de Segurança da plataforma Azure Policy
+Este documento ajuda a configurar as políticas de segurança na Central de Segurança, da plataforma da Política do Azure, guiando você nas etapas necessárias para executar essa tarefa. 
 
 
-## <a name="how-security-policies-work"></a>Como funcionam as políticas de segurança
-A Central de Segurança cria automaticamente uma política de segurança padrão para cada uma de suas assinaturas do Azure. Você pode editar a política na Central de Segurança e monitorar a conformidade de política. 
+## <a name="how-security-policies-work"></a>Como funcionam as políticas de segurança?
+A Central de Segurança cria automaticamente uma política de segurança padrão para cada uma de suas assinaturas do Azure. Você pode editar a política na Central de Segurança ou usar o [Azure Policy](http://docs.microsoft.com/azure/azure-policy/azure-policy-introduction) para criar novas definições, definir políticas adicionais e atribuir políticas entre Grupos de Gerenciamento (que pode representar toda a organização, uma unidade de negócios nela etc.) e monitorar a conformidade com essas políticas nesses escopos.
 
 > [!NOTE]
-> Agora você pode estender as políticas da Central de Segurança usando o Azure Policy, que está em versão prévia limitada. Clique [aqui](http://aka.ms/getpolicy) para ingressar na versão prévia ou confira a documentação [aqui](security-center-azure-policy.md).
-
-Por exemplo, os recursos usados para o desenvolvimento ou teste podem ter requisitos de segurança diferentes daqueles usados para os aplicativos de produção. Da mesma forma, os aplicativos com dados regulamentados, como as informações de identificação pessoal, podem requerer um nível mais alto de segurança. As políticas de segurança habilitadas na Central de Segurança do Azure determinam as recomendações de segurança e o monitoramento para ajudar a identificar as potenciais vulnerabilidades e atenuar as ameaças. Leia o [Guia de Planejamento e Operações da Central de Segurança do Azure](security-center-planning-and-operations-guide.md) para obter mais informações sobre como determinar a opção adequada para você.
+> A Política do Azure está em versão prévia limitada. Clique [aqui](https://aka.ms/getpolicy) para participar. Para saber mais sobre as Políticas do Azure, leia [Criar e gerenciar políticas para impor a conformidade](http://docs.microsoft.com/en-us/azure/azure-policy/create-manage-policy).
 
 ## <a name="edit-security-policies"></a>Editar políticas de segurança
-Você pode editar a política de segurança padrão para cada uma de suas assinaturas do Azure na Central de Segurança. Para modificar uma política de segurança, você deve ser um proprietário, colaborador ou Administrador de Segurança dessa assinatura. Acesse o portal do Azure e siga as etapas abaixo para configurar as políticas de segurança na Central de Segurança: 
+Você pode editar a política de segurança padrão para cada uma de suas assinaturas do Azure na Central de Segurança. Para modificar uma política de segurança, você deve ser proprietário, colaborador ou Administrador de Segurança dessa assinatura, ou o Grupo de Gerenciamento que a contém. Acesse o Portal do Azure e execute as etapas abaixo para exibir as políticas de segurança na Central de Segurança:
 
-1.  No painel **Central de Segurança**, em **Geral**, clique em **Política de Segurança**.
-2.  Selecione a assinatura na qual você deseja habilitar a política de segurança.
-3.  Na seção **COMPONENTES DA POLÍTICA**, clique em **Política de segurança**.
-4.  Esta é a política padrão atribuída pela Central de Segurança. Você pode ativar/desativar as recomendações de segurança disponíveis.
-5.  Ao concluir a edição, clique em **Salvar**.
+1. No painel **Central de Segurança**, em **Geral**, clique em **Política de Segurança**.
+2. Selecione a assinatura na qual você deseja habilitar a política de segurança.
 
-## <a name="available-security-policy-options"></a>Opções de política de segurança disponíveis
+    ![Gerenciamento de política](./media/security-center-policies/security-center-policies-fig10.png)
 
-Use a tabela a seguir como referência para entender cada opção:
+3. Na seção **COMPONENTES DA POLÍTICA**, clique em **Política de segurança**.
+
+    ![Componentes da política](./media/security-center-policies/security-center-policies-fig12.png)
+
+4. Esta é a política padrão atribuída à Central de Segurança por meio da Política do Azure. Você pode excluir os itens que estão sob **POLÍTICAS E PARÂMETROS**, ou você pode adicionar outras definições de política que estão sob **OPÇÕES DISPONÍVEIS**. Para fazer isso, basta clicar no sinal de adição ao lado do nome da definição.
+
+    ![Definições de política](./media/security-center-policies/security-center-policies-fig11.png)
+
+5. Se você quiser uma explicação mais detalhada sobre a política, clique nela, e outra página será aberta com os detalhes e o código JSON que tem a estrutura de [definição de política](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy/#policy-definition-structure):
+
+    ![Json](./media/security-center-policies/security-center-policies-fig14.png)
+
+6. Ao concluir a edição, clique em **Salvar**.
+
+
+## <a name="available-security-policy-definitions"></a>Definições de política de segurança disponíveis
+
+Use a tabela a seguir como uma referência para entender as definições de política disponíveis na política de segurança padrão: 
 
 | Política | Quando o estado está ativado |
 | --- | --- |

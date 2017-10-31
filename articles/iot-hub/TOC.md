@@ -39,7 +39,8 @@
 ### [Salvar mensagens do Hub IoT para o armazenamento de dados do Azure](iot-hub-store-data-in-azure-table-storage.md)
 ### [Visualização de dados no Power BI](iot-hub-live-data-visualization-in-power-bi.md)
 ### [Visualização de dados com Aplicativos Web](iot-hub-live-data-visualization-in-web-apps.md)
-### [Previsão do tempo usando o Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)
+### 
+            [Previsão do tempo usando o Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)
 ### [Gerenciamento de dispositivos com o iothub-explorer](iot-hub-device-management-iothub-explorer.md)
 ### [Monitoramento remoto e notificações com Aplicativos Lógicos](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 
@@ -178,7 +179,8 @@
 ## [.NET (Dispositivos)](/dotnet/api/microsoft.azure.devices.client)
 ## [Java (Serviço)](/java/api/com.microsoft.azure.sdk.iot.service)
 ## [Java (Dispositivos)](/java/api/com.microsoft.azure.sdk.iot.device)
-## [SDKs do Node.js](http://azure.github.io/azure-iot-sdk-node/)
+## [Node.js (Dispositivos)](https://docs.microsoft.com/en-us/javascript/api/azure-iot-device/)
+## [Node.js (Serviço)](https://docs.microsoft.com/en-us/javascript/api/azure-iothub)
 ## [SDK do dispositivo C](https://azure.github.io/azure-iot-sdk-c/index.html)
 ## [Azure IoT Edge](http://azure.github.io/iot-edge/)
 ## [REST (Provedor de Recursos)](https://docs.microsoft.com/rest/api/iothub/iothubresource)
@@ -191,7 +193,8 @@
 ## [Azure IoT Suite](https://azure.microsoft.com/documentation/suites/iot-suite/)
 ## [Hubs de Eventos do Azure](https://azure.microsoft.com/documentation/services/event-hubs/)
 ## [Stream Analytics](https://azure.microsoft.com/documentation/services/stream-analytics/)
-## [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)
+## 
+            [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)
 
 # Recursos
 ## [Catálogo de dispositivos Azure Certified para IoT](https://catalog.azureiotsuite.com/)

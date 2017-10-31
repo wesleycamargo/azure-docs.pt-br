@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/28/2017
+ms.date: 10/11/2017
 ms.author: nitinme
-ms.openlocfilehash: 861f6b54130f9954c5e565346afd9a8f8e034b3d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fb9be26d3affe898bbbb66ead242dbdb59436bb6
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="account-management-operations-on-azure-data-lake-store-using-net-sdk"></a>Operações de gerenciamento de conta no Azure Data Lake Store usando o SDK do .NET
 > [!div class="op_single_selector"]
@@ -51,7 +51,7 @@ Para obter instruções sobre como executar operações de gerenciamento de dado
 5. Adicione os pacotes NuGet ao seu projeto.
 
    1. Clique com o botão direito do mouse no nome do projeto no Gerenciador de Soluções e clique em **Gerenciar Pacotes NuGet**.
-   2. Na guia **Gerenciador de Pacotes NuGet**, verifique se a **Origem do pacote** está definida para **nuget.org** e se a caixa de seleção **Incluir pré-lançamento** está marcada.
+   2. Na guia **Gerenciador de Pacotes NuGet**, verifique se a **Origem do pacote** está definida como **nuget.org** e se a caixa de seleção **Incluir pré-lançamento** está marcada.
    3. Procure e instale os seguintes pacotes NuGet:
 
       * `Microsoft.Azure.Management.DataLake.Store` - este tutorial usa a versão 2.1.3-preview.
@@ -63,13 +63,17 @@ Para obter instruções sobre como executar operações de gerenciamento de dado
 
         using System;
         using System.IO;
-        using System.Security.Cryptography.X509Certificates; // Required only if you are using an Azure AD application created with certificates
+        using System.Linq;
+        using System.Text;
         using System.Threading;
-
+        using System.Collections.Generic;
+        using System.Security.Cryptography.X509Certificates; // Required only if you are using an Azure AD application created with certificates
+                
+        using Microsoft.Rest;
+        using Microsoft.Rest.Azure.Authentication;
         using Microsoft.Azure.Management.DataLake.Store;
         using Microsoft.Azure.Management.DataLake.Store.Models;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
-        using Microsoft.Rest.Azure.Authentication;
 
 7. Declare as variáveis e forneça os valores para os espaços reservados. Além disso, verifique se o caminho local e o nome de arquivo fornecidos aqui existem no computador.
 
@@ -105,7 +109,7 @@ Nas seções restantes do artigo, você pode ver como usar o métodos do .NET di
 O trecho a seguir cria o objeto de cliente da conta do Data Lake Store, que é usado para emitir solicitações de gerenciamento de conta para o serviço, por exemplo, criar a conta, excluir conta etc.
 
     // Create client objects and set the subscription ID
-    _adlsClient = new DataLakeStoreAccountManagementClient(creds) { SubscriptionId = _subId };
+    _adlsClient = new DataLakeStoreAccountManagementClient(armCreds) { SubscriptionId = _subId };
     
 ## <a name="create-a-data-lake-store-account"></a>Criar uma conta do Repositório Data Lake
 O trecho a seguir cria uma conta do Data Lake Store na assinatura do Azure que você forneceu durante a criação do objeto de cliente de conta do Data Lake Store.

@@ -1,3 +1,5 @@
+Estas perguntas Frequentes se aplicam a conexões P2S que usam o modelo de implantação clássico.
+
 ### <a name="what-client-operating-systems-can-i-use-with-point-to-site"></a>Quais sistemas operacionais de cliente posso usar com ponto a site?
 
 Há suporte para os seguintes sistemas operacionais de cliente:

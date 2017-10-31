@@ -208,7 +208,7 @@
 #### [Gerenciar o provisionamento de conta de usuário](active-directory-enterprise-apps-manage-provisioning.md)
 #### [Gerenciar logon único para aplicativos corporativos](active-directory-enterprise-apps-manage-sso.md)
 #### [Assinatura de certificados avançada para aplicativos SAML](active-directory-enterprise-apps-advance-certificate-options.md)
-####[ Ocultar a experiência de um usuário no Azure Active Directory](active-directory-coreapps-hide-third-party-app.md)
+#### [Ocultar um aplicativo de terceiros da experiência de um usuário](active-directory-coreapps-hide-third-party-app.md)
 
 ### [Gerenciar o acesso aos aplicativos](active-directory-managing-access-to-apps.md)
 #### [Acesso de autoatendimento](active-directory-self-service-application-access.md)
@@ -369,7 +369,8 @@
 ## [Restrições e limites de serviço](active-directory-service-limits-restrictions.md)
 
 # Relacionados
-## [Autenticação Multifator](/azure/multi-factor-authentication/)
+## 
+            [Autenticação Multifator](/azure/multi-factor-authentication/)
 ## [Azure AD Connect](./connect/active-directory-aadconnect.md)
 ## [Azure AD Connect Health](./connect-health/active-directory-aadconnect-health.md)
 ## [Azure AD para desenvolvedores](./develop/active-directory-how-to-integrate.md)

@@ -14,42 +14,36 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: narayan;anavin
-ms.openlocfilehash: 082cd8a6cf50f76c89fe5995047396c734f83034
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f055f1e87e73733b3f2ecfa87e4d372ade8a7868
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="virtual-network-peering"></a>Emparelhamento de rede virtual
 
-A [VNet (rede virtual) do Azure](virtual-networks-overview.md) é o seu próprio espaço de rede privada no Azure que permite conectar os recursos do Azure entre si de maneira segura.
-
-o emparelhamento de rede virtual permite que você conecte redes virtuais sem interrupção. Uma vez emparelhadas, as redes virtuais aparecerão como uma para fins de conectividade. As máquinas virtuais nas redes virtuais emparelhadas podem se comunicar entre si diretamente.
-O tráfego entre as máquinas virtuais nas redes virtuais emparelhadas será roteado por meio da infraestrutura de backbone da Microsoft, assim como o tráfego é roteado entre as máquinas virtuais na mesma rede virtual somente por endereços IP *privados*.
-
->[!IMPORTANT]
-> Você pode emparelhar redes virtuais em regiões do Azure diferentes. Esse recurso está atualmente na visualização. Você pode [registrar sua assinatura para a versão prévia.](virtual-network-create-peering.md) O emparelhamento de redes virtuais nas mesmas regiões está disponível ao público em geral.
->
+o emparelhamento de rede virtual permite que você conecte duas [redes virtuais](virtual-networks-overview.md) do Azure sem interrupção. Uma vez emparelhadas, as redes virtuais aparecerão como uma para fins de conectividade. O tráfego entre as máquinas virtuais nas redes virtuais emparelhadas será roteado por meio da infraestrutura de backbone da Microsoft, assim como o tráfego é roteado entre as máquinas virtuais na mesma rede virtual somente por endereços IP *privados*. 
 
 Os benefícios do uso do emparelhamento de rede virtual incluem:
 
-* O tráfego que passa pela emparelhamento de rede virtual é completamente privado. Ele atravessa a rede de backbone da Microsoft e não envolve Internet ou gateways públicos.
+* O tráfego de rede entre redes virtuais emparelhadas é particular. O tráfego entre as redes virtuais é mantido na rede de backbone da Microsoft. Não são necessários a Internet pública, os gateways ou a criptografia na comunicação entre as redes virtuais.
 * Baixa latência, conexão com largura de banda alta entre os recursos em redes virtuais diferentes.
-* A capacidade de usar recursos de uma rede virtual em outra rede virtual depois de emparelhadas.
-* O emparelhamento da rede vrtual ajuda a transferir dados entre assinaturas do Azure, modelos de implantação e entre regiões do Azure (versão prévia).
-* A capacidade de emparelhar redes virtuais criadas por meio do Azure Resource Manager ou emparelhar uma rede virtual criada pelo Gerenciador de Recursos com uma rede virtual criada por meio do modelo de implantação clássico. Leia o artigo [Entender os modelos de implantação do Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para saber mais sobre as diferenças entre os dois modelos de implantação do Azure.
+* A capacidade de recursos em uma rede virtual para se comunicar com recursos em uma rede virtual diferente quando as redes virtuais estão pareadas.
+* A capacidade de transferir dados entre assinaturas do Azure, modelos de implantação e entre regiões do Azure (versão prévia).
+* A capacidade de emparelhar redes virtuais criadas por meio do Azure Resource Manager ou emparelhar uma rede virtual criada pelo Gerenciador de Recursos com uma rede virtual criada por meio do modelo de implantação clássico. Para saber mais sobre os modelos de implantação do Azure, confira [Entender os modelos de implantação do Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+* Nenhum tempo de inatividade para recursos em qualquer rede virtual ao criar o emparelhamento ou depois que o emparelhamento é criado.
 
 ## <a name="requirements-constraints"></a>Requisitos e restrições
 
-* O emparelhamento de redes virtuais na mesma região está disponível ao público em geral. O emparelhamento de redes virtuais em regiões diferentes está atualmente em versão prévia no Centro-oeste dos EUA, Central do Canadá e Oeste dos EUA 2. Você pode [registrar sua assinatura para a versão prévia.](virtual-network-create-peering.md)
+* O emparelhamento de redes virtuais na mesma região está disponível ao público em geral. O emparelhamento de redes virtuais em regiões diferentes está atualmente em versão prévia no Centro-oeste dos EUA, Central do Canadá e Oeste dos EUA 2. Você pode [registrar sua assinatura](virtual-network-create-peering.md) para a versão prévia.
     > [!WARNING]
-    > Emparelhamentos de rede virtual criados nesse cenário podem não ter o mesmo nível de disponibilidade e confiabilidade encontrado em cenários em uma versão de disponibilidade geral. Emparelhamentos de rede virtual podem ter funcionalidades restringidas e podem não estar disponíveis em todas as regiões do Azure. Para ver as notificações mais recentes sobre disponibilidade e o status desse recurso, verifique a página [Atualizações da Rede Virtual](https://azure.microsoft.com/updates/?product=virtual-network) .
+    > Os emparelhamentos de rede virtual criados entre regiões podem não ter o mesmo nível de disponibilidade e confiabilidade encontrado em emparelhamentos em uma versão de disponibilidade geral. Emparelhamentos de rede virtual podem ter funcionalidades restringidas e podem não estar disponíveis em todas as regiões do Azure. Para ver as notificações mais recentes sobre disponibilidade e o status desse recurso, verifique a página [Atualizações da Rede Virtual](https://azure.microsoft.com/updates/?product=virtual-network) .
 
 * As redes virtuais emparelhadas devem ter espaços de endereço IP não sobrepostos.
-* Espaços de endereço não podem ser adicionados ao ou excluídos de uma rede virtual depois que ela é emparelhada com outra rede virtual.
+* Os intervalos de endereços não podem ser adicionados ao ou excluídos do espaço de endereço de uma rede virtual depois que ela é emparelhada com outra rede virtual. Se você precisar adicionar intervalos de endereços ao espaço de endereço de uma rede virtual emparelhada, remova o emparelhamento, adicione o espaço de endereço e, em seguida, adicione o emparelhamento.
 * O emparelhamento de rede virtual é entre duas redes virtuais. Não há nenhuma relação transitiva derivada entre emparelhamentos. Por exemplo, se a virtualNetworkA está emparelhada com a virtualNetworkB, e a virtualNetworkB está emparelhada com a virtualNetworkC, então, a virtualNetworkA *não* está emparelhada com virtualNetworkC.
 * Você pode emparelhar redes virtuais existentes em duas assinaturas diferentes, desde que um usuário com privilégios de ambas as assinaturas (confira [permissões específicas](create-peering-different-deployment-models-subscriptions.md#permissions)) autorize o emparelhamento e as assinaturas estejam associadas ao mesmo locatário do Azure Active Directory. Você pode usar um [Gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) para conectar redes virtuais em assinaturas associadas a locatários diferentes do Active Directory.
-* Redes virtuais podem ser emparelhadas de duas maneiras: quando ambas são criadas usando o modelo de implantação do Gerenciador de Recursos; ou quando uma é criada usando o modelo de implantação do Gerenciador de Recursos e a outra, o modelo de implantação clássico. no entanto, redes virtuais criadas por meio do modelo de implantação clássico não podem ser emparelhadas uma à outra. Você pode usar um [Gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) para conectar redes virtuais criadas usando o modelo de implantação clássico.
+* Redes virtuais podem ser emparelhadas de duas maneiras: quando ambas são criadas usando o modelo de implantação do Gerenciador de Recursos; ou quando uma é criada usando o modelo de implantação do Gerenciador de Recursos e a outra, o modelo de implantação clássico. No entanto, as redes virtuais criadas por meio do modelo de implantação clássico não podem ser emparelhadas uma à outra. Você pode usar um [Gateway de VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%2ftoc.json#V2V) para conectar redes virtuais criadas usando o modelo de implantação clássico.
 * Embora a comunicação entre máquinas virtuais em redes virtuais emparelhadas não tenha restrição de largura de banda adicional, há uma largura de banda de rede máxima, dependendo do tamanho da máquina virtual que ainda é aplicável. Para saber mais sobre a largura de banda de rede máxima para diferentes tamanhos de máquina virtual, leia os artigos sobre tamanhos de máquina virtual do [Windows](../virtual-machines/windows/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou do [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
      ![Emparelhamento básico de redes virtuais](./media/virtual-networks-peering-overview/figure03.png)
@@ -58,20 +52,20 @@ Os benefícios do uso do emparelhamento de rede virtual incluem:
 
 Ao parear as redes virtuais, os recursos de qualquer uma delas pode se conectar diretamente com os recursos da rede virtual emparelhada.
 
-A latência de rede entre as máquinas virtuais em redes virtuais emparelhadas na mesma região é a mesma de uma única rede virtual. A taxa de transferência da rede tem base na largura de banda permitida para a máquina virtual, que é proporcional ao seu tamanho. Não existe restrição adicional quanto à largura de banda no emparelhamento.
+A latência de rede entre as máquinas virtuais em redes virtuais emparelhadas na mesma região é a mesma latência de uma única rede virtual. A taxa de transferência da rede tem base na largura de banda permitida para a máquina virtual, que é proporcional ao seu tamanho. Não existe restrição adicional quanto à largura de banda no emparelhamento.
 
 O tráfego entre as máquinas virtuais nas redes virtuais emparelhadas é roteado diretamente pela infraestrutura de backbone da Microsoft, não por um gateway ou pela Internet pública.
 
-As máquinas virtuais em uma rede virtual podem acessar o balanceador de carga interno na rede virtual emparelhada da mesma região. O suporte ao balanceador de carga interno não se estende às redes virtuais emparelhadas globalmente na versão prévia. A versão de disponibilidade geral do emparelhamento de rede virtual global terá suporte para o balanceador de carga interno.
+As máquinas virtuais em uma rede virtual podem acessar o balanceador de carga interno na rede virtual emparelhada da mesma região. O suporte ao balanceador de carga interno não se estende às redes virtuais emparelhadas globalmente (versão prévia). A versão de disponibilidade geral do emparelhamento de rede virtual global terá suporte para o balanceador de carga interno.
 
-Grupos de segurança de rede podem ser aplicados em uma das redes virtuais a fim de bloquear o acesso a outras redes virtuais ou sub-redes, se for desejado.
-Ao configurar o emparelhamento de rede virtual, você pode abrir ou fechar as regras de grupo de segurança de rede entre as redes virtuais. Se você abrir a conectividade total entre as redes virtuais emparelhadas (opção padrão), poderá aplicar grupos de segurança de rede a sub-redes ou máquinas virtuais específicas para bloquear ou negar o acesso específico. Para saber mais sobre grupos de segurança de rede, leia a [Visão geral dos grupos de segurança de rede](virtual-networks-nsg.md).
+Grupos de segurança de rede podem ser aplicados em qualquer rede virtual a fim de bloquear o acesso a outras redes virtuais, ou sub-redes se for desejado.
+Ao configurar o emparelhamento de rede virtual, você pode abrir ou fechar as regras de grupo de segurança de rede entre as redes virtuais. Se você abrir a conectividade total entre as redes virtuais emparelhadas (opção padrão), poderá aplicar grupos de segurança de rede a sub-redes ou máquinas virtuais específicas para bloquear ou negar o acesso específico. Para saber mais sobre grupos de segurança de rede, confira [Visão geral dos grupos de segurança de rede](virtual-networks-nsg.md).
 
 ## <a name="service-chaining"></a>Encadeamento de serviços
 
 Você pode configurar rotas definidas pelo usuário que apontam para máquinas virtuais em redes virtuais emparelhadas como o endereço IP "próximo salto" para habilitar o encadeamento de serviços. O encadeamento de serviços permite que você direcione o tráfego de uma rede virtual para uma solução virtual em uma rede virtual emparelhada através de rotas definidas pelo usuário.
 
-Você também pode criar efetivamente ambientes do tipo hub e spoke, nos quais o hub pode hospedar componentes de infraestrutura, como um dispositivo de rede virtual. Todas as redes virtuais contadas podem emparelhar com a rede virtual do hub. O tráfego pode fluir por meio de dispositivos de rede virtual que estejam em execução na rede virtual do hub. Resumindo, o emparelhamento de redes virtuais permite que o endereço IP de próximo salto na tabela de rotas definida pelo usuário seja o endereço IP de uma máquina virtual na rede virtual emparelhada. Para saber mais sobre as rotas definidas pelo usuário, leia o artigo [Visão geral de rotas definidas pelo usuário](virtual-networks-udr-overview.md). Para saber como criar uma [topologia de rede de hub e spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering)
+Você também pode criar efetivamente ambientes do tipo hub e spoke, nos quais o hub pode hospedar componentes de infraestrutura, como um dispositivo de rede virtual. Todas as redes virtuais contadas podem emparelhar com a rede virtual do hub. O tráfego pode fluir por meio de dispositivos de rede virtual que estejam em execução na rede virtual do hub. Resumindo, o emparelhamento de redes virtuais permite que o endereço IP de próximo salto na tabela de rotas definida pelo usuário seja o endereço IP de uma máquina virtual na rede virtual emparelhada. Para saber mais sobre as rotas definidas pelo usuário, confira [visão geral de rotas definidas pelo usuário](virtual-networks-udr-overview.md). Para saber como criar uma topologia de rede de hub e spoke, veja [Topologia de rede de hub e spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering)
 
 ## <a name="gateways-and-on-premises-connectivity"></a>Gateways e conectividade local
 
@@ -91,15 +85,15 @@ Quando as redes virtuais que compartilham uma única conexão de Azure ExpressRo
 
 O emparelhamento de rede virtual é uma operação privilegiada. É uma função separada sob o namespace da VirtualNetworks. Um usuário pode receber direitos específicos para autorizar o emparelhamento. Um usuário que tem acesso de leitura e gravação para a rede virtual herda automaticamente esses direitos.
 
-Um usuário que é um administrador ou um usuário com privilégios da capacidade de emparelhamento pode iniciar uma operação de emparelhamento em outra rede virtual. O nível mínimo de permissão necessário é Colaborador de rede. Se houver uma solicitação correspondente para o emparelhamento no outro lado e outros requisitos forem atendidos, o emparelhamento será estabelecido.
+Um usuário que é um administrador ou um usuário com privilégios da capacidade de emparelhamento pode iniciar uma operação de emparelhamento em outra rede virtual. O nível mínimo de permissão necessário é Colaborador de Rede. Se houver uma solicitação correspondente para o emparelhamento no outro lado e outros requisitos forem atendidos, o emparelhamento será estabelecido.
 
-Por exemplo, se você pretende emparelhar redes virtuais chamadas myvirtual networkA e myvirtual networkB, sua conta deve ser atribuída à seguinte função ou permissões mínimas para cada rede virtual:
+Por exemplo, se você pretende emparelhar redes virtuais chamadas myVirtualNetworkA e myVirtualNetworkB, sua conta deve ser atribuída à seguinte função ou permissões mínimas para cada rede virtual:
 
 |Rede virtual|Modelo de implantação|Função|Permissões|
 |---|---|---|---|
-|myvirtual networkA|Gerenciador de Recursos|[Colaborador de rede](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
+|myVirtualNetworkA|Gerenciador de Recursos|[Colaborador de rede](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/virtualNetworkPeerings/write|
 | |Clássico|[Colaborador de rede clássica](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|N/D|
-|myvirtual networkB|Gerenciador de Recursos|[Colaborador de rede](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
+|myVirtualNetworkB|Gerenciador de Recursos|[Colaborador de rede](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor)|Microsoft.Network/virtualNetworks/peer|
 ||Clássico|[Colaborador de rede clássica](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#classic-network-contributor)|Microsoft.ClassicNetwork/virtualNetworks/peer|
 
 ## <a name="monitor"></a>Monitoramento
@@ -121,7 +115,7 @@ Você também pode solucionar os problemas de conectividade a uma máquina virtu
 
 ## <a name="limits"></a>limites
 
-Há limites no número de emparelhamentos permitidos para uma única rede virtual. O número padrão de emparelhamentos é 50. Você pode aumentar o número de emparelhamentos. Para saber mais, confira os [Limites de rede do Azure](../azure-subscription-service-limits.md#networking-limits).
+Há limites no número de emparelhamentos permitidos para uma única rede virtual. Para obter detalhes, veja [Limites de rede do Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
 
 ## <a name="pricing"></a>Preços
 

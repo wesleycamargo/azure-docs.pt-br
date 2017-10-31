@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 09/25/2017
-ms.openlocfilehash: 273b94e9a53e36d7e8c699d3b7fa4305b881a001
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5d86f3bdf19603d2f92fc1a704376beefd7323c0
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="classifying-iris-part-2-build-a-model"></a>Parte 2 de Classificando a Íris: criar um modelo
 Os serviços do Azure Machine Learning (versão prévia) são uma solução integrada de análise avançada e de ciência de dados de ponta a ponta para cientistas de dados profissionais prepararem dados, desenvolverem testes e implantarem modelos em escala de nuvem.
@@ -70,7 +70,7 @@ Se você quiser fazer experiências com o script de expedição a ser executado 
 
    - Plota dois gráficos – matriz de confusão e curva ROC multiclasse – usando a biblioteca [matplotlib](https://matplotlib.org/) e salva-os na pasta `outputs`.
 
-   - O objeto `run_logger` é usado durante todo esse processo para registrar a taxa de regularização e a precisão do modelo, sendo que os logs são plotados automaticamente no histórico de execuções.
+   - O objeto `run_logger` é usado durante todo esse processo para registrar a taxa de regularização e a precisão do modelo, sendo que os logs são criados gráficos automaticamente no histórico de execuções.
 
 
 ## <a name="execute-irissklearnpy-script-in-local-environment"></a>Executar o script iris_sklearn.py no ambiente local
