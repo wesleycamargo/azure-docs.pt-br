@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/11/2017
+ms.date: 10/23/2017
 ms.author: terrylan
-ms.openlocfilehash: b3b4a6df431ccdb882dd354aac9cb86a96a81b11
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: abbcb0a8e0206d78ca94520dfa81ab92506c47af
+ms.sourcegitcommit: 4d90200f49cc60d63015bada2f3fc4445b34d4cb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="manage-endpoint-protection-issues-with-azure-security-center"></a>Gerenciar problemas de proteção de ponto de extremidade com a Central de Segurança do Azure
 A Central de Segurança do Azure monitora o status da proteção antimalware e relata isso na folha Problemas de proteção de ponto de extremidade. A Central de Segurança realça os problemas, como ameaças detectadas e proteção insuficiente, que podem tornar seus computadores e VMs (máquinas virtuais) vulneráveis a ameaças de antimalware. Ao usar as informações em **Problemas de proteção de ponto de extremidade**, você pode identificar um plano para solucionar os problemas identificados.
@@ -33,6 +33,11 @@ A Central de Segurança relata os seguintes problemas de proteção de ponto de 
    - Sem proteção em tempo real – uma solução antimalware está instalada nessas VMs e computadores, mas ela não está configurada para oferecer proteção em tempo real.   O serviço pode estar desabilitado ou a Central de Segurança não conseguiu obter o status porque não há suporte para a solução. Consulte a [integração com parceiros](security-center-partner-integration.md) para obter uma lista de soluções com suporte.
    - Sem relatório – uma solução antimalware está instalada, mas não está relatando dados.
    - Desconhecido – uma solução antimalware está instalada, mas seu status é desconhecido ou está relatando um erro desconhecido.
+
+   > [!NOTE]
+   > Consulte [Integrar soluções de segurança](security-center-partner-integration.md#integrated-azure-security-solutions) para obter uma lista de soluções de segurança da proteção de ponto de extremidade integradas com a Central de Segurança.
+   >
+   >
 
 ## <a name="implement-the-recommendation"></a>Implementar a recomendação
 Os problemas de proteção de ponto de extremidade são apresentado como uma recomendação na Central de Segurança.  Se seu ambiente estiver vulnerável a ameaças de antimalware, essa recomendação será exibida em **Recomendações** e em **Computação**. Para ver o **painel Problemas de proteção de ponto de extremidade**, você deve seguir o fluxo de trabalho de Computação.

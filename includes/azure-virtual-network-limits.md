@@ -39,19 +39,24 @@ Os limites a seguir aplicam-se apenas a recursos de rede gerenciados pelo Azure 
 | Os grupos de segurança do aplicativo que podem ser especificados em todas as regras de segurança de um grupo de segurança de rede |50 |100 |
 | Tabelas de rota definida pelo usuário |100 |200 |
 | Rotas definidas pelo usuário por tabela de rotas |100 |400 |
-| Endereços IP públicos - dinâmicos |(Basic) |60 |entre em contato com o suporte |
+| Endereços IP públicos - dinâmicos |(Básico) 60 |entre em contato com o suporte |
 | Endereços IP públicos - estáticos |(Basic) 20 |entre em contato com o suporte |
 | Endereços IP públicos - estáticos |(Standard) 20 |entre em contato com o suporte |
-| Balanceadores de carga (Basic e Standard, internos e voltados para a Internet) |100 |1000 |
-| Regras do Load Balancer (Básico) por balanceador de carga |150 |250 |
-| Regras do Load Balancer (Standard) por balanceador de carga | 1250 | 1500|
-| Regras do Load Balancer (Basic) por configuração de IP |250 |250 |
-| IP público de front-end por Load Balancer (Basic) |10 |30 |
-| IP público de front-end por Load Balancer (Standard) | 10 | 600 |
-| IP privado de front-end por Load Balancer (Basic) |10 |entre em contato com o suporte |
-| IP privado de front-end por Load Balancer (Standard) | 10 | 600 |
 | Certificados raiz de ponto a site por gateway de VPN |20 |20 |
 
+#### <a name="load-balancer"></a>Limites do Load Balancer
+
+| Recurso | Limite padrão | Limite máximo |
+| --- | --- | --- |
+| Balanceadores de Carga | 100 | 1000 |
+| Regras por recurso, Básico | 150 | 250 |
+| Regras por recurso, Standard | 1250 | 1500 |
+| Regras por configuração de IP | 299 |299 |
+| Configurações de IP de front-end, Básico | 10 | entre em contato com o suporte |
+| Configurações de IP de front-end, Standard | 10 | 600 |
+| Pool de back-end, Básico | 100, um único conjunto de disponibilidade | - |
+| Pool de back-end, Standard | 1000, única VNet | entre em contato com o suporte |
+| Portas de alta disponibilidade, Standard | 1 por front-end interno | - |
 
 [Entre em contato com o suporte](../articles/azure-supportability/resource-manager-core-quotas-request.md ) caso precise aumentar esses limites.
 

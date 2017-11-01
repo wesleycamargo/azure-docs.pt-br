@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2017
+ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: f85f7077e5227818d062d114370e7344601a998e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 95ef2099cb16bcfd550ce2799428f1a16031f535
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="security-policies-overview"></a>Visão geral das políticas de segurança
 Este documento fornece uma visão geral das políticas de segurança na Central de Segurança.
@@ -29,7 +29,7 @@ Uma política de segurança define a configuração desejada de suas cargas de t
 As políticas de Central de Segurança contêm os seguintes componentes:
 
 - Coleta de dados: configurações de provisionamento de agente e de [coleta de dados](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection).
-- Política de segurança: uma [Política do Azure](https://docs.microsoft.com/azure/azure-policy/azure-policy-introduction) que determina quais controles são monitorados e recomendados pela Central de Segurança (edite na Central de Segurança ou use a ou usa a Política do Azure para criar novas definições, definir políticas adicionais e atribuir políticas a Grupos de Gerenciamento).
+- Política de segurança: que determina quais controles são monitorados e recomendados pela Central de Segurança (edite [política de segurança](https://docs.microsoft.com/en-us/azure/security-center/security-center-policies) na Central de Segurança ou use a [Política do Azure](security-center-azure-policy.md) em versão prévia limitada para criar novas definições, definir políticas adicionais e atribuir políticas entre Grupos de Gerenciamento).
 - Notificações por email: configurações de contatos de segurança e de [notificação por email](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details).
 - Tipo de preço: [seleção de preços](https://docs.microsoft.com/azure/security-center/security-center-pricing) gratuito ou padrão, que determina quais recursos da Central de Segurança estão disponíveis para os recursos no escopo (pode ser especificado para assinaturas, grupos de recursos e espaços de trabalho). 
 

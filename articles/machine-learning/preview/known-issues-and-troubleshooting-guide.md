@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: f79910ba4fea81e88fce90dd67ba7cb4db2e8220
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f39faea6b7e0886d63085b752f9532a7010ea941
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench – problemas conhecidos e Guia de solução de problemas 
 Este artigo ajuda a localizar e corrigir os erros ou falhas encontrados como parte do uso do aplicativo Azure Machine Learning Workbench. 
@@ -82,7 +82,10 @@ Quando você estiver trabalhando no Azure Machine Learning Workbench, também é
 
 - Não há suporte para transformações de clustering de texto no Mac.
 
-- O suporte para a biblioteca RevoScalePy não é oferecido apenas no Windows ou no Linux (em contêineres do Docker). Ela não tem suporte no macOS.
+- Há suporte para a biblioteca RevoScalePy apenas no Windows e no Linux (em contêineres do Docker). Ela não tem suporte no macOS.
+
+## <a name="file-name-too-long-on-windows"></a>Nome de arquivo muito longo no Windows
+Se você usar o Workbench no Windows, poderá encontrar o limite máximo padrão do tamanho de nome do arquivo de 260 caracteres, que poderia aparecer como um erro "o sistema não pode localizar o caminho especificado" um tanto enganoso. Você pode modificar uma configuração da chave do Registro para permitir nomes de caminho de arquivos muito mais longos. Leia [este artigo](https://msdn.microsoft.com/en-us/library/windows/desktop/aa365247%28v=vs.85%29.aspx?#maxpath) para ver mais detalhes sobre como definir a chave do Registro _MAX_PATH_.
 
 ## <a name="docker-error-read-connection-refused"></a>Erro de docker "leitura: conexão recusada"
 Ao executar em um contêiner de Docker local, às vezes o seguinte erro poderá ocorrer: 

@@ -11,20 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/23/2017
+ms.date: 10/06/2017
 ms.author: bwren
-ms.openlocfilehash: 50713d69f6dce6b7b154b6b4a6df3f679eb7b7c7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 38cb11befe844178572981abb29fe5439286dbc1
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="transitioning-to-azure-log-analytics-new-query-language"></a>Transição para a nova linguagem de consulta do Azure Log Analytics
-
-> [!NOTE]
-> Você pode saber mais sobre a nova linguagem de consulta do Log Analytics e obter o procedimento para atualizar seu espaço de trabalho em [Atualizar seu espaço de trabalho do Azure Log Analytics para uma nova pesquisa de logs](log-analytics-log-search-upgrade.md).
-
-Este artigo fornece assistência na transição para a nova linguagem de consulta do Log Analytics, caso você já esteja familiarizado com a linguagem herdada.
+O Log Analytics implementou recentemente uma nova linguagem de consulta.  Este artigo fornece assistência na transição para a linguagem para o Log Analytics, caso você já esteja familiarizado com a linguagem herdada e ainda precise de assistência.
 
 ## <a name="language-converter"></a>Conversor de linguagem
 

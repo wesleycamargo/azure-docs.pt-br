@@ -13,11 +13,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 04/26/2017
 ms.author: ashmaka
-ms.openlocfilehash: a22b82829df4659681940267e64c98d345453958
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 01be1b14e838c4f1b6f2498111fb8369c2bbb92a
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="query-your-azure-search-index"></a>Consultar seu índice de Pesquisa do Azure
 > [!div class="op_single_selector"]
@@ -66,4 +66,4 @@ A melhor maneira de entender as diferenças de sintaxe é por meio do envio de c
 
 + Use o [Search Explorer](search-explorer.md) no portal do Azure. Ao implantar [o índice de exemplo](search-get-started-portal.md), você poderá consultar o índice em minutos usando as ferramentas no portal.
 
-+ Use o [Fiddler](search-fiddler.md) ou o Chrome Postman para enviar consultas para um índice que você carregou no serviço de pesquisa. Ambas as ferramentas oferecem suporte a chamadas REST para um ponto de extremidade HTTP. 
++ Use o Telerik Fiddler ou o Chrome Postman para enviar consultas para um índice que você carregou no serviço de pesquisa. Ambas as ferramentas oferecem suporte a chamadas REST para um ponto de extremidade HTTP. 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
 ms.author: sethm
-ms.openlocfilehash: 2c509b56282ace92e536dc85f1a28f83a4701940
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 49f2992245d694f85b7b1f1c34339f1445c9d699
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="azure-service-bus-geo-disaster-recovery-preview"></a>Recuperação de desastre em área geográfica do Barramento de Serviço do Azure (versão prévia)
 
@@ -29,7 +29,7 @@ A versão prévia da recuperação de desastre em área geográfica está dispon
 
 O artigo [Melhores práticas para isolar aplicativos contra interrupções e desastres do Barramento de Serviço](service-bus-outages-disasters.md) faz uma distinção entre "interrupções" e "desastres" que é importante observar. Uma *interrupção* é uma indisponibilidade temporária do Barramento de Serviço do Azure e pode afetar alguns componentes do serviço, como um repositório de mensagens ou até mesmo o datacenter inteiro. No entanto, depois que o problema for corrigido, o Barramento de Serviço ficará disponível novamente. Normalmente, uma interrupção não causa a perda de mensagens ou de outros dados. Um exemplo de tal interrupção pode ser uma falha de energia no datacenter.
 
-Um *desastre* é definido como a perda permanente de uma [unidade de escala](service-bus-architecture.md#service-bus-scale-units) ou de um datacenter do Barramento de Serviço. O datacenter pode ou não ficar disponível novamente ou pode ficar inativo por horas ou dias. Um desastre normalmente causa a perda de algumas ou de todas as mensagens, ou de outros dados. Outros exemplos desses desastres são incêndios, enchentes ou terremoto.
+Um *desastre* é definido como a perda permanente ou de longo prazo de uma [unidade de escala](service-bus-architecture.md#service-bus-scale-units) ou de um data center do Barramento de Serviço. O datacenter pode ou não ficar disponível novamente ou pode ficar inativo por horas ou dias. Outros exemplos desses desastres são incêndios, enchentes ou terremoto. Um desastre que se torne permanente pode causar a perda de algumas mensagens ou outros dados. No entanto, na maioria dos casos, não deve haver perda de dados e as mensagens poderão ser recuperadas depois que do backup do data center.
 
 O recurso de recuperação de desastre em área geográfica do Barramento de Serviço do Azure é uma solução de recuperação de desastre. Os conceitos e o fluxo de trabalho descrito neste artigo se aplicam a cenários de desastre e não a falhas transitórias ou temporárias.  
 
@@ -45,7 +45,7 @@ Os seguintes termos são usados neste artigo:
 
 -  *Metadados*: sua representação de objetos no Barramento de Serviço do Azure. No momento, só há suporte para metadados.
 
--  *Failover*: o processo de ativação do namespace secundário. Você deve receber mensagens do seu namespace primário antigo depois que ele ficar disponível novamente e, em seguida, excluir o namespace. Para criar outro failover, você pode adicionar um novo namespace secundário ao emparelhamento.
+-  *Failover*: o processo de ativação do namespace secundário. Você deve receber mensagens do seu namespace primário antigo depois que ele ficar disponível novamente e, em seguida, excluir o namespace. Para criar outro failover, você pode adicionar um novo namespace secundário ao emparelhamento. Se você quiser reutilizar o namespace principal antigo após um failover, deverá primeiro remover todas as entidades existentes do namespace. Receba todas as mensagens antes de fazer isso.
 
 ## <a name="failover-workflow"></a>Fluxo de trabalho de failover
 

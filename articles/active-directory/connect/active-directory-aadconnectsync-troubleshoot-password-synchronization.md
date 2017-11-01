@@ -14,14 +14,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: 33fa6a8867764975a57b8727e7705529d1d7506a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3bb2883257896c72cc616ea7476f3d25ee6aa4b
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="troubleshoot-password-synchronization-with-azure-ad-connect-sync"></a>Solução de problemas de sincronização de senha com a sincronização do Azure AD Connect
-Este tópico fornece etapas para solucionar problemas com a sincronização de senha. Se as senhas não estiverem sincronizando conforme o esperado, isso poderá ocorrer para um subconjunto de usuários ou para todos os usuários. Para a implantação do Azure AD (Azure Active Directory) Connect com a versão 1.1.524.0 ou posterior, agora há um cmdlet de diagnóstico que você pode usar para solucionar problemas de sincronização de senha:
+Este tópico fornece etapas para solucionar problemas com a sincronização de senha. Se as senhas não estiverem sincronizando conforme o esperado, isso poderá ocorrer para um subconjunto de usuários ou para todos os usuários.
+
+Para a implantação do Azure AD (Azure Active Directory) Connect com a versão 1.1.614.0 ou posterior, use a tarefa de solução de problemas no assistente para solucionar problemas de sincronização de senha:
+
+* Se ocorrer um problema em que nenhuma senha seja sincronizada, consulte a seção [Nenhuma senha é sincronizada: solucionar problemas usando a tarefa de solução de problemas](#no-passwords-are-synchronized-troubleshoot-by-using-the-troubleshooting-task).
+
+* Se ocorrer um problema com objetos individuais, consulte a seção [Um objeto não está sincronizando senhas: solucionar problemas usando a tarefa de solução de problemas](#one-object-is-not-synchronizing-passwords-troubleshoot-by-using-the-troubleshooting-task).
+
+Para a implantação com a versão 1.1.524.0 ou posterior, há um cmdlet de diagnóstico que você pode usar para solucionar problemas de sincronização de senha:
 
 * Se ocorrer um problema em que nenhuma senha seja sincronizada, consulte a seção [Nenhuma senha é sincronizada: solucionar problemas usando o cmdlet de diagnóstico](#no-passwords-are-synchronized-troubleshoot-by-using-the-diagnostic-cmdlet).
 
@@ -33,25 +41,33 @@ Para versões mais antigas de implantação do Azure AD Connect:
 
 * Se ocorrer um problema com objetos individuais, consulte a seção [Um objeto não está sincronizando senhas: etapas manuais de solução de problemas](#one-object-is-not-synchronizing-passwords-manual-troubleshooting-steps).
 
-## <a name="no-passwords-are-synchronized-troubleshoot-by-using-the-diagnostic-cmdlet"></a>Nenhuma senha é sincronizada: solucionar problemas usando o cmdlet de diagnóstico
-Você pode usar o cmdlet `Invoke-ADSyncDiagnostics` para descobrir por que nenhuma senha é sincronizada.
+
+
+## <a name="no-passwords-are-synchronized-troubleshoot-by-using-the-troubleshooting-task"></a>Nenhuma senha é sincronizada: solucionar problemas usando a tarefa de solução de problemas
+Você pode usar a tarefa de solução de problemas para descobrir por que nenhuma senha é sincronizada.
 
 > [!NOTE]
-> O cmdlet `Invoke-ADSyncDiagnostics` está disponível apenas para o Azure AD Connect versão 1.1.524.0 ou posterior.
+> A tarefa de solução de problemas está disponível apenas para o Azure AD Connect versão 1.1.614.0 ou posterior.
 
-### <a name="run-the-diagnostics-cmdlet"></a>Executar o cmdlet de diagnóstico
+### <a name="run-the-troubleshooting-task"></a>Executar a tarefa de solução de problemas
 Para solucionar problemas em que nenhuma senha é sincronizada:
 
 1. Abra uma nova sessão do Windows PowerShell no servidor do Azure AD Connect com a opção **Executar como administrador**.
 
 2. Execute `Set-ExecutionPolicy RemoteSigned` ou `Set-ExecutionPolicy Unrestricted`.
 
-3. Execute `Import-Module ADSyncDiagnostics`.
+3. Iniciar o assistente do Azure AD Connect.
 
-4. Execute `Invoke-ADSyncDiagnostics -PasswordSync`.
+4. Navegue até a página **Tarefas Adicionais**, selecione **Solucionar problemas** e clique em **Avançar**.
 
-### <a name="understand-the-results-of-the-cmdlet"></a>Entenda os resultados do cmdlet
-O cmdlet de diagnóstico executa as seguintes verificações:
+5. Na página de solução de problemas, clique em **Iniciar** para iniciar o menu de solução de problemas no PowerShell.
+
+6. No menu principal, selecione **Solucionar Problemas de Sincronização de Senha**.
+
+7. No submenu, selecione **A Sincronização de Senha não funciona**.
+
+### <a name="understand-the-results-of-the-troubleshooting-task"></a>Entender os resultados da tarefa de solução de problemas
+A tarefa de solução de problemas executa as seguintes verificações:
 
 * Valida se o recurso de sincronização de senha está habilitado para seu locatário do Azure AD.
 
@@ -73,7 +89,7 @@ O diagrama a seguir ilustra os resultados do cmdlet para uma topologia do Active
 
 ![Saída de diagnóstico da sincronização de senha](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/phsglobalgeneral.png)
 
-O restante desta seção descreve resultados específicos que são retornados pelo cmdlet e os problemas correspondentes.
+O restante desta seção descreve resultados específicos que são retornados pela tarefa e os problemas correspondentes.
 
 #### <a name="password-synchronization-feature-isnt-enabled"></a>O recurso de sincronização de senha não está habilitado
 Se você não tiver habilitado a sincronização de senha usando o assistente do Azure AD Connect, o seguinte erro será retornado:
@@ -100,32 +116,34 @@ Se a conta do AD DS usada pelo Active Directory Connector local para sincronizar
 
 ![Credenciais incorretas](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/phsglobalaccountincorrectcredential.png)
 
-## <a name="one-object-is-not-synchronizing-passwords-troubleshoot-by-using-the-diagnostic-cmdlet"></a>Um objeto não está sincronizando senhas: solucionar problemas usando o cmdlet de diagnóstico
-Você pode usar o cmdlet `Invoke-ADSyncDiagnostics` para determinar por que um objeto não está sincronizando senhas.
+
+
+## <a name="one-object-is-not-synchronizing-passwords-troubleshoot-by-using-the-troubleshooting-task"></a>Um objeto não está sincronizando senhas: solucionar problemas usando a tarefa de solução de problemas
+
+Você pode usar a tarefa de solução de problemas para determinar por que um objeto não está sincronizando senhas.
 
 > [!NOTE]
-> O cmdlet `Invoke-ADSyncDiagnostics` está disponível apenas para o Azure AD Connect versão 1.1.524.0 ou posterior.
+> A tarefa de solução de problemas está disponível apenas para o Azure AD Connect versão 1.1.614.0 ou posterior.
 
 ### <a name="run-the-diagnostics-cmdlet"></a>Executar o cmdlet de diagnóstico
-Para solucionar problemas em que nenhuma senha é sincronizada:
+Para solucionar problemas de um objeto de usuário específico:
 
 1. Abra uma nova sessão do Windows PowerShell no servidor do Azure AD Connect com a opção **Executar como administrador**.
 
 2. Execute `Set-ExecutionPolicy RemoteSigned` ou `Set-ExecutionPolicy Unrestricted`.
 
-3. Execute `Import-Module ADSyncDiagnostics`.
+3. Iniciar o assistente do Azure AD Connect.
 
-4. Execute o cmdlet a seguir:
-   ```
-   Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName <Name-of-AD-Connector> -DistinguishedName <DistinguishedName-of-AD-object>
-   ```
-   Por exemplo:
-   ```
-   Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName "contoso.com" -DistinguishedName "CN=TestUserCN=Users,DC=contoso,DC=com"
-   ```
+4. Navegue até a página **Tarefas Adicionais**, selecione **Solucionar problemas** e clique em **Avançar**.
 
-### <a name="understand-the-results-of-the-cmdlet"></a>Entenda os resultados do cmdlet
-O cmdlet de diagnóstico executa as seguintes verificações:
+5. Na página de solução de problemas, clique em **Iniciar** para iniciar o menu de solução de problemas no PowerShell.
+
+6. No menu principal, selecione **Solucionar Problemas de Sincronização de Senha**.
+
+7. No submenu, selecione **A senha não está sincronizada para uma conta de usuário específica**.
+
+### <a name="understand-the-results-of-the-troubleshooting-task"></a>Entender os resultados da tarefa de solução de problemas
+A tarefa de solução de problemas executa as seguintes verificações:
 
 * Examina o estado do objeto do Active Directory no espaço do Active Directory Connector, no metaverso e no espaço do conector do Azure AD.
 
@@ -153,6 +171,52 @@ Atualmente, o Azure AD Connect não dá suporte à sincronização de senhas tem
 Por padrão, o Azure AD Connect armazena os resultados das tentativas de sincronização de senha por sete dias. Se não houver nenhum resultado disponível para o objeto selecionado do Active Directory, será retornado o seguinte aviso:
 
 ![Saída de diagnóstico de um único objeto – nenhum histórico de sincronização de senha](./media/active-directory-aadconnectsync-troubleshoot-password-synchronization/phssingleobjectnohistory.png)
+
+
+
+## <a name="no-passwords-are-synchronized-troubleshoot-by-using-the-diagnostic-cmdlet"></a>Nenhuma senha é sincronizada: solucionar problemas usando o cmdlet de diagnóstico
+Você pode usar o cmdlet `Invoke-ADSyncDiagnostics` para descobrir por que nenhuma senha é sincronizada.
+
+> [!NOTE]
+> O cmdlet `Invoke-ADSyncDiagnostics` está disponível apenas para o Azure AD Connect versão 1.1.524.0 ou posterior.
+
+### <a name="run-the-diagnostics-cmdlet"></a>Executar o cmdlet de diagnóstico
+Para solucionar problemas em que nenhuma senha é sincronizada:
+
+1. Abra uma nova sessão do Windows PowerShell no servidor do Azure AD Connect com a opção **Executar como administrador**.
+
+2. Execute `Set-ExecutionPolicy RemoteSigned` ou `Set-ExecutionPolicy Unrestricted`.
+
+3. Execute `Import-Module ADSyncDiagnostics`.
+
+4. Execute `Invoke-ADSyncDiagnostics -PasswordSync`.
+
+
+
+## <a name="one-object-is-not-synchronizing-passwords-troubleshoot-by-using-the-diagnostic-cmdlet"></a>Um objeto não está sincronizando senhas: solucionar problemas usando o cmdlet de diagnóstico
+Você pode usar o cmdlet `Invoke-ADSyncDiagnostics` para determinar por que um objeto não está sincronizando senhas.
+
+> [!NOTE]
+> O cmdlet `Invoke-ADSyncDiagnostics` está disponível apenas para o Azure AD Connect versão 1.1.524.0 ou posterior.
+
+### <a name="run-the-diagnostics-cmdlet"></a>Executar o cmdlet de diagnóstico
+Para solucionar problemas em que nenhuma senha esteja sincronizada para um usuário:
+
+1. Abra uma nova sessão do Windows PowerShell no servidor do Azure AD Connect com a opção **Executar como administrador**.
+
+2. Execute `Set-ExecutionPolicy RemoteSigned` ou `Set-ExecutionPolicy Unrestricted`.
+
+3. Execute `Import-Module ADSyncDiagnostics`.
+
+4. Execute o cmdlet a seguir:
+   ```
+   Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName <Name-of-AD-Connector> -DistinguishedName <DistinguishedName-of-AD-object>
+   ```
+   Por exemplo:
+   ```
+   Invoke-ADSyncDiagnostics -PasswordSync -ADConnectorName "contoso.com" -DistinguishedName "CN=TestUserCN=Users,DC=contoso,DC=com"
+   ```
+
 
 
 ## <a name="no-passwords-are-synchronized-manual-troubleshooting-steps"></a>Nenhuma senha é sincronizada: etapas manuais de solução de problemas

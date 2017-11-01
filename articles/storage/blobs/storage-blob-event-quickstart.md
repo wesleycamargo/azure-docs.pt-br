@@ -8,18 +8,15 @@ ms.author: cbrooks
 ms.date: 08/18/2017
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: 1a489f199bcc955fd14e82d16670d854305b00c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f364d7b25a75012f33a282111c9624d51b65b42f
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="route-blob-storage-events-to-a-custom-web-endpoint-preview"></a>Encaminhar eventos de Armazenamento de Blobs para um ponto de extremidade da Web personalizado (versão prévia)
 
 A Grade de Eventos do Azure é um serviço de eventos para a nuvem. Neste artigo, você usa a CLI do Azure para assinar eventos de Armazenamento de Blobs e acionar o evento a fim de exibir o resultado. 
-
-> [!IMPORTANT]
-> Você deve estar registrado na versão prévia de eventos do Armazenamento de Blobs para concluir este tutorial.  Saiba mais sobre o programa de versão prévia [aqui](storage-blob-event-overview.md#join-the-preview).
 
 Normalmente, você envia eventos para um ponto de extremidade que responde ao evento, como um webhook ou uma Função do Azure. Para simplificar o exemplo mostrado neste artigo, enviamos os eventos para uma URL que apenas coleta as mensagens. Você cria essa URL usando uma ferramenta de terceiros de software livre chamada [RequestBin](https://requestb.in/).
 
@@ -55,7 +52,7 @@ Para usar o Armazenamento do Azure, você precisa de uma conta de armazenamento.
 Uma conta de Armazenamento de Blobs é uma conta de armazenamento especializada para armazenar dados não estruturados como blobs (objetos) no Armazenamento do Azure. As contas de armazenamento de Blobs são semelhantes a contas de armazenamento de finalidade geral existentes e compartilham todos os excelentes recursos de durabilidade, disponibilidade, escalabilidade e desempenho que você usa atualmente, incluindo 100% de consistência de API para blobs de bloco e blobs de acréscimo. Para aplicativos que exigem apenas o armazenamento de blobs em bloco ou acréscimo, recomendamos o uso de contas de Armazenamento de Blobs.
 
 > [!NOTE]
-> Para a versão prévia, os eventos de Armazenamento de Blobs estão disponíveis apenas para contas de armazenamento com localização **westcentralus**.
+> No momento, a Grade de Eventos está em versão prévia e disponível apenas para contas de armazenamento nas regiões **westcentralus** e **westus2**.
 
 Substitua `<storage_account_name>` por um nome exclusivo para sua conta de armazenamento e `<resource_group_name>` pelo grupo de recursos criado anteriormente.
 

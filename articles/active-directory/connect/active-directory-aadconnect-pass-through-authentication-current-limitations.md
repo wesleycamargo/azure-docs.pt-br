@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 10/19/2017
 ms.author: billmath
-ms.openlocfilehash: 86c6459ae26a45cb3118cf53ce17ac3234551f4d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 42a6d7156a28aaeadea96f9134b0becc004816ba
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Autenticação de passagem do Azure Active Directory: limitações atuais
 
@@ -30,7 +30,7 @@ ms.lasthandoff: 10/11/2017
 Os cenários a seguir têm suporte total:
 
 - Entradas de usuário em todos os aplicativos baseados em navegador da Web.
-- Entradas de usuário em aplicativos cliente Office 365 com suporte para [autenticação moderna](https://aka.ms/modernauthga).
+- Entradas de usuário em aplicativos cliente Office 365 com suporte para [autenticação moderna](https://aka.ms/modernauthga) – Office 2016 e Office 2013 _com_ autenticação moderna.
 - Ingresso do Azure AD para dispositivos Windows 10.
 - Suporte ao Exchange ActiveSync.
 
@@ -38,14 +38,15 @@ Os cenários a seguir têm suporte total:
 
 Os cenários a seguir _não_ têm suporte:
 
-- Entradas do usuário em aplicativos de cliente herdados do Office (Office 2013 ou anterior). As organizações são incentivadas a mudar para autenticação moderna se possível. A autenticação moderna permite o suporte à Autenticação de Passagem, mas também ajuda a proteger suas contas de usuário usando recursos de [acesso condicional](../active-directory-conditional-access.md) como a MFA (Autenticação Multifator).
+- Entradas do usuário em aplicativos de cliente do Office herdados – Office 2010 e Office 2013 _sem_ autenticação moderna). As organizações são incentivadas a mudar para autenticação moderna se possível. A autenticação moderna permite o suporte à Autenticação de Passagem, mas também ajuda a proteger suas contas de usuário usando recursos de [acesso condicional](../active-directory-conditional-access.md) como a MFA (Autenticação Multifator).
 - O usuário entra em aplicativos cliente do Skype for Business, incluindo o Skype for Business 2016.
 - Logons de usuário no PowerShell v1.0. É recomendável usar o PowerShell v2.0.
+- Azure AD Domain Services.
 - Senhas de aplicativo para MFA.
 - Detecção de usuários com [credenciais vazadas](../active-directory-reporting-risk-events.md#leaked-credentials).
 
 >[!IMPORTANT]
->Como alternativa para cenários sem suporte, habilite a sincronização de hash de senha na página [Recursos opcionais](active-directory-aadconnect-get-started-custom.md#optional-features) do assistente do Azure AD Connect. A sincronização de hash de senha age como um fallback _somente_ para os cenários anteriores (e _não_ como um fallback genérico para autenticação de passagem). Habilitar a Sincronização de Hash de Senha também oferece a opção de fazer failover da autenticação (por meio do Suporte da Microsoft) se sua infraestrutura local sofrer uma interrupção.
+>Como alternativa para cenários sem suporte _apenas_, habilite a sincronização de hash de senha na página [Recursos opcionais](active-directory-aadconnect-get-started-custom.md#optional-features) do assistente do Azure AD Connect. Habilitar a Sincronização de Hash de Senha também oferece a opção de fazer failover da autenticação se sua infraestrutura local sofrer uma interrupção completa. Esse failover de Autenticação de Passagem para Sincronização de Hash de Senha não é automático, mas foi feito com a Ajuda do Suporte da Microsoft.
 
 ## <a name="next-steps"></a>Próximas etapas
 - [**Início rápido**](active-directory-aadconnect-pass-through-authentication-quick-start.md) – instale e execute a autenticação de passagem do Azure AD.

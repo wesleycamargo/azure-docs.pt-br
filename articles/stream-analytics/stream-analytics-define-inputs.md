@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 07/05/2017
 ms.author: samacha
-ms.openlocfilehash: f5a605e0b0809c27feedc98390175fd383a371eb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 652137cf7a41f8d90a56aebe9f82fd37d5e4683d
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>Conexão de dados: saiba mais sobre entradas de fluxo de dados de eventos para o Stream Analytics
 A conexão de dados para um trabalho do Stream Analytics é um fluxo de eventos de uma fonte de dados, que é conhecido como a *entrada* de um trabalho. O Stream Analytics tem integração de primeira classe com fontes de fluxo de dados do Azure, incluindo [Hubs de Eventos do Azure](https://azure.microsoft.com/services/event-hubs/), [Hub IoT do Azure](https://azure.microsoft.com/services/iot-hub/) e [Armazenamento de Blobs do Azure](https://azure.microsoft.com/services/storage/blobs/). Essas fontes de entrada podem ser da mesma assinatura do Azure que o trabalho de análise ou de uma assinatura diferente.
@@ -37,7 +37,7 @@ Para saber como criar entradas de dados de referência, veja [Usar dados de refe
 
 ## <a name="compression"></a>Compactação
 
-O Azure Stream Analytics em breve implantará um recurso de compactação em todas as fontes de entrada de fluxo de dados (armazenamento de blobs, Hub IoT e Hubs de Eventos). Este recurso adiciona uma nova opção de lista suspensa à folha **Nova entrada** no Portal do Azure, permitindo que você opte por compactar os fluxos de dados. Os tipos de compactação com suporte no momento são Nenhuma, GZip e Deflate. 
+O Azure Stream Analytics dá suporte à compactação em todas as fontes de entrada de fluxo de dados (Armazenamento de blobs, Hub IoT e Hubs de Eventos). Este recurso adiciona uma nova opção de lista suspensa à folha **Nova entrada** no Portal do Azure, permitindo que você opte por compactar os fluxos de dados. Os tipos de compactação com suporte no momento são Nenhuma, GZip e Deflate. 
 
 A compactação não tem suporte em combinação com a serialização Avro e não é aplicável a dados de referência. 
 
@@ -81,6 +81,10 @@ SELECT
     PartitionId
 FROM Input
 ````
+
+> [!NOTE]
+> Ao usar o Hub de Eventos como um ponto de extremidade das Rotas do Hub IoT, é possível acessar os metadados do Hub IoT usando a [função GetMetadataPropertyValue](https://msdn.microsoft.com/en-us/library/azure/mt793845.aspx).
+> 
 
 ## <a name="create-data-stream-input-from-iot-hub"></a>Criar entrada de fluxo de dados do Hub IoT
 O Hub IoT do Azure é um ingestor de eventos altamente escalonável de publicação/assinatura e otimizado para cenários de IoT.

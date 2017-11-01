@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: d8ac076334a7ed9476b4830596d6ea54c29c0e3c
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: d626f71aa21cea562ef6c9554c05e6de027e7f4d
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="planning-for-an-azure-file-sync-preview-deployment"></a>Planejando uma implantação de Sincronização de Arquivo do Azure (versão prévia)
 A Sincronização de Arquivos do Azure (versão prévia) permite que você centralize os compartilhamentos de arquivos da sua organização em Arquivos do Azure sem abrir mão da flexibilidade, do desempenho e da compatibilidade de um servidor de arquivos local. Ele faz isso transformando Windows Servers em um cache rápido do seu compartilhamento de Arquivos do Azure. Você pode usar qualquer protocolo disponível no Windows Server para acessar seus dados localmente (incluindo SMB, NFS e FTPS) e pode ter todos os caches de que precisar ao redor do mundo.
@@ -45,11 +45,14 @@ O agente de Sincronização de Arquivo do Azure é um pacote baixável que permi
     - C:\Arquivos de Programas\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll
     - C:\Arquivos de Programas\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll
 
+### <a name="server-endpoint"></a>Ponto de extremidade do servidor
+Um ponto de extremidade do servidor representa uma localização específica em um servidor registrado, como uma pasta em um volume do servidor ou a raiz do volume. Pode haver vários pontos de extremidade do servidor no mesmo volume se seus namespaces não forem sobrepostos (por exemplo, F:\sync1 e F:\sync2). Você pode configurar políticas de disposição em camadas de nuvem individualmente para cada ponto de extremidade do servidor. Se você adicionar uma localização de servidor com um conjunto existente de arquivos como um ponto de extremidade de servidor a um Grupo de Sincronização, esses arquivos serão mesclados com quaisquer outros arquivos que já estiverem em outros pontos de extremidade no Grupo de Sincronização.
+
 ### <a name="cloud-endpoint"></a>Ponto de extremidade de nuvem
 Um ponto de extremidade de nuvem é um compartilhamento de Arquivo do Azure que faz parte de um Grupo de Sincronização. Todas as sincronizações de compartilhamento de Arquivo do Azure e um Arquivo do Azure podem ser um membro apenas de um ponto de extremidade de nuvem e, portanto, um Grupo de Sincronização. Se você adicionar um Compartilhamento de Arquivo do Azure com um conjunto existente de arquivos como um ponto de extremidade de nuvem a um Grupo de Sincronização, esses arquivos serão mesclados com quaisquer outros arquivos que já estiverem em outros pontos de extremidade no Grupo de Sincronização.
 
-### <a name="server-endpoint"></a>Ponto de extremidade do servidor
-Um ponto de extremidade do servidor representa uma localização específica em um servidor registrado, como uma pasta em um volume do servidor ou a raiz do volume. Pode haver vários pontos de extremidade do servidor no mesmo volume se seus namespaces não forem sobrepostos (por exemplo, F:\sync1 e F:\sync2). Você pode configurar políticas de disposição em camadas de nuvem individualmente para cada ponto de extremidade do servidor. Se você adicionar uma localização de servidor com um conjunto existente de arquivos como um ponto de extremidade de servidor a um Grupo de Sincronização, esses arquivos serão mesclados com quaisquer outros arquivos que já estiverem em outros pontos de extremidade no Grupo de Sincronização.
+> [!Important]  
+> A Sincronização de Arquivos do Azure dá suporte a alterações diretamente no compartilhamento de Arquivos do Azure, no entanto, observe que as alterações feitas no compartilhamento de Arquivos do Azure devem primeiro ser descobertas por um trabalho de detecção de alteração de sincronização de Arquivos do Azure, que é iniciado apenas para um Ponto de extremidade de nuvem uma vez a cada 24 horas. Consulte as [Perguntas frequentes do Azure](storage-files-faq.md#afs-change-detection) para obter mais informações.
 
 ### <a name="cloud-tiering"></a>Disposição em camadas de nuvem 
 A disposição em camadas de nuvem é um recurso opcional da Sincronização de Arquivo do Azure, que permite que os arquivos pouco usados ou acessados sejam dispostos em camadas nos Arquivos do Azure. Quando um arquivo está disposto em camadas, o filtro do sistema de arquivos da Sincronização de Arquivo do Azure (StorageSync.sys) substitui o arquivo localmente por um ponteiro ou ponto de nova análise, representando uma URL para o arquivo nos Arquivos do Azure. Um arquivo em camadas tem o atributo "offline" definido em NTFS, de forma que os aplicativos de terceiros podem identificar arquivos em camadas. Quando um usuário abre um arquivo em camadas, a Sincronização de Arquivo do Azure diretamente recupera os dados de arquivo dos Arquivos do Azure sem o usuário precisar saber que o arquivo não está armazenado localmente no sistema. Essa funcionalidade também é conhecida como HSM (Gerenciamento de Armazenamento Hierárquico).

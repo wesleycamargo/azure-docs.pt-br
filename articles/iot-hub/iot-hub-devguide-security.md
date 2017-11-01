@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2017
+ms.date: 10/19/2017
 ms.author: dobett
-ms.openlocfilehash: 91b2e72b9cc5f7b52dde09fb837cbc994d52a26c
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: a038a46c98af5b434456e1bb979fc6cd8e009d76
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="control-access-to-iot-hub"></a>Controlar o acesso ao Hub IoT
 
@@ -31,8 +31,6 @@ Este artigo descreve:
 * Como analisar credenciais para limitar o acesso a recursos específicos.
 * Suporte de Hub IoT para certificados X.509.
 * Mecanismos de autenticação de dispositivo personalizados que usam registros de identidade de dispositivo existente ou esquemas de autenticação.
-
-### <a name="when-to-use"></a>Quando usar
 
 Você deve ter permissões adequadas para acessar qualquer um dos pontos de extremidade de Hub IoT. Por exemplo, um dispositivo deve incluir um token contendo as credenciais de segurança juntamente com todas as mensagens que ele envia para o Hub IoT.
 
@@ -193,6 +191,39 @@ def generate_sas_token(uri, key, policy_name, expiry=3600):
     return 'SharedAccessSignature ' + urlencode(rawtoken)
 ```
 
+A funcionalidade em C# para gerar um token de segurança é:
+
+```C#
+using System;
+using System.Globalization;
+using System.Net;
+using System.Net.Http;
+using System.Security.Cryptography;
+using System.Text;
+
+public static string generateSasToken(string resourceUri, string key, string policyName, int expiryInSeconds = 3600)
+{
+    TimeSpan fromEpochStart = DateTime.UtcNow - new DateTime(1970, 1, 1);
+    string expiry = Convert.ToString((int)fromEpochStart.TotalSeconds + expiryInSeconds);
+
+    string stringToSign = WebUtility.UrlEncode(resourceUri).ToLower() + "\n" + expiry;
+
+    HMACSHA256 hmac = new HMACSHA256(Convert.FromBase64String(key));
+    string signature = Convert.ToBase64String(hmac.ComputeHash(Encoding.UTF8.GetBytes(stringToSign)));
+
+    string token = String.Format(CultureInfo.InvariantCulture, "SharedAccessSignature sr={0}&sig={1}&se={2}", WebUtility.UrlEncode(resourceUri).ToLower(), WebUtility.UrlEncode(signature), expiry);
+
+    if (!String.IsNullOrEmpty(policyName))
+    {
+        token += "&skn=" + policyName;
+    }
+
+    return token;
+}
+
+```
+
+
 > [!NOTE]
 > Como o prazo de validade do token é validado em computadores do Hub IoT, o descompasso no relógio do computador que gera o token deve ser mínimo.
 
@@ -210,7 +241,7 @@ Os pontos de extremidade voltados para o dispositivo são (independentemente do 
 | Ponto de extremidade | Funcionalidade |
 | --- | --- |
 | `{iot hub host name}/devices/{deviceId}/messages/events` |Enviar mensagens do dispositivo para a nuvem. |
-| `{iot hub host name}/devices/{deviceId}/devicebound` |Receber mensagens da nuvem para o dispositivo. |
+| `{iot hub host name}/devices/{deviceId}/messages/devicebound` |Receber mensagens da nuvem para o dispositivo. |
 
 ### <a name="use-a-symmetric-key-in-the-identity-registry"></a>Usar uma chave simétrica no registro de identidade
 
@@ -383,7 +414,7 @@ Para que um dispositivo se conecte ao seu hub, você ainda deve adicioná-lo ao 
 
 ### <a name="comparison-with-a-custom-gateway"></a>Comparação com um gateway personalizado
 
-O padrão de serviço do token é a maneira recomendada de implementar um esquema personalizado de registro/autenticação de identidade com o Hub IoT. Esse padrão é recomendado porque o Hub IoT continua tratando a maior parte do tráfego da solução. No entanto, se o esquema de autenticação personalizado estiver entremeado com o protocolo, você poderá exigir um *gateway personalizado* para processar todo o tráfego. Um exemplo de tal cenário é usar [TLS (Transport Layer Security) e as PSKs (chaves pré-compartilhadas)][lnk-tls-psk]. Para saber mais, confira o tópico [Gateway do protocolo][lnk-protocols].
+O padrão de serviço do token é a maneira recomendada de implementar um esquema personalizado de registro/autenticação de identidade com o Hub IoT. Esse padrão é recomendado porque o Hub IoT continua tratando a maior parte do tráfego da solução. No entanto, se o esquema de autenticação personalizado estiver entremeado com o protocolo, você poderá exigir um *gateway personalizado* para processar todo o tráfego. Um exemplo de tal cenário é usar [TLS (Transport Layer Security) e as PSKs (chaves pré-compartilhadas)][lnk-tls-psk]. Para saber mais, confira o artigo sobre [gateway do protocolo][lnk-protocols].
 
 ## <a name="reference-topics"></a>Tópicos de referência:
 
@@ -418,7 +449,7 @@ Agora que você aprendeu como controlar o acesso ao Hub IoT, pode ser interessan
 * [Invocar um método direto em um dispositivo][lnk-devguide-directmethods]
 * [Agendar trabalhos em vários dispositivos][lnk-devguide-jobs]
 
-Se você quiser experimentar alguns dos conceitos descritos neste artigo, talvez se interesse pelos seguintes tutoriais de Hub IoT:
+Se você quiser experimentar alguns dos conceitos descritos neste artigo, consulte os seguintes tutoriais de Hub IoT:
 
 * [Introdução ao Hub IoT do Azure][lnk-getstarted-tutorial]
 * [Como enviar mensagens da nuvem para o dispositivo com o Hub IoT][lnk-c2d-tutorial]

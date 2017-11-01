@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/02/2017
 ms.author: vturecek
-ms.openlocfilehash: ca36f42897cd44d6da1a3cb6db53f656cf6256ee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 98e75e11b54aea677b8ca1b6f303a48190c6fce8
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="service-fabric-programming-model-overview"></a>Visão geral do modelo de programação do Service Fabric
 O Service Fabric oferece várias maneiras de escrever e gerenciar seus serviços. Os serviços podem escolher usar as APIs do Service Fabric para se beneficiarem dos recursos e estruturas de aplicativo da plataforma. Os serviços também podem ser um programa executável compilado, escrito em qualquer linguagem ou código executado em um contêiner simplesmente hospedado em um cluster do Service Fabric.
@@ -59,7 +59,7 @@ O Service Fabric integra-se com [ASP.NET Core](service-fabric-reliable-services-
 
 [Visão geral dos Reliable Services](service-fabric-reliable-services-introduction.md)
 
-[Visão geral dos Reliable Services](service-fabric-reliable-actors-introduction.md)
+[Visão geral dos Reliable Actors](service-fabric-reliable-actors-introduction.md)
 
 [Service Fabric e ASP.NET Core ](service-fabric-reliable-services-communication-aspnetcore.md)
 

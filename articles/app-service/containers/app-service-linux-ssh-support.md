@@ -1,11 +1,11 @@
 ---
-title: "Suporte de SSH para o Aplicativo Web do Serviço de Aplicativo do Azure para Contêineres | Microsoft Docs"
-description: "Saiba como usar SSH com o Web para Contêineres do Azure."
+title: "Suporte de SSH para o Serviço de Aplicativo do Azure no Linux | Microsoft Docs"
+description: "Saiba como usar SSH com o Serviço de Aplicativo do Azure no Linux."
 keywords: "serviço de aplicativo do azure, aplicativo web, linux, oss"
 services: app-service
 documentationcenter: 
 author: wesmc7777
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 66f9988f-8ffa-414a-9137-3a9b15a5573c
 ms.service: app-service
@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: wesmc
-ms.openlocfilehash: 7ce9b23e8925d4c79827c7c4e8bec63067ce33e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7e6bb974565810ebb8d8e21d1c274d42d6d39e55
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="ssh-support-for-azure-web-app-for-containers"></a>Suporte de SSH para o Aplicativo Web para Contêineres do Azure
+# <a name="ssh-support-for-azure-app-service-on-linux"></a>Suporte de SSH para o Serviço de Aplicativo do Azure no Linux
 
 O [SSH (Secure Shell)](https://en.wikipedia.org/wiki/Secure_Shell) é um protocolo de rede criptográfico para usar serviços de rede de forma segura. Ele é usado com maior frequência para fazer logon em um sistema remotamente com segurança em uma linha de comando, bem como para executar comandos administrativos remotamente.
 
-O Aplicativo Web para Contêineres oferece suporte de SSH no contêiner de aplicativo com cada uma das imagens internas do Docker usadas para a Pilha em Tempo de Execução de novos aplicativos Web. 
+O Serviço de Aplicativo no Linux fornece suporte de SSH no contêiner de aplicativo com cada uma das imagens internas do Docker usadas para a Pilha em Tempo de Execução de novos aplicativos Web.
 
 ![Pilhas de tempo de execução](./media/app-service-linux-ssh-support/app-service-linux-runtime-stack.png)
 
@@ -45,18 +45,17 @@ Se ainda não estiver autenticado, você precisará se autenticar usando sua ass
 
 ![Conexão SSH](./media/app-service-linux-ssh-support/app-service-linux-ssh-connection.png)
 
-
 ## <a name="ssh-support-with-custom-docker-images"></a>Suporte de SSH com imagens personalizadas do Docker
 
 Para que uma imagem personalizada do Docker dê suporte à comunicação SSH entre o contêiner e o cliente no portal do Azure, execute as seguintes etapas para a imagem do Docker.
 
-Essas etapas são mostradas no repositório do Serviço de Aplicativo do Azure como exemplo [aqui](https://github.com/Azure-App-Service/node/blob/master/6.9.3/).
+Essas etapas são mostradas no repositório do Serviço de Aplicativo do Azure como [um exemplo](https://github.com/Azure-App-Service/node/blob/master/6.9.3/).
 
-1. Inclua a instalação `openssh-server` na [instrução `RUN`](https://docs.docker.com/engine/reference/builder/#run) no Dockerfile para sua imagem e defina a senha da conta raiz como `"Docker!"`. 
+1. Inclua a instalação `openssh-server` na [instrução `RUN`](https://docs.docker.com/engine/reference/builder/#run) no Dockerfile para sua imagem e defina a senha da conta raiz como `"Docker!"`.
 
     > [!NOTE]
     > Essa configuração não permite conexões externas com o contêiner. O SSH só pode ser acessado por meio do site do Kudu/SCM, que é autenticado usando as credenciais de publicação.
-    
+
     ```docker
     # ------------------------
     # SSH Server support
@@ -66,13 +65,13 @@ Essas etapas são mostradas no repositório do Serviço de Aplicativo do Azure c
         && echo "root:Docker!" | chpasswd
     ```
 
-1. Adicione uma [instrução `COPY`](https://docs.docker.com/engine/reference/builder/#copy) ao Dockerfile para copiar um arquivo [sshd_config](http://man.openbsd.org/sshd_config) para o diretório */etc/ssh/*. Seu arquivo de configuração deve ser baseado em nosso arquivo sshd_config no repositório Azure-App-Service do GitHub [aqui](https://github.com/Azure-App-Service/node/blob/master/6.11.0/sshd_config).
+1. Adicione uma [instrução `COPY`](https://docs.docker.com/engine/reference/builder/#copy) ao Dockerfile para copiar um arquivo [sshd_config](http://man.openbsd.org/sshd_config) para o diretório */etc/ssh/*. Seu arquivo de configuração deve ser baseado em nosso arquivo sshd_config no repositório Azure-App-Service do GitHub [aqui](https://github.com/Azure-App-Service/node/blob/master/8.2.1/sshd_config).
 
     > [!NOTE]
     > O arquivo *sshd_config* deve incluir o seguinte ou a conexão falhará: 
     > * `Ciphers` deve incluir pelo menos um dos itens a seguir: `aes128-cbc,3des-cbc,aes256-cbc`.
     > * `MACs` deve incluir pelo menos um dos itens a seguir: `hmac-sha1,hmac-sha1-96`.
-    
+
     ```docker
     COPY sshd_config /etc/ssh/
     ```
@@ -83,7 +82,7 @@ Essas etapas são mostradas no repositório do Serviço de Aplicativo do Azure c
     EXPOSE 2222 80
     ```
 
-1. Certifique-se de iniciar o serviço SSH. Este exemplo [aqui](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh) usa um script shell no diretório */bin*.
+1. Certifique-se de [iniciar o serviço ssh](https://github.com/Azure-App-Service/node/blob/master/6.9.3/startup/init_container.sh) usando um script de Shell no diretório */bin*.
 
     ```bash
     #!/bin/bash
@@ -104,7 +103,7 @@ O Dockerfile usa a [instrução `CMD`](https://docs.docker.com/engine/reference/
 
 Consulte os links a seguir para obter mais informações sobre o Aplicativo Web para Contêineres. Você pode postar perguntas e problemas no [nosso fórum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
-* [Como usar uma imagem personalizada do Docker para o Aplicativo Web para Contêineres do Azure](quickstart-custom-docker-image.md)
-* [Usando o .NET Core no aplicativo Web para Contêineres do Azure](quickstart-dotnetcore.md)
-* [Usando o Ruby no aplicativo Web para Contêineres do Azure](quickstart-ruby.md)
+* [Como usar uma imagem personalizada do Docker para o Aplicativo Web para Contêineres](quickstart-custom-docker-image.md)
+* [Usando o .NET Core no Serviço de Aplicativo do Azure no Linux](quickstart-dotnetcore.md)
+* [Usando o Ruby no Serviço de Aplicativo do Azure no Linux](quickstart-ruby.md)
 * [Perguntas frequentes sobre o Aplicativo Web para Contêineres do Serviço de Aplicativo do Azure](app-service-linux-faq.md)

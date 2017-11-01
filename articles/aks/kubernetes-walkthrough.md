@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 6f754cd8874cc8cfc7ab004bf93b7ae018b1d66c
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: ac6afa9d2e5a838623754fbcb7d5cf68f7a9ad95
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Implantar um cluster do AKS (Serviço de Contêiner do Azure)
 
@@ -34,6 +34,15 @@ Este início rápido pressupõe uma compreensão básica dos conceitos de Kubern
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Se você optar por instalar e usar a CLI localmente, este guia de início rápido exigirá a execução da CLI do Azure versão 2.0.20 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+
+## <a name="enabling-aks-preview-for-your-azure-subscription"></a>Habilitando a versão prévia do AKS para sua assinatura do Azure
+Enquanto o AKS está na versão prévia, a criação de novos clusters requer um sinalizador de recurso em sua assinatura. Você pode solicitar esse recurso para qualquer número de assinaturas que deseje usar. Use o comando `az provider register` para registrar o provedor do AKS:
+
+```azurecli-interactive
+az provider register -n Microsoft.ContainerService
+```
+
+Após o registro, você estará pronto para criar um cluster do Kubernetes com o AKS.
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
@@ -50,7 +59,7 @@ Saída:
 ```json
 {
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup",
-  "location": "westeurope",
+  "location": "westus2",
   "managedBy": null,
   "name": "myResourceGroup",
   "properties": {
@@ -62,7 +71,7 @@ Saída:
 
 ## <a name="create-aks-cluster"></a>Criar cluster AKS
 
-O exemplo a seguir cria um cluster denominado *myK8sCluster* com três nós.
+O exemplo a seguir cria um cluster chamado *myK8sCluster* com um nó.
 
 ```azurecli-interactive
 az aks create --resource-group myResourceGroup --name myK8sCluster --agent-count 1 --generate-ssh-keys

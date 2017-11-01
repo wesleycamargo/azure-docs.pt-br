@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 09/19/2017
+ms.date: 10/11/2017
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: aca9f0b3320f298987cf39172fd4b043326a2f4b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a42f3b51bf6d888d0d5602887ed317c6164391ef
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="assign-access-to-cost-management-data"></a>Atribuir acesso aos dados de gerenciamento de custos
 
@@ -49,6 +49,8 @@ Usuários típicos que precisam de acesso aos dados de gerenciamento de custos, 
 
 ![adicionar novo usuário com acesso de usuário](.\media\tutorial-user-access\new-user-access.png)
 
+Para assistir a um vídeo de tutorial sobre como adicionar usuários, consulte [Como adicionara usuários ao Gerenciamento de Custos do Azure por Cloudyn](https://youtu.be/Nzn7GLahx30).
+
 ## <a name="create-entities"></a>Criar entidades
 
 Ao definir a hierarquia de entidades de custo, uma prática recomendada é identificar a estrutura da organização.
@@ -67,6 +69,10 @@ Ao lado de **Entidades**, clique em **Adicionar Entidade**. Insira informações
 
 Quando terminar, **Salve** a entidade.
 
+
+Para assistir a um vídeo de tutorial sobre como criar uma hierarquia de entidade de custo, consulte [Como criar uma hierarquia de entidade de custo no Gerenciamento de Custo do Azure por Cloudyn](https://youtu.be/dAd9G7u0FmU).
+
+Se você for um usuário do Contrato Enterprise do Azure, assista a um vídeo tutorial sobre como associar contas e assinaturas a entidades em [Como conectar-se ao Azure Resource Manager com o Gerenciamento de Custos do Azure por Cloudyn](https://youtu.be/oCIwvfBB6kk).
 
 ## <a name="next-steps"></a>Próximas etapas
 

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: json
 ms.topic: article
-ms.date: 06/01/2017
+ms.date: 10/16/2017
 ms.author: richrund
-ms.openlocfilehash: 37ecfe2762bd239a0abf6015ef6ffd6a5132bb7a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f522a672d1691990bec3e63a41b2ed7e81058ad
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Gerenciar Log Analytics usando modelos do Azure Resource Manager
 Você pode usar os [modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) para criar e configurar espaços de trabalho do Log Analytics. Os exemplos das tarefas que você pode executar com os modelos incluem:
@@ -37,7 +37,18 @@ Você pode usar os [modelos do Azure Resource Manager](../azure-resource-manager
 
 Este artigo fornece exemplos de código que ilustram algumas das configurações que podem ser executadas com os modelos.
 
-## <a name="create-and-configure-a-log-analytics-workspace"></a>Criar e configurar um espaço de trabalho de Log Analytics
+## <a name="api-versions"></a>Versões de API
+O exemplo neste artigo é para um [espaço de trabalho atualizado do Log Analytics](log-analytics-log-search-upgrade.md).  Para usar um espaço de trabalho herdado, é necessário alterar a sintaxe das consultas para a linguagem herdada e alterar a versão da API para cada recurso.  A tabela a seguir lista a versão de API para os recursos usados neste exemplo.
+
+| Recurso | Tipo de recurso | Versão de API herdada | Versão de API atualizada |
+|:---|:---|:---|:---|
+| Espaço de trabalho   | espaços de trabalho    | 2015-11-01-preview | 2017-03-15-preview |
+| Pesquisar      | savedSearches | 2015-11-01-preview | 2017-03-15-preview |
+| Fonte de dados | datasources   | 2015-11-01-preview | 2015-11-01-preview |
+| Solução    | solutions     | 2015-11-01-preview | 2015-11-01-preview |
+
+
+## <a name="create-and-configure-a-log-analytics-workspace"></a>Criar e configurar um espaço de trabalho do Log Analytics
 O exemplo de modelo a seguir ilustra como:
 
 1. Criar um espaço de trabalho, incluindo a retenção de dados de configuração
@@ -122,7 +133,7 @@ O exemplo de modelo a seguir ilustra como:
   },
   "resources": [
     {
-      "apiVersion": "2015-11-01-preview",
+      "apiVersion": "2017-03-15-preview",
       "type": "Microsoft.OperationalInsights/workspaces",
       "name": "[parameters('workspaceName')]",
       "location": "[parameters('location')]",
@@ -134,7 +145,7 @@ O exemplo de modelo a seguir ilustra como:
       },
       "resources": [
         {
-          "apiVersion": "2015-11-01-preview",
+          "apiVersion": "2017-03-15-preview",
           "name": "VMSS Queries2",
           "type": "savedSearches",
           "dependsOn": [
@@ -144,7 +155,7 @@ O exemplo de modelo a seguir ilustra como:
             "Category": "VMSS",
             "ETag": "*",
             "DisplayName": "VMSS Instance Count",
-            "Query": "Type:Event Source=ServiceFabricNodeBootstrapAgent | dedup Computer | measure count () by Computer",
+            "Query": "Event | where Source == "ServiceFabricNodeBootstrapAgent" | summarize AggregatedValue = count() by Computer",
             "Version": 1
           }
         },

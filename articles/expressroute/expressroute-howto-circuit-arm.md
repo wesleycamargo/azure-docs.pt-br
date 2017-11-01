@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/12/2017
+ms.date: 10/18/2017
 ms.author: ganesr;cherylmc
-ms.openlocfilehash: 8bfae39d84aaac3b9527084df9dcfbd51f591dfe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ef092a48994b68268109cb98bd6cd4526e259d5b
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-powershell"></a>Criar e modificar um circuito do ExpressRoute usando o PowerShell
 > [!div class="op_single_selector"]
@@ -37,7 +37,7 @@ Este artigo descreve como criar um circuito do Azure ExpressRoute usando os cmdl
 * Examine os [pré-requisitos](expressroute-prerequisites.md) e os [fluxos de trabalho](expressroute-workflows.md) antes de começar a configuração.
 
 
-## <a name="create-and-provision-an-expressroute-circuit"></a>Criar e provisionar um circuito do ExpressRoute
+## <a name="create"></a>Criar e provisionar um circuito do ExpressRoute
 ### <a name="1-sign-in-to-your-azure-account-and-select-your-subscription"></a>1. Entre na sua conta do Azure e selecione sua assinatura
 Para iniciar sua configuração, entrar na sua conta do Azure. Use o exemplo a seguir para ajudar a conectar:
 
@@ -66,7 +66,7 @@ O cmdlet do PowerShell **Get-AzureRmExpressRouteServiceProvider** retorna essas 
 Get-AzureRmExpressRouteServiceProvider
 ```
 
-Verifique se o provedor de conectividade está listado. Anote as informações a seguir. Você precisará delas mais tarde ao criar um circuito.
+Verifique se o provedor de conectividade está listado. Anote as informações a seguir, pois você precisará delas mais tarde quando criar um circuito:
 
 * Nome
 * PeeringLocations
@@ -82,7 +82,7 @@ New-AzureRmResourceGroup -Name "ExpressRouteResourceGroup" -Location "West US"
 ```
 
 
-O exemplo a seguir mostra como criar um circuito do ExpressRoute de 200 Mbps por meio da Equinix, no Vale do Silício. Se estiver usando um provedor diferente e configurações diferentes, substitua essas informações ao fazer a solicitação. A seguir, um exemplo de solicitação de uma nova chave de serviço:
+O exemplo a seguir mostra como criar um circuito do ExpressRoute de 200 Mbps por meio da Equinix, no Vale do Silício. Se estiver usando um provedor diferente e configurações diferentes, substitua essas informações ao fazer a solicitação. Use o exemplo a seguir para solicitar uma nova chave de serviço:
 
 ```powershell
 New-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup" -Location "West US" -SkuTier Standard -SkuFamily MeteredData -ServiceProviderName "Equinix" -PeeringLocation "Silicon Valley" -BandwidthInMbps 200
@@ -112,7 +112,7 @@ Para obter uma lista de todos os circuitos do ExpressRoute criados, execute o co
 Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
 ```
 
-A resposta será semelhante ao seguinte exemplo:
+A resposta se assemelha à seguinte:
 
     Name                             : ExpressRouteARMCircuit
     ResourceGroupName                : ExpressRouteResourceGroup
@@ -136,14 +136,14 @@ A resposta será semelhante ao seguinte exemplo:
     ServiceKey                        : **************************************
     Peerings                          : []
 
-Você pode recuperar essas informações a qualquer momento usando o cmdlet `Get-AzureRmExpressRouteCircuit` . Fazer a chamada sem parâmetros listará todos os circuitos. Sua chave de serviço estará listada no campo *ServiceKey* :
+Você pode recuperar essas informações a qualquer momento usando o cmdlet `Get-AzureRmExpressRouteCircuit` . Fazer a chamada sem parâmetros listará todos os circuitos. Sua chave de serviço está listada no campo *ServiceKey*:
 
 ```powershell
 Get-AzureRmExpressRouteCircuit
 ```
 
 
-A resposta será semelhante ao seguinte exemplo:
+A resposta se assemelha à seguinte:
 
     Name                             : ExpressRouteARMCircuit
     ResourceGroupName                : ExpressRouteResourceGroup
@@ -175,16 +175,16 @@ get-help Get-AzureRmExpressRouteCircuit -detailed
 ```
 
 ### <a name="5-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>5. Enviar a chave de serviço ao seu provedor de conectividade para obter provisionamento
-*ServiceProviderProvisioningState* fornece informações sobre o estado atual de provisionamento no lado do provedor de serviço. Status fornece o estado no lado da Microsoft. Para saber mais sobre estados de provisionamento do circuito, confira o artigo [Fluxos de trabalho](expressroute-workflows.md#expressroute-circuit-provisioning-states) .
+*ServiceProviderProvisioningState* fornece informações sobre o estado atual de provisionamento no lado do provedor de serviço. Status fornece o estado no lado da Microsoft. Para saber mais sobre os estados de provisionamento do circuito, consulte [Fluxos de trabalho](expressroute-workflows.md#expressroute-circuit-provisioning-states).
 
-Quando você criar um novo circuito do ExpressRoute, ele estará no seguinte estado:
+Quando você cria um novo circuito do ExpressRoute, ele está no seguinte estado:
 
     ServiceProviderProvisioningState : NotProvisioned
     CircuitProvisioningState         : Enabled
 
 
 
-O circuito assumirá o estado a seguir quando o provedor de conectividade estiver no processo de habilitá-lo para você:
+O circuito assumirá o seguinte o estado quando o provedor de conectividade estiver habilitando-o para você:
 
     ServiceProviderProvisioningState : Provisioning
     Status                           : Enabled
@@ -202,7 +202,7 @@ Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName
 ```
 
 
-A resposta será semelhante ao seguinte exemplo:
+A resposta se assemelha à seguinte:
 
     Name                             : ExpressRouteARMCircuit
     ResourceGroupName                : ExpressRouteResourceGroup
@@ -245,7 +245,7 @@ Get-AzureRmExpressRouteCircuit
 ```
 
 
-A resposta será semelhante ao seguinte exemplo:
+A resposta é semelhante ao seguinte exemplo:
 
     Name                             : ExpressRouteARMCircuit
     ResourceGroupName                : ExpressRouteResourceGroup
@@ -277,7 +277,7 @@ Get-AzureRmExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName
 ```
 
 
-A resposta será semelhante ao seguinte exemplo:
+A resposta se assemelha à seguinte:
 
     Name                             : ExpressRouteARMCircuit
     ResourceGroupName                : ExpressRouteResourceGroup
@@ -311,7 +311,7 @@ get-help get-azurededicatedcircuit -detailed
 ## <a name="modify"></a>Modificar um circuito do ExpressRoute
 Você pode modificar certas propriedades de um circuito do ExpressRoute sem afetar a conectividade.
 
-Você pode fazer o seguinte sem tempo de inatividade:
+É possível executar as seguintes tarefas sem tempo de inatividade:
 
 * Como habilitar ou desabilitar o complemento premium do ExpressRoute para seu circuito do ExpressRoute.
 * Aumente a largura de banda do circuito de ExpressRoute, desde que haja capacidade disponível na porta. Não há suporte para o downgrade da largura de banda de um circuito. 
@@ -332,18 +332,18 @@ $ckt.sku.Name = "Premium_MeteredData"
 Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ```
 
-Agora, o circuito terá os recursos de complemento premium do ExpressRoute habilitados. Começaremos a cobrar pela funcionalidade do complemento Premium assim que o comando for executado com êxito.
+Agora, o circuito terá os recursos do complemento ExpressRoute Premium habilitados. Começaremos a cobrar pela funcionalidade do complemento Premium assim que o comando for executado com êxito.
 
 ### <a name="to-disable-the-expressroute-premium-add-on"></a>Para desabilitar o complemento premium do ExpressRoute
 > [!IMPORTANT]
-> Esta operação poderá falhar se você estiver usando recursos que ultrapassem o que é permitido para o circuito padrão.
+> Se usar recursos que ultrapassam o permitido para o circuito padrão, a operação poderá falhar.
 > 
 > 
 
-Observe o seguinte:
+Observe as seguintes informações:
 
-* Antes de fazer o downgrade de premium para standard, verifique se o número de redes virtuais vinculadas ao circuito é menor que 10. Se você não fizer isso, sua solicitação de atualização falhará e cobraremos com tarifas premium.
-* Você precisa desvincular todas as redes virtuais em outras regiões geopolíticas. Se você não fizer isso, sua solicitação de atualização falhará e cobraremos com tarifas premium.
+* Antes de fazer o downgrade de premium para standard, verifique se o número de redes virtuais vinculadas ao circuito é menor que 10. Se você não fizer isso, sua solicitação de atualização falhará e você será cobrado conforme as tarifas premium.
+* Você precisa desvincular todas as redes virtuais em outras regiões geopolíticas. Se você não fizer isso, sua solicitação de atualização falhará e você será cobrado conforme as tarifas premium.
 * Sua tabela de roteamento deve ter menos de 4.000 rotas para o emparelhamento privado. Se o tamanho da tabela de roteamento for maior que 4.000 rotas, a sessão BGP será descartada e não poderá ser reabilitada até que o número de prefixos anunciados fique abaixo de 4.000.
 
 Você pode desabilitar o complemento premium do ExpressRoute para o circuito existente usando o seguinte cmdlet do PowerShell:
@@ -394,12 +394,12 @@ Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 ### <a name="to-control-access-to-the-classic-and-resource-manager-environments"></a>Para controlar o acesso aos ambientes clássico e do Resource Manager
 Confira as instruções em [Mover os circuitos de ExpressRoute do modelo de implantação Clássico para o Resource Manager](expressroute-howto-move-arm.md).  
 
-## <a name="deprovisioning-and-deleting-an-expressroute-circuit"></a>Desprovisionamento e exclusão de um circuito do ExpressRoute
-Observe o seguinte:
+## <a name="delete"></a>Desprovisionamento e exclusão de um circuito do ExpressRoute
+Observe as seguintes informações:
 
 * Você deve desvincular todas as redes virtuais do circuito do ExpressRoute. Se essa operação falhar, verifique se há redes virtuais vinculadas ao circuito.
 * Se o estado de provisionamento do provedor de serviço de circuito de ExpressRoute for **Provisionando** ou **Provisionado**, você deverá trabalhar com seu provedor de serviços para que ele desprovisione o circuito. Continuaremos a reservar recursos e a cobrar de você até que o provedor de serviços complete o desprovisionamento do circuito e nos notifique.
-* Se o provedor de serviços tiver desprovisionado o circuito (o estado de provisionamento do provedor de serviços estiver definido como **Não provisionado**), exclua o circuito. Isso interromperá a cobrança do circuito
+* Se o provedor de serviços tiver desprovisionado o circuito (o estado de provisionamento do provedor de serviços estiver definido como **Não provisionado**), exclua o circuito. Isso interrompe a cobrança pelo circuito.
 
 Você pode excluir o circuito do ExpressRoute executando o comando a seguir:
 
@@ -409,7 +409,7 @@ Remove-AzureRmExpressRouteCircuit -ResourceGroupName "ExpressRouteResourceGroup"
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Depois de criar seu circuito, faça o seguinte:
+Depois de criar o circuito, não deixe de executar as seguintes etapas:
 
 * [Criar e modificar o roteamento do circuito do ExpressRoute](expressroute-howto-routing-arm.md)
 * [Vincular a rede virtual ao circuito do ExpressRoute](expressroute-howto-linkvnet-arm.md)

@@ -1,6 +1,6 @@
 ---
 title: "Análises de recuperação de desastre do Banco de Dados SQL | Microsoft Docs"
-description: "Obtenha orientação e as práticas recomendadas para usar o Banco de dados SQL do Azure para executar as análises de recuperação de desastres para ajudar a manter seus aplicativos comerciais importantes resilientes a falhas e interrupções."
+description: "Aprenda diretrizes e melhores práticas para usar o Banco de Dados SQL do Azure para executar simulações de recuperação de desastre."
 services: sql-database
 documentationcenter: 
 author: anosov1960
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 07/31/2016
 ms.author: sashan
-ms.openlocfilehash: 1b1d65a41a794a566287dcffe3581ac58e2a965f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bbe2b0096424cc120968aad8d60dc0395adc9cb4
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="performing-disaster-recovery-drill"></a>Executar análise de recuperação de desastres
 Recomenda-se a validação periódica da preparação do aplicativo para o fluxo de trabalho de recuperação. Consideramos uma boa prática de engenharia a verificação do comportamento do aplicativo e as implicações de perda de dados e/ou interrupção que envolvem o failover. Isso também é uma exigência da maioria dos padrões do setor, como parte da certificação de continuidade dos negócios.

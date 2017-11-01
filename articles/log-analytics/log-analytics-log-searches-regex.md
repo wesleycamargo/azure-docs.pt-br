@@ -11,15 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2017
+ms.date: 10/11/2017
 ms.author: bwren
-ms.openlocfilehash: 9746170f157ed5065adc953a31687ff18bd73708
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 28b2402cefa38ef3bfca68f2ff70e56b649c72f5
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="using-regular-expressions-to-filter-log-searches-in-log-analytics"></a>Usando expressões regulares para filtrar pesquisas de logs no Log Analytics
+
+>[!NOTE]
+> Este artigo descreve as expressões regulares usando a linguagem de consulta herdada no Log Analytics.  Se você tiver feito o upgrade do seu espaço de trabalho para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), consulte [Expressões regulares na documentação do idioma](https://docs.loganalytics.io/docs/Language-Reference/References/Regular-Expressions-syntax).
+
 
 As [Pesquisas de logs](log-analytics-log-searches.md) permitem extrair informações do repositório do Log Analytics.  As [Expressões de filtro](log-analytics-search-reference.md#filter-expressions) permitem filtrar os resultados da pesquisa de acordo com critérios específicos.  A palavra-chave **RegEx** permite que você especifique uma expressão regular para este filtro.  
 

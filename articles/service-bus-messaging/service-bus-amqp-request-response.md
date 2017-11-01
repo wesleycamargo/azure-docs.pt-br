@@ -12,25 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/27/2017
+ms.date: 10/16/2017
 ms.author: sethm
-ms.openlocfilehash: 756565b3da6e0a818d1ee3d5e17f942d96be14f0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 31f5a11cda1827a0a50fd2be0b7260daedf26e24
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>AMQP 1.0 no Barramento de Serviço do Microsoft Azure: operações baseadas em solicitação-resposta
 
 Este tópico define a lista de operações baseadas em solicitação/resposta do Barramento de Serviço do Microsoft Azure. Estas informações baseiam-se no rascunho funcional do Gerenciamento de AMQP Versão 1.0.  
   
-Para um guia de protocolo AMQP 1.0 detalhado no nível de transmissão, que explica como o Barramento de Serviço implementa e se baseia na especificação técnica AMQP OASIS, confira o [AMQP 1.0 no guia de protocolo do Barramento de Serviço do Azure e dos Hubs de Eventos](service-bus-amqp-protocol-guide.md).  
+Para um guia de protocolo AMQP 1.0 detalhado no nível de transmissão, que explica como o Barramento de Serviço implementa e se baseia na especificação técnica AMQP OASIS, confira o [AMQP 1.0 no guia de protocolo do Barramento de Serviço do Azure e dos Hubs de Eventos][Guia do protocolo AMQP 1.0].  
   
 ## <a name="concepts"></a>Conceitos  
   
 ### <a name="entity-description"></a>Descrição de entidade  
 
-Uma descrição de entidade refere-se a um objeto da [Classe QueueDescription](/dotnet/api/microsoft.servicebus.messaging.queuedescription), [Classe TopicDescription](/dotnet/api/microsoft.servicebus.messaging.topicdescription) ou [Classe SubscriptionDescription](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) do Barramento de Serviço.  
+Uma descrição de entidade refere-se a um objeto da [classe QueueDescription](/dotnet/api/microsoft.servicebus.messaging.queuedescription), [classe TopicDescription](/dotnet/api/microsoft.servicebus.messaging.topicdescription) ou [classe SubscriptionDescription](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription) do Barramento de Serviço.  
   
 ### <a name="brokered-message"></a>Mensagem agenciada  
 
@@ -618,9 +618,9 @@ A mensagem de resposta deve incluir as seguintes propriedades de aplicativo:
 Para saber mais sobre o AMQP e o Barramento de Serviço, visite os seguintes links:
 
 * [Visão geral do Barramento de Serviço para AMQP]
-* [Suporte a AMQP 1.0 para filas e tópicos particionados do Barramento de Serviço]
+* [Guia do protocolo AMQP 1.0]
 * [AMQP no Barramento de Serviço para Windows Server]
 
 [Visão geral do Barramento de Serviço para AMQP]: service-bus-amqp-overview.md
-[Suporte a AMQP 1.0 para filas e tópicos particionados do Barramento de Serviço]: service-bus-partitioned-queues-and-topics-amqp-overview.md
+[Guia do protocolo AMQP 1.0]: service-bus-amqp-protocol-guide.md
 [AMQP no Barramento de Serviço para Windows Server]: https://msdn.microsoft.com/library/dn574799.asp

@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2017
+ms.date: 10/24/2017
 ms.author: jeedes
-ms.openlocfilehash: 668fc5ae4f964bd776904c3a9dbc2b203689d50c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a3d9c2c08a3b23530ab772e5f0532ac2f9dcc9a3
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-skillport"></a>Tutorial: integração do Azure Active Directory com o Skillport
 
@@ -110,20 +110,23 @@ Nesta seção, você vai habilitar o logon único do Azure AD no portal do Azure
 
     ![Configurar Logon Único](./media/active-directory-saas-skillport-tutorial/tutorial_skillport_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando os seguintes padrões:
+    a. Na caixa de texto **URL de Logon**, digite a URL:
       
-      Datacenter da UE: `https://<subdomain>.skillport.eu`
+      Datacenter da UE: `https://adfs.skillport.eu`
    
-      Datacenter dos EUA: `https://<subdomain>.skillport.com`
-   
-    b. Na caixa de texto **URL de Resposta** , digite uma URL nos seguintes padrões:
-    
-      Datacenter da UE: `https://<subdomain>.skillport.eu/adfs/ls/`
-    
-      Datacenter dos EUA: `https://<subdomain>.skillport.com/sp/ACS.saml2`
+      Datacenter dos EUA: `https://sso.skillport.com`
 
-    > [!NOTE] 
-    > Esses não são os valores reais. Atualize esses valores com a URL de Resposta e a URL de Logon reais. Contate a [equipe de suporte do Cliente Skillport](https://www.skillsoft.com/contact.asp) para obter esses valores.
+    b. Na caixa de texto **Identificador**, digite a URL:
+      
+      Datacenter da UE: `http://adfs.skillport.eu/adfs/services/trust`
+   
+      Datacenter dos EUA: `https://sso.skillport.com`
+   
+    c. Na caixa de texto **URL de resposta**, digite a URL:
+    
+      Datacenter da UE: ` https://adfs.skillport.eu/adfs/ls/`
+    
+      Datacenter dos EUA: `https://sso.skillport.com/sp/ACS.saml2`
  
 4. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo XML em seu computador.
 

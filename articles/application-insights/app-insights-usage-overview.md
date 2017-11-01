@@ -1,6 +1,6 @@
 ---
-title: "Análise de uso para aplicativos Web com o Azure Application Insights | Microsoft Docs"
-description: "Compreenda seus usuários e o que eles fazem com seu aplicativo Web."
+title: "Usar análise com o Azure Application Insights | Microsoft Docs"
+description: "Compreenda seus usuários e o que eles fazem com o seu aplicativo."
 services: application-insights
 documentationcenter: 
 author: botatoes
@@ -10,17 +10,17 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 05/03/2017
+ms.date: 10/10/2017
 ms.author: bwren
-ms.openlocfilehash: edf15e72c822ea5e045895c6f03477c613c0a6c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6985467658ae8a52d3c963dd1965c0711cac4ca7
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
-# <a name="usage-analysis-for-web-applications-with-application-insights"></a>Análise de uso para aplicativos Web com o Application Insights
+# <a name="usage-analysis-with-application-insights"></a>Análise de uso com o Application Insights
 
-Quais recursos de seu aplicativo Web são mais populares? Os usuários atingem as metas deles com seu aplicativo? Eles deixam o aplicativo em determinados pontos? E retornam posteriormente?  O [Application Insights do Azure](app-insights-overview.md) ajuda você a ter insights profundos sobre como as pessoas usam seu aplicativo Web. Sempre que atualiza seu aplicativo, você pode avaliar como ele funciona para os usuários. Com esse conhecimento, você pode tomar decisões baseadas em dados sobre os próximos ciclos de desenvolvimento.
+Quais recursos do seu aplicativo Web ou móvel são mais populares? Os usuários atingem as metas deles com seu aplicativo? Eles deixam o aplicativo em determinados pontos? E retornam posteriormente?  O [Application Insights do Azure](app-insights-overview.md) ajuda você a ter insights profundos sobre como as pessoas usam seu aplicativo. Sempre que atualiza seu aplicativo, você pode avaliar como ele funciona para os usuários. Com esse conhecimento, você pode tomar decisões baseadas em dados sobre os próximos ciclos de desenvolvimento.
 
 ## <a name="send-telemetry-from-your-app"></a>Enviar telemetria de seu aplicativo
 
@@ -30,12 +30,13 @@ A melhor experiência é obtida, instalando o Application Insights tanto no cód
 
     * *Não quer instalar o código do servidor? Apenas [crie um recurso do Azure Application Insights](app-insights-create-new-resource.md).*
 
-2.  **Código de página da Web:** Abra o [Portal do Azure](https://portal.azure.com), abra o recurso do Application Insights para seu aplicativo e abra o **Introdução > Monitorar e diagnosticar aplicativos do lado do cliente**. 
+2. **Código de página da Web:** Abra o [Portal do Azure](https://portal.azure.com), abra o recurso do Application Insights para seu aplicativo e abra o **Introdução > Monitorar e diagnosticar aplicativos do lado do cliente**. 
 
     ![Copie o script no cabeçalho da página da web mestra.](./media/app-insights-usage-overview/02-monitor-web-page.png)
 
+3. **Código de aplicativo móvel:** use o SDK do Mobile Center para coletar eventos do seu aplicativo e, em seguida, envie cópias desses eventos ao Application Insights para análise [seguindo este guia](app-insights-mobile-center-quickstart.md).
 
-3. **Obter telemetria:** Execute seu projeto no modo de depuração por alguns minutos e, em seguida, procure resultados na folha Visão Geral em Application Insights.
+4. **Obter telemetria:** Execute seu projeto no modo de depuração por alguns minutos e, em seguida, procure resultados na folha Visão Geral em Application Insights.
 
     Publique seu aplicativo para monitorar o desempenho do aplicativo e descobrir o que seus usuários estão fazendo com o aplicativo.
 
@@ -53,7 +54,7 @@ Os relatórios de Usuários e Sessões filtram seus dados por páginas ou evento
 
 Os insights à direita indicam padrões interessantes no conjunto de dados.  
 
-* O relatório **Usuários** conta o número de usuários exclusivos que acessam suas páginas nos períodos escolhidos. (Os usuários são contados usando cookies. Se alguém acessar seu site usando computadores cliente ou navegadores diferentes ou limpar os cookies, essa pessoa será contada mais de uma vez.)
+* O relatório **Usuários** conta o número de usuários exclusivos que acessam suas páginas nos períodos escolhidos. Para aplicativos Web, os usuários são contados usando cookies. Se alguém acessar seu site usando computadores cliente ou navegadores diferentes ou limpar os cookies, essa pessoa será contada mais de uma vez.
 * O relatório **Sessões** conta o número de sessões dos usuários que acessam seu site. Uma sessão é um período de atividade de um usuário, encerrada por um período de inatividade de mais de meia hora.
 
 [Mais informações sobre as ferramentas Usuários, Sessões e Eventos](app-insights-usage-segmentation.md)  
@@ -94,20 +95,20 @@ Os controles de retenção na parte superior permitem que você defina eventos e
 
 ## <a name="custom-business-events"></a>Eventos de negócios personalizados
 
-Para ter uma compreensão clara do que os usuários fazem com seu aplicativo Web, é útil inserir linhas de código para registrar eventos personalizados. Esses eventos podem controlar qualquer coisa, desde ações detalhadas do usuário, como clicar em botões específicos, até eventos de negócios mais significativos, como fazer uma compra ou vencer um jogo. 
+Para obter uma compreensão clara do que os usuários fazem com seu aplicativo, é útil inserir linhas de código para registrar eventos personalizados. Esses eventos podem controlar qualquer coisa, desde ações detalhadas do usuário, como clicar em botões específicos, até eventos de negócios mais significativos, como fazer uma compra ou vencer um jogo. 
 
 Embora em alguns casos as exibições de página possam representar eventos úteis, de modo geral não é esse o caso. Um usuário pode abrir uma página de produto sem adquirir o produto. 
 
 Com eventos de negócios específicos, você pode traçar um gráfico do progresso do dos usuários em seu site. Você pode descobrir as preferências deles com relação a diferentes opções e quando eles desistem ou têm dificuldades. Com esse conhecimento, é possível tomar decisões informadas sobre as prioridades em sua lista de pendências de desenvolvimento.
 
-Eventos podem ser registrados na página da Web:
+Eventos podem ser registrados em log no lado do cliente do aplicativo:
 
 ```JavaScript
 
     appInsights.trackEvent("ExpandDetailTab", {DetailTab: tabName});
 ```
 
-Ou no lado do servidor do aplicativo Web:
+Ou no lado do servidor:
 
 ```C#
     var tc = new Microsoft.ApplicationInsights.TelemetryClient();

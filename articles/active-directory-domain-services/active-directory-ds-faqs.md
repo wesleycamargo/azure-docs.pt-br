@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 10/19/2017
 ms.author: maheshu
-ms.openlocfilehash: ad25663f97b83f11f14eeb8bb07dac46f6c080d4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2705e97bd5b259ef68090e5688df57e0d3478f30
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Azure Active Directory Domain Services: perguntas frequentes
 Esta página responde a perguntas frequentes sobre o Azure Active Directory Domain Services. Continue verificando as atualizações.
@@ -49,7 +49,7 @@ O próprio serviço não oferece suporte diretamente para esse cenário. Seu dom
 A implantação do PowerShell/automatizada dos Serviços de Domínio do AD do Azure não está disponível no momento.
 
 #### <a name="is-azure-ad-domain-services-available-in-the-new-azure-portal"></a>Os Serviços de Domínio do AD do Azure estão disponíveis no novo portal do Azure?
-Sim. O Azure AD Domain Services pode ser configurado no [Portal do Azure](https://portal.azure.com). Esperamos parar o suporte ao [Portal Clássico do Azure](https://manage.windowsazure.com) no futuro.
+Sim. O Azure AD Domain Services pode ser configurado no [Portal do Azure](https://portal.azure.com). Não há mais suporte ao [Portal Clássico do Azure](https://manage.windowsazure.com).
 
 #### <a name="can-i-enable-azure-ad-domain-services-using-a-resource-manager-template"></a>Posso habilitar os Azure AD Domain Services usando um modelo do Resource Manager?
 Não. Algumas tarefas precisam ser executadas como parte da habilitação do Azure AD Domain Services. Essas tarefas não são possíveis por meio de um modelo do Resource Manager. Use o novo portal do Azure para habilitar o Azure AD Domain Services para seu diretório.

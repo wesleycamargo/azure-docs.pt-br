@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/26/2017
+ms.date: 10/19/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 53ab4c04901994982b451149c4a82a5b72c9fc82
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b00acc192e868a7c1ade9fc68cf4d3ca04f1a070
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory-azure-ad"></a>Objetos de entidade de serviço e aplicativo no Azure Active Directory (Azure AD)
 Às vezes, o significado do termo "aplicativo" pode ser interpretado de forma errada quando usado no contexto do Azure AD. A meta deste artigo é esclarecer os aspectos conceituais e concretos de integração de aplicativos do Azure AD, seguidos de uma ilustração de registro e consentimento para um [aplicativo multilocatário](active-directory-dev-glossary.md#multi-tenant-application).
@@ -34,7 +34,9 @@ Quando você registra um aplicativo do Azure AD no [Portal do Azure][AZURE-Porta
 Um aplicativo do Azure AD é definido por seu único objeto de aplicativo, que reside no locatário do Azure AD em que o aplicativo foi registrado, sendo conhecido como o locatário "inicial" do aplicativo. A [entidade de Aplicativo][AAD-Graph-App-Entity] do Azure AD Graph define o esquema para as propriedades de um objeto de aplicativo. 
 
 #### <a name="service-principal-object"></a>Objeto de entidade de serviço
-O objeto de entidade de serviço define a política e as permissões para o uso de um aplicativo em um locatário específico, fornecendo a base para que uma entidade de segurança represente o aplicativo em tempo de execução. A [entidade ServicePrincipal][AAD-Graph-Sp-Entity] do Azure AD Graph define o esquema para as propriedades do objeto de uma entidade de serviço. 
+Para acessar os recursos que são protegidos por um locatário do Azure AD, a entidade que requer acesso deve ser representada por uma entidade de segurança. Isso é verdadeiro para usuários (entidade de usuário) e aplicativos (entidade de serviço). A entidade de segurança define a política de acesso e as permissões para o usuário/aplicativo nesse locatário. Isso habilita recursos principais como a autenticação do usuário/aplicativo durante a entrada, bem como a autorização durante o acesso aos recursos.
+
+Quando um aplicativo recebe permissão para acessar os recursos em um locatário (após o registro ou o [consentimento](active-directory-dev-glossary.md#consent)), um objeto de entidade de serviço é criado. A [entidade ServicePrincipal][AAD-Graph-Sp-Entity] do Azure AD Graph define o esquema para as propriedades do objeto de uma entidade de serviço.  
 
 #### <a name="application-and-service-principal-relationship"></a>Relação do aplicativo e a entidade de serviço
 Você pode considerar o aplicativo como a representação *global* de seu aplicativo para uso em todos os locatários, e a entidade de serviço como a representação *local* para uso em um locatário específico. O objeto de aplicativo serve como o modelo do qual as propriedades comuns e padrão são *derivadas* para uso na criação de objetos de entidade de serviço correspondentes. Portanto, um objeto de aplicativo tem uma relação de um para um com o aplicativo de software e uma relação de um para muitos com seus objetos de entidade de serviço correspondentes.

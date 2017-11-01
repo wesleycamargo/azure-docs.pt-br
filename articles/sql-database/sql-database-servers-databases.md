@@ -1,6 +1,6 @@
 ---
 title: Criar e gerenciar servidores e bancos de dados SQL do Azure | Microsoft Docs
-description: Saiba mais sobre os conceitos de banco de dados e servidor de banco de dados SQL e sobre como criar e gerenciar servidores e bancos de dados usando o portal do Azure, o PowerShell, a CLI do Azure, Transact-SQL e a API REST.
+description: Saiba mais sobre conceitos de banco de dados e servidor de Banco de Dados SQL do Azure e sobre como criar e gerenciar servidores e bancos dados.
 services: sql-database
 documentationcenter: na
 author: CarlRabeler
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 10/11/2017
 ms.author: carlrab
-ms.openlocfilehash: dbc01dac6cf31916bef1cba9432e5653751dc625
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 345a3bf0ff417b35c2abaa26352cff3359997544
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="create-and-manage-azure-sql-database-servers-and-databases"></a>Criar e gerenciar servidores e bancos de dados do Banco de Dados SQL
 

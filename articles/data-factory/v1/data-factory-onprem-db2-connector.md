@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 10/17/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: eacecb9f084ead76633cf802751d3a603cb2f0d8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 727041edf457ef55a39eb91ba2369c163f5b4712
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="move-data-from-db2-by-using-azure-data-factory-copy-activity"></a>Mover dados do DB2 usando a Atividade de Cópia do Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -82,7 +82,7 @@ A tabela a seguir lista as propriedades JSON que são específicas a um serviço
 
 | Propriedade | Descrição | Obrigatório |
 | --- | --- | --- |
-| **tipo** |Essa propriedade deve ser definida como **OnPremisesDB2**. |Sim |
+| **tipo** |Essa propriedade deve ser definida como **OnPremisesDb2**. |Sim |
 | **server** |O nome do servidor DB2. |Sim |
 | **database** |O nome do banco de dados DB2. |Sim |
 | **schema** |O nome do esquema no banco de dados DB2. Essa propriedade diferencia maiúsculas de minúsculas. |Não |
@@ -110,11 +110,7 @@ Para a Atividade de Cópia, quando a fonte for do tipo **RelationalSource** (que
 | **query** |Use a consulta personalizada para ler os dados. |Cadeia de caracteres de consulta SQL. Por exemplo: `"query": "select * from "MySchema"."MyTable""` |Não (se a propriedade **tableName** de um conjunto de dados for especificada) |
 
 > [!NOTE]
-> Os nomes de esquema e tabela diferenciam maiúsculas de minúsculas. Na instrução de consulta, coloque os nomes de propriedade usando "" (aspas duplas). Por exemplo:
->
-> ```sql
-> "query": "select * from "DB2ADMIN"."Customers""
-> ```
+> Os nomes de esquema e tabela diferenciam maiúsculas de minúsculas. Na instrução de consulta, coloque os nomes de propriedade usando "" (aspas duplas).
 
 ## <a name="json-example-copy-data-from-db2-to-azure-blob-storage"></a>Exemplo de JSON: copiar dados do DB2 para o armazenamento de Blobs do Azure
 Esse exemplo fornece amostra de definições de JSON que você pode usar para criar um pipeline usando o [Portal do Azure](data-factory-copy-activity-tutorial-using-azure-portal.md), o [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) ou o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). O exemplo mostra como copiar dados de um banco de dados do DB2 no armazenamento de Blobs. No entanto, os dados podem ser copiados em [qualquer tipo de coletor de armazenamento de dados suportado](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando a Atividade de Cópia do Azure Data Factory.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/31/2017
 ms.author: sujayt
-ms.openlocfilehash: f52520f88d36914d4cad7c8aea4fb21e44b3cc9d
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 34255e8ada8dfb00b3c02ca2ab22f94bd3e0954d
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Matriz de suporte do Azure Site Recovery para replicação do Azure para o Azure
 
@@ -145,8 +145,8 @@ VMs migradas com o Site Recovery | Suportado | Se ela for um computador Físico/
 
 **Configuração** | **Com suporte/Sem suporte** | **Comentários**
 --- | --- | ---
-Tamanho máximo do disco do sistema operacional | 1023 GB | Consulte [Discos usados pelas VMs.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
-Tamanho máximo do disco de dados | 1023 GB | Consulte [Discos usados pelas VMs.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
+Tamanho máximo do disco do sistema operacional | 2048 GB | Consulte [Discos usados pelas VMs.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
+Tamanho máximo do disco de dados | 4095 GB | Consulte [Discos usados pelas VMs.](../virtual-machines/windows/about-disks-and-vhds.md#disks-used-by-vms)
 Número de discos de dados | Até 64, com suporte em um tamanho específico de VM do Azure | Consulte [Tamanhos de máquina virtual do Azure](../virtual-machines/windows/sizes.md)
 Disco temporário | Sempre excluído da replicação | O disco temporário sempre é excluído da replicação. Você não deve colocar nenhum dado persistente no disco temporário, de acordo com as diretrizes do Azure. Consulte [Disco temporário em VMs do Azure](../virtual-machines/windows/about-disks-and-vhds.md#temporary-disk) para obter mais detalhes.
 Taxa de alteração de dados no disco | Máximo de 6 MBps por disco | Se a taxa média de alteração de dados no disco estiver acima de 6 MBps de forma contínua, a replicação não será atualizada. No entanto, se essa for uma intermitência de dados ocasional e a taxa de alteração de dados for maior que 6 MBps por algum tempo e ficar inoperante, a replicação será atualizada. Nesse caso, talvez você veja os pontos de recuperação um pouco atrasados.

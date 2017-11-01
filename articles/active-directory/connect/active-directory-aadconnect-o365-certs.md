@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 10/20/2017
 ms.author: billmath
-ms.openlocfilehash: 7f1a3303eff9c413602e745b702baa659343eba6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 675f5b31eb60a75e060a397f01777e427c068c64
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Renovar certificados de federação para o Office 365 e o Azure Active Directory
 ## <a name="overview"></a>Visão geral
@@ -158,9 +158,18 @@ Atualize o Office 365 com os novos certificados de assinatura de token a serem u
 > [!NOTE]
 > Se você precisar oferecer suporte a vários domínios de nível superior, como contoso.com e fabrikam.com, deve usar a opção **SupportMultipleDomain** com todos os cmdlets. Para obter mais informações, veja [Suporte para vários domínios de nível superior](active-directory-aadconnect-multiple-domains.md).
 >
->
+
 
 ## Reparar a relação de confiança do Azure AD usando o Azure AD Connect <a name="connectrenew"></a>
 Se tiver configurado o farm do AD FS e a relação de confiança do Azure AD usando o Azure AD Connect, você poderá usar o Azure AD Connect para detectar se precisa realizar alguma ação para seus certificados de assinatura de token. Se precisar renovar os certificados, você poderá usar o Azure AD Connect para fazê-lo.
 
 Para obter mais informações, confira [Reparar a relação de confiança](active-directory-aadconnect-federation-management.md).
+
+## <a name="ad-fs-and-azure-ad-certificate-update-steps"></a>Etapas de atualização de certificado do AD FS e do Azure AD
+Certificados de autenticação de tokens são certificados X509 padrão que são usados para assinar com segurança todos os tokens que o servidor de federação emite. Certificados de descriptografia de token são certificados X509 padrão usados para descriptografar todos os tokens de entrada. 
+
+Por padrão, o AD FS está configurado para gerar os certificados de autenticação e descriptografia de tokens automaticamente durante a configuração inicial e quando os certificados estiverem próximos do vencimento.
+
+O Azure AD tenta recuperar um novo certificado dos metadados de serviço de federação 30 dias antes do vencimento do certificado atual. Se um novo certificado não estiver disponível no momento, o Azure AD continuará a monitorar os metadados em intervalos diários. Assim que o novo certificado estiver disponível nos metadados, as configurações de federação para o domínio serão atualizadas com as informações do novo certificado. Você pode usar `Get-MsolDomainFederationSettings` para verificar se o novo certificado aparece em NextSigningCertificate / SigningCertificate.
+
+Para obter mais informações sobre Certificados de autenticação de tokens no AD FS, consulte [Obter e configurar os certificados de autenticação e de descriptografia de tokens para o AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ts-td-certs-ad-fs)

@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 10/12/2017
 ms.author: billmath
-ms.openlocfilehash: 7a886cdb0c36008bdb66592a8d3428889739627e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a5feadd851b166d0a9a77bd1d124cdd599d5d701
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Aprofundamento de segurança da Autenticação de Passagem do Azure Active Directory
 
@@ -91,6 +91,8 @@ A seguir, é descrito como os Agentes de Autenticação registram-se com o Azure
 4. O Azure AD valida o Token de Acesso na solicitação de registro e verifica se a solicitação origina-se de um Administrador Global.
 5. O Azure AD assina e emite um certificado de identidade digital de volta para o Agente de Autenticação.
     - O certificado é assinado utilizando a **Autoridade de Certificação Raiz do Azure AD**. Note que essa Autoridade de Certificação _não_ está no repositório das **Autoridades de Certificação de Raiz Confiáveis** do Windows.
+    - Essa AC é usada apenas pelo recurso de Autenticação de Passagem. Ela é usada apenas para assinar CSRs durante o Registro do Agente de Autenticação.
+    - Esta AC não é usada por nenhum outro serviço no Azure AD.
     - A entidade do certificado (**Nome Diferenciado ou DN**) é definida para o **ID do Locatário**. Este é um GUID que identifica exclusivamente o locatário. Esse escopo utiliza apenas o certificado para uso com o locatário.
 6. O Azure AD armazena a chave pública do Agente de Autenticação em um Banco de Dados SQL do Azure, o qual apenas o Azure AD tem acesso.
 7. O certificado (emitido na Etapa 5) é armazenado no servidor local no **Repositório de Certificados do Windows** (especificamente no local **[CERT_SYSTEM_STORE_LOCAL_MACHINE](https://msdn.microsoft.com/library/windows/desktop/aa388136.aspx#CERT_SYSTEM_STORE_LOCAL_MACHINE)**) e é utilizado tanto pelo Agente de Autenticação como pelos aplicativos do Updater.
@@ -133,6 +135,7 @@ A Autenticação de Passagem trata uma solicitação de entrada do usuário conf
 9. O Agente de Autenticação localiza o valor da senha criptografada que é específico da sua chave pública (utilizando um identificador) e descriptografa utilizando sua chave privada.
 10. O Agente de Autenticação tenta validar o nome de usuário e a senha em seu Active Directory local, utilizando a **[API LogonUser do Win32](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx)** (com o parâmetro **dwLogonType** definido para **LOGON32_LOGON_NETWORK**). 
     - Essa é a mesma API utilizada pelos Serviços de Federação do Active Directory (AD FS) para conectar usuários em um cenário de entrada federada.
+    - Isso depende do processo de resolução padrão no Windows Server para localizar o Controlador de Domínio.
 11. O Agente de Autenticação recebe o resultado do Active Directory (sucesso, nome de usuário ou senha incorreto, senha expirada, usuário bloqueado, e assim por diante).
 12. O Agente de Autenticação encaminha o resultado de volta ao serviço de token de segurança do Azure AD através de um canal HTTPS mutuamente autenticado de saída sobre a porta 443. A autenticação mútua utiliza o mesmo certificado anteriormente emitido para o Agente de Autenticação durante o registro.
 13. O serviço de token de segurança do Azure AD verifica se esse resultado corresponde à solicitação de entrada específica no locatário.

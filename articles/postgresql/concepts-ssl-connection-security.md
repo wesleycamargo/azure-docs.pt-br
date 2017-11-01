@@ -10,16 +10,16 @@ ms.service: postgresql
 ms.custom: 
 ms.topic: article
 ms.date: 05/15/2017
-ms.openlocfilehash: 685aa4c2f75b7c3260ca737f7c786157480b2d90
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fa14d4d0115ecc5cf416918f6bdb0d29345e4f83
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="configure-ssl-connectivity-in-azure-database-for-postgresql"></a>Configurar a conectividade SSL no Banco de Dados do Azure para PostgreSQL
 O Banco de dados do Azure para PostgreSQL prefere conectar-se seus aplicativos cliente ao serviço PostgreSQL usando o protocolo SSL. Impor conexões SSL entre seu servidor de banco de dados e os aplicativos cliente ajuda a proteger contra ataques de "intermediários" criptografando o fluxo de dados entre o servidor e seu aplicativo.
 
-Por padrão, o serviço de banco de dados do PostgreSQL é configurado para exigir conexão SSL. Como opção, você pode desabilitar a exigência de SSL para conectar ao seu serviço de banco de dados, se seu aplicativo cliente não oferecer suporte à conectividade SSL. 
+Por padrão, o serviço de banco de dados do PostgreSQL é configurado para exigir conexão SSL. Como opção, você poderá desabilitar a exigência de SSL para se conectar ao seu serviço de banco de dados, se seu aplicativo cliente não oferecer suporte à conectividade SSL. 
 
 ## <a name="enforcing-ssl-connections"></a>Impor conexões SSL
 Para todos os Bancos de Dados do Azure para servidores PostgreSQL provisionados com o Portal e a CLI do Azure, a imposição de conexões SSL está habilitada por padrão. 
@@ -59,11 +59,11 @@ Para decodificar o arquivo de certificado exigido para conectar seu aplicativo c
 #### <a name="for-linux-os-x-or-unix"></a>Para Linux, OS X ou Unix
 As bibliotecas OpenSSL são fornecidas diretamente no código-fonte a partir da [OpenSSL Software Foundation](http://www.openssl.org). As instruções a seguir orientarão você pelas etapas necessárias de instalação do OpenSSL no computador com Linux. Este artigo usa comandos comprovadamente funcionais no Ubuntu 12.04 e superior.
 
-Abra uma sessão de terminal e instale o OpenSSL
+Abra uma sessão de terminal e baixe o OpenSSL.
 ```bash
 wget http://www.openssl.org/source/openssl-1.1.0e.tar.gz
 ``` 
-Extraia os arquivos do pacote baixado
+Extraia os arquivos do pacote baixado.
 ```bash
 tar -xvzf openssl-1.1.0e.tar.gz
 ```
@@ -99,7 +99,7 @@ OpenSSL 1.1.0e 7 Apr 2014
 #### <a name="for-windows"></a>Para Windows
 A instalação do OpenSSL em um PC com Windows pode ser feita destas maneiras:
 1. **(Recomendado)** Usando a funcionalidade interna Bash para Windows no Windows 10 e superior, o OpenSSL é instalado por padrão. As instruções sobre como habilitar a funcionalidade Bash para Windows no Windows 10 podem ser encontradas [aqui](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide).
-2. Por meio do download de um aplicativo Win32/64 fornecido pela comunidade. Embora a OpenSSL Software Foundation não forneça, nem endosse, qualquer instalador específico do Windows, ela fornece uma lista dos instaladores disponíveis [aqui](https://wiki.openssl.org/index.php/Binaries)
+2. Por meio do download de um aplicativo Win32/64 fornecido pela comunidade. Embora a OpenSSL Software Foundation não forneça, nem endosse, qualquer instalador específico do Windows, ela fornece uma lista dos instaladores disponíveis [aqui](https://wiki.openssl.org/index.php/Binaries).
 
 ### <a name="decode-your-certificate-file"></a>Decodificar o arquivo de certificado
 O arquivo de CA Raiz baixado está em formato criptografado. Use o OpenSSL para decodificar o arquivo de certificado. Para fazer isso, execute este comando OpenSSL:
@@ -141,4 +141,4 @@ A configuração de pgAdmin 4 para se conectar com segurança via SSL exige que 
 ![Captura de tela de pgAdmin - conexão - modo SSL Require](./media/concepts-ssl-connection-security/2-pgadmin-ssl.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-Analise as várias opções de conectividade do aplicativo em [Bibliotecas de conexão para o Banco de Dados do Azure para PostgreSQL](concepts-connection-libraries.md)
+Analise as várias opções de conectividade do aplicativo em [Bibliotecas de conexão para o Banco de Dados do Azure para PostgreSQL](concepts-connection-libraries.md).

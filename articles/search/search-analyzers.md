@@ -12,22 +12,22 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 09/11/2017
 ms.author: heidist
-ms.openlocfilehash: f9e456a57bae4aab25ef85c93132308f2c442c0b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1b9dea2978c11955da3ea4df8b90dc10a866d3f1
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="analyzers-in-azure-search"></a>Analisadores no Azure Search
 
-Um *analisador* é um componente da [pesquisa de texto completa](search-lucene-query-architecture.md), responsável pelo processamento de texto em cadeias de caracteres de consulta e os documentos indexados. Durante a indexação, um analisador transforma o texto em *tokens*, que são gravados como *termos indexados* no índice. Durante a pesquisa, um analisador executa as mesmas transformações em *termos de consulta*, fornecendo a base para a correspondência de termos no índice.
-
-As transformações a seguir são comuns durante a análise:
+Um *analisador* é um componente da [pesquisa de texto completo](search-lucene-query-architecture.md) responsável pelo processamento de texto em cadeias de caracteres de consulta e documentos indexados. As transformações a seguir são comuns durante a análise:
 
 + Palavras não essenciais (palavras irrelevantes) e sinais de pontuação são removidos.
 + Frases e palavras hifenizadas são divididos em partes componentes.
 + Palavras de letras maiúsculas estão em minúsculas.
 + As palavras são reduzidas para formas raiz, de modo que uma correspondência pode ser encontrada independentemente da conjugação.
+
+Analisadores linguísticos convertem um texto de entrada em suas formas primitiva ou raiz, que são eficientes para armazenar e recuperar informações. A conversão ocorre durante a indexação, quando o índice é criado e novamente durante a pesquisa quando o índice é lido. Há maior probabilidade de obter os resultados da pesquisa que você espera se usar o mesmo analisador de texto mesmo para ambas as operações.
 
 O Azure Search usa o [analisador Lucene Standard](https://lucene.apache.org/core/4_0_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) como padrão. Você pode substituir o padrão campo por campo. Este artigo descreve a faixa de opções e oferece melhores práticas para a análise personalizada. Ele também fornece exemplos de configurações para os principais cenários.
 
@@ -53,12 +53,12 @@ Você pode personalizar um analisador predefinido, como **Padrão** ou **Interro
 
 3. Adicionar um analisador a uma definição de campo incorre em uma operação de gravação no índice. Se você adicionar um **analyzer** a um índice existente, observe as seguintes etapas:
  
- | Cenário | Etapas |
- |----------|-------|
- | Adicionar um novo campo | Se o campo ainda não existir no esquema, não haverá nenhuma revisão de campo a ser feita. A análise de texto ocorre sempre que você adiciona ou atualiza os documentos que fornecem conteúdo para o novo campo. Use [Índice de Atualização](https://docs.microsoft.com/rest/api/searchservice/update-index) e [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) para esta tarefa.|
- | Adicione um analisador a um campo indexado existente. | O índice invertido para esse campo deve ser recriado desde o início do backup e o conteúdo do documento para esses campos deve ser reindexado. <br/> <br/>Para índices em desenvolvimento ativo, [exclua](https://docs.microsoft.com/rest/api/searchservice/delete-index) e [crie](https://docs.microsoft.com/rest/api/searchservice/create-index) o índice para acompanhar a nova definição de campo. <br/> <br/>Para os índices em produção, você deve criar um novo campo para fornecer a definição revisada e começar a usá-lo. Use [Índice de Atualização](https://docs.microsoft.com/rest/api/searchservice/update-index) e [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) para incorporar o novo campo. Posteriormente, como parte da manutenção planejada do índice, será possível limpar o índice para remover campos obsoletos. |
+ | Cenário | Impacto | Etapas |
+ |----------|--------|-------|
+ | Adicionar um novo campo | minimal | Se o campo ainda não existir no esquema, não ocorrerá nenhuma revisão de campo, pois ele ainda não tem uma presença física no seu índice. Use [Índice de Atualização](https://docs.microsoft.com/rest/api/searchservice/update-index) e [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) para esta tarefa.|
+ | Adicione um analisador a um campo indexado existente. | rebuild | O índice invertido para esse campo deve ser recriado do zero e o conteúdo desses campos deve ser reindexado. <br/> <br/>Para índices em desenvolvimento ativo, [exclua](https://docs.microsoft.com/rest/api/searchservice/delete-index) e [crie](https://docs.microsoft.com/rest/api/searchservice/create-index) o índice para acompanhar a nova definição de campo. <br/> <br/>Para os índices em produção, você deve criar um novo campo para fornecer a definição revisada e começar a usá-lo. Use [Índice de Atualização](https://docs.microsoft.com/rest/api/searchservice/update-index) e [mergeOrUpload](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) para incorporar o novo campo. Posteriormente, como parte da manutenção planejada do índice, será possível limpar o índice para remover campos obsoletos. |
 
-## <a name="best-practices"></a>Práticas recomendadas
+## <a name="tips-and-best-practices"></a>Dicas e melhores práticas
 
 Esta seção oferece sugestões sobre como trabalhar com analisadores.
 
@@ -72,12 +72,13 @@ Uma regra geral é usar o mesmo analisador para indexação e consulta, a menos 
 
 Substituir o analisador padrão requer um rebuild de índice. Se possível, escolha os analisadores a usar durante o desenvolvimento ativo antes de acumular um índice para produção.
 
-### <a name="compare-analyzers-side-by-side"></a>Comparar analisadores lado a lado
+### <a name="inspect-tokenized-terms"></a>Inspecionar termos indexados
 
-É recomendável usar a [API de análise](https://docs.microsoft.com/rest/api/searchservice/test-analyzer). A resposta consiste em tokens, como gerados por um analisador específico para o texto fornecido por você. 
+Se uma pesquisa não retornar os resultados esperados, o cenário mais provável é discrepâncias de token entre as entradas de termo na consulta e os termos indexados no índice. Se os tokens não forem os mesmos, as correspondências não se materializarão. Para inspecionar a saída do indexador, é recomendável usar a [API Analisar](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) como uma ferramenta de investigação. A resposta é composta por tokens gerados por um analisador específico.
 
-> [!Tip]
-> A [demonstração do analisador de pesquisa](http://alice.unearth.ai/) mostra uma comparação lado a lado do analisador Lucene padrão, do analisador de idioma inglês do Lucene e do processador de idioma inglês natural da Microsoft. Para cada entrada de pesquisa fornecida por você, resultados de cada analisador são exibidos nos painéis adjacentes.
+### <a name="compare-english-analyzers"></a>Comparar analisadores em inglês
+
+A [Demonstração do analisador de pesquisa](http://alice.unearth.ai/) é um aplicativo de demonstração de terceiros que mostra uma comparação lado a lado do analisador Lucene padrão, do analisador do idioma inglês do Lucene e do processador de idioma natural inglês da Microsoft. O índice é fixo; ele contém o texto de uma história popular. Para cada entrada de pesquisa fornecida, os resultados de cada analisador são exibidos nos painéis adjacentes, dando uma ideia de como cada analisador processa a mesma cadeia de caracteres. 
 
 ## <a name="examples"></a>Exemplos
 

@@ -13,13 +13,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/09/2017
+ms.date: 10/19/2017
 ms.author: larryfr
-ms.openlocfilehash: 3c66f9ea025a2d245cdf907be9f3c586f1ed45ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f08835d73cba6b8047381846c341e4517414d4a0
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="analyze-sensor-data-with-apache-storm-event-hub-and-hbase-in-hdinsight-hadoop"></a>Analisar dados de sensor com o Apache Storm e com o HBase no HDInsight (Hadoop)
 
@@ -31,24 +31,6 @@ O modelo do Azure Resource Manager usado neste documento demonstra como criar v�
 > As informações descritas e o exemplo deste documento exigem o HDInsight versão 3.6.
 >
 > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
-
-## <a name="prerequisites"></a>Pré-requisitos
-
-* Uma assinatura do Azure.
-* [Node.js](http://nodejs.org/): usado para visualizar o painel da Web localmente no ambiente de desenvolvimento.
-* [Java e JDK 1.7](http://www.oracle.com/technetwork/java/javase/downloads/index.html): usado para desenvolver a topologia do Storm.
-* [Maven](http://maven.apache.org/what-is-maven.html): usado para criar e compilar o projeto.
-* [Git](http://git-scm.com/): usado para baixar o projeto do GitHub.
-* Um cliente **SSH** : usado para conectar-se aos clusters HDInsight baseados em Linux. Para obter mais informações, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
-
-
-> [!IMPORTANT]
-> Não é necessário um cluster HDInsight existente. As etapas descritas neste documento criam os seguintes recursos:
-> 
-> * Uma Rede virtual do Azure
-> * Um cluster Storm no HDInsight (baseado em Linux, dois nós de trabalho)
-> * Um cluster HBase no HDInsight (baseado em Linux, dois nós de trabalho)
-> * Um Aplicativo Web do Azure que hospeda o painel da Web
 
 ## <a name="architecture"></a>Arquitetura
 
@@ -77,7 +59,7 @@ Esse exemplo consiste nos seguintes componentes:
 > [!IMPORTANT]
 > São necessários dois clusters, pois não há método compatível para criar um cluster HDInsight para Storm e HBase.
 
-A topologia lê dados do Hub de Eventos usando a classe [org.apache.storm.eventhubs.spout.EventHubSpout](http://storm.apache.org/releases/0.10.1/javadocs/org/apache/storm/eventhubs/spout/class-use/EventHubSpout.html) e grava dados no HBase usando a classe [org.apache.storm.hbase.bolt.HBaseBolt](https://storm.apache.org/releases/1.0.1/javadocs/org/apache/storm/hbase/bolt/HBaseBolt.html). A comunicação com o site é realizada usando [socket.io-client.java](https://github.com/nkzawa/socket.io-client.java).
+A topologia lê dados de Hub de Eventos usando a classe `org.apache.storm.eventhubs.spout.EventHubSpout` e grava dados em HBase usando a classe `org.apache.storm.hbase.bolt.HBaseBolt`. A comunicação com o site é realizada usando [socket.io-client.java](https://github.com/nkzawa/socket.io-client.java).
 
 O seguinte diagrama explica o layout da topologia:
 
@@ -104,32 +86,27 @@ O seguinte diagrama explica o layout da topologia:
 
 ## <a name="prepare-your-environment"></a>Prepare o seu ambiente
 
-Antes de usar este exemplo, você deve criar um Hub de Eventos do Azure que é lido pela topologia do Storm.
+Antes de usar este exemplo, você deve preparar o ambiente de desenvolvimento. Você também deve criar um Hub de Eventos do Azure, que é usado por este exemplo.
 
-### <a name="configure-event-hub"></a>Configurar o Hub de Eventos
+Você também precisa destes itens instalados no ambiente de desenvolvimento:
 
-O Hub de Eventos é a fonte de dados para este exemplo. Use as etapas a seguir para criar um Hub de Eventos.
+* [Node.js](http://nodejs.org/): usado para visualizar o painel da Web localmente no ambiente de desenvolvimento.
+* [Java e JDK 1.7](http://www.oracle.com/technetwork/java/javase/downloads/index.html): usado para desenvolver a topologia do Storm.
+* [Maven](http://maven.apache.org/what-is-maven.html): usado para criar e compilar o projeto.
+* [Git](http://git-scm.com/): usado para baixar o projeto do GitHub.
+* Um cliente **SSH** : usado para conectar-se aos clusters HDInsight baseados em Linux. Para obter mais informações, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
-1. No [portal do Azure](https://portal.azure.com), selecione **+ Novo** -> **Internet das Coisas** -> **Hubs de Eventos**.
-2. Na seção **Criar Namespace**, execute as seguintes tarefas:
-   
-   1. Insira um **Nome** para o namespace.
-   2. Selecione um tipo de preço. **Básico** é suficiente para este exemplo.
-   3. Selecione a **Assinatura** do Azure a utilizar.
-   4. Selecione um grupo de recursos existente ou crie um novo.
-   5. Selecione a **Localização** para o Hub de Eventos.
-   6. Selecione **Fixar no painel** e clique em **Criar**.
+Para criar um Hub de Eventos, use as etapas no documento [Criar um Hub de Eventos](../event-hubs/event-hubs-create.md).
 
-3. Quando o processo de criação é concluído, as informações dos Hubs de Eventos para seu namespace são exibidas. Desse local, selecione **+ Adicionar Hub de Eventos**. Na seção **Criar Hub de Eventos**, insira o nome **sensordata** e selecione **Criar**. Mantenha os valores padrão nos outros campos.
-4. Na exibição Hubs de Eventos do seu namespace, selecione **Hubs de Eventos**. Selecione a entrada **sensordata** .
-5. No Hub de Eventos sensordata, selecione **Políticas de acesso compartilhado**. Use o link **+ Adicionar** para adicionar as políticas a seguir:
+> [!IMPORTANT]
+> Salve o nome do a chave, o nome do Hub de Eventos, o namespace e a chave para o RootManageSharedAccessKey. Essas informações são usadas para configurar a topologia Storm.
 
-    | Nome da política | Declarações |
-    | ----- | ----- |
-    | dispositivos | Enviar |
-    | storm | Escutar |
-
-1. Selecione ambas as políticas e anote o valor **CHAVE PRIMÁRIA** . Você precisará do valor para as duas políticas em etapas futuras.
+Você não precisa de um cluster HDInsight. As etapas neste documento fornecem um modelo do Azure Resource Manager que cria os recursos necessários para este exemplo. Este modelo cria os seguintes recursos:
+ 
+* Uma Rede virtual do Azure
+* Um cluster Storm no HDInsight (baseado em Linux, dois nós de trabalho)
+* Um cluster HBase no HDInsight (baseado em Linux, dois nós de trabalho)
+* Um Aplicativo Web do Azure que hospeda o painel da Web
 
 ## <a name="download-and-configure-the-project"></a>Baixe e configure o projeto.
 
@@ -157,8 +134,7 @@ Depois que o comando for concluído, você terá a seguinte estrutura de diretó
 Para configurar o projeto para ler no Hub de Eventos, abra o arquivo `hdinsight-eventhub-example/TemperatureMonitor/dev.properties` e adicione as informações do Hub de Eventos às seguintes linhas:
 
 ```bash
-eventhub.read.policy.name: your_read_policy_name
-eventhub.read.policy.key: your_key_here
+eventhub.policy.key: the_key_for_RootManageSharedAccessKey
 eventhub.namespace: your_namespace_here
 eventhub.name: your_event_hub_name
 eventhub.partitions: 2
@@ -168,9 +144,6 @@ eventhub.partitions: 2
 
 > [!IMPORTANT]
 > Usar a topologia localmente requer um ambiente de desenvolvimento Storm ativo. Para saber mais, confira [Setting up a Storm development environment](http://storm.apache.org/releases/1.1.0/Setting-up-development-environment.html) (Configurando um ambiente de desenvolvimento Storm) em Apache.org.
-
-> [!WARNING]
-> Se estiver usando um ambiente de desenvolvimento Windows, você poderá receber uma `java.io.IOException` ao executar a topologia localmente. Nesse caso, passe a executar a topologia no HDInsight.
 
 Antes de testar, você deve iniciar o painel de controle para exibir a saída da topologia e gerar dados para armazenar no Hub de Eventos.
 
@@ -216,16 +189,16 @@ Antes de testar, você deve iniciar o painel de controle para exibir a saída da
    
     ```javascript
     // ServiceBus Namespace
-    var namespace = 'YourNamespace';
+    var namespace = 'Your-eventhub-namespace';
     // Event Hub Name
-    var hubname ='sensordata';
+    var hubname ='Your-eventhub-name';
     // Shared access Policy name and key (from Event Hub configuration)
-    var my_key_name = 'devices';
-    var my_key = 'YourKey';
+    var my_key_name = 'RootManageSharedAccessKey';
+    var my_key = 'Your-Key';
     ```
    
    > [!NOTE]
-   > Este exemplo supõe que você usou `sensordata` como o nome do seu Hub de Eventos. E `devices` como o nome da política que tem uma declaração `Send`.
+   > Este exemplo supõe que você está usando `RootManageSharedAccessKey` para acessar o Hub de Eventos.
 
 3. Use o seguinte comando para inserir novas entradas no Hub de Eventos:
    

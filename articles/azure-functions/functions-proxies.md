@@ -3,7 +3,7 @@ title: Trabalhar com proxies no Azure Functions | Microsoft Docs
 description: "Visão geral de como usar Proxies do Azure Functions"
 services: functions
 documentationcenter: 
-author: mattchenderson
+author: alexkarcher-msft
 manager: cfowler
 editor: 
 ms.assetid: 
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
 ms.date: 04/11/2017
-ms.author: mahender
-ms.openlocfilehash: 63119978c59186a71e7e30438e8e37c0b2e1b454
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: alkarche
+ms.openlocfilehash: d201c8395adf47fa3d9f790b77b1d29dda5a0aeb
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="work-with-azure-functions-proxies-preview"></a>Trabalhar com proxies do Azure Functions (visualização)
 
@@ -28,18 +28,6 @@ ms.lasthandoff: 10/11/2017
 Este artigo explica como configurar e trabalhar com proxies do Azure Functions. Com esse recurso, você pode especificar os pontos de extremidade em seu aplicativo de funções que são implementados por outro recurso. Você pode usar esses proxies para dividir uma API grande em vários aplicativos de função (como uma arquitetura de microsserviços), enquanto ainda apresenta uma única superfície de API para clientes.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
-
-
-## <a name="enable"></a>Habilitar proxies do Azure Functions
-
-Os proxies não estão habilitados por padrão. Você pode criar proxies enquanto o recurso estiver desativado, mas não será executado. Para habilitar proxies, faça o seguinte:
-
-1. Abra o [Portal do Azure] e navegue até seu aplicativo de funções.
-2. Selecione **Configurações do aplicativo de funções**.
-3. Alterne **Habilitar Proxies do Azure Functions (visualização)** para **Ativado**.
-
-Você também pode retornar aqui para atualizar o tempo de execução do proxy medida que novos recursos forem disponibilizados.
-
 
 ## <a name="create"></a>Criar um proxy
 
@@ -206,6 +194,16 @@ Uma configuração de exemplo pode ser parecida com a seguinte:
 ```
 > [!NOTE] 
 > Neste exemplo, o corpo está sendo definido diretamente e, portanto, nenhuma propriedade `backendUri` é necessária. O exemplo mostra como você pode usar os Proxies do Azure Functions para simular APIs.
+
+## <a name="enable"></a>Habilitar proxies do Azure Functions
+
+Os proxies agora estão habilitados por padrão! Se você estiver usando uma versão mais antiga da versão prévia de proxies e proxies desabilitados, você precisará habilitar manualmente os proxies uma vez para que eles sejam executados.
+
+1. Abra o [Portal do Azure] e navegue até seu aplicativo de funções.
+2. Selecione **Configurações do aplicativo de funções**.
+3. Alterne **Habilitar Proxies do Azure Functions (visualização)** para **Ativado**.
+
+Você também pode retornar aqui para atualizar o tempo de execução do proxy medida que novos recursos forem disponibilizados.
 
 [Portal do Azure]: https://portal.azure.com
 [gatilhos HTTP]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook#http-trigger

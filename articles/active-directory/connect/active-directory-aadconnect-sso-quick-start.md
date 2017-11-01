@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 10/19/2017
 ms.author: billmath
-ms.openlocfilehash: 9d91c59d3e4d73879d95ab193949d54f7b86d6cd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8975a82c5573cc0c284e1fc76cd0ef2c19fbbd72
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Logon Único Contínuo do Azure Active Directory: Início Rápido
 
@@ -32,10 +32,13 @@ Para implantar o SSO Contínuo, você precisa seguir estas etapas:
 
 Verifique se os seguintes pré-requisitos estão em vigor:
 
-1. Configurar seu servidor do Azure AD Connect: se você usa a [Autenticação de Passagem](active-directory-aadconnect-pass-through-authentication.md) como seu método de entrada, nenhuma ação adicional é necessária. Se você usa a [Sincronização de Hash de Senha](active-directory-aadconnectsync-implement-password-synchronization.md) como seu método de entrada e se há um firewall entre o Azure AD Connect e Azure AD, verifique se:
-- Você está usando versões 1.1.484.0 ou posteriores do Azure AD Connect.
-- O Azure AD Connect pode se comunicar com URLs `*.msappproxy.net` e sobre a porta 443. Esse pré-requisito é aplicável somente quando você habilita o recurso e não para entradas reais de usuário.
-- O Azure AD Connect pode realizar conexões IP diretas com os [intervalos de IP do data center do Azure](https://www.microsoft.com/download/details.aspx?id=41653). Novamente, esse pré-requisito é aplicável somente quando você habilita o recurso.
+1. Configurar seu servidor do Azure AD Connect: se você usa a [Autenticação de Passagem](active-directory-aadconnect-pass-through-authentication.md) como seu método de entrada, não é necessária nenhuma verificação de pré-requisitos adicional. Se você usa a [Sincronização de Hash de Senha](active-directory-aadconnectsync-implement-password-synchronization.md) como seu método de entrada e se há um firewall entre o Azure AD Connect e Azure AD, verifique se:
+- Você está usando versões 1.1.644.0 ou posteriores do Azure AD Connect. 
+- Se o seu firewall ou proxy permite a lista de permissões de DNS, adicione as conexões às URLs **\*.msappproxy.net** pela porta 443 à lista de permissões. Caso contrário, permita acesso aos [Intervalos de IP do DataCenter do Azure](https://www.microsoft.com/download/details.aspx?id=41653), que são atualizados semanalmente. Esse pré-requisito é aplicável somente quando você habilita o recurso e não para entradas reais de usuário.
+
+    >[!NOTE]
+    >O Azure AD Connect versões 1.1.557.0, 1.1.558.0, 1.1.561.0 e 1.1.614.0 têm um problema relacionado à Sincronização de Hash de Senha. Se você _não_ pretende usar a Sincronização de Hash de Senha em conjunto com a Autenticação de Passagem, leia as [Notas de versão do Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470) para saber mais.
+
 2. Você precisa de credenciais de Administrador de Domínio para cada floresta do AD que você sincronizar com o Azure AD (usando o Azure AD Connect) e para aqueles usuários que você deseja habilitar o SSO Contínuo.
 
 ## <a name="step-2-enable-the-feature"></a>Etapa 2: habilitar o recurso
@@ -73,6 +76,8 @@ Para implementar o recurso para os usuários, você precisa adicionar as seguint
 - https://autologon.microsoftazuread-sso.com
 - https://aadg.windows.net.nsatc.net
 
+Além disso, você precisa habilitar uma configuração da política de Zona de Intranet (usando a Política de Grupo) chamada “Permitir atualizações à barra de status por meio de script”.
+
 >[!NOTE]
 > As instruções a seguir só funcionam para o Internet Explorer e Google Chrome no Windows (se ele compartilha o conjunto de URLs de sites confiáveis com o Internet Explorer). Leia a próxima seção para obter instruções para configurar o Mozilla Firefox e Google Chrome no Mac.
 
@@ -85,7 +90,7 @@ Por padrão, o navegador calcula automaticamente a zona correta (Internet ou Int
 1. Abra a ferramenta de Gerenciamento de Política de Grupo.
 2. Edite a Política de Grupo que é aplicada a alguns ou todos os seus usuários. Neste exemplo, usamos a **Política de Domínio Padrão**.
 3. Navegue até **Configuração do Usuário\Modelos Administrativos\Componentes do Windows\Internet Explorer\Painel de Controle da Internet\Página de Segurança** e selecione **Lista de Atribuição de Site para Zona**.
-![Logon Único](./media/active-directory-aadconnect-sso/sso6.png)  
+![Logon Único](./media/active-directory-aadconnect-sso/sso6.png)
 4. Habilite a política e insira os seguintes valores (URLs do Azure AD em que os tíquetes Kerberos são encaminhados) e dados (*1* indica a Zona da Intranet) na caixa de diálogo.
 
         Value: https://autologon.microsoftazuread-sso.com
@@ -96,8 +101,11 @@ Por padrão, o navegador calcula automaticamente a zona correta (Internet ou Int
 > Se você quiser cancelar a permissão de uso do SSO Contínuo de alguns usuários – por exemplo, se esses usuários estiverem entrando em quiosques compartilhados – defina os valores anteriores como *4*. Essa ação adiciona as URLs do Azure AD à Zona Restrita e ocasiona a falha do SSO Contínuo todas as vezes.
 
 5. Clique em **OK** e em **OK** novamente.
-
-![Logon único](./media/active-directory-aadconnect-sso/sso7.png)
+![Logon Único](./media/active-directory-aadconnect-sso/sso7.png)
+6. Navegue até **Configuração do Usuário\Modelos Administrativos\Componentes do Windows\Internet Explorer\Painel de Controle da Internet\Página de Segurança\Zona de Intranet** e selecione **Permitir atualizações à barra de status por meio de script**.
+![Logon Único](./media/active-directory-aadconnect-sso/sso11.png)
+7. Habilite a configuração de política e, em seguida, clique em **OK**.
+![Logon Único](./media/active-directory-aadconnect-sso/sso12.png)
 
 ### <a name="browser-considerations"></a>Considerações de navegador
 
@@ -151,7 +159,7 @@ Na etapa 2, o Azure AD Connect cria contas de computador (representando o AD do 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [**Aprofundamento técnico**](active-directory-aadconnect-sso-how-it-works.md) – entenda como esse recurso funciona.
-- [**Perguntas frequentes**](active-directory-aadconnect-sso-faq.md) – respostas para perguntas frequentes.
-- [**Solução de problemas**](active-directory-aadconnect-troubleshoot-sso.md) – Saiba como resolver problemas comuns do recurso.
-- [**UserVoice**](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) – para registrar solicitações de novos recursos.
+- [Aprofundamento técnico](active-directory-aadconnect-sso-how-it-works.md) – entenda como esse recurso funciona.
+- [Perguntas frequentes](active-directory-aadconnect-sso-faq.md) – respostas para perguntas frequentes.
+- [Solução de problemas](active-directory-aadconnect-troubleshoot-sso.md) – saiba como resolver problemas comuns do recurso.
+- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) – para registrar solicitações de novos recursos.

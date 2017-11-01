@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/02/2017
 ms.author: msfussell
-ms.openlocfilehash: 91f4d1658875245f023e7546650e7b2592b48af1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f69f594d058ba061cec116f87435c96280e19f93
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="why-a-microservices-approach-to-building-applications"></a>Por que usar uma abordagem de microsserviço para construir aplicativos?
 Para nós, desenvolvedores de software, não há qualquer novidade no modo como pensamos sobre a decomposição de um aplicativo em partes componentes. É o paradigma central da orientação de objetos, das abstrações de software e da “componentização”. Atualmente, essa fatoração tende a assumir a forma de classes e interfaces entre as camadas de tecnologia e as bibliotecas compartilhadas. Em geral, uma abordagem em camadas é adotada com um repositório de back-end, lógica de negócios de camada intermediária e uma IU (interface do usuário) de front-end. O que *mudou* nos últimos anos é que nós, como desenvolvedores, estamos compilando aplicativos distribuídos para a nuvem orientados pelos negócios.
@@ -147,10 +147,10 @@ O Service Fabric fornece três áreas amplas para ajudar no build de aplicativos
 ### <a name="migrating-existing-applications-to-service-fabric"></a>Migrando aplicativos existentes para o Service Fabric
 Uma abordagem chave para o Service Fabric é reutilizar o código existente, o que, em seguida, pode ser modernizado com novos microsserviços. Há cinco estágios para modernização do aplicativo, e você pode iniciar e interromper em qualquer um dos estágios. Estes são;
 
-1) Colocar um aplicativo monolítico tradicional
-2) Lift and Shift - Usar contêineres ou executáveis de convidado para hospedar o código existente no Service Fabric.
-3) Modernização - Novos microsserviços adicionados junto com o código em contêineres existente. 
-4) Inovar - Dividir o monolítico em microsserviços puramente com base na necessidade.
+1) Colocar um aplicativo monolítico tradicional  
+2) Lift and Shift - Usar contêineres ou executáveis de convidado para hospedar o código existente no Service Fabric.  
+3) Modernização - Novos microsserviços adicionados junto com o código em contêineres existente.  
+4) Inovar - Dividir o monolítico em microsserviços puramente com base na necessidade.  
 5) Transformado em microsserviços - a transformação de aplicativos monolíticos existentes ou criar novos aplicativos intactos.
 
 ![Migração para Microsserviços][Image3]
@@ -162,7 +162,7 @@ Uma abordagem chave para o Service Fabric é reutilizar o código existente, o q
 - Redução de custos devido à consolidação e à remoção de aplicativos existentes de hardware ou executando a uma densidade mais alta. 
 - Contrato de implantação consistente entre o desenvolvimento e as operações.
 
-Reduções de custos são compreensíveis e dentro da Microsoft grandes números de aplicativos existentes estão sendo colocados em contêineres por milhões de dólares. Uma implantação consistente é mais difícil avaliar, mas igualmente importante. Nesse tipo de implantação os desenvolvedores ainda possuem a liberdade de escolher a tecnologia adequada, no entanto, as operações só aceitarão uma única maneira de implantar e gerenciar esses aplicativos. Ela elimina a necessidade das operações de ter que lidar com a complexidade das muitas tecnologias diferentes ou de forçar os desenvolvedores a escolher apenas algumas. Essencialmente, cada aplicativo está em contêineres em imagens de implantação independentes.
+Reduções de custos são compreensíveis e dentro da Microsoft grandes números de aplicativos existentes estão sendo colocados em contêineres para economizar milhões de dólares. Uma implantação consistente é mais difícil avaliar, mas igualmente importante. Nesse tipo de implantação os desenvolvedores ainda possuem a liberdade de escolher a tecnologia adequada, no entanto, as operações só aceitarão uma única maneira de implantar e gerenciar esses aplicativos. Ela elimina a necessidade das operações de ter que lidar com a complexidade das muitas tecnologias diferentes ou de forçar os desenvolvedores a escolher apenas algumas. Essencialmente, cada aplicativo está em contêineres em imagens de implantação independentes.
 
 Muitas organizações param aqui. Elas já têm os benefícios de contêineres e o Service Fabric fornece a experiência completa de gerenciamento de implantação, atualizações, controle de versão, reversões, monitoramento de integridade, etc.
 

@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2017
+ms.date: 10/19/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b6e9c7b71fa6fc78f97c0144c735fc44778181d8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 32e63b250467f5733b2e691614fe52f96f2f9d91
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Entender o registro de identidade no Hub IoT
 
@@ -28,8 +28,6 @@ Cada Hub IoT tem um registro de identidade que armazena informações sobre os d
 A ID do dispositivo armazenada no registro de identidade diferencia maiúsculas de minúsculas.
 
 Em um alto nível, o registro de identidade é uma coleção compatível com REST de recursos de identidade do dispositivo. Quando você adiciona uma entrada ao registro de identidade, o Hub IoT cria um conjunto de recursos por dispositivo, tal como a fila que contém mensagens em andamento da nuvem para o dispositivo.
-
-### <a name="when-to-use"></a>Quando usar
 
 Use o registro de identidade quando você precisa:
 
@@ -72,16 +70,15 @@ Normalmente, uma solução de IoT tem um armazenamento específico da solução 
 Você pode desabilitar dispositivos atualizando a propriedade **status** de uma identidade no Registro. Normalmente, você deve usar essa propriedade em dois cenários:
 
 * Durante um processo de orquestração de provisionamento. Para saber mais, veja [Provisionamento de dispositivo][lnk-guidance-provisioning].
-* Se, por algum motivo, você considerar que um dispositivo está comprometido ou que se tornou não autorizado.
+* Se, por algum motivo, você acreditar que um dispositivo está comprometido ou que se tornou não autorizado.
 
 ## <a name="import-and-export-device-identities"></a>Importar e exportar identidades de dispositivo
 
-É possível exportar identidades de dispositivo em massa do registro de identidade de um Hub IoT usando operações assíncronas no [ponto de extremidade do provedor de recursos do Hub IoT][lnk-endpoints]. As exportações são trabalhos de execução longa que usam um contêiner de blobs fornecido pelo cliente para salvar dados de identidade do dispositivo lidos no registro de identidade.
+É possível exportar identidades de dispositivo em massa do registro de identidade de um Hub IoT usando operações assíncronas no [ponto de extremidade de provedor de recursos do Hub IoT][lnk-endpoints]. As exportações são trabalhos de execução longa que usam um contêiner de blobs fornecido pelo cliente para salvar dados de identidade do dispositivo lidos no registro de identidade.
 
-É possível importar identidades de dispositivo em massa para um registro de identidade de um Hub IoT usando operações assíncronas no [ponto de extremidade do provedor de recursos do Hub IoT][lnk-endpoints]. As exportações são trabalhos de execução longa que usam dados em um contêiner de blobs fornecido pelo cliente para gravar dados de identidade do dispositivo no registro de identidade.
+É possível importar identidades de dispositivo em massa para um registro de identidade de um Hub IoT usando operações assíncronas no [ponto de extremidade de provedor de recursos do Hub IoT][lnk-endpoints]. As exportações são trabalhos de execução longa que usam dados em um contêiner de blobs fornecido pelo cliente para gravar dados de identidade do dispositivo no registro de identidade.
 
-* Para obter informações detalhadas sobre as APIs de importação e exportação, consulte [APIs REST do provedor de recursos do Hub IoT][lnk-resource-provider-apis].
-* Para saber mais sobre como executar trabalhos de importação e exportação, veja [Gerenciamento em massa de identidades de dispositivo do Hub IoT][lnk-bulk-identity].
+Para obter informações detalhadas sobre as APIs de importação e exportação, consulte [APIs REST do provedor de recursos do Hub IoT][lnk-resource-provider-apis]. Para saber mais sobre como executar trabalhos de importação e exportação, veja [Gerenciamento em massa de identidades de dispositivo do Hub IoT][lnk-bulk-identity].
 
 ## <a name="device-provisioning"></a>Provisionamento de dispositivos
 
@@ -143,17 +140,13 @@ Corpo: esta seção está no formato JSON e representa o gêmeo da identidade de
 }
 ```
 
-## <a name="reference-topics"></a>Tópicos de referência:
-
-Os tópicos de referência a seguir fornecem a você mais informações sobre o registro de identidade.
-
 ## <a name="device-identity-properties"></a>Propriedades de identidade do dispositivo
 
 As identidades do dispositivo são representadas como documentos JSON com as seguintes propriedades:
 
 | Propriedade | Opções | Descrição |
 | --- | --- | --- |
-| deviceId |obrigatória, somente leitura em atualizações |Uma cadeia de caracteres que diferencia maiúsculas de minúsculas (com até 128 caracteres) de caracteres alfanuméricos ASCII de 7 bits + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. |
+| deviceId |obrigatória, somente leitura em atualizações |Uma cadeia de caracteres que diferencia maiúsculas de minúsculas (com até 128 caracteres) de caracteres alfanuméricos ASCII de 7 bits, mais determinados caracteres especiais: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
 | generationId |obrigatória, somente leitura |Uma cadeia de caracteres que diferencia maiúsculas de minúsculas com até 128 caracteres gerada pelo Hub IoT. Esse valor é usado para distinguir os dispositivos com a mesma **deviceId** quando são excluídos e recriados. |
 | etag |obrigatória, somente leitura |Uma cadeia de caracteres que representa uma ETag fraca para a identidade do dispositivo, de acordo com [RFC7232][lnk-rfc7232]. |
 | auth |opcional |Um objeto composto que contém as informações de autenticação e os materiais de segurança. |

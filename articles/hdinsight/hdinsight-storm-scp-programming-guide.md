@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 05/16/2016
 ms.author: raviperi
-ms.openlocfilehash: 3d76aebd2a1fd729c8e0639e6afcbde4c3fb752b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e0d92cdd32cb3eeedcb1c4e1bb2a975764a860b5
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="scp-programming-guide"></a>Guia de programação do SCP
 SCP é uma plataforma para a criação de aplicativos de processamento de dados em tempo real, confiáveis, consistentes e de alto desempenho. Ele é baseado no [Apache Storm](http://storm.incubator.apache.org/) , um sistema de processamento de fluxo projetado pelas comunidades de OSS. O Storm foi projetado por Nathan Marz e tornou-se um software livre por meio do Twitter. Ele aproveita o [Apache ZooKeeper](http://zookeeper.apache.org/), outro projeto da Apache, para habilitar uma coordenação distribuída e gerenciamento de estado altamente confiáveis. 
@@ -35,9 +35,9 @@ Os dados no SCP são modelados como fluxos contínuos de tuplas. Geralmente, as 
 
 No Storm, a topologia de um aplicativo define um gráfico de computação. Cada nó em uma topologia contém a lógica de processamento, e os links entre os nós indicam o fluxo de dados. Os nós que injetam dados de entrada na topologia são chamados Spouts, que podem ser usados para sequenciar os dados. Os dados de entrada podem residir em arquivos de log, banco de dados transacional e contadores de desempenho do sistema, entre outros. Os nós com fluxos de dados de entrada e de saída são chamados de Bolts, que realizam a filtragem, seleções e agregação reais dos dados.
 
-O SCP oferece suporte aos melhores esforços de processamento de dados, pelo menos uma vez e exatamente uma vez. Em um aplicativo de processamento de streaming distribuído, vários erros podem ocorrer durante o processamento de dados, como interrupção da rede, falha do computador ou erro de código do usuário, entre outros. O processamento ao menos uma vez assegura que todos os dados serão processados pelo menos uma vez, reproduzindo automaticamente os mesmos dados quando o erro ocorre. O processamento de pelo menos uma vez é simples e confiável e bastante adequado a muitos aplicativos. No entanto, quando o aplicativo exige uma contagem exata, por exemplo, o processamento de pelo menos uma vez é insuficiente, já que os mesmos dados podem ser reproduzidos na topologia do aplicativo. Nesse caso, o processamento de exatamente uma vez é projetado para assegurar que o resultado esteja correto mesmo quando os dados possam ser reproduzidos e processados várias vezes.
+O SCP oferece suporte aos melhores esforços de processamento de dados, pelo menos uma vez e exatamente uma vez. Em um aplicativo de processamento de streaming distribuído, vários erros podem ocorrer durante o processamento de dados, como interrupção da rede, falha do computador ou erro de código do usuário, entre outros. O processamento ao menos uma vez assegura que todos os dados serão processados pelo menos uma vez, reproduzindo automaticamente os mesmos dados quando o erro ocorre. O processamento ao menos uma vez é simples e confiável e bastante adequado para muitos aplicativos. No entanto, quando o aplicativo exige uma contagem exata, por exemplo, o processamento ao menos uma vez é insuficiente, já que os mesmos dados podem ser reproduzidos na topologia do aplicativo. Nesse caso, o processamento de exatamente uma vez é projetado para assegurar que o resultado esteja correto mesmo quando os dados possam ser reproduzidos e processados várias vezes.
 
-O SCP permite que os desenvolvedores do .NET desenvolvam aplicativos de processamento de dados em tempo real e aproveitem o Storm baseado em JVM (Máquina Virtual Java) ao mesmo tempo. O .NET e o JVM se comunicam por meio do soquete local do TCP. Basicamente, cada Spout/Bolt é um par de processos do .Net/Java, em que a lógica do usuário é executada no processo do .Net como um plugin.
+O SCP permite que os desenvolvedores do .NET desenvolvam aplicativos de processamento de dados em tempo real e aproveitem a JVM (Máquina Virtual Java) com Storm ao mesmo tempo. O .NET e a JVM se comunicam por meio do soquete local do TCP. Basicamente, cada Spout/Bolt é um par de processos do .Net/Java, em que a lógica do usuário é executada no processo do .Net como um plugin.
 
 Para criar um aplicativo de processamento de dados baseado no SCP, várias etapas são necessárias:
 
@@ -355,7 +355,7 @@ A Especificação da Topologia do SCP é uma linguagem específica do domínio p
 
 As especificações de topologia podem ser enviadas diretamente ao cluster do Storm para execução por meio do comando ***runspec***.
 
-O SCP.NET adicionou as seguintes funções para definir a Topologia Transacional:
+O SCP.NET adicionou as seguintes funções para definir as Topologias Transacionais:
 
 | **Novas funções** | **Parâmetros** | **Descrição** |
 | --- | --- | --- |
@@ -367,7 +367,7 @@ O SCP.NET adicionou as seguintes funções para definir a Topologia Transacional
 | **scp-spout** |exec-name<br />args<br />fields<br />Parâmetros |Defina um spout não transacional. Isso executará o aplicativo com ***exec-name*** usando ***args***.<br /><br />O ***fields*** são os Campos de Saída do spout<br /><br />O ***parameters*** são opcionais, usados para especificar alguns parâmetros como "nontransactional.ack.enabled". |
 | **scp-bolt** |exec-name<br />args<br />fields<br />Parâmetros |Defina um bolt não transacional. Isso executará o aplicativo com ***exec-name*** usando ***args***.<br /><br />O ***fields*** são os Campos de Saída do bolt<br /><br />O ***parameters*** são opcionais, usados para especificar alguns parâmetros como "nontransactional.ack.enabled". |
 
-O SCP.NET possui as seguintes palavras-chave definidas:
+O SCP.NET tem as seguintes palavras-chave definidas:
 
 | **Palavras-chave** | **Descrição** |
 | --- | --- |
@@ -398,7 +398,7 @@ O parâmetro ***classpath*** também é opcional. Ele é usado para especificar 
 
 ## <a name="miscellaneous-features"></a>Recursos diversos
 ### <a name="input-and-output-schema-declaration"></a>Declaração de esquema de entrada e saída
-O usuário pode emitir uma tupla no processo do C\#, a plataforma precisa serializar a tupla em bytes, transferi-la para o lado do Java e o Storm transferirá essa tupla aos destinos. Enquanto isso, no componente downstream, o processo do C\# receberá a tupla de volta do lado do Java e a converterá para os tipos originais pela plataforma; todas essas operações são ocultadas pela plataforma.
+Os usuários podem emitir tuplas em processos do C\#, a plataforma precisa serializar a tupla em bytes, transferi-la para o lado do Java e o Storm transferirá essa tupla aos destinos. Enquanto isso, nos componentes downstream, os processos do C\# receberão as tuplas de volta do lado do Java e as converterão para os tipos originais pela plataforma. Todas essas operações são ocultadas pela plataforma.
 
 Para oferecer suporte à serialização e desserialização, o código do usuário precisa declarar o esquema das entradas e saídas.
 
@@ -420,7 +420,7 @@ No objeto de Contexto, temos a seguinte API adicionada:
 
     public void DeclareComponentSchema(ComponentStreamSchema schema)
 
-O código do usuário deve assegurar que as tuplas emitidas obedecem ao esquema definido para esse fluxo, ou o sistema lançará uma exceção de tempo de execução.
+Os desenvolvedores devem assegurar-se de que as tuplas emitidas obedeçam ao esquema definido para esse fluxo, caso contrário, o sistema lançará uma exceção de tempo de execução.
 
 ### <a name="multi-stream-support"></a>Suportes a múltiplos fluxos
 O SCP oferece suporte ao código do usuário para emitir ou receber de vários fluxos diferentes ao mesmo tempo. O suporte é refletido no objeto de Contexto conforme o método de Emissão assume um parâmetro de ID de fluxo opcional.
@@ -452,10 +452,10 @@ Aqui,
 
 1. “scp-field-group” significa “Agrupamento de campo personalizado implementado pelo SCP”.
 2. “:tx” ou “:non-tx” significa que se trata de uma topologia transacional. Precisamos dessa informação, uma vez que o índice de início é diferente em topologias tx em relação às não tx.
-3. [0,1] significa o hashset dos IDs do campo, começando do 0.
+3. [0,1] significa um conjunto de hash dos IDs do campo, começando do 0.
 
 ### <a name="hybrid-topology"></a>Topologia híbrida
-O Storm nativo é escrito em Java. E SCP.Net foi aprimorado para permitir que nossas personalizações sejam escritas em código C\# para lidar com a lógica de negócios. Mas também damos suporte a topologias híbridas, que contêm não apenas spouts/bolts do C\#, mas também do Java.
+O Storm nativo é escrito em Java. O SCP.Net foi aprimorado para permitir que desenvolvedores de C\# escrevam em código C\# para lidar com a lógica de negócios. Mas também dá suporte a topologias híbridas, que contêm não apenas spouts/bolts do C\#, mas também do Java.
 
 ### <a name="specify-java-spoutbolt-in-spec-file"></a>Especificar o Spout/Bol do Java no arquivo de especificações
 No arquivo de especificações, "scp-spout" e "scp-bolt" também podem ser usados para especificar Spouts e Bolts do Java, aqui está um exemplo:
@@ -473,8 +473,8 @@ Se quiser enviar uma topologia contendo Spouts ou Bolts do Java, será necessár
 
 Aqui, **examples\\HybridTopology\\java\\target\\** é a pasta que contém o arquivo Jar do Spout/Bolt.
 
-### <a name="serialization-and-deserialization-between-java-and-c"></a>Serialização e desserialização entre Java e C\
-Nosso componente SCP inclui lado de Java e de C\#. Para interagir com Spouts/Bolts Java nativos, a Serialização/Desserialização deve ser realizada entre o lado do Java e C\#, conforme ilustrado no gráfico a seguir.
+### <a name="serialization-and-deserialization-between-java-and-c"></a>Serialização e desserialização entre Java e C\#
+O componente SCP inclui lado de Java e de C\#. Para interagir com Spouts/Bolts Java nativos, a Serialização/Desserialização deve ser realizada entre o lado do Java e C\#, conforme ilustrado no gráfico a seguir.
 
 ![diagrama do componente java enviando ao componente SCP enviando ao componente Java](media/hdinsight-storm-scp-programming-guide/java-compent-sending-to-scp-component-sending-to-java-component.png)
 
@@ -497,7 +497,7 @@ Nosso componente SCP inclui lado de Java e de C\#. Para interagir com Spouts/Bol
        this.ctx.DeclareComponentSchema(new ComponentStreamSchema(inputSchema, null));
        this.ctx.DeclareCustomizedDeserializer(new CustomizedInteropJSONDeserializer());            
    
-   Essa implementação padrão deve lidar com a maioria dos casos se o tipo de dados não for muito complexo. Para determinados casos, seja porque o tipo de dados do usuário é muito complexo ou porque o desempenho de nossa implementação padrão não atende o requisito do usuário, o usuário pode conectar sua própria implementação.
+   Essa implementação padrão deve lidar com a maioria dos casos se o tipo de dados fornecido não for muito complexo. Para determinados casos, seja porque o tipo de dados do usuário é muito complexo ou porque o desempenho de nossa implementação padrão não atende o requisito do usuário, o usuário pode conectar sua própria implementação.
    
    A interface de serialização no lado do Java é definida como:
    
@@ -632,7 +632,7 @@ Quando `FinishBatch()` é chamado, o `lastCommittedTxId` será atualizado se nã
 
         if (!replay)
         {
-            /* If it is not replayed, update the toalCount and lastCommittedTxId vaule */
+            /* If it is not replayed, update the totalCount and lastCommittedTxId value */
             totalCount = totalCount + this.count;
             lastCommittedTxId = this.txAttempt.TxId;
         }

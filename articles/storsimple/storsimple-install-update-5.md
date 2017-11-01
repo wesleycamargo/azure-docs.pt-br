@@ -12,19 +12,19 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 10/02/2017
+ms.date: 10/10/2017
 ms.author: alkohli
-ms.openlocfilehash: 916884e3ee95284497cded73b28b22e83751f624
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9d8dc7aebbeea7ad428be4af66e4e991f60c8301
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="install-update-5-on-your-storsimple-device"></a>Instalar a Atualização 5 em seu dispositivo StorSimple
 
 ## <a name="overview"></a>Visão geral
 
-Este tutorial explica como instalar a Atualização 5 em um dispositivo StorSimple que executa uma versão de software anterior por meio do Portal Clássico do Azure e usando o método de hotfix. O método de hotfix é usado quando você está tentando instalar a atualização 5 em um dispositivo executando versões anteriores à Atualização 3. O método de hotfix também é usado se um gateway é configurado em um adaptador de rede que não seja DATA 0 do dispositivo StorSimple e quando você está tentando atualizar de uma versão de software anterior à Atualização 1.
+Este tutorial explica como instalar a Atualização 5 em um dispositivo StorSimple que executa uma versão de software anterior por meio do Portal Clássico do Azure e usando o método de hotfix. O método de hotfix é usado quando você está tentando instalar a Atualização 5 em um dispositivo executando versões anteriores à Atualização 3. O método de hotfix também é usado se um gateway é configurado em um adaptador de rede que não seja DATA 0 do dispositivo StorSimple e quando você está tentando atualizar de uma versão de software anterior à Atualização 1.
 
 A Atualização 5 inclui o software de dispositivo, Storport e Spaceport, as atualizações de segurança do SO e as atualizações do SO, bem como atualizações de firmware de disco.  O software do dispositivo, o Spaceport, o Storport, a segurança e outras atualizações do SO não são atualizações que causam interrupções. As atualizações não interruptivas ou regulares podem ser aplicadas pelo Portal Clássico do Azure ou por meio do método de hotfix. As atualizações de firmware de disco causam interrupção e são aplicadas quando o dispositivo está em modo de manutenção, por meio do método de hotfix, usando a interface do Windows PowerShell do dispositivo.
 
@@ -49,7 +49,7 @@ Verifique se seu dispositivo está executando a **Atualização 5 do StorSimple 
 
 * Agora, você também verá que as atualizações do modo de Manutenção estão disponíveis (essa mensagem pode continuar sendo exibida por até 24 horas após a instalação das atualizações). As atualizações do modo de manutenção são atualizações interrompidas que resultam em tempo de inatividade do dispositivo e podem ser aplicadas apenas por meio da interface do Windows PowerShell de seu dispositivo.
 
-* Baixe as atualizações do modo de manutenção usando as etapas listadas em [para baixar os hotfixes](#to-download-hotfixes) a fim de pesquisar e baixar a KB4011837, que instala atualizações de firmware de disco (a essa altura, as outras atualizações já devem estar instaladas). Siga as etapas listadas em [instalar e verificar hotfixes do modo de manutenção](#to-install-and-verify-maintenance-mode-hotfixes) para instalar as atualizações do modo de manutenção.
+* Baixe as atualizações do modo de manutenção usando as etapas listadas em [para baixar os hotfixes](#to-download-hotfixes) para pesquisar e baixar o KB4037263, que instala atualizações de firmware de disco (a essa altura, as outras atualizações já devem estar instaladas). Siga as etapas listadas em [instalar e verificar hotfixes do modo de manutenção](#to-install-and-verify-maintenance-mode-hotfixes) para instalar as atualizações do modo de manutenção.
 
 ## <a name="install-update-5-as-a-hotfix"></a>Instalar a Atualização 5 como um hotfix
 

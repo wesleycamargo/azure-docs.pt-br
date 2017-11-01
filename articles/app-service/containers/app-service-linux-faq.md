@@ -1,11 +1,11 @@
 ---
-title: "Perguntas frequentes sobre o Aplicativo Web para Contêineres do Serviço de Aplicativo do Azure | Microsoft Docs"
-description: "Perguntas frequentes sobre o Aplicativo Web para Contêineres do Serviço de Aplicativo do Azure."
+title: "Perguntas frequentes sobre o Serviço de Aplicativo do Azure no Linux | Microsoft Docs"
+description: "Perguntas frequentes sobre o Serviço de Aplicativo do Azure no Linux."
 keywords: "serviço de aplicativo do azure, aplicativo web, perguntas frequentes, linux, oss"
 services: app-service
 documentationCenter: 
 author: ahmedelnably
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: 
 ms.service: app-service
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: aelnably;wesmc
-ms.openlocfilehash: b783f7e8cfef991e7028ba4b4c7b1d0935397580
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 38e771b8d7211e8f4f408a43b1ab2e293370ab9c
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="azure-app-service-web-app-for-containers-faq"></a>Perguntas frequentes sobre o Aplicativo Web para Contêineres do Serviço de Aplicativo do Azure
+# <a name="azure-app-service-on-linux-faq"></a>Perguntas frequentes sobre o Serviço de Aplicativo do Azure no Linux
 
-Com a liberação do Aplicativo Web para Contêineres, estamos trabalhando para adicionar recursos e fazer melhorias em nossa plataforma. Este artigo fornece as respostas para as perguntas que nossos clientes têm feito recentemente.
+Com o lançamento do Serviço de Aplicativo no Linux, estamos trabalhando para adicionar recursos e fazer melhorias em nossa plataforma. Este artigo fornece as respostas para as perguntas que nossos clientes têm feito recentemente.
 
 Caso tenha uma pergunta, comente o artigo e responderemos assim que possível.
 
@@ -55,7 +55,7 @@ Você precisa definir o campo **reservado** do serviço de aplicativo como *true
 
 **Meu aplicativo Web ainda usa uma imagem de contêiner antiga do Docker depois que atualizei a imagem no Hub do Docker. Há suporte para implantação/integração contínua de contêineres personalizados?**
 
-**R:** Para configurar a integração/implantação contínua para o Registro de Contêiner do Azure ou imagens do DockerHub, verifique o artigo [Implantação contínua com o Aplicativo Web para Contêineres do Azure](./app-service-linux-ci-cd.md). Para registros privados, é possível atualizar o contêiner parando e, em seguida, iniciando o Aplicativo Web. Se preferir, é possível alterar ou adicionar uma configuração de aplicativo fictício para forçar uma atualização do contêiner.
+Para configurar a integração/implantação contínua para o Registro de Contêiner do Azure ou para imagens do DockerHub, confira o seguinte artigo [Implantação contínua com o Aplicativo Web para Contêineres](./app-service-linux-ci-cd.md). Para registros privados, é possível atualizar o contêiner parando e, em seguida, iniciando o Aplicativo Web. Se preferir, é possível alterar ou adicionar uma configuração de aplicativo fictício para forçar uma atualização do contêiner.
 
 **Há suporte para ambientes de preparo?**
 
@@ -94,7 +94,7 @@ Forneça a URL completa do registro, incluindo `http://` ou `https://`.
 
 **Qual é o formato do nome da imagem na opção de Registro privado?**
 
-Adicione o nome de imagem completa, incluindo a URL de registro particular (por exemplo, myacr.azurecr.io/dotnet:latest). Os nomes de imagem que usam a porta personalizada [não podem ser inseridos por meio do portal](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). Para definir `docker-custom-image-name`, use a [ferramenta de linha de comando `az`](https://docs.microsoft.com/en-us/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set).
+Adicione o nome de imagem completa, incluindo a URL de registro particular (por exemplo, myacr.azurecr.io/dotnet:latest). Os nomes de imagem que usam a porta personalizada [não podem ser inseridos por meio do portal](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). Para definir `docker-custom-image-name`, use a [ferramenta de linha de comando `az`](https://docs.microsoft.com/cli/azure/webapp/config/container?view=azure-cli-latest#az_webapp_config_container_set).
 
 **Posso expor mais de uma porta em minha imagem de contêiner personalizados?**
 
@@ -134,6 +134,6 @@ Você pode usar apenas letras (A-Z, a-z), números (0-9) e o caractere de sublin
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [O que é o Aplicativo Web do Azure para Contêineres?](app-service-linux-intro.md)
+* [O que é o Serviço de Aplicativo do Azure no Linux?](app-service-linux-intro.md)
 * [Configurar ambientes de preparo no Serviço de Aplicativo do Azure](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-* [Implantação contínua com o Aplicativo Web do Azure para Contêineres](./app-service-linux-ci-cd.md)
+* [Implantação Contínua com o Aplicativo Web para Contêineres](./app-service-linux-ci-cd.md)

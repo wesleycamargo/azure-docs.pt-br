@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: f23443d438c95a784f655fb9a5f20dfcf37be189
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4041cacd72b1db74012497287030faf5d05ee6bf
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: conceitos de design
 O objetivo deste tópico é descrever as áreas que devem ser consideradas durante o design de implementação do Azure AD Connect. Este tópico é um aprofundamento em determinadas áreas e esses conceitos também são descritos brevemente em outros tópicos.
@@ -150,9 +150,15 @@ Para trocar de objectGUID para ConsistencyGuid como o atributo de Âncora de Ori
 
    ![Habilitar ConsistencyGuid para implantação existente – etapa 6](./media/active-directory-aadconnect-design-concepts/consistencyguidexistingdeployment04.png)
 
-Durante a análise (etapa 4), se o atributo estiver configurado em um ou mais objetos no diretório, o assistente concluirá que o atributo está sendo usado por outro aplicativo e retornará um erro, conforme ilustrado no diagrama a seguir. Se você tiver certeza de que o atributo não é usado pelos aplicativos existentes, precisará contatar o Suporte para obter informações sobre como suprimir o erro.
+Durante a análise (etapa 4), se o atributo estiver configurado em um ou mais objetos no diretório, o assistente concluirá que o atributo está sendo usado por outro aplicativo e retornará um erro, conforme ilustrado no diagrama a seguir. Esse erro também poderá ocorrer se você já tiver habilitado o recurso ConsistencyGuid em seu servidor do Azure AD Connect principal e estiver tentando fazer o mesmo em seu servidor de preparo.
 
 ![Habilitar ConsistencyGuid para implantação existente – erro](./media/active-directory-aadconnect-design-concepts/consistencyguidexistingdeploymenterror.png)
+
+ Se você tiver certeza de que o atributo não é usado por outros aplicativos existentes, será possível suprimir o erro reiniciando o Assistente do Azure AD Connect com o **/SkipLdapSearchcontact** especificado. Para tal, execute o seguinte comando no prompt de comando:
+
+```
+"c:\Program Files\Microsoft Azure Active Directory Connect\AzureADConnect.exe" /SkipLdapSearch
+```
 
 ### <a name="impact-on-ad-fs-or-third-party-federation-configuration"></a>Impacto sobre o AD FS ou a configuração de federação de terceiros
 Se você estiver usando o Azure AD Connect para gerenciar a implantação do AD FS local, o Azure AD Connect atualizará automaticamente as regras de declaração para usar o mesmo atributo do AD como sourceAnchor. Isso garante que a declaração ImmutableID gerada pelo ADFS seja consistente com os valores de sourceAnchor exportados para o Azure AD.

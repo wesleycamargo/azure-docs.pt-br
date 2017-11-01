@@ -13,12 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: spelluru
+ms.openlocfilehash: 63e4bb600d053a43c500b601a3942eb96ac16b07
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 18f5aea960bca34699d2d265d4801797291a3e3a
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Como criar e configurar o Integration Runtime do auto-hospedado
 O IR (Integration Runtime) é a infraestrutura de computação usada pelo Azure Data Factory para fornecer funcionalidades de integração de dados entre diferentes ambientes de rede. Para obter detalhes sobre o IR, consulte [Visão geral do Integration Runtime](concepts-integration-runtime.md).
@@ -69,9 +68,9 @@ Aqui está o fluxo de dados de alto nível para e o resumo das etapas para a có
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- As versões de **Sistema Operacional** com suporte são Windows 7, Windows 8/8.1, Windows 10, Windows Server 2008 R2, Windows Server 2012 e Windows Server 2012 R2. A instalação do Integration Runtime auto-hospedado em um **controlador de domínio não tem suporte**.
+- As versões de **Sistema Operacional** com suporte são Windows 7 Service Pack 1, Windows 8.1, Windows 10, Windows Server 2008 R2 SP1, Windows Server 2012, Windows Server 2012 R2 e Windows Server 2016. A instalação do Integration Runtime auto-hospedado em um **controlador de domínio não tem suporte**.
 - O **.NET Framework 4.6.1 ou superior** é necessário. Se você estiver instalando o Integration Runtime auto-hospedado em um computador com Windows 7, instale o .NET Framework 4.6.1 ou posterior. Confira [Requisitos de sistema do .NET Framework](/dotnet/framework/get-started/system-requirements) para obter detalhes.
-- A **configuração** recomendada para o computador do Integration Runtime auto-hospedado é de, no mínimo, 2 GHz, quatro núcleos, 8 GB de RAM e 80 GB de disco.
+- A **configuração** recomendada para o computador do Integration Runtime auto-hospedado é de, no mínimo, 2 GHz, 4 núcleos, 8 GB de RAM e 80 GB de disco.
 - Se o computador host hibernar, o Integration Runtime auto-hospedado não responderá às solicitações de dados. Portanto, configure um plano de energia adequado no computador antes de instalar o Integration Runtime auto-hospedado. Se o computador estiver configurado para hibernar, a instalação do Integration Runtime auto-hospedado exibirá uma mensagem.
 - Você deve ser um administrador no computador local para instalar e configurar com êxito o Integration Runtime auto-hospedado.
 - Como as execuções da atividade de cópia ocorrem em uma frequência específica, o uso de recursos (CPU, memória) no computador também segue o mesmo padrão com tempos ociosos e de pico. A utilização de recursos também depende muito da quantidade de dados sendo movida. Quando vários trabalhos de cópia estiverem em andamento, você verá o uso do recurso aumentar durante horários de pico.
@@ -240,4 +239,3 @@ Se optar por não abrir a porta 8060 no computador do Integration Runtime auto-h
 
 ## <a name="next-steps"></a>Próximas etapas
 Consulte o tutorial a seguir para obter instruções passo a passo: [Tutorial: cópia de dados locais para a nuvem](tutorial-hybrid-copy-powershell.md).
-

@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 10/19/2017
 ms.author: jingwang
-ms.openlocfilehash: 784b9489911be0d9a559b6fe7795a6c2cbdb09fc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 037cd8ac0065adc7572f7a60bac019c05a6e308a
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Atividade de cópia no Azure Data Factory
 
@@ -76,7 +76,7 @@ Para usar a atividade de cópia no Azure Data Factory, você precisa:
 
 ### <a name="syntax"></a>Sintaxe
 
-O modelo a seguir de uma atividade de cópia lista as propriedades com suporte esgotadas. Especifique as adequadas para seu cenário.
+O modelo a seguir de uma atividade de cópia contém uma lista exaustiva das propriedades com suporte. Especifique as adequadas para o seu cenário.
 
 ```json
 "activities":[
@@ -107,7 +107,7 @@ O modelo a seguir de uma atividade de cópia lista as propriedades com suporte e
             "translator":
             {
                 "type": "TabularTranslator",
-                "ColumnMappings": "<column mapping>"
+                "columnMappings": "<column mapping>"
             },
             "cloudDataMovementUnits": <number>,
             "parallelCopies": <number>,
