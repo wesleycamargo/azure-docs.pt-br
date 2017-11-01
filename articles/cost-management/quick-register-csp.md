@@ -5,22 +5,24 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 09/25/2017
+ms.date: 10/11/2017
 ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
 manager: carmonm
-ms.openlocfilehash: a7bd4aed7dbcde803c2106b8c053e8a2412eea99
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bcb072a2f2ab8c0e5097fca2c95309464483cb53
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>Registrar-se mo programa de Parceiro CSP e exibir dados de custo
 
 Como parceiro CSP, você pode se registrar no Gerenciamento de Custo do Azure pelo Cloudyn. O registro fornece acesso ao portal do Cloudyn. Este guia de início rápido fornece detalhes do processo de registro necessários para criar uma assinatura de avaliação do Cloudyn e entrar no portal do Cloudyn. Também mostra como começar a exibir dados de custo imediatamente.
 
-Para concluir o registro, você deve ser um administrador do programa de parceria com acesso à API do Partner Center. A configuração da API do Partner Center é necessária para autenticação e acesso a dados. Para obter mais informações, consulte Conectar-se à API do Partner Center.
+
+>[!NOTE]
+>Para concluir o registro, você deve ser um administrador do programa de parceria com acesso à API do Partner Center. A configuração da API do Partner Center é necessária para autenticação e acesso a dados. Para obter mais informações, consulte [Conectar-se à API do Partner Center](https://msdn.microsoft.com/library/partnercenter/mt709136.aspx). Além disso, os usuários CSP indiretos só podem usar Cloudyn quando o revendedor direto CSP registrar-se com a Cloudyn para fornecer acesso a seus clientes e assinaturas.
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
 
@@ -46,6 +48,19 @@ Para concluir o registro, você deve ser um administrador do programa de parceri
 7. Em **Convidar outros stakeholders**, adicione usuários digitando seus endereços de email. Quando concluir, clique em **Avançar**. Leva cerca de duas horas para que todos os seus dados de cobrança sejam adicionados ao Cloudyn.
 8. Clique em **Ir para o Cloudyn** para abrir o portal de Cloudyn e, em seguida, na página **Gerenciamento de Contas de Nuvem**, você deverá ver as informações de sua conta do CSP registrada.
 
+## <a name="configure-indirect-csp-access-in-cloudyn"></a>Configurar acesso indireto de CSP em Cloudyn
+
+Por padrão, a API do Partner Center só está acessível a CSPs diretos. No entanto, um provedor de CSP direto pode configurar o acesso para seus clientes ou parceiros de CSP indireto usando grupos de entidades em Cloudyn.
+
+Para habilitar o acesso para clientes ou parceiros de CSP indireto, siga as etapas em [Criar um registro de avaliação](#create-a-trial-registration) para configurar um registro de avaliação. Em seguida, conclua estas etapas para segmentar dados de CSP indireto usando grupos de entidades Cloudyn. Em seguida, atribua as permissões de usuário apropriadas para os grupos de entidades.
+
+1. Crie um grupo de entidades com as informações em [Criar entidades](tutorial-user-access.md#create-entities).
+2. Siga as etapas em [Atribuir assinaturas a Entidades de Custo](https://support.cloudyn.com/hc/en-us/articles/115005139425-Video-Assigning-subscriptions-to-Cost-Entities). Associe a conta do cliente de CSP indireto e suas assinaturas do Azure para a entidade que você criou anteriormente.
+3. Siga as etapas em [Criar um usuário com acesso de administrador](tutorial-user-access.md#create-a-user-with-admin-access) para criar uma conta de usuário com acesso de Administrador. Em seguida, verifique se a conta de usuário tem acesso de administrador às entidades específicas criadas anteriormente para a conta indireta.
+
+Parceiros de CSP indiretos entram no portal Cloudyn usando as contas que você criou para eles.
+
+
 [!INCLUDE [cost-management-create-account-view-data](../../includes/cost-management-create-account-view-data.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -53,4 +68,4 @@ Para concluir o registro, você deve ser um administrador do programa de parceri
 Neste guia de início rápido, você usou as informações do CSP para se registrar no Gerenciamento de Custo. Você também entrou no portal do Cloudyn e começou a exibir os dados de custo. Para saber mais sobre o Gerenciamento de Custo do Azure pelo Cloudyn, continue com o tutorial sobre o Gerenciamento de Custo.
 
 > [!div class="nextstepaction"]
-> [Exibir dados de custo](./tutorial-review-usage.md)
+> [Examinar o uso e os custos](./tutorial-review-usage.md)

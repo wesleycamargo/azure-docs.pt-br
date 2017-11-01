@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2017
+ms.date: 10/16/2017
 ms.author: bradsev
-ms.openlocfilehash: d47c219dfd1e62351d7113d930b17ac45f64c369
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: efb681b85d3d7434e3114b8576abc64d00891f03
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="structure-projects-with-the-team-data-science-process-template"></a>Estruturar projetos com modelo de Processo de Ciência de Dados da Equipe
 
@@ -28,23 +28,24 @@ Este documento apresenta instruções sobre como criar projetos de ciência de d
 ## <a name="what-is-the-team-data-science-process"></a>O que é o Processo de Ciência de Dados de Equipe?
 O TDSP é um processo de ciência de dados ágil e iterativo para executar e fornecer soluções de análise avançada. É projetado para melhorar a colaboração e a eficiência das equipes de ciência de dados em organizações empresariais. Ele dá suporte a esses objetivos com quatro componentes principais:
 
-   * Uma definição de [ciclo de vida de ciência de dados](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/lifecycle-detail.md) padrão.
+   * Uma definição de [ciclo de vida de ciência de dados](../team-data-science-process/lifecycle.md) padrão.
    * [Modelos de relatório e documentação de projeto](https://github.com/Azure/Azure-TDSP-ProjectTemplate) de uma estrutura de projeto padronizada.
-   * Uma infraestrutura e recursos para execução do projeto, como infraestrutura de computação e armazenamento e repositórios de código.
+   * Uma infraestrutura e recursos para execução do projeto, como uma infraestrutura de computação e armazenamento e repositórios de código.
    * [Ferramentas e utilitários](https://github.com/Azure/Azure-TDSP-Utilities) para tarefas de projeto de ciência de dados, como:
-      - Controle de versão e revisão de código colaborativos
+      - Controle de versão colaborativa
+      - Revisão de código
       - Exploração de dados e modelagem
       - Planejamento de trabalho
 
-Para uma discussão mais completa sobre TDSP, consulte [Visão geral do Processo de Ciência de Dados da Equipe](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/README.md).
+Para uma discussão mais completa sobre TDSP, consulte [Visão geral do Processo de Ciência de Dados da Equipe](../team-data-science-process/overview.md).
 
 ## <a name="why-should-you-use-the-tdsp-structure-and-templates"></a>Por que você deve usar a estrutura e os modelos de TDSP?
-A padronização da estrutura, do ciclo de vida e da documentação de projetos de ciência de dados são essenciais para facilitar a colaboração eficaz em equipes de ciência de dados. A capacidade de criar de projetos do Machine Learning com um modelo TDSP oferece uma estrutura para trabalho em equipe coordenado.
+A padronização da estrutura, do ciclo de vida e da documentação de projetos de ciência de dados são essenciais para facilitar a colaboração eficaz em equipes de ciência de dados. A criação de projetos de aprendizado de máquina com o modelo TDSP oferece uma estrutura para trabalho em equipe coordenado.
 
-Lançamos anteriormente um [repositório do GitHub para a estrutura e os modelos do projeto TDSP](https://github.com/Azure/Azure-TDSP-ProjectTemplate), a fim de ajudar a atingir esses objetivos. Mas não foi possível, até agora, instanciar a estrutura TDSP e os modelos em uma ferramenta de ciência de dados. Agora, é possível criar um projeto do Machine Learning que instancie os modelos de estrutura e documentação do TDSP. 
+Lançamos anteriormente um [repositório do GitHub para a estrutura e os modelos do projeto TDSP](https://github.com/Azure/Azure-TDSP-ProjectTemplate), a fim de ajudar a atingir esses objetivos. Mas não foi possível, até agora, instanciar a estrutura TDSP e os modelos em uma ferramenta de ciência de dados. Agora, é possível criar um projeto de aprendizado de máquina que instancie os modelos de estrutura e documentação do TDSP. 
 
 ## <a name="things-to-note-before-creating-a-new-project"></a>O que observar antes de criar um novo projeto
-Observe ou examine o seguinte *antes de* criar um novo projeto:
+Examine o seguinte *antes de* criar um novo projeto:
 * Examine o [modelo](https://aka.ms/tdspamlgithubrepo) do Machine Learning do TDSP.
 * Os conteúdos (que não seja os que já estão na pasta “docs”) deve ser menor que 25 MB. Consulte a observação após esta lista.
 * A pasta de dados de\_exemplo é somente para arquivos de dados pequenos (menos de 5 MB) com os quais você pode testar seu código ou começar o desenvolvimento inicial.
@@ -52,7 +53,7 @@ Observe ou examine o seguinte *antes de* criar um novo projeto:
 * Para saber como manipular arquivos grandes e saídas no Machine Learning, consulte [Como manter alterações e lidar com arquivos grandes](http://aka.ms/aml-largefiles).
 
 > [!NOTE]
-> Verifique se, além dos arquivos readme.md, todo o conteúdo relacionado com a documentação (texto, markdowns, imagens e outros arquivos de documento) que *não* sejam usados durante a execução do projeto estão na pasta chamada “docs” (todas em minúsculas). A pasta “docs” é uma pasta especial ignorada pela execução do Machine Learning para que os conteúdos nessa pasta não sejam copiados para os destinos de computação desnecessariamente. Os objetos nesta pasta também não contam para o limite de 25 MB do tamanho do projeto. A pasta “docs”, por exemplo, é o local para armazenar arquivos de imagem grandes necessários na sua documentação. Esses arquivos ainda são acompanhados pelo Git por meio do histórico de execuções. 
+> Todo o conteúdo relacionado com a documentação (texto, markdowns, imagens e outros arquivos de documento) que *não* são usados durante a execução do projeto (além do arquivo readme.md) devem ficar na pasta chamada “docs” (todas em minúsculas). A pasta “docs” é uma pasta especial ignorada pela execução do Machine Learning para que os conteúdos nessa pasta não sejam copiados para os destinos de computação desnecessariamente. Os objetos nesta pasta também não contam para o limite de 25 MB do tamanho do projeto. A pasta “docs”, por exemplo, é o local para armazenar arquivos de imagem grandes necessários na sua documentação. Esses arquivos ainda são acompanhados pelo Git por meio do histórico de execuções. 
 
 ## <a name="instantiate-the-tdsp-structure-and-templates-from-the-machine-learning-template-gallery"></a>Instanciar a estrutura e os modelos TDSP da galeria de modelos do Machine Learning
 Para criar um novo projeto com os modelos de estrutura e documentação do TDSP, conclua os procedimentos a seguir.
@@ -94,7 +95,7 @@ O modelo de projeto TDSP contém as pastas de nível superior a seguir:
 
 
 ## <a name="use-the-tdsp-structure-and-templates"></a>Usar a estrutura e os modelos de TDSP
-É necessário adicionar informações específicas do projeto à estrutura e aos modelos. Você deve preenchê-los com código e a informação necessária para executar e entregar o projeto. O arquivo [ProjectReport](https://aka.ms/tdspamlgithubrepoprojectreport) é um modelo que deve ser modificado com informações relevantes para seu projeto. Ele vem com um conjunto de perguntas que ajudam a preencher as informações de cada um dos quatro estágios do [ciclo de vida do TDSP](https://github.com/Azure/Microsoft-TDSP/blob/master/Docs/lifecycle-detail.md).
+É necessário adicionar informações específicas do projeto à estrutura e aos modelos. É necessário preenchê-los com código e a informação necessária para executar e entregar o projeto. O arquivo [ProjectReport](https://aka.ms/tdspamlgithubrepoprojectreport) é um modelo que deve ser modificado com informações relevantes para seu projeto. Ele vem com um conjunto de perguntas que ajudam a preencher as informações de cada um dos quatro estágios do [ciclo de vida do TDSP](../team-data-science-process/lifecycle.md).
 
 Um exemplo da aparência de uma estrutura de projeto durante a execução ou após a conclusão é mostrado a seguir no painel esquerdo da figura a seguir. Esse projeto é do [Projeto de exemplo de Processo de Ciência de Dados da Equipe: classificar rendas dos dados de censo dos EUA no Azure Machine Learning](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome).
 

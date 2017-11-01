@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/21/2017
 ms.author: chackdan
-ms.openlocfilehash: 3dd4f3494bb9ed70549f41e22c58666cada8da07
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 874cf647d4b708bbbc64246ac0dff133639ad86c
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Criar um cluster do Service Fabric no usando o portal do Azure
 > [!div class="op_single_selector"]
@@ -42,7 +42,8 @@ Um cluster seguro é um cluster que impede o acesso não autorizado às operaç�
 
 Os conceitos são os mesmos para a criação de clusters seguros, se os clusters são do Linux ou do Windows. Para obter mais informações e scripts auxiliares para criar clusters do Linux seguras, consulte [Criando clusters seguros no Linux](service-fabric-cluster-creation-via-arm.md#secure-linux-clusters). Os parâmetros obtidos pelo script auxiliar fornecido podem ser inseridos diretamente no portal, conforme descrito na seção [Criar um cluster no portal do Azure](#create-cluster-portal).
 
-## <a name="log-in-to-azure"></a>Fazer logon no Azure
+## <a name="configure-key-vault"></a>Configurar o Key Vault 
+### <a name="log-in-to-azure"></a>Fazer logon no Azure
 Este guia usa o [Azure PowerShell][azure-powershell]. Ao iniciar uma nova sessão do PowerShell, faça logon em sua conta do Azure e selecione sua assinatura antes de executar comandos do Azure.
 
 Faça logon na sua conta do Azure:
@@ -58,7 +59,7 @@ Get-AzureRmSubscription
 Set-AzureRmContext -SubscriptionId <guid>
 ```
 
-## <a name="set-up-key-vault"></a>Configurar o Cofre de Chaves
+### <a name="set-up-key-vault"></a>Configurar o Cofre de Chaves
 Esta parte do guia mostra a criação de um Cofre de Chaves para um cluster do Service Fabric no Azure e para aplicativos do Service Fabric. Para obter um guia completo sobre o Key Vault, consulte o [guia de introdução ao Key Vault][key-vault-get-started].
 
 O Service Fabric usa certificados x. 509 para proteger um cluster. O Cofre de Chaves do Azure é usado para gerenciar certificados para clusters do Service Fabric no Azure. Quando um cluster é implantado no Azure, o provedor de recursos do Azure responsável pela criação de clusters do Service Fabric recebe certificados do Cofre de Chaves e os instala nas VMs do cluster.
@@ -67,7 +68,7 @@ O diagrama a seguir ilustra o relacionamento entre o Cofre de Chaves, um cluster
 
 ![Instalação do certificado][cluster-security-cert-installation]
 
-### <a name="create-a-resource-group"></a>Criar um grupo de recursos
+#### <a name="create-a-resource-group"></a>Criar um grupo de recursos
 A primeira etapa é criar um novo grupo de recursos especificamente para o Cofre de Chaves. Colocar o Cofre de Chaves em seu próprio grupo de recursos é recomendado para que você possa remover grupos de recursos de computação e armazenamento, como o grupo de recursos com o cluster do Service Fabric - sem perder suas chaves e segredos. O grupo de recursos com o Cofre de Chaves deve estar na mesma região que o cluster que está sendo usado.
 
 ```powershell
@@ -83,7 +84,7 @@ A primeira etapa é criar um novo grupo de recursos especificamente para o Cofre
 
 ```
 
-### <a name="create-key-vault"></a>Criar Cofre da Chave
+#### <a name="create-key-vault"></a>Criar Cofre da Chave
 Crie um Cofre de Chaves no novo grupo de recursos. O Cofre de Chaves **deve estar habilitado para implantação** para permitir que o provedor de recursos do Service Fabric obtenha certificados ele e os instale em nós de cluster:
 
 ```powershell
@@ -124,10 +125,10 @@ Se você tiver um Cofre de Chaves existente, poderá habilitá-lo para implanta�
 ```
 
 
-## <a name="add-certificates-to-key-vault"></a>Adicionar certificados ao Cofre de Chaves
+### <a name="add-certificates-to-key-vault"></a>Adicionar certificados ao Cofre de Chaves
 Os certificados são usados no Service Fabric para fornecer autenticação e criptografia para proteger vários aspectos de um cluster e de seus aplicativos. Para obter mais informações sobre como os certificados são usados no Service Fabric, consulte [Cenários de segurança do cluster do Service Fabric][service-fabric-cluster-security].
 
-### <a name="cluster-and-server-certificate-required"></a>Certificado de cluster e de servidor (necessário)
+#### <a name="cluster-and-server-certificate-required"></a>Certificado de cluster e de servidor (necessário)
 Esse certificado é necessário para proteger um cluster e impedir o acesso não autorizado a ele. Ele fornece segurança de cluster de duas maneiras:
 
 * **Autenticação do cluster:** autentica a comunicação de nó para nó para a federação de cluster. Somente os nós que podem provar sua identidade com esse certificado podem ingressar no cluster.
@@ -139,7 +140,7 @@ Para servir a essas finalidades, o certificado deverá atender a estes requisito
 * O certificado deve ser criado para troca de chaves, exportável para um arquivo Troca de Informações Pessoais (.pfx).
 * O nome de assunto do certificado deve corresponder ao domínio usado para acessar o cluster do Service Fabric. Isso é necessário para fornecer SSL para pontos de extremidade de gerenciamento de HTTPS e Service Fabric Explorer do cluster. Você não pode obter um certificado SSL de uma autoridade de certificação (CA) para o domínio `.cloudapp.azure.com` . Adquira um nome de domínio personalizado para seu cluster. Quando você solicitar um certificado de uma autoridade de certificação, o nome de assunto do certificado deve corresponder ao nome de domínio personalizado usado para seu cluster.
 
-### <a name="client-authentication-certificates"></a>Certificados de autenticação de cliente
+#### <a name="client-authentication-certificates"></a>Certificados de autenticação de cliente
 Os certificados de cliente adicionais autenticam os administradores para tarefas de gerenciamento de cluster. O Service Fabric tem dois níveis de acesso: **administrador** e **usuário somente leitura**. No mínimo, um único certificado para acesso administrativo deve ser usado. Para acesso de nível de usuário adicional, deve ser fornecido um certificado diferente. Para obter mais informações sobre as funções de acesso, consulte [Controle de acesso baseado em função para clientes do Service Fabric][service-fabric-cluster-security-roles].
 
 Você não precisa carrear os certificados de autenticação do cliente no Cofre de Chaves para trabalhar com o Service Fabric. Esses certificados só precisam ser fornecido para os usuários autorizados para gerenciamento de cluster. 
@@ -149,7 +150,7 @@ Você não precisa carrear os certificados de autenticação do cliente no Cofre
 > 
 > 
 
-### <a name="application-certificates-optional"></a>Certificados de aplicativo (opcionais)
+#### <a name="application-certificates-optional"></a>Certificados de aplicativo (opcionais)
 Qualquer número de certificados adicionais pode ser instalado em um cluster para fins de segurança do aplicativo. Antes de criar o cluster, considere os cenários de segurança de aplicativos que exigem um certificado a ser instalado em nós, como:
 
 * Criptografia e descriptografia de valores de configuração de aplicativo
@@ -157,7 +158,7 @@ Qualquer número de certificados adicionais pode ser instalado em um cluster par
 
 Os certificados do aplicativo não podem ser configurados durante a criação de um cluster por meio do portal do Azure. Para configurar certificados de aplicativo durante a instalação do cluster, é necessário [criar um cluster usando o Azure Resource Manager][create-cluster-arm]. Você também pode adicionar certificados do aplicativo ao cluster após ele ter sido criado.
 
-### <a name="formatting-certificates-for-azure-resource-provider-use"></a>Formatação de certificados para uso do provedor de recursos do Azure
+#### <a name="formatting-certificates-for-azure-resource-provider-use"></a>Formatação de certificados para uso do provedor de recursos do Azure
 Os arquivos de chave privada (.pfx) podem ser adicionados e usados diretamente por meio do Cofre de Chaves. No entanto, o provedor de recursos do Azure requer chaves para ser armazenado em um formato JSON especial que inclui o .pfx como uma cadeia de caracteres codificada em base 64 e a senha da chave privada. Para acomodar esses requisitos, as chaves deverão ser colocadas em uma cadeia de caracteres JSON e então armazenadas como *segredos* no Cofre de Chaves.
 
 Para facilitar esse processo, um módulo do PowerShell está [disponível no GitHub][service-fabric-rp-helpers]. Siga estas etapas para usar o módulo:

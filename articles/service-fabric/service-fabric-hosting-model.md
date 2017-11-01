@@ -12,11 +12,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/15/2017
 ms.author: harahma
-ms.openlocfilehash: ca7092a06a9ffce8383ca8bc9f70ce312cdf9de4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ecc9038cf895ddaeb06dd0e4e9852d5ef4a4513a
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="service-fabric-hosting-model"></a>Modelo de hospedagem do Service Fabric
 Este artigo fornece uma visão geral dos modelos de hospedagem de aplicativos fornecidos pelo Service Fabric e descreve as diferenças entre os modelos de **Processo Compartilhado** e **Processo Exclusivo**. Ele descreve a aparência de um aplicativo implantado em um nó do Service Fabric e a relação entre réplicas (ou instâncias) do serviço e o processo de host do serviço.
@@ -26,7 +26,7 @@ Antes de continuar, familiarize-se com o [Modelo de Aplicativo do Service Fabric
 > [!NOTE]
 > Neste artigo, para fins de simplicidade, a menos que mencionado explicitamente:
 >
-> - Todos os usos da palavra *réplica* referem-se a uma réplica de um serviço com estado ou a uma instância de um serviço sem estado.
+> - Todos os usos da palavra *réplica* referem-se tanto a uma réplica de um serviço com estado quanto a uma instância de um serviço sem estado.
 > - *CodePackage* é tratado de forma equivalente ao processo *ServiceHost* que registra um *ServiceType* e hospeda réplicas de serviços do *ServiceType*.
 >
 
@@ -53,7 +53,7 @@ Como você pode ver, o Service Fabric colocou a nova réplica da partição **P3
 Desta vez, o Service Fabric ativou uma nova cópia de “MyServicePackage”, que inicia uma nova cópia de “MyCodePackage” e as réplicas de ambas as partições do serviço **fabric:/App2/ServiceA** (ou seja, **P4** & **P5**) são colocadas nessa nova cópia de “MyCodePackage”.
 
 ## <a name="shared-process-model"></a>Modelo de processo compartilhado
-O que vimos anteriormente é o modelo de hospedagem padrão fornecido pelo Service Fabric, que é conhecido como o modelo de **Processo Compartilhado**. Nesse modelo, em determinado *aplicativo*, apenas uma cópia de determinado *ServicePackage* é ativada em um *Nó* (que inicia todos os *CodePackages* contidos nele) e todas as réplicas de todos os serviços de determinado *ServiceType* são colocadas no *CodePackage* que registra o *ServiceType*. Em outras palavras, todas as réplicas de todos os serviços de determinado *ServiceType* compartilham o mesmo processo.
+O que vimos anteriormente é o modelo de hospedagem padrão fornecido pelo Service Fabric, que é conhecido como o modelo de **Processo Compartilhado**. Nesse modelo, em determinado *aplicativo*, apenas uma cópia de determinado *ServicePackage* é ativada em um *Nó* (que inicia todos os *CodePackages* contidos nele) e todas as réplicas de todos os serviços de determinado *ServiceType* são colocadas no *CodePackage* que registra o *ServiceType*. Em outras palavras, todas as réplicas de todos os serviços em um nó de determinado *ServiceType* compartilham o mesmo processo.
 
 ## <a name="exclusive-process-model"></a>Modelo de processo exclusivo
 O outro modelo de hospedagem fornecido pelo Service Fabric é o modelo de **Processo Exclusivo**. Nesse modelo, em determinado *Nó*, para colocar cada réplica, o Service Fabric ativa uma nova cópia do *ServicePackage* (que inicia todos os *CodePackages* contidos nele) e a réplica é colocada no *CodePackage* que registrou o *ServiceType* do serviço ao qual a réplica pertence. Em outras palavras, cada réplica reside em seu próprio processo dedicado. 
@@ -96,16 +96,16 @@ Continuando com nosso exemplo acima, vamos criar outro serviço **fabric:/App1/S
 ![Exibição do nó do aplicativo implantado][node-view-four]
 </center>
 
-Como você pode ver, o Service Fabric ativou duas novas cópias de “MyServicePackage” (uma para cada réplica da partição **P6** & **P7**) e colocou cada réplica em sua cópia dedicada de *CodePackage*. Outro ponto importante a observar aqui é que, quando o modelo de **Processo Exclusivo** é usado, em determinado *aplicativo*, várias cópias de um *ServicePackage* específico podem estar ativas em um *Nó*. No exemplo acima, vemos que três cópias de “MyServicePackage” estão ativas em **fabric:/App1**. Cada uma dessas cópias ativas de “MyServicePackage” tem uma **ServicePackageAtivationId** associada a ela que identifica essa cópia no *aplicativo* **fabric:/App1**.
+Como você pode ver, o Service Fabric ativou duas novas cópias de “MyServicePackage” (uma para cada réplica da partição **P6** & **P7**) e colocou cada réplica em sua cópia dedicada de *CodePackage*. Outro ponto importante a observar aqui é que, quando o modelo de **Processo Exclusivo** é usado, em determinado *aplicativo*, várias cópias de um *ServicePackage* específico podem estar ativas em um *Nó*. No exemplo acima, vemos que três cópias de “MyServicePackage” estão ativas em **fabric:/App1**. Cada uma dessas cópias ativas de “MyServicePackage” tem uma **ServicePackageActivationId** associada a ela que identifica essa cópia no *aplicativo* **fabric:/App1**.
 
-Quando apenas o modelo de **Processo Compartilhado** é usado para um *aplicativo*, como **fabric:/App2** no exemplo acima, há apenas uma cópia ativa do *ServicePackage* em um *Nó* e uma **ServicePackageAtivationId** dessa ativação do *ServicePackage* é uma “cadeia de caracteres vazia”.
+Quando apenas o modelo de **Processo Compartilhado** é usado para um *aplicativo*, como **fabric:/App2** no exemplo acima, há apenas uma cópia ativa do *ServicePackage* em um *Nó* e uma **ServicePackageActivationId** dessa ativação do *ServicePackage* é uma “cadeia de caracteres vazia”.
 
 > [!NOTE]
->- O modelo de hospedagem do **Processo Compartilhado** corresponde ao **ServicePackageAtivationMode** igual a **SharedProcess**. Esse é o modelo de hospedagem padrão e **ServicePackageAtivationMode** não precisa ser especificado no momento da criação do serviço.
+>- O modelo de hospedagem do **Processo Compartilhado** corresponde a **ServicePackageActivationMode** igual a **SharedProcess**. Esse é o modelo de hospedagem padrão e **ServicePackageActivationMode** não precisa ser especificado no momento da criação do serviço.
 >
->- O modelo de hospedagem do **Processo Exclusivo** corresponde ao **ServicePackageAtivationMode** igual a **ExclusiveProcess** e precisa ser especificado explicitamente no momento da criação do serviço. 
+>- O modelo de hospedagem do **Processo Exclusivo** corresponde a **ServicePackageActivationMode** igual a **ExclusiveProcess** e precisa ser especificado explicitamente no momento da criação do serviço. 
 >
->- O modelo de hospedagem de um serviço pode ser conhecido consultando a [descrição do serviço][p2] e examinando o valor de **ServicePackageAtivationMode**.
+>- É possível descobrir o modelo de hospedagem de um serviço consultando a [descrição do serviço][p2] e examinando o valor de **ServicePackageActivationMode**.
 >
 >
 
@@ -119,9 +119,9 @@ Uma cópia ativa de um *ServicePackage* em um nó é conhecido como um [pacote d
 >
 > - No modelo de hospedagem do **Processo Exclusivo**, em um determinado *nó* de determinado *aplicativo*, uma ou mais cópias de um *ServicePackage* podem estar ativas. Cada ativação tem uma *ServicePackageActivationId* **não vazia** e precisa ser especificada durante a execução de operações relacionadas ao pacote de serviço implantado. 
 >
-> - Se **ServicePackageActivationId** for omitida, ele usará “cadeia de caracteres vazia” como padrão. Se um pacote de serviço implantado que foi ativado no modelo de **Processo Compartilhado** estiver presente, a operação será executada nele; caso contrário, a operação falhará.
+> - Se **ServicePackageActivationId** for omitida, uma “cadeia de caracteres vazia” será usada por padrão. Se um pacote de serviço implantado que foi ativado no modelo de **Processo Compartilhado** estiver presente, a operação será executada nele; caso contrário, a operação falhará.
 >
-> - Não é recomendável consultar uma vez e armazenar **ServicePackageActivationId** em cache, pois ela é gerada dinamicamente e pode ser alterada por vários motivos. Antes de executar uma operação que precisa da **ServicePackageActivationId**, primeiro você deve consultar a lista de [pacotes de serviço implantados][p3] em um nó e, depois, usar *ServicePackageActivationId** do resultado da consulta para executar a operação original.
+> - Não é recomendável consultar uma vez e armazenar **ServicePackageActivationId** em cache, pois ela é gerada dinamicamente e pode ser alterada por vários motivos. Antes de executar uma operação que precisa da **ServicePackageActivationId**, primeiro você deve consultar a lista de [pacotes de serviço implantados][p3] em um nó e, depois, usar a **ServicePackageActivationId** do resultado da consulta para executar a operação original.
 >
 >
 
@@ -141,7 +141,7 @@ Esses dois modelos de hospedagem têm seus prós e contras e o usuário precisa 
 ## <a name="exclusive-process-model-and-application-model-considerations"></a>Considerações sobre o modelo de processo exclusivo e o modelo de aplicativo
 A maneira recomendada de modelar o aplicativo no Service Fabric é manter um *ServiceType* por *ServicePackage* e esse modelo funciona bem na maioria dos aplicativos. 
 
-No entanto, para possibilitar cenários especiais em que um *ServiceType* por *ServicePackage* talvez não seja desejável, funcionalmente, o Service Fabric permite ter mais de um *ServiceType* por *ServicePackage* (e um *CodePackage* pode registrar mais de um *ServiceType*). Estes são alguns dos cenários em que essas configurações podem ser úteis:
+Destinadas a certos casos de uso, o Service Fabric também permite usar mais de um *ServiceType* por *ServicePackage* (e um *CodePackage* pode registrar mais de um *ServiceType*). Veja a seguir alguns dos cenários em que essas configurações podem ser úteis:
 
 - Você deseja otimizar a utilização de recursos do sistema operacional, gerando menos processos e tendo uma densidade de réplica mais alta por processo.
 - Réplicas de ServiceTypes diferentes precisam compartilhar alguns dados comuns que têm um alto custo de memória ou de inicialização.

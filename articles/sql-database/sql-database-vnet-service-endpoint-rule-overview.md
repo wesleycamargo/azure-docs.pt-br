@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 10/09/2017
+ms.date: 10/13/2017
 ms.author: genemi
-ms.openlocfilehash: f62184d97b18d72b91d63db0e449bbab6c20a179
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b15727ae6c7b4d0f1595d506cb8d0f66ec3abfe4
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Use pontos de extremidade e regras de serviço de rede virtual para o Banco de dados SQL do Azure
 
@@ -125,6 +125,9 @@ Você tem a opção de usar o [controle de acesso baseado em função (RBAC)][rb
 ## <a name="limitations"></a>Limitações
 
 Para o Banco de Dados SQL do Azure, o recurso de regras de rede virtual tem as seguintes limitações:
+
+- No momento, um Aplicativo Web do Azure em uma sub-rede que tem **Pontos de Extremidade de Serviço** ativados ainda não funciona conforme o esperado. Estamos trabalhando para habilitar essa funcionalidade.
+    - Até que esse recurso esteja totalmente implementado, é recomendável mover seu aplicativo Web para uma sub-rede diferente que não tenha pontos de extremidade de serviço para SQL.
 
 - No firewall do Banco de Dados SQL, cada regra de rede virtual faz referência a uma sub-rede. Todas essas sub-redes referenciadas devem ser hospedadas na mesma região geográfica que hospeda o Banco de Dados SQL.
 
@@ -288,9 +291,6 @@ O recurso de pontos de extremidade de serviço de Rede virtual do Microsoft Azur
 
 <!-- ??2
 #### Syntax related articles
-
-- PowerShell cmdlets
-
 - REST API Reference, including JSON
 
 - Azure CLI

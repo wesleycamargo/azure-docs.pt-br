@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/26/2017
+ms.date: 10/13/2017
 ms.author: bwren
-ms.openlocfilehash: e03911d589aaab0d0e80da5d58f14d6df417f4be
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ee11f64484a66fad06b6536a18f9b3e239fa40d5
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="understanding-alerts-in-log-analytics"></a>Noções básicas sobre alertas no Log Analytics
 
@@ -76,15 +76,18 @@ Em alguns casos, pode ser útil criar um alerta na ausência de um evento.  Por 
 
 Por exemplo, se você quisesse alertar quando o processador ultrapassasse 90%, usaria uma consulta como a seguinte, com o limite para a regra de alerta **maior do que 0**.
 
-    Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90
+    Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" and CounterValue>90
+
+    
 
 Se você quisesse alertar quando o processador ficasse acima de 90% durante um determinado período, usaria uma consulta com o [comando measure](log-analytics-search-reference.md#commands), como no seguinte, com o limite para a regra de alerta **maior do que 0**.
 
-    Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer | where AggregatedValue>90
+    Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" | summarize avg(CounterValue) by Computer | where CounterValue>90
 
+    
 >[!NOTE]
-> Se o seu espaço de trabalho fosse atualizado para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), as consultas acima seriam alteradas para o demonstrado a seguir: `Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" and CounterValue>90`
-> `Perf | where ObjectName=="Processor" and CounterName=="% Processor Time" | summarize avg(CounterValue) by Computer | where CounterValue>90`
+> Se o seu espaço de trabalho não tiver sido atualizado para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), as consultas acima serão alteradas para o seguinte: `Type=Perf ObjectName=Processor CounterName="% Processor Time" CounterValue>90`
+> `Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer | where AggregatedValue>90`
 
 
 ## <a name="metric-measurement-alert-rules"></a>Regras de alerta com medição métrica
@@ -107,7 +110,7 @@ O limite para regras de alerta de Medição métrica é definido por um valor de
 #### <a name="example"></a>Exemplo
 Considere um cenário em que você deseje um alerta se qualquer computador exceda 90% de utilização do processador por três vezes em 30 minutos.  Você criaria uma regra de alerta com os detalhes a seguir.  
 
-**Consulta:** Type=Perf ObjectName=Processor CounterName="% Processor Time" | measure avg(CounterValue) by Computer Interval 5minute<br>
+**Consulta:** Perf | where ObjectName == "Processor" and CounterName == "% Processor Time" | summarize AggregatedValue = avg(CounterValue) by bin(TimeGenerated, 5m), Computer<br>
 **Janela de tempo:** 30 minutos<br>
 **Frequência de alerta:** cinco minutos<br>
 **Valor de agregação:** maior que 90<br>

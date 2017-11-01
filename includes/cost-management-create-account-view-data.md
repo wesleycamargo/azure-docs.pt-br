@@ -31,3 +31,5 @@ A imagem a seguir mostra os custos de recursos do Azure incorridos pela Contoso.
 Clique com o botão direito do mouse em um tipo de recurso e selecione **Entidades de Custo** para exibir entidades e os serviços que consumiram o recurso. Os serviços de VM e de Trabalho em DevOps consumiram US$ 486,60 e US$ 435,71 neste exemplo. O total de ambos é US$ 922.
 
 ![entidades e serviços de custo](./media/cost-management-create-account-view-data/actual-cost-05.png)
+
+Para assistir a um vídeo de tutorial sobre como exibir seus dados de cobrança de nuvem, consulte [Analisar seus dados de cobrança de nuvem com o Gerenciamento de Custos do Azure por Cloudyn](https://youtu.be/G0pvI3iLH-Y).

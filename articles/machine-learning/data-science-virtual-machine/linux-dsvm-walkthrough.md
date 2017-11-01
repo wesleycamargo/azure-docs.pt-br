@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev;paulsh
-ms.openlocfilehash: 0decb8918a544114316569720aa5deede692d5f1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 650b11d66f3ca32266b9842af77c909e125b4e4d
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-on-azure"></a>Ciência de dados com uma Máquina Virtual da Ciência de Dados do Linux no Azure
 Este passo a passo mostra como executar várias tarefas comuns da ciência de dados com a VM da Ciência de Dados do Linux. A Máquina Virtual da Ciência de Dados do Linux (DSVM) é uma imagem da máquina virtual disponível no Azure pré-instalada com uma coleção de ferramentas usadas comumente para a análise de dados e o aprendizado de máquina. Os principais componentes do software são detalhados no tópico [Provisionar a Máquina Virtual da Ciência de Dados do Linux](linux-dsvm-intro.md) . A imagem da VM facilita começar a fazer a ciência de dados em minutos, sem precisar instalar e configurar cada uma das ferramentas individualmente. Você pode dimensionar facilmente a VM, se necessário, e parar quando não estiver em uso. Portanto, esse recurso é elástico e econômico.
@@ -32,7 +32,8 @@ Antes de criar uma Máquina Virtual da Ciência de Dados do Linux, você deve te
 
 * Uma **assinatura do Azure**. Se você não tiver uma, consulte [Criar sua conta gratuita do Azure hoje](https://azure.microsoft.com/free/).
 * Uma [**VM da ciência de dados do Linux**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). Para obter informações sobre como provisionar essa VM, consulte [Provisionar a Máquina Virtual da Ciência de Dados do Linux](linux-dsvm-intro.md).
-* [X2Go](http://wiki.x2go.org/doku.php) instalado em seu computador e aberto em uma sessão XFCE. Para obter informações sobre como instalar e configurar um **cliente X2Go**, confira [Instalando e configurando o cliente X2Go](linux-dsvm-intro.md#installing-and-configuring-x2go-client). 
+* [X2Go](http://wiki.x2go.org/doku.php) instalado em seu computador e aberto em uma sessão XFCE. Para obter informações sobre como instalar e configurar um **cliente X2Go**, confira [Instalando e configurando o cliente X2Go](linux-dsvm-intro.md#installing-and-configuring-x2go-client).
+* Para uma experiência mais suave de rolagem, alterne o sinalizador de gfx.xrender.enabled em about: config no navegador FireFox VMs. [Consulte mais aqui.](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). Além disso, considere mudar *mousewheel.enable_pixel_scrolling* para False. [Instruções aqui.](https://support.mozilla.org/en-US/questions/981140)
 * Uma **conta do AzureML**. Se você ainda não tiver, inscreva-se para ter uma nova na [home page do AzureML](https://studio.azureml.net/). Há uma camada de uso gratuita para ajudá-lo a começar.
 
 ## <a name="download-the-spambase-dataset"></a>Baixar o conjunto de dados baseado em spam
@@ -100,12 +101,12 @@ A coluna *spam* foi lida como um número inteiro, mas é realmente uma variável
 
     data$spam <- as.factor(data$spam)
 
-Para fazer algumas análises exploratórias, use o pacote [ggplot2](http://ggplot2.org/) , uma biblioteca de gráficos popular para R já está instalada na VM. Observe, dos dados de resumo exibidos anteriormente, temos as estatísticas de resumo sobre a frequência do caractere de ponto de exclamação. Iremos plotar as frequências aqui com os seguintes comandos:
+Para fazer algumas análises exploratórias, use o pacote [ggplot2](http://ggplot2.org/) , uma biblioteca de gráficos popular para R já está instalada na VM. Observe, dos dados de resumo exibidos anteriormente, temos as estatísticas de resumo sobre a frequência do caractere de ponto de exclamação. Iremos criar gráficos com as frequências aqui com os seguintes comandos:
 
     library(ggplot2)
     ggplot(data) + geom_histogram(aes(x=char_freq_exclamation), binwidth=0.25)
 
-Como a barra zero está distorcendo a plotagem, iremos nos livrar dela:
+Como a barra zero está distorcendo o gráfico, iremos nos livrar dela:
 
     email_with_exclamation = data[data$char_freq_exclamation > 0, ]
     ggplot(email_with_exclamation) + geom_histogram(aes(x=char_freq_exclamation), binwidth=0.25)
@@ -123,7 +124,7 @@ Em seguida, divida por ham vs. spam:
     ggtitle("Distribution of spam \nby frequency of !") +
     labs(fill="spam", y="Density")
 
-Esses exemplos devem permitir fazer plotagens semelhante das outras colunas para explorar os dados contidos nelas.
+Esses exemplos devem permitir fazer gráficos semelhante das outras colunas para explorar os dados contidos nelas.
 
 ## <a name="train-and-test-an-ml-model"></a>Treinar e testar um modelo de AM
 Agora, iremos treinar alguns modelos de aprendizado de máquina para classificar os emails no conjunto de dados como contendo span ou ham. Treinamos um modelo da árvore de decisão e um modelo de floresta aleatória nesta seção, então, testamos sua precisão das previsões.
@@ -355,17 +356,17 @@ Para explorar os dados:
 * Clique em **Resumo** e em **Executar** para ver algumas informações sobre os tipos de variáveis e algumas estatísticas resumidas.
 * Para exibir os outros tipos de estatísticas sobre cada variável, selecione outras opções, como **Descrever** ou **Básico**.
 
-A guia **Explorar** também permite gerar várias plotagens criteriosas. Para plotar um histograma dos dados:
+A guia **Explorar** também permite gerar várias gráficos criteriosas. Para criar gráficos com um histograma dos dados:
 
 * Selecione **Distribuições**.
 * Verifique o **Histograma** quanto a **word_freq_remove** e **word_freq_you**.
 * Selecione **Executar**. Você deverá ver duas plotagens de densidade em uma janela de gráfico, na qual fica claro que a palavra "you" aparece com muito mais frequência nos emails que "remove".
 
-As plotagens de correlação também são interessantes. Para criar uma:
+As gráficos de correlação também são interessantes. Para criar uma:
 
 * Escolha **Correlação** como o **Tipo** e
 * Selecione **Executar**.
-* O Rattle avisa que ele recomenda um máximo de 40 variáveis. Selecione **Sim** para exibir a plotagem.
+* O Rattle avisa que ele recomenda um máximo de 40 variáveis. Selecione **Sim** para exibir a criação de gráficos.
 
 Há algumas correlações interessantes que surgem: "tecnologia" é muito correlacionado a "HP" e "laboratórios", por exemplo. Também está muito correlacionado a "650", porque o código de área dos doadores do conjunto de dados é 650.
 
@@ -401,7 +402,7 @@ Um dos recursos interessantes do Rattle é sua capacidade de executar vários m�
 * Selecione **Executar**.
 * Depois de concluir, você pode clicar em qualquer **Tipo**, como **SVM**, e exibir os resultados.
 * Você também pode comparar o desempenho dos modelos no conjunto de validação usando a guia **Avaliar** . Por exemplo, a seleção **Matriz do Erro** mostra a matriz de confusão, erro geral e erro de classe média para cada modelo no conjunto de validação.
-* Você também pode plotar as curvas ROC, executar a análise de sensibilidade e fazer outros tipos de avaliações do modelo.
+* Você também pode criar gráficos com as curvas ROC, executar a análise de sensibilidade e fazer outros tipos de avaliações do modelo.
 
 Após terminar de compilar os modelos, selecione a guia **Log** para exibir o código do R executado pelo Rattle durante a sessão. Você pode selecionar o botão **Exportar** para salvá-lo.
 

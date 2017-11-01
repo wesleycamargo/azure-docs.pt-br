@@ -1,6 +1,6 @@
 ---
 title: Banco de dados individual do Banco de Dados SQL do Azure | Microsoft Docs
-description: Gerencie um banco de dados individual do SQL Azure.
+description: "Gerencie a camada de serviço, o nível de desempenho e a quantidade de armazenamento para um único banco de dados SQL Azure."
 services: sql-database
 documentationcenter: na
 author: CarlRabeler
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 10/11/2017
 ms.author: carlrab
-ms.openlocfilehash: 70f512ef5742346df742e0718e2ccffd076a979e
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 8393d175f58b031dff2ab4c00b73c09b2e4908d5
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="manage-resources-for-a-single-database-in-azure-sql-database"></a>Gerenciar recursos para um banco de dados individual no Banco de Dados SQL do Azure
 
@@ -101,7 +101,7 @@ Para definir ou alterar os níveis de serviço, níveis de desempenho e a quanti
 |[Bancos de Dados – Listar por Pool Elástico](/rest/api/sql/databases/listbyelasticpool)|Retorna uma lista de bancos de dados em um pool elástico.|
 |[Bancos de Dados – Listar por Pool Elástico Recomendado](/rest/api/sql/databases/listbyrecommendedelasticpool)|Retorna uma lista de bancos de dados dentro de um pool elástico recomendado.|
 |[Bancos de Dados – Listar por Servidor](/rest/api/sql/databases/listbyserver)|Retorna uma lista de bancos de dados em um servidor.|
-|[Banco de Dados - Atualização]((/rest/api/sql/databases/update)|Atualiza um banco de dados existente.|
+|[Bancos de Dados – Atualizar](/rest/api/sql/databases/update)|Atualiza um banco de dados existente.|
 
 
 

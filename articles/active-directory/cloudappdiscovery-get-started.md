@@ -1,35 +1,35 @@
 ---
-title: Configurar o Cloud App Discovery no Azure Active Directory | Microsoft Docs
-description: "Fornece informações sobre a localização e o gerenciamento de aplicativos com o Cloud App Discovery, quais são seus benefícios e como ele funciona."
+title: "Configurar o serviço Cloud App Discovery no Azure Active Directory | Microsoft Docs"
+description: "Localizar e gerenciar aplicativos com o Cloud App Discovery para fornecer informações acionáveis sobre uso de nuvem e TI sombra."
 services: active-directory
 keywords: cloud app discovery, gerenciamento de aplicativos
 documentationcenter: 
 author: curtand
 manager: femila
+tags: ignite
 ms.assetid: db968bf5-22ae-489f-9c3e-14df6e1fef0a
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/18/2017
 ms.author: curtand
 ms.reviewer: nigu
-ms.openlocfilehash: af54b77dc985f2ca6abeab29165278dfa598f5e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c09410bc6ed8b4eac4316e206c75db84ef0b07fb
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="set-up-cloud-app-discovery-in-azure-ad"></a>Configurar o Cloud App Discovery no Azure AD
 
-Os novos aprimoramentos do Cloud App Discovery no Azure AD agora estão disponível com uma licença do Azure Active Directory Premium P1. Esses aprimoramentos são baseados na integração com o Microsoft Cloud App Security. O Cloud App Discovery compara os logs de tráfego ao catálogo de mais de 15.000 aplicativos de nuvem do Cloud App Security para fornecer informações em tempo real sobre o uso de nuvem e TI sombra. 
+Cloud App Discovery no Azure AD agora é baseado na integração com os dados disponíveis do Microsoft Cloud App Security. Para fornecer informações em tempo real sobre o uso de nuvem e TI sombra, o Cloud App Discovery compara os logs de tráfego ao catálogo de mais de 15.000 aplicativos de nuvem do Cloud App Security. Este artigo descreve o processo de instalação e contém links para as informações detalhadas para cada etapa. Ele também descreve as informações de firewall e proxy e o suporte a arquivo de log.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Sua organização deve ter uma licença Azure AD Premium P1 para usar o produto. Para obter mais informações, consulte [Preço do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
-
-Para configurar o Cloud App Discovery, você deve ser um Administrador Global ou um Leitor de Segurança no Azure Active Directory. Um usuário a quem uma função de administrador é atribuída tem as mesmas permissões em todos os serviços de nuvem assinados pela sua organização.
+* Sua organização deve ter uma licença Azure AD Premium P1 para usar o produto. Para obter mais informações, consulte [Preço do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
+* Para configurar o Cloud App Discovery, você deve ser um Administrador Global ou um Leitor de Segurança no Azure Active Directory.
 
 ## <a name="setup-steps"></a>Etapas de instalação
 

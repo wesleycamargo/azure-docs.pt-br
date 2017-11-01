@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 09/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: de52e9cb32e28d2f40a56743ed759b5d5d0a63f0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8117a5ef9bc4f785256a7a7d70f459529c771a56
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>Configurar redes virtuais e firewalls de armazenamento do Azure (versão prévia)
 O Armazenamento do Azure fornece um modelo de segurança em camadas, permitindo que você proteja suas contas de armazenamento para um conjunto específico de redes permitidas.  Quando as regras de rede são configuradas, somente aplicativos das redes permitidas podem acessar uma conta de armazenamento.  Ao chamar de uma rede permitida, os aplicativos continuam a exigir a autorização apropriada (uma chave de acesso ou token SAS válido) para acessar a conta de armazenamento.
@@ -44,7 +44,7 @@ As regras de rede podem ser aplicadas a contas de armazenamento existentes ou du
 
 Depois que as regras de rede são aplicadas, elas são impostas para todas as solicitações.  Os tokens SAS que concedem acesso a um serviço de endereço IP específico servem para **limitar** o acesso do proprietário do token, mas eles não concedem um novo acesso além das regras de rede configuradas. 
 
-O tráfego de disco da máquina virtual (incluindo as operações de montagem e desmontagem e E/S de disco) **não** é afetado pelas regras de rede.  O backup de discos não gerenciados não tem suporte para contas de armazenamento protegidas durante a versão prévia.  O acesso REST a blobs de página (usados para discos de máquina virtual) é protegido pelas regras de rede.
+O tráfego de disco da máquina virtual (incluindo as operações de montagem e desmontagem e E/S de disco) **não** é afetado pelas regras de rede.  O acesso REST a blobs de página é protegido pelas regras de rede.
 
 As contas de armazenamento clássicas **não** dão suporte a firewalls e redes virtuais.
 
@@ -305,6 +305,7 @@ Quando a exceção "Serviços Microsoft Confiáveis" estiver habilitada, os segu
 |Azure HDInsight|Microsoft.HDInsight|Provisionamento e instalação de cluster.  [Saiba mais](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-use-blob-storage).|
 |Rede do Azure|Microsoft.Networking|Armazenar e analisar os logs de tráfego de rede.  [Saiba mais](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-packet-capture-overview).|
 |SQL Data Warehouse do Azure|Microsoft.Sql|Importação e exportação de dados.  [Saiba mais](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-overview-load#load-from-azure-blob-storage).|
+|Serviço de Backup do Azure|Microsoft.RecoveryServices|Backup e restauração de discos não gerenciados.  [Saiba mais](https://docs.microsoft.com/en-us/azure/backup/backup-introduction-to-azure-backup).|
 ||||
 
 ### <a name="storage-analytics-data-access"></a>Acesso a dados de análise de armazenamento

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/31/2017
+ms.date: 10/23/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 65dac529df15d2dd43eec17673d82a2832f7692e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6bacd40627b815c949491b70f8290e40b79e488c
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="delete-an-hdinsight-cluster-using-your-browser-powershell-or-the-azure-cli"></a>Excluir um cluster HDInsight usando o navegador, o PowerShell ou a CLI do Azure
 
@@ -34,7 +34,7 @@ A cobrança do cluster HDInsight começa quando um cluster é criado e para quan
    
     ![pesquisa do portal](./media/hdinsight-delete-cluster/navbar.png)
 
-2. Depois que a folha do cluster for aberta, selecione o ícone **Excluir**. Quando solicitado, selecione **Sim** para excluir o cluster.
+2. Nas configurações de cluster, selecione o ícone **Excluir**. Quando solicitado, selecione **Sim** para excluir o cluster.
    
     ![excluir ícone](./media/hdinsight-delete-cluster/deletecluster.png)
 
@@ -55,4 +55,4 @@ Em um prompt, use o seguinte para excluir o cluster:
 Substitua **CLUSTERNAME** pelo nome do seu cluster HDInsight.
 
 > [!NOTE]
-> CLI 2.0 do Azure não oferece suporte a clusters de HDInsight excluindo no momento (31 de julho de 2017).
+> A CLI 2.0 do Azure não dá suporte a clusters de HDInsight excluindo no momento (23 de outubro de 2017).

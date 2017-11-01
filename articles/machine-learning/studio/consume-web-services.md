@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/02/2017
 ms.author: garye
-ms.openlocfilehash: fc1152f1431474b6625f389a1290a121e86fbdac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 13de6daabf2b6d83cc703ae6b3f0a30a1dfa34d6
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="how-to-consume-an-azure-machine-learning-web-service"></a>Como consumir um serviço Web de Machine Learning do Azure
 
@@ -90,12 +90,12 @@ A ajuda da API do Machine Learning contém detalhes sobre um serviço Web de pre
 
 **Como exibir a ajuda da API do Machine Learning para um novo serviço Web**
 
-No portal de serviços Web do Azure Machine Learning:
+No [Portal de Serviços Web do Azure Machine Learning](https://services.azureml.net/):
 
 1. Clique em **SERVIÇOS WEB** no menu superior.
 2. Clique no serviço Web para o qual deseja recuperar a chave.
 
-Clique em **Consumir** para obter os URIs dos serviços de Solicitação-Resposta e Execução em Lotes, bem como o código de exemplo em C#, R e Python.
+Clique em **Usar Serviço Web** para obter os URIs dos Serviços de Solicitação-Resposta e Execução em Lotes, bem como o código de exemplo, em C#, R e Python.
 
 Clique em **API do Swagger** para obter a documentação baseada no Swagger para as APIs chamadas dos URIs fornecidos.
 
@@ -116,8 +116,95 @@ Para se conectar a um serviço Web do Machine Learning, o pacote Nuget **Microso
 2. Atribua apiKey com a chave de um serviço Web. Confira a seção acima **Obter uma chave de autorização de Azure Machine Learning** .
 3. Atribua serviceUri com o URI de solicitação.
 
+**Esta é a aparência de uma solicitação concluída.**
+```csharp
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Net.Http;
+using System.Net.Http.Formatting;
+using System.Net.Http.Headers;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CallRequestResponseService
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            InvokeRequestResponseService().Wait();
+        }
+
+        static async Task InvokeRequestResponseService()
+        {
+            using (var client = new HttpClient())
+            {
+                var scoreRequest = new
+                {
+                    Inputs = new Dictionary<string, List<Dictionary<string, string>>> () {
+                        {
+                            "input1",
+                            // Replace columns labels with those used in your dataset
+                            new List<Dictionary<string, string>>(){new Dictionary<string, string>(){
+                                    {
+                                        "column1", "value1"
+                                    },
+                                    {
+                                        "column2", "value2"
+                                    },
+                                    {
+                                        "column3", "value3"
+                                    }
+                                }
+                            }
+                        },
+                    },
+                    GlobalParameters = new Dictionary<string, string>() {}
+                };
+
+                // Replace these values with your API key and URI found on https://services.azureml.net/
+                const string apiKey = "<your-api-key>"; 
+                const string apiUri = "<your-api-uri>";
+                
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue( "Bearer", apiKey);
+                client.BaseAddress = new Uri(apiUri);
+
+                // WARNING: The 'await' statement below can result in a deadlock
+                // if you are calling this code from the UI thread of an ASP.Net application.
+                // One way to address this would be to call ConfigureAwait(false)
+                // so that the execution does not attempt to resume on the original context.
+                // For instance, replace code such as:
+                //      result = await DoSomeTask()
+                // with the following:
+                //      result = await DoSomeTask().ConfigureAwait(false)
+
+                HttpResponseMessage response = await client.PostAsJsonAsync("", scoreRequest);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    string result = await response.Content.ReadAsStringAsync();
+                    Console.WriteLine("Result: {0}", result);
+                }
+                else
+                {
+                    Console.WriteLine(string.Format("The request failed with status code: {0}", response.StatusCode));
+
+                    // Print the headers - they include the requert ID and the timestamp,
+                    // which are useful for debugging the failure
+                    Console.WriteLine(response.Headers.ToString());
+
+                    string responseContent = await response.Content.ReadAsStringAsync();
+                    Console.WriteLine(responseContent);
+                }
+            }
+        }
+    }
+}
+```
+
 ### <a name="python-sample"></a>Exemplo de Python
-Para se conectar a um serviço Web do Machine Learning, use a biblioteca **urllib2** passando ScoreData. ScoreData contém um FeatureVector, um vetor com n dimensões de recursos numéricos que representa o ScoreData. Autentique no serviço de Machine Learning com uma chave de API.
+Para conectar-se a um serviço Web de Machine Learning, use a biblioteca **urllib2** do Python 2. x e a biblioteca **urllib.request** do Python 3. x. Você passará o ScoreData, que contém um FeatureVector, um vetor com n dimensões de recursos numéricos que representa o ScoreData. Autentique no serviço de Machine Learning com uma chave de API.
 
 **Para executar o exemplo de código**
 
@@ -125,3 +212,146 @@ Para se conectar a um serviço Web do Machine Learning, use a biblioteca **urlli
 2. Atribua apiKey com a chave de um serviço Web. Consulte a seção **Obter uma chave de autorização do Azure Machine Learning** perto do início deste artigo.
 3. Atribua serviceUri com o URI de solicitação.
 
+**Esta é a aparência de uma solicitação concluída.**
+```python
+import urllib2 # urllib.request for Python 3.X
+import json
+
+data = {
+    "Inputs": {
+        "input1":
+        [
+            {
+                'column1': "value1",   
+                'column2': "value2",   
+                'column3': "value3"
+            }
+        ],
+    },
+    "GlobalParameters":  {}
+}
+
+body = str.encode(json.dumps(data))
+
+# Replace this with the URI and API Key for your web service
+url = '<your-api-uri>'
+api_key = '<your-api-key>'
+headers = {'Content-Type':'application/json', 'Authorization':('Bearer '+ api_key)}
+
+# "urllib.request.Request(uri, body, headers)" for Python 3.X
+req = urllib2.Request(url, body, headers)
+
+try:
+    # "urllib.request.urlopen(req)" for Python 3.X
+    response = urllib2.urlopen(req)
+
+    result = response.read()
+    print(result)
+# "urllib.error.HTTPError as error" for Python 3.X
+except urllib2.HTTPError, error: 
+    print("The request failed with status code: " + str(error.code))
+
+    # Print the headers - they include the requert ID and the timestamp, which are useful for debugging the failure
+    print(error.info())
+    print(json.loads(error.read())) 
+```
+
+### <a name="r-sample"></a>Exemplo de R
+
+Para se conectar a um serviço Web de Machine Learning, use as bibliotecas **RCurl** e **rjson** para fazer a solicitação e processar a resposta JSON retornada. Você passará o ScoreData, que contém um FeatureVector, um vetor com n dimensões de recursos numéricos que representa o ScoreData. Autentique no serviço de Machine Learning com uma chave de API.
+
+**Esta é a aparência de uma solicitação concluída.**
+```r
+library("RCurl")
+library("rjson")
+
+# Accept SSL certificates issued by public Certificate Authorities
+options(RCurlOptions = list(cainfo = system.file("CurlSSL", "cacert.pem", package = "RCurl")))
+
+h = basicTextGatherer()
+hdr = basicHeaderGatherer()
+
+req = list(
+    Inputs = list(
+            "input1" = list(
+                list(
+                        'column1' = "value1",
+                        'column2' = "value2",
+                        'column3' = "value3"
+                    )
+            )
+        ),
+        GlobalParameters = setNames(fromJSON('{}'), character(0))
+)
+
+body = enc2utf8(toJSON(req))
+api_key = "<your-api-key>" # Replace this with the API key for the web service
+authz_hdr = paste('Bearer', api_key, sep=' ')
+
+h$reset()
+curlPerform(url = "<your-api-uri>",
+httpheader=c('Content-Type' = "application/json", 'Authorization' = authz_hdr),
+postfields=body,
+writefunction = h$update,
+headerfunction = hdr$update,
+verbose = TRUE
+)
+
+headers = hdr$value()
+httpStatus = headers["status"]
+if (httpStatus >= 400)
+{
+print(paste("The request failed with status code:", httpStatus, sep=" "))
+
+# Print the headers - they include the requert ID and the timestamp, which are useful for debugging the failure
+print(headers)
+}
+
+print("Result:")
+result = h$value()
+print(fromJSON(result))
+```
+
+### <a name="javascript-sample"></a>Exemplo de JavaScript
+
+Para se conectar a um serviço Web de Machine Learning, use o pacote npm de **solicitação** em seu projeto. Você também usará o objeto `JSON` para formatar sua entrada e analisar o resultado. Instale usando `npm install request --save` ou adicione `"request": "*"` ao package.json em `dependencies` e execute `npm install`.
+
+**Esta é a aparência de uma solicitação concluída.**
+```js
+let req = require("request");
+
+const uri = "<your-api-uri>";
+const apiKey = "<your-api-key>";
+
+let data = {
+    "Inputs": {
+        "input1":
+        [
+            {
+                'column1': "value1",
+                'column2': "value2",
+                'column3': "value3"
+            }
+        ],
+    },
+    "GlobalParameters": {}
+}
+
+const options = {
+    uri: uri,
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer " + apiKey,
+    },
+    body: JSON.stringify(data)
+}
+
+req(options, (err, res, body) => {
+    if (!err && res.statusCode == 200) {
+        console.log(body);
+    } else {
+        console.log("The request failed with status code: " + res.statusCode);
+    }
+});
+```

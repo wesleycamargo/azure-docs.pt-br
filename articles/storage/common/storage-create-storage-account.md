@@ -13,15 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 f1_keywords: sql13.swb.windowsazurestorage.connect.f1
-ms.date: 01/23/2017
+ms.date: 10/11/2017
 ms.author: tamram
-ms.openlocfilehash: cdca35f8ae339d02b44490cd61e2684d81d88365
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db878f257f64ccc573a220c675cd373539dd5b17
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="about-azure-storage-accounts"></a>Sobre as contas de armazenamento do Azure
+
 [!INCLUDE [storage-selector-portal-create-storage-account](../../../includes/storage-selector-portal-create-storage-account.md)]
 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -32,6 +33,7 @@ Uma conta de armazenamento do Azure fornece um namespace exclusivo para armazena
 [!INCLUDE [storage-account-types-include](../../../includes/storage-account-types-include.md)]
 
 ## <a name="storage-account-billing"></a>Cobrança de conta de armazenamento
+
 [!INCLUDE [storage-account-billing-include](../../../includes/storage-account-billing-include.md)]
 
 > [!NOTE]
@@ -61,7 +63,7 @@ Também é possível configurar um nome de domínio para usar com a conta de arm
 
 ## <a name="create-a-storage-account"></a>Criar uma conta de armazenamento
 1. Entre no [Portal do Azure](https://portal.azure.com).
-2. No menu Hub, selecione **Novo** -> **Armazenamento** -> **Conta de armazenamento**.
+2. No portal do Azure, expanda o menu à esquerda para abrir o menu de serviços e escolha **Mais Serviços**. Em seguida, role para baixo até **Armazenamento** e escolha **Contas de armazenamento**. Na janela **Contas de Armazenamento** que aparece, escolha **Adicionar**.
 3. Insira um nome para a conta de armazenamento. Confira [Pontos de extremidade da conta de armazenamento](#storage-account-endpoints) para saber como o nome da conta de armazenamento será usado em seus objetos no Armazenamento do Azure.
    
    > [!NOTE]

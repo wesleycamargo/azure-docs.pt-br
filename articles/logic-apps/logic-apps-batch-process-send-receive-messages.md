@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/7/2017
 ms.author: LADocs; estfan; jonfan
-ms.openlocfilehash: c58cf6485a8a7248e5b8ffce0d279485a80f36ef
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e0b7292f25a145c699dbafaf4e31e3f9d072b957
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="send-receive-and-batch-process-messages-in-logic-apps"></a>Enviar, receber e processar mensagens em lote nos aplicativos lógicos
 
@@ -115,6 +115,10 @@ Os aplicativos lógicos remetentes precisam saber para onde enviar os itens, enq
 7.  Agora que você criou um aplicativo lógico destinatário do lote, salve-o.
 
     ![Salve seu aplicativo lógico](./media/logic-apps-batch-process-send-receive-messages/save-batch-receiver-logic-app.png)
+
+    > [!IMPORTANT]
+    > Uma partição tem um limite de 5.000 mensagens ou 80 MB. Se qualquer condição for atendida, o lote poderá ser liberado, mesmo quando a condição definida pelo usuário não for atendida.
+
 
 <a name="batch-sender"></a>
 

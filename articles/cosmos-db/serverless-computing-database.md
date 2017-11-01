@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/24/2017
 ms.author: mimig
-ms.openlocfilehash: 192bdde86e12472a6fd87ba50fd597ea8b01247d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f9bcecff4031bcf51e3885ad98da69d9be41b397
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: computação de banco de dados sem servidor usando o Azure Functions
 
@@ -101,7 +101,7 @@ Em implementações de varejo, quando um usuário adiciona um item à sua cesta 
 
 **Implementação:** vários gatilhos do Azure Cosmos DB escutando uma coleção
 
-1. Crie vários Azure Functions com a adição de gatilhos do Azure Cosmos DB a cada um – que escutam o mesmo feed de alterações de dados de um carrinho de compras. 
+1. É possível criar vários Azure Functions adicionando de gatilhos do Azure Cosmos DB a cada um – todos eles escutam o mesmo feed de alterações de dados de um carrinho de compras. Observe que, quando várias funções escutam o mesmo feed de alterações, uma nova coleção de concessão é necessária para cada função.
 2. Sempre que um novo item é adicionado ao carrinho de compras de um usuário, cada função é invocada de forma independente pelo feed de alterações do contêiner de carrinho de compras.
     * Uma função pode usar o conteúdo da cesta atual para alterar a exibição de outros itens nos quais o usuário pode estar interessado.
     * Outra função pode atualizar os totais de inventário.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 831623b0fa0d8c03713f608116709e6a590d93c6
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 13a75d5cafd94435346660614721399f2d77919b
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="registerunregister-a-server-with-azure-file-sync-preview"></a>Registrar/cancelar o registro de um servidor com a Sincronização de Arquivo do Azure (versão prévia)
 A Sincronização de Arquivos do Azure (versão prévia) permite que você centralize os compartilhamentos de arquivos da sua organização em Arquivos do Azure sem abrir mão da flexibilidade, do desempenho e da compatibilidade de um servidor de arquivos local. Ele faz isso transformando Windows Servers em um cache rápido do seu compartilhamento de Arquivos do Azure. Você pode usar qualquer protocolo disponível no Windows Server para acessar seus dados localmente (incluindo SMB, NFS e FTPS) e pode ter todos os caches de que precisar ao redor do mundo.
@@ -57,8 +57,12 @@ Antes de um Windows Server poder ser usado como um *ponto de extremidade do serv
 > [!Important]  
 > Se o servidor for um membro de um Cluster de Failover, o agente de Sincronização de Arquivo do Azure precisará ser instalado em cada nó no cluster.
 
-### <a name="register-the-server-using-the-server-registration-ui"></a>Registrar o servidor usando a interface do usuário de Registro do Servidor
-1. Se a interface do usuário de Registro do Servidor não for iniciada imediatamente após a conclusão da instalação do agente de Sincronização de Arquivo do Azure, ela poderá ser iniciada manualmente executando `C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe`.
+### <a name="register-the-server-using-the-server-registration-ui"></a>Registrar o servidor usando a interface do usuário de registro do servidor
+
+> [!Important]  
+> Assinaturas de provedor de soluções de nuvem não podem usar a interface do usuário de registro do servidor. Em vez disso, use o PowerShell (abaixo desta seção).
+
+1. Se a interface do usuário de registro do servidor não for iniciada imediatamente após a conclusão da instalação do agente de Sincronização de Arquivo do Azure, ela poderá ser iniciada manualmente executando `C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe`.
 2. Clique em *Entrar* para acessar sua assinatura do Azure. 
 
     ![Caixa de diálogo de abertura da interface do usuário de Registro do Servidor](media/storage-sync-files-server-registration/server-registration-ui-1.png)
@@ -73,6 +77,15 @@ Antes de um Windows Server poder ser usado como um *ponto de extremidade do serv
 
 > [!Important]  
 > Se o servidor for um membro de um Cluster de Failover, cada servidor precisará executar o Registro do Servidor. Quando você exibe os servidores registrados no Portal do Azure, a Sincronização de Arquivo do Azure reconhece automaticamente cada nó como um membro do mesmo Cluster de Failover e os agrupa corretamente.
+
+### <a name="register-the-server-with-powershell"></a>Registrar o servidor com o PowerShell
+Você também pode executar o registro do servidor por meio do PowerShell. Essa é a única maneira com suporte de registro do servidor para assinaturas de Provedor de Soluções na Nuvem:
+
+```PowerShell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
+Login-AzureRmStorageSync -SubscriptionID "<your-subscription-id>" -TenantID "<your-tenant-id>"
+Register-AzureRmStorageSyncServer -SubscriptionId "<your-subscription-id>" - ResourceGroupName "<your-resource-group-name>" - StorageSyncService "<your-storage-sync-service-name>"
+```
 
 ## <a name="unregister-the-server-with-storage-sync-service"></a>Cancelar o registro de um servidor com o Serviço de Sincronização de Armazenamento
 Há várias etapas que são necessárias para cancelar o registro de um servidor com um Serviço de Sincronização de Armazenamento. Vamos analisar como cancelar o registro de um servidor corretamente.

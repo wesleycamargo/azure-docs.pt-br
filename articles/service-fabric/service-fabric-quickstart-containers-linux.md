@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/05/2017
 ms.author: ryanwi
-ms.openlocfilehash: 42a2542b7564f1692146b3e3927792ac339f30be
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7c1ac13d50180909bbe55b01f47721387d1195d7
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="deploy-an-azure-service-fabric-linux-container-application-on-azure"></a>Implantar um aplicativo de contêiner Linux do Azure Service Fabric no Azure
 O Azure Service Fabric é uma plataforma de sistemas distribuídos para implantação e gerenciamento de contêineres e microsserviços escalonáveis e confiáveis. 
@@ -29,7 +29,7 @@ Este guia de início rápido mostra como implantar contêineres do Linux em um c
 
 Neste guia de início rápido, você aprende a:
 > [!div class="checklist"]
-> * Implantar contêineres do Linux no Service Fabric
+> * Implantar contêineres em um cluster do Service Fabric Linux do Azure
 > * Contêineres de escala e failover no Service Fabric
 
 ## <a name="prerequisite"></a>Pré-requisito
@@ -52,6 +52,10 @@ cd service-fabric-dotnet-containers/Linux/container-tutorial/Voting
 
 ## <a name="deploy-the-containers-to-a-service-fabric-cluster-in-azure"></a>Implantar os contêineres em um cluster do Service Fabric no Azure
 Para implantar o aplicativo em um cluster do Azure, use seu próprio cluster ou um cluster de entidade.
+
+> [!Note]
+> O aplicativo deve ser implantado em um cluster no Azure e não em um cluster do Service Fabric em seu computador de desenvolvimento local. 
+>
 
 Clusters de entidade são clusters do Service Fabric gratuitos e com tempo limitado hospedados no Azure. Eles são mantidos pela equipe do Service Fabric em que qualquer pessoa pode implantar aplicativos e conhecer a plataforma. Para obter acesso a um cluster de entidade, [siga as instruções](http://aka.ms/tryservicefabric). 
 

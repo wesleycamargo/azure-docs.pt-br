@@ -14,90 +14,90 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2017
 ms.author: kumud
-ms.openlocfilehash: 0ed8d3432a988c468260589cfe12090529c403d7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 08e4e22ae7e5d6f6efad458b4240a6d57090e865
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Visão geral do Azure Load Balancer Standard (versão prévia)
 
-Juntos, o SKU do Azure Load Balancer Standard e o SKU de IP público Standard, permitem compilar arquiteturas altamente escalonáveis e confiáveis.  Aplicativos que usam o Load Balancer Standard podem tirar proveito dos novos recursos, além da baixa latência, alta taxa de transferência e escala para milhões de fluxos para todos os aplicativos de TCP e UDP.
+Juntos, o SKU do Azure Load Balancer Standard e o SKU de IP público Standard, permitem compilar arquiteturas altamente escalonáveis e confiáveis. Os aplicativos que usam o Load Balancer Standard podem usufruir novos recursos. Baixa latência, alta taxa de transferência e escala estão disponíveis para milhões de fluxos para todos os aplicativos de TCP e UDP.
 
 >[!NOTE]
-> O SKU do Load Balancer Standard está atualmente em versão prévia. Durante a versão prévia, o recurso pode não ter o mesmo nível de disponibilidade e confiabilidade que os recursos que estão na versão de disponibilidade geral. Para obter mais informações, consulte [Termos de Uso Complementares do Microsoft Azure para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Use o [SKU do Load Balancer Básico](load-balancer-overview.md) geralmente disponível para os serviços de produção.  Recursos associados com essa versão prévia, [Zonas de disponibilidade](https://aka.ms/availabilityzones) e [Portas de HA](https://aka.ms/haports), exigem uma inscrição separada nesse momento. Siga as respectivas instruções para inscrição além da [Versão prévia padrão](#preview-sign-up) do Load Balancer.
+> No momento, o SKU do Load Balancer Standard está em versão prévia. Durante a versão prévia, o recurso pode não ter o mesmo nível de disponibilidade e confiabilidade que os recursos que estão na versão de disponibilidade geral. Para obter mais informações, consulte [Termos de Uso Complementares do Microsoft Azure para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). Use o [SKU do Load Balancer Básico](load-balancer-overview.md) geralmente disponível para os serviços de produção. Os recursos associados a essa versão prévia, [Zonas de disponibilidade](https://aka.ms/availabilityzones) e [Portas HA](https://aka.ms/haports), exigem uma inscrição separada nesse momento. Siga as respectivas instruções para inscrição desses recursos, além de se inscrever na [versão prévia do](#preview-sign-up) Load Balancer Standard.
 
-## <a name="why-use-load-balancer-standard"></a>Por que usar um Load Balancer Standard
+## <a name="why-use-load-balancer-standard"></a>Por que usar o Load Balancer Standard?
 
-Use o Load Balancer Standard para contar com a gama completa de data centers virtuais, desde implantações de pequena escala até arquiteturas grandes, complexas e com várias zonas, e tire proveito destes recursos:
+É possível usar o Load Balancer Standard para a variedade completa de data centers virtuais. Desde implantações em pequena escala até grandes e complexas arquiteturas com várias zonas, use o Load Balancer Standard para usufruir os seguintes recursos:
 
-- É possível atingir uma [escala empresarial](#enterprisescale) com o Load Balancer Standard.  Ele pode ser usado com qualquer instância de Máquina Virtual dentro de uma Rede Virtual, chegando até a 1000 instâncias de VM.
+- É possível atingir uma [escala empresarial](#enterprisescale) com o Load Balancer Standard. Esse recurso pode ser usado com qualquer instância VM (máquina virtual) dentro de uma rede virtual, até 1.000 instâncias VM.
 
-- [Novas informações de diagnóstico](#diagnosticinsights) estão disponíveis para que você possa entender, gerenciar e solucionar problemas deste componente vital de seu data center virtual. Use o Azure Monitor (versão prévia) para mostrar, filtrar e agrupar novas métricas multidimensionais para medições contínuas da integridade do caminho de dados, do front-end à VM, por investigações de integridade do ponto de extremidade, tentativas de conexão TCP, conexões de saída.
+- [Novas informações de diagnóstico](#diagnosticinsights) estão disponíveis para ajudá-lo a entender, gerenciar e solucionar problemas deste componente vital de seu data center virtual. Use o Azure Monitor (versão prévia) para mostrar, filtrar e agrupar novas métricas multidimensionais para medidas de integridade do caminho de dados contínuos. Monitore seus dados de front-end para a VM, investigações de integridade do ponto de extremidade, para as tentativas de conexão TCP e para conexões de saída.
 
-- Agora, os [Grupos de Segurança de Rede](#nsg) são exigidos para qualquer instância de VM associada aos SKUs Standard do Load Balancer ou do IP Público e fornecem mais segurança.
+- Agora os [Grupos de Segurança de Rede](#nsg) são necessários para qualquer instância VM associada a SKUs do Load Balancer Standard ou SKUs padrão de IP Público. Os NSGs (Grupo de Segurança de Rede) fornecem segurança aprimorada para seu cenário.
 
-- [Portas de alta disponibilidade fornecem alta confiabilidade](#highreliability) e escala para soluções de virtualização de rede e outros cenários de aplicativo. As portas de alta disponibilidade balanceiam todas as portas em um front-end do Load Balancer interno para um pool de instâncias de VM.
+- [Portas HA (alta disponibilidade) fornecem alta confiabilidade](#highreliability) e escala para NVAs (soluções de virtualização de rede) e outros cenários de aplicativo. As portas HA balanceiam a carga de todas as portas em um front-end do ILB (Load Balancer interno) do Azure para um pool de instâncias VM.
 
-- [Conexões de saída](#outboundconnections) agora usam um novo modelo de alocação de porta SNAT que fornece mais resiliência e escala.
+- Agora as [conexões de saída](#outboundconnections) usam um novo modelo de alocação de porta SNAT (Conversão de Endereços de Rede de Origem) que fornece mais resiliência e escala.
 
-- O [Load Balancer Standard com Zonas de disponibilidade](#availabilityzones) pode ser usado para construir arquiteturas com redundância de zona e por zona, ambos com balanceamento de carga entre zonas. Você pode alcançar a redundância de zona sem dependência dos registros de DNS: um único endereço IP tem redundância de zona por padrão e pode acessar qualquer VM em uma VNet de uma região em todas as Zonas de disponibilidade.
+- O [Load Balancer Standard com Zonas de disponibilidade](#availabilityzones) pode ser usado para construir arquiteturas com redundância de zona e zonais. Essas duas arquiteturas podem incluir o balanceamento de carga entre zonas. É possível obter redundância de zona sem dependência nos registros de DNS. Um único endereço IP tem redundância de zona por padrão.  Um único endereço IP poderá acessar qualquer VM em uma rede virtual dentro de uma região em todas as Zonas de disponibilidade.
 
 
-Você pode usar o Load Balancer Standard em uma configuração pública ou interna que continua a oferecer suporte aos seguintes cenários fundamentais:
+É possível usar o Load Balancer Standard em uma configuração pública ou interna para dar suporte aos seguintes cenários fundamentais:
 
-- balanceamento de carga do tráfego de entrada para instâncias de back-end íntegras.
-- encaminhamento do tráfego de entrada da porta para uma única instância de back-end.
-- conversão do tráfego de saída de um endereço IP privado na VNet para um endereço IP público.
+- Balancear a carga do tráfego de entrada para instâncias de back-end íntegras.
+- Portar o encaminhamento do tráfego de entrada para uma única instância de back-end.
+- Converter o tráfego de saída de um endereço IP privado dentro da rede virtual para um endereço IP Público.
 
 ### <a name = "enterprisescale"></a>Escala empresarial
 
- Use o Load Balancer Standard na criação de seu data center virtual de alto desempenho. Você pode usar instâncias autônomas de VM ou até 1000 instâncias de conjuntos de dimensionamento de máquinas virtuais em um pool de back-end e oferecer suporte a qualquer aplicativo TCP ou UDP. Com o Load Balancer Standard, o aplicativo ainda poderá tirar proveito da baixa latência de encaminhamento, ótimo desempenho de taxa de transferência e escala para milhões de fluxos em um serviço do Azure totalmente gerenciado.
+ Use o Load Balancer Standard para projetar seu data center virtual de alto desempenho e dar suporte a qualquer aplicativo TCP ou UDP. Use instâncias VM autônomas ou até 1.000 instâncias de conjuntos de dimensionamento de máquina virtual em um pool de back-ends. Continue usando a baixa latência de encaminhamento, ótimo desempenho de taxa de transferência e escala para milhões de fluxos em um serviço do Azure totalmente gerenciado.
  
-O Load Balancer Standard pode encaminhar o tráfego a qualquer instância de VM em uma VNet em uma região. Os tamanhos de pool de back-end podem chegar a 1000 instâncias com qualquer combinação de:
+O Load Balancer Standard pode encaminhar o tráfego para qualquer instância VM em uma rede virtual em uma região. Os tamanhos de pool de back-end podem chegar a 1.000 instâncias com qualquer combinação dos seguintes cenários de VM:
 
-- VMs autônomas sem Conjuntos de Disponibilidade
-- VMs autônomas com Conjuntos de Disponibilidade
-- Conjuntos de dimensionamento de máquinas virtuais (conjunto de dimensionamento de máquinas virtuais) com até 1000 instâncias
-- múltiplos conjuntos de dimensionamento de máquina virtual
-- combinação de VMs e conjuntos de dimensionamento de máquinas virtuais.
+- VMs autônomas sem conjuntos de disponibilidade
+- VMs autônomas com conjuntos de disponibilidade
+- Conjuntos de dimensionamento de máquinas virtuais, até 1.000 instâncias
+- Múltiplos conjuntos de dimensionamento de máquina virtual
+- Combinações de VMs e conjuntos de dimensionamento de máquinas virtuais
 
-Não exige-se mais conjuntos de disponibilidade, mas você pode optar por usar os conjuntos de disponibilidade pelos outros benefícios que eles oferecem.
+Não há mais um requisito para conjuntos de disponibilidade. É possível optar por usar conjuntos de disponibilidade para os outros benefícios que eles fornecem.
 
 ### <a name = "diagnosticinsights"></a>Informações do diagnóstico
 
-O Load Balancer Standard fornece novos recursos de diagnóstico multidimensionais para configurações públicas e internas do Load Balancer. Essas novas métricas são fornecidas pelo Azure Monitor (versão prévia) e utilizam todos os recursos relacionados, incluindo a capacidade de integração com vários consumidores de downstream.
+O Load Balancer Standard fornece novos recursos de diagnóstico multidimensionais para configurações públicas e internas do Load Balancer. Essas novas métricas são fornecidas pelo Azure Monitor (versão prévia) e utilizam todos os recursos relacionados, incluindo a capacidade de integrar-se a vários consumidores downstream.
 
 | Métrica | Descrição |
 | --- | --- |
-| Disponibilidade do VIP | O Load Balancer Standard usa continuamente o caminho de dados de dentro de uma região para o front-end do Load Balancer e, finalmente, para a pilha do SDN que dá suporte a sua VM. Contanto que instâncias íntegras permaneçam, a medição seguirá o mesmo caminho que o tráfego com balanceamento de carga de seus aplicativos, e validará o caminho de dados que seus clientes possam estar usando. A medição é invisível para seu aplicativo e não interfere nele.|
-| Disponibilidade do DIP | O Load Balancer Standard usa um serviço de investigação de integridade distribuído que monitora a integridade do ponto de extremidade de seu aplicativo, conforme sua configuração.  Essa métrica fornece uma exibição agregada ou por ponto de extremidade filtrado de cada ponto de extremidade de instância individual no pool do Load Balancer.  Você pode verificar como o Load Balancer vê a integridade de seu aplicativo conforme indicado pela configuração de sua investigação de integridade.
-| Pacotes SYN | O Load Balancer Standard não encerra conexões TCP ou interage com fluxos de pacote TCP ou UDP; os fluxos e seus handshakes ocorrem sempre entre a origem e a instância da VM. Para solucionar melhor todos os seus cenários de protocolo TCP, use essa métrica para entender quantas tentativas de conexão TCP são feitas. Essa métrica informa o número de pacotes TCP SYN que foram recebidos, e pode refletir a tentativa de clientes estabelecerem conexões com o serviço.|
-| Conexões SNAT | O Load Balancer Standard informa o número de conexões de saída mascaradas para o front-end do endereço IP público.  As portas SNAT são um recurso esgotável, e essa métrica pode dar uma indicação do grau de dependência que seu aplicativo tem do SNAT para conexões com origem externa.|
+| Disponibilidade do VIP | O Load Balancer Standard usa continuamente o caminho de dados de dentro de uma região para o front-end do Load Balancer e até a pilha do SDN compatível com a sua VM. Contanto que instâncias íntegras permaneçam, a medição seguirá o mesmo caminho que o tráfego com balanceamento de carga do seu aplicativo. O caminho de dados usado por seus clientes também é validado. A medição é invisível para seu aplicativo e não interfere com outras operações.|
+| Disponibilidade do DIP | O Load Balancer Standard usa um serviço de investigação de integridade distribuído que monitora a integridade do ponto de extremidade do aplicativo de acordo com as definições de configuração. Essa métrica fornece uma exibição agregada ou por ponto de extremidade filtrado de cada ponto de extremidade de instância individual no pool do Load Balancer.  Você pode verificar como o Load Balancer vê a integridade de seu aplicativo conforme indicado pela configuração de sua investigação de integridade.
+| Pacotes SYN | O Load Balancer Standard não encerra conexões TCP nem interage com os fluxos de pacotes TCP ou UDP. Fluxos e seus handshakes estão sempre entre a origem e a instância VM. Para solucionar melhor os problemas de todos os seus cenários de protocolo TCP, é possível usar pacotes SYN para entender quantas tentativas de conexão TCP são feitas. A métrica informa o número de pacotes SYN do TCP que foram recebidos. A métrica também pode refletir clientes que tentam estabelecer uma conexão com o seu serviço.|
+| Conexões SNAT | O Load Balancer Standard informa o número de conexões de saída mascaradas para o front-end do endereço IP Público. As portas SNAT são um recurso esgotável. Essa métrica pode dar uma indicação do grau de dependência que seu aplicativo tem do SNAT para conexões com origem externa.|
 | Contadores de bytes | O Load Balancer Standard informa os dados processados por front-end.|
 | Contadores de pacotes | O Load Balancer Standard informa os pacotes processados por front-end.|
 
 ### <a name = "highreliability"></a>Alta confiabilidade
 
-Configure as regras de balanceamento de carga para dimensionar seu aplicativo e ser altamente confiável.  Você pode configurar regras para portas individuais, ou pode usar as novas Portas de alta disponibilidade para balancear todo o tráfego, independentemente do número de porta TCP ou UDP.  
+Configure as regras de balanceamento de carga para dimensionar seu aplicativo e ser altamente confiável. É possível configurar regras para portas individuais ou usar as Portas HA para balancear todo o tráfego, independentemente do número da porta TCP ou UDP.  
 
-Você pode usar o novo recurso de Portas de alta disponibilidade para desbloquear vários cenários, incluindo alta disponibilidade e escalabilidade para soluções de virtualização de rede, e outros cenários nos quais é impraticável ou indesejável especificar portas individuais. As Portas de alta disponibilidade fornecem redundância e escala permitindo o máximo de instâncias necessárias, em vez de ficarem restritas a cenários ativos/passivos. As configurações do investigação de integridade protegem seu serviço encaminhando o tráfego apenas às instâncias íntegras.
+É possível usar o novo recurso de Portas HA para desbloquear uma variedade de cenários, incluindo alta disponibilidade e escala para NVAs internos. O recurso é útil para outros cenários em que é impraticável ou indesejável especificar portas individuais. As Portas HA fornecem redundância e escala permitindo várias instâncias quantas sejam necessárias. Sua configuração não está mais restrita a cenários ativos/passivos. As configurações do investigação de integridade protegem seu serviço encaminhando o tráfego apenas às instâncias íntegras.
 
-Os fornecedores de solução de virtualização de rede podem fornecer cenários resilientes com suporte total do fornecedor por meio da remoção de um ponto único de falha para seus clientes, e permitindo várias instâncias ativas para escala. Você pode escalar para duas ou mais instâncias, seu a sua solução permitir essas configurações. O fornecedor de sua solução de virtualização de rede precisa fornecer mais orientações para esses cenários.
+Os fornecedores NVA podem fornecer cenários resilientes e com suporte total do fornecedor para seus clientes. O ponto único de falha é removido e há suporte para várias instâncias ativas para escala. É possível dimensionar duas ou mais instâncias, dependendo dos recursos do seu dispositivo. Contate o fornecedor NVA para obter mais diretrizes para esses cenários.
 
 ### <a name = "availabilityzones"></a>Zonas de disponibilidade
 
 [!INCLUDE [availability-zones-preview-statement](../../includes/availability-zones-preview-statement.md)]
 
-Aumente a resiliência de seu aplicativo com as Zonas de disponibilidade nas regiões com suporte. No momento, as Zonas de disponibilidade estão em uma versão prévia em regiões específicas, e exigem aceitação adicional.
+Aumente a resiliência de seu aplicativo com as Zonas de disponibilidade nas regiões com suporte. No momento, as Zonas de disponibilidade estão em versão prévia em regiões específicas e exigem aceitação adicional.
 
 ### <a name="automatic-zone-redundancy"></a>Redundância de zona automática
 
-Você pode escolher se o Load Balancer deve fornecer um front-end com redundância de zona ou zonal para cada um dos seus aplicativos.  É fácil criar redundância de zona com o Load Balancer Standard.  Um único endereço IP front-end tem automaticamente redundância de zona.  Um front-end com redundância de zona é atendido por todas as Zonas de disponibilidade em uma região, simultaneamente. Isso cria um caminho de dados com redundância de zona para conexões de entrada e saída. A redundância de zona no Azure não exige vários endereços IP e registros DNS. 
+É possível escolher se o Load Balancer deve fornecer um front-end com redundância de zona ou zonal para cada um dos seus aplicativos. É fácil criar redundância de zona com o Load Balancer Standard. Um único endereço IP de front-end tem redundância de zona automaticamente. Um front-end com redundância de zona é atendido por todas as zonas de disponibilidade em uma região simultaneamente. Um caminho de dados com redundância de zona é criado para conexões de entrada e de saída. A redundância de zona no Azure não exige vários endereços IP e registros DNS. 
 
-Essa redundância de zona está disponível para front-ends público ou interno. Seu endereço IP Público, bem como o IP privado interno do front-end do Load Balancer, pode ter redundância de zona.
+A redundância de zona está disponível para front-ends públicos ou internos. Seu Endereço IP Público e o IP privado de front-end do seu Load Balancer interno pode ter redundância de zona.
 
-Crie um endereço IP Público com redundância de zona com o seguinte (adicione "sku" a qualquer modelo do Resource Manager existente):
+Use o seguinte script para criar um endereço IP Público com redundância de zona para seu Load Balancer interno. Se você estiver usando modelos do Resource Manager existentes em sua configuração, adicione a seção **sku** a esses modelos.
 
 ```json
             "apiVersion": "2017-08-01",
@@ -110,7 +110,7 @@ Crie um endereço IP Público com redundância de zona com o seguinte (adicione 
             },
 ```
 
-Crie uma configuração de IP de front-end com redundância de zona do Load Balancer com o seguinte (adicione "sku" a qualquer modelo do Resource Manager existente):
+Use o seguinte script para criar um endereço IP de front-end com redundância de zona para seu Load Balancer interno. Se você estiver usando modelos do Resource Manager existentes em sua configuração, adicione a seção **sku** a esses modelos.
 
 ```json
             "apiVersion": "2017-08-01",
@@ -136,23 +136,23 @@ Crie uma configuração de IP de front-end com redundância de zona do Load Bala
                 ],
 ```
 
-Se o front-end do IP Público tiver redundância de zona, quaisquer conexões de saída provenientes de instâncias da VM terão redundância de zona automaticamente e serão protegidas contra falha de zona.  A alocação da porta SNAT sobrevive à falha da zona.
+Se seu front-end do IP Público tiver redundância de zona, as conexões de saída realizadas de instâncias VM terão automaticamente redundância de zona. O front-end está protegido contra falha de zona. A alocação da porta SNAT também sobrevive à falha de zona.
 
 #### <a name="cross-zone-load-balancing"></a>Balanceamento de carga entre zonas
 
-O balanceamento de carga entre zonas está disponível dentro de uma região para o pool de back-ends, permitindo a máxima flexibilidade para suas instâncias de Máquina Virtual.  Um front-end pode entregar fluxos para qualquer VM na VNet, independentemente da zona de disponibilidade da instância da VM.
+O balanceamento de carga entre zonas está disponível dentro de uma região para o pool de back-ends e oferece máxima flexibilidade para suas instâncias VM. Um front-end entrega fluxos para qualquer VM na rede virtual, independentemente da Zona de disponibilidade da instância VM.
 
-Além disso, você também pode optar por especificar uma zona específica para suas instâncias de front-end e back-end, a fim de alinhar o caminho de dados e os recursos com uma zona específica.
+Também é possível especificar uma zona particular para suas instâncias de front-end e de back-end, a fim de alinhar o caminho de dados e os recursos com uma zona específica.
 
-Como VNets e sub-redes nunca sofrem restrição de zona, basta você definir um pool de back-ends com suas instâncias de VM desejadas, e a configuração estará concluída.
+As redes virtuais e sub-redes nunca são restritas por uma zona. Basta definir um pool de back-ends com suas instâncias VM desejadas e sua configuração estará concluída.
 
 #### <a name="zonal-deployments"></a>Implantações em zona
 
-Opcionalmente, também é possível alinhar o front-end a uma zona específica definindo um front-end em zona.  Um front-end em zona é atendido somente pela única zona de disponibilidade designada e, quando combinado com instâncias da VM em zona, você pode alinhar recursos a zonas específicas.
+Como opção, é possível alinhar o front-end do balanceador de carga a uma zona específica definindo um front-end zonal. Um front-end zonal é atendido apenas pela Zona de disponibilidade única designada. Quando o front-end é combinado com instâncias VM zonais, é possível alinhar os recursos a regiões específicas.
 
-Um endereço IP público criado em uma zona específica existirá sempre somente nessa zona.  Não é possível alterar a zona de um endereço IP público.  Se você quiser ter um endereço IP público que possa ser anexado aos recursos em várias zonas, será necessário criar um IP público de zona redundante.
+Um endereço IP Público criado em uma zona específica existe sempre apenas nessa zona. Não é possível alterar a zona de um endereço IP público. Para um endereço IP Público que pode ser anexado a recursos em várias zonas, em vez disso, crie um IP Público com redundância de zona.
 
-Crie um endereço IP Público em Zona de disponibilidade 1 com o seguinte (adicione "zonas" e "sku" a qualquer modelo do Resource Manager existente):
+Use o script a seguir para criar um endereço IP Público zonal na Zona de disponibilidade 1. Se você estiver usando modelos do Resource Manager existentes em sua configuração, adicione a seção **sku** a esses modelos.
 
 ```json
             "apiVersion": "2017-08-01",
@@ -166,7 +166,9 @@ Crie um endereço IP Público em Zona de disponibilidade 1 com o seguinte (adici
             },
 ```
 
-Crie um front-end interno do Load Balancer na Zona de disponibilidade 1 com o seguinte (adicionar "sku" a qualquer modelo do Resource Manager existente e coloque "zonas" no recurso filho da configuração de IP de front-end):
+Use o script a seguir para criar um front-end do Load Balancer interno na Zona de disponibilidade 1.
+
+Se você estiver usando modelos do Resource Manager existentes em sua configuração, adicione a seção **sku** a esses modelos. Além disso, defina a propriedade **zonas** na configuração do IP de front-end para o recurso filho.
 
 ```json
             "apiVersion": "2017-08-01",
@@ -193,71 +195,71 @@ Crie um front-end interno do Load Balancer na Zona de disponibilidade 1 com o se
                 ],
 ```
 
-Além disso, você pode usar o balanceamento de carga em zonas seu o back-end colocando suas instâncias da VM em uma VNet dentro de um pool de back-ends.
+Adicione o balanceamento de carga entre zonas para seu pool de back-ends colocando suas instâncias VM que estão em uma rede virtual no pool.
 
-O próprio recurso de Load Balancer Standard será sempre regional e com redundância de zona quando houver suporte para Zonas de disponibilidade. Um endereço IP Público ou front-tend interno do Load Balancer que não recebeu uma zona pode ser implantado em qualquer região, independentemente do suporte das Zonas de disponibilidade. Se uma região receber Zonas de disponibilidade posteriormente, um IP Público já implantado ou um front-end interno do Load Balancer terá redundância de zona automaticamente. O caminho de dados com redundância de zona não implica em 0% de perda de pacotes.
+O recurso de Load Balancer Standard será sempre regional e com redundância de zona quando houver suporte para Zonas de disponibilidade. É possível implantar um endereço IP Público ou um front-end do Load Balancer interno que não tenha uma zona atribuída em nenhuma região. O suporte para Zonas de disponibilidade não afeta a capacidade da implantação. Se uma região receber Zonas de disponibilidade posteriormente, os IPs públicos ou front-ends do Load Balancer interno implantados anteriormente terão redundância de zona automaticamente. Um caminho de dados com redundância de zona não implica 0% de perda de pacotes.
 
-### <a name = "nsg"></a>Grupos de segurança de rede
+### <a name = "nsg"></a>Grupos de Segurança de Rede
 
-O Load Balancer Standard e o IP Público Standard são totalmente integrados à VNet, e os Grupos de Segurança de Rede (NSG) agora são exigidos. O NSG aceita uma lista de permissões de fluxos e permite configurações nas quais os clientes estão em controle total de quando permitir o tráfego até suas implantações por meio do NSG, em vez de quando outras configurações são concluídas.
+O Load Balancer Standard e o IP Público Standard são totalmente integrados à rede virtual, que requer o uso de NSGs (Grupos de Segurança de Rede). Os NSGs possibilitam adicionar o fluxo de tráfego à lista de permissões. É possível usar NSGs para ganhar controle total sobre o tráfego para a sua implantação. Não é mais necessário aguardar a conclusão de outros fluxos de tráfego.
 
-Associe um NSG com sub-redes ou com NICs de instâncias de VM no pool de back-end.  Isso se aplica ao Load Balancer Standard e IP Público Standard quando usado como IP Público no Nível da Instância. Você deve incluir explicitamente na lista de permissão qual tráfego você deseja permitir com o NSG para que ele flua.
+Associe os NSGs a sub-redes ou a NICs (interfaces de rede) das instâncias VM no pool de back-ends. Use essa configuração com o Load Balancer Standard e o IP Público Standard quando ele for usado como um IP Público no nível da instância. O NSG deve adicionar explicitamente o tráfego que você deseja permitir à lista de permissões para que esse tráfego flua.
 
-Para saber mais sobre grupos de segurança de rede e como aplicá-los ao seu cenário, consulte [Grupos de Segurança de Rede](../virtual-network/virtual-networks-nsg.md).
+Para saber mais sobre NSGs e como aplicá-los para seu cenário, consulte [Grupos de segurança de rede no Azure](../virtual-network/virtual-networks-nsg.md).
 
 ### <a name ="outboundconnections"></a>Conexões de saída
 
- O Load Balancer Standard fornece conexões de saída para as VMs dentro da VNet quando associado a um Load Balancer usando o SNAT (Tradução de endereços de rede de origem) para mascaramento de porta.
+O Load Balancer Standard oferece conexões de saída para VMs que estão dentro da rede virtual quando um balanceador de carga usa o SNAT de representação de porta. O algoritmo SNAT da representação de porta oferece maiores robustez e escala.
 
-Quando um recurso do Load Balancer público está associado a instâncias de VM, a origem de cada conexão de saída é reescrita a partir do espaço de endereço IP privado da VNet para o endereço IP público do front-end do Load Balancer.  O Load Balancer Standard usa um novo algoritmo SNAT (Tradução de endereços de rede de origem) para mascarar a porta a fim de aumentar a escala e a robustez.  
+Quando um recurso público do Load Balancer estiver associado a instâncias VM, cada fonte de conexão de saída será reescrita. A origem foi reescrita do espaço do endereço IP privado da rede virtual para o endereço IP Público de front-end do balanceador de carga.
 
-Além disso, as conexões de saída, quando são usadas com um front-end com redundância de zona, também têm redundância de zona, e as alocações de porta SNAT sobrevivem à falha da zona.
+Quando são usadas conexões de saída com um front-end com redundância de zona, as conexões também têm redundância de zona e as alocações de porta SNAT sobrevivem à falha da zona.
 
-O novo algoritmo do Load Balancer Standard pré-aloca as portas SNAT à interface de rede de cada VM no momento em que elas são adicionadas ao pool, de acordo com as seguintes camadas:
+O novo algoritmo no Load Balancer Standard pré-aloca as portas SNAT para a NIC de cada VM. Quando uma NIC é adicionada ao pool, as portas SNAT são pré-alocadas com base no tamanho do pool. A tabela a seguir mostra as pré-alocações de porta para seis níveis de tamanhos do pool de back-ends:
 
-| Tamanho do pool de back-end | Portas SNAT pré-alocadas |
+| Tamanho do pool (instâncias VM) | Porta SNAT pré-alocada |
 | --- | --- |
-| 1-50 | 1024 |
-| 51-100 | 512 |
-| 101-200 | 256 |
-| 201-400 | 128 |
-| 401-800 | 64 |
-| 801-1000 | 32 |
+| 1 – 50 | 1024 |
+| 51 – 100 | 512 |
+| 101 – 200 | 256 |
+| 201 – 400 | 128 |
+| 401 – 800 | 64 |
+| 801 – 1.000 | 32 |
 
-As portas SNAT não são convertidas diretamente para o número de conexões. Uma porta SNAT pode ser reutilizada para vários destinos exclusivos.  Examine o artigo [conexões de saída](load-balancer-outbound-connections.md) para obter detalhes.
+As portas SNAT não são convertidas diretamente no número de conexões de saída. Uma porta SNAT pode ser reutilizada para vários destinos exclusivos. Para obter detalhes, examine o artigo [Conexões de saída](load-balancer-outbound-connections.md).
 
-Se o pool de back-end aumentar e mudar de um nível de tamanho para o próximo tamanho maior, metade das suas portas alocadas será recuperada. Qualquer conexão associada a um porta recuperada atingirá o tempo limite e precisará ser restabelecida. Novas tentativas de conexão terão êxito imediatamente. Se o seu pool de back-ends for reduzido de um nível de tamanho para o próximo tamanho menor, as portas SNAT disponíveis crescerão, e as conexões existentes não serão afetadas.
+Se o tamanho do pool de back-ends aumentar e fizer a transição para um nível mais alto, metade das suas portas alocadas serão recuperadas. As conexões associadas a um tempo limite de porta recuperada e devem ser reestabelecidas. As novas tentativas de conexão têm êxito imediatamente. Se o tamanho do pool de back-ends diminuir e fizer transição para uma camada mais baixa, o número de portas SNAT disponíveis aumentará. Nesse caso, as conexões existentes não são afetadas.
 
-O Load Balancer Standard também tem uma opção de configuração adicional em uma base por regra, a fim de fornecer controle do cliente sobre qual front-end será usado para mascarar a porta SNAT quando houver vários front-ends disponíveis.
+O Load Balancer Standard tem uma opção de configuração adicional que pode ser usada por regra. É possível controlar qual front-end será usado para o SNAT de representação de porta quando vários front-ends estiverem disponíveis.
 
-Por fim, quando apenas o Load Balancer Standard atender às instâncias de VM, as conexões SNAT de saída não estarão disponíveis. Você pode restaurar explicitamente essa capacidade atribuindo também as instâncias de VM a um Load Balancer público, ou atribuindo também os IPs Públicos como IPs Públicos no nível da instância diretamente em cada instância da VM. Isso pode ser necessário para alguns cenários de aplicativo e sistema operacional. 
+Quando apenas o Load Balancer Standard atender instâncias VM, as conexões SNAT de saída não estarão disponíveis. É possível restaurar essa capacidade explicitamente atribuindo também as instâncias VM a um balanceador de carga público. Também é possível atribuir IPs públicos diretamente como IPs públicos no nível da instância a cada instância VM. Essa opção de configuração pode ser necessária para alguns cenários de aplicativo e de sistema operacional. 
 
 ### <a name="port-forwarding"></a>Encaminhamento de porta
 
- Os Load Balancers Básico e Standard fornecem a capacidade de configurar regras de NAT de entrada para mapear uma porta front-end para uma instância individual de back-end.  Há muitos usos para essa capacidade, incluindo a exposição de pontos de extremidade do protocolo RDP, pontos de extremidade SSH ou vários outros cenários de aplicativo.
+Os Load Balancers Básico e Standard fornecem a capacidade de configurar regras NAT de entrada para mapear uma porta de front-end para uma instância individual de back-end. Ao configurar essas regras, é possível expor pontos de extremidade do Protocolo RDP e pontos de extremidade SSH ou executar outros cenários de aplicativo.
 
-O Load Balancer Standard continua a oferecer a capacidade de encaminhamento de porta por meio de regras NAT de entrada.  Quando usadas com front-ends com redundância de zona, regras de NAT de entrada ficam com redundância de zona e sobreviverão à falha da zona.
+O Load Balancer Standard continua oferecendo a capacidade de encaminhamento de porta por meio de regras NAT de entrada. Quando usadas com front-ends com redundância de zona, as regras NAT de entrada têm redundância de zona e sobrevivem à falha da zona.
 
-### <a name="multiple-frontends"></a>Vários front-ends
+### <a name="multiple-front-ends"></a>Vários front-ends
 
-Configure vários front-ends para obter flexibilidade de design em que os aplicativos exigem a exposição de vários endereços IP individuais (como sites TLS ou pontos de extremidade do Grupos de Disponibilidade AlwaysOn do SQL).  Encontre mais detalhes [aqui](load-balancer-multivip-overview.md).
+Configure vários front-ends para obter flexibilidade de design em que os aplicativos exigem a exposição de vários endereços IP individuais, como sites TLS ou pontos de extremidade do Grupos de Disponibilidade AlwaysOn do SQL. 
 
-O Load Balancer Standard continua a oferecer vários front-ends em que é desejável expor um ponto de extremidade de aplicativo específico em um endereço IP exclusivo.
+O Load Balancer Standard continua oferecendo vários front-ends em que é necessário expor um ponto de extremidade do aplicativo específico em um endereço IP exclusivo.
 
- Encontre mais detalhes [aqui](load-balancer-multivip-overview.md).
+Para obter mais informações sobre como configurar vários IPs de front-end, consulte [Multiple IP configuration](load-balancer-multivip-overview.md) (Configuração IP múltiplo).
 
 ## <a name = "sku"></a>Sobre SKUs
 
-Os SKUs só estão disponíveis no modelo de implantação do Azure Resource Manager.  Esta versão prévia apresenta dois SKUs (Básico e Standard) para os recursos do Load Balancer e do IP Público.  Os SKUs diferem em alguns comportamentos intrínsecos, características de desempenho, limitações e capacidades. As Máquinas Virtuais podem ser usadas com qualquer SKU. Para os recursos do Load Balancer e do IP Público, os SKUs permanecem atributos opcionais e, quando são omitidos, assumem o padrão de Básico.
+Os SKUs só estão disponíveis no modelo de implantação do Azure Resource Manager. Esta versão prévia apresenta dois SKUs para o Load Balancer e para os recursos de IP Público: Básico e Standard. Os SKUs diferem em alguns comportamentos intrínsecos, características de desempenho, limitações e capacidades. As máquinas virtuais podem ser usadas com qualquer SKU. Para os recursos do Load Balancer e do IP Público, os SKUs permanecem atributos opcionais. Quando os SKUs são omitidos em uma definição de cenário, o padrão da configuração é usar o SKU Básico.
 
 >[!IMPORTANT]
->O SKU de um recurso não pode ser trocado.  Você não pode alterar a SKU de um recurso existente.  
+>O SKU de um recurso não pode ser trocado. Você não pode alterar a SKU de um recurso existente.  
 
 ### <a name="load-balancer"></a>Balanceador de carga
 
-O [recurso existente do Load Balancer](load-balancer-overview.md) se torna o SKU Básico e permanece disponível para todos e inalterado.
+O [recurso existente do Load Balancer](load-balancer-overview.md) se torna o SKU Básico e permanece geralmente disponível e inalterado.
 
-O SKU do Load Balancer Standard é uma nova oferta e está atualmente em versão prévia. A versão da API 2017-08-01 para Microsoft.Network/loadBalancers apresenta SKUs para o recurso.
+O SKU do Load Balancer Standard é novo e está, no momento, em versão prévia. A versão da API de 1º de agosto de 2017 para Microsoft.Network/loadBalancers adiciona a propriedade **sku** à definição do recurso:
 
 ```json
             "apiVersion": "2017-08-01",
@@ -269,13 +271,13 @@ O SKU do Load Balancer Standard é uma nova oferta e está atualmente em versão
                 "name": "Standard"
             },
 ```
-Quando usado em uma região que também oferece Zonas de disponibilidade, o Load Balancer Standard fica automaticamente resiliente à zona, a menos que tenha sido declarado zonal.
+O Load Balancer Standard tem resiliência de zona automaticamente em regiões que oferecem Zonas de disponibilidade. Se o Load Balancer tiver sido declarado zonal, então ele não terá resiliência de zona automaticamente.
 
 ### <a name="public-ip"></a>IP público
 
-O [recurso de IP público existente](../virtual-network/virtual-network-ip-addresses-overview-arm.md) se torna o SKU Básico e permanece disponível para todos com todas as suas habilidades, características de desempenho e limitações.
+O [recurso de IP Público existente](../virtual-network/virtual-network-ip-addresses-overview-arm.md) se torna o SKU Básico e permanece disponível para todos com todas as suas habilidades, características de desempenho e limitações.
 
-O SKU do IP Público Standard é uma nova oferta e está atualmente em versão prévia. A versão da API de 2017-08-01 para recursos Microsoft.Network/publicIPAddresses apresenta SKUs.
+O SKU do IP Público Standard é novo e está, no momento, em versão prévia. A versão da API de 1º de agosto de 2017 para Microsoft.Network/publicIPAddresses adiciona a propriedade **sku** à definição do recurso:
 
 ```json
             "apiVersion": "2017-08-01",
@@ -288,30 +290,38 @@ O SKU do IP Público Standard é uma nova oferta e está atualmente em versão p
             },
 ```
 
-Ao contrário do IP Público Básicos que oferece vários métodos de alocação, o IP Público Standard em sempre Alocação estática.
+Ao contrário do IP Público Básico, que oferece vários métodos de alocação, o IP Público Standard sempre usa a alocação estática.
 
-Quando usado em uma região que também oferece Zonas disponibilidade, o IP Público Standard fica automaticamente resiliente à zona, a menos que tenha sido declarado zonal.  Um IP público zonal não pode ser alterado de uma zona para outra.
+O IP Público Standard tem resiliência de zona automaticamente em regiões que oferecem Zonas de disponibilidade. Se o IP Público tiver sido declarado zonal, então ele não terá resiliência de zona automaticamente. Um IP Público zonal não pode ser alterado de uma zona para outra.
 
 ## <a name="migration-between-skus"></a>Migração entre SKUs
 
-Os SKUs não são mutáveis.  Se você quiser mudar do SKU de um recurso para outro, execute estas etapas:
+Os SKUs não são mutáveis. Siga as etapas nesta seção para mover de um SKU de recurso para outro.
 
-### <a name="migrating-from-basic-to-standard-sku"></a>Migrar do SKU Básico para Standard
+### <a name="migrate-from-basic-to-standard-sku"></a>Migrar do SKU Básico para Standard
 
-1. Crie um novo recurso Standard (Load Balancer e IPs Públicos, conforme o necessário) e recrie as regras e as definições de investigação.
-2. Remova os recursos do SKU Básico (IP Público e LB) de todas as instâncias de VM (incluindo todas as instâncias de um conjunto de disponibilidade).
+1. Crie um novo recurso Standard (Load Balancer e IPs Públicos, conforme necessário). Recrie suas regras e definições de investigação.
+
+2. Remova os recursos de SKU Básico (Load Balancer e IPs Públicos, conforme aplicável) de todas as instâncias VM. Certifique-se também de remover todas as instâncias VM de um conjunto de disponibilidade.
+
 3. Anexe todas as instâncias de VM aos novos recursos de SKU Standard.
 
-### <a name="migrating-from-standard-to-basic-sku"></a>Migrar do SKU Standard para o Básico:
+### <a name="migrate-from-standard-to-basic-sku"></a>Migrar do SKU Standard para o Básico
 
-1. Crie um novo recurso Básico (Load Balancer e IPs Públicos, conforme o necessário) e recrie as regras e as definições de investigação. 
-2. Remova os recursos do SKU Standard (IP Público e LB) de todas as instâncias de VM (incluindo todas as instâncias de um conjunto de disponibilidade).
+1. Crie um novo recurso Básico (Load Balancer e IPs Públicos, conforme necessário). Recrie suas regras e definições de investigação. 
+
+2. Remova os recursos de SKU Standard (Load Balancer e IPs Públicos, conforme aplicável) de todas as instâncias VM. Certifique-se também de remover todas as instâncias VM de um conjunto de disponibilidade.
+
 3. Anexe todas as instâncias de VM aos novos recursos de SKU Básico.
 
-  >[!NOTE]
-  >Portas de alta disponibilidade, diagnóstico do SKU Standard, só estão disponíveis no SKU Standard. Você não pode migrar do Standard para o Básico e manter essa funcionalidade.
-
-SKUs correspondentes devem ser usados para os recursos do Load Balancer e do IP Público.  Não é possível combinar recursos de SKU Básico e Standard, ou anexar uma VM, VMs em um conjunto de disponibilidade ou conjunto de dimensionamento de máquinas virtuais definidos para ambos simultaneamente.
+>[!IMPORTANT]
+>
+>Há limitações com relação ao uso dos SKUs Básico e Standard.
+>
+>As Portas HA e o Diagnóstico do SKU Standard só estão disponíveis no SKU Standard. Não é possível migrar do SKU Standard para o SKU Básico e também manter esses recursos.
+>
+>SKUs correspondentes devem ser usados para os recursos do Load Balancer e do IP Público. Não é possível ter uma combinação de recursos de SKU Básico e de SKU Standard. Não é possível anexar uma VM, VMs em um Conjunto de disponibilidade ou um conjunto de dimensionamento de máquinas virtuais aos dois SKUs simultaneamente.
+>
 
 ## <a name="region-availability"></a>Disponibilidade de região
 
@@ -323,17 +333,17 @@ O Load Balancer Standard está disponível atualmente nestas regiões:
 - Europa Ocidental
 - Sudeste Asiático
 
-## <a name="service-limits--abilities-comparison"></a>Comparação de limites e recursos do serviço
+## <a name="sku-service-limits-and-abilities"></a>Limites de serviço e capacidades do SKU
 
 Os [Limites de serviço de rede](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#networking-limits) do Azure se aplicam de acordo com a região e com a assinatura. 
 
-A tabela a seguir fornece uma comparação de recursos e limites entre os SKUs Básico e Standard para o Load Balancer:
+A tabela a seguir compara os limites e as capacidades dos SKUs Básico e Standard do Load Balancer:
 
 | Balanceador de carga | Basic | Standard |
 | --- | --- | --- |
-| Tamanho do pool de back-end | até 100 | até 1000 |
-| Limite do pool de back-ends | Conjunto de disponibilidade | VNet, região |
-| Design do pool de back-ends | VMs em conjunto de disponibilidade ou conjunto de dimensionamento de máquinas virtuais no conjunto de disponibilidade | Qualquer instância de VM na VNet |
+| Tamanho do pool de back-end | até 100 | até 1.000 |
+| Limite do pool de back-end | Conjunto de disponibilidade | rede virtual, região |
+| Design do pool de back-end | VMs no Conjunto de disponibilidade, conjunto de dimensionamento de máquinas virtuais no Conjunto de disponibilidade | Qualquer instância VM na rede virtual |
 | Portas de alta disponibilidade | Sem suporte | Disponível |
 | Diagnostics | Limitado, somente público | Disponível |
 | Disponibilidade do VIP  | Sem suporte | Disponível |
@@ -343,7 +353,7 @@ A tabela a seguir fornece uma comparação de recursos e limites entre os SKUs B
 | Seleção de front-end de SNAT de saída | Não é configurável, vários candidatos | Configuração opcional para reduzir candidatos |
 | Grupo de Segurança de Rede | Opcional na sub-rede/NIC | Obrigatório |
 
-A tabela a seguir fornece uma comparação de recursos e limites entre os SKUs Básico e Standard para o IP Público:
+A tabela a seguir compara os limites e as capacidades dos SKUs Básico e Standard do IP Público:
 
 | IP público | Basic | Standard |
 | --- | --- | --- |
@@ -356,49 +366,95 @@ A tabela a seguir fornece uma comparação de recursos e limites entre os SKUs B
 
 ## <a name="preview-sign-up"></a>Inscrição na versão prévia
 
-Para participar da versão prévia do SKU do Load Balancer Standard e seu SKU de IP Público Standard complementar, registre sua assinatura para obter acesso usando o PowerShell ou CLI do Azure 2.0.
+Para participar da versão prévia do SKU do Load Balancer Standard e seu SKU de IP Público Standard complementar, registre sua assinatura.  Registrar sua assinatura oferece acesso do PowerShell ou CLI do Azure 2.0. Para se registrar, siga estas etapas:
 
-- Inscrever-se usando o PowerShell
+>[!NOTE]
+>O registro do recurso Standard do Load Balancer pode levar até uma hora para entrar em vigor globalmente. Se desejar usar o Padrão do Load Balancer com [Zonas de disponibilidade](https://aka.ms/availabilityzones) e [Portas de HA](https://aka.ms/haports), uma inscrição separada será necessária para essas visualizações. Siga as respectivas instruções para a inscrição desses recursos.
 
-    ```powershell
-    Register-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
-    ```
+### <a name="sign-up-by-using-azure-cli-20"></a>Inscrever-se usando a CLI do Azure 2.0
 
-- Inscrever-se usando a CLI do Azure 2.0
+1. Registre o recurso com o provedor:
 
     ```cli
     az feature register --name AllowLBPreview --namespace Microsoft.Network
     ```
+    
+2. Essa operação pode demorar até 10 minutos para ser concluída. É possível verificar o status da operação com o comando a seguir:
 
->[!NOTE]
->O registro do recurso padrão Load Balancer pode levar até uma hora.
+    ```cli
+    az feature show --name AllowLBPreview --namespace Microsoft.Network
+    ```
+    
+    Passe para a próxima etapa quando o estado de registro do recurso retornar 'Registrado':
+   
+    ```json
+    {
+       "id": "/subscriptions/foo/providers/Microsoft.Features/providers/Microsoft.Network/features/AllowLBPreview",
+       "name": "Microsoft.Network/AllowLBPreview",
+       "properties": {
+          "state": "Registered"
+       },
+       "type": "Microsoft.Features/providers/features"
+    }
+    ```
+    
+3. Conclua a inscrição da versão prévia registrando novamente sua assinatura com o provedor de recursos:
 
->[!NOTE]
->Se desejar usar o Padrão do Load Balancer com [Zonas de disponibilidade](https://aka.ms/availabilityzones) e [Portas de HA](https://aka.ms/haports), uma inscrição separada será necessária para essas visualizações.  Siga as respectivas instruções.
+    ```cli
+    az provider register --namespace Microsoft.Network
+    ```
+    
+### <a name="sign-up-by-using-powershell"></a>Inscrever-se usando o PowerShell
 
+1. Registre o recurso com o provedor:
+
+    ```powershell
+    Register-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
+    ```
+    
+2. Essa operação pode demorar até 10 minutos para ser concluída. É possível verificar o status da operação com o comando a seguir:
+
+    ```powershell
+    Get-AzureRmProviderFeature -FeatureName AllowLBPreview -ProviderNamespace Microsoft.Network
+    ```
+
+    Passe para a próxima etapa quando o estado de registro do recurso retornar 'Registrado':
+   
+    ```
+    FeatureName      ProviderName        RegistrationState
+    -----------      ------------        -----------------
+    AllowLBPreview   Microsoft.Network   Registered
+    ```
+    
+3. Conclua a inscrição da versão prévia registrando novamente sua assinatura com o provedor de recursos:
+
+    ```powershell
+    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
+    ```
+ 
 ## <a name="pricing"></a>Preços
 
-O SKU do Load Balancer Standard é cobrado com base em regras configuradas e nos dados processados.  Nenhum encargo é gerado durante o período de versão prévia.  Veja as páginas de preço do [Load Balancer](https://aka.ms/lbpreviewpricing) e do [IP Público](https://aka.ms/lbpreviewpippricing) para saber mais.
+A cobrança do SKU do Load Balancer Standard é baseada em regras configuradas e dados processados. Nenhum encargo é gerado durante o período de versão prévia. Para obter mais informações, examine as páginas de preço do [Load Balancer](https://aka.ms/lbpreviewpricing) e do [IP Público](https://aka.ms/lbpreviewpippricing).
 
 Os clientes continuam a desfrutar do SKU do Load Balancer Básico sem custo adicional.
 
 ## <a name="limitations"></a>Limitações
 
-As seguintes limitações se aplicam no momento da versão prévia e estão sujeitos a alterações:
+As seguintes limitações se aplicam no momento da versão prévia e estão sujeitas a alterações:
 
-- No momento, as instâncias de back-end do Load Balancer não podem ser localizadas em VNets emparelhadas. Todas as instâncias de back-end devem estar na mesma região.
+- No momento, as instâncias de back-end do Load Balancer não podem ser localizadas em redes virtuais emparelhadas. Todas as instâncias de back-end devem estar na mesma região.
 - Os SKUs não são mutáveis. Você não pode alterar a SKU de um recurso existente.
-- Você pode usar o SKU Básico ou Standard com uma VM autônoma, todas as instâncias de VM em um conjunto de disponibilidade ou conjunto de dimensionamento de máquinas virtuais. Uma VM autônoma, todas as instâncias de VM em um conjunto de disponibilidade ou conjunto de dimensionamento de máquinas virtuais não podem ser usadas com ambos ao mesmo tempo. Não é permitido misturar SKUs.
-- Usar um Load Balancer Standard interno com uma instância de VM (ou qualquer parte de um conjunto de disponibilidade) desabilita [conexões de saída SNAT padrão](load-balancer-outbound-connections.md).  Você pode restaurar essa capacidade para uma VM autônoma, ou para instâncias de VM em um conjunto de disponibilidade ou em um conjunto de dimensionamento de máquinas virtuais, e estabelecer conexões de saída atribuindo simultaneamente um Load Balancer Standard público ou um IP Público Standard como IP Público no nível da instância para a mesma instância de VM. Após a conclusão, o SNAT de mascaramento de porta para um endereço IP Público é fornecido novamente.
-- Talvez seja necessário agrupar instâncias de VM em conjuntos de disponibilidade para alcançar a escala de pool de back-end completa. É possível posicionar até 150 conjuntos de disponibilidade e VMs autônomas em um único pool de back-ends.
+- Os dois SKUs podem ser usados com uma VM autônoma, instâncias VM em um Conjunto de disponibilidade ou um conjunto de dimensionamento de máquinas virtuais. As combinações de VM não podem ser usadas com ambos os SKUs simultaneamente. Não é permitida uma configuração que contém uma combinação de SKUs.
+- Usar um Load Balancer Standard interno com uma instância VM (ou qualquer parte de um Conjunto de disponibilidade) desabilita [conexões de saída SNAT padrão](load-balancer-outbound-connections.md). É possível restaurar essa capacidade para uma VM autônoma, instâncias VM em um Conjunto de disponibilidade ou um conjunto de dimensionamento de máquinas virtuais. Também é possível restaurar a capacidade de criar conexões de saída. Para restaurar essas capacidades, atribua simultaneamente um Load Balancer Standard público ou um IP Público Standard como IP Público no nível da instância, à mesma instância VM. Após a conclusão da atribuição, o SNAT de representação de porta para um endereço IP Público é fornecido novamente.
+- Talvez seja necessário agrupar instâncias VM em conjuntos de disponibilidade para alcançar a escala de pool de back-ends completa. É possível posicionar até 150 conjuntos de disponibilidade e VMs autônomas em um único pool de back-ends.
 - Não há suporte para IPv6.
-- No contexto das Zonas de disponibilidade, um front-end não pode ser alternado de zonal para com redundância de zona, ou vice-versa. Após a criação com redundância de zona, sempre será com redundância de zona. Após a criação em zona, sempre será em zona.
-- No contexto das Zonas de disponibilidade, um endereço IP Público em zona não pode ser movido de uma zona para outra.
+- No contexto das Zonas de disponibilidade, um front-end não pode ser alternado de zonal para com redundância de zona ou vice-versa. Depois que um front-end é criado como sendo com redundância de zona, ele permanecerá com redundância de zona. Depois que um front-end é criado como zonal, ele permanecerá zonal.
+- No contexto das Zonas de disponibilidade, um endereço IP Público zonal não pode ser movido de uma zona para outra.
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Saiba mais sobre o [Load Balancer Básico](load-balancer-overview.md)
-- Saiba mais sobre as [Zonas de disponibilidade](../availability-zones/az-overview.md)
-- Saiba mais sobre algumas das outras principais [funcionalidades de rede](../networking/networking-overview.md) do Azure
+- Saiba mais sobre o [Load Balancer Básico](load-balancer-overview.md).
+- Saiba mais sobre as [Zonas de disponibilidade](../availability-zones/az-overview.md).
+- Saiba mais sobre alguns dos outros principais [recursos de rede](../networking/networking-overview.md) no Azure.
 

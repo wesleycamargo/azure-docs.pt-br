@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 09/14/2017
+ms.date: 10/11/2017
 ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
 manager: carmonm
-ms.openlocfilehash: 64699db16eaa55d6206f7631ced3072e21cd2074
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4fed181a004ba6a5ea35dcbe1366e7d48342c96d
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="register-an-individual-azure-subscription-and-view-cost-data"></a>Registrar uma assinatura individual do Azure e exibir dados de custo
 
@@ -36,9 +36,11 @@ Use sua assinatura do Azure para se registrar no Gerenciamento de Custo do Azure
 6. Concorde com os Termos de Uso e valide as informações e, em seguida, clique em **Avançar**.
 7. Na página **Coletar dados adicionais**, clique em **Avançar** para autorizar o Cloudyn a coletar dados do recurso do Azure. Os dados coletados incluem dados de uso, desempenho, cobrança e marcação de suas assinaturas.  
     ![reunir dados adicionais](./media/quick-register-azure-sub/gather-additional.png)
-9. O navegador levará você à página de entrada do Cloudyn. Entre com suas credenciais de assinatura do Azure.
+8. O navegador levará você à página de entrada do Cloudyn. Entre com suas credenciais de assinatura do Azure.
 9. Clique em **Ir para o Cloudyn** para abrir o portal de Cloudyn e, em seguida, na página **Gerenciamento de Contas**, você deverá ver as informações de sua conta de assinatura do Azure.  
     ![Gerenciamento de Contas](./media/quick-register-azure-sub/accounts-mgt.png)
+
+Para assistir a um vídeo de tutorial sobre como registrar a sua assinatura do Azure, consulte [Localizar o GUID do diretório e a ID de Taxa para uso no Gerenciamento de Custo do Azure por Cloudyn](https://youtu.be/PaRjnyaNGMI).
 
 [!INCLUDE [cost-management-create-account-view-data](../../includes/cost-management-create-account-view-data.md)]
 
@@ -47,4 +49,4 @@ Use sua assinatura do Azure para se registrar no Gerenciamento de Custo do Azure
 Neste guia de início rápido, você usou as informações de assinatura do Azure para se registrar no Gerenciamento de Custo. Você também entrou no portal do Cloudyn e começou a exibir os dados de custo. Para saber mais sobre o Gerenciamento de Custo do Azure pelo Cloudyn, continue com o tutorial sobre o Gerenciamento de Custo.
 
 > [!div class="nextstepaction"]
-> [Exibir dados de custo](./tutorial-review-usage.md)
+> [Examinar o uso e os custos](./tutorial-review-usage.md)

@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 09/27/2017
-ms.openlocfilehash: 2325d0ffd369d85b9a21e2274a98dcb673d240e7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 56a79906a0f43f06d35db703d641f547e7bdf868
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="classifying-iris-part-3-deploy-a-model"></a>Parte 3 de Classificando a Íris: implantar um modelo
 Os serviços do Azure Machine Learning (versão prévia) são uma solução integrada de análise avançada e de ciência de dados de ponta a ponta para cientistas de dados profissionais prepararem dados, desenvolverem testes e implantarem modelos em escala de nuvem.
@@ -193,6 +193,9 @@ Depois que a configuração for concluída, defina as variáveis de ambiente nec
    ```
 
 Agora você está pronto para criar o serviço Web em tempo real.
+
+>[!NOTE]
+>Novamente, você pode usar sua conta de Gerenciamento de Modelos e o ambiente para implantações de serviço Web posteriores. Você não precisa criá-los para cada serviço Web. Uma conta ou um ambiente pode ter vários serviços Web associados a ele.
 
 ## <a name="create-a-real-time-web-service-in-one-command"></a>Criar um serviço Web em tempo real em um comando
 1. Use o comando a seguir para criar um serviço Web em tempo real:

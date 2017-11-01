@@ -9,19 +9,19 @@ editor:
 ms.assetid: 
 ms.service: service-fabric
 ms.devlang: dotNet
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/13/2017
 ms.author: ryanwi
-ms.openlocfilehash: 705212675fc0a869a4374f621d5f2d7e035294dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d98d2823c19f24a2d9040f7959bd5189bd6bcc16
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="deploy-api-management-with-service-fabric"></a>Implantar o Gerenciamento de API com o Service Fabric
-Este tutorial é a parte dois de uma série. Este tutorial mostra como configurar o [Gerenciamento de API do Azure](../api-management/api-management-key-concepts.md) com o Service Fabric para rotear o tráfego para um serviço de back-end no Service Fabric.  Quando terminar, você terá implantado o Gerenciamento de API para uma VNET, terá configurado uma operação de API para enviar tráfego para serviços sem monitoração de estado de back-end. Para saber mais sobre os cenários do Gerenciamento de API do Azure com Service Fabric, consulte o artigo [visão geral](service-fabric-api-management-overview.md).
+Este tutorial é a parte dois de uma série. Este tutorial mostra como configurar o [Gerenciamento de API do Azure](../api-management/api-management-key-concepts.md) com o Service Fabric para rotear o tráfego para um serviço de back-end no Service Fabric.  Quando terminar, você terá implantado o Gerenciamento de API para uma VNET e configurado uma operação de API para enviar tráfego para serviços sem monitoração de estado de back-end. Para saber mais sobre os cenários do Gerenciamento de API do Azure com Service Fabric, consulte o artigo [visão geral](service-fabric-api-management-overview.md).
 
 Neste tutorial, você aprenderá como:
 
@@ -42,11 +42,11 @@ Antes de começar este tutorial:
 - Se você não tem uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - Instale o [módulo do Azure PowerShell versão 4.1 ou superior](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) ou [CLI 2.0 do Azure](/cli/azure/install-azure-cli).
 - Criar um [cluster do Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) ou [cluster do Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) seguro no Azure
+- Se você implantar um cluster do Windows, configure um ambiente de desenvolvimento do Windows. Instale as cargas de trabalho do [Visual Studio 2017](http://www.visualstudio.com) e o **Desenvolvimento do Azure**, de **desenvolvimento ASP.NET e Web** e de **desenvolvimento multiplataforma do .NET Core**.  Em seguida, configure um [ambiente de desenvolvimento .NET](service-fabric-get-started.md).
+- Se você implantar um cluster do Linux, configure um ambiente de desenvolvimento Java em [Linux](service-fabric-get-started-linux.md) ou [MacOS](service-fabric-get-started-mac.md).  Instale a [CLI do Service Fabric](service-fabric-cli.md). 
 
 ## <a name="sign-in-to-azure-and-select-your-subscription"></a>Entre no Azure e selecione sua assinatura
-Este tutorial usa o [Azure PowerShell][azure-powershell]. Ao iniciar uma nova sessão do PowerShell, entre em sua conta do Azure e selecione sua assinatura antes de executar comandos do Azure.
- 
-Entre na sua conta do Azure e selecione sua assinatura:
+Entre na sua conta do Azure e selecione sua assinatura antes de executar comandos do Azure.
 
 ```powershell
 Login-AzureRmAccount
@@ -152,7 +152,7 @@ Corpo da solicitação:
 }
 ```
 
-O parâmetro **url** nesse exemplo é um nome de serviço totalmente qualificado de um serviço em seu cluster onde todos os pedidos são roteados por padrão se nenhum nome de serviço for especificado em uma política de back-end. É possível utilizar um nome de serviço falso, como "fabric:/serviço/falso" se você não pretende ter um serviço de fallback.
+O parâmetro **url** neste exemplo é um nome de serviço totalmente qualificado de um serviço em seu cluster ao qual todas as solicitações serão roteadas por padrão se nenhum nome de serviço for especificado em uma política de back-end. É possível utilizar um nome de serviço falso, como "fabric:/serviço/falso" se você não pretende ter um serviço de fallback.
 
 Consulte a [documentação de referência da API do back-end](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-contract-reference#a-namebackenda-backend) do Gerenciamento de API para obter mais detalhes em cada campo.
 
@@ -193,19 +193,17 @@ print(response.text)
 
 ## <a name="deploy-a-service-fabric-back-end-service"></a>Implantar um serviço de back-end do Service Fabric
 
-Agora que você tem o Service Fabric configurado como um back-end para Gerenciamento de API, é possível criar políticas de back-end para suas APIs que enviam tráfego para serviços do Service Fabric. Mas, primeiro, é necessário um serviço executando no Service Fabric para aceitar solicitações.
+Agora que você tem o Service Fabric configurado como um back-end para Gerenciamento de API, é possível criar políticas de back-end para suas APIs que enviam tráfego para serviços do Service Fabric. Mas, primeiro, é necessário um serviço executando no Service Fabric para aceitar solicitações.  Se você já tiver criado um [cluster do Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md), implante um serviço do Service Fabric .NET.  Se você já tiver criado um [cluster do Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md), implante um serviço do Service Fabric Java.
 
-### <a name="create-a-service-fabric-service-with-an-http-endpoint"></a>Criar um serviço do Service Fabric com um ponto de extremidade HTTP
+### <a name="deploy-a-net-service-fabric-service"></a>Implantar um serviço do Service Fabric .NET
 
-Para este tutorial, criaremos um serviço confiável do Núcleo de ASP.NET sem estado básico utilizando o modelo de projeto de API Web padrão. Isso cria um ponto de extremidade HTTP para o seu serviço que será exposto através do Gerenciamento de API do Azure:
+Para este tutorial, criamos um Serviço Confiável do ASP.NET Core básico sem monitoração de estado utilizando o modelo de projeto de API Web padrão. Isso cria um ponto de extremidade HTTP para o seu serviço, que será exposto por meio do Gerenciamento de API do Azure:
 
 ```
 /api/values
 ```
 
-Inicie [configurando seu ambiente de desenvolvimento para o desenvolvimento de ASP.NET Core](service-fabric-add-a-web-frontend.md#set-up-your-environment-for-aspnet-core).
-
-Após configurar seu ambiente de desenvolvimento, inicie o Visual Studio como Administrador e crie um serviço ASP.NET Core:
+Inicie o Visual Studio como administrador e crie um serviço ASP.NET Core:
 
  1. No Visual Studio, selecione Arquivo -> Novo projeto.
  2. Selecione o modelo de Aplicativo do Service Fabric em Nuvem e nomeie-o **"ApiApplication"**.
@@ -231,11 +229,47 @@ Após configurar seu ambiente de desenvolvimento, inicie o Visual Studio como Ad
     ["value1", "value2"]`
     ```
 
-    Este é o ponto de extremidade que você irá expor através do Gerenciamento de API no Azure.
+    Este é o ponto de extremidade que você expõe pelo Gerenciamento de API no Azure.
 
- 7. Finalmente, implante o aplicativo em seu cluster no Azure. [Utilizando o Visual Studio](service-fabric-publish-app-remote-cluster.md#to-publish-an-application-using-the-publish-service-fabric-application-dialog-box), clique com o botão direito do mouse no projeto de Aplicativo e selecione **Publicar**. Forneça o seu ponto de extremidade de cluster (por exemplo, `mycluster.westus.cloudapp.azure.com:19000`) para implantar o aplicativo em seu cluster do Service Fabric no Azure.
+ 7. Finalmente, implante o aplicativo em seu cluster no Azure. [Utilizando o Visual Studio](service-fabric-publish-app-remote-cluster.md#to-publish-an-application-using-the-publish-service-fabric-application-dialog-box), clique com o botão direito do mouse no projeto de Aplicativo e selecione **Publicar**. Forneça o seu ponto de extremidade de cluster (por exemplo, `mycluster.southcentralus.cloudapp.azure.com:19000`) para implantar o aplicativo em seu cluster do Service Fabric no Azure.
 
 Um serviço sem estado ASP.NET Core nomeado `fabric:/ApiApplication/WebApiService` agora deve estar em execução no seu cluster do Service Fabric no Azure.
+
+### <a name="create-a-java-service-fabric-service"></a>Criar um serviço do Service Fabric Java
+Para este tutorial, é possível implantar um servidor Web básico que exiba mensagens de volta para o usuário. O aplicativo de exemplo do servidor de eco contém um ponto de extremidade HTTP para o seu serviço, que é exposto por meio do Gerenciamento de API do Azure.
+
+1. Clone os exemplos de introdução a Java.
+
+   ```bash
+   git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git
+   cd service-fabric-java-getting-started
+   ```
+
+2. Edite *Services/EchoServer/EchoServer1.0/EchoServerApplication/EchoServerPkg/ServiceManifest.xml*. Atualize o ponto de extremidade para que o serviço escute na porta 8081.
+
+   ```xml
+   <Endpoint Name="WebEndpoint" Protocol="http" Port="8081" />
+   ```
+
+3. Salve *ServiceManifest.xml*, então crie o aplicativo EchoServer1.0.
+
+   ```bash
+   cd Services/EchoServer/EchoServer1.0/
+   gradle
+   ```
+
+4. Implante o aplicativo no cluster.
+
+   ```bash
+   cd Scripts
+   sfctl cluster select --endpoint http://mycluster.southcentralus.cloudapp.azure.com:19080
+   ./install.sh
+   ```
+
+   Um serviço sem estado Java chamado `fabric:/EchoServerApplication/EchoServerService` agora deve estar em execução no seu cluster do Service Fabric no Azure.
+
+5. Abra um navegador e digite no http://mycluster.southcentralus.cloudapp.azure.com:8081/getMessage, você deverá ver "[versão 1.0]Olá, Mundo!!!" exibido.
+
 
 ## <a name="create-an-api-operation"></a>Criar uma operação de API
 
@@ -253,7 +287,7 @@ Agora, estamos prontos para criar uma operação no Gerenciamento de API que os 
  
 4. Selecione **Aplicativo do Service Fabric** na lista de APIs e clique em **+ Adicionar operação** para adicionar uma operação de API de front-end. Preencha os valores:
     
-    - **URL**: selecione **GET** e forneça um caminho URL para a API. Para este tutorial, use "/api/values".  Por padrão, o caminho URL especificado aqui é o caminho URL enviado ao serviço do Service Fabric de back-end. Se você usar o mesmo caminho URL aqui que seu serviço usa, nesse caso "/api/values", a operação funcionará sem modificações adicionais. Além disso, é possível especificar um caminho URL que seja diferente do caminho URL utilizado pelo serviço do Service Fabric de beck-end, caso em que também será necessário especificar posteriormente uma reescrita do caminho na sua política de operação.
+    - **URL**: selecione **GET** e forneça um caminho URL para a API. Para este tutorial, use "/api/values".  Por padrão, o caminho URL especificado aqui é o caminho URL enviado ao serviço do Service Fabric de back-end. Se você usar o mesmo caminho URL aqui que seu serviço usa, nesse caso "/api/values", a operação funcionará sem modificações adicionais. Também é possível especificar um caminho de URL diferente do caminho de URL utilizado pelo serviço do Service Fabric de back-end, caso em que também será necessário especificar uma reescrita do caminho na sua política de operação mais tarde.
     - **Nome de exibição**: forneça um nome para a API. Para este tutorial, use “Values”.
 
 5. Clique em **Salvar**.

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 10/18/2017
 ms.author: banders
-ms.openlocfilehash: c6568e491429f6046ab164ab5eacd0ae5846e201
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 10e8eeaade5d51b1a15c30802b28600bcf6c72d9
+ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="network-performance-monitor-solution-in-log-analytics"></a>Solução Monitor de Desempenho de Rede no Azure Log Analytics
 
@@ -92,28 +92,24 @@ Use as informações a seguir para instalar e configurar a solução.
     >[!NOTE]
     >Os agentes para sistemas operacionais Windows Server oferecem suporte a TCP e ICMP como os protocolos para transação sintética. No entanto, os agentes para sistemas operacionais Windows oferecem suporte somente a ICMP como o protocolo para transação sintética.
 
-2. Adicione a solução de Monitor de Desempenho de Rede ao seu espaço de trabalho do [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview) usando o processo descrito em [Adicionar soluções do Log Analytics por meio da Galeria de Soluções](log-analytics-add-solutions.md).  
-   ![Símbolo do Monitor de Desempenho de Rede](./media/log-analytics-network-performance-monitor/npm-symbol.png)
-3. No portal do OMS, você verá um novo bloco intitulado **Monitor de Desempenho de Rede** com a mensagem *A solução requer configuração adicional*. Você precisará configurar a solução para adicionar redes com base em sub-redes e nós que são detectados pelos agentes. Clique em **Monitor de Desempenho de Rede** para começar a configurar a rede padrão.  
-   ![A solução requer configuração adicional](./media/log-analytics-network-performance-monitor/npm-config.png)
+2. Adicione a solução de Monitor de Desempenho de Rede ao seu espaço de trabalho do [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview) usando o processo descrito em [Adicionar soluções do Log Analytics por meio da Galeria de Soluções](log-analytics-add-solutions.md).<br><br> ![Símbolo do Monitor de Desempenho de Rede](./media/log-analytics-network-performance-monitor/npm-symbol.png)  
+3. No portal do OMS, você verá um novo bloco intitulado **Monitor de Desempenho de Rede** com a mensagem *A solução requer configuração adicional*. Clique no bloco para navegar até a guia **Implantação** e selecione o protocolo a ser usado para fazer as transações sintéticas para monitoramento da rede.  Examine [Escolher o protocolo certo – ICMP ou TCP](#choose-the-right-protocol-icmp-or-tcp) para lhe ajudar a escolher o protocolo certo adequado para a rede.<br><br> ![a solução requer a seleção de protocolo](media/log-analytics-network-performance-monitor/log-analytics-netmon-perf-welcome.png)<br><br>
 
-### <a name="configure-the-solution-with-a-default-network"></a>Configurar a solução com uma rede padrão
-Na página de configuração, você verá uma única rede chamada **Padrão**. Se você ainda não definiu redes, todas as sub-redes descobertas automaticamente são colocadas na rede padrão.
-
-Sempre que você criar uma rede, adicione uma sub-rede para ela. Essa sub-rede será removida da rede padrão. Se você excluir uma rede, todas as suas sub-redes serão retornadas automaticamente para a rede padrão.
-
-Em outras palavras, a rede padrão é o contêiner para todas as sub-redes que não estão contidas em qualquer rede definida pelo usuário. Você não pode editar nem excluir a rede padrão. Ela sempre permanece no sistema. No entanto, você poderá criar tantas redes quantas forem necessárias.
-
-Na maioria dos casos, as sub-redes na organização serão organizadas em mais de uma rede, e você deve criar uma ou mais redes para agrupar logicamente as sub-redes.
+4. Depois de escolher o protocolo você será redirecionado para a página **Visão geral do OMS**. Enquanto a solução agrega dados da rede, o bloco de visão geral do Monitor de Desempenho de Rede exibirá a mensagem com a informação *Agregação de dados em andamento*.<br><br> ![a solução está agregando dados](media/log-analytics-network-performance-monitor/log-analytics-netmon-tile-status-01.png)<br><br>
+5. Depois que os dados forem coletados e indexados, o bloco de visão geral será alterado e indicará a necessidade de você executar uma configuração adicional.<br><br> ![o bloco de solução requer configuração adicional](media/log-analytics-network-performance-monitor/log-analytics-netmon-tile-status-02.png)<br><br>
+6. Clique no bloco e comece a configurar a solução seguindo as etapas abaixo.
 
 ### <a name="create-new-networks"></a>Criar novas redes
-Uma rede no Monitor de Desempenho de Rede é um contêiner de sub-redes. Você pode criar uma rede com qualquer nome que deseje e adicionar as sub-redes à rede. Por exemplo, você pode criar uma rede chamada *Building1* e adicionar sub-redes ou pode criar uma rede chamada *DMZ* e adicionar todas as sub-redes que pertencem à zona desmilitarizada para essa rede.
+Uma rede no Monitor de Desempenho de Rede é um contêiner lógico para sub-redes. Você pode criar uma rede com um nome amigável e adicionar sub-redes a ele de acordo com a sua lógica de negócios. Por exemplo, você pode criar uma rede chamada *Londres* e adicionar todas as sub-redes em seu datacenter de Londres, ou criar uma rede chamada *ContosoFrontEnd* e adicionar todas as sub-redes que atendem ao front-end do aplicativo chamado Contoso para essa rede.
+Na página de configuração, você verá uma rede chamada **Padrão** na guia Redes. Se você ainda não criou nenhuma rede, todas as sub-redes descobertas automaticamente são posicionadas na rede Padrão.
+Sempre que você criar uma rede, adicione uma sub-rede para ela. Essa sub-rede será removida da rede padrão. Se você excluir uma rede, todas as suas sub-redes serão retornadas automaticamente para a rede padrão.
+Assim, a rede Padrão age como o contêiner para todas as sub-redes que não estão contidas em nenhuma rede definida pelo usuário. Você não pode editar nem excluir a rede padrão. Ela sempre permanece no sistema. No entanto, você pode criar tantas redes personalizadas quantas forem necessárias.
+Na maioria dos casos, as sub-redes na organização serão organizadas em mais de uma rede e você deve criar uma ou mais redes para agrupar as sub-redes segundo a lógica de negócios
 
 #### <a name="to-create-a-new-network"></a>Para criar uma nova rede
 1. Clique em **Adicionar rede** e digite o nome e a descrição da rede.
 2. Selecione uma ou mais sub-redes e clique em **Adicionar**.
-3. Clique em **Salvar** para salvar a configuração.  
-   ![adicionar rede](./media/log-analytics-network-performance-monitor/npm-add-network.png)
+3. Clique em **Salvar** para salvar a configuração.<br><br> ![adicionar rede](./media/log-analytics-network-performance-monitor/npm-add-network.png)
 
 ### <a name="wait-for-data-aggregation"></a>Aguardar a agregação de dados
 Depois que você salvar a configuração pela primeira vez, a solução iniciará a coleta de informações de perda e latência de pacotes de rede entre os nós em que os agentes estão instalados. Esse processo pode levar algum tempo, às vezes, 30 minutos. Durante esse estado, o bloco de Monitor de Desempenho de Rede na página Visão geral exibe uma mensagem que indica *agregação de dados em andamento*.
@@ -135,8 +131,7 @@ Todas as sub-redes em que pelo menos um agente foi instalado são listadas na gu
 1. Marque ou desmarque a caixa ao lado de **ID da sub-rede** e verifique se **Usar para monitoramento** está marcado ou desmarcado, conforme apropriado. Você pode marcar ou desmarcar várias sub-redes. Quando desabilitado, as sub-redes não são monitoradas, pois os agentes serão atualizados para parar de executar o ping para outros agentes.
 2. Escolha os nós que você deseja monitorar para uma sub-rede específica, selecionando a sub-rede na lista e movendo os nós necessários entre as listas que contêm nós não monitorados e monitorados.
    Você pode adicionar uma **Descrição** personalizada para a sub-rede, se desejar.
-3. Clique em **Salvar** para salvar a configuração.  
-   ![editar sub-rede](./media/log-analytics-network-performance-monitor/npm-edit-subnet.png)
+3. Clique em **Salvar** para salvar a configuração.<br><br> ![editar sub-rede](./media/log-analytics-network-performance-monitor/npm-edit-subnet.png)
 
 ### <a name="choose-nodes-to-monitor"></a>Escolher nós para monitorar
 Todos os nós que têm um agente instalado neles estão listados na guia **Nós**.
@@ -144,25 +139,28 @@ Todos os nós que têm um agente instalado neles estão listados na guia **Nós*
 #### <a name="to-enable-or-disable-monitoring-for-nodes"></a>Para habilitar ou desabilitar o monitoramento de nós
 1. Marque ou desmarque os nós que você deseja monitorar ou parar de monitorar.
 2. Clique em **Usar para Monitoramento** ou desmarque essa opção, conforme apropriado.
-3. Clique em **Salvar**.  
-   ![habilitar o monitoramento de nós](./media/log-analytics-network-performance-monitor/npm-enable-node-monitor.png)
+3. Clique em **Salvar**.<br><br> ![habilitar o monitoramento de nós](./media/log-analytics-network-performance-monitor/npm-enable-node-monitor.png)
 
 ### <a name="set-monitoring-rules"></a>Definir regras de monitoramento
-O Monitor de Desempenho de Rede gera eventos de integridade sobre a conectividade entre um par de nós ou links de rede ou sub-rede quando um limite é ultrapassado. Esses limites podem ser aprendidos automaticamente pelo sistema ou você pode configurar regras de alerta personalizadas.
+O Monitor de Desempenho de Rede gera eventos de integridade quando o limite do desempenho de conexões de rede entre duas sub-redes ou entre duas redes é ultrapassado. Esses limites podem ser aprendidos automaticamente pelo sistema ou você pode fornecer limites personalizados.
+O sistema cria automaticamente uma regra Padrão, que gera um evento de integridade sempre que a perda ou a latência entre qualquer par de links de rede/sub-rede viola o limite aprendido pelo sistema. Isso ajudará a solução a monitorar a infraestrutura de rede enquanto você não tiver criado nenhuma regra de monitoramento explicitamente. Se a regra padrão estiver habilitada, todos os nós enviarão transações sintéticas para todos os outros nós que você tiver habilitado para monitoramento. A regra padrão é útil em caso de redes pequenas, por exemplo, em um cenário no qual você tem um pequeno número de servidores que executam um microsserviço e você deseja garantir que o todos os servidores tenham conectividade entre si.
 
-A *Regra padrão* é criada pelo sistema e cria um evento de integridade sempre que a perda ou a latência entre qualquer par de redes ou links de sub-rede viola o limite aprendido pelo sistema. Você pode optar por desabilitar a regra padrão e criar regras de monitoramento personalizadas
+>[!NOTE]
+>É altamente recomendável que você desabilite a regra padrão e cria regras de monitoramento personalizadas, especialmente no caso de grandes redes em que você está usando um grande número de nós para monitoramento. Isso reduzirá o tráfego gerado pela solução e ajudará você a organizar o monitoramento da rede.
+
+Crie regras de monitoramento personalizadas de acordo com a sua lógica de negócios. Por exemplo, se você quiser monitorar o desempenho da conectividade de rede de dois escritórios para a matriz e, em seguida, agrupar todas as sub-redes no escritório 1 na rede O1, todas as sub-redes no escritório 2 na rede O2 e todas as sub-redes na matriz para a rede H. Crie duas regras de monitoramento – uma entre O1 e H e a outra entre O2 e H.
+
 
 #### <a name="to-create-custom-monitoring-rules"></a>Para criar regras de monitoramento personalizadas
 1. Clique em **Adicionar Regra** na guia **Monitor** e digite o nome da regra e uma descrição.
 2. Selecione nas listas o par de links de rede ou sub-rede para monitorar.
 3. Primeiro, selecione a rede na qual a(s) primeira(s) sub-rede(s) de seu interesse está(ão) contida(s), no menu suspenso de rede, e selecione a(s) sub-rede(s) no menu suspenso da sub-rede correspondente.
    Selecione **Todas as sub-redes** se desejar monitorar todas as sub-redes em um link de rede. Da mesma forma, selecione outra(s) sub-rede(s) de seu interesse. Você pode clicar em **Adicionar Exceção** para excluir o monitoramento de links de sub-rede específicos da seleção feita.
-4. Escolha entre os protocolos TCP e ICMP para executar transações sintéticas.
+4. [Escolha entre os protocolos TCP e ICMP](#choose-the-right-protocol-icmp-or-tcp) para executar transações sintéticas.
 5. Se não quiser criar eventos de integridade para os itens que você selecionou, desmarque **Ativar o monitoramento de integridade nos links cobertos por essa regra**.
 6. Escolha as condições de monitoramento.
    Você pode definir limites personalizados para geração de eventos de integridade digitando os valores de limite. Sempre que o valor da condição ultrapassar o limite selecionado para o par de rede/sub-rede selecionado, será gerado um evento de integridade.
-7. Clique em **Salvar** para salvar a configuração.  
-   ![criar regra de monitoramento personalizada](./media/log-analytics-network-performance-monitor/npm-monitor-rule.png)
+7. Clique em **Salvar** para salvar a configuração.<br><br> ![criar regra de monitoramento personalizada](./media/log-analytics-network-performance-monitor/npm-monitor-rule.png)
 
 Depois de salvar uma regra de monitoramento, você pode integrar essa regra ao Gerenciamento de Alertas clicando em **Criar Alerta**. Uma regra de alerta é criada automaticamente com a consulta de pesquisa e outros parâmetros necessários são preenchidos automaticamente. Usando uma regra de alerta, você pode receber alertas baseados em email, além de alertas existentes em NPM. Os alertas também podem disparar ações corretivas com runbooks ou podem integrar soluções de gerenciamento de serviço existentes usando webhooks. Você pode clicar em **Gerenciar Alerta** para editar as configurações de alerta.
 
@@ -192,7 +190,9 @@ Você pode usar scripts do PowerShell para configurar regras de firewall em comp
 Por outro lado, o ICMP não funciona usando a porta. Na maioria dos cenários de negócios, o tráfego do ICMP é permitido por meio de firewalls para que você use ferramentas de diagnóstico de rede como o utilitário Ping. Portanto, se você puder executar Ping de um computador para o outro, poderá usar o protocolo ICMP sem ter que configurar firewalls manualmente.
 
 > [!NOTE]
-> Caso você não tenha certeza de qual protocolo usar, escolha o ICMP para começar. Se você não estiver satisfeito com os resultados, poderá sempre mudar para TCP mais tarde.
+> Alguns firewalls podem bloquear o ICMP, o que pode levar à retransmissão resultando em um grande número de eventos em seu sistema de gerenciamento de evento e informações de segurança. Verifique se o protocolo que você escolher não está bloqueado por um firewall de rede/NSG, caso contrário o NPM não será capaz de monitorar o segmento de rede.  Por isso, recomendamos que você use TCP para monitoramento. Você deve usar ICMP nos cenários em que não é possível usar o TCP, como quando:
+> * Você está usando nós de cliente com base em Windows, já que soquetes brutos TCP não são permitidos no cliente Windows
+> * Seu firewall de rede/NSG bloqueia o TCP
 
 
 #### <a name="how-to-switch-the-protocol"></a>Como mudar o protocolo
@@ -205,8 +205,6 @@ Se você optar por usar o ICMP durante a implantação, poderá mudar para TCP a
 3.  Clique em **Salvar** para aplicar a configuração.
 
 Mesmo se a regra padrão for usar um protocolo específico, você poderá criar novas regras com um protocolo diferente. Você pode até mesmo criar uma combinação de regras em que algumas das regras usem ICMP e a outra use TCP.
-
-
 
 
 ## <a name="data-collection-details"></a>Detalhes da coleta de dados
@@ -269,7 +267,7 @@ Você pode facilmente detectar esses tipos de problemas examinando um gráfico d
 ![gráfico de tendência](./media/log-analytics-network-performance-monitor/npm-trend.png)
 
 #### <a name="hop-by-hop-topology-map"></a>Mapa de topologia de salto a salto
-O Monitor de Desempenho de Rede mostra a topologia de salto a salto de rotas entre dois nós em um mapa de topologia interativo. Você pode exibir o mapa de topologia selecionando um link de nó e clicando em **Exibir topologia**. Além disso, você pode exibir o mapa de topologia clicando no bloco **Caminhos** no painel. Ao clicar em **Caminhos** no painel, você precisará selecionar os nós de origem e de destino no painel esquerdo e clicar em **Plotar** para plotar rotas entre os dois nós.
+O Monitor de Desempenho de Rede mostra a topologia de salto a salto de rotas entre dois nós em um mapa de topologia interativo. Você pode exibir o mapa de topologia selecionando um link de nó e clicando em **Exibir topologia**. Além disso, você pode exibir o mapa de topologia clicando no bloco **Caminhos** no painel. Ao clicar em **Caminhos** no painel, você precisará selecionar os nós de origem e de destino no painel esquerdo e clicar em **Plotar** para criar gráficos de rotas entre os dois nós.
 
 O mapa de topologia exibe quantas rotas existem entre os dois nós e quais caminhos os pacotes de dados seguem. Os afunilamentos de desempenho de rede são marcados em vermelho no mapa de topologia. Você pode localizar uma conexão de rede ou um dispositivo de rede com defeito observando elementos em vermelho no mapa de topologia.
 
@@ -292,20 +290,14 @@ Todos os dados que são graficamente expostos por meio do painel do Monitor de D
 ## <a name="investigate-the-root-cause-of-a-health-alert"></a>Investigar a causa raiz de um alerta de integridade
 Agora que você leu sobre o Monitor de Desempenho de Rede, vejamos uma investigação simples sobre a causa raiz de um evento de integridade.
 
-1. Na página de Visão Geral, você obterá um instantâneo rápido da integridade da rede, observando o bloco do **Monitor de Desempenho de Rede**. Observe que, dos seis links de sub-redes que estão sendo monitorados, dois não estão íntegros. Isso requer investigação. Clique no bloco para exibir o painel de solução.  
-   ![Bloco do Monitor de Desempenho de Rede](./media/log-analytics-network-performance-monitor/npm-investigation01.png)
-2. Na imagem de exemplo abaixo, você observará que há um evento de integridade em um link de rede que não está íntegro. Você decide investigar o problema e clica no link de rede **DMZ2-DMZ1** para descobrir a raiz do problema.  
-   ![exemplo de link de rede não íntegro](./media/log-analytics-network-performance-monitor/npm-investigation02.png)
-3. A página de busca detalhada mostra todos os links de sub-rede no link de rede **DMZ2-DMZ1**. Você observará que, para ambos os links de sub-rede, a latência ultrapassou o limite, tornando o link de rede não íntegro. Você também pode ver as tendências de latência de ambos os links de sub-rede. Você pode usar o controle de seleção de tempo do gráfico para se concentrar no intervalo de tempo necessário. Você pode ver a hora do dia em que a latência atingiu seu pico. Você pode pesquisar mais tarde os logs desse período de tempo para investigar o problema. Clique em **Exibir links do nó** para fazer uma busca ainda mais detalhada.  
-   ![exemplo de links de sub-rede não íntegros](./media/log-analytics-network-performance-monitor/npm-investigation03.png)
-4. De forma semelhante à página anterior, a página de busca detalhada do link de sub-rede específico lista seus links de nós constituintes. Você pode executar ações semelhantes aqui, como fez na etapa anterior. Clique em **Exibir topologia** para exibir a topologia entre os dois nós.  
-   ![exemplo de links de nó não íntegro](./media/log-analytics-network-performance-monitor/npm-investigation04.png)
-5. Todos os caminhos entre os dois nós selecionados são plotados no mapa de topologia. Você pode visualizar a topologia de salto a salto das rotas entre dois nós no mapa de topologia. Isso lhe dá uma visão clara de quantas rotas existem entre os dois nós e quais caminhos os pacotes de dados estão adotando. Os afunilamentos de desempenho de rede são marcados em vermelho. Você pode localizar uma conexão de rede ou um dispositivo de rede com defeito observando elementos em vermelho no mapa de topologia.  
-   ![exemplo de modo de exibição de topologia não íntegra](./media/log-analytics-network-performance-monitor/npm-investigation05.png)
-6. A perda, a latência e o número de saltos em cada caminho podem ser analisados no painel **Ação**. Use a barra de rolagem para exibir os detalhes dos caminhos não íntegros.  Use os filtros para selecionar os caminhos com o nó íntegro, de forma que somente a topologia para os caminhos selecionados seja plotada. Você pode usar a roda do mouse para ampliar ou reduzir o mapa de topologia.
+1. Na página de Visão Geral, você obterá um instantâneo rápido da integridade da rede, observando o bloco do **Monitor de Desempenho de Rede**. Observe que, dos seis links de sub-redes que estão sendo monitorados, dois não estão íntegros. Isso requer investigação. Clique no bloco para exibir o painel de solução.<br><br> ![Bloco do Monitor de Desempenho de Rede](./media/log-analytics-network-performance-monitor/npm-investigation01.png)  
+2. Na imagem de exemplo abaixo, você observará que há um evento de integridade em um link de rede que não está íntegro. Você decide investigar o problema e clica no link de rede **DMZ2-DMZ1** para descobrir a raiz do problema.<br><br> ![exemplo de link de rede não íntegro](./media/log-analytics-network-performance-monitor/npm-investigation02.png)  
+3. A página de busca detalhada mostra todos os links de sub-rede no link de rede **DMZ2-DMZ1**. Você observará que, para ambos os links de sub-rede, a latência ultrapassou o limite, tornando o link de rede não íntegro. Você também pode ver as tendências de latência de ambos os links de sub-rede. Você pode usar o controle de seleção de tempo do gráfico para se concentrar no intervalo de tempo necessário. Você pode ver a hora do dia em que a latência atingiu seu pico. Você pode pesquisar mais tarde os logs desse período de tempo para investigar o problema. Clique em **Exibir links do nó** para fazer uma busca ainda mais detalhada.<br><br> ![exemplo de links de sub-rede não íntegros](./media/log-analytics-network-performance-monitor/npm-investigation03.png) 
+4. De forma semelhante à página anterior, a página de busca detalhada do link de sub-rede específico lista seus links de nós constituintes. Você pode executar ações semelhantes aqui, como fez na etapa anterior. Clique em **Exibir topologia** para exibir a topologia entre os dois nós.<br><br> ![exemplo de links de nó não íntegro](./media/log-analytics-network-performance-monitor/npm-investigation04.png)  
+5. Todos os caminhos entre os dois nós selecionados são criados em gráfico no mapa de topologia. Você pode visualizar a topologia de salto a salto das rotas entre dois nós no mapa de topologia. Isso lhe dá uma visão clara de quantas rotas existem entre os dois nós e quais caminhos os pacotes de dados estão adotando. Os afunilamentos de desempenho de rede são marcados em vermelho. Você pode localizar uma conexão de rede ou um dispositivo de rede com defeito observando elementos em vermelho no mapa de topologia.<br><br> ![exemplo de modo de exibição de topologia não íntegra](./media/log-analytics-network-performance-monitor/npm-investigation05.png)  
+6. A perda, a latência e o número de saltos em cada caminho podem ser analisados no painel **Ação**. Use a barra de rolagem para exibir os detalhes dos caminhos não íntegros.  Use os filtros para selecionar os caminhos com o nó íntegro, de forma que somente a topologia para os caminhos selecionados seja criada em gráfico. Você pode usar a roda do mouse para ampliar ou reduzir o mapa de topologia.
 
-   Na imagem abaixo, você pode ver claramente a causa das áreas problemáticas da seção específica da rede, observando os caminhos e saltos na cor vermelha. Clicar em um nó no mapa de topologia revela as propriedades do nó, incluindo o FQDN e o endereço IP. Clicar em um salto mostra o endereço IP do nó.  
-   ![topologia não íntegra - exemplo de detalhes do caminho](./media/log-analytics-network-performance-monitor/npm-investigation06.png)
+   Na imagem abaixo, você pode ver claramente a causa das áreas problemáticas da seção específica da rede, observando os caminhos e saltos na cor vermelha. Clicar em um nó no mapa de topologia revela as propriedades do nó, incluindo o FQDN e o endereço IP. Clicar em um salto mostra o endereço IP do nó.<br><br> ![topologia não íntegra - exemplo de detalhes do caminho](./media/log-analytics-network-performance-monitor/npm-investigation06.png)
 
 ## <a name="provide-feedback"></a>Fornecer comentários
 

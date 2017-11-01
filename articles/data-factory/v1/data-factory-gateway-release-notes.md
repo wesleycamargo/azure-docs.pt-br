@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 06/19/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 50406e50363054fb92a1783751ba62ca7b3455e4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5b677990efe49b666396728767ee59587a280efe
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Notas de versão para o Gateway de Gerenciamento de Dados
 Um dos desafios da integração de dados moderna é mover dados entre o local e a nuvem. O Data Factory faz essa integração com o Gateway de Gerenciamento de Dados, que é um agente que você pode instalar localmente para habilitar a movimentação de dados híbridos.
@@ -29,16 +29,19 @@ Veja os artigos a seguir para obter informações detalhadas sobre o Gateway de 
 *  [Mover dados entre o local e a nuvem usando a Azure Data Factory](data-factory-move-data-between-onprem-and-cloud.md)
 
 
-## <a name="current-version-21063477"></a>VERSÃO ATUAL (2.10.6347.7)
+## <a name="current-version"></a>VERSÃO ATUAL 
+Não mantemos mais as Notas de versão aqui. Obtenha as notas de versão mais recentes [aqui](https://go.microsoft.com/fwlink/?linkid=853077)
 
+
+
+
+## <a name="earlier-versions"></a>Versões anteriores
+## <a name="21063477"></a>2.10.6347.7
 ### <a name="enhancements-"></a>Melhorias-
 - Adicione as entradas DNS à lista de permissões do barramento de serviço, em vez de colocar na lista de permissões todos os endereços IP do Azure do firewall (se necessário). Você pode encontrar a entrada DNS respectiva no Portal do Azure (Data Factory -> 'Criar e Implantar' -> 'Gateways' -> "serviceUrls" (no JSON)
 - Agora, o conector HDFS dá suporte ao certificado público autoassinado, permitindo que você ignore a validação de SSL.
 - Corrigido: problema com gateway offline durante a atualização (devido à distorção do relógio)
 
-
-
-## <a name="earlier-versions"></a>Versões anteriores
 
 ## <a name="2963132"></a>2.9.6313.2
 ### <a name="enhancements-"></a>Melhorias-

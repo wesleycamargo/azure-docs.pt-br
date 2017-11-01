@@ -86,6 +86,7 @@
 ### Carregar arquivos de dispositivos
 #### [.NET](iot-hub-csharp-csharp-file-upload.md)
 #### [Java](iot-hub-java-java-file-upload.md)
+#### [Node.js](iot-hub-node-node-file-upload.md)
 ### Introdução a dispositivos gêmeos
 #### [Back-end do Node.js/Dispositivo do Node.js](iot-hub-node-node-twin-getstarted.md)
 #### [Back-end do .NET/Dispositivo do Node.js](iot-hub-csharp-node-twin-getstarted.md)
@@ -178,7 +179,8 @@
 ## [.NET (Dispositivos)](/dotnet/api/microsoft.azure.devices.client)
 ## [Java (Serviço)](/java/api/com.microsoft.azure.sdk.iot.service)
 ## [Java (Dispositivos)](/java/api/com.microsoft.azure.sdk.iot.device)
-## [SDKs do Node.js](http://azure.github.io/azure-iot-sdk-node/)
+## [Node.js (Dispositivos)](https://docs.microsoft.com/en-us/javascript/api/azure-iot-device/)
+## [Node.js (Serviço)](https://docs.microsoft.com/en-us/javascript/api/azure-iothub)
 ## [SDK do dispositivo C](https://azure.github.io/azure-iot-sdk-c/index.html)
 ## [Azure IoT Edge](http://azure.github.io/iot-edge/)
 ## [REST (Provedor de Recursos)](https://docs.microsoft.com/rest/api/iothub/iothubresource)

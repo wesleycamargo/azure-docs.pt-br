@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 10/19/2017
 ms.author: billmath
-ms.openlocfilehash: 7e05c469260a445578c80cdf77fab2d5ffb48022
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 771741fd7da8c9b6932851851aaca148f9596643
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-smart-lockout"></a>Autenticação de passagem do Azure Active Directory: bloqueio inteligente
 
@@ -42,6 +42,9 @@ Para garantir que as contas do AD locais dos seus usuários também sejam proteg
 
 1.  O Limite de bloqueio do Azure AD seja _menor_ que o Limite de bloqueio da Conta do AD. É recomendável que você defina os valores de forma que o Limite de bloqueio da Conta do AD seja pelo menos duas ou três vezes o Limite de bloqueio do Azure AD.
 2.  A Duração de bloqueio do Azure AD (representada em segundos) seja _maior_ que o valor de Redefinir contador de bloqueios de conta após do AD (representado em minutos).
+
+>[!IMPORTANT]
+>No momento um Administrador não pode desbloquear contas de nuvem dos usuários se eles foram bloqueados fora da funcionalidade do Bloqueio Inteligente. Será necessário aguardar a Duração do Bloqueio expirar.
 
 ## <a name="verify-your-ad-account-lockout-policies"></a>Verifique as políticas de bloqueio de conta do AD
 

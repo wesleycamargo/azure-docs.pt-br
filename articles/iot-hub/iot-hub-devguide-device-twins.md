@@ -12,24 +12,22 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2017
+ms.date: 10/19/2017
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 454eb7b1f4f48e8a2a78bd3fcb6eb03b6097d44d
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: afadedf72562452e4d57d4545efe59cd8d37c907
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Entender e usar dispositivos gêmeos no Hub IoT
-## <a name="overview"></a>Visão geral
-*Dispositivos gêmeos* são documentos JSON que armazenam informações do estado do dispositivo (metadados, configurações e condições). O Hub IoT persiste um dispositivo gêmeo para cada dispositivo que você conecta ao Hub IoT. Este artigo descreve:
 
-* A estrutura do dispositivo gêmeo: *marcas*, *propriedades desejadas* e *relatadas* e
+*Dispositivos gêmeos* são documentos JSON que armazenam informações do estado do dispositivo, incluindo metadados, configurações e condições. O Hub IoT do Azure mantém um dispositivo gêmeo para cada dispositivo que você conecta ao Hub IoT. Este artigo descreve:
+
+* A estrutura do dispositivo gêmeo: *marcas*, *propriedades desejadas* e *relatadas*.
 * As operações que os aplicativos e back-ends de dispositivo podem executar em dispositivos gêmeos.
 
-
-### <a name="when-to-use"></a>Quando usar
 Use os dispositivos gêmeos para:
 
 * Armazene os metadados específicos do dispositivo na nuvem. Por exemplo, o local de implantação de uma máquina de vendas.
@@ -46,13 +44,13 @@ Dispositivos gêmeos armazenam informações relacionadas ao dispositivo que:
 * O dispositivo e os back-ends podem usar para sincronizar a configuração e as condições do dispositivo.
 * A solução que o back-end pode usar para consultar e direcionar operações de execução longa.
 
-O ciclo de vida de um dispositivo gêmeo está vinculado à [identidade do dispositivo][lnk-identity] correspondente. Os dispositivos gêmeos são criados e excluídos implicitamente quando uma nova identidade de dispositivo é criada ou excluída no Hub IoT.
+O ciclo de vida de um dispositivo gêmeo está vinculado à [identidade do dispositivo][lnk-identity] correspondente. Os dispositivos gêmeos são criados e excluídos implicitamente quando uma identidade de dispositivo é criada ou excluída no Hub IoT.
 
 Um dispositivo gêmeo é um documento JSON que inclui:
 
 * **Marcas**. Uma seção do documento JSON que o back-end de solução pode ler e na qual pode gravar. As marcas não ficam visíveis para os aplicativos do dispositivo.
-* **Propriedades desejadas**. Usado junto com as propriedades relatadas para sincronizar a configuração de dispositivo ou condições. As propriedades desejadas só podem ser definidas pelo back-end da solução e podem ser lidas pelo aplicativo do dispositivo. O aplicativo do dispositivo também pode ser notificado em tempo real sobre as alterações nas propriedades desejadas.
-* **Propriedades reportadas**. Usado junto com as propriedades desejadas para sincronizar a configuração de dispositivo ou condições. As propriedades relatadas só podem ser definidas pelo aplicativo do dispositivo e podem ser lidas e consultadas pelo back-end da solução.
+* **Propriedades desejadas**. Usado junto com as propriedades relatadas para sincronizar a configuração de dispositivo ou condições. O back-end da solução pode definir as propriedades desejadas e o aplicativo de dispositivo pode lê-las. O aplicativo do dispositivo também pode receber notificações de alterações nas propriedades desejadas.
+* **Propriedades reportadas**. Usado junto com as propriedades desejadas para sincronizar a configuração de dispositivo ou condições. O aplicativo de dispositivo pode definir as propriedades relatadas e o back-end da solução pode lê-las e consultá-las.
 
 Além disso, a raiz do documento JSON do dispositivo gêmeo contém as propriedades somente leitura da identidade de dispositivo correspondente armazenada no [registro identidade][lnk-identity].
 
@@ -140,8 +138,8 @@ Você pode usar gêmeos para sincronizar operações de longa execução, como a
 ## <a name="back-end-operations"></a>Operações de back-end
 O back-end da solução funciona no dispositivo gêmeo usando as seguintes operações atômicas, expostas por meio de HTTPS:
 
-1. **Recuperar dispositivo gêmeo por id**. Essa operação retorna o documento do dispositivo gêmeo, incluindo marcações e propriedades desejadas, reportadas e do sistema.
-2. **Atualizar parcialmente o dispositivo gêmeo**. Essa operação permite que o back-end da solução atualize parcialmente as marcações ou propriedades desejadas em um dispositivo gêmeo. A atualização parcial é expressa como um documento JSON que adiciona ou atualiza qualquer propriedade. As propriedades definidas como `null` foram removidas. O exemplo a seguir cria uma nova propriedade desejada com o valor `{"newProperty": "newValue"}`, substitui o valor existente de `existingProperty` por `"otherNewValue"` e remove `otherOldProperty`. Nenhuma outra alteração é feitas nas propriedades desejadas ou marcas existentes:
+* **Recuperar dispositivo gêmeo por id**. Essa operação retorna o documento do dispositivo gêmeo, incluindo marcas e propriedades do sistema desejadas e reportadas.
+* **Atualizar parcialmente o dispositivo gêmeo**. Essa operação permite que o back-end da solução atualize parcialmente as marcações ou propriedades desejadas em um dispositivo gêmeo. A atualização parcial é expressa como um documento JSON que adiciona ou atualiza qualquer propriedade. As propriedades definidas como `null` foram removidas. O exemplo a seguir cria uma nova propriedade desejada com o valor `{"newProperty": "newValue"}`, substitui o valor existente de `existingProperty` por `"otherNewValue"` e remove `otherOldProperty`. Nenhuma outra alteração é feitas nas propriedades desejadas ou marcas existentes:
    
         {
             "properties": {
@@ -154,11 +152,11 @@ O back-end da solução funciona no dispositivo gêmeo usando as seguintes opera
                 }
             }
         }
-3. **Substituir propriedades desejadas**. Esta operação permite que o back-end da solução substitua completamente todas as suas propriedades desejadas existentes e substitui um novo documento JSON por `properties/desired`.
-4. **Substituir marcas**. Esta operação permite que o back-end da solução substitua completamente todas as marcas existentes e substitui um novo documento JSON por `tags`.
-5. **Receba notificações gêmeas**. Esta operação permite que o back-end de solução seja notificado quando o gêmeo é modificado. Para fazer isso, sua solução de IoT precisa para criar uma rota e definir a Fonte de Dados como *twinChangeEvents*. Por padrão, nenhuma notificação gêmea é enviada, ou seja, nenhuma dessas rotas existe previamente. Se a taxa de alteração for alta demais ou então por outros motivos como falhas internas, o Hub IoT poderá enviar apenas uma notificação contendo todas as alterações. Portanto, se seu aplicativo precisar de auditoria e registro em log confiáveis de todos os estados intermediários, ainda será recomendável que você use mensagens D2C. A mensagem de notificação gêmea inclui propriedades e corpo.
+* **Substituir propriedades desejadas**. Esta operação permite que o back-end da solução substitua completamente todas as suas propriedades desejadas existentes e substitui um novo documento JSON por `properties/desired`.
+* **Substituir marcas**. Esta operação permite que o back-end da solução substitua completamente todas as marcas existentes e substitui um novo documento JSON por `tags`.
+* **Receba notificações gêmeas**. Esta operação permite que o back-end de solução seja notificado quando o gêmeo é modificado. Para fazer isso, sua solução de IoT precisa para criar uma rota e definir a Fonte de Dados como *twinChangeEvents*. Por padrão, nenhuma notificação gêmea é enviada, ou seja, nenhuma dessas rotas existe previamente. Se a taxa de alteração for alta demais ou então por outros motivos como falhas internas, o Hub IoT poderá enviar apenas uma notificação contendo todas as alterações. Portanto, se seu aplicativo precisar de auditoria e registro em log confiáveis de todos os estados intermediários, ainda será recomendável que você use mensagens D2C. A mensagem de notificação gêmea inclui propriedades e corpo.
 
-    - propriedades
+    - Propriedades
 
     | Nome | Valor |
     | --- | --- |
@@ -197,7 +195,7 @@ O back-end da solução funciona no dispositivo gêmeo usando as seguintes opera
     ``` 
 
 Todas as operações anteriores dão suporte à [Simultaneidade otimista][lnk-concurrency] e exigem a permissão **ServiceConnect**, conforme definido no artigo [Segurança][lnk-security].
-
+ 
 Além dessas operações, o back-end da solução pode:
 
 * Consulte os gêmeos de dispositivo usando a [linguagem de consulta do Hub IoT][lnk-query] semelhante a SQL.
@@ -206,23 +204,19 @@ Além dessas operações, o back-end da solução pode:
 ## <a name="device-operations"></a>Operações de dispositivo
 O aplicativo do dispositivo opera no dispositivo gêmeo usando as seguintes operações atômicas:
 
-1. **Recuperar dispositivo gêmeo**. Essa operação retorna o documento do dispositivo gêmeo (incluindo marcações e propriedades desejadas, reportadas e do sistema) para o dispositivo conectado no momento.
-2. **Atualizar parcialmente as propriedades reportadas**. Essa operação permite a atualização parcial das propriedades reportadas do dispositivo conectado no momento. Esta operação usa o mesmo formato de atualização JSON que a solução de back-end usa para uma atualização parcial de propriedades desejadas.
-3. **Observar as propriedades desejadas**. O dispositivo conectado no momento pode optar por ser notificado sobre atualizações para as propriedades desejadas quando elas ocorrem. O dispositivo recebe a mesma forma de atualização (substituição total ou parcial) executada pelo back-end da solução.
+* **Recuperar dispositivo gêmeo**. Essa operação retorna o documento do dispositivo gêmeo (incluindo marcas e propriedades do sistema desejadas e reportadas) para o dispositivo conectado no momento.
+* **Atualizar parcialmente as propriedades reportadas**. Essa operação permite a atualização parcial das propriedades reportadas do dispositivo conectado no momento. Esta operação usa o mesmo formato de atualização JSON que a solução de back-end usa para uma atualização parcial de propriedades desejadas.
+* **Observar as propriedades desejadas**. O dispositivo conectado no momento pode optar por ser notificado sobre atualizações para as propriedades desejadas quando elas ocorrem. O dispositivo recebe a mesma forma de atualização (substituição total ou parcial) executada pelo back-end da solução.
 
 Todas as operações anteriores exigem a permissão **DeviceConnect**, conforme definido no artigo [Segurança][lnk-security].
 
-Os [SDKs do dispositivo IoT do Azure][lnk-sdks] facilitam o uso das operações anteriores em várias linguagens e plataformas. Encontre mais informações sobre os detalhes dos primitivos do Hub IoT para sincronização de propriedades desejadas em [Fluxo de reconexão do dispositivo][lnk-reconnection].
-
-
-## <a name="reference-topics"></a>Tópicos de referência:
-Os tópicos de referência a seguir fornecem a você mais informações sobre como controlar o acesso ao seu Hub IoT.
+Os [SDKs do dispositivo IoT do Azure][lnk-sdks] facilitam o uso das operações anteriores em várias linguagens e plataformas. Para obter mais informações sobre os detalhes dos primitivos do Hub IoT para sincronização de propriedades desejadas, consulte [Fluxo de reconexão do dispositivo][lnk-reconnection].
 
 ## <a name="tags-and-properties-format"></a>Formato de marcas e propriedades
-Marcações, propriedades desejadas e reportadas são objetos JSON com as seguintes restrições:
+Marcas, propriedades desejadas e propriedades reportadas são objetos JSON com as seguintes restrições:
 
 * Todas as chaves em objetos JSON são cadeias de caracteres UNICODE UTF-8 de 64 bytes que diferenciam maiúsculas de minúsculas. Os caracteres permitidos excluir caracteres de controle UNICODE (segmentos C0 e C1) e `'.'`, `' '` e `'$'`.
-* Todos os valores em objetos JSON podem ser dos seguintes tipos de JSON: booliano, número, cadeia de caracteres, objeto. Não há permissão para matrizes.
+* Todos os valores em objetos JSON podem ser dos seguintes tipos de JSON: booliano, número, cadeia de caracteres, objeto. Não há permissão para matrizes. O valor máximo dos inteiros é 4503599627370495 e o valor mínimo dos inteiros é -4503599627370496.
 * Todos os objetos JSON em marcações, propriedades desejadas e reportadas podem ter uma profundidade máxima de 5. Por exemplo, o seguinte objeto é válido:
 
         {
@@ -243,11 +237,11 @@ Marcações, propriedades desejadas e reportadas são objetos JSON com as seguin
             ...
         }
 
-* Todos os valores de cadeia de caracteres podem ter no máximo 512 bytes de comprimento.
+* Todos os valores de cadeia de caracteres podem ter no máximo 4 KB de comprimento.
 
 ## <a name="device-twin-size"></a>Tamanho do dispositivo gêmeo
-O Hub IoT impõe um limite de tamanho de 8 KB nos valores de `tags`, `properties/desired` e `properties/reported`, excluindo elementos somente leitura.
-O tamanho é calculado pela contagem de todos os caracteres, exceto caracteres de controle UNICODE (segmentos C0 e C1) e espaço `' '`, quando aparece fora de uma constante de cadeia de caracteres.
+O Hub IoT impõe um limite de tamanho de 8 KB nos valores totais de `tags`, `properties/desired` e `properties/reported`, excluindo elementos somente leitura.
+O tamanho é calculado pela contagem de todos os caracteres, exceto caracteres de controle UNICODE (segmentos C0 e C1) e espaços que estão fora das constantes da cadeia de caracteres.
 O Hub IoT rejeita com erro todas as operações que podem aumentar o tamanho desses documentos acima do limite.
 
 ## <a name="device-twin-metadata"></a>Metadados do dispositivo gêmeo

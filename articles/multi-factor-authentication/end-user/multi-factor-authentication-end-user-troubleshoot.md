@@ -16,11 +16,11 @@ ms.date: 07/06/2017
 ms.author: barlan
 ms.reviewer: yossib
 ms.custom: end-user
-ms.openlocfilehash: e43ec0bf5b1e5d96eae413687e168a3230e2fe86
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7455d98f2cb5ecc9c78a11b229e9a8f7b9fab603
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="get-help-with-two-step-verification"></a>Obter ajuda com a verificação em duas etapas
 Este artigo responde às perguntas mais comuns que as pessoas fazem sobre verificação em duas etapas.
@@ -29,7 +29,7 @@ Este artigo responde às perguntas mais comuns que as pessoas fazem sobre verifi
 
 A verificação em duas etapas é um recurso de segurança que sua organização decidiu usar para proteger suas contas. É mais segura do que apenas uma senha, porque se baseia em duas formas de autenticação: algo que você sabe e algo que você tem com você. Algo que você sabe é a sua senha. Algo que você tem com você é um telefone ou dispositivo que você normalmente carrega. Quando sua conta estiver protegida com a verificação em duas etapas, isso significa que um hacker mal-intencionado não poderá entrar como se fosse você se ele obtiver sua senha de alguma forma, pois não terá acesso ao seu telefone também.
 
-A Microsoft oferece verificação em duas etapas, mas sua organização escolhe se vai usar o recurso. Você não poderá recusar se o departamento de TI exigir que você use, assim como você não pode optar por não usar uma senha para proteger sua conta.
+A Microsoft oferece verificação em duas etapas, mas sua organização escolhe se vai usar o recurso. Você não poderá recusar se o departamento de suporte da empresa exigir que você use, assim como você não pode optar por não usar uma senha para proteger sua conta.
 
 Se você tiver a verificação em duas etapas ativada para a sua conta pessoal da Microsoft e deseja alterar as configurações, leia [Sobre verificação em duas etapas](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification) em vez disso.
 
@@ -45,14 +45,14 @@ Em alguns dias, você deixa seu telefone em casa, mas ainda precisa entrar no tr
 3. Selecione a opção de verificação que você deseja usar.
 4. Continue com a verificação em duas etapas.
 
-Se você não vir o link **Usar outra opção de verificação**, isso significa que você não configurou métodos alternativos ao registrar-se inicialmente para a verificação em duas etapas. Entre em contato com o departamento de TI para obter ajuda para entrar na sua conta. Quando você estiver conectado, [gerencie suas configurações](multi-factor-authentication-end-user-manage-settings.md) para adicionar mais métodos de verificação para a próxima vez.
+Se você não vir o link **Usar outra opção de verificação**, isso significa que você não configurou métodos alternativos ao registrar-se inicialmente para a verificação em duas etapas. Entre em contato com o departamento de suporte para obter ajuda para entrar na sua conta. Quando você estiver conectado, [gerencie suas configurações](multi-factor-authentication-end-user-manage-settings.md) para adicionar mais métodos de verificação para a próxima vez.
 
-Se você visualizar o **Usar outra opção de verificação**, mas não tiver acesso a seus métodos alternativos, entre em contato com o departamento de TI para obter ajuda para entrar na sua conta.
+Se você visualizar o **Usar outra opção de verificação**, mas não tiver acesso a seus métodos alternativos, entre em contato com o departamento de suporte da empresa para obter ajuda para entrar na sua conta.
 
 ## <a name="i-lost-my-phone-or-got-a-new-number"></a>Eu perdi meu telefone ou tenho um novo número
-Há duas maneiras de recuperar sua conta. A primeira é fazer logon usando seu número de telefone de autenticação alternativo, se você tiver definido um. A segunda opção é solicitar que o departamento de TI limpe as suas configurações.
+Há duas maneiras de recuperar sua conta. A primeira é fazer logon usando seu número de telefone de autenticação alternativo, se você tiver definido um. A segunda opção é solicitar que o departamento de suporte limpe as suas configurações.
 
-Se o seu telefone tiver sido perdido ou roubado, também recomendamos que você informe o departamento de TI para a redefinição das suas senhas de aplicativos e remover quaisquer dispositivos registrados.
+Se o seu telefone tiver sido perdido ou roubado, também recomendamos que você informe o departamento de suporte da empresa para a redefinição das suas senhas de aplicativos e remover quaisquer dispositivos registrados.
 
 ### <a name="use-an-alternate-phone-number"></a>Use um número de telefone alternativo
 Se você tiver configurado várias opções de verificação, incluindo um número de telefone secundário ou um aplicativo autenticador em um dispositivo diferente, você pode usar uma destas opções para entrar.
@@ -68,7 +68,7 @@ Para fazer entrar usando o número de telefone alternativo, siga estas etapas:
 4. Quando estiver em sua conta, [gerencie suas configurações](multi-factor-authentication-end-user-manage-settings.md) para alterar o número de telefone de autenticação.
 
 ### <a name="clear-your-settings"></a>Limpe suas configurações
-Se você não tiver configurado um número de telefone de autenticação secundário, entre em contato com o departamento de TI para obter ajuda. Peça que limpem as suas configurações para que, na próxima vez em que você entrar, seja solicitado a [registrar-se para verificação em duas etapas](multi-factor-authentication-end-user-first-time.md) novamente.
+Se você não tiver configurado um número de telefone de autenticação secundário, entre em contato com o departamento de suporte da empresa para obter ajuda. Peça que limpem as suas configurações para que, na próxima vez em que você entrar, seja solicitado a [registrar-se para verificação em duas etapas](multi-factor-authentication-end-user-first-time.md) novamente.
 
 ## <a name="i-am-not-receiving-a-text-or-call-on-my-phone"></a>Não estou recebendo uma mensagem de texto ou chamada telefônica em meu telefone
 Há várias razões por que você pode tentar entrar, mas não recebe a chamada telefônica ou a mensagem de texto. Se você já recebeu com êxito mensagens ou chamadas telefônicas em seu telefone antes, então, este é provavelmente um problema com o provedor de telefone, não sua conta. Verifique se você tem um bom sinal de celular e, se estiver tentando receber uma mensagem de texto, verifique se está apto a receber mensagens de texto. Peça um amigo para ligar ou enviar uma mensagem de texto a você como teste.
@@ -82,15 +82,15 @@ Se você aguardou vários minutos por uma chamada ou mensagem de texto, a maneir
 
     Se você tiver recebido vários códigos de verificação, use o mais recente.
 
-Se você não tiver outro método configurado, contate o departamento de TI e peça para limpar as suas configurações. Na próxima vez que entrar, você será solicitado a [Configurar autenticação multifator](multi-factor-authentication-end-user-first-time.md) novamente.
+Se você não tiver outro método configurado, contate o departamento de suporte da empresa e peça para limpar as suas configurações. Na próxima vez que entrar, você será solicitado a [Configurar autenticação multifator](multi-factor-authentication-end-user-first-time.md) novamente.
 
 Se você geralmente tem atrasos na recepção devido a um sinal de celular ruim, recomendamos que você use o [aplicativo Microsoft Authenticator](microsoft-authenticator-app-how-to.md) em seu smartphone. O aplicativo pode gerar códigos de segurança aleatórios que você usa para entrar, e esses códigos não exigem qualquer conexão de internet ou um sinal de celular.
 
 ## <a name="app-passwords-are-not-working"></a>As senhas de aplicativo não estão funcionando.
-Primeiro, verifique se você inseriu a senha de aplicativo corretamente. A senha de aplicativo gerada substitui a senha normal, mas somente para aplicativos de área de trabalho mais antigos que não dão suporte à verificação em duas etapas. Se isso ainda não estiver funcionando, tente conectar-se e [criar uma nova senha de aplicativo](multi-factor-authentication-end-user-app-passwords.md).  Se isso ainda não funcionar, entre em contato com o departamento de TI e peça para [excluir suas senhas de aplicativo existentes](../multi-factor-authentication-manage-users-and-devices.md), então você poderá criar uma nova.
+Primeiro, verifique se você inseriu a senha de aplicativo corretamente. A senha de aplicativo gerada substitui a senha normal, mas somente para aplicativos de área de trabalho mais antigos que não dão suporte à verificação em duas etapas. Se isso ainda não estiver funcionando, tente conectar-se e [criar uma nova senha de aplicativo](multi-factor-authentication-end-user-app-passwords.md).  Se isso ainda não funcionar, entre em contato com o departamento de suporte da empresa e peça para [excluir suas senhas de aplicativo existentes](../multi-factor-authentication-manage-users-and-devices.md), então você poderá criar uma nova.
 
 ## <a name="i-didnt-find-an-answer-to-my-problem"></a>Não encontrei uma resposta para o meu problema.
-Se você tiver tentado essas etapas de solução de problemas, mas ainda estiver encontrando problemas, entre em contato com o seu departamento de TI. Eles devem ser capazes de ajudá-lo.
+Se você tiver tentado essas etapas de solução de problemas, mas ainda estiver encontrando problemas, entre em contato com o seu departamento de suporte da empresa. Eles devem ser capazes de ajudá-lo.
 
 ## <a name="related-topics"></a>Tópicos relacionados
 * [Gerenciar as configurações de verificação em duas etapas](multi-factor-authentication-end-user-manage-settings.md)  

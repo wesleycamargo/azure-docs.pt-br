@@ -11,35 +11,47 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2017
+ms.date: 10/12/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: accf292f70bf0eafdefc00c3feeaf8e346605401
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: faee3bc9b0b1a10a48a514d830af5045cb047e02
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="azure-active-directory-reporting-faq"></a>Perguntas frequentes sobre relatórios do Azure Active Directory
 
-Este artigo inclui respostas para FAQs (perguntas frequentes) sobre os relatórios do Azure Active Directory.  
-Para obter mais detalhes, veja [Relatórios do Azure Active Directory](active-directory-reporting-azure-portal.md). 
+Este artigo inclui respostas a perguntas frequentes sobre os relatórios do Azure AD (Azure Active Directory). Para saber mais, consulte [Relatórios do Azure Active Directory](active-directory-reporting-azure-portal.md). 
+
+**P: estou usando as APIs do ponto de extremidade https://graph.windows.net/&lt;tenant-name&gt;/reports/ para obter relatórios de uso de aplicativo integrado e auditoria do Azure AD para os sistemas relatórios programaticamente. Para qual devo mudar?**
+
+**R:** Pesquise em nossa [documentação de referência de API](https://developer.microsoft.com/graph/) para ver como você pode usar as novas APIs para acessar [relatórios de atividade](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal). Esse ponto de extremidade tem dois relatórios (Auditoria e Entradas) que fornecem todos os dados que você obteve no ponto de extremidade de API antigo. Esse novo ponto de extremidade também tem um relatório de entradas com a licença do Azure AD Premium que você pode usar para obter informações de uso de aplicativo uso de dispositivo e conexão do usuário.
+
+
+--- 
+
+**P: Estou usando as APIs de ponto de extremidade https://graph.windows.net/&lt;tenant-name&gt;/reports/ para receber relatórios de segurança do Azure AD (tipos específicos de detecções, como credenciais vazadas ou entradas de endereços IP anônimos) em nossos sistemas de relatório de maneira programática. Para qual devo mudar?**
+
+**R:** Você pode usar a [API de eventos de risco de Proteção de Identidade](active-directory-identityprotection-graph-getting-started.md) para acessar detecções de segurança por meio do Microsoft Graph. Esse novo formato oferece maior flexibilidade ao modo de consultar os dados, com filtragem avançada, seleção de campo e mais, além de padronizar eventos de risco em um tipo para integração mais fácil ao SIEMs e outras ferramentas de coleta de dados. Uma vez que os dados estão em um formato diferente, você não pode substituir uma nova consulta para suas consultas antigas. No entanto, [a nova API usa o Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityriskevent), que é o padrão da Microsoft para essas APIs, como O365 ou Azure AD. Para que o trabalho necessário possa estender seus investimentos atuais no MS Graph ou ajudá-lo a começar a fazer a transição para essa nova plataforma padrão.
+
+--- 
 
 **P: O que é a retenção de dados para logs de atividade (de entradas e de auditoria) no Portal do Azure?** 
 
-**R:** Fornecemos 7 dias de dados para nossos clientes com acesso gratuito e, alternando para uma licença Azure AD Premium 1 ou Premium 2, você pode acessar dados por até 30 dias. Para obter mais detalhes sobre a retenção, consulte [Políticas de retenção de relatório do Azure Active Directory](active-directory-reporting-retention.md)
+**R:** Fornecemos sete dias de dados para nossos clientes com gratuitos ou você pode acessar dados por até 30 dias comprando uma licença do Azure AD Premium 1 ou Premium 2. Para saber mais sobre retenção de relatórios, confira [Políticas de retenção de relatório do Azure Active Directory](active-directory-reporting-retention.md).
 
 --- 
 
 **P: Quanto tempo leva até que eu possa ver os dados de atividade depois que concluir minha tarefa?**
 
-**R:** Logs de atividade de auditoria têm uma latência variando de 15 minutos a uma hora. Logs de atividade de entrada têm uma latência variando de 15 minutos para a maioria dos registros até 2 horas para alguns registros.
+**R:** Logs de atividade de auditoria têm uma latência que varia de 15 minutos a uma hora. Logs de atividade de conexão podem levar de 15 minutos a até 2 horas para alguns registros.
 
 ---
 
-**P: É necessário ser um administrador global para ver a atividade de logs no Portal do Azure ou para obter dados por meio da API?**
+**P: É necessário ser um administrador global para ver a atividade de entradas no portal do Azure ou para obter dados por meio da API?**
 
-**R:** Não. Você pode ser um **Leitor de segurança**, um **Administrador de segurança** ou um **Administrador Global** para ver dados de relatório no Portal do Azure ou acessando-os por meio da API.
+**R:** Não. Você deve ser um **Leitor de Segurança**, um **Administrador de Segurança** ou um **Administrador Global** para obter dados no portal do Azure ou por meio da API.
 
 ---
 

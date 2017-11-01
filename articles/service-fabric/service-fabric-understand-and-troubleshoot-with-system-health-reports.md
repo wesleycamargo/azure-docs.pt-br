@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: oanapl
-ms.openlocfilehash: 21f04c1b01033adcef7b7d73c710dd2b4590f76f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b02b1260cedcade9bf69a99453ab0f5aa2c3c7b1
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Usar relatórios de integridade do sistema para solução de problemas
 Os componentes do Service Fabric do Azure apresentam relatórios de integridade do sistema em todas as entidades no cluster prontos para uso. O [repositório de integridade](service-fabric-health-introduction.md#health-store) cria e exclui entidades baseado nos relatórios do sistema. Ele também os organiza em uma hierarquia que captura interações de entidade.
@@ -101,6 +101,13 @@ O Service Fabric Load Balancer relata um aviso quando detecta uma violação da 
 * **SourceId**: System.PLB
 * **Propriedade**: começa com **Capacidade**.
 * **Próximas etapas**: verifique as métricas fornecidas e exiba a capacidade atual do nó.
+
+### <a name="node-capacity-mismatch-for-resource-governance-metrics"></a>Incompatibilidade de capacidade do nó para métricas de governança de recursos
+O System.Hosting relata um aviso se as capacidades de nó definidas no manifesto de cluster forem maiores do que as capacidades do nó real para métricas de governança de recursos (núcleos de cpu e memória). O relatório de integridade será mostrado quando o primeiro pacote de serviço que utiliza a [governança de recursos](service-fabric-resource-governance.md) se registrar em um nó especificado.
+
+* **SourceId**: System.Hosting
+* **Propriedade**: ResourceGovernance
+* **Próximas etapas**: isso pode ser um problema, pois os pacotes de serviço que governam não serão impostos como esperado e a [governança de recursos](service-fabric-resource-governance.md) não funcionará corretamente. Atualize o manifesto do cluster com as capacidades de nó corretas para essas métricas ou não as especifique e permita que o Service Fabric detecte automaticamente os recursos disponíveis.
 
 ## <a name="application-system-health-reports"></a>Relatórios de integridade do sistema de aplicativo
 **System.CM**, que representa o serviço do Gerenciador de Cluster, é a autoridade que gerencia as informações sobre um aplicativo.
@@ -815,6 +822,13 @@ System.Hosting relatará um erro se a validação durante a atualização falhar
 * **SourceId**: System.Hosting
 * **Propriedade**: usa o prefixo **FabricUpgradeValidation** e contém a versão de atualização.
 * **Descrição**: aponta para o erro encontrado.
+
+### <a name="undefined-node-capacity-for-resource-governance-metrics"></a>Capacidade do nó indefinida para métricas de governança de recursos
+O System.Hosting relata um aviso se as capacidades de nó não forem definidas no manifesto do cluster e se a configuração para detecção automática estiver desativada. O Service Fabric exibirá o aviso de integridade sempre que o pacote de serviço que utiliza a [governança de recursos](service-fabric-resource-governance.md) se registrar em um nó especificado.
+
+* **SourceId**: System.Hosting
+* **Propriedade**: ResourceGovernance
+* **Próximas etapas**: a melhor maneira de resolver esse problema é alterar o manifesto do cluster para habilitar a detecção automática de recursos disponíveis. Outra maneira é atualizar o manifesto do cluster com as capacidades do nó especificadas corretamente para essas métricas.
 
 ## <a name="next-steps"></a>Próximas etapas
 [Como exibir relatórios de integridade do Service Fabric](service-fabric-view-entities-aggregated-health.md)

@@ -1,6 +1,6 @@
 ---
 title: "Migração do banco de dados do SQL Server para o Banco de Dados SQL do Azure | Microsoft Docs"
-description: "Saiba mais sobre a migração de banco de dados do SQL Server para o Banco de Dados SQL do Azure na nuvem. Use ferramentas de migração do banco de dados para testar a compatibilidade antes da migração do banco de dados."
+description: "Saiba mais sobre a migração de banco de dados do SQL Server para o Banco de Dados SQL do Azure na nuvem."
 keywords: "migração de banco de dados, migração de banco de dados do sql server, ferramentas de migração de banco de dados, migrar banco de dados, migrar banco de dados sql"
 services: sql-database
 documentationcenter: 
@@ -9,18 +9,18 @@ manager: jhubbard
 editor: 
 ms.assetid: 9cf09000-87fc-4589-8543-a89175151bc2
 ms.service: sql-database
-ms.custom: load & move data
+ms.custom: migrate
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: sqldb-migrate
 ms.date: 02/08/2017
 ms.author: carlrab
-ms.openlocfilehash: 90c78007368c2679e1c5afdb9369869adde77f0d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6147c5d24214933566e0a909ac99c817350578c7
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="sql-server-database-migration-to-sql-database-in-the-cloud"></a>Migração de banco de dados do SQL Server para o Banco de Dados SQL na nuvem
 Neste artigo, você aprenderá sobre os dois principais métodos para migrar um banco de dados SQL Server 2005 ou posterior para o Banco de Dados SQL. O primeiro método é mais simples, mas requer algum tempo de inatividade, possivelmente substancial, durante a migração. O segundo método é mais complexo, mas elimina substancialmente o tempo de inatividade durante a migração.
@@ -43,15 +43,15 @@ A lista a seguir contém o fluxo de trabalho geral para uma migração de banco 
 2. Prepare as correções necessárias como scripts Transact-SQL.
 3. Faça uma cópia transacionalmente consistente do banco de dados de origem que está sendo migrado e verifique se não há mais alterações sendo feitas no banco de dados de origem (ou você pode aplicar essas alterações manualmente após a migração). Há vários métodos para fechar um banco de dados para novas sessões, desde desabilitar a conectividade do cliente até criar um [instantâneo do banco de dados](https://msdn.microsoft.com/library/ms175876.aspx).
 4. Implante os scripts Transact-SQL para aplicar as correções à cópia do banco de dados.
-5. [Exporte](sql-database-export.md) a cópia do banco de dados para um arquivo .BACPAC em uma unidade local.
-6. [Importe](sql-database-import.md) o arquivo .BACPAC como um novo banco de dados Azure SQL usando qualquer uma das várias ferramentas de importação de BACPAC, sendo que SQLPackage.exe é a ferramenta recomendada para obter o melhor desempenho.
+5. [Exporte](sql-database-export.md) a cópia do banco de dados para um arquivo BACPAC em uma unidade local.
+6. [Importe](sql-database-import.md) o arquivo BACPAC como um novo banco de dados SQL do Azure usando qualquer uma das várias ferramentas de importação de BACPAC, sendo que SQLPackage.exe é a ferramenta recomendada para obter o melhor desempenho.
 
 ### <a name="optimizing-data-transfer-performance-during-migration"></a>Otimizando o desempenho de transferência de dados durante a migração 
 
 A lista a seguir contém recomendações para melhorar o desempenho durante o processo de importação.
 
 * Escolha o mais alto nível de serviço e nível de desempenho que seu orçamento permitir para maximizar o desempenho de transferência. Você pode reduzir verticalmente após a migração para economizar dinheiro. 
-* Minimize a distância entre o arquivo .BACPAC e o data center de destino.
+* Minimize a distância entre o arquivo BACPAC e o data center de destino.
 * Desabilitar estatísticas automaticamente durante a migração
 * Índices e tabelas de partição
 * Descartar exibições indexadas e recriá-las após a conclusão

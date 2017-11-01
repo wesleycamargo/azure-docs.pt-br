@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.devlang: na
-ms.date: 05/05/2017
+ms.date: 10/13/2017
 ms.author: joroja
-ms.openlocfilehash: a5f222e5b11e05286152a9f1cc55d2c3fc27a9dc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4fa4665115e0682df7c3fe3d8e2664a0f7a77a07
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="release-notes-for-azure-active-directory-b2c-custom-policy-public-preview"></a>Notas de versão para a versão prévia da política personalizada do Azure Active Directory B2C
 O conjunto de recursos de política personalizada agora está disponível para avaliação em versão prévia para todos os clientes do Azure Active Directory B2C(Azure AD B2C). Esse conjunto de recursos se destina a desenvolvedores avançados de identidade para criar as soluções de identidade mais complexas.  
@@ -48,18 +48,100 @@ Com os novos recursos introduzidos na revisão pública, os desenvolvedores pode
 A configuração de política manual concede acesso de nível inferior para a plataforma subjacente do Azure AD B2C e resulta na criação de uma estrutura de confiança exclusiva e totalmente personalizável. As permutas possíveis de provedores de identidade personalizada, relações de confiança, integrações com serviços externos e fluxos de trabalho passo a passo criam demandas ainda maiores para que os desenvolvedores avançados as consumam.
 
 Para se beneficiar totalmente da versão prévia, sugerimos que os desenvolvedores que utilizarem o conjunto de recursos de política personalizada sigam as seguintes diretrizes:
-* Se familiarize com a linguagem de configuração do Mecanismo de Experiência de Identidade e o gerenciamento de chave/segredos.
+* Familiarize-se com a linguagem de configuração da Estrutura de Experiência de Identidade e do gerenciamento de chave/segredos.
 * Apropriar-se de cenários e de integrações personalizadas.
 * Executar testes de cenário metódicos.
 * Siga as práticas recomendadas de desenvolvimento/preparo de software com no mínimo um ambiente de desenvolvimento e teste um ambiente de produção.
 * Mantenha-se informado sobre novos desenvolvimentos de provedores de identidade e de serviços para integração. Por exemplo, acompanhe as alterações em segredos e alterações programadas e não programadas no serviço.
 * Configure o monitoramento ativo e monitore a capacidade de resposta dos ambientes de produção.
-* Mantenha atualizados os endereços de email de contato e permaneça responsivo aos emails da equipe de site ativo da Microsoft.
+* Mantenha atualizados os endereços de email de contato na assinatura do Azure e permaneça responsivo aos emails da equipe de site ativo da Microsoft.
 * Execute ação em tempo hábil quando for aconselhado a fazer isso pela equipe de site ativo da Microsoft. 
 
+## <a name="features-by-stage-and-known-issues"></a>Recursos por estágio e problemas conhecidos
+Recursos de Política Personalizada/Estrutura de Experiência de Identidade estão em constante e rápido desenvolvimento.  Esta tabela é um índice de disponibilidade de recursos/componente.
 
->[!NOTE]
->Esses recursos podem, eventualmente, ser incluídos em políticas internas do Azure AD, tornando-os mais acessíveis para todos os desenvolvedores.
+Poste perguntas no Stack Overflow em [aka.ms/aadb2cso](http://aka.ms/aadb2cso)
+
+
+### <a name="identity-providers-tokens-protocols"></a>Provedores de Identidade, Tokens, Protocolos
+Interfaces com aplicativos e componentes externos
+
+| Recurso | Desenvolvimento | Visualização | GA | Observações |
+|---------------------------------------------|-------------|---------|----|-------|
+| IDP-OpenIDConnect |  | x |  | por exemplo, Google+ |
+| IDP-OAUTH2 |  | x |  | por exemplo, Facebook  |
+| IDP-OAUTH1 |  | x |  | por exemplo, Twitter |
+| IDP-SAML |  | x |  | por exemplo, Salesforce, ADFS |
+| IDP-WSFED | x |  |  |  |
+| OAUTH de terceira parte confiável |  | x |  |  |
+| OIDC de terceira parte confiável |  | x |  |  |
+| SAML de terceira parte confiável | x |  |  |  |
+| WSFED de terceira parte confiável | x |  |  |  |
+| API REST com autenticação basic e cert. |  | x |  | por exemplo, Azure Functions |
+
+
+### <a name="component-support"></a>Suporte do componente
+
+
+| Recurso | Desenvolvimento | Visualização | GA | Observações |
+|-------------------------------------------|-------------|---------|----|-------|
+| Autenticação Multifator do Azure |  | x |  |  |
+| Azure Active Directory como diretório local |  | x |  |  |
+| Subsistema de Email do Azure para 2FA |  | x |  |  |
+| Suporte a vários idiomas|  | x |  |  |
+| Complexidade de senha | x |  |  |  |
+
+
+### <a name="content-definition"></a>Definição de conteúdo
+
+| Recurso | Desenvolvimento | Visualização | GA | Observações |
+|-----------------------------------------------------------------------------|-------------|---------|----|-------|
+|   Página de erro, api.error |  | x |  |  |
+|   Página de seleção de IDP, api.idpselections |  | x |  |  |
+|   Seleção de IDP para inscrição, api.idpselections.signup |  | x |  |  |
+|   Esqueceu a senha, api.localaccountpasswordreset |  | x |  |  |
+|   Entrada na Conta Local, api.localaccountsignin |  | x |  |  |
+|   Inscrição na Conta Local, api.localaccountsignup |  | x |  |  |
+|   Página MFA, api.phonefactor |  | x |  |  |
+|   Autodeclarada, por exemplo, entrada em conta social, api.selfasserted |  | x |  |  |
+|   Atualização de perfil autodeclarada, api.selfasserted.profileupdate |  | x |  |  |
+|   Página de inscrição ou entrada unificada, api.signuporsignin |  | x |  |  |
+
+
+### <a name="app-ief-integration"></a>Integração de aplicativo IEF
+| Recurso | Desenvolvimento | Visualização | GA | Observações |
+|--------------------------------------------------|-------------|---------|----|-------------------------------------------------|
+| Parâmetro de cadeia de consulta id_token_hint | x |  |  |  |
+| Parâmetro de cadeia de consulta domain_hint |  | x |  | disponível como declaração, pode ser passado para IDP |
+| Parâmetro de cadeia de consulta login_hint |  | x |  | disponível como declaração, pode ser passado para IDP |
+| Inserir JSON UserJourney via client_assertion | x |  |  | será preterido |
+| Inserir JSON em UserJourney como id_token_hint | x |  |  | abordagem avançada para passar JSON |
+
+
+### <a name="session-management"></a>Gerenciamento da sessão
+
+| Recurso | Desenvolvimento | Visualização | GA | Observações |
+|---------------------------------|-------------|---------|----|-------|
+| Provedor de sessão SSO |  | x |  |  |
+| Provedor de sessão de logon externo |  | x |  |  |
+| Provedor de sessão de SSO do SAML |  | x |  |  |
+
+
+### <a name="security"></a>Segurança
+| Recurso | Desenvolvimento | Visualização | GA | Observações |
+|---------------------------------------------|-------------|---------|----|-------|
+| Chaves de política – gerar, manual, upload |  | x |  |  |
+| Chaves de política – RSA/Cert, segredos |  | x |  |  |
+
+
+### <a name="developer-interface"></a>Interface do desenvolvedor
+| Recurso | Desenvolvimento | Visualização | GA | Observações |
+|---------------------------------------------|-------------|---------|----|-------|
+| Portal do Azure – IEF UX |  | x |  |  |
+| Logs UserJourney do Application Insights  |  | x |  |  |
+| Logs de eventos do Application Insights |x|  |  |  |
+
+
 
 ## <a name="next-steps"></a>Próximas etapas
 [Introdução às políticas personalizadas](active-directory-b2c-get-started-custom.md).

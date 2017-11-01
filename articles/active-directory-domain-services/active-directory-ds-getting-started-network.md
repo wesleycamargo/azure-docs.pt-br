@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 10/19/2017
 ms.author: maheshu
-ms.openlocfilehash: 26fa86d166c54f48621ccbab13d1d17f465b7568
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a476e5228fc7fb83c1fe0b7ae0989a7752be09e1
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Habilite o Azure Active Directory Domain Services usando o portal do Azure
 
@@ -31,7 +31,11 @@ Consulte as [Considerações de rede para o Azure Active Directory Domain Servic
 A próxima tarefa de configuração é criar uma rede virtual do Azure e uma sub-rede dedicada dentro dela. Você pode habilitar o Azure Active Directory Domain Services nessa sub-rede dentro de sua rede virtual. Você também pode escolher uma rede virtual existente e criar a sub-rede dedicada dentro dela.
 
 1. Clique em **Rede virtual** para selecionar uma rede virtual.
-2. Na folha **Escolher rede virtual**, você vê todas as redes virtuais desejadas. Você vê somente as redes virtuais que pertencem ao grupo de recursos e ao local do Azure que selecionou na página do assistente **Básico**.
+    > [!NOTE]
+    > **Redes virtuais clássicas não têm mais suporte para novas implantações.** Redes virtuais clássicas não têm mais suporte para novas implantações. Domínios gerenciados existentes implantados em redes virtuais clássicas continuam a ter suporte. Forneceremos em breve a capacidade de migrar um domínio gerenciado existente de uma rede virtual clássica para uma rede virtual do Resource Manager.
+    >
+
+2. Na página **Escolher rede virtual**, você vê todas as redes virtuais desejadas. Você vê somente as redes virtuais que pertencem ao grupo de recursos e ao local do Azure que selecionou na página do assistente **Básico**.
 3. Selecione a rede virtual na qual o Azure AD Domain Services deve ser habilitado. Você pode escolher uma rede virtual existente ou criar uma nova.
 
   > [!TIP]

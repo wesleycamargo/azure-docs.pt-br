@@ -11,21 +11,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2017
+ms.date: 10/12/2017
 ms.author: billmath
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: fdee5703adc76e750aebd83d4122e7b79244c0e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9dce8c3132b60b0b0c44f9f9d1e9cf01f68fa280
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Noções básicas sobre conectores de Proxy de Aplicativo Azure AD
 
 Os conectores são o que torna o Proxy de Aplicativo Azure AD possível. Eles são simples, fáceis de implantar e manter, além de superpotentes. Este artigo aborda o que são conectores, como eles funcionam e algumas sugestões sobre como otimizar sua implantação. 
 
-## <a name="what-is-an-application-proxy-connector"></a>O que é um conector do Proxy de Aplicativo
+## <a name="what-is-an-application-proxy-connector"></a>O que é um conector do Proxy de Aplicativo?
 
 Conectores são agentes leves que ficam no local e facilitam a conexão de saída para o serviço Proxy de Aplicativo. Os conectores devem ser instalados em um servidor Windows que tenha acesso ao aplicativo de back-end. Você pode organizar os conectores em grupos de conector, com cada grupo tratando o tráfego de aplicativos específicos. Os conectores fazem o balanceamento de carga automaticamente e podem ajudar a otimizar sua estrutura de rede. 
 
@@ -78,10 +78,10 @@ Embora os conectores façam automaticamente o balanceamento de carga dentro de u
 |4|16|320|1150|
 |8|32|270|1190|
 |16|64|245|1200*|
-\* Esse computador tem um limite de conexão de 200. Para todos os outros computadores, usamos o limite de conexão padrão de 200.
+\* Esse computador tem um limite de conexão de 800. Para todos os outros computadores, usamos o limite de conexão padrão de 200.
  
 >[!NOTE]
->O limite de configuração padrão é de 200 (para dois, quatro e oito núcleos).  Durante o teste com 16 núcleos, o limite de conexão foi alterado para 800. Não há muita diferença no TPS máximo entre computadores de 4, 8 e 16 núcleos. A principal diferença entre eles é a latência prevista.  
+>Não há muita diferença no TPS máximo entre computadores de 4, 8 e 16 núcleos. A principal diferença entre eles é a latência prevista.  
 
 ## <a name="security-and-networking"></a>Rede e segurança
 

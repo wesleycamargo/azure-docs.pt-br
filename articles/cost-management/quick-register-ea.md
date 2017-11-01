@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 09/14/2017
+ms.date: 10/11/2017
 ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
 manager: carmonm
-ms.openlocfilehash: 5b2fa44eaf801715d50282b4c1460c58d3631637
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 41a9df712b07253d9f5f9db8542fb9917592320f
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="register-an-azure-enterprise-agreement-and-view-cost-data"></a>Registrar um Contrato Enterprise do Azure e exibir dados de custo
 
@@ -41,6 +41,8 @@ Use seu Contrato Enterprise do Azure para se registrar no Gerenciamento de Custo
 7. Em **Convidar outros stakeholders**, adicione usuários digitando seus endereços de email. Quando concluir, clique em **Avançar**. Leva cerca de duas horas para que todos os seus dados de cobrança sejam adicionados ao Cloudyn.
 8. Clique em **Ir para o Cloudyn** para abrir o portal de Cloudyn e, em seguida, na página **Gerenciamento de Contas de Nuvem**, você deverá ver as informações de sua conta do EA registrada.
 
+Para assistir a um vídeo de tutorial sobre como registrar seu Contrato Enterprise, consulte [Como localizar sua ID de registro de EA e chave de API para uso no Gerenciamento de Custo do Azure por Cloudyn](https://youtu.be/u_phLs_udig).
+
 [!INCLUDE [cost-management-create-account-view-data](../../includes/cost-management-create-account-view-data.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -48,4 +50,4 @@ Use seu Contrato Enterprise do Azure para se registrar no Gerenciamento de Custo
 Neste guia de início rápido, você usou as informações do Contrato Enterprise do Azure para se registrar no Gerenciamento de Custo. Você também entrou no portal do Cloudyn e começou a exibir os dados de custo. Para saber mais sobre o Gerenciamento de Custo do Azure pelo Cloudyn, continue com o tutorial sobre o Gerenciamento de Custo.
 
 > [!div class="nextstepaction"]
-> [Exibir dados de custo](./tutorial-review-usage.md)
+> [Examinar o uso e os custos](./tutorial-review-usage.md)

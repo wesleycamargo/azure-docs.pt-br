@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 09/23/2017
 ms.author: maheshu
-ms.openlocfilehash: e274e0806e99cce484f6ff03803c03bf0034dcd6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5f9236c5cf660be00db6e09d61df617b64d978e9
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="networking-considerations-for-azure-ad-domain-services"></a>Considerações de rede para Serviços de Domínio do Azure AD
 ## <a name="how-to-select-an-azure-virtual-network"></a>Como selecionar uma rede virtual do Azure
@@ -26,7 +26,7 @@ As diretrizes a seguir ajudam você a selecionar uma rede virtual a ser usada co
 
 ### <a name="type-of-azure-virtual-network"></a>Tipo de rede virtual do Azure
 * **Redes virtuais do Resource Manager**: o Azure AD Domain Services pode ser habilitados em redes virtuais criadas usando o Azure Resource Manager.
-* Você pode habilitar os Serviços de Domínio do Azure AD em uma rede virtual clássica do Azure. No entanto, o suporte para redes virtuais clássicas será preterido em breve. Recomendamos o uso de redes virtuais do Resource Manager domínios gerenciados recém-criados.
+* Não é possível habilitar o Azure AD Domain Services em uma rede virtual clássica do Azure.
 * Você pode conectar outras redes virtuais à rede virtual na qual o Azure AD Domain Services está habilitado. Para saber mais, confira a seção [Conectividade de rede](active-directory-ds-networking.md#network-connectivity).
 * **Redes Virtuais Regionais**: se você planeja usar uma rede virtual existente, certifique-se de que se trata de uma rede virtual regional.
 
@@ -53,7 +53,7 @@ Um [NSG (grupo de segurança de rede)](../virtual-network/virtual-networks-nsg.m
 
 ![Design de sub-rede recomendado](./media/active-directory-domain-services-design-guide/vnet-subnet-design.png)
 
-### <a name="best-practices-for-choosing-a-subnet"></a>Práticas recomendadas para escolher uma sub-rede
+### <a name="guidelines-for-choosing-a-subnet"></a>Diretrizes para escolher uma sub-rede
 * Implante os Serviços de Domínio do Azure AD em uma **sub-rede separada dedicada** em sua rede virtual do Azure.
 * Não aplique NSGs à sub-rede dedicada de seu domínio gerenciado. Se você precisar aplicar NSGs à sub-rede dedicada, **não bloqueie as portas necessárias para executar e gerenciar seu domínio**.
 * Não restrinja excessivamente o número de endereços IP disponíveis dentro da sub-rede dedicada para seu domínio gerenciado. Essa restrição impede que o serviço disponibilize dois controladores de domínio para seu domínio gerenciado.
@@ -76,7 +76,7 @@ As portas a seguir são obrigatórias para os Serviços de Domínio do Azure AD 
 
 A porta 5986 é usada para executar tarefas de gerenciamento usando a comunicação remota do PowerShell no seu domínio gerenciado. Os controladores de domínio para seu domínio gerenciado normalmente não escutam nesta porta. O serviço abre essa porta nos controladores de domínio gerenciados somente quando uma operação de manutenção ou gerenciamento precisa ser executada para o domínio gerenciado. Assim que a operação for concluída, o serviço fecha essa porta nos controladores de domínio gerenciados.
 
-A porta 3389 é usada para conexões de área de trabalho remota para seu domínio gerenciado. Essa porta também permanece basicamente desativada no domínio gerenciado. O serviço habilitará essa porta somente se for necessário conectar-se ao seu domínio gerenciado para fins de solução de problemas, geralmente iniciado em resposta a uma solicitação de serviço que você inicia. Esse mecanismo não é usado de modo contínuo, uma vez que as tarefas de gerenciamento e monitoramento são executadas usando a comunicação remota do PowerShell. Essa porta é usada apenas no caso raro de precisarmos nos conectar remotamente ao seu domínio gerenciado para solução de problemas avançada. A porta é fechada assim que a operação de solução de problemas é concluída.
+A porta 3389 é usada para conexões de área de trabalho remota para seu domínio gerenciado. Essa porta também permanece basicamente desativada no domínio gerenciado. O serviço habilitará essa porta somente se for necessário conectar-se ao seu domínio gerenciado para fins de solução de problemas gerada em decorrência de uma solicitação de serviço iniciada por você. Esse mecanismo não é usado de modo contínuo, uma vez que as tarefas de gerenciamento e monitoramento são executadas usando a comunicação remota do PowerShell. Essa porta é usada apenas no caso raro de precisarmos nos conectar remotamente ao seu domínio gerenciado para solução de problemas avançada. A porta é fechada assim que a operação de solução de problemas é concluída.
 
 
 ### <a name="sample-nsg-for-virtual-networks-with-azure-ad-domain-services"></a>NSG de exemplo para redes virtuais com o Azure AD Domain Services

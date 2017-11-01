@@ -3,8 +3,8 @@ title: "Como trabalhar com o SDK de servidor back-end do Node.js para Aplicativo
 description: "Aprenda a trabalhar com o SDK do servidor back-end do Node.js para Aplicativos Móveis do Serviço de Aplicativo do Azure."
 services: app-service\mobile
 documentationcenter: 
-author: ggailey777
-manager: syntaxc4
+author: elamalani
+manager: elamalani
 editor: 
 ms.assetid: e7d97d3b-356e-4fb3-ba88-38ecbda5ea50
 ms.service: app-service-mobile
@@ -14,11 +14,11 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.openlocfilehash: 8265aaa275b3f6e528ec729ff1325200e9ead524
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ab1a9dfa71c4b633392ef839bb848347fdd26431
+ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="how-to-use-the-azure-mobile-apps-nodejs-sdk"></a>Como usar o SDK do Node.js para Aplicativos Móveis do Azure
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -793,9 +793,13 @@ Consulte os artigos a seguir para iniciar a solução de problemas do back-end d
 Os aplicativos Node.js têm acesso a uma ampla gama de ferramentas de log de diagnóstico.  Internamente, o SDK do Node.js dos Aplicativos Móveis do Azure usa o [Winston] para o registro em log de diagnóstico.  O registro em log é ativado automaticamente habilitando o modo de depuração ou definindo a configuração de aplicativo **MS_DebugMode** como true no [portal do Azure]. Logs gerados aparecem nos Logs de Diagnóstico no [portal do Azure].
 
 ### <a name="in-portal-editing"></a><a name="work-easy-tables"></a>Como trabalhar com Tabelas Fáceis no portal do Azure
-Tabelas fáceis no portal do permitem que você crie e trabalhe com as tabelas certas no portal. Você ainda pode editar operações de tabela usando Editor de Serviço de Aplicativo.
+Tabelas fáceis no portal do permitem que você crie e trabalhe com as tabelas certas no portal. Você pode carregar o conjunto de dados para tabelas fáceis no formato CSV. Observe que você não pode usar nomes de propriedades (no conjunto de dados CSV) que estejam em conflito com nomes de propriedades do sistema de back-end de aplicativos móveis do Azure. Os nomes de propriedades do sistema são:
+* createdAt
+* updatedAt
+* deleted
+* version
 
-Quando você clica em **Tabelas fáceis** em suas configurações de site de back-end, você pode adicionar, modificar ou excluir uma tabela. Você também pode ver dados na tabela.
+Você ainda pode editar operações de tabela usando Editor de Serviço de Aplicativo. Quando você clica em **Tabelas fáceis** em suas configurações de site de back-end, você pode adicionar, modificar ou excluir uma tabela. Você também pode ver dados na tabela.
 
 ![Trabalhar com Tabelas fáceis](./media/app-service-mobile-node-backend-how-to-use-server-sdk/mobile-apps-easy-tables.png)
 

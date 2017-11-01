@@ -3,11 +3,12 @@ layout: HubPage
 hide_bc: True
 title: "Documentação do Microsoft Azure"
 description: "Saiba como compilar e gerenciar aplicativos avançados com os serviços de nuvem do Microsoft Azure. Obtenha documentação, código de exemplo, tutoriais e muito mais."
-ms.openlocfilehash: 9752a75dc20ec7f92b87ddb50ed74208982bd92e
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+featureFlags: clicktale
+ms.openlocfilehash: 1cce8a0c31a7bb7e4c6e228261b27244a762b441
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/01/2017
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -151,7 +152,7 @@ ms.lasthandoff: 10/24/2017
                                                             <img src="media/index/logo_PHP.svg" alt=""> PHP</a>
                                                     </li>
                                                     <li>
-                                                        <a class="barLink" href="/nodejs/azure/?view=azure-node-2.0.0">
+                                                        <a class="barLink" href="/nodejs/azure/">
                                                             <img src="media/index/logo_nodejs.svg" alt=""> Node.js</a>
                                                     </li>
                                                 </ul></td></tr></table>
@@ -505,6 +506,12 @@ ms.lasthandoff: 10/24/2017
                                                 <p>Azure Alemanha</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="/azure/china/">
+                                                <img src="media/index/azure-germany.svg" alt="" />
+                                                <p>Microsoft Azure na China 21Vianet</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                 </div>
                                 <div class="group">
@@ -763,12 +770,6 @@ ms.lasthandoff: 10/24/2017
                                             <a href="/azure/cognitive-services/face/">
                                                 <img src="media/index/API_Face.svg" alt="" />
                                                 <p>API de Detecção Facial</p>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="/azure/cognitive-services/video/home">
-                                                <img src="media/index/API_Video.svg" alt="" />
-                                                <p>API de Vídeo</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1210,6 +1211,12 @@ ms.lasthandoff: 10/24/2017
                                             <a href="/azure/azure-resource-manager/">
                                                 <img src="media/index/azuredefaultblack.svg" alt="" />
                                                 <p>Gerenciador de Recursos do Azure</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/managed-applications">
+                                                <img src="media/index/i_managed-application.svg" alt="" />
+                                                <p>Aplicativos gerenciados</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -2577,9 +2584,6 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                                 <a class="barLink" href="/azure/cognitive-services/face/"><img src="media/index/API_Face.svg" alt="" />API de Detecção Facial</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/video/home"><img src="media/index/API_Video.svg" alt="" /><span>API de Vídeo&nbsp;<sup style="font-size:70%">VERSÃO PRÉVIA</sup></span></a>
-                                                            </li>
-                                                            <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/video-indexer/video-indexer-overview"><img src="media/index/API_VideoIndexer.svg" alt="" /><span>Video Indexer&nbsp;<sup style="font-size:70%">VERSÃO PRÉVIA</sup></span></a>
                                                             </li>
                                                         </ul>
@@ -2691,7 +2695,8 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-web-search/"><img src="media/index/API_Bing_Web_Search.svg" alt="" />Pesquisa da Web do Bing</a>
                                                             </li>
-                                                            <li>                                                 <a class="barLink" href="/azure/cognitive-services/Bing-Autosuggest"><img src="media/index/API_Bing_AutoSuggest.svg" alt="" />Sugestão Automática do Bing</a>
+                                                            <li>
+                                                                <a class="barLink" href="/azure/cognitive-services/Bing-Autosuggest"><img src="media/index/API_Bing_AutoSuggest.svg" alt="" />Sugestão Automática do Bing</a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-custom-search"><img src="media/index/API_Bing_Custom_Search.svg" alt="" /><span>Pesquisa Personalizada do Bing</a>
@@ -3629,18 +3634,18 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/azure-resource-manager/">
+                                <a href="/azure/managed-applications">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/azuredefaultblack.svg" alt="" />
+                                                        <img src="media/index/i_managed-application.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Gerenciador de Recursos do Azure</h3>
-                                                    <p>Implantar e gerenciar os recursos do Azure</p>
+                                                    <h3>Aplicativos gerenciados</h3>
+                                                    <p>Gerenciar soluções implantadas para clientes</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3731,6 +3736,25 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/azure/china/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/azure-germany.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Microsoft Azure na China 21Vianet</h3>
+                                                    <p>Crie e hospede aplicativos em conformidade com as políticas e regulamentos de manipulação de dados estipulados pelo Governo na China</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                 </ul>
@@ -3808,7 +3832,7 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                     <a href="/nodejs/azure/node-sdk-azure-install">Obtenha as bibliotecas do Azure para Node.js</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="/nodejs/azure/?view=azure-node-2.0.0">Introdução</a>
+                                                    <a href="/nodejs/azure/">Introdução</a>
                                                 </p>
                                                 <p>
                                                     <a href="/nodejs/api/overview/azure">Referência de API</a>

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/29/2017
 ms.author: byvinyal
-ms.openlocfilehash: e2c67bed2162773156ebf1f0f99593aeb2adf019
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2cdf7ad766fe47f2d2848815860ad545b43aec72
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Assinatura do Azure e limite de serviços, cotas e restrições
 Este documento lista alguns dos limites mais comuns do Microsoft Azure, que também são chamados de cotas. Esse documento não cobre atualmente todos os serviços do Azure. Com o passar do tempo, a lista será expandida e atualizada para uma maior cobertura da plataforma.
@@ -70,7 +70,7 @@ Nos limites abaixo, uma nova tabela foi adicionada para refletir quaisquer difer
 * [Cofre de Chaves](#key-vault-limits)
 * [Log Analytics/Insights Operacionais](#log-analytics-limits)
 * [Serviços de Mídia](#media-services-limits)
-* [Engajamento Móvel](#mobile-engagement-limits)
+* [Mobile Engagement](#mobile-engagement-limits)
 * [Serviços Móveis](#mobile-services-limits)
 * [Monitorar](#monitor-limits)
 * [Autenticação Multifator](#multi-factor-authentication)
@@ -140,9 +140,28 @@ Os limites a seguir se aplicam ao usar o Gerenciador de Recursos do Azure e os G
 
 ### <a name="storage-limits"></a>Limites de armazenamento
 Para obter mais detalhes sobre os limites da conta de armazenamento, veja [Metas de desempenho e escalabilidade do Armazenamento do Azure](storage/common/storage-scalability-targets.md).
+
 <!--like # storage accts --> 
-#### <a name="storage-service-limits"></a>Limites de Serviço de Armazenamento
 [!INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
+
+[!INCLUDE [azure-storage-limits-azure-resource-manager](../includes/azure-storage-limits-azure-resource-manager.md)]
+
+#### <a name="azure-blob-storage-limits"></a>Limites de Armazenamento de Blobs do Azure
+[!INCLUDE [storage-blob-scale-targets](../includes/storage-blob-scale-targets.md)]
+
+#### <a name="azure-files-limits"></a>Limites de Arquivos do Azure
+Para obter mais detalhes sobre os limites de Arquivos do Azure, veja [Metas de desempenho e escalabilidade dos Arquivos do Azure](storage/files/storage-files-scale-targets.md).
+
+[!INCLUDE [storage-files-scale-targets](../includes/storage-files-scale-targets.md)]
+
+#### <a name="azure-file-sync-limits"></a>Limites de Sincronização de Arquivo do Azure
+[!INCLUDE [storage-sync-files-scale-targets](../includes/storage-sync-files-scale-targets.md)]
+
+#### <a name="azure-queue-storage-limits"></a>Limites de Armazenamento de Filas do Azure
+[!INCLUDE [storage-queues-scale-targets](../includes/storage-queues-scale-targets.md)]
+
+#### <a name="azure-table-storage-limits"></a>Limites de Armazenamento de Tabelas do Azure
+[!INCLUDE [storage-tables-scale-targets](../includes/storage-tables-scale-targets.md)]
 
 <!-- conceptual info about disk limits -- applies to unmanaged and managed -->
 #### <a name="virtual-machine-disk-limits"></a>Limites de disco de máquina virtual 
@@ -159,9 +178,6 @@ Consulte [Tamanhos de máquina virtual](virtual-machines/linux/sizes.md?toc=%2fa
 [!INCLUDE [azure-storage-limits-vm-disks-standard](../includes/azure-storage-limits-vm-disks-standard.md)]
 
 [!INCLUDE [azure-storage-limits-vm-disks-premium](../includes/azure-storage-limits-vm-disks-premium.md)]
-
-#### <a name="storage-resource-provider-limits"></a>Limites de Provedor de Recursos de Armazenamento
-[!INCLUDE [azure-storage-limits-azure-resource-manager](../includes/azure-storage-limits-azure-resource-manager.md)]
 
 ### <a name="cloud-services-limits"></a>Limites de Serviços de Nuvem
 [!INCLUDE [azure-cloud-services-limits](../includes/azure-cloud-services-limits.md)]
@@ -289,4 +305,3 @@ Para obter os limites do Banco de Dados SQL, veja [Limites de recurso de Banco d
 [Tamanhos de máquinas virtuais e serviços de nuvem do Azure](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [Tamanhos dos serviços de nuvem](cloud-services/cloud-services-sizes-specs.md)
-

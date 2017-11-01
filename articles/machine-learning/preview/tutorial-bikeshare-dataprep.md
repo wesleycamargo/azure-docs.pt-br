@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial, azure
 ms.topic: article
 ms.date: 09/21/2017
-ms.openlocfilehash: 722657c9bbae23a051a63972a8800d3cc40e7e40
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6d1845e27c6b0fff66b80a683f59d14238e2ad71
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="bike-share-tutorial-advanced-data-preparation-with-azure-machine-learning-workbench"></a>Tutorial de compartilhamento de bicicleta: preparação de dados avançada com o Azure Machine Learning Workbench
 Os serviços do Azure Machine Learning (versão prévia) são uma solução integrada de análise avançada e de ciência de dados de ponta a ponta para cientistas profissionais prepararem dados, desenvolverem experiências e implantarem modelos em escala de nuvem.
@@ -210,7 +210,7 @@ Você não precisa mais da coluna __REPORTTYPE__. Clique com botão direito do m
    ![Imagem da opção para remover coluna](media/tutorial-bikeshare-dataprep/weatherremovereporttype.png)
 
 ## <a name="change-datatypes-and-remove-errors"></a>Alterar tipos de dados e remover erros
-1. Pressionar __Ctrl__ enquanto seleciona os cabeçalhos de coluna permite que você selecione várias colunas de uma vez. Use isso para selecionar os seguintes cabeçalhos de coluna:
+1. Pressionar __Ctrl__ (Command ⌘ no Mac) enquanto seleciona os cabeçalhos de coluna permite selecionar várias colunas de uma vez. Use isso para selecionar os seguintes cabeçalhos de coluna:
    * **HOURLYDRYBULBTEMPF**
    * **HOURLYRelativeHumidity**
    * **HOURLYWindSpeed**
@@ -262,6 +262,9 @@ Para usar os dados em uma previsão de blocos de tempo de duas horas, você deve
    > [!NOTE]
    > O Azure ML Workbench sintetiza um programa com base nos exemplos fornecidos por você e aplica o mesmo programa às linhas restantes. Todas as outras linhas são preenchidas automaticamente com base no exemplo fornecido. O Workbench também analisa os dados e tenta identificar casos extremos. 
 
+   > [!IMPORTANT]
+   > A identificação de casos de borda pode não funcionar no Mac na versão atual do Workbench. Ignore a __etapa 3__ e a __etapa 4__ abaixo no Mac. Em vez disso, pressione __OK__ depois que todas as linhas tiverem sido preenchidas com os valores derivados.
+   
 3. O texto **Analisando Dados** acima da grade indica que o Workbench está tentando detectar os casos extremos. Quando ele terminar, o status será alterado para **Examinar a próxima linha sugerida** ou **Nenhuma sugestão**. Neste exemplo, é retornado **Examinar a próxima linha sugerida**.
 
 4. Para examinar as alterações sugeridas, selecione **Revisar a próxima linha sugerida**. A célula que você deve examinar e corrigir (se necessário) está realçada na exibição.
@@ -290,6 +293,12 @@ Para usar os dados em uma previsão de blocos de tempo de duas horas, você deve
    O Workbench determina a transformação com base no exemplo que você fornece. Neste exemplo, o resultado é que o formato de data é alterado e concatenado com o período de duas horas.
 
    ![Imagem do exemplo `Jan 01, 2015 12AM-2AM](media/tutorial-bikeshare-dataprep/wetherdatehourrangeexample.png)
+
+   > [!IMPORTANT]
+   > No Mac, siga esta etapa, em vez da __etapa 8__ abaixo.
+   >
+   > * Vá para a primeira célula que contém `Feb 01, 2015 12AM-2AM`. Deve ser a __linha 15__. Corrija o valor para `Jan 02, 2015 12AM-2AM`e pressione __Enter__. 
+   
 
 8. Espere até que o status seja alterado de **Analisando Dados** para **Examinar a próxima linha sugerida**. Isso pode levar alguns segundos. Selecione o link de status para navegar até a linha sugerida. 
 
@@ -392,7 +401,7 @@ Para a preparação de dados, há inúmeras visualizações úteis chamadas **In
 1. Faça uma seleção múltipla das colunas **latitude da estação inicial** e **longitude da estação inicial**. Clique com o botão direito do mouse em uma das colunas e, em seguida, selecione **Mapa**.
 
     > [!TIP]
-    > Para habilitar a seleção múltipla, mantenha a tecla __Ctrl__ pressionada e selecione o cabeçalho de cada coluna.
+    > Para habilitar a seleção múltipla, mantenha a tecla __Ctrl (Command ⌘ no Mac)__ pressionada e selecione o cabeçalho de cada coluna.
 
     ![Imagem de visualização do mapa](media/tutorial-bikeshare-dataprep/launchMapInspector.png)
 
@@ -506,6 +515,11 @@ Para resumir a demanda de bicicleta por um período de 2 horas, use colunas deri
 
     ![Imagem dos dados de exemplo](media/tutorial-bikeshare-dataprep/tripdataderivebyexamplefirstexample.png)
 
+   > [!IMPORTANT]
+   > No Mac, siga esta etapa, em vez da __etapa 3__ abaixo.
+   >
+   > * Vá para a primeira célula que contém `Jan 01, 2017 1AM-2AM`. Deve ser a __linha 14__. Corrija o valor para `Jan 01, 2017 12AM-2AM`e pressione __Enter__. 
+
 3. Espere até que o aplicativo calcule os valores em todas as linhas. Isso pode levar vários segundos. Depois que a análise for concluída, use o link __Examinar próxima linha sugerida__ para examinar os dados.
 
    ![Imagem da análise concluída com link de análise](media/tutorial-bikeshare-dataprep/tripdatabyexanalysiscomplete.png)
@@ -557,7 +571,7 @@ Para unir os dados de clima aos dados de viagem, use as seguintes etapas:
 
     ![Imagem da coluna de período](media/tutorial-bikeshare-dataprep/featurehourrange.png)
 
-3. Para remover as colunas **Intervalo de Data e Hora** e **Intervalo de Data e Hora**, pressione **Ctrl** e selecione o cabeçalho de cada coluna. Clique com botão direito do mouse e, em seguida, selecione **Remover Coluna**.
+3. Para remover as colunas **Intervalo de Data e Hora** e **Intervalo de Data e Hora**, pressione **Ctrl (Command ⌘ no Mac)** e selecione o cabeçalho de cada coluna. Clique com botão direito do mouse e, em seguida, selecione **Remover Coluna**.
 
 ## <a name="read-data-from-python"></a>Ler dados do Python
 

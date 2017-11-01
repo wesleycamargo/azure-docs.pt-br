@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/24/2017
+ms.date: 10/17/2017
 ms.author: arramac
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3d8ba08bc9f99cb77c9f03949fc5db299eb222c8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 93a9bf568b1047e1af4e7825c3ca99bf11945560
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="automatic-regional-failover-for-business-continuity-in-azure-cosmos-db"></a>Failover regional automático para a continuidade dos negócios no Azure Cosmos DB
 O Azure Cosmos DB simplifica a distribuição global de dados oferecendo [contas de banco de dados em várias regiões](distribute-data-globally.md) totalmente gerenciadas que fornecem claras compensações entre consistência, disponibilidade e desempenho, tudo com garantias correspondentes. As contas do Cosmos DB oferecem alta disponibilidade, latências de milissegundos de digito único, [níveis bem definidos de consistência](consistency-levels.md), failover regional transparente com APIs de hospedagem múltipla e a capacidade de dimensionar de forma elástica a produtividade e o armazenamento no mundo todo. 
@@ -85,19 +85,40 @@ Depois que a região afetada se recupera da interrupção, todas as contas do Co
 
 **O que acontece se uma região de gravação sofre uma interrupção?**
 
-Se a região afetada for a região de gravação atual de determinada conta do Cosmos DB, essa região será marcada como offline automaticamente. Em seguida, uma região alternativa será promovida como a região de gravação de cada conta afetada do Cosmos DB. Você pode controlar por completo a ordem de seleção de região de suas contas do Cosmos DB por meio do portal do Azure ou de [forma programática](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_FailoverPriorityChange). 
+Se a região afetada for a região de gravação atual e um failover automático estiver habilitado na conta do Azure Cosmos DB, essa região será marcada automaticamente como offline. Em seguida, uma região alternativa será promovida como a região de gravação da conta afetada do Azure Cosmos DB. É possível habilitar o failover automático e controlar por completo a ordem de seleção de região das contas do Azure Cosmos DB por meio do portal do Azure ou de [forma programática](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_FailoverPriorityChange). 
 
 ![Prioridades de failover para o Azure Cosmos DB](./media/regional-failover/failover-priorities.png)
 
-Durante failovers automáticos, o Cosmos DB escolhe automaticamente a próxima região de gravação para determinada conta do Azure Cosmos DB com base na ordem de prioridade especificada. 
+Durante failovers automáticos, o Azure Cosmos DB escolhe automaticamente a próxima região de gravação para determinada conta do Azure Cosmos DB com base na ordem de prioridade especificada. Aplicativos podem usar a propriedade WriteEndpoint da classe DocumentClient para detectar a alteração na região de gravação.
 
 ![Falhas de região de gravação no Azure Cosmos DB](./media/regional-failover/write-region-failures.png)
 
 Depois que a região afetada se recupera da interrupção, todas as contas do Cosmos DB afetadas na região são recuperadas automaticamente pelo serviço. 
 
-* As contas do Cosmos DB com sua região de gravação anterior na área afetada permanecerão em um modo offline com disponibilidade de leitura mesmo após a recuperação da região. 
-* Você pode consultar essa região para computar quaisquer gravações não replicadas durante a interrupção por meio da comparação dos dados presentes nela com os dados disponíveis na região de gravação atual. Com base nas necessidades de seu aplicativo, você pode executar a mesclagem e/ou resolução de conflitos e gravar o conjunto final de alterações de volta na região de gravação atual. 
-* Depois de concluir as alterações de mesclagem, você poderá colocar a região afetada online novamente, removendo e adicionando a região novamente à sua conta do Cosmos DB. Quando a região é adicionada novamente, você pode configurá-lo como a região de gravação, executando um failover manual por meio do Portal do Azure ou [programaticamente](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate).
+* Dados presentes na região de gravação anterior que não foram replicados para regiões de leitura durante a interrupção são publicados como um feed de conflito. Aplicativos podem ler o feed de conflito, resolvê-los com base na lógica específica do aplicativo e gravar os dados atualizados de volta na conta do Azure Cosmos DB, conforme apropriado. 
+* A região de gravação anterior é recriada como uma região de leitura e volta a ficar online automaticamente. 
+* É possível configurar novamente a região de leitura que voltou a ficar online automaticamente como a região de gravação, executando um failover manual por meio do Portal do Azure ou [programaticamente](https://docs.microsoft.com/rest/api/documentdbresourceprovider/databaseaccounts#DatabaseAccounts_CreateOrUpdate).
+
+O trecho de código a seguir ilustra como processar conflitos depois que a região afetada se recupera da interrupção.
+
+```cs
+string conflictsFeedContinuationToken = null;
+do
+{
+    FeedResponse<Conflict> conflictsFeed = client.ReadConflictFeedAsync(collectionLink,
+        new FeedOptions { RequestContinuation = conflictsFeedContinuationToken }).Result;
+
+    foreach (Conflict conflict in conflictsFeed)
+    {
+        Document doc = conflict.GetResource<Document>();
+        Console.WriteLine("Conflict record ResourceId = {0} ResourceType= {1}", conflict.ResourceId, conflict.ResourceType);
+
+        // Perform application specific logic to process the conflict record / resource
+    }
+
+    conflictsFeedContinuationToken = conflictsFeed.ResponseContinuation;
+} while (conflictsFeedContinuationToken != null);
+```
 
 ## <a id="ManualFailovers"></a>Failovers Manuais
 

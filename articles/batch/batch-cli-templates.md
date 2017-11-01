@@ -9,19 +9,19 @@ ms.service: batch
 ms.devlang: na
 ms.topic: article
 ms.workload: big-compute
-ms.date: 07/20/2017
+ms.date: 10/17/2017
 ms.author: markscu
-ms.openlocfilehash: 6b91466da46d1f4ca9f25bf1718be783603efc58
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 87ec0e1b6d01fc5d13e9b9f46987e416d8e1958f
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>Usar modelos CLI do Lote do Azure e o arquivo de transferência (Versão prévia)
 
 Ao usar a CLI do Azure é possível executar trabalhos do Lote sem escrever código.
 
-É possível criar arquivos de modelo que podem ser usados com a CLI do Azure e permitem a criação de trabalhos, tarefas pools de Lote. Arquivos de entrada de trabalho podem ser facilmente carregados para a conta de armazenamento associada com a conta do Lote e os arquivos de saída de trabalho baixados.
+Criar e usar arquivos de modelo com a CLI do Azure para criar pools de Lote, trabalhos e tarefas. Arquivos de entrada de trabalho podem ser facilmente carregados para a conta de armazenamento associada com a conta do Lote e os arquivos de saída de trabalho baixados.
 
 ## <a name="overview"></a>Visão geral
 
@@ -50,10 +50,10 @@ Os recursos de transferência de arquivo e de modelo requerem a instalação de 
 
 Para obter instruções sobre como instalar a CLI do Azure, consulte [Instalar a CLI do Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-Depois que a CLI do Azure foi instalada, a extensão do Lote pode ser instalada usando o seguinte comando de CLI:
+Depois que a CLI do Azure for instalada, a versão mais recente da extensão do Lote pode ser instalada usando o seguinte comando de CLI:
 
 ```azurecli
-az component update --add batch-extensions --allow-third-party
+az extension add --source https://github.com/Azure/azure-batch-cli-extensions/releases/download/azure-batch-cli-extensions-2.0.0/azure_batch_cli_extensions-2.0.0-py2.py3-none-any.whl
 ```
 
 Para obter mais informações sobre a extensão do Lote, consulte [Extensões de CLI do Lote do Microsoft Azure para Windows, Mac e Linux](https://github.com/Azure/azure-batch-cli-extensions#microsoft-azure-batch-cli-extensions-for-windows-mac-and-linux).
@@ -106,7 +106,7 @@ A seguir está um exemplo de um modelo que cria um pool de VMs do Linux com ffmp
         "poolId": {
             "type": "string",
             "metadata": {
-                "description": "The pool id "
+                "description": "The pool ID "
             }
         }
     },

@@ -15,11 +15,11 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 3fca6023fedcfc64ecfe66c0f4ed60a495953cfb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: edd5099d2804fdb5867b4be5b11a361004db1665
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Comparação de Serviço de Aplicativo, Máquinas Virtuais, Service Fabric e Serviços de Nuvem do Azure
 ## <a name="overview"></a>Visão geral
@@ -40,7 +40,7 @@ A tabela a seguir compara os recursos do Serviço de Aplicativo, Serviços de Nu
 | Dimensionar para máquinas maiores sem reimplantação |X | | |X | |
 | Instâncias do servidor da Web compartilham conteúdos e configuração, o que significa que você não precisa implantar ou configurar novamente conforme realiza o dimensionamento. |X | | |X | |
 | Vários ambientes de implantação (produção e preparo) |X |X | |X |O Service Fabric permite ter vários ambientes para seus aplicativos ou implantar diferentes versões do seu aplicativo lado a lado. |
-| Gerenciamento de atualização automática do sistema operacional |X |X | | |Atualizações automáticas do sistema operacional estão planejadas para uma futura versão do Service Fabric. |
+| Gerenciamento de atualização automática do sistema operacional |X |X | | |Parcialmente por meio de POA (Aplicativo de Orquestração de Patch) e totalmente no futuro. |
 | Alternância ininterrupta entre plataformas (alterne facilmente entre 32 bits e 64 bits) |X |X | | | |
 | Implantar código com GIT, FTP |X | |X | | |
 | Implantar o código com a implantação da Web |X | |X | |Os Serviços de Nuvem oferecem suporte ao uso da Implantação da Web para implantar atualizações em instâncias de função individuais. No entanto, eles não podem ser usados para a implantação inicial de uma função, e se a Implantação da Web for usada para uma atualização, você precisará implantar separadamente em cada instância de uma função. Várias instâncias são necessárias para se qualificar para SLA de Serviço de Nuvem para ambientes de produção. |

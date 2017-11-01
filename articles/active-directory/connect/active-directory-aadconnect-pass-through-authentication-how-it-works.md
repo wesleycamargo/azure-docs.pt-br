@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 10/19/2017
 ms.author: billmath
-ms.openlocfilehash: 9ded5e0199f5ca48e2a00d2afee0e4c13b3a3460
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c7863e38671349b6424ee08330da8aaa49cb2a70
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Autenticação de Passagem do Azure Active Directory: aprofundamento técnico
-O artigo a seguir é uma visão geral de como funciona a autenticação de passagem do Azure AD.  Para informações de segurança e técnicas aprofundadas, consulte o artigo [**Aprofundamento sobre segurança**](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md).
+O artigo a seguir é uma visão geral de como funciona a autenticação de passagem do Azure AD.  Para informações de segurança e técnicas aprofundadas, consulte o artigo [**aprofundamento sobre segurança**](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md).
 
 ## <a name="how-does-azure-active-directory-pass-through-authentication-work"></a>Como a Autenticação de Passagem do Azure Active Directory funciona?
 
@@ -31,11 +31,11 @@ Quando um usuário tenta entrar em um aplicativo protegido pelo Azure AD (Azure 
 2. Se o usuário ainda não tiver entrado, ele será redirecionado para a página de entrada do Azure AD.
 3. O usuário insere o nome de usuário e a senha na página de entrada do Azure AD e clica no botão "Entrar".
 4. O Azure AD, ao receber a solicitação de entrada, coloca o nome de usuário e a senha (criptografada com o uso de uma chave pública) em uma fila.
-5. Um agente de Autenticação de Passagem local faz uma chamada de saída à fila e recupera o nome de usuário e a senha criptografada.
+5. Um Agente de Autenticação local recupera o nome de usuário e a senha criptografada da fila.
 6. O agente descriptografa a senha usando sua chave privada.
 7. Em seguida, o agente valida o nome de usuário e a senha no Active Directory usando APIs padrão do Windows (um mecanismo semelhante ao que é usado pelos Serviços de Federação do Active Directory (AD FS)). O nome de usuário pode ser o nome de usuário local padrão (normalmente `userPrincipalName`) ou outro atributo configurado no Azure AD Connect (também conhecido como `Alternate ID`).
 8. Em seguida, o DC (Controlador de Domínio) do Active Directory local avalia a solicitação e retorna a resposta apropriada (êxito, falha, senha expirada ou usuário bloqueado) para o agente.
-9. O agente, por sua vez, envia essa resposta de volta ao Azure AD.
+9. O Agente de Autenticação, por sua vez, retorna essa resposta ao Azure AD.
 10. O Azure AD avalia a resposta e responde ao usuário conforme apropriado – por exemplo, ele conecta o usuário imediatamente ou solicita a MFA (Autenticação Multifator).
 11. Se a entrada do usuário for bem-sucedida, ele será capaz de acessar o aplicativo.
 

@@ -12,23 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 10/19/2017
 ms.author: maheshu
-ms.openlocfilehash: ce50c678247226b629490a2bd8ba2935ed229f06
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5f661dba2e647ac905e7d84927fdbf6dbc76094f
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="join-a-windows-server-virtual-machine-to-a-managed-domain"></a>Ingressar uma máquina virtual do Windows Server em um domínio gerenciado
-> [!div class="op_single_selector"]
-> * [Portal do Azure - Windows](active-directory-ds-admin-guide-join-windows-vm-portal.md)
-> * [PowerShell - Windows](active-directory-ds-admin-guide-join-windows-vm-classic-powershell.md)
->
->
-
-<br>
-
 Este artigo mostra como implantar uma máquina virtual do Windows Server usando o Portal do Azure. Então, mostra como ingressar a máquina virtual em um domínio gerenciado do Azure AD Domain Services.
 
 ## <a name="step-1-create-the-windows-server-virtual-machine"></a>Etapa 1: Criar a máquina virtual do Windows Server
@@ -57,7 +49,7 @@ Realize as seguintes etapas para criar uma máquina virtual do Windows ingressad
 
     > [!TIP]
     > **Escolha a rede virtual e sub-rede certas.**
-    > Selecione a rede virtual na qual o domínio gerenciado está implantado ou uma rede virtual que esteja a ele usando emparelhamento de rede virtual. Se você selecionar uma rede virtual diferente, não poderá ingressar na rede virtual para o domínio gerenciado.
+    > Selecione a rede virtual na qual o domínio gerenciado está implantado ou uma rede virtual que esteja a ele usando emparelhamento de rede virtual. Se você selecionar uma rede virtual desconectada, você não poderá ingressar a máquina virtual no domínio gerenciado.
     > É recomendável implantar o seu domínio gerenciado em uma sub-rede dedicada. Portanto, não selecione a sub-rede na qual você habilitou o seu domínio gerenciado.
 
 7. Na página **Compra**, examine as configurações e clique em **OK** para implantar a máquina virtual.
@@ -128,7 +120,7 @@ Se você chegar à caixa de diálogo que solicita credenciais para ingressar no 
 Consulte as etapas a seguir se você estiver enfrentando problemas com as credenciais e não conseguir ingressar no domínio.
 
 * Tente usar o formato UPN para especificar as credenciais. Se houver vários usuários com o mesmo prefixo UPN no seu locatário ou se o prefixo UPN for muito longo, o SAMAccountName para sua conta poderá ser gerado automaticamente. Portanto, o formato de SAMAccountName para sua conta pode ser diferente do que você espera ou usa em seu domínio local.
-* Tente usar as credenciais de uma conta de usuário que pertence ao grupo 'Administradores do controlador de domínio do AAD' para ingressar computadores ao domínio gerenciado.
+* Tente usar credenciais de uma conta de usuário que pertença ao grupo 'Administradores do DC do AAD'.
 * Verifique se você [habilitou a sincronização de senhas](active-directory-ds-getting-started-password-sync.md) de acordo com as etapas descritas no Guia de Introdução.
 * Use o UPN do usuário conforme configurado no Azure AD (por exemplo, "bob@domainservicespreview.onmicrosoft.com") para entrar.
 * Certifique-se de que já esperou tempo suficiente para a sincronização de senha ser concluída conforme especificado no Guia de Introdução.

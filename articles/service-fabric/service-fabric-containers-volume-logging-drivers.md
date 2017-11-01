@@ -14,16 +14,30 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
 ms.author: subramar
-ms.openlocfilehash: 37436f7be4f09c14febef6174faf956fa07255ec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf7b0dd3a81c35be4907dbba85b72ce4f87e3a9f
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
-# <a name="specifying-volume-plugins-and-logging-drivers-for-your-container"></a>Especificar plugins de volume e drivers de log para seu contêiner
+# <a name="using-volume-plugins-and-logging-drivers-in-your-container"></a>Como usar plugins de volume e drivers de registro em log no seu contêiner
 
-Service Fabric suporta especificação de [Plugins de volume Docker ](https://docs.docker.com/engine/extend/plugins_volume/) e [Drivers de log docker](https://docs.docker.com/engine/admin/logging/overview/) para o seu serviço de contêiner. Os plugins são especificados no manifesto do aplicativo, conforme mostrado no seguinte manifesto:
+Service Fabric suporta especificação de [Plugins de volume Docker ](https://docs.docker.com/engine/extend/plugins_volume/) e [Drivers de log docker](https://docs.docker.com/engine/admin/logging/overview/) para o seu serviço de contêiner. 
 
+## <a name="install-volumelogging-driver"></a>Instalar o driver de registro em log/volume
+
+Se o driver de registro em log/volume do Docker não estiver instalado no computador, instale-o manualmente por meio de RDP/SSH no computador ou de um script de inicialização VMSS. Por exemplo, para instalar o Driver de Volume do Docker, faça SSH no computador e execute:
+
+```bash
+docker plugin install --alias azure --grant-all-permissions docker4x/17.09.0-ce-azure1  \
+    CLOUD_PLATFORM=AZURE \
+    AZURE_STORAGE_ACCOUNT="[MY-STORAGE-ACCOUNT-NAME]" \
+    AZURE_STORAGE_ACCOUNT_KEY="[MY-STORAGE-ACCOUNT-KEY]" \
+    DEBUG=1
+```
+
+## <a name="specify-the-plugin-or-driver-in-the-manifest"></a>Especificar o plug-in ou o driver no manifesto
+Os plugins são especificados no manifesto do aplicativo, conforme mostrado no seguinte manifesto:
 
 ```xml
 ?xml version="1.0" encoding="UTF-8"?>
@@ -44,7 +58,7 @@ Service Fabric suporta especificação de [Plugins de volume Docker ](https://do
         </LogConfig>
         <Volume Source="c:\workspace" Destination="c:\testmountlocation1" IsReadOnly="false"></Volume>
         <Volume Source="d:\myfolder" Destination="c:\testmountlocation2" IsReadOnly="true"> </Volume>
-        <Volume Source="myvolume1" Destination="c:\testmountlocation2" Driver="azurefile" IsReadOnly="true">
+        <Volume Source="myvolume1" Destination="c:\testmountlocation2" Driver="azure" IsReadOnly="true">
            <DriverOption Name="share" Value="models"/>
         </Volume>
        </ContainerHostPolicies>

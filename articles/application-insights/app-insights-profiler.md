@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: bwren
-ms.openlocfilehash: 5d9a5b0dbd0b2a95bbb3cae37aea27908addc3c9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eca593890b6b030caa0acb9ede90ca24fe136ca0
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="profiling-live-azure-web-apps-with-application-insights"></a>Criação de perfil de aplicativos Web do Azure ativos com o Application Insights
 
@@ -45,9 +45,9 @@ Aplicativos Web configurados com o Application Insights são listados na folha C
 
 Use os botões *Habilitar Criador de Perfil* ou *Desabilitar Criador de Perfil* na folha Configurar para controlar o Criador de Perfil em todos os aplicativos Web vinculados.
 
-
-
 ![Configurar folha][linked app services]
+
+Ao contrário de aplicativos Web hospedados por meio de Planos de Serviço de Aplicativo, os aplicativos hospedados em recursos de *Computação do Azure* (por exemplo: Máquina Virtual, Conjunto de Dimensionamento de Máquinas Virtuais, Service Fabric, Serviços de Nuvem) não são gerenciados diretamente pelo Azure. Nesse caso, não há aplicativo Web para vincular aqui e você precisa apenas clicar para habilitar o Profiler na tela.
 
 ## <a name="disable-the-profiler"></a>Desabilitar o criador de perfil
 Para parar ou reiniciar o Criador de Perfil para uma instância individual do Serviço de Aplicativo, você o encontrará **no recurso do Serviço de Aplicativo**, em **Trabalhos da Web**. Para excluí-lo, procure em **extensões**.

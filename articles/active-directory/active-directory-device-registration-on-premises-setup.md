@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: b695a6e07007d4a4cad2d58795e279c5d30fcd4d
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 6d53d08156d0e5d1d070361db5b74d201f18a224
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Configurando o acesso condicional local usando o registro de dispositivo do Azure Active Directory
 Quando você exige que os usuários usem o ingresso no local de trabalho para seus dispositivos pessoais no serviço de registro de dispositivo do Azure AD (Azure Active Directory), seus dispositivos poderão ser marcados como conhecidos para sua organização. Veja abaixo um guia passo a passo para habilitar o acesso condicional em aplicativos locais usando o AD FS (Serviços de Federação do Active Directory) no Windows Server 2012 R2.
@@ -220,8 +220,5 @@ Nos comandos anteriores, **nome do objeto de confiança de terceira parte confi�
 Além disso, **yourdomain.com** é o nome de domínio que você configurou com o Azure Active Directory (por exemplo, contoso.com).
 Lembre-se de remover as quebras de linha (se houver) do conteúdo HTML passado para o cmdlet **Set-AdfsRelyingPartyWebContent**.
 
-Agora, quando os usuários acessarem seu aplicativo em um dispositivo que não está registrado com o serviço de registro de dispositivo do Azure Active Directory, eles verão uma página com aparência semelhante à captura de tela a seguir.
-
-![Captura de tela de um erro quando os usuários não tiverem registrado seus dispositivos com o Azure AD](./media/active-directory-conditional-access/error-azureDRS-device-not-registered.gif)
-
+Agora, quando os usuários acessarem seu aplicativo em um dispositivo que não está registrado com o serviço de registro de dispositivo do Azure Active Directory, eles encontrarão um erro.
 

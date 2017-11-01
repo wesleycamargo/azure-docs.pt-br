@@ -11,11 +11,11 @@ ms.service: logic-apps
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 4d4c16860dbec10162797a13c8f9f57106abd17f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8b9c7c9502be1a9d8681a304a6663c23c02c0298
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Como monitorar alterações de máquina virtual com a Grade de Eventos do Azure e os aplicativos lógicos
 
@@ -225,29 +225,26 @@ Agora, adicione uma [*ação*](../logic-apps/logic-apps-what-are-logic-apps.md#l
 
 Parabéns, você acabou de criar e executar um aplicativo lógico capaz de monitorar eventos de recursos por uma grade de eventos e envio de emails para notificar o acontecimento de tais eventos. Você também aprendeu como é fácil criar fluxos de trabalho que automatizam processos e integram sistemas e serviços de nuvem.
 
-## <a name="clean-up-resources"></a>Limpar recursos
-
-Este tutorial usa recursos e executa ações que geram encargos na sua assinatura do Azure. Ao concluir o tutorial e testar, confira se desabilitou ou excluiu todos os recursos que você não deseja para evitar encargos.
-
-Você pode impedir a execução e o envio de email do aplicativo lógico sem excluir o aplicativo. No menu do aplicativo lógico, escolha **Visão geral**. Na barra de ferramentas, escolha **Desabilitar**.
-
-![Como desabilitar o aplicativo lógico](./media/monitor-virtual-machine-changes-event-grid-logic-app/turn-off-disable-logic-app.png)
-
-## <a name="faq"></a>Perguntas frequentes
-
-**P**: que outras tarefas de monitoração de máquina virtual eu posso executar com grades de eventos e aplicativos lógicos? </br>
-**R**: você pode monitorar outras alterações de configuração, por exemplo:
+Você pode monitorar outras alterações de configuração com grades de eventos e aplicativos lógicos, como por exemplo:
 
 * Uma máquina virtual obtém direitos de controle de acesso baseado em função (RBAC).
 * As alterações são feitas em um grupo de segurança de rede (NSG) em um adaptador de rede (NIC).
 * Discos para uma máquina virtual são adicionados ou removidos.
 * Um endereço IP público é atribuído a uma máquina virtual NIC.
 
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Este tutorial usa recursos e executa ações que geram encargos na sua assinatura do Azure. Ao concluir o tutorial e testar, confira se desabilitou ou excluiu todos os recursos que você não deseja para evitar encargos.
+
+* Para interromper a execução do seu aplicativo lógico sem excluir o trabalho, desabilite o aplicativo. No menu do aplicativo lógico, escolha **Visão geral**. Na barra de ferramentas, escolha **Desabilitar**.
+
+  ![Como desabilitar o aplicativo lógico](./media/monitor-virtual-machine-changes-event-grid-logic-app/turn-off-disable-logic-app.png)
+
+  > [!TIP]
+  > Se o menu do aplicativo lógico não aparecer, tente retornar ao Painel do Azure e abra novamente o aplicativo lógico.
+
+* Para excluir seu aplicativo permanentemente, escolha **Visão geral** no menu do aplicativo lógico. Na barra de ferramentas, escolha **Excluir**. Confirme que você deseja excluir o aplicativo lógico e escolha **Excluir**.
+
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Visão geral da grade de eventos](../event-grid/overview.md)
-* [Conceitos da grade de eventos](../event-grid/concepts.md)
-* [Início rápido: Como criar e encaminhar eventos personalizados com a grade de eventos](../event-grid/custom-event-quickstart.md)
-* [Esquema de evento da grade de eventos](../event-grid/event-schema.md)
-* [Aplicativos Lógicos do Azure](../logic-apps/logic-apps-what-are-logic-apps.md)
-* [Criar fluxos de trabalho de aplicativo lógico com modelos predefinidos](../logic-apps/logic-apps-use-logic-app-templates.md)
+* [Criar e encaminhar eventos personalizados com a Grade de Eventos](../event-grid/custom-event-quickstart.md)

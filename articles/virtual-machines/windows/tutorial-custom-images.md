@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 05/08/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: c7cb5353585373af8de0d30b06bcfa49a3278c17
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cee283268057a407003a38f8db5af8cac151439f
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="create-a-custom-image-of-an-azure-vm-using-powershell"></a>Criar uma imagem personalizada de uma VM do Azure usando o PowerShell
 
@@ -98,7 +98,7 @@ New-AzureRmImage -Image $image -ImageName myImage -ResourceGroupName myResourceG
  
 ## <a name="create-vms-from-the-image"></a>Criar VMs por meio da imagem
 
-Agora que tem uma imagem, você pode criar uma ou mais VMs novas por meio da imagem. A criação de uma VM por meio de uma imagem personalizada é muito semelhante à criação de uma VM usando uma imagem do Marketplace. Quando usa uma imagem do Marketplace, você precisa obter informações sobre a imagem, o provedor da imagem, a oferta, a SKU e a versão. Com uma imagem personalizada, você apenas precisa fornecer a ID do recurso da imagem personalizada. 
+Agora que tem uma imagem, você pode criar uma ou mais VMs novas por meio da imagem. A criação de uma VM por meio de uma imagem personalizada é muito semelhante à criação de uma VM usando uma imagem do Marketplace. Ao usar uma imagem do Marketplace, você precisa fornecer informações sobre a imagem, o provedor da imagem, a oferta, a SKU e a versão. Com uma imagem personalizada, você apenas precisa fornecer a ID do recurso da imagem personalizada. 
 
 No script a seguir, criamos uma variável *$image* para armazenar informações sobre a imagem personalizada usando [Get-AzureRmImage](/powershell/module/azurerm.compute/get-azurermimage) e, em seguida, usamos [Set-AzureRmVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage) e especificamos a ID usando a variável *$image* que acabamos de criar. 
 

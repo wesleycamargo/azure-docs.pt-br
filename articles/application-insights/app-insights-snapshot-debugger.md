@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 525f67a856e5ffa9fcd3c8fd368a564adc2e99fd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5a0344dcef779a9818be3e320bd5c269a2859f71
+ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Depurar instantâneos em exceções em aplicativos .NET
 
@@ -72,25 +72,56 @@ Coleta de instantâneo está disponível para:
 
 2. Inclua o pacote do NuGet [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) em seu aplicativo.
 
-3. Modifique o `ConfigureServices` método na classe do seu aplicativo `Startup` para adicionar o processador de telemetria do coletor de instantâneo.
+3. Modifique a classe `Startup` do seu aplicativo para adicionar e configurar o processador de telemetria do Coletor de Instantâneo.
 
    ```C#
    using Microsoft.ApplicationInsights.SnapshotCollector;
+   using Microsoft.Extensions.Options;
    ...
    class Startup
    {
        private class SnapshotCollectorTelemetryProcessorFactory : ITelemetryProcessorFactory
        {
-           public ITelemetryProcessor Create(ITelemetryProcessor next) =>
-               new SnapshotCollectorTelemetryProcessor(next);
+           private readonly IServiceProvider _serviceProvider;
+
+           public SnapshotCollectorTelemetryProcessorFactory(IServiceProvider serviceProvider) =>
+               _serviceProvider = serviceProvider;
+
+           public ITelemetryProcessor Create(ITelemetryProcessor next)
+           {
+               var snapshotConfigurationOptions = _serviceProvider.GetService<IOptions<SnapshotCollectorConfiguration>>();
+               return new SnapshotCollectorTelemetryProcessor(next, configuration: snapshotConfigurationOptions.Value);
+           }
        }
 
-       // This method is called by the runtime. Use it to add services to the container.
+       public Startup(IConfiguration configuration) => Configuration = configuration;
+
+       public IConfiguration Configuration { get; }
+
+       // This method gets called by the runtime. Use this method to add services to the container.
        public void ConfigureServices(IServiceCollection services)
        {
-            services.AddSingleton<ITelemetryProcessorFactory>(new SnapshotCollectorTelemetryProcessorFactory());
-           // TODO: Add any other services your application needs here.
+           // Configure SnapshotCollector from application settings
+           services.Configure<SnapshotCollectorConfiguration>(Configuration.GetSection(nameof(SnapshotCollectorConfiguration)));
+
+           // Add SnapshotCollector telemetry processor.
+           services.AddSingleton<ITelemetryProcessorFactory>(sp => new SnapshotCollectorTelemetryProcessorFactory(sp));
+
+           // TODO: Add other services your application needs here.
        }
+   }
+   ```
+
+4. Configure o Coletor de Instantâneo adicionando uma seção SnapshotCollectorConfiguration ao appsettings.json. Por exemplo:
+
+   ```json
+   {
+     "ApplicationInsights": {
+       "InstrumentationKey": "<your instrumentation key>"
+     },
+     "SnapshotCollectorConfiguration": {
+       "IsEnabledInDeveloperMode": true
+     }
    }
    ```
 

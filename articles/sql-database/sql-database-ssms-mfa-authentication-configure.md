@@ -1,6 +1,6 @@
 ---
 title: "Configurar a autenticação multifator – SQL do Azure | Microsoft Docs"
-description: Use o Multi-Factor Authentication com SSMS para Banco de Dados SQL e SQL Data Warehouse.
+description: "Saiba como usar a Autenticação Multifator com SSMS para Banco de Dados SQL e SQL Data Warehouse."
 services: sql-database
 documentationcenter: 
 author: BYHAM
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 09/27/2017
 ms.author: rickbyh
-ms.openlocfilehash: f244fc5dada77d6601710b374aa6edeb607b11d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cc9a319f26ada65837ff9010ef6feefdda3d70b6
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>Configurar a autenticação multifator para SQL Server Management Studio e Azure AD
 

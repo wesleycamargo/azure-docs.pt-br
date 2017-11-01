@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/13/2017
+ms.date: 10/06/2017
 ms.author: amanbha
-ms.openlocfilehash: d936670c548ff709fc2e935d3f28d94e4bde8a04
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 779d39e2910d0de25ee07b8fae3ca7a0e9772776
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="actor-events"></a>Eventos de ator
 Os eventos de ator são uma forma de enviar notificações de melhor esforço do ator para os clientes. Os eventos de ator foram desenvolvidos para comunicação entre ator e cliente e não devem ser usados para comunicação entre ator e ator.
@@ -95,7 +95,7 @@ return ActorProxyEventUtility.subscribeAsync(actorProxy, new GameEventsHandler()
 
 No caso de failovers, o ator pode realizar failover para um processo ou nó diferente. O proxy de ator gerencia as assinaturas ativas e as renova automaticamente. Você pode controlar o intervalo da renovação da assinatura por meio da API `ActorProxyEventExtensions.SubscribeAsync<TEvent>` . Para cancelar a assinatura, use a API `ActorProxyEventExtensions.UnsubscribeAsync<TEvent>` .
 
-No ator, simplesmente publique os eventos à medida que eles acontecem. Se existirem assinantes no evento, o tempo de execução dos Atores enviará a eles a notificação.
+No ator, publique os eventos à medida que eles acontecem. Se existirem assinantes no evento, o tempo de execução dos Atores enviará a eles a notificação.
 
 ```csharp
 var ev = GetEvent<IGameEvents>();

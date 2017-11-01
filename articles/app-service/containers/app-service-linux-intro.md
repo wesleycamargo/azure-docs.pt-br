@@ -1,11 +1,11 @@
 ---
-title: "Introdução ao Aplicativo Web para Contêineres do Azure | Microsoft Docs"
-description: "Saiba mais sobre o Aplicativo Web para Contêineres do Azure."
+title: "Introdução ao Serviço de Aplicativo no Linux | Microsoft Docs"
+description: "Saiba mais sobre o Serviço de Aplicativo do Azure no Linux."
 keywords: "serviço de aplicativo do azure, linux, oss"
 services: app-service
 documentationcenter: 
 author: naziml
-manager: erikre
+manager: cfowler
 editor: 
 ms.assetid: bc85eff6-bbdf-410a-93dc-0f1222796676
 ms.service: app-service
@@ -16,23 +16,26 @@ ms.topic: overview
 ms.date: 02/16/2017
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: bdfaf0cd7d4bb44b877a9f14891e540fd789b6c4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 89cb7dc488da42724f212d13f8550064ff8b9188
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="introduction-to-azure-web-app-for-containers"></a>Introdução ao Aplicativo Web para Contêineres do Azure
+# <a name="introduction-to-azure-app-service-on-linux"></a>Introdução ao Serviço de Aplicativo do Azure no Linux
 
-O [Aplicativo Web](../app-service-web-overview.md) é uma plataforma de computação totalmente gerenciada que foi otimizada para hospedar sites e aplicativos Web. Os clientes podem usar o Aplicativo Web para Contêineres para hospedar aplicativos Web nativos no Linux para as pilhas de aplicativos com suporte. As seções a seguir listam as pilhas de aplicativos que atualmente são suportadas.
+O [Aplicativo Web](../app-service-web-overview.md) é uma plataforma de computação totalmente gerenciada que foi otimizada para hospedar sites e aplicativos Web. Os clientes podem usar o Serviço de Aplicativo no Linux para hospedar aplicativos Web nativos no Linux para as pilhas de aplicativos com suporte. As seções a seguir listam as pilhas de aplicativos que atualmente são suportadas.
 
 ## <a name="languages"></a>Linguagens
 
-|Node.js|PHP|.NET Core|Ruby|
-|:------------------:|:---:|:---------:|:----:|
-|4.4, 4.5|5.6|1.0-1.1|2.3|
-|6.2, 6.6, 6.9-6.11|7.0|||
-|8.0-8.1||||
+O Serviço de Aplicativo no Linux dá suporte a inúmeras imagens internas a fim de aumentar a conectividade do desenvolvedor. Se não houver suporte para o tempo de execução que seu aplicativo requer nas imagens internas, haverá instruções sobre como [criar sua própria imagem do Docker](tutorial-custom-docker-image.md) a ser implantada no Aplicativo Web para Contêineres.
+
+| idioma | Versões com suporte |
+|---|---|
+| Node.js | 4.4, 4.5, 6.2, 6.6, 6.9–6.11, 8.0, 8.1 |
+| PHP | 5.6, 7.0 |
+| .NET Core | 1.0, 1.1 |
+| Ruby | 2.3 |
 
 ## <a name="deployments"></a>Implantações
 
@@ -67,7 +70,7 @@ O portal do Azure mostra somente os recursos que funcionam atualmente para o Apl
 
 Alguns recursos, como a integração de rede virtual, a autenticação do Azure Active Directory/de terceiros ou as extensões de site do Kudu, ainda não estão disponíveis. Quando esses recursos estiverem disponíveis, atualizaremos nossa documentação e nosso blog sobre as alterações.
 
-O Aplicativo Web para Contêineres só tem suporte nos planos de serviço de aplicativo [Básico, Standard e Premium](https://azure.microsoft.com/pricing/details/app-service/plans/) e não tem uma camada [Gratuita nem Compartilhada](https://azure.microsoft.com/pricing/details/app-service/plans/). Veja a seguir as restrições que também são importantes para o Aplicativo Web para Contêineres:
+Só há suporte para o Serviço de Aplicativo no Linux nos planos de serviço de aplicativo [Básico e Standard](https://azure.microsoft.com/pricing/details/app-service/plans/) e ele não tem um nível [Gratuito nem Compartilhado](https://azure.microsoft.com/pricing/details/app-service/plans/). A seguir, veja também restrições importantes para o Serviço de Aplicativo no Linux:
 
 * Não é possível criar o Aplicativo Web para Contêineres em um plano do Serviço de Aplicativo que já esteja hospedando Aplicativos Web não Linux.
 * Ao criar o Aplicativo Web para Contêineres em um grupo de recursos contendo Aplicativos Web não Linux, é necessário criar um plano do Serviço de Aplicativo em uma região diferente do plano do Serviço de Aplicativo existente.
@@ -87,13 +90,13 @@ Acesse o site SCM nas **Ferramentas Avançadas** no menu **Ferramentas de Desenv
 
 Veja os links a seguir para começar a usar o Serviço de Aplicativo no Linux. Você pode postar perguntas e problemas no [nosso fórum](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazurewebsitespreview).
 
-* [Como usar uma imagem personalizada do Docker para o Aplicativo Web para Contêineres do Azure](quickstart-custom-docker-image.md)
-* [Usando o .NET Core no Aplicativo Web do Serviço de Aplicativo do Azure para Contêineres](quickstart-dotnetcore.md)
-* [Usando o Ruby no Aplicativo Web do Serviço de Aplicativo do Azure para Contêineres](quickstart-ruby.md)
+* [Como usar uma imagem personalizada do Docker para o Aplicativo Web para Contêineres](quickstart-custom-docker-image.md)
+* [Usando o .NET Core no Serviço de Aplicativo do Azure no Linux](quickstart-dotnetcore.md)
+* [Usando o Ruby no Serviço de Aplicativo do Azure no Linux](quickstart-ruby.md)
 * [Perguntas frequentes sobre o Aplicativo Web para Contêineres do Serviço de Aplicativo do Azure](app-service-linux-faq.md)
-* [Suporte de SSH para o Aplicativo Web para Contêineres do Azure](app-service-linux-ssh-support.md)
+* [Suporte de SSH para o Serviço de Aplicativo do Azure no Linux](app-service-linux-ssh-support.md)
 * [Configurar ambientes de preparo no Serviço de Aplicativo do Azure](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
-* [Implantação Contínua do Hub do Docker com o Aplicativo Web do Azure para Contêineres](./app-service-linux-ci-cd.md)
+* [Implantação contínua do Hub do Docker com o Aplicativo Web para Contêineres](./app-service-linux-ci-cd.md)
 
 <!--Image references-->
 [1]: ./media/app-service-linux-intro/kudu-docker-logs.png

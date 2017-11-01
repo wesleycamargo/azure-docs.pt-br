@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 09/11/2017
+ms.date: 10/20/2017
 ms.author: babanisa
-ms.openlocfilehash: 358c1f4bca2ced207caf599db2fb1453ca8bc41e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e798a1e751cb9e789bc479a6f842fb7f8f703bbf
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Uma introdução à Grade de Eventos do Azure
 
@@ -25,8 +25,6 @@ Para a versão prévia, a Grade de Eventos dá suporte às localizações **west
 Este artigo fornece uma visão geral da Grade de Eventos do Azure. Se você quiser começar a usar a Grade de Eventos, confira [Criar e rotear eventos personalizados com a Grade de Eventos do Azure](custom-event-quickstart.md).
 
 ![Modelo funcional da Grade de Eventos](./media/overview/event-grid-functional-model.png)
-
-Atualmente, o Armazenamento de Blobs não está disponível publicamente como um publicador. Você deve se registrar para a versão prévia para reagir a eventos de armazenamento de blob. Para obter mais informações, consulte [Encaminhar eventos do Armazenamento de Blobs para um ponto de extremidade da Web personalizado (versão prévia)](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)
 
 ## <a name="concepts"></a>Conceitos
 
@@ -64,6 +62,7 @@ No momento, os seguintes serviços do Azure têm suporte interno ao publicador p
 * Grupos de recursos (operações de gerenciamento)
 * Assinaturas do Azure (operações de gerenciamento)
 * Hubs de Eventos
+* Blob de Armazenamento
 * Tópicos personalizados
 
 Outros serviços do Azure serão adicionados neste ano.
@@ -118,6 +117,8 @@ A Grade de Eventos custa US $0,60 por milhão de operações (US $0,30 durante a
 
 ## <a name="next-steps"></a>Próximas etapas
 
+* [Eventos de blob de armazenamento de rota](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json)  
+  Responda a eventos de blob de armazenamento usando a Grade de Eventos.
 * [Criar e assinar eventos personalizados](custom-event-quickstart.md)  
   Comece imediatamente a enviar seus próprios eventos personalizados para qualquer ponto de extremidade usando o início rápido da Grade de Eventos do Azure.
 * [Usando Aplicativos Lógicos como um Manipulador de eventos](monitor-virtual-machine-changes-event-grid-logic-app.md)  

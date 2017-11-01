@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 7/12/2017
 ms.author: xshi
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8b8fda17a8d1d1796d5299e3aba4b0fd5e719a4c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d643647d4103acd511ed270132c844da12f2ac9b
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-c"></a>Conectar o Raspberry Pi ao Hub IoT do Azure (C)
 
@@ -140,7 +140,7 @@ Ligue o Pi usando o cabo micro USB e a fonte de alimentação. Use o cabo Ethern
 
 ## <a name="run-a-sample-application-on-pi"></a>Executar um aplicativo de exemplo no Pi
 
-### <a name="install-the-prerequisite-packages"></a>Instale os pacotes de pré-requisito
+### <a name="login-to-your-raspberry-pi"></a>Logon no Raspberry Pi
 
 1. Use um dos seguintes clientes SSH do seu computador host para se conectar ao Raspberry Pi.
    
@@ -156,41 +156,26 @@ Ligue o Pi usando o cabo micro USB e a fonte de alimentação. Use o cabo Ethern
    > [!NOTE] 
    O nome de usuário padrão é `pi` e a senha é `raspberry`.
 
-1. Instale os pacotes de pré-requisito do SDK do dispositivo IoT do Microsoft Azure para C e Cmake, executando os seguintes comandos:
-
-   ```bash
-   grep -q -F 'deb http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' /etc/apt/sources.list || sudo sh -c "echo 'deb http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' >> /etc/apt/sources.list"
-   grep -q -F 'deb-src http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' /etc/apt/sources.list || sudo sh -c "echo 'deb-src http://ppa.launchpad.net/aziotsdklinux/ppa-azureiot/ubuntu vivid main' >> /etc/apt/sources.list"
-   sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys FDA6A393E4C2257F
-   sudo apt-get update
-   sudo apt-get install -y azure-iot-sdk-c-dev cmake libcurl4-openssl-dev git-core
-   git clone git://git.drogon.net/wiringPi
-   cd ./wiringPi
-   ./build
-   ```
-
 
 ### <a name="configure-the-sample-application"></a>Configurar o aplicativo de exemplo
 
 1. Clone o aplicativo de exemplo executando o seguinte comando:
 
    ```bash
-   git clone https://github.com/Azure-Samples/iot-hub-c-raspberrypi-client-app
+   sudo apt-get install git-core
+   git clone https://github.com/Azure-Samples/iot-hub-c-raspberrypi-client-app.git
    ```
-1. Abra o arquivo de configuração executando os seguintes comandos:
+
+2. Execute o script de instalação:
 
    ```bash
-   cd iot-hub-c-raspberrypi-client-app
-   nano config.h
+   cd ./iot-hub-c-raspberrypi-client-app
+   sudo chmod u+x setup.sh
+   sudo ./setup.sh
    ```
 
-   ![Arquivo de configuração](media/iot-hub-raspberry-pi-kit-c-get-started/6_config-file.png)
-
-   Há duas macros que você pode configurar nesse arquivo. A primeira é a `INTERVAL`, que define o intervalo de tempo (em milissegundos) entre duas mensagens que são enviadas para a nuvem. O segundo, o `SIMULATED_DATA`, é um valor booliano para definir se os dados simulados de sensor serão usados ou não.
-
-   Se você **não tiver o sensor**, defina o valor `SIMULATED_DATA` como `1` para fazer com que o aplicativo de exemplo crie e use dados simulados de sensor.
-
-1. Salve e saia pressionando CTRL+O > ENTER > CTRL+X.
+   > [!NOTE] 
+   > Se você **não tiver um BME280 físico**, poderá usar '--simulated-data' como um parâmetro de linha de comando para simular os dados de temperatura e umidade. `sudo ./setup.sh --simulated-data`
 
 ### <a name="build-and-run-the-sample-application"></a>Crie e execute o aplicativo de exemplo
 

@@ -1,6 +1,6 @@
 ---
-title: "Criar um aplicativo Web PHP em um contêiner do Linux no Azure | Microsoft Docs"
-description: "Implante seu primeiro Olá, Mundo em PHP no aplicativo Web do Serviço de Aplicativo do Azure em minutos."
+title: "Criar um aplicativo Web PHP e implantá-lo no Serviço de Aplicativo no Linux | Microsoft Docs"
+description: "Implante seu primeiro Olá, Mundo PHP no Serviço de Aplicativo no Linux em minutos."
 services: app-service\web
 documentationcenter: 
 author: syntaxc4
@@ -15,19 +15,19 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 2d5c8901e3deb126e216b58264c820b374b5670b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3ff1b0bdd2397387910c31e25ddbc50ffc0bd1c4
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="create-a-php-web-app-in-a-linux-container-in-azure"></a>Criar um aplicativo Web PHP em um contêiner do Linux no Azure
+# <a name="create-a-php-web-app-in-app-service-on-linux"></a>Criar um aplicativo Web PHP no Serviço de Aplicativo no Linux
 
-O [Aplicativo Web para Contêineres](app-service-linux-intro.md) fornecem um serviço de hospedagem na Web altamente escalonável e com aplicação de patch automática no sistema operacional Linux. Este tutorial de início rápido mostra como implantar um aplicativo PHP no aplicativo Web para Contêineres do Azure. Crie o aplicativo Web usando a [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) no Cloud Shell e use o Git para implantar o código PHP no aplicativo Web.
+O [Serviço de Aplicativo no Linux](app-service-linux-intro.md) fornece um serviço de hospedagem na Web altamente escalonável e com aplicação automática de patches usando o sistema operacional Linux. Este tutorial de guia de início rápido mostra como implantar um aplicativo PHP no Serviço de Aplicativo do Azure no Linux. Crie o aplicativo Web com imagem interna usando a [CLI do Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) no Cloud Shell e use o Git para implantar o código PHP no aplicativo Web.
 
 ![Aplicativo de exemplo em execução no Azure]](media/quickstart-php/hello-world-in-browser.png)
 
-Você pode seguir as etapas abaixo usando um computador Mac, Windows ou Linux. 
+Você pode seguir as etapas abaixo usando um computador Mac, Windows ou Linux.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -71,11 +71,11 @@ Na janela do terminal, pressione **Ctrl+C** para sair do servidor Web.
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-## <a name="create-a-web-app"></a>Criar um aplicativo Web
+## <a name="create-a-web-app-with-built-in-image"></a>Criar um aplicativo Web com imagem interna
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-linux-php-no-h.md)] 
 
-Navegue até o site para ver seu Aplicativo Web recém-criado. Substitua _&lt;nome do aplicativo>_ por um nome exclusivo do aplicativo.
+Navegue até o site para ver seu aplicativo Web recém-criado com imagem interna. Substitua _&lt;nome do aplicativo>_ por um nome exclusivo do aplicativo.
 
 ```bash
 http://<app name>.azurewebsites.net
@@ -83,9 +83,9 @@ http://<app name>.azurewebsites.net
 
 ![Página de aplicativo Web vazia](media/quickstart-php/app-service-web-service-created.png)
 
-Você criou um novo aplicativo Web vazio em um contêiner do Linux com a implantação do Git habilitada.
+Você criou um novo aplicativo Web vazio com imagem interna, com a implantação do Git habilitada.
 
-[!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
+[!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)]
 
 ```bash
 Counting objects: 2, done.
@@ -120,11 +120,11 @@ Navegue até o aplicativo implantado usando o navegador da Web.
 http://<app_name>.azurewebsites.net
 ```
 
-O código de exemplo do PHP está em execução em um aplicativo Web do Serviço de Aplicativo do Azure.
+O código de exemplo PHP está em execução em um aplicativo Web com imagem interna.
 
 ![Aplicativo de exemplo em execução no Azure](media/quickstart-php/hello-world-in-browser.png)
 
-**Parabéns!** Você implantou seu primeiro aplicativo PHP no Serviço de Aplicativo.
+**Parabéns!** Você implantou seu primeiro aplicativo PHP no Serviço de Aplicativo no Linux.
 
 ## <a name="update-locally-and-redeploy-the-code"></a>Atualizar localmente e reimplantar o código
 

@@ -1,6 +1,6 @@
 ---
 title: "Grupos de failover e replicação geográfica ativa - Banco de Dados SQL do Azure | Microsoft Docs"
-description: "Grupos de failover automático com replicação geográfica ativa permitem configurar quatro réplicas do banco de dados em qualquer um dos datacenters do Azure e fazer o failover automaticamente caso ocorra uma interrupção."
+description: "Use grupos de failover automático com replicação geográfica ativa e habilita failover automático para o caso de uma interrupção."
 services: sql-database
 documentationcenter: na
 author: anosov1960
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: NA
 ms.date: 10/11/2017
 ms.author: sashan
-ms.openlocfilehash: 0725d5747ab343dcf99ad8f2dc0e47d7304c9f1e
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 0b424e2b260ec527f33cdbfe49d1d981b14edfda
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="overview-failover-groups-and-active-geo-replication"></a>Visão geral: grupos de failover e replicação geográfica ativa
 A replicação geográfica ativa permite que você configure até quatro bancos de dados secundários legíveis, na mesma localização de centro de dados ou em localizações (regiões) diferentes. Os bancos de dados secundários estão disponíveis para consulta e failover no caso de uma paralisação do data center ou da incapacidade de conectar ao banco de dados primário. O failover deve ser iniciado manualmente pelo aplicativo do usuário. Após o failover, o novo banco de dados primário terá um ponto de extremidade de conexão diferente. 
@@ -65,7 +65,7 @@ O recurso de replicação geográfica ativa fornece os seguintes recursos essenc
 * **Bancos de dados secundários legíveis**: um aplicativo pode acessar um banco de dados secundário para operações somente leitura usando as mesmas entidades de segurança usadas para acessar o banco de dados primário, ou outras diferentes. Os bancos de dados secundários operam no modo de isolamento de instantâneo para garantir que a replicação das atualizações do primário (repetição de log) não seja atrasada por consultas executadas no secundário.
 
    > [!NOTE]
-   > A repetição de log será atrasada no banco de dados secundário se houver atualizações de esquema que ele esteja recebendo do Primário que exijam um bloqueio de esquema no banco de dados secundário. 
+   > A repetição do log será atrasada no banco de dados secundário se houver atualizações de esquema no primário. Este último requer um bloqueio de esquema no banco de dados secundário. 
    > 
 
 * **Vários bancos de dados secundários legíveis**: dois ou mais bancos de dados secundários aumentam a redundância e o nível de proteção para o banco de dados primário e o aplicativo. Se existirem vários bancos de dados secundários, o aplicativo permanecerá protegido mesmo se houver uma falha em um dos bancos de dados secundários. Se houver apenas um banco de dados secundário e ele falhar, o aplicativo será exposto a um risco maior até que um novo banco de dados secundário seja criado.
