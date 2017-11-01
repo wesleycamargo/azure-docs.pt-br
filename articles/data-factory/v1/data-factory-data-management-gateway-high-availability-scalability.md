@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 1aac856d154724e3dcd282e2d34c27571cd1cb02
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1e8c2248c064a7ec934dd8ef3e926f3325a05395
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>Gateway de Gerenciamento de Dados – alta disponibilidade e escalabilidade (versão prévia)
-Este artigo lhe ajudará a configurar a solução de alta disponibilidade e escalabilidade com o Gateway de Gerenciamento de Dados.    
+Este artigo ajudará a configurar a solução de alta disponibilidade e escalabilidade com o Gateway/Integração de Gerenciamento de Dados.    
 
 > [!NOTE]
-> Este artigo pressupõe que você já esteja familiarizado com conceitos básicos do Gateway de Gerenciamento de Dados. Se você não estiver, consulte [Gateway de Gerenciamento de Dados](data-factory-data-management-gateway.md).
+> Este artigo pressupõe que você já esteja familiarizado com os conceitos básicos do Integration Runtime (Gateway de Gerenciamento de Dados Anterior). Se você não estiver, consulte [Gateway de Gerenciamento de Dados](data-factory-data-management-gateway.md).
 
 >**Esse recurso em versão prévia é oficialmente compatível com o Gateway de Gerenciamento de Dados versão 2.12.xxxx.x e superior**. Verifique se você está usando a versão 2.12.xxxx.x ou superior. Baixe a versão mais recente do Gateway de Gerenciamento de Dados [aqui](https://www.microsoft.com/download/details.aspx?id=39717).
 
@@ -155,14 +155,21 @@ Você pode atualizar um gateway existente para usar o recurso de alta disponibil
 - Adicione pelo menos dois nós para assegurar alta disponibilidade.  
 
 ### <a name="tlsssl-certificate-requirements"></a>Requisitos de certificado TLS/SSL
-Aqui estão os requisitos para o certificado TLS/SSL que é usado para proteger as comunicações entre os nós de gateway:
+Aqui estão os requisitos para o certificado TLS/SSL usado para proteger as comunicações entre os nós do tempo de execução de integração:
 
-- O certificado deve ser um certificado X509 v3 publicamente confiável.
-- Todos os nós de gateway devem confiar nesse certificado. 
-- É recomendável que você use certificados emitidos por uma AC (autoridade de certificação) pública (de terceiros).
+- O certificado deve ser um certificado X509 v3 publicamente confiável. É recomendável que você use certificados emitidos por uma AC (autoridade de certificação) pública (de terceiros).
+- Cada nó de tempo de execução de integração deve confiar nesse certificado, bem como no computador cliente que está executando o aplicativo do gerenciador de credenciais. 
+> [!NOTE]
+> O aplicativo do gerenciador de credenciais é usado durante a configuração segura da credencial do Assistente para Cópia/Portal do Azure. E isso pode ser acionados de qualquer computador na mesma rede que o armazenamento de dados local/privado.
+- Há suporte para certificados curinga. Se o nome FQDN for **node1.domain.contoso.com**, você poderá usar ***.domain.contoso.com** como nome da entidade do certificado.
+- Certificados SAN não são recomendados, já que apenas o último item dos Nomes Alternativos de Entidade será usado e todos os outros serão ignorados devido à limitação atual. Por exemplo você tem um certificado SAN cujo SAN é **node1.domain.contoso.com** e **node2.domain.contoso.com**, você só pode usar este certificado no computador cujo FQDN é **node2.domain.contoso.com**.
 - Dá suporte a qualquer tamanho de chave com suporte pelo Windows Server 2012 R2 para certificados SSL.
-- Não dá suporte a certificados que usam chaves CNG.
-- Há suporte para certificados curinga. 
+- Não há suporte para certificado usando chaves CNG. Não dá suporte a certificados que usam chaves CNG.
+
+#### <a name="faq-when-would-i-not-enable-this-encryption"></a>Perguntas frequentes: Quando eu não habilitaria essa criptografia?
+Habilitar criptografia pode adicionar custos à sua infraestrutura (ter um certificado público), portanto, você pode ignorar a habilitação de criptografia nestes casos:
+- Quando o tempo de execução de integração for executado em uma rede confiável ou em uma rede com criptografia transparente, como IP/SEC. Uma vez que essa comunicação de canal só é limitada na sua rede confiável, talvez você não precise de criptografia adicional.
+- Quando o tempo de execução de integração não está em execução em um ambiente de produção. Isso pode ajudar a reduzir o custo do certificado TLS/SSL.
 
 
 ## <a name="monitor-a-multi-node-gateway"></a>Monitorar um gateway com vários nós

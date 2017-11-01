@@ -8,4 +8,4 @@ O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* no local 
 az group create --name myResourceGroup --location "West Europe"
 ```
 
-Em geral, você cria seu grupo de recursos e os recursos em uma região próxima a você. Para ver todos os locais com suporte para Aplicativos Web do Azure, execute o comando `az appservice list-locations`. 
+Em geral, você cria seu grupo de recursos e os recursos em uma região próxima a você. Para ver todos os locais com suporte para planos do Serviço de Aplicativo, execute o comando `az appservice list-locations`.

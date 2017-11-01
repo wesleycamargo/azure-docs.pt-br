@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 10/16/2017
 ms.author: marsma
 ms.custom: 
-ms.openlocfilehash: 033ef0cdd607ced5de6c975e071e0ce37e677201
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e38a92fc48636476f00fe18c735901d906799fde
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="create-a-container-registry-using-the-azure-portal"></a>Criar um registro de contêiner usando o portal do Azure
 
-Um Registro de Contêiner do Azure é um registro particular do Docker no Azure em que você pode armazenar e gerenciar suas imagens de contêiner particulares do Docker. Neste guia de início rápido, você criará um Registro de Contêiner com o Portal do Azure.
+Um registro de contêiner do Azure é um registro particular do Docker no Azure no qual você pode armazenar e gerenciar suas imagens de contêiner particulares do Docker. Neste guia de início rápido, você criará um registro de contêiner com o Portal do Azure.
 
 Para concluir este guia de início rápido, você deve ter o Docker instalado localmente. O Docker fornece pacotes que configuram facilmente o Docker em qualquer sistema [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) ou [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
 
@@ -39,11 +39,13 @@ Selecione **Novo** > **Contêineres** > **Registro de Contêiner do Azure**.
 
 ![Criar um registro de contêiner no Portal do Azure][qs-portal-01]
 
-Insira os valores para **Nome do registro** e **Grupo de recursos**. O nome do registro deve ser exclusivo no Azure e conter de 5 a 50 caracteres alfanuméricos. Crie um novo grupo de recursos denominado `myResourceGroup` e para **SKU**, selecione "Clássico". Selecione **Criar** para implantar a instância do ACR.
+Insira os valores para **Nome do registro** e **Grupo de recursos**. O nome do registro deve ser exclusivo no Azure e conter de 5 a 50 caracteres alfanuméricos. Crie um novo grupo de recursos denominado `myResourceGroup` e, para **SKU**, selecione "Básico". Selecione **Criar** para implantar a instância do ACR.
 
 ![Criar um registro de contêiner no Portal do Azure][qs-portal-03]
 
-O Registro de Contêiner do Azure está disponível em vários SKUs: `Classic`, `Basic`, `Standard` e `Premium`. Embora `Basic`, `Standard` e `Premium` forneçam recursos avançados como armazenamento gerenciado e Webhooks, eles estão atualmente em versão prévia e não estão disponíveis em algumas regiões do Azure. Selecionamos o SKU `Classic` neste guia de início rápido devido a sua disponibilidade em todas as regiões.
+Neste guia de início rápido, criamos um registro *Básico*. O Registro de Contêiner do Azure está disponível em várias SKUs diferentes, descritos brevemente na tabela a seguir. Para obter detalhes estendidos sobre cada um, consulte [SKUs de registro de contêiner](container-registry-skus.md).
+
+[!INCLUDE [container-registry-sku-matrix](../../includes/container-registry-sku-matrix.md)]
 
 Quando a mensagem **Implantação com êxito** for exibida, selecione o registro de contêiner no portal e, em seguida, selecione as **Chaves de acesso**.
 

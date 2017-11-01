@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/19/2017
 ms.author: TomSh
-ms.openlocfilehash: 036ce3dce28e7951bb39754c4351661fae85f06c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3b8038b716266326967e2cf178efe4d36f4badc5
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
 # <a name="azure-database-security-overview"></a>Visão geral de segurança do banco de dados do Azure
 
@@ -92,7 +92,7 @@ A maioria das violações de dados envolve o roubo de dados críticos, como núm
 
 O [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx) é um recurso criado para proteger dados confidenciais, como números de cartão de crédito ou números de identificação nacional (por exemplo, números do seguro social dos EUA), armazenados no Banco de Dados SQL do Azure ou nos bancos de dados SQL Server. Esse recurso permite que os clientes criptografem dados confidenciais em aplicativos clientes e nunca revelem as chaves de criptografia para o mecanismo de banco de dados (Banco de dados SQL ou SQL Server).
 
-O Always Encrypted fornece uma separação entre os proprietários dos dados (e que podem exibi-los) de quem gerencia os dados (mas que não devem ter acesso). Ao garantir que os administradores de banco de dados locais, operadores de banco de dados na nuvem ou outros usuários com altos privilégios, mas não autorizados, não podem acessar os dados criptografados,
+O Always Encrypted fornece uma separação entre os proprietários dos dados (e que podem exibi-los) de quem gerencia os dados (mas que não devem ter acesso). Ao garantir que os administradores de banco de dados locais, operadores de banco de dados na nuvem ou outros usuários com altos privilégios, mas não autorizados, não possam acessar os dados criptografados.
 
 Além disso, o Always Encrypted torna a criptografia transparente para aplicativos. Um driver habilitado para o Always Encrypted instalado no computador cliente, de modo que ele possa criptografar e descriptografar dados confidenciais automaticamente no aplicativo cliente. O driver criptografa os dados em colunas confidenciais antes de passá-los para o Mecanismo de Banco de Dados e reescreve as consultas automaticamente para que a semântica do aplicativo seja preservada. Da mesma forma, o driver descriptografa os dados de maneira transparente, armazenados em colunas de banco de dados criptografadas, contidas nos resultados da consulta.
 

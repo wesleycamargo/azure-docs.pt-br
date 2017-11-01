@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/20/2017
 ms.author: yushwang
-ms.openlocfilehash: bb3129f70f5eeed99d5889226aa6727f675b6217
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 434f84dc6244eddce9b172a617722b218360ffc2
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="add-a-site-to-site-connection-to-a-vnet-with-an-existing-vpn-gateway-connection-classic"></a>Adicione uma conexão Site a Site a uma rede virtual com uma conexão de gateway de VPN existente (clássico)
 
@@ -70,11 +70,11 @@ Antes de começar a configuração, verifique se você tem os seguintes itens:
 Se você já tiver uma VPN site a site com um gateway de roteamento dinâmico, ótimo! Continue em [Exporte as definições da configuração de rede virtual](#export). Caso contrário, faça o seguinte:
 
 ### <a name="if-you-already-have-a-site-to-site-virtual-network-but-it-has-a-static-policy-based-routing-gateway"></a>Se você já tiver uma rede virtual site a site, mas ela tiver um gateway de roteamento estático (baseado em política):
-1. Altere o tipo de gateway para roteamento dinâmico. Uma VPN multissites exige um gateway de roteamento dinâmico (também chamado de baseado em rota). Para alterar o tipo de gateway, você precisará primeiro excluir o gateway existente e, em seguida, criar um novo. Para obter instruções, consulte [Como alterar o tipo de roteamento de VPN para seu gateway](vpn-gateway-configure-vpn-gateway-mp.md).  
-2. Configure seu novo gateway e crie seu túnel de VPN. Para obter instruções, consulte [Configurar um gateway de VPN no Portal Clássico do Azure](vpn-gateway-configure-vpn-gateway-mp.md). Primeiro, altere o tipo de gateway para roteamento dinâmico.
+1. Altere o tipo de gateway para roteamento dinâmico. Uma VPN multissites exige um gateway de roteamento dinâmico (também chamado de baseado em rota). Para alterar o tipo de gateway, você precisará primeiro excluir o gateway existente e, em seguida, criar um novo.
+2. Configure seu novo gateway e crie seu túnel de VPN. Para obter instruções, consulte [Especificar o tipo VPN e SKU](vpn-gateway-howto-site-to-site-classic-portal.md#sku). Verifique se que você especificou o Tipo de Roteamento como 'Dinâmico'.
 
 ### <a name="if-you-dont-have-a-site-to-site-virtual-network"></a>Se você não tiver uma rede virtual site a site:
-1. Crie a sua rede virtual site a site usando estas instruções: [Criar uma rede virtual com uma conexão de VPN site a site no Portal Clássico do Azure](vpn-gateway-site-to-site-create.md).  
+1. Crie a sua rede virtual Site a Site usando estas instruções: [Criar uma rede virtual com uma conexão de VPN site a site](vpn-gateway-site-to-site-create.md).  
 2. Configure um gateway de roteamento dinâmico usando estas instruções: [Configurar um gateway de VPN](vpn-gateway-configure-vpn-gateway-mp.md). Lembre-se de selecionar **roteamento dinâmico** para o tipo de gateway.
 
 ## <a name="export"></a>2. Exportar o arquivo de configuração de rede
@@ -157,7 +157,7 @@ Para adicionar referências a sites adicionais (criar uma configuração de vár
 ```
 
 ## <a name="5-import-the-network-configuration-file"></a>5. Importar o arquivo de configuração de rede
-Importe o arquivo de configuração de rede. Ao importar esse arquivo com as alterações, os novos túneis serão adicionados. Os túneis usarão o gateway dinâmico que você criou anteriormente. Você pode usar o portal clássico ou PowerShell para importar o arquivo.
+Importe o arquivo de configuração de rede. Ao importar esse arquivo com as alterações, os novos túneis serão adicionados. Os túneis usarão o gateway dinâmico que você criou anteriormente. Você pode usar o PowerShell para importar o arquivo.
 
 ## <a name="6-download-keys"></a>6. Baixar chaves
 Depois de adicionar os novos túneis, use o cmdlet do PowerShell 'Get-AzureVNetGatewayKey' para obter as chaves pré-compartilhadas IPsec/IKE para cada túnel.

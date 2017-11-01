@@ -1,6 +1,6 @@
 ---
 title: Diretrizes de ajuste de desempenho do Banco de Dados SQL do Azure | Microsoft Docs
-description: "Este artigo pode ajudar você a escolher a camada de serviço para seu aplicativo. Nele, também recomendamos formas de ajustar seu aplicativo para aproveitar ao máximo o Banco de Dados SQL do Azure."
+description: "Saiba mais sobre como usar as recomendações para melhorar o desempenho de consulta do Banco de Dados SQL do Azure."
 services: sql-database
 documentationcenter: na
 author: CarlRabeler
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 02/09/2017
 ms.author: carlrab
-ms.openlocfilehash: dc0244f0e0949b172c391825057f5c14893a5158
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 31130c261bb7ee12b38e199c2a3bb71d7f8fc4b8
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="tuning-performance-in-azure-sql-database"></a>Ajustando o desempenho no Banco de Dados SQL do Azure
 

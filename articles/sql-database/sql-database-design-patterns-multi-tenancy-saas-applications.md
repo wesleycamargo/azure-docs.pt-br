@@ -1,6 +1,6 @@
 ---
 title: "Padrões de design para aplicativos SaaS multilocatários e o Banco de Dados SQL do Azure | Microsoft Docs"
-description: "Este artigo aborda os requisitos e padrões de arquitetura de dados comuns que aplicativos de banco de dados multilocatários em execução em um ambiente de nuvem precisam considerar e as várias compensações associadas a esses padrões. Ele também explica como o Banco de Dados SQL do Azure com seus pools elásticos e suas ferramentas elásticas ajudam a atender a esses requisitos sem comprometimento."
+description: "Aprenda sobre os requisitos e os padrões da arquitetura de dados comuns de aplicativos de banco de dados SaaS (software como serviço) multilocatários executados em um ambiente de nuvem."
 keywords: 
 services: sql-database
 documentationcenter: 
@@ -16,11 +16,11 @@ ms.tgt_pltfrm: NA
 ms.workload: sqldb-design
 ms.date: 02/01/2017
 ms.author: srinia
-ms.openlocfilehash: 0f6ba62a01f3211ccaae6b6c48f72e0de54aad78
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3d8e3a05ae067fc9b2d52e47c4c49759c940477e
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="design-patterns-for-multi-tenant-saas-applications-and-azure-sql-database"></a>Padrões de design para aplicativos SaaS multilocatários e o Banco de Dados SQL do Azure
 Neste artigo, você pode aprender sobre os requisitos e padrões comuns de arquitetura de dados de aplicativos de banco de dados SaaS (software como serviço) multilocatários em execução em um ambiente de nuvem. Ele também explica os fatores que você precisa considerar e as compensações dos diferentes padrões de design. O pool elástico e as ferramentas elásticas no Banco de Dados SQL podem ajudar você a atender os requisitos específicos sem comprometer outros objetivos.

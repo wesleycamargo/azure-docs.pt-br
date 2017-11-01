@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 10/12/2017
 ms.author: billmath
-ms.openlocfilehash: 7bb8868ab813d0de992e92a921b2d204b0ac60c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d57235671389e02c7d397b1244cdddb7a20067cc
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Solucionar problemas de Autenticação de Passagem do Azure Active Directory
 
@@ -127,6 +127,10 @@ A configuração leva algum tempo para entrar em vigor - o período depende do a
 
 Dependendo do tipo de problema que você tem, é preciso examinar locais diferentes em busca de logs do Agente de Autenticação de Passagem.
 
+### <a name="azure-ad-connect-logs"></a>Logs do Azure AD Connect
+
+Para erros relacionados à instalação, consulte os logs do Azure AD Connect em **%ProgramData%\AADConnect\trace-\*.log**.
+
 ### <a name="authentication-agent-event-logs"></a>Logs de eventos do Agente de Autenticação
 
 Para erros relacionados ao Agente de autenticação, abra o aplicativo Visualizador de Eventos no servidor e verifique em **Application and Service Logs\Microsoft\AzureAdConnect\AuthenticationAgent\Admin**.
@@ -135,7 +139,7 @@ Para análises detalhadas, habilite o log de "Sessão". Não execute o Agente de
 
 ### <a name="detailed-trace-logs"></a>Logs de rastreamento detalhados
 
-Para solucionar problemas de falhas de conexão do usuário, procure os logs de rastreamento em **%programdata%\Microsoft\Azure AD Connect Authentication Agent\Trace\\**. Esses logs incluem os motivos pelos quais um usuário específico falha ao entrar usando o recurso de Autenticação de Passagem. Esses erros também são mapeados para os motivos de falha no logon mostrados na [tabela](#sign-in-failure-reasons-on-the-Azure-portal) anterior. A seguir está um exemplo de entrada de log:
+Para solucionar problemas de falhas de conexão do usuário, procure os logs de rastreamento em **%ProgramData%\Microsoft\Azure AD Connect Authentication Agent\Trace\\**. Esses logs incluem os motivos pelos quais um usuário específico falha ao entrar usando o recurso de Autenticação de Passagem. Esses erros também são mapeados para os motivos de falha no logon mostrados na [tabela](#sign-in-failure-reasons-on-the-Azure-portal) anterior. A seguir está um exemplo de entrada de log:
 
 ```
     AzureADConnectAuthenticationAgentService.exe Error: 0 : Passthrough Authentication request failed. RequestId: 'df63f4a4-68b9-44ae-8d81-6ad2d844d84e'. Reason: '1328'.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2017
 ms.author: kakhan
-ms.openlocfilehash: ebf3062ab0600b0ae722c78d07095970001a0a23
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eb1f3f01f896cc03fde13f11457be4740fa2720a
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Azure Disk Encryption para VMs IaaS Windows e Linux
 O Microsoft Azure tem o compromisso sério de garantir a privacidade e a soberania dos seus dados e permite que você controle os dados hospedados no Azure usando uma variedade de tecnologias para criptografar, controlar e gerenciar chaves de criptografia, bem como auditar e controlar o acesso aos dados. Isso permite que os clientes do Azure tenham a flexibilidade de escolher a solução que melhor atenda às necessidades de negócios. Neste artigo, apresentaremos a você uma nova solução de tecnologia, "Azure Disk Encryption para VMs IaaS Windows e Linux" para ajudá-lo a proteger seus dados e atender às obrigações de conformidade e segurança da organização. O documento fornece orientações detalhadas sobre como usar os recursos de criptografia de disco do Azure, incluindo os cenários com suporte e as experiências de usuário.
@@ -40,8 +40,8 @@ A solução Azure Disk Encryption dá suporte aos seguintes cenários do cliente
 * Desabilitar a criptografia em VMs IaaS do Windows
 * Desabilitar a criptografia em unidades de dados para VMs IaaS do Linux
 * Ativar criptografia de VMs de disco gerenciado
-* Atualizar configurações de criptografia de uma VM de armazenamento não premium criptografada existente
-* Backup e restauração de VMs criptografadas, criptografadas com chave de critografia de chave
+* Atualizar configurações de criptografia de uma VM de armazenamento criptografada premium e não premium existente
+* Fazer backup e restauração de VMs criptografadas
 
 A solução dá suporte aos seguintes cenários para VMs IaaS quando habilitados no Microsoft Azure:
 
@@ -54,8 +54,10 @@ A solução dá suporte aos seguintes cenários para VMs IaaS quando habilitados
 * Habilitar a criptografia em volumes com caminhos de montagem
 * Habilitar criptografia em VMs do Linux configuradas com disk striping (RAID) usando mdadm
 * Habilitar criptografia no Linux VMs utilizando LVM para discos de dados
+* Habilitar criptografia no Linux LVM 7.3 para discos de dados e do sistema operacional 
 * Habilitar a criptografia em VMs do Windows configuradas com os Espaços de Armazenamento
-* Atualizar configurações de criptografia de uma VM de armazenamento não premium criptografada existente
+* Atualizar configurações de criptografia de uma VM de armazenamento criptografada premium e não premium existente
+* Fazer backup e restauração de VMs criptografada para cenários KEK e não KEK (KEK – Chave de Criptografia de Chaves)
 * Para todas as regiões do Público do Azure e AzureGov há suporte
 
 A solução não oferece suporte para seguintes cenários, recursos e tecnologia:
@@ -64,15 +66,9 @@ A solução não oferece suporte para seguintes cenários, recursos e tecnologia
 * Como desabilitar a criptografia em unidades do sistema operacional para VMs IaaS do Linux
 * Desabilitar criptografia em uma unidade de dados se a unidade do SO estiver criptografada para VMs de IaaS do Linux
 * VMs de IaaS que são criadas usando o método de criação de VM clássico
-* Habilitar criptografia em imagens personalizadas do cliente de VMs de IaaS do Linux e Windows NÃO tem suporte. Habilitar criptografia no disco do SO do LVM do Linux, atualmente não tem suporte. Este suporte será disponibilizado em breve.
+* Habilitar criptografia em imagens personalizadas do cliente de VMs de IaaS do Linux e Windows NÃO tem suporte.
 * Integração com o Serviço de Gerenciamento de Chaves no local
 * Arquivos do Azure (sistema de arquivos compartilhados), NFS (Network File System), volumes dinâmicos e VMs do Windows configuradas com Sistemas RAID baseados em software
-* Backup e restauração de VMs criptografadas, criptografadas com chave de criptografia de chave.
-* Atualize configurações de criptografia de um armazenamento VM existente criptografado premium.
-
-> [!NOTE]
-> O backup e a restauração de VMs criptografadas só têm suporte para VMs que são criptografadas com a configuração KEK. Não há suporte em VMs que são criptografados sem KEK. KEK é um parâmetro opcional que habilita a criptografia de VM. Esse suporte será oferecido em breve.
-> Atualizar configurações de criptografia de uma VM de armazenamento não premium criptografada existente. Esse suporte será oferecido em breve.
 
 ### <a name="encryption-features"></a>Recursos de criptografia
 Quando você habilita e a implanta o Azure Disk Encryption para VMs IaaS do Azure, os seguintes recursos são habilitados, dependendo da configuração fornecida:
@@ -85,9 +81,6 @@ Quando você habilita e a implanta o Azure Disk Encryption para VMs IaaS do Azur
 * Comunicando o status de criptografia da VM IaaS criptografada
 * Remoção de definições de configuração de criptografia de disco da máquina virtual IaaS
 * Backup e restauração de VMs criptografadas usando o serviço de Backup do Azure
-
-> [!NOTE]
-> O backup e a restauração de VMs criptografadas só têm suporte para VMs que são criptografadas com a configuração KEK. Não há suporte em VMs que são criptografados sem KEK. KEK é um parâmetro opcional que habilita a criptografia de VM.
 
 o Azure Disk Encryption para VMS IaaS para a solução Windows e Linux inclui:
 
@@ -157,6 +150,7 @@ Antes de habilitar o Azure Disk Encryption em VMs IaaS do Azure para os cenário
 | Ubuntu | 12.10 | Disco de dados |
 | Ubuntu | 12.04 | Disco de dados |
 | RHEL | 7.3 | SO e Disco de Dados |
+| RHEL | LVM 7.3 | SO e Disco de Dados |
 | RHEL | 7,2 | SO e Disco de Dados |
 | RHEL | 6,8 | SO e Disco de Dados |
 | RHEL | 6.7 | Disco de dados |
@@ -223,7 +217,7 @@ Antes de habilitar o Azure Disk Encryption em VMs IaaS do Azure para os cenário
 * A política do BitLocker para máquinas virtuais ingressadas no domínio com a política de grupo personalizado deve incluir a seguinte configuração: `Configure user storage of bitlocker recovery information -> Allow 256-bit recovery key` o Azure Disk Encryption falhará quando as configurações de política de grupo personalizadas para o Bitlocker forem incompatíveis. Em computadores que não tinham a configuração de política correta, pode ser necessário aplicar a nova política, forçar a atualização da nova política (gpupdate.exe /force) e, em seguida, reiniciar.  
 * Para criar um aplicativo Azure AD, criar um cofre de chaves ou configurar um cofre de chaves existente e habilitar a criptografia, confira o [script do PowerShell de pré-requisito de Azure Disk Encryption](https://github.com/Azure/azure-powershell/blob/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
 * Para configurar os pré-requisitos de criptografia de disco usando a CLI do Azure, confira [este script Bash](https://github.com/ejarvi/ade-cli-getting-started).
-* Para usar o serviço de Backup do Azure para fazer backup e restaurar VMs criptografadas quando a criptografia estiver habilitada com o Azure Disk Encryption, criptografe as VMs usando a configuração da chave de Azure Disk Encryption. O serviço de Backup dá suporte a VMs que são criptografadas usando apenas a configuração KEK. Consulte [Como fazer backup e restaurar máquinas virtuais criptografadas com criptografia do Backup do Azure ](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-encryption).
+* Para usar o serviço de Backup do Azure para fazer backup e restaurar VMs criptografadas quando a criptografia estiver habilitada com o Azure Disk Encryption, criptografe as VMs usando a configuração da chave de Azure Disk Encryption. O serviço de Backup dá suporte a VMs que são criptografadas usando configurações KEK ou não KEK. Consulte [Como fazer backup e restaurar máquinas virtuais criptografadas com criptografia do Backup do Azure ](https://docs.microsoft.com/en-us/azure/backup/backup-azure-vms-encryption).
 
 * Ao criptografar um volume do sistema operacional Linux, observe que atualmente uma reinicialização de VM é necessária no final do processo. Isso pode ser feito por meio do portal, do PowerShell ou da CLI.   Para acompanhar o progresso de criptografia, sonde periodicamente a mensagem de status retornada por Get-AzureRmVMDiskEncryptionStatus https://docs.microsoft.com/en-us/powershell/module/azurerm.compute/get-azurermvmdiskencryptionstatus.  Uma vez concluída a criptografia, a mensagem de status retornada por este comando indicará isso.  Por exemplo, "ProgressMessage: disco do sistema operacional criptografado com êxito, reinicialize a VM", Nesse ponto, a VM pode ser reiniciada e usada.  
 
@@ -233,10 +227,7 @@ Antes de habilitar o Azure Disk Encryption em VMs IaaS do Azure para os cenário
 
 * Somente haverá suporte para o Azure Disk Encryption nas imagens com suporte da galeria do Azure que atenderem aos pré-requisitos acima mencionados. Imagens personalizadas do cliente não têm suporte devido a esquemas de partição personalizados e comportamentos de processo que podem existir nessas imagens. Além disso, até mesmo VMs baseadas em imagem de galeria que inicialmente atendiam aos pré-requisitos, mas que foram modificadas após a criação, podem ser incompatíveis.  Por esse motivo, o procedimento sugerido para criptografar uma VM Linux é iniciar de uma imagem da galeria limpa, criptografar a VM e, em seguida, adicionar software personalizado ou dados à VM conforme necessário.  
 
-* Volume de dados local do Azure Disk Encryption – Volume Bek para Windows e /mnt/azure_bek_disk para VMs IaaS do Linux para guardar a chave de criptografia com segurança. Não exclua ou edite nenhum conteúdo neste disco. Não desmonte o disco, uma vez que a presença da chave de criptografia é necessária para operações de criptografia na VM IaaS. O arquivo LEIAME incluído no volume contém detalhes adicionais.
-
-> [!NOTE]
-> O backup e a restauração de VMs criptografadas só têm suporte para VMs que são criptografadas com a configuração KEK. Não há suporte em VMs que são criptografados sem KEK. KEK é um parâmetro opcional que permite VM.
+* Azure Disk Encryption e volume de dados local – Volume Bek para Windows e /mnt/azure_bek_disk para VMs IaaS do Linux para guardar a chave de criptografia com segurança. Não exclua ou edite nenhum conteúdo neste disco. Não desmonte o disco, uma vez que a presença da chave de criptografia é necessária para operações de criptografia na VM IaaS. O arquivo LEIAME incluído no volume contém detalhes adicionais.
 
 #### <a name="set-up-the-azure-ad-application-in-azure-active-directory"></a>Configurar o aplicativo Azure AD no Azure Active Directory
 Quando você precisa habilitar a criptografia em uma VM em execução no Azure, o Azure Disk Encryption gera e grava as chaves de criptografia no cofre de chaves. O gerenciamento de chaves de criptografia no cofre de chaves requer a autenticação do Azure AD.
@@ -606,7 +597,7 @@ A tabela a seguir lista os parâmetros de modelo do Gerenciador de Recursos exis
 | AADClientSecret | Segredo do cliente do aplicativo AD do Azure que tem permissões para gravar segredos para o cofre de chaves. |
 | keyVaultName | Nome do cofre de chaves no qual a chave do BitLocker deve ser carregada. Você pode obtê-lo usando o cmdlet `(Get-AzureRmKeyVault -ResourceGroupName <yourResourceGroupName>). Vaultname`. |
 |  keyEncryptionKeyURL | URL da chave de criptografia de chaves que é usada para criptografar a chave gerada do BitLocker. Esse parâmetro será opcional se você selecionar **nokek** na lista suspensa UseExistingKek. Se selecionar **kek** na lista suspensa UseExistingKek, você deverá inserir o valor _keyEncryptionKeyURL_. |
-| volumeType | Tipo de volume em que a operação de criptografia é executada. Os valores válidos com suporte são _OS_ ou _Todos_ (para RHEL 7.2, CentOS 7.2 e Ubuntu 16.04) e _Dados_ (para todas as outras distribuições). |
+| volumeType | Tipo de volume em que a operação de criptografia é executada. Os valores válidos com suporte são _OS_ ou _Tudo_ (consulte o suporte em distribuições de Linux, suas versões de sistema operacional e os discos de dados na seção de pré-requisitos anterior). |
 | sequenceVersion | Versão de sequência da operação de BitLocker. Aumente esse número de versão sempre que uma operação de criptografia de disco for executada na mesma VM. |
 | vmName | Nome da VM em que a operação de criptografia deve ser executada. |
 | Senha | Digite uma frase secreta forte como chave de criptografia de dados. |
@@ -749,7 +740,7 @@ Use o modelo ARM do Azure Managed para criar uma nova VM de IaaS Linux criptogra
   >É obrigatório criar um instantâneo e/ou fazer backup de uma instância VM baseada em disco gerenciado fora do Azure Disk Encryption e antes de habilitá-lo.  Um instantâneo do disco gerenciado pode ser criado do portal ou usando o Backup do Azure.  Backups asseguram que uma opção de recuperação é possível no caso de qualquer falha inesperada durante a criptografia.  Depois que um backup é feito, o cmdlet Set-AzureRmVMDiskEncryptionExtension pode ser usado para criptografar Managed Disks especificando o parâmetro -skipVmBackup.  Este comando falhará em VMs baseadas em disco gerenciado até que um backup tenha sido feito e esse parâmetro tenha sido especificado.    
  
 ### <a name="update-encryption-settings-of-an-existing-encrypted-non-premium-vm"></a>Atualizar configurações de criptografia de uma VM de armazenamento não premium criptografada existente
-  Use interfaces com suporte de criptografia de disco do Azure existentes para executar VM [modelos ARM, PS cmdlets ou CLI] para atualizar as configurações de criptografia como segredo/ID de cliente AAD, chave de criptografia chave [KEK], chave de criptografia BitLocker para VM do Windows ou frase secreta para VM do Linux, etc. A configuração de criptografia de atualização oferece suporte apenas para VMs com suporte de armazenamento não premium. Não oferece suporte para VMs com suporte de armazenamento premium.
+  Use interfaces com suporte de criptografia de disco do Azure existentes para executar VM [modelos ARM, PS cmdlets ou CLI] para atualizar as configurações de criptografia como segredo/ID de cliente AAD, chave de criptografia chave [KEK], chave de criptografia BitLocker para VM do Windows ou frase secreta para VM do Linux, etc. Há suporte para a configuração de criptografia de atualização em VMs de armazenamento premium e não premium.
 
 ## <a name="appendix"></a>Apêndice
 ### <a name="connect-to-your-subscription"></a>Conecte-se as suas assinaturas

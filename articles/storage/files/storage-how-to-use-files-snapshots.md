@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2017
 ms.author: renash
-ms.openlocfilehash: 6643dad5ea3ba703e26f5708cdd2e925f702847f
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 33b64e1ad3fd5a2a6954a02da0fb303acca54c40
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="work-with-azure-file-share-snapshots-preview"></a>Trabalhar com instantâneos de compartilhamento de Arquivo do Azure (versão prévia)
 Instantâneos de compartilhamento de Arquivo do Azure (versão prévia) são uma versão somente leitura de um compartilhamento de Arquivo do Azure feita em um ponto no tempo. Quando um instantâneo de compartilhamento tiver sido criado, ele poderá ser lido, copiado ou excluído, mas não modificado. Os instantâneos de compartilhamento fornecem uma maneira de fazer backup do compartilhamento da maneira como ele aparece em um momento específico. Neste artigo, aprenderá sobre como criar, gerenciar e excluir instantâneos de compartilhamento de Arquivos do Azure. Para saber mais sobre o instantâneo de compartilhamento, consulte [visão geral de instantâneo de compartilhamento](storage-snapshots-files.md) ou [perguntas frequentes sobre instantâneos](storage-files-faq.md)
@@ -72,9 +72,10 @@ $share.IsSnapshot
 $snapshot=$share.Snapshot()
 
 ```
-## <a name="list-share-snapshots-browse-share-snapshot-contents-and-restore-from-snapshots"></a>Listar instantâneos de compartilhamento, procurar o conteúdo do instantâneo de compartilhamento e restaurar de instantâneos
 
-Você pode enumerar os instantâneos de compartilhamento associados com o compartilhamento de arquivos usando a integração de "Versões Anteriores" no Windows, por meio do Portal, da biblioteca de cliente, do PowerShell e do REST. Quando o compartilhamento de Arquivos do Azure for montado, você poderá exibir todas as versões anteriores do arquivo usando a integração de "Versões anteriores" do SMB. Quando o compartilhamento de Arquivos do Azure for montado, você poderá exibir todas as versões anteriores do diretório usando a integração de "Versões anteriores" do SMB. Nas seções a seguir, você aprenderá a usar o Portal do Azure, o Windows e a CLI do Azure 2.0 para listar, procurar e restaurar instantâneos de compartilhamento.
+## <a name="common-share-snapshot-operations"></a>Operações de instantâneo de compartilhamento comuns
+
+Você pode enumerar os instantâneos de compartilhamento associados com o compartilhamento de arquivos usando a guia "Versões Anteriores" no Windows, por meio do Portal, da biblioteca de cliente, do PowerShell e do REST. Quando o compartilhamento de Arquivos do Azure for montado, você poderá exibir todas as versões anteriores do arquivo usando a guia "Versões anteriores" no Windows. Nas seções a seguir, você aprenderá a usar o Portal do Azure, o Windows e a CLI do Azure 2.0 para listar, procurar e restaurar instantâneos de compartilhamento.
 
 ### <a name="share-snapshot-operations-in-portal"></a>Operações de instantâneo de compartilhamento no Portal
 

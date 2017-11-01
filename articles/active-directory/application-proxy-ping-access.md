@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2017
+ms.date: 10/11/2017
 ms.author: kgremban
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 58034ab8830cf655199875b448948ea14dc04a70
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f6e6bb39164f9b3dea206ebcf850ee98e2506dcf
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>Autenticação baseada em cabeçalho para logon único com Proxy de Aplicativo e PingAccess
 
@@ -108,6 +108,9 @@ Siga estas etapas para publicar seu aplicativo. Para um passo a passo mais detal
 
   ![Selecionar permissões](./media/application-proxy-ping-access/select-permissions.png)
 
+17. Conceda permissões antes de fechar a tela de permissões. 
+![Conceder Permissões](media/application-proxy-ping-access/grantperms.png)
+
 ### <a name="collect-information-for-the-pingaccess-steps"></a>Coletar informações sobre as etapas do PingAccess
 
 1. Na folha de configurações de seu aplicativo, selecione **Propriedades**. 
@@ -132,7 +135,7 @@ Siga estas etapas para publicar seu aplicativo. Para um passo a passo mais detal
 
 ### <a name="optional---update-graphapi-to-send-custom-fields"></a>Opcional - Atualizar a API do Graph para enviar campos personalizados
 
-Para obter uma lista de tokens de segurança que o Azure AD envia para autenticação, confira [Referência de token do Azure AD](./develop/active-directory-token-and-claims.md). Se precisar de uma declaração personalizada que envie outros tokens, use a API do Graph para definir o campo de aplicativo *acceptMappedClaims* como **True**. Você pode usar o Explorador do Graph do Azure AD ou o MS Graph para efetuar essa configuração. 
+Para obter uma lista de tokens de segurança que o Azure AD envia para autenticação, confira [Referência de token do Azure AD](./develop/active-directory-token-and-claims.md). Se precisar de uma declaração personalizada que envie outros tokens, use a API do Graph para definir o campo de aplicativo *acceptMappedClaims* como **True**. Você somente pode usar o Azure AD Graph Explorer para fazer essa configuração. 
 
 Este exemplo usa o Explorador do Graph:
 
@@ -143,6 +146,14 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
   "acceptMappedClaims":true
 }
 ```
+
+>[!NOTE]
+>Para usar uma declaração personalizada, você também deve ter uma política personalizada definida e atribuída ao aplicativo.  Essa política deve incluir todos os atributos personalizados necessários.
+>
+>Atribuição e definição de política podem ser feitas por meio do PowerShell, do Azure AD Graph Explorer ou do MS Graph.  Se você estiver fazendo isso no PowerShell, precisará primeiro usar `New-AzureADPolicy `e, em seguida, atribuí-la para o aplicativo com `Set-AzureADServicePrincipalPolicy`.  Para obter mais informações, consulte a [Documentação da política do Azure AD](active-directory-claims-mapping.md#claims-mapping-policy-assignment).
+
+### <a name="optional---use-a-custom-claim"></a>Opcional – use uma declaração personalizada
+Para fazer seu aplicativo usar uma declaração personalizada e incluir campos adicionais, crie também uma [política de mapeamento de declarações personalizadas e atribuída ao aplicativo](active-directory-claims-mapping.md#claims-mapping-policy-assignment).
 
 ## <a name="download-pingaccess-and-configure-your-app"></a>Baixar o PingAccess e configurar seu aplicativo
 

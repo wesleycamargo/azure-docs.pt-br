@@ -14,13 +14,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/06/2017
+ms.date: 10/12/2017
 ms.author: ankshah
-ms.openlocfilehash: 8836cb516bf7669a2d17da7f87222960fc343042
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9e4419b57edf86e03044ad1047b18397ff4d8d19
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="azure-cosmos-db-firewall-support"></a>Suporte ao firewall do Azure Cosmos DB
 Para proteger os dados armazenados em uma conta de banco de dados do Azure Cosmos DB, o Azure Cosmos DB forneceu suporte para um [modelo de autorização](https://msdn.microsoft.com/library/azure/dn783368.aspx) baseado em segredo que utiliza um HMAC (código de autenticação de mensagem baseado em hash) forte. Agora, além do modelo de autorização baseado em segredo, o Azure Cosmos DB dá suporte a controles de acesso baseados em IP controlados por política para suporte ao firewall de entrada. Esse modelo é muito semelhante às regras de firewall de um sistema de banco de dados tradicional e fornece um nível adicional de segurança à conta de banco de dados do Azure Cosmos DB. Com esse modelo, agora você pode configurar uma conta de banco de dados do Azure Cosmos DB para que ela possa ser acessada somente em um conjunto aprovado de computadores e/ou serviços de nuvem. O acesso aos recursos do Azure Cosmos DB nesses conjuntos aprovados de computadores e serviços ainda exige que o chamador apresente um token de autorização válido.
@@ -65,7 +65,7 @@ No novo painel, especifique se o Portal do Azure pode acessar a conta e adicione
 > Quando você habilita uma política de controle de acesso IP, você precisa adicionar o endereço IP do Portal do Azure para manter o acesso. Os endereços IP do portal são:
 > |Região|Endereço IP|
 > |------|----------|
-> |Todas as regiões, exceto aquelas especificadas abaixo| 104.42.195.92, 40.76.54.131, 52.176.6.30, 52.169.50.45, 52.187.184.26|
+> |Todas as regiões, exceto aquelas especificadas abaixo|104.42.195.92,40.76.54.131,52.176.6.30,52.169.50.45,52.187.184.26|
 > |Alemanha|51.4.229.218|
 > |China|139.217.8.252|
 > |Gov dos EUA|52.244.48.71|

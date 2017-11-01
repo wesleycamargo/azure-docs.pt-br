@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 9f9ff0674fd4e3f9b0598a982d81681eaa6d1997
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: b31b6ae413f72c626e2601ba860aad44ddaa29cd
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="how-to-deploy-azure-file-sync-preview"></a>Como implantar a Sincronização de Arquivo do Azure (versão prévia)
-A Sincronização de Arquivos do Azure (versão prévia) permite que você centralize os compartilhamentos de arquivos da sua organização em Arquivos do Azure sem abrir mão da flexibilidade, do desempenho e da compatibilidade de um servidor de arquivos local. Ele faz isso, transformando Windows Servers em um cache rápido do seu compartilhamento de Arquivos do Azure. Você pode usar qualquer protocolo disponível no Windows Server para acessar seus dados localmente (incluindo SMB, NFS e FTPS) e você pode ter todos os caches que precisar em todo o mundo.
+A Sincronização de Arquivos do Azure (versão prévia) permite que você centralize os compartilhamentos de arquivos da sua organização em Arquivos do Azure sem abrir mão da flexibilidade, do desempenho e da compatibilidade de um servidor de arquivos local. Ele faz isso transformando Windows Servers em um cache rápido do seu compartilhamento de Arquivos do Azure. Você pode usar qualquer protocolo disponível no Windows Server para acessar seus dados localmente (incluindo SMB, NFS e FTPS) e pode ter todos os caches de que precisar ao redor do mundo.
 
 É altamente recomendável ler [Planning for an Azure Files deployment](storage-files-planning.md) (Planejando uma implantação de Arquivos do Azure) e [Planning for an Azure File Sync deployment](storage-sync-files-planning.md) (Planejando uma implantação de Sincronização de Arquivo do Azure) antes de seguir as etapas neste guia.
 
@@ -117,6 +117,9 @@ O painel "Adicionar ponto de extremidade do servidor" resultante requer as segui
 - **Espaço Livre no Volume**: a quantidade de espaço livre para reservar no volume no qual reside o ponto de extremidade do servidor. Por exemplo, se o Espaço Livre do Volume estiver definido como 50% em um volume com um único ponto de extremidade do servidor, aproximadamente metade da quantidade de dados será disposta em camadas para os Arquivos do Azure. Observe que, independentemente de as camadas na nuvem estarem habilitadas, o Compartilhamento de Arquivos do Azure sempre terá uma cópia completa dos dados no Grupo de Sincronização.
 
 Clique em "Criar" para adicionar o ponto de extremidade do servidor. Os arquivos agora serão mantidos em sincronia entre o Compartilhamento de Arquivos do Azure e o Windows Server. 
+
+> [!Important]  
+> Você pode fazer alterações a qualquer Ponto de extremidade de Nuvem ou de Servidor no Grupo de sincronização e ter seus arquivos sincronizados com os outros pontos de extremidade no Grupo de sincronização. Se você fizer uma alteração no Ponto de extremidade de nuvem (compartilhamento de Arquivos do Azure) diretamente, observe que as alterações devem primeiro ser descobertas por um trabalho de detecção de alteração de sincronização de Arquivos do Azure, que é iniciada apenas para um Ponto de extremidade de nuvem uma vez a cada 24 horas. Consulte as [Perguntas frequentes do Azure](storage-files-faq.md#afs-change-detection) para obter mais informações.
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Adicionar/remover um ponto de extremidade do Servidor de Sincronização de Arquivo do Azure](storage-sync-files-server-endpoint.md)

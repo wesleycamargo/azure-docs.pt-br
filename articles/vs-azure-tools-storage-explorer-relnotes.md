@@ -14,25 +14,85 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: 6010c0ef002730fd4a0020e0e2d61a6176a11cba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c1a3370d29b47da752e4ab1ea67ccc1a4cdd94df
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Notas de versão do Gerenciador de Armazenamento do Microsoft Azure (Visualização)
 
-Este artigo contém as notas de versão para a versão do Gerenciador de Armazenamento do Azure 0.8.16 (Versão Prévia), além das notas de versão para versões anteriores.
+Este artigo contém as notas de versão para a versão do Gerenciador de Armazenamento do Azure 0.9.0 (Versão Prévia), além das notas de versão para versões anteriores.
 
 O [Gerenciador de Armazenamento do Microsoft Azure (Visualização)](./vs-azure-tools-storage-manage-with-storage-explorer.md) é um aplicativo autônomo que permite que você trabalhe facilmente com dados do Armazenamento do Azure no Windows, no macOS e no Linux.
+
+## <a name="version-091--090-preview"></a>Versão 0.9.1 / 0.9.0 (Versão Prévia)
+10/20/2017
+
+### <a name="download-azure-storage-explorer-091-preview"></a>Baixar o Gerenciador de Armazenamento do Azure 0.9.1 (Versão Prévia)
+- [Gerenciador de Armazenamento do Azure 0.9.1 (Versão Prévia) para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Gerenciador de Armazenamento do Azure 0.9.1 (Versão Prévia) para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Gerenciador de Armazenamento do Azure 0.9.1 (Versão Prévia) para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>Novo
+* Suporte da versão prévia para Azure Cosmos DB:
+    * [Documentação online](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
+    * Criar bancos de dados e coleções
+    * Manipular dados
+    * Consultar, criar ou excluir documentos
+    * Atualizar procedimentos armazenados, funções definidas pelo usuário ou gatilhos
+    * Usar cadeias de conexão para se conectar e gerenciar seus bancos de dados
+* Melhoria no desempenho de upload/download de muitos blobs pequenos.
+* Foi adicionada uma ação "Tentar tudo novamente" em caso de falhas em um grupo de upload de blobs ou o grupo de download de blobs.
+* O Gerenciador de Armazenamento agora pausará a iteração durante o upload/download de blobs se ele detectar que sua conexão de rede foi perdida. Você poderá retomar a iteração posteriormente depois que a conexão de rede for restabelecida.
+* Foi adicionada a capacidade de “Fechar tudo”, “Fechar outra” e “Fechar” guias por meio do menu de contexto.
+* O Gerenciador de Armazenamento agora usa caixas de diálogo e menus de contexto nativos.
+* O Gerenciador de Armazenamento agora está mais acessível. As melhorias incluem:
+    * Melhoria no suporte ao leitor de tela, para NVDA no Windows e para VoiceOver no Mac
+    * Melhoria nos temas de alto contraste
+    * Correções na tabulação e foco do teclado
+
+### <a name="fixes"></a>Correções
+* Se você tentasse abrir ou baixar um blob com um nome de arquivo inválido do Windows, essa operação falharia. O Gerenciador de Armazenamento agora detecta se um nome de blob é inválido e pergunta se você deseja codificá-lo ou ignorar o blob. O Gerenciador de Armazenamento também detecta se um nome de arquivo parece ser codificado e pergunta se você deseja decodificá-lo antes do carregamento.
+* Durante o upload de blob, o editor do contêiner de blobs de destino não era atualizado corretamente durante o upload de blobs. Esse problema foi corrigido.
+* O suporte para várias formas de cadeias de conexão e URIs de SAS voltou. Resolvemos todos os problemas conhecidos, mas envie-nos comentários se você encontrar outros problemas.
+* A notificação de atualização foi interrompida para alguns usuários em 0.9.0. Esse problema foi corrigido e, para aqueles afetados pelo bug, é possível baixar manualmente a versão mais recente do Gerenciador de Armazenamento [aqui](https://azure.microsoft.com/en-us/features/storage-explorer/)
+
+### <a name="known-issues"></a>Problemas conhecidos
+* O Gerenciador de Armazenamento não dá suporte a contas do AD FS.
+* As teclas de atalho para a “Exibir Gerenciador” e “Exibir Gerenciamento de Conta” deverão ser Ctrl/Cmd+Shift+E e Ctrl/Cmd+Shift+A, respectivamente.
+* Pode ocorrer uma falha ao carregar certos arquivos como blobs acrescentados durante o direcionamento para o Azure Stack.
+* Depois de clicar em "Cancelar" em uma tarefa, talvez demore algum tempo para a tarefa ser cancelada. Isso ocorre porque estamos usando a solução alternativa de filtro de cancelamento descrita aqui.
+* Se você escolher o PIN/Certificado de cartão inteligente incorreto, será necessário reiniciar para que o Gerenciador de Armazenamento se esqueça dessa decisão.
+* O painel de configurações de conta pode mostrar que você precisa reinserir as credenciais para filtrar as assinaturas.
+* Renomear blobs (individualmente ou dentro de um contêiner de blob renomeado) não preserva os instantâneos. Todas as outras propriedades e metadados de blobs, arquivos e entidades são preservadas durante uma renomeação.
+* Embora o Azure Stack não dê suporte no momento a Compartilhamentos de Arquivos, um nó de Compartilhamentos de Arquivos ainda aparece em uma conta de armazenamento do Azure Stack anexada.
+* O shell Electron usado pelo Gerenciador de Armazenamento tem conflitos com a aceleração de hardware de algumas GPUs (unidade de processamento gráfico). Se o Gerenciador de Armazenamento estiver exibindo uma janela principal em banco (vazia), experimente iniciar o Gerenciador de Armazenamento na linha de comando e desabilitar a aceleração de GPU adicionando a opção `--disable-gpu`:
+```
+./StorageExplorer.exe --disable-gpu
+```
+* Para usuários no Ubuntu 14.04, será necessário verificar se o GCC está atualizado – isso pode ser feito executando os comandos a seguir e, depois, reiniciando seu computador:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Para usuários no Ubuntu 17.04, será necessário instalar o GConf – isso pode ser feito executando os comandos a seguir e, depois, reiniciando seu computador:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
 
 ## <a name="version-0816-preview"></a>Versão 0.8.16 (Versão Prévia)
 8/21/2017
 
 ### <a name="download-azure-storage-explorer-0816-preview"></a>Baixar o Gerenciador de Armazenamento do Azure 0.8.16 (Versão Prévia)
-- [Gerenciador de Armazenamento do Azure 0.8.16 (Versão Prévia) para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Gerenciador de Armazenamento do Azure 0.8.16 (Versão Prévia) para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Gerenciador de Armazenamento do Azure 0.8.16 (Versão Prévia) para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+* [Baixar o Gerenciador de Armazenamento do Azure 0.8.16 (Versão Prévia) para Windows](https://go.microsoft.com/fwlink/?LinkId=809306)
+* [Baixar o Gerenciador de Armazenamento do Azure 0.8.16 (Versão Prévia) para Mac](https://go.microsoft.com/fwlink/?LinkId=809307)
+* [Baixar o Gerenciador de Armazenamento do Azure 0.8.16 (Versão Prévia) para Linux](https://go.microsoft.com/fwlink/?LinkId=809308)
 
 ### <a name="new"></a>Novo
 * Quando você abre um blob, o Gerenciador de Armazenamento solicitará que você carregue o arquivo baixado, se uma mudança for detectada
@@ -41,13 +101,13 @@ O [Gerenciador de Armazenamento do Microsoft Azure (Visualização)](./vs-azure-
 
 
 ### <a name="fixes"></a>Correções
-* Para alguns tipos de blob, escolher "substituir" durante um conflito de upload às vezes resultava no reinício do upload. 
+* Para alguns tipos de blob, escolher "substituir" durante um conflito de upload às vezes resultava no reinício do upload.
 * Na versão 0.8.15, os uploads às vezes paralisavam em 99%.
 * Ao carregar arquivos em um compartilhamento de arquivos, se você optasse por carregar em um diretório que não ainda não existia, o upload falhava.
 * O Gerenciador de Armazenamento estava gerando incorretamente os carimbos de data/hora para assinaturas de acesso compartilhadas e consultas de tabela.
 
 
-Problemas conhecidos
+### <a name="known-issues"></a>Problemas conhecidos
 * Usar uma cadeia de conexão de nome e chave não funciona atualmente. Isso será corrigido na próxima versão. Até lá, você pode usar anexar com o nome e chave.
 * Se você tentar abrir um arquivo com um nome de arquivo inválido do Windows, o download resultará em um erro de Arquivo não encontrado.
 * Depois de clicar em "Cancelar" em uma tarefa, talvez demore algum tempo para a tarefa ser cancelada. Esta é uma limitação da biblioteca de Nós de Armazenamento do Azure.
@@ -71,43 +131,9 @@ Problemas conhecidos
     sudo apt-get install libgconf-2-4
     ```
 
-## <a name="version-0814-preview"></a>Versão 0.8.14 (Visualização)
-06/22/2017
-
-### <a name="download-azure-storage-explorer-0814-preview"></a>Baixar o Gerenciador de Armazenamento do Azure 0.8.14 (Visualização)
-* [Baixar o Gerenciador de Armazenamento do Azure 0.8.14 (Visualização) para Windows](https://go.microsoft.com/fwlink/?LinkId=809306)
-* [Baixar o Gerenciador de Armazenamento do Azure 0.8.14 (Visualização) para Mac](https://go.microsoft.com/fwlink/?LinkId=809307)
-* [Baixar o Gerenciador de Armazenamento do Azure 0.8.14 (Visualização) para Linux](https://go.microsoft.com/fwlink/?LinkId=809308)
-
-### <a name="new"></a>Novo
-
-* Versão do Electron atualizada para 1.7.2, a fim de aproveitar as várias atualizações de segurança críticas
-* Agora você pode acessar rapidamente o guia de solução de problemas online no menu de ajuda
-* [Guia][2] de solução de problemas do Gerenciador de Armazenamento
-* [Instruções][3] sobre como se conectar a uma assinatura do Azure Stack
-
-### <a name="known-issues"></a>Problemas conhecidos
-
-* Os botões na caixa de diálogo de confirmação de exclusão de pasta não registram com os cliques do mouse no Linux. A solução alternativa é usar a tecla Enter
-* Se você escolher o PIN/Certificado de cartão inteligente incorreto, será necessário reiniciar para que o Gerenciador de Armazenamento se esqueça dessa decisão
-* Ter mais de três grupos de blobs ou arquivos carregando ao mesmo tempo pode causar erros
-* Talvez o painel de configurações da conta mostre que você precisa reinserir as credenciais a fim de filtrar as assinaturas
-* Renomear blobs (individualmente ou dentro de um contêiner de blob renomeado) não preserva os instantâneos. Todas as outras propriedades e metadados de blobs, arquivos e entidades são preservadas durante uma renomeação.
-* Embora o Azure Stack não dê suporte no momento a Compartilhamentos de Arquivos, um nó de Compartilhamentos de Arquivos ainda aparece em uma conta de armazenamento do Azure Stack anexada. 
-* A instalação do Ubuntu 14.04 precisa da versão de gcc atualizada ou com upgrade – veja abaixo as etapas para o upgrade:
-
-    ```
-    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
-    sudo apt-get update
-    sudo apt-get upgrade
-    sudo apt-get dist-upgrade
-    ```
-
-
-
-
 ## <a name="previous-releases"></a>Versões anteriores
 
+* [Versão 0.8.14](#version-0814)
 * [Versão 0.8.13](#version-0813)
 * [Versão 0.8.12 / 0.8.11 / 0.8.10](#version-0812--0811--0810)
 * [Versão 0.8.9 / 0.8.8](#version-089--088)
@@ -124,6 +150,33 @@ Problemas conhecidos
 * [Versão 0.7.20160105.0](#version-07201601050)
 * [Versão 0.7.20151116.0](#version-07201511160)
 
+
+### <a name="version-0814"></a>Versão 0.8.14
+06/22/2017
+
+### <a name="new"></a>Novo
+
+* Versão do Electron atualizada para 1.7.2, a fim de aproveitar as várias atualizações de segurança críticas
+* Agora você pode acessar rapidamente o guia de solução de problemas online no menu de ajuda
+* [Guia][2] de solução de problemas do Gerenciador de Armazenamento
+* [Instruções][3] sobre como se conectar a uma assinatura do Azure Stack
+
+### <a name="known-issues"></a>Problemas conhecidos
+
+* Os botões na caixa de diálogo de confirmação de exclusão de pasta não registram com os cliques do mouse no Linux. A solução alternativa é usar a tecla Enter
+* Se você escolher o PIN/Certificado de cartão inteligente incorreto, será necessário reiniciar para que o Gerenciador de Armazenamento se esqueça dessa decisão
+* Ter mais de três grupos de blobs ou arquivos carregando ao mesmo tempo pode causar erros
+* Talvez o painel de configurações da conta mostre que você precisa reinserir as credenciais a fim de filtrar as assinaturas
+* Renomear blobs (individualmente ou dentro de um contêiner de blob renomeado) não preserva os instantâneos. Todas as outras propriedades e metadados de blobs, arquivos e entidades são preservadas durante uma renomeação.
+* Embora o Azure Stack não dê suporte no momento a Compartilhamentos de Arquivos, um nó de Compartilhamentos de Arquivos ainda aparece em uma conta de armazenamento do Azure Stack anexada.
+* A instalação do Ubuntu 14.04 precisa da versão de gcc atualizada ou com upgrade – veja abaixo as etapas para o upgrade:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
 
 ### <a name="version-0813"></a>Versão 0.8.13
 05/12/2017
@@ -149,7 +202,7 @@ Problemas conhecidos
 * Ter mais de três grupos de blobs ou arquivos carregando ao mesmo tempo pode causar erros
 * Talvez o painel de configurações da conta mostre que você precisa reinserir as credenciais a fim de filtrar as assinaturas
 * Renomear blobs (individualmente ou dentro de um contêiner de blob renomeado) não preserva os instantâneos. Todas as outras propriedades e metadados de blobs, arquivos e entidades são preservadas durante uma renomeação.
-* Embora o Azure Stack não dê suporte no momento a Compartilhamentos de Arquivos, um nó de Compartilhamentos de Arquivos ainda aparece em uma conta de armazenamento do Azure Stack anexada. 
+* Embora o Azure Stack não dê suporte no momento a Compartilhamentos de Arquivos, um nó de Compartilhamentos de Arquivos ainda aparece em uma conta de armazenamento do Azure Stack anexada.
 * A instalação do Ubuntu 14.04 precisa da versão de gcc atualizada ou com upgrade – veja abaixo as etapas para o upgrade:
 
     ```
@@ -171,7 +224,7 @@ Problemas conhecidos
 * Agora você pode recolher o painel do lado esquerdo
 * Agora, a Descoberta é executada ao mesmo tempo que o download
 * Usar Estatísticas nos editores de Contêiner de Blob, Compartilhamento de Arquivos e de Tabela para ver o tamanho de seus recursos ou seleção
-* Agora, você pode entrar em contas do Azure Stack com base no AAD (Azure Active Directory). 
+* Agora, você pode entrar em contas do Azure Stack com base no AAD (Azure Active Directory).
 * Agora você pode carregar arquivos com mais de 32 MB em contas de armazenamento Premium
 * Suporte a acessibilidade aprimorado
 * Agora você pode adicionar certificados SSL X.509 confiáveis codificados em Base 64 acessando Editar –&gt; Certificados SSL –&gt; Importar Certificados
@@ -182,8 +235,8 @@ Problemas conhecidos
 * Corrigido: a geração de um SAS para tabelas e filas do emulador poderia resultar em uma URL inválida
 * Corrigido: agora, as contas de armazenamento Premium podem ser expandidas enquanto um proxy está habilitado
 * Corrigido: o botão aplicar na página de gerenciamento de contas não funcionava se você tivesse uma ou nenhuma conta selecionada
-* Corrigido: o carregamento de blobs que exigem resoluções de conflitos pode falhar – corrigido no 0.8.11 
-* Corrigido: o envio de comentários foi interrompido no 0.8.11 – corrigido no 0.8.12 
+* Corrigido: o carregamento de blobs que exigem resoluções de conflitos pode falhar – corrigido no 0.8.11
+* Corrigido: o envio de comentários foi interrompido no 0.8.11 – corrigido no 0.8.12
 
 #### <a name="known-issues"></a>Problemas conhecidos
 
@@ -192,7 +245,7 @@ Problemas conhecidos
 * Ter mais de três grupos de blobs ou arquivos carregando ao mesmo tempo pode causar erros.
 * Talvez o painel de configurações da conta mostre que você precisa reinserir as credenciais a fim de filtrar as assinaturas.
 * Renomear blobs (individualmente ou dentro de um contêiner de blob renomeado) não preserva os instantâneos. Todas as outras propriedades e metadados de blobs, arquivos e entidades são preservadas durante uma renomeação.
-* Embora o Azure Stack não dê suporte no momento a Compartilhamentos de Arquivos, um nó de Compartilhamentos de Arquivos ainda aparece em uma conta de armazenamento do Azure Stack anexada. 
+* Embora o Azure Stack não dê suporte no momento a Compartilhamentos de Arquivos, um nó de Compartilhamentos de Arquivos ainda aparece em uma conta de armazenamento do Azure Stack anexada.
 * A instalação do Ubuntu 14.04 precisa da versão de gcc atualizada ou com upgrade – veja abaixo as etapas para o upgrade:
 
     ```
@@ -274,7 +327,7 @@ Problemas conhecidos
 * Agora você pode abrir vários editores em guias diferentes. Clique para abrir uma guia temporária; clique duas vezes para abrir uma guia permanente. Você também pode clicar na guia temporária para torná-la uma guia permanente
 * Fizemos aperfeiçoamentos de desempenho e estabilidade para carregamentos e downloads, especialmente para grandes arquivos em máquinas rápidas
 * Pastas "virtuais" vazias agora podem ser criadas em contêineres de blob
-* Introduzimos novamente a pesquisa com escopo com nossa nova pesquisa avançada de subcadeia de caracteres, e agora você tem duas opções de pesquisa: 
+* Introduzimos novamente a pesquisa com escopo com nossa nova pesquisa avançada de subcadeia de caracteres, e agora você tem duas opções de pesquisa:
     * Pesquisa global – basta inserir um termo de pesquisa na caixa de texto de pesquisa
     * Pesquisa com escopo – clique no ícone de lupa ao lado de um nó, adicione um termo de pesquisa ao final do caminho, ou clique com o botão direito e selecione "Pesquisar aqui"
 * Adicionamos vários temas: luz (padrão), escuro, preto em alto contraste e branco em alto contraste. Acesse Editar –&gt; Temas para alterar sua preferência de temas
@@ -292,12 +345,12 @@ Problemas conhecidos
 * Corrigido: a abertura do Painel de Consulta em uma tabela vazia não era possível
 * Corrigido: vários bugs na Pesquisa
 * Corrigido: aumento do número de recursos carregados de 50 para 100 ao clicar em "Carregar Mais"
-* Corrigido: agora, na primeira execução, se uma conta for conectada, selecionamos todas as assinaturas para essa conta por padrão 
+* Corrigido: agora, na primeira execução, se uma conta for conectada, selecionamos todas as assinaturas para essa conta por padrão
 
 #### <a name="known-issues"></a>Problemas conhecidos
 
 * Esta versão do Gerenciador de Armazenamento não é executada no Ubuntu 14.04
-* Para abrir várias guias para o mesmo recurso, não clique continuamente no mesmo recurso. Clique em outro recurso e, depois, volte e clique no recurso original para abri-lo novamente em outra guia 
+* Para abrir várias guias para o mesmo recurso, não clique continuamente no mesmo recurso. Clique em outro recurso e, depois, volte e clique no recurso original para abri-lo novamente em outra guia
 * O Acesso Rápido só funciona com itens baseados em assinatura. Recursos locais ou conectados por meio de chave ou o token SAS de recursos não têm suporte nesta versão
 * Acesso rápido pode demorar um pouco para navegar para o recurso de destino, dependendo de quantos recursos
 * Ter mais de três grupos de blobs ou arquivos carregando ao mesmo tempo pode causar erros
@@ -462,7 +515,7 @@ Problemas conhecidos
 
 ### <a name="known-issues-amp-mitigations"></a>Problemas &amp; mitigações conhecidos
 
-* O download de arquivos de blob grandes não funciona corretamente – recomendamos usar AzCopy enquanto resolvemos esse problema 
+* O download de arquivos de blob grandes não funciona corretamente – recomendamos usar AzCopy enquanto resolvemos esse problema
 * As credenciais da conta não serão recuperadas nem armazenadas em cache se a pasta base não puder ser encontrada ou não puder receber gravação
 * Se adicionarmos, editarmos ou importamos uma entidade que tem uma propriedade com um valor numérico ambíguo, como "1" ou "1.0", e o usuário tentar enviá-lo como um `Edm.String`, o valor voltará por meio da API do cliente como um Edm.Double
 * Ao importar arquivos CSV com registros de várias linhas, os dados podem ser cortados ou embaralhados
@@ -490,7 +543,7 @@ Problemas conhecidos
 
 #### <a name="fixes"></a>Correções
 
-* Corrigido: o upload ou download de uma grande quantidade de blobs (+ de 500) pode, às vezes, fazer com que o aplicativo apresente uma tela branca 
+* Corrigido: o upload ou download de uma grande quantidade de blobs (+ de 500) pode, às vezes, fazer com que o aplicativo apresente uma tela branca
 * Corrigido: ao definir o nível de acesso público do contêiner de blob, o novo valor não é atualizado até que você defina novamente o foco no contêiner. Além disso, a caixa de diálogo sempre assume o padrão "Nenhum acesso público", e não o valor real atual.
 * Suporte geral aprimorado de teclado/acessibilidade e interface do usuário
 * A disposição do texto do histórico de trilha quebra automaticamente quando o texto é longo com espaços em branco
@@ -500,7 +553,7 @@ Problemas conhecidos
 
 #### <a name="known-issues"></a>Problemas conhecidos
 
-* A instalação do Linux precisa da versão de gcc atualizada ou com upgrade – veja abaixo as etapas para o upgrade: 
+* A instalação do Linux precisa da versão de gcc atualizada ou com upgrade – veja abaixo as etapas para o upgrade:
     * `sudo add-apt-repository ppa:ubuntu-toolchain-r/test`
     * `sudo apt-get update`
     * `sudo apt-get upgrade`
