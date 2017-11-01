@@ -15,7 +15,7 @@
       href: container-registry-get-started-powershell.md
 - name: Tutoriais
   items:
-    - name: Replicação geográfica
+    - name: Replicação geográfica (versão prévia)
       items:
         - name: 1 - Preparar o registro de contêiner
           href: container-registry-tutorial-prepare-registry.md

@@ -39,7 +39,8 @@
 ### [Salvar mensagens do Hub IoT para o armazenamento de dados do Azure](iot-hub-store-data-in-azure-table-storage.md)
 ### [Visualização de dados no Power BI](iot-hub-live-data-visualization-in-power-bi.md)
 ### [Visualização de dados com Aplicativos Web](iot-hub-live-data-visualization-in-web-apps.md)
-### [Previsão do tempo usando o Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)
+### 
+            [Previsão do tempo usando o Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)
 ### [Gerenciamento de dispositivos com o iothub-explorer](iot-hub-device-management-iothub-explorer.md)
 ### [Monitoramento remoto e notificações com Aplicativos Lógicos](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 
@@ -86,6 +87,7 @@
 ### Carregar arquivos de dispositivos
 #### [.NET](iot-hub-csharp-csharp-file-upload.md)
 #### [Java](iot-hub-java-java-file-upload.md)
+#### [Node.js](iot-hub-node-node-file-upload.md)
 ### Introdução a dispositivos gêmeos
 #### [Back-end do Node.js/Dispositivo do Node.js](iot-hub-node-node-twin-getstarted.md)
 #### [Back-end do .NET/Dispositivo do Node.js](iot-hub-csharp-node-twin-getstarted.md)
@@ -192,7 +194,8 @@
 ## [Azure IoT Suite](https://azure.microsoft.com/documentation/suites/iot-suite/)
 ## [Hubs de Eventos do Azure](https://azure.microsoft.com/documentation/services/event-hubs/)
 ## [Stream Analytics](https://azure.microsoft.com/documentation/services/stream-analytics/)
-## [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)
+## 
+            [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)
 
 # Recursos
 ## [Catálogo de dispositivos Azure Certified para IoT](https://catalog.azureiotsuite.com/)
