@@ -39,8 +39,7 @@
 ### [Salvar mensagens do Hub IoT para o armazenamento de dados do Azure](iot-hub-store-data-in-azure-table-storage.md)
 ### [Visualização de dados no Power BI](iot-hub-live-data-visualization-in-power-bi.md)
 ### [Visualização de dados com Aplicativos Web](iot-hub-live-data-visualization-in-web-apps.md)
-### 
-            [Previsão do tempo usando o Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)
+### [Previsão do tempo usando o Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)
 ### [Gerenciamento de dispositivos com o iothub-explorer](iot-hub-device-management-iothub-explorer.md)
 ### [Monitoramento remoto e notificações com Aplicativos Lógicos](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 
