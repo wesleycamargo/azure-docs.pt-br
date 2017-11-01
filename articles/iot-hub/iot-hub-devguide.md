@@ -12,13 +12,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2017
+ms.date: 10/13/2017
 ms.author: dobett
-ms.openlocfilehash: 07497231e2cfab86082c5a0d1f4a4ec8ab31f6a3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 27b296092335ec5b95e8f259756aaf9572da1c16
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-iot-hub-developer-guide"></a>Guia do desenvolvedor do Hub IoT do Azure
 
@@ -48,11 +48,11 @@ Este guia do desenvolvedor do Hub IoT inclui os seguintes artigos:
 * [Invocar um método direto em um dispositivo][devguide-directmethods] descreve o ciclo de vida de um método direto, informações sobre como invocar métodos em um dispositivo de seu aplicativo back-end e manipular o método direto em seu dispositivo.
 * [Agendar trabalhos em vários dispositivos][devguide-jobs] descreve como você pode agendar trabalhos em vários dispositivos. O artigo descreve como enviar trabalhos que executam tarefas, por exemplo, execução de um método direto, atualização de um dispositivo usando um dispositivo gêmeo. Ele também descreve como consultar o status de um trabalho.
 * [Referência - escolher um protocolo de comunicação][devguide-protocol] descreve os protocolos de comunicação que o Hub IoT dá suporte para comunicação de dispositivo e lista as portas que devem ser abertas.
-* [Referência - Pontos de extremidade do Hub IoT][devguide-endpoints] descreve os vários pontos de extremidade que cada Hub IoT expõe para operações de tempo de execução e de gerenciamento. O artigo também descreve como você pode criar mais pontos de extremidade em seu Hub IoT e como usar um gateway de campo para habilitar a conectividade de dispositivos para seus pontos de extremidade de Hub IoT em cenários não padrão.
+* [Referência - Pontos de extremidade do Hub IoT][devguide-endpoints] descreve os vários pontos de extremidade que cada Hub IoT expõe para operações de tempo de execução e de gerenciamento. O artigo também descreve como você pode criar mais pontos de extremidade adicionais em seu Hub IoT e como usar um gateway de campo para habilitar a conectividade para seus pontos de extremidade de Hub IoT em cenários não padrão.
 * [Referência - Linguagem de consulta do Hub IoT para dispositivos gêmeos, trabalhos e roteamento de mensagens][devguide-query] descreve que a linguagem de consulta do Hub IoT permite que você recupere informações do seu Hub sobre seus dispositivos gêmeos e trabalhos.
-* [Referência - Cotas e limitação][devguide-quotas] resume as cotas definidas no serviço do Hub IoT e o comportamento de limitação que você pode esperar ao exceder a cota.
+* [Referência – cotas e limitação][devguide-quotas] resume as cotas definidas no serviço do Hub IoT e a limitação que ocorre ao exceder a cota.
 * [Referência - preços][devguide-pricing] fornece informações gerais sobre os diferentes SKUs e preços para o Hub IoT e detalhes sobre como as várias funcionalidades do Hub IoT são medidas como mensagens pelo Hub IoT.
-* [Referência – SDKs de dispositivo e serviço][devguide-sdks] lista os SDKs do IoT do Azure que você pode usar no desenvolvimento de aplicativos de dispositivo e de serviço que interagem com o hub IoT. O artigo inclui links para documentação online da API.
+* [Referência – SDKs de dispositivo e serviço][devguide-sdks] lista os SDKs do IoT do Azure para o desenvolvimento de aplicativos de dispositivo e de serviço que interagem com o Hub IoT. O artigo inclui links para documentação online da API.
 * [Referência - Suporte ao MQTT do Hub IoT][devguide-mqtt] fornece informações detalhadas sobre como o Hub IoT oferece suporte ao protocolo MQTT. O artigo descreve o suporte para o protocolo MQTT interno para os SDKs do IoT do Azure e fornece informações sobre como usar o protocolo MQTT diretamente.
 * [Glossário][devguide-glossary] uma lista de termos comuns relacionados ao Hub IoT.
 

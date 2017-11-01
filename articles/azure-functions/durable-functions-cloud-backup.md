@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: aa7c0738120ecda8d43669725748585e1ad5a581
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ef6e649d2f5563ea066b70d5ef3f80c5af36ce23
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Cenário de fan-out/fan-in nas Funções Duráveis – Exemplo de backup em nuvem
 
@@ -97,12 +97,12 @@ A implementação carrega o arquivo no disco e transmite de forma assíncrona o 
 > [!NOTE]
 > Este é um exemplo perfeito de movimentação de operações de E/S para uma função `activityTrigger`. Não só o trabalho pode ser distribuído entre várias VMs diferentes, mas você também obtém os benefícios de fazer verificações pontuais do progresso. Se o processo de host for encerrado por algum motivo, você saberá quais carregamentos já foram concluídos.
 
-## <a name="running-the-sample"></a>Executando o exemplo
+## <a name="run-the-sample"></a>Execute o exemplo
 
-Usando as funções disparadas por HTTP incluídas no exemplo, você pode iniciar a orquestração usando a seguinte solicitação HTTP POST.
+Você pode iniciar a orquestração enviando a solicitação HTTP POST a seguir.
 
 ```
-POST http://{host}/orchestrators/E2_BackupSiteContent HTTP/1.1
+POST http://{host}/orchestrators/E2_BackupSiteContent
 Content-Type: application/json
 Content-Length: 20
 
@@ -112,7 +112,7 @@ Content-Length: 20
 > [!NOTE]
 > A função `HttpStart` que você está invocando funciona somente com conteúdo formatado em JSON. Por esse motivo, o cabeçalho `Content-Type: application/json` é obrigatório e o caminho do diretório é codificado como uma cadeia de caracteres JSON.
 
-Isso disparará o orquestrador `E2_BackupSiteContent` e passará a cadeia de caracteres `D:\home\LogFiles` como um parâmetro. A resposta fornece um link para obter o status dessa operação de backup:
+Esta solicitação HTTP dispara o orquestrador `E2_BackupSiteContent` e passa a cadeia de caracteres `D:\home\LogFiles` como um parâmetro. A resposta fornece um link para obter o status da operação de backup:
 
 ```
 HTTP/1.1 202 Accepted
@@ -158,9 +158,7 @@ Esta é a orquestração como um único arquivo em C# em um projeto do Visual St
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste ponto, você deve ter uma maior compreensão dos principais recursos de orquestração das Funções Duráveis. Exemplos posteriores abordarão recursos e cenários mais avançados.
+Este exemplo mostra como implementar o padrão de fan-out/fan-in. O próximo exemplo mostra como implementar um padrão de [singleton com estado](durable-functions-singletons.md) em uma [orquestração eterna](durable-functions-eternal-orchestrations.md).
 
 > [!div class="nextstepaction"]
 > [Executar o exemplo de singleton com estado](durable-functions-counter.md)
-
-

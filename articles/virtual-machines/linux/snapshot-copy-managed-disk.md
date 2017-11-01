@@ -1,8 +1,8 @@
 ---
-title: Copiar um Disco Gerenciado do Azure para backup | Microsoft Docs
-description: "Saiba como criar uma cópia de um Disco Gerenciado do Azure para usar no backup ou na solução de problemas de disco."
+title: "Crie um instantâneo de um VHD no Azure | Microsoft Docs"
+description: "Saiba como criar uma cópia de um VHD no Azure como um backup ou para solução de problemas."
 documentationcenter: 
-author: squillace
+author: cynthn
 manager: timlt
 editor: 
 tags: azure-resource-manager
@@ -11,27 +11,23 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 2/6/2017
-ms.author: rasquill
-ms.openlocfilehash: c91367ef11c9d531bebac7c069d2df586607ec29
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 10/09/2017
+ms.author: cynthn
+ms.openlocfilehash: da00c48f7da5a9be146f4fdb626c93db746c0f9b
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
-# <a name="create-a-copy-of-a-vhd-stored-as-an-azure-managed-disk-by-using-managed-snapshots"></a>Criar uma cópia de um VHD armazenado como um Disco Gerenciado do Azure usando instantâneos gerenciados
-Crie um instantâneo de um Disco Gerenciado para backup ou crie um Disco Gerenciado usando o instantâneo e anexe-o a uma máquina virtual de teste para solução de problemas. Um Instantâneo Gerenciado é uma cópia pontual completa de um Disco Gerenciado da VM. Ele cria uma cópia somente leitura do seu VHD e, por padrão, a armazena como um Disco Gerenciado Standard. 
+# <a name="create-a-snapshot"></a>Criar um instantâneo 
 
-Para saber mais sobre preços, confira [Preços de Armazenamento do Azure](https://azure.microsoft.com/pricing/details/managed-disks/). <!--Add link to topic or blog post that explains managed disks. -->
-
-Use o portal do Azure ou a CLI 2.0 do Azure para criar um instantâneo do Disco Gerenciado.
+Capture um instantâneo de um VHD de disco de dados ou SO para backup ou solução de problemas de VM. Um instantâneo é uma cópia completa somente leitura de um VHD. 
 
 ## <a name="use-azure-cli-20-to-take-a-snapshot"></a>Usar a CLI 2.0 do Azure para criar um instantâneo
 
-> [!NOTE] 
-> O exemplo a seguir exige a CLI 2.0 do Azure instalada e conectada à sua conta do Azure.
+O exemplo a seguir exige a CLI 2.0 do Azure instalada e conectada à sua conta do Azure. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
 
-As etapas a seguir mostram como obter e criar um instantâneo de um disco de SO gerenciado usando o comando `az snapshot create` com o parâmetro `--source-disk`. O exemplo a seguir pressupõe que exista uma VM chamada `myVM` criada com um disco de SO gerenciado no grupo de recursos `myResourceGroup`.
+As etapas a seguir mostram como capturar um instantâneo usando o comando `az snapshot create` com o parâmetro `--source-disk`. O exemplo a seguir pressupõe que exista uma VM chamada `myVM` criada com um disco de SO gerenciado no grupo de recursos `myResourceGroup`.
 
 ```azure-cli
 # take the disk id with which to create a snapshot
@@ -80,4 +76,8 @@ A saída deve ser semelhante a esta:
 
 Se você planeja usar o instantâneo para criar um Disco Gerenciado e anexá-lo a uma VM que precisa ser de alto desempenho, use o parâmetro `--sku Premium_LRS` com o comando `az snapshot create`. Isso cria o instantâneo para que ele seja armazenado como um Disco Gerenciado Premium. Os Discos Gerenciados Premium têm melhor desempenho porque são SSDs (unidades de estado sólido), mas são mais caros que os HDDs (discos rígidos) Standard.
 
+
+## <a name="next-steps"></a>Próximas etapas
+
+ Cria uma máquina virtual de um instantâneo criando um disco gerenciado do instantâneo e, em seguida, anexando o novo disco gerenciado como disco do SO. Para obter mais informações, consulte o script [Criar uma VM com base em um instantâneo](./../scripts/virtual-machines-linux-cli-sample-create-vm-from-snapshot.md?toc=%2fcli%2fmodule%2ftoc.json).
 

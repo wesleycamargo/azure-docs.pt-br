@@ -3,7 +3,7 @@ title: Use um MSI de VM do Windows para acessar o Azure Key Vault
 description: "Um tutorial que orienta o processo de usar uma Identidade de Serviço Gerenciado (MSI) de VM do Windows para acessar o Azure Key Vault."
 services: active-directory
 documentationcenter: 
-author: elkuzmen
+author: bryanla
 manager: mbaldwin
 editor: bryanla
 ms.service: active-directory
@@ -11,19 +11,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/14/2017
+ms.date: 10/24/2017
 ms.author: elkuzmen
-ms.openlocfilehash: 783579eda204b44564abdcb3fee30c09b0e5c1a7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e3f9fa3e543851e79d9aed9c80ae4a8d2dd3420d
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="use-managed-service-identity-msi-with-a-windows-vm-to-access-azure-key-vault"></a>Usar a Identidade de Serviço Gerenciado (MSI) com uma VM do Windows para acessar o Azure Key Vault 
+# <a name="use-a-windows-vm-managed-service-identity-msi-to-access-azure-key-vault"></a>Usar o MSI (Identidade de Serviço Gerenciada) da VM do Windows para acessar o Azure Key Vault 
 
 [!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]
 
-Este tutorial mostra como habilitar a Identidade de Serviço Gerenciado (MSI) para uma máquina Virtual do Windows e, em seguida, usar essa identidade para acessar o Azure Key Vault. As Identidades de Serviço Gerenciado são gerenciadas automaticamente pelo Azure e permitem a você autenticar os serviços que oferecem suporte à autenticação do Azure AD sem a necessidade de inserir as credenciais em seu código. Você saberá como:
+Este tutorial mostra como habilitar a MSI (Identidade de Serviço Gerenciado) para uma Máquina Virtual do Windows e, em seguida, usar essa identidade para acessar o Azure Key Vault. Atuando como bootstrap, o Key Vault possibilita que o aplicativo cliente use o segredo para acessar recursos não protegidos pelo Azure AD (Active Directory). As Identidades de Serviço Gerenciadas são gerenciadas automaticamente pelo Azure e permitem a você autenticar os serviços que dão suporte à autenticação do Azure AD sem necessidade de inserir as credenciais em seu código. 
+
+Você aprenderá como:
 
 
 > [!div class="checklist"]
@@ -68,7 +70,7 @@ Um MSI de máquina virtual permite obter tokens de acesso do Azure AD sem a nece
 
 ## <a name="grant-your-vm-access-to-a-secret-stored-in-a-key-vault"></a>Conceder o acesso a um segredo armazenado em um Key Vault para sua VM 
  
-Usando o MSI seu código pode obter tokens de acesso para autenticar para recursos que oferecem suporte à autenticação do Azure AD.  No entanto, nem todos os serviços do Azure dão suporte à autenticação do Azure AD. Para usar o MSI com serviços que não oferecem suporte à autenticação do Azure AD, você pode armazenar as credenciais que você precisa para esses serviços no Azure Key Vault e use o MSI para autenticar para o Key Vault para recuperar as credenciais. 
+Usando o MSI seu código pode obter tokens de acesso para autenticar para recursos que oferecem suporte à autenticação do Azure AD.  No entanto, nem todos os serviços do Azure dão suporte à autenticação do Azure AD. Para usar o MSI com esses serviços, armazene as credenciais de serviço no Azure Key Vault e use o MSI para acessar o Key Vault para recuperar as credenciais. 
 
 Primeiro, precisamos criar um Key Vault e conceder acesso de identidade da nossa VM para o Key Vault.   
 
@@ -86,20 +88,20 @@ Primeiro, precisamos criar um Key Vault e conceder acesso de identidade da nossa
 
 Em seguida, adicione um segredo ao Key Vault, para que posteriormente você possa recuperar o segredo usando código em execução em sua VM: 
 
-1. Selecione **Todos os Recursos** e localize e selecione o Key Vault que você acabou de criar. 
+1. Selecione **Todos os Recursos** e localize e selecione o Key Vault criado. 
 2. Selecione **Segredos** e clique em **Adicionar**. 
-3. Em **Opções de upload** selecione **Manual**. 
+3. Selecione **Manual** em **Opções de upload**. 
 4. Insira um nome e um valor para o segredo.  O valor pode ser qualquer coisa que você desejar. 
 5. Deixe a data de ativação e a data de validade em branco e deixe **Habilitado** como **Sim**. 
 6. Clique em **Criar** para criar o segredo. 
  
-## <a name="get-an-access-token-using-the-vm-identity-and-use-it-retrieve-the-secret-from-the-key-vault"></a>Obtenha um token de acesso usando a identidade da VM e use-o para recuperar o segredo do Key Vault  
+## <a name="get-an-access-token-using-the-vm-identity-and-use-it-to-retrieve-the-secret-from-the-key-vault"></a>Obtenha um token de acesso usando a identidade da VM e use-o para recuperar o segredo do Key Vault  
 
-Agora que você criou um segredo, armazenou-o em um Key Vault e concedeu acesso de MSI à sua VM para o Key Vault, você pode escrever o código para recuperar o segredo em tempo de execução.  Para simplificar este exemplo usaremos chamadas REST simples usando o PowerShell.  Se você não tiver o PowerShell instalado, baixe-o [aqui](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-4.3.1).
+Se você não tiver o PowerShell 4.3.1 ou superior instalado, você precisará [baixar e instalar a versão mais recente](https://docs.microsoft.com/powershell/azure/overview).
 
-Primeiro, vamos usar o MSI da VM para obter um token de acesso para autenticar para o Key Vault:
+Primeiro, usamos o MSI da VM para obter um token de acesso para autenticar para o Key Vault:
  
-1. No portal, navegue até **Máquinas virtuais** e vá para a máquina virtual do Windows e em **Visão geral**, clique em **Conectar**.
+1. No portal, navegue até **Máquinas Virtuais** e vá para a máquina virtual do Windows e em **Visão geral**, clique em **Conectar**.
 2. Insira o seu **Nome de usuário** e **Senha** que você adicionou quando criou a **VM do Windows**.  
 3. Agora que você criou uma **Conexão de Área de Trabalho Remota** com a máquina virtual, abra o PowerShell na sessão remota.  
 4. No PowerShell, invoque a solicitação Web no locatário para obter o token para o host local na porta específica para a máquina virtual.  

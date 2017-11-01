@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/05/2017
 ms.author: tomfitz
-ms.openlocfilehash: 326039c58466e65183a594e222db24e998f151b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5a28914d967e77d6c8881cd6e56b798269d3df3e
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Mover recursos para um novo grupo de recursos ou uma nova assinatura
 
@@ -124,7 +124,7 @@ Os serviços que permitem mover para um novo grupo de recursos e uma nova assina
 * Aplicativos Lógicos
 * Machine Learning
 * Serviços de mídia
-* Engajamento Móvel
+* Mobile Engagement
 * Hubs de Notificação
 * Insights Operacionais
 * Gerenciamento de Operações
@@ -320,6 +320,11 @@ Por exemplo, suponha que você configurou a replicação das máquinas locais pa
 Você pode mover os clusters HDInsight para uma nova assinatura ou grupo de recursos. No entanto, não é possível mover os recursos de rede vinculados ao cluster HDInsight (por exemplo, a rede virtual, NIC ou balanceador de carga) entre assinaturas. Além disso, não é possível mover uma para um novo grupo de recursos uma NIC que está conectada a uma máquina virtual para o cluster.
 
 Ao mover um cluster HDInsight para uma nova assinatura, mova primeiro os outros recursos (como a conta de armazenamento). Em seguida, mova apenas o cluster HDInsight.
+
+## <a name="search-limitations"></a>Pesquisar limitações
+
+Não é possível mover simultaneamente vários recursos de pesquisa colocados em regiões diferentes.
+Nesse caso, você precisa movê-los separadamente.
 
 ## <a name="use-portal"></a>Usar o portal
 

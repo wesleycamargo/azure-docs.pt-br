@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2017
 ms.author: sethm
-ms.openlocfilehash: 470246469297d5fa95eba2b147d5304e74c0003f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 91a6e62a03ffe39e456129ea78821250b65091e4
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="duplicate-detection"></a>Detecção de duplicidade
 
@@ -43,7 +43,7 @@ No portal, o recurso é ativado durante a criação de entidade com a caixa de s
 
 Programaticamente, você pode definir o sinalizador com a propriedade [QueueDescription.requiresDuplicateDetection](/dotnet/api/microsoft.servicebus.messaging.queuedescription.requiresduplicatedetection#Microsoft_ServiceBus_Messaging_QueueDescription_RequiresDuplicateDetection) na API do .NET de estrutura completa. Com a API do Azure Resource Manager, o valor é definido com a propriedade [queueProperties.requiresDuplicateDetection](/azure/templates/microsoft.servicebus/namespaces/queues#property-values).
 
-O histórico de tempo de detecção de duplicidades tem como padrão 30 segundos para filas e tópicos, com um valor máximo de 40 minutos. Você pode alterar essa configuração na janela de propriedades de fila e tópico no Portal do Azure.
+O histórico de tempo de detecção de duplicidades tem como padrão 30 segundos para filas e tópicos, com um valor máximo de 7 dias. Você pode alterar essa configuração na janela de propriedades de fila e tópico no Portal do Azure.
 
 ![][2]
 
@@ -55,7 +55,7 @@ Manter a janela pequena significa que menos IDs de mensagem devem ser retidos e 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre as mensagens do Barramento de Serviço, consulte os tópicos a seguir:
+Para saber mais sobre as mensagens do Barramento de Serviço, consulte os seguintes tópicos:
 
 * [Conceitos fundamentais do barramento de serviço](service-bus-fundamentals-hybrid-solutions.md)
 * [Filas, tópicos e assinaturas do Barramento de Serviço](service-bus-queues-topics-subscriptions.md)

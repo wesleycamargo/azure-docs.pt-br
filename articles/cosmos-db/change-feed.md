@@ -11,356 +11,181 @@ ms.assetid: 2d7798db-857f-431a-b10f-3ccbc7d93b50
 ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
-ms.devlang: rest-api
+ms.devlang: 
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 10/10/2017
 ms.author: arramac
-ms.openlocfilehash: 16bd85065f77612ac342ae4a8b500e0c7fa2a078
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0971959fb168d92096531d1c081666cf301608cf
+ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/14/2017
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Trabalhando com o suporte ao feed de alterações no Azure Cosmos DB
-O [Azure Cosmos DB](../cosmos-db/introduction.md) é um serviço de banco de dados rápido, flexível e replicado globalmente, usado para armazenar grandes volumes de dados transacionais e operacionais com latência previsível de milissegundos de dígito único para leituras e gravações. Isso o torna adequado para IoT, jogos, varejo e aplicativos de log operacional. Um padrão de design comum nesses aplicativos é controlar as alterações feitas nos dados do Azure Cosmos DB e atualizar exibições materializadas, executar análise em tempo real, arquivar dados em armazenamento frio e disparar notificações em determinados eventos de acordo com essas alterações. O **suporte ao feed de alterações** do Azure Cosmos DB permite que você crie soluções eficientes e escalonáveis para cada um desses padrões.
 
-Com suporte ao feed de alterações, o Azure Cosmos DB fornece uma lista classificada de documentos em uma coleção do Azure Cosmos DB na ordem em que eles foram modificados. Este feed pode ser usado para ouvir as modificações de dados dentro da coleção e executar ações como:
+O [Azure Cosmos DB](../cosmos-db/introduction.md) é um banco de dados replicado globalmente de maneira rápida e flexível, adequado para IoT, jogos, varejo e aplicativos de log operacional. Um padrão de design comum nesses aplicativos é usar as alterações nos dados para disparar ações adicionais. Essas ações adicionais podem ser qualquer uma das seguintes: 
 
-* Disparar uma chamada a uma API quando um documento é inserido ou modificado
-* Executar o processamento em tempo real (fluxo) em atualizações
-* Sincronizar dados com um cache, o mecanismo de pesquisa ou o data warehouse
+* Disparar uma notificação ou uma chamada para uma API quando um documento é inserido ou modificado.
+* Transmitir processamento para IoT ou executar a análise.
+* Movimentação de dados adicionais sincronizando com um cache, mecanismo de pesquisa ou data warehouse ou arquivando dados para armazenamento frio.
 
-As alterações no Azure Cosmos DB são persistentes e podem ser processadas de forma assíncrona e distribuídas entre um ou mais consumidores para processamento paralelo. Vamos examinar as APIs do feed de alterações e como usá-las para criar aplicativos escalonáveis em tempo real. Este artigo mostra como trabalhar com o feed de alterações do Azure Cosmos DB e a API do DocumentDB. 
+O **suporte ao feed de alterações** do Azure Cosmos DB permite que você crie soluções eficientes e escalonáveis para cada um desses padrões, conforme mostra a imagem a seguir:
 
 ![Usando o feed de alterações do Azure Cosmos DB para capacitar a análise em tempo real e cenários de computação orientada a eventos](./media/change-feed/changefeedoverview.png)
 
 > [!NOTE]
-> O suporte ao feed de alterações é fornecido apenas para a API do DocumentDB neste momento. A API do Graph e a API de Tabela não têm suporte no momento.
+> Suporte a feed de alterações é fornecido para todos os modelos de dados e contêineres no Azure Cosmos DB. No entanto, o feed de alterações é lido usando o cliente do DocumentDB e serializa os itens no formato JSON. Devido à formatação JSON, clientes do MongoDB enfrentarão uma incompatibilidade entre documentos formatado em BSON e o feed de alterações formatado em JSON. 
 
-## <a name="use-cases-and-scenarios"></a>Cenários e casos de uso
-O feed de alterações permite o processamento eficiente de grandes conjuntos de dados com um alto volume de gravações e oferece uma alternativa à consulta de conjuntos de dados inteiros para identificar o que foi alterado. Por exemplo, você pode executar as seguintes etapas de forma eficiente:
+## <a name="how-does-change-feed-work"></a>Como o feed de alterações funciona?
 
-* Atualize um cache, índice de pesquisa ou data warehouse com os dados armazenados no Azure Cosmos DB.
-* Implementar camadas e arquivamento de dados em nível do aplicativo, ou seja, armazenar “dados quentes” no Azure Cosmos DB e arquivar “dados frios” no [Armazenamento de Blobs do Azure](../storage/common/storage-introduction.md) ou no [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md).
-* Implementar a análise em lote nos dados usando o [Apache Hadoop](run-hadoop-with-hdinsight.md).
-* Implementar [pipelines lambda no Azure](https://blogs.technet.microsoft.com/msuspartner/2016/01/27/azure-partner-community-big-data-advanced-analytics-and-lambda-architecture/) com o Azure Cosmos DB. O Azure Cosmos DB fornece uma solução de banco de dados escalonável que pode manipular a ingestão e a consulta, além de implementar arquiteturas lambda com baixo TCO. 
-* Realize migrações com zero tempo de inatividade para outra conta do Azure Cosmos DB com um esquema de particionamento diferente.
+O suporte para feed de alterações no Azure Cosmos DB funciona ouvindo uma coleção do Azure Cosmos DB para quaisquer alterações. Ele gera a lista classificada de documentos que foram alterados na ordem em que eles foram modificados. As alterações são mantidas, podem ser processadas de maneira assíncrona e incremental e a saída pode ser distribuída em um ou mais consumidores para processamento paralelo. 
 
-**Pipelines lambda com o Azure Cosmos DB para ingestão e consulta:**
+Você pode ler o feed de alterações de três maneiras diferentes, conforme discutido posteriormente neste artigo:
 
-![Pipeline lambda baseado no Azure Cosmos DB para ingestão e consulta](./media/change-feed/lambda.png)
+1.  [Usando o Azure Functions](#azure-functions)
+2.  [Usando o SDK do Azure Cosmos DB](#rest-apis)
+3.  [Usando a biblioteca do Processador do feed de alterações do Azure Cosmos DB](#change-feed-processor)
 
-Use o Azure Cosmos DB para receber e armazenar dados de evento de dispositivos, sensores, infraestrutura e aplicativos, além de processar esses eventos em tempo real com o [Stream Analytics do Azure](../stream-analytics/stream-analytics-documentdb-output.md), [Apache Storm](../hdinsight/hdinsight-storm-overview.md) ou [Apache Spark](../hdinsight/hdinsight-apache-spark-overview.md). 
+O feed de alterações está disponível para cada intervalo de chaves de partição dentro da coleção de documentos e, portanto, pode ser distribuído entre um ou mais consumidores para processamento paralelo, conforme mostra a imagem a seguir.
 
-Em aplicativos Web e móveis [sem servidor](http://azure.com/serverless), você pode acompanhar eventos como alterações no perfil, nas preferências ou no local do cliente para disparar determinadas ações, como enviar notificações por push para seus dispositivos usando o [Azure Functions](../azure-functions/functions-bindings-documentdb.md) ou os [Serviços de Aplicativos](https://azure.microsoft.com/services/app-service/). Se você estiver usando o Azure Cosmos DB para criar um jogo, poderá, por exemplo, usar o feed de alterações para implementar placares em tempo real de acordo com as pontuações dos jogos concluídos.
+![Processamento distribuído do feed de alterações do Azure Cosmos DB](./media/change-feed/changefeedvisual.png)
 
-## <a name="how-change-feed-works-in-azure-cosmos-db"></a>Como funciona o feed de alterações no Azure Cosmos DB
-O Azure Cosmos DB fornece a capacidade de ler de forma incremental as atualizações feitas em uma coleção do Azure Cosmos DB. Este feed de alteração tem as seguintes propriedades:
-
-* As alterações são persistentes no Azure Cosmos DB e podem ser processadas de forma assíncrona.
-* As alterações em documentos em uma coleção ficam imediatamente disponíveis no feed de alteração.
+Detalhes adicionais:
+* O feed de alterações é habilitado por padrão para todas as contas.
+* Você pode usar a [produtividade provisionada](request-units.md) em sua região de gravação ou em qualquer [região de leitura](distribute-data-globally.md) para ler o feed de alterações, assim como qualquer outra operação do Azure Cosmos DB.
+* O feed de alteração inclui inserções e as operações de atualização feitas em documentos na coleção. Você pode capturar exclusões ao definir um sinalizador de "exclusão reversível" em seus documentos em vez de exclusões. Como alternativa, você pode definir um período de validade finito para seus documentos por meio do [recurso TTL](time-to-live.md), por exemplo, de 24 horas, e usar o valor dessa propriedade para capturar as exclusões. Com essa solução, você precisa processar alterações em um intervalo de tempo menor do que o período de expiração do TTL.
 * Cada alteração em um documento aparece exatamente uma vez no feed de alterações, e os clientes gerenciam a respectiva lógica do ponto de verificação. A biblioteca do processador do feed de alterações fornece ponto de verificação automático e semântica "pelo menos uma vez".
 * Somente a alteração mais recente de um determinado documento é incluída no log de alterações. As alterações intermediárias podem não estar disponíveis.
 * O feed de alteração é classificado por ordem de modificação em cada valor de chave de partição. Não há nenhuma garantia de ordem entre os valores de chave de partição.
 * As alterações podem ser sincronizadas de qualquer ponto no tempo, ou seja, não há nenhum período de retenção de dados fixo para o qual haja alterações disponíveis.
 * As alterações estão disponíveis em blocos de intervalos de chaves de partição. Esse recurso permite que as alterações de coleções grandes sejam processadas em paralelo por vários consumidores/servidores.
-* Os aplicativos podem solicitar vários feeds de alteração simultaneamente na mesma coleção.
+* Os aplicativos podem solicitar vários feeds de alterações simultaneamente na mesma coleção.
 
-O feed de alterações do Azure Cosmos DB é habilitado por padrão para todas as contas. Use a [produtividade provisionada](request-units.md) em sua região de gravação ou em qualquer [região de leitura](distribute-data-globally.md) para ler o feed de alterações, assim como qualquer outra operação do Azure Cosmos DB. O feed de alteração inclui inserções e as operações de atualização feitas em documentos na coleção. Você pode capturar exclusões ao definir um sinalizador de "exclusão reversível" em seus documentos em vez de exclusões. Como alternativa, você pode definir um período de validade finito para seus documentos por meio do [recurso TTL](time-to-live.md), por exemplo, de 24 horas, e usar o valor dessa propriedade para capturar as exclusões. Com essa solução, você precisa processar alterações em um intervalo de tempo menor do que o período de expiração do TTL. O feed de alteração está disponível para cada intervalo de chaves de partição dentro da coleção de documentos e, portanto, pode ser distribuído entre um ou mais consumidores para processamento paralelo. 
+## <a name="use-cases-and-scenarios"></a>Cenários e casos de uso
 
-![Processamento distribuído do feed de alterações do Azure Cosmos DB](./media/change-feed/changefeedvisual.png)
+O feed de alterações permite o processamento eficiente de grandes conjuntos de dados com um alto volume de gravações e oferece uma alternativa à consulta de um conjunto de dados inteiro para identificar o que foi alterado. 
 
-Você tem algumas opções para implementar um feed de alterações em seu código de cliente. As seções a seguir descrevem como implementar o feed de alterações usando a API REST do Azure Cosmos DB e os SDKs do DocumentDB. No entanto, para aplicativos .NET, é recomendável usar a nova [Biblioteca do processador de feed de alterações](#change-feed-processor) para processar eventos do feed de alterações, pois ela simplifica a leitura de alterações em partições e habilita vários threads trabalhando em paralelo. 
+Por exemplo, com um feed de alterações, você pode executar as seguintes tarefas com eficiência:
 
-## <a id="rest-apis"></a>Trabalhando com a API REST e os SDKs do DocumentDB
-O Azure Cosmos DB fornece contêineres elásticos de armazenamento e produtividade chamados **coleções**. Os dados em coleções são logicamente agrupados usando [chaves de partição](partition-data.md) para obtenção de escalabilidade e desempenho. O Azure Cosmos DB fornece várias APIs para acessar esses dados, incluindo pesquisa por ID (Read/Get), consulta e feeds de leitura (verificações). O feed de alterações pode ser obtido populando dois novos cabeçalhos de solicitação na API `ReadDocumentFeed` do DocumentDB e pode ser processado em paralelo em intervalos de chaves de partição.
+* Atualize um cache, índice de pesquisa ou data warehouse com os dados armazenados no Azure Cosmos DB.
+* Implementar camadas e arquivamento de dados em nível do aplicativo, ou seja, armazenar “dados quentes” no Azure Cosmos DB e arquivar “dados frios” no [Armazenamento de Blobs do Azure](../storage/common/storage-introduction.md) ou no [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md).
+* Implementar a análise em lote nos dados usando o [Apache Hadoop](run-hadoop-with-hdinsight.md).
+* Realize migrações com zero tempo de inatividade para outra conta do Azure Cosmos DB com um esquema de particionamento diferente.
+* Implementar [pipelines lambda no Azure](https://blogs.technet.microsoft.com/msuspartner/2016/01/27/azure-partner-community-big-data-advanced-analytics-and-lambda-architecture/) com o Azure Cosmos DB. O Azure Cosmos DB fornece uma solução de banco de dados escalonável que pode manipular a ingestão e a consulta, além de implementar arquiteturas lambda com baixo TCO. 
+* Receber e armazenar dados de evento de dispositivos, sensores, infraestrutura e aplicativos, além de processar esses eventos em tempo real com o [Azure Stream Analytics](../stream-analytics/stream-analytics-documentdb-output.md), o [Apache Storm](../hdinsight/hdinsight-storm-overview.md) ou o [Apache Spark](../hdinsight/hdinsight-apache-spark-overview.md). 
 
-### <a name="readdocumentfeed-api"></a>API do ReadDocumentFeed
-Vamos examinar o funcionamento do ReadDocumentFeed. O Azure Cosmos DB dá suporte à leitura de um feed de documentos em uma coleção por meio da API `ReadDocumentFeed`. Por exemplo, a solicitação a seguir retorna uma página de documentos na coleção `serverlogs`. 
+A imagem a seguir mostra como pipelines lambda que ingerem e consultam usando o Azure Cosmos DB podem usar o suporte para feed de alterações: 
 
-    GET https://mydocumentdb.documents.azure.com/dbs/smalldb/colls/serverlogs HTTP/1.1
-    x-ms-date: Tue, 22 Nov 2016 17:05:14 GMT
-    authorization: type%3dmaster%26ver%3d1.0%26sig%3dgo7JEogZDn6ritWhwc5hX%2fNTV4wwM1u9V2Is1H4%2bDRg%3d
-    Cache-Control: no-cache
-    x-ms-consistency-level: Strong
-    User-Agent: Microsoft.Azure.Documents.Client/1.10.27.5
-    x-ms-version: 2016-07-11
-    Accept: application/json
-    Host: mydocumentdb.documents.azure.com
+![Pipeline lambda baseado no Azure Cosmos DB para ingestão e consulta](./media/change-feed/lambda.png)
 
-Os resultados podem ser limitados por meio do cabeçalho `x-ms-max-item-count` e as leituras podem ser retomadas reenviando a solicitação com um cabeçalho `x-ms-continuation` retornado na resposta anterior. Quando executado de um único cliente, `ReadDocumentFeed` itera resultados entre partições em série. 
+Ainda, em aplicativos Web e móveis [sem servidor](http://azure.com/serverless), você pode acompanhar eventos como alterações no perfil, nas preferências ou no local do cliente para disparar determinadas ações, como enviar notificações por push para seus dispositivos usando o [Azure Functions](#azure-functions). Se você estiver usando o Azure Cosmos DB para criar um jogo, poderá, por exemplo, usar o feed de alterações para implementar placares em tempo real de acordo com as pontuações dos jogos concluídos.
 
-**Leitura serial de feed de documento**
+<a id="azure-functions"></a>
+## <a name="using-azure-functions"></a>Usando o Azure Functions 
 
-Você também pode recuperar o feed de documentos usando um dos [SDKs do Azure Cosmos DB](documentdb-sdk-dotnet.md) compatíveis. Por exemplo, o trecho a seguir mostra como usar o [método ReadDocumentFeedAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.readdocumentfeedasync?view=azure-dotnet) no .NET.
+Se você estiver usando o Azure Functions, a maneira mais simples de conectar-se a um feed de alterações do Azure Cosmos DB é adicionar um gatilho do Azure Cosmos DB ao seu aplicativo Azure Functions. Quando você cria um gatilho do Azure Cosmos DB em um aplicativo Azure Functions, selecione a coleção do Azure Cosmos DB para conectar-se e a função será disparada sempre que for feita uma alteração à coleção. 
 
-```csharp
-FeedResponse<dynamic> feedResponse = null;
-do
-{
-    feedResponse = await client.ReadDocumentFeedAsync(collection, new FeedOptions { MaxItemCount = -1 });
-}
-while (feedResponse.ResponseContinuation != null);
-```
+Os gatilhos podem ser criados no portal do Azure Functions, no portal do Azure Cosmos DB ou programaticamente. Para obter mais informações, consulte [Azure Cosmos DB: computação de banco de dados sem servidor usando Azure Functions](serverless-computing-database.md).
 
-### <a name="distributed-execution-of-readdocumentfeed"></a>Execução distribuída do ReadDocumentFeed
-Para coleções que contêm terabytes de dados ou mais, ou um grande volume de atualizações de ingestão, a execução serial de feed de leitura de um único computador cliente pode não ser prática. Para dar suporte a esses cenários de Big Data, o Azure Cosmos DB fornece APIs para distribuir chamadas `ReadDocumentFeed` de forma transparente entre vários leitores/consumidores cliente. 
+<a id="rest-apis"></a>
+## <a name="using-the-sdk"></a>Usar o SDK
 
-**Feed de Documento de Leitura Distribuída**
+O [SDK do DocumentDB](documentdb-sdk-dotnet.md) para o Azure Cosmos DB fornece todo o poder de ler e gerenciar um feed de alterações. Porém, todo grande poder gera grandes responsabilidades. Se você quiser gerenciar pontos de verificação, lidar com números de sequência de documento e ter controle granular sobre chaves de partição, usar o SDK pode ser a abordagem certa.
 
-Para fornecer o processamento escalonável das alterações incrementais, o Azure Cosmos DB dá suporte a um modelo de expansão para a API do feed de alterações de acordo com intervalos de chaves de partição.
+Esta seção explica como usar o SDK do DocumentDB para trabalhar com um feed de alterações.
 
-* Você pode obter uma lista de intervalos de chaves de partição para uma coleção que esteja executando uma chamada `ReadPartitionKeyRanges`. 
-* Para cada intervalo de chaves de partição, você pode realizar uma `ReadDocumentFeed` para ler documentos com chaves de partição dentro do intervalo.
+1. Comece lendo os seguintes recursos do appconfig. As instruções sobre como recuperar a chave de autorização e ponto de extremidade estão disponíveis em [Atualizar sua cadeia de conexão](create-documentdb-dotnet.md#update-your-connection-string).
 
-### <a name="retrieving-partition-key-ranges-for-a-collection"></a>Recuperação de intervalos de chaves de partição para uma coleção
-Você pode recuperar os intervalos de chaves de partição solicitando o recurso `pkranges` em uma coleção. Por exemplo, a solicitação a seguir recupera a lista de intervalos de chaves de partição para a coleção `serverlogs`:
+    ``` csharp
+    DocumentClient client;
+    string DatabaseName = ConfigurationManager.AppSettings["database"];
+    string CollectionName = ConfigurationManager.AppSettings["collection"];
+    string endpointUrl = ConfigurationManager.AppSettings["endpoint"];
+    string authorizationKey = ConfigurationManager.AppSettings["authKey"];
+    ```
 
-    GET https://querydemo.documents.azure.com/dbs/bigdb/colls/serverlogs/pkranges HTTP/1.1
-    x-ms-date: Tue, 15 Nov 2016 07:26:51 GMT
-    authorization: type%3dmaster%26ver%3d1.0%26sig%3dEConYmRgDExu6q%2bZ8GjfUGOH0AcOx%2behkancw3LsGQ8%3d
-    x-ms-consistency-level: Session
-    x-ms-version: 2016-07-11
-    Accept: application/json
-    Host: querydemo.documents.azure.com
+2. Crie o cliente da seguinte maneira:
 
-Essa solicitação retorna a seguinte resposta com metadados sobre os intervalos de chaves de partição:
-
-    HTTP/1.1 200 Ok
-    Content-Type: application/json
-    x-ms-item-count: 25
-    x-ms-schemaversion: 1.1
-    Date: Tue, 15 Nov 2016 07:26:51 GMT
-
+    ```csharp
+    using (client = new DocumentClient(new Uri(endpointUrl), authorizationKey,
+    new ConnectionPolicy { ConnectionMode = ConnectionMode.Direct, ConnectionProtocol = Protocol.Tcp }))
     {
-       "_rid":"qYcAAPEvJBQ=",
-       "PartitionKeyRanges":[
-          {
-             "_rid":"qYcAAPEvJBQCAAAAAAAAUA==",
-             "id":"0",
-             "_etag":"\"00002800-0000-0000-0000-580ac4ea0000\"",
-             "minInclusive":"",
-             "maxExclusive":"05C1CFFFFFFFF8",
-             "_self":"dbs\/qYcAAA==\/colls\/qYcAAPEvJBQ=\/pkranges\/qYcAAPEvJBQCAAAAAAAAUA==\/",
-             "_ts":1477100776
-          },
-          ...
-       ],
-       "_count": 25
     }
+    ```
 
+3. Obter intervalos de chave de partição:
 
-**Propriedades do intervalo de chaves de partição**: cada intervalo de chaves de partição inclui as propriedades de metadados da seguinte tabela:
-
-<table>
-    <tr>
-        <th>Nome do cabeçalho</th>
-        <th>Descrição</th>
-    </tr>
-    <tr>
-        <td>ID</td>
-        <td>
-            <p>A ID para o intervalo de chaves de partição. É uma ID estável e exclusiva dentro de cada coleção.</p>
-            <p>Deve ser usada na seguinte chamada para ler as alterações por intervalo de chaves de partição.</p>
-        </td>
-    </tr>
-    <tr>
-        <td>maxExclusive</td>
-        <td>O valor de hash de chave de partição máxima para o intervalo de chaves de partição. Para uso interno.</td>
-    </tr>
-    <tr>
-        <td>minInclusive</td>
-        <td>O valor de hash da chave de partição mínimo para o intervalo de chaves de partição. Para uso interno.</td>
-    </tr>       
-</table>
-
-Faça isso usando um dos [SDKs do Azure Cosmos DB](documentdb-sdk-dotnet.md) com suporte. Por exemplo, o trecho a seguir mostra como recuperar intervalos de chaves de partição no .NET, usando o método [ReadPartitionKeyRangeFeedAsync](/dotnet/api/microsoft.azure.documents.client.documentclient.readpartitionkeyrangefeedasync?view=azure-dotnet).
-
-```csharp
-string pkRangesResponseContinuation = null;
-List<PartitionKeyRange> partitionKeyRanges = new List<PartitionKeyRange>();
-
-do
-{
-    FeedResponse<PartitionKeyRange> pkRangesResponse = await client.ReadPartitionKeyRangeFeedAsync(
-        collectionUri, 
-        new FeedOptions { RequestContinuation = pkRangesResponseContinuation });
-
+    ```csharp
+    FeedResponse pkRangesResponse = await client.ReadPartitionKeyRangeFeedAsync(
+        collectionUri,
+        new FeedOptions
+            {RequestContinuation = pkRangesResponseContinuation });
+     
     partitionKeyRanges.AddRange(pkRangesResponse);
     pkRangesResponseContinuation = pkRangesResponse.ResponseContinuation;
-}
-while (pkRangesResponseContinuation != null);
-```
+    ```
 
-O Azure Cosmos DB dá suporte à recuperação de documentos por intervalo de chaves de partição definindo o cabeçalho `x-ms-documentdb-partitionkeyrangeid` opcional. 
+4. Chame ExecuteNextAsync para cada intervalo de chave de partição:
 
-### <a name="performing-an-incremental-readdocumentfeed"></a>Execução de um ReadDocumentFeed incremental
-O ReadDocumentFeed dá suporte aos seguintes cenários/tarefas de processamento incremental de alterações em coleções do Azure Cosmos DB:
-
-* Leia todas as alterações para documentos desde o início, ou seja, desde a criação da coleção.
-* Leia todas as alterações para atualizações futuras nos documentos a partir da hora atual ou todas as alterações desde a hora especificada por um usuário.
-* Leia todas as alterações feitas em documentos de uma versão lógica da coleção (ETag). É possível criar pontos de verificação de seus clientes com base em ETag retornado de solicitações de feed de leitura incrementais.
-
-As alterações incluem inserções e atualizações em documentos. Para capturar as exclusões, você deve usar uma propriedade de "exclusão reversível" em documentos ou usar a [propriedade TTL interna](time-to-live.md) para sinalizar uma exclusão pendente no feed de alteração.
-
-A tabela a seguir lista os [cabeçalhos de solicitação](/rest/api/documentdb/common-documentdb-rest-request-headers.md) e de [resposta](/rest/api/documentdb/common-documentdb-rest-response-headers.md) para operações do ReadDocumentFeed.
-
-**Cabeçalhos de solicitação para ReadDocumentFeed incremental**:
-
-<table>
-    <tr>
-        <th>Nome do cabeçalho</th>
-        <th>Descrição</th>
-    </tr>
-    <tr>
-        <td>A-IM</td>
-        <td>Deve ser definido como "feed Incremental" ou omitido</td>
-    </tr>
-    <tr>
-        <td>If-None-Match</td>
-        <td>
-            <p>Nenhum cabeçalho: retorna todas as alterações desde o início (criação de coleção)</p>
-            <p>"*": retorna todas as novas alterações para dados na coleção</p>           
-            <p>&lt;etag&gt;: se definida como uma ETag de coleção, retorna todas as alterações feitas desde o carimbo de data/hora lógico</p>
-        </td>
-    </tr>
-    <tr>    
-        <td>If-Modified-Since</td> 
-        <td>Formato de hora RFC 1123; ignorado se If-None-Match for especificado</td> 
-    </tr> 
-    <tr>
-        <td>x-ms-documentdb-partitionkeyrangeid</td>
-        <td>A ID de intervalo de chaves de partição de leitura de dados.</td>
-    </tr>
-</table>
-
-**Cabeçalhos de resposta para ReadDocumentFeed incremental**:
-
-<table> <tr>
-        <th>Nome do cabeçalho</th>
-        <th>Descrição</th>
-    </tr>
-    <tr>
-        <td>etag</td>
-        <td>
-            <p>O número de sequência lógica (LSN) do último documento retornado na resposta.</p>
-            <p>O ReadDocumentFeed incremental pode ser retomado por meio do reenvio desse valor em If-None-Match.</p>
-        </td>
-    </tr>
-</table>
-
-Aqui está um exemplo de solicitação para retornar todas as alterações incrementais na coleção da versão/ETag lógica `28535` e intervalo de chaves de partição = `16`:
-
-    GET https://mydocumentdb.documents.azure.com/dbs/bigdb/colls/bigcoll/docs HTTP/1.1
-    x-ms-max-item-count: 1
-    If-None-Match: "28535"
-    A-IM: Incremental feed
-    x-ms-documentdb-partitionkeyrangeid: 16
-    x-ms-date: Tue, 22 Nov 2016 20:43:01 GMT
-    authorization: type%3dmaster%26ver%3d1.0%26sig%3dzdpL2QQ8TCfiNbW%2fEcT88JHNvWeCgDA8gWeRZ%2btfN5o%3d
-    x-ms-version: 2016-07-11
-    Accept: application/json
-    Host: mydocumentdb.documents.azure.com
-
-As alterações são ordenadas por tempo em cada valor de chave de partição dentro do intervalo de chaves de partição. Não há nenhuma garantia de ordem entre os valores de chave de partição. Se houver mais resultados do que pode caber em uma única página, você poderá ler a próxima página de resultados reenviando a solicitação com o cabeçalho `If-None-Match` com valor igual a `etag` da resposta anterior. Se vários documentos tiverem sido inseridos ou atualizados transacionalmente dentro de um procedimento armazenado ou gatilho, serão todos retornados na mesma página de resposta.
-
-> [!NOTE]
-> Com o feed de alterações, você poderá obter mais itens retornados em uma página que o especificado em `x-ms-max-item-count`, no caso de vários documentos inseridos ou atualizados dentro de procedimentos armazenados ou gatilhos. 
-
-Ao usar o SDK do .NET (1.17.0), defina o campo `StartTime` em `ChangeFeedOptions` para retornar diretamente documentos alterados desde `StartTime` ao chamar `CreateDocumentChangeFeedQuery`. Ao especificar `If-Modified-Since` usando a API REST, sua solicitação não retornará os documentos em si, mas o token de continuação ou `etag` no cabeçalho da resposta. Para retornar os documentos modificados na hora especificada, o token de continuação `etag` deve ser usado na próxima solicitação com `If-None-Match` para retornar os documentos reais. 
-
-O SDK do .NET fornece as classes auxiliares [CreateDocumentChangeFeedQuery](/dotnet/api/microsoft.azure.documents.client.documentclient.createdocumentchangefeedquery?view=azure-dotnet) e [ChangeFeedOptions](/dotnet/api/microsoft.azure.documents.client.changefeedoptions?view=azure-dotnet) para acessar as alterações feitas em uma coleção. O trecho a seguir mostra como recuperar todas as alterações desde o início usando o SDK do .NET de um único cliente.
-
-```csharp
-private async Task<Dictionary<string, string>> GetChanges(
-    DocumentClient client,
-    string collection,
-    Dictionary<string, string> checkpoints)
-{
-    string pkRangesResponseContinuation = null;
-    List<PartitionKeyRange> partitionKeyRanges = new List<PartitionKeyRange>();
-
-    do
-    {
-        FeedResponse<PartitionKeyRange> pkRangesResponse = await client.ReadPartitionKeyRangeFeedAsync(
-            collectionUri, 
-            new FeedOptions { RequestContinuation = pkRangesResponseContinuation });
-
-        partitionKeyRanges.AddRange(pkRangesResponse);
-        pkRangesResponseContinuation = pkRangesResponse.ResponseContinuation;
-    }
-    while (pkRangesResponseContinuation != null);
-
-    foreach (PartitionKeyRange pkRange in partitionKeyRanges)
-    {
+    ```csharp
+    foreach (PartitionKeyRange pkRange in partitionKeyRanges){
         string continuation = null;
         checkpoints.TryGetValue(pkRange.Id, out continuation);
-
         IDocumentQuery<Document> query = client.CreateDocumentChangeFeedQuery(
-            collection,
+            collectionUri,
             new ChangeFeedOptions
             {
                 PartitionKeyRangeId = pkRange.Id,
                 StartFromBeginning = true,
                 RequestContinuation = continuation,
-                MaxItemCount = 1
+                MaxItemCount = -1,
+                // Set reading time: only show change feed results modified since StartTime
+                StartTime = DateTime.Now - TimeSpan.FromSeconds(30)
             });
-
         while (query.HasMoreResults)
-        {
-            FeedResponse<DeviceReading> readChangesResponse = await query.ExecuteNextAsync<DeviceReading>();
-
-            foreach (DeviceReading changedDocument in readChangesResponse)
             {
-                Console.WriteLine(changedDocument.Id);
+                FeedResponse<dynamic> readChangesResponse = query.ExecuteNextAsync<dynamic>().Result;
+    
+                foreach (dynamic changedDocument in readChangesResponse)
+                    {
+                         Console.WriteLine("document: {0}", changedDocument);
+                    }
+                checkpoints[pkRange.Id] = readChangesResponse.ResponseContinuation;
             }
-
-            checkpoints[pkRange.Id] = readChangesResponse.ResponseContinuation;
-        }
     }
+    ```
 
-    return checkpoints;
-}
-```
-E o trecho a seguir mostra como processar alterações em tempo real com o Azure Cosmos DB usando o suporte ao feed de alterações e a função anterior. A primeira chamada retorna todos os documentos na coleção, e o segundo retorna apenas os dois documentos criados desde o último ponto de verificação.
+Se você tiver vários leitores, poderá usar **ChangeFeedOptions** para distribuir a carga de leitura em diferentes threads ou clientes.
 
-```csharp
-// Returns all documents in the collection.
-Dictionary<string, string> checkpoints = await GetChanges(client, collection, new Dictionary<string, string>());
+Isso é tudo, com essas poucas linhas de código, você pode começar a ler o feed de alterações. Você pode obter o código completo usado neste artigo do [repositório do GitHub azure-cosmos-db-DocumentFeed](https://github.com/rsarosh/azure-cosmos-db-DocumentFeed).
 
-await client.CreateDocumentAsync(collection, new DeviceReading { DeviceId = "xsensr-201", MetricType = "Temperature", Unit = "Celsius", MetricValue = 1000 });
-await client.CreateDocumentAsync(collection, new DeviceReading { DeviceId = "xsensr-212", MetricType = "Pressure", Unit = "psi", MetricValue = 1000 });
+No código da etapa 4 acima, o **ResponseContinuation** na última linha tem o último LSN (número de sequência lógica) do documento, que será usado na próxima vez que você ler novos documentos após esse número de sequência. Usando o **StartTime** do **ChangeFeedOption**, você pode ampliar sua rede para obter os documentos. Assim, se a sua **ResponseContinuation** for nula, mas seu **StartTime** voltar no tempo, você obterá todos os documentos que mudaram desde **StartTime**. Mas, se sua **ResponseContinuation** tiver um valor, o sistema lhe enviará todos os documentos desde aquele LSN.
 
-// Returns only the two documents created above.
-checkpoints = await GetChanges(client, collection, checkpoints);
-```
+Portanto, sua matriz de ponto de verificação está apenas mantendo o LSN para cada partição. Mas, se você não quiser lidar com as partições, pontos de verificação, LSN, hora de início etc., a opção mais simples será usar a biblioteca do Processador de Feed de Alterações.
 
-Você também pode filtrar o feed de alteração usando lógica de cliente para processar eventos seletivamente. Por exemplo, aqui está um trecho que usa o LINQ no lado do cliente para processar somente os eventos de alteração de temperatura de sensores de dispositivo.
+<a id="change-feed-processor"></a>
+## <a name="using-the-change-feed-processor-library"></a>Usando a biblioteca do Processador do Feed de Alterações 
 
-```csharp
-FeedResponse<DeviceReading> readChangesResponse = await query.ExecuteNextAsync<DeviceReading>;
+A [biblioteca do Processador de Feed de Alterações do Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/documentdb-sdk-dotnet-changefeed) pode ajudá-lo a facilmente distribuir o processamento de eventos entre vários consumidores. Essa biblioteca simplifica as alterações de leitura em partições e vários threads operando em paralelo.
 
-foreach (DeviceReading changedDocument in 
-    readChangesResponse.AsEnumerable().Where(d => d.MetricType == "Temperature" && d.MetricValue > 1000L))
-{
-    // trigger an action, like call an API
-}
-```
+O principal benefício da biblioteca do Processador de Feed de Alterações é que você não precisa gerenciar cada partição e token de continuação, nem precisa pesquisar cada coleção manualmente.
 
-## <a id="change-feed-processor"></a>Biblioteca do processador do feed de alterações
-Outra opção é usar a [Biblioteca do processador do feed de alterações do Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/documentdb-sdk-dotnet-changefeed), que pode ajudá-lo a distribuir facilmente o processamento de eventos de um feed de alterações entre vários consumidores. A biblioteca é excelente para a criação de leitores de feed de alterações na plataforma .NET. Alguns fluxos de trabalho que seriam simplificados usando a Biblioteca do processador do feed de alterações comparados com métodos incluídos em outros SDKs do Cosmos DB incluem: 
+A biblioteca do Processador do Feed de Alterações simplifica as alterações de leitura em partições e vários threads operando em paralelo.  Ela gerencia automaticamente as alterações de leitura entre partições usando um mecanismo de concessão. Como você pode ver na imagem a seguir, se você iniciar dois clientes que usam a biblioteca do Processador de Feed de Alterações, eles dividirão o trabalho entre si. Enquanto você continua a aumentar os clientes, eles continuam dividindo o trabalho entre si.
 
-* Efetuar pull de atualizações de feed de alterações quando os dados são armazenados em várias partições
-* Mover ou replicar dados de uma coleção para outra
-* Execução paralela de ações disparadas por atualizações aos dados e ao feed de alterações 
+![Processamento distribuído do feed de alterações do Azure Cosmos DB](./media/change-feed/change-feed-output.png)
 
-Embora o uso das APIs nos SDKs do Cosmos forneça acesso preciso às atualizações do feed de alterações em cada partição, o uso da Biblioteca do processador do feed de alterações simplifica a leitura de alterações em partições e em vários threads trabalhando em paralelo. Em vez de ler manualmente as alterações de cada contêiner e salvar um token de continuação para cada partição, o Processador do feed de alterações gerencia automaticamente a leitura de alterações em partições usando um mecanismo de concessão.
+O cliente esquerdo foi iniciado primeiro e ele começou a monitorar todas as partições, então o segundo cliente foi iniciado e, por fim, o primeiro libera algumas das concessões para o segundo cliente. Como você pode ver, essa é a maneira adequada de distribuir o trabalho entre diferentes computadores e clientes.
 
-A biblioteca está disponível como um Pacote NuGet: [Microsoft.Azure.Documents.ChangeFeedProcessor](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/) e do código-fonte como um [exemplo](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedProcessor) do Github. 
+Observe que, se você tiver duas funções do Azure sem servidor monitorando a mesma coleção e usando a mesma concessão, talvez as duas funções estejam recebendo documentos diferentes, dependendo de como a biblioteca do processador decide processar as partições.
 
-### <a name="understanding-change-feed-processor-library"></a>Noções básicas sobre a biblioteca do processador do feed de alterações 
+### <a name="understanding-the-change-feed-processor-library"></a>Noções básicas sobre a biblioteca do Processador do Feed de Alterações
 
 Há quatro componentes principais da implementação do Processador do feed de alterações: a coleção monitorada, a coleção de concessão, o host de processador e os consumidores. 
+
+> [!WARNING]
+> Criar uma coleção tem implicações de preços, pois você está reservando a taxa de transferência para o aplicativo se comunicar com o Azure Cosmos DB. Para obter mais detalhes, visite a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/)
+> 
+> 
 
 **Coleção monitorada:** a coleção monitorada são os dados dos quais o feed de alterações é gerado. Todas as inserções e alterações à coleção monitorada são refletidas no feed de alterações da coleção. 
 
@@ -382,152 +207,80 @@ Para compreender melhor como esses quatro elementos do Processador do feed de al
 
 ![Usando o host do processador do feed de alterações do Azure Cosmos DB](./media/change-feed/changefeedprocessornew.png)
 
-### <a name="using-change-feed-processor-library"></a>Usando a Biblioteca do processador do feed de alterações 
-A seção a seguir explica como usar a Biblioteca do processador do feed de alterações no contexto de replicar alterações de uma coleção de origem para uma coleção de destino. Aqui, a coleção de origem é a coleção monitorada no Processador do feed de alterações. 
+### <a name="working-with-the-change-feed-processor-library"></a>Trabalhando com a biblioteca do Processador do Feed de Alterações
 
-**Instalar e incluir o Pacote NuGet do Processador do feed de alterações** 
+Antes de instalar o pacote NuGet do Processador do Feed de Alterações, instale: 
 
-Antes de instalar o Pacote NuGet do Processador do feed de alterações, instale: 
 * Microsoft.Azure.DocumentDB, versão 1.13.1 ou superior 
-* Newtonsoft.Json, versão 9.0.1 ou superior. Instale `Microsoft.Azure.DocumentDB.ChangeFeedProcessor` e o inclua como uma referência.
+* Newtonsoft.Json, versão 9.0.1 ou superior
 
-**Criar uma coleção monitorada, uma coleção de destino e uma coleção de concessão** 
+Em seguida, instale o [pacote Nuget Microsoft.Azure.DocumentDB.ChangeFeedProcessor](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/) e inclua-o como uma referência.
 
-Para usar a Biblioteca do processador do feed de alterações, a coleção de concessão precisa ser criada antes de executar o(s) host(s) do processador. Novamente, é recomendável armazenar uma coleção de concessão em uma conta diferente, com a região de gravação mais próxima do local em que o Processador do feed de alterações está em execução. Neste exemplo de movimentação de dados, precisamos criar a coleção de destino antes de executar o host do Processador do feed de alterações. No código de exemplo, chamamos um método auxiliar para criar a coleção monitorada, a coleção de concessão e a de destino, caso ainda não existam. 
+Para implementar a biblioteca do Processador de Feed de Alterações, é necessário fazer o seguinte:
 
-> [!WARNING]
-> Criar uma coleção tem implicações de preços, pois você está reservando a taxa de transferência para o aplicativo se comunicar com o Azure Cosmos DB. Para obter mais detalhes, visite a [página de preços](https://azure.microsoft.com/pricing/details/cosmos-db/)
-> 
-> 
+1. Implementar um objeto **DocumentFeedObserver**, que implementa **IChangeFeedObserver**.
 
-*Criando um host de processador*
+2. Implementar um **DocumentFeedObserverFactory**, que implementa um **IChangeFeedObserverFactory**.
 
-A classe `ChangeFeedProcessorHost` fornece um ambiente de tempo de execução seguro, thread-safe e de vários processos para implementações do processador de eventos, que também fornece gerenciamento de concessão de ponto de verificação e partição. Para usar a classe `ChangeFeedProcessorHost`, você pode implementar `IChangeFeedObserver`. Essa interface contém três métodos:
+3. No método **CreateObserver** de **DocumentFeedObserverFacory**, crie uma instância do **ChangeFeedObserver** criado na etapa 1 e retorne-o.
 
-* `OpenAsync`: essa função é chamada quando o observador do feed de alterações é aberto. Ela pode ser modificada para realizar uma ação específica quando o consumidor/observador for aberto.  
-* `CloseAsync`: essa função é chamada quando o observador do feed de alterações é terminado. Ela pode ser modificada para realizar uma ação específica quando o consumidor/observador for fechado.  
-* `ProcessChangesAsync`: essa função é chamada quando novas alterações de documento estão disponíveis no feed de alterações. Ela pode ser modificada para realizar uma ação específica após cada atualização do feed de alterações.  
+    ```
+    public IChangeFeedObserver CreateObserver()
+    {
+              DocumentFeedObserver newObserver = new DocumentFeedObserver(this.client, this.collectionInfo);
+              return newObserver;
+    }
+    ```
 
-Em nosso exemplo, implementamos a interface `IChangeFeedObserver` por meio da classe `DocumentFeedObserver`. Aqui, a função `ProcessChangesAsync` faz upsert (atualiza) de um documento do feed de alterações na coleção de destino. Este exemplo é útil para mover dados de uma coleção para outra, a fim de alterar a chave de partição de um conjunto de dados. 
+4. Criar uma instância de **DocumentObserverFactory**.
 
-*Executando o Host de processador*
+5. Criar uma instância de um **ChangeFeedEventHost**:
 
-Antes de começar o processamento de eventos, as opções do feed de alterações e as opções de host do feed de alterações podem ser personalizadas. 
-```csharp
-    // Customizable change feed option and host options 
-    ChangeFeedOptions feedOptions = new ChangeFeedOptions();
+    ```csharp
+    ChangeFeedEventHost host = new ChangeFeedEventHost(
+                     hostName,
+                     documentCollectionLocation,
+                     leaseCollectionLocation,
+                     feedOptions,
+                     feedHostOptions);
+    ```
 
-    // ie customize StartFromBeginning so change feed reads from beginning
-    // can customize MaxItemCount, PartitonKeyRangeId, RequestContinuation, SessionToken and StartFromBeginning
-    feedOptions.StartFromBeginning = true;
+6. Registrar o **DocumentFeedObserverFactory** com o host.
 
-    ChangeFeedHostOptions feedHostOptions = new ChangeFeedHostOptions();
-
-    // ie. customizing lease renewal interval to 15 seconds
-    // can customize LeaseRenewInterval, LeaseAcquireInterval, LeaseExpirationInterval, FeedPollDelay 
-    feedHostOptions.LeaseRenewInterval = TimeSpan.FromSeconds(15);
+O código para as etapas 4 a 6 é: 
 
 ```
-Os campos específicos que podem ser personalizados estão resumidos nas tabelas a seguir. 
+ChangeFeedOptions feedOptions = new ChangeFeedOptions();
+feedOptions.StartFromBeginning = true;
 
-**Opções do feed de alterações**:
-<table>
-    <tr>
-        <th>Nome da Propriedade</th>
-        <th>Descrição</th>
-    </tr>
-    <tr>
-        <td>MaxItemCount</td>
-        <td>Obtém ou define o número máximo de itens a serem retornados na operação de enumeração no serviço de banco de dados do Azure Cosmos DB.</td>
-    </tr>
-    <tr>
-        <td>PartitionKeyRangeId</td>
-        <td>Obtém ou define a ID do intervalo de chave de partição da solicitação atual no serviço de banco de dados do Azure Cosmos DB.</td>
-    </tr>
-    <tr>
-        <td>RequestContinuation</td>
-        <td>Obtém ou define o token de continuação de solicitação no serviço de banco de dados do Azure Cosmos DB.</td>
-    </tr>
-        <tr>
-        <td>SessionToken</td>
-        <td>Obtém ou define o token de sessão para ser usado com a consistência de sessão no serviço de banco de dados do Azure Cosmos DB.</td>
-    </tr>
-        <tr>
-        <td>StartFromBeginning</td>
-        <td>Obtém ou define se o feed de alterações no serviço de banco de dados do Azure Cosmos DB deve começar do início (true) ou do local atual (false). Por padrão, ele inicia do local atual (false).</td>
-    </tr>
-</table>
-
-**Opções do host do feed de alterações**:
-<table>
-    <tr>
-        <th>Nome da Propriedade</th>
-        <th>Tipo</th>
-        <th>Descrição</th>
-    </tr>
-    <tr>
-        <td>LeaseRenewInterval</td>
-        <td>TimeSpan</td>
-        <td>O intervalo de todas as concessões para partições mantidas atualmente pela instância ChangeFeedEventHost.</td>
-    </tr>
-    <tr>
-        <td>LeaseAcquireInterval</td>
-        <td>TimeSpan</td>
-        <td>O intervalo para disparar uma tarefa para computar se as partições são distribuídas uniformemente entre as instâncias de host conhecidas.</td>
-    </tr>
-    <tr>
-        <td>LeaseExpirationInterval</td>
-        <td>TimeSpan</td>
-        <td>O intervalo para o qual a concessão é tomada em uma concessão que representa uma partição. Se a concessão não for renovada dentro deste intervalo, ela será expirada e a propriedade da partição será movida para outra instância de ChangeFeedEventHost.</td>
-    </tr>
-    <tr>
-        <td>FeedPollDelay</td>
-        <td>TimeSpan</td>
-        <td>O atraso entre a sondagem de uma partição quanto a novas alterações no feed, depois que todas as alterações atuais forem descarregadas.</td>
-    </tr>
-    <tr>
-        <td>CheckpointFrequency</td>
-        <td>CheckpointFrequency</td>
-        <td>A frequência das concessões de ponto de verificação.</td>
-    </tr>
-    <tr>
-        <td>MinPartitionCount</td>
-        <td>int</td>
-        <td>A contagem de partição mínima para o host.</td>
-    </tr>
-    <tr>
-        <td>MaxPartitionCount</td>
-        <td>int</td>
-        <td>O número máximo de partições a que o host pode servir.</td>
-    </tr>
-    <tr>
-        <td>DiscardExistingLeases</td>
-        <td>Bool</td>
-        <td>Se todas as concessões existentes no início do host devem ser excluídas e se o host deve começar do zero.</td>
-    </tr>
-</table>
-
-
-Para iniciar o processamento de eventos, crie uma instância do `ChangeFeedProcessorHost`, fornecendo os parâmetros apropriados para a sua coleção do Azure Cosmos DB. Em seguida, chame `RegisterObserverAsync` para registrar sua implementação `IChangeFeedObserver` (DocumentFeedObserver neste exemplo) com o tempo de execução. Neste ponto, o host tenta adquirir uma concessão em todos os intervalos de chaves de partição na coleção do Azure Cosmos DB usando um algoritmo "greedy". Essas concessões duram por determinado período e, em seguida, devem ser renovadas. Como novos nós, as instâncias de trabalho, nesse caso, ficam online, colocam reservas de concessão e, com o tempo, a carga é trocada entre os nós, à medida que cada host tenta adquirir mais concessões. 
-
-No código de exemplo, usamos uma classe factory (DocumentFeedObserverFactory.cs) para criar um observador e a `RegistObserverFactoryAsync` para registrar o observador. 
-
-```csharp
+ChangeFeedHostOptions feedHostOptions = new ChangeFeedHostOptions();
+ 
+// Customizing lease renewal interval to 15 seconds.
+// Can customize LeaseRenewInterval, LeaseAcquireInterval, LeaseExpirationInterval, FeedPollDelay
+feedHostOptions.LeaseRenewInterval = TimeSpan.FromSeconds(15);
+ 
 using (DocumentClient destClient = new DocumentClient(destCollInfo.Uri, destCollInfo.MasterKey))
-    {
+{
         DocumentFeedObserverFactory docObserverFactory = new DocumentFeedObserverFactory(destClient, destCollInfo);
         ChangeFeedEventHost host = new ChangeFeedEventHost(hostName, documentCollectionLocation, leaseCollectionLocation, feedOptions, feedHostOptions);
-
         await host.RegisterObserverFactoryAsync(docObserverFactory);
-
-        Console.WriteLine("Running... Press enter to stop.");
-        Console.ReadLine();
-
         await host.UnregisterObserversAsync();
-    }
+}
 ```
-Ao longo do tempo, é estabelecido um equilíbrio. Essa funcionalidade dinâmica permite que o dimensionamento automático baseado em CPU seja aplicado aos consumidores tanto para escalar quanto para reduzir verticalmente. Se as alterações estiverem disponíveis no Azure Cosmos DB a uma taxa mais rápida do que os consumidores podem processar, o aumento de CPU nos consumidores poderá ser usado para causar uma escala automática na contagem de instâncias de trabalho.
+
+É isso. Depois destas etapas, os documentos começarão a ir para o método **DocumentFeedObserver ProcessChangesAsync**.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Experimente as [amostras de código do Feed de alterações do Azure Cosmos DB no GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeed)
-* Introdução à codificação com os [SDKs do Azure Cosmos DB](documentdb-sdk-dotnet.md) ou a [API REST](/rest/api/documentdb/).
+
+Para obter mais informações sobre como usar o Azure Cosmos DB com Azure Functions, consulte [Azure Cosmos DB: computação de banco de dados sem servidor usando o Azure Functions](serverless-computing-database.md).
+
+Para obter mais informações sobre como usar a biblioteca do Processador de Feed de Alterações, use os seguintes recursos:
+
+* [página de informações](documentdb-sdk-dotnet-changefeed.md) 
+* [Pacote do Nuget](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)
+* [Código de exemplo mostrando as etapas 1 a 6 acima](https://github.com/rsarosh/Cosmos-ChangeFeedProcessor)
+* [Exemplos adicionais sobre o GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedProcessor)
+
+Para obter mais informações sobre como usar o feed de alterações via SDK, use os seguintes recursos:
+
+* [Página de informações do SDK](documentdb-sdk-dotnet.md)

@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/06/2017
+ms.date: 10/11/2017
 ms.author: owend
-ms.openlocfilehash: 31e4913aceb1c4b51ddc7cde6381bc21b50187c1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 47f05a22811307617f475e79145f70a0233f5895
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/12/2017
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>Conectar-se a fontes de dados locais com o Gateway de Dados Local do Azure
 O gateway de dados local atua como uma ponte, fornecendo transferência de dados segura entre fontes de dados locais e seus servidores do Azure Analysis Services na nuvem. Além de trabalhar com diversos servidores do Azure Analysis Services na mesma região, a versão mais recente do gateway também funciona com os Aplicativos Lógicos do Azure, o Power BI, o Power Apps e o Microsoft Flow. Você pode associar vários serviços na mesma região a um único gateway. 
@@ -139,6 +139,9 @@ Você pode usar um aplicativo de Teste de Velocidade do Azure de terceiros para 
 **R**: A chave de recuperação oferece uma maneira de migrar ou recuperar as configurações de gateway após um desastre.
 
 ## <a name="troubleshooting"> </a>Solução de problemas
+
+**P**: Por que não vejo meu gateway na lista de instâncias de gateway ao tentar criar o recurso de gateway no Azure? <br/>
+**R**: Há dois motivos possíveis. Primeiro, é que um recurso já foi criado para o gateway na assinatura atual ou em alguma outra. Para eliminar essa possibilidade, enumere recursos do tipo **Gateways de Dados Locais** no portal. Selecione todas as assinaturas ao enumerar todos os recursos. Observe que depois que o recurso for criado, o gateway não aparecerá na lista de instâncias de gateway na experiência do portal Criar o Recurso de Gateway. A segunda possibilidade é que a identidade do Azure AD do usuário que instalou o gateway é diferente do usuário conectado ao Portal do Azure. Para resolver isso, entre portal usando a mesma conta que o usuário que instalou o gateway.
 
 **P**: Como posso ver quais consultas estão sendo enviadas à fonte de dados local? <br/>
 **R**: Você pode habilitar o rastreamento de consulta, que inclui as consultas que são enviadas. Lembre-se de alterar o rastreamento de consulta de volta para o valor original quando concluir a solução de problemas. Deixar o acompanhamento de consulta ativado cria logs maiores.

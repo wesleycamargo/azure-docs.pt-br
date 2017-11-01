@@ -11,22 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2017
+ms.date: 10/10/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 4a3ee3c4d1fa9b626a51f24997603adceed8311f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1806b70ba0d34f49abfb954abebff8d29ae61291
+ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/16/2017
 ---
-# <a name="upgrade-your-azure-log-analytics-workspace-to-new-log-search"></a>Atualizar seu espaço de trabalho do Azure Log Analytics para uma nova pesquisa de logs
+# <a name="azure-log-analytics-upgrade-to-new-log-search"></a>Atualização do Azure Log Analytics para a nova pesquisa de logs
 
-> [!NOTE]
-> A atualização para a nova linguagem de consulta do Log Analytics é atualmente opcional, dando tempo a você para [familiarizar-se com a nova linguagem](https://go.microsoft.com/fwlink/?linkid=856078).  
-
-A nova linguagem de consulta do Log Analytics chegou e você precisa atualizar seu espaço de trabalho para tirar proveito dela.  Este artigo descreve as vantagens da nova linguagem e diz como converter seu espaço de trabalho.  Se você não optar por atualizar agora, seu espaço de trabalho continuará a funcionar exatamente como sempre, mas ele será convertido automaticamente em uma data posterior.  Você receberá a devida notificação e um tempo significativo quando essa data for definida.
-
-Este artigo fornece detalhes sobre a nova linguagem e o processo de atualização.
+A nova linguagem de consulta do Log Analytics chegou e seu espaço de trabalho precisa receber o upgrade para você aproveitá-la.  Você pode atualizar o seu espaço de trabalho por conta própria ou aguardar até que seja feito o upgrade automático durante o período de distribuição que começa no final de outubro e vai até o final do ano.  Este artigo descreve as vantagens da nova linguagem e diz como converter seu espaço de trabalho.  
 
 ## <a name="why-the-new-language"></a>Por que a nova linguagem?
 Compreendemos que há problemas em qualquer transição e não estamos apenas alterando linguagem de consulta por diversão.  Há várias razões pelas quais essa alteração fornecerá valor significativo para os clientes do Log Analytics.
@@ -44,36 +39,58 @@ Compreendemos que há problemas em qualquer transição e não estamos apenas al
 
 
 ## <a name="when-can-i-upgrade"></a>Quando posso fazer a atualização?
-A atualização será lançada em todas as regiões do Azure, então ela pode estar disponível em algumas regiões antes de outras.  Você saberá quando seu espaço de trabalho está disponível para ser atualizado quando você vir a faixa roxa na parte superior do espaço de trabalho convidando para fazer a atualização.
+A atualização será lançada em todas as regiões do Azure, então ela pode estar disponível em algumas regiões antes de outras.  Você saberá quando seu espaço de trabalho está disponível para upgrade quando vir uma faixa na parte superior do espaço de trabalho convidando-o para atualizar.
 
 ![Atualização 1](media/log-analytics-log-search-upgrade/upgrade-01a.png)
 
-## <a name="what-happens-when-i-upgrade"></a>O que acontece quando eu faço a atualização?
-Quando você converte seu espaço de trabalho, todas as pesquisas salvas, regras de alerta e exibições que você criou com o Designer de Exibição são convertidos automaticamente para a nova linguagem.  Pesquisas incluídas em soluções não são convertidas automaticamente, mas em vez disso são convertidas em tempo real quando abertas por você.  Isso é completamente transparente para você.
+Se o seu espaço de trabalho for atualizado automaticamente, você verá uma faixa indicando que ele recebeu o upgrade com um resumo indicando se algum problema foi encontrado.
 
-## <a name="can-i-go-back-after-i-upgrade"></a>Posso voltar atrás depois de atualizar?
-Quando você atualiza, é feito um backup completo de seu espaço de trabalho que inclui um instantâneo de todas as pesquisas, regras de alerta e exibições salvas.  Isso permite que você restaure seu espaço de trabalho antigo se posteriormente desejar.
+ ![Atualização automática](media/log-analytics-log-search-upgrade/auto-upgrade.png)
 
-Para restaurar seu espaço de trabalho herdado, vá para **Configurações** no espaço de trabalho e, em seguida, **Resumo da Atualização**.  Você pode então selecionar a opção **Restaurar o espaço de trabalho herdado**.  
 
-![Restaurar herdado](media/log-analytics-log-search-upgrade/restore-legacy-b.png)
+## <a name="what-happens-after-the-upgrade"></a>O que acontece após a atualização?
+As seguintes alterações são feitas ao seu espaço de trabalho quando ele é convertido:
 
-## <a name="how-do-i-perform-the-upgrade"></a>Como fazer para realizar a atualização?
-Quando você vir a roxa faixa na parte superior do portal, você poderá atualizar seu espaço de trabalho.  
+- Quaisquer pesquisas salvas, regras de alerta e exibições que você tenha criado com o Designer de Exibição são convertidas automaticamente na nova linguagem.  Pesquisas incluídas em soluções não são convertidas automaticamente, mas em vez disso são convertidas em tempo real quando abertas por você.  
+- [Meu painel](log-analytics-dashboards.md) está sendo preterido a favor do [Designer de Exibição](log-analytics-view-designer.md) e dos [Painéis do Azure](https://docs.microsoft.com/en-us/azure/azure-portal/azure-portal-dashboards.md).  Os blocos que você adicionou ao Meu Painel ainda estão disponíveis, mas são somente leitura.
+- A [Integração do Power BI](log-analytics-powerbi.md) é substituída por um novo processo.  Qualquer agenda existente do Power BI que você tenha criado será desabilitada e você precisa substituí-la pelo novo processo.
+- As respostas de [ações de alerta](log-analytics-alerts-actions.md) usando webhooks e runbooks têm um novo formato e talvez seja necessário atualizar suas regras de alerta adequadamente.
+- Examine as [Perguntas Frequentes de Pesquisa de Logs](log-analytics-log-search-faq.md) sobre perguntas comuns referentes à atualização.
 
-1.  Inicie o processo de atualização clicando na faixa roxa que diz **Saber mais e atualizar**.<br>![Atualização 2](media/log-analytics-log-search-upgrade/upgrade-01a.png)<br>
-2.  Leia as informações adicionais sobre a atualização na página de informações de atualização.<br>![Atualização 2](media/log-analytics-log-search-upgrade/upgrade-03.png)<br>
-3.  Clique em **Atualizar Agora** para iniciar a atualização.<br>![Atualização 4](media/log-analytics-log-search-upgrade/upgrade-04.png)<br>Uma caixa de notificação no canto direito superior mostra o status.<br>![Atualização 5](media/log-analytics-log-search-upgrade/upgrade-05.png)
-4.  É isso!  Examine a página Pesquisa de Logs para dar uma olhada em seu espaço de trabalho atualizado.<br>![Atualização 6](media/log-analytics-log-search-upgrade/upgrade-06.png)<br>
+## <a name="how-do-i-know-if-there-were-any-issues-from-the-upgrade"></a>Como faço para saber se houve problemas com a atualização?
+Após a conclusão da atualização, haverá uma seção de **Resumo da Atualização** nas configurações para o espaço de trabalho.  Consulte esta seção para obter informações sobre a atualização e exibir o
+
+ ![Resumo de atualização](media/log-analytics-log-search-upgrade/upgrade-summary.png)
+
+## <a name="how-do-i-manually-perform-the-upgrade"></a>Como faço para executar a atualização manualmente?
+Você pode fazer atualização do seu espaço de trabalho ao ver a faixa na parte superior do portal.  
+
+1.  Inicie o processo de atualização clicando na faixa que diz **Saber mais e atualizar**.
+
+    ![Atualização 2](media/log-analytics-log-search-upgrade/upgrade-01a.png)<br>
+
+2.  Leia as informações adicionais sobre a atualização na página de informações de atualização.
+
+    ![Atualização 2](media/log-analytics-log-search-upgrade/upgrade-03.png)<br>
+
+3.  Clique em **Atualizar Agora** para iniciar a atualização.
+
+    ![Atualização 4](media/log-analytics-log-search-upgrade/upgrade-04.png)<br>Uma caixa de notificação no canto direito superior mostra o status.
+    
+    ![Atualização 5](media/log-analytics-log-search-upgrade/upgrade-05.png)
+
+4.  É isso!  Examine a página Pesquisa de Logs para dar uma olhada em seu espaço de trabalho atualizado.
+
+    ![Atualização 6](media/log-analytics-log-search-upgrade/upgrade-06.png)
 
 Se você encontrar um problema que cause falha na atualização, você poderá ir para o [fórum de discussão](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) e postar sua pergunta ou [criar uma solicitação de suporte](../azure-supportability/how-to-create-azure-support-request.md) do Portal do Azure.
 
 ## <a name="how-do-i-learn-the-new-language"></a>Como fazer para aprender a nova linguagem?
-Já que ela é usada por vários serviços, criamos um [site externo para hospedar a documentação](https://docs.loganalytics.io/) da nova linguagem.  Isso inclui uma referência completa para ajudá-lo a aprender, além de exemplos e tutoriais. Você pode percorrer um tutorial da nova linguagem em [Introdução a Consultas](https://go.microsoft.com/fwlink/?linkid=856078) e acessar a referência da linguagem em [Linguagem de consulta do Log Analytics](https://go.microsoft.com/fwlink/?linkid=856079).  
+Já que ela é usada por vários serviços, criamos um [site externo para hospedar a documentação](https://docs.loganalytics.io/) da nova linguagem.  Isso inclui uma referência completa para ajudá-lo a aprender, além de exemplos e tutoriais. Você pode percorrer um tutorial da nova linguagem em [Introdução a consultas](https://go.microsoft.com/fwlink/?linkid=856078) e acessar a referência da linguagem em [Linguagem de consulta do Log Analytics](https://go.microsoft.com/fwlink/?linkid=856079).  
 
-No entanto, se você já está familiarizado com a linguagem de consulta do Log Analytics herdada, você pode usar o conversor de idioma que é adicionado ao seu espaço de trabalho como parte da atualização.
+Se você quiser experimentar o novo idioma em um ambiente de demonstração, incluindo um conjunto de dados de exemplo, dê uma olhada no [ambiente de playground](https://portal.loganalytics.io/demo#/discover/home).
 
-Basta digitar sua consulta herdada e, em seguida, clique em **Converter** para ver a versão traduzida.  Você pode, em seguida, clicar no botão Pesquisar para executar a pesquisa ou copiar e colar a consulta convertida para usar em outro lugar, por exemplo, uma regra de alerta.
+No entanto, se você já está familiarizado com a linguagem de consulta do Log Analytics herdada, você pode usar o conversor de idioma que é adicionado ao seu espaço de trabalho como parte da atualização.  Basta digitar sua consulta herdada e, em seguida, clique em **Converter** para ver a versão traduzida.  Você pode, em seguida, clicar no botão Pesquisar para executar a pesquisa ou copiar e colar a consulta convertida para usar em outro lugar, por exemplo, uma regra de alerta.  Você também pode dar uma olhada em nosso [roteiro](log-analytics-log-search-transition.md) que compara diretamente consultas comuns da linguagem herdada.
 
 ![Conversor de linguagem](media/log-analytics-log-search-upgrade/language-converter.png)
 

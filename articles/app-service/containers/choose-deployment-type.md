@@ -1,6 +1,6 @@
 ---
-title: "Implantação do Aplicativo Web do Azure no Linux – imagem personalizada ou imagem da plataforma interna?  | Microsoft Docs"
-description: "Como decidir entre a implantação de contêiner do Docker personalizada e uma estrutura de aplicativos internos"
+title: "Implantação do Serviço de Aplicativo do Azure no Linux – imagem personalizada ou imagem da plataforma interna?  | Microsoft Docs"
+description: "Como decidir entre a implantação de contêiner do Docker personalizada e uma estrutura do aplicativo interna para o Serviço de Aplicativo no Linux"
 keywords: "serviço de aplicativo do azure, aplicativo web, linux, oss"
 services: app-service
 documentationCenter: 
@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
 ms.author: nickwalk
-ms.openlocfilehash: 322533a9dce54222943f8b2a3d653780a674c8a4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4a04bba2375b5a107bc3cb8cdc1a75d037c50af6
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="custom-image-or-built-in-platform-image"></a>Imagem personalizada ou imagem da plataforma interna?
 
-O [Aplicativo Web no Linux](app-service-linux-intro.md) oferece dois caminhos diferentes para publicar aplicativos na Web:
+O [Serviço de Aplicativo no Linux](app-service-linux-intro.md) oferece dois caminhos diferentes para publicar aplicativos na Web:
 
 - **Implantação de imagem personalizada**: transforme seu aplicativo em Docker em uma imagem do Docker que contém todos os arquivos e as dependências em um pacote pronto para execução.
 - **Implantação de aplicativo com uma imagem de plataforma interna**: nossas imagens de plataforma interna contêm tempos de execução de aplicativo Web comuns e dependências, como o Node e PHP. Use qualquer um dos [métodos de implantação do Serviço de Aplicativo do Azure](../app-service-deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) para implantar seu aplicativo no armazenamento de seu aplicativo Web e, em seguida, use uma imagem de plataforma interna para executá-lo.

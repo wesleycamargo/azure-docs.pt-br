@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/6/2017
+ms.date: 10/22/2017
 ms.author: raiye
-ms.openlocfilehash: 7d3541e6c437212139553d975fa756084da4f757
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a42f4b981883881681a7e7ecdb102ee28772c49
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Matriz de compatibilidade de versões de SOs Convidados e do SDK do Azure
 Fornece a você informações atualizadas sobre as versões mais recentes do SO convidado do Azure para serviços de nuvem. Essas informações ajudam a planejar seu caminho de atualização antes que um SO convidado seja desabilitado. Se você configurar suas funções para usar atualizações *automáticas* de SO convidado, conforme descrito em [Configurações de atualização de SO convidado do Azure][Azure Guest OS Update Settings], não é essencial ler esta página.
@@ -106,7 +106,7 @@ A distribuição do SO convidado de abril começa dia 18 de abril e está projet
 ## <a name="family-4-releases"></a>Versões da Família 4
 **Windows Server 2012 R2**
 
-É compatível com .NET 4.0, 4.5, 4.5.1, 4.5.2
+.NET Framework instalado: 4.0, 4.5, 4.5.1, 4.5.2
 
 > [!NOTE]
 > As datas com * estão sujeitas a alterações
@@ -133,7 +133,7 @@ A distribuição do SO convidado de abril começa dia 18 de abril e está projet
 ## <a name="family-3-releases"></a>Versões da Família 3
 **Windows Server 2012**
 
-É compatível com .NET 4.0, 4.5, 4.5.1, 4.5.2
+.NET Framework instalado: 4.0, 4.5, 4.5.1, 4.5.2
 
 > [!NOTE]
 > As datas com * estão sujeitas a alterações
@@ -160,7 +160,7 @@ A distribuição do SO convidado de abril começa dia 18 de abril e está projet
 ## <a name="family-2-releases"></a>Versões da Família 2
 **Windows Server 2008 R2 SP1**
 
-Dá suporte a .NET 3.5, 4.0, 4.5, 4.5.1, 4.5.2
+.NET Framework instalado: 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 > [!NOTE]
 > As datas com * estão sujeitas a alterações

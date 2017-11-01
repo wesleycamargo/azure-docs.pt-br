@@ -13,14 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: bwren
-ms.openlocfilehash: 450ca10613d137393090578619f3766734d1d493
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e26e52252a070ea4130a94e02432c7ef500f62d
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="exploring-hockeyapp-data-in-application-insights"></a>Exploração de dados do HockeyApp no Application Insights
-[HockeyApp](https://azure.microsoft.com/services/hockeyapp/) é a plataforma recomendada para o monitoramento de aplicativos móveis e de desktop dinâmico. Do HockeyApp, você pode enviar telemetria personalizada e de rastreamento para monitorar o uso e ajudar no diagnóstico (além de obter dados de falha). Esse fluxo de telemetria pode ser consultado usando o poderoso recurso [Análise](app-insights-analytics.md) do [Azure Application Insights](app-insights-overview.md). Além disso, você pode [exportar a telemetria personalizada e de rastreamento](app-insights-export-telemetry.md). Para habilitar esses recursos, você configura uma ponte que retransmite dados personalizados do HockeyApp ao Application Insights.
+
+> [!NOTE]
+> O Visual Studio Mobile Center agora é o serviço recomendado da Microsoft para o monitoramento de novos aplicativos móveis. [Saiba como configurar seus aplicativos com o Mobile Center e o Application Insights](app-insights-mobile-center-quickstart.md).
+> 
+> 
+
+[HockeyApp](https://azure.microsoft.com/services/hockeyapp/) é um serviço para monitorar aplicativos móveis e de área de trabalho ao vivo. Do HockeyApp, você pode enviar telemetria personalizada e de rastreamento para monitorar o uso e ajudar no diagnóstico (além de obter dados de falha). Esse fluxo de telemetria pode ser consultado usando o poderoso recurso [Análise](app-insights-analytics.md) do [Azure Application Insights](app-insights-overview.md). Além disso, você pode [exportar a telemetria personalizada e de rastreamento](app-insights-export-telemetry.md). Para habilitar esses recursos, você configura uma ponte que retransmite dados personalizados do HockeyApp ao Application Insights.
 
 ## <a name="the-hockeyapp-bridge-app"></a>O aplicativo de ponte HockeyApp
 O aplicativo de ponte HockeyApp é o principal recurso que permite a você acessar sua telemetria de rastreamento e personalizada do HockeyApp no Application Insights por meio dos recursos Analytics e Exportação Contínua. Eventos personalizados e de rastreamento coletados pelo HockeyApp após a criação do aplicativo de ponte HockeyApp estarão acessíveis por meio desses recursos. Vamos ver como configurar esses aplicativos de ponte.

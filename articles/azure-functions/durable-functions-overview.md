@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 1ba4d68ba93073ebe3516c4fe886c7845080c534
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 04d660d5fdd878788c09e46b078b2e2b043b7dbb
+ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="durable-functions-overview-azure-functions"></a>Visão Geral das Funções Duráveis (Azure Functions)
 
@@ -130,7 +130,7 @@ Content-Type: application/json
 
 Como o estado é gerenciado pelo tempo de execução das Funções Duráveis, você não precisa implementar seu próprio mecanismo de controle de status.
 
-Embora a extensão de Funções Duráveis tenha webhooks internos para gerenciar orquestrações de longa execução, você mesmo pode implementar esse padrão usando seus próprios gatilhos de função (como HTTP, fila ou Hub de Eventos) e a associação `orchestrationClient`.
+Embora a extensão de Funções Duráveis tenha webhooks internos para gerenciar orquestrações de longa execução, você mesmo pode implementar esse padrão usando seus próprios gatilhos de função (como HTTP, fila ou Hub de Eventos) e a associação `orchestrationClient`. Por exemplo, você pode usar uma mensagem da fila para disparar o encerramento.  Ou você pode usar um gatilho HTTP protegido por uma política de autenticação do Azure Active Directory, em vez de webhooks internos que usam uma chave gerada para autenticação. 
 
 ```cs
 // HTTP-triggered function to start a new orchestrator function instance.
@@ -161,7 +161,7 @@ O diagrama a seguir ilustra uma função que é executada em um loop infinito du
 
 ![Diagrama de singleton com estado](media/durable-functions-overview/stateful-singleton.png)
 
-Embora as Funções Duráveis não sejam uma implementação do modelo de ator, as funções de orquestrador têm muitas das mesmas características de tempo de execução. Por exemplo, elas são de longa execução (possivelmente infinita), com estado, confiáveis, de thread único, com transparência de local e endereçáveis globalmente. Isso torna as funções de orquestrador úteis para cenários semelhantes aos de "ator", sem a necessidade de uma estrutura separada.
+Embora as Funções Duráveis não sejam uma implementação do modelo de ator, as funções de orquestrador têm muitas das mesmas características de tempo de execução. Por exemplo, elas são de longa execução (possivelmente infinita), com estado, confiáveis, de thread único, com transparência de local e endereçáveis globalmente. Isso torna funções orquestradoras úteis para cenários do tipo "ator".
 
 Funções comuns não têm monitoração de estado e, portanto, não são adequadas para implementar um padrão de singleton com estado. No entanto, a extensão de Funções Duráveis faz com que o padrão singleton com estado seja relativamente simples de implementar. O código a seguir é uma função de orquestrador simples que implementa um contador.
 

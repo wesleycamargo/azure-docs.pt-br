@@ -13,11 +13,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/20/2017
 ms.author: routlaw
-ms.openlocfilehash: f8812c2e8ac3398dabd17feaf97897efca5566f3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc9a1b6061c41cd623e1ddb3bb9dbb87530a13d5
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guia do desenvolvedor de Java do Azure Functions
 > [!div class="op_single_selector"]
@@ -218,16 +218,17 @@ As saídas podem ser expressas em parâmetros de saída ou em valores retornados
 
 O valor retornado é a forma mais simples de saída, basta retornar o valor de qualquer tipo e o tempo de execução do Azure Functions tentará realizar seu marshaling de volta para o tipo real (como uma resposta HTTP). Em `functions.json`, você usa `$return` como o nome da associação de saída.
 
-Para produzir vários valores de saída, use o tipo `OutputParameter<T>` definido no pacote `azure-functions-java-core`. Se precisar fazer uma resposta HTTP e enviar por push uma mensagem para uma fila, você poderá escrever algo como:
+Para produzir vários valores de saída, use o tipo `OutputBinding<T>` definido no pacote `azure-functions-java-core`. Se precisar fazer uma resposta HTTP e enviar por push uma mensagem para uma fila, você poderá escrever algo como:
 
 ```java
 package com.example;
 
-import com.microsoft.azure.serverless.functions.OutputParameter;
+import com.microsoft.azure.serverless.functions.OutputBinding;
 import com.microsoft.azure.serverless.functions.annotation.BindingName;
 
 public class MyClass {
-    public static String echo(String body, @BindingName("message") OutputParameter<String> queue) {
+    public static String echo(String body, 
+    @QueueOutput(queueName = "messages", connection = "AzureWebJobsStorage", name = "queue") OutputBinding<String> queue) {
         String result = "Hello, " + body + ".";
         queue.setValue(result);
         return result;
@@ -235,7 +236,7 @@ public class MyClass {
 }
 ```
 
-e definir a associação de saída em `function.json`:
+que deverá definir a associação de saída em `function.json`:
 
 ```json
 {
@@ -251,10 +252,10 @@ e definir a associação de saída em `function.json`:
     },
     {
       "type": "queue",
-      "name": "message",
+      "name": "queue",
       "direction": "out",
-      "queueName": "myqueue",
-      "connection": "ExampleStorageAccount"
+      "queueName": "messages",
+      "connection": "AzureWebJobsStorage"
     },
     {
       "type": "http",

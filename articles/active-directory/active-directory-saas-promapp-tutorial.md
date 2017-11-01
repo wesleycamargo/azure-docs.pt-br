@@ -11,13 +11,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/03/2017
+ms.date: 10/17/2017
 ms.author: jeedes
-ms.openlocfilehash: 27013ca9724cf2f57fc85f5f4ccb71921ca57a3b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a9cd70b048d454009d8741f394fed0b6b93fcab7
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-promapp"></a>Tutorial: integração do Active Directory do Azure com o Promapp
 
@@ -106,40 +106,57 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
  
     ![Configurar Logon Único](./media/active-directory-saas-promapp-tutorial/tutorial_promapp_samlbase.png)
 
-3. Na seção **Domínio e URLs do Promapp**, realize as seguintes etapas:
+3. Na seção **Domínio e URLs Promapp**, realize as seguintes etapas se desejar configurar o aplicativo no modo iniciado pelo **IDP**:
 
     ![Configurar Logon Único](./media/active-directory-saas-promapp-tutorial/tutorial_promapp_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://DOMAINNAME.promapp.com/TENANTNAME/saml/authenticate`
+    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão:
+    | |
+    |--|
+    | `https://demo.promapp.com/TENANTNAME`|
+    | `https://go.promapp.com/TENANTNAME`|
+    | `https://demoau.promapp.com/TENANTNAME`|
+    | `https://au.promapp.com/TENANTNAME`|
+    | `https://demous.promapp.com/TENANTNAME`|
+    | `https://us.promapp.com/TENANTNAME`|
+    | `https://dev.promapp.com/TENANTNAME`|
+    | `https://test.promapp.com/TENANTNAME`|
+    | `https://staging.promapp.com/TENANTNAME`|
+    
+    b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://DOMAINNAME.promapp.com/azuread/saml/authenticate.aspx`
 
-    b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://DOMAINNAME.promapp.com/TENANTNAME`
+4. Marque **Mostrar configurações avançadas de URL** e realize a seguinte etapa se quiser configurar o aplicativo no modo iniciado pelo **SP**:
+
+    ![Configurar Logon Único](./media/active-directory-saas-promapp-tutorial/tutorial_promapp_url1.png)
+
+    Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://DOMAINNAME.promapp.com/TENANTNAME/saml/authenticate`
 
     > [!NOTE] 
-    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao Cliente do Promapp](https://www.promapp.com/about-us/contact-us/) para obter esses valores.
+    > Esses valores não são reais. Você precisa atualizar esses valores com a URL de Logon, o Identificador e a URL de Resposta reais. Contate a [equipe de suporte ao Cliente do Promapp](https://www.promapp.com/about-us/contact-us/) para obter esses valores.
 
-4. Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado no computador.
+5. Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado no computador.
 
     ![Configurar o logon único](./media/active-directory-saas-promapp-tutorial/tutorial_promapp_certificate.png) 
 
-5. Clique no botão **Salvar** .
+6. Clique no botão **Salvar** .
 
     ![Configurar Logon Único](./media/active-directory-saas-promapp-tutorial/tutorial_general_400.png)
 
-6. Na seção **Configuração do Promapp**, clique em **Configurar o Promapp** para abrir a janela **Configurar logon**. Copie a **URL de serviço de logon único SAML** da **seção de Referência Rápida.**
+7. Na seção **Configuração do Promapp**, clique em **Configurar o Promapp** para abrir a janela **Configurar logon**. Copie a **URL de serviço de logon único SAML** da **seção de Referência Rápida.**
 
     ![Configurar Logon Único](./media/active-directory-saas-promapp-tutorial/tutorial_promapp_configure.png) 
 
-7. Faça logon no site da empresa Promapp como administrador. 
+8. Faça logon no site da empresa Promapp como administrador. 
 
-8. No menu na parte superior, clique em **Administrador**. 
+9. No menu na parte superior, clique em **Administrador**. 
    
     ![Logon único do AD do Azure][12]
 
-9. Clique em **Configurar**. 
+10. Clique em **Configurar**. 
    
     ![Logon único do AD do Azure][13]
 
-10. No diálogo **Segurança** , execute as seguintes etapas:
+11. No diálogo **Segurança** , execute as seguintes etapas:
    
     ![Logon único do AD do Azure][14]
     
@@ -147,7 +164,10 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     
     b. Para **SSO - Modo Logon Único**, selecione **Opcional** e clique em **Salvar**.
 
-    c. Abra o certificado baixado no bloco de notas, copie o conteúdo do certificado, sem a primeira linha (-----BEGIN CERTIFICATE-----) e a última linha (-----END CERTIFICATE-----), cole-o na caixa de texto **Certificado x.509 de SSO** e, depois, clique em **Salvar**.
+    > [!NOTE]
+    > O modo **Opcional** é destinado somente a teste. Quando estiver satisfeito com a configuração, selecione o modo **Necessário** para forçar todos os usuários a autenticarem-se usando o Azure AD.
+
+    c. Abra o certificado baixado no bloco de notas, copie o conteúdo do certificado, sem a primeira linha (-----**BEGIN CERTIFICATE**-----) e a última linha (-----**END CERTIFICATE**-----), cole-o na caixa de texto **Certificado SSO-x.509** e clique em **Salvar**.
         
 > [!TIP]
 > É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -222,7 +242,9 @@ Nesta seção, você permite que Brenda Fernandes use o logon único do Azure co
 
 O objetivo desta seção é testar sua configuração de SSO do Azure AD usando o Painel de Acesso.
 
-Quando você clica no bloco Promapp no Painel de Acesso, você deve ser conectado automaticamente ao seu aplicativo Promapp.
+Para testar seu aplicativo no modo **IDP** iniciado, quando clicar no bloco Promapp no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo Promapp.
+
+Para testar seu aplicativo no modo **SP** iniciado, você precisará iniciar a autenticação do seu site Promapp. Faça isso deixando o campo de senha em branco ao fazer logon enquanto o modo **Opcional** está habilitado.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: jdial
-ms.openlocfilehash: 57f95b765b1b116814683a6643db16091c3041f6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7df1dfbea8c985907d5330819dc1e7bf1578aafa
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="add-network-interfaces-to-or-remove-from-virtual-machines"></a>Adicionar ou remover interfaces de rede de máquinas virtuais
 
@@ -49,7 +49,7 @@ Você pode usar o Azure PowerShell ou a CLI para criar uma VM ou um adaptador de
 - Todos os tamanhos VM dão suporte a pelo menos dois adaptadores de rede, mas alguns tamanhos de VM dão suporte a mais de dois adaptadores de rede. No passado, alguns tamanhos de VM só davam suporte a um adaptador de rede. Para saber a quantos adaptadores de rede cada tamanho de VM dá suporte, leia os artigos sobre tamanhos de VM [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
 - No passado, adaptadores de rede podiam apenas ser adicionados a VMs que tinham suporte a vários adaptadores de rede e eram criadas com pelo menos dois adaptadores de rede. Você não podia adicionar um adaptador de rede a uma VM criada com um adaptador de rede, mesmo que o tamanho da VM desse suporte a vários adaptadores de rede. Por outro lado, você só pode remover interfaces de rede de uma VM com pelo menos três adaptadores de rede, pois VMs criadas com a rede pelo menos dois adaptadores sempre precisam ter pelo menos dois adaptadores de rede. Nenhuma dessas restrições se aplicam mais. Agora você pode criar uma VM com qualquer número de adaptadores de rede (até o número com suporte pelo tamanho da VM) e adicionar ou remover qualquer número de adaptadores de rede (de VMs no estado parado [desalocado]), desde que a VM sempre tenha pelo menos um adaptador de rede.
 - Por padrão, o primeiro adaptador de rede em uma VM é definido como o adaptador de rede *primário*. Todos os outros adaptadores de rede na VM são adaptadores de rede *secundários*.
-- Adaptadores de rede primários são atribuídos a um gateway padrão pelos servidores DHCP do Azure, mas interfaces de rede secundárias não são. Uma vez que os adaptadores de rede secundários não são atribuídos a um gateway padrão, eles não conseguem se comunicar com recursos fora da sub-rede por padrão. Para habilitar adaptadores de rede secundários em uma VM do Windows a comunicarem-se com recursos fora da sub-rede, adicione rotas ao sistema operacional usando o comando `route add` de uma linha de comando do Windows. Para VMs do Linux, uma vez que o comportamento padrão usa roteamento de host fraco, é recomendável restringir o tráfego para adaptadores de rede secundários a uma única sub-rede. Se você precisar de conectividade fora da sub-rede para adaptadores de rede secundários, habilite o roteamento baseado em política para garantir que os tráfegos de entrada e de saída usem o mesmo adaptador de rede.
+- Adaptadores de rede primários são atribuídos a um gateway padrão pelos servidores DHCP do Azure, mas interfaces de rede secundárias não são. Uma vez que os adaptadores de rede secundários não são atribuídos a um gateway padrão, eles não conseguem se comunicar com recursos fora da sub-rede por padrão. Para permitir que os adaptadores de rede secundários se comuniquem com os recursos fora da sub-rede deles, consulte [Roteamento em um sistema operacional de máquina virtual com vários adaptadores de rede](#routing-within-a-virtual-machine-operating-system-with-multiple-network-interfaces).
 - Por padrão, todo o tráfego de saída da VM é enviado pelo endereço IP atribuído à configuração de IP primária do adaptador de rede primário. Você controla qual endereço IP é usado para tráfego de saída no sistema operacional da VM, mas, por padrão, o adaptador de rede primário é utilizado.
 - No passado, todas as VMs dentro do mesmo conjunto de disponibilidade precisavam ter um único adaptador de rede ou vários adaptadores de rede. VMs com qualquer número de adaptadores de rede agora podem existir no mesmo conjunto de disponibilidade até o número com suporte pelo tamanho da VM. Porém, você pode adicionar uma VM a um conjunto de disponibilidade apenas quando ela é criada. Para saber mais sobre os conjuntos de disponibilidade, leia o artigo [Gerenciamento da disponibilidade de VMs no Azure](../virtual-machines/windows/manage-availability.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy).
 - Enquanto os adaptadores de rede na mesma VM podem ser conectados a diferentes sub-redes em uma rede VNet, os adaptadores de rede devem todos estar conectados à mesma VNet.
@@ -59,7 +59,69 @@ Você pode usar o Azure PowerShell ou a CLI para criar uma VM ou um adaptador de
 
 ## <a name="vm-create"></a>Adicionar adaptadores de rede existentes a uma nova VM
 
-Ao criar uma VM por meio do portal, o portal cria um adaptador de rede com configurações padrão e anexa-o à VM para você. Você não pode adicionar adaptadores de rede existente a uma nova VM nem criar uma VM com vários adaptadores de rede usando o portal do Azure. Você pode fazer essas duas ações usando a CLI ou o PowerShell. Você pode adicionar tantos adaptadores de rede a uma VM quantos o tamanho da VM que você estiver criando suporte. Para saber mais sobre a quantos adaptadores de rede cada tamanho de VM dá suporte, leia os artigos sobre tamanhos de VM [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Os adaptadores de rede que você adicionar a uma VM no momento não podem ser anexados a outra VM. Para saber mais sobre a criação de adaptadores de rede, leia o artigo [Gerenciar adaptadores de rede](virtual-network-network-interface.md#create-a-network-interface).
+Ao criar uma VM por meio do portal, o portal cria um adaptador de rede com configurações padrão e anexa-o à VM para você. Não é possível adicionar adaptadores de rede existentes a uma nova VM nem criar uma VM com vários adaptadores de rede usando o Portal do Azure. Você pode fazer essas duas ações usando a CLI ou o PowerShell. Você pode adicionar tantos adaptadores de rede a uma VM quantos o tamanho da VM que você estiver criando suporte. Para saber mais sobre a quantos adaptadores de rede cada tamanho de VM dá suporte, leia os artigos sobre tamanhos de VM [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Os adaptadores de rede que você adicionar a uma VM no momento não podem ser anexados a outra VM. Para saber mais sobre a criação de adaptadores de rede, leia o artigo [Gerenciar adaptadores de rede](virtual-network-network-interface.md#create-a-network-interface).
+
+### <a name="routing-within-a-virtual-machine-operating-system-with-multiple-network-interfaces"></a>Roteamento em um sistema operacional de máquina virtual com vários adaptadores de rede
+
+O Azure atribui um gateway padrão ao primeiro adaptador de rede (primário) anexado à máquina virtual. O Azure não atribui um gateway padrão aos adaptadores de rede adicionais (secundários) anexados à máquina virtual. Portanto, por padrão, não é possível se comunicar com os recursos fora da sub-rede na qual um adaptador de rede secundária se encontra. Entretanto, adaptadores de rede secundários podem se comunicar com recursos fora da sub-rede deles, embora as etapas para habilitar a comunicação sejam diferentes para os diversos sistemas operacionais.
+
+### <a name="windows"></a>Windows
+
+Execute as etapas a seguir em um prompt de comando do Windows:
+
+1. Execute o `route print` comando, que retorna uma saída semelhante à seguinte saída para uma máquina virtual com dois adaptadores de rede anexados:
+
+    ```
+    ===========================================================================
+    Interface List
+    3...00 0d 3a 10 92 ce ......Microsoft Hyper-V Network Adapter #3
+    7...00 0d 3a 10 9b 2a ......Microsoft Hyper-V Network Adapter #4
+    ===========================================================================
+    ```
+ 
+    Neste exemplo, o **Adaptador de Rede nº 4 do Microsoft Hyper-V** (interface 7) é o adaptador de rede secundário que não tem um gateway padrão atribuído a ele.
+
+2. Em um prompt de comando, execute o comando `ipconfig` para ver qual endereço IP é atribuído ao adaptador de rede secundário. Neste exemplo, 192.168.2.4 está atribuído à interface 7. Nenhum endereço de gateway padrão é retornado para o adaptador de rede secundário.
+
+3. Para rotear todo o tráfego destinado a endereços fora da sub-rede do adaptador de rede secundário para o gateway para a sub-rede, execute o seguinte comando:
+
+    ```
+    route add -p 0.0.0.0 MASK 0.0.0.0 192.168.2.1 METRIC 5015 IF 7
+    ```
+
+    O endereço de gateway para a sub-rede é o primeiro endereço IP (terminando em .1) no intervalo de endereços definido para a sub-rede. Se você não quiser para rotear todo o tráfego para fora da sub-rede, adicione rotas individuais para destinos específicos. Por exemplo, se você quiser rotear o tráfego do adaptador de rede secundário para a rede 192.168.3.0, digite o comando:
+
+      ```
+      route add -p 192.168.3.0 MASK 255.255.255.0 192.168.2.1 METRIC 5015 IF 7
+      ```
+  
+4. Para confirmar a comunicação com êxito com um recurso na rede 192.168.3.0, por exemplo, digite o seguinte comando para executar o ping 192.168.3.4 usando a interface 7 (192.168.2.4):
+
+    ```
+    ping 192.168.3.4 -S 192.168.2.4
+    ```
+
+    Talvez seja necessário abrir o ICMP através do firewall do Windows do dispositivo no qual você está fazendo o ping com o seguinte comando:
+  
+      ```
+      netsh advfirewall firewall add rule name=Allow-ping protocol=icmpv4 dir=in action=allow
+      ```
+  
+5. Para confirmar se a rota adicionada está na tabela de rotas, insira o comando `route print`, que retorna uma saída semelhante ao seguinte texto:
+
+    ```
+    ===========================================================================
+    Active Routes:
+    Network Destination        Netmask          Gateway       Interface  Metric
+              0.0.0.0          0.0.0.0      192.168.1.1      192.168.1.4     15
+              0.0.0.0          0.0.0.0      192.168.2.1      192.168.2.4   5015
+    ```
+
+    A rota listada com *192.168.1.1* em **Gateway** é aquela que existe por padrão para o adaptador de rede primário. A rota *192.168.2.1* em **Gateway** é aquela que você adicionou.
+
+### <a name="linux"></a>Linux
+
+Como o comportamento padrão usa roteamento de host fraco, é recomendável restringir o tráfego para o adaptador de rede secundário entre os recursos de uma mesma sub-rede. Se você precisar de comunicação fora da sub-rede para os adaptadores de rede secundários, será necessário criar regras de roteamento que permitam à máquina virtual enviar e receber tráfego por meio de um adaptador de rede específico. Caso contrário, o tráfego pertencente a eth1, por exemplo, não poderá ser processado corretamente pela rota padrão definida. Para saber como configurar as regras de roteamento, consulte [Configurar o Linux para várias NICs](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#configure-guest-os-for-multiple-nics).
 
 > [!WARNING]
 > Se um adaptador de rede tiver um endereço IPv6 privado atribuído a ele, você só poderá adicioná-lo à máquina virtual ao criá-la. Você não pode anexar mais de uma interface de rede à máquina virtual ao criá-la, ou depois que a máquina virtual for criada, desde que um endereço IPv6 seja atribuído a uma interface de rede anexada a uma máquina virtual. Confira [Endereços IP do adaptador de rede](virtual-network-network-interface-addresses.md) para saber mais sobre como atribuir endereços IP a adaptadores de rede.
@@ -74,6 +136,8 @@ Ao criar uma VM por meio do portal, o portal cria um adaptador de rede com confi
 ## <a name="vm-add-nic"></a>Adicionar um adaptador de rede existente a uma VM existente
 
 Você pode adicionar a uma VM tantos adaptadores de rede o tamanho da respectiva VM suportar. Para saber a quantos adaptadores de rede cada tamanho de VM dá suporte, leia os artigos sobre tamanhos de VM [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Windows](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). A VM à qual você deseja adicionar um adaptador de rede deve dar suporte ao número de adaptadores de rede que você deseja adicionar e deve estar no estado parado (desalocado). Os adaptadores de rede que você deseja adicionar não podem estar anexados a outra uma VM no momento. Você não pode adicionar adaptadores de rede a uma VM existente usando o portal do Azure. Você deve usar a CLI ou o PowerShell para adicionar adaptadores de rede a uma VM existente. 
+
+O Azure atribui um gateway padrão ao primeiro adaptador de rede (primário) anexado à máquina virtual. O Azure não atribui um gateway padrão aos adaptadores de rede adicionais (secundários) anexados à máquina virtual. Portanto, por padrão, não é possível se comunicar com os recursos fora da sub-rede na qual um adaptador de rede secundária se encontra. No entanto, os adaptador de rede secundários podem se comunicar com os recursos fora da sua sub-rede. Se você precisar que os adaptadores de rede secundários se comuniquem com os recursos fora da sub-rede deles, consulte [Roteamento em um sistema operacional de máquina virtual com vários adaptadores de rede](#routing-within-a virtual-machine-operating-system-with-multiple-network-interfaces).
 
 > [!WARNING]
 > Se um adaptador de rede tiver um endereço IPv6 privado atribuído a ele, ele não poderá ser adicionado a uma máquina virtual existente. Você só pode adicionar um adaptador de rede com um endereço IPv6 privado atribuído a uma máquina virtual quando criá-la. Confira [Endereços IP do adaptador de rede](virtual-network-network-interface-addresses.md) para saber mais sobre como atribuir endereços IP a adaptadores de rede.
@@ -90,7 +154,7 @@ Você pode exibir os adaptadores de rede atualmente anexados a uma VM para saber
 1. Faça logon no [portal do Azure](https://portal.azure.com) com uma conta atribuída à função de Proprietário, Colaborador ou Colaborador de rede para sua assinatura. Para saber mais sobre como atribuir funções às contas, veja [Funções internas para o controle de acesso baseado em função do Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor).
 2. Na caixa que contém o texto *Pesquisar recursos*, na parte superior do portal do Azure, digite *máquinas virtuais*. Quando **máquinas virtuais** aparecerem nos resultados da pesquisa, clique nelas.
 3. Na folha **Máquinas virtuais** que aparece, clique no nome da VM para a qual você deseja exibir os adaptadores de rede.
-4. Na seção **CONFIGURAÇÕES** da folha da máquina virtual que é exibida para a VM selecionada, clique em **Interfaces de rede**. Para saber mais sobre as configurações de adaptador de rede e como alterá-las, leia o artigo [Gerenciar adaptadores de rede](virtual-network-network-interface.md). Para saber mais sobre como adicionar, alterar ou remover endereços IP atribuídos a um adaptador de rede, veja [Gerenciar endereços IP](virtual-network-network-interface-addresses.md).
+4. Na seção **CONFIGURAÇÕES** da folha da máquina virtual que é exibida para a VM selecionada, clique em **Rede**. Para saber mais sobre as configurações de adaptador de rede e como alterá-las, leia o artigo [Gerenciar adaptadores de rede](virtual-network-network-interface.md). Para saber mais sobre como adicionar, alterar ou remover endereços IP atribuídos a um adaptador de rede, veja [Gerenciar endereços IP](virtual-network-network-interface-addresses.md).
 
 **Comandos**
 
@@ -106,9 +170,9 @@ A VM da qual você deseja remover (ou desanexar) um adaptador de rede deve estar
 1. Faça logon no [portal do Azure](https://portal.azure.com) com uma conta atribuída à função de Proprietário, Colaborador ou Colaborador de rede para sua assinatura. Para saber mais sobre como atribuir funções às contas, veja [Funções internas para o controle de acesso baseado em função do Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor).
 2. Na caixa que contém o texto *Pesquisar recursos*, na parte superior do portal do Azure, digite *máquinas virtuais*. Quando **máquinas virtuais** aparecerem nos resultados da pesquisa, clique nelas.
 3. Na folha **Máquinas virtuais** que aparece, clique no nome da VM da qual você deseja remover os adaptadores de rede.
-4. Na seção **CONFIGURAÇÕES** da folha da máquina virtual que é exibida para a VM selecionada, clique em **Interfaces de rede**. Para saber mais sobre as configurações de adaptador de rede e como alterá-las, leia o artigo [Gerenciar adaptadores de rede](virtual-network-network-interface.md). Para saber mais sobre como adicionar, alterar ou remover endereços IP atribuídos a um adaptador de rede, veja [Gerenciar endereços IP](virtual-network-network-interface-addresses.md).
-5. Na folha de interfaces de rede que aparece, clique no **...** à direita da interface de rede que você deseja desanexar.
-6. Clique em **Desanexar**. Se houver apenas uma interface de rede conectada à máquina virtual, o **desanexar** opção não está disponível. Clique em **Sim** na caixa de confirmação que aparece.
+4. Na seção **CONFIGURAÇÕES** da folha da máquina virtual que é exibida para a VM selecionada, clique em **Rede**. Para saber mais sobre as configurações de adaptador de rede e como alterá-las, leia o artigo [Gerenciar adaptadores de rede](virtual-network-network-interface.md). Para saber mais sobre como adicionar, alterar ou remover endereços IP atribuídos a um adaptador de rede, veja [Gerenciar endereços IP](virtual-network-network-interface-addresses.md).
+5. Clique em **X Desanexar o adaptador de rede**.
+6. Selecione o adaptador de rede que deverá ser desanexado na lista suspensa e clique em **OK**.
 
 **Comandos**
 

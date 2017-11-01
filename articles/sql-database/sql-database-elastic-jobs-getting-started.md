@@ -1,6 +1,6 @@
 ---
 title: "Introdução aos trabalhos do banco de dados elástico | Microsoft Docs"
-description: "como usar trabalhos de banco de dados elástico"
+description: "Use trabalhos de banco de dados elástico para executar scripts T-SQL que abranjam vários bancos de dados."
 services: sql-database
 documentationcenter: 
 manager: jhubbard
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: ddove
-ms.openlocfilehash: 05c20e880d4eb1eacdecc0c4c7e7491dfe1e6a89
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d1b5a77782b64873a753f19863459f9cdfcd70cc
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/13/2017
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Introdução a trabalhos de Banco de Dados Elástico
-Trabalhos de Banco de Dados Elástico (visualização) para o Banco de Dados SQL do Azure permite que você execute, de modo confiável, scripts T-SQL que abrangem vários bancos de dados, repetindo tentativas automaticamente e fornecendo eventuais garantias de conclusão. Para obter mais informações sobre o recurso de trabalho de Banco de Dados Elástico, consulte a [página de visão geral do recurso](sql-database-elastic-jobs-overview.md).
+Trabalhos de Banco de Dados Elástico (visualização) para o Banco de Dados SQL do Azure permite que você execute, de modo confiável, scripts T-SQL que abrangem vários bancos de dados, repetindo tentativas automaticamente e fornecendo eventuais garantias de conclusão. Para obter mais informações sobre o recurso de trabalho de Banco de Dados Elástico, consulte [Trabalhos elásticos](sql-database-elastic-jobs-overview.md).
 
-Este tópico estende o exemplo encontrado na [Introdução às ferramentas de Banco de Dados Elástico](sql-database-elastic-scale-get-started.md). Quando concluído, você aprenderá a criar e gerenciar trabalhos que gerenciam um grupo de bancos de dados relacionados. Não é necessário usar as ferramentas de Dimensionamento Elástico para tirar proveito dos benefícios dos Trabalhos elásticos.
+Este artigo estende o exemplo encontrado na [Introdução às ferramentas de Banco de Dados Elástico](sql-database-elastic-scale-get-started.md). Quando concluído, você terá aprendido a criar e gerenciar trabalhos que gerenciam um grupo de bancos de dados relacionados. Não é necessário usar as ferramentas de Dimensionamento Elástico para tirar proveito dos benefícios dos Trabalhos elásticos.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Baixe e execute a [exemplo da Introdução às ferramentas de Banco de Dados Elástico](sql-database-elastic-scale-get-started.md).
@@ -40,7 +40,7 @@ Aqui você vai criar um gerenciador de mapa de fragmentos juntamente com vários
 
    ![Confirmação do Visual Studio](./media/sql-database-elastic-query-getting-started/portal.png)
 
-   Neste ponto, vamos criar uma coleção de bancos de dados personalizados que reflete todos os bancos de dados no mapa de fragmentos. Isso nos permitirá criar e executar um trabalho que adicione uma nova tabela em fragmentos.
+   Neste ponto, criamos uma coleção de bancos de dados personalizados que reflete todos os bancos de dados no mapa de fragmentos. Isso nos permitirá criar e executar um trabalho que adicione uma nova tabela entre os fragmentos.
 
 Normalmente, criaríamos aqui um destino para o mapa de fragmentos, usando o cmdlet **New-AzureSqlJobTarget** . O banco de dados do gerenciador do mapa de fragmentos deve ser definido como um destino de banco de dados e, em seguida, o mapa de fragmentos específico é especificado como um destino. Em vez disso, vamos enumerar todos os bancos de dados no servidor e adicionar os bancos de dados à nova coleção personalizada, com a exceção de banco de dados mestre.
 
@@ -163,13 +163,13 @@ Use o mesmo cmdlet **Get-AzureSqlJobExecution** com o parâmetro **IncludeChildr
 ## <a name="view-the-state-across-multiple-job-executions"></a>Exibir o estado em várias execuções de trabalho
 O cmdlet **Get-AzureSqlJobExecution** tem vários parâmetros opcionais que podem ser usados para exibir várias execuções de trabalho, filtradas por meio dos parâmetros fornecidos. O exemplo a seguir demonstra algumas das possíveis maneiras de usar o Get-AzureSqlJobExecution:
 
-Recupere todas as execuções de trabalhos ativos de nível superior:
+Recupere todas as execuções de trabalho de nível superior ativas:
 
    ```
     Get-AzureSqlJobExecution
    ```
 
-Recupere todas as execuções do trabalho de nível superior, incluindo execuções de trabalhos inativos:
+Recupere todas as execuções de trabalho de nível superior, incluindo execuções de trabalhos inativas:
 
    ```
     Get-AzureSqlJobExecution -IncludeInactive
@@ -226,7 +226,7 @@ O script do PowerShell a seguir pode ser usado para exibir os detalhes de uma ex
    ```
 
 ## <a name="retrieve-failures-within-job-task-executions"></a>Recuperar falhas em execuções de tarefa de trabalho
-O objeto JobTaskExecution inclui uma propriedade Ciclo de Vida da tarefa, junto com uma propriedade Mensagem. Se uma execução de tarefa de trabalho falhar, a propriedade Ciclo de Vida será definida como *Falha* e a propriedade Mensagem será definida como a mensagem de exceção resultante e sua pilha. Se um trabalho não foi bem-sucedido, é importante exibir os detalhes das tarefas de trabalho que não foram bem-sucedidas para um determinado trabalho.
+O objeto JobTaskExecution inclui uma propriedade Ciclo de Vida da tarefa, junto com uma propriedade Mensagem. Se uma execução de tarefa de trabalho falhar, a propriedade de Ciclo de Vida será definida como *Falha* e a propriedade de Mensagem será definida como a mensagem de exceção resultante e sua pilha. Se um trabalho não foi bem-sucedido, é importante exibir os detalhes das tarefas de trabalho que não foram bem-sucedidas para um determinado trabalho.
 
    ```
     $jobExecutionId = "{Job Execution Id}"
@@ -254,7 +254,7 @@ O recurso trabalhos de Banco de Dados Elástico dá suporte à criação de pol�
 Atualmente, as políticas de execução permitem definir:
 
 * Nome: o identificador para a política de execução.
-* Tempo Limite do Trabalho: tempo total antes que um trabalho seja cancelado pelo recurso Trabalhos de Banco de Dados Elástico.
+* Tempo Limite do Trabalho: tempo total antes de um trabalho ser cancelado pelo recurso Trabalhos de Banco de Dados Elástico.
 * Intervalo de Repetição Inicial: o intervalo de espera antes de primeira repetição de tentativa.
 * Intervalo Máximo de Repetição: limite de intervalos de repetição a usar.
 * Coeficiente de Retirada de Intervalo de Repetição: coeficiente usado para calcular o próximo intervalo entre as repetições de tentativas.  A fórmula a seguir é usada: (Intervalo de Repetição Inicial) * Math.pow((Coeficiente de Retirada do Intervalo), (Número de Novas Tentativas) - 2).
@@ -297,14 +297,14 @@ Atualize a política de execução que deseja atualizar:
    ```
 
 ## <a name="cancel-a-job"></a>Cancelar um trabalho
-Os Trabalhos de Banco de Dados Elástico dão suporte a solicitações de cancelamento de trabalhos.  Se o recurso trabalhos de Banco de Dados Elástico detecta uma solicitação de cancelamento de um trabalho que está atualmente em execução, ele tenta interromper o trabalho.
+Os Trabalhos de Banco de Dados Elástico dão suporte a solicitações de cancelamento de trabalhos.  Se o recurso Trabalhos de Banco de Dados Elástico detectar uma solicitação de cancelamento de um trabalho que está atualmente em execução, ele tentará interromper o trabalho.
 
 Há duas maneiras diferentes pelas quais o recurso Trabalhos de Banco de Dados Elástico pode executar um cancelamento:
 
-1. Cancelando tarefas atualmente em execução: se um cancelamento for detectado enquanto uma tarefa estiver em execução, será realizada uma tentativa de cancelamento no aspecto da tarefa atualmente em execução.  Por exemplo: se houver uma consulta de execução longa sendo executada atualmente, quando houver uma tentativa de cancelamento, haverá também uma tentativa de cancelar a consulta.
-2. Tentativas de Cancelar Tarefa: se um cancelamento for detectado pelo thread de controle antes de uma tarefa ser iniciada para execução, o thread de controle evitará iniciar a tarefa e declarará a solicitação como cancelada.
+1. Cancelando de tarefas atualmente em execução: se um cancelamento for detectado enquanto uma tarefa estiver em execução, será realizada uma tentativa de cancelamento no aspecto da tarefa atualmente em execução.  Por exemplo: se houver uma consulta de execução longa sendo executada atualmente quando for feita uma tentativa de cancelamento, haverá também uma tentativa de cancelar a consulta.
+2. Novas tentativas de cancelar tarefa: se um cancelamento for detectado pelo thread de controle antes de uma tarefa ser iniciada para execução, o thread de controle evitará iniciar a tarefa e declarará a solicitação como cancelada.
 
-Se for solicitado um cancelamento de trabalho para um trabalho pai, a solicitação de cancelamento será atendida para o trabalho pai e todos os seus trabalhos filho.
+Se for solicitado um cancelamento de trabalho para um trabalho pai, a solicitação de cancelamento será atendida para o trabalho pai e para todos os seus trabalhos filho.
 
 Para enviar uma solicitação de cancelamento, use o cmdlet **Stop-AzureSqlJobExecution** e defina o parâmetro **JobExecutionId**.
 
@@ -314,7 +314,7 @@ Para enviar uma solicitação de cancelamento, use o cmdlet **Stop-AzureSqlJobEx
    ```
 
 ## <a name="delete-a-job-by-name-and-the-jobs-history"></a>Excluir um trabalho por nome e pelo histórico do trabalho
-O recurso trabalhos de Banco de Dados Elástico dá suporte à exclusão assíncrona de trabalhos. Um trabalho pode ser marcado para exclusão e o sistema vai excluir o trabalho e todo o seu histórico de trabalho, depois que todas as execuções de trabalho para o trabalho em questão tenham sido concluídas. O sistema não cancelará automaticamente execuções de trabalhos ativos.  
+O recurso trabalhos de Banco de Dados Elástico dá suporte à exclusão assíncrona de trabalhos. Um trabalho pode ser marcado para exclusão e o sistema excluirá o trabalho e todo o seu histórico de trabalho depois que todas as execuções tiverem sido concluídas para o trabalho em questão. O sistema não cancela automaticamente execuções de trabalhos ativos.  
 
 Em vez disso, Stop-AzureSqlJobExecution deve ser chamado para cancelar as execuções de trabalhos ativos.
 
@@ -347,7 +347,7 @@ Defina as variáveis a seguir para refletir a configuração desejada para desti
    ```
 
 ### <a name="add-databases-to-a-custom-database-collection-target"></a>Adicionar bancos de dados a um destino da coleção de bancos de dados personalizada
-Destinos de banco de dados podem ser associados com destino de coleção de bancos de dados personalizada para criar um grupo de bancos de dados. Sempre que é criado um trabalho que tem como alvo um destino de coleção de bancos de dados personalizada, esse trabalho será expandido para bancos de dados associados ao grupo no momento da execução.
+Destinos de banco de dados podem ser associados com destino de coleção de bancos de dados personalizada para criar um grupo de bancos de dados. Sempre que é criado um trabalho que tem como alvo um destino de coleção de bancos de dados personalizada, esse trabalho é expandido para bancos de dados associados ao grupo no momento da execução.
 
 Adicione o banco de dados desejado a uma coleção personalizada específica:
 
@@ -369,7 +369,7 @@ Use o cmdlet **Get-AzureSqlJobTarget** para recuperar os bancos de dados filho d
    ```
 
 ### <a name="create-a-job-to-execute-a-script-across-a-custom-database-collection-target"></a>Criar um trabalho para executar um script em um destino de coleção de bancos de dados personalizada
-Use o cmdlet **New-AzureSqlJob** para criar um trabalho para um grupo de bancos de dados definidos por um destino de coleção de bancos de dados personalizada. O recurso trabalhos de Banco de Dados Elástico  expandirá o trabalho em vários trabalhos filho, cada um correspondendo a um banco de dados associado ao destino de coleção de bancos de dados personalizada e assegurando que o script seja executado em cada banco de dados. Novamente, é importante que os scripts sejam idempotentes para que sejam resistentes em relação a novas tentativas.
+Use o cmdlet **New-AzureSqlJob** para criar um trabalho para um grupo de bancos de dados definidos por um destino de coleção de bancos de dados personalizada. O recurso trabalhos de Banco de Dados Elástico expande o trabalho em vários trabalhos filho, cada um correspondendo a um banco de dados associado ao destino de coleção de bancos de dados personalizada e assegurando que o script seja executado em cada banco de dados. Novamente, é importante que os scripts sejam idempotentes para que sejam resistentes em relação a novas tentativas.
 
    ```
     $jobName = "{Job Name}"

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/26/2017
+ms.date: 10/19/2017
 ms.author: billmath
-ms.openlocfilehash: 7eea3621a52bf13dc44e89c342c503905ff24a0d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b383a21500c753d8d2fe6747756541a3ff94ef02
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Solucionar problemas do Logon Único Contínuo do Azure Active Directory
 
@@ -28,8 +28,9 @@ Este artigo ajuda você a localizar informações de solução de problemas comu
 
 - Em alguns casos, habilitar o SSO contínuo pode levar até 30 minutos.
 - O suporte ao navegador Edge não está disponível.
-- Ativação de licença em clientes do Office, especialmente em situações de computador compartilhado, gera prompts de entrada adicionais para usuários.
-- O SSO Contínuo não funciona no modo de navegação particular no Firefox. e 
+- A inicialização de clientes do Office, especialmente em situações de computador compartilhado, gera prompts de entrada adicionais para usuários. Os usuários precisarão inserir seus nomes de usuário com frequência, mas não as senhas.
+- Se o SSO Contínuo for bem-sucedido, o usuário não terá a oportunidade de escolher "Manter-me conectado". Devido a esse comportamento, os cenários de mapeamento do SharePoint e do OneDrive não funcionam.
+- O SSO Contínuo não funciona no modo de navegação particular no Firefox.
 - O SSO contínuo não funciona no Internet Explorer quando o modo de Proteção Avançada está ativado.
 - O SSO contínuo não funciona em navegadores de dispositivos móveis no iOS e no Android.
 - Se você estiver sincronizando 30 ou mais florestas do AD, não será possível habilitar o SSO Contínuo usando o Azure AD Connect. Como alternativa, você poderá [habilitar manualmente](#manual-reset-of-azure-ad-seamless-sso) o recurso em seu locatário.

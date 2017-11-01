@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/26/2017
+ms.date: 10/23/2017
 ms.author: ganesr,cherylmc
-ms.openlocfilehash: ddcf33a919d6f619394d405d061296469b568770
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 66f4279b7adf9953474739a2e45f16ba848b08e9
+ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="expressroute-circuits-and-routing-domains"></a>Circuitos do ExpressRoute e domínios de roteamento
- Você deve solicitar um *circuito do ExpressRoute* para conectar sua infraestrutura local à Microsoft por meio de um provedor de conectividade. A figura abaixo fornece uma representação lógica de conectividade entre sua WAN e a Microsoft.
+ Você deve solicitar um *circuito do ExpressRoute* para conectar sua infraestrutura local à Microsoft por meio de um provedor de conectividade. A figura abaixo mostra uma representação lógica de conectividade entre sua WAN e a Microsoft.
 
 ![](./media/expressroute-circuit-peerings/expressroute-basic.png)
 
@@ -65,14 +65,14 @@ Consulte a [página de perguntas frequentes](expressroute-faqs.md) para saber ma
 ### <a name="microsoft-peering"></a>Emparelhamento da Microsoft
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
-A conectividade com todos os outros serviços online da Microsoft (serviços do Office 365, do Dynamics 365 e de PaaS do Azure) será por meio do emparelhamento da Microsoft. Habilitamos a conectividade bidirecional entre sua WAN e os serviços de nuvem da Microsoft por meio do domínio de roteamento de emparelhamento da Microsoft. Você deve se conectar aos serviços de nuvem da Microsoft somente por endereços IP públicos que pertençam a você ou ao seu provedor de conectividade e deve seguir todas as regras definidas. Consulte a página [Pré-requisitos do ExpressRoute](expressroute-prerequisites.md) para obter mais informações.
+A conectividade com todos os outros serviços online da Microsoft (serviços do Office 365, do Dynamics 365 e de PaaS do Azure) ocorre por meio do emparelhamento da Microsoft. Habilitamos a conectividade bidirecional entre sua WAN e os serviços de nuvem da Microsoft por meio do domínio de roteamento de emparelhamento da Microsoft. Você deve se conectar aos serviços de nuvem da Microsoft somente por endereços IP públicos que pertençam a você ou ao seu provedor de conectividade e deve seguir todas as regras definidas. Consulte a página [Pré-requisitos do ExpressRoute](expressroute-prerequisites.md) para obter mais informações.
 
 Consulte a [página de perguntas frequentes](expressroute-faqs.md) para obter mais informações sobre serviços com suporte, custos e detalhes de configuração. Consulte a página [Locais do ExpressRoute](expressroute-locations.md) para saber mais sobre a lista de provedores de conectividade que dão suporte ao emparelhamento da Microsoft.
 
 ## <a name="routing-domain-comparison"></a>Comparação de domínios de roteamento
-A tabela abaixo compara os três domínios de roteamento.
+A tabela a seguir compara os três domínios de roteamento:
 
-|  | **Emparelhamento privado** | **Emparelhamento público** | **Emparelhamento da Microsoft** |
+|  | **Emparelhamento privado** | **Emparelhamento público** | **Emparelhamento da Microsoft*** |
 | --- | --- | --- | --- |
 | **Número máximo de prefixos com suporte por emparelhamento** |4000 por padrão, 10.000 com o ExpressRoute Premium |200 |200 |
 | **Intervalos de endereços IP com suporte** |Todos os endereços IP válidos em sua WAN. |Os endereços IP públicos pertencentes a você ou ao seu provedor de conectividade. |Os endereços IP públicos pertencentes a você ou ao seu provedor de conectividade. |
@@ -80,6 +80,8 @@ A tabela abaixo compara os três domínios de roteamento.
 | **Protocolos IP com suporte**| IPv4 | IPv4 | IPv4, IPv6 |
 | **Roteando endereços IP de interface** |RFC1918 e endereços IP públicos |Endereços IP públicos registrados para você em registros de roteamento. |Endereços IP públicos registrados para você em registros de roteamento. |
 | **Suporte a Hash MD5** |Sim |Sim |Sim |
+
+(*) Requer a camada de SKU de complemento Premium
 
 Você pode optar por habilitar um ou mais domínios de roteamento como parte do seu circuito ExpressRoute. Também é possível optar por ter todos os domínios de roteamento na mesma VPN se você desejar combiná-los em um único domínio de roteamento. Você também pode colocá-los em diferentes domínios de roteamento, da mesma forma que no diagrama. A configuração recomendada é conectar o emparelhamento privado diretamente à rede principal, enquanto os vínculos de emparelhamento público e da Microsoft são conectados à sua DMZ.
 

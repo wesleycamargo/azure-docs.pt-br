@@ -1,6 +1,6 @@
 ---
 title: "Salvar pesquisas e alertas em soluções OMS | Microsoft Docs"
-description: "As soluções no OMS normalmente inclui pesquisas salvas na Log Analytics para analisar os dados coletados pela solução.  Elas podem também definir alertas para notificar o usuário ou executar automaticamente a ação em resposta a um problema crítico.  Este artigo descreve como definir pesquisas e alertas salvos no Log Analytics em um modelo ARM para que eles possam ser incluídos em soluções de gerenciamento."
+description: "As soluções no OMS normalmente incluem pesquisas salvas no Log Analytics para analisar os dados coletados pela solução.  Elas podem também definir alertas para notificar o usuário ou executar automaticamente a ação em resposta a um problema crítico.  Este artigo descreve como definir pesquisas salvas e alertas do Log Analytics em um modelo do Resource Manager para que eles possam ser incluídos em soluções de gerenciamento."
 services: operations-management-suite
 documentationcenter: 
 author: bwren
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/24/2017
+ms.date: 10/16/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 21c42a747a08c5386c65d10190baf0054a7adef8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8b2388626dd68ea1911cdfb3d6a84e70f6bf3cc6
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-oms-management-solution-preview"></a>Adicionando alertas e pesquisas salvas do Log Analytics à solução de gerenciamento do OMS (Versão prévia)
 
@@ -32,7 +32,7 @@ As [soluções de gerenciamento no OMS](operations-management-suite-solutions.md
 > Os exemplos neste artigo usam parâmetros e variáveis que são necessários ou comuns para as soluções de gerenciamento e estão descritos em [Creating management solutions in Operations Management Suite (OMS)](operations-management-suite-solutions-creating.md) (Criando soluções de gerenciamento no OMS (Operations Management Suite))  
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Este artigo pressupõe que você já esteja familiarizado com o modo para [criar uma solução de gerenciamento](operations-management-suite-solutions-creating.md) e com a estrutura de um [modelo ARM](../resource-group-authoring-templates.md) e de um arquivo de solução.
+Este artigo pressupõe que você já está familiarizado com o modo para [criar uma solução de gerenciamento](operations-management-suite-solutions-creating.md) e com a estrutura de um [modelo do Resource Manager](../resource-group-authoring-templates.md) e de um arquivo de solução.
 
 
 ## <a name="log-analytics-workspace"></a>Espaço de trabalho do Log Analytics
@@ -42,9 +42,24 @@ O nome do espaço de trabalho é no nome de cada recurso de Log Analytics.  Isso
 
     "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearchId'))]"
 
+## <a name="log-analytics-api-version"></a>Versão da API do Log Analytics
+Todos os recursos do Log Analytics definidos em um modelo do Resource Manager têm uma propriedade **apiVersion** que define a versão da API que o recurso deve usar.  Essa versão é diferente para os recursos que usam o [herdado e a linguagem de consulta atualizados](../log-analytics/log-analytics-log-search-upgrade.md).  
+
+ A tabela a seguir especifica as versões da API do Log Analytics para espaços de trabalho herdados e atualizados, e um exemplo de consulta para especificar a sintaxe diferente para cada um deles. 
+
+| Versão do espaço de trabalho | Versão da API | Exemplo de consulta |
+|:---|:---|:---|
+| v1 (herdado)   | 2015-11-01-preview | Type=Event EventLevelName = Error             |
+| v2 (atualizado) | 2017-03-15-preview | Event &#124; where EventLevelName == "Error"  |
+
+Observe quais espaços de trabalho têm suporte de diferentes versões.
+
+- Modelos que usam a linguagem de consulta herdada podem ser instalados em um espaço de trabalho herdado ou atualizado.  Se instaladas em um espaço de trabalho atualizado, as consultas são convertidas em tempo real para a nova linguagem quando forem executadas pelo usuário.
+- Modelos que usam a linguagem de consulta atualizada podem ser instalados apenas em um espaço de trabalho atualizado.
+
 
 ## <a name="saved-searches"></a>Pesquisas salvas
-Incluir [pesquisas salvas](../log-analytics/log-analytics-log-searches.md) em uma solução para permitir aos usuários consultar dados coletados pela solução.  Pesquisas salvas aparecerão em **Favoritos** no portal do OMS e **pesquisas salvas** no portal do Azure.  Uma pesquisa salva também é necessária para cada alerta.   
+Incluir [pesquisas salvas](../log-analytics/log-analytics-log-searches.md) em uma solução para permitir aos usuários consultar dados coletados pela solução.  Pesquisas salvas aparecerão em **Favoritos** no portal do OMS e **Pesquisas Salvas** no portal do Azure.  Uma pesquisa salva também é necessária para cada alerta.   
 
 Os recursos [da pesquisa salva do Log Analytics](../log-analytics/log-analytics-log-searches.md) têm um tipo `Microsoft.OperationalInsights/workspaces/savedSearches` e a seguinte estrutura.  Isso inclui variáveis e parâmetros comuns para que você possa copiar e colar este trecho de código em seu arquivo de solução e alterar os nomes de parâmetro. 
 
@@ -65,7 +80,7 @@ Os recursos [da pesquisa salva do Log Analytics](../log-analytics/log-analytics-
 
 
 
-Cada uma das propriedades de pesquisas salvas são descritos na tabela a seguir. 
+Cada propriedade de pesquisa salva é descrita na tabela a seguir. 
 
 | Propriedade | Descrição |
 |:--- |:--- |
@@ -81,10 +96,10 @@ Cada uma das propriedades de pesquisas salvas são descritos na tabela a seguir.
 
 Regras de alerta em uma solução de gerenciamento são constituídas por três recursos diferentes.
 
-- **Pesquisa salva.**  Define a pesquisa de log que será executada.  Várias regras de alerta podem compartilhar uma única pesquisa salva.
-- **Agenda.**  Define a frequência com a pesquisa de log será executada.  Cada regra de alerta terá apenas um agendamento.
-- **Ação de alerta.**  Cada regra de alerta terá um recurso de ação com um tipo de **Alerta** que define os detalhes do alerta, como os critérios para quando um registro de alerta será criado e a gravidade do alerta.  O recurso de ação, opcionalmente, definir uma resposta de email e o runbook.
-- **Ação de Webhook (opcional).**  Se a regra de alerta chamará um webhook, ele requer um recurso de ação adicional com um tipo de **Webhook**.    
+- **Pesquisa salva.**  Define a pesquisa de logs executada.  Várias regras de alerta podem compartilhar uma única pesquisa salva.
+- **Agenda.**  Define a frequência com que a pesquisa de logs é executada.  Cada regra de alerta tem apenas um agendamento.
+- **Ação de alerta.**  Cada regra de alerta tem um recurso de ação com um tipo de **Alerta** que define os detalhes do alerta, como os critérios para quando um registro de alerta é criado e a gravidade do alerta.  O recurso de ação, opcionalmente, definir uma resposta de email e o runbook.
+- **Ação de Webhook (opcional).**  Se a regra de alerta chamar um webhook, ele exigirá um recurso de ação adicional com um tipo de **Webhook**.    
 
 Salvar pesquisa recursos descritos acima.  Outros recursos são descritos abaixo.
 
@@ -129,7 +144,7 @@ Recursos de ação com um tipo de `Microsoft.OperationalInsights/workspaces/save
 
 #### <a name="alert-actions"></a>Ações de alerta
 
-Cada agenda terá um **alerta** ação.  Isso define os detalhes do alerta e, opcionalmente, ações de notificação e correção.  Uma notificação envia um email para um ou mais endereços.  Uma correção inicia um runbook na automação do Azure para tentar corrigir o problema detectado.
+Cada agenda tem uma ação **Alerta**.  Isso define os detalhes do alerta e, opcionalmente, ações de notificação e correção.  Uma notificação envia um email para um ou mais endereços.  Uma correção inicia um runbook na automação do Azure para tentar corrigir o problema detectado.
 
 Ações de alerta tem a seguinte estrutura.  Isso inclui variáveis e parâmetros comuns para que você possa copiar e colar este trecho de código em seu arquivo de solução e alterar os nomes de parâmetro. 
 
@@ -174,7 +189,7 @@ As propriedades de Recursos de ação de alerta são descritas nas tabelas a seg
 
 | Nome do elemento | Obrigatório | Descrição |
 |:--|:--|:--|
-| Tipo | Sim | Tipo da ação.  Isso será **alerta** para ações de alerta. |
+| Tipo | Sim | Tipo da ação.  Isso será **Alerta** para ações de alerta. |
 | Nome | Sim | Nome de exibição para o alerta.  Esse é o nome que é exibido no console para a regra de alerta. |
 | Descrição | Não | Descrição opcional do alerta. |
 | Severidade | Sim | Severidade do alerta registro dos seguintes valores:<br><br> **Crítico**<br>**Aviso**<br>**Informativo** |
@@ -253,17 +268,17 @@ As propriedades de recursos de ação do Webhook são descritas nas tabelas a se
 
 | Nome do elemento | Obrigatório | Descrição |
 |:--|:--|:--|
-| type | Sim | Tipo da ação.  Isso será **Webhook** para ações de webhook. |
+| type | Sim | Tipo da ação.  Isso é **Webhook** para ações de webhook. |
 | name | Sim | Nome de exibição para a ação.  Isso não é exibido no console. |
 | wehookUri | Sim | URI para o webhook. |
-| customPayload | Não | Carga personalizada a ser enviada para o webhook. O formato dependerá do que o webhook está esperando. |
+| customPayload | Não | Carga personalizada a ser enviada para o webhook. O formato depende do que o webhook está esperando. |
 
 
 
 
 ## <a name="sample"></a>Amostra
 
-A seguir está um exemplo de uma solução que inclua que inclui os seguintes recursos:
+A seguir está um exemplo de uma solução que inclui os seguintes recursos:
 
 - Pesquisa salva
 - Agenda

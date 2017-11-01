@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 10/20/2017
 ms.author: nitinme
-ms.openlocfilehash: 79b3183171e3c28276c8e4e6d4fe3998e0109643
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a100bbb950d5b3cf1fcbc0f24a76fe750b12a5cf
+ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-spark-applications-for-an-hdinsight-cluster"></a>Usar o Kit de ferramentas do Azure para Eclipse a fim de criar aplicativos Spark para cluster HDInsight
 
@@ -40,14 +40,14 @@ Usar as Ferramentas do HDInsight no Kit de Ferramentas do Azure para Eclipse par
 * Um cluster do Apache Spark no HDInsight. Para obter instruções, consulte o artigo sobre como [Criar clusters do Apache Spark no Azure HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md).
 * Oracle Java Development Kit versão 8, que é usado para o tempo de execução do IDE do Eclipse. Você pode baixá-lo do [site da Oracle](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
 * Eclipse IDE. Este artigo usa o Eclipse Neon. Você pode instalá-lo do [site do Eclipse](https://www.eclipse.org/downloads/).
-* Spark SDK. Você pode baixá-lo do [GitHub](http://go.microsoft.com/fwlink/?LinkID=723585&clcid=0x409).
+
 
 
 ## <a name="install-hdinsight-tools-in-azure-toolkit-for-eclipse-and-the-scala-plug-in"></a>Instalar as Ferramentas do HDInsight no Kit de Ferramentas do Azure para Eclipse e plug-in Scala
 ### <a name="install-hdinsight-tools"></a>Instalar Ferramentas do HDInsight
-As Ferramentas do HDInsight para Eclipse estão disponíveis como parte do Kit de Ferramentas do Azure para Eclipse. Para obter instruções de instalação, consulte [Instalando o Kit de Ferramentas do Azure para Eclipse](../azure-toolkit-for-eclipse-installation.md).
+A Ferramenta do HDInsight para Eclipse está disponível como parte do Kit de Ferramentas do Azure para Eclipse. Para obter instruções de instalação, consulte [Instalando o Kit de Ferramentas do Azure para Eclipse](../azure-toolkit-for-eclipse-installation.md).
 ### <a name="install-the-scala-plug-in"></a>Instalar o plug-in Scala
-Quando você abre o Eclipse, as ferramentas do HDInsight detectam automaticamente se você instalou o plug-in Scala. Selecione **OK** para continuar e, em seguida, siga as instruções para instalar o plug-in Eclipse Marketplace.
+Quando você abre o Eclipse, a Ferramenta do HDInsight detecta automaticamente se você instalou o plug-in Scala. Selecione **OK** para continuar e, em seguida, siga as instruções para instalar o plug-in Eclipse Marketplace.
 
 ![Instalação automática do plug-in Scala](./media/hdinsight-apache-spark-eclipse-tool-plugin/auto-install-scala.png)
 
@@ -83,12 +83,14 @@ Quando você abre o Eclipse, as ferramentas do HDInsight detectam automaticament
 4. Na caixa de diálogo **Novo Projeto do HDInsight Scala**, forneça os seguintes valores e selecione **Avançar**:
    * Insira um nome para o projeto.
    * Na área **JRE**, verifique se **Usar um ambiente de execução JRE** está definido como **JavaSE-1.7** ou posterior.
-   * Certifique-se de que o SDK do Spark esteja definido como o local em que você baixou o SDK. O link para o local de download está incluído nos [pré-requisitos](#prerequisites) anteriormente apresentados neste artigo. Você também pode baixar o SDK no link na caixa de diálogo.
+   * Na área **Biblioteca do Spark**, você pode escolher a opção **Usar o Maven para configurar o SDK do Spark**.  Nossa ferramenta integra a versão apropriada para o SDK do Spark e o SDK do Scala. Você também pode escolher a opção **Adicionar o SDK do Spark manualmente**, baixar e adicionar o SDK do Spark manualmente.
 
    ![Caixa de diálogo Novo Projeto de Scala HDInsight](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-3.png)
-5. Na próxima caixa de diálogo, selecione a guia **Bibliotecas** e mantenha os padrões e clique em **Concluir**. 
+5. Devido a um problema conhecido, você precisa confirmar a versão de scala novamente depois de clicar em **Próximo**. Verifique se a versão do scala está próxima à seleção para a etapa 4.
+
+   ![comfirm-scala-library](./media/hdinsight-apache-spark-eclipse-tool-plugin/comfirm-scala-library-container.png)
+6. Na próxima caixa de diálogo, selecione **Concluir**. 
    
-   ![Guia Bibliotecas](./media/hdinsight-apache-spark-eclipse-tool-plugin/create-hdi-scala-app-4.png)
   
 ## <a name="create-a-scala-application-for-an-hdinsight-spark-cluster"></a>Criar um aplicativo Scala para cluster Spark no HDInsight
 
@@ -140,7 +142,7 @@ Você pode executar várias operações usando as Ferramentas do HDInsight, incl
 
    ![Nó de exibição de trabalho](./media/hdinsight-apache-spark-intellij-tool-plugin/job-view-node.png)
 
-2. Selecione o nó **Trabalhos**. As Ferramentas do HDInsight detectam automaticamente se você instalou o plug-in E(fx)clipse. Selecione **OK** para continuar e, em seguida, siga as instruções para instalar o Eclipse Marketplace e reinicie o Eclipse.
+2. Selecione o nó **Trabalhos**. Se a versão do Java é menor do que **1.8**, as Ferramentas do HDInsight lembram você automaticamente de instalar o plug-in **E(fx)clipse**. Selecione **OK** para continuar e, em seguida, siga o assistente para instalá-lo do Eclipse Marketplace e reiniciar o Eclipse. 
 
    ![Instalar E(fx)clipse](./media/hdinsight-apache-spark-eclipse-tool-plugin/auto-install-efxclipse.png)
 
@@ -176,7 +178,7 @@ Você pode executar várias operações usando as Ferramentas do HDInsight, incl
 2. Quando solicitado, insira as credenciais de administrador para o cluster. Elas foram especificadas no provisionamento do cluster.
 
 ### <a name="manage-azure-subscriptions"></a>Gerenciar assinaturas do Azure
-Por padrão, as Ferramentas do HDInsight no Kit de Ferramentas do Azure para Eclipse listam os clusters Spark de todas as suas assinaturas do Azure. Se for necessário, você poderá especificar as assinaturas para as quais deseja acessar o cluster. 
+Por padrão, a Ferramenta do HDInsight no Kit de Ferramentas do Azure para Eclipse lista os clusters Spark de todas as assinaturas do Azure. Se for necessário, você poderá especificar as assinaturas para as quais deseja acessar o cluster. 
 
 1. No Azure Explorer, clique com o botão direito do mouse no nó-raiz **Azure** e selecione **Gerenciar Assinaturas**. 
 2. Na caixa de diálogo, desmarque as caixas de seleção da assinatura que você não deseja acessar e selecione **Fechar**. Você também poderá escolher **Sair** se quiser sair da sua assinatura do Azure.
@@ -187,7 +189,7 @@ Você pode usar as Ferramentas do HDInsight no Kit de Ferramentas do Azure para 
 ### <a name="prerequisite"></a>Pré-requisito
 Durante a execução do aplicativo Spark Scala local em um computador Windows, você pode receber uma exceção, conforme explicado em [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356). Essa exceção ocorre porque **WinUtils.exe** está ausente no Windows. 
 
-Para solucionar esse erro, você deve [baixar o executável](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) em um local como **C:\WinUtils\bin**. Em seguida, adicione uma variável de ambiente **HADOOP_HOME** e defina o valor da variável como **C\WinUtils**.
+Para resolver esse erro, você deve [baixar o executável](http://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe) para um local como **C:\WinUtils\bin** e, depois, adicionar a variável de ambiente **HADOOP_HOME** e definir o valor da variável como **C\WinUtils**.
 
 ### <a name="run-a-local-spark-scala-application"></a>Executar um aplicativo Scala Spark local
 1. Inicie o Eclipse e crie um projeto. Na caixa de diálogo **Novo Projeto**, faça as opções a seguir e selecione **Avançar**.
@@ -210,7 +212,7 @@ Para solucionar esse erro, você deve [baixar o executável](http://public-repo-
 ## <a name="known-problems"></a>Problemas conhecidos
 Para enviar um aplicativo ao Azure Data Lake Store, selecione o modo **Interativo** durante o processo de entrada no Azure. Se você selecionar o modo **Automatizado**, obterá um erro.
 
-![Entrada interativa](./media/hdinsight-apache-spark-eclipse-tool-plugin/interactive-authentication.png)
+   ![Entrada interativa](./media/hdinsight-apache-spark-eclipse-tool-plugin/interactive-authentication.png)
 
 Você pode escolher um cluster do Azure Data Lake para enviar seu aplicativo com qualquer método de entrada.
 
@@ -225,7 +227,7 @@ Se você tiver comentários ou se encontrar problemas ao usar essa ferramenta, f
 ### <a name="scenarios"></a>Cenários
 * [Spark com BI: executar análise de dados interativa usando o Spark no HDInsight com ferramentas de BI](hdinsight-apache-spark-use-bi-tools.md)
 * [Spark com Aprendizado de Máquina: usar o Spark no HDInsight para analisar a temperatura de prédios usando dados do sistema HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
-* [Spark com Aprendizado de Máquina: usar o Spark no HDInsight para prever resultados da inspeção de alimentos](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+* [Spark com Machine Learning: usar o Spark no HDInsight para prever resultados da inspeção de alimentos](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Streaming Spark: usar o Spark no HDInsight para a criação de aplicativos de streaming em tempo real](hdinsight-apache-spark-eventhub-streaming.md)
 * [Análise de log do site usando o Spark no HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 

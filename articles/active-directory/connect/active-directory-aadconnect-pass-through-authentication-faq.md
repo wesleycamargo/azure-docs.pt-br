@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/29/2017
+ms.date: 10/19/2017
 ms.author: billmath
-ms.openlocfilehash: e0c93cefb135d3ea1c5f0a3797602124aed85c5c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e1bd58797124210f7c31e90fb20d728289a04ba2
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticação de passagem do Azure Active Directory: perguntas frequentes
 
@@ -30,7 +30,7 @@ Depende de seu ambiente local e dos requisitos organizacionais. Revise este arti
 
 ## <a name="is-pass-through-authentication-a-free-feature"></a>A Autenticação de Passagem é um recurso gratuito?
 
-A Autenticação de Passagem é um recurso gratuito e você não precisa de nenhuma edição paga do Azure AD para usá-lo. Ele permanecerá gratuito quando o recurso chegar à disponibilidade geral.
+A Autenticação de Passagem é um recurso gratuito e você não precisa de nenhuma edição paga do Azure AD para usá-lo.
 
 ## <a name="is-pass-through-authentication-available-in-microsoft-cloud-germanyhttpwwwmicrosoftdecloud-deutschland-and-microsoft-azure-government-cloudhttpsazuremicrosoftcomfeaturesgov"></a>A Autenticação de Passagem está disponível na [Microsoft Cloud Alemanha](http://www.microsoft.de/cloud-deutschland) e na [Nuvem do Microsoft Azure Governamental](https://azure.microsoft.com/features/gov/)?
 
@@ -46,7 +46,7 @@ Sim. A Autenticação de Passagem dá suporte a `Alternate ID` como nome de usu�
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>A Sincronização de Hash de Senha funciona como um fallback da Autenticação de Passagem?
 
-Não, a Sincronização de Hash de Senha não é um fallback genérico da Autenticação de Passagem. Ela funciona como fallback apenas para [cenários a que a Autenticação de Passagem não dá suporte atualmente](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios). Para evitar falhas de entrada do usuário, você deve configurar a Autenticação de Passagem para [alta disponibilidade](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
+Não, a Autenticação de Passagem _não_ realiza o failover automaticamente para a Sincronização de Hash de Senha. Ela funciona como fallback apenas para [cenários a que a Autenticação de Passagem não dá suporte atualmente](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios). Para evitar falhas de entrada do usuário, você deve configurar a Autenticação de Passagem para [alta disponibilidade](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability).
 
 ## <a name="can-i-install-an-azure-ad-application-proxyactive-directory-application-proxy-get-startedmd-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>Eu posso instalar um conector de [Proxy de Aplicativo Azure AD](../active-directory-application-proxy-get-started.md) no mesmo servidor que um Agente de Autenticação de Passagem?
 
@@ -97,7 +97,7 @@ Sim. Ambientes de várias florestas têm suporte se houver relações de confian
 
 ## <a name="how-many-pass-through-authentication-agents-do-i-need-to-install"></a>Quantos Agentes de Autenticação de Passagem preciso instalar?
 
-A instalação de vários Agentes de Autenticação de Passagem garante a [alta disponibilidade](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability). No entanto, ela não fornece balanceamento de carga. Um ou dois Agentes Autenticação poderão acabar tratando a maior parte das solicitações de entrada.
+A instalação de vários Agentes de Autenticação de Passagem garante a [alta disponibilidade](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-5-ensure-high-availability). No entanto não fornece o balanceamento de carga determinístico entre os Agentes de Autenticação.
 
 Considere o horário de pico e a carga média de solicitações de entrada que você espera ver no seu locatário. Como um parâmetro de comparação, um único agente de autenticação pode manipular de 300 mil a 400 mil autenticações por segundo em um servidor padrão com CPU de 4 núcleos e 16 GB de RAM. Para a maioria dos clientes, um total de dois ou três agentes de autenticação é o suficiente para alta disponibilidade e capacidade.
 
