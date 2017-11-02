@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/28/2017
 ms.author: jaboes
-ms.openlocfilehash: 95c6a1e9cfadeb19a0ec5a53fffb15ef220bfec0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9fe7a5f254d8b384cae10ecd34e0bdafa433ff13
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Operações do provedor de recursos do Azure Resource Manager
 
@@ -167,31 +167,6 @@ Este documento lista as operações disponíveis para cada provedor de recursos 
 |/service/reports/byTime/read|Obter relatórios agregados por intervalos de tempo|
 |/service/reports/byApi/read|Obter relatórios agregados por APIs|
 |/service/reports/byProduct/read|Obter relatórios agregados por produtos.|
-
-## <a name="microsoftappservice"></a>Microsoft.AppService
-
-| Operação | Descrição |
-|---|---|
-|/appidentities/Read|Retornar o recurso (site da Web) registrado no Gateway.|
-|/appidentities/Write|Criar uma nova identidade de aplicativo.|
-|/appidentities/Delete|Excluir uma identidade de aplicativo existente.|
-|/deploymenttemplates/listMetadata/Action|Listar os metadados de interface do usuário associados ao pacote do aplicativo de API.|
-|/deploymenttemplates/generate/Action|Retornar um modelo de implantação para provisionar instâncias de aplicativo de API.|
-|/gateways/Read|Retornar a instância do Gateway.|
-|/gateways/Write|Criar um novo Gateway ou atualizar um existente.|
-|/gateways/Delete|Excluir uma instância do Gateway existente.|
-|/gateways/listLoginUris/Action|Preenche o repositório de token e retorna URIs de login OAuth.|
-|/gateways/listKeys/Action|Retornar os segredos de gateway.|
-|/gateways/tokens/Write|Criar um novo Token Zumo com o nome fornecido.|
-|/gateways/registrations/Read|Retornar o recurso (site da Web) registrado no Gateway.|
-|/gateways/registrations/Write|Registra um recurso (site da Web) com o Gateway.|
-|/gateways/registrations/Delete|Cancela o registro de um recurso (site da Web) do Gateway.|
-|/apiapps/Read|Retornar a instância do aplicativo de API.|
-|/apiapps/Write|Criar um novo aplicativo de API ou atualizar um existente.|
-|/apiapps/Delete|Excluir uma instância existente do aplicativo de API.|
-|/apiapps/listStatus/Action|Retornar o status do aplicativo de API.|
-|/apiapps/listKeys/Action|Retornar segredos do aplicativo de API.|
-|/apiapps/apidefinitions/Read|Retornar a definição de API do aplicativo de API.|
 
 ## <a name="microsoftauthorization"></a>Microsoft.Authorization
 

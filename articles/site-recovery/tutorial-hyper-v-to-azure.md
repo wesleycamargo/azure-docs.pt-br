@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: raynew
-ms.openlocfilehash: 96e5027adfb443aba18895213e8d83894e3f060a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4d43fb03ce1c54a47315b8c3a5c83ec2082bcab9
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>Configurar a recuperação de desastre de VMs locais do Hyper-V para o Azure
 
@@ -82,7 +82,7 @@ Configure uma [conta de armazenamento do Azure](../storage/common/storage-create
 
 - O Site Recovery replica máquinas locais para o armazenamento do Azure. As VMs do Azure são criadas a partir do armazenamento após o failover.
 - A conta de armazenamento deve estar na mesma região do cofre de Serviços de Recuperação.
-- A conta de armazenamento pode ser padrão ou [premium](../storage/common/storage-premium-storage.md).
+- A conta de armazenamento pode ser padrão ou [premium](../virtual-machines/windows/premium-storage.md).
 - Se configurar uma conta premium, você precisará de uma conta padrão adicional para dados de log.
 
 ### <a name="prepare-hyper-v-hosts"></a>Prepare os hosts do Hyper-V
@@ -251,7 +251,7 @@ Se você estiver usando o VMM, configure o mapeamento de rede.
 3. Em **Frequência de cópia**, especifique com que frequência você deseja replicar os dados delta após a replicação inicial (a cada 30 segundos, 5 ou 15 minutos).
 
     > [!NOTE]
-    >  Não há suporte para uma frequência de 30 segundos ao replicar para armazenamento premium. A limitação é determinada pelo número de instantâneos por blob (100) com suporte pelo armazenamento premium. [Saiba mais](../storage/common/storage-premium-storage.md#snapshots-and-copy-blob).
+    >  Não há suporte para uma frequência de 30 segundos ao replicar para armazenamento premium. A limitação é determinada pelo número de instantâneos por blob (100) com suporte pelo armazenamento premium. [Saiba mais](../virtual-machines/windows/premium-storage.md#snapshots-and-copy-blob).
 
 4. Em **Retenção do ponto de recuperação**, especifique qual será a duração da janela de retenção (em horas) para cada ponto de recuperação. Os computadores protegidos podem ser recuperados para qualquer ponto nessa janela.
 5. Em **Frequência do instantâneo consistente com aplicativo**, especifique com que frequência (1 a 12 horas) são criados os pontos de recuperação que incluam instantâneos consistentes com aplicativos. O Hyper-V usa dois tipos de instantâneos:

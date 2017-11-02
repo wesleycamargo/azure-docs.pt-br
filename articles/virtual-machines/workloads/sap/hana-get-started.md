@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
-ms.openlocfilehash: 05fb31007e1e4c2243f93169129ec5b2c93099e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 321a86d6ce355273820617e6de9df2b0816c73fa
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>Início rápido: instalação manual do SAP HANA de instância única em VMs do Azure
 ## <a name="introduction"></a>Introdução
@@ -200,7 +200,7 @@ Para obter mais informações sobre como anexar discos para VMs do Azure executa
 
 O armazenamento premium do Azure permite definir modos de cache de disco. Para a conjunto de faixa contendo /hana/data e /hana/log, o cache de disco deve ser desabilitado. Para os outros volumes (discos), o modo de cache deve ser definido como **ReadOnly**.
 
-Para saber mais, confira [Armazenamento Premium: armazenamento de alto desempenho para as cargas de trabalho das máquinas virtuais do Azure](../../../storage/common/storage-premium-storage.md).
+Para saber mais, confira [Armazenamento Premium: armazenamento de alto desempenho para as cargas de trabalho das máquinas virtuais do Azure](../../windows/premium-storage.md).
 
 Para localizar modelos JSON de exemplo para criar VMs, vá para [Modelos de início rápido do Azure](https://github.com/Azure/azure-quickstart-templates).
 O modelo vm-simple-sles é um modelo básico. Ele inclui uma seção de armazenamento com um disco de dados de 100 GB adicionais. Esse modelo pode ser usado como base. Você pode adaptar o modelo em sua configuração específica.

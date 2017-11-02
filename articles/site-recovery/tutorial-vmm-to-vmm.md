@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: raynew
-ms.openlocfilehash: 9764e48e04eb0c83afea09934ce64d2485ab15d5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1647e9d69da3e991bec4e00b3a1083a254fa9550
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-your-secondary-on-premises-site"></a>Configurar a recuperação de desastre de VMs do Hyper-V para seu site local secundário
 
@@ -40,7 +40,7 @@ Para concluir este tutorial:
 
 - Examine os [componentes e a arquitetura do cenário](concepts-hyper-v-to-secondary-architecture.md).
 - Examine os [requisitos de suporte](site-recovery-support-matrix-to-sec-site.md) de todos os componentes.
-- Verifique se os servidores do VMM e os hosts do Hyper-V estão em conformidade com [os requisitos de suporte](site-recovery-support-matrix-to-sec-site.md#on-premises-servers).
+- Verifique se os servidores do VMM e os hosts do Hyper-V estão em conformidade com [os requisitos de suporte](site-recovery-support-matrix-to-sec-site.md).
 - Verifique se as VMs que você deseja replicar estão em conformidade com o [suporte ao computador replicado](site-recovery-support-matrix-to-sec-site.md#support-for-replicated-machine-os-versions).
 - Prepare os servidores do VMM para o mapeamento de rede.
 
