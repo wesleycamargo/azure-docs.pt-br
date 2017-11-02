@@ -15,11 +15,11 @@ ms.topic: get-started-article
 f1_keywords: sql13.swb.windowsazurestorage.connect.f1
 ms.date: 10/11/2017
 ms.author: tamram
-ms.openlocfilehash: db878f257f64ccc573a220c675cd373539dd5b17
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: c9630e575de15b404bd91cbeefc60d698c5da667
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="about-azure-storage-accounts"></a>Sobre as contas de armazenamento do Azure
 
@@ -79,7 +79,7 @@ Também é possível configurar um nome de domínio para usar com a conta de arm
 
 5. Selecione o tipo de conta de armazenamento: **Finalidade geral** ou **Armazenamento de blobs**. **Finalidade geral** é o padrão.
    
-    Se **Finalidade geral** tiver sido selecionado, especifique a camada de desempenho: **Standard** ou **Premium**. O padrão é **Standard**. Para saber mais sobre as contas de armazenamento standard e premium, confira [Introdução ao Armazenamento do Microsoft Azure](storage-introduction.md) e [Armazenamento Premium: Armazenamento de Alto Desempenho para Cargas de Trabalho da Máquina Virtual do Azure](storage-premium-storage.md).
+    Se **Finalidade geral** tiver sido selecionado, especifique a camada de desempenho: **Standard** ou **Premium**. O padrão é **Standard**. Para saber mais sobre as contas de armazenamento standard e premium, confira [Introdução ao Armazenamento do Microsoft Azure](storage-introduction.md) e [Armazenamento Premium: Armazenamento de Alto Desempenho para Cargas de Trabalho da Máquina Virtual do Azure](../../virtual-machines/windows/premium-storage.md).
    
     Se **Armazenamento de Blobs** tiver sido selecionado, especifique o tipo de acesso: **Dinâmico** ou **Estático**. O padrão é **Dinâmica**. Confira [Armazenamento de Blobs do Azure: camadas Estática e Dinâmica](../blobs/storage-blob-storage-tiers.md) para saber mais.
 6. Selecione a opção de replicação para a conta de armazenamento:**LRS**, **GRS**, **RA-GRS** ou **ZRS**. O padrão é **RA-GRS**. Para obter mais detalhes sobre as opções de replicação do Armazenamento do Azure, confira [Replicação do Armazenamento do Azure](storage-redundancy.md).

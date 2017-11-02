@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: jroth
-ms.openlocfilehash: 5595ea016ab01d20cee82b75f56623bb0727a1b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e502be189a29590ebe0d848b3ec43611db8d035d
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Práticas recomendadas relacionadas ao desempenho para o SQL Server em máquinas virtuais do Azure
 
@@ -40,8 +40,8 @@ Veja a seguir uma lista de verificação rápida para obter o melhor desempenho 
 | Área | Otimizações |
 | --- | --- |
 | [Tamanho da VM](#vm-size-guidance) |[DS3](../../virtual-machines-windows-sizes-memory.md) ou superior para o SQL Enterprise Edition.<br/><br/>[DS2](../../virtual-machines-windows-sizes-memory.md) ou superior para os SQL Standard e Web Editions. |
-| [Armazenamento](#storage-guidance) |Use o [Armazenamento Premium](../../../storage/common/storage-premium-storage.md). O armazenamento padrão é recomendado somente para desenvolvimento/teste.<br/><br/>Mantenha a [conta de armazenamento](../../../storage/common/storage-create-storage-account.md) e a VM do SQL Server na mesma região.<br/><br/>Desabilite o [armazenamento com redundância geográfica](../../../storage/common/storage-redundancy.md) (replicação geográfica) do Azure na conta de armazenamento. |
-| [Discos](#disks-guidance) |Usar no mínimo dois [discos P30](../../../storage/common/storage-premium-storage.md#scalability-and-performance-targets) (um para arquivos de log; um para arquivos de dados e o TempDB).<br/><br/>Evite usar o sistema operacional ou discos temporários para armazenamento de banco de dados ou registro em log.<br/><br/>Habilite o caching nos discos que hospedam os arquivos de dados e o TempDB.<br/><br/>Não habilite o caching em discos que hospedam o arquivo de log.<br/><br/>Importante: interrompa o serviço do SQL Server ao alterar as configurações de cache para um disco de VM do Azure.<br/><br/>Particione vários discos de dados do Azure para obter maior taxa de transferência de E/S.<br/><br/>Formate com os tamanhos de alocação documentados. |
+| [Armazenamento](#storage-guidance) |Use o [Armazenamento Premium](../premium-storage.md). O armazenamento padrão é recomendado somente para desenvolvimento/teste.<br/><br/>Mantenha a [conta de armazenamento](../../../storage/common/storage-create-storage-account.md) e a VM do SQL Server na mesma região.<br/><br/>Desabilite o [armazenamento com redundância geográfica](../../../storage/common/storage-redundancy.md) (replicação geográfica) do Azure na conta de armazenamento. |
+| [Discos](#disks-guidance) |Usar no mínimo dois [discos P30](../premium-storage.md#scalability-and-performance-targets) (um para arquivos de log; um para arquivos de dados e o TempDB).<br/><br/>Evite usar o sistema operacional ou discos temporários para armazenamento de banco de dados ou registro em log.<br/><br/>Habilite o caching nos discos que hospedam os arquivos de dados e o TempDB.<br/><br/>Não habilite o caching em discos que hospedam o arquivo de log.<br/><br/>Importante: interrompa o serviço do SQL Server ao alterar as configurações de cache para um disco de VM do Azure.<br/><br/>Particione vários discos de dados do Azure para obter maior taxa de transferência de E/S.<br/><br/>Formate com os tamanhos de alocação documentados. |
 | [E/S](#io-guidance) |Habilite a compactação de página do banco de dados.<br/><br/>Habilite a inicialização instantânea de arquivos para arquivos de dados.<br/><br/>Limite ou desabilite o crescimento automático no banco de dados.<br/><br/>Desabilite a redução automática no banco de dados.<br/><br/>Mova todos os bancos de dados para discos de dados, incluindo bancos de dados do sistema.<br/><br/>Mova o log de erros do SQL Server e os diretórios de arquivos de rastreamento para discos de dados<br/><br/>Configure os locais do arquivo de banco de dados e backup padrão.<br/><br/>Habilite as páginas bloqueadas.<br/><br/>Aplique correções de desempenho do SQL Server. |
 | [Específico do recurso](#feature-specific-guidance) |Faça backup diretamente no armazenamento de blob. |
 
@@ -56,7 +56,7 @@ Para aplicativos sensíveis ao desempenho, é recomendável o uso dos seguintes 
 
 ## <a name="storage-guidance"></a>Orientação de armazenamento
 
-As VMs da série DS (com as séries DSv2 e GS) dão suporte ao [Armazenamento Premium](../../../storage/common/storage-premium-storage.md). O Armazenamento Premium é recomendado para todas as cargas de trabalho de produção.
+As VMs da série DS (com as séries DSv2 e GS) dão suporte ao [Armazenamento Premium](../premium-storage.md). O Armazenamento Premium é recomendado para todas as cargas de trabalho de produção.
 
 > [!WARNING]
 > O Armazenamento Standard tem largura de banda e latências variáveis e só é recomendado para cargas de trabalho de desenvolvimento e teste. As cargas de trabalho de produção devem usar o Armazenamento Premium.
@@ -89,7 +89,7 @@ Para VMs que têm suporte para Armazenamento Premium (séries DS, DSv2 e GS), é
 
 ### <a name="data-disks"></a>Discos de dados
 
-* **Usar discos de dados para arquivos de dados e de log**: no mínimo, use dois [discos P30](../../../storage/common/storage-premium-storage.md#scalability-and-performance-targets) do Armazenamento Premium: um deles com os arquivos de log e o outro com os arquivos de dados e do TempDB. Cada disco do Armazenamento Premium fornece um número de IOPs e largura de banda (MB/s), dependendo de seu tamanho, conforme descrito neste artigo: [Usando o Armazenamento Premium para discos](../../../storage/common/storage-premium-storage.md).
+* **Usar discos de dados para arquivos de dados e de log**: no mínimo, use dois [discos P30](../premium-storage.md#scalability-and-performance-targets) do Armazenamento Premium: um deles com os arquivos de log e o outro com os arquivos de dados e do TempDB. Cada disco do Armazenamento Premium fornece um número de IOPs e largura de banda (MB/s), dependendo de seu tamanho, conforme descrito neste artigo: [Usando o Armazenamento Premium para discos](../premium-storage.md).
 
 * **Distribuição de Discos**: para produtividade mais alta, você pode adicionar outros discos de dados e usar a Distribuição de Discos. Para determinar o número de discos de dados, você precisa analisar o número de IOPS e a largura de banda necessários para os arquivos de log e para os arquivos de dados e do TempDB. Observe que diferentes tamanhos de VM têm diferentes limites no número de IOPS e na largura de banda com suporte; consulte as tabelas sobre IOPS por [tamanho de VM](../sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Use as seguintes diretrizes:
 

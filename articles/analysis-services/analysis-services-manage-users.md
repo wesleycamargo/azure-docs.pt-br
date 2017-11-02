@@ -4,7 +4,7 @@ description: "Saiba mais sobre as permissões de usuário e autenticação no Az
 services: analysis-services
 documentationcenter: 
 author: minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 10/09/2017
 ms.author: owend
-ms.openlocfilehash: e9667afff1bdc351e0ed5cd94bb5fcf946b46f3b
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: e7fdb55ba29fbdc2f3d89fbb19c8b77bf2c05795
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="authentication-and-user-permissions"></a>Autenticação e permissões de usuário
 O Azure Analysis Services usa o Azure AD (Azure Active Directory) para o gerenciamento de identidade e a autenticação de usuário. Qualquer usuário criando, gerenciando ou se conectando a um servidor do Azure Analysis Services deve ter uma identidade de usuário válida no [locatário do Azure AD](../active-directory/active-directory-administer.md) na mesma assinatura.
