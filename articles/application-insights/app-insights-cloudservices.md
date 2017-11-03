@@ -4,7 +4,7 @@ description: "Monitorar suas funções da Web e de trabalho com eficiência com 
 services: application-insights
 documentationcenter: 
 keywords: "WAD2AI, Diagnóstico do Azure"
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 editor: alancameronwills
 ms.assetid: 5c7a5b34-329e-42b7-9330-9dcbb9ff1f88
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: get-started-article
 ms.workload: tbd
 ms.date: 05/05/2017
-ms.author: bwren
-ms.openlocfilehash: c12b225aa351d0c272243469550791a6840091e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbullwin
+ms.openlocfilehash: 9e27ffe72986406031ba6cf9b1153090f6ff1113
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights para Serviços de Nuvem do Azure
 [Os aplicativos do serviço de nuvem do Microsoft Azure](https://azure.microsoft.com/services/cloud-services/) podem ser monitorados pelo [Application Insights][start] para ver a disponibilidade, desempenho, falhas e uso combinando os dados dos SDKs do Application Insights com os dados de [Diagnóstico do Azure](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/azure-diagnostics) em seus Serviços de Nuvem. Com os comentários que você obtiver sobre o desempenho e a eficiência de seu aplicativo em uso, você pode fazer escolhas informadas sobre a direção do projeto em cada ciclo de vida de desenvolvimento.
@@ -110,7 +110,7 @@ No Visual Studio, configure o SDK do Application Insights para cada projeto de a
  * Clique com o botão direito no projeto e selecione **Gerenciar Pacotes Nuget**.
  * Adicione [Application Insights para Windows Servers](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/).
 
-    ![Pesquise “Application Insights”](./media/app-insights-cloudservices/04-ai-nuget.png)
+    ![Pesquise "Application Insights"](./media/app-insights-cloudservices/04-ai-nuget.png)
 
 3. Configure o SDK para enviar dados ao recurso do Application Insights.
 

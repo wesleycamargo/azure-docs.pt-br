@@ -3,7 +3,7 @@ title: Explorar os logs de rastreamento do .NET no Application Insights
 description: Pesquise logs gerados com Trace, NLog ou Log4Net.
 services: application-insights
 documentationcenter: .net
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.assetid: 0c2a084f-6e71-467b-a6aa-4ab222f17153
 ms.service: application-insights
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
-ms.author: bwren
-ms.openlocfilehash: 21e4ae78653977efc7a47f984bc309afac870a59
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbullwin
+ms.openlocfilehash: 6da0bf009fa71885d7d8e3bd5376c5a7c9d4a344
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="explore-net-trace-logs-in-application-insights"></a>Explorar os logs de rastreamento do .NET no Application Insights
 Se você usar NLog, log4Net ou System.Diagnostics.Trace para o rastreamento de diagnóstico em seu aplicativo ASP.NET, os logs poderão ser enviados ao [Azure Application Insights][start], onde será possível explorá-los e pesquisá-los. Os logs serão mesclados à outra telemetria proveniente de seu aplicativo para que você possa identificar os rastreamentos associados ao atendimento de cada solicitação de usuário e correlacioná-los com outros relatórios de eventos e exceções.
@@ -59,7 +59,7 @@ Use este método se o tipo de projeto não tiver suporte no instalador do Applic
 
 1. Se você planeja usar o log4Net ou NLog, instale-o em seu projeto.
 2. No Gerenciador de Soluções, clique com o botão direito do mouse no seu projeto e escolha **Gerenciar Pacotes NuGet**.
-3. Pesquise “Application Insights”
+3. Pesquise "Application Insights"
 4. Selecione o pacote apropriado entre:
 
    * Microsoft.ApplicationInsights.TraceListener (para capturar chamadas do System.Diagnostics.Trace)
@@ -154,7 +154,7 @@ Na folha de visão geral do aplicativo, no [portal do Application Insights][port
 
 ![No Application Insights, escolha Pesquisar](./media/app-insights-asp-net-trace-logs/020-diagnostic-search.png)
 
-![Pesquisa](./media/app-insights-asp-net-trace-logs/10-diagnostics.png)
+![Pesquisar](./media/app-insights-asp-net-trace-logs/10-diagnostics.png)
 
 Por exemplo, você pode:
 

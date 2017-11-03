@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 10/31/2017
 ms.author: billmath
-ms.openlocfilehash: a84096ba53a308855beedd76d9dec827c025cd57
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 81bacc39d974dfbd1b2aa8dce9e629c508203811
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="generic-sql-connector-technical-reference"></a>Referência técnica do conector SQL genérico
 Este artigo descreve o conector SQL genérico. O artigo se aplica aos seguintes produtos:
@@ -291,7 +291,7 @@ Se você escolher a opção de Procedimento Armazenado, a Exportação exigirá 
 * **Adicionar nome do SP**: esse SP será executado se houver objetos para inserção no conector, na respectiva tabela.
 * **Atualizar nome do SP**: esse SP será executado se houver objetos para atualização no conector, na respectiva tabela.
 * **Excluir nome do SP**: esse SP será executado se houver objetos para exclusão no conector, na respectiva tabela.
-* Atributo selecionado do esquema usado como um valor de parâmetro para o procedimento armazenado. Por exemplo, `EmployeeName: INPUT: @EmployeeName` (NomeFuncionário está selecionado no esquema do conector, e o conector substitui o respectivo valor durante a exportação)
+* Atributo selecionado do esquema usado como um valor de parâmetro para o procedimento armazenado. Por exemplo, `@EmployeeName: INPUT: EmployeeName` (NomeFuncionário está selecionado no esquema do conector, e o conector substitui o respectivo valor durante a exportação)
 * Para executar o procedimento armazenado com parâmetros, forneça os parâmetros no formato `[Name]:[Direction]:[Value]` . Forneça cada parâmetro em uma linha separada (use Ctrl + Enter para obter uma nova linha).
 
 **SQL query**  
