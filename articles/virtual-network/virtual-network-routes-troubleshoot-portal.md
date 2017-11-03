@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: dad415936280b4af916b8c46df46f6c51ac0bca4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f76693dfcaf5076372e4c4d5f28678c05eff85ed
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="troubleshoot-routes-using-the-azure-portal"></a>Solucionar problemas de rotas usando o Portal do Azure
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ As tabelas de rotas são associadas a sub-redes e estão em vigor em todas as NI
 
 * **Rotas de sistema:** por padrão, cada sub-rede criada em uma VNet (rede virtual) do Azure tem tabelas de rotas de sistema que possibilitam o tráfego da VNet, o tráfego local por meio de gateways de VPN e o tráfego da Internet. Também existem rotas de sistema para VNets emparelhadas.
 * **Rotas BGP:** propagadas para adaptadores de rede por meio do ExpressRoute ou conexões VPN site a site. Saiba mais sobre o roteamento BGP lendo os artigos [BGP com gateways de VPN](../vpn-gateway/vpn-gateway-bgp-overview.md) e de [visão geral do ExpressRoute](../expressroute/expressroute-introduction.md).
-* **UDR (Rotas definidas pelo usuário):** se você estiver usando soluções de virtualização de rede ou fazendo o túnel forçado do tráfego para uma rede local por meio de uma VPN site a site, você poderá ter UDRs (rotas definidas pelo usuário) associadas à sua tabela de rotas de sub-rede. Se você não estiver familiarizado com UDRs, leia o artigo [rotas definidas pelo usuário](virtual-networks-udr-overview.md#user-defined-routes) .
+* **UDR (Rotas definidas pelo usuário):** se você estiver usando soluções de virtualização de rede ou fazendo o túnel forçado do tráfego para uma rede local por meio de uma VPN site a site, você poderá ter UDRs (rotas definidas pelo usuário) associadas à sua tabela de rotas de sub-rede. Se você não estiver familiarizado com UDRs, leia o artigo [rotas definidas pelo usuário](virtual-networks-udr-overview.md#user-defined) .
 
 Com as várias rotas que podem ser aplicadas a um adaptador de rede, pode ser difícil determinar quais rotas agregadas estão em vigor. Para ajudar a solucionar problemas de conectividade de rede da VM, você pode exibir todas as rotas em vigor para um adaptador de rede no modelo de implantação do Azure Resource Manager.
 

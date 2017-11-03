@@ -9,17 +9,18 @@ editor:
 ms.assetid: a295a768-7ff2-4a86-a253-0090281c8efa
 ms.service: sql-database
 ms.custom: load & move data
-ms.workload: na
+ms.workload: Active
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: douglasl
-ms.openlocfilehash: 1943e87ffd991d099ab655af5a7d16d7f1608d22
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.reviewer: douglasl
+ms.openlocfilehash: 64b95142eb5b7086b070585a359bf81e7397c3e5
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="getting-started-with-azure-sql-data-sync-preview"></a>Introdução à Sincronização de Dados SQL do Azure (visualização)
 Neste tutorial, você aprenderá a configurar a Sincronização de Dados SQL do Azure criando um grupo de sincronização híbrido que contém as instâncias de Banco de Dados SQL do Azure e do SQL Server. O novo grupo de sincronização ficará totalmente configurado e sincronizado no agendamento que você definir.
@@ -31,9 +32,6 @@ Para obter uma visão geral da Sincronização de Dados SQL, confira [Sincroniza
 Para obter exemplos completos do PowerShell que mostrem como configurar a Sincronização de Dados SQL, veja os seguintes artigos:
 -   [Usar o PowerShell para sincronização entre vários banco de dados SQL do Azure](scripts/sql-database-sync-data-between-sql-databases.md)
 -   [Usar o PowerShell para sincronizar entre um Banco de Dados SQL do Azure e um banco de dados local do SQL Server](scripts/sql-database-sync-data-between-azure-onprem.md)
-
-> [!NOTE]
-> A documentação técnica completa para Sincronização de Dados SQL do Azure, localizada anteriormente no MSDN, está disponível como documento .PDF. Baixe [aqui](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_full_documentation.pdf?raw=true).
 
 ## <a name="step-1---create-sync-group"></a>Etapa 1: Criar grupo de sincronização
 
@@ -200,7 +198,6 @@ Parabéns. Você criou um grupo de sincronização que inclui uma instância do 
 
 Para obter mais informações sobre o Banco de Dados SQL e a Sincronização de Dados SQL, consulte:
 
--   [Baixe a documentação técnica completa da Sincronização de Dados SQL](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_full_documentation.pdf?raw=true)
 -   [Baixe a documentação da API REST de Sincronização de Dados SQL](https://github.com/Microsoft/sql-server-samples/raw/master/samples/features/sql-data-sync/Data_Sync_Preview_REST_API.pdf?raw=true)
 -   [Visão geral do Banco de Dados SQL](sql-database-technical-overview.md)
 -   [Gerenciamento de ciclo de vida do banco de dados](https://msdn.microsoft.com/library/jj907294.aspx)

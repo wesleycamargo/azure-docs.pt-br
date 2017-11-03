@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/16/2017
 ms.author: jdial
-ms.openlocfilehash: 4ca7f791b4c5c8bb9020144785b1c1aeb20db195
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 9696a74ac02688f9004156f6f16b39b37756751d
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="create-a-user-defined-route---powershell"></a>Criar uma rota definida pelo usuário – PowerShell
 
@@ -32,7 +32,7 @@ Neste tutorial, você criará uma rede virtual com sub-redes públicas, privadas
 
 ![Rotas definidas pelo usuário](./media/create-user-defined-route/user-defined-routes.png)
 
-Este artigo fornece etapas para criar uma rota definida pelo usuário usando o modelo de implantação do Resource Manager, que é o modelo de implantação recomendado ao criar rotas definidas pelo usuário. Se você precisar criar uma rota definida pelo usuário (clássica), consulte [Criar uma rota definida pelo usuário (clássica)](virtual-network-create-udr-classic-ps.md). Se você não estiver familiarizado com os modelos de implantação do Azure, confira [Entender os modelos de implantação do Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Para saber mais sobre as rotas definidas pelo usuário, confira [Visão geral de rotas definidas pelo usuário](virtual-networks-udr-overview.md#user-defined-routes).
+Este artigo fornece etapas para criar uma rota definida pelo usuário usando o modelo de implantação do Resource Manager, que é o modelo de implantação recomendado ao criar rotas definidas pelo usuário. Se você precisar criar uma rota definida pelo usuário (clássica), consulte [Criar uma rota definida pelo usuário (clássica)](virtual-network-create-udr-classic-ps.md). Se você não estiver familiarizado com os modelos de implantação do Azure, confira [Entender os modelos de implantação do Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Para saber mais sobre as rotas definidas pelo usuário, confira [Visão geral de rotas definidas pelo usuário](virtual-networks-udr-overview.md#user-defined).
 
 ## <a name="create-routes-and-network-virtual-appliance"></a>Criar rotas e solução de virtualização de rede
 

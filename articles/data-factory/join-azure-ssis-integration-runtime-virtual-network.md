@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2017
 ms.author: spelluru
-ms.openlocfilehash: 02d9102bfc9b0d8084988609282f2c78b5789e7e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8a58f55bd627594145661e1c8d5c1da360cd1e30
+ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Unir o tempo de execução de integração do Azure-SSIS a uma rede virtual
 Você deve unir o tempo de execução de integração (IR) do Azure-SSIS a uma rede virtual (VNet) do Azure se uma das seguintes condições for verdadeira: 
@@ -26,6 +26,9 @@ Você deve unir o tempo de execução de integração (IR) do Azure-SSIS a uma r
 - Você deseja se conectar a armazenamentos de dados locais de pacotes SSIS em execução em um tempo de execução de integração do Azure-SSIS.
 
  O Azure Data Factory versão 2 (versão prévia) permite que você una o tempo de execução de integração do Azure-SSIS a uma VNet clássica. Atualmente, a VNet do Azure Resource Manager ainda não é compatível. No entanto, você pode contornar essa situação conforme mostrado na seção a seguir. 
+
+ > [!NOTE]
+> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em versão prévia. Se você estiver usando a versão 1 do serviço Data Factory, que está com GA (disponibilidade geral), consulte a [Documentação do Data Factory versão 1](v1/data-factory-introduction.md).
 
 Se os pacotes do SSIS acessam apenas armazenamentos de dados de nuvem pública, você não precisa unir o IR do Azure-SSIS a uma rede virtual. Se os pacotes do SSIS acessam armazenamentos de dados locais, você deve unir o IR do Azure-SSIS a uma VNet que esteja conectada à rede local. Se o catálogo do SSIS estiver hospedado em um banco de dados SQL do Azure que não esteja na VNet, você precisará abrir as portas apropriadas. Se o catálogo do SSIS estiver hospedado na instância gerenciada do SQL edo Azure em uma VNet clássica, você poderá unir o IR do Azure-SSIS à mesma VNet clássica (ou) a uma VNet clássica diferente que tenha conexão entre VNets clássicas com a que tem a instância gerenciada do SQL do Azure. As seções a seguir apresentam mais detalhes.  
 

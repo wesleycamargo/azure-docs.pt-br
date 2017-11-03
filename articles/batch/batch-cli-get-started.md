@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 09/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 68a5493282fa4a0b54ba551c48ae963a42b94dca
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 763a8884b65f64b4807cd42c937f43b2f5517ed5
+ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Gerenciar recursos do Lote com a CLI do Azure
 
@@ -96,7 +96,7 @@ Você tem duas opções para autenticação na sua conta do Lote:
 
     Uma vantagem do Azure AD é que ele oferece RBAC (controle de acesso baseado em função). Com o RBAC, acesso de um usuário depende de suas funções atribuídas em vez da posse ou não de chaves da conta. Em vez de gerenciar chaves de conta, você pode gerenciar funções RBAC e permitir que o Azure AD lide com autenticação e acesso.  
 
-        To log in to your Batch account using Azure AD, call the [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login) command: 
+     Para entrar na sua conta do Lote usando o Azure AD, chame o comando [az batch account login](https://docs.microsoft.com/cli/azure/batch/account#az_batch_account_login): 
 
     ```azurecli
     az batch account login -g myresource group -n mybatchaccount

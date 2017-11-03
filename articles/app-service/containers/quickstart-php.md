@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 3ff1b0bdd2397387910c31e25ddbc50ffc0bd1c4
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 47b3f3b0a0faab6daa4ff64230128fc0ad3510e9
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="create-a-php-web-app-in-app-service-on-linux"></a>Criar um aplicativo Web PHP no Serviço de Aplicativo no Linux
 
@@ -73,7 +73,7 @@ Na janela do terminal, pressione **Ctrl+C** para sair do servidor Web.
 
 ## <a name="create-a-web-app-with-built-in-image"></a>Criar um aplicativo Web com imagem interna
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-linux-php-no-h.md)] 
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-no-h.md)] 
 
 Navegue até o site para ver seu aplicativo Web recém-criado com imagem interna. Substitua _&lt;nome do aplicativo>_ por um nome exclusivo do aplicativo.
 
@@ -83,9 +83,7 @@ http://<app name>.azurewebsites.net
 
 ![Página de aplicativo Web vazia](media/quickstart-php/app-service-web-service-created.png)
 
-Você criou um novo aplicativo Web vazio com imagem interna, com a implantação do Git habilitada.
-
-[!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)]
+[!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
 
 ```bash
 Counting objects: 2, done.

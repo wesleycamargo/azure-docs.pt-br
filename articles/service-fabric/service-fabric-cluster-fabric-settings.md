@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: chackdan
-ms.openlocfilehash: 8143cf739f475ebfa6e65dc43945174304ffbb3b
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: bfbfc5b46985d3413510ba69cbdfc688f46f0f1b
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Personalizar as configurações de cluster de Service Fabric e a política de Atualização da Malha
 Este documento explica como personalizar as várias configurações de malha e a política de atualização de malha para o cluster do Service Fabric. Você pode personalizá-los através do [Portal do Azure](https://portal.azure.com) ou utilizando um modelo do Azure Resource Manager.
@@ -228,7 +228,7 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 |ServiceDescriptionCacheLimit | Int, o padrão é 0 |estático| O número máximo de entradas mantidas no cache de descrição do serviço LRU no Serviço do Repositório de Cadastramento (defina como 0 para sem limite). |
 |RepairInterval | Tempo em segundos, o padrão é 5 |estático| Especifique o intervalo de tempo em segundos. Intervalo em que o reparo de inconsistência de nomenclatura entre o proprietário da autoridade e o proprietário do nome será iniciado. |
 |MaxNamingServiceHealthReports | Int, o padrão é 10 |Dinâmico|O número máximo de operações lentas que o Serviço do Repositório de Cadastramento reporta como não íntegras de uma vez. Se for 0, todas as operações lentas serão enviadas. |
-| MaxMessageSize |Int, o padrão é 4*1024*1024 |estático|O tamanho máximo da mensagem para a comunicação do nó do cliente ao usar a nomenclatura. Atenuação do ataque ao DOS, o valor padrão é 4 MB. |
+| MaxMessageSize |Int, o padrão é 4\*1024\*1024 |estático|O tamanho máximo da mensagem para a comunicação do nó do cliente ao usar a nomenclatura. Atenuação do ataque ao DOS, o valor padrão é 4 MB. |
 | MaxFileOperationTimeout |Tempo em segundos, o padrão é de 30 |Dinâmico|Especifique o intervalo de tempo em segundos. O tempo limite máximo permitido para a operação de serviço de repositório de arquivos. As solicitações que especificarem um tempo limite maior serão rejeitadas. |
 | MaxOperationTimeout |Tempo em segundos, o padrão é 600 |Dinâmico|Especifique o intervalo de tempo em segundos. O tempo limite máximo permitido para operações do cliente. As solicitações que especificarem um tempo limite maior serão rejeitadas. |
 | MaxClientConnections |Int, o padrão é 1000 |Dinâmico|O número máximo permitido de conexões do cliente por gateway. |

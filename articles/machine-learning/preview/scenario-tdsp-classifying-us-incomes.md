@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: bradsev
-ms.openlocfilehash: c0fbd9b3e6f9f9f4f7a5d3e6bda18ce1312650e7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3e92687657b4e80e75fd869da454970622f7178c
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="income-classification-with-team-data-science-process-tdsp-project"></a>Classificação de renda com Projeto TDSP (Processo de Ciência de Dados de Equipe)
 
@@ -63,7 +63,7 @@ Se você desejar salvar e fazer a versão do seu projeto e do seu conteúdo, ser
 * [Perguntas frequentes – Como começar](frequently-asked-questions.md)
 * [Visão geral](overview-what-is-azure-ml.md)
 * [Instalação](quickstart-installation.md)
-* [Execução](experiment-execution-configuration.md)
+* [Execução](experimentation-service-configuration.md)
 * [Usando o TDSP](https://aka.ms/how-to-use-tdsp-in-aml)
 * [Ler e gravar arquivos](how-to-read-write-files.md)
 * [Usando o Git com o Azure Machine Learning](using-git-ml-project.md)
@@ -108,7 +108,7 @@ O projeto é criado com base nas instruções fornecidas [aqui](https://aka.ms/h
 <img src="./media/scenario-tdsp-classifying-us-incomes/instantiation-4.png" width="900" height="700">
 
 ### <a name="execution"></a>Execução
-Neste exemplo, executamos o código no **ambiente de computação local**. Consulte os documentos do Azure Machine Learning para obter mais detalhes sobre [opções de execução](experiment-execution-configuration.md).
+Neste exemplo, executamos o código no **ambiente de computação local**. Consulte os documentos do Azure Machine Learning para obter mais detalhes sobre [opções de execução](experimentation-service-configuration.md).
 
 Executar um script Python em um tempo de execução local do Python é fácil:
 
@@ -137,7 +137,7 @@ Criamos dois modelos com uma validação cruzada de 3 partições: Elastic Net e
 
 O código para modelagem está localizado em: /code/02_modeling.
 
-A AUC dos modelos Elastic Net e Random Forest foi > 0,85. Salvamos os modelos em arquivos pickled.pkl e transmitimos os gráficos ROC para ambos os modelos. A AUC do modelo Random Forest era 0,92 e a do modelo Elastic Net era 0,90. Além disso, para a interpretação de modelo, a importância de recursos para o modelo Random Forest é transmitida em um arquivo .csv e plotado em um pdf (20 principais recursos preditivos apenas).
+A AUC dos modelos Elastic Net e Random Forest foi > 0,85. Salvamos os modelos em arquivos pickled.pkl e transmitimos os gráficos ROC para ambos os modelos. A AUC do modelo Random Forest era 0,92 e a do modelo Elastic Net era 0,90. Além disso, para a interpretação de modelo, a importância de recursos para o modelo Random Forest é transmitida em um arquivo .csv e cria um gráfico em um pdf (20 principais recursos preditivos apenas).
 
 A curva ROC do **modelo Random Forest** nos dados de teste é mostrada abaixo. Esse era o modelo que foi implantado:
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/05/2016
 ms.author: jdial
-ms.openlocfilehash: 8e464348660114f5e99b4739bb7761b7e53ebf99
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 544ba6484b23da425d53594622122b1e18b92359
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="virtual-appliance-scenario"></a>Cenário de dispositivo virtual
 Um cenário comum entre os maiores clientes do Azure é a necessidade de fornecer um aplicativo de duas camadas exposto à Internet, permitindo acesso para a camada traseira de um datacenter local. Este documento explica um cenário usando UDR (Rotas Definidas pelo Usuário), um Gateway de VPN e dispositivos virtuais de rede para implantar um ambiente de duas camadas que atende aos seguintes requisitos:
@@ -70,7 +70,7 @@ Neste exemplo, há uma assinatura que contém o seguinte:
   * **AZF3**. O firewall de gerenciamento acessível aos administradores do datacenter local e conectado a uma sub-rede de gerenciamento usada para gerenciar todos os dispositivos de firewall. Você pode encontrar modelos de dispositivo virtual de 2 NICs no Marketplace ou solicitar uma diretamente do seu fornecedor de dispositivo.
 
 ## <a name="user-defined-routing-udr"></a>Roteamento definido pelo usuário (UDR)
-Cada sub-rede no Azure pode ser vinculada a uma tabela UDR usada para definir como o tráfego iniciado na sub-rede é roteado. Se nenhum UDR for definido, o Azure usará as rotas padrão para permitir que o tráfego flua de uma sub-rede para outra. Para entender melhor os UDRs, visite [O que são Rotas Definidas pelo Usuário e Encaminhamento de IP](virtual-networks-udr-overview.md#ip-forwarding).
+Cada sub-rede no Azure pode ser vinculada a uma tabela UDR usada para definir como o tráfego iniciado na sub-rede é roteado. Se nenhum UDR for definido, o Azure usará as rotas padrão para permitir que o tráfego flua de uma sub-rede para outra. Para entender melhor os UDRs, visite [O que são Rotas Definidas pelo Usuário e Encaminhamento de IP](virtual-networks-udr-overview.md).
 
 Para garantir a comunicação seja feita por meio do dispositivo de firewall correto, com base no último requisito acima, você precisará criar a seguinte tabela de rotas contendo UDRs em **azurevnet**.
 
@@ -110,7 +110,7 @@ UDR e encaminhamento IP são recursos que podem ser usados em combinação para 
 
 Essa VM de dispositivo virtual deve ser capaz de receber o tráfego de entrada não endereçado a si mesma. Para permitir que uma VM receba o tráfego endereçado a outros destinos, você deve habilitar o Encaminhamento IP para a VM. Esta é uma configuração do Azure, não uma configuração no sistema operacional convidado. O dispositivo virtual ainda precisa executar algum tipo de aplicativo para tratar o tráfego de entrada e roteá-la adequadamente.
 
-Para saber mais sobre Encaminhamento de IP, visite [O que são Rotas Definidas pelo Usuário e Encaminhamento de IP?](virtual-networks-udr-overview.md#ip-forwarding).
+Para saber mais sobre Encaminhamento de IP, visite [O que são Rotas Definidas pelo Usuário e Encaminhamento de IP?](virtual-networks-udr-overview.md).
 
 Por exemplo, imagine que você tenha a seguinte configuração em uma VNet do Azure:
 

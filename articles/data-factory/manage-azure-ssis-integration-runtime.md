@@ -13,15 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: spelluru
-ms.openlocfilehash: 780e5673b5ed159a7f170373d54fea7c1713a910
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cc0ed958a9e1018ed9f06fdcc94873ae5420ba95
+ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="manage-an-azure-ssis-integration-runtime"></a>Gerenciar um tempo de execução de integração do Azure-SSIS
 O artigo [criar um tempo de execução de integração do Azure-SSIS](create-azure-ssis-integration-runtime.md) mostra como criar um o tempo de execução de integração do Azure-SSIS usando o Azure Data Factory. Este artigo o complementa fornecendo informações sobre como parar, iniciar, reconfigurar ou remover um tempo de execução de integração do Azure-SSIS.  
 
+> [!NOTE]
+> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em versão prévia. Se você estiver usando a versão 1 do serviço Data Factory, que está com GA (disponibilidade geral), consulte a [Documentação do Data Factory versão 1](v1/data-factory-introduction.md).
 
 ## <a name="stop"></a>Parar 
 Pare o tempo de execução de integração do Azure-SSIS. Este comando libera todos os seus nós e interrompe a cobrança.
