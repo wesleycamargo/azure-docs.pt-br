@@ -112,24 +112,23 @@
 #### [Exemplos de entrada](active-directory-reporting-api-sign-in-activity-samples.md)
 #### [Usando certificados](active-directory-reporting-api-with-certificates.md)
 
-## [Gerenciar senhas](active-directory-passwords-overview.md)
+## Gerenciar senhas
+### [Visão geral de senhas](active-directory-passwords-overview.md)
 ### Documentos do usuário
 #### [Redefinir ou alterar sua senha](active-directory-passwords-update-your-own-password.md)
 #### [Práticas recomendadas de senha](active-directory-secure-passwords.md)
 #### [Registro de redefinição de senha de autoatendimento](active-directory-passwords-reset-register.md)
-### [Licença SSPR](active-directory-passwords-licensing.md)
-### [Implantar SSPR](active-directory-passwords-best-practices.md)
+### [Como funciona o SSPR](active-directory-passwords-how-it-works.md)
+### [Guia de Implantação de SSPR](active-directory-passwords-best-practices.md)
+### [Políticas de SSPR ](active-directory-passwords-policy.md)
+### [Personalização de SSPR](active-directory-passwords-customize.md)
+### [Requisitos de dados de SSPR](active-directory-passwords-data.md)
+### [Relatórios de SSPR](active-directory-passwords-reporting.md)
 ### Administradores de TI: redefinir senhas
 #### [Portal do Azure](active-directory-users-reset-password-azure-portal.md)
 #### [Portal clássico do Azure](active-directory-create-users-reset-password.md)
-### [Entender as políticas SSPR](active-directory-passwords-policy.md)
-### [Compreender a redefinição de senha](active-directory-passwords-how-it-works.md)
-### [Personalizar SSPR](active-directory-passwords-customize.md)
-### [Dados usados pelo SSPR](active-directory-passwords-data.md)
-### [Relatando no SSPR](active-directory-passwords-reporting.md)
-### [Azure AD Connect](./connect/active-directory-aadconnect.md)
+### [Licença SSPR](active-directory-passwords-licensing.md)
 ### [Write-back de senha](active-directory-passwords-writeback.md)
-### [Sincronização de hash de senha](./connect/active-directory-aadconnectsync-implement-password-synchronization.md#how-password-synchronization-works)
 ### [Solucionar problemas](active-directory-passwords-troubleshoot.md)
 ### [PERGUNTAS FREQUENTES](active-directory-passwords-faq.md)
 
@@ -313,8 +312,6 @@
 ##### [Correção](active-directory-conditional-access-device-remediation.md)
 #### [Referência técnica](active-directory-conditional-access-technical-reference.md)
 #### [Perguntas frequentes](active-directory-conditional-faqs.md)
-#### [Portal clássico](active-directory-conditional-access.md)
-##### [Introdução](active-directory-conditional-access-azuread-connected-apps.md)
 
 ### Windows Hello
 #### [Autenticar sem senhas](active-directory-azureadjoin-passport.md)

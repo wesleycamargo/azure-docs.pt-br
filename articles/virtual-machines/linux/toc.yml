@@ -63,6 +63,27 @@
       href: regions-and-availability.md
     - name: Tamanhos e tipos de VM
       href: sizes.md
+      items:
+        - name: Propósito geral
+          href: sizes-general.md
+          items:
+            - name: Série B expansível
+              href: b-series-burstable.md
+        - name: Otimizado para computação
+          href: sizes-compute.md
+        - name: Otimizado para memória
+          href: sizes-memory.md
+        - name: Otimizado para armazenamento
+          href: sizes-storage.md
+        - name: GPU otimizada
+          href: sizes-gpu.md
+          items:
+            - name: Configurar drivers de GPU
+              href: n-series-driver-setup.md
+        - name: Computação de alto desempenho
+          href: sizes-hpc.md
+        - name: ACU (Unidades de computação do Azure)
+          href: sizes-general.md
     - name: Distribuições endossadas
       href: endorsed-distros.md
     - name: Manutenção e atualizações

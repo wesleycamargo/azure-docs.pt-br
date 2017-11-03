@@ -13,14 +13,14 @@ ms.custom: scale out apps
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: sqldb-design
+ms.workload: Active
 ms.date: 02/01/2017
 ms.author: srinia
-ms.openlocfilehash: 3d8e3a05ae067fc9b2d52e47c4c49759c940477e
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: eef48cfcbc7d6c241b5ece863df0be6ecad78ca7
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="design-patterns-for-multi-tenant-saas-applications-and-azure-sql-database"></a>Padrões de design para aplicativos SaaS multilocatários e o Banco de Dados SQL do Azure
 Neste artigo, você pode aprender sobre os requisitos e padrões comuns de arquitetura de dados de aplicativos de banco de dados SaaS (software como serviço) multilocatários em execução em um ambiente de nuvem. Ele também explica os fatores que você precisa considerar e as compensações dos diferentes padrões de design. O pool elástico e as ferramentas elásticas no Banco de Dados SQL podem ajudar você a atender os requisitos específicos sem comprometer outros objetivos.

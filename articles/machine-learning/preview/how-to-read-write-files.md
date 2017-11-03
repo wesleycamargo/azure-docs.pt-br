@@ -10,14 +10,14 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/10/2017
-ms.openlocfilehash: 2f3ca2e694fd9952319a70477e9887c332b08044
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: f5c75b95d9019c15bb402313ce7407fa9abb81d4
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="persisting-changes-and-working-with-large-files"></a>Como manter alterações e trabalhar com arquivos grandes
-Com o serviço de Experimentação do Azure Machine Learning, é possível configurar uma variedade de destinos de execução. Alguns destinos são locais, como um computador local ou um contêiner do Docker em um computador local. Outros são remotos, como um contêiner do Docker em um computador remoto ou um cluster HDInsight. Para saber mais, consulte [Visão geral do serviço de execução de experimento do Microsoft Azure Machine Learning](experiment-execution-configuration.md). 
+Com o serviço de Experimentação do Azure Machine Learning, é possível configurar uma variedade de destinos de execução. Alguns destinos são locais, como um computador local ou um contêiner do Docker em um computador local. Outros são remotos, como um contêiner do Docker em um computador remoto ou um cluster HDInsight. Para saber mais, consulte [Visão geral do serviço de execução de experimento do Microsoft Azure Machine Learning](experimentation-service-configuration.md). 
 
 Para poder executar em um destino, será necessário copiar a pasta do projeto para o destino de computação. Isso será necessário mesmo com uma execução local que usa uma pasta temporária local para essa finalidade. 
 
@@ -143,7 +143,7 @@ C:\users\<username>\.azureml\share\<exp_acct_name>\<workspace_name>\<proj_name>\
 
 Você pode colocar dados de entrada diretamente nessas pastas e esperar que as execuções do Docker ou locais nesse computador consigam coletá-los. Você também pode gravar arquivos nesta pasta das suas execuções do Docker ou locais, e esperar que os arquivos persistam naquela pasta, sobrevivendo ao ciclo de vida de execução.
 
-Para obter mais informações, consulte [Arquivos de configuração de execução do Azure Machine Learning Workbench](experiment-execution-configuration-reference.md).
+Para obter mais informações, consulte [Arquivos de configuração de execução do Azure Machine Learning Workbench](experimentation-service-configuration-reference.md).
 
 >[!NOTE]
 >A variável de ambiente `AZUREML_NATIVE_SHARE_DIRECTORY` não é compatível com um contexto de computação do HDInsight. No entanto, é muito fácil obter o mesmo resultado usando explicitamente um caminho absoluto do Armazenamento de Blobs do Azure para leitura e gravação no armazenamento de blobs conectado.
@@ -195,5 +195,5 @@ attach_storage_container(spark, "<storage account name>", "<storage key>”)
 Como o Azure Machine Learning executa scripts copiando toda a pasta do projeto para o contexto de computação de destino, é preciso ter cuidado especial com arquivos grandes de entrada, saída e intermediários. Para transações de arquivos grandes, é possível usar a pasta outputs especial, a pasta compartilhada acessível por meio da variável de ambiente `AZUREML_NATIVE_SHARE_DIRECTORY` ou um armazenamento durável externo. 
 
 ## <a name="next-steps"></a>Próximas etapas
-- Leia o artigo [Arquivos de configuração de execução do Azure Machine Learning Workbench](experiment-execution-configuration-reference.md).
+- Leia o artigo [Arquivos de configuração de execução do Azure Machine Learning Workbench](experimentation-service-configuration-reference.md).
 - Veja como o projeto tutorial [Classificando a íris](tutorial-classifying-iris-part-1.md) usa a pasta outputs para manter um modelo treinado.

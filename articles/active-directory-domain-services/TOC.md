@@ -1,6 +1,8 @@
 # Visão geral
 ## [O que são os Serviços de Domínio do Azure AD?](active-directory-ds-overview.md)
-## [É certo para você?](active-directory-ds-comparison.md)
+## É certo para você?
+### [Comparar com o Windows Server AD](active-directory-ds-comparison.md)
+### [Comparar com a associação do Azure AD](active-directory-ds-compare-with-azure-ad-join.md)
 ## [Recursos](active-directory-ds-features.md)
 ## [Cenários](active-directory-ds-scenarios.md)
 ## [Como funciona a sincronização](active-directory-ds-synchronization.md)
@@ -36,6 +38,7 @@
 ### [Configurar o suporte para sincronização de perfil do SharePoint Server](active-directory-ds-enable-sharepoint-profile-sync.md)
 ### [Configurar a Delegação Restrita do Kerberos](active-directory-ds-enable-kcd.md)
 ### [Implantar o Proxy de Aplicativo do AD do Azure](active-directory-ds-deploy-azure-app-proxy.md)
+## [Excluir um domínio gerenciado](active-directory-ds-disable-aadds.md)
 ## Solucionar problemas
 ### [Perguntas frequentes](active-directory-ds-faqs.md)
 ### [Guia de Solução de problemas](active-directory-ds-troubleshooting.md)
@@ -47,7 +50,7 @@
 # Relacionados
 ## [Active Directory do Azure](../active-directory/active-directory-whatis.md)
 ## [Azure Active Directory B2C](../active-directory-b2c/active-directory-b2c-overview.md)
-## [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
+## [Autenticação Multifator](../multi-factor-authentication/multi-factor-authentication.md)
 
 # Recursos
 ## [Fórum de comentários do AD do Azure](https://feedback.azure.com/forums/169401-azure-active-directory)

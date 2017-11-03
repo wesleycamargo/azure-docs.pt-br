@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/29/2017
 ms.author: shlo
-ms.openlocfilehash: 9ed89261b7050bb41d49b827e02d24535983160f
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 58e141498ed5cbaa110622d949a9627c98827ac3
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="introduction-to-azure-data-factory"></a>Introdução à Fábrica de Dados do Azure 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -41,7 +41,7 @@ Além disso, é possível publicar dados de saída para repositórios de dados c
 ![Visão de nível superior do Data Factory](media/introduction/big-picture.png)
 
 > [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em versão prévia. Se estiver usando a versão 1 do serviço do Data Factory, que está em disponibilidade geral (GA), confira [Introdução ao Data Factory versão 1](v1/data-factory-introduction.md).
+> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em versão prévia. Se você estiver usando a versão 1 do serviço Data Factory, que normalmente está disponível (GA), consulte [Introduction to Data Factory version 1](v1/data-factory-introduction.md) (Introdução ao Data Factory versão 1).
 
 ## <a name="how-does-it-work"></a>Como ele funciona?
 Os pipelines (fluxos de trabalho controlados por dados) no Azure Data Factory normalmente executam as quatro etapas a seguir:
@@ -89,10 +89,10 @@ Agora você possui a liberdade de fazer um modelo de qualquer estilo de fluxo ex
     - Atividades de ramificação em um pipeline
     - parâmetros
         - Os parâmetros podem ser definidos no nível do pipeline e os argumentos podem ser passados enquanto o pipeline está sendo invocado sob demanda ou a partir de um gatilho.
-        - As atividades podem consumir os argumentos que são passados para o pipeline.
+        - As atividades podem consumir os argumentos passados para o pipeline.
     - Passagem de estado personalizada
         - As saídas da atividade incluindo o estado podem ser consumidas por uma atividade posterior no pipeline.
-    - Contêineres de Looping
+    - Contêineres de looping
         - For-each 
 - Fluxos baseados em gatilhos
     - Os pipelines podem ser disparados sob demanda ou conforme um horário.
@@ -109,8 +109,8 @@ Se desejar mover suas cargas de trabalho de SSIS, você poderá criar um data fa
 Se você for um usuário avançado e estiver procurando por uma interface programática, a versão 2 fornecerá um conjunto avançado de SDKs que podem ser usados para criar, gerenciar e monitorar pipelines usando seu IDE favorito.
 
 - *SDK .NET* - O SDK .NET foi atualizado para a versão 2. 
-- *PowerShell* - Os cmdlets do PowerShell foram atualizados para a versão 2. Os cmdlets da versão 2 têm **DataFactoryV2** no nome. Por exemplo: Get-AzureRmDataFactoryV2. 
-- *SDK de Python* - Este SDK é novo na versão 2.
+- *PowerShell*: os cmdlets do PowerShell são atualizados para a versão 2. Os cmdlets da versão 2 têm **DataFactoryV2** no nome. Por exemplo: Get-AzureRmDataFactoryV2. 
+- *Python SDK*: esse SDK é novo na versão 2.
 - *API REST* - A API REST foi atualizada para a versão 2.  
 
 Os SDKs que foram atualizados para a versão 2 não são retrocompatíveis com clientes na versão 1. 
