@@ -12,13 +12,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 11/01/2017
 ms.author: raynew
-ms.openlocfilehash: 2e59a78f2c348b581155484d77e272a050da1f1d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: MVC
+ms.openlocfilehash: 33ec5775a371a04074f07d589d35d1c05bd64d30
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Preparar servidores VMware locais para recuperação de desastre para o Azure
 
@@ -45,7 +46,7 @@ Crie a conta da seguinte maneira:
 
 1. Para usar uma conta dedicada, crie uma função no nível do vCenter. Dê um nome à função como **Azure_Site_Recovery**.
 2. Atribua à função as permissões resumidas na tabela a seguir.
-3. Crie um usuário no vCenter Server. ou um host do vSphere. Atribua a função ao usuário.
+3. Crie um usuário no vCenter Server ou no host do vSphere. Atribua a função ao usuário.
 
 ### <a name="vmware-account-permissions"></a>Permissões de conta do VMware
 
