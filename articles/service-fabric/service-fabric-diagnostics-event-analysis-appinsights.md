@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/26/2017
+ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 4085a607b800f4f4f155cdc266bc203b0858fd7c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 34f14f42150e46edae2d1352827f96a411117a62
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="event-analysis-and-visualization-with-application-insights"></a>Visualização e análise de eventos com o Application Insights
 
@@ -38,6 +38,9 @@ Você precisará preencher algumas informações para fornecer o recurso correta
 
 ### <a name="configuring-ai-with-wad"></a>Configurar o AI com WAD
 
+>[!NOTE]
+>No momento, isso só é aplicável a clusters do Windows.
+
 Há duas maneiras primárias de enviar dados do WAD para o AI do Azure, o que é alcançado pela adição de um coletor do AI para a configuração WAD, conforme detalhado [neste artigo](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).
 
 #### <a name="add-an-ai-instrumentation-key-when-creating-a-cluster-in-azure-portal"></a>Adicione uma Chave de Instrumentação do AI ao criar um cluster no Portal do Azure
@@ -50,7 +53,7 @@ Ao criar um cluster, se o Diagnóstico estiver ativado em "On", um campo opciona
 
 No "WadCfg" do modelo do Resource Manager, adicione um "Coletor", incluindo as duas alterações a seguir:
 
-1. Adicione a configuração do coletor:
+1. Adicione a configuração do coletor diretamente após a conclusão da declaração de `DiagnosticMonitorConfiguration`:
 
     ```json
     "SinksConfig": {
@@ -64,7 +67,7 @@ No "WadCfg" do modelo do Resource Manager, adicione um "Coletor", incluindo as d
 
     ```
 
-2. Inclua o Coletor na DiagnosticMonitorConfiguration, adicionando a seguinte linha em "DiagnosticMonitorConfiguration" do "WadCfg":
+2. Inclua o Coletor no `DiagnosticMonitorConfiguration` ao adicionar a linha a seguir no `DiagnosticMonitorConfiguration` do `WadCfg` (antes da declaração de `EtwProviders`):
 
     ```json
     "sinks": "applicationInsights"

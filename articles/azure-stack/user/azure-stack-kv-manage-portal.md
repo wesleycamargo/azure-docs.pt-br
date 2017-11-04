@@ -1,6 +1,6 @@
 ---
-title: Manage Key Vault in Azure Stack using PowerShell | Microsoft Docs
-description: Learn how to manage Key Vault in Azure Stack using PowerShell.
+title: Gerenciar o Cofre de chaves na pilha do Azure usando o portal | Microsoft Docs
+description: Saiba como gerenciar o Cofre de chaves na pilha do Azure usando o portal
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -14,93 +14,90 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 41cbe1526368dd88fe98f92937c6ef2b65f24682
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.openlocfilehash: d263cbcc81be37eaedfdb771436fd13ef25362f8
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/20/2017
 ---
+# <a name="manage-key-vault-in-azure-stack-by-using-the-portal"></a>Gerenciar o Cofre de chaves na pilha do Azure usando o portal
 
-# <a name="manage-key-vault-in-azure-stack-using-the-portal"></a>Manage Key Vault in Azure Stack using the portal
+Você pode gerenciar o Cofre de chaves na pilha do Azure usando o portal de pilha do Azure. Este artigo ajuda você a começar a criar e gerenciar um cofre de chaves na pilha do Azure. 
 
-You can manage Key Vault in Azure Stack by using the Azure Stack portal. This article helps you get started to create and manage Key Vault in Azure Stack. 
+## <a name="prerequisites"></a>Pré-requisitos  
 
-## <a name="prerequisites"></a>Prerequisites  
-
-* You must must subscribe to an offer that includes the Key Vault service.  
+Você deve assinar uma oferta que inclui o serviço de Cofre de chaves do Azure.
  
-## <a name="create-a-key-vault"></a>Create a key vault 
+## <a name="create-a-key-vault"></a>Criar um cofre de chave 
 
-1. Sign in to the user portal(https://portal.local.azurestack.external).  
+1. Entrar para o [portal do usuário](https://portal.local.azurestack.external).  
 
-2. From the dashboard, click **New > Security + Identity > Key Vault**.  
+2. No painel, selecione **novo** > **segurança + identidade** > **Cofre de chaves**.  
 
-    ![KV screen](media/azure-stack-kv-manage-portal/image1.png)  
+    ![Tela de Cofre de chaves](media/azure-stack-kv-manage-portal/image1.png)  
 
-3. On the **Create Key Vault** blade, assign a **Name** for your vault. Vault name can contain only alphanumeric characters, the special character hyphen (-), and it shouldn’t start with a number.  
+3. No **criar Cofre de chaves** painel, atribua um **nome** para seu cofre. Nomes de cofre podem conter apenas caracteres alfanuméricos e caracteres especiais hífen (-). Eles não devem começar com um número.  
 
-4. Choose a **Subscription** from the list of available subscriptions. All subscriptions that offer the Key Vault service are displayed in the drop-down.  
+4. Escolha um **assinatura** da lista de assinaturas disponíveis. Todas as assinaturas que oferecem o serviço de Cofre de chaves são exibidas na lista suspensa.  
 
-5. Select an existing **Resource Group** or create a new one.  
+5. Selecione uma existente **grupo de recursos** ou criar um novo.  
 
-6. Select the **Pricing tier**.  
+6. Selecione o **preço**.  
     >[!NOTE]
-    > Key vaults in Azure Stack Development Kit support **Standard** SKU only.
+    > Chave de cofres no suporte do Kit de desenvolvimento de pilha do Azure **padrão** SKUs.
 
-7. Choose an existing **Access policies** or create a new one. Access policy allows you to grant permissions for a user, application, or a security group to perform operations with this vault.  
+7. Escolha uma das existente **políticas de acesso** ou criar um novo. Uma política de acesso permite que você conceda permissões para um usuário, aplicativo ou um grupo de segurança executar operações com este cofre.  
 
-8. Optionally, choose an **Advanced access policy** to enable the features like access to Virtual Machines for deployment, access to Resource Manager for template deployment and access to Azure Disk Encryption for volume encryption. 
+8. Como opção, escolha uma **política de acesso avançados** para habilitar recursos, como acesso a máquinas virtuais (VMs) para implantação, acesso ao Gerenciador de recursos para implantação de modelo e acesso a criptografia de disco do Azure para criptografia de volume. 
   
-9.  After configuring the settings, click **OK** and then **Create**. This starts the key vault deployment. 
+9.  Depois de configurar as configurações, selecione **Okey**e, em seguida, selecione **criar**. Isso inicia a implantação de Cofre de chaves. 
 
-## <a name="manage-keys-and-secrets"></a>Manage keys and secrets
+## <a name="manage-keys-and-secrets"></a>Gerenciar chaves e segredos
 
-After you create a vault, use the following steps to create and manage keys and secrets within the vault.
+Depois de criar um cofre, use as etapas a seguir para criar e gerenciar chaves e segredos no cofre.
 
-## <a name="create-a-key"></a>Create a key
+### <a name="create-a-key"></a>Criar uma chave
 
-1. Sign in to the user portal (https://portal.local.azurestack.external).  
+1. Entrar para o [portal do usuário](https://portal.local.azurestack.external).  
 
-2. From the dashboard, click **All resources** > select the key vault that you created earlier> click the **Keys** tile.  
+2. No painel, selecione **todos os recursos**, selecione o Cofre de chaves que você criou anteriormente e, em seguida, selecione o **chaves** lado a lado.  
 
-3. From the **Keys** blade, click **Add**. 
+3. No **chaves** painel, selecione **adicionar**. 
 
-4. On the **Create a key** blade, form the list of **Options**, choose the method that you want to use to create a key. You can **Generate** a new key, **Upload** an existing key, or **Restore Backup** key.  
+4. No **criar uma chave** painel, na lista de **opções**, escolha o método que você deseja usar para criar uma chave. Você pode **gerar** uma nova chave, **carregar** existente da chave, ou use **restaurar Backup** para selecionar um backup de uma chave.  
 
-5. Enter a **Name** for your key. The key name can contain only alphanumeric characters and the special character hyphen (-).  
+5. Insira um **nome** para sua chave. O nome da chave pode conter apenas caracteres alfanuméricos e o hífen (-) do caractere especial.  
 
-6. Optionally, configure **Set activation date** and **Set expiration date** values for your key.  
+6. Opcionalmente, configure o **definir a data de ativação** e **definir data de validade** valores para a chave.  
 
-7. Click **Create** to start the deployment.  
+7. Selecione **criar** para iniciar a implantação.  
 
-After the key is successfully created, you can select it from the **Keys** blade and view or modify its properties. The properties section contains the **Key Identifier**, a URI by which external applications can access this key. To limit operations on this key, configure settings under **Permitted operations**.
+Depois que a chave é criada com êxito, você pode selecioná-lo em **chaves** e exibir ou modificar suas propriedades. A seção de propriedades contém o **identificador de chave**, que é um URI Uniform Resource Identifier () pelo qual os aplicativos externos podem acessar essa chave. Para limitar as operações nesta chave, defina as configurações em **operações permitidas**.
 
-![URI key](media/azure-stack-kv-manage-portal/image4.png)  
+![Chave URI](media/azure-stack-kv-manage-portal/image4.png)  
 
-## <a name="create-a-secret"></a>Create a secret 
+### <a name="create-a-secret"></a>Criar um segredo 
 
-1. Sign in to the user portal (https://portal.local.azurestack.external).  
-2. From the dashboard, click **All resources** > select the key vault that you created earlier> click the **Secrets** tile.  
+1. Entrar para o [portal do usuário](https://portal.local.azurestack.external).  
+2. No painel, selecione **todos os recursos**, selecione o Cofre de chaves que você criou anteriormente e, em seguida, selecione o **segredos** lado a lado.  
 
-3. From the **Secrets** blade, click **Add**.  
+3. Em **segredos**, selecione **adicionar**.  
 
-4. On the **Create a secret** blade, from the list of **Upload options**, choose an option by which you want to create a secret. You can create a secret **Manually** by entering a value for the secret, or by uploading a **Certificate** from your local machine.  
+4. Em **criar um segredo**, na lista de **opções de carregamento**, escolha uma opção que você deseja criar um segredo. Você pode criar um segredo **manualmente** se você inserir um valor para o segredo ou carregar um **certificado** em sua máquina local.  
 
-5. Enter a **Name** for the secret. The secret name can contain only alphanumeric characters and the special character hyphen (-).  
+5. Insira um **nome** para o segredo. O nome do segredo pode conter apenas caracteres alfanuméricos e o hífen (-) do caractere especial.  
 
-6. Optionally, specify the **Content type**, and configure values for **Set activation date** and **Set expiration date** values for the secret.  
+6. Opcionalmente, especifique o **tipo de conteúdo**e defina valores para **definir a data de ativação** e **definir data de validade** para o segredo.  
 
-7. Click Create to start the deployment.  
+7. Selecione **criar** para iniciar a implantação.  
 
-After the secret is successfully created, you can select it from the **Secrets** blade and view or modify its properties. The properties section contains **Secret Identifier**, a URI by which external applications can access this secret. 
+Depois que o segredo é criado com êxito, você pode selecioná-lo em **segredos** e exibir ou modificar suas propriedades. A seção de propriedades contém um **identificador de segredo**, que é um URI que aplicativos externos podem acessar este segredo. 
 
-![URI secret](media/azure-stack-kv-manage-portal/image5.png) 
+![Segredo URI](media/azure-stack-kv-manage-portal/image5.png) 
 
 
-## <a name="next-steps"></a>Next Steps
-* [Deploy a VM by retrieving the password stored in a key vault](azure-stack-kv-deploy-vm-with-secret.md)  
-* [Deploy a VM with certificate stored in a key vault](azure-stack-kv-push-secret-into-vm.md)     
-
+## <a name="next-steps"></a>Próximas etapas
+* [Implantar uma VM, recuperando a senha armazenada no cofre de chaves](azure-stack-kv-deploy-vm-with-secret.md) 
+* [Implantar uma VM com o certificado armazenado no cofre de chaves](azure-stack-kv-push-secret-into-vm.md)     
 
 

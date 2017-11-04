@@ -1,6 +1,6 @@
 ---
-title: Manage updates in Azure Stack overview | Microsoft Docs
-description: Learn about update management for Azure Stack integrated systems.
+title: "Gerenciar atualizações na visão geral de pilha do Azure | Microsoft Docs"
+description: "Saiba mais sobre o gerenciamento de atualizações para os sistemas de pilha do Azure integradas."
 services: azure-stack
 documentationcenter: 
 author: twooley
@@ -14,57 +14,55 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: twooley
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 3d0d5ea6cc3f3cc7bc0550b83dabbf0ae6af8a27
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="manage-updates-in-azure-stack-overview"></a>Manage updates in Azure Stack overview
+# <a name="manage-updates-in-azure-stack-overview"></a>Gerenciar atualizações na visão geral de pilha do Azure
 
-*Applies to: Azure Stack integrated systems*
+*Aplica-se a: sistemas integrados de pilha do Azure*
 
-Microsoft will release update packages for Azure Stack integrated systems on a regular basis. Each release of Microsoft software updates is bundled as a single update package. As an Azure Stack operator, you can easily import, install, and monitor the installation progress of these update packages from the administrator portal. 
+A Microsoft lançará pacotes de atualização para sistemas de pilha do Azure integradas com regularidade. Cada versão das atualizações de software da Microsoft é fornecido como um pacote de atualização. Como um operador de pilha do Azure, você pode importar facilmente, instalar e monitorar o progresso da instalação desses atualizar pacotes do portal do administrador. 
 
-Your original equipment manufacturer (OEM) hardware vendor will also release updates, such as driver and firmware updates. These updates are delivered as separate packages by your OEM hardware vendor, and are managed separately from Microsoft updates.
+O fornecedor do hardware fabricante (OEM) também irá liberar atualizações, como atualizações de firmware e driver. Essas atualizações são entregues como pacotes separados pelo seu fornecedor de hardware de OEM e são gerenciadas separadamente das atualizações da Microsoft.
 
-To keep your system under support, you must keep Azure Stack updated to a specific version level. Make sure that you review the [Azure Stack servicing policy](azure-stack-servicing-policy.md).
+Para manter o sistema em suporte, você deve manter a pilha Azure atualizado para uma versão específica. Certifique-se de que você examine o [pilha Azure manutenção política](azure-stack-servicing-policy.md).
 
 > [!NOTE]
-> You can't apply Azure Stack update packages to Azure Stack Development Kit. The update packages are designed for integrated systems.
+> Você não pode aplicar os pacotes de atualização de pilha do Azure para o Kit de desenvolvimento de pilha do Azure. Os pacotes de atualização são projetados para sistemas integrados.
 
-## <a name="the-update-resource-provider"></a>The Update resource provider
+## <a name="the-update-resource-provider"></a>O provedor de recursos de atualização
 
-Azure Stack includes an Update resource provider that orchestrates the application of Microsoft software updates. This resource provider ensures that updates are applied across all physical hosts, Service Fabric applications and runtimes, and all infrastructure virtual machines and their associated services.
+A pilha do Azure inclui um provedor de recursos de atualização que coordena a aplicação das atualizações de software da Microsoft. Este provedor de recursos garante que as atualizações são aplicadas em todos os hosts físicos, os aplicativos do Service Fabric e tempos de execução e todas as máquinas virtuais de infraestrutura e seus serviços associados.
 
-As updates install, you can easily view high-level status as the update process targets the various subsystems in Azure Stack (for example, physical hosts, and infrastructure virtual machines).
+Como instalar atualizações, você pode facilmente exibir status de alto nível como os destinos do processo de atualização os vários subsistemas na pilha do Azure (por exemplo, hosts físicos e máquinas virtuais de infraestrutura).
 
-## <a name="plan-for-updates"></a>Plan for updates
+## <a name="plan-for-updates"></a>Planejar atualizações de
 
-We strongly recommend that you notify users of any maintenance operations, and that you schedule normal maintenance windows during non-business hours as much as possible. Maintenance operations may affect both tenant workloads and portal operations.
+É altamente recomendável que você notificar os usuários de qualquer operação de manutenção e agendar as janelas de manutenção normal durante o horário comercial tanto quanto possível. As operações de manutenção podem afetar as operações de portal e cargas de trabalho de locatário.
 
-## <a name="using-the-update-tile-to-manage-updates"></a>Using the Update tile to manage updates
-Managing updates from the administrator portal is a simple process. An Azure Stack operator can navigate to the Update tile in the dashboard to:
+## <a name="using-the-update-tile-to-manage-updates"></a>Usando o bloco de atualização para gerenciar atualizações
+Gerenciamento de atualizações do portal do administrador é um processo simple. Um operador de pilha do Azure pode navegar para o bloco de atualização no painel de controle para:
 
-- view important information such as the current version.
-- install updates, and monitor progress.
-- review update history for previously installed updates.
+- Exibir informações importantes, como a versão atual.
+- instalar atualizações e monitorar o progresso.
+- Examine o histórico de atualização de atualizações instaladas anteriormente.
  
-## <a name="determine-the-current-version"></a>Determine the current version
+## <a name="determine-the-current-version"></a>Determinar a versão atual
 
-The Update tile shows the current version of Azure Stack. You can get to the Update tile by using either of the following methods in the administrator portal:
+O bloco de atualização mostra a versão atual da pilha do Azure. Você pode obter o bloco de atualização usando um dos métodos a seguir no portal do administrador:
 
-- On the dashboard, view the current version in the **Update** tile.
+- No painel, exibir a versão atual no **atualização** lado a lado.
  
-   ![Updates tile on default dashboard](./media/azure-stack-updates/image1.png)
+   ![Atualizações de bloco no painel de controle padrão](./media/azure-stack-updates/image1.png)
  
-- On the **Region management** tile, click the region name. View the current version in the **Update** tile.
+- Sobre o **gerenciamento região** lado a lado, clique no nome da região. Exibir a versão atual no **atualização** lado a lado.
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Próximas etapas
 
-- [Azure Stack servicing policy](azure-stack-servicing-policy.md) 
-- [Region management in Azure Stack](azure-stack-region-management.md)     
-
+- [Política de manutenção de pilha do Azure](azure-stack-servicing-policy.md) 
+- [Gerenciamento de região na pilha do Azure](azure-stack-region-management.md)     
 
 

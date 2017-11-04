@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Development Kit deployment prerequisites| Microsoft Docs
-description: View the environment and hardware requirements for Azure Stack Development Kit (cloud operator).
+title: "Os pré-requisitos de implantação do Kit de desenvolvimento de pilha do Azure | Microsoft Docs"
+description: Exiba os requisitos de hardware e de ambiente para o Kit de desenvolvimento de pilha do Azure (operador de nuvem).
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -14,95 +14,94 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/11/2017
 ms.author: erikje
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 4a53065f76cef7b711f4a656b437cbefaf47c5d0
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.openlocfilehash: 73e7efb7d789fe12846d68066c0927bb123831a2
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="azure-stack-deployment-prerequisites"></a>Azure Stack deployment prerequisites
+# <a name="azure-stack-deployment-prerequisites"></a>Pré-requisitos de implantação de pilha do Azure
 
-*Applies to: Azure Stack Development Kit*
+*Aplica-se a: Kit de desenvolvimento de pilha do Azure*
 
-Before you deploy [Azure Stack Development Kit](azure-stack-poc.md), make sure your computer meets the following requirements:
+Antes de implantar [Kit de desenvolvimento de pilha do Azure](azure-stack-poc.md), verifique se o computador atende aos seguintes requisitos:
 
 
 ## <a name="hardware"></a>Hardware
-| Component | Minimum | Recommended |
+| Componente | Mínimo | Recomendadas |
 | --- | --- | --- |
-| Disk drives: Operating System |1 OS disk with minimum of 200 GB available for system partition (SSD or HDD) |1 OS disk with minimum of 200 GB available for system partition (SSD or HDD) |
-| Disk drives: General development kit data* |4 disks. Each disk provides a minimum of 140 GB of capacity (SSD or HDD). All available disks will be used. |4 disks. Each disk provides a minimum of 250 GB of capacity (SSD or HDD). All available disks will be used. |
-| Compute: CPU |Dual-Socket: 12 Physical Cores (total) |Dual-Socket: 16 Physical Cores (total) |
-| Compute: Memory |96 GB RAM |128 GB RAM (This is the minimum to support PaaS resource providers.)|
-| Compute: BIOS |Hyper-V Enabled (with SLAT support) |Hyper-V Enabled (with SLAT support) |
-| Network: NIC |Windows Server 2012 R2 Certification required for NIC; no specialized features required |Windows Server 2012 R2 Certification required for NIC; no specialized features required |
-| HW logo certification |[Certified for Windows Server 2012 R2](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |[Certified for Windows Server 2012 R2](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |
+| Unidades de disco: sistema operacional |1 disco de SO com, no mínimo, 200 GB disponíveis para a partição do sistema (SSD ou HDD) |1 disco de SO com, no mínimo, 200 GB disponíveis para a partição do sistema (SSD ou HDD) |
+| Unidades de disco: dados do kit de desenvolvimento geral * |4 discos. Cada disco fornece um mínimo de 140 GB de capacidade (SSD ou HDD). Todos os discos disponíveis serão usados. |4 discos. Cada disco fornece um mínimo de 250 GB de capacidade (SSD ou HDD). Todos os discos disponíveis serão usados. |
+| Computação: CPU |Dois soquetes: 12 de núcleos (total) |Dois soquetes: 16 núcleos (total) |
+| Computação: memória |96 GB de RAM |128 GB de RAM (esse é o mínimo para dar suporte a provedores de recursos de PaaS).|
+| Computação: BIOS |Hyper-V habilitado (com suporte a SLAT) |Hyper-V habilitado (com suporte a SLAT) |
+| Rede: NIC |Certificação do Windows Server 2012 R2 necessária para a NIC; nenhum recurso especializado necessário |Certificação do Windows Server 2012 R2 necessária para a NIC; nenhum recurso especializado necessário |
+| Certificação de logotipo de hardware |[Certificado para o Windows Server 2012 R2](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |[Certificado para o Windows Server 2012 R2](http://windowsservercatalog.com/results.aspx?&chtext=&cstext=&csttext=&chbtext=&bCatID=1333&cpID=0&avc=79&ava=0&avq=0&OR=1&PGS=25&ready=0) |
 
-\*You will need more than this recommended capacity if you plan on adding many of the [marketplace items](azure-stack-download-azure-marketplace-item.md) from Azure.
+\*Você precisará de mais do que isso recomendado capacidade se você planeja adicionar muitas o [itens do marketplace](azure-stack-download-azure-marketplace-item.md) do Azure.
 
-**Data disk drive configuration:** All data drives must be of the same type (all SAS or all SATA) and capacity. If SAS disk drives are used, the disk drives must be attached via a single path (no MPIO, multi-path support is provided).
+**Configuração de unidade de disco de dados:** todas as unidades de dados devem ser do mesmo tipo (SAS ou SATA todos) e capacidade. Se os discos rígidos SAS são usados, as unidades de disco deve ser anexadas por meio de um único caminho (sem MPIO, suporte a vários caminhos é fornecido).
 
-**HBA configuration options**
+**Opções de configuração de HBA**
 
-* (Preferred) Simple HBA
-* RAID HBA – Adapter must be configured in “pass through” mode
-* RAID HBA – Disks should be configured as Single-Disk, RAID-0
+* (Preferencial) HBA Simple
+* RAID HBA – adaptador deve ser configurado no modo de "passagem"
+* HBA RAID – Os discos devem ser configurados como Disco Único, RAID-0
 
-**Supported bus and media type combinations**
+**Combinações de tipo de mídia e barramento com suporte**
 
-* SATA HDD
-* SAS HDD
-* RAID HDD
-* RAID SSD (If the media type is unspecified/unknown\*)
-* SATA SSD + SATA HDD
-* SAS SSD + SAS HDD
+* HDD SATA
+* HDD SAS
+* HDD RAID
+* SSD de RAID (se o tipo de mídia é não especificado/desconhecido\*)
+* SSD SATA + HDD SATA
+* SSD SAS + HDD SAS
 
-\* RAID controllers without pass-through capability can’t recognize the media type. Such controllers will mark both HDD and SSD as Unspecified. In that case, the SSD will be used as persistent storage instead of caching devices. Therefore, you can deploy the development kit on those SSDs.
+\*Controladores RAID sem a capacidade de passagem não podem reconhecer o tipo de mídia. Esses controladores marcarão HDD e SSD como Não especificado. Nesse caso, o SSD será usado como armazenamento persistente, em vez de dispositivos de caching. Portanto, você pode implantar o kit de desenvolvimento os SSDs.
 
-**Example HBAs**: LSI 9207-8i, LSI-9300-8i, or LSI-9265-8i in pass-through mode
+**HBAs de exemplo**: LSI 9207-8i, LSI-9300-8i ou LSI-9265-8i no modo de passagem
 
-Sample OEM configurations are available.
+Configurações de OEM de exemplo estão disponíveis.
 
-## <a name="operating-system"></a>Operating system
-|  | **Requirements** |
+## <a name="operating-system"></a>Sistema operacional
+|  | **Requisitos** |
 | --- | --- |
-| **OS Version** |Windows Server 2012 R2 or later. The operating system version isn’t critical before the deployment starts, as you'll boot the host computer into the VHD that's included in the Azure Stack installation. The OS and all required patches are already integrated into the image. Don’t use any keys to activate any Windows Server instances used in the development kit. |
+| **Versão do SO** |Windows Server 2012 R2 ou posterior. A versão do sistema operacional não crítica antes de inicia a implantação, como você vai Inicialize o computador de host em um VHD que está incluído na instalação do Azure pilha. O sistema operacional e todos os patches necessários já estão integrados à imagem. Não use todas as chaves para ativar a qualquer instância de servidor do Windows usada no kit de desenvolvimento. |
 
-## <a name="deployment-requirements-check-tool"></a>Deployment requirements check tool
-After installing the operating system, you can use the [Deployment Checker for Azure Stack](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b) to confirm that your hardware meets all the requirements.
+## <a name="deployment-requirements-check-tool"></a>Ferramenta de verificação de requisitos de implantação
+Depois de instalar o sistema operacional, você pode usar o [Verificador de implantação do Azure pilha](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b) para confirmar se o hardware atende a todos os requisitos.
 
-## <a name="account-requirements"></a>Account requirements
-Typically, you deploy the development kit with internet connectivity, where you can connect to Microsoft Azure. In this case, you must configure an Azure Active Directory (Azure AD) account to deploy the development kit.
+## <a name="account-requirements"></a>Requisitos de conta
+Normalmente, você implanta o kit de desenvolvimento de conectividade com a internet, onde você pode se conectar ao Microsoft Azure. Nesse caso, você deve configurar uma conta do Azure Active Directory (AD do Azure) para implantar o kit de desenvolvimento.
 
-If your environment is not connected to the internet, or you don't want to use Azure AD, you can deploy Azure Stack by using Active Directory Federation Services (AD FS). The development kit includes its own AD FS and Active Directory Domain Services instances. If you deploy by using this option, you don't have to set up accounts ahead of time.
+Se seu ambiente não está conectado à internet, ou você não quiser usar o AD do Azure, você pode implantar a pilha do Azure usando os serviços de Federação do Active Directory (AD FS). O kit de desenvolvimento inclui seus próprio instâncias do AD FS e serviços de domínio do Active Directory. Se você implantar usando essa opção, você não precisa configurar contas antecipadamente.
 
 >[!NOTE]
-If you deploy by using the AD FS option, you must redeploy Azure Stack to switch to Azure AD.
+Se você implantar usando a opção AD FS, você deve reimplantar a pilha do Azure para alternar para o AD do Azure.
 
-### <a name="azure-active-directory-accounts"></a>Azure Active Directory accounts
-To deploy Azure Stack by using an Azure AD account, you must prepare an Azure AD account before you run the deployment PowerShell script. This account becomes the Global Admin for the Azure AD tenant. It's used to provision and delegate applications and service principals for all Azure Stack services that interact with Azure Active Directory and Graph API. It's also used as the owner of the default provider subscription (which you can later change). You can log in to your Azure Stack system’s administrator portal by using this account.
+### <a name="azure-active-directory-accounts"></a>Contas do Active Directory do Azure
+Para implantar a pilha do Azure usando uma conta do AD do Azure, você deve preparar uma conta do AD do Azure antes de executar a implantação de script do PowerShell. Essa conta se torna o Administrador Global do locatário do AD do Azure. Ele é usado para provisionar e delegar a aplicativos e entidades de serviço para todos os serviços do Azure pilha que interagem com o Active Directory do Azure e API do Graph. Ele também é usado como o proprietário da assinatura do provedor padrão (que você pode alterar posteriormente). Você pode efetuar login no portal do administrador do seu sistema de pilha do Azure usando essa conta.
 
-1. Create an Azure AD account that is the directory administrator for at least one Azure AD. If you already have one, you can use that. Otherwise, you can create one for free at [http://azure.microsoft.com/en-us/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial/) (in China, visit <http://go.microsoft.com/fwlink/?LinkID=717821> instead). If you plan to later [register Azure Stack with Azure](azure-stack-register.md), you must also have a subscription in this newly created account.
+1. Crie uma conta do AD do Azure que é o administrador do diretório para pelo menos um AD do Azure. Se você já tiver um, você pode usá-lo. Caso contrário, você pode criar um gratuitamente em [http://azure.microsoft.com/en-us/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial/) (na China, visite <http://go.microsoft.com/fwlink/?LinkID=717821> em vez disso). Se você planeja posteriormente [registrar pilha do Azure com o Azure](azure-stack-register.md), você também deve ter uma assinatura neste recém-criada em conta.
    
-    Save these credentials for use in step 6 of [Deploy the development kit](azure-stack-run-powershell-script.md#deploy-the-development-kit). This *service administrator* account can configure and manage resource clouds, user accounts, tenant plans, quotas, and pricing. In the portal, they can create website clouds, virtual machine private clouds, create plans, and manage user subscriptions.
-2. [Create](azure-stack-add-new-user-aad.md) at least one account so that you can sign in to the development kit as a tenant.
+    Salvar essas credenciais para uso na etapa 6 de [implantar o kit de desenvolvimento](azure-stack-run-powershell-script.md#deploy-the-development-kit). Isso *administrador de serviço* conta pode configurar e gerenciar nuvens de recursos, contas de usuário, planos de locatários, cotas e preços. No portal, ele pode criar nuvens de sites, nuvens privadas de máquina virtual, criar planos e gerenciar assinaturas de usuário.
+2. [Criar](azure-stack-add-new-user-aad.md) pelo menos uma conta de forma que você pode entrar o Kit de desenvolvimento como um locatário.
    
-   | **Azure Active Directory account** | **Supported?** |
+   | **Conta do Active Directory do Azure** | **Com suporte?** |
    | --- | --- |
-   | Work or school account with valid Public Azure Subscription |Yes |
-   | Microsoft Account with valid Public Azure Subscription |Yes |
-   | Work or school account with valid China Azure Subscription |Yes |
-   | Work or school account with valid US Government Azure Subscription |Yes |
+   | Conta corporativa ou escolar com assinatura pública válida do Azure |Sim |
+   | Conta da Microsoft com assinatura válida do Azure Público |Sim |
+   | Conta corporativa ou escolar com assinatura válida do Azure na China |Sim |
+   | Conta corporativa ou escolar com assinatura válida do US Government Azure |Sim |
 
-## <a name="network"></a>Network
+## <a name="network"></a>Rede
 ### <a name="switch"></a>Switch
-One available port on a switch for the development kit machine.  
+Uma porta disponível em um comutador para a máquina do kit de desenvolvimento.  
 
-The development kit machine supports connecting to a switch access port or trunk port. No specialized features are required on the switch. If you are using a trunk port or if you need to configure a VLAN ID, you have to provide the VLAN ID as a deployment parameter. You can see examples in the [list of deployment parameters](azure-stack-run-powershell-script.md).
+A máquina do kit de desenvolvimento oferece suporte para conexão a uma porta de tronco ou a porta do comutador acesso. Nenhum recurso especializado é necessário no comutador. Se você estiver usando uma porta de tronco ou se precisar configurar uma ID da VLAN, será necessário fornecer a ID da VLAN como um parâmetro de implantação. Você pode ver exemplos de [lista de parâmetros de implantação](azure-stack-run-powershell-script.md).
 
-### <a name="subnet"></a>Subnet
-Do not connect the development kit machine to the following subnets:
+### <a name="subnet"></a>Sub-rede
+Não conectar-se a máquina do kit de desenvolvimento para as seguintes sub-redes:
 
 * 192.168.200.0/24
 * 192.168.100.0/27
@@ -111,35 +110,35 @@ Do not connect the development kit machine to the following subnets:
 * 192.168.103.0/25
 * 192.168.104.0/25
 
-These subnets are reserved for the internal networks within the development kit environment.
+Essas sub-redes são reservadas para as redes internas no ambiente do kit de desenvolvimento.
 
 ### <a name="ipv4ipv6"></a>IPv4/IPv6
-Only IPv4 is supported. You cannot create IPv6 networks.
+Há suporte apenas para IPv4. Não é possível criar redes IPv6.
 
 ### <a name="dhcp"></a>DHCP
-Make sure there is a DHCP server available on the network that the NIC connects to. If DHCP is not available, you must prepare an additional static IPv4 network besides the one used by host. You must provide that IP address and gateway as a deployment parameter. You can see examples in the [list of deployment parameters](azure-stack-run-powershell-script.md).
+Verifique se há um servidor DHCP disponível na rede ao qual a NIC se conecta. Se o DHCP não estiver disponível, você deverá preparar uma rede IPv4 estática adicional, além daquela usada pelo host. Você deve fornecer o endereço IP e o gateway como um parâmetro de implantação. Você pode ver exemplos de [lista de parâmetros de implantação](azure-stack-run-powershell-script.md).
 
-### <a name="internet-access"></a>Internet access
-Azure Stack requires access to the Internet, either directly or through a transparent proxy. Azure Stack does not support the configuration of a web proxy to enable Internet access. Both the host IP and the new IP assigned to the MAS-BGPNAT01 (by DHCP or static IP) must be able to access Internet. Ports 80 and 443 are used under the graph.windows.net and login.microsoftonline.com domains.
+### <a name="internet-access"></a>Acesso à Internet
+A pilha do Azure requer acesso à Internet, diretamente ou através de um proxy transparente. A pilha do Azure não oferece suporte à configuração de um proxy da web para habilitar o acesso à Internet. O IP do host e o novo IP atribuído ao MAS-BGPNAT01 (pelo DHCP ou IP estático) devem ser capaz de acessar a Internet. As portas 80 e 443 são usadas em domínios de graph.windows.net e login.microsoftonline.com.
 
-## <a name="telemetry"></a>Telemetry
+## <a name="telemetry"></a>Telemetria
 
-Telemetry helps us shape future versions of Azure Stack. It lets us respond quickly to feedback, provide new features, and improve quality. Microsoft Azure Stack includes Windows Server 2016 and SQL Server 2014. Neither of these products are changed from default settings and both are described by the Microsoft Enterprise Privacy Statement. Azure Stack also contains open source software which has not been modified to send telemetry to Microsoft. Here are some examples of Azure Stack telemetry data:
+Telemetria nos ajuda a formatar versões futuras da pilha do Azure. Ele nos permite responder rapidamente aos comentários, fornece novos recursos e melhorar a qualidade. A pilha do Microsoft Azure inclui o Windows Server 2016 e do SQL Server 2014. Nenhum destes produtos são alterados de configurações padrão e ambos são descritas pela declaração de privacidade do Microsoft Enterprise. A pilha do Azure também contém o software de código-fonte aberto que não foi modificado para enviar telemetria à Microsoft. Aqui estão alguns exemplos de dados de telemetria de pilha do Azure:
 
-- deployment registration information
-- when an alert is opened and closed
-- the number of network resources
+- informações de registro de implantação
+- Quando um alerta é aberto e fechado
+- o número de recursos de rede
 
-To support telemetry data flow, port 443 (HTTPS) must be open in your network. The client endpoint is https://vortex-win.data.microsoft.com.
+Para oferecer suporte ao fluxo de dados de telemetria, a porta 443 (HTTPS) deve estar aberta em sua rede. O ponto de extremidade do cliente é https://vortex-win.data.microsoft.com.
 
-If you don’t want to provide telemetry for Azure Stack, you can turn it off on the development kit host and the infrastructure virtual machines as explained below.
+Se você não quiser fornecer Telemetria da pilha do Azure, você pode desativá-lo no host do kit de desenvolvimento e as máquinas virtuais de infraestrutura conforme explicado a seguir.
 
-### <a name="turn-off-telemetry-on-the-development-kit-host-optional"></a>Turn off telemetry on the development kit host (optional)
+### <a name="turn-off-telemetry-on-the-development-kit-host-optional"></a>Desativar a telemetria no host do kit de desenvolvimento (opcional)
 
 >[!NOTE]
-If you want to turn off telemetry for the development kit host, you must do so before you run the deployment script.
+Se você deseja desativar a telemetria para o host do kit de desenvolvimento, você deve fazer isso antes de executar o script de implantação.
 
-Before [running the asdk-installer.ps1 script]() to deploy the development kit host, boot into the CloudBuilder.vhdx and run the following script in an elevated PowerShell window:
+Antes de [a execução do script asdk installer.ps1]() para implantar o host do kit de desenvolvimento, inicialize o CloudBuilder.vhdx e execute o seguinte script em uma janela elevada do PowerShell:
 ```powershell
 ### Get current AllowTelmetry value on DVM Host
 (Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
@@ -151,12 +150,12 @@ Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies
 -Name AllowTelemetry).AllowTelemetry
 ```
 
-Setting **AllowTelemetry** to 0 turns off telemetry for both Windows and Azure Stack deployment. Only critical security events from the operating system are sent. The setting controls Windows telemetry across all hosts and infrastructure VMs, and is reapplied to new nodes/VMs when scale-out operations occur.
+Configuração **AllowTelemetry** como 0 desativa a telemetria para a implantação do Windows e a pilha do Azure. Somente os eventos críticos de segurança do sistema operacional são enviados. A configuração controla telemetria do Windows em todos os hosts e máquinas virtuais da infraestrutura e é reaplicada ao novo/VMs de nós quando ocorrem operações de expansão.
 
 
-### <a name="turn-off-telemetry-on-the-infrastructure-virtual-machines-optional"></a>Turn off telemetry on the infrastructure virtual machines (optional)
+### <a name="turn-off-telemetry-on-the-infrastructure-virtual-machines-optional"></a>Desativar a telemetria nas máquinas virtuais de infraestrutura (opcional)
 
-After the deployment is successful, run the following script in an elevated PowerShell window (as the AzureStack\AzureStackAdmin user) on the development kit host:
+Após a implantação for bem-sucedida, execute o seguinte script em uma janela elevada do PowerShell (como o usuário AzureStack\AzureStackAdmin) no host do kit de desenvolvimento:
 
 ```powershell
 $AzSVMs= get-vm |  where {$_.Name -like "AzS-*"}
@@ -170,18 +169,17 @@ invoke-command -computername $AzSVMs.name {(Get-ItemProperty -Path `
 "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" -Name AllowTelemetry).AllowTelemetry}
 ```
 
-To configure SQL Server telemetry, see [How to configure SQL Server 2016](https://support.microsoft.com/en-us/help/3153756/how-to-configure-sql-server-2016-to-send-feedback-to-microsoft).
+Para configurar a telemetria do SQL Server, consulte [como configurar o SQL Server 2016](https://support.microsoft.com/en-us/help/3153756/how-to-configure-sql-server-2016-to-send-feedback-to-microsoft).
 
-### <a name="usage-reporting"></a>Usage reporting
+### <a name="usage-reporting"></a>Relatório de uso
 
-Through registration, Azure Stack is also configured to forward usage information to Azure. Usage reporting is controlled independently from telemetry. You can turn off usage reporting when [registering](azure-stack-register.md) by using the script on Github. Just set the **$reportUsage** parameter to **$false**.
+Por meio do registro, a pilha do Azure também está configurada para informações sobre o uso de encaminhamento para o Azure. Relatório de uso é controlado independentemente da telemetria. Você pode desativar o uso de relatórios quando [registrando](azure-stack-register.md) usando o script no Github. Basta definir o **$reportUsage** parâmetro **$false**.
 
-Usage data is formatted as detailed in the [Report Azure Stack usage data to Azure](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-usage-reporting). Azure Stack Development Kit users are not actually charged. This functionality is included in the development kit so that you can test to see how usage reporting works. 
+Dados de uso são formatados como detalhado no [dados de uso da pilha do relatório do Azure para o Azure](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-usage-reporting). Usuários do Kit de desenvolvimento de pilha do Azure, na verdade, não são cobrados. Essa funcionalidade está incluída no kit de desenvolvimento para que você possa testar para ver como funciona o relatório de uso. 
 
 
-## <a name="next-steps"></a>Next steps
-[Download the Azure Stack development kit deployment package](https://azure.microsoft.com/overview/azure-stack/try/?v=try)
+## <a name="next-steps"></a>Próximas etapas
+[Baixe o pacote de implantação do kit de desenvolvimento do Azure pilha](https://azure.microsoft.com/overview/azure-stack/try/?v=try)
 
-[Deploy Azure Stack development kit](azure-stack-run-powershell-script.md)
-
+[Implantar o kit de desenvolvimento de pilha do Azure](azure-stack-run-powershell-script.md)
 

@@ -1,6 +1,6 @@
 ---
-title: Configure the Azure Stack user's PowerShell environment | Microsoft Docs
-description: Configure the Azure Stack user's PowerShell environment
+title: "Configurar o ambiente do PowerShell do usuário a pilha do Azure | Microsoft Docs"
+description: "Configurar o ambiente do PowerShell do usuário a pilha do Azure"
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -14,30 +14,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 74c34fccffcea6aae370d881791093f9b58a5f3d
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.openlocfilehash: e0ad968cac50ebb1e9ca0a4ff228c748f2da5f28
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/17/2017
 ---
+# <a name="configure-the-azure-stack-users-powershell-environment"></a>Configurar o ambiente do PowerShell do usuário a pilha do Azure
 
-# <a name="configure-the-azure-stack-users-powershell-environment"></a>Configure the Azure Stack user's PowerShell environment
+Como um usuário de pilha do Azure, você pode configurar o ambiente do PowerShell do seu Development Kit do Azure pilha. Depois de configurar, você pode usar o PowerShell para gerenciar o Azure pilha recursos, como se inscrever para ofertas, criar máquinas virtuais, implantar modelos do Gerenciador de recursos do Azure, etc. Este tópico tem seu escopo definido para usar com o usuário ambientes somente se você deseja instalar o PowerShell para o ambiente de operador de nuvem, consultem o [configurar o ambiente do PowerShell do operador Azure pilha](../azure-stack-powershell-configure-admin.md) tópico. 
 
-As an Azure Stack user, you can configure your Azure Stack Development Kit's PowerShell environment. After you configure, you can use PowerShell to manage Azure Stack resources such as subscribe to offers, create virtual machines, deploy Azure Resource Manager templates,  etc. This topic is scoped to use with the user environments only, if you want to set up PowerShell for the cloud operator environment, refer to the [Configure the Azure Stack operator's PowerShell environment](../azure-stack-powershell-configure-admin.md) topic. 
+## <a name="prerequisites"></a>Pré-requisitos 
 
-## <a name="prerequisites"></a>Prerequisites 
+Execute os seguintes pré-requisitos do [kit de desenvolvimento](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), ou de um cliente com Windows externo se você estiver [conectado por meio de VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn):
 
-Run the following prerequisites either from the [development kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), or from a Windows-based external client if you are [connected through VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn):
+* Instalar [módulos do PowerShell do Azure pilha-compatível com o Azure](azure-stack-powershell-install.md).  
+* Baixe o [ferramentas necessárias para trabalhar com o Azure pilha](azure-stack-powershell-download.md). 
 
-* Install [Azure Stack-compatible Azure PowerShell modules](azure-stack-powershell-install.md).  
-* Download the [tools required to work with Azure Stack](azure-stack-powershell-download.md). 
+## <a name="configure-the-user-environment-and-sign-in-to-azure-stack"></a>Configurar o ambiente do usuário e entrar pilha do Azure
 
-## <a name="configure-the-user-environment-and-sign-in-to-azure-stack"></a>Configure the user environment and sign in to Azure Stack
+Com base no tipo de implantação (Azure AD ou AD FS), execute um do script a seguir para configurar o PowerShell para Azure pilha (não se esqueça de substituir o AAD tenantName, ponto de extremidade de GraphAudience e ArmEndpoint valores de acordo com a configuração do ambiente):
 
-Based on the type of deployment (Azure AD or AD FS), run one of the following script to configure PowerShell for Azure Stack (Make sure to replace the AAD tenantName, GraphAudience endpoint and ArmEndpoint values as per your environment configuration):
-
-### <a name="azure-active-directory-aad-based-deployments"></a>Azure Active Directory (AAD) based deployments
+### <a name="azure-active-directory-aad-based-deployments"></a>Implantações baseadas em Azure Active Directory (AAD)
        
   ```powershell
   # Navigate to the downloaded folder and import the **Connect** PowerShell module
@@ -71,7 +69,7 @@ Based on the type of deployment (Azure AD or AD FS), run one of the following sc
     -TenantId $TenantID 
    ```
 
-### <a name="active-directory-federation-services-ad-fs-based-deployments"></a>Active Directory Federation Services (AD FS) based deployments 
+### <a name="active-directory-federation-services-ad-fs-based-deployments"></a>Implantações baseadas em serviços de Federação do Active Directory (AD FS) 
           
   ```powershell
   # Navigate to the downloaded folder and import the **Connect** PowerShell module
@@ -106,9 +104,9 @@ Based on the type of deployment (Azure AD or AD FS), run one of the following sc
     -TenantId $TenantID 
   ```
 
-## <a name="register-resource-providers"></a>Register resource providers
+## <a name="register-resource-providers"></a>Registrar provedores de recursos
 
-When operating on a newly created user subscription that doesn’t have any resources deployed through the portal, the resource providers aren't automatically registered. You should explicitly register them by using the following script:
+Ao operar em uma assinatura de usuário recém-criado que não tem nenhum recurso implantado por meio do portal, os provedores de recursos não estão registrados automaticamente. Você deve registrá-los explicitamente usando o script a seguir:
 
 ```powershell
 foreach($s in (Get-AzureRmSubscription)) {
@@ -118,15 +116,14 @@ Get-AzureRmResourceProvider -ListAvailable | Register-AzureRmResourceProvider -F
     } 
 ```
 
-## <a name="test-the-connectivity"></a>Test the connectivity
+## <a name="test-the-connectivity"></a>Testar a conectividade
 
-Now that we've got everything set up, let's use PowerShell to create resources within Azure Stack. For example, you can create a resource group for an application and add a virtual machine. Use the following command to create a resource group named "MyResourceGroup":
+Agora que temos tudo configurado, vamos usar o PowerShell para criar recursos na pilha do Azure. Por exemplo, você pode criar um grupo de recursos para um aplicativo e adicionar uma máquina virtual. Use o comando a seguir para criar um grupo de recursos denominado "MyResourceGroup":
 
 ```powershell
 New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 ```
 
-## <a name="next-steps"></a>Next steps
-* [Develop templates for Azure Stack](azure-stack-develop-templates.md)
-* [Deploy templates with PowerShell](azure-stack-deploy-template-powershell.md)
-
+## <a name="next-steps"></a>Próximas etapas
+* [Desenvolver modelos para o Azure Stack](azure-stack-develop-templates.md)
+* [Implantar modelos com o PowerShell](azure-stack-deploy-template-powershell.md)

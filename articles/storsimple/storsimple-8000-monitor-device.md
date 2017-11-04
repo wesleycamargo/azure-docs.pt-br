@@ -4,7 +4,7 @@ description: "Descreve como usar o serviço Gerenciador de Dispositivos do StorS
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: storsimple
@@ -12,15 +12,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/02/2017
+ms.date: 10/17/2017
 ms.author: alkohli
-ms.openlocfilehash: c8f731502d6589bfa908aa26cf418a65b18be635
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 679c1fc8775ad4481bc99c9aea79fe16e9bcac8f
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="use-the-storsimple-device-manager-service-to-monitor-your-storsimple-device"></a>Usar o serviço Gerenciador de Dispositivos do StorSimple para monitorar seu dispositivo StorSimple
+
 ## <a name="overview"></a>Visão geral
 É possível usar o serviço Gerenciador de Dispositivos do StorSimple para monitorar dispositivos específicos na sua solução do StorSimple. É possível criar gráficos personalizados com base no desempenho de E/S, utilização da capacidade, taxa de transferência de rede e métricas de desempenho do dispositivo e fixá-los no painel. Para obter mais informações, vá para [personalizar seu painel do portal](../azure-portal/azure-portal-dashboards.md).
 
@@ -44,6 +45,19 @@ Por padrão, o uso nas últimas 24 horas é informado. É possível editar o gr�
 * Últimos 90 dias
 * Ano passado
 
+Duas métricas-chave, crescimento e intervalo, são relatadas para os gráficos de uso. Intervalo refere-se ao valor máximo e aos valores mínimos do uso relatado ao longo da duração selecionada (instância fo, Últimos 7 dias).
+
+Crescimento refere-se ao aumento no uso do primeiro dia até o último dia ao longo da duração selecionada. 
+
+Crescimento e intervalo também podem ser representados pelas equações a seguir:
+
+```
+Range = {Usage(minimum), Usage(maximum)}
+
+Growth = Usage(Last day) - Usage(first day)
+
+Growth (%) = [{Usage(last day) - Usage(first day)} X 100]/Usage(first day)
+```
 
 O armazenamento primário, na nuvem e local pode ser descrito da seguinte maneira:
 
@@ -101,12 +115,12 @@ Os gráficos seguintes mostram o armazenamento primário usado para um dispositi
 **Desempenho** rastreia métricas relacionadas ao número de operações de leitura e de gravação entre as interfaces do iniciador iSCSI no servidor host e o dispositivo ou o dispositivo e a nuvem. Esse desempenho pode ser medido para um volume específico, um contêiner de volume específico ou todos os contêineres de volume. O desempenho também inclui a utilização da CPU e a taxa de transferência de rede para os vários adaptadores de rede em seu dispositivo.
 
 ### <a name="io-performance-for-initiator-to-device"></a>Desempenho de E/S do iniciador para o dispositivo
-A tabela abaixo mostra as E/Ss para o iniciador do dispositivo para todos os volumes de um dispositivo de produção. As métricas plotadas são bytes de leitura e de gravação por segundo. Também é possível elaborar um gráfico de E/S de leitura, gravação e pendente ou latências de leitura e de gravação.
+A tabela abaixo mostra as E/Ss para o iniciador do dispositivo para todos os volumes de um dispositivo de produção. As métricas no gráfico são bytes de leitura e de gravação por segundo. Também é possível elaborar um gráfico de E/S de leitura, gravação e pendente ou latências de leitura e de gravação.
 
 ![Desempenho de E/S do iniciador para o dispositivo](./media/storsimple-8000-monitor-device/device-io-from-initiator.png)
 
 ### <a name="io-performance-for-device-to-cloud"></a>Desempenho de E/S do dispositivo para a nuvem
-Para o mesmo dispositivo, as operações de E/S são plotadas para os dados do dispositivo para a nuvem para todos os contêineres de volume. Nesse dispositivo, os dados estão apenas na camada de linear e nada vazou para a nuvem. Não há nenhuma operação de leitura/gravação ocorrendo do dispositivo para a nuvem. Portanto, os picos no gráfico estão a um intervalo de 5 minutos, o que corresponde à frequência na qual a pulsação é verificada entre o dispositivo e o serviço.
+Para o mesmo dispositivo, as operações de E/S são criados gráficos com os dados do dispositivo para a nuvem para todos os contêineres de volume. Nesse dispositivo, os dados estão apenas na camada de linear e nada vazou para a nuvem. Não há nenhuma operação de leitura/gravação ocorrendo do dispositivo para a nuvem. Portanto, os picos no gráfico estão a um intervalo de 5 minutos, o que corresponde à frequência na qual a pulsação é verificada entre o dispositivo e o serviço.
 
 Para o mesmo dispositivo, um instantâneo de nuvem foi capturado para dados de volume a partir das 11h50. Isso resultou em fluxo de dados do dispositivo para a nuvem. As gravações foram veiculadas para a nuvem nessa duração. O gráfico de E/S mostra um pico nos Bytes de gravação/s que corresponde à hora em que o instantâneo foi capturado.
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 07/12/2017
 ms.author: tamram
-ms.openlocfilehash: 1ed933493da1842201bb9293f514ea4d0e7a75ce
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 805b0eee46846345ee1f33faf0c28393c3e8ebb1
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="azure-storage-scalability-and-performance-targets"></a>Metas de desempenho e escalabilidade do Armazenamento do Azure
 ## <a name="overview"></a>Visão geral
@@ -36,8 +36,27 @@ Este tópico descreve os tópicos de desempenho e escalabilidade do Armazenament
 
 Se as necessidades de seu aplicativo excederem as metas de escalabilidade de uma única conta de armazenamento, crie seu aplicativo para usar múltiplas contas de armazenamento e faça o particionamento dos seus objetos de dados nessas contas de armazenamento. Consulte [Preços do Armazenamento do Azure](https://azure.microsoft.com/pricing/details/storage/) para obter informações sobre preço por volume.
 
-## <a name="scalability-targets-for-blobs-queues-tables-and-files"></a>Metas de escalabilidade para blobs, filas, tabelas e arquivos
+## <a name="scalability-targets-for-a-storage-account"></a>Metas de escalabilidade para uma conta de armazenamento
 [!INCLUDE [azure-storage-limits](../../../includes/azure-storage-limits.md)]
+
+[!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
+
+## <a name="azure-blob-storage-scale-targets"></a>Destinos de escala de Armazenamento de Blobs do Azure
+[!INCLUDE [storage-blob-scale-targets](../../../includes/storage-blob-scale-targets.md)]
+
+## <a name="azure-files-scale-targets"></a>Destinos de escala de Arquivos do Azure
+Para saber mais sobre os destinos de escala e de desempenho para Arquivos do Azure e da Sincronização de Arquivos do Azure, Veja [Destinos de escala e de desempenho de Arquivos do Azure](../files/storage-files-scale-targets.md).
+
+[!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
+
+### <a name="azure-file-sync-scale-targets"></a>Destinos de escala de Sincronização de Arquivos do Azure
+[!INCLUDE [storage-sync-files-scale-targets](../../../includes/storage-sync-files-scale-targets.md)]
+
+## <a name="azure-queue-storage-scale-targets"></a>Destinos de escala de Armazenamento de Fila do Azure
+[!INCLUDE [storage-queues-scale-targets](../../../includes/storage-queues-scale-targets.md)]
+
+## <a name="azure-table-storage-scale-targets"></a>Destinos de escala de Armazenamento de Tabela do Azure
+[!INCLUDE [storage-table-scale-targets](../../../includes/storage-tables-scale-targets.md)]
 
 <!-- conceptual info about disk limits -- applies to unmanaged and managed -->
 ## <a name="scalability-targets-for-virtual-machine-disks"></a>Metas de escalabilidade para discos de máquina virtual
@@ -54,31 +73,10 @@ Veja [Tamanhos de VM do Windows](../../virtual-machines/windows/sizes.md?toc=%2f
 
 [!INCLUDE [azure-storage-limits-vm-disks-premium](../../../includes/azure-storage-limits-vm-disks-premium.md)]
 
-## <a name="scalability-targets-for-azure-resource-manager"></a>Metas de escalabilidade para o Gerenciador de recursos do Azure
-[!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
-
-## <a name="partitions-in-azure-storage"></a>Partições no Armazenamento do Azure
-Cada objeto com dados armazenado no Armazenamento do Azure (blobs, mensagens, entidades e arquivos) pertence a uma partição e é identificado por uma chave de partição. A partição determina como o Armazenamento do Azure equilibra as cargas de blobs, mensagens, entidades e arquivos em servidores a fim de atender às necessidades de tráfego desses objetos. A chave de partição é exclusiva e é usada para localizar um blob, mensagem ou entidade.
-
-A tabela acima em [Metas de escalabilidade para contas de armazenamento padrão](#standard-storage-accounts) lista as metas de desempenho para uma única partição para cada serviço.
-
-As partições afetam o balanceamento de carga e a escalabilidade de cada um dos serviços de armazenamento das seguintes formas:
-
-* **Blobs**: a chave de partição de um blob é o nome da conta + nome do contêiner + nome do blob. Isso significa que cada blob poderá ter sua própria partição se a carga no blob exigir isso. BLOBs podem ser distribuídos em vários servidores para escalar horizontalmente o acesso a eles, mas um único blob só pode ser atendido por um único servidor. Embora os blobs possam ser agrupados logicamente em contêineres de blob, o particionamento não é afetado de forma alguma por esse agrupamento.
-* **Arquivos**: A chave de partição para um arquivo é o nome da conta + nome do compartilhamento do arquivos. Isso significa que todos os arquivos em um compartilhamento de arquivos também estão em uma única partição.
-* **Mensagens**: a chave de partição de uma mensagem é o nome da conta + nome da fila, portanto, todas mensagens em uma fila são agrupadas em uma única partição e são atendidas por um único servidor. Filas diferentes podem ser processadas por servidores diferentes a fim de equilibrar a carga, não importa a quantidade de filas que uma conta de armazenamento tenha.
-* **Entidades**: a chave de partição de uma entidade é nome da conta + nome da tabela + chave de partição, sendo que a chave de partição é o valor da propriedade obrigatória **PartitionKey** definida pelo usuário para a entidade. Todas as entidades com o mesmo valor de chave de partição são agrupadas na mesma partição e são atendidas pelo mesmo servidor de partição. É importante entender isso ao projetar seu aplicativo. Seu aplicativo deve equilibrar os benefícios de escalabilidade da propagação de entidades por várias partições com as vantagens de acesso de dados do agrupamento de entidades em uma única partição.  
-
-Uma vantagem importante de agrupar em uma única partição um conjunto de entidades contidas em uma tabela é a possibilidade de executar operações de lote atômicas nas entidades da mesma partição, já que uma partição existe em um único servidor. Portanto, se você quiser executar operações em lote em um grupo de entidades, considere agrupar essas entidades com a mesma chave de partição. 
-
-Por outro lado, entidades que estão na mesma tabela mas têm chaves de partição diferentes podem ter seu balanceamento de carga realizado em servidores diferentes, possibilitando maior escalabilidade.
-
-Recomendações detalhadas para a criação de estratégias de particionamento de tabelas podem ser encontradas [aqui](https://msdn.microsoft.com/library/azure/hh508997.aspx).
-
 ## <a name="see-also"></a>Consulte também
 * [Detalhes de preços de armazenamento](https://azure.microsoft.com/pricing/details/storage/)
 * [Assinatura do Azure e limites de serviços, cotas e restrições](../../azure-subscription-service-limits.md)
-* [Armazenamento Premium: Armazenamento de Alto Desempenho para as Cargas de Trabalho da Máquina Virtual do Azure](../storage-premium-storage.md)
+* [Armazenamento Premium: Armazenamento de Alto Desempenho para as Cargas de Trabalho da Máquina Virtual do Azure](../../virtual-machines/windows/premium-storage.md)
 * [Replicação de armazenamento do Azure](../storage-redundancy.md)
 * [Lista de verificação de desempenho e escalabilidade do Armazenamento do Microsoft Azure](../storage-performance-checklist.md)
 * [Armazenamento do Microsoft Azure: um serviço de armazenamento em nuvem altamente disponível com coerência forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)

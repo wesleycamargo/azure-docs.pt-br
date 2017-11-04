@@ -1,6 +1,6 @@
 ---
-title: Redeploy Azure Stack | Microsoft Docs
-description: Redeploy Azure Stack.
+title: Reimplantar a pilha do Azure | Microsoft Docs
+description: Reimplante a pilha do Azure.
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -14,24 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/10/2017
 ms.author: erikje
-ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
 ms.openlocfilehash: 891cde9b16bbbb51729129b6ad7a0f3794307baa
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/10/2017
-
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="redeploy-azure-stack"></a>Redeploy Azure Stack
-To redeploy Azure Stack, you must start over from scratch as described below.
+# <a name="redeploy-azure-stack"></a>Reimplantar a pilha do Azure
+Para reimplantar a pilha do Azure, você deve começar do zero conforme descrito abaixo.
 
-## <a name="steps-to-redeploy-azure-stack"></a>Steps to redeploy Azure Stack
-1. On the development kit host, open an elevated PowerShell console > navigate to the asdk-installer.ps1 script > run it > click **Reboot**.
-2. Select the base operating system (not **Azure Stack**) and click **Next**.
-3. After the development kit host reboots, delete the CloudBuilder.vhdx file that was used as part of the previous deployment.
-4. [Deploy the development kit](azure-stack-run-powershell-script.md).
+## <a name="steps-to-redeploy-azure-stack"></a>Passos para reimplantar a pilha do Azure
+1. No host do kit de desenvolvimento, abra um console do PowerShell com privilégios elevados > navegue até o script asdk installer.ps1 > executá-lo > clique **reinicializar**.
+2. Selecione o sistema operacional base (não **Azure pilha**) e clique em **próximo**.
+3. Após a reinicialização do host do kit de desenvolvimento, exclua o arquivo de CloudBuilder.vhdx que foi usado como parte da implantação anterior.
+4. [Implantar o kit de desenvolvimento](azure-stack-run-powershell-script.md).
 
-## <a name="next-steps"></a>Next steps
-[Connect to Azure Stack](azure-stack-connect-azure-stack.md)
-
+## <a name="next-steps"></a>Próximas etapas
+[Conectar-se ao Azure Stack](azure-stack-connect-azure-stack.md)
 

@@ -1,6 +1,6 @@
 ---
-title: Tenant Resource Usage API | Microsoft Docs
-description: Reference for resource usage API, which retrieve Azure Stack usage information.
+title: "O uso de recursos API de locatário | Microsoft Docs"
+description: "Referência de API, uso de recursos que recuperam informações de uso da pilha do Azure."
 services: azure-stack
 documentationcenter: 
 author: AlfredoPizzirani
@@ -14,39 +14,38 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2016
 ms.author: alfredop
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f2eaf1c766d6c86741cf0fd561c131eacb34d782
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="tenant-resource-usage-api"></a>Tenant Resource Usage API
-A tenant can use the Tenant API to view the tenant’s own resource usage data. This API is consistent with the Azure Usage API (currently in private preview).
+# <a name="tenant-resource-usage-api"></a>API de uso de recursos de locatário
+Um locatário pode usar a API de locatário para exibir os dados de uso de recursos do locatário. Essa API é consistente com a API de uso do Azure (atualmente na visualização privada).
 
-You can use the Windows PowerShell cmdlet **Get-UsageAggregates** to get usage data like in Azure.
+Você pode usar o cmdlet do Windows PowerShell **UsageAggregates Get** para obter dados de uso como no Azure.
 
-## <a name="api-call"></a>API call
-### <a name="request"></a>Request
-The request gets consumption details for the requested subscriptions and for the requested time frame. There is no request body.
+## <a name="api-call"></a>Chamada de API
+### <a name="request"></a>Solicitação
+A solicitação obtém detalhes de consumo para as assinaturas solicitadas e para o período solicitado. Não há nenhum corpo de solicitação.
 
-| **Method** | **Request URI** |
+| **Método** | **URI de solicitação** |
 | --- | --- |
-| GET |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce/usageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity}&api-version=2015-06-01-preview&continuationToken={token-value} |
+| GET |https://{armendpoint}/subscriptions/{subId}/providers/Microsoft.Commerce/usageAggregates?reportedStartTime={reportedStartTime}&reportedEndTime={reportedEndTime}&aggregationGranularity={granularity}&api-version= 2015-06-01-preview & continuationToken = {value token} |
 
-### <a name="arguments"></a>Arguments
-| **Argument** | **Description** |
+### <a name="arguments"></a>Argumentos
+| **Argumento** | **Descrição** |
 | --- | --- |
-| *Armendpoint* |Azure Resource Manager endpoint of your Azure Stack environment. The Azure Stack convention is that the name of Azure Resource Manager endpoint is in the format `https://management.{domain-name}`. For example, for the development kit, the domain name is local.azurestack.external, then the Resource Manager  endpoint is `https://management.local.azurestack.external`. |
-| *subId* |Subscription ID of the user who is making the call. You can use this API only to query for a single subscription’s usage. Providers can use the Provider Resource Usage API to query usage for all tenants. |
-| *reportedStartTime* |Start time of the query. The value for *DateTime* should be in UTC and at the beginning of the hour, for example, 13:00. For daily aggregation, set this value to UTC midnight. The format is *escaped* ISO 8601, for example, 2015-06-16T18%3a53%3a11%2b00%3a00Z, where colon is escaped to %3a and plus is escaped to %2b so that it is URI friendly. |
-| *reportedEndTime* |End time of the query. The constraints that apply to *reportedStartTime* also apply to this argument. The value for *reportedEndTime* cannot be in the future. |
-| *aggregationGranularity* |Optional parameter that has two discrete potential values: daily and hourly. As the values suggest, one returns the data in daily granularity, and the other is an hourly resolution. The daily option is the default. |
-| *api-version* |Version of the protocol that is used to make this request. You must use 2015-06-01-preview. |
-| *continuationToken* |Token retrieved from the last call to the Usage API provider. This token is needed when a response is greater than 1,000 lines and it acts as a bookmark for progress. If not present, the data is retrieved from the beginning of the day or hour, based on the granularity passed in. |
+| *Armendpoint* |Azure Resource Manager ponto de extremidade de seu ambiente de pilha do Azure. A convenção de pilha do Azure é o nome do ponto de extremidade do Gerenciador de recursos do Azure está no formato `https://management.{domain-name}`. Por exemplo, para o kit de desenvolvimento, o nome de domínio é local.azurestack.external e, em seguida, o ponto de extremidade do Gerenciador de recursos `https://management.local.azurestack.external`. |
+| *subId* |ID da assinatura do usuário que está fazendo a chamada. Você pode usar essa API somente a consulta para o uso de uma única assinatura. Provedores podem usar a API de uso de recursos do provedor para o uso de consulta para todos os locatários. |
+| *reportedStartTime* |Hora de início da consulta. O valor de *DateTime* devem estar em UTC e no início da hora, por exemplo, 13:00. Para agregação diária, defina esse valor para meia-noite UTC. O formato é *escape* ISO 8601, por exemplo, 2015-06-16T18% 3a53% 3a11% 2b00% 3a00Z, onde os dois-pontos são ignoradas para % 3a e mais são ignoradas para % 2b para que ele seja URI amigável. |
+| *reportedEndTime* |Hora de término da consulta. As restrições que se aplicam a *reportedStartTime* também se aplicam a esse argumento. O valor de *reportedEndTime* não pode ser no futuro. |
+| *aggregationGranularity* |Parâmetro opcional que tem dois valores possíveis discretos: dia e hora. Como os valores sugerem, um retorna os dados na granularidade diária e a outra é uma resolução por hora. A opção diária é o padrão. |
+| *versão de API* |Versão do protocolo usado para fazer essa solicitação. Você deve usar 2015-06-01-preview. |
+| *continuationToken* |Token recuperado da última chamada para o provedor de API de uso. Esse token é necessária quando uma resposta é maior que 1.000 linhas e ele atua como um indicador de progresso. Se não estiver presente, os dados são recuperados a partir do início do dia ou hora, com base na granularidade passado. |
 
-### <a name="response"></a>Response
-GET /subscriptions/sub1/providers/Microsoft.Commerce/UsageAggregates?reportedStartTime=reportedStartTime=2014-05-01T00%3a00%3a00%2b00%3a00&reportedEndTime=2015-06-01T00%3a00%3a00%2b00%3a00&aggregationGranularity=Daily&api-version=1.0
+### <a name="response"></a>Resposta
+OBTER /subscriptions/sub1/providers/Microsoft.Commerce/UsageAggregates?reportedStartTime=reportedStartTime=2014-05-01T00%3a00%3a00%2b00%3a00 & reportedEndTime = 2015-06-01T00% 3a00% 3a00% 2b00% 3a00 & aggregationGranularity = diariamente & api-version = 1.0
 
 ```json
 {
@@ -72,22 +71,21 @@ GET /subscriptions/sub1/providers/Microsoft.Commerce/UsageAggregates?reportedSta
 …
 ```
 
-### <a name="response-details"></a>Response details
-| **Argument** | **Description** |
+### <a name="response-details"></a>Detalhes da resposta
+| **Argumento** | **Descrição** |
 | --- | --- |
-| *id* |Unique ID of the usage aggregate |
-| *name* |Name of the usage aggregate |
-| *type* |Resource definition |
-| *subscriptionId* |Subscription identifier of the Azure user |
-| *usageStartTime* |UTC start time of the usage bucket to which this usage aggregate belongs |
-| *usageEndTime* |UTC end time of the usage bucket to which this usage aggregate belongs |
-| *instanceData* |Key-value pairs of instance details (in a new format):<br>  *resourceUri*: Fully qualified resource ID, including resource groups and instance name <br>  *location*: Region in which this service was run <br>  *tags*: Resource tags that the user specifies <br>  *additionalInfo*: More details about the resource that was consumed, for example, OS version or image type |
-| *quantity* |Amount of resource consumption that occurred in this time frame |
-| *meterId* |Unique ID for the resource that was consumed (also called *ResourceID*) |
+| *ID* |ID exclusiva da agregação de uso |
+| *name* |Nome da agregação de uso |
+| *tipo* |Definição de recurso |
+| *subscriptionId* |Identificador de assinatura do usuário do Azure |
+| *usageStartTime* |UTC hora de início do bucket de uso ao qual pertence essa agregação de uso |
+| *usageEndTime* |Hora de término de UTC do bucket de uso ao qual pertence essa agregação de uso |
+| *instanceData* |Pares de chave-valor de detalhes da instância (em um novo formato):<br>  *resourceUri*: totalmente qualificado ID de recurso, incluindo grupos de recursos e o nome da instância <br>  *local*: região em que esse serviço foi executado <br>  *marcas*: as marcas de recurso que especifica o usuário <br>  *additionalInfo*: mais detalhes sobre o recurso que foi consumido, por exemplo, tipo de imagem ou versão do SO |
+| *quantidade* |Quantidade de consumo de recursos que ocorreu nesse período de tempo |
+| *meterId* |ID exclusiva para o recurso que foi consumido (também chamado de *ResourceID*) |
 
-## <a name="next-steps"></a>Next steps
-[Provider resource usage API](azure-stack-provider-resource-api.md)
+## <a name="next-steps"></a>Próximas etapas
+[API de uso de recurso de provedor](azure-stack-provider-resource-api.md)
 
-[Usage-related FAQ](azure-stack-usage-related-faq.md)
-
+[Perguntas Frequentes relacionadas ao uso](azure-stack-usage-related-faq.md)
 

@@ -14,18 +14,64 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: muralikk
-ms.openlocfilehash: 8fb4713589963c649d650a7661c2a6b540b65a5e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fb5b059ad8dc87f445bd84a5fe3bb90822d13f94
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Usar o serviço de Importação/Exportação do Microsoft Azure para transferir dados para o armazenamento do Azure
-O serviço de Importação/Exportação do Azure permite a você transferir com segurança grandes quantidades de dados para o armazenamento do Azure por meio do envio de unidades de disco rígido para um data center do Azure. Você também pode usar esse serviço para transferir dados do armazenamento do Azure para as unidades de disco rígido e enviar para seu site local. Esse serviço é adequado em situações em que você deseja transferir vários terabytes (TB) de dados para dentro ou fora do Azure, mas o upload ou download pela rede não é viável devido à largura de banda limitada ou aos os altos custos de rede.
+Neste artigo, nós fornecemos instruções passo a passo sobre como usar o serviço de Importação/Exportação do Azure para transferir grandes quantidades de dados com segurança no armazenamento de blobs e arquivos do Azure pelo envio de unidades de disco para um data center do Azure. Este serviço também pode ser usado para transferir dados do armazenamento de Blobs do Azure para as unidades de disco rígido e enviar para seu site local. Os dados de uma única unidade de disco SATA interno podem ser importados para o Armazenamento de Blobs do Azure ou para o armazenamento de arquivos do Azure. 
 
-O serviço requer que as unidades de disco rígido sejam criptografadas com BitLocker para a segurança dos seus dados. O serviço oferece suporte às contas de armazenamento Clássica e do Azure Resource Manager (tipo padrão e dinâmico) presentes em todas as regiões do Azure Público. Você deve enviar as unidades de disco rígido para um dos locais com suporte especificados posteriormente neste artigo.
+> [!IMPORTANT] 
+> Este serviço aceita somente discos rígidos SATA ou SSDs internos. Não há suporte para nenhum outro dispositivo. Não envie unidades de disco rígido externo ou dispositivos NAS etc porque eles serão devolvidos quando possível ou descartados.
+>
+>
 
-Neste artigo, você aprenderá mais sobre o serviço de Importação/Exportação do Azure e como enviar unidades para copiar os dados para dentro e fora do armazenamento de blobs do Azure.
+Siga as etapas abaixo caso os dados no disco tenham de ser importados para o Armazenamento de Blobs do Azure.
+### <a name="step-1-prepare-the-drives-using-waimportexport-tool-and-generate-journal-files"></a>Etapa 1: Preparar as unidades usando a ferramenta WAImportExport e gerar os arquivos de diário.
+
+1.  Identifique os dados a ser importados para o armazenamento de Blobs do Azure. Isso pode ser diretórios e arquivos autônomos em um servidor local ou em um compartilhamento de rede.
+2.  Dependendo do tamanho total dos dados, adquira o número necessário de unidades de disco rígido SSD 2,5 polegadas ou SATA II ou III de 2,5 ou 3,5 polegadas.
+3.  Anexe os discos rígidos diretamente usando SATA ou com adaptadores USB externos para um computador Windows.
+4.  Crie um único volume NTFS em cada disco rígido e atribua uma letra de unidade ao volume. Não há pontos de montagem.
+5.  Habilite a criptografia de BitLocker bit no volume NTFS. Use as instruções em https://technet.microsoft.com/en-us/library/cc731549(v=ws.10).aspx para habilitar a criptografia no computador Windows.
+6.  Copie completamente os dados para estes volumes NTFS criptografados únicos em discos usando copiar e colar ou arrastar e colar ou Robocopy ou qualquer uma dessas ferramentas.
+7.  Baixar WAImportExport V1 de https://www.microsoft.com/en-us/download/details.aspx?id=42659
+8.  Descompacte para a pasta padrão waimportexportv1. Por exemplo, C:\WaImportExportV1  
+9.  Execute como Administrador e abra um PowerShell ou uma Linha de Comando e altere o diretório para a pasta descompactada. Por exemplo, cd C:\WaImportExportV1
+10. Copie a linha de comando abaixo para um bloco de notas e edite-a para criar uma linha de comando.
+  ./WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1 /sk:***== /t:D /bk:*** /srcdir:D:\ /dstdir:ContainerName/ /skipwrite
+    
+    /j: o nome de um arquivo chamado arquivo de diário com a extensão .jrn. Um arquivo de diário é gerado por unidade e, portanto, é recomendado usar o número de série do disco como o nome do arquivo de diário.
+    /sk: chave de Conta de Armazenamento do Azure. /t: letra de unidade do disco a ser enviado. Por exemplo, D /bk: é a chave de armário da letra de unidade /srcdir: do disco a ser enviada seguida por : \. Por exemplo, D:\
+    /dstdir: o nome do Contêiner de Armazenamento do Azure para o qual os dados devem ser importados.
+    /skipwrite 
+    
+11. Repita a etapa 10 para cada disco que precisa ser enviado.
+12. Um arquivo de diário com o nome fornecido com o parâmetro /j: é criado para cada execução da linha de comando.
+
+### <a name="step-2-create-an-import-job-on-azure-portal"></a>Etapa 2: Criar um trabalho de importação no Portal do Azure.
+
+1. Faça logon em https://portal.azure.com/ e em Mais serviços -> ARMAZENAMENTO -> "Importar/exportar trabalhos" Clique em **Criar Trabalho de Importação/Exportação**.
+
+2. Na seção Básico, selecione "Importar para o Azure", digite uma cadeia de caracteres para nome do trabalho, selecione uma assinatura, insira ou selecione um grupo de recursos. Digite um nome descritivo para o trabalho de importação. Observe que o nome fornecido pode conter somente letras minúsculas, números, hifens e sublinhados, deve começar com letra e não pode conter espaços. Você usará o nome escolhido para acompanhar os trabalhos enquanto eles estiverem em andamento e quando eles estiverem concluídos.
+
+3. Na seção Detalhes do trabalho, carregue os arquivos de diário de unidade obtidos durante a etapa de preparação de unidade. Se a versão1 de waimportexport.exe foi usada, você precisa carregar um arquivo para cada unidade preparada. Selecione a conta de armazenamento para a qual os dados serão importados na seção Conta de armazenamento de "Destino de importação". O local de redistribuição será populado automaticamente com base na região da conta de armazenamento especificada.
+   
+   ![Criar o trabalho de importação - Etapa 3](./media/storage-import-export-service/import-job-03.png)
+4. Na seção Informações de envio de devolução, selecione a transportadora na lista suspensa e insira um número de conta da transportadora válido que você criou com essa transportadora. A Microsoft usará essa conta para enviar de volta as unidades para você após a conclusão do seu trabalho de importação. Forneça um nome de contato válido e completo, bem como telefone, email, endereço, cidade, zip, estado/município e país/região.
+   
+5. Na seção Resumo, o endereço de envio do Azure DataCenter é fornecido para ser usado para envio de discos para o controlador de domínio do Azure. Certifique-se de que o nome do trabalho e o endereço completo são mencionados no rótulo de envio. 
+
+6. Clique em OK na Página de Resumo para concluir a criação do trabalho de Importação.
+
+### <a name="step-3-ship-the-drives-to-the-azure-datacenter-shipping-address-provided-in-step-2"></a>Etapa 3: Enviar as unidades para o endereço de envio do Datacenter do Azure fornecido na Etapa 2.
+FedEx, UPS ou DHL podem ser usados para enviar o pacote para o Azure DC.
+
+### <a name="step-4-update-the-job-created-in-step2-with-tracking-number-of-the-shipment"></a>Etapa 4: Atualizar o trabalho criado na Etapa 2 com o número de controle da remessa.
+Após o envio dos discos, retorne para a página **Importação/Exportação** no portal do Azure para atualizar o número de rastreamento usando as etapas abaixo, a) Navegue e clique no trabalho de importação b) Clique em **Atualizar status do trabalho e informações de acompanhamento quando as unidades são enviadas**. c) Selecione a caixa de seleção "Marcar como enviado" d) Informe a Carrier e Número de controle.
+Se o número de acompanhamento não está atualizado em 2 semanas após a criação do trabalho, este irá expirar. O andamento do trabalho pode ser acompanhado no painel do portal. Veja o que significa cada estado do trabalho na seção anterior em [Exibindo o status do trabalho](#viewing-your-job-status).
 
 ## <a name="when-should-i-use-the-azure-importexport-service"></a>Quando devo usar o serviço de Importação/Exportação do Azure?
 Considere o uso do serviço de Importação/Exportação do Azure quando o upload ou download dos dados pela rede estiver muito lento, ou quando a largura de banda de rede adicional for dispendiosa.
@@ -250,35 +296,18 @@ Quando você envia unidades do Azure, você paga pelo custo de envio para a tran
 
 Não há nenhum custo de transação ao importar dados para o armazenamento de blobs. Os encargos de saída padrão são aplicáveis quando dados são exportados do armazenamento de blobs. Para obter mais detalhes sobre os custos da transação, consulte [Preços de transferência de dados.](https://azure.microsoft.com/pricing/details/data-transfers/)
 
-## <a name="quick-start"></a>Início rápido
-Nesta seção, fornecemos instruções passo a passo para criar um trabalho de importação e exportação. Atenda a todos os [pré-requisitos](#pre-requisites) antes de prosseguir.
 
-> [!IMPORTANT]
-> O serviço dá suporte a uma conta de armazenamento Standard por trabalho de importação ou exportação e não dá suporte a contas de armazenamento Premium. 
-> 
-> 
-## <a name="create-an-import-job"></a>Criar um trabalho de importação
-Crie um trabalho de importação para copiar os dados para sua conta de armazenamento do Azure enviando uma ou mais unidades contendo dados para o data center especificado. O trabalho de importação transmite detalhes sobre os discos rígidos, dados a serem copiados, conta de armazenamento de destino e envio de informações para o serviço de Importação/Exportação do Azure. A criação de um trabalho de importação é um processo de três etapas. Primeiro, prepare suas unidades usando a ferramenta WAImportExport. Segundo, envie um trabalho de importação usando o Portal do Azure. Terceiro, envie as unidades para o endereço de envio fornecido durante a criação do trabalho e atualize as informações de envio nos detalhes do seu trabalho.   
 
-### <a name="prepare-your-drives"></a>Preparar suas unidades
+## <a name="how-to-import-data-into-azure-file-storage-using-internal-sata-hdds-and-ssds"></a>Como importar dados para o Armazenamento de Arquivo do Azure usando HDs SATA e SSDs?
+Siga as etapas abaixo caso os dados no disco tenham de ser importados para o Armazenamento de Arquivo do Azure.
 A primeira etapa ao importar os dados usando o serviço de Importação/Exportação do Azure é preparar suas unidades usando a ferramenta WAImportExport. Siga as etapas abaixo para preparar suas unidades.
 
-1. Identifique os dados a serem importados. Isso pode ser diretórios e arquivos autônomos no servidor local ou em um compartilhamento de rede.  
+1. Identifique os dados a serem importados para o Armazenamento de Arquivos do Azure. Isso pode ser diretórios e arquivos autônomos no servidor local ou em um compartilhamento de rede.  
 2. Determine o número de unidades que você precisará, dependendo do tamanho total dos dados. Adquira o número necessário de unidades de disco rígido SSD 2,5 polegadas ou SATA II ou III de 2,5 ou 3,5 polegadas.
 3. Identifique a conta de armazenamento de destino, contêiner, diretórios virtuais e blobs.
-4.  Determine os diretórios e/ou os arquivos independentes que serão copiados para cada unidade de disco rígido.
-5.  Crie os arquivos CSV para o conjunto de dados e driveset.
+4. Determine os diretórios e/ou os arquivos independentes que serão copiados para cada unidade de disco rígido.
+5. Crie os arquivos CSV para o conjunto de dados e driveset.
     
-    **Arquivo CSV do conjunto de dados**
-    
-  Abaixo está um exemplo de arquivo CSV de conjunto de dados para importar dados como blobs do Azure:
-    
-    ```
-    BasePath,DstItemPathOrPrefix,ItemType,Disposition,MetadataFile,PropertiesFile
-    "F:\50M_original\100M_1.csv.txt","containername/100M_1.csv.txt",BlockBlob,rename,"None",None
-    "F:\50M_original\","containername/",BlockBlob,rename,"None",None 
-    ```
-  
   Abaixo está um exemplo de arquivo CSV de conjunto de dados para importar dados como arquivos do Azure:
   
     ```
@@ -286,11 +315,11 @@ A primeira etapa ao importar os dados usando o serviço de Importação/Exporta�
     "F:\50M_original\100M_1.csv.txt","fileshare/100M_1.csv.txt",file,rename,"None",None
     "F:\50M_original\","fileshare/",file,rename,"None",None 
     ```
-   No exemplo acima, 100M_1.csv.txt será copiado para a raiz do contêiner chamado “containername” ou “fileshare”. Se o nome do contêiner “containername” ou “Fileshare” não existir, ele será criado. Todos os arquivos e pastas em 50M_original serão copiados recursivamente em containername ou fileshare. A estrutura de pastas será mantida.
+   No exemplo acima, 100M_1.csv.txt será copiado para a raiz do “compartilhamentoderede”. Se o "Compartilhamento de arquivos" não existir, será criado um. Todos os arquivos e pastas em 50M_original serão copiados recursivamente para compartilhamentoderede. A estrutura de pastas será mantida.
 
     Saiba mais sobre [como preparar o arquivo CSV de conjunto de dados](storage-import-export-tool-preparing-hard-drives-import.md#prepare-the-dataset-csv-file).
     
-    **Lembre-se**: por padrão, os dados serão importados como Blobs de Blocos. Você pode usar o valor do campo BlobType para importar dados como os Blobs de Página. Por exemplo, se você estiver importando arquivos VHD que serão montados como discos em uma VM do Azure, deverá importá-los como Blobs de Página.
+
 
     **Arquivo CSV driveset**
 
@@ -359,26 +388,7 @@ Veja mais detalhes sobre como usar a ferramenta WAImportExport em [Preparação 
 
 Além disso, confira o [Fluxo de trabalho de exemplo para preparo dos discos rígidos para um trabalho de importação](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md) para obter instruções passo a passo mais detalhadas.  
 
-### <a name="create-the-import-job"></a>Criar o trabalho de importação
-1. Depois de preparar a unidade, navegue até Mais serviços -> ARMAZENAMENTO -> "Trabalhos de importação/exportação" no Portal do Azure. Clique em **Criar Trabalho de Importação/Exportação**.
 
-2. Na Etapa 1, Básico, selecione "Importar para o Azure", digite uma cadeia de caracteres para nome do trabalho, selecione uma assinatura, insira ou selecione um grupo de recursos. Digite um nome descritivo para o trabalho de importação. Observe que o nome fornecido pode conter somente letras minúsculas, números, hifens e sublinhados, deve começar com letra e não pode conter espaços. Você usará o nome escolhido para acompanhar os trabalhos enquanto eles estiverem em andamento e quando eles estiverem concluídos.
-
-3. Na Etapa 2, Detalhes do trabalho, carregue os arquivos de diário de unidade obtidos durante a etapa de preparação de unidade. Se a versão1 de waimportexport.exe foi usada, você precisa carregar um arquivo para cada unidade preparada. Selecione a conta de armazenamento para a qual os dados serão importados na seção Conta de armazenamento de "Destino de importação". O local de redistribuição será populado automaticamente com base na região da conta de armazenamento especificada.
-   
-   ![Criar o trabalho de importação - Etapa 3](./media/storage-import-export-service/import-job-03.png)
-4. Na Etapa 3, Retornar informações de envio, selecione a carrier na lista suspensa e insira um número de conta da carrier válido que você criou com essa carrier. A Microsoft usará essa conta para enviar de volta as unidades para você após a conclusão do seu trabalho de importação. Forneça um nome de contato válido e completo, bem como telefone, email, endereço, cidade, zip, estado/município e país/região.
-   
-5. Na Página de Resumo, o endereço de envio do Azure DataCenter é fornecido para ser usado para envio de discos para o controlador de domínio do Azure. Certifique-se de que o nome do trabalho e o endereço completo são mencionados no rótulo de envio. 
-
-6. Clique em OK na Página de Resumo para concluir a criação do trabalho de Importação.
-
-7. Após o envio dos discos, retorne para a página **Importação/Exportação** no Portal do Azure, a) Navegue e clique no trabalho de importação b) Clique em **Atualizar status do trabalho e informações de acompanhamento quando as unidades são enviadas**. 
-     c) Selecione a caixa de seleção "Marcar como enviado" d) Informe a Carrier e Número de controle.
-    
-   Se o número de acompanhamento não está atualizado em 2 semanas após a criação do trabalho, este irá expirar.
-   
-8. Você pode acompanhar o andamento do trabalho no painel do portal. Veja o que significa cada estado do trabalho na seção anterior em [Exibindo o status do trabalho](#viewing-your-job-status).
 
 ## <a name="create-an-export-job"></a>Criar um trabalho de exportação
 Crie um trabalho de exportação para notificar o serviço de Importação/Exportação que você enviará uma ou mais unidades vazias para o data center para que os dados possam ser exportados de sua conta de armazenamento para as unidades e as unidades, então, sejam enviadas para você.

@@ -1,6 +1,6 @@
 ---
-title: Develop apps for Azure Stack | Microsoft Docs
-description: Learn development considerations in prototyping applications on Azure Stack
+title: Desenvolver aplicativos para a pilha do Azure | Microsoft Docs
+description: "Saiba mais considerações sobre desenvolvimento de aplicativos de protótipo na pilha do Azure"
 services: azure-stack
 documentationcenter: 
 author: HeathL17
@@ -14,19 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 062c17173f87eec8e0eaa3f74323cbf8a8f48571
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="develop-for-azure-stack"></a>Develop for Azure Stack
-You can get started developing applications today, even if you don't have access to an Azure Stack environment. Because Azure Stack delivers Microsoft Azure services that run in your datacenter, you can use similar tools and processes to develop against Azure Stack as you would with Azure.  With a bit of preparation and guidance from the following topics, you can use Azure to emulate an Azure Stack environment:
+# <a name="develop-for-azure-stack"></a>Desenvolver para o Azure Stack
+Você pode começar a desenvolver aplicativos hoje em dia, mesmo se você não tiver acesso a um ambiente de pilha do Azure. Porque a pilha do Azure fornece os serviços do Microsoft Azure que são executados em seu data center, você pode usar os processos e ferramentas semelhantes para desenvolver em relação a pilha do Azure, como você faria com o Azure.  Com um pouco de preparação e a orientação dos tópicos a seguir, você pode usar o Azure para emular um ambiente de pilha do Azure:
 
-* In Azure, you can create Azure Resource Manager templates that are also deployable to Azure Stack.  See [template considerations](azure-stack-develop-templates.md) for guidance on developing your templates to ensure portability.
-* There is a delta in service availability and service versioning between Azure and Azure Stack. You can use the [Azure Stack policy module](azure-stack-policy-module.md) to restrict Azure service availability and resource types to what's available in Azure Stack. Constraining available services will help your application rely on services available to Azure Stack.
-* The [Azure Stack Quickstart Templates](https://github.com/Azure/AzureStack-QuickStart-Templates) are common scenario examples of how to develop your templates so they can be deployed to both Azure and Azure Stack.
-
+* No Azure, você pode criar modelos de Gerenciador de recursos do Azure que também são passíveis de implantação para a pilha do Azure.  Consulte [considerações sobre o modelo](azure-stack-develop-templates.md) para obter orientação sobre como desenvolver seus modelos para garantir a portabilidade.
+* Há uma diferença em disponibilidade do serviço e controle de versão do serviço entre o Azure e a pilha do Azure. Você pode usar o [módulo de política do Azure pilha](azure-stack-policy-module.md) para restringir os tipos de recursos e disponibilidade do serviço do Azure a que está disponível na pilha do Azure. Restringir serviços disponíveis ajudarão seu aplicativo depende de serviços disponíveis para a pilha do Azure.
+* O [modelos de início rápido do Azure pilha](https://github.com/Azure/AzureStack-QuickStart-Templates) são exemplos de cenários comuns de como desenvolver seus modelos para que eles possam ser implantados para o Azure e a pilha do Azure.
 
 

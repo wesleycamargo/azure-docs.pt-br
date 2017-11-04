@@ -1,6 +1,6 @@
 ---
-title: Azure Stack training and certification
-description: Learn about Azure Stack training certification opportunities
+title: "Certificação e treinamento de pilha do azure"
+description: "Saiba mais sobre as oportunidades de certificação de treinamento de pilha do Azure"
 services: azure-stack
 author: vhorne
 ms.service: azure-stack
@@ -8,29 +8,27 @@ ms.topic: article
 ms.date: 9/25/2017
 ms.author: victorh
 keywords: 
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 9112e43cbe3b075dd5665dff37a02c1eb0b05db8
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
+# <a name="azure-stack-training-and-certification"></a>Certificação e treinamento de pilha do azure
 
-# <a name="azure-stack-training-and-certification"></a>Azure Stack training and certification
+*Aplica-se a: sistemas integrados de pilha do Azure*
 
-*Applies to: Azure Stack integrated systems*
+As oportunidades de treinamento e certificação seguintes estão disponíveis para ajudá-lo a saber mais sobre a pilha do Azure e demonstrar suas habilidades de pilha do Azure.
 
-The following training and certification opportunities are available to help you learn about Azure Stack and demonstrate your Azure Stack proficiency.
+## <a name="training"></a>Treinamento
 
-## <a name="training"></a>Training
+- [Curso 20537A: configurar e operar uma nuvem híbrida com pilha do Microsoft Azure](https://www.microsoft.com/en-us/learning/course.aspx?cid=20537)
+- [edX: treinamento on-line de pilha do Azure](https://aka.ms/AzureStackMOOC)
+- [Funções de trabalho e roteiro de aprendizagem](https://azure.microsoft.com/en-us/training/learning-paths/)
 
-- [Course 20537A: Configuring and Operating a Hybrid Cloud with Microsoft Azure Stack](https://www.microsoft.com/en-us/learning/course.aspx?cid=20537)
-- [edX: Azure Stack Online Training](https://aka.ms/AzureStackMOOC)
-- [Job roles and learning paths](https://azure.microsoft.com/en-us/training/learning-paths/)
+## <a name="certification"></a>Certificação
+Certificações de pilha do Azure atualmente estão em desenvolvimento. Verifique as atualizações mais recentes.
 
-## <a name="certification"></a>Certification
-Azure Stack certifications are currently under development. Check back for the latest updates.
+## <a name="next-steps"></a>Próximas etapas
 
-## <a name="next-steps"></a>Next steps
-
-[Azure Stack documentation](https://docs.microsoft.com/en-us/azure/azure-stack/)
+[Documentação de pilha do Azure](https://docs.microsoft.com/en-us/azure/azure-stack/)

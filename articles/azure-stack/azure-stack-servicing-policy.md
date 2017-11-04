@@ -1,6 +1,6 @@
 ---
-title: Azure Stack servicing policy | Microsoft Docs
-description: Learn about the Azure Stack servicing policy, and how to keep an integrated system in a supported state.
+title: "Política de manutenção de pilha do Azure | Microsoft Docs"
+description: "Saiba mais sobre a manutenção de política e como manter um sistema integrado em um estado com suporte a pilha do Azure."
 services: azure-stack
 documentationcenter: 
 author: twooley
@@ -14,49 +14,48 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: twooley
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: f2c99f19b30d2cdfdf65dea6dd3909b88ffc15dd
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="azure-stack-servicing-policy"></a>Azure Stack servicing policy
+# <a name="azure-stack-servicing-policy"></a>Política de manutenção de pilha do Azure
 
-*Applies to: Azure Stack integrated systems*
+*Aplica-se a: sistemas integrados de pilha do Azure*
 
-This article describes the servicing policy for Azure Stack integrated systems, and what you must do to keep your system in a supported state. 
+Este artigo descreve a política de serviço para sistemas de pilha do Azure integradas, e que você deve fazer para manter o sistema em um estado com suporte. 
 
-## <a name="update-package-types"></a>Update package types
+## <a name="update-package-types"></a>Tipos de pacote de atualização
 
-There are two types of update packages for integrated systems; Microsoft software updates, and updates that are specific to your original equipment manufacturer (OEM) hardware vendor, such as drivers and firmware. These updates are delivered as separate Azure Stack update packages, and are independently managed.
+Há dois tipos de pacotes de atualização para os sistemas integrados; As atualizações de software e atualizações que são específicas para o fornecedor do hardware fabricante (OEM), como drivers e firmware. Essas atualizações são entregues como pacotes de atualização separados pilha do Azure e são gerenciadas de forma independente.
 
-- **Microsoft software updates**. Microsoft is responsible for the end-to-end servicing lifecycle for the Microsoft software update packages. These packages can include the latest Windows Server security updates, non-security updates, and Azure Stack feature updates. You can download theses update packages directly from Microsoft.
-- **OEM hardware vendor-provided updates**. Azure Stack hardware partners are responsible for the end-to-end servicing lifecycle (including guidance) for the hardware-related firmware and driver update packages. In addition, Azure Stack hardware partners own and maintain guidance for all software and hardware on the hardware lifecycle host. The OEM hardware vendor hosts these update packages on their own download site.
+- **As atualizações de software**. A Microsoft é responsável para o ciclo de vida de serviço de ponta a ponta para os pacotes de atualização de software da Microsoft. Esses pacotes podem incluir as últimas atualizações de segurança do Windows Server, atualizações de segurança não e atualizações de recurso da pilha do Azure. Você pode baixar pacotes de atualização essas políticas diretamente da Microsoft.
+- **Atualizações de fornecido pelo fornecedor de hardware de OEM**. Parceiros de hardware de pilha do Azure são responsáveis por de ponta a ponta manutenção do ciclo de vida (incluindo orientação) para o firmware relacionado ao hardware e os pacotes de atualização de driver. Além disso, os parceiros de hardware de pilha do Azure possuam e mantêm orientação de hardware no host de ciclo de vida de hardware e software de todos os. O fornecedor do hardware OEM hospeda esses pacotes em seu próprio site de download de atualização.
 
-## <a name="update-package-release-cadence"></a>Update package release cadence
+## <a name="update-package-release-cadence"></a>Cadência de lançamento do pacote de atualização
 
-Microsoft expects to release software update packages on a monthly cadence. However, it’s possible to have multiple, or no update releases in a month. OEM hardware vendors release their updates on an as-needed basis.
+A Microsoft espera liberar os pacotes de atualização de software em um ritmo mensal. No entanto, é possível ter várias ou nenhuma versões de atualização em um mês. Fornecedores de hardware de OEM liberar suas atualizações em uma base conforme necessário.
 
-A Microsoft update package has the following naming convention to help you easily identify the release date:
+Um pacote de atualização da Microsoft tem a seguinte convenção de nomenclatura para ajudá-lo a identificar facilmente a data de liberação:
 
 *MajorProductVersion.MinorProductVersion.YYMMDD.BuildNumber*
 
-For example, a Microsoft software update released on June 15, 2017 would have the version "1.0.170615.1".
+Por exemplo, uma atualização de software da Microsoft lançada em 15 de junho de 2017 teria a versão "1.0.170615.1".
 
-## <a name="keep-your-system-under-support"></a>Keep your system under support
+## <a name="keep-your-system-under-support"></a>Manter o sistema com suporte
 
-To receive support for your system, you must keep your Azure Stack updated within a specific time interval. Our policy for deferral of Microsoft software updates is three months. If your system is more than three months out of date, you’re considered out of compliance. You must update the system to at least the minimum supported version to receive support. 
+Para receber suporte para o seu sistema, você deve manter a pilha do Azure atualizada dentro de um intervalo de tempo específico. Nossa política de adiamento de atualizações de software da Microsoft é três meses. Se seu sistema estiver desatualizado mais de três meses, são consideradas fora de conformidade. Você deve atualizar o sistema para pelo menos o suporte mínimo de versão para receber suporte. 
 
-Microsoft software update packages are non-cumulative, and require the previous update package as a prerequisite. If you decide to defer one or more updates, consider the overall runtime if you want to get to the latest version.
+Pacotes de atualização de software Microsoft são não cumulativas e requerem que o pacote de atualização anterior como um pré-requisito. Se você optar por adiar uma ou mais atualizações, considere o tempo de execução geral, se você deseja obter a versão mais recente.
 
-The following table shows example update package releases, their prerequisite, and the minimum supported version that your system must be at to maintain support. The table is based on the initial release of Azure Stack integrated systems (build 1708), with the first update package release (1709) in September 2017. 
+A tabela a seguir mostra as versões de pacote de atualização de exemplo, seus pré-requisitos e a versão mínima com suporte que o sistema deve estar no manter o suporte. A tabela se baseia na versão inicial do sistemas de pilha do Azure integrado (compilação 1708), com a primeira versão de pacote de atualização (1709) em setembro de 2017. 
 
-| Latest Update Package (*example*) | Prerequisite | Minimum Supported Version |
+| Pacote de atualização mais recente (*exemplo*) | Pré-requisito | Versão mínima com suporte |
 | -- | -- | -- |
-| 1709 | Build 1708 | N/A |
-| 1710 | 1709 | N/A |
-| 1711 | 1710 | N/A |
+| 1709 | Criar 1708 | N/D |
+| 1710 | 1709 | N/D |
+| 1711 | 1710 | N/D |
 | 1712 | 1711 | 1709 |
 | 1801 | 1712 | 1710 |
 | 1802 | 1801 | 1711 |
@@ -64,9 +63,8 @@ The following table shows example update package releases, their prerequisite, a
 | 1804 | 1803 | 1801 |
 | | | 
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Próximas etapas
 
-- [Manage updates in Azure Stack](azure-stack-updates.md)
-
+- [Gerenciar atualizações na pilha do Azure](azure-stack-updates.md)
 
 

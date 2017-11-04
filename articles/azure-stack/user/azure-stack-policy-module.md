@@ -1,6 +1,6 @@
 ---
-title: Use the Azure Stack Policy Module| Microsoft Docs
-description: Learn how to constrain an Azure subscription to behave like an Azure Stack subscription
+title: "Usar o módulo de política de pilha do Azure | Microsoft Docs"
+description: Aprenda a restringir uma assinatura do Azure para que atue como uma assinatura de pilha do Azure
 services: azure-stack
 documentationcenter: 
 author: HeathL17
@@ -14,32 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: e505c52a5e1897d5626ee2cacce9fa3eff12fbbd
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="manage-azure-policy-using-the-azure-stack-policy-module"></a>Manage Azure policy using the Azure Stack Policy Module
+# <a name="manage-azure-policy-using-the-azure-stack-policy-module"></a>Gerenciar a política do Azure usando o módulo de política de pilha do Azure
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
 
-The Azure Stack Policy module allows you to configure an Azure subscription with the same versioning and service availability as Azure Stack.  The module uses the **New-AzureRMPolicyAssignment** cmdlet to create an Azure policy, which limits the resource types and services available in a subscription.  Once complete, you can use your Azure subscription to develop apps targeted for Azure Stack.  
+O módulo de política de pilha do Azure permite que você configure uma assinatura do Azure com a mesma versão e a disponibilidade de serviço como a pilha do Azure.  O módulo usa o **AzureRMPolicyAssignment novo** para criar uma política do Azure, o que limita os tipos de recursos e serviços disponíveis em uma assinatura.  Uma vez concluído, você pode usar sua assinatura do Azure para desenvolver aplicativos destinados a pilha do Azure.  
 
-## <a name="install-the-module"></a>Install the module
-1. Install the required version of the AzureRM PowerShell module, as described in Step1 of [Install PowerShell for Azure Stack](azure-stack-powershell-install.md).   
-2. [Download the Azure Stack tools from GitHub](azure-stack-powershell-download.md)  
-3. [Configure PowerShell for use with Azure Stack](azure-stack-powershell-configure-user.md)
+## <a name="install-the-module"></a>Instalar o módulo
+1. Instale a versão necessária do módulo AzureRM PowerShell, conforme descrito na etapa 1 de [instalar o PowerShell para Azure pilha](azure-stack-powershell-install.md).   
+2. [Baixar as ferramentas do Azure pilha do GitHub](azure-stack-powershell-download.md)  
+3. [Configurar o PowerShell para usar com o Azure Stack](azure-stack-powershell-configure-user.md)
 
-4. Import the AzureStack.Policy.psm1 module:
+4. Importe o módulo AzureStack.Policy.psm1:
 
    ```PowerShell
    Import-Module .\Policy\AzureStack.Policy.psm1
    ```
 
-## <a name="apply-policy-to-subscription"></a>Apply policy to subscription
-The following command can be used to apply a default Azure Stack policy against your Azure subscription. Before running, replace *Azure Subscription Name* with your Azure subscription.
+## <a name="apply-policy-to-subscription"></a>Aplicar política de assinatura
+O comando a seguir pode ser usado para aplicar uma política do Azure pilha padrão em sua assinatura do Azure. Antes de executar, substitua *nome da assinatura do Azure* com sua assinatura do Azure.
 
 ```PowerShell
 $s = Select-AzureRmSubscription -SubscriptionName "<Azure Subscription Name>"
@@ -50,8 +49,8 @@ New-AzureRmPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /s
 
 ```
 
-## <a name="apply-policy-to-a-resource-group"></a>Apply policy to a resource group
-You may want to apply policies in a more granular method.  As an example, you may have other resources running in the same subscription.  You can scope the policy application to a specific resource group, which lets you test your apps for Azure Stack using Azure resources. Before running, replace *Azure Subscription Name* with your Azure subscription name.
+## <a name="apply-policy-to-a-resource-group"></a>Aplicar política a um grupo de recursos
+Você talvez queira aplicar políticas em um método mais granular.  Por exemplo, você pode ter outros recursos em execução na mesma assinatura.  Você pode definir o escopo a aplicação da diretiva para um grupo de recursos específico, o que lhe permite testar seus aplicativos para a pilha do Azure usando os recursos do Azure. Antes de executar, substitua *nome da assinatura do Azure* com o nome da sua assinatura do Azure.
 
 ```PowerShell
 $resourceGroupName = ‘myRG01’
@@ -61,15 +60,14 @@ New-AzureRmPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /s
 
 ```
 
-## <a name="policy-in-action"></a>Policy in action
-Once you've deployed the Azure policy, you receive an error when you try to deploy a resource that prohibited by policy.  
+## <a name="policy-in-action"></a>Diretiva em ação
+Depois de implantar a política do Azure, você receber um erro ao tentar implantar um recurso que proibidos pela política.  
 
-![Result of resource deployment failure because of policy constraint](./media/azure-stack-policy-module/image1.png)
+![Resultado de falha de implantação de recursos devido à restrição de política](./media/azure-stack-policy-module/image1.png)
 
-## <a name="next-steps"></a>Next steps
-[Deploy templates with PowerShell](azure-stack-deploy-template-powershell.md)
+## <a name="next-steps"></a>Próximas etapas
+[Implantar modelos com o PowerShell](azure-stack-deploy-template-powershell.md)
 
-[Deploy templates with Azure CLI](azure-stack-deploy-template-command-line.md)
+[Implantar modelos com a CLI do Azure](azure-stack-deploy-template-command-line.md)
 
-[Deploy Templates with Visual Studio](azure-stack-deploy-template-visual-studio.md)
-
+[Implantar modelos com o Visual Studio](azure-stack-deploy-template-visual-studio.md)

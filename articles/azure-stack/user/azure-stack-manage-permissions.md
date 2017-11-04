@@ -1,6 +1,6 @@
 ---
-title: Manage permissions to resources per user in Azure Stack | Microsoft Docs
-description: As a service administrator or tenant, learn how to manage RBAC permissions.
+title: "Gerenciar permissões para recursos por usuário no Azure pilha | Microsoft Docs"
+description: "Como um administrador de serviços ou Locatário, saiba como gerenciar permissões RBAC."
 services: azure-stack
 documentationcenter: 
 author: Heathl17
@@ -14,30 +14,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 1e0ced4b2d65456034ba3f8543152702c089a0b0
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="manage-role-based-access-control"></a>Manage Role-Based Access Control
+# <a name="manage-role-based-access-control"></a>Gerenciar o controle de acesso baseado em função
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
 
-A user in Azure Stack can be a reader, owner, or contributor for each instance of a subscription, resource group, or service. For example, User A might have reader permissions to Subscription 1, but have owner permissions to Virtual Machine 7.
+Um usuário do Azure Stack pode ser um leitor, proprietário ou colaborador para cada instância de uma assinatura, um grupo de recursos ou serviço. Por exemplo, o Usuário A pode ter permissões de leitura à Assinatura 1, mas ter permissões de proprietário à Máquina Virtual 7.
 
-* Reader: User can view everything, but can’t make any changes.
-* Contributor: User can manage everything except access to resources.
-* Owner: User can manage everything, including access to resources.
+* Leitor: o usuário pode exibir tudo, mas não pode fazer alterações.
+* Colaborador: o usuário pode gerenciar tudo, exceto o acesso aos recursos.
+* Proprietário: o usuário pode gerenciar tudo, incluindo o acesso aos recursos.
 
-## <a name="set-access-permissions-for-a-user"></a>Set access permissions for a user
-1. Sign in with an account that has owner permissions to the resource you want to manage.
-2. In the blade for the resource, click the **Access** icon ![](media/azure-stack-manage-permissions/image1.png).
-3. In the **Users** blade, click **Roles**.
-4. In the **Roles** blade, click **Add** to add permissions for the user.
+## <a name="set-access-permissions-for-a-user"></a>Definir permissões de acesso para um usuário
+1. Entre com uma conta que tenha permissões de proprietário ao recurso que deseja gerenciar.
+2. Na folha do recurso, clique no **acesso** ícone ![](media/azure-stack-manage-permissions/image1.png).
+3. No **usuários** folha, clique em **funções**.
+4. No **funções** folha, clique em **adicionar** para adicionar permissões para o usuário.
 
-## <a name="next-steps"></a>Next steps
-
+## <a name="next-steps"></a>Próximas etapas
 
 

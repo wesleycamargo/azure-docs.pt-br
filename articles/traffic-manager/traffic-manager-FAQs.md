@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2017
 ms.author: kumud
-ms.openlocfilehash: 868d3ee973a03aca82c9775371d9832b7a063e9a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5751cd111d2b1c8a4db2fc3b39f2108e73e9508f
+ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o Gerenciador de Tráfego
 
@@ -251,6 +251,10 @@ O Gerenciador de Tráfego responde com o nome DNS do ponto de extremidade. Para 
 ### <a name="can-i-use-traffic-manager-with-more-than-one-web-app-in-the-same-region"></a>Posso usar o Gerenciador de Tráfego com mais de um Aplicativo Web na mesma região?
 
 Normalmente, o Gerenciador de Tráfego é usado para direcionar o tráfego para os aplicativos implantados em regiões diferentes. No entanto, ele também pode ser usado onde um aplicativo tem mais de uma implantação na mesma região. Os pontos de extremidade do Gerenciador de Tráfego do Azure não permitem adicionar mais de um ponto de extremidade do Aplicativo Web da mesma região do Azure ao mesmo perfil do Gerenciador de Tráfego.
+
+### <a name="how-do-i-move-my-traffic-manager-profiles-azure-endpoints-to-a-different-resource-group"></a>Como faço para mover os pontos de extremidade do Azure do meu perfil do Gerenciador de Tráfego para um grupo de recursos diferente?
+
+Os pontos de extremidade do Azure associados a um perfil do Gerenciador de Tráfego são rastreados com suas IDs de recurso. Quando um recurso do Azure sendo usado como um ponto de extremidade (por exemplo, IP Público, Serviço de Nuvem Clássico, WebApp ou outro perfil do Gerenciador de Tráfego usado de forma aninhada) é movido para um grupo de recursos diferentes, sua ID de recurso é alterada. Neste cenário, no momento, você deve atualizar o perfil do Gerenciador de Tráfego primeiro excluindo e então adicionando novamente os pontos de extremidade ao perfil. 
 
 ##  <a name="traffic-manager-endpoint-monitoring"></a>Monitoramento de ponto de extremidade do Gerenciador de Tráfego
 

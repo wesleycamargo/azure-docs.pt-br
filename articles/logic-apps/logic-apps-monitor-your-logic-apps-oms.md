@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/9/2017
 ms.author: LADocs; divswa
-ms.openlocfilehash: 5afe01e713516277abc3c2dfcccfc6d36cfc70d4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8da2bc9645e432ddf0e9f627c7b5e30c44fd74b6
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
 # <a name="monitor-and-get-insights-about-logic-app-runs-with-operations-management-suite-oms-and-log-analytics"></a>Monitorar e obter informações sobre execuções de aplicativo lógico com o OMS (Operations Management Suite) e o Log Analytics
 
@@ -97,7 +97,7 @@ Se você já ativou o Log Analytics durante a criação de seu aplicativo lógic
 
 2. Para exibir um resumo com mais detalhes sobre as execuções de seu aplicativo lógico, escolha o bloco **Gerenciamento de Aplicativos Lógicos**.
 
-   Aqui, as execuções de seu aplicativo lógica são agrupadas por nome ou por status de execução.
+   Aqui, as execuções de seu aplicativo lógica são agrupadas por nome ou por status de execução. Você também pode ver detalhes sobre as falhas em ações ou gatilhos para as execuções do aplicativo lógico.
 
    ![Resumo do status das execuções de seu aplicativo lógico](media/logic-apps-monitor-your-logic-apps-oms/logic-apps-runs-summary.png)
    
@@ -107,8 +107,16 @@ Se você já ativou o Log Analytics durante a criação de seu aplicativo lógic
 
    ![Exibir execuções de um aplicativo lógico ou um status](media/logic-apps-monitor-your-logic-apps-oms/logic-app-run-details.png)
 
-   > [!NOTE]
-   > A coluna **Reenvio** mostra "Sim" para execuções resultantes de uma execução reenviada.
+   Há duas opções avançadas nesta página:
+   * **Propriedades rastreadas:** essa coluna mostra as propriedades rastreadas, agrupadas por ações, do aplicativo lógico. Para exibir as propriedades rastreadas, escolha **Exibir**. Você pode pesquisar as propriedades rastreadas usando o filtro de coluna.
+   
+     ![Exibir propriedades rastreadas para um aplicativo lógico](media/logic-apps-monitor-your-logic-apps-oms/logic-app-tracked-properties.png)
+
+     Quaisquer propriedades rastreadas recém-adicionada poderão demorar de 10 a 15 minutos antes de aparecerem pela primeira vez. Saiba [como adicionar propriedades rastreadas ao seu aplicativo lógico](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details).
+
+   * **Reenviar:** você pode enviar novamente uma ou mais execuções de aplicativo lógico que falharam, que obtiveram êxito ou que ainda estão em andamento. Marque as caixas de seleção das execuções que você deseja reenviar e escolha **Reenviar**. 
+
+     ![Reenviar execuções de aplicativo lógico](media/logic-apps-monitor-your-logic-apps-oms/logic-app-resubmit.png)
 
 4. Para filtrar esses resultados, execute a filtragem tanto no lado do cliente quanto no lado do servidor.
 
@@ -122,14 +130,23 @@ Se você já ativou o Log Analytics durante a criação de seu aplicativo lógic
    
      ![Alterar o período](media/logic-apps-monitor-your-logic-apps-oms/change-interval.png)
  
-5. Para exibir todas as ações e os detalhes de uma execução específica, selecione uma linha, o que abrirá a página Pesquisa de Log. 
+5. Para exibir todas as ações e os detalhes de uma execução específica, selecione uma linha para uma execução de aplicativo lógico.
 
-   * Para exibir essas informações em uma tabela, escolha **Tabela**.
+   Veja um exemplo que mostra todas as ações de uma execução de aplicativo lógico específica:
+
+   ![Exibir ações para uma execução de aplicativo lógico](media/logic-apps-monitor-your-logic-apps-oms/logic-app-action-details.png)
+   
+6. Em qualquer página de resultados, para exibir a consulta por trás dos resultados ou para ver todos os resultados, escolha **Ver Tudo**, que abre a página Pesquisa de Logs.
+   
+   ![Ver Tudo nas páginas Resultados](media/logic-apps-monitor-your-logic-apps-oms/logic-app-seeall.png)
+   
+   Na página Pesquisa de Logs,
+   * Para exibir os resultados da consulta em uma tabela, escolha **Tabela**.
    * Para alterar a consulta, edite a cadeia de consulta na barra de pesquisa. 
    Para ter uma experiência melhor, escolha **Análise Avançada**.
 
      ![Exibir ações e detalhes da execução de um aplicativo lógico](media/logic-apps-monitor-your-logic-apps-oms/log-search-page.png)
-
+     
      Aqui na página do Azure Log Analytics, você pode atualizar consultas e exibir os resultados da tabela. 
      Essa consulta usa a [linguagem de consulta Kusto](https://docs.loganalytics.io/docs/Language-Reference), que pode ser editada se você quiser exibir resultados diferentes. 
 
@@ -138,3 +155,4 @@ Se você já ativou o Log Analytics durante a criação de seu aplicativo lógic
 ## <a name="next-steps"></a>Próximas etapas
 
 * [Monitorar mensagens do B2B](../logic-apps/logic-apps-monitor-b2b-message.md)
+

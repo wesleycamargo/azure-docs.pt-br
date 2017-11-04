@@ -1,6 +1,6 @@
 ---
-title: Key differences between Azure and Azure Stack when you use services and build apps| Microsoft Docs
-description: What you need to know when you use services or build apps for Azure Stack.
+title: "Principais diferenças entre o Azure e a pilha do Azure quando você usa os serviços e criar aplicativos | Microsoft Docs"
+description: "O que você precisa saber quando você usa os serviços ou compilar aplicativos para a pilha do Azure."
 services: azure-stack
 documentationcenter: 
 author: twooley
@@ -14,84 +14,82 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 09/25/2017
 ms.author: twooley
-ms.translationtype: HT
-ms.sourcegitcommit: 44e9d992de3126bf989e69e39c343de50d592792
 ms.openlocfilehash: 1e170f320292e3dbe920907a4ed81ab0d1eb388b
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="key-considerations-using-services-or-building-apps-for-azure-stack"></a>Key considerations: Using services or building apps for Azure Stack
+# <a name="key-considerations-using-services-or-building-apps-for-azure-stack"></a>Considerações de chave: usando os serviços ou criação de aplicativos para a pilha do Azure
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
 
-When you use services or build apps for Azure Stack, you must understand that there are differences between Azure Stack and Azure. This article provides an overview of the key considerations when you target Azure Stack as your hybrid cloud development environment.
+Quando você usa os serviços ou compilar aplicativos para a pilha do Azure, você deve entender que há diferenças entre a pilha do Azure e o Azure. Este artigo fornece uma visão geral dos principais considerações quando você direcionar a pilha do Azure como seu ambiente de desenvolvimento de nuvem híbrida.
 
-## <a name="overview"></a>Overview
+## <a name="overview"></a>Visão geral
 
-Azure Stack is a hybrid cloud platform that lets you use Azure services from your company's or service provider's datacenter. As a developer, you can build apps that run on Azure Stack. You can then deploy these apps to Azure Stack, to Azure, or you can build truly hybrid apps that leverage the connectivity between an Azure Stack cloud and Azure.
+O Azure Stack é uma plataforma desktop em nuvem híbrida que possibilita usar serviços do Azure por meio do datacenter da sua empresa ou do seu provedor de serviços. Como desenvolvedor, você pode criar aplicativos que são executados na pilha do Azure. Você pode implantar esses aplicativos com a pilha do Azure, no Azure, ou você pode criar realmente aplicativos híbridos que podem aproveitam a conectividade entre uma nuvem de pilha do Azure e o Azure.
 
-Your Azure Stack operator will let you know which services are available for you to use, and how to get support. They offer these services through their customized plans and offers.
+O operador de pilha do Azure permitirá que você sabe quais serviços estão disponíveis para uso e como obter suporte. Eles oferecem esses serviços por meio de seus planos personalizados e ofertas.
 
-The Azure technical content assumes that apps are being developed for an Azure service instead of Azure Stack. When you build and deploy apps to Azure Stack, you must understand some key differences, such as:
+O conteúdo técnico do Azure pressupõe que os aplicativos estão sendo desenvolvidos para um serviço do Azure, em vez de pilha do Azure. Quando você criar e implanta aplicativos com a pilha do Azure, você deve entender algumas diferenças importantes, como:
 
-* Azure Stack delivers a subset of the services and features that are available in Azure.
-* Your company or service provider can choose which services they want to offer. This includes customized services or applications. They may offer their own customized documentation.
-* You must use the correct Azure Stack-specific endpoints (for example, the URLs for the portal address and the Azure Resource Manager endpoint).
-* You must use PowerShell and API versions that are supported by Azure Stack. Doing this ensures that your apps will work in both Azure Stack and Azure.
+* A pilha do Azure oferece um subconjunto dos serviços e recursos que estão disponíveis no Azure.
+* Sua empresa ou provedores de serviços podem escolher quais serviços que desejam oferecer. Isso inclui aplicativos ou serviços personalizados. Eles podem oferecer sua própria documentação personalizada.
+* Você deve usar o correto pontos de extremidade específicos de pilha do Azure (por exemplo, as URLs para o endereço do portal e o ponto de extremidade do Gerenciador de recursos do Azure).
+* Você deve usar o PowerShell e a API de versões com suporte pela pilha do Azure. Isso garante que seus aplicativos funcionará na pilha do Azure e o Azure.
 
-## <a name="cheat-sheet-high-level-differences"></a>Cheat sheet: High-level differences
+## <a name="cheat-sheet-high-level-differences"></a>Roteiro: diferenças de alto nível
 
-The following table describes the high-level differences between Azure Stack and Azure. Keep these in mind when you develop for Azure Stack or use Azure Stack services.
+A tabela a seguir descreve as diferenças de alto nível entre a pilha do Azure e o Azure. Mantenha em mente ao desenvolver para o Azure pilha ou usar os serviços de pilha do Azure.
 
-| Area | Azure (global) | Azure Stack |
+| Área | Azure (global) | Azure Stack |
 | -------- | ------------- | ----------|
-| Who operates it? | Microsoft | Your organization or service provider.|
-| Who do you contact for support? | Microsoft | For an integrated system, contact your Azure Stack operator (at your organization or service provider) for support.<br><br>For Azure Stack Development Kit support, visit the [Microsoft forums](https://social.msdn.microsoft.com/Forums/home?forum=azurestack). Because the development kit is an evaluation environment, there is no official support offered through Microsoft Customer Support Services (CSS).
-| Available services | See the list of [Azure products](https://azure.microsoft.com/services/?b=17.04b). Available services vary by Azure region. | Azure Stack supports a subset of Azure services. Actual services will vary based on what your organization or service provider chooses to offer.
-| Azure Resource Manager endpoint* | https://management.azure.com | For an Azure Stack integrated system, use the endpoint that your Azure Stack operator provided.<br><br>For the development kit, use: https://management.local.azurestack.external
-| Portal URL* | [https://portal.azure.com](https://portal.azure.com) | For an Azure Stack integrated system, go to the URL that your Azure Stack operator provided.<br><br>For the development kit, use: https://portal.local.azurestack.external
-| Region | You can select which region you want to deploy to. | For an Azure Stack integrated system, use the region that's available on your system.<br><br>For the development kit, region will always be **local**.
-| Resource groups | A resource group can span regions. | For both integrated systems and the development kit, there is only one region.
-|Supported namespaces, resource types, and API versions | The latest (or earlier versions that are not yet deprecated). | Azure Stack supports specific versions. See the "Version requirements" section of this article.
+| Que opera-lo? | Microsoft | Sua organização ou provedores de serviços.|
+| Quem você contatar suporte? | Microsoft | Para um sistema integrado, entre em contato com seu operador de pilha do Azure (na sua organização ou provedores de serviços) para obter suporte.<br><br>Para obter suporte do Kit de desenvolvimento de pilha do Azure, visite o [fóruns do Microsoft](https://social.msdn.microsoft.com/Forums/home?forum=azurestack). Porque o kit de desenvolvimento é um ambiente de avaliação, não há nenhum suporte oficial oferecido por meio de serviços de suporte de cliente do Microsoft (CSS).
+| Serviços disponíveis | Consulte a lista de [produtos do Azure](https://azure.microsoft.com/services/?b=17.04b). Os serviços disponíveis variam de acordo com a região do Azure. | A pilha do Azure suporta um subconjunto de serviços do Azure. Serviços reais irão variar com base nas quais sua organização ou provedores de serviços escolhe a oferecer.
+| Azure ponto de extremidade de Gerenciador de recursos de * | https://management.azure.com | Para um sistema de pilha do Azure integrada, use o ponto de extremidade que o operador de pilha do Azure fornecido.<br><br>Para o kit de desenvolvimento, use: https://management.local.azurestack.external
+| Portal de URL * | [https://portal.azure.com](https://portal.azure.com) | Para um sistema de pilha do Azure integrado, vá para a URL que o operador de pilha do Azure fornecido.<br><br>Para o kit de desenvolvimento, use: https://portal.local.azurestack.external
+| Região | Você pode selecionar a região que você deseja implantar. | Para um sistema de pilha do Azure integrada, use a região que está disponível no seu sistema.<br><br>Para o kit de desenvolvimento, sempre será região **local**.
+| Grupos de recursos | Um grupo de recursos pode abranger regiões. | Para sistemas integrados e o kit de desenvolvimento, há apenas uma região.
+|Com suporte de namespaces, tipos de recursos e as versões de API | A versão mais recente (ou versões anteriores que ainda não foram substituídas). | A pilha do Azure oferece suporte a versões específicas. Consulte a seção "Requisitos de versão" deste artigo.
 | | |
 
-*If you are an Azure Stack operator, see [Using the administrator portal](../azure-stack-manage-portals.md) and [Administration basics](../azure-stack-manage-basics.md) for more information.
+* Se você for um operador de pilha do Azure, consulte [usando o portal do administrador](../azure-stack-manage-portals.md) e [Noções básicas de administração](../azure-stack-manage-basics.md) para obter mais informações.
 
-## <a name="helpful-tools-and-best-practices"></a>Helpful tools and best practices
+## <a name="helpful-tools-and-best-practices"></a>Ferramentas úteis e práticas recomendadas
  
- Microsoft provides several tools and guidance that helps you develop for Azure Stack.
+ A Microsoft fornece várias ferramentas e diretrizes que ajuda você a desenvolvem para a pilha do Azure.
 
-| Recommendation | References | 
+| Recomendações | Referências | 
 | -------- | ------------- | 
-| Install the correct tools on your developer workstation. | - [Install PowerShell](azure-stack-powershell-install.md)<br>- [Download tools](azure-stack-powershell-download.md)<br>- [Configure PowerShell](azure-stack-powershell-configure-user.md)<br>- [Install Visual Studio](azure-stack-install-visual-studio.md) 
-| Review information about the following:<br>- Azure Resource Manager template considerations<br>- How to find QuickStart templates<br>- Use a policy module to help you use Azure to develop for Azure Stack | [Develop for Azure Stack](azure-stack-developer.md) | 
-| Review and follow the best practices for templates. | [Resource Manager Quickstart Templates](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md#best-practices)
+| Instale as ferramentas corretas em sua estação de trabalho do desenvolvedor. | - [Instale o PowerShell](azure-stack-powershell-install.md)<br>- [Baixar ferramentas](azure-stack-powershell-download.md)<br>- [Configurar o PowerShell](azure-stack-powershell-configure-user.md)<br>- [Instalar o Visual Studio](azure-stack-install-visual-studio.md) 
+| Examinar as informações sobre o seguinte:<br>-Considerações sobre o modelo azure Resource Manager<br>-Como encontrar modelos de início rápido<br>-Use um módulo de diretiva para ajudá-lo a usar o Azure para desenvolver para a pilha do Azure | [Desenvolver para o Azure Stack](azure-stack-developer.md) | 
+| Examine e siga as práticas recomendadas para modelos. | [Modelos do Gerenciador de recursos de início rápido](https://github.com/Azure/azure-quickstart-templates/blob/master/1-CONTRIBUTION-GUIDE/best-practices.md#best-practices)
 | | |
 
-## <a name="version-requirements"></a>Version requirements
+## <a name="version-requirements"></a>Requisitos de versão
 
-Azure Stack supports specific versions of Azure PowerShell and Azure service APIs. You must use supported versions to ensure that your app can deploy to both Azure Stack and to Azure.
+A pilha do Azure oferece suporte a versões específicas do Azure PowerShell e APIs do serviço do Azure. Você deve usar as versões com suporte para garantir que seu aplicativo pode ser implantado para ambos os pilha do Azure e do Azure.
 
-To make sure that you use a correct version of Azure PowerShell, use [API version profiles](azure-stack-version-profiles.md). To determine the latest API version profile that you can use, you must know which build of Azure Stack you're using. You can get this information from your Azure Stack administrator.
+Para certificar-se de que você use uma versão correta do PowerShell do Azure, use [perfis de versão de API](azure-stack-version-profiles.md). Para determinar o último perfil de versão de API que você pode usar, você deve saber que compilação da pilha do Azure que você está usando. Você pode obter essas informações do administrador de pilha do Azure.
 
 >[!NOTE]
- If you're using the Azure Stack Development Kit, and you have administrative access, see the "Determine the current version" section of [Manage updates](https://docs.microsoft.com/azure/azure-stack/azure-stack-updates#determine-the-current-version) to determine the Azure Stack build.
+ Se você estiver usando o Kit de desenvolvimento de pilha do Azure, e você tem acesso administrativo, consulte a seção "Determinar a versão atual" [gerenciar atualizações](https://docs.microsoft.com/azure/azure-stack/azure-stack-updates#determine-the-current-version) para determinar a compilação de pilha do Azure.
 
-For other APIs, run the following PowerShell command to output the namespaces, resource types, and API versions that are supported in your Azure Stack subscription. Note there may still be differences at a property level. (For this command to work, you must have already [installed](azure-stack-powershell-install.md) and [configured](azure-stack-powershell-configure-user.md) PowerShell for an Azure Stack environment. You must also have a subscription to an Azure Stack offer.)
+Para outras APIs, executados o seguinte comando do PowerShell para os namespaces, tipos de recursos e as versões de API que são suportadas em sua assinatura do Azure pilha de saída. Observação ainda pode ser diferenças em um nível de propriedade. (Para esse comando funcione, é necessário já ter [instalado](azure-stack-powershell-install.md) e [configurado](azure-stack-powershell-configure-user.md) PowerShell para um ambiente de pilha do Azure. Você também deve ter uma assinatura para uma oferta de pilha do Azure.)
 
  ```powershell
 Get-AzureRmResourceProvider | Select ProviderNamespace -Expand ResourceTypes | Select * -Expand ApiVersions | `
 Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} 
 ```
 
-Example output (truncated): ![Example output of Get-AzureRmResourceProvider command](media/azure-stack-considerations/image1.png)
+Exemplo de saída (truncado): ![exemplo de saída do comando Get-AzureRmResourceProvider](media/azure-stack-considerations/image1.png)
  
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Próximas etapas
 
-For more detailed information about differences at a service level, see:
+Para obter mais informações sobre as diferenças em um nível de serviço, consulte:
 
-* [Considerations for Virtual Machines in Azure Stack](azure-stack-vm-considerations.md)
-* [Considerations for Storage in Azure Stack](azure-stack-acs-differences.md)
-* [Considerations for Azure Stack networking](azure-stack-network-differences.md)
-
+* [Considerações para máquinas virtuais na pilha do Azure](azure-stack-vm-considerations.md)
+* [Considerações para o armazenamento na pilha do Azure](azure-stack-acs-differences.md)
+* [Considerações de rede de pilha do Azure](azure-stack-network-differences.md)

@@ -1,6 +1,6 @@
 ---
-title: Using API version profiles in Azure Stack | Microsoft Docs
-description: Learn about API version profiles in Azure Stack.
+title: "Gerenciar perfis de versão de API na pilha do Azure | Microsoft Docs"
+description: "Saiba mais sobre perfis de versão de API na pilha do Azure"
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -14,105 +14,105 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: b70f8a392fdddade31383fc5cc9496cb39d73fd4
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.openlocfilehash: f986abebaf9117b040c149c10f6b2358bbdc0f44
+ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/17/2017
 ---
+# <a name="manage-api-version-profiles-in-azure-stack"></a>Gerenciar perfis de versão de API na pilha do Azure
 
-# <a name="manage-api-version-profiles-in-azure-stack"></a>Manage API version profiles in Azure Stack
+O recurso de API de perfis de versão do serviço de aplicativo do Azure fornece uma maneira de gerenciar as diferenças de versão entre o Azure e a pilha do Azure. Um perfil de versão de API é um conjunto de módulos do AzureRM PowerShell com versões específicas de API. Cada plataforma de nuvem tem um conjunto de perfis de versão de API com suporte. Por exemplo, pilha do Azure oferece suporte a uma versão específica, em perfil, como **2017-03-09-perfil**, e o Azure suporta o *mais recente* perfil da versão de API. Quando você instalar um perfil, os módulos do AzureRM PowerShell que correspondem ao perfil especificado são instalados.
 
-API version profiles provide a way to manage version differences between Azure and Azure Stack. An API version profile is a set of AzureRM PowerShell modules with specific API versions. Each cloud platform has a set of supported API version profiles. For example, Azure Stack supports a specific dated profile version such as  **2017-03-09-profile**, and Azure supports the **latest** API version profile. When you install a profile, the AzureRM PowerShell modules that correspond to the specified profile are installed.
+## <a name="install-the-powershell-module-required-to-use-api-version-profiles"></a>Instalar o módulo PowerShell necessário para usar perfis de versão de API
 
-## <a name="install-the-powershell-module-required-to-use-api-version-profiles"></a>Install the PowerShell module required to use API version profiles
-
-The **AzureRM.Bootstrapper** module that is available through the PowerShell Gallery provides PowerShell cmdlets that are required to work with API version profiles. Use the following cmdlet to install the AzureRM.Bootstrapper module:
+O **AzureRM.Bootstrapper** módulo que está disponível por meio da Galeria do PowerShell fornece cmdlets do PowerShell que são necessárias para trabalhar com perfis de versão de API. Use o cmdlet a seguir para instalar o **AzureRM.Bootstrapper** módulo:
 
 ```PowerShell
 Install-Module -Name AzureRm.BootStrapper
 ```
-The AzureRM.Bootstrapper module is in preview; details and functionality are subject to change. To download and install the latest version of this module from the PowerShell Gallery, run the following cmdlet:
+O **AzureRM.Bootstrapper** módulo é uma visualização, para que os detalhes e funcionalidades estão sujeitos a alterações. Para baixar e instalar a versão mais recente deste módulo na Galeria do PowerShell, execute o seguinte cmdlet:
 
 ```PowerShell
 Update-Module -Name "AzureRm.BootStrapper"
 ```
 
-## <a name="install-a-profile"></a>Install a profile
+## <a name="install-a-profile"></a>Instalar um perfil
 
-Use the **Install-AzureRmProfile** cmdlet with the **2017-03-09-profile** API version profile to install the AzureRM modules required by Azure Stack. Note that the Azure Stack cloud administrator modules are not installed with this API version profile, and they should be installed separately as specified in the Step 3 of the [Install PowerShell for Azure Stack](azure-stack-powershell-install.md) article.
+Use o **instalar AzureRmProfile** cmdlet com o **2017-03-09-perfil** perfil da versão de API para instalar os módulos de AzureRM necessários pela pilha do Azure. 
+
+>[!NOTE]
+>Os módulos de administrador de nuvem do Azure pilha não são instalados com este perfil de versão de API. Os módulos de administrador devem ser instalados separadamente, conforme especificado na etapa 3 do [instalar o PowerShell para Azure pilha](azure-stack-powershell-install.md) artigo.
 
 ```PowerShell 
 Install-AzureRMProfile -Profile 2017-03-09-profile
 ```
-## <a name="install-and-import-modules-in-a-profile"></a>Install and import modules in a profile
+## <a name="install-and-import-modules-in-a-profile"></a>Instalar e importar os módulos em um perfil
 
-Use the **Use-AzureRmProfile** cmdlet to install and import modules that are associated with an API version profile. You can import only one API version profile in a PowerShell session. To import a different API version profile, you must open a new PowerShell session. The Use-AzureRMProfile cmdlet runs the following tasks:  
-1. Checks if the PowerShell modules associated with the specified API version profile are installed in the current scope.  
-2. Downloads and installs the modules if they are not already installed.   
-3. Imports the modules into the current PowerShell session. 
+Use o **AzureRmProfile Use** cmdlet para instalar e importar os módulos que estão associados um perfil de versão de API. Você pode importar somente um perfil de versão de API em uma sessão do PowerShell. Para importar um perfil diferente de versão de API, você deve abrir uma nova sessão do PowerShell. O **AzureRMProfile Use** cmdlet executa as seguintes tarefas:  
+1. Verifica se os módulos do PowerShell associados ao perfil especificado de versão de API estão instalados no escopo atual.  
+2. Baixa e instala os módulos se eles não ainda estiverem instalados.   
+3. Importa os módulos na sessão atual do PowerShell. 
 
 ```PowerShell
 # Installs and imports the specified API version profile into the current PowerShell session.
 Use-AzureRmProfile -Profile 2017-03-09-profile -Scope CurrentUser
 
-# Installs and imports the specified API version profile into the current PowerShell session without any prompts
+# Installs and imports the specified API version profile into the current PowerShell session without any prompts.
 Use-AzureRmProfile -Profile 2017-03-09-profile -Scope CurrentUser -Force
 ```
 
-To install and import selected AzureRM modules from an API version profile, run the Use-AzureRMProfile cmdlet with the **Module** parameter:
+Para instalar e importar os módulos de AzureRM selecionados de um perfil de versão de API, execute o **Use AzureRMProfile** cmdlet com o *módulo* parâmetro:
 
 ```PowerShell
-# Installs and imports the compute, Storage and Network modules from the specified API version profile into your current PowerShell session.
+# Installs and imports the Compute, Storage, and Network modules from the specified API version profile into your current PowerShell session.
 Use-AzureRmProfile -Profile 2017-03-09-profile -Module AzureRM.Compute, AzureRM.Storage, AzureRM.Network
 ```
 
-## <a name="get-the-installed-profiles"></a>Get the installed profiles
+## <a name="get-the-installed-profiles"></a>Obter os perfis instalados
 
-Use the **Get-AzureRmProfile** cmdlet to get the list of available API version profiles: 
+Use o **AzureRmProfile Get** para obter a lista de perfis disponíveis de versão de API: 
 
 ```PowerShell
-# lists all API version profiles provided by the AzureRM.BootStrapper module.
+# Lists all API version profiles provided by the AzureRM.BootStrapper module.
 Get-AzureRmProfile -ListAvailable 
 
-# lists the API version profiles which are installed on your machine
+# Lists the API version profiles that are installed on your machine.
 Get-AzureRmProfile
 ```
-## <a name="update-profiles"></a>Update profiles
+## <a name="update-profiles"></a>Perfis de atualização
 
-Use the **Update-AzureRmProfile** cmdlet to update the modules in an API version profile to the latest version of modules that are available in the PSGallery. It's recommended to always run the **Update-AzureRmProfile** cmdlet in a new PowerShell session to avoid conflicts when importing modules. The Update-AzureRmProfile cmdlet runs the following tasks:
+Use o **AzureRmProfile atualização** cmdlet para atualizar os módulos em um perfil de versão de API para a versão mais recente dos módulos que estão disponíveis na Galeria do PowerShell. Recomendamos que você execute o **AzureRmProfile atualização** cmdlet em uma nova sessão do PowerShell para evitar conflitos, quando você importa os módulos. O **AzureRmProfile atualização** cmdlet executa as seguintes tarefas:
 
-1. Checks if the latest versions of modules are installed in the given API version profile for the current scope.  
-2. Prompts you to install if they are not already installed.  
-3. Installs and imports the updated modules into the current PowerShell session.  
+1. Verifica se as versões mais recentes dos módulos são instaladas em um determinado perfil de versão de API para o escopo atual.  
+2. Solicita que você instale os módulos se eles não ainda estiverem instalados.  
+3. Instala e importa os módulos atualizados para a sessão atual do PowerShell.  
 
 ```PowerShell
 Update-AzureRmProfile -Profile 2017-03-09-profile
 ```
 
-To remove the previously installed versions of the modules before updating to the latest available version, use the Update-AzureRmProfile cmdlet along with the **-RemovePreviousVersions** parameter:
+Para remover as versões instaladas anteriormente dos módulos antes de atualizar para a versão mais recente disponível, use o **atualização AzureRmProfile** cmdlet junto com o *- RemovePreviousVersions* parâmetro:
 
 ```PowerShell 
 Update-AzureRmProfile -Profile 2017-03-09-profile -RemovePreviousVersions
 ```
 
-This cmdlet runs the following tasks:  
+Esse cmdlet executa as seguintes tarefas:  
 
-1. Checks if the latest versions of modules are installed in the given API version profile for the current scope.  
-2. Removes the older versions of modules from the current API version profile and in the current PowerShell session.  
-4. prompts you to install the latest version.  
-5. Installs and imports the updated modules into the current PowerShell session.  
+1. Verifica se as versões mais recentes dos módulos são instaladas em um determinado perfil de versão de API para o escopo atual.  
+2. Remove as versões mais antigas dos módulos do perfil atual de versão de API e na sessão atual do PowerShell.  
+3. Solicita que você instale a versão mais recente dos módulos.  
+4. Instala e importa os módulos atualizados para a sessão atual do PowerShell.  
  
-## <a name="uninstall-profiles"></a>Uninstall profiles
+## <a name="uninstall-profiles"></a>Desinstalar perfis
 
-Use the **Uninstall-AzureRmProfile** cmdlet to uninstall the specified API version profile.
+Use o **AzureRmProfile desinstalação** cmdlet ao desinstalar o perfil de versão de API especificado:
 
 ```PowerShell 
 Uninstall-AzureRmProfile -Profile 2017-03-09-profile
 ```
 
-## <a name="next-steps"></a>Next steps
-* [Install PowerShell for Azure Stack](azure-stack-powershell-install.md)
-* [Configure the Azure Stack user's PowerShell environment](azure-stack-powershell-configure-user.md)  
-
+## <a name="next-steps"></a>Próximas etapas
+* [Instalar o PowerShell para o Azure Stack](azure-stack-powershell-install.md)
+* [Configurar o ambiente do PowerShell do usuário a pilha do Azure](azure-stack-powershell-configure-user.md)  

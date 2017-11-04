@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: kumud
 ms.custom: 
-ms.openlocfilehash: f1ab98ab173edc794bfabdf55d950ac689a37c0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0a07ff578c6afeedc6f3806d52bfe5aef6945c04
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="traffic-manager-traffic-view"></a>Exibição do Tráfego do Gerenciador de Tráfego
 
@@ -31,8 +31,8 @@ O Gerenciador de Tráfego fornece roteamento no nível do DNS para que os usuár
 
 Usando a Exibição do Tráfego, você pode:
 - entender onde suas bases de usuários estão localizadas (granularidade até o nível de um resolvedor de DNS local).
-- entender o volume de tráfego originado dessas regiões.
-- entender qual é a latência representativa experimentada por esses usuários.
+- exiba o volume de tráfego (observado como consultas DNS manipuladas pelo Gerenciador de Tráfego do Azure) proveniente dessas regiões.
+-  obtenha informações para entender qual é a latência representativa experimentada por esses usuários.
 - mergulhar profundamente nos padrões de tráfego específicos de cada uma dessas bases de usuários para as regiões do Azure em que você tem pontos de extremidade. 
 
 Por exemplo, você pode usar a Exibição do Tráfego para entender quais regiões têm um grande número de tráfego, mas sofrem com latências mais altas. Em seguida, você pode usar essas informações para planejar a expansão da superfície para novas regiões do Azure para que esses usuários tenham uma experiência de latência mais baixa.

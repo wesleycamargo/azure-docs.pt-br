@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Stack Development Kit architecture | Microsoft Docs
-description: View the Microsoft Azure Stack Development Kit architecture.
+title: Arquitetura de pilha Development Kit do Microsoft Azure | Microsoft Docs
+description: Exiba a arquitetura do Kit de desenvolvimento de pilha do Microsoft Azure.
 services: azure-stack
 documentationcenter: 
 author: heathl17
@@ -14,47 +14,45 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: e8ff17e069bd9237bf06cd79b4c222c50a999eda
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="microsoft-azure-stack-development-kit-architecture"></a>Microsoft Azure Stack Development Kit architecture
+# <a name="microsoft-azure-stack-development-kit-architecture"></a>Arquitetura de pilha Development Kit do Microsoft Azure
 
-*Applies to: Azure Stack Development Kit*
+*Aplica-se a: Kit de desenvolvimento de pilha do Azure*
 
-The Azure Stack Development Kit is a single-node deployment of Azure Stack. All the components are installed in virtual machines running on a single host machine. 
+O Kit de desenvolvimento de pilha do Azure é uma implantação de nó único da pilha do Azure. Todos os componentes são instalados em máquinas virtuais em execução em uma máquina de host único. 
 
-## <a name="logical-architecture-diagram"></a>Logical architecture diagram
-The following diagram illustrates the logical architecture of the Azure Stack development kit and its components.
+## <a name="logical-architecture-diagram"></a>Diagrama de arquitetura lógica
+O diagrama a seguir ilustra a arquitetura lógica do kit de desenvolvimento da pilha do Azure e seus componentes.
 
 ![](media/azure-stack-architecture/image1.png)
 
-## <a name="virtual-machine-roles"></a>Virtual machine roles
-The Azure Stack development kit offers services using the following VMs on the host:
+## <a name="virtual-machine-roles"></a>Funções de máquina virtual
+O kit de desenvolvimento de pilha do Azure oferece serviços usando as seguintes máquinas virtuais no host:
 
-| Name | Description |
+| Nome | Descrição |
 | ----- | ----- |
-| **AzS-ACS01** | Azure Stack storage services.|
-| **AzS-ADFS01** | Active Directory Federation Services (ADFS).  |
-| **AzS-BGPNAT01** | Edge router and provides NAT and VPN capabilities for Azure Stack. |
-| **AzS-CA01** | Certificate authority services for Azure Stack role services.|
-| **AzS-DC01** | Active Directory, DNS, and DHCP services for Microsoft Azure Stack.|
-| **AzS-ERCS01** | Emergency Recovery Console VM. |
-| **AzS-GWY01** | Edge gateway services such as VPN site-to-site connections for tenant networks.|
-| **AzS-NC01** | Network Controller, which manages Azure Stack network services.  |
-| **AzS-SLB01** | Load balancing multiplexer services in Azure Stack for both tenants and Azure Stack infrastructure services.  |
-| **AzS-SQL01** | Internal data store for Azure Stack infrastructure roles.  |
-| **AzS-WAS01** | Azure Stack administrative portal and Azure Resource Manager services.|
-| **AzS-WASP01**| Azure Stack user (tenant) portal and Azure Resource Manager services.|
-| **AzS-XRP01** | Infrastructure management controller for Microsoft Azure Stack, including the Compute, Network, and Storage resource providers.|
+| **AzS ACS01** | Serviços de armazenamento de pilha do Azure.|
+| **AzS ADFS01** | Serviços de Federação do Active Directory (ADFS).  |
+| **AzS BGPNAT01** | Roteador de borda e fornece recursos de NAT e VPN para a pilha do Azure. |
+| **AzS CA01** | Serviços de autoridade de certificado de serviços de função de pilha do Azure.|
+| **AzS-DC01.** | Active Directory, DNS e DHCP dos serviços para a pilha do Microsoft Azure.|
+| **AzS ERCS01** | Console de recuperação de emergência VM. |
+| **AzS GWY01** | Serviços de gateway de borda, como conexões VPN de site a site para redes de locatário.|
+| **AzS NC01** | Controlador de rede, que gerencia os serviços de rede de pilha do Azure.  |
+| **AzS SLB01** | O balanceamento de carga multiplexador serviços na pilha do Azure para locatários e serviços de infraestrutura de pilha do Azure.  |
+| **AzS SQL01** | Repositório de dados internos para funções de infraestrutura de pilha do Azure.  |
+| **AzS WAS01** | Portal administrativo de pilha do Azure e serviços do Azure Resource Manager.|
+| **AzS WASP01**| Portal do usuário (Locatário) de pilha do Azure e serviços do Azure Resource Manager.|
+| **AzS XRP01** | Controlador de gerenciamento de infraestrutura para a pilha do Microsoft Azure, incluindo os provedores de recursos de computação, rede e armazenamento.|
 
 
-## <a name="next-steps"></a>Next steps
-[Deploy Azure Stack](azure-stack-deploy.md)
+## <a name="next-steps"></a>Próximas etapas
+[Implantar a pilha do Azure](azure-stack-deploy.md)
 
-[First scenarios to try](azure-stack-first-scenarios.md)
-
+[Primeiros cenários para experimentar](azure-stack-first-scenarios.md)
 
