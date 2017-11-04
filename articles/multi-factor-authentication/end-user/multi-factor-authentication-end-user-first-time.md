@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 05/15/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: 492d5dc4e20f67bcb9f72a022fec19f5ba86caac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7b5233b7b667998f6fd3ff8a5db1946b120211c1
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Configurar minha conta para verificação em duas etapas
 A verificação em duas etapas é uma etapa adicional de segurança que ajuda a proteger sua conta, tornando mais difícil para outras pessoas invadi-la. Se você está lendo este artigo, é provável que tenha um email de seu administrador do trabalho ou escola sobre Autenticação Multifator. Ou talvez você tenha tentado entrar e recebido uma mensagem pedindo para configurar uma verificação de segurança adicional. Se esse for o caso, **você não poderá entrar até concluir o processo de registro automático**.
@@ -29,7 +29,7 @@ Este artigo ajuda você a configurar sua **conta corporativa ou de estudante**. 
 
 ## <a name="set-up-your-account"></a>Configurar sua conta
 
-Quando o departamento de TI exigir que você comece a usar a verificação em duas etapas, uma tela que diz **Seu administrador exigiu que você configure esta conta para verificação de segurança adicional** será exibida:
+Quando o suporte da sua empresa exigir que você comece a usar a verificação em duas etapas, uma tela que diz **Seu administrador exigiu que você configure esta conta para verificação de segurança adicional** será exibida:
 
 ![Configuração](./media/multi-factor-authentication-end-user-first-time/first.png)
 

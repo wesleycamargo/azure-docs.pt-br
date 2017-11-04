@@ -1,6 +1,6 @@
 ---
-title: Connect to Azure Stack with CLI | Microsoft Docs
-description: Learn how to use the cross-platform command-line interface (CLI) to manage and deploy resources on Azure Stack
+title: Conecte-se a pilha do Azure com CLI | Microsoft Docs
+description: Saiba como usar a interface de linha de comando de plataforma cruzada (CLI) para gerenciar e implantar recursos na pilha do Azure
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -14,22 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/18/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: bd731c32d32063b54d5899db3b3a13a911ca79be
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.openlocfilehash: 5ef64e727615d17ae550efbc7ea427936d7d4c3b
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="install-and-configure-cli-for-use-with-azure-stack"></a>Install and configure CLI for use with Azure Stack
+# <a name="install-and-configure-cli-for-use-with-azure-stack"></a>Instalar e configurar o CLI para uso com a pilha do Azure
 
-In this document, we guide you through the process of using Azure Command-line Interface (CLI) to manage Azure Stack Development Kit resources from Linux and Mac client platforms. 
+Neste artigo, vamos orientá-lo pelo processo de usando a interface de linha de comando do Azure (CLI) para gerenciar recursos do Kit de desenvolvimento de pilha do Azure do Linux e plataformas de cliente Mac. 
 
-## <a name="export-the-azure-stack-ca-root-certificate"></a>Export the Azure Stack CA root certificate
+## <a name="export-the-azure-stack-ca-root-certificate"></a>Exporte o certificado de raiz da autoridade de certificação de pilha do Azure
 
-If you are using CLI from a virtual machine that is running within the Azure Stack Development Kit environment, the Azure Stack root certificate is already installed within the virtual machine so you can directly retrieve. Whereas if you are use CLI from a workstation outside the development kit, you must export the Azure Stack CA root certificate from the development kit and add it to the Python certificate store of your development workstation(external Linux or Mac platform). 
+Se você estiver usando a CLI de uma máquina virtual que está em execução no ambiente do Kit de desenvolvimento de pilha do Azure, o certificado de raiz de pilha do Azure já está instalado na máquina virtual para que você pode recuperá-lo diretamente. Se você usar CLI de uma estação de trabalho fora do kit de desenvolvimento, você deve exportar o certificado de raiz da autoridade de certificação de pilha do Azure do kit de desenvolvimento e adicioná-lo ao repositório de certificados do Python de sua estação de trabalho de desenvolvimento (externa plataforma Linux ou Mac). 
 
-Sign in to your development kit and run the following script to export the Azure Stack root certificate in PEM format:
+Para exportar o certificado de raiz de pilha do Azure no formato PEM, entrar no seu kit de desenvolvimento e execute o script a seguir:
 
 ```powershell
    $label = "AzureStackSelfSignedRootCert"
@@ -37,7 +36,7 @@ Sign in to your development kit and run the following script to export the Azure
    $root = Get-ChildItem Cert:\CurrentUser\Root | Where-Object Subject -eq "CN=$label" | select -First 1
    if (-not $root)
    {
-       Log-Error "Cerficate with subject CN=$label not found"
+       Log-Error "Certificate with subject CN=$label not found"
        return
    }
 
@@ -48,25 +47,25 @@ Sign in to your development kit and run the following script to export the Azure
    certutil -encode root.cer root.pem
 ```
 
-## <a name="install-cli"></a>Install CLI
+## <a name="install-cli"></a>Instalar a CLI
 
-Next you should sign in to your development workstation and install CLI. Azure Stack requires the 2.0 version of Azure CLI, which you can install by using the steps described in the [Install Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) article. To verify if the installation was successful, open a terminal or a command prompt window and run the following command:
+Em seguida, entre sua estação de trabalho de desenvolvimento e instale CLI. A pilha do Azure requer a versão 2.0 do CLI do Azure. Você pode instalar que usando as etapas descritas no [instalar o Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) artigo. Para verificar se a instalação foi bem-sucedida, abra uma janela de prompt de comando ou um terminal e execute o seguinte comando:
 
 ```azurecli
 az --version
 ```
 
-You should see the version of Azure CLI and other dependent libraries that are installed on your computer.
+Você deve ver a versão da CLI do Azure e outras bibliotecas dependentes que estão instaladas no seu computador.
 
-## <a name="trust-the-azure-stack-ca-root-certificate"></a>Trust the Azure Stack CA root certificate
+## <a name="trust-the-azure-stack-ca-root-certificate"></a>Confiar no certificado de raiz da autoridade de certificação de pilha do Azure
 
-To trust the Azure Stack CA root certificate, you should append it to the existing python certificate. If you are running CLI from a Linux machine that is created within the Azure Stack environment, run the following bash command:
+Para confiar no certificado de raiz da autoridade de certificação de pilha do Azure, anexá-la para o certificado existente do Python. Se você estiver executando a CLI de um computador Linux que é criado dentro do ambiente de pilha do Azure, execute o seguinte comando bash:
 
 ```bash
 sudo cat /var/lib/waagent/Certificates.pem >> ~/lib/azure-cli/lib/python2.7/site-packages/certifi/cacert.pem
 ```
 
-If you are running CLI from a machine outside the Azure Sack environment, you must first set up [VPN connectivity to Azure Stack](azure-stack-connect-azure-stack.md). Now copy the PEM certificate that you exported earlier onto your development workstation and run the following commands depending on your development workstation's OS,:
+Se você estiver executando a CLI de um computador fora do ambiente do Azure Sack, primeiro você deve configurar o [conectividade de VPN a pilha do Azure](azure-stack-connect-azure-stack.md). Agora, copie o certificado PEM que você exportou anteriormente em sua estação de trabalho de desenvolvimento e execute os seguintes comandos, dependendo SO da estação de trabalho seu desenvolvimento.
 
 ### <a name="linux"></a>Linux
 
@@ -89,17 +88,17 @@ $root = New-Object System.Security.Cryptography.X509Certificates.X509Certificate
 $root.Import($pemFile)
 
 Write-Host "Extracting needed information from the cert file"
-$md5Hash=(Get-FileHash -Path $pemFile -Algorithm MD5).Hash.ToLower()
-$sha1Hash=(Get-FileHash -Path $pemFile -Algorithm SHA1).Hash.ToLower()
-$sha256Hash=(Get-FileHash -Path $pemFile -Algorithm SHA256).Hash.ToLower()
+$md5Hash    = (Get-FileHash -Path $pemFile -Algorithm MD5).Hash.ToLower()
+$sha1Hash   = (Get-FileHash -Path $pemFile -Algorithm SHA1).Hash.ToLower()
+$sha256Hash = (Get-FileHash -Path $pemFile -Algorithm SHA256).Hash.ToLower()
 
-$issuerEntry = [string]::Format("# Issuer: {0}", $root.Issuer)
+$issuerEntry  = [string]::Format("# Issuer: {0}", $root.Issuer)
 $subjectEntry = [string]::Format("# Subject: {0}", $root.Subject)
-$labelEntry = [string]::Format("# Label: {0}", $root.Subject.Split('=')[-1])
-$serialEntry = [string]::Format("# Serial: {0}", $root.GetSerialNumberString().ToLower())
-$md5Entry = [string]::Format("# MD5 Fingerprint: {0}", $md5Hash)
-$sha1Entry  = [string]::Format("# SHA1 Finterprint: {0}", $sha1Hash)
-$sha256Entry = [string]::Format("# SHA256 Fingerprint: {0}", $sha256Hash)
+$labelEntry   = [string]::Format("# Label: {0}", $root.Subject.Split('=')[-1])
+$serialEntry  = [string]::Format("# Serial: {0}", $root.GetSerialNumberString().ToLower())
+$md5Entry     = [string]::Format("# MD5 Fingerprint: {0}", $md5Hash)
+$sha1Entry    = [string]::Format("# SHA1 Finterprint: {0}", $sha1Hash)
+$sha256Entry  = [string]::Format("# SHA256 Fingerprint: {0}", $sha256Hash)
 $certText = (Get-Content -Path root.pem -Raw).ToString().Replace("`r`n","`n")
 
 $rootCertEntry = "`n" + $issuerEntry + "`n" + $subjectEntry + "`n" + $labelEntry + "`n" + `
@@ -111,105 +110,104 @@ Add-Content "${env:ProgramFiles(x86)}\Microsoft SDKs\Azure\CLI2\Lib\site-package
 Write-Host "Python Cert store was updated for allowing the azure stack CA root certificate"
 ```
 
-## <a name="set-up-the-virtual-machine-aliases-endpoint"></a>Set up the virtual machine aliases endpoint
+## <a name="set-up-the-virtual-machine-aliases-endpoint"></a>Configurar o ponto de extremidade de aliases de máquina virtual
 
-Before users can create virtual machines by using CLI, the cloud administrator should set up a publicly accessible endpoint that contains virtual machine image aliases and register this endpoint with the cloud. The `endpoint-vm-image-alias-doc` parameter in the `az cloud register` command is used for this purpose. Cloud administrators must download the image to the Azure Stack marketplace before they add it to image aliases endpoint.
+Antes dos usuários podem criar máquinas virtuais usando a CLI, o administrador de nuvem deve configurar um ponto de extremidade publicamente acessível que contenha os aliases de imagem de máquina virtual e registre esse ponto de extremidade com a nuvem. O `endpoint-vm-image-alias-doc` parâmetro o `az cloud register` comando é usado para essa finalidade. Os administradores de nuvem devem baixar a imagem do Marketplace do Azure pilha antes de eles adicioná-lo ao ponto de extremidade de aliases de imagem.
    
-For example, Azure contains uses following URI: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json. The cloud administrator should set up a similar endpoint for Azure Stack with the images that are available in the Azure Stack marketplace.
+Por exemplo, o Azure usa o seguinte URI: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json. O administrador de nuvem deve configurar um ponto de extremidade semelhante para a pilha do Azure com as imagens que estão disponíveis no mercado de pilha do Azure.
 
-## <a name="connect-to-azure-stack"></a>Connect to Azure Stack
+## <a name="connect-to-azure-stack"></a>Conectar-se ao Azure Stack
 
-Use the following steps to connect to Azure Stack:
+Use as seguintes etapas para se conectar ao Azure pilha:
 
-1. Register your Azure Stack environment by running the az cloud register command.
+1. Registrar o seu ambiente de pilha do Azure executando o `az cloud register` comando.
    
-   a. To register the **cloud administrative** environment, use:
+   a. Para registrar o *nuvem administrativa* ambiente, use:
 
-   ```azurecli
-   az cloud register \ 
-     -n AzureStackAdmin \ 
-     --endpoint-resource-manager "https://adminmanagement.local.azurestack.external" \ 
-     --suffix-storage-endpoint "local.azurestack.external" \ 
-     --suffix-keyvault-dns ".adminvault.local.azurestack.external" \ 
-     --endpoint-active-directory-graph-resource-id "https://graph.windows.net/" \
-     --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
-   ```
+      ```azurecli
+      az cloud register \ 
+        -n AzureStackAdmin \ 
+        --endpoint-resource-manager "https://adminmanagement.local.azurestack.external" \ 
+        --suffix-storage-endpoint "local.azurestack.external" \ 
+        --suffix-keyvault-dns ".adminvault.local.azurestack.external" \ 
+        --endpoint-active-directory-graph-resource-id "https://graph.windows.net/" \
+        --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
+      ```
 
-   b. To register the **user** environment, use:
+   b. Para registrar o *usuário* ambiente, use:
 
-   ```azurecli
-   az cloud register \ 
-     -n AzureStackUser \ 
-     --endpoint-resource-manager "https://management.local.azurestack.external" \ 
-     --suffix-storage-endpoint "local.azurestack.external" \ 
-     --suffix-keyvault-dns ".vault.local.azurestack.external" \ 
-     --endpoint-active-directory-graph-resource-id "https://graph.windows.net/" \
-     --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
-   ```
+      ```azurecli
+      az cloud register \ 
+        -n AzureStackUser \ 
+        --endpoint-resource-manager "https://management.local.azurestack.external" \ 
+        --suffix-storage-endpoint "local.azurestack.external" \ 
+        --suffix-keyvault-dns ".vault.local.azurestack.external" \ 
+        --endpoint-active-directory-graph-resource-id "https://graph.windows.net/" \
+        --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
+      ```
 
-2. Set the active environment by using the following commands:
+2. Defina o ambiente de active usando os comandos a seguir.
 
-   a. For the **cloud administrative** environment, use:
+   a. Para o *nuvem administrativa* ambiente, use:
 
-   ```azurecli
-   az cloud set \
-     -n AzureStackAdmin
-   ```
+      ```azurecli
+      az cloud set \
+        -n AzureStackAdmin
+      ```
 
-   b. For the **user** environment, use:
+   b. Para o *usuário* ambiente, use:
 
-   ```azurecli
-   az cloud set \
-     -n AzureStackUser
-   ```
+      ```azurecli
+      az cloud set \
+        -n AzureStackUser
+      ```
 
-3. Update your environment configuration to use the Azure Stack specific API version profile. To update the configuration, run the following command:
+3. Atualize sua configuração de ambiente para usar o perfil de versão de API específico da pilha do Azure. Para atualizar a configuração, execute o seguinte comando:
 
    ```azurecli
    az cloud update \
      --profile 2017-03-09-profile
    ```
 
-4. Sign in to your Azure Stack environment by using the **az login** command. You can sign in to the Azure Stack environment either as a user or as a [service principal](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-application-objects). 
+4. Entre seu ambiente de pilha do Azure usando o `az login` comando. Você pode entrar no ambiente de pilha do Azure como um usuário ou como um [entidade de serviço](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-application-objects). 
 
-   * Sign in as a **user**: You can either specify the username and password directly within the az login command or authenticate using a browser. You would have to do the latter, if your account has multi-factor authentication enabled.
+   * Entrar como um *usuário*: você pode especificar o nome de usuário e senha diretamente dentro de `az login` comando ou autenticar usando um navegador. Você precisa fazer o último se sua conta tiver habilitada a autenticação multifator.
 
-   ```azurecli
-   az login \
-     -u <Active directory global administrator or user account. For example: username@<aadtenant>.onmicrosoft.com> \
-     --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com>
-   ```
+      ```azurecli
+      az login \
+        -u <Active directory global administrator or user account. For example: username@<aadtenant>.onmicrosoft.com> \
+        --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com>
+      ```
 
-   > [!NOTE]
-   > If your user account has Multi factor authentication enabled, you can use the az login command without providing the -u parameter. Running the command gives you a URL and a code that you must use to authenticate.
+      > [!NOTE]
+      > Se sua conta de usuário tiver habilitada a autenticação multifator, você pode usar o `az login command` sem fornecer o `-u` parâmetro. Executar o comando fornece uma URL e um código que você deve usar para autenticar.
    
-   * Sign in as a **service principal**: Before you sign in, [Create a service principal through the Azure portal](azure-stack-create-service-principals.md) or CLI and assign it a role. Now, log in by using the following command:
+   * Entrar como um *entidade de serviço*: antes de você entrar, [criar uma entidade de serviço por meio do portal do Azure](azure-stack-create-service-principals.md) ou CLI e atribuí-la uma função. Agora, entre usando o seguinte comando:
 
-   ```azurecli
-   az login \
-     --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com> \
-     --service-principal \
-     -u <Application Id of the Service Principal> \
-     -p <Key generated for the Service Principal>
-   ```
+      ```azurecli
+      az login \
+        --tenant <Azure Active Directory Tenant name. For example: myazurestack.onmicrosoft.com> \
+        --service-principal \
+        -u <Application Id of the Service Principal> \
+        -p <Key generated for the Service Principal>
+      ```
 
-## <a name="test-the-connectivity"></a>Test the connectivity
+## <a name="test-the-connectivity"></a>Testar a conectividade
 
-Now that we've got everything setup, let's use CLI to create resources within Azure Stack. For example, you can create a resource group for an application and add a virtual machine. Use the following command to create a resource group named "MyResourceGroup":
+Agora que temos tudo o que a instalação, vamos usar CLI para criar recursos na pilha do Azure. Por exemplo, você pode criar um grupo de recursos para um aplicativo e adicionar uma máquina virtual. Use o comando a seguir para criar um grupo de recursos denominado "MyResourceGroup":
 
 ```azurecli
 az group create \
   -n MyResourceGroup -l local
 ```
 
-If the resource group is created successfully, the previous command outputs the following properties of the newly created resource:
+Se o grupo de recursos é criado com êxito, o comando anterior gera as seguintes propriedades do recurso recém-criado:
 
-![resource group create output](media/azure-stack-connect-cli/image1.png)
+![Criar um grupo de recursos](media/azure-stack-connect-cli/image1.png)
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Próximas etapas
 
-[Deploy templates with Azure CLI](azure-stack-deploy-template-command-line.md)
+[Implantar modelos com a CLI do Azure](azure-stack-deploy-template-command-line.md)
 
-[Manage user permissions](azure-stack-manage-permissions.md)
-
+[Gerenciar permissões de usuário](azure-stack-manage-permissions.md)
 

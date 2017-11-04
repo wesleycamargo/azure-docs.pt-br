@@ -1,6 +1,6 @@
 ---
-title: Differences and considerations for virtual machines in Azure Stack | Microsoft Docs
-description: Learn about differences and considerations when working with virtual machines in Azure Stack.
+title: "As diferenças e considerações para máquinas virtuais no Azure pilha | Microsoft Docs"
+description: "Saiba mais sobre as diferenças e considerações ao trabalhar com máquinas virtuais na pilha do Azure."
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -14,56 +14,54 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/25/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 7d841dba798c2b706c26dcf51361ce0447710b12
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
+# <a name="considerations-for-virtual-machines-in-azure-stack"></a>Considerações para máquinas virtuais na pilha do Azure
 
-# <a name="considerations-for-virtual-machines-in-azure-stack"></a>Considerations for Virtual Machines in Azure Stack
+*Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+Máquinas virtuais são uma sob demanda, recursos escalonáveis de computação oferecidos pela pilha do Azure. Quando você usar máquinas virtuais, você deve entender que há diferenças entre os recursos que estão disponíveis no Azure e a pilha do Azure. Este artigo fornece uma visão geral das considerações exclusivas para máquinas virtuais e seus recursos na pilha do Azure. Para saber mais sobre as diferenças de alto nível entre a pilha do Azure e o Azure, consulte o [chave considerações](azure-stack-considerations.md) tópico.
 
-Virtual machines are an on-demand, scalable computing resources offered by Azure Stack. When you use Virtual Machines, you must understand that there are differences between the features that are available in Azure and Azure Stack. This article provides an overview of the unique considerations for Virtual Machines and its features in Azure Stack. To learn about high-level differences between Azure Stack and Azure, see the [Key considerations](azure-stack-considerations.md) topic.
+## <a name="cheat-sheet-virtual-machine-differences"></a>Roteiro: diferenças de máquina Virtual
 
-## <a name="cheat-sheet-virtual-machine-differences"></a>Cheat sheet: Virtual machine differences
-
-| Feature | Azure (global) | Azure Stack |
+| Recurso | Azure (global) | Azure Stack |
 | --- | --- | --- |
-| Virtual machine images | The Azure Marketplace contains images that you can use to create a virtual machine. See the [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1) page to view the list of images that are available in the Azure Marketplace. | By default, there aren’t any images available in the Azure Stack marketplace. The Azure Stack cloud administrator should publish or download images to the Azure Stack marketplace before users can use them. |
-| Virtual machine sizes | Azure supports a wide variety of sizes for virtual machines. To learn about the available sizes and options, refer to the [Windows virtual machines sizes](../../virtual-machines/virtual-machines-windows-sizes.md) and [Linux virtual machine sizes](../../virtual-machines/linux/sizes.md) topics. | Azure Stack supports a subset of Virtual Machine sizes that are available in Azure. To view the list of supported sizes, refer to the [virtual machine sizes](#virtual-machine-sizes) section of this article. |
-| Virtual machine quotas | [Quota limits](../../azure-subscription-service-limits.md#service-specific-limits) are set by Microsoft | The Azure Stack cloud administrator must assign quotas before they offer virtual machines to their users. |
-| Virtual machine extensions |Azure supports a wide variety of virtual machine extensions. To learn about the available extensions, refer to the [virtual machine extensions and features](../../virtual-machines/windows/extensions-features.md) topic.| Azure Stack supports a subset of extensions that are available in Azure and each of the extension have specific versions. The Azure Stack cloud administrator can choose which extensions to be made available to for their users. To view the list of supported extensions, refer to the [virtual machine extensions](#virtual-machine-extensions) section of this article. |
-| Virtual machine network | Public IP addresses assigned to tenant virtual machine are accessible over the Internet.<br><br><br>Azure Virtual Machines has a fixed DNS name | Public IP addresses assigned to a tenant virtual machine are accessible within the Azure Stack Development Kit environment only. A user must have access to the Azure Stack Development Kit via [RDP](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) or [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) to connect to a virtual machine that is created in Azure Stack.<br><br>Virtual machines created within a specific Azure Stack instance have a DNS name based on the value that is configured by the cloud administrator. |
-| Virtual machine storage | Supports [managed disks.](../../virtual-machines/windows/managed-disks-overview.md) | Managed disks are not yet supported in Azure Stack. |
-| API versions | Azure always has the latest API versions for all the virtual machine features. | Azure Stack supports specific Azure services and specific API versions for these services. To view the list of supported API versions, refer to the [API versions](#api-versions) section of this article. |
-|Virtual machine availability sets|Multiple fault domains (2 or 3 per region)<br>Multiple update domains<br>Managed disk support|Single fault domain<br>Single update domain<br>No managed disk support|
-|Virtual machine scale sets|Auto-scale supported|Auto-scale not supported.<br>Add more instances to a scale set using the portal, Resource Manager templates, or PowerShell.
+| Imagens de máquinas virtuais | O Azure Marketplace contém imagens que você pode usar para criar uma máquina virtual. Consulte o [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/category/compute?subcategories=virtual-machine-images&page=1) página para exibir a lista de imagens que estão disponíveis no Azure Marketplace. | Por padrão, não existem quaisquer imagens disponíveis no mercado de pilha do Azure. O administrador da nuvem do Azure pilha deve publicar ou baixar imagens Marketplace do Azure pilha antes que os usuários podem usá-los. |
+| Tamanhos de máquina virtual | Azure oferece suporte a uma ampla variedade de tamanhos de máquinas virtuais. Para saber mais sobre as opções e os tamanhos disponíveis, consulte o [tamanhos de máquinas virtuais do Windows](../../virtual-machines/virtual-machines-windows-sizes.md) e [tamanhos de máquina virtual Linux](../../virtual-machines/linux/sizes.md) tópicos. | A pilha do Azure suporta um subconjunto de tamanhos de máquinas virtuais que estão disponíveis no Azure. Para exibir a lista de tamanhos com suporte, consulte o [tamanhos de máquina virtual](#virtual-machine-sizes) deste artigo. |
+| Cotas da máquina virtual | [Limites de cota](../../azure-subscription-service-limits.md#service-specific-limits) são definidas pela Microsoft | O administrador da nuvem do Azure pilha deve atribuir cotas para máquinas virtuais oferecem aos usuários. |
+| Extensões de máquina virtual |Azure oferece suporte a uma ampla variedade de extensões de máquina virtual. Para saber mais sobre as extensões disponíveis, consulte o [extensões de máquina virtual e recursos](../../virtual-machines/windows/extensions-features.md) tópico.| A pilha do Azure suporta um subconjunto de extensões que estão disponíveis no Azure e da extensão possuem versões específicas. O administrador da nuvem do Azure pilha pode escolher quais extensões a serem disponibilizados para seus usuários. Para exibir a lista de extensões com suporte, consulte o [extensões de máquina virtual](#virtual-machine-extensions) deste artigo. |
+| Rede de máquina virtual | Endereços IP públicos atribuídos à máquina virtual são acessíveis pela Internet.<br><br><br>Máquinas virtuais do Azure tem um nome DNS fixado | Endereços IP públicos atribuídos a uma máquina virtual de locatário são acessíveis no ambiente somente do Kit de desenvolvimento de pilha do Azure. Um usuário deve ter acesso para o Kit de desenvolvimento de pilha do Azure por meio de [RDP](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) ou [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) para se conectar a uma máquina virtual que é criada na pilha do Azure.<br><br>Máquinas virtuais criadas em uma instância específica da pilha do Azure tem um nome DNS com base no valor que é configurado pelo administrador de nuvem. |
+| Armazenamento de máquina virtual | Dá suporte a [discos gerenciado.](../../virtual-machines/windows/managed-disks-overview.md) | Discos gerenciados ainda não têm suporte na pilha do Azure. |
+| Versões de API | O Azure sempre tem as versões de API mais recentes para todos os recursos de máquina virtual. | A pilha do Azure oferece suporte a serviços específicos do Azure e as versões de API específicas para esses serviços. Para exibir a lista de versões de API com suporte, consulte o [as versões de API](#api-versions) deste artigo. |
+|Conjuntos de disponibilidade da máquina virtual|Vários domínios de falha (2 ou 3 por região)<br>Vários domínios de atualização<br>Suporte a disco gerenciado|Domínio de falha único<br>Domínio de atualização<br>Não há suporte de disco gerenciado|
+|conjuntos de escala de máquina virtual|Suporte para dimensionamento automático|Dimensionamento automático não tem suportado.<br>Adicione mais instâncias em uma escala definida usando o portal, o Gerenciador de recursos de modelos ou o PowerShell.
 
-## <a name="virtual-machine-sizes"></a>Virtual machine sizes 
+## <a name="virtual-machine-sizes"></a>Tamanhos de máquina virtual 
 
-The Azure Stack Development Kit supports the following sizes: 
+O Kit de desenvolvimento de pilha do Azure suporta os seguintes tamanhos de: 
 
-| Type | Size | Range of supported sizes |
+| Tipo | Tamanho | Intervalo de tamanhos com suporte |
 | --- | --- | --- |
-|General purpose |Basic A|A0-A4|
-|General purpose |Standard A|A0-A7|
-|General purpose |Standard D|D1-D4|
-|General purpose |Standard Dv2|D1v2-D5v2|
-|Memory optimized|D-series|D11-D14|
-|Memory optimized |Dv2-series|D11v2-D14v2|
+|Propósito geral |A Básico|A0 A4|
+|Propósito geral |Um padrão|A0-A7|
+|Propósito geral |Padrão D|D4 D1|
+|Propósito geral |Dv2 padrão|D1v2 D5v2|
+|Otimizado para memória|Série D|D11 D14|
+|Otimizado para memória |Série Dv2|D11v2 D14v2|
 
-Virtual Machine sizes and their associated resource quantities are consistent between Azure Stack and Azure. For example, this includes the amount of memory, number of cores, and number/size of data disks that can be created. However, performance of the same VM size in Azure Stack depends on the underlying characteristics of a particular Azure Stack environment.
+Tamanhos de máquina virtual e suas quantidades de recursos associado são consistentes entre a pilha do Azure e o Azure. Por exemplo, isso inclui a quantidade de memória, número de núcleos e o número ou o tamanho dos discos de dados que podem ser criadas. No entanto, o desempenho do mesmo tamanho VM na pilha do Azure depende das características subjacentes de um determinado ambiente da pilha do Azure.
 
-## <a name="virtual-machine-extensions"></a>Virtual machine extensions 
+## <a name="virtual-machine-extensions"></a>Extensões de máquina virtual 
 
- The Azure Stack Development Kit supports the following virtual machine extension versions:
+ O Kit de desenvolvimento de pilha do Azure suporta as seguintes versões de extensão de máquina virtual:
 
-![VM Extensions](media/azure-stack-vm-considerations/vm-extensions.png)
+![Extensões de VM](media/azure-stack-vm-considerations/vm-extensions.png)
 
-Use the following PowerShell script to get the list of virtual machine extensions that are available in your Azure Stack environment:
+Use o seguinte script do PowerShell para obter a lista de extensões de máquinas virtuais que estão disponíveis em seu ambiente de pilha do Azure:
 
 ```powershell 
 Get-AzureRmVmImagePublisher -Location local | `
@@ -73,13 +71,13 @@ Get-AzureRmVmImagePublisher -Location local | `
   Format-Table -Property * -AutoSize 
 ```
 
-## <a name="api-versions"></a>API versions 
+## <a name="api-versions"></a>Versões de API 
 
-Virtual machine features in Azure Stack Development Kit support the following API versions:
+Recursos de máquina virtual no Kit de desenvolvimento de pilha do Azure suportam as seguintes versões de API:
 
-![VM resource types](media/azure-stack-vm-considerations/vm-resoource-types.png)
+![Tipos de recurso VM](media/azure-stack-vm-considerations/vm-resoource-types.png)
 
-You can use the following PowerShell script to get the API versions for the virtual machine features that are available in your Azure Stack environment:
+Você pode usar o seguinte script do PowerShell para obter as versões de API para os recursos de máquina virtual que estão disponíveis em seu ambiente de pilha do Azure:
 
 ```powershell 
 Get-AzureRmResourceProvider | `
@@ -88,9 +86,8 @@ Get-AzureRmResourceProvider | `
   Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} | `
   where-Object {$_.ProviderNamespace -like “Microsoft.compute”}
 ```
-The list of supported resource types and API versions may vary if the cloud operator updates your Azure Stack environment to a newer version.
+A lista de tipos de recursos com suporte e as versões de API pode variar se o operador de nuvem atualiza seu ambiente de pilha do Azure para uma versão mais recente.
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Próximas etapas
 
-[Create a Windows virtual machine with PowerShell in Azure Stack](azure-stack-quick-create-vm-windows-powershell.md)
-
+[Criar uma máquina virtual do Windows com o PowerShell na pilha do Azure](azure-stack-quick-create-vm-windows-powershell.md)

@@ -1,6 +1,6 @@
 ---
-title: Register Azure Stack | Microsoft Docs
-description: Register Azure Stack with your Azure subscription.
+title: Registrar a pilha do Azure | Microsoft Docs
+description: Registre a pilha do Azure com sua assinatura do Azure.
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -12,92 +12,84 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/27/2017
 ms.author: erikje
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 4a2ab892df6e18e87ba9a33b8b67a3b433ab8a56
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.openlocfilehash: 24cde66a132ae2e1ba0eb9b1564915746e5ca448
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/30/2017
 ---
-# <a name="register-azure-stack-with-your-azure-subscription"></a>Register Azure Stack with your Azure Subscription
+# <a name="register-azure-stack-with-your-azure-subscription"></a>Registrar a pilha do Azure com sua assinatura do Azure
 
-*Applies to: Azure Stack Development Kit*
+*Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
 
-For Azure Active Directory deployments, you can register [Azure Stack](azure-stack-poc.md) with Azure to download marketplace items from Azure and to set up commerce data reporting back to Microsoft. 
+Você pode registrar [Azure pilha](azure-stack-poc.md) com o Azure para baixar itens do marketplace do Azure e configurar dados de comércio relatadas à Microsoft. 
 
 > [!NOTE]
->Registration is recommended because it enables you to test important Azure Stack functionality, like marketplace syndication and usage reporting. After you register Azure Stack, usage is reported to Azure commerce. You can see it under the subscription you used for registration. Azure Stack Development Kit users will not be charged for any usage they report.
+>Registro é recomendado porque ela permite que você teste funcionalidades importantes da pilha do Azure, como distribuição de mercado e relatórios de uso. Depois de registrar a pilha do Azure, o uso é relatado para comércio do Azure. Você poderá ver isso na assinatura usado para registro. Usuários do Azure do Kit de desenvolvimento de pilha não são cobrados para qualquer uso que eles relatam.
 >
 
 
-## <a name="get-azure-subscription"></a>Get Azure subscription
+## <a name="get-azure-subscription"></a>Obter assinatura do Azure
 
-Before registering Azure Stack with Azure, you must have:
+Antes de registrar a pilha do Azure com o Azure, você deve ter:
 
-- The subscription ID for an Azure subscription. To get the ID, sign in to Azure, click **More services** > **Subscriptions**, click the subscription you want to use, and under **Essentials** you can find the **Subscription ID**. China, Germany, and US government cloud subscriptions are not currently supported.
-- The username and password for an account that is an owner for the subscription (MSA/2FA accounts are supported)
-- The Azure Active Directory for the Azure subscription. You can find this directory in Azure by hovering over your avatar at the top right corner of the Azure portal. 
-- Registered the Azure Stack resource provider (see the **Register Azure Stack Resource Provider** section below for details)
+- A ID de assinatura para uma assinatura do Azure. Para obter a ID, entre no Azure, clique em **mais serviços** > **assinaturas**, clique na assinatura que você deseja usar, e, em **Essentials** você pode encontrar o **ID da assinatura**. Na China, Alemanha e assinaturas de nuvem do governo dos EUA não têm suporte no momento.
+- O nome de usuário e a senha de uma conta que é proprietário da assinatura (há suporte para contas MSA/2FA).
+- O Active Directory do Azure para a assinatura do Azure. Você pode encontrar esse diretório no Azure focalizando seu avatar no canto superior direito do portal do Azure. 
+- [Registrado o provedor de recursos do Azure pilha](#register-azure-stack-resource-provider-in-azure).
 
-If you don’t have an Azure subscription that meets these requirements, you can [create a free Azure account here](https://azure.microsoft.com/en-us/free/?b=17.06). Registering Azure Stack incurs no cost on your Azure subscription.
+Se você não tiver uma assinatura do Azure que atende a esses requisitos, você pode [criar uma conta gratuita do Azure aqui](https://azure.microsoft.com/en-us/free/?b=17.06). Registrando a pilha do Azure, incorre em sem custo na sua assinatura do Azure.
 
 
 
-## <a name="register-azure-stack-resource-provider-in-azure"></a>Register Azure Stack resource provider in Azure
+## <a name="register-azure-stack-resource-provider-in-azure"></a>Registrar o provedor de recursos da pilha do Azure no Azure
 > [!NOTE] 
-> This step only needs to be completed once in an Azure Stack environment.
+> Esta etapa só precisa ser preenchida uma vez em um ambiente de pilha do Azure.
 >
 
-1. Start Powershell ISE as an administrator.
-2. Log in to the Azure account that is an owner of the Azure subscription with -EnvironmentName parameter set to "AzureCloud".
-3. Register the Azure resource provider "Microsoft.AzureStack".
+1. Inicie o ISE do Powershell como administrador.
+2. Login para a conta do Azure que é proprietário da assinatura do Azure com o parâmetro - EnvironmentName definido como "AzureCloud".
+3. Registre o provedor de recursos do Azure "Microsoft.AzureStack".
 
-Example: 
+Exemplo: 
 ```Powershell
 Login-AzureRmAccount -EnvironmentName "AzureCloud"
-Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack -Force
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.AzureStack
 ```
 
 
-## <a name="register-azure-stack-with-azure"></a>Register Azure Stack with Azure
+## <a name="register-azure-stack-with-azure"></a>Registrar a pilha do Azure com o Azure
 
 > [!NOTE]
->All these steps must be completed on the host computer.
+>Todas essas etapas devem ser concluídas no computador host.
 >
 
-1. [Install PowerShell for Azure Stack](azure-stack-powershell-install.md). 
-2. Copy the [RegisterWithAzure.ps1 script](https://go.microsoft.com/fwlink/?linkid=842959) to a folder (such as C:\Temp).
-3. Start PowerShell ISE as an administrator.    
-4. Run the RegisterWithAzure.ps1 script, replacing the following placeholders:
-    - *YourAccountName* is the owner of the Azure subscription
-    - *YourID* is the Azure subscription ID that you want to use to register Azure Stack
-    - *YourDirectory* is the name of your Azure Active Directory tenant that your Azure subscription is a part of.
+1. [Instale o PowerShell para Azure pilha](azure-stack-powershell-install.md). 
+2. Copie o [RegisterWithAzure.psm1 script](https://go.microsoft.com/fwlink/?linkid=842959) para uma pasta (como C:\Temp).
+3. Iniciar o ISE do PowerShell como administrador e importe o módulo RegisterWithAzure.    
+4. O script RegisterWithAzure.psm1, execute o módulo AzsRegistration adicionar. Substitua os espaços reservados a seguir: 
+    - *YourCloudAdminCredential* é um objeto do PowerShell que contém as credenciais de domínio local para o domain\cloudadmin (para o kit de desenvolvimento, isso é azurestack\cloudadmin).
+    - *YourAzureSubscriptionID* é a ID da assinatura do Azure que você deseja usar para registrar a pilha do Azure.
+    - *YourAzureDirectoryTenantName* é o nome do diretório do locatário do Azure associado à sua assinatura do Azure. O recurso de registro será criado nesse locatário de diretório. 
+    - *YourPrivilegedEndpoint* é o nome do [ponto de extremidade com privilégios](azure-stack-privileged-endpoint.md).
 
     ```powershell
-    RegisterWithAzure.ps1 -azureSubscriptionId YourID -azureDirectoryTenantName YourDirectory -azureAccountId YourAccountName
+    Add-AzsRegistration -CloudAdminCredential $YourCloudAdminCredential -AzureDirectoryTenantName $YourAzureDirectoryTenantName  -AzureSubscriptionId $YourAzureSubscriptionId -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Development 
     ```
-    
-    For example:
-    
-    ```powershell
-    C:\temp\RegisterWithAzure.ps1 -azureSubscriptionId "5e0ae55d-0b7a-47a3-afbc-8b372650abd3" `
-    -azureDirectoryTenantName "contoso.onmicrosoft.com" `
-    -azureAccountId serviceadmin@contoso.onmicrosoft.com
-    ```
-    
-5. At the two prompts, press Enter.
-6. In the pop-up login window, enter your Azure subscription credentials.
+5. Na janela pop-up de logon, insira suas credenciais de assinatura do Azure.
 
-## <a name="verify-the-registration"></a>Verify the registration
+## <a name="verify-the-registration"></a>Verifique se o registro
 
-1. Sign in to the administrator portal (https://adminportal.local.azurestack.external).
-2. Click **More Services** > **Marketplace Management** > **Add from Azure**.
-3. If you see a list of items available from Azure (such as WordPress), your activation was successful.
+1. Entre portal do administrador (https://adminportal.local.azurestack.external).
+2. Clique em **mais serviços** > **Marketplace gerenciamento** > **adicionar do Azure**.
+3. Se você vir uma lista de itens disponíveis do Azure (como o WordPress), a ativação foi bem-sucedida.
 
-## <a name="next-steps"></a>Next steps
+> [!NOTE]
+> Após a conclusão do registro, o aviso de ativo para não registrar não mais aparecerá.
 
-[Connect to Azure Stack](azure-stack-connect-azure-stack.md)
+## <a name="next-steps"></a>Próximas etapas
 
+[Conectar-se ao Azure Stack](azure-stack-connect-azure-stack.md)
 

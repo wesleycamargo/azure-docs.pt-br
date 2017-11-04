@@ -1,10 +1,10 @@
 ---
-title: Implantar origem OpenShift no Azure | Microsoft Docs
-description: "Saiba como implantar o OpenShift Origin em máquinas virtuais do Azure."
+title: "Visão geral do OpenShift no Azure | Microsoft Docs"
+description: "Visão geral do OpenShift no Azure."
 services: virtual-machines-linux
 documentationcenter: virtual-machines
-author: jbinder
-manager: timlt
+author: haroldw
+manager: najoshi
 editor: 
 tags: azure-resource-manager
 ms.assetid: 
@@ -14,151 +14,56 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 
-ms.author: jbinder
-ms.openlocfilehash: e03da05625e440eab29ccc28a2343d3433fc7607
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: haroldw
+ms.openlocfilehash: f9641b52db91a4356f6d5789a8cd78a6bb3da02b
+ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/25/2017
 ---
-# <a name="deploy-openshift-origin-to-azure-virtual-machines"></a>Implantar o OpenShift Origin mas Máquinas Virtuais do Azure 
+# <a name="openshift-overview"></a>Visão geral do OpenShift
 
-[OpenShift Origin](https://www.openshift.org/) é uma plataforma de contêiner de software livre criada em [Kubernetes](https://kubernetes.io/). Simplifica o processo de implantação, dimensionamento e operação de aplicativos multilocatário. 
+O OpenShift é uma plataforma de aplicativo de contêiner aberta e extensível que traz docker e Kubernetes para a empresa.  
 
-Este guia descreve como implantar o OpenShift Origin em Máquinas Virtuais do Azure usando a CLI do Azure e os Modelos do Azure Resource Manager. Neste tutorial, você aprenderá a:
+O OpenShift inclui Kubernetes para gerenciamento e orquestração do contêiner. Ele adiciona ferramentas concentradas no desenvolvedor e em operações que permitem:
 
-> [!div class="checklist"]
-> * Crie um KeyVault para gerenciar chaves SSH para o cluster OpenShift.
-> * Implante um cluster OpenShift em VMs do Azure. 
-> * Instale e configure a [CLI do OpenShift](https://docs.openshift.org/latest/cli_reference/index.html#cli-reference-index) para gerenciar o cluster.
-> * Personalize a implantação de OpenShift.
+- Desenvolvimento rápido de aplicativos
+- Implantação e dimensionamento fáceis
+- Manutenção de ciclo de vida de longo prazo para equipes e aplicativos
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+Há várias ofertas do OpenShift e duas estão disponíveis para execução no Azure.
 
-Este início rápido requer a CLI do Azure versão 2.0.8 ou posterior. Para saber qual é a versão, execute `az --version`. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
+- Origem do OpenShift
+- Plataforma do Contêiner do OpenShift
+- OpenShift Online
+- OpenShift Dedicado
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+Das quatro ofertas abordadas, duas estão disponíveis para que os clientes as implantem no Azure por conta própria - Origem do OpenShift e Plataforma de Contêiner do OpenShift.
 
-## <a name="log-in-to-azure"></a>Fazer logon no Azure 
-Faça logon na sua assinatura do Azure com o comando [az login](/cli/azure/#login) e siga as instruções na tela ou clique em **Experimentar** para usar o Cloud Shell.
+## <a name="openshift-origin"></a>Origem do OpenShift
 
-```azurecli 
-az login
-```
-## <a name="create-a-resource-group"></a>Criar um grupo de recursos
+O projeto upstream de [software livre](https://www.openshift.org/) do OpenShift tem o suporte da comunidade. A origem pode ser instalada em CentOS ou RHEL.
 
-Crie um grupo de recursos com o comando [az group create](/cli/azure/group#create). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. 
+## <a name="openshift-container-platform"></a>Plataforma do Contêiner do OpenShift
 
-O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* no local *eastus*.
+Versão pronta para a empresa ([oferta comercial](https://www.openshift.com)) do Red Hat com suporte da Red Hat. O cliente adquire os direitos necessários para a Plataforma de Contêiner OpenShift e é responsável pela instalação e o gerenciamento de toda a infraestrutura.
 
-```azurecli 
-az group create --name myResourceGroup --location eastus
-```
+Como o cliente é "dono" de toda a plataforma, pode instalar em seus datacenters locais, nuvem pública (Azure, AWS, Google etc.), entre outros.
 
-## <a name="create-a-key-vault"></a>Criar um cofre de chaves
-Crie um KeyVault para armazenar as chaves de SSH para o cluster com o comando [keyvault az creata](/cli/azure/keyvault#create).  
+## <a name="openshift-online"></a>OpenShift Online
 
-```azurecli 
-az keyvault create --resource-group myResourceGroup --name myKeyVault \
-       --enabled-for-template-deployment true \
-       --location eastus
-```
+OpenShift **multilocatário** gerenciado da Red Hat (usando a Plataforma de Contêiner). O Red Hat gerencia toda a infraestrutura subjacente (máquinas virtuais, cluster OpenShift, rede, armazenamento etc.). 
 
-## <a name="create-an-ssh-key"></a>Criar uma chave SSH 
-Uma chave SSH é necessária para proteger o acesso ao cluster de origem OpenShift. Crie um par de chaves SSH usando o comando `ssh-keygen`. 
- 
- ```bash
-ssh-keygen -f ~/.ssh/openshift_rsa -t rsa -N ''
-```
+O cliente implanta contêineres, mas não tem nenhum controle em quais hosts os contêineres serão executados. Como ele é multilocatário, os contêineres podem ser colocalizados nos mesmos hosts de VM do que os contêineres de outros clientes. O custo é por contêiner.
 
-> [!NOTE]
-> O par de chaves SSH que você cria não deve ter uma senha.
+## <a name="openshift-dedicated"></a>OpenShift Dedicado
 
-Para obter mais informações sobre as chaves SSH no Windows, confira [Como criar chaves SSH no Windows](/azure/virtual-machines/linux/ssh-from-windows).
-
-## <a name="store-ssh-private-key-in-key-vault"></a>Armazenar chave privada SSH no Key Vault
-A implantação de OpenShift usa a chave SSH criada para proteger o acesso ao mestre OpenShift. Para habilitar a implantação a recuperar a chave SSH com segurança, armazene a chave no Key Vault usando o comando a seguir.
-
-# <a name="enabled-for-template-deployment"></a>Habilitado para implantação de modelo
-```azurecli
-az keyvault secret set --vault-name KeyVaultName --name OpenShiftKey --file ~/.ssh/openshift.rsa
-```
-
-## <a name="create-a-service-principal"></a>Criar uma entidade de serviço 
-O OpenShift se comunica com o Azure usando um nome de usuário e i,a senha ou uma entidade de serviço. Uma entidade de serviço do Azure é uma identidade de segurança que você pode usar com aplicativos, serviços e ferramentas de automação como o OpenShift. Você controla e define as permissões referentes a quais operações a entidade de serviço pode executar no Azure. Para aprimorar a segurança, em vez de apenas fornecer um nome de usuário e uma senha, este exemplo cria uma entidade de serviço básica.
-
-Crie uma entidade de serviço com [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) e gere as credenciais necessárias para o OpenShift:
-
-```azurecli
-az ad sp create-for-rbac --name openshiftsp \
-          --role Contributor --password {strong password} \
-          --scopes $(az group show --name myResourceGroup --query id)
-```
-Anote a propriedade appId retornada do comando.
-```json
-{
-  "appId": "a487e0c1-82af-47d9-9a0b-af184eb87646d",
-  "displayName": "openshiftsp",
-  "name": "http://openshiftsp",
-  "password": {strong password},
-  "tenant": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX"
-}
-```
- > [!WARNING] 
- > Não crie uma senha não segura.  Execute a orientação [Restrições e regras de senha do Azure AD](/azure/active-directory/active-directory-passwords-policy).
-
-Para obter mais informações sobre entidades de serviço, confira [Criar entidade de serviço do Azure com a CLI 2.0 do Azure](/cli/azure/create-an-azure-service-principal-azure-cli)
-
-## <a name="deploy-the-openshift-origin-template"></a>Implante o modelo de origem OpenShift
-Em seguida, implante o OpenShift Origin usando um modelo do Azure Resource Manager. 
-
-> [!NOTE] 
-> O comando a seguir requer az CLI 2.0.8 ou posterior. Você pode verificar a versão de az CLI com o comando `az --version`. Para atualizar a versão da CLI, confira [Instalar a CLI do Azure 2.0]( /cli/azure/install-azure-cli).
-
-Use o valor `appId` da entidade de serviço que você criou anteriormente para o parâmetro `aadClientId`.
-
-```azurecli 
-az group deployment create --name myOpenShiftCluster \
-      --template-uri https://raw.githubusercontent.com/Microsoft/openshift-origin/master/azuredeploy.json \
-      --params \ 
-        openshiftMasterPublicIpDnsLabel=myopenshiftmaster \
-        infraLbPublicIpDnsLabel=myopenshiftlb \
-        openshiftPassword=Pass@word!
-        sshPublicKey=~/.ssh/openshift_rsa.pub \
-        keyVaultResourceGroup=myResourceGroup \
-        keyVaultName=myKeyVault \
-        keyVaultSecret=OpenShiftKey \
-        aadClientId={appId} \
-        aadClientSecret={strong password} 
-```
-A implantação pode levar até 20 minutos para ser concluída. A URL do console openShift e o nome DNS do mestre OpenShift são impressas no terminal quando a implantação é concluída.
-
-```json
-{
-  "OpenShift Console Uri": "http://openshiftlb.cloudapp.azure.com:8443/console",
-  "OpenShift Master SSH": "ocpadmin@myopenshiftmaster.cloudapp.azure.com"
-}
-```
-## <a name="connect-to-the-openshift-cluster"></a>Conectar-se ao cluster OpenShift
-Quando a implantação for concluída, conecte-se ao console do OpenShift com o navegador usando o `OpenShift Console Uri`. Como alternativa, você pode se conectar ao mestre de OpenShift usando o comando a seguir.
-
-```bash
-$ ssh ocpadmin@myopenshiftmaster.cloudapp.azure.com
-```
-
-## <a name="clean-up-resources"></a>Limpar recursos
-Quando não for mais necessário, você pode usar o comando [az group delete](/cli/azure/group#delete) para remover o grupo de recursos, o cluster OpenShift e todos os recursos relacionados.
-
-```azurecli 
-az group delete --name myResourceGroup
-```
+OpenShift de **um locatário** gerenciado da Red Hat (usando a Plataforma de Contêiner). O Red Hat gerencia toda a infraestrutura subjacente (máquinas virtuais, cluster OpenShift, rede, armazenamento etc.). O cluster é específico para um cliente e é executado em uma nuvem pública (AWS, Google, Azure - lançamento no início de 2018). O cluster inicial inclui quatro Nós de Aplicativo para $48 mil/ano (pagamento adiantado de um ano inteiro).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, vimos como:
-> [!div class="checklist"]
-> * Crie um KeyVault para gerenciar chaves SSH para o cluster OpenShift.
-> * Implante um cluster OpenShift em VMs do Azure. 
-> * Instale e configure a [CLI do OpenShift](https://docs.openshift.org/latest/cli_reference/index.html#cli-reference-index) para gerenciar o cluster.
-
-Agora esse cluster de origem OpenShift é implantado. Você pode seguir os tutoriais do OpenShift para aprender a implantar seu primeiro aplicativo e usar as ferramentas do OpenShift. Confira [Introdução ao OpenShift Origin](https://docs.openshift.org/latest/getting_started/index.html) para começar. 
+- [Configurar pré-requisitos comuns para OpenShift no Azure](./openshift-prerequisites.md)
+- [Implantar a origem do OpenShift](./openshift-origin.md)
+- [Implantar a plataforma de contêiner do OpenShift](./openshift-container-platform.md)
+- [Tarefas pós-implantação](./openshift-post-deployment.md)
+- [Solução de problemas de implantação do OpenShift](./openshift-troubleshooting.md)

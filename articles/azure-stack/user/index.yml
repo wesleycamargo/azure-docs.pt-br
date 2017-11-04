@@ -4,7 +4,7 @@ title: Documentação do Usuário do Azure Stack
 metadata:
   document_id: cbf798da-6f1a-7d4d-7707-5d5e02589e22
   title: 'Documentação do Azure Stack - Tutoriais, Referência de API'
-  description: Saiba como usar a visualização do Azure Stack para oferecer serviços do Azure do seu data center. Aprenda e demonstre recursos de um ambiente de prova de conceito.
+  description: Saiba como usar serviços de pilha do Azure e como criar aplicativos para a pilha do Azure.
   services: azure-stack
   author: carolz
   manager: carolz
@@ -12,12 +12,12 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/23/2017
+  ms.date: 10/02/2017
   ms.author: carolz
 abstract:
-  description: 'O Azure Stack é uma plataforma desktop em nuvem híbrida que possibilita usar serviços do Azure por meio do datacenter da sua empresa ou do seu provedor de serviços. Como desenvolvedor, você pode criar aplicativos no Azure Stack. Você pode implantá-los no Azure Stack, no Azure ou você pode criar aplicativos verdadeiramente híbridos aproveitam a conectividade entre uma nuvem do Azure Stack e o Azure.  Saiba como criar recursos e implantar aplicativos com tutoriais e guias de início rápido.'
+  description: 'O Azure Stack é uma plataforma desktop em nuvem híbrida que possibilita usar serviços do Azure por meio do datacenter da sua empresa ou do seu provedor de serviços. Como desenvolvedor, você pode criar aplicativos no Azure Stack. Você pode implantá-los no Azure Stack, no Azure ou você pode criar aplicativos verdadeiramente híbridos aproveitam a conectividade entre uma nuvem do Azure Stack e o Azure. Saiba como criar recursos e implantar aplicativos com tutoriais e guias de início rápido.<br/><br/>Se você tiver um operador de pilha do Azure que gerencia a infraestrutura e ofertas de serviços, consulte nosso <a href="/azure/azure-stack/">documentação operador</a>.'
 sections:
-  - title: Início rápido
+  - title: Guia de início rápido de 5 minutos
     items:
       - type: paragraph
         text: 'Saiba como implantar uma máquina virtual do Windows no Azure Stack:'
@@ -53,10 +53,10 @@ sections:
               src: 'https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg'
             text: CLI
             href: azure-stack-quick-create-vm-linux-cli.md
-  - title: Tutoriais passo a passo
+  - title: Tutoriais Passo a Passo
     items:
       - type: paragraph
-        text: 'Implante aplicativos em ambos o Azure e o Azure Stack:'
+        text: Implante aplicativos no Azure e a pilha do Azure.
       - type: list
         style: ordered
         items:
@@ -68,4 +68,4 @@ sections:
         className: cardsD
         items:
           - title: Linha de comando
-            html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.9">Azure Stack PowerShell</a></p>
+            html: <p><a href="/powershell/azure/azure-stack/overview?view=azurestackps-1.2.10">Azure Stack PowerShell</a></p><p><a href="/cli/azure/?view=azure-cli-2017-03-09-profile">Pilha do Azure CLI</a></p>

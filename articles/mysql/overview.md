@@ -8,38 +8,40 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 10/20/2017
 ms.custom: mvc
-ms.openlocfilehash: 3eff97a9e7568566cd01a4eb3c7ee66806eac4cc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2a9efdd9285dfa5fca450ede64e5f6ee54cbc72b
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
-# <a name="what-is-azure-database-for-mysql-service-introduction"></a>O que é o Banco de Dados do Azure para MySQL? Introdução ao serviço
-O Banco de Dados do Azure para MySQL é um serviço de banco de dados relacional no Microsoft Cloud, baseado no mecanismo de banco de dados [MySQL Community Edition](https://www.mysql.com/products/community/).  O Banco de Dados do Azure para MySQL fornece:
+# <a name="what-is-azure-database-for-mysql"></a>O que é o Banco de Dados do Azure para MySQL?
+O Banco de Dados do Azure para MySQL é um serviço de banco de dados relacional no Microsoft Cloud, baseado no mecanismo de banco de dados [MySQL Community Edition](https://www.mysql.com/products/community/). Esse serviço está na fase de visualização pública. O Banco de Dados do Azure para MySQL fornece:
 
-- Desempenho previsível em vários níveis de serviço.
-- Escalabilidade dinâmica sem tempo de inatividade do aplicativo.
-- Alta disponibilidade interna.
-- Proteção de dados.
+- Alta disponibilidade interna sem nenhum custo adicional.
+- Desempenho previsível, com preços pré-pagos inclusivos.
+- Dimensionamento dinâmico em segundos.
+- Seguro para proteger dados confidenciais em repouso e em movimento.
+- Backups automáticos e restauração pontual por até 35 dias.
+- Segurança e conformidade de nível empresarial.
 
 Esses recursos não precisam de quase nenhuma administração e todos são fornecidos sem nenhum custo adicional. Eles permitem que você se concentre no desenvolvimento rápido de aplicativos e em acelerar seu tempo de colocação no mercado, em vez de alocar tempo e recursos preciosos ao gerenciamento de máquinas virtuais e de infraestrutura. Além disso, você pode continuar desenvolvendo seu aplicativo com a plataforma e as ferramentas de software livre de sua escolha e pode fornecê-lo com a velocidade e a eficiência que sua empresa exige, tudo isso sem precisar aprender novas habilidades.
 
 ![Diagrama conceitual do Banco de Dados do Azure para MySQL](media/overview/1-azure-db-for-mysql-conceptual-diagram.png)
 
-Este artigo é uma introdução aos principais conceitos e recursos do Banco de Dados do Azure para MySQL relacionados a desempenho, escalabilidade e gerenciabilidade, com links para explorar os detalhes. Consulte estes inícios rápidos para começar:
-- [Criar um servidor de Banco de Dados do Azure para MySQL usando o portal do Azure](quickstart-create-mysql-server-database-using-azure-portal.md)
+Este artigo é uma introdução aos principais conceitos e recursos do Banco de Dados do Azure para MySQL relacionados a desempenho, escalabilidade e gerenciabilidade, com links para explorar os detalhes. Veja estes inícios rápidos para começar:
+- [Criar um Banco de Dados do Azure para servidor MySQL usando o portal do Azure](quickstart-create-mysql-server-database-using-azure-portal.md)
 - [Criar um servidor de Banco de Dados do Azure para MySQL usando a CLI do Azure](quickstart-create-mysql-server-database-using-azure-cli.md)
 
 Para ver diversos exemplos da CLI do Azure, consulte:
 - [Exemplos da CLI do Azure para o Banco de Dados do Azure para MySQL](sample-scripts-azure-cli.md)
 
-## <a name="adjust-performance-and-scale-without-downtime"></a>Ajuste de desempenho e dimensionamento sem tempo de inatividade
-O serviço de Banco de Dados do Azure para MySQL oferece duas camadas de serviço: Básico e Standard. Cada camada oferece diferentes níveis de desempenho e recursos para dar suporte a cargas de trabalho de banco de dados leves e pesadas. Você pode compilar seu primeiro aplicativo em um banco de dados pequeno por alguns dólares por mês e, em seguida, alterar a camada de serviço e dimensioná-la de acordo com as necessidades da solução, sem tempo de inatividade. A escalabilidade dinâmica permite que o banco de dados responda de forma transparente a mudanças rápidas nos requisitos de recursos. Você paga apenas pelos recursos de que precisa, e somente quando precisa deles.
+## <a name="adjust-performance-and-scale-within-seconds"></a>Ajustar o desempenho e a escala em segundos
+Na versão prévia, o serviço Banco de Dados do Azure para MySQL oferece duas camadas de serviço: Básico e Standard. Cada camada oferece diferentes níveis de desempenho e recursos para dar suporte a cargas de trabalho de banco de dados leves e pesadas. Você pode criar seu primeiro aplicativo em um banco de dados pequeno por alguns dólares por mês e então ajustar a escala para atender às necessidades da sua solução. A escalabilidade dinâmica permite que o banco de dados responda de forma transparente a mudanças rápidas nos requisitos de recursos. Você paga apenas pelos recursos de que precisa, e somente quando precisa deles. Veja [Tipos de preço](concepts-service-tiers.md) para obter detalhes.
 
 ## <a name="monitoring-and-alerting"></a>Monitoramento e alertas
-Como você sabe o momento certo de parar ao fazer o ajuste? Use os recursos internos de alerta e monitoramento de desempenho, em conjunto com as classificações de desempenho baseadas na Unidade de computação. Usando essas ferramentas, é possível avaliar rapidamente o impacto da expansão ou redução da escala com base nas suas necessidades de desempenho atuais ou previstas. Consulte [Conceitos: camadas de serviço](concepts-service-tiers.md) para obter detalhes.
+Como você decide quando aumentar e reduzir? Use os recursos internos de alerta e monitoramento de desempenho, em conjunto com as classificações de desempenho baseadas na Unidade de computação. Usando essas ferramentas, você pode avaliar rapidamente o impacto da expansão ou redução das Unidades de computação com base nas suas necessidades de desempenho atuais ou previstas. Veja [Alertas](howto-alert-on-metric.md) para obter detalhes.
 
 ## <a name="keep-your-app-and-business-running"></a>Mantenha seus aplicativos e a continuidade dos negócios
 O SLA (Contrato de Nível de Serviço) de disponibilidade de 99,99% do Azure, que é líder do setor e é alimentado por uma rede global de datacenters gerenciados pela Microsoft, ajuda a manter seu aplicativo em execução de forma ininterrupta. Com cada servidor do Banco de Dados do Azure para MySQL, você tira proveito dos recursos internos de segurança, tolerância a falhas e proteção de dados que, em outras situações, seria necessário comprar ou projetar, criar e gerenciar. Com o Banco de Dados do Azure para MySQL, você pode usar a restauração pontual para recuperar um servidor para um estado anterior, com alcance de até 35 dias.
@@ -54,5 +56,5 @@ Por padrão, o serviço Banco de Dados do Azure para MySQL está configurado par
 ## <a name="next-steps"></a>Próximas etapas
 Agora que leu uma introdução ao Banco de Dados do Azure para MySQL e respondeu à pergunta "O que é o Banco de Dados do Azure para MySQL?", você está pronto para:
 - Consultar a página de preços para ver comparações de custo e calculadoras. [Preços](https://azure.microsoft.com/pricing/details/mysql/)
-- Comece com a criação do seu primeiro servidor. [Criar um servidor de Banco de Dados do Azure para MySQL usando o portal do Azure](quickstart-create-mysql-server-database-using-azure-portal.md)
-- Crie seu primeiro aplicativo no Python, PHP, Ruby, C\#, Java, Node.js: [Bibliotecas de conectividade usadas para se conectar ao Banco de Dados do Azure para MySQL](concepts-connection-libraries.md)
+- Comece com a criação do seu primeiro servidor. [Criar um Banco de Dados do Azure para servidor MySQL usando o portal do Azure](quickstart-create-mysql-server-database-using-azure-portal.md)
+- Crie seu primeiro aplicativo usando sua linguagem preferida: [Python](./connect-python.md) | [Node.JS](./connect-nodejs.md) | [Java](./connect-java.md) | [Ruby](./connect-ruby.md) | [PHP](./connect-php.md) | [.NET (C#)](./connect-csharp.md) | [Go](./connect-go.md)

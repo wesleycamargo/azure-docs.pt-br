@@ -1,6 +1,6 @@
 ---
-title: Connect Storage Explorer to an Azure Stack subscription
-description: Learn how to connect Storage Exporer to an  Azure Stack subscription
+title: Conecte-se o Gerenciador de armazenamento para uma assinatura de pilha do Azure
+description: Saiba como conectar o armazenamento Exporer a uma assinatura de pilha do Azure
 services: azure-stack
 documentationcenter: 
 author: xiaofmao
@@ -14,97 +14,96 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: xiaofmao
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 8cd52e9561f2ad92664c01959df8919aa56e8738
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.openlocfilehash: c7e6d70148d39fd74f6409a0a239833f8e9f7614
+ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/12/2017
 ---
-# <a name="connect-storage-explorer-to-an-azure-stack-subscription"></a>Connect Storage Explorer to an Azure Stack subscription
+# <a name="connect-storage-explorer-to-an-azure-stack-subscription"></a>Conecte-se o Gerenciador de armazenamento para uma assinatura de pilha do Azure
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
 
-Azure Storage Explorer (Preview) is a standalone app that enables you to easily work with Azure Stack Storage data on Windows, macOS, and Linux. There are several tools avaialble to move data to and from Azure Stack Storage. For more information, see [Data transfer tools for Azure Stack storage](azure-stack-storage-transfer.md).
+Gerenciador de armazenamento do Azure (visualização) é um aplicativo autônomo que permite que você trabalhe facilmente com dados de armazenamento do Azure pilha no Linux, Windows e macOS. Há vários disponíveis ferramentas para mover dados para e do armazenamento de pilha do Azure. Para obter mais informações, consulte [transferência de dados de ferramentas para o armazenamento do Azure pilha](azure-stack-storage-transfer.md).
 
-In this article, you learn how to connect to your Azure Stack storage accounts using Storage Explorer. 
+Neste artigo, você aprenderá como conectar-se às suas contas de armazenamento do Azure pilha usando o Gerenciador de armazenamento. 
 
-If you haven't installed Storage Explorer yet, [download](http://www.storageexplorer.com/) and and install it.
+Se você ainda não instalou o Gerenciador de armazenamento ainda, [baixar](http://www.storageexplorer.com/) e e instalá-lo.
 
-After you connect to your Azure Stack subscription, you can use the [Azure Storage Explorer articles](../../vs-azure-tools-storage-manage-with-storage-explorer.md) to work with your Azure Stack data. 
+Depois de se conectar à sua assinatura de pilha do Azure, você pode usar o [artigos Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md) para trabalhar com os dados da pilha do Azure. 
 
-## <a name="prepare-an-azure-stack-subscription"></a>Prepare an Azure Stack subscription
+## <a name="prepare-an-azure-stack-subscription"></a>Preparar uma assinatura de pilha do Azure
 
-You need access to the Azure Stack host machine's desktop or a VPN connection for Storage Explorer to access the Azure Stack subscription. To learn how to set up a VPN connection to Azure Stack, see [Connect to Azure Stack with VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn).
+Você precisa ter acesso à área de trabalho da máquina de host de pilha do Azure ou uma conexão VPN para o Gerenciador de armazenamento acessar a assinatura de pilha do Azure. Para saber como configurar uma conexão VPN ao Azure Stack, confira [Como conectar-se com o Azure Stack com VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn).
 
-For the Azure Stack Development Kit, you need to export the Azure Stack authority root certificate.
+Para o Kit de desenvolvimento de pilha do Azure, você precisa exportar o certificado de raiz da autoridade de pilha do Azure.
 
-### <a name="to-export-and-then-import-the-azure-stack-certificate"></a>To export and then import the Azure Stack certificate
+### <a name="to-export-and-then-import-the-azure-stack-certificate"></a>Para exportar e importar o certificado de pilha do Azure
 
-1. Open `mmc.exe` on an Azure Stack host machine, or a local machine with a VPN connection to Azure Stack. 
+1. Abra `mmc.exe` em uma máquina de host de pilha do Azure, ou um computador local com uma conexão VPN com a pilha do Azure. 
 
-2. In **File**, select **Add/Remove Snap-in**, and then add **Certificates** to manage **Computer account** of **Local Computer**.
-
-
-
-3. Under **Console Root\Certificated (Local Computer)\Trusted Root Certification Authorities\Certificates** find **AzureStackSelfSignedRootCert**.
-
-    ![Load the Azure Stack root certificate through mmc.exe][25]
-
-4. Right-click the certificate, select **All Tasks** > **Export**, and then follow the instructions to export the certificate with **Base-64 encoded X.509 (.CER)**.  
-
-    The exported certificate will be used in the next step.
-5. Start Storage Explorer (Preview), and if you see the **Connect to Azure Storage** dialog box, cancel it.
-
-6. On the **Edit** menu, point to **SSL Certificates**, and then click **Import Certificates**. Use the file picker dialog box to find and open the certificate that you exported in the previous step.
-
-    After importing, you are prompted to restart Storage Explorer.
-
-    ![Import the certificate into Storage Explorer (Preview)][27]
-
-Now you are ready to connect Storage Explorer to an Azure Stack subscription.
-
-### <a name="to-connect-an-azure-stack-subscription"></a>To connect an Azure Stack subscription
+2. Em **arquivo**, selecione **Adicionar/Remover Snap-in**e, em seguida, adicione **certificados** para gerenciar **minha conta de usuário**.
 
 
-1. After Storage Explorer (Preview) restarts, select the **Edit** menu, and then ensure that **Target Azure Stack** is selected. If it is not selected, select it, and then restart Storage Explorer for the change to take effect. This configuration is required for compatibility with your Azure Stack environment.
 
-    ![Ensure Target Azure Stack is selected][28]
+3. Em **Root\Certificated Console (computador Local) \Trusted Root Certification Authorities\Certificates** localizar **AzureStackSelfSignedRootCert**.
 
-7. In the left pane, select **Manage Accounts**.  
-    All the Microsoft accounts that you are signed in to are displayed.
+    ![Como carregar o certificado raiz do Azure Stack por meio do mmc.exe][25]
 
-8. To connect to the Azure Stack account, select **Add an account**.
+4. Clique com botão direito no certificado, selecione **todas as tarefas** > **exportar**e, em seguida, siga as instruções para exportar o certificado com **x. 509 codificado na Base 64 (. CER)**.  
 
-    ![Add an Azure Stack account][29]
+    O certificado exportado será usado na próxima etapa.
+5. Iniciar o Gerenciador de armazenamento (visualização), e se você vir o **conectar ao armazenamento do Azure** caixa de diálogo caixa, cancelá-la.
 
-9. In the **Connect to Azure Storage** dialog box, under **Azure environment**, select **Use Azure Stack Environment**, and then click **Next**.
+6. Sobre o **editar** , aponte para **certificados SSL**e, em seguida, clique em **importar certificados**. Use a caixa de diálogo do seletor de arquivos para localizar e abrir o certificado que você exportou na etapa anterior.
 
-10. To sign in with the Azure Stack account that's associated with at least one active Azure Stack subscription, fill in the **Sign in to Azure Stack Environment** dialog box.  
+    Após a importação, você será solicitado para reiniciar o Gerenciador de armazenamento.
 
-    The details for each field are as follows:
+    ![Importe o certificado no Gerenciador de armazenamento (visualização)][27]
 
-    * **Environment name**: The field can be customized by user.
-    * **ARM resource endpoint**: The samples of Azure Resource Manager resource endpoints:
+Agora você está pronto para conectar-se o Gerenciador de armazenamento para uma assinatura de pilha do Azure.
 
-        * For cloud operator:<br> https://adminmanagement.local.azurestack.external   
-        * For tenant:<br> https://management.local.azurestack.external
+### <a name="to-connect-an-azure-stack-subscription"></a>Para se conectar a uma assinatura de pilha do Azure
+
+
+1. Após reiniciar o Gerenciador de armazenamento (visualização), selecione o menu **Editar** e verifique se o **Azure Stack de destino** está selecionado. Se não estiver selecionado, selecione-o e, em seguida, reinicie o Gerenciador de armazenamento para que a alteração tenha efeito. Essa configuração é necessária para que haja compatibilidade com seu ambiente do Azure Stack.
+
+    ![Confira se o Destino Azure Stack está selecionado][28]
+
+7. No painel esquerdo, selecione **Gerenciar Contas**.  
+    Todas as contas da Microsoft as quais você está conectado são exibidas.
+
+8. Para conectar-se com a conta do Azure Stack, selecione **Adicionar uma conta**.
+
+    ![Adicionar uma conta do Azure Stack][29]
+
+9. No **conectar ao armazenamento do Azure** caixa de diálogo **ambiente Azure**, selecione **ambiente de pilha do uso do Azure**e, em seguida, clique em **próximo**.
+
+10. Para entrar com a conta de pilha do Azure que está associado a pelo menos uma assinatura ativa do Azure pilha, preencha o **entrar no ambiente do Azure pilha** caixa de diálogo.  
+
+    Veja em seguida os detalhes para cada campo:
+
+    * **Nome do ambiente**: o campo pode ser personalizado pelo usuário.
+    * **O ponto de extremidade dos recursos do ARM**: as amostras dos pontos de extremidade do recurso do Azure Resource Manager:
+
+        * Operador de nuvem:<br> https://adminmanagement.local.azurestack.external   
+        * Para locatário:<br> https://Management.local.azurestack.external
  
-    * **Tenant Id**: Optional. The value is given only when the directory must be specified.
+    * **Id do locatário**: opcional. O valor é fornecido apenas quando o diretório deve ser especificado.
 
-12. After you successfully sign in with an Azure Stack account, the left pane is populated with the Azure Stack subscriptions associated with that account. Select the Azure Stack subscriptions that you want to work with, and then select **Apply**. (Selecting or clearing the **All subscriptions** check box toggles selecting all or none of the listed Azure Stack subscriptions.)
+12. Depois de entrar com êxito usando uma conta do Azure Stack, o painel esquerdo é preenchido com as assinaturas do Azure Stack associadas à conta. Selecione as assinaturas do Azure Stack que você deseja trabalhar e, então, selecione **Aplicar**. (Marcar ou desmarcar a caixa de seleção **Todas as assinaturas** seleciona todas ou nenhuma das assinaturas do Azure Stack listadas.)
 
-    ![Select the Azure Stack subscriptions after filling out the Custom Cloud Environment dialog box][30]  
-    The left pane displays the storage accounts associated with the selected Azure Stack subscriptions.
+    ![Selecione as assinaturas do Azure Stack depois de preencher a caixa de diálogo do ambiente de nuvem personalizado][30]  
+    O painel esquerdo exibe as contas de armazenamento associadas às assinaturas do Azure Stack selecionadas.
 
-    ![List of storage accounts including Azure Stack subscription accounts][31]
+    ![Lista de contas de armazenamento, incluindo contas de assinatura do Azure Stack][31]
 
-## <a name="next-steps"></a>Next steps
-* [Get started with Storage Explorer (Preview)](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
-* [Azure Stack Storage: differences and considerations](azure-stack-acs-differences.md)
+## <a name="next-steps"></a>Próximas etapas
+* [Introdução ao Gerenciador de armazenamento (visualização)](../../vs-azure-tools-storage-manage-with-storage-explorer.md)
+* [Armazenamento do Azure de pilha: as diferenças e considerações](azure-stack-acs-differences.md)
 
 
-* To learn more about Azure Storage, see [Introduction to Microsoft Azure Storage](../../storage/common/storage-introduction.md)
+* Para saber mais sobre o armazenamento do Azure, consulte [Introdução ao armazenamento do Microsoft Azure](../../storage/common/storage-introduction.md)
 
 [25]: ./media/azure-stack-storage-connect-se/add-certificate-azure-stack.png
 [26]: ./media/azure-stack-storage-connect-se/export-root-cert-azure-stack.png
@@ -113,4 +112,3 @@ Now you are ready to connect Storage Explorer to an Azure Stack subscription.
 [29]: ./media/azure-stack-storage-connect-se/add-azure-stack-account.png
 [30]: ./media/azure-stack-storage-connect-se/select-accounts-azure-stack.png
 [31]: ./media/azure-stack-storage-connect-se/azure-stack-storage-account-list.png
-

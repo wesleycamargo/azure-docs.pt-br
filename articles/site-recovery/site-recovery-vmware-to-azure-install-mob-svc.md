@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: backup-recovery
 ms.date: 06/29/2017
 ms.author: anoopkv
-ms.openlocfilehash: eb2fbd16980eadfce15227b6ba07f00c47b672ee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e3b26c7f34a8fd3d027464cb7a3704c7960b67c6
+ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/19/2017
 ---
 # <a name="install-mobility-service-vmware-or-physical-to-azure"></a>Instalar o Serviço de Mobilidade (VMware ou físico no Azure)
 O Serviço de Mobilidade do Azure Site Recovery captura gravações de dados em um computador e, em seguida, encaminha-os para o servidor em processo. Implante o Serviço de Mobilidade em cada computador (VM VMware ou servidor físico) que você deseja replicar para o Azure. É possível implantar o Serviço de Mobilidade nos servidores que você deseja proteger usando os seguintes métodos:
@@ -93,8 +93,12 @@ Depois de instalar o Serviço de Mobilidade, no portal do Azure, selecione o bot
 
 1. No portal do Azure, navegue para <Your Vault> -> modo de exibição de itens replicados.
 2. Se o **servidor de configuração** já tiver sido atualizado para a versão mais recente, você verá uma notificação que mostra que uma *atualização do agente de replicação do novo Site recovery está disponível. Clique para instalar*
+   
+     ![ReplicatedItems](.\media\site-recovery-vmware-to-azure-install-mob-svc\replicated-item-notif.png)
 3. Clique na notificação para abrir a página de seleção da máquina virtual.
 4. Selecione as máquinas virtuais que você desejar para fazer o upgrade do serviço de mobilidade e clique no botão OK.
+
+     ![ReplicatedItemsVMList](.\media\site-recovery-vmware-to-azure-install-mob-svc\update-okpng.png)
 5. Isso inicia o trabalho de serviço de mobilidade de atualização para cada uma das máquinas virtuais selecionadas.
 
 > [!NOTE]

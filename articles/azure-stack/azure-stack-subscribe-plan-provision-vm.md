@@ -1,6 +1,6 @@
 ---
-title: Subscribe to an offer | Microsoft Docs
-description: As a tenant, learn how to subscribe to an offer.
+title: Assinar uma oferta | Microsoft Docs
+description: "Como um usuário, saiba como se inscrever para uma oferta."
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -14,39 +14,36 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 7/03/2017
 ms.author: erikje
-ms.translationtype: HT
-ms.sourcegitcommit: d941879aee6042b38b7f5569cd4e31cb78b4ad33
-ms.openlocfilehash: 3cd87ebe9827249d32f15b5de0ad8521d0282c47
-ms.contentlocale: pt-br
-ms.lasthandoff: 07/10/2017
-
-
+ms.openlocfilehash: f70815b5e89753a4b0083ffbe10d9920062d1ff0
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# Subscribe to an offer
-<a id="subscribe-to-an-offer" class="xliff"></a>
-Now that you've [created an offer](azure-stack-create-offer.md), test that your tenants can create a subscription.
+# <a name="subscribe-to-an-offer"></a>Assinar uma oferta
 
-1. [Sign in](azure-stack-connect-azure-stack.md) to the Azure Stack tenant portal (https://portal.local.azurestack.external) and click **Get a Subscription**.
+*Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
+
+Agora que você já [criado uma oferta](azure-stack-create-offer.md), que os usuários podem criar uma assinatura de teste.
+
+1. [Entrar](azure-stack-connect-azure-stack.md) para o portal do usuário do Azure pilha (https://portal.local.azurestack.external) e clique em **obter uma assinatura**.
 
    ![](media/azure-stack-subscribe-plan-provision-vm/image01.png)
-2. In the **Display Name** field, type a name for your subscription, click **Offer**, click one of the offers in the **Choose an offer** blade, and then click **Create**.
+2. No **nome de exibição** campo, digite um nome para sua assinatura, clique em **oferecem**, clique em uma das ofertas no **escolha uma oferta de** folha e depois clique em  **Criar**.
 
    ![](media/azure-stack-subscribe-plan-provision-vm/image02.png)
-3. To view the subscription you created, click **More services**, click **Subscriptions**, then click your new subscription.  
+3. Para exibir a assinatura que você criou, clique em **mais serviços**, clique em **assinaturas**, em seguida, clique em nova assinatura.  
 
-After you subscribe to an offer, refresh the portal to see which services are part of the new subscription.
+Após assinar uma oferta, atualize o portal para ver os serviços que fazem parte da nova assinatura.
 
-## Subscribe to an add-on plan
-<a id="subscribe-to-an-add-on-plan" class="xliff"></a>
-If the offer has an add-on plan, tenants can add them to their subscription at any time.  
+## <a name="subscribe-to-an-add-on-plan"></a>Assinar um plano de complemento
+Se a oferta tem um plano de complemento, os usuários podem adicioná-los à sua assinatura a qualquer momento.  
 
-1. In the tenant portal, select **More services** > **Subscriptions**.
+1. No portal do usuário, selecione **mais serviços** > **assinaturas**.
 
-2. Click on the subscription > **Add Plan** button, and select the add-on plan.
-
+2. Clique na assinatura > **Adicionar plano** botão e, em seguida, selecione o plano de complemento.
 
 
-## Next steps
-<a id="next-steps" class="xliff"></a>
-[Provision a virtual machine](azure-stack-provision-vm.md)
 
+## <a name="next-steps"></a>Próximas etapas
+[Provisionar uma máquina virtual](azure-stack-provision-vm.md)

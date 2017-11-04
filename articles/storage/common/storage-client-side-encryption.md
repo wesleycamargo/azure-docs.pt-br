@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 10/20/2017
 ms.author: tamram
-ms.openlocfilehash: 0c36679fd9128613cb4a7e54786ab09eb3a1fc3d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fe8023729bd1294dedd2a4e4723a8be0976731d6
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="client-side-encryption-and-azure-key-vault-for-microsoft-azure-storage"></a>Criptografia do lado do cliente e o Cofre da Chave do Azure para o Armazenamento do Microsoft Azure
 [!INCLUDE [storage-selector-client-side-encryption-include](../../../includes/storage-selector-client-side-encryption-include.md)]
@@ -146,10 +146,11 @@ Ao criar um objeto EncryptionPolicy, os usuários podem fornecer somente uma cha
   * O resolvedor de chave é invocado se especificado para obter a chave. Se o resolvedor for especificado, mas não tiver um mapeamento para o identificador de chave, um erro será gerado.
   * Se o resolvedor não for especificado, mas uma chave for especificada, a chave será usada se o identificador corresponder ao identificador da chave necessária. Se o identificador não corresponder, um erro será gerado.
 
-Os [exemplos de criptografia](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) demonstram um cenário completo mais detalhado para blobs, filas e tabelas, juntamente com a integração do Cofre da Chave.
+Os exemplos de código neste artigo demonstram a configuração de uma política de criptografia e o trabalho com os dados criptografados, mas não demonstram o trabalho com o Azure Key Vault. Os [exemplos de criptografia](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/EncryptionSamples) no GitHub demonstram um cenário completo mais detalhado para blobs, filas e tabelas, juntamente com a integração do Key Vault.
 
 ### <a name="requireencryption-mode"></a>Modo RequireEncryption
 Os usuários podem habilitar opcionalmente um modo de operação no qual todos os downloads e uploads devem ser criptografados. Nesse modo, as tentativas de carregamento de dados sem uma política de criptografia ou o download de dados que não são criptografados no serviço falharão no cliente. A propriedade **RequireEncryption** do objeto de opções da solicitação controla esse comportamento. Se o seu aplicativo for criptografar todos os objetos armazenados no Armazenamento do Azure, é possível definir a propriedade **RequireEncryption** nas opções de solicitação padrão para o objeto de cliente do serviço. Por exemplo, defina **CloudBlobClient.DefaultRequestOptions.RequireEncryption** como **true** para exigir criptografia de todas as operações executadas de blob executadas por meio desse objeto de cliente.
+
 
 ### <a name="blob-service-encryption"></a>Criptografia do serviço Blob
 Crie um objeto **BlobEncryptionPolicy** e o defina nas opções de solicitação (por API ou no nível do cliente usando **DefaultRequestOptions**). Todo o resto será tratado pela biblioteca de cliente internamente.

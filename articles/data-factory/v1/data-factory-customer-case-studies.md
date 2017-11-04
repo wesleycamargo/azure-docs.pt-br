@@ -43,8 +43,7 @@ O Data Factory é um serviço de gerenciamento de informações baseado em nuvem
 [Com o Microsoft Cloud, é como se o Real Madrid levasse 450 milhões de fãs do mundo inteiro para seu estádio](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=20522)
 
 ## <a name="pier-1-imports"></a>Pier 1 Imports
-
-            [Encontrando uma conexão mais adequada com os clientes por meio de Machine Learning na Nuvem](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11257)
+[Encontrando uma conexão mais adequada com os clientes por meio de Machine Learning na Nuvem](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=11257)
 
 ## <a name="microsoft-studio"></a>Microsoft Studio
 [Fornecimento de experiências épicas em Xbox analisando centenas de bilhões de eventos de jogo diariamente](https://customers.microsoft.com/en-us/story/xboxunlimited)

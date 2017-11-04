@@ -1,6 +1,6 @@
 ---
-title: Offering services in Azure Stack | Microsoft Docs
-description: As a cloud operator, you can offer services to your users.
+title: "Oferta de serviços na pilha do Azure | Microsoft Docs"
+description: "Como um operador de nuvem, você pode oferecer serviços para seus usuários."
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -14,36 +14,34 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: erikje
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 7a54771d99f2719fcc345496b152a5d3acc02121
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="overview-of-offering-services-in-azure-stack"></a>Overview of offering services in Azure Stack
+# <a name="overview-of-offering-services-in-azure-stack"></a>Visão geral da oferta de serviços na pilha do Azure
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
 
-[Microsoft Azure Stack](azure-stack-poc.md) is a hybrid cloud platform that lets you deliver services from your datacenter. As a service provider, you can offer services to your tenants. Within a business or government agency, you can offer on-premises services to your employees. The services that you can deliver include, but are not limited to:
+[A pilha do Microsoft Azure](azure-stack-poc.md) é uma plataforma de nuvem híbrida que lhe permite oferecer serviços do data center. Como um provedor de serviço, você pode oferecer serviços para seus locatários. Em uma empresa ou órgão do governo, você pode oferecer serviços locais para seus funcionários. Os serviços que você pode entregar incluem, mas não estão limitados a:
 
-- Platform as a Service (PaaS) services like App Services, Mobile Apps, API Apps, API Functions, SQL, MySQL.
+- Plataforma como um serviço (PaaS) de serviços, como serviços de aplicativos, aplicativos móveis, aplicativos de API, funções de API, SQL, MySQL.
 
-You can even combine services to integrate and build complex solutions for different users.
+Também é possível combinar os serviços para integrar e compilar soluções complexas para usuários diferentes.
 
-To deliver these services to your users, you must create [plans, offers, and quotas](azure-stack-plan-offer-quota-overview.md). Your users can then subscribe to your offers to use the services.
+Para fornecer esses serviços para seus usuários, você deve criar [planos, ofertas e cotas](azure-stack-plan-offer-quota-overview.md). Os usuários podem assinar, em seguida, suas ofertas para usar os serviços.
 
-## <a name="plan-your-service-offers"></a>Plan your service offers
+## <a name="plan-your-service-offers"></a>Planejar suas ofertas de serviço
 
-When you’re planning your offers, keep the following points in mind:
+Quando você estiver planejando suas ofertas, tenha os seguintes pontos em mente:
 
-**Trial offers**: You can use trial offers to attract new users, who can then upgrade to additional services. To create a trial offer, create a small [base plan](azure-stack-plan-offer-quota-overview.md#base-plan) with an optional larger add-on plan.
+**Ofertas de avaliação**: você pode usar as ofertas de avaliação para atrair novos usuários, que podem, em seguida, atualizar para os serviços adicionais. Para criar uma oferta de avaliação, crie um pequeno [plano base](azure-stack-plan-offer-quota-overview.md#base-plan) com um plano de complemento maior opcional.
 
-**Capacity planning**: You might be concerned about users grabbing large amounts of resources and clogging the system for all users. To help performance, you can [configure your plans with quotas](azure-stack-plan-offer-quota-overview.md#plans) to cap usage.
+**Planejamento de capacidade**: você pode se preocupar sobre usuários captando grandes quantidades de recursos e a sobrecarga do sistema para todos os usuários. Para ajudar o desempenho, você pode [configurar seus planos com cotas](azure-stack-plan-offer-quota-overview.md#plans) para o uso de extremidade.
 
-**Delegated providers**: You can grant others the ability to create offers in your environment. For example, if you’re a service provider, you can [delegate](azure-stack-delegated-provider.md) this ability to your resellers. Or, if you’re an organization, you can delegate to other divisions/subsidiaries.
+**Delegado provedores**: você pode conceder a outros usuários a capacidade de criar ofertas em seu ambiente. Por exemplo, se você for um provedor de serviço, você pode [delegar](azure-stack-delegated-provider.md) essa capacidade de seu revendedores. Ou, se você tiver uma organização, você pode delegar a outras divisões/subsidiárias.
 
-## <a name="next-steps"></a>Next steps
-[Learn more about offers, plans, quotas, and subscriptions](azure-stack-plan-offer-quota-overview.md)
-
+## <a name="next-steps"></a>Próximas etapas
+[Saiba mais sobre ofertas e assinaturas, cotas e planos](azure-stack-plan-offer-quota-overview.md)
 

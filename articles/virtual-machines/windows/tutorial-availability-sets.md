@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/05/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 3657f222e1f52d341cd05532e29ed4924b308e6f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 503657d6e6e22560b94d4a1cbbc2a74651d1ee7a
+ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/21/2017
 ---
 # <a name="how-to-use-availability-sets"></a>Como usar os conjuntos de disponibilidade
 
@@ -32,6 +32,7 @@ Neste tutorial, você aprenderá como:
 > * Criar um conjunto de disponibilidade
 > * Criar uma VM em um conjunto de disponibilidade
 > * Verificar os tamanhos de VM disponíveis
+> * Verificar o Assistente do Azure
 
 Este tutorial requer o módulo do Azure PowerShell, versão 3.6 ou posterior. Execute ` Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps).
 
@@ -88,9 +89,36 @@ $subnetConfig = New-AzureRmVirtualNetworkSubnetConfig `
 $vnet = New-AzureRmVirtualNetwork `
     -ResourceGroupName myResourceGroupAvailability `
     -Location EastUS `
-    -Name MYvNET `
+    -Name myVnet `
     -AddressPrefix 192.168.0.0/16 `
     -Subnet $subnetConfig
+    
+$nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig `
+    -Name myNetworkSecurityGroupRuleRDP `
+    -Protocol Tcp `
+    -Direction Inbound `
+    -Priority 1000 `
+    -SourceAddressPrefix * `
+    -SourcePortRange * `
+    -DestinationAddressPrefix * `
+    -DestinationPortRange 3389 `
+    -Access Allow
+
+$nsg = New-AzureRmNetworkSecurityGroup `
+    -Location eastus `
+    -Name myNetworkSecurityGroup `
+    -ResourceGroupName myResourceGroupAvailability `
+    -SecurityRules $nsgRuleRDP
+    
+# Apply the network security group to a subnet
+Set-AzureRmVirtualNetworkSubnetConfig `
+    -VirtualNetwork $vnet `
+    -Name mySubnet `
+    -NetworkSecurityGroup $nsg `
+    -AddressPrefix 192.168.1.0/24
+
+# Update the virtual network
+Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
 
 for ($i=1; $i -le 2; $i++)
 {
@@ -100,23 +128,6 @@ for ($i=1; $i -le 2; $i++)
         -Name "mypublicdns$(Get-Random)" `
         -AllocationMethod Static `
         -IdleTimeoutInMinutes 4
-
-   $nsgRuleRDP = New-AzureRmNetworkSecurityRuleConfig `
-        -Name myNetworkSecurityGroupRuleRDP$i `
-        -Protocol Tcp `
-        -Direction Inbound `
-        -Priority 1000 `
-        -SourceAddressPrefix * `
-        -SourcePortRange * `
-        -DestinationAddressPrefix * `
-        -DestinationPortRange 3389 `
-        -Access Allow
-
-   $nsg = New-AzureRmNetworkSecurityGroup `
-        -ResourceGroupName myResourceGroupAvailability `
-        -Location EastUS `
-        -Name myNetworkSecurityGroup$i `
-        -SecurityRules $nsgRuleRDP
 
    $nic = New-AzureRmNetworkInterface `
         -Name myNic$i `
@@ -176,6 +187,13 @@ Get-AzureRmVMSize `
    -ResourceGroupName myResourceGroupAvailability  
 ```
 
+## <a name="check-azure-advisor"></a>Verificar o Assistente do Azure 
+
+Você também pode usar o Assistente do Azure para saber mais sobre as maneiras de melhorar a disponibilidade das suas máquinas virtuais. O Assistente do Azure ajuda você a seguir as práticas recomendadas para otimizar as implantações do Azure. Ele analisa a telemetria de uso e configuração do recurso e, depois, recomenda soluções que podem ajudar você a melhorar a economia, o desempenho, a alta disponibilidade e a segurança de seus recursos do Azure.
+
+Entre no [portal do Azure](https://portal.azure.com), selecione **Mais serviços** e digite **Assistente**. O painel do Assistente exibe recomendações personalizadas para a assinatura selecionada. Para saber mais, veja [Introdução ao Assistente do Azure](../../advisor/advisor-get-started.md).
+
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste tutorial, você aprendeu como:
@@ -184,6 +202,7 @@ Neste tutorial, você aprendeu como:
 > * Criar um conjunto de disponibilidade
 > * Criar uma VM em um conjunto de disponibilidade
 > * Verificar os tamanhos de VM disponíveis
+> * Verificar o Assistente do Azure
 
 Avance para o próximo tutorial para saber mais sobre conjuntos de disponibilidade de máquinas virtuais.
 

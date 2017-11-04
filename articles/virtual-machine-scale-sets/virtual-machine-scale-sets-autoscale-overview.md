@@ -1,10 +1,10 @@
 ---
-title: "Dimensionamento automático e conjuntos de dimensionamento de máquinas virtuais | Microsoft Docs"
-description: "Saiba como usar os recursos de diagnóstico e dimensionamento automático para dimensionar automaticamente as máquinas virtuais em um conjunto de dimensionamento."
+title: "Visão geral de dimensionamento automático com conjuntos de dimensionamento de máquinas virtuais do Azure | Microsoft Docs"
+description: "Saiba mais sobre as diferentes maneiras para dimensionar automaticamente um conjunto de dimensionamento de máquinas virtuais do Azure com base no desempenho ou em uma agenda fixa"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: Thraka
-manager: timlt
+author: iainfoulds
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: d29a3385-179e-4331-a315-daa7ea5701df
@@ -13,240 +13,135 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2017
-ms.author: adegeo
+ms.date: 10/19/2017
+ms.author: iainfou
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 06ff9d9ae1dd8256f0d22c1a60ed6a85554f1f17
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 868523a3aca441a47218297be2ce9f9e46dd84a1
+ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/20/2017
 ---
-# <a name="how-to-use-automatic-scaling-and-virtual-machine-scale-sets"></a>Como usar o dimensionamento automático e os Conjuntos de Dimensionamento de Máquinas Virtuais
-O dimensionamento automático de máquinas virtuais em um conjunto de escala é a criação ou exclusão de máquinas no conjunto conforme for necessário para atender a necessidades de desempenho. À medida que o volume de trabalho cresce, um aplicativo pode exigir recursos adicionais para poder realizar suas tarefas no tempo adequado.
+# <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Visão geral de dimensionamento automático com conjuntos de dimensionamento de máquinas virtuais do Azure
+Um conjunto de dimensionamento de máquinas virtuais do Azure pode aumentar ou diminuir automaticamente o número de instâncias de VM que executam o aplicativo. Esse comportamento automatizado e elástico reduz a sobrecarga de gerenciamento para monitorar e otimizar o desempenho do aplicativo. Você cria regras que definem o desempenho mínimo aceitável para uma experiência de cliente positiva. Quando esses limites definidos são atendidos, as regras de dimensionamento automático atuam para ajustar a capacidade do seu conjunto de dimensionamento. Você também pode agendar eventos para aumentar ou diminuir a capacidade do conjunto de dimensionamento automaticamente em horas fixas. Este artigo fornece uma visão geral das métricas disponíveis e de quais ações o dimensionamento automático pode executar.
 
-O dimensionamento automático é um processo automatizado que ajuda a facilitar o gerenciamento da sobrecarga. Reduzindo a sobrecarga, você não precisa monitorar continuamente o desempenho do sistema ou decidir como gerenciar recursos. O dimensionamento é um processo elástico. É possível adicionar mais recursos à medida que a carga aumenta. E, conforme a demanda diminui, os recursos podem ser removidos para minimizar custos e manter níveis de desempenho.
 
-Configure o dimensionamento automático em um conjunto de dimensionamento usando um modelo do Azure Resource Manager, Azure PowerShell, CLI do Azure ou portal do Azure.
+## <a name="benefits-of-autoscale"></a>Benefícios de dimensionamento automático
+Se a demanda do aplicativo aumentar, a carga em instâncias de VM no seu conjunto de dimensionamento também aumentará. Se esse aumento de carga for consistente, em vez de apenas uma demanda breve, configure as regras de dimensionamento automático para aumentar o número de instâncias de VM no conjunto de dimensionamento.
 
-## <a name="set-up-scaling-by-using-resource-manager-templates"></a>Configure o dimensionamento usando modelos do Resource Manager
-Em vez de implantar e gerenciar cada recurso do seu aplicativo separadamente, use um modelo que implanta todos os recursos em uma única operação coordenada. No modelo, os recursos do aplicativo são definidos e os parâmetros de implantação são especificados para ambientes diferentes. O modelo consiste em JSON e expressões que podem ser usados na criação de valores para sua implantação. Para saber mais, consulte [Criando modelos do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md).
+Quando essas instâncias de VM forem criadas e os aplicativos implantados, o conjunto de dimensionamento começará a distribuir o tráfego para eles por meio do balanceador de carga. Você controla quais métricas são monitoradas, como CPU ou memória, por quanto tempo a carga do aplicativo deve atender a determinado limite e quantas instâncias de VM devem ser adicionadas ao conjunto de dimensionamento.
 
-No modelo, você deve especificar o elemento de capacidade:
+À noite ou durante o fim de semana, a demanda do seu aplicativo pode diminuir. Se essa diminuição de carga for consistente durante determinado período, configure as regras de dimensionamento automático para reduzir o número de instâncias de VM no conjunto de dimensionamento. Esta ação de redução diminui o custo para executar seu conjunto de dimensionamento, visto que apenas o número de instâncias necessárias para atender à demanda atual é executado.
 
-```json
-"sku": {
-  "name": "Standard_A0",
-  "tier": "Standard",
-  "capacity": 3
-},
-```
 
-A capacidade identifica o número de máquinas virtuais no conjunto. Você pode alterar manualmente a capacidade implantando um modelo com um valor diferente. Se implantar um modelo para alterar apenas a capacidade, você poderá incluir apenas o elemento SKU com a capacidade atualizada.
+## <a name="use-host-based-metrics"></a>Usar métricas baseadas em host
+Você pode criar regras de dimensionamento automático que incorporam métricas de host disponíveis nas suas instâncias de VM. As métricas de host dão visibilidade ao desempenho das instâncias de VM em um conjunto de dimensionamento sem a necessidade de instalar ou configurar outros agentes e coletas de dados. As regras de dimensionamento automático que usam essas métricas podem expandir o número de instâncias de VM em resposta ao uso da CPU, à demanda por memória ou ao acesso ao disco.
 
-A capacidade de seu conjunto de dimensionamento pode ser ajustada automaticamente usando a combinação do recurso **autoscaleSettings** e a extensão de diagnóstico.
+As regras de dimensionamento automático que usam métricas baseadas em host podem ser tratadas com uma das ferramentas a seguir:
 
-### <a name="configure-the-azure-diagnostics-extension"></a>Configurar a extensão do Diagnóstico do Azure
-O dimensionamento automático só poderá ser feito se a coleta de métricas for bem-sucedida em cada máquina virtual do conjunto de escala. A Extensão de Diagnóstico do Azure fornece os recursos de monitoramento e diagnóstico para atender às necessidades de coleta de métricas do recurso de dimensionamento automático. Você pode instalar a extensão como parte do modelo do Resource Manager.
+- [Portal do Azure](virtual-machine-scale-sets-autoscale-portal.md)
+- [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
+- [CLI 2.0 do Azure](virtual-machine-scale-sets-autoscale-cli.md)
 
-Este exemplo mostra as variáveis que são usadas no modelo para configurar a extensão de diagnóstico:
+Para criar regras de dimensionamento automático que usam métricas de desempenho mais detalhadas, você pode [instalar e configurar a extensão de diagnóstico do Azure](#in-guest-vm-metrics-with-the-azure-diagnostics-extension) em instâncias de VM ou [configurar seu aplicativo usando o Application Insights](#application-level-metrics-with-app-insights).
 
-```json
-"diagnosticsStorageAccountName": "[concat(parameters('resourcePrefix'), 'saa')]",
-"accountid": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/', resourceGroup().name,'/providers/', 'Microsoft.Storage/storageAccounts/', variables('diagnosticsStorageAccountName'))]",
-"wadlogs": "<WadCfg> <DiagnosticMonitorConfiguration overallQuotaInMB=\"4096\" xmlns=\"http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration\"> <DiagnosticInfrastructureLogs scheduledTransferLogLevelFilter=\"Error\"/> <WindowsEventLog scheduledTransferPeriod=\"PT1M\" > <DataSource name=\"Application!*[System[(Level = 1 or Level = 2)]]\" /> <DataSource name=\"Security!*[System[(Level = 1 or Level = 2)]]\" /> <DataSource name=\"System!*[System[(Level = 1 or Level = 2)]]\" /></WindowsEventLog>",
-"wadperfcounter": "<PerformanceCounters scheduledTransferPeriod=\"PT1M\"><PerformanceCounterConfiguration counterSpecifier=\"\\Processor(_Total)\\Thread Count\" sampleRate=\"PT15S\" unit=\"Percent\"><annotation displayName=\"Thread Count\" locale=\"en-us\"/></PerformanceCounterConfiguration></PerformanceCounters>",
-"wadcfgxstart": "[concat(variables('wadlogs'),variables('wadperfcounter'),'<Metrics resourceId=\"')]",
-"wadmetricsresourceid": "[concat('/subscriptions/',subscription().subscriptionId,'/resourceGroups/',resourceGroup().name ,'/providers/','Microsoft.Compute/virtualMachineScaleSets/',parameters('vmssName'))]",
-"wadcfgxend": "[concat('\"><MetricAggregation scheduledTransferPeriod=\"PT1H\"/><MetricAggregation scheduledTransferPeriod=\"PT1M\"/></Metrics></DiagnosticMonitorConfiguration></WadCfg>')]"
-```
+As regras de dimensionamento automático que usam métricas baseadas em host, as métricas de VM no convidado com a extensão de diagnóstico do Azure e o Application Insights podem usar as configurações a seguir.
 
-Parâmetros são fornecidos quando o modelo é implantado. Neste exemplo, o nome da conta de armazenamento (na qual os dados são armazenados) e o nome do conjunto de dimensionamento (do qual os dados são coletados) são fornecidos. Também neste exemplo do Windows Server, somente o contador de desempenho Contagem de threads é coletado. Todos os contadores de desempenho disponíveis no Windows ou Linux podem ser usados para coletar informações de diagnóstico e podem ser incluídos na configuração da extensão.
+### <a name="metric-sources"></a>Fontes de métricas
+As regras de dimensionamento automático podem usar métricas de uma das seguintes fontes:
 
-Este exemplo mostra a definição da extensão do modelo:
+| Origem da métrica        | Caso de uso                                                                                                                     |
+|----------------------|------------------------------------------------------------------------------------------------------------------------------|
+| Conjunto de dimensionamento atual    | Para métricas de host que não exigem a instalação ou configuração de agentes adicionais.                                  |
+| Conta de armazenamento      | A extensão de diagnóstico do Azure grava as métricas de desempenho no armazenamento do Azure, que, em seguida, é consumido para disparar regras de dimensionamento automático. |
+| Fila do Barramento de Serviço    | O aplicativo ou outros componentes pode transmitir mensagens em uma fila do Barramento de Serviço do Azure para disparar regras.                   |
+| Application Insights | Um pacote de instrumentação instalado em seu aplicativo que transmite métricas diretamente do aplicativo.                         |
 
-```json
-"extensionProfile": {
-  "extensions": [
-    {
-      "name": "Microsoft.Insights.VMDiagnosticsSettings",
-      "properties": {
-        "publisher": "Microsoft.Azure.Diagnostics",
-        "type": "IaaSDiagnostics",
-        "typeHandlerVersion": "1.5",
-        "autoUpgradeMinorVersion": true,
-        "settings": {
-          "xmlCfg": "[base64(concat(variables('wadcfgxstart'),variables('wadmetricsresourceid'),variables('wadcfgxend')))]",
-          "storageAccount": "[variables('diagnosticsStorageAccountName')]"
-        },
-        "protectedSettings": {
-          "storageAccountName": "[variables('diagnosticsStorageAccountName')]",
-          "storageAccountKey": "[listkeys(variables('accountid'), variables('apiVersion')).key1]",
-          "storageAccountEndPoint": "https://core.windows.net"
-        }
-      }
-    }
-  ]
-}
-```
 
-Quando a extensão de diagnóstico é executada, os dados são armazenados e coletados em uma tabela na conta de armazenamento que você especificar. Você encontrará os dados coletados na tabela **WADPerformanceCounters**:
+### <a name="autoscale-rule-criteria"></a>Critérios de regra de dimensionamento automático
+As métricas baseadas em host a seguir estão disponíveis para uso quando você cria regras de dimensionamento automático. Se você usar a extensão de diagnóstico do Azure ou o Application Insights, poderá definir quais métricas devem ser monitoradas e usar regras de dimensionamento automático.
 
-![](./media/virtual-machine-scale-sets-autoscale-overview/ThreadCountBefore2.png)
+| Nome da métrica               |
+|---------------------------|
+| Porcentagem de CPU            |
+| Entrada na rede                |
+| Saída da rede               |
+| Bytes de leitura de disco           |
+| Bytes de gravação de disco          |
+| Operações de leitura de disco/Seg  |
+| Operações de gravação de disco/Seg |
+| Créditos de CPU Restantes     |
+| Créditos de CPU Consumidos      |
 
-### <a name="configure-the-autoscalesettings-resource"></a>Configurar o recurso autoScaleSettings
-O recurso autoscaleSettings usa as informações da extensão de diagnóstico para decidir se deve aumentar ou diminuir o número de máquinas virtuais no conjunto de escala.
+Quando você cria regras de dimensionamento automático para monitorar determinada métrica, as regras examinam uma das seguintes ações de agregação de métricas:
 
-Este exemplo mostra a configuração do recurso no modelo:
+| Tipo de agregação |
+|------------------|
+| Média          |
+| Mínimo          |
+| Máximo          |
+| Total            |
+| Último             |
+| Contagem            |
 
-```json
-{
-  "type": "Microsoft.Insights/autoscaleSettings",
-  "apiVersion": "2015-04-01",
-  "name": "[concat(parameters('resourcePrefix'),'as1')]",
-  "location": "[resourceGroup().location]",
-  "dependsOn": [
-    "[concat('Microsoft.Compute/virtualMachineScaleSets/',parameters('vmSSName'))]"
-  ],
-  "properties": {
-    "enabled": true,
-    "name": "[concat(parameters('resourcePrefix'),'as1')]",
-    "profiles": [
-      {
-        "name": "Profile1",
-        "capacity": {
-          "minimum": "1",
-          "maximum": "10",
-          "default": "1"
-        },
-        "rules": [
-          {
-            "metricTrigger": {
-              "metricName": "\\Processor(_Total)\\Thread Count",
-              "metricNamespace": "",
-              "metricResourceUri": "[concat('/subscriptions/',subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Compute/virtualMachineScaleSets/', parameters('vmSSName'))]",
-              "timeGrain": "PT1M",
-              "statistic": "Average",
-              "timeWindow": "PT5M",
-              "timeAggregation": "Average",
-              "operator": "GreaterThan",
-              "threshold": 650
-            },
-            "scaleAction": {
-              "direction": "Increase",
-              "type": "ChangeCount",
-              "value": "1",
-              "cooldown": "PT5M"
-            }
-          },
-          {
-            "metricTrigger": {
-              "metricName": "\\Processor(_Total)\\Thread Count",
-              "metricNamespace": "",
-              "metricResourceUri": "[concat('/subscriptions/',subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Compute/virtualMachineScaleSets/', parameters('vmSSName'))]",
-              "timeGrain": "PT1M",
-              "statistic": "Average",
-              "timeWindow": "PT5M",
-              "timeAggregation": "Average",
-              "operator": "LessThan",
-              "threshold": 550
-            },
-            "scaleAction": {
-              "direction": "Decrease",
-              "type": "ChangeCount",
-              "value": "1",
-              "cooldown": "PT5M"
-            }
-          }
-        ]
-      }
-    ],
-    "targetResourceUri": "[concat('/subscriptions/', subscription().subscriptionId, '/resourceGroups/', resourceGroup().name, '/providers/Microsoft.Compute/virtualMachineScaleSets/', parameters('vmSSName'))]"
-  }
-}
-```
+As regras de dimensionamento automático são acionadas quando as métricas são comparadas com o limite definido com um dos operadores abaixo:
 
-No exemplo acima, são criadas duas regras para definir as ações de dimensionamento automático. A primeira regra define a ação de escala horizontal e a segunda regra define a de redução horizontal. Esses valores são fornecidos nas regras:
+| operador                 |
+|--------------------------|
+| Maior que             |
+| Maior ou igual a |
+| Menor que                |
+| Menor ou igual a    |
+| Igual a                 |
+| Não igual a             |
 
-| Regra | Descrição |
-| ---- | ----------- |
-| metricName        | Este valor é igual ao contador de desempenho que você definiu na variável wadperfcounter para a extensão de diagnóstico. No exemplo acima, usamos o contador Contagem de Threads.    |
-| metricResourceUri | Este valor é o identificador de recurso do conjunto de dimensionamento de máquinas virtuais. Esse identificador contém o nome do grupo de recursos, o nome do provedor de recursos e o nome do conjunto de escala a ser dimensionado. |
-| timeGrain         | Este valor é a granularidade das métricas que são coletadas. No exemplo anterior, os dados são coletados em um intervalo de um minuto. Esse valor é usado em conjunto com timeWindow. |
-| statistic         | Este valor determina como as métricas são combinadas para acomodar a ação de dimensionamento automático. Os valores possíveis são: Média, Mín, Máx. |
-| timeWindow        | Este valor é o intervalo em que os dados da instância são coletados. Deve estar entre 5 minutos e 12 horas. |
-| timeAggregation   | Este valor determina como os dados coletados devem ser combinados ao longo do tempo. O valor padrão é Average. Os valores possíveis são: Média, Mínimo, Máximo, Último, Total, Contagem. |
-| operator          | Este valor é o operador usado para comparar os dados de métrica e o limite. Os valores possíveis são: Equals, NotEquals, GreaterThan, GreaterThanOrEqual, LessThan, LessThanOrEqual. |
-| threshold         | Este é o valor que dispara a ação de dimensionamento. Defina uma diferença suficiente entre os valores de limites para as ações de **escala** e **redução horizontal**. Se você definir os mesmos valores para as duas ações, o sistema preverá alterações constantes, o que impedirá a implementação de uma ação de dimensionamento. Por exemplo, definir ambos como 600 threads no exemplo anterior não funciona. |
-| direction         | Este valor determina a ação que é executada quando o valor de limite for atingido. Os valores possíveis são Aumentar ou Diminuir. |
-| Tipo              | Este valor é o tipo de ação que deve ocorrer e deve ser definido como ChangeCount. |
-| value             | Este valor é o número de máquinas virtuais que são adicionadas ou removidas do conjunto de dimensionamento. Este valor deve ser 1 ou maior. |
-| cooldown          | Este valor é a quantidade de tempo de espera desde a última ação de dimensionamento antes que ocorra a próxima ação. Esse valor deve estar entre um minuto e uma semana. |
 
-Dependendo do contador de desempenho que você está usando, alguns dos elementos na configuração de modelo são usados de forma diferente. No exemplo anterior, o contador de desempenho usado é Contagem de threads e o valor do limite é definido como 650 para uma ação de escala horizontal e 550 para redução horizontal. Se você usar um contador como % de Tempo do Processador, o valor do limite será definido como o percentual de utilização de CPU que determina uma ação de dimensionamento.
+### <a name="actions-when-rules-trigger"></a>Ações quando as regras são acionadas
+Quando uma regra de dimensionamento automático é acionada, seu conjunto de dimensionamento pode reduzir horizontalmente e automaticamente de uma das seguintes maneiras:
 
-Quando uma ação de dimensionamento é disparada, como uma carga alta, a capacidade do conjunto é elevada com base no valor no modelo. Por exemplo, em um conjunto de escala em que a capacidade é definida para 3 e o valor da ação de escala é definido para 1:
+| Operação de dimensionamento     | Caso de uso                                                                                                                               |
+|---------------------|----------------------------------------------------------------------------------------------------------------------------------------|
+| Aumentar a contagem em   | Um número fixo de instâncias de VM a serem criadas. Útil para conjuntos de dimensionamento com um número menor de VMs.                                           |
+| Aumentar porcentagem em | Um aumento das instâncias VM baseado em porcentagens. Bom para conjuntos de dimensionamento maiores em que um aumento fixo pode não melhorar o desempenho perceptivelmente. |
+| Aumentar a contagem para   | Crie quantas instâncias de VM forem necessárias para alcançar a quantidade máxima desejada.                                                            |
+| Reduzir contagem para   | Um número fixo de instâncias de VM a serem removidas. Útil para conjuntos de dimensionamento com um número menor de VMs.                                           |
+| Reduzir porcentagem em | Uma redução de instâncias de VM baseada em porcentagens. Bom para conjuntos de dimensionamento maiores em que um aumento fixo pode não reduzir o consumo e os custos de recurso perceptivelmente. |
+| Reduzir contagem para   | Remova quantas instâncias de VM forem necessárias para alcançar a quantidade mínima desejada.                                                            |
 
-![](./media/virtual-machine-scale-sets-autoscale-overview/ResourceExplorerBefore.png)
 
-Quando a carga atual faz com que a contagem de threads médio fique acima do limite de 650:
+## <a name="in-guest-vm-metrics-with-the-azure-diagnostics-extension"></a>Métricas de VM no convidado com a extensão de diagnóstico do Azure
+A extensão de diagnóstico do Azure é um agente executado dentro de uma instância de VM. O agente monitora e salva as métricas de desempenho no armazenamento do Azure. Essas métricas de desempenho contêm informações mais detalhadas sobre o status da VM, como *AverageReadTime* para discos ou *PercentIdleTime* para CPU. Você pode criar regras de dimensionamento automático com base em uma noção mais detalhada sobre o desempenho de VM, não apenas o percentual de consumo de memória ou o uso de CPU.
 
-![](./media/virtual-machine-scale-sets-autoscale-overview/ThreadCountAfter.png)
+Para usar a extensão de diagnóstico do Azure, você deve criar contas de armazenamento do Azure para suas instâncias de VM, instalar o agente de diagnóstico do Azure e configurar as VMs para transmitir contadores de desempenho específicos para a conta de armazenamento.
 
-Uma ação de **escala horizontal** é disparada, fazendo com que a capacidade do conjunto seja aumentada em um:
+Para saber mais, veja os artigos sobre como habilitar a extensão de diagnóstico do Azure em uma [VM do Linux](../virtual-machines/linux/diagnostic-extension.md) ou [VM do Windows](../virtual-machines/windows/ps-extensions-diagnostics.md).
 
-```json
-"sku": {
-  "name": "Standard_A0",
-  "tier": "Standard",
-  "capacity": 4
-},
-```
 
-O resultado é uma máquina virtual adicionada ao conjunto de dimensionamento:
+## <a name="application-level-metrics-with-app-insights"></a>Métricas de nível de aplicativo com o Application Insights
+Para visualizar melhor o desempenho de seus aplicativos, você pode usar o Application Insights. Instale um pacote de instrumentação pequeno em seu aplicativo que monitora o aplicativo e envia a telemetria para o Azure. Você pode monitorar métricas como o tempo de resposta do seu aplicativo, o desempenho de carregamento de página e a sessão de conta. Essas métricas de aplicativo podem ser usadas para criar regras de dimensionamento automático em um nível granular e incorporado à medida que você dispara regras com base em informações acionáveis que podem afetar a experiência do cliente.
 
-![](./media/virtual-machine-scale-sets-autoscale-overview/ResourceExplorerAfter.png)
+Para saber mais sobre o App Insights, confira [O que é o Application Insights](../application-insights/app-insights-overview.md).
 
-Após um período de resfriamento de cinco minutos, se o número médio de threads nas máquinas permanecer acima de 600, outra máquina será adicionada ao conjunto. Se a contagem de threads média permanecer abaixo 550, a capacidade do conjunto de escala será reduzida em um e uma máquina será removida do conjunto.
 
-## <a name="set-up-scaling-using-azure-powershell"></a>Configurar o dimensionamento usando o Azure PowerShell
+## <a name="scheduled-autoscale"></a>Dimensionamento automático agendado
+Também é possível criar regras de dimensionamento automático baseadas em agendamentos. Essas regras baseadas em agenda permitem dimensionar automaticamente o número de instâncias de máquina virtual em horas fixas. Com as regras baseadas em desempenho, pode haver um impacto no desempenho do aplicativo antes do acionamento das regras de dimensionamento automático e antes que as novas instâncias VM sejam provisionadas. Se você puder prever tal demanda, as instâncias de VM adicionais serão provisionadas e estarão prontas para as demandas adicionais de uso do cliente e aplicativo.
 
-Para ver exemplos de uso do PowerShell para configurar o dimensionamento automático, consulte [Exemplos de início rápido do Azure PowerShell Monitor](../monitoring-and-diagnostics/insights-powershell-samples.md).
+Os exemplos a seguir são cenários que podem se beneficiar com o uso de regras de dimensionamento automático com base em agendamento:
 
-## <a name="set-up-scaling-using-azure-cli"></a>Configurar o dimensionamento usando a CLI do Azure
+- Dimensione automaticamente o número de instâncias de VM no início do dia de trabalho, quando a demanda do cliente aumenta. No final do dia de trabalho, dimensione automaticamente o número de instâncias de VM para minimizar os custos de recursos durante a noite, quando o uso do aplicativo é baixo.
+- Se um departamento usa um aplicativo com frequência em determinadas épocas do mês ou ciclo fiscal, dimensione automaticamente o número de instâncias de VM para acomodar essas exigências adicionais.
+- Quando há um evento de marketing, uma promoção ou vendas em datas comemorativas, é possível dimensionar automaticamente o número de instâncias de VM para antecipar essa demanda. 
 
-Para ver exemplos de uso da CLI do Azure para configurar o dimensionamento automático, consulte [Exemplos de início rápido da CLI entre plataformas do Azure Monitor](../monitoring-and-diagnostics/insights-cli-samples.md).
-
-## <a name="set-up-scaling-using-the-azure-portal"></a>Configurar o dimensionamento usando o portal do Azure
-
-Para ver um exemplo de como usar o portal do Azure para configurar o dimensionamento automático, consulte [Criar um conjunto de dimensionamento de Máquinas Virtuais usando o portal do Azure](virtual-machine-scale-sets-portal-create.md).
-
-## <a name="investigate-scaling-actions"></a>Investigar ações de dimensionamento
-
-* **Portal do Azure**  
-Atualmente, você pode obter uma quantidade limitada de informações usando o portal.
-
-* **Gerenciador de Recursos do Azure**  
-Esta é a melhor ferramenta para explorar o estado atual do conjunto de dimensionamento. Siga este caminho e você deverá ver a exibição da instância do conjunto de dimensionamento que você criou:  
-**Assinaturas > {sua assinatura} > resourceGroups {seu grupo de recursos} > provedores > Microsoft.Compute > virtualMachineScaleSets > {seu conjunto de dimensionamento} > virtualMachines**
-
-* **PowerShell do Azure**  
-Use este comando para obter algumas informações:
-
-  ```powershell
-  Get-AzureRmResource -name vmsstest1 -ResourceGroupName vmsstestrg1 -ResourceType Microsoft.Compute/virtualMachineScaleSets -ApiVersion 2015-06-15
-  Get-Autoscalesetting -ResourceGroup rainvmss -DetailedOutput
-  ```
-
-* Conecte-se à máquina virtual de jumpbox exatamente como faria com qualquer outra máquina e, em seguida, você pode acessar remotamente as máquinas virtuais no conjunto de dimensionamento para monitorar os processos individuais.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Veja [Dimensionar automaticamente as máquinas em um Conjunto de Dimensionamento da Máquina Virtual](virtual-machine-scale-sets-windows-autoscale.md) para ter um exemplo de como criar um conjunto de dimensionamento com o dimensionamento automático configurado.
+Você pode criar regras de dimensionamento automático que usam métricas baseadas em host podem ser tratadas com uma das ferramentas abaixo:
 
-* Encontre exemplos de recursos de monitoramento do Azure Monitor nos [Exemplos de início rápido do Azure Monitor PowerShell](../monitoring-and-diagnostics/insights-powershell-samples.md)
+- [Portal do Azure](virtual-machine-scale-sets-autoscale-portal.md)
+- [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
+- [CLI 2.0 do Azure](virtual-machine-scale-sets-autoscale-cli.md)
 
-* Saiba sobre os recursos de notificação em [Usar ações de dimensionamento automático para enviar notificações de alerta por email e webhook no Azure Monitor](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md).
+Esta visão geral detalhou como usar as regras de dimensionamento automático para escalar horizontalmente e expandir ou diminuir o *número* de instâncias de VM no seu conjunto de dimensionamento. Também é possível escalar verticalmente para aumentar ou diminuir o *tamanho* da instância VM. Para obter mais informações, consulte [Dimensionamento vertical automático com conjuntos de Dimensionamento de Máquinas Virtuais](virtual-machine-scale-sets-vertical-scale-reprovision.md).
 
-* Saiba como [Usar logs de auditoria para enviar notificações de alerta por email e webhook no Azure Monitor](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md)
+Para obter informações sobre como gerenciar suas instâncias de VM, consulte [Gerenciar conjuntos de dimensionamento de máquinas virtuais com o Azure PowerShell](virtual-machine-scale-sets-windows-manage.md).
 
-* Saiba mais sobre [Cenários de dimensionamento automático avançado](virtual-machine-scale-sets-advanced-autoscale.md).
+Para saber como gerar alertas quando suas regras de dimensionamento automático forem disparadas, consulte [Usar ações de dimensionamento automático para enviar notificações de alerta por email e webhook no Azure Monitor](../monitoring-and-diagnostics/insights-autoscale-to-webhook-email.md). Também é possível [Usar logs de auditoria para enviar notificações de alerta por email e webhook no Azure Monitor](../monitoring-and-diagnostics/insights-auditlog-to-webhook-email.md).

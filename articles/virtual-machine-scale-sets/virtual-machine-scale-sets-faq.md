@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/14/2017
+ms.date: 10/20/2017
 ms.author: negat
 ms.custom: na
-ms.openlocfilehash: cc5a0ba5474827cedc5b6a42651c206d5f2540b7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2f7696e207b077f8ae31751f0b6e15459aa1ed52
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="azure-virtual-machine-scale-sets-faqs"></a>Perguntas frequentes sobre os conjuntos de dimensionamento de máquinas virtuais do Azure
 
@@ -459,11 +459,6 @@ Update-AzureRmVmss -ResourceGroupName $rgname -Name $vmssname -VirtualMachineSca
 Para executar um script personalizado hospedado em uma conta de armazenamento privado, defina as configurações protegidas com a chave da conta de armazenamento e o nome. Para obter mais informações, consulte [Extensão de Script Personalizado para o Windows](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-extensions-customscript/#template-example-for-a-windows-vm-with-protected-settings).
 
 
-
-
-
-
-
 ## <a name="networking"></a>Rede
  
 ### <a name="is-it-possible-to-assign-a-network-security-group-nsg-to-a-scale-set-so-that-it-will-apply-to-all-the-vm-nics-in-the-set"></a>É possível atribuir um NSG (Grupo de Segurança de Rede) a um conjunto de dimensionamento, de forma que ele seja aplicado a todas as NICs da VM no conjunto?
@@ -648,7 +643,15 @@ Sim, você pode usar a operação de recriação de imagem para redefinir uma VM
 
 Para obter mais informações, consulte [Gerenciar todas as VMs em um conjunto de dimensionamento de máquinas virtuais](https://docs.microsoft.com/rest/api/virtualmachinescalesets/manage-all-vms-in-a-set).
 
+### <a name="is-it-possible-to-integrate-scale-sets-with-azure-oms-operations-management-suite"></a>É possível integrar conjuntos de dimensionamento ao Azure OMS (Operations Management Suite)?
 
+Sim, você pode por meio da instalação da extensão do OMS nas VMs do conjunto de dimensionamento. Veja um exemplo da CLI do Azure:
+```
+az vmss extension set --name MicrosoftMonitoringAgent --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group Team-03 --vmss-name nt01 --settings "{'workspaceId': '<your workspace ID here>'}" --protected-settings "{'workspaceKey': '<your workspace key here'}"
+```
+Você pode encontrar a workspaceId e a workspaceKey necessárias no portal do OMS. Na página Visão Geral, clique no bloco Configurações. Clique na guia Fontes Conectadas na parte superior.
+
+Observação: se o conjunto de dimensionamento _upgradePolicy_ for definido como Manual, você precisará aplicar a extensão para todas as VMs no conjunto ao chamar o upgrade nelas. Na CLI, isso seria _az vmss update-instances_.
 
 ## <a name="troubleshooting"></a>Solucionar problemas
 

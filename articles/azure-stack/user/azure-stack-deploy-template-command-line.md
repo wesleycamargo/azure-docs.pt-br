@@ -1,6 +1,6 @@
 ---
-title: Deploy templates with the command line in Azure Stack | Microsoft Docs
-description: Learn how to use the cross-platform command line interface (CLI) to deploy templates to Azure Stack.
+title: Implantar modelos com a linha de comando na pilha do Azure | Microsoft Docs
+description: Saiba como usar a interface de linha de comando de plataforma cruzada (CLI) para implantar modelos na pilha do Azure.
 services: azure-stack
 documentationcenter: 
 author: heathl17
@@ -14,37 +14,35 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: d58d80d89bb2544c4d4a34f608177a96760406ba
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="deploy-templates-in-azure-stack-using-the-command-line"></a>Deploy templates in Azure Stack using the command line
+# <a name="deploy-templates-in-azure-stack-using-the-command-line"></a>Implantar modelos no Azure Stack usando a linha de comando
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
 
-Use the command line to deploy Azure Resource Manager templates to the Azure Stack Development Kit. Azure Resource Manager templates deploy and provision all the resources for your application in a single, coordinated operation.
+Use a linha de comando para implantar modelos do Gerenciador de recursos do Azure para o Kit de desenvolvimento de pilha do Azure. Modelos do Gerenciador de recursos do Azure implantar e provisionar todos os recursos para seu aplicativo em uma única operação coordenado.
 
-## <a name="before-you-begin"></a>Before you begin
- - [Install and connect](azure-stack-connect-cli.md) to Azure Stack with Azure CLI
- - Download the files *azuredeploy.json* and *azuredeploy.parameters.json* from the [create storage account example template](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-create-storage-account).
+## <a name="before-you-begin"></a>Antes de começar
+ - [Instalar e conectar](azure-stack-connect-cli.md) a pilha do Azure com a CLI do Azure
+ - Baixe os arquivos *azuredeploy.json* e *azuredeploy.parameters.json* do [criar modelo de exemplo de conta de armazenamento](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-create-storage-account).
  
-## <a name="deploy-template"></a>Deploy template
-Navigate to the folder where these files were downloaded and run the following command to deploy the template:
+## <a name="deploy-template"></a>Implantar modelo
+Navegue até a pasta onde esses arquivos foram baixados e execute o seguinte comando para implantar o modelo:
 
     azure group create "cliRG" "local" –f azuredeploy.json –d "testDeploy" –e azuredeploy.parameters.json
 
-This command deploys the template to the resource group **cliRG** in the Azure Stack POC’s default location.
+Esse comando implanta o modelo para o grupo de recursos **cliRG** no local de padrão de POC de pilha do Azure.
 
-## <a name="validate-template-deployment"></a>Validate template deployment
-To see this resource group and storage account, use the following commands:
+## <a name="validate-template-deployment"></a>Validar a implantação de modelo
+Para ver esse grupo de recursos e essa conta de armazenamento, use os seguintes comandos:
 
     azure group list
 
     azure storage account list
-
 
 
 

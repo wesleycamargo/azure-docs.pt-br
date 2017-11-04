@@ -1,6 +1,6 @@
 ---
-title: Region management in Azure Stack | Microsoft Docs
-description: Overview of region management in Azure Stack.
+title: "Gerenciamento de região na pilha do Azure | Microsoft Docs"
+description: "Visão geral do gerenciamento de região na pilha do Azure."
 services: azure-stack
 documentationcenter: 
 author: efemmano
@@ -14,45 +14,43 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: efemmano
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: d1310f0cb9a820366ab8712a782785e955a24134
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="region-management-in-azure-stack"></a>Region management in Azure Stack
+# <a name="region-management-in-azure-stack"></a>Gerenciamento de região na pilha do Azure
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
 
-Azure Stack has the concept of regions, which are logical entities comprised of the hardware resources that make up the Azure Stack infrastructure. Inside Region management, you can find all resources that are required to successfully operate the Azure Stack infrastructure lifecycle.
+A pilha do Azure tem o conceito de regiões, que são entidades lógicas abrange os recursos de hardware que compõem a infra-estrutura de pilha do Azure. Em gerenciamento de região, você pode localizar todos os recursos que são necessárias para operar com êxito o ciclo de vida de infraestrutura de pilha do Azure.
 
-One integrated system deployment (referred to as an *Azure Stack cloud*) makes up a single region. Each Azure Stack Development Kit has one region, named **local**. If you deploy a second Azure Stack integrated system, or you set up another instance of the development kit on separate hardware, this Azure Stack cloud is a different region.
+Um integrado de implantação de sistema (conhecido como um *nuvem Azure pilha*) compõe uma única região. Cada Kit de desenvolvimento de pilha do Azure tem uma região, denominada **local**. Se você implantar um sistema de pilha do Azure integradas segundo ou configurar outra instância do kit de desenvolvimento em hardware separado, esta nuvem de pilha do Azure é uma região diferente.
 
-## <a name="information-available-through-the-region-management-tile"></a>Information available through the Region management tile
-Azure Stack has a set of region management capabilities available in the **Region management** tile. This tile is available to an Azure Stack operator on the default dashboard in the administrator portal. Through this tile, you can monitor and update your Azure Stack region and its components, which are region-specific.
+## <a name="information-available-through-the-region-management-tile"></a>Informações disponíveis por meio do bloco de gerenciamento de região
+A pilha do Azure tem um conjunto de recursos de gerenciamento de região disponíveis no **gerenciamento região** lado a lado. Este bloco está disponível para um operador de pilha do Azure usando o painel padrão no portal do administrador. Por esse bloco, você pode monitorar e atualizar sua região de pilha do Azure e seus componentes, que são específicas da região.
 
- ![The region management tile](media/azure-stack-manage-region/image1.png)
+ ![O bloco de gerenciamento de região](media/azure-stack-manage-region/image1.png)
 
- If you click a region in the Region management tile, you can access the following information:
+ Se você clicar em uma região no bloco de gerenciamento de região, você pode acessar as informações a seguir:
 
-  ![Description of panes on the Region management blade](media/azure-stack-manage-region/image2.png)
+  ![Descrição dos painéis na folha de gerenciamento de região](media/azure-stack-manage-region/image2.png)
 
-1. **The resource menu**. Here, you can access specific infrastructure management areas, and view and manage user resources such as storage accounts and virtual networks.
+1. **O menu de recurso**. Aqui, você pode acessar as áreas do gerenciamento de infraestrutura específicos e exibir e gerenciar recursos do usuário como contas de armazenamento e redes virtuais.
 
-2. **Alerts**. This tile lists system-wide alerts and provides details on each of those alerts.
+2. **Alertas**. Este bloco lista alertas de todo o sistema e fornece detalhes sobre cada um desses alertas.
 
-3. **Updates**. In this tile, you can view the current version of your Azure Stack infrastructure.
+3. **Atualizações**. No lado a lado, você pode exibir a versão atual de sua infraestrutura de pilha do Azure.
 
-4. **Resource providers**. Resource providers is the place to manage the tenant functionality offered by the components required to run Azure Stack. Each resource provider comes with an administrative experience. This experience can include alerts for the specific provider, metrics, and other management capabilities specific to the resource provider.
+4. **Provedores de recursos**. Provedores de recursos é o local para gerenciar a funcionalidade de locatário oferecida pelos componentes necessários para executar a pilha do Azure. Cada provedor de recursos é fornecido com uma experiência administrativa. Essa experiência pode incluir alertas para o provedor específico, métricas e outros recursos de gerenciamento específicos para o provedor de recursos.
  
-5. **Infrastructure roles**. Infrastructure roles are the components necessary to run Azure Stack. Only the infrastructure roles that report alerts are listed. By clicking a role, you can view the alerts associated with the specific role and the role instances where this role is running. Although there is the capability to start, restart, or shut down an infrastructure role instance, do **not** do this in a development kit environment. These options are designed only for a multi-node environment, where there is more than one role instance per infrastructure role. Restarting a role instance (especially AzS-Xrp01) in the development kit causes system instability.
+5. **Funções de infraestrutura**. Funções de infraestrutura são os componentes necessários para executar a pilha do Azure. Somente as funções de infraestrutura que relatam alertas são listadas. Ao clicar em uma função, você pode exibir os alertas associados à função específica e as instâncias de função em que essa função está em execução. Embora não haja a capacidade de iniciar, reiniciar, ou desligar uma instância de função de infraestrutura, faça **não** isso em um ambiente do kit de desenvolvimento. Essas opções são criadas somente para um ambiente com vários nó, onde há mais de uma instância de função por função de infraestrutura. Reiniciar uma instância de função (especialmente AzS-Xrp01) no kit de desenvolvimento provoca instabilidade no sistema.
 
-## <a name="next-steps"></a>Next steps
-[Monitor health and alerts in Azure Stack](azure-stack-monitor-health.md)
+## <a name="next-steps"></a>Próximas etapas
+[Monitorar a integridade e alertas na pilha do Azure](azure-stack-monitor-health.md)
 
-[Manage updates in Azure Stack](azure-stack-updates.md)
-
+[Gerenciar atualizações na pilha do Azure](azure-stack-updates.md)
 
 
 

@@ -3,7 +3,7 @@ title: "Habilitar o FTP no Serviço de Aplicativo no Azure Stack | Microsoft Doc
 description: "Etapas a serem concluídas para habilitar o FTP no Serviço de Aplicativo no Azure Stack"
 services: azure-stack
 documentationcenter: 
-author: apwestgarth
+author: ErikjeMS
 manager: stefsch
 editor: 
 ms.assetid: 
@@ -13,13 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 4/6/2017
-ms.author: anwestg
-translationtype: Human Translation
-ms.sourcegitcommit: de37e12b47d566395717104de87a5dabc00fd5f4
-ms.openlocfilehash: 689e970cf0beb4ac05e1434f4f9a3b887d00005b
-ms.lasthandoff: 02/08/2017
-
-
+ms.author: erikje
+ms.openlocfilehash: 9cadc57831ac7f7e5d32b10a4a87dab3fac02958
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
 # <a name="enable-ftp-in-app-service-on-azure-stack"></a>Habilitar o FTP no Serviço de Aplicativo no Azure Stack
 
@@ -62,4 +61,3 @@ Depois de implantar com êxito o Serviço de Aplicativo no Azure Stack, se você
 [7]: ./media/azure-stack-app-service-enable-ftp/azure-stack-app-service-enable-ftp-validate-app-services.png
 [8]: ./media/azure-stack-app-service-enable-ftp/azure-stack-app-service-enable-ftp-validate-app-service-app-detail.png
 [9]: ./media/azure-stack-app-service-enable-ftp/azure-stack-app-service-enable-ftp-validate-ftp-file-listing.png
-

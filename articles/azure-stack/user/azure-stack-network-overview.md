@@ -1,35 +1,33 @@
 ---
-title: Introduction to Azure Stack networking
-description: Learn about Azure Stack networking
+title: "Introdução à rede da pilha do Azure"
+description: Saiba mais sobre as redes de pilha do Azure
 services: azure-stack
 author: ScottNapolitan
 ms.service: azure-stack
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: victorh
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: 02406ef396fdaa40cb4d46f32d0b2b00c4ec295e
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="introduction-to-azure-stack-networking"></a>Introduction to Azure Stack networking
+# <a name="introduction-to-azure-stack-networking"></a>Introdução à rede da pilha do Azure
 
-*Applies to: Azure Stack integrated systems and Azure Stack Development Kit*
+*Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
 
-Azure Stack provides a variety of networking capabilities that can be used together or separately:
-- Connectivity between Azure Stack resources: connect Azure resources together in a secure, private virtual network in the cloud.
-- Internet connectivity: communicate to and from Azure Stack resources over the Internet.
-- On-premises connectivity: connect an on-premises network to Azure Stack resources through a virtual private network (VPN) over the Internet, or through a dedicated connection to Azure Stack.
-- Load balancing and traffic direction: load balance traffic to servers in the same location and direct traffic to servers in different locations.
-- Security: filter network traffic between network subnets or individual virtual machines (VM).
-- Routing: use default routing or fully control routing between your Azure Stack and on-premises resources.
-- Manageability: monitor and manage your Azure Stack networking resources.
-- Deployment and configuration tools: use a web-based portal or cross-platform command-line tools to deploy and configure network resources.
+A pilha do Azure fornece uma variedade de recursos de rede que podem ser usados juntos ou separadamente:
+- Conectividade entre os recursos do Azure pilha: conectar recursos do Azure juntos em uma rede virtual privada, seguro na nuvem.
+- Conectividade com a Internet: comunicar para e de recursos de pilha do Azure pela Internet.
+- Conectividade local: conectar-se a uma rede local aos recursos da pilha do Azure por meio de uma rede virtual privada (VPN) pela Internet ou por meio de uma conexão dedicada para a pilha do Azure.
+- Direção do tráfego e balanceamento de carga: carregar balancear o tráfego para servidores no mesmo local e direcione o tráfego para servidores em diferentes locais.
+- Segurança: filtrar o tráfego de rede entre sub-redes de rede ou máquinas virtuais (VM).
+- Roteamento: usar o roteamento padrão ou controle totalmente o roteamento entre a pilha do Azure e recursos locais.
+- Capacidade de gerenciamento: monitore e gerencie sua pilha Azure recursos de rede.
+- Ferramentas de implantação e configuração: usar um portal baseado na web ou ferramentas de linha de comando de plataforma cruzada para implantar e configurar recursos de rede.
 
 
-## <a name="next-steps"></a>Next steps
-* [Considerations for Azure Stack networking](azure-stack-network-differences.md)
-
+## <a name="next-steps"></a>Próximas etapas
+* [Considerações de rede de pilha do Azure](azure-stack-network-differences.md)
 

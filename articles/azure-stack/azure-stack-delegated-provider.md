@@ -1,6 +1,6 @@
 ---
-title: Delegating offers in Azure Stack | Microsoft Docs
-description: Learn how to put other people in charge of creating offers and signing up users for you.
+title: Delegando ofertas na pilha do Azure | Microsoft Docs
+description: "Saiba como colocar outras pessoas responsável por criar ofertas e os usuários de assinatura para você."
 services: azure-stack
 documentationcenter: 
 author: AlfredoPizzirani
@@ -14,133 +14,141 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: alfredop
-ms.translationtype: HT
-ms.sourcegitcommit: 1c730c65194e169121e3ad1d1423963ee3ced8da
-ms.openlocfilehash: af591c51fec3326941980dbe5ffb08ca432d1d51
-ms.contentlocale: pt-br
-ms.lasthandoff: 08/30/2017
-
+ms.openlocfilehash: 1a1f2789076b610ee557bde5981a331c55cc1c95
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="delegating-offers-in-azure-stack"></a>Delegating offers in Azure Stack
+# <a name="delegate-offers-in-azure-stack"></a>Delegar ofertas no Azure Stack
 
-As the Azure Stack cloud operator, you often want to put other people in charge of creating offers and signing up users for you. For example, if you are a service provider and you want resellers to sign up customers and manage them on your behalf. It can also happen in an enterprise if you are part of a central IT group and want divisions or subsidiaries to sign up users without your intervention.
+*Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
 
-Delegation helps you with these tasks, helping you to reach and manage more users than you would be able to do directly. The following illustration shows one level of delegation, but Azure Stack supports multiple levels. Delegated providers can in turn delegate to other providers, up to five levels.
+Como o operador de pilha do Azure, você geralmente deseja colocar outras pessoas responsável por criar ofertas e usuários de assinatura. Por exemplo, se você for um provedor de serviço, convém revendedores Inscrever clientes e gerenciá-los em seu nome. Ou, se você é membro de um grupo central de TI em uma empresa, convém subsidiárias para inscrever-se os usuários sem a intervenção do usuário.
 
-![](media/azure-stack-delegated-provider/image1.png)
+A delegação ajuda a essas tarefas, tornando possível acessar e gerenciar mais usuários que você pode diretamente. A ilustração a seguir mostra um nível de delegação, mas a pilha do Azure oferece suporte a vários níveis. Provedores de delegado (DPs) por sua vez podem delegar a outros provedores, até cinco níveis.
 
-Azure Stack cloud operators can delegate the creation of offers and tenants to other users by using the delegation functionality.
+![Níveis de delegação](media/azure-stack-delegated-provider/image1.png)
 
-## <a name="roles-and-steps-in-delegation"></a>Roles and steps in delegation
-To understand delegation, keep in mind that there are three roles involved:
+Operadores de pilha do Azure podem delegar a criação de usuários de outros usuários e ofertas usando a funcionalidade de delegação.
 
-* The **cloud operator** manages the Azure Stack infrastructure, creates an offer template, and delegates others to offer it to their users.
-* The delegated Azure Stack operators are called **delegated providers**. They can belong to other organizations (such as other Azure Active Directory tenants).
-* **Users** sign up for the offers and use them for managing their workloads, creating VMs, storing data, etc.
+## <a name="roles-and-steps-in-delegation"></a>Funções e as etapas de delegação
+Para entender a delegação, tenha em mente que há três funções envolvidas:
 
-As shown in the following graphic, there are two steps in setting up delegation.
+* O *operador Azure pilha* gerencia a infraestrutura de pilha do Azure, cria um modelo de oferta e delega a outras pessoas a oferecem aos usuários.
 
-1. **Identify the delegated providers** by subscribing them to an offer based on a plan that contains only the subscriptions service.
-   Users who subscribe to this offer acquire some of the Azure Stack operator’s capabilities, including the ability to extend offers and sign users up for them.
-2. **Delegate an offer to the delegated provider**, this offer functions as a template for what the delegated provider can offer. The delegated provider is now able to take the offer, choose a name for it (but not change its services and quotas), and offer it to customers.
+* Os operadores do Azure pilha delegados são chamados *delegado provedores*. Eles podem pertencer a outras organizações, como outros usuários do Active Directory do Azure (AD do Azure).
 
-![](media/azure-stack-delegated-provider/image2.png)
+* *Os usuários* inscrever-se para as ofertas e usá-los para gerenciar suas cargas de trabalho, criar máquinas virtuais, armazenamento de dados e assim por diante.
 
-To act as delegated providers, users need to establish a relationship with the main provider; in other words, they need to create a subscription. In this scenario, this subscription identifies the delegated providers as having the right to present offers on behalf of the main provider.
+Conforme mostrado no gráfico a seguir, há duas etapas para configurar a delegação.
 
-Once this relationship is established, the cloud operator can delegate an offer to the delegated provider. The delegated provider is now able to take the offer, rename it (but not change its substance), and offer it to its customers.
+1. *Identificar os provedores de delegado*. Você pode fazer isso ao inscrever-se a uma oferta com base em um plano que contém apenas o serviço de assinaturas. Usuários que assinaram esta oferta de aquisição de algumas das funcionalidades do operador de pilha do Azure, incluindo a capacidade de ampliar as ofertas e entre os usuários para eles.
 
-The following sections describe how to establish a delegated provider, delegate an offer, and verify that users can sign up for it.
+2. *Delegar uma oferta para o provedor de delegado*. Esta oferta funciona como um modelo para que o provedor de delegado pode oferecer. O provedor de delegado agora pode levar a oferta. Escolha um nome para ele (mas não altere seus serviços e cotas) e oferecê-lo aos clientes.
 
-## <a name="set-up-roles"></a>Set up roles
+![Criar o provedor delegado e habilitá-los inscrever usuários](media/azure-stack-delegated-provider/image2.png)
 
-To see a delegated provider at work, you need additional Azure Active Directory accounts in addition to your cloud operator account. If you do not have them, create the two accounts. The accounts can belong to any AAD tenant. We refer to them as the delegated provider (DP) and the user.
+Para atuar como provedores de delegado, os usuários precisam estabelecer uma relação com o provedor principal. Em outras palavras, eles precisam criar uma assinatura. Nesse cenário, essa assinatura identifica os provedores de delegados como tendo o direito de ofertas presentes em nome do provedor principal.
 
-| **Role** | **Organizational rights** |
+Depois que essa relação foi estabelecida, o operador de pilha do Azure pode delegar uma oferta para o provedor de delegado. O provedor de delegado agora é capaz de levar a oferta, renomeá-la (mas não alterar seu conteúdo) e oferecem a seus clientes.
+
+As seções a seguir descrevem como estabelecer um provedor de delegado, delegar uma oferta e verifique se que os usuários podem inscrever-se para ele.
+
+## <a name="set-up-roles"></a>Configurar funções
+
+Para ver um provedor de delegado no trabalho, você precisa do Azure adicional contas do AD além de sua conta do operador de pilha do Azure. Se você não os tiver, crie duas contas. As contas podem pertencer a qualquer usuário do AD do Azure. Nós nos referimos a eles como o provedor de delegado e o usuário.
+
+| **Função** | **Direitos organizacionais** |
 | --- | --- |
-| Delegated Provider |User |
-| User |User |
+| Provedor de delegados |Usuário |
+| Usuário |Usuário |
 
-## <a name="identify-the-delegated-providers"></a>Identify the delegated providers
-1. Sign in as cloud operator.
-2. Create the offer that enables users to become delegated providers. This requires that you create a plan and an offer based on it:
+## <a name="identify-the-delegated-providers"></a>Identificar os provedores de delegados
+1. Entrar como um operador de pilha do Azure.
+
+2. Crie a oferta que permite que os usuários se tornam delegados provedores:
    
-   a.  [Create a plan](azure-stack-create-plan.md).
-       This plan should include only the subscriptions service. In this article, we use a plan called PlanForDelegation.
+   a.  [Criar um plano de](azure-stack-create-plan.md).
+       Esse plano deve incluir somente o serviço de assinaturas. Neste artigo, usamos um plano chamado **PlanForDelegation**.
    
-   b.  [Create an offer](azure-stack-create-offer.md) based on this plan. In this article, we use an offer called OfferToDP.
+   b.  [Criar uma oferta](azure-stack-create-offer.md) com base nesse plano. Neste artigo, usamos uma oferta chamada **OfferToDP**.
    
-   c.  Once the creation of the offer is complete, add the delegated provider as a subscriber to this offer by clicking **Subscriptions** &gt; **Add** &gt; **New Tenant Subscription**.
+   c.  Após a conclusão da criação da oferta, adicione o provedor delegado como um assinante para esta oferta. Isso é feito selecionando **assinaturas** > **adicionar** > **nova assinatura de locatário**.
    
-   ![](media/azure-stack-delegated-provider/image3.png)
+   ![Adicione o provedor de delegado como um assinante](media/azure-stack-delegated-provider/image3.png)
 
 > [!NOTE]
-> As with all Azure Stack offers, you have the option of making the offer public and letting users sign up for it, or keeping it private and have the cloud operator manage the sign-up. Delegated providers are usually a small group and you want to control who is admitted to it, so keeping this offer private makes sense in most cases.
+> Como com todas as ofertas de pilha do Azure, você tem a opção de fazer a oferta públicos e que ajuda os usuários se inscrever para ele, ou mantê-lo particular e permitindo que o operador de pilha do Azure gerenciar a inscrição. Provedores de delegados são normalmente um pequeno grupo. Você deseja controlar quem é alocada a ele, para que manter esta oferta privada faz sentido na maioria dos casos.
 > 
 > 
 
-## <a name="cloud-operator-creates-the-delegated-offer"></a>Cloud operator creates the delegated offer
+## <a name="azure-stack-operator-creates-the-delegated-offer"></a>Operador de pilha do Azure cria a oferta delegada
 
-You have now established your delegated provider. The next step is to create the plan and offer that you are going to delegate, and which your customers will use. You should define this offer exactly as you want the customers to see it, because the delegated provider will not be able to change the plans and quotas it includes.
+O provedor de delegado agora estabelecida. A próxima etapa é criar o plano e a oferta que você vai delegar e que os clientes usarão. É recomendável definir esta oferta exatamente como deseja que os clientes para vê-lo porque o provedor delegado não será possível alterar os planos e cotas inclui.
 
-1. As cloud operator, [create a plan](azure-stack-create-plan.md) and [an offer](azure-stack-create-offer.md) based on it. For this article, we use an offer called DelegatedOffer.
+1. Como um operador de pilha do Azure, [criar um plano de](azure-stack-create-plan.md) e [uma oferta](azure-stack-create-offer.md) com base nele. Neste artigo, usamos uma oferta chamada **DelegatedOffer.**
    
    > [!NOTE]
-   > This offer does not have to be public. It can be made public if you choose, but, in most cases, you only want delegated providers to have access to it. Once you delegate a private offer as described in the following steps, the delegated provider has access to it.
+   > Esta oferta não precisa ser público. Se você escolher, pode tornar público. Na maioria dos casos, no entanto, você precisará apenas provedores delegados para ter acesso a ele. Depois que você delega uma oferta privada, conforme descrito nas etapas a seguir, o provedor de delegado tem acesso a ele.
    > 
    > 
-1. Delegate the offer. Go to DelegatedOffer, and in the Settings pane, click **Delegated Providers** &gt; **Add**.
-2. Select the delegated provider’s subscription from the drop-down list box and click **Delegate**.
+1. Delega a oferta. Vá para **DelegatedOffer.** Em seguida, no **configurações** painel, selecione **provedores delegado** > **adicionar**.
 
-> ![](media/azure-stack-delegated-provider/image4.png)
+2. Selecione a assinatura para o provedor de delegado na caixa de listagem suspensa e, em seguida, selecione **delegado**.
+
+> ![Adicionar um provedor de delegados](media/azure-stack-delegated-provider/image4.png)
 > 
 > 
 
-## <a name="delegated-provider-customizes-the-offer"></a>Delegated provider customizes the offer
+## <a name="delegated-provider-customizes-the-offer"></a>Provedor de delegado personaliza a oferta
 
-Sign in to the **tenant portal** as the delegated provider and create a new offer using the delegated offer as a template.
+Entrar no portal do usuário, como o provedor de delegado. Crie uma nova oferta, usando a oferta delegada como um modelo.
 
-1. Click **New** &gt; **Tenant Offers + Plans** &gt; **Offer**.
+1. Selecione **novo** > **locatário oferece + planos** > **oferecem**.
 
-    ![](media/azure-stack-delegated-provider/image5.png)
+    ![Criar uma nova oferta](media/azure-stack-delegated-provider/image5.png)
 
 
-1. Assign a name to the offer. Here we choose ResellerOffer. Select the delegated offer to base it on and then click **Create**.
+1. Atribua um nome para a oferta. Aqui, escolhemos **ResellerOffer**. Selecione a oferta delegada nos quais baseá-la e, em seguida, selecione **criar**.
    
-   ![](media/azure-stack-delegated-provider/image6.png)
+   ![Atribua um nome](media/azure-stack-delegated-provider/image6.png)
 
     >[!NOTE] 
-    > Note the difference compared to offer creation as experienced by the cloud operator. The delegated provider does not construct the offer from base plans and add-on plans; they can only choose from offers that have been delegated to them, and can't make changes to those offers.
+    > Observe a diferença comparada para oferecer criação como experientes, o operador de pilha do Azure. O provedor de delegado não constrói a oferta de planos de base e planos de complemento. Eles só podem escolher entre ofertas que tenham sido delegadas a eles e não podem fazer alterações para essas ofertas.
 
-1. Make the offer public by clicking **Browse** &gt; **Offers**, selecting the offer, and clicking **Change State**.
-2. The delegated provider exposes these offers through their own portal URL. These offers are visible only through the delegated portal. To find and change this URL:
-   
-    a.  Click **Browse**&gt; **More services**&gt; **Subscriptions**&gt; Select the delegated provider subscription, in our case its *DPSubscription*&gt; **Properties**.
-   
-    b.  Copy the portal URL to a separate location, such as Notepad.
-   
-    ![](media/azure-stack-delegated-provider/dpportaluri.png)  
-   
-   You have now completed the creation of a delegated offer as a delegated provider. Sign out as the delegated provider. Close the browser tab you have been using.
+1. Publique a oferta selecionando **procurar**e, em seguida, **oferece**. Selecione a oferta e, em seguida, selecione **alterar estado**.
 
-## <a name="sign-up-for-the-offer"></a>Sign up for the offer
-1. In a new browser window, go to the delegated portal URL you saved in the previous step. Sign in to the portal as user. Note: Use the delegated portal for this step. The delegated offer are not visible otherwise.
-2. In the dashboard, click **Get a subscription**. You will see that only the delegated offers created by the delegated provider are presented to the user:
+2. O provedor de delegado expõe essas ofertas por meio de seu próprio portal URL. Essas ofertas estão visíveis apenas através do portal do delegado. Para localizar e alterar esta URL:
+   
+    a.  Selecione **procurar** > **mais serviços** >  **assinaturas**. Em seguida, selecione a assinatura do delegado de provedor. Em nosso caso, ele tem **DPSubscription** > **propriedades**.
+   
+    b.  Copie o portal de URL para um local separado, como o bloco de notas.
+   
+    ![Selecione a assinatura do delegado de provedor](media/azure-stack-delegated-provider/dpportaluri.png)  
+   
+   Agora você criou uma oferta delegada como um provedor de delegado. Saia como o provedor de delegado. Feche a janela de navegador que você usou.
 
-> ![](media/azure-stack-delegated-provider/image8.png)
+## <a name="sign-up-for-the-offer"></a>Inscreva-se para a oferta
+1. Em uma nova janela do navegador, vá para o portal de delegado URL que você salvou na etapa anterior. Entrar no portal como um usuário. 
+   
+   >[!NOTE]
+   > Use o portal delegado para esta etapa. O delegado oferece caso contrário, não é visível.
+
+2. No painel, selecione **obter uma assinatura**. Você verá que somente as ofertas delegadas que foram criadas pelo provedor de delegados são apresentadas ao usuário:
+
+> ![Exibir e selecionar as ofertas](media/azure-stack-delegated-provider/image8.png)
 > 
 > 
 
-This concludes the process of offer delegation. The user can now sign up for this offer by getting a subscription for it.
+O processo de delegação de oferta é concluído. O usuário agora pode inscrever para esta oferta obtendo uma assinatura para ele.
 
-## <a name="multiple-tier-delegation"></a>Multiple-tier delegation
+## <a name="multiple-tier-delegation"></a>Delegação de multicamadas
 
-Multiple-tier delegation allows the delegated provider to delegate the offer to other entities. This allows, for example, the creation of deeper reseller channels, in which the provider managing Azure Stack delegates an offer to a distributor, who in turn delegates to reseller.
-Azure Stack supports up to five levels of delegation.
+Delegação de multicamadas habilita o provedor delegado delegar a oferta para outras entidades. Isso permite, por exemplo, a criação de mais canais de revendedor, no qual o provedor que está gerenciando o Azure pilha delega uma oferta com um distribuidor. Esse distribuidor, por sua vez, delega para um revendedor. A pilha do Azure oferece suporte a até cinco níveis de delegação.
 
-To create multiple tiers of offer delegation, the delegated provider in turn delegates the offer to the next provider. The process is the same for the delegated provider as it was for the cloud operator (see [Cloud operator creates the delegated offer](#cloud-operator-creates-the-delegated-offer)).
+Para criar vários níveis de delegação de oferta, o provedor de delegado por sua vez delega a oferta ao próximo provedor. O processo é o mesmo para o provedor de delegados como era para o operador de pilha do Azure (consulte [operador de pilha do Azure cria a oferta delegada](#cloud-operator-creates-the-delegated-offer)).
 
-## <a name="next-steps"></a>Next steps
-[Provision a VM](azure-stack-provision-vm.md)
-
+## <a name="next-steps"></a>Próximas etapas
+[Provisionar uma máquina virtual](azure-stack-provision-vm.md)
 

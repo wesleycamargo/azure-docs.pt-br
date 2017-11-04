@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 09/12/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: e74f2cbeca5385b2e766d02a5f3f8ba3a815c91f
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: a345cacfe53f37f851eebb76b5b8997cb9c0b54b
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="set-up-my-account-for-two-step-verification"></a>Configurar minha conta para verificação em duas etapas
 A verificação em duas etapas é uma etapa adicional de segurança que ajuda a proteger sua conta, tornando mais difícil para outras pessoas invadi-la. Se você está lendo este artigo, é provável que tenha um email de seu administrador do trabalho ou escola sobre Autenticação Multifator. Ou talvez você tenha tentado entrar e recebido uma mensagem pedindo para configurar uma verificação de segurança adicional. Se esse for o caso, **você não poderá entrar até concluir o processo de registro automático**.
@@ -29,7 +29,7 @@ Este artigo ajuda você a configurar sua **conta corporativa ou de estudante**. 
 
 ## <a name="set-up-your-account"></a>Configurar sua conta
 
-Quando o departamento de TI exigir que você comece a usar a verificação em duas etapas, você verá uma tela que diz **Seu administrador exigiu que você configure esta conta para verificação de segurança adicional**:
+Quando o suporte da sua empresa exigir que você comece a usar a verificação em duas etapas, você verá uma tela que diz **Seu administrador exigiu que você configure esta conta para verificação de segurança adicional**:
 
 ![Configuração](./media/multi-factor-authentication-end-user-first-time/first.png)
 
@@ -43,8 +43,8 @@ A primeira pergunta no processo de registro é como você deseja que entremos em
 
 | Método de contato | Descrição |
 | --- | --- |
-| [Aplicativo móvel](#use-a-mobile-app-as-the-contact-method) |- **Receba notificações para verificação.** Essa opção envia uma notificação por push ao aplicativo autenticador no seu smartphone ou tablet. Veja a notificação e, se ela for legítima, selecione **Autenticar** no aplicativo. Seu trabalho ou escola pode exigir que você insira um PIN antes de se autenticar.<br>- **Use o código de verificação.** Nesse modo, o aplicativo autenticador gera um código de verificação que é atualizado a cada 30 segundos. Insira o código de verificação mais recente na interface de entrada.<br>O aplicativo Microsoft Authenticator está disponível para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
-| [Chamada telefônica ou SMS de celular](#use-your-mobile-phone-as-the-contact-method) |- **Chamada telefônica** faz uma chamada de voz automática para o número de telefone que você fornecer. O usuário atende à chamada e pressiona # no teclado do telefone para autenticar.<br>- **Mensagem de texto** envia uma mensagem de texto contendo um código de verificação. Após o prompt no texto, responda à mensagem de texto ou insira o código de verificação fornecido na interface de entrada. |
+| [Aplicativo móvel](#use-a-mobile-app-as-the-contact-method) |- **Receba notificações para verificação.** Essa opção envia uma notificação por push ao aplicativo autenticador no seu smartphone ou tablet. Veja a notificação e, se ela for legítima, selecione **Autenticar** no aplicativo. Seu trabalho ou escola pode exigir que você insira um PIN antes de se autenticar.<br>- **Use o código de verificação.** Nesse modo, o aplicativo autenticador gera um código de verificação que é atualizado a cada 30 segundos. Insira o código de verificação mais recente na interface de entrada.<br>O aplicativo Microsoft Authenticator está disponível para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [iOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
+| [Chamada telefônica ou SMS de celular](#use-your-mobile-phone-as-the-contact-method) |- **Chamada telefônica** faz uma chamada de voz automática para o número de telefone que você fornecer. O usuário atende à chamada e pressiona # no teclado do telefone para autenticar.<br>- **SMS** envia para o usuário uma mensagem de texto contendo um código de verificação. Após o prompt no texto, responda à mensagem de texto ou insira o código de verificação fornecido na interface de entrada. |
 | [Ligação Para Telefone Comercial](#use-your-office-phone-as-the-contact-method) |Faz uma chamada de voz automática para o número de telefone que você fornecer. O usuário atende à chamada e pressiona # no teclado do telefone para autenticar. |
 
 ## <a name="use-a-mobile-app-as-the-contact-method"></a>Usar um aplicativo móvel como método de contato

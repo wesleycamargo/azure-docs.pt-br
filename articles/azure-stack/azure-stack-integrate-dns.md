@@ -1,143 +1,143 @@
 ---
-title: Azure Stack datacenter integration - DNS
-description: Learn how to integrate Azure Stack DNS with your datacenter DNS
+title: "Integração do data center do Azure pilha - DNS"
+description: Saiba como integrar o DNS de pilha do Azure com seu datacenter DNS
 services: azure-stack
 author: troettinger
 ms.service: azure-stack
 ms.topic: article
-ms.date: 9/25/2017
+ms.date: 10/10/2017
 ms.author: victorh
 keywords: 
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: bf41e2458ade0bc770eb0f9cd327f752e08358a9
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.openlocfilehash: 40d6d4858ef2e3df61d04dc68c00e09c04f000e2
+ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/18/2017
 ---
+# <a name="azure-stack-datacenter-integration---dns"></a>Integração do data center do Azure pilha - DNS
 
-# <a name="azure-stack-datacenter-integration---dns"></a>Azure Stack datacenter integration - DNS
+*Aplica-se a: sistemas integrados de pilha do Azure*
 
-*Applies to: Azure Stack integrated systems*
+Para poder acessar pontos de extremidade de pilha do Azure (`portal`, `adminportal`, `management`, `adminmanagement`, etc.)  da pilha fora do Azure, você precisa integrar os serviços DNS de pilha do Azure com os servidores DNS que hospedam as zonas DNS que você deseja usar na pilha do Azure.
 
-To be able to access Azure Stack endpoints (`portal`, `adminportal`, `management`, `adminmanagement`, etc.)  from outside Azure Stack, you need to integrate the Azure Stack DNS services with the DNS servers that host the DNS zones you want to use in Azure Stack.
-
-## <a name="azure-stack-dns-namespace"></a>Azure Stack DNS namespace
-You are required to provide some important information related to DNS when you deploy Azure Stack.
+## <a name="azure-stack-dns-namespace"></a>Namespace DNS da pilha do Azure
+É necessário fornecer algumas informações importantes relacionadas ao DNS quando você implanta a pilha do Azure.
 
 
-|Field  |Description  |Example|
+|Campo  |Descrição  |Exemplo|
 |---------|---------|---------|
-|Region|The geographic location of your Azure Stack deployment.|`east`|
-|External Domain Name|The name of the zone you want to use for your Azure Stack deployment.|`cloud.fabrikam.com`|
-|Internal Domain Name|The name of the internal zone that is used for infrastructure services in Azure Stack.  It is Directory Service-integrated and private (not reachable from outside the Azure Stack deployment).|`azurestack.local`|
-|DNS Forwarder|DNS servers that are used to forward DNS queries, DNS zones and records that are hosted outside Azure Stack, either on the corporate intranet or public internet.|`10.57.175.34`<br>`8.8.8.8`|
-|Naming Prefix (Optional)|The naming prefix you want your Azure Stack infrastructure role instance machine names to have.  If not provided, the default is `azs`.|`azs`|
+|Região|A localização geográfica de sua implantação de pilha do Azure.|`east`|
+|Nome de domínio externo|O nome da zona que você deseja usar para sua implantação de pilha do Azure.|`cloud.fabrikam.com`|
+|Nome de domínio interno|O nome da zona interno que é usada para serviços de infraestrutura na pilha do Azure.  É integrada ao serviço de diretório e privados (não pode ser acessado de fora da implantação da pilha do Azure).|`azurestack.local`|
+|Encaminhador de DNS|Servidores DNS que são usados para encaminhar consultas DNS, zonas DNS e os registros que são hospedados fora do Azure pilha, tanto na intranet corporativa ou na internet pública.|`10.57.175.34`<br>`8.8.8.8`|
+|Prefixo de nome (opcional)|O prefixo de nomenclatura que você deseja que seus nomes de máquina do Azure pilha infraestrutura função instância tenha.  Se não for fornecido, o padrão é `azs`.|`azs`|
 
-The fully qualified domain name (FQDN) of your Azure Stack deployment and endpoints is the combination of the Region parameter and the External Domain Name parameter. Using the values from the examples in the previous table, the FQDN for this Azure Stack deployment would be the following name:
+O nome de domínio totalmente qualificado (FQDN) de sua implantação de pilha do Azure e os pontos de extremidade é a combinação do parâmetro região e o parâmetro de nome de domínio externo. Usando os valores de exemplos na tabela anterior, o FQDN para essa implantação de pilha do Azure seria o seguinte nome:
 
 `east.cloud.fabrikam.com`
 
-As such, examples of some of the endpoints for this deployment would look like the following URLs:
+Como tal, exemplos de alguns dos pontos de extremidade para essa implantação pareceria com as seguintes URLs:
 
 `https://portal.east.cloud.fabrikam.com`
 
 `https://adminportal.east.cloud.fabrikam.com`
 
-To use this example DNS namespace for an Azure Stack deployment, the following conditions are required:
+Para usar esse namespace DNS de exemplo para uma implantação de pilha do Azure, as seguintes condições são necessárias:
 
-- The zone `fabrikam.com` is registered either with a domain registrar, an internal corporate DNS server, or both, depending on your name resolution requirements.
-- The child domain `cloud.fabrikam.com` exists under the zone `fabrikam.com`.
-- The DNS servers that host the zones `fabrikam.com` and `cloud.fabrikam.com` can be reached from the Azure Stack deployment.
+- A zona `fabrikam.com` está registrado com um registrador de domínio, um servidor DNS corporativo interno ou ambos, dependendo dos requisitos de resolução de nome.
+- O domínio filho `cloud.fabrikam.com` existe na zona `fabrikam.com`.
+- Os servidores DNS que hospedam as zonas `fabrikam.com` e `cloud.fabrikam.com` pode ser acessada a partir da implantação da pilha do Azure.
 
-To be able to resolve DNS names for Azure Stack endpoints and instances from outside Azure Stack, you need to integrate the DNS servers that host the external DNS zone for Azure Stack with the DNS servers that host the parent zone you want to use.
+Para ser capaz de resolver nomes DNS para pontos de extremidade de pilha do Azure e as instâncias da pilha fora do Azure, você precisa integrar os servidores DNS que hospedam a zona DNS externa para a pilha do Azure com os servidores DNS que hospedam a zona pai que você deseja usar.
 
 
-## <a name="resolution-and-delegation"></a>Resolution and delegation
+## <a name="resolution-and-delegation"></a>Resolução e delegação
 
-There are two types of DNS servers:
+Existem dois tipos de servidores DNS:
 
-- An authoritative DNS server hosts DNS zones. It answers DNS queries for records in those zones only.
-- A recursive DNS server does not host DNS zones. It answers all DNS queries by calling authoritative DNS servers to gather the data it needs.
+- Um servidor DNS autoritativo hospeda as zonas DNS. Ele responde a consultas DNS apenas para registros nessas zonas.
+- Um servidor DNS recursivo não hospeda as zonas DNS. Ele responde a todas as consultas DNS chamando os servidores DNS autoritativos para coletar os dados de que precisa.
 
-Azure Stack includes both authoritative and recursive DNS servers. The recursive servers are used to resolve names of everything except for the internal private zone and the external public DNS zone for that Azure Stack deployment. 
+A pilha do Azure inclui tanto autoritativo e servidores DNS recursivo. Os servidores recursiva são usados para resolver nomes de tudo, exceto a zona privada interna e externa zona DNS pública para que a implantação do Azure pilha. 
 
-![Azure Stack DNS architecture](media/azure-stack-integrate-dns/Integrate-DNS-01.png)
+![Arquitetura de pilha DNS do Azure](media/azure-stack-integrate-dns/Integrate-DNS-01.png)
 
-## <a name="resolving-external-dns-names-from-azure-stack"></a>Resolving external DNS names from Azure Stack
+## <a name="resolving-external-dns-names-from-azure-stack"></a>Resolver nomes DNS externos da pilha do Azure
 
-To resolve DNS names for endpoints outside Azure Stack (for example: www.bing.com), you need to provide DNS servers that Azure Stack can use to forward DNS requests for which Azure Stack is not authoritative. For deployment, DNS servers that Azure Stack forwards requests to are required in the Deployment Worksheet (in the DNS Forwarder field). Provide at least two servers in this field for fault tolerance. Without these values, Azure Stack deployment fails.
+Para resolver nomes DNS para pontos de extremidade fora da pilha do Azure (por exemplo: www.bing.com), você precisa fornecer os servidores DNS que pilha do Azure pode usar para encaminhar solicitações DNS para o qual a pilha do Azure não está autorizada. Para implantação, os servidores DNS do Azure pilha encaminha solicitações para são necessários na planilha de implantação (no campo encaminhador de DNS). Forneça pelo menos dois servidores nesse campo para tolerância a falhas. Sem esses valores, a implantação de pilha do Azure falhará.
 
-### <a name="adding-dns-forwarding-servers-after-deployment"></a>Adding DNS forwarding servers after deployment
+### <a name="configure-conditional-dns-forwarding"></a>Configurar o encaminhamento condicional do DNS
 
-If you or your ISP updates your DNS infrastructure, you might want to register additional DNS servers. To add DNS servers to forward recursive requests, you must use the privileged endpoint.
+> [!IMPORTANT]
+> Isso se aplica apenas a uma implantação do AD FS.
 
-For this procedure, use a computer in your datacenter network that can communicate with the privileged endpoint in Azure Stack.
+Para habilitar a resolução de nomes com a infraestrutura DNS existente, configure o encaminhamento condicional.
 
-1. Open an elevated Windows PowerShell session (run as administrator), and connect to the IP address of the privileged endpoint. Use the credentials for CloudAdmin authentication.
+Para adicionar um encaminhador condicional, você deve usar o ponto de extremidade com privilégios.
+
+Para esse procedimento, use um computador em sua rede de datacenter que pode se comunicar com o ponto de extremidade com privilégios na pilha do Azure.
+
+1. Abra uma sessão do Windows PowerShell com privilégios elevados (Executar como administrador) e conecte-se para o endereço IP do ponto de extremidade com privilégios. Use as credenciais para autenticação de CloudAdmin.
 
    ```
    $cred=Get-Credential 
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $cred
    ```
 
-2. After you connect to the privileged endpoint, run the following PowerShell command. Substitute the sample values provided with your domain name and IP addresses of the DNS servers you want to use.
+2. Depois de se conectar ao ponto de extremidade com privilégios, execute o seguinte comando do PowerShell. Substitua os valores de exemplo fornecidos com o nome de domínio e endereços IP dos servidores DNS que você deseja usar.
 
    ```
-   Register-CustomDnsServer -CustomDomainName "contoso.com" -CustomDnsIPAddresses “192.168.1.1”,”192.168.1.2”
+   Register-CustomDnsServer -CustomDomainName "contoso.com" -CustomDnsIPAddresses "192.168.1.1","192.168.1.2"
    ```
 
-After you run this command, Azure Stack services and user virtual machines that use Azure Stack DNS will be able to resolve the names of Azure Stack endpoints such as the portal and API endpoints, and any public IP addresses that have a DNS name label.
+## <a name="resolving-azure-stack-dns-names-from-outside-azure-stack"></a>Resolução de nomes DNS de pilha do Azure da pilha fora do Azure
+Os servidores autoritativos são aqueles que contêm as informações de zona DNS externas e as zonas criadas pelo usuário. Integre com esses servidores para habilitar a delegação de zona ou encaminhamento condicional para resolver nomes DNS de pilha do Azure da pilha fora do Azure.
 
-## <a name="resolving-azure-stack-dns-names-from-outside-azure-stack"></a>Resolving Azure Stack DNS names from outside Azure Stack
-The authoritative servers are the ones that hold the external DNS zone information, and any user-created zones. Integrate with these servers to enable zone delegation or conditional forwarding to resolve Azure Stack DNS names from outside Azure Stack.
+## <a name="get-dns-server-external-endpoint-information"></a>Obter informações de ponto de extremidade externo do servidor DNS
 
-## <a name="get-dns-server-external-endpoint-information"></a>Get DNS Server external endpoint information
+Para integrar a implantação de pilha do Azure com sua infraestrutura DNS, você precisa das seguintes informações:
 
-To integrate your Azure Stack deployment with your DNS infrastructure, you need the following information:
+- Servidor DNS FQDNs
+- Endereços IP do servidor DNS
 
-- DNS server FQDNs
-- DNS server IP addresses
-
-The FQDNs for the Azure Stack DNS servers have the following format:
+Os FQDNs para os servidores DNS da pilha do Azure têm o seguinte formato:
 
 `<NAMINGPREFIX>-ns01.<REGION>.<EXTERNALDOMAINNAME>`
 
 `<NAMINGPREFIX>-ns02.<REGION>.<EXTERNALDOMAINNAME>`
 
-Using the sample values, the FQDNs for the DNS servers are:
+Servidores usando os valores de exemplo, os FQDNs para o DNS são:
 
 `azs-ns01.east.cloud.fabrikam.com`
 
 `azs-ns02.east.cloud.fabrikam.com`
 
 
-This information is also created at the end of all Azure Stack deployments in a file named `AzureStackStampDeploymentInfo.json`. This file is located in the `C:\CloudDeployment\logs` folder of the Deployment virtual machine. If you’re not sure what values were used for your Azure Stack deployment, you can get the values from here.
+Essas informações também são criadas no final de todas as implantações de pilha do Azure em um arquivo chamado `AzureStackStampDeploymentInfo.json`. Esse arquivo está localizado no `C:\CloudDeployment\logs` pasta da máquina virtual implantação. Se você não tiver certeza de que os valores que foram usados para sua implantação de pilha do Azure, você pode obter os valores aqui.
 
-If the Deployment virtual machine is no longer available or is inaccessible, you can obtain the values by connecting to the privileged endpoint and running the `Get-AzureStackInfo` PowerShell cmdlet. For more information about the privileged endpoint, see (insert link to article here).
+Se a máquina virtual de implantação não está mais disponível ou está inacessível, você pode obter os valores se conectar ao ponto de extremidade com privilégios e executando o `Get-AzureStackInfo` cmdlet do PowerShell. Para obter mais informações sobre o ponto de extremidade com privilégios, consulte (inserir) link para o artigo aqui.
 
-## <a name="setting-up-conditional-forwarding-to-azure-stack"></a>Setting up conditional forwarding to Azure Stack
+## <a name="setting-up-conditional-forwarding-to-azure-stack"></a>Configurando o encaminhamento condicional a pilha do Azure
 
-The simplest and most secure way to integrate Azure Stack with your DNS infrastructure is to do conditional forwarding of the zone from the server that hosts the parent zone. This approach is recommended if you have direct control over the DNS servers that host the parent zone for your Azure Stack external DNS namespace.
+É a maneira mais simples e segura para integrar a pilha do Azure com sua infraestrutura DNS fazer o encaminhamento condicional da zona do servidor que hospeda a zona pai. Essa abordagem é recomendada se você tem controle direto sobre os servidores DNS que hospedam a zona pai para seu namespace DNS externo de pilha do Azure.
 
-If you’re not familiar with how to do conditional forwarding with DNS, see the following TechNet article: [Assign a Conditional Forwarder for a Domain Name](https://technet.microsoft.com/library/cc794735), or the documentation specific to your DNS solution.
+Se você não estiver familiarizado com como fazer o encaminhamento condicional com o DNS, consulte o seguinte artigo do TechNet: [atribuir um encaminhador condicional para um nome de domínio](https://technet.microsoft.com/library/cc794735), ou a documentação específica referente à sua solução DNS.
 
-In scenarios where you specified your external Azure Stack DNS Zone to look like a child domain of your corporate domain name, conditional forwarding cannot be used. DNS delegation must be configured.
+Em cenários em que você especificou a zona de DNS de pilha do Azure externos com a aparência de um domínio filho de seu nome de domínio corporativo, o encaminhamento condicional não pode ser usado. Delegação de DNS deve ser configurada.
 
-Example:
+Exemplo:
 
-- Corporate DNS Domain Name: `contoso.com`
-- Azure Stack External DNS Domain Name: `azurestack.contoso.com`
+- Nome de domínio DNS corporativo:`contoso.com`
+- Nome de domínio do DNS externo de pilha do Azure:`azurestack.contoso.com`
 
-## <a name="delegating-the-external-dns-zone-to-azure-stack"></a>Delegating the external DNS zone to Azure Stack
+## <a name="delegating-the-external-dns-zone-to-azure-stack"></a>Delegação de zona DNS externa a pilha do Azure
 
-For DNS names to be resolvable from outside an Azure Stack deployment, you need to set up DNS delegation.
+Para nomes DNS a ser resolvido por meio da fora de uma implantação de pilha do Azure, você precisa configurar a delegação de DNS.
 
-Each registrar has their own DNS management tools to change the name server records for a domain. In the registrar's DNS management page, edit the NS records and replace the NS records for the zone with the ones in Azure Stack.
+Cada registrador tem suas próprias ferramentas de gerenciamento de DNS para alterar os registros de servidor de nomes para um domínio. Na página de gerenciamento do DNS do registrador, editar os registros NS e substitua os registros NS para a zona com aqueles na pilha do Azure.
 
-Most DNS registrars require you to provide a minimum of two DNS servers to complete the delegation.
+A maioria dos registradores DNS exigem que você fornecer um mínimo de dois servidores DNS para concluir a delegação.
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Próximas etapas
 
-[Azure Stack datacenter integration - publish endpoints](azure-stack-integrate-endpoints.md)
-
+[Integração do data center do Azure pilha - identidade](azure-stack-integrate-identity.md)

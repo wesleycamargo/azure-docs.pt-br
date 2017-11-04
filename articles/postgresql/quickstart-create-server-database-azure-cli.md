@@ -1,6 +1,6 @@
 ---
 title: Criar um servidor de Banco de Dados do Azure para PostgreSQL usando a CLI Azure | Microsoft Docs
-description: "Guia de início rápido para criar e gerenciar o Banco de Dados do Azure para o servidor PostgreSQL usando a CLI(interface de linha de comando) do Azure."
+description: "Guia de início rápido para criar e gerenciar o servidor do Banco de Dados do Azure para PostgreSQL usando a CLI (interface de linha de comando) do Azure."
 services: postgresql
 author: sanagama
 ms.author: sanagama
@@ -10,11 +10,11 @@ ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: quickstart
 ms.date: 06/13/2017
-ms.openlocfilehash: d78243abc140c7b3f0b99bdf56821b7920568550
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f51964687e2fbbcca4f5623b56997dc8acfa78a6
+ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/24/2017
 ---
 # <a name="create-an-azure-database-for-postgresql-using-the-azure-cli"></a>Criar um servidor de Banco de Dados do Azure para PostgreSQL usando a CLI do Azure
 O Banco de Dados do Azure para PostgreSQL é um serviço gerenciado que permite executar, gerenciar e dimensionar os bancos de dados altamente disponíveis do PostgreSQL na nuvem. A CLI do Azure é usada para criar e gerenciar recursos do Azure da linha de comando ou em scripts. Este início rápido mostra como criar um Banco de Dados do Azure para o servidor PostgreSQL em um [grupo de recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) usando a CLI do Azure.
@@ -24,6 +24,11 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
 Se você optar por instalar e usar a CLI localmente, este tópico exigirá que você esteja executando a CLI do Azure versão 2.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
+
+Se você estiver executando a CLI localmente, precisará fazer logon em sua conta usando o comando [az login](/cli/azure/authenticate-azure-cli?view=interactive-log-in).
+```azurecli-interactive
+az login
+```
 
 Se tiver várias assinaturas, escolha a que for adequada para cobrança do recurso. Selecione uma ID da assinatura específica em sua conta usando o comando [az account set](/cli/azure/account#set).
 ```azurecli-interactive
@@ -150,13 +155,13 @@ Para se conectar ao servidor PostgreSQL do Azure usando a ferramenta GUI _pgAdmi
 Limpe todos os recursos que você criou no início rápido, excluindo o [Grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md).
 
 > [!TIP]
-> Outros inícios rápidos nessa coleção aproveitam esse início rápido. Se você planeja continuar trabalhando com os inícios rápidos subsequentes, não limpe os recursos criados nesse início rápido. Se não planeja continuar, siga estas etapas para excluir todos os recursos criados por esse início rápido na CLI do Azure.
+> Outros inícios rápidos nessa coleção aproveitam esse início rápido. Se você planeja continuar trabalhando com os inícios rápidos subsequentes, não limpe os recursos criados neste início rápido. Se não planeja continuar, siga estas etapas para excluir todos os recursos criados por esse início rápido na CLI do Azure.
 
 ```azurecli-interactive
 az group delete --name myresourcegroup
 ```
 
-Se você apenas deseja excluir o servidor recém-criado, você pode executar o comando [az postgres server delete](/cli/azure/postgres/server#delete).
+Se você quiser simplesmente excluir o servidor recém-criado, poderá executar o comando [az postgres server delete](/cli/azure/postgres/server#delete).
 ```azurecli-interactive
 az postgres server delete --resource-group myresourcegroup --name mypgserver-20170401
 ```

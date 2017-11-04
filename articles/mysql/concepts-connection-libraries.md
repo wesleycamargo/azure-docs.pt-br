@@ -8,15 +8,15 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 06/08/2017
-ms.openlocfilehash: e746f28829063f8437ad408c4681f90aec6c0e0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 10/20/2017
+ms.openlocfilehash: 759fa290cff94b04e29edd818b985b11267caab7
+ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/23/2017
 ---
 # <a name="connection-libraries-for-azure-database-for-mysql"></a>Bibliotecas de conexão para o Banco de Dados do Azure para MySQL
-Este tópico lista cada biblioteca ou driver que os programas de cliente podem usar ao se conectarem ao Banco de Dados do Azure para MySQL.
+Este artigo lista cada biblioteca ou driver que os programas de cliente podem usar ao se conectarem ao Banco de Dados do Azure para MySQL.
 
 ## <a name="client-interfaces"></a>Interfaces de cliente
 O MySQL oferece conectividade de driver de banco de dados padrão para usar o MySQL com aplicativos e ferramentas compatíveis com ODBC e JDBC padrões do setor. Qualquer sistema que funciona com ODBC ou JDBC pode usar o MySQL.
@@ -35,5 +35,7 @@ O MySQL oferece conectividade de driver de banco de dados padrão para usar o My
 
 
 ## <a name="next-steps"></a>Próximas etapas
-[Visão geral do Banco de Dados do Azure para MySQL](./overview.md)
-[Conceitos de servidor no Banco de Dados para MySQL](./concepts-servers.md)
+Leia estes guias de início rápido para saber como se conectar e consultar o Banco de Dados do Azure para MySQL usando a linguagem de sua escolha:
+
+[PHP](./connect-php.md) | [Java](./connect-java.md) |  [.NET (C#)](./connect-csharp.md) | [Python](./connect-python.md) | [Node.JS](./connect-nodejs.md) | [Ruby](./connect-ruby.md) | [C++](connect-cpp.md) | [Go](./connect-go.md)
+

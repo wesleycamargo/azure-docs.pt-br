@@ -15,11 +15,11 @@ ms.date: 06/15/2017
 ms.author: barlan
 ms.reviewer: yossib
 ms.custom: end-user
-ms.openlocfilehash: 5b6694afc0bafaf2be5f98c625dd6724b91234fc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cb6e652794de6cda8b5fc7c7e466f880833a1a14
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="what-does-azure-multi-factor-authentication-mean-for-me"></a>O que o Azure Multi-Factor Authentication significa para mim?
 Então, você recebeu um email de alguém de TI ou do seu chefe informando que incluíram uma verificação de segurança adicional à sua conta.  E o que isso significa?
@@ -33,7 +33,7 @@ Sendo assim, a primeira coisa que você precisa fazer é concluir o processo de 
 * **Aplicativo móvel com um código de notificação ou verificação** : se estiver usando o aplicativo móvel, escolha entre receber uma notificação a qual responder ou um código de verificação.
 
 > [!NOTE]
-> Seu departamento de TI pode desabilitar uma ou mais dessas opções.  Nesse caso, essas opções não estarão disponíveis durante o processo de registro.  
+> O suporte da sua empresa pode desabilitar uma ou mais dessas opções.  Nesse caso, essas opções não estarão disponíveis durante o processo de registro.  
 
 Agora que você decidiu sobre seu método de verificação, é hora de fazer o registro. Use o link [Experiência de Configuração](multi-factor-authentication-end-user-first-time.md) para começar com um passo a passo sobre o processo de registro.
 
@@ -46,4 +46,4 @@ Selecione um desses tópicos para começar.
 | [Experiência de conexão](multi-factor-authentication-end-user-signin.md) |Mostra o que você pode esperar quando se conectar usando vários métodos, como telefone ou aplicativo. |
 | [Alterando suas configurações](multi-factor-authentication-end-user-manage-settings.md) |Mostra como você pode alterar suas configurações, como número de telefone ou método de registro preferido. |
 | [Ajuda com senhas de aplicativo](multi-factor-authentication-end-user-app-passwords.md) |Encontre informações sobre como criar e usar senhas de aplicativo. |
-| [Usar o aplicativo móvel](microsoft-authenticator-app-how-to.md) |O aplicativo Microsoft Authenticator está disponível para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
+| [Usar o aplicativo móvel](microsoft-authenticator-app-how-to.md) |O aplicativo Microsoft Authenticator está disponível para [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072) e [iOS](http://go.microsoft.com/fwlink/?Linkid=825073). |

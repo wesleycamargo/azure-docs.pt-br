@@ -1,6 +1,6 @@
 ---
-title: Report Azure Stack usage data to Azure | Microsoft Docs
-description: Learn how to set up usage data reporting in Azure Stack.
+title: Relatar dados de uso de pilha do Azure para o Azure | Microsoft Docs
+description: "Saiba como configurar dados de uso de relatórios na pilha do Azure."
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -14,84 +14,97 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: sngun;AlfredoPizzirani
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: 695b93a818d3c0e615bb79e0a2861e134b2f5c89
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.openlocfilehash: 5abc325a6e7c019dc3cb84f7f6ff63c3eb2ff76c
+ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/13/2017
 ---
+# <a name="report-azure-stack-usage-data-to-azure"></a>Relatar dados de uso de pilha do Azure para o Azure 
 
-# <a name="report-azure-stack-usage-data-to-azure"></a>Report Azure Stack usage data to Azure 
+Dados de uso, também chamados de dados de consumo, representam a quantidade de recursos usados. 
 
-Usage data, also called consumption data, represents the amount of resources used. The Azure Stack integrated systems that use consumption-based billing model should report usage data to Azure. This usage data is used for billing purpose. It's the Azure Stack operator's responsibility to configure their Azure Stack environment with usage data reporting.
-
+Sistemas com vários nós do Azure pilha que usam o modelo de cobrança com base em consumo devem relatar dados de uso do Azure para a finalidade de cobrança.  Operadores de pilha do Azure devem configurar sua instância de pilha do Azure para relatar dados de uso para o Azure.
 
 > [!NOTE]
-> Usage data reporting is required for the Azure Stack integrated system users who license under the pay-as-you-use model. Whereas, it's optional for customers who license under the capacity model. For the Azure Stack Development Kit, cloud operators can report usage data and test the feature, however, users are not charged for any usage they incur. See the [How to buy Azure Stack](https://azure.microsoft.com/overview/azure-stack/how-to-buy/) page to learn more about pricing in Azure Stack.
+> Relatórios de dados de uso é necessário para os usuários de vários nós de pilha do Azure que no modelo de pagamento que você-uso de licença. É opcional para os clientes que no modelo de capacidade de licença (consulte o [como comprar página](https://azure.microsoft.com/overview/azure-stack/how-to-buy/ to learn more about pricing in Azure Stack)). Para usuários do Kit de desenvolvimento de pilha do Azure, os operadores de pilha do Azure podem relatar dados de uso e testar o recurso. No entanto, os usuários não serão cobrados para qualquer uso incorrem. 
 
-## <a name="usage-data-reporting-flow"></a>Usage data reporting flow
 
-Usage data is sent from Azure Stack to Azure through the Azure Bridge. In Azure, the commerce system processes the usage data and generates the bill. After the bill is generated, the Azure subscription owner can view and download it from the [Azure Account Center](https://account.windowsazure.com/Subscriptions). To learn about how Azure Stack is licensed, refer to the [Azure Stack packaging and pricing document](https://go.microsoft.com/fwlink/?LinkId=842847&clcid=0x409). 
+![fluxo de cobrança](media/azure-stack-usage-reporting/billing-flow.png)
 
-The following image is a graphical representation of usage data flow in Azure Stack:
+Dados de uso são enviados da pilha do Azure para o Azure por meio da ponte do Azure. No Azure, o sistema de comércio processa os dados de uso e gera a fatura. Depois que a fatura é gerada, o proprietário da assinatura do Azure pode exibir e baixá-lo a [Centro de contas Azure](https://account.windowsazure.com/Subscriptions). Para saber mais sobre como a pilha do Azure é licenciada, consulte o [pilha do Azure, pacotes e preços documento](https://go.microsoft.com/fwlink/?LinkId=842847&clcid=0x409).
 
-![billing flow](media/azure-stack-usage-reporting/billing-flow.png)
+## <a name="set-up-usage-data-reporting"></a>Configurar os relatórios de dados de uso
 
-## <a name="set-up-usage-data-reporting"></a>Set up usage data reporting
+Para configurar os relatórios de dados de uso, você deve [registrar sua instância de pilha do Azure com o Azure](azure-stack-register.md). Como parte do processo de registro, o componente de ponte do Azure da pilha do Azure, que se conecta a pilha do Azure para o Azure e envia os dados de uso, está configurado. Os seguintes dados de uso são enviados da pilha do Azure para o Azure:
 
-To set up usage data reporting in Azure Stack, you must [register your Azure Stack instance with Azure](azure-stack-register.md). As a part of the registration process, the Azure Bridge component of Azure Stack is configured to connect Azure Stack to Azure. After the Azure Bridge is configured, it sends the following usage data to Azure: 
+- **ID de medidor** – a ID exclusiva para o recurso que foi consumido.
+- **Quantidade** – a quantidade de uso de recursos.
+- **Local** – local em que o recurso do Azure pilha atual é implantado.
+- **URI de recurso** – totalmente qualificado o URI do recurso para o qual o uso está sendo relatado.
+- **ID da assinatura** – ID de assinatura do usuário a pilha do Azure. Esta é a assinatura de (pilha do Azure) local.
+- **Tempo** – hora de início e término dos dados de uso. Há algum atraso entre a hora quando esses recursos são consumidos na pilha do Azure e quando os dados de uso são relatados para comércio. Dados de uso de agregações pilha do Azure para a cada 24 horas e relatório dados de uso para o pipeline de comércio no Azure leva outro algumas horas. Portanto, uso ocorre logo antes da meia-noite pode aparecer no Azure no dia seguinte.
 
-* **Meter ID** – Unique ID for the resource that was consumed.
-* **Quantity** – Amount of resource usage data.
-* **Location** – Location where the current Azure Stack resource is deployed.
-* **Resource URI** – fully qualified URI of the resource for which usage is being reported. 
-* **Subscription ID** – The Azure Stack user's subscription ID.
-* **Time** – Start and end time of the usage data. There is some delay between when these resources are consumed in Azure Stack Vs when the usage data is reported to commerce. Azure Stack aggregates usage data for every 24 hours and reporting usage data to commerce pipeline in Azure takes another few hours. So, usage that occurs shortly before midnight may show up in Azure the following day.
+## <a name="generate-usage-data-reporting"></a>Gerar relatórios de dados de uso
 
-## <a name="test-usage-data-reporting"></a>Test usage data reporting 
+1. Para testar os relatórios de dados de uso, crie alguns recursos na pilha do Azure. Por exemplo, você pode criar um [conta de armazenamento](azure-stack-provision-storage-account.md), [VM do Windows Server](azure-stack-provision-vm.md) e uma VM do Linux com Basic e Standard SKUs para ver como o uso do núcleo é relatado. Os dados de uso para diferentes tipos de recursos são relatados em metros diferentes.
 
-1. To test usage data reporting, create a few resources in Azure Stack. For example, you can create a [storage account](azure-stack-provision-storage-account.md), [Windows Server VM](azure-stack-provision-vm.md) and a Linux VM with Basic and Standard SKUs to see how core usage is reported. The usage data for different types of resources are reported under different meters.  
+2. Deixe os recursos em execução por algumas horas. Informações de uso são coletadas aproximadamente uma vez a cada hora. Depois de coletar, esses dados são transmitidos para o Azure e processados no sistema de comércio do Azure. Esse processo pode demorar algumas horas.
 
-2. Leave your resources running for few hours. Usage information is collected approximately once every hour. After collecting, this data is transmitted to Azure and processed into the Azure commerce system. This process can take up to a few hours.  
+## <a name="view-usage---csp-subscriptions"></a>Exibir uso - assinaturas de CSP
 
-3. Sign in to the [Azure Account Center](https://account.windowsazure.com/Subscriptions) as the Azure account administrator and select the Azure subscription that you used to register the Azure Stack. You can view the Azure Stack usage data, the amount charged for each of the used resources as shown in the following image:  
+Se você registrou a pilha do Azure usando uma assinatura de CSP, você pode exibir seu uso e encargos da mesma maneira que você visualizar o consumo do Azure. Uso da pilha do Azure serão incluído na sua fatura e no arquivo de reconciliação, disponível por meio de [Partner Center](https://partnercenter.microsoft.com/en-us/partner/home). O arquivo de reconciliação é atualizado mensalmente. Se você precisar acessar as informações de uso recentes da pilha do Azure, você pode usar as APIs do Centro de parceiro.
 
-   ![billing flow](media/azure-stack-usage-reporting/pricing-details.png)
+   ![Centro de parceiros](media/azure-stack-usage-reporting/partner-center.png)
 
-For the Azure Stack Development Kit, resources are not charged so, the price is shown as $0.00. For the Azure Stack integrated systems, the actual cost of each of these resources is displayed.
 
-## <a name="are-users-charged-for-the-infrastructure-virtual-machines"></a>Are users charged for the infrastructure virtual machines?
-No, usage data for some Azure Stack resource provider virtual machines and infrastructure virtual machines that are created during deployment is reported to Azure, but there are no charges for them. 
+## <a name="view-usage--enterprise-agreement-subscriptions"></a>Exibir uso – assinaturas do Enterprise Agreement
 
-Users are only charged for virtual machines that are created under user subscriptions. So, all workloads must be deployed under user subscriptions to comply with the Azure Stack licensing terms.
+Se você registrou a pilha do Azure usando uma assinatura do Enterprise Agreement, você pode exibir seu uso e encargos no [Portal EA](https://ea.azure.com/). Uso da pilha do Azure será incluído nos downloads avançados junto com o uso do Azure na seção relatórios no portal EA. 
 
-## <a name="how-do-i-use-my-existing-windows-server-licenses-in-azure-stack"></a>How do I use my existing Windows Server licenses in Azure Stack? 
-Existing Windows Server licenses can be used in Azure Stack, this model is referred to as BYOL(Bring Your Own License). Using the licenses that you already own avoids generating additional usage meters. To use your existing licenses, you need to deploy the Windows Server virtual machines as described in the [Hybrid benefit for Windows Server license](../virtual-machines/windows/hybrid-use-benefit-licensing.md) topic. 
+## <a name="view-usage--other-subscriptions"></a>Exibir uso – outras assinaturas
 
-## <a name="what-azure-meters-are-used-when-reporting-usage-data-in-integrated-systems"></a>What Azure meters are used when reporting usage data in integrated systems?
-* **Full price meters** – used for resources associated with user workloads.  
-* **Admin meters** – used for infrastructure resources. These meters have a price of zero dollars.
+Se você registrou a pilha do Azure usando qualquer tipo de assinatura, por exemplo, uma assinatura pré-paga, você pode exibir o uso e encargos no centro da conta do Azure. Entrar para o [Centro de contas Azure](https://account.windowsazure.com/Subscriptions) conta administrador como o Azure e selecione a assinatura do Azure que é usado para registrar a pilha do Azure. Você pode exibir os dados de uso da pilha do Azure, o valor cobrado por cada um dos recursos usados, conforme mostrado na imagem a seguir:
 
-## <a name="which-subscription-is-charged-for-the-resources-consumed"></a>Which subscription is charged for the resources consumed?
-The subscription that is provided when [registering Azure Stack with Azure](azure-stack-register.md) is charged.
+   ![fluxo de cobrança](media/azure-stack-usage-reporting/pricing-details.png)
 
-## <a name="what-types-of-subscriptions-are-supported-for-usage-data-reporting"></a>What types of subscriptions are supported for usage data reporting?
-For Azure Stack integrated systems, Enterprise Agreement (EA) and CSP subscriptions are supported. 
+Para o Kit de desenvolvimento de pilha do Azure, os recursos da pilha do Azure não são cobrados isso, o preço é mostrado como $0,00. Quando vários nós de pilha do Azure se torna disponível, você pode ver o custo real para cada um desses recursos.
 
-For the Azure Stack Development Kit, Enterprise Agreement (EA), Pay-as-you-go, CSP, and MSDN subscriptions support usage data reporting.
+## <a name="which-azure-stack-deployments-are-charged"></a>As implantações de pilha do Azure são cobradas?
 
-## <a name="which-sovereign-clouds-support-usage-data-reporting"></a>Which sovereign clouds support usage data reporting?
-Usage data reporting in Azure Stack Development Kit, requires the subscriptions to be created in the global Azure system. Subscriptions created in one of the sovereign clouds (the Azure Government, Azure Germany, and Azure China clouds) cannot be registered with Azure, so they don’t support usage data reporting. 
+Uso de recursos está livre para o Kit de desenvolvimento de pilha do Azure. Enquanto para sistemas de vários nós de pilha do Azure, a carga de trabalho de máquinas virtuais, serviços de armazenamento e serviços de aplicativos são cobrados.
 
-## <a name="how-can-users-identify-azure-stack-usage-data-in-the-azure-billing-portal"></a>How can users identify Azure Stack usage data in the Azure billing portal?
-Users can see the Azure Stack usage data in the usage details file. To know about how to get the usage details file, refer to the [download usage file from the Azure Account Center](../billing/billing-download-azure-invoice-daily-usage-date.md#download-usage-from-the-account-center-csv) article. The usage details file contains the Azure Stack meters that identify Azure Stack storage and VMs. All resources used in Azure Stack are reported under the region named “Azure Stack.”
+## <a name="are-users-charged-for-the-infrastructure-vms"></a>Os usuários são cobrados para a infraestrutura de máquinas virtuais?
 
-## <a name="why-doesnt-the-usage-reported-in-azure-stack-match-the-report-generated-from-azure-account-center"></a>Why doesn’t the usage reported in Azure Stack match the report generated from Azure Account Center?
-There is a delay between the usage data reported by the Azure Stack usage APIs and the usage data reported by the Azure Account Center. This delay is the time required to upload usage data from Azure Stack to Azure commerce. Due to this delay, usage that occurs shortly before midnight may show up in Azure the following day. You can see a difference if you use the [Azure Stack Usage APIs](azure-stack-provider-resource-api.md), and compare the results to the usage reported in the Azure billing portal.
+Não. Dados de uso para o provedor de recursos alguns pilha Azure VMs são relatados para o Azure, mas não há nenhum encargo para essas VMs, nem para as máquinas virtuais criadas durante a implantação habilitar a infraestrutura de pilha do Azure.  
 
-## <a name="next-steps"></a>Next steps
+Os usuários só são cobrados pelas VMs que executam em assinaturas de locatários. Todas as cargas de trabalho devem ser implantadas em assinaturas do locatário de acordo com os termos de licenciamento da pilha do Azure.
 
-* [Provider usage API](azure-stack-provider-resource-api.md)  
-* [Tenant usage API](azure-stack-tenant-resource-usage-api.md)
-* [Usage FAQ](azure-stack-usage-related-faq.md)
+## <a name="i-have-a-windows-server-license-i-want-to-use-on-azure-stack-how-do-i-do-it"></a>Tenho uma licença do Windows Server que deseja usar na pilha do Azure, como fazer isso?
+
+Usar as licenças existentes evita a geração metros de uso. Licenças existentes do Windows Server podem ser usadas na pilha do Azure, conforme descrito na seção "Usando o software existente com a pilha do Azure" de [guia de licenciamento do Azure pilha](https://go.microsoft.com/fwlink/?LinkId=851536&clcid=0x409). Os clientes precisam implantar suas máquinas virtuais de Windows Server, conforme descrito no [benefício híbrida de licença do Windows Server](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/hybrid-use-benefit-licensing) tópico para usar suas licenças existentes.
+
+## <a name="which-subscription-is-charged-for-the-resources-consumed"></a>Qual assinatura é cobrada para os recursos consumidos?
+A assinatura que é fornecida quando [Registrando a pilha do Azure com o Azure](azure-stack-register.md) é cobrado.
+
+## <a name="what-types-of-subscriptions-are-supported-for-usage-data-reporting"></a>Quais tipos de assinaturas têm suporte para relatórios de dados de uso?
+
+Para vários nós de pilha do Azure, há suporte para assinaturas de EA (Enterprise Agreement) e o CSP. Para o Kit de desenvolvimento de pilha do Azure, assinaturas de EA (Enterprise Agreement), pré-pago, CSP e MSDN oferecer suporte a relatórios de dados de uso.
+
+## <a name="does-usage-data-reporting-work-in-sovereign-clouds"></a>Dá trabalho nas nuvens soberana de relatórios de dados de uso?
+
+No Kit de desenvolvimento de pilha do Azure, relatórios de dados de uso requer assinaturas que são criadas no sistema global do Azure. Assinaturas criadas em uma das nuvens soberana (nuvens governo do Azure, Azure Alemanha e do Azure na China) não podem ser registradas com o Azure, para que eles não oferecem suporte a relatórios de dados de uso.
+
+## <a name="how-can-users-identify-azure-stack-usage-data-in-the-azure-billing-portal"></a>Como os usuários podem identificar os dados de uso de pilha do Azure no portal de cobrança do Azure?
+
+Os usuários podem ver os dados de uso da pilha do Azure no arquivo de detalhes de uso. Para saber sobre como obter o arquivo de detalhes de uso, consulte o [baixar o arquivo de uso do artigo do Centro de contas Azure](https://docs.microsoft.com/en-us/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-from-the-account-center-csv). O arquivo de detalhes de uso contém os medidores de pilha do Azure que identificam o armazenamento de pilha do Azure e máquinas virtuais. Todos os recursos usados na pilha do Azure são relatados em região denominado "Pilha do Azure".
+
+## <a name="why-doesnt-the-usage-reported-in-azure-stack-match-the-report-generated-from-azure-account-center"></a>Por que o uso registrado na pilha do Azure não corresponde o relatório gerado a partir do Centro de contas do Azure?
+
+Sempre há um delaybetween os dados de uso relatados, o uso da pilha do Azure APIs e os dados de uso relatados pelo Centro de contas do Azure. Esse atraso é o tempo necessário para carregar dados de uso da pilha do Azure para comércio do Azure. Devido a esse atraso que ocorre logo antes da meia-noite pode aparecer no Azure no dia seguinte. Se você usar o [APIs de uso do Azure pilha](azure-stack-provider-resource-api.md)e compare os resultados com o uso de relatado no portal de cobrança do Azure, você pode ver uma diferença.
+
+## <a name="next-steps"></a>Próximas etapas
+
+* [API de uso do provedor](azure-stack-provider-resource-api.md)  
+* [API de uso do locatário](azure-stack-tenant-resource-usage-api.md)
+* [Perguntas frequentes sobre o uso](azure-stack-usage-related-faq.md)

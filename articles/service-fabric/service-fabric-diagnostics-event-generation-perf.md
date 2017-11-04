@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/30/2017
+ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 9d63148c182c705b6b49733c59ed8fdd13872d72
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b19a2db85b2e1cc4c5f79f6b0dee97965f40ef88
+ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/17/2017
 ---
 # <a name="performance-metrics"></a>Métricas de desempenho
 
@@ -40,7 +40,7 @@ Para as máquinas em seu cluster, considere a possibilidade de coletar os seguin
 | PhysicalDisk(per Disco) | Bytes Gravados no Disco/s |
 | Memória | MBytes Disponíveis |
 | PagingFile | % Uso |
-| Processo(Total) | % Tempo do Processador |
+| Processador(total) | % Tempo do Processador |
 | Processo (por serviço) | % Tempo do Processador |
 | Processo (por serviço) | ID do Processo |
 | Processo (por serviço) | Bytes Particulares |
@@ -48,6 +48,11 @@ Para as máquinas em seu cluster, considere a possibilidade de coletar os seguin
 | Processo (por serviço) | Bytes Virtuais |
 | Processo (por serviço) | Conjunto de Trabalho |
 | Processo (por serviço) | Conjunto de Trabalho - Particular |
+| Interface de rede(todas as instâncias) | Tamanho da Fila de Saída |
+| Interface de rede(todas as instâncias) | Pacotes de Saída Descartados |
+| Interface de rede(todas as instâncias) | Pacotes Recebidos Descartados |
+| Interface de rede(todas as instâncias) | Erros de Pacotes de Saída |
+| Interface de rede(todas as instâncias) | Erros de Pacotes Recebidos |
 
 ## <a name="net-applications-and-services"></a>Aplicativos e serviços de .NET
 

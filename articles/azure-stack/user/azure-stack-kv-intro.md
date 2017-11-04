@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Key Vault introduction | Microsoft Docs
-description: Learn how Azure Stack Key Vault manages keys and secrets
+title: "Introdução de pilha Cofre de chaves do Azure | Microsoft Docs"
+description: Saiba como o Cofre de chaves do Azure pilha gerencia chaves e segredos
 services: azure-stack
 documentationcenter: 
 author: SnehaGunda
@@ -14,57 +14,60 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/04/2017
 ms.author: sngun
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: ecb542e967669fc4e4465ae59b3e9c37e4a5c332
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.openlocfilehash: 621a0cb865d0c050d7271d10bd14076f9f0c6f67
+ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/20/2017
 ---
-# <a name="introduction-to-key-vault-in-azure-stack"></a>Introduction to Key Vault in Azure Stack
+# <a name="introduction-to-key-vault-in-azure-stack"></a>Introdução ao Cofre de chaves na pilha do Azure
 
-## <a name="before-you-start"></a>Before you start
-This article assumes the following:
+## <a name="prerequisites"></a>Pré-requisitos 
 
-* You must must subscribe to an offer that includes the Key Vault service.  
-* [PowerShell is configured for use with Azure Stack](azure-stack-powershell-configure-user.md) 
+* Você deve assinar uma oferta que inclui o serviço de Cofre de chaves do Azure.  
+* [PowerShell está configurado para uso com o Azure pilha](azure-stack-powershell-configure-user.md).
  
-## <a name="key-vault-basics"></a>Key Vault basics
-Key Vault in Azure Stack helps safeguard cryptographic keys and secrets that cloud applications and services use. By using Key Vault, you can encrypt keys and secrets (such as authentication keys, storage account keys, data encryption keys, .pfx files, and passwords).
+## <a name="key-vault-basics"></a>Noções básicas sobre o Cofre de chaves
+Cofre de chaves na pilha do Azure ajuda a proteger as chaves de criptografia e usam segredos que aplicativos e serviços de nuvem. Usando o Cofre de chaves, você pode criptografar chaves e segredos, como:
+   * Chaves de autenticação 
+   * Chaves da conta de armazenamento
+   * Chaves de criptografia de dados
+   * arquivos. pfx
+   * Senhas
 
-Key Vault streamlines the key management process and enables you to maintain control of keys that access and encrypt your data. Developers can create keys for development and testing in minutes, and then seamlessly migrate them to production keys. Security administrators can grant (and revoke) permission to keys, as needed.
+O Cofre da Chave simplifica o processo de gerenciamento de chaves e permite que você tenha controle das chaves que acessam e criptografam seus dados. Desenvolvedores podem criar chaves para desenvolvimento e teste em minutos e depois migrá-las diretamente para chaves de produção. Administradores de segurança podem conceder (e revogar) permissão a chaves conforme for necessário.
 
-Anybody with an Azure Stack subscription can create and use key vaults. Although Key Vault benefits developers and security administrators, it can be implemented and managed by the operator who manages other Azure Stack services for an organization. For example, the Azure Stack operator can sign in with an Azure Stack subscription, create a vault for the organization in which to store keys, and then be responsible for these operational tasks:
+Qualquer pessoa com uma assinatura do Azure pilha pode criar e usar o Cofre de chave. Embora o Cofre de chaves beneficia os desenvolvedores e administradores de segurança, o operador que gerencia outros serviços da pilha do Azure para uma organização pode implementar e gerenciar. Por exemplo, a pilha do Azure operador pode entrar com uma assinatura de pilha do Azure, crie um cofre para a organização na qual armazenar chaves e, em seguida, ser responsável por essas tarefas operacionais:
 
-* Create or import a key or secret
-* Revoke or delete a key or secret
-* Authorize users or applications to access the key vault, so they can   then manage or use its keys and secrets
-* Configure key usage (for example, sign or encrypt)
+* Criar ou importar uma chave ou segredo.
+* Revogar ou excluir uma chave ou segredo.
+* Autorize usuários ou aplicativos para acessar o Cofre de chaves, para que eles podem gerenciar ou usar suas chaves e segredos.
+* Configurar o uso de chave (por exemplo, assinar ou criptografar).
 
-The operator can then provide developers with URIs to call from their applications, and provide a security administrator with key usage logging information.
+O operador, em seguida, pode fornecer aos desenvolvedores Uniform Resource Identifiers URIs () para chamar a partir de seus aplicativos. Operadores também podem fornecer aos administradores de segurança com as informações de log de uso de chave.
 
-Developers can also manage the keys directly, by using APIs. For more information, see the Key Vault developer's guide.
+Os desenvolvedores também podem gerenciar as chaves diretamente, por meio de APIs. Para obter mais informações, consulte o guia do desenvolvedor do Cofre de chaves.
 
-## <a name="scenarios"></a>Scenarios
-The following table depicts some of the scenarios where Key Vault can help meet the needs of developers and security administrators:
+## <a name="scenarios"></a>Cenários
+Os cenários a seguir descrevem como o Cofre de chaves pode ajudar a atender às necessidades de desenvolvedores e administradores de segurança.
 
-### <a name="developer-for-an-azure-stack-application"></a>Developer for an Azure Stack application
-**Problem**: I want to write an application for Azure Stack that uses keys for signing and encryption, but I want these to be external from my application so that the solution is suitable for an application that is geographically distributed.
+### <a name="developer-for-an-azure-stack-application"></a>Desenvolvedor de um aplicativo de pilha do Azure
+**Problema:** quero escrever um aplicativo para a pilha do Azure que usa chaves de assinatura e criptografia. Desejo essas chaves como externo de meu aplicativo para que a solução é adequada para um aplicativo que é distribuído geograficamente.
 
-**Statement**: Keys are stored in a vault and invoked by URI when needed.
+**Instrução:** chaves são armazenadas em um cofre e invocadas por um URI, quando necessário.
 
-### <a name="developer-for-software-as-a-service-saas"></a>Developer for software as a service (SaaS)
-**Problem:** I don’t want the responsibility or potential liability for my customer's keys and secrets.
+### <a name="developer-for-software-as-a-service-saas"></a>Desenvolvedor de software como serviço (SaaS)
+**Problema:** não quero a responsabilidade de responsabilidade ou potencial para meu cliente chaves e segredos. Desejo que os clientes de implantar e gerenciar suas chaves, para que possam concentrar-se sobre o que fazer melhor, que fornece os principais recursos de software.
 
-**Statement:** Customers can import their own keys into Azure Stack, and manage them. I want customers to own and manage their keys so that I can concentrate on doing what I do best, which is providing the core software features.
+**Instrução:** os clientes podem importar suas próprias chaves para a pilha do Azure e gerenciá-los. 
 
-### <a name="chief-security-officer-cso"></a>Chief Security Officer (CSO)
-**Problem:** I want to make sure that my organization is in control of the key life cycle and can monitor key usage.
+### <a name="chief-security-officer-cso"></a>Diretor de segurança (CSO)
+**Problema:** desejo Certifique-se de que a minha organização tem controle sobre o ciclo de vida de chave e pode monitorar o uso da chave.
 
-**Statement** Key Vault is designed so that Microsoft does not see or extract your keys.  When an application needs to perform cryptographic operations by using customers’ keys, Key Vault does this on behalf of the application. The application does not see the customers’ keys.  Although we use multiple Azure Stack services and resources, I want to manage the keys from a single location in Azure Stack. The vault provides a single interface, regardless of how many vaults you have in Azure Stack, which regions they support, and which applications use them.
+**Instrução:** Cofre de chaves foi projetado para que a Microsoft não consulte ou extrair as chaves. Quando um aplicativo precisa para executar operações de criptografia usando chaves de clientes, o Cofre de chaves usa as chaves em nome do aplicativo. O aplicativo não vê as chaves dos clientes. Embora usamos vários recursos e serviços de pilha do Azure, você pode gerenciar as chaves de um único local na pilha do Azure. O cofre fornece uma única interface, independentemente de quantas cofres na pilha do Azure, quais regiões suporte e quais aplicativos usá-los.
 
-## <a name="next-steps"></a>Next Steps
+## <a name="next-steps"></a>Próximas etapas
 
-* [Manage Key Vault in Azure Stack using the portal](azure-stack-kv-manage-portal.md)  
-* [Manage Key Vault in Azure Stack using PowerShell](azure-stack-kv-manage-powershell.md)
+* [Gerenciar o Cofre de chaves na pilha do Azure usando o portal](azure-stack-kv-manage-portal.md)  
+* [Gerenciar o Cofre de chaves na pilha do Azure usando o PowerShell](azure-stack-kv-manage-powershell.md)
 

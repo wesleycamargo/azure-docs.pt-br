@@ -2,21 +2,21 @@
 title: "Configurar a recuperação de desastre para VMs do Azure para uma região do Azure secundária com o Azure Site Recovery (versão prévia)"
 description: "Saiba como configurar a recuperação de desastre para VMs do Azure em uma região do Azure diferente usando o serviço Azure Site Recovery."
 services: site-recovery
-author: rajani-janaki-ram
+author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/18/2017
-ms.author: rajanaki
+ms.date: 11/01/2017
+ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 9a92bf402863fd1ee688fba7c20d3a2cd3e299da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2608e0e0c87df1e7c6d034cf0977ed0e16b128cf
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>Configurar a recuperação de desastre para VMs do Azure para uma região do Azure secundária (versão prévia)
 
@@ -129,7 +129,11 @@ O Site Recovery recupera uma lista das VMs associadas ao serviço de nuvem/grupo
 
 O Site Recovery cria as configurações padrão e a política de replicação para a região de destino. Você pode alterar as configurações com base nas suas necessidades.
 
+1. Clique em **Configurações** para exibir as configurações de destino.
+2. Para substituir as configurações de destino padrão, clique em **Personalizar**. 
+
 ![Configurar definições](./media/azure-to-azure-tutorial-enable-replication/settings.png)
+
 
 - **Localização de destino**: a região de destino usada para recuperação de desastre. É recomendável que a localização de destino corresponda à localização do cofre do Site Recovery.
 
@@ -142,7 +146,7 @@ O Site Recovery cria as configurações padrão e a política de replicação pa
 
 - **Contas de armazenamento de destino**: por padrão, o Site Recovery cria uma nova conta de armazenamento na região de destino, para espelhar a conta de armazenamento da VM de origem.
 
-- **Conjuntos de disponibilidade de destino**: por padrão, o Site Recovery cria um novo conjunto de disponibilidade na região de destino, com o sufixo "asr".
+- **Conjuntos de disponibilidade de destino**: por padrão, o Site Recovery cria um novo conjunto de disponibilidade na região de destino, com o sufixo "asr". Somente será possível adicionar conjuntos de disponibilidade se as VMs forem parte de um conjunto na região de origem.
 
 - **Nome da política de replicação**: nome da política.
 

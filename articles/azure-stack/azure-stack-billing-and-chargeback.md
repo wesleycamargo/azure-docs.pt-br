@@ -1,6 +1,6 @@
 ---
-title: Customer Billing And Chargeback In Azure Stack | Microsoft Docs
-description: Learn how to retrieve resource usage information from Azure Stack.
+title: "Cliente de cobrança e estorno na pilha do Azure | Microsoft Docs"
+description: "Saiba como recuperar informações de uso do recurso da pilha do Azure."
 services: azure-stack
 documentationcenter: 
 author: AlfredoPizzirani
@@ -14,63 +14,61 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: alfredop
-ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
 ms.openlocfilehash: ea7510c239ee07a9a27f3e682e61a6b08eb5694d
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.translationtype: MT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 10/11/2017
 ---
-# <a name="usage-and-billing-in-azure-stack"></a>Usage and billing in Azure Stack
+# <a name="usage-and-billing-in-azure-stack"></a>Uso e a cobrança na pilha do Azure
 
-Usage represents the quantity of resources consumed by a user. Azure Stack collects usage information for each user and uses it to bill them. This article describes how Azure Stack users are billed for resource usage, and how the billing information is accessed for analytics, chargeback, etc.
+Uso representa a quantidade de recursos consumidos por um usuário. A pilha do Azure coleta informações de uso para cada usuário e o utiliza para cobrá-los. Este artigo descreve como os usuários de pilha do Azure são cobrados para uso de recursos e como as informações de cobrança são acessadas para análise de chargeback, etc.
 
-Azure Stack contains the infrastructure to collect and aggregate usage data for all resources, and to forward this data to Azure commerce. You can access this data and export it to a billing system by using a billing adapter, or export it to a business intelligence tool like Microsoft Power BI. After exporting, this billing information is used for analytics or transferred to a chargeback system.
+A pilha do Azure contém a infraestrutura para coletar e agregar dados de uso para todos os recursos e encaminhar esses dados para comércio do Azure. Você pode acessar esses dados e exportá-lo para um sistema de cobrança usando um adaptador de cobrança ou exportá-lo para uma ferramenta de business intelligence como o Microsoft Power BI. Depois de exportar, essas informações de cobrança são usadas para análise ou transferidas para um sistema de estorno.
 
-![Conceptual model of a billing adapter connecting Azure Stack to a Billing application](media/azure-stack-billing-and-chargeback/image1.png)
+![Modelo conceitual de um adaptador de cobrança conectar-se a pilha do Azure para uma cobrança aplicativo](media/azure-stack-billing-and-chargeback/image1.png)
 
-## <a name="usage-pipeline"></a>Usage pipeline
+## <a name="usage-pipeline"></a>Pipeline de uso
 
-Each resource provider in Azure Stack emits usage data as per resource utilization. The Usage Service periodically(hourly or daily) aggregates this usage data and stores it in the usage database. The stored usage data can be accessed by Azure Stack operators and users locally by using usage APIs. 
+Cada provedor de recursos na pilha do Azure emite os dados de uso de acordo com a utilização de recursos. O serviço de uso periodicamente (por hora ou diariamente) agrega esses dados de uso e armazena-o no banco de dados de uso. Os dados de uso armazenados podem ser acessados por usuários e operadores de pilha do Azure localmente usando o uso de APIs. 
 
-If you have [Registered your Azure Stack instance with Azure](azure-stack-register.md), Usage Bridge is configured to send the usage data to Azure commerce. After the data is available in Azure, you can access it through the billing portal or by using Azure usage API's. Refer to the [Usage data reporting](azure-stack-usage-reporting.md) topic to learn more about what usage data is reported to Azure. 
+Se você tiver [registrado sua instância de pilha do Azure com o Azure](azure-stack-register.md), ponte de uso é configurado para enviar os dados de uso para comércio do Azure. Depois que os dados estão disponíveis no Azure, você pode acessá-lo por meio do portal de cobrança ou por meio da API de uso do Azure. Consulte o [relatórios de dados de uso](azure-stack-usage-reporting.md) tópico para saber mais sobre o uso de dados são relatados para o Azure. 
 
-The following image shows the key components in the usage pipeline:
+A imagem a seguir mostra os principais componentes do pipeline de uso:
 
-![Usage pipeline](media/azure-stack-billing-and-chargeback/usagepipeline.png)
+![Pipeline de uso](media/azure-stack-billing-and-chargeback/usagepipeline.png)
 
-## <a name="what-usage-information-can-i-find-and-how"></a>What usage information can I find, and how?
+## <a name="what-usage-information-can-i-find-and-how"></a>As informações de uso pode localizar e como?
 
-Azure Stack Resource providers, such as Compute, Storage, and Network, generate usage data at hourly intervals for each subscription. The usage data contains information about the resource used such as resource name, subscription used, quantity used, etc. To learn about the meters ID resources, refer to the [usage API FAQ](azure-stack-usage-related-faq.md) article. 
+Provedores de recursos da pilha do Azure, como computação, armazenamento e rede, geram dados de uso de hora em hora para cada assinatura. Os dados de uso contém informações sobre o recurso usado como nome do recurso, a assinatura usada, a quantidade usada, etc. Para saber mais sobre os recursos de identificação de medidores, consulte o [uso perguntas frequentes sobre o API](azure-stack-usage-related-faq.md) artigo. 
 
-After the usage data has been collected, it is [reported to Azure](azure-stack-usage-reporting.md) to generate a bill, which can be viewed through the Azure billing portal. 
+Após a coleta de dados de uso é [relatados para o Azure](azure-stack-usage-reporting.md) para gerar uma lista, que pode ser visualizada por meio do portal de cobrança do Azure. 
 
 > [!NOTE]
-> Usage data reporting is not required for Azure Stack Development Kit and for Azure Stack integrated system users who license under the capacity model. To learn more about licensing in Azure Stack, see the [Packaging and pricing](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf) data sheet.
+> Relatórios de dados de uso não é necessário para o Kit de desenvolvimento de pilha do Azure e para usuários do sistema de pilha do Azure integradas que no modelo de capacidade de licença. Para saber mais sobre licenciamento na pilha do Azure, consulte o [pacotes e preços](https://azure.microsoft.com/mediahandler/files/resourcefiles/5bc3f30c-cd57-4513-989e-056325eb95e1/Azure-Stack-packaging-and-pricing-datasheet.pdf) folha de dados.
 
-The Azure billing portal shows the usage data only for the chargeable resources. In addition to the chargeable resources, Azure Stack captures usage data for a broader set of resources, which you can access in your Azure Stack environment through REST APIs or PowerShell. Azure Stack operators can retrieve the usage data for all user subscriptions whereas a user can get only their usage details.
+O portal de cobrança do Azure mostra os dados de uso somente pelos recursos passíveis de cobrança. Além dos recursos passíveis de cobrança, a pilha do Azure captura dados de uso para um conjunto mais amplo de recursos, que pode ser acessado em seu ambiente de pilha do Azure por meio de APIs REST ou PowerShell. Operadores de pilha do Azure podem recuperar os dados de uso para todas as assinaturas de usuário, enquanto que um usuário pode obter apenas os detalhes de uso.
 
-## <a name="retrieve-usage-information"></a>Retrieve usage information
+## <a name="retrieve-usage-information"></a>Recuperar informações de uso
 
-To generate the usage data, you should have resources that are running and actively using the system, For example, an active virtual machine or a storage account containing some data etc. If you’re not sure whether you have any resources running in Azure Stack Marketplace, deploy a virtual machine (VM), and verify the VM monitoring blade to make sure it’s running. Use the following PowerShell cmdlets to view the usage data:
+Para gerar os dados de uso, você deve ter recursos que estão em execução e usando ativamente o sistema, por exemplo, uma máquina virtual ativa ou uma conta de armazenamento que contém alguns dados etc. Se você não tiver certeza se você tem todos os recursos em execução no Azure Marketplace de pilha, implanta uma máquina virtual (VM) e verifique se a VM monitoramento folha para verificar se ele está em execução. Use os seguintes cmdlets do PowerShell para exibir os dados de uso:
 
-1. [Install PowerShell for Azure Stack.](azure-stack-powershell-install.md)
-2. [Configure the Azure Stack user's](user/azure-stack-powershell-configure-user.md) or the [Azure Stack operator's](azure-stack-powershell-configure-admin.md) PowerShell environment 
+1. [Instale o PowerShell para a pilha do Azure.](azure-stack-powershell-install.md)
+2. [Configurar o usuário de pilha do Azure](user/azure-stack-powershell-configure-user.md) ou [do operador da pilha do Azure](azure-stack-powershell-configure-admin.md) ambiente do PowerShell 
 
-3. To retrieve the usage data, use the [Get-UsageAggregates](/powershell/module/azurerm.usageaggregates/get-usageaggregates) PowerShell cmdlet:
+3. Para recuperar os dados de uso, use o [UsageAggregates Get](/powershell/module/azurerm.usageaggregates/get-usageaggregates) cmdlet do PowerShell:
 
    ```powershell
    Get-UsageAggregates -ReportedStartTime "<Start time for usage reporting>" -ReportedEndTime "<end time for usage reporting>" -AggregationGranularity <Hourly or Daily>
    ```
 
-## <a name="next-steps"></a>Next steps
+## <a name="next-steps"></a>Próximas etapas
 
-[Report Azure Stack usage data to Azure](azure-stack-usage-reporting.md)
+[Relatar dados de uso de pilha do Azure para o Azure](azure-stack-usage-reporting.md)
 
-[Provider Resource Usage API](azure-stack-provider-resource-api.md)
+[Uso do provedor de recursos API](azure-stack-provider-resource-api.md)
 
-[Tenant Resource Usage API](azure-stack-tenant-resource-usage-api.md)
+[API de uso de recursos de locatário](azure-stack-tenant-resource-usage-api.md)
 
-[Usage-related FAQ](azure-stack-usage-related-faq.md)
-
+[Perguntas Frequentes relacionadas ao uso](azure-stack-usage-related-faq.md)
 

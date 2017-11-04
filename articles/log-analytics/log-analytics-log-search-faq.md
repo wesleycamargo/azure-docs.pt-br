@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/09/2017
+ms.date: 10/17/2017
 ms.author: bwren
-ms.openlocfilehash: 356a73b406544b91191d5e9a03b2fa52ec501327
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bf48cbc52a1ed96ed1bb49b1879d5cd7aece945c
+ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/18/2017
 ---
 # <a name="log-analytics-new-log-search-faq-and-known-issues"></a>Perguntas frequentes e problemas conhecidos sobre a nova pesquisa de logs do Log Analytics
 
@@ -94,6 +94,18 @@ A [API de pesquisa de Logs](log-analytics-log-search-api.md) herdada deixará de
 Veja uma comparação dos dois portais em [Portais para criar e editar consultas de log no Azure Log Analytics](log-analytics-log-search-portals.md).  Cada portal tem diferentes vantagens para que você possa escolher o melhor para seus requisitos.  É comum escrever consultas no portal de Análise Avançada e colá-las em outros lugares, como no Designer de Exibição.  Leia mais sobre os [problemas a serem considerados](log-analytics-log-search-portals.md#advanced-analytics-portal) ao fazer isso.
 
 
+### <a name="question--after-upgrade-i-get-an-error-trying-to-run-queries-and-am-also-seeing-errors-in-my-views"></a>Pergunta: Após o upgrade, obtenho um erro ao tentar executar consultas e também estou vendo erros em minhas exibições.
+
+Seu navegador requer acesso aos endereços a seguir para executar consultas do Log Analytics após o upgrade.  Se seu navegador estiver acessando o portal do Azure por meio de um firewall, você deverá habilitar o acesso a esses endereços.
+
+| Uri | IP | Portas |
+|:---|:---|:---|
+| portal.loganalytics.io | Dinâmico | 80.443 |
+| api.loganalytics.io    | Dinâmico | 80.443 |
+| docs.loganalytics.io   | Dinâmico | 80.443 |
+
+
+
 ## <a name="power-bi"></a>Power BI
 
 ### <a name="question-does-anything-change-with-powerbi-integration"></a>Pergunta: alguma coisa muda com a integração do PowerBI?
@@ -103,10 +115,12 @@ Sim.  Uma vez atualizado o espaço de trabalho, o processo para exportar dados d
 Atualmente, há um limite de tamanho de 8 MB para uma consulta do Log Analytics que pode ser exportada para o Power BI.  Esse limite será aumentado em breve.
 
 
-##<a name="powershell-cmdlets"></a>Cmdlets do PowerShell
+## <a name="powershell-cmdlets"></a>Cmdlets do PowerShell
 
 ### <a name="question-does-the-log-search-powershell-cmdlet-get-updated-after-i-upgrade"></a>Pergunta: o cmdlet do PowerShell da Pesquisa de Logs é atualizado após o upgrade?
-O [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/Get-AzureRmOperationalInsightsSearchResults) ainda não foi atualizado para a nova linguagem de pesquisa.  Continue usando a linguagem de consulta herdada com esse cmdlet, mesmo depois de fazer upgrade do espaço de trabalho.  A documentação atualizada estará disponível para o cmdlet quando ele for atualizado.
+O [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/Get-AzureRmOperationalInsightsSearchResults) será substituído após a conclusão do upgrade de todos os espaços de trabalho.  Use o [cmdlet Invoke-LogAnalyticsQuery](https://dev.loganalytics.io/documentation/Tools/PowerShell-Cmdlets) para executar pesquisas de log em espaços de trabalho com upgrade.
+
+
 
 
 ## <a name="resource-manager-templates"></a>Modelos do Gerenciador de Recursos
@@ -159,11 +173,9 @@ Não. Os dados de log disponíveis para as pesquisas de espaço de trabalho não
 ### <a name="question-what-happens-if-i-dont-upgrade-my-workspace"></a>Pergunta: o que acontecerá se eu não fizer o upgrade de meu espaço de trabalho?  
 A pesquisa de logs herdada será preterida nos próximos meses. Os espaços de trabalho que não forem atualizados até lá serão atualizados automaticamente.
 
-### <a name="question-i-didnt-choose-to-upgrade-but-my-workspace-has-been-upgraded-anyway-what-happened"></a>Pergunta: Não optei pelo upgrade, mas meu espaço de trabalho foi atualizado mesmo assim! O que aconteceu?  
-Outro administrador deste espaço de trabalho pode ter atualizado o espaço de trabalho. Observe que todos os espaços de trabalho serão atualizados automaticamente quando a nova linguagem alcançar disponibilidade geral.  
+### <a name="question-can-i-revert-back-after-i-upgrade"></a>Pergunta: Posso reverter após o upgrade?
+Antes da disponibilidade geral, você podia reverter o seu espaço de trabalho após o upgrade.  Agora que a nova linguagem atingiu a disponibilidade geral, esse recurso foi removido porque começamos a desativar a plataforma herdada.
 
-### <a name="question-i-have-upgraded-by-mistake-and-now-need-to-cancel-it-and-restore-everything-back-what-should-i-do"></a>Pergunta: Fiz o upgrade por engano e agora preciso cancelá-lo e restaurar tudo. O que devo fazer?  
-Sem problema.  Criamos um instantâneo do seu espaço de trabalho antes da atualização, então você pode restaurá-lo. Tenha em mente que as pesquisas, os alertas ou os modos de exibição salvos após a atualização serão perdidos.  Para restaurar seu ambiente de espaço de trabalho, siga o procedimento em [Posso voltar atrás depois de fazer o upgrade?](log-analytics-log-search-upgrade.md#can-i-go-back-after-i-upgrade)
 
 
 ## <a name="views"></a>Modos de exibição
