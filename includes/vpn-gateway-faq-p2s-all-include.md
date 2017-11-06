@@ -8,6 +8,7 @@ Há suporte para os seguintes sistemas operacionais de cliente:
 * Windows 8.1 (32 bits e 64 bits)
 * Windows Server 2012 (somente 64 bits)
 * Windows Server 2012 R2 (somente 64 bits)
+* Windows Server 2016 (somente 64 bits)
 * Windows 10
 * OSX versão 10.11 para Mac (El Capitan)
 * macOS versão 10.12 para Mac (Serra)

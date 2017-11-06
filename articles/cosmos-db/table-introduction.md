@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/29/2017
+ms.date: 11/01/2017
 ms.author: arramac
-ms.openlocfilehash: c184b02f46ac2ad66c6ce607967a687c82d31477
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6a399a3a7979f6165d26eb48505242976d51e64f
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Introdução ao BD Cosmos do Azure: API de Tabela
 
@@ -38,10 +38,10 @@ Recomendamos que faça uma introdução assistindo ao vídeo a seguir, em que Ar
 > 
 > 
 
-## <a name="premium-and-standard-table-apis"></a>APIs de tabela padrão e premium
-Caso utilize o Armazenamento de Tabelas neste momento, você receberá os seguintes benefícios ao mudar para a versão prévia de "tabela premium" do Azure Cosmos DB:
+## <a name="table-offerings"></a>Ofertas de Tabela
+Caso utilize o Armazenamento de Tabelas do Azure neste momento, você receberá os seguintes benefícios ao mudar para a API de Tabela do Azure Cosmos DB (versão prévia):
 
-| | Armazenamento da tabela do Azure | BD Cosmos do Azure: Armazenamento de Tabelas (versão prévia) |
+| | Armazenamento de Tabelas do Azure | API de Tabela do Azure Cosmos DB (versão prévia) |
 | --- | --- | --- |
 | Latência | Rápido, mas não há limites superiores de latência. | Latência de milissegundo de dígito único para leituras e gravações, com suporte de leituras de latência de <10 ms e gravações de latência de <15 ms no 99º percentil, em qualquer escala, em qualquer lugar do mundo. |
 | Taxa de transferência | Modelo de taxa de transferência variável. As tabelas têm um limite de escalabilidade de 20.000 operações/s. | Altamente escalonável com [taxa de transferência reservada dedicada por tabela](request-units.md), que é respaldada por SLAs. As contas não têm nenhum limite superior na taxa de transferência e dão suporte para >10 milhões de operações/s por tabela. |

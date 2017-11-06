@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/14/2017
+ms.date: 10/15/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 9fcfea96516e0cde6329ef9dd4b9024a1b448c5b
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 6205f64f11d9029adf1f7f96baf780b82738a44a
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="introduction-to-azure-data-factory"></a>Introdução à Fábrica de Dados do Azure 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/21/2017
 > * [Versão 2 – Versão prévia](../introduction.md)
 
 > [!NOTE]
-> Este artigo aplica-se à versão 1 do Azure Data Factory, que está em disponibilidade geral (GA). Se você está usando a versão 2 do serviço Data Factory, que está em versão prévia, consulte [Introdução ao Data Factory V2](../introduction.md).
+> Este artigo se aplica à versão 1 do Azure Data Factory, que já está com disponível (GA). Se você está usando a versão 2 do serviço Data Factory, que está em versão prévia, consulte [Introdução ao Data Factory V2](../introduction.md).
 
 
 ## <a name="what-is-azure-data-factory"></a>O que é o Data Factory do Azure?
@@ -77,7 +77,7 @@ Após os dados estarem presentes no repositório de dados central na nuvem, proc
 Entregue os dados transformados das fontes da nuvem para fontes locais como o SQL Server. Alternativamente, é possível guardá-los nas suas fontes de armazenamento na nuvem para consumo por ferramentas de BI e de análise e outros aplicativos.
 
 ## <a name="key-components"></a>Principais componentes
-Uma assinatura do Azure pode ter uma ou mais instâncias do Azure Data Factory (ou data factories). O Azure Data Factory é composto de quatro componentes principais. Esses componentes trabalham juntos para oferecer a plataforma na qual você pode compor fluxos de trabalho orientados a dados com etapas para mover e transformar dados. 
+Uma assinatura do Azure pode ter uma ou mais instâncias (ou data factories) do Azure Data Factory. O Azure Data Factory é composto de quatro componentes principais. Esses componentes trabalham juntos para oferecer a plataforma na qual você pode compor fluxos de trabalho orientados a dados com etapas para mover e transformar dados. 
 
 ### <a name="pipeline"></a>Pipeline
 Uma fábrica de dados pode ter um ou mais pipelines. Um pipeline é um grupo de atividades. Juntas, as atividades em um pipeline executam uma tarefa. 
