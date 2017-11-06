@@ -1,5 +1,5 @@
 ---
-title: "Visão geral de fábrica conectada do Azure IoT Suite | Microsoft Docs"
+title: "Visão geral da solução de fábrica conectada - Azure | Microsoft Docs"
 description: "Uma descrição da solução pré-configurada de fábrica conectada do Azure IoT Suite."
 services: 
 suite: iot-suite
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/27/2017
 ms.author: dobett
-ms.openlocfilehash: d502c8e2e2715899279f6ebcf7ed89c19a1bb9a6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7fbb47390b6b1d918cbef0770ce1822591341866
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="get-started-with-the-connected-factory-preconfigured-solution"></a>Introdução à solução pré-configurada de fábrica conectada
 
@@ -81,7 +81,7 @@ O painel de solução permite que você gerencie a solução implantada. É uma 
 O painel exibe as seguintes informações:
 
 * Um painel **Lista de fábricas** que mostra o status, o local e a configuração atual de produção na solução. Quando você executa a solução pela primeira vez, há vários dispositivos simulados. A simulação de linha de produção é composta de três servidores OPC UA reais por linha de produção que executam tarefas simuladas e compartilham dados. Para obter mais informações sobre o OPC UA, consulte as [Perguntas frequentes sobre fábrica conectada](iot-suite-faq-cf.md).
-* Um **mapa** que exibe o local de cada dispositivo conectado à solução. A solução pode usar a API do Bing Maps para plotar informações no mapa. Se sua assinatura estiver habilitada para a API do Bing Maps Enterprise, esse recurso será usado automaticamente. Caso contrário, confira as [Perguntas frequentes][lnk-faq] para aprender a fazer o mapa dinâmico.
+* Um **mapa** que exibe o local de cada dispositivo conectado à solução. A solução pode usar a API do Bing Maps para criar gráficos de informações no mapa. Se sua assinatura estiver habilitada para a API do Bing Maps Enterprise, esse recurso será usado automaticamente. Caso contrário, confira as [Perguntas frequentes][lnk-faq] para aprender a fazer o mapa dinâmico.
 * Um painel **Alertas** que exibe alertas gerados quando um valor KPI/OEE ou de telemetria excede um limite específico.
 * Um painel **Eficiência Geral de Equipamento** que mostra os valores OEE para toda a empresa ou a fábrica/produção linha/estação que você está exibindo. Esse valor é agregado da exibição de estação para o nível corporativo. A figura de OEE e seus elementos constituintes podem ser mais analisados.
 * Painel **Indicadores Chave de Desempenho** que exibe o número de unidades produzidas e a energia usada por toda a empresa ou a linha de produção/fábrica/estação que você está exibindo. Esses valores são agregados de uma exibição de estação para o nível corporativo.

@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 09/27/2017
-ms.openlocfilehash: 56a79906a0f43f06d35db703d641f547e7bdf868
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 048d734277f855086a48ad00a52b873adbf419b4
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="classifying-iris-part-3-deploy-a-model"></a>Parte 3 de Classificando a Íris: implantar um modelo
 Os serviços do Azure Machine Learning (versão prévia) são uma solução integrada de análise avançada e de ciência de dados de ponta a ponta para cientistas de dados profissionais prepararem dados, desenvolverem testes e implantarem modelos em escala de nuvem.
@@ -89,11 +89,11 @@ Para implantar o serviço Web você precisará, além do arquivo de modelo, tamb
 
 5. Esse script cria um arquivo JSON na pasta **outputs**, que captura o esquema de dados de entrada exigido pelo modelo.
 
-6. Observe o painel Trabalhos à direita da janela do Machine Learning Workbench. Aguarde a versão mais recente do trabalho **iris\_score.py** para exibir status o verde **concluído**. Em seguida, clique no hiperlink **iris\_score.py [1]** da execução de trabalho mais recente para ver os detalhes da execução de **iris_score.py**. 
+6. Observe o painel Trabalhos à direita da janela do Machine Learning Workbench. Aguarde que a versão mais recente do trabalho **iris-score.py** exiba o status verde **Concluído**. Em seguida, clique no hiperlink **iris_score.py [1]** da execução de trabalho mais recente para ver os detalhes da execução de **iris_score.py**. 
 
 7. Na página Propriedades de Execução, na seção **Saídas**, selecione o arquivo recém-criado **service_schema.json**. **Verifique** o arquivo e clique em **Baixar**. Salve o arquivo na pasta raiz do projeto.
 
-8. Retorne à guia anterior em que você abriu o script **iris_score.py**. 
+8. Retorne à guia anterior onde você abriu o script **iris_score.py**. 
 
    Observe que o uso de coleta de dados que permite que você capture previsões e entradas de modelo do serviço Web. Os pontos a seguir são de especial interesse para a coleta de dados:
 
@@ -120,6 +120,9 @@ Para implantar o serviço Web você precisará, além do arquivo de modelo, tamb
    ```
 
 Agora você está pronto para preparar o ambiente para operacionalizar o modelo.
+
+>[!NOTE]
+>Implantar modelos exige que você tenha acesso de proprietário a uma assinatura do Azure.
 
 ## <a name="prepare-to-operationalize-locally"></a>Preparar para operacionalizar localmente
 Use a implantação de _modo local_ para executar em contêineres do Docker no computador local.
@@ -201,7 +204,7 @@ Agora você está pronto para criar o serviço Web em tempo real.
 1. Use o comando a seguir para criar um serviço Web em tempo real:
 
    ```azurecli
-   az ml service create realtime -f iris_score.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true 
+   az ml service create realtime -f iris-score.py --model-file model.pkl -s service_schema.json -n irisapp -r python --collect-model-data true 
    ```
    Isso gera uma ID de serviço Web que você pode usar mais tarde.
 
@@ -241,7 +244,7 @@ Como uma alternativa para o comando **az ml service create realtime** mostrado a
    Para criar um manifesto, use este comando e forneça a saída de ID de modelo da etapa anterior:
 
    ```azurecli
-   az ml manifest create --manifest-name <new manifest name> -f iris_score.py -r python -i <model ID> -s service_schema.json
+   az ml manifest create --manifest-name <new manifest name> -f iris-score.py -r python -i <model ID> -s service_schema.json
    ```
    Este comando gera uma ID de manifesto.
 

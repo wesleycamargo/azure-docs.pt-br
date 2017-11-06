@@ -3,8 +3,8 @@ title: "Delegar seu domínio ao Azure DNS | Microsoft Docs"
 description: "Entenda como alterar a delegação de domínio e usar os servidores de nomes do Azure DNS para fornecer hospedagem do domínio."
 services: dns
 documentationcenter: na
-author: georgewallace
-manager: timlt
+author: KumudD
+manager: jeconnoc
 ms.assetid: 257da6ec-d6e2-4b6f-ad76-ee2dde4efbcc
 ms.service: dns
 ms.devlang: na
@@ -12,12 +12,12 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/12/2017
-ms.author: gwallace
-ms.openlocfilehash: 7aa26fd54bab476e798e2327d1c46afb04aa3838
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.author: kumud
+ms.openlocfilehash: d73a42fd0f41c20b516c0348c86b40202fd06f53
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="delegate-a-domain-to-azure-dns"></a>Delegar um domínio ao Azure DNS
 
@@ -30,11 +30,11 @@ Por exemplo, suponha que você compre o domínio 'contoso.net' e crie uma zona c
 ## <a name="create-a-dns-zone"></a>Criar uma zona DNS
 
 1. Entrar no Portal do Azure
-1. No menu Hub, clique em **Novo > Rede >**, em seguida, clique em **Zona DNS** para abrir a folha Criar zona DNS.
+1. No menu Hub, clique em **Novo > Rede >**, em seguida, clique em **Zona DNS** para abrir a página Criar zona DNS.
 
     ![Zona DNS](./media/dns-domain-delegation/dns.png)
 
-1. Na folha **Criar zona DNS**, insira os seguintes valores e clique em **Criar**:
+1. Na página **Criar zona DNS**, insira os seguintes valores e clique em **Criar**:
 
    | **Configuração** | **Valor** | **Detalhes** |
    |---|---|---|
@@ -50,9 +50,9 @@ Por exemplo, suponha que você compre o domínio 'contoso.net' e crie uma zona c
 
 Antes que você possa delegar a zona DNS ao Azure DNS, precisará saber os nomes do servidor de nomes para sua zona. O Azure DNS aloca os servidores de nomes de um pool sempre que uma zona é criada.
 
-1. Com a zona DNS criada, no painel **Favoritos** do portal do Azure, clique em **Todos os recursos**. Clique na zona DNS **contoso.net** na folha **Todos os recursos**. Se a assinatura que você selecionou já contém vários recursos, você pode inserir **contoso.net** na caixa Filtrar por nome... para acessar facilmente o gateway de aplicativo. 
+1. Com a zona DNS criada, no painel **Favoritos** do portal do Azure, clique em **Todos os recursos**. Clique na zona DNS **contoso.net** na página **Todos os recursos**. Se a assinatura que você selecionou já contém vários recursos, você pode inserir **contoso.net** na caixa Filtrar por nome... para acessar facilmente o gateway de aplicativo. 
 
-1. Recupere os servidores de nomes da folha da zona DNS. Neste exemplo, os servidores de nomes 'ns1-01.azure-dns.com', 'ns2-01.azure-dns .net', 'ns3-01.azure-dns.org' e 'ns4-01.azure-dns.info' foram atribuídos à zona 'contoso.net':
+1. Recupere os servidores de nomes da página da zona DNS. Neste exemplo, os servidores de nomes 'ns1-01.azure-dns.com', 'ns2-01.azure-dns .net', 'ns3-01.azure-dns.org' e 'ns4-01.azure-dns.info' foram atribuídos à zona 'contoso.net':
 
  ![Servidor de nomes DNS](./media/dns-domain-delegation/viewzonens500.png)
 
@@ -122,7 +122,7 @@ Agora que a zona DNS é criada e você tem os servidores de nomes, o domínio pa
 
 Ao delegar um domínio ao Azure DNS, você deverá usar os nomes do servidor de nomes fornecidos pelo Azure DNS. É recomendável usar todos os quatro nomes de servidor de nomes, independentemente do nome do seu domínio. A delegação de domínio não requer que o nome do servidor use o mesmo domínio de nível superior do que seu domínio.
 
-Você não deve usar 'registros cola' para apontar para endereços IP do servidor de nomes do Azure DNS, pois esses endereços IP podem mudar no futuro. Atualmente, o Azure DNS não dá suporte às delegações usando nomes do servidores de nomes em sua própria zona, às vezes chamados de 'servidores de nome intuitivos'.
+Não use 'registros cola' para apontar para endereços IP do servidor de nomes do Azure DNS, pois esses endereços IP podem mudar no futuro. Atualmente, o Azure DNS não dá suporte às delegações usando nomes do servidores de nomes em sua própria zona, às vezes chamados de 'servidores de nome intuitivos'.
 
 ## <a name="verify-name-resolution-is-working"></a>Verifique se a resolução de nomes está funcionando
 
@@ -161,11 +161,11 @@ Se você quiser configurar uma zona filho separada, poderá delegar um subdomín
 ### <a name="create-a-dns-zone"></a>Criar uma zona DNS
 
 1. Entrar no Portal do Azure
-1. No menu Hub, clique em **Novo > Rede >**, em seguida, clique em **Zona DNS** para abrir a folha Criar zona DNS.
+1. No menu Hub, clique em **Novo > Rede >**, em seguida, clique em **Zona DNS** para abrir a página Criar zona DNS.
 
     ![Zona DNS](./media/dns-domain-delegation/dns.png)
 
-1. Na folha **Criar zona DNS**, insira os seguintes valores e clique em **Criar**:
+1. Na página **Criar zona DNS**, insira os seguintes valores e clique em **Criar**:
 
    | **Configuração** | **Valor** | **Detalhes** |
    |---|---|---|
@@ -179,9 +179,9 @@ Se você quiser configurar uma zona filho separada, poderá delegar um subdomín
 
 ### <a name="retrieve-name-servers"></a>Recuperar servidores de nome
 
-1. Com a zona DNS criada, no painel **Favoritos** do portal do Azure, clique em **Todos os recursos**. Clique na zona DNS **partners.contoso.net** na folha **Todos os recursos**. Se a assinatura que você selecionou já contém vários recursos, você pode inserir **partners.contoso.net** na caixa Filtrar por nome... para acessar a Zona DNS facilmente.
+1. Com a zona DNS criada, no painel **Favoritos** do portal do Azure, clique em **Todos os recursos**. Clique na zona DNS **partners.contoso.net** na página **Todos os recursos**. Se a assinatura que você selecionou já contém vários recursos, você pode inserir **partners.contoso.net** na caixa Filtrar por nome... para acessar a Zona DNS facilmente.
 
-1. Recupere os servidores de nomes da folha da zona DNS. Neste exemplo, os servidores de nomes 'ns1-01.azure-dns.com', 'ns2-01.azure-dns .net', 'ns3-01.azure-dns.org' e 'ns4-01.azure-dns.info' foram atribuídos à zona 'contoso.net':
+1. Recupere os servidores de nomes da página da zona DNS. Neste exemplo, os servidores de nomes 'ns1-01.azure-dns.com', 'ns2-01.azure-dns .net', 'ns3-01.azure-dns.org' e 'ns4-01.azure-dns.info' foram atribuídos à zona 'contoso.net':
 
  ![Servidor de nomes DNS](./media/dns-domain-delegation/viewzonens500.png)
 
@@ -191,7 +191,7 @@ O Azure DNS cria automaticamente os registros NS autoritativos na zona que cont�
 
 1. Navegue até a zona DNS **contoso.net** no portal do Azure.
 1. Clique em **+ Conjunto de registros**
-1. Na folha **Adicionar conjunto de registros**, digite os valores abaixo e clique em **OK**:
+1. Na página **Adicionar conjunto de registros**, digite os valores abaixo e clique em **OK**:
 
    | **Configuração** | **Valor** | **Detalhes** |
    |---|---|---|
@@ -297,8 +297,8 @@ az network dns record-set ns add-record --resource-group contosorg --zone-name c
 
 Para excluir todos os recursos criados neste artigo, conclua as seguintes etapas:
 
-1. No painel **Favoritos** do portal do Azure, clique em **Todos os recursos**. Clique no grupo de recursos **contosorg** na folha Todos os recursos. Se a assinatura que você selecionou já contém vários recursos, você pode inserir **contosorg** na caixa **Filtrar por nome...** para acessar o grupo de recursos facilmente.
-1. Na folha **contosorg**, clique no botão **Excluir**.
+1. No painel **Favoritos** do portal do Azure, clique em **Todos os recursos**. Clique no grupo de recursos **contosorg** na página Todos os recursos. Se a assinatura que você selecionou já contém vários recursos, você pode inserir **contosorg** na caixa **Filtrar por nome...** para acessar o grupo de recursos facilmente.
+1. Na página **contosorg**, clique no botão **Excluir**.
 1. O portal requer que você digite o nome do grupo de recursos para confirmar se deseja excluí-lo. Digite *contosorg* como o nome do grupo de recursos e então clique em **Excluir**. A exclusão de um grupo de recursos exclui todos os recursos contidos nele e, portanto, confirme sempre o conteúdo de um grupo de recursos antes de excluí-lo. O portal exclui todos os recursos contidos no grupo de recursos e o exclui em seguida. Esse processo leva vários minutos.
 
 ## <a name="next-steps"></a>Próximas etapas
