@@ -71,15 +71,10 @@
 
 ## Definir políticas de recursos
 ### [O que são políticas de recursos?](resource-manager-policy.md)
-### [Usar o Portal do Azure para atribuir a política](resource-manager-policy-portal.md)
 ### [Usar scripts para atribuir a política](resource-manager-policy-create-assign.md)
 ### Exemplos
 #### [Marcas](resource-manager-policy-tags.md)
 #### [Convenções de nomenclatura](resource-manager-policy-naming-convention.md)
-#### [Rede](resource-manager-policy-network.md)
-#### [Armazenamento](resource-manager-policy-storage.md)
-#### [VM Linux](../virtual-machines/linux/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-#### [VM Windows](../virtual-machines/windows/policy.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 
 ## Audit
 ### [Exibir logs de atividade](resource-group-audit.md)

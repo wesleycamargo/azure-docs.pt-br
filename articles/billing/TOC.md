@@ -35,9 +35,9 @@
 ### [Vincular locatário do Office 365](billing-add-office-365-tenant-to-azure-subscription.md)
 ### [Pagar pelas assinaturas por fatura](billing-how-to-pay-by-invoice.md)
 ## Solucionar problemas
-### [Problemas de inscrição](billing-troubleshoot-azure-sign-up-issues.md)
-### [Cartão recusado](billing-credit-card-fails-during-azure-sign-up.md)
-### [Problemas de credenciais](billing-cannot-login-subscription.md)
+### [Problemas de inscrição](https://support.microsoft.com/en-us/help/4042959)
+### [Cartão recusado](https://support.microsoft.com/en-us/help/4042960)
+### [Problemas de credenciais](https://support.microsoft.com/en-us/help/4042961)
 ### [Nenhuma assinatura encontrada](billing-no-subscriptions-found.md)
 ### [Exibição do custo da empresa desabilitado](billing-enterprise-mgmt-grp-troubleshoot-cost-view.md)
 

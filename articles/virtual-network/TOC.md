@@ -1,14 +1,14 @@
 # Visão geral
-## [Redes Virtuais](virtual-networks-overview.md)
-## [Encaminhamento IP e rotas definidas pelo usuário](virtual-networks-udr-overview.md)
+## [Redes virtuais](virtual-networks-overview.md)
+## [Roteamento](virtual-networks-udr-overview.md)
 ## [Emparelhamento de rede virtual](virtual-network-peering-overview.md)
 ## [Pontos de extremidade de serviço de rede virtual](virtual-network-service-endpoints-overview.md)
 ## [Rede virtual dos serviços do Azure](virtual-network-for-azure-services.md)
 ## [Segurança](security-overview.md)
 ## [Continuidade dos negócios](virtual-network-disaster-recovery-guidance.md)
-## [PERGUNTAS FREQUENTES](virtual-networks-faq.md)
 ## [Endereçamento IP](virtual-network-ip-addresses-overview-arm.md)
 ## [Proteção contra DDoS](ddos-protection-overview.md)
+## [Perguntas frequentes](virtual-networks-faq.md)
 ## Clássico
 ### [Endereçamento IP](virtual-network-ip-addresses-overview-classic.md)
 ### [Listas de controle de acesso](virtual-networks-acl.md)
