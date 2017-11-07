@@ -45,7 +45,7 @@ sections:
         items:
           - html: <a href="/azure/container-registry/container-registry-tutorial-prepare-registry">Replicação geográfica do Registro de Contêiner (visualização)</a>
           - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Registro de Contêiner com Instâncias de Contêiner do Azure</a>
-          - html: <a href="/azure/container-service/kubernetes/container-service-tutorial-kubernetes-prepare-app">Registro de Contêiner com Serviço de Contêiner do Azure</a>
+          - html: <a href="/azure/aks/tutorial-kubernetes-prepare-app">Registro de Contêiner com Serviço de Contêiner do Azure (AKS)</a>
           - html: <a href="/azure/service-fabric/service-fabric-tutorial-create-container-images">Registro de Contêiner com Service Fabric</a>
   - title: Referência
     items:

@@ -82,6 +82,13 @@
       href: maintenance-and-updates.md
     - name: Armazenamento
       href: about-disks-and-vhds.md
+      items:
+        - name: Armazenamento Premium
+          href: premium-storage.md
+        - name: Desempenho do armazenamento Premium
+          href: premium-storage-performance.md
+        - name: Armazenamento Standard
+          href: standard-storage.md
     - name: Rede
       href: network-overview.md
     - name: Aplicativos de dimensionamento automático
@@ -235,12 +242,16 @@
           href: detach-disk.md
         - name: Redimensionar um disco
           href: expand-os-disk.md
+        - name: Backup e recuperação de desastres para discos
+          href: backup-and-disaster-recovery-for-azure-iaas-disks.md
         - name: Instantâneo de um disco
           href: snapshot-copy-managed-disk.md
         - name: Backup de discos não gerenciados
           href: incremental-snapshots.md
         - name: Como converter disco entre Standard e Premium
           href: convert-disk-storage.md
+        - name: Migrar para o armazenamento Premium com o Azure Site Recovery
+          href: migrate-to-premium-storage-using-azure-site-recovery.md
         - name: Como usar o armazenamento de arquivos
           href: mount-azure-file-storage.md
         - name: Implantar discos com modelo

@@ -6,6 +6,7 @@
 ## [Criar um aplicativo .NET](service-fabric-quickstart-dotnet.md)
 ## [Implantar um aplicativo de contêiner do Linux](service-fabric-quickstart-containers-linux.md)
 ## [Implantar um aplicativo de contêiner do Windows](service-fabric-quickstart-containers.md)
+## [Implantar um aplicativo Java](service-fabric-quickstart-java.md)
 
 # Tutoriais
 ## Implantar um aplicativo .NET
@@ -28,7 +29,9 @@
 ### 1 – Criar um cluster no Azure
 #### [1a – Crie um cluster do Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 #### [1b – Crie um cluster do Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
-### [2– Implantar o Gerenciamento de API com o Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+### [2 - Dimensionar o cluster](service-fabric-tutorial-scale-cluster.md)
+### [3 - Implantar o Gerenciamento de API com o Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+
 
 # Exemplos
 ## [Exemplos de código](https://azure.microsoft.com/resources/samples/?service=service-fabric)
