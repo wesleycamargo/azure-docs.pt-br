@@ -22,18 +22,18 @@ ms.lasthandoff: 10/11/2017
 ---
 # <a name="durable-functions-overview-azure-functions"></a>Visão Geral das Funções Duráveis (Azure Functions)
 
-As *Durable Functions* são uma extensão do [Azure Functions](functions-overview.md) e do [Azure WebJobs](../app-service/web-sites-create-web-jobs.md) que permitem que você escreva funções com estado em um ambiente serverless. A extensão gerencia estado, pontos de verificação e reinicializações para você.
+As *Funções Duráveis* são uma extensão do [Azure Functions](functions-overview.md) e do [Azure WebJobs](../app-service/web-sites-create-web-jobs.md) que permitem que você escreva funções com estado em um ambiente sem servidor. A extensão gerencia estado, pontos de verificação e reinicializações para você.
 
-A extensão permite definir fluxos de trabalho com estado em um novo tipo de função chamada *função orquestradora*. Veja algumas das vantagens das funções orquestradora:
+A extensão permite definir fluxos de trabalho com estado em um novo tipo de função chamada *função orquestradora*. Veja algumas das vantagens das funções orquestradoras:
 
 * Elas definem fluxos de trabalho no código. Não são necessários designers ou esquemas JSON.
 * Elas podem chamar outras funções de forma síncrona e assíncrona. A saída das funções chamadas pode ser salva em variáveis locais.
 * Elas fazem automaticamente o ponto de verificação pontual do progresso sempre que a função esperar. O estado local nunca será perdido se o processo for reciclado ou se a VM for reiniciada.
 
 > [!NOTE]
-> As Durable Functions são uma extensão avançada do Azure Functions e não são apropriadas para todos os aplicativos. O restante deste artigo pressupõe que você tenha uma forte familiaridade com os conceitos do [Azure Functions](functions-overview.md) e com os desafios envolvidos no desenvolvimento de aplicativos serverless.
+> As Funções Duráveis são uma extensão avançada do Azure Functions e não são apropriadas para todos os aplicativos. O restante deste artigo pressupõe que você tenha uma forte familiaridade com os conceitos do [Azure Functions](functions-overview.md) e com os desafios envolvidos no desenvolvimento de aplicativos serverless.
 
-O caso de uso principal das Durable Functions é simplificar problemas complexos de coordenação com estado em aplicativos serverless. As seções a seguir descrevem alguns padrões de aplicativo típicos que podem se beneficiar das Funções Duráveis.
+O caso de uso principal das Funções Duráveis é simplificar problemas complexos de coordenação com estado em aplicativos serverless. As seções a seguir descrevem alguns padrões de aplicativo típicos que podem se beneficiar das Funções Duráveis.
 
 ## <a name="pattern-1-function-chaining"></a>Padrão 1: encadeamento de funções
 
@@ -41,7 +41,7 @@ O caso de uso principal das Durable Functions é simplificar problemas complexos
 
 ![Diagrama de encadeamento de funções](media/durable-functions-overview/function-chaining.png)
 
-As Durable Functions permitem implementar esse padrão de forma concisa no código.
+As Funções Duráveis permitem implementar esse padrão de forma concisa no código.
 
 ```cs
 public static async Task<object> Run(DurableOrchestrationContext ctx)
@@ -130,7 +130,7 @@ Content-Type: application/json
 
 Como o estado é gerenciado pelo tempo de execução das Durable Functions, você não precisa implementar seu próprio mecanismo de controle de status.
 
-Embora a extensão de Durable Functions tenha webhooks internos para gerenciar orquestrações de longa execução, você mesmo pode implementar esse padrão usando seus próprios gatilhos de função (como HTTP, fila ou Hub de Eventos) e a associação `orchestrationClient`.
+Embora a extensão de Funções Duráveis tenha webhooks internos para gerenciar orquestrações de longa execução, você mesmo pode implementar esse padrão usando seus próprios gatilhos de função (como HTTP, fila ou Hub de Eventos) e a associação `orchestrationClient`.
 
 ```cs
 // HTTP-triggered function to start a new orchestrator function instance.
@@ -161,9 +161,9 @@ O diagrama a seguir ilustra uma função que é executada em um loop infinito du
 
 ![Diagrama de singleton com estado](media/durable-functions-overview/stateful-singleton.png)
 
-Embora as Durable Functions não sejam uma implementação do modelo de ator, as funções orquestradoras têm muitas das mesmas características de tempo de execução. Por exemplo, elas são de longa execução (possivelmente infinita), com estado, confiáveis, de thread único, com transparência de local e endereçáveis globalmente. Isso torna as funções orquestradoras úteis para cenários semelhantes aos de "ator", sem a necessidade de uma estrutura separada.
+Embora as Funções Duráveis não sejam uma implementação do modelo de ator, as funções orquestradoras têm muitas características semelhantes às do tempo de execução. Por exemplo, elas são de longa execução (possivelmente infinitas), com estado, confiáveis, de thread único, com transparência de local e endereçáveis globalmente. Isso torna as funções orquestradoras úteis para cenários semelhantes aos de "ator", sem a necessidade de uma estrutura separada.
 
-Funções comuns não têm monitoração de estado e, portanto, não são adequadas para implementar um padrão de singleton com estado. No entanto, a extensão de Durable Functions faz com que o padrão singleton com estado seja relativamente simples de implementar. O código a seguir é uma função orquestradora simples que implementa um contador.
+Funções comuns não têm monitoração de estado e, portanto, não são adequadas para implementar um padrão de singleton com estado. No entanto, a extensão de Funções Duráveis faz com que o padrão singleton com estado seja relativamente simples de implementar. O código a seguir é uma função orquestradora simples que implementa um contador.
 
 ```cs
 public static async Task Run(DurableOrchestrationContext ctx)
@@ -245,13 +245,13 @@ O comportamento de reprodução cria restrições quanto ao tipo do código que 
 
 ## <a name="language-support"></a>Suporte ao idioma
 
-Atualmente, C# é a única linguagem com suporte para as Durable Functions. Isso inclui funções orquestradoras e de atividade. No futuro, adicionaremos suporte para todas as linguagens a que o Azure Functions dá suporte. Consulte a [Lista de problemas do Azure Functions no repositório do GitHub](https://github.com/Azure/azure-functions-durable-extension/issues) para ver o status mais recente de nosso trabalho de suporte a linguagens adicionais.
+Atualmente, C# é a única linguagem com suporte para as Funções Duráveis. Isso inclui funções orquestradoras e de atividade. No futuro, adicionaremos suporte para todas as linguagens a que o Azure Functions dá suporte. Consulte a [Lista de problemas do Azure Functions no repositório do GitHub](https://github.com/Azure/azure-functions-durable-extension/issues) para ver o status mais recente de nosso trabalho de suporte a linguagens adicionais.
 
 ## <a name="monitoring-and-diagnostics"></a>Monitoramento e diagnóstico
 
-A extensão de Durable Functions emite automaticamente dados de acompanhamento estruturados para o [Application Insights](functions-monitoring.md) quando o aplicativo de funções é configurado com uma chave do Application Insights. Dados de acompanhamento podem ser usados para monitorar o comportamento e o progresso de suas orquestrações.
+A extensão de Funções Duráveis emite automaticamente dados de acompanhamento estruturados para o [Application Insights](functions-monitoring.md) quando o aplicativo de funções é configurado com uma chave do Application Insights. Dados de acompanhamento podem ser usados para monitorar o comportamento e o progresso de suas orquestrações.
 
-Veja um exemplo dos eventos de acompanhamento das Durable Functions no portal do Application Insights usando o [Application Insights Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics):
+Veja um exemplo dos eventos de acompanhamento das Funções Duráveis no portal do Application Insights usando o [Application Insights Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics):
 
 ![Resultados de consulta do Application Insights](media/durable-functions-overview/app-insights-1.png)
 
