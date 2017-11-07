@@ -41,6 +41,7 @@
 ## Configurar um roteador para o ExpressRoute
 ### [Configurar um roteador](expressroute-config-samples-routing.md)
 ### [Exemplos de configuração de roteador para NAT](expressroute-config-samples-nat.md)
+## [Configurar o Monitor de Desempenho de Rede para ExpressRoute](how-to-npm.md)
 
 ## Práticas Recomendadas
 ### [Práticas recomendadas para segurança de rede e serviços de nuvem](../best-practices-network-security.md)

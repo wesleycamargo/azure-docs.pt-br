@@ -15,6 +15,14 @@
   items:
     - name: Criar e gerenciar a Política do Azure
       href: create-manage-policy.md
+- name: Exemplos
+  items:
+    - name: Modelos de política
+      href: json-samples.md
+- name: Conceitos
+  items:
+    - name: Estrutura de definição da Política do Azure
+      href: policy-definition.md
 - name: Referência
   items:
     - name: CLI do Azure
