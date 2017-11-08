@@ -4,7 +4,7 @@ description: "Um gateway local será necessário se o servidor do Analysis Servi
 services: analysis-services
 documentationcenter: 
 author: minewiskan
-manager: erikre
+manager: kfile
 editor: 
 tags: 
 ms.assetid: cd596155-b608-4a34-935e-e45c95d884a9
@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/11/2017
+ms.date: 10/30/2017
 ms.author: owend
-ms.openlocfilehash: 47f05a22811307617f475e79145f70a0233f5895
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 0b11c005ddcf4a3416104e7cef39a7ce97957ba3
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>Conectar-se a fontes de dados locais com o Gateway de Dados Local do Azure
 O gateway de dados local atua como uma ponte, fornecendo transferência de dados segura entre fontes de dados locais e seus servidores do Azure Analysis Services na nuvem. Além de trabalhar com diversos servidores do Azure Analysis Services na mesma região, a versão mais recente do gateway também funciona com os Aplicativos Lógicos do Azure, o Power BI, o Power Apps e o Microsoft Flow. Você pode associar vários serviços na mesma região a um único gateway. 
@@ -129,6 +129,9 @@ Você pode usar um aplicativo de Teste de Velocidade do Azure de terceiros para 
 
 **P**: O serviço Windows do gateway pode ser executado com uma conta do Azure Active Directory? <br/>
 **R:** Não. O serviço do Windows deve ter uma conta válida do Windows. Por padrão, o serviço é executado com o SID de Serviço, NT SERVICE\PBIEgwService.
+
+**P**: como faço para controlar um gateway? <br/>
+**R**: para controlar um gateway (ao executar Instalar/Alterar no Painel de Controle > Programas), você precisa ser um Proprietário para o recurso do gateway no Azure e ter a chave de recuperação. Os Proprietários de recursos do gateway são configuráveis no Controle de Acesso.
 
 ### <a name="high-availability"></a>Alta disponibilidade e recuperação de desastres
 

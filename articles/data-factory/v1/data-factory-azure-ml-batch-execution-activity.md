@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2017
+ms.date: 11/01/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 38c0798bc14b094fa788e6e414bad35b34a93d2c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3169584bc884107ccd34b01264683d8c73c0fecb
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Criar pipelines de previsão usando Azure Machine Learning e o Azure Data Factory
 
@@ -36,6 +36,9 @@ ms.lasthandoff: 10/11/2017
 > * [Atividade Personalizada do .NET](data-factory-use-custom-activities.md)
 
 ## <a name="introduction"></a>Introdução
+> [!NOTE]
+> Este artigo se aplica à versão 1 do Data Factory, que está com GA (disponibilidade geral). Se você estiver usando a versão 2 do serviço do Data Factory, que está na versão prévia, consulte [transformar dados usando machine learning na versão 2 do Data Factory](../transform-data-using-machine-learning.md).
+
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
 O [Azure Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/) permite compilar, testar e implantar soluções de análise preditiva. De um ponto de vista de alto nível, isso é feito em três etapas:
@@ -67,7 +70,8 @@ Você usa o Azure Data Factory para orquestrar o processamento e movimentação 
 1. Criar um serviço vinculado de Azure Machine Learning. Você precisará dos seguintes valores:
 
    1. **URI de Solicitação** para a API de Execução do Lote. Encontre o URI da Solicitação clicando no link **EXECUÇÃO EM LOTE** na página de serviços Web.
-   2. **Chave de API** para o serviço Web publicado do Azure Machine Learning. Encontre a chave de API clicando no serviço Web que você publicou.
+   2. 
+            **Chave de API** para o serviço Web publicado do Azure Machine Learning. Encontre a chave de API clicando no serviço Web que você publicou.
    3. Use a atividade **AzureMLBatchExecution** .
 
       ![Painel de Machine Learning](./media/data-factory-azure-ml-batch-execution-activity/AzureMLDashboard.png)
@@ -628,7 +632,8 @@ Você também pode usar [Funções do Data Factory](data-factory-functions-varia
 >
 
 ## <a name="see-also"></a>Consulte também
-* [Postagem do blog do Azure: Introdução ao Azure Data Factory e Azure Machine Learning](https://azure.microsoft.com/blog/getting-started-with-azure-data-factory-and-azure-machine-learning-4/)
+* 
+            [Postagem do blog do Azure: Introdução ao Azure Data Factory e Azure Machine Learning](https://azure.microsoft.com/blog/getting-started-with-azure-data-factory-and-azure-machine-learning-4/)
 
 [adf-build-1st-pipeline]: data-factory-build-your-first-pipeline.md
 

@@ -1,5 +1,5 @@
 ---
-title: "Concluir uma revisão de acesso de membros de um grupo ou o acesso a um aplicativo no Azure AD | Microsoft Docs"
+title: "Concluir uma análise de acesso de membros de um grupo ou o acesso de usuários a um aplicativo com Azure AD | Microsoft Docs"
 description: "Saiba como concluir uma revisão de acesso para membros de um grupo ou os usuários com acesso a um aplicativo no Azure Active Directory."
 services: active-directory
 documentationcenter: 
@@ -13,40 +13,41 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.openlocfilehash: e83bc42d658c4d6304f98b99d0e0942595bd65d2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b301ff06c01d51c02f7d7393801b35cd8965403c
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
-# <a name="complete-an-access-review-of-members-of-a-group-or-users-access-to-an-application-in-azure-ad"></a>Concluir uma revisão de acesso de membros de um grupo ou o acesso a um aplicativo no Azure AD
+# <a name="complete-an-access-review-of-members-of-a-group-or-users-access-to-an-application-in-azure-ad"></a>Concluir uma análise de acesso de membros de um grupo ou o acesso de usuários a um aplicativo no Azure AD
 
-Os administradores podem solicitar uma revisão dos membros do grupo ou os usuários atribuídos a um aplicativo [criando uma revisão de acesso](active-directory-azure-ad-controls-create-access-review.md). O Azure AD envia automaticamente para os revisores um email solicitando que analisem o acesso. Se um usuário não recebeu um email, você pode enviar para ele as instruções em [como analisar o acesso](active-directory-azure-ad-controls-perform-access-review.md).  Depois que o período de revisão de acesso tiver acabado ou se o administrador tiver interrompido a revisão de acesso, siga as etapas deste artigo para ver e aplicar os resultados.
+Os administradores podem usar o Azure Active Directory (Azure AD) para [criar uma análise de acesso](active-directory-azure-ad-controls-create-access-review.md) para membros do grupo ou os usuários atribuídos a um aplicativo. O Azure AD envia automaticamente, para os revisores, um email solicitando que analisem o acesso. Se um usuário não recebeu um email, é possível enviar para ele as instruções em [Examinar seu acesso](active-directory-azure-ad-controls-perform-access-review.md). Depois que o período de análise de acesso tiver acabado ou se um administrador interromper a análise de acesso, siga as etapas deste artigo para ver e aplicar os resultados.
 
-## <a name="viewing-an-access-review-in-the-azure-portal"></a>Exibição de uma revisão de acesso no portal do Azure
+## <a name="view-an-access-review-in-the-azure-portal"></a>Exibir uma análise de acesso no Portal do Azure
 
-1. Vá para a [página de revisão de acesso](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/), altere para a guia **Programas** e selecione o programa que contém o controle de revisão de acesso.
-2. Clique em gerenciar e selecione o controle de revisão de acesso.  Se houver muitos controles no programa, você poderá filtrar os controles somente de um tipo específico, classificar por seu status ou procurar pelo nome do controle de revisão de acesso ou pelo nome de exibição do proprietário que o criou. 
+1. Vá para a [página de revisões de acesso](https://portal.azure.com/#blade/Microsoft_AAD_ERM/DashboardBlade/), selecione **Programas** e escolha o programa que contém o controle de análise de acesso.
 
-## <a name="stopping-a-review-that-has-not-yet-completed"></a>Interrupção de uma revisão que ainda não foi concluída
+2. Selecione **Gerenciar** e selecione o controle de análise de acesso. Se houver muitos controles no programa, você poderá filtrar os controles de um tipo específico e classificar pelo status. Você também pode pesquisar pelo nome do controle da análise de acesso ou pelo nome de exibição do proprietário que o criou. 
 
-Se a revisão ainda não tiver atingido a data de término agendada, um administrador pode parar a análise clicando no botão **Parar** para concluí-la no início.  Se quaisquer usuários ainda não tiverem sido examinados até este momento, eles não poderão ser após você parar a análise. Não é possível reiniciar uma análise após ela ter sido interrompida.
+## <a name="stop-a-review-that-hasnt-finished"></a>Parar uma análise que não foi concluída
 
-## <a name="applying-the-changes"></a>Aplicação das alterações 
+Se a análise não tiver atingido a data de término agendada, um administrador poderá selecionar **Parar** para finalizar a análise mais cedo. Depois que a análise for interrompida, os usuários não poderão ser analisados. Não é possível reiniciar uma análise depois de ter sido interrompida.
 
-Depois que uma revisão de acesso for concluída, porque atingiu a data de término ou um administrador a interrompeu manualmente, o botão **Aplicar** implementa o resultado da análise, atualizando o grupo ou aplicativo. Se o acesso do usuário tiver sido negado na revisão, então, quando o administrador clicar neste botão, o Azure AD removerá sua atribuição de associação ou aplicativo. 
+## <a name="apply-the-changes"></a>Aplicar as alterações 
 
-Clicar no botão Aplicar não terá um efeito para um grupo gerado em um diretório local, ou para um grupo dinâmico.  Se você quiser alterar um grupo que se origina no local, em seguida, baixe os resultados e aplicar essas alterações para a representação do grupo no diretório.
+Depois que uma análise de acesso for concluída, seja porque atingiu a data de término ou um administrador a interrompeu manualmente, selecione **Aplicar**. O resultado da análise é implementado ao atualizar o grupo ou o aplicativo. Se o acesso do usuário tiver sido negado na análise, quando o administrador selecionar esta opção, o Azure AD removerá sua atribuição de associação ou aplicativo. 
 
-## <a name="downloading-the-results-of-the-review"></a>Download dos resultados da revisão
+Selecionar **Aplicar** não causará efeito em um grupo gerado em um diretório local ou para um grupo dinâmico. Se você quiser alterar um grupo que se origina localmente, baixe os resultados e aplique essas alterações para a representação do grupo neste diretório.
 
-Para recuperar os resultados da revisão, mude para a guia Aprovações e clique no botão **Baixar**.  O arquivo CSV resultante pode ser exibido no Excel ou em outros programas que abrem os arquivos CSV.
+## <a name="download-the-results-of-the-review"></a>Baixar os resultados da análise
 
-## <a name="optional-deleting-a-review"></a>Opcional: exclusão de revisão
-Se você não estiver mais interessado na revisão, exclua-a. O botão **Excluir** remove a revisão do Azure AD.
+Para recuperar os resultados da análise, selecione **Aprovações** e, em seguida, selecione **Baixar**. O arquivo CSV resultante pode ser exibido no Excel ou em outros programas que abrem os arquivos CSV.
+
+## <a name="optional-delete-a-review"></a>Opcional: excluir uma análise
+Caso não esteja mais interessado na análise, você poderá excluí-la. Selecione **Excluir** para remover a análise do Azure AD.
 
 > [!IMPORTANT]
-> Não há nenhum aviso antes da exclusão, portanto, certifique-se de que deseja excluir a revisão.
+> Não há nenhum aviso antes da exclusão, portanto, certifique-se de que deseja excluir a análise.
 > 
 > 
 

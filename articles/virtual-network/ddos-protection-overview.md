@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/22/2017
 ms.author: kumud
-ms.openlocfilehash: 0130823b6a6f5a4883ad640c9bcefc89b82b2cd1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 76da0d4e805c732d40a7bd02e5c70973c792e26c
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Visão geral de Proteção contra DDoS do Azure Standard
 
@@ -35,12 +35,12 @@ A Proteção contra DDoS do Azure, combinada com as melhores práticas de design
 
 ![Proteção contra DDoS do Azure Standard](./media/ddos-protection-overview/ddos-protection-overview-fig2.png)
 
-Para cenários de desenvolvimento e teste, você é convidado a experimentar a Proteção contra DDoS Standard e a usar estes recursos para fornecer comentários sobre suas experiências:
+Recomendamos que você experimente a Proteção contra DDoS Standard nos ambientes de desenvolvimento, teste ou produção. Use os seguintes recursos para fornecer comentários sobre suas experiências:
 - [Proteção contra DDoS do Azure no Fórum do Microsoft Azure](https://feedback.azure.com/forums/905032-azure-ddos-protection). 
 - [Proteção contra DDoS do Azure no Fórum do MSDN](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=azureddosprotection)
 - [Proteção contra DDoS do Azure no Stack Overflow](https://stackoverflow.com/tags/azure-ddos/info)
 
-Para problemas de suporte, você pode [abrir um tíquete de suporte do Azure](../azure-supportability/how-to-create-azure-support-request.md).
+Para problemas de suporte, você pode [abrir um tíquete de suporte do Azure](../azure-supportability/how-to-create-azure-support-request.md). Enquanto a Proteção contra DDoS Standard está em versão prévia, o suporte é fornecido como melhor esforço.
 
 ## <a name="types-of-ddos-attacks-that-ddos-protection-standard-mitigates"></a>Tipos de ataques de DDoS mitigados pela Proteção contra DDoS Standard
 

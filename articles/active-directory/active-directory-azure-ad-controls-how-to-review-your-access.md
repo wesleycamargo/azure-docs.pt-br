@@ -1,6 +1,6 @@
 ---
-title: Como analisar seu acesso | Microsoft Docs
-description: Como analisar seu acesso com o Azure Active Directory
+title: Examinar seu acesso | Microsoft Docs
+description: Examinar seu acesso com o Azure Active Directory
 author: markwahl-msft
 manager: femila
 editor: 
@@ -11,33 +11,35 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.openlocfilehash: 7029eb7e4af3bb22dff3d841e28c5b348944cd17
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f0c92cb0d9c83ba9e72257cc6842df4500b2b408
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
-# <a name="how-to-review-your-access"></a>Como analisar seu acesso
+# <a name="review-your-access"></a>Examinar seu acesso
 
-O Azure Active Directory simplifica como as empresas gerenciam o acesso a aplicativos e membros de grupos no Azure AD e outros Serviços Online da Microsoft, com um recurso chamado revisões de acesso.  Você pode ter recebido um email da Microsoft solicitando que você revise o acesso, membros de um grupo ou os usuários com acesso a um aplicativo. 
+O Azure Active Directory (Azure AD) simplifica como as empresas gerenciam o acesso a aplicativos e membros de grupos no Azure AD e outros Serviços Online da Microsoft, com um recurso chamado revisões de acesso. Talvez você tenha recebido um email da Microsoft solicitando que você examine o acesso para membros de um grupo ou usuários com acesso a um aplicativo. 
 
-## <a name="opening-an-access-review"></a>Como abrir uma revisão de acesso
+## <a name="open-an-access-review"></a>Abrir uma análise de acesso
 
-Você pode ver as revisões de acesso pendente clicando no link no email.  Se não tiver o email, você pode localizar as revisões de acesso realizando as seguintes ações:
+Para ver as revisões de acesso pendentes, selecione o link no email. Se você não tiver o email, será possível localizar as revisões de acesso fazendo o seguinte:
 
 1. Entre no [Painel de acesso do Azure AD](https://myapps.microsoft.com).
-2. Clique no ícone de usuário no canto superior direito da página, que exibe a organização padrão e o seu nome. Se houver mais de uma organização listada, selecione a organização que solicitou uma revisão de acesso.
-3. Se houver um bloco rotulado **Revisões de acesso** do lado direito da página, clique nele. Caso contrário, se o bloco não estiver visível, não haverá revisões de acesso a executar para essa organização, e nenhuma ação será necessária no momento.
 
-## <a name="filling-out-an-access-review"></a>Preenchendo uma revisão de acesso
+2. Selecione o símbolo de usuário no canto superior direito da página, que exibe seu nome e a organização padrão. Se houver mais de uma organização listada, selecione a organização que solicitou uma análise de acesso.
 
-Selecione uma revisão de acesso na lista e você verá seu acesso.  Você pode clicar na linha e escolher se deseja aprovar ou negar a necessidade de acesso contínuo.
+3. Se houver um bloco rotulado **Revisões de acesso** do lado direito da página, selecione-o. Se o bloco não estiver visível, não haverá revisões de acesso para executar nessa organização e nenhuma ação será necessária no momento.
+
+## <a name="fill-out-an-access-review"></a>Preencher uma análise de acesso
+
+Ao selecionar uma análise de acesso na lista, você poderá ver seu acesso. Selecione a linha e escolha se deseja aprovar ou negar a necessidade de acesso contínuo.
 
 O revisor pode exigir que você forneça uma justificativa de aprovação de acesso contínuo.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Observe que o acesso negado não será removido imediatamente, portanto, se você quiser alterar a resposta e aprovar, redefina a resposta e escolha uma nova.  Você pode fazer isso até que a revisão de acesso seja concluída.
+O acesso negado não é removido imediatamente. Caso queira alterar a resposta e aprovar, redefina a resposta e selecione uma nova resposta. Você pode fazer essa etapa até que a análise de acesso seja concluída.
 
 
 

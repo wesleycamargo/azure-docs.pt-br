@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2017
+ms.date: 11/01/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: bc0a7127457b2203e3a351d7825d203bba69f4ae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 74ee639af5e941c098cbdd1fafd96a0e1ce1b036
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="move-data-from-mysql-using-azure-data-factory"></a>Mover dados do MySQL usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -43,7 +43,7 @@ O gateway é requerido mesmo que o banco de dados MySQL esteja hospedado em uma 
 > Consulte [Solucionar problemas de gateway](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) para ver dicas sobre como solucionar os problemas relacionados à conexão/gateway.
 
 ## <a name="supported-versions-and-installation"></a>Instalação e versões com suporte
-Para o Gateway de Gerenciamento de Dados conectar-se ao Banco de Dados MySQL, você precisa instalar o [Conector do MySQL/Net para Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) (versão 6.6.5 ou superior) no mesmo sistema que o Gateway de Gerenciamento de Dados. Há suporte para o MySQL versão 5.1 e superior.
+Para o Gateway de Gerenciamento de Dados conectar-se ao Banco de Dados MySQL, você precisa instalar o [Conector do MySQL/Net para Microsoft Windows](https://dev.mysql.com/downloads/connector/net/) (versão 6.6.5 ou superior) no mesmo sistema que o Gateway de Gerenciamento de Dados. Este driver de 32 bits é compatível com o Gateway de Gerenciamento de Dados de 64 bits. Há suporte para o MySQL versão 5.1 e superior.
 
 > [!TIP]
 > Se você encontrar o erro "A autenticação falhou porque a entidade remota fechou o fluxo de transporte.", considere atualizar o Conector do MySQL/Net para uma versão superior.

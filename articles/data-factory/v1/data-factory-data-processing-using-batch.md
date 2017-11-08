@@ -15,13 +15,16 @@ ms.topic: article
 ms.date: 06/19/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 75213a4d0297c96ec32200158d8b60db4b8b2da4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e2987b37d0146a68635c9190cf42ac7aeac48ed5
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="process-large-scale-datasets-using-data-factory-and-batch"></a>Processar conjuntos de dados em larga escala usando o Data Factory e o Lote
+> [!NOTE]
+> Este artigo se aplica à versão 1 do Data Factory, que está com GA (disponibilidade geral). Se usar a versão 2 do serviço do Data Factory, que está em versão prévia, consulte as [atividades personalizadas no Data Factory versão 2](../transform-data-using-dotnet-custom-activity.md).
+
 Este artigo descreve uma arquitetura de um exemplo de solução que move e processa os conjuntos de dados em larga escala de maneira automática e agendada. Ele também fornece um passo a passo completo para implementar a solução usando Azure Data Factory e o Lote do Azure.
 
 Este artigo é maior que nossos artigos comuns porque contém um passo a passo de um exemplo de solução inteira. Se não tiver experiência com o Lote e o Data Factory, você pode aprender mais sobre esses serviços e como eles funcionam juntos. Se já tem algum conhecimento sobre os serviços e estiver projetando/arquitetando uma solução, você pode se concentrar apenas na [seção de arquitetura](#architecture-of-sample-solution) do artigo e, se estiver desenvolvendo um protótipo ou uma solução, também pode querer testar nossas instruções no [passo a passo](#implementation-of-sample-solution). Seus comentários sobre esse conteúdo e como usá-lo são bem-vindos.
@@ -85,7 +88,7 @@ Se você não tiver uma assinatura do Azure, poderá criar uma conta de avaliaç
 Você usará uma conta de armazenamento do Azure para armazenar os dados neste tutorial. Se você não tiver uma conta de armazenamento do Azure, consulte o artigo [Criar uma conta de armazenamento](../../storage/common/storage-create-storage-account.md#create-a-storage-account). A solução de exemplo usa o armazenamento de blobs.
 
 #### <a name="azure-batch-account"></a>Conta do Lote do Azure
-Crie uma conta do Azure Batch usando o [Portal do Azure](http://manage.windowsazure.com/). Consulte [Criar e gerenciar uma conta do Lote do Azure](../../batch/batch-account-create-portal.md). Anote a chave e o nome da conta do Lote do Azure. Você também pode usar o cmdlet [New-AzureRmBatchAccount](https://msdn.microsoft.com/library/mt603749.aspx) para criar uma conta do Lote do Azure. Consulte [Introdução aos cmdlets do PowerShell do Lote do Azure](../../batch/batch-powershell-cmdlets-get-started.md) para obter instruções detalhadas sobre como usar esse cmdlet.
+Crie uma conta do Azure Batch usando o [Portal do Azure](http://portal.azure.com/). Consulte [Criar e gerenciar uma conta do Lote do Azure](../../batch/batch-account-create-portal.md). Anote a chave e o nome da conta do Lote do Azure. Você também pode usar o cmdlet [New-AzureRmBatchAccount](https://msdn.microsoft.com/library/mt603749.aspx) para criar uma conta do Lote do Azure. Consulte [Introdução aos cmdlets do PowerShell do Lote do Azure](../../batch/batch-powershell-cmdlets-get-started.md) para obter instruções detalhadas sobre como usar esse cmdlet.
 
 A solução de exemplo usa Azure Batch (indiretamente por meio de um pipeline do Azure Data Factory) para processar dados de forma paralela em um pool de nós de computação (uma coleção gerenciada de máquinas virtuais).
 

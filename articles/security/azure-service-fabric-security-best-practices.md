@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/04/2017
+ms.date: 11/01/2017
 ms.author: tomsh
-ms.openlocfilehash: 5f02b6be1fde4026057000bed4e8014cb56ccf9a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 682ad79cc5fe4f08051477b7b90ae80981e5d595
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Melhores práticas de segurança do Azure Service Fabric
 Implantar um aplicativo no Azure é rápido, fácil e econômico. Antes de implantar seu aplicativo na nuvem em produção, examine a nossa lista de melhores práticas recomendadas e essenciais para a implementação de clusters seguros no seu aplicativo.
@@ -175,7 +175,7 @@ Há duas etapas básicas para configurar um cofre de chaves:
 Para saber mais sobre como configurar o cofre de chaves, confira [Introdução ao Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-get-started).
 
 ## <a name="assign-users-to-roles"></a>Atribuir usuários a funções
-Depois de criar os aplicativos para representar seu cluster, atribua os usuários às funções com suporte no Service Fabric para leitura e administrador. Você pode atribuir essas funções usando o portal clássico do Azure.
+Depois de criar os aplicativos para representar seu cluster, atribua os usuários às funções com suporte no Service Fabric para leitura e administrador. É possível atribuir essas funções usando o Portal do Azure.
 
 >[!NOTE]
 > Para obter mais informações sobre como usar funções no Service Fabric, consulte [Controle de acesso baseado em função para clientes do Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security-roles).

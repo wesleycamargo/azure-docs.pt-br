@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/26/2017
+ms.date: 10/27/2017
 ms.author: jejiang
-ms.openlocfilehash: fdf1911f4f5b515592b6197ea738d808104cb43e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 36ce117076ed5c15ddff850485d8f8912ec53caf
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="use-azure-hdinsight-tool-for-visual-studio-code"></a>Usar a Ferramenta do Azure HDInsight para Visual Studio Code
 
@@ -49,21 +49,9 @@ Depois de instalar os pré-requisitos, você pode instalar as Ferramentas do Azu
 
    ![Instalação do Python no HDInsight para Visual Studio Code](./media/hdinsight-for-vscode/install-hdInsight-plugin.png)
 
-Para usuários do Spark, a extensão do Python é recomendada para melhores experiências de serviço de linguagem. A extensão do Python não é necessária para os usuários do Hive. 
-
-**Para instalar o Python**
-
-1. Abra o **Visual Studio Code**.
-2. Clique em **Extensões** no painel esquerdo. Na caixa de pesquisa, digite **python**. Você pode ver uma lista de extensões de python. Uma delas é **Python**.
-3. Clique em **Instalar** ao lado de **Python**. Depois de alguns segundos, o botão **Instalar** será alterado para **Recarregar**.
-4. Clique em **Recarregar** para ativar a extensão **Python**.
-5. Clique na **Janela Recarregar** para confirmar. Você pode ver **Python** no painel Extensões.
-
-     ![Instalação do Python no HDInsight para Visual Studio Code](./media/hdinsight-for-vscode/hdinsight-vscode-install-python.png)
-
 ## <a name="open-hdinsight-workspace"></a>Abrir o espaço de trabalho do HDInsight
 
-Você deve criar um espaço de trabalho no VSCode antes que possa se conectar ao Azure.
+Você precisa criar um espaço de trabalho no VSCode para poder se conectar ao Azure.
 
 **Para abrir um espaço de trabalho**
 
@@ -90,21 +78,19 @@ Antes que você possa enviar scripts para clusters HDInsight do VSCode, você pr
 
     Uma vez conectado, o nome da sua conta do Azure será mostrado na barra de status na parte inferior esquerda da janela do VSCode. 
 
-    > [!NOTE] 
-    > Se sua conta do Azure tiver dois fatores habilitados, é recomendável usar a autenticação por telefone em vez do Pin.
-    > Há um problema conhecido sobre um logon do Azure usando o Google Chrome.
+    > [!NOTE]
+    > Abra um navegador com modo privado ou anônimo devido a um problema conhecido de autenticação do Azure. Se sua conta do Azure tiver dois fatores habilitados, é recomendável usar a autenticação por telefone em vez do Pin.
+  
 
-4. Clique com o botão direito do mouse no editor de scripts para abrir o menu de contexto:
-
-    ![Menu de contexto do editor de scripts das Ferramentas do HDInsight para Visual Studio Code](./media/hdinsight-for-vscode/hdinsight-for-vscode-context-menu.png)
-
-    Do menu de contexto, você pode executar as seguintes tarefas:
+4. Clique com o botão direito do mouse no editor de scripts para abrir o menu de contexto. Do menu de contexto, você pode executar as seguintes tarefas:
 
     - logout
     - Listar os clusters
     - Definir cluster padrão
     - Enviar consultas interativas do Hive
     - Enviar o script em lotes do Hive
+    - Enviar consultas interativas do PySpark
+    - Enviar o script em lotes de PySpark
     - Definir a configuração
 
 ## <a name="list-hdinsight-clusters"></a>Listar clusters HDInsight
@@ -162,7 +148,7 @@ Em comparação com a [execução de um trabalho em lotes do Hive](#submit-hive-
     ```hiveql
     SELECT * FROM hivesampletable;
     ```
-3. Clique com o botão direito do mouse no editor de scripts e, em seguida, clique em **HDInsight: Enviar Script em Lotes do Hive** para enviar um trabalho do Hive. 
+3. Clique com o botão direito do mouse no editor de scripts e, em seguida, clique em **HDInsight: lote do Hive** para enviar um trabalho do Hive. 
 4. Selecione um cluster para o qual você deseja enviar.  
 
     Depois de enviar um trabalho de Hive, as informações de sucesso de envio e jobid são mostradas no painel **SAÍDA**. Além disso, ele abre o **NAVEGADOR DA WEB**, em que os logs de trabalho em tempo real e o status são mostrados.
@@ -171,11 +157,44 @@ Em comparação com a [execução de um trabalho em lotes do Hive](#submit-hive-
 
 Comparando com o [envio de consultas interativas do Hive](#submit-interactive-hive-queries), o trabalho em lotes leva muito mais tempo.
 
+## <a name="submit-interactive-pyspark-queries"></a>Enviar consultas interativas do PySpark
+As Ferramentas do HDInsight para VSCode também permitem enviar consultas interativas do PySpark para clusters Spark.
+1. Crie uma nova pasta de trabalho e um novo arquivo de script com a extensão .py, se você não tiver um.
+2. Conecte-se à sua conta do Azure se ainda não tiver feito isso.
+3. Copie e cole o seguinte código no arquivo de script:
+   ```python
+   from operator import add
+   lines = spark.read.text("/HdiSamples/HdiSamples/FoodInspectionData/README").rdd.map(lambda r: r[0])
+   counters = lines.flatMap(lambda x: x.split(' ')) \
+                .map(lambda x: (x, 1)) \
+                .reduceByKey(add)
 
-## <a name="submit-pyspark-job"></a>Enviar trabalho do PySpark
+   coll = counters.collect()
+   sortedCollection = sorted(coll, key = lambda r: r[1], reverse = True)
+
+   for i in range(0, 5):
+        print(sortedCollection[i])
+   ```
+4. Realce esses scripts e clique com o botão direito do mouse no editor de scripts e, em seguida, clique em **HDInsight: PySpark interativo**.
+5. Clique no botão **Instalar** a seguir se ainda não tiver instalado a extensão **Python** no VSCode.
+    ![Instalação do Python no HDInsight para Visual Studio Code](./media/hdinsight-for-vscode/hdinsight-vscode-install-python.png)
+
+6. Configure o ambiente de Python no seu sistema se não for instalá-lo. 
+   - Para Windows, baixe e instale o [Python](https://www.python.org/downloads/). Em seguida, verifique se `Python` e `pip` existem no PATH do sistema.
+   - Para ver a instrução para MacOS e Linux, consulte [Configurar o ambiente interativo do PySpark para o Visual Studio Code](set-up-pyspark-interactive-environment.md).
+7. Selecione um cluster para enviar a consulta do PySpark. Logo depois, o resultado da consulta será mostrado em uma nova guia:
+
+   ![enviar o resultado do trabalho do Python](./media/hdinsight-for-vscode/pyspark-interactive-result.png) 
+8. Nossa ferramenta também dá suporte à consulta de **Cláusula SQL**.
+
+   ![enviar os resultados do trabalho python](./media/hdinsight-for-vscode/pyspark-ineteractive-select-result.png) O status de envio será exibido à esquerda da barra de status inferior ao executar consultas. Não é possível enviar outras consultas quando o status for **PySpark Kernel (ocupado)** ou a execução será interrompida.
+9. Nossos clusters podem manter uma sessão. Por exemplo, **a=100**, já mantém essa sessão em cluster, agora basta você executar **print a** no cluster.
+ 
+
+## <a name="submit-pyspark-batch-job"></a>Enviar o trabalho em lotes de PySpark
 
 1. Crie uma nova pasta de trabalho e um novo arquivo de script com a extensão .py, se você não tiver um.
-2. Conecte-se à sua conta do Azure e, em seguida, configure o cluster padrão se você ainda não tiver feito isso.
+2. Conecte-se à sua conta do Azure se ainda não tiver feito isso.
 3. Copie e cole o seguinte código no arquivo de script:
 
     ```python
@@ -198,7 +217,7 @@ Comparando com o [envio de consultas interativas do Hive](#submit-interactive-hi
             print("%s: %i" % (word, count))
         spark.stop()
     ```
-4. Clique com o botão direito do mouse no editor de scripts e, em seguida, clique em **HDInsight: Enviar Trabalho do PySpark**. 
+4. Clique com o botão direito do mouse no editor de scripts e, em seguida, clique em **HDInsight: lote do PySpark**. 
 5. Selecione um cluster para enviar o trabalho do PySpark. 
 
    ![enviar o resultado do trabalho do Python](./media/hdinsight-for-vscode/submit-pythonjob-result.png) 
@@ -224,10 +243,12 @@ O HDInsight para VSCode dá suporte aos seguintes recursos:
 * HDInsight para VScode: [Vídeo](https://go.microsoft.com/fwlink/?linkid=858706)
 
 ### <a name="tools-and-extensions"></a>Ferramentas e extensões
-* [Usar o kit de ferramentas do Azure para IntelliJ a fim de depurar aplicativos Spark remotamente por meio da VPN](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
+* [Configurar o ambiente interativo do PySpark para Visual Studio Code](set-up-pyspark-interactive-environment.md)
+* [Usar o Kit de Ferramentas do Azure para IntelliJ para criar e enviar aplicativos Spark Scala](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [Usar o kit de ferramentas do Azure para IntelliJ a fim de depurar aplicativos Spark remotamente por meio do SSH](hdinsight-apache-spark-intellij-tool-debug-remotely-through-ssh.md)
-* [Usar ferramentas do HDInsight para IntelliJ com a área restrita do Hortonworks](hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
+* [Usar o kit de ferramentas do Azure para IntelliJ a fim de depurar aplicativos Spark remotamente por meio da VPN](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Usar as Ferramentas do HDInsight no Kit de Ferramentas do Azure para Eclipse para criar aplicativos Spark](hdinsight-apache-spark-eclipse-tool-plugin.md)
+* [Usar ferramentas do HDInsight para IntelliJ com a área restrita do Hortonworks](hdinsight-tools-for-intellij-with-hortonworks-sandbox.md)
 * [Usar blocos de anotações do Zeppelin com um cluster Spark no HDInsight](hdinsight-apache-spark-zeppelin-notebook.md)
 * [Kernels disponíveis para o bloco de anotações Jupyter no cluster do Spark para HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
 * [Usar pacotes externos com blocos de notas Jupyter](hdinsight-apache-spark-jupyter-notebook-use-external-packages.md)
@@ -238,7 +259,8 @@ O HDInsight para VSCode dá suporte aos seguintes recursos:
 ### <a name="scenarios"></a>Cenários
 * [Spark com BI: executar análise de dados interativa usando o Spark no HDInsight com ferramentas de BI](hdinsight-apache-spark-use-bi-tools.md)
 * [Spark com Aprendizado de Máquina: usar o Spark no HDInsight para analisar a temperatura de prédios usando dados do sistema HVAC](hdinsight-apache-spark-ipython-notebook-machine-learning.md)
-* [Spark com Machine Learning: usar o Spark no HDInsight para prever resultados da inspeção de alimentos](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
+* 
+            [Spark com Machine Learning: usar o Spark no HDInsight para prever resultados da inspeção de alimentos](hdinsight-apache-spark-machine-learning-mllib-ipython.md)
 * [Streaming Spark: usar o Spark no HDInsight para a criação de aplicativos de streaming em tempo real](hdinsight-apache-spark-eventhub-streaming.md)
 * [Análise de log do site usando o Spark no HDInsight](hdinsight-apache-spark-custom-library-website-log-analysis.md)
 
