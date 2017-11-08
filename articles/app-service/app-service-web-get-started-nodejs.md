@@ -3,8 +3,8 @@ title: Criar um aplicativo Web Node.js no Azure | Microsoft Docs
 description: "Implante seu primeiro Olá, Mundo em Node.js nos Aplicativos Web do Serviço de Aplicativo do Azure em minutos."
 services: app-service\web
 documentationcenter: 
-author: syntaxc4
-manager: erikre
+author: cephalin
+manager: cfowler
 editor: 
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
 ms.service: app-service-web
@@ -12,14 +12,14 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 05/05/2017
-ms.author: cfowler
+ms.date: 10/26/2017
+ms.author: cephalin;cfowler
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 09d925ab33800ac71e5fb6def916a6748d1d02a8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e5193460bf46c2b826cad371e4549a9690180f17
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Criar um aplicativo Web do Node.js no Azure
 
@@ -48,8 +48,6 @@ Em uma janela de terminal, execute o comando a seguir para clonar o repositório
 ```bash
 git clone https://github.com/Azure-Samples/nodejs-docs-hello-world
 ```
-
-Você pode usar essa janela de terminal para executar todos os comandos neste guia de início rápido.
 
 Altere para o diretório que contém o código de exemplo.
 
@@ -84,10 +82,6 @@ Na janela do terminal, pressione **Ctrl+C** para sair do servidor Web.
 [!INCLUDE [Create web app](../../includes/app-service-web-create-web-app.md)] 
 
 ![Página de aplicativo Web vazia](media/app-service-web-get-started-php/app-service-web-service-created.png)
-
-Você criou um novo aplicativo Web vazio no Azure.
-
-[!INCLUDE [Configure local git](../../includes/app-service-web-configure-local-git.md)] 
 
 [!INCLUDE [Push to Azure](../../includes/app-service-web-git-push-to-azure.md)] 
 
@@ -147,7 +141,7 @@ Usando um editor de texto, abra o arquivo `index.js` no aplicativo do Node.js e 
 response.end("Hello Azure!");
 ```
 
-Confirme suas alterações no Git e, em seguida, envie as alterações de código por push para o Azure.
+Na janela do terminal local, confirme suas alterações no Git e então envie por push as alterações do código para o Azure.
 
 ```bash
 git commit -am "updated output"

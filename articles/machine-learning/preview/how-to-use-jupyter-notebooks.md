@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 07759a590e3a4e061a1c5727428d2c7c2a655f51
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 93850a7c9e3d9d69b0da22ebd0656ae40cee2e63
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="how-to-use-jupyter-notebook-in-azure-machine-learning-workbench"></a>Como usar blocos de anotações do Jupyter no Azure Machine Learning Workbench
 
@@ -39,7 +39,7 @@ Para obter mais detalhes, consulte a [documentação oficial do Jupyter](http://
 Você pode acessar muitos kernels diferentes no Azure ML Workbench simplesmente definindo configurações de execução e destinos de computação na pasta `aml_config` do seu projeto. Adicionando um novo destino de computação emitindo o comando `az ml computetarget attach` é equivalente a adicionar um novo kernel.
 
 >[!NOTE]
->Examine [Configurar execução](experiment-execution-configuration.md) para obter mais detalhes sobre configurações de execução e destinos de computação.
+>Examine [Configurar execução](experimentation-service-configuration.md) para obter mais detalhes sobre configurações de execução e destinos de computação.
 
 ### <a name="kernel-naming-convention"></a>Convenção de nomenclatura do kernel
 Os kernels geralmente são nomeados no formato "\<nome do projeto> \<nome da configuração de execução>". Por exemplo, se você tiver uma configuração de execução chamada _docker python_ em um projeto chamado _myIris_, poderá encontrar um kernel denominado "myIris docker-python" na lista de kernel ao abrir um bloco de anotações do Jupyter.
@@ -107,5 +107,5 @@ Agora você pode clicar em um arquivo do bloco de anotações `.ipynb`, abri-lo,
 
 ## <a name="next-steps"></a>Próximas etapas
 - Para saber como usar o bloco de anotações Jupyter, acesse a [documentação oficial do Jupyter](http://jupyter-notebook.readthedocs.io/en/latest/).    
-- Para obter uma compreensão mais profunda do ambiente de execução de experimentação do Azure ML, examine [Visão geral do serviço de execução de experimento do Azure Machine Learning](experiment-execution-configuration.md)
+- Para obter uma compreensão mais profunda do ambiente de execução de experimentação do Azure ML, examine [Visão geral do serviço de experimentação do Azure Machine Learning](experimentation-service-configuration.md)
 

@@ -1,6 +1,6 @@
 ---
-title: Novidades no Azure Active Directory | Microsoft Docs
-description: "Use estas notas de versão para ficar a par das **versões mais recentes versões**, **problemas conhecidos**, **correções de bug**, **funcionalidades preteridas** e **planos de alterações** no Azure Active Directory."
+title: "O que há de novo? Notas de versão do Azure Active Directory | Microsoft Docs"
+description: "Use estas notas de versão para ficar a par das versões mais recentes versões, problemas conhecidos, correções de bug, funcionalidades preteridas e planos de alterações no Azure Active Directory (Azure AD)."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -12,18 +12,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 10/27/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 0361d5b48af876af2ccc522351484d369554bfca
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 1d98233e1bfc2c9a926d7c61737286ec6e4fc422
+ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Novidades no Azure Active Directory
 
-Estamos constantemente aperfeiçoando o Azure Active Directory para você. Para que você esteja a par das últimas novidades do desenvolvimento, este tópico fornece informações sobre:
+Estamos constantemente aperfeiçoando o Azure Active Directory. Para que você esteja a par das últimas novidades do desenvolvimento, este tópico fornece informações sobre:
 
 -   As versões mais recentes 
 -   Problemas conhecidos 
@@ -76,6 +76,8 @@ No mundo em que vivemos, a MFA (Autenticação Multifator) é uma parte essencia
 
 Com essa visualização pública, os relatórios e gerenciamento de MFA são parte integrante da experiência de configuração do Azure AD central, permitindo gerenciar a funcionalidade do Portal de gerenciamento de MFA dentro a experiência do Azure AD.
 
+Para saber mais, veja [Referência para relatórios de autenticação multifator no portal do Azure](active-directory-reporting-activity-sign-ins-mfa.md) 
+
 
 ---
 **Tipo:** novo recurso  
@@ -112,8 +114,6 @@ Para saber mais, consulte [PIM para recursos do Azure](privileged-identity-manag
 **Categoria de serviço:** revisões de acesso  
 **Funcionalidade do produto:** governança  
 
-
-Novidades do Azure AD
 
 As revisões de acesso (versão prévia) permitem que as organizações gerenciem com eficiência as associações de grupos e o acesso a aplicativos corporativos: 
 

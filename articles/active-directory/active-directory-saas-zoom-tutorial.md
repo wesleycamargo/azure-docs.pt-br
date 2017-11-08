@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: jeedes
-ms.openlocfilehash: aab491f162fd4d24c6ff4d8858f2edd96dda30d4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b8d902b9170fee47afb038df739bbca6d2d025e0
+ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoom"></a>Tutorial: Integração do Active Directory do Azure com o Zoom
 
@@ -110,7 +110,7 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
 
     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.zoom.us`
 
-    b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<companyname>.zoom.us`
+    b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `<companyname>.zoom.us`
 
     > [!NOTE] 
     > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao cliente do Zoom](https://support.zoom.us/hc) para obter esses valores. 
@@ -139,13 +139,13 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
    
     ![Seção Logon único](./media/active-directory-saas-zoom-tutorial/IC784701.png "Logon único")
    
-    a. Na caixa de texto **URL da página de entrada**, cole o valor da **URL do Serviço de Logon Único do SAML** copiado do Portal do Azure.
+    a. Na caixa de texto **URL da página de entrada**, cole o valor da **URL do Serviço de Logon Único do SAML** copiado do portal do Azure.
    
-    b. Na caixa de texto **URL da página de saída**, cole o valor da **URL de Saída** copiado do Portal do Azure.
+    b. Na caixa de texto **URL da página de saída**, cole o valor da **URL de Saída** copiado do portal do Azure.
      
     c. Abra seu certificado codificado em Base 64 no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado do provedor de identidade** .
 
-    d. Na caixa de texto **Emissor**, cole o valor da **ID de Entidade do SAML** que você copiou do Portal do Azure. 
+    d. Na caixa de texto **Emissor**, cole o valor da **ID de Entidade do SAML** que você copiou do portal do Azure. 
 
     e. Clique em **Salvar**.
 
@@ -252,8 +252,6 @@ Ao clicar no bloco do Zoom no Painel de Acesso, você deverá ser conectado auto
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

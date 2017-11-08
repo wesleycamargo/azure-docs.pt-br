@@ -4,7 +4,7 @@ description: "Visão geral de Azure Active Directory Domain Services"
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mahesh-unnikrishnan
 editor: curtand
 ms.assetid: 0d47178f-773e-45f9-9ff4-9e8cffa4ffa2
 ms.service: active-directory-ds
@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2017
+ms.date: 10/26/2017
 ms.author: maheshu
-ms.openlocfilehash: c4a22b230cd630c413118ab798ff241527465554
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: be18ee0266a97057499baccc5bb39a35224336d7
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="azure-ad-domain-services"></a>Azure AD Domain Services
+# <a name="azure-active-directory-ad-domain-services"></a>Azure Active Directory (AD) Domain Services
 ## <a name="overview"></a>Visão geral
 Os Serviços de Infraestrutura do Azure permitem que você implante uma ampla gama de soluções de computação de maneira ágil. Com máquinas virtuais do Azure, você pode implantar quase instantaneamente e só paga por cada minuto. Usando suporte para Windows, Linux, SQL Server, Oracle, IBM, SAP e BizTalk, você pode implantar qualquer carga de trabalho, qualquer linguagem, em praticamente qualquer sistema operacional. Esses benefícios permitem migrar aplicativos herdados implantados no local para o Azure a fim de economizar em despesas operacionais.
 
@@ -35,6 +35,10 @@ Os administradores geralmente ativam uma das seguintes soluções para atender �
 Todas essas abordagens tem o defeito de ser de alto custo e gerar sobrecarga administrativa. Os administradores devem implantar controladores de domínio usando as máquinas virtuais no Azure. Adicionalmente, eles precisam gerenciar, proteger, aplicar patch, monitorar, fazer backup e solucionar problemas dessas máquinas virtuais. O apoio em conexões VPN com o diretório local faz com que as cargas de trabalho implantadas no Azure fiquem vulneráveis a problemas de rede ou interrupções transitórias. Essas interrupções de rede, por sua vez, resultam em menor tempo de disponibilidade e em confiabilidade reduzida para esses aplicativos.
 
 Criamos os Serviços de Domínio do Azure AD para fornecer uma alternativa mais fácil.
+
+### <a name="watch-an-introductory-video"></a>Assistir a um vídeo de Introdução
+<iframe width="560" height="315" src="https://www.youtube.com/embed/T1Nd9APNceQ" frameborder="0" allowfullscreen></iframe>
+
 
 ## <a name="introducing-azure-ad-domain-services"></a>Apresentando os Serviços de Domínio do AD do Azure
 Os Serviços de Domínio do Azure AD fornecem serviços de domínio gerenciado, como ingresso no domínio, política de grupo, LDAP, autenticação Kerberos/NTLM e outros, que são totalmente compatíveis com o Active Directory do Windows Server. Você pode consumir esses serviços de domínio sem a necessidade de implantar, gerenciar e aplicar um patch em controladores de domínio na nuvem. Os Serviços de Domínio do Azure AD se integram ao locatário existente do Azure AD, permitindo aos usuários fazer logon usando suas credenciais corporativas. Além disso, você pode usar contas de usuário e grupos existentes para proteger o acesso a recursos, garantindo uma “mudança” mais tranquila dos recursos locais para os Serviços de Infraestrutura do Azure.

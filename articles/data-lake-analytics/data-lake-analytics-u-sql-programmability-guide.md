@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 06/30/2017
 ms.author: saveenr
-ms.openlocfilehash: db49780e359258898a62f3b95e87f54b78055c86
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bba8fff7997340e563c604f571604ee8d06eb719
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="u-sql-programmability-guide"></a>Guia de programação do U-SQL
 
@@ -29,98 +29,95 @@ Baixe e instale as [Ferramentas do Azure Data Lake para Visual Studio](https://w
 
 ## <a name="get-started-with-u-sql"></a>Introdução ao U-SQL  
 
-Examinaremos o script U-SQL a seguir:
+Examine o script U-SQL a seguir:
 
 ```
 @a  = 
-    SELECT * FROM 
-        (VALUES
-            ("Contoso",   1500.0, "2017-03-39"),
-            ("Woodgrove", 2700.0, "2017-04-10")
-        ) AS 
-              D( customer, amount );
+  SELECT * FROM 
+    (VALUES
+       ("Contoso",   1500.0, "2017-03-39"),
+       ("Woodgrove", 2700.0, "2017-04-10")
+    ) AS D( customer, amount );
+
 @results =
-    SELECT
-        customer,
+  SELECT
+    customer,
     amount,
     date
-    FROM @a;    
+  FROM @a;    
 ```
 
-Ele define um conjunto de linhas chamado @a e cria um conjunto de linhas chamado @results de @a.
+Esse script define dois conjuntos de linhas: `@a` e `@results`. O conjunto de linhas `@results` é definido de `@a`.
 
 ## <a name="c-types-and-expressions-in-u-sql-script"></a>Tipos e expressões de C# no script U-SQL
 
-Uma expressão de U-SQL é uma expressão de C# combinada com operações lógicas U-SQL como `AND`, `OR` e `NOT`. Expressões U-SQL podem ser usadas com SELECT, EXTRACT, WHERE, HAVING, GROUP BY e DECLARE.
-
-Por exemplo, o script a seguir analisa uma cadeia de caracteres de um valor DateTime na cláusula SELECT.
+Uma expressão de U-SQL é uma expressão de C# combinada com operações lógicas U-SQL como `AND`, `OR` e `NOT`. Expressões U-SQL podem ser usadas com SELECT, EXTRACT, WHERE, HAVING, GROUP BY e DECLARE. Por exemplo, o script a seguir analisa uma cadeia de caracteres de um valor DateTime.
 
 ```
 @results =
-    SELECT
-        customer,
+  SELECT
+    customer,
     amount,
     DateTime.Parse(date) AS date
-    FROM @a;    
+  FROM @a;    
 ```
 
-O script a seguir analisa uma cadeia de caracteres de um valor DateTime em uma instrução DECLARE.
+O trecho a seguir analisa uma cadeia de caracteres de um valor DateTime em uma instrução DECLARE.
 
 ```
-DECLARE @d DateTime = ToDateTime.Date("2016/01/01");
+DECLARE @d = DateTime.Parse("2016/01/01");
 ```
 
 ### <a name="use-c-expressions-for-data-type-conversions"></a>Usar expressões C# para conversões de tipo de dados
+
 O exemplo a seguir demonstra como você pode fazer uma conversão de dados de data e hora usando expressões C#. Nesse cenário específico, os dados de datetime da cadeia de caracteres são convertidos em datetime padrão com a notação de hora 00:00:00 meia-noite.
 
 ```
-DECLARE @dt String = "2016-07-06 10:23:15";
+DECLARE @dt = "2016-07-06 10:23:15";
 
 @rs1 =
-    SELECT 
-        Convert.ToDateTime(Convert.ToDateTime(@dt).ToString("yyyy-MM-dd")) AS dt,
-        dt AS olddt
-    FROM @rs0;
-OUTPUT @rs1 TO @output_file USING Outputters.Text();
+  SELECT 
+    Convert.ToDateTime(Convert.ToDateTime(@dt).ToString("yyyy-MM-dd")) AS dt,
+    dt AS olddt
+  FROM @rs0;
+
+OUTPUT @rs1 
+  TO @output_file 
+  USING Outputters.Text();
 ```
 
 ### <a name="use-c-expressions-for-todays-date"></a>Usar expressões C# para a data de hoje
-Para efetuar pull da data de hoje, podemos usar a seguinte expressão C#:
 
-```
-DateTime.Now.ToString("M/d/yyyy")
-```
+Para efetuar pull da data de hoje, podemos usar a seguinte expressão C#: `DateTime.Now.ToString("M/d/yyyy")`
 
 Aqui está um exemplo de como usar essa expressão em um script:
 
 ```
 @rs1 =
-    SELECT
-        MAX(guid) AS start_id,
-        MIN(dt) AS start_time,
-        MIN(Convert.ToDateTime(Convert.ToDateTime(dt<@default_dt?@default_dt:dt).ToString("yyyy-MM-dd"))) AS start_zero_time,
-        MIN(USQL_Programmability.CustomFunctions.GetFiscalPeriod(dt)) AS start_fiscalperiod,
-        DateTime.Now.ToString("M/d/yyyy") AS Nowdate,
-        user,
-        des
-    FROM @rs0
-    GROUP BY user, des;
+  SELECT
+    MAX(guid) AS start_id,
+    MIN(dt) AS start_time,
+    MIN(Convert.ToDateTime(Convert.ToDateTime(dt<@default_dt?@default_dt:dt).ToString("yyyy-MM-dd"))) AS start_zero_time,
+    MIN(USQL_Programmability.CustomFunctions.GetFiscalPeriod(dt)) AS start_fiscalperiod,
+    DateTime.Now.ToString("M/d/yyyy") AS Nowdate,
+    user,
+    des
+  FROM @rs0
+  GROUP BY user, des;
 ```
-
-
-
 ## <a name="using-net-assemblies"></a>Usando assemblies .NET
-O modelo de extensibilidade do U-SQL depende em grande parte da capacidade de adicionar código personalizado. Atualmente, o U-SQL fornece maneiras fáceis de adicionar seu próprio código baseado em Microsoft .NET (em especial, C#). No entanto, você também pode adicionar código personalizado escrito em outras linguagens .NET, como VB.NET ou F#. 
+
+O modelo de extensibilidade do U-SQL depende em grande parte da capacidade de adicionar código personalizado de assemblies .NET. 
 
 ### <a name="register-a-net-assembly"></a>Registrar um assembly .NET
 
-Use a instrução CREATE ASSEMBLY para colocar um assembly do .NET em um banco de dados U-SQL. Quando um assembly está em um banco de dados, scripts U-SQL podem usar esses assemblies usando a instrução REFERENCE ASSEMBLY. 
+Use a instrução `CREATE ASSEMBLY` para colocar um assembly do .NET em um banco de dados U-SQL. Posteriormente, os scripts U-SQL poderão usar esses assemblies usando a instrução `REFERENCE ASSEMBLY`. 
 
 O código a seguir mostra como registrar um assembly:
 
 ```
 CREATE ASSEMBLY MyDB.[MyAssembly]
-    FROM "/myassembly.dll";
+   FROM "/myassembly.dll";
 ```
 
 O código a seguir mostra como referenciar um assembly:
@@ -140,7 +137,6 @@ Conforme mencionado anteriormente, o U-SQL executa código em um formato de 64 b
 Cada arquivo de recurso e DLL de assembly carregado, como um tempo de execução diferente, um assembly nativo ou um arquivo config, pode ter no máximo 400 MB. O tamanho total dos recursos implantados, seja por meio de DEPLOY RESOURCE ou por meio de referências a assemblies e a seus arquivos adicionais, não pode exceder 3 GB.
 
 Por fim, observe que cada banco de dados U-SQL pode conter apenas uma versão de qualquer determinado assembly. Por exemplo, se você precisar da versão 7 e da versão 8 da biblioteca NewtonSoft Json.Net, será preciso registrá-las em dois bancos de dados diferentes. Além disso, cada script pode fazer referência apenas a uma versão da DLL de um determinado assembly. Nesse sentido, o U-SQL segue a semântica de controle de versão e gerenciamento do assembly de C#.
-
 
 ## <a name="use-user-defined-functions-udf"></a>Funções definidas pelo usuário: UDF
 As funções definidas pelo usuário ou UDF do U-SQL são rotinas de programação que aceitam parâmetros, executam uma ação (mo um cálculo complexo)e retornam o resultado dessa ação como um valor. O valor de retorno da UDF pode ser apenas um único escalar. A UDF do U-SQL pode ser chamado no script base U-SQL como qualquer outra função escalar C#.
@@ -245,9 +241,7 @@ namespace USQL_Programmability
 
             return "Q" + FiscalQuarter.ToString() + ":" + FiscalMonth.ToString();
         }
-
     }
-
 }
 ```
 
@@ -552,7 +546,7 @@ Contexto `ISerializationContext`: enumeração que define um conjunto de sinaliz
 
 Como um tipo C# regular, uma definição de UDT do U-SQL pode incluir substituições para operadores como +/==/!=. Ele também pode incluir métodos estáticos. Por exemplo, se formos usar esse UDT como um parâmetro para uma função agregada MIN do U-SQL, teremos que definir a substituição do operador <.
 
-Anteriormente neste guia, demonstramos um exemplo da identificação do período fiscal na data específica no formato Qn:Pn (Q1:P10). O exemplo a seguir mostra como definir um tipo personalizado para os valores do período fiscal.
+Anteriormente neste guia, demonstramos um exemplo da identificação do período fiscal na data específica no formato `Qn:Pn (Q1:P10)`. O exemplo a seguir mostra como definir um tipo personalizado para os valores do período fiscal.
 
 Abaixo temos um exemplo de uma seção code-behind com interface IFormatter e UDT personalizado:
 
@@ -655,9 +649,9 @@ var result = new FiscalPeriod(binaryReader.ReadInt16(), binaryReader.ReadInt16()
 }
 ```
 
-O tipo definido inclui dois números: trimestre e mês. Os operadores ==/!=/>/< e o método estático ToString() são definidos aqui.
+O tipo definido inclui dois números: trimestre e mês. Os operadores `==/!=/>/<` e o método estático `ToString()` são definidos aqui.
 
-Como mencionado anteriormente, o UDT pode ser usado nas expressões SELECT, mas não pode ser usado em OUTPUTTER/EXTRACTOR sem serialização personalizada. Ele precisa ser serializado como uma cadeia de caracteres com ToString() ou usado com um OUTPUTTER/EXTRACTOR personalizado.
+Como mencionado anteriormente, o UDT pode ser usado nas expressões SELECT, mas não pode ser usado em OUTPUTTER/EXTRACTOR sem serialização personalizada. Ele precisa ser serializado como uma cadeia de caracteres com `ToString()` ou usado com um OUTPUTTER/EXTRACTOR personalizado.
 
 Agora, vamos falar sobre o uso do UDT. Na seção code-behind, alteramos a nossa função GetFiscalPeriod para o seguinte:
 

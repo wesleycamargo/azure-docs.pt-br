@@ -11,25 +11,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage
-ms.date: 09/25/2017
+ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: 8117a5ef9bc4f785256a7a7d70f459529c771a56
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: b178be71824e427d88a811d87f1aeb6e5f80dbcc
+ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 10/26/2017
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>Configurar redes virtuais e firewalls de armazenamento do Azure (versão prévia)
 O Armazenamento do Azure fornece um modelo de segurança em camadas, permitindo que você proteja suas contas de armazenamento para um conjunto específico de redes permitidas.  Quando as regras de rede são configuradas, somente aplicativos das redes permitidas podem acessar uma conta de armazenamento.  Ao chamar de uma rede permitida, os aplicativos continuam a exigir a autorização apropriada (uma chave de acesso ou token SAS válido) para acessar a conta de armazenamento.
 
 ## <a name="preview-availability-and-support"></a>Disponibilidade e suporte da versão prévia
-As redes virtuais e os firewalls de armazenamento estão na versão prévia.  Essa capacidade está atualmente disponível para contas de armazenamento novas ou existentes nas seguintes regiões:
-- Leste dos EUA
-- Oeste dos EUA
-- Oeste dos EUA 2
-- Centro-Oeste dos EUA
-- Leste da Austrália
-- Sudeste da Austrália
+As redes virtuais e os firewalls de armazenamento estão na versão prévia.  Essa capacidade está atualmente disponível para contas de armazenamento novas ou existentes em todas as regiões de nuvem pública do Azure.
 
 > [!NOTE]
 > Não há suporte para cargas de trabalho de produção durante a versão prévia.

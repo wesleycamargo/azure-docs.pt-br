@@ -1,5 +1,5 @@
 ---
-title: "Tutorial de Instâncias de Contêiner do Azure – implantar aplicativo | Microsoft Docs"
+title: "Tutorial de Instâncias de Contêiner do Azure – implantar aplicativo"
 description: "Tutorial de Instâncias de Contêiner do Azure – implantar aplicativo"
 services: container-instances
 documentationcenter: 
@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/11/2017
+ms.date: 10/26/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 47208c60b316b580af8bf22d4f90d330ce285f7a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3b651526f5ee3197e7d04accb6a87e2f10bf0791
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="deploy-a-container-to-azure-container-instances"></a>Implantar um contêiner em Instâncias de Contêiner do Azure
 
@@ -32,31 +32,39 @@ Esta é a última parte de um tutorial de três partes. Nas seções anteriores 
 > * Exibição do aplicativo no navegador
 > * Exibição dos logs de contêiner
 
+## <a name="before-you-begin"></a>Antes de começar
+
+Este tutorial exige a execução da CLI do Azure versão 2.0.20 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure](/cli/azure/install-azure-cli).
+
+Para concluir este tutorial, você precisa de um ambiente de desenvolvimento do Docker. O Docker fornece pacotes que configuram facilmente o Docker em qualquer sistema [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) ou [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
+
+Azure Cloud Shell não inclui os componentes de Docker necessários para concluir cada etapa neste tutorial. Portanto, é recomendável uma instalação local do ambiente de desenvolvimento da CLI do Azure e do Docker.
+
 ## <a name="deploy-the-container-using-the-azure-cli"></a>Implantar o contêiner usando a CLI do Azure
 
 A CLI do Azure permite a implantação de um contêiner nas Instâncias de Contêiner do Azure por meio de um único comando. Como a imagem de contêiner é hospedada no Registro de Contêiner do Azure privado, você deve incluir as credenciais necessárias para acessá-la. Se necessário, você pode consultá-las conforme mostrado abaixo.
 
 Servidor de logon do registro de contêiner (atualize com seu nome de registro):
 
-```azurecli-interactive
+```azurecli
 az acr show --name <acrName> --query loginServer
 ```
 
 Senha de registro de contêiner:
 
-```azurecli-interactive
+```azurecli
 az acr credential show --name <acrName> --query "passwords[0].value"
 ```
 
 Para implantar a imagem de contêiner do registro de contêiner com uma solicitação de recurso de 1 núcleo de CPU e 1 GB de memória, execute o seguinte comando:
 
-```azurecli-interactive
+```azurecli
 az container create --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-password <acrPassword> --ip-address public -g myResourceGroup
 ```
 
-Em alguns segundos, você receberá uma resposta inicial do Azure Resource Manager. Para exibir o estado da implantação, use:
+Em alguns segundos, você deverá receber uma resposta inicial do Azure Resource Manager. Para exibir o estado da implantação, use:
 
-```azurecli-interactive
+```azurecli
 az container show --name aci-tutorial-app --resource-group myResourceGroup --query state
 ```
 
@@ -78,7 +86,7 @@ az container show --name aci-tutorial-app --resource-group myResourceGroup --que
 
 Você também pode exibir a saída do log do contêiner:
 
-```azurecli-interactive
+```azurecli
 az container logs --name aci-tutorial-app -g myResourceGroup
 ```
 

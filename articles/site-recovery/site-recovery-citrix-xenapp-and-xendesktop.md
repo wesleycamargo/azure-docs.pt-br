@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: ponatara
-ms.openlocfilehash: dc064352b1841ff346b705dc63186b12d79350b3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 52b123b598226e7b03ea9a31c40dd192fd76b191
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="replicate-a-multi-tier-citrix-xenapp-and-xendesktop-deployment-using-azure-site-recovery"></a>Replicar uma implantação do Citrix XenApp e XenDesktop de várias camadas usando o Azure Site Recovery
 
@@ -74,7 +74,7 @@ Como o XenApp 7,7 ou posterior tem suporte no Azure, somente implantações com 
 
 1. A proteção e a recuperação de implantações locais usando os computadores com o sistema operacional de servidor para entregar aplicativos publicados do XenApp e áreas de trabalho publicadas do XenApp.
 
-2. A proteção e a recuperação de implantações locais usando os computadores com o sistema operacional de área de trabalho para entregar VDI da área de trabalho para as áreas de trabalho virtuais do cliente, incluindo o Windows 10, não é suportada. Isso ocorre porque o ASR não dá suporte a recuperação de computadores com o sistema operacional de área de trabalho.  Além disso, alguns tipos de área de trabalho virtual do cliente (por exemplo, Windows 7) ainda não têm suporte para licenciamento no Azure. [Saiba mais](https://azure.microsoft.com/pricing/licensing-faq/) sobre licenciamento para áreas de trabalho de cliente/servidor no Azure.
+2. A proteção e a recuperação de implantações locais usando os computadores com o sistema operacional de área de trabalho para entregar VDI da área de trabalho para as áreas de trabalho virtuais do cliente, incluindo o Windows 10, não é suportada. Isso ocorre porque o ASR não dá suporte a recuperação de computadores com o sistema operacional de área de trabalho.  Além disso, alguns sistemas operacionais de área de trabalho virtual do cliente (por exemplo, o Windows 7) ainda não têm suporte para licenciamento no Azure. [Saiba mais](https://azure.microsoft.com/pricing/licensing-faq/) sobre licenciamento para áreas de trabalho de cliente/servidor no Azure.
 
 3.  O Azure Site Recovery não pode replicar e proteger clones MCS ou PVS locais existentes.
 Você precisa recriar esses clones usando o provisionamento do Azure RM do Controlador de entrega.
