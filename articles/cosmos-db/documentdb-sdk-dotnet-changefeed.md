@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/29/2017
+ms.date: 10/31/2017
 ms.author: maquaran
-ms.openlocfilehash: 239b590a1e3a83fe0205dd8169697db745d7f75e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8c5a081105d37b8f1c78e90d9ccb8d945099b621
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="documentdb-net-change-feed-processor-sdk-download-and-release-notes"></a>SDK do processador do feed de alterações do .NET no DocumentDB: download e notas de versão
 > [!div class="op_single_selector"]
@@ -31,21 +31,20 @@ ms.lasthandoff: 10/11/2017
 > * [REST](https://docs.microsoft.com/rest/api/documentdb/)
 > * [Provedor de recursos REST](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-> 
-> 
 
-<table>
-
-<tr><td>**Baixe o SDK**</td><td>[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)</td></tr>
-
-<tr><td>**Documentação da API**</td><td>[Alterar a documentação de referência de API da biblioteca do Processador de Feed](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)</td></tr>
-
-<tr><td>**Introdução**</td><td>[Introdução ao SDK .NET do processador do feed de alterações no DocumentDB](change-feed.md)</td></tr>
-
-<tr><td>**Framework atualmente com suporte**</td><td>[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</td></tr>
-</table></br>
+|   |   |
+|---|---|
+|**Baixe o SDK**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
+|**Documentação da API**|[Alterar a documentação de referência de API da biblioteca do Processador de Feed](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)|
+|**Introdução**|[Introdução ao SDK .NET do processador do feed de alterações no DocumentDB](change-feed.md)|
+|**Framework atualmente com suporte**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
 ## <a name="release-notes"></a>Notas de versão
+
+### <a name="a-name120120"></a><a name="1.2.0"/>1.2.0
+* Adiciona suporte para o .NET Standard 2.0. O pacote agora dá suporte a monikers de estrutura `netstandard2.0` e `net451`.
+* Compatível com o [SDK do .NET para DocumentDB](documentdb-sdk-dotnet.md) versões 1.17.0 e superiores.
+* Compatível com o [SDK do .NET Core para DocumentDB](documentdb-sdk-dotnet-core.md) versões 1.5.1 e superiores.
 
 ### <a name="a-name111111"></a><a name="1.1.1"/>1.1.1
 * Corrige um problema com o cálculo da estimativa de trabalho restante quando o feed de alterações estava vazio ou nenhum trabalho estava pendente.
@@ -70,6 +69,7 @@ Qualquer solicitação feita ao Cosmos DB com o uso de um SDK desativado será r
 
 | Versão | Data do lançamento | Data de desativação |
 | --- | --- | --- |
+| [1.2.0](#1.2.0) |31 de outubro de 2017 |--- |
 | [1.1.1](#1.1.1) |29 de agosto de 2017 |--- |
 | [1.1.0](#1.1.0) |13 de agosto de 2017 |--- |
 | [1.0.0](#1.0.0) |07 de julho de 2017 |--- |

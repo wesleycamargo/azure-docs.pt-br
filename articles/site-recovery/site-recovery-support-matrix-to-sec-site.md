@@ -12,57 +12,54 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 05/24/2017
+ms.date: 10/30/2017
 ms.author: raynew
-ms.openlocfilehash: 69c5d09b6608484210870e1a69c51b112b497810
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c0f86e13e21f2af323e0a306b381054b6eb76755
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="support-matrix-for-replication-to-a-secondary-site-with-azure-site-recovery"></a>Suporte a matriz para replicação em um site secundário com o Azure Site Recovery
 
-Este artigo resume o que tem suporte quando você usa o Azure Site Recovery para replicar em um site local secundário.
+Este artigo resume o que tem suporte quando você usa o serviço do [Azure Site Recovery](site-recovery-overview.md) para replicar para um site local secundário.
 
-## <a name="deployment-options"></a>Opções de implantação
+## <a name="supported-scenarios"></a>Cenários com suporte
 
-**Implantação** | **Servidor VMware/físico** | **Hyper-V (com/sem o SCVMM)**
---- | --- | --- | ---
-**Portal do Azure** | VMs do VMware locais para o site secundário do VMware.<br/><br/> Baixe o [guia do usuário do InMage Scout](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf) (não disponível no Portal do Azure). | VMs do Hyper-V locais em nuvens de VMM para uma nuvem de VMM secundária.<br></br> Sem suporte sem o SCVMM  <br/><br/> Somente Replicação do Hyper-V padrão. Sem suporte para SAN.
-**Portal clássico** | Somente modo de manutenção. Não é possível criar novos cofres. | Somente no modo de manutenção<br></br> Sem suporte sem o SCVMM
-**PowerShell** | Sem suporte | Suportado<br></br> Sem suporte sem o SCVMM
-
-## <a name="on-premises-servers"></a>Servidores locais
-
-### <a name="virtualization-servers"></a>Servidores de virtualização
-
-**Implantação** | **Suporte**
+**Implantação** | **Detalhes** 
 --- | ---
-**Servidor da VM VMware/físico** | vSphere 6.0, 5.5 ou 5.1 com a atualização mais recente
-**Hyper-V (com o VMM)** | VMM 2016 e VMM 2012 R2
+**VMware para VMware** | Recuperação de desastre de VMs do VMware locais para o site secundário do VMware.<br/><br/> Baixe o [guia do usuário do InMage Scout](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf)
+**Hyper-V para Hyper-V** | Recuperação de desastre de VMs do Hyper-V locais em nuvens de VMM para uma nuvem de VMM secundária.<br></br> Não há suporte sem o VMM.
 
-  >[!Note]
-  > No momento, não há suporte para nuvens VMM 2016 com uma combinação de hosts do Windows Server 2016 e 2012 R2.
-  > As configurações que incluem o upgrade de um SCVMM 2012 R2 existente para 2016 não são suportadas atualmente.
-### <a name="host-servers"></a>Servidores de host
+
+
+  
+
+## <a name="host-servers"></a>Servidores de host
 
 **Implantação** | **Suporte**
 --- | ---
 **Servidor da VM VMware/físico** | vCenter 5.5 ou 6.0 (suporte somente a recursos do 5.5) 
-**Hyper-V (sem VMM)** | Não é uma configuração com suporte de replicação para um site secundário
-**Hyper-V com o VMM** | Windows Server 2016 e Windows Server 2012 R2 com as atualizações mais recentes.<br/><br/> Os hosts do Windows Server 2016 devem ser gerenciados pelo VMM 2016.
+**Hyper-V com o VMM** | Windows Server 2016 e Windows Server 2012 R2 com as atualizações mais recentes.<br/><br/> Os hosts do Windows Server 2016 devem ser gerenciados pelo VMM 2016.<br/><br/> No momento, não há suporte para nuvens VMM 2016 com uma combinação de hosts do Windows Server 2016 e 2012 R2.<br/><br/> Atualmente não há suporte para implantação que inclui uma atualização de um VMM 2012 R2 existente para o System Center 2016.
+
 
 ## <a name="support-for-replicated-machine-os-versions"></a>Suporte para versões do SO do computador replicado
-A tabela a seguir resume o suporte a sistemas operacionais replicados em vários cenários de implantação encontrados durante o uso do Azure Site Recovery. Esse suporte é aplicável a qualquer carga de trabalho em execução no SO mencionado.
+
+A tabela a seguir resume o suporte de sistema operacional para computadores replicados com o Site Recovery. Qualquer carga de trabalho pode ser executada no sistema operacional com suporte.
 
 **Servidor VMware/físico** | **Hyper-V (com o VMM)**
---- | --- | ---
+--- | ---
 Windows Server 2012 R2 de 64 bits, Windows Server 2012, Windows Server 2008 R2 com pelo menos SP1<br/><br/> Red Hat Enterprise Linux 6.7, 7.1 e 7.2 <br/><br/> Centos 6.5, 6.6, 6.7, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4 ou 6.5 que executa o kernel compatível com Red Hat ou o UEK3 (Unbreakable Enterprise Kernel Versão 3) <br/><br/> SUSE Linux Enterprise Server 11 SP3 | Qualquer sistema operacional convidado [com suporte do Hyper-V](https://technet.microsoft.com/library/mt126277.aspx)
 
->[!Note]
->Somente os computadores Linux com o armazenamento a seguir podem ser replicados: sistema de arquivos (EXT3, ETX4, ReiserFS, XFS); Multipath software-device Mapper; Gerenciador de volumes: (LVM2).
->Não há suporte a servidores físicos com o armazenamento de controlador HP CCISS.
->O sistema de arquivos ReiserFS só tem suporte no SUSE Linux Enterprise Server 11 SP3.
+## <a name="linux-machine-storage"></a>Armazenamento de computador do Linux
+
+Somente computadores Linux com o armazenamento a seguir podem ser replicados:
+
+- Sistema de arquivos (EXT3, ETX4, ReiserFS, XFS).
+- Software Multipath – Mapeador de dispositivos.
+- Gerenciador de volumes (LVM2).
+- Não há suporte a servidores físicos com o armazenamento de controlador HP CCISS.
+- O sistema de arquivos ReiserFS só tem suporte no SUSE Linux Enterprise Server 11 SP3.
 
 ## <a name="network-configuration"></a>Configuração de rede
 
@@ -135,5 +132,5 @@ Mover armazenamento, rede, VMs do Azure entre grupos de recursos (dentro de uma 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Replicar as VMs do Hyper-V em nuvens de VMM para um site secundário](site-recovery-vmm-to-vmm.md)
-- [Replicar VMs VMware e servidores físicos para um site secundário](site-recovery-vmware-to-vmware.md)
+- [Replicar as VMs do Hyper-V em nuvens de VMM para um site secundário](tutorial-vmm-to-vmm.md)
+- [Replicar VMs VMware e servidores físicos para um site secundário](tutorial-vmware-to-vmware.md)

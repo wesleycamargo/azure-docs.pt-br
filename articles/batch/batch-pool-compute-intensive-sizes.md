@@ -12,13 +12,13 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 10/31/2017
 ms.author: danlep
-ms.openlocfilehash: 8a1097353d24ad4c807803511e93c90394816138
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 7624a905f81024fa87f15164efc56a300843972d
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="use-rdma-capable-or-gpu-enabled-instances-in-batch-pools"></a>Usar instâncias compatíveis com RDMA ou habilitadas para GPU em pools do Lote
 
@@ -49,11 +49,11 @@ Os recursos de RDMA e GPU dos tamanhos de computação intensiva têm suporte so
 
 | Tamanho | Recurso | Sistemas operacionais | Software necessário | Configurações do pool |
 | -------- | -------- | ----- |  -------- | ----- |
-| [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances) | RDMA | SUSE Linux Enterprise Server 12 HPC ou<br/>HPC baseado em CentOS<br/>(Azure Marketplace) | Intel MPI 5 | Habilitar a comunicação entre nós, desabilitar a execução de tarefas simultâneas |
-| [Série NC*](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-vms) | GPU NVIDIA Tesla K80 | Ubuntu 16.04 LTS.<br/>Red Hat Enterprise Linux 7.3 ou<br/>CentOS 7.3<br/>(Azure Marketplace) | Drivers NVIDIA CUDA Toolkit 8.0 | N/D | 
-| [Série NV](../virtual-machines/linux/n-series-driver-setup.md#install-grid-drivers-for-nv-vms) | GPU NVIDIA Tesla M60 | Ubuntu 16.04 LTS<br/>Red Hat Enterprise Linux 7.3<br/>CentOS 7.3<br/>(Azure Marketplace) | Drivers NVIDIA GRID 4.3 | N/D |
+| [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances) | RDMA | Ubuntu 16.04 LTS,<br/>SUSE Linux Enterprise Server 12 HPC ou<br/>HPC baseado em CentOS<br/>(Azure Marketplace) | Intel MPI 5 | Habilitar a comunicação entre nós, desabilitar a execução de tarefas simultâneas |
+| [Série NC*](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-vms) | GPU NVIDIA Tesla K80 | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3 ou<br/>CentOS 7.3<br/>(Azure Marketplace) | Drivers NVIDIA CUDA Toolkit 9.0 | N/D | 
+| [Série NV](../virtual-machines/linux/n-series-driver-setup.md#install-grid-drivers-for-nv-vms) | GPU NVIDIA Tesla M60 | Ubuntu 16.04 LTS,<br/>Red Hat Enterprise Linux 7.3 ou<br/>CentOS 7.3<br/>(Azure Marketplace) | Drivers NVIDIA GRID 4.3 | N/D |
 
-* A conectividade RDMA em VMs NC24r tem suporte em HPC baseado em CentOS 7.3 com Intel MPI.
+*A conectividade RDMA em VMs NC24r é compatível com o Ubuntu 16.04 LTS ou o HPC 7.3 baseado em CentOS (do Microsoft Azure Marketplace) com Intel MPI.
 
 
 
@@ -62,10 +62,10 @@ Os recursos de RDMA e GPU dos tamanhos de computação intensiva têm suporte so
 | Tamanho | Recurso | Sistemas operacionais | Software necessário | Configurações do pool |
 | -------- | ------ | -------- | -------- | ----- |
 | [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2012 R2 ou<br/>Windows Server 2012 (Azure Marketplace) | Microsoft MPI 2012 R2 ou posterior, ou<br/> Intel MPI 5<br/><br/>Extensão de VM do Azure HpcVMDrivers | Habilitar a comunicação entre nós, desabilitar a execução de tarefas simultâneas |
-| [Série NC*](../virtual-machines/windows/n-series-driver-setup.md) | GPU NVIDIA Tesla K80 | Windows Server 2016 ou <br/>Windows Server 2012 R2 (Azure Marketplace) | Drivers NVIDIA Tesla ou drivers CUDA Toolkit 8.0| N/D | 
+| [Série NC*](../virtual-machines/windows/n-series-driver-setup.md) | GPU NVIDIA Tesla K80 | Windows Server 2016 ou <br/>Windows Server 2012 R2 (Azure Marketplace) | Drivers NVIDIA Tesla ou drivers CUDA Toolkit 9.0| N/D | 
 | [Série NV](../virtual-machines/windows/n-series-driver-setup.md) | GPU NVIDIA Tesla M60 | Windows Server 2016 ou<br/>Windows Server 2012 R2 (Azure Marketplace) | Drivers NVIDIA GRID 4.3 | N/D |
 
-* A conectividade RDMA em VMs NC24r tem suporte no Windows Server 2012 R2 com a extensão HpcVMDrivers e Microsoft MPI ou Intel MPI.
+*A conectividade RDMA em VMs NC24r é compatível com o Windows Server 2012 R2 (do Microsoft Azure Marketplace) com a extensão HpcVMDrivers e Microsoft MPI ou Intel MPI.
 
 ### <a name="windows-pools---cloud-services-configuration"></a>Pools do Windows – configuração de serviços de nuvem
 
@@ -119,11 +119,11 @@ Para executar aplicativos de MPI do Windows em um pool de nós do Azure A8, voc�
 
 ## <a name="example-nvidia-tesla-drivers-on-nc-vm-pool"></a>Exemplo: drivers NVIDIA Tesla em pool de VM NC
 
-Para executar aplicativos CUDA em um pool de nós do Linux NC, você precisa instalar o CUDA Toolkit 8.0 nos nós. O Toolkit instala os drivers de GPU NVIDIA Tesla necessários. Aqui estão as etapas de exemplo para implantar uma imagem personalizada do Ubuntu 16.04 LTS com os drivers de GPU:
+Para executar aplicativos CUDA em um pool de nós do Linux NC, você precisa instalar o CUDA Toolkit 9.0 nos nós. O Toolkit instala os drivers de GPU NVIDIA Tesla necessários. Aqui estão as etapas de exemplo para implantar uma imagem personalizada do Ubuntu 16.04 LTS com os drivers de GPU:
 
-1. Implante uma VM do Azure NC6 que execute o Ubuntu 16.04 LTS. Por exemplo, crie a VM na região Centro-Sul dos EUA. Certifique-se de criar a VM com armazenamento padrão e *sem* discos gerenciados.
+1. Implante uma VM do Azure NC6 que execute o Ubuntu 16.04 LTS. Por exemplo, crie a VM na região Centro-Sul dos EUA. Verifique se você criou a VM com um disco gerenciado.
 2. Siga as etapas para conectar-se à VM e [instalar os drivers CUDA](../virtual-machines/linux/n-series-driver-setup.md#install-cuda-drivers-for-nc-vms).
-3. Desprovisione o agente do Linux e, em seguida, [capture a imagem de VM Linux](../virtual-machines/linux/capture-image.md).
+3. Desprovisione o agente do Linux e, em seguida, [capture a imagem de VM do Linux](../virtual-machines/linux/capture-image.md).
 4. Crie uma conta do Lote em uma região que dá suporte a VMs NC.
 5. Usando as APIs do Lote ou o Portal do Azure, crie um pool [usando a imagem personalizada](batch-custom-images.md) com o número de nós e escala desejados. A tabela a seguir mostra configurações de exemplo do pool para a imagem:
 

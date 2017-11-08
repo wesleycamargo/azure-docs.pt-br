@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.openlocfilehash: bd252d7df2fc15aaa24d1a1ed7aaf6e00d301410
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fb084f1c6b53e2582849e71271e8114a22dcf05c
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="how-to-run-a-streaming-job-in-azure-stream-analytics"></a>Como executar um trabalho de streaming no Stream Analytics do Azure
 Quando uma entrada, consulta e saída de trabalho forem especificadas, você poderá iniciar o trabalho do Stream Analytics.
@@ -34,7 +34,9 @@ Para iniciar o trabalho:
    
    ![Botão Iniciar trabalho no Portal do Azure](./media/stream-analytics-run-a-job/4-stream-analytics-run-a-job.png)  
 2. Especifique um valor de **Iniciar Saída** para determinar quando esse trabalho começará a produzir uma saída. A configuração padrão para trabalhos que não foram iniciados anteriormente é **Hora de Início do Trabalho**, o que significa que o trabalho começará imediatamente a processar os dados. Você também pode especificar um tempo **Personalizado** no passado (para o consumo de dados históricos) ou no futuro (para atrasar o processamento até um momento futuro). Para os casos em que um trabalho foi anteriormente iniciado e interrompido, a opção **Hora da Última Interrupção** está disponível para retomar o trabalho da última hora de saída e evitar a perda de dados.  
-Observação: Ao usar partições, a Hora da Última Interrupção representa o mínimo da última hora de saída em todas as partições.
+
+> [!NOTE]
+> Ao usar partições, a Hora da Última Interrupção representa o mínimo da última hora de saída em todas as partições.
    
    ![Hora de início do trabalho de streaming](./media/stream-analytics-run-a-job/2-stream-analytics-run-a-job.png)  
    

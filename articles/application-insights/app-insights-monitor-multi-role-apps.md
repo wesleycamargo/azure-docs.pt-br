@@ -3,7 +3,7 @@ title: "Suporte do Application Insights do Azure para vários componentes, micro
 description: "Monitoramento de aplicativos que consistem em vários componentes ou funções para desempenho e uso."
 services: application-insights
 documentationcenter: 
-author: CFreemanwa
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 05/17/2017
-ms.author: bwren
-ms.openlocfilehash: ca1bb8ee886c4b4e69be9dd653d6a52b874e1f5a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: mbullwin
+ms.openlocfilehash: 046661bf7903b4e5ea528282ad5170901a45b35c
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="monitor-multi-component-applications-with-application-insights-preview"></a>Monitore aplicativos de vários componentes com o Application Insights (visualização)
 
@@ -48,7 +48,7 @@ Configurar cada componente do aplicativo usando o método apropriado para seu ti
 
 ### <a name="1-install-the-latest-pre-release-package"></a>1. Instalação do pacote de pré-lançamento mais recente
 
-Como atualizar ou instalar os pacotes do Application Insights no projeto para cada componente de servidor. Se você estiver usando o Visual Studio:
+Atualize ou instale os pacotes do Application Insights no projeto para cada componente de servidor. Se você estiver usando o Visual Studio:
 
 1. Clique o botão direito do mouse no projeto e selecione **Gerenciar Pacotes NuGet**. 
 2. Selecione **Incluir pré-lançamento**.

@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: yoelh
-ms.openlocfilehash: e0aaf710d230f7667fff32b50ddb64104509d740
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0d84dde1f70023abcfd0c15f5425d3cbaeb8c765
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="azure-active-directory-b2c-add-google-as-an-oauth2-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: Adicionar Google+ como um provedor de identidade OAuth2 usando políticas personalizadas
 
@@ -98,7 +98,7 @@ A federação com contas do Google+ exige um segredo do cliente para a conta do 
 4.  Para as **Opções**, use **Manual**.
 5.  Para o **Nome**, use `GoogleSecret`.  
     O prefixo `B2C_1A_` pode ser adicionado automaticamente.
-6.  Na caixa **Segredo**, insira o segredo de aplicativo da Microsoft de https://apps.dev.microsoft.com
+6.  Na caixa **Segredo**, digite o segredo do aplicativo do Google do [Console de Desenvolvedores do Google](https://console.developers.google.com/) que você copiou acima.
 7.  Para o **Uso da chave**, use **Assinatura**.
 8.  Clique em **Criar**
 9.  Confirme que você criou a chave `B2C_1A_GoogleSecret`.

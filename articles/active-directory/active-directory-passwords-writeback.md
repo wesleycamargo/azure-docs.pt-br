@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: e460e734973622fb0d5745adfc4c1aa0178dd22e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8ce4d6d9024dc4ce3956220eb0678a6295b0b7ab
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="password-writeback-overview"></a>Visão geral de write-back de senha
 
@@ -92,9 +92,39 @@ As etapas a seguir pressupõem que você já tenha configurado o Azure AD Connec
 7. Na tela Pronto para configurar, clique em **Configurar** e aguarde a conclusão do processo.
 8. Ao visualizar Configuração concluída, clique em **Sair**
 
+## <a name="active-directory-permissions"></a>Permissões do Active Directory
+
+A conta especificada no utilitário Azure AD Connect deve ter Permissões de Redefinição de Senha, Alteração de Senha, Permissões de Gravação em lockoutTime e Permissões de Gravação em pwdLastSet, direitos estendidos no objeto raiz de **cada domínio** nessa floresta **OU** nas UOs do usuário que você deseja que estejam no escopo do SSPR.
+
+Se não tiver certeza sobre qual conta a descrição acima se refere, abra a interface do usuário da configuração do Azure Active Directory Connect e clique na opção Exibir configuração atual. A conta à qual você precisa adicionar a permissão é listada em “Diretórios Sincronizados”
+
+Definir essas permissões permite que a conta de serviço MA de cada floresta gerencie senhas em nome das contas de usuário na floresta. **Se você não atribuir essas permissões, mesmo que o write-back pareça estar configurado corretamente, os usuários verão erros ao tentar gerenciar suas senhas locais na nuvem.**
+
+> [!NOTE]
+> Pode levar até uma hora ou mais para que essas permissões sejam replicadas em todos os objetos no diretório.
+>
+
+Para configurar as permissões apropriadas para que ocorra o write-back de senha
+
+1. Abra Usuários e Computadores do Active Directory com uma conta que tem as permissões de administração de domínio apropriadas
+2. No menu Exibir, verifique se a opção Recursos Avançados está ativada
+3. No painel esquerdo, clique com o botão direito do mouse no objeto que representa a raiz do domínio e escolha Propriedades
+    * Clique na guia Segurança
+    * Em seguida, clique em Avançado.
+4. Na guia Permissões, clique em Adicionar
+5. Selecione a conta à qual as permissões estão sendo aplicadas (na instalação do Azure AD Connect)
+6. Na caixa suspensa Aplica-se a, selecione Objetos Descendentes de Usuário
+7. Em Permissões, marque as caixas para o seguinte
+    * Unexpire-Password
+    * Redefinir senha
+    * Alterar senha
+    * Gravar lockoutTime
+    * Gravar pwdLastSet
+8. Clique em Aplicar/OK para aplicar e sair das caixas de diálogo abertas.
+
 ## <a name="licensing-requirements-for-password-writeback"></a>Requisitos de licenciamento do write-back de senha
 
-Para obter informações sobre o licenciamento, consulte o tópico [Licenças necessárias para o write-back de senha](active-directory-passwords-licensing.md#licenses-required-for-password-writeback) ou os seguintes sites
+Para obter informações sobre o licenciamento, consulte [Licenças necessárias para o write-back de senha](active-directory-passwords-licensing.md#licenses-required-for-password-writeback) ou os seguintes sites
 
 * [Site de Preços do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)
 * [Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security)
@@ -159,9 +189,9 @@ O write-back de senha é um serviço altamente seguro.  Para garantir que suas i
 A seguir, são descritas as etapas de criptografia pelas quais uma solicitação de redefinição de senha passa depois que um usuário a envia, antes que ela chegue ao ambiente local, para garantir a segurança e a confiabilidade máximas do serviço.
 
 * **Etapa 1 - criptografia de senha com chave RSA de 2048 bits** - depois que um usuário envia uma senha para ser gravada no local, primeiro, a senha enviada em si é criptografada com uma chave RSA de 2048 bits.
-* **Etapa 2 - criptografia em nível de pacote com AES-GCM** - em seguida, todo o pacote (senha + metadados necessários) é criptografado usando AES-GCM. Isso impede que qualquer pessoa com acesso direto ao canal do Barramento de Serviço subjacente exiba/viole o conteúdo.
-* **Etapa 3 – toda a comunicação ocorre via TLS/SSL** – toda a comunicação com o Barramento de Serviço ocorre em um canal SSL/TLS. Isso protege o conteúdo de terceiros não autorizados.
-* **Substituição de chave automática a cada seis meses** – automaticamente, a cada seis meses ou sempre que o write-back de senha é desabilitado/habilitado novamente no Azure AD Connect, substituímos todas essas chaves para garantir a segurança máxima do serviço.
+* **Etapa 2 - criptografia em nível de pacote com AES-GCM** - em seguida, todo o pacote (senha + metadados necessários) é criptografado usando AES-GCM. Essa criptografia impede que qualquer pessoa com acesso direto ao canal do Barramento de Serviço subjacente exiba/viole o conteúdo.
+* **Etapa 3 – toda a comunicação ocorre via TLS/SSL** – toda a comunicação com o Barramento de Serviço ocorre em um canal SSL/TLS. Essa criptografia protege o conteúdo de terceiros não autorizados.
+* **Substituição de chave automática a cada seis meses** – automaticamente, a cada seis meses, ou sempre que o write-back de senha for desabilitado/habilitado novamente no Azure AD Connect, substituímos automaticamente todas essas chaves para garantir a segurança máxima do serviço.
 
 ### <a name="password-writeback-bandwidth-usage"></a>Uso de largura de banda de write-back de senha
 
@@ -182,17 +212,16 @@ O tamanho de cada uma das mensagens descritas acima normalmente é inferior a 1 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Os links a seguir fornecem informações adicionais sobre a redefinição de senha usando o Azure AD
-
-* [**Início Rápido**](active-directory-passwords-getting-started.md): comece agora mesmo a usar o gerenciamento de autoatendimento de senhas do Azure AD 
-* [**Licenciamento**](active-directory-passwords-licensing.md): configure o licenciamento do Azure AD
-* [**Dados**](active-directory-passwords-data.md): entenda os dados que são necessários e como eles são usados para o gerenciamento de senhas
-* [**Distribuição**](active-directory-passwords-best-practices.md): planeje e implante o SSPR para seus usuários usando as diretrizes descritas aqui
-* [**Personalizar**](active-directory-passwords-customize.md): personalize a aparência da experiência do SSPR em sua empresa.
-* [**Política** ](active-directory-passwords-policy.md) - Como entender e definir políticas de senha do Azure AD
-* [**Relatórios**](active-directory-passwords-reporting.md): descubra se, quando e onde os usuários estão acessando a funcionalidade SSPR
-* [**Detalhamento Técnico**](active-directory-passwords-how-it-works.md): veja os bastidores para entender como o recurso funciona
-* [**Perguntas frequentes**](active-directory-passwords-faq.md): como? Por quê? O quê? Onde? Quem? Quando? – respostas para perguntas que você sempre quis fazer
-* [**Solucionar problemas**](active-directory-passwords-troubleshoot.md): saiba como resolver problemas comuns encontrados no SSPR
+* [Como concluir uma implementação do SSPR com êxito?](active-directory-passwords-best-practices.md)
+* [Redefinir ou alterar sua senha](active-directory-passwords-update-your-own-password.md).
+* [Registro para redefinição de senha de autoatendimento](active-directory-passwords-reset-register.md).
+* [Você tem uma pergunta sobre licenciamento?](active-directory-passwords-licensing.md)
+* [Quais dados são usados pelo SSPR e quais dados você deve preencher para seus usuários?](active-directory-passwords-data.md)
+* [Quais métodos de autenticação estão disponíveis para os usuários?](active-directory-passwords-how-it-works.md#authentication-methods)
+* [Quais são as opções de política com o SSPR?](active-directory-passwords-policy.md)
+* [Como faço para informar sobre a atividade no SSPR?](active-directory-passwords-reporting.md)
+* [Quais são todas as opções no SSPR e o que elas significam?](active-directory-passwords-how-it-works.md)
+* [Acho que algo não está funcionando. Como faço para solucionar o problema no SSPR?](active-directory-passwords-troubleshoot.md)
+* [Tenho uma pergunta que não foi respondida em nenhum lugar](active-directory-passwords-faq.md)
 
 [Writeback]: ./media/active-directory-passwords-writeback/enablepasswordwriteback.png "Habilitar write-back de senha no Azure AD Connect"

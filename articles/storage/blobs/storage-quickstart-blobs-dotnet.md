@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/01/2017
 ms.author: robinsh
-ms.openlocfilehash: 97bacc2c1285fe4a467a54f224bb9fabbd851fee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fdba4588fbb2c46efb3fc4de1a9e53414264444a
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-net"></a>Transferir objetos de/para o Armazenamento de Blobs do Azure usando o .NET
 
@@ -29,7 +29,7 @@ Neste guia de início rápido, você aprenderá como usar C#.NET para carregar, 
 
 Para concluir este guia de início rápido:
 
-* Instale o [Visual Studio 2017](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx) com a carga de trabalho a seguir:
+* Instale o [Visual Studio 2017](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) com a carga de trabalho a seguir:
     - **Desenvolvimento do Azure**
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
@@ -52,7 +52,7 @@ Primeiro, crie uma nova conta de armazenamento de uso geral a ser usada para est
 12. Selecione a `Location` a ser usada para sua conta de armazenamento.
 13. Marque **Fixar no painel** e clique em **Criar** para criar sua conta de armazenamento. 
 
-Depois que a conta de armazenamento é criada, ela é fixada ao painel. Clique nela para abri-la. Em CONFIGURAÇÕES, clique em **Chaves de acesso**. Selecione uma chave e copie a CADEIA DE CONEXÃO para a área de transferência e cole-a Bloco de Notas para uso posterior.
+Depois que a conta de armazenamento é criada, ela é fixada ao painel. Clique nela para abri-la. Em CONFIGURAÇÕES, clique em **Chaves de acesso**. Selecione uma chave e copie a CADEIA DE CONEXÃO para a área de transferência e cole-a no editor de texto para uso posterior.
 
 ## <a name="download-the-sample-application"></a>Baixar o aplicativo de exemplo
 
@@ -68,7 +68,7 @@ Este comando clona o repositório para sua pasta do git local. Para abrir a solu
 
 ## <a name="configure-your-storage-connection-string"></a>Configurar a cadeia de conexão de armazenamento
 
-No aplicativo, você deve fornecer a cadeia de conexão para sua conta de armazenamento. Abra o arquivo `app.config` no Gerenciador de Soluções no Visual Studio. Localize a entrada StorageConnectionString. Para **value**, substitua todo o valor da cadeia de conexão pelo que você salvou do Portal do Azure no Bloco de Notas. Você deverá ter algo semelhante ao seguinte quando terminar.
+No aplicativo, você deve fornecer a cadeia de conexão para sua conta de armazenamento. Abra o arquivo `app.config` no Gerenciador de Soluções no Visual Studio. Localize a entrada `StorageConnectionString`. Para **value**, substitua todo o valor da cadeia de conexão pelo que você salvou do Portal do Azure. Seu `storageConnectionString` deve ser semelhante ao seguinte:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -78,8 +78,8 @@ No aplicativo, você deve fornecer a cadeia de conexão para sua conta de armaze
     </startup>
   <appSettings>
     <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;
-    AccountName=youraccountname;
-    AccountKey=7NGE5jasdfdRzASDFNOMEx1u20W/thisisjustC/anexampleZK/Rt5pz2xNRrDckyv8EjB9P1WGF==" />
+    AccountName=<NameHere>;
+    AccountKey=<KeyHere>" />
   </appSettings>
 </configuration>
 ```
@@ -98,7 +98,7 @@ https://mystorage.blob.core.windows.net/quickstartblobs/QuickStart_cbd5f95c-6ab8
 Downloading blob to C:\Users\azureuser\Documents\QuickStart_cbd5f95c-6ab8-4cbf-b8d2-a58e85d7a8e8_DOWNLOADED.txt
 ```
 
-Quando você pressiona qualquer tecla para continuar, ele exclui o contêiner de armazenamento e os arquivos. Antes de continuar, verifique se os dois arquivos estão em MyDocuments – você pode abri-los e ver que são idênticos. Copie a URL para o blob fora da janela do console e cole-a em um navegador para exibir o conteúdo do arquivo no Armazenamento de Blobs.
+Quando você pressiona qualquer tecla para continuar, ele exclui o contêiner de armazenamento e os arquivos. Antes de continuar, verifique se os dois documentos estão em MyDocuments. Você pode abri-los e ver que eles são idênticos. Copie a URL para o blob fora da janela do console e cole-a em um navegador para exibir o conteúdo do arquivo no Armazenamento de Blobs.
 
 Você também pode usar uma ferramenta como o [Gerenciador de Armazenamento do Azure](http://storageexplorer.com/?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para exibir os arquivos no Armazenamento de Blobs. O Gerenciador de Armazenamento do Azure é uma ferramenta gratuita de multiplataforma que permite que você acesse as informações da sua conta de armazenamento. 
 
@@ -114,11 +114,11 @@ A primeira coisa a fazer é criar as referências aos objetos usados para acessa
 
 * Crie uma instância do objeto **CloudBlobContainer** que representa o contêiner que você está acessando. Os contêineres são usados para organizar seus blobs da mesma forma que você usa pastas no seu computador para organizar seus arquivos.
 
-Assim que você tiver o **CloudBlobContainer**, poderá criar a instância do objeto **CloudBlockBlob** que aponta para o blob específico em que você está interessado e realizar a operação de upload, download, cópia etc.
+Assim que tiver o **CloudBlobContainer**, você poderá criar uma instância do objeto **CloudBlockBlob**, que aponta para o blob específico em que você está interessado e realizar a operação de upload, download, cópia etc.
 
-Nesta seção, você instancia os objetos, cria um novo contêiner e, em seguida, define as permissões no contêiner para que os blobs sejam públicos e possam ser acessados com apenas uma URL. O contêiner é chamado de **quickstartblobs**. 
+Nesta seção, você cria uma instância de objetos, cria um novo contêiner e, em seguida, define as permissões no contêiner para que os blobs sejam públicos e possam ser acessados com apenas uma URL. O contêiner é chamado de **quickstartblobs**. 
 
-Este exemplo usa CreateIfNotExists porque queremos criar um novo contêiner cada vez que o exemplo for executado. Em um ambiente de produção em que você usa o mesmo contêiner em um aplicativo, é uma melhor prática chamar CreateIfNotExists somente uma vez ou criar o contêiner antecipadamente para que não seja necessário criá-lo no código.
+Este exemplo usa **CreateIfNotExists** porque queremos criar um novo contêiner cada vez que a amostra for executada. Em um ambiente de produção em que você usa o mesmo contêiner em um aplicativo, é uma prática recomendada chamar **CreateIfNotExists** somente uma vez. Como alternativa, é possível criar o contêiner antecipadamente para não precisar criá-lo no código.
 
 ```csharp
 // Create a CloudStorageAccount instance pointing to your storage account.
@@ -161,7 +161,7 @@ await blockBlob.UploadFromFileAsync(fileAndPath);
 
 Há vários métodos de upload que você pode usar com o Armazenamento de Blobs. Por exemplo, se você tiver um fluxo de memória, poderá usar o método UploadFromStreamAsync em vez de UploadFromFileAsync. 
 
-Os blobs de bloco podem ter até 4,7 TB e podem ser qualquer coisa desde planilhas do Excel até arquivos de vídeo grandes. Os blobs de páginas são usados principalmente para os arquivos VHD usados auxiliar as VMs IaaS. Os blobs de acréscimo são usados para registro em log, como quando você quer gravar em um arquivo e depois adicionar mais informações. A maioria dos objetos armazenados no Armazenamento de Blobs são blobs de blocos.
+Blobs de bloco podem ser qualquer tipo de arquivo binário ou de texto. Os blobs de páginas são usados principalmente para os arquivos VHD usados auxiliar as VMs IaaS. Os blobs de acréscimo são usados para registro em log, como quando você quer gravar em um arquivo e depois adicionar mais informações. A maioria dos objetos armazenados no Armazenamento de Blobs são blobs de blocos.
 
 ## <a name="list-the-blobs-in-a-container"></a>Listar os blobs em um contêiner
 

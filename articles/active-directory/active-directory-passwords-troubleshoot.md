@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 09/21/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: d33e516628c56a7aa038e37b4498461de17f8433
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 24b8a9852395c26a40adb406bd706283e1a96d5d
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="how-to-troubleshoot-self-service-password-reset"></a>Como resolver problemas de autoatendimento de redefinição de senha
 
@@ -86,7 +86,7 @@ Se você estiver tendo problemas com o autoatendimento de redefinição de senha
 | O serviço de redefinição de senha não é iniciado no local com erro 6800 no log de eventos de aplicativo do Azure AD Connect do computador. <br> <br> Após a integração, os usuários federados ou sincronizados com hash de senha não conseguem redefinir suas senhas. | Quando o Write-back de Senha está habilitado, o mecanismo de sincronização chama a biblioteca de write-back para realizar a configuração (integração) comunicando-se com o serviço de integração em nuvem. Todos os erros encontrados durante a integração ou ao iniciar o ponto de extremidade do WCF para o Write-back de Senha resultarão em erros no Log de eventos e no log de eventos do Azure AD Connect do computador. <br> <br> Durante a reinicialização do serviço ADSync, se o write-back tiver sido configurado, o ponto de extremidade do WCF será inicializado. No entanto, se a inicialização do ponto de extremidade falhar, registraremos o evento 6800 e permitiremos a inicialização do serviço de sincronização. A presença desse evento significa que o write-back de senha de ponto de extremidade não foi iniciado. Os detalhes do log de eventos desse evento (6800) juntamente com as entradas do log de eventos geradas pelo componente PasswordResetService indicam o motivo pelo qual o ponto de extremidade não pôde ser inicializado. Examine esses erros do log de eventos e tente reiniciar o Azure AD Connect se o Write-back de Senha não estiver funcionando. Se o problema persistir, tente desabilitar e reabilitar o write-back de senha.
 | Quando um usuário tenta redefinir uma senha ou desbloquear uma conta com write-back de senha habilitada, a operação falha. <br> <br> Além disso, você vê um evento no log de eventos do Azure AD Connect contendo: "O mecanismo de sincronização retornou um erro hr=800700CE, message=O nome de arquivo ou a extensão é muito longo" após a operação de desbloqueio ocorrer. | Encontre a conta do Active Directory no Azure AD Connect e redefina a senha com até 127 caracteres. Em seguida, abra o Serviço de Sincronização no menu Iniciar. Navegue para Conectores e localize o Active Directory Connector. Selecione-o e clique em Propriedades. Navegue para a página Credenciais e insira a nova senha. Selecione OK para fechar a página. |
 | Na última etapa do processo de instalação do Azure AD Connect, você verá um erro indicando que não foi possível configurar o write-back de senha. <br> <br> O log de eventos do aplicativo Azure AD Connect contém erro 32009 com texto "Erro ao obter token de autenticação". | Esse erro ocorre nos seguintes casos:<br> <br> a. Você especificou uma senha incorreta para a conta de administrador global indicada no início do processo de instalação do Azure AD Connect.<br> b. Você tentou usar um usuário federado para a conta de administrador global especificada no início do processo de instalação do Azure AD Connect.<br> <br> Para corrigir esse erro, verifique se você não está usando uma conta federada para o administrador global que você indicou no início do processo de instalação do Azure AD Connect e se a senha especificada está correta. |
-| O log de eventos do computador do Azure AD Connect contém o erro 32002 gerado pelo PasswordResetService. <br> <br> O erro é: "erro de conexão com o barramento de serviço; o provedor de token não pôde fornecer um token de segurança..." | O ambiente local não pode se conectar ao ponto de extremidade do barramento de serviço na nuvem. Esse erro normalmente é causado por uma regra de firewall que bloqueia uma conexão de saída com uma porta ou um endereço web específico. Consulte [Requisitos de rede](active-directory-passwords-how-it-works.md#network-requirements) para obter mais informações. Depois de atualizar essas regras, reinicialize o computador do Azure AD Connect e o write-back de senha deve começar a funcionar novamente. |
+| O log de eventos do computador do Azure AD Connect contém o erro 32002 gerado pelo PasswordResetService. <br> <br> O erro é: "erro de conexão com o barramento de serviço; o provedor de token não pôde fornecer um token de segurança..." | O ambiente local não pode se conectar ao ponto de extremidade do barramento de serviço na nuvem. Esse erro normalmente é causado por uma regra de firewall que bloqueia uma conexão de saída com uma porta ou um endereço web específico. Consulte [Pré-requisitos de conectividade](./connect/active-directory-aadconnect-prerequisites.md) para obter mais informações. Depois de atualizar essas regras, reinicialize o computador do Azure AD Connect e o write-back de senha deve começar a funcionar novamente. |
 | Depois de trabalhar por algum tempo, os usuários federados ou sincronizados com hash de senha não conseguem redefinir suas senhas. | Em alguns casos raros, o serviço Write-back de Senha pode falhar ao reiniciar quando o Azure AD Connect é reiniciado. Nesses casos, primeiro verifique se o write-back de senha parece estar habilitado no local. Isso pode ser feito usando o Assistente do Azure AD Connect ou o PowerShell (confira a seção de tutoriais acima). Se o recurso parece estar habilitado, tente habilitar ou desabilitar o recurso novamente por meio da interface do usuário ou do PowerShell. Se isso não funcionar, tente desinstalar o Azure AD Connect por completo e reinstalá-lo. |
 | Os usuários federados ou sincronizados com hash de senha que tentam redefinir suas senhas recebem um erro depois de enviar a senha, indicando que houve um problema de serviço. <br ><br> Além disso, durante as operações de redefinição de senha, você pode ver um erro de que o agente de gerenciamento teve acesso negado em seus logs de eventos no local. | Se você vir esses erros no log de eventos, confirme se a conta do AD MA (que foi especificada no assistente no momento da configuração) tem as permissões necessárias para o write-back de senha. <br> <br> **Depois que essa permissão é fornecida, pode levar até 1 hora para que as permissões sejam repassadas por meio da tarefa em segundo plano sdprop no controlador de domínio.** <br> <br> Para que a redefinição de senha funcione, a permissão deve ser marcada no descritor de segurança do objeto do usuário cuja senha esteja sendo redefinida. Até que essa permissão seja exibida no objeto do usuário, a redefinição de senha continuará falhando com acesso negado. |
 | Os usuários federados ou sincronizados com hash de senha que tentam redefinir suas senhas recebem um erro depois de enviar a senha, indicando que houve um problema de serviço. <br> <br> Além disso, durante as operações de redefinição de senha, você verá um erro em seus logs de eventos do serviço do Azure AD Connect indicando o erro "Objeto não encontrado". | Esse erro geralmente indica que o mecanismo de sincronização não consegue encontrar o objeto de usuário no espaço do conector AAD ou o objeto de espaço de conector AD ou MV vinculado. <br> <br> Para resolver esse problema, verifique se o usuário está realmente sincronizado do local para o AAD pela instância atual do Azure AD Connect e inspecione o estado dos objetos nos espaços conectores e no MV. Confirme se o objeto do AD CS é conector para o objeto de MV através da regra "Microsoft.InfromADUserAccountEnabled.xxx".|
@@ -164,7 +164,7 @@ Em geral, recomendamos que você execute essas etapas na ordem acima para recupe
 
 ### <a name="confirm-network-connectivity"></a>Verificar a conectividade de rede
 
-O ponto mais comum de falha é que o firewall e ou tempos-limite de ociosidade e portas de proxy estão configuradas incorretamente. Revise os requisitos de rede no artigo [autoatendimento redefinição de senha no AD deep dive do Azure](active-directory-passwords-how-it-works.md#network-requirements) para obter mais informações.
+O ponto mais comum de falha é que o firewall e ou tempos-limite de ociosidade e portas de proxy estão configuradas incorretamente. Examine os pré-requisitos de conectividade no artigo [Pré-requisitos para o Azure AD Connect](./connect/active-directory-aadconnect-prerequisites.md) para obter mais informações.
 
 ### <a name="restart-the-azure-ad-connect-sync-service"></a>Reiniciar o serviço de sincronização do Azure AD Connect
 
@@ -269,13 +269,14 @@ Para uma assistência adequada, solicitamos que você forneça o máximo de deta
 
 Os links a seguir fornecem informações adicionais sobre a redefinição de senha usando o Azure AD
 
-* [**Início Rápido**](active-directory-passwords-getting-started.md): comece agora mesmo a usar o gerenciamento de autoatendimento de senhas do Azure AD
-* [**Licenciamento**](active-directory-passwords-licensing.md): configure o licenciamento do Azure AD
-* [**Dados**](active-directory-passwords-data.md): entenda os dados que são necessários e como eles são usados para o gerenciamento de senhas
-* [**Distribuição**](active-directory-passwords-best-practices.md): planeje e implante o SSPR para seus usuários usando as diretrizes descritas aqui
-* [**Personalizar**](active-directory-passwords-customize.md): personalize a aparência da experiência do SSPR em sua empresa.
-* [**Política** ](active-directory-passwords-policy.md) - Como entender e definir políticas de senha do Azure AD
-* [**Write-back de senha** ](active-directory-passwords-writeback.md) - Como o write-back de senha opera com o seu diretório local
-* [**Relatório** ](active-directory-passwords-reporting.md) - Descubra se, quando e onde os usuários estão acessando a funcionalidade da SSPR
-* [**Detalhamento Técnico**](active-directory-passwords-how-it-works.md): veja os bastidores para entender como o recurso funciona
-* [**Perguntas frequentes**](active-directory-passwords-faq.md): como? Por quê? O quê? Onde? Quem? Quando? – respostas para perguntas que você sempre quis fazer
+* [Como concluir uma implementação do SSPR com êxito?](active-directory-passwords-best-practices.md)
+* [Redefinir ou alterar sua senha](active-directory-passwords-update-your-own-password.md).
+* [Registro para redefinição de senha de autoatendimento](active-directory-passwords-reset-register.md).
+* [Você tem uma pergunta sobre licenciamento?](active-directory-passwords-licensing.md)
+* [Quais dados são usados pelo SSPR e quais dados você deve preencher para seus usuários?](active-directory-passwords-data.md)
+* [Quais métodos de autenticação estão disponíveis para os usuários?](active-directory-passwords-how-it-works.md#authentication-methods)
+* [Quais são as opções de política com o SSPR?](active-directory-passwords-policy.md)
+* [O que é o write-back de senha e por que devo me importar com isso?](active-directory-passwords-writeback.md)
+* [Como faço para informar sobre a atividade no SSPR?](active-directory-passwords-reporting.md)
+* [Quais são todas as opções no SSPR e o que elas significam?](active-directory-passwords-how-it-works.md)
+* [Tenho uma pergunta que não foi respondida em nenhum lugar](active-directory-passwords-faq.md)

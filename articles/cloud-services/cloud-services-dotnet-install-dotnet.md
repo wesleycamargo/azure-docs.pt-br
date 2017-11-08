@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/24/2017
+ms.date: 10/31/2017
 ms.author: adegeo
-ms.openlocfilehash: a9cffa275ae6b9315b821d3160b17a997a1523f7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cc4b62bc554757e6e394b78334f52f45aa08efe8
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="install-net-on-azure-cloud-services-roles"></a>Instalar o .NET em funções dos Serviços de Nuvem do Azure
 Este artigo descreve como instalar versões do .NET Framework que não são fornecidas com o SO convidado do Azure. Você pode usar o .NET no SO convidado para configurar as funções Web e de trabalho de seu serviço de nuvem.
@@ -33,7 +33,7 @@ Para instalar o .NET em suas funções web e de trabalho, inclua o instalador We
 ## <a name="add-the-net-installer-to-your-project"></a>Adicione o instalador do .NET ao seu projeto
 Para baixar o instalador da Web para o .NET Framework, escolha a versão que você deseja instalar:
 
-* [Instalador da Web do .NET 4.7](http://go.microsoft.com/fwlink/?LinkId=825298)
+* [Instalador da Web do .NET 4.7.1](http://go.microsoft.com/fwlink/?LinkId=852095)
 * [Instalador da Web do .NET 4.6.1](http://go.microsoft.com/fwlink/?LinkId=671729)
 
 Para adicionar o instalador para uma função *web*:
@@ -85,7 +85,7 @@ Você pode usar as tarefas de inicialização para executar operações antes do
 2. Crie um arquivo chamado **install.cmd** e adicione o seguinte script de instalação a ele.
 
     O script verifica se a versão especificada do .NET Framework já está instalada no computador consultando o registro. Se a versão do .NET não estiver instalada, o instalador da Web do .NET será aberto. Para ajudar com a solução de problemas, o script registra todas as atividades no arquivo startuptasklog-(data e hora atual).txt colocado no armazenamento local **InstallLogs**.
-
+  
     > [!IMPORTANT]
     > Use um editor de texto básico, como o Bloco de Notas do Windows, para criar o arquivo install.cmd. Se você usar o Visual Studio para criar um arquivo de texto e alterar a extensão para .cmd, o arquivo ainda poderá conter uma marca de ordem de byte de UTF-8. Essa marca pode causar um erro quando a primeira linha do script for executada. Para evitar esse erro, faça com que a primeira linha do script seja uma instrução REM, que pode ser ignorada pelo processamento de ordem de byte. 
     > 
@@ -98,21 +98,23 @@ Você pode usar as tarefas de inicialização para executar operações antes do
     REM ***** To install .NET 4.6.1 set the variable netfx to "NDP461" *****
     REM ***** To install .NET 4.6.2 set the variable netfx to "NDP462" *****
     REM ***** To install .NET 4.7 set the variable netfx to "NDP47" *****
-    set netfx="NDP47"
-
+    REM ***** To install .NET 4.7.1 set the variable netfx to "NDP47" *****
+    set netfx="NDP471"
+    
     REM ***** Set script start timestamp *****
     set timehour=%time:~0,2%
     set timestamp=%date:~-4,4%%date:~-10,2%%date:~-7,2%-%timehour: =0%%time:~3,2%
     set "log=install.cmd started %timestamp%."
-
+    
     REM ***** Exit script if running in Emulator *****
     if %ComputeEmulatorRunning%=="true" goto exit
-
+    
     REM ***** Needed to correctly install .NET 4.6.1, otherwise you may see an out of disk space error *****
     set TMP=%PathToNETFXInstall%
     set TEMP=%PathToNETFXInstall%
-
+    
     REM ***** Setup .NET filenames and registry keys *****
+    if %netfx%=="NDP471" goto NDP471
     if %netfx%=="NDP47" goto NDP47
     if %netfx%=="NDP462" goto NDP462
     if %netfx%=="NDP461" goto NDP461
@@ -120,25 +122,32 @@ Você pode usar as tarefas de inicialização para executar operações antes do
         set "netfxinstallfile=NDP452-KB2901954-Web.exe"
         set netfxregkey="0x5cbf5"
         goto logtimestamp
-
+    
     :NDP46
     set "netfxinstallfile=NDP46-KB3045560-Web.exe"
     set netfxregkey="0x6004f"
     goto logtimestamp
-
+    
     :NDP461
     set "netfxinstallfile=NDP461-KB3102438-Web.exe"
     set netfxregkey="0x6040e"
     goto logtimestamp
-
+    
     :NDP462
     set "netfxinstallfile=NDP462-KB3151802-Web.exe"
     set netfxregkey="0x60632"
-
-    :NDP47
+    goto logtimestamp
+    
+    :NPD47
     set "netfxinstallfile=NDP47-KB3186500-Web.exe"
     set netfxregkey="0x707FE"
-
+    goto logtimestamp
+    
+    :NDP471
+    set "netfxinstallfile=NDP471-KB4033344-Web.exe"
+    set netfxregkey="0x709fc"
+    goto logtimestamp
+    
     :logtimestamp
     REM ***** Setup LogFile with timestamp *****
     md "%PathToNETFXInstall%\log"
@@ -148,7 +157,7 @@ Você pode usar as tarefas de inicialização para executar operações antes do
     echo Logfile generated at: %startuptasklog% >> %startuptasklog%
     echo TMP set to: %TMP% >> %startuptasklog%
     echo TEMP set to: %TEMP% >> %startuptasklog%
-
+    
     REM ***** Check if .NET is installed *****
     echo Checking if .NET (%netfx%) is installed >> %startuptasklog%
     set /A netfxregkeydecimal=%netfxregkey%
@@ -156,7 +165,7 @@ Você pode usar as tarefas de inicialização para executar operações antes do
     FOR /F "usebackq skip=2 tokens=1,2*" %%A in (`reg query "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\NET Framework Setup\NDP\v4\Full" /v Release 2^>nul`) do @set /A foundkey=%%C
     echo Minimum required key: %netfxregkeydecimal% -- found key: %foundkey% >> %startuptasklog%
     if %foundkey% GEQ %netfxregkeydecimal% goto installed
-
+    
     REM ***** Installing .NET *****
     echo Installing .NET with commandline: start /wait %~dp0%netfxinstallfile% /q /serialdownload /log %netfxinstallerlog%  /chainingpackage "CloudService Startup Task" >> %startuptasklog%
     start /wait %~dp0%netfxinstallfile% /q /serialdownload /log %netfxinstallerlog% /chainingpackage "CloudService Startup Task" >> %startuptasklog% 2>>&1
@@ -165,25 +174,20 @@ Você pode usar as tarefas de inicialização para executar operações antes do
         if %ERRORLEVEL%== 3010 goto restart
         if %ERRORLEVEL%== 1641 goto restart
         echo .NET (%netfx%) install failed with Error Code %ERRORLEVEL%. Further logs can be found in %netfxinstallerlog% >> %startuptasklog%
-
+    
     :restart
     echo Restarting to complete .NET (%netfx%) installation >> %startuptasklog%
     EXIT /B %ERRORLEVEL%
-
+    
     :installed
     echo .NET (%netfx%) is installed >> %startuptasklog%
-
+    
     :end
     echo install.cmd completed: %date:~-4,4%%date:~-10,2%%date:~-7,2%-%timehour: =0%%time:~3,2% >> %startuptasklog%
-
+    
     :exit
     EXIT /B 0
     ```
-   
-   > [!NOTE]
-   > Esse script mostra como instalar o .NET 4.5.2 ou a versão 4.6 para continuidade, mesmo que o .NET 4.5.2 já esteja disponível no SO convidado do Azure. Você deve instalar diretamente o .NET 4.6.1 em vez da versão 4.6, conforme descrito no [Artigo 3118750 da Base de Dados de Conhecimento](https://support.microsoft.com/kb/3118750).
-   > 
-   > 
 
 3. Adicione o arquivo install.cmd a cada função usando **Adicionar** > **Item Existente** no **Gerenciador de Soluções**, conforme descrito anteriormente neste tópico. 
 
@@ -214,9 +218,9 @@ Quando você implanta o serviço de nuvem, as tarefas de inicialização instala
 * [Determinar quais versões do .NET Framework estão instaladas][How to: Determine Which .NET Framework Versions Are Installed]
 * [Solução de problemas de instalações do .NET Framework][Troubleshooting .NET Framework Installations]
 
-[How to: Determine Which .NET Framework Versions Are Installed]: https://msdn.microsoft.com/library/hh925568.aspx
-[Installing the .NET Framework]: https://msdn.microsoft.com/library/5a4x27ek.aspx
-[Troubleshooting .NET Framework Installations]: https://msdn.microsoft.com/library/hh925569.aspx
+[How to: Determine Which .NET Framework Versions Are Installed]: /dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed
+[Installing the .NET Framework]: /dotnet/framework/install/guide-for-developers
+[Troubleshooting .NET Framework Installations]: /dotnet/framework/install/troubleshoot-blocked-installations-and-uninstallations
 
 <!--Image references-->
 [1]: ./media/cloud-services-dotnet-install-dotnet/rolecontentwithinstallerfiles.png

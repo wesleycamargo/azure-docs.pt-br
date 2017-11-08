@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/19/2017
 ms.author: spelluru
 robots: noindex
-ms.openlocfilehash: 3690b5f62d8384d255d420946f6ac1cfd47b9317
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5220ca664d5c7584f3aada0bb707099f91d5650f
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Invocar programas Spark dos pipelines do Azure Data Factory
 
@@ -34,6 +34,9 @@ ms.lasthandoff: 10/11/2017
 > * [Atividade de Procedimento Armazenado](data-factory-stored-proc-activity.md)
 > * [Atividade do U-SQL do Data Lake Analytics](data-factory-usql-activity.md)
 > * [Atividade Personalizada do .NET](data-factory-use-custom-activities.md)
+
+> [!NOTE]
+> Este artigo se aplica à versão 1 do Azure Data Factory, que já está em GA (disponibilidade geral). Se você usar a versão 2 do serviço do Data Factory, que está em versão prévia, consulte [transformar dados usando atividades do spark no Data Factory versão 2](../transform-data-using-spark.md).
 
 ## <a name="introduction"></a>Introdução
 A atividade do Spark é uma das [atividades de transformação de dados](data-factory-data-transformation-activities.md) com suporte pelo Azure Data Factory. Esta atividade executa o programa do Spark especificado no cluster do Apache Spark no Azure HDInsight.    

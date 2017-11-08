@@ -10,17 +10,17 @@ editor:
 ms.assetid: 
 ms.service: sql-database
 ms.custom: scale out apps
-ms.workload: data-management
+ms.workload: Inactive
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2017
+ms.date: 10/31/2017
 ms.author: sstein
-ms.openlocfilehash: f05e769a8c5d26c0149dcba05c0973de4bd30313
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 1509a4f05ceb3a54aad790553183616c97b4bee2
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Monitore e gerencie o desempenho dos pools e dos bancos de dados SQL do Azure em um aplicativo SaaS multilocatário
 
@@ -204,16 +204,19 @@ Este exercício simula o efeito do Contoso Concert Hall experimentando uma alta 
 1. Execute o script usando **F5**.
 
 
-1. No [portal do Azure](https://portal.azure.com), abra **Pool1**.
+1. No [Portal do Azure](https://portal.azure.com) navegue até a lista de bancos de dados no servidor *tenants1*. 
+1. Clique no banco de dados **contosoconcerthall**.
+1. Clique no pool em que **contosoconcerthall** se encontra. Encontre o pool na seção **Pool de banco de dados elástico**.
+
 1. Inspecione o gráfico **Monitoramento do pool elástico** e procure o aumento do uso de eDTUs do pool. Após um ou dois minutos, a carga maior deverá começar a fazer efeito e rapidamente você verá que o pool atinge 100% de utilização.
-1. Inspecione a exibição **Monitoramento do banco de dados elástico** que mostra os bancos de dados mais ativos na última hora. O banco de dados *contosoconcerthall* logo deve aparecer como um dos cinco bancos de dados mais ativos.
-1. **Clique no** **gráfico** Monitoramento do banco de dados elástico e ele abrirá a página **Utilização de Recursos do Banco de Dados**, em que você pode monitorar um dos bancos de dados. Isso permite isolar a exibição do banco de dados *contosoconcerthall*.
-1. Na lista de bancos de dados, clique em **contosoconcerthall**.
-1. Clique em **Tipo de Preço (DTUs em escala)** para abrir a página **Configurar desempenho**, em que você pode definir um nível de desempenho autônomo para o banco de dados.
-1. Clique na guia **Standard** para abrir as opções de escala na camada Standard.
-1. Deslize o **controle deslizante de DTU** para a direita para selecionar **100** DTUs. Observe que isso corresponde ao objetivo de serviço **S3**.
-1. Clique em **Aplicar** para mover o banco de dados para fora do pool e torná-lo um banco de dados *Standard S3*.
-1. Depois que o dimensionamento for concluído, monitore o efeito no banco de dados contosoconcerthall e no Pool1 nas folhas do pool elástico e do banco de dados.
+2. Inspecione a exibição **Monitoramento do banco de dados elástico** que mostra os bancos de dados mais ativos na última hora. O banco de dados *contosoconcerthall* logo deve aparecer como um dos cinco bancos de dados mais ativos.
+3. **Clique no** **gráfico** Monitoramento do banco de dados elástico e ele abrirá a página **Utilização de Recursos do Banco de Dados**, em que você pode monitorar um dos bancos de dados. Isso permite isolar a exibição do banco de dados *contosoconcerthall*.
+4. Na lista de bancos de dados, clique em **contosoconcerthall**.
+5. Clique em **Tipo de Preço (DTUs em escala)** para abrir a página **Configurar desempenho**, em que você pode definir um nível de desempenho autônomo para o banco de dados.
+6. Clique na guia **Standard** para abrir as opções de escala na camada Standard.
+7. Deslize o **controle deslizante de DTU** para a direita para selecionar **100** DTUs. Observe que isso corresponde ao objetivo de serviço **S3**.
+8. Clique em **Aplicar** para mover o banco de dados para fora do pool e torná-lo um banco de dados *Standard S3*.
+9. Depois que o dimensionamento for concluído, monitore o efeito no banco de dados contosoconcerthall e no Pool1 nas folhas do pool elástico e do banco de dados.
 
 Depois que a carga alta no banco de dados contosoconcerthall diminuir, você deverá devolva-o imediatamente ao pool para reduzir seu custo. Se não estiver claro quando isso acontecerá, você poderá definir um alerta no banco de dados que será disparado quando o uso de DTU cair para abaixo do valor máximo por banco de dados no pool. Mover um banco de dados para um pool é descrito no exercício 5.
 

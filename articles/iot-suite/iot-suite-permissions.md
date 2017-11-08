@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/15/2017
+ms.date: 09/28/2017
 ms.author: dobett
-ms.openlocfilehash: f67c7bfa3f0ea7b720c8684cc0c501be3e464373
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 84d2bcc4ccc102f03d878bfede43672158469190
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="permissions-on-the-azureiotsuitecom-site"></a>Permissões no site azureiotsuite.com
 
@@ -46,18 +46,14 @@ Saiba mais sobre funções de administrador no AAD em [Atribuir funções de adm
 Pode haver muitos administradores globais por locatário do AAD:
 
 * Quando você cria um locatário do AAD, por padrão vira o administrador global desse locatário.
-* O administrador global pode provisionar uma solução pré-configurada e recebe uma função de **Administrador** para o aplicativo dentro do seu locatário do AAD.
-* Se outro usuário no mesmo locatário do AAD criar um aplicativo, a função padrão concedida ao administrador global será **ReadOnly**.
-* Um administrador global pode atribuir usuários a funções para aplicativos usando o [Portal do Azure][lnk-portal].
+* O administrador global pode provisionar soluções pré-configuradas básicas e padrão.
 
 ### <a name="domain-user"></a>Usuário de domínio
 
 Pode haver muitos usuários de domínio por locatário do AAD:
 
-* Um usuário do domínio pode provisionar uma solução pré-configurada por meio do site [azureiotsuite.com][lnk-azureiotsuite]. Por padrão, a função **Admin** é concedida ao usuário de domínio no aplicativo provisionado.
-* Um usuário de domínio pode criar um aplicativo usando o script build.cmd no repositório [azure-iot-remote-monitoring][lnk-rm-github-repo], [azure-iot-predictive-maintenance][lnk-pm-github-repo] ou [azure-iot-connected-factory][lnk-cf-github-repo]. No entanto, a função padrão concedida ao usuário de domínio é **ReadOnly**, porque um usuário de domínio não tem permissão para atribuir funções.
-* Se outro usuário no locatário do AAD criar um aplicativo, o usuário de domínio será atribuído à função **ReadOnly** por padrão para esse aplicativo.
-* O usuário de domínio não terá a capacidade de atribuir funções para aplicativos, portanto, não poderá adicionar usuários ou funções para usuários para um aplicativo, mesmo se o tiver provisionado.
+* Um usuário do domínio pode provisionar uma solução pré-configurada básica por meio do site [azureiotsuite.com][lnk-azureiotsuite].
+* Um usuário de domínio pode criar uma solução pré-configurada básica usando a CLI.
 
 ### <a name="guest-user"></a>Usuário Convidado
 
@@ -74,55 +70,11 @@ As funções de administrador do Azure controlam a capacidade de mapear uma assi
 
 Descubra mais sobre as funções de administrador do Azure no artigo [Como adicionar ou alterar o Coadministrador, o Administrador de Serviços e o Administrador da Conta do Azure][lnk-admin-roles].
 
-## <a name="application-roles"></a>Funções de aplicativo
-
-As funções do aplicativo controlam o acesso a dispositivos em sua solução pré-configurada.
-
-Há duas funções definidas e uma função implícita definida em um aplicativo provisionado:
-
-* **Administrador:** tem controle total para adicionar, gerenciar, remover dispositivos e modificar configurações.
-* **Somente Leitura:** pode exibir dispositivos, regras, ações, trabalhos e telemetria.
-
-Você pode encontrar as permissões atribuídas a cada função no arquivo de origem [RolePermissions.cs][lnk-resource-cs].
-
-### <a name="changing-application-roles-for-a-user"></a>Alterando as funções de aplicativo para um usuário
-
-Você pode usar o procedimento a seguir para tornar um usuário em seu Active Directory um administrador de sua solução pré-configurada.
-
-Você deve ser um administrador global do AAD para alterar funções para um usuário:
-
-1. Acesse o [Portal do Azure][lnk-portal].
-2. Selecione **Azure Active Directory**.
-3. Verifique se que você está usando o diretório que você escolheu em azureiotsuite.com ao provisionar sua solução. Se você tiver vários diretórios associados à sua assinatura, poderá alternar entre eles se clicar no nome da conta na parte superior direita do portal.
-4. Clique em **Aplicativos empresariais** e, em seguida, **Todos os aplicativos**.
-4. Mostrar **Todos os aplicativos** com **Qualquer** status. Então pesquise um aplicativo com o nome da sua solução pré-configurada.
-5. Clique no nome do aplicativo que corresponda ao nome da solução pré-configurada.
-6. Clique em **Usuários e grupos**.
-7. Selecione o usuário para o qual você deseja alternar funções.
-8. Clique em **Atribuir** e selecione a função (como **Administrador**) que você deseja atribuir ao usuário, então clique na marca de seleção.
-
 ## <a name="faq"></a>Perguntas frequentes
 
 ### <a name="im-a-service-administrator-and-id-like-to-change-the-directory-mapping-between-my-subscription-and-a-specific-aad-tenant-how-do-i-complete-this-task"></a>Sou um administrador de serviços e gostaria de alterar o mapeamento de diretório entre minha assinatura e um locatário do AAD específico. Como posso concluir esta tarefa?
 
-1. Vá para o [Portal Clássico do Azure][lnk-classic-portal], clique em **Configurações** na lista de serviços no lado esquerdo.
-2. Selecione a assinatura para a qual você deseja alterar o mapeamento de diretórios.
-3. Clique em **Editar Diretório**.
-4. Selecione o **Diretório** que você deseja usar na lista suspensa. Clique na seta para frente.
-5. Confirme o mapeamento de diretórios e os coadministradores afetados. Se você estiver fazendo a transferência de outro diretório, todos os administradores do diretório original serão removidos.
-
-### <a name="im-a-domain-usermember-on-the-aad-tenant-and-ive-created-a-preconfigured-solution-how-do-i-get-assigned-a-role-for-my-application"></a>Sou um usuário/membro do domínio no locatário do AAD e criei uma solução pré-configurada. Como recebo uma função para o meu aplicativo?
-
-Peça ao administrador global para tornar você um administrador global no locatário AAD e, em seguida, atribua funções aos usuários por conta própria. Como alternativa, peça ao administrador global para atribuir uma função a você diretamente. Se desejar alterar o locatário do AAD em que sua solução pré-configurada foi implantada, consulte a próxima pergunta.
-
-### <a name="how-do-i-switch-the-aad-tenant-my-remote-monitoring-preconfigured-solution-and-application-are-assigned-to"></a>Como alternar o locatário do AAD ao qual minha solução pré-configurada de monitoramento remoto e o aplicativo estão atribuídos?
-
-É possível executar uma implantação de nuvem do <https://github.com/Azure/azure-iot-remote-monitoring> e reimplantar com um locatário do AAD recém-criado. Já que você é, por padrão, um administrador global quando cria um novo locatário do AAD, você tem permissões para adicionar usuários e atribuir funções a eles.
-
-1. Crie um diretório do AAD no [Portal do Azure][lnk-portal].
-2. Acesse <https://github.com/Azure/azure-iot-remote-monitoring>.
-3. Execute `build.cmd cloud [debug | release] {name of previously deployed remote monitoring solution}` (por exemplo, `build.cmd cloud debug myRMSolution`)
-4. Quando solicitado, defina a **tenantid** para seu locatário recém-criado em vez do locatário anterior.
+Consulte [Como adicionar uma assinatura existente ao seu diretório do Azure AD](../active-directory/active-directory-how-subscriptions-associated-directory.md#to-add-an-existing-subscription-to-your-azure-ad-directory)
 
 ### <a name="i-want-to-change-a-service-administrator-or-co-administrator-when-logged-in-with-an-organisational-account"></a>Quero alterar um Administrador de Serviços ou um Coadministrador quando o logon for feito com uma conta organizacional
 
@@ -151,7 +103,6 @@ Para continuar aprendendo sobre o IoT Suite, veja como é possível [personaliza
 [lnk-pm-github-repo]: https://github.com/Azure/azure-iot-predictive-maintenance
 [lnk-cf-github-repo]: https://github.com/Azure/azure-iot-connected-factory
 [lnk-aad-admin]: ../active-directory/active-directory-assign-admin-roles.md
-[lnk-classic-portal]: https://manage.windowsazure.com/
 [lnk-portal]: https://portal.azure.com/
 [lnk-create-edit-users]: ../active-directory/active-directory-create-users.md
 [lnk-assign-app-roles]: ../active-directory/active-directory-coreapps-assign-user-azure-portal.md

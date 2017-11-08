@@ -12,13 +12,13 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 10/17/2017
+ms.date: 10/31/2017
 ms.author: skwan
-ms.openlocfilehash: 803d0ad64d331dd331e5bab718484cb2fc8247d5
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 473a9e3aa3b6ad79a5f50a37c8aadc1bba79f5ae
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/01/2017
 ---
 #  <a name="managed-service-identity-msi-for-azure-resources"></a>Identidade de Serviço Gerenciado (MSI) para recursos do Azure
 
@@ -50,12 +50,14 @@ Tente um tutorial de identidade de serviço gerenciado para saber os cenários d
 <br><br>
 | De recurso de permissão MSI | Saiba como |
 | ------- | -------- |
-| VM do Azure (Windows) | [Acessar o Azure Resource Manager com uma Identidade de Serviço Gerenciado de VM do Windows](msi-tutorial-windows-vm-access-arm.md) |
+| VM do Azure (Windows) | [Acessar o Azure Data Lake Store com a identidade do serviço gerenciado da VM Windows](msi-tutorial-windows-vm-access-datalake.md) |
+|                    | [Acessar o Azure Resource Manager com uma Identidade de Serviço Gerenciado de VM do Windows](msi-tutorial-windows-vm-access-arm.md) |
+|                    | [Acessar o SQL do Azure com uma Identidade de Serviço Gerenciado de VM do Windows](msi-tutorial-windows-vm-access-sql.md) |
 |                    | [Acessar o Armazenamento do Azure por meio de uma chave de acesso com uma Identidade do Serviço Gerenciado de VM do Windows](msi-tutorial-windows-vm-access-storage.md) |
 |                    | [Acessar o Armazenamento do Azure por meio do SAS com uma Identidade do Serviço Gerenciado de VM do Windows](msi-tutorial-windows-vm-access-storage-sas.md) |
-|                    | [Acessar o SQL do Azure com uma Identidade de Serviço Gerenciado de VM do Windows](msi-tutorial-windows-vm-access-sql.md) |
 |                    | [Acessar um recurso que não é do Azure AD com uma Identidade de Serviço Gerenciado de VM do Windows e um Azure Key Vault](msi-tutorial-windows-vm-access-nonaad.md) |
-| VM do Azure (Linux)   | [Acessar o Azure Resource Manager com uma Identidade de Serviço Gerenciado de VM do Linux](msi-tutorial-linux-vm-access-arm.md) |
+| VM do Azure (Linux)   | [Acessar o Azure Data Lake Store com a identidade do serviço gerenciado da VM Linux](msi-tutorial-linux-vm-access-datalake.md) |
+|                    | [Acessar o Azure Resource Manager com uma Identidade de Serviço Gerenciado de VM do Linux](msi-tutorial-linux-vm-access-arm.md) |
 |                    | [Acessar o Armazenamento do Azure por meio de uma chave de acesso com uma Identidade do Serviço Gerenciado de VM do Linux](msi-tutorial-linux-vm-access-storage.md) |
 |                    | [Acessar o Armazenamento do Azure por meio do SAS com uma Identidade do Serviço Gerenciado de VM do Linux](msi-tutorial-linux-vm-access-storage-sas.md) |
 |                    | [Acessar um recurso que não é do Azure AD com uma Identidade de Serviço Gerenciado de VM do Linux e um Azure Key Vault](msi-tutorial-linux-vm-access-nonaad.md) |

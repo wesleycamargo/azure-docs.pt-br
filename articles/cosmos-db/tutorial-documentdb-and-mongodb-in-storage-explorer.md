@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: Jiaj-Li
-ms.openlocfilehash: 2cd3656156b77c71be85a1a18567232f4466fc68
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e695cdd7c51e18a386764ab8444d3336366ae265
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer-preview"></a>Gerenciar o Azure Cosmos DB no Gerenciador de Armazenamento do Azure (Versão Prévia)
 
@@ -32,8 +32,11 @@ Neste artigo, você pode aprender como usar o Gerenciador de Armazenamento para 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-- Uma conta do Azure Cosmos DB para um banco de dados SQL (DocumentDB) ou MongoDB. Se não tiver uma conta, você poderá criar uma no Portal do Azure, conforme descrito em [Azure Cosmos DB: compilar um aplicativo Web da API do DocumentDB com o .NET e com o Portal do Azure](create-documentdb-dotnet.md).
-- Instalar os bits mais recentes do Gerenciador de Armazenamento do Azure. Você pode instalá-los usando os links a seguir: [Linux](https://go.microsoft.com/fwlink/?linkid=858559), [Mac](https://go.microsoft.com/fwlink/?linkid=858561), [Windows](https://go.microsoft.com/fwlink/?linkid=858562).
+Uma conta do Azure Cosmos DB para um banco de dados SQL (DocumentDB) ou MongoDB. Se não tiver uma conta, você poderá criar uma no Portal do Azure, conforme descrito em [Azure Cosmos DB: compilar um aplicativo Web da API do DocumentDB com o .NET e com o Portal do Azure](create-documentdb-dotnet.md).
+
+## <a name="installation"></a>Instalação
+
+Instale os bits mais recentes do Gerenciador de Armazenamento do Azure aqui: [Gerenciador de Armazenamento do Azure](https://azure.microsoft.com/features/storage-explorer/), agora há suporte para a versão do Windows, Linux e MAC.
 
 ## <a name="connect-to-an-azure-subscription"></a>Conectar-se a uma assinatura do Azure
 
@@ -146,10 +149,8 @@ Edite o filtro de documentos inserindo uma [Consulta SQL](documentdb-sql-query.m
 
 * As operações para **Gatilhos** e **UDF** são semelhantes às operações para **Procedimentos Armazenados**.
 
-## <a name="demo"></a>Demonstração
-* Assista ao seguinte vídeo para aprender a usar o Azure Cosmos DB no Gerenciador de Armazenamento do Azure: [Use Azure Cosmos DB in Azure Storage Explorer](https://go.microsoft.com/fwlink/?linkid=858710) (Usar o Azure Cosmos DB no Gerenciador de Armazenamento do Azure).
-
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que você conectou o Gerenciador de Armazenamento do Azure à sua conta do Azure Cosmos DB, saiba mais sobre o Gerenciador de Armazenamento e conecte mais serviços em [Introdução ao Gerenciador de Armazenamento (Versão Prévia)](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+* Assista ao seguinte vídeo para aprender a usar o Azure Cosmos DB no Gerenciador de Armazenamento do Azure: [Use Azure Cosmos DB in Azure Storage Explorer](https://www.youtube.com/watch?v=iNIbg1DLgWo&feature=youtu.be) (Usar o Azure Cosmos DB no Gerenciador de Armazenamento do Azure).
+* Saiba mais sobre o Gerenciador de Armazenamento e conecte mais serviços em [Introdução ao Gerenciador de Armazenamento (versão prévia)](https://docs.microsoft.com/en-us/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 
