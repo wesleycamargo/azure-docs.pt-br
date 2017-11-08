@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/19/2017
+ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 3b8038b716266326967e2cf178efe4d36f4badc5
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 3c83645f61cd42c8c2b46f787c9e7531726d3fbb
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="azure-database-security-overview"></a>Visão geral de segurança do banco de dados do Azure
 
@@ -69,7 +69,7 @@ Um problema ao administrar uma rede é proteger os dados que estão sendo enviad
 
 No processo de autenticação, um cliente TLS/SSL envia uma mensagem para um servidor TLS/SSL e o servidor responde com as informações de que o servidor precisa para se autenticar. O cliente e o servidor executam uma troca adicional de chaves da sessão e a caixa de diálogo de autenticação é encerrada. Quando a autenticação é concluída, a comunicação protegida por SSL pode ser iniciada entre o servidor e o cliente usando as chaves de criptografia simétricas estabelecidas durante o processo de autenticação.
 
-Todas as conexões do Banco de Dados SQL do Azure exigem criptografia (SSL/TLS) todo o tempo que os dados estiverem "em trânsito", entrando e saindo do banco de dados. O SQL Azure usa o TLS/SSL para autenticar servidores e clientes e, em seguida, usa-o para criptografar mensagens entre as partes autenticadas. Na cadeia de conexão do aplicativo, você deve especificar os parâmetros para criptografar a conexão e para não confiar no certificado do servidor (isso será feito para você se você copiar a cadeia de conexão do Portal Clássico do Azure); caso contrário, a conexão não verificará a identidade do servidor e estará suscetível a ataques “man-in-the-middle”. Para o driver do ADO.NET, por exemplo, esses parâmetros da cadeia de conexão são Encrypt=True e TrustServerCertificate=False.
+Todas as conexões do Banco de Dados SQL do Azure exigem criptografia (SSL/TLS) todo o tempo que os dados estiverem "em trânsito", entrando e saindo do banco de dados. O SQL Azure usa o TLS/SSL para autenticar servidores e clientes e, em seguida, usa-o para criptografar mensagens entre as partes autenticadas. Na cadeia de conexão do aplicativo, você deve especificar os parâmetros para criptografar a conexão e para não confiar no certificado do servidor (isso será feito se você copiar a cadeia de conexão do Portal do Azure). Caso contrário, a conexão não verificará a identidade do servidor e estará suscetível a ataques “man-in-the-middle”. Para o driver do ADO.NET, por exemplo, esses parâmetros da cadeia de conexão são Encrypt=True e TrustServerCertificate=False.
 
 ### <a name="encryption-at-rest"></a>Criptografia em repouso
 Você pode adotar várias precauções para ajudar a proteger o banco de dados, como a criação de um sistema seguro, a criptografia de ativos confidenciais e a criação de um firewall em torno de servidores de bancos de dados. No entanto, em um cenário em que a mídia física (como unidades ou fitas de backup) é roubada, uma entidade mal-intencionada pode simplesmente restaurar ou anexar o banco de dados e procurar os dados.

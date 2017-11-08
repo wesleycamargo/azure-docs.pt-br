@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/25/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: dd1e22cd538d9113062b77ea2d7ecc18d63fe528
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 77567302c529e6e06e58534ffc9db44c9a85bdb7
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="schedule-tasks-and-workflows-that-run-regularly-with-logic-apps"></a>Agendar tarefas e fluxos de trabalho que são executados regularmente com aplicativos lógicos
 
@@ -162,7 +162,7 @@ Aqui está uma definição de gatilho de recorrência de exemplo:
 | Executar às 8h30, todos os dias (sem data e hora de início) | 1 | Dia | {none} | {não disponível} | 8 | 30 | Esse agendamento é executado às 8h30, todos os dias, com base no agendamento especificado. | 
 | Executar às 8h30, todos os dias (com data e hora de início) | 1 | Dia | *startDate*T08:30:00Z | {não disponível} | {none} | {none} | Esse agendamento se inicia na data de início especificada, às 8h30. | 
 | Executar às 8h30 e 16h30 todos os dias | 1 | Dia | {none} | {não disponível} | 8, 16 | 30 | | 
-| Executar às 8h30 e 16h45 todos os dias | 1 | Dia | {none} | {não disponível} | 8, 16 | 30, 45 | | 
+| Executar às 8h30, 8h45, 16h30 e 16h45 todos os dias | 1 | Dia | {none} | {não disponível} | 8, 16 | 30, 45 | | 
 | Executar todos os sábados às 17h (sem data e hora de início) | 1 | Semana | {none} | "Sábado" | 17 | 00 | Esse agendamento é executado todos os sábados às 17h. | 
 | Executar todos os sábados às 17h (com data e hora de início) | 1 | Semana | *startDate*T17:00:00Z | "Sábado" | {none} | {none} | Esse agendamento não se inicia *antes* da data e hora de início especificadas, nesse caso, 9 de setembro de 2017 às 17h. As recorrências futuras serão executadas todos os sábados às 17h. | 
 | Executar todas as terças e quintas-feiras às 17h | 1 | Semana | {none} | "Terça-feira", "Quinta-feira" | 17 | {none} | Esse agendamento é executado todas as terças-feiras e quintas-feiras às 17h. | 

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/09/2017
+ms.date: 10/27/2017
 ms.author: johnkem
-ms.openlocfilehash: 31c4fc5b606bf96cec8c508f4a0ff7ecbaeae38a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f8767073bb7a6723088bb2727346d23ec8872cd1
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Introdução às funções, permissões e segurança com o Azure Monitor
 Muitas equipes precisam regular estritamente o acesso aos dados e configurações de monitoramento. Por exemplo, se você tiver os membros da equipe que trabalham exclusivamente no monitoramento (engenheiros de suporte, engenheiros de devops) ou se você usar um provedor de serviços gerenciados, você talvez queira conceder-lhes acesso aos dados de monitoramento apenas enquanto restringe a capacidade de criar, modificar ou excluir recursos. Este artigo mostra como aplicar uma função interna de RBAC de monitoramento a um usuário no Azure rapidamente ou criar sua própria função personalizada para um usuário que precise de permissões limitadas de monitoramento. Em seguida, ele aborda considerações de segurança para os recursos relacionados ao Azure Monitor e como você pode limitar o acesso aos dados contidos nos mesmos.
@@ -37,12 +37,12 @@ Pessoas atribuídas à função de Leitor de monitoramento podem exibir todos os
 * Exibir as configurações de autoescala.
 * Exibir as configurações e a atividade do alerta.
 * Acessar os dados do Application Insights e exiba os dados na Análise de AI.
-* Pesquisar dados do espaço de trabalho do Log Analytics (OMS), incluindo os dados de uso do espaço de trabalho.
-* Exibir grupos de gerenciamento do Log Analytics (OMS).
-* Recuperar o esquema de pesquisa do Log Analytics (OMS).
-* Listar os pacotes de inteligência do Log Analytics (OMS).
-* Recuperar e executar as pesquisas salvas do Log Analytics (OMS).
-* Recuperar a configuração de armazenamento do Log Analytics (OMS).
+* Pesquisar dados do espaço de trabalho do Log Analytics, incluindo dados de uso do espaço de trabalho.
+* Exibir grupos de gerenciamento do Log Analytics.
+* Recuperar o esquema de pesquisa do Log Analytics.
+* Listar os pacotes de inteligência do Log Analytics.
+* Recuperar e executar as pesquisas salvas do Log Analytics.
+* Recuperar a configuração de armazenamento do Log Analytics.
 
 > [!NOTE]
 > Essa função não concede acesso de leitura aos dados de log que foram transmitidos para um hub de eventos ou armazenados em uma conta de armazenamento. [Veja abaixo](#security-considerations-for-monitoring-data) para obter informações sobre como configurar o acesso a esses recursos.
@@ -57,10 +57,10 @@ Pessoas atribuídas à função de Colaborador de monitoramento podem exibir tod
 * Definir o [perfil de log](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) para uma assinatura.*
 * Definir as configurações e a atividade do alerta.
 * Criar testes Web e componentes do Application Insights.
-* Listar chaves de espaço de trabalho compartilhadas do Log Analytics (OMS).
-* Ativar ou desativar os pacotes de inteligência do Log Analytics (OMS).
-* Criar e excluir as pesquisas salvas do Log Analytics (OMS).
-* Criar e excluir a configuração de armazenamento do Log Analytics (OMS).
+* Listar as chaves compartilhadas do espaço de trabalho do Log Analytics.
+* Habilitar ou desabilitar os pacotes de inteligência do Log Analytics.
+* Criar, excluir e executar as pesquisas salvas do Log Analytics.
+* Criar e excluir a configuração de armazenamento do Log Analytics.
 
 *o usuário também deve receber, separadamente, uma permissão de ListKeys no recurso de destino (namespace do hub de eventos ou conta de armazenamento) para definir um perfil de registro ou configuração de diagnóstico.
 

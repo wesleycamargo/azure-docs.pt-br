@@ -12,16 +12,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 10/15/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 908f6d972d66fa5f2a93585ae2fddb3cc764fe8c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2f4979a07db794f012ba602ab65ac54872003027
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="azure-data-factory---naming-rules"></a>Azure Data Factory - regras de nomenclatura
+> [!NOTE]
+> Este artigo se aplica à versão 1 do Data Factory, que está com GA (disponibilidade geral). Se estiver usando a versão 2 do serviço Data Factory, que está em versão prévia, consulte [regras de nomenclatura do Data Factory versão 2](../naming-rules.md).
+
 A tabela a seguir fornece regras de nomenclatura para artefatos Data Factory.
 
 | Nome | Exclusividade do nome | Verificações de validação |

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/07/2017
+ms.date: 11/01/2017
 ms.author: kakhan
-ms.openlocfilehash: eb1f3f01f896cc03fde13f11457be4740fa2720a
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: b35595d3dd91932888a26edc92dae81dd71682d8
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="azure-disk-encryption-for-windows-and-linux-iaas-vms"></a>Azure Disk Encryption para VMs IaaS Windows e Linux
 O Microsoft Azure tem o compromisso sério de garantir a privacidade e a soberania dos seus dados e permite que você controle os dados hospedados no Azure usando uma variedade de tecnologias para criptografar, controlar e gerenciar chaves de criptografia, bem como auditar e controlar o acesso aos dados. Isso permite que os clientes do Azure tenham a flexibilidade de escolher a solução que melhor atenda às necessidades de negócios. Neste artigo, apresentaremos a você uma nova solução de tecnologia, "Azure Disk Encryption para VMs IaaS Windows e Linux" para ajudá-lo a proteger seus dados e atender às obrigações de conformidade e segurança da organização. O documento fornece orientações detalhadas sobre como usar os recursos de criptografia de disco do Azure, incluindo os cenários com suporte e as experiências de usuário.
@@ -247,8 +247,8 @@ Use o seguinte cmdlet do PowerShell para criar um aplicativo Azure AD:
 > [!NOTE]
 > $azureAdApplication.ApplicationId é o ClientID do Azure AD e $aadClientSecret é o segredo do cliente que deve ser usado posteriormente para habilitar o Azure Disk Encryption. Proteja adequadamente o segredo do cliente no Azure AD.
 
-##### <a name="setting-up-the-azure-ad-client-id-and-secret-from-the-azure-classic-portal"></a>Configurando a ID do cliente do Azure AD e o segredo do portal clássico do Azure
-Você também pode configurar a ID de cliente do Azure AD e o segredo usando o [portal clássico do Azure]( https://manage.windowsazure.com). Para executar essa tarefa, faça o seguinte:
+##### <a name="setting-up-the-azure-ad-client-id-and-secret-from-the-azure-portal"></a>Configuração da ID do cliente do Azure AD e do segredo do portal do Azure
+Você também pode configurar a ID de cliente do Azure AD e o segredo usando o Portal do Azure. Para executar essa tarefa, faça o seguinte:
 
 1. Clique na guia **Active Directory**.
 
@@ -270,8 +270,6 @@ Você também pode configurar a ID de cliente do Azure AD e o segredo usando o [
 
  ![Azure Disk Encryption](./media/azure-security-disk-encryption/disk-encryption-fig7.png)
 
- > [!NOTE]
- > O fluxo anterior não tem suporte no portal clássico do Azure.
 
 ##### <a name="use-an-existing-application"></a>Usar um aplicativo existente
 Para executar os seguintes comandos, obtenha e use o [módulo do Azure AD PowerShell](https://technet.microsoft.com/library/jj151815.aspx).
@@ -634,12 +632,12 @@ Você pode habilitar a criptografia de disco em seu VHD criptografado instalando
  ```
 
 ### <a name="get-the-encryption-status-of-an-encrypted-iaas-vm"></a>Obter o status da criptografia de uma VM IaaS criptografada
-É possível obter o status da criptografia usando o Azure Resource Manager, [cmdlets do PowerShell](/powershell/azure/overview) ou comandos da CLI. As seções a seguir explicam como usar o portal clássico do Azure e os comandos da CLI para obter o status de criptografia.
+É possível obter o status da criptografia usando o Azure Resource Manager, [cmdlets do PowerShell](/powershell/azure/overview) ou comandos da CLI. As seções a seguir explicam como usar o Portal do Azure e os comandos da CLI para obter o status de criptografia.
 
 #### <a name="get-the-encryption-status-of-an-encrypted-windows-vm-by-using-azure-resource-manager"></a>Obter o status da criptografia de uma VM do Windows criptografada usando o Azure Resource Manager
 Você pode obter o status de criptografia da VM IaaS do Azure Resource Manager fazendo o seguinte:
 
-1. Entre no [portal clássico do Azure](https://portal.azure.com/) e clique em **Máquinas virtuais** no painel esquerdo para ver uma exibição resumida das máquinas virtuais em sua assinatura. Você pode filtrar a exibição de máquinas virtuais selecionando o nome da assinatura na lista suspensa **Assinatura**.
+1. Entre no [Portal do Azure](https://portal.azure.com/) e clique em **Máquinas virtuais** no painel esquerdo para ver uma exibição resumida das máquinas virtuais em sua assinatura. Você pode filtrar a exibição de máquinas virtuais selecionando o nome da assinatura na lista suspensa **Assinatura**.
 
 2. Na parte superior da página **Máquinas virtuais**, clique em **Colunas**.
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2017
 ms.author: kumud
-ms.openlocfilehash: 5751cd111d2b1c8a4db2fc3b39f2108e73e9508f
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.openlocfilehash: eac9c3c2b7fde4ac225e17cc3b98ca5ee926c3b3
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o Gerenciador de Tráfego
 
@@ -216,7 +216,7 @@ A Exibição do Tráfego cria sua saída processando os dados dos sete dias que 
 
 ### <a name="how-does-traffic-view-handle-external-endpoints"></a>Como a Exibição do Tráfego lida com pontos de extremidade externos?
 
-Quando você usa pontos de extremidade externos, hospedados fora das regiões do Azure em um perfil do Gerenciador de Tráfego, você pode escolher que eles sejam mapeados para uma região do Azure que seja um proxy para suas características de latência (isso na verdade é necessário quando você usa o método de roteamento de desempenho). Se houver esse mapeamento de região do Azure, as métricas de latência dessa região do Azure serão usadas para criar a saída da Exibição do Tráfego. Se não houver nenhuma região do Azure especificada, as informações de latência ficarão vazias nos dados desses pontos de extremidade externos.
+Quando você usa pontos de extremidade externos, hospedados fora das regiões do Azure em um perfil do Gerenciador de Tráfego, você pode escolher que eles sejam mapeados para uma região do Azure que seja um proxy para suas características de latência (isso na verdade é necessário quando você usa o método de roteamento de desempenho). Se houver esse mapeamento de região do Azure, as métricas de latência dessa região do Azure serão usadas para criar a saída da Exibição de Tráfego. Se não houver nenhuma região do Azure especificada, as informações de latência ficarão vazias nos dados desses pontos de extremidade externos.
 
 ### <a name="do-i-need-to-enable-traffic-view-for-each-profile-in-my-subscription"></a>É necessário habilitar a Exibição do Tráfego para cada perfil na minha assinatura?
 Durante o período de versão prévia, a Exibição do Tráfego será habilitada em um nível de assinatura e estará disponível para todos os perfis do Gerenciador de Tráfego na assinatura.

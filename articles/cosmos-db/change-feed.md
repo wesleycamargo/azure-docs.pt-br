@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: 
 ms.topic: article
-ms.date: 10/10/2017
+ms.date: 10/30/2017
 ms.author: arramac
-ms.openlocfilehash: 0971959fb168d92096531d1c081666cf301608cf
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: e21925b8f84f0805f41fd698965cac09286b92c1
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Trabalhando com o suporte ao feed de alterações no Azure Cosmos DB
 
@@ -157,7 +157,7 @@ Esta seção explica como usar o SDK do DocumentDB para trabalhar com um feed de
 
 Se você tiver vários leitores, poderá usar **ChangeFeedOptions** para distribuir a carga de leitura em diferentes threads ou clientes.
 
-Isso é tudo, com essas poucas linhas de código, você pode começar a ler o feed de alterações. Você pode obter o código completo usado neste artigo do [repositório do GitHub azure-cosmos-db-DocumentFeed](https://github.com/rsarosh/azure-cosmos-db-DocumentFeed).
+Isso é tudo, com essas poucas linhas de código, você pode começar a ler o feed de alterações. É possível obter o código completo usado neste artigo do [repositório do GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessor).
 
 No código da etapa 4 acima, o **ResponseContinuation** na última linha tem o último LSN (número de sequência lógica) do documento, que será usado na próxima vez que você ler novos documentos após esse número de sequência. Usando o **StartTime** do **ChangeFeedOption**, você pode ampliar sua rede para obter os documentos. Assim, se a sua **ResponseContinuation** for nula, mas seu **StartTime** voltar no tempo, você obterá todos os documentos que mudaram desde **StartTime**. Mas, se sua **ResponseContinuation** tiver um valor, o sistema lhe enviará todos os documentos desde aquele LSN.
 
@@ -278,7 +278,7 @@ Para obter mais informações sobre como usar a biblioteca do Processador de Fee
 
 * [página de informações](documentdb-sdk-dotnet-changefeed.md) 
 * [Pacote do Nuget](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)
-* [Código de exemplo mostrando as etapas 1 a 6 acima](https://github.com/rsarosh/Cosmos-ChangeFeedProcessor)
+* [Código de exemplo mostrando as etapas 1 a 6 acima](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeedProcessor)
 * [Exemplos adicionais sobre o GitHub](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/ChangeFeedProcessor)
 
 Para obter mais informações sobre como usar o feed de alterações via SDK, use os seguintes recursos:

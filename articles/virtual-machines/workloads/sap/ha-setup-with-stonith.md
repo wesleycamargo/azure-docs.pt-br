@@ -11,21 +11,21 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/01/2017
+ms.date: 10/31/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6db4a9308ede1744081f114c61f1ca0c303706e8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9122cbb66c6089009dccccea9b985e3521d45179
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
-# <a name="high-availability-setup-in-suse-using-the-stonith"></a>Configuração de alta disponibilidade no SUSE usando o STONITH
+# <a name="high-availability-set-up-in-suse-using-the-stonith"></a>Configuração de alta disponibilidade no SUSE usando o STONITH
 Este documento fornece instruções passo a passo detalhadas para configurar a Alta Disponibilidade no sistema operacional SUSE usando o dispositivo STONITH.
 
-**Isenção de responsabilidade:** *este guia deriva do teste da configuração no ambiente Microsoft de Instâncias Grandes HANA que funciona com êxito. Como a equipe de Gerenciamento de Serviços da Microsoft do HANA em Instâncias Grandes não oferece suporte ao Sistema operacional, talvez seja necessário entrar em contato com o SUSE para solução de problemas ou esclarecimentos sobre a camada do sistema operacional. A equipe de Gerenciamento de Serviço da Microsoft faz a configuração do dispositivo STONITH, oferece suporte e pode ajudar na solução de problemas do dispositivo STONITH.*
+**Isenção de responsabilidade:** *este guia é derivado do teste da configuração no ambiente Microsoft de Instâncias Grandes HANA, no qual funciona com êxito. Como a equipe de Gerenciamento de Serviços da Microsoft do HANA em Instâncias Grandes não oferece suporte ao Sistema operacional, talvez seja necessário entrar em contato com o SUSE para solução de problemas ou esclarecimentos sobre a camada do sistema operacional. A equipe de Gerenciamento de Serviço da Microsoft faz a configuração do dispositivo STONITH, dá suporte total e pode ajudar na solução de problemas do dispositivo STONITH.*
 ## <a name="overview"></a>Visão geral
-Para configurar a Alta Disponibilidade usando o clustering SUSE, é necessário atender aos pré-requisitos a seguir.
+Para configurar a Alta disponibilidade usando o clustering SUSE, é necessário atender aos pré-requisitos a seguir.
 ### <a name="pre-requisites"></a>Pré-requisitos
 - O HANA em Instâncias Grandes está provisionado
 - O sistema operacional está registrado
@@ -34,24 +34,25 @@ Para configurar a Alta Disponibilidade usando o clustering SUSE, é necessário 
 - O NTP (servidor de horário) está configurado
 - Leia e compreenda a versão mais recente da documentação do SUSE na configuração de HA
 
-### <a name="setup-details"></a>Detalhes de configuração
-- Neste guia, usamos a configuração a seguir.
-- Sistema Operacional: SUSE 12 SP1
-- HANA em Instâncias Grandes: 2xS192 (4 soquetes, 2 TB)
+### <a name="set-up-details"></a>Configurar detalhes
+- Neste guia, usamos a configuração a seguir:
+- Sistema operacional: SLES 12 SP1 para SAP
+- HANA em Instâncias Grandes: 2xS192 (quatro soquetes, 2 TB)
 - Versão do HANA: HANA 2.0 SP1
 - Nomes do Servidor: sapprdhdb95 (node1) e sapprdhdb96 (node2)
 - Dispositivo STONITH: dispositivo STONITH baseado em iSCSI
 - Configuração do NTP em um nó do HANA em Instâncias Grandes
 
-Quando você configura o HANA em Instâncias Grandes com HSR, pode pedir à equipe de Gerenciamento de Serviço da Microsoft para configurar o STONITH. Se você já é cliente, possui um HANA em Instâncias Grandes provisionado e precisa configurar o dispositivo STONITH para suas folhas existentes, forneça as informações a seguir para a equipe de Gerenciamento de Serviços da Microsoft no SRF (formulário de solicitação de serviço). Você pode solicitar o formulário SRF ao Gerente Técnico de Conta ou ao seu Contato da Microsoft para integração do HANA em Instâncias Grandes. Os novos clientes podem solicitar o dispositivo STONITH no momento do provisionamento. As entradas estão disponíveis no formulário de solicitação de provisionamento.
+Quando você configura o HANA em Instâncias Grandes com HSR, pode solicitar à equipe de Gerenciamento de Serviço da Microsoft para configurar o STONITH. Se você já é cliente, tem um HANA em Instâncias Grandes provisionado e precisa configurar o dispositivo STONITH para suas folhas existentes, forneça as informações a seguir para a equipe de Gerenciamento de Serviços da Microsoft no SRF (formulário de solicitação de serviço). Você pode solicitar o formulário SRF ao Gerente Técnico de Conta ou ao seu Contato da Microsoft para integração do HANA em Instâncias Grandes. Os novos clientes podem solicitar o dispositivo STONITH no momento do provisionamento. As entradas estão disponíveis no formulário de solicitação de provisionamento.
 
 - Nome e endereço IP do servidor (por exemplo, myhanaserver1, 10.35.0.1)
 - Local (por exemplo, Leste dos EUA)
 - Nome do cliente (por exemplo, Microsoft)
+- SID – Identificador de sistema do HANA (por exemplo, H11)
 
 Depois que o dispositivo STONITH estiver configurado, a equipe de Gerenciamento de Serviços da Microsoft fornecerá o nome do dispositivo SBD e o endereço IP do armazenamento iSCSI que você pode usar para configurar a instalação do STONITH. 
 
-Para configurar a Alta Disponibilidade de ponta a ponta usando o STONITH, siga as etapas abaixo:
+Para configurar a HA de ponta a ponta usando o STONITH, é necessário seguir as etapas abaixo:
 
 1.  Identificar o dispositivo SBD
 2.  Inicializar o dispositivo SBD
@@ -65,14 +66,18 @@ Para configurar a Alta Disponibilidade de ponta a ponta usando o STONITH, siga a
 ## <a name="1---identify-the-sbd-device"></a>1.   Identificar o dispositivo SBD
 Esta seção descreve como determinar o dispositivo SBD para sua configuração depois que a equipe de Gerenciamento de Serviços da Microsoft configurar o STONITH. **Esta seção aplica-se somente a clientes existentes**. Para novos clientes, a equipe de Gerenciamento de Serviços da Microsoft fornecerá o nome do dispositivo SBD para você e esta seção poderá ser ignorada.
 
-1.1 Modificar */etc/iscsi/initiatorname.isci* para *iqn.1996-04.de.suse:01: <Tenant> <Location> <SID> <NodeNumber>* .  
-O Gerenciamento de Serviços da Microsoft fornece essa cadeia de caracteres. Isso precisa ser feito em **ambos** os nós. No entanto, o número de nó é diferente para cada nó.
+1.1 Modifique */etc/iscsi/initiatorname.isci* para 
+``` 
+iqn.1996-04.de.suse:01:<Tenant><Location><SID><NodeNumber> 
+```
+
+O Gerenciamento de Serviços da Microsoft fornece essa cadeia de caracteres. Modifique o arquivo em **ambos** os nós, porém o número de nó é diferente para cada nó.
 
 ![initiatorname.png](media/HowToHLI/HASetupWithStonith/initiatorname.png)
 
-1.2 Modificar */etc/iscsi/iscsid.conf*: definir *node.session.timeo.replacement_timeout=5* e *node.startup = automatic*. Isso precisa ser feito em **ambos** os nós.
+1.2 Modificar */etc/iscsi/iscsid.conf*: definir *node.session.timeo.replacement_timeout=5* e *node.startup = automatic*. Modifique o arquivo em **ambos** os nós.
 
-1.3 Executar o comando de descoberta; ele mostra quatro sessões. Isso precisa ser feito em ambos os nós.
+1.3 Executar o comando de descoberta; ele mostra quatro sessões. Execute-o em ambos os nós.
 
 ```
 iscsiadm -m discovery -t st -p <IP address provided by Service Management>:3260
@@ -80,21 +85,21 @@ iscsiadm -m discovery -t st -p <IP address provided by Service Management>:3260
 
 ![iSCSIadmDiscovery.png](media/HowToHLI/HASetupWithStonith/iSCSIadmDiscovery.png)
 
-1.4 Executar o comando para fazer logon no dispositivo iSCSI; ele mostra quatro sessões. Isso precisa ser feito em **ambos** os nós.
+1.4 Executar o comando para fazer logon no dispositivo iSCSI; ele mostra quatro sessões. Execute-o em **ambos** os nós.
 
 ```
 iscsiadm -m node -l
 ```
 ![iSCSIadmLogin.png](media/HowToHLI/HASetupWithStonith/iSCSIadmLogin.png)
 
-1.5 Executar o script para examinar novamente: *rescan-scsi-bus.sh*.  Isso mostra os novos discos criados para você.  Execute-o em ambos os nós. Você deve ver um número LUN maior que zero (por exemplo: 1, 2, etc.)
+1.5 Executar o script para examinar novamente: *rescan-scsi-bus.sh*.  Esse script mostra os novos discos criados para você.  Execute-o em ambos os nós. Você deve ver um número LUN maior que zero (por exemplo: 1, 2, etc.)
 
 ```
 rescan-scsi-bus.sh
 ```
 ![rescanscsibus.png](media/HowToHLI/HASetupWithStonith/rescanscsibus.png)
 
-1.6 Para obter o nome do dispositivo, execute o comando *fdisk –l*. Execute-o em ambos os nós. Escolha o dispositivo com tamanho **178MiB**.
+1.6 Para obter o nome do dispositivo, execute o comando *fdisk –l*. Execute-o em ambos os nós. Escolha o dispositivo com tamanho **178 MiB**.
 
 ```
   fdisk –l
@@ -120,7 +125,7 @@ sbd -d <SBD Device Name> dump
 ## <a name="3---configuring-the-cluster"></a>3.   Configurar o Cluster
 Esta seção descreve as etapas para configurar o cluster de HA SUSE.
 ### <a name="31-package-installation"></a>3.1 Instalação do pacote
-3.1.1 Verificar se os padrões ha_sles e SAPHanaSR-doc estão instalados. Se não estiverem, instale-os. Isso precisa ser feito em **ambos** os nós.
+3.1.1 Verificar se os padrões ha_sles e SAPHanaSR-doc estão instalados. Se não estiver instalado, instale-os. Instale-o em **ambos** os nós.
 ```
 zypper in -t pattern ha_sles
 zypper in SAPHanaSR SAPHanaSR-doc
@@ -129,7 +134,7 @@ zypper in SAPHanaSR SAPHanaSR-doc
 ![zypperpatternSAPHANASR-doc.png](media/HowToHLI/HASetupWithStonith/zypperpatternSAPHANASR-doc.png)
 
 ### <a name="32-setting-up-the-cluster"></a>3.2 Configurar o cluster
-3.2.1 Você pode usar o comando *ha-cluster-init* ou usar o assistente yast2 para configurar o cluster. Neste caso, usamos o assistente yast2. Execute esta etapa **somente no nó Primário**.
+3.2.1 Use o comando *ha-cluster-init* ou o assistente yast2 para configurar o cluster. Neste caso, usamos o assistente yast2. Execute esta etapa **somente no nó Primário**.
 
 Siga yast2> Alta Disponibilidade > Cluster ![yast-control-center.png](media/HowToHLI/HASetupWithStonith/yast-control-center.png)
 ![yast-hawk-install.png](media/HowToHLI/HASetupWithStonith/yast-hawk-install.png)
@@ -158,7 +163,7 @@ A autenticação é realizada usando os endereços IP e as chaves pré-compartil
 Clique em **Avançar**
 ![yast-cluster-service.png](media/HowToHLI/HASetupWithStonith/yast-cluster-service.png)
 
-Na opção padrão, a Inicialização estava desativada. Altere-a para “ativada” para que o Pacemaker seja iniciado junto com a inicialização. Você pode fazer a escolha de acordo com os requisitos de instalação.
+Na opção padrão, a Inicialização estava desativada. Altere-a para “ativada” para que o Pacemaker seja iniciado junto com a inicialização. Faça essa escolha considerando os requisitos de instalação.
 Clique em **Avançar** para concluir a configuração do cluster.
 
 ## <a name="4---setting-up-the-softdog-watchdog"></a>4.   Configurar o watchdog Softdog
@@ -170,7 +175,7 @@ modprobe softdog
 ```
 ![modprobe-softdog.png](media/HowToHLI/HASetupWithStonith/modprobe-softdog.png)
 
-4.2 Atualizar o arquivo */etc/sysconfig/sbd* em **ambos** os nós, como mostrado abaixo
+4.2 Atualize o arquivo */etc/sysconfig/sbd* em **ambos** os nós, como mostrado abaixo:
 ```
 SBD_DEVICE="<SBD Device Name>"
 ```
@@ -182,7 +187,7 @@ modprobe softdog
 ```
 ![modprobe-softdog-command.png](media/HowToHLI/HASetupWithStonith/modprobe-softdog-command.png)
 
-4.4 Verificar se o softdog está em execução como mostrado abaixo em **ambos** os nós
+4.4 Verifique se o softdog está em execução como mostrado abaixo em **ambos** os nós:
 ```
 lsmod | grep dog
 ```
@@ -212,7 +217,7 @@ sbd  -d <SBD Device Name> list
 ```
 ![sbd-list-message.png](media/HowToHLI/HASetupWithStonith/sbd-list-message.png)
 
-4.9 Para adotar a configuração sbd, atualize o arquivo */etc/sysconfig/sbd* como a seguir. Isso precisa ser feito em **ambos** os nós
+4.9 Para adotar a configuração sbd, atualize o arquivo */etc/sysconfig/sbd* como a seguir. Atualize o arquivo em **ambos** os nós
 ```
 SBD_DEVICE=" <SBD Device Name>" 
 SBD_WATCHDOG="yes" 
@@ -264,7 +269,7 @@ Neste exemplo, configuramos o recurso a seguir. O resto pode ser configurado (se
 
 
 ### <a name="71-cluster-bootstrap-and-more"></a>7.1 Inicialização do cluster e outros
-Adicionar a inicialização do cluster. Crie o arquivo e adicione o texto como mostrado a seguir.
+Adicionar a inicialização do cluster. Crie o arquivo e adicione o texto como mostrado a seguir:
 ```
 sapprdhdb95:~ # vi crm-bs.txt
 # enter the following to crm-bs.txt
@@ -364,7 +369,7 @@ Login to [iface: default, target: iqn.1992-08.com.netapp:hanadc11:1:t020, portal
 Login to [iface: default, target: iqn.1992-08.com.netapp:hanadc11:1:t020, portal: 10.250.22.21,3260] successful.
 ```
 ### <a name="scenario-2-yast2-does-not-show-graphical-view"></a>Cenário 2: o yast2 não mostra a exibição gráfica
-Para configurar o cluster de Alta Disponibilidade neste documento, usamos a tela gráfica do yast2. Se o yast2 não abrir com a janela gráfica, como mostrado, e gerar um erro Qt, siga as etapas abaixo. Se ele abre com a janela gráfica, você pode ignorar estas etapas.
+Usamos a tela gráfica do yast2 para configurar o cluster de Alta Disponibilidade neste documento. Se o yast2 não abrir com a janela gráfica como mostrado e gerar um erro Qt, execute as etapas abaixo. Se ele abre com a janela gráfica, você pode ignorar estas etapas.
 
 **Erro**
 
@@ -529,7 +534,7 @@ Após a correção anterior, o node2 deve ser adicionado ao cluster
 ![ha-cluster-join-fix.png](media/HowToHLI/HASetupWithStonith/ha-cluster-join-fix.png)
 
 ## <a name="10-general-documentation"></a>10. Documentação Geral
-Você pode encontrar mais informações sobre a configuração de HA do SUSE nos seguintes artigos: 
+Encontre mais informações sobre a configuração de HA do SUSE nos seguintes artigos: 
 
 - [Cenário otimizado para desempenho da SR SAP HANA](https://www.suse.com/docrep/documents/ir8w88iwu7/suse_linux_enterprise_server_for_sap_applications_12_sp1.pdf )
 - [Isolamento baseado em armazenamento](https://www.suse.com/documentation/sle-ha-2/book_sleha/data/sec_ha_storage_protect_fencing.html)

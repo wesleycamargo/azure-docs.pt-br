@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 11/01/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 811a2538f0a138074feea1bd4608a7ba00660fd1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f74a953d04e8633e802b33903de603b39ac08e9b
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="copy-data-to-and-from-data-lake-store-by-using-data-factory"></a>Copiar dados de e para o Data Lake Store usando o Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -84,9 +84,11 @@ Para usar a autenticação de entidade de serviço, registre uma entidade de apl
 * Chave do aplicativo 
 * ID do locatário
 
-> [!IMPORTANT]
-> Se estiver usando o Assistente de Cópia para criar pipelines de dados, lembre-se de conceder à entidade de serviço, pelo menos uma função de **Leitor** no controle de acesso (gerenciamento de identidade e acesso) para a conta do Data Lake Store. Além disso, conceda à entidade de serviço pelo menos a permissão de **Leitura + Execução** para sua raiz do Data Lake Store ("/") e seus filhos. Caso contrário, você poderá ver a mensagem "As credenciais fornecidas são inválidas".<br/><br/>
-Depois de criar ou atualizar uma entidade de serviço no Azure AD, poderá levar alguns minutos para que as alterações entrem em vigor. Verifique as configurações da ACL (lista de controle de acesso) do Data Lake Store e da entidade de serviço. Se você ainda vir a mensagem “As credenciais fornecidas são inválidas”, aguarde alguns instantes e tente novamente.
+> [!TIP]
+> Verifique se você concedeu a permissão apropriada à entidade de serviço no Azure Data Lake Store:
+>- Se você usar o Assistente de Cópia para criar pipelines, conceda pelo menos a função **Leitor** no IAM (controle de acesso da conta). Além disso, conceda pelo menos a permissão de **Leitura + Execução** para sua raiz do Data Lake Store (“/”) e seus filhos. Caso contrário, você poderá ver a mensagem "As credenciais fornecidas são inválidas".
+>- Para usar o Data Lake Store como origem, conceda pelo menos a permissão de acesso a dados **Leitura + Execução** para listar e copiar o conteúdo de uma pasta ou de **Leitura** para copiar um único arquivo. Nenhum requisito de controle de acesso no nível da conta.
+>- Para usar o Data Lake Store como coletor, conceda pelo menos a permissão de acesso a dados **Gravação + Execução** para criar itens filho na pasta. E, se você usar o Azure IR para capacitar a cópia (tanto a origem quanto o coletor estão na nuvem), para permitir ao Data Factory detectar a região do Data Lake Store, conceda pelo menos a função **Leitor** no controle de acesso da conta (IAM). Se você quiser evitar essa função IAM, [especifique executionLocation](data-factory-data-movement-activities.md#global) com o local do Data Lake Store na atividade de cópia.
 
 Use a autenticação de entidade de serviço especificando as seguintes propriedades:
 

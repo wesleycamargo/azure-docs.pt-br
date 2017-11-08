@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: d3c8c79170e2f369a89c4ab0588e057d0228b573
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 93e6c87a9d445ca448509a256247fb5e4749ec1c
+ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/02/2017
 ---
 # <a name="understanding-outbound-connections-in-azure"></a>Entendendo as conexões de saída no Azure
 
@@ -42,7 +42,7 @@ Nesse cenário, a VM não faz parte de um pool do Azure Load Balancer e não tem
 
 As portas SNAT são um recurso finito que pode ser esgotado. É importante entender como elas são consumidas. Uma porta SNAT é consumida por fluxo para um único endereço IP de destino. Para vários fluxos para o mesmo endereço IP de destino, cada fluxo consome uma única porta SNAT. Isso garante que os fluxos sejam exclusivos quando originados do mesmo endereço IP público para o mesmo endereço IP de destino. Vários fluxos, cada um para um endereço IP de destino diferente, compartilham uma única porta SNAT. O endereço IP de destino torna os fluxos exclusivos.
 
-Você pode usar [Log Analytics para o Balanceador de Carga](load-balancer-monitor-log.md) e [Logs de evento de alerta para monitorar as mensagens de esgotamento da porta SNAT](load-balancer-monitor-log.md#alert-event-log). Quando os recursos da porta SNAT acabam, os fluxos de saída falham até as portas SNAT serem lançadas por fluxos existentes. O Balanceador de Carga usa um tempo limite de ociosidade de 4 minutos para recuperar portas SNAT.
+Você pode usar [Log Analytics para o Azure Load Balancer](load-balancer-monitor-log.md) e [Logs de evento de alerta para monitorar as mensagens de esgotamento da porta SNAT](load-balancer-monitor-log.md#alert-event-log) para monitorar a integridade das conexões de saída. Quando os recursos da porta SNAT acabam, os fluxos de saída falham até as portas SNAT serem lançadas por fluxos existentes. O Balanceador de Carga usa um tempo limite de ociosidade de 4 minutos para recuperar portas SNAT.  Examine [VM com um endereço IP público de nível de instância (com ou sem o Azure Load Balancer)](#vm-with-an-instance-level-public-ip-address-with-or-without-load-balancer) a seguinte seção, bem como [Gerenciamento de esgotamento de SNAT](#snatexhaust).
 
 ## <a name="load-balanced-vm-with-no-instance-level-public-ip-address"></a>VM com balanceamento de carga com nenhum endereço IP público em nível de instância
 
@@ -52,11 +52,11 @@ Quando a VM com balanceamento de carga cria um fluxo de saída, o Azure converte
 
 As portas SNAT são um recurso finito que pode ser esgotado. É importante entender como elas são consumidas. Uma porta SNAT é consumida por fluxo para um único endereço IP de destino. Para vários fluxos para o mesmo endereço IP de destino, cada fluxo consome uma única porta SNAT. Isso garante que os fluxos sejam exclusivos quando originados do mesmo endereço IP público para o mesmo endereço IP de destino. Vários fluxos, cada um para um endereço IP de destino diferente, compartilham uma única porta SNAT. O endereço IP de destino torna os fluxos exclusivos.
 
-Você pode usar [Log Analytics para o Balanceador de Carga](load-balancer-monitor-log.md) e [Logs de evento de alerta para monitorar as mensagens de esgotamento da porta SNAT](load-balancer-monitor-log.md#alert-event-log). Quando os recursos da porta SNAT acabam, os fluxos de saída falham até as portas SNAT serem lançadas por fluxos existentes. O Balanceador de Carga usa um tempo limite de ociosidade de 4 minutos para recuperar portas SNAT.
+Você pode usar [Log Analytics para o Azure Load Balancer](load-balancer-monitor-log.md) e [Logs de evento de alerta para monitorar as mensagens de esgotamento da porta SNAT](load-balancer-monitor-log.md#alert-event-log) para monitorar a integridade das conexões de saída. Quando os recursos da porta SNAT acabam, os fluxos de saída falham até as portas SNAT serem lançadas por fluxos existentes. O Balanceador de Carga usa um tempo limite de ociosidade de 4 minutos para recuperar portas SNAT.  Examine a seguinte seção, bem como [Gerenciamento de esgotamento de SNAT](#snatexhaust).
 
 ## <a name="vm-with-an-instance-level-public-ip-address-with-or-without-load-balancer"></a>VM com endereço IP público em nível de instância (com ou sem o Balanceador de Carga)
 
-Nesse cenário, a VM tem um ILPIP (IP Público em Nível de Instância) atribuído a ela. Não importa se a VM é ou não de balanceamento de carga. Quando é usado um ILPIP, o SNAT (Conversão do Endereço de Rede de Origem) não é usado. A VM usa o ILPIP para todos os fluxos de saída. Se o aplicativo iniciar vários fluxos de saída e for observado um esgotamento de SNAT, você deverá considerar atribuir um ILPIP para evitar limitações de SNAT.
+Nesse cenário, a VM tem um ILPIP (IP Público em Nível de Instância) atribuído a ela. Não importa se a VM é ou não de balanceamento de carga. Quando é usado um ILPIP, o SNAT (Conversão do Endereço de Rede de Origem) não é usado. A VM usa o ILPIP para todos os fluxos de saída. Se o aplicativo iniciar vários fluxos de saída e for observado um esgotamento de SNAT, você deverá considerar atribuir um ILPIP para mitigar as limitações de SNAT.
 
 ## <a name="discovering-the-public-ip-used-by-a-given-vm"></a>Descobrindo o IP público usado por uma determinada VM
 
@@ -66,14 +66,31 @@ Há várias maneiras de determinar o endereço IP público de uma conexão de sa
 
 ## <a name="preventing-public-connectivity"></a>Impedindo a conectividade pública
 
-Às vezes, não é recomendável para uma VM poder criar um fluxo de saída ou pode haver um requisito para gerenciar quais destinos podem ser alcançados com fluxos de saída. Nesse caso, você usa o [NSG (Grupos de Segurança de Rede)](../virtual-network/virtual-networks-nsg.md) para gerenciar os destinos que a VM pode acessar. Quando você aplica um NSG a uma VM com balanceamento de carga, é necessário prestar atenção nas [marcações padrão](../virtual-network/virtual-networks-nsg.md#default-tags) e nas [regras padrão](../virtual-network/virtual-networks-nsg.md#default-rules).
+Às vezes, não é recomendável para uma VM poder criar um fluxo de saída ou pode haver um requisito para gerenciar quais destinos podem ser alcançados com fluxos de saída ou quais destinos podem iniciar fluxos de entrada. Nesse caso, você usa os [NSG (Grupos de Segurança de Rede)](../virtual-network/virtual-networks-nsg.md) para gerenciar os destinos que a VM pode acessar, além de qual destino público pode iniciar fluxos de entrada. Quando você aplica um NSG a uma VM com balanceamento de carga, é necessário prestar atenção nas [marcações padrão](../virtual-network/virtual-networks-nsg.md#default-tags) e nas [regras padrão](../virtual-network/virtual-networks-nsg.md#default-rules).
 
 Certifique-se de que a VM possa receber solicitações de investigação de integridade do Azure Load Balancer. Se um NSG bloquear solicitações de investigação de integridade da marcação padrão AZURE_LOADBALANCER, o teste de integridade da VM falhará e a VM será reduzida. O Balanceador de Carga interrompe o envio de novos fluxos para a VM.
+
+## <a name="snatexhaust"></a>Gerenciamento de esgotamento de SNAT
+
+Portas efêmeras usadas para SNAT são um recurso limitado conforme descrito em [VM autônoma sem endereço IP público de nível de instância](#standalone-vm-with-no-instance-level-public-ip-address) e [VM com balanceamento de carga sem endereço IP público de nível de instância](#standalone-vm-with-no-instance-level-public-ip-address).  
+
+Se você souber que iniciará muitas conexões de saída para o mesmo destino, se observar conexões de saída com falha ou se for avisado pelo suporte que está esgotando as portas SNAT, terá várias opções de mitigação geral.  Examine essas opções e decida qual é a melhor para seu cenário.  É possível que uma ou mais possam ajudar a gerenciar esse cenário.
+
+### <a name="assign-an-instance-level-public-ip-to-each-vm"></a>Atribua um IP público em nível de instância a cada VM
+Isso altera seu cenário para [IP público em nível de instância para uma VM](#vm-with-an-instance-level-public-ip-address-with-or-without-load-balancer).  Todas as portas efêmeras do IP público usado para cada VM estão disponíveis para a VM (diferentemente de cenários em que as portas efêmeras de um IP público são compartilhadas com todas as VMs associadas ao respectivo pool de back-end).
+
+### <a name="modify-application-to-use-connection-pooling"></a>Modificar o aplicativo para usar o pool de conexão
+Você pode reduzir a demanda de portas efêmeras usadas para SNAT usando o pool de conexão em seu aplicativo.  Fluxos adicionais para o mesmo destino consumirão portas adicionais.  Se você reutilizar o mesmo fluxo para várias solicitações, suas solicitações consumirão uma única porta.
+
+### <a name="modify-application-to-use-less-aggressive-retry-logic"></a>Modificar o aplicativo para usar uma lógica de repetição menos agressiva
+Você pode reduzir a demanda de portas efêmeras usando uma lógica de repetição menos agressiva.  Quando as portas efêmeras usadas para SNAT são esgotadas, repetições de força bruta ou agressivas sem lógica de declínio e retirada fazem com que o esgotamento continue.  Portas efêmeras têm um tempo limite de ociosidade de 4 minutos (não ajustável) e, se as repetições forem muito agressivas, o esgotamento não terá a oportunidade de limpar por conta própria.
 
 ## <a name="limitations"></a>Limitações
 
 Se [vários endereços IP (públicos) estão associados com um balanceador de carga](load-balancer-multivip-overview.md), qualquer desses endereços IP públicos são um candidato para fluxos de saída.
 
 O Azure usa um algoritmo para determinar o número de portas SNAT disponíveis com base no tamanho do pool.  Isso não é configurável no momento.
+
+Conexões de saída têm um tempo limite de ociosidade de 4 minutos.  Isso não pode ser ajustado.
 
 É importante lembrar que o número de portas SNAT disponíveis não se converte diretamente no número de conexões. Consulte acima para obter informações específicas sobre quando e como portas SNAT são alocadas e como gerenciar esse recurso esgotável.
