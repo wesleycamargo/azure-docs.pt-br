@@ -8,7 +8,6 @@
 ## [Ferramentas e recursos no Bash](features.md)
 ## [Ferramentas e recursos no PowerShell](features-powershell.md)
 ## [Limitações](limitations.md)
-## [Solução de problemas](troubleshooting.md)
 
 # Instruções
 ## [Armazenamento persistente no Bash](persisting-shell-storage.md)
@@ -16,6 +15,8 @@
 ## [Usando a janela](using-the-shell-window.md)
 
 # [Preços](pricing.md)
+
+# [Solução de problemas](troubleshooting.md)
 
 # Referência
 ## [CLI do Azure](/cli/azure)

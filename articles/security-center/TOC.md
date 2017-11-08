@@ -1,6 +1,5 @@
 # Visão geral
 ## [O que é a Central de Segurança do Azure?](security-center-intro.md)
-## [Obtenha insights com o Power BI](security-center-powerbi.md)
 ## [Segurança de dados](security-center-data-security.md)
 ## Cenários
 ### [Resposta a incidentes](security-center-incident-response.md)
