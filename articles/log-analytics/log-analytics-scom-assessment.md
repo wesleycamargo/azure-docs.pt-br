@@ -1,6 +1,6 @@
 ---
 title: Otimizar seu ambiente do System Center Operations Manager com o Azure Log Analytics | Microsoft Docs
-description: "Você pode usar a solução System Center Operations Manager Assessment para avaliar o risco e a integridade de seus ambientes do servidor em intervalos regulares."
+description: "Você pode usar a solução System Center Operations Manager Health Check para avaliar o risco e a integridade de seus ambientes em intervalos regulares."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/11/2017
-ms.author: banders
+ms.date: 10/27/2017
+ms.author: magoedte;banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4992d98397da409f7c1cfbdeb40fdb0cdd0d2f19
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3a66cc13d05c81de571e2710519ad9474304d656
+ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
-# <a name="optimize-your-environment-with-the-system-center-operations-manager-assessment-preview-solution"></a>Otimizar seu ambiente com a solução System Center Operations Manager Assessment (Prévia)
+# <a name="optimize-your-environment-with-the-system-center-operations-manager-health-check-preview-solution"></a>Otimizar seu ambiente com a solução System Center Operations Manager Health Check (Versão prévia)
 
-![Símbolo do Avaliação do System Center Operations Manager](./media/log-analytics-scom-assessment/scom-assessment-symbol.png)
+![Símbolo do System Center Operations Manager Health Check](./media/log-analytics-scom-assessment/scom-assessment-symbol.png)
 
-Você pode usar a solução System Center Operations Manager Assessment para avaliar o risco e a integridade de seus ambientes do servidor System Center Operations Manager em intervalos regulares. Este artigo ajuda você a instalar, configurar e usar a solução para que possa tomar ações corretivas para os problemas em potencial.
+Você pode usar a solução System Center Operations Health Check para avaliar o risco e a integridade de seu grupo de gerenciamento do System Center Operations Manager em intervalos regulares. Este artigo ajuda você a instalar, configurar e usar a solução para que possa tomar ações corretivas para os problemas em potencial.
 
 Esta solução fornece uma lista priorizada de recomendações específicas para sua infraestrutura de servidor implantado. As recomendações são categorizadas em quatro áreas de foco, que ajudam você a entender rapidamente o risco e a tomar uma ação corretiva.
 
@@ -33,69 +33,77 @@ As recomendações baseiam-se no conhecimento e na experiências obtidas pelos e
 
 Você pode escolher as áreas de foco que são mais importantes para sua organização e acompanhar seu progresso no sentido de executar um ambiente íntegro e sem riscos.
 
-Depois de adicionar a solução e uma avaliação ser concluída, as informações de resumo das áreas de foco são mostradas no painel **System Center Operations Manager Assessment** de sua infraestrutura. As seções a seguir descrevem como usar as informações no painel **System Center Operations Manager Assessment**, onde você pode exibir e executar as ações recomendadas de sua infraestrutura do SCOM.
+Depois de adicionar a solução e uma avaliação ser executada, as informações de resumo das áreas de foco são mostradas no painel **System Center Operations Manager Health Check** de sua infraestrutura. As seções a seguir descrevem como usar as informações no painel **System Center Operations Health Check**, onde você pode exibir e executar as ações recomendadas para seu ambiente do Operations Manager.
 
-![Bloco de solução do System Center Operations Manager](./media/log-analytics-scom-assessment/scom-tile.png)
+![Bloco de solução do System Center Operations Manager](./media/log-analytics-scom-assessment/log-analytics-scom-healthcheck-tile.png)
 
-![Painel do System Center Operations Manager Assessment](./media/log-analytics-scom-assessment/scom-dashboard01.png)
+![Painel do System Center Operations Manager Health Check](./media/log-analytics-scom-assessment/log-analytics-scom-healthcheck-dashboard-01.png)
 
 ## <a name="installing-and-configuring-the-solution"></a>Instalando e configurando a solução
 
-A solução funciona com o Microsoft System Operations Manager 2012 R2 e 2012 SP1.
+A solução funciona com o Microsoft System Operations Manager 2012 SP (Service Pack) 1 e 2012 R2.
 
 Use as informações a seguir para instalar e configurar a solução.
 
- - Antes de usar uma solução de avaliação no OMS, é necessário ter a solução instalada. Instale a solução do [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SCOMAssessmentOMS?tab=Overview) ou seguindo as instruções em [Adicionar soluções do Log Analytics por meio da Galeria de Soluções](log-analytics-add-solutions.md).
+ - Antes de usar a solução Health Check no Log Analytics, é necessário tê-la instalada. Instale a solução do [Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.SCOMAssessmentOMS?tab=Overview).
 
- - Após adicionar a solução ao espaço de trabalho, o bloco do System Center Operations Manager Assessment no painel exibirá a mensagem de configuração adicional necessária. Clique no bloco e siga as etapas de configuração mencionadas na página
+ - Após adicionar a solução ao espaço de trabalho, o bloco **System Center Operations Manager Health Check** no painel exibirá uma mensagem de configuração adicional necessária. Clique no bloco e siga as etapas de configuração mencionadas na página
 
  ![Bloco do painel do System Center Operations Manager](./media/log-analytics-scom-assessment/scom-configrequired-tile.png)
 
- A configuração do System Center Operations Manager pode ser feita por meio do script, seguindo as etapas mencionadas na página de configuração da solução no OMS.
+> [!NOTE]
+> A configuração do System Center Operations Manager pode ser feita usando um script, seguindo as etapas mencionadas na página de configuração da solução no Log Analytics.
 
- Como alternativa, para configurar a avaliação por meio do Console do SCOM, siga as etapas abaixo na mesma ordem
-1. [Definir como conta Executar como para o System Center Operations Manager Assessment](#operations-manager-run-as-accounts-for-oms)  
-2. [Configurar a regra do System Center Operations Manager Assessment](#configure-the-assessment-rule)
+ Para configurar a avaliação pelo console de operações do Operations Manager, execute as etapas abaixo na seguinte ordem:
+1. [Definir como conta Executar como para o System Center Operations Manager Health Check](#operations-manager-run-as-accounts-for-log-analytics)  
+2. [Configurar a regra do System Center Operations Manager Health Check](#configure-the-assessment-rule)
 
 ## <a name="system-center-operations-manager-assessment-data-collection-details"></a>Detalhes da coleta de dados de avaliação do System Center Operations Manager
 
-A avaliação do System Center Operations Manager coleta dados do WMI, dados de Registro, dados do Log de Eventos, dados do Operations Manager por meio do Windows PowerShell, Consultas SQL e coletor de Informações do Arquivo usando o servidor que você habilitou.
+A avaliação do System Center Operations Manager coleta dados das seguintes fontes: 
 
-A tabela a seguir mostra os métodos da coleta de dados do System Center Operations Manager Assessment e a frequência com a qual os dados são coletados por um agente.
+* Registro
+* WMI (Instrumentação de Gerenciamento do Windows)
+* Log de eventos
+* Dados de arquivo
+* Diretamente do Operations Manager usando o PowerShell e as consultas SQL, de um servidor de gerenciamento que você especificou.  
 
-| plataforma | Agente direto | Agente SCOM | Armazenamento do Azure | SCOM necessário? | Os dados do agente SCOM enviados por meio do grupo de gerenciamento | frequência de coleta |
-| --- | --- | --- | --- | --- | --- | --- |
-| Windows | | | | &#8226; | | sete dias |
+Os dados são coletados no servidor de gerenciamento e encaminhados para o Log Analytics a cada sete dias.  
 
-## <a name="operations-manager-run-as-accounts-for-oms"></a>Contas Executar como do Operations Manager para OMS
+## <a name="operations-manager-run-as-accounts-for-log-analytics"></a>Contas Executar como do Operations Manager para Log Analytics
 
-O OMS é criado com base nos pacotes de gerenciamento das cargas de trabalho para fornecer serviços com valor agregado. Cada carga de trabalho exige privilégios específicos da carga de trabalho para executar pacotes de gerenciamento em um contexto de segurança diferente, como uma conta de domínio. Configure uma conta Executar Como do Operations Manager para fornecer as informações de credenciais.
+O Log Analytics utiliza os pacotes de gerenciamento das cargas de trabalho para fornecer serviços com valor agregado. Cada carga de trabalho exige privilégios específicos da carga para executar pacotes de gerenciamento em um contexto de segurança diferente, como uma conta de usuário do domínio. Configure uma conta Executar como do Operations Manager com credenciais com privilégios. Para saber mais, confira [Como criar uma conta Executar como](https://technet.microsoft.com/library/hh321655(v=sc.12).aspx) na documentação do Operations Manager. 
 
-Use as informações a seguir para definir a conta executar como do Operations Manager para o System Center Operations Manager Assessment.
+Use as informações a seguir para definir a conta Executar como do Operations Manager para o System Center Operations Health Check.
 
 ### <a name="set-the-run-as-account"></a>Definir a conta Executar Como
 
-1. No Console do Operations Manager, vá para a guia **Administração**.
+Antes de tudo, a conta Executar como deve atender aos seguintes requisitos:
+
+* Uma conta de usuário de domínio que seja membro do grupo Administradores local em todos os servidores que deem suporte a funções do Operations Manager: servidor de gerenciamento, SQL Server que hospede servidores operacionais, data warehouse e banco de dados ACS, relatórios, console da Web e servidor de gateway.
+* Função de Administrador do Operation Manager para o grupo de gerenciamento que está sendo avaliado
+* Se a conta não tem direitos de sysadmin do SQL, execute o [script](#sql-script-to-grant-granular-permissions-to-the-run-as-account) para conceder permissões detalhadas para a conta em cada instância do SQL Server que hospeda um ou todos os bancos de dados do Operations Manager. 
+
+1. Abra o console do Operations Manager e selecione o botão de navegação **Administração**.
 2. Em **Configuração para Executar Como**, clique em **Contas**.
-3. Crie a Conta Executar Como, seguindo o Assistente, criando uma conta do Windows. A conta a usar é a identificada e tem todos os pré-requisitos abaixo:
+3. No assistente **Criar Conta Executar Como**, na página **Introdução**, clique em **Avançar**.
+4. Na página **Propriedades Gerais**, selecione **Windows** na lista **Tipo de Conta Executar Como:**.
+5. Digite um nome para exibição na caixa de texto **Nome de Exibição**; opcionalmente, digite uma descrição na caixa **Descrição** e clique em **Avançar**. 
+6. Na página **Segurança da Distribuição**, selecione **Mais seguro**.
+7. Clique em **Criar**.  
 
-    >[!NOTE]
-    A conta Executar Como deve atender aos seguintes requisitos:
-    - Um membro da conta de domínio do grupo local de Administradores em todos os servidores no ambiente (todas as funções do Operations Manager – Servidor de Gerenciamento, Banco de Dados do OpsMgr, Data Warehouse, Relatórios, Console Web, Gateway)
-    - Função de Administrador do Operation Manager para o grupo de gerenciamento que está sendo avaliado
-    - Execute o [script](#sql-script-to-grant-granular-permissions-to-the-run-as-account) para conceder permissões granulares à conta na instância do SQL usada pelo Operations Manager.
-      Observação: se essa conta já tiver direitos sysadmin, ignore a execução do script.
+Agora que a conta Executar como foi criada, ela precisa ser direcionada para servidores de gerenciamento no grupo de gerenciamento e ser associada a um perfil Executar como predefinido para que os fluxos de trabalho sejam executados usando as credenciais.  
 
-4. Em **Segurança da Distribuição**, selecione **Mais seguro**.
-5. Especifique o servidor de gerenciamento no qual a conta é distribuída.
-3. Volte para a Configuração para Executar Como e clique em **Perfis**.
+1. Em **Configuração Executar Como**, **Contas**, no painel de resultados, clique duas vezes na conta criada anteriormente.
+2. Na guia **Distribuição**, clique em **Adicionar** na caixa **Computadores selecionados** e adicione o servidor de gerenciamento onde a conta deve ser distribuída.  Clique em **OK** duas vezes para salvar as alterações.
+3. Em **Configuração Executar Como**, clique em **Perfis**. 
 4. Pesquise o *Perfil de Avaliação do SCOM*.
 5. O nome do perfil deve ser: *Perfil para Executar Como do Microsoft System Center Advisor SCOM Assessment*.
-6. Clique com botão direito, atualize suas propriedades e adicione a Conta para Executar Como criada recentemente na etapa 3.
+6. Clique com botão direito, atualize suas propriedades e adicione a Conta Executar como criada recentemente.
 
 ### <a name="sql-script-to-grant-granular-permissions-to-the-run-as-account"></a>Script SQL para conceder permissões granulares à conta Executar Como
 
-Execute o seguinte script SQL para conceder as permissões necessárias para a conta Executar Como na instância do SQL usada pelo Operations Manager.
+Execute o seguinte script SQL para conceder as permissões necessárias para a conta Executar como na instância do SQL Server usada pelo Operations Manager que hospeda o banco de dados operacional, o banco de dados ACS e o data warehouse.
 
 ```
 -- Replace <UserName> with the actual user name being used as Run As Account.
@@ -143,34 +151,32 @@ ALTER ROLE [db_owner] ADD MEMBER [UserName]
 
 ```
 
+### <a name="configure-the-health-check-rule"></a>Configurar a regra de verificação de integridade
 
-### <a name="configure-the-assessment-rule"></a>Configurar a regra de avaliação
+O pacote de gerenciamento da solução System Center Operations Health Check inclui uma regra denominada *Regra de Avaliação da Execução do Microsoft System Center Advisor SCOM Assessment*. Essa regra é responsável por executar a verificação de integridade. Para habilitar a regra e configurar a frequência, use os procedimentos a seguir.
 
-O pacote de gerenciamento da solução System Center Operations Manager Assessment inclui uma regra denominada *Regra de Avaliação da Execução do Microsoft System Center Advisor SCOM Assessment*. Essa regra é responsável por executar a avaliação. Para habilitar a regra e configurar a frequência, use os procedimentos a seguir.
-
-Por padrão, a Regra de Avaliação da Execução do Microsoft System Center Advisor SCOM Assessment está desabilitada. Para executar a avaliação, você deve habilitar a regra em um servidor de gerenciamento. Use as etapas a seguir.
+Por padrão, a Regra de Avaliação da Execução do Microsoft System Center Advisor SCOM Assessment está desabilitada. Para executar a verificação de integridade, você deve habilitar a regra em um servidor de gerenciamento. Use as etapas a seguir.
 
 #### <a name="enable-the-rule-for-a-specific-management-server"></a>Habilitar a regra para um servidor de gerenciamento específico
 
-1. No espaço de trabalho **Criação** do console do Operations Manager, pesquise a regra *Regra de Avaliação da Execução do Microsoft System Center Advisor SCOM Assessment* no painel **Regras**.
+1. No espaço de trabalho **Criação** do console Operações do Operations Manager, pesquise a *Regra de Avaliação da Execução do Microsoft System Center Advisor SCOM Assessment* no painel **Regras**.
 2. Nos resultados da pesquisa, selecione aquela que inclui o texto *Tipo: Servidor de Gerenciamento*.
 3. Clique com o botão direito na regra, em seguida, clique em **Substituições** > **Para um objeto específico da classe: Servidor de Gerenciamento**.
-4.  Na lista de servidores de gerenciamento disponíveis, selecione o servidor de gerenciamento no qual a regra deve ser executada.
-5.  Verifique se você alterou o valor de substituição para **True** para o valor do parâmetro **Habilitado**.  
-    ![parâmetro de substituição](./media/log-analytics-scom-assessment/rule.png)
+4.  Na lista de servidores de gerenciamento disponíveis, selecione o servidor de gerenciamento no qual a regra deve ser executada.  Ele deve ser o mesmo servidor de gerenciamento configurado anteriormente para associar a conta Executar como.
+5.  Verifique se você alterou o valor de substituição para **True** para o valor do parâmetro **Habilitado**.<br><br> ![parâmetro de substituição](./media/log-analytics-scom-assessment/rule.png)
 
-Ainda nessa janela, configure a frequência da execução usando o procedimento a seguir.
+    Ainda nessa janela, configure a frequência da execução usando o procedimento a seguir.
 
 #### <a name="configure-the-run-frequency"></a>Configurar a frequência da execução
 
-A avaliação está configurada para ser executada a cada 10.080 minutos (ou sete dias), o intervalo padrão. Você pode substituir o valor por um valor mínimo de 1.440 minutos (ou um dia). O valor representa o intervalo de tempo mínimo necessário entre as execuções sucessivas da avaliação. Para substituir o intervalo, use as etapas a seguir.
+A avaliação está configurada para ser executada a cada 10.080 minutos (ou sete dias) por padrão. Você pode substituir o valor por um valor mínimo de 1.440 minutos (ou um dia). O valor representa o intervalo de tempo mínimo necessário entre as execuções sucessivas da avaliação. Para substituir o intervalo, use as etapas a seguir.
 
-1. No espaço de trabalho **Criação** do console do Operations Manager, pesquise a regra *Regra de Avaliação da Execução do Microsoft System Center Advisor SCOM Assessment* no painel **Regras**.
+1. No espaço de trabalho **Criação** do console do Operations Manager, pesquise a *Regra de Avaliação da Execução do Microsoft System Center Advisor SCOM Assessment* na seção **Regras**.
 2. Nos resultados da pesquisa, selecione aquela que inclui o texto *Tipo: Servidor de Gerenciamento*.
 3. Clique com o botão direito na regra, em seguida, clique em **Substituir a Regra** > **Para todos os objetos da classe: Servidor de Gerenciamento**.
-4. Altere o valor do parâmetro **Intervalo** para o valor de intervalo desejado. No exemplo a seguir, o valor é definido para 1.440 minutos (um dia).  
-    ![parâmetro do intervalo](./media/log-analytics-scom-assessment/interval.png)  
-    Se o valor for definido para menos de 1.440 minutos, a regra será executada em um intervalo de um dia. Neste exemplo, a regra ignora o valor do intervalo e é executada com uma frequência de um dia.
+4. Altere o valor do parâmetro **Intervalo** para o valor de intervalo desejado. No exemplo a seguir, o valor é definido para 1.440 minutos (um dia).<br><br> ![parâmetro do intervalo](./media/log-analytics-scom-assessment/interval.png)<br>  
+
+    Se o valor for definido para menos de 1440 minutos, a regra será executada em um intervalo de um dia. Neste exemplo, a regra ignora o valor do intervalo e é executada com uma frequência de um dia.
 
 
 ## <a name="understanding-how-recommendations-are-prioritized"></a>Compreendendo como as recomendações são priorizadas
@@ -203,84 +209,94 @@ Não necessariamente. As recomendações baseiam-se no conhecimento e nas experi
 
 Cada recomendação inclui diretrizes sobre sua importância. Você deve usar essas diretrizes para avaliar se é adequado implementar a recomendação, considerando a natureza de seus serviços de TI e as necessidades comerciais de sua organização.
 
-## <a name="use-assessment-focus-area-recommendations"></a>Use as recomendações de área de foco de avaliação
+## <a name="use-health-check-focus-area-recommendations"></a>Usar as recomendações da área de foco da Verificação da Integridade
 
-Antes de usar uma solução de avaliação no OMS, é necessário ter a solução instalada. Para ler mais sobre como instalar as soluções, confira [Adicionar soluções do Log Analytics por meio da Galeria de Soluções](log-analytics-add-solutions.md). Após a instalação, você pode exibir o resumo das recomendações usando o bloco System Center Operations Manager Assessment na página Visão Geral do OMS.
+Antes de usar a solução Health Check no Log Analytics, é necessário tê-la instalada. Para ler mais sobre como instalar as soluções, confira [Adicionar soluções do Log Analytics por meio da Galeria de Soluções](log-analytics-add-solutions.md). Após a instalação, você pode exibir o resumo das recomendações usando o bloco System Center Operations Manager Health Check na página Visão Geral do portal do OMS.
 
 Veja as avaliações de conformidade resumidas para sua infraestrutura e faça uma busca detalhada das recomendações.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Para exibir as recomendações para uma área de foco e tomar uma ação corretiva
-
-1. Na página **Visão Geral**, clique no bloco **System Center Operations Manager Assessment**.
-2. Na página **System Center Operations Manager Assessment**, analise as informações de resumo em uma das folhas da área de foco e clique em uma para exibir as recomendações dessa área de foco.
-3. Em qualquer uma das páginas da área de foco, você pode exibir as recomendações priorizadas para seu ambiente. Clique em uma recomendação sob **Objetos Afetados** para exibir detalhes sobre o motivo pelo qual a recomendação foi feita.  
-    ![área de foco](./media/log-analytics-scom-assessment/focus-area.png)
-4. É possível executar as ações corretivas sugeridas em **Ações Sugeridas**. Quando o item tiver sido resolvido, avaliações posteriores gravarão que essas ações recomendadas foram executadas e sua pontuação de conformidade aumentará. Os itens corrigido aparecem como **Objetos Passados**.
+1. Faça logon no portal do Azure em [https://portal.azure.com](https://portal.azure.com). 
+2. No portal do Azure, clique em **Mais serviços** encontrado no canto inferior esquerdo. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Log Analytics**.
+3. No painel de assinaturas do Log Analytics, selecione um espaço de trabalho e clique no bloco **Portal do OMS**.  
+4. Na página **Visão Geral**, clique no bloco **System Center Operations Manager Health Check**.
+5. Na página **System Center Operations Manager Health Check**, analise as informações de resumo em uma das folhas da área de foco e clique em uma para exibir as recomendações dessa área de foco.
+6. Em qualquer uma das páginas da área de foco, você pode exibir as recomendações priorizadas para seu ambiente. Clique em uma recomendação sob **Objetos Afetados** para exibir detalhes sobre o motivo pelo qual a recomendação foi feita.<br><br> ![área de foco](./media/log-analytics-scom-assessment/log-analytics-scom-healthcheck-dashboard-02.png)<br>
+7. É possível executar as ações corretivas sugeridas em **Ações Sugeridas**. Quando o item tiver sido resolvido, avaliações posteriores gravarão que essas ações recomendadas foram executadas e sua pontuação de conformidade aumentará. Os itens corrigido aparecem como **Objetos Passados**.
 
 ## <a name="ignore-recommendations"></a>Ignorar as recomendações
 
-Se houver recomendações que você deseja ignorar, poderá criar um arquivo de texto que será usado pelo OMS para impedir que as recomendações sejam exibidas nos resultados da avaliação.
+Se houver recomendações que você deseja ignorar, poderá criar um arquivo de texto que é usado pelo Log Analytics para impedir que as recomendações sejam exibidas nos resultados da avaliação.
 
 [!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ### <a name="to-identify-recommendations-that-you-want-to-ignore"></a>Para identificar as recomendações que você deseja ignorar
-
-1. Entre em seu espaço de trabalho e abra a Pesquisa de Log. Use a consulta a seguir para listar as recomendações que falharam para os computadores em seu ambiente.
+1. No portal do Azure, na página do espaço de trabalho Log Analytics de seu espaço de trabalho selecionado, clique no bloco **Pesquisa de Log**.
+2. Use a consulta a seguir para listar as recomendações que falharam para os computadores em seu ambiente.
 
     ```
-    Type=SCOMAssessmentRecommendationRecommendationResult=Failed | select  Computer, RecommendationId, Recommendation | sort  Computer
+    Type=SCOMAssessmentRecommendationRecommendationResult=Failed | select Computer, RecommendationId, Recommendation | sort Computer
     ```
 
-    Esta é uma captura de tela mostrando a consulta da Pesquisa de Log:   
-    ![pesquisa do log](./media/log-analytics-scom-assessment/scom-log-search.png)
+    >[!NOTE]
+    > Se o seu espaço de trabalho fosse atualizado para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), a consulta acima seria alterada para o demonstrado a seguir.
+    >
+    > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
 
-2. Escolha as recomendações que você deseja ignorar. Você usará os valores para RecommendationId no próximo procedimento.
+    Esta é uma captura de tela mostrando a consulta da Pesquisa de Log: <br><br> ![pesquisa do log](./media/log-analytics-scom-assessment/scom-log-search.png)<br>
+
+3. Escolha as recomendações que você deseja ignorar. Você usará os valores para RecommendationId no próximo procedimento.
 
 ### <a name="to-create-and-use-an-ignorerecommendationstxt-text-file"></a>Criar e usar um arquivo de texto IgnoreRecommendations.txt
 
 1. Crie um arquivo chamado IgnoreRecommendations.txt.
-2. Cole ou digite cada RecommendationId para cada recomendação que você deseja que o OMS ignore em uma linha separada, salve e feche o arquivo.
-3. Coloque o arquivo na pasta a seguir em cada computador no qual você deseja que o OMS ignore as recomendações.
+2. Cole ou digite a RecommendationId de cada recomendação que você deseja que o Log Analytics ignore em uma linha separada e, em seguida, salve e feche o arquivo.
+3. Coloque o arquivo na pasta a seguir em cada computador no qual você deseja que o Log Analytics ignore as recomendações.
 4. No servidor de gerenciamento do Operations Manager - *SystemDrive*:\Arquivos de Programa\Microsoft System Center 2012 R2\Operations Manager\Server.
 
 ### <a name="to-verify-that-recommendations-are-ignored"></a>Para verificar se as recomendações são ignoradas
 
-1. Após a execução da próxima avaliação agendada, por padrão, a cada sete dias, as recomendações especificadas são marcadas como Ignoradas e não aparecerão no painel de avaliação.
+1. Após a execução da próxima avaliação agendada, por padrão, a cada sete dias, as recomendações especificadas são marcadas como Ignoradas e não aparecerão no painel de verificação de integridade.
 2. É possível usar as consultas da Pesquisa de Log a seguir para listar todas as recomendações ignoradas.
 
     ```
     Type=SCOMAssessmentRecommendationRecommendationResult=Ignored | select  Computer, RecommendationId, Recommendation | sort  Computer
     ```
 
+    >[!NOTE]
+    > Se o seu espaço de trabalho fosse atualizado para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), a consulta acima seria alterada para o demonstrado a seguir.
+    >
+    > `SCOMAssessmentRecommendationRecommendation | where RecommendationResult == "Ignore" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
+
 3. Se você decidir posteriormente que deseja ver as recomendações ignoradas, remova todos os arquivos IgnoreRecommendations.txt ou remova as RecommendationIDs deles.
 
-## <a name="system-center-operations-manager-assessment-solution-faq"></a>Perguntas frequentes da solução System Center Operations Manager Assessment
+## <a name="system-center-operations-manager-health-check-solution-faq"></a>Perguntas frequentes sobre a solução System Center Operations Manager Health Check
 
-*Adicionei a solução de avaliação ao meu espaço de trabalho do OMS. Contudo, não estou vendo as recomendações. Por que não?* Depois de adicionar a solução, use as etapas a seguir para exibir as recomendações no painel do OMS.  
+*Adicionei a solução Health Check ao meu espaço de trabalho do Log Analytics. Contudo, não estou vendo as recomendações. Por que não?* Depois de adicionar a solução, use as etapas a seguir para exibir as recomendações no painel do Log Analytics.  
 
-- [Definir como conta Executar como para o System Center Operations Manager Assessment](#operations-manager-run-as-accounts-for-oms)  
-- [Configurar a regra do System Center Operations Manager Assessment](#configure-the-assessment-rule)
+- [Definir como conta Executar como para o System Center Operations Manager Health Check](#operations-manager-run-as-accounts-for-log-analytics)  
+- [Configurar a regra do System Center Operations Manager Health Check](#configure-the-health-check-rule)
 
 
-*Há uma maneira de configurar a frequência com que a avaliação é executada?* Sim. Consulte [Configurar a frequência de execução](#configure-the-run-frequency).
+*Existe alguma maneira de configurar a frequência de execução da verificação?* Sim. Consulte [Configurar a frequência de execução](#configure-the-run-frequency).
 
-*Se outro servidor for descoberto após eu ter adicionado uma solução System Center Operations Manager Assessment, ele será avaliado?* Sim, após a descoberta, ele será avaliado deste ponto em diante – por padrão, a cada sete dias.
+*Se outro servidor for descoberto após eu ter adicionado uma solução Avaliação do System Center Operations Manager, ele será verificado?* Sim, após a descoberta, ele será verificado deste ponto em diante; por padrão, a cada sete dias.
 
 *Qual é o nome do processo que faz a coleta de dados?* AdvisorAssessment.exe
 
-*Onde é executado o processo do AdvisorAssessment.exe?* O AdvisorAssessment.exe é executado no Serviço de Integridade do servidor de gerenciamento onde a regra de avaliação está habilitada. Usando esse processo, a descoberta de todo o ambiente é obtida por meio da coleta de dados remota.
+*Onde é executado o processo do AdvisorAssessment.exe?* O AdvisorAssessment.exe é executado no processo HealthService do servidor de gerenciamento onde a regra de verificação de integridade está habilitada. Usando esse processo, a descoberta de todo o ambiente é obtida por meio da coleta de dados remota.
 
 *Quanto tempo leva para a coleta dos dados?* A coleta dos dados no servidor leva cerca de uma hora. Pode levar mais tempo nos ambientes com muitas instâncias do Operations Manager ou bancos de dados.
 
 *E se eu definir o intervalo da avaliação para menos de 1.440 minutos?* A avaliação será pré-configurada para executar no máximo uma vez por dia. Se você substituir o valor do intervalo por um valor inferior a 1.440 minutos, a avaliação usará 1.440 minutos como o valor do intervalo.
 
-*Como saber se há falhas de pré-requisito?* Se a avaliação foi executada e você não vir os resultados, é provável que alguns dos pré-requisitos da avaliação falharam. Você pode executar as consultas: `Type=Operation Solution=SCOMAssessment` e `Type=SCOMAssessmentRecommendation FocusArea=Prerequisites` na Pesquisa do Log para ver os pré-requisitos com falha.
+*Como saber se há falhas de pré-requisito?* Se a verificação de integridade foi executada e você não vê os resultados, é provável que alguns dos pré-requisitos para a verificação tenham falhado. Você pode executar as consultas: `Operation Solution=SCOMAssessment` e `SCOMAssessmentRecommendation FocusArea=Prerequisites` na Pesquisa de Logs para ver os pré-requisitos com falha.
 
-*Há uma `Failed to connect to the SQL Instance (….).` mensagem nas falhas do pré-requisito. Qual é o problema?* O AdvisorAssessment.exe, o processo que coleta dados, é executado no Serviço de Integridade do servidor de gerenciamento. Como parte da avaliação, o processo tenta conectar o SQL Server onde o banco de dados do Operations Manager está presente. Esse erro pode ocorrer quando as regras de firewall bloqueiam a conexão com a instância do SQL Server.
+*Há uma mensagem `Failed to connect to the SQL Instance (….).` nas falhas de pré-requisito. Qual é o problema?* O AdvisorAssessment.exe, o processo que coleta dados, é executado no processo HealthService do servidor de gerenciamento. Como parte da verificação de integridade, o processo tenta conectar o SQL Server onde o banco de dados do Operations Manager está presente. Esse erro pode ocorrer quando as regras de firewall bloqueiam a conexão com a instância do SQL Server.
 
 *Que tipo de dados é coletado?* Os seguintes tipos de dados são coletados: - dados WMI - Dados de registro - dados do Log de Eventos - dados do Operations Manager por meio do Windows PowerShell, Consultas SQL e Coletor de informações do arquivo.
 
-*Por que é necessário configurar uma conta Executar como?* Para um servidor do Operations Manager, são executadas várias consultas SQL. Para executá-las, você deve usar uma Conta para Executar Como com as permissões necessárias. Além disso, as credenciais do administrador local são necessárias para a consulta WMI.
+*Por que é necessário configurar uma conta Executar como?* Com o Operations Manager, várias consultas SQL são executadas. Para executá-las, você deve usar uma Conta para Executar Como com as permissões necessárias. Além disso, as credenciais do administrador local são necessárias para a consulta WMI.
 
 *Por que apenas as 10 principais recomendações são exibidas?* Em vez de apresentar uma lista enorme e cansativa de tarefas, é recomendável que você se concentre em endereçar as recomendações priorizadas primeiro. Depois de tratar dessas recomendações, recomendações adicionais serão disponibilizadas. Se você preferir ver a lista detalhada, poderá ver todas as recomendações usando a Pesquisa de Log.
 
@@ -289,4 +305,4 @@ Se houver recomendações que você deseja ignorar, poderá criar um arquivo de 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Pesquise os logs](log-analytics-log-searches.md) para exibir dados detalhados e recomendações do System Center Operations Manager Assessment.
+- [Pesquisar logs](log-analytics-log-searches.md) para aprender como analisar dados detalhados e recomendações do System Center Operations Manager Health Check.
