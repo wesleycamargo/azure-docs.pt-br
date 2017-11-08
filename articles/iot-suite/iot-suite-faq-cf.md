@@ -1,5 +1,5 @@
 ---
-title: "Perguntas frequentes sobre a fábrica conectada do Azure IoT Suite | Microsoft Docs"
+title: "Perguntas frequentes da solução de fábrica conectada – Azure | Microsoft Docs"
 description: "Perguntas frequentes sobre a fábrica conectada do IoT Suite"
 services: 
 suite: iot-suite
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: corywink
-ms.openlocfilehash: babd39d5e2f290d9e3f7fc3a232937c6ccfc85c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1f0d6fb377c21f5ece77a878fd285b5dda2f4fbc
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="frequently-asked-questions-for-iot-suite-connected-factory-preconfigured-solution"></a>Perguntas frequentes sobre a solução pré-configurada de fábrica conectada do IoT Suite
 

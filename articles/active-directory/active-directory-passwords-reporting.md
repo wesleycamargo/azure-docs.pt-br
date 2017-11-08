@@ -13,18 +13,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 10963ab0b84b48c35df3022649363bbc8fc112a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5b28e15d643497dbdf827b3976ad7dcdc73507b1
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opções de relatórios para o gerenciamento de senhas do Azure AD
 
 Após a implantação, muitas organizações desejam saber como ou se o SSPR realmente está sendo usado. O Azure AD fornece recursos de relatórios que ajudam você a responder perguntas usando relatórios definidos e, caso você esteja licenciado de forma adequada, permitem que você crie consultas personalizadas.
+
+![Relatórios][Reporting]
 
 As perguntas a seguir podem ser respondidas pelos relatórios existentes no [portal do Azure] (https://portal.azure.com/).
 
@@ -39,6 +41,10 @@ As perguntas a seguir podem ser respondidas pelos relatórios existentes no [por
 * Quais são os problemas comuns que os usuários ou administradores enfrentam ao tentar usar a redefinição de senhas?
 * Quais administradores estão redefinindo suas próprias senhas com frequência?
 * Há qualquer atividade suspeita acontecendo na redefinição de senhas?
+
+## <a name="power-bi-content-pack"></a>Pacotes de conteúdo do Power BI
+
+Se você for um usuário do Power BI há um pacote de conteúdo do Azure AD que inclui relatórios fáceis de usar para SSPR. Encontre mais informações sobre como usar e implantar o pacote de conteúdo no artigo [Como usar o pacote de conteúdo do Power BI do Azure Active Directory](active-directory-reporting-power-bi-content-pack-how-to.md). Em seguida, você pode criar seus próprios painéis e compartilhá-los com outras pessoas em sua organização.
 
 ## <a name="how-to-view-password-management-reports-in-the-azure-portal"></a>Como exibir relatórios de gerenciamento de senhas no portal do Azure
 
@@ -94,77 +100,6 @@ A tabela a seguir descreve os diferentes valores permitidos para cada coluna:
 | Coluna | Valores permitidos e seus significados |
 | --- | --- |
 | Dados Registrados |**Email Alternativo** – email alternativo ou email de autenticação usado pelo usuário para se autenticar<p><p>**Telefone Comercial**– telefone comercial usado pelo usuário para se autenticar<p>**Celular** - celular ou telefone de autenticação usado pelo usuário para se autenticar<p>**Perguntas de Segurança** – perguntas de segurança usadas pelo usuário para se autenticar<p>**Qualquer combinação dos itens acima (por exemplo, Email Alternativo + Telefone Celular)** – ocorre quando uma política de 2 portas é especificada e mostra quais dos dois métodos o usuário utilizou para autenticar sua solicitação de redefinição de senha. |
-
-## <a name="view-password-reset-activity-in-the-classic-portal"></a>Exibir atividade de redefinição de senha no portal clássico
-
-Esse relatório mostra todas as tentativas de redefinição de senha que ocorreram na sua organização.
-
-* **Intervalo de tempo máximo**: 30 dias
-* **Número máximo de linhas**: 75.000
-* **Baixável**: sim, por meio de arquivo CSV
-
-### <a name="description-of-report-columns-in-azure-classic-portal"></a>Descrição das colunas do relatório no portal clássico do Azure
-
-A lista a seguir explica cada uma das colunas do relatório em detalhes:
-
-1. **Usuário** – o usuário que tentou uma operação de redefinição de senha (com base no campo ID de Usuário fornecido quando o usuário redefine uma senha).
-2. **Função** – a função do usuário no diretório.
-3. **Data e hora** – a data e a hora da tentativa.
-4. **Métodos Usados** – quais métodos de autenticação de usuário usou para essa operação de redefinição.
-5. **Resultado** – o resultado da operação de redefinição de senha.
-6. **Detalhes** – os detalhes do motivo pelo qual a redefinição de senha resultou no valor obtido.  Também inclui as etapas de atenuação que você pode tomar para resolver um erro inesperado.
-
-### <a name="description-of-report-values-in-azure-classic-portal"></a>Descrição dos valores do relatório no portal clássico do Azure
-
-A tabela a seguir descreve os diferentes valores permitidos para cada coluna:
-
-| Coluna | Valores permitidos e seus significados |
-| --- | --- |
-| Métodos usados |**Email Alternativo** – email alternativo ou email de autenticação usado pelo usuário para se autenticar<p>**Telefone Comercial** – telefone comercial usado pelo usuário para se autenticar<p>**Celular** – celular ou telefone de autenticação usado pelo usuário para se autenticar<p>**Perguntas de Segurança** – perguntas de segurança usadas pelo usuário para se autenticar<p>**Qualquer combinação dos itens acima (por exemplo, Email Alternativo + Telefone Celular)** – ocorre quando uma política de 2 portas é especificada e mostra quais dos dois métodos o usuário utilizou para autenticar sua solicitação de redefinição de senha. |
-| Result |**Abandonado** – redefinição de senha iniciada pelo usuário mas, em seguida, interrompida pela metade sem ser concluída<p>**Bloqueado** – a conta do usuário foi impedida de usar a redefinição de senha devido à tentativa de usar a página de redefinição de senha ou uma porta única de redefinição de senha muitas vezes em um período de 24 horas<p>**Cancelado** – redefinição de senha iniciada pelo usuário, mas com um clique no botão Cancelar para cancelar a sessão pela metade <p>**Administrador Contatado** – o usuário teve um problema durante a sessão que ele não pôde resolver, assim, o usuário clicou no link "Entre em contato com seu administrador" em vez de concluir o fluxo de redefinição de senha<p>**Com Falha** – o usuário não pôde redefinir uma senha, provavelmente porque ele não foi configurado para usar o recurso (por exemplo, sem licença, informações de autenticação ausentes, local gerenciado por senha, mas com write-back desativado).<p>**Bem-sucedida** – a redefinição de senha foi bem-sucedida. |
-| Detalhes |Consulte a tabela abaixo. |
-
-### <a name="allowed-values-for-details-column"></a>Valores permitidos para a coluna de detalhes
-
-Abaixo está a lista de tipos de resultado que você pode esperar ao usar o relatório de atividade de redefinição de senha:
-
-| Detalhes | Tipo de resultado |
-| --- | --- |
-| Abandonado pelo usuário depois de concluir a opção de verificação de email |Abandonado |
-| Abandonado pelo usuário depois de concluir a opção de verificação de SMS móvel |Abandonado |
-| Abandonado pelo usuário depois de concluir a opção de verificação de chamada de voz móvel |Abandonado |
-| Abandonado pelo usuário depois de concluir a opção de verificação de chamada de voz comercial |Abandonado |
-| Abandonado pelo usuário depois de concluir a opção de perguntas de segurança |Abandonado |
-| Abandonado pelo usuário depois de inserir sua ID de usuário |Abandonado |
-| Abandonado pelo usuário depois de iniciar a opção de verificação de email |Abandonado |
-| Abandonado pelo usuário depois de iniciar a opção de verificação de SMS móvel |Abandonado |
-| Abandonado pelo usuário depois de iniciar a opção de verificação de chamada de voz móvel |Abandonado |
-| Abandonado pelo usuário depois de iniciar a opção de verificação de chamada de voz comercial |Abandonado |
-| Abandonado pelo usuário depois de iniciar a opção de perguntas de segurança |Abandonado |
-| Abandonado pelo usuário antes de selecionar uma nova senha |Abandonado |
-| Abandonado pelo usuário ao selecionar uma nova senha |Abandonado |
-| O usuário inseriu muitos códigos de verificação de SMS inválidos e está bloqueado para 24 horas |Bloqueado |
-| O usuário tentou muitas vezes a verificação de voz por telefone celular e está bloqueado por 24 horas |Bloqueado |
-| O usuário tentou muitas vezes a verificação de voz comercial e está bloqueado por 24 horas |Bloqueado |
-| O usuário tentou responder às perguntas de segurança muitas vezes e está bloqueado por 24 horas |Bloqueado |
-| O usuário tentou verificar um número de telefone muitas vezes e está bloqueado por 24 horas |Bloqueado |
-| O usuário fez o cancelamento antes de passar pelos métodos de autenticação obrigatórios |Cancelado |
-| O usuário fez o cancelamento antes de enviar uma nova senha |Cancelado |
-| O usuário contatou um administrador depois de tentar a opção de verificação de email |Administrador contatado |
-| O usuário contatou um administrador depois de tentar a opção de verificação de SMS móvel |Administrador contatado |
-| O usuário contatou um administrador depois de tentar a opção de verificação de chamada de voz móvel |Administrador contatado |
-| O usuário contatou um administrador depois de tentar a opção de verificação de chamada de voz comercial |Administrador contatado |
-| O usuário contatou um administrador depois de tentar a opção de verificação de pergunta de segurança |Administrador contatado |
-| A redefinição de senha não está habilitada para este usuário. Habilite a redefinição de senha na guia Configurar para resolver o problema |Falha |
-| O usuário não tem uma licença. Você pode adicionar uma licença para o usuário para resolver o problema |Falha |
-| O usuário tentou redefinir em um dispositivo sem cookies habilitados |Falha |
-| A conta do usuário tem métodos de autenticação insuficiente definidos. Adicione informações de autenticação para resolver esse problema |Falha |
-| A senha do usuário é gerenciada localmente. Você pode habilitar o Write-back de Senha para resolver o problema |Falha |
-| Não foi possível acessar o serviço de redefinição de senha no local. Verifique o log de eventos de seu computador de sincronização |Falha |
-| Encontramos um problema durante a redefinição de senha local do usuário. Verifique o log de eventos de seu computador de sincronização |Falha |
-| Este usuário não é membro do grupo de usuários de redefinição de senha. Adicione esse usuário ao grupo para resolver o problema. |Falha |
-| A redefinição de senha foi desabilitada inteiramente para este locatário. Confira [aqui](http://aka.ms/ssprtroubleshoot) para resolver isto. |Falha |
-| O usuário redefiniu a senha com êxito |Bem-sucedido |
 
 ## <a name="self-service-password-management-activity-types"></a>Tipos de atividades de Gerenciamento de Senha de autoatendimento
 
@@ -263,15 +198,16 @@ A seguinte lista explica essa atividade em detalhes:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Os links a seguir fornecem mais informações sobre a redefinição de senha com o Azure AD
+* [Como concluir uma implementação do SSPR com êxito?](active-directory-passwords-best-practices.md)
+* [Redefinir ou alterar sua senha](active-directory-passwords-update-your-own-password.md).
+* [Registro para redefinição de senha de autoatendimento](active-directory-passwords-reset-register.md).
+* [Você tem uma pergunta sobre licenciamento?](active-directory-passwords-licensing.md)
+* [Quais dados são usados pelo SSPR e quais dados você deve preencher para seus usuários?](active-directory-passwords-data.md)
+* [Quais métodos de autenticação estão disponíveis para os usuários?](active-directory-passwords-how-it-works.md#authentication-methods)
+* [Quais são as opções de política com o SSPR?](active-directory-passwords-policy.md)
+* [O que é o write-back de senha e por que devo me importar com isso?](active-directory-passwords-writeback.md)
+* [Quais são todas as opções no SSPR e o que elas significam?](active-directory-passwords-how-it-works.md)
+* [Acho que algo não está funcionando. Como faço para solucionar o problema no SSPR?](active-directory-passwords-troubleshoot.md)
+* [Tenho uma pergunta que não foi respondida em nenhum lugar](active-directory-passwords-faq.md)
 
-* [Atalho para logs de auditoria do gerenciamento de usuários](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/Audit) – acesse diretamente os logs de auditoria do gerenciamento de usuários do locatário
-* [**Início Rápido**](active-directory-passwords-getting-started.md) – comece agora mesmo a usar o gerenciamento de senhas de autoatendimento do Azure AD 
-* [**Licenciamento**](active-directory-passwords-licensing.md): configure o licenciamento do Azure AD
-* [**Dados**](active-directory-passwords-data.md): entenda os dados que são necessários e como eles são usados para o gerenciamento de senhas
-* [**Distribuição**](active-directory-passwords-best-practices.md): planeje e implante o SSPR para seus usuários usando as diretrizes descritas aqui
-* [**Personalizar**](active-directory-passwords-customize.md) – personalize a aparência da experiência do SSPR em sua empresa.
-* [**Aprofundamento Técnico**](active-directory-passwords-how-it-works.md) – vá para os bastidores para entender como ele funciona
-* [**Perguntas frequentes**](active-directory-passwords-faq.md): como? Por quê? O quê? Onde? Quem? Quando? – respostas para perguntas que você sempre quis fazer
-* [**Resolver problemas**](active-directory-passwords-troubleshoot.md) – saiba como resolver problemas comuns encontrados no SSPR
-* [**Política**](active-directory-passwords-policy.md) – entenda e defina políticas de senha do Azure AD
+[Reporting]: ./media/active-directory-passwords-reporting/sspr-reporting.png "Exemplo de logs de auditoria da atividade de SSPR no Azure AD"

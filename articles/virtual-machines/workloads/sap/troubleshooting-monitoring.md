@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/01/2016
+ms.date: 10/31/2016
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ee5be707b443cbe42bf4a492d79390e534d4b91f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5583f3d1949614dbba4d2f91d72e4ac6b4d03d1c
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="how-to-troubleshoot-and-monitor-sap-hana-large-instances-on-azure"></a>Como solucionar problemas e monitorar o SAP HANA (instâncias grandes) no Azure
 
@@ -41,6 +41,16 @@ Assim como ocorre com as Máquinas Virtuais do Azure, você precisa descobrir se
 **Largura de banda de rede:** o gateway de VNet do Azure tem uma limitação de largura de banda para dados em movimentação para a VNet do Azure, portanto, é útil monitorar os dados recebidos por todas as VMs do Azure em uma VNet para descobrir o quão próximo você está dos limites do SKU do gateway do Azure selecionado. Na unidade de Instância Grande do HANA, também faz sentido monitorar o tráfego de rede de entrada e saída, além de controlar os volumes manipulados ao longo do tempo.
 
 **Espaço em disco:** normalmente, o consumo de espaço em disco aumenta ao longo do tempo. Há muitos motivos para isso, mas a maioria deles é: aumento no volume de dados, execução de backups do log de transações, armazenamento de arquivos de rastreamento e execução de instantâneos de armazenamento. Portanto, é importante monitorar o uso do espaço em disco e gerenciar o espaço em disco associado à Instância Grande do HANA.
+
+Para os **SKUs do tipo II** de grandes instâncias HANA, o servidor é fornecido com as ferramentas de diagnóstico do sistema pré-carregadas. Você pode usar essas ferramentas de diagnóstico para executar a verificação de integridade do sistema. Execute o seguinte comando para gerar o arquivo de log de verificação de integridade em /var/log/health_check.
+```
+/opt/sgi/health_check/microsoft_tdi.sh
+```
+Quando você trabalha com a equipe de Suporte da Microsoft para solucionar um problema, também será solicitado que você forneça os arquivos de log usando essas ferramentas de diagnóstico. Zipe o arquivo usando o comando a seguir.
+```
+tar  -czvf health_check_logs.tar.gz /var/log/health_check
+```
+
 
 ## <a name="monitoring-and-troubleshooting-from-hana-side"></a>Monitoramento e solução de problemas no lado do HANA
 

@@ -11,14 +11,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/02/2017
+ms.date: 10/31/2017
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 50917572ef8739ddc674d3592696a1ee4a8edc10
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 09aa98a35fa8286828a99c49a33a80d5938afe3a
+ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="sap-hana-large-instances-high-availability-and-disaster-recovery-on-azure"></a>Alta disponibilidade e recuperação de desastre de instâncias grandes do SAP HANA no Azure 
 
@@ -222,12 +222,12 @@ Insira o comando `hdbuserstore` da seguinte maneira:
 
 **Para a instalação do HANA não MDC**
 ```
-hdbuserstore set <key> <host><3[instance]15> <user> <password>
+hdbuserstore set <key> <host>:<3[instance]15> <user> <password>
 ```
 
 **Para a instalação do HANA MDC**
 ```
-hdbuserstore set <key> <host><3[instance]13> <user> <password>
+hdbuserstore set <key> <host>:<3[instance]13> <user> <password>
 ```
 
 No exemplo a seguir, o usuário é **SCADMIN01**, o nome do host é **lhanad01** e o número da instância é **01**:
@@ -385,7 +385,7 @@ Como todas as etapas de preparação estão concluídas, é possível começar a
 Podem ser criados três tipos de backups de instantâneo:
 - **HANA**: backup de instantâneo combinado no qual os volumes que contêm o /hana/data e /hana/shared (que também contém /usr/sap) são cobertos pelo instantâneo coordenado. Uma restauração de arquivo único é possível desse instantâneo.
 - **Logs**: backup de instantâneo do volume /hana/logbackups. Nenhum instantâneo HANA é acionado para executar esse instantâneo de armazenamento. Este volume de armazenamento é o volume que deve conter os backups de log de transações do SAP HANA. Os backups de log de transações do SAP HANA são executados com mais frequência para restringir o crescimento do log e ara evitar a perda de dados. Uma restauração de arquivo único é possível desse instantâneo. Você não deve reduzir a frequência para menos de cinco minutos.
-- **Inicialização**: o instantâneo do volume que contém o LUN (número de unidade lógica) de inicialização da Instância Grande do HANA. Esse backup de instantâneo só é possível com os SKUs tipo I das Instâncias Grandes HANA. Você não pode executar restaurações de arquivo único do instantâneo do volume que contém o LUN de inicialização.  
+- **Inicialização**: o instantâneo do volume que contém o LUN (número de unidade lógica) de inicialização da Instância Grande do HANA. Esse backup de instantâneo só é possível com os SKUs tipo I das Instâncias Grandes HANA. Você não pode executar restaurações de arquivo único do instantâneo do volume que contém o LUN de inicialização. Para os SKUs do tipo II do HANA de Instâncias Grandes, faça um backup no nível do sistema operacional e restaure também os arquivos individuais. Consulte o documento “[Como executar o backup do sistema operacional para SKUs do tipo II](os-backup-type-ii-skus.md)” para ver mais detalhes.
 
 
 A sintaxe de chamada para esses três tipos diferentes de instantâneos tem esta aparência:

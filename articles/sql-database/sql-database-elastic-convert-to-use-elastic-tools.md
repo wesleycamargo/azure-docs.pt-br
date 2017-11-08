@@ -1,5 +1,5 @@
 ---
-title: Migrar bancos de dados existentes para escala horizontal | Microsoft Docs
+title: Migrar bancos de dados existentes para escalar horizontalmente | Microsoft Docs
 description: "Converter bancos de dados fragmentados para usar ferramentas de banco de dados elástico criando um gerenciador de mapa de fragmentos"
 services: sql-database
 documentationcenter: 
@@ -12,17 +12,17 @@ ms.custom: scale out apps
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: data-management
+ms.workload: Inactive
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: 099f40d00753b7c86ba726a818f17d440a125221
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 356c4223ff3ae844552b7bee40aa3ffc6aad7ea0
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
-# <a name="migrate-existing-databases-to-scale-out"></a>Migrar bancos de dados existentes para escala horizontal
-Gerencie com facilidade seus bancos de dados fragmentados e escalonados horizontalmente existentes, usando as ferramentas de banco de dados do Banco de Dados SQL (como a [biblioteca de cliente do Banco de Dados Elástico](sql-database-elastic-database-client-library.md)). Você deve primeiro converter um conjunto existente de bancos de dados para usar o [gerenciador de mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md). 
+# <a name="migrate-existing-databases-to-scale-out"></a>Migrar bancos de dados existentes para escalar horizontalmente
+Gerencie com facilidade seus bancos de dados fragmentados e escalonados horizontalmente existentes, usando as ferramentas de banco de dados do Banco de Dados SQL (como a [biblioteca de cliente do Banco de Dados Elástico](sql-database-elastic-database-client-library.md)). Primeiro converta um conjunto existente de bancos de dados para usar o [gerenciador de mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md). 
 
 ## <a name="overview"></a>Visão geral
 Para migrar um banco de dados fragmentado existente: 
@@ -37,7 +37,7 @@ Essas técnicas podem ser implementadas usando a [biblioteca de cliente do .NET 
 Para saber mais sobre o ShardMapManager, confira [Gerenciamento de mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md). Para obter uma visão geral das ferramentas de banco de dados elástico, confira [Visão geral dos recursos do Banco de Dados Elástico](sql-database-elastic-scale-introduction.md).
 
 ## <a name="prepare-the-shard-map-manager-database"></a>Preparar o banco de dados do gerenciador de mapa de fragmentos
-O gerenciador de mapa de fragmentos é um banco de dados especial que contém os dados para gerenciar bancos de dados escalonados horizontalmente. Você pode usar um banco de dados existente ou criar um novo banco de dados. Observe que um banco de dados que atua como gerenciador de mapa de fragmentos não deve ser o mesmo banco de dados de um fragmento. Observe também que o script do PowerShell não cria o banco de dados para você. 
+O gerenciador de mapa de fragmentos é um banco de dados especial que contém os dados para gerenciar bancos de dados escalonados horizontalmente. Você pode usar um banco de dados existente ou criar um novo banco de dados. Um banco de dados que age como o gerenciador de mapa de fragmentos não deve ser o mesmo banco de dados que o do fragmento. O script do PowerShell não cria o banco de dados para você. 
 
 ## <a name="step-1-create-a-shard-map-manager"></a>Etapa 1: criar um gerenciador de mapa de fragmentos
     # Create a shard map manager. 
@@ -60,7 +60,7 @@ Após a criação, você pode recuperar o gerenciador de mapa de fragmentos com 
 
 
 ## <a name="step-2-create-the-shard-map"></a>Etapa 2: criar o mapa de fragmentos
-Você deve selecionar o tipo do mapa de fragmentos a criar. A escolha depende da arquitetura do banco de dados: 
+Selecione o tipo de mapa de fragmentos a ser criado. A escolha depende da arquitetura do banco de dados: 
 
 1. Um locatário único por banco de dados (para termos, consulte o [glossário](sql-database-elastic-scale-glossary.md).) 
 2. Vários locatários por banco de dados (dois tipos):
@@ -71,13 +71,13 @@ Para um modelo de locatário único, crie um mapa de fragmentos de **mapeamento 
 
 ![Mapeamento de lista][1]
 
-O modelo multilocatário atribui vários locatários a um banco de dados individual (e você pode distribuir grupos de locatários entre vários bancos de dados). Use esse modelo quando você esperar que cada locatário tenha necessidades de dados pequenas. Nesse modelo, atribuímos um intervalo de locatários a um banco de dados usando **mapeamento de intervalo**. 
+O modelo multilocatário atribui vários locatários a um banco de dados individual (e você pode distribuir grupos de locatários entre vários bancos de dados). Use esse modelo quando você esperar que cada locatário tenha necessidades de dados pequenas. Nesse modelo, atribua um intervalo de locatários para um banco de dados usando o **mapeamento intervalo**. 
 
 ![Mapeamento de intervalo][2]
 
-Ou então, você pode implementar um modelo de banco de dados multilocatário usando um *mapeamento de lista* para atribuir vários locatários a um banco de dados individual. Por exemplo, DB1 é usado para armazenar informações sobre os locatários com IDs 1 e 5, e DB2 armazena dados dos locatários 7 e 10. 
+Ou então, você pode implementar um modelo de banco de dados multilocatário usando um *mapeamento de lista* para atribuir vários locatários a um banco de dados individual. Por exemplo, DB1 é usado para armazenar informações sobre a ID do locatário 1 e 5, e o DB2 armazena dados do locatário 7 e do locatário 10. 
 
-![Vários locatários em um banco de dados individual][3] 
+![Vários locatários em um único banco de dados][3] 
 
 **Com base na sua escolha, escolha uma destas opções:**
 
@@ -91,7 +91,7 @@ Crie um mapa de fragmentos usando o objeto ShardMapManager.
 
 
 ### <a name="option-2-create-a-shard-map-for-a-range-mapping"></a>Opção 2: criar um mapa de fragmentos para um mapeamento de intervalo
-Observe que, para utilizar esse padrão de mapeamento, os valores de ID de locatário precisam ser intervalos contínuos. É aceitável ter lacunas nos intervalos simplesmente ignorando o intervalo ao criar os bancos de dados.
+Para utilizar esse padrão de mapeamento, os valores de ID do locatário precisam ser intervalos contínuos. É possível ter lacunas nos intervalos, pulando o intervalo ao criar os bancos de dados.
 
     # $ShardMapManager is the shard map manager object 
     # 'RangeShardMap' is the unique identifier for the range shard map.  
@@ -128,7 +128,7 @@ Mapeie os dados adicionando um mapeamento de lista para cada locatário.
     -SqlDatabaseName '<shard_database_name>' 
 
 ### <a name="option-2-map-the-data-for-a-range-mapping"></a>Opção 2: mapear os dados para um mapeamento de intervalo
-Adicione os mapeamentos de intervalo para todo o intervalo de IDs de locatário – associações de banco de dados:
+Adicione os mapeamentos de intervalo de todas as associações entre intervalo de ID do locatário e banco de dados:
 
     # Create the mappings and associate it with the new shards 
     Add-RangeMapping 
@@ -141,7 +141,7 @@ Adicione os mapeamentos de intervalo para todo o intervalo de IDs de locatário 
 
 
 ### <a name="step-4-option-3-map-the-data-for-multiple-tenants-on-a-single-database"></a>Etapa 4, opção 3: mapear os dados de vários locatários em um banco de dados individual
-Para cada locatário, execute o Add-ListMapping (opção 1, acima). 
+Para cada locatário, execute o Add-ListMapping (opção 1). 
 
 ## <a name="checking-the-mappings"></a>Verificando os mapeamentos
 Informações sobre os fragmentos existentes e os mapeamentos associados a eles podem ser consultadas usando os seguintes comandos:  
@@ -151,10 +151,10 @@ Informações sobre os fragmentos existentes e os mapeamentos associados a eles 
     Get-Mappings -ShardMap $ShardMap 
 
 ## <a name="summary"></a>Resumo
-Após ter concluído a configuração, você pode começar a usar a biblioteca de cliente do Banco de Dados Elástico. Também é possível usar o [roteamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md) e [consulta de vários fragmentos](sql-database-elastic-scale-multishard-querying.md).
+Após ter concluído a configuração, você pode começar a usar a biblioteca de cliente do Banco de Dados Elástico. Você também pode usar o [roteamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md) e a [consulta de vários fragmentos](sql-database-elastic-scale-multishard-querying.md).
 
 ## <a name="next-steps"></a>Próximas etapas
-Obtenha os scripts do PowerShell de [Azure SQL DB - Scripts de ferramentas de Banco de Dados Elástico](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db).
+Obtenha os scripts do PowerShell de [Azure SQL DB-Elastic Database tools scripts](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-DB-Elastic-731883db) (Scripts das ferramentas de Banco de Dados Elástico do BD SQL do Azure).
 
 As ferramentas também estão no GitHub: [Azure/elastic-db-tools](https://github.com/Azure/elastic-db-tools).
 
@@ -164,7 +164,7 @@ Use a ferramenta de divisão e mesclagem para mover dados de/para um modelo mult
 Para obter informações sobre os padrões comuns da arquitetura de dados dos aplicativos do banco de dados SaaS (software como serviço) multilocatário, consulte [Padrões de Design para Aplicativos SaaS multilocatário com o Banco de Dados SQL do Azure](sql-database-design-patterns-multi-tenancy-saas-applications.md).
 
 ## <a name="questions-and-feature-requests"></a>Perguntas e solicitações de recursos
-Em caso de dúvidas, entre em contato conosco pelo [fórum do Banco de Dados SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) e, para solicitações de recursos, adicione-as ao [fórum de comentários sobre o Banco de Dados SQL](https://feedback.azure.com/forums/217321-sql-database/).
+Caso tenha perguntas, use o [Fórum do Banco de Dados SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted) e para solicitações de recurso, adicione-as no [Fórum de comentários do Banco de Dados SQL](https://feedback.azure.com/forums/217321-sql-database/).
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-convert-to-use-elastic-tools/listmapping.png

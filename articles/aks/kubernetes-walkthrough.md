@@ -17,11 +17,11 @@ ms.workload: na
 ms.date: 10/24/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: ac6afa9d2e5a838623754fbcb7d5cf68f7a9ad95
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: a25f91d092c2f72ea1cbc174d1bf8bf48885788a
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Implantar um cluster do AKS (Serviço de Contêiner do Azure)
 
@@ -83,10 +83,10 @@ Após alguns minutos, o comando é concluído e retorna informações formatadas
 
 Para gerenciar um cluster Kubernetes, use [kubectl](https://kubernetes.io/docs/user-guide/kubectl/), o cliente de linha de comando Kubernetes.
 
-Se você estiver usando o Azure CloudShell, o kubectl já estará instalado. Se desejar instalá-lo localmente, execute o comando a seguir.
+Se você estiver usando o Azure Cloud Shell, o kubectl já estará instalado. Se desejar instalá-lo localmente, execute o comando a seguir.
 
 
-```azurecli-interactive
+```azurecli
 az aks install-cli
 ```
 

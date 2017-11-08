@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/16/2017
+ms.date: 10/31/2017
 ms.author: marsma
 ms.custom: 
-ms.openlocfilehash: e38a92fc48636476f00fe18c735901d906799fde
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 514fa3490e480647f0923c99bd9606a3726d4d30
+ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/01/2017
 ---
 # <a name="create-a-container-registry-using-the-azure-portal"></a>Criar um registro de contêiner usando o portal do Azure
 
@@ -65,11 +65,11 @@ Você usará esses valores nas etapas seguintes ao trabalhar com o registro na C
 
 Antes de enviar por push e pull imagens de contêiner, você deverá fazer logon na instância ACR. Para fazer isso, use o comando [docker login](https://docs.docker.com/engine/reference/commandline/login/). Substitua os valores *nome de usuário*, *senha* e *servidor de logon* por aqueles que você anotou na etapa anterior.
 
-```
+```bash
 docker login --username <username> --password <password> <login server>
 ```
 
-O comando retornará "Êxito no logon" quando concluído.
+O comando retorna `Login Succeeded` na conclusão. Você também poderá ver um aviso de segurança recomendando usar o parâmetro `--password-stdin`. Embora seu uso esteja fora do escopo deste artigo, é recomendável seguir essa prática recomendada. Consulte a referência do comando [docker login](https://docs.docker.com/engine/reference/commandline/login/) para ver mais informações.
 
 ## <a name="push-image-to-acr"></a>Enviar imagem por push para o ACR
 

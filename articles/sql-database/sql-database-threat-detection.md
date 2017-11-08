@@ -12,14 +12,14 @@ ms.custom: security
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.workload: data-services
+ms.workload: On Demand
 ms.date: 06/19/2017
 ms.author: ronmat; ronitr
-ms.openlocfilehash: bd3de9ed0131edc683763b0fe7f4a2ae74533944
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 647bd11fe305e255ab492939586241e28557ead8
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="sql-database-threat-detection"></a>Detecção de Ameaças do Banco de Dados SQL
 
@@ -27,22 +27,22 @@ A Detecção de Ameaças do SQL detecta atividades anômalas, indicando tentativ
 
 ## <a name="overview"></a>Visão geral
 
-A Detecção de Ameaças do SQL fornece uma nova camada de segurança, que permite que os clientes detectem e respondam às ameaças potenciais conforme elas ocorrem, fornecendo alertas de segurança sobre atividades anômalas.  Os usuários receberão um alerta mediante atividades suspeitas em bancos de dados, possíveis vulnerabilidades e ataques de injeção de SQL, bem como padrões anômalos de acesso ao banco de dados. Os alertas da Detecção de Ameaças do SQL fornecem detalhes de atividades suspeitas e recomendam ação de como investigar e atenuar a ameaça. Os usuários podem explorar os eventos suspeitos usando a [Auditoria do Banco de Dados SQL](sql-database-auditing.md) para determinar se eles resultam de uma tentativa de acesso, violação ou exploração dos dados no banco de dados. A Detecção de Ameaças torna simples tratar as possíveis ameaças no banco de dados sem a necessidade de ser um especialista em segurança ou gerenciar os sistemas de monitoramento de segurança avançados.
+A Detecção de Ameaças do SQL fornece uma nova camada de segurança, que permite que os clientes detectem e respondam às ameaças potenciais conforme elas ocorrem, fornecendo alertas de segurança sobre atividades anômalas.  Os usuários receberão um alerta em caso de atividades suspeitas em bancos de dados, possíveis vulnerabilidades e ataques de injeção de SQL, bem como padrões anômalos de acesso ao banco de dados. Os alertas da Detecção de Ameaças do SQL fornecem detalhes de atividades suspeitas e recomendam ação de como investigar e atenuar a ameaça. Os usuários podem explorar os eventos suspeitos usando a [Auditoria do Banco de Dados SQL](sql-database-auditing.md) para determinar se eles resultam de uma tentativa de acesso, violação ou exploração dos dados no banco de dados. A Detecção de Ameaças torna simples tratar as possíveis ameaças no banco de dados sem a necessidade de ser um especialista em segurança ou gerenciar os sistemas de monitoramento de segurança avançados.
 
 Por exemplo, a injeção de SQL é um dos problemas comuns de segurança do aplicativo da Web na Internet, usada para atacar os aplicativos orientados a dados. Os invasores aproveitam as vulnerabilidades do aplicativo para inserir instruções SQL mal-intencionadas nos campos de entrada do aplicativo, violando ou modificando os dados no banco de dados.
 
-A Detecção de Ameaças do SQL integra alertas à [Central de Segurança do Azure](https://azure.microsoft.com/en-us/services/security-center/) e, de cada servidor de Banco de Dados SQL protegido será cobrado o mesmo preço cobrado pela camada Standard da Central de Segurança do Azure, que é US$ 15 por nó ao mês, em que cada servidor de banco de dados SQL protegido será contado como um nó. Convidamos você a testar o recurso por 60 dias gratuitamente. 
+A Detecção de Ameaças do SQL integra alertas à [Central de Segurança do Azure](https://azure.microsoft.com/en-us/services/security-center/) e, de cada servidor de Banco de Dados SQL protegido será cobrado o mesmo preço cobrado pela camada Standard da Central de Segurança do Azure, que é US$ 15 por nó ao mês, em que cada servidor de Banco de Dados SQL protegido será contado como um nó.  
 
 ## <a name="set-up-threat-detection-for-your-database-in-the-azure-portal"></a>Configurar a detecção de ameaças para seu banco de dados no Portal do Azure
 1. Inicie o Portal do Azure em [https://portal.azure.com](https://portal.azure.com).
-2. Navegue até a folha de configuração do Banco de Dados SQL que você deseja monitorar. Na folha Configurações, selecione **Auditoria e Detecção de Ameaças**. 
+2. Navegue para a página de configuração do Banco de Dados SQL que você deseja monitorar. Na página Configurações, selecione **Auditoria e Detecção de Ameaças**. 
     ![Painel de navegação][1]
-3. Na folha de configuração **Auditoria e Detecção de Ameaças**, **ATIVE** a Auditoria, o que exibirá as configurações de detecção de ameaças.
+3. Na página de configuração **Auditoria e Detecção de Ameaças**, **ATIVE** a Auditoria, o que exibirá as configurações de detecção de ameaças.
   
     ![Painel de navegação][2]
 4. **ATIVE** a Detecção de ameaças.
-5. Configure a lista de emails que receberão os alertas de segurança após a detecção das atividades anormais do banco de dados.
-6. Clique em **Salvar** na folha **Auditoria e Detecção de ameaças** para salvar a auditoria nova ou atualizada, bem como as configurações de detecção de ameaças.
+5. Configure a lista de emails para receber os alertas de segurança após a detecção das atividades anormais do banco de dados.
+6. Clique em **Salvar** na página **Auditoria e Detecção de ameaças** para salvar a auditoria nova ou atualizada, bem como as configurações de detecção de ameaças.
        
     ![Painel de navegação][3]
 
@@ -61,11 +61,11 @@ Para obter um exemplo de script, confira [Configurar a auditoria e a detecção 
 
 ## <a name="explore-threat-detection-alerts-for-your-database-in-the-azure-portal"></a>Explorar os alertas de detecção de ameaças para seu banco de dados no Portal do Azure
 
-A Detecção de Ameaças do Banco de Dados SQL integra seus alertas à [Central de Segurança do Azure](https://azure.microsoft.com/en-us/services/security-center/). Um bloco de segurança SQL dinâmico na folha de banco de dados no Portal do Azure rastreia o status das ameaças ativas. 
+A Detecção de Ameaças do Banco de Dados SQL integra seus alertas à [Central de Segurança do Azure](https://azure.microsoft.com/en-us/services/security-center/). Um bloco de segurança SQL dinâmico na página de banco de dados no Portal do Azure rastreia o status das ameaças ativas. 
 
    ![Painel de navegação][6]
    
-1. Clicar no bloco de segurança SQL inicia a folha de alertas da Central de Segurança do Azure e fornece uma visão geral das ameaças SQL ativas detectadas no banco de dados. 
+1. Clicar no bloco de segurança SQL inicia a página de alertas da Central de Segurança do Azure e fornece uma visão geral das ameaças SQL ativas detectadas no banco de dados. 
 
   ![Painel de navegação][7]
 

@@ -4,7 +4,7 @@ description: "Compreenda e resolva erros de diretórios incompatíveis para dom�
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mahesh-unnikrishnan
 editor: curtand
 ms.assetid: 40eb75b7-827e-4d30-af6c-ca3c2af915c7
 ms.service: active-directory-ds
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/06/2017
+ms.date: 10/30/2017
 ms.author: maheshu
-ms.openlocfilehash: 118773be1f03701246051b8832695c591d76b1e5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9c9a47e9b3050eb7f41202d6a4b9202ba0f379df
+ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>Resolva erros de diretórios incompatíveis para domínios gerenciados existentes do Azure AD Domain Services
 Você tem um domínio gerenciado que foi habilitado usando o portal clássico do Azure. Quando navega para o novo portal do Azure e exibe o domínio gerenciado, você vê a seguinte mensagem de erro:
@@ -43,7 +43,7 @@ Em resumo, você não pode habilitar um domínio gerenciado para um locatário d
 
 ![Configuração de locatários incompatíveis](./media/getting-started/mismatched-tenant-config.png)
 
-Portanto, em cenários em que o domínio gerenciado e a rede virtual em que ele está habilitado pertencem a dois locatários diferentes do Azure AD, você vê este erro.
+Portanto, quando o domínio gerenciado e a rede virtual em que ele está habilitado pertencem a dois locatários diferentes do Azure AD, você vê este erro.
 
 As regras a seguir se aplicam no ambiente do Resource Manager:
 - Um diretório do Azure AD pode ter várias assinaturas do Azure.
@@ -55,9 +55,9 @@ As regras a seguir se aplicam no ambiente do Resource Manager:
 ## <a name="resolution"></a>Resolução
 Você tem duas opções para resolver o erro de diretórios incompatíveis. Você pode:
 
-- Clicar no botão **Excluir** para excluir o domínio gerenciado existente. Crie o domínio novamente usando o [portal do Azure](https://portal.azure.com), de modo que o domínio gerenciado e a rede virtual em que ele está disponível pertençam ao diretório do Azure AD. Você precisa ingressar novamente no domínio gerenciado recém-criado todos os computadores que haviam sido ingressados no domínio excluído.
+- Clicar no botão **Excluir** para excluir o domínio gerenciado existente. Crie o domínio novamente usando o [portal do Azure](https://portal.azure.com), de modo que o domínio gerenciado e a rede virtual em que ele está disponível pertençam ao diretório do Azure AD. Adicione todos os computadores anteriormente adicionados no domínio excluído para o domínio gerenciado recém-criado.
 
-- Entre em contato com o suporte do Azure para mover a assinatura do Azure que contém a rede virtual para o diretório do Azure AD a que o seu domínio gerenciado pertence. Clique em **Nova solicitação de suporte** e especifique **diretório incompatível** na seção **Detalhes** da solicitação de suporte. Inclua as informações fornecidas na mensagem de erro como parte da solicitação de suporte.
+- Mova a assinatura do Azure que contém a rede virtual para o diretório do Azure AD a que o seu domínio gerenciado pertence. Siga as etapas no artigo [Transferir a propriedade de uma assinatura do Azure para outra conta](../billing/billing-subscription-transfer.md).
 
 
 ## <a name="related-content"></a>Conteúdo relacionado
