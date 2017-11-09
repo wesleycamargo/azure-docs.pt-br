@@ -15,16 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: iainfou
-ms.openlocfilehash: 2a38c792decdc571421c6bed7d2edc5f442591ca
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 200e5667f4bc2ca0b7dc041eef990b7aff0914ff
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="how-to-reset-the-remote-desktop-service-or-its-login-password-in-a-windows-vm-created-using-the-classic-deployment-model"></a>Como redefinir o serviço de Área de Trabalho Remota ou sua senha de logon em uma VM Windows criada com o modelo de implantação Clássico
 > [!IMPORTANT]
 > O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e clássico](../../../resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos. Você também pode [realizar essas etapas para VMs criadas com o modelo de implantação do Resource Manager](../reset-rdp.md).
 > [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
+
 
 Se não conseguir se conectar a uma máquina virtual do Windows (VM), você pode redefinir a senha de administrador local ou a configuração do serviço de Área de Trabalho Remota. Você pode usar o Portal do Azure ou a extensão VM Access no Azure PowerShell para redefinir a senha.
 
