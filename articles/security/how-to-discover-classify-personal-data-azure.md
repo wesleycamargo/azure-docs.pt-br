@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/24/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 6ccb064a9a76e7041d4f365b3997673dc9182e0b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d60a5ca6229939e5d368c216688e4964261f85c7
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="discover-identify-and-classify-personal-data-in-microsoft-azure"></a>Descobrir, identificar e classificar dados pessoais no Microsoft Azure
 
@@ -150,13 +150,13 @@ Os dados pessoais associados aos clusters Hadoop no Azure HDInsight podem ser im
 
 #### <a name="how-do-i-use-excel-power-query-to-import-hadoop-clusters-in-azure-hdinsight-into-excel"></a>Como fazer para usar o Excel Power Query para importar clusters Hadoop no Azure HDInsight para o Excel?
 
-Um tutorial do HDInsight orientará você durante todo esse processo. Ele explica os pré-requisitos e inclui um link para um tutorial [Introdução ao Azure HDInsight](../hdinsight/hdinsight-hadoop-linux-tutorial-get-started.md). As instruções abrangem o Excel 2016, bem como 2013 e 2010 (as etapas são ligeiramente diferentes para as versões mais antigas do Excel). Se você não tiver o suplemento Excel Power Query, o tutorial mostrará como obtê-lo. Você iniciará o tutorial no Excel e precisará ter uma conta de armazenamento de Blobs do Azure associada ao cluster.
+Um tutorial do HDInsight orientará você durante todo esse processo. Ele explica os pré-requisitos e inclui um link para um tutorial [Introdução ao Azure HDInsight](../hdinsight/hadoop/apache-hadoop-linux-tutorial-get-started.md). As instruções abrangem o Excel 2016, bem como 2013 e 2010 (as etapas são ligeiramente diferentes para as versões mais antigas do Excel). Se você não tiver o suplemento Excel Power Query, o tutorial mostrará como obtê-lo. Você iniciará o tutorial no Excel e precisará ter uma conta de armazenamento de Blobs do Azure associada ao cluster.
 
   ![Consulta no Excel](media/how-to-discover-classify-personal-data-azure/excel.png)
 
-Para saber como fazer isso, visite o tutorial [Conectar o Excel ao Hadoop usando o Power Query](../hdinsight/hdinsight-connect-excel-power-query.md).
+Para saber como fazer isso, visite o tutorial [Conectar o Excel ao Hadoop usando o Power Query](../hdinsight/hadoop/apache-hadoop-connect-excel-power-query.md).
 
-Fonte: [Conectar o Excel ao Hadoop usando o Power Query](../hdinsight/hdinsight-connect-excel-power-query.md)
+Fonte: [Conectar o Excel ao Hadoop usando o Power Query](../hdinsight/hadoop/apache-hadoop-connect-excel-power-query.md)
 
 ## <a name="azure-information-protection-personal-data-classification-for-documents-and-email"></a>Proteção de Informações do Azure: classificação de dados pessoais para emails e documentos
 

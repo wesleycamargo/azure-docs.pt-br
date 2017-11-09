@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: 1b0d0fa1afc94d5261443f6b08cb6f0c3518f3eb
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: a1214d8327075ee081124d42aeb78846e09ff588
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Monitorar o Banco de Dados SQL do Azure usando a Análise do Azure SQL (Visualização) no Log Analytics
 
@@ -102,7 +102,16 @@ Selecionar qualquer bloco abre um relatório de detalhamento sobre a perspectiva
 
 Cada perspectiva fornece resumos sobre a assinatura, o servidor, o pool elástico e o nível de banco de dados. Além disso, cada perspectiva mostra o relatório específico da perspectiva à direita. Selecionar a assinatura, o servidor, o pool ou o banco de dados na lista continua o drill down.
 
-| Perspectiva | Descrição | | Recurso por tipo | Perspectiva de contagem de todos os recursos monitorados. O drill down fornece um resumo das métricas DTU e GB. | | Insights | Fornece o drill down hierárquico para Insights inteligentes. Saiba mais sobre insights inteligentes. | | Errors | Fornece drill down hierárquico sobre erros do SQL que ocorreram nos bancos de dados. | | Timeouts | Fornece drill down hierárquico sobre tempos limite do SQL que ocorreram nos bancos de dados. | | Blockings | Fornece drill down hierárquico sobre bloqueios do SQL que ocorreram nos bancos de dados. | | Database waits | Fornece drill down hierárquico sobre estatísticas de espera do SQL sobre o nível do banco de dados. Inclui resumos de tempo de espera total e o tempo de espera por tipo de espera. | | Query duration | Fornece drill down hierárquico sobre as estatísticas de execução de consulta como duração da consulta, uso da CPU, uso de E/S dos dados, uso de E/S do log. | | Query waits | Fornece drill down hierárquico sobre as estatísticas de espera da consulta por categoria de espera. |
+| Perspectiva | Descrição |
+| --- | --- |
+| Recurso por tipo | Perspectiva que conta todos os recursos monitorados. O drill down fornece um resumo das métricas DTU e GB. |
+| Insights | Fornece o drill down hierárquico para Insights inteligentes. Saiba mais sobre insights inteligentes. |
+| Errors | Fornece drill down hierárquico sobre erros do SQL que ocorreram nos bancos de dados. |
+| Tempos limite | Fornece drill down hierárquico sobre tempos limite do SQL que ocorreram nos bancos de dados. |
+| Bloqueios | Fornece drill down hierárquico sobre bloqueios do SQL que ocorreram nos bancos de dados. |
+| Esperas do banco de dados | Fornece drill down hierárquico sobre estatísticas de espera do SQL sobre o nível do banco de dados. Inclui resumos de tempo de espera total e o tempo de espera por tipo de espera. |
+| Duração da consulta | Fornece drill down hierárquico sobre as estatísticas de execução de consulta como duração da consulta, uso da CPU, uso de E/S dos dados, uso de E/S do log. |
+| Esperas da consulta | Fornece drill down hierárquico sobre as estatísticas de espera da consulta por categoria de espera. |
 
 ### <a name="intelligent-insights-report"></a>Relatório de Insights inteligentes
 

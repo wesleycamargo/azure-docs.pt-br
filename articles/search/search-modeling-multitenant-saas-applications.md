@@ -13,11 +13,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/26/2016
 ms.author: ashmaka
-ms.openlocfilehash: fd1b0c7cc8210d27fdc500bf4e5641bedfe93cff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 33897e7966de5d467602f6cb36fe16caf0786ffd
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>Padrões de design para aplicativos SaaS multilocatários e Azure Search
 Um aplicativo multilocatário é aquele que fornece os mesmos serviços e funcionalidades para qualquer número de locatários que não conseguem ver nem compartilhar os dados de qualquer outro locatário. Este documento discute estratégias de isolamento de locatário para aplicativos multilocatários criados com o Azure Search.
@@ -25,7 +25,7 @@ Um aplicativo multilocatário é aquele que fornece os mesmos serviços e funcio
 ## <a name="azure-search-concepts"></a>Conceitos do Azure Search
 Como uma solução de pesquisa como serviço, o Azure Search permite aos desenvolvedores adicionar experiências de pesquisa avançada para aplicativos sem nenhuma infraestrutura de gerenciamento ou se tornar um especialista em pesquisa. Os dados são carregados para o serviço e, em seguida, são armazenados na nuvem. Usando solicitações simples para a API do Azure Search, os dados podem então ser modificados e pesquisados. Uma visão geral do serviço pode ser encontrada em [neste artigo](http://aka.ms/whatisazsearch). Antes de discutir os padrões de design, é importante compreender alguns conceitos do Azure Search.
 
-### <a name="search-services-indexes-fields-and-documents"></a>Serviços de pesquisa, índices, campos e documentos
+### <a name="search-services-indexes-fields-and-documents"></a>Serviços Search, índices, campos e documentos
 Ao usar o Azure Search, alguém assina um *serviço de pesquisa*. Como os dados são carregados no Azure Search, eles são armazenados em um *índice* dentro do serviço de pesquisa. Pode haver um número de índices em um único serviço. Para usar os conceitos familiares de bancos de dados, o serviço de pesquisa pode ser comparado a um banco de dados, enquanto os índices dentro de um serviço podem ser comparados a tabelas em um banco de dados.
 
 Cada índice dentro de um serviço de pesquisa tem seu próprio esquema, que é definido por um número de *campos*personalizáveis. Os dados são adicionados a um índice do Azure Search na forma de *documentos*individuais. Cada documento deve ser carregado em um índice específico e deve se ajustar o esquema do índice. Ao pesquisar dados usando o Azure Search, as consultas de pesquisa de texto completo são emitidas em relação a um índice específico.  Para comparar esses conceitos àqueles de um banco de dados, os campos podem ser comparados a colunas em uma tabela e os documentos podem ser comparados a linhas.
@@ -44,7 +44,7 @@ Há alguns [tipos de preço](https://azure.microsoft.com/pricing/details/search/
 |  | Basic | Standard1 | Standard2 | Standard3 | Standard3 HD |
 | --- | --- | --- | --- | --- | --- |
 | Máximo de réplicas por serviço |3 |12 |12 |12 |12 |
-| Máximo de partições por serviço |1 |12 |12 |12 |1 |
+| Máximo de partições por serviço |1 |12 |12 |12 |3 |
 | Máximo de unidades de pesquisa (réplicas * partições) por serviço |3 |36 |36 |36 |36 (máx. de 3 partições) |
 | Máximo de documentos por serviço |1 milhão |180 milhões |720 milhões |1.4 bilhão |600 milhões |
 | Armazenamento máximo por serviço |2 GB |300 GB |1,2 TB |2,4 TB |600 GB |

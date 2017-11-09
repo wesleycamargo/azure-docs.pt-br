@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 04/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: dce813b885d492343428428056a2e8aada27b461
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1baf98616eb48bd3ae45b78ab1ac31e711fa655d
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-active-directory-for-developers"></a>Azure Active Directory para desenvolvedores
 O Azure Active Directory é um serviço de identidade de nuvem que permite aos desenvolvedores conectar com segurança qualquer usuário com uma conta corporativa ou de estudante trabalho com o suporte da Microsoft.  Esta documentação mostra como adicionar suporte do Azure AD para o seu aplicativo usando protocolos de autenticação padrão do setor, OAuth e OpenID Connect.
@@ -59,16 +59,9 @@ Esses artigos fornecem informações detalhadas sobre as APIs, as mensagens de p
 | [Glossário](active-directory-dev-glossary.md)                                      | Terminologia e definições de palavras usadas em toda esta documentação |
 | [Mais materiais de referência...](active-directory-developers-guide-index.md#reference)|     |
 
-## <a name="help--support"></a>Ajuda + suporte
-Esses são os melhores locais para obter ajuda com o desenvolvimento no Azure Active Directory.
-
-|  |  
-|---|
-|[Marcas `azure-active-directory` e `adal` do Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory+or+adal)      |
-|[Feedback no Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences)|
-| [Experimente o Microsoft Dev Chat (gratuito para um período limitado)](http://aka.ms/devchat) |
-
-<br />
 
 > [!NOTE]
 > Se você precisar entrar nas contas pessoais da Microsoft, você talvez queira considerar o uso do [ponto de extremidade do Azure AD v 2.0](active-directory-appmodel-v2-overview.md).  O ponto de extremidade do Azure AD v 2.0 é a unificação das contas pessoais da Microsoft e contas corporativas da Microsoft (do Azure AD) em um sistema de autenticação simples.
+
+
+[!INCLUDE  [Help and Support Options](../../../includes/active-directory-develop-help-support-include.md)]

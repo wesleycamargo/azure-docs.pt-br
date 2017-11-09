@@ -4,6 +4,8 @@
   items:
     - name: Sobre a Grade de Eventos
       href: overview.md
+    - name: Comparar serviços de mensagem
+      href: compare-messaging-services.md
 - name: Guia de início rápido
   items:
     - name: Rotear eventos de armazenamento do Blob - CLI do Azure

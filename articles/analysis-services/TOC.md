@@ -20,6 +20,7 @@
 ## [Instalar e configurar um gateway de dados local](analysis-services-gateway-install.md)
 ## [Obter bibliotecas de cliente](analysis-services-data-providers.md)
 ## [Backup e restauração](analysis-services-backup.md)
+## [Configurar expansão da réplica de consulta](analysis-services-scale-out.md)
 ## [Conectar com o Excel](analysis-services-connect-excel.md)
 ## [Conectar com o Power BI](analysis-services-connect-pbi.md)
 ## [Criar um arquivo .odc](analysis-services-odc.md)

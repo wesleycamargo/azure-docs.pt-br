@@ -1,9 +1,9 @@
 ---
-title: "Estados de usuário do Microsoft Azure Multi-Factor Authentication"
+title: "Estados de usuário da Autenticação Multifator do Microsoft Azure"
 description: "Saiba mais sobre estados de usuário no Azure MFA."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 ms.assetid: 0b9fde23-2d36-45b3-950d-f88624a68fbd
 ms.service: multi-factor-authentication
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2017
-ms.author: kgremban
+ms.author: joflore
 ms.reviewer: yossib
 ms.custom: it-pro
-ms.openlocfilehash: 1869b7a4ef42536a3cd909ba2983ae0fe97185a9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 97fc645ca85d3405bb065fb0cf0145e828196fe9
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="how-to-require-two-step-verification-for-a-user-or-group"></a>Como exigir verificação em duas etapas para um usuário ou grupo
 
@@ -38,7 +38,7 @@ As duas opções solicitam que os usuários se registrem na Autenticação Multi
 
 ## <a name="enable-azure-mfa-by-changing-user-status"></a>Habilitar a MFA do Azure alterando o status do usuário
 
-As contas de usuário no Azure Multi-Factor Authentication apresentam os três estados distintos a seguir:
+As contas de usuário na Autenticação Multifator do Azure apresentam os três estados distintos a seguir:
 
 | Status | Descrição | Aplicativos que não usam navegador afetados |
 |:---:|:---:|:---:|

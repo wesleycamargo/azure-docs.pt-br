@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 02/09/2016
 ms.author: shoatman
 ms.custom: aaddev
-ms.openlocfilehash: 6ffcfcb7ed071a12b0b3495ad534fd00f6d6ad99
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a97c6af38b1d3191447ad16a789a034a9d475422
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Como e por que os aplicativos são adicionados ao AD do Azure
 Uma das coisas inicialmente confusas ao exibir uma lista de aplicativos na sua instância do Active Directory do Azure é compreender de onde vieram os aplicativos e por que eles existem.  Este artigo fornece uma visão geral de alto nível de como os aplicativos são representados no diretório, além de contexto que irá ajudá-lo a compreender como um aplicativo passou a estar em seu diretório.
@@ -84,8 +84,8 @@ Os aplicativos que você adiciona por conta própria incluem:
   * Declara regras de transformação
   * Mapeamentos de atributos (provisionamento do usuário)
 * Para obter informações mais detalhadas sobre a entidade de serviço e objetos de aplicativo, consulte a documentação de referência de Graph API REST do AD do Azure.  *Dica*: a documentação da Graph API do AD do Azure é o mais parecida possível com uma referência a esquema do AD do Azure que está disponível no momento.  
-  * [Aplicativo](https://msdn.microsoft.com/library/azure/dn151677.aspx)
-  * [Entidade de serviço](https://msdn.microsoft.com/library/azure/dn194452.aspx)
+  * [Aplicativo](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#application-entity)
+  * [Entidade de serviço](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
 
 ## <a name="how-are-apps-added-to-my-azure-ad-instance"></a>Como os aplicativos são adicionados à minha instância do AD do Azure?
 Há muitas maneiras pelas quais um aplicativo pode ser adicionado ao AD do Azure:

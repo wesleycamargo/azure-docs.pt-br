@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: 42d617ffeb8c2fee6be6d747b39d80b09774a1c3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9ca91721e691eca239478c4ac8b85e2652babdfd
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="manage-user-permissions-at-the-file-and-folder-levels"></a>Gerenciar permissões de usuário nos níveis de arquivo e de pasta
 
-Os [clusters HDInsight ingressados no domínio](hdinsight-domain-joined-introduction.md) usam a autenticação forte com usuários do Azure AD (Azure Active Directory) e também usam políticas *RBAC* (controle de acesso baseado em função) para vários serviços, como o YARN e o Hive. Se o armazenamento de dados padrão do seu cluster for o Armazenamento do Microsoft Azure ou o WASB (Microsoft Azure Storage Blob), você também poderá impor permissões de nível de pasta e arquivo. Você pode usar o Apache Ranger para controlar o acesso aos arquivos do cluster de seus grupos e usuários sincronizados do Azure AD.
+Os [clusters HDInsight ingressados no domínio](./domain-joined/apache-domain-joined-introduction.md) usam a autenticação forte com usuários do Azure AD (Azure Active Directory) e também usam políticas *RBAC* (controle de acesso baseado em função) para vários serviços, como o YARN e o Hive. Se o armazenamento de dados padrão do seu cluster for o Armazenamento do Microsoft Azure ou o WASB (Microsoft Azure Storage Blob), você também poderá impor permissões de nível de pasta e arquivo. Você pode usar o Apache Ranger para controlar o acesso aos arquivos do cluster de seus grupos e usuários sincronizados do Azure AD.
 <!-- [synchronized Azure AD users and groups](hdinsight-sync-aad-users-to-cluster.md). -->
 
 A instância do Apache Ranger para clusters HDInsight ingressados no domínio vem pré-configurada com o serviço Ranger-WASB. O serviço Ranger-WASB é um mecanismo de gerenciamento de política que é semelhante ao Ranger-HDFS, mas com uma imposição diferente das políticas de acesso do Ranger. No serviço Ranger-WASB, se uma solicitação de recurso de entrada não tiver uma política de correspondência do Ranger, a resposta padrão será DENY. O serviço Ranger não transmite a verificação de permissão para o WASB.
@@ -69,7 +69,7 @@ Quando um curinga (`*`) está presente no caminho de uma política, ele se aplic
 
 ## <a name="manage-file-and-folder-level-permissions-with-apache-ranger"></a>Gerenciar permissões de nível de pasta e de arquivo com o Apache Ranger
 
-Se você ainda não tiver feito isso, siga [estas instruções](hdinsight-domain-joined-configure.md) para provisionar um novo cluster ingressado no domínio.
+Se você ainda não tiver feito isso, siga [estas instruções](./domain-joined/apache-domain-joined-configure.md) para provisionar um novo cluster ingressado no domínio.
 
 Abra o Ranger-WASB navegando até `https://<YOUR CLUSTER NAME>.azurehdinsight.net/ranger/`. Insira o nome de usuário e a senha do administrador de cluster que você definiu ao criar seu cluster.
 
@@ -117,8 +117,8 @@ O [fluxo de avaliação de política](#permission-and-policy-model) do Apache Ra
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Configurar políticas do Hive no HDInsight ingressado no domínio](hdinsight-domain-joined-run-hive.md)
-* [Gerenciar clusters HDInsight ingressados no domínio](hdinsight-domain-joined-manage.md)
+* [Configurar políticas do Hive no HDInsight ingressado no domínio](./domain-joined/apache-domain-joined-run-hive.md)
+* [Gerenciar clusters HDInsight ingressados no domínio](./domain-joined/apache-domain-joined-manage.md)
 * [Gerenciar Ambari – autorizar usuários para o Ambari](hdinsight-authorize-users-to-ambari.md)
 
 <!-- * [Synchronize Azure AD users and groups](hdinsight-sync-aad-users-to-cluster.md) -->

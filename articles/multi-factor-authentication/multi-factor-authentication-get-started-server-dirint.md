@@ -1,9 +1,9 @@
 ---
-title: "Integração de diretórios entre o Azure Multi-Factor Authentication autenticação multifator do Azure e o Active Directory"
-description: "Esta é a página de autenticação multifator do Azure que descreve como integrar o servidor Azure Multi-Factor Authentication ao Active Directory para sincronizar os diretórios."
+title: "Integração de diretórios entre a Autenticação Multifator do Azure e o Active Directory"
+description: "Esta é a página de autenticação multifator do Azure que descreve como integrar o Servidor de Autenticação Multifator do Azure ao Active Directory para sincronizar os diretórios."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 ms.assetid: def7a534-cfb2-492a-9124-87fb1148ab1f
 ms.service: multi-factor-authentication
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/16/2017
-ms.author: kgremban
+ms.author: joflore
 ms.reviewer: yossib
 ms.custom: it-pro
-ms.openlocfilehash: c469dfaccf515bcd1ced43279decfefe6be8375b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5250c0cbc71450eb66f79226a1ecb062a9335ee3
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Integração de diretórios entre o Azure MFA Server e o Active Directory
 Use a seção Integração de Diretórios do Servidor do Azure MFA para se integrar com o Active Directory ou com outro diretório LDAP. Você pode configurar atributos para corresponder ao esquema de diretório e configurar a sincronização automática de usuários.
@@ -35,7 +35,7 @@ Por padrão, o Servidor de Autenticação Multifator do Azure (MFA) é configura
 | Incluir domínios confiáveis |Marque a caixa de seleção **Incluir Domínios Confiáveis** para que o agente tente se conectar a domínios confiáveis pelo domínio atual, a outro domínio na floresta ou a domínios envolvidos em uma relação de confiança de floresta.  Quando não estiver importando ou sincronizando usuários de qualquer um dos domínios confiáveis, desmarque a caixa de seleção para melhorar o desempenho.  O padrão é verificado. |
 | Usar configuração LDAP específica |Selecione a opção Usar LDAP para usar as configurações de LDAP especificadas na importação e na sincronização. Observação: quando a opção Usar LDAP é selecionada, a interface do usuário altera referências do Active Directory para LDAP. |
 | Botão Editar |O botão Editar permite que as configurações atuais de LDAP sejam modificadas. |
-| Usar consultas de escopo de atributo |Indica se as consultas de escopo de atributo devem ser usadas.  As consultas de escopo de atributo permitem que as pesquisas eficientes de diretórios qualificando os registros com base no atributo de outro registro.  O servidor Azure Multi-Factor Authentication usa as consultas de escopo de atributo para consultar eficientemente os usuários que são membros de um grupo de segurança.   <br>Observação: há alguns casos em que há suporte para consultas de escopo de atributo, mas elas não devem ser usadas.  Por exemplo, o Active Directory pode ter problemas com consultas de escopo de atributo quando um grupo de segurança contiver membros de mais de um domínio. Nesse caso, desmarque a caixa de seleção. |
+| Usar consultas de escopo de atributo |Indica se as consultas de escopo de atributo devem ser usadas.  As consultas de escopo de atributo permitem que as pesquisas eficientes de diretórios qualificando os registros com base no atributo de outro registro.  O Servidor de Autenticação Multifator do Azure usa as consultas de escopo de atributo para consultar eficientemente os usuários que são membros de um grupo de segurança.   <br>Observação: há alguns casos em que há suporte para consultas de escopo de atributo, mas elas não devem ser usadas.  Por exemplo, o Active Directory pode ter problemas com consultas de escopo de atributo quando um grupo de segurança contiver membros de mais de um domínio. Nesse caso, desmarque a caixa de seleção. |
 
 A tabela a seguir descreve as definições de configuração de LDAP.
 
@@ -102,7 +102,7 @@ Para editar atributos, clique em **editar** na guia atributos.  Isso abre uma ja
 ## <a name="synchronization"></a>Sincronização
 A sincronização mantém o banco de dados do usuário do Azure MFA sincronizado com os usuários no Active Directory ou outro diretório LDAP. O processo é semelhante à importação manual de usuários do Active Directory, mas faz sondagens para processar alterações do grupo de segurança e de usuário do Active Directory.  Ela também desativa ou remove usuários que foram removidos de um contêiner, o grupo de segurança ou o Active Directory.
 
-O serviço ADSync do Multi-Factor Auth é um serviço do Windows que executa a sondagem periódica do Active Directory.  Isso não é deve ser confundido com o Azure AD Sync ou o Azure AD Connect.  O Multi-Factor ADSync, embora criado sobre uma base de código semelhante, é específico para o servidor Azure Multi-Factor Authentication.  Ele é instalado em um estado Parado e iniciado pelo serviço do servidor Multi-Factor Auth quando configurado para executar.  Se você tiver uma configuração de vários servidores Multi-Factor Auth Server, o ADSync do Multi-Factor Auth somente pode ser executado em um único servidor.
+O serviço ADSync do Multi-Factor Auth é um serviço do Windows que executa a sondagem periódica do Active Directory.  Isso não é deve ser confundido com o Azure AD Sync ou o Azure AD Connect.  O Multi-Factor ADSync, embora criado sobre uma base de código semelhante, é específico para o Servidor de Autenticação Multifator do Azure.  Ele é instalado em um estado Parado e iniciado pelo serviço do servidor Multi-Factor Auth quando configurado para executar.  Se você tiver uma configuração de vários servidores Multi-Factor Auth Server, o ADSync do Multi-Factor Auth somente pode ser executado em um único servidor.
 
 O serviço ADSync do multi-Factor Auth usa a extensão do servidor DirSync LDAP fornecida pela Microsoft para sondar alterações com eficiência.  O chamador de controle DirSync deve ter os direitos "directory get changes” e o controle estendido DS-Replication-Get-Changes.  Por padrão, esses direitos são atribuídos às contas de administrador e LocalSystem nos controladores de domínio.  Por padrão, o serviço AdSync do Multi-Factor Auth está configurado para ser executado como LocalSystem.  Portanto, é mais simples de executar o serviço em um controlador de domínio.  Se você configurar o serviço para sempre executar uma sincronização completa, ele poderá ser executado como uma conta com menos permissões.  Isso é menos eficiente, mas requer menos privilégios de conta.
 

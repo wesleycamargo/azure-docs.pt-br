@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/15/2017
 ms.author: deguhath;bradsev;gokuma
-ms.openlocfilehash: 686231a03b962dce9a1980affd308e52b36d2987
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 016d7760895e9b8cca082bac4e14388680fbbc05
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="advanced-data-exploration-and-modeling-with-spark"></a>Modelagem e exploração de dados avançados com o Spark
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
@@ -119,7 +119,7 @@ O kernel PySpark fornece algumas “palavras mágicas” predefinidas, que são 
 * **%%local** Especifica que o código nas linhas posteriores é executado localmente. O código deve ser um código Python válido.
 * **%%sql -o <variable name>** Executa uma consulta do Hive no sqlContext. Se o parâmetro -o for transmitido, o resultado da consulta será persistido no contexto %%local do Python como um quadro de dados do Pandas.
 
-Para saber mais sobre os kernels para notebooks Jupyter e as "palavras mágicas" predefinidas que eles fornecem, confira [Kernels disponíveis para notebooks Jupyter com clusters Linux do HDInsight Spark no HDInsight](../../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
+Para saber mais sobre os kernels para notebooks Jupyter e as "palavras mágicas" predefinidas que eles fornecem, confira [Kernels disponíveis para notebooks Jupyter com clusters Linux do HDInsight Spark no HDInsight](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
 
 ## <a name="data-ingestion-from-public-blob"></a>Ingestão de dados do blob público:
 A primeira etapa no processo de ciência de dados é ingerir os dados a serem analisados de fontes nas quais eles residem para seu ambiente de modelagem e exploração de dados. Esse ambiente é o Spark neste passo a passo. Esta seção contém o código para concluir uma série de tarefas:
@@ -193,10 +193,10 @@ Aqui está o código para ingestão de dados.
 Tempo necessário para executar a célula acima: 276,62 segundos
 
 ## <a name="data-exploration--visualization"></a>Visualização e exploração de dados
-Depois que os dados forem incluídos no Spark, a próxima etapa no processo de ciência de dados será obter uma compreensão mais profunda dos dados por meio de exploração e visualização. Nesta seção, podemos examinar os dados de táxi usando consultas SQL e plotar as variáveis de destino e os recursos em potencial para inspeção visual. Especificamente, plotamos a frequência das contagens de passageiros em corridas de táxi, a frequência de gorjetas e como as gorjetas variam de acordo com o valor e o tipo de pagamento.
+Depois que os dados forem incluídos no Spark, a próxima etapa no processo de ciência de dados será obter uma compreensão mais profunda dos dados por meio de exploração e visualização. Nesta seção, podemos examinar os dados de táxi usando consultas SQL e criar gráficos com as variáveis de destino e os recursos em potencial para inspeção visual. Especificamente, criamos gráficos com a frequência das contagens de passageiros em corridas de táxi, a frequência de gorjetas e como as gorjetas variam de acordo com o valor e o tipo de pagamento.
 
 ### <a name="plot-a-histogram-of-passenger-count-frequencies-in-the-sample-of-taxi-trips"></a>Plotar um histograma de frequências de contagens de passageiros na amostra de corridas de táxi
-Este código e os trechos de código posteriores usam as palavras mágicas do SQL para consultar a amostra e as palavras mágicas locais para plotar os dados.
+Este código e os trechos de código posteriores usam as palavras mágicas do SQL para consultar a amostra e as palavras mágicas locais para criar gráficos dos dados.
 
 * A **mágica do SQL (`%%sql`)** O kernel HDInsight PySpark dá suporte a consultas do HiveQL fáceis e embutidas no sqlContext. O argumento (-o VARIABLE_NAME) persiste a saída da consulta SQL como um quadro de dados do Pandas no servidor do Jupyter. Isso significa que ele está disponível no modo local.
 * A **`%%local`** é usada para executar o código localmente no servidor do Jupyter, que é o nó de cabeçalho do cluster HDInsight. Normalmente, você usa a mágica `%%local` após a mágica `%%sql -o` ser usada para executar uma consulta. O parâmetro -o persistiria a saída da consulta SQL localmente. Em seguida, a mágica `%%local` dispara o próximo conjunto de trechos de código para ser executado localmente em relação à saída de consultas SQL persistida localmente. A saída é visualizada automaticamente após a execução do código.
@@ -210,7 +210,7 @@ Essa consulta recupera as corridas por contagem de passageiros.
     SELECT passenger_count, COUNT(*) as trip_counts FROM taxi_train WHERE passenger_count > 0 and passenger_count < 7 GROUP BY passenger_count
 
 
-Esse código cria um quadro de dados local da saída da consulta e plota os dados. A palavra mágica `%%local` cria um quadro de dados local, `sqlResults`, que pode ser usado para plotar com matplotlib. 
+Esse código cria um quadro de dados local da saída da consulta e cria gráficos dos dados. A palavra mágica `%%local` cria um quadro de dados local, `sqlResults`, que pode ser usado para criar gráficos com matplotlib. 
 
 > [!NOTE]
 > Essas palavras mágicas do PySpark são usadas várias vezes neste passo a passo. Se a quantidade de dados for grande, você deverá obter uma amostra para criar um quadro de dados que se ajusta na memória local.
@@ -224,7 +224,7 @@ Esse código cria um quadro de dados local da saída da consulta e plota os dado
     # CLICK ON THE TYPE OF PLOT TO BE GENERATED (E.G. LINE, AREA, BAR ETC.)
     sqlResults
 
-Este é o código para plotar as corridas por contagens de passageiros
+Este é o código para criar gráficos das corridas por contagens de passageiros
 
     # RUN THE CODE LOCALLY ON THE JUPYTER SERVER AND IMPORT LIBRARIES
     %%local
@@ -244,7 +244,7 @@ Este é o código para plotar as corridas por contagens de passageiros
 
 ![Frequência de corridas por contagem de passageiros](./media/spark-advanced-data-exploration-modeling/frequency-of-trips-by-passenger-count.png)
 
-É possível selecionar entre vários tipos diferentes de visualizações (Tabela, Pizza, Linha, Área ou Barra) usando os botões de menu **Tipo** no notebook. A plotagem de Barras é mostrada aqui.
+É possível selecionar entre vários tipos diferentes de visualizações (Tabela, Pizza, Linha, Área ou Barra) usando os botões de menu **Tipo** no notebook. O gráfico de Barras é mostrado aqui.
 
 ### <a name="plot-a-histogram-of-tip-amounts-and-how-tip-amount-varies-by-passenger-count-and-fare-amounts"></a>Plote um histograma de valores de gorjetas e como o valor das gorjetas varia pelas tarifas e contagens de passageiros.
 Use uma consulta SQL para obter amostra de dados.
@@ -262,7 +262,7 @@ Use uma consulta SQL para obter amostra de dados.
         AND tip_amount < 25
 
 
-Esta célula de código usa a consulta SQL para criar três plotagens dos dados.
+Esta célula de código usa a consulta SQL para criar três gráficos dos dados.
 
     # RUN THE CODE LOCALLY ON THE JUPYTER SERVER AND IMPORT LIBRARIES
     %%local
@@ -674,7 +674,7 @@ Tempo necessário para executar a célula acima: 14,43 segundos
 
 **Avaliar o modelo de classificação binária com métricas padrão**
 
-O código nesta seção mostra como avaliar um modelo de regressão logística em um conjunto dados de teste, incluindo uma plotagem da curva ROC.
+O código nesta seção mostra como avaliar um modelo de regressão logística em um conjunto dados de teste, incluindo um gráfico da curva ROC.
 
     # RECORD START TIME
     timestart = datetime.datetime.now()
@@ -735,14 +735,14 @@ Tempo necessário para executar a célula acima: 2,67 segundos
 
 **Plote a curva ROC.**
 
-O *predictionAndLabelsDF* é registrado como uma tabela, *tmp_results*, na célula anterior. A tabela *tmp_results* pode ser usada para fazer consultas e resultados de saída para o quadro de dados sqlResults para plotagem. Veja o código.
+O *predictionAndLabelsDF* é registrado como uma tabela, *tmp_results*, na célula anterior. A tabela *tmp_results* pode ser usada para fazer consultas e resultados de saída para o quadro de dados sqlResults para criar gráficos. Veja o código.
 
     # QUERY RESULTS                              
     %%sql -q -o sqlResults
     SELECT * from tmp_results
 
 
-Este é o código para fazer previsões e plotar a curva ROC.
+Este é o código para fazer previsões e criar gráficos da curva ROC.
 
     # MAKE PREDICTIONS AND PLOT ROC-CURVE
 
@@ -859,13 +859,13 @@ Tempo necessário para executar a célula acima: 107,98 segundos
 
 **Plote a curva ROC.**
 
-O *predictionAndLabelsDF* é registrado como uma tabela, *tmp_results*, na célula anterior. A tabela *tmp_results* pode ser usada para fazer consultas e resultados de saída para o quadro de dados sqlResults para plotagem. Veja o código.
+O *predictionAndLabelsDF* é registrado como uma tabela, *tmp_results*, na célula anterior. A tabela *tmp_results* pode ser usada para fazer consultas e resultados de saída para o quadro de dados sqlResults para criar gráficos. Veja o código.
 
     # QUERY RESULTS
     %%sql -q -o sqlResults
     SELECT label, prediction, probability from tmp_results
 
-Este é o código para plotar a curva ROC.
+Este é o código para criar gráficos com a curva ROC.
 
     # RUN THE CODE LOCALLY ON THE JUPYTER SERVER AND IMPORT LIBRARIES 
     %%local
@@ -1174,7 +1174,7 @@ Tempo necessário para executar a célula acima: 20,9 segundos
 
 **Plotar**
 
-*tmp_results* é registrado como uma tabela do Hive na célula anterior. Os resultados da tabela são gerados no quadro de dados *sqlResults* para plotagem. Veja o código
+*tmp_results* é registrado como uma tabela do Hive na célula anterior. Os resultados da tabela são gerados no quadro de dados *sqlResults* para criar gráficos. Veja o código
 
     # PLOT SCATTER-PLOT BETWEEN ACTUAL AND PREDICTED TIP VALUES
 
@@ -1183,7 +1183,7 @@ Tempo necessário para executar a célula acima: 20,9 segundos
     SELECT * from tmp_results
 
 
-Este é o código para plotar os dados usando o servidor do Jupyter.
+Este é o código para criar gráficos dos dados usando o servidor do Jupyter.
 
     # RUN THE CODE LOCALLY ON THE JUPYTER SERVER AND IMPORT LIBRARIES
     %%local
@@ -1267,7 +1267,7 @@ Tempo necessário para executar a célula acima: 161,21 segundos
 
 **Avaliar com a métrica R-SQR**
 
-*tmp_results* é registrado como uma tabela do Hive na célula anterior. Os resultados da tabela são gerados no quadro de dados *sqlResults* para plotagem. Veja o código
+*tmp_results* é registrado como uma tabela do Hive na célula anterior. Os resultados da tabela são gerados no quadro de dados *sqlResults* para criar gráficos. Veja o código
 
     # SELECT RESULTS
     %%sql -q -o sqlResults

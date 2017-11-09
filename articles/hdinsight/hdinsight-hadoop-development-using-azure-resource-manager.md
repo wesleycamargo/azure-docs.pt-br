@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: nitinme
-ms.openlocfilehash: 9fec253fbf9136cf86a84a6c7b407ea522996226
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2a4b32af3f92744fe0543d9984c4845391a6180f
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="migrating-to-azure-resource-manager-based-development-tools-for-hdinsight-clusters"></a>Migrando para ferramentas de desenvolvimento baseadas no Azure Resource Manager dos clusters HDInsight
 
@@ -56,11 +56,11 @@ Os novos comandos disponíveis no Azure Resource Manager são:
 ### <a name="deprecated-commands"></a>Comandos preteridos
 Se você usar os comandos `azure hdinsight job` para enviar trabalhos ao cluster HDInsight, eles não estarão disponíveis por meio dos comandos ARM. Se você precisar enviar trabalhos ao HDInsight por meio de scripts de forma programática, será necessário usar as APIs REST fornecidas pelo HDInsight. Para obter mais informações sobre como enviar trabalhos usando as APIs REST, confira os seguintes documentos.
 
-* [Executar trabalhos do MapReduce com o Hadoop no HDInsight usando a cURL](hdinsight-hadoop-use-mapreduce-curl.md)
-* [Executar consultas do Hive com o Hadoop no HDInsight usando a cURL](hdinsight-hadoop-use-hive-curl.md)
-* [Executar trabalhos do Pig com o Hadoop no HDInsight usando a cURL](hdinsight-hadoop-use-pig-curl.md)
+* [Executar trabalhos do MapReduce com o Hadoop no HDInsight usando a cURL](hadoop/apache-hadoop-use-mapreduce-curl.md)
+* [Executar consultas do Hive com o Hadoop no HDInsight usando a cURL](hadoop/apache-hadoop-use-hive-curl.md)
+* [Executar trabalhos do Pig com o Hadoop no HDInsight usando a cURL](hadoop/apache-hadoop-use-pig-curl.md)
 
-Para obter informações sobre outras maneiras de executar o MapReduce, Hive e Pig de forma interativa, veja [Usar o MapReduce com o Hadoop no HDInsight](hdinsight-use-mapreduce.md), [Usar o Hive com o Hadoop no HDInsight](hdinsight-use-hive.md) e [Usar o Pig com o Hadoop no HDInsight](hdinsight-use-pig.md).
+Para obter informações sobre outras maneiras de executar o MapReduce, Hive e Pig de forma interativa, veja [Usar o MapReduce com o Hadoop no HDInsight](hadoop/hdinsight-use-mapreduce.md), [Usar o Hive com o Hadoop no HDInsight](hadoop/hdinsight-use-hive.md) e [Usar o Pig com o Hadoop no HDInsight](hadoop/hdinsight-use-pig.md).
 
 ### <a name="examples"></a>Exemplos
 **Criando um cluster**
@@ -220,9 +220,9 @@ Novo comando (ARM):
 
 #### <a name="other-samples"></a>Outras amostras
 * [Criar clusters HDInsight](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
-* [Enviar trabalhos Hive](hdinsight-hadoop-use-hive-powershell.md)
-* [Enviar trabalhos do Pig](hdinsight-hadoop-use-pig-powershell.md)
-* [Enviar trabalhos do Sqoop](hdinsight-hadoop-use-sqoop-powershell.md)
+* [Enviar trabalhos Hive](hadoop/apache-hadoop-use-hive-powershell.md)
+* [Enviar trabalhos do Pig](hadoop/apache-hadoop-use-pig-powershell.md)
+* [Enviar trabalhos do Sqoop](hadoop/apache-hadoop-use-sqoop-powershell.md)
 
 ## <a name="migrating-to-the-arm-based-hdinsight-net-sdk"></a>Migrando para o SDK do .NET do HDInsight baseado em ARM
 O [SDK do .NET do HDInsight](https://msdn.microsoft.com/library/azure/mt416619.aspx) baseado em ASM (Gerenciamento de Serviços do Azure) foi preterido. Nós o incentivamos a usar o [SDK do .NET do HDInsight](https://msdn.microsoft.com/library/azure/mt271028.aspx)baseado em ARM (Gerenciamento de Recursos do Azure). Os seguintes pacotes HDInsight baseados em ASM estão sendo preteridos.
@@ -236,11 +236,11 @@ Esta seção fornece sugestões de mais informações sobre como executar determ
 | --- | --- |
 | Criar clusters HDInsight usando o SDK do .NET |Veja [Criar clusters HDInsight usando o SDK do .NET](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md) |
 | Personalizar um cluster usando a Ação de Script com o SDK do .NET |Veja [Personalizar os clusters HDInsight do Linux usando a Ação de Script](hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md#use-script-action) |
-| Autenticar aplicativos de forma interativa usando o Azure Active Directory com o SDK do .NET |Veja [Executar consultas do Hive usando o SDK do .NET](hdinsight-hadoop-use-hive-dotnet-sdk.md). O trecho de código neste artigo usa o método de autenticação interativa. |
+| Autenticar aplicativos de forma interativa usando o Azure Active Directory com o SDK do .NET |Veja [Executar consultas do Hive usando o SDK do .NET](hadoop/apache-hadoop-use-hive-dotnet-sdk.md). O trecho de código neste artigo usa o método de autenticação interativa. |
 | Autenticar aplicativos de forma não interativa usando o Azure Active Directory com o SDK do .NET |Veja [Criar aplicativos não interativos para o HDInsight](hdinsight-create-non-interactive-authentication-dotnet-applications.md) |
-| Enviar um trabalho do Hive usando o SDK do .NET |Veja [Enviar trabalhos do Hive](hdinsight-hadoop-use-hive-dotnet-sdk.md) |
-| Enviar um trabalho do Pig usando o SDK do .NET |Veja [Enviar trabalhos do Pig](hdinsight-hadoop-use-pig-dotnet-sdk.md) |
-| Enviar um trabalho do Sqoop usando o SDK do .NET |Veja [Enviar trabalhos do Sqoop](hdinsight-hadoop-use-sqoop-dotnet-sdk.md) |
+| Enviar um trabalho do Hive usando o SDK do .NET |Veja [Enviar trabalhos do Hive](hadoop/apache-hadoop-use-hive-dotnet-sdk.md) |
+| Enviar um trabalho do Pig usando o SDK do .NET |Veja [Enviar trabalhos do Pig](hadoop/apache-hadoop-use-pig-dotnet-sdk.md) |
+| Enviar um trabalho do Sqoop usando o SDK do .NET |Veja [Enviar trabalhos do Sqoop](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md) |
 | Listar clusters HDInsight usando o SDK do .NET |Veja [Listar os clusters HDInsight](hdinsight-administer-use-dotnet-sdk.md#list-clusters) |
 | Escalar clusters HDInsight usando o SDK do .NET |Veja [Escalar clusters HDInsight](hdinsight-administer-use-dotnet-sdk.md#scale-clusters) |
 | Conceder/revogar acesso aos clusters HDInsight usando o SDK do .NET |Veja [Conceder/revogar acesso aos clusters HDInsight](hdinsight-administer-use-dotnet-sdk.md#grantrevoke-access) |

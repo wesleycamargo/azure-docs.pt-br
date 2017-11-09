@@ -4,11 +4,11 @@ hide_bc: True
 title: "Documentação do Microsoft Azure"
 description: "Saiba como compilar e gerenciar aplicativos avançados com os serviços de nuvem do Microsoft Azure. Obtenha documentação, código de exemplo, tutoriais e muito mais."
 featureFlags: clicktale
-ms.openlocfilehash: 1cce8a0c31a7bb7e4c6e228261b27244a762b441
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 810133d91382bffbcd728f9484e075da04da0fd8
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/06/2017
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -302,7 +302,7 @@ ms.lasthandoff: 11/01/2017
                                         <li>
                                             <a href="/azure/container-service/">
                                                 <img src="media/index/containerservice.svg" alt="" />
-                                                <p>Serviço de Contêiner do Azure</p>
+                                                <p>Serviço de Contêiner do Azure (AKS)</p>
                                             </a>
                                         </li>
                                         <li>
@@ -386,7 +386,7 @@ ms.lasthandoff: 11/01/2017
                                         <li>
                                             <a href="/azure/container-service/">
                                                 <img src="media/index/ContainerService.svg" alt="" />
-                                                <p>Serviço de Contêiner do Azure</p>
+                                                <p>Serviço de Contêiner do Azure (AKS)</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1352,8 +1352,8 @@ ms.lasthandoff: 11/01/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Serviço de Contêiner do Azure</h3>
-                                                    <p>Dimensione e orquestre contêineres usando Kubernetes, CD/SO ou Docker Swarm</p>
+                                                    <h3>Serviço de Contêiner do Azure (AKS)</h3>
+                                                    <p>Executar o aplicativo em contêineres em escala usando o Kubernetes</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2019,8 +2019,8 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Serviço de Contêiner do Azure</h3>
-                                                    <p>Dimensione e orquestre contêineres usando Kubernetes, CD/SO ou Docker Swarm</p>
+                                                    <h3>Serviço de Contêiner do Azure (AKS)</h3>
+                                                    <p>Executar o aplicativo em contêineres em escala usando o Kubernetes</p>
                                                 </div>
                                             </div>
                                         </div>

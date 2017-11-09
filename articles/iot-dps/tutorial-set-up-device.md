@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: c99279413b50e7bf1e6058a4151890e3a8f83892
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7031409aa63f5d64d5bb7a1b9dcac50a97718630
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="set-up-a-device-to-provision-using-the-azure-iot-hub-device-provisioning-service"></a>Configurar um dispositivo para provisionar usando o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure
 
@@ -35,7 +35,7 @@ Antes de prosseguir, crie sua instância do Serviço de Provisionamento de Dispo
 
 ## <a name="select-a-hardware-security-module"></a>Selecionar um módulo de segurança de hardware
 
-O [SDK do cliente do Serviço de Provisionamento de Dispositivos](https://github.com/Azure/azure-iot-sdk-c/tree/master/dps_client) dá suporte a dois tipos de módulos de segurança de hardware (ou HSMs): 
+O [SDK do cliente do Serviço de Provisionamento de Dispositivos](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client) dá suporte a dois tipos de módulos de segurança de hardware (ou HSMs): 
 
 - [TPM (Trusted Platform Module)](https://en.wikipedia.org/wiki/Trusted_Platform_Module).
     - O TPM é um padrão estabelecido para a maioria das plataformas de dispositivo baseadas em Windows, bem como alguns dispositivos baseados em Linux/Ubuntu. Como um fabricante de dispositivos, você pode escolher esse HSM se você tem um desses sistemas operacionais em execução em seus dispositivos e se você está procurando um padrão estabelecido para HSMs. Com chips do TPM, você só pode registrar cada dispositivo individualmente para o Serviço de Provisionamento de Dispositivos. Para fins de desenvolvimento, você pode usar o simulador do TPM no seu computador de desenvolvimento do Windows ou Linux.
