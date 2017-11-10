@@ -3,7 +3,7 @@ title: "Usar o módulo de política de pilha do Azure | Microsoft Docs"
 description: Aprenda a restringir uma assinatura do Azure para que atue como uma assinatura de pilha do Azure
 services: azure-stack
 documentationcenter: 
-author: HeathL17
+author: SnehaGunda
 manager: byronr
 editor: 
 ms.assetid: 937ef34f-14d4-4ea9-960b-362ba986f000
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
-ms.author: helaw
-ms.openlocfilehash: e505c52a5e1897d5626ee2cacce9fa3eff12fbbd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/08/2017
+ms.author: sngun
+ms.openlocfilehash: 030cb837dd2082f472275bcc42dbd39b7f8b30c0
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="manage-azure-policy-using-the-azure-stack-policy-module"></a>Gerenciar a política do Azure usando o módulo de política de pilha do Azure
 
@@ -41,8 +41,9 @@ O módulo de política de pilha do Azure permite que você configure uma assinat
 O comando a seguir pode ser usado para aplicar uma política do Azure pilha padrão em sua assinatura do Azure. Antes de executar, substitua *nome da assinatura do Azure* com sua assinatura do Azure.
 
 ```PowerShell
+Login-AzureRmAccount
 $s = Select-AzureRmSubscription -SubscriptionName "<Azure Subscription Name>"
-$policy = New-AzureRmPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzureStackRmPolicy)
+$policy = New-AzureRmPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzsPolicy)
 $subscriptionID = $s.Subscription.SubscriptionId
 $rgName = 'AzureStack'
 New-AzureRmPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /subscriptions/$subscriptionID
@@ -53,9 +54,10 @@ New-AzureRmPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /s
 Você talvez queira aplicar políticas em um método mais granular.  Por exemplo, você pode ter outros recursos em execução na mesma assinatura.  Você pode definir o escopo a aplicação da diretiva para um grupo de recursos específico, o que lhe permite testar seus aplicativos para a pilha do Azure usando os recursos do Azure. Antes de executar, substitua *nome da assinatura do Azure* com o nome da sua assinatura do Azure.
 
 ```PowerShell
+Login-AzureRmAccount
 $resourceGroupName = ‘myRG01’
 $s = Select-AzureRmSubscription -SubscriptionName "<Azure Subscription Name>"
-$policy = New-AzureRmPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzureStackRmPolicy)
+$policy = New-AzureRmPolicyDefinition -Name AzureStackPolicyDefinition -Policy (Get-AzsPolicy)
 New-AzureRmPolicyAssignment -Name AzureStack -PolicyDefinition $policy -Scope /subscriptions/$subscriptionID/resourceGroups/$rgName
 
 ```
