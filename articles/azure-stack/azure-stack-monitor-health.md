@@ -12,13 +12,13 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 11/10/2017
 ms.author: twooley
-ms.openlocfilehash: b2ba7ec922341464ea7160d08e475999c941c42a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf454a438f088d8079352ac60ce845185b741327
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="monitor-health-and-alerts-in-azure-stack"></a>Monitorar a integridade e alertas na pilha do Azure
 
@@ -36,7 +36,7 @@ Pilha do Azure inclui recursos que permitem exibir a integridade e alertas para 
  
  Como um operador de pilha do Azure, você pode exibir o estado de integridade dos componentes no portal do administrador e por meio da API REST e PowerShell.
  
-Para exibir o estado de integridade no portal, clique na região que você deseja exibir o **gerenciamento região** lado a lado. Você pode exibir o estado de integridade de funções de infraestrutura e de provedores de recursos. Nesta versão, o provedor de recursos de computação não informa o estado de integridade.
+Para exibir o estado de integridade no portal, clique na região que você deseja exibir o **gerenciamento região** lado a lado. Você pode exibir o estado de integridade de funções de infraestrutura e de provedores de recursos.
 
 ![Lista de funções de infraestrutura](media/azure-stack-monitor-health/image2.png)
 
