@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2017
+ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 0c7a8d68c0df729441e3f7faa5cd06066db1261d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b3aaf2b717937fdf62de423f5d9219be5ce0ad60
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection
 
@@ -67,7 +67,7 @@ O Azure Active Directory Identity Protection é mais do que apenas uma ferrament
 
 **Políticas de acesso condicional baseadas em risco:**
 
-* Política para reduzir entradas arriscadas ao bloquear entradas ou exigir desafios de autenticação multifator.
+* Política para reduzir entradas arriscadas ao bloquear entradas ou exigir desafios de autenticação multifator
 * Política para bloquear ou proteger contas de usuário arriscadas
 * Política para exigir o registro para autenticação multifator
 
@@ -81,7 +81,7 @@ Para equilibrar as atividades de gerenciamento em torno de sua implementação d
 | :--                          | ---                                |  ---   |
 | Administrador global         | Acesso completo à Proteção de Identidade, Proteção de Identidade integrada| |
 | Administrador de segurança       | Acesso total à proteção de identidade | Proteção de Identidade integrada, redefinir senhas para um usuário |
-| Leitor de segurança              | Acesso somente de leitura para a Proteção de Identidade | Integrar Proteção de Identidade, corrigir usuários, configurar políticas, redefinir senhas |
+| Leitor de segurança              | Acesso somente leitura para o Identity Protection | Integrar Proteção de Identidade, corrigir usuários, configurar políticas, redefinir senhas |
 
 
 
@@ -368,7 +368,7 @@ Recomendamos exigir a autenticação multifator do Azure para entradas de usuár
 
 ![Política do usuário ridk](./media/active-directory-identityprotection/1019.png "Política do usuário ridk")
 
-Para obter mais detalhes, veja [O que é o Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
+Para obter mais detalhes, veja [O que é a Autenticação Multifator do Azure?](../multi-factor-authentication/multi-factor-authentication.md)
 
 O Azure AD Identity Protection ajuda a gerenciar a implementação do registro de autenticação multifator configurando uma política que permite:
 
