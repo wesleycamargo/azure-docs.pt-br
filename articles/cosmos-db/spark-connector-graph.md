@@ -1,6 +1,6 @@
 ---
-title: "BD Cosmos do Azure: executar análise de gráfico usando o Spark e o Gremlin do Apache TinkerPops | Microsoft Docs"
-description: "Este artigo apresenta instruções para configurar e executar computação paralela e análise de gráfico no BD Cosmos do Azure com Spark e TinkerPop SparkGraphComputer."
+title: "Azure Cosmos DB: executar análise de grafo usando o Spark e o Gremlin do Apache TinkerPop | Microsoft Docs"
+description: "Este artigo apresenta instruções para configurar e executar computação paralela e análise de grafo no Azure Cosmos DB com Spark e TinkerPop SparkGraphComputer."
 services: cosmosdb
 documentationcenter: 
 author: khdang
@@ -21,13 +21,13 @@ ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/26/2017
 ---
-# <a name="azure-cosmos-db-perform-graph-analytics-by-using-spark-and-apache-tinkerpop-gremlin"></a>BD Cosmos do Azure: executar análise de gráfico usando o Spark e o Gremlin do Apache TinkerPop
+# <a name="azure-cosmos-db-perform-graph-analytics-by-using-spark-and-apache-tinkerpop-gremlin"></a>Azure Cosmos DB: executar análise de grafo usando o Spark e o Gremlin do Apache TinkerPop
 
-[Azure Cosmos DB](introduction.md) é o serviço de banco de dados multimodelo distribuído globalmente da Microsoft. É possível criar e consultar documentos, chave/valor e bancos de dados do gráfico. Todos se beneficiam de recursos de escala horizontal e distribuição global no núcleo do BD Cosmos do Azure. O BD Costmos do Azure dá suporte a cargas de trabalho gráficas OLTP (processamento de transações online) que usam o [Gremlin do Apache TinkerPop](graph-introduction.md).
+O [Azure Cosmos DB](introduction.md) é o serviço de banco de dados multimodelo da Microsoft distribuído globalmente. É possível criar e consultar documentos, chave/valor e bancos de dados do grafos. Todos se beneficiam de recursos de escala horizontal e distribuição global no núcleo do Azure Cosmos DB. O Azure Cosmos DB é compatível com cargas de trabalho de grafo do OLTP (processamento de transações online) que usam o [Gremlin do Apache TinkerPop](graph-introduction.md).
 
 [Spark](http://spark.apache.org/) é um projeto Apache Software Foundation voltado para o processamento de dados OLAP (processamento analítico online de uso geral). O Spark fornece um modelo de computação distribuída híbrido em memória/baseado em disco que é semelhante ao modelo MapReduce do Hadoop. Você pode implantar o Apache Spark na nuvem usando o [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/apache-spark/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 
-Combinando o BD Cosmos do Azure e o Spark, você pode executar cargas de trabalho OLTP e OLAP quando usar o Gremlin. Este artigo rápido demonstra como executar consultas do Gremlin no Banco de Dados Cosmos do Azure em um cluster Spark do Azure HDInsight.
+Combinando o Azure Cosmos DB e o Spark, você pode executar cargas de trabalho OLTP e OLAP quando usar o Gremlin. Este artigo rápido demonstra como executar consultas do Gremlin no Azure Cosmos DB em um cluster Spark do Azure HDInsight.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -39,7 +39,7 @@ Antes que possa executar esta amostra, você deverá ter os seguintes pré-requi
 
 Para obter informações sobre como configurar um cluster Spark no HDInsight, consulte [Provisionando clusters HDInsight](../hdinsight/hdinsight-hadoop-provision-linux-clusters.md).
 
-## <a name="create-an-azure-cosmos-db-database-account"></a>Criar uma conta de banco de dados BD Cosmos do Azure
+## <a name="create-an-azure-cosmos-db-database-account"></a>Criar uma conta de banco de dados do Azure Cosmos DB
 
 Primeiro, crie uma conta de banco de dados com a API do Graph fazendo o seguinte:
 
@@ -174,13 +174,13 @@ Quando você criou o TinkerPop3 na etapa anterior, o processo também puxou toda
     xml-apis-1.3.04.jar                        
     ```
 
-## <a name="get-the-azure-cosmos-db-spark-connector"></a>Obter o conector Spark do BD Cosmos do Azure
+## <a name="get-the-azure-cosmos-db-spark-connector"></a>Obter o conector Spark do Azure Cosmos DB
 
-1. Obter o Conector Spark do BD Cosmos do Azure `azure-documentdb-spark-0.0.3-SNAPSHOT.jar` e o SDK Java do BD Cosmos `azure-documentdb-1.10.0.jar` no [Conector Spark para BD Cosmos do Azure no GitHub](https://github.com/Azure/azure-cosmosdb-spark/tree/master/releases/azure-cosmosdb-spark-0.0.3_2.0.2_2.11).
+1. Obter o conector Spark do Azure Cosmos DB `azure-documentdb-spark-0.0.3-SNAPSHOT.jar` e o SDK Java do Cosmos DB `azure-documentdb-1.10.0.jar` no conector Spark do [Azure Cosmos DB no GitHub](https://github.com/Azure/azure-cosmosdb-spark/tree/master/releases/azure-cosmosdb-spark-0.0.3_2.0.2_2.11).
 
-2. Como alternativa, você pode criá-lo localmente. Como a versão mais recente do Spark-Gremlin foi criada com o Spark 1.6.1 e não é compatível com o Spark 2.0.2, que é usado atualmente no Conector Spark do BD Cosmos do Azure, você pode compilar o código TinkerPop3 mais recente e instalar os jars manualmente. Faça o seguinte:
+2. Como alternativa, você pode criá-lo localmente. Como a versão mais recente do Spark-Gremlin foi criada com o Spark 1.6.1 e não é compatível com o Spark 2.0.2, que é usado atualmente no Conector Spark do Azure Cosmos DB, você pode compilar o código TinkerPop3 mais recente e instalar os jars manualmente. Faça o seguinte:
 
-    a. Clone o conector Spark do BD Cosmos do Azure.
+    a. Clone o conector Spark do Azure Cosmos DB.
 
     b. Crie o TinkerPop3 (já feito nas etapas anteriores). Instale todos os jars TinkerPop 3.3.0-SNAPSHOT localmente.
 
@@ -214,7 +214,7 @@ Quando você criou o TinkerPop3 na etapa anterior, o processo também puxou toda
 
 ## <a name="distribute-the-dependencies-to-the-spark-worker-nodes"></a>Distribuir as dependências nos nós de trabalho Spark 
 
-1. Como a transformação de dados do gráfico depende do TinkerPop3, você precisa distribuir as dependências relacionadas para todos os nós de trabalho Spark.
+1. Como a transformação de dados do grafo depende do TinkerPop3, você precisa distribuir as dependências relacionadas para todos os nós de trabalho Spark.
 
 2. Copie as dependências do Gremlin mencionadas anteriormente, além do jar conector Spark do CosmosDB e do SDK Java do CosmosDB para os nós de trabalho fazendo o seguinte:
 
@@ -256,9 +256,9 @@ Quando você criou o TinkerPop3 na etapa anterior, o processo também puxou toda
     export HADOOP_HOME=${HADOOP_HOME:-/usr/hdp/current/hadoop-client}
     ```
 
-## <a name="prepare-the-graph-configuration"></a>Preparar a configuração do gráfico
+## <a name="prepare-the-graph-configuration"></a>Preparar a configuração do grafo
 
-1. Crie um arquivo de configuração com os parâmetros de conexão do BD Cosmos do Azure e as configurações do Spark e coloque-o em`tinkerpop/gremlin-console/target/apache-tinkerpop-gremlin-console-3.3.0-SNAPSHOT-standalone/conf/hadoop/gremlin-spark.properties`.
+1. Crie um arquivo de configuração com os parâmetros de conexão do Azure Cosmos DB e as configurações do Spark e coloque-o em `tinkerpop/gremlin-console/target/apache-tinkerpop-gremlin-console-3.3.0-SNAPSHOT-standalone/conf/hadoop/gremlin-spark.properties`.
 
     ```
     gremlin.graph=org.apache.tinkerpop.gremlin.hadoop.structure.HadoopGraph
@@ -296,7 +296,7 @@ Quando você criou o TinkerPop3 na etapa anterior, o processo também puxou toda
 
 2. Atualize `spark.driver.extraClassPath` e `spark.executor.extraClassPath` para incluir o diretório dos jars distribuído na etapa anterior, neste caso, `/home/sshuser/azure-documentdb-spark/*`.
 
-3. Forneça os seguintes detalhes para o BD Cosmos do Azure:
+3. Forneça os seguintes detalhes para o Azure Cosmos DB:
 
     ```
     spark.documentdb.Endpoint=https://FILLIN.documents.azure.com:443/
@@ -307,10 +307,10 @@ Quando você criou o TinkerPop3 na etapa anterior, o processo também puxou toda
     #spark.documentdb.preferredRegions=West\ US;West\ US\ 2
     ```
    
-## <a name="load-the-tinkerpop-graph-and-save-it-to-azure-cosmos-db"></a>Carregar o gráfico do TinkerPop e salve-o no BD Cosmos do Azure
-Para demonstrar como persistir um gráfico no BD Cosmos do Azure, este exemplo usa o gráfico moderno TinkerPop predefinido. O gráfico é armazenado no formato Kryo e fornecido no repositório TinkerPop.
+## <a name="load-the-tinkerpop-graph-and-save-it-to-azure-cosmos-db"></a>Carregar o grafo do TinkerPop e salvá-lo no Azure Cosmos DB
+Para demonstrar como persistir um grafo no Azure Cosmos DB, este exemplo usa o grafo moderno TinkerPop predefinido. O grafo é armazenado no formato Kryo e fornecido no repositório TinkerPop.
 
-1. Como você está executando o Gremlin no modo YARN, deve disponibilizar os dados do gráfico no sistema de arquivos Hadoop. Use os comandos a seguir para criar um diretório e copiam o arquivo do gráfico local nele. 
+1. Como você está executando o Gremlin no modo YARN, disponibilize os dados do grafo no sistema de arquivos Hadoop. Use os comandos a seguir para criar um diretório e copiar o arquivo do grafo local nele. 
 
     ```bash
     $ tinkerpop:
@@ -318,16 +318,16 @@ Para demonstrar como persistir um gráfico no BD Cosmos do Azure, este exemplo u
     hadoop fs -copyFromLocal ~/tinkerpop/data/tinkerpop-modern.kryo /graphData/tinkerpop-modern.kryo
     ```
 
-2. Atualize temporariamente o arquivo `gremlin-spark.properties` para usar `GryoInputFormat` e ler o gráfico. Indique também `inputLocation` como o diretório criado, como no exemplo abaixo:
+2. Atualize temporariamente o arquivo `gremlin-spark.properties` para usar `GryoInputFormat` e ler o grafo. Indique também `inputLocation` como o diretório criado, conforme o exemplo abaixo:
 
     ```
     gremlin.hadoop.graphReader=org.apache.tinkerpop.gremlin.hadoop.structure.io.gryo.GryoInputFormat
     gremlin.hadoop.inputLocation=/graphData/tinkerpop-modern.kryo
     ```
 
-3. Inicie o Console do Gremlin e crie as seguintes etapas de computação para persistir dados para a coleção do BD Cosmos do Azure configurada:  
+3. Inicie o Console do Gremlin e crie as seguintes etapas de computação para persistir dados para a coleção configurada do Azure Cosmos DB:  
 
-    a. Crie o gráfico `graph = GraphFactory.open("conf/hadoop/gremlin-spark.properties")`.
+    a. Crie o grafo `graph = GraphFactory.open("conf/hadoop/gremlin-spark.properties")`.
 
     b. Use SparkGraphComputer para gravar `graph.compute(SparkGraphComputer.class).result(GraphComputer.ResultGraph.NEW).persist(GraphComputer.Persist.EDGES).program(TraversalVertexProgram.build().traversal(graph.traversal().withComputer(Computer.compute(SparkGraphComputer.class)),"gremlin-groovy","g.V()").create(graph)).submit().get()`.
 
@@ -346,25 +346,27 @@ Para demonstrar como persistir um gráfico no BD Cosmos do Azure, este exemplo u
     ==>result[hadoopgraph[documentdbinputrdd->documentdboutputrdd],memory[size:1]]
     ```
 
-4. No Data Explorer, você pode verificar se os dados foram persistidos para o BD Cosmos do Azure.
+4. No Data Explorer, você pode verificar se os dados foram persistidos para o Azure Cosmos DB.
 
-## <a name="load-the-graph-from-azure-cosmos-db-and-run-gremlin-queries"></a>Carregue o gráfico do BD Cosmos do Azure e execute consultas do Gremlin
+## <a name="load-the-graph-from-azure-cosmos-db-and-run-gremlin-queries"></a>Carregar o grafo do Azure Cosmos DB e executar as consultas do Gremlin
 
-1. Para carregar o gráfico, edite `gremlin-spark.properties` para definir `graphReader` como `DocumentDBInputRDD`:
+1. Para carregar o grafo, edite `gremlin-spark.properties` para definir `graphReader` como `DocumentDBInputRDD`:
+
 
     ```
     gremlin.hadoop.graphReader=com.microsoft.azure.documentdb.spark.gremlin.DocumentDBInputRDD
     ```
 
-2. Carregue o gráfico, percorra os dados e execute consultas do Gremlin com ele fazendo o seguinte:
+2. Carregue o grafo, percorra os dados e execute as consultas do Gremlin com ele fazendo o seguinte:
 
     a. Inicie o Console do Gremlin `bin/gremlin.sh`.
 
-    b. Crie um gráfico com as configurações`graph = GraphFactory.open('conf/hadoop/gremlin-spark.properties')`.
+    b. Crie um grafo com as configurações `graph = GraphFactory.open('conf/hadoop/gremlin-spark.properties')`.
 
-    c. Crie uma passagem de gráfico com SparkGraphComputer`g = graph.traversal().withComputer(SparkGraphComputer)`.
 
-    d. Execute as seguintes consultas de gráfico do Gremlin:
+    c. Crie uma passagem de grafo com SparkGraphComputer `g = graph.traversal().withComputer(SparkGraphComputer)`.
+
+    d. Execute as seguintes consultas de grafo do Gremlin:
 
     ```bash
     gremlin> graph = GraphFactory.open("conf/hadoop/gremlin-spark.properties")
@@ -402,6 +404,6 @@ Para demonstrar como persistir um gráfico no BD Cosmos do Azure, este exemplo u
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Este artigo de início rápido, você aprendeu como trabalhar com gráficos, combinando o banco de dados do Azure Cosmos e Spark.
+Neste artigo de início rápido você aprendeu a trabalhar com grafos, combinando o Azure Cosmos DB e o Spark.
 
 > [!div class="nextstepaction"]

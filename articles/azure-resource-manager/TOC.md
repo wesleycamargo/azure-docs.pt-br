@@ -71,9 +71,7 @@
 
 ## Definir políticas de recursos
 ### [O que são políticas de recursos?](resource-manager-policy.md)
-### Exemplos
-#### [Marcas](resource-manager-policy-tags.md)
-#### [Convenções de nomenclatura](resource-manager-policy-naming-convention.md)
+### [Convenções de nomenclatura](resource-manager-policy-naming-convention.md)
 
 ## Audit
 ### [Exibir logs de atividade](resource-group-audit.md)
@@ -89,6 +87,7 @@
 #### [NotFound](resource-manager-not-found-errors.md)
 #### [ParentResourceNotFound](resource-manager-parent-resource-errors.md)
 #### [RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md)
+#### [ReservedResourceName](resource-manager-reserved-resource-name.md)
 #### [ResourceQuotaExceeded](resource-manager-quota-errors.md)
 #### [SkuNotAvailable](resource-manager-sku-not-available-errors.md)
 ### Erros de implantação da Máquina Virtual
