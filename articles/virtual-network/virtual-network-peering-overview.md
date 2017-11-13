@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: narayan;anavin
-ms.openlocfilehash: f055f1e87e73733b3f2ecfa87e4d372ade8a7868
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 7d3e6a34b5851a5a35a530b18efc3db3e2249274
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="virtual-network-peering"></a>Emparelhamento de rede virtual
 
@@ -35,7 +35,7 @@ Os benefícios do uso do emparelhamento de rede virtual incluem:
 
 ## <a name="requirements-constraints"></a>Requisitos e restrições
 
-* O emparelhamento de redes virtuais na mesma região está disponível ao público em geral. O emparelhamento de redes virtuais em regiões diferentes está atualmente em versão prévia no Centro-oeste dos EUA, Central do Canadá e Oeste dos EUA 2. Você pode [registrar sua assinatura](virtual-network-create-peering.md) para a versão prévia.
+* O emparelhamento de redes virtuais na mesma região está disponível ao público em geral. O emparelhamento de redes virtuais em regiões diferentes está atualmente em versão prévia no Centro-oeste dos EUA, Central do Canadá e Oeste dos EUA 2. Antes de fazer o emparelhamento das redes virtuais em regiões diferentes, você deve primeiro [registrar sua assinatura](virtual-network-create-peering.md#register) para a versão prévia. Tentar criar um emparelhamento entre redes virtuais em regiões diferentes falhará se você não tiver concluído o registro para a versão prévia.
     > [!WARNING]
     > Os emparelhamentos de rede virtual criados entre regiões podem não ter o mesmo nível de disponibilidade e confiabilidade encontrado em emparelhamentos em uma versão de disponibilidade geral. Emparelhamentos de rede virtual podem ter funcionalidades restringidas e podem não estar disponíveis em todas as regiões do Azure. Para ver as notificações mais recentes sobre disponibilidade e o status desse recurso, verifique a página [Atualizações da Rede Virtual](https://azure.microsoft.com/updates/?product=virtual-network) .
 
@@ -65,7 +65,7 @@ Ao configurar o emparelhamento de rede virtual, você pode abrir ou fechar as re
 
 Você pode configurar rotas definidas pelo usuário que apontam para máquinas virtuais em redes virtuais emparelhadas como o endereço IP "próximo salto" para habilitar o encadeamento de serviços. O encadeamento de serviços permite que você direcione o tráfego de uma rede virtual para uma solução virtual em uma rede virtual emparelhada através de rotas definidas pelo usuário.
 
-Você também pode criar efetivamente ambientes do tipo hub e spoke, nos quais o hub pode hospedar componentes de infraestrutura, como um dispositivo de rede virtual. Todas as redes virtuais contadas podem emparelhar com a rede virtual do hub. O tráfego pode fluir por meio de dispositivos de rede virtual que estejam em execução na rede virtual do hub. Resumindo, o emparelhamento de redes virtuais permite que o endereço IP de próximo salto na tabela de rotas definida pelo usuário seja o endereço IP de uma máquina virtual na rede virtual emparelhada. Para saber mais sobre as rotas definidas pelo usuário, confira [visão geral de rotas definidas pelo usuário](virtual-networks-udr-overview.md). Para saber como criar uma topologia de rede de hub e spoke, veja [Topologia de rede de hub e spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering)
+Você também pode criar efetivamente ambientes do tipo hub e spoke, nos quais o hub pode hospedar componentes de infraestrutura, como um dispositivo de rede virtual. Todas as redes virtuais contadas podem emparelhar com a rede virtual do hub. O tráfego pode fluir por meio de dispositivos de rede virtual que estejam em execução na rede virtual do hub. Resumindo, o emparelhamento de redes virtuais permite que o endereço IP de próximo salto na tabela de rotas definida pelo usuário seja o endereço IP de uma máquina virtual na rede virtual emparelhada. Para saber mais sobre as rotas definidas pelo usuário, confira [visão geral de rotas definidas pelo usuário](virtual-networks-udr-overview.md). Para saber como criar uma topologia de rede de hub e spoke, consulte [Topologia de rede de hub e spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering).
 
 ## <a name="gateways-and-on-premises-connectivity"></a>Gateways e conectividade local
 

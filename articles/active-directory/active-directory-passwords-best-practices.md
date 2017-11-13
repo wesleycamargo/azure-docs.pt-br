@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: e28324fe0d7e52f1721af6cd835369f024d4c58f
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 0be1616f5df915e566dc73c15dbea2e53177aa1c
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="how-to-successfully-rollout-self-service-password-reset"></a>Como distribuir com sucesso a redefinição de senha de autoatendimento
 
@@ -38,8 +38,8 @@ A maioria dos clientes segue as etapas abaixo para garantir uma distribuição t
 10. Ao longo do tempo, revise os [relatórios fornecidos pelo Azure AD](active-directory-passwords-reporting.md) para examinar os usuários que usam e se registram.
 11. Quando você estiver pronto, habilitar a redefinição de senha para todos os usuários, definir a caixa ativar/desativar **Redefinição de senha de autoatendimento habilitada** para **Todos**. 
 
-    > [!IMPORTANT]
-    > Teste a SSPR com um usuário e não como um administrador, uma vez que a Microsoft impõe requisitos de autenticação fortes para contas de administrador do Azure. Para obter mais informações sobre a política de senha do administrador, confira o nosso [artigo de aprofundamento](active-directory-passwords-how-it-works.md).
+   > [!IMPORTANT]
+   > Teste a SSPR com um usuário e não como um administrador, uma vez que a Microsoft impõe requisitos de autenticação fortes para contas de administrador do Azure. Para obter mais informações sobre a política de senha do administrador, confira o nosso [artigo de política de senha](active-directory-passwords-policy.md#administrator-password-policy-differences).
 
 ## <a name="email-based-rollout"></a>Distribuição baseada em email
 
@@ -67,7 +67,7 @@ Se desejar que os usuários se registrem para a redefinição de senha, você po
 
 Os administradores podem exigir que os usuários se registrem novamente após um período definindo o **número de dias antes que os usuários são solicitados a reconfirmar suas informações de autenticação** entre 0 e 730 dias.
 
-Depois de habilitar essa opção, os usuários entrando verão uma mensagem informando-os que seu administrador solicitou que verifiquem suas informações de autenticação.
+Depois de habilitar essa opção, os usuários que entram verão uma mensagem informando-os que seu administrador solicitou que eles verifiquem suas informações de autenticação.
 
 ## <a name="populate-authentication-data"></a>Popular os dados de autenticação
 
@@ -85,9 +85,9 @@ Desabilitar a redefinição de senha de autoatendimento é tão simples quanto a
 * [Quais dados são usados pela SSPR e quais dados você deve preencher para seus usuários?](active-directory-passwords-data.md)
 * [Quais são as opções de política com SSPR?](active-directory-passwords-policy.md)
 * [O que é o write-back de senha e por que devo me importar com isso?](active-directory-passwords-writeback.md)
-* [Como faço para informar sobre a atividade na SSPR?](active-directory-passwords-reporting.md)
-* [Quais são todas as opções na SSPR e o que elas significam?](active-directory-passwords-how-it-works.md)
-* [Acho que algo está errado. Como faço para solucionar o problema na SSPR?](active-directory-passwords-troubleshoot.md)
+* [Como faço para informar sobre a atividade no SSPR?](active-directory-passwords-reporting.md)
+* [Quais são todas as opções no SSPR e o que elas significam?](active-directory-passwords-how-it-works.md)
+* [Acho que algo não está funcionando. Como faço para solucionar o problema no SSPR?](active-directory-passwords-troubleshoot.md)
 * [Tenho uma pergunta que não foi respondida em nenhum lugar](active-directory-passwords-faq.md)
 
 [Email]: ./media/active-directory-passwords-best-practices/sspr-emailtemplates.png "Personalizar esses modelos de email para se ajustar aos seus requisitos organizacionais"

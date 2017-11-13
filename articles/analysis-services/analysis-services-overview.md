@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 11/07/2017
 ms.author: owend
-ms.openlocfilehash: c6be396f22ee364e7746038b2243162e775c8c54
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 350f95b2f9ec8dc4a3e2dc8f7d390f841b248fa1
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="what-is-azure-analysis-services"></a>O que é o Azure Analysis Services?
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
@@ -46,9 +46,18 @@ No Portal do Azure, você pode [criar um servidor](analysis-services-create-serv
 Depois que você tiver um servidor criado, é possível criar um modelo de tabela diretamente no portal do Azure. Com o novo (versão prévia) [recurso de designer da Web](analysis-services-create-model-portal.md) você pode se conectar a um Banco de Dados SQL, fonte de dados do SQL Data Warehouse do Azure, ou importar um arquivo do Power BI Desktop .pbix. As relações entre tabelas são criadas automaticamente, e você pode criar medidas ou editar o arquivo model.bim no formato json direitamente em seu navegador.
 
 ## <a name="scale-to-your-needs"></a>Escalar de acordo com suas necessidades
+
+### <a name="the-right-tier-when-you-need-it"></a>A camada certa quando você precisa
+
 O Azure Analysis Services está disponível nas camadas de Desenvolvedor, Básica e Standard. Em cada nível, os custos do plano variam de acordo com a potência do processamento, QPUs e quantidade de memória. Quando você cria um servidor, é possível selecionar um plano de dentro de uma camada. Você pode alterar planos para cima ou para baixo na mesma camada ou atualizar para uma camada superior; mas você não pode fazer o downgrade de um nível mais alto para um nível inferior.
 
-Escalar verticalmente, reduzir verticalmente ou pausar o servidor. Use o portal do Azure ou tenha controle total usando o PowerShell. Você paga apenas pelo que usa. Para saber mais sobre os diferentes planos e camadas e usar a calculadora de preços para determinar o plano certo para você, confira [Preços do Azure Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/).
+Você pode fazer um upgrade, downgrade ou pausar o servidor. Use o portal do Azure ou tenha controle total usando o PowerShell. Você paga apenas pelo que usa. Para saber mais sobre os diferentes planos e camadas e usar a calculadora de preços para determinar o plano certo para você, confira [Preços do Azure Analysis Services](https://azure.microsoft.com/pricing/details/analysis-services/).
+
+### <a name="scale-out-resources-for-fast-query-responses"></a>Recursos de expansão para respostas de consulta rápidas
+
+Com a expansão do Azure Analysis Services, as consultas de cliente são distribuídas entre várias *réplicas de consulta* em um pool de consultas. As réplicas de consulta possuem cópias sincronizadas dos seus modelos de tabela. Ao distribuir a carga de trabalho de consulta, os tempos de resposta durante cargas de trabalho de consulta altas podem ser reduzidos. As operações de processamento do modelo podem ser separadas do pool de consultas, garantindo que as consultas não são afetadas negativamente pelas operações de processamento. Você pode criar um pool de consultas com até sete réplicas de consulta adicionais (total de oito, incluindo o servidor). 
+
+Da mesmo forma que você altera a sua camada, você pode expandir réplicas de consulta acordo com suas necessidades. Configure a expansão no portal do ou usando as APIs REST. Para saber mais, consulte [Expansão do Azure Analysis Services](analysis-services-scale-out.md).
 
 ## <a name="keep-your-data-close"></a>Manter seus dados próximos a você
 Servidores do Azure Analysis Services podem ser criados nas seguintes [regiões do Azure](https://azure.microsoft.com/regions/):
@@ -92,11 +101,17 @@ A autenticação de usuário para o Azure Analysis Services é feita pelo [AAD (
 #### <a name="data-security"></a>Segurança de dados
 O Azure Analysis Services utiliza o Armazenamento de Blobs do Azure para persistir o armazenamento e os metadados em bancos de dados do Analysis Services. Os arquivos de dados no blob são criptografados usando Azure SSE (criptografia do servidor de blobs). Ao usar o modo Consulta Direta, apenas os metadados serão armazenados. Os dados reais são acessados na fonte de dados no momento da consulta.
 
+#### <a name="firewall"></a>Firewall
+
+O Firewall do Azure Analysis Services bloqueia todas as conexões de cliente, exceto aquelas especificadas nas regras. Configure as regras especificando os endereços IP permitidos por IPs de clientes individuais ou por intervalo. As conexões do Power BI (serviço) também podem ser permitidas ou bloqueadas. 
+
 #### <a name="on-premises-data-sources"></a>Fontes de dados locais
 O acesso protegido aos dados que residem localmente na organização é feito com a instalação e a configuração de um [Gateway de dados local](analysis-services-gateway.md). Os gateways fornecem acesso a dados nos modos Consulta Direta e de memória interna. Quando um modelo do Azure Analysis Services se conecta a uma fonte de dados local, uma consulta é criada junto com as credenciais criptografadas da fonte de dados local. O serviço de nuvem do gateway analisa a consulta e envia a solicitação para um Barramento de Serviço do Azure. O gateway local sonda o Barramento de Serviço do Azure para verificar solicitações pendentes. O gateway obtém a consulta, descriptografa as credenciais e conecta-se às fontes de dados para a execução. Os resultados são enviados da fonte de dados para o gateway e, em seguida, para o banco de dados do Azure Analysis Services.
 
 O Azure Analysis Services é regido pelo [Termos do Microsoft Online Services](http://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) e pela [política de privacidade do Microsoft Online Services](https://www.microsoft.com/privacystatement/OnlineServices/Default.aspx).
 Para saber mais sobre a Segurança do Azure, confira a [Central de Confiabilidade da Microsoft](https://www.microsoft.com/trustcenter/Security/AzureSecurity).
+
+
 
 ## <a name="supports-the-latest-client-tools"></a>Dá suporte às ferramentas de cliente mais recentes
 ![Visualizações de dados](./media/analysis-services-overview/aas-overview-clients.png)

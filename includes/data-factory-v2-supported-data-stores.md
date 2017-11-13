@@ -1,12 +1,13 @@
 | Categoria | Armazenamento de dados | Tem suporte como origem | Tem suporte como coletor | Suporte do [IR do Azure](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) | Suporte do [IR auto-hospedado](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime) |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **As tabelas** |[Armazenamento de Blobs do Azure](../articles/data-factory/connector-azure-blob-storage.md) |✓  |✓  |✓  |✓  |
+| **As tabelas** |[Armazenamento de Blobs do Azure](../articles/data-factory/connector-azure-blob-storage.md) |✓ |✓  |✓  |✓  |
 | &nbsp; |[Banco de dados do Azure Cosmos](../articles/data-factory/connector-azure-cosmos-db.md) |✓ |✓  |✓  |✓   |
-| &nbsp; |[Repositório Azure Data Lake](../articles/data-factory/connector-azure-data-lake-store.md) |✓  |✓  |✓  |✓   |
+| &nbsp; |[Repositório Azure Data Lake](../articles/data-factory/connector-azure-data-lake-store.md) |✓  |✓  |✓  |✓  |
+| &nbsp; |[Armazenamento de Arquivos do Azure](../articles/data-factory/connector-azure-file-storage.md) |✓ |✓  |✓  |✓   |
 | &nbsp; |[Banco de Dados SQL do Azure](../articles/data-factory/connector-azure-sql-database.md) |✓  |✓  |✓  |✓   |
 | &nbsp; |[SQL Data Warehouse do Azure](../articles/data-factory/connector-azure-sql-data-warehouse.md) |✓  |✓  |✓  |✓   |
 | &nbsp; |[Índice do Azure Search](../articles/data-factory/connector-azure-search.md) | |✓  |✓  |✓  |
-| &nbsp; |[Armazenamento de Tabelas do Azure](../articles/data-factory/connector-azure-table-storage.md) |✓  |✓  |✓  |✓   |
+| &nbsp; |[Armazenamento de Tabelas do Azure](../articles/data-factory/connector-azure-table-storage.md) |✓ |✓  |✓  |✓   |
 | **Bancos de dados** |[Amazon Redshift](../articles/data-factory/connector-amazon-redshift.md) |✓  | |✓  |✓  |
 | &nbsp; |[DB2](../articles/data-factory/connector-db2.md) |✓ | |✓  |✓  |
 | &nbsp; |[Informix](../articles/data-factory/connector-odbc.md#ibm-informix-source) |✓ | | |✓  |

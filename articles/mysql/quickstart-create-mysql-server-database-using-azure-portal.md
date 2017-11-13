@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.custom: mvc
 ms.topic: hero-article
-ms.date: 10/16/2017
-ms.openlocfilehash: 73785cf8c4f1539cb52254ba316ed7d888b683aa
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.date: 11/01/2017
+ms.openlocfilehash: a8cea099103bd6a306e41770e47b1279f5dbcdea
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Criar um servidor de Banco de Dados do Azure para MySQL usando o portal do Azure
 O Banco de Dados do Azure para MySQL é um serviço gerenciado usado para executar, gerenciar e dimensionar Bancos de Dados MySQL altamente disponíveis na nuvem. Este Guia de Início Rápido mostra como criar um Banco de Dados do Azure para o servidor MySQL em aproximadamente cinco minutos usando o portal do Azure.  
@@ -70,19 +70,21 @@ O serviço do Banco de Dados do Azure para MySQL cria um firewall no nível do s
 
 3.  No cabeçalho **Regras de firewall**, selecione a caixa de texto em branco na coluna **Nome da Regra** para começar a criar a regra de firewall. 
 
-    Para este Guia de Início Rápido, vamos permitir todos os endereços IP no servidor preenchendo as caixas em cada coluna com os seguintes valores:
+   ![Segurança de conexão - Regras de Firewall](./media/quickstart-create-mysql-server-database-using-azure-portal/5_firewall-settings.png)
 
-    Nome da regra | IP Inicial | IP Final 
-    ---|---|---
-    AllowAllIps |  0.0.0.0 | 255.255.255.255
-    
-    Não é seguro permitir todos os endereços IP. Este exemplo é fornecido para manter a simplicidade, mas em um cenário do mundo real, você precisará conhecer os intervalos de endereços IP exatos a serem adicionados aos aplicativos e usuários. 
+   Para este Guia de Início Rápido, vamos permitir todos os endereços IP no servidor preenchendo as caixas em cada coluna com os seguintes valores:
+
+   Nome da regra | IP Inicial | IP Final 
+   ---|---|---
+   AllowAllIps |  0.0.0.0 | 255.255.255.255
+   
+   Não é seguro permitir todos os endereços IP. Este exemplo é fornecido para manter a simplicidade, mas em um cenário do mundo real, você precisará conhecer os intervalos de endereços IP exatos a serem adicionados aos aplicativos e usuários. 
 
 4. Na barra de ferramentas superior da página **Segurança da conexão**, selecione **Salvar**. Antes de prosseguir, aguarde até que a notificação seja exibida, informando que a atualização foi concluída com êxito. 
 
-    > [!NOTE]
-    > As conexões ao Banco de Dados do Azure para MySQL se comunicam pela porta 3306. Se estiver tentando se conectar em uma rede corporativa, talvez o tráfego de saída pela porta 3306 não seja permitido. Se esse for o caso, você não poderá se conectar ao seu servidor enquanto o departamento de TI não abrir a porta 3306.
-    > 
+   > [!NOTE]
+   > As conexões ao Banco de Dados do Azure para MySQL se comunicam pela porta 3306. Se estiver tentando se conectar em uma rede corporativa, talvez o tráfego de saída pela porta 3306 não seja permitido. Se esse for o caso, você não poderá se conectar ao seu servidor enquanto o departamento de TI não abrir a porta 3306.
+   > 
 
 ## <a name="get-the-connection-information"></a>Obter informações de conexão
 Para conectar o servidor de banco de dados, você precisa do nome do servidor completo e as credenciais de entrada do administrador. Talvez você tenha anotado esses valores anteriormente no artigo do Guia de início rápido. Caso contrário, você pode encontrar facilmente o nome do servidor e as informações de entrada na página **Visão Geral** ou na página **Propriedades do servidor** no portal do Azure.

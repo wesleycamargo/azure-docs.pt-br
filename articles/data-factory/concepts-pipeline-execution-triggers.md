@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/10/2017
 ms.author: shlo
-ms.openlocfilehash: c319979cce23da69965d4fbab037919461f67b3a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6f4c0b11039bbdaf29c90ec2358934dc1c24af90
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Gatilhos e execução de pipeline no Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -177,7 +177,7 @@ Para que o gatilho de agendador dispare uma execução de pipeline, inclua uma r
         "interval": <<int>>,             // optional, how often to fire (default to 1)
         "startTime": <<datetime>>,
         "endTime": <<datetime>>,
-        "timeZone": <<default UTC>>
+        "timeZone": "UTC"
         "schedule": {                    // optional (advanced scheduling specifics)
           "hours": [<<0-24>>],
           "weekDays": ": [<<Monday-Sunday>>],
@@ -189,6 +189,7 @@ Para que o gatilho de agendador dispare uma execução de pipeline, inclua uma r
                     "occurrence": <<1-5>>
                }
            ] 
+        }
       }
     },
    "pipelines": [
@@ -202,7 +203,7 @@ Para que o gatilho de agendador dispare uma execução de pipeline, inclua uma r
                         "type": "Expression",
                         "value": "<parameter 1 Value>"
                     },
-                    "<parameter 2 Name> : "<parameter 2 Value>"
+                    "<parameter 2 Name>" : "<parameter 2 Value>"
                 }
            }
       ]
@@ -210,17 +211,57 @@ Para que o gatilho de agendador dispare uma execução de pipeline, inclua uma r
 }
 ```
 
+> [!IMPORTANT]
+>  A propriedade **parâmetros** é uma propriedade obrigatória dentro do **pipelines**. Mesmo que o pipeline não use nenhum parâmetro, inclua um json vazio para os parâmetros, já que a propriedade deve existir.
+
+
 ### <a name="overview-scheduler-trigger-schema"></a>Visão geral: esquema de gatilho de agendador
 A tabela a seguir fornece uma visão geral de alto nível dos principais elementos relacionados a recorrência e planejamento em um gatilho:
 
 Propriedade JSON |     Descrição
 ------------- | -------------
 startTime | startTime é uma Data/Hora. Para agendamentos simples, startTime é a primeira ocorrência. Para agendamentos complexos, o gatilho não inicia antes de startTime.
+endTime | Especifica a data/hora de término para o gatilho. O gatilho não é executado após esse horário. Não é válido ter um endTime no passado.
+timeZone | No momento, apenas UTC tem suporte. 
 recurrence | O objeto recurrence especifica regras de recorrência para o gatilho. O objeto recurrence dá suporte aos elementos frequency, interval, endTime, count e schedule. Se recurrence for definido, frequency será necessário; os outros elementos de recurrence serão opcionais.
 frequência | Representa a unidade de frequência com que o gatilho se repete. Os valores com suporte são: `minute`, `hour`, `day`, `week` ou `month`.
 intervalo | O valor interval é um inteiro positivo. Ele denota o intervalo para a frequência que determina a periodicidade com que o gatilho é executado. Por exemplo, se interval for 3 e frequency for "week", o gatilho se repetirá a cada três semanas.
-endTime | Especifica a data/hora de término para o gatilho. O gatilho não é executado após esse horário. Não é válido ter um endTime no passado.
 schedule | Um gatilho com uma frequência especificada altera sua recorrência com base em um agendamento de recorrência. Um elemento schedule contém as modificações com base em minutos, em horas, em dias da semana, em dias do mês e em número da semana.
+
+
+### <a name="schedule-trigger-example"></a>Exemplo de gatilho de elemento schedule
+
+```json
+{
+    "properties": {
+        "name": "MyTrigger",
+        "type": "ScheduleTrigger",
+        "typeProperties": {
+            "recurrence": {
+                "frequency": "Hour",
+                "interval": 1,
+                "startTime": "2017-11-01T09:00:00-08:00",
+                "endTime": "2017-11-02T22:00:00-08:00"
+            }
+        },
+        "pipelines": [{
+                "pipelineReference": {
+                    "type": "PipelineReference",
+                    "referenceName": "SQLServerToBlobPipeline"
+                },
+                "parameters": {}
+            },
+            {
+                "pipelineReference": {
+                    "type": "PipelineReference",
+                    "referenceName": "SQLServerToAzureSQLPipeline"
+                },
+                "parameters": {}
+            }
+        ]
+    }
+}
+```
 
 ### <a name="overview-scheduler-trigger-schema-defaults-limits-and-examples"></a>Visão geral: padrões de esquema de gatilho de agendador, limites e exemplos
 
@@ -251,7 +292,7 @@ Finalmente, quando um gatilho tiver um agendamento, se as horas e/ou minutos nã
 ### <a name="deep-dive-schedule"></a>Análise aprofundada: schedule
 Por um lado, um elemento schedule pode limitar o número de execuções do gatilho. Por exemplo, se um gatilho com o elemento frequency definido como "month" tiver um schedule para ser executado somente no dia 31, o gatilho será executado apenas nos meses que têm o dia 31.
 
-Por outro lado, um elemento schedule também pode expandir o número de execuções do gatilho. Por exemplo, se um gatilho com o elemento frequency definido como "month" tiver um agendamento para ser executado nos dias 1 e 2 do mês, o gatilho será executado no 1º e 2º dias do mês, em vez de apenas uma vez por mês.
+Enquanto que, um elemento schedule também pode expandir o número de execuções do gatilho. Por exemplo, se um gatilho com o elemento frequency definido como "month" tiver um agendamento para ser executado nos dias 1 e 2 do mês, o gatilho será executado no 1º e 2º dias do mês, em vez de apenas uma vez por mês.
 
 Se forem especificados vários elementos schedule, a ordem de avaliação será do maior para o menor – número da semana, dia do mês, dia da semana, hora e minuto.
 
@@ -262,9 +303,9 @@ Nome JSON | Descrição | Valores Válidos
 --------- | ----------- | ------------
 minutes | Minutos da hora em que o gatilho será executado. | <ul><li>Número inteiro</li><li>Matriz de inteiros</li></ul>
 hours | As horas do dia em que o gatilho será executado. | <ul><li>Número inteiro</li><li>Matriz de inteiros</li></ul>
-weekDays | Dias da semana em que o gatilho será executado. Só pode ser especificado com uma frequência semanal. | <ul><li>Monday, Tuesday, Wednesday, Thursday, Friday, Saturday ou Sunday</li><li>Matriz de qualquer um dos valores acima (tamanho máximo da matriz: 7)</li></p>Não diferencia maiúsculas de minúsculas</p>
+weekDays | Dias da semana em que o gatilho será executado. Só pode ser especificado com uma frequência semanal. | <ul><li>Monday, Tuesday, Wednesday, Thursday, Friday, Saturday ou Sunday</li><li>Matriz de qualquer um dos valores (tamanho máximo da matriz: 7)</li></p>Não diferencia maiúsculas de minúsculas</p>
 monthlyOccurrences | Determina em quais dias do mês o gatilho será executado. Só pode ser especificado com uma frequência mensal. | Matriz de objetos monthlyOccurence: `{ "day": day,  "occurrence": occurence }`. <p> O valor do elemento day é o dia da semana no qual o gatilho será executado, por exemplo, `{Sunday}` representa todos os domingos do mês. Obrigatório.<p>O valor do elemento ocurrence é a ocorrência do dia em questão no mês, por exemplo, `{Sunday, -1}` é o último domingo do mês. Opcional.
-monthDays | Dia do mês em que o gatilho será executado. Só pode ser especificado com uma frequência mensal. | <ul><li>Qualquer valor <= -1 e >= -31</li><li>Qualquer valor >= 1 e <= 31</li><li>Uma matriz dos valores acima</li>
+monthDays | Dia do mês em que o gatilho será executado. Só pode ser especificado com uma frequência mensal. | <ul><li>Qualquer valor <= -1 e >= -31</li><li>Qualquer valor >= 1 e <= 31</li><li>Uma matriz de valores</li>
 
 
 ## <a name="examples-recurrence-schedules"></a>Exemplos: agendamentos de recorrência
