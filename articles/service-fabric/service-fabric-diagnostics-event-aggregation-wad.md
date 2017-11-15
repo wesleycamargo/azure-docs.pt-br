@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/17/2017
+ms.date: 11/02/2017
 ms.author: dekapur
-ms.openlocfilehash: 5773361fdec4cb8ee54fa2856f6aa969d5dac4e9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e417458a16a5f23d8b89cbf87ab2713fab352046
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Coleta e agregação de eventos utilizando o Diagnóstico do Windows Azure
 > [!div class="op_single_selector"]
@@ -174,7 +174,7 @@ Após modificar o arquivo template.json conforme descrito, republique o modelo d
 
 Começando com a versão 5.4 do Service Fabric, eventos de métrica de carga e integridade estão disponíveis para coleta. Esses eventos refletir os eventos gerados pelo sistema ou seu código usando a integridade ou APIs de relatórios de carga como [ReportPartitionHealth](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportpartitionhealth.aspx) ou [ReportLoad](https://msdn.microsoft.com/library/azure/system.fabric.iservicepartition.reportload.aspx). Isso permite agregar e exibir a integridade do sistema ao longo do tempo e para alertas com base em eventos de integridade ou de carga. Para exibir esses eventos no Visualizador de Eventos de Diagnóstico do Visual Studio, adicione "Microsoft-ServiceFabric:4:0x4000000000000008" à lista de provedores de ETW.
 
-Para coletar os eventos, modifique o modelo do Resource Manager para incluir
+Para coletar os eventos em seu cluster, modifique o `scheduledTransferKeywordFilter` no WadCfg do seu modelo do Resource Manager para `4611686018427387912`.
 
 ```json
   "EtwManifestProviderConfiguration": [
@@ -191,11 +191,15 @@ Para coletar os eventos, modifique o modelo do Resource Manager para incluir
 
 ## <a name="collect-reverse-proxy-events"></a>Coletar eventos de proxy reverso
 
-A partir da versão 5.7 do Service Fabric, os eventos de [proxy reverso](service-fabric-reverseproxy.md) estão disponíveis para coleta.
-O proxy reverso emite eventos em dois canais, um que contém eventos de erro refletindo falhas e o outro que contém eventos detalhados sobre todas as solicitações de processamento de solicitações processados no proxy reverso. 
+Da versão 5.7 do Service Fabric em diante, os eventos de [proxy reverso](service-fabric-reverseproxy.md) estão disponíveis para coleta pelos canais de mensagens e dados. 
 
-1. Coletar eventos de erro: para exibir esses eventos no Visualizador de Eventos de Diagnóstico do Visual Studio, adicione "Microsoft-ServiceFabric:4:0x4000000000000010" à lista de provedores de ETW.
-Para coletar os eventos de clusters do Azure, modifique o modelo do Resource Manager para incluir
+O proxy inverso envia por push somente eventos de erro por meio do canal de dados e mensagens principal – refletindo falhas de processamento de solicitação e problemas críticos. O canal detalhado contém eventos detalhados sobre todas as solicitações processadas pelo proxy inverso. 
+
+Para exibir os eventos de erro no Visualizador de Eventos de Diagnóstico do Visual Studio, adicione "Microsoft-ServiceFabric:4:0x4000000000000010" à lista de provedores de ETW. Para toda a telemetria de solicitação, atualize a entrada Microsoft-ServiceFabric na lista de provedores do ETW para "Microsoft-ServiceFabric:4:0x4000000000000020".
+
+Para clusters em execução no Azure:
+
+Para obter os rastreamentos no canal principal de dados e mensagens, modifique o valor `scheduledTransferKeywordFilter` no WadCfg do seu modelo do Resource Manager para `4611686018427387920`.
 
 ```json
   "EtwManifestProviderConfiguration": [
@@ -210,8 +214,7 @@ Para coletar os eventos de clusters do Azure, modifique o modelo do Resource Man
     }
 ```
 
-2. Coletar todos os eventos de processamento de solicitação: no Visualizador de Eventos de Diagnóstico no Visual Studio, atualize a entrada Microsoft-ServiceFabric na lista de provedores do ETW para "Microsoft-ServiceFabric:4:0x4000000000000020".
-Para clusters do Azure Service Fabric, modifique o modelo do resource manager para incluir
+Para coletar todos os eventos de processamento de solicitação, ative o canal detalhado de dados e mensagens alterando o valor `scheduledTransferKeywordFilter` no WadCfg do seu modelo do Resource Manager para `4611686018427387936`.
 
 ```json
   "EtwManifestProviderConfiguration": [
@@ -225,9 +228,8 @@ Para clusters do Azure Service Fabric, modifique o modelo do resource manager pa
       }
     }
 ```
-> É recomendável habilitar criteriosamente a coleta de eventos deste canal pois isso coleta todo o tráfego por meio do proxy reverso e pode consumir rapidamente a capacidade de armazenamento.
 
-Para os clusters de Azure Service Fabric, os eventos de todos os nós são coletados e agregados em SystemEventTable.
+Habilitar a coleta de eventos neste canal detalhado resulta na rápida geração de uma grande quantidade de rastreamentos e pode consumir capacidade de armazenamento. Ative esta opção somente quando absolutamente necessário.
 Para obter a solução de problemas dos eventos de proxy reverso, veja o [guia de diagnóstico de proxy reverso](service-fabric-reverse-proxy-diagnostics.md).
 
 ## <a name="collect-from-new-eventsource-channels"></a>Coletar a partir de novos canais EventSource
@@ -252,27 +254,9 @@ Para coletar contadores de desempenho ou logs de eventos, modifique o modelo do 
 
 ## <a name="collect-performance-counters"></a>Coletar contadores de desempenho
 
-Para coletar métricas de desempenho do seu cluster, adicione os contadores de desempenho para o "WadCfg > DiagnosticMonitorConfiguration" no modelo do Resource Manager para o cluster. Consulte [Contadores de desempenho do Service Fabric](service-fabric-diagnostics-event-generation-perf.md) para contadores de desempenho que recomendamos para coleta.
-
-Por exemplo, aqui vamos definir um contador de desempenho, amostras a cada 15 segundos (isso pode ser alterado e segue o formato de "PT\<time>\<unit>", por exemplo, o PT3M seria a amostra em intervalos de três minutos) e transferências para a tabela de armazenamento apropriada a cada um minuto.
-
-  ```json
-  "PerformanceCounters": {
-      "scheduledTransferPeriod": "PT1M",
-      "PerformanceCounterConfiguration": [
-          {
-              "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
-              "sampleRate": "PT15S",
-              "unit": "Percent",
-              "annotation": [
-              ],
-              "sinks": ""
-          }
-      ]
-  }
-  ```
+Para coletar métricas de desempenho do seu cluster, adicione os contadores de desempenho para o "WadCfg > DiagnosticMonitorConfiguration" no modelo do Resource Manager para o cluster. Consulte [Monitoramento do desempenho com WAD](service-fabric-diagnostics-perf-wad.md) para obter etapas sobre como modificar seu `WadCfg` para coletar contadores de desempenho específicos. Consulte [Contadores de desempenho do Service Fabric](service-fabric-diagnostics-event-generation-perf.md) para uma lista dos contadores de desempenho que recomendamos coletar.
   
-Se você estiver usando um coletor do Application Insights, conforme descrito na seção abaixo e deseja que essas métricas sejam exibidas no Application Insights, certifique-se de adicionar o nome do coletor na seção "coletores", como mostrado acima. Além disso, considere a criação de uma tabela separada para enviar seus Contadores de desempenho, para que eles não fiquem cheios de dados provenientes de outros canais de log que você habilitou.
+Se você estiver usando um coletor do Application Insights, conforme descrito na seção abaixo e deseja que essas métricas sejam exibidas no Application Insights, certifique-se de adicionar o nome do coletor na seção "coletores", como mostrado acima. Isso enviará automaticamente os contadores de desempenho que são configurados individualmente para o recurso do Application Insights.
 
 
 ## <a name="send-logs-to-application-insights"></a>Enviar logs para o Application Insights

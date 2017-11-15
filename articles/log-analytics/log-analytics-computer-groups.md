@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2017
+ms.date: 11/02/2017
 ms.author: bwren
-ms.openlocfilehash: f27f038e0507270c0bfe200cb8c86622ebac5372
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 17a59a38b6a445a7f42df171a711669f95fc84c2
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Grupos de computadores em pesquisas de log do Log Analytics
 
@@ -109,13 +109,29 @@ Clique no **x** na coluna **Remover** para excluir o grupo de computadores.  Cli
 
 
 ## <a name="using-a-computer-group-in-a-log-search"></a>Usando um grupo de computadores em uma pesquisa de log
-Você pode usar um grupo de Computadores em uma consulta tratando seu alias como uma função, normalmente com a seguinte sintaxe:
+Use um grupo de computadores criados em uma pesquisa de logs em uma consulta tratando seu alias como uma função, normalmente com a seguinte sintaxe:
 
   `Table | where Computer in (ComputerGroup)`
 
 Por exemplo, você pode usar o seguinte para retornar registros de UpdateSummary somente para os computadores em um grupo de computadores chamado mycomputergroup.
  
   `UpdateSummary | where Computer in (mycomputergroup)`
+
+
+Os grupos de computadores importados e seus computadores incluídos estão armazenados na tabela **ComputerGroup**.  Por exemplo, a seguinte consulta retornaria uma lista de computadores no grupo de Computadores do domínio do Active Directory. 
+
+  `ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer`
+
+A consulta a seguir retornaria registros UpdateSummary apenas para computadores em Computadores de domínio.
+
+  ```
+  let ADComputers = ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "Domain Computers" | distinct Computer;
+  UpdateSummary | where Computer in (ADComputers)
+  ```
+
+
+
+  
 
 >[!NOTE]
 > Se o seu espaço de trabalho ainda estiver usando a [linguagem de consulta do Log Analytics herdada](log-analytics-log-search-upgrade.md)>, use a seguinte sintaxe para se referir a um grupo de computadores em uma pesquisa de logs.  Especificar a **Categoria** >é opcional e necessário somente se você tiver grupos de computadores com o mesmo nome em diferentes categorias. 

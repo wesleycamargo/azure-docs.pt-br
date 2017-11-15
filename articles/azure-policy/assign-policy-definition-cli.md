@@ -5,31 +5,32 @@ services: azure-policy
 keywords: 
 author: Jim-Parker
 ms.author: jimpark
-ms.date: 10/06/2017
+ms.date: 11/02/2017
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 92b532691986e72eca68d9bc3033e20ff8ffef3b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 764554a6afcc7912c53fc5000a6af44abb2adc99
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment-with-the-azure-cli"></a>Crie uma atribuição de política para identificar recursos sem conformidade em seu ambiente do Azure com a CLI do Azure
 
-A primeira etapa para compreender a conformidade no Azure é saber qual é a situação de seus recursos atuais. Este guia de início rápido orienta você quanto ao processo de criação de uma atribuição de política para identificar recursos sem conformidade com a definição de política – *Exigir SQL Server versão 12.0*. No final deste processo, você terá identificado com êxito quais servidores são de uma versão diferente e, essencialmente, sem conformidade.
+A primeira etapa para compreender a conformidade no Azure é saber qual é a situação de seus recursos atuais. Este guia de início rápido orienta você no processo de criação de uma atribuição de política para identificar máquinas virtuais que não estão usando discos gerenciados.
 
-A CLI do Azure é usada para criar e gerenciar recursos do Azure da linha de comando ou em scripts. Este guia descreve com detalhes o uso da CLI do Azure para criar uma atribuição de política para identificar recursos sem conformidade em seu ambiente do Azure.
+No final deste processo, você terá identificado com êxito quais máquinas virtuais não estão usando discos gerenciados e são, portanto, *sem conformidade*.
+.
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 Se você optar por instalar e usar a CLI localmente, este guia de início rápido exigirá a execução da CLI do Azure versão 2.0.4 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli).
- 
+
 ## <a name="opt-in-to-azure-policy"></a>Aceitar a Política do Azure
 
-A Política do Azure está disponível na versão prévia limitada e, portanto, você precisa se registrar para solicitar acesso.
+Agora o Azure Policy está disponível em Visualização Pública e é necessário registrar-se para solicitar acesso.
 
 1. Vá até a Política do Azure em https://aka.ms/getpolicy e selecione **Inscrever-se** no painel esquerdo.
 
@@ -39,15 +40,15 @@ A Política do Azure está disponível na versão prévia limitada e, portanto, 
 
    ![Aceitar o uso da Política do Azure](media/assign-policy-definition/preview-opt-in.png)
 
-   Pode levar alguns dias para aceitarmos sua solicitação de registro, com base na demanda. Após sua solicitação ser aceita, você receberá um email informando que pode começar a usar o serviço.
+   Sua solicitação é aprovada automaticamente para versão prévia. Aguarde até 30 minutos para o sistema processar seu registro.
 
 ## <a name="create-a-policy-assignment"></a>Criar uma atribuição de política
 
-Neste guia de início rápido, criamos uma atribuição de política e atribuímos a definição Exigir SQL Server versão 12.0. Esta definição de política identifica recursos que não são compatíveis com as condições configuradas na definição de política.
+Neste guia de início rápido, criamos uma atribuição de política e atribuímos a definição Auditar máquinas virtuais sem Managed Disks. Esta definição de política identifica recursos que não são compatíveis com as condições configuradas na definição de política.
 
 Siga estas etapas para criar uma nova atribuição de política.
 
-Veja todas as definições de política e localize a definição de política "Exigir SQL Server versão 12.0":
+Exiba todas as definições de política e encontre a definição de política "Auditar máquinas virtuais sem Managed Disks":
 
 ```azurecli
 az policy definition list
@@ -61,16 +62,16 @@ A Política do Azure vem com definições de políticas internas que você pode 
 
 Em seguida, forneça as informações abaixo e execute o seguinte comando para atribuir a definição de política:
 
-- **Nome** de exibição da atribuição de política. Neste caso, vamos usar *Atribuição Exigir SQL Server versão 12.0*.
-- **Política** – trata-se da definição da política, com base naquela que você está usando para criar a atribuição. Neste caso, é a definição de política – *Exigir SQL Server versão 12.0*
+- **Nome** de exibição da atribuição de política. Nesse caso, vamos usar *Auditar máquinas virtuais sem Managed Disks*.
+- **Política** – trata-se da definição da política, com base naquela que você está usando para criar a atribuição. Nesse caso, é a definição de política – *Auditar máquinas virtuais sem Managed Disks*
 - Um **escopo** – um escopo determina em quais recursos ou agrupamento de recursos a atribuição de política é imposta. Pode variar de uma assinatura a grupos de recursos.
 
-  Use a assinatura (ou grupo de recursos) que você registrou anteriormente quando aceitou a Política do Azure. Neste exemplo, estamos usando a ID de assinatura – **bc75htn-a0fhsi-349b-56gh-4fghti-f84852** e o nome do grupo de recursos – **FabrikamOMS**. Não deixe de alterá-las para a ID da assinatura e o nome do grupo de recursos com que você está trabalhando. 
+  Use a assinatura (ou grupo de recursos) que você registrou anteriormente quando aceitou a Política do Azure. Neste exemplo, estamos usando a ID de assinatura – **bc75htn-a0fhsi-349b-56gh-4fghti-f84852** e o nome do grupo de recursos – **FabrikamOMS**. Não deixe de alterá-las para a ID da assinatura e o nome do grupo de recursos com que você está trabalhando.
 
 O comando deve ter esta aparência:
 
 ```azurecli
-az policy assignment create --name Require SQL Server version 12.0 Assignment --policy Require SQL Server version 12.0 --scope /subscriptions/ 
+az policy assignment create --name Audit Virtual Machines without Managed Disks Assignment --policy Audit Virtual Machines without Managed Disks --scope /subscriptions/
 bc75htn-a0fhsi-349b-56gh-4fghti-f84852/resourceGroups/FabrikamOMS
 ```
 
@@ -92,7 +93,7 @@ Para exibir os recursos que não tem conformidade com essa nova atribuição:
 Outros guias desta coleção dão continuidade a este guia de início rápido. Se você planeja continuar trabalhando com os tutoriais subsequentes, não limpe os recursos criados neste guia de início rápido. Se você não planeja continuar, exclua a atribuição criada executando este comando:
 
 ```azurecli
-az policy assignment delete –name Require SQL Server version 12.0 Assignment --scope /subscriptions/ bc75htn-a0fhsi-349b-56gh-4fghti-f84852 resourceGroups/ FabrikamOMS
+az policy assignment delete –name  Assignment --scope /subscriptions/ bc75htn-a0fhsi-349b-56gh-4fghti-f84852 resourceGroups/ FabrikamOMS
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -103,4 +104,3 @@ Para saber mais sobre a atribuição de políticas, para garantir que os recurso
 
 > [!div class="nextstepaction"]
 > [Criando e gerenciando políticas](./create-manage-policy.md)
-

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/01/2017
 ms.author: robinsh
-ms.openlocfilehash: fdba4588fbb2c46efb3fc4de1a9e53414264444a
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 9c5628307e76bd30d2dd59f284f2c4b30d434223
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-net"></a>Transferir objetos de/para o Armazenamento de Blobs do Azure usando o .NET
 
@@ -34,25 +34,7 @@ Para concluir este guia de início rápido:
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="create-a-storage-account-using-the-azure-portal"></a>Criar uma conta de armazenamento usando o Portal do Azure
-
-Primeiro, crie uma nova conta de armazenamento de uso geral a ser usada para este guia de início rápido. 
-
-1. Acesse o [Portal do Azure](https://portal.azure.com) e faça logon usando sua conta do Azure. 
-2. No menu Hub, selecione **Novo** > **Armazenamento** > **Conta de armazenamento – blob, arquivo, tabela, fila**. 
-3. Insira um nome para a conta de armazenamento. O nome deve ter entre 3 e 24 caracteres e podem conter apenas números e letras minúsculas. Ele também deve ser exclusivo.
-4. Configure `Deployment model` como **Resource Manager**.
-5. Configure `Account kind` como **Propósito geral**.
-6. Configure `Performance` como **Standard**. 
-7. Configure `Replication` como **LRS (Armazenamento com redundância local)**.
-8. Configure `Storage service encryption` como **Desabilitado**.
-9. Configure `Secure transfer required` como **Desabilitado**.
-10. Selecione sua assinatura. 
-11. Para `resource group`, crie um novo e dê a ele um nome exclusivo. 
-12. Selecione a `Location` a ser usada para sua conta de armazenamento.
-13. Marque **Fixar no painel** e clique em **Criar** para criar sua conta de armazenamento. 
-
-Depois que a conta de armazenamento é criada, ela é fixada ao painel. Clique nela para abri-la. Em CONFIGURAÇÕES, clique em **Chaves de acesso**. Selecione uma chave e copie a CADEIA DE CONEXÃO para a área de transferência e cole-a no editor de texto para uso posterior.
+[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 
 ## <a name="download-the-sample-application"></a>Baixar o aplicativo de exemplo
 
@@ -114,7 +96,10 @@ A primeira coisa a fazer é criar as referências aos objetos usados para acessa
 
 * Crie uma instância do objeto **CloudBlobContainer** que representa o contêiner que você está acessando. Os contêineres são usados para organizar seus blobs da mesma forma que você usa pastas no seu computador para organizar seus arquivos.
 
-Assim que tiver o **CloudBlobContainer**, você poderá criar uma instância do objeto **CloudBlockBlob**, que aponta para o blob específico em que você está interessado e realizar a operação de upload, download, cópia etc.
+Assim que tiver o **CloudBlobContainer**, será possível criar uma instância do objeto **CloudBlockBlob**, que aponta para o blob específico em que você está interessado e realizar a operação de upload, download, cópia etc.
+
+> [!IMPORTANT]
+> Os nomes de contêiner devem estar em minúsculas. Consulte [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) (Nomenclatura e referência de contêineres, blobs e metadados) para obter mais informações sobre nomes de contêiner e de blobs.
 
 Nesta seção, você cria uma instância de objetos, cria um novo contêiner e, em seguida, define as permissões no contêiner para que os blobs sejam públicos e possam ser acessados com apenas uma URL. O contêiner é chamado de **quickstartblobs**. 
 

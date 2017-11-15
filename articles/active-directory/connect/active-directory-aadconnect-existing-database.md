@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2017
 ms.author: billmath
-ms.openlocfilehash: d005042fffcf8f4ff99876961a55d254fd4fb2d5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 61652d97429336dad23ba14f7349e27bf52d33d7
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="install-azure-ad-connect-using-an-existing-adsync-database"></a>Instalar o Azure AD Connect usando um banco de dados ADSync existente
 O Azure AD Connect requer um banco de dados do SQL Server para armazenar dados. Você pode usar o SQL Server 2012 Express LocalDB padrão instalado com o Azure AD Connect ou usar sua própria versão completa do SQL. Anteriormente, quando você instalava o Azure AD Connect, um novo banco de dados denominado ADSync era sempre criado. Com o Azure AD Connect versão 1.1.613.0 (ou posterior), você tem a opção de instalar o Azure AD Connect apontando-o para um banco de dados ADSync existente.
@@ -43,11 +43,11 @@ Esses benefícios são úteis nos seguintes cenários:
 
 Observações importantes necessárias antes de continuar:
 
-
 - Não deixe de examinar os pré-requisitos para a instalação do Azure AD Connect em Hardware e pré-requisitos, bem como as contas e permissões necessárias para instalar o Azure AD Connect. As permissões necessárias para instalar o Azure AD Connect usando o modo "usar o banco de dados existente" são as mesmas que as da instalação "personalizada".
+- A implantação do Azure AD Connect em um banco de dados ADSync existente só tem suporte com SQL completo. Ele não tem suporte com o SQL Express LocalDB. Se você tem um banco de dados ADSync no LocalDB que deseja usar, você deve primeiro fazer o backup do banco de dados ADSync (LocalDB) e restaurá-lo para SQL completo. Depois disso, você pode implantar o Azure AD Connect no banco de dados restaurado usando esse método.
 - A versão do Azure AD Connect usada para a instalação deve atender aos seguintes critérios:
     - 1.1.613.0 ou superior, E
-    - Igual ou superior à versão do Azure AD Connect usada pela última vez com o banco de dados ADSync. Se a versão do Azure AD Connect usada para a instalação é superior à versão usada pela última vez com o banco de dados ADSync, uma sincronização completa pode ser necessária.  Isso é necessário se houver alterações de esquema ou de regra de sincronização entre as duas versões. 
+    - Igual ou superior à versão do Azure AD Connect usada pela última vez com o banco de dados ADSync. Se a versão do Azure AD Connect usada para a instalação é superior à versão usada pela última vez com o banco de dados ADSync, uma sincronização completa pode ser necessária.  A sincronização completa é necessária se há alterações de esquema ou de regra de sincronização entre as duas versões. 
 - O banco de dados ADSync usado deve conter um estado de sincronização relativamente recente. A última atividade de sincronização com o banco de dados ADSync existente deve estar dentro das últimas três semanas.
 - Ao instalar o Azure AD Connect usando o método "usar o banco de dados existente", o método de entrada configurado no servidor do Azure AD Connect anterior não é preservado. Além disso, você não pode configurar o método de entrada durante a instalação. Você só pode configurar o método de entrada após a conclusão da instalação.
 - Você não pode ter vários servidores de conexão do Azure AD compartilhando o mesmo banco de dados ADSync. O método "usar o banco de dados existente" permite que você reutilize um banco de dados ADSync existente com um novo servidor do Azure AD Connect. Ele não dá suporte a compartilhamento.

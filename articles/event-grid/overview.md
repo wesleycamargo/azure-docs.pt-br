@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 11/02/2017
 ms.author: babanisa
-ms.openlocfilehash: e798a1e751cb9e789bc479a6f842fb7f8f703bbf
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: a0bcc9650fda10c099887b74b408551b12cde667
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Uma introdução à Grade de Eventos do Azure
 
@@ -50,6 +50,8 @@ Aqui estão alguns dos principais recursos da Grade de Eventos do Azure:
 * **Alta taxa de transferência**: crie cargas de trabalho de alto volume na Grade de Eventos com suporte para milhões de eventos por segundo.
 * **Eventos internos**: comece a executar rapidamente com eventos internos definidos pelo recurso.
 * **Eventos personalizados**: use eventos personalizados de rota, filtro e entrega confiável da de Grade de Eventos em seu aplicativo.
+
+Para obter uma comparação de Grade de Eventos, Hubs de Eventos e Barramento de Serviço, consulte [Escolher entre os serviços do Azure que entregam mensagens](compare-messaging-services.md).
 
 ## <a name="built-in-publisher-and-handler-integration"></a>Integração interna entre publicador e manipulador
 
@@ -100,14 +102,6 @@ A Grade de Eventos permite que você acelere a automação e simplifique a impos
 ![Integração de aplicativos](./media/overview/app_integration.png)
 
 A Grade de Eventos conecta seu aplicativo a outros serviços. Por exemplo, crie um tópico personalizado para enviar os dados de evento do aplicativo para a Grade de Eventos e aproveite a entrega confiável, o roteamento avançado e a integração com o Azure. Como alternativa, você pode usar a Grade de Eventos com Aplicativos Lógicos para processar dados em qualquer lugar, sem escrever código. 
-
-## <a name="how-is-event-grid-different-from-other-azure-integration-services"></a>Qual é a diferente entre a Grade de Eventos e outros serviços de integração do Azure?
-
-A Grade de Eventos é um backplane de eventos que permite a programação reativa e controlada por evento. Ela está profundamente integrada aos serviços do Azure e pode ser integrada aos serviços de terceiros. A mensagem de evento contém as informações necessárias para reagir a alterações em serviços e aplicativos. A Grade de Eventos não é um pipeline de dados e não entrega o objeto real atualizado.
-
-O Barramento de Serviço é adequado para aplicativos corporativos tradicionais que exigem transações, ordenação, detecção de duplicidades e consistência instantânea. A Grade de Eventos foi desenvolvida para proporcionar velocidade, escala, amplitude e baixo custo em um modelo reativo. Ela é adequada à arquitetura sem servidor.
-
-A Grade de Eventos complementa outros serviços do Azure como Aplicativos Lógicos e Hubs de Eventos. A Grade de Eventos dispara o início do fluxo de trabalho do aplicativo lógico. Os Hubs de Evento trabalham com a Grade de Eventos para permitir que você reaja a eventos de Captura dos Hubs de Evento e crie pipelines de ingresso e transformação de dados.
 
 ## <a name="how-much-does-event-grid-cost"></a>Quanto custa a Grade de Eventos?
 

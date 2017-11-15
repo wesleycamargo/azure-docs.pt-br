@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 041847f2f341528c742d127f5d624e60c26e01fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b6047528b56c220a410a602422604c1453024903
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="back-up-your-app-in-azure"></a>Fazer backup de seu aplicativo no Azure
 O recurso de Backup e Restauração no [Serviço de Aplicativo do Azure](app-service-web-overview.md) permite que você crie backups de aplicativos facilmente, de modo manual ou agendado. Você pode restaurar o aplicativo em um instantâneo de um estado anterior, substituindo o aplicativo existente ou restaurando em outro aplicativo. 
@@ -49,7 +49,7 @@ As soluções de banco de dados a seguir são compatíveis com o recurso de back
 <a name="requirements"></a>
 
 ## <a name="requirements-and-restrictions"></a>Requisitos e restrições
-* O recurso de Backup e Restauração exige que o plano do Serviço de Aplicativo esteja na camada **Standard** ou **Premium**. Para obter mais informações sobre como dimensionar seu plano do Serviço de Aplicativo para usar uma camada superior, veja [Escalar verticalmente um aplicativo Web no Serviço de Aplicativo do Azure](web-sites-scale.md).  
+* O recurso de Backup e Restauração exige que o plano de Serviço de Aplicativo esteja na camada **Standard** ou **Premium**. Para obter mais informações sobre como dimensionar seu plano do Serviço de Aplicativo para usar uma camada superior, veja [Escalar verticalmente um aplicativo Web no Serviço de Aplicativo do Azure](web-sites-scale.md).  
   A camada **Premium** permite um número maior de backups diários do que a camada **Standard**.
 * Você precisa de uma conta de armazenamento do Azure e do contêiner na mesma assinatura do aplicativo do qual você deseja fazer backup. Para obter mais informações sobre contas de armazenamento do Azure, consulte os [links](#moreaboutstorage) no final deste artigo.
 * Backups podem ter até 10 GB de conteúdo do aplicativo e do banco de dados. Se o tamanho do backup ultrapassar esse limite, você receberá um erro.
@@ -57,46 +57,46 @@ As soluções de banco de dados a seguir são compatíveis com o recurso de back
 <a name="manualbackup"></a>
 
 ## <a name="create-a-manual-backup"></a>Criar um backup manual
-1. No [Portal do Azure](https://portal.azure.com), navegue até a folha do aplicativo, selecione **Backups**. A folha **Backups** será exibida.
+1. No [Portal do Azure](https://portal.azure.com), navegue até a página do seu aplicativo e selecione **Backups**. A página **Backups** é exibida.
    
     ![Página Backups][ChooseBackupsPage]
    
    > [!NOTE]
-   > Se você receber a mensagem abaixo, clique nela para atualizar seu plano do Serviço de Aplicativo antes de continuar com os backups.
-   > Veja [Escalar verticalmente um aplicativo no Azure](web-sites-scale.md) para obter mais informações.  
+   > Se você vir a seguinte mensagem, clique nela para atualizar seu plano de Serviço de Aplicativo antes de continuar com os backups.
+   > Para obter mais informações, consulte [Escalar verticalmente um aplicativo no Azure](web-sites-scale.md).  
    > ![Escolher uma conta de armazenamento](./media/web-sites-backup/01UpgradePlan1.png)
    > 
    > 
 
-2. Na folha de **Backup**, clique em **Configurar**
+2. Na página **Backup**, clique em **Configurar**
 ![Clique em Configurar](./media/web-sites-backup/ClickConfigure1.png)
-3. Na folha **Configuração de Backup**, clique em **Armazenamento: não configurado** para configurar uma conta de armazenamento.
+3. Na página **Configuração de backup**, clique em **Armazenamento: não configurado** para configurar uma conta de armazenamento.
    
     ![Escolher uma conta de armazenamento][ChooseStorageAccount]
-4. Escolha o destino de seu backup selecionando uma **Conta de Armazenamento** e um **Contêiner**. A conta de armazenamento deve pertencer à mesma assinatura do aplicativo do qual você deseja fazer backup. Se desejar, você pode criar uma nova conta de armazenamento ou um novo contêiner nas respectivas folhas. Quando terminar, clique em **Selecionar**.
+4. Escolha o destino de seu backup selecionando uma **Conta de Armazenamento** e um **Contêiner**. A conta de armazenamento deve pertencer à mesma assinatura do aplicativo do qual você deseja fazer backup. Se desejar, será possível criar uma nova conta de armazenamento ou um novo contêiner nas respectivas páginas. Quando terminar, clique em **Selecionar**.
    
     ![Escolher uma conta de armazenamento](./media/web-sites-backup/02ChooseStorageAccount1-1.png)
-5. Na folha **Configuração de Backup** que ainda está aberta, você pode configurar o **Banco de Dados de Backup**, selecione os bancos de dados que deseja incluir nos backups (banco de dados SQL ou MySQL) e clique em **OK**.  
+5. Na página **Configuração de backup** que ainda está aberta, é possível configurar o **Banco de dados de backup**, então selecione os bancos de dados que deseja incluir nos backups (banco de dados SQL ou MySQL) e clique em **OK**.  
    
     ![Escolher uma conta de armazenamento](./media/web-sites-backup/03ConfigureDatabase1.png)
    
    > [!NOTE]
-   > Para que um banco de dados apareça nessa lista, sua cadeia de conexão deve existir na seção **Cadeias de conexão** da folha **Configurações do aplicativo** do aplicativo.
+   > Para que um banco de dados seja exibido nessa lista, sua cadeia de conexão deve constar na seção **Cadeias de conexão** da página **Configurações de aplicativo** do aplicativo.
    > 
    > 
-6. Na folha **Configuração de Backup**, clique em **Salvar**.    
-7. Na folha de **Backups**, clique em **Backup**.
+6. Na página **Configuração de backup**, clique em **Salvar**.    
+7. Na página **Backups**, clique em **Backup**.
    
     ![Botão BackUpNow][BackUpNow]
    
     Você verá uma mensagem informando o andamento do processo de backup.
 
-Após a configuração da conta de armazenamento e do contêiner, você poderá iniciar um backup manual a qualquer momento.  
+Após a configuração da conta de armazenamento e do contêiner, será possível iniciar um backup manual a qualquer momento.  
 
 <a name="automatedbackups"></a>
 
 ## <a name="configure-automated-backups"></a>Configurar backups automáticos
-1. Na folha de **Configuração de Backup**, defina **Backup Agendado** para **Ativado**. 
+1. Na página **Configuração de backup**, defina **Backup agendado** como **Ativado**. 
    
     ![Escolher uma conta de armazenamento](./media/web-sites-backup/05ScheduleBackup1.png)
 2. Opções de Agendamento de Backups serão exibidas, defina **Backup Agendado** para **Ativado**, configure o agendamento de backup conforme desejado e clique em **OK**.
@@ -115,17 +115,17 @@ Após a configuração da conta de armazenamento e do contêiner, você poderá 
 Os backups parciais permitem que você escolha exatamente quais arquivos deseja incluir no backup.
 
 ### <a name="exclude-files-from-your-backup"></a>Excluir arquivos do backup
-Vamos supor que você tenha um aplicativo que contém arquivos de log e imagens estáticas que passaram por backup e não vão mais sofrer alteração. Nesses casos, você pode excluir a exclusão desses arquivos e pastas em backups futuros. Para excluir arquivos e pastas de seus backups, crie um arquivo `_backup.filter` na pasta `D:\home\site\wwwroot` de seu aplicativo. Especifique a lista de arquivos e pastas que você excluir deste arquivo. 
+Vamos supor que você tenha um aplicativo que contém arquivos de log e imagens estáticas que passaram por backup e não vão mais sofrer alteração. Nesses casos, é possível excluir essas pastas e arquivos de serem armazenadas em seus backups futuros. Para excluir arquivos e pastas de seus backups, crie um arquivo `_backup.filter` na pasta `D:\home\site\wwwroot` de seu aplicativo. Especifique a lista de arquivos e pastas que você excluir deste arquivo. 
 
-Uma maneira fácil de acessar seus arquivos é usando o Kudu. Clique na configuração **Ferramentas Avançadas-> Ir** em seu aplicativo Web para acessar o Kudu.
+Uma maneira fácil de acessar seus arquivos é usar o Kudu. Clique na configuração **Ferramentas Avançadas-> Ir** em seu aplicativo Web para acessar o Kudu.
 
 ![Kudu usando o Portal][kudu-portal]
 
-Identifique as pastas que você quer excluir de seus backups.  Por exemplo, você quer filtrar e remover os arquivos e pastas realçados.
+Identifique as pastas que você quer excluir de seus backups.  Por exemplo, você deseja filtrar a pasta e os arquivos realçados.
 
 ![Pasta Imagens][ImagesFolder]
 
-Crie um arquivo chamado `_backup.filter` e coloque a lista acima no arquivo, mas remova `D:\home`. Liste um diretório ou arquivo por linha. Portanto, o conteúdo do arquivo deve ser:
+Crie um arquivo chamado `_backup.filter` e coloque a lista anterior no arquivo, mas remova `D:\home`. Liste um diretório ou arquivo por linha. Portanto, o conteúdo do arquivo deve ser:
  ```bash
     \site\wwwroot\Images\brand.png
     \site\wwwroot\Images\2014
@@ -146,7 +146,7 @@ Execute backups da mesma maneira que faria normalmente, de modo [manual](#create
 <a name="aboutbackups"></a>
 
 ## <a name="how-backups-are-stored"></a>Como os backups são armazenados
-Depois de criar um ou mais backups para seu aplicativo, os backups ficam visíveis na folha **Contêineres** de sua conta de armazenamento, bem como em seu aplicativo. Na conta de armazenamento, cada backup é formado por um arquivo `.zip` que contém os dados de backup e um arquivo `.xml` que contém um manifesto do conteúdo do arquivo `.zip`. Será possível descompactar e procurar esses arquivos se você quiser acessar seus backups sem realmente executar uma restauração do aplicativo.
+Depois de ter feito um ou mais backups para seu aplicativo, os backups estarão visíveis na página **Contêineres** de sua conta de armazenamento e em seu aplicativo. Na conta de armazenamento, cada backup é formado por um arquivo `.zip` que contém os dados de backup e um arquivo `.xml` que contém um manifesto do conteúdo do arquivo `.zip`. Será possível descompactar e procurar esses arquivos se você quiser acessar seus backups sem realmente executar uma restauração do aplicativo.
 
 O backup de banco de dados do aplicativo é armazenado na raiz do arquivo .zip. Para um banco de dados SQL, este é um arquivo BACPAC (sem extensão de arquivo) e pode ser importado. Para criar um banco de dados SQL com base na exportação do BACPAC, veja [Importar um arquivo BACPAC para criar um novo banco de dados de usuário](http://technet.microsoft.com/library/hh710052.aspx).
 
@@ -154,6 +154,15 @@ O backup de banco de dados do aplicativo é armazenado na raiz do arquivo .zip. 
 > A alteração de qualquer um dos arquivos no contêiner **websitebackups** pode fazer com que o backup se torne inválido e, portanto, não restaurável.
 > 
 > 
+
+## <a name="automate-with-scripts"></a>Automatizar com scripts
+
+É possível automatizar o gerenciamento de backup com scripts, usando a [CLI do Azure](/cli/azure/install-azure-cli) ou o [Azure PowerShell](/powershell/azure/overview).
+
+Para obter exemplos, consulte:
+
+- [Exemplos da CLI do Azure](app-service-cli-samples.md)
+- [Exemplos do Azure PowerShell](app-service-powershell-samples.md)
 
 <a name="nextsteps"></a>
 

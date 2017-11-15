@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 8ce4d6d9024dc4ce3956220eb0678a6295b0b7ab
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 9733774570f3148e0092f42c1321b4fac1c80b54
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="password-writeback-overview"></a>Visão geral de write-back de senha
 
@@ -91,6 +91,8 @@ As etapas a seguir pressupõem que você já tenha configurado o Azure AD Connec
    ![Habilitar write-back de senha no Azure AD Connect][Writeback]
 7. Na tela Pronto para configurar, clique em **Configurar** e aguarde a conclusão do processo.
 8. Ao visualizar Configuração concluída, clique em **Sair**
+
+Para tarefas comuns de solução de problemas relacionadas ao write-back de senha, consulte a seção [Solucionar problemas de write-back de senha](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) em nosso artigo de solução de problemas.
 
 ## <a name="active-directory-permissions"></a>Permissões do Active Directory
 

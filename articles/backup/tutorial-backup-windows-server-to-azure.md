@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 09/23/2017
 ms.author: saurabhsensharma;markgal;
 ms.custom: 
-ms.openlocfilehash: f81f23862e783de07b5ec5aebad7f0a781168bd1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7caf1dd3fa5ef295c2472cc11deb2895fc2a7111
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="back-up-windows-server-to-azure"></a>Fazer backup do Windows Server para o Azure
 
@@ -116,23 +116,19 @@ Você pode usar o Agente de Serviços de Recuperação do Microsoft Azure para a
 
 3. Clique em **Avançar** para navegar até a página **Selecionar itens para fazer backup**.
 
-4. Clique em **Adicionar itens** e, na caixa de diálogo que será aberta, selecione **Estado do Sistema** e os arquivos ou as pastas que você deseja fazer backup. Em seguida, clique em **OK**.
+4. Clique em **Adicionar Itens** e, na caixa de diálogo que é aberta, selecione **Estado do Sistema** e as pastas ou os arquivos dos quais você deseja fazer backup. Em seguida, clique em **OK**.
 
 5. Clique em **Avançar**.
 
-6. Na página **Especificar Agenda de Backup**, especifique os horários do dia ou da semana em que os backups precisam ser disparados para os arquivos e as pastas. A agenda de backup do Estado do Sistema é configurada automaticamente. 
+6. Na página **Especificar Agendamento de Backup (Estado do Sistema)**, especifique a hora do dia ou da semana e que os backups precisam ser disparados para o Estado do Sistema e clique em **Avançar** 
 
-    ![Preparar infraestrutura](./media/tutorial-backup-windows-server-to-azure/mars-schedule-backup.png)
- 
-
-
-7.  Na página **Selecionar Política de Retenção**, selecione a Política de Retenção para a cópia de backup dos arquivos e das pastas. O período de retenção dos backups de Estado do Sistema é definido automaticamente como 60 dias.
+7.  Na página **Selecionar Política de Retenção (Estado do Sistema)**, selecione a Política de Retenção para a cópia de backup do Estado do Sistema e clique em **Avançar**
+8. Da mesma forma, selecione o agendamento de backup e a política de retenção para as pastas e os arquivos selecionados. 
 8.  Na página **Escolher Tipo Inicial de Backup**, deixe a opção **Automaticamente pela rede** selecionada e, em seguida, clique em **Avançar**.
 9.  Na página **Confirmação**, examine as informações e clique em **Concluir**.
 10. Depois que o assistente terminar de criar o agendamento de backup, clique em **Fechar**.
 
 ## <a name="perform-an-ad-hoc-back-up"></a>Executar um backup ad hoc
-
 
 Você estabeleceu a agenda de quando os trabalhos de backup serão executados. No entanto, você não fez backup do servidor. Uma melhor prática de recuperação de desastre é executar um backup sob demanda para garantir a resiliência de dados para o servidor.
 
@@ -140,8 +136,9 @@ Você estabeleceu a agenda de quando os trabalhos de backup serão executados. N
 
     ![Preparar infraestrutura](./media/tutorial-backup-windows-server-to-azure/mars-schedule-backup.png)
 
-2.  Na página **Confirmação**, examine as configurações que o assistente **Fazer Backup Agora** usa para fazer backup do servidor. Em seguida, clique em **Fazer Backup**.
-3.  Clique em **Fechar** para fechar o assistente. Se você fechar o assistente antes da conclusão do processo de backup, o assistente continuará a ser executado em segundo plano.
+2.  No assistente **Fazer Backup Agora**, selecione um dos **Arquivos e Pastas** ou o **Estado do Sistema** que você deseja fazer backup e clique em **Avançar** 
+3. Na página **Confirmação**, examine as configurações que o assistente **Fazer Backup Agora** usa para fazer backup do servidor. Em seguida, clique em **Fazer Backup**.
+4.  Clique em **Fechar** para fechar o assistente. Se você fechar o assistente antes da conclusão do processo de backup, o assistente continuará a ser executado em segundo plano.
 4.  Depois que o backup inicial for concluído, o status **Trabalho concluído** aparecerá no painel **Trabalhos** do console do Agente MARS.
 
 

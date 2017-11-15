@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 6ccd8728697040b4c783d8a1e51bc68c09ef7001
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2528f4318d92bbfdc1008795876f0240a5e3e4f6
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="secure-calls-to-your-custom-apis-from-logic-apps"></a>Proteger chamadas para suas APIs personalizadas de aplicativos lógicos
 
@@ -49,7 +49,7 @@ Eis as etapas gerais para este método:
 
 #### <a name="part-1-create-an-azure-ad-application-identity-for-your-logic-app"></a>Parte 1: Criar uma identidade do aplicativo do Azure AD para seu aplicativo lógico
 
-Seu aplicativo lógico usa essa identidade do aplicativo do Azure AD para autenticar no Azure AD. Você só precisa configurar essa identidade uma vez para seu diretório. Por exemplo, você pode optar por usar a mesma identidade para todos os seus aplicativos lógicos, embora possa criar identidades exclusivas para cada aplicativo lógico. Você pode configurar essas identidades no Portal do Azure, [Portal Clássico do Azure](#app-identity-logic-classic) ou usar o [PowerShell](#powershell).
+Seu aplicativo lógico usa essa identidade do aplicativo do Azure AD para autenticar no Azure AD. Você só precisa configurar essa identidade uma vez para seu diretório. Por exemplo, você pode optar por usar a mesma identidade para todos os seus aplicativos lógicos, embora possa criar identidades exclusivas para cada aplicativo lógico. É possível configurar essas identidades no Portal do Azure ou usar o [PowerShell](#powershell).
 
 **Criar a identidade do aplicativo para seu aplicativo lógico no Portal do Azure**
 
@@ -94,34 +94,6 @@ Seu aplicativo lógico usa essa identidade do aplicativo do Azure AD para autent
 
    ![Copiar e salvar a chave para mais tarde](./media/logic-apps-custom-api-authentication/logic-app-copy-key-secret-password.png)
 
-<a name="app-identity-logic-classic"></a>
-
-**Criar a identidade do aplicativo para seu aplicativo lógico no Portal Clássico do Azure**
-
-1. No Portal Clássico do Azure, escolha [**Active Directory**](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory).
-
-2. Selecione o mesmo diretório que você usa para seu aplicativo Web ou aplicativo de API.
-
-3. Na guia **Aplicativos**, escolha **Adicionar** na parte inferior da página.
-
-4. Dê um nome à identidade do aplicativo e escolha **Avançar** (seta para a direita).
-
-5. Em **Propriedades do aplicativo**, forneça uma única cadeia de caracteres formatada como um domínio para **URL de Entrada** e **URI da ID do Aplicativo** e escolha **Concluir** (marca de seleção).
-
-6. Na guia **Configurar**, copie e salve a **ID do Cliente** para seu aplicativo lógico usar na Parte 3.
-
-7. Em **Chaves**, abra a lista **Selecionar duração**. Selecione uma duração para a chave.
-
-   A chave que você está criando atua como o “segredo” ou senha da identidade do aplicativo para seu aplicativo lógico.
-
-8. Na parte inferior da página, escolha **Salvar**. Talvez seja necessário aguardar alguns segundos.
-
-9. Em **Chaves**, certifique-se de copiar e salvar a chave que agora é exibida. 
-
-   Quando você configurar seu aplicativo lógico na Parte 3, poderá especificar esta chave como o "segredo" ou a senha.
-
-Para obter mais informações, saiba como [configurar seu aplicativo de Serviço de Aplicativo para usar o logon do Azure Active Directory](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md).
-
 <a name="powershell"></a>
 
 **Criar a identidade do aplicativo para seu aplicativo lógico no PowerShell**
@@ -156,7 +128,7 @@ Se seu aplicativo Web ou aplicativo de API já estiver implantado, você poderá
 
 4. Na página **Autenticação/Autorização**, escolha **Salvar**.
 
-Agora você deve encontrar a ID do cliente e a ID do locatário para a identidade do aplicativo associada ao aplicativo Web ou aplicativo de API. Você usará essas IDs na Parte 3. Continue com estas etapas para o Portal do Azure ou [Portal Clássico do Azure](#find-id-classic).
+Agora você deve encontrar a ID do cliente e a ID do locatário para a identidade do aplicativo associada ao aplicativo Web ou aplicativo de API. Você usará essas IDs na Parte 3. Portanto, continue com essas etapas para o Portal do Azure.
 
 **Localizar a ID do cliente e a ID do locatário da identidade do aplicativo do aplicativo Web ou aplicativo de API no Portal do Azure**
 
@@ -177,32 +149,6 @@ Agora você deve encontrar a ID do cliente e a ID do locatário para a identidad
 
 5. Sem salvar as alterações, feche a página **Configurações do Azure Active Directory**.
 
-<a name="find-id-classic"></a>
-
-**Localizar a ID do cliente e a ID do locatário da identidade do aplicativo do aplicativo Web ou aplicativo de API no Portal Clássico do Azure**
-
-1. No Portal Clássico do Azure, escolha [**Active Directory**](https://manage.windowsazure.com/#Workspaces/ActiveDirectoryExtension/directory).
-
-2.  Selecione o diretório que você usa para seu aplicativo Web ou aplicativo de API.
-
-3. Na caixa **Pesquisar**, encontre e selecione a identidade do aplicativo para seu aplicativo Web ou aplicativo de API.
-
-4. Na guia **Configurar**, copie a **ID do Cliente** e salve o GUID para uso na Parte 3.
-
-5. Depois de obter a ID do cliente, na parte inferior da guia **Configurar**, escolha **Exibir pontos de extremidade**.
-
-6. Copie a URL para **Documento de Metadados Federados** e navegue para a URL.
-
-7. No documento de metadados aberto, localize o elemento **EntityDescriptor ID** raiz, que tem um atributo **entityID** nesse formato: `https://sts.windows.net/{GUID}` 
-
-   O GUID nesse atributo é o GUID específico do locatário (ID do Locatário).
-
-8. Copie a ID do locatário e salve essa ID para usar na Parte 3 e também para usar no modelo de implantação do seu aplicativo Web ou aplicativo de API, se necessário.
-
-Para saber mais, consulte esses tópicos:
-
-* [Autenticação e autorização no Serviço de Aplicativo do Azure](../app-service/app-service-authentication-overview.md)
-
 <a name="authen-deploy"></a>
 
 **Ativar a autenticação quando implantar com um modelo do Azure Resource Manager**
@@ -212,7 +158,7 @@ Você ainda deve criar uma identidade do aplicativo do Azure AD para seu aplicat
 Você também pode seguir as etapas na Parte 1, mas certifique-se de usar o `https://{URL}` real do aplicativo Web ou aplicativo de API para **URL de Entrada** e **URI da ID do Aplicativo**. Nessas etapas, você precisa salvar a ID do cliente e a ID do locatário para uso no modelo de implantação do aplicativo e na Parte 3.
 
 > [!NOTE]
-> Quando você cria a identidade do aplicativo do Azure AD para seu aplicativo Web ou aplicativo de API, deve usar o Portal do Azure ou o Portal Clássico do Azure em vez do PowerShell. O cmdlet do PowerShell não configura as permissões necessárias para conectar os usuários em um site.
+> Quando você cria a identidade do aplicativo do Azure AD para seu aplicativo Web ou aplicativo de API, é necessário usar o Portal do Azure, não o PowerShell. O cmdlet do PowerShell não configura as permissões necessárias para conectar os usuários em um site.
 
 Depois que você obtiver a ID do cliente e a ID do locatário, inclua essas IDs como um recurso secundário do seu aplicativo Web ou aplicativo de API no seu modelo de implantação:
 

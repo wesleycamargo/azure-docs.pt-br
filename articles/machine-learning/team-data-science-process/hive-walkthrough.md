@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/29/2017
 ms.author: hangzh;bradsev
-ms.openlocfilehash: 238b7d6bb6289b5f2e8d2a20f4335724087dfd48
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1be39ab258235740c7e0875a5c0c29ee4a665a71
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="the-team-data-science-process-in-action-use-azure-hdinsight-hadoop-clusters"></a>O Processo de Ciência de Dados de Equipe em ação: usar clusters Hadoop do Azure HDInsight
 Neste passo a passo, usamos o [TDSP (Processo de Ciência de Dados de Equipe)](overview.md) em um cenário de ponta a ponta usando um [cluster Hadoop do Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) para armazenar, explorar e apresentar dados de engenharia do conjunto de dados publicamente disponível [Corridas de táxi em NYC](http://www.andresmh.com/nyctaxitrips/) e reduzir os dados da amostra. Modelos de dados são criados com o Azure Machine Learning para lidar com classificação binária e multiclasse e tarefas preditivas de regressão.
@@ -59,15 +59,15 @@ Aqui estão três exemplos de problemas de previsão que abordados neste passo a
 
 1. **Classificação binária**: prever ou não se uma gorjeta foi paga por uma corrida, ou seja, um *tip\_amount* maior que US$ 0 é um exemplo positivo, enquanto um *tip\_amount* de US$ 0 é um exemplo negativo.
    
-        Class 0 : tip_amount = $0
-        Class 1 : tip_amount > $0
+        Class 0: tip_amount = $0
+        Class 1: tip_amount > $0
 2. **Classificação multiclasse**: prever o intervalo da gorjetas pagas pela corrida. Dividimos *tip\_amount* em cinco compartimentos ou classes:
    
-        Class 0 : tip_amount = $0
-        Class 1 : tip_amount > $0 and tip_amount <= $5
-        Class 2 : tip_amount > $5 and tip_amount <= $10
-        Class 3 : tip_amount > $10 and tip_amount <= $20
-        Class 4 : tip_amount > $20
+        Class 0: tip_amount = $0
+        Class 1: tip_amount > $0 and tip_amount <= $5
+        Class 2: tip_amount > $5 and tip_amount <= $10
+        Class 3: tip_amount > $10 and tip_amount <= $20
+        Class 4: tip_amount > $20
 3. **Tarefa de regressão**: prever o valor da gorjeta paga por uma corrida.  
 
 ## <a name="setup"></a>Configurar um cluster Hadoop do HDInsight para análises avançadas
@@ -132,7 +132,7 @@ Os dados agora devem estar no armazenamento de Blob do Azure e prontos para sere
 > 
 > 
 
-Para acessar o nó principal do cluster para análise exploratória de dados e redução de dados, siga o procedimento descrito em [Acessar o nó principal do cluster do Hadoop](customize-hadoop-cluster.md#headnode).
+Para acessar o nó principal do cluster para análise exploratória de dados e redução de dados, siga o procedimento descrito em [Acessar o nó principal do cluster do Hadoop](customize-hadoop-cluster.md).
 
 Neste passo a passo, podemos usar principalmente consultas escritas em [Hive](https://hive.apache.org/), uma linguagem de consulta do tipo SQL, para realizar explorações de dados preliminares. As consultas de Hive são armazenadas em arquivos .hql. Podemos então reduzir esses dados a serem usados no Azure Machine Learning para criar modelos.
 
@@ -413,7 +413,7 @@ Aqui está o conteúdo do arquivo *sample\_hive\_trip\_count\_by\_medallion.hql*
     HAVING med_count > 100
     ORDER BY med_count desc;
 
-No prompt da pasta Hive, emita o comando a seguir:
+No prompt do diretório do Hive, emita o comando abaixo:
 
     hive -f "C:\temp\sample_hive_trip_count_by_medallion.hql" > C:\temp\queryoutput.tsv
 
@@ -523,7 +523,7 @@ Execute o seguinte comando no console de Linha de Comando do Hadoop:
 
 Ter uma medida da distância direta nos permite descobrir a discrepância entre ela e a distância real da corrida. Podemos motivar esse recurso ressaltando que um passageiro pode ter menos probabilidade de dar gorjeta se eles descobrir que o condutor intencionalmente o levou por uma rota muito mais longa.
 
-Para ver a comparação entre a distância real da corrida e a [Distância do Haverseno](http://en.wikipedia.org/wiki/Haversine_formula) entre dois pontos de latitude-longitude (a distância do "grande círculo"), usamos as funções trigonométricas disponíveis no Hive, assim:
+Para ver a comparação entre a distância real da corrida e a [Distância do Haversine](http://en.wikipedia.org/wiki/Haversine_formula) entre dois pontos de latitude-longitude (a distância do “círculo grande”), usamos as funções trigonométricas disponíveis no Hive, desta forma:
 
     set R=3959;
     set pi=radians(180);
@@ -557,7 +557,7 @@ No prompt do diretório do Hive, execute:
 
 Os resultados da consulta são gravados em nove blobs do Azure ***queryoutputdir/000000\_0*** a ***queryoutputdir/000008\_0*** no contêiner padrão do cluster Hadoop.
 
-Para ver o tamanho dos blobs individuais, executamos o seguinte comando no prompt do diretório de Hive:
+Para ver o tamanho dos blobs individuais, executamos o seguinte comando no prompt do diretório do Hive:
 
     hdfs dfs -ls wasb:///queryoutputdir
 
@@ -581,7 +581,7 @@ A principal vantagem de os dados residirem em um blob do Azure é que podemos po
 Após a fase de análise exploratória de dados, agora estamos prontos para reduzir os dados para a criação de modelos no Azure Machine Learning. Nesta seção, mostraremos como usar uma consulta do Hive para reduzir os dados, que são acessados do módulo [Importar Dados][import-data] no Azure Machine Learning.
 
 ### <a name="down-sampling-the-data"></a>Reduzindo os dados
-Há duas etapas neste procedimento. Primeiro, unimos as tabelas **nyctaxidb.trip** e **nyctaxidb.fare** em três chaves presentes em todos os registros: "medallion", "hack\_license" e "pickup\_datetime". Então geramos um rótulo de classificação binária **tipped** e um rótulo de classificação multiclasse **tip\_class**.
+Há duas etapas neste procedimento. Primeiro, unimos as tabelas **nyctaxidb.trip** e **nyctaxidb.fare** em três chaves presentes em todos os registros: “medallion”, “hack\_license” e “pickup\_datetime”. Então geramos um rótulo de classificação binária **tipped** e um rótulo de classificação multiclasse **tip\_class**.
 
 Para poder usar a busca dados diretamente no módulo [Importar Dados][import-data] no Azure Machine Learning, é necessário armazenar os resultados da consulta anterior em uma tabela interna do Hive. No que vem em seguida, criamos uma tabela interna do Hive e preenchemos seus conteúdos com os dados unidos e reduzidos.
 
@@ -721,26 +721,26 @@ Agora temos uma tabela interna “nyctaxidb.nyctaxi_downsampled_dataset”, que 
 ### <a name="use-the-import-data-module-in-azure-machine-learning-to-access-the-down-sampled-data"></a>Use o módulo Importar Dados no Azure Machine Learning para acessar os dados reduzidos
 Como pré-requisitos para a emissão de consultas Hive no módulo [Importar Dados][import-data] do Azure Machine Learning, precisamos de acesso a um espaço de trabalho do Azure Machine Learning e acesso às credenciais do cluster e sua conta de armazenamento associada.
 
-Alguns detalhes sobre o módulo [Importar Dados][import-data] e os parâmetros de entrada:
+Alguns detalhes sobre o módulo [Importar Dados][import-data] e os parâmetros a serem inseridos:
 
-**O URI do servidor HCatalog**: se o nome do cluster for abc123, será simplesmente: https://abc123.azurehdinsight.net
+**URI do servidor HCatalog**: se o nome do cluster for abc123, isso será simplesmente: https://abc123.azurehdinsight.net
 
-**Nome de conta de usuário do Hadoop**: o nome de usuário escolhido para o cluster (**não** o nome de usuário de acesso remoto)
+**Nome da conta de usuário do Hadoop**: o nome de usuário escolhido para o cluster (**não** o nome de usuário de acesso remoto)
 
 **Senha da conta ser do Hadoop**: a senha escolhida para o cluster (**não** a senha de acesso remoto)
 
-**Local dos dados de saída** : é escolhido para ser o Azure.
+**Local dos dados de saída**: é escolhido para ser o Azure.
 
-**Nome da Conta de Armazenamento do Azure** : nome da conta de armazenamento padrão associada ao cluster.
+**Nome da conta de armazenamento do Azure**: nome da conta de armazenamento padrão associada ao cluster.
 
-**Nome do contêiner do Azure** : pe o nome do contêiner padrão para o cluster e normalmente o mesmo que o nome do cluster. Para um cluster chamado "abc123", é simplesmente abc123.
+**Nome do contêiner do Azure**: nome do contêiner padrão do cluster e, normalmente, o mesmo que o nome do cluster. Para um cluster chamado "abc123", é simplesmente abc123.
 
 > [!IMPORTANT]
 > **Qualquer tabela que desejamos consultar usando o módulo [Importar Dados][import-data] no Azure Machine Learning deve ser uma tabela interna.** Uma dica para determinar se uma tabela T em um banco de dados D.db é uma tabela interna é a seguinte:
 > 
 > 
 
-No prompt do diretório Hive, emita o comando a seguir:
+No prompt do diretório do Hive, emita o comando:
 
     hdfs dfs -ls wasb:///D.db/T
 
@@ -761,7 +761,7 @@ Agora estamos prontos para prosseguir com a criação e implantação de modelo 
 
 **Aprendiz usado:** regressão logística de classe dois
 
-a. Para esse problema, nosso rótulo (ou classe) de destino é "tipped". Nosso conjunto de dados original convertidos tem algumas colunas que são vazamentos de destino para esse teste de classificação. Em particular: tip\_class, tip\_amount e total\_amount revelam informações sobre a etiqueta de destino que não estão disponível no momento do teste. Podemos deixar de considerar essas colunas usando o módulo [Selecionar Colunas no Conjunto de Dados][select-columns].
+a. Para esse problema, nosso rótulo (ou classe) de destino é "tipped". Nosso conjunto de dados original convertidos tem algumas colunas que são vazamentos de destino para esse teste de classificação. Em particular: tip\_class, tip\_amount e total\_amount revelam informações sobre o rótulo de destino que não estão disponíveis no momento do teste. Podemos deixar de considerar essas colunas usando o módulo [Selecionar Colunas no Conjunto de Dados][select-columns].
 
 O instantâneo abaixo mostra o nosso teste para prever se uma gorjeta será paga ou não uma determinada corrida.
 
@@ -781,9 +781,9 @@ Como resultado, obtemos um AUC de 0,987, conforme mostrado na figura abaixo.
 
 **Aprendiz usado:** regressão logística de várias classes
 
-a. Para esse problema, nosso rótulo de destino (ou classe) é "tip\_class", que pode ter um dos cinco valores (0,1,2,3,4). Como no caso de classificação binária, temos algumas colunas que são vazamentos de destino para esse experimento. Em particular: tipped, tip\_amount, total\_amount revelam informações sobre a etiqueta de destino que não estão disponível no momento do teste. Podemos remover essas colunas usando o módulo [Selecionar Colunas no Conjunto de Dados][select-columns].
+a. Para esse problema, nosso rótulo de destino (ou classe) é "tip\_class", que pode ter um dos cinco valores (0,1,2,3,4). Como no caso de classificação binária, temos algumas colunas que são vazamentos de destino para esse experimento. Em particular: tipped, tip\_amount, total\_amount revelam informações sobre o rótulo de destino que não estão disponível no momento do teste. Podemos remover essas colunas usando o módulo [Selecionar Colunas no Conjunto de Dados][select-columns].
 
-O instantâneo a seguir mostra a nossa experiência para prever em qual bin uma gorjeta provavelmente ficará (Classe 0: tip = $0, classe 1 : gorjeta > $0 e gorjeta <= $5, Classe 2 : gorjeta > $5 e gorjeta <= $10, Classe 3 : gorjeta > $10 e gorjeta <= $20, Classe 4 : gorjeta > $20)
+O instantâneo abaixo mostra nosso experimento para prever em qual compartimento uma gorjeta provavelmente ficará (Classe 0: tip = $0, classe 1: gorjeta > $0 e gorjeta <= $5, Classe 2: gorjeta > $5 e gorjeta <= $10, Classe 3: gorjeta > $10 e gorjeta <= $20, Classe 4: gorjeta > $20)
 
 ![Instantâneo de teste](./media/hive-walkthrough/5ztv0n0.png)
 
@@ -795,13 +795,13 @@ b. Neste teste, usamos uma matriz de confusão para examinar as precisões de pr
 
 ![Matriz de confusão](./media/hive-walkthrough/cxFmErM.png)
 
-Observe que, embora as precisões de classe nas classes predominantes sejam muito boas, o modelo não faz um bom trabalho de "aprender" nas classes mais raras.
+Observe que, embora as precisões de classe nas classes predominantes sejam muito boas, o modelo não faz um bom trabalho de “aprender” nas classes mais raras.
 
 **3. Tarefa de regressão**: prever o valor da gorjeta paga por uma corrida.
 
 **Aprendiz usado:** árvore de decisão aprimorada
 
-a. Para esse problema, nosso rótulo (ou classe) de destino é "tip\_amount". Nesse caso, nossos vazamentos de destino são: tipped, tip\_class, total\_amount; todas essas variáveis revelam informações sobre a quantidade de gorjeta normalmente indisponível no momento de teste. Podemos remover essas colunas usando o módulo [Selecionar Colunas no Conjunto de Dados][select-columns].
+a. Para esse problema, nosso rótulo (ou classe) de destino é "tip\_amount". Nesse caso, nossas perdas de destino são: tipped, tip\_class, total\_amount; todas essas variáveis revelam informações sobre o valor da gorjeta normalmente não disponível no momento do teste. Podemos remover essas colunas usando o módulo [Selecionar Colunas no Conjunto de Dados][select-columns].
 
 O instantâneo abaixo mostra nossa experiência para prever o valor da gorjeta dada.
 
@@ -814,7 +814,7 @@ b. Para problemas de regressão, medimos as precisões de nossa previsão examin
 Podemos ver que o coeficiente de determinação é de 0,709, implicando que aproximadamente 71% da variância é explicada por nossos coeficientes de modelo.
 
 > [!IMPORTANT]
-> Para saber mais sobre o Azure Machine Learning e como acessá-lo e usá-lo, veja [O que é Machine Learning?](../studio/what-is-machine-learning.md). Um recurso muito útil para brincar com vários testes de Machine Learning no Azure Machine Learning é a [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/). A galeria abrange uma gama de experimentos e fornece uma introdução abrangente para o intervalo de recursos de Azure Machine Learning.
+> Para saber mais sobre o Azure Machine Learning e como acessá-lo e usá-lo, consulte [O que é o Machine Learning?](../studio/what-is-machine-learning.md). Um recurso muito útil para brincar com vários testes de Machine Learning no Azure Machine Learning é a [Cortana Intelligence Gallery](https://gallery.cortanaintelligence.com/). A galeria abrange uma gama de experimentos e fornece uma introdução abrangente para o intervalo de recursos de Azure Machine Learning.
 > 
 > 
 

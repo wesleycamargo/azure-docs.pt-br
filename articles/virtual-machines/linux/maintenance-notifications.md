@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: zivr
-ms.openlocfilehash: be062ce9cfbe7486ef500dd9d27418cbf245d6e0
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: b31955e19883f9fe2e7ed6cf7f5076eaf52577c0
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="handling-planned-maintenance-notifications-for-linux-virtual-machines"></a>Administrando notificações de manutenção planejada para máquinas virtuais do Linux
 
@@ -65,6 +65,8 @@ Os seguintes valores são retornados em MaintenanceRedeployStatus:
 | LastOperationResultCode               | O resultado da última tentativa de iniciar a manutenção na VM ||
 
 
+
+
 ## <a name="start-maintenance-on-your-vm-using-cli"></a>Iniciar manutenção na sua VM usando a CLI
 
 A chamada a seguir iniciará a manutenção em uma VM se `IsCustomerInitiatedMaintenanceAllowed` for definido como true.
@@ -74,6 +76,28 @@ az vm perform-maintenance rgName vmName
 ```
 
 [!INCLUDE [virtual-machines-common-maintenance-notifications](../../../includes/virtual-machines-common-maintenance-notifications.md)]
+
+## <a name="classic-deployments"></a>Implantações clássicas
+
+Caso você ainda tenha VMs herdadas que foram implantadas usando o modelo de implantação clássico, use a CLI 1.0 para consultar VMs e iniciar a manutenção.
+
+Verifique se você está no modo correto para trabalhar com a VM clássica digitando:
+
+```
+azure config mode asm
+```
+
+Para obter o status de manutenção de uma VM chamada *myVM*, digite:
+
+```
+azure vm show myVM 
+``` 
+
+Para iniciar a manutenção na VM clássica chamada *myVM* no serviço *myService* e na implantação *myDeployment*, digite:
+
+```
+azure compute virtual-machine initiate-maintenance --service-name myService --name myDeployment --virtual-machine-name myVM
+```
 
 
 ## <a name="faq"></a>Perguntas frequentes
@@ -133,7 +157,7 @@ Talvez seja melhor iniciar a manutenção nos seguintes casos:
 
 **R:** existem várias razões para não se ver informações de manutenção em suas VMs:
 1.  Você está usando uma assinatura marcada como Microsoft interna.
-2.  Suas VMs não estão agendadas para manutenção. É possível que a fase de manutenção tenha sido concluída, cancelada ou modificada e, portanto, suas VMs não estão sendo mais afetadas por ela.
+2.  Suas VMs não estão agendadas para manutenção. É possível que a onda de manutenção tenha sido concluída, cancelada ou modificada para que suas VMs não fossem afetadas por ela.
 3.  Você não tem a coluna 'manutenção' adicionada ao modo de exibição de lista da VM. Embora tenhamos adicionado essa coluna à exibição padrão, os clientes que configuraram para ver colunas não padrão devem adicionar manualmente a coluna **Manutenção** ao modo de exibição de lista da VM.
 
 **P: minha VM está agendada para manutenção pela segunda vez. Por quê?**

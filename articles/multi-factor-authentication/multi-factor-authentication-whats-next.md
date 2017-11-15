@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 10/02/2017
 ms.author: joflore
 ms.reviewer: alexwe
-ms.openlocfilehash: 8ff991ffb05bb92f047cc8dfc40e80b704379898
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 723bd7135a59bcc0bce648460f871a841a684d3c
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-settings---public-preview"></a>Definir as configurações de Autenticação Multifator do Azure – visualização pública
 
@@ -29,6 +29,7 @@ Este artigo ajuda a gerenciar o Autenticação Multifator do Azure, agora que tu
 
 | Recurso | Descrição | 
 |:--- |:--- |
+| [Bloquear/desbloquear usuários](#block/unblock-users) |O recurso Bloquear/desbloquear usuários pode impedir que os usuários recebam solicitações de autenticação. |
 | [Alerta de fraude](#fraud-alert) |O alerta de fraude pode ser instalado e configurado para que os usuários possam relatar tentativas fraudulentas de acessar seus recursos. |
 | [Desvio único](#one-time-bypass) |Um desvio único permite que um usuário se autentique uma única vez ao "desviar" a autenticação multifator. |
 | [Mensagens de voz personalizadas](#custom-voice-messages) |As mensagens de voz personalizadas permitem que você use suas próprias gravações ou saudações com a autenticação multifator. |
@@ -37,6 +38,23 @@ Este artigo ajuda a gerenciar o Autenticação Multifator do Azure, agora que tu
 | [Senhas de aplicativo](#app-passwords) |A senha de aplicativo permite que um aplicativo que não tenha reconhecimento de MFA possa se desviar da autenticação multifator e continuar trabalhando. |
 | [Lembrar da Autenticação Multifator para dispositivos e navegadores lembrados](#remember-multi-factor-authentication-for-devices-that-users-trust) |Permite lembrar dispositivos por um número de dias específico após a entrada bem-sucedida de um usuário usando o MFA. |
 | [Métodos de verificação selecionáveis](#selectable-verification-methods) |Permite que você escolha os métodos de autenticação disponíveis para os usuários usarem. |
+
+## <a name="blockunblock-users"></a>Bloquear/desbloquear usuários
+O recurso Bloquear/desbloquear usuários pode ser usado para impedir que os usuários recebam solicitações de autenticação. Qualquer tentativa de autenticação de usuários bloqueados será negada automaticamente. Os usuários bloqueados permanecerão bloqueados por 90 dias a partir do momento em que são bloqueados.
+
+### <a name="block-a-user"></a>Bloquear um usuário
+1. Entre no [Portal do Azure](https://portal.azure.com) como administrador.
+2. Navegue para **Azure Active Directory** > **Servidor do MFA** > **Bloquear/desbloquear usuários**.
+3. Clique em **Adicionar** para bloquear um usuário.
+4. Selecione o **Grupo de Replicação**, insira o nome de usuário bloqueado como **username@domain.com** e insira um comentário no campo **Motivo**.
+5. Clique em **Adicionar** para concluir o bloqueio do usuário.
+
+### <a name="unblock-a-user"></a>Desbloquear um usuário
+1. Entre no [Portal do Azure](https://portal.azure.com) como administrador.
+2. Navegue para **Azure Active Directory** > **Servidor do MFA** > **Bloquear/desbloquear usuários**.
+3. Clique em **Desbloquear** na coluna **Ação** ao lado do usuário que você deseja desbloquear.
+4. Insira um comentário no campo **Motivo do desbloqueio**.
+5. Clique em **Desbloquear** para concluir o desbloqueio do usuário.
 
 ## <a name="fraud-alert"></a>Alerta de fraude
 O alerta de fraude pode ser instalado e configurado para que os usuários possam relatar tentativas fraudulentas de acessar seus recursos.  Os usuários podem relatar fraude com o aplicativo móvel ou pelo telefone.

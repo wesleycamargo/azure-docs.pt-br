@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 10/19/2017
-ms.openlocfilehash: 315eb32a293eec89b274ccd017dba506241533e6
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 600896cf064770a5b294f874dc29081f0ce7d942
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="high-availability-concepts-in-azure-database-for-postgresql"></a>Conceitos de alta disponibilidade no Banco de Dados do Azure para PostgreSQL
 O serviço do Banco de Dados do Azure para PostgreSQL fornece garantia de alto nível de disponibilidade. O SLA (Contrato de Nível de Serviço) com suporte financeiro é 99,99% em disponibilidade geral. Não há praticamente nenhum tempo de inatividade de aplicativo ao usar este serviço.
@@ -21,12 +21,12 @@ O serviço do Banco de Dados do Azure para PostgreSQL fornece garantia de alto n
 ## <a name="high-availability"></a>Alta disponibilidade
 O modelo de alta disponibilidade (HA) se baseia em mecanismos internos de failover quando ocorre uma interrupção no nível do nó. Uma interrupção no nível do nó pode ocorrer devido a uma falha de hardware ou como reação a uma implantação de serviço.
 
-Todas as vezes, as alterações feitas em um PostgreSQL ocorrem no contexto de uma transação. As alterações são registradas de forma síncrona no armazenamento do Azure quando a transação é confirmada. Em caso de uma interrupção no nível do nó, o servidor de banco de dados cria automaticamente um novo nó e anexa o armazenamento de dados ao novo nó. As conexões ativas são descartadas e nenhuma transação em andamento é confirmada.
+Todas as vezes, as alterações feitas em um servidor de banco de dados do Banco de Dados do Azure para PostgreSQL ocorrem no contexto de uma transação. As alterações são registradas de forma síncrona no armazenamento do Azure quando a transação é confirmada. Em caso de uma interrupção no nível do nó, o servidor de banco de dados cria automaticamente um novo nó e anexa o armazenamento de dados ao novo nó. As conexões ativas são descartadas e nenhuma transação em andamento é confirmada.
 
 ## <a name="application-retry-logic-is-essential"></a>A lógica de repetição do aplicativo é essencial
-É importante que aplicativos de banco de dados do PostgreSQL sejam compilados para detectar e repetir conexões descartadas e transações com falha. Quando o aplicativo realiza uma nova tentativa, a conexão do aplicativo é redirecionada de forma transparente para a instância recém-criada, que assume o controle para a instância com falha.
+É importante que aplicativos de banco de dados do PostgreSQL sejam compilados para detectar e repetir conexões descartadas e transações com falha. Quando o aplicativo realiza uma nova tentativa, a conexão do aplicativo é redirecionada de forma transparente para a instância recém-criada, o que assume o controle para a instância com falha.
 
-Internamente no Azure, um gateway é usado para redirecionar as conexões para a nova instância. Após uma interrupção, o processo inteiro de failover normalmente leva dezenas de segundos. A cadeia de conexão externa permanece a mesma para os aplicativos cliente.
+Internamente no Azure, um gateway é usado para redirecionar as conexões para a nova instância. Após uma interrupção, normalmente o processo inteiro de failover leva dezenas de segundos. Como o redirecionamento é tratado internamente pelo gateway, a cadeia de conexão externa permanece a mesma para os aplicativos cliente.
 
 ## <a name="scaling-up-or-down"></a>Expandir ou reduzir
 Semelhante ao modelo de alta disponibilidade, quando um Banco de Dados do Azure para PostgreSQL é expandido ou reduzido, uma nova instância do servidor é criada com o tamanho especificado. O armazenamento de dados existente é desanexado da instância original e anexado à nova instância.

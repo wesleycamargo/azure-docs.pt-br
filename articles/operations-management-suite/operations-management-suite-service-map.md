@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
-ms.openlocfilehash: 2e5475a0563549ddfaa2c146e4acf94c019841ec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f7109a3b21feac396d8c20c7e72a8987f72a909a
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="use-the-service-map-solution-in-operations-management-suite"></a>Usar a solução Mapa do Serviço no Operations Management Suite
 O Mapa do Serviço detecta automaticamente os componentes de aplicativos em sistemas Windows e Linux e mapeia a comunicação entre os serviços. Com o Mapa do Serviço é possível exibir seus servidores da maneira desejada: como sistemas interconectados que fornecem serviços críticos. O Mapa do Serviço mostra conexões entre servidores, processos e portas em qualquer arquitetura conectada a TCP sem nenhuma configuração necessária além da instalação de um agente.
@@ -224,11 +224,26 @@ A imagem a seguir é uma exibição detalhada de um evento ConfigurationChange q
 
 
 ## <a name="operations-management-suite-performance-integration"></a>Integração de desempenho do Operations Management Suite
-O painel **Desempenho do Computador** exibe métricas de desempenho padrão para o servidor selecionado. As métricas incluem utilização de CPU, utilização de memória, bytes de rede enviados e recebidos, e uma lista dos principais processos por bytes de rede enviados e recebidos. Para obter os dados de desempenho da rede, você também deverá habilitar a solução Wire Data 2.0 no Operations Management Suite.
+O painel **Desempenho do Computador** exibe métricas de desempenho padrão para o servidor selecionado. As métricas incluem utilização de CPU, utilização de memória, bytes de rede enviados e recebidos, e uma lista dos principais processos por bytes de rede enviados e recebidos.
 
 ![Painel Desempenho do Computador](media/oms-service-map/machine-performance.png)
 
+Para ver os dados de desempenho, talvez seja necessário [habilitar os contadores de desempenho apropriados do Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-sources-performance-counters).  Os contadores que você desejará habilitar:
 
+Windows:
+- Processador(*)\% Tempo do Processador
+- Memória\% Bytes Confirmados em Uso
+- Adaptador de Rede(*)\Bytes Enviados/s
+- Adaptador de Rede(*)\Bytes Recebidos/s
+
+Linux:
+- Processador(*)\% Tempo do Processador
+- Memória(*)\% Memória Utilizada
+- Adaptador de Rede(*)\Bytes Enviados/s
+- Adaptador de Rede(*)\Bytes Recebidos/s
+
+Para obter os dados de desempenho da rede, você também deverá habilitar a solução Wire Data 2.0 no Operations Management Suite.
+ 
 ## <a name="operations-management-suite-security-integration"></a>Integração de segurança do Operations Management Suite
 A integração do Mapa do Serviço com a Segurança e Auditoria é automática quando ambas as soluções estão habilitadas e configuradas no espaço de trabalho do Operations Management Suite.
 

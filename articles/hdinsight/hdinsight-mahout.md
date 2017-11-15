@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 11/03/2017
 ms.author: larryfr
-ms.openlocfilehash: 934de9ca2df48b29ef7a56d5729d59d77875ea7b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a0dd7388b3fa7517b97f4dd66eb121ebfd98d4a4
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="generate-movie-recommendations-by-using-apache-mahout-with-hadoop-in-hdinsight-powershell"></a>Gerar recomendações de vídeo usando o Apache Mahout com o Hadoop no HDInsight (PowerShell)
 
@@ -32,8 +32,8 @@ Saiba como usar a biblioteca de aprendizado de máquina do [Apache Mahout](http:
 
 * Criar um cluster HDInsight baseado em Linux. Para saber mais sobre como criar um, confira [Introdução ao uso do Hadoop baseado em Linux no HDInsight][getstarted].
 
-> [!IMPORTANT]
-> O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
+    > [!IMPORTANT]
+    > O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, confira [baixa do HDInsight no Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).
 
 * [PowerShell do Azure](/powershell/azure/overview)
 
@@ -42,7 +42,7 @@ Saiba como usar a biblioteca de aprendizado de máquina do [Apache Mahout](http:
 > [!WARNING]
 > O trabalho nesta seção funciona usando o Azure PowerShell. Muitas das classes fornecidas com o Mahout não funcionam com o Azure PowerShell no momento. Para obter uma lista de classes que não funcionam com o Azure PowerShell, confira a seção [Solucionar problemas](#troubleshooting).
 >
-> Para obter um exemplo de como usar o SSH para se conectar ao HDInsight e executar exemplos do Mahout diretamente no cluster, confira [Gerar recomendações de filme usando o Mahout e o HDInsight (SSH)](hdinsight-hadoop-mahout-linux-mac.md).
+> Para obter um exemplo de como usar o SSH para se conectar ao HDInsight e executar exemplos do Mahout diretamente no cluster, confira [Gerar recomendações de filme usando o Mahout e o HDInsight (SSH)](hadoop/apache-hadoop-mahout-linux-mac.md).
 
 Uma das funções oferecidas pelo Mahout é um mecanismo de recomendação. Ele aceita dados no formato de `userID`, `itemId` e `prefValue` (os usuários escolhem o item de sua preferência). O Mahout usa dados para determinar os usuários com preferências de item similares, o que pode ser utilizado para fazer recomendações.
 
@@ -56,7 +56,7 @@ O exemplo a seguir é uma apresentação simplificada de como funciona o process
 
 ### <a name="understanding-the-data"></a>Compreendendo os dados
 
-A [GroupLens Research][movielens] oferece dados de classificação para filmes em um formato compatível com o Mahout. Esses dados estão disponíveis no armazenamento padrão do cluster em `/HdiSamples//HdiSamples/MahoutMovieData`.
+A [GroupLens Research][movielens] oferece dados de classificação para filmes em um formato compatível com o Mahout. Esses dados estão disponíveis no armazenamento padrão do cluster em `/HdiSamples/HdiSamples/MahoutMovieData`.
 
 Existem dois arquivos, `moviedb.txt` (informações sobre filmes) e `user-ratings.txt`. O arquivo `user-ratings.txt` é usado durante a análise. O arquivo `moviedb.txt` é usado para fornecer um texto amigável ao exibir os resultados da análise.
 
@@ -64,8 +64,8 @@ Os dados contidos em user-ratings.txt têm uma estrutura de `userID`, `movieID`,
 
     196    242    3    881250949
     186    302    3    891717742
-    22    377    1    878887116
-    244    51    2    880606923
+    22     377    1    878887116
+    244    51     2    880606923
     166    346    1    886397596
 
 ### <a name="run-the-job"></a>Executar o trabalho
@@ -208,21 +208,21 @@ Os trabalhos do Mahout que usam as classes a seguir retornarão várias mensagen
 * org.apache.mahout.classifier.sequencelearning.hmm.RandomSequenceGenerator
 * org.apache.mahout.classifier.df.tools.Describe
 
-Para executar trabalhos que usam essas classes, conecte-se ao cluster HDInsight usando SSH e execute os trabalhos usando a linha de comando. Para obter um exemplo de como usar o SSH para executar trabalhos do Mahout, confira [Gerar recomendações de filmes usando o Mahout e o HDInsight (SSH)](hdinsight-hadoop-mahout-linux-mac.md).
+Para executar trabalhos que usam essas classes, conecte-se ao cluster HDInsight usando SSH e execute os trabalhos usando a linha de comando. Para obter um exemplo de como usar o SSH para executar trabalhos do Mahout, confira [Gerar recomendações de filmes usando o Mahout e o HDInsight (SSH)](hadoop/apache-hadoop-mahout-linux-mac.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Agora que você aprendeu como usar o Mahout, descubra outras maneiras de trabalhar com dados no HDInsight:
 
-* [Hive com o HDInsight](hdinsight-use-hive.md)
-* [Pig com o HDInsight](hdinsight-use-pig.md)
-* [MapReduce com o HDInsight](hdinsight-use-mapreduce.md)
+* [Hive com o HDInsight](hadoop/hdinsight-use-hive.md)
+* [Pig com o HDInsight](hadoop/hdinsight-use-pig.md)
+* [MapReduce com o HDInsight](hadoop/hdinsight-use-mapreduce.md)
 
 [build]: http://mahout.apache.org/developers/buildingmahout.html
 [aps]: /powershell/azureps-cmdlets-docs
 [movielens]: http://grouplens.org/datasets/movielens/
 [100k]: http://files.grouplens.org/datasets/movielens/ml-100k.zip
-[getstarted]: hdinsight-hadoop-linux-tutorial-get-started.md
+[getstarted]:hadoop/apache-hadoop-linux-tutorial-get-started.md
 [upload]: hdinsight-upload-data.md
 [ml]: http://en.wikipedia.org/wiki/Machine_learning
 [forest]: http://en.wikipedia.org/wiki/Random_forest

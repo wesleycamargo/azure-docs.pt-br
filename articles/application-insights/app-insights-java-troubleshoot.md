@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
 ms.author: mbullwin
-ms.openlocfilehash: 5a729139e122693b4199607919c876bda45fd4b5
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 6b1cfa2b52e8e9e2b6a8ab87be6d4269cbe3f1cf
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Solução de problemas e perguntas e respostas para o Application Insights para Java
 Dúvidas ou problemas com o [Azure Application Insights em Java][java]? Aqui estão algumas dicas.
@@ -124,6 +124,13 @@ Em seu firewall, você terá que abrir as portas TCP 80 e 443 para tráfego de s
 **Por quanto tempo os dados são mantidos no portal? É seguro?**
 
 Consulte [Privacidade e retenção de dados][data].
+
+## <a name="debug-logging"></a>Registro em log de depuração
+O Application Insights usa `org.apache.http`. Isso é realocado no jars do núcleo do Application Insights no namespace `com.microsoft.applicationinsights.core.dependencies.http`. Isso habilita o Application Insights a lidar com cenários em que diferentes versões do mesmo `org.apache.http` existem em uma base de código. 
+
+>[!NOTE]
+>Se você habilitar o registro em log de nível DEBUG para todos os namespaces no aplicativo, isso será respeitado por todos os módulos em execução, incluindo `org.apache.http` renomeado como `com.microsoft.applicationinsights.core.dependencies.http`. O Application Insights não poderá aplicar a filtragem a essas chamadas, pois a chamada de log estará sendo feita pela biblioteca Apache. O registro em log do nível DEBUG gera uma quantidade considerável de dados de log e não é recomendado para instâncias de produção.
+
 
 ## <a name="next-steps"></a>Próximas etapas
 **Configurei o Application Insights para meu aplicativo de servidor Java. O que mais posso fazer?**

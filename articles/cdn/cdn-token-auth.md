@@ -1,6 +1,6 @@
 ---
 title: "Proteger ativos da CDN do Azure com autenticação de token | Microsoft Docs"
-description: "Usar a autenticação de token para proteger o acesso aos ativos da CDN do Azure."
+description: "Aprenda a usar autenticação de token para proteger o acesso aos ativos da CDN do Azure."
 services: cdn
 documentationcenter: .net
 author: zhangmanling
@@ -12,135 +12,143 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: integration
-ms.date: 11/11/2016
+ms.date: 11/03/2017
 ms.author: mezha
-ms.openlocfilehash: 42b182c314795b1ebf69639ec7ac5583208dc7c1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 700f4c49bbcda1eccbcc7eafc703e625697fa2b4
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
-# <a name="securing-azure-cdn-assets-with-token-authentication"></a>Proteger ativos da CDN do Azure com autenticação de token
+# <a name="securing-azure-content-delivery-network-assets-with-token-authentication"></a>Proteger ativos da Rede de Distribuição de Conteúdo do Azure com autenticação de token
 
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
 
-##<a name="overview"></a>Visão geral
+## <a name="overview"></a>Visão geral
 
-A autenticação de token é um mecanismo que permite impedir que a CDN do Azure forneça ativos a clientes não autorizados.  Isso normalmente é feito para evitar "hotlinking" de conteúdo, em que um site diferente, geralmente um quadro de mensagens, usa seus ativos sem sua permissão.  Isso pode ter um impacto sobre os custos de fornecimento de conteúdo. Habilitando esse recurso na CDN, as solicitações serão autenticadas por POPs de borda da CDN antes de entregar o conteúdo. 
+A autenticação de token é um mecanismo que permite que você impeça que a CDN (Rede de Distribuição de Conteúdo) do Azure forneça ativos a clientes não autorizados. A autenticação de token normalmente é feita para evitar "hotlinking" de conteúdo, em que um site diferente, geralmente um quadro de mensagens, usa seus ativos sem sua permissão. O hotlinking pode ter um impacto sobre os custos de fornecimento de conteúdo. Ao habilitar a autenticação de token na CDN, as solicitações são autenticadas por POPs de borda da CDN que a CDN entregue o conteúdo. 
 
 ## <a name="how-it-works"></a>Como ele funciona
 
-A autenticação de token verifica se as solicitações são geradas por um site confiável, exigindo que as solicitações contenham um valor de token com informações codificadas sobre o solicitante. O conteúdo será fornecido ao solicitante apenas as informações codificadas atenderem aos requisitos. Caso contrário, as solicitações serão negadas. Você pode configurar o requisito usando um ou vários parâmetros abaixo.
+A autenticação de token verifica se as solicitações são geradas por um site confiável, exigindo que as solicitações contenham um valor de token com informações codificadas sobre o solicitante. O conteúdo será fornecido a um solicitante somente se as informações codificadas atenderem aos requisitos; caso contrário, as solicitações serão negadas. Você pode configurar os requisitos usando um ou mais dos seguintes parâmetros:
 
-- País: permitir ou negar solicitações originadas de países especificados.  [Lista de códigos de país válidos.](https://msdn.microsoft.com/library/mt761717.aspx) 
-- URL: permitir somente o ativo especificado ou o caminho para a solicitação.  
-- Host: permitir ou negar as solicitações de hosts especificados no cabeçalho da solicitação.
-- Referenciador: permitir ou negar o referenciador especificado para a solicitação.
+- País: permitir ou negar as solicitações originadas em países especificados pelo seu [código de país](https://msdn.microsoft.com/library/mt761717.aspx).
+- URL: permitir somente solicitações que correspondam ao ativo ou ao caminho especificado.
+- Host: permitir ou negar as solicitações que usem os hosts especificados no cabeçalho da solicitação.
+- Referenciador: permitir ou negar a solicitação de referenciador especificado.
 - Endereço IP: permitir somente solicitações originadas de determinado endereço IP ou sub-rede IP.
-- Protocolo: permitir ou bloquear solicitações com base no protocolo usado para solicitar o conteúdo.
-- Tempo de expiração: atribua um período de data e hora para garantir que um link só permaneça válido por um período de tempo limitado.
+- Protocolo: permitir ou negar solicitações com base no protocolo usado para solicitar o conteúdo.
+- Tempo de expiração: atribua um período de data e hora para garantir que um link só permaneça válido por um período limitado.
 
-Confira o exemplo de configuração detalhado de cada parâmetro.
+Para obter mais informações, consulte os exemplos de configuração detalhados para cada parâmetro em [Configuração de autenticação de token](#setting-up-token-authentication).
+
+Depois de gerar um token criptografado, acrescente-o como uma cadeia de consulta ao final do caminho da URL do arquivo. Por exemplo: `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
 
 ## <a name="reference-architecture"></a>Arquitetura de referência
 
-Veja abaixo uma arquitetura de referência de configuração de autenticação de token na CDN para trabalhar com o aplicativo Web.
+O diagrama de fluxo de trabalho a seguir descreve como a CDN usa autenticação de token para trabalhar com seu aplicativo Web.
 
-![botão gerenciar da folha Perfil CDN](./media/cdn-token-auth/cdn-token-auth-workflow2.png)
+![Fluxo de trabalho de autenticação de token da CDN](./media/cdn-token-auth/cdn-token-auth-workflow2.png)
 
 ## <a name="token-validation-logic-on-cdn-endpoint"></a>Lógica de validação de token no ponto de extremidade da CDN
     
-Este gráfico descreve como a CDN do Azure valida a solicitação do cliente quando a autenticação de token é configurada no ponto de extremidade da CDN.
+O fluxograma a seguir descreve como a CDN do Azure valida a solicitação do cliente quando a autenticação de token é configurada no ponto de extremidade da CDN.
 
-![botão gerenciar da folha Perfil CDN](./media/cdn-token-auth/cdn-token-auth-validation-logic.png)
+![Lógica de validação de token da CDN](./media/cdn-token-auth/cdn-token-auth-validation-logic.png)
 
 ## <a name="setting-up-token-authentication"></a>Configurar autenticação de token
 
-1. No [portal do Azure](https://portal.azure.com), navegue até seu perfil da CDN e clique no botão **Gerenciar** para iniciar o portal suplementar.
+1. No [portal do Azure](https://portal.azure.com), navegue até seu perfil da CDN e clique em **Gerenciar** para inicializar o portal suplementar.
 
-    ![botão gerenciar da folha Perfil CDN](./media/cdn-rules-engine/cdn-manage-btn.png)
+    ![Botão Gerenciar perfil da CDN](./media/cdn-rules-engine/cdn-manage-btn.png)
 
-2. Passe o mouse sobre **HTTP Grande** e clique em **Token de Autenticação** no submenu. Você definirá a chave de criptografia e os parâmetros de criptografia nessa guia.
+2. Passe o mouse sobre **HTTP Grande** e clique em **Token de Autenticação** no submenu. Então você pode configurar os parâmetros de criptografia e a chave de criptografia da seguinte maneira:
 
-    1. Insira uma chave de criptografia exclusiva para **Primary Key**.  Insira outra para **Chave de Backup**
+    1. Insira uma chave de criptografia exclusiva na caixa **Chave Primária** e, opcionalmente, insira uma chave de backup na caixa **Chave de Backup**.
 
         ![Chave de configuração de autenticação de token da CDN](./media/cdn-token-auth/cdn-token-auth-setupkey.png)
     
-    2. Configure os parâmetros de criptografia com a ferramenta de criptografia (permitir ou negar solicitações com base no tempo de expiração, país, referenciador, protocolo, IP do cliente. Você pode usar qualquer combinação.)
+    2. Configure os parâmetros de criptografia com a ferramenta de criptografia. Com a ferramenta de criptografia, você pode permitir ou negar as solicitações com base no horário de expiração, no país, no referenciador, no protocolo e no IP do cliente (em qualquer combinação). 
 
-        ![botão gerenciar da folha Perfil CDN](./media/cdn-token-auth/cdn-token-auth-encrypttool.png)
+        ![Ferramenta de criptografia da CDN](./media/cdn-token-auth/cdn-token-auth-encrypttool.png)
 
-        - ec-expirer: atribui um tempo de expiração de um token após um período de tempo especificado. Solicitações enviadas depois do tempo de expiração serão negadas. Esse parâmetro usa o carimbo de data/hora do Unix (com base em segundos desde a época padrão de 1/1/1970 00:00:00 GMT. Você pode usar ferramentas online para fornecer a conversão entre o horário padrão e o horário Unix.)  Por exemplo, se você quiser configurar o token para expirar em 31/12/2016 às 12h00 GMT, use o horário Unix:1483185600, conforme mostrado a seguir:
+       Insira valores para um ou mais dos seguintes parâmetros de criptografia na área da **Ferramenta de Criptografia**:  
+
+       - **ec_expire**: atribui um horário de expiração a um token, após o qual o token expira. Solicitações enviadas depois do horário expiração são negadas. Esse parâmetro usa um carimbo de data/hora Unix que se baseia no número de segundos desde a época padrão de `1/1/1970 00:00:00 GMT`. (Você pode usar ferramentas online para converter entre hora padrão e hora Unix.) Por exemplo, se você quiser que o token expire em `12/31/2016 12:00:00 GMT`, use o valor de carimbo de data/hora Unix, `1483185600`, da seguinte maneira. 
     
-        ![botão gerenciar da folha Perfil CDN](./media/cdn-token-auth/cdn-token-auth-expire2.png)
+         ![Exemplo de CDN ec_expire](./media/cdn-token-auth/cdn-token-auth-expire2.png)
     
-        - ec-url-allow: permite personalizar tokens para determinado ativo ou caminho. Restringe o acesso às solicitações cuja URL começa com um caminho relativo específico. Você pode inserir vários caminhos, separando cada caminho com uma vírgula. URLs diferenciam maiúsculas de minúsculas. Dependendo do requisito, você pode definir um valor diferente para fornecer um nível de acesso diferente. Abaixo estão alguns cenários:
+       - **ec-url-allow**: permite personalizar tokens para determinado ativo ou caminho. Restringe o acesso às solicitações cuja URL começa com um caminho relativo específico. URLs diferenciam maiúsculas de minúsculas. Insira vários caminhos separando cada um com uma vírgula. Dependendo dos seus requisitos, você pode definir um valor diferente para fornecer um nível de acesso diferente. 
         
-            Se você tiver uma URL: http://www.mydomain.com/pictures/city/strasbourg.png. Confira o valor de entrada "" e o nível de acesso correspondente
+         Por exemplo, para a URL `http://www.mydomain.com/pictures/city/strasbourg.png`, estas solicitações são permitidas para os seguintes valores de entrada:
 
-            1. Valor de entrada "/": todas as solicitações serão permitidas
-            2. Valor de entrada "/pictures": todas as solicitações a seguir serão permitidas
-            
-                - http://www.mydomain.com/pictures.png
-                - http://www.mydomain.com/pictures/city/strasbourg.png
-                - http://www.mydomain.com/picturesnew/city/strasbourgh.png
-            3. Valor de entrada "/pictures/": somente as solicitações de /pictures/ serão permitidas
-            4. Valor de entrada "/pictures/city/strasbourg.png": só permite a solicitação para este ativo
+         - Valor de entrada `/`: todas as solicitações são permitidas.
+         - Valor de entrada `/pictures`, as seguintes solicitações são permitidas:
+            - `http://www.mydomain.com/pictures.png`
+            - `http://www.mydomain.com/pictures/city/strasbourg.png`
+            - `http://www.mydomain.com/picturesnew/city/strasbourgh.png`
+         - Valor de entrada `/pictures/`: somente as solicitações que contêm o caminho `/pictures/` são permitidas. Por exemplo: `http://www.mydomain.com/pictures/city/strasbourg.png`.
+         - Valor de entrada `/pictures/city/strasbourg.png`: somente as solicitações para esse caminho e ativos específicos são permitidas.
     
-        ![botão gerenciar da folha Perfil CDN](./media/cdn-token-auth/cdn-token-auth-url-allow4.png)
-    
-        - ec-country-allow: permite somente solicitações originadas de um ou mais países especificados. Solicitações originadas em todos os outros países serão negadas. Use o código do país para configurar os parâmetros e separe cada código de país por uma vírgula. Por exemplo, se você quiser permitir o acesso dos Estados Unidos e da França, insira US, FR na coluna, como indicado abaixo.  
+       - **ec-country-allow**: permite somente solicitações originadas de um ou mais países especificados. Solicitações originadas em todos os outros países são negadas. Use os códigos de país e separe cada um com uma vírgula. Por exemplo, se você quiser permitir o acesso apenas dos Estados Unidos e da França, insira US, FR na caixa conforme a seguir.  
         
-        ![botão gerenciar da folha Perfil CDN](./media/cdn-token-auth/cdn-token-auth-country-allow.png)
+           ![Exemplo de CDN ec_country_allow](./media/cdn-token-auth/cdn-token-auth-country-allow.png)
 
-        - ec-country-deny: nega solicitações originadas de um ou mais países especificados. Solicitações originadas em todos os outros países serão permitidas. Use o código do país para configurar os parâmetros e separe cada código de país por uma vírgula. Por exemplo, se você deseja negar o acesso dos Estados Unidos e da França, insira US, FR na coluna.
+       - **ec-country-deny**: nega solicitações originadas de um ou mais países especificados. Solicitações originadas em todos os outros países são permitidas. Use os códigos de país e separe cada um com uma vírgula. Por exemplo, se você quiser negar o acesso dos Estados Unidos e da França, insira US, FR na caixa.
     
-        - ec-ref-allow: permite solicitações da referência especificada. Um referenciador identifica a URL da página da Web vinculada ao recurso que está sendo solicitado. O valor do parâmetro de referência não deve incluir o protocolo. Você pode inserir um nome de host e/ou um caminho específico no nome do host. Você também pode adicionar vários referenciadores em um único parâmetro, separando cada um com uma vírgula. Se você especificar um valor de referência, mas as informações de referência não forem enviadas na solicitação devido a algumas configurações do navegador, essas solicitações serão negadas por padrão. Você pode atribuir "Ausente" ou um valor em branco no parâmetro para permitir solicitações com ausência de informações de referência. Você também pode usar "*.contoso.com" para permitir todos os subdomínios de contoso.com.  Por exemplo, se você quiser permitir o acesso para solicitações de www.contoso.com, todos os subdomínios em contoso2.com e solicitações com referenciais em branco ou ausentes, insira o valor abaixo:
+       - **ec-ref-allow**: permite solicitações do referenciador especificado. Um referenciador identifica a URL da página da Web vinculada ao recurso que está sendo solicitado. Não inclua o protocolo no valor do parâmetro do referenciador. Os seguintes tipos de entrada são permitidos para o valor do parâmetro:
+           - Um nome de host ou um nome de host e um caminho.
+           - Vários referenciadores. Para adicionar vários referenciadores, separe cada um com uma vírgula. Se você especificar um valor de referenciador, mas as informações do referenciador não forem enviadas na solicitação devido à configuração do navegador, essas solicitações serão negadas por padrão. 
+           - Solicitações com informações do referenciador ausentes. Para permitir esses tipos de solicitações, insira o texto "ausente" ou insira um valor em branco. 
+           - Subdomínios. Para permitir subdomínios, digite um asterisco (\*). Por exemplo, para permitir todos os subdomínios de `consoto.com`, digite `*.consoto.com`. 
+           
+          O exemplo a seguir mostra a entrada para permitir o acesso para solicitações de `www.consoto.com`, todos os subdomínios em `consoto2.com` e solicitações com referenciadores em branco ou ausentes.
         
-        ![botão gerenciar da folha Perfil CDN](./media/cdn-token-auth/cdn-token-auth-referrer-allow2.png)
+          ![Exemplo de CDN ec_ref_allow](./media/cdn-token-auth/cdn-token-auth-referrer-allow2.png)
     
-        - ec-ref-deny: nega solicitações da referência especificada. Confira os detalhes e o exemplo no parâmetro "ec-ref-allow".
+       - **ec-ref-deny**: nega solicitações do referenciador especificado. A implementação é a mesma que a do parâmetro ec_ref_allow.
          
-        - ec-proto-allow: permite somente solicitações do protocolo especificado. Por exemplo, http ou https.
-        
-        ![botão gerenciar da folha Perfil CDN](./media/cdn-token-auth/cdn-token-auth-url-allow4.png)
+       - **ec-proto-allow**: permite somente solicitações do protocolo especificado. Por exemplo, http ou https.
             
-        - ec-proto-deny: nega solicitações do protocolo especificado. Por exemplo, http ou https.
+       - **ec-proto-deny**: nega solicitações do protocolo especificado. Por exemplo, http ou https.
     
-        - ec-clientip: restringe o acesso ao endereço IP do solicitante especificado. Há suporte para IPV4 e IPV6. Você pode especificar o endereço IP de solicitação única ou sub-rede IP.
+       - **ec-clientip**: restringe o acesso ao endereço IP do solicitante especificado. Há suporte para IPV4 e IPV6. Você pode especificar um endereço IP de solicitação única ou uma sub-rede IP.
             
-        ![botão gerenciar da folha Perfil CDN](./media/cdn-token-auth/cdn-token-auth-clientip.png)
+         ![Exemplo de CDN ec_clientip](./media/cdn-token-auth/cdn-token-auth-clientip.png)
+
+    3. Depois de terminar de inserir valores de parâmetro de criptografia, selecione o tipo de chave para criptografar (se você tiver criado uma chave principal e uma chave de backup) da lista **Chave a Criptografar**, uma versão de criptografia da lista **Versão de Criptografia** e, em seguida, clique em **Criptografar**.
         
-    3. Você pode testar o token com a ferramenta de descrição.
+    4. Opcionalmente, teste seu token com a ferramenta de descriptografia. Cole o valor do token na caixa **Token a Descriptografar**. Selecione o tipo de chave de criptografia a descriptografar na lista suspensa **Chave a Descriptografar** e, em seguida, clique em **Descriptografar**.
 
-    4. Você também pode personalizar o tipo de resposta que será retornado ao usuário quando a solicitação for negada. Por padrão, usamos 403.
+    5. Opcionalmente, personalize o tipo de código de resposta retornado quando uma solicitação é negada. Selecione o código na lista suspensa **Código de Resposta** e clique em **Salvar**. O código de resposta **403** (Proibido) é selecionado por padrão. Para determinados códigos de resposta, você também pode inserir a URL da sua página de erro na caixa **Valor do Cabeçalho**. 
 
-3. Agora, clique na guia **Mecanismo de Regras** em **HTTP Grande**. Você usará essa guia para definir os caminhos para aplicar o recurso, habilitar o recurso de autenticação de token e habilitar recursos adicionais relacionados à autenticação de token.
+    6. Após gerar um token criptografado, acrescente-o como uma cadeia de consulta ao final do arquivo no caminho da sua URL. Por exemplo: `http://www.domain.com/content.mov?a4fbc3710fd3449a7c99986b`.
 
-    - Use a coluna "IF" para definir o caminho ou ativo que você deseja aplicar para a autenticação de token. 
-    - Clique para adicionar o "Token de Autenticação" no menu suspenso do recurso para habilitar a autenticação de token.
+3. Em **HTTP Grande**, clique em **Mecanismo de Regras**. Você usa o mecanismo de regras para definir os caminhos para aplicar o recurso, habilitar o recurso de autenticação de token e habilitar funcionalidades adicionais relacionadas à autenticação de token. Para obter mais informações, consulte [Referência do mecanismo de regras](cdn-rules-engine-reference.md).
+
+    1. Selecione uma regra existente ou crie uma nova regra para definir o ativo ou o caminho ao qual você deseja aplicar a autenticação de token. 
+    2. Para habilitar a autenticação de token em uma regra, selecione **[Autenticação de Token](cdn-rules-engine-reference-features.md#token-auth)** na lista suspensa **Recursos** e, em seguida, selecione **Habilitado**. Clique em **Atualização** se você estiver atualizando uma regra ou em **Adicionar** se você estiver criando uma regra.
         
-    ![botão gerenciar da folha Perfil CDN](./media/cdn-token-auth/cdn-rules-engine-enable2.png)
+    ![Exemplo de habilitação de autenticação de token do mecanismo de regras da CDN](./media/cdn-token-auth/cdn-rules-engine-enable2.png)
 
-4. Na guia **Mecanismo de Regras**, há alguns recursos adicionais que você pode habilitar.
+4. O mecanismo de regras, você também pode habilitar recursos adicionais relacionados à autenticação de token. Para habilitar qualquer um dos recursos a seguir, selecionar na lista suspensa **Recursos** e, em seguida, selecione **Habilitado**.
     
-    - Código de negação de autenticação de token: determina o tipo de resposta que será retornada ao usuário quando uma solicitação for negada. As regras definidas aqui substituirão a configuração de código de negação na guia de autenticação de token.
-    - Ignorar autenticação de token: determina se a URL usada para validar o token diferenciará maiúsculas de minúsculas.
-    - Parâmetro de autenticação de token: renomeie o parâmetro de cadeia de caracteres de consulta do token de autenticação mostrado na URL solicitada. 
+    - **[Código de negação de autenticação de token](cdn-rules-engine-reference-features.md#token-auth-denial-code)**: determina o tipo de resposta retornado para um usuário quando uma solicitação é negada. As regras definidas aqui substituem o código de resposta definido na seção **Tratamento de Negação Personalizado** na página de autenticação baseada em token.
+    - **[Token de autenticação ignorar URL caso](cdn-rules-engine-reference-features.md#token-auth-ignore-url-case)**: determina se a URL usada para validar o token diferencia Maiúsculas de minúsculas.
+    - **[Parâmetro de autenticação de token](cdn-rules-engine-reference-features.md#token-auth-parameter)**: renomeia o parâmetro de cadeia de caracteres de consulta de autenticação de token que aparece na URL solicitada. 
         
-    ![botão gerenciar da folha Perfil CDN](./media/cdn-token-auth/cdn-rules-engine2.png)
+    ![Exemplo de configurações de autenticação de token do mecanismo de regras da CDN](./media/cdn-token-auth/cdn-rules-engine2.png)
 
-5. Você pode personalizar o token, que é um aplicativo que gera um token para recursos de autenticação com base em token. O código-fonte pode ser acessado aqui no [GitHub](https://github.com/VerizonDigital/ectoken).
+5. Você pode personalizar seu token acessando o código-fonte no [GitHub](https://github.com/VerizonDigital/ectoken).
 Os idiomas disponíveis incluem:
     
-    - C
-    - C#
-    - PHP
-    - Perl
-    - Java
-    - Python    
-
+- C
+- C#
+- PHP
+- Perl
+- Java
+- Python    
 
 ## <a name="azure-cdn-features-and-provider-pricing"></a>Preços de provedor e recursos da Azure CDN
 
-Confira o tópico [Visão geral da CDN](cdn-overview.md).
+Para obter informações, consulte [Visão geral da CDN](cdn-overview.md).

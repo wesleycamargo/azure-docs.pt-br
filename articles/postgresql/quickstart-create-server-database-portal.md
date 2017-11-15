@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 08/10/2017
-ms.openlocfilehash: 3a76e816f9b1fa484789f548899d7e8e7043febb
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.date: 11/03/2017
+ms.openlocfilehash: b78009a4b2683bb7ee881808ddbbc792d66dea6c
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>Criar um Banco de Dados do Azure para o servidor PostgreSQL no portal do Azure
 
@@ -151,7 +151,7 @@ Há vários aplicativos que você pode usar para conectar o servidor Banco de Da
     > [!TIP]
     > Se o firewall não está configurado para permitir o endereço IP do Cloud Shell, ocorre o seguinte erro:
     > 
-    > "psql: FATAL:  no pg_hba.conf entry for host "138.91.195.82", user "mylogin", database "postgres", SSL on FATAL: SSL connection is required.Specify SSL options and retry.
+    > "psql: FATAL:  no pg_hba.conf entry for host "138.91.195.82", user "mylogin", database "postgres", SSL on FATAL: SSL connection is required. Especifique as opções de SSL e tente novamente.
     > 
     > Para resolver o erro, verifique se a configuração do servidor corresponde às etapas da seção “Configurar uma regra de firewall no nível do servidor” deste artigo.
 
@@ -205,7 +205,7 @@ Para se conectar ao servidor PostgreSQL do Azure usando a ferramenta da GUI pgAd
 
 9. Digite um nome de banco de dados de sua escolha no campo **Banco de Dados**, como **mypgsqldb**, conforme mostrado no exemplo.
 
-10. Selecione o **Proprietário** do banco de dados na caixa de listagem. Escolha o nome de logon do administrador do servidor, como nosso exemplo, **mylogin**.
+10. Selecione o **Proprietário** do banco de dados na caixa de listagem. Escolha o nome de logon do administrador do servidor, como o exemplo, **mylogin**.
 
 11. Selecione **Salvar** para criar um novo banco de dados em branco.
 
@@ -221,9 +221,9 @@ Limpe os recursos criados no Guia de início rápido usando uma das duas maneira
 > Os outros Guias de início rápido desta coleção se baseiam neste Guia de início rápido. Se você pretende continuar trabalhando com Guias de início rápido, não limpe os recursos criados neste Guia de início rápido. Caso contrário, siga estas etapas para excluir os recursos que foram criados por este Guia de início rápido no portal.
 
 Para excluir o grupo de recursos inteiro, incluindo o servidor recém-criado:
-1. Localize o grupo de recursos no portal. No menu à esquerda, selecione **Grupos de recursos**. Em seguida, selecione o nome do grupo de recursos, como nosso exemplo, **myresourcegroup**.
+1. Localize o grupo de recursos no portal. No menu à esquerda, selecione **Grupos de recursos**. Em seguida, selecione o nome do grupo de recursos, como o exemplo, **myresourcegroup**.
 
-2. Na página do grupo de recursos, selecione **Excluir**. Digite o nome do grupo de recursos, como nosso exemplo **myresourcegroup**, na caixa de texto para confirmar a exclusão. Selecione **Excluir**.
+2. Na página do grupo de recursos, selecione **Excluir**. Digite o nome do grupo de recursos, como o exemplo **myresourcegroup**, na caixa de texto para confirmar a exclusão. Selecione **Excluir**.
 
 Para excluir apenas o servidor recém-criado:
 1. Localize o servidor no portal, caso você não esteja com ele aberto. No menu à esquerda, selecione **Todos os recursos**. Em seguida, pesquise o servidor criado.
@@ -232,7 +232,7 @@ Para excluir apenas o servidor recém-criado:
 
     ![O botão “Excluir”](./media/quickstart-create-database-portal/12-delete.png)
 
-3. Confirme o nome do servidor que deseja excluir e exiba sob ele os bancos de dados que são afetados. Digite o nome do servidor na caixa de texto, como nosso exemplo **mypgserver-20170401**. Selecione **Excluir**.
+3. Confirme o nome do servidor que deseja excluir e exiba sob ele os bancos de dados que são afetados. Digite o nome do servidor na caixa de texto, como o exemplo **mypgserver-20170401**. Selecione **Excluir**.
 
 ## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"]

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: saurse;markgal
-ms.openlocfilehash: 6fbd96935f444d8b0c6d068ebd0d28e612f19816
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5477068ddab46bbe0fdbdda754227642ed97bb36
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="back-up-windows-system-state-in-resource-manager-deployment"></a>Fazer backup de estado do sistema do Windows na implementação do Gerenciador de Recursos
 Este artigo explica como fazer backup do estado do sistema Windows Server para o Azure. É um tutorial que pretende explicar os conceitos básicos.
@@ -29,7 +29,7 @@ Se você quiser saber mais sobre o Backup do Azure, leia esta [visão geral](bac
 Se não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/) , que permitirá o acesso a qualquer serviço do Azure.
 
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
-Para fazer backup de seus arquivos e pastas, você precisa criar um cofre de Serviços de Recuperação na região onde deseja armazenar os dados. Você também precisa determinar como deseja que o armazenamento seja replicado.
+Para fazer backup do Estado do Sistema do Windows Server, você precisa criar um cofre dos Serviços de Recuperação na região em que deseja armazenar os dados. Você também precisa determinar como deseja que o armazenamento seja replicado.
 
 ### <a name="to-create-a-recovery-services-vault"></a>Para criar um cofre de Serviços de Recuperação
 1. Se ainda não tiver feito isso, entre no [Portal do Azure](https://portal.azure.com/) usando a sua assinatura do Azure.
@@ -135,6 +135,9 @@ Agora que você criou um cofre, configure-o para fazer backup do Estado do Siste
     As credenciais do cofre são baixadas para a pasta Downloads. Após o término do download das credenciais do cofre, você verá um pop-up perguntando se deseja abrir ou salvar as credenciais. Clique em **Salvar**. Se você clicar acidentalmente em **Abrir**, deixe a caixa de diálogo que tenta abrir as credenciais do cofre falhar. Não é possível abrir as credenciais do cofre. Vá para a próxima etapa. As credenciais do cofre estão na pasta Downloads.   
 
     ![o download das credenciais do cofre foi concluído](./media/backup-try-azure-backup-in-10-mins/vault-credentials-downloaded.png)
+> [!NOTE]
+> As credenciais do cofre devem ser salvas apenas em um local do Windows Server no qual você pretende usar o agente. 
+>
 
 ## <a name="install-and-register-the-agent"></a>Instalar e registrar o agente
 
@@ -163,40 +166,13 @@ Agora que você criou um cofre, configure-o para fazer backup do Estado do Siste
 
 Agora, o agente está instalado e seu computador está registrado no cofre. Você está pronto para configurar e agendar o backup.
 
-## <a name="back-up-windows-server-system-state-preview"></a>Fazer backup do Estado do Sistema do Windows Server (visualização prévia)
-O backup inicial inclui três tarefas:
+## <a name="back-up-windows-server-system-state"></a>Fazer backup do Estado do Sistema do Windows Server 
+O backup inicial inclui duas tarefas:
 
-* Habilitar o Backup do Estado do Sistema usando o agente de Backup do Azure
 * Agendar o backup
-* Fazer backup de arquivos e pastas pela primeira vez
+* Fazer backup do Estado do Sistema pela primeira vez
 
 Para concluir o backup inicial, use o agente dos Serviços de Recuperação do Microsoft Azure.
-
-### <a name="to-enable-system-state-backup-using-the-azure-backup-agent"></a>Para habilitar o backup do Estado do Sistema usando o agente de Backup da Azure
-
-1. Em uma sessão do PowerShell, execute o seguinte comando para interromper o mecanismo de Backup do Azure.
-
-  ```
-  PS C:\> Net stop obengine
-  ```
-
-2. Abra o registro do Windows.
-
-  ```
-  PS C:\> regedit.exe
-  ```
-
-3. Insira a seguinte chave do registro com o Valor DWord especificado.
-
-  | Caminho do registro | Chave do registro | Valor DWord |
-  |---------------|--------------|-------------|
-  | HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider | TurnOffSSBFeature | 2 |
-
-4. Reinicie o mecanismo do backup executando o seguinte comando em um prompt de comandos com privilégios elevados.
-
-  ```
-  PS C:\> Net start obengine
-  ```
 
 ### <a name="to-schedule-the-backup-job"></a>Para agendar o trabalho de backup
 
@@ -216,11 +192,7 @@ Para concluir o backup inicial, use o agente dos Serviços de Recuperação do M
 
 6. Clique em **Avançar**.
 
-7. O agendamento de backup e retenção do estado do sistema está configurado automaticamente para fazer backup todos os domingos às 21 horas do horário local, e o período de retenção está definido como 60 dias.
-
-   > [!NOTE]
-   > A política de backup e retenção do estado do sistema é configurada automaticamente. Se você fizer backup de arquivos e pastas, além do estado do sistema do Windows Server, especifique apenas a política de Backup e Retenção de backups de arquivo do assistente. 
-   >
+7. Selecione a frequência de Backup necessária e a política de retenção para os backups de Estado do Sistema nas próximas páginas. 
 
 8. Na página Confirmação, examine as informações e clique em **Concluir**.
 
@@ -234,88 +206,21 @@ Para concluir o backup inicial, use o agente dos Serviços de Recuperação do M
 
     ![Fazer backup do Windows Server agora](./media/backup-try-azure-backup-in-10-mins/backup-now.png)
 
-3. Na página Confirmação, examine as configurações que o Assistente Fazer Backup Agora usará para fazer backup do computador. Em seguida, clique em **Fazer Backup**.
+3. Selecione **Estado do Sistema** na tela **Selecionar Item de Backup** exibida e clique em **Avançar**.
+
+4. Na página Confirmação, examine as configurações que o Assistente Fazer Backup Agora usará para fazer backup do computador. Em seguida, clique em **Fazer Backup**.
 
 4. Clique em **Fechar** para fechar o assistente. Se você fechar o assistente antes da conclusão do processo de backup, o assistente continuará a ser executado em segundo plano.
 
-5. Se você fizer backup de Arquivos e Pastas no servidor, além de estado do sistema Windows Server, o assistente Fazer Backup agora fará backup somente de arquivos. Para executar um backup ad hoc do estado do sistema, use o seguinte comando do PowerShell:
 
-    ```
-    PS C:\> Start-OBSystemStateBackup
-    ```
-
-  Depois que o backup inicial for concluído, o status **Trabalho concluído** aparecerá no Console de backup.
+Depois que o backup inicial for concluído, o status **Trabalho concluído** aparecerá no Console de backup.
 
   ![IR completo](./media/backup-try-azure-backup-in-10-mins/ircomplete.png)
-
-## <a name="frequently-asked-questions"></a>Perguntas frequentes
-
-As perguntas e respostas a seguir fornecem informações adicionais. 
-
-### <a name="what-is-the-staging-volume"></a>O que é o Volume de Preparo?
-
-O Volume de Preparo representa o local intermediário onde o backup do Windows Server disponível nativamente prepara o backup do Estado do Sistema.  O agente de Backup do Azure comprime e criptografa esse backup intermediário e o envia de modo seguro, por meio do Protocolo HTTPS, para o Cofre de Serviços de Recuperação configurado. **É altamente recomendável estabelecer o Volume de Preparo em um volume de um sistema operacional que não seja o Windows. Se você encontrar dificuldades com os backups do Estado do Sistema, o primeiro passo para a resolução do problema é verificar o local do Volume de Preparo.** 
-
-### <a name="how-can-i-change-the-staging-volume-path-specified-in-the-azure-backup-agent"></a>Como alterar o caminho do Volume de Preparo especificado no agente de Backup da Azure?
-
-O Volume de Preparo está configurado para estar localizado na pasta de cache. 
-
-1. Para alterar esse local, use o seguinte comando (em um prompt de comandos com privilégios elevados):
-  ```
-  PS C:\> Net stop obengine
-  ```
-
-2. Atualize as seguintes entradas de registro com o caminho para a nova pasta de Volume de Preparo.
-
-  |Caminho do registro|Chave do registro|Valor|
-  |-------------|------------|-----|
-  |HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Azure Backup\Config\CloudBackupProvider | SSBStagingPath | novo local do volume de preparo |
-
-O Caminho de Preparo diferencia maiúsculas de minúsculas. Portanto, as maiúsculas e as minúsculas devem estar exatamente como no servidor. 
-
-3. Depois que você alterar o caminho do Volume de Preparo, reinicie o mecanismo de backup:
-  ```
-  PS C:\> Net start obengine
-  ```
-4. Para obter o caminho alterado, abra o agente de Serviços de Recuperação do Microsoft Azure e dispare um backup ad hoc do estado do sistema.
-
-### <a name="why-is-the-system-state-default-retention-set-to-60-days"></a>Por que a retenção do estado do sistema padrão é definida como 60 dias?
-
-A vida útil de um backup de estado do sistema é a mesma que a configuração de "tempo de vida da marca de exclusão" para a função do Active Directory do Windows Server. O valor padrão para a entrada de tempo de vida da marca de exclusão é de 60 dias. Esse valor pode ser definido no objeto de configuração do Serviço de Diretório (NTDS).
-
-### <a name="how-do-i-change-the-default-backup-and-retention-policy-for-system-state"></a>Como alterar o padrão de backup e a política de retenção para o estado do sistema?
-
-Para alterar o padrão de backup e a política de retenção para o estado do sistema:
-1. Interrompa o mecanismo de backup. Execute o seguinte comando em um prompt de comandos com privilégios elevados.
-
-  ```
-  PS C:\> Net stop obengine
-  ```
-
-2. Adicionar ou atualizar as seguintes entradas de chave do registro em HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider.
-
-  |Nome do Registro|Descrição|Valor|
-  |-------------|-----------|-----|
-  |SSBScheduleTime|Usado para configurar a hora do backup. O horário padrão está configurado para as 21 horas da hora local.|DWord: Formato HHMM (decimal). 2130, por exemplo, significa 21h30 da hora local.|
-  |SSBScheduleDays|Usado para configurar os dias quando o backup do estado do sistema deve ser executado no momento especificado. Dígitos individuais especificam dias da semana. 0 representa domingo, 1 é a segunda-feira, e assim por diante. O dia padrão para o backup é domingo.|DWord: dias da semana para realizar o backup (decimal). 1230, por exemplo, agenda backups na segunda-feira, terça-feira, quarta-feira e domingo.|
-  |SSBRetentionDays|Usado para configurar os dias para manter o backup. O valor padrão é de 60. O valor máximo permitido é de 180.|DWord: Dias para retenção de backup (decimal).|
-
-3. Use o seguinte comando para reiniciar o mecanismo de backup.
-    ```
-    PS C:\> Net start obengine
-    ```
-
-4. Abra o agente de Serviços de Recuperação da Microsoft.
-
-5. Clique em **Agendamento de Backup** e, em seguida, clique em **Próximo** até ver as alterações refletidas.
-
-6. Clique em **Finalizar**para aplicar as alterações.
-
 
 ## <a name="questions"></a>Perguntas?
 Se você tiver dúvidas ou gostaria de ver algum recurso incluído, [envie-nos seus comentários](http://aka.ms/azurebackup_feedback).
 
 ## <a name="next-steps"></a>Próximas etapas
 * Obtenha mais detalhes sobre o [backup de computadores que usam o Windows](backup-configure-vault.md).
-* Agora que você faz backup de seus arquivos e pastas, poderá [gerenciar seus servidores e cofres](backup-azure-manage-windows-server.md).
+* Agora que você fez backup do Estado do Sistema do Windows Server, [gerencie seus cofres e servidores](backup-azure-manage-windows-server.md).
 * Se você precisar restaurar um backup, use este artigo para [restaurar os arquivos para um computador que usa o Windows](backup-azure-restore-windows-server.md).

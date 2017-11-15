@@ -10,12 +10,12 @@ ms.service: postgresql
 ms.custom: mvc, devcenter
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 08/15/2017
-ms.openlocfilehash: 0e1a334f4dd4d142c923fababc336897d9020fad
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.date: 11/03/2017
+ms.openlocfilehash: ee310f10b27418c1dcd73755643120121f611f06
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>Banco de dados do Azure para PostgreSQL: usar Python para se conectar e consultar dados
 Este guia de início rápido demonstra como usar [Python](https://python.org) para se conectar a um Banco de Dados do Azure para PostgreSQL. Ele também demonstra como usar instruções SQL para consultar, inserir, atualizar e excluir dados no banco de dados das plataformas macOS, Windows, Ubuntu e Linux. As etapas neste artigo pressupõem que você está familiarizado com o desenvolvimento usando Python e que começou recentemente a trabalhar com o Banco de Dados do Azure para PostgreSQL.
@@ -50,14 +50,14 @@ Instale o pacote [psycopg2](http://initd.org/psycopg/docs/install.html), que per
 Obtenha as informações de conexão necessárias para se conectar ao Banco de Dados do Azure para PostgreSQL. Você precisa das credenciais de logon e do nome do servidor totalmente qualificado.
 
 1. Faça logon no [Portal do Azure](https://portal.azure.com/).
-2. No menu à esquerda no Portal do Azure, clique em **Todos os recursos** e pesquise **mypgserver-20170401** (o servidor que você acabou de criar).
+2. No menu à esquerda no portal do Azure, clique em **Todos os recursos** e pesquise **mypgserver-20170401** (o servidor criado).
 3. Clique no nome do servidor **mypgserver-20170401**.
 4. Selecione a página **Visão Geral** do servidor e anote o **Nome do servidor** e **Nome de logon do administrador do servidor**.
  ![Banco de Dados do Azure para PostgreSQL – Logon de administrador do servidor](./media/connect-python/1-connection-string.png)
 5. Se você se esquecer das informações de logon do servidor, navegue até a página **Visão Geral** para exibir o nome de logon do Administrador do servidor e, se necessário, redefinir a senha.
 
 ## <a name="how-to-run-python-code"></a>Como executar o código Python
-Este tópico contém um total de quatro exemplos de código, cada uma executando uma função específica. As instruções a seguir indicam como criar um arquivo de texto, inserir um bloco de código e salvar o arquivo para que possa ser executado posteriormente. Crie quatro arquivos separados, um para cada bloco de código.
+Este artigo contém um total de quatro exemplos de código, cada uma executando uma função específica. As instruções a seguir indicam como criar um arquivo de texto, inserir um bloco de código e salvar o arquivo para que possa ser executado posteriormente. Crie quatro arquivos separados, um para cada bloco de código.
 
 - Crie um novo arquivo usando seu editor de texto favorito.
 - Copie e cole um dos exemplos de código das seções a seguir no arquivo de texto. Substitua os parâmetros **host**, **dbname**, **user** e **password** pelos valores que você especificou ao criar o servidor e o banco de dados.
@@ -66,7 +66,7 @@ Este tópico contém um total de quatro exemplos de código, cada uma executando
 -  Para executar o código, digite o comando python seguido pelo nome do arquivo, por exemplo, `Python postgres.py`.
 
 > [!NOTE]
-> A partir da versão 3 do Python, você poderá ver o erro `SyntaxError: Missing parentheses in call to 'print'` ao executar os blocos de código a seguir. Se isso acontecer, substitua cada chamada ao comando `print "string"` por uma chamada de função usando parênteses, como `print("string")`.
+> Do Python versão 3 em diante, você poderá ver o erro `SyntaxError: Missing parentheses in call to 'print'` ao executar os blocos de código a seguir: se isso acontecer, substitua cada chamada para o comando `print "string"` por uma chamada de função usando parênteses, como `print("string")`.
 
 ## <a name="connect-create-table-and-insert-data"></a>Conectar-se, criar tabela e inserir dados
 Use o código a seguir para se conectar e carregar os dados usando a função [psycopg2.connect](http://initd.org/psycopg/docs/connection.html) com a instrução SQL **INSERT**. A função [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) é usada para executar a consulta SQL no banco de dados PostgreSQL. Substitua os parâmetros host, dbname, user e password pelos valores que você especificou ao criar o servidor e o banco de dados.
@@ -110,7 +110,7 @@ conn.close()
 
 Depois que o código é executado com êxito, a saída é exibida da seguinte maneira:
 
-![Saída da linha de comando](media/connect-python/2-example-python-output.png)
+![Saída de linha de comando](media/connect-python/2-example-python-output.png)
 
 ## <a name="read-data"></a>Ler dados
 Use o código a seguir para ler os dados inseridos usando a função [cursor.execute](http://initd.org/psycopg/docs/cursor.html#execute) a instrução SQL **SELECT**. Essa função aceita uma consulta e retorna um conjunto de resultados que pode ser iterado com o uso de [cursor.fetchall()](http://initd.org/psycopg/docs/cursor.html#cursor.fetchall). Substitua os parâmetros host, dbname, user e password pelos valores que você especificou ao criar o servidor e o banco de dados.

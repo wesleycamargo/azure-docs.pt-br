@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 10/12/2017
 ms.author: v-ruogun
-ms.openlocfilehash: 44ec416a814ff6a5fef79ef21e2f54ce4ce4da17
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 76e23d85b392f8120914f6170040c6b3c450aba6
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/03/2017
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-python"></a>Transferir objetos de/para o Armazenamento de Blobs do Azure usando o Python
 Neste guia de início rápido, você aprenderá como usar Python para carregar, baixar e listar blobs de bloco em um contêiner no Armazenamento de Blobs do Azure. 
@@ -32,25 +32,7 @@ Para concluir este guia de início rápido:
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="create-a-storage-account-using-the-azure-portal"></a>Criar uma conta de armazenamento usando o Portal do Azure
-
-Primeiro, crie uma nova conta de armazenamento de uso geral a ser usada para este guia de início rápido. 
-
-1. Acesse o [Portal do Azure](https://portal.azure.com) e faça logon usando sua conta do Azure. 
-2. No menu Hub, selecione **Novo** > **Armazenamento** > **Conta de armazenamento – blob, arquivo, tabela, fila**. 
-3. Insira um nome para a conta de armazenamento. O nome deve ter entre 3 e 24 caracteres e podem conter apenas números e letras minúsculas. Ele também deve ser exclusivo.
-4. Configure `Deployment model` como **Resource Manager**.
-5. Configure `Account kind` como **Propósito geral**.
-6. Configure `Performance` como **Standard**. 
-7. Configure `Replication` como **LRS (Armazenamento com redundância local)**.
-8. Configure `Storage service encryption` como **Desabilitado**.
-9. Configure `Secure transfer required` como **Desabilitado**.
-10. Selecione sua assinatura. 
-11. Para `resource group`, crie um novo e dê a ele um nome exclusivo. 
-12. Selecione a `Location` a ser usada para sua conta de armazenamento.
-13. Marque **Fixar no painel** e clique em **Criar** para criar sua conta de armazenamento. 
-
-Depois que a conta de armazenamento é criada, ela é fixada ao painel. Clique nela para abri-la. Em **CONFIGURAÇÕES**, clique em **Chaves de acesso**. Selecione uma chave e copie o nome da conta de armazenamento para a área de transferência e cole-o no Bloco de notas para uso posterior.
+[!INCLUDE [storage-quickstart-tutorial-create-account-portal](../../../includes/storage-quickstart-tutorial-create-account-portal.md)]
 
 ## <a name="download-the-sample-application"></a>Baixar o aplicativo de exemplo
 O [aplicativo de exemplo](https://github.com/Azure-Samples/storage-blobs-python-quickstart.git) usado neste guia de início rápido é um aplicativo Python.  
@@ -100,8 +82,10 @@ A primeira coisa a fazer é criar as referências aos objetos usados para acessa
 
 Assim que você tiver o contêiner de Blob de Nuvem, poderá criar a instância do objeto **CloudBlockBlob** que aponta para o blob específico no qual você está interessado e realizar as operações como carregar, baixar e copiar.
 
-Nesta seção, você instancia os objetos, cria um novo contêiner e, em seguida, define as permissões no contêiner para que os blobs sejam públicos. O contêiner é chamado de **quickstartblobs**. 
+> [!IMPORTANT]
+> Os nomes de contêiner devem estar em minúsculas. Consulte [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) (Nomenclatura e referência de contêineres, blobs e metadados) para obter mais informações sobre nomes de contêiner e de blobs.
 
+Nesta seção, você instancia os objetos, cria um novo contêiner e, em seguida, define as permissões no contêiner para que os blobs sejam públicos. O contêiner é chamado de **quickstartblobs**. 
 
 ```python 
 # Create the BlockBlockService that is used to call the Blob service for the storage account
@@ -156,7 +140,7 @@ print("\nList blobs in the container")
         print("\t Blob name: " + blob.name)
 ```
 
-## <a name="download-the-blobs"></a>Baixar os Blobs
+## <a name="download-the-blobs"></a>Baixar os blobs
 
 Baixar blobs para o seu disco local usando o método **get\_blob\_to\_path**. O código a seguir baixa o blob carregado em uma seção anterior. "_DOWNLOADED" é adicionado como um sufixo ao nome do blob para que você possa ver ambos os arquivos no disco local. 
 

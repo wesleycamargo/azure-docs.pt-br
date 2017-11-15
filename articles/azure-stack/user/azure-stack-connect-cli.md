@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/18/2017
+ms.date: 11/11/2017
 ms.author: sngun
-ms.openlocfilehash: 5ef64e727615d17ae550efbc7ea427936d7d4c3b
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 60b06cf41ea632219d2f16b29607899bd2e8d789
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="install-and-configure-cli-for-use-with-azure-stack"></a>Instalar e configurar o CLI para uso com a pilha do Azure
 
@@ -204,6 +204,15 @@ az group create \
 Se o grupo de recursos é criado com êxito, o comando anterior gera as seguintes propriedades do recurso recém-criado:
 
 ![Criar um grupo de recursos](media/azure-stack-connect-cli/image1.png)
+
+## <a name="known-issues"></a>Problemas conhecidos
+Há alguns problemas conhecidos que você deve estar ciente ao usar CLI na pilha do Azure:
+
+* O modo interativo de CLI ou seja o `az interactive` comando ainda não é suportado na pilha do Azure.
+* Para obter a lista de imagens de máquinas virtuais disponíveis na pilha do Azure, use o `az vm images list --all` comando em vez do `az vm image list` comando. Especificando o `--all` opção garante que a resposta retorna apenas as imagens que estão disponíveis em seu ambiente de pilha do Azure. 
+* Aliases de imagem de máquina virtual que estão disponíveis no Azure podem não ser aplicáveis a pilha do Azure. Ao usar imagens da máquina virtual, você deve usar o parâmetro inteiro do URN (Canonical: UbuntuServer:14.04.3-LTS:1.0.0) em vez do alias de imagem. Este URN deve corresponder às especificações de imagem derivado de `az vm images list` comando.
+* Por padrão, a CLI 2.0 usa "Standard_DS1_v2" como o tamanho de imagem de máquina virtual padrão. No entanto, esse tamanho ainda não disponível na pilha do Azure, portanto, é necessário especificar o `--size` parâmetro explicitamente ao criar uma máquina virtual. Você pode obter a lista de tamanhos de máquinas virtuais que estão disponíveis na pilha do Azure usando o `az vm list-sizes --location <locationName>` comando.
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

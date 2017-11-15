@@ -5,7 +5,7 @@ services: container-instances
 documentationcenter: 
 author: seanmck
 manager: timlt
-editor: 
+editor: mmacy
 tags: 
 keywords: 
 ms.assetid: 
@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/26/2017
+ms.date: 11/07/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 3b651526f5ee3197e7d04accb6a87e2f10bf0791
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 2858f20cd9da469d5983e2bef9176f5922349196
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="deploy-a-container-to-azure-container-instances"></a>Implantar um contêiner em Instâncias de Contêiner do Azure
 
@@ -56,31 +56,31 @@ Senha de registro de contêiner:
 az acr credential show --name <acrName> --query "passwords[0].value"
 ```
 
-Para implantar a imagem de contêiner do registro de contêiner com uma solicitação de recurso de 1 núcleo de CPU e 1 GB de memória, execute o seguinte comando:
+Para implantar a imagem de contêiner do registro de contêiner com uma solicitação de recurso de 1 núcleo de CPU e 1 GB de memória, execute o seguinte comando. Substitua `<acrLoginServer>` e `<acrPassword>` pelos valores obtidos dos dois comandos anteriores.
 
 ```azurecli
 az container create --name aci-tutorial-app --image <acrLoginServer>/aci-tutorial-app:v1 --cpu 1 --memory 1 --registry-password <acrPassword> --ip-address public -g myResourceGroup
 ```
 
-Em alguns segundos, você deverá receber uma resposta inicial do Azure Resource Manager. Para exibir o estado da implantação, use:
+Em alguns segundos, você deverá receber uma resposta inicial do Azure Resource Manager. Para exibir o estado da implantação, use o comando [az container show](/cli/azure/container#az_container_show):
 
 ```azurecli
-az container show --name aci-tutorial-app --resource-group myResourceGroup --query state
+az container show --name aci-tutorial-app --resource-group myResourceGroup --query instanceView.state
 ```
 
-Podemos continuar a execução desse comando até que o estado mude de *pendente* para *em execução*. Então, poderemos continuar.
+Repita o comando `az container show` até que o estado mude de *Pendente* para *Executando*, o que devem levar menos de um minuto. Quando o contêiner estiver *Executando*, vá para a próxima etapa.
 
 ## <a name="view-the-application-and-container-logs"></a>Exibir os logs do aplicativo e do contêiner
 
-Depois que a implantação for bem-sucedida, abra o navegador no endereço IP mostrado na saída do comando a seguir:
+Depois que a implantação for bem-sucedida, exiba o endereço IP público do contêiner com o comando [az container show](/cli/azure/container#az_container_show):
 
 ```bash
 az container show --name aci-tutorial-app --resource-group myResourceGroup --query ipAddress.ip
 ```
 
-```json
-"13.88.176.27"
-```
+Saída de exemplo: `"13.88.176.27"`
+
+Para ver o aplicativo em execução, navegue até o endereço IP público no seu navegador favorito.
 
 ![Aplicativo Olá, Mundo no navegador][aci-app-browser]
 
@@ -96,6 +96,14 @@ Saída:
 listening on port 80
 ::ffff:10.240.0.4 - - [21/Jul/2017:06:00:02 +0000] "GET / HTTP/1.1" 200 1663 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
 ::ffff:10.240.0.4 - - [21/Jul/2017:06:00:02 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://13.88.176.27/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
+```
+
+## <a name="clean-up-resources"></a>Limpar recursos
+
+Se você não precisar mais de nenhum dos recursos criados nessa série de tutoriais, pode executar o comando [az group delete](/cli/azure/group#delete) para remover o grupo de recursos e todos os recursos que ele contém. Esse comando exclui o Registro de contêiner que você criou, bem como o contêiner em execução e todos os recursos relacionados.
+
+```azurecli-interactive
+az group delete --name myResourceGroup
 ```
 
 ## <a name="next-steps"></a>Próximas etapas

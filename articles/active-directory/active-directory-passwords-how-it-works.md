@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 71310534ec62b62bcd408d75060859c79bc470cf
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: fd9515120049dd3837a43c95de8a9b6822719e19
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Aprofundamento no autoatendimento de redefinição de senha no Azure AD
 
@@ -88,6 +88,23 @@ Essa opção determina o número mínimo de métodos de autenticação disponív
 Os usuários podem optar por fornecer mais métodos de autenticação se eles forem habilitados pelo administrador.
 
 Se um usuário não tiver os métodos mínimos necessários registrados, ele verá uma página de erro que o direcionará para solicitar a um administrador para redefinir sua senha.
+
+#### <a name="changing-authentication-methods"></a>Alterando os métodos de autenticação
+
+Se você iniciar com uma política que tem apenas um método de autenticação registrado como necessário para redefinir ou desbloquear e você alterar esse número para dois, o que acontecerá?
+
+| Número de métodos registrados | Número de métodos necessários | Result |
+| :---: | :---: | :---: |
+| 1 ou mais | 1 | **Capaz** de redefinir ou desbloquear |
+| 1 | 2 | **Incapaz** de redefinir ou desbloquear |
+| 2 ou mais | 2 | **Capaz** de redefinir ou desbloquear |
+
+Se você alterar os tipos de métodos de autenticação que um usuário pode usar, você poderá inadvertidamente impedir que os usuários sejam capazes de usar SSPR se eles não tiverem a quantidade mínima de dados disponíveis.
+
+Exemplo: 
+1. A política original é configurada com dois métodos de autenticação necessários, usando somente o telefone comercial e perguntas de segurança. 
+2. O administrador altera a política para não usar perguntas de segurança, mas permite o uso de telefone celular e email alternativo.
+3. Os usuários sem os campos de celular e de email alternativo populados não podem redefinir suas senhas.
 
 ### <a name="how-secure-are-my-security-questions"></a>Qual o nível de segurança de minhas perguntas de segurança
 
@@ -169,6 +186,7 @@ Quando estiver desabilitado, os usuários ainda poderão registrar manualmente s
 > [!NOTE]
 > Os usuários podem ignorar o portal de registro de redefinição de senha clicando em Cancelar ou fechando a janela, mas verão esse prompt sempre que fizerem logon até concluírem o registro.
 >
+> Isso não interromperá conexão do usuário se ele já estiver conectado.
 
 ### <a name="number-of-days-before-users-are-asked-to-reconfirm-their-authentication-information"></a>Número de dias antes que os usuários precisem reconfirmar suas informações de autenticação
 
@@ -190,7 +208,7 @@ Exemplo: Há quatro administradores em um ambiente. O administrador “A” rede
 
 ## <a name="on-premises-integration"></a>Integração local
 
-Se você instalou, configurou e habilitou o Azure AD Connect, terá as seguintes opções adicionais para as integrações locais.
+Se você instalou, configurou e habilitou o Azure AD Connect, terá as seguintes opções adicionais para as integrações locais. Se essas opções estão esmaecidas, isso significa que o write-back não foi configurado corretamente; para obter mais informações, consulte [Configurar write-back de senha](active-directory-passwords-writeback.md#configuring-password-writeback).
 
 ### <a name="write-back-passwords-to-your-on-premises-directory"></a>Write-back de senhas para o diretório local
 
@@ -214,6 +232,9 @@ A redefinição e a alteração de senhas têm suporte completo em todas as conf
 3. **Usuários B2B** – os novos usuários B2B criados com as novas [funcionalidades do Azure AD B2B](active-directory-b2b-what-is-azure-ad-b2b.md) também poderão redefinir suas senhas com o email com o qual se registraram durante o processo de convite.
 
 Para testar esse cenário, acesse http://passwordreset.microsoftonline.com com um desses usuários parceiros. Desde que eles tenham um email alternativo ou um email de autenticação definido, a redefinição de senha funcionará como esperado.
+
+> [!NOTE]
+> Contas da Microsoft que receberam acesso de convidado ao seu locatário do Azure AD, assim como aquelas do Outlook.com, Hotmail.com ou outros endereços de email pessoais, não são capazes de usar o Azure AD SSPR e precisarão redefinir as respectivas senhas usando as informações encontradas no artigo [Quando você não pode entrar sua conta da Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).
 
 ## <a name="next-steps"></a>Próximas etapas
 

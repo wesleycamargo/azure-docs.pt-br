@@ -13,14 +13,14 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2017
+ms.date: 11/02/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: b8656123fa9c5158f366872ab050f370080ec18a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5be05fabf03e7e3ccaa3bf66ffefdd6406a06b3e
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="analyze-twitter-data-using-hive-and-hadoop-on-hdinsight"></a>Analisar dados do Twitter usando o Hive e Hadoop no HDInsight
 
@@ -158,6 +158,9 @@ O código Python a seguir baixa 10.000 tweets do Twitter e os salva em um arquiv
     > * `consumer_key`
     > * `access_token`
     > * `access_token_secret`
+
+    > [!TIP]
+    > Ajuste o filtro de tópicos na última linha para rastrear palavras-chave populares. Usar palavras-chave populares quando você executa o script possibilita uma captura de dados mais rápida.
 
 6. Use **Ctrl + X** e **Y** para salvar o arquivo.
 
@@ -312,19 +315,22 @@ Esses comandos armazenam os dados em um local que todos os nós no cluster podem
 
    ```hiveql
    SELECT name, screen_name, count(1) as cc
-       FROM tweets
-       WHERE text like "%Azure%"
-       GROUP BY name,screen_name
-       ORDER BY cc DESC LIMIT 10;
+   FROM tweets
+   WHERE text like "%Azure%"
+   GROUP BY name,screen_name
+   ORDER BY cc DESC LIMIT 10;
    ```
 
     Essa consulta retornará no máximo 10 tweets com a palavra **Azure** no texto da mensagem.
+
+    > [!NOTE]
+    > Se você tiver alterado o filtro no script `gettweets.py`, substitua **Azure** por um dos filtros usados.
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Você aprendeu como transformar um conjunto de dados JSON não estruturado uma em tabela estruturada do Hive. Para saber mais sobre o Hive no HDInsight, consulte os documentos a seguir:
 
-* [Introdução ao HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
+* [Introdução ao HDInsight](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Analisar dados de atraso de voo usando o HDInsight](hdinsight-analyze-flight-delay-data-linux.md)
 
 [curl]: http://curl.haxx.se

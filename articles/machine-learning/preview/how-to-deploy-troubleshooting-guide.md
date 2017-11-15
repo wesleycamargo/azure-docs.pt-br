@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/09/2017
-ms.openlocfilehash: b9287c7151c96aaccbcda81c111cfe36ead5ab38
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: b43ed29bda4412fb57bcb772da00f6405c3f1c26
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="troubleshooting-service-deployment-and-environment-setup"></a>Solução de problemas de implantação de serviço e configuração do ambiente
 As informações a seguir podem ajudar a determinar a causa de erros durante a configuração do ambiente de gerenciamento de modelos.
@@ -36,7 +36,7 @@ Sua assinatura pode ter um limite de cobrança que pode impedir que provisione o
 Use os sinalizadores `--debug` e `--verbose` no comando de instalação para mostrar informações de depuração e rastreamento enquanto o ambiente está sendo provisionado.
 
 ```
-az ml env setup -l <loation> -n <name> -c --debug --verbose 
+az ml env setup -l <location> -n <name> -c --debug --verbose 
 ```
 
 ## <a name="service-deployment"></a>Implantação de serviço
@@ -89,7 +89,9 @@ Exemplo de Python:
 ```
 
 ## <a name="other-common-problems"></a>Outros problemas comuns
-- Se o comando `env setup` falhar, verifique se você tem núcleos suficientes disponíveis na sua assinatura.
-- Não use o caractere de sublinhado (_) no nome do serviço Web (como em *my_webservice*).
-- Repita se receber um erro **502 Gateway incorreto** ao chamar o serviço Web. Normalmente, isso significa que o contêiner não foi implantado para o cluster ainda.
-- Se você receber o erro **CrashLoopBackOff** ao criar um serviço, verifique os logs. Esse normalmente é o resultado de dependências ausentes na função **iniciar**.
+- Se o comando `env setup` falhar com `LocationNotAvailableForResourceType`, você provavelmente estará usando o local incorreto (região) para os recursos de aprendizado de máquina. Certifique-se de que seu local especificado com o parâmetro `-l` é `eastus2`, `westcentralus` ou `australiaeast`.
+- Se o comando `env setup` falhar com `Resource quota limit exceeded`, certifique-se de ter núcleos suficientes disponíveis em sua assinatura e de que seus recursos não estejam sendo usados em outros processos.
+- Se o comando `env setup` falhar com `Invalid environment name. Name must only contain lowercase alphanumeric characters`, certifique-se de que o nome do serviço não contém letras maiúsculas, símbolos ou sublinhado ( _ ) (como em *meu_ambiente*).
+- Se o comando `service create` falhar com `Service Name: [service_name] is invalid. The name of a service must consist of lower case alphanumeric characters (etc.)`, certifique-se de que o nome do serviço tem entre 3 e 32 caracteres; comece e termine com caracteres alfanuméricos minúsculos e não contém letras maiúsculas, símbolos diferentes de hífen ( - ) e ponto ( . ) ou o sublinhado ( _ ) (como em *meu_serviçoweb*).
+- Tente novamente se você receber um erro `502 Bad Gateway` ao chamar o serviço Web. Normalmente, isso significa que o contêiner não foi implantado para o cluster ainda.
+- Se você receber o erro `CrashLoopBackOff` ao criar um serviço, verifique seus logs. Esse normalmente é o resultado de dependências ausentes na função **iniciar**.

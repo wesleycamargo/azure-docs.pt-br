@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/06/2017
 ms.author: fimguy
-ms.openlocfilehash: 98eb9b3a58737da2436eed591d69a900166c6af9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e6df124a38c748294e92183df272dc266a0afc51
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="connector-version-release-history"></a>Histórico de lançamento de versão do conector
 Os Conectores do FIM (Forefront Identity Manager) e MIM (Microsoft Identity Manager) são atualizados com frequência.
 
 > [!NOTE]
 > Este tópico é somente para FIM e MIM. Esses conectores não são suportados para instalação no Azure AD Connect. Os conectores liberados são pré-instalados no AADConnect durante o upgrade para o Build especificado.
+
 
 Este tópico lista todas as versões dos conectores que foram lançadas.
 
@@ -37,6 +38,29 @@ Links relacionados:
 * [Conector do PowerShell](active-directory-aadconnectsync-connector-powershell.md)
 * [Conector do Lotus Domino](active-directory-aadconnectsync-connector-domino.md)
 
+## <a name="116490-aadconnect-116490"></a>1.1.649.0 (AADConnect 1.1.649.0)
+
+### <a name="fixed-issues"></a>Problemas corrigidos:
+
+* Lotus Notes:
+  * Opção Filtrar certificados personalizados
+  * Na importação da classe ImportOperations, foi corrigida a definição de quais operações podem ser executadas no modo “Exibições” e quais no modo “Pesquisa”.
+* LDAP genérico:
+  * O diretório OpenLDAP usa DN como âncora em vez de entryUUI. Nova opção para o conector GLDAP que permite modificar a âncora
+* SQL genérico:
+  * Foi corrigida a exportação fixa no campo que tem o tipo varbinary(max).
+  * Ao adicionar dados binários de uma fonte de dados ao objeto CSEntry, a função DataTypeConversion a função falhava em zero bytes. A função DataTypeConversion da classe CSEntryOperationBase foi corrigida.
+
+
+
+
+### <a name="enhancements"></a>Melhorias:
+
+* SQL genérico:
+  * A capacidade de configurar o modo de execução do procedimento armazenado com parâmetros nomeados ou não nomeados foi adicionado em uma janela de configuração do agente de gerenciamento do Generic SQL na página “Parâmetros Globais”. Na página “Parâmetros Globais”, há uma caixa de seleção com o rótulo “Usar parâmetros nomeados para executar um procedimento armazenado”, que é responsável pelo modo de execução de procedimento armazenado com parâmetros nomeados ou não.
+    * Atualmente, a capacidade de executar o procedimento armazenado com parâmetros nomeados funciona apenas para bancos de dados IBM DB2 e MSSQL. Para bancos de dados Oracle e MySQL, essa abordagem não funciona: 
+      * As sintaxes SQL do MySQL não dão suporte a parâmetros nomeados em procedimentos armazenados.
+      * O driver ODBC do Oracle não dá suporte a parâmetros nomeados para parâmetros nomeados em procedimentos armazenados)
 
 ## <a name="116040-aadconnect-116140"></a>1.1.604.0 (AADConnect 1.1.614.0)
 
@@ -203,6 +227,22 @@ Antes de março de 2016, os Conectores foram liberados como tópicos de suporte.
 * [KB2932635](https://support.microsoft.com/kb/2932635) – 5.3.1003, fevereiro de 2014  
 * [KB2899874](https://support.microsoft.com/kb/2899874) – 5.3.0721, outubro de 2013
 * [KB2875551](https://support.microsoft.com/kb/2875551) – 5.3.0534, agosto de 2013
+
+## <a name="troubleshooting"></a>Solucionar problemas 
+
+> [!NOTE]
+> Ao atualizar o Microsoft Identity Manager ou o AADConnect usando um dos conectores ECMA2. 
+
+É necessário atualizar a definição do conector ao fazer atualização para corresponder, caso contrário, você receberá o seguinte erro no início do log de eventos do aplicativo relatando o aviso ID 6947: “A versão do assembly na configuração do AAD Connector (“X.X.XXX.X”) é anterior à versão real (“X.X.XXX.X”) de ‘C:\Arquivos de Programas\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll".
+
+Para atualizar a definição:
+* Abra as Propriedades da instância do Conector
+* Clique na guia Conexão / Conectar a
+  * Insira a senha para a conta do Conector
+* Clique em cada guia de propriedade, uma por vez
+  * Se esse tipo de Conector tiver uma guia Partições com um botão Atualizar, clique nele enquanto estiver na guia
+* Depois que todas as guias de propriedade tenham forem acessadas, clique no botão OK para salvar as alterações.
+
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre a configuração de [sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md) .

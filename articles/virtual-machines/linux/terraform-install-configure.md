@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/23/2017
 ms.author: echuvyrov
-ms.openlocfilehash: d8c357474e040f2e35c51dec0c7785cf98381a37
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 533add8948544e37dc27623a2f51aad1054b1bef
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="install-and-configure-terraform-to-provision-vms-and-other-infrastructure-into-azure"></a>Instalar e configurar o Terraform para provisionar VMs e outra infraestrutura no Azure
  
 O Terraform fornece uma maneira fácil de definir, visualizar e implantar a infraestrutura de nuvem usando uma [linguagem de modelagem simples](https://www.terraform.io/docs/configuration/syntax.html). Este artigo descreve as etapas necessárias para usar o Terraform para provisionar recursos no Azure. 
 
 > [!TIP]
-> O Terraform faz parte da [experiência do Azure Cloud Shell Bash](/azure/cloud-shell/quickstart) e vem pré-configurado com as credenciais e os [módulos do Azure Terraform](https://registry.terraform.io/modules/Azure).
+> O Terraform é instalado por padrão na [Experiência de Bash no Azure Cloud Shell](/azure/cloud-shell/quickstart). Ele também é pré-configurado com as credenciais e [módulos do Azure Terraform](https://registry.terraform.io/modules/Azure). Usando o Cloud Shell, você poderá ignorar as partes de instalação/configuração deste documento.
 
 ## <a name="install-terraform"></a>Instalar o Terraform
 
@@ -47,9 +47,7 @@ Há várias maneiras de criar um aplicativo Azure AD e uma entidade de serviço 
 
 Entre para administrar sua assinatura do Azure emitindo o seguinte comando:
 
-```azurecli-interactive
-az login
-```
+   `az login`
 
 Se você tiver várias assinaturas do Azure, seus detalhes serão retornados pelo comando `az login`. Defina a variável de ambiente `SUBSCRIPTION_ID` para manter o valor do campo `id` retornado da assinatura que você deseja usar. 
 

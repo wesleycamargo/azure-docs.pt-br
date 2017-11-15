@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: oanapl
-ms.openlocfilehash: b02b1260cedcade9bf69a99453ab0f5aa2c3c7b1
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.openlocfilehash: 42dca05c4d7d104ed0e7e21f1e53411e5983cd38
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Usar relatórios de integridade do sistema para solução de problemas
 Os componentes do Service Fabric do Azure apresentam relatórios de integridade do sistema em todas as entidades no cluster prontos para uso. O [repositório de integridade](service-fabric-health-introduction.md#health-store) cria e exclui entidades baseado nos relatórios do sistema. Ele também os organiza em uma hierarquia que captura interações de entidade.
@@ -55,6 +55,18 @@ O relatório especifica o tempo limite de concessão global como a TTL (vida út
 * **SourceId**: System.Federation
 * **Propriedade**: começa com **Vizinhança** e inclui informações sobre o nó.
 * **Próximas etapas**: investigue por que a vizinhança foi perdida (por exemplo, verifique a comunicação entre os nós do cluster).
+
+### <a name="rebuild"></a>Recompilação
+
+O serviço **FM** (**Gerenciador de Failover**) gerencia informações sobre os nós de cluster. Quando FM perde seus dados e entra em perda de dados, ele não pode garantir que tem as informações mais atualizadas sobre os nós de cluster. Nesse caso, o sistema passa por uma **Recompilação** e **System.FM** coleta dados de todos os nós do cluster para recriar o estado dele. Às vezes, devido a problemas de nó ou de rede, a recompilação pode ficar paralisada ou parada. O mesmo pode acontecer com o serviço **FMM** (**Gerenciador de Failover Mestre**). O **FMM** é um serviço sem monitoração de estado do sistema que mantém o controle da localização de todos os **gerenciadores de failover** no cluster. O **FMMs** primário sempre é o nó com a ID mais próxima de 0. Se esse nó é removido, uma **Recompilação** é disparada.
+Quando uma das condições anteriores ocorrem, **System.FM** ou **System.FMM** a sinalizam por meio de um relatório de erros. A Recompilação pode estar paralisada em uma de duas fases:
+
+* Aguardando a difusão: o **FM/FMM** aguarda a resposta de mensagem de difusão de outros nós. **Próximas etapas:** investigar se há um problema de conexão de rede entre os nós.   
+* Aguardando os nós: o **FM/FMM** já recebeu uma resposta de difusão de outros nós e está aguardando uma resposta de nós específicos. O relatório de integridade lista os nós dos quais o **FM/FMM** está aguardando uma resposta. **Próximas etapas:** investigar a conexão de rede entre o **FM/FMM** e os nós listados. Investigue cada nó listado quanto a outros possíveis problemas.
+
+* **SourceID**: System.FM ou System.FMM
+* **Propriedade**: Recompilação.
+* **Próximas etapas**: investigar a conexão de rede entre os nós, bem como o estado de todos os nós específicos que são listados na descrição do relatório de integridade.
 
 ## <a name="node-system-health-reports"></a>Relatórios de integridade do sistema de nó
 **System.FM**, que representa o serviço Gerenciador de Failover, é a autoridade que gerencia informações sobre nós de cluster. Cada nó deve ter um relatório de System.FM mostrando seu estado. As entidades de nó são removidas quando o estado do nó é removido. Para obter mais informações, consulte [RemoveNodeStateAsync](https://docs.microsoft.com/dotnet/api/system.fabric.fabricclient.clustermanagementclient.removenodestateasync).

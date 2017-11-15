@@ -4,23 +4,26 @@ description: "A API da Pesquisa de Logs do Log Analytics permite que qualquer cl
 services: log-analytics
 documentationcenter: 
 author: bwren
-manager: jwhit
+manager: carmonm
 editor: tysonn
 ms.service: log-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/28/2017
+ms.date: 11/03/2017
 ms.author: bwren
-ms.openlocfilehash: 56d7c6dc648a01e7b0efc167cb65c94bac5468ec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a8a4ec7a6ddf2daeca6ead11460fa076a7eb5c94
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="retrieve-data-from-log-analytics-with-a-python-script"></a>Recuperar dados do Log Analytics com um script do Python
 A [API da Pesquisa de Logs do Log Analytics](log-analytics-log-search-api.md) permite que qualquer cliente da API REST recupere dados de um espaço de trabalho do Log Analytics.  Este artigo apresenta um script de exemplo do Python que usa a API da Pesquisa de Logs do Log Analytics.  
+
+>[!NOTE]
+> Este artigo usa a API de Pesquisa de logs para a linguagem de consulta herdada no Log Analytics.  Uma atualização será fornecida para este artigo para espaços de trabalho que foram atualizados para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md).
 
 ## <a name="authentication"></a>Autenticação
 Esse script usa uma entidade de serviço no Azure Active Directory para autenticação no espaço de trabalho.  As entidades de serviço permitem que um aplicativo cliente solicite que o serviço autentique uma conta, mesmo se o cliente não tiver o nome da conta. Antes de executar esse script, você deve criar uma entidade de serviço usando o processo descrito em [Usar o portal para criar um aplicativo e uma entidade de serviço do Azure Active Directory que pode acessar recursos](../azure-resource-manager/resource-group-create-service-principal-portal.md).  Você precisará fornecer a ID do Aplicativo, a ID do Locatário e a Chave de Autenticação para o script. 

@@ -5,19 +5,22 @@ services: azure-policy
 keywords: 
 author: Jim-Parker
 ms.author: jimpark
-ms.date: 10/06/2017
+ms.date: 11/02/2017
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 3f9ef7886af20845eddc4c1e71d60911e4b22eca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 02afe946e5e1ad9730ab07df19676e90485ecf98
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment-using-powershell"></a>Crie uma atribuição de política para identificar recursos sem conformidade em seu ambiente do Azure usando o PowerShell
 
-A primeira etapa para compreender a conformidade no Azure é saber qual é a situação de seus recursos atuais. Este guia de início rápido orienta você quanto ao processo de criação de uma atribuição de política para identificar recursos sem conformidade com a definição de política – *Exigir SQL Server versão 12.0*. No final deste processo, você terá identificado com êxito quais servidores são de uma versão diferente e, essencialmente, sem conformidade.
+A primeira etapa para compreender a conformidade no Azure é saber qual é a situação de seus recursos atuais. Este guia de início rápido orienta você no processo de criação de uma atribuição de política para identificar máquinas virtuais que não estão usando discos gerenciados.
+
+No final deste processo, você terá identificado com êxito quais máquinas virtuais não estão usando discos gerenciados e são, portanto, *sem conformidade*.
+
 
 O PowerShell é usado para criar e gerenciar recursos do Azure da linha de comando ou em scripts. Este guia descreve com detalhes o uso PowerShell para criar uma atribuição de política para identificar recursos sem conformidade em seu ambiente do Azure.
 
@@ -29,7 +32,7 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 
 ## <a name="opt-in-to-azure-policy"></a>Aceitar a Política do Azure
 
-A Política do Azure está disponível na versão prévia limitada e, portanto, você precisa se registrar para solicitar acesso.
+Agora o Azure Policy está disponível em Visualização Pública e é necessário registrar-se para solicitar acesso.
 
 1. Vá até a Política do Azure em https://aka.ms/getpolicy e selecione **Inscrever-se** no painel esquerdo.
 
@@ -39,11 +42,11 @@ A Política do Azure está disponível na versão prévia limitada e, portanto, 
 
    ![Aceitar o uso da Política do Azure](media/assign-policy-definition/preview-opt-in.png)
 
-   Pode levar alguns dias para aceitarmos sua solicitação de registro, com base na demanda. Após sua solicitação ser aceita, você receberá um email informando que pode começar a usar o serviço.
+   Sua solicitação é aprovada automaticamente para versão prévia. Aguarde até 30 minutos para o sistema processar seu registro.
 
 ## <a name="create-a-policy-assignment"></a>Criar uma atribuição de política
 
-Neste guia de início rápido, criamos uma atribuição de política e atribuímos a definição *Exigir SQL Server versão 12.0*. Esta definição de política identificará recursos que não são compatíveis com as condições configuradas na definição de política.
+Neste guia de início rápido, criamos uma atribuição de política e atribuímos a definição *Auditar máquinas virtuais sem Managed Disks*. Esta definição de política identificará recursos que não são compatíveis com as condições configuradas na definição de política.
 
 Siga estas etapas para criar uma nova atribuição de política.
 
@@ -62,15 +65,15 @@ A Política do Azure vem com definições de políticas internas que você pode 
 Em seguida, atribua a definição de política ao escopo desejado usando o cmdlet `New-AzureRmPolicyAssignment`.
 
 Para este tutorial, estamos fornecendo as informações a seguir para o comando:
-- **Nome** de exibição da atribuição de política. Neste caso, vamos usar Atribuição Exigir SQL Server versão 12.0.
-- **Política** – trata-se da definição da política, com base naquela que você está usando para criar a atribuição. Neste caso, é a definição de política – *Exigir SQL Server versão 12.0*
+- **Nome** de exibição da atribuição de política. Nesse caso, vamos usar Auditar máquinas virtuais sem Managed Disks.
+- **Política** – trata-se da definição da política, com base naquela que você está usando para criar a atribuição. Nesse caso, é a definição de política – *Auditar máquinas virtuais sem Managed Disks*
 - Um **escopo** – um escopo determina em quais recursos ou agrupamento de recursos a atribuição de política é imposta. Pode variar de uma assinatura a grupos de recursos. Neste exemplo, estamos atribuindo a definição de política ao grupo de recursos **FabrikamOMS**.
-- **$definition** – você precisa fornecer a ID de recurso da definição de política – Neste caso, estamos usando a ID da definição de política – *Exigir SQL Server 12.0*.
+- **$definition** – é necessário fornecer a ID do recurso da definição de política – Neste caso, estamos usando a ID para a definição de política – *Auditar máquinas virtuais sem Managed Disks*.
 
 ```powershell
 $rg = Get-AzureRmResourceGroup -Name "FabrikamOMS"
 $definition = Get-AzureRmPolicyDefinition -Id /providers/Microsoft.Authorization/policyDefinitions/e5662a6-4747-49cd-b67b-bf8b01975c4c
-New-AzureRMPolicyAssignment -Name Require SQL Server version 12.0 Assignment -Scope $rg.ResourceId -PolicyDefinition $definition
+New-AzureRMPolicyAssignment -Name Audit Virtual Machines without Managed Disks Assignment -Scope $rg.ResourceId -PolicyDefinition $definition
 ```
 
 Agora, você está pronto para identificar recursos sem conformidade para compreender o estado de conformidade de seu ambiente.
@@ -89,7 +92,7 @@ Agora, você está pronto para identificar recursos sem conformidade para compre
 Outros guias desta coleção dão continuidade a este guia de início rápido. Se você planeja continuar trabalhando com os tutoriais subsequentes, não limpe os recursos criados neste guia de início rápido. Se você não planeja continuar, exclua a atribuição criada executando este comando:
 
 ```powershell
-Remove-AzureRmPolicyAssignment -Name “Require SQL Server version 12.0 Assignment” -Scope /subscriptions/ bc75htn-a0fhsi-349b-56gh-4fghti-f84852/resourceGroups/FabrikamOMS
+Remove-AzureRmPolicyAssignment -Name “Audit Virtual Machines without Managed Disks Assignment” -Scope /subscriptions/ bc75htn-a0fhsi-349b-56gh-4fghti-f84852/resourceGroups/FabrikamOMS
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
