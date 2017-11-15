@@ -20,12 +20,12 @@ ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
 ---
-# Protocolo de Conexões Híbridas de Retransmissão do Azure
+# <a name="azure-relay-hybrid-connections-protocol"></a>Protocolo de Conexões Híbridas de Retransmissão do Azure
 A Retransmissão do Azure é um dos principais pilares de funcionalidades da plataforma do Barramento de Serviço do Azure. A nova funcionalidade *Conexões Híbridas* da Retransmissão é uma evolução segura e de protocolo em aberto com base em HTTP e WebSockets. Ele substitui o antigo recurso chamado igualmente de *Serviços BizTalk*, criado sobre uma base de protocolo proprietário. A integração do Conexões Híbridas aos Serviços de Aplicativos do Azure continuará a funcionar no estado em que se encontra.
 
 O Conexões Híbridas possibilita uma comunicação com transmissão bidirecional binária entre dois aplicativos em rede, durante a qual um ou ambos podem residir atrás de NATs ou de firewalls. Este artigo descreve as interações do lado do cliente com a retransmissão de Conexões Híbridas para conectar clientes nas funções de ouvinte e o remetente e o modo como os ouvintes aceitam novas conexões.
 
-## Modelo de interação
+## <a name="interaction-model"></a>Modelo de interação
 A retransmissão do Conexões Híbridas conecta duas partes, fornecendo um ponto de encontro na nuvem do Azure que as partes podem descobrir e ao qual podem se conectar da perspectiva da sua própria rede. Esse ponto de encontro é chamado de "Conexão Híbrida" nesta e em outras documentações, nas APIs e também no Portal do Azure. O ponto de extremidade de serviço de Conexões Híbridas será referido como o "serviço" no restante deste artigo. O modelo de interação depende da nomenclatura estabelecida por muitas outras APIs de rede.
 
 Há um ouvinte que primeiro indica a prontidão para lidar com conexões de entrada e, subsequentemente, aceita-as assim que chegam. Do outro lado, há um cliente conectado que se conecta ao ouvinte, esperando que essa conexão seja aceita para estabelecer um caminho de comunicação bidirecional.
@@ -35,46 +35,46 @@ Qualquer modelo de comunicação retransmitida faz com que uma das partes realiz
 
 Os programas em ambos os lados de uma conexão são chamados de "cliente", pois são clientes para o serviço. O cliente que aguarda e aceita conexões é o "ouvinte", ou diz-se que faz a "função de ouvinte". O cliente que inicia uma nova conexão em direção a um ouvinte por meio do serviço é chamado de "remetente" ou faz a "função de remetente".
 
-### Interações de ouvinte
+### <a name="listener-interactions"></a>Interações de ouvinte
 O ouvinte tem quatro interações com o serviço; todos os detalhes de conexão são descritos neste documento na seção de referência.
 
-#### Escutar
+#### <a name="listen"></a>Escutar
 Para indicar a preparação para o serviço sinalizando que um ouvinte está pronto para aceitar conexões, ele cria uma conexão WebSocket de saída. O handshake de conexão recebe o mesmo nome de uma Conexão Híbrida configurada no namespace de Retransmissão, além de um token de segurança que confere o direito "Listen" (de escuta) nesse nome.
 Quando o WebSocket é aceito pelo serviço, o registro é concluído e o WebSocket da Web estabelecido é mantido ativo como "canal de controle" para habilitar todas as interações subsequentes. O serviço permite até 25 ouvintes simultâneos em uma Conexão Híbrida. Se há dois ou mais ouvintes ativos, as conexões de entrada são balanceadas entre eles em ordem aleatória; não há garantia de distribuição justa.
 
-#### Aceitar
+#### <a name="accept"></a>Aceitar
 Quando um remetente abre uma nova conexão no serviço, o serviço escolhe e notifica um os ouvintes ativos na Conexão Híbrida. Essa notificação é enviada para o ouvinte no canal de controle em aberto como uma mensagem JSON que contém a URL do ponto de extremidade de WebSocket ao qual o ouvinte deve se conectar para aceitar a conexão.
 
 A URL pode e deve ser usada diretamente pelo ouvinte sem nenhum trabalho extra.
 As informações codificadas são válidas apenas por um curto período de tempo, essencialmente o tempo pelo qual o remetente está disposto a esperar para que a conexão seja estabelecida de ponta a ponta, até um máximo de 30 segundos. A URL pode ser usada apenas para uma tentativa de conexão bem-sucedida. Assim que a conexão de WebSocket com a URL da reunião é estabelecida, todas as atividades adicionais neste WebSocket são retransmitidas de e para o remetente, sem nenhuma intervenção ou interpretação pelo serviço.
 
-#### Renew
+#### <a name="renew"></a>Renew
 O token de segurança que deve ser usado para registrar o ouvinte e manter o canal de controle pode expirar enquanto o ouvinte está ativo. A expiração do token não afetará conexões contínuas, mas fará com que o canal de controle seja descartado pelo serviço ou logo após o momento da expiração. A operação "renew" é uma mensagem JSON que o ouvinte pode enviar para substituir o token associado ao canal de controle, para que o canal de controle possa ser mantido por períodos longos.
 
-#### Ping
+#### <a name="ping"></a>Ping
 Se o canal de controle permanecer ocioso por muito tempo, intermediários no caminho como balanceadores de carga ou NATs poderão remover a conexão TCP. A operação "ping" evita isso por meio do envio de uma pequena quantidade de dados no canal, que lembra a todos na rota de rede que a conexão deve estar ativa e também serve como um teste de atividade para o ouvinte. Se o ping falhar, o canal de controle deverá ser considerado inutilizável e o ouvinte deverá se reconectar.
 
-### Interação de remetente
+### <a name="sender-interaction"></a>Interação de remetente
 O remetente tem apenas uma única interação com o serviço: ele se conecta.
 
-#### Connect
+#### <a name="connect"></a>Connect
 A operação "connect" abre um WebSocket no serviço, fornecendo o nome da Conexão Híbrida e um token de segurança (opcional, mas necessário por padrão) concedendo a permissão "Send" na cadeia de caracteres de consulta. O serviço interagirá então com o ouvinte no modo descrito anteriormente e fará com que o ouvinte crie uma conexão de encontro que será associada a esse WebSocket. Após o WebSocket ser aceito, todas as outras interações nesse WebSocket serão, portanto, com um ouvinte conectado.
 
-### Resumo da interação
+### <a name="interaction-summary"></a>Resumo da interação
 O resultado desse modelo de interação é que o cliente remetente sai do handshake com um WebSocket "limpo", que é conectado a um ouvinte e que não precisa de nenhum preâmbulo ou preparação adicionais. Esse modelo permite que praticamente qualquer implementação de cliente de WebSocket existente tire proveito imediatamente do serviço de Conexões Híbridas fornecendo uma URL construída corretamente na camada de clientes do seu WebSocket.
 
 O WebSocket da conexão de reunião que o ouvinte obtém por meio de interação com accept também é limpa e pode ser entregue a qualquer implementação de servidor de WebSocket existente com alguma abstração extra mínima, que faz a distinção entre operações "accept" nos ouvintes de rede local da sua estrutura e operações "accept" remotas do Conexões Híbridas.
 
-## Referência de protocolo
+## <a name="protocol-reference"></a>Referência de protocolo
 
 Esta seção descreve os detalhes das interações de protocolo descritas anteriormente.
 
 Todas as conexões de WebSocket são feitas na porta 443 como uma atualização do HTTPS 1.1, o que é normalmente abstraído por alguma API ou estrutura de WebSocket. A descrição aqui é mantida neutra em termos de implementação, sem sugerir uma estrutura específica.
 
-### Protocolo de ouvinte
+### <a name="listener-protocol"></a>Protocolo de ouvinte
 O protocolo de ouvinte consiste em dois gestos de conexão e três operações de mensagem.
 
-#### Conexão de canal de controle do ouvinte
+#### <a name="listener-control-channel-connection"></a>Conexão de canal de controle do ouvinte
 O canal de controle é aberto com a criação de uma conexão de WebSocket para:
 
 ```
@@ -109,7 +109,7 @@ Se a conexão de WebSocket for desligada intencionalmente pelo serviço depois q
 | 1008 |O token de segurança expirou, portanto, a política de autorização foi violada. |
 | 1011 |Algo deu errado no serviço. |
 
-### Handshake de aceitação
+### <a name="accept-handshake"></a>Handshake de aceitação
 A notificação "accept" é enviada pelo serviço ao ouvinte pelo canal de controle estabelecido anteriormente como uma mensagem JSON em um quadro de texto de WebSocket. Não há resposta para esta mensagem.
 
 A mensagem contém um objeto JSON chamado "accept", que define as seguintes propriedades neste momento:
@@ -118,7 +118,7 @@ A mensagem contém um objeto JSON chamado "accept", que define as seguintes prop
 * **ID** – o identificador exclusivo para esta conexão. Se a ID tiver sido fornecida pelo cliente do remetente, será o valor fornecido pelo remetente; caso contrário, será um valor gerado pelo sistema.
 * **connectHeaders** – todos os cabeçalhos HTTP que foram fornecidos pelo remetente ao ponto de extremidade de retransmissão, o que também inclui os cabeçalhos Sec-WebSocket-Protocol e Sec-WebSocket-Extensions.
 
-#### Mensagem de Aceitação
+#### <a name="accept-message"></a>Mensagem de Aceitação
 
 ```json
 {                                                           
@@ -136,7 +136,7 @@ A mensagem contém um objeto JSON chamado "accept", que define as seguintes prop
 
 A URL do endereço fornecida na mensagem JSON é usada pelo ouvinte para estabelecer o WebSocket para aceitar ou rejeitar o soquete do remetente.
 
-#### Aceitar o soquete
+#### <a name="accepting-the-socket"></a>Aceitar o soquete
 Para aceitar, o ouvinte estabelece uma conexão WebSocket ao endereço fornecido.
 
 Se a mensagem "accept" tiver um cabeçalho `Sec-WebSocket-Protocol`, espera-se que o ouvinte só aceite o WebSocket se ele der suporte a esse protocolo. Além disso, ele define o cabeçalho conforme o WebSocket é estabelecido.
@@ -173,7 +173,7 @@ Depois que a conexão tiver sido estabelecida, o servidor será desligado do Web
 | 1008 |O token de segurança expirou, portanto, a política de autorização foi violada. |
 | 1011 |Algo deu errado no serviço. |
 
-#### Rejeitar o soquete
+#### <a name="rejecting-the-socket"></a>Rejeitar o soquete
 Rejeitar o soquete depois de inspecionar a mensagem "accept" requer um handshake semelhante, de modo que o código de status e a descrição de status comunicando o motivo da rejeição possam fluir de volta ao remetente.
 
 A escolha de design do protocolo aqui é usar um handshake WebSocket (que é projetado para terminar em um estado de erro definido) para que as implementações do ouvinte cliente possam continuar a depender de um cliente WebSocket e não precisem empregar um cliente HTTP básico adicional.
@@ -194,12 +194,12 @@ Ao ser concluído corretamente, esse handshake falhará intencionalmente com um 
 | 403 |Proibido |A URL não é válida. |
 | 500 |Erro Interno |Algo deu errado no serviço. |
 
-### Renovação de tokens do ouvinte
+### <a name="listener-token-renewal"></a>Renovação de tokens do ouvinte
 Quando o token do ouvinte estiver prestes a expirar, ele poderá ser substituído enviando uma mensagem de quadro de texto ao serviço por meio do canal de controle estabelecido. A mensagem contém um objeto JSON chamado `renewToken`, que define a propriedade a seguir neste momento:
 
 * **token** – um Token de Acesso válido, compartilhado com o Barramento de Serviço, em formato codificado de URL para o namespace ou Conexão Híbrida e que confere o direito **Listen** (escutar).
 
-#### Mensagem renewToken
+#### <a name="renewtoken-message"></a>Mensagem renewToken
 
 ```json
 {                                                                                                                                                                        
@@ -215,7 +215,7 @@ Se a validação de token falhar, o acesso será negado e serviço de nuvem fech
 | --- | --- |
 | 1008 |O token de segurança expirou, portanto, a política de autorização foi violada. |
 
-## Protocolo de remetente
+## <a name="sender-protocol"></a>Protocolo de remetente
 O protocolo de remetente é efetivamente idêntico ao modo como um ouvinte é estabelecido.
 A meta é o máximo de transparência para o WebSocket de ponta a ponta. O endereço ao qual se conectar é o mesmo do ouvinte, mas a "ação" é diferente e o token precisa de uma permissão diferente:
 
@@ -262,7 +262,7 @@ Se a conexão de WebSocket for desligada intencionalmente pelo serviço depois q
 | 1008 |O token de segurança expirou, portanto, a política de autorização foi violada. |
 | 1011 |Algo deu errado no serviço. |
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 * [Perguntas frequentes sobre retransmissão](relay-faq.md)
 * [Criar um namespace](relay-create-namespace-portal.md)
 * [Introdução ao .NET](relay-hybrid-connections-dotnet-get-started.md)

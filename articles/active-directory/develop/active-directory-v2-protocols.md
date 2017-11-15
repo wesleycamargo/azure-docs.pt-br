@@ -21,7 +21,7 @@ ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
 ---
-# Protocolos v2.0 - OAuth 2.0 e OpenID Connect
+# <a name="v20-protocols---oauth-20--openid-connect"></a>Protocolos v2.0 - OAuth 2.0 e OpenID Connect
 O ponto de extremidade v2.0 pode usar o Azure AD como identidade como um serviço com protocolos padrão da indústria, como o OAuth 2.0 e o OpenID Connect.  Embora o serviço esteja em conformidade com o padrão, pode haver diferenças sutis entre duas implementações diferentes desses protocolos.  As informações descritas aqui serão úteis se você optar por criar seu código enviando e tratando solicitações HTTP diretamente ou usar uma biblioteca de software livre de terceiros, em vez de usar uma de nossas bibliotecas de software livre.
 <!-- TODO: Need link to libraries above -->
 
@@ -30,7 +30,7 @@ O ponto de extremidade v2.0 pode usar o Azure AD como identidade como um serviç
 >
 >
 
-## Noções básicas
+## <a name="the-basics"></a>Noções básicas
 Em quase todos os fluxos do OAuth e OpenID Connect, há quatro partes envolvidas na troca:
 
 ![Funções do OAuth 2.0](../../media/active-directory-v2-flows/protocols_roles.png)
@@ -40,7 +40,7 @@ Em quase todos os fluxos do OAuth e OpenID Connect, há quatro partes envolvidas
 * O **Cliente OAuth** é o seu aplicativo, identificado pela respectiva ID de Aplicativo.  Geralmente é a parte com a qual usuário final interage e solicita tokens do servidor de autorização.  O cliente deve receber permissão do proprietário do recurso para acessar o recurso.
 * O **Servidor de Recurso** é o local no qual o recurso ou os dados residem.  Ele confia no Servidor de Autorização para autenticar e autorizar o Cliente OAuth com segurança, além de usar access_tokens de portador para garantir que o acesso a um recurso possa ser concedido.
 
-## Registro do Aplicativo
+## <a name="app-registration"></a>Registro do Aplicativo
 Todo aplicativo que usar o ponto de extremidade v2.0 precisará ser registrado em [apps.dev.microsoft.com](https://apps.dev.microsoft.com/?referrer=https://azure.microsoft.com/documentation/articles&deeplink=/appList) para poder interagir usando o OAuth ou OpenID Connect.  O processo de registro de aplicativo vai coletar e atribuir alguns valores para seu aplicativo:
 
 * Uma **Id de Aplicativo** que identifica exclusivamente o aplicativo
@@ -49,7 +49,7 @@ Todo aplicativo que usar o ponto de extremidade v2.0 precisará ser registrado e
 
 Para obter mais detalhes, saiba como [registrar um aplicativo](active-directory-v2-app-registration.md).
 
-## Pontos de extremidade
+## <a name="endpoints"></a>Pontos de extremidade
 Depois de registrado, o aplicativo se comunica com o Azure AD enviando solicitações ao ponto de extremidade v2.0:
 
 ```
@@ -68,12 +68,12 @@ Em que o `{tenant}` pode ter um de quatro valores diferente:
 
 Para obter mais informações sobre como interagir com esses pontos de extremidade, escolha um tipo de aplicativo específico abaixo.
 
-## Tokens
+## <a name="tokens"></a>Tokens
 A implementação v2.0 do OAuth 2.0 e do OpenID Connect faz amplo uso de tokens de portador, incluindo aqueles representados como JWTs. Um token de portador é um token de segurança leve que concede ao "portador" acesso a um recurso protegido. Nesse sentido, o "portador" é qualquer parte que possa apresentar o token. Embora uma parte deva primeiro se autenticar no Azure AD para receber o token de portador, se as medidas necessárias não forem tomadas para proteger o token durante a transmissão e o armazenamento, ele pode ser interceptado e usado por uma parte não planejada. Embora alguns tokens de segurança tenham um mecanismo interno para impedir que partes não autorizadas os utilizem, tokens de portador não possuem esse mecanismo e devem ser transportados em um canal seguro, como segurança da camada de transporte (HTTPS). Se um token de portador for transmitido livremente, um ataque por parte de intermediários pode ser usado por uma parte mal-intencionada para adquirir o token e usá-lo para um acesso não autorizado a um recurso protegido. Os mesmos princípios de segurança se aplicam ao armazenar ou manter em cache tokens de portador para uso posterior. Verifique sempre se seu aplicativo transmite e armazena tokens de portador de maneira segura. Para obter mais considerações de segurança sobre tokens de portador, consulte [RFC 6750 seção 5](http://tools.ietf.org/html/rfc6750).
 
 Mais detalhes sobre os diferentes tipos de token usados no ponto de extremidade v2.0 estão disponíveis na [referência do token do ponto de extremidade v2.0](active-directory-v2-tokens.md).
 
-## Protocolos
+## <a name="protocols"></a>Protocolos
 Se você estiver pronto para ver alguns exemplos de solicitação, inicie com um dos tutoriais a seguir.  Cada um corresponde a um cenário de autenticação específico.  Se precisar de ajuda para determinar qual é o fluxo ideal para você, confira [os tipos de aplicativos que você pode compilar com a v2.0](active-directory-v2-flows.md).
 
 * [Criar aplicativos nativos e móveis com o OAuth 2.0](active-directory-v2-protocols-oauth-code.md)

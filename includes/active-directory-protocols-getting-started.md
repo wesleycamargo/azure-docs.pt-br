@@ -19,7 +19,7 @@ ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
 ---
-## Registrar seu aplicativo no seu locatário do AD
+## <a name="register-your-application-with-your-ad-tenant"></a>Registrar seu aplicativo no seu locatário do AD
 Primeiro, você precisará registrar seu aplicativo em seu locatário do Azure AD (Azure Active Directory). Isso dará a você uma ID do Aplicativo para seu aplicativo e permitirá que ele receba tokens.
 
 * Entre no [Portal do Azure](https://portal.azure.com).

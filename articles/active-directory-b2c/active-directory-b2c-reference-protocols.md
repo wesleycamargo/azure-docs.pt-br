@@ -20,14 +20,14 @@ ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
 ---
-# Azure AD B2C: protocolos de autenticação
+# <a name="azure-ad-b2c-authentication-protocols"></a>Azure AD B2C: protocolos de autenticação
 O Azure AD B2C (Azure Active Directory B2C) fornece identidade como um serviço para seus aplicativos, com suporte a dois protocolos padrão de mercado, o OpenID Connect e o OAuth 2.0. O serviço está em conformidade com o padrão, mas pode haver diferenças sutis entre duas implementações quaisquer desses protocolos. 
 
 As informações neste guia são úteis se você escreve seu código enviando e manipulando solicitações HTTP diretamente, em vez de usar uma biblioteca de software livre. Recomendamos a leitura desta página antes de se aprofundar nos detalhes de cada protocolo específico. Mas se você já estiver familiarizado com o Azure AD B2C, acesse diretamente [os guias de referência de protocolo](#protocols).
 
 <!-- TODO: Need link to libraries above -->
 
-## Noções básicas
+## <a name="the-basics"></a>Noções básicas
 Todo aplicativo que usa o Azure AD B2C precisa ser registrado em seu diretório B2C no [Portal do Azure](https://portal.azure.com). O processo de registro do aplicativo coleta e atribui alguns valores ao seu aplicativo:
 
 * Uma **ID de aplicativo** que identifica exclusivamente o aplicativo.
@@ -53,14 +53,14 @@ Em quase todos os fluxos do OAuth e do OpenID Connect, há quatro partes envolvi
 
 * O **Servidor de Recurso** é o local no qual o recurso ou os dados residem. Ele confia no servidor de autorização para autenticar e autorizar o cliente OAuth com segurança. Ele também usa os tokens de acesso de portador para garantir a concessão a um recurso.
 
-## Políticas
+## <a name="policies"></a>Políticas
 Sem dúvida, as políticas do AD B2C do Azure são os recursos mais importantes do serviço. O AD B2C do Azure amplia os protocolos padrão do OAuth 2.0 e do OpenID Connect ao introduzir as políticas. Elas permitem que o AD B2C do Azure execute muito mais do que uma simples autenticação e uma autorização. 
 
 As políticas descrevem totalmente as experiências de identidade do consumidor, incluindo inscrição, entrada ou edição de perfil. As políticas podem ser definidas em uma interface do usuário administrativa. Elas podem ser executadas usando um parâmetro de consulta especial nas solicitações de autenticação HTTP. 
 
 As políticas não são um recurso padrão do OAuth 2.0 e do OpenID Connect; portanto, você deve reservar um tempo para entendê-las. Para saber mais, confira o [guia de referência de política do Azure AD B2C](active-directory-b2c-reference-policies.md).
 
-## Tokens
+## <a name="tokens"></a>Tokens
 A implementação do AD B2C do Azure do OAuth 2.0 e do OpenID Connect faz amplo uso de tokens de portador, incluindo os tokens de portador representados como JWTs (tokens Web JSON). Um token de portador é um token de segurança leve que concede ao "portador" acesso a um recurso protegido.
 
 O portador é qualquer parte que possa apresentar o token. Primeiro, o Azure AD deve autenticar uma parte para que ela possa receber um token de portador. Porém, se as medidas necessárias não forem tomadas para proteger o token durante a transmissão e o armazenamento, ele poderá ser interceptado e usado por uma parte não planejada.
@@ -73,7 +73,7 @@ Para obter mais considerações de segurança sobre tokens de portador, confira 
 
 Há mais informações sobre os diferentes tipos de tokens usados no Azure AD B2C disponíveis na [referência de token do Azure AD](active-directory-b2c-reference-tokens.md).
 
-## Protocolos
+## <a name="protocols"></a>Protocolos
 Quando você estiver pronto para ver algumas solicitações de exemplo, inicie com um dos seguintes tutoriais. Cada um corresponde a um cenário de autenticação específico. Se precisar de ajuda para determinar qual é o fluxo certo para você, confira [os tipos de aplicativos que você pode compilar usando o Azure AD B2C](active-directory-b2c-apps.md).
 
 * [Compilar aplicativos nativos e móveis com o OAuth 2.0](active-directory-b2c-reference-oauth-code.md)

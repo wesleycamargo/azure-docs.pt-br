@@ -20,13 +20,13 @@ ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/09/2017
 ---
-# AMQP 1.0 no guia de protocolo do Barramento de Serviço e dos Hubs de Eventos do Azure
+# <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>AMQP 1.0 no guia de protocolo do Barramento de Serviço e dos Hubs de Eventos do Azure
 
 O Advanced Message Queueing Protocol 1.0 é um protocolo de enquadramento e transferência padronizado para transferir mensagens de forma assíncrona, segura e confiável entre duas partes. É o principal protocolo de Mensagens do Barramento de Serviço e dos Hubs de Eventos do Azure. Ambos os serviços também oferecem suporte a HTTPS. O protocolo proprietário SBMP, que também é compatível, está sendo desativado em favor do AMQP.
 
 O AMQP 1.0 é o resultado da colaboração de todo o setor, que reuniu fornecedores de middleware, como a Microsoft e a Red Hat, com muitos usuários de middleware de mensagens, como a JP Morgan Chase, representando o setor de serviços financeiros. O fórum de padronização técnica para as especificações de protocolo e de extensão do AMQP é o OASIS, e ele obteve aprovação formal como um padrão internacional como ISO/IEC 19494.
 
-## Metas
+## <a name="goals"></a>Metas
 
 Rapidamente, este artigo resume os principais conceitos da especificação de mensagens AMQP 1.0 juntamente com um pequeno conjunto de especificações de extensão de rascunho que atualmente está sendo finalizado no comitê técnico AMQP OASIS e explica como o Barramento de Serviço do Azure implementa e se baseia nessas especificações.
 
@@ -38,7 +38,7 @@ Na discussão a seguir, vamos pressupor que o gerenciamento de conexões, de ses
 
 Ao discutir os recursos avançados do Barramento de Serviço do Azure, como a procura de mensagens ou o gerenciamento de sessões, eles são explicados nos termos do AMQP, mas também como uma pseudoimplementação em camadas sobre essa abstração de API assumida.
 
-## O que é AMQP?
+## <a name="what-is-amqp"></a>O que é AMQP?
 
 AMQP é um protocolo de enquadramento e transferência. O enquadramento significa que ele fornece a estrutura para fluxos de dados binários que fluem em qualquer direção de uma conexão de rede. A estrutura oferece delineação para que blocos de dados distintos, chamados de *quadros* sejam trocados entre as partes conectadas. Os recursos de transferência garantem que ambas as partes da comunicação possam estabelecer uma compreensão geral sobre quando os quadros deverão ser transferidos e quando as transferências deverão ser consideradas concluídas.
 
@@ -48,13 +48,13 @@ O protocolo pode ser usado para comunicação ponto a ponto simétrica, para int
 
 O protocolo AMQP 1.0 foi projetado para ser extensível, permitindo que outras especificações aperfeiçoem seus recursos. As especificações de três extensões discutidas neste documento ilustram isso. Para a comunicação na infraestrutura existente de HTTPS/WebSockets, onde pode ser difícil configurar as portas TCP AMQP nativas, uma especificação de associação define como criar camadas AMQP sobre WebSockets. Para interagir com a infraestrutura de mensagens no formato solicitação/resposta para fins de gerenciamento ou para fornecer funcionalidade avançada, a especificação do gerenciamento AMQP define os primitivos de interação básicos necessários. Para a integração do modelo de autorização federado, a especificação de segurança com base em declarações AMQP define como associar e renovar tokens de autorização associados a links.
 
-## Cenários básicos de AMQP
+## <a name="basic-amqp-scenarios"></a>Cenários básicos de AMQP
 
 Esta seção explica o uso básico do AMQP 1.0 com o Barramento de Serviço do Azure, que inclui a criação de conexões, sessões e links, bem como a transferência bidirecional de mensagens para entidades do Barramento de Serviço, como filas, tópicos e assinaturas.
 
 A fonte mais confiável para saber mais sobre o funcionamento do AMQP é a especificação AMQP 1.0, mas a especificação foi escrita para orientar precisamente a implementação e não para ensinar o protocolo. Esta seção se concentra na introdução da terminologia necessária para descrever como o Barramento de Serviço usa o AMQP 1.0. Para obter uma introdução mais abrangente do AMQP, bem como uma discussão mais ampla do AMQP 1.0, examine [este curso em vídeo][this video course].
 
-### Conexões e sessões
+### <a name="connections-and-sessions"></a>Conexões e sessões
 
 O AMQP chama os programas de comunicação de *contêiners*; eles contêm *nós*, que são as entidades de comunicação dentro desses contêineres. Uma fila pode ser um nó assim. O AMQP permite multiplexação, para que uma única conexão possa ser usada para vários caminhos de comunicação entre os nós. Por exemplo, um cliente de aplicativo pode receber de uma fila e enviar para outra fila na mesma conexão de rede simultaneamente.
 
@@ -81,7 +81,7 @@ Atualmente, o Barramento de Serviço do Azure usa exatamente uma sessão para ca
 
 As conexões, os canais e as sessões são efêmeros. Se a conexão subjacente for recolhida,as conexões, o túnel TLS, o contexto de autorização SASL e as sessões deverão ser restabelecidas.
 
-### Links
+### <a name="links"></a>Links
 
 O AMQP transfere mensagens sobre links. Um link é um caminho de comunicação criado em uma sessão que permite transferir mensagens em uma direção; a negociação de status de transferência é feita no link e é bidirecional entre as partes conectadas.
 
@@ -97,7 +97,7 @@ No Barramento de Serviço, um nó é diretamente equivalente a uma fila, um tóp
 
 O cliente de conexão também é necessário para usar um nome de nó local para criar links; o Barramento de Serviço não é prescritivo sobre esses nomes de nó e não os interpreta. As pilhas de cliente do AMQP 1.0 geralmente usam um esquema para garantir que esses nomes de nó efêmero sejam exclusivos no escopo do cliente.
 
-### Transferências
+### <a name="transfers"></a>Transferências
 
 Após o estabelecimento de um link, as mensagens podem ser transferidas sobre esse link. No AMQP, uma transferência é executada com um gesto de protocolo explícito (a *transferência* performativa) que move uma mensagem do remetente ao destinatário sobre um link. Uma transferência é concluída quando é "liquidada", o que significa que as duas partes estabeleceram uma compreensão geral do resultado dessa transferência.
 
@@ -117,7 +117,7 @@ Dessa forma, o Barramento de Serviço e os Hubs de Eventos dão suporte a transf
 
 Para compensar possíveis envios de duplicidades, o Barramento de Serviço dá suporte à detecção de duplicidades como um recurso opcional em filas e tópicos. A detecção de duplicidades registra as IDs de mensagem de todas as mensagens de entrada durante uma janela de tempo definida pelo usuário e descarta silenciosamente todas as mensagens enviadas com as mesmas IDs de mensagem durante a mesma janela.
 
-### Controle de fluxo
+### <a name="flow-control"></a>Controle de fluxo
 
 Além do modelo de controle de fluxo no nível de sessão discutido anteriormente, cada link tem seu próprio modelo de fluxo de controle. O controle de fluxo de nível de sessão protege o contêiner de ter que lidar com muitos quadros de uma vez, o controle de fluxo no nível de link torna o aplicativo responsável por quantas mensagens ele deseja tratar de um link e quando.
 
@@ -141,49 +141,49 @@ Em resumo, as seções a seguir fornecem uma visão geral esquemática do fluxo 
 
 As setas na tabela a seguir mostram a direção do fluxo performativo.
 
-#### Criar receptor da mensagem
+#### <a name="create-message-receiver"></a>Criar receptor da mensagem
 
 | Cliente | BARRAMENTO DE SERVIÇO |
 | --- | --- |
 | --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source={entity name},<br/>target={client link id}<br/>) |O cliente o anexa a entidade como receptor |
 | o Barramento de Serviço responde ao anexar o final do link |<-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={entity name},<br/>target={client link id}<br/>) |
 
-#### Criar remetente da mensagem
+#### <a name="create-message-sender"></a>Criar remetente da mensagem
 
 | Cliente | BARRAMENTO DE SERVIÇO |
 | --- | --- |
 | --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={client link id},<br/>target={entity name}<br/>) |Nenhuma ação |
 | Nenhuma ação |<-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source={client link id},<br/>target={entity name}<br/>) |
 
-#### Criar remetente da mensagem (erro)
+#### <a name="create-message-sender-error"></a>Criar remetente da mensagem (erro)
 
 | Cliente | BARRAMENTO DE SERVIÇO |
 | --- | --- |
 | --> attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**sender**,<br/>source={client link id},<br/>target={entity name}<br/>) |Nenhuma ação |
 | Nenhuma ação |<-- attach(<br/>name={link name},<br/>handle={numeric handle},<br/>role=**receiver**,<br/>source=null,<br/>target=null<br/>)<br/><br/><-- detach(<br/>handle={numeric handle},<br/>closed=**true**,<br/>error={error info}<br/>) |
 
-#### Fechar receptor/remetente da mensagem
+#### <a name="close-message-receiversender"></a>Fechar receptor/remetente da mensagem
 
 | Cliente | BARRAMENTO DE SERVIÇO |
 | --- | --- |
 | --> detach(<br/>handle={numeric handle},<br/>closed=**true**<br/>) |Nenhuma ação |
 | Nenhuma ação |<-- detach(<br/>handle={numeric handle},<br/>closed=**true**<br/>) |
 
-#### Enviar (êxito)
+#### <a name="send-success"></a>Enviar (êxito)
 
 | Cliente | BARRAMENTO DE SERVIÇO |
 | --- | --- |
 | --> transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |Nenhuma ação |
 | Nenhuma ação |<-- disposition(<br/>role=receiver,<br/>first={delivery id},<br/>last={delivery id},<br/>settled=**true**,<br/>state=**accepted**<br/>) |
 
-#### Enviar (erro)
+#### <a name="send-error"></a>Enviar (erro)
 
 | Cliente | BARRAMENTO DE SERVIÇO |
 | --- | --- |
 | --> transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,,more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |Nenhuma ação |
 | Nenhuma ação |<-- disposition(<br/>role=receiver,<br/>first={delivery id},<br/>last={delivery id},<br/>settled=**true**,<br/>state=**rejected**(<br/>error={error info}<br/>)<br/>) |
 
-#### Receber
+#### <a name="receive"></a>Receber
 
 | Cliente | BARRAMENTO DE SERVIÇO |
 | --- | --- |
@@ -191,7 +191,7 @@ As setas na tabela a seguir mostram a direção do fluxo performativo.
 | Nenhuma ação |< transfer(<br/>delivery-id={numeric handle},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |
 | --> disposition(<br/>role=**receiver**,<br/>first={delivery id},<br/>last={delivery id},<br/>settled=**true**,<br/>state=**accepted**<br/>) |Nenhuma ação |
 
-#### Receber várias mensagens
+#### <a name="multi-message-receive"></a>Receber várias mensagens
 
 | Cliente | BARRAMENTO DE SERVIÇO |
 | --- | --- |
@@ -201,11 +201,11 @@ As setas na tabela a seguir mostram a direção do fluxo performativo.
 | Nenhuma ação |< transfer(<br/>delivery-id={numeric handle+2},<br/>delivery-tag={binary handle},<br/>settled=**false**,<br/>more=**false**,<br/>state=**null**,<br/>resume=**false**<br/>) |
 | --> disposition(<br/>role=receiver,<br/>first={delivery id},<br/>last={delivery id+2},<br/>settled=**true**,<br/>state=**accepted**<br/>) |Nenhuma ação |
 
-### Mensagens
+### <a name="messages"></a>Mensagens
 
 As seções a seguir explicam quais propriedades das seções padrão de mensagem AMQP são usadas pelo Barramento de Serviço e como elas são mapeadas para o conjunto de APIs do Barramento de Serviço.
 
-#### cabeçalho
+#### <a name="header"></a>cabeçalho
 
 | Nome do campo | Uso | Nome da API |
 | --- | --- | --- |
@@ -215,7 +215,7 @@ As seções a seguir explicam quais propriedades das seções padrão de mensage
 | primeiro comprador |- |- |
 | Contagem de entrega |- |[DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_DeliveryCount) |
 
-#### propriedades
+#### <a name="properties"></a>propriedades
 
 | Nome do campo | Uso | Nome da API |
 | --- | --- | --- |
@@ -233,7 +233,7 @@ As seções a seguir explicam quais propriedades das seções padrão de mensage
 | group-sequence |Contador que identifica o número de sequência relativa da mensagem em uma sessão. Ignorado pelo Barramento de Serviço. |Não é acessível por meio da API do Barramento de Serviço. |
 | reply-to-group-id |- |[ReplyToSessionId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage#Microsoft_ServiceBus_Messaging_BrokeredMessage_ReplyToSessionId) |
 
-## Recursos avançados do Barramento de Serviço
+## <a name="advanced-service-bus-capabilities"></a>Recursos avançados do Barramento de Serviço
 
 Esta seção aborda os recursos avançados do Barramento de Serviço do Azure que se baseiam em extensões de rascunho para AMQP, atualmente sendo desenvolvidos no Comitê Técnico OASIS para AMQP. O Barramento de Serviço implementa as versões mais recentes desses rascunhos e adota as alterações introduzidas quando esses rascunhos atingirem o status padrão.
 
@@ -242,7 +242,7 @@ Esta seção aborda os recursos avançados do Barramento de Serviço do Azure qu
 > 
 > 
 
-### Gerenciamento de AMQP
+### <a name="amqp-management"></a>Gerenciamento de AMQP
 
 A especificação de gerenciamento de AMQP é a primeira das extensões de rascunho abordadas nesse artigo. Essa especificação define um conjunto de protocolos em camadas sobre o protocolo AMQP que permite interações de gerenciamento com a infraestrutura de mensagens sobre AMQP. A especificação define operações genéricas como *criação*, *leitura*, *atualização* e *exclusão* para gerenciar as entidades dentro de uma infraestrutura de mensagens e um conjunto de operações de consulta.
 
@@ -263,7 +263,7 @@ As trocas de mensagens usadas para o protocolo de gerenciamento e para todos os 
 
 Atualmente, o Barramento de Serviço não implementa nenhum dos principais recursos da especificação de gerenciamento, mas o padrão de solicitação/resposta definido pela especificação de gerenciamento é a base do recurso de segurança baseado em declarações e de quase todos os recursos avançados discutidos nas seções a seguir.
 
-### Autorização baseada em declarações
+### <a name="claims-based-authorization"></a>Autorização baseada em declarações
 
 O rascunho da especificação CBS (Autorização com Base em Declarações) do AMQP se baseia no padrão de solicitação/resposta da especificação de gerenciamento e descreve um modelo generalizado de como usar tokens de segurança federados com AMQP.
 
@@ -316,7 +316,7 @@ Uma vez estabelecida a conexão e a sessão, anexar os links ao nó *$cbs* e env
 
 O cliente é subsequentemente responsável por manter o controle de expiração do token. Quando um token expira, o Barramento de Serviço descarta imediatamente todos os links da conexão com a respectiva entidade. Para evitar isso, o cliente pode substituir o token para o nó por um novo, a qualquer momento, por meio do nó de gerenciamento virtual *$cbs* com os mesmos gestos de *put-token* sem atrapalhar o tráfego de conteúdo que flui em links diferentes.
 
-## Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre o AMQP, confira os seguintes links:
 
