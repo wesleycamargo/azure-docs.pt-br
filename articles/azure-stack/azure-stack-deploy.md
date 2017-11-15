@@ -3,8 +3,8 @@ title: "Os pré-requisitos de implantação do Kit de desenvolvimento de pilha d
 description: Exiba os requisitos de hardware e de ambiente para o Kit de desenvolvimento de pilha do Azure (operador de nuvem).
 services: azure-stack
 documentationcenter: 
-author: ErikjeMS
-manager: byronr
+author: jeffgilb
+manager: femila
 editor: 
 ms.assetid: 32a21d9b-ee42-417d-8e54-98a7f90f7311
 ms.service: azure-stack
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/11/2017
-ms.author: erikje
-ms.openlocfilehash: 73e7efb7d789fe12846d68066c0927bb123831a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/14/2017
+ms.author: jeffgilb
+ms.openlocfilehash: 8a0d23e14ef50034d5f9595cf154c3513a09c464
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Pré-requisitos de implantação de pilha do Azure
 
@@ -40,7 +40,7 @@ Antes de implantar [Kit de desenvolvimento de pilha do Azure](azure-stack-poc.md
 
 \*Você precisará de mais do que isso recomendado capacidade se você planeja adicionar muitas o [itens do marketplace](azure-stack-download-azure-marketplace-item.md) do Azure.
 
-**Configuração de unidade de disco de dados:** todas as unidades de dados devem ser do mesmo tipo (SAS ou SATA todos) e capacidade. Se os discos rígidos SAS são usados, as unidades de disco deve ser anexadas por meio de um único caminho (sem MPIO, suporte a vários caminhos é fornecido).
+**Configuração de unidade de disco de dados:** todas as unidades de dados devem ser do mesmo tipo (SAS, todos os SATA ou NVMe todos os) e capacidade. Se os discos rígidos SAS são usados, as unidades de disco deve ser anexadas por meio de um único caminho (sem MPIO, suporte a vários caminhos é fornecido).
 
 **Opções de configuração de HBA**
 
@@ -56,6 +56,7 @@ Antes de implantar [Kit de desenvolvimento de pilha do Azure](azure-stack-poc.md
 * SSD de RAID (se o tipo de mídia é não especificado/desconhecido\*)
 * SSD SATA + HDD SATA
 * SSD SAS + HDD SAS
+* NVMe
 
 \*Controladores RAID sem a capacidade de passagem não podem reconhecer o tipo de mídia. Esses controladores marcarão HDD e SSD como Não especificado. Nesse caso, o SSD será usado como armazenamento persistente, em vez de dispositivos de caching. Portanto, você pode implantar o kit de desenvolvimento os SSDs.
 
