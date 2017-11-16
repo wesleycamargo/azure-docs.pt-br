@@ -3,7 +3,7 @@ title: Criar um Azure Data Factory usando o Python | Microsoft Docs
 description: Crie um Azure Data Factory para copiar dados de um local em um Armazenamento de Blobs do Azure para outro local no mesmo Armazenamento de Blobs.
 services: data-factory
 documentationcenter: 
-author: linda33wj
+author: sharonlo101
 manager: jhubbard
 editor: spelluru
 ms.service: data-factory
@@ -12,12 +12,12 @@ ms.tgt_pltfrm:
 ms.devlang: python
 ms.topic: hero-article
 ms.date: 09/19/2017
-ms.author: jingwang
-ms.openlocfilehash: 20130d6d4f331ec0a2435c9eea800ee6f62beaba
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.author: shlo
+ms.openlocfilehash: 265a9c2c2e074c9a60b69dbf48996bcb9137d435
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="create-a-data-factory-and-pipeline-using-python"></a>Criar um data factory e pipeline usando o Python
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]

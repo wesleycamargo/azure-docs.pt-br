@@ -8,11 +8,11 @@ ms.service: batch
 ms.topic: hero-article
 ms.date: 09/14/2017
 ms.author: danlep
-ms.openlocfilehash: 08658bbebfc9f457a3f057178f6b002a88338f1e
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: aab68b4275edc48e1726b26a7400bbfdd8d40d6f
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="get-started-with-the-batch-rendering-service"></a>Introdução ao serviço de renderização em lotes
 
@@ -91,7 +91,7 @@ As versões de licença específicas fornecidas são as seguintes:
 
 ### <a name="custom-images"></a>Imagens personalizadas
 
-O Lote do Azure permite que você forneça sua própria imagem personalizada. Usando essa opção, você pode configurar sua VM exatamente com os aplicativos e as versões específicas de que você precisa. Para saber mais, confira [Usar uma imagem personalizada para criar um pool de máquinas virtuais](https://docs.microsoft.com/en-us/azure/batch/batch-custom-images). Observe que o Autodesk e o Chaos Group modificaram o Arnold e o V-Ray, respectivamente, para validar nosso próprio serviço de licenciamento. Você precisará ter as versões desses aplicativos com esse suporte; caso contrário, o licenciamento de pagamento por uso não funcionará. Essa validação de licença não é necessária para Maya ou 3ds Max, já que as versões atuais de publicadas não requerem um servidor de licença durante a execução sem cabeçalho (no modo lote/linha de comando). Entre em contato com o suporte do Azure se você não tiver certeza sobre como prosseguir com essa opção.
+O Lote do Azure permite que você forneça sua própria imagem personalizada. Usando essa opção, você pode configurar sua VM exatamente com os aplicativos e as versões específicas de que você precisa. Para saber mais, confira [Usar uma imagem personalizada para criar um pool de máquinas virtuais](https://docs.microsoft.com/azure/batch/batch-custom-images). Observe que o Autodesk e o Chaos Group modificaram o Arnold e o V-Ray, respectivamente, para validar nosso próprio serviço de licenciamento. Você precisará ter as versões desses aplicativos com esse suporte; caso contrário, o licenciamento de pagamento por uso não funcionará. Essa validação de licença não é necessária para Maya ou 3ds Max, já que as versões atuais de publicadas não requerem um servidor de licença durante a execução sem cabeçalho (no modo lote/linha de comando). Entre em contato com o suporte do Azure se você não tiver certeza sobre como prosseguir com essa opção.
 
 ## <a name="options-for-submitting-a-render-job"></a>Opções para enviar um trabalho de renderização
 
@@ -101,7 +101,7 @@ Dependendo do aplicativo 3D que você usar, existem várias opções para enviar
 
 Com o Maya, você pode usar:
 
-- O [Plug-in do Lote para Maya](https://docs.microsoft.com/en-us/azure/batch/batch-rendering-service#use-the-batch-plug-in-for-maya-to-submit-a-render-job)
+- O [Plug-in do Lote para Maya](https://docs.microsoft.com/azure/batch/batch-rendering-service#use-the-batch-plug-in-for-maya-to-submit-a-render-job)
 - Aplicativo de área de trabalho [BatchLabs](https://azure.github.io/BatchLabs)
 - [CLI dos modelos do Lote](batch-cli-templates.md)
 
@@ -114,7 +114,7 @@ Com o 3ds Max, você pode usar:
 
 Os modelos de Batch Labs do 3ds Max permitem processar cenas VRay e Arnold usando o Serviço de Renderização do Lote do Azure. Há duas variações do modelo para VRay e Arnold, uma para cenas padrão e outra para cenas mais complexas que exigem um arquivo de caminho 3ds Max para ativos e texturas (arquivo .mxp). Para saber mais sobre os modelos de BatchLabs do 3ds Max, confira o repositório [Dados do BatchLabs](https://github.com/Azure/BatchLabs-data/tree/master/ncj/3dsmax) no GitHub.
 
-Além disso, você pode usar o [SDK em Python do Lote](https://docs.microsoft.com/en-us/azure/batch/batch-python-tutorial) para integrar o serviço de renderização de pipeline existente.
+Além disso, você pode usar o [SDK em Python do Lote](https://docs.microsoft.com/azure/batch/batch-python-tutorial) para integrar o serviço de renderização de pipeline existente.
 
 
 ## <a name="use-the-batch-plug-in-for-maya-to-submit-a-render-job"></a>Usar o plug-in do Lote para Maya a fim de enviar um trabalho de renderização

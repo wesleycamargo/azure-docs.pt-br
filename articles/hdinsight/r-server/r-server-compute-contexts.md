@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: e15a263879ddc0edabc301201019f4209eee1058
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 24df96f55b0f207d8576bd05c2c83a884e7fc2bd
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="compute-context-options-for-r-server-on-hdinsight"></a>Opções de contexto de computação para o Servidor R no HDInsight
 
@@ -83,6 +83,5 @@ Neste artigo você aprendeu sobre as opções que estão disponíveis para espec
 
 * [Visão geral do Servidor R no Hadoop](r-server-overview.md)
 * [Introdução ao Servidor R para o Hadoop](r-server-get-started.md)
-* [Adicionar Servidor do RStudio ao HDInsight (se não instalado durante a criação de cluster)](r-server-install-r-studio.md)
 * [Opções de Armazenamento do Azure para o Servidor R no HDInsight](r-server-storage.md)
 

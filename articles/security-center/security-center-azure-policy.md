@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: e29c381643b233d38b10f89aed5469043c699f45
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 977f7c075005efb826e862ee582864b0f6efab38
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="integrate-security-center-security-policies-with-azure-policy"></a>Integrar políticas de segurança da Central de Segurança com o Azure Policy
 Este artigo ajuda você a configurar as políticas de segurança da Central de Segurança do Azure, fornecidas pelo Azure Policy. 
@@ -60,7 +60,7 @@ Você pode editar a política de segurança padrão para cada uma de suas assina
     ![Definições de políticas disponíveis](./media/security-center-policies/security-center-policies-fig11.png)
 
     * Para obter uma explicação detalhada de uma política, selecione-a.  
-    Uma janela com a **Versão prévia** da definição é aberta. Ela exibe uma descrição da definição e um link para o código JSON que fornece a estrutura da [definição de política](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy/#policy-definition-structure).
+    Uma janela com a **Versão prévia** da definição é aberta. Ela exibe uma descrição da definição e um link para o código JSON que fornece a estrutura da [definição de política](../azure-policy/policy-definition.md).
 
     ![A janela da Versão prévia da definição](./media/security-center-policies/security-center-policies-fig14.png)
 

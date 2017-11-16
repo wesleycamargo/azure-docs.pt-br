@@ -1,6 +1,6 @@
 ---
 title: "Introdução à verificação em duas etapas | Microsoft Docs"
-description: "Esta é a página do Azure Multi-Factor Authentication que ajudará os usuários finais a seguir adiante com o Azure Multi-Factor Authentication."
+description: "Esta é a página da Autenticação Multifator do Azure que ajudará os usuários finais a seguir adiante com a Autenticação Multifator do Azure."
 services: multi-factor-authentication
 documentationcenter: 
 author: barlanmsft
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/15/2017
 ms.author: barlan
-ms.reviewer: yossib
+ms.reviewer: richagi
 ms.custom: end-user
-ms.openlocfilehash: cb6e652794de6cda8b5fc7c7e466f880833a1a14
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 498dcea10b35fb8c11f848496ca403ac3e026e93
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="what-does-azure-multi-factor-authentication-mean-for-me"></a>O que o Azure Multi-Factor Authentication significa para mim?
+# <a name="what-does-azure-multi-factor-authentication-mean-for-me"></a>O que a Autenticação Multifator do Azure significa para mim?
 Então, você recebeu um email de alguém de TI ou do seu chefe informando que incluíram uma verificação de segurança adicional à sua conta.  E o que isso significa?
 
 Não se preocupe. Sua organização deseja apenas adotar etapas extras para garantir que você é quem diz ser ao entrar. Essa verificação é feita usando uma combinação do seu nome de usuário, senha e um telefone.  

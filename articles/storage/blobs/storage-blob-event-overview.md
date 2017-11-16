@@ -8,11 +8,11 @@ ms.author: cbrooks
 ms.date: 08/25/2017
 ms.topic: article
 ms.service: storage
-ms.openlocfilehash: f7a43d0a7255b326cd550fbcbb92bba93905d293
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: a56e6026ed0c2c873030625fa7a9b35b92faf930
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="reacting-to-blob-storage-events-preview"></a>Reagir a eventos do Armazenamento de Blobs (versão prévia)
 
@@ -80,7 +80,7 @@ Veja um exemplo de um evento BlobCreated:
 
 ```
 
-Para saber mais, confira [Esquemas de evento do Armazenamento de Blobs](../../event-grid/event-schema.md#azure-blob-storage).
+Para saber mais, confira [Esquemas de evento do Armazenamento de Blobs](../../event-grid/event-schema-blob-storage.md).
 
 ## <a name="filtering-events"></a>Filtragem de eventos
 As assinaturas de evento de blob podem ser filtradas com base no tipo de evento e pelo nome do contêiner e nome de blob do objeto que foi criado ou excluído.  Os filtros de assunto na Grade de Eventos funcionam com base em correspondências de "começa com" e "termina com", para que os eventos com o assunto correspondente sejam entregues ao assinante.

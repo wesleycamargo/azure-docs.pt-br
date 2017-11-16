@@ -13,13 +13,13 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/03/2017
-ms.author: cristyg
+ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 8b744f6b33a04a707c56e6fc8a4638118170b668
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 217b9f2f0dfed5b095e1bac1c8146abf4753fadc
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="create-a-secure-cluster-in-azure-by-using-powershell"></a>Criar um cluster seguro no Azure usando o PowerShell
 Esse artigo é o primeiro de uma série de tutoriais que mostra como mover um aplicativo .NET para a nuvem usando clusters do Service Fabric do Azure, bem como contêineres. Nas etapas a seguir, você aprenderá a criar um cluster do Service Fabric (do Windows ou Linux) em execução no Azure. Ao terminar, você terá um cluster seguro em execução na nuvem no qual você pode implantar aplicativos.

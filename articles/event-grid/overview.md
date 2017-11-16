@@ -6,13 +6,13 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 11/06/2017
 ms.author: babanisa
-ms.openlocfilehash: a0bcc9650fda10c099887b74b408551b12cde667
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 5b522b40b136e354c6ca83a56ac7ad690151ad7d
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Uma introdução à Grade de Eventos do Azure
 
@@ -25,6 +25,30 @@ Para a versão prévia, a Grade de Eventos dá suporte às localizações **west
 Este artigo fornece uma visão geral da Grade de Eventos do Azure. Se você quiser começar a usar a Grade de Eventos, confira [Criar e rotear eventos personalizados com a Grade de Eventos do Azure](custom-event-quickstart.md).
 
 ![Modelo funcional da Grade de Eventos](./media/overview/event-grid-functional-model.png)
+
+## <a name="event-publishers"></a>Editores de eventos
+
+No momento, os seguintes serviços do Azure têm suporte interno ao publicador para a grade de eventos:
+
+* Grupos de recursos (operações de gerenciamento)
+* Assinaturas do Azure (operações de gerenciamento)
+* Hubs de Eventos
+* Blob de Armazenamento
+* Tópicos personalizados
+
+Outros serviços do Azure serão adicionados neste ano.
+
+## <a name="event-handlers"></a>Manipuladores de eventos
+
+No momento, os seguintes serviços do Azure têm suporte interno ao manipulador para a grade de eventos: 
+
+* Funções do Azure
+* Aplicativos Lógicos
+* Automação do Azure
+* WebHooks
+* Microsoft Flow
+
+Outros serviços do Azure serão adicionados neste ano.
 
 ## <a name="concepts"></a>Conceitos
 
@@ -52,34 +76,6 @@ Aqui estão alguns dos principais recursos da Grade de Eventos do Azure:
 * **Eventos personalizados**: use eventos personalizados de rota, filtro e entrega confiável da de Grade de Eventos em seu aplicativo.
 
 Para obter uma comparação de Grade de Eventos, Hubs de Eventos e Barramento de Serviço, consulte [Escolher entre os serviços do Azure que entregam mensagens](compare-messaging-services.md).
-
-## <a name="built-in-publisher-and-handler-integration"></a>Integração interna entre publicador e manipulador
-
-O Azure oferece suporte interno a eventos usando vários serviços, incluindo publicadores e manipuladores.
-
-### <a name="publishers"></a>Publicadores
-
-No momento, os seguintes serviços do Azure têm suporte interno ao publicador para a grade de eventos:
-
-* Grupos de recursos (operações de gerenciamento)
-* Assinaturas do Azure (operações de gerenciamento)
-* Hubs de Eventos
-* Blob de Armazenamento
-* Tópicos personalizados
-
-Outros serviços do Azure serão adicionados neste ano.
-
-### <a name="handlers"></a>Manipuladores
-
-No momento, os seguintes serviços do Azure têm suporte interno ao manipulador para a grade de eventos: 
-
-* Funções do Azure
-* Aplicativos Lógicos
-* Automação do Azure
-* WebHooks
-* Microsoft Flow
-
-Outros serviços do Azure serão adicionados neste ano.
 
 ## <a name="what-can-i-do-with-event-grid"></a>O que posso fazer com a Grade de Eventos?
 

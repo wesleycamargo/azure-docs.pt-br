@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/09/2017
 ms.author: terrylan
-ms.openlocfilehash: 8d00882caf5411240c5f0a3533c78c3dbe361ef2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6e816f151ea1f71770f00d6d77b65395fe080da3
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-identity-management-security-overview"></a>Visão geral da segurança de gerenciamento de identidade do Azure
 As soluções de gerenciamento de acesso e identidade da Microsoft ajudam a TI a proteger o acesso a aplicativos e recursos no datacenter corporativo e na nuvem, permitindo níveis de validação adicionais, como Multi-Factor Authentication e políticas de acesso condicional. O monitoramento de atividade suspeita por meio de alertas, auditoria e relatórios de segurança avançados ajuda a reduzir potenciais problemas de segurança. [Azure Active Directory Premium](../active-directory/active-directory-editions.md) fornece logon único para milhares de aplicativos (SaaS) de nuvem e acesso a aplicativos Web executados de forma local.
@@ -27,7 +27,7 @@ Os benefícios de segurança do Azure AD (Active Directory) incluem a capacidade
 
 * Criar e gerenciar uma identidade única para cada usuário em sua empresa híbrida, mantendo os usuários, grupos e dispositivos em sincronia
 * Fornecer acesso de logon único para seus aplicativos, incluindo milhares de aplicativos SaaS pré-integrados
-* Habilitar segurança de acesso do aplicativo por meio da aplicação do Multi-Factor Authentication com base em regras para aplicativos locais e na nuvem
+* Habilitar segurança de acesso do aplicativo por meio da aplicação da Autenticação Multifator com base em regras para aplicativos locais e na nuvem
 * Provisionar o acesso remoto seguro a aplicativos Web locais por meio do Proxy de Aplicativo do Azure AD
 
 O objetivo deste artigo é fornecer uma visão geral dos recursos de segurança centrais do Azure que ajudam com o gerenciamento de identidades. Também fornecemos links para artigos que dão os detalhes de cada recurso para que você possa saber mais.  
@@ -57,7 +57,7 @@ Saiba mais:
 
 * [Visão geral do logon único](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](../active-directory/active-directory-appssoaccess-whatis.md)
-* [Integrar o logon único do Azure AD com aplicativos de SaaS](../active-directory/active-directory-sso-integrate-saas-apps.md)
+* [Integrar o logon único do Azure AD com aplicativos de SaaS](../active-directory/active-directory-enterprise-apps-manage-sso.md)
 
 ## <a name="reverse-proxy"></a>Proxy reverso
 O Proxy de Aplicativo do Azure AD permite que você publique aplicativos locais, como sites do [SharePoint](https://support.office.com/article/What-is-SharePoint-97b915e6-651b-43b2-827d-fb25777f446f?ui=en-US&rs=en-US&ad=US), o [Outlook Web App](https://technet.microsoft.com/library/jj657718.aspx) e aplicativos baseados no [IIS](http://www.iis.net/), em sua rede privada e fornece acesso seguro aos usuários fora da rede. O Proxy de Aplicativo fornece acesso removo e SSO (logon único) para diversos tipos de aplicativos Web locais com milhares de aplicativos SaaS para os quais o Azure AD já dá suporte. Os funcionários podem fazer logon nos aplicativos em casa, em seus próprios dispositivos, e se autenticarem por meio desse proxy baseado em nuvem.
@@ -67,7 +67,7 @@ Saiba mais:
 * [Habilitando o Proxy de Aplicativo do AD do Azure.](../active-directory/active-directory-application-proxy-enable.md)
 * [Publicar aplicativos usando o Proxy de Aplicativo do AD do Azure](../active-directory/active-directory-application-proxy-publish.md)
 * [Logon único com Proxy de Aplicativo](../active-directory/active-directory-application-proxy-sso-using-kcd.md)
-* [Trabalhando com acesso condicional](../active-directory/active-directory-application-proxy-conditional-access.md)
+* [Trabalhando com acesso condicional](../active-directory/application-proxy-enable-remote-access-sharepoint.md)
 
 ## <a name="multi-factor-authentication"></a>Autenticação multifator
 O MFA (Multi-Factor Authentication) é um método de autenticação que exige o uso de mais de um método de verificação e adiciona uma segunda camada crítica de segurança às entradas e transações dos usuários. O MFA ajuda a proteger o acesso a dados e aplicativos, ao mesmo tempo que atende à demanda dos usuários por um processo de entrada simples. Ele fornece autenticação forte por meio de uma variedade de opções de verificação – chamada telefônica, mensagem de texto, notificação de aplicativo móvel ou código de verificação e tokens OAuth de terceiros.
@@ -75,8 +75,8 @@ O MFA (Multi-Factor Authentication) é um método de autenticação que exige o 
 Saiba mais:
 
 * [Autenticação multifator](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
-* [O que é o Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
-* [Como funciona o Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-how-it-works.md)
+* [O que é a Autenticação Multifator do Azure?](../multi-factor-authentication/multi-factor-authentication.md)
+* [Como funciona a Autenticação Multifator do Azure](../multi-factor-authentication/multi-factor-authentication-how-it-works.md)
 
 ## <a name="security-monitoring-alerts-and-machine-learning-based-reports"></a>Relatórios baseados em aprendizado de máquina, alertas e monitoramento de segurança
 Monitoramento e alertas de segurança e relatórios baseados no aprendizado de máquina que identificam padrões de acesso inconsistentes podem ajudá-lo a proteger seus negócios. Você pode usar os relatórios de uso e de acesso do Active Directory do Azure para obter visibilidade quanto à integridade e a segurança do diretório da sua organização. Com essas informações, um administrador de diretório pode determinar melhor onde possíveis riscos de segurança podem estar, de modo que pode fazer planos adequados para mitigar esses riscos.
