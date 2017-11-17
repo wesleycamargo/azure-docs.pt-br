@@ -14,6 +14,9 @@
 ## [Armazenamento persistente no PowerShell](persisting-shell-storage-powershell.md)
 ## [Usando a janela](using-the-shell-window.md)
 
+# Exemplos
+## [Implantar recursos do Azure com o Terraform em Bash](example-terraform-bash.md)
+
 # [Preços](pricing.md)
 
 # [Solução de problemas](troubleshooting.md)

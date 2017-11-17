@@ -71,7 +71,7 @@
 ## Soluções
 ### [Gerenciamento de atualizações](../operations-management-suite/oms-solution-update-management.md)
 #### [Gerenciar atualizações de várias VMs](manage-update-multi.md)
-#### [Integrar SCCMr com o gerenciamento de atualizações do OMS](oms-solution-updatemgmt-sccmintegration.md)
+#### [Integrar o SCCM com o Gerenciamento de Atualizações do OMS](oms-solution-updatemgmt-sccmintegration.md)
 ### [Controle de alterações](../log-analytics/log-analytics-change-tracking.md)
 ### [Controlar alterações em VMs](automation-vm-change-tracking.md)
 ### [Gerenciar uma VM com coleta de inventário](automation-vm-inventory.md)

@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: ab8689defed59bef362b1f22f78d41923087841d
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 18169b86d10b589a5c8b707596d5f62813e9efe2
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="virtual-network-traffic-routing"></a>Roteamento de tráfego de rede virtual
 
@@ -84,7 +84,7 @@ Você pode especificar os seguintes tipos do próximo salto ao criar uma rota de
 
 - **Solução de virtualização**: uma solução de virtualização é uma máquina virtual que geralmente executa um aplicativo de rede, como um firewall. Para saber mais sobre uma variedade de soluções de virtualização de rede pré-configuradas que podem ser implantadas em uma rede virtual, confira o [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/networking?page=1&subcategories=appliances). Quando você cria uma rota com o tipo de salto **solução de virtualização**, também especifica o endereço IP de um próximo salto. O endereço IP pode ser:
 
-    - O [endereço IP privado](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) de uma interface de rede anexada a uma máquina virtual. Qualquer interface de rede anexada a uma máquina virtual que encaminhe tráfego de rede para um endereço diferente do seu próprio deve ter a opção *Habilitar encaminhamento de IP* do Azure habilitada para isso. A configuração desabilita a verificação do Azure sobre a origem e o destino de uma interface de rede. Saiba mais sobre como [habilitar o encaminhamento de IP de uma interface de rede](virtual-network-network-interface.md#enable-or-disable-ip-forwarding). Embora *Habilitar encaminhamento de IP* seja uma configuração do Azure, talvez também seja preciso habilitar o encaminhamento de IP no sistema operacional da máquina virtual para que ela encaminhe o tráfego entre as interfaces de rede. Para determinar as configurações necessárias na máquina virtual, confira a documentação para seu sistema operacional ou aplicativo de rede.
+    - O [endereço IP privado](virtual-network-ip-addresses-overview-arm.md#private-ip-addresses) de uma interface de rede anexada a uma máquina virtual. Qualquer interface de rede anexada a uma máquina virtual que encaminhe tráfego de rede para um endereço diferente do seu próprio deve ter a opção *Habilitar encaminhamento de IP* do Azure habilitada para isso. A configuração desabilita a verificação do Azure sobre a origem e o destino de uma interface de rede. Saiba mais sobre como [habilitar o encaminhamento de IP de uma interface de rede](virtual-network-network-interface.md#enable-or-disable-ip-forwarding). Embora *Habilitar encaminhamento de IP* seja uma configuração do Azure, talvez também seja preciso habilitar o encaminhamento de IP no sistema operacional da máquina virtual para que o dispositivo encaminhe o tráfego entre os endereços IP para as interfaces de rede do Azure. Se o dispositivo tiver que rotear o tráfego para um endereço IP público, ele deverá fazer o proxy do tráfego ou o endereço de rede deverá traduzir o endereço IP privado do endereço IP privado da origem para seu próprio endereço IP privado, que o endereço de rede do Azure traduzirá em um endereço IP público, antes de enviar o tráfego para a Internet. Para determinar as configurações necessárias na máquina virtual, confira a documentação para seu sistema operacional ou aplicativo de rede. Para entender as conexões de saída no Azure, consulte [Entender as conexões de saída](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
     > [!NOTE]
     > Implante uma solução de virtualização em uma sub-rede diferente daquela em que estão implantados os recursos que roteiam por meio da solução de virtualização. Ao implantar a solução de virtualização à mesma sub-rede e depois aplicar uma tabela de rotas para a sub-rede que roteia o tráfego por meio da solução de virtualização, é possível que isso resulte em loops de roteamento em que o tráfego nunca saia da sub-rede.
