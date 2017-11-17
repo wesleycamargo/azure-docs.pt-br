@@ -17,6 +17,7 @@
 #### [Azure AD com serviço do Lote](batch-aad-auth.md)
 #### [Azure AD com o Gerenciamento de Lote](batch-aad-auth-management.md)
 ### [VMs de computação intensiva](batch-pool-compute-intensive-sizes.md)
+### [Cargas de trabalho de contêiner](batch-docker-container-workloads.md)
 ### [Tarefas de nó simultâneas](batch-parallel-node-tasks.md)
 ### [Contagem de tarefas por estado](batch-get-task-counts.md)
 ### [Criar um pool com uma imagem personalizada](batch-custom-images.md)
