@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeedakhter-msft
-ms.openlocfilehash: 37e9f06555063ceea00b9162c79344130414b82e
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 23a2996a5eaa41af5dc66558d2a70dd3e4a4fe3f
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-active-directory-b2c-customize-the-azure-ad-b2c-user-interface-ui"></a>Azure Active Directory B2C: Personalizar a IU (interface do usuário) do Azure AD B2C
 
 A experiência do usuário é fundamental em um aplicativo voltado ao cliente.  Aumente sua base de clientes criando experiências do usuário que tenham a aparência de sua marca. O Azure AD B2C (Azure Active Directory B2C) permite personalizar as páginas de inscrição, entrada, edição de perfil e redefinição de senha com controle perfeito.
 
 > [!NOTE]
-> O recurso de personalização da interface do usuário da página descrito neste artigo não se aplica à política de entrada, à página de redefinição de senha que a acompanha e aos emails de verificação.  Esses recursos usam o [recurso de identidade visual da empresa](../active-directory/active-directory-add-company-branding.md) em vez disso.
+> O recurso de personalização da interface do usuário da página descrito neste artigo não se aplica à política de entrada, à página de redefinição de senha que a acompanha e aos emails de verificação.  Esses recursos usam o [recurso de identidade visual da empresa](../active-directory/customize-branding.md) em vez disso.
 >
-> Da mesma forma, se um usuário de inicia uma política de edição de perfil *antes de* se conectar, o usuário será redirecionado para uma página que poderá ser personalizada usando o [recurso de identidade visual da empresa](../active-directory/active-directory-add-company-branding.md).
+> Da mesma forma, se um usuário de inicia uma política de edição de perfil *antes de* se conectar, o usuário será redirecionado para uma página que poderá ser personalizada usando o [recurso de identidade visual da empresa](../active-directory/customize-branding.md).
 
 Este artigo aborda os seguintes tópicos:
 

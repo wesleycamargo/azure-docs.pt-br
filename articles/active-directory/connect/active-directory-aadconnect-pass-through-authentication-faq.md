@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: billmath
-ms.openlocfilehash: e1bd58797124210f7c31e90fb20d728289a04ba2
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 821d70ec7236e165d4f60ed6217c49d10de1cfc3
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticação de passagem do Azure Active Directory: perguntas frequentes
 
@@ -36,7 +36,7 @@ A Autenticação de Passagem é um recurso gratuito e você não precisa de nenh
 
 Não, a Autenticação de Passagem está disponível apenas na instância mundial do Azure AD.
 
-## <a name="does-conditional-accessactive-directory-conditional-accessmd-work-with-pass-through-authentication"></a>O [Acesso Condicional](../active-directory-conditional-access.md) funciona com a Autenticação de Passagem?
+## <a name="does-conditional-accessactive-directory-conditional-access-azure-portalmd-work-with-pass-through-authentication"></a>O [Acesso Condicional](../active-directory-conditional-access-azure-portal.md) funciona com a Autenticação de Passagem?
 
 Sim, todos os recursos de Acesso Condicional, incluindo a Autenticação Multifator do Azure, funcionam com a Autenticação de Passagem.
 

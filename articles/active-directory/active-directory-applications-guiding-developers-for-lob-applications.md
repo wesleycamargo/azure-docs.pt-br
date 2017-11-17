@@ -15,17 +15,17 @@ ms.topic: article
 ms.date: 05/07/2017
 ms.author: kgremban
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6b119be9c06d8c1ccc8e747168429e6c2d2e7a8f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 76bb8d239b54b5236d077b98a5908c230cdc31a1
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Desenvolver aplicativos de linha de negócios para o Azure Active Directory
 Este guia fornece uma visão geral do desenvolvimento de aplicativos LoB (de linha de negócios) do Azure AD (Active Directory). O público-alvo são os administradores globais do Active Directory/Office 365.
 
 ## <a name="overview"></a>Visão geral
-A criação de aplicativos integrados ao AD do Azure oferece aos usuários em sua organização logon único com o Office 365. Ter o aplicativo no Azure AD dá controle sobre a política de autenticação definida para o aplicativo. Para saber mais sobre acesso condicional e como proteger aplicativos com MFA (Multi-Factor Authentication), consulte [Configurando regras de acesso](active-directory-conditional-access-azuread-connected-apps.md).
+A criação de aplicativos integrados ao AD do Azure oferece aos usuários em sua organização logon único com o Office 365. Ter o aplicativo no Azure AD dá controle sobre a política de autenticação definida para o aplicativo. Para saber mais sobre acesso condicional e como proteger aplicativos com MFA (Multi-Factor Authentication), consulte [Configurando regras de acesso](active-directory-conditional-access-azure-portal-get-started.md).
 
 Registre seu aplicativo com o Azure Active Directory. Registrar o aplicativo significa que seus desenvolvedores podem usar o Azure AD para autenticar usuários e solicitar acesso a recursos de usuário como email, calendário e documentos.
 
@@ -57,7 +57,7 @@ Aqui está o que você, o administrador global, precisa fazer para ajudar os des
 * Suprimir a experiência de consentimento do usuário padrão
 
 ## <a name="configure-access-rules"></a>Configurar regras de acesso
-Configurar regras de acesso por aplicativo para seus aplicativos de SaaS. Por exemplo você pode exigir MFA ou somente permitir o acesso a usuários em redes confiáveis. Os detalhes para isso estão disponíveis no documento [Configurando regras de acesso](active-directory-conditional-access-azuread-connected-apps.md).
+Configurar regras de acesso por aplicativo para seus aplicativos de SaaS. Por exemplo você pode exigir MFA ou somente permitir o acesso a usuários em redes confiáveis. Os detalhes para isso estão disponíveis no documento [Configurando regras de acesso](active-directory-conditional-access-azure-portal-get-started.md).
 
 ## <a name="configure-the-app-to-require-user-assignment-and-assign-users"></a>Configurar o aplicativo para exigir a atribuição de usuário e atribuir usuários
 Por padrão, os usuários podem acessar aplicativos sem ser atribuídos. No entanto, se o aplicativo expõe funções ou se você deseja que o aplicativo seja exibido no painel de acesso do usuário, você deve exigir a atribuição de usuário.
@@ -78,6 +78,6 @@ Para saber mais sobre o consentimento do usuário e sobre a experiência de cons
 
 ## <a name="related-articles"></a>Artigos relacionados
 * [Habilitar acesso remoto seguro a aplicativos locais com o Proxy de Aplicativo do Azure AD](active-directory-application-proxy-get-started.md)
-* [Visualização de acesso condicional do Azure para aplicativos SaaS](active-directory-conditional-access-azuread-connected-apps.md)
+* [Visualização de acesso condicional do Azure para aplicativos SaaS](active-directory-conditional-access-azure-portal-get-started.md)
 * [Gerenciando o acesso a aplicativos usando o Azure AD](active-directory-managing-access-to-apps.md)
 * [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)

@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 3da53852eaad7a37f19d906d2ee27b72d35c513f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e2a83e8dcd054576b4a99533cdfbb9f5605cd6f9
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="integrating-with-azure-active-directory"></a>Integração ao Active Directory do Azure
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -63,11 +63,11 @@ A integração ao AD do Azure traz benefícios que não exigem que você escreva
 **O AD do Azure estende o Active Directory para a nuvem para que o aplicativo possa integrar-se ao AD.**  Muitas organizações em todo o mundo usam o Active Directory como seu sistema principal de entrada e de gerenciamento de identidade, além de exigirem que os seus aplicativos trabalhem com o AD.  A integração com o AD do Azure integra seu aplicativo ao Active Directory.
 
 ### <a name="advanced-security-features"></a>Recursos avançados de segurança
-**Multi-Factor Authentication.**  O AD do Azure fornece Multi-Factor Authentication nativa.  Os administradores de TI podem exigir Multi-Factor Authentication para acessar o aplicativo, para que você não precise codificar esse suporte por conta própria.  Saiba mais sobre [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/).
+**Autenticação multifator**  O AD do Azure fornece Multi-Factor Authentication nativa.  Os administradores de TI podem exigir Multi-Factor Authentication para acessar o aplicativo, para que você não precise codificar esse suporte por conta própria.  Saiba mais sobre [Autenticação Multifator](https://azure.microsoft.com/documentation/services/multi-factor-authentication/).
 
 **Detecção de entrada anormal.**  O AD do Azure processa mais de um bilhão de entradas por dia, enquanto usa algoritmos de aprendizado de máquina para detectar atividades suspeitas e notifica os administradores de TI sobre possíveis problemas.  Ao oferecer suporte a entrada no AD do Azure, o aplicativo obtém o benefício dessa proteção. Saiba mais sobre a [visualização do relatório de acesso do Azure Active Directory](../active-directory-view-access-usage-reports.md).
 
-**Acesso condicional.**  Além da Multi-Factor Authentication, os administradores podem exigir que condições específicas sejam atendidas antes que os usuários possam entrar no aplicativo.  As condições que podem ser definidas incluem o intervalo de endereços IP de dispositivos cliente, a participação em grupos especificados e o estado do dispositivo que está sendo usado para o acesso.  Saiba mais sobre o [acesso condicional ao Azure Active Directory](../active-directory-conditional-access.md).
+**Acesso condicional.**  Além da Multi-Factor Authentication, os administradores podem exigir que condições específicas sejam atendidas antes que os usuários possam entrar no aplicativo.  As condições que podem ser definidas incluem o intervalo de endereços IP de dispositivos cliente, a participação em grupos especificados e o estado do dispositivo que está sendo usado para o acesso.  Saiba mais sobre o [acesso condicional ao Azure Active Directory](../active-directory-conditional-access-azure-portal.md).
 
 ### <a name="easy-development"></a>Desenvolvimento fácil
 **Protocolos padrão da indústria.**  A Microsoft está comprometida em oferecer suporte aos padrões do setor da indústria.  O AD do Azure dá suporte aos protocolos de autenticação SAML 2.0, OpenID Connect 1.0, OAuth 2.0 e WS-Federation 1.2.  A Graph API é compatível com o OData 4.0.  Se seu aplicativo já dá suporte aos protocolos SAML 2.0 ou OpenID Connect 1.0 para entrada federada, adicionar suporte para o AD do Azure pode ser simples.  Saiba mais sobre [protocolos de autenticação com suporte no AD do Azure](active-directory-authentication-protocols.md).

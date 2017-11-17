@@ -10,11 +10,11 @@ ms.topic: overview
 ms.service: azure-policy
 manager: jochan
 ms.custom: mvc
-ms.openlocfilehash: b784c79166eb614988d84b4553bb95e4d1e457af
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: ef1114f6b1259e4f0d60260febb39bc70b181fbc
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="what-is-azure-policy"></a>O que é a Política do Azure?
 
@@ -51,7 +51,7 @@ Na Política do Azure, oferecemos algumas políticas internas que estão dispon�
 
 Você pode atribuir qualquer uma dessas políticas usando o portal do Azure, o PowerShell ou a CLI do Azure.
 
-Para saber mais sobre as estruturas das definições de políticas, consulte este artigo – [Estrutura da definição de política](../azure-resource-manager/resource-manager-policy.md#policy-definition-structure).
+Para saber mais sobre as estruturas das definições de políticas, consulte este artigo – [Estrutura da definição de política](policy-definition.md).
 
 ## <a name="policy-assignment"></a>Atribuição de política
 
@@ -68,7 +68,7 @@ Parâmetros são definidos/criados durante a criação de uma definição de pol
 <!--
 Next link should point to new Concept page for Parameters
 -->
-Para obter mais informações sobre parâmetros de política, consulte [Visão geral da política de recurso – parâmetros](../azure-resource-manager/resource-manager-policy.md#parameters).
+Para obter mais informações sobre parâmetros de política, consulte [Visão geral da política de recurso – parâmetros](policy-definition.md#parameters).
 
 ## <a name="initiative-definition"></a>Definição de iniciativa
 Uma definição de iniciativa é a coleção de definições de política que são adaptadas para atingirem uma única meta abrangente. Definições de iniciativa simplificam o gerenciamento e a atribuição de definições da política. Elas simplificam agrupando um conjunto de políticas como um único item. Por exemplo, você pode criar uma iniciativa intitulada **Habilitar Monitoramento na Central de Segurança do Azure**, com uma meta para monitorar todas as recomendações de segurança disponíveis na Central de Segurança do Azure.

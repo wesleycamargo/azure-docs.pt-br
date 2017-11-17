@@ -16,11 +16,11 @@ ms.date: 10/18/2017
 ms.author: dhanyahk;markvi
 ms.custom: oldportal
 ms.reviewer: dhanyahk
-ms.openlocfilehash: e561061cadd88e2c5670e27f2a66ef21002e30b0
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: fa8ca5940bb437c1e5c3939262db000544b04e36
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-active-directory-reporting-notifications"></a>Notificações de Relatórios do Active Directory do Azure
 ## <a name="what-reports-generate-email-notifications"></a>Quais relatórios geram notificações por email
@@ -47,5 +47,5 @@ Sim. Para desligar as notificações relacionadas a entradas anômalas no Portal
 ## <a name="whats-next"></a>O que vem a seguir
 * Curioso sobre que relatórios de segurança, auditoria e atividade estão disponíveis? Verifique [Relatórios de segurança, auditoria e atividade do AD do Azure](active-directory-view-access-usage-reports.md)
 * [Introdução ao Azure Active Directory Premium](active-directory-get-started-premium.md)
-* [Adicionar identidade visual da empresa às páginas de Entrada e do Painel de acesso](active-directory-add-company-branding.md)
+* [Adicionar identidade visual da empresa às páginas de Entrada e do Painel de acesso](customize-branding.md)
 
