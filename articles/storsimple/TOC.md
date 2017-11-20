@@ -2,6 +2,7 @@
 
 ## Visão geral
 ### [Qual é a solução?](storsimple-ova-overview.md)
+### [Disponibilidade de região](storsimple-regions.md)
 
 ## Introdução
 ### Plano
@@ -59,6 +60,7 @@
 ### [Qual é a solução?](storsimple-overview.md)
 ### [Mapa de aprendizagem do StorSimple](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
 ### [Considerações de segurança](storsimple-8000-security.md)
+### [Disponibilidade de região](storsimple-regions.md)
 ### [Perguntas Frequents: mover para o Portal do Azure](storsimple-8000-move-azure-portal-faq.md)
 
 ## Introdução

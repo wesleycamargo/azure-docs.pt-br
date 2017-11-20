@@ -370,6 +370,8 @@
           items:
             - name: Implantação do aplicativo de exemplo
               href: saas-multitenantdb-get-started-deploy.md
+            - name: Locatários da provisão
+              href: saas-multitenantdb-provision-and-catalog.md
             - name: Como monitorar o desempenho do banco de dados
               href: saas-multitenantdb-performance-monitoring.md
             - name: Como executar consultas ad hoc

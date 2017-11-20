@@ -24,15 +24,13 @@
 ## Implantar
 ### [Redes virtuais](virtual-networks-create-vnet-arm-pportal.md)
 #### [PowerShell do Azure](virtual-networks-create-vnet-arm-ps.md)
-#### [CLI 2.0 do Azure](virtual-networks-create-vnet-arm-cli.md)
-#### [CLI 1.0 do Azure](virtual-networks-create-vnet-cli-nodejs.md)
+#### [CLI do Azure](virtual-networks-create-vnet-arm-cli.md)
 #### [Modelo](virtual-networks-create-vnet-arm-template-click.md)
 
 ### Grupos de segurança de rede
 #### [Portal do Azure](virtual-networks-create-nsg-arm-pportal.md)
-#### [Azure PowerShell](virtual-networks-create-nsg-arm-ps.md)
-#### [CLI 2.0 do Azure](virtual-networks-create-nsg-arm-cli.md)
-#### [CLI 1.0 do Azure](virtual-networks-create-nsg-cli-nodejs.md)
+#### [PowerShell do Azure](virtual-networks-create-nsg-arm-ps.md)
+#### [CLI do Azure](virtual-networks-create-nsg-arm-cli.md)
 #### [Modelo](virtual-networks-create-nsg-arm-template.md)
 #### [Grupos de segurança do aplicativo](create-network-security-group-preview.md)
 #### Clássico
@@ -41,9 +39,8 @@
 
 ### Rotas definidas pelo usuário
 #### [Portal do Azure](create-user-defined-route-portal.md)
-#### [Azure PowerShell](virtual-network-create-udr-arm-ps.md)
-#### [CLI 2.0 do Azure](virtual-network-create-udr-arm-cli.md)
-#### [CLI 1.0 do Azure](virtual-network-create-udr-arm-cli-nodejs.md)
+#### [PowerShell do Azure](virtual-network-create-udr-arm-ps.md)
+#### [CLI do Azure](virtual-network-create-udr-arm-cli.md)
 #### [Modelo](virtual-network-create-udr-arm-template.md)
 #### Clássico
 ##### [PowerShell do Azure](virtual-network-create-udr-classic-ps.md)
@@ -66,9 +63,8 @@
 #### [Interfaces de rede de máquina virtual](virtual-machine-network-throughput.md)
 #### Criar uma VM com um endereço IP público estático
 ##### [Portal do Azure](virtual-network-deploy-static-pip-arm-portal.md)
-##### [Azure PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
-##### [CLI 2.0 do Azure](virtual-network-deploy-static-pip-arm-cli.md)
-##### [CLI 1.0 do Azure](virtual-network-deploy-static-pip-cli-nodejs.md)
+##### [PowerShell do Azure](virtual-network-deploy-static-pip-arm-ps.md)
+##### [CLI do Azure](virtual-network-deploy-static-pip-arm-cli.md)
 ##### [Modelo](virtual-network-deploy-static-pip-arm-template.md)
 ##### Clássico
 ###### [PowerShell do Azure](virtual-networks-reserved-public-ip.md)
@@ -84,8 +80,7 @@
 
 #### Criar uma VM com várias interfaces de rede
 ##### [PowerShell do Azure](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-##### [CLI 2.0 do Azure](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-##### [CLI 1.0 do Azure](../virtual-machines/linux/multiple-nics-nodejs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+##### [CLI do Azure](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 ##### [Modelo](virtual-network-deploy-multinic-arm-template.md)
 
 ##### Clássico
@@ -137,7 +132,7 @@
 #### Clássico
 ##### Endereços IP estáticos
 ###### [PowerShell](virtual-networks-reserved-private-ip.md)
-###### [CLI](virtual-networks-static-private-ip-cli-nodejs.md)
+###### [CLI](virtual-networks-static-private-ip-classic-cli.md)
 ##### [Endereço IP público de nível de instância](virtual-networks-instance-level-public-ip.md)
 
 ### Clássico
@@ -154,9 +149,8 @@
 ##### [Migrar de um grupo de afinidade para uma região](virtual-networks-migrate-to-regional-vnet.md)
 ### Grupos de segurança de rede
 #### [Portal do Azure](virtual-network-manage-nsg-arm-portal.md)
-#### [Azure PowerShell](virtual-network-manage-nsg-arm-ps.md)
-#### [CLI 2.0 do Azure](virtual-network-manage-nsg-arm-cli.md)
-#### [CLI 1.0 do Azure](virtual-network-manage-nsg-cli-nodejs.md)
+#### [PowerShell do Azure](virtual-network-manage-nsg-arm-ps.md)
+#### [CLI do Azure](virtual-network-manage-nsg-arm-cli.md)
 
 #### [Logs](virtual-network-nsg-manage-log.md)
 ### Interfaces de rede (NICs)
@@ -192,7 +186,8 @@
 
 # Relacionados
 ## [Máquinas virtuais](/azure/virtual-machines/)
-## [Gateway de Aplicativo](/azure/application-gateway/)
+## [Gateway de Aplicativo
+](/azure/application-gateway/)
 ## [DNS do Azure](/azure/dns/)
 ## [Gerenciador de Tráfego](/azure/traffic-manager/)
 ## [Balanceador de Carga](/azure/load-balancer/)

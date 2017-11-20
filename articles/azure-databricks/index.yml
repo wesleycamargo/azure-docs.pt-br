@@ -3,7 +3,7 @@ documentType: LandingData
 title: Documentação da visualização do Azure Databricks
 metadata:
   title: Documentação do Azure Databricks - Tutoriais | Microsoft Docs
-  description: Saiba como usar o Databricks no Microsoft Azure.
+  description: Saiba como usar o Azure Databricks usando o guia de início rápido e outros links fornecidos aqui. O Azure Databricks é uma plataforma de análise baseada no Apache Spark otimizada para a plataforma de serviços de nuvem do Microsoft Azure.
   services: azure-databricks
   author: nitinme
   manager: cgronlun
@@ -14,7 +14,7 @@ metadata:
   ms.date: 11/15/2017
   ms.author: nitinme
 abstract:
-  description: 'O Azure Databricks é uma plataforma de análise baseada no Apache Spark otimizada para a plataforma de serviços de nuvem do Microsoft Azure. Projetado com os fundadores do Apache Spark, O Databricks é integrado com o Azure para fornecer instalação com um clique, fluxos de trabalho simplificados e um espaço de trabalho interativo que permite a colaboração entre os cientistas de dados, os engenheiros de dados e os analistas de negócios. Saiba como usar o Azure Databricks usando o guia de início rápido e outros links fornecidos aqui.'
+  description: 'Saiba como usar o Azure Databricks usando o guia de início rápido e outros links fornecidos aqui. O Azure Databricks é uma plataforma de análise baseada no Apache Spark otimizada para a plataforma de serviços de nuvem do Microsoft Azure. Projetado com os fundadores do Apache Spark, O Databricks é integrado com o Azure para fornecer instalação com um clique, fluxos de trabalho simplificados e um espaço de trabalho interativo que permite a colaboração entre os cientistas de dados, os engenheiros de dados e os analistas de negócios.'
 sections:
   - title: Guia de início rápido de 5 minutos
     items:

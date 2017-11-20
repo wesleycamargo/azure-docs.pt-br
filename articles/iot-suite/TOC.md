@@ -25,11 +25,8 @@
 ###### [Dados simulados](iot-suite-v1-raspberry-pi-kit-node-get-started-simulator.md)
 ###### [Usar sensores reais](iot-suite-v1-raspberry-pi-kit-node-get-started-basic.md)
 ###### [Implementar atualização de firmware](iot-suite-v1-raspberry-pi-kit-node-get-started-advanced.md)
-#### Conecte seu gateway do Intel NUC
-##### [Dados simulados](iot-suite-v1-gateway-kit-get-started-simulator.md)
-##### [Usar sensores reais](iot-suite-v1-gateway-kit-get-started-sensortag.md)
 
-### Como
+### Guias de instruções
 #### Conectar um dispositivo simulado
 ##### [C em Windows](iot-suite-v1-connecting-devices.md)
 ##### [C em Linux](iot-suite-v1-connecting-devices-linux.md)
@@ -51,7 +48,7 @@
 ### [Visão geral da solução da fábrica conectada](iot-suite-connected-factory-overview.md)
 ### [Guia da solução da fábrica conectada](iot-suite-connected-factory-sample-walkthrough.md)
 
-# Como
+# Guias de instruções
 ## Monitoramento remoto
 ### [Executar o monitoramento avançado](iot-suite-remote-monitoring-monitor.md)
 ### [Usar regras para detectar problemas](iot-suite-remote-monitoring-automate.md)
