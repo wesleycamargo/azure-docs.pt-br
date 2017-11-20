@@ -88,15 +88,21 @@
       href: endorsed-distros.md
     - name: Manutenção e atualizações
       href: maintenance-and-updates.md
-    - name: Armazenamento
-      href: azure-vm-storage-overview.md
+    - name: Armazenamento em disco
+      href: about-disks-and-vhds.md
       items:
+        - name: Managed Disks
+          href: managed-disks-overview.md
         - name: Armazenamento Premium
           href: premium-storage.md
         - name: Desempenho do armazenamento Premium
           href: premium-storage-performance.md
         - name: Armazenamento Standard
           href: standard-storage.md
+        - name: Metas da escalabilidade para os discos
+          href: disk-scalability-targets.md
+        - name: Backup e recuperação de desastres para discos
+          href: backup-and-disaster-recovery-for-azure-iaas-disks.md
     - name: Rede
       href: network-overview.md
     - name: Aplicativos de dimensionamento automático
@@ -156,6 +162,8 @@
           href: ../../backup/tutorial-restore-files.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
     - name: Gerenciar VMs
       items:
+        - name: Pagar antecipadamente pelas VMs - Instâncias Reservadas
+          href: prepay-reserved-vm-instances.md
         - name: Tarefas comuns de CLI
           href: cli-manage.md
         - name: Como mover uma VM
@@ -312,8 +320,6 @@
               href: n-series-driver-setup.md
     - name: Gerenciamento do armazenamento
       items:
-        - name: Saiba mais sobre Managed Disks
-          href: managed-disks-overview.md
         - name: Perguntas frequentes de discos
           href: faq-for-disks.md
         - name: Adicionar um disco
@@ -328,8 +334,6 @@
           href: expand-disks.md
         - name: Instantâneo de um disco
           href: snapshot-copy-managed-disk.md
-        - name: Backup e recuperação de desastres para discos
-          href: backup-and-disaster-recovery-for-azure-iaas-disks.md
         - name: Backup de discos não gerenciados
           href: incremental-snapshots.md
         - name: Como converter em Managed Disks
