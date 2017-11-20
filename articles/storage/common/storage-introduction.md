@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/09/2017
+ms.date: 11/10/2017
 ms.author: tamram
-ms.openlocfilehash: e7b32aa2de5d6501e8d7894a936e9ab8b2f4f42f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cdd457dbe6802f58f0167efb97d60628c17a97af
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Introdução ao Armazenamento do Microsoft Azure
 
@@ -80,7 +80,7 @@ Por exemplo, digamos que você deseja que seus clientes possam carregar imagens 
 
 ## <a name="table-storage"></a>Armazenamento de tabela
 
-O Armazenamento de Tabelas do Azure Standard agora é parte do Cosmos DB. Para ver essa documentação, veja a [Visão geral do Armazenamento de Tabelas do Azure](../../cosmos-db/table-storage-overview.md). As Tabelas Premium também estão disponíveis para o Armazenamento de Tabelas do Azure, oferecendo tabelas otimizadas para taxa de transferência, distribuição global e índices secundários automáticos. Para saber mais e experimentar a nova experiência premium, confira [Azure Cosmos DB: API de Tabela](https://aka.ms/premiumtables).
+O armazenamento de Tabelas do Azure agora faz parte do Azure Cosmos DB. Para ver a documentação do armazenamento de Tabelas do Azure, veja a [Visão geral do Armazenamento de Tabelas do Azure](../../cosmos-db/table-storage-overview.md). Além do serviço de armazenamento de Tabelas do Azure existente, há uma nova oferta de API de Tabela do Azure Cosmos DB que fornece tabelas otimizadas de taxa de transferência, distribuição global e índices secundários automáticos. Para saber mais e experimentar a nova experiência premium, confira [API de Tabela do Azure Cosmos DB](https://aka.ms/premiumtables).
 
 ## <a name="disk-storage"></a>Armazenamento em disco
 

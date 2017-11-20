@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/31/2017
 ms.author: magoedte;eslesar
-ms.openlocfilehash: 80a6caff51631637825d560d270198be0336e806
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: f97b28d1588e959728163f7ab16d2550a79f610e
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="manage-updates-for-multiple-azure-virtual-machines"></a>Gerenciar atualizações para várias máquinas virtuais do Azure
+# <a name="manage-updates-for-multiple-machines"></a>Gerenciar atualizações de vários computadores
 
-O gerenciamento de atualizações permite que você gerencie atualizações e patches para suas máquinas virtuais do Azure.
-Na conta da [Automação do Azure](automation-offering-get-started.md), você pode carregar máquinas virtuais rapidamente, avaliar o status de atualizações disponíveis, agendar a instalação de atualizações necessárias e examinar os resultados de implantação para verificar se as atualizações foram aplicadas com êxito em todas as máquinas virtuais para as quais o gerenciamento de atualizações está habilitado.
+O gerenciamento de atualizações permite que você gerencie atualizações e patches para seus computadores Windows e Linux.
+Na conta da [Automação do Azure](automation-offering-get-started.md), você pode carregar computadores rapidamente, avaliar o status de atualizações disponíveis, agendar a instalação de atualizações necessárias e examinar os resultados de implantação para verificar se as atualizações foram aplicadas com êxito em todas as máquinas virtuais para as quais o gerenciamento de atualizações está habilitado.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 

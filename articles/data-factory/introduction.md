@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/29/2017
 ms.author: shlo
-ms.openlocfilehash: 58e141498ed5cbaa110622d949a9627c98827ac3
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: b797ee3ef270ff3420ff9e7f4aa8032641714d7a
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="introduction-to-azure-data-factory"></a>Introdução à Fábrica de Dados do Azure 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -77,7 +77,7 @@ Após o lançamento da versão 1, reconhecemos que os clientes precisam projetar
 
 Como os pipelines tornaram-se uma parte essencial de qualquer estratégia de análise de negócios, percebemos que essas atividades de dados críticos exigem um planejamento flexível para oferecer suporte a cargas de dados incrementais e execuções disparadas por eventos. E, por último, conforme essas operações tornam-se mais complexas, o mesmo ocorre com os requisitos para que o serviço seja compatível com paradigmas de fluxo de trabalho comuns incluindo ramificação, execução de loops e processamento condicional.
 
-Com a versão 2, também é possível migrar os pacotes de SSIS existentes para a nuvem. É possível deslocar e comparar SSIS como um serviço do Azure que é gerenciado no ADF, utilizando o novo recurso “Integration Runtime” (IR). Ao criar um IR do SSIS na versão 2, você terá a capacidade de executar, gerenciar, monitorar e criar pacotes do SSIS na nuvem.
+Com a versão 2, também é possível migrar os pacotes SSIS existentes para a nuvem. É possível deslocar e comparar SSIS como um serviço do Azure que é gerenciado no ADF, utilizando o novo recurso “Integration Runtime” (IR). Ao criar um IR do SSIS na versão 2, você terá a capacidade de executar, gerenciar, monitorar e criar pacotes do SSIS na nuvem.
 
 ### <a name="control-flow-and-scale"></a>Fluxo de controle e escala 
 Para dar suporte aos fluxos e padrões de integração diversos no moderno data warehouse, o Data Factory habilitou um novo modelo de pipeline de dados flexível que não está mais vinculado aos dados de série temporal. Com esse lançamento, é possível fazer um modelo de condicionais e de ramificação no fluxo de controle de um pipeline de dados e passar os parâmetros explicitamente dentro e entre esses fluxos.
@@ -172,11 +172,11 @@ Para obter mais informações sobre os conceitos do Data Factory, confira os seg
 
 ## <a name="supported-regions"></a>Regiões com suporte
 
-No momento, você pode criar data factories nas regiões Leste dos EUA e Leste dos EUA 2. No entanto, uma fábrica de dados pode acessar repositórios de dados e serviços de computação em outras regiões do Azure para mover dados entre repositórios de dados ou processar dados usando serviços de computação.
+Atualmente, é possível criar data factories nas regiões Leste dos EUA, Leste dos EUA 2, Europa Ocidental. No entanto, uma fábrica de dados pode acessar repositórios de dados e serviços de computação em outras regiões do Azure para mover dados entre repositórios de dados ou processar dados usando serviços de computação.
 
 O Azure Data Factory em si não armazena dados. Ele permite que você crie fluxos de trabalho controlados por dados para orquestrar a movimentação de dados entre os armazenamentos de dados com suporte e o processamento de dados usando serviços de computação em outras regiões ou em um ambiente local. Também permite monitorar e gerenciar fluxos de trabalho usando mecanismos programáticos e de IU.
 
-Embora o Data Factory esteja disponível somente nas regiões Leste dos EUA e Leste dos EUA 2, o serviço que capacita a movimentação de dados no Data Factory está disponível globalmente em várias regiões. Se um repositório de dados estiver atrás de um firewall, então um Gateway de Gerenciamento de Dados instalado em seu ambiente local moverá os dados.
+Embora o Data Factory esteja disponível somente nas regiões Leste dos EUA, Leste dos EUA 2 e Europa Ocidental, o serviço que capacita a movimentação de dados no Data Factory está disponível globalmente em várias regiões. Se um repositório de dados estiver atrás de um firewall, então um Gateway de Gerenciamento de Dados instalado em seu ambiente local moverá os dados.
 
 Por exemplo, digamos que seus ambientes de computação, como o cluster Azure HDInsight e o Azure Machine Learning, estejam ficando sem a região Europa Ocidental. Você pode criar e usar uma instância do Azure Data Factory na Europa Setentrional e usá-la para agendar trabalhos em seus ambientes de computação na Europa Ocidental. Demora alguns milissegundos para o Data Factory disparar o trabalho em seu ambiente de computação, mas o tempo de execução do trabalho em seu ambiente de computação não é alterado.
 

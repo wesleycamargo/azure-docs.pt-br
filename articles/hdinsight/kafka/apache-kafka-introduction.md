@@ -13,25 +13,27 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/23/2017
+ms.date: 11/07/2017
 ms.author: larryfr
-ms.openlocfilehash: 5e05f07f2d9a15ab57f993e88b7cdeb03550f8ac
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: c4e0d792ae8f4c17d53430f49d81d179e56b9722
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="introducing-apache-kafka-on-hdinsight-preview"></a>Introdução ao Apache Kafka no HDInsight (visualização)
+# <a name="introducing-apache-kafka-on-hdinsight"></a>Introdução ao Apache Kafka no HDInsight
 
 O [Apache Kafka](https://kafka.apache.org) é uma plataforma de streaming distribuída de software livre que pode ser usada para compilar pipelines e aplicativos de dados de streaming em tempo real. O Kafka também fornece funcionalidade de agente de mensagem semelhante a uma fila de mensagens, onde você pode publicar e assinar os fluxos de dados nomeados. O Kafka no HDInsight oferece um serviço gerenciado, altamente escalonável e altamente disponível na nuvem do Microsoft Azure.
 
 ## <a name="why-use-kafka-on-hdinsight"></a>Por que usar o Kafka no HDInsight?
 
-O Kafka fornece as seguintes funcionalidades:
+O Kafka no HDInsight oferece os seguintes recursos:
+
+* Contrato de Nível de Serviço (SLA): [informações de SLA para HDInsight](https://azure.microsoft.com/support/legal/sla/hdinsight/v1_0/).
 
 * Padrão de mensagens publicar-assinar: o Kafka fornece uma API de Produtor para publicação de registros em um tópico do Kafka. A API de Consumidor é usada na assinatura de um tópico.
 
-* Processamento de fluxo: o Kafka é frequentemente usado com o Apache Storm ou o Spark para processamento de fluxo em tempo real. O Kafka 0.10.0.0 (HDInsight versão 3.5) introduziu uma API de streaming que permite que você crie soluções de transmissão sem a necessidade do Storm ou do Spark.
+* Processamento de fluxo: o Kafka é frequentemente usado com o Apache Storm ou o Spark para processamento de fluxo em tempo real. O Kafka 0.10.0.0 (HDInsight versão 3.5 e 3.6) introduziu uma API de streaming que permite que você crie soluções de transmissão sem a necessidade do Storm ou do Spark.
 
 * Escala horizontal: o Kafka particiona fluxos entre os nós no cluster HDInsight. Os processos do Consumidor podem ser associados a partições individuais para fornecer balanceamento de carga ao consumir registros.
 

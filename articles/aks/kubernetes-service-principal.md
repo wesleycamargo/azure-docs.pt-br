@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2017
+ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a532c8f69bfb19d26538aafe7c74f062dee06d9f
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 6c61d99f1d023ac643455faae10ef284f1f5bb14
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="service-principals-with-azure-container-service-aks"></a>Entidades de serviço com o Serviço de Contêiner do Azure (AKS)
 
@@ -34,13 +34,13 @@ As etapas detalhadas neste documento pressupõem que você tenha criado um clust
 
 Para criar uma entidade de serviço do Azure AD, você deve ter permissões para registrar um aplicativo com o locatário do Azure AD e para atribuir o aplicativo a uma função em sua assinatura. Se você não tiver as permissões necessárias, talvez precise solicitar ao administrador do seu Azure Ad ou assinatura que atribua as permissões necessárias ou pré-crie uma entidade de serviço para o cluster Kubernetes.
 
-Você também precisa da CLI do Azure versão 2.0.20 ou posterior instalada e configurada. Execute az –version para localizar a versão. Se você precisa instalar ou fazer upgrade, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+Você também precisa da CLI do Azure versão 2.0.21 ou posterior instalada e configurada. Execute az --version para localizar a versão. Se você precisa instalar ou fazer upgrade, veja [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
 ## <a name="create-sp-with-aks-cluster"></a>Criar SP com cluster AKS
 
 Ao implantar um cluster AKS com o comando `az aks create`, você tem a opção para gerar automaticamente uma entidade de serviço.
 
-No exemplo a seguir, um cluster AKS é criado e, como não há uma entidade de serviço existente especificada, será criada uma entidade de serviço para o cluster. Para concluir esta operação, sua conta deverá ter os direitos adequados para a criação de uma entidade de serviço. 
+No exemplo a seguir, um cluster AKS é criado e, como não há uma entidade de serviço existente especificada, será criada uma entidade de serviço para o cluster. Para concluir esta operação, sua conta deverá ter os direitos adequados para a criação de uma entidade de serviço.
 
 ```azurecli
 az aks create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-keys

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/19/2017
+ms.date: 11/14/2017
 ms.author: tomfitz
-ms.openlocfilehash: f539931e0704f904f4b942f185f086a790caf4da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b0d71f7eee6568f9b98c80315d265704ee0ae9fc
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-resource-manager-overview"></a>Visão geral do Azure Resource Manager
 A infraestrutura do seu aplicativo geralmente é composta de vários componentes; talvez uma máquina virtual, uma conta de armazenamento e uma rede virtual, ou aplicativo Web, banco de dados, servidor de banco de dados e serviços de terceiros. Tais componentes não são vistos como entidades separadas, em vez disso, eles são mostrados como partes relacionadas e interdependentes de uma única entidade. Você deseja implantar, gerenciar e monitorá-los como um grupo. O Azure Resource Manager permite trabalhar com os recursos da sua solução como um grupo. Você pode implantar, atualizar ou excluir todos os recursos da sua solução em uma única operação coordenada. Usar um modelo para a implantação e esse modelo pode ser útil para ambientes diferentes, como teste, preparação e produção. O Gerenciador de Recursos fornece recursos de segurança, auditoria e marcação para ajudá-lo a gerenciar seus recursos após a implantação. 
@@ -251,7 +251,7 @@ O exemplo a seguir mostra uma política que garante a consistência de marca, es
 }
 ```
 
-Há muito mais tipos de políticas que você pode criar. Para saber mais, confira [Usar a Política para gerenciar recursos e controlar o acesso](resource-manager-policy.md).
+Há muito mais tipos de políticas que você pode criar. Para saber mais, veja [O que é o Azure Policy?](../azure-policy/azure-policy-introduction.md).
 
 ## <a name="sdks"></a>SDKs
 Os SDKs do Azure estão disponíveis em várias linguagens e plataformas. Cada uma dessas implementações da linguagem está disponível por meio do gerenciador de pacotes do ecossistema e do GitHub.

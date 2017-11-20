@@ -1,5 +1,5 @@
 ---
-title: "Tutorial: Criar seu primeiro índice do Azure Search no portal | Microsoft Docs"
+title: "Índice, consulta e filtro nas páginas do portal do Azure Search | Microsoft Docs"
 description: "No portal do Azure, use dados de exemplo predefinidos para gerar um índice. Explore a pesquisa de texto completo, filtros, facetas, pesquisa difusa, pesquisa geográfica e muito mais."
 services: search
 documentationcenter: 
@@ -15,17 +15,17 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 06/26/2017
 ms.author: heidist
-ms.openlocfilehash: c49989058fdd98d623c5517060f725e5f7e436d8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a67de3d385ccb1f65d026acfa0d4413df889bafe
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="tutorial-create-your-first-azure-search-index-in-the-portal"></a>Tutorial: Criar seu primeiro índice do Azure Search no portal
+# <a name="create-query-and-filter-an-azure-search-index-in-the-portal"></a>Criar, consultar e filtrar um índice do Azure Search no portal
 
 No portal do Azure, comece com um conjunto de dados de exemplo predefinido para gerar um índice rapidamente usando o assistente **Importar dados**. Explore a pesquisa de texto completo, filtros, facetas, pesquisa difusa e pesquisa geográfica com o **Search Explorer**.  
 
-Esta introdução sem código apresenta dados predefinidos para que você possa escrever consultas interessantes imediatamente. Embora as ferramentas de portal não sejam um bom substituto para o código, elas são úteis para essas tarefas:
+Esta introdução sem código apresenta dados predefinidos para que você possa escrever consultas interessantes imediatamente. Embora as ferramentas do portal não sejam um substituto para o código, talvez você as ache úteis para estas tarefas:
 
 + Aprendizado prático com curva de aprendizagem mínima
 + Crie um protótipo de índice antes de escrever código em **Importar dados**
@@ -44,7 +44,7 @@ Se não quiser provisionar um serviço imediatamente, você pode assistir a uma 
 
 ## <a name="find-your-service"></a>Localizar o serviço
 1. Entre no [Portal do Azure](https://portal.azure.com).
-2. Abra o painel de serviços de seu serviço de Pesquisa do Azure. Se você não fixar o bloco do serviço ao seu painel, poderá encontrar o serviço desta maneira: 
+2. Abra o painel de serviços de seu serviço de Azure Search. Se você não fixar o bloco do serviço ao seu painel, poderá encontrar o serviço desta maneira: 
    
    * Na Barra de Navegação, clique em **Mais serviços** na parte inferior do painel de navegação à esquerda.
    * Na caixa de pesquisa, digite *pesquisa* para obter uma lista de serviços de pesquisa da sua assinatura. Seu serviço deve aparecer na lista. 
@@ -64,7 +64,7 @@ Consultas de pesquisa são iteradas em um *índice* que contém os dados pesquis
 Para mantermos essa tarefa baseada no portal, utilizamos um conjunto de dados interno de exemplo que pode ser rastreado com um indexador via assistente **Importar dados**. 
 
 #### <a name="step-1-start-the-import-data-wizard"></a>Etapa 1: Iniciar o assistente Importar dados
-1. No painel de serviço de Pesquisa do Azure, clique em **Importar dados** na barra de comandos para iniciar um assistente que cria e preenche um índice.
+1. No painel de serviço de Azure Search, clique em **Importar dados** na barra de comandos para iniciar um assistente que cria e preenche um índice.
    
     ![Comando Importar de dados][2]
 
@@ -128,7 +128,7 @@ Agora você tem um índice de pesquisa que está pronto para consulta. **Gerenci
 
 **`search=seattle`**
 
-+ O parâmetro `search` é usado para inserir uma palavra-chave de pesquisa de texto completo, neste caso, retornando listagens no estado de King County, estado de Washington, contendo *Seattle* em qualquer campo pesquisável no documento. 
++ O parâmetro **search** é usado para inserir uma palavra-chave de pesquisa de texto completo, neste caso, retornando listagens no estado de King County, estado de Washington, contendo *Seattle* em qualquer campo pesquisável no documento. 
 
 + O **Search Explorer** retorna os resultados em JSON, que é detalhado e difícil de ler quando os documentos têm uma estrutura densa. Dependendo de seus documentos, você precisará escrever código que lide com os resultados da para extrair elementos importantes. 
 
@@ -136,35 +136,48 @@ Agora você tem um índice de pesquisa que está pronto para consulta. **Gerenci
 
 **`search=seattle&$count=true&$top=100`**
 
-+ O símbolo `&` é usado para acrescentar os parâmetros de pesquisa, que podem ser especificados em qualquer ordem. 
++ O símbolo **&** é usado para acrescentar os parâmetros de pesquisa, que podem ser especificados em qualquer ordem. 
 
-+  O parâmetro `$count=true` retorna uma contagem da soma de todos os documentos retornados. Você pode verificar consultas de filtro monitorando alterações relatadas por `$count=true`. 
++  O parâmetro **$count=true** retorna uma contagem da soma de todos os documentos retornados. Você pode verificar consultas de filtro monitorando alterações relatadas por **$count=true**. 
 
-+ O `$top=100` retorna o 100 documentos com maior classificação do total. Por padrão, o Azure Search retorna as primeiras 50 melhores correspondências. Você pode aumentar ou diminuir a quantidade via `$top`.
++ O **$top=100** retorna o 100 documentos com maior classificação do total. Por padrão, o Azure Search retorna as primeiras 50 melhores correspondências. Você pode aumentar ou diminuir a quantidade via **$top**.
 
-**`search=*&facet=city&$top=2`**
 
-+ `search=*` é uma pesquisa vazia. Pesquisas vazias pesquisam tudo. Um motivo de envio de uma consulta vazia é fazer a filtragem ou faceta no conjunto completo de documentos. Por exemplo, você deseja que uma estrutura de navegação de facetas contenha todas as cidades no índice.
+## <a name="filter-query"></a> Filtrar a consulta
 
-+  `facet` retorna uma estrutura de navegação que você pode passar para um controle de interface do usuário. Ela retorna categorias e uma contagem. Nesse caso, categorias se baseiam na quantidade de cidades. Não há nenhuma agregação no Azure Search, mas você pode aproximar agregação com `facet`, que retorna uma contagem de documentos em cada categoria.
-
-+ `$top=2` recupera dois documentos, ilustrando a que você pode usar `top` para reduzir ou aumentar os resultados.
-
-**`search=seattle&facet=beds`**
-
-+ Essa consulta é faceta para camas em uma pesquisa de texto para *Seattle*. `"beds"` pode ser especificado como uma faceta porque o campo é marcado como recuperável, filtrável e facetável no índice e valores que ele contém (numérico, 1 a 5) são adequados para categorizar as listagens em grupos (listagens com 3 quartos, 4 quartos). 
-
-+ Somente campos filtráveis podem ser facetados. Somente os campos recuperáveis podem ser retornados nos resultados.
+Os filtros são incluídos nas solicitações de pesquisa quando você acrescenta o parâmetro **$filter**. 
 
 **`search=seattle&$filter=beds gt 3`**
 
-+ O parâmetro `filter` retorna resultados que correspondem aos critérios fornecidos. Nesse caso, quartos maiores que 3. 
++ O parâmetro **$filter** retorna resultados que correspondem aos critérios fornecidos. Nesse caso, quartos maiores que 3. 
 
 + A sintaxe de filtro é uma construção de OData. Para saber mais, confira [Sintaxe de filtro OData](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
+## <a name="facet-query"></a> Facetar a consulta
+
+Os filtros de faceta estão incluídos em solicitações de pesquisa. Você pode usar o parâmetro facet para retornar uma contagem agregada de documentos que correspondam a um valor de faceta que você fornecer. 
+
+**`search=*&facet=city&$top=2`**
+
++ **search=*** é uma pesquisa vazia. Pesquisas vazias pesquisam tudo. Um motivo de envio de uma consulta vazia é fazer a filtragem ou faceta no conjunto completo de documentos. Por exemplo, você deseja que uma estrutura de navegação de facetas contenha todas as cidades no índice.
+
++  **facet** retorna uma estrutura de navegação que você pode passar para um controle de interface do usuário. Ela retorna categorias e uma contagem. Nesse caso, categorias se baseiam na quantidade de cidades. Não há nenhuma agregação no Azure Search, mas você pode aproximar agregação com `facet`, que retorna uma contagem de documentos em cada categoria.
+
++ **$top=2** recupera dois documentos, ilustrando a que você pode usar `top` para reduzir ou aumentar os resultados.
+
+**`search=seattle&facet=beds`**
+
++ Essa consulta é faceta para camas em uma pesquisa de texto para *Seattle*. O termo *beds* pode ser especificado como uma faceta porque o campo é marcado como recuperável, filtrável e facetável no índice e valores que ele contém (numérico, 1 a 5) são adequados para categorizar as listagens em grupos (listagens com 3 quartos, 4 quartos). 
+
++ Somente campos filtráveis podem ser facetados. Somente os campos recuperáveis podem ser retornados nos resultados.
+
+## <a name="highlight-query"></a> Adicionar realce
+
+Realce de ocorrências refere-se à formatação de texto correspondentes à palavra-chave, considerando que existam correspondências em um campo específico. Se o termo de pesquisa estiver escondido em uma descrição, você poderá adicionar o realce de ocorrências para facilitar a localização. 
+
 **`search=granite countertops&highlight=description`**
 
-+ Realce de ocorrências refere-se à formatação de texto correspondentes à palavra-chave, considerando que existam correspondências em um campo específico. Se o termo de pesquisa estiver escondido em uma descrição, você poderá adicionar o realce de ocorrências para facilitar a localização. Nesse caso, a frase formatada `"granite countertops"` é mais fácil de se ver no campo de descrição.
++ Neste exemplo, a frase formatada *balcões de granito* é mais fácil de identificar no campo de descrição.
 
 **`search=mice&highlight=description`**
 
@@ -172,25 +185,31 @@ Agora você tem um índice de pesquisa que está pronto para consulta. **Gerenci
 
 + O Azure Search dá suporte a 56 analisadores da Lucene e da Microsoft. O padrão usado pelo Azure Search é o analisador Lucene standard. 
 
+## <a name="fuzzy-search"></a> Usar pesquisa difusa
+
+Palavras com grafia incorreta, como *samamish* para o planalto Sammamish na área de Seattle, não retornam correspondências em uma pesquisa típica. Para lidar com erros de ortografia, você pode usar a pesquisa difusa, descrita no exemplo a seguir.
+
 **`search=samamish`**
 
-+ Palavras com grafia incorreta, como 'samamish' para o planalto Sammamish na área de Seattle, não retornam correspondências em uma pesquisa típica. Para lidar com erros de ortografia, você pode usar a pesquisa difusa, descrita no exemplo a seguir.
++ Este exemplo escreveu erradamente uma vizinhança na área de Seattle.
 
 **`search=samamish~&queryType=full`**
 
-+ A pesquisa difusa é habilitada quando você especifica o símbolo `~` e usa o analisador de consulta completo, que interpreta e analisa corretamente a sintaxe `~`. 
++ A pesquisa difusa é habilitada quando você especifica o símbolo **~** e usa o analisador de consulta completo, que interpreta e analisa corretamente a sintaxe **~**. 
 
-+ A pesquisa difusa está disponível quando você escolhe o analisador de consulta completo, que ocorrerá ao definir `queryType=full`. Para saber mais sobre cenários de consulta habilitados pelo analisador de consulta completo, confira [Sintaxe de consulta Lucene no Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
++ A pesquisa difusa está disponível quando você escolhe o analisador de consulta completo, que ocorrerá ao definir **queryType=full**. Para saber mais sobre cenários de consulta habilitados pelo analisador de consulta completo, confira [Sintaxe de consulta Lucene no Azure Search](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
 
-+ Quando `queryType` for especificado, o analisador de consulta simples padrão será usado. O analisador de consulta simples é mais rápido, mas se você precisar de pesquisa difusa, expressões regulares, pesquisa por proximidade ou outros tipos de consulta avançada, será necessário obter a sintaxe completa. 
++ Quando **queryType** for especificado, o analisador de consulta simples padrão será usado. O analisador de consulta simples é mais rápido, mas se você precisar de pesquisa difusa, expressões regulares, pesquisa por proximidade ou outros tipos de consulta avançada, será necessário obter a sintaxe completa. 
+
+## <a name="geo-search"></a> Experimentar a pesquisa geoespacial
+
+A pesquisa geográfica tem suporte pelo [tipo de dados edm.GeographyPoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) em um campo que contém coordenadas. A pesquisa geográfica é um tipo de filtro, especificado na [sintaxe do filtro OData](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
 
 **`search=*&$count=true&$filter=geo.distance(location,geography'POINT(-122.121513 47.673988)') le 5`**
 
-+ A pesquisa geográfica tem suporte pelo [tipo de dados edm.GeographyPoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) em um campo que contém coordenadas. A pesquisa geográfica é um tipo de filtro, especificado na [sintaxe do filtro OData](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search). 
++ O exemplo de consulta filtra os dados posicionais de todos os resultados e os resultados ficam a menos de 5 km de um determinado ponto (especificado como coordenadas de latitude e longitude). Ao adicionar **$count**, você poderá ver quantos resultados são retornados quando se altera a distância ou as coordenadas. 
 
-+ O exemplo de consulta filtra os dados posicionais de todos os resultados e os resultados ficam a menos de 5 km de um determinado ponto (especificado como coordenadas de latitude e longitude). Ao adicionar `$count`, você poderá ver quantos resultados são retornados quando se altera a distância ou as coordenadas. 
-
-+ A pesquisa geográfica é útil se seu aplicativo de pesquisa tem um recurso de “Encontrar nas proximidades” ou usa a navegação de mapa. Entretanto, ela não é uma pesquisa de texto completo. Se você tiver requisitos de usuário para pesquisar em uma cidade ou país por nome, adicione campos que contêm nomes de cidade ou países, além de coordenadas.
++ A pesquisa geográfica é útil se seu aplicativo de pesquisa tem um recurso de “encontrar nas proximidades” ou usa a navegação de mapa. Entretanto, ela não é uma pesquisa de texto completo. Se você tiver requisitos de usuário para pesquisar em uma cidade ou país por nome, adicione campos que contêm nomes de cidade ou países, além de coordenadas.
 
 ## <a name="next-steps"></a>Próximas etapas
 

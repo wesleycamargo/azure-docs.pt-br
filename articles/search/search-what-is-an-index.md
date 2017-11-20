@@ -1,6 +1,6 @@
 ---
-title: "Criar um índice de Pesquisa do Azure | Microsoft Azure | Serviço de pesquisa de nuvem hospedado"
-description: "O que é um índice na Pesquisa do Azure e como é usado?"
+title: "Índices na Azure Search | Microsoft Docs"
+description: "Saiba mais sobre conceitos de índice no Azure Search e como os índices são usados."
 services: search
 documentationcenter: 
 author: ashmaka
@@ -10,15 +10,15 @@ ms.devlang: na
 ms.workload: search
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
-ms.date: 12/08/2016
+ms.date: 11/08/2017
 ms.author: ashmaka
-ms.openlocfilehash: 7fc45273c0f71c727b7087949cc63bbb4111f866
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 87f1121594d8577b5dacac4026aa7d86b2921d10
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
-# <a name="create-an-azure-search-index"></a>Criar um índice de pesquisa do Azure
+# <a name="indexes-in-azure-search"></a>Índices no Azure Search
 > [!div class="op_single_selector"]
 > * [Visão geral](search-what-is-an-index.md)
 > * [Portal](search-create-index-portal.md)
@@ -27,12 +27,11 @@ ms.lasthandoff: 10/11/2017
 > 
 > 
 
-## <a name="what-is-an-index"></a>O que é um índice?
-Um *índice* é o repositório persistente de *documentos* e outras construções usados por um serviço do Azure Search. Um documento é um dado pesquisável da unidade no índice. Por exemplo, uma loja de comércio eletrônico pode ter um documento para cada item vendido, uma agência de notícias pode ter um documento para cada artigo etc. Mapeando esses conceitos para equivalentes de banco de dados mais conhecidos: um *índice* é conceitualmente semelhante a uma *tabela* e *documentos* são equivalentes a *linhas* em uma tabela.
+No Azure Search, um *índice* é o repositório persistente de *documentos* e outras construções usados por um serviço do Azure Search. Um documento é um dado pesquisável da unidade no índice. Por exemplo, uma loja de comércio eletrônico pode ter um documento para cada item vendido, uma agência de notícias pode ter um documento para cada artigo e assim por diante. Mapeando esses conceitos para equivalentes de banco de dados mais conhecidos: um *índice* é conceitualmente semelhante a uma *tabela* e *documentos* são equivalentes a *linhas* em uma tabela.
 
-Quando você adiciona/carrega documentos e envia consultas de pesquisa para a Pesquisa do Azure, envia suas solicitações para um índice específico em seu serviço de pesquisa.
+Quando você adiciona/carrega documentos e envia consultas de pesquisa para o Azure Search, envia suas solicitações para um índice específico em seu serviço de pesquisa.
 
-## <a name="field-types-and-attributes-in-an-azure-search-index"></a>Tipos de campo e atributos em um índice da Pesquisa do Azure
+## <a name="field-types-and-attributes-in-an-azure-search-index"></a>Tipos de campo e atributos em um índice do Azure Search
 Quando você define o esquema, deve especificar o nome, tipo e atributos de cada campo no índice. O tipo de campo classifica os dados armazenados nesse campo. Os atributos são definidos em campos individuais para especificar como o campo será usado. A tabela a seguir enumera os tipos e atributos que você pode especificar.
 
 ### <a name="field-types"></a>Tipos de campo

@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 09/28/2017
-ms.openlocfilehash: cabba8ce04d62d35ca40b3ae35d9d40a6ec7b2b9
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: fcef59d38cce5f8860508ebeeda0b1b97f5e83f1
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="classify-iris-part-1-prepare-the-data"></a>Parte 1 de Classificação da Íris: Preparar dados
 Os serviços do Azure Machine Learning (versão prévia) são uma solução integrada de análise avançada e de ciência de dados de ponta a ponta para cientistas de dados profissionais prepararem dados, desenvolverem testes e implantarem modelos em escala de nuvem.
@@ -69,7 +69,9 @@ Você pode seguir as instruções no artigo [Guia de início rápido para instal
    ![Selecionar íris](media/tutorial-classifying-iris/select_iris_csv.png)
 
    >[!IMPORTANT]
-   >Verifique se você selecionou o arquivo **iris.csv** de dentro do diretório do projeto atual para este exercício. Caso contrário, as etapas posteriores podem falhar. 
+   >Verifique se você selecionou o arquivo **iris.csv** de dentro do diretório do projeto atual para este exercício. Caso contrário, as etapas posteriores podem falhar.
+   
+4. Depois de selecionar o arquivo, selecione o botão **Concluir**.
 
 4. Um novo arquivo chamado **iris-1.dsource** é criado. O arquivo é nomeado exclusivamente com "-1", pois o projeto de exemplo já é fornecido com um arquivo **iris.dsource** não numerado.  
 

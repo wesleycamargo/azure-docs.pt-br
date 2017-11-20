@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/17/2017
 ms.author: shlo
-ms.openlocfilehash: 6dcc5c55fae5e2494526c492a1453747b4d6e179
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6b5552bbb3a56a95e616a79bf9adeabe68d01216
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipelines e atividades no Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -75,11 +75,12 @@ Atividade de controle | Descrição
 [WebActivity](control-flow-web-activity.md) | A atividade da Web pode ser usada para chamar um ponto de extremidade REST personalizado de um pipeline do Data Factory. Você pode passar conjuntos de dados e serviços vinculados a serem consumidos e acessados pela atividade. 
 [Atividade de pesquisa](control-flow-lookup-activity.md) | A atividade de pesquisa pode ser usada para ler ou procurar um registro/nome de tabela/valor de qualquer fonte externa. Essa saída pode referenciada pelas atividades com êxito. 
 [Atividade de obtenção de metadados](control-flow-get-metadata-activity.md) | A atividade GetMetadata pode ser usada para recuperar metadados de todos os dados no Azure Data Factory. 
-Atividade Do Until | Implementa o loop Do-Until, que é semelhante à estrutura de looping Do-Until em linguagens de programação.
-Atividade Condição Se | A Condição Se pode ser usada em ramificações baseadas em condição que são avaliadas como true ou false. 
+[Atividade Until](control-flow-until-activity.md) | Implementa o loop Do-Until, que é semelhante à estrutura de looping Do-Until em linguagens de programação. Ela executa um conjunto de atividades em um loop até que a condição associada à atividade seja avaliada como verdadeira. Especifique um valor de tempo limite para a atividade Until no Data Factory.
+[Atividade de Condição Se](control-flow-if-condition-activity.md) | A Condição If pode ser usada para ramificar com base em condições que são avaliadas como true ou false. A atividade If Condition fornece a mesma funcionalidade que uma instrução if fornece em linguagens de programação. Ela avalia um conjunto de atividades quando a condição é avaliada como `true` e outro conjunto de atividades quando a condição é avaliada como `false`.
+[Atividade de espera](control-flow-wait-activity.md) | Quando você usa uma atividade de espera em um pipeline, o pipeline aguarda o período de tempo especificado antes de continuar com a execução de atividades subsequentes. 
 
 ## <a name="pipeline-json"></a>Pipeline de JSON
-Vamos dar uma olhada mais próxima em como um pipeline é definido no formato JSON. A estrutura genérica para um pipeline será semelhante ao seguinte:
+Veja como um pipeline é definido no formato JSON: 
 
 ```json
 {
@@ -175,7 +176,7 @@ tentar novamente | Número máximo de novas tentativas | Número inteiro | Não.
 retryIntervalInSeconds | O intervalo entre tentativas de repetição em segundos | Número inteiro | Não. O padrão é 20 segundos
 
 ### <a name="control-activity"></a>Atividade de controle
-As atividades de controle têm a estrutura de nível superior mostrada a seguir.
+As atividades de controle têm a seguinte estrutura de nível superior:
 
 ```json
 {
@@ -358,7 +359,7 @@ Você pode encadear duas atividades usando a [dependência de atividade](#activi
 ## <a name="scheduling-pipelines"></a>Agendando pipelines
 Pipelines são agendados por gatilhos. Há diferentes tipos de gatilhos (gatilho do Agendador, que permite que pipelines sejam disparados em um agendamento de relógio, bem como gatilho manual, que dispara os pipelines sob demanda). Para obter mais informações sobre gatilhos, consulte o artigo [gatilhos e execução de pipeline](concepts-pipeline-execution-triggers.md). 
 
-Para que o gatilho dispare uma execução de pipeline, você deve incluir uma referência de pipeline do pipeline específico na definição do gatilho. Pipelines e gatilhos têm uma relação n-m. Vários gatilhos podem disparar um único pipeline e o mesmo gatilho pode disparar vários pipelines. Uma vez definido o gatilho, você deve iniciar o gatilho para que ele comece a disparar o pipeline. Para obter mais informações sobre gatilhos, consulte o artigo [gatilhos e execução de pipeline](concepts-pipeline-execution-triggers.md). 
+Para que o gatilho dispare uma execução de pipeline, você deve incluir uma referência de pipeline do pipeline específico na definição do gatilho. Os pipelines e os gatilhos têm uma relação n-m. Vários gatilhos podem disparar um único pipeline e o mesmo gatilho pode disparar vários pipelines. Uma vez definido o gatilho, você deve iniciar o gatilho para que ele comece a disparar o pipeline. Para obter mais informações sobre gatilhos, consulte o artigo [gatilhos e execução de pipeline](concepts-pipeline-execution-triggers.md). 
 
 Por exemplo, digamos que você tenha um gatilho de agendador, "Gatilho A", que você gostaria que disparasse a execução do seu pipeline, "MyCopyPipeline". Você define o gatilho conforme mostrado no exemplo a seguir:
 

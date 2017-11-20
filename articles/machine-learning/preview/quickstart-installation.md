@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: hero-article
 ms.date: 10/13/2017
-ms.openlocfilehash: 07d06e4de95fcc562bcc76ac5cc4f5cd3483ba6d
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 7c74a9ebaae0b027277fe282b958a653ab498fc5
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="create-azure-machine-learning-preview-accounts-and-install-azure-machine-learning-workbench"></a>Criar contas de versão prévia do Azure Machine Learning e instalar o Azure Machine Learning Workbench
 O Azure Machine Learning é uma solução integrada de análise avançada e de ciência de dados de ponta a ponta. Ele ajuda os cientistas de dados profissionais a prepar dados, desenvolver experimentos e implar modelos em escala de nuvem.
@@ -93,33 +93,20 @@ Instale o Azure Machine Learning Workbench no seu computador executando o Window
    `C:\Users\<user>\AppData\Local\AmlWorkbench`
 
 ## <a name="install-azure-machine-learning-workbench-on-macos"></a>Instalar o Azure Machine Learning Workbench no macOS
-Instale o Azure Machine Learning Workbench no seu computador executando o macOS Sierra.
+Instale o Azure Machine Learning Workbench no seu computador executando o macOS Sierra ou posterior.
 
-1. Instale a biblioteca openssl usando o [Homebrew](http://brew.sh). Para saber mais, confira [Pré-requisitos para o .NET Core no Mac](https://docs.microsoft.com/dotnet/core/macos-prerequisites).
-   ```
-   # install Homebrew first if you don't have it already
-   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-
-   # install latest openssl needed for .NET Core 1.x
-   brew update
-   brew install openssl
-   mkdir -p /usr/local/lib
-   ln -s /usr/local/opt/openssl/lib/libcrypto.1.0.0.dylib /usr/local/lib/
-   ln -s /usr/local/opt/openssl/lib/libssl.1.0.0.dylib /usr/local/lib/
-   ```
-
-2. Baixe o instalador do Azure Machine Learning Workbench mais recente, [AmlWorkbench.dmg](https://aka.ms/azureml-wb-dmg).
+1. Baixe o instalador do Azure Machine Learning Workbench mais recente, [AmlWorkbench.dmg](https://aka.ms/azureml-wb-dmg).
 
    >[!IMPORTANT]
    >Baixe o instalador totalmente em disco, depois inicie-o a partir desse mesmo disco. Não execute-o diretamente do widget de download do seu navegador.
 
-3. Clique duas vezes no instalador **AmlWorkbench.dmg** baixado do Localizador.
+2. Clique duas vezes no instalador **AmlWorkbench.dmg** baixado do Localizador.
 
-4. Conclua a instalação seguindo as instruções na tela.
+3. Conclua a instalação seguindo as instruções na tela.
 
    O instalador baixa todos os componentes dependentes necessários como Python, Miniconda e outras bibliotecas relacionadas. A instalação pode levar cerca de meia hora para concluir todos os componentes. 
 
-5. O Azure Machine Learning Workbench agora está instalado no seguinte diretório: 
+4. O Azure Machine Learning Workbench agora está instalado no seguinte diretório: 
 
    `/Applications/AmlWorkbench.app`
 
