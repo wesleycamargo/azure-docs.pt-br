@@ -1,0 +1,79 @@
+- name: Documentação do Azure IoT Edge
+  href: index.yml
+- name: Visão geral
+  items:
+    - name: Sobre o Azure IoT Edge
+      href: how-iot-edge-works.md
+- name: Guia de início rápido
+  items:
+    - name: Implantar a borda - Windows
+      href: quickstart.md
+    - name: Implantar a borda - Linux
+      href: quickstart-linux.md
+- name: Tutoriais
+  items:
+    - name: Simular um dispositivo de borda - Windows
+      href: tutorial-simulate-device-windows.md
+    - name: Simular um dispositivo de borda - Linux
+      href: tutorial-simulate-device-linux.md
+    - name: 'Desenvolver um módulo C#'
+      href: tutorial-csharp-module.md
+    - name: Implantar o Azure Stream Analytics
+      href: tutorial-deploy-stream-analytics.md
+    - name: Implantar o Azure Machine Learning
+      href: tutorial-deploy-machine-learning.md
+    - name: Implantar o Azure Functions
+      href: tutorial-deploy-function.md
+- name: Guias de instruções
+  items:
+    - name: Criar um dispositivo de gateway
+      href: how-to-create-gateway-device.md
+    - name: Implantar e monitorar em escala
+      href: how-to-deploy-monitor.md
+    - name: Provisionar um dispositivo do IoT Core
+      href: how-to-install-iot-core.md
+- name: Conceitos
+  items:
+    - name: Módulos do IoT Edge
+      href: iot-edge-modules.md
+      items:
+        - name: Desenvolvimento
+          href: module-development.md
+        - name: Composição
+          href: module-composition.md
+    - name: Tempo de execução do IoT Edge
+      href: iot-edge-runtime.md
+    - name: Implantações
+      href: module-deployment-monitoring.md
+    - name: Segurança
+      href: security.md
+- name: Recursos
+  items:
+    - name: Catálogo de dispositivos Azure Certified para IoT
+      href: 'https://catalog.azureiotsuite.com/'
+    - name: Centro de Desenvolvedores do IoT do Azure
+      href: 'https://azure.microsoft.com/develop/iot/'
+    - name: Roteiro do Azure
+      href: 'https://azure.microsoft.com/roadmap/?category=internet-of-things'
+    - name: ferramenta DeviceExplorer
+      href: 'https://github.com/Azure/azure-iot-sdk-csharp/tree/master/tools/DeviceExplorer'
+    - name: ferramenta iothub-diagnostics
+      href: 'https://github.com/Azure/iothub-diagnostics'
+    - name: ferramenta iothub-explorer
+      href: 'https://github.com/Azure/iothub-explorer'
+    - name: Roteiro de aprendizagem
+      href: 'https://azure.microsoft.com/documentation/learning-paths/iot-hub/'
+    - name: Fórum do MSDN
+      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureiothub'
+    - name: Preços
+      href: 'https://azure.microsoft.com/pricing/details/iot-hub/'
+    - name: Calculadora de preço
+      href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: Atualizações de serviço
+      href: 'https://azure.microsoft.com/updates/?product=iot-hub'
+    - name: Stack Overflow
+      href: 'http://stackoverflow.com/questions/tagged/azure-iot-hub'
+    - name: Estudos de casos técnicos
+      href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
+    - name: Vídeos
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=iot-hub'

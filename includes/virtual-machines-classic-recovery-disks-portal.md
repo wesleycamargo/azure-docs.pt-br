@@ -1,5 +1,6 @@
 Se ocorrer um erro de disco ou de inicialização na VM (máquina virtual) no Azure, talvez você precise realizar etapas de solução de problemas no próprio disco rígido virtual. Um exemplo comum seria uma atualização de aplicativo com falha que impede a inicialização bem-sucedida da VM. Este artigo descreve como usar o portal do Azure para conectar o disco rígido virtual a outra VM para corrigir erros e recriar a VM original.
 
+
 ## <a name="recovery-process-overview"></a>Visão geral do processo de recuperação
 O processo de solução de problemas é o seguinte:
 

@@ -1,6 +1,6 @@
 ---
-title: "Referência de produtos e planos de serviço no Azure Active Directory | Microsoft Docs"
-description: "Referência para produtos e planos de serviço"
+title: "Nomes de produto e identificadores de plano de serviço para licenciamento no Azure Active Directory | Microsoft Docs"
+description: Mapa de identificador para gerenciar o licenciamento do Azure AD no portal do Azure, no portal do Office 365, no PowerShell ou no Microsoft Graph
 services: active-directory
 keywords: "Planos de serviço de licenciamento do Azure Active Directory"
 documentationcenter: 
@@ -13,33 +13,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/11/2017
+ms.date: 10/26/2017
 ms.author: piotrci
-ms.openlocfilehash: e796c03f4477b431907d8b5fbd6065239bb1d40e
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: b2c540c69a95f0912a71c25ddc70061fa8043aa4
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 10/27/2017
 ---
-# <a name="reference-for-products-and-service-plans-in-azure-active-directory"></a>Referência de produtos e planos de serviço no Azure Active Directory
+# <a name="product-names-and-service-plan-identifiers-for-licensing"></a>Nomes de produtos e identificadores de plano de serviço para licenciamento
 
-Este artigo fornece informações de referência que podem ser úteis ao trabalhar no gerenciamento de licenças do Microsoft Online Services.
+Ao gerenciar licenças no [portal do Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) ou no portal do Office 365, você verá os nomes de produto que se parecem com o *Office 365 Enterprise E3*. Ao usar os cmdlets do PowerShell v1.0, o mesmo produto é identificado usando um nome específico mas menos amigável: *ENTERPRISEPACK*. Ao usar cmdlets do PowerShell v2.0 ou o Microsoft Graph, o mesmo produto é identificado usando um valor de GUID: *6fd2c87f-b296-42f0-b197-1e91e994b900*. A tabela a seguir lista os produtos mais frequentemente usados do serviço online da Microsoft e fornece os vários valores de ID desses produtos:
 
-## <a name="product-names-and-identifiers-used-in-azure-ad"></a>Nomes de produtos e identificadores usados no Azure AD
-
-Ao gerenciar licenças no [Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) ou em portais do Office, você vê nomes de produtos amigáveis como *Office 365 Enterprise E3*. No entanto, ao usar os cmdlets do PowerShell v1.0, o mesmo produto é identificado usando um nome menos amigável: *ENTERPRISEPACK*. Ao usar o PowerShell v2.0 ou o Microsoft Graph, o mesmo produto é identificado usando um valor de GUID: *6fd2c87f-b296-42f0-b197-1e91e994b900*. O mesmo vale para os planos de serviço incluídos no produto.
-
-A tabela a seguir lista os produtos mais frequentemente usados do Microsoft Online Services e fornece os vários valores de ID desses produtos.
-
-- **Nome do Produto**: consulte esses valores em portais de gerenciamento
-- **ID da cadeia de caracteres**: usada pelos cmdlets do PowerShell v1.0 para executar operações em licenças.
-- **ID de GUID**: usada pelo Azure AD Graph e o Microsoft Graph.
-- **Planos de serviço incluído**: uma lista de planos de serviço no produto. A ID de cadeia de caracteres e a ID de GUID são listadas.
+- **Nome do Produto**: usado em portais de gerenciamento
+- **ID da Cadeia de Caracteres**: usada pelos cmdlets do PowerShell v1.0 ao executar operações em licenças
+- **ID de GUID**: GUID usado pelo Azure AD Graph e o Microsoft Graph
+- **Planos de Serviço incluídos**: uma lista de planos de serviço no produto que correspondem à ID da Cadeia de Caracteres e ao GUID
 
 >[!NOTE]
->Essas informações são precisas a partir de 11 de outubro de 2017. A tabela contém uma seleção de produtos mais comumente usados.
+>Essas informações são precisas a partir de 11 de outubro de 2017.
 
-| Nome do Produto | ID da cadeia de caracteres | ID de GUID| Planos de serviço incluídos |
+| Nome do Produto | ID da Cadeia de Caracteres | GUID | Planos de serviço incluídos |
 | --- | --- | --- |--- |
 | AZURE ACTIVE DIRECTORY BASIC  | AAD_BASIC | 2b9c8e7c-319c-43a2-a2a0-48c5c6161de7  | AAD_BASIC (c4da7f8a-5ee2-4c99-a7e1-87d2df57f6fe)
 | AZURE ACTIVE DIRECTORY PREMIUM P1 | AAD_PREMIUM   | 078d2b04-f1bd-4111-bbd4-b4b1b354cef4  | AAD_PREMIUM (41781fb2-bc02-4b7c-bd55-b576c07bb09d)<br/>MFA_PREMIUM (8a256a2b-b617-496d-b51b-e76466e88db0)
@@ -103,7 +97,7 @@ A tabela a seguir lista os produtos mais frequentemente usados do Microsoft Onli
 
 ## <a name="service-plans-that-cannot-be-assigned-at-the-same-time"></a>Planos de serviço que não podem ser atribuídos simultaneamente
 
-Alguns produtos contêm planos de serviço que são mutuamente exclusivos: não podem ser atribuídos simultaneamente ao mesmo usuário. Por exemplo, se você tiver *Office 365 Enterprise E1* e *Office 365 Enterprise E3* em seu locatário e você tentar atribuir ambas as licenças ao mesmo usuário, a operação falhará. Isso ocorre porque o produto E3 contém os planos de serviço a seguir, que estão em conflito com as contrapartes de E1:
+Alguns produtos contêm planos de serviço que não podem ser atribuídos simultaneamente ao mesmo usuário. Por exemplo, se você tiver *Office 365 Enterprise E1* e *Office 365 Enterprise E3* em seu locatário e você tentar atribuir ambas as licenças ao mesmo usuário, a operação falhará. Isso ocorre porque o produto E3 contém os planos de serviço a seguir, que estão em conflito com as contrapartes de E1:
 
 -   SharePoint Online (plano 2) está em conflito com o SharePoint Online (plano 1).
 -   O Exchange Online (plano 2) está em conflito com o Exchange Online (plano 1).
@@ -121,7 +115,7 @@ Esta seção lista os planos de serviço mais comuns que são mutuamente exclusi
 
 Os planos de serviço a seguir não podem ser atribuídos juntos:
 
-| Nome do Plano de Serviço | ID de GUID |
+| Nome do Plano de Serviço | GUID |
 | --- | --- |
 | CRMIUR    | c42a56bd-9e70-4ace-be17-dc8eeae369d7 |
 | CRMPLAN1  | 119cf168-b6cf-41fb-b82e-7fee7bae5814 |
@@ -137,7 +131,7 @@ Os planos de serviço a seguir não podem ser atribuídos juntos:
 
 Os planos de serviço a seguir não podem ser atribuídos juntos:
 
-| Nome do Plano de Serviço | ID de GUID |
+| Nome do Plano de Serviço | GUID |
 | --- | --- |
 | EXCHANGE_B_STANDARD   | 90927877-dcff-4af6-b346-2332c0b15bb7 |
 | EXCHANGE_L_STANDARD   | d42bdbd6-c335-4231-ab3d-c8f348d5aff5 |
@@ -152,7 +146,7 @@ Os planos de serviço a seguir não podem ser atribuídos juntos:
 
 Os planos de serviço a seguir não podem ser atribuídos juntos:
 
-| Nome do Plano de Serviço | ID de GUID |
+| Nome do Plano de Serviço | GUID |
 | --- | --- |
 | INTUNE_A  | c1ec4a95-1f05-45b3-a911-aa3fa01094f5 |
 | INTUNE_A_VL   | 3e170737-c728-4eae-bbb9-3f3360f7184c |
@@ -162,7 +156,7 @@ Os planos de serviço a seguir não podem ser atribuídos juntos:
 
 Os planos de serviço a seguir não podem ser atribuídos juntos:
 
-| Nome do Plano de Serviço | ID de GUID |
+| Nome do Plano de Serviço | GUID |
 | --- | --- |
 | ONEDRIVEENTERPRISE    | afcafa6a-d966-4462-918c-ec0b4e0fe642 |
 | SHAREPOINT_S_DEVELOPER    | a361d6e2-509e-4e25-a8ad-950060064ef4 |
@@ -178,7 +172,7 @@ Os planos de serviço a seguir não podem ser atribuídos juntos:
 
 Os planos de serviço a seguir não podem ser atribuídos juntos:
 
-| Nome do Plano de Serviço | ID de GUID |
+| Nome do Plano de Serviço | GUID |
 | --- | --- |
 | MCOIMP    | afc06cb0-b4f4-4473-8286-d644f70d8faf |
 | MCOSTANDARD_MIDMARKET | b2669e95-76ef-4e7e-a367-002f60a39f3e |
@@ -187,7 +181,7 @@ Os planos de serviço a seguir não podem ser atribuídos juntos:
 
 Os planos de serviço a seguir não podem ser atribuídos juntos:
 
-| Nome do Plano de Serviço | ID de GUID |
+| Nome do Plano de Serviço | GUID |
 | --- | --- |
 | MCOPSTN1  | 4ed3ff63-69d7-4fb7-b984-5aec7f605ca8 |
 | MCOPSTN2  | 5a10155d-f5c1-411a-a8ec-e99aae125390 |
@@ -196,7 +190,7 @@ Os planos de serviço a seguir não podem ser atribuídos juntos:
 
 Os planos de serviço a seguir não podem ser atribuídos juntos:
 
-| Nome do Plano de Serviço | ID de GUID |
+| Nome do Plano de Serviço | GUID |
 | --- | --- |
 | YAMMER_ENTERPRISE | 7547a3fe-08ee-4ccb-b430-5077c5041653 |
 | YAMMER_EDU    | 2078e8df-cff6-4290-98cb-5408261a760a |

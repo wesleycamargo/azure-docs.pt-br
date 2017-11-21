@@ -32,6 +32,7 @@
 ### [Configurar parâmetros de entrada do Runbook](automation-runbook-input-parameters.md)
 ### [Tratamento de erros nos runbooks gráficos](automation-runbook-graphical-error-handling.md)
 ### [Controlar um trabalho de runbook](automation-runbook-execution.md)
+### [Criar uma tarefa do observador](automation-watchers-tutorial.md)
 ### [Alterar configurações de runbook](automation-runbook-settings.md)
 ### [Gerenciar dados da Automação do Azure](automation-managing-data.md)
 ### [Chamar Runbook de Automação do Azure a partir do alerta do Log Analytics](automation-invoke-runbook-from-omsla-alert.md)
@@ -71,7 +72,7 @@
 ## Soluções
 ### [Gerenciamento de atualizações](../operations-management-suite/oms-solution-update-management.md)
 #### [Gerenciar atualizações de várias VMs](manage-update-multi.md)
-#### [Integrar SCCMr com o gerenciamento de atualizações do OMS](oms-solution-updatemgmt-sccmintegration.md)
+#### [Integrar o SCCM com o Gerenciamento de Atualizações do OMS](oms-solution-updatemgmt-sccmintegration.md)
 ### [Controle de alterações](../log-analytics/log-analytics-change-tracking.md)
 ### [Controlar alterações em VMs](automation-vm-change-tracking.md)
 ### [Gerenciar uma VM com coleta de inventário](automation-vm-inventory.md)

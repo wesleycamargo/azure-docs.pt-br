@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/26/2017
 ms.author: saysa
-ms.openlocfilehash: 0fae5fe35c25f97a9eb2c0d648cfb0f66b7f0725
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f55279436af39d9bc0d4b1d7ef2253e2fc3074c0
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Configurar seu ambiente de desenvolvimento no Mac OS X
 > [!div class="op_single_selector"]
@@ -48,7 +48,7 @@ Para criar a VM local que contém um cluster de cinco nós do Service Fabric, fa
     ```bash
     git clone https://github.com/azure/service-fabric-linux-vagrant-onebox.git
     ```
-    Essas etapas baixam o arquivo `Vagrantfile`, que contém a configuração da VM juntamente com o local do qual a VM é baixada.  O arquivo aponta para uma imagem Ubuntu de estoque.
+    Essas etapas trazem o arquivo `Vagrantfile` que contém a configuração da VM juntamente com o local de onde a VM é baixada.  O arquivo aponta para uma imagem Ubuntu de estoque.
 
 2. Navegue até o clone local do repositório
 
@@ -96,7 +96,7 @@ Para criar a VM local que contém um cluster de cinco nós do Service Fabric, fa
 
     ![Service Fabric Explorer exibido a partir do Mac de host][sfx-mac]
 
-## <a name="install-the-necessary-java-artifacts-on-vagrant-to-use-service-fabric-java-programming-model"></a>Instalar os artefatos do Java necessários no Vagrant para usar o modelo de programação do Java do Service Fabric
+## <a name="install-the-necessary-java-artifacts-on-vagrant-optional-if-you-want-to-use-the-java-programming-models"></a>Instalar os artefatos do Java necessários no Vagrant(opcional, se você quiser usar os modelos de programação do Java)
 
 Para criar serviços do Service Fabric usando o Java, tenha o 1.8 JDK instalado junto com o Gradle que é usado para executar tarefas de compilação. O trecho a seguir instala o Open JDK 1.8 junto com o Gradle. As bibliotecas Java do Service Fabric são extraídas do Maven.
 
@@ -106,13 +106,15 @@ Para criar serviços do Service Fabric usando o Java, tenha o 1.8 JDK instalado 
   sudo apt-get install gradle
 ```
 
-## <a name="set-up-the-service-fabric-cli-sfctl-on-your-mac"></a>Configurar a CLI do Service Fabric (sfctl) no seu Mac
+## <a name="set-up-the-service-fabric-cli"></a>Configurar a CLI do Service Fabric
 
-Siga as instruções em [CLI do Service Fabric](service-fabric-cli.md#cli-mac) para instalar a CLI do Service Fabric (`sfctl`) no seu Mac.
-Os comandos da CLI para interagir com entidades do Service Fabric, incluindo clusters e aplicativos.
+A [CLI do Service Fabric](service-fabric-cli.md) tem comandos para interagir com as entidades do Service Fabric, inclusive clusters e aplicativos. Ela se baseia no python, portanto, tenha o python e o pip instalados antes de prosseguir com o seguinte comando:
 
-## <a name="create-application-on-you-mac-using-yeoman"></a>Criar aplicativo no Mac usando o Yeoman
+```bash
+pip install sfctl
+```
 
+## <a name="create-application-on-mac-using-yeoman"></a>Criar um aplicativo Mac usando Yeoman
 O Service Fabric fornece ferramentas de scaffolding que ajudarão a criar um aplicativo do Service Fabric no terminal usando gerador de modelos Yeoman. Execute as etapas abaixo para garantir que você tenha o gerador de modelos yeoman do Service Fabric funcionando em seu computador.
 
 1. Node.js e NPM precisam estar instalados em seu mac. Se não for possível instalar o Node.js e o NPM usando Homebrew, faça o seguinte. Para verificar as versões do Node.js e do NPM instaladas em seu Mac, use a opção ``-v``.

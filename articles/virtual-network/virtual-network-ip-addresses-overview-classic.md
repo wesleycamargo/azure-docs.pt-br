@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
 ms.author: jdial
-ms.openlocfilehash: aa99d3ebd181a76d582670c5219f29858c462d30
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d5eea5e4499b9de40002ce2fc6aac39239c41b19
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="ip-address-types-and-allocation-methods-classic-in-azure"></a>Tipos de endereço IP e métodos de alocação (clássico) no Azure
 Você pode atribuir endereços IP aos recursos do Azure para se comunicar com outros recursos do Azure, sua rede local e a Internet. Há dois tipos de endereços IP que você pode usar no Azure: público e privado.
@@ -141,9 +141,8 @@ A tabela a seguir mostra cada tipo de recurso com os métodos de alocação poss
 
 | Recurso | Dinâmico | estático | Vários endereços IP |
 | --- | --- | --- | --- |
-| VM (em um serviço de nuvem *autônomo* ) |Sim |Sim |Sim |
-| Instância de função de PaaS (em um serviço de nuvem *autônomo* ) |Sim |Não |Sim |
-| Instância de função VM ou PaaS (em uma rede virtual) |Sim |Sim |Sim |
+| VM (em uma VNet ou um serviço de nuvem *autônomo*) |Sim |Sim |Sim |
+| Instância de função de PaaS (em uma VNet ou um serviço de nuvem *autônomo*) |Sim |Não |Não |
 | Front-end do balanceador de carga interno |Sim |Sim |Sim |
 | Front-end do Application Gateway |Sim |Sim |Sim |
 

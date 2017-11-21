@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 11/08/2017
 ms.author: jingwang
-ms.openlocfilehash: 3f2b95e57e34905bf1128e9aee2862110a598f75
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b0351e4c4dcf19f9e4b6ec11c59c4dd00f0013a2
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guia Desempenho e ajuste da Atividade de Cópia
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,7 +39,7 @@ O Azure fornece um conjunto de soluções de armazenamento de dados e data wareh
 Este artigo descreve:
 
 * [números de referência de desempenho](#performance-reference) para armazenamentos de dados de origem e coletor com suporte, para ajudá-lo a planejar o projeto;
-* Recursos que podem aumentar a taxa de transferência de cópia em cenários diferentes, incluindo [unidades de movimentação de dados em nuvem](#cloud-data-movement-units), [cópia paralela](#parallel-copy) e [cópia em etapas](#staged-copy);
+* Recursos que podem aumentar a taxa de transferência de cópia em diferentes cenários, incluindo [Unidades de Movimentação de Dados na nuvem](#cloud-data-movement-units), [cópia paralela](#parallel-copy) e [Cópia em etapas](#staged-copy);
 * [diretrizes de ajuste de desempenho](#performance-tuning-steps) sobre como ajustar o desempenho e os principais fatores que podem afetar o desempenho da cópia.
 
 > [!NOTE]
@@ -53,7 +53,7 @@ Como uma referência, a tabela abaixo mostra o número da taxa de transferência
 ![Matriz de desempenho](./media/copy-activity-performance/CopyPerfRef.png)
 
 >[!IMPORTANT]
->No Azure Data Factory versão 2, quando a atividade de cópia é executada em um Integration Runtime do Azure, o número mínimo de Unidades de Movimentação de dados na nuvem é dois.
+>No Azure Data Factory versão 2, quando a atividade de cópia é executada em um Integration Runtime do Azure, o mínimo permitido de unidades de movimentação de dados na nuvem é dois. Se ele não for especificado, consulte as unidades de movimentação de dados padrão usadas em [Unidades de movimentação de dados na nuvem](#cloud-data-movement-units).
 
 Pontos a serem observados:
 
@@ -84,13 +84,12 @@ Pontos a serem observados:
 
 Uma **unidade de movimentação de dados de nuvem (DMU)** é uma medida que representa a potência (uma combinação de CPU, memória e alocação de recursos da rede) de uma unidade única no Data Factory. **A DMU se aplica somente ao [Integration Runtime do Azure](concepts-integration-runtime.md#azure-integration-runtime)**, mas não ao [Integration Runtime auto-hospedado](concepts-integration-runtime.md#self-hosted-integration-runtime).
 
-**O mínimo de unidades de movimentação de dados em nuvem para capacitar execução da atividade de cópia é dois.** A tabela a seguir lista as DMUs padrão usadas em cenários de cópia diferentes.
+**O mínimo de unidades de movimentação de dados em nuvem para capacitar execução da atividade de cópia é dois.** Se ele não for especificado, a seguinte tabela listará as DMUs padrão usadas em diferentes cenários de cópia:
 
 | Copiar cenário | DMUs padrão determinadas pelo serviço |
 |:--- |:--- |
-| Copiar dados entre repositórios baseados em arquivo | Entre 2 e 16 dependendo do número e tamanho dos arquivos. |
-| Copiar dados do Salesforce/Dynamics | 4 |
-| Todos os outros cenários de cópia | 2 |
+| Copiar dados entre repositórios baseados em arquivo | Entre 4 e 16, dependendo do número e tamanho dos arquivos. |
+| Todos os outros cenários de cópia | 4 |
 
 Para substituir esse padrão, especifique um valor para a propriedade **cloudDataMovementUnits** da seguinte maneira. Os **valores permitidos** para a propriedade **cloudDataMovementUnits** são 2, 4, 8, 16, 32. O **número real de DMUs de nuvem** que a operação de cópia usa na execução é igual ou menor que o valor configurado, dependendo do seu padrão de dados. Para obter informações sobre o nível de ganho de desempenho que você pode obter ao configurar mais unidades para uma origem e coletor de cópia específicos, consulte a [referência de desempenho](#performance-reference).
 

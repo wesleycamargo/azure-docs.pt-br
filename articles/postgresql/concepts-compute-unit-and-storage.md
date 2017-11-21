@@ -9,11 +9,11 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 09/26/2017
-ms.openlocfilehash: 3c8f6a66b3dd1564bc5eafbecafee6e2f1542caa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dbb9f733455fa0492358b24b178c8c637ff08c71
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="explaining-compute-units-in-azure-database-for-postgresql"></a>Explicando Unidades de Computação no Banco de Dados do Azure para PostgreSQL
 Este tópico explica o conceito de Unidades de Computação e o que acontece quando sua carga de trabalho atinge o nível máximo de Unidades de Computação.
@@ -21,7 +21,7 @@ Este tópico explica o conceito de Unidades de Computação e o que acontece qua
 ## <a name="what-are-compute-units"></a>O que são unidades de computação?
 Unidades de computação são uma medida de taxa de transferência de processamento da CPU que possuem disponibilidade garantida para um único Banco de Dados do Azure para o servidor PostgreSQL. Uma unidade de computação é uma medida combinada de recursos de CPU e memória. Em geral, 50 Unidades de Computação equivalem a metade de um núcleo. Cem Unidades de Computação equivalem a um núcleo. 2.000 Unidades de Computação equivalem a 20 núcleos de produtividade de processamento garantida disponível para o servidor.
 
-A quantidade de memória por Unidade de Computação é otimizada para os tipos de preço Basic e Standard. Dobrar as unidades de computação aumentando o nível de desempenho equivale a dobrar o conjunto de recursos disponíveis para esse Banco de Dados do Azure único para PostgreSQL.
+A quantidade de memória por Unidade de Computação é otimizada para os tipos de preço Basic e Standard. Dobrar as unidades de computação aumentando o nível de desempenho equivale a dobrar a quantidade de CPU e de memória disponível para esse Banco de Dados do Azure único para PostgreSQL.
 
 Por exemplo, um tipo Standard de 800 Unidades de Computação fornece 8 vezes mais taxa de transferência de CPU e memória que uma configuração Standard com 100 Unidades de Computação. No entanto, apesar das 100 Unidades de Computação do tipo Standard fornecerem a mesma taxa de transferência de CPU que 100 Unidades de Computação do tipo Basic, a quantidade de memória que é pré-configurada no tipo de preço Standard é o dobro da quantidade de memória configurada para o tipo de preço Basic. Portanto, o tipo de preço Standard fornece um melhor desempenho de carga de trabalho e menor latência de transação que o tipo de preço Basic com as mesmas Unidades de Computação selecionadas.
 

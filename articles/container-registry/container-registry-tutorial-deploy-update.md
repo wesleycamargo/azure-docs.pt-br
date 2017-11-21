@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 10/24/2017
 ms.author: marsma
 ms.custom: 
-ms.openlocfilehash: 76e6e1b826f37bfea7a8463808566191753e4f2d
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 05c5149ed6c8502c31539f31bfff046f98dc633d
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="push-an-updated-image-to-regional-deployments"></a>Enviar por push uma imagem atualizada para implantações regionais
 
@@ -91,6 +91,20 @@ Agora, envie por push a imagem de contêiner *acr-helloworld* para seu Registro 
 docker push <acrName>.azurecr.io/acr-helloworld:v1
 ```
 
+A saída deve ter aparência similar à exibida a seguir:
+
+```bash
+The push refers to a repository [uniqueregistryname.azurecr.io/acr-helloworld]
+c003ed6fc8b8: Pushed
+02b11afef3fd: Layer already exists
+cf17b6f921be: Layer already exists
+c93ae914d31e: Layer already exists
+2eea44510cee: Layer already exists
+670f809bd6d5: Layer already exists
+a75caa09eb1f: Layer already exists
+v1: digest: sha256:e44c0956a21c91e1f5f7bc83f23f1de710c798246df1e0e508c0c88025449646 size: 1792
+```
+
 ## <a name="view-the-webhook-logs"></a>Exibir os logs do webhook
 
 Enquanto a imagem está sendo replicada, você pode ver o webhooks do Registro de Contêiner do Azure sendo disparados.
@@ -123,7 +137,7 @@ Com um único `docker push`, atualizamos as duas implantações de aplicativo We
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você atualizou e enviou por push uma nova versão do contêiner de aplicativo Web para seu Registro com replicação geográfica. Os Webhooks no Registro de Contêiner do Azure notificaram os Serviços de Aplicativos sobre a atualização, o que disparou um pull local dos Registros replicados.
+Neste tutorial, você atualizou e enviou por push uma nova versão do contêiner de aplicativo Web para seu Registro com replicação geográfica. Os webhooks no Registro de Contêiner do Azure notificavam o Aplicativos Web para Contêineres sobre a atualização, que disparou um pull local das réplicas do Registro.
 
 Neste, o tutorial final da série, você:
 

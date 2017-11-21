@@ -14,37 +14,39 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: aeb4be94ea12c01f4ecd5652fa3b3243351e4853
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: dc17ba7f8cc1326790b0256de277ccb2eaa20949
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 10/30/2017
 ---
-# <a name="configuration-settings-for-standalone-windows-cluster"></a>Definições de configuração para o cluster autônomo no Windows
-Este artigo descreve como configurar um cluster autônomo do Service Fabric usando o arquivo ***ClusterConfig.JSON***. Use esse arquivo para especificar informações, como os nós do Service Fabric e seus endereços IP, tipos diferentes de nós no cluster, configurações de segurança, bem como a topologia da rede em termos de domínios de falha/atualização, para o cluster autônomo.
+# <a name="configuration-settings-for-a-standalone-windows-cluster"></a>Definições de configuração para um cluster autônomo no Windows
+Este artigo descreve como configurar um cluster autônomo do Azure Service Fabric usando o arquivo ClusterConfig.JSON. Você pode usar esse arquivo para especificar informações, como nós do Service Fabric e seus endereços IP e os diferentes tipos de nós no cluster. Você também pode especificar as configurações de segurança e a topologia de rede em termos de domínios de falha/atualização para o cluster autônomo.
 
-Quando você [baixa o pacote do Service Fabric autônomo](service-fabric-cluster-creation-for-windows-server.md#downloadpackage), alguns exemplos do arquivo ClusterConfig.JSON são baixados em seu computador. Os exemplos com *DevCluster* em seus nomes ajudarão a criar um cluster com todos os três nós no mesmo computador, como nós lógicos. Fora isso, pelo menos um nó deve ser marcado como um nó principal. Este cluster é útil para um ambiente de desenvolvimento ou de teste, e não tem suporte como um cluster de produção. Os exemplos com *MultiMachine* em seus nomes ajudarão a criar um cluster de qualidade de produção, com cada nó em um computador separado. O número de nós primários para esses clusters será baseado no [nível de confiabilidade](#reliability). Na API versão 5.7 de 05-2017, removemos a propriedade do nível de confiabilidade. Em vez disso, nosso código está calculando o nível de confiabilidade mais otimizado para seu cluster. Não use essa propriedade na versão de código 5.7 nem posteriores.
+Quando você [baixa o pacote do Service Fabric autônomo](service-fabric-cluster-creation-for-windows-server.md#downloadpackage), alguns exemplos do arquivo ClusterConfig.JSON são baixados em seu computador. Os exemplos com DevCluster em seus nomes ajudam a criar um cluster com todos os três nós no mesmo computador, como nós lógicos. Desses nós, pelo menos um deve ser marcado como nó principal. Esse cluster é útil para um ambiente de desenvolvimento ou teste. Ele não tem suporte como um cluster de produção. Os exemplos com MultiMachine em seus nomes ajudam a criar um cluster de qualidade de produção, com cada nó em um computador separado. O número de nós primários para esses clusters se baseia no [nível de confiabilidade](#reliability). Na API versão 5.7 de 05-2017, removemos a propriedade do nível de confiabilidade. Em vez disso, nosso código calcula o nível de confiabilidade mais otimizado para seu cluster. Não use essa propriedade na versão de código 5.7 e posteriores.
 
 
-1. *ClusterConfig.Unsecure.DevCluster.JSON* e *ClusterConfig.Unsecure.MultiMachine.JSON* mostram como criar um cluster de teste ou de produção sem segurança, respectivamente.
-2. *ClusterConfig.Windows.DevCluster.JSON* e *ClusterConfig.Windows.MultiMachine.JSON* mostram como criar um cluster de teste ou de produção protegido usando a [segurança do Windows](service-fabric-windows-cluster-windows-security.md).
-3. *ClusterConfig.X509.DevCluster.JSON* e *ClusterConfig.X509.MultiMachine.JSON* mostram como criar um cluster de teste ou de produção protegido usando a [segurança baseada no certificado X509](service-fabric-windows-cluster-x509-security.md).
+* ClusterConfig.Unsecure.DevCluster.JSON e ClusterConfig.Unsecure.MultiMachine.JSON mostram como criar um cluster de teste ou de produção sem segurança, respectivamente.
 
-Agora, vamos examinar as várias seções de um arquivo ***ClusterConfig.JSON*** conforme mostrado a seguir.
+* ClusterConfig.Windows.DevCluster.JSON e ClusterConfig.Windows.MultiMachine.JSON mostram como criar um cluster de teste ou de produção protegido usando a [segurança do Windows](service-fabric-windows-cluster-windows-security.md).
+
+* ClusterConfig.X509.DevCluster.JSON e ClusterConfig.X509.MultiMachine.JSON mostram como criar um cluster de teste ou de produção protegido usando a [segurança baseada no certificado X509](service-fabric-windows-cluster-x509-security.md).
+
+Agora, vamos examinar as várias seções de um arquivo ClusterConfig.JSON.
 
 ## <a name="general-cluster-configurations"></a>Configurações gerais do cluster
-Isso abrange as configurações específicas mais amplas do cluster, conforme mostra o trecho de JSON abaixo.
+As configurações de cluster geral abordam as configurações gerais específicas do cluster, conforme mostrado no seguinte trecho JSON:
 
     "name": "SampleCluster",
     "clusterConfigurationVersion": "1.0.0",
     "apiVersion": "01-2017",
 
-Você pode atribuir qualquer nome amigável ao cluster do Service Fabric, atribuindo a ele a variável **name** . O **clusterConfigurationVersion** é o número de versão do cluster; você deve aumentá-lo toda vez que atualizar seu cluster do Service Fabric. No entanto, deixe a **apiVersion** com o valor padrão.
+Você pode atribuir qualquer nome amigável ao cluster do Service Fabric, atribuindo a ele a variável name. O clusterConfigurationVersion é o número de versão do cluster. Aumente-o toda vez que você atualizar seu cluster do Service Fabric. Deixe apiVersion com o valor padrão.
 
-<a id="clusternodes"></a>
+    <a id="clusternodes"></a>
 
 ## <a name="nodes-on-the-cluster"></a>Nós no cluster
-Você pode configurar os nós no cluster de seu Service Fabric usando a seção **nós** , como mostra o trecho de código a seguir.
+Você pode configurar os nós no cluster de seu Service Fabric usando a seção nodes, como mostra o trecho de código a seguir:
 
     "nodes": [{
         "nodeName": "vm0",
@@ -66,26 +68,26 @@ Você pode configurar os nós no cluster de seu Service Fabric usando a seção 
         "upgradeDomain": "UD2"
     }],
 
-Um cluster do Service Fabric deve conter pelo menos 3 nós. Você pode adicionar mais nós a esta seção de acordo com a sua configuração. A tabela a seguir explica as definições de configuração para cada nó.
+Um cluster do Service Fabric deve conter pelo menos três nós. Você pode adicionar mais nós a esta seção de acordo com a sua configuração. A tabela abaixo explica as definições de configuração para cada nó:
 
 | **Configuração de nó** | **Descrição** |
 | --- | --- |
 | nodeName |Você pode atribuir qualquer nome amigável ao nó. |
-| iPAddress |Descubra o endereço IP do seu nó abrindo uma janela de comando e digitando `ipconfig`. Anote o endereço IPV4 e atribua a ele a variável **iPAddress** . |
-| nodeTypeRef |Cada nó pode ser receber um tipo de nó diferente. Os [tipos de nó](#nodetypes) são definidos na seção abaixo. |
+| iPAddress |Descubra o endereço IP do seu nó abrindo uma janela de comando e digitando `ipconfig`. Anote o endereço IPV4 e atribua a ele a variável iPAddress. |
+| nodeTypeRef |Cada nó pode ser receber um tipo de nó diferente. Os [tipos de nó](#node-types) são definidos na seção a seguir. |
 | faultDomain |Os domínios de falha permitem que os administradores de cluster definam os nós físicos que podem falhar ao mesmo tempo devido às dependências físicas compartilhadas. |
-| upgradeDomain |Os domínios de atualização descrevem conjuntos de nós que são desligados para atualizações do Service Fabric quase ao mesmo tempo. Você pode escolher quais nós atribuir a quais Domínios de atualização, pois eles não são limitados por quaisquer requisitos físicos. |
+| upgradeDomain |Os domínios de atualização descrevem conjuntos de nós que são desligados para atualizações do Service Fabric quase ao mesmo tempo. Você pode escolher quais nós atribuir a quais domínios de atualização, pois eles não são limitados por requisitos físicos. |
 
 ## <a name="cluster-properties"></a>Propriedades do cluster
-A seção **propriedades** no ClusterConfig.JSON é usada para configurar o cluster da seguinte maneira.
+A seção propriedades no ClusterConfig.JSON é usada para configurar o cluster da seguinte maneira:
 
-<a id="reliability"></a>
+    <a id="reliability"></a>
 
 ### <a name="reliability"></a>Confiabilidade
-O conceito de **reliabilityLevel** define o número de réplicas ou as instâncias dos serviços de sistema do Service Fabric que podem ser executados em nós do cluster primários. Determina a confiabilidade desses serviços e, portanto, do cluster. O valor é calculado pelo sistema em tempo de criação e atualização de cluster.
+O conceito de reliabilityLevel define o número de réplicas ou as instâncias dos serviços de sistema do Service Fabric que podem ser executados em nós do cluster primários. Determina a confiabilidade desses serviços e, portanto, do cluster. O valor é calculado pelo sistema na hora da criação e da atualização do cluster.
 
 ### <a name="diagnostics"></a>Diagnostics
-A seção **diagnosticsStore** permite configurar parâmetros para habilitar o diagnóstico e solucionar problemas de falhas de nó e do cluster, conforme mostra o trecho a seguir. 
+Na seção diagnosticsStore, você pode configurar parâmetros para habilitar o diagnóstico e solucionar problemas de falhas de nó e do cluster, conforme mostra o seguinte trecho de código: 
 
     "diagnosticsStore": {
         "metadata":  "Please replace the diagnostics store with an actual file share accessible from all cluster machines.",
@@ -95,7 +97,7 @@ A seção **diagnosticsStore** permite configurar parâmetros para habilitar o d
         "connectionstring": "c:\\ProgramData\\SF\\DiagnosticsStore"
     }
 
-Os **metadados** são uma descrição do diagnóstico do cluster e podem ser definidos de acordo com sua configuração. Essas variáveis ajudam na coleta de logs de rastreamento ETW, despejos de memória e contadores de desempenho. Leia [Tracelog](https://msdn.microsoft.com/library/windows/hardware/ff552994.aspx) e [Rastreamento ETW](https://msdn.microsoft.com/library/ms751538.aspx) para saber mais sobre os logs de rastreamento de ETW. Todos os logs que incluem [Despejos de memória](https://blogs.technet.microsoft.com/askperf/2008/01/08/understanding-crash-dump-files/) e [contadores de desempenho](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) podem ser direcionados para a pasta **connectionString** em seu computador. Você também pode usar *AzureStorage* para o armazenamento de diagnóstico. Veja abaixo um exemplo de trecho de código.
+Os metadados são uma descrição do diagnóstico do cluster e podem ser definidos de acordo com sua configuração. Essas variáveis ajudam na coleta de logs de rastreamento ETW e despejos de memória, além de contadores de desempenho. Para saber mais sobre os logs de rastreamento de ETW, leia [Tracelog](https://msdn.microsoft.com/library/windows/hardware/ff552994.aspx) e [Rastreamento ETW](https://msdn.microsoft.com/library/ms751538.aspx). Todos os logs que incluem [despejos de memória](https://blogs.technet.microsoft.com/askperf/2008/01/08/understanding-crash-dump-files/) e [contadores de desempenho](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) podem ser direcionados para a pasta connectionString em seu computador. Você também pode usar AzureStorage para armazenar diagnósticos. Consulte o seguinte trecho de código de exemplo:
 
     "diagnosticsStore": {
         "metadata":  "Please replace the diagnostics store with an actual file share accessible from all cluster machines.",
@@ -106,7 +108,7 @@ Os **metadados** são uma descrição do diagnóstico do cluster e podem ser def
     }
 
 ### <a name="security"></a>Segurança
-A seção **segurança** é necessária para um cluster autônomo seguro do Service Fabric. O trecho a seguir mostra uma parte desta seção.
+A seção security é necessária para um cluster autônomo seguro do Service Fabric. O trecho abaixo mostra uma parte desta seção:
 
     "security": {
         "metadata": "This cluster is secured using X509 certificates.",
@@ -115,12 +117,12 @@ A seção **segurança** é necessária para um cluster autônomo seguro do Serv
         . . .
     }
 
-Os **metadados** são uma descrição de seu cluster seguro e podem ser definidos de acordo com sua configuração. O **ClusterCredentialType** e o **ServerCredentialType** determinam o tipo de segurança que o cluster e os nós implementarão. Eles podem ser definidos como *X509* para segurança baseada em certificados ou como *Windows* para segurança baseada no Azure Active Directory. O restante da seção **segurança** será baseado no tipo de segurança. Leia [Segurança baseada em certificados em um cluster autônomo](service-fabric-windows-cluster-x509-security.md) ou [Segurança do Windows em um cluster autônomo](service-fabric-windows-cluster-windows-security.md) para saber como preencher o restante da seção de **segurança**.
+Os metadados são uma descrição de seu cluster seguro e podem ser definidos de acordo com sua configuração. O ClusterCredentialType e o ServerCredentialType determinam o tipo de segurança que o cluster e os nós implementam. Eles podem ser definidos como *X509* para segurança baseada em certificados ou como *Windows* para segurança baseada no Azure Active Directory. O restante da seção segurança se baseia no tipo de segurança. Para saber como preencher o restante da seção de segurança, confira [Segurança baseada em certificados em um cluster autônomo](service-fabric-windows-cluster-x509-security.md) ou [Segurança do Windows em um cluster autônomo](service-fabric-windows-cluster-windows-security.md).
 
-<a id="nodetypes"></a>
+    <a id="nodetypes"></a>
 
 ### <a name="node-types"></a>Tipos de nó
-A seção **nodeTypes** descreve o tipo de nó que seu cluster tem. Pelo menos um tipo de nó deve ser especificado para um cluster, como mostrado no fragmento a seguir. 
+A seção nodeTypes descreve o tipo de nó que seu cluster tem. Pelo menos um tipo de nó deve ser especificado para um cluster, como mostrado no seguinte trecho de código: 
 
     "nodeTypes": [{
         "name": "NodeType0",
@@ -141,20 +143,20 @@ A seção **nodeTypes** descreve o tipo de nó que seu cluster tem. Pelo menos u
         "isPrimary": true
     }]
 
-O **nome** é o nome amigável para esse tipo de nó específico. Para criar um nó desse tipo, atribua o nome amigável à variável **nodeTypeRef** para esse nó, conforme mencionado [acima](#clusternodes). Para cada tipo de nó, defina os pontos de extremidade de conexão que serão usados. Você pode escolher qualquer número de porta para esses pontos de extremidade de conexão, desde que eles não entrem em conflito com qualquer outro ponto de extremidade neste cluster. Em um cluster de vários nós, haverá um ou mais nós primários (ou seja, **isPrimary** definido como *true*), dependendo do [**reliabilityLevel**](#reliability). Leia [Considerações de planejamento de capacidade de cluster do Service Fabric](service-fabric-cluster-capacity.md) para obter informações sobre **nodeTypes** e **reliabilityLevel**, bem como para saber quais são os tipos de nó primários e não primários. 
+O nome é o nome amigável para esse tipo de nó específico. Para criar um nó desse tipo, atribua o nome amigável à variável nodeTypeRef para esse nó, [conforme mencionado anteriormente](#nodes-on-the-cluster). Para cada tipo de nó, defina os pontos de extremidade de conexão que serão usados. Você pode escolher qualquer número da porta para esses pontos de extremidade de conexão, desde que eles não entrem em conflito com qualquer outro ponto de extremidade neste cluster. Em um cluster de vários nós, há um ou mais nós primários (ou seja, isPrimary definido como *true*), dependendo do [reliabilityLevel](#reliability). Para saber quais são os tipos de nó primários e não primários, confira [Considerações de planejamento de capacidade de cluster do Service Fabric](service-fabric-cluster-capacity.md) para saber mais sobre nodeTypes e reliabilityLevel. 
 
 #### <a name="endpoints-used-to-configure-the-node-types"></a>Pontos de extremidade usados para configurar os tipos de nó
-* *clientConnectionEndpointPort* é a porta usada pelo cliente para se conectar ao cluster, ao usar as APIs de cliente. 
-* *clusterConnectionEndpointPort* é a porta na qual os nós se comuniquem entre si.
-* *leaseDriverEndpointPort* é a porta usada pelo driver de concessão de cluster para descobrir se os nós ainda estão ativos. 
-* *serviceConnectionEndpointPort* é a porta usada pelos aplicativos e serviços implantados em um nó, para se comunicar com o cliente do Service Fabric no nó específico.
-* *httpGatewayEndpointPort* é a porta usada pelo Service Fabric Explorer para se conectar ao cluster.
-* *ephemeralPorts* substituem as [portas dinâmicas usadas pelo sistema operacional](https://support.microsoft.com/kb/929851). O Service Fabric usará parte dessas portas como portas do aplicativo e o restante estará disponível para o SO. Ele também mapeará esse intervalo para o intervalo existente presente no SO. Então, para todas as finalidades, você pode usar os intervalos fornecidos nos arquivos JSON de exemplo. Você precisa certificar-se de que a diferença entre as portas de início e de fim é pelo menos 255. Você poderá encontrar conflitos se a diferença for muito baixa, uma vez que esse intervalo é compartilhado com o sistema operacional. Veja o intervalo de portas dinâmicas configurado executando `netsh int ipv4 show dynamicport tcp`.
-* *applicationPorts* são portas que serão usadas pelos aplicativos do Service Fabric. O intervalo de portas do aplicativo deve ser amplo o bastante para cobrir o requisito de ponto de extremidade dos aplicativos. Esse intervalo deve ser exclusivo no intervalo de portas dinâmico no computador, isto é, o intervalo *ephemeralPorts* conforme definido na configuração.  O Service Fabric usará essas portas sempre que novas portas forem necessárias, bem como cuidará de abrir o firewall para essas portas. 
-* *reverseProxyEndpointPort* é um ponto de extremidade de proxy reverso opcional. Consulte [Reverter Proxy do Service Fabric](service-fabric-reverseproxy.md) para obter mais detalhes. 
+* clientConnectionEndpointPort é a porta usada pelo cliente para se conectar ao cluster quando as APIs de cliente são usadas. 
+* clusterConnectionEndpointPort é a porta na qual os nós se comunicam entre si.
+* leaseDriverEndpointPort é a porta usada pelo driver de concessão de cluster para descobrir se os nós ainda estão ativos. 
+* serviceConnectionEndpointPort é a porta usada pelos aplicativos e serviços implantados em um nó, para se comunicar com o cliente do Service Fabric no nó específico.
+* httpGatewayEndpointPort é a porta usada pelo Service Fabric Explorer para se conectar ao cluster.
+* ephemeralPorts substituem as [portas dinâmicas usadas pelo sistema operacional](https://support.microsoft.com/kb/929851). O Service Fabric usa parte dessas portas como portas do aplicativo e o restante fica disponível para o SO. Ele também mapeia esse intervalo para o intervalo existente presente no SO. Então, para todas as finalidades, você pode usar os intervalos fornecidos nos arquivos JSON de exemplo. Verifique se a diferença entre as portas de início e de fim é de pelo menos 255. Você poderá encontrar conflitos se a diferença for muito baixa, uma vez que esse intervalo é compartilhado com o sistema operacional. Para ver o intervalo de portas dinâmicas configurado, execute `netsh int ipv4 show dynamicport tcp`.
+* applicationPorts são portas usadas pelos aplicativos do Service Fabric. O intervalo de portas do aplicativo deve ser amplo o bastante para cobrir o requisito de ponto de extremidade dos aplicativos. Esse intervalo deve ser exclusivo no intervalo de portas dinâmico no computador, isto é, o intervalo ephemeralPorts conforme definido na configuração. O Service Fabric usará essas portas sempre que novas portas forem necessárias, e também cuidará de abrir o firewall para essas portas. 
+* reverseProxyEndpointPort é um ponto de extremidade de proxy reverso opcional. Para saber mais, confira [proxy inverso do Service Fabric](service-fabric-reverseproxy.md). 
 
 ### <a name="log-settings"></a>Configurações de log
-A seção **fabricSettings** permite que você defina os diretórios raiz para os dados e logs do Service Fabric. Você pode personalizá-los somente durante a criação inicial do cluster. Veja abaixo um exemplo de trecho de código desta seção.
+Na seção fabricSettings, você pode definir os diretórios raiz para os dados e logs do Service Fabric. Você só pode personalizar esses diretórios durante a criação inicial do cluster. Confira o seguinte trecho de código de exemplo da seção:
 
     "fabricSettings": [{
         "name": "Setup",
@@ -166,11 +168,10 @@ A seção **fabricSettings** permite que você defina os diretórios raiz para o
             "value": "C:\\ProgramData\\SF\\Log"
     }]
 
-Recomendamos usar uma unidade não de SO, como FabricDataRoot e FabricLogRoot, pois isso proporciona mais confiabilidade contra falhas do SO. Observe que se você personalizar somente a raiz dos dados, a raiz do log será colocada um nível abaixo da raiz dos dados.
+Recomendamos que você use uma unidade que não seja a do SO, como o FabricDataRoot e o FabricLogRoot. Ela oferece mais confiabilidade para evitar situações de falta de resposta do SO. Se você personalizar somente a raiz dos dados, a raiz do log será colocada um nível abaixo da raiz dos dados.
 
-### <a name="stateful-reliable-service-settings"></a>Configurações de Reliable Service com estado
-A seção **KtlLogger** permite que você defina as configurações globais dos Reliable Services. Para obter mais detalhes sobre essas configurações, leia [Configurar o Reliable Services com estado](service-fabric-reliable-services-configuration.md).
-O exemplo a seguir mostra como alterar o log de transações compartilhado que é criado para dar apoio às coleções confiáveis para serviços com estado.
+### <a name="stateful-reliable-services-settings"></a>Configurações de serviço confiável com estado
+Na seção KtlLogger, você pode definir as configurações globais dos Reliable Services. Para saber mais sobre essas configurações, confira [Configurar serviços confiáveis com estado](service-fabric-reliable-services-configuration.md). O exemplo abaixo mostra como alterar o log de transações compartilhado que é criado para dar apoio às coleções confiáveis para serviços com estado:
 
     "fabricSettings": [{
         "name": "KtlLogger",
@@ -181,7 +182,7 @@ O exemplo a seguir mostra como alterar o log de transações compartilhado que �
     }]
 
 ### <a name="add-on-features"></a>Recursos de complemento
-Para configurar recursos de complemento, a apiVersion deve ser configurada como ' 04-2017' ou superior e addonFeatures precisa ser configurado:
+Para configurar recursos de complemento, configure a apiVersion de abril de 2017 ou mais recente e configure o addonFeatures conforme mostrado aqui:
 
     "apiVersion": "04-2017",
     "properties": {
@@ -192,9 +193,9 @@ Para configurar recursos de complemento, a apiVersion deve ser configurada como 
     }
 
 ### <a name="container-support"></a>Suporte a contêiner
-Para habilitar o suporte de contêiner para o contêiner do windows server e o contêiner do hyper-v para clusters autônomos, o recurso de complemento 'DnsService' deve ser habilitado.
+Para habilitar o suporte de contêiner para os contêineres do Windows Server e os contêineres do Hyper-V para clusters autônomos, o recurso de complemento DnsService precisa ser habilitado.
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Depois de configurar um arquivo ClusterConfig.JSON completo de acordo com a configuração do cluster independente, é possível implantar o cluster seguindo o artigo [Criar e gerenciar um cluster em execução no Windows Server](service-fabric-cluster-creation-for-windows-server.md) e continuando com [Visualizando o cluster com o Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
+Depois de obter um arquivo Clusterconfig.JSON completo configurado de acordo com a configuração de cluster autônomo, você poderá implantar o cluster. Siga as etapas em [Criar um cluster do Service Fabric autônomo](service-fabric-cluster-creation-for-windows-server.md). Vá para [Visualizar seu cluster com o Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) e siga as etapas.
 

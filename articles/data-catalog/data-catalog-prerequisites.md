@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 08/15/2017
+ms.date: 10/01/2017
 ms.author: maroche
-ms.openlocfilehash: 3fdef7bb58a5cd5dfbe4d37d9baf9c8e392ebe42
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7d4ed0cc06e8b218b2b63c1d899701ba2eafd648
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-data-catalog-prerequisites"></a>Pré-requisitos de Catálogo de Dados do Azure
 
@@ -28,7 +28,7 @@ Você precisa se encarregar algumas questões antes de configurar o Catálogo de
 ## <a name="azure-subscription"></a>Assinatura do Azure
 Para configurar o Catálogo de Dados, você deve ser o proprietário ou o coproprietário de uma assinatura do Azure.
 
-As assinaturas do Azure ajudam a organizar o acesso aos recursos de serviço de nuvem como o Catálogo de Dados. As assinaturas também ajudam a controlar como o uso de recursos é relatado, cobrado e pago. Cada assinatura pode ter uma configuração de cobrança e pagamento separada para que você possa ter assinaturas e planos que variam por departamento, projeto, escritório regional e assim por diante. Cada serviço de nuvem pertence a uma assinatura e você precisa ter uma assinatura antes de configurar o Catálogo de Dados. Para saber mais, confira [Gerenciar contas, assinaturas e funções administrativas](../active-directory/active-directory-assign-admin-roles.md).
+As assinaturas do Azure ajudam a organizar o acesso aos recursos de serviço de nuvem como o Catálogo de Dados. As assinaturas também ajudam a controlar como o uso de recursos é relatado, cobrado e pago. Cada assinatura pode ter uma configuração de cobrança e pagamento separada para que você possa ter assinaturas e planos que variam por departamento, projeto, escritório regional e assim por diante. Cada serviço de nuvem pertence a uma assinatura e você precisa ter uma assinatura antes de configurar o Catálogo de Dados. Para saber mais, confira [Gerenciar contas, assinaturas e funções administrativas](../active-directory/active-directory-assign-admin-roles-azure-portal.md).
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
 Para configurar o Catálogo de Dados, você deve entrar com uma conta de usuário do Azure AD (Azure Active Directory).

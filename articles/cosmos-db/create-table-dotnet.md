@@ -1,6 +1,6 @@
 ---
-title: Compilar um aplicativo .NET do BD Cosmos do Azure usando a API de Tabela | Microsoft Docs
-description: "Introdução à API de Tabela do BD Cosmos do Azure usando .NET"
+title: "Início rápido: API de Tabela com .NET – Azure Cosmos DB | Microsoft Docs"
+description: "Este guia de início rápido mostra como usar a API de Tabela do Azure Cosmos DB para criar um aplicativo com o Portal do Azure e o .NET"
 services: cosmos-db
 documentationcenter: 
 author: arramac
@@ -8,24 +8,24 @@ manager: jhubbard
 editor: 
 ms.assetid: 66327041-4d5e-4ce6-a394-fee107c18e59
 ms.service: cosmos-db
-ms.custom: quick start connect, mvc
+ms.custom: quickstart connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 06/22/2017
+ms.date: 11/15/2017
 ms.author: arramac
-ms.openlocfilehash: 0ce99a4754d7ec6f35bda63af6fc0166cf7e0eb4
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 02317d1b74d10d0fb3a2a08d8f4292a6be0438c2
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="azure-cosmos-db-build-a-net-application-using-the-table-api"></a>BD Cosmos do Azure: compilar um aplicativo .NET usando a API de Tabela
+# <a name="quickstart-build-a-table-api-app-with-net-and-azure-cosmos-db"></a>Início rápido: criar um aplicativo de API de Tabela com .NET e Azure Cosmos DB 
 
-O BD Cosmos do Azure é o serviço multimodelo de banco de dados distribuído globalmente da Microsoft. É possível criar e consultar rapidamente documentos, chave/valor e bancos de dados do gráfico. Todos se beneficiam de recursos de escala horizontal e distribuição global no núcleo do BD Cosmos do Azure. 
+Este guia de início rápido mostra como usar o Java e a [API de Tabela](table-introduction.md) do Azure Cosmos DB para compilar um aplicativo clonando um exemplo do GitHub. Este guia de início rápido também mostra como criar uma conta do Azure Cosmos DB e como usar o Data Explorer para criar tabelas e entidades no Portal do Azure baseado na Web.
 
-Este início rápido demonstra como criar uma conta do BD Cosmos do Azure e uma tabela dentro desta conta usando o portal do Azure. Você vai escrever código para inserir, atualizar e excluir entidades e execute algumas consultas usando o novo pacote [tabela Premium do Microsoft Azure Storage](https://aka.ms/premiumtablenuget) (versão prévia) do NuGet. Esta biblioteca tem as mesmas classes e assinaturas de método do [SDK do Armazenamento do Azure](https://www.nuget.org/packages/WindowsAzure.Storage) público, mas também tem a capacidade de se conectar às contas do Azure Cosmos DB usando a [API de Tabela](table-introduction.md) (versão prévia). 
+O BD Cosmos do Azure é o serviço multimodelo de banco de dados distribuído globalmente da Microsoft. É possível criar e consultar rapidamente documentos, chave/valor e bancos de dados do gráfico. Todos se beneficiam de recursos de escala horizontal e distribuição global no núcleo do Azure Cosmos DB. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -43,12 +43,12 @@ Se você ainda não tem o Visual 2017 Studio instalado, poderá baixar e usar o 
 
 ## <a name="add-sample-data"></a>Adicionar dados de exemplo
 
-Agora é possível adicionar dados à sua nova tabela usando o Data Explorer (versão prévia).
+Agora é possível adicionar dados à sua nova tabela usando o Data Explorer.
 
 1. No Data Explorer, expanda **sample-table**, clique em **Entidades** e clique em **Adicionar Entidade**.
 
    ![Criar novas entidades no Data Explorer no portal do Azure](./media/create-table-dotnet/azure-cosmosdb-data-explorer-new-document.png)
-2. Agora, adicione dados às caixas de valor PartitionKey e RowKey e clique em **Adicionar Entidade**.
+2. Agora adicione dados às caixas de valor PartitionKey e RowKey e clique em **Adicionar Entidade**.
 
    ![Definir a chave de partição e a chave de linha para uma nova entidade](./media/create-table-dotnet/azure-cosmosdb-data-explorer-new-entity.png)
   
@@ -58,92 +58,60 @@ Agora é possível adicionar dados à sua nova tabela usando o Data Explorer (ve
 
 Agora, clonaremos um aplicativo de Tabela do github, definiremos a cadeia de conexão e o executaremos. Você verá como é fácil trabalhar usando dados de forma programática. 
 
-1. Abra uma janela de terminal do Git, como git bash, e `cd` para um diretório de trabalho.  
+1. Abra uma janela de terminal de git, como git bash, e use o comando `cd` para alterar para uma pasta para instalar o aplicativo de exemplo. 
 
-2. Execute o comando a seguir para clonar o repositório de exemplo. 
+    ```bash
+    cd "C:\git-samples"
+    ```
+
+2. Execute o comando a seguir para clonar o repositório de exemplo. Este comando cria uma cópia do aplicativo de exemplo no seu computador. 
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-table-dotnet-getting-started.git
     ```
 
-3. Em seguida, abra o arquivo da solução no Visual Studio. 
-
-## <a name="review-the-code"></a>Examine o código
-
-Façamos uma rápida análise do que está acontecendo no aplicativo. Abra o arquivo Program.cs e você verá que essas linhas de código criam os recursos do BD Cosmos do Azure. 
-
-* O CloudTableClient é inicializado.
-
-    ```csharp
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(connectionString); 
-    CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
-    ```
-
-* A nova tabela é criada se ainda não existir.
-
-    ```csharp
-    CloudTable table = tableClient.GetTableReference("people");
-    table.CreateIfNotExists();
-    ```
-
-* Uma série de etapas são executadas na tabela usando a classe `TableOperation`.
-
-   ```csharp
-   TableOperation insertOperation = TableOperation.Insert(item);
-   table.Execute(insertOperation);
-   ```
-   
-   ```csharp
-   TableOperation retrieveOperation = TableOperation.Retrieve<T>(items[i].PartitionKey, items[i].RowKey);
-   table.Execute(retrieveOperation);
-   ```
-   
-   ```csharp
-   TableOperation deleteOperation = TableOperation.Delete(items[i]);
-   table.Execute(deleteOperation);
-   ```
-
+3. Em seguida, abra o arquivo da solução TableStorage no Visual Studio. 
 
 ## <a name="update-your-connection-string"></a>Atualizar sua cadeia de conexão
 
-Agora vamos atualizar as informações de cadeia de conexão para que o seu aplicativo possa se comunicar com o BD Cosmos do Azure. 
+Agora, volte ao portal do Azure para obter informações sobre a cadeia de conexão e copiá-las para o aplicativo. Isso permite que seu aplicativo se comunique com o banco de dados hospedado. 
 
-1. No Visual Studio, abra o arquivo app.config. 
+1. No [Portal do Azure](http://portal.azure.com/), clique em **Cadeia de Conexão**. 
 
-2. No [portal do Azure](http://portal.azure.com/), no menu de navegação à esquerda do BD Cosmos do Azure, clique em **Cadeia de Conexão**. Em seguida, no novo painel, clique no botão Copiar da cadeia de conexão. 
+    Use os botões de cópia no lado direito da tela para copiar a CADEIA DE CONEXÃO.
 
-    ![Exibir e copiar o ponto de extremidade e a chave de conta no painel Cadeia de Conexão](./media/create-table-dotnet/keys.png)
+    ![Exiba e copie a CADEIA DE CONEXÃO no painel Cadeia de Conexão](./media/create-table-dotnet/connection-string.png)
 
-3. Cole o valor no arquivo PP.config como o valor de PremiumStorageConnectionString. 
+2. No Visual Studio, abra o arquivo App.config. 
 
-    `<add key="PremiumStorageConnectionString" 
-        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://COSMOSDB.documents.azure.com" />`    
+3. Cole o valor da CADEIA DE CONEXÃO no arquivo App.config como o valor de AzureCosmosDBTableAPIConnectionString. 
 
-    Você pode deixar o StandardStorageConnectionString como está.
+    `<add key="CosmosDBStorageConnectionString" 
+        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://account-name.table.cosmosdb.net" />`    
+
+    > [!NOTE]
+    > Para usar este aplicativo com o armazenamento de Tabela do Azure, você precisa alterar a cadeia de conexão no `App.config file`. Use o nome da conta como nome da conta de tabela e a chave como a chave primária do Armazenamento do Azure. <br>
+    >`<add key="StandardStorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key;EndpointSuffix=core.windows.net" />`
+    > 
+    >
+
+4. Salve o arquivo App.config.
 
 Agora, você atualizou o aplicativo com todas as informações necessárias para se comunicar com o Azure Cosmos DB. 
 
-## <a name="run-the-console-app"></a>Execute o aplicativo de console
+## <a name="build-and-deploy-the-app"></a>Compilar e implantar o aplicativo
 
-1. No Visual Studio, clique com o botão direito do mouse no projeto **PremiumTableGetStarted** no **Gerenciador de Soluções** e clique em **Gerenciar Pacotes NuGet**. 
+1. No Visual Studio, clique com o botão direito do mouse no projeto **TableStorage** em **Gerenciador de Soluções** e depois clique em **Gerenciar Pacotes NuGet**. 
 
-2. Na caixa **procurar** do NuGet, digite *WindowsAzure.Storage-PremiumTable*.
+2. Na caixa **Procurar** do NuGet, digite *Microsoft.Azure.CosmosDB.Table*.
 
-3. Marque a caixa de seleção **Incluir pré-lançamento**. 
+3. Com base nos resultados, instale a biblioteca **Microsoft.Azure.CosmosDB.Table**. Isso instala o pacote da API de Tabela do Azure Cosmos DB e todas as dependências.
 
-4. Nos resultados, instale a biblioteca **WindowsAzure.Storage-PremiumTable**. Isso instala o pacote da API de Tabela do BD Cosmos do Azure de versão prévia, bem como todas as dependências. Observe que se trata de um pacote NuGet diferente do pacote do Armazenamento do Microsoft Azure usado pelo armazenamento de Tabelas do Azure. 
+4. Clique em CTRL + F5 para executar o aplicativo.
 
-5. Clique em CTRL + F5 para executar o aplicativo.
+    A janela de console exibe os dados da tabela sendo adicionados ao novo banco de dados de tabela no Azure Cosmos DB.
 
-    A janela do console exibe os dados que estão sendo adicionados, recuperados, consultados, substituídos e excluídos da tabela. Quando o script for concluído, pressione qualquer tecla duas vezes para fechar a janela do console. 
-    
-    ![Saída de console do início rápido](./media/create-table-dotnet/azure-cosmosdb-table-quickstart-console-output.png)
-
-6. Se você deseja ver as novas entidades no Data Explorer, basta comentar as linhas 188 208 em program.cs para que elas não sejam excluídas e execute o exemplo novamente. 
-
-    Agora, você pode ir para o Data Explorer, clicar em **Atualizar**, expandir a tabela **Pessoas** e clicar em **Entidades** para trabalhar com esses novos dados. 
-
-    ![Novas entidades no Data Explorer](./media/create-table-dotnet/azure-cosmosdb-table-quickstart-data-explorer.png)
+    Agora, é possível voltar ao Data Explorer e ver a consulta, modificar e trabalhar com esses novos dados.
 
 ## <a name="review-slas-in-the-azure-portal"></a>Examinar SLAs no Portal do Azure
 
@@ -151,15 +119,12 @@ Agora, você atualizou o aplicativo com todas as informações necessárias para
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
-Se você não continuar usando este aplicativo, exclua todos os recursos criados por esse início rápido no portal do Azure com as seguintes etapas: 
-
-1. No menu à esquerda no Portal do Azure, clique em **Grupos de recursos** e depois clique no nome do recurso criado. 
-2. Em sua página de grupo de recursos, clique em **Excluir**, digite o nome do recurso para excluir na caixa de texto e depois clique em **Excluir**.
+[!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 
 Neste início rápido, você aprendeu como criar uma conta do BD Cosmos do Azure, como criar uma tabela usando o Data Explorer e como executar um aplicativo.  Agora, você pode consultar os dados usando a API de Tabela.  
 
 > [!div class="nextstepaction"]
-> [Consultar usando a API de Tabela](tutorial-query-table.md)
+> [Importar dados de tabela para a API de Tabela](table-import.md)
 

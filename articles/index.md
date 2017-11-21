@@ -4,11 +4,11 @@ hide_bc: True
 title: "Documentação do Microsoft Azure"
 description: "Saiba como compilar e gerenciar aplicativos avançados com os serviços de nuvem do Microsoft Azure. Obtenha documentação, código de exemplo, tutoriais e muito mais."
 featureFlags: clicktale
-ms.openlocfilehash: 1cce8a0c31a7bb7e4c6e228261b27244a762b441
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 33fa9122eff29b15943c47b0c690cd3fe8244550
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/17/2017
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -300,9 +300,9 @@ ms.lasthandoff: 11/01/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/container-service/">
+                                            <a href="/azure/aks/">
                                                 <img src="media/index/containerservice.svg" alt="" />
-                                                <p>Serviço de Contêiner do Azure</p>
+                                                <p>Serviço de Contêiner do Azure (AKS)</p>
                                             </a>
                                         </li>
                                         <li>
@@ -384,9 +384,9 @@ ms.lasthandoff: 11/01/2017
                                     <h3>Contêineres</h3>
                                     <ul>
                                         <li>
-                                            <a href="/azure/container-service/">
+                                            <a href="/azure/aks/">
                                                 <img src="media/index/ContainerService.svg" alt="" />
-                                                <p>Serviço de Contêiner do Azure</p>
+                                                <p>Serviço de Contêiner do Azure (AKS)</p>
                                             </a>
                                         </li>
                                         <li>
@@ -647,7 +647,7 @@ ms.lasthandoff: 11/01/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/luis/home">
+                                            <a href="/azure/cognitive-services/luis/">
                                                 <img src="media/index/API_Luis.svg" alt="" />
                                                 <p>LUIS (Serviços Inteligentes de Reconhecimento Vocal)</p>
                                             </a>
@@ -689,7 +689,7 @@ ms.lasthandoff: 11/01/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/cognitive-services/Bing-Video-Search/search-the-web">
+                                            <a href="/azure/cognitive-services/Bing-Video-Search/">
                                                 <img src="media/index/API_Bing_Video_Search.svg" alt="" />
                                                 <p>Pesquisa de Vídeo do Bing</p>
                                             </a>
@@ -846,6 +846,12 @@ ms.lasthandoff: 11/01/2017
                                             <a href="/azure/hdinsight/">
                                                 <img src="media/index/HDInsight.svg" alt="" />
                                                 <p>HDInsight</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/azure-databricks/">
+                                                <img src="media/index/logo_databricks.svg" alt="" />
+                                                <p>Azure Databricks</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1091,7 +1097,7 @@ ms.lasthandoff: 11/01/2017
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="https://azure.microsoft.com/en-us/develop/identity">
+                                            <a href="/azure/active-directory/develop">
                                                 <img src="media/index/ActiveDirectory.svg" alt="" />
                                                 <p>Azure Active Directory para Desenvolvedores</p>
                                             </a>
@@ -1342,7 +1348,7 @@ ms.lasthandoff: 11/01/2017
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/container-service/">
+                                <a href="/azure/aks/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -1352,8 +1358,8 @@ ms.lasthandoff: 11/01/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Serviço de Contêiner do Azure</h3>
-                                                    <p>Dimensione e orquestre contêineres usando Kubernetes, CD/SO ou Docker Swarm</p>
+                                                    <h3>Serviço de Contêiner do Azure (AKS)</h3>
+                                                    <p>Executar o aplicativo em contêineres em escala usando o Kubernetes</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1695,7 +1701,7 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                 </a>
                             </li>
                             <li>
-                                <a href="/azure/virtual-machines/windows/managed-disks-overview">
+                                <a href="/azure/virtual-machines/windows/about-disks-and-vhds">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2009,7 +2015,7 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                         <a href="#containers">Contêineres</a>
                         <ul id="containers" class="cardsA">
                             <li>
-                                <a href="/azure/container-service/">
+                                <a href="/azure/aks/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2019,8 +2025,8 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Serviço de Contêiner do Azure</h3>
-                                                    <p>Dimensione e orquestre contêineres usando Kubernetes, CD/SO ou Docker Swarm</p>
+                                                    <h3>Serviço de Contêiner do Azure (AKS)</h3>
+                                                    <p>Executar o aplicativo em contêineres em escala usando o Kubernetes</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2303,6 +2309,25 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/azure/azure-databricks/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/logo_databricks.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Databricks</h3>
+                                                    <p>Criar um espaço de trabalho do Azure Databricks com clusters do Spark</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>   
                             <li>
                                 <a href="/azure/stream-analytics/">
                                     <div class="cardSize">
@@ -2628,7 +2653,7 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-spell-check/"><img src="media/index/API_Bing_Spell_Check.svg" alt="" />Verificação Ortográfica do Bing</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/luis/home"><img src="media/index/API_Luis.svg" alt="" /><span>LUIS (Serviços Inteligentes de Reconhecimento Vocal)&nbsp;<sup style="font-size:70%">VERSÃO PRÉVIA</sup></span></a>
+                                                                <a class="barLink" href="/azure/cognitive-services/luis/"><img src="media/index/API_Luis.svg" alt="" /><span>LUIS (Serviços Inteligentes de Reconhecimento Vocal)&nbsp;<sup style="font-size:70%">VERSÃO PRÉVIA</sup></span></a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/linguisticanalysisapi/home"><img src="media/index/API_LinguisticAnalysis.svg" alt="" /><span>Análise Linguística&nbsp;<sup style="font-size:70%">VERSÃO PRÉVIA</sup></span></a>
@@ -2690,7 +2715,7 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-news-search/search-the-web"><img src="media/index/API_Bing_News_Search.svg" alt="" />Bing Notícias</a>
                                                             </li>
                                                             <li>
-                                                                <a class="barLink" href="/azure/cognitive-services/Bing-Video-Search/search-the-web"><img src="media/index/API_Bing_Video_Search.svg" alt="" />Pesquisa de Vídeo do Bing</a>
+                                                                <a class="barLink" href="/azure/cognitive-services/Bing-Video-Search/"><img src="media/index/API_Bing_Video_Search.svg" alt="" />Pesquisa de Vídeo do Bing</a>
                                                             </li>
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-web-search/"><img src="media/index/API_Bing_Web_Search.svg" alt="" />Pesquisa da Web do Bing</a>
@@ -3160,7 +3185,7 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Active Directory para Desenvolvedores</h3>
-                                                    <p>Autenticação escalonável multiplaforma para seus aplicativos móveis e sites</p>
+                                                    <p>Autenticação segura, de plataforma cruzada para Web, celular e APIs de back-end</p>
                                                 </div>
                                             </div>
                                         </div>

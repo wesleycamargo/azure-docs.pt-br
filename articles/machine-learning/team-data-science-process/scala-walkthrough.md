@@ -4,7 +4,7 @@ description: "Como usar o Scala para tarefas de aprendizado de máquina supervis
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: a7c97153-583e-48fe-b301-365123db3780
 ms.service: machine-learning
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/13/2017
 ms.author: bradsev;deguhath
-ms.openlocfilehash: 8f1d9ab5186684c4aac806ace4ebfd38ca1fb306
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 940911144993f30723ad395722742c81a4b0a71c
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="data-science-using-scala-and-spark-on-azure"></a>Ciência de Dados usando o Scala e o Spark no Azure
 Este artigo mostra como usar o Scala para tarefas de aprendizado de máquina supervisionadas com a MLlib escalonável do Spark e os pacotes de AM do Spark em um cluster Azure HDInsight Spark. Ele explica as tarefas que constituem o [Processo Ciência de Dados](http://aka.ms/datascienceprocess): ingestão e exploração de dados, visualização, engenharia de recursos, modelagem e consumo de modelo. Os modelos no artigo incluem regressão logística e linear, florestas aleatórias e GBTs (árvores com aumento de gradiente), além de duas tarefas comuns de aprendizado de máquina supervisionadas:
@@ -32,7 +32,7 @@ O processo de modelagem requer treinamento e avaliação em um conjunto de dados
 
 [Spark](http://spark.apache.org/) é uma estrutura de processamento paralelo de software livre que dá suporte ao processamento na memória para melhorar o desempenho de aplicativos analíticos de Big Data. O mecanismo de processamento do Spark foi desenvolvido para velocidade, facilidade de uso e análise sofisticada. As funcionalidades de computação distribuídas na memória do Spark fazem dele uma boa escolha para algoritmos iterativos em cálculos de gráfico e aprendizado de máquina. O pacote [spark.ml](http://spark.apache.org/docs/latest/ml-guide.html) fornece um conjunto uniforme de APIs de alto nível criadas com base em quadros de dados, que podem ajudar você a criar e ajustar pipelines práticos de aprendizado de máquina. [MLlib](http://spark.apache.org/mllib/) é a biblioteca de aprendizado de máquina escalonável do Spark, que oferece recursos de modelagem para esse ambiente distribuído.
 
-[HDInsight Spark](../../hdinsight/hdinsight-apache-spark-overview.md) é a oferta do Spark de software livre hospedada no Azure. Ele também inclui suporte para notebooks Scala do Jupyter no cluster Spark, e pode executar consultas interativas do Spark SQL para transformar, filtrar e visualizar dados armazenados no armazenamento de Blobs do Azure. Os trechos de código Scala neste artigo que fornecem as soluções e mostram as plotagens relevantes para visualizar os dados executados em notebooks Jupyter instalados nos clusters Spark. As etapas de modelagem nestes tópicos contêm código que mostra como treinar, avaliar, salvar e consumir cada tipo de modelo.
+[HDInsight Spark](../../hdinsight/spark/apache-spark-overview.md) é a oferta do Spark de software livre hospedada no Azure. Ele também inclui suporte para notebooks Scala do Jupyter no cluster Spark, e pode executar consultas interativas do Spark SQL para transformar, filtrar e visualizar dados armazenados no armazenamento de Blobs do Azure. Os trechos de código Scala neste artigo que fornecem as soluções e mostram as gráficos relevantes para visualizar os dados executados em notebooks Jupyter instalados nos clusters Spark. As etapas de modelagem nestes tópicos contêm código que mostra como treinar, avaliar, salvar e consumir cada tipo de modelo.
 
 As etapas de configuração e o código neste artigo são para o Azure HDInsight 3.4 Spark 1.6. No entanto, os códigos neste artigo e no [Notebook Jupyter para Scala](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Scala/Exploration%20Modeling%20and%20Scoring%20using%20Scala.ipynb) são genéricos e devem funcionar em qualquer cluster Spark. As etapas de configuração e gerenciamento do cluster poderão ser ligeiramente diferentes do que é mostrado neste artigo se você não estiver usando o HDInsight Spark.
 
@@ -43,7 +43,7 @@ As etapas de configuração e o código neste artigo são para o Azure HDInsight
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Você precisa ter uma assinatura do Azure. Se ainda não tiver uma, [obtenha uma avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* Você precisa de um cluster Azure HDInsight 3.4 Spark 1.6 para concluir os procedimentos a seguir. Para criar um cluster, veja as instruções em [Introdução: criar um Apache Spark no Azure HDInsight](../../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md). Defina o tipo de cluster e a versão no menu **Selecionar Tipo de Cluster** .
+* Você precisa de um cluster Azure HDInsight 3.4 Spark 1.6 para concluir os procedimentos a seguir. Para criar um cluster, veja as instruções em [Introdução: criar um Apache Spark no Azure HDInsight](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md). Defina o tipo de cluster e a versão no menu **Selecionar Tipo de Cluster** .
 
 ![Configuração de tipo de cluster do HDInsight](./media/scala-walkthrough/spark-cluster-on-portal.png)
 
@@ -86,7 +86,7 @@ O kernel do Spark fornece algumas "palavras mágicas" predefinidas, que são com
 * `%%local` especifica que o código nas linhas posteriores será executado localmente. Deve ser um código Scala válido.
 * `%%sql -o <variable name>` executa uma consulta do Hive no `sqlContext`. Se o parâmetro `-o` for transmitido, o resultado da consulta será persistido no contexto `%%local` do Scala como um quadro de dados do Spark.
 
-Para saber mais sobre os kernels para notebooks Jupyter e as "palavras mágicas" predefinidas chamadas com `%%` (por exemplo, `%%local`) confira [Kernels disponíveis para notebooks Jupyter com clusters do Apache Spark no HDInsight Linux](../../hdinsight/hdinsight-apache-spark-jupyter-notebook-kernels.md).
+Para saber mais sobre os kernels para notebooks Jupyter e as "palavras mágicas" predefinidas chamadas com `%%` (por exemplo, `%%local`) confira [Kernels disponíveis para notebooks Jupyter com clusters do Apache Spark no HDInsight Linux](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md).
 
 ### <a name="import-libraries"></a>Importar bibliotecas
 Importe o Spark, a MLlib e outras bibliotecas necessárias usando o código a seguir.
@@ -256,9 +256,9 @@ Em seguida, consulte a tabela de tarifas, os dados do passageiro e da gorjeta; f
 |        10,5 |2,0 |1.0 |1.0 |
 
 ## <a name="data-exploration-and-visualization"></a>Visualização e exploração de dados
-Depois de trazer os dados para o Spark, a próxima etapa no processo de Ciência de dados será obter uma compreensão mais profunda dos dados por meio de exploração e visualização. Nesta seção, você examinará os dados de táxi usando consultas SQL. Depois, importará os resultados em um quadro de dados a fim de plotar as variáveis de destino e os recursos potenciais para inspeção visual usando o recurso de visualização automática do Jupyter.
+Depois de trazer os dados para o Spark, a próxima etapa no processo de Ciência de dados será obter uma compreensão mais profunda dos dados por meio de exploração e visualização. Nesta seção, você examinará os dados de táxi usando consultas SQL. Depois, importará os resultados em um quadro de dados a fim de criar gráficos com as variáveis de destino e os recursos potenciais para inspeção visual usando o recurso de visualização automática do Jupyter.
 
-### <a name="use-local-and-sql-magic-to-plot-data"></a>Usar local e palavra mágica do SQL para plotar dados
+### <a name="use-local-and-sql-magic-to-plot-data"></a>Usar local e palavra mágica do SQL para criar gráficos com dados
 Por padrão, a saída de qualquer trecho de código executado em um notebook Jupyter é disponibilizada no contexto da sessão que é persistida nos nós de trabalho. Se desejar salvar uma corrida nos nós de trabalho para cada cálculo e, se todos os dados necessários para o cálculo estiverem disponíveis localmente no nó do servidor do Jupyter (que é o nó de cabeçalho), você poderá usar a palavra mágica `%%local` para executar o trecho de código no servidor do Jupyter.
 
 * **Palavra mágica do SQL** (`%%sql`). O kernel HDInsight Spark dá suporte a consultas do HiveQL fáceis e embutidas no SQLContext. O argumento (`-o VARIABLE_NAME`) persiste a saída da consulta SQL como um quadro de dados do Pandas no servidor do Jupyter. Isso significa que ele estará disponível no modo local.
@@ -271,7 +271,7 @@ Essa consulta recupera as corridas de táxi por valor da tarifa, contagem de pas
     %%sql -q -o sqlResults
     SELECT fare_amount, passenger_count, tip_amount, tipped FROM taxi_train WHERE passenger_count > 0 AND passenger_count < 7 AND fare_amount > 0 AND fare_amount < 200 AND payment_type in ('CSH', 'CRD') AND tip_amount > 0 AND tip_amount < 25
 
-No código a seguir, a palavra mágica `%%local` cria um quadro de dados locais, sqlResults. Você pode usar sqlResults para plotar usando matplotlib.
+No código a seguir, a palavra mágica `%%local` cria um quadro de dados locais, sqlResults. Você pode usar sqlResults para criar gráficos usando matplotlib.
 
 > [!TIP]
 > A palavra mágica local é usada várias vezes neste artigo. Se o conjunto de dados for grande, obtenha a amostra para criar um quadro de dados que possa se ajustar na memória local.
@@ -279,7 +279,7 @@ No código a seguir, a palavra mágica `%%local` cria um quadro de dados locais,
 > 
 
 ### <a name="plot-the-data"></a>Plotar os dados
-Você poderá plotar usando o código Python quando o quadro de dados estiver no contexto local como um quadro de dados Panda.
+Você poderá criar gráficos usando o código Python quando o quadro de dados estiver no contexto local como um quadro de dados Panda.
 
     # RUN THE CODE LOCALLY ON THE JUPYTER SERVER
     %%local
@@ -297,7 +297,7 @@ Você poderá plotar usando o código Python quando o quadro de dados estiver no
 * Área
 * Barra
 
-Este é o código para plotar os dados:
+Este é o código para criar gráficos com os dados:
 
     # RUN THE CODE LOCALLY ON THE JUPYTER SERVER AND IMPORT LIBRARIES
     %%local
@@ -600,7 +600,7 @@ Carregue, pontue e salve os resultados.
 
 ROC nos dados de teste = 0,9827381497557599
 
-Use o Python em quadros de dados locais Panda para plotar a curva ROC.
+Use o Python em quadros de dados locais Panda para criar gráficos com a curva ROC.
 
     # QUERY THE RESULTS
     %%sql -q -o sqlResults
@@ -823,14 +823,14 @@ Em seguida, consulte os resultados do teste como um quadro de dados e use AutoVi
     # CLICK THE TYPE OF PLOT TO GENERATE (LINE, AREA, BAR, AND SO ON)
     sqlResults
 
-O código cria um quadro de dados local da saída da consulta e plota os dados. A palavra mágica `%%local` cria um quadro de dados local, `sqlResults`, que pode ser usado para plotar com matplotlib.
+O código cria um quadro de dados local da saída da consulta e cria gráficos com os dados. A palavra mágica `%%local` cria um quadro de dados local, `sqlResults`, que pode ser usado para criar gráficos com matplotlib.
 
 > [!NOTE]
 > Essa palavra mágica do Spark será usada várias vezes neste artigo. Se a quantidade de dados for grande, você deverá obter uma amostra para criar um quadro de dados que se ajuste à memória local.
 > 
 > 
 
-Crie plotagens usando matplotlib do Python.
+Crie gráficos usando matplotlib do Python.
 
     # RUN THE CODE LOCALLY ON THE JUPYTER SERVER AND IMPORT LIBRARIES
     %%local

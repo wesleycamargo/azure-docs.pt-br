@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev;
-ms.openlocfilehash: 6e6e7a199547135bd9695ff0867e8d5a98341b12
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3ec2eaaf4e8d54e7b1ea3d272c47eac96451f317
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="platforms-and-tools-for-data-science-team-projects"></a>Plataformas e ferramentas para projetos da equipe de ciência de dados
 
@@ -61,7 +61,7 @@ O Apache Spark é uma estrutura de processamento paralelo de software livre que 
 
 Quando você cria um cluster do Spark no HDInsight, cria recursos de computação do Azure com o Spark instalado e configurado. Demora cerca de dez minutos para criar um cluster do Spark no HDInsight. Armazene os dados a serem processados no Armazenamento de Blobs do Azure. Para mais informações sobre como usar o Armazenamento de Blobs do Azure com o cluster, consulte [Usar o Armazenamento de Blobs do Azure compatível com HDFS com o Hadoop no HDInsight](../../hdinsight/hdinsight-hadoop-use-blob-storage.md).
 
-A equipe de TDSP da Microsoft publicou duas explicações passo a passo completas sobre como usar os clusters do Azure HDInsight Spark para criar soluções de ciência de dados, uma usando Python e outra usando o Scala. Para obter informações sobre os clusters do Azure HDInsight **Spark**, consulte [Visão geral: Apache Spark no HDInsight Linux](../../hdinsight/hdinsight-apache-spark-overview.md). Para aprender a criar uma solução de ciência de dados usando **Python** em um cluster do Azure HDInsight Spark, consulte [Visão geral de Ciência de Dados usando o Spark no Azure HDInsight](spark-overview.md). Para aprender a criar uma solução de ciência de dados usando **Scala** em um cluster do Azure HDInsight Spark, consulte [Ciência de Dados usando o Scala e o Spark no Azure](scala-walkthrough.md). 
+A equipe de TDSP da Microsoft publicou duas explicações passo a passo completas sobre como usar os clusters do Azure HDInsight Spark para criar soluções de ciência de dados, uma usando Python e outra usando o Scala. Para obter informações sobre os clusters do Azure HDInsight **Spark**, consulte [Visão geral: Apache Spark no HDInsight Linux](../../hdinsight/spark/apache-spark-overview.md). Para aprender a criar uma solução de ciência de dados usando **Python** em um cluster do Azure HDInsight Spark, consulte [Visão geral de Ciência de Dados usando o Spark no Azure HDInsight](spark-overview.md). Para aprender a criar uma solução de ciência de dados usando **Scala** em um cluster do Azure HDInsight Spark, consulte [Ciência de Dados usando o Scala e o Spark no Azure](scala-walkthrough.md). 
 
 
 ##  <a name="azure-sql-data-warehouse"></a>SQL Data Warehouse do Azure
@@ -86,7 +86,7 @@ O Hive permite que você projete estrutura em grandes volumes de dados sem estru
 
 Para cientistas de dados, o Hive pode executar UDFs (Funções Definidas pelo Usuário do Python) em consultas de Hive para processar registros. Essa capacidade estende a funcionalidade de consultas de Hive na análise de dados consideravelmente. Especificamente, ela permite que cientistas de dados conduzam engenharia de recurso escalonável em linguagens com as quais estão mais familiarizados: HiveQL tipo SQL e Python. 
 
-Para obter mais informações sobre clusters do Azure HDInsight Hive, consulte [Usar Hive e HiveQL com Hadoop no HDInsight](../../hdinsight/hdinsight-use-hive.md). Para saber como criar uma solução de ciência de dados de ponta a ponta escalonável com clusters do Azure HDInsight Hive, consulte [O Processo de Ciência de Dados de Equipe em ação: usar clusters do HDInsight Hadoop](hive-walkthrough.md).
+Para obter mais informações sobre clusters do Azure HDInsight Hive, consulte [Usar Hive e HiveQL com Hadoop no HDInsight](../../hdinsight/hadoop/hdinsight-use-hive.md). Para saber como criar uma solução de ciência de dados de ponta a ponta escalonável com clusters do Azure HDInsight Hive, consulte [O Processo de Ciência de Dados de Equipe em ação: usar clusters do HDInsight Hadoop](hive-walkthrough.md).
 
 
 ## <a name="azure-file-storage"></a>Armazenamento de Arquivos do Azure 

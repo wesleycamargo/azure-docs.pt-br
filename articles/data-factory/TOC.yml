@@ -55,10 +55,12 @@
       href: concepts-integration-runtime.md
 - name: Guias de instruções
   items:
-    - name: Mover dados
+    - name: Copiar dados
       items:
-        - name: Visão Geral da Atividade de Cópia
+        - name: Copiar dados de fontes com suporte para os destinos
           href: copy-activity-overview.md
+        - name: Ler ou gravar dados particionados
+          href: how-to-read-write-partitioned-data.md
         - name: Conectores
           items:
             - name: Amazon Redshift
@@ -71,6 +73,8 @@
               href: connector-azure-cosmos-db.md
             - name: Repositório Azure Data Lake
               href: connector-azure-data-lake-store.md
+            - name: Banco de Dados do Azure para MySQL
+              href: connector-azure-database-for-mysql.md
             - name: Armazenamento de Arquivos do Azure
               href: connector-azure-file-storage.md
             - name: Azure Search
@@ -168,6 +172,8 @@
       items:
         - name: Atividade Condição Se
           href: control-flow-if-condition-activity.md
+        - name: Atividade Until
+          href: control-flow-until-activity.md
         - name: Atividade da Web
           href: control-flow-web-activity.md
         - name: Atividade de pesquisa
@@ -178,6 +184,8 @@
           href: control-flow-execute-pipeline-activity.md
         - name: Para cada atividade
           href: control-flow-for-each-activity.md
+        - name: Atividade Wait
+          href: control-flow-wait-activity.md
         - name: Linguagem de expressão
           href: control-flow-expression-language-functions.md
         - name: Variáveis do sistema
@@ -190,6 +198,8 @@
           href: store-credentials-in-key-vault.md
         - name: Criptografar credenciais de tempo de execução de integração auto-hospedado
           href: encrypt-credentials-self-hosted-integration-runtime.md
+        - name: Identidade do serviço Data Factory
+          href: data-factory-service-identity.md
     - name: Monitorar e gerenciar
       items:
         - name: Usar SDKs

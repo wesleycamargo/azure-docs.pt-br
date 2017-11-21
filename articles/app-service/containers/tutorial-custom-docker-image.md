@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 10/24/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 8660bd09ea09e2c4c81da9c3ef66a1a448d3db43
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 4ba53dd1239290c64907ed431d404b2d1be66c36
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-a-custom-docker-image-for-web-app-for-containers"></a>Usar uma imagem personalizada do Docker para o Aplicativo Web para Contêineres
 
@@ -39,7 +39,7 @@ Para concluir este tutorial, você precisará:
 
 ## <a name="download-the-sample"></a>Baixar o exemplo
 
-Em uma janela de terminal, execute o comando a seguir para clonar o repositório de aplicativo de exemplo no computador local e, em seguida, mudar para o diretório que contém o código de exemplo.
+Em uma janela de terminal, execute o comando a seguir para clonar o repositório de aplicativos de exemplo no computador local e, em seguida, alterar para o diretório que contém o código de exemplo.
 
 ```bash
 git clone https://github.com/Azure-Samples/docker-django-webapp-linux.git --config core.autocrlf=input
@@ -48,7 +48,7 @@ cd docker-django-webapp-linux
 
 ## <a name="build-the-image-from-the-docker-file"></a>Criar a imagem com base no arquivo do Docker
 
-No repositório Git, confira o _Dockerfile_. Esse arquivo descreve o ambiente do Python que é necessário para executar nosso aplicativo. Além disso, a imagem configura um servidor [SSH](https://www.ssh.com/ssh/protocol/) para a comunicação segura entre o contêiner e o host.
+No repositório Git, confira o _Dockerfile_. Este arquivo descreve o ambiente do Python necessário para executar seu aplicativo. Além disso, a imagem configura um servidor [SSH](https://www.ssh.com/ssh/protocol/) para a comunicação segura entre o contêiner e o host.
 
 ```docker
 FROM python:3.4
@@ -107,7 +107,7 @@ Successfully built e7cf08275692
 Successfully tagged cephalin/mydockerimage:v1.0.0
 ```
 
-Teste se o build funciona executando o contêiner do Docker. Emita o comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) e passe o nome e a marcação da imagem para ele. Lembre-se de especificar a porta usando o argumento `-p`.
+Teste se o build funciona executando o contêiner do Docker. Execute o comando [docker run](https://docs.docker.com/engine/reference/commandline/run/) e envie o nome e a marcação da imagem para ele. Lembre-se de especificar a porta usando o argumento `-p`.
 
 ```bash
 docker run -p 2222:8000 <docker-ID>/mydockerimage:v1.0.0
@@ -279,7 +279,7 @@ O SSH permite a comunicação segura entre um contêiner e um cliente. Para que 
     > [!NOTE]
     > Essa configuração não permite conexões externas com o contêiner. O SSH está disponível apenas por meio do Site do Kudu/SCM. O site do Kudu/SCM é autenticado com as credenciais de publicação.
 
-* Uma instrução [COPY](https://docs.docker.com/engine/reference/builder/#copy) que instrui o mecanismo do Docker para copiar o arquivo [sshd_config](http://man.openbsd.org/sshd_config) para o diretório */etc/ssh/*. O arquivo de configuração deve ser baseado [nesse arquivo sshd_config](https://github.com/Azure-App-Service/node/blob/master/6.11/sshd_config).
+* Uma instrução [COPY](https://docs.docker.com/engine/reference/builder/#copy) que instrui o mecanismo do Docker para copiar o arquivo [sshd_config](http://man.openbsd.org/sshd_config) para o diretório */etc/ssh/*. O arquivo de configuração deve ser baseado [nesse arquivo sshd_config](https://github.com/Azure-App-Service/node/blob/master/6.11.1/sshd_config).
 
     ```docker
     COPY sshd_config /etc/ssh/
@@ -493,7 +493,7 @@ az acr credential show --name <azure-container-registry-name>
 }
 ```
 
-No Cloud Shell, execute o comando [az webapp config container set](/cli/azure/webapp/config/container#az_webapp_config_container_set) para atribuir a imagem personalizada do Docker ao aplicativo Web. Substitua *\<app_name>*, *\<docker-registry-server-url>*, _<registry-username>_ e _<password>_. Para o Registro de Contêiner do Azure, *\<docker-registry-server-url>* está no formato `https://<azure-container-registry-name>.azurecr.io`. 
+No Cloud Shell, execute o comando [az webapp config container set](/cli/azure/webapp/config/container#az_webapp_config_container_set) para atribuir a imagem personalizada do Docker ao aplicativo Web. Substitua *\<app_name>*, *\<docker-registry-server-url>*, _\<registry-username>_ e _\<password>_. Para o Registro de Contêiner do Azure, *\<docker-registry-server-url>* está no formato `https://<azure-container-registry-name>.azurecr.io`. 
 
 ```azurecli-interactive
 az webapp config container set --name <app_name> --resource-group myResourceGroup --docker-custom-image-name mydockerimage --docker-registry-server-url https://<azure-container-registry-name>.azurecr.io --docker-registry-server-user <registry-username> --docker-registry-server-password <password>
@@ -534,4 +534,5 @@ O comando revela um resultado semelhante à seguinte cadeia de caracteres JSON, 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-[Serviço de Aplicativo do Azure nas Perguntas Frequentes do Linux](app-service-linux-faq.md)
+> [!div class="nextstepaction"]
+> [Criar um aplicativo Web Docker Python e PostgreSQL no Azure](tutorial-docker-python-postgresql-app.md)

@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 10/8/2017
-ms.openlocfilehash: dc5ad012398b7d07886cd22c20975e61f820d7e0
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.date: 10/26/2017
+ms.openlocfilehash: b3fba38cacf5b5abcdea7f0def8c1d39e653f0a8
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="limitations-in-azure-database-for-mysql-preview"></a>Limitações no Banco de Dados do Azure para MySQL (Visualização)
 O Banco de Dados do Azure para o serviço do MySQL está em visualização pública. As seções a seguir descrevem a capacidade e os limites funcionais no serviço de banco de dados. Consulte também as [limitações gerais](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) aplicáveis ao mecanismo de banco de dados MySQL.
@@ -30,7 +30,7 @@ Há um número máximo de conexões, unidades de computação e armazenamento em
 | 100 unidades de computação básica    | 100 conexões   |
 | 100 unidades de computação standard | 200 conexões   |
 | 200 unidades de computação standard | 400 conexões   |
-| 400 unidades de computação standard | 400 conexões   |
+| 400 unidades de computação standard | 800 conexões   |
 | 800 unidades de computação standard | 1600 conexões  |
 | **Unidades de computação máxima**      |                   |
 | Camada de serviço Básica         | 100 Unidades de computação |

@@ -3,9 +3,9 @@ title: Kit de desenvolvimento de software MFA para aplicativos personalizados | 
 description: "Este artigo mostra como baixar e usar o SDK do Azure MFA para habilitar a verificação em duas etapas para seus aplicativos personalizados."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
-editor: yossib
+ms.reviewer: richagi
 ms.assetid: 1c152f67-be02-42a5-a0c7-246fb6b34377
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
-ms.author: kgremban
-ms.openlocfilehash: 281f9c61a30a20027f69808600373aa272255ef6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: joflore
+ms.openlocfilehash: 653166235a2fec79945a8e54aafdb8e697e8b634
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="building-multi-factor-authentication-into-custom-apps-sdk"></a>Criando uma autenticação multifator em aplicativos personalizados (SDK)
 
-O SDK (Software Development Kit) do Azure Multi-Factor Authentication permite que você crie verificação em duas etapas diretamente nos processos de transação ou entrada de aplicativos no locatário do Azure AD.
+O SDK (Software Development Kit) da Autenticação Multifator do Azure permite que você crie verificação em duas etapas diretamente nos processos de transação ou entrada de aplicativos no locatário do Azure AD.
 
-O SDK do Multi-Factor Authentication está disponível para C#, Visual Basic (.NET), Java, Perl, PHP e Ruby. O SDK fornece um thin wrapper em torno da verificação em duas etapas. Ele inclui tudo o que você precisa para escrever seu código, incluindo arquivos de código-fonte comentados, arquivos de exemplo e um arquivo Leiame detalhado. Cada SDK também inclui um certificado e a chave privada para criptografar transações, que é exclusiva do seu Provedor de Autenticação Multifator. Desde que você tenha um provedor, é possível baixar o SDK em quantos formatos e idiomas precisar.
+O SDK da Autenticação Multifator está disponível para C#, Visual Basic (.NET), Java, Perl, PHP e Ruby. O SDK fornece um thin wrapper em torno da verificação em duas etapas. Ele inclui tudo o que você precisa para escrever seu código, incluindo arquivos de código-fonte comentados, arquivos de exemplo e um arquivo Leiame detalhado. Cada SDK também inclui um certificado e a chave privada para criptografar transações, que é exclusiva do seu Provedor de Autenticação Multifator. Desde que você tenha um provedor, é possível baixar o SDK em quantos formatos e idiomas precisar.
 
-A estrutura das APIs no SDK do Multi-factor Authentication é bastante simples. Você faz uma única chamada de função a uma API com os parâmetros de opção de multifator, como o modo de verificação, e dados do usuário (como o número de telefone para o qual ligar ou o número PIN a ser validado). As APIs convertem a chamada de função em solicitações de serviço Web para o Serviço Azure Multi-Factor Authentication baseado na nuvem. Todas as chamadas devem incluir uma referência ao certificado privado que é incluído em cada SDK.
+A estrutura das APIs no SDK da Autenticação Multifator é bastante simples. Você faz uma única chamada de função a uma API com os parâmetros de opção de multifator, como o modo de verificação, e dados do usuário (como o número de telefone para o qual ligar ou o número PIN a ser validado). As APIs convertem a chamada de função em solicitações de serviço Web para o Serviço de Autenticação Multifator do Azure baseado na nuvem. Todas as chamadas devem incluir uma referência ao certificado privado que é incluído em cada SDK.
 
 Como as APIs não têm acesso aos usuários registrados no Active Directory do Azure, você deve fornecer informações do usuário, como números de telefone e códigos PIN, em um arquivo ou banco de dados. Além disso, as APIs não fornecem recursos de gerenciamento de usuários e registros, de modo que você precisa criar esses processos em seu aplicativo.
 
@@ -63,28 +63,28 @@ Baixar o SDK do Azure Multi-Factor requer um [Provedor do Azure Multi-Factor Aut
 ## <a name="whats-in-the-sdk"></a>O que há no SDK
 O SDK inclui os seguintes itens:
 
-* **LEIAME**. Explica como usar as APIs do Multi-Factor Authentication em um aplicativo novo ou existente.
+* **LEIAME**. Explica como usar as APIs da Autenticação Multifator em um aplicativo novo ou existente.
 * **Arquivos de origem** para Autenticação Multifator
-* **Certificado do cliente** que você usa para se comunicar com o serviço Multi-Factor Authentication
+* **Certificado do cliente** que você usa para se comunicar com o serviço de Autenticação Multifator
 * **Chave privada** do certificado
-* **Resultados da chamada.** Uma lista de códigos do resultado da chamada. Para abrir esse arquivo, use um aplicativo com formatação de texto, como o WordPad. Use os códigos do resultado da chamada para testar e solucionar problemas de implementação do Multi-Factor Authentication no aplicativo. Eles não são códigos de status de autenticação.
-* **Exemplos.** Código de exemplo para uma implementação básica de trabalho do Multi-Factor Authentication.
+* **Resultados da chamada.** Uma lista de códigos do resultado da chamada. Para abrir esse arquivo, use um aplicativo com formatação de texto, como o WordPad. Use os códigos do resultado da chamada para testar e solucionar problemas de implementação da Autenticação Multifator no aplicativo. Eles não são códigos de status de autenticação.
+* **Exemplos.** Código de exemplo para uma implementação básica de trabalho da Autenticação Multifator.
 
 > [!WARNING]
-> O certificado do cliente é um certificado privado único que foi gerado especialmente para você. Não compartilhe nem perca este arquivo. Ele é sua chave para garantir a segurança da comunicação com o serviço Multi-Factor Authentication.
+> O certificado do cliente é um certificado privado único que foi gerado especialmente para você. Não compartilhe nem perca este arquivo. Ele é sua chave para garantir a segurança da comunicação com o serviço de Autenticação Multifator.
 
 ## <a name="code-sample"></a>Exemplo de código
-Este exemplo de código mostra como usar as APIs no SDK do Azure Multi-Factor Authentication para adicionar verificação de chamada de voz no modo padrão ao seu aplicativo. O modo padrão é uma chamada telefônica à qual o usuário responde pressionando a tecla #.
+Este exemplo de código mostra como usar as APIs no SDK da Autenticação Multifator do Azure para adicionar verificação de chamada de voz no modo padrão ao seu aplicativo. O modo padrão é uma chamada telefônica à qual o usuário responde pressionando a tecla #.
 
-Este exemplo usa o SDK do Multi-Factor Authentication .NET 2.0 do C# em um aplicativo básico ASP.NET com a lógica do servidor C#, mas o processo é bastante semelhante a implementações simples em outras linguagens. Como o SDK inclui arquivos de origem, e não arquivos executáveis, você pode criar os arquivos e fazer referência a eles ou incluí-los diretamente no aplicativo.
+Este exemplo usa o SDK da Autenticação Multifator .NET 2.0 do C# em um aplicativo básico ASP.NET com a lógica do servidor C#, mas o processo é bastante semelhante a implementações simples em outras linguagens. Como o SDK inclui arquivos de origem, e não arquivos executáveis, você pode criar os arquivos e fazer referência a eles ou incluí-los diretamente no aplicativo.
 
 > [!NOTE]
-> Ao implementar o Multi-Factor Authentication, use os fatores adicionais (chamada telefônica ou mensagem de texto) como verificação secundária ou terciária para complementar seu método de autenticação primária (senha e usuário). Esses métodos não foram desenvolvidos para serem usados como métodos de autenticação primária.
+> Ao implementar a Autenticação Multifator, use os fatores adicionais (chamada telefônica ou mensagem de texto) como verificação secundária ou terciária para complementar seu método de autenticação primária (senha e usuário). Esses métodos não foram desenvolvidos para serem usados como métodos de autenticação primária.
 
 ### <a name="code-sample-overview"></a>Visão geral do exemplo de código
-Este código de exemplo de um aplicativo de demonstração na Web bastante simples usa uma chamada telefônica com uma resposta pela tecla # para concluir a autenticação do usuário. Esse fator de chamada telefônica é conhecido no Multi-Factor Authentication como modo padrão.
+Este código de exemplo de um aplicativo de demonstração na Web bastante simples usa uma chamada telefônica com uma resposta pela tecla # para concluir a autenticação do usuário. Esse fator de chamada telefônica é conhecido na Autenticação Multifator como modo padrão.
 
-O código do lado do cliente não inclui nenhum elemento específico do Multi-Factor Authentication. Como os fatores de autenticação adicionais são independentes da autenticação primária, você pode adicioná-los sem alterar a interface de logon existente. As APIs no SDK do Multi-Factor permitem personalizar a experiência do usuário, mas talvez você não precise alterar nada.
+O código do lado do cliente não inclui nenhum elemento específico da Autenticação Multifator. Como os fatores de autenticação adicionais são independentes da autenticação primária, você pode adicioná-los sem alterar a interface de logon existente. As APIs no SDK do Multi-Factor permitem personalizar a experiência do usuário, mas talvez você não precise alterar nada.
 
 O código do servidor adiciona a autenticação no modo padrão na Etapa 2. Ele cria um objeto PfAuthParams com os parâmetros que são necessários para a verificação no modo padrão: nome do usuário, número de telefone, modo e o caminho para o certificado do cliente (CertFilePath), que é necessário em cada chamada. Para uma demonstração de todos os parâmetros no PfAuthParams, consulte o arquivo de exemplo no SDK.
 
@@ -127,7 +127,7 @@ Veja a seguir o código do cliente Web para uma página de demonstração.
 
 
 ### <a name="server-side-code"></a>Código do servidor
-No código de servidor a seguir, o Multi-Factor Authentication é configurado e executado na Etapa 2. O modo padrão (MODE_STANDARD) é uma chamada telefônica à qual o usuário responde pressionando a tecla #.
+No código de servidor a seguir, a Autenticação Multifator é configurado e executado na Etapa 2. O modo padrão (MODE_STANDARD) é uma chamada telefônica à qual o usuário responde pressionando a tecla #.
 
     using System;
     using System.Collections.Generic;

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
-ms.author: banders
-ms.openlocfilehash: 0b0d91b130172eb3506fdebb9547ab6ba5cc3780
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 10/26/2017
+ms.author: magoedte;banders
+ms.openlocfilehash: a1214d8327075ee081124d42aeb78846e09ff588
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview-in-log-analytics"></a>Monitorar o Banco de Dados SQL do Azure usando a Análise do Azure SQL (Visualização) no Log Analytics
 
@@ -47,8 +47,8 @@ A tabela a seguir descreve as fontes conectadas que têm suporte dessa solução
 ## <a name="prerequisites"></a>Pré-requisitos
 
 - Uma assinatura do Azure. Se não tiver uma, você poderá criá-la [grátis](https://azure.microsoft.com/free/).
-- Um espaço de trabalho do Log Analytics. Você pode usar um existente ou pode [criar um novo](log-analytics-get-started.md) para começar a usar essa solução.
-- Habilite o Diagnóstico do Azure para os bancos de dados do Azure SQL e pools elásticos e [configure-os para enviar os dados para o Log Analytics](https://blogs.technet.microsoft.com/msoms/2017/01/17/enable-azure-resource-metrics-logging-using-powershell/).
+- Um espaço de trabalho do Log Analytics. Você pode usar um existente ou pode [criar um novo](log-analytics-quick-create-workspace.md) para começar a usar essa solução.
+- Habilite o Diagnóstico do Azure para os bancos de dados do Azure SQL e pools elásticos e [configure-os para enviar os dados para o Log Analytics](../sql-database/sql-database-metrics-diag-logging.md).
 
 ## <a name="configuration"></a>Configuração
 
@@ -60,9 +60,9 @@ Realize as etapas a seguir para adicionar a solução Análise de SQL do Azure a
 3. Na lista **Monitoramento + Gerenciamento**, clique em **Ver todos**.
 4. Na lista **Recomendado**, clique em **Mais** e, na nova lista, localize **Análise do Azure SQL (Visualização)** e selecione-a.  
     ![Solução de Análise do Azure SQL](./media/log-analytics-azure-sql/azure-sql-solution-portal.png)
-5. No painel **Análise de SQL do Azure (Versão prévia)**, clique em **Criar**.  
+5. Na folha **Análise do Azure SQL (Visualização)**, clique em **Criar**.  
     ![Criar](./media/log-analytics-azure-sql/portal-create.png)
-6. No painel **Criar nova solução**, selecione o espaço de trabalho ao qual você deseja adicionar a solução e clique em **Criar**.  
+6. Na folha **Criar nova solução**, selecione o espaço de trabalho ao qual você deseja adicionar a solução e clique em **Criar**.  
     ![adicionar ao espaço de trabalho](./media/log-analytics-azure-sql/add-to-workspace.png)
 
 
@@ -96,7 +96,7 @@ Clique no bloco **Análise de SQL do Azure** para abrir o painel da Análise de 
 
 ![Visão geral da Análise de SQL do Azure](./media/log-analytics-azure-sql/azure-sql-sol-overview.png)
 
-Selecionar qualquer bloco abre um relatório de detalhamento sobre a perspectiva específica.
+Selecionar qualquer bloco abre um relatório de detalhamento sobre a perspectiva específica. Assim que a perspectiva for selecionada, o relatório de dril down será aberto.
 
 ![Tempos limite da Análise de SQL do Azure](./media/log-analytics-azure-sql/azure-sql-sol-timeouts.png)
 
@@ -115,7 +115,7 @@ Cada perspectiva fornece resumos sobre a assinatura, o servidor, o pool elástic
 
 ### <a name="intelligent-insights-report"></a>Relatório de Insights inteligentes
 
-Todos os insights inteligentes coletados podem ser visualizados e acessados por meio da perspectiva de Insights. [Clique aqui para saber mais sobre Insights inteligentes](../sql-database/sql-database-intelligent-insights.md)
+Todos os insights inteligentes coletados podem ser visualizados e acessados por meio da perspectiva de Insights. 
 
 ![Insights de Análise de SQL do Azure](./media/log-analytics-azure-sql/azure-sql-sol-insights.png)
 
@@ -136,6 +136,9 @@ Por meio da duração da consulta e da perspectiva de esperas de consulta, é po
 ### <a name="analyze-data-and-create-alerts"></a>Analisar dados e criar alertas
 
 Você pode criar facilmente alertas com os dados provenientes de recursos de Banco de Dados SQL do Azure. Aqui estão algumas das consultas de [pesquisa de logs](log-analytics-log-searches.md) úteis que você pode usar para alertas:
+
+[!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
+
 
 *DTU alta no Banco de Dados SQL do Azure*
 
@@ -162,7 +165,7 @@ Você pode usar essas consultas com base no alerta para alertar sobre limites es
 6. Na página **Adicionar Regra de Alerta**, defina as propriedades adequadas e os limites específicos que você deseja e clique em **Salvar**.  
 ![adicionar regra de alerta](./media/log-analytics-azure-sql/create-alert02.png)
 
-## <a name="see-also"></a>Consulte também
+## <a name="next-steps"></a>Próximas etapas
 
 - Usar [Pesquisas de Log](log-analytics-log-searches.md) no Log Analytics para exibir dados detalhados do Azure SQL.
 - [Criar seus próprios painéis](log-analytics-dashboards.md) mostrando os dados do Azure SQL.

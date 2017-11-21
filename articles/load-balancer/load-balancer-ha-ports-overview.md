@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: kumud
-ms.openlocfilehash: 62d78e067e50183f25af84e547db2e11c0014f5d
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: e72fc0d4323f7a2d203fee66311c3fea10ad7a09
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="high-availability-ports-overview-preview"></a>Visão geral de portas de alta disponibilidade (versão prévia)
 
@@ -36,7 +36,7 @@ Portas de alta disponibilidade são configuradas definindo as portas de front-en
 
 ## <a name="why-use-ha-ports"></a>Por que usar portas de alta disponibilidade
 
-### <a name="network-virtual-appliances"></a>Soluções de Virtualização de Rede
+### <a name="nva"></a>Dispositivos Virtuais de Rede
 
 É possível usar as NVA (soluções de virtualização de rede) para proteger as cargas de trabalho do Azure contra vários tipos de ameaças à segurança. Quando as NVA são usadas nesses cenários, elas devem ser confiáveis, altamente disponíveis e expandir sob demanda.
 
@@ -139,6 +139,8 @@ A seguir estão as configurações com suporte ou exceções para portas de HA:
 - Uma mesma configuração de IP de adaptador de rede pode ter uma ou mais regras de balanceador de carga DSR com portas de alta disponibilidade, desde que todas as respectivas configurações de IP de front-end sejam exclusivas.
 - Se todas as regras de balanceamento de carga forem de portas de alta disponibilidade (somente DSR) ou se todas as regras forem de portas que não são de alta disponibilidade (DSR e não DSR), duas (ou mais) regras de Load Balancer apontando para o mesmo pool de back-end poderão coexistir. Essas duas regras de balanceamento de carga não poderão coexistir se houver uma combinação de regras de portas de alta disponibilidade e portas que não são de alta disponibilidade.
 - Portas de alta disponibilidade não estão disponíveis para IPv6.
+- A simetria de fluxo para cenários NVA é compatível somente com uma única NIC. Veja a descrição e o diagrama para [Dispositivos de Rede Virtual](#nva). 
+
 
 
 ## <a name="next-steps"></a>Próximas etapas

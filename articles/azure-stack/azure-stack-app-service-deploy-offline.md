@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: anwestg
-ms.openlocfilehash: 8ee171708364c3e29476302bef04a715df650b9b
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: cd727b2902dafdb8086ac4ce74db96ca8acf8fe8
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Adicionar um provedor de recursos do serviço de aplicativo para um ambiente desconectado do Azure pilha protegido pelo AD FS
 
@@ -110,7 +110,7 @@ Para implantar o serviço de aplicativo em um ambiente desconectado, primeiro vo
 
     ![Instalador de serviço de aplicativo](media/azure-stack-app-service-deploy/image07.png)    
 
-12. Examine as opções de SKU e a instância de função. Os padrões são preenchidos com o número mínimo de instância e o SKU mínimo para cada função em uma implantação de ASDK. Um resumo dos requisitos de memória e núcleo é fornecido para ajudar a planejar a implantação. Depois de fazer suas seleções, clique em **próximo**.
+12. Examine as opções de SKU e a instância de função. Os padrões são preenchidos com o número mínimo de instância e o SKU mínimo para cada função em uma implantação de ASDK. Um resumo dos requisitos de memória e vCPU é fornecido para ajudar a planejar a implantação. Depois de fazer suas seleções, clique em **próximo**.
 
      > [!NOTE]
      > Para implantações de produção, seguindo as orientações em [planejamento de capacidade de funções de servidor do serviço de aplicativo do Azure na pilha do Azure](azure-stack-app-service-capacity-planning.md).
@@ -119,11 +119,11 @@ Para implantar o serviço de aplicativo em um ambiente desconectado, primeiro vo
 
     | Função | Instâncias mínimas | SKU mínimo | Observações |
     | --- | --- | --- | --- |
-    | Controller | 1 | Standard_A1 - (1 núcleo, 1792 MB) | Gerencia e mantém a integridade da nuvem do serviço de aplicativo. |
-    | Gerenciamento | 1 | Standard_A2 - (2 núcleos, 3584 MB) | Gerencia os pontos de extremidade do serviço de aplicativo do Azure Resource Manager e a API, extensões portais (administrador, locatário, portal de funções) e o serviço de dados. Para dar suporte a failover, aumentado instâncias recomendadas para 2. |
-    | Editor | 1 | Standard_A1 - (1 núcleo, 1792 MB) | Publica o conteúdo por meio de implantação da web e FTP. |
-    | FrontEnd | 1 | Standard_A1 - (1 núcleo, 1792 MB) | Encaminha solicitações para aplicativos de serviço de aplicativo. |
-    | Trabalho compartilhados | 1 | Standard_A1 - (1 núcleo, 1792 MB) | Hosts ou aplicativos de API aplicativos web e funções do Azure. Você talvez queira adicionar mais instâncias. Como um operador, você pode definir sua oferta e escolha qualquer camada SKU. As camadas devem ter um mínimo de um núcleo. |
+    | Controller | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Gerencia e mantém a integridade da nuvem do serviço de aplicativo. |
+    | Gerenciamento | 1 | Standard_A2 - (vCPUs 2, 3584 MB) | Gerencia os pontos de extremidade do serviço de aplicativo do Azure Resource Manager e a API, extensões portais (administrador, locatário, portal de funções) e o serviço de dados. Para dar suporte a failover, aumentado instâncias recomendadas para 2. |
+    | Editor | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Publica o conteúdo por meio de implantação da web e FTP. |
+    | FrontEnd | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Encaminha solicitações para aplicativos de serviço de aplicativo. |
+    | Trabalho compartilhados | 1 | Standard_A1 - (1 vCPU, 1792 MB) | Hosts ou aplicativos de API aplicativos web e funções do Azure. Você talvez queira adicionar mais instâncias. Como um operador, você pode definir sua oferta e escolha qualquer camada SKU. As camadas devem ter no mínimo um vCPU. |
 
     ![Instalador de serviço de aplicativo](media/azure-stack-app-service-deploy/image08.png)    
 

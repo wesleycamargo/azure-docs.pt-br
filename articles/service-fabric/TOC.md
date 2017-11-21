@@ -136,11 +136,30 @@
 ## [Integrar com o Gerenciamento de API](service-fabric-api-management-overview.md)
 
 ## Monitorar e diagnosticar
-### [Visão geral](service-fabric-diagnostics-overview.md)
-### [Modelo de integridade](service-fabric-health-introduction.md)
-### [Diagnóstico em Reliable Services com estado](service-fabric-reliable-services-diagnostics.md)
-### [Diagnósticos em Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
-### [Contadores de desempenho para o Serviço Remoto Confiável](service-fabric-reliable-serviceremoting-diagnostics.md)
+### [Monitorar e diagnosticar aplicativos](service-fabric-diagnostics-overview.md)
+### Gerar eventos
+#### [Gerar eventos de nível de plataforma](service-fabric-diagnostics-event-generation-infra.md)
+##### [Canal operacional](service-fabric-diagnostics-event-generation-operational.md)
+##### [Eventos de Reliable Services](service-fabric-reliable-services-diagnostics.md)
+##### [Eventos de Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
+##### [Métricas de desempenho](service-fabric-diagnostics-event-generation-perf.md)
+##### [Comunicação remota do serviço de monitoramento](service-fabric-reliable-serviceremoting-diagnostics.md)
+#### [Gerar eventos de nível de aplicativo](service-fabric-diagnostics-event-generation-app.md)
+### Inspecionar a integridade do aplicativo e do cluster
+#### [Monitorar a integridade do Service Fabric](service-fabric-health-introduction.md)
+#### [Relatar e verificar a integridade de serviço](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
+#### [Adicionar relatórios de integridade personalizados](service-fabric-report-health.md)
+#### [Solucionar problemas com relatórios de integridade do sistema](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
+#### [Exibir relatórios de integridade](service-fabric-view-entities-aggregated-health.md)
+### Eventos de agregação
+#### [Eventos de agregação com EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md)
+#### Eventos de agregação com o Diagnóstico do Azure
+##### [Windows](service-fabric-diagnostics-event-aggregation-wad.md)
+##### [Linux](service-fabric-diagnostics-event-aggregation-lad.md)
+### Analisar eventos
+#### [Analisar eventos com o Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
+#### [Analisar eventos com o OMS](service-fabric-diagnostics-event-analysis-oms.md)
+### [Solucionar problemas do seu cluster local](service-fabric-troubleshoot-local-cluster-setup.md)
 
 # Guias de instruções
 ## Configurar seu ambiente de desenvolvimento
@@ -231,8 +250,6 @@
 ### [Depurar um serviço Java no Eclipse](service-fabric-debugging-your-application-java.md)
 ### [Monitorar e diagnosticar localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
 
-## [Implantar o Gerenciamento de API e o Service Fabric no Azure](service-fabric-api-management-quick-start.md)
-
 ## Migrar dos Serviços de Nuvem
 ### [Comparar os Serviços de Nuvem com o Service Fabric](service-fabric-cloud-services-migration-differences.md)
 ### [Migrar para o Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md)
@@ -246,7 +263,6 @@
 #### [Gerenciador de Recursos do Azure](service-fabric-application-arm-resource.md)
 #### [PowerShell do Azure](service-fabric-deploy-remove-applications.md)
 #### [CLI do Service Fabric](service-fabric-application-lifecycle-sfctl.md)
-#### [Visual Studio](service-fabric-publish-app-remote-cluster.md)
 #### [APIs de FabricClient](service-fabric-deploy-remove-applications-fabricclient.md)
 
 ### Atualizar aplicativos
@@ -262,11 +278,8 @@
 ##### [Durante cargas de trabalho](service-fabric-testability-workload-tests.md)
 ##### [Como usar os cenários de teste](service-fabric-testability-scenarios.md)
 ##### [Usando as APIs de transição do nó](service-fabric-node-transition-apis.md)
-#### [Fazer teste de carga em seu aplicativo](service-fabric-vso-load-test.md)
 
-### Configurar a integração contínua
-#### [Configurar a integração contínua com o VSTS](service-fabric-set-up-continuous-integration.md)
-#### [Implantar seu aplicativo Java Linux usando o Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
+### [Implantar seu aplicativo Java Linux usando o Jenkins](service-fabric-cicd-your-linux-java-application-with-jenkins.md)
 
 ## Criar e gerenciar clusters
 ### Clusters no Azure
@@ -301,46 +314,13 @@
 ### [Conectar-se a um cluster seguro](service-fabric-connect-to-secure-cluster.md)
 ### [Nós de cluster de patch](service-fabric-patch-orchestration-application.md)
 
-### Gerenciar e orquestrar recursos do cluster
-#### [Visão geral do Resource Manager de cluster](service-fabric-cluster-resource-manager-introduction.md)
-#### [Arquitetura do Gerenciador de Recursos do Cluster](service-fabric-cluster-resource-manager-architecture.md)
-#### [Descrever um cluster](service-fabric-cluster-resource-manager-cluster-description.md)
-#### [Visão geral de grupos de aplicativos](service-fabric-cluster-resource-manager-application-groups.md)
-#### [Definir configurações do Resource Manager de Cluster](service-fabric-cluster-resource-manager-configure-services.md)
-#### [Métricas de consumo de recursos](service-fabric-cluster-resource-manager-metrics.md)
-#### [Usar afinidade de serviço](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
-#### [Políticas de posicionamento de serviço](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)
-#### [Gerenciar um cluster](service-fabric-cluster-resource-manager-management-integration.md)
-#### [Desfragmentação do cluster](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
-#### [alancear um cluster](service-fabric-cluster-resource-manager-balancing.md)
-#### [Limitação](service-fabric-cluster-resource-manager-advanced-throttling.md)
-#### [Movimento de serviço](service-fabric-cluster-resource-manager-movement-cost.md)
-
 ## Monitorar e diagnosticar
-### [Monitorar e diagnosticar aplicativos](service-fabric-diagnostics-overview.md)
-### Gerar eventos
-#### [Gerar eventos de nível de plataforma](service-fabric-diagnostics-event-generation-infra.md)
-##### [Canal operacional](service-fabric-diagnostics-event-generation-operational.md)
-##### [Eventos de Reliable Services](service-fabric-reliable-services-diagnostics.md)
-##### [Eventos de Reliable Actors](service-fabric-reliable-actors-diagnostics.md)
-##### [Métricas de desempenho](service-fabric-diagnostics-event-generation-perf.md)
-#### [Gerar eventos de nível de aplicativo](service-fabric-diagnostics-event-generation-app.md)
-### Inspecionar a integridade do aplicativo e do cluster
-#### [Monitorar a integridade do Service Fabric](service-fabric-health-introduction.md)
-#### [Relatar e verificar a integridade de serviço](service-fabric-diagnostics-how-to-report-and-check-service-health.md)
-#### [Adicionar relatórios de integridade personalizados](service-fabric-report-health.md)
-#### [Solucionar problemas com relatórios de integridade do sistema](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
-#### [Exibir relatórios de integridade](service-fabric-view-entities-aggregated-health.md)
-#### [Monitorar contêineres do Windows Server](service-fabric-diagnostics-containers-windowsserver.md)
-### Eventos de agregação
-#### [Eventos de agregação com EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md)
-#### Eventos de agregação com o Diagnóstico do Azure
-##### [Windows](service-fabric-diagnostics-event-aggregation-wad.md)
-##### [Linux](service-fabric-diagnostics-event-aggregation-lad.md)
-### Analisar eventos
-#### [Analisar eventos com o Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md)
-#### [Analisar eventos com o OMS](service-fabric-diagnostics-event-analysis-oms.md)
-### [Solucionar problemas do seu cluster local](service-fabric-troubleshoot-local-cluster-setup.md)
+### OMS
+#### [Configurar o Log Analytics do OMS](service-fabric-diagnostics-oms-setup.md)
+#### [Adicionar Agente do OMS](service-fabric-diagnostics-oms-agent.md)
+#### [Monitorar contêineres](service-fabric-diagnostics-oms-containers.md)
+### Monitoramento de desempenho
+#### [Monitoramento do desempenho com WAD](service-fabric-diagnostics-perf-wad.md)
 
 # Referência
 ## [PowerShell do Azure](/powershell/module/azurerm.servicefabric/)

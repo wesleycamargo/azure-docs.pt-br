@@ -28,7 +28,13 @@
 - name: Conceitos
   items:
     - name: Atualização do espaço de trabalho
-      href: log-analytics-log-search-upgrade.md
+      items:
+        - name: Visão geral da atualização
+          href: log-analytics-log-search-upgrade.md
+        - name: Resumo das alterações
+          href: log-analytics-log-search-upgrade-changes.md
+        - name: Perguntas frequentes sobre atualização
+          href: log-analytics-log-search-faq.md
     - name: Perguntas frequentes do Log Analytics
       href: log-analytics-faq.md
     - name: Consumo de dados
@@ -41,8 +47,6 @@
       items:
         - name: Visão geral das pesquisas de log
           href: log-analytics-log-search-new.md
-        - name: Perguntas frequentes sobre a Pesquisa de Log
-          href: log-analytics-log-search-faq.md
         - name: Portais de Pesquisa de Logs
           href: log-analytics-log-search-portals.md
 - name: Guias de instruções
@@ -61,6 +65,8 @@
               href: log-analytics-azure-vm-extension.md
             - name: Recursos do Azure
               href: log-analytics-azure-storage.md
+            - name: Recursos de PaaS do Azure
+              href: log-analytics-collect-azurepass-posh.md
             - name: Dados de diagnóstico ou de log do armazenamento do Azure
               href: log-analytics-azure-storage-iis-table.md
             - name: Operations Manager

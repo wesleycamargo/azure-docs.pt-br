@@ -12,19 +12,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 11/13/2017
 ms.author: helaw
-ms.openlocfilehash: ffad7bfd4ffcd9159dea23b70640f0ee761fbae0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b9109c58b29d5f09f1a86068a87c5e7f839228af
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="azure-resource-manager-template-considerations"></a>Considerações sobre o modelo do Azure Resource Manager
 
 *Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
 
 Ao desenvolver um aplicativo, é importante garantir a portabilidade do modelo entre o Azure e o Azure Stack.  Este tópico oferece considerações sobre o desenvolvimento de [modelos](http://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf) do Azure Resource Manager, para que você possa construir protótipos do seu aplicativo e testar sua implantação no Azure sem acesso a um ambiente do Azure Stack.
+
+## <a name="resource-provider-availability"></a>Disponibilidade do provedor de recursos
+O modelo que você planeja implantar deve estar usando um serviço do Microsoft Azure que já está disponível ou no modo de visualização na pilha do Azure.
 
 ## <a name="public-namespaces"></a>Namespaces públicos
 Como o Azure Stack está hospedado no seu datacenter, ele tem namespaces de ponto de extremidade de serviço diferentes do da nuvem pública do Azure. Como resultado, pontos de extremidade públicos em modelos do Gerenciador de recursos codificados falharem quando você tentar implantá-los a pilha do Azure. Em vez disso, é possível usar as funções *referência* e *concatenar* para criar dinamicamente o ponto de extremidade de serviço com base em valores recuperados do provedor de recursos durante a implantação. Por exemplo, em vez de especificar *blob.core.windows.net* em seu modelo, recupere o [primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-simple-windows-vm/azuredeploy.json#L201) para definir dinamicamente o ponto de extremidade *osDisk.URI*:
@@ -36,7 +39,7 @@ Como o Azure Stack está hospedado no seu datacenter, ele tem namespaces de pont
 ## <a name="api-versioning"></a>Controle de versão de API
 As versões de serviço do Azure podem ser diferentes entre o Azure e o Azure Stack. Cada recurso requer o atributo apiVersion, que define os recursos oferecidos. Para garantir a compatibilidade de versão de API na pilha do Azure, estas são as versões de API válidas para cada provedor de recursos:
 
-| Provedor de recursos | apiVersion |
+| Provedor de Recursos | apiVersion |
 | --- | --- |
 | Computação |`'2015-06-15'` |
 | Rede |`'2015-06-15'`, `'2015-05-01-preview'` |
@@ -73,7 +76,6 @@ Os modelos do Resource Manager usam um atributo de localização para colocar re
       }
     }
     ]
-
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Implantar modelos com o PowerShell](azure-stack-deploy-template-powershell.md)

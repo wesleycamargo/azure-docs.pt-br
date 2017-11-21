@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/09/2017
 ms.author: mazha
-ms.openlocfilehash: 8c5dd3ddd03b3531e4ffb7b622110a2ea997f9ae
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 98d4900e28f1850050dc4fbe1f97435e52afaf08
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="add-a-custom-domain-to-your-cdn-endpoint"></a>Adicionar um domínio personalizado ao seu ponto de extremidade CDN
-Depois de criar um perfil, você normalmente também cria um ou mais pontos de extremidade CDN (um subdomínio de azureedge.net) para distribuir seu conteúdo usando HTTP e HTTPS. Por padrão, esse ponto de extremidade está incluído em todas as suas URLs, por exemplo, `http(s)://contoso.azureedge.net/photo.png`). Para sua conveniência, a CDN do Azure fornece a opção de associar um domínio personalizado (por exemplo, `www.contoso.com`) ao seu ponto de extremidade. Com essa opção, você pode usar um domínio personalizado para entregar seu conteúdo, em vez do seu ponto de extremidade. Essa opção será útil se, por exemplo, você quiser que seu próprio nome de domínio fique visível aos seus clientes para fins de identificação de marca.
+Depois de criar um perfil, você normalmente também cria um ou mais [pontos de extremidade](cdn-create-new-endpoint.md#create-a-new-cdn-endpoint) da CDN (um subdomínio de `azureedge.net`) para distribuir seu conteúdo usando HTTP e HTTPS. Por padrão, esse ponto de extremidade está incluído em todas as suas URLs (por exemplo, `https://contoso.azureedge.net/photo.png`). Para sua conveniência, o Azure CDN permite que você associe um domínio personalizado (por exemplo, `www.contoso.com`) com o ponto de extremidade. Com essa opção, você pode usar um domínio personalizado para entregar seu conteúdo, em vez do seu ponto de extremidade. Essa opção será útil se, por exemplo, você quiser que seu próprio nome de domínio fique visível aos seus clientes para fins de identificação de marca.
 
 Se você ainda não tiver um domínio personalizado, deverá primeiro adquirir um com um provedor de domínio. Depois de obter um domínio personalizado, siga estas etapas:
 1. [Acessar os registros DNS do seu provedor de domínio](#step-1-access-dns-records-by-using-your-domain-provider)

@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2017
+ms.date: 11/02/2017
 ms.author: bwren
-ms.openlocfilehash: bf48cbc52a1ed96ed1bb49b1879d5cd7aece945c
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 1ec815a12cea98228dd4b7ac7361fe5e3554b5d3
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="log-analytics-new-log-search-faq-and-known-issues"></a>Perguntas frequentes e problemas conhecidos sobre a nova pesquisa de logs do Log Analytics
 
@@ -38,13 +38,6 @@ Não, há algumas alterações nas ações de webhook e runbook que podem exigir
 
 ### <a name="question-im-getting-errors-when-trying-to-use-computer-groups--has-their-syntax-changed"></a>Pergunta: Recebo erros ao tentar usar grupos de computadores.  A sintaxe deles mudou?
 Sim, a sintaxe para usar grupos de computadores muda quando o espaço de trabalho é atualizado.  Consulte [Grupos de computadores em pesquisas de logs do Log Analytics](log-analytics-computer-groups.md) para obter detalhes.
-
-### <a name="known-issue-groups-imported-from-active-directory"></a>Problema conhecido: grupos importados do Active Directory
-No momento, não é possível criar uma consulta que usa um grupo de computadores importado do Active Directory.  Como uma solução alternativa até que esse problema seja corrigido, crie um novo grupo de computadores usando o grupo do Active Directory importado e, em seguida, use esse novo grupo na consulta.
-
-Uma consulta de exemplo para criar um novo grupo de computadores que inclui um grupo do Active Directory importado é a seguinte:
-
-    ComputerGroup | where GroupSource == "ActiveDirectory" and Group == "AD Group Name" and TimeGenerated >= ago(24h) | distinct Computer
 
 
 ## <a name="dashboards"></a>Painéis
@@ -76,11 +69,6 @@ O Minify é um recurso que fornece uma exibição resumida dos resultados da pes
     | evaluate autocluster_v2()
 
 
-### <a name="known-issue-search-results-in-a-list-may-include-properties-with-no-data"></a>Problema conhecido: os resultados da pesquisa em uma lista podem incluir propriedades sem dados
-Os resultados da pesquisa de logs em uma lista podem exibir propriedades sem dados.  Antes do upgrade, essas propriedades não seriam incluídas.  Esse problema será corrigido para que propriedades vazias não sejam exibidas.
-
-### <a name="known-issue-selecting-a-value-in-a-chart-doesnt-display-detailed-results"></a>Problema conhecido: a seleção de um valor em um gráfico não exibe resultados detalhados
-Antes do upgrade, ao selecionar um valor em um gráfico, ele retornava uma lista detalhada de registros que correspondiam ao valor selecionado.  Após o upgrade, apenas a única linha resumida é retornada.  Esse problema está sendo investigado no momento.
 
 ## <a name="log-search-api"></a>API da Pesquisa de Log
 
@@ -109,11 +97,9 @@ Seu navegador requer acesso aos endereços a seguir para executar consultas do L
 ## <a name="power-bi"></a>Power BI
 
 ### <a name="question-does-anything-change-with-powerbi-integration"></a>Pergunta: alguma coisa muda com a integração do PowerBI?
-Sim.  Uma vez atualizado o espaço de trabalho, o processo para exportar dados do Log Analytics para o Power BI deixará de funcionar.  Todas as agendas existentes criadas antes da atualização serão desabilitadas.  Após fazer upgrade, o Azure Log Analytics utiliza a mesma plataforma do Application Insights e você usará o mesmo processo para exportar consultas do Log Analytics para o Power BI como no [processo para exportar consultas do Application Insights para o Power BI](../application-insights/app-insights-export-power-bi.md#export-analytics-queries).
+Sim.  Uma vez atualizado o espaço de trabalho, o processo para exportar dados do Log Analytics para o Power BI deixará de funcionar.  Todas as agendas existentes criadas antes da atualização serão desabilitadas.  
 
-### <a name="known-issue-power-bi-request-size-limit"></a>Problema conhecido: limite de tamanho de solicitação do Power BI
-Atualmente, há um limite de tamanho de 8 MB para uma consulta do Log Analytics que pode ser exportada para o Power BI.  Esse limite será aumentado em breve.
-
+Após fazer upgrade, o Azure Log Analytics utiliza a mesma plataforma do Application Insights e você usará o mesmo processo para exportar consultas do Log Analytics para o Power BI como no [processo para exportar consultas do Application Insights para o Power BI](../application-insights/app-insights-export-power-bi.md#export-analytics-queries).  Agora Exportar para o Power BI chama diretamente o ponto de extremidade de API. Isso permite que você obtenha até 500.000 linhas ou 64.000.000 bytes de dados, exporte longas consultas e personalize o tempo limite da consulta (o tempo limite padrão é de 3 minutos e o tempo limite máximo é de 10 minutos).
 
 ## <a name="powershell-cmdlets"></a>Cmdlets do PowerShell
 
@@ -153,14 +139,11 @@ Sim.  Você deve usar a versão de API 2017-03-15-preview e incluir uma seção 
 ### <a name="question-will-my-solutions-continue-to-work"></a>Pergunta: Minhas soluções continuarão funcionando?
 Todas as soluções continuarão funcionando em um espaço de trabalho atualizado, embora seu desempenho melhorará se elas forem convertidas na nova linguagem de consulta.  Há problemas conhecidos com algumas soluções existentes que são descritos nesta seção.
 
-### <a name="known-issue-capacity-and-performance-solution"></a>Problema conhecido: solução Capacidade e Desempenho
-Algumas partes da exibição [Capacidade e Desempenho](log-analytics-capacity.md) podem estar vazias.  Uma correção para esse problema estará disponível em breve.
-
-### <a name="known-issue-application-insights-connector"></a>Problema conhecido: conector do Application Insights
-Atualmente, não há suporte para perspectivas na [solução Conector do Application Insights](log-analytics-app-insights-connector.md) em um espaço de trabalho atualizado.  Uma correção para esse problema está atualmente em análise.
+### <a name="known-issue-perspectives-in-application-insights-connector"></a>Problema conhecido: perspectivas no conector do Application Insights
+Não há mais suporte para as perspectivas na [solução do Conector do Application Insights](log-analytics-app-insights-connector.md) na solução do conector do Application Insights.  É possível usar o Designer de exibição para criar exibições personalizadas usando dados do Application Insights.
 
 ### <a name="known-issue-backup-solution"></a>Problema conhecido: solução de backup
-A solução de backup não coletará dados em um espaço de trabalho atualizado. Uma nova solução de backup que funciona com o espaço de trabalho atualizado será anunciada em breve.
+A Solução de backup poderá não coletar dados se tiver sido instalada antes da atualização de um espaço de trabalho. Desinstale a solução e instale a versão mais recente.  A nova versão da solução não dá suporte a cofres de backup clássicos. Portanto, também é necessário atualizar para cofres de Serviços de Recuperação para continuar usando a solução.
 
 ## <a name="upgrade-process"></a>Processo de atualização
 
@@ -182,9 +165,6 @@ Antes da disponibilidade geral, você podia reverter o seu espaço de trabalho a
 
 ### <a name="question-how-do-i-create-a-new-view-with-view-designer"></a>Pergunta: Como fazer para criar uma nova exibição com o Designer de Exibição?
 Antes do upgrade, era possível criar uma nova exibição com o Designer de Exibição por meio de um bloco no painel principal.  Quando o espaço de trabalho é atualizado, esse bloco é removido.  Crie uma nova exibição com o Designer de Exibição no portal do OMS clicando no botão + verde no menu à esquerda.
-
-### <a name="known-issue-see-all-option-for-line-charts-in-views-doesnt-result-in-a-line-chart"></a>Problema conhecido: a opção Ver tudo em gráficos de linhas nas exibições não resulta em um gráfico de linhas
-Ao clicar na opção *Ver tudo* na parte inferior de uma parte do gráfico de linhas em uma exibição, você verá uma tabela.  Antes do upgrade, era mostrado um gráfico de linhas.  Esse problema está sendo analisado para uma modificação potencial.
 
 
 ## <a name="next-steps"></a>Próximas etapas

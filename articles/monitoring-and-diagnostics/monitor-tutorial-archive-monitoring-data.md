@@ -10,15 +10,23 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
-ms.openlocfilehash: 445901a740920a74f259aaa9c6b862680c1c807e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f19cf8fddd9ffcf08b8ce18db070a7482ce012df
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="archive-azure-monitoring-data"></a>Arquivar dados de monitoramento do Azure
 
 Várias camadas do ambiente do Azure produzem dados de log e de métrica que podem ser arquivados em uma Conta de Armazenamento do Azure. Talvez você deseje fazer isso para preservar um histórico dos dados de monitoramento ao longo do tempo em um repositório de baixo custo e não pesquisável depois que os dados passaram seu período de retenção no Log Analytics ou no Azure Monitor. Este tutorial executa em etapas o processo de configuração do ambiente do Azure para arquivar dados em uma conta de armazenamento.
+
+> [!div class="checklist"]
+> * Crie uma conta de armazenamento para manter os dados de monitoramento
+> * Encaminhe os logs de assinatura para ela 
+> * Encaminhe os dados do recurso para ela 
+> * Encaminhe os dados da máquina virtual (SO convidado) para ela 
+> * Exiba os dados de monitoramento nela 
+> * Limpar seus recursos 
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -158,7 +166,18 @@ Agora você configurou com êxito os dados de monitoramento a serem arquivados e
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu a configurar os dados de monitoramento do ambiente do Azure (assinatura, recurso e SO convidado) a serem arquivados em uma conta de armazenamento. Para tornar seus dados mais significativos e obter insights deles, tente enviá-los para o Log Analytics também.
+Neste tutorial, você aprendeu a configurar os dados de monitoramento do ambiente do Azure (assinatura, recurso e SO convidado) a serem arquivados em uma conta de armazenamento. 
+
+
+> [!div class="checklist"]
+> * Crie uma conta de armazenamento para manter os dados de monitoramento
+> * Encaminhe os logs de assinatura para ela 
+> * Encaminhe os dados do recurso para ela 
+> * Encaminhe os dados da máquina virtual (SO convidado) para ela 
+> * Exiba os dados de monitoramento nela 
+> * Limpar seus recursos 
+
+Para obter mais de seus dados e derivar informações adicionais, também envie seus dados para o Log Analytics.
 
 > [!div class="nextstepaction"]
 > [Introdução ao Log Analytics](../log-analytics/log-analytics-get-started.md)

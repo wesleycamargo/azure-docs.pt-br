@@ -9,14 +9,6 @@
 ## [Extensão do Código VS para modelos](resource-manager-vscode-extension.md)
 ## [Visual Studio com o Gerenciador de Recursos](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
 
-# Exemplos
-## [Exemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=azure-resource-manager)
-## Azure PowerShell
-### [Implantar modelo](resource-manager-samples-powershell-deploy.md)
-
-## CLI do Azure
-### [Implantar modelo](resource-manager-samples-cli-deploy.md)
-
 # Como
 ## Criar modelos
 ### [Seções do modelo](resource-group-authoring-templates.md)
@@ -69,12 +61,6 @@
 ### [API de autenticação para assinaturas de acesso](resource-manager-api-authentication.md)
 ### [Bloquear recursos](resource-group-lock-resources.md)
 
-## Definir políticas de recursos
-### [O que são políticas de recursos?](resource-manager-policy.md)
-### Exemplos
-#### [Marcas](resource-manager-policy-tags.md)
-#### [Convenções de nomenclatura](resource-manager-policy-naming-convention.md)
-
 ## Audit
 ### [Exibir logs de atividade](resource-group-audit.md)
 ### [Exibir operações de implantação](resource-manager-deployment-operations.md)
@@ -89,6 +75,7 @@
 #### [NotFound](resource-manager-not-found-errors.md)
 #### [ParentResourceNotFound](resource-manager-parent-resource-errors.md)
 #### [RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md)
+#### [ReservedResourceName](resource-manager-reserved-resource-name.md)
 #### [ResourceQuotaExceeded](resource-manager-quota-errors.md)
 #### [SkuNotAvailable](resource-manager-sku-not-available-errors.md)
 ### Erros de implantação da Máquina Virtual

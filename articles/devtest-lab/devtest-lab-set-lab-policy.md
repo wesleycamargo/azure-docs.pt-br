@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/13/2017
+ms.date: 11/03/2017
 ms.author: tarcher
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 328a4d893637d7150807855e118b485a2c3bbfc5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 03cd09e37ff7dd0b7731eee19810ada7aed1a875
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Gerenciar todas as políticas de um laboratório no Azure DevTest Labs
 
@@ -28,7 +28,11 @@ O Azure DevTest Labs permite controlar o custo e minimize o desperdício nos lab
 ## <a name="set-allowed-virtual-machine-sizes"></a>Definir tamanhos de máquina virtual permitidos
 A política para definir os tamanhos de VM permitidos ajuda a minimizar o desperdício de laboratório, permitindo que você especifique quais tamanhos de VM são permitidos no laboratório. Quando essa política é ativada, somente os tamanhos de VM nesta lista podem ser usados para criar VMs.
 
-1. Na folha **Configurações e políticas** do laboratório, selecione **Tamanhos de máquinas virtuais permitidos**.
+1. No [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040), selecione um laboratório e, em seguida, selecione **Configuração e políticas**.
+
+    ![Acessar as políticas e configuração do laboratório](./media/devtest-lab-set-lab-policy/policies-menu.png)
+
+1. No painel **Configurações e políticas** do laboratório, selecione **Tamanhos de máquinas virtuais permitidos**.
    
     ![Tamanhos de máquinas virtuais permitidos](./media/devtest-lab-set-lab-policy/allowed-vm-sizes.png)
 
@@ -41,7 +45,7 @@ A política para definir os tamanhos de VM permitidos ajuda a minimizar o desper
 ## <a name="set-virtual-machines-per-user"></a>Conjunto de máquinas virtuais por usuário
 A política de **Máquinas virtuais por usuário** permite que você especifique o número máximo de VMs que podem ser criadas por um usuário individual. Se um usuário tentar criar ou reivindicar uma VM quando o limite de usuários for atingido, uma mensagem de erro indicará que a VM não poderá ser criada/reivindicada. 
 
-1. No menu **Configuração e políticas** do laboratório, selecione **Máquinas virtuais por usuário**.
+1. No painel **Configuração e políticas** do laboratório, selecione **Máquinas virtuais por usuário**.
    
     ![Máquinas virtuais por usuário](./media/devtest-lab-set-lab-policy/max-vms-per-user.png)
 
@@ -54,7 +58,7 @@ A política de **Máquinas virtuais por usuário** permite que você especifique
 ## <a name="set-virtual-machines-per-lab"></a>Conjunto de máquinas virtuais por laboratório
 A política de **Máquinas virtuais por laboratório** permite que você especifique o número máximo de VMs que podem ser criadas para o laboratório atual. Se um usuário tentar criar uma VM quando o limite de laboratórios for alcançado, uma mensagem de erro indicará que a VM não pode ser criada. 
 
-1. No menu **Configuração e políticas** do laboratório, selecione **Máquinas virtuais por laboratório**.
+1. No painel **Configuração e políticas** do laboratório, selecione **Máquinas virtuais por laboratório**.
    
     ![Máquinas virtuais por laboratório](./media/devtest-lab-set-lab-policy/max-vms-per-lab.png)
 
@@ -67,7 +71,7 @@ A política de **Máquinas virtuais por laboratório** permite que você especif
 ## <a name="set-auto-shutdown"></a>Definir desligamento automático
 A política de desligamento automático ajuda a minimizar o desperdício de laboratório, permitindo que você especifique a hora em que as VMs desse laboratório serão desligadas.
 
-1. Na folha **Configuração e políticas** do laboratório, selecione **Desligamento automático**.
+1. No painel **Configuração e políticas** do laboratório, selecione **Desligamento automático**.
    
     ![Desligamento automático](./media/devtest-lab-set-lab-policy/auto-shutdown.png)
 
@@ -75,16 +79,16 @@ A política de desligamento automático ajuda a minimizar o desperdício de labo
 
 1. Se você habilitar essa política, especifique a hora (e fuso horário) para desligar todas as VMs no laboratório atual.
 
-1. Especifique **Sim** ou **Não** para a opção de enviar uma notificação 15 minutos antes do tempo de desligamento automático especificado. Se você especificar **Sim**, insira um ponto de extremidade de URL de webhook para receber a notificação. Para saber mais sobre os webhooks, veja [Criar um webhook ou uma função da API do Azure](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
+1. Especifique **Sim** ou **Não** para a opção de enviar uma notificação 15 minutos antes do tempo de desligamento automático especificado. Se você especificar **Sim**, insira um ponto de extremidade de URL de webhook ou um endereço de email para o qual a notificação será postada ou enviada. Para saber mais sobre os webhooks, veja [Criar um webhook ou uma função da API do Azure](../azure-functions/functions-create-a-web-hook-or-api-function.md). 
 
 1. Selecione **Salvar**.
 
-    Por padrão, uma vez habilitada, essa política se aplicará a todas as VMs do laboratório atual. Para remover essa configuração de uma VM específica, abra a folha da VM e altere sua configuração de **Desligamento Automático** 
+Por padrão, uma vez habilitada, essa política se aplicará a todas as VMs do laboratório atual. Para remover essa configuração de uma VM específica, abra o painel de gerenciamento da VM e altere sua configuração de **Desligamento Automático**.
 
 ## <a name="set-auto-start"></a>Definir início automático
 A política de início automático permite que você especifique quando as VMs do laboratório atual deverão ser iniciadas.  
 
-1. Na folha **Configuração e políticas** do laboratório, selecione **Início automático**.
+1. No painel **Configuração e políticas** do laboratório, selecione **Início automático**.
    
     ![Início automático](./media/devtest-lab-set-lab-policy/auto-start.png)
 
@@ -94,10 +98,10 @@ A política de início automático permite que você especifique quando as VMs d
 
 4. Selecione **Salvar**.
 
-    Quando habilitada, essa política não será aplicada automaticamente a quaisquer máquinas virtuais do laboratório atual. Para aplicar essa configuração a uma VM específica, abra a folha da VM e altere sua configuração de **Início automático** 
+Quando habilitada, essa política não será aplicada automaticamente a quaisquer máquinas virtuais do laboratório atual. Para aplicar essa configuração a uma VM específica, abra o painel de gerenciamento da VM e altere sua configuração de **Início automático**.
 
 ## <a name="set-expiration-date"></a>Definir a data de validade
-Você pode definir uma data de validade ao [criar a VM](devtest-lab-add-vm.md). Em **Configurações avançadas**, escolha o ícone de calendário para especificar uma data em que a VM será excluída automaticamente.  Por padrão, a VM nunca expirará.
+Você pode definir uma data de validade ao [criar a VM](devtest-lab-add-vm.md). Em **Configurações avançadas**, escolha o ícone de calendário para especificar uma data em que a VM será excluída automaticamente. Por padrão, a VM nunca expira.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 

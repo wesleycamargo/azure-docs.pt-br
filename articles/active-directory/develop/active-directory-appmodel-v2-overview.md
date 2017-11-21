@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 1e286044fb1a1b367fcac2dc14c47f68d5ed120d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a6a7c6bdf3deaee3a3949fe409a7fab6b7664695
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="sign-in-microsoft-account--azure-ad-users-in-a-single-app"></a>Conecte-se os usuários da Conta da Microsoft e do Azure AD em um único aplicativo
 No passado, um desenvolvedor de aplicativos que quisesse dar suporte a contas da Microsoft pessoas e contas profissionais do Azure Active Directory precisava fazer a integração com dois sistemas separados.  O **ponto de extremidade do Azure AD v2.0** introduz uma nova versão da API de autenticação que permite que você entre nos dois tipos de contas usando uma integração simples.  Aplicativos que usam o ponto de extremidade v2.0 também consomem APIs REST do [Microsoft Graph](https://graph.microsoft.io) usando qualquer um dos tipos de conta.
@@ -49,13 +49,8 @@ Estes links serão úteis na exploração em profundidade da plataforma:
 * [Escopos e Consentimento no ponto de extremidade v2.0](active-directory-v2-scopes.md)
 * [O Microsoft Graph](https://graph.microsoft.io)
 
-## <a name="help--support"></a>Ajuda + suporte
-Esses são os melhores locais para obter ajuda com o desenvolvimento no Azure Active Directory.
-
-* [Marcas `azure-active-directory` e `adal` do Stack Overflow](http://stackoverflow.com/questions/tagged/azure-active-directory+or+adal)
-* [Feedback no Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/category/164757-developer-experiences)
-
-
 > [!NOTE]
 > Se você precisar apenas entrar em contas corporativas e de estudante usando o Azure Active Directory, comece com nosso [guia do desenvolvedor do Azure AD](active-directory-developers-guide.md).  O ponto de extremidade v2.0 destina-se ao uso por desenvolvedores que precisam explicitamente entrar em contas pessoais da Microsoft.
 
+
+[!INCLUDE  [Help and Support Options](../../../includes/active-directory-develop-help-support-include.md)]

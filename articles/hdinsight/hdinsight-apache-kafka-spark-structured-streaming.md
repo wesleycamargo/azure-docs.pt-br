@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/06/2017
 ms.author: larryfr
-ms.openlocfilehash: 565f840e0ac7ec1a68361ac1613da5d42459c979
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9eb39989bdec330e47e6233be5c1347ff716bed2
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="use-spark-structured-streaming-with-kafka-preview-on-hdinsight"></a>Use o Streaming Estruturado do Spark com o Kafka (versão prévia) no HDInsight
 
@@ -158,4 +158,4 @@ Na home page do Jupyter Notebook, selecione a entrada __Spark-Structured-Streami
 Agora que você aprendeu a usar o Streaming Estruturado do Spark, consulte os documentos a seguir para saber mais sobre como trabalhar com Spark e Kafka:
 
 * [Como usar o streaming do Spark (DStream) com Kafka](hdinsight-apache-spark-with-kafka.md).
-* [Iniciar com o bloco de anotações do Jupyter e Spark no HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md)
+* [Iniciar com o bloco de anotações do Jupyter e Spark no HDInsight](spark/apache-spark-jupyter-spark-sql.md)

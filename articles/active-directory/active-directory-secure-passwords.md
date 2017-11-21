@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: barlan
-ms.openlocfilehash: 50b24466bcbd399de19934f7ec5ed096e308eaf3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3810c6fc3e6d6abf6e41047a303f8d0ecfe1c7ec
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="a-multi-tiered-approach-to-azure-ad-password-security"></a>Uma abordagem de várias camadas à segurança de senha do Azure AD
 
@@ -37,7 +37,7 @@ O Azure AD inclui as seguintes abordagens comuns para proteger senhas:
 * Requisitos de complexidade de senha
 * Expiração de senha regular e periódica
 
-Para obter informações sobre a redefinição de senha no Azure Active Directory, consulte o tópico [Azure AD self-service password reset for the IT professional](active-directory-passwords.md) (Redefinição de senha de autoatendimento do Azure AD para o profissional de TI).
+Para obter informações sobre a redefinição de senha no Azure Active Directory, consulte o tópico [Azure AD self-service password reset for the IT professional](active-directory-passwords-update-your-own-password.md) (Redefinição de senha de autoatendimento do Azure AD para o profissional de TI).
 
 ## <a name="azure-ad-password-protections"></a>Proteções de senha do Azure AD
 
@@ -74,7 +74,7 @@ Para outras contas da Microsoft, a tela é semelhante à abaixo:
 
   ![Bloqueado em uma conta da Microsoft](./media/active-directory-secure-passwords/locked-out-ms-accounts.png)
 
-Para obter informações sobre a redefinição de senha no Azure Active Directory, consulte o tópico [Azure AD self-service password reset for the IT professional](active-directory-passwords.md) (Redefinição de senha de autoatendimento do Azure AD para o profissional de TI).
+Para obter informações sobre a redefinição de senha no Azure Active Directory, consulte o tópico [Azure AD self-service password reset for the IT professional](active-directory-passwords-update-your-own-password.md) (Redefinição de senha de autoatendimento do Azure AD para o profissional de TI).
 
   >[!NOTE]
   >Se você é administrador do Azure AD, convém usar o [Windows Hello](https://www.microsoft.com/windows/windows-hello) para evitar que os usuários criem senhas tradicionais.

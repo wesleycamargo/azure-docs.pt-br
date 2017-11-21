@@ -10,20 +10,23 @@ ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: ancav
 ms.custom: mvc
-ms.openlocfilehash: 7e8d97657e03b0eaff76365d3988f51c773e3b55
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3a85e288fa6f7d6c7138b7fea8319bd8dee01c2c
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="create-an-autoscale-setting-for--azure-resources-based-on-performance-data-or-a-schedule"></a>Criar uma Configuração de Dimensionamento Automático para os recursos do Azure com base em dados de desempenho ou em um agendamento
 
-As configurações de dimensionamento automático permitem adicionar/remover instâncias de serviço com base em condições predefinidas. Essas configurações podem ser criadas por meio do portal. Esse método fornece uma interface do usuário baseada em navegador para criar e definir uma configuração de dimensionamento automático. Este tutorial executa em etapas como:
+As configurações de dimensionamento automático permitem adicionar/remover instâncias de serviço com base em condições predefinidas. Essas configurações podem ser criadas por meio do portal. Esse método fornece uma interface do usuário baseada em navegador para criar e definir uma configuração de dimensionamento automático. 
 
-1. Criar um Serviço de Aplicativo
-2. Definir uma configuração de dimensionamento automático
-3. Disparar uma ação de escala horizontal
-4. Disparar uma ação de redução horizontal
+Neste tutorial, você irá 
+> [!div class="checklist"]
+> * Criar um Aplicativo Web e um Plano do Serviço de Aplicativo
+> * Configurar regras de dimensionamento automático para expansão e redução com base no número de solicitações que um aplicativo Web recebe
+> * Disparar uma ação de expansão e observar o aumento do número de instâncias
+> * Disparar uma ação de expansão e observar a diminuição do número de instâncias
+> * Limpar seus recursos
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -32,12 +35,15 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 Faça logon no [Portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-a-web-app-and-app-service-plan"></a>Criar um Aplicativo Web e um Plano do Serviço de Aplicativo
-1. Clique na opção **Novo** no painel de navegação à esquerda
-2. Pesquise e selecione o item *Aplicativo Web* e clique em **Criar**
-3. Selecione um nome de aplicativo como *MyTestScaleWebApp*. Crie um novo grupo de recursos *myResourceGroup e coloque-o no grupo de recursos de sua escolha.
-4. Em poucos minutos, os recursos devem ser provisionados. Referenciamos o Aplicativo Web e o Plano do Serviço de Aplicativo correspondente que foram criados apenas para o restante deste tutorial.
+Clique na opção **Novo** no painel de navegação à esquerda
 
-    ![Criar um novo serviço de aplicativo no portal](./media/monitor-tutorial-autoscale-performance-schedule/Web-App-Create.png)
+Pesquise e selecione o item *Aplicativo Web* e clique em **Criar**
+
+Selecione um nome de aplicativo como *MyTestScaleWebApp*. Crie um novo grupo de recursos *myResourceGroup e coloque-o no grupo de recursos de sua escolha.
+
+Em poucos minutos, os recursos devem ser provisionados. Use o Aplicativo Web e o Plano do Serviço de Aplicativo correspondente no restante deste tutorial.
+
+    ![Create a new app service in the portal](./media/monitor-tutorial-autoscale-performance-schedule/Web-App-Create.png)
 
 ## <a name="navigate-to-autoscale-settings"></a>Navegar para as configurações de Dimensionamento automático
 1. No painel de navegação à esquerda, selecione a opção **Monitorar**. Depois que a página for carregada, selecione a guia **Dimensionamento automático**.
@@ -54,12 +60,12 @@ As próximas etapas ajudam você a preencher a tela de dimensionamento automáti
  ## <a name="configure-default-profile"></a>Configurar o perfil padrão
 1. Forneça um **Nome** para a configuração de dimensionamento automático
 2. No perfil padrão, verifique se o **Modo de escala** está definido como “Dimensionar para uma contagem de instância específica”
-3. Defina a contagem de instâncias como 1. Essa configuração garante que, quando nenhum outro perfil está ativo ou em vigor, o perfil padrão retorna a contagem de instâncias como 1.
+3. Defina a contagem de instâncias como **1**. Essa configuração garante que, quando nenhum outro perfil está ativo ou em vigor, o perfil padrão retorna a contagem de instâncias como 1.
 
   ![Navegar para as configurações de dimensionamento automático](./media/monitor-tutorial-autoscale-performance-schedule/autoscale-setting-profile.png)
 
 
-## <a name="create-recurrence-profile"></a>Criar perfil de recorrência
+## <a name="create-recurrance-profile"></a>Criar perfil de recorrência
 
 1. Clique no link **Adicionar uma condição de escala** no perfil padrão
 
@@ -67,11 +73,11 @@ As próximas etapas ajudam você a preencher a tela de dimensionamento automáti
 
 3. Verifique se o **Modo de escala** está definido como “Dimensionar com base em uma métrica”
 
-4. Para **Limites de instância** defina o **Mínimo** como “1”, o **Máximo** como “2” e o **Padrão** como “1”. Isso garante que esse perfil não dimensione automaticamente o plano de serviço para que ele tenha menos de 1 instância ou mais de 2 instâncias. Se o perfil não tiver dados suficientes para tomar uma decisão, ele usará o número de instâncias padrão (neste caso, 1).
+4. Para **Limites de instância** defina o **Mínimo** como “1”, o **Máximo** como “2” e o **Padrão** como “1”. Essa configuração garante que esse perfil não dimensione automaticamente o plano de serviço para que ele tenha menos de 1 instância ou mais de 2 instâncias. Se o perfil não tiver dados suficientes para tomar uma decisão, ele usará o número de instâncias padrão (neste caso, 1).
 
-5. Para **Agendamento**, selecione “Repetir dias específicos”
+5. Para **Agendamento**, selecione 'Repetir dias específicos'
 
-6. Defina o perfil para que ele seja repetido de segunda a sexta-feira, das 9h PST às 18h PST. Isso garante que esse perfil só esteja ativo e seja aplicável das 9h às 18h, de segunda a sexta-feira. Durante todos os outros horários, o perfil “Padrão” é o perfil usado pela configuração de dimensionamento automático.
+6. Defina o perfil para que ele seja repetido de segunda a sexta-feira, das 9h PST às 18h PST. Essa configuração garante que esse perfil só esteja ativo e seja aplicável das 9h às 18h, de segunda a sexta-feira. Durante todos os outros horários, o perfil “Padrão” é o perfil usado pela configuração de dimensionamento automático.
 
 ## <a name="create-a-scale-out-rule"></a>Criar uma regra de escala horizontal
 
@@ -150,7 +156,7 @@ A condição de redução horizontal na configuração de dimensionamento autom�
 
 6. Você verá um gráfico que reflete a contagem de instâncias do Plano do Serviço de Aplicativo ao longo do tempo.
 
-7. Em alguns minutos, a contagem de instâncias deve cair de 2 para 1. O processo leva, pelo menos, dez minutos.  
+7. Em alguns minutos, a contagem de instâncias deve cair de 2 para 1. O processo leva pelo menos 100 minutos.  
 
 8. Abaixo do gráfico estão o conjunto correspondente das entradas do log de atividades para cada ação de escala usada por essa configuração de dimensionamento automático
 
@@ -168,7 +174,16 @@ A condição de redução horizontal na configuração de dimensionamento autom�
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você criou um Aplicativo Web simples e um Plano do Serviço de Aplicativo. Em seguida, você criou uma configuração de dimensionamento automático que dimensionará o Plano do Serviço de Aplicativo com base no número de solicitações recebidas pelo Aplicativo Web. Para saber mais sobre as configurações de dimensionamento automático, continue e vá para a visão geral do dimensionamento automático.
+Neste tutorial, você  
+> [!div class="checklist"]
+> * Criou um Aplicativo Web e um Plano do Serviço de Aplicativo
+> * Configurou regras de dimensionamento automático para expansão e redução com base no número de solicitações que o aplicativo Web recebeu
+> * Disparou uma ação de expansão e observou o aumento do número de instâncias
+> * Disparou uma ação de expansão e observou a diminuição do número de instâncias
+> * Limpou seus recursos
+
+
+Para saber mais sobre as configurações de dimensionamento automático, continue e vá para a [visão geral do dimensionamento automático](monitoring-overview-autoscale.md).
 
 > [!div class="nextstepaction"]
-> [Arquivar os dados de monitoramento](./monitor-tutorial-archive-monitoring-data.md)
+> [Arquivar os dados de monitoramento](monitor-tutorial-archive-monitoring-data.md)

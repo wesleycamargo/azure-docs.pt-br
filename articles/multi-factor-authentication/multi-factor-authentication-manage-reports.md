@@ -1,6 +1,6 @@
 ---
 title: "Relatórios de acesso e uso para o MFA do Azure | Microsoft Docs"
-description: "Descreve como usar o recurso de relatórios do Azure Multi-Factor Authentication."
+description: "Descreve como usar o recurso de relatórios da Autenticação Multifator do Azure."
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/03/2017
 ms.author: joflore
-ms.reviewer: alexwe
-ms.openlocfilehash: 77d6742faadfaf3d7afccfbe888b910c80278737
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.reviewer: richagi
+ms.openlocfilehash: a0ac1711b6bfb8f461cd775ed1f3409925643615
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="reports-in-azure-multi-factor-authentication"></a>Relatórios no Azure Multi-Factor Authentication
+# <a name="reports-in-azure-multi-factor-authentication"></a>Relatórios na Autenticação Multifator do Azure
 
-O Azure Multi-Factor Authentication fornece vários relatórios que podem ser usados por você e sua organização. Esses relatórios podem ser acessados por meio do Portal de Gerenciamento da Autenticação Multifator. A tabela a seguir lista os relatórios possíveis:
+A Autenticação Multifator do Azure fornece vários relatórios que podem ser usados por você e sua organização. Esses relatórios podem ser acessados por meio do Portal de Gerenciamento da Autenticação Multifator. A tabela a seguir lista os relatórios possíveis:
 
 | Relatório | Descrição |
 |:--- |:--- |
@@ -58,4 +58,4 @@ Identifique os usuários que não se registraram para MFA usando o Powershell a 
 **Recursos adicionais**
 
 * [Para usuários](end-user/multi-factor-authentication-end-user.md)
-* [Azure Multi-Factor Authentication no MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx)
+* [Autenticação Multifator do Azure no MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx)

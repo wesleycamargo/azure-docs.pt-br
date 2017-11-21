@@ -1,25 +1,25 @@
 ---
 title: "Monitorar uso e estatísticas em um serviço do Azure Search | Microsoft Docs"
-description: "Acompanhe o consumo de recursos e o tamanho de índice da Pesquisa do Azure, um serviço de pesquisa de nuvem hospedado do Microsoft Azure."
+description: "Acompanhe o consumo de recursos e o tamanho de índice do Azure Search, um serviço de pesquisa de nuvem hospedado do Microsoft Azure."
 services: search
 documentationcenter: 
-author: bernitorres
-manager: jlembicz
+author: HeidiSteen
+manager: jhubbard
 editor: 
 tags: azure-portal
-ms.assetid: 122948de-d29a-426e-88b4-58cbcee4bc23
+ms.assetid: 
 ms.service: search
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 05/01/2017
-ms.author: betorres
-ms.openlocfilehash: 16cb5a1e16a59200f0e731622398efcf24c3f777
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/09/2017
+ms.author: heidist
+ms.openlocfilehash: fe852afedfc1cce99d81b8ab53c6c80df34ac6d6
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="monitoring-an-azure-search-service"></a>Criar um serviço do Azure Search
 
@@ -49,7 +49,7 @@ Acompanhar o crescimento do tamanho dos índices e do documento pode ajudar voc�
 Para monitorar o uso de recursos, exiba as contagens e as estatísticas do serviço no [portal](https://portal.azure.com).
 
 1. Entre no [portal](https://portal.azure.com).
-2. Abra o painel de serviços de seu serviço de Pesquisa do Azure. É possível encontrar blocos do serviço na Home page, ou você pode navegar até o serviço usando Procurar na Barra de navegação rápida.
+2. Abra o painel de serviços de seu serviço de Azure Search. É possível encontrar blocos do serviço na Home page, ou você pode navegar até o serviço usando Procurar na Barra de navegação rápida.
 
 A seção Uso inclui um medidor que informa qual parte dos recursos disponíveis estão atualmente em uso. Para obter informações sobre os limites por serviço para índices, documentos e armazenamento, consulte [Limites de serviço](search-limits-quotas-capacity.md).
 
@@ -61,7 +61,7 @@ A seção Uso inclui um medidor que informa qual parte dos recursos disponíveis
 >
 
 ### <a name="using-the-rest-api"></a>Usando a API REST
-A API REST da Pesquisa do Azure e o SDK do .NET fornecem acesso programático às métricas de serviço.  Se você estiver usando [indexadores](https://msdn.microsoft.com/library/azure/dn946891.aspx) para carregar um índice do Banco de Dados SQL do Azure ou do Azure Cosmos DB, uma API adicional estará disponível para obter os números dos quais você precisa.
+A API REST do Azure Search e o SDK do .NET fornecem acesso programático às métricas de serviço.  Se você estiver usando [indexadores](https://msdn.microsoft.com/library/azure/dn946891.aspx) para carregar um índice do Banco de Dados SQL do Azure ou do Azure Cosmos DB, uma API adicional estará disponível para obter os números dos quais você precisa.
 
 * [Obter estatísticas de índice](/rest/api/searchservice/get-index-statistics)
 * [Contar documentos](/rest/api/searchservice/count-documents)

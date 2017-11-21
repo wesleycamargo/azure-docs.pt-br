@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/10/2017
+ms.date: 11/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 1ece5b1b2ba8e4d26fe633fe7c7c60f4187f9d6b
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 46b1be5bdd4fa400f437bca274e7f3f6e0dfec08
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Como implantar e gerenciar um Dispositivo de Nuvem StorSimple no Azure (Atualização 3 e posteriores)
 
@@ -183,6 +183,18 @@ Execute as seguintes etapas para criar um ponto de extremidade público no dispo
 [!INCLUDE [Create public endpoints on a cloud appliance](../../includes/storsimple-8000-create-public-endpoints-cloud-appliance.md)]
 
 É recomendável que você se conecte de outra máquina virtual dentro da mesma rede virtual porque essa prática minimiza o número de pontos de extremidade públicos em sua rede virtual. Neste caso, conecte-se à máquina virtual por meio de uma sessão de área de trabalho remota e, em seguida, configure essa máquina virtual para ser usada da mesma forma você faria com outro cliente do Windows em uma rede local. Você não precisa acrescentar o número da porta pública porque a porta já é conhecida.
+
+## <a name="get-private-ip-for-the-cloud-appliance"></a>Obter IP privado para o dispositivo de nuvem
+
+Para o dispositivo de nuvem conectar-se ao servidor host na mesma rede virtual, é necessário o endereço IP privado ou interno do dispositivo de nuvem. Execute as seguintes etapas para obter o endereço IP privado do dispositivo de nuvem
+
+1. Vá para a máquina virtual subjacente de seu dispositivo de nuvem. A máquina virtual tem o mesmo nome que o seu dispositivo de nuvem. Vá para **Todos os recursos**, forneça o nome do dispositivo de nuvem e a assinatura e selecione o tipo como máquinas virtuais. Na lista de máquinas virtuais apresentadas, selecione e clique na máquina virtual correspondente para o dispositivo de nuvem.
+
+     ![Vá para a máquina virtual subjacente de seu dispositivo de nuvem](./media/storsimple-8000-cloud-appliance-u2/sca-vm.png)
+
+2. Vá para **Configurações > Rede**. No painel direito, você deve ver o endereço IP do dispositivo de nuvem. Anote-o.
+
+    ![Obter o endereço IP privado para o seu dispositivo de nuvem](./media/storsimple-8000-cloud-appliance-u2/sca-private-ip-vm-networking.png)
 
 ## <a name="work-with-the-storsimple-cloud-appliance"></a>Como trabalhar com o Dispositivo de nuvem StorSimple
 

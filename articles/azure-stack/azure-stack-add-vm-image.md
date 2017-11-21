@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
 ms.author: sngun
-ms.openlocfilehash: 520e4dfaadf1d476447a600ef2b3d092b6955a89
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 54b6a6984e66f32642336f4ea5e1e9f4ec9d03f3
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="make-a-custom-virtual-machine-image-available-in-azure-stack"></a>Disponibilizar uma imagem de máquina virtual personalizada na pilha do Azure
 
@@ -100,7 +100,7 @@ Para adicionar a imagem para a pilha do Azure Marketplace, conclua as seguintes 
           -EnableAdfsAuthentication:$true
 
         $TenantID = Get-AzsDirectoryTenantId `
-          -ADFS 
+          -ADFS `
           -EnvironmentName AzureStackAdmin 
 
         Login-AzureRmAccount `
@@ -150,7 +150,7 @@ Remove-AzsVMImage `
 | **publicador** |O segmento de nome do publicador da imagem da VM que os usuários a usar ao implantar a imagem. Um exemplo é **Microsoft**. Não inclua um espaço ou outros caracteres especiais neste campo. |
 | **oferta** |O segmento de nome de oferta da imagem da VM que os usuários a usar ao implantar a imagem VM. Um exemplo é **WindowsServer**. Não inclua um espaço ou outros caracteres especiais neste campo. |
 | **sku** |O segmento de nome do SKU da imagem da VM que os usuários a usar ao implantar a imagem VM. Um exemplo é **Datacenter2016**. Não inclua um espaço ou outros caracteres especiais neste campo. |
-| **version** |A versão da imagem da VM que os usuários a usar ao implantar a imagem VM. Esta versão está no formato *\#.\#.\#*. Um exemplo é **1.0.0**. Não inclua um espaço ou outros caracteres especiais neste campo. |
+| **version** |A versão da imagem da VM que os usuários a usar ao implantar a imagem VM. Esta versão está no formato  *\#.\#. \#*. Um exemplo é **1.0.0**. Não inclua um espaço ou outros caracteres especiais neste campo. |
 | **osType** |OsType da imagem deve ser **Windows** ou **Linux**. |
 | **osDiskLocalPath** |O caminho local para o disco do sistema operacional VHD que você está carregando como uma imagem VM com a pilha do Azure. |
 | **dataDiskLocalPaths** |Uma matriz opcional dos caminhos de local para os discos de dados que podem ser carregados como parte da imagem da VM. |

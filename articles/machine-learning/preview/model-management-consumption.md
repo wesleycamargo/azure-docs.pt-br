@@ -10,16 +10,16 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/06/2017
-ms.openlocfilehash: 8b2f806b81bbc6d9328ab179644b79b97d68e7b9
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 39023712f72d5ac874de1f20a110bef9703ed5e8
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="consuming-web-services"></a>Consumindo serviços Web
 Depois de implantar um modelo como um serviço Web em tempo real, você poderá enviar dados a ele e obter previsões de uma variedade de plataformas e aplicativos. O serviço Web em tempo real expõe uma API REST para obter previsões. Você pode enviar dados para o serviço Web no formato de única linha ou de várias linhas para obter uma ou mais previsões de cada vez.
 
-Com o serviço Web do Azure Machine Learning, um aplicativo externo comunica-se com um modelo de previsão de forma síncrona, fazendo uma chamada HTTP POST para a URL do serviço. Para fazer uma chamada ao serviço Web, o aplicativo cliente precisa especificar a chave de API que é criada quando você implanta uma previsão e colocar os dados da solicitação no corpo da solicitação POST.
+Com o [serviço Web do Azure Machine Learning](https://docs.microsoft.com/en-us/azure/machine-learning/preview/model-management-service-deploy), um aplicativo externo comunica-se com um modelo de previsão de forma síncrona, fazendo uma chamada HTTP POST para a URL do serviço. Para fazer uma chamada ao serviço Web, o aplicativo cliente precisa especificar a chave de API que é criada quando você implanta uma previsão e colocar os dados da solicitação no corpo da solicitação POST.
 
 Observe que as chaves de API só estão disponíveis no modo de implantação de cluster. Os serviços Web locais não têm chaves.
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 09/22/2017
 ms.author: ryanwi
-ms.openlocfilehash: dc57c813a6aecabc21ac3931b7294bce909778d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 82d2024f567768e784d9d8697784d06b56bc08ed
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="sfctl-application"></a>aplicativo sfctl
 Criar, excluir e gerenciar aplicativos e tipos de aplicativo.
@@ -30,25 +30,21 @@ Criar, excluir e gerenciar aplicativos e tipos de aplicativo.
 | create       | Crie um aplicativo do Service Fabric usando a descrição especificada.|
 | excluir       | Exclui um aplicativo existente do Service Fabric.|
 | deployed     | Obtém as informações sobre um aplicativo implantado em um nó do Service Fabric.|
-| deployed-health | Obtém as informações sobre a integridade de um aplicativo implantado em um nó do
-                      Service Fabric.|
+| deployed-health | Obtém as informações sobre a integridade de um aplicativo implantado em um nó do Service Fabric.|
 | deployed-list| Obtém a lista de aplicativos implantados em um nó do Service Fabric.|
 | health       | Obtém a integridade do aplicativo do service fabric.|
 | informações         | Obtém informações sobre um aplicativo do Service Fabric.|
-| list         | Obtém a lista de aplicativos criados no cluster do Service Fabric que correspondem
-                      a filtros especificados como o parâmetro.|
+| list         | Obtém a lista de aplicativos criados no cluster do Service Fabric que correspondem aos filtros especificados como o parâmetro.|
 | load | Obtém informações de carregamento sobre um aplicativo do Service Fabric. |
 | manifest     | Obtém o manifesto que descreve um tipo de aplicativo.|
 | provision    | Provisiona ou registra um tipo de aplicativo do Service Fabric com o cluster.|
 | report-health| Envia um relatório de integridade sobre o aplicativo do Service Fabric.|
-| type         | Obtém a lista de tipos de aplicativo criados no cluster do Service Fabric que correspondem
-                      exatamente ao nome especificado.|
+| type         | Obtém a lista de tipos de aplicativo criados no cluster do Service Fabric que correspondem exatamente ao nome especificado.|
 | type-list    | Obtém a lista de tipos de aplicativo criados no cluster do Service Fabric.|
 | unprovision  | Remove ou cancela o registro de um tipo de aplicativo do Service Fabric do cluster.|
 | atualizar      | Começa a atualização de um aplicativo no cluster do Service Fabric.|
 | upgrade-resume  | Retoma a atualização de um aplicativo no cluster do Service Fabric.|
-| upgrade-rollback| Começa a reversão da atualização em andamento no momento de um aplicativo no
-                      cluster do Service Fabric.|
+| upgrade-rollback| Começa a reversão da atualização em andamento no momento de um aplicativo no cluster do Service Fabric.|
 | upgrade-status  | Obtém detalhes para a atualização mais recente realizada neste aplicativo.|
 | upload       | Copia um pacote de aplicativos do Service Fabric para o repositório de imagens.|
 
@@ -87,12 +83,9 @@ Exclui um aplicativo existente do Service Fabric. Um aplicativo deve ser criado 
 
 |Argumento|Descrição|
 | --- | --- |
-| --application-id [Obrigatório]| A identidade do aplicativo. Normalmente, é o nome completo do aplicativo sem o esquema de URI "fabric:". Começando em
-                                 version 6.0, hierarchical names are delimited with the "~"
-                                 character. For example, if the application name is
-                                 "fabric://myapp/app1", the application identity would be
-                                 "myapp~app1" in 6.0+ and "myapp/app1" in previous versions.|
-| --force-remove          | Força a remoção de um aplicativo ou serviço do Service Fabric sem passar pela sequência de desligamento normal. Esse parâmetro pode ser usado para forçar a exclusão de um aplicativo ou serviço para o qual a exclusão está atingindo o tempo limite devido a problemas no código do serviço que impedem o fechamento normal das réplicas. | | --timeout -t            | Tempo limite do servidor em segundos.  Padrão: 60.|
+| --application-id [Obrigatório]| A identidade do aplicativo. Normalmente, é o nome completo do aplicativo sem o esquema de URI "fabric:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "~". Por exemplo, se o nome do aplicativo for "fabric://meuaplicativo/aplicativo1", a identidade do aplicativo será "meuaplicativo~aplicativo1" na versão 6.0 e superiores, e "meuaplicativo/aplicativo1" nas versões anteriores.|
+| --force-remove          | Remova um aplicativo ou serviço do Service Fabric de modo forçado sem passar pela sequência de desligamento normal. Esse parâmetro pode ser usado para excluir de modo forçado um aplicativo ou serviço para o qual a exclusão está atingindo o tempo limite devido a problemas no código do serviço que impedem o fechamento normal das réplicas.|
+| --timeout -t            | Tempo limite do servidor em segundos.  Padrão: 60.|
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -105,18 +98,15 @@ Exclui um aplicativo existente do Service Fabric. Um aplicativo deve ser criado 
 | --verbose               | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
 ## <a name="sfctl-application-deployed"></a>sfctl application deployed
-Obtém as informações sobre um aplicativo implantado em um nó do Service Fabric.|
-|     
+Obtém as informações sobre um aplicativo implantado em um nó do Service Fabric.
+     
 ### <a name="arguments"></a>Argumentos
 
 |Argumento|Descrição|
 | --- | --- |
-| --application-id [Obrigatório]| A identidade do aplicativo. Normalmente, é o nome completo do aplicativo sem o esquema de URI "fabric:". Começando em
-                                 version 6.0, hierarchical names are delimited with the "~"
-                                 character. For example, if the application name is
-                                 "fabric://myapp/app1", the application identity would be
-                                 "myapp~app1" in 6.0+ and "myapp/app1" in previous versions.|
-| --node-name      [Obrigatório]| O nome do nó.| | --timeout -t            | Tempo limite do servidor em segundos.  Padrão: 60.|
+| --application-id [Obrigatório]| A identidade do aplicativo. Normalmente, é o nome completo do aplicativo sem o esquema de URI "fabric:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "~". Por exemplo, se o nome do aplicativo for "fabric://meuaplicativo/aplicativo1", a identidade do aplicativo será "meuaplicativo~aplicativo1" na versão 6.0 e superiores, e "meuaplicativo/aplicativo1" nas versões anteriores.|
+| --node-name      [Obrigatório]| O nome do nó.|
+| --timeout -t            | Tempo limite do servidor em segundos.  Padrão: 60.|
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -137,13 +127,12 @@ Retorna o estado de integridade do aplicativo do service fabric. A resposta most
 
 |Argumento|Descrição|
 | --- | --- |
-| --application-id                 [Obrigatório]| A identidade do aplicativo. Normalmente, é o nome completo do aplicativo sem o esquema de URI "fabric:". A partir da versão 6.0,
-                                                 hierarchical names are delimited with the "~"
-                                                 character. For example, if the application name is
-                                                 "fabric://myapp/app1", the application identity
-                                                 would be "myapp~app1" in 6.0+ and "myapp/app1" in
-                                                 previous versions.|
-| --deployed-applications-health-state-filter| Possibilita filtrar os objetos de estado de integridade dos aplicativos implantados retornados no resultado da consulta de integridade do aplicativo com base no estado de integridade. Os valores possíveis para esse parâmetro incluem o valor de inteiro de um dos seguintes estados de integridade. Retorna somente os aplicativos implantados que correspondem ao filtro. Todos os aplicativos implantados são usados para avaliar o estado de integridade agregado. Se não for especificado, retorna todas as entradas. Os valores de estado são uma enumeração baseada em sinalizador, então o valor pode ser uma combinação desses valores obtidos usando o operador 'OR' bit a bit.                        Por exemplo, se o valor fornecido for 6, o estado de integridade dos aplicativos implantados com um valor de HealthState de OK (2) e de Aviso (4) retornarão. -Default- Valor padrão. Corresponde a qualquer HealthState.                        O valor é zero. -None- Filtro que não corresponde a qualquer valor de HealthState. Usado para não retornar qualquer resultado em uma determinado conjunto de estados.                        O valor é 1. -Ok- Filtro que corresponde à entrada com o valor de HealthState Ok. O valor é 2. -Warning- Filtro que corresponde à entrada com o valor de HealthState Warning. O valor é 4. -Error- Filtro que corresponde à entrada com o valor de HealthState Error. O valor é 8. -All- Filtro que corresponde à entrada com qualquer valor de HealthState. O valor é 65535. | | --events-health-state-filter | Permite filtrar o conjunto de objetos HealthEvent retornado com base no estado de integridade. Os valores possíveis para esse parâmetro incluem o valor de inteiro de um dos seguintes estados de integridade. Somente os eventos que correspondem ao filtro são retornados. Todos os eventos são usados para avaliar o estado de integridade agregado. Se não for especificado, retorna todas as entradas.                        Os valores de estado são uma enumeração baseada em sinalizador, então o valor pode ser uma combinação desses valores obtidos usando o operador 'OR' bit a bit. Por exemplo, se o valor fornecido for 6, todos os eventos com o valor de HealthState de OK (2) e de Aviso (4) retornarão. -Default- Valor padrão. Corresponde a qualquer HealthState. O valor é zero. -None- Filtro que não corresponde a qualquer valor de HealthState. Usado para não retornar qualquer resultado em uma determinado conjunto de estados. O valor é 1. - Ok - Filtro que corresponde à entrada com o valor de HealthState Ok. O valor é 2. -Warning- Filtro que corresponde à entrada com o valor de HealthState Warning. O valor é 4. -Error- Filtro que corresponde à entrada com o valor de HealthState Error. O valor é 8. -All- Filtro que corresponde à entrada com qualquer valor de HealthState. O valor é 65535. | | --exclude-health-statistics | Indica se as estatísticas de integridade devem ser retornadas como parte do resultado da consulta. Falso por padrão. As estatísticas mostram o número de entidades filhas no estado de integridade OK, Aviso e Erro. | | --services-health-state-filter          | Permite a filtragem dos objetos de estado de integridade dos serviços retornados no resultado da consulta de integridade dos serviços com base em seu estado de integridade. Os valores possíveis para esse parâmetro incluem o valor de inteiro de um dos seguintes estados de integridade. Somente os serviços que correspondem ao filtro são retornados. Todos os serviços são usados para avaliar o estado de integridade agregado.                        Se não for especificado, retorna todas as entradas. Os valores de estado são uma enumeração baseada em sinalizador, então o valor pode ser uma combinação desses valores obtidos usando o operador 'OR' bit a bit. Por exemplo, se o valor fornecido for 6, o estado de integridade dos serviços com um valor de HealthState de OK (2) e de Aviso (4) retornarão. - Default - Valor padrão. Corresponde a qualquer HealthState. O valor é zero.                        -None- Filtro que não corresponde a qualquer valor de HealthState. Usado para não retornar qualquer resultado em uma determinado conjunto de estados. O valor é 1. - Ok - Filtro que corresponde à entrada com o valor de HealthState Ok. O valor é 2. -Warning- Filtro que corresponde à entrada com o valor de HealthState Warning. O valor é 4. -Error- Filtro que corresponde a entrada com o valor de HealthState Error. O valor é 8. -All- Filtro que corresponde a entrada com qualquer valor de HealthState. O valor é 65535. | | timeout -t | Tempo limite do servidor em segundos.  Padrão: 60.|
+| --application-id                 [Obrigatório]| A identidade do aplicativo. Normalmente, este é o nome completo do aplicativo sem o esquema de URI "fabric:". A partir da versão 6.0, os nomes hierárquicos são delimitados pelo caractere "~". Por exemplo, se o nome do aplicativo for "fabric://meuaplicativo/aplicativo1", a identidade do aplicativo será "meuaplicativo~aplicativo1" na versão 6.0 e superiores, e "meuaplicativo/aplicativo1" nas versões anteriores.|
+| --deployed-applications-health-state-filter| Permite filtrar os objetos de estado de integridade dos aplicativos implantados retornados no resultado da consulta de integridade do aplicativo com base no estado de integridade. Os valores possíveis para esse parâmetro incluem o valor de inteiro de um dos seguintes estados de integridade. Serão retornados apenas os aplicativos implantados que corresponderem ao filtro. Todos os aplicativos implantados são usados para avaliar o estado de integridade agregado. Se não for especificado, retorna todas as entradas. Os valores de estado são uma enumeração baseada em sinalizador, então o valor pode ser uma combinação desses valores obtidos usando o operador 'OR' bit a bit. Por exemplo, se o valor fornecido for 6, será retornado o estado de integridade dos aplicativos implantados com um valor OK (2) e Warning (4) de HealthState. -Default- Valor padrão. Corresponde a qualquer HealthState. O valor é zero. -None- Filtro que não corresponde a qualquer valor de HealthState. Usado para não retornar qualquer resultado em um determinado conjunto de estados. O valor é 1. - Ok - Filtro que corresponde à entrada com o valor de HealthState Ok. O valor é 2. -Warning- Filtro que corresponde à entrada com o valor de HealthState Warning. O valor é 4. -Error- Filtro que corresponde a entrada com o valor de HealthState Error. O valor é 8. - All - Filtro que corresponde à entrada com qualquer valor de HealthState. O valor é 65535.|
+| --events-health-state-filter            | Permite filtrar a coleção de objetos HealthEvent retornados com base no estado de integridade. Os valores possíveis para esse parâmetro incluem o valor de inteiro de um dos seguintes estados de integridade. Somente os eventos que correspondem ao filtro são retornados. Todos os eventos são usados para avaliar o estado de integridade agregado. Se não for especificado, retorna todas as entradas. Os valores de estado são uma enumeração baseada em sinalizador, então o valor pode ser uma combinação desses valores obtidos usando o operador 'OR' bit a bit. Por exemplo, se o valor fornecido for 6, serão retornados todos os eventos com o valor de HealthState de OK (2) e de Aviso (4). -Default- Valor padrão. Corresponde a qualquer HealthState. O valor é zero. – None – Filtro que não corresponde a nenhum valor de HealthState. Usado para não retornar qualquer resultado em um determinado conjunto de estados. O valor é 1. - Ok - Filtro que corresponde à entrada com o valor de HealthState Ok. O valor é 2. -Warning- Filtro que corresponde à entrada com o valor de HealthState Warning. O valor é 4. -Error- Filtro que corresponde a entrada com o valor de HealthState Error. O valor é 8. - All - Filtro que corresponde à entrada com qualquer valor de HealthState. O valor é 65535.|
+| --exclude-health-statistics | Indica se as estatísticas de integridade devem ser retornadas como parte do resultado da consulta. False por padrão. As estatísticas mostram o número de entidades filhas no estado de integridade Ok, Warning e Error.|
+| --services-health-state-filter          | Permite filtrar os objetos de estado de integridade de serviços retornados no resultado da consulta de integridade de serviços com base no estado de integridade. Os valores possíveis para esse parâmetro incluem o valor de inteiro de um dos seguintes estados de integridade. Serão retornados somente os serviços que corresponderem ao filtro. Todos os serviços são usados para avaliar o estado de integridade agregado. Se não for especificado, retorna todas as entradas. Os valores de estado são uma enumeração baseada em sinalizador, então o valor pode ser uma combinação desses valores obtidos usando o operador 'OR' bit a bit. Por exemplo, se o valor fornecido for 6, será retornado o estado de integridade dos serviços com um valor OK (2) e Warning (4) de HealthState. -Default- Valor padrão. Corresponde a qualquer HealthState. O valor é zero. -None- Filtro que não corresponde a qualquer valor de HealthState. Usado para não retornar qualquer resultado em um determinado conjunto de estados. O valor é 1. - Ok - Filtro que corresponde à entrada com o valor de HealthState Ok. O valor é 2. -Warning- Filtro que corresponde à entrada com o valor de HealthState Warning. O valor é 4. -Error- Filtro que corresponde a entrada com o valor de HealthState Error. O valor é 8. - All - Filtro que corresponde à entrada com qualquer valor de HealthState. O valor é 65535.|
+| --timeout -t                            | Tempo limite do servidor em segundos.  Padrão: 60.|
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -152,8 +141,8 @@ Retorna o estado de integridade do aplicativo do service fabric. A resposta most
 | --debug                                 | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h                               | Mostrar esta mensagem de ajuda e sair.|
 | --output -o                             | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão: json.|
-| --query                                 | Cadeia de consulta JMESPath. Consulte http://jmespath.org/ para saber mais e obter exemplos.|
-| --verbose                               | Aumentar o nível de detalhes do log. Use --debug para obter logs de depuração completos.|
+| --query                                 | Cadeia de caracteres de consulta JMESPath. Consulte http://jmespath.org/ para saber mais e obter exemplos.|
+| --verbose                               | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
 ## <a name="sfctl-application-info"></a>sfctl application info
 Obtém informações sobre um aplicativo do Service Fabric.
@@ -164,11 +153,9 @@ Retorna as informações sobre o aplicativo que foi criado, ou que está sendo c
 
 |Argumento|Descrição|
 | --- | --- |
-| --application-id      [Obrigatório]| A identidade do aplicativo. Normalmente, é o nome completo do aplicativo sem o esquema de URI "fabric:". A partir da versão 6.0, nomes hierárquicos são delimitados
-                                      with the "~" character. For example, if the application name
-                                      is "fabric://myapp/app1", the application identity would be
-                                      "myapp~app1" in 6.0+ and "myapp/app1" in previous versions.|
-| --exclude-application-parameters| O sinalizador que especifica se os parâmetros do aplicativo serão excluídos do resultado.| | --timeout -t                 | Tempo limite do servidor em segundos.  Padrão: 60.|
+| --application-id      [Obrigatório]| A identidade do aplicativo. Normalmente, é o nome completo do aplicativo sem o esquema de URI "fabric:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "~". Por exemplo, se o nome do aplicativo for "fabric://meuaplicativo/aplicativo1", a identidade do aplicativo será "meuaplicativo~aplicativo1" na versão 6.0 e superiores, e "meuaplicativo/aplicativo1" nas versões anteriores.|
+| --exclude-application-parameters| O sinalizador que especifica se os parâmetros do aplicativo serão excluídos do resultado.|
+| --timeout -t                 | Tempo limite do servidor em segundos.  Padrão: 60.|
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -189,19 +176,11 @@ Obtém as informações sobre os aplicativos que foram criados, ou que estão se
 
 |Argumento|Descrição|
 | --- | --- |
-|--application-definition-kind-filter| Usado para filtrar ApplicationDefinitionKind para
-                                          application query operations. - Default - Default value.
-                                          Filter that matches input with any
-                                          ApplicationDefinitionKind value. The value is 0. - All -
-                                          Filter that matches input with any
-                                          ApplicationDefinitionKind value. The value is 65535. -
-                                          ServiceFabricApplicationDescription - Filter that matches
-                                          input with ApplicationDefinitionKind value
-                                          ServiceFabricApplicationDescription. The value is 1. -
-                                          Compose - Filter that matches input with
-                                          ApplicationDefinitionKind value Compose. The value is 2.
-                                          Default: 65535.|
-| --application-type-name      | O nome do tipo de aplicativo usado para filtrar os aplicativos para consulta. Esse valor não deve conter a versão do tipo de aplicativo. | | --continuation-token | O parâmetro do token de continuação é usado para obter o próximo conjunto de resultados. Um token de continuação com um valor não vazio será incluído na resposta da API, quando os resultados do sistema não couberem em uma única resposta. Quando esse valor for passado para a próxima chamada de API, a API retornará o próximo conjunto de resultados. Se não houver mais resultados, o token de continuação não conterá um valor. O valor desse parâmetro não deve ser codificado em URL. | --exclude-application-parameters| O sinalizador que especifica se os parâmetros do aplicativo são excluídos do resultado.| | --timeout -t                 | Tempo limite do servidor em segundos.  Padrão: 60.|
+|--application-definition-kind-filter| Usado para filtrar ApplicationDefinitionKind para operações de consulta de aplicativo. -Default- Valor padrão. Filtro que corresponde à entrada com qualquer valor ApplicationDefinitionKind. O valor é 0. – All – Filtro que corresponde à entrada com qualquer valor ApplicationDefinitionKind. O valor é 65535. – ServiceFabricApplicationDescription – Filtro que corresponde à entrada com o valor ApplicationDefinitionKind de ServiceFabricApplicationDescription. O valor é 1. – Compose – Filtro que corresponde à entrada com o valor ApplicationDefinitionKind de Compose. O valor é 2. Padrão: 65535.|
+| --application-type-name      | O nome do tipo de aplicativo usado para filtrar os aplicativos para consulta. Esse valor não deve conter a versão do tipo de aplicativo.|
+| --continuation-token         | O parâmetro de token de continuação é usado para obter o próximo conjunto de resultados. Um token de continuação com um valor não vazio será incluído na resposta da API, quando os resultados do sistema não couberem em uma única resposta. Quando esse valor for passado para a próxima chamada de API, a API retornará o próximo conjunto de resultados. Se não houver mais resultados, o token de continuação não conterá um valor. O valor desse parâmetro não deve ser codificado em URL.|
+| --exclude-application-parameters| O sinalizador que especifica se os parâmetros de aplicativo são excluídos do resultado.|
+| --timeout -t                 | Tempo limite do servidor em segundos.  Padrão: 60.|
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -216,32 +195,21 @@ Obtém as informações sobre os aplicativos que foram criados, ou que estão se
 ## <a name="sfctl-application-load"></a>sfctl application load
 Obtém informações de carregamento sobre um aplicativo do Service Fabric.
 
-        Returns the load information about the application that was created or in the process of
-        being created in the Service Fabric cluster and whose name matches the one specified as the
-        parameter. The response includes the name, minimum nodes, maximum nodes, the number of nodes
-        the app is occupying currently, and application load metric information about the
-        application.
+Retorna as informações de carga sobre o aplicativo que foi criado ou que estava sendo criado no cluster do Service Fabric e cujo nome corresponde àquele especificado como o parâmetro. A resposta inclui o nome, nós mínimos, nós máximos, o número de nós que o aplicativo está ocupando no momento e as informações de métrica de carga do aplicativo sobre o aplicativo.
 
 ### <a name="arguments"></a>Argumentos
 |Argumento|Descrição|
 | --- | --- |
-|--application-id [Obrigatório]| A identidade do aplicativo. Isso normalmente é o nome completo do
-                                 the application without the 'fabric:' URI scheme. Starting from
-                                 version 6.0, hierarchical names are delimited with the "~"
-                                 character. For example, if the application name is
-                                 "fabric://myapp/app1", the application identity would be
-                                 "myapp~app1" in 6.0+ and "myapp/app1" in previous versions. |
-| timeout -t | Tempo limite do servidor em segundos.  Padrão: 60.|
+|--application-id [Obrigatório]| A identidade do aplicativo. Normalmente, este é o nome completo do aplicativo sem o esquema de URI "fabric:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "~". Por exemplo, se o nome do aplicativo for "fabric://meuaplicativo/aplicativo1", a identidade do aplicativo será "meuaplicativo~aplicativo1" na versão 6.0 e superiores, e "meuaplicativo/aplicativo1" nas versões anteriores. |
+| --timeout -t               | Tempo limite do servidor em segundos.  Padrão: 60.|
 
 ### <a name="global-arguments"></a>Argumentos globais
 |Argumento|Descrição|
 | --- | --- |
 |--debug                    | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
     --help -h                  | Mostrar esta mensagem de ajuda e sair.|
-    --output -o                | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão:
-                                 json.|
-    --query                    | Cadeia de caracteres de consulta JMESPath. Consulte http://jmespath.org/ para obter mais
-                                 informações e exemplos.|
+    --output -o                | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão: json.|
+    --query                    | Cadeia de caracteres de consulta JMESPath. Consulte http://jmespath.org/ para saber mais e obter exemplos.|
     --verbose                  | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
 ## <a name="sfctl-application-manifest"></a>sfctl application manifest
@@ -347,10 +315,23 @@ Valida os parâmetros de atualização de aplicativo fornecidos e começa a atua
 
 |Argumento|Descrição|
 | --- | --- |
-| --app-id             [Obrigatório]| A identidade do aplicativo. Normalmente, é o nome completo do aplicativo sem o esquema de URI "fabric:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "~". Por
-        example, if the application name is 'fabric://myapp/app1', the application identity would be
-        'myapp~app1' in 6.0+ and 'myapp/app1' in previous versions.|
-| --app-version        [Obrigatório]| Versão de destino do aplicativo.| | --parameters         [Obrigatório]| Uma lista codificada em JSON de substituições de parâmetro de aplicativo que serão aplicados durante a atualização do aplicativo.| | --default-service-health-policy| Especificação codificada em JSON da política de integridade usada por padrão para avaliar a integridade de um tipo de serviço.| | --failure-action            | A ação a ser executada quando uma atualização monitorada encontra violações da política de monitoramento ou da política de integridade.| | --force-restart             | Força a reinicialização dos processos durante uma atualização, mesmo quando a versão do código não tiver sido alterada.| | --health-check-retry-timeout| O tempo para repetir avaliações de integridade quando o aplicativo ou cluster não estiver íntegro antes da ação de falha ser executada. Medida em milissegundos.  Padrão: PT0H10M0S.| | --health-check-stable-duration | A quantidade de tempo que o aplicativo ou o cluster deve permanecer íntegro antes que a atualização passe para o próximo domínio de atualização.            Medida em milissegundos.  Padrão: PT0H2M0S.| | --health-check-wait-duration| A quantidade de tempo de espera após a conclusão de um domínio de atualização, antes de aplicar as políticas de integridade. Medida em milissegundos.            Padrão: 0.| | --max-unhealthy-apps        | A porcentagem máxima permitida de aplicativos não íntegros implantados. Representado como um número entre 0 e 100. | | --mode | O modo usado para monitorar a integridade durante uma atualização sem interrupção.            Padrão: UnmonitoredAuto.| | --replica-set-check-timeout | O máximo de tempo para bloqueio do processamento de um domínio de atualização e prevenção da perda de disponibilidade quando houver problemas inesperados. Medido em segundos.| | --service-health-policy     | Mapa codificado em JSON com a política de integridade de tipo de serviço por nome de tipo de serviço. O mapa é vazio por padrão.| | --timeout -t                | Tempo limite do servidor em segundos.  Padrão: 60. | | --upgrade-domain-timeout    | A quantidade de tempo que cada domínio de atualização deve concluir antes de FailureAction ser executado. Medida em milissegundos.  Padrão:            P10675199DT02H48M05.4775807S.| | --upgrade-timeout           | A quantidade de tempo que a atualização geral deve concluir antes de FailureAction ser executado. Medida em milissegundos.  Padrão:            P10675199DT02H48M05.4775807S.| | --warning-as-error          | Trata avisos de avaliação de integridade com a mesma gravidade que os erros.|
+| --app-id             [Obrigatório]| A identidade do aplicativo. Normalmente, é o nome completo do aplicativo sem o esquema de URI "fabric:". A partir da versão 6.0, nomes hierárquicos são delimitados pelo caractere "~". Por exemplo, se o nome do aplicativo for "fabric://meuaplicativo/aplicativo1", a identidade do aplicativo será "meuaplicativo~aplicativo1" na versão 6.0 e superiores, e "meuaplicativo/aplicativo1" nas versões anteriores.|
+| --app-version        [Obrigatório]| Versão do aplicativo de destino.|
+| --parameters         [Obrigatório]| Uma lista codificada em JSON de substituições de parâmetro de aplicativo a serem aplicadas ao atualizar o aplicativo.|
+| --default-service-health-policy| Especificação codificada em JSON da política de integridade usada por padrão para avaliar a integridade de um tipo de serviço.|
+| --ação de falha            | A ação a ser executada quando uma atualização monitorada encontra uma política de monitoramento ou violações da política de integridade.|
+| -força-reinicialização             | Reinicia processos de modo forçado durante a atualização mesmo quando a versão do código não foi alterada.|
+| --health-check-retry-timeout| A quantidade de tempo para tentar novamente avaliações de integridade quando o aplicativo ou o cluster não for íntegro antes da execução da ação de falha. Medida em milissegundos.  Padrão: PT0H10M0S.|
+| --health-check-stable-duration | A quantidade de tempo que o aplicativo ou o cluster deve permanecer íntegro antes que a atualização passe para o próximo domínio de atualização.            Medida em milissegundos.  Padrão: PT0H2M0S.|
+| --health-check-wait-duration| A quantidade de tempo de espera após a conclusão de um domínio de atualização, antes de aplicar as políticas de integridade. Medida em milissegundos.            Padrão: 0.|
+| --max-unhealthy-apps        | O percentual máximo permitido de aplicativos não íntegros implantados. Representado como um número entre 0 e 100.|
+| --mode                      | O modo usado para monitorar a integridade durante uma atualização sem interrupção.            Padrão: UnmonitoredAuto.|
+| --replica-set-check-timeout | A quantidade máxima de tempo para bloqueio do processamento de um domínio de atualização e prevenção da perda de disponibilidade quando houver problemas inesperados. Medido em segundos.|
+| --service-health-policy     | Mapa codificado em JSON com a política de integridade de tipo de serviço por nome de tipo de serviço. O mapa está vazio por padrão.|
+| --timeout -t                | Tempo limite do servidor em segundos.  Padrão: 60.|
+| -tempo limite ao domínio de upgrade    | A quantidade de tempo que cada domínio de atualização deve concluir antes de FailureAction ser executado. Medida em milissegundos.  Padrão:            P10675199DT02H48M05.4775807S.|
+| -tempo limite de upgrade           | A quantidade de tempo que a atualização geral deve concluir antes de FailureAction ser executado. Medida em milissegundos.  Padrão:            P10675199DT02H48M05.4775807S.|
+| --aviso-como-erro          | Trate avisos de avaliação de integridade com a mesma gravidade que os erros.|
 
 ### <a name="global-arguments"></a>Argumentos globais
 
@@ -372,8 +353,7 @@ Opcionalmente, exiba o progresso do carregamento para cada arquivo no pacote. O 
 |Argumento|Descrição|
 | --- | --- |
 | --path [Required]| Caminho até o pacote de aplicativo local.|
-|--imagestore-string| Repositório de imagens de destino no qual carregar o pacote de aplicativos.  Padrão:
-                         fabric:ImageStore.|
+|--imagestore-string| Repositório de imagens de destino no qual carregar o pacote de aplicativos.  Padrão: fabric:ImageStore.|
 | --show-progress  | Mostra progresso do carregamento de arquivo para pacotes grandes.|
 
 ### <a name="global-arguments"></a>Argumentos globais
@@ -383,8 +363,7 @@ Opcionalmente, exiba o progresso do carregamento para cada arquivo no pacote. O 
 | --debug       | Aumentar o nível de detalhes do log para mostrar todos os logs de depuração.|
 | --help -h     | Mostrar esta mensagem de ajuda e sair.|
 | --output -o   | O formato da saída.  Valores permitidos: json, jsonc, table, tsv.  Padrão: json.|
-| --query       | Cadeia de caracteres de consulta JMESPath. Consulte http://jmespath.org/ para obter mais informações e
-                       exemplos.|
+| --query       | Cadeia de caracteres de consulta JMESPath. Consulte http://jmespath.org/ para saber mais e obter exemplos.|
 | --verbose     | Aumentar o nível de detalhes do log. Use --debug para logs de depuração completos.|
 
 ## <a name="next-steps"></a>Próximas etapas

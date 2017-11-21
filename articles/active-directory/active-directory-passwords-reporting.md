@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 5b28e15d643497dbdf827b3976ad7dcdc73507b1
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: e4524704c6db0d21388ea407870c65d4f69a6323
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Opções de relatórios para o gerenciamento de senhas do Azure AD
 
@@ -31,7 +31,7 @@ Após a implantação, muitas organizações desejam saber como ou se o SSPR rea
 As perguntas a seguir podem ser respondidas pelos relatórios existentes no [portal do Azure] (https://portal.azure.com/).
 
 > [!NOTE]
-> Você deve ser [administrador global](active-directory-assign-admin-roles.md#assign-or-remove-administrator-roles) e aceitar a coleta desses dados em nome de sua organização acessando a guia de relatórios ou os logs de auditoria pelo menos uma vez. Os dados não serão coletados para sua organização antes de você fazer isso
+> Você deve ser [administrador global](active-directory-assign-admin-roles-azure-portal.md) e aceitar a coleta desses dados em nome de sua organização acessando a guia de relatórios ou os logs de auditoria pelo menos uma vez. Os dados não serão coletados para sua organização antes de você fazer isso
 
 * Quantas pessoas foram registradas para a redefinição de senhas?
 * Quem se registrou para a redefinição de senhas?
@@ -78,13 +78,7 @@ Atualmente, os Relatórios do Azure AD e a API de Eventos recuperam até **75.00
 
 Se precisar recuperar ou armazenar dados além desta janela, sugerimos persisti-los em um banco de dados externo e usar a API para consultar os deltas resultantes. Nossa recomendação é começar a recuperar esses dados quando iniciar o uso do SSPR em sua organização, persisti-los externamente e continuar acompanhando os deltas desse ponto em diante.
 
-## <a name="how-to-download-password-reset-registration-events-quickly-with-powershell"></a>Como baixar eventos de registro de redefinição de senha rapidamente com o PowerShell
-
-Além de usar os Relatórios do Azure AD e a API de Eventos diretamente, você também pode usar o script do PowerShell abaixo para eventos de registro recentes no diretório. Isso é útil caso você deseje ver quem foi registrado recentemente ou garantir que a distribuição de redefinição de senha ocorra conforme o esperado.
-
-* [Script do PowerShell de Atividade de Registro do Azure AD SSPR](https://gallery.technet.microsoft.com/scriptcenter/azure-ad-self-service-e31b8aee)
-
-### <a name="description-of-report-columns-in-azure-portal"></a>Descrição das colunas do relatório no portal do Azure
+## <a name="description-of-report-columns-in-azure-portal"></a>Descrição das colunas do relatório no portal do Azure
 
 A lista a seguir explica cada uma das colunas do relatório em detalhes:
 
@@ -93,7 +87,7 @@ A lista a seguir explica cada uma das colunas do relatório em detalhes:
 * **Data e hora** – a data e a hora da tentativa.
 * **Dados Registrados** – os dados de autenticação fornecidos pelo usuário durante o registro de redefinição de senha.
 
-### <a name="description-of-report-values-in-azure-portal"></a>Descrição dos valores do relatório no portal do Azure
+## <a name="description-of-report-values-in-azure-portal"></a>Descrição dos valores do relatório no portal do Azure
 
 A tabela a seguir descreve os diferentes valores permitidos para cada coluna:
 

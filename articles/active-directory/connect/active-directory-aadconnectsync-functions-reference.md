@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: 0f556c786fdfdf775e00e68740351e7630e0e002
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 591fa6048553db4c347449a68ea4e39f3772d643
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Azure AD Connect Sync: referência de funções
 No Azure Active Directory Sync, as funções são usadas para manipular um valor de atributo durante a sincronização.  
@@ -615,12 +615,12 @@ resulta em "25/12/2007".
 pode resultar em "20140905081453.0Z"
 
 - - -
-### <a name="guid"></a>GUID
+### <a name="guid"></a>Guid
 **Descrição:**  
-a função GUID gera um novo GUID aleatório
+A função GUID gera um novo GUID aleatório
 
 **Sintaxe:**  
-`str GUID()`
+`str Guid()`
 
 - - -
 ### <a name="iif"></a>IIF

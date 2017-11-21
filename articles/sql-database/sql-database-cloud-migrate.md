@@ -14,13 +14,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: Active
-ms.date: 02/08/2017
+ms.date: 11/07/2017
 ms.author: carlrab
-ms.openlocfilehash: f27d2fbeb8ec514419bd0d208429e3d3de2d07ea
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 4e22a512f7ee11dde14f8eac818506b59791e17f
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="sql-server-database-migration-to-sql-database-in-the-cloud"></a>Migração de banco de dados do SQL Server para o Banco de Dados SQL na nuvem
 Neste artigo, você aprenderá sobre os dois principais métodos para migrar um banco de dados SQL Server 2005 ou posterior para o Banco de Dados SQL. O primeiro método é mais simples, mas requer algum tempo de inatividade, possivelmente substancial, durante a migração. O segundo método é mais complexo, mas elimina substancialmente o tempo de inatividade durante a migração.
@@ -28,7 +28,7 @@ Neste artigo, você aprenderá sobre os dois principais métodos para migrar um 
 Em ambos os casos, você precisa garantir que o banco de dados de origem seja compatível com o Banco de Dados SQL do Azure usando o [DMA (Data Migration Assistant)](https://www.microsoft.com/download/details.aspx?id=53595). O Banco de Dados SQL V12 está se aproximando da [paridade de recursos](sql-database-features.md) com o SQL Server, além dos problemas relacionados às operações em nível do servidor e entre bancos de dados. Os bancos de dados e os aplicativos que dependem de [funções com suporte parcial ou sem suporte](sql-database-transact-sql-information.md) precisarão de alguma [reengenharia que corrija essas incompatibilidades](sql-database-cloud-migrate.md#resolving-database-migration-compatibility-issues) para que o banco de dados SQL Server possa ser migrado.
 
 > [!NOTE]
-> Para migrar um banco de dados não SQL Server, incluindo Microsoft Access, Sybase, MySQL Oracle e DB2 para o Banco de Dados SQL do Azure, confira [SQL Server Migration Assistant](https://blogs.msdn.microsoft.com/datamigration/2016/12/22/released-sql-server-migration-assistant-ssma-v7-2/).
+> Para migrar um banco de dados não SQL Server, incluindo Microsoft Access, Sybase, MySQL Oracle e DB2 para o Banco de Dados SQL do Azure, confira [SQL Server Migration Assistant](https://blogs.msdn.microsoft.com/datamigration/2017/09/29/release-sql-server-migration-assistant-ssma-v7-6/).
 > 
 
 ## <a name="method-1-migration-with-downtime-during-the-migration"></a>Método 1: migração com tempo de inatividade durante a migração
@@ -39,12 +39,11 @@ A lista a seguir contém o fluxo de trabalho geral para uma migração de banco 
 
   ![Diagrama de migração do VSSSDT](./media/sql-database-cloud-migrate/azure-sql-migration-sql-db.png)
 
-1. Avalie o banco de dados em termos de compatibilidade usando a versão mais recente do [DMA (Assistente de Migração de Dados)](https://www.microsoft.com/download/details.aspx?id=53595).
+1. [Avalie](https://docs.microsoft.com/en-us/sql/dma/dma-assesssqlonprem) o banco de dados em termos de compatibilidade usando a versão mais recente do [DMA (Assistente de Migração de Dados)](https://www.microsoft.com/download/details.aspx?id=53595).
 2. Prepare as correções necessárias como scripts Transact-SQL.
 3. Faça uma cópia transacionalmente consistente do banco de dados de origem que está sendo migrado e verifique se não há mais alterações sendo feitas no banco de dados de origem (ou você pode aplicar essas alterações manualmente após a migração). Há vários métodos para fechar um banco de dados para novas sessões, desde desabilitar a conectividade do cliente até criar um [instantâneo do banco de dados](https://msdn.microsoft.com/library/ms175876.aspx).
 4. Implante os scripts Transact-SQL para aplicar as correções à cópia do banco de dados.
-5. [Exporte](sql-database-export.md) a cópia do banco de dados para um arquivo BACPAC em uma unidade local.
-6. [Importe](sql-database-import.md) o arquivo BACPAC como um novo banco de dados SQL do Azure usando qualquer uma das várias ferramentas de importação de BACPAC, sendo que SQLPackage.exe é a ferramenta recomendada para obter o melhor desempenho.
+5. [Migre](https://docs.microsoft.com/en-us/sql/dma/dma-migrateonpremsql) a cópia do banco de dados para um novo Banco de Dados SQL do Azure usando o Assistente de Migração de Dados.
 
 ### <a name="optimizing-data-transfer-performance-during-migration"></a>Otimizando o desempenho de transferência de dados durante a migração 
 
@@ -94,7 +93,7 @@ Com a replicação transacional, todas as alterações de dados ou esquema apare
 ### <a name="some-tips-and-differences-for-migrating-to-sql-database"></a>Algumas dicas e diferenças da migração para o Banco de Dados SQL
 
 1. Usar um distribuidor local 
-   - Isso causa um impacto de desempenho no servidor. 
+   - Fazer isso causa um impacto de desempenho no servidor. 
    - Se o impacto de desempenho for inaceitável, você poderá usar outro servidor, mas isso adicionará complexidade ao gerenciamento e à administração.
 2. Ao selecionar uma pasta de instantâneo, verifique se a pasta selecionada é grande o suficiente para manter um BCP de cada tabela que você deseja replicar. 
 3. A criação de instantâneos bloqueia as tabelas associadas até ser concluída. Portanto, agende o instantâneo adequadamente. 

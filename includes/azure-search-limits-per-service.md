@@ -11,7 +11,6 @@ O armazenamento é restrito pelo espaço em disco ou por um limite rígido do *n
 | Indexadores máximos |3 |5 |50 |200 |200 |Não há suporte do indexador |
 | Máximo de fontes de dados |3 |5 |50 |200 |200 |Não há suporte do indexador |
 | Máximo de documentos |10.000 |1 milhão |15 milhões por partição ou 180 milhões por serviço |60 milhões por partição ou 720 milhões por serviço |120 milhões por partição ou 1,4 bilhão por serviço |1 milhão por serviço, 200 milhões por partição |
-| Estimativa de QPS (Consultas por segundo) |N/D |~3 por réplica |~15 por réplica |~60 por réplica |~60 por réplica |>60 por réplica |
 
 <sup>1</sup> Os recursos de camada gratuita e de versão prévia não vêm com SLAs (contratos de nível de serviço). Para todas as camadas faturáveis, os SLAs entram em vigor quando você provisiona redundância suficiente para o serviço. Duas ou mais réplicas são necessárias para o SLA de consulta (leitura). Três ou mais réplicas são necessárias para consulta e indexação do SLA (leitura-gravação). O número de partições não é uma consideração de SLA. 
 

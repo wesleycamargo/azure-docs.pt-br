@@ -2,6 +2,7 @@
 
 ## Visão geral
 ### [Qual é a solução?](storsimple-ova-overview.md)
+### [Disponibilidade de região](storsimple-regions.md)
 
 ## Introdução
 ### Plano
@@ -19,10 +20,12 @@
 
 ## Como
 ### [Gerenciar via Portal do Azure](storsimple-virtual-array-manager-service-administration.md)
-#### [Instalar a atualização mais recente](storsimple-virtual-array-install-update-06.md)
-##### [Instalar a Atualização 0.5](storsimple-virtual-array-install-update-05.md)
-##### [Instalar a Atualização 0.4](storsimple-virtual-array-install-update-04.md)
-##### [Instalar a Atualização 0.3](storsimple-virtual-array-install-update.md)
+#### [Instalar a atualização mais recente](storsimple-virtual-array-install-update-1.md)
+##### [Instalar a Atualização 0.6](storsimple-virtual-array-install-update-06.md)
+##### Arquivo
+###### [Instalar a Atualização 0.5](storsimple-virtual-array-install-update-05.md)
+###### [Instalar a Atualização 0.4](storsimple-virtual-array-install-update-04.md)
+###### [Instalar a Atualização 0.3](storsimple-virtual-array-install-update.md)
 #### [Criar e gerenciar backups](storsimple-virtual-array-backup.md)
 #### [Clonar de backups](storsimple-virtual-array-clone.md)
 #### [Failover e DR](storsimple-virtual-array-failover-dr.md)
@@ -43,10 +46,10 @@
 ### [Configurar via Interface de usuário da Web local](storsimple-ova-web-ui-admin.md)
 
 ## Notas de versão
-### [Atualização 0.6 – atual](storsimple-virtual-array-update-06-release-notes.md)
-### [Atualização 0.5](storsimple-virtual-array-update-05-release-notes.md)
-
+### [Atualização 1 - atual](storsimple-virtual-array-update-1-release-notes.md)
+### [Atualização 0.6](storsimple-virtual-array-update-06-release-notes.md)
 ### Arquivo
+#### [Atualização 0.5](storsimple-virtual-array-update-05-release-notes.md)
 #### [Atualização 0.4](storsimple-virtual-array-update-04-release-notes.md)
 #### [Atualização 0.3](storsimple-ova-update-03-release-notes.md)
 #### [Atualizações 0.2 e 0.1](storsimple-ova-update-01-release-notes.md)
@@ -57,6 +60,7 @@
 ### [Qual é a solução?](storsimple-overview.md)
 ### [Mapa de aprendizagem do StorSimple](https://azure.microsoft.com/documentation/learning-paths/storsimple-typical/)
 ### [Considerações de segurança](storsimple-8000-security.md)
+### [Disponibilidade de região](storsimple-regions.md)
 ### [Perguntas Frequents: mover para o Portal do Azure](storsimple-8000-move-azure-portal-faq.md)
 
 ## Introdução

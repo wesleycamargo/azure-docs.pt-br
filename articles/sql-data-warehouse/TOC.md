@@ -16,6 +16,7 @@
 ### [Arquitetura MPP](massively-parallel-processing-mpp-architecture.md)
 ### [Níveis de desempenho](performance-tiers.md)
 ### [Unidades do data warehouse](what-is-a-data-warehouse-unit-dwu-cdwu.md)
+### [Limites de capacidade](sql-data-warehouse-service-capacity-limits.md)
 ### [Perguntas frequentes](sql-data-warehouse-overview-faq.md)
 
 ## Backup e restauração
@@ -120,6 +121,8 @@
 ### [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 ### [API REST](sql-data-warehouse-manage-compute-rest-api.md)
 ### [T-SQL](sql-data-warehouse-manage-compute-tsql.md)
+### [Automatizar os níveis de computação](manage-compute-with-azure-functions.md)
+
 ### Classes de recursos
 #### [Diretrizes](resource-classes-for-workload-management.md)
 #### [Analisar sua carga de trabalho](analyze-your-workload.md)
@@ -145,7 +148,7 @@
 
 # Referência
 
-## [Limites de capacidade](sql-data-warehouse-service-capacity-limits.md)
+
 ## T-SQL
 ### [Referência completa](https://docs.microsoft.com/sql/t-sql/language-reference/)
 ### [Elementos da linguagem SQL DW](sql-data-warehouse-reference-tsql-language-elements.md)

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: huishao
-ms.openlocfilehash: 0010e01d4333b96696680ec6fbbeee74b17f46a3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7b41826f071174df8f00af56a228e0f31c3cfe2f
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-and-upload-a-freebsd-vhd-to-azure"></a>Criar e carregar um VHD FreeBSD para o Azure
 Este artigo mostra como criar e carregar um VHD (disco rígido virtual) que contenha um sistema operacional FreeBSD. Depois de carregá-lo, você pode usá-lo como sua própria imagem para criar uma VM (máquina virtual) no Azure.
@@ -39,7 +39,7 @@ Este artigo pressupõe que você tenha os seguintes itens:
 >
 >
 
-Esta tarefa inclui as cinco etapas a seguir:
+Esta tarefa inclui as quatro etapas a seguir:
 
 ## <a name="step-1-prepare-the-image-for-upload"></a>Etapa 1: preparar a imagem para upload
 Na máquina virtual na qual o sistema operacional FreeBSD foi instalado, conclua os procedimentos a seguir:
@@ -114,66 +114,21 @@ Na máquina virtual na qual o sistema operacional FreeBSD foi instalado, conclua
 
     Agora você pode desligar sua VM.
 
-## <a name="step-2-create-a-storage-account-in-azure"></a>Etapa 2: Criar uma conta de armazenamento no Azure
-Você precisa de uma conta de armazenamento no Azure para carregar um arquivo .vhd para que ele possa ser usado para criar uma máquina virtual. Você pode usar o portal clássico do Azure para criar uma conta de armazenamento.
+## <a name="step-2-prepare-the-connection-to-azure"></a>Etapa 2: preparar a conexão com o Azure
+Verifique se você está usando a CLI do Azure no modelo de implantação clássico (`azure config mode asm`) e faça logon na sua conta:
 
-1. Entre no [portal clássico do Azure](https://manage.windowsazure.com).
-2. Na barra de comandos, selecione **Novo**.
-3. Selecione **Serviços de Dados** > **Armazenamento** > **Criação Rápida**.
+```azurecli
+azure login
+```
 
-    ![Criação rápida de uma conta de armazenamento](./media/freebsd-create-upload-vhd/Storage-quick-create.png)
-4. Preencha os campos da seguinte maneira:
 
-   * No campo **URL** , digite um nome de subdomínio para usar na URL da conta de armazenamento. A entrada pode conter de três a 24 letras minúsculas e números. Esse nome se torna o nome do host na URL usada para tratar os recursos de armazenamento do Armazenamento de Blobs do Azure, do Armazenamento de Filas do Azure ou dos recursos do Armazenamento de Tabelas da assinatura.
-   * No menu suspenso **Local/Grupo de Afinidades**, escolha o **local ou um grupo de afinidades** para a conta de armazenamento. Um grupo de afinidades permite colocar seus serviços de nuvem e armazenamento no mesmo data center.
-   * No campo **Replicação**, decida se quer usar a replicação com **Redundância Geográfica** para a conta de armazenamento. A replicação geográfica é ativada por padrão. Essa opção replica os dados para um local secundário, sem nenhum custo para você, para que o armazenamento efetue o failover para o local se ocorrer uma falha grave no local principal. O local secundário é atribuído automaticamente e não pode ser alterado. Se você precisar de mais controle sobre o local do armazenamento baseado em nuvem devido a requisitos legais ou política organizacional, você pode desligar a replicação geográfica. No entanto, saiba que ao ativar a replicação geográfica posteriormente, você deverá pagar uma taxa de transferência de uma única vez para replicar seus dados existentes para o local secundário. Serviços de armazenamento sem replicação geográfica são oferecidos com desconto. Encontre mais detalhes sobre como gerenciar a replicação geográfica de contas de armazenamento aqui: [Replicação do Armazenamento do Azure](../../../storage/common/storage-redundancy.md).
+<a id="upload"> </a>
 
-     ![Insira os detalhes da conta de armazenamento](./media/freebsd-create-upload-vhd/Storage-create-account.png)
-5. Escolha **Criar Conta de Armazenamento**. A conta aparece agora em **armazenamento**.
 
-    ![Conta de armazenamento criada com êxito](./media/freebsd-create-upload-vhd/Storagenewaccount.png)
-6. Em seguida, crie um contêiner para os seus .vhd carregados. Escolha o nome da conta de armazenamento e selecione **Contêineres**.
+## <a name="step-3-upload-the-vhd-file"></a>Etapa 3: Carregar o arquivo .vhd
 
-    ![Detalhes da conta de armazenamento](./media/freebsd-create-upload-vhd/storageaccount_detail.png)
-7. Escolha **Criar um Contêiner**.
+Você precisa de uma conta de armazenamento para carregar o arquivo do VHD. Você pode escolher uma conta de armazenamento existente ou [criar uma nova](../../../storage/common/storage-create-storage-account.md).
 
-    ![Detalhes da conta de armazenamento](./media/freebsd-create-upload-vhd/storageaccount_container.png)
-8. No campo **Nome** , digite um nome para seu contêiner. Em seguida, no menu suspenso **Acesso** , selecione o tipo de política de acesso desejado.
-
-    ![Nome do contêiner](./media/freebsd-create-upload-vhd/storageaccount_containervalues.png)
-
-   > [!NOTE]
-   > Por padrão, o contêiner é privado e só pode ser acessado pelo proprietário da conta. Para permitir acesso de leitura público dos blobs no contêiner, mas não das propriedades ou metadados do contêiner, use a opção **Blob Público** . Para permitir o acesso de leitura público completo do contêiner e de blobs, use a opção **Contêiner Público** .
-   >
-   >
-
-## <a name="step-3-prepare-the-connection-to-azure"></a>Etapa 3: Preparar a conexão com o Azure
-Para poder carregar um arquivo .vhd, você precisa estabelecer uma conexão segura entre seu computador e sua assinatura do Azure. No entanto, você pode usar o método do Azure AD (Azure Active Directory) ou o método de certificado para realizar esse tipo de trabalho.
-
-### <a name="use-the-azure-ad-method-to-upload-a-vhd-file"></a>Usar o método do Azure AD para carregar um arquivo .vhd
-1. Abra o console do PowerShell do Azure.
-2. Digite o seguinte comando:   
-    `Add-AzureAccount`
-
-    Esse comando abre uma janela de entrada para que você possa entrar com sua conta corporativa ou de estudante.
-
-    ![Janela do PowerShell](./media/freebsd-create-upload-vhd/add_azureaccount.png)
-3. O Azure autentica e salva as informações de credenciais. Em seguida, ele fecha a janela.
-
-### <a name="use-the-certificate-method-to-upload-a-vhd-file"></a>Usar o método de certificado para carregar um arquivo .vhd
-1. Abra o console do PowerShell do Azure.
-2. Digite: `Get-AzurePublishSettingsFile`.
-3. Uma janela de navegador será aberta e baixará automaticamente o arquivo .publishsettings. Esse arquivo contém informações e um certificado para sua assinatura do Azure.
-
-    ![Procurar página de download](./media/freebsd-create-upload-vhd/Browser_download_GetPublishSettingsFile.png)
-4. Salve o arquivo .publishsettings.
-5. Digite: `Import-AzurePublishSettingsFile <PathToFile>`, em que `<PathToFile>` é o caminho completo para o arquivo .publishsettings.
-
-   Para obter mais informações, consulte [Introdução aos cmdlets do Azure](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx).
-
-   Para saber mais sobre como instalar e configurar o PowerShell, confira [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview).
-
-## <a name="step-4-upload-the-vhd-file"></a>Etapa 4: carregar o arquivo .vhd
 Quando carrega o arquivo .vhd, você pode colocá-lo em qualquer lugar em seu Armazenamento de Blobs. Veja a seguir alguns termos que você usará ao carregar o arquivo:
 
 * **BlobStorageURL** é a URL da conta de armazenamento que você criou na Etapa2.
@@ -185,7 +140,7 @@ Na janela PowerShell do Azure que você usou na etapa anterior, digite:
 
         Add-AzureVhd -Destination "<BlobStorageURL>/<YourImagesFolder>/<VHDName>.vhd" -LocalFilePath <PathToVHDFile>
 
-## <a name="step-5-create-a-vm-with-the-uploaded-vhd-file"></a>Etapa 5: Criar uma VM com o arquivo .vhd carregado
+## <a name="step-4-create-a-vm-with-the-uploaded-vhd-file"></a>Etapa 4: Criar uma VM com o arquivo .vhd carregado
 Depois de carregar o arquivo .vhd, você pode adicioná-lo como uma imagem à lista de imagens personalizadas associadas à sua assinatura e criar uma máquina virtual com essa imagem personalizada.
 
 1. Na janela PowerShell do Azure que você usou na etapa anterior, digite:

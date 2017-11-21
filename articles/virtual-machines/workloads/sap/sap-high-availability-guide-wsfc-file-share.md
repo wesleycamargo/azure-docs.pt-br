@@ -17,11 +17,11 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 472c3f35e2ae32550be62826407689f93101041f
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.openlocfilehash: 94d725cfb072091e57c96d3b2aca7b2e73657eef
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 10/27/2017
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -250,7 +250,7 @@ O que é específico para essa arquitetura é o seguinte:
 * A instância do SAP (A)SCS está clusterizada e acessível usando o nome do host **<(A)SCSVirtualHostName>**
 * Arquivos SAP globais são colocados no compartilhamento de arquivos SMB e são acessados usando o <SAPGLOBALHost> nome do host \\\\&lt;SAPGLOBALHost&gt;\sapmnt\\&lt;SID&gt;\SYS\..
 * A instância do SAP (A)SCS é instalada em um disco local em ambos os nós de cluster
-* O nome da rede **<(A)SCSVirtualHostName>** é diferente de **<SAPGLOBALHost>**
+* O nome da rede **<(A)SCSVirtualHostName>** é diferente de **&lt;SAPGLOBALHost&gt;**
 
 ![Figura 2: nova arquitetura HA SAP (A)SCS com compartilhamento de arquivos SMB][sap-ha-guide-figure-8004]
 

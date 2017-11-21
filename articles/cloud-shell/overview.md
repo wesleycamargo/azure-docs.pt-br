@@ -12,18 +12,24 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2017
+ms.date: 11/02/2017
 ms.author: juluk
-ms.openlocfilehash: 44d2ac2fd35621ab8cd8d7584744139ee3bab5c2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3acea56ea414f0c43333a02274e91226db29d454
+ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="overview-of-azure-cloud-shell-preview"></a>Visão geral do Azure Cloud Shell (versão prévia)
 O Azure Cloud Shell é um shell interativo e acessível pelo navegador para o gerenciamento de recursos do Azure.
 Ele dá a você a flexibilidade de escolher a experiência de shell que melhor se adequa ao modo como você trabalha.
 Usuários do Linux podem optar por uma experiência com o Bash, enquanto usuários do Windows podem optar pelo PowerShell.
+
+Inicializar por meio do portal do Azure usando o ícone do Cloud Shell:
+
+![Inicialização do portal](media/overview/portal-launch-icon.png)
+
+Aproveite Bash ou PowerShell no menu suspenso de seletor de shell:
 
 ![Bash no Cloud Shell](media/overview/overview-bash-pic.png)
 
@@ -44,16 +50,16 @@ O Cloud Shell vem pré-instalado com ferramentas de linha de comando populares e
 Exiba a lista completa de ferramentas da [experiência do Bash](features.md#tools) e [experiência do PowerShell.](features-powershell.md#tools)
 
 ### <a name="automatic-authentication"></a>Autenticação automática
-O Cloud Shell é autenticado de forma segura e automática a cada sessão para ter acesso instantâneo a seus recursos por meio da CLI do Azure 2.0.
+O Cloud Shell é autenticado de maneira segura e automática a cada sessão para ter acesso instantâneo a seus recursos por meio da CLI do Azure 2.0 ou de cmdlets do Azure PowerShell.
 
 ### <a name="connect-your-azure-file-storage"></a>Conectar o armazenamento de arquivos do Azure
-As máquinas do Cloud Shell são temporárias e, consequentemente, exigem que um compartilhamento de arquivos do Azure seja montado como `clouddrive` para manter seu diretório $Home.
+Os computadores do Cloud Shell são temporários e, assim, exigem que um compartilhamento de Arquivos do Azure seja montado como `clouddrive` para manter seu diretório $Home.
 Na primeira inicialização, o Cloud Shell solicita a criação de um grupo de recursos, uma conta de armazenamento e um compartilhamento de arquivos em seu nome. Essa é uma etapa única e será anexada automaticamente para todas as sessões. Um compartilhamento de arquivo único pode ser mapeado e será usado pelo Bash e pelo PowerShell no Cloud Shell.
 
 #### <a name="create-new-storage"></a>Criar novo armazenamento
 ![](media/overview/basic-storage.png)
 
-Uma conta de LRS (armazenamento com redundância local) e um compartilhamento de Arquivos do Azure podem ser criados em seu nome. O compartilhamento de arquivos do Azure será usado para ambientes Bash e PowerShell se você optar por usar ambos. Custos de armazenamento regulares se aplicam.
+Uma conta de LRS (armazenamento com redundância local) e um compartilhamento de Arquivos do Azure podem ser criados em seu nome. O compartilhamento de Arquivos do Azure será usado para ambientes Bash e PowerShell, se você optar por usar ambos. Custos de armazenamento regulares se aplicam.
 
 Três recursos serão criados em seu nome:
 1. Um Grupo de Recursos chamado: `cloud-shell-storage-<region>`
@@ -90,7 +96,7 @@ Saiba mais sobre os recursos em [Bash no Cloud Shell](features.md) e [PowerShell
 Experimente esses exemplos em início rápido para [Bash no Cloud Shell](quickstart.md) e [PowerShell no Cloud Shell](quickstart-powershell.md).
 
 ## <a name="pricing"></a>Preços
-O computador que hospeda o Cloud Shell é gratuito, com o pré-requisito de um compartilhamento de arquivos do Azure montado. Custos de armazenamento regulares se aplicam.
+O computador que hospeda o Cloud Shell é gratuito, com um pré-requisito de um compartilhamento de Arquivos do Azure montado. Custos de armazenamento regulares se aplicam.
 
 ## <a name="supported-browsers"></a>Navegadores com suporte
 O Cloud Shell é recomendado para Chrome, Edge e Safari.

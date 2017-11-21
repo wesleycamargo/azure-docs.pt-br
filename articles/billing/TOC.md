@@ -6,6 +6,7 @@
 ## [Inscrever-se com conta do Office 365](billing-use-existing-office-365-account-azure-subscription.md)
 ## [Inscreva-se para o Office 365 com a conta do Azure](billing-use-existing-azure-account-for-office-365-subscription.md)
 ## [Organizar recursos com grupos de gerenciamento](billing-enterprise-mgmt-group-overview.md)
+## [Economizar dinheiro com Instâncias da VM Reservadas](billing-save-compute-costs-reservations.md)
 ## [Limites e cotas](../azure-subscription-service-limits.md?toc=/azure/billing/TOC.json)
 
 # Como
@@ -17,9 +18,13 @@
 ### [Compreender os termos na sua utilização](billing-understand-your-usage.md)
 ### [Entenda cobranças de serviço externo](billing-understand-your-azure-marketplace-charges.md)
 ### [Entender o mapeamento do medidor de serviço gratuito](billing-understand-free-service-meter-mapping.md)
+### [Reservar custos do Windows para Instâncias da VM](billing-reserved-instance-windows-software-costs.md)
+### [Entender o aplicativo de desconto da Instância da VM Reservada](billing-understand-vm-reservation-charges.md)
 ### [Compreender o limite de gastos](billing-spending-limit.md)
 ### [Configurar alertas de cobrança](billing-set-up-alerts.md)
 ### [Resolver saldo vencido](billing-azure-subscription-past-due-balance.md)
+### [Entender o uso da Instância Reservada para Pagamento Conforme o Uso](billing-understand-reserved-instance-usage.md)
+### [Entender o uso da Instância Reservada para Empresas](billing-understand-reserved-instance-usage-ea.md)
 
 ## Gerenciar Assinaturas
 ### [Gerenciar funções de administrador](billing-add-change-azure-subscription-administrator.md)
@@ -34,6 +39,7 @@
 ### [Atualizar as informações de pagamento](billing-how-to-change-credit-card.md)
 ### [Vincular locatário do Office 365](billing-add-office-365-tenant-to-azure-subscription.md)
 ### [Pagar pelas assinaturas por fatura](billing-how-to-pay-by-invoice.md)
+## [Gerenciar Instâncias da VM Reservadas](billing-manage-reserved-vm-instance.md)
 ## Solucionar problemas
 ### [Problemas de inscrição](https://support.microsoft.com/en-us/help/4042959)
 ### [Cartão recusado](https://support.microsoft.com/en-us/help/4042960)

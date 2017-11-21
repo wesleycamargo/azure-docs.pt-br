@@ -15,11 +15,11 @@ ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 52d03c535d63aa1985a0991f309f2db1e189717e
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: c18ca8e81fefdee723714c6535160e75ef4d698d
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Associar um certificado SSL personalizado existente a aplicativos Web do Azure
 
@@ -151,13 +151,13 @@ Se você usou o IIS ou o _Certreq.exe_ para gerar a solicitação de certificado
 
 Para carregar o certificado SSL, clique em **Certificados SSL** no painel de navegação esquerdo do aplicativo Web.
 
-Clique em **Carregar Certificado**.
+Clique em **Carregar Certificado**. 
 
 Em **Arquivo de Certificado PFX**, selecione o arquivo PFX. Em **Senha do certificado**, digite a senha que você criou ao exportar o arquivo PFX.
 
 Clique em **Carregar**.
 
-![Carregar um certificado](./media/app-service-web-tutorial-custom-ssl/upload-certificate.png)
+![Carregar um certificado](./media/app-service-web-tutorial-custom-ssl/upload-certificate-private1.png)
 
 Quando o Serviço de Aplicativo terminar de carregar o certificado, ele aparecerá na página **Certificados SSL**.
 
@@ -311,6 +311,10 @@ New-AzureRmWebAppSSLBinding `
     -CertificatePassword <PFX_password> `
     -SslState SniEnabled
 ```
+## <a name="public-certificates-optional"></a>Certificados Públicos (opcionais)
+Você pode carregar [Certificados Públicos](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) para seu aplicativo Web. Você pode usar os Certificados Públicos com aplicativos Web no serviço de aplicativo ou no ASE (Ambiente de Serviço de Aplicativo). Se você precisar armazenar o certificado no repositório de certificados LocalMachine, use um aplicativo Web no Ambiente de Serviço de Aplicativo. Para saber mais detalhes, consulte [Como configurar certificados públicos em seu aplicativo Web](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer).
+
+![Carregar um certificado público](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 

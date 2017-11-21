@@ -12,14 +12,14 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 10/12/2017
+ms.date: 11/03/2017
 ms.author: arramac
 ms.custom: mvc
-ms.openlocfilehash: 2189dc7900f03a45c360fceffbcd7c1ff36f7e48
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: a4145f70af429274c3c908d3dedef63c5f973bf6
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/06/2017
 ---
 # <a name="azure-cosmos-db-develop-with-the-table-api-in-net"></a>Azure Cosmos DB: Desenvolver com a API de Tabela no .NET
 
@@ -41,29 +41,11 @@ Este tutorial cobre as seguintes tarefas:
  
 ## <a name="tables-in-azure-cosmos-db"></a>Tabelas no Azure Cosmos DB 
 
-O Azure Cosmos DB fornece a [API de Tabela](table-introduction.md) (visualização) para aplicativos que precisam de um repositório de chave-valor com um design menos esquemático. Os SDKs e as APIs REST do [Armazenamento de Tabelas do Azure](../storage/common/storage-introduction.md) podem ser usados para trabalhar com o Azure Cosmos DB. Você pode usar o Azure Cosmos DB para criar tabelas com requisitos de alta taxa de transferência. O Azure Cosmos DB dá suporte a tabelas com otimização de taxa de transferência (chamadas informalmente de "tabelas premium"), atualmente em visualização pública. 
+O Azure Cosmos DB fornece a [API de Tabela](table-introduction.md) (versão prévia) para aplicativos que precisam de um repositório de chave-valor com um design sem esquema e exigem alto rendimento. Os SDKs e as APIs REST do [Armazenamento de Tabelas do Azure](../storage/common/storage-introduction.md) podem ser usados para trabalhar com tabelas no Azure Cosmos DB.   
 
-Você pode continuar usando o Armazenamento de Tabelas do Azure para tabelas com alto requisitos de armazenamento e menores taxa de transferência.
+Este tutorial é para desenvolvedores que estão familiarizados com o SDK de armazenamento de Tabela do Azure e desejam usar os recursos premium disponíveis com o Azure Cosmos DB. Ele se baseia na [Introdução ao armazenamento de Tabelas do Azure usando o .NET](table-storage-how-to-use-dotnet.md) e mostra como aproveitar os recursos adicionais, como índices secundários, taxa de transferência provisionada e hospedagem múltipla. Este tutorial descreve como usar o portal do Azure para criar uma conta do Azure Cosmos DB e então criar e implantar um aplicativo de API de Tabela. Também explicaremos detalhadamente os exemplos de .NET para criar e excluir uma tabela e inserir, atualizar, excluir e consultar dados de tabela. 
 
-Caso utilize o Armazenamento de Tabelas do Azure neste momento, você recebe os seguintes benefícios com a visualização de "tabela premium":
-
-- [Distribuição global](distribute-data-globally.md) turnkey com hospedagem múltipla e [failovers automáticos e manuais](regional-failover.md)
-- Suporte para indexação agnóstica de esquema automática em relação a todas as propriedades ("índices secundários") e consultas rápidas 
-- Suporte para [dimensionamento independente de armazenamento e taxa de transferência](partition-data.md), em qualquer número de regiões
-- Suporte para [taxa de transferência dedicada por tabela](request-units.md) que podem ser dimensionados para centenas a milhões de solicitações por segundo
-- Suporte para [cinco níveis de consistência bem definidos](consistency-levels.md) para compensar a disponibilidade, latência e consistência com base nas necessidades do seu aplicativo
-- 99,99% de disponibilidade dentro de uma única região e a capacidade de adicionar mais regiões para maior disponibilidade, e [SLAs abrangentes líderes do setor](https://azure.microsoft.com/support/legal/sla/cosmos-db/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) em disponibilidade geral
-- Trabalhar com o SDK do .NET de armazenamento do Azure existente e nenhuma alteração de código no seu aplicativo
-
-Durante a visualização, o Azure Cosmos DB oferece suporte a API de Tabela usando o SDK do .NET. Você pode baixar o [SDK de Visualização do Armazenamento do Azure](https://aka.ms/premiumtablenuget) do NuGet, que tem as mesmas classes e assinaturas de método que o [SDK de Armazenamento do Azure](https://www.nuget.org/packages/WindowsAzure.Storage), mas também pode conectar-se às contas do Azure Cosmos DB usando a API de Tabela.
-
-Para saber mais sobre tarefas complexas de armazenamento de Tabelas do Azure, consulte:
-
-* [Introdução ao Azure Cosmos DB: API de Tabela](table-introduction.md)
-* Consulte a documentação de referência do serviço Tabela para saber os detalhes completos sobre a referência da [Biblioteca de Clientes do Armazenamento do Azure para .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409) das APIs disponíveis
-
-### <a name="about-this-tutorial"></a>Sobre este tutorial
-Este tutorial é para desenvolvedores que estão familiarizados com o SDK de armazenamento de Tabelas do Azure e desejam usar os recursos premium disponíveis usando o Azure Cosmos DB. Ele se baseia na [Introdução ao armazenamento de Tabelas do Azure usando o .NET](table-storage-how-to-use-dotnet.md) e mostra como aproveitar os recursos adicionais, como índices secundários, taxa de transferência provisionada e hospedagem múltipla. Abordaremos como usar o portal do Azure para criar uma conta do Azure Cosmos DB e, em seguida, criar e implantar um aplicativo de Tabela. Também explicaremos detalhadamente os exemplos de .NET para criar e excluir uma tabela e inserir, atualizar, excluir e consultar dados de tabela. 
+## <a name="prerequisites"></a>Pré-requisitos
 
 Se você ainda não tem o Visual 2017 Studio instalado, poderá baixar e usar o **Visual Studio 2017 Community Edition** [gratuito](https://www.visualstudio.com/downloads/). Verifique se você habilitou o **desenvolvimento do Azure** durante a instalação do Visual Studio.
 
@@ -72,14 +54,6 @@ Se você ainda não tem o Visual 2017 Studio instalado, poderá baixar e usar o 
 ## <a name="create-a-database-account"></a>Crie uma conta de banco de dados
 
 Vamos começar criando uma conta do Azure Cosmos DB no portal do Azure.  
-
-> [!TIP]
-> * Já tem uma conta do Azure Cosmos DB? Nesse caso, pule para [Configurar sua solução do Visual Studio](#SetupVS).
-> * Você tinha uma conta do Azure DocumentDB? Se sua conta agora é uma conta do Azure Cosmos DB, você pode pular para [Configurar sua solução do Visual Studio](#SetupVS).  
-> * Se estiver usando o Emulador do Azure Cosmos DB, execute as etapas em [Emulador do Azure Cosmos DB](local-emulator.md) para configurar o emulador e pule para [Configurar sua solução do Visual Studio](#SetupVS).
-<!---Loc Comment: Please, check link [Set up your Visual Studio solution] since it's not redirecting to any location.---> 
->
->
 
 [!INCLUDE [cosmosdb-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)] 
 
@@ -112,7 +86,7 @@ Agora, volte ao portal do Azure para obter informações sobre a cadeia de conex
 ```
 
 > [!NOTE]
-> Para usar este aplicativo com o Armazenamento de Tabela do Azure padrão, você precisa alterar a cadeia de conexão no `app.config file`. Use o nome da conta como nome da conta de tabela e a chave como chave primária de armazenamento do Azure. <br>
+> Para usar este aplicativo com o armazenamento de Tabela do Azure, você precisa alterar a cadeia de conexão no `app.config file`. Use o nome da conta como nome da conta de tabela e a chave como chave primária de armazenamento do Azure. <br>
 >`<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key;EndpointSuffix=core.windows.net" />`
 > 
 >
@@ -135,7 +109,7 @@ Agora, é possível voltar ao Data Explorer e ver, consultar, modificar e trabal
 >
 
 ## <a name="azure-cosmos-db-capabilities"></a>Recursos Azure Cosmos DB
-O Azure Cosmos DB oferece suporte a uma série de recursos que não estão disponíveis na API de armazenamento de Tabelas do Azure API. A nova funcionalidade pode ser habilitada através dos seguintes valores de configuração `appSettings`. Nós não introduzimos nenhuma nova assinatura ou sobrecarga para a visualização do SDK do Armazenamento do Azure. Isso permite que você se conecte a tabelas standard e premium e trabalhe com outros serviços de Armazenamento do Azure como Blobs e Filas. 
+A API de Tabela do Azure Cosmos DB dá suporte a uma série de recursos que não estão disponíveis no armazenamento de Tabela do Azure. A nova funcionalidade pode ser habilitada através dos seguintes valores de configuração `appSettings`. Não foi adicionada nenhuma assinatura ou sobrecarga nova à API de Tabela que não estava no SDK de Armazenamento do Azure. Isso permite que você se conecte a tabelas tanto no armazenamento de Tabela do Azure quanto no Azure Cosmos DB e trabalhe com outros serviços de Armazenamento do Azure, como Blobs e Filas. 
 
 
 | Chave | Descrição |

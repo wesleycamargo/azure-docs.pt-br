@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/10/2017
+ms.date: 11/06/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3f8cd4fc37caca7fa6094a4780078d9ed882ba3c
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 46f8b2c20d9ce31ef3f782d098de09952701bbcc
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Instalar drivers NVIDIA GPU em VMs da série N que executam o Linux
 
@@ -205,13 +205,13 @@ Esse arquivo pode ser invocado como raiz na inicialização criando uma entrada 
 
 ## <a name="install-cuda-drivers-for-nc-vms"></a>Instalar drivers CUDA Tesla para VMs NC
 
-Aqui estão as etapas para instalar drivers NVIDIA em VMs NC Linux do Kit de ferramentas NVIDIA CUDA 8.0. 
+Estas são as etapas para instalar drivers NVIDIA em VMs NC Linux por meio do NVIDIA CUDA Toolkit. 
 
 Os desenvolvedores de C e C++ podem opcionalmente instalar o Kit de ferramentas completo para criar aplicativos com aceleração de GPU. Para obter mais informações, consulte o [Guia de instalação do CUDA](http://docs.nvidia.com/cuda/cuda-installation-guide-linux/index.html).
 
 
 > [!NOTE]
-> Os links de download do driver CUDA fornecidos aqui são atuais no momento da publicação. Para os drivers CUDA mais recentes, visite o site da [NVIDIA](http://www.nvidia.com/).
+> Os links de download do driver CUDA fornecidos aqui são atuais no momento da publicação. Para os drivers CUDA mais recentes, visite o site da [NVIDIA](https://developer.nvidia.com/cuda-zone).
 >
 
 Para instalar o Kit de ferramentas de CUDA, realize uma conexão SSH para cada VM. Para verificar se o sistema tem uma GPU compatível com CUDA, execute o seguinte comando:
@@ -273,20 +273,16 @@ sudo reboot
 
 ### <a name="centos-based-73-or-red-hat-enterprise-linux-73"></a>Baseado em CentOS 7.3 ou Red Hat Enterprise Linux 7.3
 
-> [!IMPORTANT]
-> Não execute `sudo yum update` para atualizar a versão do kernel no CentOS 7.3 ou Red Hat Enterprise Linux 7.3. Atualmente, a instalação e as atualizações do driver não funcionam se o kernel é atualizado.
->
-
 1. Instale os Integration Services do Linux para Hyper-V mais recentes.
 
   > [!IMPORTANT]
-  > Se você tiver instalado uma imagem HPC com base em CentOS em uma VM NC24r, pule para a Etapa 3. Uma vez que drivers de RDMA do Azure e Integration Services do Linux estão pré-instalados na imagem, o LIS não deve ser atualizado e atualizações de kernel estão desabilitadas por padrão.
+  > Se você tiver instalado uma imagem HPC com base em CentOS em uma VM NC24r, pule para a Etapa 3. Como os drivers RDMA do Azure e o Integration Services do Linux estão pré-instalados na imagem HPC, o LIS não deve ser atualizado e as atualizações de kernel estão desabilitadas por padrão.
   >
 
   ```bash
-  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3.tar.gz
+  wget http://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-1.tar.gz
  
-  tar xvzf lis-rpms-4.2.3.tar.gz
+  tar xvzf lis-rpms-4.2.3-1.tar.gz
  
   cd LISISO
  
@@ -304,7 +300,7 @@ sudo reboot
 
   sudo yum install dkms
 
-  CUDA_REPO_PKG=cuda-repo-rhel7-9-0-local-9.0.176-1.x86_64.rpm
+  CUDA_REPO_PKG=cuda-repo-rhel7-9.0.176-1.x86_64.rpm
 
   wget http://developer.download.nvidia.com/compute/cuda/repos/rhel7/x86_64/${CUDA_REPO_PKG} -O /tmp/${CUDA_REPO_PKG}
 
@@ -349,13 +345,14 @@ Implante VMs NC24r de uma das seguintes imagens no Azure Marketplace que dá sup
 
   [!INCLUDE [virtual-machines-common-ubuntu-rdma](../../../includes/virtual-machines-common-ubuntu-rdma.md)]
 
-* **HPC baseado em CentOS** – HPC baseado em CentOS 7.3. Drivers RDMA e o Intel MPI 5.1 são instalados na VM. 
+* **HPC baseado em CentOS** – HPC baseado em CentOS 7.3. OS drivers RDMA e o Intel MPI 5.1 são instalados na VM. 
 
 
 ## <a name="troubleshooting"></a>Solucionar problemas
 
-* Há um problema conhecido com drivers CUDA em VMs do Azure série N executando o kernel do Linux 4.4.0-75 no Ubuntu 16.04 LTS. Se você estiver atualizando de uma versão anterior do kernel, atualize para pelo menos a versão 4.4.0-77 do kernel. 
+* Há um problema conhecido com drivers CUDA em VMs do Azure série N executando o kernel do Linux 4.4.0-75 no Ubuntu 16.04 LTS. Se você estiver atualizando de uma versão anterior do kernel, atualize para pelo menos a versão 4.4.0-77 do kernel.
 
+* Defina o modo de persistência usando nvidia-smi, de modo que o resultado do comando seja mais rápido quando você precisar consultar cartões. Para definir o modo de persistência, execute `nvidia-smi -pm 1`. Observe que se a VM for reiniciada, a configuração do modo desaparecerá. Você sempre pode gerar um script da configuração de modo para ser executada na inicialização.
 
 
 ## <a name="next-steps"></a>Próximas etapas

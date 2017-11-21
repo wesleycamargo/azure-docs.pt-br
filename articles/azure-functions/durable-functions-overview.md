@@ -1,4 +1,4 @@
----
+﻿---
 title: "Visão Geral das Funções Duráveis – Azure"
 description: "Introdução à extensão de Funções Duráveis do Azure Functions."
 services: functions

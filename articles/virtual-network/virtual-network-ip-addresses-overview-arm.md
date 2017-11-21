@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2017
 ms.author: jdial
-ms.openlocfilehash: 8ddd582ed159e10add896252c40feb19780c42fb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 95f2b57b2012df816c76a1b6ec55ca9f92e134a3
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>Tipos de endereço IP e métodos de alocação no Azure
 
@@ -110,7 +110,7 @@ Você pode associar um endereço IP público a uma máquina virtual [Windows](..
 
 ### <a name="internet-facing-load-balancers"></a>Balanceadores de carga para Internet
 
-Você pode associar um endereço IP público criado com um dos [SKUs](#SKU) ao [Azure Load Balancer](../load-balancer/load-balancer-overview.md), atribuindo-o à configuração de **front-end** do balanceador de carga. O endereço IP público serve como um endereço IP virtual de balanceamento de carga (VIP). Você pode atribuir um endereço IP público estático ou dinâmico a um front-end de balanceador de carga. Você também pode atribuir vários endereços IP públicos a um front-end de balanceador de carga, que permite cenários [multi-VIP](../load-balancer/load-balancer-multivip.md?toc=%2fazure%2fvirtual-network%2ftoc.json) como um ambiente de multilocatário com sites baseados em SSL. Para saber mais sobre os SKUs do balanceador de carga do Azure, confira [SKU padrão do balanceador de carga do Azure](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Você pode associar um endereço IP público criado com um dos [SKUs](#SKU) ao [Azure Load Balancer](../load-balancer/load-balancer-overview.md), atribuindo-o à configuração de **front-end** do balanceador de carga. O endereço IP público serve como um endereço IP virtual de balanceamento de carga (VIP). Você pode atribuir um endereço IP público estático ou dinâmico a um front-end de balanceador de carga. Você também pode atribuir vários endereços IP públicos a um front-end de balanceador de carga, que permite cenários [multi-VIP](../load-balancer/load-balancer-multivip-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) como um ambiente de multilocatário com sites baseados em SSL. Para saber mais sobre os SKUs do balanceador de carga do Azure, confira [SKU padrão do balanceador de carga do Azure](../load-balancer/load-balancer-standard-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ### <a name="vpn-gateways"></a>Gateways VPN
 
@@ -145,29 +145,22 @@ Os endereços IP privados são criados com um endereço IPv4 ou IPv6. Os endere�
 
 ### <a name="allocation-method"></a>Método de alocação
 
-Um endereço IP privado é alocado do intervalo de endereços da sub-rede à qual o recurso está conectado. O intervalo de endereços da sub-rede em si faz parte do intervalo de endereços da rede virtual.
+Um endereço IP privado é alocado no intervalo de endereços de sub-rede da rede virtual em que um recurso é implantado. Há dois métodos para alocar um endereço IP privado:
 
-Há dois métodos de alocar um endereço IP privado: *dinâmico* ou *estático*. O método de alocação padrão é *dinâmico*, em que o endereço IP é alocado automaticamente da sub-rede do recurso (usando DHCP). Esse endereço IP pode mudar quando você interromper e iniciar o recurso.
-
-Você pode definir o método de alocação para *estático* para garantir que o endereço IP permaneça o mesmo. Quando você especifica *estático*, especifica um endereço IP válido que faz parte da sub-rede do recurso.
-
-Os endereços IP privados estáticos costumam ser usados para:
-
-* Máquinas virtuais que atuam como controladores de domínio ou servidores DNS.
-* Recursos que exigem regras de firewall usando endereços IP.
-* Recursos acessados por outros aplicativos/recursos por meio de um endereço IP.
+- **Dinâmico**: o Azure reserva os primeiros quatro endereços em cada intervalo de endereços de sub-rede e não atribui os endereços. O Azure atribui o próximo endereço disponível a um recurso no intervalo de endereços de sub-rede. Por exemplo, se o intervalo de endereços de sub-rede é 10.0.0.0/16 e os endereços 10.0.0.0.4-10.0.0.14 já estão atribuídos (.0-.3 estão reservados), o Azure atribui 10.0.0.15 para o recurso. O método de alocação padrão é o Dinâmico. Uma vez atribuído, os endereços IP dinâmicos só são lançados se uma interface de rede for excluída, atribuída a uma sub-rede diferente na mesma rede virtual ou se o método de alocação for alterado para estático e um endereço IP diferente for especificado. Por padrão, o Azure atribui o endereço anterior atribuído dinamicamente como o endereço estático quando você altera o método de alocação de dinâmico para estático.
+- **Estático**: você seleciona e atribui um endereço do intervalo de endereços de sub-rede. O endereço que você atribuir pode ser qualquer endereço no intervalo de endereços de sub-rede que não seja um dos quatro primeiros endereços no intervalo de endereços de sub-rede e não esteja atualmente atribuído a qualquer outro recurso na sub-rede. Os endereços estáticos não serão liberados até que o adaptador de rede seja excluído. Se você alterar o método de alocação para estático, o Azure atribui dinamicamente o endereço IP estático atribuído anteriormente como o endereço dinâmico, mesmo se o endereço não for o próximo endereço disponível no intervalo de endereços de sub-rede. O endereço também será alterado se a interface de rede for atribuída a uma sub-rede diferente na mesma rede virtual. Mas, para atribuir a interface de rede para uma sub-rede diferente, você deve primeiro alterar o método de alocação de estático para dinâmico. Depois que você atribuir a interface de rede para uma sub-rede diferente, pode alterar o método de alocação para estático e atribuir um endereço IP do intervalo de endereços da sub-rede nova.
 
 ### <a name="virtual-machines"></a>Máquinas virtuais
 
-Um endereço IP privado é atribuído à **interface de rede** de uma máquina virtual [Windows](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Linux](../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Se a máquina virtual tiver vários adaptadores de rede, um endereço IP privado será atribuído a cada adaptador de rede. Você pode especificar o método de alocação como dinâmico ou estático para uma interface de rede.
+Um ou mais endereços IP privados são atribuídos a uma ou mais **interfaces de rede** de uma máquina virtual [Windows](../virtual-machines/windows/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) ou [Linux](../virtual-machines/linux/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Você pode especificar o método de alocação como dinâmico ou estático para um endereço IP privado.
 
 #### <a name="internal-dns-hostname-resolution-for-virtual-machines"></a>Resolução do nome do host DNS interno (para máquinas virtuais)
 
 Todas as máquinas virtuais do Azure são configuradas com [servidores DNS gerenciados pelo Azure](virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) por padrão, a menos que você explicitamente configure servidores DNS personalizados. Esses servidores DNS fornecem resolução de nomes interna para máquinas virtuais que residem na mesma rede virtual.
 
-Quando você cria uma máquina virtual, um mapeamento para o nome de host para seu endereço IP privado é adicionado aos servidores DNS gerenciados pelo Azure. Se uma máquina virtual tiver vários adaptadores de rede, o nome do host será mapeado para o endereço IP privado do adaptador de rede principal.
+Quando você cria uma máquina virtual, um mapeamento para o nome de host para seu endereço IP privado é adicionado aos servidores DNS gerenciados pelo Azure. Se uma máquina virtual tiver várias interfaces de rede, ou várias configurações de IP para uma interface de rede, o nome do host será mapeado para o endereço IP privado da configuração IP primária da interface de rede principal.
 
-Máquinas virtuais configuradas com os servidores DNS gerenciados pelo Azure são capazes de resolver os nomes de host de todas as máquinas virtuais na mesma rede virtual para seus endereços IP privados.
+Máquinas virtuais configuradas com os servidores DNS gerenciados pelo Azure são capazes de resolver os nomes de host de todas as máquinas virtuais na mesma rede virtual para seus endereços IP privados. Para resolver os nomes de host das máquinas virtuais nas redes virtuais conectadas, você deve usar um servidor DNS personalizado.
 
 ### <a name="internal-load-balancers-ilb--application-gateways"></a>Balanceadores de carga internos (ILB) e gateways de aplicativo
 

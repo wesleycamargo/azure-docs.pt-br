@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/11/2017
+ms.date: 11/07/2017
 ms.author: v-donglo
-ms.openlocfilehash: e7663f931594c0626a173562b846f3f9324d8ba3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 40079da0e04520477771a11a1e4111768cf18280
+ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="retrain-an-existing-predictive-web-service"></a>Readaptar um serviço Web de previsão existente
 Este documento descreve o processo de readaptação do cenário a seguir:
@@ -86,9 +86,10 @@ Na seção **Informações básicas de consumo** da página **Consumir**, locali
 ### <a name="update-the-azure-storage-information"></a>Atualize as informações do Armazenamento do Azure
 O código de exemplo de BES carrega um arquivo de uma unidade local (por exemplo "C:\temp\CensusIpnput.csv") para o armazenamento do Azure, processa e grava os resultados de volta para o armazenamento do Azure.  
 
-Para atualizar as informações do Armazenamento do Azure, recupere o nome da conta de armazenamento, a chave e as informações de contêiner de sua conta de armazenamento do Portal Clássico do Azure e, em seguida, atualize o correspondente. Depois de executar o experimento, o fluxo de trabalho resultante deverá ser semelhante ao seguinte:
+Para atualizar as informações do Armazenamento do Azure, você deve recuperar as informações de chave, contêiner e nome da conta de armazenamento do Portal Clássico do Azure e atualizar os valores correspondentes no código.
+Depois de executar o experimento, o fluxo de trabalho resultante deve ser semelhante ao seguinte:
 
-![Fluxo de trabalho resultante após a execução][4]valores ng no código.
+![Fluxo de trabalho resultante após a execução][4]
 
 1. Entre no portal clássico do Azure.
 2. Na coluna de navegação à esquerda, clique em **Armazenamento**.
@@ -119,7 +120,9 @@ Ao especificar o local de saída no Conteúdo de Solicitação, a extensão do a
             }
         },
 
-Veja a seguir um exemplo de saída de readaptação: ![Saída de readaptação][6]
+Veja a seguir um exemplo de saída de readaptação:
+
+![Saída da readaptação][6]
 
 ## <a name="evaluate-the-retraining-results"></a>Avaliar os resultados da readaptação
 Quando você executa o aplicativo, a saída inclui URL e os tokens de assinaturas de acesso compartilhados necessários para acessar os resultados da avaliação.

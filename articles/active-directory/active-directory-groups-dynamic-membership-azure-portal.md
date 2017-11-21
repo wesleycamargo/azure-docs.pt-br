@@ -16,11 +16,11 @@ ms.date: 09/29/2017
 ms.author: curtand
 ms.reviewer: piotrci
 ms.custom: H1Hack27Feb2017;it-pro
-ms.openlocfilehash: 3ff347ab23c9150246940f563e562c8de92be45d
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 0bf6177bc34b6f7daf9c14a22c3b381025f0f825
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="create-attribute-based-rules-for-dynamic-group-membership-in-azure-active-directory"></a>Criar regras baseadas em atributo para associação dinâmica de grupo no Azure Active Directory
 No Azure AD (Azure Active Directory), você pode criar regras avançadas para habilitar associações dinâmicas baseadas em atributos complexas para grupos. Este artigo detalha os atributos e a sintaxe para criar regras de associação dinâmica para usuários ou dispositivos.
@@ -30,7 +30,7 @@ Quando os atributos de um usuário ou um dispositivo são alterados, o sistema a
 > [!NOTE]
 > - Você pode configurar uma regra de associação dinâmica em grupos de segurança ou em grupos do Office 365.
 >
-> - Este recurso exige uma licença Azure AD Premium P1 para cada membro de usuário adicionado a pelo menos um grupo dinâmico.
+> - Este recurso exige uma licença Azure AD Premium P1 para cada membro de usuário adicionado a pelo menos um grupo dinâmico. Não é obrigatório, na verdade, atribuir licenças aos usuários para que eles sejam membros de grupos dinâmicos, mas você precisa ter o número mínimo de licenças no locatário para cobrir todos esses usuários. Por exemplo: se você tiver um total de 1.000 usuários exclusivos em todos os grupos dinâmicos no seu locatário, você precisa ter pelo menos de 1.000 licenças para o Azure AD Premium P1 ou superior para cumprir o requisito de licença.
 >
 > - Você pode criar um grupo dinâmico para usuários ou dispositivos, mas não pode criar uma regra que contenha objetos de usuário e de dispositivo.
 
@@ -296,7 +296,7 @@ Você também pode criar uma regra que seleciona objetos de dispositivo para ass
 ## <a name="changing-dynamic-membership-to-static-and-vice-versa"></a>Alterando a associação dinâmica para estática e vice-versa
 É possível alterar como a associação é gerida em um grupo. Isso é útil quando você quer manter o mesmo ID e nome de grupo no sistema, então, todas as referências existentes no grupo ainda serão válidas; criar um novo grupo exigiria atualizar essas referências.
 
-Estamos atualizando o portal do Azure para oferecer suporte a essa funcionalidade. Enquanto isso, você pode usar o [portal clássico do Azure](https://manage.windowsazure.com) (siga as instruções [aqui](active-directory-accessmanagement-groups-with-advanced-rules.md#changing-dynamic-membership-to-static-and-vice-versa)) ou use o cmdlets do PowerShell, conforme mostrado abaixo.
+Estamos atualizando o portal do Azure para oferecer suporte a essa funcionalidade. Enquanto isso, você pode usar o [portal clássico do Azure](https://manage.windowsazure.com) (siga as instruções [aqui](active-directory-groups-dynamic-membership-azure-portal.md)) ou use o cmdlets do PowerShell, conforme mostrado abaixo.
 
 > [!WARNING]
 > Ao alterar um grupo estático existente para um grupo dinâmico, todos os membros existentes serão removidos do grupo e, em seguida, a regra de associação será processada para adicionar novos membros. Se o grupo for utilizado para controlar o acesso a aplicativos ou recursos, os membros originais poderão perder o acesso até que a regra de associação seja totalmente processada.
@@ -306,7 +306,7 @@ Estamos atualizando o portal do Azure para oferecer suporte a essa funcionalidad
 **Usando o PowerShell para alterar o gerenciamento de associação em um grupo**
 
 > [!NOTE]
-> Para alterar as propriedades de grupo dinâmico, você precisará usar os cmdlets da [versão 2 do PowerShell do Azure AD](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). Você pode instalá-lo clicando [aqui](https://www.powershellgallery.com/packages/AzureADPreview).
+> Para alterar as propriedades de grupo dinâmico, você precisará usar os cmdlets **da versão prévia da** [versão 2 do PowerShell do Azure AD](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-adv2?view=azureadps-2.0). Você pode instalar a versão prévia [aqui](https://www.powershellgallery.com/packages/AzureADPreview).
 
 Aqui está um exemplo de funções que alternam o gerenciamento de associação em um grupo existente. Observe que toma-se cuidado ao manipular a propriedade GroupTypes corretamente e preservar quaisquer valores que possam existir, não relacionados à associação dinâmica.
 

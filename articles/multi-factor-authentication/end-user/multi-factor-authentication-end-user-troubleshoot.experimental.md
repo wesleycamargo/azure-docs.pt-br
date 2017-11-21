@@ -4,7 +4,7 @@ description: "Este documento fornecerá informações aos usuários sobre o que 
 services: multi-factor-authentication
 keywords: "autenticação multifator do cliente, problema de autenticação, ID de correlação"
 documentationcenter: 
-author: kgremban
+author: barlanmsft
 manager: femila
 ms.assetid: 8f3aef42-7f66-4656-a7cd-d25a971cb9eb
 ms.service: multi-factor-authentication
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2017
-ms.author: kgremban
-ms.reviewer: yossib
+ms.author: barlan
+ms.reviewer: richagi
 ms.custom: end-user
-ms.openlocfilehash: 59a24c8dbcf740f9154f1c9e18f318265f58481c
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 7ff9f621b4ab583eed9338161e7e146405dffe96
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="get-help-with-two-step-verification"></a>Obter ajuda com a verificação em duas etapas
 Este artigo responde às perguntas mais comuns que as pessoas fazem sobre verificação em duas etapas. 

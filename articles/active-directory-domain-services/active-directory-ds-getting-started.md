@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 10/26/2017
 ms.author: maheshu
-ms.openlocfilehash: 3f00cbfb5348919c38dc2dd905f1c141a39736f4
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: 7d80049d4b6f7d57924522e3f273c42f4c887fee
+ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 10/31/2017
 ---
 # <a name="enable-azure-active-directory-domain-services-using-the-azure-portal"></a>Habilite o Azure Active Directory Domain Services usando o portal do Azure
 Este artigo mostra como habilitar o Azure AD DS (Azure Active Directory Domain Services) usando o portal do Azure.
@@ -45,30 +45,25 @@ Na página **Básico** do assistente, você pode especificar o nome de domínio 
 
 1. Escolha o **nome de domínio DNS** para seu domínio gerenciado.
 
-   * O nome de domínio padrão do diretório (com um sufixo **.onmicrosoft.com**) é selecionado por padrão.
+   > [!NOTE]
+   > **Diretrizes para selecionar um nome de domínio DNS**
+   > * **Nome de domínio interno:** por padrão, o assistente especifica o nome de domínio padrão/interno do diretório (com um sufixo **.onmicrosoft.com**) para você. Se você optar por habilitar o acesso LDAP seguro para o domínio gerenciado pela Internet, espere ter problemas ao criar um registro DNS público ou ao obter um certificado LDAP seguro de uma CA pública para esse nome de domínio. A Microsoft possui o domínio *.onmicrosoft.com* e as CAs não emitirão certificados para atestar esse domínio.
+   * **Nomes de domínio personalizados:** você também pode digitar um nome de domínio personalizado. Neste exemplo, o nome de domínio personalizado é *contoso100.com*.
+   * **Sufixos de domínio não roteáveis:** geralmente recomendamos evitar um sufixo de nome de domínio que não possa ser roteado. Por exemplo, é melhor evitar a criação de um domínio com o nome de domínio DNS 'contoso.local'. O sufixo DNS '.local' não é roteável e pode causar problemas com a resolução DNS.
+   * **Restrições de prefixo de domínio:** o prefixo do nome do domínio especificado (por exemplo, *contoso100* no nome de domínio *contoso100.com*) deve conter 15 caracteres ou menos. Você não pode criar um domínio gerenciado com um prefixo de mais de 15 caracteres.
+   * **Conflitos de nome de rede:** garanta que o nome de domínio DNS escolhido para o domínio gerenciado ainda não exista na rede virtual. Especificamente, verifique se:
+       * Você já tiver um domínio do Active Directory com o mesmo nome de domínio DNS na rede virtual.
+       * A rede virtual em que você planeja habilitar o domínio gerenciado tem uma conexão VPN com sua rede local. Nesse cenário, verifique se você não tem um domínio com o mesmo nome de domínio DNS na rede local.
+       * Você tiver um serviço de nuvem existente com esse nome na rede virtual.
+    >
 
-   * Você também pode inserir um nome de domínio personalizado. Neste exemplo, o nome de domínio personalizado é *contoso100.com*.
+2. Selecione a **Assinatura** do Azure na qual você deseja criar o domínio gerenciado.
 
-     > [!WARNING]
-     > O prefixo do nome do domínio especificado (por exemplo, *contoso100* no nome de domínio *contoso100.com*) deve conter 15 caracteres ou menos. Você não pode criar um domínio gerenciado com um prefixo de mais de 15 caracteres.
-     >
-     >
+3. Selecione o **Grupo de recursos** a que o domínio gerenciado deve pertencer. Você pode escolher as opções **Criar novo** ou **Usar existente** para selecionar o grupo de recursos.
 
-2. Garanta que o nome de domínio DNS escolhido para o domínio gerenciado ainda não exista na rede virtual. Especificamente, verifique se:
+4. Escolha o **Local** do Azure no qual o domínio gerenciado deve ser criado. Na página **Rede** do assistente, você vê somente redes virtuais que pertencem ao local selecionado.
 
-   * Você já tiver um domínio com o mesmo nome de domínio DNS na rede virtual.
-
-   * A rede virtual em que você planeja habilitar o domínio gerenciado tem uma conexão VPN com sua rede local. Nesse cenário, verifique se você não tem um domínio com o mesmo nome de domínio DNS na rede local.
-
-   * Você tiver um serviço de nuvem existente com esse nome na rede virtual.
-
-3. Selecione a **Assinatura** do Azure na qual você deseja criar o domínio gerenciado.
-
-4. Selecione o **Grupo de recursos** a que o domínio gerenciado deve pertencer. Você pode escolher as opções **Criar novo** ou **Usar existente** para selecionar o grupo de recursos.
-
-5. Escolha o **Local** do Azure no qual o domínio gerenciado deve ser criado. Na página **Rede** do assistente, você vê somente redes virtuais que pertencem ao local selecionado.
-
-6. Quando terminar, clique em **OK** para ir para a página **Rede** do assistente.
+5. Quando terminar, clique em **OK** para ir para a página **Rede** do assistente.
 
 
 ## <a name="next-step"></a>Próxima etapa

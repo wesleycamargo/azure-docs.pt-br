@@ -4,7 +4,7 @@ description: "Saiba como usar o Apache Spark para transmitir dados dentro ou for
 keywords: exemplo de kafka, zookeeper kafka, streaming do kafka para Spark, exemplo de streaming do spark com o kafka
 services: hdinsight
 documentationcenter: 
-author: Blackmist
+author: maxluk
 manager: jhubbard
 editor: cgronlun
 ms.assetid: dd8f53c1-bdee-4921-b683-3be4c46c2039
@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/06/2017
-ms.author: larryfr
-ms.openlocfilehash: 788ba828d1380b17913cabf18827c1abcc83c725
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: maxluk
+ms.openlocfilehash: 6608363f90b61fe60f26d3f9fafd77b1e2232838
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="apache-spark-streaming-dstream-example-with-kafka-preview-on-hdinsight"></a>Exemplo de streaming do Apache Spark (DStream) com o Kafka (versão prévia) no HDInsight
 
@@ -97,7 +97,7 @@ Como as etapas neste documento criam ambos os clusters no mesmo grupo de recurso
 
 Neste exemplo, você aprendeu a usar o Spark para ler e gravar em Kafka. Use os links a seguir para descobrir outras maneiras de trabalhar com Kafka:
 
-* [Introdução ao Apache Kafka no HDInsight](hdinsight-apache-kafka-get-started.md)
-* [Use MirrorMaker para criar uma réplica de Kafka no HDInsight](hdinsight-apache-kafka-mirroring.md)
+* [Introdução ao Apache Kafka no HDInsight](kafka/apache-kafka-get-started.md)
+* [Use MirrorMaker para criar uma réplica de Kafka no HDInsight](kafka/apache-kafka-mirroring.md)
 * [Use o Apache Storm com Kafka no HDInsight](hdinsight-apache-storm-with-kafka.md)
 

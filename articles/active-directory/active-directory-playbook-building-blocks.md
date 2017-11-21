@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: bdbdebe069b3150bed4aa26f1f6e677a66f75f32
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7e4af248a1aafbd34a62c75e792746514456577b
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Guia estratégico de prova de conceito do Azure Active Directory: blocos de construção
 
@@ -99,10 +99,10 @@ Tempo estimado para Conclusão: 15 minutos
 | Etapa | Recursos |
 | --- | --- |
 | Vá para o Portal de Gerenciamento do Azure AD | [Portal de Gerenciamento do AD do Azure - Marca da Empresa](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/LoginTenantBranding) |
-| Carregue os ativos para a página de logon (logotipo Hero, logotipo pequeno, rótulos, etc.). Opcionalmente, se você tiver o AD FS alinhe os mesmos recursos com as páginas de logon do ADFS | [Adicionar identidade visual da empresa às páginas de entrada e do Painel de acesso:Elementos Personalizáveis ](active-directory-add-company-branding.md) |
+| Carregue os ativos para a página de logon (logotipo Hero, logotipo pequeno, rótulos, etc.). Opcionalmente, se você tiver o AD FS alinhe os mesmos recursos com as páginas de logon do ADFS | [Adicionar identidade visual da empresa às páginas de entrada e do Painel de acesso:Elementos Personalizáveis ](customize-branding.md) |
 | Aguarde alguns minutos para que a alteração tenha pleno efeito |  |
 | Faça logon com as credenciais de usuário POC https://MyApps.microsoft.com |  |
-| Confirme a aparência no navegador | [Adicionar identidade visual da empresa às páginas de entrada e do Painel de acesso](active-directory-add-company-branding.md) |
+| Confirme a aparência no navegador | [Adicionar identidade visual da empresa às páginas de entrada e do Painel de acesso](customize-branding.md) |
 | Opcionalmente, confirme a aparência em outros dispositivos |  |
 
 ### <a name="considerations"></a>Considerações
@@ -379,7 +379,7 @@ Tempo estimado para Conclusão: 15 minutos
 
 | Pré-requisito | Recursos |
 | --- | --- |
-| Tipos de atividades de gerenciamento de senha de autoatendimento no seu locatáro. | [Redefinição de senhas do Azure Active Directory para administradores de TI](active-directory-passwords.md) |
+| Tipos de atividades de gerenciamento de senha de autoatendimento no seu locatáro. | [Redefinição de senhas do Azure Active Directory para administradores de TI](active-directory-passwords-update-your-own-password.md) |
 | Habilite write-back de senha para gerenciar senhas locais. Observe que isso exige versões do Azure AD Connect | [Pré-requisitos de Write-back de Senha](active-directory-passwords-writeback.md) |
 | Identificar os usuários de prova de conceito que usam essa funcionalidade e certifique-se de que eles são membros de um grupo de segurança. Os usuários devem ser não administradores para demonstração total do recurso | [Personalizar: Gerenciamento de Senha do Azure AD: Restringir o acesso à redefinição de senha](active-directory-passwords-writeback.md) |
 

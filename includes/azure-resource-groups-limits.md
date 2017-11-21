@@ -1,7 +1,7 @@
 | Recurso | Limite padrão | Limite máximo |
 | --- | --- | --- |
 | Recursos por [grupo de recursos](../articles/azure-resource-manager/resource-group-overview.md#resource-groups) (por tipo de recurso) |800 |Varia por tipo de recurso |
-| Implantações por grupo de recursos |800 |800 |
+| Implantações por grupo de recursos no histórico de implantações |800 |800 |
 | Recursos por implantação |800 |800 |
 | Bloqueios de Gerenciamento (por escopo exclusivo) |20 |20 |
 | Número de marcas (por recurso ou grupo de recursos) |15 |15 |
@@ -23,3 +23,5 @@
 | Tamanho do arquivo de parâmetro |64 KB |64 KB |
 
 Você pode exceder alguns limites de modelo usando um modelo aninhado. Para saber mais, confira [Uso de modelos vinculados ao implantar recursos do Azure](../articles/azure-resource-manager/resource-group-linked-templates.md). Para reduzir o número de parâmetros, variáveis ou saídas, você pode combinar vários valores em um objeto. Para saber mais, veja [Objetos como parâmetros](../articles/azure-resource-manager/resource-manager-objects-as-parameters.md).
+
+Caso você atinja o limite de 800 implantações por grupo de recursos, exclua do histórico as implantações que não são mais necessárias. Exclua entradas do histórico com [az group deployment delete](/cli/azure/group/deployment#az_group_deployment_delete) para a CLI do Azure ou [Remove-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/remove-azurermresourcegroupdeployment) no PowerShell. A exclusão de uma entrada do histórico de implantações não afeta os recursos de implantação. 

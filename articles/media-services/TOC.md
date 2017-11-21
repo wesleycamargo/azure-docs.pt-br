@@ -105,8 +105,9 @@
 #### [Empacotamento estático e criptografia](media-services-static-packaging.md)
 
 ## [Transmissão ao vivo](media-services-manage-channels-overview.md)
-### [codificadores locais](media-services-live-streaming-with-onprem-encoders.md)
-#### [Portal](media-services-portal-live-passthrough-get-started.md)
+### [Codificadores locais](media-services-live-streaming-with-onprem-encoders.md)
+#### [Codificadores locais recomendados](media-services-recommended-encoders.md)
+#### [Portal do Azure](media-services-portal-live-passthrough-get-started.md)
 #### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 ### [Transmissão ao vivo com codificador na nuvem](media-services-manage-live-encoder-enabled-channels.md)
 #### [Portal do Azure](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -118,6 +119,13 @@
 #### [Codificador Wirecast](media-services-configure-wirecast-live-encoder.md)
 ### [Manipular operações de execução longa](media-services-dotnet-long-operations.md)
 ### [Especificação de ingestão dinâmica de MP4 fragmentado](media-services-fmp4-live-ingest-overview.md)
+
+## [Recorte o conteúdo](media-services-azure-media-clipper-overview.md)
+### [Introdução ao Clipper de Mídia do Azure](media-services-azure-media-clipper-getting-started.md)
+### [Carregar ativos em um Clipper de Mídia do Azure](media-services-azure-media-clipper-load-assets.md)
+### [Configurar atalhos de teclado personalizados](media-services-azure-media-clipper-keyboard-shortcuts.md)
+### [Enviar trabalhos de recorte](media-services-azure-media-clipper-submit-job.md)
+### [Portal do Azure](media-services-azure-media-clipper-portal.md)
 
 ## [Proteger](media-services-content-protection-overview.md)
 ### [Configurar a proteção de conteúdo no portal do Azure](media-services-portal-protect-content.md)

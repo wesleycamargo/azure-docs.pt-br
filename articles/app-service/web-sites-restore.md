@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 79d4084deb6d8c028918690c339c21c720e63594
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2879e72636ffc7603e29fe8f8233a065fe6f897c
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="restore-an-app-in-azure"></a>Restaurar um aplicativo no Serviço de Aplicativo do Azure
-Este artigo mostra como restaurar um aplicativo no [Serviço de Aplicativo do Azure](../app-service/app-service-web-overview.md) do qual você fez backup anteriormente (veja [Fazer backup de seu aplicativo no Azure](web-sites-backup.md)). É possível restaurar seu aplicativo com seus bancos de dados vinculados sob demanda para um estado anterior ou criar um novo aplicativo com base em um backup de seu aplicativo original. O Serviço de Aplicativo do Azure oferece suporte aos seguintes bancos de dados para backup e restauração:
+Este artigo mostra como restaurar um aplicativo no [Serviço de Aplicativo do Azure](../app-service/app-service-web-overview.md) do qual você fez backup anteriormente (veja [Fazer backup de seu aplicativo no Azure](web-sites-backup.md)). É possível restaurar seu aplicativo com seus bancos de dados vinculados sob demanda para um estado anterior ou criar um novo aplicativo com base em um dos backups do seu aplicativo original. O Serviço de Aplicativo do Azure oferece suporte aos seguintes bancos de dados para backup e restauração:
 - [Banco de Dados SQL](https://azure.microsoft.com/en-us/services/sql-database/)
 - [Banco de Dados do Azure para MySQL (Visualização)](https://azure.microsoft.com/en-us/services/mysql)
 - [Banco de Dados do Azure para PostgreSQL (Visualização)](https://azure.microsoft.com/en-us/services/postgres)
@@ -33,10 +33,10 @@ A restauração usando backups está disponível para aplicativos que são execu
 <a name="PreviousBackup"></a>
 
 ## <a name="restore-an-app-from-an-existing-backup"></a>Restaurar um aplicativo por meio de um backup existente
-1. Na folha **Configurações** de seu aplicativo no portal do Azure, clique em **Backups** para exibir a folha **Backups**. Depois, clique em **Restaurar**.
+1. Na página **Configurações** de seu aplicativo no Portal do Azure, clique em **Backups** ara exibir a página **Backups**. Depois, clique em **Restaurar**.
    
     ![Escolha restaurar agora][ChooseRestoreNow]
-2. Na folha **Restauração** , primeiro selecione a fonte do backup.
+2. Na página **Restaurar**, selecione primeiro a fonte do backup.
    
     ![](./media/web-sites-restore/021ChooseSource1.png)
    
@@ -59,9 +59,9 @@ A restauração usando backups está disponível para aplicativos que são execu
 <a name="StorageAccount"></a>
 
 ## <a name="download-or-delete-a-backup-from-a-storage-account"></a>Baixar ou excluir um backup de uma conta de armazenamento
-1. Na folha principal **Procurar** do Portal do Azure, selecione **Contas de armazenamento**. Uma lista de suas contas de armazenamento existentes é exibida.
-2. Selecione a conta de armazenamento que contém o backup que você deseja baixar ou excluir. A folha da conta de armazenamento é exibida.
-3. Na folha da conta de armazenamento, selecione o contêiner desejado
+1. Na página principal **Procurar** do Portal do Azure, selecione **Contas de armazenamento**. Uma lista de suas contas de armazenamento existentes é exibida.
+2. Selecione a conta de armazenamento que contém o backup que você deseja baixar ou excluir. A página da conta de armazenamento é exibida.
+3. Na página da conta de armazenamento, selecione o contêiner desejado
    
     ![Exibir contêineres][ViewContainers]
 4. Selecione o arquivo de backup que você deseja baixar ou excluir.
@@ -72,12 +72,21 @@ A restauração usando backups está disponível para aplicativos que são execu
 <a name="OperationLogs"></a>
 
 ## <a name="monitor-a-restore-operation"></a>Monitorar uma operação de restauração
-Para ver detalhes sobre o sucesso ou a falha da operação de restauração do aplicativo, navegue até a folha **Log de Atividades** no portal do Azure.  
+Para ver detalhes sobre o sucesso ou a falha da operação de restauração do aplicativo, navegue até a página **Log de Atividades** no Portal do Azure.  
  
 
 Role para baixo para encontrar a operação de restauração desejada e clique para selecioná-la.
 
-A folha de detalhes exibe as informações disponíveis relacionadas à operação de restauração.
+A página de detalhes exibe as informações disponíveis relacionadas à operação de restauração.
+
+## <a name="automate-with-scripts"></a>Automatizar com scripts
+
+É possível automatizar o gerenciamento de backup com scripts, usando a [CLI do Azure](/cli/azure/install-azure-cli) ou o [Azure PowerShell](/powershell/azure/overview).
+
+Para obter exemplos, consulte:
+
+- [Exemplos da CLI do Azure](app-service-cli-samples.md)
+- [Exemplos do Azure PowerShell](app-service-powershell-samples.md)
 
 <!-- ## Next Steps
 You can backup and restore App Service apps using REST API. -->

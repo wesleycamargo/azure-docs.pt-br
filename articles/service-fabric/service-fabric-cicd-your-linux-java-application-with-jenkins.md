@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2017
 ms.author: saysa
-ms.openlocfilehash: 8ba108ed107e2e023867bcc3b3b1b8cc159377ae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d9870fafab3df3ab0ec72305e76a4d3547cc5b2c
+ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/30/2017
 ---
 # <a name="use-jenkins-to-build-and-deploy-your-linux-java-application"></a>Use o Jenkins para criar e implantar o aplicativo Java do Linux
 Jenkins é uma ferramenta popular para implantação e integração contínua de seus aplicativos. Veja como criar e implantar o aplicativo do Service Fabric do Azure usando o Jenkins.
@@ -37,60 +37,65 @@ Você pode configurar o Jenkins dentro ou fora de um cluster do Service Fabric. 
   ```sh
   sudo apt-get install wget
   wget -qO- https://get.docker.io/ | sh
-  ```
-2. Ter o aplicativo de contêiner do Service Fabric implantado no cluster, usando as seguintes etapas:
+  ``` 
+
+   > [!NOTE]
+   > Verifique se a porta 8081 foi especificada como um ponto de extremidade personalizado no cluster.
+   >
+2. Clone o aplicativo usando as seguintes etapas:
 
   ```sh
 git clone https://github.com/Azure-Samples/service-fabric-java-getting-started.git
 cd service-fabric-java-getting-started/Services/JenkinsDocker/
 ```
 
-3. Você precisa dos detalhes da opção de conexão do compartilhamento de arquivos do armazenamento do Azure no qual deseja persistir o estado da instância do contêiner Jenkins. Se estiver usando o portal do Microsoft Azure para o mesmo, siga as etapas – Criar uma conta de armazenamento do Azure, digamos, ``sfjenkinsstorage1``. Crie um **Compartilhamento de Arquivos** nessa conta de armazenamento, digamos, ``sfjenkins``. Clique em **Conectar** no compartilhamento de arquivos e observe os valores exibidos em **Conectando por meio do Linux**. Digamos que isso seja parecido com o seguinte:
+3. Mantenha o estado do contêiner Jenkins em um compartilhamento de arquivos:
+  * Crie uma conta de armazenamento do Azure na **mesma região** do que o seu cluster com um nome como ``sfjenkinsstorage1``.
+  * Crie um **Compartilhamento de Arquivos** na Conta de Armazenamento com um nome como ``sfjenkins``.
+  * Clique em **Conectar** no compartilhamento de arquivos e observe os valores exibidos em **Conectando por meio do Linux**, o valor deve ser semelhantes a este:
 ```sh
 sudo mount -t cifs //sfjenkinsstorage1.file.core.windows.net/sfjenkins [mount point] -o vers=3.0,username=sfjenkinsstorage1,password=<storage_key>,dir_mode=0777,file_mode=0777
 ```
 
 > [!NOTE]
-> Para montar compartilhamentos de cifs, é necessário ter o pacote cifs-utils instalado nos nós do cluster. 
+> Para montar compartilhamentos de cifs, é necessário ter o pacote cifs-utils instalado nos nós do cluster.         
 >
 
-4. Atualize os valores de espaço reservado no script ```setupentrypoint.sh``` com os detalhes correspondentes do armazenamento do Azure.
+4. Atualize os valores de espaço reservado no script ```setupentrypoint.sh``` com os detalhes correspondentes do armazenamento do Azure da etapa 3.
 ```sh
 vi JenkinsSF/JenkinsOnSF/Code/setupentrypoint.sh
 ```
-Substitua ``[REMOTE_FILE_SHARE_LOCATION]`` pelo valor ``//sfjenkinsstorage1.file.core.windows.net/sfjenkins`` do resultado da conexão no ponto 3 acima.
-Substitua ``[FILE_SHARE_CONNECT_OPTIONS_STRING]`` pelo valor ``vers=3.0,username=sfjenkinsstorage1,password=GB2NPUCQY9LDGeG9Bci5dJV91T6SrA7OxrYBUsFHyueR62viMrC6NIzyQLCKNz0o7pepGfGY+vTa9gxzEtfZHw==,dir_mode=0777,file_mode=0777`` no ponto 3 acima.
+  * Substitua ``[REMOTE_FILE_SHARE_LOCATION]`` pelo valor ``//sfjenkinsstorage1.file.core.windows.net/sfjenkins`` do resultado da conexão da etapa 3 acima.
+  * Substitua ``[FILE_SHARE_CONNECT_OPTIONS_STRING]`` pelo valor ``vers=3.0,username=sfjenkinsstorage1,password=GB2NPUCQY9LDGeG9Bci5dJV91T6SrA7OxrYBUsFHyueR62viMrC6NIzyQLCKNz0o7pepGfGY+vTa9gxzEtfZHw==,dir_mode=0777,file_mode=0777`` da etapa 3 acima.
 
 5. Conecte-se ao cluster e instale o aplicativo contêiner.
-```azurecli
+```sh
 sfctl cluster select --endpoint http://PublicIPorFQDN:19080   # cluster connect command
 bash Scripts/install.sh
 ```
 Isso instala um contêiner Jenkins no cluster e pode ser monitorado usando o Service Fabric Explorer.
 
-### <a name="steps"></a>Etapas
-1. No navegador, acesse ``http://PublicIPorFQDN:8081``. Ela fornece o caminho da senha de administrador inicial necessária para entrar. Você pode continuar a usar o Jenkins como um usuário administrativo. Ou você pode criar e alterar o usuário depois de entrar com a conta do administrador inicial.
-
    > [!NOTE]
-   > Certifique-se de que a porta 8081 está especificada como a porta do ponto de extremidade do aplicativo enquanto você está criando o aplicativo (e a porta está aberta no cluster).
+   > O download da imagem do Jenkins no cluster pode demorar alguns minutos.
    >
 
-2. Obter a ID de instância do contêiner usando ``docker ps -a``.
-3. Entre com SSH (Secure Shell) no contêiner e cole o caminho exibido no portal do Jenkins. Por exemplo, se o portal mostrar o caminho `PATH_TO_INITIAL_ADMIN_PASSWORD`, execute o seguinte:
+### <a name="steps"></a>Etapas
+1. No navegador, acesse ``http://PublicIPorFQDN:8081``. Ela fornece o caminho da senha de administrador inicial necessária para entrar. 
+2. Examine o Service Fabric Explorer para determinar em qual nó o contêiner Jenkins está em execução. Entre com SSH (Secure Shell) neste nó.
+```sh
+ssh user@PublicIPorFQDN -p [port]
+``` 
+3. Obter a ID de instância do contêiner usando ``docker ps -a``.
+4. Entre com SSH (Secure Shell) no contêiner e cole o caminho exibido no portal do Jenkins. Por exemplo, se o portal mostrar o caminho `PATH_TO_INITIAL_ADMIN_PASSWORD`, execute o seguinte:
 
   ```sh
   docker exec -t -i [first-four-digits-of-container-ID] /bin/bash   # This takes you inside Docker shell
-  cat PATH_TO_INITIAL_ADMIN_PASSWORD
   ```
-
-4. Configure o GitHub para trabalhar com o Jenkins, usando as etapas mencionadas em [Gerando uma nova chave SSH e adicionando-a ao agente SSH](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/).
-    * Usar as instruções fornecidas pelo GitHub para gerar uma chave SSH e adicionar a chave SSH à conta do GitHub que está hospedando o repositório.
-    * Execute os comandos mencionados no link anterior no shell Jenkins Docker (e não no host).
-    * Para entrar no shell Jenkins do host, use o seguinte comando:
-
   ```sh
-  docker exec -t -i [first-four-digits-of-container-ID] /bin/bash
+  cat PATH_TO_INITIAL_ADMIN_PASSWORD # This displays the pasword value
   ```
+5. Na página introdução ao Jenkins, escolha a opção Selecionar plug-ins para instalação, marque a caixa de seleção **Nenhum** e clique em instalar.
+6. Crie um usuário ou selecione para continuar como um administrador.
 
 ## <a name="set-up-jenkins-outside-a-service-fabric-cluster"></a>Configurar o Jenkins fora de um cluster do Service Fabric
 
@@ -133,7 +138,7 @@ Verifique se o cluster ou a máquina em que a imagem de contêiner Jenkins está
 
 1. Acesse ``http://PublicIPorFQDN:8081``
 2. No painel do Jenkins, selecione **Gerenciar Jenkins** > **Gerenciar plug-ins** > **Avançado**.
-Aqui, você pode carregar um plug-in. Selecione **Escolher arquivo** e selecione o arquivo **serviceFabric.hpi** que você baixou na etapa de pré-requisitos. Quando você seleciona **Carregar**, o Jenkins instala o plug-in automaticamente. Se solicitado, permita a reinicialização.
+Aqui, você pode carregar um plug-in. Selecione **Escolher arquivo** e selecione o arquivo **serviceFabric.hpi** que você baixou em pré-requisitos ou que pode baixar [daqui](https://servicefabricdownloads.blob.core.windows.net/jenkins/serviceFabric.hpi). Quando você seleciona **Carregar**, o Jenkins instala o plug-in automaticamente. Se solicitado, permita a reinicialização.
 
 ## <a name="create-and-configure-a-jenkins-job"></a>Criar e configurar um trabalho do Jenkins
 
@@ -141,7 +146,7 @@ Aqui, você pode carregar um plug-in. Selecione **Escolher arquivo** e selecione
 2. Insira um nome de item (por exemplo, **MyJob**). Selecione **projeto em estilo livre**e clique em **OK**.
 3. Acesse a página do trabalho e clique em **Configurar**.
 
-   a. Na seção geral, em **Projeto GitHub**, especifique a URL do projeto GitHub. Essa URL hospeda o aplicativo Java do Service Fabric que você deseja integrar à integração contínua do Jenkins, no fluxo de implantação contínua (CI/CD) (por exemplo, ``https://github.com/sayantancs/SFJenkins``).
+   a. Na seção geral, marque a caixa de seleção **Proejto GitHub** e especifique a URL do project GitHub. Essa URL hospeda o aplicativo Java do Service Fabric que você deseja integrar à integração contínua do Jenkins, no fluxo de implantação contínua (CI/CD) (por exemplo, ``https://github.com/sayantancs/SFJenkins``).
 
    b. Na seção **Gerenciamento de Código-Fonte**, selecione **Git**. Especifique a URL do repositório que hospeda o aplicativo Java do Service Fabric que você deseja integrar ao fluxo CI/CD do Jenkins (por exemplo, ``https://github.com/sayantancs/SFJenkins.git``). Você também pode especificar aqui quais ramificações devem ser criadas (por exemplo, **/mestre**).
 4. Configure seu *GitHub* (que está hospedando o repositório) para que ele seja capaz de se comunicar com o Jenkins. Use as seguintes etapas:
@@ -156,7 +161,7 @@ Aqui, você pode carregar um plug-in. Selecione **Escolher arquivo** e selecione
 
    e. Na seção **Criar Gatilhos**, selecione a opção de compilação desejada. Para este exemplo, você deseja disparar uma compilação sempre que ocorrer alguma envio para o repositório. Portanto, você seleciona **Gatilho de gancho do GitHub para sondagem GITScm**. (Anteriormente, essa opção se chamava **Compilar quando uma alteração for enviada ao GitHub**.)
 
-   f. Na **seção Criar**, na lista suspensa **Adicionar etapa de compilação**, selecione a opção **Invocar Gradle Script**. No widget surgido, especifique o caminho para **Script da build raiz** para o aplicativo. Ele obtém o build.gradle no caminho especificado e funciona de maneira correspondente. Se você criar um projeto chamado ``MyActor``(usando o plug-in Eclipse ou gerador Yeoman), o script da build raiz deverá conter ``${WORKSPACE}/MyActor``. Confira a seguinte captura de tela para obter um exemplo dessa aparência:
+   f. Na **seção Criar**, na lista suspensa **Adicionar etapa de compilação**, selecione a opção **Invocar Gradle Script**. No widget que aparecer, abra o menu avançado, especifique o caminho para **Script do build raiz** para o aplicativo. Ele obtém o build.gradle no caminho especificado e funciona de maneira correspondente. Se você criar um projeto chamado ``MyActor``(usando o plug-in Eclipse ou gerador Yeoman), o script da build raiz deverá conter ``${WORKSPACE}/MyActor``. Confira a seguinte captura de tela para obter um exemplo dessa aparência:
 
     ![Ação Compilar do Jenkins no Service Fabric][build-step]
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2016
 ms.author: cephalin
-ms.openlocfilehash: 93645aa5765d533b45fe2266f061ad61c0bf45d7
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 5bf687afa8f42292a3b21b19a572c76926fef1cd
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="controlling-azure-web-app-traffic-with-azure-traffic-manager"></a>Controlando o tráfego de aplicativos Web do Azure com o Gerenciador de Tráfego do Azure
 > [!NOTE]
@@ -49,7 +49,7 @@ Ao usar o Gerenciador de Tráfego do Azure com o Azure, tenha em mente os seguin
 * Para implantações na mesma região usando Aplicativos Web juntamente com outro serviço de nuvem do Azure, você pode combinar ambos os tipos de pontos de extremidade para habilitar cenários híbridos.
 * Você só pode especificar um ponto de extremidade de aplicativo Web por região em um perfil. Quando você seleciona um aplicativo Web como um ponto de extremidade para uma região, os aplicativos Web restantes nessa região ficam indisponíveis para seleção para esse perfil.
 * Os pontos de extremidade de aplicativo Web que você especificar no perfil do Gerenciador de Tráfego do Azure serão exibidos na seção **Nomes de Domínio** da página Configurar do aplicativo Web no perfil, mas não serão configuráveis lá.
-* Depois que você adicionar um aplicativo Web a um perfil, a **URL do Site** no Painel da página do portal do aplicativo Web exibirá a URL do domínio personalizado do aplicativo Web se você tiver configurado uma. Caso contrário, exibe a URL do perfil do Gerenciador de Tráfego (por exemplo, `contoso.trafficmgr.com`). O nome de domínio direto do aplicativo Web e a URL do Gerenciador de Tráfego estarão visíveis na página Configurar do aplicativo Web na seção **Nomes de Domínio**.
+* Depois que você adicionar um aplicativo Web a um perfil, a **URL do Site** no Painel da página do portal do aplicativo Web exibirá a URL do domínio personalizado do aplicativo Web se você tiver configurado uma. Caso contrário, exibe a URL do perfil do Gerenciador de Tráfego (por exemplo, `contoso.trafficmanager.net`). O nome de domínio direto do aplicativo Web e a URL do Gerenciador de Tráfego estarão visíveis na página Configurar do aplicativo Web na seção **Nomes de Domínio**.
 * Os nomes de domínio personalizados funcionam conforme esperado, mas, além de adicioná-los a seus aplicativos Web, você também deve configurar o mapa DNS para apontar para a URL do Gerenciador de Tráfego. Para obter informações sobre como configurar um domínio personalizado para um aplicativo Web do Azure, consulte [Mapear um nome de domínio personalizado para um site do Azure](app-service-web-tutorial-custom-domain.md).
 * Você só pode adicionar aplicativos Web que estejam no modo padrão ou premium para um perfil do Gerenciador de Tráfego do Azure.
 

@@ -5,24 +5,26 @@ services: azure-policy
 keywords: 
 author: Jim-Parker
 ms.author: jimpark
-ms.date: 10/06/2017
+ms.date: 11/02/2017
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 2e0962ae02dd8132d878792634abc1f63b2c29a1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db5112c858d2a2c54813d9c9a3670a45fcbdb993
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment"></a>Criar uma atribuição de política para identificar recursos sem conformidade em seu ambiente do Azure
-A primeira etapa para compreender a conformidade no Azure é saber qual é a situação de seus recursos atuais. Este guia de início rápido orienta você quanto ao processo de criação de uma atribuição de política para identificar recursos que não estão usando o SQL Server versão 12.0. No final deste processo, você terá identificado com êxito quais servidores são de uma versão diferente e, portanto, *sem conformidade*.
+A primeira etapa para compreender a conformidade no Azure é saber qual é a situação de seus recursos atuais. Este guia de início rápido orienta você no processo de criação de uma atribuição de política para identificar máquinas virtuais que não estão usando discos gerenciados.
+
+No final deste processo, você terá identificado com êxito quais máquinas virtuais não estão usando discos gerenciados e, portanto, *não estão em conformidade*.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="opt-in-to-azure-policy"></a>Aceitar a Política do Azure
 
-A Política do Azure está disponível na versão prévia limitada e, portanto, você precisa se registrar para solicitar acesso.
+Agora o Azure Policy está disponível em Visualização Pública e é necessário registrar-se para solicitar acesso.
 
 1. Vá até a Política do Azure em https://aka.ms/getpolicy e selecione **Inscrever-se** no painel esquerdo.
 
@@ -32,11 +34,11 @@ A Política do Azure está disponível na versão prévia limitada e, portanto, 
 
    ![Aceitar o uso da Política do Azure](media/assign-policy-definition/preview-opt-in.png)
 
-   Pode levar alguns dias para aceitarmos sua solicitação de registro, com base na demanda. Após sua solicitação ser aceita, você receberá um email informando que pode começar a usar o serviço.
+   Sua solicitação é aprovada automaticamente para versão prévia. Aguarde até 30 minutos para o sistema processar seu registro.
 
 ## <a name="create-a-policy-assignment"></a>Criar uma atribuição de política
 
-Neste guia de início rápido, criamos uma atribuição de política e atribuímos a definição *Exigir SQL Server versão 12.0*. 
+Neste guia de início rápido, criamos uma atribuição de política e atribuímos a definição da política *Auditar máquinas virtuais sem Managed Disks*.
 
 1. Selecione **Atribuições** no painel esquerdo da página de Política do Azure.
 2. Selecione **Atribuir Política** na parte superior do painel **Atribuições**.
@@ -53,11 +55,11 @@ Neste guia de início rápido, criamos uma atribuição de política e atribuím
    - Aplicar marca e seu valor
    - Requer o SQL Server versão 12.0
 
-4. Pesquise por suas definições de política para encontrar a definição *Exigir SQL Server versão 12.0*. Clique na política e clique em **Selecionar**.
+4. Pesquise suas definições de política para encontrar a definição *Auditar VMs que não usam discos gerenciados*. Clique na política e clique em **Atribuir**.
 
    ![Encontre a definição de política correta](media/assign-policy-definition/select-available-definition.png)
 
-5. Forneça um **Nome** de exibição para a atribuição de política. Neste caso, vamos usar *Exigir SQL Server versão 12.0*. Você também pode adicionar uma **Descrição**opcional. A descrição fornece detalhes sobre como essa atribuição de política garante que todos os servidores SQL criados nesse ambiente sejam da versão 12.0.
+5. Forneça um **Nome** de exibição para a atribuição de política. Nesse caso, vamos usar *Auditar VMs que não usam discos gerenciados*. Você também pode adicionar uma **Descrição**opcional. A descrição fornece detalhes sobre como essa atribuição de política identifica todas as máquinas virtuais criadas nesse ambiente que não usam discos gerenciados.
 6. Altere o tipo de preço para **Standard** para garantir que a política seja aplicada aos recursos existentes.
 
    Há dois tipos de preço na Política do Azure – *Gratuito* e *Standard*. Com a camada Gratuita, você só pode impor políticas para recursos futuros, enquanto com a Standard, você também pode impô-las para recursos existentes para compreender melhor seu estado de conformidade. Como estamos na versão prévia limitada, ainda não lançamos um modelo de preços, de modo que você não receberá uma fatura por selecionar a opção *Standard*. Para saber mais sobre os preços, veja: [Preços da Política do Azure](https://acom-milestone-ignite.azurewebsites.net/pricing/details/azure-policy/).
@@ -108,4 +110,3 @@ Para saber mais sobre a atribuição de políticas, para garantir que recursos q
 
 > [!div class="nextstepaction"]
 > [Criando e gerenciando políticas](./create-manage-policy.md)
-

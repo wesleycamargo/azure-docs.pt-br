@@ -1,6 +1,6 @@
 ---
 title: Otimizar seu ambiente do SQL Server com o Azure Log Analytics | Microsoft Docs
-description: "Com o Azure Log Analytics, você pode usar a solução de Avaliação de SQL para avaliar o risco e a integridade de seus ambientes de servidor SQL em intervalos regulares."
+description: "Com o Azure Log Analytics, você pode usar a solução de Verificação da Integridade do SQL para avaliar o risco e a integridade de seus ambientes em intervalos regulares."
 services: log-analytics
 documentationcenter: 
 author: bandersmsft
@@ -12,20 +12,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2017
-ms.author: banders
+ms.date: 10/27/2017
+ms.author: magoedte;banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d2aed3315fe60ace46dfb4176dc13aa417257b0c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec66c322550ac3a7729dc1fddc8c026fb4ec1895
+ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
-# <a name="optimize-your-sql-server-environment-with-the-sql-assessment-solution-in-log-analytics"></a>Otimizar seu ambiente do SQL Server com a solução de Avaliação de SQL da Log Analytics
+# <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Otimize seu ambiente SQL com a solução de Verificação da Integridade do SQL Server no Log Analytics
 
-![Símbolo da Avaliação do SQL](./media/log-analytics-sql-assessment/sql-assessment-symbol.png)
+![Símbolo de Verificação da Integridade do SQL](./media/log-analytics-sql-assessment/sql-assessment-symbol.png)
 
-Você pode usar a solução de Avaliação de SQL para avaliar o risco e a integridade de seus ambientes de servidor em intervalos regulares. Este artigo ajudará você a instalar a solução para que você possa tomar ações corretivas para potenciais problemas.
+Você pode usar a solução de Verificação da Integridade do SQL para avaliar o risco e a integridade de seus ambientes do servidor em intervalos regulares. Este artigo ajudará você a instalar a solução para que você possa tomar ações corretivas para potenciais problemas.
 
 Esta solução fornece uma lista priorizada de recomendações específicas para sua infraestrutura de servidor implantado. As recomendações são categorizadas em seis áreas de foco que ajudarão a entender o risco e tomar uma ação corretiva.
 
@@ -33,51 +33,54 @@ As recomendações baseiam-se no conhecimento e na experiências obtidas pelos e
 
 Você pode escolher as áreas de foco que são mais importantes para sua organização e acompanhar seu progresso no sentido de executar um ambiente íntegro e sem riscos.
 
-Após terminar de adicionar a solução e a avaliação ser concluída, as informações resumidas para áreas de foco são mostradas no painel **Avaliação de SQL** para a infraestrutura no seu ambiente. As seções a seguir descrevem como usar as informações no painel **Avaliação de SQL** , em que é possível exibir e executar as ações recomendadas para sua infraestrutura de SQL Server.
+Após ter adicionado a solução e a avaliação ser concluída, as informações resumidas para as áreas de foco são mostradas no painel **Verificação da Integridade do SQL** para a infraestrutura em seu ambiente. As seções a seguir descrevem como usar as informações no painel **Verificação da Integridade do SQL**, onde é possível exibir e tomar as ações recomendadas para sua infraestrutura do SQL Server.
 
-![imagem do bloco de Avaliação do SQL](./media/log-analytics-sql-assessment/sql-assess-tile.png)
+![imagem do bloco Verificação da Integridade do SQL](./media/log-analytics-sql-assessment/sql-healthcheck-summary-tile.png)
 
-![imagem do painel de avaliação do SQL](./media/log-analytics-sql-assessment/sql-assess-dash.png)
+![imagem do painel Verificação da Integridade do SQL](./media/log-analytics-sql-assessment/sql-healthcheck-dashboard-01.png)
 
-## <a name="installing-and-configuring-the-solution"></a>Instalando e configurando a solução
-A Avaliação de SQL trabalha com todas as versões do SQL Server com suporte atualmente para as edições Standard, Developer e Enterprise.
+## <a name="prerequisites"></a>Pré-requisitos
 
-Use as informações a seguir para instalar e configurar a solução.
-
-* Agentes devem ser instalados em servidores que têm o SQL Server instalado.
-* A solução de Avaliação do SQL requer uma versão do .NET Framework 4 com suporte instalada em cada computador que tem um agente do OMS.
-* Para instalar a solução, o usuário deve ser um administrador ou colaborador da assinatura do Azure ao usar o Portal do Azure. Além disso, o usuário deve ser membro da função de colaborador ou administrador do espaço de trabalho OMS no portal do OMS.
-* Ao usar o agente do Operations Manager com a Avaliação do SQL, você precisará usar uma conta Executar como do Operations Manager. Consulte [Contas Executar como do Operations Manager para OMS](#operations-manager-run-as-accounts-for-oms) , abaixo, para obter mais informações.
+* A solução de Verificação da Integridade do SQL requer uma versão do .NET Framework 4 com suporte instalada em cada computador com o MMA (Microsoft Monitoring Agent) instalado.  O agente MMA é usado pelo System Center 2016 - Operations Manager e Operations Manager 2012 R2, e o serviço Log Analytics.  
+* A solução oferece suporte ao SQL Server, versões 2012, 2014 e 2016.
+* Um espaço de trabalho Log Analytics para adicionar a solução de Verificação da Integridade do SQL no Azure marketplace, no portal do Azure.  Para instalar a solução, o usuário deve ser um administrador ou colaborador na assinatura do Azure. 
 
   > [!NOTE]
-  > O agente MMA não dá suporte a contas Executar como do Operations Manager.
+  > Depois de adicionar a solução, o arquivo AdvisorAssessment.exe é adicionado aos servidores com agentes. Os dados de configuração são lidos e enviados para o serviço Log Analytics na nuvem para processamento. A lógica é aplicada aos dados recebidos e o serviço de nuvem registra os dados.
   >
   >
-* Adicionar a solução da Avaliação do SQL ao seu espaço de trabalho do OMS usando o processo descrito em [Adicionar soluções do Log Analytics da Galeria de Soluções](log-analytics-add-solutions.md). Não é necessária nenhuma configuração.
 
-> [!NOTE]
-> Depois de adicionar a solução, o arquivo AdvisorAssessment.exe é adicionado aos servidores com agentes. Os dados de configuração são lidos e, em seguida, enviados para o serviço OMS na nuvem para processamento. A lógica é aplicada aos dados recebidos e o serviço de nuvem registra os dados.
+Para executar a verificação de integridade nos servidores do SQL Server, são necessários um agente e uma conectividade para o Log Analytics usando um dos seguintes métodos com suporte:
 
-## <a name="sql-assessment-data-collection-details"></a>Detalhes de coleta de dados da Avaliação de SQL
-A Avaliação do SQL coletará dados WMI, dados de registro, dados de desempenho e resultados de exibição do gerenciamento dinâmico do SQL Server que estiverem usand os agentes que você tiver habilitado.
+1. Instale o [MMA (Microsoft Monitoring Agent)](log-analytics-windows-agents.md) se o servidor ainda não for monitorado pelo System Center 2016 - Operations Manager ou Operations Manager 2012 R2.
+2. Se for monitorado com o System Center 2016 – Operations Manager ou Operations Manager 2012 R2, e o grupo de gerenciamento não for integrado com o serviço Log Analytics, o servidor poderá ter hospedagem múltipla com o Log Analytics para coletar dados, encaminhar o serviço e ainda ser monitorado pelo Operations Manager.  
+3. Caso contrário, se seu grupo de gerenciamento Operations Manager for integrado com o serviço, você precisará adicionar controladores de domínio para a coleção de dados pelo serviço seguindo as etapas em [adicionar computadores gerenciados por agente](log-analytics-om-agents.md#connecting-operations-manager-to-oms) depois de habilitar a solução em seu espaço de trabalho.  
 
-A tabela a seguir mostra os métodos de coleta de dados dos agentes, se o SCOM (Operations Manager) é necessário e com que frequência os dados são coletados por um agente.
+O agente no SQL Server que informa um grupo de gerenciamento Operations Manager, coleta os dados, encaminha para o servidor de gerenciamento atribuído e é enviado diretamente de um servidor de gerenciamento para o serviço Log Analytics.  Os dados não são gravados nos bancos de dados do Operations Manager.  
 
-| plataforma | Agente direto | Agente SCOM | Armazenamento do Azure | SCOM necessário? | Os dados do agente SCOM enviados por meio do grupo de gerenciamento | frequência de coleta |
-| --- | --- | --- | --- | --- | --- | --- |
-| Windows | &#8226; | &#8226; |  |  | &#8226; |7 dias |
+Se o SQL Server for monitorado pelo Operations Manager, você precisará configurar uma conta Executar Como do Operations Manager. Confira abaixo as [Contas Executar Como do Operations Manager para Log Analytics](#operations-manager-run-as-accounts-for-log-analytics) para obter mais informações.
 
-## <a name="operations-manager-run-as-accounts-for-oms"></a>Contas Executar como do Operations Manager para OMS
-O Log Analytics no OMS usa o grupo de gerenciamento e o agente do Operations Manager para coletar e enviar dados para o serviço do OMS. O OMS é criado com base nos pacotes de gerenciamento para cargas de trabalho para fornecer serviços com valor agregado. Cada carga de trabalho exige privilégios específicos da carga de trabalho para executar pacotes de gerenciamento em um contexto de segurança diferente, como uma conta de domínio. Você precisa fornecer informações de credenciais configurando uma conta Executar como do Operations Manager.
+## <a name="sql-health-check-data-collection-details"></a>Detalhes da coleção de dados da Verificação da Integridade do SQL
+A Verificação da Integridade do SQL coleta dados das seguintes fontes usando o agente habilitado: 
 
-Use as informações a seguir para definir a conta Executar como do Operations Manager para Avaliação de SQL.
+* WMI (Instrumentação de Gerenciamento do Windows) 
+* Registro 
+* Contadores de desempenho
+* Resultados da exibição do gerenciamento dinâmico do SQL Server 
 
-### <a name="set-the-run-as-account-for-sql-assessment"></a>Definir a conta Executar como para avaliação do SQL
- Se você já estiver usando o pacote de gerenciamento do SQL Server, deve usar essa conta Executar como.
+Os dados são coletados no SQL Server e encaminhados para o Log Analytics a cada sete dias.
+
+## <a name="operations-manager-run-as-accounts-for-log-analytics"></a>Contas Executar como do Operations Manager para Log Analytics
+O Log Analytics usa o agente Operations Manager e o grupo de gerenciamento para coletar e enviar dados para o serviço Log Analytics. O Log Analytics utiliza os pacotes de gerenciamento das cargas de trabalho para fornecer serviços com valor agregado. Cada carga de trabalho exige privilégios específicos da carga para executar pacotes de gerenciamento em um contexto de segurança diferente, como uma conta de usuário do domínio. Você precisa fornecer informações de credenciais configurando uma conta Executar como do Operations Manager.
+
+Use as informações a seguir para definir a conta Executar como do Operations Manager para a Verificação da Integridade do SQL.
+
+### <a name="set-the-run-as-account-for-sql-health-check"></a>Definir a conta Executar como para a Verificação da Integridade do SQL
+ Se você já estiver usando o pacote de gerenciamento SQL Server, deverá usar a configuração Executar Como.
 
 #### <a name="to-configure-the-sql-run-as-account-in-the-operations-console"></a>Para configurar a conta Executar como do SQL no console Operações
 > [!NOTE]
-> Se você estiver usando o agente direto do OMS em vez do agente do SCOM, o pacote de gerenciamento será sempre executado no contexto de segurança da conta de Sistema Local. Ignore as etapas 1 a 5 abaixo e execute o exemplo do T-SQL ou Powershell, especificando NT AUTHORITY\SYSTEM como o nome de usuário.
+> Por padrão, os fluxos de trabalho no pacote de gerenciamento é executado no contexto de segurança da conta Sistema Local. Se você estiver usando o Microsoft Monitoring Agent conectado diretamente ao serviço, em vez de informar diretamente a um grupo de gerenciamento Operations Manager, ignore as etapas 1 a 5 abaixo e execute o T-SQL ou PowerShell de exemplo, especificando NT AUTHORITY\SYSTEM como o nome de usuário.
 >
 >
 
@@ -91,10 +94,10 @@ Use as informações a seguir para definir a conta Executar como do Operations M
    >
    >
 5. Clique em **Salvar**.
-6. Modifique e, em seguida, execute o seguinte exemplo de T-SQL em cada instância do SQL Server para conceder as permissões mínimas necessárias para a conta Executar como para realizar uma avaliação de SQL. No entanto, você não precisa fazer isso se uma conta Executar como já fizer parte da função de servidor sysadmin em instâncias do SQL Server.
+6. Modifique e execute o seguinte T-SQL de exemplo em cada instância do SQL Server para conceder as permissões mínimas necessárias para a conta Executar como realizar a verificação da integridade. No entanto, você não precisará fazer isso se uma conta Executar como já fizer parte da função do servidor sysadmin nas instâncias do SQL Server.
 
 ```
----
+    ---
     -- Replace <UserName> with the actual user name being used as Run As Account.
     USE master
 
@@ -111,11 +114,11 @@ Use as informações a seguir para definir a conta Executar como do Operations M
     EXEC sp_msforeachdb N'USE [?]; CREATE USER [<UserName>] FOR LOGIN [<UserName>];'
 
 ```
+
 #### <a name="to-configure-the-sql-run-as-account-using-windows-powershell"></a>Para configurar a conta Executar como do SQL usando o Windows PowerShell
 Abra uma janela do PowerShell e execute o script a seguir depois de atualizá-lo com as suas informações:
 
 ```
-
     import-module OperationsManager
     New-SCOMManagementGroupConnection "<your management group name>"
 
@@ -154,17 +157,19 @@ Não necessariamente. As recomendações baseiam-se no conhecimento e nas experi
 
 Cada recomendação inclui diretrizes sobre sua importância. Você deve usar essas diretrizes para avaliar se é adequado implementar a recomendação considerando a natureza de seus serviços de TI e as necessidades comerciais da sua organização.
 
-## <a name="use-assessment-focus-area-recommendations"></a>Use as recomendações de área de foco de avaliação
-Antes de usar uma solução de avaliação no OMS, é necessário ter a solução instalada. Para ler mais sobre como instalar as soluções, confira [Adicionar soluções do Log Analytics por meio da Galeria de Soluções](log-analytics-add-solutions.md). Após a instalação, é possível exibir o resumo das recomendações usando o bloco Avaliação do SQL na página Visão geral do OMS.
+## <a name="use-health-check-focus-area-recommendations"></a>Usar as recomendações da área de foco da Verificação da Integridade
+Antes de usar uma solução de avaliação no Log Analytics, é necessário ter a solução instalada.  Após a instalação, é possível exibir o resumo das recomendações usando o bloco Verificação da Integridade do SQL na página de solução no portal do Azure.
 
 Veja as avaliações de conformidade resumidas para sua infraestrutura e faça uma busca detalhada das recomendações.
 
 ### <a name="to-view-recommendations-for-a-focus-area-and-take-corrective-action"></a>Para exibir as recomendações para uma área de foco e tomar uma ação corretiva
-1. Na página **Visão Geral**, clique no bloco **Avaliação do SQL**.
-2. Na página **Avaliação do SQL**, analise as informações resumidas em uma das folhas da área de foco e clique em uma para exibir as recomendações para a área de foco.
-3. Em qualquer uma das páginas da área de foco, você pode exibir as recomendações priorizadas para seu ambiente. Clique em uma recomendação sob **Objetos Afetados** para exibir detalhes sobre o motivo pelo qual a recomendação foi feita.  
-    ![imagem de recomendações da Avaliação do SQL](./media/log-analytics-sql-assessment/sql-assess-focus.png)
-4. É possível executar as ações corretivas sugeridas em **Ações Sugeridas**. Quando o item tiver sido resolvido, avaliações posteriores gravarão que essas ações recomendadas foram executadas e sua pontuação de conformidade aumentará. Os itens corrigido aparecem como **Objetos Passados**.
+1. Faça logon no portal do Azure em [https://portal.azure.com](https://portal.azure.com). 
+2. No portal do Azure, clique em **Mais serviços** encontrado no canto inferior esquerdo. Na lista de recursos, digite **Log Analytics**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Log Analytics**.
+3. No painel de assinaturas do Log Analytics, selecione um espaço de trabalho e clique no bloco **Portal do OMS**.  
+4. Na página **Visão Geral**, clique no bloco **Verificação da Integridade do SQL**. 
+5. Na página **Verificação da Integridade**, revise as informações resumidas em uma das folhas da área de foco e clique em uma para exibir as recomendações dessa área de foco.
+6. Em qualquer uma das páginas da área de foco, você pode exibir as recomendações priorizadas para seu ambiente. Clique em uma recomendação sob **Objetos Afetados** para exibir detalhes sobre o motivo pelo qual a recomendação foi feita.<br><br> ![imagem das recomendações de Verificação da Integridade do SQL](./media/log-analytics-sql-assessment/sql-healthcheck-dashboard-02.png)<br>
+7. É possível executar as ações corretivas sugeridas em **Ações Sugeridas**. Quando o item tiver sido resolvido, avaliações posteriores gravarão que essas ações recomendadas foram executadas e sua pontuação de conformidade aumentará. Os itens corrigido aparecem como **Objetos Passados**.
 
 ## <a name="ignore-recommendations"></a>Ignorar as recomendações
 Se houver recomendações que deseja ignorar, você poderá criar um arquivo de texto que será usado pelo OMS para impedir que as recomendações sejam exibidas nos resultados da avaliação.
@@ -172,45 +177,59 @@ Se houver recomendações que deseja ignorar, você poderá criar um arquivo de 
 [!include[log-analytics-log-search-nextgeneration](../../includes/log-analytics-log-search-nextgeneration.md)]
 
 ### <a name="to-identify-recommendations-that-you-will-ignore"></a>Para identificar as recomendações que serão ignoradas
-1. Entre em seu espaço de trabalho e abra a Pesquisa de Log. Use a consulta a seguir para listar as recomendações que falharam para os computadores em seu ambiente.
+1. No portal do Azure, na página do espaço de trabalho Log Analytics de seu espaço de trabalho selecionado, clique no bloco **Pesquisa de Logs**.
+2. Use a consulta a seguir para listar as recomendações que falharam para os computadores em seu ambiente.
 
-   ```
-   Type=SQLAssessmentRecommendation RecommendationResult=Failed | select  Computer, RecommendationId, Recommendation | sort  Computer
-   ```
+    ```
+    Type=SQLAssessmentRecommendation RecommendationResult=Failed | select Computer, RecommendationId, Recommendation | sort Computer
+    ```
 
-   Esta é uma captura de tela mostrando a consulta da Pesquisa de Log: ![recomendações com falha](./media/log-analytics-sql-assessment/sql-assess-failed-recommendations.png)
-2. Escolha as recomendações que você deseja ignorar. Você usará os valores para RecommendationId no próximo procedimento.
+    >[!NOTE]
+    > Se o seu espaço de trabalho fosse atualizado para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), a consulta acima seria alterada para o demonstrado a seguir.
+    >
+    > `SQLAssessmentRecommendation | where RecommendationResult == "Failed" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
+
+    Esta é uma captura de tela mostrando a consulta da Pesquisa de Log: <br><br> ![recomendações com falha](./media/log-analytics-sql-assessment/sql-assess-failed-recommendations.png)<br>
+
+3. Escolha as recomendações que você deseja ignorar. Você usará os valores para RecommendationId no próximo procedimento.
 
 ### <a name="to-create-and-use-an-ignorerecommendationstxt-text-file"></a>Criar e usar um arquivo de texto IgnoreRecommendations.txt
 1. Crie um arquivo chamado IgnoreRecommendations.txt.
-2. Cole ou digite cada RecommendationId para cada recomendação que você deseja que o OMS ignore em uma linha separada, salve e feche o arquivo.
-3. Coloque o arquivo na pasta a seguir em cada computador no qual você deseja que o OMS ignore as recomendações.
+2. Cole ou digite a RecommendationId de cada recomendação que você deseja que o Log Analytics ignore em uma linha separada e, em seguida, salve e feche o arquivo.
+3. Coloque o arquivo na pasta a seguir em cada computador no qual você deseja que o Log Analytics ignore as recomendações.
    * Em computadores com o Microsoft Monitoring Agent (conectado diretamente ou por meio do Operations Manager) - *SystemDrive*:\Arquivos de Programas\Microsoft Monitoring Agent\Agent
    * No servidor de gerenciamento do Operations Manager - *SystemDrive*:\Arquivos de Programa\Microsoft System Center 2012 R2\Operations Manager\Server
+   * No servidor de gerenciamento do Operations Manager 2016 - *SystemDrive*:\Program Files\Microsoft System Center 2016\Operations Manager\Server
 
 ### <a name="to-verify-that-recommendations-are-ignored"></a>Para verificar se as recomendações são ignoradas
 1. Após a execução da próxima avaliação agendada, por padrão a cada 7 dias, as recomendações especificadas são marcadas como Ignoradas e não aparecerão no painel de avaliação.
 2. É possível usar as consultas da Pesquisa de Log a seguir para listar todas as recomendações ignoradas.
 
-   ```
-   Type=SQLAssessmentRecommendation RecommendationResult=Ignored | select  Computer, RecommendationId, Recommendation | sort  Computer
-   ```
+    ```
+    Type=SQLAssessmentRecommendation RecommendationResult=Ignored | select Computer, RecommendationId, Recommendation | sort Computer
+    ```
+
+    >[!NOTE]
+    > Se o seu espaço de trabalho fosse atualizado para a [nova linguagem de consulta do Log Analytics](log-analytics-log-search-upgrade.md), a consulta acima seria alterada para o demonstrado a seguir.
+    >
+    > `SQLAssessmentRecommendation | where RecommendationResult == "Ignored" | sort by Computer asc | project Computer, RecommendationId, Recommendation`
+
 3. Se você decidir posteriormente que deseja ver as recomendações ignoradas, remova todos os arquivos IgnoreRecommendations.txt ou remova as RecommendationIDs deles.
 
-## <a name="sql-assessment-solution-faq"></a>Perguntas frequentes sobre soluções de Avaliação de SQL
-*Com que frequência uma avaliação é executada?*
+## <a name="sql-health-check-solution-faq"></a>Perguntas frequentes da solução de Verificação da Integridade do SQL
+*Quantas vezes uma verificação da integridade é executada?*
 
-* A avaliação é executada a cada sete dias.
+* A verificação é executada a cada sete dias.
 
-*Há uma maneira de configurar a frequência com que a avaliação é executada?*
+*Há uma maneira de configurar a frequência com a qual a verificação é executada?*
 
 * Não no momento.
 
-*Se outro servidor for descoberto após ter adicionado a solução de avaliação do SQL, ele será avaliado?*
+*Se outro servidor for descoberto após eu ter adicionado a solução de Verificação da Integridade do SQL, ele será verificado?*
 
-* Sim, assim que for descoberto, ele é avaliado a partir de então a cada sete dias.
+* Sim, assim que for descoberto, ele será verificado a partir de então a cada sete dias.
 
-*Se um servidor for encerrado, quando ele será removido da avaliação?*
+*Se um servidor for encerrado, quando ele será removido da verificação de integridade?*
 
 * Se um servidor não enviar dados por três semanas, ele será removido.
 
@@ -240,11 +259,11 @@ Se houver recomendações que deseja ignorar, você poderá criar um arquivo de 
 
 *Por que apenas as 10 principais recomendações são exibidas?*
 
-* Em vez de apresentar uma lista exaustiva de tarefas, é recomendável que você se concentre em tratar as recomendações priorizadas primeiro. Depois de tratar dessas recomendações, recomendações adicionais serão disponibilizadas. Se preferir ver a lista detalhada, exiba todas as recomendações usando a pesquisa de log do OMS.
+* Em vez de apresentar uma lista exaustiva de tarefas, é recomendável que você se concentre em tratar as recomendações priorizadas primeiro. Depois de tratar dessas recomendações, recomendações adicionais serão disponibilizadas. Se preferir ver a lista detalhada, exiba todas as recomendações usando a pesquisa de logs do Log Analytics.
 
 *É possível ignorar uma recomendação?*
 
 * Sim, confira a seção [Ignorar recomendações](#ignore-recommendations) acima.
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Pesquise nos logs](log-analytics-log-searches.md) para exibir dados detalhados de Avaliação do SQL e recomendações.
+* [Pesquise os logs](log-analytics-log-searches.md) para aprender como analisar os dados de Verificação da Integridade do SQL detalhados e as recomendações.

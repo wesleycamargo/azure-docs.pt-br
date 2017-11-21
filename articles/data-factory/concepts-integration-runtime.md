@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/15/2017
 ms.author: shlo
-ms.openlocfilehash: 82b1dc036b53fbc1f0159d77ce102dcd054ea722
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c3cf9bfeabb65fa15941e3085d9f9146c3feef80
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime no Azure Data Factory
 O IR (Integration Runtime) é a infraestrutura de computação usada pelo Azure Data Factory para fornecer as seguintes funcionalidades de integração de dados entre diferentes ambientes de rede:
@@ -85,7 +85,7 @@ Se você deseja realizar a integração de dados com segurança em um ambiente d
 ### <a name="compute-resource-and-scaling"></a>Recurso de computação e dimensionamento
 O IR auto-hospedado precisa ser instalado em um computador local ou em uma máquina virtual dentro de uma rede privada. Atualmente, só há suporte para a execução do IR auto-hospedado em um sistema operacional Windows.  
 
-Para alta disponibilidade e escalabilidade, você pode expandir o IR auto-hospedado associando a instância lógica a vários computadores locais no modo ativo-ativo.  Para obter mais informações e detalhes, consulte o tópico correspondente nos guias de instruções, Como criar e configurar IR auto-hospedado.
+Para alta disponibilidade e escalabilidade, você pode expandir o IR auto-hospedado associando a instância lógica a vários computadores locais no modo ativo-ativo.  Para obter mais informações e detalhes, veja o artigo correspondente nos guias de instruções, Como criar e configurar IR auto-hospedado.
 
 ## <a name="azure-ssis-integration-runtime"></a>Integration Runtime do Azure-SSIS
 Para fazer lift-and-shift da carga de trabalho existente do SSIS, você pode criar um IR Azure-SSIS para executar pacotes do SSIS nativamente.
@@ -96,7 +96,7 @@ O IR Azure-SSIS pode ser provisionado na rede pública ou na rede privada.  Há 
 ### <a name="compute-resource-and-scaling"></a>Recurso de computação e dimensionamento
 O IR do SSIS do Azure é um cluster totalmente gerenciado das VMs do Azure dedicado para executar os pacotes de SSIS. Você pode colocar seu próprio servidor do Banco de Dados SQL do Azure ou Instância Gerenciada (versão prévia privada) para hospedar o catálogo de projetos/pacotes do SSIS (SSISDB) que será anexado a ele. Você pode aumentar a potência de computação especificando o tamanho do nó e escalá-la horizontalmente especificando o número de nós no cluster. Você pode gerenciar o custo da execução do Integration Runtime do Azure SSIS, parando-o e iniciando-o como considerar adequado.
 
-Para obter mais informações, consulte o tópico Como criar e configurar IR do Azure-SSIS, encontrado nos guias de instruções.  Depois de criado, você pode implantar e gerenciar seus pacotes SSIS existentes com pouca ou nenhuma alteração usando ferramentas familiares, como o SSDT (SQL Server Data Tools) e o SSMS (SQL Server Management Studio), assim como usando o SSIS localmente.
+Para saber mais, veja o artigo sobre como criar e configurar IR do Azure-SSIS, encontrado nos guias de instruções.  Depois de criado, você pode implantar e gerenciar seus pacotes SSIS existentes com pouca ou nenhuma alteração usando ferramentas familiares, como o SSDT (SQL Server Data Tools) e o SSMS (SQL Server Management Studio), assim como usando o SSIS localmente.
 
 Confira estes artigos para obter mais informações sobre o tempo de execução do Azure-SSIS: 
 
@@ -123,7 +123,7 @@ O diagrama a seguir mostra duas amostras de atividade de cópia:
 ![Qual IR usar](media/concepts-integration-runtime/which-integration-runtime-to-use.png)
 
 ## <a name="integration-runtime-location"></a>Localização do Integration Runtime
-É na localização do Data Factory que os metadados do data factory são armazenados e é dela que o disparo do pipeline é iniciado. Atualmente, as localizações do Data Factory com suporte são: Leste dos EUA, Leste dos EUA 2. No entanto, uma fábrica de dados pode acessar repositórios de dados e serviços de computação em outras regiões do Azure para mover dados entre repositórios de dados ou processar dados usando serviços de computação. Esse comportamento é realizado por meio do IR disponível globalmente em várias regiões para garantir conformidade de dados, eficiência e custos de saída de rede reduzidos.
+É na localização do Data Factory que os metadados do data factory são armazenados e é dela que o disparo do pipeline é iniciado. Atualmente, as localizações do Data Factory com suporte são: Leste dos EUA, Leste dos EUA 2 e Europa Ocidental. No entanto, uma fábrica de dados pode acessar repositórios de dados e serviços de computação em outras regiões do Azure para mover dados entre repositórios de dados ou processar dados usando serviços de computação. Esse comportamento é realizado por meio do IR disponível globalmente em várias regiões para garantir conformidade de dados, eficiência e custos de saída de rede reduzidos.
 
 A localização do IR define a localização da respectiva computação de back-end e, essencialmente, a localização em que a movimentação de dados, a expedição de atividades e a execução de pacotes SSIS são executadas. A localização de IR pode ser diferente da localização do data factory ao qual ele pertence. O diagrama a seguir mostra as configurações de localização de data factory e os respectivos tempos de execução de integração:
 
@@ -155,8 +155,8 @@ Austrália | Leste da Austrália | Leste da Austrália
 &nbsp; | Sudeste da Austrália | Sudeste da Austrália
 Japão | Leste do Japão | Leste do Japão
 &nbsp; | Oeste do Japão | Leste do Japão
-Coreia | Coreia Central | Sul da Coreia
-&nbsp; | Sul da Coreia | Sul da Coreia
+Coreia | Coreia Central | Coreia Central
+&nbsp; | Sul da Coreia | Coreia Central
 Índia | Índia Central | Índia Central
 &nbsp; | Índia Ocidental | Índia Central
 &nbsp; | Sul da Índia | Índia Central

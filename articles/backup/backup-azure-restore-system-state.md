@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/18/2017
 ms.author: saurse;trinadhk;markgal;
-ms.openlocfilehash: 320c85f8045d9b72cf7f430d2e2736ba8e5ec269
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 971f7979ca27bce5d147a9d479248c808dc658e3
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="restore-system-state-to-windows-server"></a>Restaurar o Estado do Sistema para Windows Server
 
-Este artigo explica como restaurar backups de estado do sistema do Windows Server de um cofre de Serviços de Recuperação do Azure. Para restaurar o estado do sistema, você deve ter um backup de estado do sistema (criado usando as instruções em [Backup de estado do sistema](backup-azure-system-state.md#back-up-windows-server-system-state-preview)) e certifique-se de ter instalado a [versão mais recente do agente do Serviços de Recuperação do Microsoft Azure (MARS)](http://aka.ms/azurebackup_agent). Recuperar dados de estado do sistema do Windows Server de um cofre de serviços de recuperação do Azure é um processo de duas etapas:
+Este artigo explica como restaurar backups de estado do sistema do Windows Server de um cofre de Serviços de Recuperação do Azure. Para restaurar o Estado do Sistema, você deve ter um backup de Estado do Sistema (criado usando as instruções em [Fazer backup do Estado do Sistema](backup-azure-system-state.md#back-up-windows-server-system-state)) e ter instalado a [última versão do agente do MARS (Serviços de Recuperação do Microsoft Azure)](http://aka.ms/azurebackup_agent). Recuperar dados de estado do sistema do Windows Server de um cofre de serviços de recuperação do Azure é um processo de duas etapas:
 
 1. Restaure o estado do sistema como arquivos de Backup do Azure. Ao restaurar o estado do sistema como arquivos de Backup do Azure, você pode:
   * Restaurar o estado do sistema para o mesmo servidor em que os backups foram realizados, ou

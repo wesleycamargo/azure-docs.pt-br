@@ -4,6 +4,8 @@
   items:
     - name: Sobre a Grade de Eventos
       href: overview.md
+    - name: Comparar serviços de mensagem
+      href: compare-messaging-services.md
 - name: Guia de início rápido
   items:
     - name: Rotear eventos de armazenamento do Blob - CLI do Azure
@@ -44,6 +46,15 @@
       href: subscription-creation-schema.md
     - name: Esquema do evento
       href: event-schema.md
+      items:
+        - name: Assinaturas do Azure
+          href: event-schema-subscriptions.md
+        - name: Armazenamento de blob
+          href: event-schema-blob-storage.md
+        - name: Hubs de Eventos
+          href: event-schema-event-hubs.md
+        - name: Grupos de recursos
+          href: event-schema-resource-groups.md
 - name: Recursos
   items:
     - name: Roteiro do Azure

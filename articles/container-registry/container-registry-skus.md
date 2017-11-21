@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/16/2017
 ms.author: stevelas
-ms.openlocfilehash: 630bc088fcb6d3c7e5bb3a9713107c3fb6653ec6
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: dae97084bdaab77efd38169cdf7e70c827b0b5ab
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-container-registry-skus"></a>SKUs do Registro de Contêiner do Azure
 
@@ -43,21 +43,7 @@ A SKU de registro Clássico permitiu a versão inicial do serviço Registro de C
 
 A tabela a seguir fornece detalhes sobre os recursos e os limites das camadas de serviço Básico, Standard e Premium.
 
-| Recurso | Basic | Standard | Premium |
-|---|---|---|---|---|
-| Armazenamento | 10 GiB | 100 GiB| 500 GiB |
-| ReadOps por minuto<sup>1, 2</sup> | 1 K | 300 K | 10.000 K |
-| WriteOps por minuto<sup>1, 3</sup> | 100 | 500 | 2 K |
-| MBps de largura de banda de download<sup>1</sup> | 30 | 60 | 100 |
-| MBps de largura de banda de upload<sup>1</sup> | 10 | 20 | 50 |
-| Webhooks | 2 | 10 | 100 |
-| Replicação geográfica | N/D | N/D | [Com suporte *(versão prévia)*](container-registry-geo-replication.md) |
-
-<sup>1</sup> *ReadOps*, *WriteOps* e *Largura de banda* são estimativas mínimas. O ACR se esforça para melhorar o desempenho conforme os requisitos de uso.
-
-<sup>2</sup> [docker pull](https://docs.docker.com/registry/spec/api/#pulling-an-image) se traduz em várias operações de leitura com base no número de camadas na imagem, além da recuperação do manifesto.
-
-<sup>3</sup> [docker push](https://docs.docker.com/registry/spec/api/#pushing-an-image) se traduz em várias operações de gravação com base no número de camadas que devem ser enviadas por push. Um `docker push` inclui *ReadOps* para recuperar um manifesto para uma imagem existente.
+[!INCLUDE [container-instances-limits](../../includes/container-registry-limits.md)]
 
 ## <a name="manage-registry-size"></a>Gerenciar o tamanho do registro
 As restrições de armazenamento de cada SKU devem se alinhar com um cenário típico: Básico para introdução, Standard para a maioria dos aplicativos de produção e Premium para o desempenho de hiperescala e [georeplicação](container-registry-geo-replication.md). Durante a vida útil do registro, você deve gerenciar o tamanho periodicamente excluindo conteúdo não utilizado.

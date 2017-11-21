@@ -36,12 +36,19 @@
 ### [Portal do Azure](how-to-routefilter-portal.md)
 ### [PowerShell do Azure](how-to-routefilter-powershell.md)
 ### [CLI do Azure](how-to-routefilter-cli.md)
+## [Mover do emparelhamento público para o emparelhamento da Microsoft](how-to-move-peering.md)
 ## [Mover um circuito do clássico para o Gerenciador de Recursos](expressroute-howto-move-arm.md)
 ## [Migrar redes virtuais associadas do clássico para o Gerenciador de recursos](expressroute-migration-classic-resource-manager.md)
 ## Configurar um roteador para o ExpressRoute
 ### [Configurar um roteador](expressroute-config-samples-routing.md)
 ### [Exemplos de configuração de roteador para NAT](expressroute-config-samples-nat.md)
 ## [Configurar o Monitor de Desempenho de Rede para ExpressRoute](how-to-npm.md)
+## Artigos do modelo de implantação clássica
+### [Modificar um circuito](expressroute-howto-circuit-classic.md)
+### [Criar e modificar a configuração de emparelhamento](expressroute-howto-routing-classic.md)
+### [Vincular uma rede virtual a um circuito de ExpressRoute](expressroute-howto-linkvnet-classic.md)
+### [Configurar conexões coexistentes do ExpressRoute e S2S](expressroute-howto-coexist-classic.md)
+### [Adicionar um gateway a uma VNet](expressroute-howto-add-gateway-classic.md)
 
 ## Práticas Recomendadas
 ### [Práticas recomendadas para segurança de rede e serviços de nuvem](../best-practices-network-security.md)

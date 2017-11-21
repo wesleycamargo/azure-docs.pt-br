@@ -1,3 +1,0 @@
->[!NOTE]  
->Depois de instalar ou fazer upgrade para o Visual Studio 2017 versão 15.3, você deve atualizar manualmente as ferramentas do Visual Studio 2017 para Azure Functions. Estas etapas adicionais não são obrigatórias quando você instala ou atualiza para a versão 15.4 ou uma versão posterior.  
-Você pode atualizar as ferramentas no menu **Ferramentas**, em **Extensões e atualizações...** > **Atualizações** > **Visual Studio Marketplace** > **Ferramentas Azure Functions e Trabalhos da Web** > **Atualizar**. 

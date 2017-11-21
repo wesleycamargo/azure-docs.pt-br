@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/23/2017
 ms.author: joflore
-ms.reviewer: alexwe
+ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: bf758d1241f2a56eba4d5c92ace713d6e563df65
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3d1e8d62127a3c5c888804278fbcd9a4fe81e33f
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="enable-mobile-app-authentication-with-azure-multi-factor-authentication-server"></a>Habilitar a autenticação de aplicativo móvel com o Servidor de Autenticação Multifator do Azure
 
@@ -42,7 +42,7 @@ Para usar o aplicativo Microsoft Authenticator e para que ele se comunique com �
 * Instalar o SDK de Serviço Web da Autenticação Multifator do Azure no IIS 7.x ou superior no **mesmo servidor do Servidor de Autenticação Multifator do Azure**
 * O SDK de Serviço Web da Autenticação Multifator do Azure está protegido com um certificado SSL.
 * O Serviço Web do Aplicativo Móvel pode conectar-se ao SDK de Serviço Web da Autenticação Multifator do Azure por SSL
-* O Serviço Web do Aplicativo Móvel pode autenticar-se no SDK de Serviço Web da MFA do Azure usando as credenciais de uma conta de serviço que seja membro do grupo de segurança "Administradores de PhoneFactor". Essa conta de serviço e o grupo existem no Active Directory se o Servidor de Autenticação Multifator do Azure está em um servidor ingressado em domínio. Essa conta de serviço e o grupo existem localmente no Servidor Azure Multi-Factor Authentication se ele não tiver ingressado em um domínio.
+* O Serviço Web do Aplicativo Móvel pode autenticar-se no SDK de Serviço Web da MFA do Azure usando as credenciais de uma conta de serviço que seja membro do grupo de segurança "Administradores de PhoneFactor". Essa conta de serviço e o grupo existem no Active Directory se o Servidor de Autenticação Multifator do Azure está em um servidor ingressado em domínio. Essa conta de serviço e o grupo existem localmente no Servidor de Autenticação Multifator do Azure se ele não tiver ingressado em um domínio.
 
 ## <a name="install-the-mobile-app-web-service"></a>Instalar o Serviço Web de Aplicativos Móveis
 
@@ -72,7 +72,7 @@ O SDK de Serviço Web deve ser protegido com um certificado SSL. Um certificado 
 ### <a name="install-the-service"></a>Instalar o serviço
 
 1. **No Servidor MFA**, navegue até o caminho de instalação.
-2. Navegue até a pasta onde o Servidor MFA do Azure está instalado. O padrão é **C:\Program Files\Azure multi-Factor Authentication**.
+2. Navegue até a pasta onde o Servidor MFA do Azure está instalado. O padrão é **C:\Program Files\Autenticação Multifator do Azure**.
 3. Localize o arquivo de instalação **MultiFactorAuthenticationMobileAppWebServiceSetup64**. Se o servidor **não** estiver voltado para a Internet, copie o arquivo de instalação para o servidor voltado para a Internet.
 4. Se o Servidor MFA **não** estiver voltado para a Internet, alterne para um **servidor voltado para a Internet**.
 5. Execute o arquivo de instalação **MultiFactorAuthenticationMobileAppWebServiceSetup64** como administrador, mude o site, se desejar, e encurte o nome do diretório virtual, se desejar.
@@ -89,9 +89,9 @@ O SDK de Serviço Web deve ser protegido com um certificado SSL. Um certificado 
 7. Se o site em que o Serviço Web do Aplicativo Móvel foi instalado ainda não tiver sido associado com um certificado assinado publicamente, instale o certificado no servidor, abra o Gerenciador do IIS e associe o certificado ao site.
 8. Abra um navegador da web em qualquer computador e navegue até a URL onde o Serviço Web do Aplicativo Móvel foi instalado (por exemplo, https://mfa.contoso.com/MultiFactorAuthMobileAppWebService). Certifique-se de que nenhum aviso de certificado ou erro seja exibido.
 
-## <a name="configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server"></a>Configurar as definições do aplicativo móvel no Servidor Azure Multi-Factor Authentication
+## <a name="configure-the-mobile-app-settings-in-the-azure-multi-factor-authentication-server"></a>Configurar as definições do aplicativo móvel no Servidor de Autenticação Multifator do Azure
 
-Agora que o Serviço Web de Aplicativos Móveis está instalado, você precisa configurar o Servidor Azure Multi-Factor Authentication para trabalhar com o portal.
+Agora que o Serviço Web de Aplicativos Móveis está instalado, você precisa configurar o Servidor de Autenticação Multifator do Azure para trabalhar com o portal.
 
 1. No console do Servidor de Autenticação Multifator, clique no ícone Portal do Usuário. Se os usuários têm permissão para controlar seus métodos de autenticação, marque **Aplicativo Móvel** na guia Configurações, em **Permitir que usuários selecionem o método**. Sem esse recurso habilitado, os usuários finais precisam entrar em contato com o Suporte Técnico para concluir a ativação para Aplicativos Móveis.
 2. Marque a caixa **Permitir que usuários ativem o aplicativo móvel**.

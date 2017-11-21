@@ -90,6 +90,7 @@
 ## Referência
 ### [Notas de versão](active-directory-b2c-developer-notes-custom.md)
 ### [Provedores de sessão SSO](active-directory-b2c-reference-sso-custom.md)
+### [Personalização de linguagem](active-directory-b2c-language-customization-custom.md)
 ### [Definição da Estrutura Confiável](active-directory-b2c-reference-trustframeworks-defined-ief-custom.md) 
 
 # Referência

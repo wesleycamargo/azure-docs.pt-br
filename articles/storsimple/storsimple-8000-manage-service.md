@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/04/2017
 ms.author: alkohli
-ms.openlocfilehash: 51db9539451afafe7eddaaeef0e02328431611de
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 2d6c1737edbc4e69dd7de4c8ce3d7b0899bfae51
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Implantar o serviço do Gerenciador de Dispositivos do StorSimple para dispositivos StorSimple da série 8000
 
@@ -74,7 +74,7 @@ Analise o impacto da migração para o novo Portal do Azure antes de mover o ser
 
 #### <a name="before-you-transition"></a>Antes da transição
 
-* Seu dispositivo executa a Atualização 3.0 ou posterior. Se seu dispositivo executar uma versão mais antiga, instale as atualizações mais recentes. Para obter mais informações, acesse [Instalar a Atualização 5](storsimple-8000-install-update-5.md). Se você estiver usando um Dispositivo de Nuvem StorSimple (8010/8020), você não poderá atualizar um dispositivo de nuvem. Use a versão mais recente do software para criar um novo dispositivo de nuvem com Atualização 5.0 e, em seguida, faça failover para o novo dispositivo de nuvem criado.
+* Seu dispositivo executa a Atualização 3.0 ou posterior. Se seu dispositivo estiver executando uma versão mais antiga, recomendamos que você instale a Atualização 5 por meio do método de hotfix. Para saber mais, vá para [Instalar a Atualização 5](storsimple-8000-install-update-5.md). Se você estiver usando um Dispositivo de Nuvem StorSimple (8010/8020), você não poderá atualizar um dispositivo de nuvem. Use a versão mais recente do software para criar um novo dispositivo de nuvem com Atualização 5.0 e, em seguida, faça failover para o novo dispositivo de nuvem criado.
 
 * Depois de realizar a transição para o novo Portal do Azure, não será possível usar o Portal Clássico do Azure para gerenciar seu dispositivo StorSimple.
 

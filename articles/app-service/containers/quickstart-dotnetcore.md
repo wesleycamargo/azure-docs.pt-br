@@ -4,7 +4,7 @@ description: "Implante seu primeiro aplicativo .NET Core Olá, Mundo no Serviço
 keywords: "serviço de aplicativo do azure, aplicativo web, dotnet, core, linux, oss"
 services: app-service
 documentationCenter: 
-authors: cephalin
+author: cephalin
 manager: syntaxc4
 editor: 
 ms.assetid: c02959e6-7220-496a-a417-9b2147638e2e
@@ -16,11 +16,11 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 3565f6e7cc4dcc2d075cdf594ce03d1b0a26d56b
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 2a8000cadd6f6d7204e1790df62443a7ac7598c9
+ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="create-a-net-core-web-app-in-app-service-on-linux"></a>Criar um aplicativo Web .NET Core no Serviço de Aplicativo no Linux
 
@@ -87,19 +87,15 @@ git commit -m "first commit"
 
 ## <a name="create-a-web-app-with-built-in-image"></a>Criar um aplicativo Web com imagem interna
 
-Crie um [aplicativo Web](../app-service-web-overview.md) no plano do Serviço de Aplicativo do `myAppServicePlan` com o comando [az webapp create](/cli/azure/webapp#create). Não se esqueça de substituir `<app name>` por um nome exclusivo do aplicativo.
+[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-dotnetcore-no-h.md)]
 
-O tempo de execução no comando a seguir é definido como `DOTNETCORE|1.1`. Para ver todos os tempos de execução com suporte, execute [az webapp list-runtimes](/cli/azure/webapp#list-runtimes).
+Navegue até o aplicativo Web recém-criado. Substitua _&lt;nome do aplicativo>_ por um nome exclusivo do aplicativo.
 
-```azurecli-interactive
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app name> --runtime "DOTNETCORE|1.1" --deployment-local-git
+```bash
+http://<app name>.azurewebsites.net
 ```
 
-[!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-result.md)]
-
 ![Página de aplicativo Web vazia](media/quickstart-dotnetcore/dotnet-browse-created.png)
-
-Você criou um novo aplicativo Web vazio com imagem interna, com a implantação do Git habilitada.
 
 [!INCLUDE [Push to Azure](../../../includes/app-service-web-git-push-to-azure.md)] 
 
@@ -144,7 +140,7 @@ O código de exemplo do Node.js está em execução em um aplicativo Web com ima
 
 ![Aplicativo de exemplo em execução no Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
-**Parabéns!** Você implantou seu primeiro aplicativo do Node.js no Serviço de Aplicativo no Linux.
+**Parabéns!** Você implantou seu primeiro aplicativo Node.js no Serviço de Aplicativo no Linux.
 
 ## <a name="update-and-redeploy-the-code"></a>Atualizar e reimplantar o código
 

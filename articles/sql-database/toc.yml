@@ -200,9 +200,9 @@
     - name: SaaS multilocatário
       items:
         - name: Padrões de design do SaaS
-          href: sql-database-design-patterns-multi-tenancy-saas-applications.md
+          href: saas-tenancy-app-design-patterns.md
         - name: Segurança de aplicativo de SaaS
-          href: sql-database-elastic-tools-multi-tenant-row-level-security.md
+          href: saas-tenancy-elastic-tools-multi-tenant-row-level-security.md
     - name: Desenvolver bancos de dados
       items:
         - name: Dados JSON
@@ -309,6 +309,8 @@
           href: sql-database-troubleshoot-common-connection-issues.md
         - name: Automação do Azure
           href: sql-database-manage-automation.md
+        - name: Monitorar Sincronização de Dados SQL com o Log Analytics do OMS
+          href: sql-database-sync-monitor-oms.md
         - name: Práticas recomendadas para a Sincronização de Dados SQL
           href: sql-database-best-practices-data-sync.md
         - name: Solucionar problemas da Sincronização de Dados SQL
@@ -335,24 +337,47 @@
           href: sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md
     - name: SaaS multilocatário
       items:
-        - name: Tutorial de introdução
-          href: sql-database-wtp-overview.md
-        - name: Implantação do aplicativo de exemplo
-          href: sql-database-saas-tutorial.md
-        - name: Locatários da provisão
-          href: sql-database-saas-tutorial-provision-and-catalog.md
-        - name: Como monitorar o desempenho do banco de dados
-          href: sql-database-saas-tutorial-performance-monitoring.md
-        - name: Como monitorar com o Log Analytics
-          href: sql-database-saas-tutorial-log-analytics.md
-        - name: Como restaurar locatário único
-          href: sql-database-saas-tutorial-restore-single-tenant.md
-        - name: Como gerenciar esquemas de locatário
-          href: sql-database-saas-tutorial-schema-management.md
-        - name: Como executar consultas ad hoc
-          href: sql-database-saas-tutorial-adhoc-analytics.md
-        - name: ETL para análise
-          href: sql-database-saas-tutorial-tenant-analytics.md
+        - name: Bem-vindo ao Wingtips
+          href: saas-tenancy-welcome-wingtip-tickets-app.md
+        - name: Aplicativo autônomo
+          items:
+            - name: Implantação do aplicativo de exemplo
+              href: saas-standaloneapp-get-started-deploy.md
+        - name: Banco de dados por locatário
+          href: saas-dbpertenant-wingtip-app-overview.md
+          items:
+            - name: Tutorial de introdução
+              href: saas-dbpertenant-wingtip-app-overview.md
+            - name: Diretrizes do aplicativo
+              href: saas-dbpertenant-wingtip-app-guidance-tips.md
+            - name: Implantação do aplicativo de exemplo
+              href: saas-dbpertenant-get-started-deploy.md
+            - name: Locatários da provisão
+              href: saas-dbpertenant-provision-and-catalog.md
+            - name: Como monitorar o desempenho do banco de dados
+              href: saas-dbpertenant-performance-monitoring.md
+            - name: Como monitorar com o Log Analytics
+              href: saas-dbpertenant-log-analytics.md
+            - name: Restaurar um locatário
+              href: saas-dbpertenant-restore-single-tenant.md
+            - name: Como gerenciar esquemas de locatário
+              href: saas-tenancy-schema-management.md
+            - name: Como executar consultas ad hoc
+              href: saas-tenancy-adhoc-analytics.md
+            - name: ETL para análise
+              href: saas-tenancy-tenant-analytics.md
+        - name: Banco de dados multilocatário
+          items:
+            - name: Implantação do aplicativo de exemplo
+              href: saas-multitenantdb-get-started-deploy.md
+            - name: Locatários da provisão
+              href: saas-multitenantdb-provision-and-catalog.md
+            - name: Como monitorar o desempenho do banco de dados
+              href: saas-multitenantdb-performance-monitoring.md
+            - name: Como executar consultas ad hoc
+              href: saas-multitenantdb-adhoc-reporting.md
+            - name: Como gerenciar esquemas de locatário
+              href: saas-multitenantdb-schema-management.md
     - name: Desenvolver aplicativos
       items:
         - name: C e C ++

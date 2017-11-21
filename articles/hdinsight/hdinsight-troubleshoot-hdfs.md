@@ -13,19 +13,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 7/7/2017
+ms.date: 11/2/2017
 ms.author: arijitt
-ms.openlocfilehash: 58f3d160c1f2a32025b706f10863e0055d67bfcd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7c9d555130d806728f9d3a82f49e81b18c1e5125
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="troubleshoot-hdfs-by-using-azure-hdinsight"></a>Solucionar problemas do HDFS usando o Azure HDInsight
 
 Saiba mais sobre os principais problemas e suas resoluções ao trabalhar com o conteúdo HDFS (Sistema de Arquivos Distribuído Hadoop) no Apache Ambari.
 
-## <a name="how-do-i-access-local-hdfs-from-inside-a-cluster"></a>Como fazer para acessar o HDFS local de dentro de um cluster
+## <a name="how-do-i-access-local-hdfs-from-inside-a-cluster"></a>Como fazer para acessar o HDFS local de dentro de um cluster?
 
 ### <a name="issue"></a>Problema
 
@@ -79,7 +79,7 @@ Acesse o HDFS local da linha de comando e do código do aplicativo em vez de usa
     ```
 
 
-## <a name="how-do-i-force-disable-hdfs-safe-mode-in-a-cluster"></a>Como forçar a desabilitação do modo de segurança de HDFS em um cluster
+## <a name="how-do-i-force-disable-hdfs-safe-mode-in-a-cluster"></a>Como fazer para forçar a desabilitação do modo de segurança do HDFS em um cluster?
 
 ### <a name="issue"></a>Problema
 
@@ -232,3 +232,6 @@ O cluster HDInsight foi reduzido para pouquíssimos nós. O número de nós est�
     ```apache
     hdfs dfsadmin -D "fs.default.name=hdfs://mycluster/" -safemode leave
     ```
+
+### <a name="see-also"></a>Consulte também
+[Solucionar problemas usando o Azure HDInsight](hdinsight-troubleshoot-guide.md)

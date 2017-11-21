@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: sngun
-ms.openlocfilehash: ae489cfab1effca8fa33c4e2693b8b5229eda9c5
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: f45b65c1cb16a79a44e873e3e001e0f5c12a8e37
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="install-powershell-for-azure-stack"></a>Instale o PowerShell para a pilha do Azure  
 
@@ -82,7 +82,7 @@ Para confirmar a instalação, execute o seguinte comando:
 
 ## <a name="install-powershell-in-a-disconnected-or-in-a-partially-connected-scenario"></a>Instale o PowerShell em um desconectado ou em um cenário parcialmente conectado
 
-Em um cenário desconectado, primeiro baixar os módulos do PowerShell para um computador que tenha conectividade com a internet e, em seguida, transferi-los para o Kit de desenvolvimento de pilha do Azure para instalação.
+Em um cenário parcialmente conectado ou desconectado, você deve primeiro baixar os módulos do PowerShell para um computador que tenha conectividade com a internet e transferi-los para o Kit de desenvolvimento de pilha do Azure para instalação.
 
 > [!IMPORTANT]
 > A versão do módulo do PowerShell AzureRM 1.2.11 vem com uma lista de alterações significativas. Para atualizar a partir de 1.2.10 versão, consulte o guia de migração em [https://aka.ms/azspowershellmigration](https://aka.ms/azspowershellmigration).

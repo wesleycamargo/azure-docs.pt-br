@@ -12,11 +12,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: mbullwin
-ms.openlocfilehash: ea6e6c4044a0163ae36d6790755b67c5066251a8
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: e821a640d3d75e712c022bd681eb07b83da91911
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlação de telemetria no Application Insights
 
@@ -81,7 +81,7 @@ Aparência dos modelos de dados de [Rastreamento Aberto](http://opentracing.io/)
 - `dependency` mapeia para **Span** com `span.kind = client`
 - `id` de um `request` e `dependency` mapeia para **Span.Id**
 - `operation_Id` mapeia para **TraceId**
-- `operation_ParentId` mapeia para **Reference** do tipo `ChileOf`
+- `operation_ParentId` mapeia para **Reference** do tipo `ChildOf`
 
 Consulte [modelo de dados](application-insights-data-model.md) para modelo de dados e tipos do Application Insights.
 

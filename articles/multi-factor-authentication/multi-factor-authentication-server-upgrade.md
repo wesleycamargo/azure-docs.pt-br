@@ -3,7 +3,7 @@ title: "Atualização do Servidor do Azure MFA | Microsoft Docs"
 description: "Etapas e diretrizes para atualizar o Servidor de Autenticação Multifator do Azure para uma versão mais nova."
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 ms.assetid: 50bb8ac3-5559-4d8b-a96a-799a74978b14
 ms.service: multi-factor-authentication
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
-ms.author: kgremban
-ms.reviewer: yossib
+ms.author: joflore
+ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 3a2fb7413fa1391969d00ad281fd1ade3e0f40a8
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: a56078fcd61114d0ca78e2dd00445c988a8a3c6c
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="upgrade-to-the-latest-azure-multi-factor-authentication-server"></a>Atualizar para o último Servidor de Autenticação Multifator do Azure
 
@@ -30,11 +30,11 @@ Se estiver atualizando da v6.x ou anterior para a v7.x ou mais nova, todos os co
 ## <a name="install-the-latest-version-of-azure-mfa-server"></a>Instalar a última versão do Servidor do Azure MFA
 
 1. Use as instruções descritas em [Baixar o Servidor de Autenticação Multifator do Azure](multi-factor-authentication-get-started-server.md#download-the-mfa-server) para obter a última versão do Servidor do Azure MFA.
-2. Faça um backup do arquivo de dados do Servidor MFA localizado em C:\Program Files\Multi-Factor Authentication Server\Data\PhoneFactor.pfdata (considerando o local de instalação padrão) no Servidor mestre do MFA.
+2. Faça um backup do arquivo de dados do Servidor MFA localizado em C:\Program Files\Servidor de Autenticação Multifator\Data\PhoneFactor.pfdata (considerando o local de instalação padrão) no Servidor mestre do MFA.
 3. Se você executar vários servidores para alta disponibilidade, altere os sistemas cliente que se autenticam no Servidor MFA, para que eles interrompam o envio de tráfego para os servidores que estão sendo atualizados. Se você usar um balanceador de carga, remova um Servidor MFA do balanceador de carga, faça a atualização e, em seguida, adicione o servidor novamente ao farm.
 4. Execute o novo instalador em cada Servidor MFA. Atualize os servidores subordinados primeiro, pois eles poderão ler o arquivo de dados antigo que está sendo replicado pelo mestre. 
 
-  Não é necessário desinstalar o Servidor MFA atual antes de executar o instalador. O instalador executa uma atualização in-loco. O caminho de instalação é obtido do Registro da instalação anterior, para que ele seja instalado no mesmo local (por exemplo, C:\Program Files\Multi-Factor Authentication Server). 
+  Não é necessário desinstalar o Servidor MFA atual antes de executar o instalador. O instalador executa uma atualização in-loco. O caminho de instalação é obtido do Registro da instalação anterior, para que ele seja instalado no mesmo local (por exemplo, C:\Program Files\Servidor de Autenticação Multifator). 
   
 5. Se você for solicitado a instalar uma atualização dos Pacotes Redistribuíveis do Microsoft Visual C++ 2015, aceite o prompt. As versões x86 e x64 do pacote são instaladas.
 5. Se você usar o SDK do serviço Web, precisará instalar o novo SDK do serviço Web. Ao instalar o novo SDK do Serviço Web, verifique se o nome do diretório virtual corresponde ao diretório virtual instalado anteriormente (por exemplo, MultiFactorAuthWebServiceSdk).

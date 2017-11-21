@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 10/24/2017
 ms.author: marsma
 ms.custom: 
-ms.openlocfilehash: 749a536fea50d0f45b021cfeaffe8e493faa9b3f
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 90d4b51dfaad409298f72887480dfaf827aef9f0
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="deploy-web-app-from-azure-container-registry"></a>Implantar aplicativo Web do Registro de Contêiner do Azure
 
@@ -36,7 +36,7 @@ Se você ainda não tiver criado um registro replicado geograficamente e enviado
 
 Na próxima parte da série, você atualiza o aplicativo e envia por push uma nova imagem de contêiner para o registro. Por fim, você navega até cada instância de Aplicativo Web em execução para ver a alteração automaticamente refletida em ambos, mostrando a replicação geográfica do Registro de Contêiner do Azure e webhooks em ação.
 
-## <a name="automatic-deployment-to-web-app-for-containers"></a>Implantação automática para o Aplicativo Web para Contêineres
+## <a name="automatic-deployment-to-web-apps-for-containers"></a>Implantação automática em Aplicativos Web para Contêineres
 
 O Registro de Contêiner do Azure oferece suporte para a implantação de aplicativos em contêineres diretamente para [Aplicativos Web para Contêineres](../app-service/containers/index.yml). Neste tutorial, você pode usar o portal do Azure para implantar a imagem de contêiner criada no tutorial anterior para dois planos de aplicativos Web localizados em diferentes regiões do Azure.
 
@@ -48,11 +48,11 @@ Nesta etapa, você cria uma instância de Aplicativo Web para Contêineres na re
 
 Entre no [portal do Azure](https://portal.azure.com) e navegue até o registro que você criou no tutorial anterior.
 
-Selecione **Repositórios** > **acr helloworld**, então clique com o botão direito do mouse na marca **v1** sob **Marcas** e selecione **Implantar para o serviço de aplicativo**.
+Selecione **Repositórios** > **acr-helloworld**, clique com o botão direito do mouse na marca **v1** em **Marcas** e selecione **Implantar no aplicativo Web**.
 
 ![Implantar no serviço de aplicativo no portal do Azure][deploy-app-portal-01]
 
-No **Aplicativo Web no Linux (versão prévia)** exibido, especifique os seguintes valores para cada configuração:
+No **Aplicativo Web para Contêineres** exibido, especifique os seguintes valores para cada configuração:
 
 | Configuração | Valor |
 |---|---|
@@ -71,7 +71,7 @@ Quando a implantação for concluída, você poderá exibir o aplicativo em exec
 
 No portal, selecione **Serviços de Aplicativos** e depois o aplicativo Web configurado na etapa anterior. Neste exemplo, o aplicativo Web é chamado de *uniqueregistryname-westus*.
 
-Selecione a URL do hiperlink do aplicativo Web na parte superior direita da **visão geral do Serviço de Aplicativo** para exibir o aplicativo em execução no seu navegador.
+Selecione a URL com hiperlink do aplicativo Web na parte superior direita da visão geral do **Serviço de Aplicativo** para exibir o aplicativo em execução no seu navegador.
 
 ![Aplicativo Web na configuração do Linux no portal do Azure][deploy-app-portal-04]
 
@@ -81,7 +81,7 @@ Depois que a imagem do Docker for implantada do seu registro de contêiner repli
 
 ## <a name="deploy-second-web-app-for-containers-instance"></a>Implantar a segunda instância de Aplicativo Web para Contêineres
 
-Use o procedimento descrito na seção anterior para implantar um segundo aplicativo Web para a região *Leste dos EUA*. Em **Aplicativo Web no Linux (versão prévia)**, especifique os seguintes valores:
+Use o procedimento descrito na seção anterior para implantar um segundo aplicativo Web para a região *Leste dos EUA*. Em **Aplicativo Web para Contêineres**, especifique os seguintes valores:
 
 | Configuração | Valor |
 |---|---|

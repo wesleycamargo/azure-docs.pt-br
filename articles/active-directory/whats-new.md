@@ -1,29 +1,37 @@
 ---
-title: Novidades no Azure Active Directory | Microsoft Docs
-description: "Use estas notas de versão para ficar a par das **versões mais recentes versões**, **problemas conhecidos**, **correções de bug**, **funcionalidades preteridas** e **planos de alterações** no Azure Active Directory."
+title: "O que há de novo? Notas de versão do Azure Active Directory | Microsoft Docs"
+description: "Saiba o que há de novo com o Azure AD (Azure Active Directory) incluindo as mais recentes notas de versão, problemas conhecidos, correções de bug, funcionalidades preteridas e alterações futuras."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
 manager: femila
 editor: 
+featureFlags: clicktale
 ms.assetid: 06a149f7-4aa1-4fb9-a8ec-ac2633b031fb
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 11/06/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 0361d5b48af876af2ccc522351484d369554bfca
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 766ab10c853eb56a1203686d21d0e131c44a41b5
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Novidades no Azure Active Directory
 
-Estamos constantemente aperfeiçoando o Azure Active Directory para você. Para que você esteja a par das últimas novidades do desenvolvimento, este tópico fornece informações sobre:
+
+
+
+> Mantenha-se atualizado com o que há de novo no Azure Active Directory assinando este [feed](https://docs.microsoft.com/api/search/rss?search=%22what%27s%20new%20in%20azure%20active%20directory%3F%22&locale=en-us) em seu leitor de feed RSS favorito.
+
+
+
+Estamos constantemente aperfeiçoando o Azure Active Directory. Para que você esteja a par das últimas novidades do desenvolvimento, este tópico fornece informações sobre:
 
 -   As versões mais recentes 
 -   Problemas conhecidos 
@@ -32,6 +40,18 @@ Estamos constantemente aperfeiçoando o Azure Active Directory para você. Para 
 -   Planos de alterações 
 
 Revisite esta página regularmente, pois estamos realizando atualizações mensalmente.
+
+## <a name="november-2017"></a>Novembro de 2017
+
+**Tipo:** funcionalidade preterida  
+**Categoria de serviço:** ACS  
+**Funcionalidade de produto:** Serviço de Controle de Acesso 
+
+<a name="acs-retirement"></a>
+
+O Serviço de Controle de Acesso do Microsoft Azure Active Directory (também conhecido como Serviço de Controle de Acesso ou ACS) será desativado no final de 2018.  Serão fornecidas mais informações, incluindo diretrizes sobre migração de alto nível e agenda detalhada, nas próximas semanas. Por enquanto, deixe comentários nesta página com dúvidas sobre o ACS e um membro da nossa equipe entrará em contato para ajudar a responder.
+
+---
 
 
 ## <a name="october-2017"></a>Outubro de 2017
@@ -76,6 +96,8 @@ No mundo em que vivemos, a MFA (Autenticação Multifator) é uma parte essencia
 
 Com essa visualização pública, os relatórios e gerenciamento de MFA são parte integrante da experiência de configuração do Azure AD central, permitindo gerenciar a funcionalidade do Portal de gerenciamento de MFA dentro a experiência do Azure AD.
 
+Para saber mais, veja [Referência para relatórios de autenticação multifator no portal do Azure](active-directory-reporting-activity-sign-ins-mfa.md) 
+
 
 ---
 **Tipo:** novo recurso  
@@ -112,8 +134,6 @@ Para saber mais, consulte [PIM para recursos do Azure](privileged-identity-manag
 **Categoria de serviço:** revisões de acesso  
 **Funcionalidade do produto:** governança  
 
-
-Novidades do Azure AD
 
 As revisões de acesso (versão prévia) permitem que as organizações gerenciem com eficiência as associações de grupos e o acesso a aplicativos corporativos: 
 

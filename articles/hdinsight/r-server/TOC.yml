@@ -20,8 +20,6 @@
       items:
         - name: Opções de armazenamento
           href: r-server-storage.md
-        - name: Instalar R Studio
-          href: r-server-install-r-studio.md
         - name: Contexto de computação
           href: r-server-compute-contexts.md
         - name: ScaleR e SparkR
@@ -116,9 +114,6 @@
           maintainContext: true
         - name: Autorizar usuários para o Ambari Views
           href: ../hdinsight-authorize-users-to-ambari.md
-          maintainContext: true
-        - name: Gerenciar permissões de usuário nos níveis de arquivo e de pasta
-          href: ../hdinsight-add-acls-at-file-folder-levels.md
           maintainContext: true
     - name: Gerenciar
       items:

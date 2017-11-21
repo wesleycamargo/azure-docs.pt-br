@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2017
 ms.author: aelnably
-ms.openlocfilehash: 903fbe376cb3d75eb5ddc1eed4838cd10f3c6a28
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: 54c979313a6ffa43008aa9870332b92d2b2f182a
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="manage-web-app-for-containers-using-azure-cli"></a>Gerenciar aplicativo Web para Contêineres usando a CLI do Azure
 
 Com os comandos apresentados neste artigo, é possível criar e gerenciar Aplicativo Web para Contêineres usando a CLI do Azure 2.0.
 Você pode começar a usar a nova versão da CLI de duas maneiras:
 
-* [Instalando a CLI do Azure 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli) em seu computador.
+* [Instalando a CLI do Azure 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) em seu computador.
 * Usando o [Azure Cloud Shell (versão prévia)](../../cloud-shell/overview.md)
 
 ## <a name="create-a-linux-app-service-plan"></a>Criar um Plano do Serviço de Aplicativo do Linux
@@ -104,7 +104,7 @@ az webapp deployment source config -n sname -g rgname --repo-url <gitrepo url> -
 ## <a name="next-steps"></a>Próximas etapas
 
 * [O que é o Serviço de Aplicativo do Azure no Linux?](app-service-linux-intro.md)
-* [Instalar a CLI 2.0 do Azure](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli)
+* [Instalar a CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
 * [Azure Cloud Shell (versão prévia)](../../cloud-shell/overview.md)
 * [Configurar ambientes de preparo no Serviço de Aplicativo do Azure](../../app-service/web-sites-staged-publishing.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json)
 * [Implantação Contínua com o Aplicativo Web para Contêineres](app-service-linux-ci-cd.md)

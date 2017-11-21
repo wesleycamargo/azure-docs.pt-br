@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 53075d20aff073ff46dcd6dccaefea5fc8ec3483
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 14c565bb67480681e1d398a0a21a11448f405e4e
+ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/07/2017
 ---
 # <a name="password-management-frequently-asked-questions"></a>Perguntas frequentes sobre gerenciamento de senhas
 
@@ -176,6 +176,11 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
   > **R:** O tempo de vida da sessão para a redefinição de senha é de 15 minutos. Desde o início da operação de redefinição de senha, o usuário tem 15 minutos para redefinir sua senha. A senha de uso único por email e SMS perde a validade depois que esse período de tempo expira.
   >
   >
+* **P: Posso impedir os usuários de redefinirem sua senha?**
+
+  > **R:** Sim, se você estiver usando um grupo para habilitar a redefinição de senha de autoatendimento poderá removê-los do grupo que permite essa capacidade.
+  >
+  >
 
 ## <a name="password-change"></a>Alteração de senha
 
@@ -187,6 +192,11 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
 * **P: meus usuários podem ser notificados no Portal do Office quando uma senha local expirar?**
 
   > **R:** isso é possível no momento se você está usando o ADFS, seguindo as instruções aqui: [Enviando declarações de política de senha com o ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-ad-fs-to-send-password-expiry-claims?f=255&MSPPError=-2147217396). Se você está usando a sincronização de hash de senha, isso não é possível atualmente. Isso ocorre porque nós não sincronizamos políticas de senha locais e, portanto, não é possível postar as notificações de expiração para experiências de nuvem. Em ambos os casos, também é possível [notificar os usuários cujas senhas estejam prestes a expirar usando o PowerShell](https://social.technet.microsoft.com/wiki/contents/articles/23313.notify-active-directory-users-about-password-expiry-using-powershell.aspx).
+  >
+  >
+* **P: Posso impedir os usuários de alterem sua senha?**
+
+  > **R:** Para usuários somente em nuvem, isso não pode ser impedido. Para usuários locais, você pode definir `User cannot change password` como marcado e esses usuários não poderão alterar sua senha.
   >
   >
 

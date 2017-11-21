@@ -9,11 +9,11 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 669fc7a9ec5dfb446ef2755919c498fe6f60c9df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5ef1589e28c01d750641873d3c8482f61d90a887
+ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 10/27/2017
 ---
 # <a name="document-collection-analysis"></a>Análise da coleção de documentos
 
@@ -102,7 +102,7 @@ Os arquivos neste exemplo são organizados da seguinte maneira.
 
 | Nome do Arquivo | Tipo | Descrição |
 |-----------|------|-------------|
-| `aml_config` | Pasta | Pasta de configuração do Azure Machine Learning Workbench, consulte [esta documentação](./experiment-execution-configuration-reference.md) para obter configuração de execução de experimento detalhada |
+| `aml_config` | Pasta | Pasta de configuração do Azure Machine Learning Workbench, consulte [esta documentação](./experimentation-service-configuration-reference.md) para obter configuração de execução de experimento detalhada |
 | `Code` | Pasta | A pasta de código usada para salvar os scripts Python e o pacote Python |
 | `Data` | Pasta | A pasta de dados usada para salvar arquivos intermediários |
 | `notebooks` | Pasta | A pasta Blocos de anotações do Jupyter |
@@ -120,6 +120,7 @@ Os arquivos neste exemplo são organizados da seguinte maneira.
 | `notebooks/3_Topic_Model_Training.ipynb` | iPython Notebook | Treinar o modelo de tópico LDA |
 | `notebooks/4_Topic_Model_Summarization.ipynb` | iPython Notebook | Resumir o conteúdo da coleção de documentos com base em um modelo de tópico LDA treinado |
 | `notebooks/5_Topic_Model_Analysis.ipynb` | iPython Notebook | Analisar o conteúdo tópico de uma coleção de documentos de texto e correlacionar informações tópicas com relação a outros metadados associados à coleção de documentos |
+| `notebooks/6_Interactive_Visualization.ipynb` | iPython Notebook | Visualização interativa do modelo de tópico aprendido |
 | `notebooks/winprocess.py` | Arquivo Python | O script python para multiprocessamento usado por blocos de anotações |
 | `README.md` | Arquivo markdown | O arquivo markdown README |
 
@@ -224,6 +225,8 @@ O resumo e a análise do tópico consiste em dois blocos de anotações, embora 
 No `4_Topic_Model_Summarization.ipynb`, ele mostra como resumir o conteúdo de um documento com base em um modelo de tópico LDA treinado. O resumo é aplicado a um modelo de tópico LDA aprendido na etapa 3. Ele mostra como medir a importância ou a qualidade de um tópico usando a medida de pureza de tópico para documento. Esta medida de pureza pressupõe que tópicos latentes que dominam os documentos nos quais eles aparecem são mais importantes semanticamente do que tópicos latentes distribuídos fracamente em muitos documentos. Esse conceito foi introduzido no artigo "[Latent Topic Modeling for Audio Corpus Summarization](http://people.csail.mit.edu/hazen/publications/Hazen-Interspeech11.pdf) (Modelagem do tópico latente para resumo de corpus de áudio)."
 
 O bloco de anotações `5_Topic_Model_Analysis.ipynb` mostra como analisar o conteúdo tópico de uma coleção de documentos e correlacionar informações tópicas com relação a outros metadados associados à coleção de documentos. Alguns gráficos são introduzidos neste bloco de anotações para ajudar os usuários a entenderem melhor o tópico aprendido e a coleção de documentos.
+
+O Notebook `6_Interactive_Visualization.ipynb` mostra como visualizar interativamente o modelo de tópico aprendido. Ele inclui quatro tarefas de visualização interativa.
 
 ## <a name="conclusion"></a>Conclusão
 

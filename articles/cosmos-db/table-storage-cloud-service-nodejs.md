@@ -1,5 +1,5 @@
 ---
-title: Aplicativo Web com armazenamento de tabelas (Node.js) | Microsoft Docs
+title: 'Armazenamento de tabela do Azure: criar um aplicativo Web Node.js | Microsoft Docs'
 description: "Um tutorial que tem como base o tutorial Aplicativo Web com o Express adicionando os serviços de Armazenamento do Azure e o módulo Azure."
 services: cosmos-db
 documentationcenter: nodejs
@@ -12,15 +12,17 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 11/03/2017
 ms.author: mimig
-ms.openlocfilehash: b802f880c1131abb7eb9ba00dd8f2e65017bc802
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e931f0457511963b87c1b14fe873593bcb000c7
+ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/06/2017
 ---
-# <a name="nodejs-web-application-using-storage"></a>Aplicativo Web do Node.js usando Armazenamento
+# <a name="azure-table-storage-nodejs-web-application"></a>Armazenamento de tabela do Azure: aplicativo Web Node.js
+[!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
+
 ## <a name="overview"></a>Visão geral
 Neste tutorial, o aplicativo criado no tutorial [Aplicativo Web do Node.js usando o Expresso] é ampliado usando as Bibliotecas de cliente do Microsoft Azure para o Node.js para trabalhar com serviços de gerenciamento de dados. Você amplia seu aplicativo ao criar um aplicativo de lista de tarefas com base na Web que pode ser implantado no Azure. A lista de tarefas permite que um usuário recupere tarefas, adicione novas tarefas e marque tarefas como concluídas.
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/27/2017
 ms.author: bryanla
-ms.openlocfilehash: be3a797c4a405fd2f6636e67f4c961dd6d143486
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b27363a38c1a5955e062d1e5c036b542341e16bc
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="troubleshooting-active-directory-item-is-missing-or-not-available"></a>Solução de problemas: o item “Active Directory” está ausente ou não está disponível
 Muitas das instruções para usar os recursos e serviços do Azure Active Directory começam com "Vá para o Portal de Gerenciamento do Azure e clique em **Active Directory**." Mas o que fazer se o item de menu ou extensão do Active Directory não for exibido ou se ele está marcado como **Não disponível**? Este tópico foi criado para ajudar. Ele descreve as condições sob as quais o **Active Directory** não é exibido ou não está disponível e explica como proceder.
@@ -39,11 +39,11 @@ O item Active Directory é exibido no menu de navegação à esquerda quando qua
 * O locatário do Azure tem pelo menos um namespace de Controle de Acesso do AD do Azure (ACS). Para obter mais informações, confira [Namespace de Controle de Acesso](https://msdn.microsoft.com/library/azure/gg185908.aspx).
   
     OU
-* O locatário do Azure tem pelo menos um provedor do Azure Multi-Factor Authentication. Para obter mais informações, confira [Administrando Provedores do Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
+* O locatário do Azure tem pelo menos um provedor da Autenticação Multifator do Azure. Para obter mais informações, confira [Administrando Provedores da Autenticação Multifator do Azure](../multi-factor-authentication/multi-factor-authentication-get-started-cloud.md).
 
 Para criar um namespace de Controle de Acesso ou um provedor de Autenticação Multifator, clique em **+Novo** > **Serviços de Aplicativos** > **Active Directory**.
 
-Para obter direitos administrativos em um diretório, peça que o administrador atribua uma função de administrador à sua conta. Para obter detalhes, confira [Atribuindo funções de administrador](active-directory-assign-admin-roles.md).
+Para obter direitos administrativos em um diretório, peça que o administrador atribua uma função de administrador à sua conta. Para obter detalhes, confira [Atribuindo funções de administrador](active-directory-assign-admin-roles-azure-portal.md).
 
 ## <a name="active-directory-is-not-available"></a>Active Directory não disponível
 Quando você clica em **+Novo** > **Serviços de Aplicativos**, um item do **Active Directory** é exibido. Especificamente, o item Active Directory é exibido quando qualquer um dos recursos do Active Directory, como o Diretório, Controle de Acesso ou provedor do Multi-Factor Auth, estão disponíveis para o usuário atual.

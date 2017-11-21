@@ -10,7 +10,11 @@
     - name: Configurar provisionamento automático
       href: quick-setup-auto-provision.md
     - name: Criar dispositivo simulado
-      href: quick-create-simulated-device.md
+      items:
+        - name: TPM
+          href: quick-create-simulated-device.md
+        - name: X.509
+          href: quick-create-simulated-device-x509.md
 - name: Tutoriais
   items:
     - name: 1 - Configurar recursos de nuvem
@@ -35,6 +39,8 @@
       href: how-to-manage-enrollments.md
     - name: Usar um HSM com SDK
       href: use-hsm-with-sdk.md
+    - name: Controlar o acesso ao Serviço de Provisionamento
+      href: how-to-control-access.md
 - name: Referência
   items:
     - name: REST

@@ -1,9 +1,9 @@
 ---
 title: "Atribuir licenças para o Azure MFA | Microsoft Docs"
-description: "Saiba como atribuir as licenças do usuário para a Microsoft Azure Multi-Factor Authentication"
+description: "Saiba como atribuir as licenças do usuário para a Autenticação Multifator do Microsoft Azure"
 services: multi-factor-authentication
 documentationcenter: 
-author: kgremban
+author: MicrosoftGuyJFlo
 manager: femila
 ms.assetid: 514ef423-8ee6-4987-8a4e-80d5dc394cf9
 ms.service: multi-factor-authentication
@@ -12,15 +12,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/13/2017
-ms.author: kgremban
-ms.reviewer: yossib
+ms.author: joflore
+ms.reviewer: richagi
 ms.custom: it-pro
 ROBOTS: NOINDEX
-ms.openlocfilehash: 45522bf526c4aeab1d6ccc8891a55a0436ff9320
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 48f6ca268630524dab6d239621a7824faaa67849
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="assigning-an-azure-mfa-azure-ad-premium-or-enterprise-mobility-license-to-users"></a>Atribuindo uma licença do Azure MFA, do Azure AD Premium ou do Enterprise Mobility aos usuários
 Se você tiver comprado licenças do Azure MFA, do Azure AD Premium ou do Enterprise Mobility Suite, não precisará criar um provedor Multi-Factor Auth. Depois de atribuir as licenças para seus usuários, você poderá começar a ativá-los para a MFA.
@@ -42,4 +42,4 @@ Se você tiver comprado licenças do Azure MFA, do Azure AD Premium ou do Enterp
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para saber mais, veja [O que é o licenciamento do Microsoft Azure Active Directory?](../active-directory/active-directory-licensing-what-is.md)
+- Para saber mais, veja [O que é o licenciamento do Microsoft Azure Active Directory?](../active-directory/active-directory-licensing-whatis-azure-portal.md)

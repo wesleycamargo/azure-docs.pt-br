@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/27/2017
+ms.date: 11/07/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 4cf30130907151ade9eaf9db28748b8141dac8e7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 40849e7f0c8a76bdd8a0e03d0780534569d9874a
+ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/08/2017
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Acesso condicional no Azure Active Directory
 
@@ -131,18 +131,13 @@ Você pode usar o nível de risco de conexão calculado como uma condição em u
 
 ### <a name="device-platforms"></a>Plataformas de dispositivo
 
-A plataforma de dispositivo é caracterizada pelo sistema operacional que está em execução no seu dispositivo:
+A plataforma de dispositivo é caracterizada pelo sistema operacional que está em execução no dispositivo: é possível definir as plataformas de dispositivo que são incluídas, bem como as plataformas de dispositivo que são isentas de uma política.  
+Para usar as plataformas de dispositivo na política, primeiro altere a configuração para **Sim** e selecione todos ou plataformas de dispositivos individuais às quais a política se aplica. Se você selecionar plataformas de dispositivos individuais, a política afetará apenas essas plataformas. Nesse caso, as entradas para outras plataformas com suporte não serão afetadas pela política.
 
-- Android
-- iOS
-- Windows Phone
-- Windows
-- macOS (versão prévia). 
 
 ![Condições](./media/active-directory-conditional-access-azure-portal/02.png)
 
-Você pode definir as plataformas de dispositivo incluídas, bem como as plataformas de dispositivo isentas de uma política.  
-Para usar as plataformas de dispositivo na política, primeiro altere a configuração para **Sim** e selecione todos ou plataformas de dispositivos individuais às quais a política se aplica. Se você selecionar plataformas de dispositivos individuais, a política afetará apenas essas plataformas. Nesse caso, as entradas para outras plataformas com suporte não serão afetadas pela política.
+Para obter uma lista completa das plataformas de dispositivo com suporte, consulte [Condição de plataforma de dispositivo](active-directory-conditional-access-technical-reference.md#device-platform-condition).
 
 
 ### <a name="locations"></a>Locais

@@ -15,17 +15,18 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 10/14/2016
 ms.author: danlep
-ms.openlocfilehash: 9336743b92130e37b1df2992aab806696f8276aa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 96e332504509ae98e280d1c8585b0b294e0e07cb
+ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="add-on-demand-burst-nodes-to-an-hpc-pack-cluster-in-azure"></a>Adicionar nós de “intermitência” sob demanda a um cluster HPC Pack no Azure
 Se você configurar um cluster [Microsoft HPC Pack](https://technet.microsoft.com/library/cc514029) no Azure, poderá preferir uma maneira de dimensionar rapidamente a capacidade de cluster para mais ou menos, sem manter um conjunto de VMs do nó de computação pré-configuradas. Este artigo mostra como adicionar os nós de “disparo contínuo” sob demanda (instâncias de função de trabalho em execução em um serviço de nuvem) como recursos de computação para um nó de cabeçalho no Azure. 
 
 > [!IMPORTANT] 
 > O Azure tem dois modelos de implantação diferentes para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../../../resource-manager-deployment-model.md). Este artigo aborda o uso do modelo de implantação Clássica. A Microsoft recomenda que a maioria das implantações novas use o modelo do Gerenciador de Recursos.
+> [!INCLUDE [virtual-machines-common-classic-createportal](../../../../includes/virtual-machines-classic-portal.md)]
 
 ![Nós de disparo contínuo][burst]
 
@@ -42,10 +43,10 @@ As etapas neste artigo ajudam você a adicionar nós do Azure rapidamente a uma 
 * **Cota de núcleos** - Talvez seja necessário aumentar a cota de núcleos, especialmente se você optar por implantar vários nós do Azure com tamanhos de vários núcleos. Para aumentar a cota, [abra uma solicitação de atendimento ao cliente online](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) gratuitamente.
 
 ## <a name="step-1-create-a-cloud-service-and-a-storage-account-for-the-azure-nodes"></a>Etapa 1: criar um serviço de nuvem e uma conta de armazenamento para os nós do Azure
-Use o portal clássico do Azure ou ferramentas equivalentes para configurar os recursos a seguir, que são necessários para implantar seus nós do Azure:
+Use o Portal do Azure ou ferramentas equivalentes para configurar os recursos a seguir, que são necessários para implantar seus nós do Azure:
 
-* Um novo serviço de nuvem do Azure
-* Uma nova conta de armazenamento do Azure
+* Um novo serviço de nuvem do Azure (clássico)
+* Uma nova conta de armazenamento do Azure (clássica)
 
 > [!NOTE]
 > Não reutilize um serviço de nuvem existente em sua assinatura. 
@@ -60,7 +61,11 @@ Use o portal clássico do Azure ou ferramentas equivalentes para configurar os r
 ## <a name="step-2-configure-an-azure-management-certificate"></a>Etapa 2: configurar um certificado de gerenciamento do Azure
 Para adicionar nós do Azure como recursos de computação, você precisa ter um certificado de gerenciamento no nó de cabeçalho e carregar um certificado correspondente na assinatura do Azure usada para a implantação.
 
-Para este cenário, é possível escolher o **Certificado padrão de gerenciamento do HPC Azure** que o HPC Pack instala e configura automaticamente no nó de cabeçalho. Este certificado é útil para implantações de prova de conceito e fins de teste. Para usar esse certificado, carregue o arquivo C:\Arquivos de Programas\Microsoft HPC Pack 2012\Bin\hpccert.cer da VM de nó de cabeçalho na assinatura. Para carregar o certificado no [Portal clássico do Azure](https://manage.windowsazure.com), clique em **Configurações** > **Certificados de Gerenciamento**.
+Para este cenário, é possível escolher o **Certificado padrão de gerenciamento do HPC Azure** que o HPC Pack instala e configura automaticamente no nó de cabeçalho. Este certificado é útil para implantações de prova de conceito e fins de teste. Para usar esse certificado, carregue o arquivo C:\Arquivos de Programas\Microsoft HPC Pack 2012\Bin\hpccert.cer da VM de nó de cabeçalho na assinatura. Para carregar o certificado no [Portal do Azure](https://portal.azure.com):
+
+1. Clique em **Assinaturas** > *nome_da_assinatura*.
+
+2. Clique em **Certificados de gerenciamento** > **Carregar**.
 
 Para obter opções adicionais para configurar o certificado de gerenciamento, veja [Cenários para configurar o certificado de gerenciamento do Azure para implantações de disparo contínuo do Azure](http://technet.microsoft.com/library/gg481759.aspx).
 

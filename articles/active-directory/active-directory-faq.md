@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/16/2017
+ms.date: 11/08/2017
 ms.author: markvi
-ms.openlocfilehash: e70ac475f8ffce93e89fa09f18f8943eb2371d13
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: 241ad78abfa964c9f64e97cc8201933913f88e1e
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="azure-active-directory-faq"></a>Perguntas frequentes sobre o Azure Active Directory
 O Azure AD (Azure Active Directory) é uma solução abrangente de IDaaS (identidade como um serviço) que inclui todos os aspectos de identidade, gerenciamento de acesso e segurança.
@@ -56,7 +56,7 @@ Serviços pagos do Azure AD, como Enterprise Mobility + Security, complementam o
 Se outros usuários precisarem entrar e acessar serviços usando a mesma assinatura, você poderá adicioná-los como coadministradores. Essa função tem os mesmos privilégios de acesso que o administrador de serviços, mas não pode alterar a associação de assinaturas nos diretórios do Azure.  Para obter informações adicionais sobre os administradores de assinatura, confira [Como adicionar ou alterar as funções de administrador do Azure](../billing-add-change-azure-subscription-administrator.md) e [Como as assinaturas do Azure estão associadas ao Azure Active Directory](active-directory-how-subscriptions-associated-directory.md).
 
 
-O Azure AD tem um conjunto diferente de funções administrativas para gerenciar o diretório e os recursos relacionados à identidade.  Esses administradores terão acesso a vários recursos no portal do Azure ou no portal clássico do Azure. A função do administrador determina o que ele pode fazer, como criar ou editar usuários, atribuir funções administrativas a outras pessoas, redefinir senhas de usuário, gerenciar licenças de usuário ou gerenciar domínios.  Para obter informações adicionais sobre administradores de diretório do Azure AD e suas funções, confira [Atribuindo funções de administrador no Azure Active Directory](active-directory-assign-admin-roles.md).
+O Azure AD tem um conjunto diferente de funções administrativas para gerenciar o diretório e os recursos relacionados à identidade.  Esses administradores terão acesso a vários recursos no portal do Azure ou no portal clássico do Azure. A função do administrador determina o que ele pode fazer, como criar ou editar usuários, atribuir funções administrativas a outras pessoas, redefinir senhas de usuário, gerenciar licenças de usuário ou gerenciar domínios.  Para obter informações adicionais sobre administradores de diretório do Azure AD e suas funções, confira [Atribuindo funções de administrador no Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md).
 
 Além disso, os serviços pagos do Azure AD, como Enterprise Mobility + Security, complementam outros serviços Web, como Office 365 e Microsoft Azure, com soluções abrangentes de segurança e gerenciamento de escala empresarial.
 
@@ -132,7 +132,6 @@ Para usuários do Office 365, o administrador pode redefinir a senha usando as e
 Para contas do Azure AD, os administradores podem redefinir senhas usando uma das seguintes opções:
 
 - [Redefinir contas no portal do Azure](active-directory-users-reset-password-azure-portal.md)
-- [Redefinir contas no portal clássico](active-directory-create-users-reset-password.md)
 - [Usando o PowerShell](/powershell/module/msonline/set-msoluserpassword?view=azureadps-1.0)
 
 
@@ -199,7 +198,7 @@ Para saber mais, confira [Como fornecer acesso remoto seguro a aplicativos locai
 
 **R:** com o acesso condicional do Azure AD, você pode atribuir uma política de acesso exclusiva para cada aplicativo. Em sua política, você pode sempre exigir autenticação multifator ou quando os usuários não estiverem conectados à rede local.  
 
-Para saber mais, confira [Proteger o acesso ao Office 365 e a outros aplicativos conectados ao Azure Active Directory](active-directory-conditional-access.md).
+Para saber mais, confira [Proteger o acesso ao Office 365 e a outros aplicativos conectados ao Azure Active Directory](active-directory-conditional-access-azure-portal.md).
 
 - - -
 **P: o que é o provisionamento automatizado de usuário para aplicativos SaaS?**

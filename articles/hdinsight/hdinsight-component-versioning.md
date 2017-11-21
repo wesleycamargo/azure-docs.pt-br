@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2017
 ms.author: bprakash
-ms.openlocfilehash: 412fc8b76d2b5ac45532d3ccb7a2ab7361d53596
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d1098ea7f7ab7765f9769dd2e398eb3b62c5557b
+ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/03/2017
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Quais são os componentes e versões do Hadoop disponíveis com o HDInsight?
 
@@ -174,7 +174,7 @@ O Azure HDInsight oferece ofertas de nuvem de Big Data em duas categorias: _Stan
 
 | Recurso do HDInsight Premium | Descrição |
 | --- | --- |
-| Clusters HDInsight ingressados no domínio |Una clusters HDInsight em domínios do Azure AD (Azure Active Directory) para segurança de nível empresarial. No HDInsight Premium, você pode configurar uma lista de funcionários de sua empresa que podem se autenticar através do Azure AD para fazer logon em um cluster HDInsight. O admin corporativo pode configurar o controle de acesso baseado em função de segurança do Hive utilizando o [Apache Ranger](http://hortonworks.com/apache/ranger/) e restringir o acesso a dados para ser usado apenas tanto quanto necessário. Por fim, o administrador pode auditar os dados acessados por funcionários e as alterações feitas às políticas de controle de acesso, atingindo assim um alto grau de controle de seus recursos corporativos. Para obter mais informações, consulte [Configurar clusters HDInsight ingressados em domínio](hdinsight-domain-joined-configure.md). |
+| Clusters HDInsight ingressados no domínio |Una clusters HDInsight em domínios do Azure AD (Azure Active Directory) para segurança de nível empresarial. No HDInsight Premium, você pode configurar uma lista de funcionários de sua empresa que podem se autenticar através do Azure AD para fazer logon em um cluster HDInsight. O admin corporativo pode configurar o controle de acesso baseado em função de segurança do Hive utilizando o [Apache Ranger](http://hortonworks.com/apache/ranger/) e restringir o acesso a dados para ser usado apenas tanto quanto necessário. Por fim, o administrador pode auditar os dados acessados por funcionários e as alterações feitas às políticas de controle de acesso, atingindo assim um alto grau de controle de seus recursos corporativos. Para obter mais informações, consulte [Configurar clusters HDInsight ingressados em domínio](./domain-joined/apache-domain-joined-configure.md). |
 
 ### <a name="cluster-types-supported-in-hdinsight-premium"></a>Tipos de cluster com suporte no HDInsight Premium
 A tabela a seguir lista os tipos de cluster com suporte no HDInsight Premium.

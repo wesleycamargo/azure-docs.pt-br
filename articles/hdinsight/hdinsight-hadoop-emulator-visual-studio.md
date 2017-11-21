@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/11/2017
+ms.date: 11/09/2017
 ms.author: larryfr
-ms.openlocfilehash: 574ccaa8b2d9448a60ddf8adc7f92fa3683b1d61
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 904bbfcd02984b301d9eb9faaa6203f16139eba5
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="use-the-azure-data-lake-tools-for-visual-studio-with-the-hortonworks-sandbox"></a>Usar as Ferramentas do Azure Data Lake para Visual Studio com a Área Restrita da Hortonworks
 
@@ -29,7 +29,7 @@ O uso da Hortonworks Sandbox permite que você trabalhe com o Hadoop localmente 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* A Área Restrita da Hortonworks em execução em uma máquina virtual em seu ambiente de desenvolvimento. Este documento foi criado e testado com a área restrita em execução no Oracle VirtualBox. Para obter informações sobre como configurar a área restrita, confira o documento [Introdução a uma área restrita Hortonworks](hdinsight-hadoop-emulator-get-started.md) .
+* A Área Restrita da Hortonworks em execução em uma máquina virtual em seu ambiente de desenvolvimento. Este documento foi criado e testado com a área restrita em execução no Oracle VirtualBox. Para obter informações sobre como configurar a área restrita, confira o documento [Introdução a uma área restrita Hortonworks](hadoop/apache-hadoop-emulator-get-started.md) .
 
 * Visual Studio 2013, Visual Studio 2015 ou Visual Studio 2017 (qualquer edição).
 
@@ -39,7 +39,7 @@ O uso da Hortonworks Sandbox permite que você trabalhe com o Hadoop localmente 
 
 ## <a name="configure-passwords-for-the-sandbox"></a>Configurar senhas para a área restrita
 
-Certifique-se de que a Área Restrita da Hortonworks está em execução. Siga as etapas do documento [Introdução à área restrita Hortonworks](hdinsight-hadoop-emulator-get-started.md#set-sandbox-passwords). Essas etapas configuram a senha para a conta `root` de SSH e a conta `admin` do Ambari. Essas senhas serão usadas ao conectar-se do Visual Studio à área restrita.
+Certifique-se de que a Área Restrita da Hortonworks está em execução. Siga as etapas do documento [Introdução à área restrita Hortonworks](hadoop/apache-hadoop-emulator-get-started.md#set-sandbox-passwords). Essas etapas configuram a senha para a conta `root` de SSH e a conta `admin` do Ambari. Essas senhas serão usadas ao conectar-se do Visual Studio à área restrita.
 
 ## <a name="connect-the-tools-to-the-sandbox"></a>Conectar as ferramentas à área restrita
 

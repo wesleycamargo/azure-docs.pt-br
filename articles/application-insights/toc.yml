@@ -91,6 +91,8 @@
       items:
         - name: As tabelas
           items:
+            - name: Adicionar monitoramento contínuo
+              href: app-insights-vsts-continuous-monitoring.md
             - name: Criador de perfil
               href: app-insights-profiler.md
             - name: Habilitar o criador de perfil

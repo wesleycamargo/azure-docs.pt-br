@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/20/2017
+ms.date: 11/03/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 035eb44432081ef52c758a5d311b4d2ba2c6108d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9aea299738eb5cac6fe6d3b633707862d978fff0
+ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/04/2017
 ---
 # <a name="filter-network-traffic-with-network-and-application-security-groups-preview"></a>Filtrar o tráfego de rede com os grupos de segurança de rede e de aplicativo do (versão prévia)
 
@@ -44,6 +44,7 @@ Comandos da CLI do Azure são os mesmos, se você executar os comandos do Window
     
     ```azurecli-interactive
     az feature register --name AllowApplicationSecurityGroups --namespace Microsoft.Network
+    az provider register --namespace Microsoft.Network
     ``` 
 
 5. Digite o seguinte comando para confirmar que você está registrado para a versão prévia:
@@ -52,7 +53,9 @@ Comandos da CLI do Azure são os mesmos, se você executar os comandos do Window
     az feature show --name AllowApplicationSecurityGroups --namespace Microsoft.Network
     ```
 
-    Não continue com as etapas restantes até que *Registrado* apareça como o valor de **estado** na saída retornada pelo comando anterior. Se você continuar antes de estar registrado, as etapas restantes falharão.
+    > [!WARNING]
+    > O registro pode levar até uma hora para ser concluído. Não continue com as etapas restantes até que *Registrado* apareça como o valor de **estado** na saída retornada pelo comando anterior. Se você continuar antes de estar registrado, as etapas restantes falharão.
+
 6. Execute o script bash a seguir para criar um grupo de recursos:
 
     ```azurecli-interactive
@@ -160,7 +163,6 @@ Comandos da CLI do Azure são os mesmos, se você executar os comandos do Window
       --name myNic1 \
       --vnet-name myVnet \
       --subnet mySubnet \
-      --network-security-group myNsg \
       --location westcentralus \
       --application-security-groups "WebServers" "AppServers"
 
@@ -169,7 +171,6 @@ Comandos da CLI do Azure são os mesmos, se você executar os comandos do Window
       --name myNic2 \
       --vnet-name myVnet \
       --subnet mySubnet \
-      --network-security-group myNsg \
       --location westcentralus \
       --application-security-groups "AppServers"
 
@@ -178,12 +179,11 @@ Comandos da CLI do Azure são os mesmos, se você executar os comandos do Window
       --name myNic3 \
       --vnet-name myVnet \
       --subnet mySubnet \
-      --network-security-group myNsg \
       --location westcentralus \
       --application-security-groups "DatabaseServers"
     ```
 
-    Somente a regra de segurança correspondente que você criou na etapa 9 é aplicada ao adaptador de rede, com base no grupo de segurança de aplicativo do qual o adaptador de rede é um membro. Por exemplo, somente o *WebRule* está em vigor para o *myWebNic*, pois o adaptador de rede é um membro do grupo de segurança do aplicativo *WebServers* e a regra especifica o grupo de segurança de aplicativo *WebServers* como seu destino. As regras *AppRule* e *DatabaseRule* não são aplicadas ao *myWebNic*, pois o adaptador de rede não é um membro dos grupos de segurança de aplicativo *AppServers* e *DatabaseServers*.
+    Somente a regra de segurança correspondente que você criou na etapa 9 é aplicada ao adaptador de rede, com base no grupo de segurança de aplicativo do qual o adaptador de rede é um membro. Por exemplo, somente o *WebRule* está em vigor para o *myNic1*, pois o adaptador de rede é um membro do grupo de segurança de aplicativo *WebServers* e a regra especifica o grupo de segurança de aplicativo *WebServers* como seu destino. As regras *AppRule* e *DatabaseRule* não são aplicadas ao *myNic1*, pois o adaptador de rede não é um membro dos grupos de segurança de aplicativo *AppServers* e *DatabaseServers*.
 
 13. Crie uma máquina virtual para cada tipo de servidor, anexando o adaptador de rede correspondente a cada máquina virtual. Este exemplo cria máquinas virtuais do Windows, mas você pode alterar *win2016datacenter* para *UbuntuLTS* para criar máquinas virtuais Linux em vez disso.
 
@@ -239,7 +239,8 @@ Comandos da CLI do Azure são os mesmos, se você executar os comandos do Window
     Get-AzureRmProviderFeature -FeatureName AllowApplicationSecurityGroups -ProviderNamespace Microsoft.Network
     ```
 
-    Não continue com as etapas restantes até que *Registrado* apareça na coluna **RegistrationState** da saída retornada pelo comando anterior. Se você continuar antes de estar registrado, as etapas restantes falharão.
+    > [!WARNING]
+    > O registro pode levar até uma hora para ser concluído. Não continue com as etapas restantes até que *Registrado* apareça como **RegistrationState** na saída retornada pelo comando anterior. Se você continuar antes de estar registrado, as etapas restantes falharão.
         
 6. Crie um grupo de recursos:
 
@@ -343,7 +344,6 @@ Comandos da CLI do Azure são os mesmos, se você executar os comandos do Window
       -ResourceGroupName myResourceGroup `
       -Location westcentralus `
       -Subnet $vNet.Subnets[0] `
-      -NetworkSecurityGroup $nsg `
       -ApplicationSecurityGroup $webAsg,$appAsg
 
     $nic2 = New-AzureRmNetworkInterface `
@@ -351,7 +351,6 @@ Comandos da CLI do Azure são os mesmos, se você executar os comandos do Window
       -ResourceGroupName myResourceGroup `
       -Location westcentralus `
       -Subnet $vNet.Subnets[0] `
-      -NetworkSecurityGroup $nsg `
       -ApplicationSecurityGroup $appAsg
 
     $nic3 = New-AzureRmNetworkInterface `
@@ -359,11 +358,10 @@ Comandos da CLI do Azure são os mesmos, se você executar os comandos do Window
       -ResourceGroupName myResourceGroup `
       -Location westcentralus `
       -Subnet $vNet.Subnets[0] `
-      -NetworkSecurityGroup $nsg `
       -ApplicationSecurityGroup $databaseAsg
     ```
 
-    Somente a regra de segurança correspondente que você criou na etapa 8 é aplicada ao adaptador de rede, com base no grupo de segurança de aplicativo do qual o adaptador de rede é um membro. Por exemplo, somente o *WebRule* está em vigor para o *myWebNic*, pois o adaptador de rede é um membro do grupo de segurança do aplicativo *WebServers* e a regra especifica o grupo de segurança de aplicativo *WebServers* como seu destino. As regras *AppRule* e *DatabaseRule* não são aplicadas ao *myWebNic*, pois o adaptador de rede não é um membro dos grupos de segurança de aplicativo *AppServers* e *DatabaseServers*.
+    Somente a regra de segurança correspondente que você criou na etapa 8 é aplicada ao adaptador de rede, com base no grupo de segurança de aplicativo do qual o adaptador de rede é um membro. Por exemplo, somente o *WebRule* está em vigor para o *myNic1*, pois o adaptador de rede é um membro do grupo de segurança de aplicativo *WebServers* e a regra especifica o grupo de segurança de aplicativo *WebServers* como seu destino. As regras *AppRule* e *DatabaseRule* não são aplicadas ao *myNic1*, pois o adaptador de rede não é um membro dos grupos de segurança de aplicativo *AppServers* e *DatabaseServers*.
 
 13. Crie uma máquina virtual para cada tipo de servidor, anexando o adaptador de rede correspondente a cada máquina virtual. Este exemplo cria máquinas virtuais do Windows, mas antes de executar o script, você pode alterar *-Windows* para *-Linux*, *MicrosoftWindowsServer* para *Canonical*, *WindowsServer* para *UbuntuServer* e *2016-Datacenter* para *14.04.2-LTS* para criar máquinas virtuais Linux em vez disso.
 
