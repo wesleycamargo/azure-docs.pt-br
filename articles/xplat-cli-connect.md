@@ -99,7 +99,7 @@ Isso abre o navegador padrão e solicita que você entre no [portal clássico do
 >
 >
 
-Depois de selecionado por meio da página de download ou acessando o Portal Clássico do Azure, o Active Directory escolhido se torna o padrão usado pelo portal clássico e pela página de download. Depois que um padrão tiver sido estabelecido, você verá o texto `**clique aqui para retornar à página de seleção**` na parte superior da página de download. Use o link fornecido para retornar à página de seleção.
+Depois de selecionado por meio da página de download ou acessando o Portal Clássico do Azure, o Active Directory escolhido se torna o padrão usado pelo portal clássico e pela página de download. Depois que um padrão tiver sido estabelecido, você verá o texto '**clique aqui para retornar à página de seleção**' na parte superior da página de download. Use o link fornecido para retornar à página de seleção.
 
 * **Para importar o arquivo de configurações de publicação**, execute o seguinte comando:
 
