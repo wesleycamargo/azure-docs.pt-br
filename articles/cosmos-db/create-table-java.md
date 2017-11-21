@@ -1,6 +1,6 @@
 ---
-title: "Início rápido: API de Tabela com .NET – Azure Cosmos DB | Microsoft Docs"
-description: "Este guia de início rápido mostra como usar a API de Tabela do Azure Cosmos DB para criar um aplicativo com o Portal do Azure e o .NET"
+title: "Início rápido: API de Tabela com Java – Azure Cosmos DB | Microsoft Docs"
+description: "Este guia de início rápido mostra como usar a API de Tabela do Azure Cosmos DB para criar um aplicativo com o Portal do Azure e o Java"
 services: cosmos-db
 documentationcenter: 
 author: arramac
@@ -8,20 +8,20 @@ manager: jhubbard
 editor: 
 ms.assetid: 66327041-4d5e-4ce6-a394-fee107c18e59
 ms.service: cosmos-db
-ms.custom: quickstart connect, mvc
+ms.custom: quick start connect, mvc
 ms.workload: 
 ms.tgt_pltfrm: na
-ms.devlang: dotnet
+ms.devlang: java
 ms.topic: quickstart
 ms.date: 11/15/2017
 ms.author: arramac
-ms.openlocfilehash: 02317d1b74d10d0fb3a2a08d8f4292a6be0438c2
+ms.openlocfilehash: 8af7064ad9873128b7d744b815e888c50953f377
 ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/15/2017
 ---
-# <a name="quickstart-build-a-table-api-app-with-net-and-azure-cosmos-db"></a>Início rápido: criar um aplicativo de API de Tabela com .NET e Azure Cosmos DB 
+# <a name="quickstart-build-a-table-api-app-with-java-and-azure-cosmos-db"></a>Início rápido: criar um aplicativo de API de Tabela com Java e Azure Cosmos DB
 
 Este guia de início rápido mostra como usar o Java e a [API de Tabela](table-introduction.md) do Azure Cosmos DB para compilar um aplicativo clonando um exemplo do GitHub. Este guia de início rápido também mostra como criar uma conta do Azure Cosmos DB e como usar o Data Explorer para criar tabelas e entidades no Portal do Azure baseado na Web.
 
@@ -29,11 +29,20 @@ O BD Cosmos do Azure é o serviço multimodelo de banco de dados distribuído gl
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Se você ainda não tem o Visual 2017 Studio instalado, poderá baixar e usar o **Visual Studio 2017 Community Edition** [gratuito](https://www.visualstudio.com/downloads/). Verifique se você habilitou o **desenvolvimento do Azure** durante a instalação do Visual Studio.
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-## <a name="create-a-database-account"></a>Crie uma conta de banco de dados
+Além disso: 
+
+* [Java Development Kit (JDK) 1.7 +](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+    * No Ubuntu, execute `apt-get install default-jdk` para instalar o JDK.
+    * Defina a variável de ambiente JAVA_HOME para apontar para a pasta onde o JDK está instalado.
+* [Baixar](http://maven.apache.org/download.cgi) e [instalar](http://maven.apache.org/install.html) um armazenamento binário [Maven](http://maven.apache.org/)
+    * No Ubuntu, você pode executar `apt-get install maven` para instalar o Maven.
+* [Git](https://www.git-scm.com/)
+    * No Ubuntu, você pode executar `sudo apt-get install git` para instalar o Git.
+
+## <a name="create-a-database-account"></a>Criar uma conta de banco de dados
 
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
 
@@ -67,10 +76,8 @@ Agora, clonaremos um aplicativo de Tabela do github, definiremos a cadeia de con
 2. Execute o comando a seguir para clonar o repositório de exemplo. Este comando cria uma cópia do aplicativo de exemplo no seu computador. 
 
     ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-db-table-dotnet-getting-started.git
+    git clone https://github.com/Azure-Samples/storage-table-java-getting-started.git 
     ```
-
-3. Em seguida, abra o arquivo da solução TableStorage no Visual Studio. 
 
 ## <a name="update-your-connection-string"></a>Atualizar sua cadeia de conexão
 
@@ -78,40 +85,32 @@ Agora, volte ao portal do Azure para obter informações sobre a cadeia de conex
 
 1. No [Portal do Azure](http://portal.azure.com/), clique em **Cadeia de Conexão**. 
 
-    Use os botões de cópia no lado direito da tela para copiar a CADEIA DE CONEXÃO.
+   ![Exibir e copiar as informações necessárias da cadeia de conexão do painel da Cadeia de Conexão](./media/create-table-java/connection-string.png)
 
-    ![Exiba e copie a CADEIA DE CONEXÃO no painel Cadeia de Conexão](./media/create-table-dotnet/connection-string.png)
+2. Abra o arquivo config.properties e copie as propriedades necessárias da cadeia de conexão para o arquivo de configuração.
 
-2. No Visual Studio, abra o arquivo App.config. 
-
-3. Cole o valor da CADEIA DE CONEXÃO no arquivo App.config como o valor de AzureCosmosDBTableAPIConnectionString. 
-
-    `<add key="CosmosDBStorageConnectionString" 
-        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://account-name.table.cosmosdb.net" />`    
-
-    > [!NOTE]
-    > Para usar este aplicativo com o armazenamento de Tabela do Azure, você precisa alterar a cadeia de conexão no `App.config file`. Use o nome da conta como nome da conta de tabela e a chave como a chave primária do Armazenamento do Azure. <br>
-    >`<add key="StandardStorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key;EndpointSuffix=core.windows.net" />`
-    > 
-    >
-
-4. Salve o arquivo App.config.
+3. Salve o arquivo config.properties.
 
 Agora, você atualizou o aplicativo com todas as informações necessárias para se comunicar com o Azure Cosmos DB. 
 
-## <a name="build-and-deploy-the-app"></a>Compilar e implantar o aplicativo
+## <a name="run-the-app"></a>Execute o aplicativo
 
-1. No Visual Studio, clique com o botão direito do mouse no projeto **TableStorage** em **Gerenciador de Soluções** e depois clique em **Gerenciar Pacotes NuGet**. 
+1. Na janela do terminal git, `cd` para a pasta storage-table-java-getting-started.
 
-2. Na caixa **Procurar** do NuGet, digite *Microsoft.Azure.CosmosDB.Table*.
+    ```git
+    cd "C:\git-samples\
+storage-table-java-getting-started"
+    ```
 
-3. Com base nos resultados, instale a biblioteca **Microsoft.Azure.CosmosDB.Table**. Isso instala o pacote da API de Tabela do Azure Cosmos DB e todas as dependências.
+2. Na janela do terminal git, execute os comandos a seguir para executar e iniciar o aplicativo Java.
 
-4. Clique em CTRL + F5 para executar o aplicativo.
+    ```git
+    mvn compile exec:java 
+    ```
 
     A janela de console exibe os dados da tabela sendo adicionados ao novo banco de dados de tabela no Azure Cosmos DB.
 
-    Agora, é possível voltar ao Data Explorer e ver a consulta, modificar e trabalhar com esses novos dados.
+    Agora, é possível voltar ao Data Explorer e ver a consulta, modificar e trabalhar com esses novos dados. 
 
 ## <a name="review-slas-in-the-azure-portal"></a>Examinar SLAs no Portal do Azure
 
@@ -127,4 +126,3 @@ Neste início rápido, você aprendeu como criar uma conta do BD Cosmos do Azure
 
 > [!div class="nextstepaction"]
 > [Importar dados de tabela para a API de Tabela](table-import.md)
-

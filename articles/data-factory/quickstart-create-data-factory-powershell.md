@@ -1,6 +1,6 @@
 ---
-title: Criar um Azure Data Factory usando o PowerShell | Microsoft Docs
-description: Crie um Azure Data Factory para copiar dados de um local em um Armazenamento de Blobs do Azure para outro local no mesmo Armazenamento de Blobs.
+title: Copiar dados no Armazenamento de Blobs com o Azure Data Factory | Microsoft Docs
+description: Crie um Azure Data Factory para copiar dados de uma pasta para outra pasta em um Armazenamento de Blobs do Azure para outro local no mesmo Armazenamento de Blobs.
 services: data-factory
 documentationcenter: 
 author: linda33wj
@@ -13,18 +13,18 @@ ms.devlang: powershell
 ms.topic: hero-article
 ms.date: 11/14/2017
 ms.author: jingwang
-ms.openlocfilehash: 63e4c654409651f6655da1bed6ab2f544cf024dd
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 8ee2f48db009da4660a03f91194c4e99f6ecac4a
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="create-an-azure-data-factory-and-pipeline-using-powershell"></a>Criar um Azure Data Factory e um pipeline usando o PowerShell
+# <a name="create-an-azure-data-factory-using-powershell"></a>Criar um Azure Data Factory usando o PowerShell 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1 – já disponível](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Versão 2 – Versão prévia](quickstart-create-data-factory-powershell.md)
 
-Este guia de início rápido descreve como usar o PowerShell para criar um Azure Data Factory. O pipeline criado nesse data factory copia dados de uma localização para outra em um Armazenamento de Blobs do Azure. Para obter um tutorial sobre como transformar dados usando o Azure Data Factory, consulte [Tutorial: Transformar dados usando Spark](transform-data-using-spark.md). 
+Este guia de início rápido descreve como usar o PowerShell para criar um Azure Data Factory. O pipeline que criar nesse data factory copia dados de uma pasta para outra em um Armazenamento de Blobs do Azure. Para obter um tutorial sobre como transformar dados usando o Azure Data Factory, consulte [Tutorial: Transformar dados usando Spark](transform-data-using-spark.md). 
 
 Este artigo não fornece uma introdução detalhada do serviço Data Factory. Para obter uma introdução do serviço do Azure Data Factory, consulte [Introdução ao Azure Data Factory](introduction.md).
 
