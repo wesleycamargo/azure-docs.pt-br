@@ -1,5 +1,5 @@
 ---
-title: "Montar um volume de Arquivos do Azure em Instâncias de Contêiner do Azure"
+title: "Monte um volume de Arquivos do Azure em Instâncias de Contêiner do Azure"
 description: "Saiba como montar um volume de Arquivos do Azure para persistir o estado com Instâncias de Contêiner do Azure"
 services: container-instances
 documentationcenter: 
@@ -14,16 +14,16 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/31/2017
+ms.date: 11/09/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 41c3a449b39d6ef77e1dd0cf10699f8debcad475
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: 0f824dad7ba5b661941e952383025e5171f32e55
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="mounting-an-azure-file-share-with-azure-container-instances"></a>Montar um compartilhamento de arquivos do Azure com Instâncias de Contêiner do Azure
+# <a name="mount-an-azure-file-share-with-azure-container-instances"></a>Monte um compartilhamento de arquivos do Azure com Instâncias de Contêiner do Azure
 
 Por padrão, as Instâncias de Contêiner do Azure são sem monitoração de estado. Se o contêiner parar ou falhar, todo o seu estado será perdido. Para persistir o estado além do tempo de vida do contêiner, você deve montar um volume de um repositório externo. Este artigo mostra como montar um compartilhamento de arquivos do Azure para ser usado com Instâncias de Contêiner do Azure.
 
@@ -66,7 +66,7 @@ STORAGE_KEY=$(az storage account keys list --resource-group $ACI_PERS_RESOURCE_G
 echo $STORAGE_KEY
 ```
 
-## <a name="store-storage-account-access-details-with-azure-key-vault"></a>Armazenar detalhes de acesso da conta de armazenamento com o Azure Key Vault
+## <a name="store-storage-account-access-details-with-azure-key-vault"></a>Acesso de conta de armazenamento de Store detalha com o Azure Key Vault
 
 As chaves da conta de armazenamento protegem o acesso aos seus dados, portanto, recomendamos armazená-las em um Azure Key Vault.
 
@@ -185,16 +185,16 @@ Insira os valores no arquivo de parâmetros:
 Com o modelo definido, você pode criar o contêiner e montar seu volume usando a CLI do Azure. Supondo que o arquivo de modelo seja denominado *azuredeploy.json* e que o arquivo de parâmetros seja chamado de *azuredeploy.parameters.json*, a linha de comando será:
 
 ```azurecli-interactive
-az group deployment create --name hellofilesdeployment --template-file azuredeploy.json --parameters @azuredeploy.parameters.json --resource-group myResourceGroup
+az group deployment create --name hellofilesdeployment --template-file azuredeploy.json --parameters @azuredeploy.parameters.json --resource-group $ACI_PERS_RESOURCE_GROUP
 ```
 
-Depois que o contêiner for iniciado, você poderá usar o aplicativo Web simples implantado por meio da imagem **seanmckenna/aci-hellofiles** para gerenciar arquivos no compartilhamento de arquivos do Azure no caminho de montagem especificado. Obtenha o endereço IP para o aplicativo Web da seguinte maneira:
+Depois que o contêiner for iniciado, você poderá usar o aplicativo web simples implantado por meio da imagem **seanmckenna/aci-hellofiles** para gerenciar arquivos no compartilhamento de arquivos do Azure no caminho de montagem especificado. Obtenha o endereço IP para o aplicativo web com o comando [az container show](/cli/azure/container#az_container_show):
 
 ```azurecli-interactive
-az container show --resource-group myResourceGroup --name hellofiles -o table
+az container show --resource-group $ACI_PERS_RESOURCE_GROUP --name hellofiles -o table
 ```
 
-Você pode usar uma ferramenta como o [Gerenciador de Armazenamento do Microsoft Azure](http://storageexplorer.com) para recuperar e inspecionar arquivo gravado no compartilhamento de arquivos.
+Você pode usar uma ferramenta como o [Gerenciador de Armazenamento do Microsoft Azure](https://storageexplorer.com) para recuperar e inspecionar arquivo gravado no compartilhamento de arquivos.
 
 >[!NOTE]
 > Para saber mais sobre como usar modelos do Azure Resource Manager, arquivos de parâmetro e sobre a implantação com a CLI do Azure, consulte [implantar recursos com modelos do Resource Manager e com a CLI do Azure](../azure-resource-manager/resource-group-template-deploy-cli.md).

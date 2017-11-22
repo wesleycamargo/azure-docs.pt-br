@@ -3,7 +3,7 @@ title: "O que é o Azure Search | Microsoft Docs"
 description: "O Azure Search é um serviço de pesquisa em nuvem hospedado totalmente gerenciado. Saiba mais nesta visão geral do recurso."
 services: search
 manager: jhubbard
-author: ashmaka
+author: HeidiSteen
 documentationcenter: 
 ms.assetid: 50bed849-b716-4cc9-bbbc-b5b34e2c6153
 ms.service: search
@@ -11,18 +11,18 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 06/26/2017
-ms.author: ashmaka
-ms.openlocfilehash: 9893be47ec0c2f58ca206ec7c1bce13734513390
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.date: 11/10/2017
+ms.author: heidist
+ms.openlocfilehash: 63c7bcc1bf4e650f913d31e5687c31257a85bfee
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="what-is-azure-search"></a>O que é o Azure Search?
 O Azure Search é uma solução de pesquisa como serviço na nuvem que oferece aos desenvolvedores APIs e ferramentas para adicionar uma experiência de pesquisa avançada aos dados em aplicativos Web, móveis e empresariais.
 
-A funcionalidade é exposta por meio de uma [API REST](/rest/api/searchservice/) ou um [SDK do .NET](search-howto-dotnet-sdk.md) simples que mascara a complexidade inerente da tecnologia de pesquisa. Além das APIs, o portal do Azure fornece suporte de administração e criação de protótipo. A infraestrutura e a disponibilidade são gerenciadas pela Microsoft.
+A funcionalidade é exposta por meio de uma [API REST](/rest/api/searchservice/) ou um [SDK do .NET](search-howto-dotnet-sdk.md) simples que mascara a complexidade inerente da tecnologia de pesquisa. Além das APIs, o portal do Azure fornece suporte de administração e gerenciamento de conteúdo, com as ferramentas de criação para protótipos e consultas de seus índices. Porque o serviço é executado na nuvem, infraestrutura e disponibilidade são gerenciados pela Microsoft.
 
 <a name="feature-drilldown"></a>
 
@@ -70,7 +70,7 @@ Os clientes frequentemente perguntam como o Azure Search é comparado com outras
 
 | Em comparação com | Principais diferenças |
 |--|--|
-|Bing | A [API de Pesquisa na Web do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/) pesquisa os índices no Bing.com para os termos correspondentes que você enviar. Os índices são criados de HTML, XML e outros conteúdos da web em sites públicos. A [Pesquisa Personalizada do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/) oferece a mesma tecnologia de rastreador para tipos de conteúdo da Web no escopo para sites individuais.<br/><br/>O Azure Search pesquisa um índice que você define, preenchido com os dados e documentos que você possui, geralmente de diversas fontes. O Azure Search tem funcionalidades do rastreador para algumas fontes de dados por meio de [indexadores](search-indexer-overview.md), mas você pode enviar por push qualquer documento JSON que está de acordo com seu esquema de índice em um recurso pesquisável único e consolidado. |
+|Bing | A [API de Pesquisa na Web do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/) pesquisa os índices no Bing.com para os termos correspondentes que você enviar. Os índices são criados de HTML, XML e outros conteúdos da web em sites públicos. A [Pesquisa Personalizada do Bing](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/) oferece a mesma tecnologia de rastreador para tipos de conteúdo da Web no escopo para sites individuais.<br/><br/>O Azure Search pesquisa um índice que você define, preenchido com os dados e documentos que você possui, geralmente de diversas fontes. O Azure Search tem funcionalidades do rastreador para algumas fontes de dados por meio de [indexadores](search-indexer-overview.md), mas você pode enviar por push qualquer documento JSON que esteja de acordo com seu esquema de índice em um recurso pesquisável único e consolidado. |
 |Pesquisa de banco de dados | A [pesquisa de texto completo do SQL Server](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) é para o conteúdo interno para o DBMS, em tabelas do SQL. <br/><br/>O Azure Search armazena conteúdo de fontes heterogêneas e oferece recursos de processamento de texto especializado, como análise linguística e personalizada. O [mecanismo de pesquisa de texto completo](search-lucene-query-architecture.md) no Azure Search se baseia no Apache Lucene, um padrão de recuperação de informações do setor. <br/><br/>Outro ponto de inflexão é a utilização de recursos. Em geral, a pesquisa em idioma natural é computacionalmente intensiva. Descarregar pesquisa para uma solução dedicada preserva recursos para processamento de transações. Ao externalizar a pesquisa, é possível dimensionar facilmente para encontrar uma correspondência ao volume da consulta.|
 |Solução de pesquisa dedicada | As soluções de serviço de nuvem ou local são soluções de pesquisa dedicadas com funcionalidade completa. As tecnologias de pesquisa geralmente oferecem controle sobre pipelines de indexação e consulta, acesso à consulta mais avançada e sintaxe de filtragem, controle sobre a classificação e a relevância e recursos para pesquisa autodirecionada e inteligente. <br/><br/>Você pode encontrar soluções de pesquisa dedicada oferecidas como um serviço de nuvem ou como um servidor autônomo hospedado localmente ou em uma máquina virtual. Um serviço de nuvem é a escolha certa se você deseja uma [solução completa com sobrecarga e manutenção mínimas e escala ajustável](#cloud-service-advantage). <br/><br/>No paradigma da nuvem, diversos provedores oferecem recursos de linha de base comparáveis, com a pesquisa de texto completo, pesquisa geográfica e a capacidade de lidar com algum nível de ambiguidade nas entradas de pesquisa. Normalmente, é um [recurso especializado](#feature-drilldown) ou a facilidade e simplicidade geral das APIs, ferramentas e gerenciamento que determinam o melhor ajuste. |
 

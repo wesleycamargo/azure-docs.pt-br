@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: a65b50a90a67b718f2a0cdd8657194d9740b3bd4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 251ce238b745734bdfb508b30097304a9a650a8c
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="best-practices-for-azure-app-service"></a>Práticas Recomendadas para o Serviço de Aplicativo do Azure
 Este artigo resume as práticas recomendadas para usar o [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714). 
@@ -40,7 +40,26 @@ Quando você observar que um aplicativo consome mais CPU que o esperado ou enfre
 Para saber mais sobre aplicativos "com estado" versus "sem estado", assista a este vídeo: [Planejando um aplicativo de várias camadas ponta a ponta escalonável no aplicativo Web do Microsoft Azure](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid). Para saber mais sobre como as opções de colocação em escala e dimensionamento automático, leia: [Dimensionar um aplicativo Web no Serviço de Aplicativo do Azure](web-sites-scale.md).  
 
 ## <a name="socketresources"></a>Quando os recursos de soquete são exauridos
-Uma razão comum para esgotar as conexões TCP de saída é o uso de bibliotecas de cliente que não são implementadas para reutilizar conexões TCP ou, no caso de um protocolo de nível superior, como HTTP - Keep-Alive não sendo utilizado. Consulte a documentação para cada uma das bibliotecas referenciadas pelos aplicativos no seu Plano de Serviço de Aplicativo para garantir que eles são configurados ou acessados em seu código para reutilização eficiente de conexões de saída. Além disso, siga as diretrizes de documentação biblioteca de criação correta e versão ou de limpeza para evitar vazamento de conexões. Embora essas investigações de bibliotecas de cliente estejam em andamento, o impacto pode ser reduzido escalando horizontalmente para várias instâncias.  
+Uma razão comum para esgotar as conexões TCP de saída é o uso de bibliotecas de cliente que não são implementadas para reutilizar conexões TCP ou, no caso de um protocolo de nível superior, como HTTP - Keep-Alive não sendo utilizado. Consulte a documentação para cada uma das bibliotecas referenciadas pelos aplicativos no seu Plano de Serviço de Aplicativo para garantir que eles são configurados ou acessados em seu código para reutilização eficiente de conexões de saída. Além disso, siga as diretrizes de documentação biblioteca de criação correta e versão ou de limpeza para evitar vazamento de conexões. Embora essas investigações de bibliotecas de cliente estejam em andamento, o impacto pode ser reduzido escalando horizontalmente para várias instâncias.
+
+### <a name="nodejs-and-outgoing-http-requests"></a>Node.js e solicitações de http de saída
+Ao trabalhar com Node.js e muitas solicitações de http de saída, lidar com HTTP - Keep-Alive é muito importante. Você pode usar o pacote [agentkeepalive](https://www.npmjs.com/package/agentkeepalive) `npm` para facilitar no seu código.
+
+Você deve sempre tratar a `http` resposta, mesmo que não faça nada no manipulador. Se você não tratar corretamente a resposta, o aplicativo ficará parado, porque não há mais soquetes disponíveis.
+
+Por exemplo, ao trabalhar com o pacote `http` ou `https`:
+
+```
+var request = https.request(options, function(response) {
+    response.on('data', function() { /* do nothing */ });
+});
+```
+
+Se você estiver executando o Serviço de Aplicativo no Linux em um computador com vários núcleos, outra prática recomendada é usar PM2 para iniciar vários processos Node.js para executar seu aplicativo. Você pode fazer isso especificando um comando de inicialização para o seu contêiner.
+
+Por exemplo, para iniciar quatro instâncias:
+
+`pm2 start /home/site/wwwroot/app.js --no-daemon -i 4`
 
 ## <a name="appbackup"></a>Quando o backup de seu aplicativo começa a falhar
 Os dois motivos mais comuns para as falhas no backup do aplicativo são: configurações de armazenamento inválidas e configuração de banco de dados inválida. Essas falhas normalmente ocorrem quando há alterações de recursos de armazenamento ou do banco de dados, ou alterações no modo de acesso desses recursos (por exemplo, credenciais atualizadas para o banco de dados selecionado nas configurações de backup). Os backups são normalmente executados com base em um agendamento e exigem acesso ao armazenamento (para gerar o backup dos arquivos) e aos bancos de dados (para copiar e ler o conteúdo a ser incluído no backup). O resultado da falha de acesso de qualquer um desses recursos seria uma falha de backup consistente. 

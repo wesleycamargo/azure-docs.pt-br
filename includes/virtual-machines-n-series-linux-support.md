@@ -6,7 +6,11 @@
 
 | Distribuição | Driver |
 | --- | --- | 
-| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3<br/><br/>CentOS 7.3 | NVIDIA GRID 4.3, ramificação do driver R367|
+| Ubuntu 16.04 LTS<br/><br/>Red Hat Enterprise Linux 7.3<br/><br/>CentOS 7.3 | NVIDIA GRID 5.0, ramificação do driver R384|
+
+> [!NOTE]
+> A Microsoft redistribui os instaladores de driver NVIDIA GRID para VMs de NV. Instale somente esses drivers GRID em VMs de NV do Azure. Esses drivers incluem o licenciamento de Software de GPU Virtual de GRID no Azure.
+>
 
 ### <a name="nc-instances---nvidia-tesla-drivers"></a>Instâncias de NC - drivers NVIDIA Tesla
 | Distribuição | Driver |

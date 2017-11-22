@@ -1,6 +1,6 @@
 ---
 title: "Escolher um tipo de preço ou SKU para o Azure Search | Microsoft Docs"
-description: "A Pesquisa do Azure pode ser provisionada nestes SKUs: Gratuito, Básico e Standard, sendo que o Standard está disponível em várias configurações de recursos e níveis de capacidade."
+description: "O Azure Search pode ser provisionada nestes SKUs: Gratuito, Básico e Standard, sendo que o Standard está disponível em várias configurações de recursos e níveis de capacidade."
 services: search
 documentationcenter: 
 author: HeidiSteen
@@ -15,13 +15,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/24/2016
 ms.author: heidist
-ms.openlocfilehash: f9f3a7b2369818791ffac1c8eeccef45216c2ff0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 781683f27c943e25d5629dd846da357f51c9d4f9
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="choose-a-sku-or-pricing-tier-for-azure-search"></a>Escolher um tipo de preço ou SKU para a Pesquisa do Azure
+# <a name="choose-a-sku-or-pricing-tier-for-azure-search"></a>Escolher um tipo de preço ou SKU para o Azure Search
 No Azure Search, um [serviço é provisionado](search-create-service-portal.md) em um tipo de preço específico ou SKU. As opções incluem: **Gratuito**, **Básico** ou **Standard**, sendo que **Standard** está disponível em várias configurações e capacidades.
 
 A finalidade deste artigo é ajudá-lo a escolher uma camada. Se a capacidade de uma camada for muito baixa, você precisará provisionar um novo serviço na camada superior e recarregar os índices. Não há nenhuma atualização in-loco do mesmo serviço de uma SKU para outra.
@@ -43,9 +43,9 @@ A capacidade e os custos de execução do serviço andam de lado a lado. As info
 
 * Número e tamanho dos índices que planeja criar
 * Número e tamanho dos documentos a carregar
-* Alguma ideia de volume de consulta, em termos de QPS (consultas por segundo)
+* Alguma ideia de volume de consulta, em termos de Consultas Por Segundo (QPS). Para saber mais, veja [Desempenho e otimização do Azure Search](search-performance-optimization.md).
 
-Número e tamanho são importantes porque os limites máximos são atingidos com um limite rígido na contagem de índices ou documentos em um serviço ou nos recursos (armazenamento ou réplicas) usado pelo serviço. O limite real de seu serviço é aquele consumido primeiro: recursos ou objetos.
+Número e tamanho são importantes porque os limites máximos são atingidos com um limite rígido na contagem de índices por serviço, ou nos recursos (armazenamento ou réplicas) usado pelo serviço. O limite real de seu serviço é aquele consumido primeiro: recursos ou objetos.
 
 Com as estimativas em mãos, as etapas a seguir devem simplificar o processo:
 
@@ -60,18 +60,18 @@ A tabela a seguir fornece descrições de cada camada.
 | --- | --- |
 | **Gratuito** |Um serviço compartilhado, sem custo adicional, usado para avaliação, investigação ou cargas de trabalho pequenas. Por ser compartilhado com outros assinantes, a taxa de transferência e a indexação da consulta variam dependendo de quem mais está usando o serviço. Capacidade pequena (50 MB ou três índices com até 10 mil documentos cada). |
 | **Básico** |Cargas de trabalho de produção pequenas em hardware dedicado. Altamente disponível. Capacidade de até três réplicas e uma partição (2 GB). |
-| **S1** |Standard 1 oferece suporte a combinações flexíveis de partições (12) e réplicas (12), usadas para as cargas de trabalho de produção média no hardware dedicado. Você pode alocar partições e réplicas em combinações com suporte de um número máximo de 36 unidades de pesquisa faturáveis. Nesse nível, as partições têm 25 GB cada e a taxa de QPS é aproximadamente 15 consultas por segundo. |
-| **S2** |Standard 2 executa maiores cargas de trabalho de produção, usando as mesmas 36 unidades de pesquisa do S1, mas com réplicas e partições maiores. Nesse nível, as partições têm 100 GB e a taxa de QPS é cerca de 60 consultas por segundo. |
-| **S3** |Standard 3 executa proporcionalmente maiores cargas de trabalho de produção em sistemas de alta capacidade, em configurações de até 12 partições ou 12 réplicas em 36 unidades de pesquisa. Nesse nível, as partições têm 200 GB e a taxa de QPS é maior que 60 consultas por segundo. |
-| **S3 HD** |A Alta Densidade Standard 3 destina-se a um grande número de índices menores. Você pode ter até 3 partições, de 200 GB cada. QPS de mais de 60 consultas por segundo. |
+| **S1** |Standard 1 oferece suporte a combinações flexíveis de partições (12) e réplicas (12), usadas para as cargas de trabalho de produção média no hardware dedicado. Você pode alocar partições e réplicas em combinações com suporte de um número máximo de 36 unidades de pesquisa faturáveis. Nesse nível, as partições são 25 GB. |
+| **S2** |Standard 2 executa maiores cargas de trabalho de produção, usando as mesmas 36 unidades de pesquisa do S1, mas com réplicas e partições maiores. Nesse nível, as partições são 100 GB. |
+| **S3** |Standard 3 executa proporcionalmente maiores cargas de trabalho de produção em sistemas de alta capacidade, em configurações de até 12 partições ou 12 réplicas em 36 unidades de pesquisa. Nesse nível, as partições são 200 GB. |
+| **S3 HD** |A Alta Densidade Standard 3 destina-se a um grande número de índices menores. Você pode ter até 3 partições, de 200 GB cada.|
 
 > [!NOTE]
-> Os limites máximos de partição e de réplica são cobrados como unidades de pesquisa (máximo de 36 unidades por serviço), que impõe um limite eficaz inferior ao limite máximo em valor nominal. Por exemplo, para usar o máximo de 12 réplicas, você pode ter no máximo três partições (12 * 3 = 36 unidades). Da mesma forma, para usar o máximo de partições, reduza as réplicas para três. Confira [Dimensionar os níveis de recursos para cargas de trabalho de consulta e indexação na Pesquisa do Azure](search-capacity-planning.md) para obter um gráfico de combinações permitidas.
+> Os limites máximos de partição e de réplica são cobrados como unidades de pesquisa (máximo de 36 unidades por serviço), que impõe um limite eficaz inferior ao limite máximo em valor nominal. Por exemplo, para usar o máximo de 12 réplicas, você pode ter no máximo três partições (12 * 3 = 36 unidades). Da mesma forma, para usar o máximo de partições, reduza as réplicas para três. Confira [Dimensionar os níveis de recursos para cargas de trabalho de consulta e indexação no Azure Search](search-capacity-planning.md) para obter um gráfico de combinações permitidas.
 >
 >
 
 ## <a name="review-limits-per-tier"></a>Revisar os limites por tipo
-O gráfico a seguir é um subconjunto dos limites do [Limites de serviço na Pesquisa do Azure](search-limits-quotas-capacity.md). Ele lista os fatores com maior probabilidade de afetar uma decisão de SKU. Você pode consultar esse gráfico ao revisar as perguntas a seguir.
+O gráfico a seguir é um subconjunto dos limites do [Limites de serviço no Azure Search](search-limits-quotas-capacity.md). Ele lista os fatores com maior probabilidade de afetar uma decisão de SKU. Você pode consultar esse gráfico ao revisar as perguntas a seguir.
 
 | Recurso | Grátis | Basic | S1 | S2 | S3 | S3 HD |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -81,7 +81,6 @@ O gráfico a seguir é um subconjunto dos limites do [Limites de serviço na Pes
 | Máximo de partições |N/D |1 |12 |12 |12 |3 <sup>2</sup> |
 | Tamanho da partição |Total de 50 MB |2 GB por serviço |25 GB por partição |100 GB por partição (até um máximo de 1,2 TB por serviço) |200 GB por partição (até um máximo de 2,4 TB por serviço) |200 GB (até um máximo de 600 GB por serviço) |
 | Máximo de réplicas |N/D |3 |12 |12 |12 |12 |
-| Consultas por segundo |N/D |~3 por réplica |~15 por réplica |~60 por réplica |>60 por réplica |>60 por réplica |
 
 <sup>1</sup> Os recursos de camada gratuita e de versão prévia não vêm com SLAs (contratos de nível de serviço). Para todas as camadas faturáveis, os SLAs entram em vigor quando você provisiona redundância suficiente para o serviço. Duas ou mais réplicas são necessárias para o SLA de consulta (leitura). Três ou mais réplicas são necessárias para consulta e indexação do SLA (leitura-gravação). O número de partições não é uma consideração de SLA. 
 
@@ -104,7 +103,7 @@ Como uma última etapa, reveja a [página de preços](https://azure.microsoft.co
 Se os requisitos de armazenamento ou o preço estiverem fora dos limites, convém refatorar as cargas de trabalho entre vários serviços menores (por exemplo). Em um nível mais granular, você pode recriar os índices com um tamanho menor ou usar filtros para fazer consultas mais eficientes.
 
 > [!NOTE]
-> Os requisitos de armazenamento podem ser excessivos se os documentos contiverem dados estranhos. O ideal é que os documentos contenham somente metadados ou dados pesquisáveis. Dados binários não são pesquisáveis e devem ser armazenados separadamente (talvez em um armazenamento de blobs ou tabela do Azure) com um campo no índice para manter uma URL de referência aos dados externos. O tamanho máximo de um documento individual é de 16 MB (ou menos, se você estiver carregando em massa vários documentos em uma solicitação). Confira [Limites de serviço na Pesquisa do Azure](search-limits-quotas-capacity.md) para saber mais.
+> Os requisitos de armazenamento podem ser excessivos se os documentos contiverem dados estranhos. O ideal é que os documentos contenham somente metadados ou dados pesquisáveis. Dados binários não são pesquisáveis e devem ser armazenados separadamente (talvez em um armazenamento de blobs ou tabela do Azure) com um campo no índice para manter uma URL de referência aos dados externos. O tamanho máximo de um documento individual é de 16 MB (ou menos, se você estiver carregando em massa vários documentos em uma solicitação). Confira [Limites de serviço no Azure Search](search-limits-quotas-capacity.md) para saber mais.
 >
 >
 

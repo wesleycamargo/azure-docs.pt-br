@@ -1,5 +1,5 @@
 ---
-title: "Como usar a identidade de Serviço Gerenciado do Azure no Gerenciamento de API do Azure | Microsoft Docs"
+title: Usar o Azure Managed Service Identity no Gerenciamento de API do Azure | Microsoft Docs
 description: "Saiba como usar a Identidade de Serviço Gerenciado do Azure no Gerenciamento de API"
 services: api-management
 documentationcenter: 
@@ -11,22 +11,22 @@ ms.workload: integration
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: apimpm
-ms.openlocfilehash: 70bf207cc173caf7d8cae3c4c9111ee2f427405b
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: ded0809fa90e98b2e845d328fbeec6d21507c46b
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="how-to-use-azure-managed-service-identity-in-azure-api-management"></a>Como usar a Identidade de Serviço Gerenciado do Azure no Gerenciamento de API do Azure
+# <a name="use-azure-managed-service-identity-in-azure-api-management"></a>Usar o Azure Managed Service Identity no Gerenciamento de API do Azure
 
 > [!Note]
 > Atualmente, a Identidade do Serviço Gerenciado para o Gerenciamento de API do Azure está em versão prévia.
 
-Este tópico mostra como criar uma identidade de serviço gerenciado de uma instância do serviço de Gerenciamento de API e como acessar outros recursos. Uma identidade de serviço gerenciado gerada pelo Azure Active Directory (AAD) permite que a instância de Gerenciamento de API acesse fácil e seguramente os outros recursos protegidos pelo AAD, como o Azure Key Vault. A identidade de serviço gerenciado é gerenciada pelo Azure e não exige provisionamento ou giro de nenhum segredo. Para obter mais informações sobre a Identidade do Serviço Gerenciado do Azure, consulte a [Visão geral da Identidade do Serviço Gerenciado](../active-directory/msi-overview.md).
+Este artigo mostra como criar uma identidade de serviço gerenciado para uma instância do serviço de Gerenciamento de API e como acessar outros recursos. Uma identidade do serviço gerenciada gerada pelo Azure AD (Azure Active Directory) permite que a instância de Gerenciamento de API acesse de maneira fácil e segura outros recursos protegidos pelo Azure AD, como o Azure Key Vault. A identidade de serviço gerenciado é gerenciada pelo Azure e não exige provisionamento ou giro de nenhum segredo. Para obter mais informações sobre o Azure Managed Service Identity, consulte [Managed Service Identity para recursos do Azure](../active-directory/msi-overview.md).
 
-## <a name="creating-an-api-management-instance-with-an-identity-using-an-azure-resource-manager-template"></a>Criação de uma instância de Gerenciamento de API com uma identidade usando um modelo do Azure Resource Manager
+## <a name="create-an-api-management-instance-with-an-identity-by-using-a-resource-manager-template"></a>Criar uma instância de Gerenciamento de API com uma identidade usando um modelo do Resource Manager
 
-Uma instância do Gerenciamento de API pode ser criada com uma identidade incluindo a propriedade a seguir na definição de recurso. 
+Crie uma instância de Gerenciamento de API com uma identidade incluindo a seguinte propriedade na definição de recurso: 
 
 ```json
 "identity" : {
@@ -34,9 +34,9 @@ Uma instância do Gerenciamento de API pode ser criada com uma identidade inclui
 }
 ```
 
-Isso faz com que o Azure crie e gerencie a identidade para sua instância do Gerenciamento de API. 
+Essa propriedade faz com que o Azure crie e gerencie a identidade da instância de Gerenciamento de API. 
 
-Por exemplo, um modelo completo pode ser semelhante ao seguinte:
+Por exemplo, um modelo completo do Azure Resource Manager pode ter a seguinte aparência:
 
 ```json
 {
@@ -109,13 +109,13 @@ Por exemplo, um modelo completo pode ser semelhante ao seguinte:
 }
 ```
 
-## <a name="obtaining-a-certificate-from-azure-key-vault"></a>Obter um certificado do Azure Key Vault
+## <a name="obtain-a-certificate-from-azure-key-vault"></a>Obter um certificado do Azure Key Vault
 
-O exemplo abaixo mostra como obter um certificado do Azure Key Vault. Ele contém as seguintes etapas:
+O exemplo a seguir mostra como obter um certificado do Azure Key Vault. Ele contém as seguintes etapas:
 
-* Criar uma instância de Gerenciamento de API com uma identidade
-* Atualizar as políticas de acesso de uma instância do Azure Key Vault e permitir que a instância de Gerenciamento de API obtenha os segredos dele
-* Atualizar a instância de Gerenciamento de API, definindo um nome de domínio personalizado usando um certificado da instância do Key Vault
+1. Criar uma instância de Gerenciamento de API com uma identidade.
+2. Atualizar as políticas de acesso de uma instância do Azure Key Vault e permitir que a instância de Gerenciamento de API obtenha os segredos dele.
+3. Atualizar a instância de Gerenciamento de API configurando um nome de domínio personalizado por meio de um certificado da instância do Key Vault.
 
 > [!Important]
 > Se a versão do objeto do certificado não for fornecida, o Gerenciamento de API obterá automaticamente a versão mais recente do certificado depois de carregada no Key Vault. 
@@ -245,7 +245,8 @@ O exemplo abaixo mostra como obter um certificado do Azure Key Vault. Ele conté
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Saiba mais sobre a Identidade de Serviço Gerenciado do Azure
-  * [Visão geral da Identidade do Serviço Gerenciado](../active-directory/msi-overview.md)
-  * [Veja mais modelos do Azure Resource Manager](https://github.com/Azure/azure-quickstart-templates)
+Saiba mais sobre o Azure Managed Service Identity:
+
+* [Managed Service Identity para recursos do Azure](../active-directory/msi-overview.md)
+* [Modelos do Gerenciador de Recursos do Azure](https://github.com/Azure/azure-quickstart-templates)
 

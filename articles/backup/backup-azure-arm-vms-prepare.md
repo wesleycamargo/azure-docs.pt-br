@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 9/3/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: 7ee2e42e05fb4866d32c24b0d4c788b0197970ad
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: b8a770323d115390d323352826457eee62be5f6f
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Preparar seu ambiente para fazer backup das máquinas virtuais implantadas com o Gerenciador de Recursos
 > [!div class="op_single_selector"]
@@ -56,6 +56,12 @@ Antes de preparar seu ambiente, compreenda as limitações.
 
 * Não há suporte para o backup de máquinas virtuais com mais de 16 discos de dados.
 * Não há suporte para o backup de máquinas virtuais com tamanhos de discos de dados maiores que 1.023 GB.
+
+> [!NOTE]
+> Temos uma versão prévia privada para dar suporte a backups para VMs com discos > de 1TB não gerenciado. Para obter detalhes, consulte [versão prévia privada para suporte de backup de VM de disco grandes](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+>
+>
+
 * Não há suporte para o backup de máquinas virtuais com um endereço IP reservado e nenhum ponto de extremidade definido.
 * Não há suporte para backup de VMs criptografadas usando apenas BEK. Não há suporte para backup de VMs Linux criptografadas usando criptografia LUKS.
 * O backup de VMs que contêm CSV (Volume Compartilhado Clusterizado) ou configuração de Aumento do Servidor de Arquivos não é recomendado, pois exige o envolvimento de todas as VMs incluídas na configuração de cluster durante a tarefa do instantâneo. O Backup do Azure não dá suporte à consistência de várias VMs. 

@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: steveesp
-ms.openlocfilehash: 914747983d4d974810836be66d6c6af343f58b60
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d77440fe62bbd0e720e5ae60b15574dacc4180c0
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="optimize-network-throughput-for-azure-virtual-machines"></a>Otimizar a taxa de transferência de rede para máquinas virtuais do Azure
 
-Máquinas virtuais do Azure (VM) têm configurações de rede padrão que podem ser mais otimizadas para taxa de transferência de rede. Este artigo descreve como otimizar a taxa de transferência de rede para VMs em Windows e Linux do Microsoft Azure, incluindo distribuições principais como o Ubuntu, CentOS e Red Hat.
+Máquinas virtuais do Azure (VM) têm configurações de rede padrão que podem ser mais otimizadas para taxa de transferência de rede. Este artigo descreve como otimizar a taxa de transferência de rede para VMs Windows e Linux do Microsoft Azure, incluindo as distribuições principais como o Ubuntu, CentOS e Red Hat.
 
 ## <a name="windows-vm"></a>VM Windows
 
@@ -51,11 +51,11 @@ Se sua VM do Windows tiver suporte para [Rede Acelerada](virtual-network-create-
 
 ## <a name="linux-vm"></a>VM Linux
 
-RSS está sempre habilitado por padrão em uma VM do Linux do Azure. Kernels do Linux lançados desde janeiro de 2017 incluem novas opções de otimização de rede que permitem que uma VM do Linux obter maior taxa de transferência de rede.
+RSS está sempre habilitado por padrão em uma VM do Linux do Azure. Kernels do Linux liberados desde outubro de 2017 incluem novas opções de otimização de rede que permitem que uma VM Linux obtenha maior taxa de transferência de rede.
 
-### <a name="ubuntu"></a>Ubuntu
+### <a name="ubuntu-for-new-deployments"></a>Ubuntu para novas implantações
 
-Para obter a otimização, primeiro atualize para a versão mais recente com suporte, a partir de junho de 2017, que é:
+Para obter a otimização, primeiro instale a última versão com suporte do 16.04-LTS, da seguinte maneira:
 ```json
 "Publisher": "Canonical",
 "Offer": "UbuntuServer",
@@ -75,35 +75,39 @@ apt-get -y upgrade
 Comando opcional:
 
 `apt-get -y dist-upgrade`
-#### <a name="ubuntu-azure-preview-kernel"></a>Kernel de visualização do Azure no Ubuntu
-> [!WARNING]
-> Esse núcleo de Visualização do Linux do Azure pode não ter o mesmo nível de disponibilidade e confiabilidade que imagens e kernels do Marketplace em versão de disponibilidade, em geral. O recurso não tem suporte, pode ter recursos restritos e pode não estar tão confiável quanto o kernel padrão. Não use este kernel para cargas de trabalho de produção.
+#### <a name="ubuntu-azure-kernel-upgrade-for-existing-vms"></a>Atualização de kernel do Azure no Ubuntu para VMs existentes
 
-O desempenho de taxa de transferência significativo pode ser obtido pela instalação do kernel do Linux do Azure proposto. Para testar este kernel, adicione esta linha a /etc/apt/sources.list
+Um desempenho de taxa de transferência significativo pode ser obtido com o upgrade para o kernel do Linux no Azure. Para verificar se você tem esse kernel, verifique a versão do kernel.
 
 ```bash
-#add this to the end of /etc/apt/sources.list (requires elevation)
-deb http://archive.ubuntu.com/ubuntu/ xenial-proposed restricted main multiverse universe
+#Azure kernel name ends with "-azure"
+uname -r
+
+#sample output on Azure kernel:
+#4.11.0-1014-azure
 ```
 
 Em seguida, execute estes comandos como raiz.
 ```bash
+#run as root or preface with sudo
 apt-get update
+apt-get upgrade -y
+apt-get dist-upgrade -y
 apt-get install "linux-azure"
 reboot
 ```
 
 ### <a name="centos"></a>CentOS
 
-Para obter a otimização, primeiro atualize para a versão mais recente com suporte, a partir de julho de 2017, que é:
+Para obter as últimas otimizações, primeiro atualize para a última versão com suporte, da seguinte maneira:
 ```json
 "Publisher": "OpenLogic",
 "Offer": "CentOS",
-"Sku": "7.3",
+"Sku": "7.4",
 "Version": "latest"
 ```
 Depois que a atualização for concluída, instale o LIS (Linux Integration Services) mais recente.
-A otimização de taxa de transferência é feita no LIS, a partir da versão 4.2.2-2. Digite os seguintes comandos para instalar o LIS:
+A otimização de taxa de transferência está no LIS, começando a partir de 4.2.2-2, embora as versões posteriores contenham mais melhorias. Insira os seguintes comandos para instalar o último LIS:
 
 ```bash
 sudo yum update
@@ -113,21 +117,21 @@ sudo yum install microsoft-hyper-v
 
 ### <a name="red-hat"></a>Red Hat
 
-Para obter a otimização, primeiro atualize para a versão mais recente com suporte, a partir de julho de 2017, que é:
+Para obter a otimização, primeiro atualize para a última versão com suporte, da seguinte maneira:
 ```json
 "Publisher": "RedHat"
 "Offer": "RHEL"
-"Sku": "7.3"
-"Version": "7.3.2017071923"
+"Sku": "7-RAW"
+"Version": "latest"
 ```
 Depois que a atualização for concluída, instale o LIS (Linux Integration Services) mais recente.
 A otimização de taxa de transferência é feita no LIS, a partir da versão 4.2. Digite os comandos a seguir para baixar e instalá-los:
 
 ```bash
-mkdir lis4.2.2-2
-cd lis4.2.2-2
-wget https://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.2-2.tar.gz
-tar xvzf lis-rpms-4.2.2-2.tar.gz
+mkdir lis4.2.3-1
+cd lis4.2.3-1
+wget https://download.microsoft.com/download/6/8/F/68FE11B8-FAA4-4F8D-8C7D-74DA7F2CFC8C/lis-rpms-4.2.3-1.tar.gz
+tar xvzf lis-rpms-4.2.3-1.tar.gz
 cd LISISO
 install.sh #or upgrade.sh if prior LIS was previously installed
 ```

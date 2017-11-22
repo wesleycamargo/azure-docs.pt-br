@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 10/12/2017
 ms.author: v-ruogun
-ms.openlocfilehash: 76e23d85b392f8120914f6170040c6b3c450aba6
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 4a197af41f5450d84e1c18e15198d1febb02bab1
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/13/2017
 ---
 #  <a name="transfer-objects-tofrom-azure-blob-storage-using-python"></a>Transferir objetos de/para o Armazenamento de Blobs do Azure usando o Python
 Neste guia de início rápido, você aprenderá como usar Python para carregar, baixar e listar blobs de bloco em um contêiner no Armazenamento de Blobs do Azure. 
@@ -73,7 +73,11 @@ Você também pode usar uma ferramenta como o [Gerenciador de Armazenamento do A
 
 Depois de verificar os arquivos, pressione qualquer tecla para concluir a demonstração e excluir os arquivos de teste. Agora que você sabe o que o exemplo faz, abra o arquivo example.py para examinar o código. 
 
-## <a name="get-references-to-the-storage-objects"></a>Obter referências a objetos de armazenamento
+## <a name="understand-the-sample-code"></a>Entender o código de exemplo
+
+Em seguida, vamos percorrer o código de exemplo para que você possa entender como ele funciona.
+
+### <a name="get-references-to-the-storage-objects"></a>Obter referências a objetos de armazenamento
 A primeira coisa a fazer é criar as referências aos objetos usados para acessar e gerenciar o Armazenamento de Blobs. Esses objetos dependem uns dos outros, e cada um é usado pelo próximo na lista.
 
 * Crie uma instância do objeto **BlockBlobService**, que aponta para o serviço Blob na sua conta de armazenamento. 
@@ -98,7 +102,7 @@ block_blob_service.create_container(container_name)
 # Set the permission so the blobs are public.
 block_blob_service.set_container_acl(container_name, public_access=PublicAccess.Container)
 ```
-## <a name="upload-blobs-to-the-container"></a>Carregar blobs para o contêiner
+### <a name="upload-blobs-to-the-container"></a>Carregar blobs para o contêiner
 
 O Armazenamento de Blobs dá suporte a blobs de blocos, blobs de acréscimo e blobs de páginas. Os blobs de blocos são utilizados com mais frequência e são usados nesse guia de início rápido.  
 
@@ -128,7 +132,7 @@ Há vários métodos de upload que você pode usar com o Armazenamento de Blobs.
 
 Os blobs de bloco podem ter até 4,7 TB e podem ser qualquer coisa desde planilhas do Excel até arquivos de vídeo grandes. Os blobs de páginas são usados principalmente para os arquivos VHD usados auxiliar as VMs IaaS. Os blobs de acréscimo são usados para registro em log, como quando você quer gravar em um arquivo e depois adicionar mais informações. A maioria dos objetos armazenados no Armazenamento de Blobs são blobs de blocos.
 
-## <a name="list-the-blobs-in-a-container"></a>Listar os blobs em um contêiner
+### <a name="list-the-blobs-in-a-container"></a>Listar os blobs em um contêiner
 
 Obter uma lista de arquivos no contêiner usando o método **list_blobs**. Esse método retorna um gerador. O código a seguir recupera a lista de blobs e a percorre, mostrando os nomes dos blobs encontrados em um contêiner.  
 
@@ -140,7 +144,7 @@ print("\nList blobs in the container")
         print("\t Blob name: " + blob.name)
 ```
 
-## <a name="download-the-blobs"></a>Baixar os blobs
+### <a name="download-the-blobs"></a>Baixar os blobs
 
 Baixar blobs para o seu disco local usando o método **get\_blob\_to\_path**. O código a seguir baixa o blob carregado em uma seção anterior. "_DOWNLOADED" é adicionado como um sufixo ao nome do blob para que você possa ver ambos os arquivos no disco local. 
 
@@ -152,7 +156,7 @@ print("\nDownloading blob to " + full_path_to_file2)
 block_blob_service.get_blob_to_path(container_name, local_file_name, full_path_to_file2)
 ```
 
-## <a name="clean-up-resources"></a>Limpar recursos
+### <a name="clean-up-resources"></a>Limpar recursos
 Se você não precisar mais dos blobs carregados neste guia de início rápido, poderá excluir o contêiner inteiro usando **delete\_container**. Se os arquivos criados não forem mais necessárias, você usa o método **delete\_blob** para excluir os arquivos.
 
 ```python

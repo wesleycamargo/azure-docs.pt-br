@@ -12,16 +12,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/6/2017
+ms.date: 11/8/2017
 ms.author: raiye
-ms.openlocfilehash: b728e794132ab8eb91d5d77b3ed452f0c84b8823
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f753a30fa833aaf19069b01607c8beaadcc667f5
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-guest-os"></a>Sistema operacional convidado do Azure
 As tabelas a seguir mostram as atualizações do Microsoft Security Response Center (MSRC) aplicadas ao SO convidado do Azure. Pesquise este artigo para determinar se uma atualização específica se aplica ao SO convidado que você está usando. Atualizações sempre são realizadas para a [família][family-explain] em particular na qual foram introduzidas.
+
+## <a name="october-guest-os"></a>SO convidado de outubro
+| Categoria do Produto | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
+| --- | --- | --- | --- | --- |
+| Rel 17-10 | [4041691] |Atualizações do Windows 10 |5.12 |10 de outubro de 2017 |
+| Rel 17-10 | [4041678], [4041679], [4041687] |Somente Segurança do Windows |2.67, 3.54, 4.47 |10 de outubro de 2017 |
+| Rel 17-10 | [4040685], |Internet Explorer |2.67, 3.54, 4.47 |10 de outubro de 2017 |
+| Rel 17-10 | [4041681], [4041690], [4041693] |Pacotes Cumulativos de Atualizações Mensais do Windows |2.67, 3.54, 4.47 |10 de outubro de 2017 |
+| N/D | [4038777] |Rollup não relacionado à segurança de setembro |2.67 |12 de setembro de 2017 |
+| N/D | [4038799] |Rollup não relacionado à segurança de setembro |3.54 |12 de setembro de 2017 |
+| N/D | [4038792] |Rollup não relacionado à segurança de setembro |4.47 |12 de setembro de 2017 |
+| N/D | [4040980] |Rollup não relacionado à segurança .NET de setembro |2.67 |12 de setembro de 2017 |
+| N/D | [4040979] |Rollup não relacionado à segurança .NET de setembro |3.54 |12 de setembro de 2017 |
+| N/D | [4040981] |Rollup não relacionado à segurança .NET de setembro |4.47 |12 de setembro de 2017 |
 
 ## <a name="september-guest-os"></a>SO convidado de setembro
 | Categoria do Produto | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
@@ -323,7 +337,7 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 | --- | --- | --- | --- | --- |
 | MS16-023 |[3142015] |Atualização de segurança cumulativa do Internet Explorer |4.30, 3.37, 2.49 |8 de março de 2016 |
 | MS16-026 |[3143148] |Atualização de segurança para o Graphic Fonts para tratar da execução remota de código |4.30, 3.37, 2.49 |8 de março de 2016 |
-| MS16-027 |[3143146] |Atualização de segurança para Windows Media Player para tratar da execução remota de código |4.30, 3.37, 2.49 |8 de março de 2016 |
+| MS16-027 |[3143146] |Atualização de segurança para Windows Player de Mídia para tratar da execução remota de código |4.30, 3.37, 2.49 |8 de março de 2016 |
 | MS16-028 |[3143081] |Atualização de segurança para a Biblioteca de PDF do Microsoft Windows para tratar da execução remota de código |4.30, 3.37 |8 de março de 2016 |
 | MS16-030 |[3143136] |Atualização de segurança para Windows OLE para tratar da execução remota de código |4.30, 3.37, 2.49 |8 de março de 2016 |
 | MS16-031 |[3140410] |Atualização de segurança para Microsoft Windows para tratar da elevação de privilégio |2.49 |8 de março de 2016 |
@@ -439,7 +453,7 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 | ID do boletim | Artigo da KB pai | Descrição da vulnerabilidade | SO convidado | Data da primeira introdução |
 | --- | --- | --- | --- | --- |
 | MS15-056 |[3058515] |Atualização de segurança cumulativa do Internet Explorer |4.21, 3.28, 2.40 |9 de junho de 2015 |
-| MS15-057 |[3033890] |Vulnerabilidade no Windows Media Player poderia permitir a execução remota de código |4.21, 3.28, 2.40 |9 de junho de 2015 |
+| MS15-057 |[3033890] |Vulnerabilidade no Windows Player de Mídia poderia permitir a execução remota de código |4.21, 3.28, 2.40 |9 de junho de 2015 |
 | MS15-060 |[3059317] |Vulnerabilidade no Microsoft Common Controls poderia permitir a execução remota de código |4.21, 3.28, 2.40 |9 de junho de 2015 |
 | MS15-061 |[3057839] |Vulnerabilidades nos drivers no modo kernel do Windows poderiam permitir elevação de privilégio |4.21, 3.28, 2.40 |9 de junho de 2015 |
 | MS15-062 |[3062577] |Vulnerabilidade nos Serviços de Federação do Active Directory poderia permitir elevação de privilégio |4.21, 3.28, 2.40 |9 de junho de 2015 |
@@ -535,6 +549,20 @@ As tabelas a seguir mostram as atualizações do Microsoft Security Response Cen
 | N/D |[2999802] |Linhas sólidas, em vez de linhas pontilhadas, são impressas no Windows |4.15, 3.22, 2.34 |13 de janeiro de 2015 |
 | N/D |[2896881] |Longo tempo de logon quando você usa o comando VBScript AddPrinterConnection para mapear impressoras para usuários durante o processo de logon do Windows |4.15, 3.22, 2.34 |13 de janeiro de 2015 |
 
+[4041691]: http://support.microsoft.com/kb/4041691 
+[4041678]: http://support.microsoft.com/kb/4041678 
+[4041679]: http://support.microsoft.com/kb/4041679
+[4041687]: http://support.microsoft.com/kb/4041687
+[4040685]: http://support.microsoft.com/kb/4040685
+[4041681]: http://support.microsoft.com/kb/4041681
+[4041690]: http://support.microsoft.com/kb/4041690
+[4041693]: http://support.microsoft.com/kb/4041693
+[4038777]: http://support.microsoft.com/kb/4038777
+[4038799]: http://support.microsoft.com/kb/4038799
+[4038792]: http://support.microsoft.com/kb/4038792
+[4040980]: http://support.microsoft.com/kb/4040980
+[4040979]: http://support.microsoft.com/kb/4040979
+[4040981]: http://support.microsoft.com/kb/4040981
 
 [4038782]: http://support.microsoft.com/kb/4038782
 [4038779]: http://support.microsoft.com/kb/4038779

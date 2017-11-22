@@ -15,38 +15,39 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 
 ms.author: haroldw
-ms.openlocfilehash: c91b7232b2f87e0b4b5e659126b96a6ef8b4202c
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 159f30fc59a050b9a4ff983e8ac84e424104b484
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="deploy-openshift-container-platform-in-azure"></a>Implantar o OpenShift Container Platform no Azure
 
-Há várias maneiras de implantar o OpenShift Container Platform no Azure. Você pode implantar manualmente todos os componentes de infraestrutura necessários do Azure e, em seguida, seguir a [documentação](https://docs.openshift.com/container-platform/3.6/welcome/index.html) do OpenShift Container Platform.
-Você também pode usar um modelo do Resource Manager existente que simplifica a implantação do cluster do OpenShift Container Platform. Esse modelo está localizado [aqui](https://github.com/Microsoft/openshift-container-platform/).
+Você pode usar um dos vários métodos para implantar a plataforma de contêiner OpenShift no Azure:
 
-Outra opção é usar a [Oferta do Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/redhat.openshift-container-platform?tab=Overview).
+- Você pode implantar manualmente todos os componentes de infraestrutura necessários do Azure e, em seguida, seguir a [documentação](https://docs.openshift.com/container-platform/3.6/welcome/index.html) do OpenShift Container Platform.
+- Você também pode usar um [modelo do Gerenciador de Recursos](https://github.com/Microsoft/openshift-container-platform/) existente que simplifica a implantação do cluster do OpenShift Container Platform.
+- Outra opção é usar a [Oferta do Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.openshift-container-platform?tab=Overview).
 
-Para ambas as opções, é necessária uma assinatura do Red Hat. Durante a implantação, a instância RHEL é registrada na Assinatura do Red Hat e anexada à ID do Pool que contém os direitos para o OpenShift Container Platform.
-Certifique-se de que você tenha uma senha, uma ID do Pool e um Nome de usuário de gerente de Assinatura do Red Hat (nome de usuário de RHSM, senha de RHSM e ID do Pool) válidos. Você pode verificar as informações fazendo logon no https://access.redhat.com.
+Para ambas as opções, é necessária uma assinatura do Red Hat. Durante a implantação, a instância Red Hat Enterprise Linux é registrada na Assinatura do Red Hat e anexada à ID do Pool que contém os direitos para o OpenShift Container Platform.
+Certifique-se de que você tenha uma senha, uma ID do Pool e um Nome de usuário de gerente de Assinatura do Red Hat (RHSM) válidos. Você pode verificar as informações fazendo logon no https://access.redhat.com.
 
-## <a name="deploy-using-the-openshift-container-platform-resource-manager-template"></a>Implantar usando o modelo do Resource Manager de OpenShift Container Platform
+## <a name="deploy-by-using-the-openshift-container-platform-resource-manager-template"></a>Implantar usando o modelo do Gerenciador de Recursos de OpenShift Container Platform
 
-Para implantar usando o modelo do Resource Manager, um arquivo de parâmetros é usado para fornecer todos os parâmetros de entrada. Se você quiser personalizar qualquer um dos itens de implantação que não são cobertos usando parâmetros de entrada, crie o fork do repositório github e altere os itens apropriados.
+Para implantar usando o modelo do Gerenciador de Recursos, um arquivo de parâmetros é usado para fornecer todos os parâmetros de entrada. Se você quiser personalizar qualquer um dos itens de implantação que não são cobertos usando parâmetros de entrada, crie o fork do repositório GitHub e altere os itens apropriados.
 
-Algumas opções de personalização comuns incluem (mas não se limitam a):
+Algumas opções de personalização comuns incluem, mas não se limitam a:
 
-- CIDR VNet [variável em azuredeploy.json]
-- tamanho de VM de bastião [variável em azuredeploy.json]
-- Convenções de nomenclatura [variáveis em azuredeploy.json]
-- Especificações de cluster do OpenShift – modificadas por meio do arquivo de hosts [deployOpenShift.sh]
+- CIDR VNet (variável em azuredeploy.json)
+- Tamanho de VM de bastião (variável em azuredeploy.json)
+- Convenções de nomenclatura (variáveis em azuredeploy.json)
+- Especificações de cluster do OpenShift – modificadas por meio do arquivo de hosts (deployOpenShift.sh)
 
-### <a name="configure-parameters-file"></a>Configurar o arquivo de parâmetros
+### <a name="configure-the-parameters-file"></a>Configurar o arquivo de parâmetros
 
 Use o valor `appId` da entidade de serviço que você criou anteriormente para o parâmetro `aadClientId`. 
 
-O exemplo a seguir cria um arquivo de parâmetros chamado **azuredeploy.parameters.json** com todas as entradas necessárias.
+O exemplo a seguir cria um arquivo de parâmetros chamado azuredeploy.parameters.json com todas as entradas necessárias.
 
 ```json
 {
@@ -132,14 +133,14 @@ O exemplo a seguir cria um arquivo de parâmetros chamado **azuredeploy.paramete
 }
 ```
 
-Substitua itens entre {} por suas informações pertinentes.
+Substitua os itens entre parênteses com suas informações específicas.
 
-### <a name="deploy-using-azure-cli"></a>Implantar usando a CLI do Azure
+### <a name="deploy-by-using-azure-cli"></a>Implantar usando a CLI do Azure
 
 > [!NOTE] 
-> O comando a seguir requer a CLI do Azure 2.0.8 ou posterior. Você pode verificar a versão de az CLI com o comando `az --version`. Para atualizar a versão da CLI, confira [Instalar a CLI do Azure 2.0]( /cli/azure/install-azure-cli).
+> O comando a seguir requer a CLI do Azure 2.0.8 ou posterior. Você pode verificar a versão CLI com o comando `az --version`. Para atualizar a versão da CLI, confira [Instalar a CLI do Azure 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latesti).
 
-O exemplo a seguir implanta o cluster do OpenShift e todos os recursos relacionados em um grupo de recursos denominado myResourceGroup com um nome de implantação de myOpenShiftCluster. O modelo é referenciado diretamente do repositório github e um arquivo de parâmetros local chamado **azuredeploy.parameters.json** é usado.
+O exemplo a seguir implanta o cluster do OpenShift e todos os recursos relacionados em um grupo de recursos denominado myResourceGroup com um nome de implantação de myOpenShiftCluster. O modelo é referenciado diretamente do repositório GitHub e um arquivo de parâmetros local chamado azuredeploy.parameters.json é usado.
 
 ```azurecli 
 az group deployment create -g myResourceGroup --name myOpenShiftCluster \
@@ -156,17 +157,17 @@ A implantação leva pelo menos 30 minutos para ser concluída dependendo do nú
 }
 ```
 
-## <a name="deploy-using-openshift-container-platform-marketplace-offer"></a>Implantar usando a oferta do marketplace do OpenShift Container Platform
+## <a name="deploy-by-using-the-openshift-container-platform-azure-marketplace-offer"></a>Implantar usando a oferta do Azure Marketplace do OpenShift Container Platform
 
-A maneira mais simples para implantar o OpenShift Container Platform no Azure é usar a [Oferta do Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/redhat.openshift-container-platform?tab=Overview).
+A maneira mais simples para implantar o OpenShift Container Platform no Azure é usar a [Oferta Marketplace do Azure](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.openshift-container-platform?tab=Overview).
 
 Essa opção é a mais simples, mas também tem recursos de personalização limitados. A oferta inclui três opções de configuração:
 
-- Pequena: implanta um cluster não HA com um Nó Mestre, um Nó de Infraestrutura, dois Nós de Aplicativo e um Nó de Bastião. Todos os nós são de tamanhos de VM DS2v2 padrão. Este cluster requer 10 núcleos no total e é ideal para testes de pequena escala.
-- Média: implanta um cluster de HA com três Nós Mestres, dois Nós de Infraestrutura, quatro Nós de Aplicativo e um Nó de Bastião. Todos os nós, exceto os de Bastião, são de tamanho de VM DS3v2 padrão. O Nó de Bastião é um DS2v2 padrão. Este cluster exige 38 núcleos.
-- Grande: implanta um cluster de HA com três Nós Mestres, dois Nós de Infraestrutura, seis Nós de Aplicativo e um Nó de Bastião. Os Nós Mestres e de Infraestrutura são de tamanhos de VM DS3v2 padrão, os Nós de Aplicativo são de tamanho de VM DS4v2 padrão e o Nó de Bastião é um DS2v2 padrão. Este cluster exige 70 núcleos.
+- **Pequena**: implanta um cluster não HA com um Nó Mestre, um Nó de Infraestrutura, dois Nós de Aplicativo e um Nó de Bastião. Todos os nós são de tamanhos de VM DS2v2 padrão. Este cluster requer 10 núcleos no total e é ideal para testes de pequena escala.
+- **Média**: implanta um cluster de HA com três Nós Mestres, dois Nós de Infraestrutura, quatro Nós de Aplicativo e um Nó de Bastião. Todos os nós, exceto os de Bastião, são de tamanho de VM DS3v2 padrão. O Nó de Bastião é um DS2v2 padrão. Este cluster exige 38 núcleos.
+- **Grande**: implanta um cluster de HA com três Nós Mestres, dois Nós de Infraestrutura, seis Nós de Aplicativo e um Nó de Bastião. Os nós mestre e de infraestrutura são os tamanhos de VM DS3v2 padrão. Os nós de aplicativo são os tamanhos de VM DS4v2 padrão e o nó de bastiões é uma DS2v2 padrão. Este cluster exige 70 núcleos.
 
-A configuração do provedor de nuvem do Azure é opcional para tamanhos de cluster Médio e Grande. O tamanho de cluster Pequeno não oferece uma opção para configurar o Provedor de nuvem do Azure.
+A configuração do provedor de nuvem do Azure é opcional para tamanhos de cluster Médio e Grande. O tamanho de cluster Pequeno não oferece uma opção para configurar o Provedor de Solução de nuvem do Azure.
 
 ## <a name="connect-to-the-openshift-cluster"></a>Conectar-se ao cluster OpenShift
 
@@ -186,6 +187,6 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Tarefas pós-implantação](./openshift-post-deployment.md)
-- [Solução de problemas de implantação do OpenShift](./openshift-troubleshooting.md)
+- [Tarefas de pós-implantação](./openshift-post-deployment.md)
+- [Solução de problemas de implantação do OpenShift no Azure](./openshift-troubleshooting.md)
 - [Introdução ao OpenShift Container Platform](https://docs.openshift.com/container-platform/3.6/getting_started/index.html)

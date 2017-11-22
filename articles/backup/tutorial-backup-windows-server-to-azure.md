@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 09/23/2017
 ms.author: saurabhsensharma;markgal;
 ms.custom: 
-ms.openlocfilehash: 7caf1dd3fa5ef295c2472cc11deb2895fc2a7111
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 67a5c1494f2944e91fed2b077cf04e8906788c1e
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="back-up-windows-server-to-azure"></a>Fazer backup do Windows Server para o Azure
 
@@ -42,9 +42,9 @@ Faça logon no Portal do Azure em http://portal.azure.com.
 
 Antes que possa fazer backup do Windows Server, você deverá criar um local para que os backups ou os pontos de restauração, sejam armazenados. Um [Cofre dos Serviços de Recuperação](backup-azure-recovery-services-vault-overview.md) é um contêiner do Azure que armazena os backups do Windows Server. Siga as etapas abaixo para criar um Cofre dos Serviços de Recuperação no Portal do Azure. 
 
-1. No menu à esquerda, selecione **Mais serviços** e, na lista de serviços, digite **Serviços de Recuperação**. Clique em **Cofres dos Serviços de Recuperação**.
+1. No menu à esquerda, selecione **Todos os serviços** e na lista de serviços, digite **Serviços de Recuperação**. Clique em **Cofres dos Serviços de Recuperação**.
 
-   ![Abra o cofre dos Serviços de Recuperação](./media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault.png)
+   ![Abra o cofre dos Serviços de Recuperação](./media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault_2.png)
 
 2.  No menu **Cofres de Serviços de Recuperação**, clique em **Adicionar**.
 
@@ -134,7 +134,7 @@ Você estabeleceu a agenda de quando os trabalhos de backup serão executados. N
 
 1.  No console do Agente de Serviços de Recuperação do Microsoft Azure, clique em **Fazer backup agora**.
 
-    ![Preparar infraestrutura](./media/tutorial-backup-windows-server-to-azure/mars-schedule-backup.png)
+    ![Preparar infraestrutura](./media/tutorial-backup-windows-server-to-azure/backup-now.png)
 
 2.  No assistente **Fazer Backup Agora**, selecione um dos **Arquivos e Pastas** ou o **Estado do Sistema** que você deseja fazer backup e clique em **Avançar** 
 3. Na página **Confirmação**, examine as configurações que o assistente **Fazer Backup Agora** usa para fazer backup do servidor. Em seguida, clique em **Fazer Backup**.

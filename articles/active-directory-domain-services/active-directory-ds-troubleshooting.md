@@ -4,7 +4,7 @@ description: "Guia de solução de problemas para os Serviços de Domínio do AD
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mahesh-unnikrishnan
 editor: curtand
 ms.assetid: 4bc8c604-f57c-4f28-9dac-8b9164a0cf0b
 ms.service: active-directory-ds
@@ -12,19 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/16/2017
+ms.date: 11/15/2017
 ms.author: maheshu
-ms.openlocfilehash: 34335db77a5e414af4cfa77d6223ab5290bae614
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 3acecdf753162ad703ff51acf40c34335bf6cdcb
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Azure AD Domain Services – Guia de solução de problemas
 Este artigo fornece dicas de solução de problemas que você pode encontrar ao configurar ou administrar os Serviços de Domínio do AD (Active Directory do Azure).
 
 ## <a name="you-cannot-enable-azure-ad-domain-services-for-your-azure-ad-directory"></a>Não é possível habilitar o Azure AD Domain Services para seu diretório do Azure AD
-Esta seção ajuda a solucionar erros quando você tenta habilitar os Serviços de Domínio do Azure AD para seu diretório e eles falham ou voltam para ‘Desabilitado’.
+Esta seção ajuda a solucionar erros quando você tenta habilitar o Azure AD Domain Services para o seu diretório.
 
 Selecione as etapas de solução de problemas que correspondam à mensagem de erro que você encontrar.
 
@@ -81,7 +81,7 @@ Use o seguinte script do PowerShell para encontrar o aplicativo e excluí-lo.
 >
 >
 
-```
+```powershell
 $InformationPreference = "Continue"
 $WarningPreference = "Continue"
 
@@ -151,7 +151,7 @@ Se um ou mais usuários em seu locatário do Azure AD não conseguirem entrar no
 ## <a name="users-removed-from-your-azure-ad-tenant-are-not-removed-from-your-managed-domain"></a>Os usuários removidos do seu locatário do Azure AD não são removidos do seu domínio gerenciado
 O Azure AD protege você contra a exclusão acidental de objetos de usuário. Quando você excluir uma conta de usuário de seu locatário do Azure AD, o objeto de usuário correspondente será movido para a Lixeira. Quando essa operação de exclusão for sincronizada para seu domínio gerenciado, isso fará com que a conta de usuário correspondente seja marcada como desabilitada. Esse recurso ajuda a recuperar ou a cancelar a exclusão da conta de usuário mais tarde.
 
-A conta de usuário permanecerá no estado desabilitado no domínio gerenciado, mesmo se você recriar uma conta de usuário com o mesmo UPN no diretório do Azure AD. Para remover a conta de usuário do domínio gerenciado, você precisa forçar sua exclusão do locatário do Azure AD.
+A conta de usuário permanecerá no estado desabilitado no domínio gerenciado, mesmo se você recriar uma conta de usuário com o mesmo UPN no diretório do Azure AD. Para remover a conta de usuário do domínio gerenciado, você precisa forçar sua exclusão do locatário do Azure Active Directory.
 
 Para remover completamente a conta de usuário de seu domínio gerenciado, exclua permanentemente o usuário do seu locatário do Azure AD. Use o cmdlet Remove-MsolUser PowerShell com a opção '-RemoveFromRecycleBin', como descrito neste [artigo MSDN](https://msdn.microsoft.com/library/azure/dn194132.aspx).
 

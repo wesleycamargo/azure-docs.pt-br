@@ -4,7 +4,7 @@ description: "O primeiro tutorial para implantar o StorSimple Array Virtual envo
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 68a4cfd3-94c9-46cb-805c-46217290ce02
 ms.service: storsimple
@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/27/2017
+ms.date: 11/14/2017
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3d0801053721f98ce7a2b0fcbe3c65da8dbdd8d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6685c5ab7768176a0c8e7084c8512d5345732d9a
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="deploy-storsimple-virtual-array---prepare-the-azure-portal"></a>Implantar o StorSimple Virtual Array – preparar o portal do Azure
 
@@ -42,7 +42,7 @@ Consulte os artigos a seguir na sequência prescrita para implantar sua Matriz V
 | **#** | **Nesta etapa** | **Para fazer isso...** | **Use estes documentos.** |
 | --- | --- | --- | --- |
 | 1. |**Configurar o portal do Azure** |Crie e configure o serviço Gerenciador de Dispositivos StorSimple antes do provisionamento de uma Matriz Virtual StorSimple. |[Preparar o portal](storsimple-virtual-array-deploy1-portal-prep.md) |
-| 2. |**Provisionar o Virtual Array** |Para o Hyper-V, provisione e conecte-se a uma Matriz Virtual StorSimple em um sistema de host que executa o Hyper-V no Windows Server 2012 R2, Windows Server 2012 ou Windows Server 2008 R2. <br></br> <br></br> Para o VMware, provisione e se conecte à Matriz Virtual StorSimple local em um sistema de host que executa o VMware ESXi 5.5 e posterior.<br></br> |[Provisionar uma matriz virtual no Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) <br></br> <br></br> [Provisionar uma matriz virtual no VMware](storsimple-virtual-array-deploy2-provision-vmware.md) |
+| 2. |**Provisionar o Virtual Array** |Para o Hyper-V, provisione e conecte-se a uma Matriz Virtual StorSimple em um sistema de host que executa o Hyper-V no Windows Server 2012 R2, Windows Server 2012 ou Windows Server 2008 R2. <br></br> <br></br> Para o VMware, provisione e se conecte à Matriz Virtual StorSimple local em um sistema de host que executa o VMware ESXi 5.0, 5.5 ou 6.0.<br></br> |[Provisionar uma matriz virtual no Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md) <br></br> <br></br> [Provisionar uma matriz virtual no VMware](storsimple-virtual-array-deploy2-provision-vmware.md) |
 | 3. |**Configurar o Virtual Array** |Para seu servidor de arquivos, execute a configuração inicial, registre seu servidor de arquivos do StorSimple e conclua a configuração do dispositivo. Em seguida, é possível provisionar compartilhamentos SMB. <br></br> <br></br> Para o servidor iSCSI, realize a configuração inicial, registre seu servidor iSCSI do StorSimple e conclua a configuração do dispositivo. Em seguida, é possível provisionar volumes iSCSI. |[Configurar a matriz virtual como um servidor de arquivos](storsimple-virtual-array-deploy3-fs-setup.md)<br></br> <br></br>[Configurar a matriz virtual como um servidor iSCSI](storsimple-virtual-array-deploy3-iscsi-setup.md) |
 
 Agora, você pode começar a configurar o portal do Azure.
@@ -70,7 +70,7 @@ Antes de começar, verifique se:
 
 Antes de implantar um dispositivo virtual, verifique se:
 
-* Você tem acesso a um sistema de host que executa o Hyper-V no Windows Server 2008 R2 ou posterior ou VMware (ESXi 5.5 ou posterior) que pode ser usado para provisionar um dispositivo.
+* Você tem acesso a um sistema de host que executa o Hyper-V no Windows Server 2008 R2 ou posterior ou VMware (ESXi 5.0, 5.5 ou 6.0) que pode ser usado para provisionar um dispositivo.
 * O sistema de host é capaz de dedicar os recursos abaixo para provisionar seu dispositivo virtual:
   
   * Um mínimo de quatro núcleos.
@@ -136,7 +136,7 @@ Execute as etapas a seguir no [portal do Azure](https://portal.azure.com/).
    
    * VHDX para Hyper-V no Windows Server 2012 e posterior
    * VHD para Hyper-V no Windows Server 2008 R2 e posterior
-   * VMDK para VMWare ESXi 5.5 e posterior
+   * VMDK para VMWare ESXi 5.0, 5.5 e 6.0
 5. Baixe e descompacte o arquivo em uma unidade local, observando onde o arquivo descompactado está localizado.
 
 ## <a name="optional-step-configure-a-new-storage-account-for-the-service"></a>Etapa opcional: Configurar uma nova conta de armazenamento para o serviço

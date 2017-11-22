@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
+ms.date: 11/15/2017
 ms.author: denlee
-ms.openlocfilehash: 7500ed798519671ba864cc185efffa0f93a8be70
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: ba824ed1bad49c71f8de9f2da8249945d9430222
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-the-spark-to-azure-cosmos-db-connector"></a>Acelerar a análise de Big Data em tempo real com o conector do Spark ao Azure Cosmos DB
 
@@ -29,7 +29,7 @@ Para trabalhar com Spark GraphX e o Gremlin graph APIs do Azure Cosmos DB, consu
 
 ## <a name="download"></a>Baixar
 
-Para começar, baixo o conector do Spark ao Azure Cosmos DB (versão prévia) no repositório [azure-documentdb-spark](https://github.com/Azure/azure-cosmosdb-spark/) do GitHub.
+Para começar, faça o download do conector do Spark ao Azure Cosmos DB no repositório [azure-cosmosdb-spark](https://github.com/Azure/azure-cosmosdb-spark/) do GitHub.
 
 ## <a name="connector-components"></a>Componentes do conector
 

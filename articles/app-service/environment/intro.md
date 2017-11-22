@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: 322cf2ebbe83d00fcebcec618e07141d26f4f255
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2a619943abaf8835e591872cba0ed046d4c6c4a9
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="introduction-to-app-service-environments"></a>Introdução aos ambientes do Serviço de Aplicativo #
  
@@ -48,13 +48,13 @@ Um ASE é composto de funções de trabalho e front-ends. Os front-ends são res
 
 As funções de trabalho são funções que hospedam aplicativos cliente. As funções de trabalho estão disponíveis em três tamanhos fixos:
 
-* Um núcleo/3,5 GB de RAM
-* Dois núcleos/7 GB de RAM
-* Quatro núcleos/14 GB de RAM
+* Um vCPU/3,5 GB de RAM
+* Dois vCPU/7 GB de RAM
+* Quatro vCPU/14 GB de RAM
 
 Os clientes não precisam gerenciar os front-ends e as funções de trabalho. Toda a infraestrutura é adicionada automaticamente cconforme os clientes dimensionam os planos de Serviço do Aplicativo. Como os planos de Serviço de Aplicativo são criados ou dimensionados em um ASE, a infraestrutura necessária é adicionada ou removida conforme necessário.
 
-Existe uma taxa mensal fixa para um ASE que paga pela infraestrutura e não altera com o tamanho do ASE. Além disso, há um custo por núcleo do plano do Serviço do Aplicativo. Todos os aplicativos hospedados no ASE estão em um SKU de preços Isolado. Para obter informações sobre preços de um ASE, consulte a página [Preços do Serviço de Aplicativo][Pricing] e examine as opções disponíveis para ASEs.
+Existe uma taxa mensal fixa para um ASE que paga pela infraestrutura e não altera com o tamanho do ASE. Além disso, há um custo por vCPU do plano do Serviço do Aplicativo. Todos os aplicativos hospedados no ASE estão em um SKU de preços Isolado. Para obter informações sobre preços de um ASE, consulte a página [Preços do Serviço de Aplicativo][Pricing] e examine as opções disponíveis para ASEs.
 
 ## <a name="virtual-network-support"></a>Suporte de rede virtual ##
 
@@ -68,13 +68,15 @@ Aplicativos frequentemente precisam acessar recursos corporativos, como bancos d
 
 Para obter mais informações sobre o funcionamento dos ASEs com redes virtuais e redes locais, consulte [Considerações de rede do Ambiente do Serviço de Aplicativo][ASENetwork].
 
+> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Application-Service-Environments-v2-Private-PaaS-Environments-in-the-Cloud/player]
+
 ## <a name="app-service-environment-v1"></a>Ambiente do Serviço de Aplicativo v1 ##
 
 O Ambiente do Serviço de Aplicativo tem duas versões: ASEv1 e ASEv2. As informações anteriores foram baseadas no ASEv2. Esta seção mostra as diferenças entre o ASEv1 e o ASEv2. 
 
 No ASEv1, você precisa gerenciar todos os recursos manualmente. Isso inclui os front-ends, as funções de trabalho e os endereços IP usados para o SSL baseado em IP. Antes de poder escalar horizontalmente o plano do Serviço de Aplicativo, primeiro você precisa escalar horizontalmente o pool de trabalho no qual você deseja hospedá-lo.
 
-O ASEv1 usa um modelo de preço diferente do ASEv2. No ASEv1, você paga por cada núcleo alocado. Isso inclui os núcleos usados para front-ends ou funções de trabalho que não hospedam nenhuma carga de trabalho. No ASEv1, o tamanho máximo de escala padrão de um ASE é de 55 hosts no total. Isso inclui funções de trabalho e front-ends. Uma vantagem do ASEv1 é que ele pode ser implantado em uma rede virtual clássica, bem como em uma rede virtual do Resource Manager. Para saber mais sobre o ASEv1, consulte [Introdução ao Ambiente do Serviço de Aplicativo v1][ASEv1Intro].
+O ASEv1 usa um modelo de preço diferente do ASEv2. No ASEv1, você paga por cada vCPU alocado. Isso inclui os vCPUs usados para front-ends ou funções de trabalho que não hospedem nenhuma carga de trabalho. No ASEv1, o tamanho máximo de escala padrão de um ASE é de 55 hosts no total. Isso inclui funções de trabalho e front-ends. Uma vantagem do ASEv1 é que ele pode ser implantado em uma rede virtual clássica, bem como em uma rede virtual do Resource Manager. Para saber mais sobre o ASEv1, consulte [Introdução ao Ambiente do Serviço de Aplicativo v1][ASEv1Intro].
 
 <!--Links-->
 [Intro]: ./intro.md

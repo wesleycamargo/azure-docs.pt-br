@@ -14,27 +14,24 @@ ms.workload: identity
 ms.date: 04/28/2017
 ms.author: barclayn
 ms.custom: pim
-ms.openlocfilehash: cf6a9213fa0a1cba8725aabb42abe51b805ece7a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 90aec90edcbbfb7833efd85752afc8f1937f5b5a
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="approvals-preview"></a>Aprovações (Visualização)
+# <a name="approvals"></a>Aprovações
 
 ## <a name="overview"></a>Visão geral
 
 Com Aprovações para o Privileged Identity Management, você pode configurar funções para solicitar aprovação para ativação e escolher um ou vários usuários ou grupos como aprovadores delegados. Continue lendo para saber como configurar funções e selecionar aprovadores.
 
->[!NOTE]
-Tenha em mente que esse recurso ainda está em desenvolvimento e você poderá encontrar bugs. A funcionalidade, incluindo o texto e as convenções de nomenclatura, está sujeita a alterações e não deverá ser considerada definitiva.
 
-
-## <a name="key-terminology"></a>Terminologia principal
+## <a name="new-terminology"></a>Nova terminologia
 
 *Usuário de Função Qualificada* – um usuário de função qualificada é um usuário de sua organização que foi atribuído a uma função do Azure AD como qualificada (a função exige a ativação).
 
-*Aprovador Delegado* – um aprovador delegado é um ou vários indivíduos ou grupos do Azure AD responsáveis por aprovar solicitações de ativação de função.
+*Aprovador Delegado* – um aprovador delegado é um ou vários indivíduos ou grupos dentro do seu Azure Active Directory responsáveis por aprovar solicitações para ativar funções.
 
 ## <a name="scenarios"></a>Cenários
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 1366cd79248b2e0008234a5da0d87552e6530d80
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: a9c5743c92ac48202c19c2f6f024238c147d8444
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Habilitar o registro em log de diagnóstico para aplicativos Web no Serviço de Aplicativo do Azure
 ## <a name="overview"></a>Visão geral
@@ -48,19 +48,19 @@ Em tempo de execução, você pode recuperar esses logs para ajudar na solução
 Os aplicativos Web do Serviço de Aplicativo também registram informações de implantação quando você publica o conteúdo em um aplicativo Web. Isto acontece automaticamente e não há definições de configuração para log de implantação. O log de implantação permite que você determine por que uma implantação falhou. Por exemplo, se está usando um script de implantação personalizado, você poderá usar o log de implantação para determinar por que o script está falhando.
 
 ## <a name="enablediag"></a>Como habilitar o diagnóstico
-Para habilitar o diagnóstico no [Portal do Azure](https://portal.azure.com), vá até a folha de seu aplicativo Web e clique em **Configurações > Logs de diagnóstico**.
+Para habilitar o diagnóstico no [Portal do Azure](https://portal.azure.com), vá até a página de seu aplicativo Web e clique em **Configurações > Logs de diagnóstico**.
 
 <!-- todo:cleanup dogfood addresses in screenshot -->
 ![Parte de logs](./media/web-sites-enable-diagnostic-log/logspart.png)
 
-Ao habilitar o **diagnóstico de aplicativos**, você também escolhe o **Nível**. Essa configuração permite que você filtre as informações capturadas como **informativas**, de **aviso** ou de **erro**. Configurar isto para **detalhado** fará o log de toda informação produzida pelo aplicativo.
+Ao habilitar o **diagnóstico de aplicativos**, você também escolhe o **Nível**. Essa configuração permite que você filtre as informações capturadas como **informativas**, de **aviso** ou de **erro**. Configurar isto para **detalhado** fará o registro de toda informação produzida pelo aplicativo.
 
 > [!NOTE]
 > Diferentemente de alterar o arquivo web.config, habilitar o diagnóstico de aplicativos ou alterar os níveis de log do diagnóstico não recicla o domínio do aplicativo em que este é executado.
 >
 >
 
-Na guia [Configurar](https://manage.windowsazure.com) do aplicativo Web do **portal clássico**, você pode escolher **armazenamento** ou **sistema de arquivos** para **log de servidor Web**. Selecionar **armazenamento** permite que você selecione uma conta de armazenamento e, em seguida, um contêiner de blob onde os logs estarão gravados. Todos os outros logs para **diagnóstico de site** serão gravados apenas no sistema de arquivos.
+Na guia [Configurar](https://manage.windowsazure.com) do aplicativo Web do **portal clássico**, você pode escolher **armazenamento** ou **sistema de arquivos** para **log de servidor Web**. Selecionar **armazenamento** permite que você selecione uma conta de armazenamento e, em seguida, um contêiner de blob onde os logs estejam gravados. Todos os outros logs para **diagnóstico de site** serão gravados apenas no sistema de arquivos.
 
 A guia [Configurar](https://manage.windowsazure.com) do aplicativo Web do **portal clássico** também apresenta configurações adicionais para diagnóstico de aplicativos:
 
@@ -113,7 +113,7 @@ Para baixar os arquivos de log, inicie uma nova instância do PowerShell do Azur
 
     Save-AzureWebSiteLog -Name webappname
 
-Isso salvará os logs do aplicativo Web especificado pelo parâmetro **-Name** em um arquivo chamado **logs.zip** no diretório atual.
+Esse comando salva os logs do aplicativo Web especificado pelo parâmetro **-Name** em um arquivo chamado **logs.zip** no diretório atual.
 
 > [!NOTE]
 > Se você não instalou o PowerShell do Azure ou não o configurou para usar sua Assinatura do Azure, consulte [Como usar o PowerShell do Azure](/develop/nodejs/how-to-guides/powershell-cmdlets/).
@@ -125,7 +125,7 @@ Para baixar os arquivos de log usando a Interface da Linha de Comando do Azure, 
 
     azure site log download webappname
 
-Isto salvará os logs para o aplicativo Web chamado 'webappname' em um arquivo chamado **diagnostics.zip** no diretório atual.
+Esse comando salva os logs para o aplicativo Web chamado 'webappname' em um arquivo chamado **diagnostics.zip** no diretório atual.
 
 > [!NOTE]
 > Se você não instalou a interface de linha de comando do Azure (CLI do Azure) ou não configurou para usar sua assinatura do Azure, consulte [Como usar a CLI do Azure](../cli-install-nodejs.md).
@@ -136,7 +136,7 @@ Isto salvará os logs para o aplicativo Web chamado 'webappname' em um arquivo c
 O Application Insights do Visual Studio fornece ferramentas para filtrar e pesquisar logs e para correlacioná-los com solicitações e outros eventos.
 
 1. Adicionar o SDK do Application Insights ao projeto no Visual Studio.
-   * Clique com o botão direito do mouse no projeto no Gerenciador de Soluções e selecione Adicionar Application Insights. Você será guiado pelas etapas que incluem a criação de um recurso do Application Insights. [Saiba mais](../application-insights/app-insights-asp-net.md)
+   * Em Gerenciador de Soluções, clique com o botão direito no seu projeto e escolha Adicionar Application Insights. A interface guia você pelas etapas que incluem a criação de um recurso do Application Insights. [Saiba mais](../application-insights/app-insights-asp-net.md)
 2. Adicionar o pacote do Ouvinte de Rastreamento ao seu projeto.
    * Clique com o botão direito do mouse em seu projeto e escolha Gerenciar Pacotes NuGet. Selecione `Microsoft.ApplicationInsights.TraceListener` [Saiba mais](../application-insights/app-insights-asp-net-trace-logs.md)
 3. Carregue seu projeto e execute-o para gerar dados de log.
@@ -205,13 +205,13 @@ O diagnóstico de aplicativo armazenará informações em um formato específico
 
 Cada linha registrada no sistema de arquivos ou recebida via streaming estará no seguinte formato:
 
-    {Date}  PID[{process id}] {event type/level} {message}
+    {Date}  PID[{process ID}] {event type/level} {message}
 
 Por exemplo, um evento de erro deve aparecer semelhante ao seguinte:
 
     2014-01-30T16:36:59  PID[3096] Error       Fatal error on the page!
 
-O registro em sistema de arquivos fornece a informação mais básica dos três métodos disponíveis, fornecendo apenas a hora, o id do processo, o nível de evento e a mensagem.
+O registro em sistema de arquivos fornece a informação mais básica dos três métodos disponíveis, fornecendo apenas a hora, o ID do processo, o nível de evento e a mensagem.
 
 **Armazenamento de tabelas**
 
@@ -253,12 +253,12 @@ Os dados armazenados em um blob deverão ser semelhantes ao seguinte:
     2014-01-30T16:36:52,Error,mywebapp,6ee38a,635266966128818593,0,3096,9,An error occurred
 
 > [!NOTE]
-> A primeira linha do log conterá os cabeçalhos da coluna, como representado neste exemplo.
+> A primeira linha do log contém os cabeçalhos da coluna, como representado neste exemplo.
 >
 >
 
 ### <a name="failed-request-traces"></a>Rastreamento de Solicitação Falha
-Os rastreamentos de solicitações com falha são armazenados em arquivos XML chamados **fr######.xml**. Para facilitar a exibição das informações registradas, uma folha de estilos XSL chamada **freb.xsl** é fornecida no mesmo diretório dos arquivos XML. A abertura de um dos arquivos XML no Internet Explorer usará a folha de estilos XSL para fornecer uma exibição de formato da informação rastreada. Isto aparecerá semelhante ao seguinte:
+Os rastreamentos de solicitações com falha são armazenados em arquivos XML chamados **fr######.xml**. Para facilitar a exibição das informações registradas, uma folha de estilos XSL chamada **freb.xsl** é fornecida no mesmo diretório dos arquivos XML. Se você abrir um dos arquivos XML no Internet Explorer, ele usará a folha de estilos XSL para fornecer uma exibição formatada da informação rastreada. Isso se parece com algo parecido com:
 
 ![solicitação falha visualizada no navegador](./media/web-sites-enable-diagnostic-log/tws-failedrequestinbrowser.png)
 
@@ -282,7 +282,3 @@ Os logs do servidor da Web são formatados usando o [formato W3C estendido de ar
 > Se desejar começar a usar o Serviço de Aplicativo do Azure antes de inscrever-se em uma conta do Azure, vá para [Experimentar o Serviço de Aplicativo](https://azure.microsoft.com/try/app-service/), onde você pode criar imediatamente um aplicativo Web inicial de curta duração no Serviço de Aplicativo. Nenhum cartão de crédito é exigido, sem compromissos.
 >
 >
-
-## <a name="whats-changed"></a>O que mudou
-* Para obter um guia sobre a alteração de Sites para o Serviço de Aplicativo, consulte: [Serviço de Aplicativo do Azure e seu impacto sobre os serviços do Azure existentes](http://go.microsoft.com/fwlink/?LinkId=529714)
-* Para obter um guia sobre a alteração do portal antigo para o novo portal, consulte: [Referência para navegar no portal do Azure](http://go.microsoft.com/fwlink/?LinkId=529715)

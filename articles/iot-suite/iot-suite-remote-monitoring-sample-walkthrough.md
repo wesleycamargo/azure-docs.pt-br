@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2017
+ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: a4b28e8a1269374a24e169f9363401109bacc471
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: e19ba9c88e4fbe4f065c45ce7029247436f7155c
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="remote-monitoring-preconfigured-solution-architecture"></a>Arquitetura da solução pré-configurada de monitoramento remoto
 
@@ -42,7 +42,7 @@ O diagrama a seguir descreve os componentes lógicos da solução pré-configura
 A arquitetura de nuvem evoluiu desde que a Microsoft lançou as primeira soluções pré-configuradas. Os [microsserviços](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/) foram lançados como uma prática comprovada para obter flexibilidade e escala sem sacrificar a velocidade de desenvolvimento. Vários serviços da Microsoft usam esse padrão de arquitetura internamente, com resultados de escalabilidade e confiabilidade excelentes. As soluções pré-configuradas atualizadas colocam estas lições em prática para que você também possa se beneficiar delas.
 
 > [!TIP]
-> Para saber mais sobre as arquiteturas de microsserviço, consulte [Arquitetura do Aplicativo .NET](https://www.microsoft.com/net/learn/architecture) e [Microsserviços: uma revolução de aplicativo fornecida pela nuvem](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/).
+> Para saber mais sobre as arquiteturas de microsserviço, confira [Arquitetura do Aplicativo .NET](https://www.microsoft.com/net/learn/architecture) e [Microsserviços: uma revolução de aplicativo fornecida pela nuvem](https://azure.microsoft.com/blog/microservices-an-application-revolution-powered-by-the-cloud/).
 
 ## <a name="device-connectivity"></a>Conectividade do dispositivo
 
@@ -141,5 +141,6 @@ Se você quiser explorar a documentação do desenvolvedor e do código-fonte, i
 
 * [Solução pré-configurada de monitoramento remoto com o Azure IoT (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/).
 * [Solução pré-configurada de monitoramento remoto com o Azure IoT (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
+* [Solução pré-configurada para arquitetura de monitoramento remoto)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Architecture).
 
 Para obter mais informações conceituais sobre a solução pré-configurada de monitoramento remota, consulte [Customize the preconfigured solution](iot-suite-remote-monitoring-customize.md) (Personalizar a solução pré-configurada).

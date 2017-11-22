@@ -11,11 +11,11 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: mahender
 ms.custom: mvc
-ms.openlocfilehash: 630d9022da0d51e533534ea43f50f27e8eb09a78
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 7c3933210c01c81077b594abb8c3183d6e3c58a0
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="create-a-serverless-api-using-azure-functions"></a>Criar uma API sem servidor usando o Azure Functions
 
@@ -67,7 +67,7 @@ Em seguida, teste sua função para vê-la funcionando com a nova superfície de
 
 ## <a name="proxies-overview"></a>Visão geral dos proxies
 
-Na próxima seção, você mostrará sua API através de um proxy. Os Proxies do Azure Functions são um recurso de visualização que permite o encaminhamento de solicitações para outros recursos. Defina um ponto de extremidade HTTP, como com o gatilho HTTP, mas em vez de escrever um código para executar durante a chamada para o ponto de extremidade, forneça uma URL para uma implementação remota. Isso permite a composição de várias fontes de API em uma única superfície de API, o que é fácil para os clientes usarem. Isso é particularmente útil se você quiser criar sua API como microsserviços.
+Na próxima seção, você mostrará sua API através de um proxy. Os Proxies do Azure Functions permitem o encaminhamento de solicitações para outros recursos. Defina um ponto de extremidade HTTP, como com o gatilho HTTP, mas em vez de escrever um código para executar durante a chamada para o ponto de extremidade, forneça uma URL para uma implementação remota. Isso permite a composição de várias fontes de API em uma única superfície de API, o que é fácil para os clientes usarem. Isso é particularmente útil se você quiser criar sua API como microsserviços.
 
 Um proxy pode apontar para qualquer recurso HTTP, como:
 - Funções do Azure 
@@ -75,7 +75,7 @@ Um proxy pode apontar para qualquer recurso HTTP, como:
 - Contêineres de docker no [Serviço de Aplicativo no Linux](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-intro)
 - Qualquer outra API hospedada
 
-Para saber mais sobre proxies, confira [Trabalhar com Proxies do Azure Functions (visualização)].
+Para saber mais sobre proxies, confira [Trabalhar com Proxies do Azure Functions].
 
 ## <a name="create-your-first-proxy"></a>Criar seu primeiro proxy
 
@@ -97,7 +97,7 @@ Repita as etapas para [Criar um aplicativo de função](https://docs.microsoft.c
 ### <a name="creating-a-proxy-on-the-frontend"></a>Criar um proxy no front-end
 
 1. Navegue novamente até seu aplicativo de função front-end no portal.
-1. No painel de navegação esquerdo, clique no sinal '+' ao lado de "Proxies (visualização)".
+1. No painel de navegação esquerdo, clique no sinal '+' ao lado de "Proxies".
     ![Criação de um proxy](./media/functions-create-serverless-api/creating-proxy.png)
 1. Use as configurações de proxy conforme especificado na tabela. 
 
@@ -187,9 +187,9 @@ Neste tutorial, você aprendeu a compilar e personalizar uma API no Azure Functi
 As referências a seguir podem ser úteis durante o desenvolvimento de sua API:
 
 - [Associações HTTP e de webhook do Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook)
-- [Trabalhar com Proxies do Azure Functions (visualização)]
+- [Trabalhar com Proxies do Azure Functions]
 - [Documentar uma API do Azure Functions (visualização)](https://docs.microsoft.com/azure/azure-functions/functions-api-definition-getting-started)
 
 
 [Create your first function]: https://docs.microsoft.com/azure/azure-functions/functions-create-first-azure-function
-[Trabalhar com Proxies do Azure Functions (visualização)]: https://docs.microsoft.com/azure/azure-functions/functions-proxies
+[Trabalhar com Proxies do Azure Functions]: https://docs.microsoft.com/azure/azure-functions/functions-proxies

@@ -10,76 +10,33 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2017
+ms.date: 11/09/2017
 ms.author: jingwang
-ms.openlocfilehash: 193d7c77f01384106b3e0d932d02ba6cdff9e750
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: f7604e251bd62ec382ac9ace3de058e345abb863
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Armazenar credencial no Azure Key Vault
 
-Você pode armazenar credenciais para armazenamentos de dados em um [Azure Key Vault](../key-vault/key-vault-whatis.md). O Azure Data Factory recupera as credenciais ao executar uma atividade que use o armazenamento de dados. Atualmente, apenas o [conector do Dynamics](connector-dynamics-crm-office-365.md) dá suporte a esse recurso.
+Você pode armazenar credenciais para armazenamentos de dados em um [Azure Key Vault](../key-vault/key-vault-whatis.md). O Azure Data Factory recupera as credenciais ao executar uma atividade que use o armazenamento de dados. Atualmente, apenas o [conector do Dynamics](connector-dynamics-crm-office-365.md) e [conector Salesforce](connector-salesforce.md) dão suporte a esse recurso.
 
 > [!NOTE]
-> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em versão prévia. Se você usar a versão 1 do serviço do Data Factory, que está em GA (disponibilidade geral), consulte a [documentação do Data Factory versão 1](v1/data-factory-introduction.md).
+> Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em versão prévia. Se você estiver usando a versão 1 do serviço Data Factory, que está normalmente disponível (GA), confira a [documentação do Data Factory versão 1](v1/data-factory-introduction.md).
+
+## <a name="prerequisites"></a>Pré-requisitos
+
+Esse recurso depende da identidade de serviço da data factory. Saiba como ele funciona de [identidade de serviço de Data factory](data-factory-service-identity.md) e verifique se sua data factory tem um associado.
 
 ## <a name="steps"></a>Etapas
 
-Ao criar um data factory, uma identidade do serviço pode ser criada ao mesmo tempo. A identidade do serviço é um aplicativo gerenciado registrado no Azure Active Directory e representa esse data factory específico.
-
-- Ao criar o data factory por meio de **portal do Azure ou do PowerShell**, a identidade do serviço sempre será criada automaticamente a partir da visualização pública.
-- Ao criar o data factory por meio do **SDK**, a identidade do serviço será criada somente se você especificar "identidade = FactoryIdentity() nova" no objeto de fábrica para a criação. Consulte o exemplo do [início rápido do .NET - criar data factory](quickstart-create-data-factory-dot-net.md#create-a-data-factory).
-- Ao criar o data factory por meio da **API REST**, a identidade do serviço será criada somente se você especificar a seção "identidade" no corpo da solicitação. Consulte o exemplo do [início rápido do REST - criar data factory](quickstart-create-data-factory-rest-api.md#create-a-data-factory).
-
 Para referenciar uma credencial armazenada no Azure Key Vault, você precisa:
 
-1. Copiar a "ID DO APLICATIVO DA IDENTIDADE DO SERVIÇO" gerada junto com seu data factory. Consulte [recuperar a identidade do serviço](#retrieve-service-identity).
-2. Conceder à identidade do serviço o acesso ao seu Azure Key Vault. Em seu cofre de chaves -> Controle de acesso -> Adicionar -> pesquise essa ID do aplicativo da identidade do serviço para adicionar permissão de leitura. Isso permite que esse factory específico acesse o segredo no cofre de chaves.
+1. [Recuperar a identidade do serviço de data factory](data-factory-service-identity.md#retrieve-service-identity) copiando o valor de "SERVIÇO DE IDENTIDADE ID DO APLICATIVO" gerado junto com seu alocador.
+2. Conceder à identidade do serviço o acesso ao seu Azure Key Vault. Em seu cofre de chaves -> Controle de acesso -> Adicionar -> pesquise essa ID do aplicativo da identidade do serviço para adicionar permissão de **Leitura**. Isso permite que esse factory específico acesse o segredo no cofre de chaves.
 3. Criar um serviço vinculado que aponte para seu Azure Key Vault. Consulte [Serviço vinculado do Azure Key Vault](#azure-key-vault-linked-service).
 4. Criar um serviço vinculado de armazenamento de dados, dentro do qual fazer referência ao segredo correspondente armazenado no cofre de chaves. Consulte [fazer referência a credencial armazenada no cofre de chaves](#reference-credential-stored-in-key-vault).
-
-## <a name="retrieve-service-identity"></a>Recuperar a identidade do serviço
-
-Você pode recuperar a identidade do serviço no portal do Azure ou programaticamente. As seções a seguir mostram alguns exemplos.
-
->[!TIP]
-> Se você não vir a identidade do serviço, [gere a identidade de serviço](#generate-service-identity) atualizando seu alocador.
-
-### <a name="using-azure-portal"></a>Usando o Portal do Azure
-
-Você pode encontrar as informações sobre a identidade do serviço no Portal do Azure -> seu data factory -> Configurações -> Propriedades:
-
-- ID DA IDENTIDADE DO SERVIÇO
-- LOCATÁRIO DA IDENTIDADE DO SERVIÇO
-- **ID DO APLICATIVO DE IDENTIDADE DO SERVIÇO** > copie este valor para conceder acesso no Key Vault
-
-![Recuperar a identidade do serviço](media/store-credentials-in-key-vault/retrieve-service-identity-portal.png)
-
-### <a name="using-powershell"></a>Usando o PowerShell
-
-A ID da entidade de segurança da identidade do serviço e a ID de locatário serão retornadas ao obter um data factory específico da seguinte maneira:
-
-```powershell
-PS C:\WINDOWS\system32> (Get-AzureRmDataFactoryV2 -ResourceGroupName <resourceGroupName> -Name <dataFactoryName>).Identity
-
-PrincipalId                          TenantId
------------                          --------
-765ad4ab-XXXX-XXXX-XXXX-51ed985819dc 72f988bf-XXXX-XXXX-XXXX-2d7cd011db47
-```
-
-Copie a ID da entidade de segurança, em seguida, execute o comando do Active Directory do Azure abaixo com a ID da entidade de segurança como parâmetro para obter o **ApplicationId**, que você pode usar para conceder acesso no Key Vault:
-
-```powershell
-PS C:\WINDOWS\system32> Get-AzureRmADServicePrincipal -ObjectId 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
-
-ServicePrincipalNames : {76f668b3-XXXX-XXXX-XXXX-1b3348c75e02, https://identity.azure.net/P86P8g6nt1QxfPJx22om8MOooMf/Ag0Qf/nnREppHkU=}
-ApplicationId         : 76f668b3-XXXX-XXXX-XXXX-1b3348c75e02
-DisplayName           : ADFV2DemoFactory
-Id                    : 765ad4ab-XXXX-XXXX-XXXX-51ed985819dc
-Type                  : ServicePrincipal
-```
 
 ## <a name="azure-key-vault-linked-service"></a>Serviço vinculado do Azure Key Vault
 
@@ -98,7 +55,7 @@ As propriedades a seguir têm suporte no serviço vinculado do Azure Key Vault:
     "properties": {
         "type": "AzureKeyVault",
         "typeProperties": {
-        "baseUrl": "https://<azureKeyVaultName>.vault.azure.net"
+            "baseUrl": "https://<azureKeyVaultName>.vault.azure.net"
         }
     }
 }
@@ -129,9 +86,9 @@ As propriedades a seguir têm suporte quando você configura um campo no serviç
             "username": "<>",
             "password": {
                 "type": "AzureKeyVaultSecret",
-                "secretName": "mySecret",
+                "secretName": "<secret name in AKV>",
                 "store":{
-                    "linkedServiceName": "<Azure Key Vault linked service>",
+                    "referenceName": "<Azure Key Vault linked service>",
                     "type": "LinkedServiceReference"
                 }
             }
@@ -140,88 +97,5 @@ As propriedades a seguir têm suporte quando você configura um campo no serviç
 }
 ```
 
-## <a name="generate-service-identity"></a>Gerar a identidade do serviço
-
-Se você achar que seu data factory não tem uma identidade do serviço associada seguindo a instrução [recuperar a identidade de serviço](#retrieve-service-identity), você pode gerar uma atualizando o data factory com o iniciador de identidade do forma programática.
-
-> [!NOTE]
-> - **A identidade do serviço não pode ser alterada**. Atualizar um data factory que já tem uma identidade do serviço não terá nenhum impacto - a identidade do serviço permanecerá inalterada.
-> - **A identidade do serviço não pode ser excluída**. Se você atualizar um data factory que já tem uma identidade do serviço sem especificar o parâmetro "identity" no objeto do alocador ou sem especificar a seção "identity" no corpo da solicitação REST, você obterá um erro.
-
-As seções a seguir mostram alguns exemplos sobre como gerar a identidade do serviço para o seu alocador se ele não existir.
-
-### <a name="using-powershell"></a>Usando o PowerShell
-
-Chame o comando **Set-AzureRmDataFactoryV2** novamente, em seguida, você verá os campos "Identity" sendo recentemente gerados:
-
-```powershell
-PS C:\WINDOWS\system32> Set-AzureRmDataFactoryV2 -ResourceGroupName <resourceGroupName> -Name <dataFactoryName> -Location <region>
-
-DataFactoryName   : ADFV2DemoFactory
-DataFactoryId     : /subscriptions/<subsID>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/ADFV2DemoFactory
-ResourceGroupName : <resourceGroupName>
-Location          : East US
-Tags              : {}
-Identity          : Microsoft.Azure.Management.DataFactory.Models.FactoryIdentity
-ProvisioningState : Succeeded
-```
-
-### <a name="using-rest-api"></a>Usando a API REST
-
-Chame a API abaixo com a seção "identity" no corpo da solicitação:
-
-```
-PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<data factory name>?api-version=2017-09-01-preview
-```
-
-**Corpo da solicitação**: adicionar "identity": {"type": "SystemAssigned"}.
-
-```json
-{
-    "name": "<dataFactoryName>",
-    "location": "<region>",
-    "properties": {},
-    "identity": {
-        "type": "SystemAssigned"
-    }
-}
-```
-
-**Resposta**: a identidade do serviço é criada automaticamente e a seção "identity" é preenchida de acordo.
-
-```json
-{
-    "name": "ADFV2DemoFactory",
-    "tags": {},
-    "properties": {
-        "provisioningState": "Succeeded",
-        "loggingStorageAccountKey": "**********",
-        "createTime": "2017-09-26T04:10:01.1135678Z",
-        "version": "2017-09-01-preview"
-    },
-    "identity": {
-        "type": "SystemAssigned",
-        "principalId": "765ad4ab-XXXX-XXXX-XXXX-51ed985819dc",
-        "tenantId": "72f988bf-XXXX-XXXX-XXXX-2d7cd011db47"
-    },
-    "id": "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/ADFV2DemoFactory",
-    "type": "Microsoft.DataFactory/factories",
-    "location": "EastUS"
-}
-```
-
-### <a name="using-sdk"></a>Usando o SDK
-
-Chame a função create_or_update do data factory com Identity=new FactoryIdentity(). Exemplo de código usando .NET:
-
-```csharp
-Factory dataFactory = new Factory
-{
-    Location = <region>,
-    Identity = new FactoryIdentity()
-};
-client.Factories.CreateOrUpdate(resourceGroup, dataFactoryName, dataFactory);
-```
-
 ## <a name="next-steps"></a>Próximas etapas
-Para obter uma lista de armazenamentos de dados com suporte como origens e coletores pela atividade de cópia no Azure Data Factory, consulte [Armazenamentos de dados com suporte](copy-activity-overview.md##supported-data-stores-and-formats).
+Para obter uma lista de armazenamentos de dados com suporte como origens e coletores pela atividade de cópia no Azure Data Factory, consulte [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: trinadhk;markgal
-ms.openlocfilehash: 35a21cb99ca4bad124a9f764cef9da453e1fe47f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 597d8e12377ca19b0c58eb2fc8bdb7597c1c6c07
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="manage-azure-virtual-machine-backups"></a>Gerenciar backups de máquinas virtuais do Azure
 > [!div class="op_single_selector"]
@@ -32,10 +32,10 @@ Este artigo fornece orientações sobre como gerenciar backups de VM e explica a
 ## <a name="manage-vaults-and-protected-virtual-machines"></a>Gerenciar cofres e máquinas virtuais protegidas
 No portal do Azure, o painel do cofre dos Serviços de Recuperação fornece acesso a informações sobre o cofre, inclusive:
 
-* o instantâneo de backup mais recente, que também é o ponto de restauração mais recente <br\>
-* política de backup <br\>
-* tamanho total de todos os instantâneos do backup <br\>
-* número de máquinas virtuais que são protegidas com o cofre <br\>
+* a cópia de sombra de backup mais recente, que também é o ponto de restauração mais recente
+* a política de backup
+* tamanho total de todas as cópias de sombra de backup
+* número de máquinas virtuais que são protegidas com o cofre
 
 Muitas tarefas de gerenciamento com um backup da máquina virtual começam abrindo o cofre no painel de controle. No entanto, como os cofres podem ser usados para proteger vários itens (ou várias VMs), para exibir detalhes sobre uma determinada VM, abra o painel do item do cofre. O procedimento a seguir mostra como abrir o *painel do cofre*, em seguida, ir para o *painel do item do cofre*. Há "dicas" em ambos os procedimentos que mostram como adicionar o cofre e o item do cofre ao painel do Azure usando o Pin no comando do painel. Fixar no painel é uma maneira de criar um atalho para o cofre ou o item. Você também pode executar os comandos comuns a partir do atalho.
 
@@ -50,11 +50,11 @@ Muitas tarefas de gerenciamento com um backup da máquina virtual começam abrin
 1. Entre no [Portal do Azure](https://portal.azure.com/).
 2. No menu Hub, clique em **Procurar** e, na lista de recursos, digite **Serviços de Recuperação**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Clique em **Cofre de Serviços de Recuperação**.
 
-    ![Criar Cofre de Serviços de Recuperação - etapa 1](./media/backup-azure-manage-vms/browse-to-rs-vaults.png) <br/>
+    ![Criar Cofre de Serviços de Recuperação - etapa 1](./media/backup-azure-manage-vms/browse-to-rs-vaults.png)
 
     A lista de cofres de Serviços de Recuperação será exibida.
 
-    ![Listar cofres de Serviços de Recuperação ](./media/backup-azure-manage-vms/list-o-vaults.png) <br/>
+    ![Listar cofres de Serviços de Recuperação ](./media/backup-azure-manage-vms/list-o-vaults.png)
 
    > [!TIP]
    > Se você fixar um cofre no Painel do Azure, esse cofre ficará imediatamente acessível quando você abrir o portal do Azure. Para fixar um cofre no painel, na lista de cofres, clique com o botão direito no cofre e selecione **Fixar no painel**.
@@ -89,13 +89,13 @@ No procedimento anterior, você abriu o painel do cofre. Para abrir o painel do 
 
     No painel de itens do cofre, você pode executar muitas tarefas de gerenciamento principais, como:
 
-   * alterar as políticas ou criar uma nova política de backup <br\>
-   * exibir pontos de restauração e ver seu estado de consistência <br\>
-   * Backup sob demanda de uma máquina virtual <br\>
-   * interromper a proteção das máquinas virtuais <br\>
-   * retomar a proteção de uma máquina virtual <br\>
-   * excluir os dados do backup (ou ponto de recuperação) <br\>
-   * [restaurar discos de backup](backup-azure-arm-restore-vms.md#restore-backed-up-disks)  <br\>
+   * Alterar políticas ou Criar uma nova política de backup
+   * visualizar os pontos de restauração e ver seus estados de consistência
+   * Backup sob demanda de uma máquina virtual
+   * Interromper a proteção de máquinas virtuais
+   * Retomar a proteção de uma máquina virtual
+   * excluir os dados do backup (ou ponto de recuperação)
+   * [restaurar discos de backup](backup-azure-arm-restore-vms.md#restore-backed-up-disks)
 
 Para os procedimentos a seguir, o ponto de partida é o painel de itens do cofre.
 
@@ -110,7 +110,7 @@ Para os procedimentos a seguir, o ponto de partida é o painel de itens do cofre
     ![Folha Política de backup](./media/backup-azure-manage-vms/backup-policy-blade.png)
 3. No menu **Escolher política de backup** :
 
-   * Para alterar as políticas, selecione uma política diferente e clique em **Salvar**. A nova política será aplicada imediatamente no cofre. <br\>
+   * Para alterar as políticas, selecione uma política diferente e clique em **Salvar**. A nova política será aplicada imediatamente no cofre.
    * Para criar uma política, selecione **Criar Nova**.
 
      ![Backup de máquinas virtuais](./media/backup-azure-manage-vms/backup-policy-create-new.png)
@@ -148,7 +148,7 @@ Para inicializar um backup sob demanda de uma máquina virtual:
 Se você optar por interromper a proteção de uma máquina virtual, será perguntado se deseja manter os pontos de recuperação. Há duas maneiras de interromper a proteção das máquinas virtuais:
 
 * parar todos os trabalhos de backup futuros e excluir todos os pontos de recuperação ou
-* parar todos os trabalhos de backup futuros, mas deixar os pontos de recuperação  <br/>
+* parar todos os trabalhos de backup futuros, mas deixar os pontos de recuperação 
 
 Há um custo associado a deixar os pontos de recuperação no armazenamento. No entanto, a vantagem de deixar os pontos de recuperação é que você pode restaurar a máquina virtual mais tarde, se desejado. Para obter informações sobre o custo de deixar os pontos de recuperação, confira os [detalhes de preços](https://azure.microsoft.com/pricing/details/backup/). Se você optar por excluir todos os pontos de recuperação, não poderá restaurar a máquina virtual.
 

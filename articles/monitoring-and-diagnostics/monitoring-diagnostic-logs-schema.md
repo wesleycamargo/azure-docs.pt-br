@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: johnkem
-ms.openlocfilehash: 2e99b7afa4e458e9ef62314e65d9e386657a747b
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: f571a723d91db060a1aff5e14bc452d56794db6c
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Serviços, esquemas e categorias com suporte para os logs de diagnóstico do Azure
 
@@ -56,20 +56,36 @@ O esquema para os logs de diagnóstico de recurso varia dependendo do recurso e 
 ## <a name="supported-log-categories-per-resource-type"></a>Categorias de log com suporte por tipo de recurso
 |Tipo de recurso|Categoria|Nome de exibição da categoria|
 |---|---|---|
+|Microsoft.AnalysisServices/servers|Motor|Motor|
+|Microsoft.AnalysisServices/servers|O Barramento de|O Barramento de|
 |Microsoft.ApiManagement/service|GatewayLogs|Logs relacionados ao Gateway ApiManagement|
 |Microsoft.Automation/automationAccounts|JobLogs|Logs de trabalho|
 |Microsoft.Automation/automationAccounts|JobStreams|Transmissões de trabalho|
 |Microsoft.Automation/automationAccounts|DscNodeStatus|Status do nó DSC|
 |Microsoft.Batch/batchAccounts|ServiceLog|Logs de serviço|
-|Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Obtém as métricas do ponto de extremidade, como largura de banda, saída etc.|
 |Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
+|Microsoft.DataFactory/factories|ActivityRuns|Registro de execuções de atividade de pipeline|
+|Microsoft.DataFactory/factories|PipelineRuns|Registro de execuções de pipeline|
+|Microsoft.DataFactory/factories|TriggerRuns|Registro de execuções de gatilho|
 |Microsoft.DataLakeAnalytics/accounts|Audit|Logs de Auditoria|
 |Microsoft.DataLakeAnalytics/accounts|Solicitações|Logs de solicitação|
 |Microsoft.DataLakeStore/accounts|Audit|Logs de Auditoria|
 |Microsoft.DataLakeStore/accounts|Solicitações|Logs de solicitação|
+|Microsoft.Devices/IotHubs|Conexões|Conexões|
+|Microsoft.Devices/IotHubs|DeviceTelemetry|Telemetria de Dispositivo|
+|Microsoft.Devices/IotHubs|C2DCommands|Comandos C2C|
+|Microsoft.Devices/IotHubs|DeviceIdentityOperations|Operações de Identidade do Dispositivo|
+|Microsoft.Devices/IotHubs|FileUploadOperations|Operações de Upload de Arquivo|
+|Microsoft.Devices/IotHubs|Rotas|Rotas|
+|Microsoft.Devices/IotHubs|D2CTwinOperations|D2CTwinOperations|
+|Microsoft.Devices/IotHubs|C2CTwinOperations|Operações de Gêmeos C2D|
+|Microsoft.Devices/IotHubs|TwinQueries|Consultas de Gêmeos|
+|Microsoft.Devices/IotHubs|JobsOperations|Operações de Trabalhos|
+|Microsoft.Devices/IotHubs|DirectMethods|Métodos diretos|
 |Microsoft.Devices/provisioningServices|DeviceOperations|Operações do Dispositivo|
 |Microsoft.Devices/provisioningServices|ServiceOperations|Operações de serviço|
 |Microsoft.DocumentDB/databaseAccounts|DataPlaneRequests|DataPlaneRequests|
+|Microsoft.DocumentDB/databaseAccounts|MongoRequests|MongoRequests|
 |Microsoft.EventHub/namespaces|ArchiveLogs|Logs de arquivo|
 |Microsoft.EventHub/namespaces|OperationalLogs|Logs operacionais|
 |Microsoft.EventHub/namespaces|AutoScaleLogs|Logs de Escala Automática|
@@ -78,6 +94,7 @@ O esquema para os logs de diagnóstico de recurso varia dependendo do recurso e 
 |Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Acompanhar os eventos da Conta de Integração|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|Network Security Group Event|
 |Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|Contador de regras de grupo de segurança de rede|
+|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupFlowEvent|Evento de fluxo de regra de grupo de segurança de rede|
 |Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|Eventos de alerta do Load Balancer|
 |Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|Status de integridade da investigação do Load Balancer|
 |Microsoft.Network/publicIPAddresses|DDoSProtectionNotifications|Notificações de proteção contra DDoS|
@@ -85,6 +102,11 @@ O esquema para os logs de diagnóstico de recurso varia dependendo do recurso e 
 |Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Log de acesso do Gateway de Aplicativo|
 |Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Log de desempenho do Gateway de Aplicativo|
 |Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|Log de firewall do Gateway de Aplicativo|
+|Microsoft.Network/virtualNetworkGateways|GatewayDiagnosticLog|Registro de Diagnóstico de Gateway|
+|Microsoft.Network/virtualNetworkGateways|TunnelDiagnosticLog|Registro de Diagnóstico de Túnel|
+|Microsoft.Network/virtualNetworkGateways|RouteDiagnosticLog|Registro de Diagnóstico de Rota|
+|Microsoft.Network/trafficManagerProfiles|ProbeHealthStatusEvents|Evento de Resultados de Integridade de Investigação do Gerenciador de Tráfego|
+|Microsoft.Network/expressRouteCircuits|GWMCountersTable|Tabela de contadores GWM|
 |Microsoft.RecoveryServices/Vaults|AzureBackupReport|Dados de relatórios de backup do Azure|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryJobs|Trabalhos do Azure Site Recovery|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryEvents|Eventos do Azure Site Recovery|
@@ -93,7 +115,6 @@ O esquema para os logs de diagnóstico de recurso varia dependendo do recurso e 
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryRecoveryPoints|Pontos de Recuperação do Azure Site Recovery|
 |Microsoft.Search/searchServices|OperationLogs|Logs de operação|
 |Microsoft.ServiceBus/namespaces|OperationalLogs|Logs operacionais|
-|Microsoft.Sql/servers/databases|QueryStore|Repositório de Consultas|
 |Microsoft.Sql/servers/databases|QueryStoreRuntimeStatistics|Estatísticas de Tempo de Execução do Repositório de Consultas|
 |Microsoft.Sql/servers/databases|QueryStoreWaitStatistics|Estatísticas de Espera do Repositório de Consultas|
 |Microsoft.Sql/servers/databases|Errors|Errors|

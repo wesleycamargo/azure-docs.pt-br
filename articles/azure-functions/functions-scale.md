@@ -17,17 +17,18 @@ ms.workload: na
 ms.date: 06/12/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cb6ade65879b245bf44800da3352354ba274ee5a
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 09bb662e30a97e2741303e2e4630582625954909
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-functions-hosting-plans-comparison"></a>Comparação de planos de hospedagem do Azure Functions
 
-## <a name="introduction"></a>Introdução
-
 Você pode executar o Azure Functions em dois modos diferentes: o plano de Consumo e o plano do Serviço de Aplicativo do Azure. O plano de Consumo automaticamente aloca potência de computação quando seu código está em execução, escala horizontalmente conforme a necessidade para tratar da carga e reduz verticalmente quando o código não está em execução. Assim, você não precisa pagar por VMs ociosas e não precisa reservar capacidade com antecedência. Este artigo se concentra no plano de Consumo, um modelo de aplicativo [sem servidor](https://azure.microsoft.com/overview/serverless-computing/). Para obter detalhes sobre como o plano do Serviço de Aplicativo funciona, consulte [Visão geral detalhada de planos de Serviço de Aplicativo do Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
+
+>[!NOTE]  
+> Atualmente, a hospedagem do Linux só está disponível em um Plano do Serviço de Aplicativo.
 
 Se ainda não estiver familiarizado com o Azure Functions, veja a [Visão geral do Azure Functions](functions-overview.md).
 
@@ -55,7 +56,7 @@ O plano de Consumo é o plano de hospedagem padrão e oferece os seguintes benef
 
 ## <a name="app-service-plan"></a>Plano do Serviço de Aplicativo
 
-No Plano do Serviço de Aplicativo, seus aplicativos de funções são executados em VMs dedicadas em SKUs Basic, Standard ou Premium e isoladas, de forma semelhantes aos Aplicativos Web, Aplicativos de API e Aplicativos Móveis. VMs dedicadas são alocadas aos seus aplicativos do Serviço de Aplicativo, o que significa que o host das funções está sempre em execução.
+No Plano do Serviço de Aplicativo, seus aplicativos de funções são executados em VMs dedicadas em SKUs Basic, Standard ou Premium e isoladas, de forma semelhantes aos Aplicativos Web, Aplicativos de API e Aplicativos Móveis. VMs dedicadas são alocadas aos seus aplicativos do Serviço de Aplicativo, o que significa que o host das funções está sempre em execução. Os Planos do Serviço de Aplicativo oferecem suporte a Linux.
 
 Considere um Plano do Serviço de Aplicativo nos seguintes casos:
 - Você tem VMs subutilizadas que já estão executando outras instâncias do Serviço de Aplicativo.
@@ -63,12 +64,13 @@ Considere um Plano do Serviço de Aplicativo nos seguintes casos:
 - Você precisa de mais opções de CPU ou memória do que é fornecido no plano de Consumo.
 - Você precisa executar por mais tempo do que o tempo de execução máximo permitido no plano de Consumo (de 10 minutos).
 - Você precisa de recursos que estão disponíveis somente em um Plano do Serviço de Aplicativo, como suporte para o Ambiente de Serviço de Aplicativo, conectividade VPN/VNET e tamanhos de VM maiores. 
+- Você deseja executar seu aplicativo de funções no Linux, ou você deseja fornecer uma imagem personalizada na qual executará suas funções.
 
 Uma VM baseia o curso no número de execuções, no tempo de execução e na memória usada. Como resultado, você não paga mais do que o custo da instância da VM alocada. Para obter detalhes sobre como o plano do Serviço de Aplicativo funciona, consulte [Visão geral detalhada de planos de Serviço de Aplicativo do Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). 
 
 Com um plano do Serviço de Aplicativo, você pode escalar horizontalmente manualmente adicionando mais instâncias de VM ou você pode habilitar o dimensionamento automático. Para obter mais informações, consulte [Dimensionar a contagem de instâncias manual ou automaticamente](../monitoring-and-diagnostics/insights-how-to-scale.md?toc=%2fazure%2fapp-service-web%2ftoc.json). Você também pode escalar verticalmente escolhendo um plano do Serviço de Aplicativo diferente. Para obter mais informações, consulte [Escalar verticalmente um aplicativo no Azure](../app-service/web-sites-scale.md). 
 
-Se você estiver planejando executar funções do JavaScript em um plano do Serviço de Aplicativo, deverá escolher um plano com menos núcleos. Para obter mais informações, consulte a [Referência do JavaScript para funções](functions-reference-node.md#choose-single-core-app-service-plans).  
+Se você estiver planejando executar funções do JavaScript em um Plano do Serviço de Aplicativo, você deverá escolher um plano com menos vCPUs. Para saber mais, acesse [Escolher Planos do Serviço de Aplicativo de núcleo único](functions-reference-node.md#considerations-for-javascript-functions).  
 
 <!-- Note: the portal links to this section via fwlink https://go.microsoft.com/fwlink/?linkid=830855 --> 
 <a name="always-on"></a>
@@ -93,7 +95,7 @@ Ao usar o plano de hospedagem de Consumo, os arquivos do código de função sã
 > [!NOTE]
 > Ao usar um gatilho de blob em um plano de Consumo, pode haver um atraso de até 10 minutos no processamento de novos blobs se um aplicativo de funções ficar ocioso. Depois que o aplicativo de funções estiver em execução, os blobs serão processados imediatamente. Para evitar esse atraso inicial, considere uma das seguintes opções:
 > - Hospede o aplicativo de funções em um Plano do Serviço de Aplicativo com a opção Sempre ativado habilitada.
-> - Use outro mecanismo para disparar o processamento de blob, como uma mensagem de fila que contém o nome do blob. Para obter um exemplo, confira [Gatilho de fila com associação de entrada de blob](functions-bindings-storage-blob.md#input-sample).
+> - Use outro mecanismo para disparar o processamento de blob, como uma mensagem de fila que contém o nome do blob. Por exemplo, consulte os [Exemplos de JavaScript e Script C# para a vinculação de dados de entrada e saída de blob](functions-bindings-storage-blob.md#input--output---example).
 
 ### <a name="runtime-scaling"></a>Escalonamento de tempo de execução
 

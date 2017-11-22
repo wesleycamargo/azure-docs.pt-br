@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/16/2017
 ms.author: jdial
-ms.openlocfilehash: 9696a74ac02688f9004156f6f16b39b37756751d
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 70ddec1c7ba76ef7f42048896079e5c5fa2bf60c
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="create-a-user-defined-route---powershell"></a>Criar uma rota definida pelo usuário – PowerShell
 
@@ -209,15 +209,15 @@ Você pode instalar e configurar a versão mais recente do módulo [AzureRM](htt
     Set-AzureRmVirtualNetwork
     ```
     
-14. **Opcional:** crie uma máquina virtual nas sub-redes pública e privada e valide que a comunicação entre as máquinas virtuais é roteada através da solução de virtualização de rede completando as etapas em [Validar roteamento](#validate-routing).
-15. **Opcional**: para excluir os recursos criados neste tutorial, conclua as etapas em [Excluir recursos](#delete-resources).
+14. **Opcional:** Crie uma máquina virtual nas sub-redes Pública e Privada e valide que a comunicação entre as máquinas virtuais é roteada através da solução de virtualização de rede completando as etapas em [Validar roteamento](#validate-routing).
+15. **Opcional**: Para excluir os recursos criados neste tutorial, conclua as etapas em [Excluir recursos](#delete-resources).
 
 ## <a name="validate-routing"></a>Validar roteamento
 
 1. Se você ainda não fez isso, conclua as etapas em [Criar rotas e solução de virtualização de rede](#create-routes-and-network-virtual-appliance).
 2. Clique no botão **Experimente** na caixa a seguir, que abre o Azure Cloud Shell. Se solicitado, faça logon no Azure usando a [conta do Azure](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). Se não tiver uma conta do Azure, você poderá assinar uma versão de [avaliação gratuita](https://azure.microsoft.com/offers/ms-azr-0044p). O Azure Cloud Shell é um shell de busca gratuito com a interface de linha de comando do Azure pré-instalada. 
 
-    Os scripts a seguir criam duas máquinas virtuais, uma na sub-rede *pública* e outra na *privada*. Os scripts também habilitam o encaminhamento IP para o adaptador de rede dentro do sistema operacional da NVA para habilitar o sistema operacional a rotear o tráfego por meio do adaptador de rede. Uma NVA de produção normalmente inspeciona o tráfego antes de roteá-lo, mas neste tutorial, a NVA simples apenas roteia o tráfego, sem inspecioná-lo. 
+    Os scripts a seguir criam duas máquinas virtuais, uma na sub-rede *Pública* e outra na *Privada*. Os scripts também habilitam o encaminhamento IP para o adaptador de rede dentro do sistema operacional da NVA para habilitar o sistema operacional a rotear o tráfego por meio do adaptador de rede. Uma NVA de produção normalmente inspeciona o tráfego antes de roteá-lo, mas neste tutorial, a NVA simples apenas roteia o tráfego, sem inspecioná-lo. 
 
     Clique no botão **Copiar** dos scripts **Linux** ou **Windows** a seguir e cole o conteúdo do script em um editor de texto. Altere a senha para a variável *adminPassword* e, em seguida, cole o script no Azure Cloud Shell. Execute o script para o sistema operacional que você selecionou ao criar o dispositivo de rede virtual na etapa 7 de [Criar rotas e solução de virtualização de rede](#create-routes-and-network-virtual-appliance). 
 
@@ -335,12 +335,18 @@ Você pode instalar e configurar a versão mais recente do módulo [AzureRM](htt
 
     - Abra uma conexão [SSH](../virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-vm) (Linux) ou de [Área de Trabalho Remota](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-vm) (Windows) para o endereço IP público da máquina virtual *myVm-Public*.
     - Em um prompt de comando na máquina virtual *myVm-Public*, digite `ping myVm-Private`. Você recebe respostas porque a NVA roteia o tráfego da sub-rede pública para a privada.
-    - Da máquina virtual *myVm-Public*, execute uma rota de rastreamento entre as máquinas virtuais nas sub-redes pública e privada. Digite o comando apropriado a seguir, dependendo de qual sistema operacional você instalou nas máquinas virtuais nas sub-redes pública e privada:
-        - **Windows**: de um prompt de comando, execute o comando `tracert myvm-private`.
-        - **Ubuntu**: execute o comando `tracepath myvm-private`.
-      O tráfego passa por 10.0.2.4 (a NVA) antes de alcançar 10.0.1.4 (a máquina virtual na sub-rede privada). 
+    - Da máquina virtual *myVm-Public*, execute uma rota de rastreamento entre as máquinas virtuais nas sub-redes pública e privada. Digite o comando apropriado a seguir, dependendo de qual sistema operacional você instalou nas máquinas virtuais nas sub-redes Pública e Privada:
+        - **Windows**: Em um prompt de comando, execute o comando `tracert myvm-private`.
+        - **Ubuntu**: Execute o comando `tracepath myvm-private`.
+      O tráfego passa por 10.0.2.4 (a NVA) antes de alcançar 10.0.1.4 (a máquina virtual na sub-rede Privada). 
     - Conclua as etapas anteriores conectando-se à máquina virtual *myVm-Private* e executando ping na máquina virtual *myVm-Public*. A rota de rastreamento mostra a comunicação viajando através de 10.0.2.4 antes de alcançar 10.0.0.4 (a máquina virtual na sub-rede pública).
-    - **Opcionalmente**: use a funcionalidade de próximo salto do Observador de Rede do Azure para validar o próximo salto entre duas máquinas virtuais no Azure. Antes de usar o Observador de Rede, você deve primeiro [Criar uma instância do Observador de Rede do Azure](../network-watcher/network-watcher-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para a região na qual você deseja usá-lo. Neste tutorial, a região Leste dos EUA é usada. Depois de habilitar uma instância do Observador de Rede para a região, digite o comando a seguir para ver as informações do próximo salto entre as máquinas virtuais nas sub-redes pública e privada:
+    
+      > [!NOTE]
+      > As etapas anteriores permitem confirmar o roteamento entre os endereços IP privados do Azure. Caso você deseje encaminhar o tráfego, ou usar um proxy para ele, a endereços IP públicos por meio de uma solução de virtualização de rede:
+      > - O dispositivo deve fornecer a funcionalidade de conversão de endereços de rede ou de proxy. Se a conversão de endereços de rede for usada, o dispositivo deverá converter o endereço IP de origem para seu próprio e, em seguida, encaminhar essa solicitação para o endereço IP público. Independentemente de o dispositivo ter o endereço de origem convertido em um endereço de rede, ou estiver usando um proxy, o Azure converte o endereço IP privado da solução de virtualização de rede para um endereço IP público. Para obter mais informações sobre os diferentes métodos usados pelo Azure para converter endereços IP privados em endereços IP públicos, consulte [Noções básicas sobre conexões de saída](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+      > - Uma rota adicional na tabela de rota como o prefixo: 0.0.0.0/0, o tipo do próximo salto VirtualAppliance e o endereço IP do próximo salto 10.0.2.4 (no script de exemplo anterior).
+      >
+    - **Opcionalmente**: Use a funcionalidade de próximo salto do Observador de Rede do Azure para validar o próximo salto entre duas máquinas virtuais no Azure. Antes de usar o Observador de Rede, você deve primeiro [Criar uma instância do Observador de Rede do Azure](../network-watcher/network-watcher-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para a região na qual você deseja usá-lo. Neste tutorial, a região Leste dos EUA é usada. Depois de habilitar uma instância do Observador de Rede para a região, digite o comando a seguir para ver as informações do próximo salto entre as máquinas virtuais nas sub-redes Pública e Privada:
      
         ```azurecli-interactive
         az network watcher show-next-hop --resource-group myResourceGroup --vm myVm-Public --source-ip 10.0.0.4 --dest-ip 10.0.1.4
@@ -349,11 +355,11 @@ Você pode instalar e configurar a versão mais recente do módulo [AzureRM](htt
        A saída retorna *10.0.2.4* como o **nextHopIpAddress** e *VirtualAppliance* como o **nextHopType**.
 
 > [!NOTE]
-> Para ilustrar os conceitos neste tutorial, os endereços IP públicos são atribuídos a máquinas virtuais nas sub-redes pública e privada, enquanto todo o acesso de porta de rede é habilitado dentro do Azure para ambas as máquinas virtuais. Ao criar máquinas virtuais para uso em produção, você não pode atribuir endereços IP públicos a elas e pode filtrar o tráfego de rede para a sub-rede privada implantando uma solução de virtualização de rede diante dela ou atribuindo um grupo de segurança de rede às sub-redes, ao adaptador de rede ou a ambos. Para saber mais sobre grupos de segurança de rede, confira [Grupos de segurança de rede](virtual-networks-nsg.md).
+> Para ilustrar os conceitos neste tutorial, os endereços IP públicos são atribuídos a máquinas virtuais nas sub-redes Pública e Privada, enquanto todo o acesso de porta de rede é habilitado dentro do Azure para ambas as máquinas virtuais. Ao criar máquinas virtuais para uso em produção, você não pode atribuir endereços IP públicos a elas e pode filtrar o tráfego de rede para a sub-rede Privada implantando uma solução de virtualização de rede diante dela ou atribuindo um grupo de segurança de rede às sub-redes, ao adaptador de rede ou a ambos. Para saber mais sobre grupos de segurança de rede, confira [Grupos de segurança de rede](virtual-networks-nsg.md).
 
 ## <a name="create-a-virtual-network"></a>Criar uma rede virtual
 
-Este tutorial requer uma rede virtual existente com duas sub-redes. Clique no botão **Experimente** da caixa a seguir para criar uma rede virtual rapidamente. Clicar no botão **Experimente** abre o [Azure Cloud Shell](../cloud-shell/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Embora o Cloud Shell execute o PowerShell ou um shell de busca, nesta seção o shell de busca é usado para criar a rede virtual. O shell de busca tem a interface de linha de comando do Azure instalada. Se solicitado pelo Cloud Shell, faça logon no Azure usando a [conta do Azure](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). Se não tiver uma conta do Azure, você poderá assinar uma versão de [avaliação gratuita](https://azure.microsoft.com/offers/ms-azr-0044p). Para criar a rede virtual usada neste tutorial, clique no botão **Copiar** na caixa a seguir e, em seguida, cole o script no Azure Cloud Shell:
+Este tutorial requer uma rede virtual existente com duas sub-redes. Clique no botão **Experimente** da caixa a seguir para criar uma rede virtual rapidamente. Clicar no botão **Experimente** abre o [Azure Cloud Shell](../cloud-shell/overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Embora o Cloud Shell execute o PowerShell ou um shell Bash, nesta seção o shell Bash é usado para criar a rede virtual. O shell Bash tem a interface de linha de comando do Azure instalada. Se solicitado pelo Cloud Shell, faça logon no Azure usando a [conta do Azure](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#account). Se não tiver uma conta do Azure, você poderá assinar uma versão de [avaliação gratuita](https://azure.microsoft.com/offers/ms-azr-0044p). Para criar a rede virtual usada neste tutorial, clique no botão **Copiar** na caixa a seguir e, em seguida, cole o script no Azure Cloud Shell:
 
 ```azurecli-interactive
 #!/bin/bash
@@ -396,5 +402,5 @@ Remove-AzureRmResourceGroup -Name myResourceGroup -Force
 ## <a name="next-steps"></a>Próximas etapas
 
 - Crie uma [solução de virtualização de rede altamente disponível](/azure/architecture/reference-architectures/dmz/nva-ha?toc=%2fazure%2fvirtual-network%2ftoc.json).
-- Soluções de virtualização de rede geralmente têm vários adaptador de rede e endereços IP atribuídos a eles. Saiba como [adicionar adaptadores de rede a uma máquina virtual existente](virtual-network-network-interface-vm.md#vm-add-nic) e [adicionar endereços IP a um adaptador de rede](virtual-network-network-interface-addresses.md#add-ip-addresses). Embora todos os tamanhos de máquina virtual possam ter pelo menos dois adaptadores de rede anexados a eles, o tamanho de cada máquina virtual dá suporte a um número máximo de adaptadores de rede. Para saber a quantos adaptadores de rede cada tamanho de máquina virtual dá suporte, consulte os tamanhos de máquina virtual do [Windows](../virtual-machines/windows/sizes.md?toc=%2Fazure%2Fvirtual-network%2Ftoc.json) e [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
-- Crie uma rota definida pelo usuário para realizar túnel à força de tráfego local por meio de uma [conexão de VPN site a site](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Soluções de virtualização de rede geralmente possuem vários adaptadores de rede e endereços IP atribuídos a eles. Saiba como [adicionar adaptadores de rede a uma máquina virtual existente](virtual-network-network-interface-vm.md#vm-add-nic) e [adicionar endereços IP a um adaptador de rede](virtual-network-network-interface-addresses.md#add-ip-addresses). Embora todos os tamanhos de máquina virtual possam ter pelo menos dois adaptadores de rede anexados a eles, o tamanho de cada máquina virtual dá suporte a um número máximo de adaptadores de rede. Para saber a quantos adaptadores de rede cada tamanho de máquina virtual dá suporte, consulte os tamanhos de máquina virtual do [Windows](../virtual-machines/windows/sizes.md?toc=%2Fazure%2Fvirtual-network%2Ftoc.json) e [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
+- Crie uma rota definida pelo usuário para realizar túnel forçado de tráfego local por meio de uma [conexão de VPN site a site](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md?toc=%2fazure%2fvirtual-network%2ftoc.json).

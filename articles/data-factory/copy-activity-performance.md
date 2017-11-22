@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 11/13/2017
 ms.author: jingwang
-ms.openlocfilehash: b0351e4c4dcf19f9e4b6ec11c59c4dd00f0013a2
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 841e053418dedb6b41262d1277ab4bdc9d4800c6
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guia Desempenho e ajuste da Atividade de Cópia
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -88,7 +88,7 @@ Uma **unidade de movimentação de dados de nuvem (DMU)** é uma medida que repr
 
 | Copiar cenário | DMUs padrão determinadas pelo serviço |
 |:--- |:--- |
-| Copiar dados entre repositórios baseados em arquivo | Entre 4 e 16, dependendo do número e tamanho dos arquivos. |
+| Copiar dados entre repositórios baseados em arquivo | Entre 4 e 32, dependendo do número e tamanho dos arquivos. |
 | Todos os outros cenários de cópia | 4 |
 
 Para substituir esse padrão, especifique um valor para a propriedade **cloudDataMovementUnits** da seguinte maneira. Os **valores permitidos** para a propriedade **cloudDataMovementUnits** são 2, 4, 8, 16, 32. O **número real de DMUs de nuvem** que a operação de cópia usa na execução é igual ou menor que o valor configurado, dependendo do seu padrão de dados. Para obter informações sobre o nível de ganho de desempenho que você pode obter ao configurar mais unidades para uma origem e coletor de cópia específicos, consulte a [referência de desempenho](#performance-reference).
@@ -133,7 +133,7 @@ Para cada execução da Atividade de Cópia, o Data Factory determina o número 
 
 | Copiar cenário | Contagem de cópia paralela padrão determinada pelo serviço |
 | --- | --- |
-| Copiar dados entre repositórios baseados em arquivo |Entre 1 e 32. Depende do tamanho dos arquivos e do número de DMUs (unidades de movimentação de dados) de nuvem usadas para copiar os dados entre dois armazenamentos de dados de nuvem ou da configuração física do computador do Integration Runtime auto-hospedado. |
+| Copiar dados entre repositórios baseados em arquivo |Entre 1 e 64. Depende do tamanho dos arquivos e do número de DMUs (unidades de movimentação de dados) de nuvem usadas para copiar os dados entre dois armazenamentos de dados de nuvem ou da configuração física do computador do Integration Runtime auto-hospedado. |
 | Copiar dados de qualquer armazenamento de dados de origem para o armazenamento de Tabelas do Azure |4 |
 | Todos os outros cenários de cópia |1 |
 

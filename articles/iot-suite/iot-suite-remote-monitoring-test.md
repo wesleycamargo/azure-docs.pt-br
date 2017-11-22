@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 09/16/2017
+ms.date: 11/10/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 732ec45003481b0e2f2eca03b6ae13772d325ef1
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 0e6cc412fdb3ea7b9d8291b9f963e6412ae994a9
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="test-your-solution-with-simulated-devices"></a>Testar sua solução com dispositivos simulados
 
@@ -39,6 +39,10 @@ A tabela a seguir mostra os dados que a lâmpada relata para a nuvem como um flu
 | Nome   | Valores      |
 | ------ | ----------- |
 | Status | "on", "off" |
+| online | verdadeiro, falso |
+
+> [!NOTE]
+> O valor de telemetria **online** é obrigatório para simulada todos os tipos.
 
 *Métodos*
 
@@ -173,7 +177,7 @@ O arquivo `lightbulb-01.json` define as características do tipo, como a telemet
       "SwitchOff": {
         "Type": "javascript",
         "Path": "SwitchOff-method.js"
-      },
+      }
     }
     ```
 
@@ -267,7 +271,11 @@ Para testar o tipo de dispositivo **Lâmpada**, primeiro você pode testar se o 
 
 Para testar e depurar as alterações localmente, consulte [Device simulation overview](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) (Visão geral da simulação de dispositivo).
 
-Configure o projeto para copiar os novos arquivos do dispositivo **Lâmpada** para o diretório de saída.
+Configure o projeto para copiar os novos arquivos do dispositivo **Lâmpada** para o diretório de saída:
+
+* Se você estiver usando o Visual Studio, certifique-se de adicionar os três novos arquivos de lâmpada criadas na seção anterior para o projeto **Serviços** na solução. Em seguida, use **explorador de Soluções** para marcá-los a serem copiados para o diretório de saída.
+
+* Se você estiver usando Visual Studio Code, abra o arquivo **Services.csproj** e adicione os três novos arquivos lâmpada que você criou na seção anterior. Consulte as entradas de arquivo de modelo de dispositivo existentes no arquivo **Services.csproj** como exemplos.
 
 Para testar o novo dispositivo em uma solução implantada, consulte um destes artigos:
 
@@ -299,12 +307,12 @@ As etapas a seguir mostram como localizar os arquivos que definem o dispositivo 
 1. Se você ainda não tiver feito isso, use o seguinte comando para clonar o repositório **device-simulation** do GitHub para o computador local:
 
     ```cmd/sh
-    git clone https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet.git
+    git clone https://github.com/Azure/device-simulation-dotnet.git
     ```
 
-1. Cada tipo de dispositivo tem um arquivo de modelo JSON e scripts associados na pasta `data/devicemodels`. Os arquivos que definem o tipo de dispositivo do **Resfriador** simulado são:
-    * `data/devicemodels/chiller-01.json`
-    * `data/devicemodels/scripts/chiller-01-state.js`
+1. Cada tipo de dispositivo tem um arquivo de modelo JSON e scripts associados na pasta `Services/data/devicemodels`. Os arquivos que definem o tipo de dispositivo do **Resfriador** simulado são:
+    * `Services/data/devicemodels/chiller-01.json`
+    * `Services/data/devicemodels/scripts/chiller-01-state.js`
 
 ### <a name="specify-the-new-telemetry-type"></a>Especificar o novo tipo de telemetria
 

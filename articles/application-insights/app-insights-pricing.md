@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: mbullwin
-ms.openlocfilehash: 5b3d1b9e0d176f29fbcc90410f1fe80085ec5fa8
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: ecb6dd0343c36a0f1571b416817aad5e7a52fccb
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Gerenciar preços e volume de dados no Application Insights
 
@@ -39,7 +39,7 @@ Consulte a [página de preços do Application Insights][pricing] para preços at
 O plano Básico é o padrão quando um novo recurso do Application Insights é criado e será suficiente para a maioria dos clientes.
 
 * No plano Básico, você é cobrado pelo volume de dados: o número de bytes de telemetria recebidos pelo Application Insights. O volume de dados é medido como o tamanho do pacote de dados JSON descompactado recebido pelo Application Insights do seu aplicativo.
-Para [dados tabulares importados para análise](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-analytics-import), o volume de dados é medido como o tamanho descompactado de arquivos enviados ao Application Insights.  
+Para [dados tabulares importados para análise](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-import), o volume de dados é medido como o tamanho descompactado de arquivos enviados ao Application Insights.  
 * O primeiro GB para cada aplicativo é gratuito, portanto, se você estiver apenas testando ou desenvolvendo, é pouco provável que precise pagar.
 * Os dados de [Live Metrics Stream](app-insights-live-stream.md) não são contatos para fins de preços.
 * A [exportação contínua](app-insights-export-telemetry.md) está disponível para uma cobrança adicional por GB no plano Básico.
@@ -110,7 +110,7 @@ Encargos do Application Insights são adicionados à sua conta do Azure. Você p
 Há três maneiras de limitar o volume de dados enviados:
 
 * **Amostragem:** esse mecanismo pode ser usado para reduzir o volume de telemetria enviado do seu servidor e de aplicativos cliente, com mínima distorção de métricas. Essa é a ferramenta principal que você tem para ajustar a quantidade de dados. Saiba mais sobre [recursos de amostragem](app-insights-sampling.md). 
-* **Limite diário:** ao criar um recurso Application Insights no Portal do Azure, isso é definido como 500 GB/dia. Ao criar um recurso Application Insights do Visual Studio, o padrão é pequeno (somente 32,3 MB/dia), algo que só se destina à facilitação dos testes. Nesse caso, o propósito dele é que o usuário irá gerar o limite diário antes de implantar o aplicativo em produção. O limite máximo é 500 GB/dia, a menos que você tenha solicitado um máximo maior para um aplicativo de alto tráfego. Tome cuidado ao definir o limite diário, porque sua intenção deve ser **nunca atingir o limite diário**, pois você irá perder dados do restante do dia e não poderá monitorar seu aplicativo. Para alterá-lo, use a folha Limite de volume diário, vinculado da lâmina de Gerenciamento de Volumes de Dados (veja abaixo). Observe que alguns tipos de assinatura têm crédito que não pode ser usado no Application Insights. Se a assinatura tiver um limite de gastos, a folha de limite diário terá instruções de como removê-lo e habilitar o limite diário para ser aumentado além de 32,3 MB/dia.  
+* **Limite diário:** ao criar um recurso Application Insights no Portal do Azure, isso é definido como 100 GB/dia. Ao criar um recurso Application Insights do Visual Studio, o padrão é pequeno (somente 32,3 MB/dia), algo que só se destina à facilitação dos testes. Nesse caso, o propósito dele é que o usuário irá gerar o limite diário antes de implantar o aplicativo em produção. O limite máximo é 1000 GB/dia, a menos que você tenha solicitado um máximo maior para um aplicativo de alto tráfego. Tome cuidado ao definir o limite diário, porque sua intenção deve ser **nunca atingir o limite diário**, pois você irá perder dados do restante do dia e não poderá monitorar seu aplicativo. Para alterá-lo, use a folha Limite de volume diário, vinculado da lâmina de Gerenciamento de Volumes de Dados (veja abaixo). Observe que alguns tipos de assinatura têm crédito que não pode ser usado no Application Insights. Se a assinatura tiver um limite de gastos, a folha de limite diário terá instruções de como removê-lo e habilitar o limite diário para ser aumentado além de 32,3 MB/dia.  
 * **Limitação:** isso limita a taxa de dados para 32 mil eventos por segundo, medidos ao longo de um minuto. 
 
 

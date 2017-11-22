@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: mbullwin
-ms.openlocfilehash: fe708b14fac971d18d95fd1619907023ec35af89
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: ae204b79be228d55b30bb543dd25efdd9c3f0436
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Alimentar o Power BI do Application Insights
 O [Power BI](http://www.powerbi.com/) é um conjunto de ferramentas de análise de negócios que ajudam a analisar dados e a compartilhar informações. Painéis avançados estão disponíveis em cada dispositivo. Você pode combinar dados de várias fontes, incluindo consultas do Analytics do [Azure Application Insights](app-insights-overview.md).
@@ -25,7 +25,7 @@ O [Power BI](http://www.powerbi.com/) é um conjunto de ferramentas de análise 
 Há três métodos recomendados para exportar dados do Application Insights para o Power BI. Você pode usá-los separadamente ou em conjunto.
 
 * [**Adaptador do Power BI**](#power-pi-adapter) -configure um painel completo de telemetria do seu aplicativo. O conjunto de gráficos é predefinido, mas você pode adicionar suas próprias consultas de outras fontes.
-* [**Exportar as consultas do Analytics**](#export-analytics-queries) -escreva qualquer consulta que quiser usando o Analytics e exporte-a para o Power BI. Você pode colocar essa consulta em um painel com outros dados.
+* [**Exportar as consultas do Analytics**](#export-analytics-queries) -grave qualquer consulta que quiser usando o Analytics ou a partir do Funil de Uso, e exporte-a para o Power BI. Você pode colocar essa consulta em um painel com outros dados.
 * [**Exportação contínua e Stream Analytics**](app-insights-export-stream-analytics.md) – isso envolve mais trabalho para configurar. Será útil se você quiser manter os dados por longos períodos. Caso contrário, os outros métodos serão recomendados.
 
 ## <a name="power-bi-adapter"></a>Adaptador do Power BI
@@ -48,7 +48,7 @@ Você pode editar o painel, combinando os gráficos do Application Insights a ou
 Após a importação inicial, o painel e os relatórios continuarão a ser atualizados diariamente. Você pode controlar o agendamento de atualização no conjunto de dados.
 
 ## <a name="export-analytics-queries"></a>Exportar consultas do Analytics
-Essa rota permite escrever qualquer consulta do Analytics desejada e então exportá-la para um painel. (Você pode adicionar ao painel criado pelo adaptador).
+Essa rota permite que você grave qualquer consulta do Analytics desejada ou que a exporte do Funil de Uso, e então fazer a exportação para um painel Power BI. (Você pode adicionar ao painel criado pelo adaptador).
 
 ### <a name="one-time-install-power-bi-desktop"></a>Uma vez: instalar o Power BI Desktop
 Para importar sua consulta do Application Insights, você deve usar a versão da área de trabalho do Power BI. Mas, em seguida, você poderá publicá-la na Web ou em seu espaço de trabalho de nuvem do Power BI. 
@@ -82,10 +82,32 @@ Instalar o [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
     ![Selecionar visualização](./media/app-insights-export-power-bi/publish-power-bi.png)
 4. Atualize o relatório manualmente em intervalos ou configure uma atualização agendada na página de opções.
 
+### <a name="export-a-funnel"></a>Exportar um Funil
+1. [Criar o seu funil](usage-funnels.md)
+2. Clique no botão Power BI 
+
+   ![Botão Power BI](./media/app-insights-export-power-bi/button.png)
+   
+3. No Power BI Desktop, selecione **Obter Dados, Consulta em Branco** e, então, no editor de consultas, em **Exibir**, selecione **Editor Avançado de Consultas**.
+
+   ![Consulta em branco](./media/app-insights-export-power-bi/blankquery.png)
+
+   Cole o script M Language exportado no Editor Avançado de Consultas. 
+
+   ![Editor avançado de consultas](./media/app-insights-export-power-bi/advancedquery.png)
+
+4. Selecione os itens da consulta e escolha a visualização do funil
+
+   ![Selecione a sequência e o funil](./media/app-insights-export-power-bi/selectsequence.png)
+
+5. Altere o título para torná-lo significativo e publique seu relatório no seu espaço de trabalho de nuvem do Power BI. 
+
+   ![Alterar o título](./media/app-insights-export-power-bi/changetitle.png)
+
 ## <a name="troubleshooting"></a>Solucionar problemas
 
 ### <a name="401-or-403-unauthorized"></a>401 ou 403 Não Autorizado 
-Isso pode acontecer se o token de atualização não foi atualizado. Repita estas etapas para garantir que você ainda terá acesso. Se você tem acesso e a atualização das credenciais não funciona, abra um tíquete de suporte.
+Isso pode acontecer se o token de atualização não tiver sido atualizado. Repita estas etapas para garantir que você ainda terá acesso. Se você tiver acesso e a atualização das credenciais não funcionar, abra um tíquete de suporte.
 
 1. Faça logon no Portal do Azure e certifique-se de que você pode acessar o recurso
 2. Tente atualizar as credenciais para o painel

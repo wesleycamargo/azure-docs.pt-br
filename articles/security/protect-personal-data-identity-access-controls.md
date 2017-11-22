@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2017
+ms.date: 11/13/2017
 ms.author: barclayn
 ms.custom: 
-ms.openlocfilehash: 7c66a95d5a056f59e0f28dba4e0880e72e74dc3d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e6de9526a1a72cfc81caca51207e000f8b3673cc
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-active-directory-and-multi-factor-authentication-protect-personal-data-with-identity-and-access-controls"></a>Azure Active Directory e Autenticação Multifator: proteger dados pessoais com controles de acesso e identidade
 
@@ -121,23 +121,23 @@ Para implantar o MFA na nuvem do Azure, você precisa habilitá-lo primeiro e, e
 
 #### <a name="how-do-i-enable-azure-to-use-mfa"></a>Como fazer para habilitar o Azure a usar o MFA?
 
-Se os usuários tiverem licenças que incluem a Autenticação Multifator do Azure, nada precisará ser feito para ativar o MFA do Azure. Caso contrário, você precisará criar um provedor de Autenticação Multifator no diretório. Para fazer isso, siga estas etapas:
+Caso os usuários tenham licenças que incluem a Autenticação Multifator do Azure, basta configurar o MFA do Azure por usuário ou grupo. 
 
-1. Selecione **Active Directory** no portal clássico do Azure (conectado como administrador).
+![Usuários habilitados pelo MFA](media/protect-personal-data-identity-access-controls/enable-mfa.png)
 
-2. Selecione **Provedores de Autenticação Multifator.**
+Se, atualmente, você não tem licenças, precisa seguir o processo de determinar o tipo de implantação mais adequado para seu cenário. Comece observando o artigo intitulado [Escolher a solução de Autenticação Multifator do Azure ideal para você](../multi-factor-authentication/multi-factor-authentication-get-started.md). Se decidir que precisa criar um servidor de Autenticação Multifator. Comece seguindo estas etapas:
 
-3. Selecione **Novo** e, em seguida, em **Serviços de Aplicativos**, selecione **Provedor de Autenticação Multifator.**
+1. Selecione **Active Directory** no portal do Azure (conectado como administrador).
 
-4. Selecione **Criação Rápida.**
+2. Selecione **Servidor MFA**
 
-5. Preencha o campo de nome e selecione um modelo de uso (por autenticação ou por usuário habilitado).
+3. Especifique um valor de tempo limite. 
 
-6. Designe um diretório ao qual o Provedor de MFA está associado.
+    ![](media/protect-personal-data-identity-access-controls/mfa-server-settings.png)
 
-7. Selecione o botão **Criar** .
+4. Clique em **Salvar**
 
-![](media/protect-personal-data-identity-access-controls/quick-create.png)
+Nesta janela, você também tem a opção de Baixar o Servidor MFA. Obtenha detalhes adicionais sobre como dimensionar e planejar sua implantação examinando o artigo [Introdução ao servidor de Autenticação Multifator do Azure](../multi-factor-authentication/multi-factor-authentication-get-started-server.md)
 
 Para obter mais instruções sobre como gerenciar o Provedor de Autenticação Multifator, consulte [Introdução a um Provedor de Autenticação Multifator do Azure.](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-get-started-auth-provider)
 
@@ -158,7 +158,7 @@ Para habilitar o MFA alterando o estado do usuário, faça o seguinte:
 5. Marque a caixa ao lado do nome do usuário.
 6. À direita, em etapas rápidas, escolha **Habilitar**.
 
-   ![](media/protect-personal-data-identity-access-controls/quick-create.png)
+   ![](media/protect-personal-data-identity-access-controls/mfa-bulk.png)
 
 7. Confirme sua seleção na janela pop-up que é aberta.  Os usuários para os quais o MFA foi habilitado deverão se registrar na próxima vez que se conectarem.
 

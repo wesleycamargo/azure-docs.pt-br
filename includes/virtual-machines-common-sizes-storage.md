@@ -1,5 +1,6 @@
+Os tamanhos de VM otimizados para armazenamento oferecem taxa de transferência de disco alta e de E/S e são ideais para bancos de dados Big Data, SQL e NoSQL. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como a taxa de transferência de armazenamento e desempenho de rede para cada tamanho neste agrupamento. 
 
-A série Ls é otimizada para cargas de trabalho que requerem armazenamento temporário de baixa latência, como bancos de dados NoSQL, incluindo, Cassandra, MongoDB, Cloudera e Redis. A série Ls oferece até 32 vCPUs, usando a [família de processadores Intel® Xeon® E5 v3](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). A série Ls obtém o mesmo desempenho de CPU da série G/GS e vem com 8 GiB de memória por vCPU.  
+A série Ls oferece até 32 vCPUs, usando a [família de processadores Intel® Xeon® E5 v3](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). A série Ls obtém o mesmo desempenho de CPU da série G/GS e vem com 8 GiB de memória por vCPU.  
 
 ## <a name="ls-series"></a>Série Ls
 
@@ -13,7 +14,7 @@ ACU: 180-240
 | Standard_L32s* | 32 | 256  | 5.630 | 64             | NA / NA (0)          | 40.000 / 1.000                            | 8 / 20000 | 
  
 
-A taxa de transferência máxima possível do disco com VMs da série Ls pode ser limitada pelo número, tamanho e divisão dos discos anexados. Para obter detalhes, confira [Armazenamento Premium: armazenamento de alto desempenho para cargas de trabalho das máquinas virtuais do Azure](../articles/storage/common/storage-premium-storage.md). 
+A taxa de transferência máxima possível do disco com VMs da série Ls pode ser limitada pelo número, tamanho e divisão dos discos anexados. Para obter detalhes, confira [Armazenamento Premium: armazenamento de alto desempenho para cargas de trabalho das máquinas virtuais do Azure](../articles/virtual-machines/windows/premium-storage.md). 
 
 *A instância é isolada em hardware dedicado a um único cliente.
 

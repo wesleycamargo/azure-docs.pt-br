@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2017
 ms.author: rodend;karlku;tomfitz
-ms.openlocfilehash: 3a19f2cf7566f38f80639d7c966638a3ec900cf4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5950bad397e4b0f08f998ea6756e3c258e84b63e
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-enterprise-scaffold---prescriptive-subscription-governance"></a>Andaime empresarial do Azure — governança de assinatura prescritiva
 As empresas estão adotando cada vez mais a nuvem pública em busca de agilidade e flexibilidade. Elas estão usando os pontos fortes da nuvem para gerar receita ou otimizar recursos para os negócios. O Microsoft Azure fornece uma variedade de serviços que as empresas podem montar como blocos de construção para atender a uma ampla gama de aplicativos e cargas de trabalho. 
@@ -89,7 +89,7 @@ O primeiro pilar do andaime são os padrões de nomenclatura. Os padrões de nom
 > As dicas anteriores lhe ajudarão-lo a implementar uma convenção de nomenclatura consistente.
 
 ## <a name="policies-and-auditing"></a>Políticas e auditoria
-O segundo pilar do andaime envolve a criação de [políticas do Azure Resource Manager](resource-manager-policy.md) e a [auditoria do log de atividades](resource-group-audit.md). As políticas do Resource Manager fornecem a capacidade de gerenciar riscos no Azure. Você pode definir políticas que garantem o domínio dos dados, restringindo, impondo ou auditando determinadas ações. 
+O segundo pilar do andaime envolve a criação das[políticas do Azure](../azure-policy/azure-policy-introduction.md) e a [auditoria do log de atividades](resource-group-audit.md). As políticas do Resource Manager fornecem a capacidade de gerenciar riscos no Azure. Você pode definir políticas que garantem o domínio dos dados, restringindo, impondo ou auditando determinadas ações. 
 
 * A política é um sistema de **permissão** padrão. Controle ações definindo e atribuindo políticas a recursos que negam ou auditam ações nos recursos.
 * As políticas são descritas pelas definições de política em uma linguagem de definição de política (condições "se-então").

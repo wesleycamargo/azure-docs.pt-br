@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
 ms.author: raynew
-ms.openlocfilehash: 17bd7f424117842fd0687ba8a5fcf4d83c96a0bb
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: 503d7060437d08ed35681fca7f1b9306746b7f44
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-vmware-virtual-machines-or-physical-servers-to-a-secondary-site"></a>Configurar a recuperação de desastre de máquinas virtuais VMware locais ou de servidores físicos para um site secundário
 
@@ -45,7 +45,7 @@ Selecione o que será replicado e o local em que será replicado.
 2. Selecione **Para site de recuperação** > **Sim, com o VMware vSphere Hypervisor**. Em seguida, clique em **OK**.
 3. Em **Instalação do Scout**, baixe o software do InMage Scout 8.0.1 GA e a chave de registro. Os arquivos de instalação de todos os componentes estão incluídos no arquivo .zip baixado.
 
-## <a name="install-component-updates"></a>Instalar atualizações de componentes
+## <a name="download-and-install-component-updates"></a>Faça o download e instale atualizações de componentes
 
  Examine e instale as [atualizações](#updates) mais recentes. As atualizações devem ser instaladas nos servidores na seguinte ordem:
 
@@ -83,7 +83,7 @@ Baixe o arquivo .zip de [atualização](https://aka.ms/asr-scout-update6). O arq
 ## <a name="enable-replication"></a>Habilitar a replicação
 
 1. Configure a replicação entre os sites do VMware de origem e de destino.
-2. Para obter orientação, use a documentação do InMage Scout baixada com o produto. Como alternativa, você pode acessar a documentação da seguinte maneira:
+2. Consulte os documentos a seguir para saber mais sobre a instalação, proteção e recuperação:
 
    * [Notas de versão](https://aka.ms/asr-scout-release-notes)
    * [Matriz de compatibilidade](https://aka.ms/asr-scout-cm)
@@ -95,6 +95,8 @@ Baixe o arquivo .zip de [atualização](https://aka.ms/asr-scout-update6). O arq
 
 ### <a name="site-recovery-scout-801-update-6"></a>Site Recovery Scout 8.0.1 Atualização 6 
 Atualizado: 12 de outubro de 2017
+
+Faça o download [atualização Scout 6](https://aka.ms/asr-scout-update6).
 
 A Atualização 6 do Scout é uma atualização cumulativa. Ela contém todas as correções desde a Atualização 1 até a Atualização 5 e as novas correções e aprimoramentos descritos abaixo. 
 

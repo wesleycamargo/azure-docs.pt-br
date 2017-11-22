@@ -14,20 +14,20 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: alkarche
-ms.openlocfilehash: d201c8395adf47fa3d9f790b77b1d29dda5a0aeb
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 24bc439b6167d335a0862aa93debb9efe5aeae48
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="work-with-azure-functions-proxies-preview"></a>Trabalhar com proxies do Azure Functions (visualização)
-
-> [!NOTE] 
-> Proxies do Azure Functions está atualmente em visualização. É gratuito enquanto na visualização, mas as funções padrão cobrança se aplica para execuções de proxy. Para saber mais, confira [Preços do Azure Functions](https://azure.microsoft.com/pricing/details/functions/).
+# <a name="work-with-azure-functions-proxies"></a>Trabalhe com Proxies do Azure Functions
 
 Este artigo explica como configurar e trabalhar com proxies do Azure Functions. Com esse recurso, você pode especificar os pontos de extremidade em seu aplicativo de funções que são implementados por outro recurso. Você pode usar esses proxies para dividir uma API grande em vários aplicativos de função (como uma arquitetura de microsserviços), enquanto ainda apresenta uma única superfície de API para clientes.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+> [!NOTE] 
+> A cobrança do Standard Functions se aplica para execuções de proxy. Para saber mais, confira [Preços do Azure Functions](https://azure.microsoft.com/pricing/details/functions/).
 
 ## <a name="create"></a>Criar um proxy
 

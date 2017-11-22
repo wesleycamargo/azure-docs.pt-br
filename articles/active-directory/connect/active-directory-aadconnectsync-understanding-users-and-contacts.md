@@ -1,6 +1,6 @@
 ---
-title: "Sincronização do Azure AD Connect: Noções Básicas sobre Usuários e Contatos | Microsoft Docs"
-description: "Explica usuários e contatos na sincronização do Azure AD Connect."
+title: "Sincronização do Azure Active Directory Connect: Noções Básicas sobre Usuários, Grupos e Contatos | Microsoft Docs"
+description: "Explica usuários, grupos e contatos na sincronização do Azure Active Directory Connect."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -13,24 +13,44 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: markvi;andkjell
-ms.openlocfilehash: 0ad3194a0827c4ef68267ce5e3e3fcbe225e8a3d
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: c298a2f99750ead099b8761699c914a3a6e41ce1
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="azure-ad-connect-sync-understanding-users-and-contacts"></a>Azure AD Connect Sync: noções básicas sobre usuários e contatos
+# <a name="azure-ad-connect-sync-understanding-users-groups-and-contacts"></a>Azure Active Directory Connect Sync: noções básicas sobre usuários, grupos e contatos
 Há vários motivos diferentes de por que existem várias florestas do Active Directory e várias topologias de implantação diferentes. Os modelos comuns incluem uma implantação do recurso em conta e florestas sincronizadas de GAL (Lista de Endereços Global) após uma fusão e aquisição. Mas mesmo que haja modelos puros, modelos híbridos são comuns também. A configuração padrão da sincronização do Azure AD Connect não assume nenhum modelo específico, mas dependendo de como a compatibilidade de usuário foi selecionada na guia de instalação, comportamentos diferentes podem ser observados.
 
 Neste tópico, veremos como a configuração padrão se comporta em certas topologias. Veremos que a configuração e o Editor de regras de sincronização podem ser usados para examinar a configuração.
 
 A configuração pressupõe algumas regras gerais:
-
 * Independentemente da ordem em que importamos por meio dos Active Directories de origem, o resultado final seria sempre o mesmo.
 * Uma conta ativa sempre também contribuirá com informações de logon, incluindo **userPrincipalName** e **sourceAnchor**.
 * Uma conta desabilitada contribuirá userPrincipalName e sourceAnchor, a menos que uma caixa de correio vinculada, se não houver nenhuma conta ativa a ser localizada.
 * Uma conta com uma caixa de correio vinculada nunca será usada para userPrincipalName e sourceAnchor. Pressupõe-se que uma conta ativa será encontrada posteriormente.
 * Um objeto de contato pode ser provisionado no AD do Azure como um contato ou como um usuário. Você realmente não sabe até que todas as florestas do Active Directory de origem sejam processadas.
+
+## <a name="groups"></a>Grupos
+Pontos importantes a serem considerados durante a sincronização de grupos do Active Directory para o Azure Active Directory:
+
+* O Azure Active Directory Connect exclui grupos de segurança internas da sincronização de diretório.
+
+* O Azure Active Directory Connect não oferece suporte à sincronização de [associações de grupo primário](https://technet.microsoft.com/library/cc771489(v=ws.11).aspx) para o Azure Active Directory.
+
+* O Azure Active Directory Connect não oferece suporte à sincronização de [associações de Distribuição Dinâmica](https://technet.microsoft.com/library/bb123722(v=exchg.160).aspx) para o Azure Active Directory.
+
+* Para sincronizar um grupo do Active Directory para o Azure Active Directory como um grupo de e-mail:
+
+    * Se o atributo *proxyAddress* do grupo estiver vazio, seu atributo *e-mail* deve ter um valor, OU 
+
+    * Se o atributo *proxyAddress* do grupo não estiver vazio, ele também deverá conter um valor de endereço de proxy SMTP primário (conforme indicado pelos prefixos **SMTP** em letras maiúsculas). Estes são alguns exemplos:
+    
+      * Um grupo do Active Directory cujo atributo proxyAddress tenha o valor *{"X500:/0=contoso.com/ou=users/cn=testgroup"}* não será habilitado para e-mail no Azure Active Directory. Ele não tem um endereço SMTP primário.
+      
+      * Um grupo do Active Directory cujo atributo proxyAddress tenha os valores *{"X500:/0=contoso.com/ou=users/cn=testgroup", "smtp:johndoe@contoso.com"}* não poderá ser habilitado para e-mail no Azure Active Directory. Ele tem um endereço smtp, mas não é primário.
+      
+      * Um grupo do Active Directory cujo atributo proxyAddress tenha os valores *{"X500:/0=contoso.com/ou=users/cn=testgroup","SMTP:johndoe@contoso.com"}* serão habilitados para e-mail no Azure Active Directory.
 
 ## <a name="contacts"></a>Contatos
 Ter contatos que representam um usuário em uma floresta diferente é comum após uma fusão e aquisição em que uma solução GALSync está fazendo a ponte entre duas ou mais florestas do Exchange. O objeto de contato está sempre unindo o espaço do conector ao metaverso, usando o atributo de email. Se já houver um objeto de contato ou um objeto de usuário com o mesmo endereço de email, os objetos serão unidos. Isso é configurado na regra **Entrada do AD – Junção de Contato**. Há também uma regra denominada **Entrada no AD – Contato Comum** com um fluxo de atributos para o atributo de metaverso **sourceObjectType** com a constante **Contato**. Essa regra tem precedência muito baixa, portanto se nenhum objeto de usuário estiver associado ao mesmo objeto de metaverso, a regra Entrada do **AD – Usuário Comum** contribuirá com o valor Usuário para esse atributo. Com essa regra, esse atributo terá o valor Contato, se nenhum usuário tiver sido associado; e o valor Usuário se pelo menos um usuário tiver sido encontrado.

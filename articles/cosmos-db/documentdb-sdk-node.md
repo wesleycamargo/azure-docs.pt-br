@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 08/14/2017
+ms.date: 11/14/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4376a5c07b5f00311ce0fe3c0056efdf79c273f9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2a13a5777161ab18840501d7d7e1d52192c22315
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="azure-cosmos-db-nodejs-sdk-release-notes-and-resources"></a>SDK de Node.js do Azure Cosmos DB: Notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -60,6 +60,14 @@ ms.lasthandoff: 10/11/2017
 </table></br>
 
 ## <a name="release-notes"></a>Notas de versão
+
+### <a name="1.14.0"/>1.14.0</a>
+* Adiciona suporte à Consistência de Sessão.
+* Esta versão do SDK requer a versão mais recente do Emulador do Azure Cosmos DB disponível para fazer o download em https://aka.ms/cosmosdb-emulator.
+
+### <a name="1.13.0"/>1.13.0</a>
+* Consultas de partição cruzada plitproofed.
+* Adiciona suporte para o link de recurso com barras à esquerda e à direita (e os testes correspondentes).
 
 ### <a name="1.12.2"/>1.12.2</a>
 *   documentação do npm corrigida.
@@ -177,6 +185,8 @@ Qualquer solicitação feita ao Cosmos DB com o uso de um SDK desativado é reje
 
 | Versão | Data do lançamento | Data de desativação |
 | --- | --- | --- |
+| [1.14.0](#1.14.0) |9 de novembro de 2017 |--- |
+| [1.13.0](#1.13.0) |11 de outubro de 2017 |--- |
 | [1.12.2](#1.12.2) |10 de agosto de 2017 |--- |
 | [1.12.1](#1.12.1) |10 de agosto de 2017 |--- |
 | [1.12.0](#1.12.0) |10 de maio de 2017 |--- |

@@ -13,13 +13,13 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 06/18/2017
+ms.date: 11/09/2017
 ms.author: heidist
-ms.openlocfilehash: c293de5b43103c8cbec01f61a26b8b28ac7e9116
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 916a08aacca428530bc4f728d5de422e04bed8bc
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Administração do serviço do Azure Search no portal do Azure
 > [!div class="op_single_selector"]
@@ -34,13 +34,10 @@ O Azure Search é um serviço de pesquisa baseado em nuvem, totalmente gerenciad
 * Ajuste a capacidade de serviço, alterando a alocação de partições e réplicas.
 * Monitorar o uso de recursos, em relação aos limites máximos da sua camada de serviço.
 
-**Não está no escopo** 
+Observe que *atualização* não está listado como uma tarefa administrativa. Já que os recursos são alocados quando o serviço for fornecido, a mudança para uma camada diferente exige um novo serviço. Veja [Criar um serviço do Azure Search](search-create-service-portal.md) para obter detalhes.
 
-*Gerenciamento de conteúdo* (ou gerenciamento de índice) refere-se a operações, como análise de tráfego de pesquisa para entender o volume de consultas, descobrir quais termos as pessoas pesquisam e como os resultados da pesquisa bem-sucedida são para a orientação dos clientes para documentos específicos no índice. Para ajuda nessa área, veja [Análise de Tráfego de Pesquisa para o Azure Search](search-traffic-analytics.md).
-
-*desempenho de consulta* também está além do escopo deste artigo. Para obter mais informações, confira [Monitorar as métricas de uso e consulta](search-monitor-usage.md) e [Desempenho e otimização](search-performance-optimization.md).
-
-*Atualizar* não é uma tarefa administrativa. Já que os recursos são alocados quando o serviço for fornecido, a mudança para uma camada diferente exige um novo serviço. Veja [Criar um serviço do Azure Search](search-create-service-portal.md) para obter detalhes.
+> [!Tip]
+> Procurando ajuda sobre como analisar o desempenho de tráfego ou consulta de pesquisa? Ganhe informações sobre volume de consulta, quais termos as pessoas devem procurar, e quão bem sucedidos são os resultados de pesquisa em orientar clientes para documentos específicos no seu índice. Para obter orientações, consulte [Análise De Tráfego De Pesquisa Para Azure Search](search-traffic-analytics.md), [Monitorar as métricas de uso e consulta](search-monitor-usage.md), e [Desempenho e otimização](search-performance-optimization.md).
 
 <a id="admin-rights"></a>
 
@@ -64,7 +61,7 @@ Para o Azure Search, as permissões de RBAC determinam as seguintes tarefas admi
 | Colaborador |Mesmo nível de acesso como Proprietário, menos gerenciamento de funções RBAC. Por exemplo, um Colaborador pode exibir e gerar novamente a `api-key`, mas não pode modificar as associações de função. |
 | Leitor |Exibir chaves de consulta e de status do serviço. Os membros dessa função não podem alterar a configuração do serviço, nem exibir chaves admin. |
 
-As funções não concedem direitos de acesso para o ponto de extremidade de serviço. As operações do serviço de pesquisa, como gerenciamento de índices, preenchimento de índice e consultas em dados de pesquisa, são controladas por meio de chaves de api, não funções. Para mais informações, consulte "Autorização para gerenciamento versus operações de dados" em [O que é controle de acesso baseado em função](../active-directory/role-based-access-control-what-is.md).
+As funções não concedem direitos de acesso para o ponto de extremidade de serviço. As operações do serviço Search, como gerenciamento de índices, preenchimento de índice e consultas em dados de pesquisa, são controladas por meio de chaves de api, não funções. Para mais informações, consulte "Autorização para gerenciamento versus operações de dados" em [O que é controle de acesso baseado em função](../active-directory/role-based-access-control-what-is.md).
 
 <a id="secure-keys"></a>
 ## <a name="logging-and-system-information"></a>Log e informações do sistema
@@ -113,15 +110,10 @@ Outra maneira de exibir permissões de acesso é clicar em **Funções** na folh
 ## <a name="monitor-resource-usage"></a>Monitorar o uso de recursos
 No painel, o monitoramento de recursos é limitado às informações mostradas no painel de serviço e a algumas métricas que você pode obter ao consultar o serviço. No painel do serviço, na seção Uso, é possível determinar rapidamente se os níveis de recurso da partição estão adequados para o seu aplicativo.
 
-Usando a API do serviço de pesquisa, você pode obter uma contagem dos documentos e índices. Há limites associados a essas contagens com base na camada de preços. Para saber mais, confira [Limites de serviço de pesquisa](search-limits-quotas-capacity.md). 
+Usando a API REST do Serviço Search, você pode obter uma contagem dos documentos e índices: 
 
 * [Obter estatísticas de índice](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)
 * [Contar documentos](https://docs.microsoft.com/rest/api/searchservice/count-documents)
-
-> [!NOTE]
-> Os comportamentos de cache podem aumentar um limite temporariamente. Por exemplo, ao usar o serviço compartilhado, você pode ver uma contagem de documentos que ultrapassa o limite de 10.000. O aumento é temporário e será detectado na próxima verificação de aplicação do limite. 
-> 
-> 
 
 ## <a name="disaster-recovery-and-service-outages"></a>Recuperação de desastre e interrupções de serviço
 
