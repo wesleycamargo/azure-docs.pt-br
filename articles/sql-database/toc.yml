@@ -378,6 +378,8 @@
               href: saas-multitenantdb-adhoc-reporting.md
             - name: Como gerenciar esquemas de locatário
               href: saas-multitenantdb-schema-management.md
+            - name: ETL para análise
+              href: saas-multitenantdb-tenant-analytics.md
     - name: Desenvolver aplicativos
       items:
         - name: C e C ++
