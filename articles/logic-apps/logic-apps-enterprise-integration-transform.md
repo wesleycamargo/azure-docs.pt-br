@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2016
 ms.author: LADocs; padmavc
-ms.openlocfilehash: fb6027769377b3527b11f7831dab3bb8d7061c84
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f09819a1bfd380cd826a478471e673b6d5ff9ee7
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="enterprise-integration-with-xml-transforms"></a>Integração corporativa com transformações XML
 ## <a name="overview"></a>Visão geral
@@ -50,6 +50,11 @@ Agora que você cuidou dos pré-requisitos, é hora de criar seu Aplicativo lóg
    ![](./media/logic-apps-enterprise-integration-transforms/transform-3.png)  
 5. Selecione a ação **Transformar XML**   
 6. Adicione o **CONTEÚDO** XML que você transformar. Você pode usar quaisquer dados XML recebidos na solicitação HTTP como o **CONTEÚDO**. Neste exemplo, selecione o corpo da solicitação HTTP que disparou o Aplicativo Lógico.
+
+   > [!NOTE]
+   > Verifique se o conteúdo para o **XML de Transformação** é XML. Se o conteúdo não estiver em XML ou codificado em base64, deve especificar uma expressão que processa o conteúdo. Por exemplo, pode usar [funções](logic-apps-workflow-definition-language.md#functions), como ```@base64ToBinary``` para descodificar conteúdo ou ```@xml``` para processar o conteúdo como XML.
+ 
+
 7. Selecione o nome do **MAPA** que você deseja usar para executar a transformação. O mapa já deve estar em sua conta de integração. Em uma etapa anterior, você já deu ao seu Aplicativo lógico acesso à sua conta de integração que contém o mapa.      
    ![](./media/logic-apps-enterprise-integration-transforms/transform-4.png) 
 8. Salve seu trabalho   

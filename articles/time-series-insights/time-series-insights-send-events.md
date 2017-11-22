@@ -12,14 +12,14 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: 543fafac63423ab874c6c8e40d91a1ce0f161987
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 2c1b91fb87857eee8ca938be193b61e01bbdb886
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="send-events-to-a-time-series-insights-environment-using-event-hub"></a>Envie eventos para um ambiente de Análise de Séries Temporais usando o hub de eventos
-Este artigo explica como criar e configurar o hub de eventos e executar um aplicativo de exemplo para eventos por push. Se você tiver um hub de eventos existente com eventos no formato JSON, ignore este tutorial e exibir seu ambiente na [análise de séries temporais](https://insights.timeseries.azure.com).
+Este artigo explica como criar e configurar o hub de eventos e executar um aplicativo de exemplo para eventos por push. Se você tiver um hub de eventos existente com eventos no formato JSON, ignore este tutorial e exibir seu ambiente na [Análise de Séries Temporais](https://insights.timeseries.azure.com).
 
 ## <a name="configure-an-event-hub"></a>Configurar um hub de eventos
 1. Para criar um hub de eventos, siga as instruções na [documentação](../event-hubs/event-hubs-create.md) sobre Hub de Eventos.
@@ -28,7 +28,7 @@ Este artigo explica como criar e configurar o hub de eventos e executar um aplic
 
 3. Selecione seu hub de eventos clicando no nome.
 
-4. Em Entidades, na janela de configuração central, clique novamente em **Hubs de Eventos**.
+4. Em **Entidades**, na janela de configuração central, clique novamente em **Hubs de Eventos**.
 
 5. Selecione o nome do hub de eventos para configurá-lo.
 
@@ -244,4 +244,5 @@ Um objeto JSON com uma matriz JSON aninhada que contém dois objetos JSON. Essa 
 |Oeste dos EUA|manufacturer1|Leste dos EUA|device2|2016-01-08T01:17:00Z|vibration|abs G|217.09|
 
 ## <a name="next-steps"></a>Próximas etapas
-Exibir seu ambiente no [Explorador do Time Series Insights](https://insights.timeseries.azure.com).
+> [!div class="nextstepaction"]
+> [Exibir seu ambiente no Explorador do Time Series Insights](https://insights.timeseries.azure.com).

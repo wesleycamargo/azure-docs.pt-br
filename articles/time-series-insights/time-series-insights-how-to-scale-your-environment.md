@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: a6f10e14e3f9e5761734738caddc247d9e4a90cd
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: d3c8b2b1ba220bf07a2bcdbd7fb26b94f897981f
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>Como dimensionar o ambiente do Time Series Insights
 
@@ -50,7 +50,7 @@ As capacidades são dimensionadas linearmente, portanto, uma SKU S1 com capacida
 
    ![configure.png](media/scale-your-environment/configure.png)
 
-3. Ajuste o controle deslizante **Capacidade** para selecionar a capacidade que atenda aos requisitos de suas taxas de entrada e capacidade de armazenamento. Observe que a Taxa de entrada, Capacidade de armazenamento e Estimativa de custos são atualizadas dinamicamente para mostrar o impacto da alteração. 
+3. Ajuste o controle deslizante **Capacidade** para selecionar a capacidade que atenda aos requisitos de suas taxas de entrada e capacidade de armazenamento. Observe que a **Taxa de entrada**, a **Capacidade de armazenamento** e o **Custo estimado** são atualizadas dinamicamente para mostrar o impacto da alteração. 
 
    ![Controle deslizante](media/scale-your-environment/slider.png)
 
@@ -59,4 +59,5 @@ As capacidades são dimensionadas linearmente, portanto, uma SKU S1 com capacida
 4. Selecione **Salvar** para dimensionar o ambiente. O indicador de progresso é exibido momentaneamente até que a alteração seja confirmada. 
 
 ## <a name="next-steps"></a>Próximas etapas
-Verifique se a nova capacidade é suficiente para evitar a limitação. Para obter mais informações, consulte [Se o seu ambiente está sendo limitado](time-series-insights-diagnose-and-solve-problems.md).
+> [!div class="nextstepaction"]
+> [Verifique se a nova capacidade é suficiente para evitar a limitação](time-series-insights-diagnose-and-solve-problems.md).

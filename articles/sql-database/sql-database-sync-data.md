@@ -13,16 +13,16 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2017
+ms.date: 11/13/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 5c4509bc1d05bc422f6bc5599d4635020ded63e9
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 8bcecdff2bb9ac037e2cd71a431619883dfb5084
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/14/2017
 ---
-# <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-azure-sql-data-sync-preview"></a>Sincronizar dados entre vários bancos de dados locais e de nuvem com a Sincronização de Dados SQL do Azure (versão prévia)
+# <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>Sincronizar dados entre vários bancos de dados locais e de nuvem com a Sincronização de Dados SQL (versão prévia)
 
 Sincronização de Dados SQL é um serviço baseado no Banco de Dados SQL do Azure que lhe permite sincronizar os dados que você selecionar bidirecionalmente em vários bancos de dados SQL e instâncias do SQL Server.
 
@@ -44,7 +44,7 @@ A Sincronização de Dados usa uma topologia hub-spoke para sincronizar os dados
 -   O **Banco de Dados de Sincronização** contém os metadados e o log de Sincronização de Dados. O Banco de Dados de Sincronização deve ser um Banco de Dados SQL do Azure localizado na mesma região do Banco de Dados Hub. O Banco de Dados de Sincronização é criado pelo cliente e é propriedade do cliente.
 
 > [!NOTE]
-> Se você estiver usando um banco de dados local, você precisa [configurar um agente local.](https://docs.microsoft.com/azure/sql-database/sql-database-get-started-sql-data-sync)
+> Se você estiver usando um banco de dados local, precisará [configurar um agente local](sql-database-get-started-sql-data-sync.md#add-on-prem).
 
 ![Sincronizar dados entre bancos de dados](media/sql-database-sync-data/sync-data-overview.png)
 
@@ -78,38 +78,11 @@ A Sincronização de Dados não é apropriada para os seguintes cenários:
     -   Se você selecionar *Hub ganha*, as alterações no hub sempre substituem as alterações no membro.
     -   Se você selecionar *Membro ganha*, as alterações no membro sempre substituem as alterações no hub. Se houver mais de um membro, o valor final depende de qual membro será sincronizado pela primeira vez.
 
-## <a name="common-questions"></a>Perguntas comuns
-
-### <a name="how-frequently-can-data-sync-synchronize-my-data"></a>Com que frequência a Sincronização de Dados pode sincronizar meus dados? 
-A frequência mínima é a cada cinco minutos.
-
-### <a name="can-i-use-data-sync-to-sync-between-sql-server-on-premises-databases-only"></a>Posso usar a Sincronização de Dados para sincronizar somente entre bancos de dados locais do SQL Server? 
-Não diretamente. Contudo, é possível sincronizar entre bancos de dados locais do SQL Server indiretamente criando um banco de dados Hub no Azure e adicionando os bancos de dados locais ao grupo de sincronização.
-   
-### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-keep-them-synchronized"></a>Posso usar a Sincronização de Dados para propagar dados do meu banco de dados de produção para um banco de dados vazio e mantê-los sincronizados? 
-Sim. Crie o esquema manualmente no novo banco de dados desenvolvendo o script com base no original. Depois de criar o esquema, adicione as tabelas a um grupo de sincronização para copiar os dados e mantê-los sincronizados.
-
-### <a name="why-do-i-see-tables-that-i-did-not-create"></a>Por que vejo tabelas que eu não criei?  
-A Sincronização de Dados cria tabelas secundárias no banco de dados para controle de alterações. Não as exclua, pois a Sincronização de Dados deixará de funcionar.
-   
-### <a name="i-got-an-error-message-that-said-cannot-insert-the-value-null-into-the-column-column-column-does-not-allow-nulls-what-does-this-mean-and-how-can-i-fix-the-error"></a>Recebi uma mensagem de erro que diz “Não é possível inserir o valor NULL na coluna \<coluna\>. A coluna não permite valores nulos”. O que isso significa e como posso corrigir o erro? 
-Essa mensagem de erro indica que um dos dois problemas a seguir está ocorrendo:
-1.  Uma tabela pode estar sem uma chave primária. Para corrigir esse problema, adicione uma chave primária a todas as tabelas que você está sincronizando.
-2.  Pode haver uma cláusula WHERE na instrução CREATE INDEX. A sincronização não trata essa condição. Para corrigir esse problema, remova a cláusula WHERE ou realize as alterações manualmente para todos os bancos de dados. 
- 
-### <a name="how-does-data-sync-handle-circular-references-that-is-when-the-same-data-is-synced-in-multiple-sync-groups-and-keeps-changing-as-a-result"></a>Como a Sincronização de Dados trata referências circulares? Ou seja, quando os mesmos dados são sincronizados em vários grupos de sincronização, fazendo com que sejam continuamente alterados?
-A Sincronização de Dados não trata referências circulares. Evite usá-las. 
-
-### <a name="how-can-i-export-and-import-a-database-with-data-sync"></a>Como exportar e importar um banco de dados com a Sincronização de Dados?
-Depois de exportar um banco de dados como um arquivo `.bacpac` e importar o arquivo para criar um novo banco de dados, você precisa realizar as duas seguintes ações para usar a Sincronização de Dados no novo banco de dados:
-1.  Limpe os objetos de Sincronização de Dados e tabelas laterais no **novo banco de dados** usando [esse script](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/clean_up_data_sync_objects.sql). Esse script exclui todos os objetos de Sincronização de Dados necessários do banco de dados.
-2.  Recrie o grupo de sincronização com o novo banco de dados. Se você não precisar mais do grupo de sincronização antigo, exclua-o.
-
 ## <a name="sync-req-lim"></a> Requisitos e limitações
 
 ### <a name="general-requirements"></a>Requisitos gerais
 
--   Cada tabela deve ter uma chave primária. Não altere o valor da chave primária em nenhuma linha. Se você precisar fazer isso, exclua a linha e recrie-a com o novo valor de chave primária. 
+-   Cada tabela deve ter uma chave primária. Não altere o valor da chave primária em nenhuma linha. Se você tiver de alterar o valor de uma chave primária, exclua a linha e recrie-a com o novo valor de chave primária. 
 
 -   Uma tabela não pode uma coluna de identidade que não seja a chave primária.
 
@@ -151,12 +124,51 @@ A Sincronização de Dados usa os gatilhos inserir, atualizar e excluir para con
 | Intervalo de sincronização mínima                                           | 5 Minutos              |                             |
 |||
 
+## <a name="faq-about-sql-data-sync"></a>Perguntas Frequentes sobre a Sincronização de Dados SQL
+
+### <a name="how-much-does-the-sql-data-sync-preview-service-cost"></a>Quanto custa o serviço Sincronização de Dados SQL (Versão Prévia)?
+
+Durante a Versão Prévia, não há cobranças pelo serviço Sincronização de Dados SQL (Versão Prévia).  No entanto, você ainda acumulará encargos de transferência de dados pela movimentação de dados dentro e fora de sua instância do Banco de Dados SQL. Para saber mais, veja [Preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
+
+### <a name="what-regions-support-data-sync"></a>Quais regiões oferecem suporte à Sincronização de Dados?
+
+A Sincronização de Dados SQL (Versão Prévia) está disponível em todas as regiões de nuvem pública.
+
+### <a name="is-a-sql-database-account-required"></a>É necessária uma conta do Banco de Dados SQL? 
+
+Sim. Você deve ter uma conta do Banco de Dados SQL para hospedar o Banco de Dados Hub.
+
+### <a name="can-i-use-data-sync-to-sync-between-sql-server-on-premises-databases-only"></a>Posso usar a Sincronização de Dados para sincronizar somente entre bancos de dados locais do SQL Server? 
+Não diretamente. Contudo, é possível sincronizar entre bancos de dados locais do SQL Server indiretamente criando um banco de dados Hub no Azure e adicionando os bancos de dados locais ao grupo de sincronização.
+   
+### <a name="can-i-use-data-sync-to-seed-data-from-my-production-database-to-an-empty-database-and-then-keep-them-synchronized"></a>Posso usar a Sincronização de Dados para propagar dados do meu banco de dados de produção para um banco de dados vazio e mantê-los sincronizados? 
+Sim. Crie o esquema manualmente no novo banco de dados desenvolvendo o script com base no original. Depois de criar o esquema, adicione as tabelas a um grupo de sincronização para copiar os dados e mantê-los sincronizados.
+
+### <a name="should-i-use-sql-data-sync-to-back-up-and-restore-my-databases"></a>Devo usar a Sincronização de Dados SQL para fazer backup e restaurar meus bancos de dados?
+
+Não é recomendável usar a Sincronização de Dados SQL (Versão Prévia) para criar um backup de seus dados. Você não pode fazer backup e restaurar para um ponto específico no tempo porque as sincronizações da Sincronização de Dados SQL (Versão Prévia) não têm controle de versão. Além disso, a Sincronização de Dados SQL (Versão Prévia) não faz backup de outros objetos SQL, como procedimentos armazenados e não fazem o equivalente a uma operação de restauração rapidamente.
+
+Para obter uma técnica de backup recomendada, veja [Copiar um banco de dados SQL do Azure](sql-database-copy.md).
+
+### <a name="is-collation-supported-in-sql-data-sync"></a>Há suporte para agrupamento na Sincronização de Dados SQL?
+
+Sim. A Sincronização de Dados SQL dá suporte a agrupamento nos seguintes cenários:
+
+-   Se as tabelas do esquema de sincronização selecionadas ainda não estiverem em seus bancos de dados hub ou membro, então quando você implantar o grupo de sincronização, o serviço criará automaticamente as tabelas e colunas correspondentes com as configurações de agrupamento selecionadas nos bancos de dados de destino vazios.
+
+-   Se as tabelas a serem sincronizadas já existirem nos bancos de dados hub e membro, a Sincronização de Dados SQL exigirá que as colunas de chave primária tenham o mesmo agrupamento entre bancos de dados hub e membro para implantar com êxito o grupo de sincronização. Não há nenhuma restrição de agrupamento em colunas que não sejam colunas de chave primária.
+
+### <a name="is-federation-supported-in-sql-data-sync"></a>Há suporte para federação na Sincronização de Dados SQL?
+
+O Banco de dados Raiz de Federação pode ser usado no serviço Sincronização de Dados SQL (Versão Prévia) sem qualquer limitação. Você não pode adicionar o ponto de extremidade do Banco de Dados Federado para a versão atual da Sincronização de Dados SQL (Versão Prévia).
+
 ## <a name="next-steps"></a>Próximas etapas
 
 Para saber mais sobre a Sincronização de Dados SQL, veja:
 
--   [Introdução à Sincronização de Dados SQL do Azure](sql-database-get-started-sql-data-sync.md)
+-   [Configurar a Sincronização de Dados SQL do Azure](sql-database-get-started-sql-data-sync.md)
 -   [Melhores práticas para a Sincronização de Dados SQL do Azure](sql-database-best-practices-data-sync.md)
+-   [Monitorar Sincronização de Dados SQL do Azure com o Log Analytics do OMS](sql-database-sync-monitor-oms.md)
 -   [Solucionar problemas com a Sincronização de Dados SQL do Azure](sql-database-troubleshoot-data-sync.md)
 
 -   Conclua os exemplos do PowerShell que mostram como configurar a Sincronização de Dados SQL:

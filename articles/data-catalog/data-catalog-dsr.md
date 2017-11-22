@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 10/15/2017
 ms.author: maroche
-ms.openlocfilehash: 1f637acffdbf31f6c69124282f50dc5830ad9f5b
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 6589edd535b513f8d1eb47e69f4fbcdd96a2f10d
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Fontes de dados com suporte no Catálogo de Dados do Azure
 
@@ -42,32 +42,32 @@ Você pode publicar os metadados usando uma API pública, uma ferramenta de regi
       <td>✓ </td>
       <td>✓ </td>
       <td>✓ </td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Arquivo do Azure Data Lake Store</td>
       <td>✓ </td>
       <td>✓ </td>
       <td>✓ </td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Armazenamento de Blobs do Azure</td>
       <td>✓ </td>
       <td>✓ </td>
-      <td>✓ </td>
-      <td><font size=2>Power BI</font></td>
-      <td><font size=2></font></td>
+      <td>✓</td>
+      <td>Power BI Desktop</td>
+      <td></td>
     </tr>
     <tr>
       <td>Diretório de Armazenamento do Azure</td>
       <td>✓ </td>
       <td>✓ </td>
-      <td>✓ </td>
-      <td><font size=2>Power BI</font></td>
-      <td><font size=2></font></td>
+      <td>✓</td>
+      <td>Power BI Desktop</td>
+      <td></td>
     </tr>
     <tr>
       <td>Tabela do Armazenamento do Azure</td>
@@ -75,10 +75,10 @@ Você pode publicar os metadados usando uma API pública, uma ferramenta de regi
       <td>✓ </td>
       <td>✓ </td>
       <td>
-        <font size="2"></font>
+        <font size="2">
       </td>
       <td>
-        <font size="2"></font>
+        <font size="2">
       </td>
     </tr>
     <tr>
@@ -86,364 +86,364 @@ Você pode publicar os metadados usando uma API pública, uma ferramenta de regi
       <td>✓ </td>
       <td>✓ </td>
       <td>✓ </td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Arquivo do HDFS</td>
       <td>✓ </td>
       <td>✓ </td>
       <td>✓ </td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Tabela do Hive</td>
       <td>✓ </td>
       <td>✓ </td>
       <td>✓</td>
-      <td><font size=2>Excel</font></td>
-      <td><font size=2></font></td>
+      <td>Excel</td>
+      <td></td>
     </tr>
     <tr>
       <td>Exibição de Hive</td>
       <td>✓ </td>
       <td>✓ </td>
       <td>✓</td>
-      <td><font size=2>Excel</font></td>
-      <td><font size=2></font></td>
+      <td>Excel</td>
+      <td></td>
     </tr>
     <tr>
       <td>Tabela do MySQL</td>
       <td>✓ </td>
       <td>✓ </td>
-      <td>✓ </td>
-      <td><font size=2>Excel, Power BI</font></td>
-      <td><font size=2></font></td>
+      <td>✓</td>
+      <td>Excel, Power BI Desktop</td>
+      <td></td>
     </tr>
     <tr>
       <td>Exibição do MySQL</td>
       <td>✓ </td>
       <td>✓ </td>
-      <td>✓ </td>
-      <td><font size=2>Excel, Power BI</font></td>
-      <td><font size=2></font></td>
+      <td>✓</td>
+      <td>Excel, Power BI Desktop</td>
+      <td></td>
     </tr>
     <tr>
       <td>Tabela do Oracle Database</td>
       <td>✓ </td>
       <td>✓ </td>
-      <td>✓ </td>
-      <td><font size=2>Excel, Power BI</font></td>
-      <td><font size=2></font></td>
+      <td>✓</td>
+      <td>Excel, Power BI Desktop</td>
+      <td></td>
     </tr>
     <tr>
       <td>Exibição do Oracle Database</td>
       <td>✓ </td>
       <td>✓ </td>
-      <td>✓ </td>
-      <td><font size=2>Excel, Power BI</font></td>
-      <td><font size=2></font></td>
+      <td>✓</td>
+      <td>Excel, Power BI Desktop</td>
+      <td></td>
     </tr>
     <tr>
       <td>Outros (ativo genérico)</td>
       <td>✓ </td>
       <td>✓ </td>
       <td></td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Tabela do SQL Data Warehouse do Azure</td>
       <td>✓ </td>
       <td>✓ </td>
-      <td>✓ </td>
-      <td><font size=2>Excel, Power BI, SQL Server Data Tools</font></td>
-      <td><font size=2></font></td>
+      <td>✓</td>
+      <td>Excel, Power BI Desktop, ferramentas de dados do SQL Server</td>
+      <td></td>
     </tr>
     <tr>
       <td>Exibição do SQL Data Warehouse</td>
       <td>✓ </td>
       <td>✓ </td>
-      <td>✓ </td>
-      <td><font size=2>Excel, Power BI, SQL Server Data Tools</font></td>
-      <td><font size=2></font></td>
+      <td>✓</td>
+      <td>Excel, Power BI Desktop, ferramentas de dados do SQL Server</td>
+      <td></td>
     </tr>
     <tr>
       <td>Dimensão do SQL Server Analysis Services</td>
       <td>✓ </td>
       <td>✓ </td>
-      <td>✓ </td>
-      <td><font size=2>Excel, Power BI</font></td>
-      <td><font size=2></font></td>
+      <td>✓</td>
+      <td>Excel, Power BI Desktop</td>
+      <td></td>
     </tr>
     <tr>
       <td>KPI do SQL Server Analysis Services</td>
       <td>✓</td>
       <td>✓ </td>
-      <td>✓ </td>
-      <td><font size=2>Excel, Power BI</font></td>
-      <td><font size=2></font></td>
+      <td>✓</td>
+      <td>Excel, Power BI Desktop</td>
+      <td></td>
     </tr>
     <tr>
       <td>Medida do SQL Server Analysis Services</td>
       <td>✓ </td>
       <td>✓ </td>
-      <td>✓ </td>
-      <td><font size=2>Excel, Power BI</font></td>
-      <td><font size=2></font></td>
+      <td>✓</td>
+      <td>Excel, Power BI Desktop</td>
+      <td></td>
     </tr>
     <tr>
       <td>Tabela do SQL Server Analysis Services</td>
       <td>✓ </td>
       <td>✓ </td>
-      <td>✓ </td>
-      <td><font size=2>Excel, Power BI</font></td>
-      <td><font size=2></font></td>
+      <td>✓</td>
+      <td>Excel, Power BI Desktop</td>
+      <td></td>
     </tr>
     <tr>
       <td>Relatório do SQL Server Reporting Services</td>
       <td>✓ </td>
       <td>✓ </td>
       <td>✓</td>
-      <td><font size=2>Navegador</font></td>
-      <td><font size=2>Somente os servidores de modo nativo. Não há suporte para o modo do SharePoint.</font></td>
+      <td>Navegador</td>
+      <td>Somente os servidores de modo nativo. Não há suporte para o modo do SharePoint.</td>
     </tr>
     <tr>
       <td>Tabela do SQL Server</td>
       <td>✓ </td>
       <td>✓ </td>
-      <td>✓ </td>
-      <td><font size=2>Excel, Power BI, SQL Server Data Tools</font></td>
-      <td><font size=2></font></td>
+      <td>✓</td>
+      <td>Excel, Power BI Desktop, ferramentas de dados do SQL Server</td>
+      <td></td>
     </tr>
     <tr>
       <td>Exibição do SQL Server</td>
       <td>✓ </td>
       <td>✓ </td>
-      <td>✓ </td>
-      <td><font size=2>Excel, Power BI, SQL Server Data Tools</font></td>
-      <td><font size=2></font></td>
+      <td>✓</td>
+      <td>Excel, Power BI Desktop, ferramentas de dados do SQL Server</td>
+      <td></td>
     </tr>
     <tr>
       <td>Tabela do Teradata</td>
       <td>✓ </td>
       <td>✓ </td>
       <td>✓</td>
-      <td><font size=2>Excel</font></td>
-      <td><font size=2></font></td>
+      <td>Excel</td>
+      <td></td>
     </tr>
     <tr>
       <td>Exibição do Teradata</td>
       <td>✓ </td>
       <td>✓ </td>
       <td>✓</td>
-      <td><font size=2>Excel</font></td>
-      <td><font size=2></font></td>
+      <td>Excel</td>
+      <td></td>
     </tr>
     <tr>
       <td>Exibição do SAP HANA</td>
       <td>✓ </td>
       <td>✓ </td>
-      <td>✓ </td>
-      <td><font size=2>Power BI</font></td>
-      <td><font size=2></font></td>
+      <td>✓</td>
+      <td>Power BI Desktop</td>
+      <td></td>
     </tr>
     <tr>
       <td>Tabela do DB2</td>
       <td>✓ </td>
       <td>✓ </td>
       <td>✓ </td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Exibição do DB2</td>
       <td>✓ </td>
       <td>✓ </td>
       <td>✓ </td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Arquivo do sistema de arquivos</td>
       <td>✓ </td>
       <td></td>
       <td></td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Diretório do FTP</td>
       <td>✓ </td>
       <td>✓ </td>
       <td>✓ </td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Arquivo do FTP</td>
       <td>✓ </td>
       <td>✓ </td>
       <td>✓ </td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Relatório HTTP</td>
       <td>✓ </td>
       <td></td>
       <td></td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Ponto de extremidade HTTP</td>
       <td>✓ </td>
       <td></td>
       <td></td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Arquivo HTTP</td>
       <td>✓ </td>
       <td></td>
       <td></td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Conjunto de entidades do OData</td>
       <td>✓ </td>
       <td></td>
       <td></td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Função do OData</td>
       <td>✓ </td>
       <td></td>
       <td></td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Tabela do PostgreSQL</td>
       <td>✓ </td>
       <td>✓ </td>
       <td>✓ </td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Exibição do PostgreSQL</td>
       <td>✓ </td>
       <td>✓ </td>
       <td>✓ </td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Exibição do SAP HANA</td>
       <td>✓ </td>
       <td></td>
       <td></td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td> Objeto do SalesForce</td>
       <td>✓ </td>
       <td>✓ </td>
       <td>✓ </td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Lista do SharePoint </td>
       <td>✓ </td>
       <td></td>
       <td></td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Coleção do Azure Cosmos DB</td>
       <td>✓ </td>
       <td>✓ </td>
       <td>✓ </td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Tabela ODBC Genérica</td>
       <td>✓ </td>
       <td>✓ </td>
       <td>✓ </td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Exibição ODBC Genérica</td>
       <td>✓ </td>
       <td>✓ </td>
       <td>✓ </td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Tabela do Cassandra</td>
       <td>✓ </td>
       <td>✓ </td>
-      <td>✓ </td>
-      <td><font size=2></font></td>
-      <td><font size=2>Publicar como um ativo ODBC genérico</font></td>
+      <td>✓</td>
+      <td></td>
+      <td>Publicar como um ativo ODBC genérico</td>
     </tr>
     <tr>
       <td>Exibição do Cassandra</td>
       <td>✓ </td>
       <td>✓ </td>
-      <td>✓ </td>
-      <td><font size=2></font></td>
-      <td><font size=2>Publicar como um ativo ODBC genérico</font></td>
+      <td>✓</td>
+      <td></td>
+      <td>Publicar como um ativo ODBC genérico</td>
     </tr>
     <tr>
       <td>Tabela do Sybase</td>
       <td>✓ </td>
       <td>✓ </td>
       <td>✓ </td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Exibição do Sybase</td>
       <td>✓ </td>
       <td>✓ </td>
       <td>✓ </td>
-      <td><font size=2></font></td>
-      <td><font size=2></font></td>
+      <td></td>
+      <td></td>
     </tr>
     <tr>
       <td>Tabela do MongoDB</td>
       <td>✓ </td>
       <td>✓ </td>
-      <td>✓ </td>
-      <td><font size=2></font></td>
-      <td><font size=2>Publicar como um ativo ODBC genérico</font></td>
+      <td>✓</td>
+      <td></td>
+      <td>Publicar como um ativo ODBC genérico</td>
     </tr>
     <tr>
       <td>Exibição do MongoDB</td>
       <td>✓ </td>
       <td>✓ </td>
-      <td>✓ </td>
-      <td><font size=2></font></td>
-      <td><font size=2>Publicar como um ativo ODBC genérico</font></td>
+      <td>✓</td>
+      <td></td>
+      <td>Publicar como um ativo ODBC genérico</td>
     </tr>
 </table>
 
-Se você precisar de suporte para outras fontes, envie uma solicitação de recurso para o [Fórum do Catálogo de Dados do Azure](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
+Se você quiser ver uma fonte de dados específica com suporte, sugira-a (ou manifeste seu apoio, se ela já tiver sido sugerida) acessando o [Fóruns de Comentários do Catálogo de Dados do Azure](https://feedback.azure.com/forums/906052-data-catalog).
 
 
 ## <a name="data-source-reference-specification"></a>Especificação de referência da fonte de dados
@@ -462,519 +462,948 @@ Se você precisar de suporte para outras fontes, envie uma solicitação de recu
       <td>Contêiner</td>
       <td>Data Lake</td>
       <td>
-        <font size=2> Protocolo: webhdfs <br>Autenticação: {básica, oauth} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+        
+            Protocol: webhdfs
+            <br>Authentication: {basic, oauth}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
-      <td>Repositório Azure Data Lake</td>
-      <td>Tabela</td>
-      <td>Diretório, arquivo</td>
+      <td>Azure Data Lake Store</td>
+      <td>Table</td>
+      <td>Directory, file</td>
       <td>
-        <font size=2> Protocolo: webhdfs <br>Autenticação: {básica, oauth} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+        
+            Protocol: webhdfs
+            <br>Authentication: {basic, oauth}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
-      <td>Armazenamento do Azure</td>
-      <td>Contêiner</td>
-      <td>Contêiner</td>
+      <td>Azure Storage</td>
+      <td>Container</td>
+      <td>Container</td>
       <td>
-        <font size=2> Protocolo: azure-blobs <br>Autenticação: {azure-access-key} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domínio <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; conta <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; contêiner </font>
+        
+            Protocol: azure-blobs
+            <br>Authentication: {azure-access-key}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domain
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; account
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; container
+        
       </td>
     </tr>
     <tr>
-      <td>Armazenamento do Azure</td>
-      <td>Tabela</td>
-      <td>Blob, diretório</td>
+      <td>Azure Storage</td>
+      <td>Table</td>
+      <td>Blob, directory</td>
       <td>
-        <font size=2> Protocolo: azure-blobs <br>Autenticação: {azure-access-key} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domínio <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; conta <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; contêiner <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; nome </font>
+        
+            Protocol: azure-blobs
+            <br>Authentication: {azure-access-key}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domain
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; account
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; container
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; name
+        
       </td>
     </tr>
     <tr>
-      <td>Armazenamento do Azure</td>
-      <td>Contêiner</td>
-      <td>Contêiner</td>
+      <td>Azure Storage</td>
+      <td>Container</td>
+      <td>Container</td>
       <td>
-        <font size=2> Protocolo: azure-tables <br>Autenticação: {azure-access-key} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domínio <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; conta </font>
+        
+            Protocol: azure-tables
+            <br>Authentication: {azure-access-key}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domain
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; account
+        
       </td>
     </tr>
     <tr>
-      <td>Armazenamento do Azure</td>
-      <td>Tabela</td>
-      <td>Tabela</td>
+      <td>Azure Storage</td>
+      <td>Table</td>
+      <td>Table</td>
       <td>
-        <font size=2> Protocolo: azure-tables <br>Autenticação: {azure-access-key} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domínio <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; conta <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; nome </font>
+        
+            Protocol: azure-tables
+            <br>Authentication: {azure-access-key}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domain
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; account
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; name
+        
       </td>
     </tr>
     <tr>
       <td>Cosmos</td>
-      <td>Contêiner</td>
-      <td>Cluster virtual</td>
+      <td>Container</td>
+      <td>Virtual cluster</td>
       <td>
-        <font size=2> Protocolo: cosmos <br>Autenticação: {básica, windows} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+        
+            Protocol: cosmos
+            <br>Authentication: {basic, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
       <td>Cosmos</td>
-      <td>Tabela</td>
-      <td>Fluxo, conjunto de fluxos, exibição</td>
+      <td>Table</td>
+      <td>Stream, stream set, view</td>
       <td>
-        <font size=2> Protocolo: cosmos <br>Autenticação: {básica, windows} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+        
+            Protocol: cosmos
+            <br>Authentication: {basic, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
       <td>Datazen</td>
-      <td>Contêiner</td>
+      <td>Container</td>
       <td>Site</td>
       <td>
-        <font size=2> Protocolo: http <br>Autenticação: {nenhuma, básica, windows, oauth} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+        
+            Protocol: http
+            <br>Authentication: {none, basic, windows, oauth}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
       <td>Datazen</td>
-      <td>Relatório</td>
-      <td>Relatório, painel</td>
+      <td>Report</td>
+      <td>Report, dashboard</td>
       <td>
-        <font size=2> Protocolo: http <br>Autenticação: {nenhuma, básica, windows, oauth} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+        
+            Protocol: http
+            <br>Authentication: {none, basic, windows, oauth}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
       <td>DB2</td>
-      <td>Contêiner</td>
-      <td>Banco de dados</td>
+      <td>Container</td>
+      <td>Database</td>
       <td>
-        <font size=2> Protocolo: db2 <br>Autenticação: {básica, windows} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados </font>
+        
+            Protocol: db2
+            <br>Authentication: {basic, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+        
       </td>
     </tr>
     <tr>
       <td>DB2</td>
-      <td>Tabela</td>
-      <td>Tabela, exibição</td>
+      <td>Table</td>
+      <td>Table, view</td>
       <td>
-        <font size=2> Protocolo: db2 <br>Autenticação: {básica, windows} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esquema </font>
+        
+            Protocol: db2
+            <br>Authentication: {basic, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+        
       </td>
     </tr>
     <tr>
-      <td>Sistema de arquivos</td>
-      <td>Tabela</td>
-      <td>Arquivo</td>
+      <td>File system</td>
+      <td>Table</td>
+      <td>File</td>
       <td>
-        <font size=2> Protocolo: file <br>Autenticação: {nenhuma, básica, windows} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; caminho </font>
+        
+            Protocol: file
+            <br>Authentication: {none, basic, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; path
+        
       </td>
     </tr>
     <tr>
       <td>FTP</td>
-      <td>Tabela</td>
-      <td>Diretório, arquivo</td>
+      <td>Table</td>
+      <td>Directory, file</td>
       <td>
-        <font size=2> Protocolo: ftp <br>Autenticação: {nenhuma, básica, windows} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+        
+            Protocol: ftp
+            <br>Authentication: {none, basic, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
-      <td>Sistema de Arquivos Distribuído Hadoop</td>
-      <td>Contêiner</td>
-      <td>HDInsight</td>
+      <td>Hadoop Distributed File System</td>
+      <td>Container</td>
+      <td>Cluster</td>
       <td>
-        <font size=2> Protocolo: webhdfs <br>Autenticação: {básica, oauth} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+        
+            Protocol: webhdfs
+            <br>Authentication: {basic, oauth}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
-      <td>Sistema de Arquivos Distribuído Hadoop</td>
-      <td>Tabela</td>
-      <td>Diretório, arquivo</td>
+      <td>Hadoop Distributed File System</td>
+      <td>Table</td>
+      <td>Directory, file</td>
       <td>
-        <font size=2> Protocolo: webhdfs <br>Autenticação: {básica, oauth} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+        
+            Protocol: webhdfs
+            <br>Authentication: {basic, oauth}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
       <td>Hive</td>
-      <td>Contêiner</td>
-      <td>Banco de dados</td>
+      <td>Container</td>
+      <td>Database</td>
       <td>
-        <font size=2> Protocolo: hive <br>Autenticação: {HDInsight, básica, nome de usuário, nenhuma} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados <br>connectionProperties: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; serverProtocol: {hive2} </font>
+        
+            Protocol: hive
+            <br>Authentication: {HDInsight, basic, username, none}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>connectionProperties:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; serverProtocol: {hive2}
+        
       </td>
     </tr>
     <tr>
       <td>Hive</td>
-      <td>Tabela</td>
-      <td>Tabela, exibição</td>
+      <td>Table</td>
+      <td>Table, view</td>
       <td>
-        <font size=2> Protocolo: hive <br>Autenticação: {HDInsight, básica, nome de usuário, nenhuma} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto <br>connectionProperties: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; serverProtocol: {hive2} </font>
+        
+            Protocol: hive
+            <br>Authentication: {HDInsight, basic, username, none}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+            <br>connectionProperties:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; serverProtocol: {hive2}
+        
       </td>
     </tr>
     <tr>
       <td>HTTP</td>
-      <td>Contêiner</td>
+      <td>Container</td>
       <td>Site</td>
       <td>
-        <font size=2> Protocolo: http <br>Autenticação: {nenhuma, básica, windows, oauth} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+        
+            Protocol: http
+            <br>Authentication: {none, basic, windows, oauth}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
       <td>HTTP</td>
-      <td>Relatório</td>
-      <td>Relatório, painel</td>
+      <td>Report</td>
+      <td>Report, dashboard</td>
       <td>
-        <font size=2> Protocolo: http <br>Autenticação: {nenhuma, básica, windows, oauth} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+        
+            Protocol: http
+            <br>Authentication: {none, basic, windows, oauth}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
       <td>HTTP</td>
-      <td>Tabela</td>
-      <td>Ponto de extremidade, arquivo</td>
+      <td>Table</td>
+      <td>Endpoint, file</td>
       <td>
-        <font size=2> Protocolo: http <br>Autenticação: {nenhuma, básica, windows, oauth} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+        
+            Protocol: http
+            <br>Authentication: {none, basic, windows, oauth}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
       <td>MySQL</td>
-      <td>Contêiner</td>
-      <td>Banco de dados</td>
+      <td>Container</td>
+      <td>Database</td>
       <td>
-        <font size=2> Protocolo: mysql <br>Autenticação: {protocolo, windows} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados </font>
+        
+            Protocol: mysql
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+        
       </td>
     </tr>
     <tr>
       <td>MySQL</td>
-      <td>Tabela</td>
-      <td>Tabela, exibição</td>
+      <td>Table</td>
+      <td>Table, view</td>
       <td>
-        <font size=2> Protocolo: mysql <br>Autenticação: {protocolo, windows} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto </font>
+        
+            Protocol: mysql
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+        
       </td>
     </tr>
     <tr>
       <td>OData</td>
-      <td>Contêiner</td>
-      <td>Contêiner de entidade</td>
+      <td>Container</td>
+      <td>Entity container</td>
       <td>
-        <font size=2> Protocolo: odata <br>Autenticação: {nenhuma, básica, windows} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+        
+            Protocol: odata
+            <br>Authentication: {none, basic, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
       <td>OData</td>
-      <td>Tabela</td>
-      <td>Conjunto de entidades, função</td>
+      <td>Table</td>
+      <td>Entity set, function</td>
       <td>
-        <font size=2> Protocolo: odata <br>Autenticação: {nenhuma, básica, windows} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; recurso </font>
+        
+            Protocol: odata
+            <br>Authentication: {none, basic, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; resource
+        
       </td>
     </tr>
     <tr>
-      <td>Banco de dados Oracle</td>
-      <td>Contêiner</td>
-      <td>Banco de dados</td>
+      <td>Oracle Database</td>
+      <td>Container</td>
+      <td>Database</td>
       <td>
-        <font size=2> Protocolo: oracle <br>Autenticação: {protocolo, windows} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados </font>
+        
+            Protocol: oracle
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+        
       </td>
     </tr>
     <tr>
-      <td>Banco de dados Oracle</td>
-      <td>Tabela</td>
-      <td>Tabela, exibição</td>
+      <td>Oracle Database</td>
+      <td>Table</td>
+      <td>Table, view</td>
       <td>
-        <font size=2> Protocolo: oracle <br>Autenticação: {protocolo, windows} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esquema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto </font>
+        
+            Protocol: oracle
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+        
       </td>
     </tr>
     <tr>
       <td>PostgreSQL</td>
-      <td>Contêiner</td>
-      <td>Banco de dados</td>
+      <td>Container</td>
+      <td>Database</td>
       <td>
-        <font size=2> Protocolo: postgresql <br>Autenticação: {básica, windows} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados </font>
+        
+            Protocol: postgresql
+            <br>Authentication: {basic, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+        
       </td>
     </tr>
     <tr>
       <td>PostgreSQL</td>
-      <td>Tabela</td>
-      <td>Tabela, exibição</td>
+      <td>Table</td>
+      <td>Table, view</td>
       <td>
-        <font size=2> Protocolo: postgresql <br>Autenticação: {básica, windows} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esquema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto </font>
+        
+            Protocol: postgresql
+            <br>Authentication: {basic, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+        
       </td>
     </tr>
     <tr>
-      <td>Power BI</td>
-      <td>Contêiner</td>
+      <td>Power BI Desktop</td>
+      <td>Container</td>
       <td>Site</td>
       <td>
-        <font size=2> Protocolo: http <br>Autenticação: {nenhuma, básica, windows, oauth} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+        
+            Protocol: http
+            <br>Authentication: {none, basic, windows, oauth}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
-      <td>Power BI</td>
-      <td>Relatório</td>
-      <td>Relatório, painel</td>
+      <td>Power BI Desktop</td>
+      <td>Report</td>
+      <td>Report, dashboard</td>
       <td>
-        <font size=2> Protocolo: http <br>Autenticação: {nenhuma, básica, windows, oauth} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+        
+            Protocol: http
+            <br>Authentication: {none, basic, windows, oauth}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
       <td>Power Query</td>
-      <td>Tabela</td>
-      <td>Mashup de dados</td>
+      <td>Table</td>
+      <td>Data mashup</td>
       <td>
-        <font size=2> Protocolo: power-query <br>Autenticação: {oauth} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+        
+            Protocol: power-query
+            <br>Authentication: {oauth}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
       <td>Salesforce</td>
-      <td>Tabela</td>
-      <td>Objeto</td>
+      <td>Table</td>
+      <td>Object</td>
       <td>
-        <font size=2> Protocolo: salesforce-com <br>Autenticação: {básica, windows} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; loginServer <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; classe <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; itemName </font>
+        
+            Protocol: salesforce-com
+            <br>Authentication: {basic, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; loginServer
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; class
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; itemName
+        
       </td>
     </tr>
     <tr>
       <td>SAP HANA</td>
-      <td>Contêiner</td>
-      <td>Servidor</td>
+      <td>Container</td>
+      <td>Server</td>
       <td>
-        <font size=2> Protocolo: sap-hana-sql <br>Autenticação: {protocolo, windows} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor </font>
+        
+            Protocol: sap-hana-sql
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+        
       </td>
     </tr>
     <tr>
       <td>SAP HANA</td>
-      <td>Tabela</td>
-      <td>Visualizar</td>
+      <td>Table</td>
+      <td>View</td>
       <td>
-        <font size=2> Protocolo: sap-hana-sql <br>Autenticação: {protocolo, windows} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esquema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto </font>
+        
+            Protocol: sap-hana-sql
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+        
       </td>
     </tr>
     <tr>
       <td>SharePoint</td>
-      <td>Tabela</td>
-      <td>Listar</td>
+      <td>Table</td>
+      <td>List</td>
       <td>
-        <font size=2> Protocolo: sharepoint-list <br>Autenticação: {básica, windows} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url </font>
+        
+            Protocol: sharepoint-list
+            <br>Authentication: {basic, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+        
       </td>
     </tr>
     <tr>
       <td>SQL Data Warehouse</td>
       <td>Command</td>
-      <td>Procedimento armazenado</td>
+      <td>Stored procedure</td>
       <td>
-        <font size=2> Protocolo: tds <br>Autenticação: {protocolo, windows} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esquema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto </font>
+        
+            Protocol: tds
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+        
       </td>
     </tr>
     <tr>
       <td>SQL Data Warehouse</td>
       <td>TableValuedFunction</td>
-      <td>Função com valor de tabela</td>
+      <td>Table-valued function</td>
       <td>
-        <font size=2> Protocolo: tds <br>Autenticação: {protocolo, windows} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esquema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto </font>
+        
+            Protocol: tds
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+        
       </td>
     </tr>
     <tr>
       <td>SQL Data Warehouse</td>
-      <td>Contêiner</td>
-      <td>Banco de dados</td>
+      <td>Container</td>
+      <td>Database</td>
       <td>
-        <font size=2> Protocolo: tds <br>Autenticação: {protocolo, windows} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados </font>
+        
+            Protocol: tds
+          <br>Authentication: {protocol, windows}
+          <br>Address:
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+        
       </td>
     </tr>
     <tr>
       <td>SQL Data Warehouse</td>
-      <td>Tabela</td>
-      <td>Tabela, exibição</td>
+      <td>Table</td>
+      <td>Table, view</td>
       <td>
-        <font size=2> Protocolo: tds <br>Autenticação: {protocolo, windows} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esquema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto </font>
+        
+            Protocol: tds
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+        
       </td>
     </tr>
     <tr>
       <td>SQL Server</td>
       <td>Command</td>
-      <td>Procedimento armazenado</td>
+      <td>Stored procedure</td>
       <td>
-        <font size=2> Protocolo: tds <br>Autenticação: {protocolo, windows} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esquema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto </font>
+        
+            Protocol: tds
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+        
       </td>
     </tr>
     <tr>
       <td>SQL Server</td>
       <td>TableValuedFunction</td>
-      <td>Função com valor de tabela</td>
+      <td>Table-valued function</td>
       <td>
-        <font size=2> Protocolo: tds <br>Autenticação: {protocolo, windows} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esquema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto </font>
+        
+            Protocol: tds
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+        
       </td>
     </tr>
     <tr>
       <td>SQL Server</td>
-      <td>Contêiner</td>
-      <td>Banco de dados</td>
+      <td>Container</td>
+      <td>Database</td>
       <td>
-        <font size=2> Protocolo: tds <br>Autenticação: {protocolo, windows} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados </font>
+        
+            Protocol: tds
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+        
       </td>
     </tr>
     <tr>
       <td>SQL Server</td>
-      <td>Tabela</td>
-      <td>Tabela, exibição</td>
+      <td>Table</td>
+      <td>Table, view</td>
       <td>
-        <font size=2> Protocolo: tds <br>Autenticação: {protocolo, windows} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esquema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto </font>
+        
+            Protocol: tds
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+        
       </td>
     </tr>
     <tr>
-      <td>Multidimensional do SQL Server Analysis Services</td>
-      <td>Contêiner</td>
-      <td>Modelo</td>
+      <td>SQL Server Analysis Services multidimensional</td>
+      <td>Container</td>
+      <td>Model</td>
       <td>
-        <font size=2> Protocolo: analysis-services <br>Autenticação: {windows, básica, anônima, nenhuma} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modelo </font>
+        
+            Protocol: analysis-services
+            <br>Authentication: {windows, basic, anonymous, none}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
+        
       </td>
     </tr>
     <tr>
-      <td>Multidimensional do SQL Server Analysis Services</td>
+      <td>SQL Server Analysis Services multidimensional</td>
       <td>KPI</td>
       <td>KPI</td>
       <td>
-        <font size=2> Protocolo: analysis-services <br>Autenticação: {windows, básica, anônima, nenhuma} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modelo <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {KPI} </font>
+        
+            Protocol: analysis-services
+            <br>Authentication: {windows, basic, anonymous, none}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {KPI}
+        
       </td>
     </tr>
     <tr>
-      <td>Multidimensional do SQL Server Analysis Services</td>
-      <td>Medida</td>
-      <td>Medida</td>
+      <td>SQL Server Analysis Services multidimensional</td>
+      <td>Measure</td>
+      <td>Measure</td>
       <td>
-        <font size=2> Protocolo: analysis-services <br>Autenticação: {windows, básica, anônima, nenhuma} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modelo <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Medida} </font>
+        
+            Protocol: analysis-services
+            <br>Authentication: {windows, basic, anonymous, none}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Measure}
+        
       </td>
     </tr>
     <tr>
-      <td>Multidimensional do SQL Server Analysis Services</td>
-      <td>Tabela</td>
-      <td>Dimensão</td>
+      <td>SQL Server Analysis Services multidimensional</td>
+      <td>Table</td>
+      <td>Dimension</td>
       <td>
-        <font size=2> Protocolo: analysis-services <br>Autenticação: {windows, básica, anônima, nenhuma} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modelo <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Dimensão} </font>
+        
+            Protocol: analysis-services
+            <br>Authentication: {windows, basic, anonymous, none}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Dimension}
+        
       </td>
     </tr>
     <tr>
-      <td>Tabela do SQL Server Analysis Services</td>
-      <td>Contêiner</td>
-      <td>Modelo</td>
+      <td>SQL Server Analysis Services tabular</td>
+      <td>Container</td>
+      <td>Model</td>
       <td>
-        <font size=2> Protocolo: analysis-services <br>Autenticação: {windows, básica, anônima, nenhuma} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modelo </font>
+        
+            Protocol: analysis-services
+            <br>Authentication: {windows, basic, anonymous, none}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
+        
       </td>
     </tr>
     <tr>
-      <td>Tabela do SQL Server Analysis Services</td>
+      <td>SQL Server Analysis Services tabular</td>
       <td>KPI</td>
       <td>KPI</td>
       <td>
-        <font size=2> Protocolo: analysis-services <br>Autenticação: {windows, básica, anônima, nenhuma} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modelo <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {KPI} </font>
+        
+            Protocol: analysis-services
+            <br>Authentication: {windows, basic, anonymous, none}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {KPI}
+        
       </td>
     </tr>
     <tr>
-      <td>Tabela do SQL Server Analysis Services</td>
-      <td>Medida</td>
-      <td>Medida</td>
+      <td>SQL Server Analysis Services tabular</td>
+      <td>Measure</td>
+      <td>Measure</td>
       <td>
-        <font size=2> Protocolo: analysis-services <br>Autenticação: {windows, básica, anônima, nenhuma} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modelo <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Medida} </font>
+        
+            Protocol: analysis-services
+            <br>Authentication: {windows, basic, anonymous, none}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Measure}
+        
       </td>
     </tr>
     <tr>
-      <td>Tabela do SQL Server Analysis Services</td>
-      <td>Tabela</td>
-      <td>Tabela</td>
+      <td>SQL Server Analysis Services tabular</td>
+      <td>Table</td>
+      <td>Table</td>
       <td>
-        <font size=2> Protocolo: analysis-services <br>Autenticação: {windows, básica, anônima, nenhuma} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modelo <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Tabela} </font>
+        
+            Protocol: analysis-services
+            <br>Authentication: {windows, basic, anonymous, none}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objectType: {Table}
+        
       </td>
     </tr>
     <tr>
       <td>SQL Server Reporting Services</td>
-      <td>Contêiner</td>
-      <td>Servidor</td>
+      <td>Container</td>
+      <td>Server</td>
       <td>
-        <font size=2> Protocolo: reporting-services <br>Autenticação: {windows} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; versão: {ReportingService2010} </font>
+        
+            Protocol: reporting-services
+            <br>Authentication: {windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; version: {ReportingService2010}
+        
       </td>
     </tr>
     <tr>
       <td>SQL Server Reporting Services</td>
-      <td>Relatório</td>
-      <td>Relatório</td>
+      <td>Report</td>
+      <td>Report</td>
       <td>
-        <font size=2> Protocolo: reporting-services <br>Autenticação: {windows} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; caminho <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; versão: {ReportingService2010} </font>
+        
+            Protocol: reporting-services
+            <br>Authentication: {windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; path
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; version: {ReportingService2010}
+        
       </td>
     </tr>
     <tr>
       <td>Teradata</td>
-      <td>Contêiner</td>
-      <td>Banco de dados</td>
+      <td>Container</td>
+      <td>Database</td>
       <td>
-        <font size=2> Protocolo: teradata <br>Autenticação: {protocolo, windows} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados </font>
+        
+            Protocol: teradata
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+        
       </td>
     </tr>
     <tr>
       <td>Teradata</td>
-      <td>Tabela</td>
-      <td>Tabela, exibição</td>
+      <td>Table</td>
+      <td>Table, view</td>
       <td>
-        <font size=2> Protocolo: teradata <br>Autenticação: {protocolo, windows} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto </font>
+        
+            Protocol: teradata
+            <br>Authentication: {protocol, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+        
       </td>
     </tr>
     <tr>
       <td>SQL Server Master Data Services</td>
-      <td>Contêiner</td>
-      <td>Modelo</td>
+      <td>Container</td>
+      <td>Model</td>
       <td>
-        <font size="2"> Protocolo: mssql-mds <br>Autenticação: {windows} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modelo <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; versão </font>
+        <font size="2">
+          Protocol: mssql-mds
+          <br>Authentication: {windows}
+          <br>Address:
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; version
+        
       </td>
     </tr>
     <tr>
       <td>SQL Server Master Data Services</td>
-      <td>Tabela</td>
-      <td>Entidade</td>
+      <td>Table</td>
+      <td>Entity</td>
       <td>
-        <font size="2"> Protocolo: mssql-mds <br>Autenticação: {windows} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; modelo <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; versão <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; entidade </font>
+        <font size="2">
+          Protocol: mssql-mds
+          <br>Authentication: {windows}
+          <br>Address:
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; model
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; version
+          <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; entity
+        
       </td>
     </tr>
     <tr>
       <td>Azure Cosmos DB</td>
-      <td>Contêiner</td>
-      <td>Banco de dados</td>
+      <td>Container</td>
+      <td>Database</td>
       <td>
-        <font size=2> Protocolo: document-db <br>Autenticação: {azure-access-key} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados </font>
+        
+            Protocol: document-db
+            <br>Authentication: {azure-access-key}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+        
       </td>
     </tr>
     <tr>
       <td>Azure Cosmos DB</td>
-      <td>Coleção</td>
-      <td>Coleção</td>
+      <td>Collection</td>
+      <td>Collection</td>
       <td>
-        <font size=2> Protocolo: document-db <br>Autenticação: {azure-access-key} <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados <br>Coleção &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </font>
+        
+            Protocol: document-db
+            <br>Authentication: {azure-access-key}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; collection
+        
       </td>
     </tr>
     <tr>
-      <td>ODBC Genérico</td>
-      <td>Contêiner</td>
-      <td>Banco de dados</td>
+      <td>Generic ODBC</td>
+      <td>Container</td>
+      <td>Database</td>
       <td>
-        <font size=2> Protocolo: odbc <br>Autenticação: {básica, windows} <br>Endereço: <br>Opções &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados </font>
+        
+            Protocol: odbc
+            <br>Authentication: {basic, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; options
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+        
       </td>
     </tr>
     <tr>
-      <td>ODBC Genérico</td>
-      <td>Tabela</td>
-      <td>Tabela, exibição</td>
+      <td>Generic ODBC</td>
+      <td>Table</td>
+      <td>Table, View</td>
       <td>
-        <font size=2> Protocolo: odbc <br>Autenticação: {básica, windows} <br>Endereço: <br>Opções &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esquema </font>
+        
+            Protocol: odbc
+            <br>Authentication: {basic, windows}
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; options
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+        
       </td>
     </tr>
     <tr>
       <td>Sybase</td>
-      <td>Contêiner</td>
-      <td>Banco de dados</td>
+      <td>Container</td>
+      <td>Database</td>
       <td>
-        <font size=2> Protocolo: sybase <br>autenticação: {básica, windows} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados </font>
+        
+            protocol: sybase
+            <br>authentication: {basic, windows}
+            <br>address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+        
       </td>
     </tr>
     <tr>
       <td>Sybase</td>
-      <td>Tabela</td>
-      <td>Tabela, exibição</td>
+      <td>Table</td>
+      <td>Table, View</td>
       <td>
-        <font size=2> Protocolo: sybase <br>autenticação: {básica, windows} <br>endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; servidor <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; banco de dados <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; esquema <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; objeto </font>
+        
+            protocol: sybase
+            <br>authentication: {basic, windows}
+            <br>address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; server
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; database
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; schema
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; object
+        
       </td>
     </tr>
     <tr>
-      <td>Outro (nenhum dos anteriores)</td>
+      <td>Other (none of the above)</td>
       <td>\*</td>
       <td>\*</td>
       <td>
-        <font size=2> Protocolo: generic-asset <br>Endereço: <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; assetId </font>
+        
+            Protocol: generic-asset
+            <br>Address:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; assetId
+        
       </td>
     </tr>
 </table>

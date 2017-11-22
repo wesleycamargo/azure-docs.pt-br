@@ -12,17 +12,17 @@ ms.topic: article
 ms.date: 10/23/2017
 ms.author: rajanaki
 ms.custom: mvc
-ms.openlocfilehash: a746ace47c4f1190b7a695014543670a1a9cf879
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 78ce74450ce933e2aced4b6e62504373de7954f8
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="protect-a-file-server-using-azure-site-recovery"></a>Proteger um servidor de arquivos usando o Azure Site Recovery 
 
 O serviço [Azure Site Recovery](site-recovery-overview.md) contribui para sua estratégia de BCDR (continuidade de negócios e recuperação de desastre) por manter seus aplicativos de negócios em execução e disponíveis durante interrupções planejadas e não planejadas. O Site Recovery gerencia e orquestra a recuperação de desastre de máquinas locais e de VMs (máquinas virtuais) do Azure, incluindo replicação, failover e recuperação de várias cargas de trabalho.
 
-Este artigo descreve como proteger um servidor de arquivos usando o Azure Site Recovery e outras recomendações para atender a vários ambientes. 
+Este artigo descreve como proteger um servidor de arquivos usando o Azure Site Recovery e outras recomendações para atender a vários ambientes.     
 
 - [Proteger computadores de servidor de arquivos IaaS do Azure](#disaster-recovery-recommendation-for-azure-iaas-virtual-machines)
 - [Proteger servidores de arquivos no local](#replicate-an-onpremises-file-server-using-azure-site-recovery)
@@ -51,7 +51,7 @@ Na referência acima, vários servidores de arquivos referidos como membros part
 
 O diagrama abaixo fornece uma representação visual destinada a facilitar a decisão de qual estratégia deve ser usada para o ambiente do servidor de arquivos.
 
-![árvore de decisão](media/site-recovery-file-server/decisiontree.png)
+![decisiontree](media/site-recovery-file-server/decisiontree.png)
 
 
 ### <a name="factors-to-consider-while-making-disaster-recovery-decision"></a>Fatores a considerar ao tomar uma decisão de recuperação de desastre

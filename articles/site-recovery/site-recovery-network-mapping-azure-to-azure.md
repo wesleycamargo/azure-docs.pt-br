@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/11/2017
 ms.author: pratshar
-ms.openlocfilehash: 9d6a806ec533259797080fbfee2c38f918ebd8a2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1df7e04fc9cec5722747bafce7e2e5519b76315d
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="network-mapping-between-two-azure-regions"></a>Mapeamento de rede entre duas regiões do Azure
 
@@ -48,7 +48,7 @@ Faça o mesmo para criar um mapeamento de rede do Sudeste Asiático para Ásia O
 
 ## <a name="mapping-network-when-enabling-replication"></a>Mapeamento de rede ao habilitar a replicação
 
-Se o mapeamento de rede não for feito, quando estiver replicando uma máquina virtual pela primeira vez, formando uma região do Azure para outra, então você poderá escolher a rede de destino como parte do mesmo processo. O Site Recovery cria mapeamentos de rede a partir da região de origem para a região de destino e a partir da região de destino para a região de origem com base nessa seleção.   
+Se o mapeamento de rede não for feito, quando estiver replicando uma máquina virtual pela primeira vez, desde uma região do Azure para outra, então você poderá escolher a rede de destino como parte do mesmo processo. O Site Recovery cria mapeamentos de rede a partir da região de origem para a região de destino e a partir da região de destino para a região de origem com base nessa seleção.   
 
 ![Mapeamento de rede](./media/site-recovery-network-mapping-azure-to-azure/network-mapping4.png)
 

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: anhoh
 ms.custom: mvc
-ms.openlocfilehash: b8df9623bf3826807ba066d4e625c3138c80c5b7
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 50190642f59aa8fa7d5cce8bfde5cec9fcfbe7e4
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB: ferramenta de migração de dados
 
@@ -210,7 +210,7 @@ Aqui está um exemplo de linha de comando para importação de CSV:
 ## <a id="AzureTableSource"></a>Importar por meio do armazenamento de tabela do Azure
 A opção de importador de origem de armazenamento de tabela do Azure permite importar de uma tabela de armazenamento de uma tabela individual do Azure. Como outra opção, você pode filtrar as entidades da tabela a serem importadas. 
 
-Dados importados do Armazenamento de Tabelas do Azure podem ser a saída para as tabelas e entidades do Azure Cosmos DB para uso com a API de tabela, ou para coleções e documentos para uso com a API do DocumentDB.  
+Dados importados do Armazenamento de Tabelas do Azure podem ser a saída para as tabelas e entidades do Azure Cosmos DB para uso com a API de tabela, ou para coleções e documentos para uso com a API do DocumentDB. No entanto, a API de Tabela só está disponível como destino no utilitário de linha de comando, você não poderá exportar para API de Tabela usando a interface de usuário da ferramenta de Migração de Dados. Para obter mais informações, consulte [Importar dados para uso com a API de tabela do Azure Cosmos DB](table-import.md). 
 
 ![Captura de tela das opções de origem de armazenamento da tabela do Azure](./media/import-data/azuretablesource.png)
 
@@ -522,20 +522,6 @@ Você pode optar por melhorar a aparência do JSON resultante, o que aumentará 
       }
     ]
     }]
-
-## <a id="tableapibulkexport"></a>Exportar para API de Tabela (importação em massa)
-
-O exportador da API de tabela do Azure Cosmos DB permite exportar informações de uma fonte de armazenamento de Tabela do Azure para um banco de dados da API de tabela do Azure Cosmos DB. 
-
-A Cadeia de conexão da conta da API de tabela do Azure Cosmos DB para a qual exportar pode ser recuperada do portal do Azure na página Cadeia de Conexão. Use o botão Copiar ![Captura de tela da cadeia de conexão no Portal do Azure](./media/import-data/copy-button.png) no lado direito da tela para copiar a cadeia de caracteres inteira.
-
-![Captura de tela da cadeia de conexão no Portal do Azure](./media/import-data/connection-string.png)
-
-## <a id="tableapiseqtarget"></a>Exportar para API de tabela (importação de registros sequenciais)
-
-O exportador da API de tabela do Azure Cosmos DB permite exportar informações de uma fonte de armazenamento de Tabela do Azure para um banco de dados da API de tabela do Azure Cosmos DB.
-
-A Cadeia de conexão da conta da API de tabela do Azure Cosmos DB para a qual exportar pode ser recuperada do portal do Azure na página Cadeia de Conexão, como exibido na imagem em [Exportar para API de tabela (importação de registros sequenciais)](#tableapibulkexport) acima.
 
 ## <a name="advanced-configuration"></a>Configuração avançada
 Na tela de Configuração avançada, especifique a localização do arquivo de log do qual você gostaria que os erros fossem gravados. As seguintes regras se aplicam a esta página:

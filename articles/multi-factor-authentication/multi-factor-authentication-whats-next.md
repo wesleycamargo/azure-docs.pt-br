@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/02/2017
 ms.author: joflore
-ms.reviewer: alexwe
-ms.openlocfilehash: 723bd7135a59bcc0bce648460f871a841a684d3c
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.reviewer: richagi
+ms.openlocfilehash: 4900707baa875ae4527d82e8189d5bc4d319ae0c
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="configure-azure-multi-factor-authentication-settings---public-preview"></a>Definir as configurações de Autenticação Multifator do Azure – visualização pública
 
@@ -29,7 +29,7 @@ Este artigo ajuda a gerenciar o Autenticação Multifator do Azure, agora que tu
 
 | Recurso | Descrição | 
 |:--- |:--- |
-| [Bloquear/desbloquear usuários](#block/unblock-users) |O recurso Bloquear/desbloquear usuários pode impedir que os usuários recebam solicitações de autenticação. |
+| [Bloquear e desbloquear usuários](#block-and-unblock) |O recurso Bloquear/desbloquear usuários pode impedir que os usuários recebam solicitações de autenticação. |
 | [Alerta de fraude](#fraud-alert) |O alerta de fraude pode ser instalado e configurado para que os usuários possam relatar tentativas fraudulentas de acessar seus recursos. |
 | [Desvio único](#one-time-bypass) |Um desvio único permite que um usuário se autentique uma única vez ao "desviar" a autenticação multifator. |
 | [Mensagens de voz personalizadas](#custom-voice-messages) |As mensagens de voz personalizadas permitem que você use suas próprias gravações ou saudações com a autenticação multifator. |
@@ -39,7 +39,7 @@ Este artigo ajuda a gerenciar o Autenticação Multifator do Azure, agora que tu
 | [Lembrar da Autenticação Multifator para dispositivos e navegadores lembrados](#remember-multi-factor-authentication-for-devices-that-users-trust) |Permite lembrar dispositivos por um número de dias específico após a entrada bem-sucedida de um usuário usando o MFA. |
 | [Métodos de verificação selecionáveis](#selectable-verification-methods) |Permite que você escolha os métodos de autenticação disponíveis para os usuários usarem. |
 
-## <a name="blockunblock-users"></a>Bloquear/desbloquear usuários
+## <a name="block-and-unblock"></a>Bloquear e desbloquear
 O recurso Bloquear/desbloquear usuários pode ser usado para impedir que os usuários recebam solicitações de autenticação. Qualquer tentativa de autenticação de usuários bloqueados será negada automaticamente. Os usuários bloqueados permanecerão bloqueados por 90 dias a partir do momento em que são bloqueados.
 
 ### <a name="block-a-user"></a>Bloquear um usuário
@@ -70,7 +70,7 @@ O alerta de fraude pode ser instalado e configurado para que os usuários possam
 
 ### <a name="configuration-options"></a>Opções de configuração
 
-- **Bloquear usuário quando fraude for relatada** - se de um usuário relatar uma fraude, sua conta será bloqueada.
+- **Bloquear usuário quando uma fraude é relatada** - se um usuário relatar uma fraude, sua conta será bloqueada por 90 dias ou até que um administrador desbloqueia-a. Um administrador pode examinar as entradas usando o relatório de entrada e tomar as devidas ações para evitar futuras fraudes. Um administrador pode, então, [desbloquear](#unblock-a-user) a conta do usuário.
 - **Código para relatar fraude durante a saudação inicial** – quando os usuários recebem um telefonema para realizar a verificação em duas etapas, eles normalmente pressionam # para confirmar sua conexão. Se quiserem relatar uma fraude, eles devem inserir um código antes de pressionar #. Esse código é **0** por padrão, mas você pode personalizá-lo.
 
 > [!NOTE]

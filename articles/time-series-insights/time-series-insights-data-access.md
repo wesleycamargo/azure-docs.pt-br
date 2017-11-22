@@ -1,25 +1,21 @@
 ---
-title: "Políticas de acesso de dados nas Análise de Séries Temporais do Azure | Microsoft Docs"
-description: "Neste tutorial, você aprenderá a gerenciar políticas de acesso de dados nas Análise de Séries Temporais"
-keywords: 
+title: "Configurar a segurança para acessar e gerenciar o Azure Time Series Insights | Microsoft Docs"
+description: "Este artigo descreve como configurar a segurança e as permissões como políticas de gerenciamento de acesso e políticas de acesso de dados para proteger o Azure Time Series Insights."
 services: time-series-insights
-documentationcenter: 
+ms.service: time-series-insights
 author: op-ravi
-manager: jhubbard
-editor: cgronlun
-ms.assetid: 
-ms.service: tsi
-ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 05/01/2017
 ms.author: omravi
-ms.openlocfilehash: 6a0f04d79ac5487a347e28445c1a6677d5b8b16a
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+manager: jhubbard
+editor: MicrosoftDocs/tsidocs
+ms.reviewer: v-mamcge, jasonh, kfile, anshan
+ms.workload: big-data
+ms.topic: article
+ms.date: 11/15/2017
+ms.openlocfilehash: 22c8e4481f2ba4163a55cc1bbb6b33c10379a605
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="grant-data-access-to-a-time-series-insights-environment-using-azure-portal"></a>Conceder acesso a dados em um ambiente de Análise de Séries Temporais usando o portal do Azure
 
@@ -28,7 +24,7 @@ Os ambientes de Análise de Séries Temporais possuem dois tipos independentes d
 * Políticas de acesso de gerenciamento
 * Políticas de acesso de dados
 
-Os dois tipos de políticas concedem às entidades de segurança (usuários e aplicativos) do Azure Active Directory várias permissões em um ambiente específico. As entidades de segurança (usuários e aplicativos) devem pertencer ao active directory (ou "Azure locatário") associado à assinatura que contém o ambiente.
+Os dois tipos de políticas concedem às entidades de segurança (usuários e aplicativos) do Azure Active Directory várias permissões em um ambiente específico. As entidades de segurança (usuários e aplicativos) devem pertencer ao active directory (conhecido como locatário do Azure) associado à assinatura que contém o ambiente.
 
 As políticas de acesso de gerenciamento concedem permissões relacionadas à configuração do ambiente, como
 *   Criação e exclusão do ambiente, origens de evento, conjuntos de dados de referência e
@@ -36,41 +32,41 @@ As políticas de acesso de gerenciamento concedem permissões relacionadas à co
 
 As políticas de acesso a dados concedem permissões para emitir consultas de dados, manipular dados de referência no ambiente e salvar consultas compartilhadas e perspectivas associadas ao ambiente.
 
-Os dois tipos de políticas permitem uma separação clara entre o acesso ao gerenciamento do ambiente e o acesso aos dados dentro do ambiente. Por exemplo, é possível configurar um ambiente de modo que o proprietário/criador do ambiente é removido do acesso aos dados. Assim como usuários e serviços que têm permissão para ler dados do ambiente podem não receber permissão de acesso à configuração do ambiente.
+Os dois tipos de políticas permitem uma separação clara entre o acesso ao gerenciamento do ambiente e o acesso aos dados dentro do ambiente. Por exemplo, é possível configurar um ambiente de modo que o proprietário/criador do ambiente seja removido do acesso aos dados. Além disso, usuários e serviços que têm permissão para ler dados do ambiente podem não receber permissão de acesso à configuração do ambiente.
 
 ## <a name="grant-data-access"></a>Conceder acesso a dados
-As etapas a seguir mostram como conceder acesso a dados para uma entidade de usuário:
+Siga estas etapas para conceder acesso a dados para uma entidade de usuário:
 
-1.  Entre no [Portal do Azure](https://portal.azure.com).
-2.  Digite "Time Series" na janela de pesquisa.
-3.  Clicar em Ambiente de Série de Tempo
-4.  Selecione o seu ambiente de Análise de Séries Temporais na lista.
+1. Entre no [Portal do Azure](https://portal.azure.com).
 
-  ![Gerenciar a fonte das Análise de Séries Temporais - ambiente](media/data-access/getstarted-grant-data-access1.png)
+2. Localize o seu ambiente do Time Series Insights. Digite **Time Series** na caixa **pesquisar**. Selecione **Ambiente do Time Series** nos resultados da pesquisa. 
 
-4.  Selecione "Políticas de Acesso a Dados”, então clique em "Adicionar"
+3. Selecione o seu ambiente de Análise de Séries Temporais na lista.
+   
+4. Selecione **Políticas de Acesso a Dados** e depois **+Adicionar**.
+  ![Gerenciar a fonte do Time Series Insights – ambiente](media/data-access/getstarted-grant-data-access1.png)
 
-  ![Gerenciar a fonte das Análise de Séries Temporais - adicionar](media/data-access/getstarted-grant-data-access2.png)
+5. Selecione **Selecionar usuário**.  Pesquise o nome de usuário ou endereço de email para localizar o usuário que deseja adicionar. Clique em **Selecionar** para confirmar a seleção. 
 
-5.  Clique em “Selecionar usuário”.
-6.  Procure e selecione o usuário por email.
-7.  Clique em "Selecionar" na folha "Selecionar usuário".
+   ![Gerenciar a fonte das Análise de Séries Temporais - adicionar](media/data-access/getstarted-grant-data-access2.png)
 
-  ![Gerenciar a fonte das Análise de Séries Temporais - selecionar usuário](media/data-access/getstarted-grant-data-access3.png)
+6. Selecione **Selecionar função**. Escolha a função de acesso apropriada para o usuário:
+   - Selecione **Colaborador** se quiser permitir que o usuário altere os dados de referência e compartilhe consultas salvas e perspectivas com outros usuários do ambiente. 
+   - Caso contrário, selecione **Leitor** para permitir que o usuário consulte dados no ambiente e salve as consultas pessoais (não compartilhadas) no ambiente.
 
-8.  Clique em “Selecionar função”.
-9.  Selecione "Colaborador" se quiser permitir que o usuário altere os dados de referência e compartilhe consultas salvas e perspectivas com outros usuários do ambiente. Caso contrário, selecione "Leitor" para permitir que o usuário consulte os dados no ambiente e salve as consultas (não compartilhadas) pessoais no ambiente.
-10. Clique em "Ok" na folha "Selecionar função".
+   Selecione **OK** para confirmar a escolha da função.
 
-  ![Gerenciar a fonte das Análise de Séries Temporais - selecionar função](media/data-access/getstarted-grant-data-access4.png)
+   ![Gerenciar a fonte das Análise de Séries Temporais - selecionar usuário](media/data-access/getstarted-grant-data-access3.png)
 
-11. Clique em "Ok" na folha "Selecionar função do usuário".
-12. Você deverá ver:
+8. Selecione **Ok** na página **Selecionar Função do Usuário**.
 
-  ![Gerenciar a fonte das Análise de Séries Temporais - resultados](media/data-access/getstarted-grant-data-access5.png)
+   ![Gerenciar a fonte das Análise de Séries Temporais - selecionar função](media/data-access/getstarted-grant-data-access4.png)
+
+9. A página **Políticas de Acesso de Dados** lista os usuários e suas funções.
+
+   ![Gerenciar a fonte das Análise de Séries Temporais - resultados](media/data-access/getstarted-grant-data-access5.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-
-* [Criar uma origem de evento](time-series-insights-add-event-source.md)
-* [Enviar eventos](time-series-insights-send-events.md) para a origem do evento
-* Exibir seu ambiente no [Portal de Análise de Séries Temporais](https://insights.timeseries.azure.com)
+* Saiba [como adicionar uma fonte de evento do Hub de Eventos ao ambiente do Azure Time Series Insights](time-series-insights-how-to-add-an-event-source-eventhub.md).
+* [Enviar eventos](time-series-insights-send-events.md) para a origem do evento.
+* Exibir seu ambiente no [Explorador do Time Series Insights](https://insights.timeseries.azure.com).

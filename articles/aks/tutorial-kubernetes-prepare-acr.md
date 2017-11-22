@@ -1,5 +1,5 @@
 ---
-title: "Tutorial do Kubernetes no Azure – preparar o ACR | Microsoft Docs"
+title: Tutorial do Kubernetes no Azure - Preparar ACR | Microsoft Docs
 description: "Tutorial do AKS – preparar o ACR"
 services: container-service
 documentationcenter: 
@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2017
+ms.date: 11/11/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 22aa6c82aec7b8f6a16131878943fadd7762c1c0
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 15b54f6131c847551295061df6c6ad6a476a7da6
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="deploy-and-use-azure-container-registry"></a>Implantar e usar o Registro de Contêiner do Azure
 
@@ -32,22 +32,22 @@ O ACR (Registro de Contêiner do Azure) é um registro privado baseado no Azure,
 > * Marcando uma imagem de contêiner para ACR
 > * Carregando da imagem para ACR
 
-Nos próximos tutoriais, essa instância de ACR será integrada a um cluster Kubernetes no AKS. 
+Nos próximos tutoriais, essa instância de ACR será integrada a um cluster Kubernetes no AKS.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
 No [tutorial anterior](./tutorial-kubernetes-prepare-app.md), uma imagem de contêiner foi criada para um aplicativo de Votação do Azure simples. Se você não tiver criado a imagem do aplicativo de Votação do Azure, retorne ao [Tutorial 1 – Criar imagens de contêiner](./tutorial-kubernetes-prepare-app.md).
 
-Este tutorial exige a execução da CLI do Azure versão 2.0.20 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure]( /cli/azure/install-azure-cli). 
+Este tutorial requer a execução da CLI do Azure versão 2.0.21 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="deploy-azure-container-registry"></a>Implantar o Registro de Contêiner do Azure
 
 Ao implantar um Registro de Contêiner do Azure, primeiro você precisa de um grupo de recursos. Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados.
 
-Crie um grupo de recursos com o comando [az group create](/cli/azure/group#create). Neste exemplo, criaremos um grupo de recursos `myResourceGroup` na região `westus2`.
+Crie um grupo de recursos com o comando [az group create](/cli/azure/group#create). Neste exemplo, criaremos um grupo de recursos `myResourceGroup` na região `eastus`.
 
 ```azurecli
-az group create --name myResourceGroup --location westus2
+az group create --name myResourceGroup --location eastus
 ```
 
 Crie um Registro de Contêiner do Azure com o comando [az acr create](/cli/azure/acr#create). O nome de um registro de contêiner **deve ser exclusivo**.
@@ -117,7 +117,7 @@ tiangolo/uwsgi-nginx-flask                           flask               788ca94
 
 ## <a name="push-images-to-registry"></a>Efetuar push de imagens para registro
 
-Envie a imagem `azure-vote-front` por push ao registro. 
+Envie a imagem `azure-vote-front` por push ao registro.
 
 Usando o exemplo a seguir, substitua o nome do loginServer do ACR pelo loginServer do seu ambiente.
 

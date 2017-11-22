@@ -13,15 +13,15 @@ ms.custom: hdinsightactive
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/06/2017
+ms.date: 11/07/2017
 ms.author: larryfr
-ms.openlocfilehash: 1721f985214b9a9fbefed628308b1a72f5cc186a
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 2b55de4de6bb94be78649112161211346090b23a
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="connect-to-kafka-on-hdinsight-preview-through-an-azure-virtual-network"></a>Conectar-se ao Kafka no HDInsight (preview) por meio de uma Rede Virtual do Azure
+# <a name="connect-to-kafka-on-hdinsight-through-an-azure-virtual-network"></a>Conectar-se ao Kafka no HDInsight por meio de uma Rede Virtual do Azure
 
 Saiba como conectar-se diretamente ao Kafka no HDInsight por meio de uma Rede Virtual do Azure. Este documento fornece informações sobre como se conectar ao Kafka usando as seguintes configurações:
 
@@ -32,7 +32,7 @@ Saiba como conectar-se diretamente ao Kafka no HDInsight por meio de uma Rede Vi
 
 O HDInsight não permite a conexão direta ao Kafka pela Internet pública. Em vez disso, os clientes Kafka (produtores e consumidores) devem usar um dos seguintes métodos de conexão:
 
-* Execute o cliente na mesma rede virtual que o Kafka no HDInsight. Essa configuração é usada no documento [Introdução ao Apache Kafka (versão prévia) no HDInsight](apache-kafka-get-started.md). O cliente é executado diretamente em nós do cluster HDInsight ou em outra máquina virtual na mesma rede.
+* Execute o cliente na mesma rede virtual que o Kafka no HDInsight. Essa configuração é usada no documento [Introdução ao Apache Kafka no HDInsight](apache-kafka-get-started.md). O cliente é executado diretamente em nós do cluster HDInsight ou em outra máquina virtual na mesma rede.
 
 * Conecte uma rede privada, como a sua rede local, à rede virtual. Essa configuração permite que os clientes na rede local trabalhem diretamente com o Kafka. Para habilitar essa configuração, execute as seguintes tarefas:
 

@@ -15,11 +15,11 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 11/15/2017
 ms.author: govindk
-ms.openlocfilehash: 1ce764a3395b0ddb9e78f1247fd55fabbeecb04e
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 76850d6403fc4e87e95f5842b87b258d652c2c35
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="quickstart-build-a-cassandra-app-with-nodejs-and-azure-cosmos-db"></a>Guia de início rápido: compilar um aplicativo Cassandra com o Node.js e o Azure Cosmos DB
 
@@ -193,6 +193,8 @@ Agora, volte ao portal do Azure para obter informações sobre a cadeia de conex
 2. Execute `node uprofile.js` para iniciar seu aplicativo de nó.
 
 3. Verifique se os resultados estão conforme o esperado na linha de comando.
+
+    ![Exibir e verificar a saída](./media/create-cassandra-nodejs/output.png)
 
     Pressione CTRL + C para interromper a execução do programa e feche a janela do console. 
 
