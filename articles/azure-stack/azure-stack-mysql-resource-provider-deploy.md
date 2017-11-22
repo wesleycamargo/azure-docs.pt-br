@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: JeffGo
-ms.openlocfilehash: 28ceb7345c0d74e2a7d7911d5b4bf24a0ceb214a
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: fdb4180ce11b29577299e329869144e99ead0f05
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Usar bancos de dados MySQL na pilha do Microsoft Azure
 
@@ -40,13 +40,14 @@ Esta versão não cria uma instância do MySQL. Você deve criá-los e/ou fornec
 - criar um servidor MySQL para você
 - Baixe e implante um servidor MySQL do Marketplace.
 
-! [OBSERVAÇÃO] Instalado em uma pilha do Azure de vários nós de servidores de hospedagem devem ser criado de uma assinatura de locatário. Eles não não possível criar a assinatura de provedor padrão. Em outras palavras, eles devem ser criados no portal de locatário ou uma sessão do PowerShell com um logon adequado. Todos os servidores de hospedagem são passíveis de cobrança VMs e devem ter as licenças apropriadas. O administrador de serviço pode ser o proprietário da assinatura.
+> [!NOTE]
+> Instalado em uma pilha do Azure de vários nós de servidores de hospedagem devem ser criado de uma assinatura de locatário. Eles não não possível criar a assinatura de provedor padrão. Em outras palavras, eles devem ser criados no portal de locatário ou uma sessão do PowerShell com um logon adequado. Todos os servidores de hospedagem são passíveis de cobrança VMs e devem ter as licenças apropriadas. O administrador de serviço pode ser o proprietário da assinatura.
 
 ### <a name="required-privileges"></a>Privilégios necessários
 A conta do sistema deve ter os seguintes privilégios:
 
 1.  Banco de dados: Criar, descartar
-2.  Logon: Criar, definir, Drop, conceder, revogar
+2.  Logon: Criar, definir, drop, conceder, revogar
 
 ## <a name="deploy-the-resource-provider"></a>Implantar o provedor de recursos
 
@@ -60,6 +61,9 @@ A conta do sistema deve ter os seguintes privilégios:
     b. Em sistemas com vários nós, o host deve ser um sistema que pode acessar o ponto de extremidade com privilégios.
 
 3. [Baixe o arquivo de binários do provedor de recursos MySQL](https://aka.ms/azurestackmysqlrp) e execute o Self-extractor para extrair o conteúdo para um diretório temporário.
+
+    > [!NOTE]
+    > Se você está executando em uma pilha do Azure versão 20170928.3 ou anterior, [baixar essa versão](https://aka.ms/azurestackmysqlrp1709).
 
 4.  O certificado de raiz de pilha do Azure é recuperado do ponto de extremidade com privilégios. Para ASDK, um certificado autoassinado é criado como parte desse processo. Para vários nós, você deve fornecer um certificado apropriado.
 
@@ -98,8 +102,12 @@ Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
 Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
 
-# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack
-$domain = 'AzureStack'
+# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack and the default prefix is AzS
+# For integrated systems, the domain and the prefix will be the same.
+$domain = "AzureStack"
+$prefix = "AzS"
+$privilegedEndpoint = "$prefix-ERCS01"
+
 # Point to the directory where the RP installation files were extracted
 $tempDir = 'C:\TEMP\MYSQLRP'
 
@@ -122,17 +130,18 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 # Run the installation script from the folder where you extracted the installation files
 # Find the ERCS01 IP address first and make sure the certificate
 # file is in the specified directory
-.$tempDir\DeployMySQLProvider.ps1 -AzCredential $AdminCreds `
+. $tempDir\DeployMySQLProvider.ps1 -AzCredential $AdminCreds `
   -VMLocalCredential $vmLocalAdminCreds `
   -CloudAdminCredential $cloudAdminCreds `
-  -PrivilegedEndpoint '10.10.10.10' `
-  -DefaultSSLCertificatePassword $PfxPass -DependencyFilesLocalPath $tempDir\cert `
+  -PrivilegedEndpoint $privilegedEndpoint `
+  -DefaultSSLCertificatePassword $PfxPass `
+  -DependencyFilesLocalPath $tempDir\cert `
   -AcceptLicense
 
  ```
 
-### <a name="deploymysqlproviderps1-parameters"></a>Parâmetros de DeployMySqlProvider.ps1
 
+### <a name="deploysqlproviderps1-parameters"></a>Parâmetros de DeploySqlProvider.ps1
 Você pode especificar esses parâmetros na linha de comando. Se você não fizer isso, ou qualquer parâmetro de validação falha, você precisará fornecer as necessárias.
 
 | Nome do Parâmetro | Descrição | Comentário ou valor padrão |
@@ -153,11 +162,11 @@ Você pode especificar esses parâmetros na linha de comando. Se você não fize
 As velocidades de download e o desempenho do sistema, dependendo da instalação pode levar apenas como 20 minutos ou longa como várias horas. Se a folha de MySQLAdapter não estiver disponível, atualize o portal de administração.
 
 > [!NOTE]
-> Se a instalação demora mais de 90 minutos, pode falhar e você verá uma mensagem de falha na tela e no arquivo de log. A implantação é repetida da etapa com falha. Sistemas que não atendem às especificações recomendadas vCPU e memória podem não ser capazes de implantar o MySQL RP.
+> Se a instalação demora mais de 90 minutos, pode falhar e você verá uma mensagem de falha na tela e no arquivo de log. A implantação é repetida da etapa com falha. Sistemas que não atendem às especificações recomendadas de memória e núcleo podem não ser capazes de implantar o MySQL RP.
 
 
 
-## <a name="verify-the-deployment-using-the-azure-stack-portal"></a>Verifique se a implantação usando o Portal de pilha do Azure
+## <a name="verify-the-deployment-using-the-azure-stack-portal"></a>Verifique se a implantação usando o portal de pilha do Azure
 
 > [!NOTE]
 >  Depois que o script de instalação for concluída, você precisará atualizar o portal para ver a folha de administrador.
@@ -187,16 +196,17 @@ As velocidades de download e o desempenho do sistema, dependendo da instalação
 4. Como adicionar servidores, você deve atribuí-los para um SKU de novo ou existente para permitir que a diferenciação de ofertas de serviço.
   Por exemplo, você pode ter uma instância do enterprise fornecendo:
     - capacidade do banco de dados
-    - backup automático
+    - Backup automático
     - reserva de servidores de alto desempenho para departamentos individuais
-    - E assim por diante.
-    O nome da SKU deve refletir as propriedades para que locatários podem colocar seus bancos de dados adequadamente. Todos os servidores de hospedagem em um SKU devem ter os mesmos recursos.
+ 
 
-    ![Criar uma SKU do MySQL](./media/azure-stack-mysql-rp-deploy/mysql-new-sku.png)
+O nome da SKU deve refletir as propriedades para que locatários podem colocar seus bancos de dados adequadamente. Todos os servidores de hospedagem em um SKU devem ter os mesmos recursos.
+
+![Criar uma SKU do MySQL](./media/azure-stack-mysql-rp-deploy/mysql-new-sku.png)
 
 
 >[!NOTE]
-SKUs podem demorar até uma hora para ser visível no portal. Você não pode criar um banco de dados até que o SKU é criado.
+> SKUs podem demorar até uma hora para ser visível no portal. Você não pode criar um banco de dados até que o SKU é criado.
 
 
 ## <a name="to-test-your-deployment-create-your-first-mysql-database"></a>Para testar a implantação, crie seu primeiro banco de dados MySQL
@@ -231,17 +241,17 @@ SKUs podem demorar até uma hora para ser visível no portal. Você não pode cr
 Adicione capacidade adicionando mais servidores de MySQL no portal do Azure pilha. Servidores adicionais podem ser adicionados a uma SKU de nova ou existente. Verifique se que as características de servidor são os mesmos.
 
 
-## <a name="making-mysql-databases-available-to-tenants"></a>Disponibilizar os bancos de dados MySQL para locatários
+## <a name="make-mysql-databases-available-to-tenants"></a>Disponibilizar os bancos de dados MySQL para locatários
 Crie planos e ofertas para disponibilizar os bancos de dados MySQL para locatários. Adicione o serviço Microsoft.MySqlAdapter, adicionar uma cota, etc.
 
 ![Criar planos e ofertas para incluir bancos de dados](./media/azure-stack-mysql-rp-deploy/mysql-new-plan.png)
 
-## <a name="updating-the-administrative-password"></a>Atualizando a senha administrativa
+## <a name="update-the-administrative-password"></a>Atualizar a senha administrativa
 Você pode modificar a senha primeiro alterá-la na instância do servidor MySQL. Navegue até **recursos ADMINISTRATIVOS** &gt; **servidores de hospedagem MySQL** &gt; e clique no servidor de hospedagem. No painel configurações, clique em senha.
 
 ![Atualize a senha de administrador](./media/azure-stack-mysql-rp-deploy/mysql-update-password.png)
 
-## <a name="removing-the-mysql-adapter-resource-provider"></a>Removendo o provedor de recursos de adaptador do MySQL
+## <a name="remove-the-mysql-resource-provider-adapter"></a>Remova o adaptador de provedor de recursos MySQL
 
 Para remover o provedor de recursos, é essencial primeiro remova todas as dependências.
 
@@ -263,6 +273,5 @@ Para remover o provedor de recursos, é essencial primeiro remova todas as depen
 
 
 ## <a name="next-steps"></a>Próximas etapas
-
 
 Tente outro [serviços de PaaS](azure-stack-tools-paas-services.md) como o [provedor de recursos do SQL Server](azure-stack-sql-resource-provider-deploy.md) e [provedor de recursos de serviços de aplicativos](azure-stack-app-service-overview.md).

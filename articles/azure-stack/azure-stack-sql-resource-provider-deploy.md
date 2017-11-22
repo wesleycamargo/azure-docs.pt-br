@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: JeffGo
-ms.openlocfilehash: 6e65af68dcd2306aabda65efdf8fe056c0d9b4a4
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 31ffd31b5d540617c4a7a1224e6cf0ee656c9678
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Usar bancos de dados SQL na pilha do Microsoft Azure
 
@@ -30,7 +30,7 @@ Usar o adaptador de provedor de recursos do SQL Server para expor bancos de dado
 
 O provedor de recursos não dá suporte a todos os recursos de gerenciamento de banco de dados do [banco de dados do SQL Azure](https://azure.microsoft.com/services/sql-database/). Por exemplo, pools de banco de dados Elástico e a capacidade de desempenho de banco de dados para cima e para baixo de discagem automaticamente não estão disponíveis. No entanto, o recurso oferece suporte ao provedor semelhante criar, ler, atualizar e excluir operações (CRUD). A API não é compatível com o banco de dados SQL.
 
-## <a name="sql-server-resource-provider-adapter-architecture"></a>Arquitetura de adaptador do provedor de recursos do SQL Server
+## <a name="sql-resource-provider-adapter-architecture"></a>Arquitetura de adaptador de provedor de recursos do SQL
 O provedor de recursos é composto de três componentes:
 
 - **O adaptador de provedor de recursos do SQL VM**, que é uma máquina virtual do Windows que executa os serviços de provedor.
@@ -50,6 +50,9 @@ Você deve criar um (ou mais) servidores SQL e/ou fornecer acesso a instâncias 
     b. Em sistemas com vários nós, o host deve ser um sistema que pode acessar o ponto de extremidade com privilégios.
 
 3. [Baixe o arquivo de binários do provedor de recursos SQL](https://aka.ms/azurestacksqlrp) e execute o Self-extractor para extrair o conteúdo para um diretório temporário.
+
+    > [!NOTE]
+    > Se você está executando em uma pilha do Azure versão 20170928.3 ou anterior, [baixar essa versão](https://aka.ms/azurestacksqlrp1709).
 
 4. O certificado de raiz de pilha do Azure é recuperado do ponto de extremidade com privilégios. Para ASDK, um certificado autoassinado é criado como parte desse processo. Para vários nós, você deve fornecer um certificado apropriado.
 
@@ -85,8 +88,12 @@ Install-Module -Name AzureRm.BootStrapper -Force
 Use-AzureRmProfile -Profile 2017-03-09-profile
 Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
 
-# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack
+# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack and the default prefix is AzS
+# For integrated systems, the domain and the prefix will be the same.
 $domain = "AzureStack"
+$prefix = "AzS"
+$privilegedEndpoint = "$prefix-ERCS01"
+
 # Point to the directory where the RP installation files were extracted
 $tempDir = 'C:\TEMP\SQLRP'
 
@@ -108,7 +115,12 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
 # Change directory to the folder where you extracted the installation files
 # and adjust the endpoints
-.$tempDir\DeploySQLProvider.ps1 -AzCredential $AdminCreds -VMLocalCredential $vmLocalAdminCreds -CloudAdminCredential $cloudAdminCreds -PrivilegedEndpoint '10.10.10.10' -DefaultSSLCertificatePassword $PfxPass -DependencyFilesLocalPath $tempDir\cert
+. $tempDir\DeploySQLProvider.ps1 -AzCredential $AdminCreds `
+  -VMLocalCredential $vmLocalAdminCreds `
+  -CloudAdminCredential $cloudAdminCreds `
+  -PrivilegedEndpoint $privilegedEndpoint `
+  -DefaultSSLCertificatePassword $PfxPass `
+  -DependencyFilesLocalPath $tempDir\cert
  ```
 
 ### <a name="deploysqlproviderps1-parameters"></a>Parâmetros de DeploySqlProvider.ps1
@@ -128,7 +140,7 @@ Você pode especificar esses parâmetros na linha de comando. Se você não fize
 | **DebugMode** | Impede que a limpeza automática em caso de falha | Não |
 
 
-## <a name="verify-the-deployment-using-the-azure-stack-portal"></a>Verifique se a implantação usando o Portal de pilha do Azure
+## <a name="verify-the-deployment-using-the-azure-stack-portal"></a>Verifique se a implantação usando o portal de pilha do Azure
 
 > [!NOTE]
 >  Depois que o script de instalação for concluída, você precisará atualizar o portal para ver a folha de administrador.
@@ -141,27 +153,25 @@ Você pode especificar esses parâmetros na linha de comando. Se você não fize
       ![Verifique se a implantação do SQL RP](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
 
 
-
-
-
-## <a name="removing-the-sql-adapter-resource-provider"></a>Removendo o provedor de recursos do adaptador SQL
+## <a name="remove-the-sql-resource-provider-adapter"></a>Remova o adaptador de provedor de recursos do SQL
 
 Para remover o provedor de recursos, é essencial para primeiro remova todas as dependências.
 
-1. Certifique-se de que o pacote de implantação original que foi baixado para esta versão do provedor de recursos.
+1. Certifique-se de que o pacote de implantação original que foi baixado para esta versão do adaptador de provedor de recursos do SQL.
 
 2. Todos os bancos de dados de usuário devem ser excluídos do provedor de recursos (isso não exclui os dados). Isso deve ser executado pelos usuários.
 
-3. Administrador deve excluir os servidores de hospedagem do adaptador de SQL
+3. Administrador deve excluir os servidores de hospedagem do adaptador de provedor de recursos de SQL
 
-4. Administrador deve excluir todos os planos que referenciam o adaptador SQL.
+4. Administrador deve excluir todos os planos que referenciam o adaptador de provedor de recursos do SQL.
 
-5. Administrador deve excluir qualquer SKUs e cotas associadas ao adaptador de SQL.
+5. Administrador deve excluir qualquer SKUs e cotas associadas ao adaptador de provedor de recursos do SQL.
 
 6. Executar novamente o script de implantação com-desinstalar o parâmetro, os pontos de extremidade do Azure Resource Manager, DirectoryTenantID e credenciais para a conta de administrador de serviço.
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
+[Adicionar servidores de hospedagem](azure-stack-sql-resource-provider-hosting-servers.md) e [criar bancos de dados](azure-stack-sql-resource-provider-databases.md).
 
 Tente outro [serviços de PaaS](azure-stack-tools-paas-services.md) como o [provedor de recursos do servidor MySQL](azure-stack-mysql-resource-provider-deploy.md) e [provedor de recursos de serviços de aplicativos](azure-stack-app-service-overview.md).
