@@ -12,11 +12,11 @@ ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 0e6cc412fdb3ea7b9d8291b9f963e6412ae994a9
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 8b84b90e72f8cac1fc1f8a90391b7a5a4f6be1f4
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="test-your-solution-with-simulated-devices"></a>Testar sua solução com dispositivos simulados
 
@@ -177,7 +177,7 @@ O arquivo `lightbulb-01.json` define as características do tipo, como a telemet
       "SwitchOff": {
         "Type": "javascript",
         "Path": "SwitchOff-method.js"
-      }
+      },
     }
     ```
 
@@ -307,12 +307,12 @@ As etapas a seguir mostram como localizar os arquivos que definem o dispositivo 
 1. Se você ainda não tiver feito isso, use o seguinte comando para clonar o repositório **device-simulation** do GitHub para o computador local:
 
     ```cmd/sh
-    git clone https://github.com/Azure/device-simulation-dotnet.git
+    git clone https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet.git
     ```
 
-1. Cada tipo de dispositivo tem um arquivo de modelo JSON e scripts associados na pasta `Services/data/devicemodels`. Os arquivos que definem o tipo de dispositivo do **Resfriador** simulado são:
-    * `Services/data/devicemodels/chiller-01.json`
-    * `Services/data/devicemodels/scripts/chiller-01-state.js`
+1. Cada tipo de dispositivo tem um arquivo de modelo JSON e scripts associados na pasta `data/devicemodels`. Os arquivos que definem o tipo de dispositivo do **Resfriador** simulado são:
+    * `data/devicemodels/chiller-01.json`
+    * `data/devicemodels/scripts/chiller-01-state.js`
 
 ### <a name="specify-the-new-telemetry-type"></a>Especificar o novo tipo de telemetria
 

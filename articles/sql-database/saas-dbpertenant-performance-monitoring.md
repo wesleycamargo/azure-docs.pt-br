@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2017
 ms.author: sstein
-ms.openlocfilehash: a74a439eab3698e14e5b8e2db0d45a86e9f55f0e
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 450a5fc578948db044d9e0bb9db09508b2512aca
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>Monitore e gerencie o desempenho dos pools e dos bancos de dados SQL do Azure em um aplicativo SaaS multilocatário
 
@@ -40,7 +40,7 @@ Neste tutorial, você aprenderá a:
 
 Para concluir este tutorial, verifique se todos os pré-requisitos a seguir são atendidos:
 
-* O aplicativo SaaS de Banco de Dados Multilocatário Wingtip Tickets foi implantado. Para implantá-lo em menos de cinco minutos, consulte [Implantar e explorar o aplicativo Banco de Dados por Locatário SaaS Wingtip Tickets](saas-dbpertenant-get-started-deploy.md)
+* O aplicativo Wingtip Tickets SaaS Database Per Tenant é implantado. Para implantá-lo em menos de cinco minutos, veja [Implantar e explorar o aplicativo Wingtip Tickets SaaS Database Per Tenant](saas-dbpertenant-get-started-deploy.md)
 * O Azure PowerShell está instalado. Para obter detalhes, consulte [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 
 ## <a name="introduction-to-saas-performance-management-patterns"></a>Introdução aos padrões de gerenciamento de desempenho de SaaS
@@ -64,7 +64,7 @@ Para cenários de alto volume em que você está trabalhando com muitos recursos
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-source-code-and-scripts"></a>Obter o código-fonte e os scripts do aplicativo de banco de dados multilocatário SaaS Wingtip Tickets
 
-Os scripts e o código-fonte do aplicativo SaaS de Banco de Dados Multilocatário Wingtip Tickets estão disponíveis no repositório GitHub [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant). [Etapas para fazer o download dos scripts do Banco de Dados por Locatário SaaS Wingtip Tickets](saas-dbpertenant-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-saas-scripts).
+Os scripts e o código-fonte do aplicativo SaaS de Banco de Dados Multilocatário Wingtip Tickets estão disponíveis no repositório GitHub [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant). [Etapas para fazer o download dos scripts do Banco de Dados por Locatário SaaS Wingtip Tickets](saas-dbpertenant-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-tickets-saas-database-per-tenant-scripts).
 
 ## <a name="provision-additional-tenants"></a>Provisionar locatários adicionais
 
@@ -72,7 +72,7 @@ Embora os pools possam ser econômicos com apenas dois bancos de dados S3, quant
 
 Se você já provisionou um lote de locatários em um tutorial anterior, vá para a seção [Simular o uso em todos os bancos de dados de locatário](#simulate-usage-on-all-tenant-databases).
 
-1. No **PowerShell ISE**, abra... \\Módulos de Aprendizado\\Monitoramento e Gerenciamento de Desempenho\\*Demo-PerformanceMonitoringAndManagement.ps1*. Mantenha esse script aberto pois você executará vários cenários durante este tutorial.
+1. No **ISE do PowerShell**, abra... \\Módulos de Aprendizado\\Monitoramento e Gerenciamento de Desempenho\\*Demo-PerformanceMonitoringAndManagement.ps1*. Mantenha esse script aberto pois você executará vários cenários durante este tutorial.
 1. Defina **$DemoScenario** = **1**, **Provisionar um lote de locatários**
 1. Pressione **F5** para executar o script.
 
@@ -94,7 +94,7 @@ O script *New-TenantBatch* usa um conjunto aninhado ou vinculado de modelos do [
 
 O gerador de carga aplica uma carga *sintética* somente da CPU em cada banco de dados de locatário. O gerador inicia um trabalho para cada banco de dados de locatário, que chama um procedimento armazenado que gera a carga periodicamente. Os níveis de carga (em eDTUs), a duração e os intervalos variam em todos os bancos de dados, simulando uma atividade de locatário imprevisível.
 
-1. No **PowerShell ISE**, abra... \\Módulos de Aprendizado\\Monitoramento e Gerenciamento de Desempenho\\*Demo-PerformanceMonitoringAndManagement.ps1*. Mantenha esse script aberto pois você executará vários cenários durante este tutorial.
+1. No **ISE do PowerShell**, abra... \\Módulos de Aprendizado\\Monitoramento e Gerenciamento de Desempenho\\*Demo-PerformanceMonitoringAndManagement.ps1*. Mantenha esse script aberto pois você executará vários cenários durante este tutorial.
 1. Defina **$DemoScenario** = **2**, *Gerar uma carga de intensidade normal*.
 1. Pressione **F5** para aplicar uma carga em todos os seus bancos de dados de locatário.
 

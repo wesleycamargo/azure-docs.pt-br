@@ -15,11 +15,11 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 11/15/2017
 ms.author: govindk
-ms.openlocfilehash: 76850d6403fc4e87e95f5842b87b258d652c2c35
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: abf88cf96b32bc4168cb8c09a6e70ad0e395e88c
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="quickstart-build-a-cassandra-app-with-nodejs-and-azure-cosmos-db"></a>Guia de início rápido: compilar um aplicativo Cassandra com o Node.js e o Azure Cosmos DB
 
@@ -29,12 +29,13 @@ O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globa
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Acesso ao programa de versão prévia da API Cassandra do Azure Cosmos DB. Caso ainda não tenha solicitado o acesso, [inscreva-se agora](https://aka.ms/cosmosdb-cassandra-signup).
-* [Node.js](https://nodejs.org/en/) versão v0.10.29 ou superior
-* [Git](http://git-scm.com/)
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Como alternativa, você pode [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma assinatura do Azure, sem ônus e sem compromisso.
 
+Acesso ao programa de versão prévia da API Cassandra do Azure Cosmos DB. Caso ainda não tenha solicitado o acesso, [inscreva-se agora](cassandra-introduction.md#sign-up-now).
+
+Além disso:
+* [Node.js](https://nodejs.org/en/) versão v0.10.29 ou superior
+* [Git](http://git-scm.com/)
 
 ## <a name="create-a-database-account"></a>Criar uma conta de banco de dados
 
@@ -215,6 +216,6 @@ Agora, volte ao portal do Azure para obter informações sobre a cadeia de conex
 Neste início rápido, você aprendeu como criar uma conta do Azure Cosmos DB, como criar uma coleção usando o Data Explorer e como executar um aplicativo. Agora, é possível importar outros dados para sua conta do BD Cosmos. 
 
 > [!div class="nextstepaction"]
-> [Importar dados do Cassandra no Azure Cosmos DB](cassandra-import-data.md)
+> [Importar dados do Cassandra para o Azure Cosmos DB](cassandra-import-data.md)
 
 

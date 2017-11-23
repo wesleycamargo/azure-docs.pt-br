@@ -15,11 +15,11 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/15/2017
 ms.author: govindk
-ms.openlocfilehash: 95d58c600bc43059025e739a8cdb062287f4ffb5
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 4a2347fe9578b35c95d240c5c4dd2bf062077ece
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="quickstart-build-a-cassandra-app-with-python-and-azure-cosmos-db"></a>Guia de início rápido: compilar um aplicativo do Cassandra com o Python e o Azure Cosmos DB
 
@@ -29,13 +29,14 @@ O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globa
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Antes que possa executar esta amostra, você deverá ter os seguintes pré-requisitos:
-    * Versão v2.7.14 do [Python](https://www.python.org/downloads/)
-    * [Git](http://git-scm.com/)
-    * [Driver do Python para Apache Cassandra](https://github.com/datastax/python-driver)
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Como alternativa, você pode [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma assinatura do Azure, sem ônus e sem compromisso.
 
+Acesso ao programa de versão prévia da API Cassandra do Azure Cosmos DB. Caso ainda não tenha solicitado o acesso, [inscreva-se agora](cassandra-introduction.md#sign-up-now).
+
+Além disso:
+* Versão v2.7.14 do [Python](https://www.python.org/downloads/)
+* [Git](http://git-scm.com/)
+* [Driver do Python para Apache Cassandra](https://github.com/datastax/python-driver)
 
 ## <a name="create-a-database-account"></a>Criar uma conta de banco de dados
 
@@ -208,5 +209,5 @@ Agora, volte ao portal do Azure para obter informações sobre a cadeia de conex
 Neste início rápido, você aprendeu como criar uma conta do Azure Cosmos DB, como criar uma coleção usando o Data Explorer e como executar um aplicativo. Agora, é possível importar outros dados para sua conta do BD Cosmos. 
 
 > [!div class="nextstepaction"]
-> [Importar dados do Cassandra no Azure Cosmos DB](cassandra-import-data.md)
+> [Importar dados do Cassandra para o Azure Cosmos DB](cassandra-import-data.md)
 

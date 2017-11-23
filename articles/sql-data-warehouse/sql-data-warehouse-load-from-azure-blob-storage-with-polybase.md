@@ -3,7 +3,7 @@ title: Carregar do blob do Azure para o Azure data warehouse | Microsoft Docs
 description: "Aprenda a usar o PolyBase para carregar dados do armazenamento de blobs do Azure no SQL Data Warehouse. Carregue algumas tabelas de dados públicos no esquema do Data Warehouse de Varejo da Contoso."
 services: sql-data-warehouse
 documentationcenter: NA
-author: ckarst
+author: barbkess
 manager: barbkess
 editor: 
 ms.assetid: faca0fe7-62e7-4e1f-a86f-032b4ffcb06e
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: loading
 ms.date: 10/31/2016
-ms.author: cakarst;barbkess
-ms.openlocfilehash: 2859c1144f72fd685af89f83024df1409902ab0c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: barbkess
+ms.openlocfilehash: 4221bcd5a50fad680427a500e32837c1e75dd990
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="load-data-from-azure-blob-storage-into-sql-data-warehouse-polybase"></a>Carregar dados do armazenamento de blobs do Azure no SQL Data Warehouse (PolyBase)
 > [!div class="op_single_selector"]

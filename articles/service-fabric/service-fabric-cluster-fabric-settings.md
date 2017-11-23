@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: chackdan
-ms.openlocfilehash: c6289df50d17de1ef542abbf617eb1cdb2f32311
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 19caa05f0de7b4ff4ed7f4eafe50839d04f4ab50
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="customize-service-fabric-cluster-settings-and-fabric-upgrade-policy"></a>Personalizar as configurações de cluster de Service Fabric e a política de Atualização da Malha
 Este documento explica como personalizar as várias configurações de malha e a política de atualização de malha para o cluster do Service Fabric. Você pode personalizá-los através do [Portal do Azure](https://portal.azure.com) ou utilizando um modelo do Azure Resource Manager.
@@ -340,8 +340,8 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 ### <a name="section-name-faultanalysisservice"></a>Nome da seção: FaultAnalysisService
 | **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou Descrição resumida** |
 | --- | --- | --- | --- |
-| TargetReplicaSetSize |Int, o padrão é 0 |Não Permitido|NOT_PLATFORM_UNIX_START O TargetReplicaSetSize para FaultAnalysisService. |
-| MinReplicaSetSize |Int, o padrão é 0 |Não Permitido|O MinReplicaSetSize para FaultAnalysisService. |
+| TargetReplicaSetSize |Int, o padrão é 0 |estático|NOT_PLATFORM_UNIX_START O TargetReplicaSetSize para FaultAnalysisService. |
+| MinReplicaSetSize |Int, o padrão é 0 |estático|O MinReplicaSetSize para FaultAnalysisService. |
 | ReplicaRestartWaitDuration |Tempo em segundos, o padrão é 60 minutos|estático|Especifique o intervalo de tempo em segundos. O ReplicaRestartWaitDuration para FaultAnalysisService. |
 | QuorumLossWaitDuration | Tempo em segundos, o padrão é MaxValue |estático|Especifique o intervalo de tempo em segundos. O QuorumLossWaitDuration para FaultAnalysisService. |
 | StandByReplicaKeepDuration| Tempo em segundos, o padrão é (60*24*7) minutos |estático|Especifique o intervalo de tempo em segundos. O StandByReplicaKeepDuration para FaultAnalysisService. |
@@ -390,8 +390,8 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 | **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou Descrição resumida** |
 | --- | --- | --- | --- |
 | Habilitado |Bool, o padrão é false |estático|O sinalizador Enabled para ImageStoreService. Padrão: false |
-| TargetReplicaSetSize | Int, o padrão é 7 |Não Permitido|O TargetReplicaSetSize para ImageStoreService. |
-| MinReplicaSetSize | Int, o padrão é 3 |Não Permitido|O MinReplicaSetSize para ImageStoreService. |
+| TargetReplicaSetSize | Int, o padrão é 7 |estático|O TargetReplicaSetSize para ImageStoreService. |
+| MinReplicaSetSize | Int, o padrão é 3 |estático|O MinReplicaSetSize para ImageStoreService. |
 | ReplicaRestartWaitDuration | Tempo em segundos, o padrão é 60,0 * 30 |estático|Especifique o intervalo de tempo em segundos. O ReplicaRestartWaitDuration para ImageStoreService. |
 | QuorumLossWaitDuration | Tempo em segundos, o padrão é MaxValue |estático| Especifique o intervalo de tempo em segundos. O QuorumLossWaitDuration para ImageStoreService. |
 | StandByReplicaKeepDuration | Tempo em segundos, o padrão é 3600,0 * 2 |estático| Especifique o intervalo de tempo em segundos. O StandByReplicaKeepDuration para ImageStoreService. |
@@ -414,8 +414,8 @@ A seguir, é apresentada uma lista de configurações de Malha que você pode pe
 ### <a name="section-name-upgradeorchestrationservice"></a>Nome da seção: UpgradeOrchestrationService
 | **Parâmetro** | **Valores permitidos** | **Política de Atualização** | **Diretrizes ou Descrição resumida** |
 | --- | --- | --- | --- |
-| TargetReplicaSetSize |Int, o padrão é 0 |Não Permitido|O TargetReplicaSetSize para UpgradeOrchestrationService. |
-| MinReplicaSetSize |Int, o padrão é 0 |Não Permitido|O MinReplicaSetSize para UpgradeOrchestrationService.
+| TargetReplicaSetSize |Int, o padrão é 0 |estático |O TargetReplicaSetSize para UpgradeOrchestrationService. |
+| MinReplicaSetSize |Int, o padrão é 0 |estático |O MinReplicaSetSize para UpgradeOrchestrationService.
 | ReplicaRestartWaitDuration | Tempo em segundos, o padrão é 60 minutos|estático| Especifique o intervalo de tempo em segundos. O ReplicaRestartWaitDuration para UpgradeOrchestrationService. |
 | QuorumLossWaitDuration | Tempo em segundos, o padrão é MaxValue |estático| Especifique o intervalo de tempo em segundos. O QuorumLossWaitDuration para UpgradeOrchestrationService. |
 | StandByReplicaKeepDuration | Tempo em segundos, o padrão é 60*24*7 minutos |estático| Especifique o intervalo de tempo em segundos. O StandByReplicaKeepDuration para UpgradeOrchestrationService. |

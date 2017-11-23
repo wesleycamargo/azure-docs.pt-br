@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: corywink
-ms.openlocfilehash: 52645f7d7934c9b9cf628fec1c0edc763ce98796
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: ba965b9bc23b96adb2b1b7c9306cb7f508f820bf
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="customize-a-preconfigured-solution"></a>Personalizar uma solução pré-configurada
 
@@ -224,58 +224,9 @@ O padrão é 200. É possível alterar esse número em [DashboardController.cs][
 
 O padrão é 200. É possível alterar esse número em [TelemetryApiController.cs][lnk-telemetry-api-controller-01].
 
-### <a name="time-period-of-telemetry-graph"></a>Período do gráfico de telemetria
+### <a name="time-period-of-telemetry-graph"></a>Período do grafo de telemetria
 
 O padrão é 10 minutos. É possível alterar esse valor em [TelmetryApiController.cs][lnk-telemetry-api-controller-02].
-
-## <a name="manually-set-up-application-roles"></a>Configurar manualmente as funções do aplicativo
-
-O procedimento a seguir descreve como adicionar as funções de aplicativo **Admin** e **ReadOnly** a uma solução pré-configurada. Observe que as soluções pré-configuradas provisionadas no site azureiotsuite.com já incluem as funções **Admin** e **ReadOnly**.
-
-Membros da função **ReadOnly** podem ver o painel e a lista de dispositivos, mas não têm permissão para adicionar dispositivos, alterar os atributos do dispositivo ou enviar comandos.  Membros da função **Admin** têm acesso total a todos os recursos da solução.
-
-1. Vá para o [Portal Clássico do Azure][lnk-classic-portal].
-2. Selecione **Active Directory**.
-3. Clique no nome do locatário AAD que você usou ao provisionar a solução.
-4. Clique em **Aplicativos**.
-5. Clique no nome do aplicativo que corresponda ao nome da solução pré-configurada. Se você não vir seu aplicativo na lista, selecione **Aplicativos que minha empresa** possui na lista suspensa **Mostrar** e clique na marca de seleção.
-6. Na parte inferior da página, clique em **Gerenciar Manifesto** e em **Baixar Manifesto**.
-7. Este procedimento baixa um arquivo .json para seu computador local. Abra esse arquivo para edição em um editor de texto de sua escolha.
-8. Na terceira linha do arquivo .json, você pode ver:
-
-   ```json
-   "appRoles" : [],
-   ```
-   Substitua essa linha pelo código a seguir:
-
-   ```json
-   "appRoles": [
-   {
-   "allowedMemberTypes": [
-   "User"
-   ],
-   "description": "Administrator access to the application",
-   "displayName": "Admin",
-   "id": "a400a00b-f67c-42b7-ba9a-f73d8c67e433",
-   "isEnabled": true,
-   "value": "Admin"
-   },
-   {
-   "allowedMemberTypes": [
-   "User"
-   ],
-   "description": "Read only access to device information",
-   "displayName": "Read Only",
-   "id": "e5bbd0f5-128e-4362-9dd1-8f253c6082d7",
-   "isEnabled": true,
-   "value": "ReadOnly"
-   } ],
-   ```
-
-9. Salve o arquivo .json atualizado (você pode substituir o arquivo existente).
-10. No Portal Clássico do Azure, na parte inferior da página, selecione **Gerenciar Manifesto** e, em seguida, **Carregar Manifesto** para carregar o arquivo .json salvo na etapa anterior.
-11. Agora você adicionou as funções **Admin** e **ReadOnly** ao seu aplicativo.
-12. Para atribuir uma dessas funções a um usuário no diretório, consulte [Permissões no site azureiotsuite.com][lnk-permissions].
 
 ## <a name="feedback"></a>Comentários
 
@@ -300,6 +251,5 @@ Para saber mais sobre as opções para personalizar as soluções pré-configura
 [lnk-telemetry-api-controller-01]: https://github.com/Azure/azure-iot-remote-monitoring/blob/3fd43b8a9f7e0f2774d73f3569439063705cebe4/DeviceAdministration/Web/WebApiControllers/TelemetryApiController.cs#L27
 [lnk-telemetry-api-controller-02]: https://github.com/Azure/azure-iot-remote-monitoring/blob/e7003339f73e21d3930f71ceba1e74fb5c0d9ea0/DeviceAdministration/Web/WebApiControllers/TelemetryApiController.cs#L25 
 [lnk-sample-device-factory]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/Common/Factory/SampleDeviceFactory.cs#L40
-[lnk-classic-portal]: https://manage.windowsazure.com
 [lnk-direct-methods]: ../iot-hub/iot-hub-devguide-direct-methods.md
 [lnk-cf-customize]: iot-suite-connected-factory-customize.md

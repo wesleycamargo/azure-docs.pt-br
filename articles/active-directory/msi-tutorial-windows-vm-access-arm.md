@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/24/2017
-ms.author: elkuzmen
-ms.openlocfilehash: 17c2e72603715b5704fa56e18f68d531a1e44a53
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.date: 11/20/2017
+ms.author: bryanla
+ms.openlocfilehash: c87bbff414ba2212ebb3cab1d784d9f3ce133735
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="use-a-windows-vm-managed-service-identity-msi-to-access-resource-manager"></a>Usar umo MSI (Identidade de Serviço Gerenciado) da VM do Windows para acessar o Resource Manager
 
@@ -30,8 +30,11 @@ Este tutorial mostra como habilitar o MSI (Identidade de Serviço Gerenciado) pa
 > * Conceder o acesso da VM a um Grupo de Recursos no Azure Resource Manager 
 > * Obter um token de acesso usando a identidade da máquina virtual e usá-la para chamar o Azure Resource Manager
 
+## <a name="prerequisites"></a>Pré-requisitos
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+[!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
+
+[!INCLUDE [msi-tut-prereqs](../../includes/active-directory-msi-tut-prereqs.md)]
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 Entre no portal do Azure em [https://portal.azure.com](https://portal.azure.com).

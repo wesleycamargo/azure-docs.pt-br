@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/24/2017
-ms.author: elkuzmen
-ms.openlocfilehash: cd3c2e0d1d1db08c5d97033068b154f600497c24
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.date: 11/20/2017
+ms.author: bryanla
+ms.openlocfilehash: e162134f52ceca9d77735893b847782d06e72cfe
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-access-key"></a>Usar a Identidade de Serviço Gerenciada da VM do Windows para acessar o Armazenamento do Azure por meio de uma chave de acesso
 
@@ -31,8 +31,11 @@ Este tutorial mostra como habilitar o MSI (Identidade de Serviço Gerenciada) pa
 > * Conceder acesso à VM para chaves de acesso da conta de armazenamento no Resource Manager 
 > * Obter um token de acesso usando a identidade da VM e usá-la para recuperar as chaves de acesso de armazenamento do Resource Manager 
 
+## <a name="prerequisites"></a>Pré-requisitos
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+[!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
+
+[!INCLUDE [msi-tut-prereqs](../../includes/active-directory-msi-tut-prereqs.md)]
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 

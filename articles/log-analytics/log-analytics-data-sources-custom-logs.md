@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/15/2017
+ms.date: 11/17/2017
 ms.author: bwren
-ms.openlocfilehash: e3a4c631cd69921fec60b3ae33a23c4c7c369194
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: addb1c8f4c71bb1979229c597665fd301dfb9fdf
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="custom-logs-in-log-analytics"></a>Logs personalizados no Log Analytics
 A fonte de dados de logs personalizados no Log Analytics permite que você colete eventos de arquivos de texto em computadores com Windows e Linux. Muitos aplicativos registram informações em arquivos de texto em vez de serviços de registro standard, como o log de eventos do Windows ou Syslog.  Depois de coletados, você pode analisar cada registro no log em campos individuais usando o recurso [Campos Personalizados](log-analytics-custom-fields.md) do Log Analytics.
@@ -56,10 +56,6 @@ Inicie carregando um exemplo de log personalizado.  O assistente analisará e ex
 
 Se for usado um delimitador de carimbo de data/hora, a propriedade TimeGenerated de cada registro armazenado no OMS será populada com a data/hora especificada para a entrada no arquivo de log.  Se um delimitador de nova linha for usado, TimeGenerated será populada com a data e hora em que o Log Analytics coletou a entrada.
 
-> [!NOTE]
-> O Log Analytics atualmente trata a data/hora coletadas de um log usando um delimitador de carimbo de data/hora como UTC.  Isso em breve será alterado para usar o fuso horário no agente.
->
->
 
 1. Clique em **Procurar** e navegue até um arquivo de exemplo.  Observe que esse botão pode ser rotulado como **Escolher Arquivo** em alguns navegadores.
 2. Clique em **Avançar**.

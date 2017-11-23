@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/27/2017
+ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: f2153e783adb955cf9055b09ba9aa2592f51e4b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6ee60c5f9a8049523f05a1f3afd6604768dde602
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-operational-security-overview"></a>Visão geral de segurança operacional do Azure
 A Segurança Operacional do Azure refere-se a serviços, controles e recursos disponíveis aos usuários para proteger seus dados, aplicativos e outros recursos no Microsoft Azure. A [Segurança Operacional do Azure](https://docs.microsoft.com/azure/security/azure-operational-security) é uma estrutura que incorpora o conhecimento adquirido por meio de várias funcionalidades que são exclusivas à Microsoft, incluindo o Microsoft Security Development Lifecycle (SDL), o programa Microsoft Security Response Center e uma conscientização profunda do cenário de ameaças à segurança cibernética.
@@ -140,9 +140,9 @@ O Observador de Rede tem atualmente os seguintes recursos:
 Para saber mais sobre como configurar o observador de rede, confira [Configurar o observador de rede](https://docs.microsoft.com/azure/network-watcher/network-watcher-create).
 
 ## <a name="developer-operations-devops"></a>DevOps (Operações de Desenvolvedor)
-Antes do desenvolvimento de aplicativos de DevOps, as equipes eram responsáveis por reunir os requisitos comerciais para um programa de software e escrever código. Em seguida, outra equipe de controle de qualidade testava o programa em um ambiente de desenvolvimento isolado e, se os requisitos fosse atendidos, liberavam o código para implantação pela equipe de operações. As equipes de implantação são fragmentadas também em grupos em silos, como banco de dados e rede. Cada vez que um programa de software é “passado” para uma equipe independente, afunilamentos são adicionados.
+Antes do desenvolvimento de aplicativos de DevOps, as equipes eram responsáveis por reunir os requisitos comerciais para um programa de software e escrever código. Em seguida, outra equipe de controle de qualidade testava o programa em um ambiente de desenvolvimento isolado e, se os requisitos fosse atendidos, liberavam o código para implantação pela equipe de operações. As equipes de implantação são fragmentadas também em grupos em silos, como banco de dados e rede. Cada vez que um programa de software é “passado” para uma equipe independente, gargalos são adicionados.
 
-O [DevOps](https://www.visualstudio.com/learn/what-is-devops/) permite que as equipes forneçam soluções mais seguras, de alta qualidade, mais rápidas e mais baratas. Os clientes esperam uma experiência dinâmica e confiável ao consumir serviços e software.  As equipes devem iterar as atualizações de software rapidamente, medir o impacto das atualizações e responder rapidamente com novas iterações de desenvolvimento para resolver problemas ou agregar mais valor.  AS plataformas de nuvem, como o Microsoft Azure, removem afunilamentos tradicionais e ajudam a massificar a infraestrutura. Softwares estão presentes em todas as empresas como o principal diferencial nos resultados dos negócios. Nenhuma organização, desenvolvedor ou trabalhador de TI pode ou deve evitar o movimento do DevOps.
+O [DevOps](https://www.visualstudio.com/learn/what-is-devops/) permite que as equipes forneçam soluções mais seguras, de alta qualidade, mais rápidas e mais baratas. Os clientes esperam uma experiência dinâmica e confiável ao consumir serviços e software.  As equipes devem iterar as atualizações de software rapidamente, medir o impacto das atualizações e responder rapidamente com novas iterações de desenvolvimento para resolver problemas ou agregar mais valor.  AS plataformas de nuvem, como o Microsoft Azure, removem gargalos tradicionais e ajudam a massificar a infraestrutura. Softwares estão presentes em todas as empresas como o principal diferencial nos resultados dos negócios. Nenhuma organização, desenvolvedor ou trabalhador de TI pode ou deve evitar o movimento do DevOps.
 
 Os profissionais de DevOps experientes adotam várias das práticas a seguir. Essas práticas [envolvem pessoas](https://www.visualstudio.com/learn/what-is-devops-culture/) para formar estratégias com base em cenários de negócios.  As ferramentas podem ajudar a automatizar várias práticas:
 

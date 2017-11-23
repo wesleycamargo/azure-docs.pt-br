@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
-ms.openlocfilehash: 4c4916037ad762dbb9dee803dfd45ec2fd89272b
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 17d9e496aedfdf98423e821e7f379dc481ffa0a5
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="permissions-on-the-azureiotsuitecom-site"></a>Permissões no site azureiotsuite.com
 
@@ -105,11 +105,7 @@ Você deve ser um administrador global do AAD para alterar funções para um usu
 
 ### <a name="im-a-service-administrator-and-id-like-to-change-the-directory-mapping-between-my-subscription-and-a-specific-aad-tenant-how-do-i-complete-this-task"></a>Sou um administrador de serviços e gostaria de alterar o mapeamento de diretório entre minha assinatura e um locatário do AAD específico. Como posso concluir esta tarefa?
 
-1. Vá para o [Portal Clássico do Azure][lnk-classic-portal], clique em **Configurações** na lista de serviços no lado esquerdo.
-2. Selecione a assinatura para a qual você deseja alterar o mapeamento de diretórios.
-3. Clique em **Editar Diretório**.
-4. Selecione o **Diretório** que você deseja usar na lista suspensa. Clique na seta para frente.
-5. Confirme o mapeamento de diretórios e os coadministradores afetados. Se você estiver fazendo a transferência de outro diretório, todos os administradores do diretório original serão removidos.
+Consulte [Como adicionar uma assinatura existente ao seu diretório do Azure AD](../active-directory/active-directory-how-subscriptions-associated-directory.md#to-add-an-existing-subscription-to-your-azure-ad-directory)
 
 ### <a name="im-a-domain-usermember-on-the-aad-tenant-and-ive-created-a-preconfigured-solution-how-do-i-get-assigned-a-role-for-my-application"></a>Sou um usuário/membro do domínio no locatário do AAD e criei uma solução pré-configurada. Como recebo uma função para o meu aplicativo?
 
@@ -151,7 +147,6 @@ Para continuar aprendendo sobre o IoT Suite, veja como é possível [personaliza
 [lnk-pm-github-repo]: https://github.com/Azure/azure-iot-predictive-maintenance
 [lnk-cf-github-repo]: https://github.com/Azure/azure-iot-connected-factory
 [lnk-aad-admin]: ../active-directory/active-directory-assign-admin-roles.md
-[lnk-classic-portal]: https://manage.windowsazure.com/
 [lnk-portal]: https://portal.azure.com/
 [lnk-create-edit-users]: ../active-directory/active-directory-create-users.md
 [lnk-assign-app-roles]: ../active-directory/active-directory-coreapps-assign-user-azure-portal.md

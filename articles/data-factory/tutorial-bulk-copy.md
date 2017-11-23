@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/06/2017
 ms.author: jingwang
-ms.openlocfilehash: f7683bc203c93993c0eb5aaed6ca788458546019
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: be23cd6b500fd186fdcbe6f5c2371f84e075e3e8
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>Copiar várias tabelas em massa usando o Azure Data Factory
 
@@ -31,7 +31,7 @@ ms.lasthandoff: 11/04/2017
 
 Este tutorial demonstra como **copiar uma série de tabelas do Banco de Dados SQL do Azure para o SQL Data Warehouse do Azure**. Você também pode aplicar o mesmo padrão em outros cenários de cópia. Por exemplo, copiando tabelas do SQL Server/Oracle para o Banco de Dados SQL do Azure/Data Warehouse/Blob do Azure, copiando diferentes caminhos do Blob para tabelas do Banco de Dados SQL do Azure.
 
-Em um alto nível, este tutorial envolve as seguintes etapas:
+De forma mais abrangente, este tutorial envolve as seguintes etapas:
 
 > [!div class="checklist"]
 > * Criar uma fábrica de dados.
@@ -39,17 +39,17 @@ Em um alto nível, este tutorial envolve as seguintes etapas:
 > * Criar conjuntos de dados do Banco de Dados SQL do Azure e do SQL Data Warehouse do Azure.
 > * Crie um pipeline para consultar as tabelas a serem copiadas e outro pipeline para executar a operação de cópia propriamente dita. 
 > * Inicie uma execução de pipeline.
-> * Monitore as execuções de pipeline e de atividade.
+> * Monitorar as execuções de pipeline e de atividade.
 
-Este tutorial usa o Azure PowerShell. Para obter informações sobre como usar outras ferramentas/SDKs para criar um data factory, consulte [Guias de início rápido](quickstart-create-data-factory-dot-net.md). 
+Este tutorial usa o Azure PowerShell. Para obter informações sobre como usar outras ferramentas/SDKs para criar um data factory, consulte os [Guias de início rápido](quickstart-create-data-factory-dot-net.md). 
 
 ## <a name="end-to-end-workflow"></a>Fluxos de trabalho completos
-Nesse cenário, temos um número de tabelas no Banco de Dados SQL do Azure que desejamos para copiar para o SQL Data Warehouse. Aqui está a sequência lógica de etapas no fluxo de trabalho que ocorre em pipelines:
+Neste cenário, temos algumas tabelas do Banco de Dados SQL do Azure que desejamos copiar no SQL Data Warehouse. Aqui está a sequência lógica de etapas no fluxo de trabalho que ocorre em pipelines:
 
 ![Fluxo de trabalho](media/tutorial-bulk-copy/tutorial-copy-multiple-tables.png)
 
-* O primeiro pipeline verifica a lista de tabelas que precisam ser copiadas para os armazenamentos de dados de coletor.  Alternativamente, você pode manter uma tabela de metadados que lista todas as tabelas a serem copiadas para o armazenamento de dados de coletor. Em seguida, o pipeline dispara outro pipeline, que faz iteração por cada tabela no banco de dados e executa a operação de cópia de dados.
-* O segundo pipeline realiza a cópia propriamente dita. Ele usa a lista de tabelas como um parâmetro. Para cada tabela na lista, copie a tabela específica no Banco de Dados SQL do Azure para a tabela correspondente no SQL Data Warehouse usando [cópia preparada via Armazenamento de Blobs e PolyBase](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) para obter o melhor desempenho. Neste exemplo, o primeiro pipeline passa a lista de tabelas como um valor para o parâmetro. 
+* O primeiro pipeline verifica a lista de tabelas que precisam ser copiadas nos armazenamentos de dados do coletor.  Alternativamente, você pode manter uma tabela de metadados que lista todas as tabelas a serem copiadas para o armazenamento de dados de coletor. Em seguida, o pipeline dispara outro pipeline, que faz iteração por cada tabela no banco de dados e executa a operação de cópia de dados.
+* O segundo pipeline realiza a cópia propriamente dita. Ele usa a lista de tabelas como um parâmetro. Para cada tabela na lista, copie a tabela específica no Banco de Dados SQL do Azure para a tabela correspondente no SQL Data Warehouse usando a [cópia preparada via Armazenamento de Blobs e PolyBase](connector-azure-sql-data-warehouse.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) para obter o melhor desempenho. Neste exemplo, o primeiro pipeline envia a lista de tabelas como um valor para o parâmetro. 
 
 Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://azure.microsoft.com/free/) antes de começar.
 
@@ -68,7 +68,7 @@ Crie um Banco de Dados SQL do Azure contendo dados de exemplo do Adventure Works
 
 **Preparar o SQL Data Warehouse do Azure de coletor**:
 
-1. Se você não tiver um SQL Data Warehouse do Azure, veja o artigo [Criar um SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md#create-a-sql-data-warehouse) para conhecer as etapas para criar um.
+1. Se você não tiver um SQL Data Warehouse do Azure, veja o artigo [Criar um SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md) para conhecer as etapas para criar um.
 
 2. Crie os esquemas de tabela correspondentes no SQL Data Warehouse. Você pode usar o [Utilitário de Migração](https://www.microsoft.com/download/details.aspx?id=49100) para **migrar o esquema** do Banco de Dados SQL do Azure para o SQL Data Warehouse do Azure. Você usa o Azure Data Factory para migrar/copiar dados em uma etapa posterior.
 

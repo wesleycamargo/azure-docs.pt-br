@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/23/2017
+ms.date: 11/16/2017
 ms.author: manayar
-ms.openlocfilehash: 97edbe67c25036dc1156f0f0ca5431a617d7a004
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9db7e276fbbc064abe16cab2d2df668d2b1c8f7d
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="multi-tenant-support-in-azure-site-recovery-for-replicating-vmware-virtual-machines-to-azure-through-csp"></a>Suporte a multilocatários no Azure Site Recovery para replicar máquinas virtuais do VMware no Azure por meio do CSP
 
@@ -50,7 +50,7 @@ Conforme visto no diagrama anterior, cada cliente tem um servidor de gerenciamen
 O requisito de isolamento de dados precisa que todas as informações confidenciais de infraestrutura (como credenciais de acesso) continuem não sendo reveladas para os locatários. Por esse motivo, é recomendável que todos os componentes do servidor de gerenciamento permaneçam sob controle exclusivo do parceiro. Os componentes de servidor de gerenciamento são:
 * CS (Servidor de configuração)
 * PS (Servidor de processo)
-* MT (Servidor de destino mestre) 
+* MT (Servidor de destino mestre)
 
 Um PS de expansão também está sob controle do parceiro.
 
@@ -82,7 +82,7 @@ O procedimento de acesso da conta do vCenter é o seguinte:
 
     * **Tarefas**: Criar tarefa, Atualizar tarefa
 
-    * **Máquina virtual**: 
+    * **Máquina virtual**:
         * Configuração > todas
         * Interação > Responder perguntas, Conexão do dispositivo, Configurar mídia de CD, Configurar mídia de disquete, Desligar, Ligar, Instalação de ferramentas VMware
         * Inventário > Criar com base em existente, Criar novo, Registrar, Cancelar registro
@@ -138,8 +138,8 @@ Os pré-requisitos de VM são os mesmos descritos na [documentação do Azure Si
 
 ### <a name="step-1-create-a-tenant-account"></a>Etapa 1: criar uma conta de locatário
 
-1. Entre na sua conta do CSP por meio do [Microsoft Partner Center](https://partnercenter.microsoft.com/). 
- 
+1. Entre na sua conta do CSP por meio do [Microsoft Partner Center](https://partnercenter.microsoft.com/).
+
 2. No menu **Painel**, selecione **Clientes**.
 
     ![O link de clientes do Microsoft Partner Center](./media/site-recovery-multi-tenant-support-vmware-using-csp/csp-dashboard-display.png)
@@ -160,22 +160,22 @@ Os pré-requisitos de VM são os mesmos descritos na [documentação do Azure Si
 
     ![A página Revisão](./media/site-recovery-multi-tenant-support-vmware-using-csp/customer-summary-page.png)  
 
-    Depois de criar a conta do locatário, uma página de confirmação é mostrada exibindo os detalhes da conta e a senha padrão para essa assinatura. 
+    Depois de criar a conta do locatário, uma página de confirmação é mostrada exibindo os detalhes da conta e a senha padrão para essa assinatura.
 
 7. Salve as informações e altere a senha mais tarde, conforme necessário, na página de Logon do Portal do Azure.  
- 
+
     Você pode compartilhar essas informações dessa forma com o locatário ou criar e compartilhar uma conta separada, se necessário.
 
 ### <a name="step-2-access-the-tenant-account"></a>Etapa 2: acessar a conta de locatário
 
-Você pode acessar a assinatura do locatário por meio do Painel do Microsoft Partner Center, conforme descrito em “Etapa 1: criar uma conta de locatário”. 
+Você pode acessar a assinatura do locatário por meio do Painel do Microsoft Partner Center, conforme descrito em “Etapa 1: criar uma conta de locatário”.
 
 1. Acesse a página **Clientes** e clique no nome da conta de locatário.
 
 2. Na página **Assinaturas** da conta do locatário, você pode monitorar as assinaturas existentes da conta e adicionar mais assinaturas conforme necessário. Para gerenciar operações de recuperação de desastre do locatário, selecione **Todos os recursos (Portal do Azure)**.
 
     ![O link Todos os Recursos](./media/site-recovery-multi-tenant-support-vmware-using-csp/all-resources-select.png)  
-    
+
     Clicar em **Todos os recursos** concede a você o acesso às assinaturas do Azure do locatário. Você pode verificar o acesso clicando no link do Azure Active Directory na parte superior direita do Portal do Azure.
 
     ![Link do Azure Active Directory](./media/site-recovery-multi-tenant-support-vmware-using-csp/aad-admin-display.png)
@@ -183,8 +183,8 @@ Você pode acessar a assinatura do locatário por meio do Painel do Microsoft Pa
 Agora você pode executar todas as operações de recuperação de site para o locatário por meio do Portal do Azure e gerenciar as operações de recuperação de desastre. Para acessar a assinatura do locatário por meio de CSP para recuperação de desastre gerenciada, siga o processo descrito anteriormente.
 
 ### <a name="step-3-deploy-resources-to-the-tenant-subscription"></a>Etapa 3: implantar recursos na assinatura do locatário
-1. No Portal do Azure, crie um grupo de recursos e implante um cofre dos Serviços de Recuperação de acordo com o processo normal. 
- 
+1. No Portal do Azure, crie um grupo de recursos e implante um cofre dos Serviços de Recuperação de acordo com o processo normal.
+
 2. Baixe a chave do registro do cofre.
 
 3. Registre o CS para o locatário usando a chave de registro do cofre.

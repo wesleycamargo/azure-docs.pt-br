@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/30/2017
+ms.date: 11/20/2017
 ms.author: bryanla
-ms.openlocfilehash: 6e52896f0d03661eab033c5b58b86360ce346b55
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 4621ca88c0d1443cd8bdeea2d34e8f333727acc0
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="use-a-linux-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Usar a Identidade de Serviço Gerenciada da VM do Linux para acessar o Armazenamento do Azure por meio de uma credencial SAS
 
@@ -33,8 +33,11 @@ Uma SAS de Serviço permite conceder acesso limitado a objetos em uma conta de a
 > * Conceda à sua VM acesso a SAS de conta de armazenamento no Resource Manager 
 > * Obter um token de acesso usando a identidade da VM e usá-lo para recuperar SAS do Resource Manager 
 
+## <a name="prerequisites"></a>Pré-requisitos
 
-Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
+[!INCLUDE [msi-qs-configure-prereqs](../../includes/active-directory-msi-qs-configure-prereqs.md)]
+
+[!INCLUDE [msi-tut-prereqs](../../includes/active-directory-msi-tut-prereqs.md)]
 
 ## <a name="sign-in-to-azure"></a>Entrar no Azure
 Entre no portal do Azure em [https://portal.azure.com](https://portal.azure.com).
@@ -111,7 +114,7 @@ O Armazenamento do Azure não dá suporte nativo a autenticação do Azure AD.  
 
 Para o restante do tutorial, trabalharemos na VM criada anteriormente.
 
-Para concluir essas etapas, você precisará de cliente SSH. Se você estiver usando o Windows, poderá usar o cliente SSH no [Subsistema do Windows para Linux](https://msdn.microsoft.com/commandline/wsl/install_guide). Se precisar de ajuda para configurar as chaves do cliente SSH, consulte [Como usar chaves SSH com o Windows no Azure](../virtual-machines/linux/ssh-from-windows.md) ou [Como criar e usar um par de chaves SSH pública e privada para VMs Linux no Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
+Para concluir essas etapas, você precisará de cliente SSH. Se você estiver usando o Windows, poderá usar o cliente SSH no [Subsistema do Windows para Linux](https://msdn.microsoft.com/commandline/wsl/install_guide). Se precisar de ajuda para configurar as chaves do cliente SSH, confira [Como usar chaves SSH com o Windows no Azure](../virtual-machines/linux/ssh-from-windows.md), ou [Como criar e usar um par de chaves SSH pública e privada para VMs Linux no Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
 
 1. No portal do Azure, navegue até **Máquinas Virtuais**, vá para a máquina virtual do Linux e na página **Visão geral**, clique em **Conectar** na parte superior. Copie a cadeia de caracteres para conectar-se à VM. 
 2. Conecte-se à VM usando um cliente SSH.  
