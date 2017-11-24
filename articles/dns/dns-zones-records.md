@@ -15,11 +15,11 @@ ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
 ms.author: jonatul
-ms.openlocfilehash: 5818986c939c464a364c52ab31225e15130ab30e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 00f6309114039db23a1d22f1eb70076b842dadca
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="overview-of-dns-zones-and-records"></a>Visão geral de zonas e registros DNS
 
@@ -54,6 +54,16 @@ No DNS do Azure, o TTL é especificado para o conjunto de registros, não para c
 O DNS do Azure dá suporte a [registros curinga](https://en.wikipedia.org/wiki/Wildcard_DNS_record). Registros curinga são retornados como resposta a consultas com um nome correspondente (a menos que haja uma correspondência mais próxima de um conjunto de registros não curinga). O DNS do Azure dá suporte a conjuntos de registros curinga para todos os tipos de registro, exceto NS e SOA.
 
 Para criar um conjunto de registros curinga, use o nome do conjunto de registros '\*'. Como alternativa, você também pode usar um nome com '\*'como seu rótulo na extremidade esquerda, por exemplo,'\*.foo '.
+
+### <a name="caa-records"></a>Registros CAA
+
+Os registros CAA permitem aos proprietários do domínio especificar quais ACs (Autoridades de Certificação) estão autorizadas a emitir certificados para seus domínios. Isso permite que as ACs evitem emitir certificados incorretamente em algumas circunstâncias. Os registros CAA têm três propriedades:
+* **Sinalizadores**: esse é um inteiro entre 0 e 255, usado para representar o sinalizador crítico que tem um significado especial, conforme o [RFC](https://tools.ietf.org/html/rfc6844#section-3)
+* **Marcação**: uma cadeia de caracteres ASCII que pode ser uma das seguintes:
+    * **issue**: use essa opção se desejar especificar as ACs que têm permissão para emitir certificados (todos os tipos)
+    * **issuewild**: use essa opção se desejar especificar as ACs que têm permissão para emitir certificados (somente certificados curinga)
+    * **iodef**: especifique um endereço de email ou o nome do host o qual as ACs podem notificar para solicitações de problema de certificado não autorizado
+* **Valor**: o valor da Marcação específica escolhida
 
 ### <a name="cname-records"></a>Registros CNAME
 

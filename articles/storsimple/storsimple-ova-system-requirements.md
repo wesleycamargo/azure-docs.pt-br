@@ -4,7 +4,7 @@ description: Aprender sobre os requisitos de software e de rede para sua StorSim
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: ea1d3bca-e71b-453d-aa82-440d2638f5e3
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/16/2017
+ms.date: 11/14/2017
 ms.author: alkohli
-ms.openlocfilehash: 8cae0577d950e3968bc25083e59d637963e6b442
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 5d01523f326bd7e2518bff06e62ae62db8f318d3
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="storsimple-virtual-array-system-requirements"></a>Requisitos do sistema da StorSimple Virtual Array
 ## <a name="overview"></a>Visão geral
@@ -41,7 +41,10 @@ Os requisitos de software incluem as informações sobre os navegadores da Web, 
 | **Hipervisor** | **Versão** |
 | --- | --- |
 | Hyper-V |Windows Server 2008 R2 SP1 e posterior |
-| VMware ESXi |5.5 e 6.0 |
+| VMware ESXi |5.0, 5.5 e 6.0 <br> (Não há suporte para o 6.5.) |
+
+> [!IMPORTANT]
+> Não instale as ferramentas do VMware no StorSimple Virtual Array. Isso resulta em uma configuração sem suporte.
 
 ### <a name="virtual-device-requirements"></a>Requisitos de dispositivo virtual
 | **Componente** | **Requisito** |
@@ -79,8 +82,8 @@ Os requisitos de software a seguir referem-se aos clientes SMB que acessam o Sto
 | SMB 3.02 |
 
 > [!IMPORTANT]
-> Não copie ou armazene arquivos protegidos pelo Windows Encrypting File System (EFS) para o servidor de arquivo StorSimple Virtual Array. Isso resultará em uma configuração sem suporte. 
-> 
+> Não copie ou armazene arquivos protegidos pelo Windows Encrypting File System (EFS) para o servidor de arquivo StorSimple Virtual Array. Isso resultará em uma configuração sem suporte.
+
 
 ### <a name="supported-storage-format"></a>Formato de armazenamento com suporte
 Há suporte para o armazenamento de blob de blocos do Azure. Blobs de página não têm suporte. Para obter mais informações [sobre blobs de blocos e blobs de página](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs).

@@ -4,7 +4,7 @@ description: Dados de exemplo no SQL Server no Azure
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgeonlun
 editor: cgronlun
 ms.assetid: 33c030d4-5cca-4cc9-99d7-2bd13a3926af
 ms.service: machine-learning
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/13/2017
 ms.author: fashah;garye;bradsev
-ms.openlocfilehash: fbd83ad59a9db1daca4ba16402031e2c1c5b7991
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fd669f3951b1f7f05932634f039a04e02993399f
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="heading"></a>Dados de exemplo no SQL Server no Azure
-Este documento mostra como obter amostras de dados armazenados no SQL Server no Azure usando o SQL ou a linguagem de programação Python. Também mostra como mover dados de amostra para o Azure Machine Learning, salvando-os em um arquivo, carregando-os em um blob do Azure e, em seguida, lendo-os no Estúdio do Azure Machine Learning.
+Este artigo mostra como obter amostras de dados armazenados no SQL Server no Azure usando o SQL ou a linguagem de programação Python. Também mostra como mover dados de amostra para o Azure Machine Learning, salvando-os em um arquivo, carregando-os em um blob do Azure e, em seguida, lendo-os no Estúdio do Azure Machine Learning.
 
 A amostragem de Python usa a biblioteca ODBC [pyodbc](https://code.google.com/p/pyodbc/) para se conectar ao SQL Server no Azure e a biblioteca [Pandas](http://pandas.pydata.org/) para fazer a amostragem.
 
@@ -30,7 +30,7 @@ A amostragem de Python usa a biblioteca ODBC [pyodbc](https://code.google.com/p/
 > 
 > 
 
-O **menu** a seguir leva a tópicos que descrevem como obter dados de exemplo de vários ambientes de armazenamento. 
+O **menu** a seguir leva a artigos que descrevem como obter dados de exemplo de vários ambientes de armazenamento. 
 
 [!INCLUDE [cap-sample-data-selector](../../../includes/cap-sample-data-selector.md)]
 
@@ -42,7 +42,7 @@ Essa tarefa de amostragem é uma etapa do [TDSP (Processo de Ciência de Dados d
 ## <a name="SQL"></a>Usando o SQL
 Esta seção descreve vários métodos usando SQL para executar uma amostragem aleatória simples em relação aos dados no banco de dados. Escolha um método com base no tamanho e na distribuição dos seus dados.
 
-Os dois itens a seguir mostram como usar newid no SQL Server para executar a amostra. O método escolhido depende do quão aleatório você deseja que o exemplo seja (pk_id no código de exemplo abaixo é considerado como uma chave primária gerada automaticamente).
+Os dois itens a seguir mostram como usar `newid` no SQL Server para executar a amostra. O método escolhido depende do quão aleatório você deseja que o exemplo seja (pk_id no código de exemplo a seguir é considerado como uma chave primária gerada automaticamente).
 
 1. Menos rígido do exemplo aleatório
    
@@ -53,7 +53,7 @@ Os dois itens a seguir mostram como usar newid no SQL Server para executar a amo
         SELECT * FROM <table_name>
         WHERE 0.1 >= CAST(CHECKSUM(NEWID(), <primary_key>) & 0x7fffffff AS float)/ CAST (0x7fffffff AS int)
 
-TABLESAMPLE pode ser usado para amostragem conforme demonstrado a seguir. Isso pode ser uma abordagem melhor se o tamanho de dados for grande (supondo que os dados em diferentes páginas não estejam correlacionados) e para a consulta terminar em um tempo razoável.
+Tablesample pode ser usado para amostragem de dados também. Isso pode ser uma abordagem melhor se o tamanho de dados for grande (supondo que os dados em diferentes páginas não estejam correlacionados) e para a consulta terminar em um tempo razoável.
 
     SELECT *
     FROM <table_name> 
@@ -117,7 +117,7 @@ Você pode usar o código de exemplo a seguir para salvar os dados convertidos e
 ![blob de leitor][2]
 
 ## <a name="the-team-data-science-process-in-action-example"></a>Exemplo do Processo de Ciência de Dados de Equipe em ação
-Para obter um exemplo passo a passo completo do Processo de Ciência de Dados de Equipe usando um conjunto de dados público, confira [O Processo de Ciência de Dados de Equipe em ação: usando o SQL Server](sql-walkthrough.md).
+Para obter um exemplo passo a passo completo do Processo de Ciência de Dados de Equipe usando um conjunto de dados públicos, confira [O Processo de Ciência de Dados de Equipe em ação: usando o SQL Server](sql-walkthrough.md).
 
 [1]: ./media/sample-sql-server-virtual-machine/reader_database.png
 [2]: ./media/sample-sql-server-virtual-machine/reader_blob.png

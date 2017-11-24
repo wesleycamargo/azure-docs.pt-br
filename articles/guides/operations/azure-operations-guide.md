@@ -15,14 +15,12 @@ ms.tgt_pltfrm:
 ms.workload: infrastructure
 ms.date: 06/12/2017
 ms.author: nepeters
-ms.translationtype: HT
-ms.sourcegitcommit: 2c6cf0eff812b12ad852e1434e7adf42c5eb7422
 ms.openlocfilehash: 1180001c9fe74aab6b51c5b5969b80a8c7e1302f
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/13/2017
-
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/17/2017
 ---
-
 # <a name="introduction-to-cloud-computing-and-microsoft-azure"></a>Introdução à computação em nuvem e ao Microsoft Azure
 
 Este guia apresenta conceitos fundamentais relacionados à implantação e ao gerenciamento de uma infraestrutura do Microsoft Azure. Se você não for familiarizado com a computação em nuvem ou com o Azure, este guia serve como introdução rápida a conceitos, implantação e detalhes de gerenciamento. Muitas seções deste guia discutem uma operação como a implantação de uma máquina virtual e, em seguida, fornecem um link para detalhes técnicos aprofundados.
@@ -517,4 +515,3 @@ Você pode ajudar a proteger redes virtuais do Azure usando um grupo de seguran�
 
 - [Criar uma VM do Windows](/virtual-machines/windows/quick-create-portal.md)
 - [Criar uma VM Linux](../../virtual-machines/linux/quick-create-portal.md)
-

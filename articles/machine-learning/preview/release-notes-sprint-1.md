@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/06/2017
-ms.openlocfilehash: a294a3f92163f78bace56654c284c4e83623b829
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: a4945c77be5763ffeda328184149f712572937c0
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="sprint-1---november-2017"></a>Sprint 1 – novembro de 2017 
 
@@ -122,18 +122,18 @@ Veja abaixo uma lista de atualizações detalhadas em cada área de componente d
 
 ### <a name="operationalization"></a>Operacionalização
 - Um serviço Web com “pontuação” em seu nome não falha mais.
-- Agora o usuário pode criar um ambiente de implantação com apenas o acesso de Proprietário a um grupo de recursos do Azure. O acesso de Proprietário à assinatura inteira não é mais necessário.
+- Agora o usuário pode criar um ambiente de implantação com apenas o acesso de Colaborador a um grupo de recursos do Azure ou à assinatura. O acesso de Proprietário à assinatura inteira não é mais necessário.
 - A CLI de operacionalização agora aproveita o preenchimento automático de guias no Linux.
 - O serviço de construção de imagens agora dá suporte à criação de imagens para serviços/dispositivos IoT do Azure.
 
 ### <a name="sample-projects"></a>Projetos de exemplo
-- Projeto de exemplo _Classificando o Iris_:
+- Projeto de exemplo [_Classificando o Iris_](./tutorial-classifying-iris-part-1.md):
     - `iris_pyspark.py` foi renomeado para `iris_spark.py`.
-    - `iris_score.py` foi renomeado para `iris-score.py`.
+    - `iris_score.py` foi renomeado para `score_iris.py`.
     - `iris.dprep` e `iris.dsource` foram atualizados para refletirem as últimas atualizações do mecanismo de preparação de dados.
     - O `iris.ipynb` Notebook foi corrigido para funcionar no cluster HDInsight.
     - O histórico de execuções foi ativado na célula do Notebook `iris.ipynb`.
-- Correção da etapa “Resolver o valor de erro” do projeto de exemplo _Preparação Avançada de Dados usando os Dados de Compartilhamento de Bicicletas_.
-- Formato `docker.runconfig` do projeto de exemplo _MMLSpark em Dados de Censo Adulto_ atualizado de JSON para YAML.
-- Formato `docker.runconfig` do projeto de exemplo Ajuste de Hiperparâmetro Distribuído atualizado de JSON para YAML.
-- Novo projeto de exemplo _Classificação de imagens usando o CNTK_.
+- Correção da etapa “Resolver o Valor de Erro” do projeto de exemplo [_Preparação Avançada de Dados usando os Dados de Compartilhamento de Bicicletas_](./tutorial-bikeshare-dataprep.md).
+- Formato `docker.runconfig` do projeto de exemplo [_MMLSpark em Dados de Censo Adulto_](https://github.com/Azure/MachineLearningSamples-mmlspark) atualizado de JSON para YAML.
+- Formato `docker.runconfig` do projeto de exemplo [_Ajuste de Hiperparâmetro Distribuído_](./scenario-distributed-tuning-of-hyperparameters.md) atualizado de JSON para YAML.
+- Novo projeto de exemplo [_Classificação de imagens usando o CNTK_](./scenario-image-classification-using-cntk.md).

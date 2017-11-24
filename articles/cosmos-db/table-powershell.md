@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/02/2017
+ms.date: 11/15/2017
 ms.author: robinsh
-ms.openlocfilehash: 35d05b7003d731610df816c8470acc9133a4a6de
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: d0f835db8a9fbe3833a9c7931ad1d8b4a778f016
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="perform-azure-cosmos-db-table-api-operations-with-azure-powershell"></a>Executar operações da API de Tabela do Azure Cosmos DB com o Azure PowerShell 
 
@@ -47,7 +47,7 @@ Depois que o Azure PowerShell for instalado ou atualizado, você deverá instala
 Install-Module AzureRmStorageTable
 ```
 
-Embora a API de Tabela do Azure Cosmos DB esteja em versão prévia, você também precisa instalar seus assemblies localmente para usar esses cmdlets do PowerShell. Para obter instruções sobre como fazer isso, consulte [Módulo do PowerShell de Tabelas de Armazenamento da RM do Azure para Tabelas do Azure Cosmos DB](https://blogs.technet.microsoft.com/paulomarques/2017/05/23/azure-rm-storage-tables-powershell-module-now-includes-support-for-cosmos-db-tables/).
+Em seguida, instale os assemblies do Azure Cosmos DB localmente para usar esses cmdlets do PowerShell. Para obter instruções sobre como fazer isso, consulte [Módulo do PowerShell de Tabelas de Armazenamento da RM do Azure para Tabelas do Azure Cosmos DB](https://blogs.technet.microsoft.com/paulomarques/2017/05/23/azure-rm-storage-tables-powershell-module-now-includes-support-for-cosmos-db-tables/).
 
 Para testar os exercícios a seguir, você precisa de uma conta de banco de dados do Azure Cosmos DB. Caso ainda não tenha uma, crie uma nova conta do Azure Cosmos DB usando o [portal do Azure](https://portal.azure.com). Para obter ajuda sobre como criar uma nova conta de banco de dados, consulte [Azure Cosmos DB: criar uma conta de banco de dados](create-table-dotnet.md#create-a-database-account).
 

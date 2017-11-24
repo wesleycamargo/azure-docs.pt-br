@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/24/2017
 ms.author: adegeo
-ms.openlocfilehash: b8a9204b9eece396fbc30eacc8912ba9e655b963
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: d203580f676d55acbad4936160982a40592af1d0
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="scale-a-service-fabric-cluster"></a>Colocar em escala um cluster do Service Fabric
 
-Este tutorial é parte três de uma série e mostra como expandir e reduzir o cluster. Quando tiver terminado, saberá como colocar o cluster em escala e limpar quaisquer recursos restantes.
+Este tutorial é parte dois de uma série e mostra como expandir e reduzir o seu cluster existente. Quando tiver terminado, saberá como colocar o cluster em escala e limpar quaisquer recursos restantes.
 
 Neste tutorial, você aprenderá como:
 

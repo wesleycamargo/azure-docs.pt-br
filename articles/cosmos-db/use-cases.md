@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/25/2017
+ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 68800ab14cbca367fd97827a923a2edc377e9aee
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: cd10147047a7d5d8b0a15be08fbba24a07adffad
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="common-azure-cosmos-db-use-cases"></a>Casos de uso comuns do Azure Cosmos DB
 Este artigo fornece uma visão geral dos vários casos de uso comuns do Azure Cosmos DB.  As recomendações deste artigo servem como ponto de partida ao desenvolver seu aplicativo com o Cosmos DB.   
@@ -39,7 +39,7 @@ O Azure Cosmos DB é um multimodelo de banco de dados distribuído globalmente q
 
 Veja a seguir alguns atributos do Azure Cosmos DB que o tornam adequado para aplicativos de alto desempenho no âmbito global.
 
-* O Azure Cosmos DB particiona os dados nativamente para alta disponibilidade e escalabilidade. O Azure Cosmos DB oferece garantias de 99,99% para disponibilidade, produtividade, baixa latência e consistência.
+* O Azure Cosmos DB particiona os dados nativamente para alta disponibilidade e escalabilidade. O Azure Cosmos DB oferece uma disponibilidade de 99,99% em disponibilidade, débito, latência baixa e consistência para todas as contas de região única e todas as contas de várias regiões com consistência amena e 99,999% de disponibilidade de leitura em todas as contas de banco de dados de várias regiões.
 * O Azure Cosmos DB tem armazenamento com suporte de SSD com tempos de resposta de baixa latência na ordem de milissegundos.
 * O suporte do Azure Cosmos DB para níveis de consistência (como deterioração restrita, de sessão, de prefixo consistente e eventual) proporciona flexibilidade total e taxas baixas em relação ao custo-desempenho. Nenhum serviço de banco de dados oferece tanta flexibilidade quanto o Azure Cosmos DB na consistência de níveis. 
 * O Azure Cosmos DB tem um modelo de preços flexível e amigável aos dados que mede o armazenamento e a produtividade de modo independente.

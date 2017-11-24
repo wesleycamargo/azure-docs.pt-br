@@ -2,26 +2,26 @@
 title: "Como usar blocos de anotações do Jupyter no Azure Machine Learning Workbench | Microsoft Docs"
 description: "Guia para o uso do recurso de Blocos de Anotações do Jupyter do Azure Machine Learning Workbench"
 services: machine-learning
-author: jopela
-ms.author: jopela
+author: rastala
+ms.author: roastala
 manager: haining
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 09/20/2017
-ms.openlocfilehash: 93850a7c9e3d9d69b0da22ebd0656ae40cee2e63
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.date: 11/09/2017
+ms.openlocfilehash: 9d8a9f1c32578abff1d98e093469e1a780f6cd80
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="how-to-use-jupyter-notebook-in-azure-machine-learning-workbench"></a>Como usar blocos de anotações do Jupyter no Azure Machine Learning Workbench
 
 O Azure Machine Learning Workbench tem suporte para experimentação de ciência de dados interativa por meio da integração do bloco de anotações do Jupyter. Este artigo descreve como usar de maneira eficiente esse recurso para aumentar a velocidade e a qualidade da sua experimentação de ciência de dados interativa.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-- [Instalar e criar o Azure Machine Learning](/machine-learning/preview/quickstart-installation.md).
+- [Instalar e criar o Azure Machine Learning](quickstart-installation.md).
 - Familiarize-se com [bloco de anotações do Jupyter](http://jupyter.org/), uma vez que este artigo não ensina a usar o Jupyter.
 
 ## <a name="jupyter-notebook-architecture"></a>Arquitetura do bloco de anotações do Jupyter
@@ -48,6 +48,9 @@ Atualmente, o Workbench tem suporte para os tipos de kernels a seguir.
 
 ### <a name="local-python-kernel"></a>Kernel Python local
 Esse kernel Python dá suporte à execução no computador local. Ele é integrado ao suporte do Histórico de Execução do Azure Machine Learning. O nome do kernel normalmente é "my_project_name local".
+
+>[!NOTE]
+>Não use o kernel "Python 3". É um kernel autônomo fornecido pelo Jupyter por padrão. Ele é integrado à funcionalidade de Execução do Azure Machine Learning.
 
 ### <a name="python-kernel-in-docker-local-or-remote"></a>Python Kernel no Docker (local ou remoto)
 Esse kernel Python é executado em um contêiner do Docker em seu computador local ou em uma VM do Linux remota. O nome do kernel normalmente é "my_project docker". O arquivo `docker.runconfig` associado tem o campo `Framework` definido como `Python`.
@@ -104,6 +107,33 @@ Seu navegador padrão é inicializado automaticamente com o servidor Jupyter apo
 Agora você pode clicar em um arquivo do bloco de anotações `.ipynb`, abri-lo, definir o kernel (se não tiver sido definido) e iniciar a sessão interativa.
 
 ![painel do projeto](media/how-to-use-jupyter-notebooks/how-to-use-jupyter-notebooks-08.png)
+
+## <a name="use-magic-commands-to-manage-experiments"></a>Use os comandos mágicos para gerenciar experiências
+
+Você pode usar [comandos mágicos](http://ipython.readthedocs.io/en/stable/interactive/magics.html) dentro das células de seu notebook para acompanhar o histórico de execução e salvar saídas, como modelos ou conjuntos de dados.
+
+Para controlar o bloco de anotações individual célula é executado, use o comando mágico "%azureml history on". Após ativar o histórico, cada célula aparecerá como entrada no histórico de execução.
+
+```
+%azureml history on
+from azureml.logging import get_azureml_logger
+logger = get_azureml_logger()
+logger.log("Cell","Load Data")
+```
+
+Para desligar o controle de célula, use o comando mágico "%azureml history off".
+
+Você pode usar o comando mágico "carregamento do azureml %" para salvar arquivos de modelo e dados de seu tempo de execução. Os objetos salvos aparecem como saídas no modo de exibição de histórico de execução para uma determinada execução.
+
+```
+modelpath = os.path.join("outputs","model.pkl")
+with open(modelpath,"wb") as f:
+    pickle.dump(model,f)
+%azureml upload outputs/model.pkl
+```
+
+>[!NOTE]
+>As saídas devem ser salva em uma pasta chamada "saídas"
 
 ## <a name="next-steps"></a>Próximas etapas
 - Para saber como usar o bloco de anotações Jupyter, acesse a [documentação oficial do Jupyter](http://jupyter-notebook.readthedocs.io/en/latest/).    

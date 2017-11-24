@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 07/31/2017
+ms.date: 11/08/2017
 ms.author: larryfr
-ms.openlocfilehash: 6c74db1659742aa41306388273bec46800ba7609
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5bab7a0646d34de3b6d71370a0fa4216845ee6a2
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="accessing-diagnostic-logs-for-azure-data-lake-analytics"></a>Acessando os logs de diagnóstico do Azure Data Lake Analytics
 
@@ -36,11 +36,9 @@ O registro em log de diagnóstico permite que você colete as trilhas de auditor
 
     ![Ativar o diagnóstico para coletar logs de auditoria e de solicitações](./media/data-lake-analytics-diagnostic-logs/turn-on-logging.png)
 
-3. Em __Configurações de diagnóstico__, defina o status como __Ativado__ e selecione as opções de registro em log.
+3. De __configurações de Diagnóstico__, insira um __Nome__ para essa configuração de registro em log e opções de log, em seguida, selecione.
 
     ![Ativar o diagnóstico para coletar logs de auditoria e de solicitações](./media/data-lake-analytics-diagnostic-logs/enable-diagnostic-logs.png "Habilitar os logs de diagnóstico")
-
-   * Defina **Status** para **Ativado** para habilitar o log de diagnóstico.
 
    * Você pode optar por armazenar/processar os dados de três maneiras diferentes.
 
@@ -58,33 +56,13 @@ O registro em log de diagnóstico permite que você colete as trilhas de auditor
         > [!NOTE]
         > Selecione __Arquivar em uma conta de armazenamento__, __Transmitir para um Hub de Eventos__ ou __Enviar para o Log Analytics__ antes de clicar no botão __Salvar__.
 
-Depois de habilitar as configurações de diagnóstico, retorne à folha __Logs de diagnóstico__ para exibir os logs.
-
-## <a name="view-logs"></a>Exibir logs
-
-### <a name="use-the-data-lake-analytics-view"></a>Use a exibição do Data Lake Analytics
-
-1. Na folha de sua conta do Data Lake Analytics, em **Monitoramento**, selecione **Logs de Diagnóstico** e então selecione uma entrada para a qual exibir os logs.
-
-    ![Exibir logs de diagnóstico](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs.png "Exibir logs de diagnóstico")
-
-2. Os logs são categorizados em **Logs de Auditoria** e **Logs de Solicitação**.
-
-    ![entradas de log](./media/data-lake-analytics-diagnostic-logs/diagnostic-log-entries.png)
-
-   * Os Logs de Solicitação capturam todas as solicitações de API feitas na conta do Data Lake Analytics.
-   * Logs de auditoria são semelhantes aos Logs de solicitação, mas fornecem uma análise muito mais detalhada das operações. Por exemplo, uma única chamada à API de upload em um log de solicitação pode resultar em várias operações do tipo "Acréscimo" no log de auditoria.
-
-3. Clique no link **Download** para uma entrada de log para baixar o log.
-
 ### <a name="use-the-azure-storage-account-that-contains-log-data"></a>Use a conta de Armazenamento do Azure que contém dados de log
 
-1. Abra a folha Conta de Armazenamento do Azure associada ao Data Lake Analytics para registro em log e clique em __Blobs__. A folha **serviço Blob** lista dois contêineres.
-
-    ![Exibir logs de diagnóstico](./media/data-lake-analytics-diagnostic-logs/view-diagnostic-logs-storage-account.png "Exibir logs de diagnóstico")
+1. Para exibir os contêineres de blob que contêm dados de log, abra a conta de Armazenamento do Azure usada para análise Data Lake para registro em log e, em seguida, clique em __Blobs__.
 
    * O contêiner **insights-logs-audit** contém os logs de auditoria.
    * O contêiner **insights-logs-requests** contém os logs de solicitação.
+
 2. Nesses contêineres, os logs são armazenados na estrutura a seguir:
 
         resourceId=/

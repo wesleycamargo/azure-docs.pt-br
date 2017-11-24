@@ -1,6 +1,6 @@
 ---
-title: "Conectar-se a VMs após failover para um site secundário com o Azure Site Recovery | Microsoft Docs"
-description: "Diretrizes de rede para se conectar a VMs após o failover para um site secundário com o Azure Site Recovery."
+title: "Configure o endereçamento de IP para conectar após um fail-over para um site secundário com o Azure Site Recovery | Microsoft Docs"
+description: "Descreve como configurar o endereçamento de IP para conectar a VMs após fail-over para um site secundário com o Azure Site Recovery."
 services: site-recovery
 documentationcenter: 
 author: rayne-wiselman
@@ -12,15 +12,15 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2017
+ms.date: 11/14/2017
 ms.author: pratshar
-ms.openlocfilehash: ce33a90a303a10de8ff198754e8e39c334035537
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 6baeda08b1c41cc024a02f51ca27be2829c46962
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="connecting-to-vms-after-failover-to-a-secondary-site"></a>Conectar-se a VMs após o failover para um site secundário
+# <a name="set-up-ip-addressing-to-connect-after-failover-to-a-secondary-site"></a>Configurar o endereçamento IP para conectar após fal-over para um site secundário
 
 Depois de revisar os pré-requisitos de implantação, leia este artigo para planejar a rede na replicação de VMs (máquinas virtuais) Hyper-V gerenciadas em nuvens do System Center Virtual Machine Manager (VMM) para um site secundário usando o [Azure Site Recovery](site-recovery-overview.md) no portal do Azure. 
 

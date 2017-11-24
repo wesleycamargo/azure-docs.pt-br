@@ -12,11 +12,11 @@ ms.topic: article
 ms.date: 11/01/2017
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1c9bfe567b1e0872abc7aba054127735d5f61754
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 461feb952f7e2eddba9c7218b3463868e8cb7965
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Configurar a recuperação de desastre de VMs VMware locais para o Azure
 
@@ -85,20 +85,14 @@ A VM do servidor de configuração deve ser uma VM VMware altamente disponível 
 Na VM do servidor de configuração, verifique se o relógio do sistema está sincronizado com um Servidor de Horário.
 O horário deve ser sincronizado dentro de 15 minutos. Se a diferença de tempo for maior que 15 minutos, a instalação falhará.
 
-Verifique se a VM do servidor de configuração consegue acessar estas URLs:
+Verifique se o servidor de configuração consegue acessar estas URLs:
 
-- *.accesscontrol.windows.net. Usado para controle de acesso e gerenciamento de identidades.
-- *.backup.windowsazure.com. Usado para transferência de dados de replicação e coordenação.
-- *.blob.core.windows.net. Usado para acessar a conta de armazenamento que armazena os dados replicados.
-- *.hypervrecoverymanager.windowsazure.com. Usado para operações de gerenciamento de replicação e coordenação.
-- time.nist.gov and time.windows.com. Usados para verificar a sincronização de horário entre a hora do sistema e a hora global.
+   [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
+    
+    - Qualquer regra de firewall baseada em endereço IP deve permitir a comunicação com o Azure.
 
-URLs para a nuvem do Azure Governamental:
-
-- *.ugv.hypervrecoverymanager.windowsazure.us
-- *.ugv.backup.windowsazure.us
-- *.ugi.hypervrecoverymanager.windowsazure.us
-- *.ugi.backup.windowsazure.us
+- Permita os [Intervalos de IP do Datacenter do Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) e a porta HTTPS (443).
+    - Permita os intervalos de endereços IP para a região do Azure da sua assinatura e para o Oeste dos EUA (usados para Controle de Acesso e Gerenciamento de Identidade).
 
 As regras de firewall baseado em endereço IP devem permitir a comunicação com [Intervalos de IP de Datacenter do Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653) e com as portas 443 (HTTPS) e 9443 (replicação de dados). Lembre-se de permitir os intervalos de endereços IP para a região do Azure da sua assinatura e para o Oeste dos EUA (usado para Controle de Acesso e Gerenciamento de Identidade).
 

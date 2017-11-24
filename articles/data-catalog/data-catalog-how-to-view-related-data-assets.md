@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: data-catalog
 ms.date: 11/01/2017
 ms.author: maroche
-ms.openlocfilehash: 0623847ea1e79c3a45a8fbdcc1d3a551864aefd6
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: da7ac8f323f9b2ec6303fbc85aa570373a538bcf
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="how-to-view-related-data-assets-in-azure-data-catalog"></a>Como exibir ativos de dados relacionados no Catálogo de Dados do Azure?
 O Catálogo de Dados do Azure permite que você exiba os ativos de dados relacionados a um ativo de dados selecionado exiba as relações entre eles. 
@@ -30,6 +30,9 @@ Quando você registra os ativos de dados das fontes de dados a seguir, o Catálo
 - Banco de Dados SQL do Azure
 - MySQL
 - Oracle
+
+> [!NOTE]
+> Para o Catálogo de Dados importar a relação entre os ativos de dados, você deve registrar os dois ativos ao mesmo tempo. Se você tiver adicionado um deles separadamente, adicione-o novamente e os outros ativos de dados para importar a relação entre elas.
 
 ## <a name="view-related-data-assets"></a>Exibir ativos de dados relacionados
 Para exibir os ativos de dados relacionados a um conjunto de dados selecionado, use a guia **Relações** conforme mostrado na imagem a seguir: 

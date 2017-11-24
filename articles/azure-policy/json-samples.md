@@ -13,24 +13,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: 
-ms.date: 10/30/2017
+ms.date: 11/13/2017
 ms.author: banders
 ms.custom: mvc
-ms.openlocfilehash: bb0d996b950a31e3eaaaa9d90a6b96617b58192f
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 4042c3606155d1d37947afccafd64652c9659894
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="templates-for-azure-policy"></a>Modelos para o Azure Policy
 
-A tabela a seguir contém links para modelos json do Azure Policy.
+A tabela a seguir contém links para modelos json do Azure Policy. Esses exemplos são encontrados no [repositório de exemplos de Azure Policy](https://github.com/Azure/azure-policy).
 
 | | |
 |---|---|
 |**Computação**||
 | [Imagens de VM aprovadas](scripts/allowed-custom-images.md) | Exige que apenas imagens personalizadas aprovadas sejam implantadas no seu ambiente. Especifique uma matriz de IDs de imagens aprovadas. |
-| [Criar VM usando o Disco Gerenciado](scripts/create-vm-managed-disk.md) | Audita quando é criada uma máquina virtual e não usa discos gerenciados.|
+| [Auditar quando a VM não usa um Managed Disk](scripts/create-vm-managed-disk.md) | Audita quando é criada uma máquina virtual e não usa discos gerenciados.|
 | [Auditar se a extensão não existir](scripts/audit-ext-not-exist.md) | Audita se uma extensão não estiver implantada com uma máquina virtual. Especifique o distribuidor da extensão e o tipo para verificar se ela foi implantada. |
 | [Permitir imagem de VM personalizada de um Grupo de Recursos](scripts/allow-custom-vm-image.md) |  Requer que imagens personalizadas venha de um grupo de recursos aprovado. Especifique o nome do grupo de recursos aprovado. |
 | [Negar benefício de uso híbrido](scripts/deny-hybrid-use.md) | Proíbe o uso do AHUB (Benefício Híbrido do Azure). Use quando você não desejar permitir o uso local de licenças. |
@@ -39,6 +39,11 @@ A tabela a seguir contém links para modelos json do Azure Policy.
 | [Criar VM usando o Disco Gerenciado](scripts/use-managed-disk-vm.md) | Exige que as máquinas virtuais usem discos gerenciados.|
 |**Monitoramento**||
 | [Configuração de diagnóstico de auditoria](scripts/audit-diag-setting.md) | Auditará se as configurações de diagnóstico não estiverem habilitadas para tipos de recursos especificados. Você especifica uma matriz de tipos de recursos para verificar se as configurações de diagnóstico estão habilitadas. |
+|**Convenções de nome e texto**||
+| [Permite vários padrões de nome](scripts/allow-multiple-name-patterns.md) | Permite um dos vários padrões de nome a ser usado para recursos. |
+| [Exigir padrão de curtir](scripts/enforce-like-pattern.md) | Certifique-se de que os nomes dos recursos atendem à condição de curtir como um padrão. |
+| [Exigir padrão de correspondência](scripts/enforce-match-pattern.md) | Certifique-se de que os nomes dos recursos correspondem ao padrão de nomenclatura. |
+| [Exigir padrão de correspondência de marcas](scripts/enforce-tag-match-pattern.md) | Certifique-se de que um valor de marca corresponde a um padrão de texto. |
 |**Rede**||
 | [SKUs de Gateway de Aplicativo aprovadas](scripts/allowed-app-gate-sku.md) | Exige que os gateways de aplicativo usem uma SKU aprovada. Especifique uma matriz de SKUs aprovados. |
 | [Auditar se o Observador de Rede não está habilitado para a região](scripts/net-watch-not-enabled.md) | Auditará se o observador de rede não estiver habilitado para uma região especificada. Especifique o nome da região para verificar se o observador de rede está habilitado. |
@@ -62,6 +67,7 @@ A tabela a seguir contém links para modelos json do Azure Policy.
 | [Auditar a configuração de detecção de ameaças no nível do BD](scripts/audit-db-threat-det-setting.md) | Faz a auditoria de políticas de alerta de segurança do banco de dados SQL se essas políticas não estiverem definidas para o estado especificado. Especifique um valor que indica se a detecção de ameaças está habilitada ou desabilitada.  |
 | [Auditar a Configuração da Auditoria no Nível do SQL Server](scripts/audit-sql-ser-leve-audit-setting.md) | Auditará as configurações de auditoria do SQL Server se elas não corresponderem a uma configuração especificada. Especifique um valor que indica se as configurações de auditoria devem ser habilitadas ou desabilitadas. |
 | [Auditar a configuração de detecção de ameaças no nível do servidor](scripts/audit-sql-ser-threat-det-setting.md) | Faz a auditoria de políticas de alerta de segurança do banco de dados SQL se essas políticas não estiverem definidas para o estado especificado. Especifique um valor que indica se a detecção de ameaças está habilitada ou desabilitada.  |
+| [Auditar nenhum administrador do Azure Active Directory](scripts/audit-no-aad-admin.md) | Auditar quando não há nenhum administrador do Azure Active Directory atribuído ao SQL server. |
 | [SKUs do BD SQL permitidas](scripts/allowed-sql-db-skus.md) | Exige que bancos de dados SQL usem uma SKU aprovada. Especifique uma matriz de IDs de SKU permitidas ou uma matriz de nomes de SKU permitidos. |
 |**Armazenamento**||
 | [SKUs permitidas para Contas de Armazenamento e Máquinas Virtuais](scripts/allowed-skus-storage.md) | Exige que contas de armazenamento e máquinas virtuais usem SKUs aprovadas. Usa as políticas internas para garantir SKUs aprovadas. Especifique uma matriz de SKUs de máquinas virtuais aprovadas e uma matriz de SKUs de conta de armazenamento aprovadas. |

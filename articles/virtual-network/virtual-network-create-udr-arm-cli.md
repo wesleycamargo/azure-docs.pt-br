@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/16/2017
 ms.author: jdial
-ms.openlocfilehash: affa68b6aeedb031914b12dac711d93c7ed4a47a
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: adfcf53f9fca0efafb538edfd65b95313dcf1559
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="create-a-user-defined-route---azure-cli"></a>Criar uma rota definida pelo usuário - CLI do Azure
 
@@ -32,7 +32,7 @@ Neste tutorial, você criará uma rede virtual com sub-redes públicas, privadas
 
 ![Rotas definidas pelo usuário](./media/create-user-defined-route/user-defined-routes.png)
 
-Este artigo fornece etapas para criar uma rota definida pelo usuário usando o modelo de implantação do Gerenciador de Recursos, que é o modelo de implantação recomendado ao criar rotas definidas pelo usuário. Se você precisar criar uma rota definida pelo usuário (clássica), consulte [Criar uma rota definida pelo usuário (clássica)](virtual-network-create-udr-classic-cli.md). Se você não estiver familiarizado com os modelos de implantação do Azure, confira [Entender os modelos de implantação do Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Para saber mais sobre as rotas definidas pelo usuário, confira [Visão geral de rotas definidas pelo usuário](virtual-networks-udr-overview.md#user-defined).
+Este artigo fornece etapas para criar uma rota definida pelo usuário usando o modelo de implantação do Resource Manager, que é o modelo de implantação recomendado ao criar rotas definidas pelo usuário. Se você precisar criar uma rota definida pelo usuário (clássica), consulte [Criar uma rota definida pelo usuário (clássica)](virtual-network-create-udr-classic-cli.md). Se você não estiver familiarizado com os modelos de implantação do Azure, confira [Entender os modelos de implantação do Azure](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Para saber mais sobre as rotas definidas pelo usuário, confira [Visão geral de rotas definidas pelo usuário](virtual-networks-udr-overview.md#user-defined).
 
 ## <a name="create-routes-and-network-virtual-appliance"></a>Criar rotas e solução de virtualização de rede
 
@@ -284,7 +284,7 @@ Comandos da CLI do Azure são os mesmos, se você executar os comandos do Window
       --settings '{"commandToExecute":"powershell.exe Restart-Computer -ComputerName myVm-Nva -Force"}'
     ```
 
-3. Valide a comunicação entre as máquinas virtuais nas sub-redes Pública e Privada. 
+3. Valide a comunicação entre as máquinas virtuais nas sub-redes pública e privada. 
 
     - Abra uma conexão [SSH](../virtual-machines/linux/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-vm) (Linux) ou de [Área de Trabalho Remota](../virtual-machines/windows/tutorial-manage-vm.md?toc=%2fazure%2fvirtual-network%2ftoc.json#connect-to-vm) (Windows) para o endereço IP público da máquina virtual *myVm-Public*.
     - Em um prompt de comando na máquina virtual *myVm-Public*, digite `ping myVm-Private`. Você recebe respostas porque a NVA roteia o tráfego da sub-rede pública para a privada.
@@ -292,7 +292,13 @@ Comandos da CLI do Azure são os mesmos, se você executar os comandos do Window
         - **Windows**: Em um prompt de comando, execute o comando `tracert myvm-private`.
         - **Ubuntu**: Execute o comando `tracepath myvm-private`.
       O tráfego passa por 10.0.2.4 (a NVA) antes de alcançar 10.0.1.4 (a máquina virtual na sub-rede Privada). 
-    - Conclua as etapas anteriores conectando-se à máquina virtual *myVm-Private* e executando ping na máquina virtual *myVm-Public*. A rota de rastreamento mostra a comunicação viajando através de 10.0.2.4 antes de alcançar 10.0.0.4 (a máquina virtual na sub-rede Pública).
+    - Conclua as etapas anteriores conectando-se à máquina virtual *myVm-Private* e executando ping na máquina virtual *myVm-Public*. A rota de rastreamento mostra a comunicação viajando através de 10.0.2.4 antes de alcançar 10.0.0.4 (a máquina virtual na sub-rede pública).
+      
+      > [!NOTE]
+      > As etapas anteriores permitem confirmar o roteamento entre os endereços IP privados do Azure. Caso você deseje encaminhar o tráfego ou usar um proxy para ele, a endereços IP públicos por meio de uma solução de virtualização de rede:
+      > - O dispositivo deve fornecer a funcionalidade de conversão de endereços de rede ou de proxy. Se a conversão de endereços de rede for usada, o dispositivo deverá converter o endereço IP de origem para seu próprio e, em seguida, encaminhar essa solicitação para o endereço IP público. Independentemente de o dispositivo ter o endereço de origem convertido em um endereço de rede ou estiver usando um proxy, o Azure converte o endereço IP privado da solução de virtualização de rede para um endereço IP público. Para obter mais informações sobre os diferentes métodos usados pelo Azure para converter endereços IP privados em endereços IP públicos, consulte [Noções básicas sobre conexões de saída](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+      > - Uma rota adicional na tabela de rota como o prefixo: 0.0.0.0/0, o tipo do próximo salto VirtualAppliance e o endereço IP do próximo salto 10.0.2.4 (no script de exemplo anterior).
+      >
     - **Opcionalmente**: Use a funcionalidade de próximo salto do Observador de Rede do Azure para validar o próximo salto entre duas máquinas virtuais no Azure. Antes de usar o Observador de Rede, você deve primeiro [Criar uma instância do Observador de Rede do Azure](../network-watcher/network-watcher-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para a região na qual você deseja usá-lo. Neste tutorial, a região Leste dos EUA é usada. Depois de habilitar uma instância do Observador de Rede para a região, digite o comando a seguir para ver as informações do próximo salto entre as máquinas virtuais nas sub-redes Pública e Privada:
      
         ```azurecli-interactive
@@ -348,6 +354,6 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Criar uma [solução de virtualização de rede altamente disponível](/azure/architecture/reference-architectures/dmz/nva-ha?toc=%2fazure%2fvirtual-network%2ftoc.json).
+- Crie uma [solução de virtualização de rede altamente disponível](/azure/architecture/reference-architectures/dmz/nva-ha?toc=%2fazure%2fvirtual-network%2ftoc.json).
 - Soluções de virtualização de rede geralmente possuem vários adaptadores de rede e endereços IP atribuídos a eles. Saiba como [adicionar adaptadores de rede a uma máquina virtual existente](virtual-network-network-interface-vm.md#vm-add-nic) e [adicionar endereços IP a um adaptador de rede](virtual-network-network-interface-addresses.md#add-ip-addresses). Embora todos os tamanhos de máquina virtual possam ter pelo menos dois adaptadores de rede anexados a eles, o tamanho de cada máquina virtual dá suporte a um número máximo de adaptadores de rede. Para saber a quantos adaptadores de rede cada tamanho de máquina virtual dá suporte, consulte os tamanhos de máquina virtual do [Windows](../virtual-machines/windows/sizes.md?toc=%2Fazure%2Fvirtual-network%2Ftoc.json) e [Linux](../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
 - Crie uma rota definida pelo usuário para realizar túnel forçado de tráfego local por meio de uma [conexão de VPN site a site](../vpn-gateway/vpn-gateway-forced-tunneling-rm.md?toc=%2fazure%2fvirtual-network%2ftoc.json).

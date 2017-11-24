@@ -1,25 +1,25 @@
 ---
-title: "Solicitações de aumento de cota de núcleo do Azure Resource Manager | Microsoft Docs"
-description: "Solicitações de aumento de cota de núcleo do Azure Resource Manager"
+title: "Solicitações de aumento de cota de vCPU do Azure Resource Manager | Microsoft Docs"
+description: "Solicitações de aumento de cota de vCPU do Azure Resource Manager"
 author: ganganarayanan
 ms.author: gangan
 ms.date: 1/18/2017
 ms.topic: article
 ms.service: microsoft-docs
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: cb6c5b3e86f126d4110d1cd29d8c9891e356e414
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c22a6dde0067385a1bf8d889cc76178bb44dd0ac
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
-# <a name="resource-manager-core-quota-increase-requests"></a>Solicitações de aumento de cota de núcleo do Resource Manager
+# <a name="resource-manager-vcpu-quota-increase-requests"></a>Solicitações de aumento de cota de vCPU do Resource Manager
 
-As cotas de núcleo do Resource Manager são aplicadas no nível da região e no nível de família de SKU.
+As cotas de vCPU do Resource Manager são aplicadas no nível da região e no nível de família de SKU.
 Saiba mais sobre como as cotas são aplicadas na página [Limites de serviço da assinatura do Azure ](http://aka.ms/quotalimits).
 Para saber mais sobre as famílias de SKU, compare custo e desempenho na página [Preços de máquinas virtuais](http://aka.ms/pricingcompute).
 
-Para solicitar um aumento, crie um caso de suporte de Cota para Núcleos no Portal do Azure, [https://portal.azure.com](https://portal.azure.com).
+Para solicitar um aumento, crie um caso de suporte de Cota para vCPUs no Portal do Azure, [https://portal.azure.com](https://portal.azure.com).
 
 > [!NOTE]
 > Saiba como [criar uma solicitação de suporte](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) no Portal do Azure

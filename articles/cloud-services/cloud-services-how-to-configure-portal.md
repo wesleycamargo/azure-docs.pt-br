@@ -14,19 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2016
 ms.author: adegeo
-ms.openlocfilehash: a7e891d05ffe4cc2b4f68dce072a81499cc6de80
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 409b3bb26648ef1b811dfaaf37690c8220046729
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="how-to-configure-cloud-services"></a>Como configurar serviços de nuvem
-> [!div class="op_single_selector"]
-> * [Portal do Azure](cloud-services-how-to-configure-portal.md)
-> * [Portal clássico do Azure](cloud-services-how-to-configure.md)
->
->
-
 Você pode definir as configurações usadas mais frequentemente para um Serviço de Nuvem no portal do Azure. Ou então, se desejar atualizar diretamente seus arquivos de configuração, baixe um arquivo de configuração de serviço para atualizar e carregue o arquivo atualizado e atualize o serviço de nuvem com as alterações de configuração. De qualquer maneira, as atualizações da configuração são enviadas por push a todas as instâncias de função.
 
 Você também pode gerenciar as instâncias de suas funções de serviço de nuvem ou da área de trabalho remota para elas.
@@ -77,9 +71,9 @@ Em vez de usar **Configurações** > **Regras de alerta**, você pode clicar em 
 Daqui, você pode personalizar o gráfico usado com o bloco ou adicionar uma regra de alerta.
 
 ## <a name="reboot-reimage-or-remote-desktop"></a>Reinicializar, refazer imagem ou a área de trabalho remota
-Neste momento, você não pode configurar a área de trabalho remota usando o **Portal do Azure**. No entanto, você pode defini-la por meio do [Portal Clássico do Azure](cloud-services-role-enable-remote-desktop.md), [do PowerShell](cloud-services-role-enable-remote-desktop-powershell.md) ou do [Visual Studio](../vs-azure-tools-remote-desktop-roles.md).
+Configure a área de trabalho remota por meio do [portal do Azure (configurar área de trabalho remota)](cloud-services-role-enable-remote-desktop-new-portal.md), [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md) ou [Visual Studio](../vs-azure-tools-remote-desktop-roles.md).
 
-Primeiro, clique na instância do serviço de nuvem.
+Para reinicializar, refazer a imagem ou conectar-se remotamente a um Serviço de Nuvem, clique na instância do serviço de nuvem.
 
 ![Instância de Serviço de Nuvem](./media/cloud-services-how-to-configure-portal/cs-instance.png)
 

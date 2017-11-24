@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/21/2017
+ms.date: 11/10/2017
 ms.author: larryfr
-ms.openlocfilehash: 4b606ea3797d685b9deacf72f1bd31e0ef007f98
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f55abc84a8afea398cf0e95761d922b77e1c248
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="use-ssh-tunneling-to-access-ambari-web-ui-jobhistory-namenode-oozie-and-other-web-uis"></a>Usar o Túnel SSH para acessar a interface do usuário do Ambari na Web, JobHistory, NameNode, Oozie, entre outras
 
@@ -48,7 +48,7 @@ O [túnel de Secure Shell (SSH)](https://en.wikipedia.org/wiki/Tunneling_protoco
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Um cliente SSH. Para obter mais informações, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+* Um cliente SSH. A maioria dos sistemas fornecem um cliente SSH por meio do comando `ssh`. Para obter mais informações, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 * Um navegador da Web que pode ser configurado para usar um proxy SOCKS5.
 
@@ -74,9 +74,9 @@ Esse comando cria uma conexão que encaminha o tráfego para a porta local 9876 
 * **C** : compactar todos os dados, porque o tráfego da Web é texto, em sua maioria.
 * **2** : forçar o SSH para tentar somente a versão 2 do protocolo.
 * **q** : modo silencioso.
-* **T** : desabilitar alocação pseudo-tty, já que estamos apenas encaminhando uma porta.
-* **n** – impede a leitura de STDIN, já que estamos apenas encaminhando uma porta.
-* **N** : não executar um comando remoto, pois estamos apenas encaminhando uma porta.
+* **T** - Desabilitar alocação pseudo-tty, já que estamos apenas encaminhando uma porta.
+* **n** – Impedir a leitura de STDIN, já que estamos apenas encaminhando uma porta.
+* **N** - Não executar um comando remoto, pois estamos apenas encaminhando uma porta.
 * **f** : executar em segundo plano.
 
 Quando o comando terminar, o tráfego enviado para a porta 9876 no computador local será roteado para o nó de cabeçalho do cluster.

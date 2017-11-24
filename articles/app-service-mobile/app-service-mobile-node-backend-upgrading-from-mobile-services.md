@@ -14,16 +14,16 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.openlocfilehash: 5fc61fed674f0d2fc64bc29c064e7e872b4f2e68
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 888717afe14f29fd50da6478c2bba077616a5379
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="upgrade-your-existing-nodejs-azure-mobile-service-to-app-service"></a>Atualizar seu Serviço Móvel do Azure Node.js para o Serviço de Aplicativo
 Os Aplicativos Móveis do Serviço de Aplicativo é uma nova maneira de compilar aplicativos móveis usando o Microsoft Azure. Para saber mais, confira [O que são Aplicativos Móveis?].
 
-Este tópico descreve como atualizar um aplicativo de back-end Node.js dos Serviços Móveis do Azure para novos Aplicativos Móveis do Serviço de Aplicativo. Durante essa atualização, o seu aplicativo de Serviços Móveis pode continuar sendo executado.  Se você precisar atualizar um aplicativo back-end em Node.js, consulte [Atualizar seus Serviços Móveis do .NET](app-service-mobile-net-upgrading-from-mobile-services.md).
+Este artigo descreve como atualizar um aplicativo de back-end Node.js dos Serviços Móveis do Azure para novos Aplicativos Móveis do Serviço de Aplicativo. Durante essa atualização, o seu aplicativo de Serviços Móveis pode continuar sendo executado.  Se você precisar atualizar um aplicativo back-end em Node.js, consulte [Atualizar seus Serviços Móveis do .NET](app-service-mobile-net-upgrading-from-mobile-services.md).
 
 Quando um back-end móvel é atualizado para o Serviço de Aplicativo do Azure, ele tem acesso a todos os recursos do Serviço de Aplicativo e é cobrado de acordo com os [preços do Serviço de Aplicativo]e não com os preços dos Serviços Móveis.
 
@@ -98,12 +98,12 @@ Durante a implantação, você precisará fazer o seguinte:
 3. Para o **Grupo de Recursos**, selecione um grupo de recursos existente ou crie um novo (usando o mesmo nome que o aplicativo).
 
     Você pode selecionar outro plano de Serviço de Aplicativo ou criar um novo. Para saber mais sobre planos de Serviços de Aplicativos e como criar um novo plano em um tipo de preço e em seu local desejado, confira [Visão geral detalhada de planos de Serviço de Aplicativo do Azure](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md).
-4. Para o **plano de Serviço de Aplicativo**, o plano padrão (na [camada Standard](https://azure.microsoft.com/pricing/details/app-service/)) está selecionado. Você também pode selecionar um plano diferente ou [criar um novo](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md#create-an-app-service-plan). As configurações de plano de Serviço de Aplicativo determinam o [local, os recursos, o custo e os recursos de computação](https://azure.microsoft.com/pricing/details/app-service/) associados ao seu aplicativo.
+4. Para o **plano de Serviço de Aplicativo**, o plano padrão (na [camada Standard](https://azure.microsoft.com/pricing/details/app-service/)) está selecionado. Você também pode selecionar um plano diferente ou [criar um novo](../app-service/app-service-plan-manage.md#create-an-app-service-plan). As configurações de plano de Serviço de Aplicativo determinam o [local, os recursos, o custo e os recursos de computação](https://azure.microsoft.com/pricing/details/app-service/) associados ao seu aplicativo.
 
     Depois de decidir o plano, clique em **Criar**. Isso cria o back-end de Aplicativo Móvel.
 
 ### <a name="run-createviewssql"></a>Executar CreateViews.SQL
-O aplicativo com scaffold contém um arquivo chamado `createViews.sql`.  Esse script deve ser executado no banco de dados de destino.  A cadeia de conexão para o banco de dados de destino pode ser obtida em seu serviço móvel migrado, na folha **Configurações** em **Cadeias de Conexão**.  Ela é chamada de `MS_TableConnectionString`.
+O aplicativo com scaffold contém um arquivo chamado `createViews.sql`.  Esse script deve ser executado no banco de dados de destino.  A cadeia de conexão para o banco de dados de destino pode ser obtida em seu serviço móvel migrado, na página **Configurações** em **Cadeias de Conexão**.  Ela é chamada de `MS_TableConnectionString`.
 
 Você pode executar esse script no SQL Server Management Studio ou no Visual Studio.
 
@@ -116,7 +116,7 @@ Vincule o banco de dados existente ao Serviço de Aplicativo:
 * Na lista suspensa, selecione **Banco de Dados SQL**
 * Em **Banco de Dados SQL**, selecione o banco de dados existente, clique em **Selecionar**.
 * Em **Cadeia de conexão**, insira o nome de usuário e a senha para o banco de dados e clique em **OK**.
-* Na folha **Adicionar conexões de dados**, clique em **OK**.
+* Na página **Adicionar conexões de dados**, clique em **OK**.
 
 O nome de usuário e senha podem ser encontrados na Cadeia de Conexão do banco de dados de destino em seu Serviço Móvel migrado.
 

@@ -14,17 +14,17 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: 3f6569d32708c42247e0ffec70389f2e0f07389e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d7c33dc0a3c1f01cc53a91e05feb33272cb21f47
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Transmissão ao vivo com codificadores locais que criam fluxos com múltiplas taxas de bits
 ## <a name="overview"></a>Visão geral
 Nos Serviços de Mídia do Azure, um *Canal* representa um pipeline para processamento de conteúdo de streaming ao vivo. Um canal recebe fluxos de entrada ao vivo de uma das duas maneiras a seguir:
 
-* Um codificador ativo local envia um fluxo RTMP ou Smooth Streaming (MP4 fragmentado) com múltiplas taxas de bits para o canal que não está habilitado para executar a codificação ativa com os Serviços de Mídia. Os fluxos ingeridos passam pelos canais sem qualquer processamento adicional. Esse método é chamado *passagem*. Você pode usar os codificadores ativos a seguir, que produzem Smooth Streaming com múltiplas taxas de bits: Media Excel, Ateme, Imagine Communications, Envivio, Cisco e Elemental. Os codificadores ativos a seguir produzem RTMP: Adobe Flash Media Live Encoder, Telestream Wirecast, Haivision, Teradek e TriCaster. Um codificador ativo também pode enviar uma transmissão de taxa de bits única para um canal que não está habilitado para a codificação ativa, porém, não recomendamos isso. Os Serviços de Mídia enviam a transmissão aos clientes que a solicitam.
+* Um codificador ativo local envia um fluxo RTMP ou Smooth Streaming (MP4 fragmentado) com múltiplas taxas de bits para o canal que não está habilitado para executar a codificação ativa com os Serviços de Mídia. Os fluxos ingeridos passam pelos canais sem qualquer processamento adicional. Esse método é chamado *passagem*. Um codificador ativo também pode enviar uma transmissão de taxa de bits única para um canal que não está habilitado para a codificação ativa, porém, não recomendamos isso. Os Serviços de Mídia enviam a transmissão aos clientes que a solicitam.
 
   > [!NOTE]
   > O uso de um método de passagem é a maneira mais econômica de realizar uma transmissão ao vivo.
@@ -34,13 +34,13 @@ Nos Serviços de Mídia do Azure, um *Canal* representa um pipeline para process
 
 A partir da versão 2.10 dos Serviços de Mídia, quando você cria um canal, pode especificar como deseja que o canal receba o fluxo de entrada. Você também pode especificar se quer que o canal execute a codificação ativa de seu fluxo. Você tem duas opções:
 
-* **Passagem**: especifique esse valor se planejar usar um codificador ativo local que emitirá uma transmissão de múltiplas taxas de bits (uma transmissão de passagem) como saída. Nesse caso, o fluxo de entrada é transmitido para a saída sem qualquer codificação. Esse é o comportamento de um canal em versão anterior à 2.10. Este tópico fornece detalhes sobre como trabalhar com canais desse tipo.
-* **Codificação ativa**: escolha esse valor se você pretende usar os Serviços de Mídia para codificar sua transmissão ao vivo de taxa de bits única para uma transmissão de múltiplas taxas de bits. Lembre-se de que deixar um canal de codificação ativa em um estado **Executando** incorrerá em encargos de cobrança. Recomendamos parar imediatamente seus canais em execução após a conclusão do evento de streaming ativo para evitar cobranças por hora extra. Os Serviços de Mídia enviam a transmissão aos clientes que a solicitam.
+* **Passagem**: especifique esse valor caso pretenda usar um codificador dinâmico local que tem um fluxo de múltiplas taxas de bits (um fluxo de passagem) como saída. Nesse caso, o fluxo de entrada é transmitido para a saída sem qualquer codificação. Esse é o comportamento de um canal em versão anterior à 2.10. Este artigo fornece detalhes sobre como trabalhar com canais desse tipo.
+* **Codificação ativa**: escolha esse valor se você pretende usar os Serviços de Mídia para codificar sua transmissão ao vivo de taxa de bits única para uma transmissão de múltiplas taxas de bits. Deixar um canal de codificação ativa em um estado **Executando** incorre em encargos de cobrança. Recomendamos parar imediatamente seus canais em execução após a conclusão do evento de streaming ativo para evitar cobranças por hora extra. Os Serviços de Mídia enviam a transmissão aos clientes que a solicitam.
 
 > [!NOTE]
-> Este tópico discute os atributos de canais que não estão habilitados para executar a codificação ativa. Para obter informações sobre como trabalhar com canais habilitados a realizar a codificação ativa, confira [Trabalhando com canais habilitados a executar codificação ao vivo com os Serviços de Mídia do Azure](media-services-manage-live-encoder-enabled-channels.md).
+> Este artigo aborda os atributos de canais que não estão habilitados para executar a codificação ativa. Para obter informações sobre como trabalhar com canais habilitados a realizar a codificação ativa, confira [Trabalhando com canais habilitados a executar codificação ao vivo com os Serviços de Mídia do Azure](media-services-manage-live-encoder-enabled-channels.md).
 >
->
+>Para obter informações sobre os codificadores locais recomendados, consulte [Codificadores locais recomendados](media-services-recommended-encoders.md).
 
 O diagrama a seguir representa um fluxo de trabalho de transmissão ao vivo que usa um codificador ativo local para gerar fluxos RTMP com múltiplas taxas de bits ou MP4 fragmentado (Smooth Streaming).
 
@@ -94,7 +94,7 @@ Use a URL secundária se você quiser melhorar a durabilidade e a tolerância a 
 
 - Vários codificadores, com cada codificador enviando por push para um ponto dedicado:
 
-    Este cenário fornece redundância de codificador e de inclusão. Neste cenário, o condificador1 envia para a URL primária, e o codificador2 envia para a URL secundária. Quando um codificador falha, o outro codificador pode continuar enviando dados. A redundância de dados pode ser mantida porque os Serviços de Mídia não desconectam as URLs primária e secundária ao mesmo tempo. Este cenário pressupõe que os codificadores são sincronizados e fornecem exatamente os mesmos dados.  
+    Este cenário fornece redundância de codificador e de ingestões. Neste cenário, o condificador1 envia para a URL primária, e o codificador2 envia para a URL secundária. Quando um codificador falha, o outro codificador pode continuar enviando dados. A redundância de dados pode ser mantida porque os Serviços de Mídia não desconectam as URLs primária e secundária ao mesmo tempo. Este cenário pressupõe que os codificadores são sincronizados e fornecem exatamente os mesmos dados.  
 
 - Múltiplos codificadores enviando duplamente por push as URLs primária e secundária:
 
@@ -154,9 +154,9 @@ Você pode definir os endereços IP que têm permissão para conectar-se ao pont
 Para saber mais sobre a saída do canal, consulte a seção [Intervalo de quadro-chave](#keyframe_interval).
 
 ### <a name="channel-managed-programs"></a>Programas gerenciados por canal
-Um canal é associado a programas que podem ser usados para controlar a publicação e o armazenamento de segmentos em um fluxo ao vivo. Canais gerenciam programas. A relação entre canal e programa é muito semelhante à mídia tradicional, onde um canal tem um fluxo constante de conteúdo e um programa tem como escopo algum evento programado naquele canal.
+Um canal é associado a programas que podem ser usados para controlar a publicação e o armazenamento de segmentos em um fluxo ao vivo. Canais gerenciam programas. A relação entre canal e programa é semelhante à mídia tradicional, em que um canal tem um fluxo constante de conteúdo e um programa tem como escopo um evento cronometrado nesse canal.
 
-Você pode especificar o número de horas pelo qual você deseja manter o conteúdo gravado para o programa, definindo a duração da **Janela de Arquivo** . Esse valor pode ser definido entre um mínimo de 5 minutos e um máximo de 25 horas. A duração da janela de arquivo também determina que a quantidade máxima de tempo que os clientes podem pesquisar na posição atual em tempo real. Os programas podem ser executados pelo período de tempo especificado, mas o conteúdo que estiver por trás da janela de tamanho será continuamente descartado. Esse valor desta propriedade também determina por quanto tempo os manifestos do cliente podem crescer.
+Você pode especificar o número de horas pelo qual você deseja manter o conteúdo gravado para o programa, definindo a duração da **Janela de Arquivo** . Esse valor pode ser definido entre um mínimo de 5 minutos e um máximo de 25 horas. A duração da janela de arquivo morto também determina o número máximo de tempo que os clientes podem buscar na posição atual em tempo real. Os programas podem ser executados pelo período de tempo especificado, mas o conteúdo que estiver por trás da janela de tamanho será continuamente descartado. Esse valor desta propriedade também determina por quanto tempo os manifestos do cliente podem crescer.
 
 Cada programa está associado um ativo que armazena o conteúdo transmitido. Um ativo é mapeado para um contêiner de blob de blocos na conta de Armazenamento do Azure e os arquivos no ativo são armazenados como blobs nesse contêiner. Para publicar o programa para que seus clientes possam exibir o fluxo, você deve criar um localizador OnDemand para o ativo associado. Use esse localizador para criar uma URL de transmissão que você pode fornecer aos seus clientes.
 
@@ -211,7 +211,7 @@ Confira outras considerações relacionadas ao trabalho com canais e componentes
 * Sempre que você reconfigurar o codificador ao vivo, chame o método **Redefinir** no canal. Antes de redefinir o canal, você precisa interromper o programa. Antes de redefinir o canal, reinicie o programa.
 * Um canal pode ser interrompido somente quando estiver no estado **Executando** e todos os programas no canal tiverem sido interrompidos.
 * Por padrão, você pode adicionar apenas cinco canais à sua conta dos Serviços de Mídia. Para saber mais, consulte [Cotas e limitações](media-services-quotas-and-limitations.md).
-* Você será cobrado apenas quando o canal estiver no estado **Executando**. Para saber mais, consulte a seção [Estados do canal e cobrança](media-services-live-streaming-with-onprem-encoders.md#states).
+* Você será cobrado apenas quando o canal estiver no estado **Executando**. Para obter mais informações, consulte a seção [Estados do canal e cobrança](media-services-live-streaming-with-onprem-encoders.md#states).
 
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
@@ -220,6 +220,8 @@ Confira outras considerações relacionadas ao trabalho com canais e componentes
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-topics"></a>Tópicos relacionados
+[Codificadores locais recomendados](media-services-recommended-encoders.md)
+
 [Especificação de ingestão dinâmica de MP4 fragmentado dos Serviços de Mídia do Azure](media-services-fmp4-live-ingest-overview.md)
 
 [Visão geral e cenários comuns do Serviços de Mídia do Azure](media-services-overview.md)

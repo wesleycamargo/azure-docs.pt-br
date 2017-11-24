@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/24/2017
+ms.date: 11/16/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: c5ba922175a25776c6e27ee03fae9b2941235881
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 0320cb33dcab63ea394cf8e13e9aef5cc75951fa
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="azure-ad-self-service-password-reset-rapid-deployment"></a>Implantação rápida da redefinição da senha de autoatendimento do Azure AD
 
@@ -29,7 +29,7 @@ ms.lasthandoff: 11/15/2017
 
 A redefinição da senha de autoatendimento (SSPR) oferece um meio simples para os administradores de TI a capacitar os usuários a redefinir ou desbloquear suas contas ou senhas. O sistema inclui relatórios detalhados que acompanham quando os usuários acessam o sistema junto com as notificações para alertá-lo para uso indevido ou um abuso.
 
-Este guia pressupõe que você já tem um locatário do Azure Active Directory (Azure AD) de trabalho licenciado ou de avaliação. Se precisar de ajuda para configurar o Azure AD, consulte [Introdução ao Azure AD](https://azure.microsoft.com/trial/get-started-active-directory/).
+Este guia pressupõe que você já tem um locatário do Azure Active Directory (Azure AD) de trabalho licenciado ou de avaliação. Se precisar de ajuda para configurar o Azure AD, consulte [Introdução ao Azure AD](get-started-azure-ad.md).
 
 ## <a name="enable-sspr-for-your-azure-ad-tenant"></a>Habilitar SSPR para seu locatário do Azure AD
 
@@ -73,7 +73,7 @@ Para habilitar a sincronização de identidades local ao Azure AD, você precisa
 
 * [Como atualizar do DirSync ou sincronizar o Azure AD com o Azure AD Connect](./connect/active-directory-aadconnect-dirsync-deprecated.md)
 * [Introdução ao Azure AD Connect usando configurações expressas](./connect/active-directory-aadconnect-get-started-express.md)
-* [Configurar o write-back de senha](active-directory-passwords-writeback.md#configuring-password-writeback) para gravar senhas do Azure AD de volta ao seu diretório local
+* [Configurar o write-back de senha](active-directory-passwords-writeback.md#configure-password-writeback) para gravar senhas do Azure AD de volta ao seu diretório local
 
 ### <a name="on-premises-policy-change"></a>Alteração da política local
 
@@ -92,7 +92,7 @@ Essa configuração de segurança determina o período de tempo, em dias, que um
 É fácil desabilitar a redefinição de senha por autoatendimento. Abra o seu locatário do Azure AD e vá para **Redefinição de senha** > **Propriedades** e, em seguida, selecione **Nenhum** em **Redefinição de senha do serviço de autoatendimento habilitada**.
 
 ### <a name="learn-more"></a>Saiba mais
-Os artigos a seguir fornecem informações adicionais sobre a redefinição de senha através do Azure AD:
+Os artigos a seguir fornecem informações adicionais sobre a redefinição de senha através do Azure Active Directory:
 
 * [Como concluir uma implementação do SSPR com êxito?](active-directory-passwords-best-practices.md)
 * [Redefinir ou alterar sua senha](active-directory-passwords-update-your-own-password.md)

@@ -13,18 +13,18 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2016
+ms.date: 11/12/2017
 ms.author: ddove
-ms.openlocfilehash: a8bfbf2e30f8568212ab49ba1772588cc9e45b38
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 6a73f8d0b85198f0d4e10fbc31cbd21f93bdb8a8
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="building-scalable-cloud-databases"></a>Criando bancos de dados de nuvem escalonáveis
 A escala horizontal dos bancos de dados pode ser feita facilmente usando recursos e ferramentas escalonáveis do Banco de Dados SQL do Azure. Em particular, você pode usar a **Biblioteca de cliente do banco de dados elástico** para criar e gerenciar bancos de dados escalonados. Esse recurso permite que você desenvolva facilmente aplicativos fragmentados usando centenas — ou até mesmo milhares - de bancos de dados SQL do Azure. [Trabalhos elásticos](sql-database-elastic-jobs-powershell.md) podem ser usados para ajudar a facilitar o gerenciamento desses bancos de dados.
 
-Para instalar a biblioteca, acesse [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). 
+Para instalar a biblioteca, vá para NuGet em [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). 
 
 ## <a name="documentation"></a>Documentação
 1. [Introdução às ferramentas do Banco de Dados Elástico](sql-database-elastic-scale-get-started.md)
@@ -54,22 +54,32 @@ Escalar horizontalmente aplicativos usando a *fragmentação* apresenta desafios
 
 Em geral, os clientes que usam as ferramentas de banco de dados elástico podem esperar obter a funcionalidade completa do T-SQL durante o envio de operações de fragmento local em vez de operações entre fragmentos que têm suas próprias semânticas.
 
+
+
 ## <a name="next-steps"></a>Próximas etapas
-Experimente o [aplicativo de exemplo](sql-database-elastic-scale-get-started.md) , que demonstra as funções do cliente. 
 
-Para instalar a biblioteca, vá para a [Biblioteca do cliente do banco de dados elástico](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
+- [Biblioteca do cliente Do Banco de Dados Elástico](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) - para **instalar** a biblioteca usando NuGet.
 
-Para obter instruções sobre como usar a ferramenta de mesclagem/divisão, confira a [visão geral da ferramenta de mesclagem/divisão](sql-database-elastic-scale-overview-split-and-merge.md).
+- [Introdução às ferramentas do banco de dados elástico](sql-database-elastic-scale-get-started.md) - para testar o **aplicativo exemplo** que demonstra as funções do cliente.
 
-[A biblioteca de cliente do banco de dados elástico agora é tem código aberto!](https://azure.microsoft.com/blog/elastic-database-client-library-is-now-open-sourced/)
+- [GitHub, Azure/elastic-db-tools](https://github.com/Azure/elastic-db-tools) -a biblioteca é um software de código aberto.
+    - Biblioteca de cliente de ferramentas de banco de dados Elástico permite que os desenvolvedores ADO.NET criarem aplicativos que implementam e usam o padrão conhecido como fragmentação de banco de dados no banco de dados do SQL Azure.
 
-Use as [Consultas elásticas](sql-database-elastic-query-overview.md).
+- [A biblioteca de cliente do banco de dados elástico agora é tem código aberto!](https://azure.microsoft.com/blog/elastic-database-client-library-is-now-open-sourced/) -uma **postagem de blog** sobre a biblioteca De Cliente Do Banco de Dados Elástico, datado de 09/09/2015.
 
-A biblioteca agora está disponível como software livre no [GitHub](https://github.com/Azure/elastic-db-tools). 
+- [Visão geral da consulta elástica do Banco de Dados SQL do Azure](sql-database-elastic-query-overview.md) - para usar consultas elásticas.
+
+- [Mover dados entre bancos de dados de nuvem expansíveis](sql-database-elastic-scale-overview-split-and-merge.md) - para obter instruções sobre como usar o **ferramenta de mesclagem de divisão**.
+
+
+
+<!-- Additional resources H2 -->
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
+
 <!--Anchors-->
 <!--Image references-->
-[1]:./media/sql-database-elastic-database-client-library/glossary.png
+
+[1]: ./media/sql-database-elastic-database-client-library/glossary.png
 

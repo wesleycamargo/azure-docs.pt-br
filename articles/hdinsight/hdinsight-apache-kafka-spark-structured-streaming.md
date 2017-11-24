@@ -12,15 +12,15 @@ ms.devlang:
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2017
+ms.date: 11/07/2017
 ms.author: larryfr
-ms.openlocfilehash: 9eb39989bdec330e47e6233be5c1347ff716bed2
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: df767617842d5f331b5c4dda6d87d6a999ee1d1b
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="use-spark-structured-streaming-with-kafka-preview-on-hdinsight"></a>Use o Streaming Estruturado do Spark com o Kafka (versão prévia) no HDInsight
+# <a name="use-spark-structured-streaming-with-kafka-on-hdinsight"></a>Use fluxo estruturado do Spark com o Kafka no HDInsight
 
 Saiba como usar o Streaming Estruturado do Spark para ler dados do Apache Kafka no Azure HDInsight.
 
@@ -52,7 +52,7 @@ Enquanto você pode criar uma rede virtual do Azure, Kafka e clusters de Spark m
 
     Este modelo cria os seguintes recursos:
 
-    * Um cluster Kafka no HDInsight 3.5.
+    * Um cluster Kafka no HDInsight 3.6.
     * Um cluster Spark no HDInsight 3.6.
     * Uma Rede Virtual do Azure, que contém os clusters HDInsight.
 

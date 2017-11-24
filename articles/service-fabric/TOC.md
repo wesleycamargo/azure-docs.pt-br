@@ -16,9 +16,8 @@
 ### [4- Monitorar e Diagnosticar](service-fabric-tutorial-monitoring-aspnet.md)
 
 ## Colocar um aplicativo .NET existente em um contêiner
-### [1- Criar um cluster seguro no Azure](service-fabric-tutorial-create-cluster-azure-ps.md)
-### [2- Implantar um aplicativo .NET usando o Docker Compose](service-fabric-host-app-in-a-container.md)
-### [3 – Monitorar seu contêiner](service-fabric-tutorial-monitoring-wincontainers.md)
+### [1- Implantar um aplicativo .NET usando o Docker Compose](service-fabric-host-app-in-a-container.md)
+### [2- Monitorar seu contêiner](service-fabric-tutorial-monitoring-wincontainers.md)
 
 ## Criar um aplicativo de contêiner do Linux
 ### [1 – Criar imagens de contêiner](service-fabric-tutorial-create-container-images.md)
@@ -283,8 +282,7 @@
 
 ## Criar e gerenciar clusters
 ### Clusters no Azure
-#### Criação
-##### [Criar seu primeiro cluster no Azure](service-fabric-get-started-azure-cluster.md)
+#### Criar
 ##### [Portal do Azure](service-fabric-cluster-creation-via-portal.md)
 ##### [Gerenciador de Recursos do Azure](service-fabric-cluster-creation-via-arm.md)
 #### Escala

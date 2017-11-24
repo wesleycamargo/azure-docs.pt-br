@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2017
 ms.author: jingwang
-ms.openlocfilehash: ebf63cd6d0f9e62d1001d74ce06b4849e08c0de0
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 2b6219dc509b1af8f196f056b489a31fa331acaf
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Copiar dados em um índice do Azure Search usando o Azure Data Factory
 
@@ -51,7 +51,7 @@ As propriedades a seguir têm suporte no serviço vinculado do Azure Search:
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime do Azure ou o Integration Runtime auto-hospedado (se o armazenamento de dados estiver localizado em uma rede privada). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não |
 
 > [!IMPORTANT]
-> Ao copiar dados de um armazenamento de dados de nuvem para o índice do Azure Search, você precisa referenciar um Integration Runtime do Azure no serviço vinculado do Azure Search com a região explícita no connactVia. Defina a região como a que seu Azure Search reside. Saiba mais em [Integration Runtime do Azure] (concepts-integration-runtime.md#azure-integration-runtime).
+> Ao copiar dados de um armazenamento de dados de nuvem para o índice do Azure Search, você precisa referenciar um Integration Runtime do Azure no serviço vinculado do Azure Search com a região explícita no connactVia. Defina a região como a que seu Azure Search reside. Aprenda mais do [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime).
 
 **Exemplo:**
 
