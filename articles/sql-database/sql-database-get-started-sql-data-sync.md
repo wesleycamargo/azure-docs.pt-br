@@ -1,6 +1,6 @@
 ---
-title: "Introdução à Sincronização de Dados SQL do Azure (versão prévia) | Microsoft Docs"
-description: "Este tutorial ajuda você a começar a usar a Sincronização de Dados SQL do Azure (versão prévia)"
+title: "Sincronização de Dados SQL do Azure (versão prévia) | Microsoft Docs"
+description: "Este tutorial mostra como configurar a Sincronização de Dados SQL do Azure (Versão prévia)"
 services: sql-database
 documentationcenter: 
 author: douglaslms
@@ -13,16 +13,16 @@ ms.workload: Active
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/08/2017
+ms.date: 11/13/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: ddcf6868a0fca88a52774e20623d25de31c063bb
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: b356bc9db9e883c2514953b516d6dd51c1807610
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/14/2017
 ---
-# <a name="get-started-with-azure-sql-data-sync-preview"></a>Introdução à Sincronização de Dados SQL do Azure (versão prévia)
+# <a name="set-up-sql-data-sync-preview"></a>Configurar a Sincronização de Dados SQL (Versão prévia)
 Neste tutorial, você aprenderá a configurar a Sincronização de Dados SQL do Azure criando um grupo de sincronização híbrido que contém as instâncias de Banco de Dados SQL do Azure e do SQL Server. O novo grupo de sincronização ficará totalmente configurado e sincronizado no agendamento que você definir.
 
 Este tutorial presume que você tem pelo menos alguma experiência anterior com o Banco de Dados SQL e o SQL Server. 
@@ -110,7 +110,7 @@ Na página **Configurar Banco de Dados do Azure**, faça o seguinte:
 
     ![Novo membro de sincronização do banco de dados SQL foi adicionado](media/sql-database-get-started-sql-data-sync/datasync-preview-memberadded.png)
 
-### <a name="add-an-on-premises-sql-server-database"></a>Adicionar um Banco de dados do SQL Server local
+### <a name="add-on-prem"></a> Adicionar um Banco de dados do SQL Server local
 
 Na seção **Banco de Dados Membro**, opcionalmente, adicione um SQL Server local ao grupo de sincronização selecionando **Adicionar um Banco de Dados Local**. A página **Configurar Local** é aberta.
 
@@ -193,6 +193,83 @@ Depois que os novos membros do grupo de sincronização são criados e implantad
 
 4.  Por fim, selecione **Salvar**.
 
+## <a name="faq-about-setup-and-configuration"></a>Perguntas frequentes sobre instalação e configuração
+
+### <a name="how-frequently-can-data-sync-synchronize-my-data"></a>Com que frequência a Sincronização de Dados pode sincronizar meus dados? 
+A frequência mínima é a cada cinco minutos.
+
+### <a name="does-sql-data-sync-fully-create-and-provision-tables"></a>A Sincronização de Dados SQL totalmente cria e provisiona tabelas?
+
+Se as tabelas do esquema de sincronização já não são criadas no banco de dados de destino, a Sincronização de Dados SQL (Versão prévia) criará com as colunas que você selecionou. No entanto, esse comportamento não resulta em um esquema de fidelidade completa, pelos seguintes motivos:
+
+-   Somente as colunas selecionadas são criadas na tabela de destino. Portanto, se algumas colunas não fazem parte do grupo de sincronização, essas colunas não são provisionadas nas tabelas de destino.
+
+-   Índices são criados somente para as colunas selecionadas. Se o índice da tabela de origem tem colunas que não fazem parte do grupo de sincronização, esses índices não são provisionados nas tabelas de destino.
+
+-   Índices em colunas de tipo XML não são provisionados.
+
+-   Restrições CHECK não são provisionadas.
+
+-   Os gatilhos existentes nas tabelas de origem não são provisionados.
+
+-   Exibições e procedimentos armazenados não são criados no banco de dados de destino.
+
+Devido a essas limitações, recomendamos as seguintes ações:
+-   Para ambientes de produção, provisione o esquema de fidelidade total por conta própria.
+-   Para experimentar o serviço, o recurso de provisionamento automático de Sincronização de Dados SQL (Versão prévia) funciona bem.
+
+### <a name="why-do-i-see-tables-that-i-did-not-create"></a>Por que vejo tabelas que eu não criei?  
+A Sincronização de Dados cria tabelas secundárias no banco de dados para controle de alterações. Não as exclua, pois a Sincronização de Dados deixará de funcionar.
+
+### <a name="is-my-data-convergent-after-a-sync"></a>Meus dados são convergentes após uma sincronização?
+
+Não necessariamente. Em um grupo de sincronização com um hub e três spokes (A, B e C), as sincronizações são Hub para A, Hub para B e Hub para C. Se uma alteração for feita para o banco de dados A *depois* o Hub para A sincronizar, a alteração não será gravada para o banco de dados B ou C até a próxima tarefa de sincronização.
+
+### <a name="how-do-i-get-schema-changes-into-a-sync-group"></a>Como fazer para inserir alterações de esquema em um grupo de sincronização?
+
+Você precisa executar alterações de esquema manualmente.
+
+### <a name="how-can-i-export-and-import-a-database-with-data-sync"></a>Como exportar e importar um banco de dados com a Sincronização de Dados?
+Depois de exportar um banco de dados como um arquivo `.bacpac` e importar o arquivo para criar um novo banco de dados, você precisa realizar as duas seguintes ações para usar a Sincronização de Dados no novo banco de dados:
+1.  Limpe os objetos de Sincronização de Dados e tabelas laterais no **novo banco de dados** usando [esse script](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/clean_up_data_sync_objects.sql). Esse script exclui todos os objetos de Sincronização de Dados necessários do banco de dados.
+2.  Recrie o grupo de sincronização com o novo banco de dados. Se você não precisar mais do grupo de sincronização antigo, exclua-o.
+
+## <a name="faq-about-the-client-agent"></a>Perguntas Frequentes sobre o agente cliente
+
+### <a name="why-do-i-need-a-client-agent"></a>Por que preciso de um agente cliente?
+
+O serviço de Sincronização de Dados SQL (Versão prévia) se comunica com os bancos de dados do SQL Server através do agente do cliente. Esse recurso de segurança impede a comunicação direta com bancos de dados por trás de um firewall. Quando o serviço de Sincronização de Dados SQL (Versão prévia) se comunica com o agente, ele faz isso usando conexões criptografadas e um token exclusivo ou *chave do agente*. Os bancos de dados do SQL Server autenticam o agente usando a chave de agente e a cadeia de caracteres de conexão. Esse design fornece um alto nível de segurança para seus dados.
+
+### <a name="how-many-instances-of-the-local-agent-ui-can-be-run"></a>Quantas instâncias do agente local de interface do usuário podem ser executadas?
+
+Pode ser executada apenas uma instância da interface do usuário.
+
+### <a name="how-can-i-change-my-service-account"></a>Como posso alterar minha conta de serviço?
+
+Depois de instalar um agente de cliente, a única maneira de alterar a conta de serviço é desinstalá-lo e instalar um novo agente de cliente com a nova conta de serviço.
+
+### <a name="how-do-i-change-my-agent-key"></a>Como fazer para alterar minha chave de agente?
+
+Uma chave de agente só pode ser usada uma vez por um agente. Ela não pode ser reutilizada quando você remove e reinstala um novo agente, nem pode ser usado por vários agentes. Se você precisar criar uma nova chave para um agente existente, você deve ter certeza de que a mesma chave está registrada com o agente do cliente e o serviço de Sincronização de Dados SQL (Versão prévia).
+
+### <a name="how-do-i-retire-a-client-agent"></a>Como fazer para desativar um agente cliente?
+
+Para invalidar ou desativar um agente imediatamente, regenere a chave no portal, mas não a envie na interface de usuário do agente. Gerar novamente uma chave invalida a chave anterior, independentemente se o agente correspondente estiver online ou offline.
+
+### <a name="how-do-i-move-a-client-agent-to-another-computer"></a>Como fazer para mover um agente do cliente para outro computador?
+
+Se você deseja executar o agente local em um computador diferente que está atualmente no, siga estas etapas:
+
+1. Instale o agente no computador desejado.
+
+2. Faça logon no portal de Sincronização de Dados SQL (Versão prévia) e regenere uma chave de agente para o novo agente.
+
+3. Use a interface de usuário do novo agente para enviar a nova chave de agente.
+
+4. Aguarde enquanto o agente de cliente faz o download da lista de bancos de dados local que foram registrados anteriormente.
+
+5. Forneça credenciais de banco de dados para todos os bancos de dados que são exibidos como inacessíveis. Esses bancos de dados devem ser acessíveis do novo computador no qual o agente está instalado.
+
 ## <a name="next-steps"></a>Próximas etapas
 Parabéns. Você criou um grupo de sincronização que inclui uma instância do Banco de Dados SQL e um banco de dados do SQL Server.
 
@@ -200,6 +277,7 @@ Para saber mais sobre a Sincronização de Dados SQL, veja:
 
 -   [Sincronizar dados entre vários bancos de dados locais e de nuvem com a Sincronização de Dados SQL do Azure](sql-database-sync-data.md)
 -   [Melhores práticas para a Sincronização de Dados SQL do Azure](sql-database-best-practices-data-sync.md)
+-   [Monitorar Sincronização de Dados SQL Azure com o Log Analytics do OMS](sql-database-sync-monitor-oms.md)
 -   [Solucionar problemas com a Sincronização de Dados SQL do Azure](sql-database-troubleshoot-data-sync.md)
 
 -   Conclua os exemplos do PowerShell que mostram como configurar a Sincronização de Dados SQL:

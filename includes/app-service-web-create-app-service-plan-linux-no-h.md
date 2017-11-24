@@ -1,8 +1,8 @@
-No Cloud Shell, crie um plano do Serviço de Aplicativo com o comando [az appservice plan create](/cli/azure/appservice/plan#create).
+No Cloud Shell, crie um plano do Serviço de Aplicativo no grupo de recursos com o comando [az appservice plan create](/cli/azure/appservice/plan#create).
 
-[!INCLUDE [app-service-plan](app-service-plan-linux.md)]
+<!-- [!INCLUDE [app-service-plan](app-service-plan-linux.md)] -->
 
-O exemplo a seguir cria um plano de do Serviço de Aplicativo chamado `myAppServicePlan` no tipo de preço **Standard** e em um contêiner do Linux:
+O exemplo a seguir cria um plano do Serviço de Aplicativo denominado `myAppServicePlan` no tipo de preço **Standard** (`--sku S1`) e em um contêiner do Linux (`--is-linux`).
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku S1 --is-linux

@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 11/08/2017
-ms.openlocfilehash: 3eb604321c244c6ceeb76d08ae39b21d1e777ece
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 373abb8f40a8acf557b7cd4a0d0b3fb55f4a545c
+ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="model-management-command-line-interface-reference"></a>Referência de interface de linha de comando do gerenciamento de modelos
 
@@ -69,6 +69,8 @@ Argumentos locais:
                      the active MLC env.
 
 **Configurar o ambiente de implantação**
+
+O comando setup requer que você tenha o acesso Colaborador para a assinatura. Se não tiver, precisará pelo menos do acesso Colaborador para o grupo de recursos no qual está implantando. Para o último, precisará especificar o nome do grupo de recursos como parte do comando setup usando o sinalizador `-g`. 
 
 Há duas opções de implantação: *local* e *cluster*. Definir o sinalizador `--cluster` (ou `-c`) habilita a implantação de cluster, que provisiona um cluster do ACS. A sintaxe de configuração básica é a seguinte:
 

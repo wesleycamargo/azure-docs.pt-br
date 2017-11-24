@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/06/2017
 ms.author: mbullwin
-ms.openlocfilehash: 26a5854735bd197fb114fce409a093251dc5c2f0
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: a33fedd765acde666eef280ba7dfa72536bf1bd2
+ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="a-tour-of-analytics-in-application-insights"></a>Um tour pela Análise no Application Insights
 O [Analytics](app-insights-analytics.md) é o recurso de pesquisa avançado do [Application Insights](app-insights-overview.md). Essas páginas descrevem a linguagem de consulta do Log Analytics.
@@ -54,7 +54,7 @@ Expanda algum item para ver os detalhes:
 ![Escolha Tabela e use Configurar Colunas](./media/app-insights-analytics-tour/040.png)
 
 > [!NOTE]
-> Clique no cabeçalho de uma coluna para reordenar os resultados disponíveis no navegador da Web. Mas lembre-se de que, para um conjunto de resultados grande, o número de linhas baixadas para o navegador é limitado. Portanto, classificar dessa maneira não mostra sempre a você os reais itens maiores ou menores. Para classificar itens de forma confiável, use o `top` ou o operador `sort`.
+> Clique no cabeçalho de uma coluna para reordenar os resultados disponíveis no navegador da Web. Mas lembre-se de que, para um conjunto de resultados grande, o número de linhas baixadas para o navegador é limitado. Classificar dessa maneira simplesmente classifica o conjunto de resultados retornados e nem sempre mostra os itens maiores ou menores. Para classificar itens de forma confiável, use o `top` ou o operador `sort`.
 >
 >
 
@@ -92,7 +92,7 @@ Mostre-me as primeiras n linhas, ordenadas por uma coluna específica:
 
 O resultado seria o mesmo, mas ele seria executado um pouco mais lentamente. (Também é possível escrever `order`, que é um alias de `sort`.)
 
-Os cabeçalhos de coluna no modo de exibição de tabela também podem ser usados para classificar os resultados na tela. Mas, obviamente, se você usou `take` ou `top` para recuperar apenas parte de uma tabela, apenas os registros que foram recuperados serão reordenados.
+Os cabeçalhos de coluna no modo de exibição de tabela também podem ser usados para classificar os resultados na tela. Mas, obviamente, se você tiver usado `take` ou `top` para recuperar apenas parte de uma tabela, clicar no cabeçalho da coluna apenas reordenará os registros que você recuperou.
 
 ## <a name="wherehttpsdocsloganalyticsioquerylanguagequerylanguagewhereoperatorhtml-filtering-on-a-condition"></a>[Where](https://docs.loganalytics.io/queryLanguage/query_language_whereoperator.html): filtragem de uma condição
 
@@ -115,8 +115,9 @@ O operador `where` usa uma expressão booliana. Eis alguns pontos importantes so
 
 <!---Read all about [scalar expressions]().--->
 
-### <a name="getting-the-right-type"></a>Obtenção do tipo correto
-Solicitações malsucedidas de localização:
+### <a name="find-unsuccessful-requests"></a>Solicitações malsucedidas de localização
+
+Converta um valor de cadeia de caracteres em um número inteiro para usar uma comparação maior-que:
 
 ```AIQL
 
@@ -240,7 +241,7 @@ Ou podemos separar o resultado em solicitações de nomes diferentes:
 
 ![](./media/app-insights-analytics-tour/420.png)
 
-`Summarize` coleta os pontos de dados no fluxo dos grupos para os quais a cláusula `by` é igualmente avaliada. Cada valor na expressão `by` (cada nome de operação no exemplo acima) resulta em uma linha na tabela de resultados.
+`Summarize` coleta os pontos de dados no fluxo dos grupos para os quais a cláusula `by` é igualmente avaliada. Cada valor na expressão `by` - cada nome único de operação no exemplo acima - resulta em uma linha na tabela de resultados.
 
 Ou podemos agrupar os resultados por hora do dia:
 

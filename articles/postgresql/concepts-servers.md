@@ -8,12 +8,12 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 11/03/2017
-ms.openlocfilehash: 67cf6b133e8e869ee3a157d79d68602760d9137c
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.date: 11/08/2017
+ms.openlocfilehash: 46e109c25f8cbdba9b3769db7563259f7c6705d4
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="azure-database-for-postgresql-servers"></a>Banco de Dados do Azure para servidores PostgreSQL
 Este artigo apresenta diretrizes e considerações para trabalhar com servidores do Banco de Dados do Azure para PostgreSQL.
@@ -47,9 +47,16 @@ Os elementos a seguir ajudam a garantir o acesso seguro ao seu banco de dados.
 |||
 
 ## <a name="how-do-i-manage-a-server"></a>Como posso gerenciar um servidor?
-Você pode gerenciar o Banco de Dados do Azure para servidores PostgreSQL usando o Portal do Azure ou a [CLI do Azure](/cli/azure/postgres).
+Você pode gerenciar o Banco de Dados do Azure para servidores PostgreSQL usando o [Portal do Azure](https://portal.azure.com) ou a [CLI do Azure](/cli/azure/postgres).
+
+## <a name="server-parameters"></a>Parâmetros do Servidor
+Os parâmetros de servidor PostgreSQL determinam a configuração do servidor. No banco de dados do Azure para PostgreSQL a lista de parâmetros pode ser exibida e editada por meio do portal do Azure ou a CLI do Azure. 
+
+Como um serviço gerenciado para Postgres, os parâmetros configuráveis no banco de dados do Azure para PostgreSQL são um subconjunto dos parâmetros em uma instância local do Postgres (para obter mais informações sobre parâmetros Postgres, consulte o [PostgreSQL documentação](https://www.postgresql.org/docs/9.6/static/runtime-config.html)). O banco de dados do Azure para servidor PostgreSQL está habilitado com valores padrão para cada parâmetro na criação. Parâmetros que necessitariam de um reinício de servidor ou acesso de superusuário para mudanças sentirem efeito não podem ser configurados pelo usuário.
+
 
 ## <a name="next-steps"></a>Próximas etapas
 - Para obter uma visão geral do serviço, confira [Visão geral do Banco de Dados para PostgreSQL](overview.md).
 - Para saber mais sobre cotas e limitações específicas de recursos com base em sua **camada de serviço**, confira [Camadas de serviço](concepts-service-tiers.md).
 - Para saber mais sobre como se conectar ao serviço, confira [Bibliotecas de conexão para o Banco de Dados do Azure para PostgreSQL](concepts-connection-libraries.md).
+- Exibir e editar os parâmetros de servidor por meio de [portal do Azure](howto-configure-server-parameters-using-portal.md) ou [CLI do Azure](howto-configure-server-parameters-using-cli.md).

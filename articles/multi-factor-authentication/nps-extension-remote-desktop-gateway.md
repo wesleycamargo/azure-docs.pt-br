@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: joflore
-ms.reviewer: jsnow
+ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 01c5284a609a2246e32052985ad3a8c0475eafa5
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: fb78d39b04868c9d8790bfd64147f47bdd4125c7
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/15/2017
 ---
 #  <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>Integrar a infraestrutura do seu Gateway de Área de Trabalho Remota usando a extensão do Servidor de Políticas de Rede (NPS) e o Azure AD
 
@@ -76,7 +76,7 @@ Se você quiser criar manualmente uma infraestrutura de RDS local rapidamente pa
 **Saiba mais**: [Implantar RDS com início rápido do Azure](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-in-azure) e [Implantação de infraestrutura de RDS básica](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-deploy-infrastructure). 
 
 ### <a name="azure-mfa-license"></a>Licença do Azure MFA
-É necessário uma licença para o Azure MFA, que está disponível por meio de um Azure AD Premium, Enterprise Mobility + Security (EMS) ou uma assinatura de MFA. Para obter mais informações, consulte [Como obter Autenticação Multifator do Azure](multi-factor-authentication-versions-plans.md). Para fins de teste, você pode usar uma assinatura de avaliação.
+É necessário uma licença para o Azure MFA, que está disponível por meio de um Azure AD Premium, Enterprise Mobility + Security (EMS) ou uma assinatura de MFA. Licenças baseadas em consumo para a MFA do Azure como licenças por usuário ou por autenticação não são compatíveis com a extensão do NPS. Para obter mais informações, consulte [Como obter Autenticação Multifator do Azure](multi-factor-authentication-versions-plans.md). Para fins de teste, você pode usar uma assinatura de avaliação. 
 
 ### <a name="windows-server-software"></a>Software do Windows Server
 A extensão NPS requer o Windows Server 2008 R2 SP1 ou superior com o serviço de função NPS instalado. Todas as etapas nesta seção foram realizadas usando o Windows Server 2016.

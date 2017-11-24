@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: ryanwi
-ms.openlocfilehash: 31e35432ecc10b06c7a6400a1e0904e7bc2cd8c9
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: b06d0196f1f911f2f6cf87242d70455ba22b1f88
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="deploy-a-service-fabric-windows-cluster-into-an-azure-virtual-network"></a>Implantar um cluster do Windows do Service Fabric em uma rede virtual do Azure
 Este tutorial é a primeira parte de uma série. Você aprenderá como implantar um cluster do Service Fabric do Windows em uma rede e sub-rede de virtual do Azure (VNET) existente usando o PowerShell. Ao terminar, você terá um cluster em execução na nuvem no qual você poderá implantar aplicativos.  Para criar um cluster do Linux usando o CLI do Azure, consulte [Create a secure Linux cluster on Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md) (Criar um cluster seguro do Linux no Azure).
@@ -36,6 +36,7 @@ Neste tutorial, você aprenderá como:
 Nesta série de tutoriais, você aprenderá a:
 > [!div class="checklist"]
 > * Criar um cluster seguro no Azure
+> * [Reduzir ou escalar um cluster horizontalmente](/service-fabric-tutorial-scale-cluster.md)
 > * [Implantar o Gerenciamento de API com o Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/27/2017
 ms.author: raynew
-ms.openlocfilehash: 27491e34ad9e47aec2f424cfc439fad614f0e435
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4a846cc3e2f06199bdef9e597198f309801d5c75
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuidade dos negócios e recuperação de desastres (BCDR): Regiões Emparelhadas do Azure
 
@@ -48,7 +48,8 @@ Figura 1 – Diagrama do par da região do Azure
 | Europa |Norte da Europa |Europa Ocidental |
 | Japão |Leste do Japão |Oeste do Japão |
 | Brasil |Sul do Brasil (1) |Centro-Sul dos Estados Unidos |
-| Governo dos EUA |Gov do Iowa nos EUA |Gov. dos EUA – Virgínia |
+| Governo dos EUA |Gov. EUA - Iowa (2) |US Gov Virginia |
+| Governo dos EUA |Gov. EUA - Virgínia (3) |Governo dos EUA do Texas |
 | Governo dos EUA |Governo dos EUA do Arizona |Governo dos EUA do Texas |
 | Departamento de Defesa dos EUA |DoD do Leste dos EUA |DoD Central dos EUA |
 | Reino Unido |Oeste do Reino Unido |Sul do Reino Unido |
@@ -57,6 +58,10 @@ Figura 1 – Diagrama do par da região do Azure
 Tabela 1 – mapeamento de pares regionais do Azure
 
 > (1) O Sul do Brasil é exclusivo porque ele está associado a uma região fora de sua própria região geográfica. A região secundária do Sul do Brasil é o Centro-Sul dos EUA. No entanto, a região secundária do Centro-Sul dos EUA não é o Sul do Brasil.
+>
+> (2) região secundária do Gov. EUA Iowa é Gov. EUA Virgínia, mas região secundária de Gov. EUA Virgínia não está no Gov. EUA Iowa.
+> 
+> (3) região secundária do Gov. EUA Virgínia é Gov. EUA Texas, mas região secundária de Gov. EUA Texas não está no Gov. EUA Virgínia.
 
 
 É recomendável que você replique as cargas de trabalho entre os pares regionais para se beneficiar das políticas de isolamento e a disponibilidade do Azure. Por exemplo, as atualizações do sistema Azure planejadas são implantadas em sequência (não ao mesmo tempo) em regiões emparelhadas. Isso significa que, mesmo no caso de uma atualização falhar, ambas as regiões não serão afetadas simultaneamente. Além disso, no caso improvável de uma interrupção ampla, a recuperação de pelo menos uma região de cada par é priorizada.

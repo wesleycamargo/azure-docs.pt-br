@@ -1,6 +1,6 @@
 ---
-title: SDK de armazenamento de Tabela do Azure para Python | Microsoft Docs
-description: "Saiba tudo sobre o SDK de armazenamento de Tabela do Azure para Python, incluindo datas de lançamento, datas de desativação e alterações feitas entre cada versão."
+title: API de tabela do Azure Cosmos DB para Python | Microsoft Docs
+description: "Saiba tudo sobre a API de Tabela do Azure Cosmos DB, incluindo as datas de lançamento, as datas de desativação e as alterações feitas entre cada versão."
 services: cosmos-db
 documentationcenter: python
 author: mimig
@@ -12,18 +12,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 11/04/2017
+ms.date: 11/15/2017
 ms.author: mimig1
 ms.custom: 
-ms.openlocfilehash: 6f6528498c26ff79b6c35891e93e4dbcffb322f5
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: a68b24fe91d3acb0f18d3d06d6252317bd671be4
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="azure-table-storage-sdk-for-python-release-notes-and-resources"></a>SDK de armazenamento de Tabela do Azure para Python: notas de versão e recursos
+# <a name="azure-cosmos-db-table-api-sdk-for-python-release-notes-and-resources"></a>SDK do API de Tabela do Azure Cosmos DB para Python: Notas de versão e recursos
 > [!div class="op_single_selector"]
 > * [.NET](table-sdk-dotnet.md)
+> * [Java](table-sdk-java.md)
+> * [Node.js](table-sdk-nodejs.md)
 > * [Python](table-sdk-python.md)
  
 
@@ -37,6 +39,10 @@ ms.lasthandoff: 11/06/2017
 
 
 ## <a name="release-notes"></a>Notas de versão
+
+### <a name="a-name100100"></a><a name="1.0.0"/>1.0.0
+* Versão de disponibilidade geral
+
 ### <a name="a-name03710371"></a><a name="0.37.1"/>0.37.1
 * SDK de pré-lançamento
 
@@ -49,6 +55,7 @@ Os novos recursos, funcionalidades e otimizações são adicionados apenas ao SD
 
 | Versão | Data do lançamento | Data de desativação |
 | --- | --- | --- |
+| [1.0.0](#1.0.0) |15 de novembro de 2017 |--- |
 | [0.37.1](#0.37.1) |5 de outubro de 2017 |--- |
 
 

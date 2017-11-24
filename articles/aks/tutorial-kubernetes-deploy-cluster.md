@@ -14,14 +14,14 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2017
+ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 9e48d490b998fb57c604f2f5b2717e65d28dce1a
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 69dea4ab748d88d18cf01dc9b3fc1bdddd562681
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Implantar um cluster do AKS (Serviço de Contêiner do Azure)
 
@@ -38,24 +38,33 @@ Nos tutoriais subsequentes, o aplicativo Azure Vote é implantado no cluster, es
 
 Nos tutoriais anteriores, uma imagem de contêiner foi criada e carregada em uma instância do Registro de Contêiner do Azure. Se você ainda não realizou essas etapas e deseja continuar acompanhando, retorne ao [Tutorial 1 – Criar imagens de contêiner](./tutorial-kubernetes-prepare-app.md).
 
+## <a name="enabling-aks-preview-for-your-azure-subscription"></a>Habilitando a versão prévia do AKS para sua assinatura do Azure
+Enquanto o AKS está na versão prévia, a criação de novos clusters requer um sinalizador de recurso em sua assinatura. Você pode solicitar esse recurso para qualquer número de assinaturas que deseje usar. Use o comando `az provider register` para registrar o provedor do AKS:
+
+```azurecli-interactive
+az provider register -n Microsoft.ContainerService
+```
+
+Após o registro, você estará pronto para criar um cluster do Kubernetes com o AKS.
+
 ## <a name="create-kubernetes-cluster"></a>Criar cluster Kubernetes
 
 O exemplo a seguir cria um cluster denominado `myK8sCluster` em um Grupo de recursos denominado `myResourceGroup`. Este Grupo de recursos foi criado no [tutorial anterior](./tutorial-kubernetes-prepare-acr.md).
 
 ```azurecli
-az aks create --resource-group myResourceGroup --name myK8sCluster --agent-count 1 --generate-ssh-keys
+az aks create --resource-group myResourceGroup --name myK8sCluster --node-count 1 --generate-ssh-keys
 ```
 
 Após alguns minutos, a implantação é concluída e retorna as informações formatadas em JSON sobre a implantação do AKS.
 
 ## <a name="install-the-kubectl-cli"></a>Instalar a CLI kubectl
 
-Para se conectar ao cluster Kubernetes do computador cliente, use [kubectl](https://kubernetes.io/docs/user-guide/kubectl/), o cliente de linha de comando do Kubernetes. 
+Para se conectar ao cluster Kubernetes do computador cliente, use [kubectl](https://kubernetes.io/docs/user-guide/kubectl/), o cliente de linha de comando do Kubernetes.
 
 Se você estiver usando o Azure CloudShell, o kubectl já estará instalado. Se desejar instalá-lo localmente, execute este comando:
 
 ```azurecli
-az aks install-cli 
+az aks install-cli
 ```
 
 ## <a name="connect-with-kubectl"></a>Conectar-se com kubectl

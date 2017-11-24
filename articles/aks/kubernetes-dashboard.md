@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2017
+ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 764bbb95b661bb750d7802ee5996d8a491be928d
-ms.sourcegitcommit: c5eeb0c950a0ba35d0b0953f5d88d3be57960180
+ms.openlocfilehash: 85be41cd6d355e4a38eceacb5589c1df6029ad16
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="kubernetes-dashboard-with-azure-container-service-aks"></a>Painel do Kubernetes com o AKS (Serviço de Contêiner do Azure)
 
-A CLI do Azure pode ser usada para iniciar o Painel do Kubernetes. Este documento explica desde o painel do Kubernetes com a CLI do Azure e também aborda algumas operações básicas do painel. Para obter mais informações sobre o painel do Kubernetes, consulte [Painel de interface do usuário Web do Kubernetes](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/). 
+A CLI do Azure pode ser usada para iniciar o Painel do Kubernetes. Este documento explica desde o painel do Kubernetes com a CLI do Azure e também aborda algumas operações básicas do painel. Para obter mais informações sobre o painel do Kubernetes, consulte [Painel de interface do usuário Web do Kubernetes](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/).
 
 ## <a name="before-you-begin"></a>Antes de começar
 
 As etapas detalhadas neste documento pressupõem que você tenha criado um cluster AKS e estabelecido uma conexão kubectl com o cluster. Se você precisar desses itens, veja o [Início rápido do AKS](./kubernetes-walkthrough.md).
 
-Você também precisa da CLI do Azure versão 2.0.20 ou posterior instalada e configurada. Execute az --version para localizar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+Você também precisa da CLI do Azure versão 2.0.21 ou posterior instalada e configurada. Execute az --version para localizar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
 
 ## <a name="start-kubernetes-dashboard"></a>Iniciar o painel do Kubernetes
 

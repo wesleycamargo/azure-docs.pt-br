@@ -11,17 +11,17 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 05/01/2017
+ms.date: 11/07/2017
 ms.author: heidist
-ms.openlocfilehash: 58f4eab190e40e16ed261c165ffdfc8155eeb434
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eaf317b42026298cc42edcc907bc48169f869460
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
-# <a name="create-an-azure-search-service-in-the-portal"></a>Criar um serviço de Pesquisa do Azure no portal
+# <a name="create-an-azure-search-service-in-the-portal"></a>Criar um serviço de Azure Search no portal
 
-Este artigo explica como criar ou provisionar um serviço do Azure Search no portal. Para obter instruções do PowerShell, consulte [Gerenciar o Azure Search com o PowerShell](search-manage-powershell.md).
+Aprenda como criar ou provisionar um serviço do Azure Search no portal. Para obter instruções do PowerShell, consulte [Gerenciar o Azure Search com o PowerShell](search-manage-powershell.md).
 
 ## <a name="subscribe-free-or-paid"></a>Assinar (gratuito ou pago)
 
@@ -34,20 +34,21 @@ Alternativamente, você pode [ativar os benefícios de assinante MSDN](https://a
 2. Clique no sinal de adição ("+") no canto superior esquerdo.
 3. Selecione **Web + Móvel** > **Azure Search**.
 
-![](./media/search-create-service-portal/find-search2.png)
+![](./media/search-create-service-portal/find-search3.png)
 
 ## <a name="name-the-service-and-url-endpoint"></a>Nome do serviço e o ponto de extremidade da URL
 
-Um nome de serviço é parte do ponto de extremidade da URL na qual as chamadas à API são emitidas. Digite o nome do serviço no campo **URL** . 
+Um nome de serviço é parte do ponto de extremidade da URL na qual as chamadas à API são emitidas: `https://your-service-name.search.windows.net`. Digite o nome do serviço no campo **URL**. 
 
 Requisitos de nome de serviço:
+   * Ele deve ser exclusivo dentro do namespace search.windows.net
    * Dois a 60 caracteres de comprimento
-   * letras minúsculas, dígitos ou traços ("-")
-   * sem traços ("-") como os dois primeiros caracteres ou o último caractere
-   * sem traços consecutivos ("--")
+   * Use letras minúsculas, dígitos ou traços ("-")
+   * Evite traços ("-") nos 2 primeiros caracteres ou o último caractere
+   * Sem traços consecutivos ("--") em nenhum lugar
 
 ## <a name="select-a-subscription"></a>Selecionar uma assinatura
-Se você tiver mais de uma assinatura, escolha uma que também tenha serviços de armazenamento de arquivos ou dados. O Azure Search pode detectar automaticamente o armazenamento de Tabelas e Blobs do Azure, o Banco de Dados SQL e o Azure Cosmos DB para indexação por meio de *indexadores*, mas apenas para os serviços na mesma assinatura.
+Se você tiver mais de uma assinatura, escolha uma que também tenha serviços de armazenamento de arquivos ou dados. O Azure Search pode detectar automaticamente o armazenamento de Tabelas e Blobs do Azure, o Banco de Dados SQL e o Azure Cosmos DB para indexação por meio de [*indexadores*](search-indexer-overview.md), mas apenas para os serviços na mesma assinatura.
 
 ## <a name="select-a-resource-group"></a>Selecionar um grupo de recursos
 Um grupo de recursos é uma coleção de serviços e recursos do Azure que são usados juntos. Por exemplo, se você estiver usando a Azure Search para indexar um banco de dados SQL, esses dois serviços deverão fazer parte do mesmo grupo de recursos.
@@ -63,11 +64,13 @@ Como um serviço do Azure, a Azure Search pode ser hospedado em datacenters em t
 
 Neste passo a passo, escolhemos o tipo Standard para nosso serviço.
 
+A camada de preços não pode ser alterada depois que o serviço é criado. Se você precisar de um nível superior ou inferior mais tarde, você precisa recriar o serviço.
+
 ## <a name="create-your-service"></a>Criar seu serviço
 
 Lembre-se de fixar o seu serviço no painel para acesso fácil sempre que você entrar.
 
-![](./media/search-create-service-portal/new-service2.png)
+![](./media/search-create-service-portal/new-service3.png)
 
 ## <a name="scale-your-service"></a>Dimensione seu serviço
 Pode levar alguns minutos para criar um serviço (15 minutos ou mais dependendo da camada). Depois que o serviço é fornecido, você pode dimensioná-lo para atender às suas necessidades. Com a escolha do tipo Standard para o serviço do Azure Search, você pode dimensionar o serviço em duas dimensões: réplicas e partições. Com a escolha do tipo Básico, você pode apenas adicionar réplicas. Se você provisionou o serviço gratuito, o dimensionamento não estará disponível.
@@ -105,9 +108,7 @@ Embora a maioria dos clientes use apenas um serviço, a redundância de serviço
 Um segundo serviço não é necessário para alta disponibilidade. A alta disponibilidade para consultas é obtida ao usar duas ou mais réplicas no mesmo serviço. Atualizações de réplica são sequenciais, o que significa que, pelo menos, uma está operacional quando uma atualização de serviço é distribuída. Para obter mais informações sobre tempo de atividade, consulte [Contratos de Nível de Serviço](https://azure.microsoft.com/support/legal/sla/search/v1_0/).
 
 ## <a name="next-steps"></a>Próximas etapas
-Após o provisionamento de um serviço de Azure Search, você está pronto para [definir um índice](search-what-is-an-index.md) para que possa carregar e pesquisar os dados.
+Após o provisionamento de um serviço de Azure Search, você está pronto para [definir um índice](search-what-is-an-index.md) para que possa carregar e pesquisar os dados. 
 
-Para acessar o serviço de código ou script, forneça a URL (*nome-do-serviço*.search.windows.net) e uma chave. Chaves de administração concedem acesso completo; chaves de consulta concedem acesso somente leitura. Veja [Como usar o Azure Search no .NET](search-howto-dotnet-sdk.md) para começar.
-
-Consulte [Criar e consultar seu primeiro índice](search-get-started-portal.md) para obter um tutorial rápido baseado no portal.
-
+> [!div class="nextstepaction"]
+> [Como usar o Azure Search no .NET](search-howto-dotnet-sdk.md)

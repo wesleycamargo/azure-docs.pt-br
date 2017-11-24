@@ -1,6 +1,6 @@
 ---
 title: "Painel, Monitor, Escala, Configuração e Conexões Híbridas nos Serviços BizTalk | Microsoft Docs"
-description: "Saiba mais sobre os controles e monitore o desempenho nas guias do portal clássico para os Serviços BizTalk: Painel, Monitor, Escala, Configurar e Conexões Híbridas MABS, WABS"
+description: "Saiba mais sobre os controles e monitore o desempenho de Serviços BizTalk"
 services: biztalk-services
 documentationcenter: 
 author: MandiOhlinger
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 62bef0ee0141f6a7a92146ef230f0766a85aee5e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 351809cd5f165a863dc02bfadf78fa59cbaabfd7
+ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="review-the-dashboard-monitor-scale-configure-and-hybrid-connection-tabs"></a>Examine as guias Painel, Monitor, Escala, Configurar e Conexão Híbrid
 
@@ -26,7 +26,7 @@ ms.lasthandoff: 10/11/2017
 
 Depois de criar o Serviço BizTalk e implantar seu aplicativo, você pode alterar algumas configurações do Serviço BizTalk e monitorar o desempenho do aplicativo. 
 
-Ao abrir o portal clássico do Azure, você será levado automaticamente para a guia **TODOS OS ITENS** . Para exibir seu Serviço BizTalk, selecione o Serviço do BizTalk na guia **TODOS OS ITENS** ou selecione a guia **SERVIÇOS BIZTALK** e selecione o nome do seu Serviço BizTalk.
+> [!INCLUDE [Use APIs to manage MABS](../../includes/biztalk-services-retirement-azure-classic-portal.md)]
 
 Isso abre uma nova janela com as seguintes guias: Este tópico descreve essas guias.
 
@@ -84,9 +84,9 @@ Por exemplo, você deseja que o Serviço do BizTalk use uma nova Chave Primária
 <br/><br/>
 <ol>
 <li>Selecione o Serviço do BizTalk e selecione <strong>Sincronizar Chaves</strong>. Selecione a chave secundária. Quando você faz isso, o Serviço do BizTalk começa a usar a chave secundária.</li>
-<li>No portal clássico do Azure, selecione sua Conta de Armazenamento e regenere a Chave Primária. Lembre-se que seu Serviço do BizTalk está usando a chave secundária.</li>
+<li>Selecione sua Conta de Armazenamento e regenere a Chave Primária. Lembre-se que seu Serviço do BizTalk está usando a chave secundária.</li>
 <li>Selecione o Serviço do BizTalk e selecione <strong>Sincronizar Chaves</strong>. Agora, selecione a chave primário. Esta é a nova chave primária que você regenerou.</li>
-<li>No portal clássico do Azure, selecione sua Conta de Armazenamento e Regenerar a Chave Secundária.</li>
+<li>Selecione sua Conta de Armazenamento e regenere a Chave Primária.</li>
 </ol>
 <br/>
 Esse processo é chamado de "chaves de substituição". O propósito é permitir que os usuários alternem entre as chaves primária e secundária sem interromper o Serviço do BizTalk.</td>
@@ -169,7 +169,7 @@ Para obter uma descrição dessas métricas de desempenho, acesse [Métricas dis
 </tr>
 <tr>
 <td><strong>Nome da assinatura</strong></td>
-<td>Lista a assinatura que hospeda seu Serviço do BizTalk. A assinatura rege o acesso ao portal clássico do Azure.</td>
+<td>Lista a assinatura que hospeda seu Serviço do BizTalk. A assinatura controla o acesso.</td>
 </tr>
 <tr>
 <td><strong>ID da assinatura</strong></td>
@@ -177,7 +177,7 @@ Para obter uma descrição dessas métricas de desempenho, acesse [Métricas dis
 </tr>
 </table>
 
-[Serviços BizTalk: provisionamento usando o portal clássico do Azure](http://go.microsoft.com/fwlink/p/?LinkID=302280) lista as etapas para criar um Serviço BizTalk.
+[Serviços BizTalk: provisionamento](http://go.microsoft.com/fwlink/p/?LinkID=302280) lista as etapas para criar um Serviço BizTalk.
 
 ##### <a name="manage-connection-information-sync-keys-and-delete-in-the-task-bar"></a>Gerenciar, Informação de Conexão, Chaves de sincronização, e Excluir na barra de tarefas:
 <table border="1">
@@ -206,9 +206,9 @@ Por exemplo, você deseja que o Serviço do BizTalk use uma nova Chave Primária
 <br/><br/>
 <ol>
 <li>Selecione o Serviço do BizTalk e selecione <strong>Sincronizar Chaves</strong>. Selecione a chave secundária. Quando você faz isso, o Serviço do BizTalk começa a usar a chave secundária.</li>
-<li>No portal clássico do Azure, selecione sua Conta de Armazenamento e regenere a Chave Primária. Lembre-se que seu Serviço do BizTalk está usando a chave secundária.</li>
+<li>Selecione sua Conta de Armazenamento e regenere a Chave Primária. Lembre-se que seu Serviço do BizTalk está usando a chave secundária.</li>
 <li>Selecione o Serviço do BizTalk e selecione <strong>Sincronizar Chaves</strong>. Agora, selecione a chave primário. Esta é a nova chave primária que você regenerou.</li>
-<li>No portal clássico do Azure, selecione sua Conta de Armazenamento e Regenerar a Chave Secundária.</li>
+<li>Selecione sua Conta de Armazenamento e regenere a Chave Primária.</li>
 </ol>
 <br/>
 Esse processo é chamado de "chaves de substituição". O propósito é permitir que os usuários alternem entre as chaves primária e secundária sem interromper o Serviço do BizTalk.</td>
@@ -329,7 +329,7 @@ Define o Status de Backup para Nenhum ou Automático. Quando estiver definido pa
 [Serviços BizTalk: backup e restauração](biztalk-backup-restore.md) fornece os detalhes. 
 
 ## <a name="HybridConnections"></a>Conexões Híbridas
-As Conexões Híbridas conectam um aplicativo do Azure, como aplicativos Web ou Aplicativos Móveis no Serviço de Aplicativo do Azure, a um recurso local que utilize uma porta TCP estática, como SQL Server, MySQL, APIs Web HTTP e os serviços Web mais personalizados. As Conexões Híbridas são gerenciadas nos Serviços BizTalk, no portal clássico do Azure.
+As Conexões Híbridas conectam um aplicativo do Azure, como aplicativos Web ou Aplicativos Móveis no Serviço de Aplicativo do Azure, a um recurso local que utilize uma porta TCP estática, como SQL Server, MySQL, APIs Web HTTP e os serviços Web mais personalizados. Conexões Híbridas são gerenciadas em Serviços do BizTalk.
 
 Para criar ou gerenciar as Conexões Híbridas nos Serviços do BizTalk do Azure, consulte [Conexões Híbridas](integration-hybrid-connection-overview.md).
 
@@ -343,7 +343,7 @@ Agora que está familiarizado com as diferentes guias, você pode obter mais inf
 ## <a name="see-also"></a>Consulte também
 * [Conexões Híbridas](integration-hybrid-connection-overview.md)  
 * [Serviços BizTalk: gráfico das edições Developer, Basic, Standard e Premium](biztalk-editions-feature-chart.md)  
-* [Serviços BizTalk: provisionamento usando o portal clássico do Azure](biztalk-provision-services.md)  
+* [Serviços BizTalk: Provisionamento](biztalk-provision-services.md)  
 * [Serviços BizTalk: gráfico de estado do Serviço do BizTalk (a página pode estar em inglês)](biztalk-service-state-chart.md)  
 * [Como começar a usar o SDK dos Serviços BizTalk do Azure](http://go.microsoft.com/fwlink/p/?LinkID=302335)
 

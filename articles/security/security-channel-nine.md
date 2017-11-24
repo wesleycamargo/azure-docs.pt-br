@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2017
+ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 35e3f4ee07414927cd93e3fbe54d7c96f4681ba4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b6e4539be76449093de0587e43b0e97243602967
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-security-videos-on-channel-9"></a>Vídeos de segurança do Azure no Channel 9
 [Channel 9](https://channel9.msdn.com/) é uma comunidade que apresenta as pessoas por trás de nossos produtos e conecta-as aos clientes.
@@ -70,7 +70,7 @@ Narayan Annamalai, Gerente de Programas Sênior ensina Scott a usar os Grupos de
 Privileged Identity Management do Azure Active Directory (AD) é uma funcionalidade premium que permite descobrir, restringir e monitorar as identidades com privilégios e o acesso aos recursos. Também impõe um acesso administrativo sob demanda no momento certo, quando necessário. Saiba mais sobre:
 
 * Gerenciando a proteção para as funções administrativas específicas da carga de trabalho do Office 365
-* Configurando o Azure Multi-Factor Authentication (MFA) para as ativações das funções com privilégios
+* Configurando a Autenticação Multifator do Azure (MFA) para as ativações das funções com privilégios
 * Medindo e melhorando sua postura de segurança do locatário
 * Monitorando e corrigindo as descobertas de segurança
 * Revisando o que deve permanecer nas funções com privilégios para os fluxos de trabalho de nova certificação periódica

@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
-ms.date: 10/01/2016
+ms.date: 11/16/2017
 ms.author: glenga
-ms.openlocfilehash: 81331142aa6110d4e29e6fb30a90ce6e3a853439
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3d38482ebca736e4d7d0fe0b1b4b5dd0220de5b4
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="add-authentication-to-your-android-app"></a>Adicionar autenticação ao aplicativo do Android
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -33,7 +33,7 @@ Neste tutorial, você adiciona autenticação ao projeto de início rápido da l
 
 A autenticação segura exige que você defina um novo esquema de URL para seu aplicativo. Isso permite que o sistema de autenticação redirecione para seu aplicativo após a conclusão do processo de autenticação. Neste tutorial, usamos sempre o esquema de URL _appname_. No entanto, você pode usar o esquema de URL que quiser. Ele deve ser exclusivo para seu aplicativo móvel. Para habilitar o redirecionamento no lado do servidor:
 
-1. No [Portal do Azure], selecione seu Serviço de Aplicativo.
+1. No [portal do Azure], selecione sua conta.
 
 2. Clique na opção de menu **Autenticação/Autorização**.
 
@@ -50,7 +50,7 @@ A autenticação segura exige que você defina um novo esquema de URL para seu a
 
      Essa exceção ocorre porque o aplicativo tenta acessar o back-end como um usuário não autenticado, mas a tabela *TodoItem* agora exige autenticação.
 
-Em seguida, você atualiza o aplicativo para autenticar os usuários antes de solicitar recursos do back-end dos Aplicativos Móveis. 
+Em seguida, você atualiza o aplicativo para autenticar os usuários antes de solicitar recursos do back-end dos Aplicativos Móveis.
 
 ## <a name="add-authentication-to-the-app"></a>Adicionar autenticação ao aplicativo
 [!INCLUDE [mobile-android-authenticate-app](../../includes/mobile-android-authenticate-app.md)]
@@ -79,3 +79,4 @@ Agora que você concluiu este tutorial de autenticação básica, considere cont
 
 <!-- URLs. -->
 [Introdução aos Aplicativos Móveis]: app-service-mobile-android-get-started.md
+[portal do Azure]: https://portal.azure.com/

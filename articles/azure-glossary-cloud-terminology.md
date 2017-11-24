@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: monicar
-ms.openlocfilehash: b55eed31ddb5be23dc28a23b2f0588b8c8ff8833
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cbc4b8cdb0ff9255d0be02b998e67686921921ea
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="microsoft-azure-glossary-a-dictionary-of-cloud-terminology-on-the-azure-platform"></a>Glossário do Microsoft Azure: um dicionário de terminologia de nuvem na plataforma do Azure
 
@@ -87,7 +87,7 @@ Os preços, os créditos e os termos relacionados aplicáveis a uma assinatura d
 Confira a página [Detalhes da oferta do Azure](https://azure.microsoft.com/support/legal/offer-details/)
 
 ## <a name="portal"></a>portal
-O portal da Web seguro usado para implantar e gerenciar serviços do Azure.  Há dois portais: o [Portal do Azure](http://portal.azure.com/) e o [portal clássico](http://manage.windowsazure.com/). Alguns serviços estão disponíveis nos dois portais, enquanto outros só estão disponíveis em um ou no outro. O [Gráfico de disponibilidade do portal do Azure](https://azure.microsoft.com/features/azure-portal/availability/) lista quais serviços estão disponíveis em qual portal.
+O portal da Web seguro usado para implantar e gerenciar serviços do Azure.
 
 ## <a name="region"></a>region
 Uma área dentro de uma área geográfica que não ultrapassa fronteiras nacionais e contém um ou mais datacenters. Preços, serviços regionais e tipos de oferta são expostos no nível da região. Normalmente, uma região é emparelhada com outra região, que pode estar a até várias centenas de quilômetros de distância. Os pares regionais podem ser usados como um mecanismo para cenários de alta disponibilidade e de recuperação de desastres. Isso também é chamado de *localização*.  

@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2017
+ms.date: 11/14/2017
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: fdc597c9e88e932eace5962c79af4dc3805685a0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1288fe2eeb9b31b912cd918be624e7a4703f0709
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="introduction-to-device-management-in-azure-active-directory"></a>Introdução ao gerenciamento de dispositivos no Azure Active Directory
 
@@ -135,12 +135,31 @@ Com o gerenciamento de dispositivo no Azure AD, é possível:
 
 Como uma regra prática, você deve usar:
 
-- Dispositivos registrados no Azure AD para dispositivos pessoais
+- Dispositivos registrados no Azure Active Directory:
 
-- Dispositivos adicionados ao Azure AD para dispositivos que não foram adicionados a um AD local 
+    - Para dispositivos pessoais 
+
+    - Para registrar manualmente os dispositivos com o Azure Active Directory
+
+- Dispositivos vinculados ao Azure Active Directory: 
+
+    - Para os dispositivos que pertencerem à sua organização
+
+    - Para os dispositivos que **não** tiverem sido vinculados a um AD local
+
+    - Para registrar manualmente os dispositivos com o Azure Active Directory
+
+    - Para alterar o estado de local de um dispositivo
 
 - Dispositivos adicionados ao Azure AD híbrido para dispositivos que foram adicionados a um AD local     
 
+    - Para os dispositivos que pertencerem à sua organização
+
+    - Para os dispositivos que tiverem sido vinculados a um AD local
+
+    - Para registrar altomaticamente os dispositivos com o Azure Active Directory
+
+    - Para alterar o estado de local de um dispositivo
 
 
 

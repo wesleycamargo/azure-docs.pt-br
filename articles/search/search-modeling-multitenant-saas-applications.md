@@ -11,19 +11,19 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/26/2016
+ms.date: 11/09/2017
 ms.author: ashmaka
-ms.openlocfilehash: 33897e7966de5d467602f6cb36fe16caf0786ffd
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 622ae64e118dd2498aff0bf2e9f6c1dbfb0ab045
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>Padrões de design para aplicativos SaaS multilocatários e Azure Search
 Um aplicativo multilocatário é aquele que fornece os mesmos serviços e funcionalidades para qualquer número de locatários que não conseguem ver nem compartilhar os dados de qualquer outro locatário. Este documento discute estratégias de isolamento de locatário para aplicativos multilocatários criados com o Azure Search.
 
 ## <a name="azure-search-concepts"></a>Conceitos do Azure Search
-Como uma solução de pesquisa como serviço, o Azure Search permite aos desenvolvedores adicionar experiências de pesquisa avançada para aplicativos sem nenhuma infraestrutura de gerenciamento ou se tornar um especialista em pesquisa. Os dados são carregados para o serviço e, em seguida, são armazenados na nuvem. Usando solicitações simples para a API do Azure Search, os dados podem então ser modificados e pesquisados. Uma visão geral do serviço pode ser encontrada em [neste artigo](http://aka.ms/whatisazsearch). Antes de discutir os padrões de design, é importante compreender alguns conceitos do Azure Search.
+Como uma solução de pesquisa como serviço, o Azure Search permite aos desenvolvedores adicionar experiências de pesquisa avançada para aplicativos sem gerenciar nenhuma infraestrutura ou se tornar um especialista em pesquisa. Os dados são carregados para o serviço e, em seguida, são armazenados na nuvem. Usando solicitações simples para a API do Azure Search, os dados podem então ser modificados e pesquisados. Uma visão geral do serviço pode ser encontrada em [neste artigo](http://aka.ms/whatisazsearch). Antes de discutir os padrões de design, é importante compreender alguns conceitos do Azure Search.
 
 ### <a name="search-services-indexes-fields-and-documents"></a>Serviços Search, índices, campos e documentos
 Ao usar o Azure Search, alguém assina um *serviço de pesquisa*. Como os dados são carregados no Azure Search, eles são armazenados em um *índice* dentro do serviço de pesquisa. Pode haver um número de índices em um único serviço. Para usar os conceitos familiares de bancos de dados, o serviço de pesquisa pode ser comparado a um banco de dados, enquanto os índices dentro de um serviço podem ser comparados a tabelas em um banco de dados.

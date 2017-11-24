@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: c63eb15e8d575da91fd8198ca9d486f7fdb2b38d
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 10a92f301584d4e676da9a1eb229667925a6c72c
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="governance-in-azure"></a>Governança no Azure
 
@@ -225,14 +225,14 @@ Recursos não precisam residir no mesmo grupo de recursos para compartilhar uma 
 Políticas de recursos permitem que você crie regras padrão para sua organização. Você pode criar políticas que garantem que os recursos sejam marcados com os valores apropriados.
 
 > [!Note]
-> Para obter mais informações, consulte [Aplicar políticas de recursos para marcas](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-policy-tags).
+> Para obter mais informações, confira [Iniciativa de política de marcas de cobrança](../azure-policy/scripts/billing-tags-policy-init.md).
 
 Você também pode exibir os recursos marcados por meio do portal do Azure.
 
 O [relatório de uso](https://docs.microsoft.com/azure/billing/billing-understand-your-bill) para sua assinatura inclui nomes de marca e valores, o que o habilita a dividir os custos por marcas.
 
 > [!Note]
-> Para obter mais informações sobre marcas, consulte [Usando marcas para organizar os recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags).
+> Para obter mais informações sobre marcas, confira [Iniciativa de política de marcas de cobrança](../azure-policy/scripts/billing-tags-policy-init.md).
 
 As seguintes limitações se aplicam a marcas:
 

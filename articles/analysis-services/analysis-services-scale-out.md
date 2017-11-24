@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: owend
-ms.openlocfilehash: 0e58862684e62a65cf11266cc0320a9acd781f07
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: a97f9648efef7f07659110d720c200dcd0a241a9
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="azure-analysis-services-scale-out"></a>Escala horizontal do Azure Analysis Services
 
@@ -32,7 +32,7 @@ Com a escala horizontal, você pode criar um pool de consultas com até sete ré
 
 Independentemente do número de réplicas de consulta que você tem em um pool de consulta, as cargas de trabalho de processamento não são distribuídas entre as réplicas de consulta. Um único servidor atua como o servidor de processamento. Réplicas de consulta servem apenas as consultas em relação aos modelos sincronizados entre cada réplica no pool de consulta. 
 
-Quando as operações de processamento são concluídas, a sincronização deve ser executada entre o servidor de processamento e os servidores de réplica de consulta. Para automatizar as operações de processamento, é importante configurar uma operação de sincronização após a conclusão bem-sucedida de operações de processamento.
+Quando as operações de processamento são concluídas, a sincronização deve ser executada entre o servidor de processamento e os servidores de réplica de consulta. Para automatizar as operações de processamento, é importante configurar uma operação de sincronização após a conclusão bem-sucedida de operações de processamento. A sincronização pode ser executada manualmente no portal ou usando o PowerShell ou a API REST.
 
 > [!NOTE]
 > A escala horizontal está disponível para servidores no tipo de preço Standard. Cada réplica de consulta é cobrada com a mesma taxa de seu servidor.
@@ -58,12 +58,10 @@ Quando as operações de processamento são concluídas, a sincronização deve 
 
 Modelos tabulares no servidor primário são sincronizados com os servidores de réplica. Quando a sincronização é concluída, o pool de consulta começa a distribuir as consultas de entrada entre os servidores de réplica. 
 
-### <a name="powershell"></a>PowerShell
-Use o cmdlet [Set-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver). Especifique o valor do parâmetro `-Capacity` como > 1.
 
 ## <a name="synchronization"></a>Sincronização 
 
-Quando você provisiona novas réplicas de consulta, o Azure Analysis Services replica automaticamente seus modelos em todas as réplicas. Você também pode executar uma sincronização manual. Quando você processa seus modelos, deve executar uma sincronização para que as atualizações sejam sincronizadas entre réplicas de consulta.
+Quando você provisiona novas réplicas de consulta, o Azure Analysis Services replica automaticamente seus modelos em todas as réplicas. Também execute uma sincronização manual usando o portal ou a API REST. Ao processar seus modelos, execute uma sincronização, de modo que as atualizações sejam sincronizadas entre as réplicas de consulta.
 
 ### <a name="in-azure-portal"></a>No Portal do Azure
 
@@ -72,12 +70,16 @@ Em **Visão Geral** > modelo > **Sincronizar modelo**.
 ![Controle deslizante da escala horizontal](media/analysis-services-scale-out/aas-scale-out-sync.png)
 
 ### <a name="rest-api"></a>API REST
+Use a operação de **sincronização**.
 
-Sincronizar um modelo   
-`POST https://<region>.asazure.windows.net/servers/<servername>/models/<modelname>/sync`
+#### <a name="synchronize-a-model"></a>Sincronizar um modelo   
+`POST https://<region>.asazure.windows.net/servers/<servername>:rw/models/<modelname>/sync`
 
-Obter o status de uma sincronização de modelo  
-`GET https://<region>.asazure.windows.net/servers/<servername>/models/<modelname>/sync`
+#### <a name="get-sync-status"></a>Obter o status de sincronização  
+`GET https://<region>.asazure.windows.net/servers/<servername>:rw/models/<modelname>/sync`
+
+### <a name="powershell"></a>PowerShell
+Para executar a sincronização no PowerShell, [atualize para o último módulo AzureRM](https://github.com/Azure/azure-powershell/releases) 5.01 ou superior. Use [Sync-AzureAnalysisServicesInstance](https://docs.microsoft.com/en-us/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance).
 
 ## <a name="connections"></a>Conexões
 

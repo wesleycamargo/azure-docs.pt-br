@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/03/2017
 ms.author: rodend;karlku;tomfitz
-ms.openlocfilehash: 6e8335b9c2f3609bf0c48c563205ffaee8575b20
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ab816d0392816c2293f9d70eb249bbcfa09bfba
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="examples-of-implementing-azure-enterprise-scaffold"></a>Exemplos de implementação de scaffold do Azure Enterprise
 Este tópico fornece exemplos de como uma empresa pode implementar as recomendações para um [scaffold do Azure Enterprise](resource-manager-subscription-governance.md). Ele usa uma empresa fictícia chamada Contoso para ilustrar as melhores práticas para cenários comuns.
@@ -68,7 +68,7 @@ Dave tem os seguintes requisitos para o gerenciamento de recursos na assinatura:
 * Ele está preocupado com os custos. Portanto, ele deseja impedir que os proprietários do aplicativo criem máquinas virtuais desnecessariamente caras.  
 * Como esse aplicativo serve os desenvolvedores em várias unidades de negócios, ele deseja marcar cada recurso com o proprietário do aplicativo e unidade de negócios. Usando essas marcas, o ETS pode cobrar as equipes apropriadas.
 
-Ele cria as seguintes [políticas do Resource Manager](resource-manager-policy.md):
+Ele cria as seguintes [políticas do Azure](../azure-policy/azure-policy-introduction.md):
 
 | Campo | Efeito | Descrição |
 | --- | --- | --- |

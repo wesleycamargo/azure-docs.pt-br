@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 11/08/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 341d275fbf9f80ac9e3363757d880b9546bdee13
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 497582138504250b3c4a77dab440d29ad928a7d8
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="create-and-deploy-an-application-with-an-aspnet-core-web-api-front-end-service-and-a-stateful-back-end-service"></a>Criar e implantar um aplicativo com um serviço de front-end de API Web do ASP.NET Core e um serviço de back-end com estado
 Este tutorial é a primeira parte de uma série.  Você aprenderá a criar um aplicativo do Azure Service Fabric com um front-end da API Web do ASP.NET Core e um serviço de back-end com estado para armazenar seus dados. Quando terminar, você terá um aplicativo de votação com um front-end da Web do ASP.NET Core que salva os resultados da votação em um serviço de back-end com estado do cluster. Se você não quiser criar manualmente o aplicativo de votação, [baixe o código-fonte](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) do aplicativo concluído e vá direto para [Percorrer o aplicativo de exemplo votação](#walkthrough_anchor).
@@ -66,7 +66,7 @@ Primeiro, crie o front-end da Web do aplicativo de votação usando o ASP.NET Co
    
    ![Escolhendo um serviço Web ASP.NET no diálogo Novo serviço](./media/service-fabric-tutorial-create-dotnet-app/new-project-dialog-2.png) 
 
-6. A próxima página fornece um conjunto de modelos de projeto do ASP.NET Core. Para este tutorial, escolha **Aplicativo Web**. 
+6. A próxima página fornece um conjunto de modelos de projeto do ASP.NET Core. Para este tutorial, escolha **Web Application (MVC)**. 
    
    ![Escolha o tipo de projeto do ASP.NET](./media/service-fabric-tutorial-create-dotnet-app/vs-new-aspnet-project-dialog.png)
 

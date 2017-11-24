@@ -13,18 +13,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2017
+ms.date: 11/13/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: 8f175f5711b9798153d209f6645aa8bae9f2a00b
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 9595b318b8bd974f778dc12b38cccd949a4e7a1a
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="help-i-forgot-my-azure-ad-password"></a>Preciso de ajuda, esqueci minha senha do Azure AD
+# <a name="reset-your-work-or-school-password"></a>Redefinir sua senha corporativa ou de estudante
 
-Se você esquecer sua senha, nunca recebeu uma da sua equipe de TI, teve sua conta bloqueada, ou deseja alterar a senha, podemos ajudar. Se você souber a senha e somente precisar alterá-la, continue até a seção [Alterar minha senha](#change-my-password) abaixo.
+Se você tiver esquecido sua senha, nunca tiver recebido uma da sua equipe de suporte da empresa, tiver sua conta bloqueada, ou desejar alterar a senha, podemos ajudar. Se você souber a senha e somente precisar alterá-la, continue até a seção [Alterar minha senha](#change-my-password) abaixo.
 
    > [!NOTE]
    > Se você estiver tentando retornar a sua conta pessoal, como Xbox, hotmail.com ou outlook.com, tente as [sugestões encontradas neste artigo](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant)
@@ -64,7 +64,7 @@ Siga as etapas abaixo para acessar a redefinição de senha de autoatendimento d
    ![Verificar os dados de autenticação][Verification]
 
 4. A sua equipe de TI pode precisar de outras verificações e pode ser que você tenha que repetir a etapa 3 com uma opção diferente.
-5. Na página **Escolher uma nova senha**, insira uma nova senha, confirme sua senha e clique em **Concluir**. Sugerimos que sua senha tenha de 8 a 16 caracteres com letras maiúsculas e minúsculas, números e caracteres especiais.
+5. Na página **Escolher uma nova senha**, insira uma nova senha, confirme sua senha e clique em **Concluir**. Sua senha corporativa ou de estudante pode exigir certos requisitos; sugerimos que sua senha tenha de 8 a 16 caracteres com letras maiúsculas e minúsculas, números e caracteres especiais.
 6. Quando você vir **A sua senha foi redefinida.**, você poderá entrar com sua nova senha.
 
     ![A senha do usuário foi redefinida][Complete]
@@ -95,6 +95,27 @@ Use este método se você normalmente acessa seus aplicativos usando o Portal de
 3. Clique em **Alterar Senha**
 4. Insira sua senha antiga, defina e confirme sua nova senha e clique em **Enviar**
 
+## <a name="reset-password-at-login"></a>Redefinir a senha no Logon
+
+Se o seu administrador tiver habilitado essa funcionalidade, você poderá ver um link para **Redefinir senha** na sua tela de logon do Windows 10 Fall Creators Update.
+
+![LoginScreen][LoginScreen]
+
+Clicar no link **Redefinir senha** fará com que abra a experiência SSPR na tela de logon para que você possa redefinir a sua senha sem ter que fazer logon para acessar a experiência normal baseada na web.
+
+1. Confirme o seu ID de Usuário e clique em **Próximo**
+2. Escolha e confirme um método de contato para a verificação. A sua equipe de TI pode precisar de outras verificações, e pode ser que você tenha que repetir esta etapa novamente com uma opção diferente.
+
+   ![ContactMethod][ContactMethod]
+
+3. Na página **Criar uma nova senha**, insira uma nova senha, confirme-a e clique em **Próximo**. Sugerimos que sua senha tenha de 8 a 16 caracteres com letras maiúsculas e minúsculas, números e caracteres especiais.
+
+   ![ResetPassword][ResetPassword]
+
+4. Quando você vir **Sua senha foi redefinida**, clique em **Concluir**
+
+Agora você deve ser capaz de acessar sua conta, caso contrário, entre em contato com a equipe de TI da sua organização para obter ajuda adicional.
+
 ## <a name="common-problems-and-their-solutions"></a>problemas comuns e suas soluções
 
  Aqui estão alguns casos de erro comuns e suas soluções:
@@ -116,3 +137,6 @@ Use este método se você normalmente acessa seus aplicativos usando o Portal de
 [Verification]: ./media/active-directory-passwords-update-your-own-password/reset-2-verification.png "Verificar os dados de autenticação"
 [Change]: ./media/active-directory-passwords-update-your-own-password/reset-3-change.png "Alterar sua senha"
 [Complete]: ./media/active-directory-passwords-update-your-own-password/reset-4-complete.png "A senha do usuário foi redefinida"
+[LoginScreen]: ./media/active-directory-passwords-update-your-own-password/login-screen.png "Link de redefinição de senha na tela de Logon do Windows 10 Fall Creators Update"
+[ContactMethod]: ./media/active-directory-passwords-update-your-own-password/reset-contact-method-screen.png "Verificar os dados de autenticação"
+[ResetPassword]: ./media/active-directory-passwords-update-your-own-password/reset-password-screen.png "Alterar sua senha"

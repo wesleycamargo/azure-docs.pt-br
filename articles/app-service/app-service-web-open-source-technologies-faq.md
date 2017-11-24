@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: c0872619a4897b0ac40629df00053f3e49768f64
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 4fb443691e216169dd1322b96d77139ffde752d4
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Perguntas frequentes sobre tecnologias de código aberto para Aplicativos Web do Azure
 
@@ -32,14 +32,6 @@ Este artigo apresenta perguntas frequentes (FAQs) sobre problemas com tecnologia
 Para problemas relacionados ao banco de dados, entre em contato com o [Suporte do ClearDB](https://www.cleardb.com/developers/help/support). 
 
 Para obter respostas a perguntas comuns sobre ClearDB, consulte [perguntas frequentes sobre ClearDB](https://docs.microsoft.com/azure/store-cleardb-faq/).
-
-## <a name="why-isnt-my-cleardb-database-listed-in-the-portal"></a>Por que meu banco de dados ClearDB não está listado no portal?
-
-Se você criar um banco de dados ClearDB no [portal do Azure](http://portal.azure.com/), o banco de dados não aparecerá no [portal clássico do Azure](http://manage.windowsazure.com/). Para resolver esse problema, você pode vincular o banco de dados manualmente ao aplicativo web.
-
-Da mesma forma, se você criar um banco de dados ClearDB no [portal clássico do Azure](http://manage.windowsazure.com/), você não verá o banco de dados no [portal do Azure](http://portal.azure.com/). Nesse caso, nenhuma solução alternativa está disponível. 
-
-Para mais informações, consulte [Perguntas frequentes sobre bancos de dados MySql do ClearDB com o Serviço de Aplicativo do Azure](https://docs.microsoft.com/azure/store-cleardb-faq/).
 
 ## <a name="why-wasnt-my-cleardb-database-migrated-during-my-subscription-migration"></a>Por que meu banco de dados ClearDB não migrou durante a migração da minha assinatura?
 

@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 09/16/2017
+ms.date: 11/10/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 732ec45003481b0e2f2eca03b6ae13772d325ef1
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 8b84b90e72f8cac1fc1f8a90391b7a5a4f6be1f4
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="test-your-solution-with-simulated-devices"></a>Testar sua solução com dispositivos simulados
 
@@ -39,6 +39,10 @@ A tabela a seguir mostra os dados que a lâmpada relata para a nuvem como um flu
 | Nome   | Valores      |
 | ------ | ----------- |
 | Status | "on", "off" |
+| online | verdadeiro, falso |
+
+> [!NOTE]
+> O valor de telemetria **online** é obrigatório para simulada todos os tipos.
 
 *Métodos*
 
@@ -267,7 +271,11 @@ Para testar o tipo de dispositivo **Lâmpada**, primeiro você pode testar se o 
 
 Para testar e depurar as alterações localmente, consulte [Device simulation overview](https://github.com/Azure/device-simulation-dotnet/blob/master/README.md) (Visão geral da simulação de dispositivo).
 
-Configure o projeto para copiar os novos arquivos do dispositivo **Lâmpada** para o diretório de saída.
+Configure o projeto para copiar os novos arquivos do dispositivo **Lâmpada** para o diretório de saída:
+
+* Se você estiver usando o Visual Studio, certifique-se de adicionar os três novos arquivos de lâmpada criadas na seção anterior para o projeto **Serviços** na solução. Em seguida, use **explorador de Soluções** para marcá-los a serem copiados para o diretório de saída.
+
+* Se você estiver usando Visual Studio Code, abra o arquivo **Services.csproj** e adicione os três novos arquivos lâmpada que você criou na seção anterior. Consulte as entradas de arquivo de modelo de dispositivo existentes no arquivo **Services.csproj** como exemplos.
 
 Para testar o novo dispositivo em uma solução implantada, consulte um destes artigos:
 

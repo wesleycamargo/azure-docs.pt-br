@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 10/13/2017
 ms.author: renash
-ms.openlocfilehash: 871fc85d0b406d2de35a79eb2906ff2d6ada9570
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: da8ccf35dcc873a5c31842c6eb7bdf72879854c2
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="frequently-asked-questions-about-azure-files"></a>Perguntas frequentes sobre o Arquivos do Azure
 O serviço [Arquivos do Azure](storage-files-introduction.md) oferece compartilhamentos de arquivos totalmente gerenciados na nuvem, acessíveis por meio do protocolo [SMB (Service Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) padrão do setor (também conhecido como CIFS ou Common Internet File System). Você pode montar compartilhamentos de arquivos do Azure simultaneamente em implantações locais ou na nuvem do Windows, do Linux e do macOS. Você também pode armazenar em cache os compartilhamentos de arquivos do Azure nos computadores Windows Server usando a Sincronização de Arquivos do Azure (versão prévia) para acesso rápido perto de onde os dados são usados.
@@ -25,7 +25,7 @@ O serviço [Arquivos do Azure](storage-files-introduction.md) oferece compartilh
 Este artigo responde perguntas frequentes sobre funcionalidades e recursos do serviço Arquivos do Azure, inclusive sobre o uso dele em combinação com a Sincronização de Arquivos do Azure. Se você não vir a resposta para sua pergunta aqui, poderá entrar em contato conosco pelos seguintes canais (em ordem progressiva):
 
 1. A seção de comentários deste artigo.
-2. O [Fórum do Armazenamento do Azure](https://social.msdn.microsoft.com/Forums/home?forum=windowsazuredata).
+2. O [Fórum do Armazenamento do Azure](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=windowsazuredata).
 3. O [UserVoice do Arquivos do Azure](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
 4. O Suporte da Microsoft. Para criar uma nova solicitação de suporte, no Portal do Azure, na guia **Ajuda**, selecione o botão **Ajuda + suporte** e, em seguida, selecione **Nova solicitação de suporte**.
 

@@ -3,17 +3,17 @@ title: "Criar uma atribuição de política para identificar recursos sem confor
 description: "Este artigo orienta você quanto às etapas para criar uma definição de política para identificar recursos sem conformidade."
 services: azure-policy
 keywords: 
-author: Jim-Parker
-ms.author: jimpark
+author: bandersmsft
+ms.author: banders
 ms.date: 11/02/2017
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: db5112c858d2a2c54813d9c9a3670a45fcbdb993
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: a1b2f72cf33c740a52cf817766e9950a04886141
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment"></a>Criar uma atribuição de política para identificar recursos sem conformidade em seu ambiente do Azure
 A primeira etapa para compreender a conformidade no Azure é saber qual é a situação de seus recursos atuais. Este guia de início rápido orienta você no processo de criação de uma atribuição de política para identificar máquinas virtuais que não estão usando discos gerenciados.

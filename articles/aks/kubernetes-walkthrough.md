@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/24/2017
+ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: 89d469b330644b8f5b82a343ea4408d5b8d10b12
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 84f542340f62194a31817a8e358d75c0d0f103ee
+ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Implantar um cluster do AKS (Serviço de Contêiner do Azure)
 
@@ -33,7 +33,7 @@ Este início rápido pressupõe uma compreensão básica dos conceitos de Kubern
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar a CLI localmente, este guia de início rápido exigirá a execução da CLI do Azure versão 2.0.20 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
+Se você optar por instalar e usar a CLI localmente, este guia de início rápido exigirá a execução da CLI do Azure versão 2.0.21 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure]( /cli/azure/install-azure-cli).
 
 ## <a name="enabling-aks-preview-for-your-azure-subscription"></a>Habilitando a versão prévia do AKS para sua assinatura do Azure
 Enquanto o AKS está na versão prévia, a criação de novos clusters requer um sinalizador de recurso em sua assinatura. Você pode solicitar esse recurso para qualquer número de assinaturas que deseje usar. Use o comando `az provider register` para registrar o provedor do AKS:
@@ -48,10 +48,10 @@ Após o registro, você estará pronto para criar um cluster do Kubernetes com o
 
 Crie um grupo de recursos com o comando [az group create](/cli/azure/group#create). Um grupo de recursos do Azure é um grupo lógico no qual os recursos do Azure são implantados e gerenciados.
 
-O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* na localização *westus2*.
+O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* no local *eastus*.
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location westus2
+az group create --name myResourceGroup --location eastus
 ```
 
 Saída:
@@ -59,7 +59,7 @@ Saída:
 ```json
 {
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup",
-  "location": "westus2",
+  "location": "eastus",
   "managedBy": null,
   "name": "myResourceGroup",
   "properties": {
@@ -74,7 +74,7 @@ Saída:
 O exemplo a seguir cria um cluster chamado *myK8sCluster* com um nó.
 
 ```azurecli-interactive
-az aks create --resource-group myResourceGroup --name myK8sCluster --agent-count 1 --generate-ssh-keys
+az aks create --resource-group myResourceGroup --name myK8sCluster --node-count 1 --generate-ssh-keys
 ```
 
 Após alguns minutos, o comando é concluído e retorna informações formatadas em JSON sobre o cluster.

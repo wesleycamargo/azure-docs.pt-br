@@ -3,21 +3,21 @@ title: Perguntas frequentes do DNS do Azure | Microsoft Docs
 description: Perguntas frequentes sobre o DNS do Azure
 services: dns
 documentationcenter: na
-author: jtuliani
-manager: timlt
+author: KumudD
+manager: jeconnoc
 editor: 
 ms.service: dns
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/22/2017
-ms.author: jonatul
-ms.openlocfilehash: 9d786ce4d06ec95a647a755bed51f824e72ad04c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/06/2017
+ms.author: kumud
+ms.openlocfilehash: a8cff450730d05970398989ceb3e8585aefd6771
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="azure-dns-faq"></a>Perguntas frequentes do DNS do Azure
 
@@ -139,6 +139,10 @@ Para saber mais, veja [Proteção de zonas e registros DNS](dns-protect-zones-re
 ### <a name="how-do-i-set-up-spf-records-in-azure-dns"></a>Como posso configurar registros de SPF no DNS do Azure?
 
 [!INCLUDE [dns-spf-include](../../includes/dns-spf-include.md)]
+
+### <a name="do-azure-dns-nameservers-resolve-over-ipv6-"></a>Os Servidores de Nomes do DNS do Azure são resolvidos pelo IPv6? 
+
+Sim. Os Servidores de Nomes do DNS do Azure têm pilha dual (ambos têm endereços IPv4 e IPv6). Para localizar o endereço IPv6 dos servidores de nomes do DNS do Azure atribuídos à zona DNS, use uma ferramenta como nslookup (por exemplo, `nslookup -q=aaaa <Azure DNS Nameserver>`).
 
 ### <a name="how-do-i-set-up-an-international-domain-name-idn-in-azure-dns"></a>Como posso configurar um nome de domínio internacional (IDN) no DNS do Azure?
 

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: On Demand
-ms.date: 10/30/2017
+ms.date: 11/13/2017
 ms.author: genemi
-ms.openlocfilehash: 69059b6169e1fac4d0abea2770b0de502f816113
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: e1bb3e9f09ca7f5463228da4079b06ad2e771def
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database"></a>Use pontos de extremidade e regras de serviço de rede virtual para o Banco de dados SQL do Azure
 
@@ -141,6 +141,9 @@ Para o Banco de Dados SQL do Azure, o recurso de regras de rede virtual tem as s
 - Cada servidor de banco de dados SQL do Azure pode ter até 128 entradas de ACL para qualquer rede virtual especificada.
 
 - As regras de rede virtual se aplicam somente a redes virtuais do Azure Resource Manager; e não a redes do [modelo de implantação clássico][arm-deployment-model-568f].
+
+- A ativação de pontos de extremidade de serviço de rede virtual no Banco de Dados SQL do Azure também habilita os pontos de extremidade para os serviços MySQL e PostGres do Azure. No entanto, com os pontos de extremidade ativados, as tentativas de conexão dos pontos de extremidade com as instâncias do MySQL ou Postgres falharão.
+    - O motivo subjacente é que o MySQL e o PostGres atualmente não dão suporte à listagem na ACL.
 
 - No firewall, os intervalos de endereços IP se aplicam aos seguintes itens de rede, mas as regras de rede virtual não:
     - [Rede privada virtual (VPN) de site a site (S2S)][vpn-gateway-indexmd-608y]

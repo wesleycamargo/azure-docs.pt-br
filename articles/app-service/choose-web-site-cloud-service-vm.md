@@ -15,11 +15,11 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: edd5099d2804fdb5867b4be5b11a361004db1665
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: bac9169bc41927ef8cf88aee256b2e057ccad4e9
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Comparação de Serviço de Aplicativo, Máquinas Virtuais, Service Fabric e Serviços de Nuvem do Azure
 ## <a name="overview"></a>Visão geral
@@ -48,7 +48,7 @@ A tabela a seguir compara os recursos do Serviço de Aplicativo, Serviços de Nu
 | Acesso a serviços como o Barramento de Serviço, Armazenamento, Banco de Dados SQL |X |X |X |X | |
 | Camada de serviços Web ou Web hospedada de uma arquitetura multicamada |X |X |X |X | |
 | Camada intermediária de host de uma arquitetura multicamada |X |X |X |X |Os aplicativo Web do Serviço de Aplicativo podem hospedar facilmente uma camada média da API REST, e o recurso [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) pode hospedar tarefas de processamento em segundo plano. Você pode executar o WebJobs em um site dedicado para alcançar a escalabilidade independente para a camada. |
-| Suporte integrado do MySQL como serviço |X |X |X | |Os Serviços de Nuvem podem integrar o MySQL como serviço por meio de ofertas do ClearDB, mas não como parte do fluxo de trabalho do Portal do Azure. |
+| Suporte integrado do MySQL como serviço |X |X | | | |
 | Suporte para ASP.NET, classic ASP, Node.js, PHP, Python |X |X |X |X |O Service Fabric oferece suporte à criação de um front-end da Web o usando [ASP.NET 5](../service-fabric/service-fabric-add-a-web-frontend.md) ou você pode implantar qualquer tipo de aplicativo (Node.js, Java etc.) como um [executável convidado](../service-fabric/service-fabric-deploy-existing-app.md). |
 | Dimensionamento para várias instâncias sem reimplantação |X |X |X |X |Máquinas Virtuais podem ser dimensionadas para várias instâncias, mas os serviços em execução nessas máquinas devem ser escritos para lidar com este dimensionamento. Você precisa configurar um balanceador de carga para rotear solicitações entre máquinas e criar um Grupo de Afinidade para impedir reinícios simultâneos de todas as instâncias devido a manutenções ou falhas de hardware. |
 | Suporte para SSL |X |X |X |X |Para aplicativos Web do Serviço de Aplicativo, o SSL para nomes de domínio personalizados só tem suporte no modo Básico e Padrão. Para obter informações sobre como usar o SSL com os aplicativos Web, consulte [Configurar um certificado SSL para um site do Azure](app-service-web-tutorial-custom-ssl.md). |
@@ -97,7 +97,7 @@ O Serviço de Aplicativo do Azure é uma ótima solução para hospedar sites co
 * Integre-se com o Active Directory
 
 ### <a id="iis6"></a> Tenho um aplicativo IIS6 em execução no Windows Server 2003.
-O Serviço de Aplicativo do Azure torna fácil evitar os custos com infraestrutura associados à migração de aplicativos IIS6 mais antigos. A Microsoft criou [ferramentas de migração de fácil uso e instruções de migração detalhadas](https://www.movemetowebsites.net/) que permitem que você verifique a compatibilidade e identifique mudanças que precisam ser feitas. A integração com Visual Studio, TFS e ferramentas de CMS comuns torna mais fácil implantar aplicativos IIS6 diretamente na nuvem. Uma vez implantado, o Portal do Azure oferece ferramentas de gerenciamento robustas que permitem reduzir verticalmente para gerenciar os custos e atender à demanda conforme o necessário. Com a ferramenta de migração, você pode:
+O Serviço de Aplicativo do Azure torna fácil evitar os custos com infraestrutura associados à migração de aplicativos IIS6 mais antigos. A Microsoft criou [ferramentas de migração de fácil uso e instruções de migração detalhadas](https://www.migratetoazure.net/) que permitem que você verifique a compatibilidade e identifique mudanças que precisam ser feitas. A integração com Visual Studio, TFS e ferramentas de CMS comuns torna mais fácil implantar aplicativos IIS6 diretamente na nuvem. Uma vez implantado, o Portal do Azure oferece ferramentas de gerenciamento robustas que permitem reduzir verticalmente para gerenciar os custos e atender à demanda conforme o necessário. Com a ferramenta de migração, você pode:
 
 * Migrar rápida e facilmente seu aplicativo Web do Windows Server 2003 legado para a nuvem.
 * Escolha deixar seu banco de dados SQL conectado localmente para criar um aplicativo híbrido.
@@ -174,7 +174,6 @@ Para se familiarizar com as opções escolhidas para seu aplicativo, consulte os
 [Cloud Services]: /azure/cloud-services/
 [Virtual Machines]: /azure/virtual-machines/
 [Service Fabric]: /azure/service-fabric/
-[ClearDB]: http://www.cleardb.com/
 [WebJobs]: http://go.microsoft.com/fwlink/?linkid=390226&clcid=0x409
 [Configuring an SSL certificate for an Azure Website]: app-service-web-tutorial-custom-ssl.md
 [azurestore]: https://azuremarketplace.microsoft.com/en-us/marketplace/apps

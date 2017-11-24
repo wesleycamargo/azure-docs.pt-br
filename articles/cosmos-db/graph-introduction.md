@@ -10,13 +10,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/29/2017
+ms.date: 11/15/2017
 ms.author: denlee
-ms.openlocfilehash: b6cc51ad2bab294035f3ed8f300423d1d320df1f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 71d9d03b45d8c4fcf8acb41871dcf3f1304955aa
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-graph-api"></a>Introdução ao BD Cosmos do Azure: API do Graph
 
@@ -44,7 +44,7 @@ O BD Cosmos do Azure API do Graph fornece:
 - Escala elástica de armazenamento e taxa de transferência com latências de leitura menores do que 10 ms e menores do que 15 ms no 99º percentil.
 - Indexação automática com disponibilidade imediata de consulta.
 - Níveis de consistência ajustáveis.
-- SLAs abrangentes, incluindo 99,99% de disponibilidade.
+- SLAs abrangentes, incluindo um SLA de disponibilidade de 99,99% para todas as contas de região única e todas as contas de várias regiões com consistência amena e 99,999% de disponibilidade de leitura em todas as contas de banco de dados de várias regiões.
 
 Para consultar o BD Cosmos do Azure, você pode usar o [Apache TinkerPop](http://tinkerpop.apache.org) idioma de passagem gráfica, [Gremlin](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), ou outros sistemas de gráfico compatível com TinkerPop como [Apache Spark GraphX](spark-connector-graph.md).
 

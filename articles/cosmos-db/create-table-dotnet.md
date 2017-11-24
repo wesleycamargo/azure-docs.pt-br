@@ -15,11 +15,11 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 11/15/2017
 ms.author: arramac
-ms.openlocfilehash: 02317d1b74d10d0fb3a2a08d8f4292a6be0438c2
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 5d22b23d687dba2382e009e73f20014a5d528d78
+ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-and-azure-cosmos-db"></a>Início rápido: criar um aplicativo de API de Tabela com .NET e Azure Cosmos DB 
 
@@ -67,7 +67,7 @@ Agora, clonaremos um aplicativo de Tabela do github, definiremos a cadeia de con
 2. Execute o comando a seguir para clonar o repositório de exemplo. Este comando cria uma cópia do aplicativo de exemplo no seu computador. 
 
     ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-db-table-dotnet-getting-started.git
+    git clone https://github.com/Azure-Samples/storage-table-dotnet-getting-started.git
     ```
 
 3. Em seguida, abra o arquivo da solução TableStorage no Visual Studio. 
@@ -78,22 +78,25 @@ Agora, volte ao portal do Azure para obter informações sobre a cadeia de conex
 
 1. No [Portal do Azure](http://portal.azure.com/), clique em **Cadeia de Conexão**. 
 
-    Use os botões de cópia no lado direito da tela para copiar a CADEIA DE CONEXÃO.
+    Use os botões de cópia no lado direito da tela para copiar a CADEIA DE CONEXÃO PRIMÁRIA.
 
-    ![Exiba e copie a CADEIA DE CONEXÃO no painel Cadeia de Conexão](./media/create-table-dotnet/connection-string.png)
+    ![Exiba e copie a CADEIA DE CONEXÃO PRIMÁRIA no painel Cadeia de Conexão](./media/create-table-dotnet/connection-string.png)
 
 2. No Visual Studio, abra o arquivo App.config. 
 
-3. Cole o valor da CADEIA DE CONEXÃO no arquivo App.config como o valor de AzureCosmosDBTableAPIConnectionString. 
+3. Remova a marca de comentário da StorageConnectionString na linha 8 e comente a StorageConnectionString na linha 7, pois este tutorial não usa o Emulador de Armazenamento. 
 
-    `<add key="CosmosDBStorageConnectionString" 
-        value="DefaultEndpointsProtocol=https;AccountName=MYSTORAGEACCOUNT;AccountKey=AUTHKEY;TableEndpoint=https://account-name.table.cosmosdb.net" />`    
+3. Cole o valor da CADEIA DE CONEXÃO PRIMÁRIA no valor da StorageConnectionString na linha 8. 
 
-    > [!NOTE]
-    > Para usar este aplicativo com o armazenamento de Tabela do Azure, você precisa alterar a cadeia de conexão no `App.config file`. Use o nome da conta como nome da conta de tabela e a chave como a chave primária do Armazenamento do Azure. <br>
-    >`<add key="StandardStorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key;EndpointSuffix=core.windows.net" />`
-    > 
-    >
+    ```
+    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]" />`
+    ```
+
+    Agora a linha 8 deve ser semelhante a
+
+    ```
+    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=txZACN9f...==;TableEndpoint=https://<account name>.table.cosmosdb.azure.com;" />
+    ```
 
 4. Salve o arquivo App.config.
 

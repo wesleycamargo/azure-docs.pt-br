@@ -1,6 +1,6 @@
 ---
 title: Codificar um ativo com o Media Encoder Standard usando o .NET | Microsoft Docs
-description: "Este tópico mostra como usar o .NET para codificar um ativo com o Codificador de Mídia Padrão."
+description: "Este artigo mostra como usar o .NET para codificar um ativo com o Codificador de Mídia Padrão."
 services: media-services
 documentationcenter: 
 author: juliako
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/31/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: 929592368501c54277748bf46b2160c9058db3fb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cce668007030672aff7af60c70339c1e079c75b1
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>Codificar um ativo com o Codificador de Mídia Padrão usando o .NET
 Os trabalhos de codificação são uma das operações de processamento mais comuns nos serviços de mídia. Você cria trabalhos de codificação para converter arquivos de mídia de uma codificação para outra. Ao codificar, você pode usar o codificador de mídia integrado dos serviços de mídia. Você também pode usar um codificador fornecido por um parceiro de Serviços de Mídia. Os codificadores de terceiros estão disponíveis por meio do Azure Marketplace. 
 
-Este tópico mostra como usar o .NET para codificar seus ativos com o MES (Codificador de Mídia Padrão). O Codificador de Mídia Padrão é configurado usando um dos codificadores predefinidos descritos [aqui](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+Este artigo mostra como usar o .NET para codificar seus ativos com o MES (Media Encoder Standard). O Media Encoder Standard é configurado usando um dos codificadores predefinidos descritos [aqui](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
 Convém sempre codificar arquivos de origem em um conjunto de MP4 de taxa de bits adaptável e, em seguida, converter o conjunto para o formato desejado usando o [Empacotamento Dinâmico](media-services-dynamic-packaging-overview.md). 
 
@@ -38,7 +38,7 @@ Se seu ativo de saída tiver o armazenamento criptografado, você deverá config
 [Formatos e codecs](media-services-media-encoder-standard-formats.md)
 
 ### <a name="mes-presets"></a>Predefinições de MES
-O Codificador de Mídia Padrão é configurado usando um dos codificadores predefinidos descritos [aqui](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+O Media Encoder Standard é configurado usando um dos codificadores predefinidos descritos [aqui](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
 ### <a name="input-and-output-metadata"></a>Metadados de entrada e saída
 Ao codificar um ativo (ou ativos) de entrada usando MES, você obtém um ativo de saída na conclusão bem-sucedida da tarefa de codificação. O ativo de saída contém vídeo, áudio, miniaturas, manifesto, etc., com base na predefinição de codificação utilizada.
@@ -61,7 +61,7 @@ O exemplo de código a seguir usa o SDK .NET dos Serviços de Mídia para execut
 * Especifique para usar a predefinição [Transmissão Adaptável](media-services-autogen-bitrate-ladder-with-mes.md). 
 * Adicione uma única tarefa de codificação para o trabalho. 
 * Especifique o ativo de entrada a ser codificado.
-* Crie um ativo de saída que conterá o ativo codificado.
+* Crie um ativo de saída contendo o ativo codificado.
 * Adicione um manipulador de eventos para verificar o progresso do trabalho.
 * Enviar o trabalho.
 
@@ -181,6 +181,14 @@ Configure seu ambiente de desenvolvimento e preencha o arquivo de configuração
                 }
             }
         }
+
+
+## <a name="advanced-encoding-features-to-explore"></a>Recursos de Codificação Avançada para explorar
+* [Como gerar miniaturas](media-services-dotnet-generate-thumbnail-with-mes.md)
+* [Gerar miniaturas durante a codificação](media-services-dotnet-generate-thumbnail-with-mes.md#example-of-generating-a-thumbnail-while-encoding)
+* [Cortar vídeos durante a codificação](media-services-crop-video.md)
+* [Personalizar as predefinições de codificação](media-services-custom-mes-presets-with-dotnet.md)
+* [Sobrepor ou colocar uma imagem de marca d'água em um vídeo](media-services-advanced-encoding-with-mes.md#overlay)
 
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

@@ -13,16 +13,24 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-catalog
-ms.date: 10/01/2017
+ms.date: 11/13/2017
 ms.author: maroche
-ms.openlocfilehash: 2eab8ce96399c7d6da9b4afbccdfd8b836f0c9f3
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 2839c265596d98834fb4071dea1684d5a6669907
+ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/14/2017
 ---
 # <a name="whats-new-in-azure-data-catalog"></a>O que há de novo no Catálogo de Dados do Azure
 As atualizações do **Catálogo de Dados do Azure** são liberadas periodicamente. Nem todas as versões incluem novos recursos voltados para o usuário; algumas versões se concentram em funcionalidades de serviço de back-end. Esta página destaca as novas funcionalidades voltadas para o usuário adicionadas ao serviço Catálogo de Dados do Azure.
+
+## <a name="whats-new-for-november-2017"></a>Novidades para novembro de 2017 
+Em novembro de 2017, os seguintes recursos foram adicionados ao Catálogo de Dados do Azure:
+
+* Suporte para vincular diretamente termos específicos do glossário de negócios no portal do Catálogo de Dados. Os usuários podem copiar os links do glossário de negócios e incorporá-los em documentos, emails, relatórios ou outros locais para vincular a definição dos termos do glossário.
+* Suporte para as entidades de serviço do Azure Active Directory. Os administradores do Catálogo de Dados podem autorizar aos aplicativos do cliente, que usam as entidades de serviço, acessar o catálogo e podem conceder a esses aplicativos permissões específicas, exatamente como podem conceder permissões aos usuários e grupos de segurança. Para obter mais informações, consulte [Objetos de aplicativo e entidade de serviço no Azure Active Directory](../active-directory/develop/active-directory-application-objects.md).
+* Suporte para a autenticação do Azure Active Directory ao conectar as fontes de dados do Banco de Dados SQL do Azure e Azure SQL Data Warehouse usando a ferramenta de registro da fonte de dados do Catálogo de Dados. Para obter mais informações, consulte [Usar a Autenticação do Azure Active Directory para a autenticação no Banco de Dados SQL ou SQL Data Warehouse](../sql-database/sql-database-aad-authentication.md).
+
 
 ## <a name="whats-new-for-september-2017"></a>Novidades para setembro de 2017 
 Em setembro de 2017, os seguintes recursos foram adicionados ao Catálogo de Dados do Azure:

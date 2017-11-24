@@ -1,5 +1,5 @@
 ---
-title: "Manter arquivos para Bash no Azure Cloud Shell (versão prévia) | Microsoft Docs"
+title: Manter arquivos para Bash no Azure Cloud Shell | Microsoft Docs
 description: "Passo a passo de como o Bash no Azure Cloud Shell mantém arquivos."
 services: azure
 documentationcenter: 
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: juluk
-ms.openlocfilehash: 8b8a82e1c1328d952a85ea5afd975a95f5a6e740
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a04342f77126afe1e0a2707f1d213e0a8eb5825d
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 [!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
-## <a name="how-cloud-shell-storage-works"></a>Como funciona o armazenamento do Cloud Shell 
-O Cloud Shell persiste arquivos usando os seguintes métodos: 
+## <a name="how-bash-in-cloud-shell-storage-works"></a>Como funciona Bash no armazenamento do Cloud Shell 
+O Bash no Cloud Shell persiste arquivos usando os seguintes métodos: 
 * Criando uma imagem de disco do seu diretório `$Home` para persistir todo o conteúdo do diretório. A imagem de disco é salva no compartilhamento de arquivos especificado como `acc_<User>.img` em `fileshare.storage.windows.net/fileshare/.cloudconsole/acc_<User>.img` e sincroniza as alterações automaticamente. 
 * Montando o compartilhamento de arquivos especificado como `clouddrive` no diretório `$Home` para que haja interação direta com o compartilhamento de arquivos. `/Home/<User>/clouddrive` é mapeado para `fileshare.storage.windows.net/fileshare`.
  
@@ -91,6 +91,6 @@ justin@Azure:~$
 [!include [features-introblock](../../includes/cloud-shell-persisting-shell-storage-endblock.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
-[Início rápido do Cloud Shell](quickstart.md) <br>
-[Saiba mais sobre o armazenamento de Arquivos do Azure](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) <br>
+[Início rápido do Bash no Cloud Shell](quickstart.md) <br>
+[Saiba mais sobre armazenamento de Arquivos do Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-introduction#file-storage) <br>
 [Saiba mais sobre marcas de armazenamento](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>

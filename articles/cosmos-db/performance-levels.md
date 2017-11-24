@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/28/2017
 ms.author: mimig
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6692d5b75954b2162862e6be7c2e39c63fa8408b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a0567df53dff15d7fbacf4850f6eae07c8985598
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>Desativando os níveis de desempenho S1, S2 e S3
 
@@ -119,20 +119,20 @@ Você pode migrar dos níveis de desempenho S1, S2 e S3 para coleções de parti
 
 1. No [**portal do Azure**](https://portal.azure.com), clique em **Azure Cosmos DB** e, em seguida, selecione a conta do Cosmos DB a ser modificada. 
  
-    Se o **Azure Cosmos DB** não estiver na barra de atalhos, clique em >, role até **Bancos de dados**, selecione **Azure Cosmos DB** e, em seguida, selecione a conta do DocumentDB.  
+    Se o **Azure Cosmos DB** não estiver na barra de atalhos, clique em >, role até **Bancos de dados**, selecione **Azure Cosmos DB** e, em seguida, selecione a conta.  
 
-2. No menu de recursos, em **Contêineres**, clique em **Escala**, selecione a coleção a ser modificada na lista suspensa e, em seguida, clique em **Tipo de Preço**. As contas que usam a taxa de transferência predefinida têm um tipo de preço de S1, S2 ou S3.  Na folha **Escolha o tipo de preço**, clique em **Standard** para alterar a taxa de transferência definida pelo usuário e, em seguida, clique em **Selecionar** para salvar as alterações.
+2. No menu de recursos, em **Contêineres**, clique em **Escala**, selecione a coleção a ser modificada na lista suspensa e, em seguida, clique em **Tipo de Preço**. As contas que usam a taxa de transferência predefinida têm um tipo de preço de S1, S2 ou S3.  Na página **Escolha o tipo de preço**, clique em **Standard** para alterar a taxa de transferência definida pelo usuário e, em seguida, clique em **Selecionar** para salvar as alterações.
 
-    ![Captura de tela da folha Configurações, mostrando em que lugar alterar o valor da taxa de transferência](./media/performance-levels/change-performance-set-thoughput.png)
+    ![Captura de tela da página Configurações, mostrando em que lugar alterar o valor da taxa de transferência](./media/performance-levels/change-performance-set-thoughput.png)
 
-3. De volta na folha **Escala**, o **Tipo de Preço** foi alterado para **Standard** e a caixa **Produtividade (RU/s)** é exibida com um valor padrão de 400. Defina a produtividade entre 400 e 10.000 [Unidades de Solicitação](request-units.md)/segundo (RUS/s). A **Fatura mensal estimada** na parte inferior da página é atualizada automaticamente para fornecer uma estimativa do custo mensal. 
+3. De volta na página **Escala**, o **Tipo de Preço** foi alterado para **Standard** e a caixa **Produtividade (RU/s)** é exibida com um valor padrão de 400. Defina a produtividade entre 400 e 10.000 [Unidades de Solicitação](request-units.md)/segundo (RUS/s). A **Fatura mensal estimada** na parte inferior da página é atualizada automaticamente para fornecer uma estimativa do custo mensal. 
 
     >[!IMPORTANT] 
     > Depois de salvar as alterações e ir para o tipo de preço Standard, você não poderá voltar para os níveis de desempenho S1, S2 ou S3.
 
 4. Clique em **Salvar** para salvar as alterações.
 
-    Se determinar que precisa de uma taxa de transferência maior (mais de 10.000 RU/s) ou mais armazenamento (mais de 10 GB), você poderá criar uma coleção particionada. Para migrar uma coleção de partição única para uma coleção particionada, consulte [Migrando da partição única para coleções particionadas](documentdb-partition-data.md#migrating-from-single-partition).
+    Se você determinar que precisa de uma taxa de transferência maior (mais de 10.000 RU/s) ou mais armazenamento (mais de 10 GB), você poderá criar uma coleção particionada. Para migrar uma coleção de partição única para uma coleção particionada, consulte [Migrando da partição única para coleções particionadas](documentdb-partition-data.md#migrating-from-single-partition).
 
     > [!NOTE]
     > Mudar de S1, S2 ou S3 para o Standard pode levar até 2 minutos.
@@ -141,7 +141,7 @@ Você pode migrar dos níveis de desempenho S1, S2 e S3 para coleções de parti
 
 **Para migrar para coleções de partição única usando o .NET SDK**
 
-Outra opção para alterar os níveis de desempenho de suas coleções é por meio de nossos SDKs. Esta seção aborda apenas a alteração do nível de desempenho da coleção usando nossa [API .NET do DocumentDB](documentdb-sdk-dotnet.md), mas o processo é semelhante para nossos outros SDKs.
+Outra opção para alterar os níveis de desempenho de suas coleções é por meio de nossos SDKs do Azure Cosmos DB. Esta seção aborda apenas a alteração do nível de desempenho da coleção usando nossa [API .NET do DocumentDB](documentdb-sdk-dotnet.md), mas o processo é semelhante para nossos outros SDKs.
 
 Aqui está um trecho de código para mudar a taxa de transferência da coleção para 5.000 unidades de solicitação por segundo:
     

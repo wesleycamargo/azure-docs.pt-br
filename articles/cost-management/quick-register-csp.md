@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 10/11/2017
+ms.date: 11/13/2017
 ms.topic: quickstart
 ms.custom: mvc
 ms.service: cost-management
 manager: carmonm
-ms.openlocfilehash: bcb072a2f2ab8c0e5097fca2c95309464483cb53
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 84f2fec61f791d4fc9264eaa01e24180696da853
+ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/13/2017
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>Registrar-se mo programa de Parceiro CSP e exibir dados de custo
 
@@ -22,7 +22,13 @@ Como parceiro CSP, você pode se registrar no Gerenciamento de Custo do Azure pe
 
 
 >[!NOTE]
->Para concluir o registro, você deve ser um administrador do programa de parceria com acesso à API do Partner Center. A configuração da API do Partner Center é necessária para autenticação e acesso a dados. Para obter mais informações, consulte [Conectar-se à API do Partner Center](https://msdn.microsoft.com/library/partnercenter/mt709136.aspx). Além disso, os usuários CSP indiretos só podem usar Cloudyn quando o revendedor direto CSP registrar-se com a Cloudyn para fornecer acesso a seus clientes e assinaturas.
+
+>Somente os parceiros Diretos do CSP e provedores Indiretos do CSP podem concluir o registro de Cloudyn.
+>
+>A configuração da API do Partner Center é necessária para autenticação e acesso a dados. Uma conta de Administrador Global do Centro de Parceiro é necessária para provisionar o acesso de API.
+Para obter mais informações, consulte [Conectar-se à API do Partner Center](https://msdn.microsoft.com/library/partnercenter/mt709136.aspx).
+>
+>Acesso a Cloudyn pode ficar disponível para revendedores Indiretos CSP depois que seu provedor Indireto CSP registrar com Cloudyn. Revendedores indiretos CSP poderão fornecer acesso Cloudyn para clientes do Azure e assinaturas.
 
 ## <a name="log-in-to-azure"></a>Fazer logon no Azure
 

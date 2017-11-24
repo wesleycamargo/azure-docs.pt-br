@@ -1,10 +1,10 @@
 ---
-title: "Exemplo de script do Azure PowerShell – calcular o tamanho do contêiner de blob | Microsoft Docs"
+title: "Amostra de script do Azure PowerShell – calcular o tamanho do contêiner de blob | Microsoft Docs"
 description: "Calcule o tamanho de um contêiner no Armazenamento de Blobs do Azure, totalizando o tamanho de cada um dos seus blobs."
 services: storage
 documentationcenter: na
-author: fhryo-msft
-manager: cbrooks
+author: tamram
+manager: jeconnoc
 editor: tysonn
 ms.assetid: 
 ms.custom: mvc
@@ -13,15 +13,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: powershell
 ms.topic: sample
-ms.date: 10/23/2017
-ms.author: fryu
-ms.openlocfilehash: cb053ba730a7dac5c23d98e1046fd63d27831e16
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.date: 11/07/2017
+ms.author: tamram
+ms.openlocfilehash: f6f421e780bfbb7922a4b11f758330f2a9a0b84b
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/15/2017
 ---
-# <a name="calculate-the-size-of-a-blob-container"></a>Calcular o tamanho de um contêiner de blob
+# <a name="calculate-the-size-of-a-blob-storage-container"></a>Calcular o tamanho de um contêiner de Armazenamento de Blobs
 
 Este script calcula o tamanho de um contêiner no Armazenamento de Blobs do Azure, totalizando o tamanho dos blobs no contêiner.
 
@@ -29,97 +29,34 @@ Este script calcula o tamanho de um contêiner no Armazenamento de Blobs do Azur
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="determine-the-size-of-the-blob-container"></a>Determinar o tamanho do contêiner de blob
-
-O tamanho total do contêiner de blob inclui o tamanho do próprio contêiner e o tamanho de todos os blobs no contêiner.
-
-O exemplo de seções a seguir descreve como a capacidade de armazenamento é calculada para contêineres de blob e blobs. Na seção a seguir, Len(X) significa o número de caracteres na cadeia de caracteres.
-
-### <a name="blob-containers"></a>Contêineres de blob
-
-O cálculo a seguir descreve como estimar a quantidade de armazenamento consumida por contêiner de blob:
-
-`
-48 bytes + Len(ContainerName) * 2 bytes +
-For-Each Metadata[3 bytes + Len(MetadataName) + Len(Value)] +
-For-Each Signed Identifier[512 bytes]
-`
-
-A seguir, encontra-se a divisão:
-* 48 bytes de sobrecarga para cada contêiner inclui a Hora da última modificação, as Permissões, as Configurações públicas e alguns metadados do sistema.
-
-* O nome do contêiner é armazenado como Unicode. Portanto, multiplique o número de caracteres por dois.
-
-* Para cada bloco de metadados do contêiner de blob armazenado, armazenamos o comprimento do nome (ASCII) mais o comprimento do valor da cadeia de caracteres.
-
-* Os 512 bytes por Identificador Assinado incluem o nome do identificador assinado, a hora de início, a hora de expiração e as permissões.
-
-### <a name="blobs"></a>Blobs
-
-Os cálculos a seguir mostram como estimar a quantidade de armazenamento consumido por blob.
-
-* Blob de blocos (instantâneo ou blob de base):
-
-   `
-   124 bytes + Len(BlobName) * 2 bytes +
-   For-Each Metadata[3 bytes + Len(MetadataName) + Len(Value)] +
-   8 bytes + number of committed and uncommitted blocks * Block ID Size in bytes +
-   SizeInBytes(data in unique committed data blocks stored) +
-   SizeInBytes(data in uncommitted data blocks)
-   `
-
-* Blob de páginas (instantâneo ou blob de base):
-
-   `
-   124 bytes + Len(BlobName) * 2 bytes +
-   For-Each Metadata[3 bytes + Len(MetadataName) + Len(Value)] +
-   number of nonconsecutive page ranges with data * 12 bytes +
-   SizeInBytes(data in unique pages stored)
-   `
-
-A seguir, encontra-se a divisão:
-
-* 124 bytes de sobrecarga para blob, que inclui:
-    - Hora da Última Modificação
-    - Tamanho
-    - Cache-Control
-    - Tipo de conteúdo
-    - Content-Language
-    - Codificação de conteúdo
-    - Content-MD5
-    - Permissões
-    - Informações do instantâneo
-    - Concessão
-    - Alguns metadados do sistema
-
-* O nome do blob é armazenado como Unicode, portanto, multiplique o número de caracteres por dois.
-
-* Para cada bloco de metadados armazenados, adicione o comprimento do nome (armazenado como ASCII) mais o comprimento do valor de cadeia de caracteres.
-
-* Para os blobs de bloco:
-    * 8 bytes para a lista de blocos.
-    * Número de blocos vezes o tamanho da ID do bloco em bytes.
-    * O tamanho dos dados em todos os blocos confirmados e não confirmados. 
-    
-    >[!NOTE]
-    >Quando os instantâneos são usados, esse tamanho inclui apenas os dados exclusivos para esse blob de instantâneo ou de base. Se os blocos não confirmados não forem usados após uma semana, eles serão coletados como lixo. Depois disso, eles não contam para cobrança.
-
-* Para blobs de página:
-    * O número de intervalos de página não consecutivos que têm dados vezes 12 bytes. Esse é o número de intervalos de páginas únicos que você vê ao chamar a API **GetPageRanges**.
-
-    * O tamanho dos dados em bytes de todas as páginas armazenadas. 
-    
-    >[!NOTE]
-    >Quando instantâneos são usados, esse tamanho inclui apenas as páginas exclusivas para o blob de base ou o blob de instantâneo que está sendo contado.
+> [!IMPORTANT]
+> Este script do PowerShell fornece um tamanho estimado para o contêiner e não deve ser usado para cálculos de cobrança. Para obter um script que calcula o tamanho do contêiner para fins de cobrança, consulte [Calcular o tamanho de um contêiner do armazenamento de Blobs para fins de cobrança](../scripts/storage-blobs-container-calculate-billing-size-powershell.md). 
 
 ## <a name="sample-script"></a>Script de exemplo
 
-[!code-powershell[main](../../../powershell_scripts/storage/calculate-container-size/calculate-container-size-ex.ps1 "Calculate container size")]
+[!code-powershell[main](../../../powershell_scripts/storage/calculate-container-size/calculate-container-size.ps1 "Calculate container size")]
+
+## <a name="clean-up-deployment"></a>Limpar implantação 
+
+Execute o comando a seguir para remover o grupo de recursos, o contêiner e todos os recursos relacionados.
+
+```powershell
+Remove-AzureRmResourceGroup -Name bloblisttestrg
+```
+
+## <a name="script-explanation"></a>Explicação sobre o script
+
+Esse script usa os comandos a seguir para calcular o tamanho do contêiner de Armazenamento de Blobs. Cada item em que a tabela contém links para a documentação específica do comando.
+
+| Command | Observações |
+|---|---|
+| [Get-AzureRmStorageAccount](/powershell/module/azurerm.storage/get-azurermstorageaccount) | Obtém uma conta de armazenamento especificada ou todas as contas de armazenamento em um grupo de recursos ou na assinatura. |
+| [Get-AzureStorageBlob](/powershell/module/azure.storage/get-azurestorageblob) | Lista os blobs em um contêiner. ||
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- Para obter mais informações sobre a Cobrança do Azure Storage, consulte [Noções básicas sobre a Cobrança do Armazenamento do Microsoft Azure](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/07/08/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity/).
+Para obter um script que calcula o tamanho do contêiner para fins de cobrança, consulte [Calcular o tamanho de um contêiner do armazenamento de Blobs para fins de cobrança](../scripts/storage-blobs-container-calculate-billing-size-powershell.md).
 
-- Para obter mais informações sobre o módulo do Azure PowerShell, confira [Documentação do Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/overview?view=azurermps-4.4.1).
+Para obter mais informações sobre o módulo do Azure PowerShell, confira [Documentação do Azure PowerShell](/powershell/azure/overview).
 
-- Encontre exemplos adicionais de script do PowerShell de Armazenamento em [Amostras do PowerShell para Armazenamento do Azure](../blobs/storage-samples-blobs-powershell.md).
+Amostras adicionais de script do PowerShell de armazenamento podem ser encontradas em [Amostras do PowerShell para Armazenamento do Azure](../blobs/storage-samples-blobs-powershell.md).

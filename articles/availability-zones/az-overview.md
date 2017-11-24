@@ -16,14 +16,12 @@ ms.workload: na
 ms.date: 09/28/2017
 ms.author: markgal
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
+ms.openlocfilehash: 53c5c340dc4e91db29fbbb45893fabe6eec2bc5d
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
-ms.sourcegitcommit: 4f77c7a615aaf5f87c0b260321f45a4e7129f339
-ms.openlocfilehash: c6225d368044ee2b2ab24136c854f81ae473c9e1
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/22/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/17/2017
 ---
-
 # <a name="overview-of-availability-zones-in-azure-preview"></a>Visão geral das Zonas de Disponibilidade no Azure (versão prévia)
 
 As Zonas de Disponibilidade ajudam a te proteger contra falhas no nível do datacenter. Elas estão localizadas dentro de uma região do Azure, e cada uma tem sua própria fonte de energia, rede e resfriamento independente. Para garantir a resiliência, há um mínimo de três zonas separadas em todas as regiões habilitadas. A separação física e lógica das Zonas de Disponibilidade dentro de uma região protege dados e aplicativos contra falhas no nível da zona. 
@@ -67,4 +65,3 @@ A versão prévia das Zonas de Disponibilidade está disponível nas regiões Le
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Modelos de início rápido](http://aka.ms/azqs)
-

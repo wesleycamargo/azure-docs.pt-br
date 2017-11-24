@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/27/2017
+ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 9e5c929251259a86944121e504dc033bc99e3bc4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 035f51d9f12e887d2017b058f0b0471870f411f7
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-logging-and-auditing"></a>Log e auditoria do Azure
 ## <a name="introduction"></a>Introdução
@@ -69,7 +69,7 @@ A tabela a seguir lista os tipos mais importantes de logs disponíveis no Azure.
 | ------------ | -------- | ------ | ----------- |
 |[Logs de Atividades](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|Eventos de plano de controle nos recursos do Azure Resource Manager| Fornecem informações sobre as operações executadas em recursos de sua assinatura.| API REST e [Azure Monitor](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|
 |[Logs de Diagnóstico do Azure](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|dados frequentes sobre a operação de recursos do Azure Resource Manager na assinatura|   Fornecem informações sobre as operações que o recurso executou por conta própria| Azure Monitor, [Stream](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|
-|[Relatórios do AAD](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-azure-portal)|Logs e relatórios|Atividades de conexão do usuário e informações de atividades do Sistema sobre gerenciamento de usuários e grupos|[API gráfica](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-graph-api-quickstart)|
+|[Relatórios do AAD](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-reporting-azure-portal)|Logs e relatórios|Atividades de conexão do usuário e informações de atividades do Sistema sobre gerenciamento de usuários e grupos|[API do Graph](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-graph-api-quickstart)|
 |[Máquina Virtual e Serviços de Nuvem](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-dotnet-diagnostics-storage)|Log de eventos do Windows e syslog do Linux|  Capturam dados do sistema e dados de logs nas máquinas virtuais e transferem os dados para uma conta de armazenamento de sua escolha.|   Windows com [WAD](https://docs.microsoft.com/en-us/azure/azure-diagnostics) (armazenamento do Diagnóstico do Microsoft Azure) e Linux no Azure Monitor|
 |[Análise de Armazenamento](https://docs.microsoft.com/en-us/rest/api/storageservices/fileservices/storage-analytics)|Log de armazenamento; fornece dados de métrica de uma conta de armazenamento|Fornece informações das solicitações de rastreamento, analisa tendências de uso e diagnostica problemas com a conta de armazenamento.|  API REST ou [biblioteca de cliente](https://msdn.microsoft.com/en-us/library/azure/mt347887.aspx)|
 |[Logs de fluxo do NSG (Grupo de Segurança de Rede)](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-flow-logging-overview)|Formato JSON; mostra os fluxos de entrada e saída por regra|Exibe informações sobre o tráfego IP de entrada e saída por meio de um Grupo de Segurança de Rede|[Observador de Rede](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview)|
@@ -125,11 +125,11 @@ Os Logs de Diagnóstico do Azure oferecem várias opções de configuração, ou
 |||Microsoft.Network/loadBalancers| LoadBalancerProbeHealthStatus
 |Grupos de segurança de rede|[Análise de logs para NSGs (grupos de segurança de rede)](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-nsg-manage-log)|Microsoft.Network/networksecuritygroups|NetworkSecurityGroupEvent|
 |||Microsoft.Network/networksecuritygroups|NetworkSecurityGroupRuleCounter|
-|Gateways do Aplicativo|[Log de diagnóstico do Application Gateway](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-diagnostics)|Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|
+|Gateways do Aplicativo|[Log de diagnóstico do Gateway de Aplicativo](https://docs.microsoft.com/en-us/azure/application-gateway/application-gateway-diagnostics)|Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|
 |||Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|
 |||Microsoft.Network/applicationGateways|ApplicationGatewayFirewallLog|
 |Cofre da Chave|[Logs do Cofre da Chave do Azure](https://docs.microsoft.com/en-us/azure/key-vault/key-vault-logging)|Microsoft.KeyVault/vaults|AuditEvent|
-|Pesquisa do Azure|[Habilitação e uso da análise de tráfego de pesquisa](https://docs.microsoft.com/en-us/azure/search/search-traffic-analytics)|Microsoft.Search/searchServices|OperationLogs|
+|Azure Search|[Habilitação e uso da análise de tráfego de pesquisa](https://docs.microsoft.com/en-us/azure/search/search-traffic-analytics)|Microsoft.Search/searchServices|OperationLogs|
 |Repositório Data Lake|[Acessando os logs de diagnóstico do Azure Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-diagnostic-logs)|Microsoft.DataLakeStore/accounts|Audit|
 |Análises Data Lake|[Acessando os logs de diagnóstico do Azure Data Lake Analytics](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-diagnostic-logs)|Microsoft.DataLakeAnalytics/accounts|Audit|
 |||Microsoft.DataLakeAnalytics/accounts|Solicitações|
@@ -370,7 +370,7 @@ Há quatro maneiras diferentes de [coletar logs e métricas para os serviços do
 ||Microsoft.Logic/<br>integrationAccounts||||
 |Grupos de segurança de rede|   Microsoft.Network/<br>networksecuritygroups|Diagnostics||   [Análise de Grupo de Segurança de Rede do Azure](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-networking-analytics#azure-network-security-group-analytics-solution-in-log-analytics)|
 |Cofres de recuperação|   Microsoft.RecoveryServices/<br>vaults|||[Análise dos Serviços de Recuperação do Azure (Visualização)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
-|Serviços de pesquisa|   Microsoft.Search/<br>searchServices|    Diagnostics|    Diagnostics||
+|Serviços Search|   Microsoft.Search/<br>searchServices|    Diagnostics|    Diagnostics||
 |Namespace do Barramento de Serviço| Microsoft.ServiceBus/<br>namespaces|    Diagnostics|Diagnostics|    [Análise do Barramento de Serviço (Visualização)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
 |Service Fabric||       Armazenamento||    [Análise do Service Fabric (visualização)](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-service-fabric)|
 |SQL (v12)| Microsoft.Sql/<br>servers/<br>databases||       Diagnostics||

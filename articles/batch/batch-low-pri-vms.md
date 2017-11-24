@@ -11,11 +11,11 @@ ms.topic: article
 ms.workload: na
 ms.date: 09/28/2017
 ms.author: markscu
-ms.openlocfilehash: 541086d4b2f0c52f9e03c3993311705b7475e9a6
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: b9e5181baedba7cc4783553221521f5b08a7bc4d
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Usar VMs de baixa prioridade com o Lote
 
@@ -71,7 +71,7 @@ O Lote do Azure fornece vários recursos que tornam mais fácil consumir e se be
 
 -   Quando as tarefas são interrompidas, o Lote esse status e as coloca automaticamente em fila para nova execução.
 
--   VMs de baixa prioridade têm uma cota de núcleos separada, diferente das VMs dedicadas. 
+-   VMs de baixa prioridade têm uma cota de vCPU separada, diferente das VMs dedicadas. 
     A cotação para VMs de baixa prioridade é maior do que a das VMs dedicadas, pois as VMs de baixa prioridade custam menos. Para saber mais, confira [Limites e cotas do serviço de Lote](batch-quota-limit.md#resource-quotas).    
 
 

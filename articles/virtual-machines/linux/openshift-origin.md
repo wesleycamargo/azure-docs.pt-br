@@ -15,22 +15,24 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 
 ms.author: haroldw
-ms.openlocfilehash: 1a40c4cc064b32aced7e976f40f6ed6a57e62204
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 1860ede19202566947b68b715e6bd354f64c1085
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="deploy-openshift-origin-in-azure"></a>Implantar a origem do OpenShift no Azure
 
-Há várias maneiras de implantar a Origem do OpenShift no Azure. Você pode implantar manualmente todos os componentes de infraestrutura necessários do Azure e, em seguida, seguir a [documentação](https://docs.openshift.org/3.6/welcome/index.html) da Origem do OpenShift.
-Você também pode usar um modelo do Resource Manager existente que simplifica a implantação do cluster da Origem do OpenShift. Esse modelo está localizado [aqui](https://github.com/Microsoft/openshift-origin).
+Você pode usar uma de duas maneiras para implantar a Origem do OpenShift no Azure:
 
-## <a name="deploy-using-the-openshift-origin-template"></a>Implantar usando o modelo de Origem do OpenShift
+- Você pode implantar manualmente todos os componentes de infraestrutura necessários do Azure e, em seguida, seguir a [documentação](https://docs.openshift.org/3.6/welcome/index.html) da Origem do OpenShift.
+- Você também pode usar um [modelo do Gerenciador de Recursos](https://github.com/Microsoft/openshift-origin) existente que simplifica a implantação do cluster da Origem do OpenShift.
+
+## <a name="deploy-by-using-the-openshift-origin-template"></a>Implantar usando o modelo de Origem do OpenShift
 
 Use o valor `appId` da entidade de serviço que você criou anteriormente para o parâmetro `aadClientId`.
 
-O exemplo a seguir cria um arquivo de parâmetros chamado **azuredeploy.parameters.json** com todas as entradas necessárias.
+O exemplo a seguir cria um arquivo de parâmetros chamado azuredeploy.parameters.json com todas as entradas necessárias.
 
 ```json
 {
@@ -92,13 +94,13 @@ O exemplo a seguir cria um arquivo de parâmetros chamado **azuredeploy.paramete
 }
 ```
 
-### <a name="deploy-using-azure-cli"></a>Implantar usando a CLI do Azure
+### <a name="deploy-by-using-azure-cli"></a>Implantar usando a CLI do Azure
 
 
 > [!NOTE] 
-> O comando a seguir requer a CLI do Azure 2.0.8 ou posterior. Você pode verificar a versão de az CLI com o comando `az --version`. Para atualizar a versão da CLI, confira [Instalar a CLI do Azure 2.0]( /cli/azure/install-azure-cli).
+> O comando a seguir requer a CLI do Azure 2.0.8 ou posterior. Você pode verificar a versão CLI com o comando `az --version`. Para atualizar a versão da CLI, confira [Instalar a CLI do Azure 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-O exemplo a seguir implanta o cluster do OpenShift e todos os recursos relacionados em um grupo de recursos denominado myResourceGroup com um nome de implantação de myOpenShiftCluster. O modelo é referenciado diretamente do repositório github e um arquivo de parâmetros local chamado **azuredeploy.parameters.json** é usado.
+O exemplo a seguir implanta o cluster do OpenShift e todos os recursos relacionados em um grupo de recursos denominado myResourceGroup com um nome de implantação de myOpenShiftCluster. O modelo é referenciado diretamente do repositório GitHub por um arquivo de parâmetros local chamado azuredeploy.parameters.json.
 
 ```azurecli 
 az group deployment create -g myResourceGroup --name myOpenShiftCluster \
@@ -133,6 +135,6 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Tarefas pós-implantação](./openshift-post-deployment.md)
+- [Tarefas de pós-implantação](./openshift-post-deployment.md)
 - [Solução de problemas de implantação do OpenShift](./openshift-troubleshooting.md)
-- [Introdução à Origem do OpenShift](https://docs.openshift.org/latest/getting_started/index.html)
+- [Introdução ao OpenShift Origin](https://docs.openshift.org/latest/getting_started/index.html)

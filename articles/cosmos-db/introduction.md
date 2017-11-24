@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 07/14/2017
+ms.date: 11/15/2017
 ms.author: mimig
 ms.custom: mvc
-ms.openlocfilehash: d5ae2a68f749310d4d6a2514055fb258978eec9c
-ms.sourcegitcommit: d03907a25fb7f22bec6a33c9c91b877897e96197
+ms.openlocfilehash: f34790ad670b488159e945be9bf4ba378cc5e94a
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Bem-vindo ao Azure Cosmos DB
 
@@ -42,8 +42,9 @@ Como um serviço de banco de dados distribuído globalmente, o Azure fornece Cos
     * APIs para os seguintes modelos de dados são compatíveis com SDKs disponíveis em vários idiomas:
         * [API DocumentDB](documentdb-introduction.md): um mecanismo de banco de dados JSON sem esquema com recursos de consulta SQL.
         * [API do MongoDB](mongodb-introduction.md): um serviço de banco de dados MongoDB criado sobre o Cosmos DB. Compatível com bibliotecas, drivers, ferramentas e aplicativos MongoDB existentes.
-        * [API de Tabela](table-introduction.md): um serviço de banco de dados de armazenamento de chave-valor criado para oferecer recursos premium para aplicativos de armazenamento de Tabela do Azure.
+        * [API de Tabela](table-introduction.md): um serviço de banco de dados de chave-valor criado para oferecer recursos premium para aplicativos de armazenamento de Tabela do Azure.
         * [API do Graph (Gremlin)](graph-introduction.md): um serviço de banco de dados gráfico criado seguindo a [especificação TinkerPop do Apache](http://tinkerpop.apache.org/).
+        * [API Cassandra](cassandra-introduction.md): um repositório de valor/chave criado na implementação do [Apache Cassandra](https://cassandra.apache.org/). 
         * Modelos de dados adicionais em breve!
 
 * **Dimensionar elasticamente a taxa de transferência e o armazenamento sob demanda, em todo o mundo**
@@ -55,7 +56,7 @@ Como um serviço de banco de dados distribuído globalmente, o Azure fornece Cos
     * Para um item típico de 1 KB, o BD Cosmos garante a latência de ponta a ponta de leituras em até 10 ms e gravações indexadas em até 15 ms no 99º percentil, na mesma região do Azure. As latências medianas são significativamente menores (abaixo de 5 ms).
 
 * **Garantir disponibilidade "sempre ativa"**
-    * Disponibilidade de 99,99% em uma única região.
+    * SLA de disponibilidade de 99,99% para todas as contas de região única e todas as contas de várias regiões com consistência amena e 99,999% de disponibilidade de leitura em todas as contas de banco de dados de várias regiões.
     * Implante em qualquer número de[regiões do Azure](https://azure.microsoft.com/regions) para uma maior disponibilidade.
     * [Simule uma falha](regional-failover.md) de uma ou mais regiões com a garantia de nenhuma perda de dados. 
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/16/2017
 ms.author: jdial
-ms.openlocfilehash: 736e48f9651d89a1f4e8e0ae72cdffebb8e9c6e0
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 0319029277091611673f15c94604604850cbfcbe
+ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/11/2017
 ---
 # <a name="create-a-user-defined-route---azure-portal"></a>Criar uma rota definida pelo usuário - portal do Azure
 
@@ -268,6 +268,12 @@ Este artigo fornece etapas para criar uma rota definida pelo usuário usando o m
         - **Ubuntu**: Execute o comando `tracepath myvm-private`.
       O tráfego passa por 10.0.2.4 (a NVA) antes de alcançar 10.0.1.4 (a máquina virtual na sub-rede Privada). 
     - Conclua as etapas anteriores conectando-se à máquina virtual *myVm-Private* e executando ping na máquina virtual *myVm-Public*. A rota de rastreamento mostra a comunicação viajando através de 10.0.2.4 antes de alcançar 10.0.0.4 (a máquina virtual na sub-rede pública).
+
+      > [!NOTE]
+      > As etapas anteriores permitem confirmar o roteamento entre os endereços IP privados do Azure. Caso você deseje encaminhar o tráfego, ou usar um proxy para ele, a endereços IP públicos por meio de uma solução de virtualização de rede:
+      > - O dispositivo deve fornecer a funcionalidade de conversão de endereços de rede ou de proxy. Se a conversão de endereços de rede for usada, o dispositivo deverá converter o endereço IP de origem para seu próprio e, em seguida, encaminhar essa solicitação para o endereço IP público. Independentemente de o dispositivo ter o endereço de origem convertido em um endereço de rede, ou estiver usando um proxy, o Azure converte o endereço IP privado da solução de virtualização de rede para um endereço IP público. Para obter mais informações sobre os diferentes métodos usados pelo Azure para converter endereços IP privados em endereços IP públicos, consulte [Noções básicas sobre conexões de saída](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+      > - Uma rota adicional na tabela de rota como o prefixo: 0.0.0.0/0, o tipo do próximo salto VirtualAppliance e o endereço IP do próximo salto 10.0.2.4 (no script de exemplo anterior).
+      >
     - **Opcionalmente**: para validar o próximo salto entre duas máquinas virtuais no Azure, use a funcionalidade de próximo salto do Observador de Rede do Azure. Antes de usar o Observador de Rede, você deve primeiro [Criar uma instância do Observador de Rede do Azure](../network-watcher/network-watcher-create.md?toc=%2fazure%2fvirtual-network%2ftoc.json) para a região na qual você deseja usá-lo. Neste tutorial, a região Leste dos EUA é usada. Depois de habilitar uma instância do Observador de Rede para a região, digite o comando a seguir para ver as informações do próximo salto entre as máquinas virtuais nas sub-redes Pública e Privada:
      
         ```azurecli-interactive

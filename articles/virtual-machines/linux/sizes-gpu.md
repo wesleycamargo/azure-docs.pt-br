@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/28/2017
+ms.date: 11/08/2017
 ms.author: jonbeck
-ms.openlocfilehash: 5c9bf89feba519147b07f2810fe4da882664e89e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 645f69e71c5a13bb70edabfd22f51ed5df619693
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/09/2017
 ---
-# <a name="gpu-linux-vm-sizes"></a>Tamanhos de VM Linux para GPU
+# <a name="gpu-optimized-virtual-machine-sizes"></a>Tamanhos de máquinas virtuais com GPU otimizadas
 
 [!INCLUDE [virtual-machines-common-sizes-gpu](../../../includes/virtual-machines-common-sizes-gpu.md)]
 
@@ -34,7 +34,7 @@ Para etapas de verificação e instalação do driver, consulte [Instalação do
 
 [!INCLUDE [virtual-machines-n-series-considerations](../../../includes/virtual-machines-n-series-considerations.md)]
 
-* Não recomendamos instalar o X server nem outros sistemas que usam o driver nouveau em VMs do Ubuntu NC. Antes de instalar os drivers de GPU NVIDIA, você precisa desabilitar o driver nouveau.  
+* Não recomendamos instalar o X server nem outros sistemas que usem o `Nouveau` driver em VMs do Ubuntu NC. Antes de instalar os drivers de GPU NVIDIA, você precisa desabilitar o driver `Nouveau`.  
 
 ## <a name="other-sizes"></a>Outros tamanhos
 - [Propósito geral](sizes-general.md)

@@ -13,17 +13,15 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/10/2017
+ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: e9cb4b5b886cec46c0483287460c720855867f38
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 93e75429d66a30bfc4588a3070e32d58eec0df4b
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="how-to-setup-azure-cosmos-db-global-distribution-using-the-table-api"></a>Como configurar a distribuição global do Azure Cosmos DB usando a API de Tabela
-
-Neste artigo, mostraremos como usar o Portal do Azure para configurar a distribuição global do Azure Cosmos DB e, depois, conectar-se usando a API de Tabela (visualização).
 
 Este artigo aborda as seguintes tarefas: 
 
@@ -36,7 +34,7 @@ Este artigo aborda as seguintes tarefas:
 
 ## <a name="connecting-to-a-preferred-region-using-the-table-api"></a>Conectar-se a uma região preferencial usando a API de Tabela
 
-Para aproveitar a [distribuição global](distribute-data-globally.md), os aplicativos cliente podem especificar a lista de preferências ordenadas de regiões a serem usadas para executar operações de documento. Isso pode ser feito definindo o valor de configuração `TablePreferredLocations` na configuração do aplicativo para a visualização do SDK do Armazenamento do Azure. Com base na configuração da conta do Azure Cosmos DB, na disponibilidade regional atual e na lista de preferências especificada, o ponto de extremidade mais adequado será escolhido pelo SDK de Armazenamento do Azure para executar operações de gravação e leitura.
+Para aproveitar a [distribuição global](distribute-data-globally.md), os aplicativos cliente podem especificar a lista de preferências ordenadas de regiões a serem usadas para executar operações de documento. Isso pode ser feito definindo o valor de configuração `TablePreferredLocations` no app.config para o SDK da API de Tabela do Azure Cosmos DB. O SDK da API de Tabela do Azure Cosmos DB escolherá o melhor ponto de extremidade para se comunicar com base em configuração de conta, disponibilidade regional atual e a lista de preferência fornecido.
 
 O `TablePreferredLocations` deve conter uma lista separada por vírgulas de locais (hospedagem múltipla) preferenciais para leituras. Cada instância do cliente pode especificar um subconjunto dessas regiões na ordem preferida para leituras de baixa latência. As regiões devem ser nomeadas usando seus [nomes de exibição](https://msdn.microsoft.com/library/azure/gg441293.aspx), por exemplo, `West US`.
 
@@ -62,9 +60,5 @@ Neste tutorial, você fez o seguinte:
 
 > [!div class="checklist"]
 > * Configurar a distribuição global usando o Portal do Azure
-> * Configurar a distribuição global usando a API do DocumentDB
+> * Configurar a distribuição global usando a API de Tabela Azure Cosmos DB
 
-Agora você pode prosseguir para o próximo tutorial e aprender a desenvolver localmente usando o emulador local do Azure Cosmos DB.
-
-> [!div class="nextstepaction"]
-> [Desenvolver localmente com o emulador](local-emulator.md)

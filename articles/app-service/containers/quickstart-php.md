@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 08/30/2017
 ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 47b3f3b0a0faab6daa4ff64230128fc0ad3510e9
-ms.sourcegitcommit: 3e3a5e01a5629e017de2289a6abebbb798cec736
+ms.openlocfilehash: a40888af94415f77dfc00e6b254a5fc82aa488c4
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="create-a-php-web-app-in-app-service-on-linux"></a>Criar um aplicativo Web PHP no Serviço de Aplicativo no Linux
 
@@ -33,8 +33,8 @@ Você pode seguir as etapas abaixo usando um computador Mac, Windows ou Linux.
 
 Para concluir este guia de início rápido:
 
-* [Instalar o Git](https://git-scm.com/)
-* [Instalar o PHP](https://php.net)
+* <a href="https://git-scm.com/" target="_blank">Instalar o Git</a>
+* <a href="https://php.net" target="_blank">Instalar o PHP</a>
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -71,14 +71,14 @@ Na janela do terminal, pressione **Ctrl+C** para sair do servidor Web.
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
-## <a name="create-a-web-app-with-built-in-image"></a>Criar um aplicativo Web com imagem interna
+## <a name="create-a-web-app"></a>Criar um aplicativo Web
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-php-no-h.md)] 
 
-Navegue até o site para ver seu aplicativo Web recém-criado com imagem interna. Substitua _&lt;nome do aplicativo>_ por um nome exclusivo do aplicativo.
+Navegue até o site para ver seu aplicativo Web recém-criado com imagem interna. Substitua _&lt;nome do aplicativo>_ por um nome exclusivo do aplicativo web.
 
 ```bash
-http://<app name>.azurewebsites.net
+http://<app_name>.azurewebsites.net
 ```
 
 ![Página de aplicativo Web vazia](media/quickstart-php/app-service-web-service-created.png)
@@ -126,7 +126,7 @@ O código de exemplo PHP está em execução em um aplicativo Web com imagem int
 
 ## <a name="update-locally-and-redeploy-the-code"></a>Atualizar localmente e reimplantar o código
 
-Usando um editor de texto local, abra o arquivo `index.php` no aplicativo do PHP e faça uma pequena alteração no texto dentro da cadeia de caracteres para `echo`:
+No diretório local, abra o arquivo `index.php` no aplicativo do PHP e faça uma pequena alteração no texto dentro da cadeia de caracteres para `echo`:
 
 ```php
 echo "Hello Azure!";

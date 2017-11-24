@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 5/9/2017
 ms.author: nachandr
-ms.openlocfilehash: aaceb556d926dbb09aeb2843a7941eadaaeb588b
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 13c11902e275d1023e474d717800b3a36a6b31f2
+ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/09/2017
 ---
 # <a name="patch-the-windows-operating-system-in-your-service-fabric-cluster"></a>Patch do sistema operacional Windows em seu cluster do Service Fabric
 
@@ -51,14 +51,6 @@ O aplicativo de orquestração de patch é composto dos seguintes subcomponentes
 > O aplicativo de orquestração de patch usa o serviço do sistema do gerenciador de reparo do Service Fabric para habilitar ou desabilitar o nó e executar as verificações de integridade. A tarefa de reparo criada pelo aplicativo de orquestração de patch rastreia o progresso do Windows Update para cada nó.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-
-### <a name="minimum-supported-service-fabric-runtime-version"></a>Versão de tempo de execução do Service Fabric com suporte mínimo
-
-#### <a name="azure-clusters"></a>Clusters do Azure
-O aplicativo de orquestração de patch deve ser executado nos clusters do Azure que têm a versão de tempo de execução v5.5 ou posterior do Service Fabric.
-
-#### <a name="standalone-on-premises-clusters"></a>Clusters locais autônomos
-O aplicativo de orquestração de patch deve ser executado nos clusters autônomos que têm a versão de tempo de execução v5.6 ou posterior do Service Fabric.
 
 ### <a name="enable-the-repair-manager-service-if-its-not-running-already"></a>Habilite o serviço do gerenciador de reparo (se ainda não estiver em execução)
 
@@ -135,59 +127,6 @@ Para habilitar o serviço do gerenciador de reparo:
 ### <a name="disable-automatic-windows-update-on-all-nodes"></a>Desabilite o Windows Update automático em todos os nós
 
 As atualizações automáticas do Windows podem causar a perda de disponibilidade porque vários nós de cluster podem ser reiniciados ao mesmo tempo. O aplicativo de orquestração de patch, por padrão tenta desabilitar o Windows Update automático em cada nó de cluster. No entanto, se as configurações forem gerenciadas pela política de grupo ou administrador, é recomendável configurar a política do Windows Update explicitamente como "Notificar antes de baixar".
-
-### <a name="optional-enable-azure-diagnostics"></a>Opcional: habilitar o Diagnóstico do Microsoft Azure
-
-Clusters que executam a versão de tempo de execução do Service Fabric `5.6.220.9494` e acima de logs de aplicativo de orquestração patch coletar como parte da malha do serviço de logs.
-Você pode ignorar esta etapa se o cluster está em execução na versão de tempo de execução do Service Fabric `5.6.220.9494` e acima.
-
-Para clusters que executam a versão de tempo de execução do Service Fabric menor `5.6.220.9494`, logs do aplicativo de orquestração de patch são coletados localmente em cada um de nós do cluster.
-É recomendável que você configure o diagnóstico do Azure para carregar os logs de todos os nós em um local central.
-
-Para obter mais informações sobre o Diagnóstico do Microsoft Azure, consulte [Coletar logs usando o Diagnóstico do Microsoft Azure](https://docs.microsoft.com/azure/service-fabric/service-fabric-diagnostics-how-to-setup-wad).
-
-Os logs para o aplicativo de orquestração de patch serão gerados nas seguintes IDs de provedor fixas:
-
-- e39b723c-590c-4090-abb0-11e3e6616346
-- fc0028ff-bfdc-499f-80dc-ed922c52c5e9
-- 24afa313-0d3b-4c7c-b485-1047fd964b60
-- 05dc046c-60e9-4ef7-965e-91660adffa68
-
-No modelo do Resource Manager acesse a seção `EtwEventSourceProviderConfiguration` em `WadCfg` e adicione as seguintes entradas:
-
-```json
-  {
-    "provider": "e39b723c-590c-4090-abb0-11e3e6616346",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-      "eventDestination": "PatchOrchestrationApplicationTable"
-    }
-  },
-  {
-    "provider": "fc0028ff-bfdc-499f-80dc-ed922c52c5e9",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-    "eventDestination": " PatchOrchestrationApplicationTable"
-    }
-  },
-  {
-    "provider": "24afa313-0d3b-4c7c-b485-1047fd964b60",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-    "eventDestination": " PatchOrchestrationApplicationTable"
-    }
-  },
-  {
-    "provider": "05dc046c-60e9-4ef7-965e-91660adffa68",
-    "scheduledTransferPeriod": "PT5M",
-    "DefaultEvents": {
-    "eventDestination": " PatchOrchestrationApplicationTable"
-    }
-  }
-```
-
-> [!NOTE]
-> Se o cluster do Service Fabric tiver vários tipos de nó, a seção anterior deve ser adicionada para todas as seções `WadCfg`.
 
 ## <a name="download-the-app-package"></a>Baixar o pacote do aplicativo
 
@@ -303,20 +242,16 @@ Para habilitar o proxy reverso no cluster, siga as etapas em [Proxy reverso no A
 
 ## <a name="diagnosticshealth-events"></a>Eventos de diagnóstico/integridade
 
-### <a name="collect-patch-orchestration-app-logs"></a>Colete logs do aplicativo de orquestração de patch
+### <a name="diagnostic-logs"></a>Logs de diagnóstico
 
-Os logs do aplicativo de orquestração de patch são coletados como parte dos logs do Service Fabric a partir da versão de tempo de execução `5.6.220.9494` e superior.
-Para clusters que executam a versão de tempo de execução do Service Fabric anteriores à `5.6.220.9494`, os logs podem ser coletados usando um dos métodos a seguir.
+Os logs do aplicativo de orquestração de patch são coletados como parte dos logs do tempo de execução do Service Fabric.
 
-#### <a name="locally-on-each-node"></a>Localmente em cada nó
+Caso você queira capturar logs por meio da ferramenta de diagnóstico/pipeline de sua escolha. Aplicativo de orquestração de patch usa abaixo provedor fixa IDs para registrar eventos por meio de [eventsource](https://docs.microsoft.com/dotnet/api/system.diagnostics.tracing.eventsource?view=netframework-4.5.1)
 
-Logs são coletados localmente em cada nó de cluster do Service Fabric se a versão de tempo de execução do Service Fabric é menor que `5.6.220.9494`. O local para acessar os logs é \[Service Fabric\_Instalação\_Unidade\]:\\PatchOrchestrationApplication\\logs.
-
-Por exemplo, se o Service Fabric for instalado na unidade D, o caminho será D:\\PatchOrchestrationApplication\\logs.
-
-#### <a name="central-location"></a>Local central
-
-Se o Diagnóstico do Microsoft Azure estiver configurado como parte das etapas de pré-requisitos, os logs para o aplicativo de orquestração de patch estarão disponíveis no Armazenamento do Microsoft Azure.
+- e39b723c-590c-4090-abb0-11e3e6616346
+- fc0028ff-bfdc-499f-80dc-ed922c52c5e9
+- 24afa313-0d3b-4c7c-b485-1047fd964b60
+- 05dc046c-60e9-4ef7-965e-91660adffa68
 
 ### <a name="health-reports"></a>Relatórios de integridade
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: jeedes
-ms.openlocfilehash: cde5983710185d1e46a5601b16bbfb1c0fcae382
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 17ff07648b210fe207b514381e98dd372375e092
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-saml-sso-for-jira-by-resolution-gmbh"></a>Tutorial: Integração do Azure Active Directory com o SSO do SAML para Jira da Resolution GmbH
 
@@ -159,27 +159,53 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
     ![Configurar Logon Único](./media/active-directory-saas-samlssojira-tutorial/addon11.png)
 
-14. Em **Configuração de Plug-in de Logon Único do SAML**, clique no botão **Adicionar Provedor de Identidade adicional** para definir as configurações do Provedor de Identidade.
+14. Em **Configuração de Plug-in de Logon Único do SAML**, clique no botão **Adicionar novo IdP** para definir as configurações do Provedor de Identidade.
 
     ![Configurar Logon Único](./media/active-directory-saas-samlssojira-tutorial/addon4.png)
 
-15. Execute as seguintes etapas nesta página:
+15. Na página **Escolher seu Provedor de Identidade SAML**, execute as seguintes etapas:
 
-    ![Configurar Logon Único](./media/active-directory-saas-samlssojira-tutorial/addon5.png)
+    ![Configurar Logon Único](./media/active-directory-saas-samlssojira-tutorial/addon5a.png)
  
-    a. Adicionar **Nome** do Provedor de Identidade (por exemplo, Azure AD).
+    a. Definir o **Azure Active Directory** como o tipo de IdP.
     
-    b. Adicionar **Descrição** do Provedor de Identidade (por exemplo, Azure AD).
+    b. Adicionar **Nome** do Provedor de Identidade (por exemplo, Azure AD).
+    
+    c. Adicionar **Descrição** do Provedor de Identidade (por exemplo, Azure AD).
+    
+    d. Clique em **Avançar**.
+    
+16. Na página **Configuração do provedor de identidade**, clique no botão **Avançar**.
 
-    c. Clique em **XML** e selecione o arquivo **Metadados**, que você baixou do portal do Azure.
+    ![Configurar Logon Único](./media/active-directory-saas-samlssojira-tutorial/addon5b.png)
 
-    d. Clique no botão **Carregar**.
+17. Na página **Importar metadados de IdP do SAML**, execute as seguintes etapas:
 
-    e. Ele lê os metadados IdP e preenche os campos conforme destacado na captura de tela. 
+    ![Configurar Logon Único](./media/active-directory-saas-samlssojira-tutorial/addon5c.png)
 
-16. Clique no botão **Salvar Configurações** para salvar as configurações.
+    a. Clique no botão **Carregar arquivo** e selecione o arquivo XML de metadados que você baixou na etapa 5.
 
-    ![Configurar Logon Único](./media/active-directory-saas-samlssojira-tutorial/addon6.png)
+    b. Clique no botão **Importar**.
+    
+    c. Espere um pouco até que a importação seja bem-sucedida.
+    
+    d. Clique no botão **Avançar**.
+    
+18. Na página de **Transformação e atributo de ID de usuário**, clique no botão **Avançar**.
+
+    ![Configurar Logon Único](./media/active-directory-saas-samlssojira-tutorial/addon5d.png)
+    
+19. Na página **Criação e atualização de usuário**, clique em **Salvar e avançar** para salvar as configurações.   
+    
+    ![Configurar Logon Único](./media/active-directory-saas-samlssojira-tutorial/addon6a.png)
+    
+20. Na página **Testar suas configurações**, clique em **Ignorar teste e configurar manualmente** para ignorar momentaneamente o teste do usuário. Isso será executado na próxima seção e requer algumas configurações no portal do Azure. 
+    
+    ![Configurar Logon Único](./media/active-directory-saas-samlssojira-tutorial/addon6b.png)
+    
+21. No diálogo que mostra **Ignorar o teste significa...**, clique em **OK**.
+    
+    ![Configurar Logon Único](./media/active-directory-saas-samlssojira-tutorial/addon6c.png)
 
 > [!TIP]
 > É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)

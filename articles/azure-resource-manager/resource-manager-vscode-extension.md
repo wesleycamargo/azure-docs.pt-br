@@ -13,11 +13,11 @@ ms.devlang: na
 ms.date: 09/06/2017
 ms.topic: get-started-article
 ms.author: tomfitz
-ms.openlocfilehash: fbc0fd12999c9085c3c364f0d7115eb1ab1ddd74
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 71544726b4ec8701ef558bf50d15bddfabd830cc
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="use-visual-studio-code-extension-to-create-azure-resource-manager-template"></a>Usar a extensão do Visual Studio Code para criar modelos do Azure Resource Manager
 Este artigo mostra os benefícios de instalar e usar a extensão de ferramentas do Azure Resource Manager no Visual Studio Code. Você pode criar modelos do Resource Manager no VS Code sem a extensão, mas a extensão fornece opções de preenchimento automático que simplificam o desenvolvimento do modelo. Ele sugere as funções, parâmetros e variáveis de modelo que estão disponíveis no modelo.
@@ -179,8 +179,8 @@ Este artigo é baseado no modelo que você criou em [Criar e implantar seu prime
          "value": "[resourceGroup().location]"
        },
        "storageUri": {
-         "type": "string",
-         "value": "[reference(variables('storageName'))]"
+         "type": "object",
+         "value": "[reference(concat('Microsoft.Storage/storageAccounts/',variables('storageName')))]"
        }
    }
    ```
@@ -247,8 +247,8 @@ O modelo final é:
       "value": "[resourceGroup().location]"
     },
     "storageUri": {
-      "type": "string",
-      "value": "[reference(variables('storageName'))]"
+      "type": "object",
+      "value": "[reference(concat('Microsoft.Storage/storageAccounts/',variables('storageName')))]"
     }
   }
 }

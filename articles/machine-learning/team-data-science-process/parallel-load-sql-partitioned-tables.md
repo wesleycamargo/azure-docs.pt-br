@@ -4,7 +4,7 @@ description: "Importação de Dados em Massa Paralela Usando Tabelas de Partiç�
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: ff90fdb0-5bc7-49e8-aee7-678b54f901c8
 ms.service: machine-learning
@@ -12,24 +12,25 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2017
+ms.date: 11/09/2017
 ms.author: bradsev
-ms.openlocfilehash: 899f20b3642612386f2513c9c8649cd845be826e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 77638ff52edbc2b782b21a4ca1c727a2b46f22f3
+ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/10/2017
 ---
 # <a name="parallel-bulk-data-import-using-sql-partition-tables"></a>Importação de Dados em Massa Paralela Usando Tabelas de Partição do SQL
 Este documento descreve como compilar tabelas particionadas para rápida importação de dados em massa paralela para um banco de dados do SQL Server. Para carregamento/transferência de Big Data para um banco de dados SQL, a importação de dados para o banco de dados SQL e consultas posteriores podem ser melhoradas usando *Exibições e Tabelas Particionadas*. 
 
 ## <a name="create-a-new-database-and-a-set-of-filegroups"></a>Criar um novo banco de dados e um conjunto de grupos de arquivos
 * [Crie um novo banco de dados](https://technet.microsoft.com/library/ms176061.aspx), se ainda não houver um.
-* Adicione grupos de arquivos de banco de dados ao banco de dados que contém os arquivos físicos particionados. Isso poderá ser feito com [CRIAR BANCO DE DADOS](https://technet.microsoft.com/library/ms176061.aspx), se for novo, ou [ALTERAR BANCO DE DADOS](https://msdn.microsoft.com/library/bb522682.aspx), se o banco de dados já existir.
+* Adicionar grupos de arquivos de banco de dados ao banco de dados que contém os arquivos físicos particionados. 
+* Isso poderá ser feito com [CRIAR BANCO DE DADOS](https://technet.microsoft.com/library/ms176061.aspx), se for novo, ou [ALTERAR BANCO DE DADOS](https://msdn.microsoft.com/library/bb522682.aspx), se o banco de dados já existir.
 * Adicione um ou mais arquivos (conforme necessário) para cada grupo de arquivos de banco de dados.
   
   > [!NOTE]
-  > Especifique o grupo de arquivos de destino que contém os dados dessa partição e os nomes dos arquivos de banco de dados físico em que serão armazenados os dados do grupo de arquivos.
+  > Especifique o grupo de arquivos de destino que contém os dados dessa partição e os nomes dos arquivos de banco de dados físico em que são armazenados os dados do grupo de arquivos.
   > 
   > 
 
@@ -55,18 +56,19 @@ O exemplo a seguir cria um novo banco de dados com três grupos de arquivos que 
     ')
 
 ## <a name="create-a-partitioned-table"></a>Criar uma tabela particionada
-Crie tabelas particionadas de acordo com o esquema de dados mapeado para os grupos de arquivos de banco de dados criados na etapa anterior. Quando dados são importados em massa para a tabela particionada, os registros serão distribuídos entre os grupos de arquivos de acordo com um esquema de partição, conforme descrito abaixo.
+Crie tabelas particionadas de acordo com o esquema de dados mapeado para os grupos de arquivos de banco de dados criados na etapa anterior, você deve antes criar uma função partitiva e um esquema. Quando dados são importados em massa para a tabela particionada, os registros são distribuídos entre os grupos de arquivos de acordo com um esquema de partição, conforme descrito abaixo.
 
-**Para criar uma tabela de partição, você precisa:**
-
-* [Criar uma função de partição](https://msdn.microsoft.com/library/ms187802.aspx), que define o intervalo de valores/limites a serem incluídos em cada tabela de partição individual, por exemplo, para limitar as partições por month(some\_datetime\_field) no ano de 2013:
+### <a name="1-create-a-partition-function"></a>1. Criar uma função de partição
+[Criar uma função de partição](https://msdn.microsoft.com/library/ms187802.aspx), que define o intervalo de valores/limites a serem incluídos em cada tabela de partição individual, por exemplo, para limitar as partições por month(some\_datetime\_field) no ano de 2013:
   
         CREATE PARTITION FUNCTION <DatetimeFieldPFN>(<datetime_field>)  
         AS RANGE RIGHT FOR VALUES (
             '20130201', '20130301', '20130401',
             '20130501', '20130601', '20130701', '20130801',
             '20130901', '20131001', '20131101', '20131201' )
-* [Criar um esquema de partição](https://msdn.microsoft.com/library/ms179854.aspx) , que mapeia cada intervalo de partição na função de partição para um grupo de arquivos físicos, por exemplo:
+
+### <a name="2-create-a-partition-scheme"></a>2. Criar um esquema de partição
+[Criar um esquema de partição](https://msdn.microsoft.com/library/ms179854.aspx). Este esquema mapeia cada intervalo de partição na função de partição para um grupo de arquivos físicos, por exemplo:
   
         CREATE PARTITION SCHEME <DatetimeFieldPScheme> AS  
         PARTITION <DatetimeFieldPFN> TO (
@@ -83,7 +85,9 @@ Crie tabelas particionadas de acordo com o esquema de dados mapeado para os grup
         INNER JOIN sys.partition_schemes psch ON pfun.function_id = psch.function_id
         INNER JOIN sys.partition_range_values prng ON prng.function_id=pfun.function_id
         WHERE pfun.name = <DatetimeFieldPFN>
-* [Crie tabelas particionadas](https://msdn.microsoft.com/library/ms174979.aspx)de acordo com seu esquema de dados e especifique o campo de esquema e de restrição usados para particionar a tabela, por exemplo:
+
+### <a name="3-create-a-partition-table"></a>3. Criar uma tabela de partição
+[Crie tabelas particionadas](https://msdn.microsoft.com/library/ms174979.aspx)de acordo com seu esquema de dados e especifique o campo de esquema e de restrição usados para particionar a tabela, por exemplo:
   
         CREATE TABLE <table_name> ( [include schema definition here] )
         ON <TablePScheme>(<partition_field>)
@@ -91,6 +95,7 @@ Crie tabelas particionadas de acordo com o esquema de dados mapeado para os grup
 Para obter mais informações, consulte [Criar tabelas e índices particionados](https://msdn.microsoft.com/library/ms188730.aspx).
 
 ## <a name="bulk-import-the-data-for-each-individual-partition-table"></a>Importe os dados em massa para cada tabela de partição individual
+
 * Você pode usar o BCP, BULK INSERT ou outros métodos como o [Assistente de Migração do SQL Server](http://sqlazuremw.codeplex.com/). O exemplo fornecido usa o método BCP.
 * [Altere o banco de dados](https://msdn.microsoft.com/library/bb522682.aspx) para alterar o esquema de registro em log de transações como BULK_LOGGED para minimizar a sobrecarga de registros, por exemplo:
   
@@ -173,10 +178,10 @@ O script do PowerShell a seguir é um exemplo de carregamento de dados paralela 
         ON <TablePScheme>(<partition)field>)
   
   > [!NOTE]
-  > Você pode optar por criar os índices antes de importar os dados em massa. Criar índices antes da importação em massa retardará o carregamento de dados.
+  > Você pode optar por criar os índices antes de importar os dados em massa. Criar índices antes da importação em massa retarda o carregamento de dados.
   > 
   > 
 
 ## <a name="advanced-analytics-process-and-technology-in-action-example"></a>Exemplo de Processo e Tecnologia de Análise Avançada em ação
-Para obter um exemplo passo a passo completo do Processo de Análise do Cortana com um conjunto de dados público, consulte [Processo de Análise do Cortana em ação: usando o SQL Server](sql-walkthrough.md).
+Para obter um exemplo passo a passo completo usando o Processo de Ciência de Dados de Equipe usando um conjunto de dados público, confira [O Processo de Ciência de Dados de Equipe em ação: usando o SQL Server](sql-walkthrough.md).
 

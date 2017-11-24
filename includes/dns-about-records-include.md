@@ -8,7 +8,7 @@ Um registro *apex* é um registro DNS na raiz (ou *apex*) de uma zona DNS. Por e
 
 Cada registro DNS tem um nome e um tipo. Os registros são organizados em vários tipos de acordo com os dados que eles contêm. O tipo mais comum é um registro 'A', que mapeia um nome para um endereço IPv4. Outro tipo comum é um registro 'MX', que mapeia um nome para um servidor de email.
 
-O DNS do Azure dá suporte a todos os tipos de registro DNS comuns: A, AAAA, CNAME, MX, NS, PTR, SOA, SRV e TXT. Observe que [registros SPF são representados usando registros TXT](../articles/dns/dns-zones-records.md#spf-records).
+O DNS do Azure dá suporte a todos os tipos de registro DNS comuns: A, AAAA, CAA, CNAME, MX, NS, PTR, SOA, SRV e TXT. Observe que [registros SPF são representados usando registros TXT](../articles/dns/dns-zones-records.md#spf-records).
 
 ### <a name="record-sets"></a>Conjuntos de registros
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: db23eba9ff8debd5268cd02bc4f37c4e6501bfac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b77000c2cf46b59b65c27c78182193624fd62062
+ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/15/2017
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager"></a>Planejamento da migração de recursos de IaaS do clássico para o Azure Resource Manager
 Embora o Azure Resource Manager ofereça vários recursos incríveis, é fundamental planejar sua jornada de migração para garantir que tudo ocorra sem problemas. Gastar tempo no planejamento garantirá que não ocorram problemas durante a execução das atividades de migração.
@@ -204,7 +204,7 @@ Determine quais serviços você deseja habilitar no Azure Resource Manager agora
 - [Modelos do Azure Resource Manager para uma implantação mais fácil e mais controlada](../../azure-resource-manager/resource-group-overview.md#template-deployment).
 - [Marcas](../../azure-resource-manager/resource-group-using-tags.md).
 - [Controle de Atividades](../../azure-resource-manager/resource-group-audit.md)
-- [Políticas de Recursos](../../azure-resource-manager/resource-manager-policy.md)
+- [Políticas do Azure](../../azure-policy/azure-policy-introduction.md)
 
 ### <a name="pitfalls-to-avoid"></a>Armadilhas a serem evitadas
 
