@@ -1,6 +1,6 @@
 ---
-title: "Tornar disponível para os usuários do Azure pilha web, móveis e aplicativos de API | Microsoft Docs"
-description: "Tutorial para instalar o provedor de recursos do serviço de aplicativo e criar oferece que dar aos usuários de pilha do Azure, a capacidade de criar a web, móvel e aplicativos de API."
+title: "Tornar disponível para os usuários do Azure pilha da web e aplicativos de API | Microsoft Docs"
+description: "Tutorial para instalar o provedor de recursos do serviço de aplicativo e criar oferece que dar aos usuários de pilha do Azure, a capacidade de criar a web e aplicativos de API."
 services: azure-stack
 documentationcenter: 
 author: ErikjeMS
@@ -15,15 +15,15 @@ ms.topic: tutorial
 ms.date: 7/03/2017
 ms.author: erikje
 ms.custom: mvc
-ms.openlocfilehash: 2d011e933cb063eef88a372fccc49d2b9de19717
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 42d94eea8b9e4db611b821cd84e7d02f1d226293
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
-# <a name="make-web-mobile-and-api-apps-available-to-your-azure-stack-users"></a>Tornar disponível para os usuários do Azure pilha web, móveis e aplicativos de API
+# <a name="make-web-and-api-apps-available-to-your-azure-stack-users"></a>Tornar disponível para os usuários do Azure pilha da web e aplicativos de API
 
-Como um administrador de nuvem de pilha do Azure, você pode criar ofertas que permitem aos usuários (locatários) criarem aplicativos de funções do Azure e web, móveis e API. Fornecendo acesso a esses aplicativos sob demanda, com base em nuvem para seus usuários, você pode salvá-los, tempo e recursos. Para configurar isso, você irá:
+Como um administrador de nuvem de pilha do Azure, você pode criar ofertas que permitem aos usuários (locatários) criarem aplicativos web e funções do Azure e de API. Fornecendo acesso a esses aplicativos sob demanda, com base em nuvem para seus usuários, você pode salvá-los, tempo e recursos. Para configurar isso, você irá:
 
 > [!div class="checklist"]
 > * Implantar o provedor de recursos do serviço de aplicativo
@@ -43,7 +43,7 @@ Como um administrador de nuvem de pilha do Azure, você pode criar ofertas que p
 Por exemplo, você pode criar uma oferta que permite aos usuários criar sistemas de gerenciamento de conteúdo da web DNN. Ele requer o serviço do SQL Server que você tiver habilitado ao instalar o provedor de recursos do SQL Server.
 
 1.  [Definir uma cota de](azure-stack-setting-quotas.md) e nomeie-o *AppServiceQuota*. Selecione **Microsoft** para o **Namespace** campo.
-2.  [Criar um plano de](azure-stack-create-plan.md). Nomeie- *TestAppServicePlan*, selecione o o **Microsoft.SQL** serviço, e **cota de serviço de aplicativo** cota.
+2.  [Criar um plano de](azure-stack-create-plan.md). Nomeie- *TestAppServicePlan*, selecione o **Microsoft.SQL** serviço, e **cota de serviço de aplicativo** cota.
 
     > [!NOTE]
     > Para permitir que os usuários criem outros aplicativos, outros serviços podem ser necessárias no plano. Por exemplo, funções do Azure requer que o plano inclui o **Microsoft** de serviço, enquanto o Wordpress requer **Microsoft.MySQL**.
