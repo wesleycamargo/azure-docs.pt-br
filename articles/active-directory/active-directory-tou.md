@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/19/2017
+ms.date: 11/17/2017
 ms.author: billmath
-ms.openlocfilehash: b6318b419a0ea87fd1fb56656b1161909876f338
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cf7b64bd956c236f5c70bb7dcd209ecdcd7176dd
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="azure-active-directory-terms-of-use-feature-preview"></a>Recurso de Termos de Uso do Azure Active Directory (Visualização)
 OS Termos de Uso do Azure AD fornecem um método simples que as organizações podem usar para apresentar informações aos usuários finais.  Isso garante que os usuários vejam os avisos de isenção de responsabilidade relevantes para os requisitos de conformidade ou legais.
@@ -43,7 +43,8 @@ Use as etapas a seguir para configurar os Termos de Uso do Azure AD:
 2. Certifique-se de que o diretório possui uma assinatura do Azure AD Premium P1, P2, EMS E3 ou EMS E5.  Caso contrário, [Obtenha o Azure AD Premium](active-directory-get-started-premium.md) ou [inicie uma avaliação gratuita](https://azure.microsoft.com/trial/get-started-active-directory/).
 3. Exibir o painel de Termos do Usuário do Azure AD em [https://aka.ms/catou](https://aka.ms/catou).
 
-
+>[!IMPORTANT]
+>Controles de política de acesso condicional (incluindo termos de uso) não dão suporte à imposição em contas de serviço.  Recomenda-se excluir todas as contas de serviço da política de acesso condicional.
 
 ## <a name="add-company-terms-of-use"></a>Adicionar Termos de Uso da empresa
 Depois de preparar os seus Termos de Uso, use o procedimento a seguir para adicioná-lo.
@@ -92,7 +93,6 @@ Os usuários que estão no escopo visualizarão o seguinte após os termos de us
 
 ## <a name="additional-information"></a>Informações adicionais
 As informações a seguir devem ser consideradas e podem ajudar na utilização dos termos de uso.
-
 
 Os usuários que estão no escopo precisarão sair e entrar novamente para atender a uma nova política se:
  - uma política de acesso condicional for habilitada nos termos de uso

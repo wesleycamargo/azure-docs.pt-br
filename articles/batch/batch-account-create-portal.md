@@ -12,14 +12,14 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/28/2017
+ms.date: 11/14/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b7629e496f2d73798b94acdc611014a8b3afead7
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: ebda2f11f93b04a5592d18f8e15c8fc3b560aac3
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Criar uma conta do Lote com o Portal do Azure
 
@@ -37,7 +37,8 @@ Para saber mais sobre contas do Lote e cenários, confira a [visão geral do rec
 
 ## <a name="create-a-batch-account"></a>Criar uma conta do Batch
 
-
+> [!NOTE]
+> Ao criar uma conta do Lote, escolha o modo **Serviço em Lotes**, no qual os pools são alocados em segundo plano nas assinaturas gerenciadas do Azure. No modo alternativo **Assinatura de usuário**, o qual não é mais recomendado para a maioria dos cenários, as VMs do Lote e outros recursos são criados diretamente em sua assinatura quando um pool é criado. Para criar uma conta do Lote no modo de assinatura do usuário, você também deverá registrar sua assinatura com o Lote do Azure e associar a conta com um Azure Key Vault.
 
 1. Entre no [Portal do Azure][azure_portal].
 2. Clique em **Novo** e pesquise no Marketplace por **Serviço de Lote**.
@@ -66,7 +67,7 @@ Para saber mais sobre contas do Lote e cenários, confira a [visão geral do rec
 ## <a name="view-batch-account-properties"></a>Exibir propriedades de conta do Lote
 Após a criação da conta, clique na conta para acessar suas configurações e propriedades. Você pode acessar todas as propriedades e configurações de conta usando o menu à esquerda.
 
-![Folha Conta do Lote no portal do Azure][account_blade]
+![Página Conta do Lote no portal do Azure][account_blade]
 
 * **URL de conta do Lote**: ao desenvolver um aplicativo com as [APIs do Lote](batch-apis-tools.md#azure-accounts-for-batch-development), você precisa de uma URL de conta para acessar os recursos do Lote. Uma URL de conta do Lote tem o seguinte formato:
 
@@ -91,11 +92,45 @@ Você pode vincular uma conta de Armazenamento do Azure de finalidade geral à s
 ![Criando uma conta de armazenamento de uso geral][storage_account]
 
 > [!NOTE]
-> Tome cuidado ao regenerar as chaves de acesso de uma conta de Armazenamento vinculada. Regenere somente uma chave de conta do Armazenamento e clique em **Sincronizar Chaves** na folha Conta do Armazenamento vinculada. Aguarde cinco minutos para permitir que as chaves sejam propagadas para os nós de computação em seus pools e regenere e sincronize a outra chave, se necessário. Se você regenerar as chaves ao mesmo tempo, os nós de computação não poderão sincronizar nenhuma delas e, assim, perderão o acesso à conta de armazenamento.
+> Tome cuidado ao regenerar as chaves de acesso de uma conta de Armazenamento vinculada. Regenere somente uma chave de conta do Armazenamento e clique em **Sincronizar Chaves** na página da conta de Armazenamento vinculada. Aguarde cinco minutos para permitir que as chaves sejam propagadas para os nós de computação em seus pools e regenere e sincronize a outra chave, se necessário. Se você regenerar as chaves ao mesmo tempo, os nós de computação não poderão sincronizar nenhuma delas e, assim, perderão o acesso à conta de armazenamento.
 >
 >
 
 ![Regeneração de chaves da conta de armazenamento][4]
+
+## <a name="additional-configuration-for-user-subscription-mode"></a>Configuração adicional para o modo de assinatura do usuário
+
+Se optar por criar uma conta do Lote no modo de assinatura do usuário, execute as etapas adicionais a seguir antes de criá-la.
+
+### <a name="allow-azure-batch-to-access-the-subscription-one-time-operation"></a>Permitir que o Lote do Azure acesse a assinatura (operação única)
+Ao criar sua primeira conta do Lote no modo de assinatura do usuário, é preciso registrar sua assinatura com o Lote. (Se você fez isso anteriormente, pule para a próxima seção.)
+
+1. Entre no [Portal do Azure][azure_portal].
+
+2. Clique em **Mais Serviços** > **Assinaturas**e clique na assinatura que você deseja usar para a conta do Lote.
+
+3. Na página **Assinatura**, clique em **Controle de acesso (IAM)** > **Adicionar**.
+
+    ![Controle de acesso de assinatura][subscription_access]
+
+4. Na página **Adicionar permissões**, selecione a função **Colaborador**, procure a API do Lote. Procure cada uma dessas cadeias de caracteres até encontrar a API:
+    1. **MicrosoftAzureBatch**.
+    2. **Lote do Microsoft Azure**. Os locatários mais recentes do Azure AD podem usar esse nome.
+    3. **ddbf3205-c6bd-46ae-8127-60eb93363864** é a ID para a API do Lote. 
+
+5. Depois de encontrar a API do Lote, selecione-a e clique em **Salvar**.
+
+    ![Adicionar permissões do Lote][add_permission]
+
+### <a name="create-a-key-vault"></a>Criar um cofre de chave
+No modo de assinatura do usuário, é necessário ter um Azure Key Vault que pertença ao mesmo grupo de recursos da conta do Lote a ser criada. Verifique se o grupo de recursos está em uma região em que o Lote esteja [disponível](https://azure.microsoft.com/regions/services/) e que tenha suporte pela assinatura.
+
+1. No [portal do Azure][azure_portal], clique em **Novo** > **Segurança + Identidade** > **Key Vault**.
+
+2. Na página **Criar Key Vault**, insira um nome para o cofre de chaves e crie um grupo de recursos na região desejada para a conta do Lote. Deixe as configurações restantes com valores padrão e clique em **Criar**.
+
+
+
 
 ## <a name="batch-service-quotas-and-limits"></a>Cotas e limites de serviço do Lote
 Como aconteceu com sua assinatura do Azure e outros serviços do Azure, determinados [limites e cotas](batch-quota-limit.md) se aplicam a contas do Lote. As cotas atuais para uma conta do Lote aparecem em **Cotas**.
@@ -133,4 +168,4 @@ Além de usar o portal do Azure, você pode criar e gerenciar contas do Lote com
 [quotas]: ./media/batch-account-create-portal/quotas.png
 [subscription_access]: ./media/batch-account-create-portal/subscription_iam.png
 [add_permission]: ./media/batch-account-create-portal/add_permission.png
-[account_portal_byos]: ./media/batch-account-create-portal/batch_acct_portal_byos.png
+

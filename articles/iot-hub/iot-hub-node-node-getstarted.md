@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 08/31/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f3398e38cf7d3d28d9ca4edef5a9bca96aeaf2ab
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4b360d5a08abed7d65d8c39f7a957412656f7825
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="connect-your-simulated-device-to-your-iot-hub-using-node"></a>Conectar o dispositivo simulado ao hub IoT usando o Node
 
@@ -297,7 +297,7 @@ Para continuar a introdução ao Hub IoT e explorar outros cenários de IoT, con
 
 * [Conectando o dispositivo][lnk-connect-device]
 * [Introdução ao gerenciamento de dispositivo][lnk-device-management]
-* [Introdução ao Azure IoT Edge][lnk-iot-edge]
+* [Implantando IA em dispositivos de extremidade com o Azure IoT Edge][lnk-iot-edge]
 
 Para saber como estender sua solução IoT e processar as mensagens entre o dispositivo e a nuvem em escala, consulte o tutorial [Processar as mensagens entre o dispositivo e a nuvem][lnk-process-d2c-tutorial].
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
@@ -322,5 +322,5 @@ Para saber como estender sua solução IoT e processar as mensagens entre o disp
 [lnk-portal]: https://portal.azure.com/
 
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
-[lnk-iot-edge]: iot-hub-linux-iot-edge-get-started.md
+[lnk-iot-edge]: ../iot-edge/tutorial-simulate-device-linux.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/

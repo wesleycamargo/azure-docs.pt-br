@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/02/2017
+ms.date: 11/17/2017
 ms.author: cherylmc
-ms.openlocfilehash: 46037efe0e2c30337d76790c46c16e300bfffd5f
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 9bcad8ed57980b08e0290e0272a5ff9de46f11a0
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Configurar uma conexão gateway de VPN de Vnet pra VNet usando o PowerShell
 
@@ -59,13 +59,17 @@ Para saber mais sobre conexões de Rede Virtual a Rede Virtual, consulte as [Per
 
 ## <a name="which-set-of-steps-should-i-use"></a>Qual conjunto de etapas devo usar?
 
-Neste artigo, você verá dois conjuntos de etapas diferentes. Um conjunto de etapas para [VNets que residem na mesma assinatura](#samesub), e outro para [VNets que residem em assinaturas diferentes](#difsub). A principal diferença entre os conjuntos é a possibilidade de criar e configurar todos os recursos de gateway e de rede virtual dentro da mesma sessão do PowerShell.
-
-As etapas neste artigo usam variáveis declaradas no início de cada seção. Se você já estiver trabalhando com VNets existentes, modifique as variáveis para refletir as configurações em seu próprio ambiente. Se você deseja resolução de nomes para suas redes virtuais, confira [a Resolução de nomes](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
-
-## <a name="samesub"></a>Como conectar VNets que estão na mesma assinatura
+Neste artigo, você verá dois conjuntos de etapas diferentes. Um conjunto de etapas para [Redes virtuais que residem na mesma assinatura](#samesub). As etapas para essa configuração usam TestVNet1 e TestVNet4.
 
 ![Diagrama de v2v](./media/vpn-gateway-vnet-vnet-rm-ps/v2vrmps.png)
+
+Há um artigo separado para [Redes virtuais que residem em assinaturas diferentes](#difsub). As etapas para essa configuração usam TestVNet1 e TestVNet5.
+
+![Diagrama de v2v](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
+
+A principal diferença entre os conjuntos é a possibilidade de criar e configurar todos os recursos de gateway e de rede virtual dentro da mesma sessão do PowerShell. Você deve usar sessões separadas do PowerShell ao configurar as conexões para redes virtuais que residem em diferentes assinaturas. Você pode combinar as configurações se preferir ou basta escolher aquela com a qual deseja trabalhar.
+
+## <a name="samesub"></a>Como conectar VNets que estão na mesma assinatura
 
 ### <a name="before-you-begin"></a>Antes de começar
 
@@ -90,7 +94,7 @@ Usamos os seguintes valores nos exemplos:
 * IP público: VNet1GWIP
 * VpnType: RouteBased
 * Connection(1to4): VNet1toVNet4
-* Connection(1to5): VNet1toVNet5
+* Connection(1to5): VNet1toVNet5 (para VNets em assinaturas diferentes)
 * ConnectionType: VNet2VNet
 
 **Valores para TestVNet4:**
@@ -279,8 +283,6 @@ Depois de configurar TestVNet1, crie TestVNet4. Siga as etapas abaixo, substitui
 4. Verifique a conexão. Consulte a seção [Como verificar sua conexão](#verify).
 
 ## <a name="difsub"></a>Como conectar as VNets que estão em assinaturas diferentes
-
-![Diagrama de v2v](./media/vpn-gateway-vnet-vnet-rm-ps/v2vdiffsub.png)
 
 Nesse cenário, conectamos TestVNet1 e TestVNet5. TestVNet1 e TestVNet5 residem em uma assinatura diferente. As assinaturas não precisam ser associadas ao mesmo locatário do Active Directory. A diferença entre essas etapas e o conjunto anterior é que algumas das etapas de configuração precisam ser executadas em uma sessão separada do PowerShell no contexto da segunda assinatura. Especialmente quando as duas assinaturas pertencerem a organizações diferentes.
 

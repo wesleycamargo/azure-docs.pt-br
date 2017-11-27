@@ -12,14 +12,14 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 10/12/2017
+ms.date: 11/16/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8e9f098bedf2c4dfb27a27d028b7bd87782516c7
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 3028e913937db304ac0a1df8e6a095072630505d
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Desenvolva soluções de computação paralela em larga escala com o Lote
 
@@ -75,7 +75,7 @@ Você pode criar uma conta do Lote do Azure usando o [portal do Azure](batch-acc
 Você pode executar várias cargas de trabalho do Lote em uma única conta do Lote ou distribuir suas cargas de trabalho entre contas do Lote que estão na mesma assinatura mas em diferentes regiões do Azure.
 
 > [!NOTE]
-> Ao criar uma conta do Lote, escolha o modo **Serviço em Lotes**, no qual os pools são alocados em segundo plano nas assinaturas gerenciadas do Azure. No modo alternativo **Assinatura de usuário**, o qual não é mais recomendado, as VMs do Lote e outros recursos são criados diretamente em sua assinatura, quando um pool é criado. Para criar uma conta do Lote no modo de usuário de assinatura, você também deverá associar a conta em um Azure Key Vault.
+> Ao criar uma conta do Lote, escolha o modo **Serviço em Lotes**, no qual os pools são alocados em segundo plano nas assinaturas gerenciadas do Azure. No modo alternativo **Assinatura de usuário**, o qual não é mais recomendado para a maioria dos cenários, as VMs do Lote e outros recursos são criados diretamente em sua assinatura quando um pool é criado. Para criar uma conta do Lote no modo de assinatura do usuário, você também deverá registrar sua assinatura com o Lote do Azure e associar a conta com um Azure Key Vault.
 >
 
 
@@ -150,7 +150,9 @@ Para obter requisitos e etapas detalhadas, consulte [Usar uma imagem personaliza
 
 #### <a name="container-support-in-virtual-machine-pools"></a>Suporte de contêiner em pools de Máquina Virtual
 
-Ao criar um pool de Configuração de Máquina Virtual usando as APIs do Lote, você pode configurar o pool para executar tarefas em contêineres do Docker. No momento, você deve criar o pool usando o Windows Server 2016 Datacenter com a imagem de Contêineres do Azure Marketplace, ou fornecer uma imagem de VM personalizada que inclua o Docker Community Edition e todos os drivers necessários. As configurações de pool devem incluir uma [configuração de contêiner](/rest/api/batchservice/pool/add#definitions_containerconfiguration) que copie as imagens de contêiner para as máquinas virtuais quando o pool é criado. As tarefas executadas no pool podem fazer referência a imagens de contêiner e a opções de execução do contêiner.
+Ao criar um pool de Configuração de Máquina Virtual usando as APIs do Lote, você pode configurar o pool para executar tarefas em contêineres do Docker. Atualmente, você deve criar o pool usando uma imagem que dê suporte a contêineres do Docker. Use o Windows Server 2016 Datacenter com a imagem de Contêineres do Azure Marketplace, ou fornecer uma imagem de VM personalizada que inclua o Docker Community Edition ou Enterprise Edition e todos os drivers necessários. As configurações de pool devem incluir uma [configuração de contêiner](/rest/api/batchservice/pool/add#definitions_containerconfiguration) que copie as imagens de contêiner para as máquinas virtuais quando o pool é criado. As tarefas executadas no pool podem fazer referência a imagens de contêiner e a opções de execução do contêiner.
+
+Para obter mais informações, consulte [Executar aplicativos de contêiner do Docker no Lote do Azure](batch-docker-container-workloads.md).
 
 ## <a name="compute-node-type-and-target-number-of-nodes"></a>Tipo de nó de computação e número de nós de destino
 

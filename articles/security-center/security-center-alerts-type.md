@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2017
+ms.date: 11/22/2017
 ms.author: yurid
-ms.openlocfilehash: 274c50dad9b8a1d79a71a29b04cb8e44ad91893c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 829657664cf1e37b22d57c62614300a205b5e91c
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Noções básicas de alertas de segurança na Central de Segurança do Azure
 Este artigo ajuda você a compreender os diferentes tipos de alertas de segurança e as informações relacionadas disponíveis na Central de Segurança do Azure. Para saber mais sobre como gerenciar os alertas e os incidentes, confira [Gerenciar e responder aos alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md).
@@ -53,6 +53,45 @@ Os campos a seguir são comuns aos exemplos de alerta de despejo de memória que
 * DUMPFILE: nome do arquivo de despejo de memória.
 * PROCESSNAME: nome do processo de falha.
 * PROCESSVERSION: versão do processo de falha.
+
+### <a name="code-injection-discovered"></a>Injeção de código descoberta
+A injeção de código é a inserção de módulos executáveis em processos ou threads em execução.  Essa técnica é usada por malware para acessar dados, ocultar ou impedir sua remoção (por exemplo, persistência). Esse alerta indica que um módulo injetado está presente no despejo de memória. Os desenvolvedores de software legítimo ocasionalmente executam a injeção de código por motivos não mal-intencionados, como modificar ou estender um aplicativo existente ou um componente do sistema operacional.  Para ajudar a diferenciar módulos injetados mal-intencionados dos não mal-intencionados, a Central de Segurança verifica se o módulo injetado se encaixa em um perfil comportamento suspeito. O resultado dessa verificação é indicado pelo campo "ASSINATURA" do alerta e refletido na gravidade, na descrição e nas etapas de solução do alerta. 
+
+Esse alerta fornece os seguintes campos adicionais:
+
+- ADDRESS: o local do módulo injetado na memória
+- IMAGENAME: o nome do módulo injetado. Observe que esse campo pode ficar em branco se o nome da imagem não for fornecido dentro dela.
+- SIGNATURE: indica se o módulo injetado se encaixa em um perfil de comportamento suspeito. 
+
+A tabela a seguir mostra exemplos de resultados e suas descrições:
+
+| Campo Signature                      | Descrição                                                                                                       |
+|--------------------------------------|-------------------------------------------------------------------------------------------------------------------|
+| Exploração de carregador refletivo suspeito | Esse comportamento suspeito geralmente se correlaciona com o código injetado de carregamento independentemente do carregador do sistema operacional |
+| Exploração injetada suspeita          | Indica uma má intenção que frequentemente se correlaciona para injetar código na memória                                       |
+| Exploração de injeção suspeita         | Indica uma má intenção que frequentemente se correlaciona para uso de código injetado na memória                                   |
+| Exploração de depurador injetado suspeito | Indica uma má intenção que frequentemente se correlaciona com a detecção ou evasão de um depurador                         |
+| Exploração remota injetada suspeita   | Indica uma má intenção que frequentemente se correlaciona para comandar n cenários de controle (C2)                                 |
+
+Veja um exemplo desse tipo de alerta:
+
+![Alerta de injeção de código](./media/security-center-alerts-type/security-center-alerts-type-fig21.png)
+
+### <a name="suspicious-code-segment"></a>Segmento de código suspeito
+O segmento de código suspeito indica que um segmento de código foi alocado usando métodos não padrão, como os usados pela injeção refletiva e pelo esvaziamento de processo.  Além disso, esse alerta processa características adicionais do segmento de código para fornecer contexto aos recursos e comportamentos do segmento de código relatado.
+
+Esse alerta fornece os seguintes campos adicionais:
+
+- ADDRESS: o local do módulo injetado na memória
+- SIZE: o tamanho do segmento de código suspeito
+- STRINGSIGNATURES: esse campo lista recursos de APIs cujos nomes de função estão contidos no segmento de código. Recursos de exemplos podem incluir:
+    - Descritores de seção de imagem, Execução de código dinâmico para x64, Alocação de memória e capacidade de carregador, Recurso de injeção de código remota, Recurso de sequestro de controle, Ler variáveis de ambiente, Ler memória de processo arbitrário, Consultar ou modificar privilégios de token, Comunicação de rede HTTP/HTTPS e Comunicação de soquete de rede.
+- IMAGEDETECTED: esse campo indica se uma imagem PE foi inserida no processo em que o segmento de código suspeito foi detectado e em qual endereço o módulo injetado começa.
+- SHELLCODE: esse campo indica a presença de comportamento normalmente usado por conteúdos mal-intencionados para obter acesso a funções confidenciais de segurança do sistema operacional. 
+
+Veja um exemplo desse tipo de alerta:
+
+![Alerta de segmento de código suspeito](./media/security-center-alerts-type/security-center-alerts-type-fig22.png)
 
 ### <a name="shellcode-discovered"></a>Shellcode descoberto
 Shellcode é a carga executada depois que o malware explorou uma vulnerabilidade do software. Esse alerta indica que a análise do despejo de memória detectou um código executável com um comportamento normalmente executado por cargas mal-intencionadas. Embora software que não seja mal-intencionado possa executar esse comportamento, não é comum às práticas de desenvolvimento de software normal.
