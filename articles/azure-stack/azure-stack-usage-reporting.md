@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: sngun;AlfredoPizzirani
-ms.openlocfilehash: 5abc325a6e7c019dc3cb84f7f6ff63c3eb2ff76c
-ms.sourcegitcommit: 1131386137462a8a959abb0f8822d1b329a4e474
+ms.openlocfilehash: a4ca742e232a19cd890552bec08f4d11cca52020
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>Relatar dados de uso de pilha do Azure para o Azure 
 
@@ -53,7 +53,7 @@ Para configurar os relatórios de dados de uso, você deve [registrar sua instâ
 
 ## <a name="view-usage---csp-subscriptions"></a>Exibir uso - assinaturas de CSP
 
-Se você registrou a pilha do Azure usando uma assinatura de CSP, você pode exibir seu uso e encargos da mesma maneira que você visualizar o consumo do Azure. Uso da pilha do Azure serão incluído na sua fatura e no arquivo de reconciliação, disponível por meio de [Partner Center](https://partnercenter.microsoft.com/en-us/partner/home). O arquivo de reconciliação é atualizado mensalmente. Se você precisar acessar as informações de uso recentes da pilha do Azure, você pode usar as APIs do Centro de parceiro.
+Se você registrou a pilha do Azure usando uma assinatura de CSP, você pode exibir seu uso e encargos da mesma maneira que você visualizar o consumo do Azure. Uso da pilha do Azure serão incluído na sua fatura e no arquivo de reconciliação, disponível por meio de [Partner Center](https://partnercenter.microsoft.com/partner/home). O arquivo de reconciliação é atualizado mensalmente. Se você precisar acessar as informações de uso recentes da pilha do Azure, você pode usar as APIs do Centro de parceiro.
 
    ![Centro de parceiros](media/azure-stack-usage-reporting/partner-center.png)
 
@@ -82,7 +82,7 @@ Os usuários só são cobrados pelas VMs que executam em assinaturas de locatár
 
 ## <a name="i-have-a-windows-server-license-i-want-to-use-on-azure-stack-how-do-i-do-it"></a>Tenho uma licença do Windows Server que deseja usar na pilha do Azure, como fazer isso?
 
-Usar as licenças existentes evita a geração metros de uso. Licenças existentes do Windows Server podem ser usadas na pilha do Azure, conforme descrito na seção "Usando o software existente com a pilha do Azure" de [guia de licenciamento do Azure pilha](https://go.microsoft.com/fwlink/?LinkId=851536&clcid=0x409). Os clientes precisam implantar suas máquinas virtuais de Windows Server, conforme descrito no [benefício híbrida de licença do Windows Server](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/hybrid-use-benefit-licensing) tópico para usar suas licenças existentes.
+Usar as licenças existentes evita a geração metros de uso. Licenças existentes do Windows Server podem ser usadas na pilha do Azure, conforme descrito na seção "Usando o software existente com a pilha do Azure" de [guia de licenciamento do Azure pilha](https://go.microsoft.com/fwlink/?LinkId=851536&clcid=0x409). Os clientes precisam implantar suas máquinas virtuais de Windows Server, conforme descrito no [benefício híbrida de licença do Windows Server](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) tópico para usar suas licenças existentes.
 
 ## <a name="which-subscription-is-charged-for-the-resources-consumed"></a>Qual assinatura é cobrada para os recursos consumidos?
 A assinatura que é fornecida quando [Registrando a pilha do Azure com o Azure](azure-stack-register.md) é cobrado.
@@ -97,7 +97,7 @@ No Kit de desenvolvimento de pilha do Azure, relatórios de dados de uso requer 
 
 ## <a name="how-can-users-identify-azure-stack-usage-data-in-the-azure-billing-portal"></a>Como os usuários podem identificar os dados de uso de pilha do Azure no portal de cobrança do Azure?
 
-Os usuários podem ver os dados de uso da pilha do Azure no arquivo de detalhes de uso. Para saber sobre como obter o arquivo de detalhes de uso, consulte o [baixar o arquivo de uso do artigo do Centro de contas Azure](https://docs.microsoft.com/en-us/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-from-the-account-center-csv). O arquivo de detalhes de uso contém os medidores de pilha do Azure que identificam o armazenamento de pilha do Azure e máquinas virtuais. Todos os recursos usados na pilha do Azure são relatados em região denominado "Pilha do Azure".
+Os usuários podem ver os dados de uso da pilha do Azure no arquivo de detalhes de uso. Para saber sobre como obter o arquivo de detalhes de uso, consulte o [baixar o arquivo de uso do artigo do Centro de contas Azure](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-from-the-account-center-csv). O arquivo de detalhes de uso contém os medidores de pilha do Azure que identificam o armazenamento de pilha do Azure e máquinas virtuais. Todos os recursos usados na pilha do Azure são relatados em região denominado "Pilha do Azure".
 
 ## <a name="why-doesnt-the-usage-reported-in-azure-stack-match-the-report-generated-from-azure-account-center"></a>Por que o uso registrado na pilha do Azure não corresponde o relatório gerado a partir do Centro de contas do Azure?
 
