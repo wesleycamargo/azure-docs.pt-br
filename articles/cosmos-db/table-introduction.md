@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/15/2017
+ms.date: 11/20/2017
 ms.author: mimig1
-ms.openlocfilehash: 8e8a5d89080df54da1a951d94fac12592de29c50
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: da3576c7c2e4609c9d3fac64a3b10794164551e0
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="introduction-to-azure-cosmos-db-table-api"></a>Introdução à API de Tabela do Azure Cosmos DB
 
@@ -55,6 +55,10 @@ Caso utilize o Armazenamento de Tabelas do Azure neste momento, você receberá 
 ## <a name="get-started"></a>Introdução
 
 Crie uma conta do Azure Cosmos DB no [portal do Azure](https://portal.azure.com). Em seguida, veja uma introdução ao nosso [Início rápido para a API de Tabela usando o .NET](create-table-dotnet.md). 
+
+> [!IMPORTANT]
+> Se você criou uma conta da API de Tabela durante a versão prévia, crie um [nova conta da API de Tabela](create-table-dotnet.md#create-a-database-account) para trabalhar com os SDKs da API de Tabela disponível geralmente.
+>
 
 ## <a name="next-steps"></a>Próximas etapas
 

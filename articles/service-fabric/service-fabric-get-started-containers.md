@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/03/2017
 ms.author: ryanwi
-ms.openlocfilehash: 1b2daf04e060615569e8416d3ded344483518400
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 23e8b1023aebd5381fc89535ce265883d6a8fceb
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Como criar seu primeiro aplicativo de contêiner do Service Fabric no Windows
 > [!div class="op_single_selector"]
@@ -294,8 +294,7 @@ O Windows dá suporte a dois modos de isolamento para contêineres: processo e H
 <ContainerHostPolicies CodePackageRef="Code" Isolation="hyperv">
 ```
    > [!NOTE]
-   > O modo de isolamento do Hyper-v está disponível nas SKUs do Azure Ev3 e Dv3 que têm suporte para virtualização aninhada. 
-   >
+   > O modo de isolamento do Hyper-v está disponível nas SKUs do Azure Ev3 e Dv3 que têm suporte para virtualização aninhada. Verifique se a função hyperv está instalada nos hosts. Para isso, conecte-se aos hosts.
    >
 
 ## <a name="configure-resource-governance"></a>Configurar governança de recursos
@@ -325,7 +324,7 @@ O aplicativo está pronto quando ele está em ```Ready``` estado: ![pronto][2]
 Abra um navegador e acesse http://containercluster.westus2.cloudapp.azure.com:8081. Você deve ver o cabeçalho "Olá, Mundo!" ser exibido no navegador.
 
 ## <a name="clean-up"></a>Limpar
-Você continua a incorrer em encargos enquanto o cluster estiver em execução, considere [excluir o cluster](service-fabric-get-started-azure-cluster.md#remove-the-cluster).  [Clusters de terceiros](https://try.servicefabric.azure.com/) são excluídos automaticamente após algumas horas.
+Você continua a incorrer em encargos enquanto o cluster estiver em execução, considere [excluir o cluster](service-fabric-tutorial-create-vnet-and-windows-cluster.md#clean-up-resources).  [Clusters de terceiros](https://try.servicefabric.azure.com/) são excluídos automaticamente após algumas horas.
 
 Depois que você enviar a imagem para o registro de contêiner, você pode excluir a imagem local do seu computador de desenvolvimento:
 

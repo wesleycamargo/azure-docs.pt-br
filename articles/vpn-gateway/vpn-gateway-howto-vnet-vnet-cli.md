@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/02/2017
+ms.date: 11/17/2017
 ms.author: cherylmc
-ms.openlocfilehash: ff859bd9dbbf30c461cdba8409c77b04ff97b1f6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7c7653250f51429321b4da0384496aae37ad06da
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Configurar uma conexão gateway de VPN de Vnet pra VNet usando a CLI do Azure
 
@@ -59,11 +59,17 @@ Para saber mais sobre conexões de Rede Virtual a Rede Virtual, consulte as [Per
 
 ### <a name="which-set-of-steps-should-i-use"></a>Qual conjunto de etapas devo usar?
 
-Neste artigo, você verá dois conjuntos de etapas diferentes. Um conjunto de etapas para [VNets que residem na mesma assinatura](#samesub), e outro para [VNets que residem em assinaturas diferentes](#difsub).
-
-## <a name="samesub"></a>Conectar VNets que estão na mesma assinatura
+Neste artigo, você verá dois conjuntos de etapas diferentes. Um conjunto de etapas para [Redes virtuais que residem na mesma assinatura](#samesub). As etapas para essa configuração usam TestVNet1 e TestVNet4.
 
 ![Diagrama de v2v](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
+
+Há um artigo separado para [Redes virtuais que residem em assinaturas diferentes](#difsub). As etapas para essa configuração usam TestVNet1 e TestVNet5.
+
+![Diagrama de v2v](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
+
+Você pode combinar as configurações se preferir ou basta escolher aquela com a qual deseja trabalhar.
+
+## <a name="samesub"></a>Conectar VNets que estão na mesma assinatura
 
 ### <a name="before-you-begin"></a>Antes de começar
 
@@ -88,7 +94,7 @@ Usamos os seguintes valores nos exemplos:
 * IP público: VNet1GWIP
 * VpnType: RouteBased
 * Connection(1to4): VNet1toVNet4
-* Connection(1to5): VNet1toVNet5
+* Connection(1to5): VNet1toVNet5 (para VNets em assinaturas diferentes)
 * ConnectionType: VNet2VNet
 
 **Valores para TestVNet4:**
@@ -255,8 +261,6 @@ Agora, você tem duas redes virtuais com gateways de VPN. A próxima etapa é cr
 
 ## <a name="difsub"></a>Conectar as VNets que estão em assinaturas diferentes
 
-![Diagrama de v2v](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
-
 Nesse cenário, conectamos TestVNet1 e TestVNet5. As redes virtuais residem em assinaturas diferentes. As assinaturas não precisam ser associadas ao mesmo locatário do Active Directory. As etapas para essa configuração adicionam outra conexão de VNet para VNet para se conectar TestVNet1 a TestVNet5.
 
 ### <a name="TestVNet1diff"></a>Etapa 5: criar e configurar o TestVNet1
@@ -362,7 +366,7 @@ Dividimos esta etapa em duas sessões do CLI marcadas como **[Assinatura 1]** e 
 ## <a name="verify"></a>Verificar as conexões
 [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)]
 
-[!INCLUDE [verify connections v2v cli](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
+[!INCLUDE [verify connections](../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
 
 ## <a name="faq"></a>Perguntas frequentes sobre Rede Virtual para Rede Virtual
 [!INCLUDE [vpn-gateway-vnet-vnet-faq](../../includes/vpn-gateway-faq-vnet-vnet-include.md)]

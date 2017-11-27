@@ -13,10 +13,10 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2017
+ms.date: 11/16/2017
 ms.author: jdial
-ms.openlocfilehash: 95f2b57b2012df816c76a1b6ec55ca9f92e134a3
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 3840ed000d5a9fe5d3c8fd01c061bf13674c0ce5
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 11/16/2017
@@ -36,7 +36,7 @@ Se estiver familiarizado com o modelo de implantação clássico, verifique as [
 
 ## <a name="public-ip-addresses"></a>Endereços IP públicos
 
-Endereços IP públicos permitem que os recursos do Azure comuniquem-se com os serviços públicos do Azure, como [Cache Redis do Azure](https://azure.microsoft.com/services/cache), [Hubs de eventos do Azure](https://azure.microsoft.com/services/event-hubs), [bancos de dados SQL](../sql-database/sql-database-technical-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) e [armazenamento do Azure](../storage/common/storage-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Endereços IP públicos permitem recursos de Internet para comunicar a entrada para recursos do Azure. Endereços IP públicos também habilitam recursos do Azure para comunicar a saída à Internet e serviços do Azure voltados ao público com um endereço IP atribuído ao recurso. O endereço é dedicado para o recurso, até que ele seja desatribuído por você. Se um endereço IP público não está atribuído a um recurso, o recurso ainda pode comunicar a saída à Internet, mas o Azure atribui dinamicamente um endereço IP disponível que não é dedicado ao recurso. Para obter mais informações sobre conexões de saída no Azure, consulte [Entender as conexões de saída](../load-balancer/load-balancer-outbound-connections.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 No Gerenciador de recursos do Azure, um endereço [IP público](virtual-network-public-ip-address.md) é um recurso com as próprias propriedades. Alguns dos recursos aos quais você pode associar um recurso de endereço IP público são:
 
@@ -98,7 +98,7 @@ Os endereços IP públicos estáticos são comumente usados nas seguintes situa�
 >
 
 ### <a name="dns-hostname-resolution"></a>Resolução de nome de host DNS
-Você pode especificar um rótulo de nome de domínio DNS para um recurso IP público que cria um mapeamento para *domainnamelabel*.*location*.cloudapp.azure.com para o endereço IP público nos servidores DNS gerenciados pelo Azure. Por exemplo, se você criar um recurso IP público com **contoso** como *domainnamelabel* no **local** do Azure *Oeste dos EUA*, o nome de domínio totalmente qualificado (FQDN) **contoso.westus.cloudapp.azure.com** será resolvido para o endereço IP público do recurso. Você pode usar o FQDN para criar um registro CNAME do domínio personalizado apontando para o endereço IP público no Azure.
+Você pode especificar um rótulo de nome de domínio DNS para um recurso IP público que cria um mapeamento para *domainnamelabel*.*location*.cloudapp.azure.com para o endereço IP público nos servidores DNS gerenciados pelo Azure. Por exemplo, se você criar um recurso IP público com **contoso** como um *domainnamelabel* no *local* do Azure no **Oeste dos EUA**, o nome de domínio totalmente qualificado (FQDN) **contoso.westus.cloudapp.azure.com** será resolvido para o endereço IP público do recurso. Você pode usar o FQDN para criar um registro CNAME do domínio personalizado apontando para o endereço IP público no Azure. Em vez de ou além de usar o rótulo de nome DNS com o sufixo padrão, você pode usar o serviço DNS do Azure para configurar um nome DNS com um sufixo personalizado que seja resolvido para o endereço IP público. Para obter mais informações, consulte [Usar o DNS do Azure com o endereço IP público do Azure](../dns/dns-custom-domain.md?toc=%2fazure%2fvirtual-network%2ftoc.json#public-ip-address).
 
 > [!IMPORTANT]
 > Cada rótulo de nome do domínio criado deve ser exclusivo dentro de seu local do Azure.  
@@ -128,7 +128,7 @@ A tabela a seguir mostra a propriedade específica por meio da qual um endereço
 | Máquina virtual |interface de rede |Sim |Sim |
 | Balanceador de carga voltado para a Internet |Configuração de front-end |Sim |Sim |
 | Gateway de VPN |Configuração de IP do gateway |Sim |Não |
-| Application Gateway |Configuração de front-end |Sim |Não |
+| Gateway de Aplicativo |Configuração de front-end |Sim |Não |
 
 ## <a name="private-ip-addresses"></a>Endereços IP privados
 Endereços IP privados permitem que os recursos do Azure comuniquem-se com outros recursos de uma [rede virtual](virtual-networks-overview.md) , ou na rede local por meio de um gateway de VPN ou circuito de ExpressRoute, sem usar um endereço IP acessível pela Internet.
@@ -145,10 +145,12 @@ Os endereços IP privados são criados com um endereço IPv4 ou IPv6. Os endere�
 
 ### <a name="allocation-method"></a>Método de alocação
 
-Um endereço IP privado é alocado no intervalo de endereços de sub-rede da rede virtual em que um recurso é implantado. Há dois métodos para alocar um endereço IP privado:
+Um endereço IP privado é alocado no intervalo de endereços de sub-rede da rede virtual em que um recurso é implantado. O Azure reserva os primeiros quatro endereços em cada intervalo de endereços de sub-rede, de modo que os endereços não podem ser atribuídos a recursos. Por exemplo, se o intervalo de endereços da sub-rede for 10.0.0.0/16, endereços 10.0.0.0-10.0.0.3 não podem ser atribuídos a recursos. Endereços IP no intervalo de endereços da sub-rede só podem ser atribuídos a um recurso por vez. 
 
-- **Dinâmico**: o Azure reserva os primeiros quatro endereços em cada intervalo de endereços de sub-rede e não atribui os endereços. O Azure atribui o próximo endereço disponível a um recurso no intervalo de endereços de sub-rede. Por exemplo, se o intervalo de endereços de sub-rede é 10.0.0.0/16 e os endereços 10.0.0.0.4-10.0.0.14 já estão atribuídos (.0-.3 estão reservados), o Azure atribui 10.0.0.15 para o recurso. O método de alocação padrão é o Dinâmico. Uma vez atribuído, os endereços IP dinâmicos só são lançados se uma interface de rede for excluída, atribuída a uma sub-rede diferente na mesma rede virtual ou se o método de alocação for alterado para estático e um endereço IP diferente for especificado. Por padrão, o Azure atribui o endereço anterior atribuído dinamicamente como o endereço estático quando você altera o método de alocação de dinâmico para estático.
-- **Estático**: você seleciona e atribui um endereço do intervalo de endereços de sub-rede. O endereço que você atribuir pode ser qualquer endereço no intervalo de endereços de sub-rede que não seja um dos quatro primeiros endereços no intervalo de endereços de sub-rede e não esteja atualmente atribuído a qualquer outro recurso na sub-rede. Os endereços estáticos não serão liberados até que o adaptador de rede seja excluído. Se você alterar o método de alocação para estático, o Azure atribui dinamicamente o endereço IP estático atribuído anteriormente como o endereço dinâmico, mesmo se o endereço não for o próximo endereço disponível no intervalo de endereços de sub-rede. O endereço também será alterado se a interface de rede for atribuída a uma sub-rede diferente na mesma rede virtual. Mas, para atribuir a interface de rede para uma sub-rede diferente, você deve primeiro alterar o método de alocação de estático para dinâmico. Depois que você atribuir a interface de rede para uma sub-rede diferente, pode alterar o método de alocação para estático e atribuir um endereço IP do intervalo de endereços da sub-rede nova.
+Há dois métodos para alocar um endereço IP privado:
+
+- **Dinâmico**: o Azure atribui o próximo endereço IP disponível não atribuído ou não reservado no intervalo de endereços da sub-rede. Por exemplo, o Azure atribui o 10.0.0.10 para um novo recurso se endereços 10.0.0.4-10.0.0.9 já estiverem atribuídos a outros recursos. Dinâmico é o método de alocação padrão. Uma vez atribuído, os endereços IP dinâmicos só são liberados se um adaptador de rede é excluído, atribuído a uma sub-rede diferente na mesma rede virtual ou se o método de alocação é alterado para estático e um endereço IP diferente é especificado. Por padrão, o Azure atribui o endereço anterior atribuído dinamicamente como o endereço estático quando você altera o método de alocação de dinâmico para estático.
+- **Estático**: você seleciona e atribui qualquer endereço IP disponível não atribuído ou não reservado no intervalo de endereços da sub-rede. Por exemplo, se um intervalo de endereços da sub-rede for 10.0.0.0/16 e os endereços 10.0.0.4-10.0.0.9 já estiverem atribuídos a outros recursos, você pode atribuir qualquer endereço entre 10.0.0.10 - 10.0.255.254. Os endereços estáticos só são liberados se um adaptador de rede é excluído. Se você alterar o método de alocação para estático, o Azure atribui dinamicamente o endereço IP estático atribuído anteriormente como o endereço dinâmico, mesmo que o endereço não seja o próximo endereço disponível no intervalo de endereços da sub-rede. O endereço também será alterado se o adaptador de rede for atribuído a uma sub-rede diferente na mesma rede virtual. No entanto, para atribuir o adaptador de rede a outra sub-rede, primeiro você deve alterar o método de alocação de estático para dinâmico. Depois de atribuir o adaptador de rede a uma sub-rede diferente, você poderá alterar o método de alocação novamente para estático e atribuir um endereço IP do intervalo de endereços da nova sub-rede.
 
 ### <a name="virtual-machines"></a>Máquinas virtuais
 
@@ -164,7 +166,7 @@ Máquinas virtuais configuradas com os servidores DNS gerenciados pelo Azure sã
 
 ### <a name="internal-load-balancers-ilb--application-gateways"></a>Balanceadores de carga internos (ILB) e gateways de aplicativo
 
-Você pode atribuir um endereço IP privado para a configuração de **front end** de um [balanceador de carga interno do Azure](../load-balancer/load-balancer-internal-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (ILB) ou um [Gateway de Aplicativo do Azure](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Esse endereço IP privado serve como ponto de extremidade interno, acessível somente aos recursos dentro da sua rede virtual e de redes remotas conectadas à rede virtual. Você pode atribuir um endereço IP privado dinâmico ou estático à configuração de front-end.
+Você pode atribuir um endereço IP privado para a configuração de **front-end** de um [Balanceador de Carga Interno do Azure](../load-balancer/load-balancer-internal-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (ILB) ou um [Gateway de Aplicativo do Azure](../application-gateway/application-gateway-introduction.md?toc=%2fazure%2fvirtual-network%2ftoc.json). Esse endereço IP privado serve como ponto de extremidade interno, acessível somente aos recursos dentro da sua rede virtual e de redes remotas conectadas à rede virtual. Você pode atribuir um endereço IP privado dinâmico ou estático à configuração de front-end.
 
 ### <a name="at-a-glance"></a>Imediato
 A tabela a seguir mostra a propriedade específica por meio da qual um endereço IP privado pode ser associado a um recurso de nível superior e os métodos possíveis de alocação (dinâmico ou estático) que podem ser usados.
@@ -173,7 +175,7 @@ A tabela a seguir mostra a propriedade específica por meio da qual um endereço
 | --- | --- | --- | --- |
 | Máquina virtual |interface de rede |Sim |Sim |
 | Balanceador de carga |Configuração de front-end |Sim |Sim |
-| Application Gateway |Configuração de front-end |Sim |Sim |
+| Gateway de Aplicativo |Configuração de front-end |Sim |Sim |
 
 ## <a name="limits"></a>Limites
 Os limites impostos sobre o endereçamento IP são indicados em todo o conjunto de [limites de rede](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits) no Azure. Os limites são por região e por assinatura. Você pode [entrar em contato com o suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade) para aumentar os limites padrão até os limites máximos com base nas necessidades de sua empresa.

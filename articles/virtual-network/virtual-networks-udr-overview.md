@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 10/26/2017
 ms.author: jdial
 ms.custom: 
-ms.openlocfilehash: 18169b86d10b589a5c8b707596d5f62813e9efe2
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 8a80220879db9f0030b9f1a8494b1cc24105ef17
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="virtual-network-traffic-routing"></a>Roteamento de tráfego de rede virtual
 
@@ -118,7 +118,7 @@ O nome exibido e referenciado para tipos do próximo salto é diferente entre o 
 
 Um gateway de rede local pode trocar rotas com um gateway de rede virtual do Azure usando o protocolo BGP (Border Gateway Protocol). O uso do BGP com um gateway de rede virtual do Azure depende do tipo que você selecionou ao criar o gateway. Se o tipo selecionado foi:
 
-- **ExpressRoute**: você deve usar o BGP para anunciar rotas para o roteador de borda da Microsoft. Não é possível criar rotas definidas pelo usuário caso você implante um gateway de rede virtual implantado como tipo: ExpressRoute.
+- **ExpressRoute**: você deve usar o BGP para anunciar rotas locais para o roteador de borda da Microsoft. Não é possível criar rotas definidas pelo usuário para forçar o tráfego ao gateway de rede virtual do ExpressRoute caso você implante um gateway de rede virtual implantado como tipo: ExpressRoute. Você pode usar as rotas definidas pelo usuário para forçar o tráfego do ExpressRoute para, por exemplo, uma Solução de Virtualização de Rede. 
 - **VPN**: você pode usar o BGP outra opção. Para obter detalhes, confira [BGP com conexões VPN site a site](../vpn-gateway/vpn-gateway-bgp-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 Ao trocar de rotas com o Azure usando o BGP, uma rota separada é adicionada à tabela de rotas de todas as sub-redes em uma rede virtual para cada prefixo anunciado. A rota é adicionada com o *Gateway de rede virtual* listado como a fonte e o tipo do próximo salto. 

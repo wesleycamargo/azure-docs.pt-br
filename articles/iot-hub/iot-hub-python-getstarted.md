@@ -13,11 +13,11 @@ ms.workload: na
 ms.date: 08/25/2017
 ms.author: dkshir
 ms.custom: na
-ms.openlocfilehash: eec9eb9d5b5ecc0b33ce03f33b9f1600600f6c4e
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 86fb3bdbae83b543eee7a5d96c0739aaea0aba5e
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="connect-your-simulated-device-to-your-iot-hub-using-python"></a>Conecte seu dispositivo simulado ao Hub IoT usando Python
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
@@ -291,7 +291,7 @@ Para continuar a introdução ao Hub IoT e explorar outros cenários de IoT, con
 
 * [Conectando o dispositivo][lnk-connect-device]
 * [Introdução ao gerenciamento de dispositivo][lnk-device-management]
-* [Introdução ao Azure IoT Edge][lnk-iot-edge]
+* [Implantando IA em dispositivos de extremidade com o Azure IoT Edge][lnk-iot-edge]
 
 Para saber como estender sua solução IoT e processar as mensagens entre o dispositivo e a nuvem em escala, consulte o tutorial [Processar as mensagens entre o dispositivo e a nuvem][lnk-process-d2c-tutorial].
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]
@@ -325,5 +325,5 @@ Para saber como estender sua solução IoT e processar as mensagens entre o disp
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [lnk-device-management]: iot-hub-node-node-device-management-get-started.md
-[lnk-iot-edge]: iot-hub-linux-iot-edge-get-started.md
+[lnk-iot-edge]: ../iot-edge/tutorial-simulate-device-linux.md
 [lnk-connect-device]: https://azure.microsoft.com/develop/iot/

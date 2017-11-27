@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: hero-article
 ms.date: 11/06/2017
-ms.openlocfilehash: 5bbfe63d159ba2d09a495908f69f707ed04a02f8
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: b723cc23ccbda6c5d39627682116cc314dcf2c0e
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="classify-iris-part-2-build-a-model"></a>Parte 2 de Classificação da Íris: Criar um modelo
 Os serviços do Azure Machine Learning (versão prévia) são uma solução integrada de análise avançada e de ciência de dados de ponta a ponta para cientistas de dados profissionais prepararem dados, desenvolverem testes e implantarem modelos em escala de nuvem.
@@ -68,7 +68,7 @@ Para fazer experiências com o script de expedição a ser executado em um cont�
 
    - Usa o modelo desserializado para fazer a previsão em um novo registro. 
 
-   - Plota dois gráficos, uma matriz de confusão e uma curva característica de operação (CCO) do receptor multiclasse, usando a biblioteca [matplotlib](https://matplotlib.org/) e, em seguida, salva-os na pasta `outputs`.
+   - Plota dois grafos, uma matriz de confusão e uma curva característica de operação (CCO) do receptor multiclasse, usando a biblioteca [matplotlib](https://matplotlib.org/) e, em seguida, salva-os na pasta `outputs`.
 
    - O objeto `run_logger` é usado ao longo do processo para registrar a taxa de regularização e para precisão do modelo nos logs. Os logs são automaticamente plotados no histórico de execuções.
 
@@ -157,11 +157,11 @@ No Azure Machine Learning Workbench, cada execução do script é capturada como
 
    ![Modo de execução](media/tutorial-classifying-iris/run_view.png)
 
-2. A guia **Painel de Execução** se abrirá. Examine as estatísticas capturadas em várias execuções. Os gráficos são renderizados na parte superior da guia. Cada execução tem um número consecutivo, e os detalhes de execução são listados na tabela na parte inferior da tela.
+2. A guia **Painel de Execução** se abrirá. Examine as estatísticas capturadas em várias execuções. Os grafo são renderizados na parte superior da guia. Cada execução tem um número consecutivo, e os detalhes de execução são listados na tabela na parte inferior da tela.
 
    ![Painel de execução](media/tutorial-classifying-iris/run_dashboard.png)
 
-3. Filtre a tabela e, em seguida, selecione qualquer um dos gráficos para exibir o status, a duração, a precisão e a taxa de regularização de cada execução. 
+3. Filtre a tabela e, em seguida, selecione qualquer um dos grafos para exibir o status, a duração, a precisão e a taxa de regularização de cada execução. 
 
 4. Selecione duas ou três execuções na tabela **Execuções** e, em seguida, selecione o botão **Comparar** para abrir uma página de comparação detalhada. Examine a comparação lado a lado. Selecione o botão voltar da **Lista de execuções** no canto superior esquerdo do painel **Comparação** para retornar para o **Painel de Execução**.
 
@@ -288,10 +288,10 @@ Com o Machine Learning, você pode configurar facilmente ambientes de execução
    python run.py
    ```
 
-   Quando `run.py` for concluído, você verá um gráfico em sua exibição de lista de histórico de execuções no workbench.
+   Quando `run.py` for concluído, você verá um grafo em sua exibição de lista de histórico de execuções no workbench.
 
 ## <a name="execute-in-a-docker-container-on-a-remote-machine"></a>Execute em um contêiner de Docker em um computador remoto
-Para executar o script em um contêiner do Docker em um computador Linux remoto, você precisa ter acesso SSH (nome de usuário e senha) para esse computador remoto. Além disso, o computador remoto deve ter o mecanismo do Docker instalado e em execução. A maneira mais fácil de obter um computador Linux desse tipo é criar uma [Máquina Virtual de Ciência de Dados (DSVM) com base no Ubuntu](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.linux-data-science-vm-ubuntu) no Azure. 
+Para executar o script em um contêiner do Docker em um computador Linux remoto, você precisa ter acesso SSH (nome de usuário e senha) para esse computador remoto. Além disso, o computador remoto deve ter o mecanismo do Docker instalado e em execução. A maneira mais fácil de obter um computador Linux desse tipo é criando uma Máquina Virtual de Ciência de Dados (DSVM) baseada no Ubuntu no Azure. Saiba [como criar uma DSVM do Ubuntu para usar no Azure ML Workbench](how-to-create-dsvm-hdi.md#create-an-ubuntu-dsvm-in-azure-portal).
 
 >[!NOTE] 
 >*Não* há suporte para DSVM com base em CentOS.
@@ -343,7 +343,9 @@ Para executar o script em um contêiner do Docker em um computador Linux remoto,
    ```
 
 ## <a name="execute-script-in-an-hdinsight-cluster"></a>Execute o script em um cluster HDInsight
-Você também pode executar esse script em um cluster Spark real. 
+Você também pode executar esse script em um cluster HDInsight Spark. Saiba [como criar o cluster HDInsight Spark para usar no Azure ML Workbench](how-to-create-dsvm-hdi.md#create-an-apache-spark-for-azure-hdinsight-cluster-in-azure-portal).
+
+>![OBSERVAÇÃO] O cluster HDInsight deve usar o Blob do Azure como o armazenamento primário. O uso do armazenamento do Azure Data Lake ainda não tem suporte.
 
 1. Se você tiver acesso a um cluster Spark para o Azure HDInsight, gere um comando de configuração de execução HDInsight, conforme mostrado aqui. Forneça o nome do cluster HDInsight, seu nome de usuário HDInsight e a senha como parâmetros. Use o seguinte comando:
 

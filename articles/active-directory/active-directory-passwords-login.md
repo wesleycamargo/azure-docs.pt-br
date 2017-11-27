@@ -13,24 +13,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/08/2017
+ms.date: 11/16/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 9f7fdb97fd121eecf9e7b2f4edc1b568c8114869
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 0a3fca0c7d36122a09c825a3ed8edf11cc362b8b
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="azure-ad-password-reset-from-the-login-screen"></a>Redefinição de senha do Azure AD a partir da tela de logon
 
 Você já implantou a redefinição de senha de autoatendimento do Azure AD (SSPR), mas os usuários ainda ligam para a assistência técnica quando esquecem a senha. Eles ligam para a assistência técnica porque não conseguem acessar um navegador da Web para poder acessar a SSPR.
 
-Com o novo Windows 10 Fall Creators Update, os usuários com dispositivos do Azure AD unidos podem ver um link de "Redefinir senha" na sua tela de logon. Quando clicam nesse link, eles têm a mesma experiência de redefinição de senha de autoatendimento (SSPR) com a qual já estão familiarizados 
+Com o novo Windows 10 Fall Creators Update, os usuários com dispositivos do Azure AD unidos podem ver um link de "Redefinir senha" na sua tela de logon. Quando clicam nesse link, eles têm a mesma experiência de redefinição de senha de autoatendimento (SSPR) com a qual já estão familiarizados.
 
 Para permitir que os usuários redefinam sua senha do Azure AD na tela de logon do Windows 10, os requisitos a seguir precisam ser atendidos:
 
-* Windows 10, versão 1709 ou mais recente do cliente que é ingressado no domínio do Azure AD.
+* Windows 10, versão 1709 ou mais recente do cliente que está [ingressado no Azure AD](device-management-azure-portal.md).
 * A redefinição de senha de autoatendimento do Azure AD deve ser habilitada.
 * Configurar e implantar a configuração para habilitar o link Redefinir senha por meio de um dos seguintes métodos:
    * [Perfil de configuração de dispositivo do Intune](active-directory-passwords-login.md#configure-reset-password-link-using-intune)
@@ -90,7 +90,7 @@ Agora você criou e atribuiu uma política de configuração de dispositivo para
 
 É recomendável usar esse método somente para testar a alteração da configuração.
 
-1. Faça logon no dispositivo ingressado no domínio do Azure AD usando as credenciais administrativas
+1. Faça logon no dispositivo ingressado no Azure AD usando as credenciais administrativas
 2. Execute o **regedit** como administrador
 3. Defina a seguinte chave do registro
    * `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\AzureADAccount`
@@ -104,7 +104,7 @@ Agora que a política foi configurada e atribuída, o que muda para o usuário? 
 
 Quando os usuários tentam fazer logon, eles agora veem um link Redefinir senha que abre a experiência de redefinição de senha de autoatendimento na tela de logon. Essa funcionalidade permite aos usuários redefinir a senha sem a necessidade de usar outro dispositivo para acessar um navegador da Web.
 
-Os usuários podem encontrar orientações sobre esse recuso em [Redefinir sua senha corporativa ou de estudante](active-directory-passwords-update-your-own-password.md#reset-password-at-login)
+Os usuários podem encontrar orientações sobre esse recuso em [Redefinir sua senha corporativa ou de estudante](active-directory-passwords-update-your-own-password.md#reset-password-at-sign-in)
 
 ## <a name="common-issues"></a>Problemas comuns
 
