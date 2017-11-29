@@ -1,0 +1,26 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentação das Migrações para Azure
+metadata:
+  title: 'Documentação das Migrações para Azure - Tutoriais, Referência da API | Microsoft Docs'
+  description: Saiba como avaliar os computadores locais para a migração para o Azure
+  services: migration-planner
+  author: rayne-wiselman
+  manager: carmonm
+  ms.service: migration
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 11/22/2017
+  ms.author: raynew
+abstract:
+  description: As Migrações para Azure ajudam a descobrir e avaliar a adequação dos computadores locais para a migração para o Azure e fornecem estimativas de tamanho e custo para executar as VMs do Azure.
+sections:
+  - title: Tutoriais Passo a Passo
+    items:
+      - type: paragraph
+        text: Saiba como avaliar as VMs do VMware para a migração para o Azure
+      - type: list
+        style: unordered
+        items:
+          - html: <a href="tutorial-assessment-vmware">Descobrir e avaliar as VMs do VMware locais</a>
