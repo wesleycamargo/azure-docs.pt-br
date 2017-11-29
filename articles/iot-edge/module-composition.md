@@ -26,7 +26,7 @@ O *manifesto de implantação* é um documento JSON que descreve:
 * A configuração do hub do Edge, que descreve como as mensagens devem fluir entre módulos e entre os módulos e o Hub IoT;
 * Opcionalmente, os valores a serem definidos nas propriedades desejadas dos gêmeos dos módulos para configurar os aplicativos de módulo individuais.
 
-Nos tutoriais do Azure IoT Edge, você pode criar um manifesto de implantação por meio de um assistente no portal do Azure IoT Edge. Você também pode aplicar um manifesto de implantação por meio de programação usando REST ou o SDK do serviço Hub IoT. Confira [Implantar e monitorar] [ lnk-deploy] para saber mais sobre implantações do IoT Edge.
+Nos tutoriais do Azure IoT Edge, você pode criar um manifesto de implantação por meio de um assistente no portal do Azure IoT Edge. Você também pode aplicar um manifesto de implantação por meio de programação usando REST ou o SDK do serviço Hub IoT. Confira [Implantar e monitorar][lnk-deploy] para saber mais sobre implantações do IoT Edge.
 
 De forma geral, o manifesto de implantação configura as propriedades desejadas dos módulos do IoT Edge implantados em um dispositivo IoT Edge. Dois desses módulos estão sempre presentes: o agente do Edge e o hub do Edge.
 
@@ -66,7 +66,7 @@ As propriedades desejadas do gêmeo do módulo do agende do Edge contêm: os mó
 
 De maneira geral, esta seção do manifesto contém referências a imagens de módulo e opções de gerenciamento para os módulos do tempo de execução do IoT Edge (agente do Edge e hub do Edge) e os módulos especificados pelo usuário.
 
-Confira o [propriedades do agente do Edge desejadas] [ lnk-edgeagent-desired] para obter uma descrição detalhada da seção de manifesto.
+Confira o [propriedades do agente do Edge desejadas][lnk-edgeagent-desired] para obter uma descrição detalhada da seção de manifesto.
 
 > [!NOTE]
 > Um manifesto de implantação que contém o tempo de execução do IoT Edge (hub e agente) é válido.
@@ -92,7 +92,7 @@ A *fonte* pode ser qualquer uma dos seguintes:
 | `/messages/modules/{moduleId}/outputs/*` | Qualquer mensagem de dispositivo para nuvem enviada por {IDmódulo} com algumas saídas |
 | `/messages/modules/{moduleId}/outputs/{output}` | Qualquer mensagem de dispositivo para nuvem enviada por {IDmódulo} usando {saída} |
 
-A condição pode ser qualquer condição que tenha suporte pela [linguagem de consulta do Hub IoT] [ lnk-iothub-query] para regras de roteamento do Hub IoT.
+A condição pode ser qualquer condição que tenha suporte pela [linguagem de consulta do Hub IoT][lnk-iothub-query] para regras de roteamento do Hub IoT.
 
 O coletor pode ser um dos seguintes:
 
@@ -189,7 +189,7 @@ Este é um exemplo de um documento JSON do manifesto de implantação.
 ## <a name="reference-edge-agent-module-twin"></a>Referência: gêmeo de módulo do agente do Edge
 
 O gêmeo do módulo para o agente do Edge se chama `$edgeAgent` e coordena as comunicações entre o agente do Edge em execução em um dispositivo e o Hub IoT.
-As propriedades desejadas são definidas durante a aplicação de um manifesto de implantação em um dispositivo específico como parte de uma implantação de dispositivo único ou em escala. Confira [Implantação e Monitoramento] [ lnk-deploy] para obter mais informações sobre como implantar módulos em dispositivos do IoT Edge.
+As propriedades desejadas são definidas durante a aplicação de um manifesto de implantação em um dispositivo específico como parte de uma implantação de dispositivo único ou em escala. Confira [Implantação e Monitoramento][lnk-deploy] para obter mais informações sobre como implantar módulos em dispositivos do IoT Edge.
 
 ### <a name="edge-agent-twin-desired-properties"></a>Propriedades desejadas do gêmeo do agente do Edge
 
@@ -260,7 +260,7 @@ A tabela a seguir não inclui as informações que são copiadas das propriedade
 ## <a name="reference-edge-hub-module-twin"></a>Referência: gêmeo de módulo de hub do Edge
 
 O gêmeo do módulo para o hub do Edge se chama `$edgeHub` e coordena as comunicações entre o hub do Edge em execução em um dispositivo e o Hub IoT.
-As propriedades desejadas são definidas durante a aplicação de um manifesto de implantação em um dispositivo específico como parte de uma implantação de dispositivo único ou em escala. Confira [Implantação] [ lnk-deploy] para obter mais informações sobre como implantar módulos em dispositivos do IoT Edge.
+As propriedades desejadas são definidas durante a aplicação de um manifesto de implantação em um dispositivo específico como parte de uma implantação de dispositivo único ou em escala. Confira [Implantação][lnk-deploy] para obter mais informações sobre como implantar módulos em dispositivos do IoT Edge.
 
 ### <a name="edge-hub-twin-desired-properties"></a>Propriedades desejadas do gêmeo do hub do Edge
 
