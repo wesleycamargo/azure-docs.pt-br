@@ -7,14 +7,14 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 11/28/2017
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 8afde912ca48297ae60eb7d05aa624a1d72c1637
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: 16b56c71e2c81bead7c578a973840391996e845b
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Ferramentas de diagnóstico de pilha do Azure
 
@@ -29,43 +29,11 @@ Nossas ferramentas de diagnóstico ajudam a garantir que o mecanismo de coleta d
  
 ## <a name="trace-collector"></a>Coletor de rastreamento
  
-O coletor de rastreamento está habilitado por padrão. Ele continuamente é executado em segundo plano e coleta todos os logs de rastreamento de eventos para Windows (ETW) serviços de componentes na pilha do Azure e armazena em um compartilhamento local comum. 
+O coletor de rastreamento é habilitado por padrão e é executado continuamente no plano de fundo para coletar todos os logs de rastreamento de eventos para Windows (ETW) de serviços de componentes da pilha do Azure. Logs do ETW são armazenados em um compartilhamento local comum com um limite de duração de cinco dias. Quando esse limite é atingido, os arquivos mais antigos são excluídos conforme novos arquivos serão criados. O tamanho máximo padrão permitido para cada arquivo é de 200MB. Uma verificação de tamanho ocorre periodicamente (a cada 2 minutos) e se o arquivo atual > = 200 MB, ele será salvo e um novo arquivo é gerado. Também há um limite de 8GB no tamanho total do arquivo gerado por sessão de evento. 
 
-Estas são as coisas importantes a saber sobre o coletor de rastreamento:
- 
-* O coletor de rastreamento é executado continuamente com limites de tamanho padrão. O padrão de tamanho máximo permitido para cada arquivo (200 MB) é **não** um tamanho de corte. Uma verificação de tamanho ocorre periodicamente (atualmente a cada 2 minutos) e se o arquivo atual > = 200 MB, ele será salvo e um novo arquivo é gerado. Também há um limite de (configurável) de 8 GB no tamanho total do arquivo gerado por sessão de evento. Quando esse limite é atingido, os arquivos mais antigos são excluídos conforme novos arquivos serão criados.
-* Há um limite de idade de 5 dias os logs. Esse limite também é configurável. 
-* Cada componente define as propriedades de configuração de rastreamento por meio de um arquivo JSON. Os arquivos JSON estiverem armazenados em **C:\TraceCollector\Configuration**. Se necessário, esses arquivos podem ser editados para alterar os limites de idade e tamanho dos logs coletados. As alterações a esses arquivos requerem uma reinicialização do *coletor de rastreamento de pilha do Microsoft Azure* serviço para que as alterações entrem em vigor.
-
-O exemplo a seguir é um arquivo JSON de configuração de rastreamento para operações de FabricRingServices da VM XRP: 
-
-```json
-{
-    "LogFile": 
-    {
-        "SessionName": "FabricRingServicesOperationsLogSession",
-        "FileName": "\\\\SU1FileServer\\SU1_ManagementLibrary_1\\Diagnostics\\FabricRingServices\\Operations\\AzureStack.Common.Infrastructure.Operations.etl",
-        "RollTimeStamp": "00:00:00",
-        "MaxDaysOfFiles": "5",
-        "MaxSizeInMB": "200",
-        "TotalSizeInMB": "5120"
-    },
-    "EventSources":
-    [
-        {"Name": "Microsoft-AzureStack-Common-Infrastructure-ResourceManager" },
-        {"Name": "Microsoft-OperationManager-EventSource" },
-        {"Name": "Microsoft-Operation-EventSource" }
-    ]
-}
-```
-
-* **MaxDaysOfFiles**. Este parâmetro controla a idade dos arquivos para manter. Arquivos de log antigos são excluídos.
-* **MaxSizeInMB**. Este parâmetro controla o limite de tamanho para um único arquivo. Se o tamanho é atingido, um novo arquivo. ETL é criado.
-* **TotalSizeInMB**. Este parâmetro controla o tamanho total dos arquivos. etl gerados a partir de uma sessão de evento. Se o tamanho total do arquivo é maior do que esse valor de parâmetro, os arquivos mais antigos são excluídos.
-  
 ## <a name="log-collection-tool"></a>Ferramenta de coleta de log
  
-O comando do PowerShell **Get-AzureStackLog** pode ser usado para coletar logs de todos os componentes em um ambiente de pilha do Azure. Ele os salva em arquivos zip em um local definido pelo usuário. Se precisar de nossa equipe de suporte técnico os logs para ajudar a solucionar um problema, eles podem solicitar que você executar essa ferramenta.
+O cmdlet do PowerShell **Get-AzureStackLog** pode ser usado para coletar logs de todos os componentes em um ambiente de pilha do Azure. Ele os salva em arquivos zip em um local definido pelo usuário. Se precisar de nossa equipe de suporte técnico os logs para ajudar a solucionar um problema, eles podem solicitar que você executar essa ferramenta.
 
 > [!CAUTION]
 > Esses arquivos de log podem conter informações de identificação pessoal (PII). Leve isso em consideração antes de lançar publicamente os arquivos de log.
@@ -78,38 +46,38 @@ Seguem alguns exemplos de tipos de log são coletados:
 *   **Logs de diagnóstico de armazenamento**
 *   **Logs do ETW**
 
-Esses arquivos são coletados pelo coletor de rastreamento e armazenados em um compartilhamento de onde **AzureStackLog Get** recupera-los.
+Esses arquivos são coletados e salvos em um compartilhamento pelo coletor de rastreamento. O **AzureStackLog Get** cmdlet do PowerShell, em seguida, pode ser usado para coletá-los quando necessário.
  
 ### <a name="to-run-get-azurestacklog-on-an-azure-stack-development-kit-asdk-system"></a>Para executar o Get-AzureStackLog em um sistema de Kit de desenvolvimento na pilha do Azure (ASDK)
 1. Faça logon como **AzureStack\CloudAdmin** no host.
 2. Abra uma janela do PowerShell como administrador.
 3. Execute o **AzureStackLog Get** cmdlet do PowerShell.
 
-   **Exemplos**
+**Exemplos:**
 
-    Colete todos os logs de todas as funções:
+  Colete todos os logs de todas as funções:
 
-    ```powershell
-    Get-AzureStackLog -OutputPath C:\AzureStackLogs
-    ```
+  ```powershell
+  Get-AzureStackLog -OutputPath C:\AzureStackLogs
+  ```
 
-    Colete logs de funções VirtualMachines e BareMetal:
+  Colete logs de funções VirtualMachines e BareMetal:
 
-    ```powershell
-    Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal
-    ```
+  ```powershell
+  Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal
+  ```
 
-    Colete logs de funções VirtualMachines e BareMetal, com data de filtragem para arquivos de log para as últimas 8 horas:
+  Colete logs de funções VirtualMachines e BareMetal, com data de filtragem para arquivos de log para as últimas 8 horas:
     
-    ```powershell
-    Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8)
-    ```
+  ```powershell
+  Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8)
+  ```
 
-    Colete logs de funções VirtualMachines e BareMetal, com filtragem para arquivos de log para o período de tempo entre 8 horas atrás e 2 horas atrás de data:
+  Colete logs de funções VirtualMachines e BareMetal, com filtragem para arquivos de log para o período de tempo entre 8 horas atrás e 2 horas atrás de data:
 
-    ```powershell
-    Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
-    ```
+  ```powershell
+  Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
+  ```
 
 ### <a name="to-run-get-azurestacklog-on-an-azure-stack-integrated-system"></a>Para executar o Get-AzureStackLog em uma pilha do Azure sistema integrado
 
@@ -158,7 +126,7 @@ if($s)
    | Domínio                  | ECE                    | ECESeedRing        | 
    | FabricRing              | FabricRingServices     | FRP                |
    | Gateway                 | HealthMonitoring       | HRP                |   
-   | IBC                     | InfraServiceController |KeyVaultAdminResourceProvider|
+   | IBC                     | InfraServiceController | KeyVaultAdminResourceProvider|
    | KeyVaultControlPlane    | KeyVaultDataPlane      | NC                 |   
    | NonPrivilegedAppGateway | NRP                    | SeedRing           |
    | SeedRingServices        | SLB                    | SQL                |   
@@ -166,6 +134,13 @@ if($s)
    | URP                     | UsageBridge            | VirtualMachines    |  
    | FOI                     | WASPUBLIC              | WDS                |
 
+
+### <a name="collect-logs-using-a-graphical-user-interface"></a>Coletar logs usando a interface gráfica do usuário
+Em vez de fornecer os parâmetros necessários para o cmdlet Get-AzureStackLog recuperar os logs de pilha do Azure, você também pode aproveitar as ferramentas de pilha do Azure de código aberto disponíveis localizadas na pilha do Azure ferramentas GitHub repositório principal no http://aka.ms/AzureStackTools.
+
+O **ERCS_AzureStackLogs.ps1** script do PowerShell é armazenado no repositório GitHub ferramentas e é atualizado regularmente. O script iniciado a partir de uma sessão do PowerShell administrativa, conecta-se ao ponto de extremidade com privilégios e executa o Get-AzureStackLog com parâmetros fornecidos. Se nenhum parâmetro for fornecido, o script padrão será solicitar parâmetros por meio de uma interface gráfica do usuário.
+
+Para saber mais sobre o PowerShell ERCS_AzureStackLogs.ps1 script que você pode assistir [um breve vídeo](https://www.youtube.com/watch?v=Utt7pLsXEBc) ou exibir o script [arquivo Leiame](https://github.com/Azure/AzureStack-Tools/blob/master/Support/ERCS_Logs/ReadMe.md) localizado no repositório do GitHub de ferramentas de pilha do Azure. 
 
 ### <a name="additional-considerations"></a>Considerações adicionais
 
