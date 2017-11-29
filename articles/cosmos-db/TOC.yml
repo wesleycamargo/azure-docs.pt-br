@@ -31,7 +31,7 @@
           href: create-mongodb-java.md
         - name: Golang
           href: create-mongodb-golang.md
-    - name: Gráfico
+    - name: Grafo
       items:
         - name: .NET
           href: create-graph-dotnet.md
@@ -75,7 +75,7 @@
           href: tutorial-develop-mongodb-react.md
         - name: Tabela
           href: tutorial-develop-table-dotnet.md
-        - name: Gráfico
+        - name: Grafo
           href: tutorial-develop-graph-dotnet.md
         - name: Cassandra
           href: tutorial-develop-cassandra-java.md
@@ -97,7 +97,7 @@
           href: tutorial-query-mongodb.md
         - name: Tabela
           href: tutorial-query-table.md
-        - name: Gráfico
+        - name: Grafo
           href: tutorial-query-graph.md
     - name: 4 - Distribuir globalmente
       items:
@@ -107,7 +107,7 @@
           href: tutorial-global-distribution-mongodb.md
         - name: Tabela
           href: tutorial-global-distribution-table.md
-        - name: Gráfico
+        - name: Grafo
           href: tutorial-global-distribution-graph.md
     - name: 5 - Desenvolver localmente
       items:
@@ -133,6 +133,8 @@
       href: distribute-data-globally.md
     - name: Particionamento
       href: partition-data.md
+    - name: Chaves exclusivas
+      href: unique-keys.md
     - name: Consistência
       href: consistency-levels.md
     - name: Taxa de transferência
@@ -145,7 +147,7 @@
           href: mongodb-introduction.md
         - name: Tabela
           href: table-introduction.md
-        - name: Gráfico
+        - name: Grafo
           href: graph-introduction.md
         - name: Cassandra
           href: cassandra-introduction.md
@@ -264,7 +266,7 @@
               items:
                 - name: Aplicativo de console do Node.js
                   href: mongodb-samples.md
-        - name: Graph API
+        - name: API do Graph
           items:
             - name: Suporte do Gremlin
               href: gremlin-support.md
@@ -406,7 +408,7 @@
           href: table-sdk-nodejs.md
         - name: Python
           href: table-sdk-python.md
-    - name: Graph APIs
+    - name: API do Graph
       items:
         - name: .NET
           href: graph-sdk-dotnet.md

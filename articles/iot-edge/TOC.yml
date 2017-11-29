@@ -6,16 +6,16 @@
       href: how-iot-edge-works.md
 - name: Guia de início rápido
   items:
-    - name: Implantar a borda - Windows
-      href: quickstart.md
     - name: Implantar a borda - Linux
       href: quickstart-linux.md
+    - name: Implantar a borda - Windows
+      href: quickstart.md
 - name: Tutoriais
   items:
-    - name: Simular um dispositivo de borda - Windows
-      href: tutorial-simulate-device-windows.md
     - name: Simular um dispositivo de borda - Linux
       href: tutorial-simulate-device-linux.md
+    - name: Simular um dispositivo de borda - Windows
+      href: tutorial-simulate-device-windows.md
     - name: 'Desenvolver um módulo C#'
       href: tutorial-csharp-module.md
     - name: Implantar o Azure Stream Analytics
@@ -26,8 +26,8 @@
       href: tutorial-deploy-function.md
 - name: Guias de instruções
   items:
-    - name: Criar um dispositivo de gateway
-      href: how-to-create-gateway-device.md
+    - name: Criar um gateway transparente
+      href: how-to-create-transparent-gateway.md
     - name: Implantar e monitorar em escala
       href: how-to-deploy-monitor.md
     - name: Provisionar um dispositivo do IoT Core
@@ -45,6 +45,8 @@
       href: iot-edge-runtime.md
     - name: Implantações
       href: module-deployment-monitoring.md
+    - name: Dispositivo do IoT Edge como um gateway
+      href: iot-edge-as-gateway.md
     - name: Segurança
       href: security.md
 - name: Recursos

@@ -1,0 +1,40 @@
+- name: Documentação das Migrações para Azure
+  href: index.yml
+- name: Visão geral
+  items:
+    - name: Sobre as Migrações para Azure
+      href: migrate-overview.md
+- name: Tutoriais
+  items:
+    - name: Descobrir e avaliar as VMs VMware
+      href: tutorial-assessment-vmware.md
+- name: Conceitos
+  items:
+    - name: Cálculos de avaliação
+      href: concepts-assessment-calculation.md
+    - name: Visualização de dependência
+      href: concepts-dependency-visualization.md
+- name: Guias de instruções
+  items:
+    - name: Descobrir e avaliar um grande ambiente
+      href: how-to-scale-assessment.md
+    - name: Agrupar máquinas
+      href: how-to-create-a-group.md
+    - name: Agrupar máquinas usando dependências da máquina
+      href: how-to-create-group-machine-dependencies.md
+    - name: Agrupar máquinas usando a marcação do VMware
+      href: how-to-tag-v-center.md
+    - name: Refinar um grupo usando as dependências do grupo
+      href: how-to-create-group-dependencies.md
+    - name: Personalizar uma avaliação
+      href: how-to-modify-assessment.md
+    - name: Migrar máquinas após a avaliação
+      href: how-to-get-migration-tool.md
+    - name: Solucionar problemas das Migrações para Azure
+      href: troubleshooting-general.md
+- name: Recursos
+  items:
+    - name: Migrações para Azure
+      href: 'https://azure.microsoft.com/migrate'
+    - name: Roteiro do Azure
+      href: 'https://azure.microsoft.com/roadmap/'
