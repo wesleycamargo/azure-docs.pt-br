@@ -83,7 +83,7 @@
         - name: Computação de alto desempenho
           href: sizes-hpc.md
         - name: ACU (Unidades de computação do Azure)
-          href: sizes-general.md
+          href: acu.md
     - name: Distribuições endossadas
       href: endorsed-distros.md
     - name: Manutenção e atualizações
