@@ -1,6 +1,26 @@
--- título: exemplos de CLI do Azure - Azure Functions | Descrição do Microsoft Docs: exemplos de CLI do Azure - serviços do Azure Functions: funções documentationcenter: autor de funções: syntaxc4 gerente: cfowler editor: ggailey777 Etiqueta: azure-service-management
-
-ms.assetid: 577d2f13-de4d-40d2-9dfc-86ecc79f3ab0 ms.service: functions ms.devlang: na ms.topic: sample ms.tgt_pltfrm: na ms.workload: functions ms.date: 04/11/2017 ms.author: glenga ms.custom: mvc
+---
+title: Exemplos de CLI do Azure - Azure Functions | Microsoft Docs
+description: Exemplos de CLI do Azure - Azure Functions
+services: functions
+documentationcenter: functions
+author: syntaxc4
+manager: cfowler
+editor: ggailey777
+tags: azure-service-management
+ms.assetid: 577d2f13-de4d-40d2-9dfc-86ecc79f3ab0
+ms.service: functions
+ms.devlang: na
+ms.topic: sample
+ms.tgt_pltfrm: na
+ms.workload: functions
+ms.date: 04/11/2017
+ms.author: glenga
+ms.custom: mvc
+ms.openlocfilehash: 6a86c931134ddfeb17ca540a299a369482d47370
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="azure-cli-samples"></a>Exemplos de CLI do Azure
 
