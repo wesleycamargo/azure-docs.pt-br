@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 06/05/2017
 ms.author: carlrab
-ms.openlocfilehash: 469bd74c0f144ff641fafe8c8f830b1fdbfa7690
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: eda6e19d27afbf07df853dd4cef5ece1a745034d
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Arquitetura de Conectividade do Banco de Dados SQL do Azure 
 
-Este artigo explica a arquitetura de conectividade do Banco de Dados SQL do Azure e explica como os diferentes componentes funcionam para direcionar o tráfego para a instância do Banco de Dados SQL do Azure. Esses componentes de conectividade do Banco de Dados SQL do Azure funcionam para direcionar o tráfego de rede para o banco de dados do Azure com os clientes conectando-se de dentro e de fora do Azure. Este artigo também fornece exemplos de script para alterar o modo como ocorre a conectividade e as considerações relacionadas à alteração das configurações de conectividade padrões. Se houver alguma dúvida depois de ler este artigo, entre em contato com o Dhruv em dmalik@microsoft.com. 
+Este artigo explica a arquitetura de conectividade do Banco de Dados SQL do Azure e explica como os diferentes componentes funcionam para direcionar o tráfego para a instância do Banco de Dados SQL do Azure. Esses componentes de conectividade do Banco de Dados SQL do Azure funcionam para direcionar o tráfego de rede para o banco de dados do Azure com os clientes conectando-se de dentro e de fora do Azure. Este artigo também fornece exemplos de script para alterar o modo como ocorre a conectividade e as considerações relacionadas à alteração das configurações de conectividade padrões. 
 
 ## <a name="connectivity-architecture"></a>Arquitetura de conectividade
 
-O diagrama a seguir fornece uma visão geral de alto nível da arquitetura de conectividade do Banco de Dados SQL. 
+O diagrama a seguir fornece uma visão geral de alto nível da arquitetura de conectividade do Banco de Dados SQL.
 
 ![visão geral da arquitetura](./media/sql-database-connectivity-architecture/architecture-overview.png)
 
@@ -65,14 +65,14 @@ A tabela a seguir lista os IPs primários e secundários do gateway do Banco de 
 | --- | --- |--- |
 | Leste da Austrália | 191.238.66.109 | 13.75.149.87 |
 | Sudeste da Austrália | 191.239.192.109 | 13.73.109.251 |
-| Sul do Brasil | 104.41.11.5 | |    
-| Canadá Central | 40.85.224.249 | |    
+| Sul do Brasil | 104.41.11.5 | |
+| Canadá Central | 40.85.224.249 | |
 | Leste do Canadá | 40.86.226.166 | |
 | Centro dos EUA | 23.99.160.139 | 13.67.215.62 |
 | Ásia Oriental | 191.234.2.139 | 52.175.33.150 |
 | Leste dos EUA 1 | 191.238.6.43 | 40.121.158.30 |
 | Leste dos EUA 2 | 191.239.224.107 | 40.79.84.180 |
-| Centro da Índia | 104.211.96.159  | |   
+| Centro da Índia | 104.211.96.159  | |
 | Sul da Índia | 104.211.224.146  | |
 | Oeste da Índia | 104.211.160.80 | |
 | Leste do Japão | 191.237.240.43 | 13.78.61.196 |
@@ -84,7 +84,7 @@ A tabela a seguir lista os IPs primários e secundários do gateway do Banco de 
 | Centro-Sul dos Estados Unidos | 23.98.162.75 | 13.66.62.124 |
 | Sudeste da Ásia | 23.100.117.95 | 104.43.15.0 |
 | Norte do Reino Unido | 13.87.97.210 | |
-| Sul do Reino Unido 1 | 51.140.184.11 | |    
+| Sul do Reino Unido 1 | 51.140.184.11 | |
 | Sul do Reino Unido 2 | 13.87.34.7 | |
 | Oeste do Reino Unido | 51.141.8.11  | |
 | Centro-Oeste dos EUA | 13.78.145.25 | |
@@ -95,12 +95,12 @@ A tabela a seguir lista os IPs primários e secundários do gateway do Banco de 
 
 ## <a name="change-azure-sql-database-connection-policy"></a>Alterar a política de conexão do Banco de Dados SQL do Azure
 
-Para alterar a política de conexão do Banco de Dados SQL do Azure para um servidor de Banco de Dados SQL do Azure, use a [API REST](https://msdn.microsoft.com/library/azure/mt604439.aspx). 
+Para alterar a política de conexão do Banco de Dados SQL do Azure para um servidor de Banco de Dados SQL do Azure, use a [API REST](https://msdn.microsoft.com/library/azure/mt604439.aspx).
 
-- Se a política de conexão for definida como **Proxy**, todo os pacotes de rede fluem por meio do gateway do Banco de Dados SQL do Azure. Para essa configuração, você precisa permitir a saída para o IP de gateway do Banco de Dados SQL do Azure. Usar uma configuração de **Proxy** resulta em uma latência maior do que aquela da configuração de **Redirecionamento**. 
-- Se a política de conexão está defininda como **Redirecionamento**, todos os pacotes de rede fluem diretamente para o proxy do middleware. Para essa configuração, você precisa permitir a saída para vários IPs. 
+- Se a política de conexão for definida como **Proxy**, todo os pacotes de rede fluem por meio do gateway do Banco de Dados SQL do Azure. Para essa configuração, você precisa permitir a saída para o IP de gateway do Banco de Dados SQL do Azure. Usar uma configuração de **Proxy** resulta em uma latência maior do que aquela da configuração de **Redirecionamento**.
+- Se a política de conexão está defininda como **Redirecionamento**, todos os pacotes de rede fluem diretamente para o proxy do middleware. Para essa configuração, você precisa permitir a saída para vários IPs.
 
-## <a name="script-to-change-connection-settings-via-powershell"></a>Script para alterar as configurações de conexão via PowerShell 
+## <a name="script-to-change-connection-settings-via-powershell"></a>Script para alterar as configurações de conexão via PowerShell
 
 > [!IMPORTANT]
 > Este script requer o [módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps).
@@ -140,7 +140,7 @@ $AuthContext = [Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationCo
 $result = $AuthContext.AcquireToken(
 "https://management.core.windows.net/",
 $clientId,
-[Uri]$uri, 
+[Uri]$uri,
 [Microsoft.IdentityModel.Clients.ActiveDirectory.PromptBehavior]::Auto
 )
 
@@ -160,7 +160,7 @@ $body = @{properties=@{connectionType=$connectionType}} | ConvertTo-Json
 Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/servers/$serverName/connectionPolicies/Default?api-version=2014-04-01-preview" -Method PUT -Headers $authHeader -Body $body -ContentType "application/json"
 ```
 
-## <a name="script-to-change-connection-settings-via-azure-cli-20"></a>Script para alterar as configurações de conexão via CLI do Azure 2.0 
+## <a name="script-to-change-connection-settings-via-azure-cli-20"></a>Script para alterar as configurações de conexão via CLI do Azure 2.0
 
 > [!IMPORTANT]
 > Esse script requer a [CLI do Azure 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest).
@@ -169,20 +169,17 @@ Invoke-RestMethod -Uri "https://management.azure.com/subscriptions/$subscription
 O script da CLI a seguir mostra como alterar a política de conexão.
 
 <pre>
- # Get SQL Server ID
- sqlserverid=$(az sql server show -n <b>sql-server-name</b> -g <b>sql-server-group</b> --query 'id' -o tsv)
+# Get SQL Server ID
+sqlserverid=$(az sql server show -n <b>sql-server-name</b> -g <b>sql-server-group</b> --query 'id' -o tsv)
 
 # Set URI
-uri="https://management.azure.com/$sqlserverid/connectionPolicies/Default?api-version=2014-04-01-preview"
-
-# Get Access Token 
-accessToken=$(az account get-access-token --query 'accessToken' -o tsv)
+id="$sqlserverid/connectionPolicies/Default"
 
 # Get current connection policy 
-curl -H "authorization: Bearer $accessToken" -X GET $uri
+az resource show --ids $id
 
-#Update connection policy 
-curl -H "authorization: Bearer $accessToken" -H "Content-Type: application/json" -d '{"properties":{"connectionType":"Proxy"}}' -X PUT $uri
+# Update connection policy 
+az resource update --ids $id --set properties.connectionType=Proxy
 
 </pre>
 

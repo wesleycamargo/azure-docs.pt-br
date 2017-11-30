@@ -16,11 +16,11 @@ ms.date: 10/17/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: abf207a3ceec708a828170936f7dc7948ccf34a9
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 67df6d893c0770b9210fc73e96865d5c6396796c
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="how-to-add-an-azure-subscription-to-azure-active-directory"></a>Como adicionar uma assinatura do Azure ao Azure Active Directory
 Este artigo aborda informações sobre a relação entre uma assinatura do Azure e o Azure AD (Azure Active Directory) e como adicionar uma assinatura existente ao diretório do Azure AD. A sua assinatura do Azure tem uma relação de confiança com o Azure AD, o que significa que ela confia no diretório para autenticar usuários, serviços e dispositivos. Várias assinaturas podem confiar no mesmo diretório, mas cada assinatura confia em apenas um diretório. 
@@ -39,7 +39,6 @@ Você deve entrar com uma conta existente tanto no diretório atual ao qual a as
 5. O destinatário clica no link e segue as instruções, incluindo inserir suas informações de pagamento. Quando o destinatário for bem-sucedido, a assinatura será transferida. 
 6. O diretório padrão da assinatura é alterado para o diretório no qual o usuário está.
 
-Para saber mais, veja [Transferir a propriedade de assinatura do Azure para outra conta](../billing/billing-subscription-transfer.md).
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para saber mais sobre como alterar administradores para uma assinatura do Azure, consulte [Transferir a propriedade de uma assinatura do Azure para outra conta](../billing/billing-subscription-transfer.md)

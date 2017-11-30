@@ -3,7 +3,7 @@ title: Como usar o Armazenamento de filas do Python | Microsoft Docs
 description: "Saiba como usar o serviço Fila do Azure do Python para criar e excluir filas, bem como para inserir, obter e excluir mensagens."
 services: storage
 documentationcenter: python
-author: robinsh
+author: tamram
 manager: timlt
 editor: tysonn
 ms.assetid: cc0d2da2-379a-4b58-a234-8852b4e3d99d
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
 ms.date: 12/08/2016
-ms.author: robinsh
-ms.openlocfilehash: 8311d8e29845f2801c4b33f994512113044fcbf7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: tamram
+ms.openlocfilehash: c7976c01436b1c30880bfd4c57cb97f72a4f48b0
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="how-to-use-queue-storage-from-python"></a>Como usar o Armazenamento de fila do Python
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -34,7 +34,7 @@ Este guia mostra como executar cenários comuns usando o serviço de armazenamen
 
 ## <a name="download-and-install-azure-storage-sdk-for-python"></a>Baixar e instalar o SDK do Armazenamento do Azure para Python
 
-O SDK do Armazenamento do Azure para Python requer Python 2.7, 3.3, 3.4, 3.5 ou 3.6 e é fornecido em quatro pacotes diferentes: `azure-storage-blob`, `azure-storage-file`, `azure-storage-table` e `azure-storage-queue`. Neste tutorial, usaremos o pacote `azure-storage-queue`.
+O SDK do Armazenamento do Azure para Python requer Python 2.7, 3.3, 3.4, 3.5 ou 3.6 e é fornecido em 4 pacotes diferentes: `azure-storage-blob`, `azure-storage-file`, `azure-storage-table` e `azure-storage-queue`. Neste tutorial, usaremos o pacote `azure-storage-queue`.
  
 ### <a name="install-via-pypi"></a>Instalar por meio de PyPi
 

@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 11/30/2017
 ms.author: nitinme
-ms.openlocfilehash: c609f3af1b97b16fca3aabc5d7ce568ff8c660f2
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: ede1a974b32227edf44464ed56ae85a1ea7ee97b
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="use-azure-toolkit-for-eclipse-to-create-spark-applications-for-an-hdinsight-cluster"></a>Usar o Kit de ferramentas do Azure para Eclipse a fim de criar aplicativos Spark para cluster HDInsight
 
@@ -86,10 +86,7 @@ Quando você abre o Eclipse, a Ferramenta do HDInsight detecta automaticamente s
    * Na área **Biblioteca do Spark**, você pode escolher a opção **Usar o Maven para configurar o SDK do Spark**.  Nossa ferramenta integra a versão apropriada para o SDK do Spark e o SDK do Scala. Você também pode escolher a opção **Adicionar o SDK do Spark manualmente**, baixar e adicionar o SDK do Spark manualmente.
 
    ![Caixa de diálogo Novo Projeto de Scala HDInsight](./media/apache-spark-eclipse-tool-plugin/create-hdi-scala-app-3.png)
-5. Devido a um problema conhecido, você precisa confirmar a versão de scala novamente depois de clicar em **Próximo**. Verifique se a versão do scala está próxima à seleção para a etapa 4.
-
-   ![comfirm-scala-library](./media/apache-spark-eclipse-tool-plugin/comfirm-scala-library-container.png)
-6. Na próxima caixa de diálogo, selecione **Concluir**. 
+5. Na próxima caixa de diálogo, selecione **Concluir**. 
    
   
 ## <a name="create-a-scala-application-for-an-hdinsight-spark-cluster"></a>Criar um aplicativo Scala para cluster Spark no HDInsight
@@ -152,7 +149,7 @@ Você pode executar várias operações usando as Ferramentas do HDInsight, incl
 
    Você pode executar uma das seguintes ações:
 
-   * Passe o mouse sobre o gráfico de trabalho. Ele exibe informações básicas sobre o trabalho em execução. Selecione o gráfico de trabalho e você poderá ver os estágios e as informações que cada trabalho gera.
+   * Passe o mouse sobre o grafo de trabalho. Ele exibe informações básicas sobre o trabalho em execução. Selecione o grafo de trabalho e você poderá ver os estágios e as informações que cada trabalho gera.
 
      ![Detalhes do estágio do trabalho](./media/apache-spark-eclipse-tool-plugin/Job-graph-stage-info.png)
 
