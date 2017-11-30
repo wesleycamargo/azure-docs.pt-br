@@ -4,7 +4,7 @@ description: "Como criar recursos para os dados armazenados no contêiner de blo
 services: machine-learning,storage
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 676b5fb0-4c89-4516-b3a8-e78ae3ca078d
 ms.service: machine-learning
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/21/2017
 ms.author: bradsev;garye
-ms.openlocfilehash: ea6712fcedcc61c9f88e9daa8d576ac3d202da51
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a2e64927f4afca87642fb4829166c5ec60dbc09
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="create-features-for-azure-blob-storage-data-using-panda"></a>Criar recursos para dados de armazenamento de blob do Azure usando o Panda
 Este documento mostra como criar recursos para os dados armazenados no contêiner de blobs do Azure usando o pacote Python [Pandas](http://pandas.pydata.org/) . Depois de descrever como carregar os dados em um quadro de dados do Panda, ele mostrará como gerar recursos categóricos usando os scripts Python com os valores de indicador e recursos de agrupamento.
@@ -31,9 +31,9 @@ Este **menu** leva você até os tópicos que descrevem como criar recursos para
 Este artigo pressupõe que você criou uma conta de armazenamento de blobs do Azure e armazenou os dados lá. Se você precisar de instruções para configurar uma conta, confira [Criar uma conta de Armazenamento do Azure](../../storage/common/storage-create-storage-account.md#create-a-storage-account)
 
 ## <a name="load-the-data-into-a-pandas-data-frame"></a>Carregar os dados em um quadro de dados Pandas
-Para explorar e manipular um conjunto de dados, eles devem ser baixados da fonte de blob para um arquivo local, que pode então ser carregado em um quadro de dados Pandas. Aqui estão as etapas para este procedimento:
+Para explorar e manipular um conjunto de dados, obtido da fonte de blob para um arquivo local. Em seguida, carregue-o em uma estrutura de dados Pandas. Aqui estão as etapas para este procedimento:
 
-1. Baixe os dados do Blob do Azure com o seguinte código de Python de exemplo e usando o serviço blob a seguir. Substitua a variável no código abaixo pelos valores específicos:
+1. Baixe os dados do Blob do Azure com o seguinte código de Python de exemplo e usando o serviço blob a seguir. Substitua a variável no código abaixo por seus valores específicos:
    
         from azure.storage.blob import BlobService
         import tables
@@ -80,7 +80,7 @@ Recursos categóricos podem ser criados da seguinte maneira:
         dataframe_blobdata_with_identity.drop('<categorical_column>', axis=1, inplace=True)
 
 ### <a name="blob-binningfeature"></a>Agrupamento da Geração de Recursos
-Para gerar recursos compartimentalizados, faça o seguinte:
+Para gerar recursos compartimentalizados, proceda da seguinte maneira:
 
 1. Adicione uma sequência de colunas a ser compartimentalizada a coluna numérica
    
@@ -93,8 +93,8 @@ Para gerar recursos compartimentalizados, faça o seguinte:
    
         dataframe_blobdata_with_bin_bool = dataframe_blobdata.join(dataframe_blobdata_bin_bool)
 
-## <a name="sql-featuregen"></a>Gravar dados de volta ao blob do Azure e consumi-los no Azure Machine Learning
-Depois que você já explorou os dados e criou os recursos necessários, pode carregar os dados (amostra ou recurso) para um blob do Azure e consumi-los no Azure Machine Learning usando as seguintes etapas: observe que os recursos adicionais podem ser criados no Azure Machine Learning Studio também.
+## <a name="sql-featuregen"></a>Gravar dados de volta ao blob do Azure para consumi-los no Microsoft Azure Machine Learning
+Para consumir os dados no Microsoft Azure Machine Learning que foram exportados, amostrados ou destacados, carregue os dados para um Blob do Azure. Recursos adicionais também podem ser criados no Azure Machine Learning Studio. As etapas a seguir mostram como carregar os dados:
 
 1. Grave o quadro de dados no arquivo local
    
@@ -120,7 +120,7 @@ Depois que você já explorou os dados e criou os recursos necessários, pode ca
    
         except:            
             print ("Something went wrong with uploading blob:"+BLOBNAME)
-3. Agora, os dados podem ser lidos do blob usando o módulo [Importar Dados](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) do Azure Machine Learning, como mostra a tela abaixo:
+3. Agora, os dados podem ser lidos a partir do blob usando o módulo [Importar Dados](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) do Microsoft Azure Machine Learning, conforme mostrado na seguinte captura de tela:
 
 ![blob de leitor](./media/data-blob/reader_blob.png)
 

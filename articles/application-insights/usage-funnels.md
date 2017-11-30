@@ -12,35 +12,39 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: 5d55207784390a68a3b4d87f7a3d4773491d08b8
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 0396c59d9d95ab71f0af04029d87afbb6e47dc35
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="discover-how-customers-are-using-your-application-with-the-application-insights-funnels"></a>Descobrir como os clientes estão usando seu aplicativo com os Funis do Application Insights
 
 Entender a experiência do cliente é de extrema importância para seus negócios. Se o aplicativo envolver vários estágios, você precisará saber se a maioria dos clientes está progredindo por todo o processo ou se eles estão encerrando o processo em algum momento. A progressão por uma série de etapas em um aplicativo Web é conhecida como “funil”. Use os Funis do Application Insights para obter informações sobre os usuários e monitorar as taxas de conversão passo a passo. 
 
-## <a name="get-started-with-the-funnels-blade"></a>Introdução à folha Funis
-A maneira mais fácil de saber mais sobre os Funis é acompanhar um exemplo. As ilustrações a seguir demonstram as etapas que os proprietários de uma empresa de comércio eletrônico realizarão para saber como seus clientes interagem com seu aplicativo Web.  
-
-### <a name="create-your-funnel"></a>Criar o funil
-Antes de criar o funil, você precisa decidir qual pergunta você deseja responder. Por exemplo, talvez você deseje saber quantos clientes que exibem a home page clicam em um anúncio. Neste exemplo, os proprietários da empresa Fabrikam Fiber desejam saber o percentual de clientes que fazem uma compra depois de adicionar itens ao carrinho de compras durante o mês passado.
+## <a name="create-your-funnel"></a>Criar o funil
+Antes de criar o funil, você precisa decidir qual pergunta você deseja responder. Por exemplo, você pode querer saber quantos usuários estão exibindo a página inicial, exibindo um perfil de cliente e criar um tíquete. Neste exemplo, os proprietários da empresa Fabrikam Fiber desejam saber o percentual de clientes que criam com êxito um tíquete de cliente.
 
 Estas são as etapas que eles realizam para criar seu funil.
 
-1. Clique no botão Novo na folha Funis.
-1. Selecione o intervalo de tempo “Mês passado” na lista suspensa **Intervalo de Tempo**. 
-1. Selecione o evento **Página do produto** na lista suspensa **Etapa 1**. 
-1. Selecione o evento **Adicionar ao carrinho de compras** na lista suspensa **Etapa 2**.
-1. Selecione o evento **Clicar em Comprar** na lista suspensa **Etapa 3**.
+1. Clique no botão Novo na ferramenta Funis.
+1. Selecione o intervalo de tempo “Últimos 90 dias” na lista suspensa **Intervalo de Tempo**. Selecione "Meu funis" ou "Funis compartilhados"
+1. Selecione o evento **Índice** na lista suspensa **Etapa 1**. 
+1. Selecione o evento **Cliente** na lista suspensa **Etapa 2**.
+1. Selecione o evento **Criar** na lista suspensa **Etapa 3**.
 1. Adicione um nome ao funil e clique em **Salvar**.
 
-A ilustração a seguir demonstra os dados gerados na folha Funis. Nessa folha, os proprietários da Fabrikam podem ver que, durante a última semana, 22,7% de seus clientes que adicionaram um item ao carrinho de compras concluíram a compra. Eles também podem ver que 1% dos clientes clicou em um anúncio antes de visitar a página do produto e que 20% de seus clientes saíram do site depois de concluírem a compra.
+A ilustração a seguir demonstra os dados gerados pela ferramenta Funis. Dali, os proprietários da Fabrikam podem ver que, durante os últimos 90 dias, 54,3% de seus clientes que visitam a página inicial criou um tíquete de cliente. Eles também podem ver que 2,7k de seus clientes vieram para o índice da página inicial, o que pode indicar um problema de atualização.
 
 
-![Folha Funis com os dados](./media/app-insights-understand-usage-patterns/funnel1.png)
+![Ferramenta de funis com os dados](./media/app-insights-understand-usage-patterns/funnel1.png)
+
+### <a name="funnel-features"></a>Recursos de funil
+1. Se seu aplicativo for amostrado, você verá um banner de amostragem. Clicar no banner abrirá um painel de contexto instruindo como desativar a amostragem. 
+2. Você pode exportar o funil para [Power BI](app-insights-export-power-bi.md).
+3. Clique em uma etapa para obter mais informações à direita. 
+4. A conversão de histórico mostra a conversão nos últimos 90 dias. 
+5. Compreenda mais bem seus usuários indo para a ferramenta de usuários de Funis. Cada etapa fornecerá a você filtros de usuários selecionados. 
 
 ## <a name="next-steps"></a>Próximas etapas
   * [Visão geral do uso](app-insights-usage-overview.md)

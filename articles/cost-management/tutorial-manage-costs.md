@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/06/2017
+ms.date: 11/21/2017
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 83ddc0cb4227235069b0027a24a52f4d8e818126
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: bfbcded98814500a03b2b79b0248c84f8f043dc0
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="manage-costs-by-using-azure-cost-management"></a>Gerenciar custos usando o Gerenciamento de Custos do Azure
 
@@ -80,6 +80,23 @@ A imagem a seguir mostra um exemplo de regras criadas para uma nova categoria ch
 
 ![Categoria de exemplo](./media/tutorial-manage-costs/category01.png)
 
+### <a name="tag-sources-and-reports"></a>Relatórios e fontes de marca
+
+Os dados de marca que você visualiza nos relatórios do Cloudyn originam-se em três lugares:
+
+- APIs de recursos do provedor de nuvem
+- APIs de cobrança do provedor de nuvem
+- Marcas criadas manualmente das seguintes fontes:
+    - Marcas da entidade Cloudyn - metadados definidos pelo usuário aplicados às entidades Cloudyn
+    - Gerente de Categoria - uma ferramenta de limpeza de dados que cria novas marcas com base em regras que são aplicadas a marcas existentes
+
+Para visualizar as marcas do provedor de nuvem nos relatórios de custos do Cloudyn, você deve criar um modelo personalizado de alocação de custos utilizando a Alocação de Custo 360. Para fazer isso, acesse **Custos** > **Gerenciamento de Custos** > **Alocação de Custos 360**, selecione as marcas desejadas e, em seguida, defina regras para tratar os custos não marcados. Em seguida, crie um novo modelo de custo. Posteriormente, você poderá exibir relatórios na Análise de Alocação de Custos para visualizar, filtrar e classificar as marcas de recursos do Azure.
+
+As marcas de recursos do Azure aparecem somente nos relatórios de **Análise de Alocação de Custos**.
+
+As marcas de cobrança do fornecedor de nuvem aparecem em todos os relatórios de custos.
+
+As marcas de entidade do Cloudyn e as marcas que você criou manualmente aparecem em todos os relatórios de custos.
 
 
 ## <a name="create-showback-and-chargeback-reports"></a>Criar relatórios de análise e de estorno

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 08/31/2017
 ms.author: sujayt
-ms.openlocfilehash: b157e2f90fa2daf00cf71472eb799ee98797b4dc
-ms.sourcegitcommit: 804db51744e24dca10f06a89fe950ddad8b6a22d
+ms.openlocfilehash: 7dae1d903b6cbb6a74f89443ec9601c6b4b9d078
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/30/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-site-recovery-support-matrix-for-replicating-from-azure-to-azure"></a>Matriz de suporte do Azure Site Recovery para replicação do Azure para o Azure
 
@@ -164,9 +164,10 @@ GRS | Suportado |
 RA-GRS | Suportado |
 ZRS | Sem suporte |  
 Armazenamento Frio e Quente | Sem suporte | Não há suporte para discos de máquina virtual no armazenamento frio e quente
+Pontos de Extremidade de Serviço de Rede Virtual (Redes virtuais e firewalls de Armazenamento do Azure)  | Não | Não há suporte para permitir o acesso a redes virtuais do Azure específicas em contas de armazenamento de cache usadas para armazenar os dados replicados. 
 
 >[!IMPORTANT]
-> Siga as [diretrizes de armazenamento](../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) para as máquinas virtuais de origem do Azure para evitar problemas de desempenho. Se você seguir as configurações padrão, o Site Recovery criará as contas de armazenamento necessárias com base na configuração de fonte. Caso você personalize e selecione suas próprias configurações, siga o (../storage/common/storage-scalability-targets.md#scalability-targets-for-virtual-machine-disks) como as VMs de origem.
+> Certifique-se de que observou os destinos de desempenho e escalabilidade de disco de VM para máquinas virtuais [Linux](../virtual-machines/linux/disk-scalability-targets.md) ou [Windows](../virtual-machines/windows/disk-scalability-targets.md) para evitar qualquer problema de desempenho. Se você seguir as configurações padrão, o Site Recovery criará os discos e as contas de armazenamento necessários com base na configuração de origem. Se você personalizar e selecionar suas próprias configurações, certifique-se de que seguiu os destinos de escalabilidade e desempenho para discos de máquina virtual de origem.
 
 ## <a name="support-for-network-configuration"></a>Suporte para configuração de Rede
 **Configuração** | **Com suporte/Sem suporte** | **Comentários**

@@ -16,11 +16,11 @@ ms.date: 08/15/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: bf83952b29759ff601685513ace31828404c7b1a
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c058f1e747849cde0f15a039779665c8718da947
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Integrar sua infraestrutura VPN com a MFA do Azure usando a extensão Servidor de Políticas de Rede para o Azure
 
@@ -108,7 +108,7 @@ Para obter informações sobre como instalar o serviço de função Serviços de
 
 ### <a name="azure-mfa-license"></a>Licença do Azure MFA
 
-Uma licença é necessária para a Autenticação Multifator do Azure e está disponível por meio de um Azure AD Premium, Mobilidade Corporativa + Segurança ou uma assinatura de Autenticação Multifator. Licenças baseadas em consumo para a MFA do Azure como licenças por usuário ou por autenticação não são compatíveis com a extensão do NPS. Para obter mais informações, consulte [Como obter Autenticação Multifator do Azure](multi-factor-authentication-versions-plans.md). Para fins de teste, você pode usar uma assinatura de avaliação.
+É necessária uma licença para a Autenticação Multifator do Microsoft Azure e ela está disponível por meio de um Azure AD Premium, Enterprise Mobility + Security ou uma licença autônoma de Autenticação Multifator. Licenças baseadas em consumo para a MFA do Azure como licenças por usuário ou por autenticação não são compatíveis com a extensão do NPS. Para obter mais informações, consulte [Como obter Autenticação Multifator do Azure](multi-factor-authentication-versions-plans.md). Para fins de teste, você pode usar uma assinatura de avaliação.
 
 ### <a name="windows-server-software"></a>Software do Windows Server
 

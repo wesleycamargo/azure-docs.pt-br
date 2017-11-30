@@ -12,139 +12,160 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/02/2017
+ms.date: 11/20/2017
 ms.author: vturecek
-ms.openlocfilehash: 7e24cb902cb3f863931fc0be5e0f178707e806b6
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: eb076c30eda63c37a8b555d40d5903cbbf0d426a
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="getting-started-with-reliable-actors"></a>Introdução aos Reliable Actors
 > [!div class="op_single_selector"]
 > * [C# em Windows](service-fabric-reliable-actors-get-started.md)
 > * [Java no Linux](service-fabric-reliable-actors-get-started-java.md)
-> 
-> 
 
-Este artigo explica os conceitos básicos dos Reliable Actors do Service Fabric e orienta você durante a criação, a depuração e a implantação de um aplicativo Reliable Actor simples no Visual Studio.
+Este artigo explica a criação e depuração de um aplicativo de Reliable Actor simples no Visual Studio. Para mais informações sobre Reliable Actors, consulte [Introdução aos Reliable Actors do Service Fabric](service-fabric-reliable-actors-introduction.md).
 
-## <a name="installation-and-setup"></a>Instalação e configuração
-Antes de começar, verifique se há um ambiente de desenvolvimento do Service Fabric configurado no seu computador.
-Se você precisa configurá-lo, confira as instruções detalhadas em [Como configurar o ambiente de desenvolvimento](service-fabric-get-started.md).
+## <a name="prerequisites"></a>Pré-requisitos
 
-## <a name="basic-concepts"></a>Conceitos básicos
-Para começar a usar os Reliable Actors, você só precisa entender alguns conceitos básicos:
-
-* **Serviço do ator**. Os Reliable Actors são empacotados em Reliable Services que podem ser implantados na infraestrutura do Service Fabric. As instâncias de ator são ativadas em uma instância de serviço nomeado.
-* **Registro do ator**. Como ocorre com Reliable Services, um serviço de Reliable Actor precisa ser registrado com o tempo de execução do Service Fabric. Além disso, o tipo de ator precisa ser registrado com o tempo de execução do ator.
-* **Interface do Ator**. A interface do ator é usada para definir uma interface pública fortemente tipada de um ator. Na terminologia do modelo de Reliable Actor, a interface do ator define os tipos de mensagem que o ator pode entender e processar. A interface do ator é usada por outros atores ou aplicativos cliente para “enviar” (de modo assíncrono) mensagens ao ator. Os Reliable Actors pode implantar várias interfaces.
-* **Classe ActorProxy**. A classe ActorProxy é usada por aplicativos cliente para invocar os métodos expostos por meio de suas interfaces de ator. A classe ActorProxy apresenta duas funcionalidades importantes:
-  
-  * Resolução do nome: ela consegue localizar o ator no cluster (localizar o nó do cluster no qual ele está hospedado).
-  * Tratamento de falhas: ela pode repetir as invocações do método e resolver novamente o local do ator, por exemplo, depois que uma falha exige que ele seja relocado para outro nó no cluster.
-
-Vale a pena mencionar as seguintes regras que pertencem às interfaces de ator:
-
-* Métodos da interface de ator não podem ser sobrecarregados.
-* Métodos da interface de ator não podem ter parâmetros de saída, de referência e opcionais.
-* Não há suporte para interfaces genéricas.
+Antes de iniciar, assegure-se de que você tenha o ambiente de desenvolvimento do Service Fabric, incluindo o Visual Studio, configurado em seu computador. Para obter mais detalhes, consulte [como configurar o ambiente de desenvolvimento](service-fabric-get-started.md).
 
 ## <a name="create-a-new-project-in-visual-studio"></a>Criar um novo projeto no Visual Studio
-Inicie o Visual Studio 2015 ou 2017 como administrador e crie um novo projeto de aplicativo do Service Fabric:
+
+Inicie o Visual Studio 2015, ou posterior, como um administrador e, em seguida, crie um novo projeto de **Aplicativo do Service Fabric**:
 
 ![Ferramentas do Service Fabric para Visual Studio – novo projeto][1]
 
-Na próxima caixa de diálogo, você pode escolher o tipo de projeto que deseja criar.
+Na próxima caixa de diálogo, selecione **Actor Service** e digite um nome para o serviço.
 
 ![Modelos de projeto do Service Fabric][5]
 
-Para o projeto HelloWorld, vamos usar o serviço Reliable Actors do Service Fabric.
-
-Depois de criar a solução, você verá a seguinte estrutura:
+O projeto criado mostra a seguinte estrutura:
 
 ![Estrutura de projeto do Service Fabric][2]
 
-## <a name="reliable-actors-basic-building-blocks"></a>Blocos de construção básicos de Reliable Actors
-Uma solução comum do Reliable Actors é composta por três projetos:
+## <a name="examine-the-solution"></a>Examine a solução
 
-* **O projeto do aplicativo (MyActorApplication)**. Esse é o projeto que empacota todos os serviços juntos para implantação. Ele contém os scripts do PowerShell e o *ApplicationManifest.xml* para gerenciamento do aplicativo.
-* **O projeto da interface (MyActor.Interfaces)**. Esse é o projeto que contém a definição de interface para o ator. No projeto MyActor.Interfaces, você pode definir as interfaces que serão usadas pelos atores na solução. As interfaces de ator podem ser definidas em qualquer projeto com qualquer nome, mas a interface define o contrato de ator compartilhado pela implementação do ator e os clientes que chamam o ator e, portanto, geralmente faz sentido defini-lo em um assembly separado da implementação do ator e que possa ser compartilhado por vários outros projetos.
+A solução contém dois projetos:
+
+* **Projeto de aplicativo (MyApplication)**. Este projeto agrupa todos os serviços para implantação. Ele contém os scripts do PowerShell e o *ApplicationManifest.xml* para gerenciamento do aplicativo.
+
+* **Projeto de interface (HelloWorld.Interfaces)**. Este projeto contém a definição de interface para o ator. As interfaces de ator podem ser definidas em qualquer projeto com qualquer nome.  A interface define o contrato de ator que é compartilhado pela implementação do ator e os clientes que chamam o ator.  Como os projetos de clientes podem depender disso, geralmente faz sentido defini-los em um assembly separado da implementação do ator.
+
+* **Projeto de serviço de ator (HelloWorld)**. Esse projeto define o serviço do Service Fabric que vai hospedar o ator. Ele contém a implementação do ator, *HellowWorld.cs*. Uma implementação de ator é uma classe que deriva do tipo de base `Actor` e implementa as interfaces definidas no projeto *MyActor.Interfaces*. Uma classe de ator também deve implementar um construtor que aceita uma instância `ActorService` e um `ActorId` e as passem para a classe de base `Actor`.
+    
+    Este projeto também contém *Program.cs*, que registra classes de ator com o tempo de execução do Service Fabric usando `ActorRuntime.RegisterActorAsync<T>()`. A classe `HelloWorld` já está registrada. Todas as implementações de ator adicionais, adicionadas ao projeto, também devem ser registradas no método `Main()`.
+
+## <a name="customize-the-helloworld-actor"></a>Personalizar o ator HelloWorld
+
+O modelo de projeto define alguns métodos na `IHelloWorld` interface e implementa-os na implementação do `HelloWorld`.  Substitua esses métodos para que o serviço de ator retorne uma cadeia de caracteres "Hello World" simples.
+
+No projeto *HelloWorld.Interfaces*, no arquivo *IHelloWorld.cs*, substitua a definição da interface da seguinte maneira:
 
 ```csharp
-public interface IMyActor : IActor
+public interface IHelloWorld : IActor
 {
-    Task<string> HelloWorld();
+    Task<string> GetHelloWorldAsync();
 }
 ```
 
-* **O projeto do serviço de ator (MyActor)**. Esse é o projeto usado para definir o serviço da Malha do Serviço que hospedará o ator. Ele contém a implementação do ator. Uma implementação do ator é uma classe derivada do tipo base `Actor` e implementa as interfaces definidas no projeto MyActor.Interfaces. Uma classe de ator também deve implementar um construtor que aceita uma instância `ActorService` e um `ActorId` e as passem para a classe de base `Actor`. Isso possibilita a injeção de dependência do construtor de dependências de plataforma.
+No projeto **HelloWorld**, em **HelloWorld.cs**, substitua a definição de classe inteira da seguinte maneira:
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
-class MyActor : Actor, IMyActor
+internal class HelloWorld : Actor, IHelloWorld
 {
-    public MyActor(ActorService actorService, ActorId actorId)
+    public HelloWorld(ActorService actorService, ActorId actorId)
         : base(actorService, actorId)
     {
     }
 
-    public Task<string> HelloWorld()
+    public Task<string> GetHelloWorldAsync()
     {
-        return Task.FromResult("Hello world!");
+        return Task.FromResult("Hello from my reliable actor!");
     }
 }
 ```
 
-O serviço de ator deve ser registrado com um tipo de serviço no tempo de execução do Service Fabric. Para que o Serviço de Ator seja executado em suas instâncias de ator, o tipo de ator também deve ser registrado no Serviço de Ator. O método de registro `ActorRuntime` realiza esse trabalho para os atores.
+Pressione **Ctrl-Shift-B** para compilar o projeto e certificar-se de que tudo é compilado.
 
-```csharp
-internal static class Program
-{
-    private static void Main()
+## <a name="add-a-client"></a>Adicionar um cliente
+
+Crie um aplicativo de console simples para chamar o serviço de ator.
+
+1. Clique com o botão direito do mouse na solução no Gerenciador de Soluções > **Adicionar** > **Novo Projeto...**.
+
+2. Nos tipos de projeto **.NET Core**, selecione **Console App (.NET Core)**.  Nomeie o projeto *ActorClient*.
+    
+    ![Caixa de diálogo Adicionar novo projeto][6]    
+    
+    > [!NOTE]
+    > Um aplicativo de console não é o tipo de aplicativo que você normalmente usaria como cliente no Service Fabric, mas é um exemplo conveniente para depurar e testar, utilizando o emulador do Service Fabric local.
+
+3. O aplicativo de console deve ser um aplicativo de 64 bits para manter a compatibilidade com o projeto de interface e outras dependências.  No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **ActorClient**e, em seguida, em **Propriedades**.  Na guia **Compilar**, defina o **destino da plataforma** para **x64**.
+    
+    ![Compilar propriedades][8]
+
+4. O projeto de cliente requer o pacote NuGet do Reliable Actors .  Clique em **Ferramentas** > **Gerenciador de Pacotes do NuGet** > **Console do Gerenciador de Pacotes**.  No Console do Gerenciador de Pacotes, digite o seguinte comando:
+    
+    ```powershell
+    Install-Package Microsoft.ServiceFabric.Actors -IncludePrerelease -ProjectName ActorClient
+    ```
+
+    O pacote NuGet e todas as suas dependências estão instaladas no projeto ActorClient.
+
+5. O projeto de cliente também requer uma referência ao projeto de interfaces.  No projeto ActorClient, clique com o botão direito do mouse em **Dependências** e, em seguida, em **Adicionar referência...**.  Selecione **Projetos > Solução** (se ainda não estiver selecionado) e, em seguida, tique a caixa de seleção ao lado de **HelloWorld.Interfaces**.  Clique em **OK**.
+    
+    ![Caixa de diálogo Adicionar referência][7]
+
+6. No projeto ActorClient, substitua todo o conteúdo de *Program.cs* com o seguinte código:
+    
+    ```csharp
+    using System;
+    using System.Threading.Tasks;
+    using Microsoft.ServiceFabric.Actors;
+    using Microsoft.ServiceFabric.Actors.Client;
+    using HelloWorld.Interfaces;
+    
+    namespace ActorClient
     {
-        try
+        class Program
         {
-            ActorRuntime.RegisterActorAsync<MyActor>(
-                (context, actorType) => new ActorService(context, actorType, () => new MyActor())).GetAwaiter().GetResult();
-
-            Thread.Sleep(Timeout.Infinite);
-        }
-        catch (Exception e)
-        {
-            ActorEventSource.Current.ActorHostInitializationFailed(e.ToString());
-            throw;
+            static void Main(string[] args)
+            {
+                IHelloWorld actor = ActorProxy.Create<IHelloWorld>(ActorId.CreateRandom(), new Uri("fabric:/MyApplication/HelloWorldActorService"));
+                Task<string> retval = actor.GetHelloWorldAsync();
+                Console.Write(retval.Result);
+                Console.ReadLine();
+            }
         }
     }
-}
+    ```
 
-```
+## <a name="running-and-debugging"></a>Executar e depurar
 
-Se você iniciar um novo projeto no Visual Studio e tiver apenas uma definição de ator, o registro será incluído por padrão no código gerado pelo Visual Studio. Se você definir outros atores no serviço, será preciso adicionar o registro do ator usando:
+Pressione **F5** para criar, implantar e executar o aplicativo localmente no cluster de desenvolvimento do Service Fabric.  Durante o processo de implantação, você poderá ver o andamento na janela **Saída** .
 
-```csharp
- ActorRuntime.RegisterActorAsync<MyOtherActor>();
+![Janela de saída de depuração do Service Fabric][3]
 
-```
+Quando a saída contiver o texto, *O aplicativo está pronto*, será possível testar o serviço usando o aplicativo ActorClient.  No Gerenciador de Soluções, clique com o botão direito do mouse no projeto **ActorClient**e, em seguida, clique em **Depurar** > **Iniciar nova instância**.  O aplicativo de linha de comando deverá exibir a saída do serviço de ator.
+
+![Saída do aplicativo][9]
 
 > [!TIP]
 > O tempo de execução dos Atores do Service Fabric emitem alguns [eventos e contadores de desempenho relacionados aos métodos de ator](service-fabric-reliable-actors-diagnostics.md#actor-method-events-and-performance-counters). Eles são úteis para diagnóstico e monitoramento de desempenho.
-> 
-> 
-
-## <a name="debugging"></a>Depurando
-As ferramentas para Visual Studio do Service Fabric dão suporte à depuração no computador local. Você pode iniciar uma sessão de depuração pressionando a tecla F5. O Visual Studio cria (se necessário) pacotes. Ele também implanta o aplicativo no cluster do Service Fabric local e anexa o depurador.
-
-Durante o processo de implantação, você poderá ver o andamento na janela **Saída** .
-
-![Janela de saída de depuração do Service Fabric][3]
 
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre [como os Reliable Actors usam a plataforma do Service Fabric](service-fabric-reliable-actors-platform.md).
 
-<!--Image references-->
+
 [1]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject.PNG
 [2]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-projectstructure.PNG
 [3]: ./media/service-fabric-reliable-actors-get-started/debugging-output.PNG
 [4]: ./media/service-fabric-reliable-actors-get-started/vs-context-menu.png
 [5]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject1.PNG
+[6]: ./media/service-fabric-reliable-actors-get-started/new-console-app.png
+[7]: ./media/service-fabric-reliable-actors-get-started/add-reference.png
+[8]: ./media/service-fabric-reliable-actors-get-started/build-props.png
+[9]: ./media/service-fabric-reliable-actors-get-started/app-output.png

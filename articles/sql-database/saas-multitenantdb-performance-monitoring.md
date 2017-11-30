@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: sstein
-ms.openlocfilehash: 9961a39f8e422d72301958ef467e4267f2c6c498
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 6c73cf2e96503f47dd4234387222169cb30b4cce
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Monitorar e gerenciar o desempenho do banco de dados SQL do Azure multilocatário fragmentado em um aplicativo SaaS multilocatário
 
@@ -35,7 +35,7 @@ Neste tutorial, você aprenderá a:
 > * Simular o uso em um banco de dados multilocatário fragmentado executando um gerador de carga fornecido
 > * Monitorar o banco de dados à medida que ele responde ao aumento de carga
 > * Dimensionar o banco de dados em resposta ao aumento de carga do banco de dados
-> * Provisionar um novo locatário em seu próprio banco de dados
+> * Provisionar um locatário em um banco de dados de locatário único
 
 Para concluir este tutorial, verifique se todos os pré-requisitos a seguir são atendidos:
 
@@ -53,7 +53,7 @@ O gerenciamento de desempenho do banco de dados consiste na compilação e anál
 * Para responder a flutuações de longo prazo ou a alterações nos locatários, **os locatários individuais podem ser movidos para outro banco de dados**.
 * Para responder a aumentos de curto prazo em cargas de locatários *individuais*, **os locatários individuais podem ser retirados de um banco de dados e atribuídos a um nível de desempenho individual**. Depois que a carga é reduzida, o locatário pode ser devolvido ao banco de dados multilocatário. Quando isso é conhecido com antecedência, os locatários podem ser movidos preventivamente para garantir que o banco de dados sempre tenha os recursos necessários e para evitar o impacto em outros locatários no banco de dados multilocatário. Se esse requisito for previsível, como um local com um crescimento súbito nas vendas de ingressos para um evento popular, esse comportamento de gerenciamento poderá ser integrado ao aplicativo.
 
-O [Portal do Azure](https://portal.azure.com) fornece monitoramento e alertas internos sobre a maioria dos recursos. Para o Banco de Dados SQL, o monitoramento e o alerta estão disponíveis em bancos de dados. Esse monitoramento e alertas internos são específicos ao recurso e, portanto, é conveniente usá-los para pequenas quantidades de recursos, mas não são muito convenientes ao trabalhar com muitos recursos.
+O [Portal do Azure](https://portal.azure.com) fornece monitoramento e alertas internos sobre a maioria dos recursos. Para o Banco de Dados SQL, o monitoramento e o alerta estão disponíveis em bancos de dados. Esse monitoramento e alertas internos são específicos ao recurso e, portanto, é conveniente usá-los para pequenas quantidades de recursos, mas não são convenientes ao trabalhar com muitos recursos.
 
 Para cenários de alto volume em que você está trabalhando com muitos recursos, o [Log Analytics (OMS)](https://azure.microsoft.com/services/log-analytics/) pode ser usado. Esse é um serviço separado do Azure que fornece a análise de logs de diagnóstico emitidos e da telemetria coletada em um espaço de trabalho de análise de logs. O Log Analytics pode coletar a telemetria de diversos serviços e usá-las para consultar e definir alertas.
 
@@ -71,7 +71,7 @@ Se você já provisionou um lote de locatários em um tutorial anterior, vá par
 1. Defina **$DemoScenario** = **1**, _Provisionar um lote de locatários_
 1. Pressione **F5** para executar o script.
 
-O script implantará 17 locatários no banco de dados multilocatário em poucos minutos. 
+O script implanta 17 locatários no banco de dados multilocatário em poucos minutos. 
 
 O script *New-TenantBatch* cria novos locatários com chaves de locatário exclusivas no banco de dados multilocatário fragmentado e os inicializa com o nome do locatário e o tipo de local. Isso é consistente com a maneira como o aplicativo WTP provisiona um locatário novo. 
 
@@ -120,9 +120,9 @@ Defina um alerta no banco de dados que é disparado após \>75% de utilização,
 1. Forneça um nome, como **Alto DTU**,
 1. Defina os seguintes valores:
    * **Métrica = porcentagem de DTU**
-   * **Condição = maior que**.
+   * **Condição = maior que**
    * **Limite = 75**.
-   * **Período = nos últimos 30 minutos**.
+   * **Período = nos últimos 30 minutos**
 1. Adicione um endereço de email à caixa *Emails de administrador adicionais* e clique em **OK**.
 
    ![definir alerta](media/saas-multitenantdb-performance-monitoring/set-alert.png)
@@ -195,7 +195,7 @@ Neste tutorial, você aprenderá a:
 > * Simular o uso em um banco de dados multilocatário fragmentado executando um gerador de carga fornecido
 > * Monitorar o banco de dados à medida que ele responde ao aumento de carga
 > * Dimensionar o banco de dados em resposta ao aumento de carga do banco de dados
-> * Provisionar um novo locatário em seu próprio banco de dados
+> * Provisionar um locatário em um banco de dados de locatário único
 
 ## <a name="additional-resources"></a>Recursos adicionais
 

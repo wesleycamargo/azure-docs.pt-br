@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/24/2017
+ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 6ab59dd02391287a1effc0b51502bb7eb90db319
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f0cc1716daa70bf7c860373819568774cf6f95d9
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-network-security"></a>Segurança de rede do Azure
 
@@ -75,7 +75,7 @@ Neste documento, abordaremos os seguintes recursos corporativos de rede do Azure
 
 ### <a name="basic-network-connectivity"></a>Conectividade de rede básica
 
-O serviço de [Rede Virtual do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) permite que você conecte com segurança os recursos do Azure usando redes virtuais (VNets). Uma VNet é uma representação da sua própria rede na nuvem. Uma VNet é um isolamento lógico da infraestrutura de rede do Azure dedicada à sua assinatura. Você também pode conectar VNets entre si e às suas redes locais usando VPNs site a site e [links WAN](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) dedicados.
+O serviço de [Rede Virtual do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview) permite que você conecte com segurança os recursos do Azure usando redes virtuais (VNets). Uma VNet é uma representação da sua própria rede na nuvem. Uma VNet é um isolamento lógico da infraestrutura de rede do Azure dedicada à sua assinatura. Você também pode conectar VNets entre si e às suas redes locais usando VPNs site a site e [links WAN ](https://docs.microsoft.com/azure/expressroute/expressroute-introduction).
 
 ![Conectividade de rede básica](media/azure-network-security/azure-network-security-fig-2.png)
 
@@ -522,7 +522,7 @@ O Observador de Rede tem atualmente os seguintes recursos:
 
 #### <a name="topology"></a>Topologia
 
-A [topologia](https://docs.microsoft.com/azure/network-watcher/network-watcher-topology-overview) retorna um gráfico de recursos de rede em uma rede virtual. O gráfico mostra a interconexão entre os recursos para representar a conectividade de rede de ponta a ponta. No portal, a topologia retorna os objetos de recursos de acordo com a rede virtual. As relações são representadas por linhas entre os recursos fora da região do Observador de Rede, mesmo se o grupo de recursos não for exibido. Os recursos retornados na exibição do portal são um subconjunto dos componentes de rede mostrados. Para ver a lista completa de recursos de rede, você pode usar o [PowerShell](https://docs.microsoft.com/azure/network-watcher/network-watcher-topology-powershell) ou o [REST](https://docs.microsoft.com/azure/network-watcher/network-watcher-topology-rest).
+A [topologia](https://docs.microsoft.com/azure/network-watcher/network-watcher-topology-overview) retorna um grafo de recursos de rede em uma rede virtual. O grafo mostra a interconexão entre os recursos para representar a conectividade de rede de ponta a ponta. No portal, a topologia retorna os objetos de recursos de acordo com a rede virtual. As relações são representadas por linhas entre os recursos fora da região do Observador de Rede, mesmo se o grupo de recursos não for exibido. Os recursos retornados na exibição do portal são um subconjunto dos componentes de rede mostrados em grafos. Para ver a lista completa de recursos de rede, você pode usar o [PowerShell](https://docs.microsoft.com/azure/network-watcher/network-watcher-topology-powershell) ou o [REST](https://docs.microsoft.com/azure/network-watcher/network-watcher-topology-rest).
 
 Conforme os recursos retornam, a conexão entre eles é modelada segundo duas relações.
 

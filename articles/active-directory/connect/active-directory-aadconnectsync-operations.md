@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/13/2017
 ms.author: billmath
-ms.openlocfilehash: af32c3f2d96ca51f59e29f8d9635caa290d580aa
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 89bfedd282d04569bcf873fd7a9082791a94376b
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-ad-connect-sync-operational-tasks-and-consideration"></a>Sincronização do Azure AD Connect: considerações e tarefas operacionais
 O objetivo deste tópico é descrever as tarefas operacionais da sincronização do Azure AD Connect.
@@ -33,6 +33,11 @@ O modo de teste pode ser usado para vários cenários, incluindo:
 Com um servidor no modo de preparo, você pode fazer alterações na configuração e visualizar as alterações antes de tornar o servidor ativo. Ele também permite executar sincronização e importação totais para verificar se todas as alterações são esperadas antes de você fazê-las em seu ambiente de produção.
 
 Durante a instalação, você pode selecionar o servidor em **modo de preparo**. Essa ação ativa o servidor de importação e sincronização, mas não executa qualquer exportação. Um servidor no modo de preparo não executa a sincronização de senha ou o write-back de senha, mesmo que esses recursos sejam selecionados durante a instalação. Quando você desabilita o modo de preparo, o servidor inicia a exportação e habilita a sincronização de senha e o write-back de senha.
+
+> [!NOTE]
+> Suponha que você tenha um Azure AD Connect com o recurso de Sincronização de Hash de Senha habilitado. Quando você habilita o modo de preparo, o servidor para a sincronização de alterações de senha do AD local. Quando você desabilita o modo de preparo, o servidor retoma a sincronização de alterações de senha de onde ela parou. Se o servidor estiver no modo de preparo por um longo período de tempo, poderá levar um tempo para que ele sincronize todas as alterações de senha que ocorreram durante esse período.
+>
+>
 
 Você ainda pode forçar uma exportação usando o Synchronization Service Manager.
 

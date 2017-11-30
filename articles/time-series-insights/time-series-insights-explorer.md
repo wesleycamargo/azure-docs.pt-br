@@ -3,7 +3,7 @@ title: Explorar dados usando o Azure Time Series Insights Explorer | Microsoft D
 description: "Este artigo descreve como usar o Azure Time Series Insights Explorer no navegador da Web para ver rapidamente uma exibição global do Big Data e validar o ambiente de IoT."
 services: time-series-insights
 ms.service: time-series-insights
-author: kfile
+author: MarkMcGeeAtAquent
 ms.author: kfile
 manager: jhubbard
 editor: MicrosoftDocs/tsidocs
@@ -12,11 +12,11 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: 112c1a86e302c2549018fc3a8c6dbc22a689c8a6
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 35f7bf0504075e8bb0b99f8492b850df2b7ceae1
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure Time Series Insights Explorer
 Este artigo aborda os vários recursos e opções disponíveis no aplicativo Web do Time Series Insights Explorer. Use o Time Series Insights Explorer no navegador da Web para criar visualizações dos dados.
@@ -50,10 +50,10 @@ Alguns minutos após conectar a origem do evento ao ambiente do Time Series Insi
       - **Dividir Por**: essa lista suspensa mostra colunas categóricas (Cadeias de caracteres)
       - Habilite a interpolação escalonada, mostre o mínimo e o máximo e ajuste o eixo Y no painel de controle ao lado da medida.  Além disso, ajuste se os dados mostrados são uma contagem, média ou soma dos dados.
       - Adicione até cinco termos a serem exibidos no mesmo eixo X.  Use o botão **Copiar** para adicionar outro termo ou clique no botão **Adicionar** para adicionar um novo termo.
+     
+        ![Painel do Editor de Termos](media/time-series-insights-explorer/explorer2.png)
 
-      ![Painel do Editor de Termos](media/time-series-insights-explorer/explorer2.png)
-
-      - **Predicado**: o predicado permite filtrar rapidamente os eventos usando o conjunto de operandos listados abaixo. Caso você realize uma pesquisa fazendo uma seleção ou um clique, o predicado será automaticamente atualizado de acordo com essa pesquisa.  Os tipos de operando com suporte incluem:
+      - **Predicado**: o predicado permite filtrar rapidamente os eventos usando o conjunto de operandos listados abaixo. Caso você realize uma pesquisa fazendo uma seleção ou um clique, o predicado será automaticamente atualizado de acordo com essa pesquisa.      Os tipos de operando com suporte incluem:
 
          |Operação  |Tipos com suporte  |Observações  |
          |---------|---------|---------|
@@ -100,11 +100,12 @@ Alguns minutos após conectar a origem do evento ao ambiente do Time Series Insi
 
    - **Padrões**: esse recurso revela de maneira proativa os padrões estatisticamente significativos em uma região de dados selecionada. Isso libera você da necessidade de examinar milhares de eventos para entender quais padrões garantem mais tempo e energia. Além disso, o Time Series Insights possibilita que você vá diretamente para esses padrões estatisticamente significativos para continuar realizando uma análise. Esse recurso também é útil para investigações post-mortem em dados históricos. 
 
-   - **Estatísticas de coluna**: as estatísticas de coluna fornecem gráficos e tabelas que dividem os dados de cada coluna da série de dados selecionada sobre o período de tempo selecionado.  
+   - **Estatísticas de Coluna**: as estatísticas de coluna fornecem gráficos e tabelas que dividem os dados de cada coluna da série de dados selecionada sobre o período de tempo selecionado.  
  
       ![ESTATÍSTICAS](media/time-series-insights-explorer/explorer8.png) 
 
 Agora você viu os vários recursos e opções disponíveis no aplicativo Web do Time Series Insights Explorer. 
 
 ## <a name="next-steps"></a>Próximas etapas
-[Diagnosticar e resolver problemas no ambiente do Time Series Insights](time-series-insights-diagnose-and-solve-problems.md)
+> [!div class="nextstepaction"]
+>[Diagnosticar e resolver problemas no ambiente do Time Series Insights](time-series-insights-diagnose-and-solve-problems.md)

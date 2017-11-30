@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/13/2017
+ms.date: 11/22/2017
 ms.author: kmouss
-ms.openlocfilehash: 11b491b52fe359427c5e395d5d8c3be3cddcdc89
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c2b406530aec60299ea2db38ad9e34895fe36dcd
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="azure-hybrid-benefit-for-windows-server"></a>Benefício Híbrido do Azure para Windows Server
 Para clientes com o Software Assurance, o Benefício Híbrido do Azure para Windows Server permite usar as licenças locais do Windows Server e executar máquinas virtuais do Windows no Azure por um custo reduzido. Você pode usar o Benefício Híbrido do Azure para Windows Server para implantar novas máquinas virtuais de qualquer plataforma com suporte do Azure, imagem do Windows Server ou imagens personalizadas do Windows. Este artigo percorre as etapas sobre como implantar novas VMs com o Benefício Híbrido do Azure para Windows Server e como você pode atualizar VMs existentes e em execução. Para saber mais sobre licenciamento e economia de custo do Benefício Híbrido do Azure para Windows Server, consulte a [página de licenciamento do Benefício Híbrido do Azure para Windows Server](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
@@ -28,7 +28,7 @@ Para clientes com o Software Assurance, o Benefício Híbrido do Azure para Wind
 >
 
 > [!NOTE]
-> Está sendo implementado o uso do Benefício Híbrido do Azure para Windows Server com VMs que são cobradas por software adicional, como SQL Server ou qualquer uma das imagens de terceiros no marketplace. Se receber um erro 409 do tipo: “Não é permitido alterar a propriedade 'LicenseType'”, você está tentando converter ou implantar uma nova VM do Windows Server que tem custo adicional por software, o que pode não ter suporte nessa região.
+> Está sendo implementado o uso do Benefício Híbrido do Azure para Windows Server com VMs que são cobradas por software adicional, como SQL Server ou qualquer uma das imagens de terceiros no marketplace. Se receber um erro 409 do tipo: “Não é permitido alterar a propriedade 'LicenseType'”, você está tentando converter ou implantar uma nova VM do Windows Server que tem custo adicional por software, o que pode não ter suporte nessa região. Mesmo se você tentar procurar a opção de configuração do portal para fazer a conversão e não puder vê-la para a VM.
 >
 
 
@@ -82,6 +82,10 @@ Update-AzureRmVM -ResourceGroupName rg-name -VM $vm
 
 ### <a name="portal"></a>Portal
 Na folha VM do portal, você pode atualizar a VM para usar o Benefício Híbrido do Azure selecionando a opção de “Configuração” e alternar a opção “Benefício Híbrido do Azure”
+
+> [!NOTE]
+> Se você não visualizar a opção para alternar "Benefício híbrido do Azure" em "Configuração", é porque a conversão ainda não tem suporte pelo tipo da VM selecionada (por exemplo, uma VM compilada a partir de imagem personalizada ou de uma imagem que tenha software pago adicional, como software de terceiros do Microsoft Azure Marketplace ou SQL Server).
+>
 
 ## <a name="upload-a-windows-server-vhd"></a>Carregar um VHD do Windows Server
 Para implantar uma VM do Windows Server no Azure, primeiro você precisa criar um VHD que contém a compilação base do Windows. Esse VHD deve estar preparado adequadamente por meio do Sysprep antes de carregá-lo no Azure. Você pode [ler mais sobre os requisitos de VHD e o processo Sysprep](upload-generalized-managed.md) e [Suporte do Sysprep para funções de servidor](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles). Faça backup da VM antes de executar o Sysprep. 
@@ -180,12 +184,14 @@ Nos modelos do Resource Manager de seu conjunto de dimensionamento de máquinas 
 Você também pode [Criar e implantar um conjunto de dimensionamento de máquinas virtuais](#https://docs.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-create) e definir a propriedade LicenseType
 
 ## <a name="next-steps"></a>Próximas etapas
-Leia mais sobre [Como economizar dinheiro com o Benefício Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/).
+Leia mais sobre [Como economizar dinheiro com o Benefício Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
 
-Leia mais sobre [Orientação detalhada sobre licenciamento do Benefício Híbrido do Azure para Windows Server](http://go.microsoft.com/fwlink/?LinkId=859786)
+Leia mais sobre [Orientação detalhada sobre licenciamento do Benefício Híbrido do Azure para Windows Server](https://docs.microsoft.com/en-us/windows-server/get-started/azure-hybrid-benefit)
 
-Saiba mais sobre como [usar os modelos do Resource Manager](../../azure-resource-manager/resource-group-overview.md).
+Saiba mais sobre como [Usar os modelos do Resource Manager](../../azure-resource-manager/resource-group-overview.md)
 
-Saiba mais sobre como o [Benefício Híbrido do Azure para Windows Server e o Azure Site Recovery tornam a migração de aplicativos para o Azure ainda mais econômica](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/).
+Saiba mais sobre como o [Benefício Híbrido do Azure para Windows Server e o Azure Site Recovery tornam a migração de aplicativos para o Azure ainda mais econômica](https://azure.microsoft.com/blog/hybrid-use-benefit-migration-with-asr/)
+
+Saiba mais sobre o [Windows 10 no Azure com Direitos de Hospedagem Multilocatário](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment)
 
 Leia sobre as [Perguntas frequentes](#https://azure.microsoft.com/en-us/pricing/hybrid-use-benefit/faq/)

@@ -13,140 +13,84 @@ ms.workload: Active
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/14/2017
-ms.author: billgib;genemi
-ms.openlocfilehash: 96e031835905057a9ab2b3ee4023b08de092dd8e
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.date: 11/17/2017
+ms.author: billgib
+ms.openlocfilehash: 094189e08002ce8d4a2f4f92a8c112eaf18ebe13
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/20/2017
 ---
-# <a name="welcome-to-the-wingtip-tickets-sample-saas-azure-sql-database-tenancy-app"></a>Bem-vindo ao aplicativo de aluguel de Banco de Dados SQL do Azure do SaaS de exemplo do Wingtip Tickets
+# <a name="the-wingtip-tickets-saas-application"></a>O aplicativo Wingtip Tickets SaaS
 
-Bem-vindo ao aplicativo de aluguel de Banco de Dados SQL do Azure do SaaS de exemplo do Wingtip Tickets e seus tutoriais. Aluguel de banco de dados refere-se ao modo de isolamento de dados que seu aplicativo fornece aos clientes que pagam para serem hospedados em seu aplicativo. Para simplificar por enquanto, ou cliente tem um banco de dados inteiro para si mesmo ou compartilha um banco de dados com outro cliente.
+O mesmo aplicativo *Wingtip Tickets* é implementado em cada uma das três amostras. O aplicativo é um aplicativo SaaS de emissão de tíquetes e listagem de eventos simples voltado para pequenos locais – teatros, clubes etc. Cada local é um locatário do aplicativo e tem seus próprios dados: detalhes do local, listas de eventos, clientes, pedidos de tíquete etc.  O aplicativo, junto com os scripts de gerenciamento e os tutoriais, apresenta um cenário de SaaS de ponta a ponta. Isso inclui provisionamento de locatários, monitoramento e gerenciamento de desempenho, gerenciamento de esquema e relatórios e análises entre locatários.
 
-## <a name="wingtip-tickets-app"></a>Aplicativo Wingtip Tickets
+## <a name="three-saas-application-patterns"></a>Três padrões de aplicativo SaaS
 
-O aplicativo de exemplo do Wingtip Tickets ilustra os efeitos de diferentes modelos de aluguel de banco de dados no design e gerenciamento de aplicativos de SaaS multilocatários. Os tutoriais a seguir descrevem diretamente esses mesmos efeitos. O Wingtip Tickets baseia-se no Banco de Dados SQL do Azure.
+Três versões do aplicativo estão disponíveis; cada uma explora um padrão diferente de locatário de banco de dados no banco de dados SQL do Azure.  O primeiro usa um aplicativo de locatário único com um banco de dados de locatário único isolado. O segundo usa um aplicativo multilocatário, com um banco de dados por locatário. O terceiro exemplo usa um aplicativo multilocatário com bancos de dados multilocatários compartilhados.
 
-O Wingtip Tickets foi projetado para lidar com vários cenários de design e gerenciamento que são usados por clientes reais de SaaS. Os padrões de uso que surgiram são tratados pelo Wingtip Tickets.
+![Três padrões de locatário][image-three-tenancy-patterns]
 
-Você pode instalar o aplicativo Wingtip Tickets em sua própria assinatura do Azure em cinco minutos. A instalação inclui a inserção de dados de exemplo para vários locatários. Você pode instalar com segurança o aplicativo e os scripts de gerenciamento para todos os modelos, porque as instalações não interagem ou interferem umas com as outras.
+ Cada exemplo inclui scripts de gerenciamento e tutoriais que exploram um intervalo de padrões de design e de gerenciamento, que você pode usar em seu próprio aplicativo.  Cada exemplo é implantado em menos de cinco minutos.  Todos os três podem ser implantados lado a lado, portanto, você pode comparar as diferenças no design e no gerenciamento.
 
-#### <a name="code-in-github"></a>Código no Github
+## <a name="standalone-application-pattern"></a>Padrão do aplicativo autônomo
 
-O código do aplicativo e os scripts de gerenciamento estão disponíveis no GitHub:
+O padrão de aplicativo autônomo usa um aplicativo de locatário único com um banco de dados de locatário único para cada locatário. Cada aplicativo de locatário é implantado em um grupo de recursos do Azure separado. Isso pode ser na assinatura do provedor de serviços ou na assinatura do locatário e gerenciado pelo provedor em nome do locatário. Esse padrão fornece o maior isolamento de locatários, mas é geralmente mais caro, pois não há nenhuma oportunidade para compartilhar recursos entre vários locatários.
 
-- Modelo de **aplicativo autônomo**: [Repositório WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp)
-- Modelo de **banco de dados por locatário**: [Repositório WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant).
-- Modelo de **multilocatário compartilhado**: [Repositório WingtipTicketsSaaS-MultiTenantDB](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB).
+Confira os [tutoriais] [ docs-tutorials-for-wingtip-sa] e o código no GitHub [.../Microsoft/WingtipTicketsSaaS-StandaloneApp][github-code-for-wingtip-sa].
 
-O mesmo código básico para o aplicativo Wingtip Tickets é reutilizado para todos os modelos anteriores listados. Você pode usar o código do Github para seus próprios projetos de SaaS.
+## <a name="database-per-tenant-pattern"></a>Padrão de banco de dados por locatário
 
+O padrão de banco de dados por locatário é eficaz para provedores de serviço que se preocupam com isolamento de locatários e desejam executar um serviço centralizado que permite o uso econômico dos recursos compartilhados. Um banco de dados é criado para cada local, ou locatário, e todos os bancos de dados são gerenciados centralmente. Os bancos de dados podem ser hospedados em pools elásticos para fornecer um gerenciamento de desempenho fácil e econômico, que aproveita os padrões de carga de trabalho imprevisíveis dos locatários. O banco de dados de catálogo contém o mapeamento entre locatários e seus bancos de dados. Esse mapeamento é gerenciado usando os recursos de gerenciamento de mapa de fragmento da [Biblioteca de Cliente de Banco de Dados Elástico](sql-database-elastic-database-client-library.md), que fornece um gerenciamento de conexão eficiente para o aplicativo.
 
+Confira os [tutoriais] [ docs-tutorials-for-wingtip-dpt] e o código no GitHub [.../Microsoft/WingtipTicketsSaaS-DbPerTenant][github-code-for-wingtip-dpt].
 
-## <a name="major-database-tenancy-models"></a>Principais modelos de aluguel de banco de dados
+## <a name="sharded-multi-tenant-database-pattern"></a>Padrão de bancos de dados multilocatários compartilhados
 
-O Wingtip Tickets é um aplicativo SaaS de listagem de eventos e de tíquetes. O Wingtip fornece serviços que são necessários por local. Todos os itens a seguir aplicam-se a cada local:
+Bancos de dados multilocatários são eficientes para provedores de serviço que buscam um menor custo por locatário e que de acordo com o isolamento de locatários reduzido. Esse padrão permite empacotar grandes números de locatários em um único banco de dados, reduzindo o custo por locatário. A escala quase infinita é possível pela fragmentação de locatários entre diversos bancos de dados.  Um banco de dados do catálogo mapeia novamente os locatários para os bancos de dados.  
 
-- Paga para ser hospedado no seu aplicativo.
-- É um *locatário* no Wingtip.
-- Eventos de hosts. Os seguintes eventos ocorrem:
-    - Preços de tíquete.
-    - Preços de venda.
-    - Clientes que compram tíquetes.
+Esse padrão também permite um modelo híbrido no qual você pode otimizar para economizar com vários locatários em um banco de dados ou otimizar para o isolamento com um único locatário em seu próprio banco de dados. A escolha pode ser feita com base em locatário por locatário, seja quando o locatário for provisionado ou mais tarde, sem nenhum impacto no aplicativo.
 
-O aplicativo, junto com os scripts de gerenciamento e os tutoriais, apresenta um cenário completo de SaaS. O cenário inclui as seguintes atividades:
-
-- Provisionamento de locatários.
-- Monitoramento e ajuste de desempenho.
-- Gerenciamento do esquema.
-- Análise e relatório entre locatários.
-
-Todas essas atividades são fornecidas em qualquer escala que elas forem necessárias.
-
-
-
-## <a name="code-samples-for-each-tenancy-model"></a>Exemplos de código para cada modelo de aluguel
-
-Um conjunto de modelos de aplicativo é enfatizado. No entanto, outras implementações podem misturar elementos de dois ou mais modelos.
-
-#### <a name="standalone-app-model"></a>Modelo de aplicativo autônomo
-
-![Modelo de aplicativo autônomo][standalone-app-model-62s]
-
-Esse modelo usa um aplicativo de locatário único. Portanto, esse modelo precisa de apenas um banco de dados e armazena dados somente para esse único locatário. O locatário beneficia-se de um isolamento total de outros locatários no banco de dados.
-
-Você pode usar este modelo quando vende instâncias do seu aplicativo para muitos clientes diferentes, para que cada cliente use-o por conta própria. O cliente é, portanto, o único locatário. Apesar do banco de dados armazenar dados para apenas um cliente, o banco de dados armazena dados para muitos clientes do cliente.
-
-#### <a name="database-per-tenant"></a>Banco de dados por locatário
-
-![Modelo de banco de dados por locatário][database-per-tenant-model-35d]
-
-Esse modelo tem vários locatários na instância do aplicativo. Ainda assim, para cada novo locatário, outro banco de dados é alocado para uso somente pelo novo locatário.
-
-Esse modelo fornece isolamento total do banco de dados para cada locatário. O serviço do Banco de Dados SQL do Azure tem a sofisticação para tornar esse modelo plausível.
-
-- [Introdução a um exemplo de aplicativo SaaS multilocatário do Banco de Dados SQL][saas-dbpertenant-wingtip-app-overview-15d] - possui mais informações sobre este modelo.
-
-#### <a name="sharded-multi-tenant-databases-the-hybrid"></a>Bancos de dados multilocatários compartilhados, o híbrido
-
-![Bancos de dados multilocatários compartilhados, o híbrido][sharded-multitenantdb-model-hybrid-79m]
-
-Esse modelo tem vários locatários na instância do aplicativo. Esse modelo também possui vários locatários em alguns ou todos os seus bancos de dados. Esse modelo é bom para oferecer diferentes camadas de serviço para que os clientes possam pagar mais se eles valorizam isolamento total do banco de dados.
-
-O esquema de cada banco de dados inclui um identificador de locatário. O identificador do locatário está presente até nos bancos de dados que armazenam apenas um locatário.
-
-- [Introdução a um exemplo de aplicativo SaaS multilocatário do Banco de Dados SQL][saas-multitenantdb-get-started-deploy-89i]
-
-
-
-## <a name="tutorials-for-each-tenancy-model"></a>Tutoriais para cada modelo de aluguel
-
-Cada modelo de aluguel é documentado pelo seguinte:
-
-- Um conjunto de artigos de tutorial.
-- O código-fonte é armazenado em um repositório Github dedicado para o modelo:
-    - O código para o aplicativo Wingtip Tickets.
-    - O código do script para cenários de gerenciamento.
-
-#### <a name="tutorials-for-management-scenarios"></a>Tutoriais para cenários de gerenciamento
-
-Os artigos tutoriais para cada modelo abordam os seguintes cenários de gerenciamento:
-
-- Provisionamento de locatário.
-- Monitoramento e gerenciamento de desempenho.
-- Gerenciamento do esquema.
-- Análise e relatório entre locatários.
-- Restauração de um locatário para um ponto anterior no tempo.
-- Recuperação de desastre.
-
-
+Confira os [tutoriais] [ docs-tutorials-for-wingtip-mt] e o código no GitHub [.../Microsoft/WingtipTicketsSaaS-MultiTenantDb][github-code-for-wingtip-mt].
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Introdução a um exemplo de aplicativo SaaS multilocatário do Banco de Dados SQL][saas-dbpertenant-wingtip-app-overview-15d] - possui mais informações sobre este modelo.
+#### <a name="conceptual-descriptions"></a>Descrições conceituais
 
-- [Padrões de locatário de banco de dados de SaaS multilocatários][multi-tenant-saas-database-tenancy-patterns-60p]
+- Uma explicação mais detalhada dos padrões de locatário do aplicativo está disponível em [Padrões de locatário de banco de dados SaaS multilocatário][saas-tenancy-app-design-patterns-md]
+
+#### <a name="tutorials-and-code"></a>Tutoriais e código
+
+- Aplicativo autônomo:
+    - [Tutoriais para o aplicativo autônomo][docs-tutorials-for-wingtip-sa].
+    - [Código para autônomo no Github][github-code-for-wingtip-sa].
+
+- Banco de dados por locatário:
+    - [Tutoriais do banco de dados por locatário][docs-tutorials-for-wingtip-dpt].
+    - [Código para banco de dados por locatário, no Github][github-code-for-wingtip-dpt].
+
+- Multilocatário fragmentado:
+    - [Tutoriais para vários locatários fragmentados][docs-tutorials-for-wingtip-mt].
+    - [Código para vários locatários fragmentados, no Github][github-code-for-wingtip-mt].
 
 
 
 <!-- Image references. -->
 
-[standalone-app-model-62s]: media/saas-tenancy-welcome-wingtip-tickets-app/model-standalone-app.png "Modelo de aplicativo autônomo"
+[image-three-tenancy-patterns]: media/saas-tenancy-welcome-wingtip-tickets-app/three-tenancy-patterns.png "Três padrões de locatário."
 
-[database-per-tenant-model-35d]: media/saas-tenancy-welcome-wingtip-tickets-app/model-database-per-tenant.png "Modelo de banco de dados por locatário"
+<!-- Docs.ms.com references. -->
 
-[sharded-multitenantdb-model-hybrid-79m]: media/saas-tenancy-welcome-wingtip-tickets-app/model-sharded-multitenantdb-hybrid.png "Modelo de bancos de dados multilocatários compartilhados, o híbrido"
+[saas-tenancy-app-design-patterns-md]: saas-tenancy-app-design-patterns.md
 
+<!-- WWWeb http references. -->
 
+[docs-tutorials-for-wingtip-sa]: https://aka.ms/wingtipticketssaas-sa
+[github-code-for-wingtip-sa]: https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp
 
-<!-- Article references. -->
+[docs-tutorials-for-wingtip-dpt]: https://aka.ms/wingtipticketssaas-dpt
+[github-code-for-wingtip-dpt]: https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant
 
-[saas-dbpertenant-wingtip-app-overview-15d]: saas-dbpertenant-wingtip-app-overview.md
-
-[multi-tenant-saas-database-tenancy-patterns-60p]: saas-tenancy-app-design-patterns.md
-
-[saas-multitenantdb-get-started-deploy-89i]: saas-multitenantdb-get-started-deploy.md
-
+[docs-tutorials-for-wingtip-mt]: https://aka.ms/wingtipticketssaas-mt
+[github-code-for-wingtip-mt]: https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb
 

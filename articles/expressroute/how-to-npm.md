@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: cherylmc
-ms.openlocfilehash: 3ab8029d035c3ba88ddb8a112e27f9054f7c203c
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 9e459a42a9fd7caedfa255a7baf51273eef2265a
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="configure-network-performance-monitor-for-expressroute-preview"></a>Configurar o Monitor de Desempenho de Rede para ExpressRoute (versão prévia)
 
@@ -96,7 +96,7 @@ Se você já estiver usando o Monitor de Desempenho de Rede para monitorar outro
 1. Na **página de Configuração do Monitor de Desempenho de Rede – Configuração de TCP** para seu recurso, na seção **Instalar Agentes do OMS**, clique no agente que corresponde ao processador do servidor e baixe o arquivo de instalação.
 
   >[!NOTE]
-  >No momento, o agente do Linux não é compatível com o monitoramento do ExpressRoute.
+  >O agente deve ser instalado em um servidor Windows (2008 SP1 ou posterior). Não há suporte para o monitoramento de circuitos do ExpressRoute usando o sistema operacional de área de trabalho do Windows e o sistema operacional Linux. 
   >
   >
 2. Em seguida, copie a **ID do Espaço de Trabalho** e a **Chave Primária** para o Bloco de Notas.
@@ -105,6 +105,8 @@ Se você já estiver usando o Monitor de Desempenho de Rede para monitorar outro
   ![Script do PowerShell](.\media\how-to-npm\7.png)
 
 ### <a name="installagent"></a>2.2: instale um agente de monitoramento em cada servidor de monitoramento
+
+É recomendável que você instale pelo menos dois agentes em cada lado da conexão de ExpressRoute (ou seja, no local, VNETs do Azure) para redundância. Use as etapas a seguir para instalar os agentes:
 
 1. Execute a **Instalação** para instalar o agente em cada servidor que deseja usar para o monitoramento de ExpressRoute. O servidor utilizado no monitoramento pode ser uma VM ou local e deve ter acesso à Internet. É necessário instalar pelo menos um agente local e um agente em cada segmento de rede que você deseja monitorar no Azure.
 2. Na página de **Boas-vindas**, clique em **Avançar**.
@@ -235,7 +237,7 @@ Clicar no bloco **Emparelhamentos Privados** no painel exibe uma lista de todas 
 ### <a name="topology"></a>Topologia de circuito
 
 Para exibir a topologia de circuito, clique no bloco **Topologia**. Isso leva você para a exibição de topologia do circuito ou emparelhamento selecionado. O diagrama de topologia fornece a latência de cada segmento na rede e cada salto de camada 3 é representado por um nó do diagrama. Clicar em um salto revela mais detalhes sobre ele.
-É possível aumentar o nível de visibilidade para incluir saltos locais ao mover a barra do controle deslizante para baixo dos **Filtros**. Mover a barra do controle deslizante para a esquerda ou direita amplia/reduz o número de saltos no gráfico de topologia. A latência em cada segmento é visível, o que permite o isolamento mais rápido de segmentos de alta latência na sua rede.
+É possível aumentar o nível de visibilidade para incluir saltos locais ao mover a barra do controle deslizante para baixo dos **Filtros**. Mover a barra do controle deslizante para a esquerda ou direita amplia/reduz o número de saltos no grafo de topologia. A latência em cada segmento é visível, o que permite o isolamento mais rápido de segmentos de alta latência na sua rede.
 
 ![filtros](.\media\how-to-npm\topology.png)
 

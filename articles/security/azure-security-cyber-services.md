@@ -4,7 +4,7 @@ description: "O artigo fornece uma introdução sobre os serviços Microsoft rel
 services: security
 documentationcenter: na
 author: TomShinder
-manager: StevenPo
+manager: MBaldwin
 editor: TomSh
 ms.assetid: 925ba3c6-fe35-413a-98ea-e1a1461f3022
 ms.service: security
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/09/2017
+ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 1560ea8b224be0f6bc723f64d8f154805b2771e5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 058cda5dd2e7e8026410a14d08d5714ce92822cd
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="microsoft-services-in-cybersecurity"></a>Serviços Microsoft em Segurança Cibernética
-Os Serviços Microsoft oferecem uma abordagem abrangente para a segurança, identidade e segurança cibernética. Os Serviços Microsoft oferecem uma matriz de serviços de segurança e identidade entre estratégia, planejamento, implementação e suporte contínuo que pode ajudar nossos clientes empresariais a implementar soluções de segurança integrais, alinhadas com seus objetivos estratégicos.
+Os Serviços Microsoft oferecem uma abordagem abrangente para a segurança, identidade e segurança cibernética. Os Serviços Microsoft fornecem uma variedade de serviços de segurança e identidade em estratégia, planejamento, implementação e suporte contínuo. Esses serviços podem ajudar os clientes do Enterprise a implementar soluções de segurança holísticas que estejam alinhadas com seus objetivos estratégicos.
 
 Com acesso direto às equipes de desenvolvimento de produto, podemos criar soluções que integram e aprimoram os mais recentes recursos de identidade e segurança de nossos produtos, para ajudar a proteger os negócios de nossos clientes e fomentar a inovação.
 

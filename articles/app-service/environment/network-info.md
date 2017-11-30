@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: ccompy
-ms.openlocfilehash: 121dd1a90e9bde66f1c3b752412a657a67295084
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3ac630982b47f7105feb034982eae070faa72d9e
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>Considerações de rede para um ambiente do Serviço de Aplicativo #
 
@@ -164,7 +164,7 @@ Todos os itens mostrados nas regras de saída a seguir são necessários, exceto
 
 ![Regras de segurança de saída][5]
 
-Depois que seus NSGs estiverem definidos, atribua-os à sub-rede em que está seu ASE. Se você não lembrar a rede ou sub-rede do ASE, poderá ver isso no portal de gerenciamento do ASE. Para atribuir o NSG à sua sub-rede, vá para a sub-rede da interface do usuário e selecione o NSG.
+Depois que seus NSGs estiverem definidos, atribua-os à sub-rede em que está seu ASE. Caso não se lembre da sub-rede ou Vnet ASE, você poderá visualizá-los a partir da página do portal do ASE. Para atribuir o NSG à sua sub-rede, vá para a sub-rede da interface do usuário e selecione o NSG.
 
 ## <a name="routes"></a>Rotas ##
 

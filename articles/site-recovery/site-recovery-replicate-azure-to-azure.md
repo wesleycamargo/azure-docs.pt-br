@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 5/22/2017
+ms.date: 11/21/2017
 ms.author: asgang
-ms.openlocfilehash: f9f97cf840b722c8cfee169dd1640e0682f287ff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc7dff33aa2c3e844c6a91024fcfc98148416f7e
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="replicate-azure-virtual-machines-to-another-azure-region"></a>Replicação de máquinas virtuais do Azure para outra região do Azure
 
@@ -51,15 +51,15 @@ Nesta ilustração, replicaremos as VMs em execução em 'Ásia Oriental' do Azu
 
  Clique em **+ Replicar** no cofre para habilitar a replicação para as máquinas virtuais.
 
-1. **Fonte:** refere-se para o ponto de origem das máquinas que nesse caso é **Azure**.
+1. **Fonte:** refere-se ao ponto de origem das máquinas, que neste caso é o **Azure**.
 
-2. **Local de origem:** é a região do Azure de onde você deseja proteger suas máquinas virtuais. Para esta ilustração, o local de origem será 'Ásia Oriental'
+2. **Local de origem:** é a região do Azure de onde você deseja proteger suas máquinas virtuais. Para esta ilustração, a localização da fonte é 'Ásia Oriental'
 
-3. **Modelo de implantação:** refere-se ao modelo de implantação do Azure de computadores de origem. Você pode selecionar qualquer clássico ou Gerenciador de recursos e computadores que pertençam a um modelo específico serão listados para a proteção na próxima etapa.
+3. **Modelo de implantação:** refere-se ao modelo de implantação do Azure de computadores de origem. Você pode selecionar qualquer Gerenciador de Recursos ou Clássico e as máquinas pertencentes ao modelo específico serão listadas para proteção na próxima etapa.
 
       >[!NOTE]
       >
-      > Você pode apenas replicar a máquina virtual clássica e recuperá-la como uma máquina virtual clássica. Você não pode recuperá-la como uma máquina virtual de gerenciamento de recursos.
+      > É possível replicar apenas uma máquina virtual clássica e recuperá-la como uma máquina virtual clássica. Você não pode recuperá-la como uma máquina virtual de gerenciamento de recursos.
 
 4. **Grupo de recursos:** é o grupo de recursos ao qual pertencem as máquinas virtuais de origem. Todas as máquinas virtuais do grupo de recursos selecionado serão listadas para a proteção na próxima etapa.
 
@@ -76,29 +76,29 @@ Na seção de Configurações, você pode configurar as propriedades do site de 
     > [!TIP]
     > É recomendável manter o local de destino igual a do Cofre de serviços de recuperação.
 
-2. **Grupo de recursos de destino:** é o grupo de recursos ao qual todas as suas máquinas virtuais replicadas pertencerão. Por padrão, a ASR criará um novo grupo de recursos na região de destino com um nome com o sufixo "asr". No caso de grupo de recursos criado pelo ASR já existir, ela será reutilizada. Também é possível personalizá-lo, conforme mostrado na seção a seguir.    
-3. **Rede Virtual de Destino:** Por padrão, a ASR criará um novo grupo de recursos na região de destino com um nome com o sufixo "asr". Isso será mapeado para sua rede de origem e será usado para qualquer proteção futura.
+2. **Grupo de recursos de destino:** é o grupo de recursos ao qual pertencem todas as máquinas virtuais replicadas. Por padrão, o Azure Site Recovery criará um novo grupo de recursos na região de destino com um sufixo "asr". Caso o grupo de recursos criado pelo Azure Site Recovery já exista, ele será reutilizado. Você também poderá escolher personalizá-lo conforme mostrado na seção abaixo.    
+3. **Rede Virtual de Destino:** por padrão, o Azure Site Recovery criará uma nova rede virtual na região de destino com o nome com um sufixo "asr". Isso será mapeado para sua rede de origem e será usado para qualquer proteção futura.
 
     > [!NOTE]
     > [Verifique os detalhes de rede](site-recovery-network-mapping-azure-to-azure.md) para saber mais sobre mapeamento de rede.
 
-4. **Contas de Armazenamento de Destino:** Por padrão, o ASR criará a nova conta de armazenamento de destino imitando sua configuração de armazenamento de máquina virtual de origem. No caso de conta de armazenamento criada por ASR já existir, ela será reutilizada.
+4. **Contas de armazenamento de destino:** por padrão, o Azure Site Recovery criará a nova conta de armazenamento de destino imitando sua configuração de armazenamento da VM de origem. Caso a conta de armazenamento criada pelo Azure Site Recovery já exista, ela será reutilizada.
 
-5. **Contas de armazenamento de cache:** ASR precisa de conta de armazenamento extra, chamada de armazenamento em cache da região de origem. Todas as alterações ocorrendo nas máquinas virtuais de origem são controladas e enviadas para a conta de armazenamento do cache antes de replicar para o local de destino.
+5. **Contas de armazenamento em cache:** O Azure Site Recovery precisa de uma conta de armazenamento extra, chamada armazenamento em cache na região de origem. Todas as alterações ocorrendo nas máquinas virtuais de origem são controladas e enviadas para a conta de armazenamento do cache antes de replicar para o local de destino.
 
-6. **Conjunto de Disponibilidade:** Por padrão, a ASR criará um novo grupo de recursos na região de destino com um nome com o sufixo "asr". No caso de conjunto de disponibilidade criado pelo ASR já existir, ela será reutilizada.
+6. **Conjunto de disponibilidade:** por padrão, o Azure Site Recovery criará uma nova configuração de disponibilidade na região de destino com o sufixo "asr". Caso o conjunto de disponibilidade criado pelo Azure Site Recovery já exista, ele será reutilizado.
 
-7.  **Política de replicação:** define as configurações para histórico de retenção de ponto de recuperação e frequência de instantâneo consistente do aplicativo. Por padrão, o ASR criará uma nova política de replicação com configurações padrão de '24 horas’ para retenção de ponto de recuperação e '60 minutos’ para a frequência do instantâneo consistente de aplicativo.
+7.  **Política de replicação:** define as configurações para histórico de retenção de ponto de recuperação e frequência de instantâneo consistente do aplicativo. Por padrão, o Azure Site Recovery criará uma nova política de replicação com configurações padrão de '24 horas' para retenção de pontos de recuperação e '60 minutos 'para a frequência de instantâneo consistente do aplicativo.
 
     ![Habilitar a replicação](./media/site-recovery-replicate-azure-to-azure/enabledrwizard3.PNG)
 
 ## <a name="customize-target-resources"></a>Personalizar os recursos de destino
 
-No caso de você desejar alterar os padrões usados pela ASR, você pode alterar as configurações de acordo com suas necessidades.
+Caso queira alterar os padrões utilizados pelo Azure Site Recovery, você poderá alterar as configurações de acordo com as suas necessidades.
 
-1. **Personalizar:** Clique para alterar os padrões usados pela ASR.
+1. **Personalizar:** clique para alterar os padrões utilizados pelo Azure Site Recovery.
 
-2. **Grupo de recursos de destino:** Você pode selecionar o grupo de recursos da lista de todos os grupos de recursos existentes no local de destino dentro da assinatura.
+2. **Grupo de recursos de destino:** você pode selecionar o grupo de recursos da lista de todos os grupos de recursos existentes no local de destino dentro da assinatura.
 
 3. **Rede Virtual de Destino:** Você pode encontrar a lista de todas as redes virtuais no local de destino.
 
@@ -112,7 +112,7 @@ No caso de você desejar alterar os padrões usados pela ASR, você pode alterar
 Depois que as máquinas virtuais são protegidas, você pode verificar o status de integridade de VMs em **Itens replicados**
 
 >[!NOTE]
->Durante o tempo de replicação inicial existe uma possibilidade de que o status demore para atualizar e você não veja nenhum progresso por algum tempo. Você pode clicar no botão Atualizar na parte superior da folha para obter o status mais recente.
+>Durante o período de replicação inicial, poderá haver uma possibilidade de que o status demore para atualizar e você não veja o progresso por algum tempo. Você pode clicar no botão Atualizar na parte superior da folha para obter o status mais recente.
 >
 
 ![Habilitar a replicação](./media/site-recovery-replicate-azure-to-azure/replicateditems.PNG)

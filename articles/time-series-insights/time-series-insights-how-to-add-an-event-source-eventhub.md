@@ -1,5 +1,5 @@
 ---
-title: "Como adicionar uma origem do evento do Hub de Eventos ao ambiente de Análise de Séries Temporais do Azure | Microsoft Docs"
+title: Como adicionar uma origem de evento do Hub de Eventos ao Azure Time Series Insights | Microsoft Docs
 description: "Este artigo descreve como adicionar uma origem do evento que está conectada a um Hub de Eventos ao ambiente do Time Series Insights."
 services: time-series-insights
 ms.service: time-series-insights
@@ -10,12 +10,12 @@ editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/15/2017
-ms.openlocfilehash: f3a9a1c7e57383925877f674a2e02f931e5c1e3c
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.date: 11/21/2017
+ms.openlocfilehash: c07c847784eb13c62e350e9c655e027e7df696a3
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="how-to-add-an-event-hub-event-source-to-time-series-insights-environment"></a>Como adicionar uma origem do evento do Hub de Eventos ao ambiente do Time Series Insights
 

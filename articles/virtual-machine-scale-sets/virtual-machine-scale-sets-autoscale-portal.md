@@ -15,20 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 266e9674a422dffb7f78a4aa3dd0adfa3c8bab3b
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 3714a4feb14bc47132e501629fc339bc7d0e40a1
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Dimensionamento automático de um conjunto de dimensionamento de máquinas virtuais no portal do Azure
-Ao criar um conjunto de dimensionamento, o número de instâncias de VM que você deseja executar é definido. À medida que seu aplicativo precisar de alterações, você poderá aumentar ou diminuir automaticamente o número de instâncias de VM. A capacidade de dimensionamento automático permite acompanhar a demanda do cliente ou reagir a alterações de desempenho do aplicativo durante todo o ciclo de vida do aplicativo.
+Ao criar um conjunto de dimensionamento, o número de instâncias de VM que você deseja executar é definido. À medida que seu aplicativo precisar de alterações, você poderá aumentar ou diminuir automaticamente o número de instâncias de VM. A capacidade de autoescala permite acompanhar a demanda do cliente ou reagir a alterações de desempenho do aplicativo durante todo o ciclo de vida do aplicativo.
 
 Este artigo mostra como criar regras de dimensionamento automático no portal do Azure que monitoram o desempenho das instâncias de VM no seu conjunto de dimensionamento. Essas regras de dimensionamento automático aumentam ou diminuem o número de instâncias de VM em resposta a essas métricas de desempenho. Você também pode executar essas etapas com o [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md) ou a [CLI do Azure 2.0](virtual-machine-scale-sets-autoscale-cli.md).
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Para criar regras de dimensionamento automático, você precisará de um conjunto de dimensionamento de máquinas virtuais existente. É possível criar um conjunto de dimensionamento com o [Portal do Azure](virtual-machine-scale-sets-portal-create.md), o [Azure PowerShell](virtual-machine-scale-sets-create.md#create-from-powershell) ou a [CLI do Azure 2.0](virtual-machine-scale-sets-create.md#create-from-azure-cli).
+Para criar regras de autoescala, você precisará de um conjunto de dimensionamento de máquinas virtuais existente. É possível criar um conjunto de dimensionamento com o [Portal do Azure](virtual-machine-scale-sets-portal-create.md), o [Azure PowerShell](virtual-machine-scale-sets-create.md#create-from-powershell) ou a [CLI do Azure 2.0](virtual-machine-scale-sets-create.md#create-from-azure-cli).
 
 
 ## <a name="create-a-rule-to-automatically-scale-out"></a>Crie uma regra para expandir automaticamente
@@ -56,7 +56,7 @@ Se a demanda do aplicativo aumentar, a carga em instâncias de VM no seu conjunt
     | *Duração*             | O tempo monitorado antes de comparar os valores de métrica e de limite.                                   | 10 minutos     |
     | *Operação*            | Define se o conjunto de dimensionamento deve ser dimensionado expandido ou reduzido quando a regra se aplica e qual o incremento                        | Aumentar porcentagem em |
     | *Contagem de instâncias*       | O percentual de instâncias de VM que deve ser alterado quando a regra disparar.                                            | 20             |
-    | *Tempo de resfriamento (minutos)*  | O tempo de espera antes da regra ser aplicada novamente para que as ações de dimensionamento automático tenham tempo para entrar em vigor. | 5 minutos      |
+    | *Tempo de resfriamento (minutos)*  | O tempo de espera antes da regra ser aplicada novamente para que as ações de autoescala tenham tempo para entrar em vigor. | 5 minutos      |
 
     Os exemplos a seguir mostram uma regra criada no portal do Azure que corresponde a essas configurações:    
 
@@ -122,11 +122,11 @@ Os exemplos anteriores dimensionaram automaticamente um conjunto de dimensioname
 
     ![Criar regras de dimensionamento automático que são dimensionadas com agendamento](media/virtual-machine-scale-sets-autoscale-portal/schedule-autoscale.PNG)
 
-Para ver como as regras de dimensionamento automático são aplicadas, selecione **Histórico de execuções** na parte superior da janela **Colocação em Escala**. O gráfico e a lista de eventos mostram quando as regras de dimensionamento automático são acionadas e o número de instâncias de VM na sua escala aumenta ou diminui.
+Para ver como as regras de dimensionamento automático são aplicadas, selecione **Histórico de execuções** na parte superior da janela **Colocação em Escala**. O grafo e a lista de eventos mostram quando as regras de dimensionamento automático são acionadas e o número de instâncias de VM na sua escala aumenta ou diminui.
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste artigo, você aprendeu a usar as regras de dimensionamento automático para escalar horizontalmente e expandir ou diminuir o *número* de instâncias de VM no seu conjunto de dimensionamento. Também é possível escalar verticalmente para aumentar ou diminuir o *tamanho* da instância VM. Para obter mais informações, consulte [Dimensionamento vertical automático com conjuntos de Dimensionamento de Máquinas Virtuais](virtual-machine-scale-sets-vertical-scale-reprovision.md).
+Neste artigo, você aprendeu a usar as regras de autoescala para escalar horizontalmente e expandir ou diminuir o *número* de instâncias de VM no seu conjunto de dimensionamento. Também é possível escalar verticalmente para aumentar ou diminuir o *tamanho* da instância VM. Para obter mais informações, consulte [Dimensionamento vertical automático com conjuntos de Dimensionamento de Máquinas Virtuais](virtual-machine-scale-sets-vertical-scale-reprovision.md).
 
 Para obter informações sobre como gerenciar suas instâncias de VM, consulte [Gerenciar conjuntos de dimensionamento de máquinas virtuais com o Azure PowerShell](virtual-machine-scale-sets-windows-manage.md).
 

@@ -1,5 +1,5 @@
 ---
-title: "Gerenciar dados de referência do ambiente de Análise de Séries Temporais do Azure usando C# | Microsoft Docs"
+title: "Gerenciar dados de referência do ambiente do Azure Time Series Insights usando C# | Microsoft Docs"
 description: "Este artigo descreve como gerenciar dados de referência para um ambiente do Azure Time Series Insights criando um aplicativo personalizado escrito na linguagem C# (C-sharp) do .NET."
 services: time-series-insights
 ms.service: time-series-insights
@@ -11,21 +11,23 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/15/2017
-ms.openlocfilehash: cd4d37ae2a68be3c061706f80055efb7e5387d98
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.date: 11/21/2017
+ms.openlocfilehash: fa4a115cc1199a99c7acf64281082dca5dfb8579
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="manage-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>Gerenciar dados de referência do ambiente de Análise de Séries Temporais do Azure usando C#
 
-Esse artigo descreve o código de exemplo em C# que pode compilar para gerenciar dados de referência para um ambiente do Azure Time Series Insights.
+Esse tópico descreve o código de exemplo em C# que pode compilar para gerenciar dados de referência para um ambiente do Azure Time Series Insights.
 
-Verifique se as etapas a seguir foram concluídas, antes de executar o exemplo:
-1. Um conjunto de dados de referência foi criado usando [este artigo](time-series-insights-add-reference-data-set.md).
+Conclua as etapas a seguir antes de usar compilar e executar o código de exemplo:
+1. [Crie um conjunto de dados de referência](time-series-insights-add-reference-data-set.md).
 
-2. Configure o token de acesso a ser usado pelo aplicativo que autoriza. Verifique se o token de acesso é obtido usando a API do Azure Active Directory. Esse token deve ser passado no cabeçalho `Authorization` de cada solicitação de API de consulta. Para configurar aplicativos não interativos, consulte o artigo [Autenticação e autorização](time-series-insights-authentication-and-authorization.md).
+2. Configure o token de acesso de autorização para o aplicativo. Verifique se o token de acesso é obtido usando a API do Azure Active Directory. Você deve passar esse token no cabeçalho `Authorization` de cada solicitação de API de consulta. 
+ 
+   Para obter informações sobre como configurar aplicativos não interativos, consulte [Autenticação e autorização](time-series-insights-authentication-and-authorization.md).
 
 3. Edite o código de exemplo para substituir as constantes de exemplo, designadas em **#DUMMY#**, perto do início do código. 
 
@@ -232,4 +234,4 @@ namespace TimeSeriesInsightsReferenceDataSampleApp
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Para obter a referência completa de API REST, confira [API de Dados de Referência](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api).
+[API de dados de referência](/rest/api/time-series-insights/time-series-insights-reference-reference-data-api)

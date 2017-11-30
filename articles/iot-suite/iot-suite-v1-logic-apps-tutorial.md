@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: corywink
-ms.openlocfilehash: f4457b44c97fadc58406430fc0f31b3e0bac6682
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 4a1db86f4b715533dfea545365eaf66de0574c5e
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="tutorial-connect-logic-app-to-your-azure-iot-suite-remote-monitoring-preconfigured-solution"></a>Tutorial: conectar um aplicativo lógico à solução pré-configurada de monitoramento remoto do Azure IoT Suite
 A solução pré-configurada de monitoramento remoto do [Microsoft Azure IoT Suite][lnk-internetofthings] é uma ótima maneira de começar rapidamente com um conjunto de recursos de ponta a ponta que é um exemplo de uma solução IoT. Este tutorial explica como adicionar um aplicativo lógico à sua solução pré-configurada de monitoramento remoto do Microsoft Azure IoT Suite. Essas etapas demonstram como é possível aproveitar ainda mais sua solução de IoT conectando-a a um processo empresarial.
@@ -33,7 +33,7 @@ Antes de iniciar este tutorial, você deve:
 
 Para concluir este tutorial, você precisa do Visual Studio 2015 ou Visual Studio 2017 para modificar as ações no back-end da solução pré-configurada.
 
-Supondo que você já tenha provisionado a solução pré-configurada de monitoramento remoto, navegue até o grupo de recursos dessa solução no [Portal do Azure][lnk-azureportal]. O grupo de recursos tem o mesmo nome que o nome da solução que você escolheu quando provisionou sua solução de monitoramento remoto. No grupo de recursos, você pode ver todos os recursos do Azure provisionados para sua solução, com exceção do aplicativo do Azure Active Directory, que você pode encontrar no Portal Clássico do Azure. A captura de tela a seguir mostra uma folha **Grupo de recursos** de exemplo para uma solução pré-configurada de monitoramento remoto:
+Supondo que você já tenha provisionado a solução pré-configurada de monitoramento remoto, navegue até o grupo de recursos dessa solução no [Portal do Azure][lnk-azureportal]. O grupo de recursos tem o mesmo nome que o nome da solução que você escolheu quando provisionou sua solução de monitoramento remoto. No grupo de recursos, você pode ver todos os recursos do Azure provisionados para sua solução. A captura de tela a seguir mostra uma folha **Grupo de recursos** de exemplo para uma solução pré-configurada de monitoramento remoto:
 
 ![](media/iot-suite-v1-logic-apps-tutorial/resourcegroup.png)
 

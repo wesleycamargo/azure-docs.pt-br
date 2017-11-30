@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: b035c232bb58d653960190d4974cc3789d55a51d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b6157ddaf320f942a704d32f066b821425596308
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Limpar um ponto de extremidade da CDN do Azure
 ## <a name="overview"></a>Visão geral
@@ -68,7 +68,7 @@ Este tutorial o orienta durante a limpeza de ativos de todos os nós de borda de
     ![Botão Limpar](./media/cdn-purge-endpoint/cdn-purge-button.png)
 
 > [!IMPORTANT]
-> Solicitações de limpeza demoram aproximadamente de 2 a 3 minutos para serem processadas com a **CDN do Azure da Verizon** (Standard e Premium) e cerca de 7 minutos com a **CDN do Azure do Akamai**.  A CDN do Azure tem um limite de 50 solicitações de limpeza simultâneas por vez. 
+> Solicitações de limpeza demoram aproximadamente de 2 a 3 minutos para serem processadas com a **CDN do Azure da Verizon** (Standard e Premium) e cerca de 7 minutos com a **CDN do Azure do Akamai**.  A CDN do Azure tem um limite de 50 solicitações de limpeza simultâneas por vez no nível do perfil. 
 > 
 > 
 

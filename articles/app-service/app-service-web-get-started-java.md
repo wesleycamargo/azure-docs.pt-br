@@ -4,7 +4,7 @@ description: "Saiba como executar aplicativos Web no Serviço de Aplicativo impl
 services: app-service\web
 documentationcenter: 
 author: rmcmurray
-manager: erikre
+manager: routlaw
 editor: 
 ms.assetid: 8bacfe3e-7f0b-4394-959a-a88618cb31e1
 ms.service: app-service-web
@@ -12,18 +12,20 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 6/7/2017
+ms.date: 11/08/2017
 ms.author: cephalin;robmcm
 ms.custom: mvc, devcenter
-ms.openlocfilehash: ac8ef479be5a93b2c4baa76279c8d3e53389409a
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: d44fff1e59198d662356c4d7739c05e538ba57b9
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="create-your-first-java-web-app-in-azure"></a>Criar seu primeiro aplicativo Web Java no Azure
 
 Os [aplicativos Web](app-service-web-overview.md) do Azure fornecem um serviço de hospedagem na Web altamente escalonável,com aplicação automática de patches. Este guia de início rápido mostra como implantar um aplicativo Web Java no Serviço de Aplicativo usando o [IDE do Eclipse para desenvolvedores Java EE](http://www.eclipse.org/).
+
+Após a conclusão deste guia de início rápido, seu aplicativo será semelhante à ilustração a seguir quando exibido em um navegador da Web:
 
 !["Hello Azure"! exemplo de aplicativo Web](./media/app-service-web-get-started-java/browse-web-app-1.png)
 
@@ -31,8 +33,8 @@ Os [aplicativos Web](app-service-web-overview.md) do Azure fornecem um serviço 
 
 Para concluir este guia de início rápido, instale:
 
-* O[Eclipse IDE para desenvolvedores de Java EE](http://www.eclipse.org/downloads/) gratuito. Este guia de início rápido usa Eclipse Neon.
-* O [Kit de Ferramentas do Azure para Eclipse](/azure/azure-toolkit-for-eclipse-installation).
+* O<a href="http://www.eclipse.org/downloads/" target="_blank">Eclipse IDE para desenvolvedores de Java EE</a> gratuito. Este guia de início rápido usa Eclipse Neon.
+* O <a href="/java/azure/eclipse/azure-toolkit-for-eclipse-installation" target="_blank">Kit de Ferramentas do Azure para Eclipse</a>.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -167,9 +169,9 @@ No Explorador de Projeto, clique com o botão direito do mouse e selecione **Azu
 
 A caixa de diálogo **Implantar aplicativo Web** é exibida e mostra o serviço de aplicativo criado anteriormente. 
 
-> [!NOTE]
-> Selecione **Implantar na raiz** cada vez que você publicar.
->
+> [!NOTE] 
+> Selecione **Implantar na raiz** cada vez que você publicar. 
+> 
 
 Selecione o aplicativo Web e selecione **Implantar** para publicar as alterações.
 

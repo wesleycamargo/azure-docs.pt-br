@@ -7,20 +7,25 @@ author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.reviewer: elioda
-ms.date: 10/05/2017
+ms.date: 10/16/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 041919fd729880d429e08d8942f8d1ee087ccf61
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 327a959ad97897fd19f45a0599f37492938df104
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="deploy-azure-iot-edge-on-a-simulated-device-in-linux---preview"></a>Implantar o Azure IoT Edge em um dispositivo simulado no Linux – versão prévia
 
 O Azure IoT Edge permite executar análise e processamento de dados em seus dispositivos em vez de enviar por push todos os dados para a nuvem. Os tutoriais do IoT Edge demonstram como implantar diferentes tipos de módulos, criados de serviços do Azure ou de código personalizado, mas primeiro você precisa de um dispositivo para teste. 
 
-Este tutorial mostra o passo a passo da criação de um dispositivo simulado do IoT Edge que gera dados de sensor. Você aprenderá como:
+Neste tutorial, você aprenderá a:
+
+1. Crie um Hub IoT
+2. Registrar um dispositivo IoT Edge
+3. Iniciar o tempo de execução do IoT Edge
+4. Implantar um módulo
 
 ![Arquitetura do tutorial][2]
 
@@ -52,33 +57,29 @@ Registre um dispositivo IoT Edge no Hub IoT recém-criado.
 Instale e inicie o tempo de execução do Azure IoT Edge no dispositivo. 
 ![Registrar um dispositivo][5]
 
-O tempo de execução do IoT Edge é implantado em todos os dispositivos IoT Edge. Ele consiste em dois módulos. Primeiro, o agente do IoT Edge facilita a implantação e o monitoramento de módulos no dispositivo IoT Edge. Em segundo lugar, o hub IoT Edge gerencia a comunicação entre os módulos no dispositivo IoT Edge e entre o dispositivo e o Hub IoT. 
+O tempo de execução do IoT Edge é implantado em todos os dispositivos IoT Edge. Ele consiste em dois módulos. O **agente do IoT Edge** facilita a implantação e o monitoramento de módulos no dispositivo IoT Edge. O **hub IoT Edge** gerencia a comunicação entre os módulos no dispositivo IoT Edge e entre o dispositivo e o Hub IoT. Quando você configura o tempo de execução em seu novo dispositivo, somente o agente do IoT Edge começará primeiro. O hub IoT Edge virá posteriormente, quando você implantar um módulo. 
 
-Use as seguintes etapas para instalar e iniciar o tempo de execução do IoT Edge:
+No computador onde você executará o dispositivo IoT Edge, baixe o script de controle do IoT Edge:
+```cmd
+sudo pip install -U azure-iot-edge-runtime-ctl
+```
 
-1. No computador onde você executará o dispositivo IoT Edge, baixe o script de controle do IoT Edge.
+Configure o tempo de execução com a cadeia de conexão do dispositivo IoT Edge da seção anterior:
+```cmd
+sudo iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
+```
 
-   ```
-   sudo pip install -U azure-iot-edge-runtime-ctl
-   ```
+Inicie o tempo de execução:
+```cmd
+sudo iotedgectl start
+```
 
-1. Configure o tempo de execução com a cadeia de conexão do dispositivo IoT Edge da seção anterior.
+Verifique o Docker para ver se o agente IoT Edge está sendo executado como um módulo:
+```cmd
+sudo docker ps
+```
 
-   ```
-   sudo iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
-   ```
-
-1. Inicie o tempo de execução.
-
-   ```
-   sudo iotedgectl start
-   ```
-
-1. Verifique o Docker para ver se o agente IoT Edge está sendo executado como um módulo.
-
-   ```
-   sudo docker ps
-   ```
+![Conferir o edgeAgent no Docker](./media/tutorial-simulate-device-linux/docker-ps.png)
 
 ## <a name="deploy-a-module"></a>Implantar um módulo
 
@@ -89,13 +90,23 @@ Gerencie o dispositivo Azure IoT Edge na nuvem para implantar um módulo que env
 
 ## <a name="view-generated-data"></a>Exibir os dados gerados
 
-Neste guia de início rápido, você criou um novo dispositivo IoT Edge e instalou o tempo de execução de IoT Edge nele. Em seguida, você usou o Portal do Azure para enviar por push um módulo do IoT Edge para ser executado no dispositivo sem precisar fazer alterações no próprio dispositivo. Nesse caso, o módulo enviado por push cria dados de ambiente que podem ser usados para os tutoriais. 
+Neste tutorial, você criou um novo dispositivo IoT Edge e instalou o tempo de execução de IoT Edge nele. Em seguida, você usou o Portal do Azure para enviar por push um módulo do IoT Edge para ser executado no dispositivo sem precisar fazer alterações no próprio dispositivo. Nesse caso, o módulo enviado por push cria dados de ambiente que podem ser usados para os tutoriais. 
 
-Exiba as mensagens que estão sendo enviadas do módulo tempSensor:
+Abra o prompt de comando no computador executando o seu dispositivo simulado novamente. Confirme se o módulo implantado da nuvem está em execução no seu dispositivo IoT Edge:
 
-```cmd/sh
-docker logs -f tempSensor
+```cmd
+sudo docker ps
 ```
+
+![Exibir três módulos no seu dispositivo](./media/tutorial-simulate-device-linux/docker-ps2.png)
+
+Exiba as mensagens que estão sendo enviadas do módulo tempSensor para a nuvem:
+
+```cmd
+sudo docker logs -f tempSensor
+```
+
+![Exibir os dados do seu módulo](./media/tutorial-simulate-device-linux/docker-logs.png)
 
 Também exiba a telemetria sendo enviada pelo dispositivo usando a [ferramenta Gerenciador do Hub IoT][lnk-iothub-explorer]. 
 

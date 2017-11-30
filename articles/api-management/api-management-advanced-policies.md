@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: e5a658e0d20d42911870f2522f6c1bab7529ea11
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 08834531b78a857b54f0e9e792290774f9e477de
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="api-management-advanced-policies"></a>Políticas avançadas de Gerenciamento de API
 Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -268,26 +268,26 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 -   **Escopos da política:** todos os escopos  
   
 ##  <a name="LimitConcurrency"></a> Simultaneidade de limite  
- A política `limit-concurrency` impede que as políticas embutidas sejam executadas mais do que o número especificado de solicitações em um determinado momento. Ao exceder o limite, novas solicitações são adicionadas a uma fila, até que o comprimento máximo da fila seja atingido. Quando a fila atinge seu máximo, novas solicitações falham imediatamente.
+ A política `limit-concurrency` impede que as políticas embutidas sejam executadas mais do que o número especificado de solicitações em um determinado momento. Ao exceder esse número, novos pedidos falharão imediatamente com o código de status 429 Número excessivo de solicitações.
   
 ###  <a name="LimitConcurrencyStatement"></a> Declaração de política  
   
 ```xml  
-<limit-concurrency key="expression" max-count="number" timeout="in seconds" max-queue-length="number">
+<limit-concurrency key="expression" max-count="number">
         <!— nested policy statements -->  
 </limit-concurrency>
 ``` 
 
 ### <a name="examples"></a>Exemplos  
   
-####  <a name="ChooseExample"></a> Exemplo  
+#### <a name="example"></a>Exemplo  
  O exemplo a seguir demonstra como limitar o número de solicitações encaminhadas a um back-end com base no valor de uma variável de contexto.
  
 ```xml  
 <policies>
   <inbound>…</inbound>
   <backend>
-    <limit-concurrency key="@((string)context.Variables["connectionId"])" max-count="3" timeout="60">
+    <limit-concurrency key="@((string)context.Variables["connectionId"])" max-count="3">
       <forward-request timeout="120"/>
     <limit-concurrency/>
   </backend>
@@ -307,10 +307,8 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 |---------------|-----------------|--------------|--------------|  
 |chave|Uma cadeia de caracteres. Expressão permitida. Especifica o escopo de simultaneidade. Pode ser compartilhado por várias políticas.|Sim|N/D|  
 |max-count|Um inteiro. Especifica um número máximo de solicitações que são permitidas para inserir a política.|Sim|N/D|  
-|Tempo limite|Um inteiro. Expressão permitida. Especifica o número de segundos que uma solicitação deve esperar para inserir um escopo antes de falhar com "429 Muitas solicitações"|Não|Infinito|  
-|max-queue-length|Um inteiro. Expressão permitida. Especifica o comprimento máximo da fila. Solicitações de entrada que tentarem inserir essa política serão encerradas com "429 Muitas solicitações" assim que a fila atingir seu comprimento máximo.|Não|Infinito|  
   
-###  <a name="ChooseUsage"></a> Uso  
+### <a name="usage"></a>Uso  
  Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
   
 -   **Seções da política:** entrada, saída, back-end, em caso de erro  

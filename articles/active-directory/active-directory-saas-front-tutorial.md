@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2017
+ms.date: 11/15/2017
 ms.author: jeedes
-ms.openlocfilehash: d936bc50a66ac2a3c17038ff08351edf9902c99f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 944149746b05108040cd0cc340e882b39713f06e
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-front"></a>Tutorial: integração do Azure Active Directory ao Front
 
@@ -104,66 +104,60 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
  
     ![Caixa de diálogo Logon único](./media/active-directory-saas-front-tutorial/tutorial_front_samlbase.png)
 
-3. Na seção **Domínio e URLs do Front**, se desejar configurar o aplicativo no modo iniciado pelo **IDP**:
+3. Na seção **URLs e Domínio do Front**, execute as seguintes etapas:
 
     ![Configurar Logon Único](./media/active-directory-saas-front-tutorial/tutorial_front_url1.png)
 
     a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<companyname>.frontapp.com`
 
     b. Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://<companyname>.frontapp.com/sso/saml/callback`
-
-4. Marque **Mostrar configurações avançadas de URL** se quiser configurar o aplicativo no modo iniciado em **SP**:
-
-    ![Configurar Logon Único](./media/active-directory-saas-front-tutorial/tutorial_front_url2.png)
-
-    Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<companyname>.frontapp.com`
      
     > [!NOTE] 
-    > Esses valores não são reais. Atualize esses valores com o Identificador, a URL de Resposta e a URL de Logon reais, que são explicados adiante no tutorial ou contate a [equipe de suporte do Front Client](mailto:support@frontapp.com) para obter esses valores. 
+    > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Resposta reais, que são explicados adiante no tutorial ou contate a [equipe de suporte do Cliente Front](mailto:support@frontapp.com) para obter esses valores. 
 
-5. Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado no computador.
+4. Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado no computador.
 
     ![Configurar o logon único](./media/active-directory-saas-front-tutorial/tutorial_front_certificate.png) 
 
-6. Clique no botão **Salvar** .
+5. Clique no botão **Salvar** .
 
     ![Configurar Logon Único](./media/active-directory-saas-front-tutorial/tutorial_general_400.png)
     
-7. Na seção **Configuração do Front**, clique em **Configurar Front** para abrir a janela **Configurar Logon**. Copie a **URL de saída, a ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.**
+6. Na seção **Configuração do Front**, clique em **Configurar Front** para abrir a janela **Configurar Logon**. Copie a **URL de saída, a ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.**
 
     ![Configurar Logon Único](./media/active-directory-saas-front-tutorial/tutorial_front_configure.png) 
 
-8. Faça logon no seu locatário do Front como administrador.
+7. Faça logon no seu locatário do Front como administrador.
 
-9. Acesse as **Configurações (ícone de engrenagem na parte inferior da barra lateral esquerda) > Preferências**.
+8. Acesse as **Configurações (ícone de engrenagem na parte inferior da barra lateral esquerda) > Preferências**.
    
     ![Configurar o logon único no lado do aplicativo](./media/active-directory-saas-front-tutorial/tutorial_front_000.png)
 
-10. Clique no link **Logon Único** .
+9. Clique no link **Logon Único** .
    
     ![Configurar o logon único no lado do aplicativo](./media/active-directory-saas-front-tutorial/tutorial_front_001.png)
 
-11. Selecione **SAML** na lista suspensa do **Logon Único**.
+10. Selecione **SAML** na lista suspensa do **Logon Único**.
    
     ![Configurar o logon único no lado do aplicativo](./media/active-directory-saas-front-tutorial/tutorial_front_002.png)
 
-12. Na caixa de texto **Ponto de Entrada**, insira o valor da **URL de serviço de logon único** do assistente de configuração de aplicativo do Azure AD.
+11. Na caixa de texto **Ponto de Entrada**, insira o valor da **URL de serviço de logon único** do assistente de configuração de aplicativo do Azure AD.
     
     ![Configurar o logon único no lado do aplicativo](./media/active-directory-saas-front-tutorial/tutorial_front_003.png)
 
-13. Abra o arquivo de **Certificado (Base64)** baixado no bloco de notas, copie o conteúdo dele para a área de transferência e, depois, cole-o na caixa de texto **Certificado de autenticação**.
+12. Abra o arquivo de **Certificado (Base64)** baixado no bloco de notas, copie o conteúdo dele para a área de transferência e, depois, cole-o na caixa de texto **Certificado de autenticação**.
     
     ![Configurar o logon único no lado do aplicativo](./media/active-directory-saas-front-tutorial/tutorial_front_004.png)
 
-14. Na seção de **Configurações de provedores de serviço**, execute as seguintes etapas:
+13. Na seção de **Configurações de provedores de serviço**, execute as seguintes etapas:
 
     ![Configurar o logon único no lado do aplicativo](./media/active-directory-saas-front-tutorial/tutorial_front_005.png)
 
     a. Copie o valor da **ID da entidade** e cole-o na caixa de texto **Identificador**, na seção **Domínio e URLs do Front** no portal do Azure.
 
-    b. Copie o valor da **URL do ACS** e cole-o na caixa de texto **URL de Logon**, na seção **Domínio e URLs do Front** no portal do Azure.
+    b. Copie o valor do **URL do ACS** e cole-o na caixa de texto **URL de Resposta**, na seção **Domínio e URLs do Front** no portal do Azure.
     
-15. Clique no botão **Salvar** .
+14. Clique no botão **Salvar** .
 
 > [!TIP]
 > É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)

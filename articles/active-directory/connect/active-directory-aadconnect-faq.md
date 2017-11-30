@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/12/2017
 ms.author: billmath
-ms.openlocfilehash: f1314b05d7471b6251de2173dc590bdebdafb476
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9d11795aa8b768a8574c3f8bc375b74402825ba3
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>Perguntas frequentes sobre o Azure Active Directory Connect
 
@@ -43,8 +43,14 @@ Todos os softwares de rede, dispositivos físicos ou qualquer outra coisa que li
 **P: Os SLDs (domínios de rótulo único) têm suporte?**  
 Não, o Azure AD Connect não oferece suporte a florestas/domínios locais usando SLDs.
 
+**P: as florestas com domínios do AD não contíguos têm suporte?**  
+Não, o Azure AD Connect não oferece suporte a florestas locais que contêm namespaces contíguos.
+
 **P: Há suporte a nomes NetBios com pontos?**  
 Não, o Azure AD Connect não oferece suporte a florestas/domínios locais em que o nome NetBios contém um ponto "." no nome.
+
+**P: há suporte para o ambiente puro do IPv6?**  
+Não, o Azure AD Connect não oferece suporte ao ambiente puro do IPv6.
 
 ## <a name="federation"></a>Federação
 **P: O que devo fazer se receber um email me pedindo para renovar o certificado do Office 365?**  

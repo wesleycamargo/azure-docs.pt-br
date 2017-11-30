@@ -9,11 +9,11 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: jasonzio
-ms.openlocfilehash: 525d706bd709ae72f2dca1c21e06db533ccf32b4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ebb963236a069f272499fce59945d0cf0d3d647f
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Use a Extensão de Diagnóstico Linux para monitorar as métricas e os logs
 
@@ -39,7 +39,7 @@ Essa extensão funciona com os dois modelos de implantação do Azure.
 
 Você pode habilitar essa extensão usando os cmdlets do Azure PowerShell, os scripts da CLI do Azure ou os modelos de implantação do Azure. Para saber mais, veja [Recursos de extensões](./extensions-features.md).
 
-O Portal do Azure não pode ser usado para habilitar ou configurar o LAD 3.0. Em vez disso, ele instala e configura a versão 2.3. Os gráficos de portal e os alertas do Azure funcionam com dados de ambas as versões da extensão.
+O Portal do Azure não pode ser usado para habilitar ou configurar o LAD 3.0. Em vez disso, ele instala e configura a versão 2.3. Os grafos de portal e os alertas do Azure funcionam com dados de ambas as versões da extensão.
 
 Estas instruções de instalação e uma [configuração de amostra para download](https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json) configuram o LAD 3.0 para:
 
@@ -319,13 +319,13 @@ displayName | O rótulo (no idioma especificado pela configuração da localidad
 
 O counterSpecifier é um identificador arbitrário. Os consumidores de métricas, como o gráfico do Portal do Azure e o recurso de alerta, usam o counterSpecifier como a "chave" que identifica uma métrica ou instância de uma métrica. Para as métricas `builtin`, é recomendável usar valores counterSpecifier que começam com `/builtin/`. Se você estiver coletando a instância específica de uma métrica, recomendamos anexar o identificador da instância para o valor de counterSpecifier. Alguns exemplos:
 
-* `/builtin/Processor/PercentIdleTime` – tempo ocioso médio de todos os núcleos
+* `/builtin/Processor/PercentIdleTime` – tempo ocioso médio de todas as vCPUs
 * `/builtin/Disk/FreeSpace(/mnt)` – espaço livre para o sistema de arquivos /mnt
 * `/builtin/Disk/FreeSpace` – espaço livre com a média de todos os sistemas de arquivos montados
 
 Nem o LAD nem o Portal do Azure esperam que o valor counterSpecifier corresponda a qualquer padrão. Seja consistente no modo como você constrói valores counterSpecifier.
 
-Quando você especifica `performanceCounters`, o LAD sempre grava dados em uma tabela no armazenamento do Azure. Você pode ter os mesmos dados gravados em blobs JSON e/ou Hubs de Eventos, mas não é possível desabilitar o armazenamento de dados em uma tabela. Todas as instâncias da extensão do diagnóstico configurado para usar o mesmo nome de conta de armazenamento e ponto de extremidade adicionam suas métricas e seus logs na mesma tabela. Se muitas VMs estiverem gravando na mesma partição de tabela, o Azure poderá limitar as gravações nessa partição. A configuração eventVolume faz as entradas serem distribuídas entre 1 (pequeno), 10 (médio) ou 100 (grande) partições diferentes. Normalmente, "médio" é suficiente para garantir que o tráfego não seja limitado. O recurso de Métricas do Azure do Portal do Azure usa os dados nesta tabela para gerar gráficos ou disparar alertas. O nome da tabela é a concatenação dessas cadeias de caracteres:
+Quando você especifica `performanceCounters`, o LAD sempre grava dados em uma tabela no armazenamento do Azure. Você pode ter os mesmos dados gravados em blobs JSON e/ou Hubs de Eventos, mas não é possível desabilitar o armazenamento de dados em uma tabela. Todas as instâncias da extensão do diagnóstico configurado para usar o mesmo nome de conta de armazenamento e ponto de extremidade adicionam suas métricas e seus logs na mesma tabela. Se muitas VMs estiverem gravando na mesma partição de tabela, o Azure poderá limitar as gravações nessa partição. A configuração eventVolume faz as entradas serem distribuídas entre 1 (pequeno), 10 (médio) ou 100 (grande) partições diferentes. Normalmente, "médio" é suficiente para garantir que o tráfego não seja limitado. O recurso de Métricas do Azure do Portal do Azure usa os dados nesta tabela para gerar grafos ou disparar alertas. O nome da tabela é a concatenação dessas cadeias de caracteres:
 
 * `WADMetrics`
 * O "scheduledTransferPeriod" para os valores agregados armazenados na tabela
@@ -424,7 +424,7 @@ O provedor interno de métricas é uma fonte de métricas mais interessante para
 
 ### <a name="builtin-metrics-for-the-processor-class"></a>métricas internas para a classe Processor
 
-A classe de métricas Processor fornece informações sobre o uso do processador na VM. Ao agregar porcentagens, o resultado é a média em todas as CPUs. Em uma VM de dois núcleos, se um núcleo estiver 100% ocupado e o outro 100% ocioso, o PercentIdleTime relatado seria 50. Se cada núcleo estiver 50% ocupado para o mesmo período, o resultado relatado também seria 50. Em uma VM de quatro núcleos, com um núcleo 100% ocupado e o outro ocioso, o PercentIdleTime relatado seria 75.
+A classe de métricas Processor fornece informações sobre o uso do processador na VM. Ao agregar porcentagens, o resultado é a média em todas as CPUs. Em uma VM de duas vCPUs, se uma vCPU estiver 100% ocupada e a outra 100% ociosa, o PercentIdleTime relatado será de 50. Se cada vCPU estiver 50% ocupada para o mesmo período, o resultado relatado também será de 50. Em uma VM de vCPUs, com um vCPU 100% ocupada e a outra ociosa, o PercentIdleTime relatado seria de 75.
 
 contador | Significado
 ------- | -------
@@ -438,7 +438,7 @@ PercentPrivilegedTime | De tempo não ocioso, a porcentagem gasta em modo privil
 
 Os primeiros quatro contadores devem somar 100%. Os três últimos contadores também somam 100%; eles subdividem a soma de PercentProcessorTime, PercentIOWaitTime e PercentInterruptTime.
 
-Para obter uma única métrica agregada em todos os processadores, defina `"condition": "IsAggregate=TRUE"`. Para obter uma métrica para um processador específico, como o segundo processador lógico de uma VM de quatro núcleos, defina `"condition": "Name=\\"1\\""`. Os números de processadores lógicos estão no intervalo `[0..n-1]`.
+Para obter uma única métrica agregada em todos os processadores, defina `"condition": "IsAggregate=TRUE"`. Para obter uma métrica para um processador específico, como o segundo processador lógico de uma VM de quatro vCPUs, defina `"condition": "Name=\\"1\\""`. Os números de processadores lógicos estão no intervalo `[0..n-1]`.
 
 ### <a name="builtin-metrics-for-the-memory-class"></a>métricas internas para a classe Memory
 

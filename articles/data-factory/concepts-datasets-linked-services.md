@@ -13,14 +13,12 @@ ms.devlang: na
 ms.topic: 
 ms.date: 09/05/2017
 ms.author: shlo
+ms.openlocfilehash: a13e19c7e1a22581b14d1a96e20b8a649c303fc3
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
-ms.sourcegitcommit: c3a2462b4ce4e1410a670624bcbcec26fd51b811
-ms.openlocfilehash: f03c91b7b27a4fb39b996599efd11242a785b2b2
-ms.contentlocale: pt-br
-ms.lasthandoff: 09/25/2017
-
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/17/2017
 ---
-
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Conjuntos de dados e serviços vinculados no Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1 – já disponível](v1/data-factory-create-datasets.md)
@@ -185,7 +183,7 @@ As diretrizes a seguir ajudam você a determinar quando incluir informações de
 Saiba mais sobre como o data factory mapeia dados de origem até o coletor e quando especificar informações de estrutura em [Esquema e mapeamento de tipo]( copy-activity-schema-and-type-mapping.md).
 
 ## <a name="create-datasets"></a>Criar conjuntos de dados
-Você pode criar conjuntos de dados usando uma dessas ferramentas ou SDKs:[.NET API](quickstart-create-data-factory-dot-net.md), [PowerShell]((quickstart-create-data-factory-powershell.md), [REST API](quickstart-create-data-factory-rest-api.md), modelo do Azure Resource Manager e Portal do Azure
+Você pode criar conjuntos de dados usando uma dessas ferramentas ou SDKs: [API do .NET](quickstart-create-data-factory-dot-net.md), [PowerShell](quickstart-create-data-factory-powershell.md), [API REST](quickstart-create-data-factory-rest-api.md), modelo do Azure Resource Manager e Portal do Azure
 
 ## <a name="v1-vs-v2-datasets"></a>Conjuntos de dados V1 versus V2
 
@@ -202,4 +200,3 @@ Consulte os seguintes tutoriais para obter instruções passo a passo para criar
 - [Início rápido: criar um data factory usando o PowerShell](quickstart-create-data-factory-powershell.md)
 - [Início rápido: criar um data factory usando a API REST](quickstart-create-data-factory-rest-api.md)
 - Início rápido: criar um data factory usando o Portal do Azure
-

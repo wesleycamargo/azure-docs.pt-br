@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 10/30/2017
+ms.date: 11/20/2017
 ms.author: mimig
-ms.openlocfilehash: 5a793abdc24387ae2b758d29b9dfb25f134097d3
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: b36de6bce597569b4e1eaa615860acdf28dfa798
+ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/21/2017
 ---
 # <a name="azure-cosmos-db-create-a-document-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: Criar um banco de dados de documentos usando o Java e o portal do Azure
 
@@ -97,13 +97,19 @@ Isso conclui nosso trabalho no Data Explorer. Antes de prosseguirmos para trabal
 
 Agora, vamos trabalhar com o código. Vamos clonar um aplicativo de API do DocumentDB do GitHub, definir a cadeia de conexão e executá-la. Você verá como é fácil trabalhar usando dados de forma programática. 
 
-1. Abra uma janela de terminal de git, como git bash, e use o comando `cd` para alterar para uma pasta para instalar o aplicativo de exemplo. 
+1. Abra um prompt de comando, crie uma nova pasta chamada exemplos de git e feche o prompt de comando.
+
+    ```bash
+    md "C:\git-samples"
+    ```
+
+2. Abra uma janela de terminal de git, como git bash, e use o comando `cd` para alterar para a nova pasta para instalar o aplicativo de exemplo. 
 
     ```bash
     cd "C:\git-samples"
     ```
 
-2. Execute o comando a seguir para clonar o repositório de exemplo. Este comando cria uma cópia do aplicativo de exemplo no seu computador.
+3. Execute o comando a seguir para clonar o repositório de exemplo. Este comando cria uma cópia do aplicativo de exemplo no seu computador.
 
     ```bash
     git clone https://github.com/Azure-Samples/azure-cosmos-db-documentdb-java-getting-started.git
@@ -209,13 +215,25 @@ Agora, volte ao portal do Azure para obter informações sobre a cadeia de conex
     cd "C:\git-samples\azure-cosmos-db-documentdb-java-getting-started"
     ```
 
-2. Na janela do terminal git, digite `mvn package` para instalar os pacotes necessários do Java.
+2. Na janela do terminal git, use o seguinte comando para instalar os pacotes necessários do Java.
 
-3. Na janela do terminal de git, execute `mvn exec:java -D exec.mainClass=GetStarted.Program` para iniciar o aplicativo Java.
+    ```
+    mvn package
+    ```
 
-    A janela de terminal exibe uma notificação de que o banco de dados FamilyDB foi criado. Pressione uma tecla para criar a coleção, em seguida, alterne para o Data Explorer e verá que agora ele contém um banco de dados FamilyDB.
+3. Na janela do terminal git, use os comandos a seguir para iniciar o aplicativo Java.
+
+    ```
+    mvn exec:java -D exec.mainClass=GetStarted.Program
+    ```
+
+    A janela de terminal exibe uma notificação de que o banco de dados FamilyDB foi criado. 
     
-    Continue a pressionar teclas para criar os documentos, em seguida, faça uma consulta.
+4. Pressione uma tecla para criar a coleção. 
+
+5. Alterne para o Data Explorer e verá que agora ele contém um banco de dados FamilyDB.
+    
+6. Continue a pressionar teclas na janela do console para que o código crie documentos e execute uma consulta.
     
     No final do programa, todos os recursos deste aplicativo são excluídos de sua conta para que você não seja cobrado. 
 

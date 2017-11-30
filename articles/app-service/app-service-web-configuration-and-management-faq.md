@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: 3bf9e4673ffb756a8d159ed5733d3ddca70010c7
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 92cbc36ac2a566cf5dfbb2f7b3347973bab5ee8c
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Perguntas frequentes sobre configuração e gerenciamento de aplicativos Web no Azure
 
@@ -147,7 +147,7 @@ Exception: System.Data.Entity.Core.EntityException: The underlying provider fail
 
 ### <a name="resolution"></a>Resolução
 
-Estamos trabalhando para atualizar o Gerenciador de Conexões Híbrido para corrigir esse problema. Para soluções alternativas, consulte [erro de conexões híbridas com o SQL Server: System. OverflowException: operação aritmética resultou em um excesso](https://blogs.msdn.microsoft.com/waws/2016/05/17/hybrid-connection-error-with-sql-server-system-overflowexception-arithmetic-operation-resulted-in-an-overflow/).
+A exceção foi causada por um problema com o Gerenciador de Conexões Híbridas que desde então foi corrigido. Certifique-se de [atualizar o Gerenciador de Conexões Híbridas](https://go.microsoft.com/fwlink/?LinkID=841308) para resolver esse problema.
 
 ## <a name="how-do-i-add-or-edit-a-url-rewrite-rule"></a>Como adicionar ou editar uma regra de regravação de URL?
 
@@ -319,4 +319,4 @@ Você também pode especificar os tipos MIME específicos para dinâmico e está
 
 ## <a name="how-do-i-migrate-from-an-on-premises-environment-to-app-service"></a>Como migrar de um ambiente local para o ambiente do Serviço de Aplicativo?
 
-Para migrar sites de servidores de web do Windows e Linux para o Serviço de Aplicativo, você pode usar o Assistente de Migração do Serviço de Aplicativo do Azure. A ferramenta de migração cria bancos de dados e aplicativos web no Azure, conforme necessário e, em seguida, publica o conteúdo. Para saber mais, consulte [Assistente de Migração do Serviço de Aplicativo do Azure](https://www.movemetothecloud.net/).
+Para migrar sites de servidores de web do Windows e Linux para o Serviço de Aplicativo, você pode usar o Assistente de Migração do Serviço de Aplicativo do Azure. A ferramenta de migração cria bancos de dados e aplicativos web no Azure, conforme necessário e, em seguida, publica o conteúdo. Para saber mais, consulte [Assistente de Migração do Serviço de Aplicativo do Azure](https://www.migratetoazure.net/).
