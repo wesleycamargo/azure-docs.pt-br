@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: denlee
-ms.openlocfilehash: ba824ed1bad49c71f8de9f2da8249945d9430222
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 1efdda867703613e4f85e6994004df32e70ccb3d
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-the-spark-to-azure-cosmos-db-connector"></a>Acelerar a análise de Big Data em tempo real com o conector do Spark ao Azure Cosmos DB
 
 O conector do Spark ao Azure Cosmos DB permite que o Azure Cosmos DB atue como uma fonte de entrada ou um coletor de saída para trabalhos do Apache Spark. Conectar o [Spark](http://spark.apache.org/) ao [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) acelera sua capacidade de solucionar problemas de ciência de dados ágeis na qual você pode usar o Azure Cosmos DB para manter e consultar dados rapidamente. O conector do Spark ao Azure Cosmos DB utiliza com eficiência os índices gerenciados nativos do Azure Cosmos DB. Os índices habilitam colunas atualizáveis quando você executa uma análise e filtragem predicada em dados de alteração rápida distribuídos globalmente, que variam de Internet das coisas (IoT) para ciência de dados e cenários de análise.
 
-Para trabalhar com Spark GraphX e o Gremlin graph APIs do Azure Cosmos DB, consulte [Executar análise de gráfico com Spark e Apache TinkerPop Gremlin](spark-connector-graph.md).
+Para trabalhar com Spark GraphX e as APIs de grafo do Gremlin do Azure Cosmos DB, consulte [Executar análise de grafo com Spark e Apache TinkerPop Gremlin](spark-connector-graph.md).
 
 ## <a name="download"></a>Baixar
 
@@ -79,7 +79,7 @@ A comunicação entre o Spark e o Azure Cosmos DB é limitada ao nó mestre do S
 ### <a name="install-pydocumentdb"></a>Instalar o pyDocumentDB
 Você pode instalar o pyDocumentDB em seu nó de driver usando **pip**, por exemplo:
 
-```
+```bash
 pip install pyDocumentDB
 ```
 
@@ -89,7 +89,7 @@ A simplicidade do transporte da comunicação torna a execução de uma consulta
 
 O trecho de código a seguir mostra como usar o pyDocumentDB dentro de um contexto do Spark.
 
-```
+```python
 # Import Necessary Libraries
 import pydocumentdb
 from pydocumentdb import document_client
@@ -117,7 +117,7 @@ Conforme observado no trecho de código:
 ### <a name="execute-spark-queries-via-pydocumentdb"></a>Executar consultas Spark via pyDocumentDB
 Os exemplos a seguir usam a instância do Azure Cosmos DB criada no trecho anterior usando as chaves somente leitura especificadas. O trecho de código a seguir se conecta à coleção **airports.codes** na conta DoctorWho, conforme especificado anteriormente executando uma consulta para extrair as cidades com aeroporto no estado de Washington.
 
-```
+```python
 # Configure Database and Collections
 databaseId = 'airports'
 collectionId = 'codes'
@@ -141,7 +141,7 @@ elements = list(query)
 
 Após a execução da consulta por meio de **consulta**, o resultado será um **query_iterable.QueryIterable** que é convertido em uma lista de Python. Uma lista de Python pode ser facilmente convertida em um DataFrame do Spark usando o seguinte código:
 
-```
+```python
 # Create `df` Spark DataFrame from `elements` Python list
 df = spark.createDataFrame(elements)
 ```
@@ -183,7 +183,7 @@ spark-shell --master $master --jars /$location/azure-cosmosdb-spark-0.0.3-jar-wi
 
 se você quiser executar o JAR sem dependências, use o seguinte código:
 
-```
+```bash
 spark-shell --master $master --jars /$location/azure-cosmosdb-spark-0.0.3.jar,/$location/azure-documentdb-1.10.0.jar
 ```
 
@@ -312,12 +312,12 @@ group by destination
 order by sum(delay) desc limit 10
 ```
 
-![Gráfico da consulta Spark GROUP BY do Spark](./media/spark-connector/group-by-query-graph.png)
+![Grafo da consulta Spark GROUP BY do Spark](./media/spark-connector/group-by-query-graph.png)
 
 ### <a name="distinct-order-by-query"></a>Consulta DISTINCT, ORDER BY
 E aqui está uma consulta **DISTINCT, ORDER BY**:
 
-![Gráfico da consulta Spark GROUP BY do Spark](./media/spark-connector/order-by-query.png)
+![Grafo da consulta Spark GROUP BY do Spark](./media/spark-connector/order-by-query.png)
 
 ### <a name="continue-the-flight-data-analysis"></a>Continuar a análise de dados de voo
 Você pode usar os seguintes exemplos de consultas para continuar a análise dos dados de voo:
@@ -330,7 +330,7 @@ where delay < 0
 group by destination
 order by sum(delay) limit 5
 ```
-![Gráfico dos principais atrasos do Spark](./media/spark-connector/top-delays-graph.png)
+![Grafo dos principais atrasos do Spark](./media/spark-connector/top-delays-graph.png)
 
 
 #### <a name="calculate-median-delays-by-destination-cities-departing-from-seattle"></a>Calcular a média de atrasos por cidades de destino partindo de Seattle
@@ -342,7 +342,7 @@ group by destination
 order by percentile_approx(delay, 0.5)
 ```
 
-![Gráfico da média de atrasos do Spark](./media/spark-connector/median-delays-graph.png)
+![Grafos da média de atrasos do Spark](./media/spark-connector/median-delays-graph.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 
