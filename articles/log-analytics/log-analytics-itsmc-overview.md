@@ -1,6 +1,6 @@
 ---
 title: "Conector de Gerenciamento de Serviço de TI no Azure Log Analytics | Microsoft Docs"
-description: "Use o Conector de Gerenciamento de Serviço de TI para monitorar e gerenciar os itens de trabalho de ITSM de forma centralizada no Azure Log Analytics e para resolver problemas rapidamente."
+description: "Este artigo fornece uma visão geral do Conector de Gerenciamento de Serviços de TI (ITSMC) TI e informa como usar esta solução para monitorar e gerenciar centralmente itens de trabalho do ITSM no OMS Log Analytics, e também resolver problemas rapidamente."
 services: log-analytics
 documentationcenter: 
 author: JYOTHIRMAISURI
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: v-jysur
-ms.openlocfilehash: ba8542640fcec6e4bc63d8f0a41bf85b221d4c5e
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: bd384255b3c46b3ae88b1269ab26e0ddaa6f6e77
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="centrally-manage-itsm-work-items-using-it-service-management-connector-preview"></a>Gerenciar itens de trabalho de ITSM de forma centralizada usando o Conector de Gerenciamento de Serviço de TI (Visualização)
 
 ![Símbolo do Conector de Gerenciamento do Serviço de TI](./media/log-analytics-itsmc/itsmc-symbol.png)
 
-O ITSMC (Conector de Gerenciamento de Serviço de TI) fornece uma integração bidirecional entre um produto ou serviço de ITSM (Gerenciamento de Serviço de TI) e o Log Analytics.  Por essa conexão, você pode criar incidentes, alertas ou eventos no produto de ITSM com base em alertas ou em registros de log do Log Analytics. O conector também importa dados, como incidentes e solicitações de alteração do produto de ITSM para o OMS Log Analytics.
+O ITSMC (Conector de Gerenciamento de Serviço de TI) fornece uma integração bidirecional entre um produto ou serviço de ITSM (Gerenciamento de Serviço de TI) e o Log Analytics.  Por essa conexão, você pode criar incidentes, alertas ou eventos no produto de ITSM com base em alertas do Log Analytics, registros de log ou alertas do Azure. O conector também importa dados, como incidentes e solicitações de alteração do produto de ITSM para o OMS Log Analytics.
 
 Com o ITSMC, você pode:
 
@@ -56,7 +56,7 @@ Após a adição bem-sucedida, você verá o Conector de Gerenciamento de Servi�
  ![Atualização do ITSMC](./media/log-analytics-itsmc/itsmc-connection-refresh.png)
 
 
-## <a name="configuring-the-connection-with-your-itsm-software"></a>Configurando a conexão com seu software de ITSM
+## <a name="configuring-the-itsmc-connection-with-your-itsm-productsservices"></a>Configurar a conexão ITSMC com seus produtos/serviços ITSM
 
 O ITSMC oferece suporte a conexões ao **System Center Service Manager**, **ServiceNow**, **Provance** e **Cherwell**.
 
@@ -258,6 +258,7 @@ Você também pode criar itens de trabalho nas origens de ITSM conectadas direta
 4. Forneça os valores apropriados nas caixas de texto **Tipo de Contato**, **Impacto**, **Urgência**, **Categoria** e **Subcategoria** e clique em **Criar**.
 
 ## <a name="create-itsm-work-items-from-azure-alerts"></a>Criar itens de trabalho de ITSM desde alertas do Azure
+
 O ITSMC é integrado a Grupos de Ações.
 
 Os [Grupos de Ações](../monitoring-and-diagnostics/monitoring-action-groups.md) fornecem uma maneira modular e reutilizável de disparo de ações para alertas do Azure. Usando a Ação de ITSM nos Grupos de Ação, você pode criar itens de trabalho em seu produto de ITSM que tenha uma conexão existente para a solução de conector de ITSM.
@@ -286,7 +287,7 @@ Ao criar/editar uma regra de alerta do Azure, use um grupo de ações que tenha 
 
 >[!NOTE]
 
-> Atualmente, apenas alertas do log de atividades dão suporte para a Ação de ITSM. Não há suporte para a ação ITSM para outros alertas do Azure.
+> No momento, somente alertas do Log de Atividades dão suporte à Ação de ITSM; outros alertas não oferecem esse suporte.
 
 
 ## <a name="troubleshoot-itsm-connections-in-oms"></a>Solucionar problemas de conexões de ITSM no OMS

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: c1b832895476e2f64bbae638db76f89890e5c804
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 5369946b1e8a4851ee940cf6fe91a1bdb94db5f3
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Gerenciar um plano do Serviço de Aplicativo no Azure
 
@@ -58,7 +58,7 @@ Selecione **Alterar plano do Serviço de Aplicativo** para iniciar o processo.
 
 **Alterar Plano do Serviço de Aplicativo** abre o seletor **Plano do Serviço de Aplicativo**. Selecione um plano existente para mover este aplicativo. 
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > A página de **Plano do Serviço de Aplicativo** é filtrada pelos seguintes critérios: 
 > - Existe dentro do mesmo grupo de recursos 
 > - Existe na mesma região geográfica 
@@ -82,7 +82,7 @@ A região em que seu aplicativo é executado é a região do plano de serviço d
 
 ## <a name="scale-an-app-service-plan"></a>Dimensionar um plano de Serviço de Aplicativo
 
-Para dimensionar um plano de serviço de aplicativo da camada de preços, consulte [Dimensionar um aplicativo no Azure](web-sites-scale.md).
+Para dimensionar um plano do Serviço de Aplicativo da camada de preços, consulte [Dimensionar um aplicativo no Azure](web-sites-scale.md).
 
 Para dimensionamento horizontal de contagem de instância do aplicativo, consulte [Dimensionar a contagem de instâncias manual ou automaticamente](../monitoring-and-diagnostics/insights-how-to-scale.md).
 

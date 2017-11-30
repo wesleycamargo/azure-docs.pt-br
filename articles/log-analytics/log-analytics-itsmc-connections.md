@@ -1,6 +1,6 @@
 ---
 title: "Conexões com suporte do Conector de Gerenciamento de Serviço de TI no Azure Log Analytics | Microsoft Docs"
-description: "Conecte seus produtos/serviços de ITSM com o Conector de Gerenciamento de Serviço de TI no Azure Log Analytics para monitorar e gerenciar os itens de trabalho ITSM de forma centralizada."
+description: "Este artigo fornece informações sobre como conectar seus produtos/serviços de ITSM com o Conector de Gerenciamento de Serviço de TI (ITSMC) no Log Analytics do OMS para monitorar e gerenciar os itens de trabalho ITSM de forma centralizada."
 documentationcenter: 
 author: JYOTHIRMAISURI
 manager: riyazp
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
 ms.author: v-jysur
-ms.openlocfilehash: e801d484ffb40a0d4aed517a741c45dc76b62b37
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: d1f6d3af5fc414d06f4a6d3aeda660b759a88353
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector-preview"></a>Conectar produtos/serviços ITSM ao Conector de Gerenciamento do Serviço de TI (Versão Prévia)
-Este artigo fornece informações sobre como conectar seu produto ou serviço ITSMC (Conector de Gerenciamento de Serviços de TI) no OMS e gerenciar centralmente os seus itens de trabalho. Para saber mais sobre ITSMC, confira [Visão geral de ITSMC](log-analytics-itsmc-overview.md).
+Este artigo fornece informações sobre como conectar seu produto ou serviço ITSMC (Conector de Gerenciamento de Serviços de TI) no OMS e gerenciar centralmente os seus itens de trabalho. Para saber mais sobre ITSMC, consulte [Visão geral](log-analytics-itsmc-overview.md).
 
-Há suporte para os seguintes produtos/serviços:
+Há suporte para os seguintes produtos/serviços ITSM. Selecione o produto para exibir informações detalhadas sobre como conectar o produto ao ITSMC.
 
 - [System Center Service Manager](#connect-system-center-service-manager-to-it-service-management-connector-in-oms)
 - [ServiceNow](#connect-servicenow-to-it-service-management-connector-in-oms)
@@ -162,7 +162,7 @@ Sua conexão híbrida foi conectada com êxito.
 
 > Após a criação da conexão híbrida, verifique e teste a conexão ao visitar o aplicativo Web do Service Manager. Certifique-se de que a conexão tenha sido bem-sucedida antes de tentar se conectar ao ITSMC no OMS.
 
-A imagem a seguir mostra os detalhes de uma conexão bem-sucedida:
+O exemplo a seguir mostra os detalhes de uma conexão bem-sucedida:
 
 ![Teste de conexão híbrida](./media/log-analytics-itsmc/itsmc-hybrid-connection-test.png)
 

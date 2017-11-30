@@ -3,41 +3,76 @@ title: "Série SKU não disponível | Microsoft Docs"
 description: "Algumas séries de SKU não estão disponíveis para a assinatura selecionada para essa região."
 services: Azure Supportability
 documentationcenter: 
-author: ganganarayanan
-manager: scotthit
+author: stevendotwang
+manager: rajatk
 editor: 
-ms.assetid: 5496728b-8da4-4c99-8557-a196be14c42d
 ms.service: azure-supportability
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/12/2016
-ms.author: gangan
-ms.openlocfilehash: 3dc32bfb88e43e82cc4b3f43e31ce20d4302b688
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/09/2017
+ms.author: xingwan
+ms.openlocfilehash: 62964d0c5d75168226a35b25e5c256a1b57f3f81
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="sku-series-unavailable"></a>Série de SKU indisponível
-Em algumas regiões, determinados SKUs não ficam automaticamente disponíveis em novas assinaturas.  Isso pode ocorrer quando [SKUs mais avançados são introduzidos em uma região](https://azure.microsoft.com/updates/announcing-new-dv2-series-virtual-machine-size/) e a popularidade do SKU herdado decai.
-A mensagem "*Algumas séries de SKU não estão disponíveis para a assinatura selecionada para esta região*" é exibida durante a criação de uma solicitação de suporte para aumentar a cota de núcleos de computação.
+# <a name="region-or-sku-unavailable"></a>Região ou SKU não disponível
+Este artigo descreve como resolver o problema de uma assinatura do Azure sem acesso a uma região ou a um SKU de VM.
 
-É possível analisar a disponibilidade do SKU na página [Serviços do Azure por região](https://azure.microsoft.com/regions/#services) . 
+## <a name="symptoms"></a>Sintomas
 
-Para solicitar acesso a um SKU que foi bloqueado em sua assinatura, crie uma solicitação de suporte de "Gerenciamento de Assinatura".
+### <a name="when-deploying-a-virtual-machine-you-receive-one-of-the-following-error-messages"></a>Ao implantar uma máquina virtual, você recebe uma das seguintes mensagens de erro:
+```
+Code: SkuNotAvailable
+Message: The requested size for resource '<resource>' is currently not available in location 
+'<location>' zones '<zone>' for subscription '<subscriptionID>'. Please try another size or 
+deploy to a different location or zones. See https://aka.ms/azureskunotavailable for details.
+```
 
-* Na página Noções Básicas, selecione o tipo de Problema como "Gerenciamento de Assinatura" e clique em "Avançar".
+```
+Message: Your subscription doesn’t support virtual machine creation in <location>. Choose a 
+different location. Supported locations are <list of locations>
+```
+
+```
+Code: NotAvailableForSubscription
+Message: This size is currently unavailable in this location for this subscription
+```
+
+### <a name="when-purchasing-reserved-virtual-machine-instances-you-receive-one-of-the-following-error-messages"></a>Ao adquirir Instâncias Reservadas de Máquina Virtual, você recebe uma das seguintes mensagens de erro:
+
+```
+Message: Your subscription doesn’t support virtual machine reservation in <location>. Choose a 
+different location. Supported locations are: <list of locations>  
+```
+
+```
+Message: This size is currently unavailable in this location for this subscription
+```
+
+### <a name="when-creating-a-support-request-to-increase-compute-core-quota-a-region-or-a-sku-family-is-not-available-for-selection"></a>Ao criar uma solicitação de suporte para aumentar a cota de núcleos de computação, uma região ou família de SKU não está disponível para seleção.
+
+## <a name="solution"></a>Solução
+Primeiro, é recomendável que você busque uma alternativa de região ou SKU que atenda às suas necessidades de negócios. Se não conseguir encontrar uma região ou SKU adequada, crie uma [solicitação de suporte](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) para "Gerenciamento de Assinaturas" seguindo as etapas abaixo:
+
+
+- Na página Noções Básicas, selecione o tipo de Problema como "Gerenciamento de Assinaturas" e clique em "Avançar".
 
 ![Folha de Noções básicas](./media/SKU-series-unavailable/BasicsSubMgmt.png)
 
-* Na página do Problema, selecione o tipo de Problema como "Outras perguntas gerais" e insira a região exata e o SKU que você não estiver vendo.
-  Isso ajuda a acelerar o processo de suporte.
+
+-   Na página Problema, selecione o tipo de Problema, como "Outras Perguntas Gerais".
+- Na seção Detalhes:
+  - Indique se você deseja implantar máquinas virtuais ou comprar Instâncias Reservadas de Máquina Virtual
+  - Especifique a região, SKU e o número de instâncias de máquina virtual que você planeja implantar ou comprar
+
 
 ![Problema](./media/SKU-series-unavailable/ProblemSubMgmt.png)
 
-* Na página Informações de Contato, coloque seus detalhes de contato e clique em “Criar”.
+-   Digite seus detalhes de contato e clique em "Criar".
 
 ![Informações de contato](./media/SKU-series-unavailable/ContactInformation.png)
 

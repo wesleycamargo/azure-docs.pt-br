@@ -2,11 +2,14 @@ Um dos principais recursos do Azure IoT Edge é a possibilidade de implantar mó
 
 1. No portal do Azure, navegue para o hub IoT.
 1. Vá para **IoT Edge (versão prévia)** e selecione o dispositivo IoT Edge.
-1. Selecione **Definir módulos**.
-1. Selecione **Adicionar Módulo IoT Edge**.
+1. Selecione **Definir Módulos**.
+1. Selecione **Adicionar Módulo do IoT Edge**.
 1. No campo **Nome**, insira `tempSensor`. 
 1. No campo **URI da Imagem**, insira `microsoft/azureiotedge-simulated-temperature-sensor:1.0-preview`. 
 1. Deixe as outras configurações inalteradas e selecione **Salvar**.
+
+   ![Salve o módulo do IoT Edge depois de inserir o nome e o URI da imagem](./media/iot-edge-deploy-module/name-image.png)
+
 1. De volta à etapa **Adicionar módulos**, clique em **Avançar**.
 1. Na etapa **Especificar rotas**, selecione **Avançar**.
 1. Na etapa **Revisar modelo**, selecione **Enviar**.
