@@ -11,14 +11,13 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: mahender
-ms.openlocfilehash: 8cf2e4e9e9007549dbdc931b4485c4230c536479
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd7bcd57260b9763eabb9b4c915d9ff46e79e931
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-functions-microsoft-graph-bindings"></a>Associações do Microsoft Graph do Azure Functions
-[!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
 Este artigo explica como configurar e trabalhar com gatilhos e associações do Microsoft Graph no Azure Functions.
 Com isso, você pode usar o Azure Functions para trabalhar com eventos, percepções e dados do [Microsoft Graph](https://graph.microsoft.io).
@@ -682,7 +681,7 @@ A associação dá suporte às seguintes propriedades:
 |**name**|Obrigatória – o nome da variável usada no código de função para a mensagem de email. Consulte [Como usar uma associação de saída da mensagem do Outlook do código](#outlook-output-code).|
 |**tipo**|Obrigatório – deve ser definido como `graphWebhook`.|
 |**direction**|Obrigatório – deve ser definido como `trigger`.|
-|**resourceType**|Obrigatório – o recurso de gráfico para o qual essa função deve responder a webhooks. Pode ser um dos seguintes valores:<ul><li><code>#Microsoft.Graph.Message</code> – alterações feitas em mensagens do Outlook.</li><li><code>#Microsoft.Graph.DriveItem</code> – alterações feitas aos itens de raiz do OneDrive.</li><li><code>#Microsoft.Graph.Contact - changes made to personal contacts in Outlook.</code></li><li><code>#Microsoft.Graph.Event - changes made to Outlook calendar items.</code></li></ul>|
+|**resourceType**|Obrigatório – o recurso de grafo para o qual essa função deve responder a webhooks. Pode ser um dos seguintes valores:<ul><li><code>#Microsoft.Graph.Message</code> – alterações feitas em mensagens do Outlook.</li><li><code>#Microsoft.Graph.DriveItem</code> – alterações feitas aos itens de raiz do OneDrive.</li><li><code>#Microsoft.Graph.Contact - changes made to personal contacts in Outlook.</code></li><li><code>#Microsoft.Graph.Event - changes made to Outlook calendar items.</code></li></ul>|
 
 > [!Note]
 > Um aplicativo de função só pode ter uma função que esteja registrada em relação a um determinado valor de `resourceType`.
@@ -1062,3 +1061,8 @@ public class UserSubscription {
 
 [gatilho HTTP]: functions-bindings-http-webhook.md
 [Como trabalhar com webhooks no Microsoft Graph]: https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/webhooks
+
+## <a name="next-steps"></a>Próximas etapas
+
+> [!div class="nextstepaction"]
+> [Aprenda mais sobre gatilhos e de associações do Azure Functions](functions-triggers-bindings.md)

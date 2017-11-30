@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: alkarche
-ms.openlocfilehash: e6aa6913bdb2cf8e581b76b7680d0a96c9858bd1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7b226aa4ec71535aa0222389aacd74764a80021a
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-functions-external-table-binding-preview"></a>Associação de tabela externa do Azure Functions (versão prévia)
 Este artigo mostra como manipular dados tabulares em provedores de SaaS (por exemplo, Sharepoint, Dynamics) com sua função com associações internas. O Azure Functions dá suporte a associações de entrada e saída para tabelas externas.
@@ -198,4 +198,6 @@ No Google Docs, crie uma planilha com uma planilha chamada `Contact`. O conector
 dataSetName é “padrão”.
 
 ## <a name="next-steps"></a>Próximas etapas
-[!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]
+
+> [!div class="nextstepaction"]
+> [Aprenda mais sobre gatilhos e de associações do Azure Functions](functions-triggers-bindings.md)

@@ -10,11 +10,11 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: article
 ms.date: 11/03/2017
-ms.openlocfilehash: af42d4b59b428e96bdd1280a5ee5073842ede4c2
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: dbb88e033d5be73b7b069d69c095d8df2c1faf1b
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Limitações no Banco de Dados do Azure para PostgreSQL
 O Banco de Dados do Azure para o serviço PostgreSQL está em visualização pública. As seções a seguir descrevem a capacidade e os limites funcionais no serviço de banco de dados.
@@ -24,7 +24,7 @@ O Banco de Dados do Azure para PostgreSQL tem vários níveis de serviço que vo
 
 Há um número máximo de conexões, unidades de computação e armazenamento em cada camada de serviço durante a visualização do serviço, da seguinte maneira: 
 
-|                            |                   |
+| | |
 | :------------------------- | :---------------- |
 | **Conexões máximas**        |                   |
 | 50 unidades de computação básica     | 50 conexões    |

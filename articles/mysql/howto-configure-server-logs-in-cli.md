@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql-database
 ms.devlang: azure-cli
 ms.topic: article
-ms.date: 10/18/2017
-ms.openlocfilehash: 6ee2c2c6e6cff824d3167ea600a1ddc778ad011b
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.date: 11/28/2017
+ms.openlocfilehash: 908f28d8bd3d0dcbd03636e69cd47b5c47f3cfde
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="configure-and-access-server-logs-using-azure-cli"></a>Configurar e acessar logs de servidor usando a CLI do Azure
 É possível baixar os logs de servidor do Banco de Dados do Azure para MySQL usando a CLI do Azure, o utilitário de linha de comando do Azure.
@@ -40,14 +40,14 @@ az mysql server configuration list --resource-group myresourcegroup --server mys
 ```
 
 ## <a name="list-logs-for-azure-database-for-mysql-server"></a>Listar os logs para o servidor do Banco de Dados do Azure para MySQL
-Para listar os arquivos de log disponíveis para o servidor, execute o comando [az mysql server-logs list](/cli/azure/mysql/server-logs#list).
+Para listar os arquivos de log disponíveis para o servidor, execute o comando [az mysql server-logs list](/cli/azure/mysql/server-logs#az_mysql_server_logs_list).
 
 Você pode listar os arquivos de log para o servidor **myserver4demo.mysql.database.azure.com** no Grupo de Recursos **myresourcegroup** e direcioná-los para um arquivo de texto chamado **log\_files\_list.txt.**
 ```azurecli-interactive
 az mysql server-logs list --resource-group myresourcegroup --server myserver4demo > log_files_list.txt
 ```
 ## <a name="download-logs-from-the-server"></a>Baixar logs do servidor
-O comando [az mysql server-logs download](/cli/azure/mysql/server-logs#download) permite que você baixe arquivos de log individuais para o seu servidor. 
+O comando [az mysql server-logs download](/cli/azure/mysql/server-logs#az_mysql_server_logs_download) permite que você baixe arquivos de log individuais para o seu servidor. 
 
 Este exemplo baixa o arquivo de log específico para o servidor **myserver4demo.mysql.database.azure.com** no Grupo de Recursos **myresourcegroup** para seu ambiente local.
 ```azurecli-interactive

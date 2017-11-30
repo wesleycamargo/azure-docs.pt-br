@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial, azure
 ms.topic: article
 ms.date: 09/21/2017
-ms.openlocfilehash: acd61e9980b143ebbb81d2d144bdac9134e20a11
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 9e20c606973447e0b01eaf9716fabf47eefd228b
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="bike-share-tutorial-advanced-data-preparation-with-azure-machine-learning-workbench"></a>Tutorial de compartilhamento de bicicleta: preparação de dados avançada com o Azure Machine Learning Workbench
 Os serviços do Azure Machine Learning (versão prévia) são uma solução integrada de análise avançada e de ciência de dados de ponta a ponta para cientistas profissionais prepararem dados, desenvolverem experiências e implantarem modelos em escala de nuvem.
@@ -261,10 +261,7 @@ Para usar os dados em uma previsão de blocos de tempo de duas horas, você deve
 
    > [!NOTE]
    > O Azure ML Workbench sintetiza um programa com base nos exemplos fornecidos por você e aplica o mesmo programa às linhas restantes. Todas as outras linhas são preenchidas automaticamente com base no exemplo fornecido. O Workbench também analisa os dados e tenta identificar casos extremos. 
-
-   > [!IMPORTANT]
-   > A identificação de casos de borda pode não funcionar no Mac na versão atual do Workbench. Ignore a __etapa 3__ e a __etapa 4__ abaixo no Mac. Em vez disso, pressione __OK__ depois que todas as linhas tiverem sido preenchidas com os valores derivados.
-   
+  
 3. O texto **Analisando Dados** acima da grade indica que o Workbench está tentando detectar os casos extremos. Quando ele terminar, o status será alterado para **Examinar a próxima linha sugerida** ou **Nenhuma sugestão**. Neste exemplo, é retornado **Examinar a próxima linha sugerida**.
 
 4. Para examinar as alterações sugeridas, selecione **Revisar a próxima linha sugerida**. A célula que você deve examinar e corrigir (se necessário) está realçada na exibição.
@@ -294,11 +291,6 @@ Para usar os dados em uma previsão de blocos de tempo de duas horas, você deve
 
    ![Imagem do exemplo `Jan 01, 2015 12AM-2AM](media/tutorial-bikeshare-dataprep/wetherdatehourrangeexample.png)
 
-   > [!IMPORTANT]
-   > No Mac, siga esta etapa, em vez da __etapa 8__ abaixo.
-   >
-   > * Vá para a primeira célula que contém `Feb 01, 2015 12AM-2AM`. Deve ser a __linha 15__. Corrija o valor para `Jan 02, 2015 12AM-2AM`e pressione __Enter__. 
-   
 
 8. Espere até que o status seja alterado de **Analisando Dados** para **Examinar a próxima linha sugerida**. Isso pode levar alguns segundos. Selecione o link de status para navegar até a linha sugerida. 
 
@@ -429,7 +421,7 @@ Para tentar identificar as exceções, clique com o botão direito do mouse na c
 
 ![Inspetor de histograma](media/tutorial-bikeshare-dataprep/tripdurationhistogram.png)
 
-O histograma não é útil, pois as exceções estão distorcendo o gráfico.
+O histograma não é útil, pois as exceções estão distorcendo o grafo.
 
 ## <a name="add-column-using-script"></a>Adicionar coluna usando script
 
@@ -513,12 +505,7 @@ Para resumir a demanda de bicicleta por um período de 2 horas, use colunas deri
     > Você pode fornecer um exemplo em relação a qualquer uma das linhas. Neste exemplo, o valor `Jan 01, 2017 12AM-2AM` é válido para a primeira linha de dados.
 
     ![Imagem dos dados de exemplo](media/tutorial-bikeshare-dataprep/tripdataderivebyexamplefirstexample.png)
-
-   > [!IMPORTANT]
-   > No Mac, siga esta etapa, em vez da __etapa 3__ abaixo.
-   >
-   > * Vá para a primeira célula que contém `Jan 01, 2017 1AM-2AM`. Deve ser a __linha 14__. Corrija o valor para `Jan 01, 2017 12AM-2AM`e pressione __Enter__. 
-
+   
 3. Espere até que o aplicativo calcule os valores em todas as linhas. Isso pode levar vários segundos. Depois que a análise for concluída, use o link __Examinar próxima linha sugerida__ para examinar os dados.
 
    ![Imagem da análise concluída com link de análise](media/tutorial-bikeshare-dataprep/tripdatabyexanalysiscomplete.png)

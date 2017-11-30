@@ -10,11 +10,11 @@ ms.topic: overview
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 82c3f4629da635d1006db91e236d38b1aa16695c
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 8ffa4c22c39bcd241b36b55bbcba24ac3f75fff2
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="what-is-azure-policy"></a>O que é a Política do Azure?
 
@@ -24,7 +24,7 @@ A Política do Azure é um serviço no Azure que você pode usar para criar, atr
 
 ## <a name="how-is-it-different-from-rbac"></a>Qual é a diferença dela em relação ao RBAC?
 
-Existem algumas diferenças importantes entre a política e o RBAC (controle de acesso baseado em função). O RBAC concentra-se nas ações do usuário em escopos diferentes. Por exemplo, você pode ser adicionado à função de colaborador de um grupo de recursos no escopo desejado. A função permite que você faça alterações àquele grupo de recursos. Política concentra-se nas propriedades de recurso durante a implantação e para recursos já existentes. Por exemplo, por meio de políticas, você pode controlar os tipos de recursos que podem ser provisionados. Ou você pode restringir os locais em que os recursos podem ser provisionados. Ao contrário do RBAC, a política é um sistema de permissão padrão e negação explícita.
+Há algumas diferenças importantes entre a política e o RBAC (controle de acesso baseado em função). O RBAC concentra-se nas ações do usuário em escopos diferentes. Por exemplo, você pode ser adicionado à função de colaborador de um grupo de recursos no escopo desejado. A função permite que você faça alterações àquele grupo de recursos. Política concentra-se nas propriedades de recurso durante a implantação e para recursos já existentes. Por exemplo, por meio de políticas, você pode controlar os tipos de recursos que podem ser provisionados. Ou você pode restringir os locais em que os recursos podem ser provisionados. Ao contrário do RBAC, a política é um sistema de permissão padrão e negação explícita.
 
 Para usar políticas, você deve estar autenticado pelo RBAC. Especificamente, a conta precisa de:
 
