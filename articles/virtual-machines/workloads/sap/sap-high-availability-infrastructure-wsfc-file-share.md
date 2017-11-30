@@ -1,6 +1,6 @@
 ---
-title: "Preparação da infraestrutura do Azure para SAP de HA usando o Cluster de Failover do Windows e o compartilhamento de arquivos para a instância do SAP (A)SCS | Microsoft Docs"
-description: "Preparação da infraestrutura do Azure para SAP de HA usando o Cluster de Failover do Windows e o compartilhamento de arquivos para a instância do SAP (A)SCS"
+title: "Preparação da infraestrutura do Azure para alta disponibilidade do SAP usando um cluster de failover do Windows e compartilhamento de arquivos para instâncias ASCS/SCS do SAP | Microsoft Docs"
+description: "Preparação da infraestrutura do Azure para alta disponibilidade do SAP usando um cluster de failover do Windows e compartilhamento de arquivos para instâncias ASCS/SCS do SAP"
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: goraco
@@ -17,13 +17,13 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f2468b5d0996fee5e0106d0d314c16654558e9f4
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.openlocfilehash: 3f9e2108a7714dcbfd4f2db583cb6ee4b803f65a
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 11/16/2017
 ---
-# <a name="azure-infrastructure-preparation-for-sap-ha-using-windows-failover-cluster-and-file-share-for-sap-ascs-instance"></a>Preparação da infraestrutura do Azure para SAP de HA usando o Cluster de Failover do Windows e o compartilhamento de arquivos para a instância do SAP (A)SCS
+# <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>Preparar a infraestrutura do Azure para alta disponibilidade do SAP usando um cluster de failover do Windows e compartilhamento de arquivos para instâncias ASCS/SCS do SAP
 
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -206,32 +206,32 @@ ms.lasthandoff: 10/25/2017
 
 [virtual-machines-manage-availability]:../../virtual-machines-windows-manage-availability.md
 
-Este documento está descrevendo as etapas de preparação da infraestrutura do Azure necessárias para instalar e configurar o sistema SAP de alta disponibilidade em **WSFC (Cluster de Failover do Windows)** usando **Compartilhamento de Arquivos do Scale Out** como uma opção para o cluster da instância SAP (A)SCS.
+Este documento descreve as etapas de preparação da infraestrutura do Azure necessárias para instalar e configurar os sistemas SAP de alta disponibilidade em um Cluster de Failover do Windows Server (WSFC) usando o compartilhamento de arquivos escalável como opção para o cluster de instâncias de ASCS/SCS do SAP.
 
 ## <a name="prerequisite"></a>Pré-requisito
 
-Examine estes documentos antes de iniciar a instalação:
+Antes de iniciar a instalação, leia este artigo:
 
-* [Guia de arquitetura – Clustering de instância do SAP (A)SCS no **Cluster de Failover do Windows** usando o **Compartilhamento de Arquivos**][sap-high-availability-guide-wsfc-shared-disk]
+* [Guia de arquitetura: cluster de instâncias de ASCS/SCS do SAP em um cluster de failover do Windows usando o compartilhamento de arquivos][sap-high-availability-guide-wsfc-shared-disk]
 
 
 ## <a name="host-names-and-ip-addresses"></a>Nomes de host e endereços IP
 
 | Função de nome de host virtual | Nome de host virtual | Endereço IP estático | Conjunto de disponibilidade |
 | --- | --- | --- | --- |
-| Primeiro cluster (A)SCS do nó de cluster | ascs-1 | 10.0.6.4 | ascs-as |
-| Segundo cluster (A)SCS do nó de cluster | ascs-2 | 10.0.6.5 | ascs-as |
-| Nome da rede de clusters |ascs-cl | 10.0.6.6 | n.a |
-| Nome da rede de cluster SAP PR1 ASCS |pr1-ascs | 10.0.6.7 | n.a |
+| Primeiro cluster ASCS/SCS do nó de cluster | ascs-1 | 10.0.6.4 | ascs-as |
+| Segundo cluster ASCS/SCS do nó de cluster | ascs-2 | 10.0.6.5 | ascs-as |
+| Nome da rede de clusters |ascs-cl | 10.0.6.6 | n/d |
+| Nome da rede de clusters SAP PR1 ASCS |pr1-ascs | 10.0.6.7 | n/d |
 
 
-**Tabela 1:** cluster (A)SCS
+**Tabela 1**: Cluster do ASCS/SCS
 
-| SAP &lt;SID&gt; | Número da instância do SAP (A)SCS |
+| SAP \<SID> | Número da instância do SAP ASCS/SCS |
 | --- | --- |
 | PR1 | 00 |
 
-**Tabela 2:** detalhes da instância SAP (A)SCS
+**Tabela 2:** Detalhes da instância ASCS/SCS do SAP
 
 
 | Função de nome de host virtual | Nome de host virtual | Endereço IP estático | Conjunto de disponibilidade |
@@ -239,53 +239,56 @@ Examine estes documentos antes de iniciar a instalação:
 | Primeiro nó de cluster | sofs-1 | 10.0.6.10 | sofs-as |
 | Segundo nó de cluster | sofs-2 | 10.0.6.11 | sofs-as |
 | Terceiro nó de cluster | sofs-3 | 10.0.6.12 | sofs-as |
-| Nome da rede de clusters | sofs-cl | 10.0.6.13 | n.a |
-| Nome de host global do SAP | sapglobal | Usar IPs de todos os nós de cluster | n.a |
+| Nome da rede de clusters | sofs-cl | 10.0.6.13 | n/d |
+| Nome de host global do SAP | sapglobal | Usar IPs de todos os nós de cluster | n/d |
 
-**Tabela 3:** cluster SOFS
-
-
-## <a name="deploy-vms-for-sap-ascs-cluster-dbms-cluster-and-sap-application-servers"></a>Implantar VMs para cluster SAP (A)SCS, em servidores de aplicativos SAP e cluster DBMS
-
-Para preparar a infraestrutura do Azure, você pode seguir estas etapas:
-* [Preparar a infraestrutura para o Modelo Arquitetônico 1, 2 e 3][sap-high-availability-infrastructure-wsfc-shared-disk]
-
-* [Rede Virtual do Azure][sap-high-availability-infrastructure-wsfc-shared-disk-azure-network]
-
-* [Endereços IP de DNS][sap-high-availability-infrastructure-wsfc-shared-disk-dns-ip]
-
-* [Definir endereços IP estáticos para as máquinas virtuais de SAP][sap-ascs-high-availability-multi-sid-wsfc-set-static-ip]
-
-* [Definir um endereço IP estático para o Load Balancer interno do Azure][sap-high-availability-infrastructure-wsfc-shared-disk-set-static-ip-ilb]
-
-* [Regras do balanceamento de carga do ASCS/SCS padrão para o balanceador de carga interno do Azure][sap-high-availability-infrastructure-wsfc-shared-disk-default-ascs-ilb-rules]
-
-* [Alterar as regras do balanceamento de carga padrão do ASCS/SCS para o balanceador de carga interno do Azure][sap-high-availability-infrastructure-wsfc-shared-disk-change-ascs-ilb-rules]
-
-*  [Adicionar máquinas virtuais do Windows ao domínio. Adicionar entradas do registro a ambos os nós de cluster da instância SAP ASCS/SCS][sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain]
-
-* Como você usa o Windows Server 2016, é recomendável configurar a [testemunha de nuvem do Azure][deploy-cloud-witness]
+**Tabela 3**: Cluster de Servidor de Arquivos de Escalabilidade Horizontal
 
 
-## <a name="deploy-scale-out-file-server-manually"></a>Implantar manualmente o servidor de arquivos do Scale Out 
+## <a name="deploy-vms-for-an-sap-ascsscs-cluster-a-database-management-system-dbms-cluster-and-sap-application-server-instances"></a>Implantar VMs em um cluster de ASCS/SCS do SAP, um cluster do Sistema de Gerenciamento de Banco de Dados (DBMS) e instâncias de servidor de aplicativos SAP
 
-Você pode implantar manualmente o cluster SOFS conforme descrito no blog [Espaços de Armazenamento Diretos no Azure][ms-blog-s2d-in-azure]:  
+Para preparar a infraestrutura do Azure, faça o seguinte:
+
+* [Prepare a infraestrutura para os modelos arquitetônicos 1, 2 e 3][sap-high-availability-infrastructure-wsfc-shared-disk].
+
+* [Crie uma rede virtual do Azure][sap-high-availability-infrastructure-wsfc-shared-disk-azure-network].
+
+* [Defina os endereços IP necessários do DNS][sap-high-availability-infrastructure-wsfc-shared-disk-dns-ip].
+
+* [Defina endereços IP estáticos para as máquinas virtuais do SAP][sap-ascs-high-availability-multi-sid-wsfc-set-static-ip].
+
+* [Defina um endereço IP estático para o balanceador de carga interno do Azure][sap-high-availability-infrastructure-wsfc-shared-disk-set-static-ip-ilb].
+
+* [Defina regras de balanceamento de carga padrão do ASCS/SCS para o balanceador de carga interno do Azure][sap-high-availability-infrastructure-wsfc-shared-disk-default-ascs-ilb-rules].
+
+* [Altere as regras de balanceamento de carga padrão do ASCS/SCS para o balanceador de carga interno do Azure][sap-high-availability-infrastructure-wsfc-shared-disk-change-ascs-ilb-rules].
+
+* [Adicione máquinas virtuais do Windows ao domínio][sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain].
+
+* [Adicione entradas de registro em ambos os nós de cluster da instância ASCS/SCS do SAP][sap-high-availability-infrastructure-wsfc-shared-disk-add-win-domain].
+
+* Com o uso do Windows Server 2016, é recomendável configurar a [Testemunha em Nuvem do Azure][deploy-cloud-witness].
+
+
+## <a name="deploy-the-scale-out-file-server-cluster-manually"></a>Implantar manualmente o cluster do Servidor de Arquivos de Escalabilidade Horizontal 
+
+Você pode implantar o cluster do Servidor de Arquivos de Escalabilidade Horizontal Microsoft manualmente, conforme descrito no blog sobre [Espaços de Armazenamento Diretos no Azure][ms-blog-s2d-in-azure], executando o seguinte código:  
 
 
 ```PowerShell
-# Set on Execution Policy  ALL cluster nodes!
+# Set an execution policy - all cluster nodes
 Set-ExecutionPolicy Unrestricted
 
-# Defines SOFS cluster nodes
+# Define Scale-Out File Server cluster nodes
 $nodes = ("sofs-1", "sofs-2", "sofs-3")
 
-# Add cluster and SOFS features
+# Add cluster and Scale-Out File Server features
 Invoke-Command $nodes {Install-WindowsFeature Failover-Clustering, FS-FileServer -IncludeAllSubFeature -IncludeManagementTools -Verbose}
 
 # Test cluster
 Test-Cluster -node $nodes -Verbose
 
-#Install cluster
+# Install cluster
 $ClusterNetworkName = "sofs-cl"
 $ClusterIP = "10.0.6.13"
 New-Cluster -Name $ClusterNetworkName -Node $nodes –NoStorage –StaticAddress $ClusterIP -Verbose
@@ -293,47 +296,51 @@ New-Cluster -Name $ClusterNetworkName -Node $nodes –NoStorage –StaticAddress
 # Set Azure Quorum
 Set-ClusterQuorum –CloudWitness –AccountName gorcloudwitness -AccessKey <YourAzureStorageAccessKey>
 
-# Enable Storage Spaces Direct S2D
+# Enable Storage Spaces Direct
 Enable-ClusterS2D
 
-# Create SOFS with SAP Global Host Name
+# Create Scale-Out File Server with an SAP global host name
 # SAPGlobalHostName
 $SAPGlobalHostName = "sapglobal"
 Add-ClusterScaleOutFileServerRole -Name $SAPGlobalHostName
 ```
 
-## <a name="deploy-scale-out-file-server-automatically"></a>Implantar automaticamente o servidor de arquivos do Scale Out
+## <a name="deploy-scale-out-file-server-automatically"></a>Implantar automaticamente o Servidor de Arquivos de Escalabilidade Horizontal
 
-Além disso, você pode **automatizar** a implantação de SOFS usando modelos do Azure Resource Manager em um ambiente de VNET e do Active Directory existente:
+Você também pode automatizar a implantação de Servidor de Arquivos de Escalabilidade Horizontal usando modelos do Azure Resource Manager em um ambiente já existente de rede virtual e do Active Directory.
 
 > [!IMPORTANT]
->É recomendável ter 3 nós (ou mais clusters) para SOFS com espelhamento de 3 vias.
+> Recomendamos que você tenha três (ou mais) nós de cluster por Servidor de Arquivos de Escalabilidade Horizontal, com espelhamento de três vias.
 >
->Portanto, na interface do usuário do modelo do Resource Manager de SOFS, você deve especificar na contagem de VM.
+> Portanto, na interface do usuário do modelo do Resource Manager de Servidor de Arquivos de Escalabilidade Horizontal, você deve especificar a contagem de VMs.
 >
 
-### <a name="using-managed-disks"></a>Usar discos gerenciados
+### <a name="use-managed-disks"></a>Usar discos gerenciados
 
-Modelo do Azure Resource Manager para implantar o Servidor de Arquivos de Escalabilidade Horizontal (SOFS) com Espaços de Armazenamento Diretos (S2D) e Azure Managed Disks está disponível em [Github][arm-sofs-s2d-managed-disks].
+O modelo do Azure Resource Manager para implantação do Servidor de Arquivos de Escalabilidade Horizontal com Espaços de Armazenamento Diretos e Discos Gerenciados do Azure está disponível em [GitHub][arm-sofs-s2d-managed-disks].
 
-Discos gerenciados são recomendados.
+Recomendamos o uso de Discos Gerenciados.
 
-![Figura 1: tela de interface do usuário para o modelo do Resource Manager de SOFS com discos gerenciados][sap-ha-guide-figure-8010]
+![Figura 1: Tela de interface do usuário do modelo do Resource Manager de Servidor de Arquivos de Escalabilidade Horizontal com discos gerenciados][sap-ha-guide-figure-8010]
 
-_**Figura 1:** tela de interface do usuário para o modelo do Resource Manager de SOFS com discos gerenciados_
+_**Figura 1**: Tela de interface do usuário do modelo do Resource Manager de Servidor de Arquivos de Escalabilidade Horizontal com discos gerenciados_
 
-A Contagem de VM mínima é 2, a contagem de Disco mínima é 2 + 1 sobressalente = 3, o nome de rede de Host GLOBAL do SAP é **sapglobalhost** e o compartilhamento de arquivos é **sapmnt**.
+No modelo, faça o seguinte:
+1. Na caixa **Contagem de Vm**, digite uma contagem mínima de **2**.
+2. Na caixa **Contagem de Discos de Vm**, digite uma contagem mínima de **3** (2 discos + 1 sobressalente = 3 discos).
+3. Na caixa **Nome do Sofs**, digite o nome de rede do host global do SAP, **sapglobalhost**.
+4. Na caixa **Nome do Compartilhamento**, digite o nome do compartilhamento de arquivos, **sapmnt**.
 
-### <a name="using-non-managed-disks"></a>Uso de discos não gerenciados
+### <a name="use-unmanaged-disks"></a>Usar discos não gerenciados
 
-Modelo do Azure Resource Manager para implantar o Servidor de Arquivos de Escalabilidade Horizontal (SOFS) com Espaços de Armazenamento Diretos (S2D) e Azure Non-Managed Disks está disponível em [Github][arm-sofs-s2d-non-managed-disks].
+O modelo do Azure Resource Manager para implantação do Servidor de Arquivos de Escalabilidade Horizontal com Espaços de Armazenamento Diretos e Discos Não Gerenciados do Azure está disponível em [GitHub][arm-sofs-s2d-non-managed-disks].
 
-![Figura 2: tela de interface do usuário para o modelo do Azure Resource Manager de SOFS sem discos gerenciados][sap-ha-guide-figure-8011]
+![Figura 2: Tela de interface do usuário do modelo do Azure Resource Manager para o Servidor de Arquivos de Escalabilidade Horizontal sem discos gerenciados][sap-ha-guide-figure-8011]
 
-_**Figura 2:** tela de interface do usuário para o modelo do Azure Resource Manager de SOFS sem discos gerenciados_
+_**Figura 2**: Tela de interface do usuário do modelo do Azure Resource Manager para o Servidor de Arquivos de Escalabilidade Horizontal sem discos gerenciados_
 
-Certifique-se de escolher **Armazenamento Premium** como tipo de conta de armazenamento. Outras configurações são as mesmas que dos discos gerenciados.
+Na caixa **Tipo de Conta de Armazenamento**, selecione **Armazenamento Premium**. Todas as outras configurações são iguais às dos discos gerenciados.
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* [Instalação de alta disponibilidade do SAP NetWeaver no cluster de failover do Windows e compartilhamento de arquivos para a instância do SAP (A)SCS][sap-high-availability-installation-wsfc-file-share]
+* [Instalar alta disponibilidade do SAP NetWeaver em um cluster de failover do Windows e compartilhamento de arquivos para instâncias ASCS/SCS do SAP][sap-high-availability-installation-wsfc-file-share]

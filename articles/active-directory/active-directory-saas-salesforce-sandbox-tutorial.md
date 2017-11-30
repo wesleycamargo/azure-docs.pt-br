@@ -1,190 +1,294 @@
 ---
 title: "Tutorial: integração do Azure Active Directory com a Área Restrita do Salesforce | Microsoft Docs"
-description: "Saiba como usar a Área Restrita Salesforce com o Active Directory do Azure para habilitar o logon único, o provisionamento automatizado e muito mais!"
+description: "Saiba como configurar o logon único entre o Azure Active Directory e o Salesforce Sandbox."
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
 manager: femila
+ms.reviewer: joflore
 ms.assetid: ee54c39e-ce20-42a4-8531-da7b5f40f57c
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 07/21/2017
+ms.date: 11/15/2017
 ms.author: jeedes
-ms.reviewer: jeedes
-ms.openlocfilehash: 32835e79188806bb2ff319eea23b1b52ab585ab1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 128d04fdf191b60441b695efef2bf602920d80e6
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce-sandbox"></a>Tutorial: Integração do Active Directory do Azure com a Área Restrita Salesforce
 
-O objetivo deste tutorial é mostrar a integração do Azure com a Área Restrita Salesforce.  
+Neste tutorial, você aprende a integrar o Salesforce Sandbox ao Azure AD (Azure Active Directory).
 
->[!TIP]
->Para enviar comentários, consulte a [página de suporte do Azure](http://go.microsoft.com/fwlink/?LinkId=521878). 
-> 
+A integração do Salesforce Sandbox ao Azure AD oferece os seguintes benefícios:
 
-As áreas restritas oferecem a capacidade de criar várias cópias da sua organização em ambientes separados por uma variedade de finalidades, como desenvolvimento, testes e treinamento, sem comprometer os dados e os aplicativos em sua organização de produção do Salesforce.  
+- No Azure AD, é possível controlar quem tem acesso à Área Restrita Salesforce.
+- Você pode permitir que os usuários se conectem automaticamente à Área Restrita Salesforce (Logon Único) com suas contas do Azure AD.
+- Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para obter mais detalhes, confira [Visão geral da área restrita](https://help.salesforce.com/HTViewHelpDoc?id=create_test_instance.htm&language=en_US)
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-O cenário descrito neste tutorial pressupõe que você já tem os seguintes itens:
+## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma assinatura válida do Azure
-* Uma área restrita no Salesforce.com
+Para configurar a integração do Azure AD ao Salesforce Sandbox, você precisa dos seguintes itens:
 
-Se você não tiver uma área restrita válida no Salesforce.com, precisará entrar em contato com o Salesforce.
+- Uma assinatura do AD do Azure
+- Uma assinatura habilitada para logon único na Área Restrita Salesforce
 
-O cenário descrito neste tutorial consiste nos seguintes blocos de construção:
+> [!NOTE]
+> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
 
-1. Habilitando a integração de aplicativos para a Área Restrita Salesforce
-2. Configuração do SSO (logon único)
-3. Habilitando seu domínio
-4. Configurando o provisionamento de usuários
-5. Atribuindo usuários
+Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
-![Cenário](./media/active-directory-saas-salesforce-sandbox-tutorial/IC769571.png "Cenário")
+- Não use o ambiente de produção, a menos que seja necessário.
+- Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
-## <a name="enable-the-application-integration-for-salesforce-sandbox"></a>Habilitar a integração de aplicativos para a Área Restrita do Salesforce
-O objetivo desta seção é descrever como habilitar a integração de aplicativos para a área restrita Salesforce.
+## <a name="scenario-description"></a>Descrição do cenário
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
-**Para habilitar a integração de aplicativos para a área restrita Salesforce, execute as seguintes etapas:**
+1. Adicionando o Salesforce Sandbox por meio da galeria
+2. Configurar e testar o logon único do AD do Azure
 
-1. No Portal clássico do Azure, no painel de navegação à esquerda, clique em **Active Directory**.
-   
-   ![Active Directory](./media/active-directory-saas-salesforce-sandbox-tutorial/IC700993.png "Active Directory")
-2. Na lista **Diretório** , selecione o diretório para o qual você deseja habilitar a integração de diretórios.
-3. Para abrir a visualização dos aplicativos, na exibição do diretório, clique em **Aplicativos** no menu principal.
-   
-   ![Aplicativos](./media/active-directory-saas-salesforce-sandbox-tutorial/IC700994.png "Aplicativos")
-4. Para abrir a **Galeria de Aplicativos**, clique em **Adicionar um Aplicativo** e em **Adicionar um aplicativo a ser utilizado pela minha organização**.
-   
-   ![O que você deseja fazer? ] (./media/active-directory-saas-salesforce-sandbox-tutorial/IC700995.png "O que você deseja fazer?")
-5. Na **caixa de pesquisa**, digite **Área Restrita Salesforce**.
-   
-   ![Galeria de Aplicativos](./media/active-directory-saas-salesforce-sandbox-tutorial/IC710978.png "Galeria de Aplicativos")
-6. No painel de resultados, selecione **Área Restrita Salesforce** e clique em **Concluir** para adicionar o aplicativo.
-   
-   ![Área restrita do SalesForce](./media/active-directory-saas-salesforce-sandbox-tutorial/IC746474.png "Área restrita do Salesforce")
-   
-## <a name="configur-single-sign-on-sso"></a>Configurar o SSO (logon único)
+## <a name="adding-salesforce-sandbox-from-the-gallery"></a>Adicionando o Salesforce Sandbox por meio da galeria
+Para configurar a integração do Salesforce Sandbox ao Azure AD, é necessário adicionar o Salesforce Sandbox à lista de aplicativos SaaS gerenciados por meio da galeria.
 
-O objetivo desta seção é descrever como permitir que os usuários se autentiquem no Salesforce com a conta do AD do Azure usando federação baseada em protocolo SAML.
+**Para adicionar o Salesforce Sandbox por meio da galeria, realize as seguintes etapas:**
 
-**Para configurar o logon único, execute as seguintes etapas:**
+1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
 
-1. No Portal Clássico do Azure, na página de integração de aplicativos da **Área Restrita do Salesforce**, clique em **Configurar logon único** para abrir o diálogo **Configurar Logon Único**.
-   
-   ![Configurar logon único](./media/active-directory-saas-salesforce-sandbox-tutorial/IC749323.png "Configurar logon único")
-2. Na página **Como você deseja que os usuários façam logon na Área Restrita Salesforce**, selecione **Logon Único do Microsoft Azure AD** e clique em **Avançar**.
-   
-   ![Área restrita do SalesForce](./media/active-directory-saas-salesforce-sandbox-tutorial/IC746479.png "Área restrita do Salesforce")
-3. Na página **Configurar URL do Aplicativo**, na caixa de texto **URL de logon**, digite sua URL usando o seguinte padrão, `http://company.my.salesforce.com` e, em seguida, clique em **Avançar**.
-   
-   ![Configurar URL do Aplicativo](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781022.png "Configurar URL do Aplicativo")
-4. Se já tiver configurado o logon único para outra instância de Área restrita do Salesforce em seu diretório, você também deve configurar o **Identificador** para ter o mesmo valor que a **URL de Logon**. 
- * O campo **Identificador** pode ser encontrado marcando a caixa de seleção **Mostrar configurações avançadas** na página **Configurar URL do Aplicativo** do diálogo.
-5. Na página **Configurar logon único na Área Restrita Salesforce**, clique em **Baixar o certificado** e salve o arquivo de certificado em seu computador.
-   
-   ![Configurar Logon Único](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781023.png "Configurar Logon Único")
-6. Em outra janela do navegador da Web, faça logon em sua área restrita Salesforce como um administrador.
-7. No menu na parte superior, clique em **Configuração**.
-   
-   ![Configuração](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781024.png "Configuração")
-8. No painel de navegação à esquerda, clique em **Controles de Segurança** e clique em **Configurações de Logon Único**.
-   
-   ![Configurações de Logon Único](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781025.png "Configurações de Logon Único")
-9. Na seção de Configurações de Logon Único, execute as seguintes etapas:
-   
-   ![Configurações de Logon Único](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781026.png "Configurações de Logon Único")  
- 1.  Selecione **SAML Habilitado**. 
- 2.  Clique em **Novo**.
-10. Na seção Configurações de Logon Único de SAML, execute as seguintes etapas:
+    ![O botão Azure Active Directory][1]
+
+2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
+
+    ![A folha Aplicativos empresariais][2]
     
-    ![Configurações de Logon Único do SAML](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781027.png "Configurações de Logon Único do SAML")  
- 1. Na caixa de texto Nome, digite o nome da configuração (por exemplo:*SPSSOWAAD\_Teste*). 
- 2. No portal clássico do Azure, na página de diálogo **Configurar logon único na Área Restrita do Salesforce**, copie o valor de **URL do Emissor** e cole-o na caixa de texto **Emissor**.
- 3. Na caixa de texto **Id da Entidade**, digite **https://test.salesforce.com** se esta for a primeira instância de área restrita do Salesforce que você está adicionando ao seu diretório. Se você já tiver adicionado uma instância da Área restrita do Salesforce, para a **ID da Entidade**, digite a **URL de Logon** que deve estar no seguinte formato: `http://company.my.salesforce.com`   
- 4. Clique em **Procurar** para carregar o certificado baixado.  
- 5. Para o **Tipo de Identidade SAML**, selecione **A declaração contém a ID de Federação do objeto de Usuário**. 
- 6. Para **Local de Identidade SAML**, selecione **A identidade está no elemento NameIdentifier da instrução Subject**.
- 7. No portal clássico do Azure, na página de diálogo **Configurar logon único na Área Restrita do Salesforce**, copie o valor de **URL de Logon Remoto** e cole-o na caixa de texto **URL de Logon do Provedor de Identidade**. 
- 8. O SFDC não dá suporte a logout SAML.  Como alternativa, cole “https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0” na caixa de texto **URL de Logoff do Provedor de Identidade**.
- 9. Para **Associação de Solicitação Iniciada pelo Provedor de Serviços**, selecione **HTTP Post**. 
- 10. Clique em **Salvar**.
-11. No portal clássico do Azure, selecione a confirmação da configuração de logon único e clique em **Concluir** para fechar a caixa de diálogo **Configurar logon único**.
-    
-    ![Configurar Logon Único](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781028.png "Configurar Logon Único")
+3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-## <a name="enable-your-domain"></a>Habilitar seu domínio
-Esta seção pressupõe que você já tenha criado um domínio.  Para obter mais detalhes, confira [Definindo seu nome de domínio](https://help.salesforce.com/HTViewHelpDoc?id=domain_name_define.htm&language=en_US).
+    ![O botão Novo aplicativo][3]
+
+4. Na caixa de pesquisa, digite **Área Restrita Salesforce**, selecione **Área Restrita Salesforce** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
+
+    ![Área Restrita Salesforce na lista de resultados](./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_salesforcesandbox_addfromgallery.png)
+
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
+
+Nesta seção, você configura e testa o logon único do Azure AD com a Área Restrita Salesforce, com base em um usuário de teste chamado “Brenda Fernandes”.
+
+Para que o logon único funcione, o Azure AD precisa saber qual usuário do Salesforce Sandbox é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Salesforce Sandbox.
+
+Na Área Restrita Salesforce, atribua o valor do **nome de usuário** no Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vínculo.
+
+Para configurar e testar o logon único do Azure AD com o Salesforce Sandbox, você precisa concluir os seguintes blocos de construção:
+
+1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
+2. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
+3. **[Criar um usuário de teste da Área Restrita Salesforce](#create-a-salesforce-sandbox-test-user)** – para ter um equivalente de Brenda Fernandes na Área Restrita Salesforce vinculado à representação de usuário do Azure AD.
+4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+5. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
+
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
+
+Nesta seção, você habilita o logon único do Azure AD no portal do Azure e configura o logon único no aplicativo Salesforce Sandbox.
+
+**Para configurar o logon único do Azure AD com o Salesforce Sandbox, realize as seguintes etapas:**
+
+1. No portal do Azure, na página de integração do aplicativo **Salesforce Sandbox**, clique em **Logon único**.
+
+    ![Link Configurar logon único][4]
+
+2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+ 
+    ![Caixa de diálogo Logon único](./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_salesforcesandbox_samlbase.png)
+
+3. Na seção **Domínio e URLs do Salesforce Sandbox**, realize as seguintes etapas:
+
+    ![Informações sobre logon único de URLs e Domínio da a Área Restrita Salesforce](./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_salesforcesandbox_url.png)
+
+    a. Na caixa de texto **URL de Logon**, digite o valor usando o seguinte padrão: `https://<instancename>--Sandbox.<entityid>.my.salesforce.com`
+
+    b. Na caixa de texto **Identificador**, digite o valor usando o seguinte padrão: `https://<instancename>--Sandbox.<entityid>.my.salesforce.com`
+    
+    > [!NOTE] 
+    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte do Cliente Salesforce](https://help.salesforce.com/support) para obter esses valores.
+
+4. Na seção **Certificado de Autenticação SAML**, clique em **Certificado** e, em seguida, salve o arquivo de certificado no computador.
+
+    ![O link de download do Certificado](./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_salesforcesandbox_certificate.png) 
+
+5. Clique no botão **Salvar** .
+
+    ![Botão Salvar em Configurar Logon Único](./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_general_400.png)
+
+6. Na seção **Configuração do Salesforce Sandbox**, clique em **Configurar o Salesforce Sandbox** para abrir a janela **Configurar logon**. Copie a **ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.**
+
+    ![Configurar Logon Único](./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_salesforcesandbox_configure.png) 
+
+7. Abra uma nova guia no navegador e faça logon em sua conta Administrador do Salesforce Sandbox.
+
+8. Clique na **Configuração** no **ícone de configurações**, no canto superior direito da página.
+
+    ![Configurar Logon Único](./media/active-directory-saas-salesforce-sandbox-tutorial/configure1.png)
+
+9. Role para baixo até **CONFIGURAÇÕES** no painel de navegação e clique em **Identidade** para expandir a seção correspondente. Em seguida, clique em **Configurações de Logon Único**.
+
+    ![Configurar Logon Único](./media/active-directory-saas-salesforce-sandbox-tutorial/sf-admin-sso.png)
+
+10. Selecione **SAML Habilitado** e, em seguida, clique em **Salvar**.
+
+    ![Configurar Logon Único](./media/active-directory-saas-salesforce-sandbox-tutorial/sf-enable-saml.png)
+
+11. Para definir as configurações de logon único do SAML, clique em **Novo**.
+
+    ![Configurar Logon Único](./media/active-directory-saas-salesforce-sandbox-tutorial/sf-admin-sso-new.png)
+
+12. Na seção Configurações de Logon Único de SAML, execute as seguintes etapas:
+
+    ![Configurar Logon Único](./media/active-directory-saas-salesforce-sandbox-tutorial/sf-saml-config.png)
+
+    a. Na caixa de texto **Nome**, digite o nome da configuração (por exemplo: *SPSSOWAAD_Test*). 
+
+    b. No campo **Emissor**, cole o valor da **ID de Entidade do SAML** que você copiou do portal do Azure
+
+    c. Na caixa de texto **ID da Entidade**, digite `https://<instancename>--Sandbox.<entityid>.my.salesforce.com`, se esta for a primeira instância da Área Restrita Salesforce que você está adicionando ao diretório. Se você já tiver adicionado uma instância da Área restrita do Salesforce, para a **ID da Entidade**, digite a **URL de Logon** que deve estar no seguinte formato: `https://<instancename>--Sandbox.<entityid>.my.salesforce.com`  
+ 
+    d. Para carregar o **Certificado de Provedor de Identidade**, clique em **Escolher Arquivo** para navegar e selecionar o arquivo do certificado que você baixou do portal do Azure.  
+
+    e. Como **Tipo de Identidade SAML**, escolha uma das seguintes opções:
+    
+      * Selecione **A declaração contém o nome do usuário do Salesforce**, se o nome do usuário do Salesforce estiver sendo transmitido na declaração SAML
+
+      * Selecione **A declaração contém a ID de Federação do objeto de Usuário**, se a ID de Federação do objeto de Usuário estiver sendo transmitida na declaração SAML
+
+      * Selecione **A declaração contém a ID de Usuário do objeto de Usuário**, se a ID de Usuário do objeto de Usuário estiver sendo transmitida na declaração SAML
+ 
+    f. Para **Local de Identidade SAML**, selecione **A identidade está no elemento NameIdentifier da instrução Subject**.
+
+    g. Para **Associação de Solicitação Iniciada pelo Provedor de Serviços**, selecione **HTTP Post**. 
+
+    h. Na caixa de texto **URL de Logon do Provedor de Identidade**, cole o valor da **URL do Serviço de Logon Único** copiado do portal do Azure. 
+
+    i. O SFDC não dá suporte a logout SAML.  Como alternativa, cole `https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0` na caixa de texto  **URL de Logoff do Provedor de Identidade** .
+
+    j. Clique em **Salvar**.
+
+### <a name="enable-your-domain"></a>Habilitar seu domínio
+Esta seção pressupõe que você já tenha criado um domínio.  Para obter mais informações, consulte [Definindo o nome de domínio](https://help.salesforce.com/HTViewHelpDoc?id=domain_name_define.htm&language=en_US).
 
 **Para habilitar seu domínio, execute as seguintes etapas:**
 
-1. No painel de navegação esquerdo, clique em **Gerenciamento de Domínio** e clique em **Meu Domínio.**
+1. No painel de navegação à esquerda no Salesforce, clique em **Configurações da Empresa** para expandir a seção correspondente e clique em **Meu Domínio**.
    
-   ![Meu Domínio](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781029.png "Meu Domínio")
+     ![Configurar Logon Único](./media/active-directory-saas-salesforce-sandbox-tutorial/sf-my-domain.png)
    
    >[!NOTE]
    >Verifique se o domínio foi configurado corretamente. 
-   > 
-2. Na seção **Configurações de Página de Logon**, clique em **Editar** e, para o **Serviço de Autenticação**, selecione o nome da Configuração de Logon Único SAML da seção anterior e, por fim, clique em **Salvar**.
+
+2. Na seção **Configuração de Autenticação**, clique em **Editar** e, para o **Serviço de Autenticação**, selecione o nome da Configuração de Logon Único SAML da seção anterior. Clique em **Salvar**.
    
-   ![Meu Domínio](./media/active-directory-saas-salesforce-sandbox-tutorial/IC781030.png "Meu Domínio")
+   ![Configurar Logon Único](./media/active-directory-saas-salesforce-sandbox-tutorial/sf-edit-auth-config.png)
 
 Assim que você tiver um domínio configurado, seus usuários deverão usar a URL do domínio para fazer logon na área restrita Salesforce.  
 
 Para obter o valor da URL, clique no perfil SSO criado na seção anterior.
 
-## <a name="configure-user-provisioning"></a>Configurar provisionamento do usuário
-O objetivo desta seção é descrever como habilitar o provisionamento de contas de usuário do Active Directory na Área Restrita Salesforce.
+> [!TIP]
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
 
-**Para configurar o provisionamento de usuários, execute as seguintes etapas:**
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
-1. No portal do Salesforce, na barra de navegação superior, selecione seu nome para expandir o seu menu de usuário:
-   
-   ![Minhas configurações](./media/active-directory-saas-salesforce-sandbox-tutorial/IC698773.png "Minhas configurações")
-2. Do seu menu de usuário, selecione **Minhas Configurações** para abrir a página **Minhas Configurações**.
-3. No painel esquerdo, clique em **Pessoal** para expandir a seção Pessoal e clique em **Redefinir Meu Token de Segurança**:
-   
-   ![Minhas configurações](./media/active-directory-saas-salesforce-sandbox-tutorial/IC698774.png "Minhas configurações")
-4. Na página **Redefinir meu Token de Segurança**, clique em **Redefinir Token de Segurança** para solicitar um email com seu token de segurança do Salesforce.com.
-   
-   ![Novo Token](./media/active-directory-saas-salesforce-sandbox-tutorial/IC698776.png "Novo token")
-5. Marque a caixa de entrada de um email do Salesforce.com usando "**confirmação de segurança de salesforce.com.com**" como o assunto.
-6. Leia o email e copie o valor do token de segurança.
-7. No portal clássico do Azure, na página de integração do aplicativo **Área restrita do salesforce**, clique em **Configurar provisionamento do usuário** para abrir a caixa de diálogo **Configurar Provisionamento do Usuário**.
-   
-   ![Configurar provisionamento do usuário](./media/active-directory-saas-salesforce-sandbox-tutorial/IC769573.png "configurar provisionamento do usuário")
-8. Na página **Inserir suas credenciais da Área Restrita Salesforce para habilitar o provisionamento automático de usuários** , forneça as seguintes configurações:
-   
-   ![Área restrita do SalesForce](./media/active-directory-saas-salesforce-sandbox-tutorial/IC746476.png "Área restrita do Salesforce")   
- 1. Na caixa de texto **Nome de Usuário Administrador da área restrita Salesforce**, digite o nome da conta de uma área restrita Salesforce com o perfil **Administrador de Sistema** do Salesforce.com atribuído.
- 2. Na caixa de texto **Senha do Administrador da Área Restrita Salesforce** , digite a senha dessa conta.
- 3. Na caixa de texto **Token de Segurança do Usuário** , cole o valor do token de segurança.
- 4. Clique em **Validar** para verificar sua configuração.
- 5. Clique no botão **Avançar** para abrir a página **Confirmação**.
-9. Na página **Confirmação**, clique em **Concluir** para salvar sua configuração.
-   
-## <a name="assigning-users"></a>Atribuindo usuários
+O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-Para testar sua configuração, é necessário conceder acesso ao aplicativo aos usuários do Azure AD que você deseja que usem seu aplicativo.
+   ![Criar um usuário de teste do Azure AD][100]
 
-**Para atribuir usuários à Área Restrita Salesforce, execute as etapas a seguir:**
+**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. No Portal clássico do Azure, crie uma conta de teste.
-2. Na página de integração do aplicativo **Salesforce Sandbox**, clique em **Atribuir usuários**.
-   
-   ![Atribuir usuários](./media/active-directory-saas-salesforce-sandbox-tutorial/IC769574.png "Atribuir usuários")
-3. Selecione seu usuário de teste, clique em **Atribuir** e, em seguida, clique em **Sim** para confirmar a atribuição.
-   
-   ![Sim](./media/active-directory-saas-salesforce-sandbox-tutorial/IC767830.png "Sim")
+1. No portal do Azure, no painel esquerdo, clique no botão **Azure Active Directory**.
 
-Agora você deve aguardar 10 minutos e verificar se a conta foi sincronizada com a Área Restrita Salesforce.
+    ![O botão Azure Active Directory](./media/active-directory-saas-salesforce-sandbox-tutorial/create_aaduser_01.png)
 
-Se você quiser testar suas configurações de SSO, abra o Painel de Acesso. Para obter mais detalhes sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](https://msdn.microsoft.com/library/dn308586).
+2. Para exibir a lista de usuários, acesse **Usuários e grupos** e, depois, clique em **Todos os usuários**.
+
+    ![Os links “Usuários e grupos” e “Todos os usuários”](./media/active-directory-saas-salesforce-sandbox-tutorial/create_aaduser_02.png)
+
+3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo **Todos os Usuários**.
+
+    ![O botão Adicionar](./media/active-directory-saas-salesforce-sandbox-tutorial/create_aaduser_03.png)
+
+4. Na caixa de diálogo **Usuário**, execute as seguintes etapas:
+
+    ![A caixa de diálogo Usuário](./media/active-directory-saas-salesforce-sandbox-tutorial/create_aaduser_04.png)
+
+    a. Na caixa **Nome**, digite **BrendaFernandes**.
+
+    b. Na caixa **Nome de usuário**, digite o endereço de email do usuário Brenda Fernandes.
+
+    c. Marque a caixa de seleção **Mostrar Senha** e, em seguida, anote o valor exibido na caixa **Senha**.
+
+    d. Clique em **Criar**.
+ 
+### <a name="create-a-salesforce-sandbox-test-user"></a>Criar um usuário de teste da Área Restrita Salesforce
+
+Nesta seção, um usuário chamado Brenda Fernandes é criado no Salesforce Sandbox. O Salesforce Sandbox dá suporte ao provisionamento Just-In-Time, que está habilitado por padrão.
+Não há itens de ação para você nesta seção. Se um usuário ainda não existir no Salesforce Sandbox, um novo será criado quando você tentar acessar o Salesforce Sandbox.
+
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
+
+Nesta seção, você permite que Brenda Fernandes use o logon único do Azure concedendo acesso ao Salesforce Sandbox.
+
+![Atribuir a função de usuário][200] 
+
+**Para atribuir Brenda Fernandes ao Salesforce Sandbox, realize as seguintes etapas:**
+
+1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
+
+    ![Atribuir usuário][201] 
+
+2. Na lista de aplicativos, selecione **Salesforce Sandbox**.
+
+    ![O link da Área Restrita Salesforce na lista de Aplicativos](./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_salesforcesandbox_app.png)  
+
+3. No menu à esquerda, clique em **usuários e grupos**.
+
+    ![O link “Usuários e grupos”][202]
+
+4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+
+    ![O painel Adicionar Atribuição][203]
+
+5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+
+6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+
+7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+    
+### <a name="test-single-sign-on"></a>Testar logon único
+
+Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
+
+Ao clicar no bloco da Área Restrita Salesforce no Painel de Acesso, você deverá ser conectado automaticamente ao seu aplicativo Área Restrita Salesforce.
+Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md). 
+
+## <a name="additional-resources"></a>Recursos adicionais
+
+* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
+* [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
+
+<!--Image references-->
+
+[1]: ./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_general_04.png
+
+[100]: ./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_general_100.png
+
+[200]: ./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_general_200.png
+[201]: ./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_general_201.png
+[202]: ./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_general_202.png
+[203]: ./media/active-directory-saas-salesforce-sandbox-tutorial/tutorial_general_203.png
 
