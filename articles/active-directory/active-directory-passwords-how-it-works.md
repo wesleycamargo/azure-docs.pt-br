@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/24/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 56ddd5742b63851b9477bae0705ebd24e30ff185
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: bb2e1aebc60eee5f94ed486e0efb43265728df6f
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="self-service-password-reset-in-azure-ad-deep-dive"></a>Aprofundamento no autoatendimento de redefinição de senha no Azure AD
 
@@ -183,7 +183,7 @@ Para habilitar essa opção, um usuário habilitado para redefinição de senha 
 Quando a necessidade de registro estiver desabilitada, os usuários ainda poderão registrar manualmente suas informações de contato. Os usuários podem visitar [http://aka.ms/ssprsetup](http://aka.ms/ssprsetup) ou selecionar o link **Registrar para redefinição de senha** na guias **Perfil** no Painel de Acesso.
 
 > [!NOTE]
-> Os usuários podem ignorar o portal de registro de redefinição de senha selecionando **cancelar** ou fechando a janela. Mas ele serão solicitados a registrar cada vez que entrar até que eles concluir seu registro.
+> Os usuários podem ignorar o portal de registro de redefinição de senha selecionando **cancelar** ou fechando a janela. Mas eles são solicitados a registrar cada vez que entrar até que eles concluir seu registro.
 >
 > Isso não interromperá conexão do usuário se ele já estiver conectado.
 
@@ -207,7 +207,18 @@ Exemplo: Há quatro administradores em um ambiente. O administrador A redefine s
 
 ## <a name="on-premises-integration"></a>Integração local
 
-Se você instalar, configurar e habilitar o Azure Active Directory Connect, você terá as seguintes opções adicionais para integrações no local. Se essas opções estiverem esmaecidas, o write-back não foi configurado corretamente. Para obter mais informações, consulte [Configurar write-back de senha](active-directory-passwords-writeback.md#configuring-password-writeback).
+Se você instalar, configurar e habilitar o Azure Active Directory Connect, você terá as seguintes opções adicionais para integrações no local. Se essas opções estiverem esmaecidas, o write-back não foi configurado corretamente. Para obter mais informações, consulte [Configurar write-back de senha](active-directory-passwords-writeback.md#configure-password-writeback).
+
+![Write-back][Writeback]
+
+Esta página fornece um status rápido do cliente de write-back local de uma das seguintes mensagens exibidas com base na configuração atual:
+
+* Seu cliente de write-back local está em execução.
+* O Azure Active Directory está online e conectado ao seu cliente de write-back local. No entanto, parece que a versão instalada do Azure AD Connect está desatualizada. Considere [Atualizar o Azure AD Connect](./connect/active-directory-aadconnect-upgrade-previous-version.md) para garantir que você tenha os recursos de conectividade e correções de bugs importantes mais recentes.
+* Infelizmente, não podemos verificar seu status de cliente de write-back local porque a versão instalada do Azure AD Connect está desatualizada. [Atualize o Azure AD Connect](./connect/active-directory-aadconnect-upgrade-previous-version.md) para poder verificar o status da conexão.
+* Infelizmente, parece que neste momento não é possível conectarmos ao seu cliente de write-back local. [Solucionar problemas do Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) para restaurar a conexão.
+* Infelizmente, não podemos nos conectar ao seu cliente de write-back local porque o write-back de senha não foi configurado corretamente. [Configurar o write-back de senha](active-directory-passwords-writeback.md#configure-password-writeback) para restaurar a conexão.
+* Infelizmente, parece que neste momento não é possível conectarmos ao seu cliente de write-back local. Isso pode ocorrer devido a problemas temporários em nossa extremidade. Se o problema persistir, consulte [Solucionar problemas o Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) para restaurar a conexão.
 
 ### <a name="write-back-passwords-to-your-on-premises-directory"></a>Write-back de senhas para o diretório local
 
@@ -234,7 +245,7 @@ Para testar esse cenário, acesse http://passwordreset.microsoftonline.com com u
 
 > [!NOTE]
 > As contas da Microsoft que receberam o acesso de convidado para seu locatário do Azure Active Directory, como as de Hotmail.com, Outlook.com ou outros endereços de email pessoal, não podem usar a SSPR do 
-Azure Active Directory. Será necessário redefinir sua senha usando as informações encontradas no artigo [Quando não é possível entrar com sua conta da Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).
+Azure Active Directory. É necessário que definam a senha, utilizando as informações localizadas no artigo [Quando não for possível entrar na sua conta da Microsoft](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant).
 
 ## <a name="next-steps"></a>Próximas etapas
 
@@ -254,3 +265,4 @@ Os artigos a seguir fornecem informações adicionais sobre a redefinição de s
 * [Tenho uma pergunta que não foi respondida em nenhum lugar](active-directory-passwords-faq.md)
 
 [Authentication]: ./media/active-directory-passwords-how-it-works/sspr-authentication-methods.png "Métodos de autenticação do Azure AD e quantidade necessária"
+[Writeback]: ./media/active-directory-passwords-how-it-works/troubleshoot-writeback-running.png "Configuração de write-back de senha de integração local e informações para solucionar problemas"

@@ -6,14 +6,14 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 11/15/2017
+ms.date: 11/16/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: fb93efcf00cb7b165c497d7ef38685f80bce84c0
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: bfa6652eac34f88baf09f55353cf58227a20e4cf
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-linux-device---preview"></a>Início rápido: implantar seu primeiro módulo IoT Edge do Portal do Azure para um dispositivo Linux – versão prévia
 
@@ -63,41 +63,53 @@ Crie uma identidade de dispositivo para seu dispositivo simulado para que ele po
 
 ## <a name="install-and-start-the-iot-edge-runtime"></a>Instalar e iniciar o tempo de execução do IoT Edge
 
-O tempo de execução do IoT Edge é implantado em todos os dispositivos IoT Edge. Ele contém dois módulos. Primeiro, o agente IoT Edge facilita a implantação e o monitoramento de módulos no dispositivo IoT Edge. Em segundo lugar, o hub IoT Edge gerencia a comunicação entre os módulos no dispositivo IoT Edge e entre o dispositivo e o Hub IoT. 
+O tempo de execução do IoT Edge é implantado em todos os dispositivos IoT Edge. Ele consiste em dois módulos. Primeiro, o agente do IoT Edge facilita a implantação e o monitoramento de módulos no dispositivo IoT Edge. Em segundo lugar, o hub IoT Edge gerencia a comunicação entre os módulos no dispositivo IoT Edge e entre o dispositivo e o Hub IoT. 
 
 No computador onde você executará o dispositivo IoT Edge, baixe o script de controle do IoT Edge:
-```python
+```cmd
 sudo pip install -U azure-iot-edge-runtime-ctl
 ```
 
 Configure o tempo de execução com a cadeia de conexão do dispositivo IoT Edge da seção anterior:
-```python
+```cmd
 sudo iotedgectl setup --connection-string "{device connection string}" --auto-cert-gen-force-no-passwords
 ```
 
 Inicie o tempo de execução:
-```python
+```cmd
 sudo iotedgectl start
 ```
 
 Verifique o Docker para ver se o agente IoT Edge está sendo executado como um módulo:
-```python
+```cmd
 sudo docker ps
 ```
+
+![Conferir o edgeAgent no Docker](./media/tutorial-simulate-device-linux/docker-ps.png)
 
 ## <a name="deploy-a-module"></a>Implantar um módulo
 
 [!INCLUDE [iot-edge-deploy-module](../../includes/iot-edge-deploy-module.md)]
 
-## <a name="view-generated-data"></a>Exibir dados gerados
+## <a name="view-generated-data"></a>Exibir os dados gerados
 
-Neste guia de início rápido, você criou um novo dispositivo IoT Edge e instalou o tempo de execução de IoT Edge nele. Em seguida, você usou o portal do Azure para enviar por push um módulo IoT Edge para ser executado no dispositivo sem precisar fazer alterações no próprio dispositivo. Nesse caso, o módulo enviado por push cria dados de ambiente que podem ser usados para os tutoriais. 
+Neste guia de início rápido, você criou um novo dispositivo IoT Edge e instalou o tempo de execução de IoT Edge nele. Em seguida, você usou o Portal do Azure para enviar por push um módulo do IoT Edge para ser executado no dispositivo sem precisar fazer alterações no próprio dispositivo. Nesse caso, o módulo enviado por push cria dados de ambiente que podem ser usados para os tutoriais. 
 
-Exiba as mensagens que estão sendo enviadas do módulo tempSensor:
+Abra o prompt de comando no computador executando o seu dispositivo simulado novamente. Confirme se o módulo implantado da nuvem está em execução no seu dispositivo IoT Edge:
 
-```cmd/sh
+```cmd
+sudo docker ps
+```
+
+![Exibir três módulos no seu dispositivo](./media/tutorial-simulate-device-linux/docker-ps2.png)
+
+Exiba as mensagens que estão sendo enviadas do módulo tempSensor para a nuvem:
+
+```cmd
 sudo docker logs -f tempSensor
 ```
+
+![Exibir os dados do seu módulo](./media/tutorial-simulate-device-linux/docker-logs.png)
 
 Também exiba a telemetria sendo enviada pelo dispositivo usando a [ferramenta Gerenciador do Hub IoT][lnk-iothub-explorer]. 
 

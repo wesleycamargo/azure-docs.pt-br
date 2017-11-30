@@ -1,5 +1,7 @@
 <!-- F-series, Fs-series* -->
 
+Tamanhos de VM otimizados para computação têm uma alta relação de CPU/memória e são bons para servidores da Web com tráfego médio, dispositivos de rede, servidores de aplicativos e processos de lote. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como a taxa de transferência de armazenamento e largura de banda de rede para cada tamanho neste agrupamento.
+
 A série Fsv2 é baseado no processador Intel® Xeon® Platinum 8168, com uma frequência de núcleo básico de 2,7 GHz e uma frequência máxima turbo de núcleo único de 3,7 GHz. As instruções Intel® AVX-512, que são novas em Processadores Escalonáveis da Intel, fornecerão um aumento de até duas vezes de desempenho para cargas de trabalho de processamento de vetor em operações de ponto flutuante de precisão simples e dupla. Em outras palavras, eles são muito rápidos para qualquer carga de trabalho computacional. 
 
 A um preço de lista por hora inferior, a série Fsv2 é o melhor valor de preço/desempenho no portfólio do Azure com base na ACU (Unidade de Computação do Azure) por vCPU. 
@@ -14,7 +16,7 @@ A série Fs fornece todas as vantagens da série F, além do armazenamento Premi
 
 ACU: 195 - 210
 
-| Tamanho             | da vCPU | Memória: GiB | SSD local: GiB | Discos de dados máximos | Taxa de transferência máxima do disco em cache e armazenamento temporário: IOPS / MBps (tamanho do cache em GiB) | Máximo de NICs/Desempenho de rede esperado (Mbps) |
+| Tamanho             | da vCPU | Memória: GiB | SSD local: GiB | Discos de dados máximos | Taxa de transferência máxima do disco em cache e armazenamento temporário: IOPS / MBps (tamanho do cache em GiB) | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
 |------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|------------------------------------------------|
 | Standard_F2s_v2  | 2      | 4           | 16             | 4              | 4000 (32)                                                             | Moderado                                       |
 | Standard_F4s_v2  | 4      | 8           | 32             | 8              | 8000 (64)                                                             | Moderado                                       |
@@ -29,7 +31,7 @@ ACU: 195 - 210
 
 ACU: 210 - 250
 
-| Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima do disco em cache e armazenamento temporário: IOPS / MBps (tamanho do cache em GiB) | Taxa de transferência máxima do disco não armazenado em cache: IOPS / MBps | Máximo de NICs/Desempenho de rede esperado (Mbps) |
+| Tamanho | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima do disco em cache e armazenamento temporário: IOPS / MBps (tamanho do cache em GiB) | Taxa de transferência máxima do disco não armazenado em cache: IOPS / MBps | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_F1s |1 |2 |4 |4 |4.000 / 32 (12) |3.200 / 48 |2 / 750 |
 | Standard_F2s |2 |4 |8 |8 |8.000 / 64 (24) |6.400 / 96 |2 / 1500 |
@@ -48,7 +50,7 @@ MBps = 10^6 bytes por segundo e GiB = 1024^3 bytes.
 
 ACU: 210 - 250
 
-| Tamanho         | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Taxa de transferência máxima de armazenamento temporário: IOPS / MBps de leitura / MBps de gravação | Discos de dados máximos / taxa de transferência: IOPS | Máximo de NICs/Desempenho de rede esperado (Mbps) |
+| Tamanho         | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Taxa de transferência máxima de armazenamento temporário: IOPS / MBps de leitura / MBps de gravação | Discos de dados máximos / taxa de transferência: IOPS | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_F1  | 1         | 2           | 16             | 3000 / 46 / 23                                           | 4 / 4 x 500                         | 2 / 750                 |
 | Standard_F2  | 2         | 4           | 32             | 6000 / 93 / 46                                           | 8 / 8 x 500                         | 2 / 1500                     |

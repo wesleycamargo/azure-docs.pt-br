@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 9b1498d76680185b45edf9ac7e1747bfa6794eec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0631b621c01eb880393d07323cdeb815e564a2e3
+ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="package-and-deploy-containers-as-a-service-fabric-application"></a>Empacotar e implantar contêineres como um aplicativo do Service Fabric
 
@@ -218,7 +218,7 @@ Para implantar o aplicativo em um cluster do Azure, use seu próprio cluster ou 
 
 Clusters de entidade são clusters do Service Fabric gratuitos e com tempo limitado hospedados no Azure. Ele é mantido pela equipe do Service Fabric em que qualquer pessoa pode implantar aplicativos e conhecer a plataforma. Para obter acesso a um Cluster de Terceiros, [siga as instruções](http://aka.ms/tryservicefabric). 
 
-Para obter informações sobre como criar seu próprio cluster, consulte [Criar seu primeiro cluster do Service Fabric no Azure](service-fabric-get-started-azure-cluster.md).
+Para obter informações sobre como criar seu próprio cluster, consulte [Criar um cluster do Service Fabric no Azure](service-fabric-tutorial-create-vnet-and-linux-cluster.md).
 
 ## <a name="build-and-deploy-the-application-to-the-cluster"></a>Criar e implantar o aplicativo no cluster
 É possível implantar o aplicativo no cluster do Azure usando a CLI do Service Fabric. Se a CLI do Service Fabric não estiver instalada em seu computador, siga as instruções [aqui](service-fabric-get-started-linux.md#set-up-the-service-fabric-cli) para instalá-la. 

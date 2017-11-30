@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: andredm
-ms.openlocfilehash: 61917ea76f7f512776e4fe425dd8e475fa194bc1
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 4d98556f17fa834c497c2d1cd1854c9e6b02e021
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-stack-1711-update"></a>Atualização de pilha 1711 do Azure
 
@@ -136,7 +136,7 @@ Esta seção contém os problemas conhecidos de pós-instalação com compilaç�
 No Azure Active Directory Federation Services (ADFS) implantado a ambientes, o **azurestack\azurestackadmin** conta não é o proprietário da assinatura do provedor padrão. Em vez de fazer logon na **portal de administração / ponto de extremidade adminmanagement** com o **azurestack\azurestackadmin**, você pode usar o **azurestack\cloudadmin** conta, isso Você pode gerenciar e usar a assinatura de provedor padrão.
 
 > [!IMPORTANT]
-> Até mesmo o **azurestack\cloudadmin** conta é o proprietário da assinatura do provedor padrão em ambientes do AD FS implantado, ele não tem permissões para RDP para o host. Continuar a usar o **azurestack\azurestackadmin** conta ou a conta de administrador local para fazer logon, acessar e gerenciar o host, conforme necessário.
+> Embora o **azurestack\cloudadmin** conta é o proprietário da assinatura do provedor padrão em ambientes do AD FS implantado, ele não tem permissões para RDP para o host. Continuar a usar o **azurestack\azurestackadmin** conta ou a conta de administrador local para fazer logon, acessar e gerenciar o host, conforme necessário.
 
 ## <a name="download-the-update"></a>Baixe a atualização
 

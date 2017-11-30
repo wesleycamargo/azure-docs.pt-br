@@ -1,6 +1,8 @@
 ---
 title: Diagnosticar e solucionar problemas no Azure Time Series Insights | Microsoft Docs
 description: Este artigo descreve como diagnosticar e solucionar problemas comuns que podem ser encontrados em seu ambiente do Azure Time Series Insights.
+services: time-series-insights
+ms.service: time-series-insights
 author: venkatgct
 ms.author: venkatja
 manager: jhubbard
@@ -9,11 +11,11 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 11/15/2017
-ms.openlocfilehash: 4216b245fd480003cfa4a34452f87efade964f8d
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 757d37183ad334aca462af59bad261cfa686299e
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="diagnose-and-solve-problems-in-your-time-series-insights-environment"></a>Diagnosticar e resolver problemas no ambiente do Time Series Insights
 
@@ -37,13 +39,13 @@ O Azure Time Series Insights dá suporte somente a dados JSON. Para obter exempl
    Conforme mostrado na imagem anterior, qualquer uma das políticas **read** e **manage** funcionará, pois ambas têm a permissão de **Escuta**.
 
 ### <a name="possible-cause-c-the-consumer-group-provided-is-not-exclusive-to-time-series-insights"></a>Causa possível C: o grupo de consumidores fornecido não é exclusivo do Time Series Insights
-Durante o registro de um hub IoT ou de um hub de eventos, especifique o grupo de consumidores que deve ser usado para ler os dados. Esse grupo de consumidores **não** deve ser compartilhado. Se o grupo de consumidores for compartilhado, o hub de eventos subjacente desconectará automaticamente um dos leitores de forma aleatória. Forneça um grupo de consumidores exclusivo para o Time Series Insights para leitura.
+Durante o registro de um Hub IoT ou de um hub de eventos, especifique o grupo de consumidores que deve ser usado para ler os dados. Esse grupo de consumidores **não** deve ser compartilhado. Se o grupo de consumidores for compartilhado, o hub de eventos subjacente desconectará automaticamente um dos leitores de forma aleatória. Forneça um grupo de consumidores exclusivo para o Time Series Insights para leitura.
 
 ## <a name="problem-2-some-data-is-shown-but-some-is-missing"></a>Problema 2: Alguns dados são exibidos, mas alguns estão ausentes
 Quando você puder ver os dados parcialmente, e se os dados estiverem parcialmente escondidos, há várias possibilidades a serem consideradas:
 
 ### <a name="possible-cause-a-your-environment-is-getting-throttled"></a>Causa possível A: seu ambiente está ficando limitado
-A limitação é imposta com base na capacidade e no tipo de SKU do ambiente. Todas as origens do evento no ambiente compartilham essa capacidade. Se a origem do evento do hub de eventos ou Hub IoT estiver enviando dados por push além dos limites impostos, você vê a limitação e um retardo.
+A limitação é imposta com base na capacidade e no tipo de SKU do ambiente. Todas as origens do evento no ambiente compartilham essa capacidade. Se a origem do evento do hub de eventos ou Hub IoT estiver enviando dados por push além dos limites impostos, você verá a limitação e um retardo.
 
 O diagrama a seguir mostra um ambiente do Time Series Insights com um SKU S1 e uma capacidade 3. Ele pode ingressar 3 milhões de eventos por dia.
 
@@ -61,7 +63,7 @@ Para obter um entendimento de alto nível sobre como funciona a lógica de nivel
 Para corrigir o retardo, aumente a capacidade do SKU do ambiente. Para obter mais informações, consulte [Como dimensionar o ambiente do Time Series Insights](time-series-insights-how-to-scale-your-environment.md).
 
 ### <a name="possible-cause-b-initial-ingestion-of-historical-data-is-causing-slow-ingress"></a>Possível causa B: a ingestão inicial de dados históricos está causando o ingresso lento
-Se você estiver se conectando a uma origem do evento existente, é provável que o Hub IoT ou o hub de eventos já contenha dados. O ambiente inicia o pull dos dados desde o início do período de retenção de mensagens da origem do evento.
+Se você está se conectando a uma origem do evento existente, é provável que o Hub IoT ou o hub de eventos já contenha dados. O ambiente inicia o pull dos dados desde o início do período de retenção de mensagens da origem do evento.
 
 Esse comportamento é o comportamento padrão e não pode ser substituído. Você pode acionar a limitação e pode levar alguns instantes para a atualização da ingestão de dados históricos.
 

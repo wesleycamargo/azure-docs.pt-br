@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: f32c8cd6e32e99bc34d62435bcd1883ba957e716
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 19bd7ed4bab915d7918a192a046653666cfaa498
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Visualização de logs de fluxo do grupo de segurança de rede com o Power BI
 
@@ -75,11 +75,11 @@ O visual dos principais locutores mostra os IPs que iniciaram a maioria das cone
 
 ![toptalkers][6]
 
-Os gráficos de série de tempo a seguir mostram o número de fluxos durante o período. O gráfico superior é segmentado pelo sentido do fluxo, enquanto o inferior é segmentado pela decisão tomada (permitir ou negar). Com esse visual, é possível examinar as tendências do tráfego ao longo do tempo e identificar picos anormais ou quedas no tráfego ou na segmentação de tráfego.
+Os grafos de série de tempo a seguir mostram o número de fluxos durante o período. O grafo superior é segmentado pelo sentido do fluxo, enquanto o inferior é segmentado pela decisão tomada (permitir ou negar). Com esse visual, é possível examinar as tendências do tráfego ao longo do tempo e identificar picos anormais ou quedas no tráfego ou na segmentação de tráfego.
 
 ![flowsoverperiod][7]
 
-Os gráficos a seguir mostram os fluxos por interface de rede, com a parte superior segmentada por sentido do fluxo, e a inferior segmentada por decisão tomada. Com essas informações, você saberá qual das suas VMs comunicou-se mais em relação às outras, e se o tráfego para uma VM específica está sendo permitido ou negado.
+Os grafos a seguir mostram os fluxos por interface de rede, com a parte superior segmentada por sentido do fluxo, e a inferior segmentada por decisão tomada. Com essas informações, você saberá qual das suas VMs comunicou-se mais em relação às outras, e se o tráfego para uma VM específica está sendo permitido ou negado.
 
 ![flowspernic][8]
 
@@ -119,7 +119,7 @@ Fique à vontade para personalizar esse modelo para adequá-lo às suas necessid
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber como visualizar os logs de fluxo NSG com a pilha elástica, confira: [Como visualizar padrões de tráfego de rede de e para suas VMs usando ferramentas de software livre](network-watcher-using-open-source-tools.md)
+Saiba como visualizar os logs de fluxo NSG com a pilha elástica visitando [Visualizar registros de fluxo de NSG do Observador de Rede do Azure usando ferramentas de software livre](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
 
 [1]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure1.png
 [2]: ./media/network-watcher-visualize-nsg-flow-logs-power-bi/figure2.png

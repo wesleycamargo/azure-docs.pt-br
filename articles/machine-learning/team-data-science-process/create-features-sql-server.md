@@ -4,7 +4,7 @@ description: Processar dados do SQL Azure
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: 
 ms.assetid: bf1f4a6c-7711-4456-beb7-35fdccd46a44
 ms.service: machine-learning
@@ -12,16 +12,16 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
+ms.date: 11/21/2017
 ms.author: bradsev;fashah;garye
-ms.openlocfilehash: 06c165d25361694cf660f391b3d221ad1d63e95d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd919e7f87080b8c4ad1f8d3de26d6f71470a264
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>Criar recursos para dados no SQL Server usando o SQL e o Python
-Este documento mostra como gerar recursos para os dados armazenados em uma VM do SQL Server no Azure que ajudam os algoritmos a aprender com mais eficiência com base nos dados. Isso pode ser feito usando o SQL ou usando uma linguagem de programação como o Python, ambos demonstrados aqui.
+Este documento mostra como gerar recursos para os dados armazenados em uma VM do SQL Server no Azure que ajudam os algoritmos a aprender com mais eficiência com base nos dados. Você pode usar o SQL ou uma linguagem de programação como o Python para realizar esta tarefa. Ambas as abordagens são demonstradas aqui.
 
 [!INCLUDE [cap-create-features-data-selector](../../../includes/cap-create-features-selector.md)]
 
@@ -67,20 +67,20 @@ O exemplo a seguir mostra como gerar recursos compartimentalizados guardando (us
 ### <a name="sql-featurerollout"></a>Propagar os recursos de uma única coluna
 Nesta seção, demonstraremos como propagar uma única coluna em uma tabela para gerar recursos adicionais. O exemplo presume que há uma coluna de latitude ou longitude na tabela da qual você está tentando gerar recursos.
 
-Aqui está uma breve cartilha sobre os dados de localização de latitude/longitude (recursos de stackoverflow `http://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude`). É útil entender isso antes de destacar o campo local:
+Aqui está uma breve cartilha sobre os dados de localização de latitude/longitude (recursos de stackoverflow `http://gis.stackexchange.com/questions/8650/how-to-measure-the-accuracy-of-latitude-and-longitude`). Aqui estão algumas opções úteis para entender os dados de localização antes de criar recursos do campo:
 
-* O sinal nos informa se estamos na parte norte ou sul, leste ou oeste do globo.
-* Um dígito em centenas diferente de zero informa que estamos usando longitude, não latitude!
-* O dígito de dezena indica uma posição de cerca de 1.000 quilômetros. Ele nos dá informações úteis sobre em qual continente ou oceano estamos.
-* O dígito e unidades (um grau decimal) oferece uma posição até 111 quilômetros (60 milhas náuticas, cerca de 69 milhas). Ele pode indicar aproximadamente em qual grande estado ou país estamos.
+* O sinal indica se estamos norte ou sul, leste ou oeste no globo.
+* Um dígito de centena não zero indica longitude, não a latitude que está sendo usada.
+* O dígito de dezena indica uma posição de cerca de 1.000 quilômetros. Ele fornece informações úteis sobre o continente ou o oceano em que estamos.
+* O dígito e unidades (um grau decimal) oferece uma posição até 111 quilômetros (60 milhas náuticas, cerca de 69 milhas). Isso indica, aproximadamente, em que grande estado ou país estamos.
 * A primeira casa decimal representa até 11,1 km: ela pode distinguir a posição de uma cidade grande de uma cidade grande vizinha.
 * A segunda casa decimal representa 1,1 km: ela pode separar um vila da próxima.
 * A terceira casa decimal representa até 110 m: ela pode identificar um campo agrícola ou campus institucional grande.
 * A quarta casa decimal representa até 11 m: ela pode identificar um lote de terreno. Ela é comparável à precisão típica de uma unidade GPS não corrigida sem interferência.
-* A quinta casa decimal representa até 1,1 m: ela distingue as árvores mas das outras. Uma precisão desse nível com unidades GPS comerciais só pode ser obtida com a correção diferencial.
+* A quinta casa decimal representa até 1,1 m: ela distingue as árvores umas das outras. Uma precisão desse nível com unidades GPS comerciais só pode ser obtida com a correção diferencial.
 * A sexta casa decimal representa até 0,11 m: você pode usá-la para dispor estruturas detalhadamente, projetar paisagens e criar estradas. Ela é mais do que suficiente para acompanhar os movimentos de geleiras e rios. Isso pode ser obtido coletando medidas arduamente com o GPS, tais como GPS com correção diferencial.
 
-As informações de localização podem pode ser destacadas da maneira indicada a seguir, separando informações de região, local e cidade. Observe que também é possível chamar um ponto de extremidade REST tal como a API do Bing Mapas, disponível em `https://msdn.microsoft.com/library/ff701710.aspx` para obter as informações de região/distrito.
+As informações de localização podem ser distinguidas separando a região, a localização e as informações da cidade. Observe que também é possível chamar um ponto de extremidade REST tal como a API do Bing Mapas, disponível em `https://msdn.microsoft.com/library/ff701710.aspx` para obter as informações de região/distrito.
 
     select
         <location_columnname>
@@ -93,10 +93,10 @@ As informações de localização podem pode ser destacadas da maneira indicada 
         ,l7=case when LEN (PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1)) >= 6 then substring(PARSENAME(round(ABS(<location_columnname>) - FLOOR(ABS(<location_columnname>)),6),1),6,1) else '0' end     
     from <tablename>
 
-Os recursos de localização acima podem ser usados ainda para gerar recursos adicionais de contagem, como descrito anteriormente.
+Os recursos baseados em localização podem ser usados ainda para gerar recursos adicionais de contagem, como descrito anteriormente.
 
 > [!TIP]
-> É possível inserir os registros com programação usando a linguagem de sua escolha. Talvez seja necessário inserir os dados em partes para melhorar a eficiência de gravação [Confira o exemplo de como fazer isso usando pyodbc aqui](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python).
+> É possível inserir os registros com programação usando a linguagem de sua escolha. Talvez seja necessário inserir os dados em partes para melhorar a eficiência de gravação. [Aqui está um exemplo de como fazer isso usando pyodbc](https://code.google.com/p/pypyodbc/wiki/A_HelloWorld_sample_to_access_mssql_with_python).
 > Outra alternativa é inserir dados no banco de dados usando o [utilitário BCP](https://msdn.microsoft.com/library/ms162802.aspx)
 > 
 > 
@@ -104,12 +104,12 @@ Os recursos de localização acima podem ser usados ainda para gerar recursos ad
 ### <a name="sql-aml"></a>Conectando ao Azure Machine Learning
 O recurso recém-gerado pode ser adicionado como uma coluna a uma tabela existente ou armazenado em uma nova tabela e unido com a tabela original para o aprendizado de máquina. Recursos poderão ser gerados ou acessados se já foram criados, usando o módulo [Importar Dados](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) no AM do Azure conforme mostrado abaixo:
 
-![leitores de azureml](./media/sql-server-virtual-machine/reader_db_featurizedinput.png)
+![Leitores de Azure ML](./media/sql-server-virtual-machine/reader_db_featurizedinput.png)
 
 ## <a name="python"></a>Usando uma linguagem de programação como Python
-Usar o Python para gerar recursos quando os dados estão no SQL Server é semelhante ao processamento de dados no blob do Azure usando o Python conforme documentado em [Processar dados de Blob do Azure em seu ambiente de ciência de dados](data-blob.md). Os dados precisam ser carregados do banco de dados para um quadro de dados pandas, quando então poderão ser processados. Documentamos o processo de conectar-se ao banco de dados e carregar os dados em um quadro de dados nesta seção.
+O uso do Python para gerar recursos quando os dados estão no SQL Server é semelhante ao processamento de dados no Blob do Azure usando o Python. Para comparação, consulte os [Processar dados do Blob do Azure em seu ambiente de ciência de dados](data-blob.md). Carregue os dados do banco de dados em uma estrutura de dados de Pandas para processá-lo ainda mais. O processo de conexão ao banco de dados e o carregamento dos dados na estrutura de dados estão documentados nesta seção.
 
-O seguinte formato de cadeia de conexão pode ser usado para se conectar a um banco de dados do SQL Server do Python usando pyodbc (substitua servername, dbname, nome de usuário e senha pelos seus valores específicos):
+O seguinte formato de cadeia de conexão pode ser usado para se conectar a um banco de dados do SQL Server do Python usando pyodbc (substitua servername, dbname, username e password pelos seus valores específicos):
 
     #Set up the SQL Azure connection
     import pyodbc

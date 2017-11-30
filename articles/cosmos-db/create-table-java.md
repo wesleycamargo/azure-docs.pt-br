@@ -13,19 +13,19 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: quickstart
-ms.date: 11/15/2017
+ms.date: 11/20/2017
 ms.author: arramac
-ms.openlocfilehash: 8af7064ad9873128b7d744b815e888c50953f377
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 90ba10990049cd1fb788d63a143eb1169191cf24
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="quickstart-build-a-table-api-app-with-java-and-azure-cosmos-db"></a>Início rápido: criar um aplicativo de API de Tabela com Java e Azure Cosmos DB
 
 Este guia de início rápido mostra como usar o Java e a [API de Tabela](table-introduction.md) do Azure Cosmos DB para compilar um aplicativo clonando um exemplo do GitHub. Este guia de início rápido também mostra como criar uma conta do Azure Cosmos DB e como usar o Data Explorer para criar tabelas e entidades no Portal do Azure baseado na Web.
 
-O BD Cosmos do Azure é o serviço multimodelo de banco de dados distribuído globalmente da Microsoft. É possível criar e consultar rapidamente documentos, chave/valor e bancos de dados do gráfico. Todos se beneficiam de recursos de escala horizontal e distribuição global no núcleo do Azure Cosmos DB. 
+O BD Cosmos do Azure é o serviço multimodelo de banco de dados distribuído globalmente da Microsoft. É possível criar e consultar rapidamente documentos, chave/valor e bancos de dados do grafo. Todos se beneficiam de recursos de escala horizontal e distribuição global no núcleo do Azure Cosmos DB. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -43,6 +43,10 @@ Além disso:
     * No Ubuntu, você pode executar `sudo apt-get install git` para instalar o Git.
 
 ## <a name="create-a-database-account"></a>Criar uma conta de banco de dados
+
+> [!IMPORTANT] 
+> Você precisa criar uma nova conta de API de tabela para trabalhar com os SDKs de API de tabela disponíveis. Não há suporte para contas de API de tabela criadas durante a versão prévia pelos SDKs disponíveis.
+>
 
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
 
@@ -87,9 +91,24 @@ Agora, volte ao portal do Azure para obter informações sobre a cadeia de conex
 
    ![Exibir e copiar as informações necessárias da cadeia de conexão do painel da Cadeia de Conexão](./media/create-table-java/connection-string.png)
 
-2. Abra o arquivo config.properties e copie as propriedades necessárias da cadeia de conexão para o arquivo de configuração.
+2. Copie a CADEIA DE CONEXÃO PRIMÁRIA usando o botão de cópia do lado direito.
 
-3. Salve o arquivo config.properties.
+3. Abra as propriedades de configuração na pasta C:\git-samples\storage-table-java-getting-started\src\main\resources. 
+
+5. Comente a linha um e remova os comentários da linha dois. As primeiras duas linhas agora devem ter esta aparência.
+
+    ```
+    #StorageConnectionString = UseDevelopmentStorage=true
+    StorageConnectionString = DefaultEndpointsProtocol=https;AccountName=[ACCOUNTNAME];AccountKey=[ACCOUNTKEY]
+    ```
+
+6. Cole o valor de CADEIA DE CONEXÃO PRIMÁRIA do portal no valor da StorageConnectionString na linha 2. 
+
+    > [!IMPORTANT]
+    > Se o ponto de extremidade usa documents.azure.com, isso significa que você tem uma conta de versão prévia, e você precisa criar um [nova conta de API de tabela](#create-a-database-account) para trabalhar com o SDK de API de tabela geralmente disponível.
+    >
+
+7. Salve o arquivo config.properties.
 
 Agora, você atualizou o aplicativo com todas as informações necessárias para se comunicar com o Azure Cosmos DB. 
 
@@ -98,8 +117,7 @@ Agora, você atualizou o aplicativo com todas as informações necessárias para
 1. Na janela do terminal git, `cd` para a pasta storage-table-java-getting-started.
 
     ```git
-    cd "C:\git-samples\
-storage-table-java-getting-started"
+    cd "C:\git-samples\storage-table-java-getting-started"
     ```
 
 2. Na janela do terminal git, execute os comandos a seguir para executar e iniciar o aplicativo Java.

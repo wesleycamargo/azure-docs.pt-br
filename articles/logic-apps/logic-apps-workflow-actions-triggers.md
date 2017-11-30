@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/17/2016
 ms.author: LADocs; mandia
-ms.openlocfilehash: 7e0266cdc477715a5d2f9067c6dcea73da9ba763
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9f95c0c486401e0d709829ce8d560f030932eea7
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="triggers-and-actions-for-logic-app-workflows"></a>Gatilhos e ações para fluxos de trabalho de aplicativos lógicos
 
@@ -196,19 +196,9 @@ Os gatilhos HTTP sondam um ponto de extremidade especificado e verifica a respos
 | consultas | Não | Objeto | Representa todos os parâmetros que você deseja incluir na URL. <p>Por exemplo, `"queries": { "api-version": "2015-02-01" }` adiciona `?api-version=2015-02-01` à URL. | 
 | headers | Não | Objeto | Representa cada cabeçalho que é enviado na solicitação. <p>Por exemplo, para definir o idioma e o tipo em uma solicitação: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | body | Não | Objeto | Representa a carga enviada para o ponto de extremidade. | 
-| retryPolicy | Não | Objeto | Use esse objeto para personalizar o comportamento de repetição para os erros 4xx ou 5xx. | 
+| retryPolicy | Não | Objeto | Use esse objeto para personalizar o comportamento de repetição para os erros 4xx ou 5xx. Para mais informações, consulte [Políticas de repetição](../logic-apps/logic-apps-exception-handling.md). | 
 | Autenticação | Não | Objeto | Representa o método que a solicitação deve usar para autenticação. Para obter mais informações, consulte [Autenticação de saída do Agendador](../scheduler/scheduler-outbound-authentication.md). <p>Além do Agendador, há mais uma propriedade com suporte: `authority`. Por padrão, esse valor é `https://login.windows.net` quando não especificado, mas você pode usar um valor diferente, como `https://login.windows\-ppe.net`. | 
 ||||| 
-
-Uma *política de repetição* se aplica às falhas intermitentes, caracterizadas como os códigos de status HTTP 408, 429 e 5xx, além de quaisquer exceções de conectividade. Você pode definir essa política com o objeto `retryPolicy` conforme mostrado aqui:
-  
-```json
-"retryPolicy": {
-    "type": "retry-policy-type",
-    "interval": retry-interval,
-    "count": number-of-retry-attempts
-}
-```
  
 Para funcionar bem com seu aplicativo lógico, o gatilho HTTP requer a API HTTP estar em conformidade com um padrão específico. O gatilho reconhece estas propriedades:  
   
@@ -269,7 +259,7 @@ O gatilho de conexão da API é semelhante ao gatilho HTTP em sua funcionalidade
 | consultas | Não | Objeto | Representa todos os parâmetros que você deseja incluir na URL. <p>Por exemplo, `"queries": { "api-version": "2015-02-01" }` adiciona `?api-version=2015-02-01` à URL. | 
 | headers | Não | Objeto | Representa cada cabeçalho que é enviado na solicitação. <p>Por exemplo, para definir o idioma e o tipo em uma solicitação: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | body | Não | Objeto | Representa a carga enviada para o ponto de extremidade. | 
-| retryPolicy | Não | Objeto | Use esse objeto para personalizar o comportamento de repetição para os erros 4xx ou 5xx. | 
+| retryPolicy | Não | Objeto | Use esse objeto para personalizar o comportamento de repetição para os erros 4xx ou 5xx. Para mais informações, consulte [Políticas de repetição](../logic-apps/logic-apps-exception-handling.md). | 
 | Autenticação | Não | Objeto | Representa o método que a solicitação deve usar para autenticação. Para obter mais informações, consulte [Autenticação de saída do Agendador](../scheduler/scheduler-outbound-authentication.md). | 
 ||||| 
 
@@ -280,16 +270,6 @@ Para o objeto `host`, estas são as propriedades:
 | api runtimeUrl | Sim | O ponto de extremidade da API gerenciada | 
 | nome da conexão |  | O nome da conexão de API gerenciada que o fluxo de trabalho usa. Deve fazer referência a um parâmetro denominado `$connection`. |
 |||| 
-
-Uma *política de repetição* se aplica às falhas intermitentes, caracterizadas como os códigos de status HTTP 408, 429 e 5xx, além de quaisquer exceções de conectividade. Você pode definir essa política com o objeto `retryPolicy` conforme mostrado aqui:
-  
-```json
-"retryPolicy": {
-    "type": "retry-policy-type",
-    "interval": retry-interval,
-    "count": number-of-retry-attempts
-}
-```
 
 Estas são as saídas de um gatilho de Conexão da API:
   
@@ -529,20 +509,11 @@ Aqui, o objeto `inputs` usa esses parâmetros necessários para construir uma ch
 | consultas | Não | Objeto | Representa todos os parâmetros que você deseja incluir na URL. <p>Por exemplo, `"queries": { "api-version": "2015-02-01" }` adiciona `?api-version=2015-02-01` à URL. | 
 | headers | Não | Objeto | Representa cada cabeçalho que é enviado na solicitação. <p>Por exemplo, para definir o idioma e o tipo em uma solicitação: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | body | Não | Objeto | Representa a carga enviada para o ponto de extremidade. | 
-| retryPolicy | Não | Objeto | Use esse objeto para personalizar o comportamento de repetição para os erros 4xx ou 5xx. | 
+| retryPolicy | Não | Objeto | Use esse objeto para personalizar o comportamento de repetição para os erros 4xx ou 5xx. Para mais informações, consulte [Políticas de repetição](../logic-apps/logic-apps-exception-handling.md). | 
 | operationsOptions | Não | string | Define o conjunto de comportamentos especiais a substituir. | 
 | autenticação | Não | Objeto | Representa o método que a solicitação deve usar para autenticação. Para obter mais informações, consulte [Autenticação de saída do Agendador](../scheduler/scheduler-outbound-authentication.md). <p>Além do Agendador, há mais uma propriedade com suporte: `authority`. Por padrão, esse valor é `https://login.windows.net` quando não especificado, mas você pode usar um valor diferente, como `https://login.windows\-ppe.net`. | 
 ||||| 
 
-As ações HTTP e as ações de APIConnection têm suporte para as *políticas de repetição*. Uma política de repetição se aplica às falhas intermitentes, caracterizadas como os códigos de status HTTP 408, 429 e 5xx, além de quaisquer exceções de conectividade. Você pode definir essa política com o objeto `retryPolicy` conforme mostrado aqui:
-  
-```json
-"retryPolicy": {
-    "type": "retry-policy-type",
-    "interval": retry-interval,
-    "count": number-of-retry-attempts
-}
-```
 Nesse exemplo, a ação HTTP tenta buscar as notícias mais recentes duas vezes se houver falhas intermitentes, com um total de três execuções, com um atraso de 30 segundos entre cada tentativa:
   
 ```json
@@ -631,20 +602,10 @@ Aqui está um exemplo de ação APIConnection:
 | consultas | Não | Objeto | Representa todos os parâmetros que você deseja incluir na URL. <p>Por exemplo, `"queries": { "api-version": "2015-02-01" }` adiciona `?api-version=2015-02-01` à URL. | 
 | headers | Não | Objeto | Representa cada cabeçalho que é enviado na solicitação. <p>Por exemplo, para definir o idioma e o tipo em uma solicitação: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | body | Não | Objeto | Representa a carga enviada para o ponto de extremidade. | 
-| retryPolicy | Não | Objeto | Use esse objeto para personalizar o comportamento de repetição para os erros 4xx ou 5xx. | 
+| retryPolicy | Não | Objeto | Use esse objeto para personalizar o comportamento de repetição para os erros 4xx ou 5xx. Para mais informações, consulte [Políticas de repetição](../logic-apps/logic-apps-exception-handling.md). | 
 | operationsOptions | Não | string | Define o conjunto de comportamentos especiais a substituir. | 
 | autenticação | Não | Objeto | Representa o método que a solicitação deve usar para autenticação. Para obter mais informações, consulte [Autenticação de saída do Agendador](../scheduler/scheduler-outbound-authentication.md). |
 ||||| 
-
-Uma política de repetição se aplica às falhas intermitentes, caracterizadas como os códigos de status HTTP 408, 429 e 5xx, além de quaisquer exceções de conectividade. Você pode definir essa política com o objeto `retryPolicy` conforme mostrado aqui:
-  
-```json
-"retryPolicy": {
-    "type": "retry-policy-type",
-    "interval": retry-interval,
-    "count": number-of-retry-attempts
-}
-```
 
 ## <a name="apiconnection-webhook-action"></a>Ação do webhook de APIConnection
 
@@ -684,7 +645,7 @@ A ação APIConnectionWebhook se refere a um conector gerenciado pela Microsoft.
 | consultas | Não | Objeto | Representa todos os parâmetros que você deseja incluir na URL. <p>Por exemplo, `"queries": { "api-version": "2015-02-01" }` adiciona `?api-version=2015-02-01` à URL. | 
 | headers | Não | Objeto | Representa cada cabeçalho que é enviado na solicitação. <p>Por exemplo, para definir o idioma e o tipo em uma solicitação: <p>`"headers": { "Accept-Language": "en-us", "Content-Type": "application/json" }` | 
 | body | Não | Objeto | Representa a carga enviada para o ponto de extremidade. | 
-| retryPolicy | Não | Objeto | Use esse objeto para personalizar o comportamento de repetição para os erros 4xx ou 5xx. | 
+| retryPolicy | Não | Objeto | Use esse objeto para personalizar o comportamento de repetição para os erros 4xx ou 5xx. Para mais informações, consulte [Políticas de repetição](../logic-apps/logic-apps-exception-handling.md). | 
 | operationsOptions | Não | string | Define o conjunto de comportamentos especiais a substituir. | 
 | autenticação | Não | Objeto | Representa o método que a solicitação deve usar para autenticação. Para obter mais informações, consulte [Autenticação de saída do Agendador](../scheduler/scheduler-outbound-authentication.md). |
 ||||| 

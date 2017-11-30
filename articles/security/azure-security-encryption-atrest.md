@@ -12,16 +12,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 53b6f03d43b5525e5c5dea42e6a9a36042b65d52
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b02afa77ce99f576fed76b398642ba3f3ce2ba98
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-data-encryption-at-rest"></a>Criptografia de dados em repouso no Azure
-Há várias ferramentas no Microsoft Azure para proteger os dados de acordo com as necessidades de segurança e a conformidade de sua empresa. Este artigo concentra-se em como os dados são protegidos em repouso no Microsoft Azure, discute os vários componentes que participam da implementação da proteção de dados e revisa os prós e contras das diferentes abordagens de proteção de gerenciamento de chaves. 
+Há várias ferramentas no Microsoft Azure para proteger os dados de acordo com as necessidades de segurança e a conformidade de sua empresa. Este documento se concentra em:
+- Como os dados são protegidos em repouso no Microsoft Azure
+- Descreve os vários componentes que fazem parte da implementação de proteção de dados,
+- Revisa os prós e contras das diferentes abordagens de proteção de gerenciamento de chaves. 
 
 A criptografia em repouso é um requisito de segurança comum. Um benefício do Microsoft Azure é que as organizações podem alcançar a criptografia em repouso sem ter o custo de implementação e gerenciamento e o risco de uma solução de gerenciamento de chaves personalizada. As organizações têm a opção de permitir que o Azure gerencie completamente a criptografia em repouso. Além disso, as organizações possuem várias opções para gerenciar de maneira rigorosa a criptografia ou as chaves de criptografia.
 
@@ -40,7 +43,7 @@ A criptografia em repouso destina-se a fornecer proteção de dados para dados e
 
 A criptografia em repouso é projetada para impedir que o invasor acesse os dados não criptografados, assegurando que os dados sejam criptografados quando em disco. Se um invasor pudesse obter um disco rígido com esses dados criptografados e nenhum acesso às chaves de criptografia, o invasor não comprometia os dados sem grande dificuldade. Nesse cenário, um invasor teria que tentar ataques contra dados criptografados que são muito mais complexos e consomem recursos, do que acessar dados não criptografados em um disco rígido. Por esse motivo, a criptografia em repouso é altamente recomendada e é um requisito de alta prioridade para muitas organizações. 
 
-Em alguns casos, a criptografia em repouso também é requerida pela necessidade de uma organização para governança de dados e esforços de conformidade. As regulamentações governamentais e do setor como HIPAA, PCI e FedRAMP, e os requisitos regulamentares internacionais, estabelecem proteções específicas por meio de processos e políticas relacionados à proteção de dados e requisitos de criptografia. Para muitos dessas regulamentações, a criptografia em repouso é uma medida obrigatória necessária para proteção e gerenciamento de dados compatíveis. 
+Em alguns casos, a criptografia em repouso também é requerida pela necessidade de uma organização para governança de dados e esforços de conformidade. As regulamentações governamentais e do setor como HIPAA, PCI e FedRAMP estabelecem proteções específicas sobre a proteção de dados e requisitos de criptografia. Para muitos dessas regulamentações, a criptografia em repouso é uma medida obrigatória necessária para proteção e gerenciamento de dados compatíveis. 
 
 Além dos requisitos de regulamentação e conformidade, a criptografia em repouso deve ser percebida como um recurso de plataforma de defesa em profundidade. Embora a Microsoft ofereça uma plataforma compatível para serviços, aplicativos e dados, instalações abrangentes e segurança física, controle de acesso a dados e auditoria, é importante fornecer medidas de segurança "sobrepostas" adicionais no caso de uma das outras medidas de segurança falhar. A criptografia em repouso fornece esse mecanismo de defesa adicional.
 
@@ -62,7 +65,7 @@ Permissões para utilizar as chaves armazenadas no Azure Key Vault, seja para ge
 
 ### <a name="key-hierarchy"></a>Hierarquia de Chave
 
-Geralmente, mais de uma chave de criptografia é utilizada em uma implementação de criptografia em repouso. A criptografia assimétrica é útil para estabelecer a confiança e a autenticação necessárias para acesso e gerenciamento de chaves. A criptografia simétrica é mais eficiente para criptografia e descriptografia em massa, permitindo uma criptografia mais forte e melhor desempenho. Além disso, limitar o uso de uma chave de criptografia única diminui o risco de que a chave seja comprometida e o custo de nova criptografia quando uma chave precisar ser substituída. Para aproveitar os benefícios da criptografia assimétrica e simétrica e limitar o uso e a exposição de uma chave única, os modelos de criptografia em repouso do Azure utilizam uma hierarquia de chave composta pelos seguintes tipos de chaves:
+Mais de uma chave de criptografia é utilizada em uma implementação de criptografia em repouso. A criptografia assimétrica é útil para estabelecer a confiança e a autenticação necessárias para acesso e gerenciamento de chaves. A criptografia simétrica é mais eficiente para criptografia e descriptografia em massa, permitindo uma criptografia mais forte e melhor desempenho. Além disso, limitar o uso de uma chave de criptografia única diminui o risco de que a chave seja comprometida e o custo de nova criptografia quando uma chave precisar ser substituída. Para aproveitar os benefícios da criptografia assimétrica e simétrica e limitar o uso e a exposição de uma chave única, os modelos de criptografia em repouso do Azure utilizam uma hierarquia de chave composta pelos seguintes tipos de chaves:
 
 - **DEK (Chave de Criptografia de Dados)** – Uma chave simétrica AES256 utilizada para criptografar uma partição ou bloco de dados.  Um recurso único pode ter muitas partições e muitas Chaves de Criptografia de Dados. Criptografar cada bloco de dados com uma chave diferente torna os ataques de análise de criptografia mais difíceis. O acesso a DEKs é necessário pelo provedor de recursos ou instância do aplicativo que criptografa e descriptografa um bloco específico. Quando um DEK é substituído por uma nova chave, apenas os dados em seu bloco associado devem ser reciclados com a nova chave.
 - **KEK (Chave de Criptografia de Chave)** – Uma chave de criptografia assimétrica utilizada para criptografar as Chaves de Criptografia de Dados. O uso de uma Chave de Criptografia de Chave permite que as chaves de criptografia de dados sejam criptografadas e controladas. A entidade que tem acesso ao KEK pode ser diferente da entidade que requer o DEK. Isso permite que um agente administre o acesso ao DEK com a finalidade de garantir o acesso limitado de cada DEK para a partição específica. Uma vez que o KEK é necessário para descriptografar os DEKs, o KEK é efetivamente um ponto único pelo qual os DEKs podem ser efetivamente excluídos pela exclusão do KEK.
@@ -87,7 +90,7 @@ Há três cenários para criptografia do lado do servidor:
 
 - Criptografia do lado do servidor utilizando chaves gerenciadas pelo cliente em hardware controlado pelo cliente
     - Provedores de recursos do Azure executam as operações de criptografia e descriptografia
-    - Chaves de controle do cliente no hardware controlado pelo cliente
+    - O cliente controla as chaves no hardware controlado pelo cliente
     - Funcionalidade completa na nuvem
 
 Para criptografia do lado do cliente, considere o seguinte:
@@ -100,7 +103,7 @@ Os modelos de criptografia com suporte no Azure dividem-se em dois grupos princi
 
 ### <a name="client-encryption-model"></a>Modelo de criptografia de cliente
 
-O modelo de Criptografia de Cliente refere-se à criptografia que é realizada fora do Provedor de Recursos ou Azure pelo aplicativo de chamada ou serviço. A criptografia pode ser realizada pelo aplicativo de serviço no Azure ou por um aplicativo em execução no data center do cliente. Em ambos os casos, ao aproveitar esse modelo de criptografia, o Provedor de Recursos do Azure recebe um blob de dados criptografado sem a capacidade de descriptografar os dados de maneira nenhuma ou ter acesso às chaves de criptografia. Nesse modelo, o gerenciamento de chaves é feito pelo aplicativo de chamada/serviço e é completamente opaco para o serviço do Azure.
+O modelo de Criptografia de Cliente refere-se à criptografia que é realizada fora do Provedor de Recursos ou Azure pelo aplicativo de chamada ou serviço. A criptografia pode ser realizada pelo aplicativo de serviço no Azure ou por um aplicativo em execução no data center do cliente. Em ambos os casos, ao aproveitar esse modelo de criptografia, o Provedor de Recursos do Azure recebe um blob de dados criptografado sem a capacidade de descriptografar os dados de maneira nenhuma ou ter acesso às chaves de criptografia. Nesse modelo, o gerenciamento de chaves é feito pelo aplicativo de chamada/serviço e é opaco para o serviço do Azure.
 
 ![Cliente](./media/azure-security-encryption-atrest/azure-security-encryption-atrest-fig2.png)
 
@@ -120,9 +123,9 @@ Para muitos clientes, o requisito essencial é garantir que os dados sejam cript
 
 ![gerenciado](./media/azure-security-encryption-atrest/azure-security-encryption-atrest-fig4.png)
 
-A criptografia do lado do servidor utilizando chaves de serviço gerenciado, portanto, aborda rapidamente a necessidade de ter criptografia em repouso com baixa sobrecarga para o cliente. Quando disponível, um cliente normalmente abre o portal do Azure para a assinatura de destino e provedor de recursos e verifica uma caixa indicando que gostaria que os dados fossem criptografados. Em algumas criptografias do lado do servidor de Gerenciadores de Recursos com chaves de serviço gerenciado são ativadas por padrão. 
+A criptografia do lado do servidor utilizando chaves de serviço gerenciado, portanto, aborda rapidamente a necessidade de ter criptografia em repouso com baixa sobrecarga para o cliente. Quando disponível, um cliente normalmente abre o portal do Azure para a assinatura de destino e provedor de recursos e verifica uma caixa indicando que gostaria que os dados fossem criptografados. Em alguns Gerenciadores de Recursos, a criptografia do lado do servidor com chaves gerenciadas pelo serviço é ativada por padrão. 
 
-A criptografia do lado do servidor com as chaves gerenciadas da Microsoft implica que o serviço possui acesso completo para armazenar e gerenciar as chaves. Embora alguns clientes desejam gerenciar as chaves porque sentem que podem garantir uma maior segurança, o custo e o risco associados a uma solução de armazenamento de chaves personalizada devem ser considerados ao avaliar esse modelo. Em muitos casos, uma organização pode determinar que restrições de recursos ou riscos de uma solução local podem ser maiores que o risco de gerenciamento de nuvem das chaves de criptografia em repouso.  No entanto, esse modelo pode não ser suficiente para as organizações que possuem requisitos para controlar a criação ou o ciclo de vida das chaves de criptografia ou têm uma equipe diferente para gerenciar chaves de criptografia do serviço do que aquelas que gerenciam o serviço (ou seja, segregação de gerenciamento de chaves do modelo de gerenciamento geral para o serviço).
+A criptografia do lado do servidor com as chaves gerenciadas da Microsoft implica que o serviço tem acesso completo para armazenar e gerenciar as chaves. Embora alguns clientes desejam gerenciar as chaves porque sentem que podem garantir uma maior segurança, o custo e o risco associados a uma solução de armazenamento de chaves personalizada devem ser considerados ao avaliar esse modelo. Em muitos casos, uma organização pode determinar que restrições de recursos ou riscos de uma solução local podem ser maiores que o risco de gerenciamento de nuvem das chaves de criptografia em repouso.  No entanto, esse modelo pode não ser suficiente para as organizações que possuem requisitos para controlar a criação ou o ciclo de vida das chaves de criptografia ou têm uma equipe diferente para gerenciar chaves de criptografia do serviço do que aquelas que gerenciam o serviço (ou seja, segregação de gerenciamento de chaves do modelo de gerenciamento geral para o serviço).
 
 ##### <a name="key-access"></a>Acesso à chave
 
@@ -145,7 +148,7 @@ Para cenários em que o requisito é criptografar os dados em repouso e controla
 
 ##### <a name="key-access"></a>Acesso à chave
 
-O modelo de criptografia do lado do servidor com chaves de cliente gerenciado no Azure Key Vault envolve o serviço acessando as chaves para criptografar e descriptografar, conforme necessário. As chaves de criptografia em repouso são acessíveis para um serviço através de uma política de controle de acesso que concede esse acesso de identidade do serviço para receber a chave. Um serviço do Azure executado em nome de uma assinatura associada pode ser configurado com uma identidade para esse serviço dentro dessa assinatura. O serviço pode executar a autenticação do Azure Active Directory e receber um token de autenticação identificando-se como esse serviço agindo em nome da assinatura. Esse token pode, então, ser apresentado ao Key Vault para obter uma chave para a qual tenha tido acesso.
+O modelo de criptografia do lado do servidor com chaves de cliente gerenciado no Azure Key Vault envolve o serviço acessando as chaves para criptografar e descriptografar, conforme necessário. As chaves de criptografia em repouso são acessíveis para um serviço através de uma política de controle de acesso. Essa política concede o acesso de identidade de serviço para receber a chave. Um serviço do Azure executado em nome de uma assinatura associada pode ser configurado com uma identidade dentro dessa assinatura. O serviço pode executar a autenticação do Azure Active Directory e receber um token de autenticação identificando-se como esse serviço agindo em nome da assinatura. Esse token pode, então, ser apresentado ao Key Vault para obter uma chave para a qual tenha tido acesso.
 
 Para operações que utilizam chaves de criptografia, uma identidade do serviço pode ter acesso a quaisquer das seguintes operações: descriptografar, criptografar, unwrapKey, wrapKey, verificar, assinar, obter, listar, atualizar, criar, importar, excluir, fazer backup e restaurar.
 
@@ -201,7 +204,7 @@ Os serviços do Microsoft Cloud são utilizados em todos os três modelos de nuv
 
 ### <a name="encryption-at-rest-for-saas-customers"></a>Criptografia em repouso para clientes SaaS
 
-Os clientes de Software como Serviço (SaaS), geralmente possuem criptografia em repouso habilitada ou disponível em cada serviço. Os serviços do Office 365 possuem várias opções para que os clientes verifiquem ou habilitem criptografia em repouso. Para obter informações sobre os serviços do Office 365, consulte Tecnologias de Criptografia de Dados para Office 365.
+Os clientes de Software como Serviço (SaaS), geralmente possuem criptografia em repouso habilitada ou disponível em cada serviço. O Office 365 tem várias opções para que os clientes verifiquem ou habilitem criptografia em repouso. Para obter informações sobre os serviços do Office 365, consulte Tecnologias de Criptografia de Dados para Office 365.
 
 ### <a name="encryption-at-rest-for-paas-customers"></a>Criptografia em repouso para clientes de PaaS
 

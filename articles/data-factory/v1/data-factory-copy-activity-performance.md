@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
+ms.date: 11/14/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 2aeb3820667f264e4a26860913e3f7b0e22e4c4a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 1f774bb881c66ceeb9f3223b735b3f34462b6a8d
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guia Desempenho e ajuste da Atividade de Cópia
 > [!NOTE]
@@ -49,6 +49,8 @@ Como uma referência, a tabela abaixo mostra o número da taxa de transferência
 
 ![Matriz de desempenho](./media/data-factory-copy-activity-performance/CopyPerfRef.png)
 
+>[!IMPORTANT]
+>Na versão 1 do Azure Data Factory, as unidades de movimentação de dados de nuvem mínimas para cópia de nuvem para nuvem são duas. Se ele não for especificado, consulte as unidades de movimentação de dados padrão usadas em [Unidades de movimentação de dados na nuvem](#cloud-data-movement-units).
 
 **Pontos a serem observados:**
 * A taxa de transferência é calculada usando a seguinte fórmula: [tamanho dos dados lidos na origem]/[duração da execução da Atividade de Cópia].
@@ -90,9 +92,16 @@ E assim por diante.
 Neste exemplo, quando o valor da **simultaneidade** é definido para 2, a **execução da atividade 1** e a **execução da atividade 2** copiam dos dados das duas janelas de atividade **simultaneamente** para melhorar o desempenho da movimentação de dados. No entanto, se vários arquivos estiverem associados à execução da Atividade 1, o serviço de movimentação de dados copiará os arquivos da origem para o destino um arquivo por vez.
 
 ### <a name="cloud-data-movement-units"></a>Unidades de movimentação de dados de nuvem
-Uma **unidade de movimentação de dados de nuvem (DMU)** é uma medida que representa a potência (uma combinação de CPU, memória e alocação de recursos da rede) de uma unidade única no Data Factory. Uma DMU pode ser usada em uma operação de cópia de nuvem para nuvem, mas não em uma cópia híbrida.
+Uma **unidade de movimentação de dados de nuvem (DMU)** é uma medida que representa a potência (uma combinação de CPU, memória e alocação de recursos da rede) de uma unidade única no Data Factory. Uma DMU é aplicável para operações de cópia de nuvem para nuvem, mas não em uma cópia híbrida.
 
-Por padrão, o Data Factory usa uma única DMU de nuvem para fazer uma única execução da Atividade de Cópia. Para substituir esse padrão, especifique um valor para a propriedade **cloudDataMovementUnits** da seguinte maneira. Para obter informações sobre o nível de ganho de desempenho que você pode obter ao configurar mais unidades para uma origem e coletor de cópia específicos, consulte a [referência de desempenho](#performance-reference).
+**O mínimo de unidades de movimentação de dados em nuvem para capacitar execução da atividade de cópia é dois.** Se ele não for especificado, a seguinte tabela listará as DMUs padrão usadas em diferentes cenários de cópia:
+
+| Copiar cenário | DMUs padrão determinadas pelo serviço |
+|:--- |:--- |
+| Copiar dados entre repositórios baseados em arquivo | Entre 2 e 16 dependendo do número e tamanho dos arquivos. |
+| Todos os outros cenários de cópia | 2 |
+
+Para substituir esse padrão, especifique um valor para a propriedade **cloudDataMovementUnits** da seguinte maneira. Os **valores permitidos** para a propriedade **cloudDataMovementUnits** são 2, 4, 8, 16, 32. O **número real de DMUs de nuvem** que a operação de cópia usa na execução é igual ou menor que o valor configurado, dependendo do seu padrão de dados. Para obter informações sobre o nível de ganho de desempenho que você pode obter ao configurar mais unidades para uma origem e coletor de cópia específicos, consulte a [referência de desempenho](#performance-reference).
 
 ```json
 "activities":[  
@@ -114,7 +123,6 @@ Por padrão, o Data Factory usa uma única DMU de nuvem para fazer uma única ex
     }
 ]
 ```
-Os **valores permitidos** para a propriedade **cloudDataMovementUnits** são: 1 (padrão), 2, 4, 8, 16 e 32. O **número real de DMUs de nuvem** que a operação de cópia usa na execução é igual ou menor que o valor configurado, dependendo do seu padrão de dados.
 
 > [!NOTE]
 > Se precisar de mais DMUs de nuvem para uma taxa de transferência maior, entre em contato com o [suporte do Azure](https://azure.microsoft.com/support/). A configuração de 8 e superior atualmente funciona apenas quando você **copia vários arquivos do Armazenamento de Blobs/Data Lake Store/Amazon S3/FTP na nuvem/SFTP na nuvem para Armazenamento de Blobs/Data Lake Store/Banco de Dados SQL do Azure**.
@@ -244,7 +252,7 @@ Sugerimos que você realize estas etapas para ajustar o desempenho do serviço D
    ![Detalhes da execução da atividade](./media/data-factory-copy-activity-performance/mmapp-activity-run-details.png)
 
    Posteriormente neste artigo, você pode comparar o desempenho e a configuração do seu cenário com a [referência de desempenho](#performance-reference) da Atividade de Cópia de nossos testes.
-2. **Diagnosticar e otimizar o desempenho**. Se o desempenho observado não atender às suas expectativas, você precisará identificar os afunilamentos do desempenho. Em seguida, otimize o desempenho para remover ou reduzir o efeito dos afunilamentos. Uma descrição completa do diagnóstico de desempenho está além do escopo deste artigo, mas aqui estão algumas considerações comuns:
+2. **Diagnosticar e otimizar o desempenho**. Se o desempenho observado não atender às suas expectativas, você precisará identificar os gargalos do desempenho. Em seguida, otimize o desempenho para remover ou reduzir o efeito dos gargalos. Uma descrição completa do diagnóstico de desempenho está além do escopo deste artigo, mas aqui estão algumas considerações comuns:
 
    * Recursos de desempenho:
      * [Cópia paralela](#parallel-copy)
@@ -370,7 +378,7 @@ Como você pode ver, os dados estão sendo processados e movidos de forma sequen
 
 ![Fluxo de dados](./media/data-factory-copy-activity-performance/case-study-pic-1.png)
 
-Um ou mais dos seguintes fatores pode causar o afunilamento do desempenho:
+Um ou mais dos seguintes fatores pode causar o gargalo do desempenho:
 
 * **Origem:**o próprio SQL Server tem uma baixa taxa de transferência devido às cargas pesadas.
 * **Gateway de Gerenciamento de Dados**:
@@ -381,7 +389,7 @@ Um ou mais dos seguintes fatores pode causar o afunilamento do desempenho:
   * **WAN**: a largura de banda entre a rede corporativa e os serviços do Azure é baixa (por exemplo, T1 = 1,544 kbps; T2 = 6,312 kbps).
 * **Coletor**: o armazenamento de Blobs tem baixa taxa de transferência. (Esse cenário é improvável porque seu SLA garante um mínimo de 60 MBps.)
 
-Nesse caso, a compactação de dados bzip2 pode estar desacelerando todo o pipeline. Trocar para o codec de compactação gzip pode aliviar esse afunilamento.
+Nesse caso, a compactação de dados bzip2 pode estar desacelerando todo o pipeline. Trocar para o codec de compactação gzip pode aliviar esse gargalo.
 
 ## <a name="sample-scenarios-use-parallel-copy"></a>Cenários de exemplo: usar cópia paralela
 **i cenário:** copiar 1.000 arquivos de 1 MB do sistema de arquivos local para o armazenamento de Blobs.

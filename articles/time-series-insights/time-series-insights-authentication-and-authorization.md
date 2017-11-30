@@ -1,5 +1,5 @@
 ---
-title: "Como configurar a autenticação e autorização para um aplicativo personalizado para chamar a API do Azure Time Series Insights | Microsoft Docs"
+title: "Como configurar APIs de autenticação e autorização no Azure Time Series Insights"
 description: "Este artigo descreve como configurar a autenticação e autorização para um aplicativo personalizado que chama a API do Azure Time Series Insights."
 services: time-series-insights
 ms.service: time-series-insights
@@ -11,12 +11,12 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/15/2017
-ms.openlocfilehash: 7772f6be0c60c1c2e59499d46e3c56975053e551
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.date: 11/21/2017
+ms.openlocfilehash: cab37f65541ecf8bfa58edcd40df0aed39b37680
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autenticação e autorização para API do Azure Time Series Insights
 
@@ -24,15 +24,15 @@ Este artigo explica como configurar a autenticação e autorização usados em u
 
 ## <a name="service-principal"></a>Entidade de serviço
 
-Esta seção explica como configurar um aplicativo para acessar a API de análises de séries temporais em nome do aplicativo. O aplicativo pode, em seguida, consultar dados ou publicar dados de referência no ambiente de análises de séries temporais com as credenciais do aplicativo e não com as credenciais do usuário.
+Esta seção explica como configurar um aplicativo para acessar a API de análises de séries temporais em nome do aplicativo. O aplicativo pode, em seguida, consultar dados ou publicar dados de referência no ambiente de Time Series Insights com as credenciais do aplicativo e não com as credenciais do usuário.
 
-Quando você tiver um aplicativo que precisa acessar informações de séries temporais, você deve configurar um aplicativo do Azure Active Directory e atribuir políticas de acesso a dados no ambiente de análises de séries temporais. Esta abordagem é preferencial para executar o aplicativo com suas próprias credenciais porque:
+Quando você tiver um aplicativo que precisa acessar o Time Series Insights, você deve configurar um aplicativo do Azure Active Directory e atribuir políticas de acesso a dados no ambiente Time Series Insights. Esta abordagem é preferencial para executar o aplicativo com suas próprias credenciais porque:
 
-* Você pode atribuir permissões para a identidade do aplicativo que são diferentes das suas próprias permissões. Normalmente, essas permissões são restritas a exatamente o que o aplicativo precisa fazer. Por exemplo, você pode permitir que o aplicativo apenas leia dados em um ambiente de análises de séries temporais específico.
+* Você pode atribuir permissões para a identidade do aplicativo que são diferentes das suas próprias permissões. Normalmente, essas permissões são restritas a apenas o que o aplicativo exige. Por exemplo, você pode permitir que o aplicativo apenas leia dados em um ambiente de análises de séries temporais específico.
 * Você não precisa alterar as credenciais do aplicativo se alterar suas responsabilidades.
 * Você pode usar um certificado ou uma chave de aplicativo para automatizar a autenticação ao executar um script autônomo.
 
-Este artigo mostra como executar essas etapas no portal do Azure. Ele se concentra em um aplicativo de locatário único que se destina a ser executado em uma única organização. Você normalmente usa os aplicativos com um único locatário para os aplicativos da linha de negócios executados em sua organização.
+Este tópico mostra como executar essas etapas no portal do Azure. Ele se concentra em um aplicativo de locatário único que se destina a ser executado em uma única organização. Você normalmente usa os aplicativos com um único locatário para os aplicativos da linha de negócios executados em sua organização.
 
 O fluxo de instalação consiste em três etapas de alto nível:
 
@@ -103,5 +103,7 @@ Use a ID do aplicativo e a chave em seu aplicativo para autenticar como Azure Ti
 
 ## <a name="next-steps"></a>Próximas etapas
 - Para código de exemplo que chama a API de análises de séries temporais, consulte [Consultar dados usando o C#](time-series-insights-query-data-csharp.md).
-- Para obter informações de referência da API, confira [Referência da API de Consulta](/rest/api/time-series-insights/time-series-insights-reference-queryapi)
-- [Criar uma entidade de serviço no portal do Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+- Para obter informações de referência da API, confira [Referência da API de Consulta](/rest/api/time-series-insights/time-series-insights-reference-queryapi).
+
+> [!div class="nextstepaction"]
+> [Criar uma entidade de serviço](../azure-resource-manager/resource-group-create-service-principal-portal.md)

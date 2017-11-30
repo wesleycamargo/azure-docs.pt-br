@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 86f1f8f0aaa9a699d2f816781cef65cda868ee55
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b4e27ec57543daed35811fff347f457b0dd2cd5c
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="improve-performance-by-compressing-files-in-azure-cdn"></a>Melhorar o desempenho compactando os arquivos na CDN do Azure
 A compactação é um método simples e eficiente para melhorar a velocidade de transferência de arquivos e aumentar o desempenho de carregamento de páginas, reduzindo o tamanho de arquivos antes de serem enviados do servidor. Ela reduz os custos de largura de banda e oferece uma experiência mais responsiva para os seus usuários.
@@ -100,7 +100,7 @@ Essas tabelas descrevem o comportamento de compactação CDN do Azure para cada 
 > * Ser maior que 128 bytes.
 > * Ser menor que 1 MB.
 > 
-> Esses perfis são suporte à codificação **gzip** (GNU zip), **deflate**, **bzip2** ou **br** (Brotli). Para a codificação Brotli, a compactação é realizada apenas na borda. O cliente/navegador deve enviar a solicitação para codificação Brotli, e o ativo compactado deve ter sido compactado primeiro no lado de origem. 
+> Esses perfis são suporte à codificação **gzip** (GNU zip), **deflate**, **bzip2** ou **br** (Brotli). Para a codificação Brotli, a compactação precisa ser realizada na origem. O cliente/navegador deve enviar a solicitação para codificação Brotli, e o ativo compactado deve ter sido compactado primeiro no lado de origem. 
 
 > [!IMPORTANT]
 > Para perfis **CDN do Azure da Akamai**, todos os arquivos são qualificados para compactação. No entanto, um arquivo deve ser um tipo MIME que foi [configurado para compactação](#enabling-compression).

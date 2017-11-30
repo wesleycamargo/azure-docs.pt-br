@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: douglasl
 ms.reviewer: douglasl
-ms.openlocfilehash: 8bcecdff2bb9ac037e2cd71a431619883dfb5084
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 5cf74140969fb354e426c41552d4d73a06c76890
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync-preview"></a>Sincronizar dados entre vários bancos de dados locais e de nuvem com a Sincronização de Dados SQL (versão prévia)
 
@@ -80,16 +80,6 @@ A Sincronização de Dados não é apropriada para os seguintes cenários:
 
 ## <a name="sync-req-lim"></a> Requisitos e limitações
 
-### <a name="general-requirements"></a>Requisitos gerais
-
--   Cada tabela deve ter uma chave primária. Não altere o valor da chave primária em nenhuma linha. Se você tiver de alterar o valor de uma chave primária, exclua a linha e recrie-a com o novo valor de chave primária. 
-
--   Uma tabela não pode uma coluna de identidade que não seja a chave primária.
-
--   Os nomes de objetos (bancos de dados, tabelas e colunas) não podem conter os caracteres imprimíveis ponto (.), colchete esquerdo ([) ou colchete direito (]).
-
--   O isolamento de instantâneo deve estar habilitado. Para obter mais informações, consulte [Isolamento de instantâneo no SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
-
 ### <a name="general-considerations"></a>Considerações gerais
 
 #### <a name="eventual-consistency"></a>Consistência eventual
@@ -98,7 +88,19 @@ Como a Sincronização de Dados é baseada no gatilho, a consistência transacio
 #### <a name="performance-impact"></a>Impacto sobre o desempenho
 A Sincronização de Dados usa os gatilhos inserir, atualizar e excluir para controlar as alterações. Ela cria tabelas secundárias no banco de dados do usuário para controle de alterações. Essas atividades de controle de alterações têm um impacto sobre sua carga de trabalho do banco de dados. Avalie sua camada de serviço e faça a atualização necessário.
 
+### <a name="general-requirements"></a>Requisitos gerais
+
+-   Cada tabela deve ter uma chave primária. Não altere o valor da chave primária em nenhuma linha. Se você tiver de alterar o valor de uma chave primária, exclua a linha e recrie-a com o novo valor de chave primária. 
+
+-   O isolamento de instantâneo deve estar habilitado. Para obter mais informações, consulte [Isolamento de instantâneo no SQL Server](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server).
+
 ### <a name="general-limitations"></a>Limitações gerais
+
+-   Uma tabela não pode uma coluna de identidade que não seja a chave primária.
+
+-   Os nomes de objetos (bancos de dados, tabelas e colunas) não podem conter os caracteres imprimíveis ponto (.), colchete esquerdo ([) ou colchete direito (]).
+
+-   A autenticação do Azure Active Directory não tem suporte.
 
 #### <a name="unsupported-data-types"></a>Tipos de dados sem suporte
 

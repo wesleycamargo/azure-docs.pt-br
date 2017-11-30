@@ -15,22 +15,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/12/2017
 ms.author: ddove
-ms.openlocfilehash: 6a73f8d0b85198f0d4e10fbc31cbd21f93bdb8a8
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 721b87c67aa5e8002f21faca5a10fe41b8958e1e
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="building-scalable-cloud-databases"></a>Criando bancos de dados de nuvem escalonáveis
 A escala horizontal dos bancos de dados pode ser feita facilmente usando recursos e ferramentas escalonáveis do Banco de Dados SQL do Azure. Em particular, você pode usar a **Biblioteca de cliente do banco de dados elástico** para criar e gerenciar bancos de dados escalonados. Esse recurso permite que você desenvolva facilmente aplicativos fragmentados usando centenas — ou até mesmo milhares - de bancos de dados SQL do Azure. [Trabalhos elásticos](sql-database-elastic-jobs-powershell.md) podem ser usados para ajudar a facilitar o gerenciamento desses bancos de dados.
 
-Para instalar a biblioteca, vá para NuGet em [Microsoft.Azure.SqlDatabase.ElasticScale.Client](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/). 
+Para baixar:
+* a versão do .NET da biblioteca, consulte [NuGet](https://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/).
+* a versão Java da biblioteca, consulte [Repositório Central Maven](https://search.maven.org/#search%7Cga%7C1%7Celastic-db-tools).
 
 ## <a name="documentation"></a>Documentação
 1. [Introdução às ferramentas do Banco de Dados Elástico](sql-database-elastic-scale-get-started.md)
 2. [Recursos do Banco de Dados Elástico](sql-database-elastic-scale-introduction.md)
 3. [Gerenciamento de mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md)
-4. [Migrar bancos de dados existentes para escala horizontal](sql-database-elastic-convert-to-use-elastic-tools.md)
+4. [Migrar bancos de dados existentes para expansão](sql-database-elastic-convert-to-use-elastic-tools.md)
 5. [Roteamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md)
 6. [Consultas com vários fragmentos](sql-database-elastic-scale-multishard-querying.md)
 7. [Adicionando um fragmento usando ferramentas do Banco de Dados Elástico](sql-database-elastic-scale-add-a-shard.md)
@@ -50,7 +52,7 @@ Escalar horizontalmente aplicativos usando a *fragmentação* apresenta desafios
 - **Gerenciamento de mapa de fragmentos**: um banco de dados especial chamado de "gerenciador de mapa de fragmentos" é criado. O gerenciamento de mapa de fragmentos é a capacidade de um aplicativo de gerenciar metadados sobre seus fragmentos. Os desenvolvedores podem usar essa funcionalidade para registrar bancos de dados como fragmentos, descrever os mapeamentos de chaves de fragmentação individuais ou intervalos de chaves para os bancos de dados e manter esses metadados como o número e a composição de bancos de dados que evolui para refletir as alterações de capacidade. Sem a biblioteca de cliente do banco de dados elástico, você precisaria gastar muito tempo escrevendo o código de gerenciamento ao implementar a fragmentação. Para obter mais detalhes, consulte [Gerenciamento de mapa do fragmento](sql-database-elastic-scale-shard-map-management.md).
 
 - **Roteamento dependente de dados**: imagine uma solicitação chegando ao aplicativo. Com base no valor da chave de fragmentação da solicitação, o aplicativo precisa determinar o banco de dados correto com base no valor da chave. Em seguida, ele abre uma conexão com o banco de dados para processar a solicitação. Roteamento dependente de dados fornece a capacidade de abrir conexões com uma única chamada simples para o mapa do fragmento do aplicativo. O roteamento dependente de dados era outra área do código de infraestrutura que agora é coberta por uma funcionalidade na biblioteca de cliente de banco de dados elástico. Para obter mais detalhes, consulte o [Roteamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md).
-- **MSQ (Consulta de vários fragmentos)**: a consulta de vários fragmentos funciona quando uma solicitação envolve vários fragmentos, ou todos eles. Uma consulta de vários fragmento executa o mesmo código T-SQL em todos os fragmentos ou um conjunto de fragmentos. Os resultados de fragmentos de participantes são mesclados em um resultado geral definido usando a semântica UNION ALL. A funcionalidade é exposta por meio da biblioteca cliente que trata muitas tarefas, incluindo: gerenciamento de conexões, gerenciamento de threads, tratamento de falhas e os processamento de resultados intermediários. MSQ pode consultar até centenas de fragmentos. Para obter detalhes, veja [Consulta de vários fragmentos](sql-database-elastic-scale-multishard-querying.md).
+- **MSQ (Consulta de vários fragmentos)**: a consulta de vários fragmentos funciona quando uma solicitação envolve vários fragmentos, ou todos eles. Uma consulta de vários fragmento executa o mesmo código T-SQL em todos os fragmentos ou um conjunto de fragmentos. Os resultados de fragmentos de participantes são mesclados em um resultado geral definido usando a semântica UNION ALL. A funcionalidade é exposta por meio da biblioteca cliente que trata muitas tarefas, incluindo: gerenciamento de conexões, gerenciamento de threads, tratamento de falhas e os processamentos de resultados intermediários. MSQ pode consultar até centenas de fragmentos. Para obter detalhes, veja [Consulta de vários fragmentos](sql-database-elastic-scale-multishard-querying.md).
 
 Em geral, os clientes que usam as ferramentas de banco de dados elástico podem esperar obter a funcionalidade completa do T-SQL durante o envio de operações de fragmento local em vez de operações entre fragmentos que têm suas próprias semânticas.
 
@@ -58,15 +60,11 @@ Em geral, os clientes que usam as ferramentas de banco de dados elástico podem 
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Biblioteca do cliente Do Banco de Dados Elástico](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/) - para **instalar** a biblioteca usando NuGet.
+- Biblioteca do cliente do banco de dados elástico ([.NET](http://www.nuget.org/packages/Microsoft.Azure.SqlDatabase.ElasticScale.Client/), [Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22)) – para **baixar** da biblioteca.
 
 - [Introdução às ferramentas do banco de dados elástico](sql-database-elastic-scale-get-started.md) - para testar o **aplicativo exemplo** que demonstra as funções do cliente.
 
-- [GitHub, Azure/elastic-db-tools](https://github.com/Azure/elastic-db-tools) -a biblioteca é um software de código aberto.
-    - Biblioteca de cliente de ferramentas de banco de dados Elástico permite que os desenvolvedores ADO.NET criarem aplicativos que implementam e usam o padrão conhecido como fragmentação de banco de dados no banco de dados do SQL Azure.
-
-- [A biblioteca de cliente do banco de dados elástico agora é tem código aberto!](https://azure.microsoft.com/blog/elastic-database-client-library-is-now-open-sourced/) -uma **postagem de blog** sobre a biblioteca De Cliente Do Banco de Dados Elástico, datado de 09/09/2015.
-
+- GitHub ([.NET](https://github.com/Azure/elastic-db-tools), [Java](https://github.com/Microsoft/elastic-db-tools-for-java/blob/master/README.md)) – para fazer contribuições no código.
 - [Visão geral da consulta elástica do Banco de Dados SQL do Azure](sql-database-elastic-query-overview.md) - para usar consultas elásticas.
 
 - [Mover dados entre bancos de dados de nuvem expansíveis](sql-database-elastic-scale-overview-split-and-merge.md) - para obter instruções sobre como usar o **ferramenta de mesclagem de divisão**.

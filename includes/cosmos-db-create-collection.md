@@ -13,8 +13,8 @@ Agora, você pode usar a ferramenta Data Explorer no Portal do Azure para criar 
     ID do banco de dados|Tarefas|Digite *Tarefas* como o nome do novo banco de dados. Os nomes de banco de dados devem conter de 1 a 255 caracteres e não podem conter /, \\, #, ?, ou um espaço à direita.
     ID da coleção|Itens|Insira *Itens* como o nome da nova coleção. As IDs de coleção têm os mesmos requisitos de caracteres que os nomes de banco de dados.
     Capacidade de armazenamento| Fixo (10 GB)|Altere o valor para **Fixo (10 GB)**. Esse valor é a capacidade de armazenamento do banco de dados.
-    Taxa de transferência|400 RU|Altere a taxa de transferência para 400 unidades de solicitação por segundo (RU/s). Se quiser reduzir a latência, você poderá escalar verticalmente a taxa de transferência mais tarde.
-    Chave de partição|/category|Uma chave de partição que distribui dados uniformemente para cada partição. É importante selecionar a chave de partição correta ao criar uma coleção de alto desempenho. Para saber mais, veja [Design de particionamento](../articles/cosmos-db/partition-data.md#designing-for-partitioning).
+    Taxa de transferência|400 RU|Altere a taxa de transferência para 400 unidades de solicitação por segundo (RU/s). A capacidade de armazenamento deve ser definida como **Fixa (10 GB)** para definir a taxa de transferência para 400 RU/s. Se quiser reduzir a latência, você poderá escalar verticalmente a taxa de transferência mais tarde. 
+    Chave de partição|/category|Digite */category* como a chave de partição. Uma chave de partição distribui dados uniformemente para cada partição no banco de dados. Para saber mais sobre o particionamento, veja [Design de particionamento](../articles/cosmos-db/partition-data.md#designing-for-partitioning).
 
     Clique em **OK**.
 

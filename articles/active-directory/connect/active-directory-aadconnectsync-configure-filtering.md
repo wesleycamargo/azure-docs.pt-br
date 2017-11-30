@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: baa3ac6473f180e220ec4973ced51369467bf158
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2e1adf5935e7fc01a24db6ada3c4cfe4ac0a4d55
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Sincronização do Azure AD Connect: configurar a filtragem
 Com a filtragem, você pode controlar quais objetos do seu diretório local devem aparecer no Azure Active Directory (Azure AD). A configuração padrão obtém todos os objetos em todos os domínios nas florestas configuradas. Em geral, essa é a configuração recomendada. Os usuários que utilizarem cargas de trabalho do Office 365, como o Exchange Online e o Skype for Business, receberão uma Lista de Endereços Global completa para poderem enviar emails e fazer chamadas para todos. Com a configuração padrão, eles teriam a mesma experiência de uma implementação local do Exchange ou do Lync.
@@ -296,7 +296,14 @@ Agora é hora de habilitar o agendador novamente.
 ## <a name="group-based-filtering"></a>Filtragem baseada em grupo
 Você pode configurar a filtragem baseada em grupo quando instalar o Azure AD Connect pela primeira vez usando a [instalação personalizada](active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups). Ela é destinada uma implantação piloto para sincronizar um pequeno conjunto de objetos. Se você desabilitar a filtragem baseada em grupo, ela não poderá ser habilitada novamente. *Não há suporte* para o uso da filtragem baseada em grupo em uma configuração personalizada. Esse recurso só pode ser configurado com o assistente de instalação. Depois de concluir o piloto, você deve usar uma das outras opções de filtragem descritas neste tópico. Ao usar a filtragem baseada em UO em conjunto com a filtragem baseada em grupos, as UOs em que o grupo e seus membros estão localizados devem ser incluídas.
 
-Durante a sincronização de várias florestas do AD, você pode configurar a filtragem baseada em grupo com a especificação de um grupo diferente para cada conector do AD. Se você deseja sincronizar um usuário em um AD floresta e o mesmo usuário tem um ou mais objetos FSP (entidade de segurança externa) correspondentes em outras florestas do AD, você deve garantir que o objeto de usuário e todos os seus objetos FSP correspondentes estão no escopo da filtragem baseada em grupo. Se um ou mais dos objetos FSP são excluídos por filtragem baseada em grupo, o objeto de usuário não será sincronizado para o Azure AD.
+Durante a sincronização de várias florestas do AD, você pode configurar a filtragem baseada em grupo com a especificação de um grupo diferente para cada conector do AD. Se você deseja sincronizar um usuário em uma floresta do AD e o mesmo usuário tiver um ou mais objetos correspondentes em outras florestas do AD, você deverá garantir que o objeto de usuário e todos os seus objetos correspondentes estejam dentro do escopo filtragem baseada no grupo. Por exemplo:
+
+* Você tem um usuário em uma floresta que possui um objeto FSP (Entidade de Segurança Externa) correspondente em outra floresta. Ambos os objetos deverão estar dentro do escopo de filtragem baseada no grupo. Caso contrário, o usuário não será sincronizado com o Azure Active Directory.
+
+* Você tem um usuário em uma floresta que tenha uma conta de recurso correspondente (por exemplo, caixa de correio vinculada) em outra floresta. Além disso, você configurou o Azure AD Connect para vincular o usuário com a conta do recurso. Ambos os objetos deverão estar dentro do escopo de filtragem baseada no grupo. Caso contrário, o usuário não será sincronizado com o Azure Active Directory.
+
+* Você tem um usuário em uma floresta que possui um contato correspondente em outra floresta. Além disso, você configurou o Azure AD Connect para vincular o usuário com o contato de correio. Ambos os objetos deverão estar dentro do escopo de filtragem baseada no grupo. Caso contrário, o usuário não será sincronizado com o Azure Active Directory.
+
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre a configuração da [sincronização do Azure AD Connect](active-directory-aadconnectsync-whatis.md).

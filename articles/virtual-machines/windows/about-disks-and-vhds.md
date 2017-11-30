@@ -1,6 +1,6 @@
 ---
-title: Sobre discos e VHDs para VMs do Windows do Microsoft Azure | Microsoft Docs
-description: "Conheça o básico sobre discos e VHDs para máquinas virtuais do Windows no Azure."
+title: "Sobre armazenamento de discos não gerenciado (blobs de página) e gerenciado para VMs Windows do Microsoft Azure | Microsoft Docs"
+description: "Saiba mais sobre os fundamentos de armazenamento de discos não gerenciado (blobs de página) e gerenciados para máquinas virtuais do Windows no Azure."
 services: storage
 documentationcenter: 
 author: robinsh
@@ -12,15 +12,15 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/15/2017
+ms.date: 11/15/2017
 ms.author: robinsh
-ms.openlocfilehash: b1beecf2e4268e358285c1101edcb13f6d592948
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1a8dc028e2e872820a209bcdde5cca57853dd419
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
-# <a name="about-disks-and-vhds-for-azure-windows-vms"></a>Sobre discos e VHDs para VMs do Windows do Azure
+# <a name="about-disks-storage-for-azure-windows-vms"></a>Sobre armazenamento de discos para VMs do Windows do Azure
 Assim como qualquer outro computador, as máquinas virtuais do Azure usam os discos como locais onde armazenar um sistema operacional, aplicativos e dados. Todas as máquinas virtuais do Azure têm pelo menos dois discos – um disco do sistema operacional Windows e um disco temporário. O disco do sistema operacional é criado por meio de uma imagem, e o disco do sistema operacional e a imagem são VHDs (discos rígidos virtuais) armazenados em uma conta de armazenamento do Azure. Máquinas virtuais também podem ter um ou mais discos de dados que também são armazenados em VHDs. 
 
 Neste artigo, vamos falar sobre os diferentes usos dos discos e discutir os diferentes tipos de discos que você pode criar e usar. Este artigo também está disponível para [máquinas virtuais Linux](../linux/about-disks-and-vhds.md).
@@ -79,6 +79,8 @@ fsutil behavior set DisableDeleteNotify 0
 
 <!-- Might want to match next-steps from overview of managed disks -->
 ## <a name="next-steps"></a>Próximas etapas
-* [Anexar um disco](attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) para adicionar mais armazenamento à sua VM.
-* [Altere a letra da unidade do disco temporário do Windows](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) para que seu aplicativo possa usar a unidade D: para dados.
+* [Anexar um disco](attach-disk-portal.md) para adicionar mais armazenamento à sua VM.
+* [Criar um instantâneo](snapshot-copy-managed-disk.md).
+* [Converter em discos gerenciados](convert-unmanaged-to-managed-disks.md).
+
 

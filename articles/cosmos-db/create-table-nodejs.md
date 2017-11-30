@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: node
 ms.topic: quickstart
-ms.date: 11/15/2017
+ms.date: 11/20/2017
 ms.author: arramac
-ms.openlocfilehash: 99f3ddb165fa548ca1d65676bb1f945632c72dd3
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 8cf8820ceea19fe8c4926c65d107d4f770f40926
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="quickstart-build-a-table-api-app-with-nodejs-and-azure-cosmos-db"></a>Início rápido: compilar um aplicativo de API de Tabela com Node.js e Azure Cosmos DB
 
@@ -38,6 +38,10 @@ Além disso:
 * [Git](http://git-scm.com/)
 
 ## <a name="create-a-database-account"></a>Criar uma conta de banco de dados
+
+> [!IMPORTANT] 
+> Você precisa criar uma nova conta de API de tabela para trabalhar com os SDKs de API de tabela disponíveis. Não há suporte para contas de API de tabela criadas durante a versão prévia pelos SDKs disponíveis.
+>
 
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
 
@@ -74,8 +78,6 @@ Agora, clonaremos um aplicativo de Tabela do github, definiremos a cadeia de con
     git clone https://github.com/Azure-Samples/storage-table-node-getting-started.git
     ```
 
-3. Em seguida, abra o arquivo da solução no Visual Studio. 
-
 ## <a name="update-your-connection-string"></a>Atualizar sua cadeia de conexão
 
 Agora, volte ao portal do Azure para obter informações sobre a cadeia de conexão e copiá-las para o aplicativo. Isso permite que seu aplicativo se comunique com o banco de dados hospedado. 
@@ -84,7 +86,13 @@ Agora, volte ao portal do Azure para obter informações sobre a cadeia de conex
 
     ![Exibir e copiar as informações necessárias da cadeia de conexão do painel da Cadeia de Conexão](./media/create-table-nodejs/connection-string.png)
 
-2. Abra o arquivo app.config e copie as propriedades necessárias da cadeia de conexão para o arquivo de configuração.
+2. Copie a CADEIA DE CONEXÃO PRIMÁRIA usando o botão de cópia do lado direito.
+
+3. Abra o arquivo app.config e cole o valor em connectionString na linha três. 
+
+    > [!IMPORTANT]
+    > Se o ponto de extremidade usa documents.azure.com, isso significa que você tem uma conta de versão prévia, e você precisa criar um [nova conta de API de tabela](#create-a-database-account) para trabalhar com o SDK de API de tabela geralmente disponível.
+    >
 
 3. Salve o arquivo app.config.
 
@@ -94,14 +102,19 @@ Agora, você atualizou o aplicativo com todas as informações necessárias para
 
 1. Na janela do terminal git, `cd` para a pasta storage-table-java-getting-started.
 
-    ```git
-    cd "C:\git-samples\
-storage-table-node-getting-started"
+    ```
+    cd "C:\git-samples\storage-table-node-getting-started"
     ```
 
-2. Na janela do terminal git, execute os comandos a seguir para executar e iniciar o aplicativo Java.
+2. Execute o seguinte comando para instalar os módulos azure, [node-uuid], [nconf] e [async] localmente, bem como para salvar uma entrada para eles no arquivo package.json
 
-    ```git
+   ```
+   npm install azure-storage node-uuid async nconf --save
+   ```
+
+2. Na janela do terminal git, execute os comandos a seguir para executar e iniciar o aplicativo de Nó.
+
+    ```
     node ./tableSample.js 
     ```
 

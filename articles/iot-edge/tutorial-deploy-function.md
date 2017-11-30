@@ -9,11 +9,11 @@ ms.author: v-jamebr
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 34ed5083b952c42d4ed119b6986db965eb9eb67a
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: cba901e8929d3626dc06e4600437b6d364e9bc44
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="deploy-azure-function-as-an-iot-edge-module---preview"></a>Implantar função do Azure como um módulo IoT Edge - versão prévia
 Use o Azure Functions para implantar um código que implementa a lógica de negócios diretamente em seus dispositivos IoT Edge. Este tutorial orienta você pela criação e implantação de uma função do Azure que filtra dados de sensor no dispositivo IoT Edge simulado criado nos tutoriais Implantar o Azure IoT Edge em um dispositivo simulado no [Windows][lnk-tutorial1-win] ou no [Linux][lnk-tutorial1-lin]. Neste tutorial, você aprenderá como:     
@@ -43,7 +43,7 @@ Você pode usar qualquer registro compatível com o Docker neste tutorial. Dois 
 
 - O [Registro de Contêiner do Azure](https://docs.microsoft.com/en-us/azure/container-registry/) está disponível nas [assinaturas pagas](https://azure.microsoft.com/en-us/pricing/details/container-registry/). Para este tutorial, a assinatura **Básica** é suficiente. 
 
-- O [Hub do Docker](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags) oferece um repositório privado gratuito se você se inscrever para obter uma ID de Docker (gratuita). 
+- O [Hub do Docker](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags) oferece um repositório privado gratuito se você se inscrever e obter uma ID de Docker (gratuita). 
     1. Para se inscrever e obter uma ID do Docker, siga as instruções em [Registrar-se para uma ID do Docker](https://docs.docker.com/docker-id/#register-for-a-docker-id) no site do Docker. 
 
     2. Para criar um repositório particular do Docker, siga as instruções em [Criando um novo repositório no Hub do Docker](https://docs.docker.com/docker-hub/repos/#creating-a-new-repository-on-docker-hub) no site do Docker.
@@ -129,7 +129,7 @@ As etapas a seguir mostram como criar uma função do IoT Edge usando o Visual S
             filteredMessage.Properties.Add("MessageType", "Alert");
             // Send the message        
             await output.AddAsync(filteredMessage);
-            log.Info("Received and transfered a message with temperature above the threshold");
+            log.Info("Received and transferred a message with temperature above the threshold");
         }
     }
     ```
@@ -141,7 +141,7 @@ As etapas a seguir mostram como criar uma função do IoT Edge usando o Visual S
 1. Cria a imagem do Docker.
     1. No gerenciador do VS Code, clique na pasta **Docker** para abri-la. Selecione a pasta para a sua plataforma de contêiner: **linux-x64** ou **windows-nano**. 
     2. Clique com botão direito do mouse no arquivo **Dockerfile** e clique em **Criar imagem do Docker para o modulo IoT Edge**. 
-    3. Na caixa **Selecionar pasta**, navegue até a pasta **linux/Docker-x64** e clique em **Selecionar Pasta como EXE_DIR**. 
+    3. Na caixa **Selecionar pasta**, navegue até a pasta do projeto **FilterFunction** e clique em **Selecionar pasta como EXE_DIR**. 
     4. Na caixa de texto pop-up na parte superior da janela do VS Code, insira o nome da imagem. Por exemplo, `<docker registry address>/filterfunction:latest`, em que o *endereço de registro do docker* é sua ID do Docker se você está usando o Hub do Docker, ou é semelhante a `<your registry name>.azurecr.io` se você está usando o Registro de Contêiner do Azure.
  
 4. Entre com o Docker. No terminal integrado, digite o seguinte comando: 
@@ -225,7 +225,7 @@ Para monitorar mensagens de dispositivo para nuvem enviadas do seu dispositivo I
 Neste tutorial, você criou uma função do Azure que contém código para filtrar os dados brutos gerados pelo seu dispositivo IoT Edge. Para continuar explorando o Azure IoT Edge, aprenda a usar um dispositivo IoT Edge como gateway. 
 
 > [!div class="nextstepaction"]
-> [Criar um dispositivo de gateway IoT Edge](how-to-create-gateway-device.md)
+> [Criar um dispositivo de gateway IoT Edge](how-to-create-transparent-gateway.md)
 
 <!--Links-->
 [lnk-tutorial1-win]: tutorial-simulate-device-windows.md

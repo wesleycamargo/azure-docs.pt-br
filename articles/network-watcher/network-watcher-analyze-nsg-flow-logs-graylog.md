@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: mareat
-ms.openlocfilehash: 1d79b775e97765a48be48a96cf10bc9435b4539b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eaee4e1ed213d0834d959d862feffd4bca57cd9f
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Gerenciar e analisar os logs de fluxo do grupo de segurança de rede no Azure usando o Observador de Rede e o Graylog
 
@@ -148,9 +148,9 @@ O Logstash é usado para mesclar os logs de fluxo formatados em JSON para um ní
     ```
 O arquivo de configuração do Logstash fornecido é composto de três partes: a entrada, o filtro e a saída. A seção de entrada designa a fonte de entrada de logs que o Logstash processará. Nesse caso, vamos usar um plug-in de entrada do blob do Azure (instalado nas etapas a seguir) que permitirá acessar os arquivos de JSON do log de fluxo do grupo de segurança de rede armazenado no armazenamento de blobs.
 
-    The filter section then flattens each flow log file so that each individual flow tuple and its associated properties becomes a separate Logstash event.
+A seção de filtro, em seguida, mescla cada arquivo de log do fluxo para que cada tupla de fluxo e suas propriedades associadas se tornem um evento de Logstash separado.
 
-    Finally, the output section forwards each Logstash event to the Graylog server. To suit your specific needs, modify the Logstash config file, as required.
+Por fim, a seção de saída encaminha cada evento de Logstash para o servidor do Graylog. Para atender a suas necessidades específicas, modifique o arquivo de configuração do Logstash.
 
     > [!NOTE]
     > The previous config file assumes that the Graylog server has been configured on the local host loopback IP address 127.0.0.1. If not, be sure to change the host parameter in the output section to the correct IP address.

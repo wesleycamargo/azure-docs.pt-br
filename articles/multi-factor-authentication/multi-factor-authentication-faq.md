@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 06/16/2017
 ms.author: joflore
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 042035c89d466083659176ac49fc1b470244ef61
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: d43274875ca7ed3b2fe8a7d71481db27451a6080
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Perguntas frequentes sobre a Autenticação Multifator do Azure
 Estas perguntas frequentes respondem a perguntas comuns sobre a Autenticação Multifator do Azure e sobre o uso do serviço de Autenticação Multifator. Ele é dividido em perguntas sobre o serviço em geral, modelos, experiências do usuário, de cobrança e solução de problemas.
@@ -95,7 +95,7 @@ Se o diretório tiver um provedor de Autenticação Multifator do Azure *por aut
 
 **P: Minha organização precisa usar e sincronizar identidades para usar a Autenticação Multifator?**
 
-Se a sua organização usa um modelo de cobrança baseado em consumo, o Azure Active Directory é opcional, mas não é necessário. Se seu provedor MFA não estiver vinculado a um locatário do Azure AD, só será possível implantar o Servidor de Autenticação Multifator ou o SDK da Autenticação Multifator do Azure local.
+Se a sua organização usa um modelo de cobrança baseado em consumo, o Azure Active Directory é opcional, mas não é necessário. Se seu provedor MFA não estiver vinculado a um locatário do Azure AD, só será possível implantar o Servidor de Autenticação Multifator do Azure localmente.
 
 O Azure Active Directory é necessário para o modelo de licença porque as licenças são adicionadas ao locatário do Azure AD quando você compra e as atribui aos usuários no diretório.
 

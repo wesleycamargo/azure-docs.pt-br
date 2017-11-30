@@ -12,13 +12,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 11/15/2017
+ms.date: 11/16/2017
 ms.author: mimig
-ms.openlocfilehash: 0900ec1931cc622339133393b72b558076a42710
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 1c64401a7d0ccfa12232b04cfd57e6beaa1dbca8
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="quickstart-build-a-table-api-app-with-python-and-azure-cosmos-db"></a>Início rápido: criar um aplicativo de API de Tabela com Python e Azure Cosmos DB
 
@@ -38,6 +38,10 @@ Além disso:
 * Python 2.7 de [python.org](https://www.python.org/downloads/release/python-2712/)
 
 ## <a name="create-a-database-account"></a>Criar uma conta de banco de dados
+
+> [!IMPORTANT] 
+> Você precisa criar uma nova conta de API de tabela para trabalhar com os SDKs de API de tabela disponíveis. Não há suporte para contas de API de tabela criadas durante a versão prévia pelos SDKs disponíveis.
+>
 
 [!INCLUDE [cosmos-db-create-dbaccount-table](../../includes/cosmos-db-create-dbaccount-table.md)]
 
@@ -84,7 +88,13 @@ Agora, volte ao portal do Azure para obter informações sobre a cadeia de conex
 
     ![Exiba e copie a CADEIA DE CONEXÃO no painel Cadeia de Conexão](./media/create-table-python/connection-string.png)
 
-2. Abra o arquivo config.py e copie as propriedades necessárias da cadeia de conexão para o arquivo de configuração.
+2. Copie o NOME DA CONTA usando o botão no lado direito.
+
+3. Abra o arquivo config.py e cole o NOME DA CONTA do portal no valor STORAGE_ACCOUNT_NAME na linha 19.
+
+4. Volte ao portal e copie a CHAVE PRIMÁRIA.
+
+5. Cole a CHAVE PRIMÁRIA do portal no valor STORAGE_ACCOUNT_KEY na linha 20.
 
 3. Salve o arquivo config.py.
 

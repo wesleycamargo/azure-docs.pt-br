@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 10/31/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4ef5ec3d8f4b96d4a318e01b449d3baad8a6324a
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 2461e5fbf620fa2651792b47d41e9835d4d6ef8c
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Visão geral e arquitetura do SAP HANA (Instâncias Grandes) no Azure
 
@@ -291,7 +291,10 @@ Estes são os requisitos para execução SAP HANA no Azure (Instâncias Grandes)
 - Gerenciador do Red Hat assinatura implantado no Azure em uma VM do Azure. O gerenciador de assinaturas do Red Hat fornece a capacidade para o SAP HANA no Azure (Instâncias Grandes) ser registrado e atualizado respectivamente pelo Red Hat (já que não há nenhum acesso direto à Internet de dentro do locatário implantado no selo de Instância Grande do Azure).
 - A SAP também exige que você tenha um contrato de suporte com seu provedor do Linux. Esse requisito não é apagado pela solução de Grandes Instâncias do HANA nem pelo fato de você executar o Linux no Azure. Ao contrário de algumas das imagens da galeria do Azure no Linux, a taxa de serviço NÃO está incluída na oferta da solução das Grandes Instâncias do HANA. Como cliente, cabe a você atender aos requisitos da SAP no que diz respeito aos contratos de suporte com o distribuidor do Linux.   
    - Para o SUSE Linux, procure os requisitos do contrato de suporte em [Nota SAP n. 1984787 – SUSE LINUX Enterprise Server 12: Notas de instalação](https://launchpad.support.sap.com/#/notes/1984787) e [Nota SAP n. 1056161 – Suporte de prioridade do SUSE para aplicativos SAP](https://launchpad.support.sap.com/#/notes/1056161).
-   - Para o Red Hat Linux, é necessário ter os níveis de assinatura corretos que incluem suporte e serviço (atualizações nos sistemas operacionais das Instâncias Grandes do HANA). O Red Hat recomenda obter uma assinatura "RHEL for SAP Business Applications". Com relação a suporte e serviços, confira [Nota SAP nº 2002167 – Red Hat Enterprise Linux 7.x: Instalação e atualização](https://launchpad.support.sap.com/#/notes/2002167) e [Nota SAP nº 1496410 – Red Hat Enterprise Linux 6.x: Instalação e atualização](https://launchpad.support.sap.com/#/notes/1496410) para obter detalhes.
+   - Para o Red Hat Linux, é necessário ter os níveis de assinatura corretos que incluem suporte e serviço (atualizações nos sistemas operacionais das Instâncias Grandes do HANA). O Red Hat recomenda obter uma assinatura "RHEL for [SAP Solutions](https://access.redhat.com/solutions/3082481)". 
+
+Para a matriz de suporte da versão diferente do SAP HANA com as diferentes versões do Linux, consulte [Observação de SAP #2235581](https://launchpad.support.sap.com/#/notes/2235581).
+
 
 **Banco de dados:**
 
@@ -436,11 +439,11 @@ A infraestrutura no local mostrada acima é conectada por meio do ExpressRoute n
 
 O gateway de rede virtual para VMs do Azure hospedam instâncias do aplicativo SAP está conectado a esse circuito do ExpressRoute e a mesma rede virtual está conectada a um roteador MSEE separado dedicado à conexão com carimbos de Instância Grande.
 
-Este é um exemplo simples de um sistema SAP, onde a camada de aplicativo SAP é hospedada no Azure e o banco de dados do SAP HANA é executado em SAP HANA no Azure (Instâncias Grandes). A suposição é que a largura de banda de gateway de VNet com taxa de transferência de 2 Gbps ou 10 Gbps não representa um afunilamento.
+Este é um exemplo simples de um sistema SAP, onde a camada de aplicativo SAP é hospedada no Azure e o banco de dados do SAP HANA é executado em SAP HANA no Azure (Instâncias Grandes). A suposição é que a largura de banda de gateway de VNet com taxa de transferência de 2 Gbps ou 10 Gbps não representa um gargalo.
 
 ### <a name="multiple-sap-systems-or-large-sap-systems"></a>Vários sistemas SAP ou grandes sistemas SAP
 
-É razoável presumir que, se vários sistemas SAP ou grandes sistemas SAP forem implantados e se conectarem ao SAP HANA no Azure (Instâncias Grandes), a taxa de transferência do gateway de VNet poderá se tornar um afunilamento. Nesse caso, você precisa dividir as camadas do aplicativo em múltiplas VNets do Azure. Também é recomendável criar VNets especiais que se conectam às Instâncias Grandes do HANA em casos como:
+É razoável presumir que, se vários sistemas SAP ou grandes sistemas SAP forem implantados e se conectarem ao SAP HANA no Azure (Instâncias Grandes), a taxa de transferência do gateway de VNet poderá se tornar um gargalo. Nesse caso, você precisa dividir as camadas do aplicativo em múltiplas VNets do Azure. Também é recomendável criar VNets especiais que se conectam às Instâncias Grandes do HANA em casos como:
 
 - Execução de backups diretamente por meio das Instâncias do HANA nas Instâncias Grandes do HANA para uma VM no Azure que hospeda compartilhamentos NFS
 - Cópia de backups grandes ou de outros arquivos de unidades de Instância Grande do HANA com o espaço em disco gerenciado no Azure.

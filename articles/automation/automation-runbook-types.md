@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/01/2017
 ms.author: bwren
-ms.openlocfilehash: 2acf45187894aa3bfcaa4df639becf18605d50a5
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 508f4bb0fc8a443dd7b95cbf19861ab1a1abeb6e
+ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 11/22/2017
 ---
 # <a name="azure-automation-runbook-types"></a>Tipos de runbook da Automação do Azure
 A Automação do Azure dá suporte a vários tipos de runbooks descritos brevemente na tabela a seguir.  As seções abaixo fornecem mais informações sobre cada tipo, incluindo considerações sobre quando usar cada um.
@@ -30,7 +30,6 @@ A Automação do Azure dá suporte a vários tipos de runbooks descritos breveme
 | [PowerShell](#powershell-runbooks) |Runbook de texto com base no script do Windows PowerShell. |
 | [Fluxo de Trabalho do PowerShell](#powershell-workflow-runbooks) |Runbook de texto com base no Fluxo de Trabalho do Windows PowerShell. |
 | [Python](#python-runbooks) |Runbook de texto com base em Python. |
-| [Bash](#bash-runbooks) |Runbook de texto com base no Bash. |
 
 ## <a name="graphical-runbooks"></a>Runbooks gráficos
 [Gráfico](automation-runbook-types.md#graphical-runbooks) and Gráfico PowerShell Workflow runbooks are created and edited with the graphical editor in the Azure portal.  Você pode exportá-los para um arquivo e depois importá-los em outra conta de automação, mas não pode criá-los nem editá-los com outra ferramenta.  Os runbooks gráficos geram código do PowerShell, mas você não pode exibir nem modificar diretamente o código. Os runbooks gráficos não podem ser convertidos em um dos [formatos de texto](automation-runbook-types.md), nem um runbook de texto pode ser convertido em formato gráfico. Runbooks gráficos podem ser convertidos para runbooks de Fluxo de Trabalho Gráfico do PowerShell durante a importação e vice-versa.
@@ -97,7 +96,7 @@ Compilar runbooks Python em no Python 2.  Você pode editar diretamente o códig
 ### <a name="known-issues"></a>Problemas conhecidos
 Veja a seguir problemas conhecidos atuais com os runbooks do Python.
 
-* Para utilizar bibliotecas de terceiros, o runbook deverá ser executado em um [Windows Hybrid Runbook Worker](https://docs.microsoft.com/en-us/azure/automation/automation-windows-hrw-install) ou [Linux Hybrid Runbook Worker](https://docs.microsoft.com/en-us/azure/automation/automation-linux-hrw-install) com as bibliotecas já instaladas no computador antes do runbook ser iniciado.
+* Para utilizar bibliotecas de terceiros, o runbook deverá ser executado em um [Windows Hybrid Runbook Worker](https://docs.microsoft.com/en-us/azure/automation/automation-windows-hrw-install) ou [Linux Hybrid Runbook Worker](https://docs.microsoft.com/en-us/azure/automation/automation-linux-hrw-install) com as bibliotecas já instaladas no computador antes de o runbook ser iniciado.
 
 ## <a name="considerations"></a>Considerações
 Você deve levar em conta as considerações adicionais a seguir ao determinar qual tipo usar para um runbook específico.

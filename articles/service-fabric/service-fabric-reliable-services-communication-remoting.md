@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: 655bc3dd3735a35fbe7437e8dda92b2adf15f7bf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 438eeee7353cbd1d534f27471c9c9054aecc12e8
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="service-remoting-with-reliable-services"></a>Comunicação Remota do Serviço com Reliable Services
 Para serviços que não estão vinculados a um protocolo de comunicação específico ou pilha, como WebAPI, WCF (Windows Communication Foundation) ou outros, a estrutura do Reliable Services fornece um mecanismo de comunicação remota para configurar a chamada de procedimento remoto para serviços de forma rápida e fácil.
@@ -82,12 +82,12 @@ string message = await helloWorldClient.HelloWorldAsync();
 A estrutura remota propaga exceções lançadas no serviço para o cliente. A lógica de manipulação de exceção no cliente usando `ServiceProxy` pode manipular diretamente as exceções que o serviço lança.
 
 ## <a name="service-proxy-lifetime"></a>Tempo de vida de Proxy do Serviço
-A criação do Proxy do Serviço é uma operação simples, de modo que os usuários podem criar quantos forem necessários. O Proxy do Serviço poderá ser reutilizado enquanto os usuários precisarem. Se API remota gerar Exceção, os usuários ainda poderão reutilizar o mesmo proxy. Cada ServiceProxy contém um cliente de comunicação usado para enviar mensagens durante a transmissão. Ao invocar a API, temos uma verificação interna para saber se o cliente de comunicação usado é válido. Com base nesse resultado, recriamos o cliente da comunicação. Por isso, se ocorrer Exceção, os usuários não precisarão recriar o proxy do serviço.
+A criação do Proxy do Serviço é uma operação simples, de modo que os usuários podem criar quantos forem necessários. As instâncias do Proxy do Serviço podem ser reutilizadas enquanto os usuários precisarem. Se uma chamada de procedimento remoto lança uma exceção, os usuários ainda podem reutilizar a mesma instância do proxy. Cada ServiceProxy contém um cliente de comunicação usado para enviar mensagens durante a transmissão. Ao chamar as chamadas remotas, internamente verificamos para ver se o cliente de comunicação é válido. Com base nesse resultado, recriamos o cliente de comunicação se necessário. Por isso, se ocorrer Exceção, os usuários não precisarão recriar o proxy do serviço, mas isso é feito de maneira transparente.
 
 ### <a name="serviceproxyfactory-lifetime"></a>Tempo de vida de ServiceProxyFactory
-[ServiceProxyFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) é um alocador que cria um proxy para interfaces remotas diferentes. Se você utiliza a API ServiceProxy.Create para criar proxy, então, a estrutura criará o ServiceProxyFactory singleton.
+[ServiceProxyFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) é um alocador que cria instâncias de proxy para interfaces remotas diferentes. Se você usar a api `ServiceProxy.Create` para criar um proxy, então, a estrutura criará um ServiceProxy de singleton.
 É útil para criá-lo manualmente quando você precisa substituir propriedades [IServiceRemotingClientFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.client.iserviceremotingclientfactory).
-Alocador é uma operação cara. ServiceProxyFactory mantém o cache do cliente de comunicação.
+A criação do alocador é uma operação cara. ServiceProxyFactory mantém um cache interno do cliente de comunicação.
 A prática recomendada é armazenar em cache ServiceProxyFactory por mais tempo possível.
 
 ## <a name="remoting-exception-handling"></a>Tratamento de exceções remotas

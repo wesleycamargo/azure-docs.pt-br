@@ -13,13 +13,13 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2017
+ms.date: 11/16/2017
 ms.author: jodebrui
-ms.openlocfilehash: 8930595821cc7662c4ff792b73eb357f1ba29307
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: f136faf3df761b048c88e72f564f81fd32e630ab
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Otimizar o desempenho usando tecnologias In-Memory no Banco de Dados SQL
 
@@ -118,8 +118,6 @@ Mas o downgrade do tipo de preço pode afetar negativamente seu banco de dados. 
 
 *Fazer downgrade para Básico/Standard*: não há suporte para o OLTP in-memory em bancos de dados na camada Standard ou Básico. Além disso, não é possível mover um banco de dados que tem objetos OLTP in-memory para a camada Standard ou Básico.
 
-Antes de fazer o downgrade do banco de dados para Standard/Básico, remova todas as tabelas com otimização de memória e os tipos de tabela, bem como todos os módulos do T-SQL compilados nativamente.
-
 Há uma maneira programática de entender se determinado banco de dados dá suporte ao OLTP in-memory. Execute a seguinte consulta Transact-SQL:
 
 ```
@@ -128,6 +126,13 @@ SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 
 Se a consulta retorna **1**, há suporte para o OLTP in-memory neste banco de dados.
 
+Antes de fazer o downgrade do banco de dados para Standard/Básico, remova todas as tabelas com otimização de memória e os tipos de tabela, bem como todos os módulos do T-SQL compilados nativamente. As consultas a seguir identificam todos os objetos que precisam ser removidos antes do downgrade de um banco de dados para Standard/Basic:
+
+```
+SELECT * FROM sys.tables WHERE is_memory_optimized=1
+SELECT * FROM sys.table_types WHERE is_memory_optimized=1
+SELECT * FROM sys.sql_modules WHERE uses_native_compilation=1
+```
 
 *Fazer downgrade para uma camada Premium mais baixa*: os dados em tabelas com otimização de memória devem caber no armazenamento OLTP in-memory associado ao tipo de preço do banco de dados ou disponível no pool elástico. Se você tentar reduzir o tipo de preço ou mover o banco de dados para um pool que não tem armazenamento do OLTP in-memory suficiente disponível, a operação falhará.
 

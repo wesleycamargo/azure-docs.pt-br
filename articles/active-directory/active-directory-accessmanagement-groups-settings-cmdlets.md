@@ -4,7 +4,7 @@ description: "Como gerenciar as configurações de grupos usando cmdlets do Azur
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: michael.tillman
 editor: 
 ms.assetid: 9f2090e6-3af4-4f07-bbb2-1d18dae89b73
 ms.service: active-directory
@@ -12,20 +12,23 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/04/2017
+ms.date: 11/16/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro;
-ms.openlocfilehash: 06384d1a1fb7fcc36e9ab97e38c6524a7e260140
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec22a9898350b07662266707b2fd086a7a5daa93
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Cmdlets do Azure Active Directory para definir configurações de grupo
+Este artigo contém instruções sobre como usar cmdlets do PowerShell do Azure Active Directory (Azure AD) para criar e atualizar grupos. Este conteúdo se aplica apenas a grupos do Office 365. 
 
 > [!IMPORTANT]
-> Este conteúdo se aplica apenas a grupos do Office 365. Para saber mais sobre como permitir que os usuários criem grupos de segurança, defina `Set-MSOLCompanySettings -UsersPermissionToCreateGroupsEnabled $True` conforme descrito em [Set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0). 
+> Algumas configurações exigem uma licença do Azure Active Directory Premium P1. Para obter mais informações, consulte a tabela [Configurações de modelo](#template-settings).
+
+Para saber mais sobre como permitir que os usuários criem grupos de segurança, defina `Set-MSOLCompanySettings -UsersPermissionToCreateGroupsEnabled $True` conforme descrito em [Set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0). 
 
 As configurações de Grupos do Office 365 são definidas usando um objeto Settings e um SettingsTemplate. Inicialmente, você não verá objetos Settings no seu diretório, pois o diretório foi configurado com as definições padrão. Para alterar as configurações padrão, você deve criar um novo objeto de configurações usando um modelo de configurações. Modelos de configurações são definidos pela Microsoft. Há vários modelos de configurações diferentes. Para definir as configuração de grupo do Office 365 para seu diretório, use o modelo chamado "Group.Unified". Para definir as configurações de grupo do Office 365 em um único grupo, use o modelo chamado "Group.Unified.Guest". Esse modelo é usado para gerenciar o acesso de convidado a um grupo do Office 365. 
 
@@ -85,11 +88,12 @@ Após a conclusão bem-sucedida, o cmdlet retornará a ID do novo objeto de conf
   --                                   ----------- ----------                           ------
   c391b57d-5783-4c53-9236-cefb5c6ef323             62375ab9-6b52-47ed-826b-58e47e0e304b {class SettingValue {...
   ```
-Aqui estão as configurações definidas no Group.Unified SettingsTemplate.
+## <a name="template-settings"></a>Configurações de modelo
+Aqui estão as configurações definidas no Group.Unified SettingsTemplate. A menos que indicado o contrário, esses recursos exigem uma licença do Azure Active Directory Premium P1. 
 
 | **Configuração** | **Descrição** |
 | --- | --- |
-|  <ul><li>EnableGroupCreation<li>Tipo: booliano<li>Padrão: True |O sinalizador que indica se é permitida a criação de Grupo Unificado no diretório por usuários que não são administradores. |
+|  <ul><li>EnableGroupCreation<li>Tipo: booliano<li>Padrão: True |O sinalizador que indica se é permitida a criação de Grupo Unificado no diretório por usuários que não são administradores. Essa configuração não requer uma licença do Azure Active Directory Premium P1.|
 |  <ul><li>GroupCreationAllowedGroupId<li>Tipo: String<li>Padrão: “” |O GUID do grupo de segurança para o qual os membros têm permissão para criar Grupos Unificados, mesmo quando EnableGroupCreation = = false. |
 |  <ul><li>UsageGuidelinesUrl<li>Tipo: String<li>Padrão: “” |Um link para as Diretrizes de Uso do Grupo. |
 |  <ul><li>ClassificationDescriptions<li>Tipo: String<li>Padrão: “” | Uma lista delimitada por vírgulas de descrições de classificação. |
@@ -98,7 +102,7 @@ Aqui estão as configurações definidas no Group.Unified SettingsTemplate.
 | <ul><li>CustomBlockedWordsList<li>Tipo: String<li>Padrão: “” | Não use. Não implementado. |
 | <ul><li>EnableMSStandardBlockedWords<li>Tipo: booliano<li>Padrão: “False” | Não use
 |  <ul><li>AllowGuestsToBeGroupOwner<li>Tipo: booliano<li>Padrão: False | Booliano que indica se um usuário convidado pode ser um proprietário de grupos. |
-|  <ul><li>AllowGuestsToAccessGroups<li>Tipo: booliano<li>Padrão: True | Booliano que indica se um usuário convidado pode ter acesso ao conteúdo de Grupos Unificados. |
+|  <ul><li>AllowGuestsToAccessGroups<li>Tipo: booliano<li>Padrão: True | Booliano que indica se um usuário convidado pode ter acesso ao conteúdo de Grupos Unificados.  Essa configuração não requer uma licença do Azure Active Directory Premium P1.|
 |  <ul><li>GuestUsageGuidelinesUrl<li>Tipo: String<li>Padrão: “” | A url de um link para as diretrizes de uso do convidado. |
 |  <ul><li>AllowToAddGuests<li>Tipo: booliano<li>Padrão: True | Um booliano que indica se há permissão para adicionar convidados a este diretório.|
 |  <ul><li>ClassificationList<li>Tipo: String<li>Padrão: “” |Uma lista delimitada por vírgulas de valores de classificação válidos que podem ser aplicados a Grupos Unificados. |

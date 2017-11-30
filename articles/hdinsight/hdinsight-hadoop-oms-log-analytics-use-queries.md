@@ -13,13 +13,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/08/2017
+ms.date: 11/17/2017
 ms.author: nitinme
-ms.openlocfilehash: e4ee80826a710bde9483d130a4d1c986a72645ca
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: da7b83846418bfe5f95b126d4f5f7b34d3a7b35d
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="query-azure-log-analytics-to-monitor-hdinsight-clusters"></a>Consultar o Azure Log Analytics para monitorar clusters HDInsight
 
@@ -33,7 +33,7 @@ Saiba mais sobre alguns cenários básicos de como usar o Azure Log Analytics pa
 
 * É necessário ter configurado um cluster HDInsight para usar o Azure Log Analytics. Para obter instruções, consulte [Use Azure Log Analytics with HDInsight clusters](hdinsight-hadoop-oms-log-analytics-tutorial.md) (Usar o Azure Log Analytics com clusters HDInsight).
 
-* Você deverá ter adicionado as soluções de gerenciamento específicas para o cluster HDInsight ao espaço de trabalho do OMS conforme descrito em [Add HDInsight cluster management solutions to Log Analytics](hdinsight-hadoop-oms-log-analytics-management-solutions.md) (Adicionar soluções de gerenciamento do cluster HDInsight ao Log Analytics).
+* Você deve ter adicionado as soluções de gerenciamento específicas para o cluster HDInsight ao espaço de trabalho do [Operations Management Suite (OMS)](../operations-management-suite/operations-management-suite-overview.md) conforme descrito em [Adicionar soluções de gerenciamento do cluster HDInsight ao Log Analytics](hdinsight-hadoop-oms-log-analytics-management-solutions.md).
 
 ## <a name="analyze-hdinsight-cluster-metrics"></a>Analisar métricas de cluster HDInsight
 
@@ -152,5 +152,5 @@ A primeira etapa para criar um alerta é chegar a uma consulta com base na qual 
 
 ## <a name="see-also"></a>Consulte também
 
-* [Trabalhando com o Log Analytics do OMS](https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/03/oms-log-analytics-create-tiles-drill-ins-and-dashboards-with-the-view-designer/)
+* [Trabalhar com o Log Analytics do Operations Management Suite](https://blogs.msdn.microsoft.com/wei_out_there_with_system_center/2016/07/03/oms-log-analytics-create-tiles-drill-ins-and-dashboards-with-the-view-designer/)
 * [Criar regras de alerta no Log Analytics](../log-analytics/log-analytics-alerts-creating.md)

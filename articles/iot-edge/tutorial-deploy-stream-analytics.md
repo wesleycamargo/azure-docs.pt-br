@@ -9,11 +9,11 @@ ms.author: v-masebo
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: ebda79442b8feb9f052c3ae455fa43aafb7b5a6a
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 0d19d1142cf15221f84692f7e613edd6b46b4083
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>Implantar o Azure Stream Analytics como um módulo do IoT Edge – versão prévia
 
@@ -62,13 +62,16 @@ Nesta seção, você cria um trabalho do Azure Stream Analytics para extrair dad
     ![nova conta de armazenamento][1]
 
 3. No portal do Azure, navegue para a conta de armazenamento recém-criada. Clique em **Procurar blobs** em **Serviço Blob**. 
-1. Crie um novo contêiner para o módulo do ASA para armazenar dados. Defina o nível de acesso como _Contêiner_. Clique em **OK**.
+4. Crie um novo contêiner para o módulo do ASA para armazenar dados. Defina o nível de acesso como _Contêiner_. Clique em **OK**.
 
     ![configurações de armazenamento][10]
 
-1. No portal do Azure, navegue para **Criar um recurso** > **Internet das Coisas** e selecione **Trabalho do Stream Analytics**.
+5. No portal do Azure, navegue para **Criar um recurso** > **Internet das Coisas** e selecione **Trabalho do Stream Analytics**.
 
-1. Insira um nome, **escolha “Edge” como o ambiente de Hospedagem** e use os valores padrão restantes.  Clique em **Criar**.
+2. Insira um nome, escolha **Edge** como o ambiente de Hospedagem e use os valores padrão restantes.  Clique em **Criar**.
+
+    >[!NOTE]
+    >Atualmente, trabalhos ASA na borda IoT não têm suporte na região US West 2. Selecione um local diferente.
 
     ![criação do ASA][5]
 

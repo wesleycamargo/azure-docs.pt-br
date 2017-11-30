@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: mazha
-ms.openlocfilehash: 87d65479960cd6b5977fd7ac31cbb71afc0959e2
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: fe519c3ad5f99899277bf005929142c52a4c4724
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="manage-expiration-of-web-content-in-azure-content-delivery-network"></a>Como gerenciar a expiração do conteúdo da Web na Rede de Distribuição de Conteúdo do Microsoft Azure
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ ms.lasthandoff: 11/16/2017
 Os arquivos de qualquer servidor Web de origem publicamente acessível podem ser armazenados em cache na CDN (Rede de Distribuição de Conteúdo) do Azure até que a TTL (vida útil) tenha decorrida. A vida útil é determinada pelo cabeçalho `Cache-Control` na resposta HTTP do servidor de origem. Este artigo descreve como definir cabeçalhos `Cache-Control` para recurso de Aplicativos Web do Serviço de Aplicativo do Microsoft Azure, Serviços de Nuvem do Microsoft Azure, aplicativos ASP.NET e sites do IIS (Serviços de Informações da Internet), todos configurados de forma semelhante. Você pode definir o cabeçalho `Cache-Control` usando arquivos de configuração ou programaticamente.
 
 > [!TIP]
-> Você pode optar por não definir nenhuma vida útil em um arquivo. Nesse caso, o Azure CDN aplica automaticamente um TTL padrão de sete dias.
+> Você pode optar por não definir nenhuma vida útil em um arquivo. Nesse caso, o Azure CDN aplica automaticamente um TTL padrão de sete dias. Esse padrão TTL aplica-se somente a otimizações de entrega da web geral. Para otimizações de arquivo grande, o TTL padrão é de um dia e para otimizações de streaming de mídia, o TTL padrão é um ano.
 > 
 > Para obter mais informações sobre como a CDN do Azure trabalha para acelerar o acesso a arquivos e outros recursos, consulte [Visão geral da Rede de Distribuição de Conteúdo do Azure](cdn-overview.md).
 > 

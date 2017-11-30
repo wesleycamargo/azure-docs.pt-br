@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 3b51276fe074282339d30d075547160277bee53f
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: d02960017b8793eccc2990a17e3d854991e877b6
+ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/23/2017
 ---
 # <a name="understanding-outbound-connections-in-azure"></a>Entendendo as conexões de saída no Azure
 
@@ -40,17 +40,17 @@ Se não quiser que uma VM se comunique com pontos de extremidade fora do Azure n
 
 Nesse cenário, a VM não faz parte de um pool do Azure Load Balancer e não tem um endereço ILPIP (IP Público em Nível de Instância) atribuído a ele. Quando a VM cria um fluxo de saída, o Azure converte o endereço IP de origem particular do fluxo de saída para um endereço IP de origem pública. O endereço IP público usado para esse fluxo de saída não é configurável e não conta para o limite de recursos IP públicos da assinatura. O Azure usa SNAT (Conversão de Endereço de Rede de Origem) para executar essa função. Portas efêmeras do endereço IP público são usadas para distinguir os fluxos individuais originados pela VM. O SNAT aloca dinamicamente portas efêmeras quando os fluxos são criados. Nesse contexto, as portas efêmeras usadas para o SNAT são chamadas de portas SNAT.
 
-As portas SNAT são um recurso finito que pode ser esgotado. É importante entender como elas são consumidas. Uma porta SNAT é consumida por fluxo para um único endereço IP de destino. Para vários fluxos para o mesmo endereço IP de destino, cada fluxo consome uma única porta SNAT. Isso garante que os fluxos sejam exclusivos quando originados do mesmo endereço IP público para o mesmo endereço IP de destino. Vários fluxos, cada um para um endereço IP de destino diferente, compartilham uma única porta SNAT. O endereço IP de destino torna os fluxos exclusivos.
+As portas SNAT são um recurso finito que pode ser esgotado. É importante entender como elas são consumidas. Uma porta SNAT é consumida por fluxo para um IP de destino único. Para vários fluxos para a mesma porta e endereço IP de destino, cada fluxo consome uma única porta SNAT. Isso garante que os fluxos sejam exclusivos quando originados do mesmo endereço IP público para a mesma porta e endereço IP de destino. Vários fluxos, cada um para uma porta e endereço IP de destino diferente, compartilham uma única porta SNAT. A porta e o endereço IP de destino tornam os fluxos exclusivos.
 
 Você pode usar [Log Analytics para o Azure Load Balancer](load-balancer-monitor-log.md) e [Logs de evento de alerta para monitorar as mensagens de esgotamento da porta SNAT](load-balancer-monitor-log.md#alert-event-log) para monitorar a integridade das conexões de saída. Quando os recursos da porta SNAT acabam, os fluxos de saída falham até as portas SNAT serem lançadas por fluxos existentes. O Balanceador de Carga usa um tempo limite de ociosidade de 4 minutos para recuperar portas SNAT.  Examine [VM com um endereço IP público de nível de instância (com ou sem o Azure Load Balancer)](#vm-with-an-instance-level-public-ip-address-with-or-without-load-balancer) a seguinte seção, bem como [Gerenciamento de esgotamento de SNAT](#snatexhaust).
 
 ## <a name="load-balanced-vm-with-no-instance-level-public-ip-address"></a>VM com balanceamento de carga com nenhum endereço IP público em nível de instância
 
-Nesse cenário, a VM faz parte de um pool do Azure Load Balancer.  A VM não tem um endereço IP público atribuído a ela. O recurso do Load Balancer deve ser configurado com uma regra para vincular o front-end de IP público com o pool de back-end.  Se você não concluir esta configuração, o comportamento será como descrito na seção acima para [VM Autônoma sem IP Público de Nível de Instância](load-balancer-outbound-connections.md#standalone-vm-with-no-instance-level-public-ip-address).
+Nesse cenário, a VM faz parte de um pool do Azure Load Balancer.  A VM não tem um endereço IP público atribuído a ela. O recurso do Load Balancer deve ser configurado com uma regra para vincular o front-end de IP público com o pool de back-end.  Se você não concluir esta configuração, o comportamento será como descrito na seção anterior para [VM Autônoma sem IP Público de Nível de Instância](load-balancer-outbound-connections.md#standalone-vm-with-no-instance-level-public-ip-address).
 
 Quando a VM com balanceamento de carga cria um fluxo de saída, o Azure converte o endereço IP de origem particular do fluxo de saída para um endereço IP público do frontend do Balanceador de Carga público. O Azure usa SNAT (Conversão de Endereço de Rede de Origem) para executar essa função. Portas efêmeras do endereço IP público do Balanceador de Carga são usadas para distinguir os fluxos individuais originados pela VM. O SNAT aloca dinamicamente portas efêmeras quando os fluxos de saída são criados. Nesse contexto, as portas efêmeras usadas para o SNAT são chamadas de portas SNAT.
 
-As portas SNAT são um recurso finito que pode ser esgotado. É importante entender como elas são consumidas. Uma porta SNAT é consumida por fluxo para um único endereço IP de destino. Para vários fluxos para o mesmo endereço IP de destino, cada fluxo consome uma única porta SNAT. Isso garante que os fluxos sejam exclusivos quando originados do mesmo endereço IP público para o mesmo endereço IP de destino. Vários fluxos, cada um para um endereço IP de destino diferente, compartilham uma única porta SNAT. O endereço IP de destino torna os fluxos exclusivos.
+As portas SNAT são um recurso finito que pode ser esgotado. É importante entender como elas são consumidas. Uma porta SNAT é consumida por fluxo para uma porta e endereço IP de destino único. Para vários fluxos para a mesma porta e endereço IP de destino, cada fluxo consome uma única porta SNAT. Isso garante que os fluxos sejam exclusivos quando originados do mesmo endereço IP público para a mesma porta e endereço IP de destino. Vários fluxos, cada um para uma porta e endereço IP de destino diferente, compartilham uma única porta SNAT. A porta e o endereço IP de destino tornam os fluxos exclusivos.
 
 Você pode usar [Log Analytics para o Azure Load Balancer](load-balancer-monitor-log.md) e [Logs de evento de alerta para monitorar as mensagens de esgotamento da porta SNAT](load-balancer-monitor-log.md#alert-event-log) para monitorar a integridade das conexões de saída. Quando os recursos da porta SNAT acabam, os fluxos de saída falham até as portas SNAT serem lançadas por fluxos existentes. O Balanceador de Carga usa um tempo limite de ociosidade de 4 minutos para recuperar portas SNAT.  Examine a seguinte seção, bem como [Gerenciamento de esgotamento de SNAT](#snatexhaust).
 
@@ -72,18 +72,21 @@ Certifique-se de que a VM possa receber solicitações de investigação de inte
 
 ## <a name="snatexhaust"></a>Gerenciamento de esgotamento de SNAT
 
-Portas efêmeras usadas para SNAT são um recurso limitado conforme descrito em [VM autônoma sem endereço IP público de nível de instância](#standalone-vm-with-no-instance-level-public-ip-address) e [VM com balanceamento de carga sem endereço IP público de nível de instância](#standalone-vm-with-no-instance-level-public-ip-address).  
+Portas efêmeras usadas para SNAT são um recurso limitado conforme descrito em [VM autônoma sem endereço IP público de nível de instância](#standalone-vm-with-no-instance-level-public-ip-address) e [VM com balanceamento de carga sem endereço IP público de nível de instância](#standalone-vm-with-no-instance-level-public-ip-address).
 
-Se você souber que iniciará muitas conexões de saída para o mesmo destino, se observar conexões de saída com falha ou se for avisado pelo suporte que está esgotando as portas SNAT, terá várias opções de mitigação geral.  Examine essas opções e decida qual é a melhor para seu cenário.  É possível que uma ou mais possam ajudar a gerenciar esse cenário.
+Se você souber que está iniciando muitas conexões UDP ou TCP de saída para a mesma porta e endereço IP de destino, observe as conexões de saída com falha ou, se for avisado pelo suporte de que as portas de SNAT estão se esgotando, você terá várias opções gerais de mitigação.  Examine essas opções e decida qual é a melhor para seu cenário.  É possível que uma ou mais possam ajudar a gerenciar esse cenário.
 
-### <a name="assign-an-instance-level-public-ip-to-each-vm"></a>Atribua um IP público em nível de instância a cada VM
-Isso altera seu cenário para [IP público em nível de instância para uma VM](#vm-with-an-instance-level-public-ip-address-with-or-without-load-balancer).  Todas as portas efêmeras do IP público usado para cada VM estão disponíveis para a VM (diferentemente de cenários em que as portas efêmeras de um IP público são compartilhadas com todas as VMs associadas ao respectivo pool de back-end).
+### <a name="modify-application-to-reuse-connections"></a>Modificar o aplicativo para reutilizar conexões 
+Você pode reduzir a demanda por portas efêmeras usadas para SNAT, reutilizando as conexões em sua aplicação.  Isto é especialmente verdadeiro para protocolos como HTTP/1.1, onde a reutilização de conexão é a padrão.  E outros protocolos usando o HTTP como seu transporte (ou seja, REST) podem se beneficiar por sua vez.  A reutilização é sempre melhor que as conexões TCP individuais e atômicas para cada solicitação e resulta em transações TCP mais eficazes e muito eficientes.
 
 ### <a name="modify-application-to-use-connection-pooling"></a>Modificar o aplicativo para usar o pool de conexão
-Você pode reduzir a demanda de portas efêmeras usadas para SNAT usando o pool de conexão em seu aplicativo.  Fluxos adicionais para o mesmo destino consumirão portas adicionais.  Se você reutilizar o mesmo fluxo para várias solicitações, suas solicitações consumirão uma única porta.
+Você pode empregar um esquema de pooling de conexão em seu aplicativo, onde as solicitações são distribuídas internamente em um conjunto de conexões fixo (cada reutilização sempre que possível).  Isso restringe o número de portas efêmeras em uso e cria um ambiente mais previsível.  Isso também pode aumentar a taxa de transferência de solicitações, permitindo múltiplas operações simultâneas quando uma única conexão está bloqueando na resposta de uma operação.  O pooling de conexão já pode existir dentro da estrutura que você está utilizando para desenvolver seu aplicativo ou os conjuntos de configurações para o aplicativo.  Você pode combinar isso com a reutilização de conexão e suas múltiplas solicitações consomem um número fixo e previsível de portas para a mesma porta e endereço IP de destino, ao mesmo tempo em que se beneficia do uso muito eficiente das transações TCP, reduzindo a latência e a utilização de recursos.
 
 ### <a name="modify-application-to-use-less-aggressive-retry-logic"></a>Modificar o aplicativo para usar uma lógica de repetição menos agressiva
-Você pode reduzir a demanda de portas efêmeras usando uma lógica de repetição menos agressiva.  Quando as portas efêmeras usadas para SNAT são esgotadas, repetições de força bruta ou agressivas sem lógica de declínio e retirada fazem com que o esgotamento continue.  Portas efêmeras têm um tempo limite de ociosidade de 4 minutos (não ajustável) e, se as repetições forem muito agressivas, o esgotamento não terá a oportunidade de limpar por conta própria.
+Quando as portas efêmeras utilizadas para SNAT estão esgotadas ou se ocorrem falhas no aplicativo, repetições de força bruta ou agressivas sem lógica de declínio e retirada fazem com que o esgotamento ocorra ou persista. Você pode reduzir a demanda de portas efêmeras usando uma lógica de repetição menos agressiva.   Portas efêmeras têm um tempo limite de ociosidade de 4 minutos (não ajustável) e, se as repetições forem muito agressivas, o esgotamento não terá a oportunidade de limpar por conta própria.  Portanto, considerando como e com que frequência seu aplicativo tenta transações é uma consideração crítica do design.
+
+### <a name="assign-an-instance-level-public-ip-to-each-vm"></a>Atribua um IP público em nível de instância a cada VM
+Isso altera seu cenário para [IP público em nível de instância para uma VM](#vm-with-an-instance-level-public-ip-address-with-or-without-load-balancer).  Todas as portas efêmeras do IP público usado para cada VM estão disponíveis para a VM (diferentemente de cenários em que as portas efêmeras de um IP público são compartilhadas com todas as VMs associadas ao respectivo pool de back-end).  Há compromissos a considerar, tais como o custo adicional dos endereços IP e o potencial impacto da listagem de permissões de um grande número de endereços IP individuais.
 
 ## <a name="limitations"></a>Limitações
 
@@ -93,4 +96,4 @@ O Azure usa um algoritmo para determinar o número de portas SNAT disponíveis c
 
 Conexões de saída têm um tempo limite de ociosidade de 4 minutos.  Isso não pode ser ajustado.
 
-É importante lembrar que o número de portas SNAT disponíveis não se converte diretamente no número de conexões. Consulte acima para obter informações específicas sobre quando e como portas SNAT são alocadas e como gerenciar esse recurso esgotável.
+É importante lembrar que o número de portas SNAT disponíveis não se converte diretamente no número de conexões. Consulte as seções anteriores para informações sobre quando e como as portas SNAT são alocadas e [como gerenciar esse recurso esgotável](#snatexhaust).

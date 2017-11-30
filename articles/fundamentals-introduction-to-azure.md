@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2015
 ms.author: robb
-ms.openlocfilehash: 2d2cc04887d90b9f005bfe5310a9ce2fb2f7e217
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 69b8ec86f764077a0e6d029f7c540fa25d022a31
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="introducing-microsoft-azure"></a>Apresentando o Microsoft Azure
 O Microsoft Azure é a plataforma de aplicativos da Microsoft para a nuvem pública.  A finalidade deste artigo é mostrar os princípios básicos do Azure, mesmo que você não saiba nada sobre computação em nuvem.
@@ -77,7 +77,7 @@ Uma das tarefas mais comuns que as pessoas fazem em nuvem é executar sites e ap
 
 Isso é exatamente o que fornecem os aplicativos Web. Esse modelo de computação oferece um ambiente de web gerenciado usando o Portal de Gerenciamento do Azure, bem como as APIs. Você pode mover um aplicativo de site existente para os Aplicativos Web não alterados ou pode criar um novo diretamente na nuvem. Assim que um site estiver em execução, será possível adicionar ou remover instâncias dinamicamente, dependendo dos Aplicativos Web do Azure para balancear a carga de solicitações entre elas. Os Aplicativos do Azure oferecem uma opção compartilhada, na qual o site é executado em uma máquina virtual com outros sites, além de uma opção padrão que permite que um site seja executado em sua própria VM. A opção padrão também permite que você aumente o tamanho (computação energia) das ocorrências, se necessário.
 
-Para desenvolvimento, os Aplicativos Web dão suporte para .NET, PHP, Node.js, Java e Python, juntamente com o Banco de Dados SQL e o MySQL (da ClearDB, uma parceira da Microsoft) para armazenamento relacional. Eles também fornecem suporte interno para vários aplicativos conhecidos, incluindo WordPress, Joomla e Drupal. O objetivo é fornecer uma plataforma amplamente útil, de baixo custo e escalonável para criação de sites e aplicativos web na nuvem pública.
+Para desenvolvimento, os Aplicativos Web são compatíveis com .NET, PHP, Node.js, Java e Python, juntamente com o Banco de Dados SQL e o Banco de Dados do Azure para MySQL para armazenamento relacional. Eles também fornecem suporte interno para vários aplicativos conhecidos, incluindo WordPress, Joomla e Drupal. O objetivo é fornecer uma plataforma amplamente útil, de baixo custo e escalonável para criação de sites e aplicativos web na nuvem pública.
 
 **Cenários de Aplicativos Web**
 
@@ -293,16 +293,16 @@ Assim como a maioria dos serviços de diretório, o Active Directory do Azure ar
 
 É importante entender que o Active Directory do Azure foi desenvolvido basicamente para uso pelos aplicativos em nuvem. Ele pode ser usado pelos aplicativos executados no Azure, por exemplo, em outras plataformas na nuvem. Ele também é usado pelos próprios aplicativos em nuvem da Microsoft, como os do Office 365. No entanto, se desejar estender o datacenter para a nuvem usando as Máquinas Virtuais do Azure e a Rede Virtual do Azure, o Active Directory do Azure não é a opção certa. Em vez disso, será conveniente executar o Active Directory do Windows Server nas Máquinas Virtuais.
 
-Para permitir que os aplicativos acessem as informações que ele contém, o Active Directory do Azure fornece uma API RESTful chamada Gráfico do Active Directory do Azure. Essa API permite que os aplicativos que são executados em qualquer plataforma acessem objetos de diretório e os relacionamentos entre eles.  Por exemplo, um aplicativo autorizado pode usar essa API para saber mais sobre um usuário, os grupos aos quais ele pertence, entre outras informações. Os aplicativos também podem enxergar os relacionamentos entre os usuários (o gráfico social), o que os permite trabalhar de modo mais inteligente com as conexões entre as pessoas.
+Para permitir que os aplicativos acessem as informações que ele contém, o Active Directory do Azure fornece uma API RESTful chamada Grafo do Active Directory do Azure. Essa API permite que os aplicativos que são executados em qualquer plataforma acessem objetos de diretório e os relacionamentos entre eles.  Por exemplo, um aplicativo autorizado pode usar essa API para saber mais sobre um usuário, os grupos aos quais ele pertence, entre outras informações. Os aplicativos também podem enxergar os relacionamentos entre os usuários (o grafo social), o que os permite trabalhar de modo mais inteligente com as conexões entre as pessoas.
 
 Outro recurso desse serviço, o Active Directory Access Control do Azure, torna mais fácil para um aplicativo aceitar informações de identidade do Facebook, Google, Windows Live ID e outros provedores de identidade conhecidos. Em vez de exigir que o aplicativo entenda os diversos formatos de dados e protocolos usados por cada um desses provedores, o Access Control converte todos eles em um único formato comum. Ele também permite que um aplicativo aceite logons de um ou mais domínios Active Directory. Por exemplo, um fornecedor que oferece um aplicativo SaaS pode usar o Active Directory Access Control do Azure para fornecer aos usuários em cada um de seus clientes um logon único ao aplicativo.
 
 Os serviços de diretório são um suporte importante de uma computação local. Não é de se surpreender que eles também sejam importantes na nuvem.
 
-### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
+### <a name="multi-factor-authentication"></a>Autenticação Multifator
 ![Autenticação Multifator do Azure](./media/fundamentals-introduction-to-azure/MFAIntroNew.png)   
 
-*Figura: o Multi-Factor Authentication fornece a funcionalidade para seu aplicativo verificar mais de uma forma de identificação*
+*Figura: a Autenticação Multifator fornece a funcionalidade para seu aplicativo verificar mais de uma forma de identificação*
 
 A segurança é sempre importante. A Multi-Factor Authentication (MFA) ajuda a garantir que somente os próprios usuários acessem suas contas. A MFA (também conhecida como autenticação em dois fatores ou "2FA") exige que os usuários forneçam dois desses três métodos de verificação de identidade, para logons e transações realizados por clientes.
 
@@ -310,7 +310,7 @@ A segurança é sempre importante. A Multi-Factor Authentication (MFA) ajuda a g
 * Algo que você tem (um dispositivo confiável que não pode ser facilmente clonado, como um telefone)
 * Algo seu (biometria)
 
-Desse modo, quando um usuário realiza seu logon, você pode solicitar que ele também verifique sua identidade com um aplicativo móvel, uma ligação telefônica ou uma mensagem de texto em combinação com sua senha. Por padrão, o Active Directory do Azure dá suporte ao uso de senhas como seu único método de autenticação para logon de usuário. Você pode utilizar a Autenticação Multifator juntamente com o Active Directory do Azure ou com diretórios e aplicativos personalizados, pelo uso do SDK de Autenticação Multifator. Você também pode utilizá-lo em conjunto com aplicativos locais, por meio do uso do servidor Multi-Factor Authentication.
+Desse modo, quando um usuário realiza seu logon, você pode solicitar que ele também verifique sua identidade com um aplicativo móvel, uma ligação telefônica ou uma mensagem de texto em combinação com sua senha. Por padrão, o Active Directory do Azure dá suporte ao uso de senhas como seu único método de autenticação para logon de usuário. Você pode utilizar a Autenticação Multifator juntamente com o Active Directory do Azure ou com diretórios e aplicativos personalizados, pelo uso do SDK de Autenticação Multifator. Você também pode utilizá-lo em conjunto com aplicativos locais, por meio do uso do Servidor de Autenticação Multifator.
 
 **Cenários para MFA**
 

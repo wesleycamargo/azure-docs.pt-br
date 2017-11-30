@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/18/2017
+ms.date: 11/14/2017
 ms.author: dhanyahk;markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 58ebf74e166cdcae2c54b134cb99552333fafa24
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 9fbcac4bd6240aed607c3da6c6535d207a782448
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="prerequisites-to-access-the-azure-ad-reporting-api"></a>Pré-requisitos para acessar a API de relatório do Azure AD
 
@@ -55,7 +55,7 @@ Para configurar seu diretório para acessar a API de relatório do Azure AD, ent
 
 **Para registrar um aplicativo do Azure Active Directory:**
 
-1. No [portal do Azure](https://portal.azure.com), no painel de navegação à esquerda, clique em **Active Directory**.
+1. No [Portal do Azure](https://portal.azure.com), no painel de navegação esquerdo, clique em **Azure Active Directory**.
    
     ![Registrar aplicativo](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
@@ -129,11 +129,11 @@ Você precisa desses valores ao configurar chamadas para a API de relatórios.
 
 **Para obter seu nome de domínio:**
 
-1. No [portal do Azure](https://portal.azure.com), no painel de navegação à esquerda, clique em **Active Directory**.
+1. No [Portal do Azure](https://portal.azure.com), no painel de navegação esquerdo, clique em **Azure Active Directory**.
    
     ![Registrar aplicativo](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
-2. Na folha **Azure Active Directory**, clique em **Nomes de domínio**.
+2. Na folha **Azure Active Directory**, clique em **Personalizar nomes de domínio**.
 
     ![Registrar aplicativo](./media/active-directory-reporting-api-prerequisites-azure-portal/09.png) 
 
@@ -144,7 +144,7 @@ Você precisa desses valores ao configurar chamadas para a API de relatórios.
 
 **Para obter a ID do cliente do aplicativo:**
 
-1. No [portal do Azure](https://portal.azure.com), no painel de navegação à esquerda, clique em **Active Directory**.
+1. No [Portal do Azure](https://portal.azure.com), no painel de navegação esquerdo, clique em **Azure Active Directory**.
    
     ![Registrar aplicativo](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
@@ -161,7 +161,7 @@ Para obter o segredo do cliente do aplicativo, você precisa criar uma nova chav
 
 **Para obter seu segredo do cliente do aplicativo:**
 
-1. No [portal do Azure](https://portal.azure.com), no painel de navegação à esquerda, clique em **Active Directory**.
+1. No [Portal do Azure](https://portal.azure.com), no painel de navegação esquerdo, clique em **Azure Active Directory**.
    
     ![Registrar aplicativo](./media/active-directory-reporting-api-prerequisites-azure-portal/01.png) 
 
