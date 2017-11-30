@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/24/2017
+ms.date: 11/20/2017
 ms.author: dekapur
-ms.openlocfilehash: c5857515ae8357b003f0999c4b11bd666c32bbf9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1277969d820c6348392d07e2dc5f35b52377fd7e
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="platform-level-event-and-log-generation"></a>Geração de eventos e logs no nível de plataforma
 
@@ -26,12 +26,13 @@ ms.lasthandoff: 10/11/2017
 
 É importante monitorar o nível de plataforma para determinar se o hardware e o cluster estão funcionando conforme esperado. O Service Fabric pode ajudar a manter os aplicativos em execução durante falhas de hardware, mas você ainda precisa diagnosticar se um erro está ocorrendo em um aplicativo ou na infraestrutura subjacente. Você também deve monitorar os clusters para planejar melhor a capacidade, ajudando nas decisões sobre a adição ou remoção de hardware.
 
-O Service Fabric fornece cinco canais de log diferentes prontos que geram os eventos a seguir:
-
-* Canal operacional: operações de alto nível executadas pelo Service Fabric e pelo cluster, incluindo eventos para um nó surgindo, um novo aplicativo sendo implantado ou uma reversão de upgrade do SF, etc.
+O Service Fabric fornece os seguintes canais prontos para uso:
+* Canal operacional: operações de alto nível executadas pelo Service Fabric e pelo cluster, incluindo eventos para um nó surgindo, um novo aplicativo sendo implantado ou uma reversão de upgrade, etc.
 * Canal operacional – detalhado: relatórios de integridade e decisões de balanceamento de carga
-* Canal de dados e mensagens: logs e eventos críticos gerados em nosso sistema de mensagens (atualmente, apenas o ReverseProxy) e o caminho de dados (modelos de Reliable Services)
+* Canal de dados e mensagens: logs e eventos críticos gerados no sistema de mensagens (atualmente, apenas o ReverseProxy) e o caminho de dados (modelos de serviços confiáveis)
 * Canal de dados e mensagens – detalhado: canal detalhado que contém todos os logs não críticos dos dados e das mensagens no cluster (esse canal tem um volume muito alto de eventos)   
+
+Além desses, são fornecidos dois canais estruturados do EventSource, bem como logs que coletamos para fins de suporte.
 * [Eventos do Reliable Services](service-fabric-reliable-services-diagnostics.md): eventos específicos do modelo de programação
 * [Eventos do Reliable Actors](service-fabric-reliable-actors-diagnostics.md): contadores de desempenho e eventos específicos do modelo de programação
 * Logs de suporte: logs do sistema gerados pelo Service Fabric apenas para serem usados por nós ao fornecer suporte

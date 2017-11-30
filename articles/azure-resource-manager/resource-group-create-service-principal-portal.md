@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/08/2017
+ms.date: 11/16/2017
 ms.author: tomfitz
-ms.openlocfilehash: 3b9c49d4c7d49cc6795fb093f9abc748d55b5b6f
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: fc5bfebbcbac7096dea874684bdefe099b572adc
+ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="use-portal-to-create-an-azure-active-directory-application-and-service-principal-that-can-access-resources"></a>Usar o portal para criar um aplicativo e uma entidade de serviço do Azure Active Directory que possa acessar recursos
 
@@ -27,11 +27,11 @@ Quando você tiver um aplicativo que precisa acessar ou modificar os recursos, d
 * Você não precisa alterar as credenciais do aplicativo se alterar suas responsabilidades. 
 * Você pode usar um certificado para automatizar a autenticação ao executar um script autônomo.
 
-Este tópico mostra como executar essas etapas no portal. Ele se concentra em um aplicativo de locatário único que se destina a ser executado dentro de uma única organização. Você normalmente usa os aplicativos com um único locatário para os aplicativos da linha de negócios executados em sua organização.
+Este artigo mostra como executar essas etapas no portal. Ele se concentra em um aplicativo de locatário único que se destina a ser executado dentro de uma única organização. Você normalmente usa os aplicativos com um único locatário para os aplicativos da linha de negócios executados em sua organização.
 
 ## <a name="required-permissions"></a>Permissões necessárias
 
-Para concluir este tópico, você deve ter permissões suficientes para registrar um aplicativo com o locatário do Azure AD e atribuir o aplicativo a uma função em sua assinatura do Azure. Vamos verificar se você tem as permissões corretas para executar essas etapas.
+Para concluir este artigo, você deve ter permissões suficientes para registrar um aplicativo com o locatário do Azure AD e atribuir o aplicativo a uma função em sua assinatura do Azure. Vamos verificar se você tem as permissões corretas para executar essas etapas.
 
 ### <a name="check-azure-active-directory-permissions"></a>Verificar as permissões do Azure Active Directory
 
@@ -104,7 +104,7 @@ Para verificar suas permissões de assinatura:
 
    ![adicionar aplicativo](./media/resource-group-create-service-principal-portal/select-add-app.png)
 
-1. Forneça um nome e uma URL para o aplicativo. Selecione **aplicativo Web/API** ou **Nativo** para o tipo de aplicativo que você deseja criar. Depois de definir os valores, selecione **Criar**.
+1. Forneça um nome e uma URL para o aplicativo. Selecione **aplicativo Web/API** para o tipo de aplicativo que você deseja criar. Não é possível criar as credenciais para um aplicativo **Nativo**; portanto, esse tipo não funciona para um aplicativo automatizado. Depois de definir os valores, selecione **Criar**.
 
    ![nomear aplicativo](./media/resource-group-create-service-principal-portal/create-app.png)
 

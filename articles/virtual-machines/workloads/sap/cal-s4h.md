@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
-ms.openlocfilehash: 4788fa14a6c49d39b5a3096a69b6738f4a5d8cca
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 342bd20466cdeb0b9df1cdacd4664fa4e3e0c604
+ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/17/2017
 ---
 # <a name="deploy-sap-s4hana-or-bw4hana-on-azure"></a>Implantar o SAP S/4HANA ou o BW/4HANA no Azure
 Este artigo descreve como implantar o S/4HANA no Azure usando o SAP CAL (SAP Cloud Appliance Library) 3.0. Para implantar outras soluções baseadas em SAP HANA, como BW/4HANA, siga as mesmas etapas.
@@ -95,7 +95,7 @@ Você criou com êxito uma conta da SAP CAL que é capaz de:
 Agora você pode começar a implantar a 4HANA/S em sua assinatura do usuário no Azure.
 
 > [!NOTE]
-Antes de continuar, determine se você tem cotas de núcleo do Azure para as VMs Série H do Azure. No momento, a SAP CAL usa VMs Série H do Azure para implantar algumas das soluções com base em SAP HANA. Sua assinatura do Azure talvez não tenha cotas de núcleo da Série H para a Série H. Nesse caso, talvez seja necessário entrar em contato com o suporte do Azure para obter uma cota de pelo menos 16 núcleos da Série H.
+Antes de continuar, determine se você tem cotas de vCPU do Azure para as VMs Série H do Azure. No momento, a SAP CAL usa VMs Série H do Azure para implantar algumas das soluções com base em SAP HANA. Sua assinatura do Azure talvez não tenha cotas de vCPU da Série H para a Série H. Nesse caso, talvez seja necessário entrar em contato com o suporte do Azure para obter uma cota de pelo menos 16 vCPUs da Série H.
 
 > [!NOTE]
 Quando você implanta uma solução no Azure com a SAP CAL, talvez você descubra que pode escolher apenas uma região do Azure. Para implantar em regiões do Azure diferentes daquele sugeridas pela SAP CAL, você precisa comprar uma assinatura da CAL da SAP. Você também precisará abrir uma mensagem com a SAP para ter sua conta da CAL habilitada para entregar em regiões do Azure diferentes daquelas inicialmente sugeridas.

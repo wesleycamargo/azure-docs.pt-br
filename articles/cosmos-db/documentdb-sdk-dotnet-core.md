@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/10/2017
+ms.date: 11/17/2017
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 56a2aff21a728d5ac0355516fc6988512c062b4c
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: 835956f185b4ecdcbfa0b486223dd9bc2d0377cb
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="azure-cosmos-db-net-core-sdk-release-notes-and-resources"></a>SDK do .NET Core do Azure Cosmos DB: notas de versão e recursos
 > [!div class="op_single_selector"]
@@ -56,6 +56,11 @@ O SDK do .NET Core do Azure Cosmos DB tem paridade de recurso com a versão mais
 
 > [!NOTE] 
 > O SDK do .NET Core do Azure Cosmos DB não é compatível com aplicativos UWP (Plataforma Universal do Windows). Se você estiver interessado no SDK do .NET Core que dê suporte a aplicativos UWP, envie um email para [askcosmosdb@microsoft.com](mailto:askcosmosdb@microsoft.com).
+
+### <a name="a-name171171"></a><a name="1.7.1"/>1.7.1
+ 
+ * Adiciona a capacidade de especificar índices exclusivos para os documentos usando a propriedade UniqueKeyPolicy na DocumentCollection.
+ * Correção de um bug no qual as configurações personalizadas JsonSerializer não estavam sendo cumpridas por algumas consultas e pela execução de procedimento armazenado.
 
 ### <a name="a-name170170"></a><a name="1.7.0"/>1.7.0
  
@@ -150,6 +155,7 @@ Se você tiver dúvidas relacionadas a esse SDK, poste no [StackOverflow](http:/
 
 | Versão | Data do lançamento | Data de desativação |
 | --- | --- | --- |
+| [1.7.1](#1.7.1) |16 de novembro de 2017 |--- |
 | [1.7.0](#1.7.0) |10 de novembro, 2017 |--- |
 | [1.6.0](#1.6.0) |17 de outubro de 2017 |--- |
 | [1.5.1](#1.5.1) |2 de outubro de 2017 |--- |

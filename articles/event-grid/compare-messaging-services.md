@@ -6,13 +6,13 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 11/06/2017
+ms.date: 11/15/2017
 ms.author: tomfitz
-ms.openlocfilehash: 9a9baa457729bdc4d70a8f9f45701dbdb875d3ce
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 94771578d94b5b9bc23451049a78506e80c87d26
+ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 11/16/2017
 ---
 # <a name="choose-between-azure-services-that-deliver-messages"></a>Escolher entre serviços do Azure que entregam mensagens
 
@@ -32,20 +32,16 @@ Há uma distinção importante a observar entre serviços que entregam um evento
 
 Um evento é uma notificação leve de uma ação ou de uma alteração de estado. Os dados do evento contêm informações sobre o que aconteceu, mas não contêm os dados que dispararam o evento. Por exemplo, um evento notifica os assinantes de que um arquivo foi criado. Ele pode conter informações gerais sobre o arquivo, mas não contém o arquivo propriamente dito. Em geral, eventos disparam manipuladores de eventos para atuar em tempo real.
 
-A Grade de Eventos é um serviço de eventos.
-
 ### <a name="message"></a>Mensagem
 
-Uma mensagem é composta de dados brutos produzidos por um serviço para serem consumidos ou armazenados em outro lugar. A mensagem contém os dados que dispararam o pipeline de mensagem. Essa mensagem pode ser qualquer coisa, desde um pedido de comércio eletrônico até telemetria do usuário. Ao contrário do que ocorre em uma notificação de evento, o editor de uma mensagem pode esperar uma resposta. Por exemplo, uma mensagem contém os dados brutos, mas espera a próxima parte do sistema crie um arquivo com base nesses dados. 
-
-O Hubs de Eventos e o Barramento de Serviço são serviços de mensagens.
+Uma mensagem é composta de dados brutos produzidos por um serviço para serem consumidos ou armazenados em outro lugar. A mensagem contém os dados que dispararam o pipeline de mensagem. Essa mensagem pode ser qualquer coisa, desde um pedido de comércio eletrônico até telemetria do usuário. Ao contrário do que ocorre em uma notificação de evento, o editor de uma mensagem pode esperar uma resposta. Por exemplo, uma mensagem contém os dados brutos, mas espera a próxima parte do sistema crie um arquivo com base nesses dados.
 
 ## <a name="comparison-of-services"></a>Comparação de serviços
 
 | O Barramento de | Finalidade | Tipo | Quando usar |
 | ------- | ------- | ---- | ----------- |
-| Grade de Eventos | Programação reativa | Evento | Reagir a alterações de status |
-| Hubs de Eventos | Pipeline de Big Data | Mensagem | Telemetria e streaming de dados distribuídos |
+| Grade de Eventos | Programação reativa | Distribuição de eventos | Reagir a alterações de status |
+| Hubs de Eventos | Pipeline de Big Data | Streaming de Eventos | Telemetria e streaming de dados distribuídos |
 | Barramento de Serviço | Mensagens corporativas de alto valor | Mensagem | Processamento de pedidos e transações financeiras |
 
 ### <a name="event-grid"></a>Grade de Eventos
@@ -62,7 +58,7 @@ Ele tem as seguintes características:
 
 ### <a name="event-hubs"></a>Hubs de Eventos
 
-O Hubs de Eventos do Azure é um pipeline de Big Data. Ele facilita a captura, a retenção e a reprodução de telemetria e dados de fluxo de eventos. Os dados podem vir de várias fontes simultâneas. O Hubs de Eventos permite que os dados de telemetria e eventos sejam disponibilizados para uma variedade de infraestruturas de processamento de fluxo e serviços de análise. Ele está disponível como fluxos de dados ou lotes de eventos em pacote. Esse serviço fornece uma solução única que permite a recuperação rápida de dados para processamento em tempo real, bem como reprodução repetida de dados brutos armazenados.
+O Hubs de Eventos do Azure é um pipeline de Big Data. Ele facilita a captura, a retenção e a reprodução de telemetria e dados de fluxo de eventos. Os dados podem vir de várias fontes simultâneas. O Hubs de Eventos permite que os dados de telemetria e eventos sejam disponibilizados para uma variedade de infraestruturas de processamento de fluxo e serviços de análise. Ele está disponível como fluxos de dados ou lotes de eventos em pacote. Esse serviço fornece uma solução única que permite a recuperação rápida de dados para processamento em tempo real, bem como reprodução repetida de dados brutos armazenados. Ele pode capturar os dados de streaming em um arquivo para processamento e análise.
 
 Ele tem as seguintes características:
 
@@ -72,6 +68,8 @@ Ele tem as seguintes características:
 ### <a name="service-bus"></a>Barramento de Serviço
 
 O Barramento de Serviço destina-se a aplicativos empresariais tradicionais. Esses aplicativos empresariais tradicionais exigem transações, ordenação, detecção de duplicidades e consistência instantânea. O Barramento de Serviço permite que os aplicativos nativos de nuvem forneçam gerenciamento de transição de estado confiável para os processos empresariais. Ao manipular mensagens de alto valor que não podem ser perdidas ou duplicadas, use o Barramento de Serviço do Azure. O Barramento de Serviço também facilita a comunicação altamente segura em soluções de nuvem híbrida e pode se conectar a sistemas locais existentes para soluções de nuvem.
+
+O Barramento de Serviço é um sistema de mensagens agenciado. Ele armazena mensagens de maneira confiável em um "agente" (por exemplo, uma fila) até que a parte consumidora esteja pronta para recebê-las.
 
 Ele tem as seguintes características:
 

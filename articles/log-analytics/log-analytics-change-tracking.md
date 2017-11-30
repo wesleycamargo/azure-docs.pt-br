@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 57af000e47188786a77cdb84ebb6ffb5c50eafaa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 528b569ff9ffb3659e9210ea70e3aa06921cfe0d
+ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/20/2017
 ---
 # <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>Controlar alterações de software no ambiente com a solução Controle de Alterações
 
@@ -69,7 +69,7 @@ Use as etapas a seguir para configurar as chaves do Registro para rastrear em co
    * **Arquivo** (relate os metadados do arquivo – tamanho, data de modificação, hash, etc.)
    * **Diretório** (relate os metadados do diretório – tamanho, data de modificação, etc.)
 2. **Links** (manipulação de referências de symlink do Linux para outros arquivos ou diretórios)
-   * **Ignorar** (ignore os symlinks durante as recursões para não incluir os arquivos/diretórios referenciados)
+   * **Ignorar** (ignore os symlinks durante a recursão para não incluir os arquivos/diretórios referenciados)
    * **Seguir** (siga os symlinks durante a recursão para incluir também os arquivos/diretórios referenciados)
    * **Gerenciar** (siga os symlinks e altere o tratamento do conteúdo retornado)
 
@@ -96,14 +96,18 @@ Outras limitações:
 * Quando o tráfego de rede for alto, registros de alteração poderão levar até um máximo de seis horas para exibir.
 * Se você modificar a configuração enquanto um computador for desligado, o computador poderá lançar as alterações de arquivo que pertenciam à configuração anterior.
 
+### <a name="known-issues"></a>Problemas conhecidos
+Atualmente, a solução Controle de Alterações está enfrentando os seguintes problemas:
+* Atualizações de hotfix não são coletadas para Atualização do Windows 10 para Criadores e computadores Windows Server 2016 Core RS3.
+
 ## <a name="change-tracking-data-collection-details"></a>Detalhes de coleta de dados do Controle de Alterações
 O Controle de Alterações coletará inventário de software e metadados do serviço Windows usando os agentes que você tiver habilitado.
 
 A tabela a seguir mostra os métodos de coleta de dados e outros detalhes sobre como os dados são coletados para o Controle de Alterações.
 
-| plataforma | Agente direto | Agente do Operations Manager | Agente do Linux | Armazenamento do Azure | Operations Manager necessário? | Dados de agente do Operations Manager enviados por meio do grupo de gerenciamento | frequência de coleta |
+| plataforma | Agente direto | Agente do Operations Manager | Agente do Linux | Armazenamento do Azure | Operations Manager necessário? | Dados de agente do Operations Manager enviados por meio do grupo de gerenciamento | Frequência de coleta |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| Windows e Linux | &#8226; | &#8226; | &#8226; |  |  | &#8226; | 5 minutos para 50 minutos, dependendo do tipo de alteração. Confira a tabela a seguir para saber mais. |
+| Windows e Linux | &#8226; | &#8226; | &#8226; |  |  | &#8226; | 5 minutos para 50 minutos, dependendo do tipo de alteração. Para obter mais informações, veja a tabela a seguir. |
 
 
 A tabela a seguir mostra a frequência da coleta de dados para os tipos de alterações.

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 11/17/2017
 ms.author: robb
-ms.openlocfilehash: 21123299fbab59b388aacc4a802f3a9ec1d80632
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 36836a4528c8ba04eee1c5234fd6d4e0f9545913
+ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/18/2017
 ---
 # <a name="azure-monitor-powershell-quick-start-samples"></a>Exemplos de início rápido do PowerShell do Azure Monitor
 Este artigo mostra exemplos de comandos do PowerShell que ajudarão você a acessar os recursos do Azure Monitor. O Azure Monitor permite que você escale automaticamente os Serviços de Nuvem, Máquinas Virtuais e Aplicativos Web. Ele também permite que você envie notificações de alerta ou ligue para URLs da Web com base nos valores de dados de telemetria configurados.
@@ -361,9 +361,18 @@ Habilitar configuração de diagnóstico para Hubs de Eventos
 Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -serviceBusRuleId /subscriptions/s1/resourceGroups/Default-ServiceBus-EastUS/providers/Microsoft.ServiceBus/namespaces/mytestSB/authorizationrules/RootManageSharedAccessKey -Enable $true
 ```
 
-Habilitar configuração de diagnóstico para OMS
+Habilitar configuração de diagnóstico para Log Analytics (OMS)
 
 ```PowerShell
-Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -WorkspaceId 76d785fd-d1ce-4f50-8ca3-858fc819ca0f -Enabled $true
+Set-AzureRmDiagnosticSetting -ResourceId /subscriptions/s1/resourceGroups/insights-integration/providers/Microsoft.Network/networkSecurityGroups/viruela1 -WorkspaceId /subscriptions/s1/resourceGroups/insights-integration/providers/providers/microsoft.operationalinsights/workspaces/myWorkspace -Enabled $true
 
 ```
+
+Observe que a propriedade WorkspaceId tem a *ID de recurso* do espaço de trabalho. É possível obter a ID de recurso do seu espaço de trabalho do Log Analytics usando o seguinte comando:
+
+```PowerShell
+(Get-AzureRmOperationalInsightsWorkspace).ResourceId
+
+```
+
+Esses comandos podem ser combinados para enviar dados a vários destinos.

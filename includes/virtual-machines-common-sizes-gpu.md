@@ -1,5 +1,5 @@
 
-Os tamanhos de VM otimizados para GPU são para máquinas virtuais especializadas direcionados para renderização gráfica pesada e edição de vídeo. Disponível com uma ou várias GPUs. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como a taxa de transferência de armazenamento e desempenho de rede para cada tamanho neste agrupamento. 
+Os tamanhos de VM otimizados para GPU são para máquinas virtuais especializadas direcionados para renderização gráfica pesada e edição de vídeo. Disponível com uma ou várias GPUs. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como a taxa de transferência de armazenamento e largura de banda de rede para cada tamanho neste agrupamento. 
 
 
 Os tamanhos NC e NV também são conhecidos como instâncias habilitadas para GPU. Trata-se de tamanhos de máquinas virtuais especializadas que incluem as placas de GPU da NVIDIA, otimizadas para diferentes cenários e casos de uso. Os tamanhos NV são otimizados e projetados para cenários de visualização remota, streaming, jogos, codificação e VDI usando estruturas como OpenGL e DirectX. Os tamanhos NC são mais otimizados para aplicativos que fazem uso intensivo de computação e da rede, algoritmos, incluindo aplicativos baseados em CUDA e OpenCL, e simulações. 
