@@ -23,9 +23,9 @@ ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-build-a-net-framework-or-core-application-using-the-graph-api"></a>Azure Cosmos DB: compilar um aplicativo .NET Framework ou Core usando a API do Graph
 
-O BD Cosmos do Azure é o serviço multimodelo de banco de dados distribuído globalmente da Microsoft. É possível criar e consultar rapidamente documentos, chave/valor e bancos de dados do gráfico. Todos se beneficiam de recursos de escala horizontal e distribuição global no núcleo do BD Cosmos do Azure. 
+O BD Cosmos do Azure é o serviço multimodelo de banco de dados distribuído globalmente da Microsoft. É possível criar e consultar rapidamente documentos, chave/valor e bancos de dados do grafo. Todos se beneficiam de recursos de escala horizontal e distribuição global no núcleo do Azure Cosmos DB. 
 
-Este início rápido demonstra como criar uma conta do BD Cosmos do Azure, um banco de dados e um gráfico (contêiner) usando o Portal do Azure. Em seguida, você compila e executa um aplicativo de console criado na [API do Graph](graph-sdk-dotnet.md) (versão prévia).  
+Este início rápido demonstra como criar uma conta do Azure Cosmos DB, um banco de dados e um grafo (contêiner) usando o Portal do Azure. Em seguida, você compila e executa um aplicativo de console criado na [API do Graph](graph-sdk-dotnet.md) (versão prévia).  
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -39,7 +39,7 @@ Se você já tem o Visual Studio 2017 instalado, verifique se está com o [Visua
 
 [!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
 
-## <a name="add-a-graph"></a>Adicionar um gráfico
+## <a name="add-a-graph"></a>Adicionar um grafo
 
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
@@ -65,7 +65,7 @@ Este projeto de exemplo está usando o formato de projeto do .NET Core e foi con
 
 Façamos uma rápida análise do que está acontecendo no aplicativo. Abra o arquivo Program.cs e você verá que essas linhas de código criam os recursos do BD Cosmos do Azure. 
 
-* O DocumentClient é inicializado. Na versão prévia, nós adicionamos uma API de extensão de gráfico no cliente Azure Cosmos DB. Estamos trabalhando em um cliente gráfico autônomo dissociado do cliente do Azure Cosmos DB e dos recursos.
+* O DocumentClient é inicializado. Na versão prévia, nós adicionamos uma API de extensão de grafo no cliente Azure Cosmos DB. Estamos trabalhando em um cliente grafo autônomo dissociado do cliente do Azure Cosmos DB e dos recursos.
 
     ```csharp
     using (DocumentClient client = new DocumentClient(
@@ -80,7 +80,7 @@ Façamos uma rápida análise do que está acontecendo no aplicativo. Abra o arq
     Database database = await client.CreateDatabaseIfNotExistsAsync(new Database { Id = "graphdb" });
     ```
 
-* Um novo gráfico é criado.
+* Um novo grafo é criado.
 
     ```csharp
     DocumentCollection graph = await client.CreateDocumentCollectionIfNotExistsAsync(
@@ -132,25 +132,25 @@ Antes de executar o aplicativo, é recomendável que você atualize o pacote *Mi
 
 2. Na guia **Atualizações** do Gerenciador de pacotes do NuGet, digite *Microsoft.Azure.Graphs* e marque a caixa **Inclui pré-lançamento**. 
 
-3. Nos resultados, atualize a biblioteca **Microsoft.Azure.Graphs** para a versão mais recente do pacote. Isso instala o pacote da biblioteca de extensão gráfica do BD Cosmos do Azure e todas as dependências.
+3. Nos resultados, atualize a biblioteca **Microsoft.Azure.Graphs** para a versão mais recente do pacote. Isso instala o pacote da biblioteca de extensão de grafos do Azure Cosmos DB e todas as dependências.
 
     Se receber uma mensagem sobre a análise das alterações para a solução, clique em **OK**. Se receber uma mensagem sobre a aceitação da licença, clique em **Aceito**.
 
 4. Clique em CTRL + F5 para executar o aplicativo.
 
-   A janela do console exibe os vértices e bordas sendo adicionadas ao gráfico. Quando o script for concluído, pressione ENTER duas vezes para fechar a janela do console.
+   A janela do console exibe os vértices e bordas sendo adicionadas ao grafo. Quando o script for concluído, pressione ENTER duas vezes para fechar a janela do console.
 
 ## <a name="browse-using-the-data-explorer"></a>Navegar usando o Data Explorer
 
-Agora você pode voltar ao Data Explorer no Portal do Azure e procurar e consultar seus novos dados de gráfico.
+Agora você pode voltar ao Data Explorer no Portal do Azure e procurar e consultar seus novos dados de grafo.
 
-1. No Data Explorer, o novo banco de dados aparece no painel Gráficos. Expanda **graphdb**, **graphcollz** e, depois, clique em **Gráfico**.
+1. No Data Explorer, o novo banco de dados aparece no painel Grafos. Expanda **graphdb**, **graphcollz** e, depois, clique em **Grafo**.
 
-2. Clique no botão **Aplicar Filtro** para usar a consulta padrão e exibir todos os vértices no gráfico. Os dados gerados pelo aplicativo de exemplo são exibidos no painel Gráficos.
+2. Clique no botão **Aplicar Filtro** para usar a consulta padrão e exibir todos os vértices no grafo. Os dados gerados pelo aplicativo de exemplo são exibidos no painel Grafos.
 
-    Você pode ampliar e reduzir o zoom do gráfico, pode expandir o espaço de exibição do gráfico, adicionar outros vértices e mover vértices na superfície de exibição.
+    Você pode ampliar e reduzir o zoom do grafo, pode expandir o espaço de exibição do grafo, adicionar outros vértices e mover vértices na superfície de exibição.
 
-    ![Exibir o gráfico no Data Explorer no Portal do Azure](./media/create-graph-dotnet/graph-explorer.png)
+    ![Exibir o grafo no Data Explorer no Portal do Azure](./media/create-graph-dotnet/graph-explorer.png)
 
 ## <a name="review-slas-in-the-azure-portal"></a>Examinar SLAs no Portal do Azure
 
@@ -165,7 +165,7 @@ Se você não continuar usando este aplicativo, exclua todos os recursos criados
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste início rápido, você aprendeu como criar uma conta do BD Cosmos do Azure, como criar um gráfico usando o Data Explorer e como executar um aplicativo. Agora, você pode criar consultas mais complexas e implementar uma lógica de passagem de gráfico avançada usando o Gremlin. 
+Neste início rápido, você aprendeu como criar uma conta do Azure Cosmos DB, como criar um grafo usando o Data Explorer e como executar um aplicativo. Agora, você pode criar consultas mais complexas e implementar uma lógica de passagem de grafo avançada usando o Gremlin. 
 
 > [!div class="nextstepaction"]
 > [Consultar usando o Gremlin](tutorial-query-graph.md)

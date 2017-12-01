@@ -23,7 +23,7 @@ ms.lasthandoff: 10/11/2017
 ---
 # <a name="azure-cosmos-db-build-a-web-app-with-net-xamarin-and-facebook-authentication"></a>Azure Cosmos DB: compilar um aplicativo Web com autenticação do Xamarin, do Facebook e do .NET
 
-O Azure Cosmos DB é o serviço multimodelo de banco de dados distribuído globalmente da Microsoft. É possível criar e consultar rapidamente documentos, chave/valor e bancos de dados do gráfico. Todos se beneficiam de recursos de escala horizontal e distribuição global no núcleo do Azure Cosmos DB. 
+O Azure Cosmos DB é o serviço multimodelo de banco de dados distribuído globalmente da Microsoft. É possível criar e consultar rapidamente documentos, chave/valor e bancos de dados do grafo. Todos se beneficiam de recursos de escala horizontal e distribuição global no núcleo do Azure Cosmos DB. 
 
 Este início rápido demonstra como criar uma conta do Azure Cosmos DB, um banco de dados de documento e uma coleção usando o Portal do Azure. Em seguida, você criará e implantará um aplicativo Web de lista de tarefas pendentes com base na [API do .NET do DocumentDB](documentdb-sdk-dotnet.md), no [Xamarin](https://www.xamarin.com/)e no mecanismo de autorização do Azure Cosmos DB. O aplicativo Web da lista de tarefas pendentes implementa um padrão de dados por usuário que permite que usuários façam o logon usando a Autenticação do Facebook e gerenciem seus próprios itens pendentes.
 

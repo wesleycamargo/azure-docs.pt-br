@@ -38,12 +38,12 @@ Como um serviço de banco de dados distribuído globalmente, o Azure fornece Cos
     * Usando as APIs de hospedagem múltipla (multihoming) do Azure Cosmos DB, o aplicativo sempre sabe qual é a região mais próxima e envia solicitações ao data center mais próximo. Tudo isso é possível sem alterações de configuração. Você define sua região de gravação e todas as regiões de leitura que desejar e o resto é feito para você.
 
 * **Vários modelos de dados e APIs populares para acessar e consultar dados**
-    * O modelo de dados com base em atom-record-sequence (ARS) onde o Azure Cosmos DB é criado, se baseia nos vários modelos de dados e oferece suporte nativo, incluindo, mas não limitado ao documento, gráfico, valor de chave, tabela e modelos de dados de colunas.
+    * O modelo de dados com base em atom-record-sequence (ARS) onde o Azure Cosmos DB é criado, se baseia nos vários modelos de dados e oferece suporte nativo, incluindo, mas não limitado ao documento, grafo, valor de chave, tabela e modelos de dados de colunas.
     * APIs para os seguintes modelos de dados são compatíveis com SDKs disponíveis em vários idiomas:
         * [API DocumentDB](documentdb-introduction.md): um mecanismo de banco de dados JSON sem esquema com recursos de consulta SQL.
         * [API do MongoDB](mongodb-introduction.md): um serviço de banco de dados MongoDB criado sobre o Cosmos DB. Compatível com bibliotecas, drivers, ferramentas e aplicativos MongoDB existentes.
         * [API de Tabela](table-introduction.md): um serviço de banco de dados de chave-valor criado para oferecer recursos premium para aplicativos de armazenamento de Tabela do Azure.
-        * [API do Graph (Gremlin)](graph-introduction.md): um serviço de banco de dados gráfico criado seguindo a [especificação TinkerPop do Apache](http://tinkerpop.apache.org/).
+        * [API do Graph (Gremlin)](graph-introduction.md): um serviço de banco de dados de grafo criado seguindo a [especificação TinkerPop do Apache](http://tinkerpop.apache.org/).
         * [API Cassandra](cassandra-introduction.md): um repositório de valor/chave criado na implementação do [Apache Cassandra](https://cassandra.apache.org/). 
         * Modelos de dados adicionais em breve!
 

@@ -91,11 +91,11 @@ O Application Insights pode coletar dados de telemetria de qualquer aplicativo c
 
 3. Clique no ícone **Análise do Aplicativo** ![ícone Mapa do Aplicativo](./media/app-insights-nodejs-quick-start/006.png).  Isso abre a **Análise do Application Insights**, que fornece uma linguagem de consulta avançada para analisar todos os dados coletados pelo Application Insights. Nesse caso, uma consulta que renderiza a contagem de solicitações como um gráfico é gerada para você. Você pode escrever suas próprias consultas para analisar outros dados.
 
-   ![Gráfico de análise de solicitações de usuário durante um período de tempo](./media/app-insights-nodejs-quick-start/007-Black.png)
+   ![Grafo de análise de solicitações de usuário durante um período de tempo](./media/app-insights-nodejs-quick-start/007-Black.png)
 
 4. Volte para a página **Visão Geral** e examine a **linha do tempo de Visão Geral de Integridade**.  Esse painel fornece estatísticas sobre a integridade do aplicativo, incluindo o número de solicitações de entrada, a duração dessas solicitações e as falhas que ocorrem. 
 
-   ![Gráficos de linha do tempo de Visão Geral de Integridade](./media/app-insights-nodejs-quick-start/008-Black.png)
+   ![Grafos de linha do tempo de Visão Geral de Integridade](./media/app-insights-nodejs-quick-start/008-Black.png)
 
    Para habilitar o gráfico **Tempo de Carregamento da Exibição de Página** para popular usando dados de **telemetria do lado do cliente**, adicione esse script a cada página que você desejar acompanhar:
 
@@ -121,7 +121,7 @@ O Application Insights pode coletar dados de telemetria de qualquer aplicativo c
 
 5. Clique em **Navegador** sob o cabeçalho **Investigar**. Aqui você encontra métricas relacionadas ao desempenho das páginas do aplicativo. Você pode clicar em **Adicionar novo gráfico** para criar exibições personalizadas adicionais ou selecionar **Editar** para modificar a altura, paleta de cores, agrupamentos, métricas e tipos de gráfico existentes.
 
-   ![Gráfico de métricas do servidor](./media/app-insights-nodejs-quick-start/009-Black.png)
+   ![Grafo de métricas do servidor](./media/app-insights-nodejs-quick-start/009-Black.png)
 
 Para saber mais sobre como monitorar o Node.js, confira a [documentação adicional do Node.js do Application Insights](app-insights-nodejs.md).
 
