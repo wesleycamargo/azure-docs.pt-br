@@ -23,9 +23,9 @@ ms.lasthandoff: 11/11/2017
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-by-using-graph-api"></a>Azure Cosmos DB: Compilar um aplicativo Node.js usando a API do Graph
 
-O Azure Cosmos DB é o serviço de banco de dados multi-modelo distribuído globalmente da Microsoft. É possível criar e consultar rapidamente documentos, chave/valor e bancos de dados do gráfico. Todos se beneficiam de recursos de escala horizontal e distribuição global no núcleo do Azure Cosmos DB. 
+O Azure Cosmos DB é o serviço de banco de dados multi-modelo distribuído globalmente da Microsoft. É possível criar e consultar rapidamente documentos, chave/valor e bancos de dados do grafo. Todos se beneficiam de recursos de escala horizontal e distribuição global no núcleo do Azure Cosmos DB. 
 
-Este artigo de Início rápido demonstra como criar uma conta do Azure Cosmos DB para a API do Graph (versão prévia), um banco de dados e um gráfico usando o portal do Azure. Em seguida, você compila e executa um aplicativo de console usando o driver [Gremlin Node.js](https://www.npmjs.com/package/gremlin) de software livre.
+Este artigo de Início rápido demonstra como criar uma conta do Azure Cosmos DB para a API do Graph (versão prévia), um banco de dados e um grafo usando o portal do Azure. Em seguida, você compila e executa um aplicativo de console usando o driver [Gremlin Node.js](https://www.npmjs.com/package/gremlin) de software livre.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -39,7 +39,7 @@ Antes que possa executar esta amostra, você deverá ter os seguintes pré-requi
 
 [!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
 
-## <a name="add-a-graph"></a>Adicionar um gráfico
+## <a name="add-a-graph"></a>Adicionar um grafo
 
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
@@ -129,7 +129,7 @@ Façamos uma rápida revisão do que está acontecendo no aplicativo. Abra o arq
 
     ![Exibir e copiar uma chave de acesso no Portal do Azure, folha Chaves](./media/create-graph-nodejs/gremlin-uri.png)
 
-   Se o valor do **URI do Gremlin** estiver em branco, você pode gerar o valor a partir da página **Chaves** no portal. Use o valor do **URI**, remova https:// e altere os documentos para gráficos.
+   Se o valor do **URI do Gremlin** estiver em branco, você pode gerar o valor a partir da página **Chaves** no portal. Use o valor do **URI**, remova https:// e altere os documentos para grafos.
 
    O ponto de extremidade do Gremlin deve ser apenas o nome de host sem número de porta do protocolo como `mygraphdb.graphs.azure.com` (não `https://mygraphdb.graphs.azure.com` ou `mygraphdb.graphs.azure.com:433`).
 
@@ -139,7 +139,7 @@ Façamos uma rápida revisão do que está acontecendo no aplicativo. Abra o arq
 
    ![Folha “Chaves” do portal do Azure](./media/create-graph-nodejs/keys.png)
 
-4. Insira o nome do banco de dados e o nome do gráfico (contêiner) para o valor de config.database e config.collection. 
+4. Insira o nome do banco de dados e o nome do grafo (contêiner) para o valor de config.database e config.collection. 
 
 Aqui está um exemplo da aparência do seu arquivo config.js concluído:
 
@@ -165,11 +165,11 @@ module.exports = config;
 
 ## <a name="browse-with-data-explorer"></a>Procurar com o Data Explorer
 
-Agora você pode voltar ao Data Explorer no Portal do Azure e exibir, consultar, modificar e trabalhar com seus novos dados gráficos.
+Agora você pode voltar ao Data Explorer no Portal do Azure e exibir, consultar, modificar e trabalhar com seus novos dados dos grafos.
 
-No Data Explorer, o novo banco de dados aparece no painel **Gráficos**. Expanda o banco de dados, seguido pela coleção e, em seguida, selecione **Gráfico**.
+No Data Explorer, o novo banco de dados aparece no painel **Grafos**. Expanda o banco de dados, seguido pela coleção e, em seguida, selecione **Grafo**.
 
-Os dados gerados pelo aplicativo de exemplo são exibidos no próximo painel dentro da guia **Gráfico** quando você seleciona **Aplicar filtro**.
+Os dados gerados pelo aplicativo de exemplo são exibidos no próximo painel dentro da guia **Grafo** quando você seleciona **Aplicar filtro**.
 
 Tente preencher `g.V()` com `.has('firstName', 'Thomas')` para testar o filtro. Observe que o valor diferencia maiúsculas de minúsculas.
 
@@ -187,7 +187,7 @@ Se você não planeja continuar usando este aplicativo, exclua todos os recursos
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste artigo, você aprendeu como criar uma conta do Azure Cosmos DB, como criar um gráfico usando o Data Explorer e como executar um aplicativo. Agora, você pode criar consultas mais complexas e implementar uma lógica de passagem de gráfico avançada usando o Gremlin. 
+Neste artigo, você aprendeu como criar uma conta do Azure Cosmos DB, como criar um grafo usando o Data Explorer e como executar um aplicativo. Agora, você pode criar consultas mais complexas e implementar uma lógica de passagem de grafo avançada usando o Gremlin. 
 
 > [!div class="nextstepaction"]
 > [Consultar usando o Gremlin](tutorial-query-graph.md)

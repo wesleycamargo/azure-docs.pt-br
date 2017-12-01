@@ -38,7 +38,7 @@ Requisitos de feed em sua lista de pendências de desenvolvimento (lista de tare
 
 A equipe usa o Application Insights para monitorar o aplicativo Web ao vivo de perto em relação a/ao:
 
-* Desempenho. Eles querem entender como os tempos de resposta variam de acordo com a contagem de solicitações; quantos recursos de CPU, rede, disco e outros recursos estão sendo usados; qual código de aplicativo deixou o desempenho lento e onde estão os afunilamentos.
+* Desempenho. Eles querem entender como os tempos de resposta variam de acordo com a contagem de solicitações; quantos recursos de CPU, rede, disco e outros recursos estão sendo usados; qual código de aplicativo deixou o desempenho lento e onde estão os gargalos.
 * Falhas. Se houver exceções ou solicitações com falha, ou se um contador de desempenho ficar fora de seu intervalo confortável, a equipe precisará saber disso rapidamente para que possam tomar as devidas providências.
 * Uso. Sempre que um novo recurso for liberado, a equipe deseja saber até que ponto é usado e os usuários tenham alguma dificuldade com ele.
 
@@ -67,7 +67,7 @@ Na mesma página de visão geral do Application Insights, há um gráfico que mo
 
 O tempo de carregamento de página do navegador é derivado da telemetria enviada diretamente a partir de páginas da Web. O tempo de resposta do servidor, a contagem de solicitações do servidor e a contagem de solicitações com falha são todos medidos no servidor Web e enviados para o Application Insights do servidor Web.
 
-Marcela está um pouco preocupada com o gráfico de resposta do servidor. Esse gráfico mostra o tempo médio entre o tempo em que o servidor recebe uma solicitação HTTP do navegador de um usuário e o tempo em que ele retorna a resposta. Não é incomum ver uma variação nesse gráfico, uma vez que a carga do sistema varia. Todavia, nesse caso, parece haver que uma correlação entre pequenos aumentos na contagem de solicitações e grandes aumentos no tempo de resposta. Isso poderia indicar que o sistema está funcionando exatamente nos limites.
+Marcela está um pouco preocupada com o grafo de resposta do servidor. Esse grafo mostra o tempo médio entre o tempo em que o servidor recebe uma solicitação HTTP do navegador de um usuário e o tempo em que ele retorna a resposta. Não é incomum ver uma variação nesse gráfico, uma vez que a carga do sistema varia. Todavia, nesse caso, parece haver que uma correlação entre pequenos aumentos na contagem de solicitações e grandes aumentos no tempo de resposta. Isso poderia indicar que o sistema está funcionando exatamente nos limites.
 
 Ela abre os gráficos de Servidores:
 
@@ -153,7 +153,7 @@ Exceções e eventos aparecem na folha [Pesquisa de diagnóstico](app-insights-d
 ## <a name="monitor-proactively"></a>Monitorar proativamente
 Marcela não fica apenas sentada esperando por alertas. Logo após cada reimplantação, ela examina [tempos de resposta](app-insights-web-monitor-performance.md) -tanto o quadro geral e a tabela de solicitações mais lentas quanto as contagens de exceção.  
 
-![Gráfico de tempo de resposta e uma grade dos tempos de resposta do servidor.](./media/app-insights-detect-triage-diagnose/09-dependencies.png)
+![Grafo de tempo de resposta e uma grade dos tempos de resposta do servidor.](./media/app-insights-detect-triage-diagnose/09-dependencies.png)
 
 Ela pode avaliar o efeito no desempenho de cada implantação, geralmente comparando cada semana com a última. Se houver uma deterioração repentina do quadro, ela levanta a questão com os desenvolvedores relevantes.
 
@@ -162,7 +162,7 @@ Triagem - avaliar a gravidade e a extensão de um problema - é a primeira etapa
 
 Com que frequência está acontecendo? Os gráficos na folha visão geral oferecem alguma perspectiva para um problema. Por exemplo, o aplicativo da Fabrikam gerou quatro alertas de teste da Web em uma noite. Examinando o gráfico pela manhã, a equipe pôde ver que existiam realmente alguns pontos vermelhos, embora a maioria dos testes tenham resultado em verde. Detalhando o gráfico de disponibilidade, ficou claro que todos esses problemas intermitentes eram de um local de teste. Isso, obviamente, foi um problema de rede que afetou somente uma rota e provavelmente se resolveria sozinho.  
 
-Por outro lado, um aumento drástico e estável no gráfico de tempos de resposta ou contagens de exceção é, obviamente, motivo para pânico.
+Por outro lado, um aumento drástico e estável no grafo de tempos de resposta ou contagens de exceção é, obviamente, motivo para pânico.
 
 Uma tática de triagem útil é “Experimente você mesmo”. Se você tiver o mesmo problema, saberá que ele é real.
 

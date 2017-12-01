@@ -94,11 +94,11 @@ O Application Insights pode coletar dados de telemetria de qualquer aplicativo c
 
 3. Clique no ícone **Análise do Aplicativo** ![ícone Mapa do Aplicativo](./media/app-insights-java-quick-start/006.png). Isso abre a **Análise do Application Insights**, que fornece uma linguagem de consulta avançada para analisar todos os dados coletados pelo Application Insights. Nesse caso, uma consulta que renderiza a contagem de solicitações como um gráfico é gerada para você. Você pode escrever suas próprias consultas para analisar outros dados.
 
-   ![Gráfico de análise de solicitações de usuário durante um período de tempo](./media/app-insights-java-quick-start/0010-j.png)
+   ![Grafo de análise de solicitações de usuário durante um período de tempo](./media/app-insights-java-quick-start/0010-j.png)
 
 4. Volte para a página **Visão Geral** e examine a **linha do tempo de Visão Geral de Integridade**.  Esse painel fornece estatísticas sobre a integridade do aplicativo, incluindo o número de solicitações de entrada, a duração dessas solicitações e as falhas que ocorrem.
 
-   ![Gráficos de linha do tempo de Visão Geral de Integridade](./media/app-insights-java-quick-start/0009-j.png)
+   ![Grafos de linha do tempo de Visão Geral de Integridade](./media/app-insights-java-quick-start/0009-j.png)
 
    Para habilitar o gráfico **Tempo de Carregamento da Exibição de Página** para popular usando dados de **telemetria do lado do cliente**, adicione esse script a cada página que você desejar acompanhar:
 
@@ -124,7 +124,7 @@ O Application Insights pode coletar dados de telemetria de qualquer aplicativo c
 
 5. Clique em **Live Stream**. Aqui você encontra métricas em tempo real relacionadas ao desempenho do seu aplicativo Web Java. O **Live Metrics Stream** inclui dados relacionados ao número de solicitações de entrada, a duração dessas solicitações e as falhas que ocorrem. Você também pode monitorar as métricas de desempenho críticas, tais como processador e memória em tempo real.
 
-   ![Gráficos de métricas do servidor](./media/app-insights-java-quick-start/livemetricsjava.png)
+   ![Grafos de métricas do servidor](./media/app-insights-java-quick-start/livemetricsjava.png)
 
 Para saber mais sobre como monitorar o Java, confira a [documentação adicional do Java do Application Insights](.\app-insights-java-get-started.md).
 
