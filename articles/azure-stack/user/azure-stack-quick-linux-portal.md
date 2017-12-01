@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 5f815bafdcc7c05ec7f4149fb7c9df178f0f80e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f986c060b26489e412f6230665ec76a4730293f1
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-stack-portal"></a>Criar uma máquina virtual Linux com o portal de pilha do Azure
 
@@ -26,7 +26,7 @@ Máquinas de virtuais de pilha do Azure podem ser criadas por meio do portal de 
 
 * **Uma imagem do Linux no mercado de pilha do Azure**
 
-   Por padrão, o marketplace do Azure pilha não contêm uma imagem do Linux. Portanto, antes de criar uma máquina virtual Linux, certifique-se de que o operador de pilha do Azure baixou o **Ubuntu Server 16.04 LT** imagem usando as etapas descritas no [baixar itens do marketplace do Azure para o Azure Pilha](../azure-stack-download-azure-marketplace-item.md) tópico.
+   Por padrão, o marketplace do Azure pilha não contêm uma imagem do Linux. Portanto, antes de criar uma máquina virtual Linux, certifique-se de que o operador de pilha do Azure baixou o **Ubuntu Server 16.04 LTS** imagem usando as etapas descritas no [baixar itens do marketplace do Azure para o Azure Pilha](../azure-stack-download-azure-marketplace-item.md) tópico.
 
 * **Acesso a um cliente SSH**
 
