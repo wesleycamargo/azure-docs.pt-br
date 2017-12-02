@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: anwestg
-ms.openlocfilehash: dba3da6f1aaf47c1b518fe0dba7ea22ae555c8c0
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 522e5a334b5165344b66524d03f0d85468b81332
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Adicionar um provedor de recursos do serviço de aplicativo a pilha do Azure
 
@@ -73,7 +73,7 @@ Para implantar o provedor de recursos do serviço de aplicativo, siga estas etap
     ![Instalador de serviço de aplicativo](media/azure-stack-app-service-deploy/image04.png)
 
 8. Na próxima página:
-    1. No **ID do aplicativo de identidade** , digite o GUID para o aplicativo que você está usando para a identidade.
+    1. No **ID do aplicativo de identidade** , digite o GUID para o aplicativo que você está usando para identidade (do AD do Azure).
     2. No **arquivo de certificado de identidade de aplicativo** caixa, digite (ou procure) o local do arquivo do certificado.
     3. No **senha do certificado de identidade de aplicativo** caixa, digite a senha do certificado. Essa senha é aquele que você anotou quando você usou o script para criar os certificados.
     4. No **arquivo do certificado raiz do Azure Resource Manager** caixa, digite (ou procure) o local do arquivo do certificado.
@@ -157,7 +157,7 @@ Depois de implantar e registrar o provedor de recursos do serviço de aplicativo
 >
 Você *deve* tem uma assinatura de locatário para criar aplicativos que usam o serviço de aplicativo na pilha do Azure. Os recursos de apenas um administrador de serviço pode ser concluída dentro do portal de administração relacionados para a administração de provedor de recursos de serviço de aplicativo. Esses recursos incluem a capacidade de adicionar, configurando fontes de implantação e adicionar camadas de trabalhador e SKUs.
 >
-A partir do terceiro technical preview, funções de aplicativos criar a web, API e o Azure, você deve usar o portal de locatário e ter uma assinatura de locatário.
+Para criar a web, API e o Azure funções de aplicativos, você deve usar o portal de locatário e ter uma assinatura de locatário.
 
 1. No portal de locatário de pilha do Azure, clique em **novo** > **Web + móvel** > **aplicativo Web**.
 

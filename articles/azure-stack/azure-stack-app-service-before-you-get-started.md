@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: anwestg
-ms.openlocfilehash: f2e7b5b96b70333ae4ee92d24c354960008c7f00
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 17967131853d4334ae2c0ba3c0aa01089b7f3b61
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Antes de iniciar o serviço de aplicativo na pilha do Azure
 
@@ -68,7 +68,7 @@ Este primeiro script funciona com a autoridade de certificação de pilha do Azu
 
 Execute o script no host do Kit de desenvolvimento de pilha do Azure e certifique-se de que você está executando o PowerShell como azurestack\CloudAdmin.
 
-1. Em uma sessão do PowerShell executando como azurestack\CloudAdmin, execute o script de criação AppServiceCerts.ps1 da pasta onde você extraiu os scripts de auxiliar. O script cria quatro certificados na mesma pasta que o script de criação de certificados que precisa do serviço de aplicativo.
+1. Em uma sessão do PowerShell executando como azurestack\AzureStackAdmin, execute o script de criação AppServiceCerts.ps1 da pasta onde você extraiu os scripts de auxiliar. O script cria quatro certificados na mesma pasta que o script de criação de certificados que precisa do serviço de aplicativo.
 2. Insira uma senha para proteger os arquivos. pfx e anote-lo. Você deve inseri-lo no serviço de aplicativo no instalador de pilha do Azure.
 
 #### <a name="create-appservicecertsps1-parameters"></a>AppServiceCerts.ps1 criar parâmetros
@@ -120,7 +120,7 @@ O certificado de identidade deve conter uma entidade que corresponda o seguinte 
 | --- | --- |
 | SSO.appservice. \<região\>.\< DomainName\>.\< extensão\> | SSO.appservice.Redmond.azurestack.external |
 
-#### <a name="extract-the-azure-stack-azure-resource-manager-root-certificate"></a>Extraia o certificado de raiz do Gerenciador de recursos do Azure pilha do Azure
+### <a name="extract-the-azure-stack-azure-resource-manager-root-certificate"></a>Extraia o certificado de raiz do Gerenciador de recursos do Azure pilha do Azure
 
 Em uma sessão do PowerShell executando como azurestack\CloudAdmin, execute o script Get-AzureStackRootCert.ps1 da pasta onde você extraiu os scripts de auxiliar. O script cria quatro certificados na mesma pasta que o script de criação de certificados que precisa do serviço de aplicativo.
 
@@ -134,12 +134,10 @@ Em uma sessão do PowerShell executando como azurestack\CloudAdmin, execute o sc
 
 Serviço de aplicativo do Azure requer o uso de um servidor de arquivos. Para implantações de produção, o servidor de arquivos deve ser configurado para alta disponibilidade e capaz de lidar com falhas.
 
-Para usar com implantações do Kit de desenvolvimento de pilha do Azure somente, você pode usar este exemplo de modelo de implantação do Gerenciador de recursos do Azure para implantar um servidor de arquivos de nó único configurado: https://aka.ms/appsvconmasdkfstemplate.
+Para usar com implantações do Kit de desenvolvimento de pilha do Azure somente, você pode usar este exemplo de modelo de implantação do Gerenciador de recursos do Azure para implantar um servidor de arquivos de nó único configurado: https://aka.ms/appsvconmasdkfstemplate. O servidor de arquivos de único nó será um grupo de trabalho.
 
 ### <a name="provision-groups-and-accounts-in-active-directory"></a>Provisionar grupos e contas no Active Directory
 
->[!NOTE]
-> Execute os seguintes comandos, ao configurar o servidor de arquivos, em uma sessão de Prompt de comando do administrador.  **Não use o PowerShell.**
 
 1. Crie os seguintes grupos de segurança global do Active Directory:
     - FileShareOwners
@@ -159,7 +157,10 @@ Para usar com implantações do Kit de desenvolvimento de pilha do Azure somente
 
 ### <a name="provision-groups-and-accounts-in-a-workgroup"></a>Provisionar grupos e contas em um grupo de trabalho
 
-Em um grupo de trabalho, execute net e comandos WMIC para provisionar grupos e contas.
+>[!NOTE]
+> Execute os seguintes comandos, ao configurar o servidor de arquivos, em uma sessão de Prompt de comando do administrador.  **Não use o PowerShell.**
+
+Ao usar o modelo do Gerenciador de recursos do Azure acima, os usuários já são criados.
 
 1. Execute os seguintes comandos para criar as contas FileShareOwner e FileShareUser. Substituir <password> com seus próprios valores.
 ``` DOS
@@ -185,11 +186,11 @@ O compartilhamento de conteúdo contém o conteúdo do site de locatário. O pro
 
 #### <a name="provision-the-content-share-on-a-single-file-server-ad-or-workgroup"></a>Provisionar o compartilhamento de conteúdo em um único servidor de arquivos (AD ou Workgroup)
 
-Em um único servidor de arquivos, execute os seguintes comandos em um prompt de comando com privilégios elevados. Substitua o valor de < C:\WebSites > pelos caminhos correspondentes no seu ambiente.
+Em um único servidor de arquivos, execute os seguintes comandos em um prompt de comando com privilégios elevados. Substitua o valor para 'C:\WebSites' com os caminhos correspondentes no seu ambiente.
 
 ```DOS
 set WEBSITES_SHARE=WebSites
-set WEBSITES_FOLDER=<C:\WebSites>
+set WEBSITES_FOLDER=C:\WebSites
 md %WEBSITES_FOLDER%
 net share %WEBSITES_SHARE% /delete
 net share %WEBSITES_SHARE%=%WEBSITES_FOLDER% /grant:Everyone,full
@@ -223,7 +224,7 @@ Execute os seguintes comandos em um prompt de comando elevado no servidor de arq
 #### <a name="active-directory"></a>Active Directory
 ```DOS
 set DOMAIN=<DOMAIN>
-set WEBSITES_FOLDER=<C:\WebSites>
+set WEBSITES_FOLDER=C:\WebSites
 icacls %WEBSITES_FOLDER% /reset
 icacls %WEBSITES_FOLDER% /grant Administrators:(OI)(CI)(F)
 icacls %WEBSITES_FOLDER% /grant %DOMAIN%\FileShareOwners:(OI)(CI)(M)
@@ -234,7 +235,7 @@ icacls %WEBSITES_FOLDER% /grant *S-1-1-0:(OI)(CI)(IO)(RA,REA,RD)
 
 #### <a name="workgroup"></a>Grupo de trabalho
 ```DOS
-set WEBSITES_FOLDER=<C:\WebSites>
+set WEBSITES_FOLDER=C:\WebSites
 icacls %WEBSITES_FOLDER% /reset
 icacls %WEBSITES_FOLDER% /grant Administrators:(OI)(CI)(F)
 icacls %WEBSITES_FOLDER% /grant FileShareOwners:(OI)(CI)(M)
@@ -251,7 +252,7 @@ Para uso com o Kit de desenvolvimento de pilha do Azure, você pode usar o SQL E
 
 Para fins de alta disponibilidade e de produção, você deve usar uma versão completa do SQL 2014 SP2 ou posterior, habilitar a autenticação de modo misto e implantar em um [configuração altamente disponível](https://docs.microsoft.com/en-us/sql/sql-server/failover-clusters/high-availability-solutions-sql-server).
 
-O serviço de aplicativo do Azure no servidor de SQL do Azure pilha deve ser acessível de todas as funções de serviço de aplicativo. SQL Server pode ser implantado dentro da assinatura de provedor padrão na pilha do Azure. Ou você pode fazer uso da infraestrutura existente na sua organização (desde que haja conectividade com a pilha do Azure).
+O serviço de aplicativo do Azure no servidor de SQL do Azure pilha deve ser acessível de todas as funções de serviço de aplicativo. SQL Server pode ser implantado dentro da assinatura de provedor padrão na pilha do Azure. Ou você pode fazer uso da infraestrutura existente na sua organização (desde que haja conectividade com a pilha do Azure). Se você estiver usando uma imagem do Azure Marketplace, lembre-se de configurar o firewall adequadamente. 
 
 Para qualquer uma das funções do SQL Server, você pode usar uma instância padrão ou uma instância nomeada. No entanto, se você usar uma instância nomeada, certifique-se que inicie manualmente o serviço navegador do SQL e abra a porta 1434.
 
@@ -269,12 +270,12 @@ Os administradores devem configurar SSO para:
 
 Siga estas etapas:
 
-1. Abra uma instância do PowerShell como azurestack\cloudadmin.
+1. Abra uma instância do PowerShell como azurestack\AzureStackAdmin.
 2. Vá para a localização dos scripts baixados e extraídos no [etapa de pré-requisito](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts).
 3. [Instale o PowerShell do Azure pilha](azure-stack-powershell-install.md).
 4. Execute o **criar AADIdentityApp.ps1** script. Quando você for solicitado a fornecer sua ID de locatário do AD do Azure, insira a ID de locatário de AD do Azure que você está usando para sua implantação de pilha do Azure, por exemplo, myazurestack.onmicrosoft.com.
 5. No **credencial** janela, insira sua conta de administrador de serviço do AD do Azure e a senha. Clique em **OK**.
-6. Insira o caminho do arquivo de certificado e a senha do certificado para o [certificado criado anteriormente](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). O certificado criado para esta etapa por padrão é sso.appservice.local.azurestack.external.pfx.
+6. Insira o caminho do arquivo de certificado e a senha do certificado para o [certificado criado anteriormente](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). O certificado criado para esta etapa por padrão é **sso.appservice.local.azurestack.external.pfx**.
 7. O script cria um novo aplicativo no locatário do AD do Azure. Anote a ID do aplicativo que é retornado na saída do PowerShell. Você precisará dessas informações durante a instalação.
 8. Abra uma nova janela do navegador e entre no portal do Azure (portal.azure.com) como o **administrador de serviço do Azure Active Directory**.
 9. Abra o provedor de recursos do AD do Azure.
