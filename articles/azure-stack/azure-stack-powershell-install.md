@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/13/2017
 ms.author: sngun
-ms.openlocfilehash: 3014b8a424e554f3c46f1c7e76eab586d089e059
-ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+ms.openlocfilehash: abbc1eac3ff1e8de90bd420dc1fcce7dbeda234c
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/13/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="install-powershell-for-azure-stack"></a>Instale o PowerShell para a pilha do Azure  
 
@@ -53,7 +53,7 @@ Antes de instalar a versão necessária, certifique-se de que você desinstale t
 
 As seções a seguir descrevem as etapas necessárias para instalar o PowerShell para Azure pilha. PowerShell pode ser instalado na pilha do Azure operado na conectado, parcialmente conectado, ou em um cenário desconectado. 
 
-## <a name="install-powershell-in-a-connected-scenario"></a>Instale o PowerShell em um cenário conectado 
+## <a name="install-powershell-in-a-connected-scenario-with-internet-connectivity"></a>Instale o PowerShell em um cenário conectado (com conectividade com a internet)
 
 Módulos de AzureRM compatíveis pilha do Azure são instalados por meio de perfis de versão de API. A pilha do Azure requer o **2017-03-09-perfil** perfil de versão de API, que está disponível ao instalar o módulo AzureRM.Bootstrapper. Para saber mais sobre perfis de versão de API e os cmdlets fornecidos por elas, consulte o [gerenciar perfis de versão de API](azure-stack-version-profiles.md). Além dos módulos AzureRM, você também deve instalar os módulos do PowerShell de pilha específicos do Azure. Execute o seguinte script do PowerShell para instalar esses módulos em sua estação de trabalho de desenvolvimento:
 
@@ -82,7 +82,7 @@ Para confirmar a instalação, execute o seguinte comando:
   ```
   Se a instalação for bem-sucedida, os módulos AzureRM e AzureStack são exibidos na saída.
 
-## <a name="install-powershell-in-a-disconnected-or-in-a-partially-connected-scenario"></a>Instale o PowerShell em um desconectado ou em um cenário parcialmente conectado
+## <a name="install-powershell-in-a-disconnected-or-a-partially-connected-scenario-with-limited-internet-connectivity"></a>Instale o PowerShell em um cenário parcialmente conectado ou um desconectada (com conectividade de internet limitada)
 
 Em um cenário desconectado, primeiro baixar os módulos do PowerShell para um computador que tenha conectividade com a internet e, em seguida, transferi-los para o Kit de desenvolvimento de pilha do Azure para instalação.
 
