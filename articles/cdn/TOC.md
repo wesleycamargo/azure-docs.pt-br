@@ -21,8 +21,8 @@
 ## Gerenciar
 ### [Gerenciar com o Azure PowerShell](cdn-manage-powershell.md)
 ### Configurar vida útil
-#### [Conteúdo de Aplicativos Web/Serviços de Nuvem, ASP.NET ou IIS](cdn-manage-expiration-of-cloud-service-content.md)
-#### [Conteúdo do serviço Blob de armazenamento](cdn-manage-expiration-of-blob-content.md)
+#### [Conteúdo da Web do Azure](cdn-manage-expiration-of-cloud-service-content.md)
+#### [Armazenamento de Blobs do Azure](cdn-manage-expiration-of-blob-content.md)
 ### [Restringir o acesso por país](cdn-restrict-access-by-country.md)
 ### [Melhorar o desempenho ao compactar arquivos](cdn-improve-performance.md)
 ### Armazenar o conteúdo em cache por cadeia de caracteres de consulta

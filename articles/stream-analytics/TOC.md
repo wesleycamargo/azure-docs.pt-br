@@ -57,7 +57,6 @@
 ### [Folha Integridade de recursos](stream-analytics-resource-health.md)
 ### [Diagrama de trabalho e métricas](stream-analytics-job-diagram-with-metrics.md)
 ### [SELECIONE PARA depuração](stream-analytics-select-into.md)
-### [Manipulação de ordem de eventos](stream-analytics-out-of-order-and-late-events.md)
 ### [Considerações da ordenação de eventos](stream-analytics-out-of-order-and-late-events.md)
 ### [Limites de leitor de hub de eventos](stream-analytics-event-hub-consumer-groups.md)
 ### [Logs de diagnóstico](stream-analytics-job-diagnostic-logs.md)
