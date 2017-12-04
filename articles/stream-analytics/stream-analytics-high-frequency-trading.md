@@ -15,23 +15,28 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 11/05/2017
 ms.author: zhongc
-ms.openlocfilehash: 0a5a1129c5b7fc693ed7c187d928a128650f28b9
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: f25a27a86b366b2302657c44108cd823b0384831
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="high-frequency-trading-simulation-with-stream-analytics"></a>Simulação de transação de alta frequência com o Stream Analytics
-A combinação de linguagem SQL do Azure Stream Analytics e UDF do JavaScript e UDA é uma combinação poderosa que permite aos usuários executar análises avançadas, incluindo pontuação e treinamento de aprendizado de máquina online, assim como simulação de processo com estado. Este artigo descreve como executar regressão linear em um trabalho do Azure Stream Analytics que faz classificação e pontuação contínuas em um cenário de transação de alta frequência.
+A combinação da linguagem SQL e das funções UDFs (funções definidas pelo usuário) e UDAs (agregações definidas pelo usuário) de JavaScript no Azure Stream Analytics permite aos usuários a execução de análises avançadas. As análises avançadas podem incluir treinamento de aprendizado de máquina online e pontuação, bem como a simulação de processo com estado. Este artigo descreve como executar regressão linear em um trabalho do Azure Stream Analytics que faz classificação e pontuação contínuas em um cenário de transação de alta frequência.
 
 ## <a name="high-frequency-trading"></a>Transação de alta frequência
-O fluxo lógico da transação de alta frequência consiste em obter cotações em tempo real a partir de um câmbio de segurança, criar um modelo preditivo em torno das cotações, para que possamos prever a movimentação de preço e fazer pedidos de compra ou venda pedidos adequadamente para lucrar com uma previsão bem-sucedida das movimentações de preço. Como resultado, é necessário o seguinte
-* Feed de cotação em tempo real
-* Um modelo preditivo que pode operar com cotações em tempo real
-* Uma simulação de negociação que demonstra o lucro/perda do algoritmo de negociação
+O fluxo lógico de transação de alta frequência é sobre:
+1. Obter cotações em tempo real de uma troca de segurança.
+2. Criar um modelo de previsão em torno das cotações, para podermos antecipar a movimentação de preços.
+3. Fazer pedidos de compra ou venda para ganhar dinheiro com a previsão bem-sucedida de movimentos de preço. 
+
+Como resultado, precisamos:
+* De um feed de cotação em tempo real.
+* De um modelo preditivo que possa operar com cotações em tempo real.
+* Uma simulação de negociação que demonstra o lucro ou perda do algoritmo de negociação.
 
 ### <a name="real-time-quote-feed"></a>Feed de cotação em tempo real
-O IEX livre oferece cotações de compra e venda em tempo real usando socket.io, https://iextrading.com/developer/docs/#websockets. Um programa de console simples pode ser escrito para receber cotações em tempo real e enviar por push para o Hub de Eventos como uma fonte de dados. O esqueleto do programa é mostrado abaixo. O tratamento de erros foi omitido para fins de brevidade. Você também precisará incluir pacotes NuGet SocketIoClientDotNet e WindowsAzure.ServiceBus no seu projeto.
+O IEX oferece [cotações de compra e venda em tempo real](https://iextrading.com/developer/docs/#websockets) usando socket.io. Um programa de console simples pode ser escrito para receber cotações em tempo real e enviar por push para o Hubs de Eventos do Azure como uma fonte de dados. O código a seguir é um esqueleto do programa. O código omite o tratamento de erros para fins de brevidade. Você também precisa incluir pacotes NuGet SocketIoClientDotNet e WindowsAzure.ServiceBus no seu projeto.
 
 
     using Quobject.SocketIoClientDotNet.Client;
@@ -51,7 +56,7 @@ O IEX livre oferece cotações de compra e venda em tempo real usando socket.io,
         socket.Emit("subscribe", symbols);
     });
 
-Aqui estão alguns exemplos de evento gerados.
+Aqui estão alguns exemplos de eventos gerados:
 
     {"symbol":"MSFT","marketPercent":0.03246,"bidSize":100,"bidPrice":74.8,"askSize":300,"askPrice":74.83,"volume":70572,"lastSalePrice":74.825,"lastSaleSize":100,"lastSaleTime":1506953355123,"lastUpdated":1506953357170,"sector":"softwareservices","securityType":"commonstock"}
     {"symbol":"GOOG","marketPercent":0.04825,"bidSize":114,"bidPrice":870,"askSize":0,"askPrice":0,"volume":11240,"lastSalePrice":959.47,"lastSaleSize":60,"lastSaleTime":1506953317571,"lastUpdated":1506953357633,"sector":"softwareservices","securityType":"commonstock"}
@@ -65,9 +70,11 @@ Aqui estão alguns exemplos de evento gerados.
 >O carimbo de data/hora do evento é **lastUpdated**, em época.
 
 ### <a name="predictive-model-for-high-frequency-trading"></a>Modelo preditivo para a transação de alta frequência
-Para fins de demonstração, usamos um modelo linear descrito por Darryl Shen no seu estudo. http://eprints.maths.ox.ac.uk/1895/1/Darryl%20Shen%20%28for%20archive%29.pdf.
+Para fins de demonstração, usamos um modelo linear descrito por Darryl Shen [neste documento](http://eprints.maths.ox.ac.uk/1895/1/Darryl%20Shen%20%28for%20archive%29.pdf).
 
-Desequilíbrio de ordem de volume (VOI) é uma função do preço atual bid/peça e volume e bid/peça preço/volume do último tick. O estudo identifica a correlação entre VOI e a movimentação de preço futura e constrói um modelo linear entre os últimos 5 valores de VOI e a alteração de preço nos 10 ticks seguintes. O modelo é treinado usado os dados do dia anterior com regressão linear. O modelo treinado é então usado para fazer previsões de alteração do preço nas cotações no dia da negociação em tempo real. Quando uma alteração de preço grande o suficiente é prevista, uma transação é executada. Dependendo da configuração do limite, milhares de transações podem ser esperadas para uma única ação em um dia de negociação.
+Desequilíbrio de ordem de volume (VOI) é uma função do preço de compra e venda atual e do volume e preço de compra e venda do último tique. O papel identifica a correlação entre VOI e a movimentação de preços futura. Ele cria um modelo linear entre os últimos 5 valores de VOI, e a mudança de preço nos próximos 10 tiques. O modelo é treinado usado os dados do dia anterior com regressão linear. 
+
+O modelo treinado é então usado para fazer previsões de alteração do preço nas cotações no dia da negociação em tempo real. Quando uma alteração de preço grande o suficiente é prevista, uma transação é executada. Dependendo da configuração do limite, milhares de transações podem ser esperadas para uma única ação em um dia de negociação.
 
 ![Definição de VOI](./media/stream-analytics-high-frequency-trading/voi-formula.png)
 
@@ -93,12 +100,12 @@ Primeiro, as entradas são apagadas. O tempo em época é convertido em datetime
     ),
     timefilteredquotes AS (
         /* filter between 7am and 1pm PST, 14:00 to 20:00 UTC */
-        /* cleanup invalid data points */
+        /* clean up invalid data points */
         SELECT * FROM typeconvertedquotes
         WHERE DATEPART(hour, lastUpdated) >= 14 AND DATEPART(hour, lastUpdated) < 20 AND bidSize > 0 AND askSize > 0 AND bidPrice > 0 AND askPrice > 0
     ),
 
-Em seguida, usamos a função **LAG** para obter valores do último tick. Uma hora do valor de **LIMIT DURATION** valor é escolhida arbitrariamente. Dada a frequência da cotação, é seguro supor que você pode encontrar o tick procurando na hora anterior.  
+Em seguida, usamos a função **LAG** para obter valores do último tick. Uma hora do valor de **LIMIT DURATION** valor é escolhida arbitrariamente. Dada a frequência da cotação, é seguro supor que você pode encontrar o tique anterior voltando uma hora.  
 
     shiftedquotes AS (
         /* get previous bid/ask price and size in order to calculate VOI */
@@ -116,7 +123,7 @@ Em seguida, usamos a função **LAG** para obter valores do último tick. Uma ho
         FROM timefilteredquotes
     ),
 
-Em seguida podemos calcular o valor de VOI. Observe que estamos filtrando os valores nulos se o tick anterior não existir, só por precaução.
+Em seguida podemos calcular o valor de VOI. Filtramos os valores nulos se o tique anterior não existir, só por precaução.
 
     currentPriceAndVOI AS (
         /* calculate VOI */
@@ -230,7 +237,7 @@ Como o Azure Stream Analytics não tem uma função de regressão linear interna
         FROM modelparambs
     ),
 
-Para usar o modelo do dia anterior para a pontuação do evento atual, queremos unir as cotações com o modelo. No entanto, aqui, em vez de usar **JOIN**, usamos **UNION** nos eventos do modelo e nos eventos da cotação e, em seguida, usamos **LAG** para emparelhar os eventos com o modelo do dia anterior, para que possamos obter uma correspondência exata. Por causa do fim de semana precisamos examinar os três últimos dias. Se usarmos um **JOIN** simples, obteremos três modelos para cada evento de cotação.
+Para usar o modelo do dia anterior para a pontuação do evento atual, queremos unir as cotações com o modelo. Mas, em vez de usar **JOIN**, usamos **UNION** nos eventos de modelo e eventos de cotação. Em seguida, usamos **LAG** para emparelhar os eventos com o modelo do dia anterior, para obter uma correspondência exata. Por causa do fim de semana precisamos examinar os três últimos dias. Se tiver usado um **JOIN** simples, obteremos três modelos para cada evento de cotação.
 
     shiftedVOI AS (
         /* get two consecutive VOIs */
@@ -266,7 +273,7 @@ Para usar o modelo do dia anterior para a pontuação do evento atual, queremos 
         FROM model
     ),
     VOIANDModelJoined AS (
-        /* match VOIs with the latest model within 3 days (72 hours, to take weekend into account) */
+        /* match VOIs with the latest model within 3 days (72 hours, to take the weekend into account) */
         SELECT
             symbol,
             midPrice,
@@ -279,7 +286,7 @@ Para usar o modelo do dia anterior para a pontuação do evento atual, queremos 
         WHERE type = 'voi'
     ),
 
-Agora, podemos fazer previsões e gerar sinais de compra/venda com base no modelo, com um valor limite de 0.02. O valor da transação de 10 é uma compra; o valor da transação de -10 é uma venda.
+Agora, podemos fazer previsões e gerar sinais de compra/venda com base no modelo, com um valor limite de 0.02. Um valor de transação de 10 representa compra. Um valor de transação de -10 representa venda.
 
     prediction AS (
         /* make prediction if there is a model */
@@ -308,11 +315,13 @@ Agora, podemos fazer previsões e gerar sinais de compra/venda com base no model
     ),
 
 ### <a name="trading-simulation"></a>Simulação da transação
-Após termos os sinais da transação, desejamos testar a eficiência da estratégia comercial, sem realmente fazer a transação. Isso é feito com um agregado definido pelo usuário (UDA), com janelas de salto, saltando a cada minuto. O agrupamento adicional na data e a cláusula having permitem que a janela considere somente eventos pertencentes ao mesmo dia. Para uma janela de salto que inclua dois dias, **GROUP BY** por data, separa o agrupamento em dia anterior e atual. A cláusula **HAVING** filtra as janelas que terminam no dia atual, mas o agrupamento no dia anterior.
+Após termos os sinais da transação, desejamos testar a eficiência da estratégia comercial, sem realmente fazer a transação. 
+
+Para atingir esse teste, usamos uma UDA, com uma janela de salto, saltando a cada um minuto. O agrupamento adicional na data e a cláusula having permitem que a janela considere somente eventos pertencentes ao mesmo dia. Para uma janela de salto que inclua dois dias, **GROUP BY** por data, separa o agrupamento em dia anterior e atual. A cláusula **HAVING** filtra as janelas que terminam no dia atual, mas o agrupamento no dia anterior.
 
     simulation AS
     (
-        /* perform trade simulation for the past 7 hours to cover an entire trading day, generate output every minute */
+        /* perform trade simulation for the past 7 hours to cover an entire trading day, and generate output every minute */
         SELECT
             DateAdd(hour, -7, System.Timestamp) AS time,
             symbol,
@@ -323,7 +332,13 @@ Após termos os sinais da transação, desejamos testar a eficiência da estrat�
         Having DateDiff(day, date, time) < 1 AND DATEPART(hour, time) < 13
     )
 
-O UDA do JavaScript inicializa todos os acumuladores na função init, calcula a transição de estado com todos os eventos adicionados à janela e retorna os resultados da simulação no final da janela. O processo geral de transação é comprar ações quando um sinal de compra é recebido e não há nenhum investimento em ações; vender ações quando um sinal de venda é recebido há investimento em ações ou ação vendida se não houver nenhum investimento em ações. Se estiver na posição vendida e um sinal de compra é recebido, compre para cobrir. Nunca mantemos ou vendemos 10 frações de qualquer ação nesta simulação e as transações possuem um custo fixo de US$8.
+O UDA do JavaScript inicializa todos os acumuladores na função `init`, calcula a transição de estado com todos os eventos adicionados à janela e retorna os resultados da simulação no final da janela. O processo de transação geral serve para:
+
+- Comprar ações quando um sinal de compra é recebido, e não há exploração de reserva.
+- Vender ações quando um sinal de venda é recebido, e não há exploração de reserva.
+- Venda a descoberto, se não houver exploração de reserva. 
+
+Se estiver na posição vendida e um sinal de compra é recebido, compre para cobrir. Nós nunca seguramos ou vendemos a descoberto 10 ações nesta simulação. O custo de transações são simples $8.
 
 
     function main() {
@@ -432,6 +447,10 @@ Por fim, enviamos o resultado para o painel do Power BI para visualização.
 
 
 ## <a name="summary"></a>Resumo
-Como você pode ver, um modelo de transação de alta frequência realista pode ser implementado com uma consulta moderadamente complexa no Azure Stream Analytics. Temos que simplificar o modelo de cinco variáveis de entrada para duas, devido à falta de uma função de regressão linear interna. No entanto, para um determinado usuário, os algoritmos com mais dimensões e sofisticação podem possivelmente ser implementados também como UDA do JavaScript. Vale a pena observar que a maioria das consultas, que não seja UDA do JavaScript, pode ser testada e depurada dentro do Visual Studio com a [Ferramenta do Azure Stream Analytics para Visual Studio](stream-analytics-tools-for-visual-studio.md). Depois que a consulta inicial foi escrita, o autor gasta menos de 30 minutos testando e depurando a consulta no Visual Studio. No momento, o UDA não pode ser depurado no Visual Studio. Estamos trabalhando para habilitar essa funcionalidade com a capacidade de percorrer o código JavaScript. Além disso, observe que os campos que alcançar a UDA possuem nomes de campo inferior todos em letras minúsculas. Isso não era um comportamento óbvio durante o teste de consulta. No entanto, com o nível de compatibilidade do Azure Stream Analytics 1.1, permitimos que as maiúsculas e minúsculas do nome do campo sejam preservadas, para que o comportamento seja mais natural.
+Podemos implementar um modelo de transação de alta frequência realista com uma consulta moderadamente complexa no Azure Stream Analytics. Temos que simplificar o modelo de cinco variáveis de entrada para duas, devido à falta de uma função de regressão linear interna. Porém, para um determinado usuário, os algoritmos com mais dimensões e sofisticação podem possivelmente ser implementados também como UDA do JavaScript. 
+
+Vale a pena observar que a maioria das consultas, que não seja UDA do JavaScript, pode ser testada e depurada dentro do Visual Studio com a [Ferramenta do Azure Stream Analytics para Visual Studio](stream-analytics-tools-for-visual-studio.md). Depois que a consulta inicial foi escrita, o autor gasta menos de 30 minutos testando e depurando a consulta no Visual Studio. 
+
+No momento, o UDA não pode ser depurado no Visual Studio. Estamos trabalhando para habilitar essa funcionalidade com a capacidade de percorrer o código JavaScript. Além disso, observe que os campos que acessam a UDA têm nomes em minúsculas. Isso não era um comportamento óbvio durante o teste de consulta. Porém, com o nível de compatibilidade do Azure Stream Analytics 1.1, preservamos as maiúsculas e minúsculas do nome do campo para que o comportamento seja mais natural.
 
 Espero que este artigo sirva como inspiração para todos os usuários do Azure Stream Analytics, que podem usar o nosso serviço para executar análises avançadas quase em tempo real, de forma contínua. Os seus comentários são importantes para que possamos facilitar a implementação de consultas para cenários de consulta avançada.

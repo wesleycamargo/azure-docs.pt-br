@@ -1,6 +1,6 @@
 ---
-title: 'Conectar a rede virtual a outra rede virtual: CLI do Azure | Microsoft Docs'
-description: Este artigo mostra como conectar redes virtuais em conjunto usando o Azure Resource Manager e a CLI do Azure.
+title: "Conectar uma rede virtual a outra rede virtual usando uma conexão de VNet a VNet: CLI do Azure | Microsoft Docs"
+description: "Este artigo mostra como conectar redes virtuais usando a conexão VNet a VNet e a CLI do Azure."
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/17/2017
+ms.date: 11/27/2017
 ms.author: cherylmc
-ms.openlocfilehash: 7c7653250f51429321b4da0384496aae37ad06da
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: be33522fbabc801f64b7d3f38be83443c0327128
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-azure-cli"></a>Configurar uma conexão gateway de VPN de Vnet pra VNet usando a CLI do Azure
 
-Este artigo mostra como criar uma conexão de gateway de VPN entre redes virtuais. As redes virtuais podem estar na mesma região ou em regiões diferentes, e com a mesma assinatura ou em assinaturas diferentes. Ao conectar-se a redes virtuais a partir de assinaturas diferentes, as assinaturas não precisam ser associadas ao mesmo locatário do Active Directory. 
+Este artigo mostra como conectar redes virtuais usando o tipo de conexão VNet a VNet. As redes virtuais podem estar na mesma região ou em regiões diferentes, e com a mesma assinatura ou em assinaturas diferentes. Ao conectar-se a redes virtuais a partir de assinaturas diferentes, as assinaturas não precisam ser associadas ao mesmo locatário do Active Directory.
 
 As etapas neste artigo se aplicam ao modelo de implantação do Resource Manager e usa a CLI do Azure. Você também pode criar essa configuração usando uma ferramenta de implantação ou um modelo de implantação diferente, selecionando uma opção diferente na lista a seguir:
 
@@ -37,13 +37,15 @@ As etapas neste artigo se aplicam ao modelo de implantação do Resource Manager
 >
 >
 
-Conectar uma rede virtual a outra rede virtual é semelhante a conectar uma rede virtual (Rede Virtual para Rede Virtual) a um site local. Os dois tipos de conectividade usam um gateway de VPN para fornecer um túnel seguro usando IPsec/IKE. Se suas VNets estiverem na mesma região, convém considerar conectá-las usando o emparelhamento VNet. O emparelhamento Vnet não usa um gateway de VPN. Para obter mais informações, consulte [Emparelhamento da VNet](../virtual-network/virtual-network-peering-overview.md).
+## <a name="about"></a>Sobre a conexão de VNets
 
-Você pode combinar a comunicação de VNet a VNet usando configurações multissite. Isso permite estabelecer topologias de rede que combinam conectividade entre instalações a conectividade de rede intervirtual, conforme mostrado no diagrama a seguir:
+A conexão de uma rede virtual a outra rede virtual usando o tipo de conexão VNet a VNet é semelhante à criação de uma conexão IPsec com um site local. Os dois tipos de conectividade usam um gateway de VPN para fornecer um túnel seguro usando IPsec/IKE, e ambos funcionam da mesma forma ao se comunicar. A diferença entre os tipos de conexão é a maneira que o gateway de rede local é configurado. Ao criar uma conexão de VNet a VNet, você não vê o espaço de endereço de gateway de rede local. Ele é criado e preenchido automaticamente. Se você atualizar o espaço de endereço de uma rede virtual, a outra saberá automaticamente rotear para o espaço de endereço atualizado.
 
-![Sobre as conexões](./media/vpn-gateway-howto-vnet-vnet-cli/aboutconnections.png)
+Se você estiver trabalhando com uma configuração complicada, talvez você prefira usar um tipo de conexão IPsec, em vez de VNet a VNet. Isso permite que você especifique o espaço de endereço adicional para o gateway de rede local a fim de rotear o tráfego. Se você conectar suas VNets usando o tipo de conexão IPsec, será necessário criar e configurar manualmente o gateway de rede local. Para saber mais, consulte [Configurações site a site](vpn-gateway-howto-site-to-site-resource-manager-cli.md).
 
-### <a name="why"></a>Por que conectar as redes virtuais?
+Além disso, se suas VNets estiverem na mesma região, convém considerar conectá-las usando o emparelhamento VNet. O emparelhamento de VNet não usa um gateway de VPN, e os preços e funcionalidade é um pouco diferente. Para obter mais informações, consulte [Emparelhamento da VNet](../virtual-network/virtual-network-peering-overview.md).
+
+### <a name="why"></a>Por que criar uma conexão de VNet para VNet?
 
 Você talvez queira conectar redes virtuais pelos seguintes motivos:
 
@@ -55,19 +57,22 @@ Você talvez queira conectar redes virtuais pelos seguintes motivos:
 
   * Na mesma região, você pode configurar aplicativos multicamadas com várias redes virtuais conectadas devido aos requisitos administrativos ou de isolamento.
 
-Para saber mais sobre conexões de Rede Virtual a Rede Virtual, consulte as [Perguntas frequentes sobre Rede Virtual para Rede Virtual](#faq) no final deste artigo.
+Você pode combinar a comunicação de VNet a VNet usando configurações multissite. Isso permite estabelecer topologias de rede que combinam conectividade entre instalações a conectividade de rede intervirtual.
 
 ### <a name="which-set-of-steps-should-i-use"></a>Qual conjunto de etapas devo usar?
 
-Neste artigo, você verá dois conjuntos de etapas diferentes. Um conjunto de etapas para [Redes virtuais que residem na mesma assinatura](#samesub). As etapas para essa configuração usam TestVNet1 e TestVNet4.
+Este artigo ajuda você a se conectar usando o tipo de conexão de VNet a VNet. Neste artigo, você verá dois conjuntos de etapas diferentes. Um conjunto de etapas para [VNets que residem na mesma assinatura](#samesub), e um para [VNets que residem em assinaturas diferentes](#difsub). 
 
-![Diagrama de v2v](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
+Para este exercício, você pode combinar as configurações, ou simplesmente escolher aquela com a qual você deseja trabalhar. Todas as configurações usam o tipo de conexão VNet a VNet. O tráfego de rede flui entre as VNets diretamente conectadas umas às outras. Neste exercício, o tráfego de TestVNet4 não roteia para TestVNet5.
 
-Há um artigo separado para [Redes virtuais que residem em assinaturas diferentes](#difsub). As etapas para essa configuração usam TestVNet1 e TestVNet5.
+* [VNets que residem na mesma assinatura](#samesub): as etapas para essa configuração usam TestVNet1 e TestVNet4.
 
-![Diagrama de v2v](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
+  ![Diagrama de v2v](./media/vpn-gateway-howto-vnet-vnet-cli/v2vrmps.png)
 
-Você pode combinar as configurações se preferir ou basta escolher aquela com a qual deseja trabalhar.
+* [VNets que residem em assinaturas diferentes](#difsub): as etapas para essa configuração usam TestVNet1 e TestVNet4.
+
+  ![Diagrama de v2v](./media/vpn-gateway-howto-vnet-vnet-cli/v2vdiffsub.png)
+
 
 ## <a name="samesub"></a>Conectar VNets que estão na mesma assinatura
 
@@ -77,7 +82,7 @@ Antes de começar, instale a versão mais recente dos comandos da CLI (2.0 ou po
 
 ### <a name="Plan"></a>Planejar os intervalos de endereços IP
 
-Nas etapas a seguir, criaremos duas redes virtuais juntamente com as respectivas configurações e sub-redes de gateway. Em seguida, criaremos uma conexão VPN entre as duas VNets. É importante planejar os intervalos de endereços IP para sua configuração de rede. Lembre-se de que você deve garantir que nenhum de seus intervalos de VNet ou intervalos de rede local se sobreponham de forma alguma. Nestes exemplos, não incluímos um servidor DNS. Se você deseja resolução de nomes para suas redes virtuais, confira [a Resolução de nomes](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+Nas etapas a seguir, crie duas redes virtuais juntamente com as respectivas configurações e sub-redes de gateway. Em seguida, crie uma conexão VPN entre as duas VNets. É importante planejar os intervalos de endereços IP para sua configuração de rede. Lembre-se de que você deve garantir que nenhum de seus intervalos de VNet ou intervalos de rede local se sobreponham de forma alguma. Nestes exemplos, não incluímos um servidor DNS. Se você deseja resolução de nomes para suas redes virtuais, confira [a Resolução de nomes](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 Usamos os seguintes valores nos exemplos:
 
@@ -261,7 +266,7 @@ Agora, você tem duas redes virtuais com gateways de VPN. A próxima etapa é cr
 
 ## <a name="difsub"></a>Conectar as VNets que estão em assinaturas diferentes
 
-Nesse cenário, conectamos TestVNet1 e TestVNet5. As redes virtuais residem em assinaturas diferentes. As assinaturas não precisam ser associadas ao mesmo locatário do Active Directory. As etapas para essa configuração adicionam outra conexão de VNet para VNet para se conectar TestVNet1 a TestVNet5.
+Nesse cenário, conecte TestVNet1 e TestVNet5. As redes virtuais residem em assinaturas diferentes. As assinaturas não precisam ser associadas ao mesmo locatário do Active Directory. As etapas para essa configuração adicionam outra conexão de VNet para VNet para se conectar TestVNet1 a TestVNet5.
 
 ### <a name="TestVNet1diff"></a>Etapa 5: criar e configurar o TestVNet1
 
@@ -327,7 +332,7 @@ Esta etapa deve ser feita no contexto da nova assinatura, Assinatura 5. Esta par
 
 ### <a name="connections5"></a>Etapa 8: criar as conexões
 
-Dividimos esta etapa em duas sessões do CLI marcadas como **[Assinatura 1]** e **[Assinatura 5]** porque os gateways estão em assinaturas diferentes. Para alternar entre assinaturas, use 'az account list --all' a fim de listar as assinaturas disponíveis para sua conta e use 'az account set --subscription<subscriptionID>' a fim de alternar para a assinatura que você deseja usar.
+Esta etapa é dividida em duas sessões da CLI marcadas como **[Assinatura 1]** e **[Assinatura 5]** porque os gateways estão em assinaturas diferentes. Para alternar entre assinaturas, use 'az account list --all' a fim de listar as assinaturas disponíveis para sua conta e use 'az account set --subscription<subscriptionID>' a fim de alternar para a assinatura que você deseja usar.
 
 1. **[Assinatura 1]**  Faça login e conecte-se à Assinatura 1. Execute o seguinte comando para obter o nome e a ID do Gateway da saída:
 

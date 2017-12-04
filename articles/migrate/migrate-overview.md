@@ -1,0 +1,112 @@
+---
+title: "Sobre Migrações para Azure | Microsoft Docs"
+description: "Fornece uma visão geral do serviço Migrações para Azure."
+services: migrate
+documentationcenter: 
+author: rayne-wiselman
+manager: carmonm
+editor: 
+ms.assetid: 7b313bb4-c8f4-43ad-883c-789824add3288
+ms.service: migrate
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: storage-backup-recovery
+ms.date: 11/23/2017
+ms.author: raynew
+ms.openlocfilehash: d3d5a3bcd3be55d1915ff7fdc6d82aebbb992fc7
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.translationtype: HT
+ms.contentlocale: pt-BR
+ms.lasthandoff: 11/29/2017
+---
+# <a name="about-azure-migrate"></a>Sobre as Migrações para Azure
+
+O serviço Migrações para Azure avalia as cargas de trabalho locais para migração para o Azure. O serviço avalia a adequação da migração e o dimensionamento com base no desempenho e fornece estimativas de custo para a execução das máquinas locais no Azure. Se você estiver considerando as migrações lift-and-shift, ou se estiver nos primeiros estágios da migração, este serviço é para você. Após a avaliação, você pode usar serviços como o Azure Site Recovery e a Migração de Banco de Dados do Azure, para migrar as máquinas para o Azure.
+
+> [!NOTE]
+> A Migrações para Azure está atualmente em versão prévia e oferece suporte a cargas de trabalho de produção.
+
+## <a name="why-use-azure-migrate"></a>Por que usar Migrações para Azure?
+
+As Migrações para Azure ajudam você a:
+
+- **Avaliar a preparação para o Azure**: avalie se seus computadores locais são adequados para execução no Azure. 
+- **Obter recomendações de tamanho**: tamanho recomendado para VMs do Azure após a migração, com base no histórico de desempenho das VMs locais. 
+- **Estimar os custos mensais**: custos estimados para execução de máquinas locais no Azure.
+- **Migrar com alta confiança**: à medida que você agrupa computadores locais para avaliação, é possível aumentar a confiança da avaliação visualizando as dependências. Você pode exibir de forma precisa as dependências para uma máquina específica, ou para todas as máquinas em um grupo.
+
+## <a name="current-limitations"></a>Limitações atuais
+
+- No momento, você pode avaliar as VMs (Máquinas Virtuais) VMware locais para migração para VMs do Azure.
+> [!NOTE]
+> O suporte para Hyper-V está em nossos planos e será habilitado em alguns meses. Enquanto isso, recomendamos que você use o Planejador de Implantações do Azure Site Recovery para planejar a migração de cargas de trabalho do Hyper-V. 
+- Você pode avaliar até 1000 VMs em uma única avaliação, e até 1500 máquinas em um único projeto de Migrações para Azure. Se você precisar avaliar mais, poderá aumentar o número de projetos ou avaliações. [Saiba mais](how-to-scale-assessment.md).
+- A VM que você deseja avaliar deve ser gerenciada por um vCenter Server, versão 5.5, 6.0 ou 6.5.
+- Você só pode criar um projeto de Migrações para Azure na região Centro-oeste dos EUA. No entanto, isso não afeta sua capacidade de planejar a migração para um local de destino diferente do Azure. O local do projeto de migração é usado apenas para armazenar os metadados descobertos no ambiente local.
+- No momento, o portal de Migrações para Azure só está disponível em inglês. 
+- No momento, Migrações para Azure dá suporte apenas à replicação [LRS (Armazenamento com redundância local)](../storage/common/storage-introduction.md#replication).
+
+## <a name="what-do-i-need-to-pay-for"></a>Pelo que eu preciso pagar?
+
+As Migrações para Azure estão disponíveis sem custo adicional. No entanto, durante a visualização pública, serão cobradas tarifas adicionais pelo uso dos recursos de visualização de dependência. Para dar suporte à [visualização de dependência](concepts-dependency-visualization.md), por padrão, as Migrações para Azure criam um espaço de trabalho do Log Analytics. Se você usa a visualização de dependência, ou usa o espaço de trabalho fora das Migrações para Azure, você será cobrado pelo uso do espaço de trabalho. [Saiba mais](https://azure.microsoft.com/en-us/pricing/details/insight-analytics/) sobre os encargos. Quando o serviço ficar disponível, o uso dos recursos de visualização de dependência não será cobrado.
+
+
+## <a name="whats-in-an-assessment"></a>O que é uma avaliação?
+
+As avaliações das Migrações para Azure se baseiam nas configurações resumidas na tabela.
+
+**Configuração** | **Detalhes**
+--- | ---
+**Local de destino** | O local do Azure para o qual você deseja migrar. Por padrão, esse é o local no qual você cria o projeto de Migrações para Azure. Você pode modificar essa configuração.   
+**Redundância de armazenamento** | O tipo de armazenamento que as VMs do Azure usarão após a migração. LRS é o padrão.
+**Planos de preço** | A avaliação considera se você está inscrito na garantia de software, e se pode usar o [Benefício de Uso Híbrido do Azure](https://azure.microsoft.com/pricing/hybrid-use-benefit/). Também considera as ofertas do Azure que devem ser aplicadas, e permite que você especifique descontos (%) específicos à assinatura, que você obtém sobre a oferta. 
+**Tipo de preços** | Você pode especificar o [tipo de preço (básico/standard)](../virtual-machines/windows/sizes-general.md) das VMs do Azure. Isso ajuda você a migrar para uma família de VMs do Azure adequada, dependendo se você estiver em um ambiente de produção. Por padrão o tipo [Standard](../virtual-machines/windows/sizes-general.md) é usado.
+**Histórico de desempenho** | Por padrão, as Migrações para Azure avaliam o desempenho das máquinas locais usando um mês de histórico, com um valor de percentil de 95%. Você pode modificar essa configuração.
+**Fator de conforto** | As Migrações para Azure consideram um buffer (fator de conforto) durante a avaliação. Esse buffer é aplicado sobre os dados de utilização da máquina para VMs (CPU, memória, disco e rede). O fator de conforto considera problemas como uso sazonal, histórico curto de desempenho e aumento provável do uso futuro.<br/><br/> Por exemplo, uma VM com 10 núcleos e 20% de utilização normalmente resulta em uma VM de dois núcleos. No entanto, com um fator de conforto de 2.0x, o resultado é uma VM de quatro núcleos. A configuração de conforto padrão é de 1.3 x.
+
+
+## <a name="how-does-azure-migrate-work"></a>Como funciona as Migrações para Azure?
+
+1.  Você cria um projeto das Migrações para Azure.
+2.  As Migrações para Azure usam uma VM local chamada dispositivo coletor para descobrir informações sobre suas máquinas locais. Para criar o dispositivo, baixe o arquivo de configuração no formato .ova (Open Virtualization Appliance) e importe-o como uma VM em seu servidor local do vCenter.
+3.  Conecte-se à VM usando credenciais somente leitura para o servidor do vCenter e execute o coletor.
+4.  O coletor coleta metadados da VM usando os cmdlets de VMware PowerCLI. A descoberta não tem agente, e não instala nada em VMs ou hosts VMware. Os metadados coletados incluem informações da VM (núcleos, memória, discos, tamanhos de disco e adaptadores de rede). Também coleta dados de desempenho para VMs, incluindo CPU e uso da memória, IOPS de disco, taxa de transferência do disco (MBps) e saída da rede (MBps).
+5.  Os metadados são enviados para o projeto das Migrações para Azure. Consulte-os no Portal do Azure.
+6.  Para fins de avaliação, junte as VMs em grupos. Por exemplo, agrupe as VMs que executam o mesmo aplicativo. Agrupe VMs usando a marcação no vCenter ou no portal do vCenter. Use a visualização para verificar dependências para uma máquina específica, ou para todas as máquinas em um grupo.
+7.  Crie uma avaliação para um grupo.
+8.  Após a conclusão da avaliação, você poderá exibi-la no portal ou baixá-la no formato do Excel.
+
+
+
+  ![Arquitetura do Planejador do Azure](./media/migration-planner-overview/overview-1.png)
+
+## <a name="what-are-the-port-requirements"></a>Quais são os requisitos de porta?
+
+A tabela resume as portas necessárias para as comunicações das Migrações para Azure.
+
+|Componente          |Para comunicar-se com     |Porta obrigatória  |Motivo   |
+|-------------------|------------------------|---------------|---------|
+|Coletor          |Serviço Migrações para Azure   |TCP 443        |O coletor se conecta ao serviço através da porta SSL 443|
+|Coletor          |vCenter Server          |Padrão 9443   | Por padrão, o coletor se conecta ao servidor vCenter na porta 9443. Se os servidores escutarem em uma porta diferente, ela deverá ser configurada como uma porta de saída na VM coletora. |
+|VM local     | Espaço de Trabalho do OMS          |[TCP 443](../log-analytics/log-analytics-windows-agents.md#system-requirements-and-required-configuration) |O agente MMA usa TCP 443 para se conectar ao Log Analytics. Você só precisará dessa porta se estiver usando o recurso de visualização de dependência e estiver instalando o agente de MMA. |
+
+
+  
+## <a name="what-happens-after-assessment"></a>O que acontece após a avaliação?
+
+Após a avaliação das máquinas locais para migração com o serviço de Migrações para Azure, use algumas das ferramentas para executar a migração:
+
+- **Azure Site Recovery**: você pode usar o Azure Site Recovery para migrar para o Azure, da seguinte maneira:
+  - Prepare os recursos do Azure, incluindo uma assinatura do Azure, uma rede virtual do Azure e uma conta de armazenamento.
+  - Prepare os servidores VMware locais para migração. Verifique os requisitos de suporte do VMware para o Site Recovery, prepare os servidores VMware para descoberta, e prepare-se para instalar o serviço de Mobilidade do Site Recovery em VMs que você deseja migrar. 
+  - Configure a migração. Configure um cofre dos Serviços de Recuperação, defina as configurações de migração de origem e destino, configure uma política de replicação e habilite a replicação. Execute uma simulação de recuperação de desastres para verificar se a migração de uma VM do Azure está funcionando corretamente.
+  - Execute um failover para migrar máquinas locais para o Azure. 
+  - [Saiba mais](../site-recovery/tutorial-migrate-on-premises-to-azure.md) no tutorial de migração do Site Recovery.
+
+- **Migração de Banco de Dados do Azure**: se as máquinas locais estiverem executando um banco de dados como SQL Server, MySQL ou Oracle, use o Serviço de Migração de Banco de Dados do Azure para migrá-los para o Azure. [Saiba mais](https://azure.microsoft.com/campaigns/database-migration/).
+
+
+
+## <a name="next-steps"></a>Próximas etapas 
+[Siga um tutorial](tutorial-assessment-vmware.md) para criar uma avaliação para um VM local do VMware.
