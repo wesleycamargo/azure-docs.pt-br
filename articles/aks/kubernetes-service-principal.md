@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: af27d01108cbfb3bd71023ffbce85f348abb0cfe
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 359887a8527d5432e705d9739e30f0eb2363e34f
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="service-principals-with-azure-container-service-aks"></a>Entidades de serviço com o Serviço de Contêiner do Azure (AKS)
 
@@ -43,7 +43,7 @@ Ao implantar um cluster AKS com o comando `az aks create`, você tem a opção p
 No exemplo a seguir, um cluster AKS é criado e, como não há uma entidade de serviço existente especificada, será criada uma entidade de serviço para o cluster. Para concluir esta operação, sua conta deverá ter os direitos adequados para a criação de uma entidade de serviço.
 
 ```azurecli
-az aks create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-keys
+az aks create --name myK8SCluster --resource-group myResourceGroup --generate-ssh-keys
 ```
 
 ## <a name="use-an-existing-sp"></a>Usa um SP existente
@@ -52,8 +52,6 @@ Uma entidade de serviço existente do Azure AD pode ser usada ou criada previame
 
 Ao usar uma entidade de serviço existente, ela deverá atender aos seguintes requisitos:
 
-- Escopo: a assinatura usada para implantar o cluster
-- Função: Colaborador
 - Segredo do cliente: deve ser uma senha
 
 ## <a name="pre-create-a-new-sp"></a>Pré-criar um novo SP
@@ -61,8 +59,7 @@ Ao usar uma entidade de serviço existente, ela deverá atender aos seguintes re
 Para criar a entidade de serviço com a CLI do Azure, use o comando [az ad sp create-for-rbac]().
 
 ```azurecli
-id=$(az account show --query id --output tsv)
-az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/$id"
+az ad sp create-for-rbac --skip-assignment
 ```
 
 A saída deverá ser semelhante à seguinte. Anote `appId` e `password`. Esses valores são usados durante a criação de um cluster AKS.
@@ -82,7 +79,7 @@ A saída deverá ser semelhante à seguinte. Anote `appId` e `password`. Esses v
 Ao usar uma entidade de serviço previamente criada, forneça `appId` e `password` como valores de argumento para o comando `az aks create`.
 
 ```azurecli-interactive
-az aks create --resource-group myResourceGroup --name myK8SCluster --service-principal <appId> ----client-secret <password>
+az aks create --resource-group myResourceGroup --name myK8SCluster --service-principal <appId> --client-secret <password>
 ```
 
 Se você estiver implantando um cluster AKS do portal do Azure, insira esses valores no formulário de configuração de cluster AKS.
@@ -99,6 +96,7 @@ Ao trabalhar com entidades de serviço AKS e do Azure AD, tenha em mente o segui
 * Nas VMs mestre e de nó no cluster Kubernetes, as credenciais de entidade de serviço são armazenadas no arquivo /etc/kubernetes/azure.json.
 * Se você usar o comando `az aks create` para gerar a entidade de serviço automaticamente, as credenciais da entidade de serviço serão gravadas no arquivo ~/.azure/acsServicePrincipal.json no computador usado para executar o comando.
 * Quando você usa o comando `az aks create` para gerar a entidade de serviço automaticamente, ela também pode autenticar com um [registro de contêiner do Azure](../container-registry/container-registry-intro.md) criado na mesma assinatura.
+* Ao excluir um cluster AKS que foi criado por `az aks create`, a entidade de serviço que foi criada automaticamente não será excluída. Você pode usar `az ad sp delete --id $clientID` para excluí-la.
 
 ## <a name="next-steps"></a>Próximas etapas
 

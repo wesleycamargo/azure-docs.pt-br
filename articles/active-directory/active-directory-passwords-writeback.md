@@ -6,21 +6,21 @@ keywords: "Gerenciamento de senha do Active Directory, gerenciamento de senha, a
 documentationcenter: 
 author: MicrosoftGuyJFlo
 manager: femila
-ms.reviewer: gahug
+ms.reviewer: sahenry
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
+ms.date: 11/28/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: ea2d910611f1935cadd8eaaf5760460f480f0c6c
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 8ca760c3f144cda15920dd401c6a8726d3d53da0
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="password-writeback-overview"></a>Visão geral de write-back de senha
 
@@ -108,8 +108,8 @@ Se não tiver certeza sobre a qual conta a conta descrita acima se refere, abra 
 
 Se você definir essas permissões, a conta de serviço de MA de cada floresta poderá gerenciar senhas em nome das contas de usuário nessa floresta. 
 
->[!IMPORTANT]
->Se você não atribuir essas permissões, mesmo que o write-back pareça estar configurado corretamente, os usuários verão erros ao tentar gerenciar suas senhas locais na nuvem.
+> [!IMPORTANT]
+> Se você não atribuir essas permissões, mesmo que o write-back pareça estar configurado corretamente, os usuários verão erros ao tentar gerenciar suas senhas locais na nuvem.
 >
 
 > [!NOTE]
@@ -125,7 +125,6 @@ Para configurar as permissões apropriadas para que ocorra o write-back de senha
 5. Selecione a conta à qual as permissões estão sendo aplicadas (na configuração do Azure AD Connect).
 6. Na lista suspensa **Aplica-se a**, selecione os objetos **Usuário descendente**.
 7. Em **Permissões**, marque as caixas para o seguinte:
-    * **Unexpire-password**
     * **Redefinir senha**
     * **Alterar senha**
     * **Gravar lockoutTime**

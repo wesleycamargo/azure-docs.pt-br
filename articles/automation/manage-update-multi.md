@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/31/2017
 ms.author: magoedte;eslesar
-ms.openlocfilehash: bb9c19bb489873d1a2175f4a85f7654a3bf099b8
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: c073cb28f5c37a402c04d5315d7f8e18de8a1b26
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gerenciar atualizações de vários computadores
 
@@ -87,6 +87,16 @@ O gerenciamento de atualizações está habilitado para sua máquina virtual.
 Para obter instruções sobre como habilitar o gerenciamento de atualizações para computadores e máquinas virtuais Windows que não são Azure, confira [Conectar computadores Windows ao serviço Log Analytics no Azure](../log-analytics/log-analytics-windows-agents.md).
 
 Para obter instruções sobre como habilitar o gerenciamento de atualizações para computadores e máquinas virtuais Linux que não são Azure, confira [Conectar computadores Linux ao Log Analytics](../log-analytics/log-analytics-agent-linux.md).
+
+## <a name="view-computers-attached-to-your-automation-account"></a>Exibir computadores conectados à sua conta de automação
+Depois de habilitar o gerenciamento de atualizações para suas máquinas, exiba suas informações clicando em **Computadores**. Informações do computador, como *Nome*, *Conformidade*, *Ambiente*, *Tipo de SO*, *Atualizações Críticas e de Segurança*  e *Outras Atualizações* estão disponíveis. 
+
+  ![Guia Exibir computadores](./media/manage-update-multi/update-computers-tab.png)
+
+Talvez os computadores que foram recentemente habilitados para o gerenciamento de atualizações ainda não foram avaliados. O estado de conformidade desses computadores teria um status de *Não avaliado*.  Confira aqui uma lista de valores para o estado de conformidade:
+* Compatível: computadores com todas as atualizações críticas ou de segurança.
+* Não compatível: computadores que não têm pelo menos uma atualização crítica ou de segurança.
+* Não avaliado: os dados da avaliação de atualização não foram recebidos do computador dentro do período de tempo esperado.  Para computadores Linux, nas últimas três horas, e para computadores com Windows, nas últimas 12 horas.  
 
 ## <a name="view-an-update-assessment"></a>Exibir uma avaliação de atualização
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/12/2017
 ms.author: cherylmc
-ms.openlocfilehash: 12d414b9653aa6f07648fff991b6291e5f91be4c
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: 00a9e580a324ded8e979c2a3c58d51319091b628
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-classic-azure-portal"></a>Configurar uma conexão Ponto a Site a uma autenticação de certificado usando VNet (clássico): Portal do Azure
 
@@ -35,8 +35,10 @@ Este artigo mostra como criar uma rede virtual com uma conexão Ponto a Site no 
 
 Um gateway VPN Ponto a Site (P2S) permite que você crie uma conexão segura para sua rede virtual a partir de um computador cliente individual. As conexões VPN Ponto a Site são úteis quando você deseja se conectar à rede virtual de um local remoto, como ao trabalhar de casa ou em uma conferência. Uma VPN P2S também é uma solução útil para usar em vez de uma VPN Site a Site, quando você tiver apenas alguns clientes que precisam se conectar a uma rede virtual. Uma conexão VPN P2S é estabelecida iniciando-a do computador cliente.
 
-O modelo de implantação clássico dá suporte somente a clientes VPN do Windows e usa o protocolo SSTP (Secure Socket Tunneling), um protocolo de VPN baseada em SSL. Para oferecer suporte a clientes VPN não Windows, sua rede virtual deverá ser criada usando o modelo de implantação do Resource Manager. O modelo de implantação do Resource Manager oferece suporte à VPN IKEv2, além de SSTP. Para saber mais, veja [Sobre conexões P2S](point-to-site-about.md).
-
+> [!IMPORTANT]
+> O modelo de implantação clássico dá suporte somente a clientes VPN do Windows e usa o protocolo SSTP (Secure Socket Tunneling), um protocolo de VPN baseada em SSL. Para oferecer suporte a clientes VPN não Windows, sua rede virtual deverá ser criada usando o modelo de implantação do Resource Manager. O modelo de implantação do Resource Manager oferece suporte à VPN IKEv2, além de SSTP. Para saber mais, veja [Sobre conexões P2S](point-to-site-about.md).
+>
+>
 
 ![Diagrama ponto a site](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/point-to-site-connection-diagram.png)
 

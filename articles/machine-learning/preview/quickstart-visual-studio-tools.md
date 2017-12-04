@@ -1,6 +1,6 @@
 ---
-title: "Artigo de início rápido para Ferramentas do Visual Studio Code para o Machine Learning no Azure | Microsoft Docs"
-description: "Este artigo descreve como começar a usar as ferramentas do Visual Studio Code para o Machine Learning, desde a criação de um experimento e o treinamento de um modelo até a operacionalização de um serviço Web."
+title: "Artigo de início rápido para Ferramentas do Visual Studio para o Machine Learning no Azure | Microsoft Docs"
+description: "Este artigo descreve como começar a usar as Ferramentas do Visual Studio para Machine Learning, desde a criação de um experimento e o treinamento de um modelo até a operacionalização de um serviço Web."
 services: machine-learning
 author: ahgyger
 ms.author: ahgyger
@@ -10,72 +10,71 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: get-started-article
-ms.date: 09/12/2017
-ms.openlocfilehash: 400fc384519f2ff5c9bb7d83dab6499f5008a833
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.date: 11/15/2017
+ms.openlocfilehash: 582ec5babf2bac34f20d4e9c7517f78ee2002e0b
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 11/28/2017
 ---
-# <a name="visual-studio-code-tools-for-ai"></a>Ferramentas do Visual Studio Code para IA
-Ferramentas do Visual Studio para IA é uma extensão de desenvolvimento para criar, testar e implantar soluções de IA e de aprendizagem profunda. Ele apresenta uma integração perfeita com o Azure Machine Learning, especialmente uma exibição de histórico de execução, detalhando o desempenho de métricas personalizadas e treinamentos anteriores. Ele oferece uma exibição de gerenciador de amostras, que permite procurar e inicializar um novo projeto com o [Kit de Ferramentas Cognitivas Microsoft (anteriormente conhecido como CNTK)](http://www.microsoft.com/en-us/cognitive-toolkit), [Google TensorFlow](https://www.tensorflow.org) e outras estruturas de aprendizagem profunda. Por fim, ele fornece um gerenciador para destinos de computação, o que habilita você a enviar trabalhos para treinar modelos em ambientes remotos como Máquinas Virtuais do Azure ou servidores Linux com GPU. 
+# <a name="visual-studio-tools-for-ai"></a>Ferramentas do Visual Studio para IA
+Ferramentas do Visual Studio para IA é uma extensão de desenvolvimento para criar, testar e implantar soluções de IA e de aprendizagem profunda. Ele apresenta uma integração perfeita com o Azure Machine Learning, especialmente uma exibição de histórico de execução, detalhando o desempenho de métricas personalizadas e treinamentos anteriores. Ele oferece uma exibição de gerenciador de amostras, que permite procurar e inicializar um novo projeto com o [Kit de Ferramentas Cognitivas Microsoft (anteriormente conhecido como CNTK)](http://www.microsoft.com/en-us/cognitive-toolkit), [Google TensorFlow](https://www.tensorflow.org) e outras estruturas de aprendizagem profunda. Por fim, ele fornece um gerenciador para destinos de computação, o que habilita você a enviar trabalhos para treinar modelos em ambientes remotos como Máquinas Virtuais do Azure ou servidores Linux com GPU. Ele também fornece um acesso facilitado a [IA de Lote do Azure (versão prévia)](https://docs.microsoft.com/en-us/azure/batch-ai/).
  
 ## <a name="getting-started"></a>Introdução 
-Para começar, será necessário baixar e instalar o [Visual Studio Code](https://code.visualstudio.com/Download). Depois que você tiver aberto o Visual Studio Code, siga as etapas a seguir:
-1. Clique no ícone de extensão na barra de atividade. 
-2. Pesquise por "Ferramentas do Visual Studio Code para IA". 
-3. Clique no botão **Instalar**. 
-4. Após a instalação, clique no botão **Recarregar**. 
+Para começar, será necessário baixar e instalar o [Visual Studio](https://www.visualstudio.com/downloads/). Depois que você tiver aberto o Visual Studio, execute as etapas a seguir:
+1. Clique na barra de menus no Visual Studio e selecione "Extensões e Atualizações..."
+2. Clique na guia "Online" e selecione "Pesquisar no Visual Studio Marketplace".
+3. Pesquise por "Visual Studio para IA". 
+3. Clique no botão **Baixar** . 
+4. Após a instalação, reinicie o Visual Studio. 
 
-Depois que o Visual Studio Code for recarregado, a extensão será ativada. [Saiba mais sobre como instalar extensões](https://code.visualstudio.com/docs/editor/extension-gallery).
+Após o recarregamento do Visual Studio, a extensão será ativada. [Saiba mais sobre como localizar extensões](hhttps://docs.microsoft.com/en-us/visualstudio/ide/finding-and-using-visual-studio-extensions).
+
+> [!NOTE]
+> As Ferramentas do Visual Studio para IA precisa do Visual Studio 2015 ou 2017, edição profissional ou corporativa. Não há suporte à versão do OSX da Apple. 
+
 
 ## <a name="exploring-project-samples"></a>Explorando amostras de projeto
-As Ferramentas do Visual Studio Code para IA acompanham um gerenciador de amostras. O gerenciador de amostras torna fácil descobrir amostras e testá-las com apenas alguns cliques. Para abrir o gerenciador, faça o seguinte:   
-1. Abra a paleta de comandos (Exibir > **Paleta de Comandos** ou **Ctrl + Shift + P**).
-2. Insira "Amostra de IA". 
-3. Você obterá uma recomendação para "IA: abrir gerenciador de amostras do Azure ML", selecione-a e pressione enter. 
+As Ferramentas do Visual Studio para IA acompanham um gerenciador de amostras. O gerenciador de amostras torna fácil descobrir amostras e testá-las com apenas alguns cliques. Para abrir o gerenciador, faça o seguinte:   
+1. Na barra de menus, clique em **Ferramentas de IA**.
+2. Clique em "Galeria do Azure Machine Learning".
 
-Como alternativa, você pode clicar no ícone do gerenciador de amostras.
+Uma guia com todos os Exemplos de ML do Azure é aberta.
 
 ## <a name="creating-a-new-project-from-the-sample-explorer"></a>Criar um novo projeto do gerenciador de amostras 
 Você pode procurar diferentes amostras e obter mais informações sobre elas. Procuraremos a amostra "Classificando a Íris" até localizá-la. Para criar um novo projeto com base nessa amostra, faça o seguinte:
-1. Clique no botão instalar na amostra de projeto, observe os comandos que estão sendo solicitados, guiando você pelas etapas de criação de um novo projeto. 
-2. Escolha um nome para o projeto, por exemplo, "Íris".
-3. Escolha um caminho de pasta para criar o projeto e pressione enter. 
-4. Selecione um espaço de trabalho existente e pressione enter.
+1. Clique no botão **Instalar** no exemplo de projeto, isso abrirá uma nova caixa de diálogo. 
+2. Selecione um grupo de recursos, uma conta e um espaço de trabalho.
+3. Deixe o tipo de projeto como Geral.
+4. Insira um caminho de projeto e um nome de projeto e, depois pressione enter. 
+5. Uma caixa de diálogo é aberta solicitando a gravação de uma solução. Clique em Salvar. 
 
-O projeto será criado.
+Uma vez concluído, um novo projeto é aberto em uma nova instância do Visual Studio. 
 
 > [!TIP]
-> Você precisará estar conectado para acessar o recurso do Azure. Do terminal inserido, digite "az login" e siga as instruções. 
+> Você precisa estar conectado para acessar o recurso do Azure. Do terminal inserido, digite "az login" e siga as instruções. 
 
 ## <a name="submitting-experiment-with-the-new-project"></a>Enviando um experimento com o novo projeto
-Se o novo projeto está aberto no Visual Studio Code, podemos enviar um trabalho para o nosso destino de computação diferente (local e VM com o Docker).
-As Ferramentas do Visual Studio Code para IA fornecem várias maneiras de enviar um experimento. 
-1. Menu de contexto (clique com o botão direito do mouse) – **IA: Enviar Trabalho**.
-2. Na paleta de comandos: "IA: Enviar trabalho".
-3. Alternativamente, você pode executar o comando diretamente usando a CLI do Azure, os Comandos do Machine Learning ou o terminal inserido.
+Se o novo projeto estiver aberto no Visual Studio, poderemos enviar um trabalho para um destino de computação (local e VM com Docker).
+Para enviar o trabalho, faça o seguinte: 
+1. No gerenciador de soluções, clique com botão direito no arquivo que você deseja enviar e selecione **Definir como Arquivo de Inicialização**.
+2. Selecione o nome do projeto, clique com o botão direito e selecione **Enviar Trabalho...**
+3. Uma nova caixa de diálogo será aberta, permitindo que você escolha o cluster (ou o destino de computação) para executar o script.
+4. Clique em **Enviar**
 
-Abra iris_sklearn.py, clique com o botão direito do mouse e selecione **IA: Enviar Trabalho**.
-1. Selecione a plataforma "Azure Machine Learning".
-2. Selecione a configuração de execução: "Docker-Python."
-
-> [!NOTE]
-> Se for a primeira vez que você enviar um trabalho, você receberá uma mensagem "Nenhuma configuração de Machine Learning encontrada, criando...". Um arquivo JSON é aberto, salve-o (**Ctrl + S**).
-
-Depois que o trabalho é enviado, o terminal inserido exibe o progresso das execuções. 
+Depois que o trabalho é enviado, o terminal inserido exibe o progresso das execuções.
 
 ## <a name="view-list-of-jobs"></a>Exibir lista de trabalhos
-Depois que os trabalhos forem enviados, você poderá listá-los do histórico de execuções.
-1. Abra a paleta de comandos (Exibir > **Paleta de Comandos** ou **Ctrl + Shift + P**).
-2. Digite "Lista de IA."
-3. Você receberá uma recomendação para "IA: Listar Trabalhos," selecione-a e pressione enter.
+Após o envio do trabalho, você poderá listar os trabalhos no histórico de execuções.
+1. Em **Gerenciador de Servidores**, clique em **Ferramentas de IA**.
+2. Depois, selecione **Azure Machine Learning**
+3. Clique no menu **Trabalhos**.
 
-A exibição Lista de Trabalhos é aberta e mostra todas as execuções e algumas informações relacionadas.
+O Gerenciador de trabalho lista todos os experimentos enviados para esse projeto. 
 
 ## <a name="view-job-details"></a>Exibir detalhes do trabalho
-Com a exibição Lista de Trabalhos ainda aberta, clique na primeira execução na lista.
-Para aprofundar-se nos resultados de um trabalho, clique na **ID do trabalho** na parte superior para ver informações detalhadas. 
+Com a exibição do Explorador de trabalho aberta, clique na primeira execução na lista.
+Isso carregará o painel Resumo do Trabalho e o painel de Logs e Saídas.
 
 ## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"]
