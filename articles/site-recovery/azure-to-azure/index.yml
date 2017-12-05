@@ -1,0 +1,49 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentação do Site Recovery | Recuperação de desastre do Azure para o Azure
+metadata:
+  title: 'Documentação do Azure Site Recovery - Tutoriais, Referência de API | Microsoft Docs'
+  meta.description: Learn how to set up disaster recovery for Azure VMs
+  services: site-recovery
+  author: rayne-wiselman
+  manager: carmonm
+  ms.service: site-recovery
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 11/26/2017
+  ms.author: raynew
+abstract:
+  description: O Azure Site Recovery coordena e gerencia a recuperação de desastre para VMs do Azure. Saiba como fazer a replicação para uma região secundária e executar um failover e um failback com os nossos guias de início rápido e tutoriais.
+sections:
+  - title: Guia de início rápido de 5 minutos
+    items:
+      - type: paragraph
+        text: Configure rapidamente a recuperação de desastre para uma VM do Azure
+      - type: list
+        style: icon48
+        items:
+          - image:
+              src: /azure/site-recovery/azure-to-azure/media/index/portal.svg
+            text: Portal do Azure
+            href: /azure/site-recovery/azure-to-azure-quickstart
+  - title: Tutoriais Passo a Passo
+    items:
+      - type: paragraph
+        text: 'Saiba como configurar a recuperação de desastre, o failover e o failback para VMs do Azure.'
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="azure-to-azure-tutorial-enable-replication">Configurar a recuperação de desastre</a>
+          - html: <a href="azure-to-azure-tutorial-dr-drill">Realizar uma simulação de recuperação de desastre</a>
+          - html: <a href="azure-to-azure-tutorial-failover-failback">Fazer failover e failback</a>
+  - title: Referência
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Linha de comando
+            html: <p><a href="/powershell/module/azurerm.siterecovery/?view=azurermps-4.3.1">PowerShell do Azure</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/site-recovery/">referência da API REST (a página pode estar em inglês)</a></p>

@@ -63,7 +63,7 @@
       href: functions-cli-samples.md
 - name: Conceitos
   items:
-    - name: Comparação dos planos de hospedagem
+    - name: Escala e hospedagem
       href: functions-scale.md
     - name: Gatilhos e associações
       href: functions-triggers-bindings.md
