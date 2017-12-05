@@ -1,0 +1,38 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: Documentação do Azure Site Recovery
+metadata:
+  title: 'Documentação do Azure Site Recovery - tutoriais, referência de API | Microsoft Docs'
+  meta.description: Learn how to migrate to Azure with Azure Site Recovery
+  services: site-recovery
+  author: rayne-wiselman
+  manager: carmonm
+  ms.service: site-recovery
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 11/26/2017
+  ms.author: raynew
+abstract:
+  description: 'Além de coordenar a recuperação de desastres de máquinas locais e VMs do Azure, o Azure Site Recovery coordena e gerencia a migração de máquinas locais para o Azure e a migração de VMs do Azure entre regiões do Azure. Saiba como configurar a migração com nossos tutoriais.'
+sections:
+  - title: Tutoriais passo a passo
+    items:
+      - type: paragraph
+        text: Saiba como migrar VMs locais.
+      - type: list
+        style: ordered
+        items:
+          - html: <a href="tutorial-prepare-azure">Preparar o Azure</a>
+          - html: <a href="tutorial-migrate-on-premises-to-azure">Migrar máquinas locais para o Azure</a>
+          - html: <a href="tutorial-migrate-aws-to-azure">Migrar instâncias do AWS para o Azure</a>
+  - title: Referência
+    items:
+      - type: list
+        style: cards
+        className: cardsD
+        items:
+          - title: Linha de comando
+            html: <p><a href="/powershell/module/azurerm.siterecovery/?view=azurermps-4.3.1">PowerShell do Azure</a></p>
+          - title: REST
+            html: <p><a href="/rest/api/site-recovery/">referência da API REST (a página pode estar em inglês)</a></p>

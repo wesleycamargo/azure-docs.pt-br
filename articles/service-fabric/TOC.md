@@ -6,7 +6,9 @@
 ## [Criar um aplicativo .NET](service-fabric-quickstart-dotnet.md)
 ## [Implantar um aplicativo de contêiner do Linux](service-fabric-quickstart-containers-linux.md)
 ## [Implantar um aplicativo de contêiner do Windows](service-fabric-quickstart-containers.md)
-## [Implantar um aplicativo Java](service-fabric-quickstart-java.md)
+## Guias de início rápido de Java
+### [Implantar um aplicativo Spring Boot](service-fabric-quickstart-java-spring-boot.md)
+### [Implantar um aplicativo de Reliable Services](service-fabric-quickstart-java-reliable-services.md)
 
 # Tutoriais
 ## Implantar um aplicativo .NET
@@ -29,7 +31,9 @@
 #### [1a – Crie um cluster do Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
 #### [1b – Crie um cluster do Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md)
 ### [2 - Dimensionar o cluster](service-fabric-tutorial-scale-cluster.md)
-### [3 - Implantar o Gerenciamento de API com o Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+### [3 - Atualizar o tempo de execução do cluster](service-fabric-tutorial-upgrade-cluster.md)
+### [4 - Implantar o Gerenciamento de API com o Service Fabric](service-fabric-tutorial-deploy-api-management.md)
+
 
 
 # Exemplos

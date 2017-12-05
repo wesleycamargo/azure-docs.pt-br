@@ -70,6 +70,7 @@
 ### [Chamar Runbook de Automação do Azure a partir do alerta do Log Analytics](automation-invoke-runbook-from-omsla-alert.md)
 ### [Implantar um modelo do Azure Resource Manager em um runbook do PowerShell de Automação do Azure](automation-deploy-template-runbook.md)
 ## Soluções
+### [Atualização integrada e controle de alterações](automation-onboard-solutions.md)
 ### [Gerenciamento de atualizações](../operations-management-suite/oms-solution-update-management.md)
 #### [Gerenciar atualizações de várias VMs](manage-update-multi.md)
 #### [Integrar o SCCM com o Gerenciamento de Atualizações do OMS](oms-solution-updatemgmt-sccmintegration.md)

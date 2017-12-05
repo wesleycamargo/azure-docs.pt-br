@@ -22,6 +22,8 @@
       href: monitor-virtual-machine-changes-event-grid-logic-app.md
     - name: Redimensionar imagens carregadas
       href: resize-images-on-storage-blob-upload-event.md
+    - name: Acionar Runbook de Automação
+      href: ensure-tags-exists-on-new-virtual-machines.md
 - name: Conceitos
   items:
     - name: Conceitos da Grade de Eventos

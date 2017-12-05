@@ -31,6 +31,7 @@
 ### [Configurar imagens do Marketplace](devtest-lab-configure-marketplace-images.md)
 ### [Habilitar uma imagem licenciada](devtest-lab-enable-licensed-images.md)
 ### [Para adicionar marcas a um laboratório](devtest-lab-add-tag.md)
+### [Notificação de postagem em um laboratório](devtest-lab-announcements.md)
 
 ## [Selecionar imagem personalizada ou fórmula](devtest-lab-comparing-vm-base-image-types.md)
 

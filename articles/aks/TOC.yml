@@ -7,8 +7,10 @@
 - name: Guia de início rápido
   expanded: true
   items:
-    - name: Criar um cluster AKS
+    - name: Criar um cluster AKS - CLI
       href: kubernetes-walkthrough.md
+    - name: Criar um cluster AKS - Portal
+      href: kubernetes-walkthrough-portal.md
 - name: Tutoriais
   items:
     - name: 1 - Preparar aplicativo para o AKS

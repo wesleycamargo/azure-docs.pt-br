@@ -59,6 +59,8 @@
       href: /powershell/module/azurerm.containerregistry
     - name: Modelo do Resource Manager
       href: /azure/templates/microsoft.containerregistry/registries
+    - name: Esquema de webhook
+      href: container-registry-webhook-reference.md
 - name: Recursos
   items:
     - name: Disponibilidade de região

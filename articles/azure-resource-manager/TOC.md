@@ -67,26 +67,20 @@
 
 ## Solucionar problemas
 ### [Erros de implantação comuns](resource-manager-common-deployment-errors.md)
-### [Compreenda os erros de implantação](resource-manager-troubleshoot-tips.md)
-### Resolver erros
 #### [AccountNameInvalid](resource-manager-storage-account-name-errors.md)
 #### [InvalidTemplate](resource-manager-invalid-template-errors.md)
+#### [Problemas de implantação do Linux](../virtual-machines/linux/troubleshoot-deploy-vm.md)
 #### [NoRegisteredProviderFound](resource-manager-register-provider-errors.md)
 #### [NotFound](resource-manager-not-found-errors.md)
 #### [ParentResourceNotFound](resource-manager-parent-resource-errors.md)
+#### [Problemas de provisionamento e alocação do Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md)
+#### [Problemas de provisionamento e alocação do Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md)
 #### [RequestDisallowedByPolicy](resource-manager-policy-requestdisallowedbypolicy-error.md)
 #### [ReservedResourceName](resource-manager-reserved-resource-name.md)
 #### [ResourceQuotaExceeded](resource-manager-quota-errors.md)
 #### [SkuNotAvailable](resource-manager-sku-not-available-errors.md)
-### Erros de implantação da Máquina Virtual
-#### Linux
-##### [Problemas de implantação](../virtual-machines/linux/troubleshoot-deploy-vm.md)
-##### [Problemas de provisionamento e alocação](../virtual-machines/linux/troubleshoot-deployment-new-vm.md)
-##### [Mensagens de erro comuns](../virtual-machines/linux/error-messages.md)
-#### Windows
-##### [Problemas de implantação](../virtual-machines/windows/troubleshoot-deploy-vm.md)
-##### [Problemas de provisionamento e alocação](../virtual-machines/windows/troubleshoot-deployment-new-vm.md)
-##### [Mensagens de erro comuns](../virtual-machines/windows/error-messages.md)
+#### [Problemas de implantação do Windows](../virtual-machines/windows/troubleshoot-deploy-vm.md)
+### [Compreenda os erros de implantação](resource-manager-troubleshoot-tips.md)
 
 # Referência
 ## [Formato do modelo](/azure/templates/)
