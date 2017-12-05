@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: andredm
-ms.openlocfilehash: 4d98556f17fa834c497c2d1cd1854c9e6b02e021
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: b9f45462fb108ff9cc9039cdb0d0a9ef318fc218
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="azure-stack-1711-update"></a>Atualização de pilha 1711 do Azure
 
@@ -31,7 +31,7 @@ Este artigo descreve as melhorias e correções neste pacote de atualização, p
 
 ## <a name="build-reference"></a>Referência de build
 
-É o número de compilação de atualização do Azure pilha 1711 **20171122.1**.
+É o número de compilação de atualização do Azure pilha 1711 **171201.3**.
 
 ## <a name="before-you-begin"></a>Antes de começar
 
@@ -85,7 +85,7 @@ Esta seção contém os problemas conhecidos que podem ocorrer durante a instala
 
 ### <a name="known-issues-post-installation"></a>Problemas conhecidos (após a instalação)
 
-Esta seção contém os problemas conhecidos de pós-instalação com compilação **20171122.1**.
+Esta seção contém os problemas conhecidos de pós-instalação com compilação **20171201.3**.
 
 #### <a name="portal"></a>Portal
 
