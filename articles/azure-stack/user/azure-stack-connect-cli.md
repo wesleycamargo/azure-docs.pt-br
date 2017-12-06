@@ -12,40 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/11/2017
+ms.date: 12/04/2017
 ms.author: sngun
-ms.openlocfilehash: 60b06cf41ea632219d2f16b29607899bd2e8d789
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 9a0ad3d8c2cdd3cd1d46e789c2b65677ac5a10b1
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="install-and-configure-cli-for-use-with-azure-stack"></a>Instalar e configurar o CLI para uso com a pilha do Azure
 
 Neste artigo, vamos orientá-lo pelo processo de usando a interface de linha de comando do Azure (CLI) para gerenciar recursos do Kit de desenvolvimento de pilha do Azure do Linux e plataformas de cliente Mac. 
-
-## <a name="export-the-azure-stack-ca-root-certificate"></a>Exporte o certificado de raiz da autoridade de certificação de pilha do Azure
-
-Se você estiver usando a CLI de uma máquina virtual que está em execução no ambiente do Kit de desenvolvimento de pilha do Azure, o certificado de raiz de pilha do Azure já está instalado na máquina virtual para que você pode recuperá-lo diretamente. Se você usar CLI de uma estação de trabalho fora do kit de desenvolvimento, você deve exportar o certificado de raiz da autoridade de certificação de pilha do Azure do kit de desenvolvimento e adicioná-lo ao repositório de certificados do Python de sua estação de trabalho de desenvolvimento (externa plataforma Linux ou Mac). 
-
-Para exportar o certificado de raiz de pilha do Azure no formato PEM, entrar no seu kit de desenvolvimento e execute o script a seguir:
-
-```powershell
-   $label = "AzureStackSelfSignedRootCert"
-   Write-Host "Getting certificate from the current user trusted store with subject CN=$label"
-   $root = Get-ChildItem Cert:\CurrentUser\Root | Where-Object Subject -eq "CN=$label" | select -First 1
-   if (-not $root)
-   {
-       Log-Error "Certificate with subject CN=$label not found"
-       return
-   }
-
-   Write-Host "Exporting certificate"
-   Export-Certificate -Type CERT -FilePath root.cer -Cert $root
-
-   Write-Host "Converting certificate to PEM format"
-   certutil -encode root.cer root.pem
-```
 
 ## <a name="install-cli"></a>Instalar a CLI
 
@@ -59,7 +36,7 @@ Você deve ver a versão da CLI do Azure e outras bibliotecas dependentes que es
 
 ## <a name="trust-the-azure-stack-ca-root-certificate"></a>Confiar no certificado de raiz da autoridade de certificação de pilha do Azure
 
-Para confiar no certificado de raiz da autoridade de certificação de pilha do Azure, anexá-la para o certificado existente do Python. Se você estiver executando a CLI de um computador Linux que é criado dentro do ambiente de pilha do Azure, execute o seguinte comando bash:
+Obtenha o certificado de raiz da autoridade de certificação de pilha do Azure do operador pilha do Azure e confiar nele. Para confiar no certificado de raiz da autoridade de certificação de pilha do Azure, anexá-la para o certificado existente do Python. Se você estiver executando a CLI de um computador Linux que é criado dentro do ambiente de pilha do Azure, execute o seguinte comando bash:
 
 ```bash
 sudo cat /var/lib/waagent/Certificates.pem >> ~/lib/azure-cli/lib/python2.7/site-packages/certifi/cacert.pem
@@ -110,11 +87,10 @@ Add-Content "${env:ProgramFiles(x86)}\Microsoft SDKs\Azure\CLI2\Lib\site-package
 Write-Host "Python Cert store was updated for allowing the azure stack CA root certificate"
 ```
 
-## <a name="set-up-the-virtual-machine-aliases-endpoint"></a>Configurar o ponto de extremidade de aliases de máquina virtual
+## <a name="get-the-virtual-machine-aliases-endpoint"></a>Obter o ponto de extremidade de aliases de máquina virtual
 
-Antes dos usuários podem criar máquinas virtuais usando a CLI, o administrador de nuvem deve configurar um ponto de extremidade publicamente acessível que contenha os aliases de imagem de máquina virtual e registre esse ponto de extremidade com a nuvem. O `endpoint-vm-image-alias-doc` parâmetro o `az cloud register` comando é usado para essa finalidade. Os administradores de nuvem devem baixar a imagem do Marketplace do Azure pilha antes de eles adicioná-lo ao ponto de extremidade de aliases de imagem.
+Antes dos usuários podem criar máquinas virtuais usando a CLI, eles devem entrar em contato com o operador de pilha do Azure e obter o ponto de extremidade de aliases de máquina virtual URI. Por exemplo, o Azure usa o seguinte URI: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json. O administrador de nuvem deve configurar um ponto de extremidade semelhante para a pilha do Azure com as imagens que estão disponíveis no mercado de pilha do Azure. Os usuários precisam passar o URI do ponto de extremidade para o `endpoint-vm-image-alias-doc` parâmetro para o `az cloud register` comando conforme mostrado na próxima seção. 
    
-Por exemplo, o Azure usa o seguinte URI: https://raw.githubusercontent.com/Azure/azure-rest-api-specs/master/arm-compute/quickstart-templates/aliases.json. O administrador de nuvem deve configurar um ponto de extremidade semelhante para a pilha do Azure com as imagens que estão disponíveis no mercado de pilha do Azure.
 
 ## <a name="connect-to-azure-stack"></a>Conectar-se ao Azure Stack
 
