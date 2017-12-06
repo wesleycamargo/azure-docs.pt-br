@@ -43,7 +43,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 1. No painel esquerdo, clique em **Novo**.
 
-1. No painel **Novo**, clique em **Computação**.
+1. 1. No painel **Novo**, clique em **Computador**.
 
 1. Clique em **Ver todos os** ao lado do cabeçalho **Em destaque**.
 
