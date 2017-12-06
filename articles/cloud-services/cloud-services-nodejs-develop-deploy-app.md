@@ -1,4 +1,4 @@
-﻿---
+---
 title: "Guia de introdução ao Node.js | Microsoft Docs"
 description: "Saiba como criar um aplicativo Web simples do Node.js e implantá-lo em um serviço de nuvem do Azure."
 services: cloud-services
