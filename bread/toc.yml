@@ -27,9 +27,16 @@
     - name: Serviços de análise
       tocHref: /azure/analysis-services/
       topicHref: /azure/analysis-services/
-    - name: Gerenciamento da API
+    - name: Gerenciamento de API
       tocHref: /azure/api-management/
       topicHref: /azure/api-management/
+      items:
+        - name: Políticas
+          tocHref: /azure/api-management/policies/
+          topicHref: /azure/api-management/policy-samples/
+        - name: Azure PowerShell
+          tocHref: /azure/api-management/scripts/
+          topicHref: /azure/api-management/powershell-samples/
     - name: Serviço de Aplicativo
       tocHref: /azure/app-service/
       topicHref: /azure/app-service/
