@@ -15,11 +15,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: anjangsh; billgib; genemi
-ms.openlocfilehash: ec93bbb477a047a028328964d3e152c1ab4bb58f
-ms.sourcegitcommit: 4ea06f52af0a8799561125497f2c2d28db7818e7
+ms.openlocfilehash: 549b6abf5728e50ee365f40326263d391e4b26fd
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/21/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="cross-tenant-analytics-using-extracted-data"></a>Análise entre locatários usando dados extraídos
 
@@ -73,7 +73,7 @@ Ao entender a consistência com que cada locatário está usando o serviço, voc
 Para concluir este tutorial, certifique-se de atender a todos os seguintes pré-requisitos:
 
 - O aplicativo SaaS de Banco de Dados Multilocatário Wingtip Tickets foi implantado. Para implantá-lo em menos de cinco minutos, confira [Implantar e explorar o aplicativo SaaS de Banco de Dados Multilocatário Wingtip Tickets](saas-multitenantdb-get-started-deploy.md)
-- Os scripts SaaS do Wingtip e o [código-fonte](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB) do aplicativo são baixadas do GitHub. Não se esqueça de *desbloquear o arquivo zip* antes de extrair seu conteúdo.
+- Os scripts SaaS do Wingtip e o [código-fonte](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB) do aplicativo são baixadas do GitHub. Não se esqueça de *desbloquear o arquivo zip* antes de extrair seu conteúdo. Confira as [diretrizes gerais](saas-tenancy-wingtip-app-guidance-tips.md) para obter as etapas para baixar e desbloquear os scripts SaaS do Wingtip Tickets.
 - O Power BI Desktop está instalado. [Baixe o Power BI Desktop](https://powerbi.microsoft.com/downloads/)
 - O lote de locatários adicionais foi provisionado. Confira o [**Tutorial de provisionamento de locatários**](saas-multitenantdb-provision-and-catalog.md).
 - Uma conta de trabalho e o banco de dados de conta de trabalho foram criados. Veja as etapas apropriadas no [**Tutorial de gerenciamento de esquema**](saas-multitenantdb-schema-management.md#create-a-job-account-database-and-new-job-account).
@@ -212,7 +212,7 @@ A plotagem anterior da Contoso Concert Hall mostra que a grande demanda não oco
 
 As percepções de padrões de vendas de tíquetes podem levar o Wingtip Tickets a otimizar seu modelo de negócios. Em vez de recarregar todos os locatários igualmente, talvez Wingtip deva introduzir as camadas de serviço com diferentes níveis de desempenho. Locais maiores que precisam vender mais tíquetes por dia podem receber a oferta de uma camada superior com um SLA (contrato de nível de serviço) superior. Esses locais podem ter seus bancos de dados colocados em pool com limites de recursos maiores por banco de dados. Cada camada de serviço pode ter uma alocação de vendas por hora, com valores adicionais cobrados por exceder a alocação. Locais maiores que têm picos de vendas periódicos pode se beneficiar dos níveis mais altos e Wingtip Tickets podem monetizar seus serviços com mais eficiência.
 
-Enquanto isso, alguns clientes de Wingtip Tickets reclamam que se esforçam para vender tíquetes suficientes para justificar o custo do serviço. Talvez nessas percepções haja uma oportunidade de aumentar as vendas de tíquetes para locais com baixo desempenho. Vendas mais altas aumentariam o valor percebido do serviço. Clique com o botão direito do mouse em fact_Tickets e selecione **Nova medida**. Digite a seguinte expressão para a nova medida chamada **AverageTicketsSold**:
+Enquanto isso, alguns clientes de Wingtip Tickets reclamam que se esforçam para vender tíquetes suficientes para justificar o custo do serviço. Talvez essas informações ofereçam uma oportunidade de aumentar as vendas de tíquetes para locais com baixo desempenho. Vendas mais altas aumentariam o valor percebido do serviço. Clique com o botão direito do mouse em fact_Tickets e selecione **Nova medida**. Digite a seguinte expressão para a nova medida chamada **AverageTicketsSold**:
 
 ```
 AverageTicketsSold = DIVIDE(DIVIDE(COUNTROWS(fact_Tickets),DISTINCT(dim_Venues[VenueCapacity]))*100, COUNTROWS(dim_Events))

@@ -12,15 +12,15 @@ ms.service: functions
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/04/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 910077645b521d4cd303d39f543cf155161a31c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 794ad146ee8cb72370216677913013b6bbcb4b8f
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Criar uma função que se integra aos Aplicativos Lógicos do Azure
 
@@ -33,7 +33,7 @@ Este tutorial mostra como usar o Functions com os Aplicativos Lógicos e os Serv
 Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
-> * Criar uma conta dos Serviços Cognitivos.
+> * Crie um Recurso de API de Serviços Cognitivos.
 > * Crie uma função que categorize o sentimento do tweet.
 > * Crie um aplicativo lógico que se conecte ao Twitter.
 > * Adicione a detecção de sentimento ao aplicativo lógico. 
@@ -47,29 +47,28 @@ Neste tutorial, você aprenderá como:
 + Este tópico usa como ponto de partida os recursos criados em [Criar sua primeira função no portal do Azure](functions-create-first-azure-function.md).  
 Se você ainda não fez isso, conclua estas etapas agora para criar seu aplicativo de função.
 
-## <a name="create-a-cognitive-services-account"></a>Criar uma conta dos Serviços Cognitivos
+## <a name="create-a-cognitive-services-resource"></a>Criar um recurso dos Serviços Cognitivos
 
-Uma conta dos Serviços Cognitivos é necessária para detectar o sentimento dos tweets sendo monitorados.
+As APIs de Serviços Cognitivos estão disponíveis no Azure como recursos individuais. Use a API de Análise de Texto para detectar o sentimento dos tweets que estão sendo monitorados.
 
 1. Entre no [Portal do Azure](https://portal.azure.com/).
 
 2. Clique no botão **Novo** no canto superior esquerdo do Portal do Azure.
 
-3. Clique em **Dados + Análise** > **Serviços Cognitivos**. Em seguida, use as configurações conforme especificadas na tabela, aceite os termos e marque **Fixar no painel**.
+3. Clique em **IA + Análise** > **API de Análise de Texto**. Em seguida, use as configurações conforme especificadas na tabela, aceite os termos e marque **Fixar no painel**.
 
-    ![Página Criar conta cognitiva](media/functions-twitter-email/cog_svcs_account.png)
+    ![Criar página Recurso cognitivo](media/functions-twitter-email/cog_svcs_resource.png)
 
     | Configuração      |  Valor sugerido   | Descrição                                        |
     | --- | --- | --- |
     | **Nome** | MyCognitiveServicesAccnt | Escolha um nome de conta exclusivo. |
-    | **Tipo de API** | API de Análise de Texto | API usada para analisar texto.  |
-    | **Localidade** | Oeste dos EUA | Atualmente, apenas o **Oeste dos EUA** está disponível para análise de texto. |
+    | **Localidade** | Oeste dos EUA | Use o local mais próximo de você. |
     | **Tipo de preços** | F0 | Comece com o nível mais baixo. Caso suas chamadas se esgotem, dimensione para uma camada mais elevada.|
     | **Grupo de recursos** | myResourceGroup | Use o mesmo grupo de recursos para todos os serviços neste tutorial.|
 
-4. Clique em **Criar** para criar a conta. Depois que a conta for criada, clique na nova conta dos Serviços Cognitivos fixada no painel. 
+4. Clique em **Criar** para criar seu recurso. Depois que ela for criado, selecione o novo recurso Serviços Cognitivos fixado no painel. 
 
-5. Na conta, clique em **Chaves**, copie o valor da **Chave 1** e salve-o. Você pode usar essa chave para conectar o aplicativo lógico à conta dos Serviços Cognitivos. 
+5. Na coluna de navegação esquerda, clique em **Chaves** e então copie o valor da **Chave 1** e salve-o. Você pode usar essa chave para conectar o aplicativo lógico à API dos Serviços Cognitivos. 
  
     ![simétricas](media/functions-twitter-email/keys.png)
 
@@ -77,13 +76,26 @@ Uma conta dos Serviços Cognitivos é necessária para detectar o sentimento dos
 
 O Functions fornece uma ótima maneira de descarregar tarefas de processamento em um fluxo de trabalho de aplicativos lógicos. Este tutorial usa uma função HTTP disparada para processar pontuações de sentimento de tweet dos Serviços Cognitivos e retornar um valor de categoria.  
 
-1. Expanda seu aplicativo de funções, clique no botão **+** ao lado de **Functions** e clique no modelo **HTTPTrigger**. Digite `CategorizeSentiment` para a função **Nome** e clique em **Criar**.
+1. Clique no botão **Novo** e selecione **Computação** > **Aplicativo de funções**. Em seguida, use as configurações como especificado na tabela abaixo. Aceite os termos, então selecione **Fixar no painel**.
+
+    ![Criar um Aplicativo de funções do Azure](media/functions-twitter-email/create_fun.png)
+
+    | Configuração      |  Valor sugerido   | Descrição       |
+    | --- | --- | --- |
+    | **Nome** | MyFunctionApp | Escolha um nome de conta exclusivo. |
+    | **Grupo de recursos** | myResourceGroup | Use o mesmo grupo de recursos para todos os serviços neste tutorial.|
+    | **Plano de hospedagem** | Plano de consumo | Isso define suas alocações de custo e de uso.
+    | **Localidade** | Oeste dos EUA | Use o local mais próximo de você. |
+    | **Armazenamento** | Criar Novo | Gera automaticamente uma nova conta de armazenamento.|
+    | **Tipo de preços** | F0 | Comece com o nível mais baixo. Caso suas chamadas se esgotem, dimensione para uma camada mais elevada.|
+
+2. Selecione seu aplicativo de funções no seu painel e expanda sua função, clique no botão **+** próximo a **Funções**, clique em **Webhook + API**,  **CSharp** e então **Criar Esta Função**. Isso criará uma função usando o modelo HTTPTrigger do C#. Seu código aparecerá em uma nova janela como `run.csx`
 
     ![Folha Aplicativos de Funções, Funções +](media/functions-twitter-email/add_fun.png)
 
-2. Substitua o conteúdo do arquivo run.csx pelo código abaixo e clique em **Salvar**:
+3. Substitua o conteúdo do arquivo `run.csx` pelo código abaixo e clique em **Salvar**:
 
-    ```c#
+    ```csharp
     using System.Net;
     
     public static async Task<HttpResponseMessage> Run(HttpRequestMessage req, TraceWriter log)
@@ -110,11 +122,11 @@ O Functions fornece uma ótima maneira de descarregar tarefas de processamento e
     ```
     Esse código de função retorna uma categoria de cor com base na pontuação de sentimento recebida na solicitação. 
 
-3. Para testar a função, clique em **Testar** na extremidade direita para expandir a guia Teste. Digite um valor de `0.2` para o **corpo da solicitação**e clique em **Executar**. Um valor **VERMELHO** é retornado no corpo da resposta. 
+4. Para testar a função, clique em **Testar** na extremidade direita para expandir a guia Teste. Digite um valor de `0.2` para o **corpo da solicitação**e clique em **Executar**. Um valor **VERMELHO** é retornado no corpo da resposta. 
 
     ![Testar a função no portal do Azure](./media/functions-twitter-email/test.png)
 
-Agora você tem uma função que categoriza as pontuações de sentimento. Em seguida, você pode criar um aplicativo lógico que integra sua função às contas dos Serviços Cognitivos e do Twitter. 
+Agora você tem uma função que categoriza as pontuações de sentimento. Em seguida, você pode criar um aplicativo lógico que integra sua função ao Twitter e à API dos Serviços Cognitivos. 
 
 ## <a name="create-a-logic-app"></a>Criar um aplicativo lógico   
 
@@ -124,7 +136,7 @@ Agora você tem uma função que categoriza as pontuações de sentimento. Em se
  
 4. Em seguida, digite um **Nome** como `TweetSentiment`, use as configurações conforme especificadas na tabela, aceite os termos e marque **Fixar no painel**.
 
-    ![Criar o aplicativo lógico no portal do Azure](./media/functions-twitter-email/new_logicApp.png)
+    ![Criar o aplicativo lógico no portal do Azure](./media/functions-twitter-email/new_logic_app.png)
 
     | Configuração      |  Valor sugerido   | Descrição                                        |
     | ----------------- | ------------ | ------------- |
@@ -152,7 +164,7 @@ Primeiro, crie uma conexão para sua conta do Twitter. O aplicativo lógico sond
 
     | Configuração      |  Valor sugerido   | Descrição                                        |
     | ----------------- | ------------ | ------------- |
-    | **Texto da pesquisa** | #Azure | Use uma hashtag que seja popular o suficiente para gerar novos tweets no intervalo escolhido. Quando você usa a camada gratuita e a hashtag é muito popular, é possível consumir as transações rapidamente na conta dos Serviços Cognitivos. |
+    | **Texto da pesquisa** | #Azure | Use uma hashtag que seja popular o suficiente para gerar novos tweets no intervalo escolhido. Quando você usa a camada gratuita e a hashtag é muito popular, é possível consumir rapidamente a cota de transação na API dos Serviços Cognitivos. |
     | **Frequência** | Minuto | A unidade de frequência usada para sondar o Twitter.  |
     | **Intervalo** | 15 | O tempo decorrido entre as solicitações do Twitter, em unidades de frequência. |
 
@@ -170,7 +182,7 @@ Agora, seu aplicativo está conectado ao Twitter. Em seguida, conecte-se à aná
 
     ![Detectar Sentimento](media/functions-twitter-email/detect_sent.png)
 
-3. Digite um nome de conexão como `MyCognitiveServicesConnection`, cole a chave da conta dos Serviços Cognitivos que você salvou e clique em **Criar**.  
+3. Digite um nome de conexão como `MyCognitiveServicesConnection`, cole a chave da API dos Serviços Cognitivos que você salvou e clique em **Criar**.  
 
 4. Clique em **Texto para Analisar** > **Texto do tweet**e clique em **Salvar**.  
 
@@ -202,7 +214,7 @@ A última parte do fluxo de trabalho é disparar um email quando o sentimento fo
 
     ![Adicionar uma condição ao aplicativo lógico.](media/functions-twitter-email/condition.png)
 
-3. Em **SE SIM, NÃO FAÇA NADA**, clique em **Adicionar uma ação**, procure `outlook.com`, clique em **Enviar um email**e entre sua conta do Outlook.com.
+3. Em **SE VERDADEIRO**, clique em **Adicionar uma ação**, procure `outlook.com`, clique em **Enviar um email**e entre sua conta do Outlook.com.
     
     ![Escolha uma ação para a condição.](media/functions-twitter-email/outlook.png)
 
@@ -211,7 +223,7 @@ A última parte do fluxo de trabalho é disparar um email quando o sentimento fo
 
 4. Na ação **Enviar um email**, use as configurações de email conforme especificadas na tabela. 
 
-    ![Configure o email para enviar uma ação de email.](media/functions-twitter-email/sendEmail.png)
+    ![Configure o email para enviar uma ação de email.](media/functions-twitter-email/send_email.png)
 
     | Configuração      |  Valor sugerido   | Descrição  |
     | ----------------- | ------------ | ------------- |
@@ -246,7 +258,7 @@ Agora que o fluxo de trabalho foi concluído, você poderá habilitar o aplicati
         return req.CreateResponse(HttpStatusCode.OK, category);
 
     > [!IMPORTANT]
-    > Depois de concluir este tutorial, você deverá desabilitar o aplicativo lógico. Ao desabilitar o aplicativo, você evita ser cobrado pelas execuções e não consome as transações em sua conta dos Serviços Cognitivos.
+    > Depois de concluir este tutorial, você deverá desabilitar o aplicativo lógico. Ao desabilitar o aplicativo, você evita ser cobrado pelas execuções e não consome as transações em sua API dos Serviços Cognitivos.
 
 Agora você viu como é fácil integrar o Functions a um fluxo de trabalho dos Aplicativos Lógicos.
 
@@ -261,7 +273,7 @@ Para desabilitar o aplicativo lógico, clique em **Visão Geral** e clique em **
 Neste tutorial, você aprendeu como:
 
 > [!div class="checklist"]
-> * Criar uma conta dos Serviços Cognitivos.
+> * Crie um Recurso de API de Serviços Cognitivos.
 > * Crie uma função que categorize o sentimento do tweet.
 > * Crie um aplicativo lógico que se conecte ao Twitter.
 > * Adicione a detecção de sentimento ao aplicativo lógico. 

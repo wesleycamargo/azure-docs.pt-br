@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/10/2017
 ms.author: jeedes
-ms.openlocfilehash: d93667f16f2d72995e4a42e79e9125b8e3f6b07c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 598387b6066612c6c4a4c92cba5ba03e03a55203
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-trello"></a>Tutorial: integração do Azure Active Directory ao Trello
 
@@ -96,6 +96,10 @@ Para configurar e testar o logon único do Azure AD com o Trello, você precisa 
 
 Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e configurará o logon único no aplicativo Trello.
 
+>[!NOTE]
+    >Você deve obter o campo de dados dinâmico **\<empresa\>** do Trello. Se você não tiver o valor do campo de dados dinâmico, contate a [equipe de suporte do Trello](mailto:support@trello.com) e solicite-o para sua empresa.
+    > 
+
 **Para configurar o logon único do Azure AD com o Trello, execute as seguintes etapas:**
 
 1. No Portal do Azure, na página de integração de aplicativos do **Trello**, clique em **Logon único**.
@@ -106,23 +110,21 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
  
     ![Configurar Logon Único](./media/active-directory-saas-trello-tutorial/tutorial_trello_samlbase.png)
 
-3. Na seção **URLs e Domínio do Trello**, se você desejar configurar o aplicativo no **modo iniciado pelo IDP**, siga as etapas abaixo:
+3. Na seção **URLs e Domínio do Trello**, se você quiser configurar o aplicativo no **modo iniciado pelo IDP**, siga as etapas abaixo:
 
     ![Configurar Logon Único](./media/active-directory-saas-trello-tutorial/tutorial_trello_url.png)
 
     Na caixa de texto **URL de resposta**, digite uma URL no seguinte padrão: `https://trello.com/auth/saml/consume/<enterprise>`
 
-4. Na seção **URLs e Domínio do Trello**, se você desejar configurar o aplicativo no **modo iniciado pelo SP**, siga as etapas abaixo:
-    
-    ![Configurar Logon Único](./media/active-directory-saas-trello-tutorial/tutorial_trello_url1.png)
+4. Se desejar configurar o aplicativo no **modo iniciado pelo SP**, realize as seguintes etapas:
+
+  ![Configurar Logon Único](./media/active-directory-saas-trello-tutorial/tutorial_trello_url1.png)
 
     a. Clique em **Mostrar configurações de URL avançadas**.
 
-    b. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://trello.com/auth/saml/consume/<enterprise>`
+    b. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://trello.com/auth/saml/login/<enterprise>`
 
-    >[!NOTE]
-    >Você deve obter o campo de dados dinâmico **\<empresa\>** do Trello. Se você não tiver o valor do campo de dados dinâmico, contate a [equipe de suporte do Trello](mailto:support@trello.com) a fim de obtê-lo para sua empresa.
-    > 
+  c. Na caixa de texto **Identificador**, digite a seguinte URL: `https://trello.com/auth/saml/metadata`
 
 5. O aplicativo Trello espera que as asserções SAML contenham atributos específicos. Configure as atribuições a seguir para o aplicativo. É possível gerenciar os valores desses atributos em **“Atributos de Usuário”** do aplicativo. A captura de tela a seguir mostra um exemplo disso.
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2017
 ms.author: kumud
-ms.openlocfilehash: eac9c3c2b7fde4ac225e17cc3b98ca5ee926c3b3
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 5b0a7d423bc0d8d9f9f7cad56838bd006e944050
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Perguntas frequentes sobre o Gerenciador de Tráfego
 
@@ -277,7 +277,7 @@ O Azure Resource Manager exige que todos os grupos de recursos especifiquem uma 
 
 O status de monitoramento atual de cada ponto de extremidade, bem como o perfil geral, é exibido no portal do Azure. Essas informações também estão disponíveis por meio da [API REST](https://msdn.microsoft.com/library/azure/mt163667.aspx) do Traffic Monitor, dos [cmdlets do PowerShell](https://msdn.microsoft.com/library/mt125941.aspx) e da [CLI do Azure entre plataformas](../cli-install-nodejs.md).
 
-O Azure não fornece informações históricas sobre dados passados referentes à integridade do ponto de extremidade ou à capacidade de emitir alertas sobre alterações na integridade do ponto de extremidade.
+Você também pode usar o Azure Monitor para controlar a integridade de seus pontos de extremidade e ver uma representação visual deles. Para obter mais informações sobre como usar o Azure Monitor, consulte a [Documentação de monitoramento do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
 
 ### <a name="can-i-monitor-https-endpoints"></a>Posso monitorar os pontos de extremidade HTTPS?
 
@@ -288,6 +288,10 @@ O Gerenciador de Tráfego não pode fornecer nenhuma validação de certificado,
 * Certificados no lado do servidor não estão validados
 * Certificados no lado do servidor SNI não estão validados
 * Não há suporte para certificados de cliente
+
+### <a name="i-stopped-an-azure-cloud-service--web-application-endpoint-in-my-traffic-manager-profile-but-i-am-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this"></a>Interrompi um serviço de nuvem do Azure/ponto de extremidade de aplicativo Web no meu perfil do Gerenciador de Tráfego, mas não estou recebendo tráfego algum, mesmo depois o reiniciar. Como posso corrigir isso?
+
+Quando um serviço na nuvem do Azure/um ponto de extremidade de aplicativo Web é interrompido, o Gerenciador de tráfego verifica sua integridade e reinicia as verificações de integridade somente depois de detectar o reinício do ponto de extremidade. Para evitar esse atraso, desabilite e reabilite esse ponto de extremidade no perfil do Gerenciador de Tráfego depois de reiniciar o ponto de extremidade.   
 
 ### <a name="can-i-use-traffic-manager-even-if-my-application-does-not-have-support-for-http-or-https"></a>Posso usar o Gerenciador de Tráfego mesmo se o aplicativo não tiver suporte para HTTP ou HTTPS?
 

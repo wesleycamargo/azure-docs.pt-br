@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/10/2017
 ms.author: a-crradu
-ms.openlocfilehash: bb9b89d087cfb62efe63cf0ff600d7faa58a7b8b
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 213b02205bbe7f767b6aff6a0693bb34b97cb9ec
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 11/30/2017
 ---
-## <a name="intro-on-role-based-access-control"></a>Introdução ao controle de acesso baseado em função do Azure
+# <a name="intro-on-role-based-access-control"></a>Introdução ao controle de acesso baseado em função do Azure
 
 Controle de acesso baseado em função é um recurso apenas do portal do Azure que permite aos proprietários de uma assinatura atribuir funções granulares a outros usuários, que podem gerenciar escopos de recurso específicos no próprio ambiente.
 
@@ -32,11 +32,10 @@ Usar o RBAC no ambiente do Azure requer:
 * Ter uma assinatura autônoma do Azure atribuída ao usuário como o proprietário (função de assinatura)
 * Ter a função de Proprietário da assinatura do Azure
 * Ter acesso ao [portal do Azure](https://portal.azure.com)
-* Os seguintes Provedores de Recursos devem estar registrado para a assinatura de usuário: **Microsoft.Authorization**. Para obter mais informações sobre como registrar os provedores de recursos, consulte [Provedores, regiões, versões de API e esquemas do Resource Manager](/azure-resource-manager/resource-manager-supported-services.md).
-<!---Loc Comment: Link [Resource Manager providers, regions, API versions and schemas] is broken with an error message "404 - Content Not Found---->
+* Os seguintes Provedores de Recursos devem estar registrado para a assinatura de usuário: **Microsoft.Authorization**. Para obter mais informações sobre como registrar os provedores de recursos, consulte [Provedores, regiões, versões de API e esquemas do Resource Manager](../azure-resource-manager/resource-manager-supported-services.md).
 
 > [!NOTE]
-> As assinaturas do Office 365 ou licenças do Active Directory do Azure (por exemplo: Acesso ao Azure Active Directory) provisionadas no portal do O365 não se qualificam para uso do RBAC.
+> As assinaturas do Office 365 ou licenças do Azure Active Directory (por exemplo: Acesso ao Azure Active Directory) provisionadas no portal do O365 não se qualificam para uso do RBAC.
 
 ## <a name="how-can-rbac-be-used"></a>Como o RBAC pode ser usado
 O RBAC pode ser aplicado em três escopos diferentes no Azure. São eles, do escopo mais alto ao mais baixo:
@@ -76,8 +75,7 @@ Depois de selecionar a assinatura, o usuário administrador deve clicar em **Con
 
 ![adicionar novo usuário no recurso IAM de controle de acesso no portal do Azure](./media/role-based-access-control-create-custom-roles-for-internal-external-users/2.png)
 
-A próxima etapa é selecionar a função a ser atribuída e o usuário ao qual a função de RBAC será atribuída. No menu suspenso **Função**, o usuário administrador vê apenas as funções RBAC internas que estão disponíveis no Azure. Para obter explicações mais detalhadas sobre cada função e seus escopos atribuíveis, consulte [Funções internas para o Controle de Acesso Baseado em Função do Azure](/active-directory/role-based-access-built-in-roles.md).
-<!---Loc Comment: Link [Built-in roles for Azure Role-Based Access Control] is broken with an error message "404 - Content Not Found---->
+A próxima etapa é selecionar a função a ser atribuída e o usuário ao qual a função de RBAC será atribuída. No menu suspenso **Função**, o usuário administrador vê apenas as funções RBAC internas que estão disponíveis no Azure. Para obter explicações mais detalhadas sobre cada função e seus escopos atribuíveis, consulte [Funções internas para o Controle de Acesso Baseado em Função do Azure](role-based-access-built-in-roles.md).
 
 Em seguida, o usuário administrador precisa adicionar o endereço de email do usuário externo. O comportamento esperado para o usuário externo é não aparecer no locatário existente. Depois de ser convidado, o usuário externo fica visível em **Assinaturas > Controle de Acesso (IAM)** com todos os usuários atuais que são atribuídos a uma função RBAC no escopo de Assinatura no momento.
 
@@ -123,8 +121,7 @@ Na exibição **Usuários** nos dois portais, os usuários externos podem ser re
 * Tipo de ícone diferente no portal do Azure
 * Ponto de origem diferente no portal clássico
 
-No entanto, conceder acesso de **Proprietário** ou **Colaborador** a um usuário externo no escopo da **Assinatura** não permite acesso ao diretório do usuário administrador, a menos que o **Administrador Global** o permita. Nas propriedades do usuário, o **Tipo de Usuário** que tem dois parâmetros comuns, **Membro** e **Convidado** pode ser identificado. Um membro é um usuário registrado no diretório, enquanto um convidado é um usuário convidado para o diretório de uma fonte externa. Para obter mais informações, consulte [Como os administradores do Azure Active Directory adicionam usuários de colaboração B2B](/active-directory/active-directory-b2b-admin-add-users).
-<!---Loc Comment: Link [How do Azure Active Directory admins add B2B collaboration users] is broken with an error message "404 - Content Not Found--->
+No entanto, conceder acesso de **Proprietário** ou **Colaborador** a um usuário externo no escopo da **Assinatura** não permite acesso ao diretório do usuário administrador, a menos que o **Administrador Global** o permita. Nas propriedades do usuário, o **Tipo de Usuário** que tem dois parâmetros comuns, **Membro** e **Convidado** pode ser identificado. Um membro é um usuário registrado no diretório, enquanto um convidado é um usuário convidado para o diretório de uma fonte externa. Para obter mais informações, consulte [Como os administradores do Azure Active Directory adicionam usuários de colaboração B2B](active-directory-b2b-admin-add-users.md).
 
 > [!NOTE]
 > Certifique-se de que, depois de inserir as credenciais no portal, o usuário externo selecione o diretório correto para entrar. O mesmo usuário pode ter acesso a vários diretórios e pode selecionar qualquer um deles clicando no nome de usuário na parte superior direita no portal do Azure e escolhendo o diretório apropriado na lista suspensa.
@@ -165,7 +162,7 @@ O comportamento normal para esse usuário externo com essa função interna é v
 
 
 
-![visão geral da função de colaborador de máquina virtual no portal do azure](./media/role-based-access-control-create-custom-roles-for-internal-external-users/12.png)
+![visão geral da função de colaborador de máquina virtual no portal do Azure](./media/role-based-access-control-create-custom-roles-for-internal-external-users/12.png)
 
 ## <a name="grant-access-at-a-subscription-level-for-a-user-in-the-same-directory"></a>Conceder acesso no nível da assinatura para um usuário no mesmo diretório
 O fluxo do processo é idêntico a adicionar um usuário externo, tanto da perspectiva do administrador que está concedendo a função RBAC quanto do usuário que está recebendo acesso à função. A diferença aqui é que o usuário convidado não receberá nenhum convite por email, pois todos os escopos de recursos dentro da assinatura estarão disponíveis no painel depois do logon.
@@ -342,7 +339,7 @@ A nova função agora está disponível no portal do Azure e o processo de atrib
 
 ![Captura de tela do portal do Azure da função RBAC personalizada criada usando a CLI 1.0](./media/role-based-access-control-create-custom-roles-for-internal-external-users/26.png)
 
-Do Build de 2017 mais recente em diante, o Azure Cloud Shell está disponível ao público geral. O Azure Cloud Shell é um complemento ao IDE e do Portal do Azure. Com esse serviço, você obtém um shell baseado em navegador que é autenticado e hospedado no Azure e pode ser usado no lugar da CLI instalada em seu computador.
+Do Build de 2017 mais recente em diante, o Azure Cloud Shell está disponível ao público geral. O Azure Cloud Shell é um complemento ao IDE e do portal do Azure. Com esse serviço, você obtém um shell baseado em navegador que é autenticado e hospedado no Azure e pode ser usado no lugar da CLI instalada em seu computador.
 
 
 

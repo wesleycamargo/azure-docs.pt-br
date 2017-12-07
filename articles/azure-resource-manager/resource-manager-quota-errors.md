@@ -11,13 +11,13 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: support-article
-ms.date: 09/13/2017
+ms.date: 11/27/2017
 ms.author: tomfitz
-ms.openlocfilehash: 6a8024a12c4a79e92e37df0a56b6e6bd0cb6a8d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3ed3da2d9730d8c30d8170ddf40fe4895dfa5dec
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>Resolva erros de cota de recursos
 
@@ -93,9 +93,29 @@ Virtual Machines                             0 10000 Count
 
 ### <a name="solution-3"></a>Solução 3
 
-Se precisar aumentar um limite de cota, vá até o portal e abra um problema de suporte para aumentar sua cota para a região na qual você deseja implantar.
+Para solicitar um aumento de cota, vá ao portal e registre um problema de suporte. No problema de suporte, solicite um aumento da sua cota para a região na qual você deseja implantar.
 
 > [!NOTE]
 > Lembre-se de que, para grupos de recursos, a cota é para cada região individual, não para a assinatura inteira. Se você precisar implantar 30 núcleos no Oeste dos EUA, será necessário pedir 30 núcleos do Gerenciador de Recursos no Oeste dos EUA. Se precisar implantar 30 núcleos em qualquer uma das regiões às quais tenha acesso, você deverá solicitar 30 núcleos do Resource Manager em todas as regiões.
 >
 >
+
+1. Selecione **Assinaturas**.
+
+   ![Assinaturas](./media/resource-manager-quota-errors/subscriptions.png)
+
+2. Selecione a assinatura que precisa de uma cota maior.
+
+   ![Escolha a assinatura](./media/resource-manager-quota-errors/select-subscription.png)
+
+3. Selecione **Uso + cotas**
+
+   ![Selecione uso e cotas](./media/resource-manager-quota-errors/select-usage-quotas.png)
+
+4. No canto superior direito, selecione **Solicitar Aumento**.
+
+   ![Solicitar Aumento](./media/resource-manager-quota-errors/request-increase.png)
+
+5. Preencha os formulários para o tipo de cota que você precisa aumentar.
+
+   ![Preencher o formulário](./media/resource-manager-quota-errors/forms.png)

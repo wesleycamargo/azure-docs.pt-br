@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: articles
 ms.date: 11/13/2017
 ms.author: billgib; sstein; AyoOlubeko
-ms.openlocfilehash: db8a079c76f38bbf7b90f8d914ce1bbf192343d7
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: ddad47ccac57ddbb9387709ababbc5be6bad3462
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>Executar consultas de análise ad hoc em vários bancos de dados SQL do Azure
 
@@ -57,7 +57,7 @@ Ao distribuir consultas entre os bancos de dados de locatário, a Consulta Elás
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obter os scripts do aplicativo Wingtip Tickets SaaS Database Per Tenant
 
-Os scripts do aplicativo Wingtip Tickets SaaS Database Per Tenant e o código-fonte do aplicativo estão disponíveis no [repositório WingtipTicketsSaaS-DbPerTenant do github](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/). Siga as etapas de desbloqueio descritas no arquivo leiame.
+Os scripts e o código-fonte do aplicativo SaaS de Banco de Dados Multilocatário Wingtip Tickets estão disponíveis no repositório [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) do GitHub. Confira as [diretrizes gerais](saas-tenancy-wingtip-app-guidance-tips.md) para obter as etapas para baixar e desbloquear os scripts SaaS do Wingtip Tickets.
 
 ## <a name="create-ticket-sales-data"></a>Criar dados de vendas de ingresso
 
@@ -73,7 +73,7 @@ No aplicativo Wingtip Tickets SaaS Database Per Tenant, cada locatário recebe u
 
 Para simular este padrão, um conjunto de exibições 'globais' é adicionado ao banco de dados do locatário que projeta uma ID de locatário em cada uma das tabelas consultadas globalmente. Por exemplo, a exibição *VenueEvents* adiciona uma *VenueId* computada às colunas projetadas da tabela *Eventos*. Da mesma forma, as exibições *VenueTicketPurchases* e *VenueTickets* adicionam uma coluna *VenueId* computada projetada desde as respectivas tabelas. Essas exibiç~eos são usadas pela Consulta Elástica para paralelizar consultas e enviá-las por push para o banco de dados de locatário remoto adequado quando uma coluna *VenueId* estiver presente. Isso reduz significativamente a quantidade de dados retornada, o que resulta em um aumento significativo no desempenho para várias consultas. Essas exibições globais foram pré-criadas em todos os bancos de dados de locatário.
 
-1. Abra o SSMS e [conecte-se ao servidor tenants1 -&lt;USER&gt;](saas-dbpertenant-wingtip-app-guidance-tips.md#explore-database-schema-and-execute-sql-queries-using-ssms).
+1. Abra o SSMS e [conecte-se ao servidor tenants1 -&lt;USER&gt;](saas-tenancy-wingtip-app-guidance-tips.md#explore-database-schema-and-execute-sql-queries-using-ssms).
 2. Expanda **Bancos de Dados**, clique com botão direito do mouse em **contosoconcerthall**e selecione **Nova Consulta**.
 3. Execute as seguintes consultas para explorar a diferença entre as tabelas de único locatário e as exibições globais:
 
@@ -95,7 +95,7 @@ Nessas exibições, a *VenueId* é calculada como um hash do nome local, mas qua
 
 Para examinar a definição da exibição *Locais*:
 
-1. Em **Gerenciador de Objeto**, expanda **contosoconcethall** > **Exibições**:
+1. Em **Pesquisador de Objetos**, expanda **contosoconcerthall** > **Exibições**:
 
    ![Modos de exibição](media/saas-tenancy-adhoc-analytics/views.png)
 
@@ -121,13 +121,13 @@ Este exercício adiciona o esquema (a fonte de dados externa e as definições d
 
 1. Abra o SQL Server Management Studio e conecte-se ao banco de dados Relatórios Ad hoc criado na etapa anterior. O nome do banco de dados é *adhocreporting*.
 2. Abra ...\Módulos de Aprendizado\Operational Analytics\Adhoc Reporting\ *Initialize-AdhocReportingDB.sql* no SSMS.
-3. Examine o script SQL e observe o seguinte:
+3. Examine o script SQL e observe:
 
    A Consulta Elástica usa uma credencial com escopo de banco de dados para acessar cada um dos bancos de dados de locatário. Essa credencial precisa estar disponível em todos os bancos de dados e normalmente deve receber os direitos mínimos necessários para permitir essas consultas ad hoc.
 
     ![criar credencial](media/saas-tenancy-adhoc-analytics/create-credential.png)
 
-   A fonte de dados externa, que é definida para usar o mapa do fragmento locatário no banco de dados de catálogo. Usando isso como fonte de dados externa, as consultas são distribuídas para todos os bancos de dados registrados no catálogo quando a consulta é executada. Como os nomes de servidor são diferentes para cada implantação, esse script de inicialização obtém a localização do banco de dados de catálogo recuperando o servidor atual (@@servername) em que o script é executado.
+   Usando o banco de dados do catálogo como a fonte de dados externa, as consultas são distribuídas para todos os bancos de dados registrados no catálogo quando a consulta é executada. Como os nomes de servidor são diferentes para cada implantação, esse script de inicialização obtém a localização do banco de dados de catálogo recuperando o servidor atual (@@servername) em que o script é executado.
 
     ![Criar fonte de dados externa](media/saas-tenancy-adhoc-analytics/create-external-data-source.png)
 
@@ -151,7 +151,7 @@ Agora que o banco de dados *adhocreporting* está configurado, siga em frente e 
 
 Ao inspecionar o plano de execução, passe o mouse sobre os ícones de plano para obter detalhes. 
 
-É importante observar que configurar **DISTRIBUTION = SHARDED(VenueId)** quando definimos a fonte de dados externa melhora o desempenho em muitos cenários. Como cada *VenueId* mapeia para um banco de dados individual, a filtragem é facilmente feita de forma remota, retornando apenas os dados necessários.
+É importante observar que configurar **DISTRIBUTION = SHARDED(VenueId)**, quando definida a fonte de dados externa, melhora o desempenho em muitos cenários. Como cada *VenueId* mapeia para um banco de dados individual, a filtragem é facilmente feita de forma remota, retornando apenas os dados necessários.
 
 1. Abra ...\\Módulos de Aprendizado\\Análise Operacional\\Relatórios Ad hoc\\*Demo-AdhocReportingQueries.sql* no SSMS.
 2. Verifique se você está conectado ao banco de dados **adhocreporting**.
@@ -160,7 +160,7 @@ Ao inspecionar o plano de execução, passe o mouse sobre os ícones de plano pa
 
    A consulta retorna a lista de locais inteira, ilustrando o quão rápido e fácil é consultar todos os locatários e retornar dados de cada um.
 
-   Inspecione o plano e veja que todo o custo é a consulta remota, pois simplesmente estamos indo até cada banco de dados de locatário e selecionando as informações de local.
+   Inspecione o plano e veja que todo o custo é a consulta remota, porque cada banco de dados do inquilino manipula sua própria consulta e retorna suas informações de local.
 
    ![SELECT * FROM dbo.Venues](media/saas-tenancy-adhoc-analytics/query1-plan.png)
 
@@ -168,13 +168,13 @@ Ao inspecionar o plano de execução, passe o mouse sobre os ícones de plano pa
 
    Essa consulta une dados dos bancos de dados de locatários e da tabela *VenueTypes* local (local, pois é uma tabela do banco de dados *adhocreporting*).
 
-   Inspecione o plano e veja que a maior parte do custo é a consulta remota porque consultamos as informações de local de cada locatário (dbo.Venues) e, em seguida, realizamos uma rápida união com a tabela *VenueTypes* local para exibir o nome amigável.
+   Inspecionar o plano e veja que a maior parte do custo é a consulta remota. Cada banco de dados de locatário retorna suas informações de local e executa uma junção local com a tabela *VenueTypes* para exibir o nome amigável.
 
    ![Unir dados remotos e locais](media/saas-tenancy-adhoc-analytics/query2-plan.png)
 
 6. Agora selecione a consulta *On which day were the most tickets sold? (Em que dia a maioria dos ingressos foi vendida?)* e pressione **F5**.
 
-   Essa consulta faz uma união e uma agregação um pouco mais complexas. O que é importante observar é que a maioria do processamento é feita remotamente e novamente, trazemos de volta apenas as linhas que precisamos, retornando apenas uma única linha para a contagem de venda de ingressos agregada por dia de cada local.
+   Essa consulta faz uma união e uma agregação um pouco mais complexas. O que é importante observar é que a maioria do processamento é feita remotamente e novamente, retorna apenas as linhas necessárias, uma única linha para a contagem de venda de ingressos agregada por dia de cada local.
 
    ![query](media/saas-tenancy-adhoc-analytics/query3-plan.png)
 

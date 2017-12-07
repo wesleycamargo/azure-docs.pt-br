@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: sstein
-ms.openlocfilehash: 9b1ae219eb1278b818e3e1d4237d04fe54c980ec
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: f91ddff81e51e7cc3d1561dc799013764530924b
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="deploy-and-explore-a-multi-tenant-saas-application-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>Implantar e explorar um aplicativo SaaS multilocatário que usa o padrão por locatário do banco de dados com o Banco de Dados SQL do Azure
 
@@ -173,11 +173,11 @@ Agora que você começou a executar uma carga na coleção de locatários, vamos
 
 Se o gerador de carga estiver sendo executado por vários minutos, dados suficientes deverão estar disponíveis para começar a examinar alguns dos recursos de monitoramento incorporados em pools e bancos de dados.
 
-1. Navegue até **tenants1-dpt-&lt;USER&gt;** do servidor e clique em **Pool1** para exibir a utilização de recursos para o pool (o gerador de carga foi executado por uma hora nos gráficos a seguir):
+Navegue até **tenants1-dpt-&lt;USER&gt;** do servidor e clique em **Pool1** para exibir a utilização de recursos para o pool (o gerador de carga foi executado por uma hora nos gráficos a seguir):
 
    ![monitorar pool](./media/saas-dbpertenant-get-started-deploy/monitor-pool.png)
 
-O gráfico superior mostra a utilização de pools e de eDTU, enquanto o gráfico inferior mostra a utilização de eDTU dos cinco principais bancos de dados no pool.  O que esses dois gráficos bem ilustram, é como os pools elásticos e o Banco de Dados SQL são bem adequados para cargas de trabalho de aplicativos SaaS. Quatro bancos de dados que estão, cada um, atingindo picos de até 40 eDTUs tem suporte facilmente em um pool de 50 eDTU. Se eles foram provisionados como bancos de dados independentes, cada um deles precisa ser um S2 (50 DTU) para dar suporte a intermitências. O custo de 4 bancos de dados independentes S2 seria de quase 3 vezes o preço do pool e o pool ainda teria bastante espaço para muitos bancos de dados mais. Em situações reais, os clientes do Banco de dados SQL estão executando atualmente até 500 bancos de dados em 200 pools de eDTU. Para obter mais informações, consulte o [tutorial de monitoramento de desempenho](saas-dbpertenant-performance-monitoring.md).
+O primeiro gráfico mostra a utilização do eDTU do pool, e o segundo gráfico mostra a utilização do eDTU dos cinco principais bancos de dados no pool.  O que esses dois gráficos bem ilustram, é como os pools elásticos e o Banco de Dados SQL são bem adequados para cargas de trabalho de aplicativos SaaS. Quatro bancos de dados que estão, cada um, atingindo picos de até 40 eDTUs tem suporte facilmente em um pool de 50 eDTU. Se eles foram provisionados como bancos de dados independentes, cada um deles precisa ser um S2 (50 DTU) para dar suporte a intermitências. O custo de 4 bancos de dados independentes S2 seria de quase 3 vezes o preço do pool e o pool ainda teria bastante espaço para muitos bancos de dados mais. Em situações reais, os clientes do Banco de dados SQL estão executando atualmente até 500 bancos de dados em 200 pools de eDTU. Para obter mais informações, consulte o [tutorial de monitoramento de desempenho](saas-dbpertenant-performance-monitoring.md).
 
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -193,7 +193,7 @@ Neste tutorial, você aprendeu:
 > * Como exibir a utilização do pool para monitorar a atividade do locatário
 > * Como excluir recursos de exemplo para interromper a cobrança relacionada
 
-Agora, experimente o [Tutorial para provisionar e catalogar](saas-dbpertenant-provision-and-catalog.md).
+Agora, tente fazer o [Tutorial para provisionar e catalogar](saas-dbpertenant-provision-and-catalog.md).
 
 
 

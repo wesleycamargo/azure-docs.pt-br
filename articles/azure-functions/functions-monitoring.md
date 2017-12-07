@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: 355cb2cef52b5dfecddae228d0cc24a069d3b695
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 33d4a193cc3152bfab1f03dde32ad4f1bcb0afe1
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="monitor-azure-functions"></a>Monitorar Azure Functions
 
@@ -50,7 +50,7 @@ Habilitar o Application Insights na página **Criar** do Aplicativo Functions:
 
 ### <a name="existing-function-app"></a>Aplicativo de funções existente
 
-Obter uma chave de instrumentação e salvá-la em um aplicativo de funções:
+Obter a chave de instrumentação e salvá-la em um aplicativo de funções:
 
 1. Criar a instância do Application Insights. Definir o tipo de aplicativo como **Geral**.
 
@@ -60,7 +60,7 @@ Obter uma chave de instrumentação e salvá-la em um aplicativo de funções:
 
    ![Copie a chave de instrução do Application Insights](media/functions-monitoring/copy-ai-key.png)
 
-1. Na página de **configurações do Aplicativo** do aplicativo de funções, [adicione uma configuração de aplicativo](functions-how-to-use-azure-function-app-settings.md#settings) chamado APPINSIGHTS_INSTRUMENTATIONKEY e cole a chave de instrumentação.
+1. Na página **Configuração de aplicativo** do aplicativo de função, [adicione uma configuração de aplicativo](functions-how-to-use-azure-function-app-settings.md#settings) clicando em **Adicionar nova configuração**. Nomeie a nova configuração APPINSIGHTS_INSTRUMENTATIONKEY e cole a chave de instrumentação copiada.
 
    ![Adicione a chave de instrumentação às configurações do aplicativo](media/functions-monitoring/add-ai-key.png)
 
@@ -68,7 +68,7 @@ Obter uma chave de instrumentação e salvá-la em um aplicativo de funções:
 
 ## <a name="view-telemetry-data"></a>Exibir dados de telemetria
 
-Para navegar ao Application Insights de um aplicativo de funções no portal, selecione o link **Application Insights** na página **Visão geral** do aplicativo de funções.
+Para navegar à instância conectada do Application Insights de um aplicativo de funções no portal, selecione o link **Application Insights** na página **Visão geral** do aplicativo de funções.
 
 Para obter informações sobre como usar o Application Insights, consulte a [documentação do o Application Insights](https://docs.microsoft.com/azure/application-insights/). Esta seção mostra alguns exemplos de como exibir dados no Application Insights. Se você já estiver familiarizado com o Application Insights, poderá ir diretamente para [as seções sobre como configurar e personalizar os dados de telemetria](#configure-categories-and-log-levels).
 
@@ -84,7 +84,7 @@ Na guia [Desempenho](../application-insights/app-insights-performance-counters.m
 
 ![Desempenho](media/functions-monitoring/performance.png)
 
-A guia **Servidores** mostra a utilização de recursos e a taxa de transferência por servidor. Esses dados podem ser úteis para cenários de depuração em que as funções estão travando seus recursos subjacentes. Servidores são chamados de *Instâncias de função de nuvem*. 
+A guia **Servidores** mostra a utilização de recursos e a taxa de transferência por servidor. Esses dados podem ser úteis para cenários de depuração em que as funções estão travando seus recursos subjacentes. Servidores são chamados de **Instâncias de função de nuvem**.
 
 ![Servidores](media/functions-monitoring/servers.png)
 
@@ -94,7 +94,7 @@ A guia [Live Metrics Stream](../application-insights/app-insights-live-stream.md
 
 ## <a name="query-telemetry-data"></a>Dados de telemetria da consulta
 
-A [Análise do Application Insights](../application-insights/app-insights-analytics.md) oferece acesso a todos os dados de telemetria na forma de tabelas em um banco de dados. A Análise fornece uma linguagem de consulta para extrair e manipular os dados.
+A [Análise do Application Insights](../application-insights/app-insights-analytics.md) oferece acesso a todos os dados de telemetria na forma de tabelas em um banco de dados. A Análise fornece uma linguagem de consulta para extrair, manipular e visualizar os dados.
 
 ![Selecionar análise](media/functions-monitoring/select-analytics.png)
 
@@ -131,7 +131,7 @@ O tempo de execução fornece `customDimensions.LogLevel` e `customDimensions.Ca
 
 ## <a name="configure-categories-and-log-levels"></a>Configurar categorias e níveis de log
 
-Você pode usar o Application Insights sem qualquer configuração personalizada, mas a configuração padrão pode resultar em altos volumes de dados. Se você estiver usando uma assinatura do Azure do Visual Studio, poderá atingido o limite de dados para o Application Insights. O restante deste artigo mostra como configurar e personalizar os dados que suas funções enviam ao Application Insights.
+Você pode usar o Application Insights sem qualquer configuração personalizada, mas a configuração padrão pode resultar em altos volumes de dados. Se você estiver usando uma assinatura do Azure do Visual Studio, poderá ter atingido o limite de dados para o Application Insights. O restante deste artigo mostra como configurar e personalizar os dados que suas funções enviam ao Application Insights.
 
 ### <a name="categories"></a>Categorias
 
@@ -178,7 +178,7 @@ O arquivo *host.json* configura quanto registro em log um aplicativo de função
 
 Este exemplo configura as seguintes regras:
 
-1. Para logs com a categoria "Host.Results" ou "Função", envie apenas o nível `Error` e acima ao Application Insights. Os logs para o nível `Information` e abaixo são ignorados.
+1. Para logs com a categoria "Host.Results" ou "Função", envie apenas o nível `Error` e acima ao Application Insights. Os logs para o nível `Warning` e abaixo são ignorados.
 2. Para logs com a categoria de Host. Agregador, envie somente o nível `Information` e acima ao Application Insights. Os logs para o nível `Debug` e abaixo são ignorados.
 3. Para todos os outros logs, envie somente o nível `Information` e acima ao Application Insights.
 
@@ -217,7 +217,7 @@ Todos esses logs são gravados no nível de `Information`, portanto, se você fi
 
 Esses logs fornecem contagens e médias de chamadas de função sobre um período [configurável](#configure-the-aggregator). O período padrão é de 30 segundos ou 1.000 resultados, o que ocorrer primeiro. 
 
-Os logs aparecem como "customMetrics" no Application Insights. Exemplos são número de execuções, taxa de sucesso e duração.
+Os logs estão disponíveis na tabela **customMetrics** no Application Insights. Exemplos são número de execuções, taxa de sucesso e duração.
 
 ![consulta de customMetrics](media/functions-monitoring/custom-metrics-query.png)
 
@@ -225,7 +225,7 @@ Todos esses logs são gravados no nível de `Information`, portanto, se você fi
 
 ### <a name="other-categories"></a>Outras categorias
 
-Todos os logs para categorias diferentes daquelas já listadas aparecem como "rastreamentos" no Application Insights.
+Todos os logs para categorias diferentes daquelas já listadas estão disponíveis na tabela **traces** no Application Insights.
 
 ![consulta de rastreamentos](media/functions-monitoring/analytics-traces.png)
 
@@ -291,7 +291,7 @@ Se você mantiver a mesma cadeia de caracteres de mensagem e inverter a ordem do
 
 Os espaços reservados são tratados dessa forma para que você possa fazer registro em log estruturado. O Application Insights armazena os pares de nome-valor do parâmetro além de cadeia de caracteres de mensagem. O resultado é que os argumentos da mensagem tornam-se campos que você pode consultar.
 
-Por exemplo, se sua chamada do método do agente for semelhante ao exemplo anterior, você poderá consultar o campo `customDimensions.prop__rowKey`. O prefixo é adicionado para garantir que não haja colisões entre campos que o tempo de execução adiciona e que o código de função adiciona.
+Por exemplo, se sua chamada do método do agente for semelhante ao exemplo anterior, você poderá consultar o campo `customDimensions.prop__rowKey`. O prefixo `prop__` é adicionado para garantir que não haja colisões entre campos que o tempo de execução adiciona e que o código de função adiciona.
 
 Você também pode consultar a cadeia de caracteres da mensagem original referenciando o campo `customDimensions.prop__{OriginalFormat}`.  
 
@@ -454,7 +454,7 @@ O parâmetro `tagOverrides` define `operation_Id` para a ID de invocação de fu
 
 ### <a name="dependencies"></a>Dependências
 
-Dependências não são exibidas automaticamente, mas você pode escrever código personalizado para mostrar as dependências. O código de exemplo da [seção de telemetria personalizada C#](#custom-telemetry-in-c-functions) mostra como. O código de exemplo resulta em um *mapa de aplicativo* no Application Insights que tem esta aparência:
+As dependências que a função tem de outros serviços não são exibidas automaticamente, mas você pode escrever o código personalizado para mostrar as dependências. O código de exemplo da [seção de telemetria personalizada C#](#custom-telemetry-in-c-functions) mostra como. O código de exemplo resulta em um *mapa de aplicativo* no Application Insights que tem esta aparência:
 
 ![Mapa do aplicativo](media/functions-monitoring/app-map.png)
 
@@ -473,12 +473,12 @@ Selecione a guia **Monitor** para uma função e obtenha uma lista de execuçõe
 
 ### <a name="real-time-monitoring"></a>Monitoramento em tempo real
 
-Monitoramento em tempo real está disponível clicando em **transmissão de evento ao vivo** na guia **Monitor** da função. A transmissão de evento ao vivo é exibida em um gráfico em uma nova guia no navegador
+Monitoramento em tempo real está disponível clicando em **transmissão de evento ao vivo** na guia **Monitor** da função. A transmissão de evento ao vivo é exibida em um grafo em uma nova guia no navegador.
 
 > [!NOTE]
 > Há um problema conhecido que pode causar falha na população dos dados. Talvez seja preciso fechar a guia do navegador que contém a transmissão de evento ao vivo e clicar em **transmissão de evento ao vivo** novamente para permitir que os dados da transmissão do evento sejam preenchidos corretamente. 
 
-Essas estatísticas são em tempo real, mas o gráfico real dos dados de execução pode ter aproximadamente 10 segundos de latência.
+Essas estatísticas são em tempo real, mas o grafo real dos dados de execução pode ter aproximadamente 10 segundos de latência.
 
 ### <a name="monitor-log-files-from-a-command-line"></a>Monitorar arquivos de log de uma linha de comando
 

@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 11/28/2017
 ms.author: kirillg
-ms.openlocfilehash: 86b43b312bf7ce52ab75855424cc5db473245159
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 16cdd2780ae090a5388b3d2e6e4ab52a24f8116a
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="how-to-manage-an-azure-cosmos-db-account"></a>Como gerenciar uma conta do Azure Cosmos DB
 Saiba como definir a consistência global, trabalhar com chaves e excluir uma conta do Azure Cosmos DB no portal do Azure.
@@ -33,10 +33,10 @@ A seleção do nível certo de consistência depende da semântica do aplicativo
 3. Na página **Consistência Padrão**, selecione o novo nível de consistência e clique em **Salvar**.
     ![Sessão de consistência padrão][5]
 
-## <a id="keys"></a>Exibir, copiar e regenerar chaves de acesso
-Quando você cria uma conta do Azure Cosmos DB, o serviço gera duas chaves de acesso mestras que podem ser usadas para autenticação quando a conta do Azure Cosmos DB é acessada. Ao fornecer duas chaves de acesso, o Azure Cosmos DB permite regenerar as chaves sem nenhuma interrupção na conta do Azure Cosmos DB. 
+## <a id="keys"></a>Exibir, copiar e regenerar chaves de acesso e senhas
+Quando você cria uma conta do Azure Cosmos DB, o serviço gera duas chaves de acesso mestras (ou duas senhas para contas da API MongoDB) que podem ser usadas para autenticação quando a conta do Azure Cosmos DB é acessada. Ao fornecer duas chaves de acesso, o Azure Cosmos DB permite regenerar as chaves sem nenhuma interrupção na conta do Azure Cosmos DB. 
 
-No [portal do Azure](https://portal.azure.com/), acesse a página **Chaves** no menu de recursos da página **Conta do Azure Cosmos DB** para exibir, copiar e regenerar as chaves de acesso que são usadas para acessar sua conta do Azure Cosmos DB.
+No [portal do Azure](https://portal.azure.com/), acesse a página **Chaves** no menu de recursos da página **Conta do Azure Cosmos DB** para exibir, copiar e regenerar as chaves de acesso que são usadas para acessar sua conta do Azure Cosmos DB. Para as contas da API do MongoDB, acesse a página **cadeia de caracteres de conexão** no menu de recursos para exibir, copiar e regenerar as senhas que são usadas para acessar sua conta.
 
 ![Captura de tela do Portal do Azure, página Chaves](./media/manage-account/keys.png)
 
@@ -47,25 +47,25 @@ No [portal do Azure](https://portal.azure.com/), acesse a página **Chaves** no 
 
 Chaves somente de leitura também estão disponíveis nessa página. Leituras e consultas são operações somente leitura, ao contrário de criações, exclusões e substituições.
 
-### <a name="copy-an-access-key-in-the-azure-portal"></a>Copiar uma chave de acesso no portal do Azure
-Na página **Chaves**, clique no botão **Copiar** à direita da chave que você quer copiar.
+### <a name="copy-an-access-key-or-password-in-the-azure-portal"></a>Copiar uma senha ou chave de acesso no portal do Azure
+Na página **Chaves** (ou a página **Cadeia de caracteres de conexão** para as contas da API do MongoDB), clique no botão **Cópia** à direita da chave ou senha que você deseja copiar.
 
 ![Exibir e copiar uma chave de acesso no Portal do Azure, página Chaves](./media/manage-account/copykeys.png)
 
-### <a name="regenerate-access-keys"></a>Regenerar chaves de acesso
-Você deve alterar as chaves de acesso de sua conta do Azure Cosmos DB periodicamente para ajudar a manter as conexões mais seguras. Duas chaves de acesso são atribuídas para permitir que você mantenha conexões com a conta do Azure Cosmos DB usando uma chave de acesso enquanto regenera a outra.
+### <a name="regenerate-access-keys-and-passwords"></a>Regenerar senhas e chaves de acesso
+Você deve alterar as chaves de acesso (e senhas para contas da API MongoDB) de sua conta do Azure Cosmos DB periodicamente para ajudar a manter as conexões mais seguras. Duas chaves de acesso/senhas são atribuídas para permitir que você mantenha conexões com a conta do Azure Cosmos DB usando uma chave de acesso enquanto regenera a outra.
 
 > [!WARNING]
 > A regeneração de suas chaves de acesso afeta quaisquer aplicativos que são dependentes da chave atual. Todos os clientes que usam a chave de acesso para acessar a conta do Azure Cosmos DB devem ser informados para usarem a nova chave.
 > 
 > 
 
-Se você tiver aplicativos ou serviços de nuvem que usam a conta do Azure Cosmos DB, perderá as conexões se regenerar as chaves, a menos que você as reverta. As etapas a seguir descrevem o processo envolvido ao reverter suas chaves.
+Se você tiver aplicativos ou serviços de nuvem que usam a conta do Azure Cosmos DB, perderá as conexões se regenerar as chaves, a menos que você as reverta. As etapas a seguir descrevem o processo envolvido ao reverter suas chaves/senhas.
 
 1. Atualize a chave de acesso no código do aplicativo para referenciar a chave de acesso secundária da conta do Azure Cosmos DB.
 2. Regenere a chave de acesso primária de sua conta do Azure Cosmos DB. No [portal do Azure](https://portal.azure.com/), acesse sua conta do Azure Cosmos DB.
-3. Na página **Conta do Azure Cosmos DB**, clique em **Chaves**.
-4. Na página **Chaves**, clique no botão Regenerar e clique em **Ok** para confirmar que você quer gerar uma nova chave.
+3. Na página **Conta do Microsoft Azure Cosmos DB**, clique em **Chaves** (ou **Cadeia de caracteres de conexão** para contas MongoDB**).
+4. Na página **Chaves**/**Cadeia de conexão**, clique no botão Regenerar e clique em **OK** para confirmar que você quer gerar uma nova chave.
     ![Regenerar chaves de acesso](./media/manage-account/regenerate-keys.png)
 5. Uma vez que você verificou que a nova chave está disponível para uso(aproximadamente cinco minutos após a regeneração), atualize a chave de acesso em seu código do aplicativo para fazer referência à nova chave de acesso principal.
 6. Regenere a chave de acesso secundária.
@@ -77,11 +77,11 @@ Se você tiver aplicativos ou serviços de nuvem que usam a conta do Azure Cosmo
 > 
 > 
 
-## <a name="get-the--connection-string"></a>Obtenha a cadeia de conexão
+## <a name="get-the-connection-string"></a>Obtenha a cadeia de conexão
 Para recuperar sua cadeia de conexão, faça o seguinte: 
 
 1. No [portal do Azure](https://portal.azure.com), acesse sua conta do Azure Cosmos DB.
-2. No menu de recursos, clique em **Chaves**.
+2. No menu recursos, clique em **Chaves** (ou **Cadeia de caracteres de conexão** para contas da API MongoDB).
 3. Clique no botão **Copiar** ao lado da caixa **Cadeia de conexão primária** ou **Cadeia de conexão secundária** caixa. 
 
 Se você estiver usando a cadeia de conexão na [Ferramenta de Migração de Banco de Dados do Azure Cosmos DB](import-data.md), acrescente o nome do banco de dados ao final da cadeia de conexão. `AccountEndpoint=< >;AccountKey=< >;Database=< >`.

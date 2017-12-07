@@ -3,7 +3,7 @@ title: Como instalar o servidor de destino mestre do Linux para o failover do Az
 description: "Antes de proteger novamente uma máquina virtual Linux, você precisa de um servidor de destino mestre do Linux. Saiba como instalar um."
 services: site-recovery
 documentationcenter: 
-author: ruturaj
+author: rajani-janaki-ram
 manager: gauravd
 editor: 
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 08/11/2017
-ms.author: ruturajd
-ms.openlocfilehash: 5341e3e56e0c366079958dd9a885f6ee3e8436cb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/22/2017
+ms.author: rajanaki
+ms.openlocfilehash: 7b2416617696e1df30b08f039ab39bfe7b57e093
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="install-a-linux-master-target-server"></a>Instalar o servidor de destino mestre do Linux
 Após o failover de suas máquinas virtuais, você poderá executar failback das máquinas virtuais para o site local. Para realizar failback, você precisa proteger novamente a máquina virtual do Azure para o site local. Para este processo, é necessário um servidor de destino mestre para receber o tráfego. 
@@ -206,7 +206,7 @@ Para habilitar esse parâmetro, use as seguintes etapas:
 
 #### <a name="disable-kernel-upgrades"></a>Desabilitar atualizações de kernel
 
-O servidor de destino mestre do Azure Site Recovery requer uma versão muito específica do Ubuntu, verifique se as atualizações de kernel estão desabilitadas para a máquina virtual.
+O servidor de destino mestre do Azure Site Recovery requer uma versão específica do Ubuntu, verifique se as atualizações de kernel estão desabilitadas para a máquina virtual.
 
 Se as atualizações de kernel estiverem habilitadas, todas as atualizações regulares farão com que o servidor de destino mestre não funcione corretamente.
 
@@ -369,12 +369,12 @@ Após a conclusão da instalação, registre o servidor de configuração por me
     /usr/local/ASR/Vx/bin/UnifiedAgentConfigurator.sh -i 104.40.75.37 -P passphrase.txt
     ```
 
-   Aguarde até que o script seja concluído. Se o destino mestre for registrado com êxito, ele será listado na página Infraestrutura do **Site Recovery** do portal.
+   Aguarde até que o script seja concluído. Se o destino mestre for registrado com êxito, ele será listado na página **Infraestrutura do Site Recovery** do portal.
 
 
 ### <a name="upgrade-the-master-target"></a>Atualizar o destino mestre
 
-Execute o instalador. Ele detecta automaticamente que o agente está instalado no destino mestre. Para atualizar, selecione **Y**.  Quando a instalação for concluída, verifique a versão de destino mestre instalada usando o comando a seguir.
+Execute o instalador. Ele detecta automaticamente que o agente está instalado no destino mestre. Para atualizar, selecione **Y**.  Quando a instalação for concluída, verifique a versão de destino mestre instalada usando o comando a seguir:
 
     ```
     cat /usr/local/.vx_version

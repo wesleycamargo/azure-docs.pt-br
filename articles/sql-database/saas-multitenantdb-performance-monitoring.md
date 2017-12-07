@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: sstein
-ms.openlocfilehash: 6c73cf2e96503f47dd4234387222169cb30b4cce
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 3e97f0635a856256dd08c29d33d8058be9c8d8b4
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="monitor-and-manage-performance-of-sharded-multi-tenant-azure-sql-database-in-a-multi-tenant-saas-app"></a>Monitorar e gerenciar o desempenho do banco de dados SQL do Azure multilocatário fragmentado em um aplicativo SaaS multilocatário
 
@@ -59,7 +59,7 @@ Para cenários de alto volume em que você está trabalhando com muitos recursos
 
 ## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Obter o código-fonte e os scripts do aplicativo de banco de dados multilocatário SaaS Wingtip Tickets
 
-Os scripts e o código-fonte do aplicativo SaaS de Banco de Dados Multilocatário Wingtip Tickets estão disponíveis no repositório [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) do GitHub. <!--Steps to download the Wingtip Tickets SaaS Multi-tenant Database scripts(saas-multitenantdb-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-saas-scripts)-->
+Os scripts e o código-fonte do aplicativo SaaS de Banco de Dados Multilocatário Wingtip Tickets estão disponíveis no repositório [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) do GitHub. Confira as [diretrizes gerais](saas-tenancy-wingtip-app-guidance-tips.md) para obter as etapas para baixar e desbloquear os scripts SaaS do Wingtip Tickets.
 
 ## <a name="provision-additional-tenants"></a>Provisionar locatários adicionais
 

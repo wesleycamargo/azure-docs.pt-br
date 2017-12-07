@@ -14,13 +14,13 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/03/2017
+ms.date: 11/29/2017
 ms.author: daleche
-ms.openlocfilehash: dda284b45e2e8a35a7228d77afef0ad058c8ea42
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 1db0dee597ffe60c587e7bacd00640a308d04e99
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="troubleshoot-diagnose-and-prevent-sql-connection-errors-and-transient-errors-for-sql-database"></a>Solucionar problemas, diagnosticar e evitar erros de conexão SQL e erros transitórios para o Banco de Dados SQL
 Este artigo descreve como impedir, solucionar, diagnosticar e reduzir erros de conexão e erros transitórios que seu aplicativo cliente encontra quando interage com o Banco de Dados SQL do Azure. Saiba como configurar a lógica de repetição, construir a cadeia de conexão e ajustar outras configurações de conexão.
@@ -40,16 +40,17 @@ Você tentará fazer a conexão SQL outra vez ou estabelecê-la novamente, depen
 * **Um erro transitório ocorre durante uma tentativa de conexão**: a conexão deve ser repetida após um atraso de alguns segundos.
 * **Um erro transitório ocorre durante um comando de consulta SQL**: o comando não deve ser repetido imediatamente. Em vez disso, após um atraso, uma nova conexão deverá ser estabelecida. Em seguida, o comando poderá ser repetido.
 
+
 <a id="j-retry-logic-transient-faults" name="j-retry-logic-transient-faults"></a>
 
-### <a name="retry-logic-for-transient-errors"></a>Lógica de repetição para erros transitórios
+## <a name="retry-logic-for-transient-errors"></a>Lógica de repetição para erros transitórios
 Os programas cliente que ocasionalmente encontram um erro transitório são mais eficientes quando contêm lógica de repetição.
 
 Quando seu programa se comunicar com o Banco de Dados SQL do Azure por meio de um middleware de terceiros, consulte o fornecedor para saber se o middleware contém lógica de repetição para erros transitórios.
 
 <a id="principles-for-retry" name="principles-for-retry"></a>
 
-#### <a name="principles-for-retry"></a>Princípios de repetição
+### <a name="principles-for-retry"></a>Princípios de repetição
 * Uma tentativa de abrir uma conexão deverá ser repetida caso o erro seja transitório.
 * Uma instrução SQL SELECT que falhe com um erro transitório não deverá ser repetida diretamente.
   
@@ -58,30 +59,31 @@ Quando seu programa se comunicar com o Banco de Dados SQL do Azure por meio de u
   
   * A lógica de repetição deve garantir que a transação de banco de dados foi concluída ou que a transição inteira foi revertida.
 
-#### <a name="other-considerations-for-retry"></a>Outras considerações sobre tentativas de repetição
+### <a name="other-considerations-for-retry"></a>Outras considerações sobre tentativas de repetição
 * Um arquivo em lotes iniciado automaticamente depois do horário comercial e que será concluído antes da manhã poderá se dar ao luxo de ser muito paciente com os longos intervalos entre as tentativas de repetição.
 * Um programa de interface do usuário deve levar em consideração a tendência humana de desistir após uma longa espera.
   
   * No entanto, a solução não deve ser tentar novamente em alguns segundos, porque essa política pode inundar o sistema com solicitações.
 
-#### <a name="interval-increase-between-retries"></a>Aumento do intervalo entre tentativas de repetição
+### <a name="interval-increase-between-retries"></a>Aumento do intervalo entre tentativas de repetição
 É recomendável que você aguarde 5 segundos antes de sua primeira tentativa. Tentar novamente após um atraso inferior a 5 segundos poderá sobrecarregar o serviço de nuvem. Para cada tentativa subsequente, o atraso deverá aumentar exponencialmente, até um máximo de 60 segundos.
 
 Uma discussão sobre o *período de bloqueio* para clientes que usam o ADO.NET está disponível em [Pool de conexão do SQL Server (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx).
 
 Você também poderá definir um número máximo de tentativas antes que o programa seja automaticamente encerrado.
 
-#### <a name="code-samples-with-retry-logic"></a>Exemplos de código com lógica de repetição
-Os exemplos de código com lógica de repetição, em uma variedade de linguagens de programação, estão disponíveis em:
+### <a name="code-samples-with-retry-logic"></a>Exemplos de código com lógica de repetição
+Há exemplos de código com lógica de repetição disponíveis em:
 
-* [Bibliotecas de conexão para Banco de Dados SQL e SQL Server](sql-database-libraries.md)
+- [Conectar-se de forma resiliente ao SQL com ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
+- [Conectar-se de forma resiliente ao SQL com PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
 
 <a id="k-test-retry-logic" name="k-test-retry-logic"></a>
 
-#### <a name="test-your-retry-logic"></a>Testar sua lógica de repetição
+### <a name="test-your-retry-logic"></a>Testar sua lógica de repetição
 Para testar sua lógica de repetição, você deverá simular ou causar um erro que possa ser corrigido enquanto o programa ainda estiver em execução.
 
-##### <a name="test-by-disconnecting-from-the-network"></a>Testar por meio da desconexão da rede
+#### <a name="test-by-disconnecting-from-the-network"></a>Testar por meio da desconexão da rede
 Uma forma de testar sua lógica de repetição é desconectar seu computador cliente da rede enquanto o programa está em execução. O erro será:
 
 * **SqlException.Number** = 11001
@@ -98,7 +100,7 @@ Para que isso seja prático, desconecte seu computador da rede antes de iniciar 
    * Pause a execução usando o método **Console.ReadLine** ou uma caixa de diálogo com um botão OK. O usuário pressiona a tecla Enter depois que o computador é conectado à rede.
 5. Tente se conectar novamente, esperando êxito.
 
-##### <a name="test-by-misspelling-the-database-name-when-connecting"></a>Testar errando o nome do banco de dados ao se conectar
+#### <a name="test-by-misspelling-the-database-name-when-connecting"></a>Testar errando o nome do banco de dados ao se conectar
 Seu programa pode errar intencionalmente o nome de usuário antes da primeira tentativa de conexão. O erro será:
 
 * **SqlException.Number** = 18456
@@ -114,15 +116,15 @@ Para que isso seja prático, seu programa poderá reconhecer um parâmetro de te
 4. Remova 'WRONG_' do nome de usuário.
 5. Tente se conectar novamente, esperando êxito.
 
+
 <a id="net-sqlconnection-parameters-for-connection-retry" name="net-sqlconnection-parameters-for-connection-retry"></a>
 
-### <a name="net-sqlconnection-parameters-for-connection-retry"></a>Parâmetros SqlConnection .NET para repetição de conexão
+## <a name="net-sqlconnection-parameters-for-connection-retry"></a>Parâmetros SqlConnection .NET para repetição de conexão
 Se o programa cliente se conectar ao Banco de Dados SQL do Azure usando a classe **System.Data.SqlClient.SqlConnection** do .NET Framework, você deverá usar o .NET 4.6.1 ou posterior (ou o .NET Core) para poder aproveitar o recurso de repetição de conexão. Os detalhes do recurso estão [aqui](http://go.microsoft.com/fwlink/?linkid=393996).
 
 <!--
 2015-11-30, FwLink 393996 points to dn632678.aspx, which links to a downloadable .docx related to SqlClient and SQL Server 2014.
 -->
-
 
 Quando você cria a [cadeia de conexão](http://msdn.microsoft.com/library/System.Data.SqlClient.SqlConnection.connectionstring.aspx) para o seu objeto **SqlConnection** , deve coordenar os valores entre os seguintes parâmetros:
 
@@ -138,7 +140,7 @@ Por exemplo, se a contagem for igual a 3 e o intervalo igual a 10 segundos, um t
 
 <a id="connection-versus-command" name="connection-versus-command"></a>
 
-### <a name="connection-versus-command"></a>Conexão versus comando
+## <a name="connection-versus-command"></a>Conexão versus comando
 Os parâmetros **ConnectRetryCount** e **ConnectRetryInterval** permitem que seu objeto **SqlConnection** repita a operação de conexão sem informar ou incomodar o programa como, por exemplo, ao devolver o controle ao programa. As tentativas podem ocorrer nas seguintes situações:
 
 * Chamada ao método mySqlConnection.Open
@@ -146,8 +148,9 @@ Os parâmetros **ConnectRetryCount** e **ConnectRetryInterval** permitem que seu
 
 Mas há uma sutileza aqui. Se ocorrer um erro transitório durante a execução da sua *consulta* , o objeto **SqlConnection** não tentará repetir a operação de conexão e certamente não repetirá a consulta. No entanto, **SqlConnection** verifica rapidamente a conexão antes de enviar a consulta para execução. Se a verificação rápida detectar um problema de conexão, **SqlConnection** repetirá a operação de conexão. Se a tentativa for bem-sucedida, sua consulta será enviada para execução.
 
-#### <a name="should-connectretrycount-be-combined-with-application-retry-logic"></a>ConnectRetryCount deve ser combinada à lógica de repetição de aplicativo?
+### <a name="should-connectretrycount-be-combined-with-application-retry-logic"></a>ConnectRetryCount deve ser combinada à lógica de repetição de aplicativo?
 Suponha que seu aplicativo tenha lógica de repetição personalizada robusta. Ele pode repetir a operação de conexão quatro vezes. Se você adicionar **ConnectRetryInterval** e **ConnectRetryCount** = 3 à cadeia de conexão, aumentará a contagem de repetição para 4 * 3 = 12 repetições. Talvez você não queira um número tão alto de repetições.
+
 
 <a id="a-connection-connection-string" name="a-connection-connection-string"></a>
 
@@ -373,9 +376,7 @@ Para obter detalhes, consulte: [5 - Tão fácil como evitar um log: usando o blo
 ### <a name="entlib60-istransient-method-source-code"></a>O EntLib60 é o código-fonte do método IsTransient
 Em seguida, na classe **SqlDatabaseTransientErrorDetectionStrategy**, está o código-fonte C# do método **IsTransient**. O código-fonte explica quais erros são considerados transitórios e dignos de repetição, até abril de 2013.
 
-Diversas linhas de **//comentário** foram removidas desta cópia para enfatizar a legibilidade.
-
-```
+```csharp
 public bool IsTransient(Exception ex)
 {
   if (ex != null)
@@ -444,6 +445,14 @@ public bool IsTransient(Exception ex)
 
 ## <a name="next-steps"></a>Próximas etapas
 * Para solucionar outros problemas comuns de conexão de Banco de Dados SQL, visite [Solucionar problemas de conexão no Banco de Dados SQL do Azure](sql-database-troubleshoot-common-connection-issues.md).
-* [Pool de conexões do SQL Server (ADO.NET)](http://msdn.microsoft.com/library/8xx3tyca.aspx)
+* [Bibliotecas de conexão para Banco de Dados SQL e SQL Server](sql-database-libraries.md)
+* [Pool de conexões do SQL Server (ADO.NET)](https://docs.microsoft.com/dotnet/framework/data/adonet/sql-server-connection-pooling)
 * [*Retrying* é uma biblioteca de novas tentativas para fins gerais licenciada do Apache 2.0, escrita em **Python**, para simplificar a tarefa de adicionar comportamento de nova tentativa a quase tudo.](https://pypi.python.org/pypi/retrying)
+
+
+<!-- Link references. -->
+
+[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-to-sql-with-ado-net
+
+[step-4-connect-resiliently-to-sql-with-php-p42h]: https://docs.microsoft.com/sql/connect/php/step-4-connect-resiliently-to-sql-with-php
 

@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 9b8475dcc51fb24fadd1faa4a2008b25a4464080
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: e061e599f365bf3d343cb59b8dc6a61e06627517
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="deploy-azure-machine-learning-as-an-iot-edge-module---preview"></a>Implantar o Azure Machine Learning como um módulo do IoT Edge – versão prévia
 
@@ -49,7 +49,7 @@ Para criar o contêiner do Azure ML, siga as instruções do [Kit de ferramentas
 1. Clique em **Salvar**.
 1. De volta à etapa **Adicionar Módulos**, clique em **Avançar**.
 1. Atualize as rotas para o módulo:
-1. Na etapa **Especificar Rotas**, copie o JSON abaixo na caixa de texto. Os módulos publicam todas as mensagens no tempo de execução do Edge. As regras declarativas no tempo de execução definem o local em que as mensagens fluem. Neste tutorial, você precisa de duas rotas. A primeira rota transporta as mensagens do sensor de temperatura para o módulo de aprendizado de máquina por meio do ponto de extremidade “mlInput”, que é o ponto de extremidade usado por todos os módulos do Azure Machine Learning. A segunda rota transporta as mensagens do módulo de aprendizado de máquina para o Hub IoT. Nesta rota, “mlOutput” é o ponto de extremidade usado por todos os módulos do Azure Machine Learning para gerar dados e “upstream” é um destino especial que faz com que o Hub do Edge envie mensagens ao Hub IoT. 
+1. Na etapa **Especificar Rotas**, copie o JSON abaixo na caixa de texto. Os módulos publicam todas as mensagens no tempo de execução do Edge. As regras declarativas no tempo de execução definem o local para onde as mensagens fluem. Neste tutorial, você precisa de duas rotas. A primeira rota transporta as mensagens do sensor de temperatura para o módulo de aprendizado de máquina por meio do ponto de extremidade “amlInput”, que é o ponto de extremidade usado por todos os módulos do Azure Machine Learning. A segunda rota transporta as mensagens do módulo de aprendizado de máquina para o Hub IoT. Nesta rota, ''amlOutput'' é o ponto de extremidade usado por todos os módulos do Azure Machine Learning para gerar dados e ''$upstream'' é um destino especial que faz com que o Hub do Edge envie mensagens ao Hub IoT. 
 
     ```json
     {

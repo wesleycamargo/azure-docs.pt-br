@@ -12,17 +12,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 11/21/2017
 ms.author: bradsev;BuckWoody
-ms.openlocfilehash: e043de0aa4ed861139f50291a98c3300574e6078
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 2ab36da70e2c08b770973f4c4d33eddfdebed9e1
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="team-data-science-process-for-developer-operations"></a>Processo de ciência de dados de equipe para operações de desenvolvedor
 
-Este artigo explora as funções de DevOps (operações de desenvolvedor) que são específicas de uma implementação de solução de Análise Avançada e de Serviços Cognitivos. Ele referencia tópicos que abordam as noções básicas sobre o processo e a plataforma de ciência de dados, os processos de DevOps e a cadeia de ferramentas de DevOps específica para soluções e projetos de ciência de dados e de IA.
+Este artigo explora as funções de DevOps (operações de desenvolvedor) que são específicas de uma implementação de solução de Análise Avançada e de Serviços Cognitivos. Esses materiais de treinamento estão relacionados ao Processo de ciência de Dados de Equipe (TDSP) e a kits de ferramentas e a softwares livres ou da Microsoft, que são úteis para prever, executar e fornecer soluções de ciência de dados. Ele faz referência a tópicos que abordam a DevOps Toolchain específica a projetos e soluções de Ciência de Dados e AI.
 
 ## <a name="lesson-path"></a>Caminho da lição
 A tabela a seguir fornece orientação em níveis especificados para ajudar a concluir os objetivos de DevOps necessários para implementar soluções de ciência de dados com as tecnologias do Azure.

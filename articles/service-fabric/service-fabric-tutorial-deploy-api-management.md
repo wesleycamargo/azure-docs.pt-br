@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/10/2017
 ms.author: ryanwi
-ms.openlocfilehash: 97bcf312621ec0fed28e26179d4c4aa101a8a92d
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: b3bf91a7ae5ed70456352ecdba9c0324f20f3555
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="deploy-api-management-with-service-fabric"></a>Implantar o Gerenciamento de API com o Service Fabric
 Este tutorial é a parte três de uma série.  A implantação do Gerenciamento de API do Azure com o Service Fabric é um cenário avançado.  O Gerenciamento de API é útil quando você precisa publicar APIs com um conjunto avançado de regras de roteamento para os serviços do Service Fabric de back-end. Os aplicativos em nuvem geralmente precisam de um gateway front-end para fornecer um ponto de entrada único para usuários, dispositivos ou outros aplicativos. No Service Fabric, um gateway pode ser qualquer serviço sem estado projetado para entrada de tráfego, como um aplicativo APP.NET Core, Hubs de Eventos, Hub IoT ou Gerenciamento de API do Azure. 
@@ -326,7 +326,7 @@ ResourceGroupName="sfclustertutorialgroup"
 az group delete --name $ResourceGroupName
 ```
 
-## <a name="conclusion"></a>Conclusão
+## <a name="next-steps"></a>Próximas etapas
 Neste tutorial, você aprendeu como:
 
 > [!div class="checklist"]
@@ -335,6 +335,10 @@ Neste tutorial, você aprendeu como:
 > * Criar uma operação de API
 > * Configure uma política de back-end
 > * Adicionar a API a um produto
+
+Em seguida, avance para o próximo tutorial para saber como fazer o upgrade do tempo de execução do cluster.
+> [!div class="nextstepaction"]
+> [Fazer upgrade do tempo de execução de um cluster do Service Fabric](service-fabric-tutorial-upgrade-cluster.md)
 
 [azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
 

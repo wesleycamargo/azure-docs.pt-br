@@ -14,13 +14,13 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/02/2017
+ms.date: 11/27/2017
 ms.author: larryfr
-ms.openlocfilehash: d972def582ff8fee74c2eae59f4756eb1dcd0a70
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: d777d467b3f0d4ef6101dffa551ec5c85feb209c
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Desenvolver topologias C# para Apache Storm usando ferramentas do Data Lake para Visual Studio
 
@@ -42,6 +42,9 @@ Para usar uma topologia do C# com um cluster baseado em Linux, você deverá atu
 
 > [!IMPORTANT]
 > As topologias C# em clusters baseados em Linux devem usar o .NET 4.5 e o Mono para execução no cluster HDInsight. Verificar [compatibilidade Mono](http://www.mono-project.com/docs/about-mono/compatibility/) para possíveis incompatibilidades.
+
+> [!WARNING]
+> Se você encontrar problemas ao compilar projetos que usam o SCP.NET versão 1.0.0.x, entre em contato com o suporte da Microsoft para obter assistência.
 
 ## <a name="install-visual-studio"></a>Instalar Visual Studio
 
@@ -343,7 +346,7 @@ Para uma topologia de exemplo que usa esse componente e funciona com Storm no HD
 
 ### <a name="define-the-topology"></a>Definir a topologia
 
-Spouts e bolts são organizados em um gráfico, que define como os dados fluem entre componentes. Para essa topologia, o gráfico é o seguinte:
+Spouts e bolts são organizados em um grafo, que define como os dados fluem entre componentes. Para essa topologia, o grafo é o seguinte:
 
 ![Diagrama de como os componentes são organizados](./media/apache-storm-develop-csharp-visual-studio-topology/wordcount-topology.png)
 

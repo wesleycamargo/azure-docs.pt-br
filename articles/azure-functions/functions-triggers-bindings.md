@@ -1,5 +1,5 @@
 ---
-title: "Trabalhar com gatilhos e associações no Azure Functions | Microsoft Docs"
+title: "Trabalhar com gatilhos e associações no Azure Functions"
 description: "Saiba como usar gatilhos e associações no Azure Functions para conectar a execução de seu código a eventos online e a serviços baseados em nuvem."
 services: functions
 documentationcenter: na
@@ -8,26 +8,25 @@ manager: cfowler
 editor: 
 tags: 
 keywords: "azure functions, functions, processamento de eventos, webhooks, computação dinâmica, arquitetura sem servidor"
-ms.assetid: cbc7460a-4d8a-423f-a63e-1cd33fef7252
 ms.service: functions
 ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/30/2017
+ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 7d22a6749216486de6132a6d39e2dcf683d0e678
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: e3413c9e1055ca9198dae4a467bcf47372ad4ecb
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Conceitos de gatilhos e de associações do Azure Functions
 O Azure Functions permite escrever código em resposta a eventos no Azure e outros serviços, por meio de *gatilhos* e *associações*. Este artigo é uma visão geral conceitual dos gatilhos e associações para todas as linguagens de programação com suporte. Recursos que são comuns a todas as associações são descritos aqui.
 
 ## <a name="overview"></a>Visão geral
 
-Gatilhos e associações são uma forma declarativa de definir como uma função é invocada e com que dados ela trabalha. Um *gatilho* define como uma função é invocada. Uma função deve ter exatamente um gatilho. Gatilhos têm dados associados, que geralmente é o conteúdo que disparou a função. 
+Gatilhos e associações são uma forma declarativa de definir como uma função é invocada e com que dados ela trabalha. Um *gatilho* define como uma função é invocada. Uma função deve ter exatamente um gatilho. Gatilhos têm dados associados, que geralmente é o conteúdo que disparou a função.
 
 *Associações* de entrada e saída fornecem uma maneira declarativa de se conectar aos dados de dentro do seu código. Semelhante aos gatilhos, as cadeias de conexão e outras propriedades são especificadas na configuração da função. Associações são opcionais e uma função pode ter várias associações de entrada e saída. 
 
@@ -35,11 +34,13 @@ Usando gatilhos e associações, você pode escrever código que é mais genéri
 
 Você pode configurar os gatilhos e associações na guia **Integrar** no Portal do Azure Functions. Nos bastidores, a interface do usuário modifica um arquivo chamado *function.json* arquivo no diretório da função. Você pode editar esse arquivo mudando para o **Editor avançado**.
 
-A tabela a seguir mostra os gatilhos e as associações com suporte no Azure Functions. 
+## <a name="supported-bindings"></a>Associações com suporte
 
 [!INCLUDE [Full bindings table](../../includes/functions-bindings.md)]
 
-### <a name="example-queue-trigger-and-table-output-binding"></a>Exemplo: gatilho de fila e associação de saída de tabela
+Para obter informações sobre quais associações estão na visualização ou são aprovadas para o uso de produção, consulte [Idiomas com suporte](supported-languages.md).
+
+## <a name="example-queue-trigger-and-table-output-binding"></a>Exemplo: gatilho de fila e associação de saída de tabela
 
 Suponha que você deseja gravar uma nova linha no Armazenamento de Tabelas do Azure sempre que uma nova mensagem aparece no Armazenamento de Filas do Azure. Esse cenário pode ser implementado usando um gatilho da Fila do Azure e uma associação de saída do Armazenamento de Tabelas do Azure. 
 
@@ -126,9 +127,9 @@ Para exibir e editar o conteúdo de *function.json* no Portal do Azure, clique n
 
 Para ver exemplos de código e detalhes sobre a integração com o Armazenamento do Azure, consulte [Gatilhos e associações do Azure Functions para o Armazenamento do Azure](functions-bindings-storage.md).
 
-### <a name="binding-direction"></a>Direção de associação
+## <a name="binding-direction"></a>Direção de associação
 
-Todos os disparadores e associações têm uma propriedade `direction`:
+Todos os disparadores e associações têm uma propriedade `direction` no arquivo *function.json*:
 
 - Para gatilhos, a direção sempre é `in`
 - Associações de entrada e saída usam `in` e `out`
@@ -243,7 +244,7 @@ Por exemplo, um gatilho da Fila do Armazenamento do Azure dá suporte às seguin
 
 Detalhes de propriedades de metadados para cada gatilho são descritos no tópico de referência correspondente. A documentação também está disponível na guia **Integrar** do portal, na seção **Documentação** abaixo da área de configuração de associação.  
 
-Por exemplo, como gatilhos de blobs apresentam alguns atrasos, você pode usar um gatilho de fila para executar sua função (consulte [Gatilho do Armazenamento de Blobs](functions-bindings-storage-blob.md#blob-storage-trigger)). A mensagem da fila conteria o nome do arquivo a ser disparado no blob. Usando a propriedade de metadados `queueTrigger`, é possível especificar esse comportamento completo na sua configuração, em vez do código.
+Por exemplo, como gatilhos de blobs apresentam alguns atrasos, você pode usar um gatilho de fila para executar sua função (consulte [Gatilho do Armazenamento de Blobs](functions-bindings-storage-blob.md#trigger)). A mensagem da fila conteria o nome do arquivo a ser disparado no blob. Usando a propriedade de metadados `queueTrigger`, é possível especificar esse comportamento completo na sua configuração, em vez do código.
 
 ```json
   "bindings": [

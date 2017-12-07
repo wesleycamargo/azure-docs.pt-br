@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/08/2017
 ms.author: sethm
-ms.openlocfilehash: d566b74429bf158e0c9cc51419ba35c9e6c32f64
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: f13c7330c9e828abe6557149b9a31c7170e33dcd
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Filas do Armazenamento e filas do Barramento de Serviço — comparações e contrastes
 Este artigo analisa as diferenças e semelhanças entre os dois tipos de fila oferecidos pelo Microsoft Azure atualmente: filas do Armazenamento e filas do Barramento de Serviço. Usando essas informações, é possível comparar e contrastar as respectivas tecnologias e tomar uma decisão mais informada sobre qual solução atende melhor às suas necessidades.
@@ -30,12 +30,12 @@ As **filas do Armazenamento**, que fazem parte da infraestrutura do [armazenamen
 
 **As filas do Barramento de Serviço** fazem parte de uma infraestrutura mais ampla do [sistema de mensagens do Azure](https://azure.microsoft.com/services/service-bus/), que dá suporte ao enfileiramento, bem como a publicação/assinatura e outros padrões de integração avançados. Para obter mais informações sobre filas, tópicos/assinaturas do Barramento de Serviço, confira o artigo sobre a [visão geral do Barramento de Serviço](service-bus-messaging-overview.md).
 
-Embora ambas as tecnologias de enfileiramento coexistam, as filas do Armazenamento foram introduzidas primeiro, como um mecanismo de armazenamento de filas dedicado criado com base nos serviços de armazenamento do Azure Storage. As filas do Barramento de Serviço são criadas com base na infraestrutura mais ampla do “sistema de mensagens”, desenvolvida para integrar aplicativos ou componentes de aplicativo que podem incluir vários protocolos de comunicação, contratos de dados, domínios confiáveis e/ou ambientes de rede.
+Embora ambas as tecnologias de enfileiramento coexistam, as filas do Armazenamento foram introduzidas primeiro, como um mecanismo de armazenamento de filas dedicado criado com base nos serviços de armazenamento do Azure Storage. As filas do Barramento de Serviço são criadas com base na infraestrutura mais ampla do sistema de mensagens, desenvolvida para integrar aplicativos ou componentes de aplicativo que podem incluir vários protocolos de comunicação, contratos de dados, domínios confiáveis e/ou ambientes de rede.
 
 ## <a name="technology-selection-considerations"></a>Considerações de seleção da tecnologia
 As filas do Armazenamento e do Barramento de Serviço são implementações do serviço de enfileiramento de mensagens atualmente oferecido pelo Microsoft Azure. Cada uma tem um conjunto de recursos ligeiramente diferente, o que significa que você pode escolher uma ou outra, ou usar ambas, dependendo das necessidades da sua solução específica ou do problema comercial/técnico que está resolvendo.
 
-Ao determinar qual tecnologia de enfileiramento é adequada ao propósito de uma determinada solução, os desenvolvedores e arquitetos de soluções devem considerar as recomendações abaixo. Para obter mais detalhes, consulte a próxima seção.
+Ao determinar qual tecnologia de enfileiramento é adequada ao propósito de uma determinada solução, os desenvolvedores e arquitetos de soluções devem considerar essas recomendações. Para obter mais detalhes, consulte a próxima seção.
 
 Como arquiteto/desenvolvedor de soluções, **você deve considerar o uso das filas do Armazenamento** quando:
 
@@ -75,8 +75,8 @@ Esta seção compara alguns dos recursos básicos de enfileiramento fornecidos p
 | API de estilo push |**Não** |**Sim**<br/><br/>[OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage#Microsoft_ServiceBus_Messaging_QueueClient_OnMessage_System_Action_Microsoft_ServiceBus_Messaging_BrokeredMessage__) e sessões **OnMessage** API .NET. |
 | Modo de recebimento |**Inspecionar e Conceder** |**Inspecionar e bloquear**<br/><br/>**Receber e excluir** |
 | Modo de acesso exclusivo |**Com base em concessão** |**Com base em bloqueio** |
-| Duração da concessão/do bloqueio |**30 segundos (padrão)**<br/><br/>**7 dias (máximo)** (Você pode renovar ou liberar uma concessão de mensagem usando a API [UpdateMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage.aspx).) |**60 segundos (padrão)**<br/><br/>Você pode renovar um bloqueio de mensagem usando a API [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock). |
-| Precisão da concessão/do bloqueio |**Nível da mensagem**<br/><br/>(cada mensagem pode ter um valor de tempo limite diferente, que pode ser atualizado conforme a necessidade durante o processamento da mensagem, usando a API [UpdateMessage](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage.aspx)) |**Nível da fila**<br/><br/>(cada fila tem uma precisão de bloqueio aplicada a todas as suas mensagens, mas você pode renovar o bloqueio usando a API [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock).) |
+| Duração da concessão/do bloqueio |**30 segundos (padrão)**<br/><br/>**7 dias (máximo)** (Você pode renovar ou liberar uma concessão de mensagem usando a API [UpdateMessage](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage).) |**60 segundos (padrão)**<br/><br/>Você pode renovar um bloqueio de mensagem usando a API [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock). |
+| Precisão da concessão/do bloqueio |**Nível da mensagem**<br/><br/>(cada mensagem pode ter um valor de tempo limite diferente, que pode ser atualizado conforme a necessidade durante o processamento da mensagem, usando a API [UpdateMessage](/dotnet/api/microsoft.windowsazure.storage.queue.cloudqueue.updatemessage)) |**Nível da fila**<br/><br/>(cada fila tem uma precisão de bloqueio aplicada a todas as suas mensagens, mas você pode renovar o bloqueio usando a API [RenewLock](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.renewlock#Microsoft_ServiceBus_Messaging_BrokeredMessage_RenewLock).) |
 | Recebimento em lote |**Sim**<br/><br/>(especificando explicitamente a contagem de mensagens ao recuperar mensagens, até um máximo de 32 mensagens) |**Sim**<br/><br/>(habilitando implicitamente uma propriedade de pré-busca ou explicitamente pelo uso de transações) |
 | Envio em lote |**Não** |**Sim**<br/><br/>(usando transações ou envio em lote no lado do cliente) |
 
@@ -132,9 +132,9 @@ Esta seção compara as filas do Armazenamento e as filas do Barramento de Servi
 | Critérios de comparação | Filas de armazenamento | Filas de barramento de serviço |
 | --- | --- | --- |
 | Tamanho máximo da fila |**500 TB**<br/><br/>(limitado a uma [capacidade de conta de armazenamento única](../storage/common/storage-introduction.md#queue-storage)) |**1 GB a 80 GB**<br/><br/>(definido na criação de uma fila e [habilitando particionamento](service-bus-partitioning.md) – confira a seção "Informações adicionais") |
-| Tamanho máximo da mensagem |**64 KB**<br/><br/>(48 KB ao usar a codificação **Base64**)<br/><br/>O Azure oferece suporte a mensagens grandes combinando filas e blobs — nesse ponto, você pode enfileirar até 200 GB para um único item. |**256 KB** ou **1 MB**<br/><br/>(incluindo cabeçalho e corpo, tamanho máximo do cabeçalho: 64 KB).<br/><br/>Depende da [camada de serviço](service-bus-premium-messaging.md). |
+| Tamanho máximo da mensagem |**64 KB**<br/><br/>(48 KB ao usar a codificação **Base64**)<br/><br/>O Azure oferece suporte a mensagens grandes combinando filas e blobs — nesse ponto, você pode enfileirar até 200 GBs para um único item. |**256 KB** ou **1 MB**<br/><br/>(incluindo cabeçalho e corpo, tamanho máximo do cabeçalho: 64 KB).<br/><br/>Depende da [camada de serviço](service-bus-premium-messaging.md). |
 | TTL máxima da mensagem |**7 dias** |**TimeSpan.Max** |
-| Número máximo de filas |**Ilimitado** |**10,000**<br/><br/>(por namespace de serviço, pode ser aumentado) |
+| Número máximo de filas |**Ilimitado** |**10,000**<br/><br/>(por namespace do serviço) |
 | Número máximo de clientes simultâneos |**Ilimitado** |**Ilimitado**<br/><br/>(o limite de 100 conexões simultâneas se aplica somente à comunicação baseada no protocolo TCP) |
 
 ### <a name="additional-information"></a>Informações adicionais

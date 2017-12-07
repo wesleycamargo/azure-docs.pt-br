@@ -2,7 +2,7 @@
 
 Se você quiser experimentar sua pilha, instale um aplicativo de exemplo. Por exemplo, as etapas a seguir instalam a plataforma [WordPress](https://wordpress.org/) de código-fonte aberto para criar sites e blogs. Outras cargas de trabalho tentam incluir [Drupal](http://www.drupal.org) e [Moodle](https://moodle.org/). 
 
-Esta instalação do WordPress destina-se à prova de conceito. Para saber mais e conhecer as configurações de instalação em produção, consulte a [documentação do WordPress](https://codex.wordpress.org/Main_Page). 
+Esta instalação do WordPress destina-se apenas à prova de conceito. Para instalar o WordPress mais recente em produção com as configurações de segurança recomendadas, consulte a [Documentação do WordPress](https://codex.wordpress.org/Main_Page). 
 
 
 
@@ -16,12 +16,43 @@ sudo apt install wordpress
 
 ### <a name="configure-wordpress"></a>Configurar WordPress
 
-Configure o WordPress para usar PHP e MySQL. Execute o seguinte comando para abrir um editor de texto de sua preferência e criar o arquivo `/etc/wordpress/config-localhost.php`:
+Configure o WordPress para usar PHP e MySQL.
+
+Em um diretório de trabalho, crie um arquivo de texto `wordpress.sql` para configurar o banco de dados MySQL do WordPress: 
+
+```bash
+sudo sensible-editor wordpress.sql
+```
+
+Adicione os comandos a seguir, substituindo uma senha de banco de dados de sua escolha por *suaSenha* (não altere outros valores). Caso você tenha configurado uma política de segurança do MySQL para validar a força da senha, garanta que a senha atenda aos requisitos de força de senha. Salve o arquivo.
+
+```sql
+CREATE DATABASE wordpress;
+GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,ALTER
+ON wordpress.*
+TO wordpress@localhost
+IDENTIFIED BY 'yourPassword';
+FLUSH PRIVILEGES;
+```
+
+Execute o comando a seguir para criar o banco de dados:
+
+```bash
+cat wordpress.sql | sudo mysql --defaults-extra-file=/etc/mysql/debian.cnf
+```
+
+Como o arquivo `wordpress.sql` contém as credenciais do banco de dados, exclua-o após o uso:
+
+```bash
+sudo rm wordpress.sql
+```
+
+Para configurar o PHP, execute o seguinte comando para abrir um editor de texto de sua preferência e criar o arquivo `/etc/wordpress/config-localhost.php`:
 
 ```bash
 sudo sensible-editor /etc/wordpress/config-localhost.php
 ```
-Copie as linhas a seguir no arquivo, substituindo *yourPassword* por sua senha de banco de dados (não altere outros valores). Em seguida, salve o arquivo.
+Copie as linhas a seguir para o arquivo, substituindo a senha do banco de dados do WordPress por *suaSenha* (não altere outros valores). Em seguida, salve o arquivo.
 
 ```php
 <?php
@@ -33,31 +64,6 @@ define('WP_CONTENT_DIR', '/usr/share/wordpress/wp-content');
 ?>
 ```
 
-Em um diretório de trabalho, crie um arquivo de texto `wordpress.sql` para configurar o banco de dados do WordPress: 
-
-```bash
-sudo sensible-editor wordpress.sql
-```
-
-Adicione os comandos a seguir, substituindo *yourPassword* por sua senha de banco de dados (não altere outros valores). Em seguida, salve o arquivo.
-
-```sql
-CREATE DATABASE wordpress;
-GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,ALTER
-ON wordpress.*
-TO wordpress@localhost
-IDENTIFIED BY 'yourPassword';
-FLUSH PRIVILEGES;
-```
-
-
-Execute o comando a seguir para criar o banco de dados:
-
-```bash
-cat wordpress.sql | sudo mysql --defaults-extra-file=/etc/mysql/debian.cnf
-```
-
-Após a conclusão do comando, exclua o arquivo `wordpress.sql`.
 
 Mova a instalação do WordPress para a raiz do documento do servidor Web:
 

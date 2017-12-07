@@ -14,11 +14,11 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: sethm
-ms.openlocfilehash: 5e758e831765ba2762b7efe7c3a10f10e59a5ddc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d9e463273fff0ecc198b0574443c4241dde7be79
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs"></a>Como usar tópicos e assinaturas do Barramento de Serviço com Node.js
 
@@ -61,7 +61,7 @@ var azure = require('azure');
 ```
 
 ### <a name="set-up-a-service-bus-connection"></a>Configurar uma conexão do Barramento de Serviço
-O módulo do Azure lê a variável de ambiente `AZURE_SERVICEBUS_NAMESPACE` e `AZURE_SERVICEBUS_ACCESS_KEY` para obter as informações necessárias para se conectar ao Barramento de Serviço. Se essas variáveis de ambiente não estiverem definidas, você deverá especificar as informações da conta ao chamar `createServiceBusService`.
+O módulo do Azure lê a variável de ambiente `AZURE_SERVICEBUS_CONNECTION_STRING` para a cadeia de conexão que você obteve na etapa anterior, "Obter as credenciais". Se essa variável de ambiente não estiver definida, você deverá especificar as informações da conta chamando `createServiceBusService`.
 
 Para obter um exemplo de como definir as variáveis de ambiente para um serviço de nuvem do Azure, confira [Serviço de nuvem do Node.js com armazenamento][Node.js Cloud Service with Storage].
 

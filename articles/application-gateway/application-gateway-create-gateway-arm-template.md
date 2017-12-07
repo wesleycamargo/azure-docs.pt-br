@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: davidmu
-ms.openlocfilehash: 305a0529b6f6ad8bd96ac10da5f7ebc48317df45
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0aa16e9d7472d2d8c3c251e60a506a7f4223ac1d
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-resource-manager-template"></a>Criar um gateway de aplicativo usando o modelo do Gerenciador de Recursos do Azure
 
@@ -30,9 +30,9 @@ ms.lasthandoff: 10/11/2017
 
 O Gateway de Aplicativo do Azure é um balanceador de carga de camada 7. Ele fornece failover e solicitações HTTP de roteamento de desempenho entre diferentes servidores, estejam eles na nuvem ou no local. O Gateway de Aplicativo fornece muitos recursos do ADC (Controlador de entrega de aplicativos), incluindo o balanceamento de carga de HTTP, a afinidade de sessão baseada em cookies, o descarregamento de protocolo SSL (Secure Sockets Layer), as sondas de integridade personalizadas, suporte para vários sites e muitos outros. Para conferir uma lista completa dos recursos com suporte, visite [Visão geral do Gateway de Aplicativo](application-gateway-introduction.md)
 
-Este artigo orienta a baixar e a modificar um modelo existente do Azure Resource Manager do GitHub e a implantar o modelo do GitHub, do PowerShell e da CLI do Azure.
+Este artigo fornece orientações para você baixar e a modificar um [modelo existente do Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) no GitHub e a implantar o modelo do GitHub, do PowerShell e da CLI do Azure.
 
-Se você estiver simplesmente implantando o modelo do Gerenciador de Recursos do Azure diretamente do GitHub, sem nenhuma alteração, ignore para implantar um modelo do GitHub.
+Se você estiver apenas implantando o modelo diretamente do GitHub, sem nenhuma alteração, prossiga para a seção que explica como implantar um modelo do GitHub.
 
 ## <a name="scenario"></a>Cenário
 
@@ -75,9 +75,6 @@ Você pode baixar o modelo existente do Gerenciador de Recursos do Azure para cr
    * **type**. Tipo de recurso que está sendo criado pelo modelo. Nesse caso, o tipo é `Microsoft.Network/applicationGateways`, que representa um gateway de aplicativo.
    * **name**. Nome do recurso. Observe o uso de `[parameters('applicationGatewayName')]`, que significa o nome que é fornecido como entrada por você ou um arquivo de parâmetro durante a implantação.
    * **properties**. Lista de propriedades do recurso. Esse modelo usa a rede virtual e o endereço IP público durante a criação do gateway de aplicativo.
-
-   > [!NOTE]
-   > Para obter mais informações sobre modelos, visite: [Referência de modelos do Resource Manager](/templates/)
 
 1. Navegue de volta para [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-waf).
 1. Clique em **azuredeploy-parameters.json** e em **RAW**.

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: sstein
-ms.openlocfilehash: cb55bf1f1c7eeb0fc7608aca8d70818b5e3e06c0
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 1ef4355f7234bc6a534d21a57fa52b480983b99b
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Implantar e explorar um aplicativo SaaS multilocatário que usa o Banco de dados SQL do Azure
 
@@ -35,7 +35,7 @@ A seção de implantação a seguir fornece o **implantar no Azure** botão. Qua
 
 O aplicativo é implantado com dados para três locatários de exemplo. Os locatários são armazenados juntos em um banco de dados de vários locatários.
 
-Qualquer pessoa pode baixar o código fonte C# e PowerSheel para Wingtip Tickets em nosso [repositório Github][link-github-wingtip-multitenantdb-55g].
+Qualquer pessoa pode baixar o código fonte do C# e do PowerShell para Wingtip Tickets em [nosso repositório do GitHub][link-github-wingtip-multitenantdb-55g].
 
 #### <a name="learn-in-this-tutorial"></a>Neste tutorial, você aprende
 
@@ -93,7 +93,7 @@ Enquanto o aplicativo for implantado, baixe os scripts de gerenciamento e de có
 > [!IMPORTANT]
 > Conteúdos executáveis (scripts, dlls) podem ser bloqueados pelo Windows quando arquivos zip são baixados de uma fonte externa e extraídos. Ao extrair os scripts de um arquivo zip, siga as etapas abaixo para desbloquear o arquivo. zip antes da extração. Ao desbloquear o arquivo. zip é garante que os scripts podem ser executados.
 
-1. Navegue até [o repositório do github WingtipTicketsSaaS MultiTenantDb](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb).
+1. Navegue até o [repositório WingtipTicketsSaaS-MultiTenantDb do GitHub](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb).
 2. Clique em **Clonar ou baixar**.
 3. Clique em **Baixar ZIP** e salve o arquivo.
 4. Clique com botão direito no arquivo **WingtipSaaS master.zip** e selecione **Propriedades**.
@@ -120,7 +120,7 @@ O aplicativo demonstra locais, como teatros, clubes de jazz, clubes esportivos, 
 Um **Hub de Eventos** central fornece uma lista de URLs de locatários específica da sua implantação.
 
 1. Abra o *Hub de eventos* no navegador da web:
-    - http://events.wingtip-mt.&lt;USER&gt;.trafficmanager.net &nbsp; *(Substitua pelo seu valor de usuário de implantação.)*
+    - Abra o &lt;Hub de Eventos&gt;: http://events.wtp.&nbsp;USER*.trafficmanager.net (substitua pelo seu nome de usuário de implantação.)*
 
     ![hub de eventos](media/saas-multitenantdb-get-started-deploy/events-hub.png)
 
@@ -130,7 +130,7 @@ Um **Hub de Eventos** central fornece uma lista de URLs de locatários específi
 
 Para controlar a distribuição das solicitações de entrada, o aplicativo usa o [Gerenciador de Tráfego do Azure](../traffic-manager/traffic-manager-overview.md). As páginas de eventos, que são específicas do locatário, exigem que os nomes de locatário sejam incluídos nas URLs. As URLs também incluem o valor específico do usuário e o seguinte formato:
 
-- http://events.wingtip-mt.&lt;USER&gt;.trafficmanager.net/*fabrikamjazzclub*
+- http://Events.Wingtip. &lt;Usuário&gt;.trafficmanager.net/*fabrikamjazzclub*
  
 O aplicativo de eventos analisa o nome do locatário com base na URL e o utiliza para criar uma chave para acessar um catálogo usando o [gerenciamento de mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md). O catálogo mapeia a chave para o local do banco de dados do locatário. O **Hub de eventos** lista todos os locatários que estão registrados no catálogo. O **Hub de Eventos** usa metadados estendidos no catálogo para recuperar o nome do locatário associado a cada banco de dados.
 
@@ -156,7 +156,7 @@ Deseja reiniciar a sessão do gerador de carga para usar valores de parâmetros 
 
 A implantação inicial inclui três locatários de exemplo no *Tenants1* banco de dados. Vamos criar outro locatário para ver como isso afeta o aplicativo implantado. Nesta etapa, você cria rapidamente um novo locatário.
 
-1. Abra...\\Learning Modules\ProvisionTenants\\*Demo-ProvisionTenants.ps1* no *PowerShell ISE*.
+1. Abra ...\\Módulos de aprendizado\Provisionar e catalogar\\*Demo-ProvisionAndCatalog.ps1* no *ISE do PowerShell*.
 2. Pressione **F5** para executar o script (mantenha os valores padrão por enquanto).
 
    > [!NOTE]
@@ -174,7 +174,7 @@ O modelo multilocatário fragmentado permite que você escolha se deseja provisi
 
 Agora, vamos provisionar outro locatário, dessa vez em seu próprio banco de dados.
 
-1. Em ...\\Learning Modules\\ProvisionTenants\\*Demo-ProvisionTenants.ps1*, modifique *$TenantName* para **Salix Salsa**, *$VenueType* para **dance** e *$Scenario* para **2**.
+1. Em... \\Módulos de aprendizado\\provisionar e catálogo\*ProvisionTenants.ps1* de demonstração, modificar *$TenantName* para **Salix Salsa**, *$VenueType*  para **dança** e *$Scenario* para **2**.
 
 2. Pressione **F5** para executar o script.
     - Este pressione F5 provisiona ao novo locatário em um banco de dados separado. O banco de dados e de locatário são registrados no catálogo. Em seguida, o navegador é aberto para a página de eventos do locatário.
@@ -239,7 +239,7 @@ Neste tutorial, você aprendeu:
 > - Como exibir a utilização do pool para monitorar a atividade do locatário
 > - Como excluir recursos de exemplo para interromper a cobrança relacionada
 
-Agora, tente fazer o [Tutorial para provisionar locatários](sql-database-saas-tutorial-provision-and-catalog.md).
+Agora, tente fazer o [Tutorial para provisionar e catalogar](sql-database-saas-tutorial-provision-and-catalog.md).
 
 
 

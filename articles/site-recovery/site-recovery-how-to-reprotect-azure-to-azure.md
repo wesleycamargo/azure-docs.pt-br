@@ -3,7 +3,7 @@ title: "Como criar uma nova proteção de failover para máquinas virtuais do Az
 description: "Após o failover das VMs de uma região do Azure para outra, você pode usar o Azure Site Recovery para proteger as máquinas na direção inversa. Aprenda as etapas para criar uma nova proteção antes de realizar um failback novamente."
 services: site-recovery
 documentationcenter: 
-author: ruturaj
+author: rajani-janaki-ram
 manager: gauravd
 editor: 
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 08/11/2017
-ms.author: ruturajd
-ms.openlocfilehash: 32f5d2d142940bc515849dcd0edb1bb1f152aa6d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/22/2017
+ms.author: rajanaki
+ms.openlocfilehash: 3e614b6c3c8358585f3b502f301cc659d2088e2f
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="reprotect-from-failed-over-azure-region-back-to-primary-region"></a>A nova proteção de failover da região do Azure para a região primária
 
@@ -31,10 +31,10 @@ ms.lasthandoff: 10/11/2017
 
 ## <a name="overview"></a>Visão geral
 Quando você realiza um [failover](site-recovery-failover.md) nas máquinas virtuais de uma região do Azure para outra, as máquinas virtuais estão em um estado desprotegido. Se você deseja colocá-las de volta na região primária, é necessário primeiro proteger as máquinas virtuais e realizar failover novamente. Não há nenhuma diferença entre como realizar failover em uma direção ou outra. Da mesma forma, após habilitar a proteção das máquinas virtuais, não há nenhuma diferença entre a nova proteção após o failover ou após o failback.
-Para explicar os fluxos de trabalho da nova proteção e para evitar confusão, usaremos o local primário dos computadores protegidos como região Ásia Oriental e o local de recuperação dos computadores como região Sudeste Asiático. Durante o failover, você executará o failover das máquinas virtuais para a região Ásia Oriental. Antes de realizar o failback, você precisa proteger novamente as máquinas virtuais do Sudeste Asiático para a Ásia Oriental. Este artigo descreve as etapas sobre como criar uma nova proteção.
+Para explicar os fluxos de trabalho da nova proteção e para evitar confusão, consulte o local primário dos computadores protegidos como região Ásia Oriental e o local de recuperação dos computadores como região Sudeste Asiático. Durante o failover, as máquinas virtuais inicializará na região Sudeste Asiático. Antes de realizar o failback, você precisa proteger novamente as máquinas virtuais do Sudeste Asiático para a Ásia Oriental. Este artigo descreve as etapas sobre como criar uma nova proteção.
 
 > [!WARNING]
-> Se você tiver [concluído a migração](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), movido a máquina virtual para outro grupo de recursos ou excluídos a máquina virtual do Azure, não será possível aplicar failback depois disso.
+> Se você tiver [concluído a migração](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), movido a máquina virtual para outro grupo de recursos ou excluído a máquina virtual do Azure, não poderá proteger novamente nem fazer failback da máquina virtual.
 
 Depois que a nova proteção for concluída e a replicação de máquinas virtuais protegidas, você pode iniciar um failback nas máquinas virtuais para trazê-las de volta para a Ásia Oriental.
 
@@ -58,7 +58,7 @@ As etapas a seguir são para a nova proteção de uma máquina virtual usando os
 
 3. Examine as informações de **Grupo de recursos, rede, conjuntos de armazenamento e a disponibilidade** e clique em OK. Se houver quaisquer recursos marcados (novo), eles serão criados como parte da nova a proteção.
 
-Isso será um trabalho de gatilho da nova proteção que fará a propagação primeiro do local de destino (SEA neste caso) com os dados mais recentes e depois que for concluída, replicará os deltas antes do failover voltar para o Sudeste Asiático.
+O trabalho de proteger novamente primeiro fará a propagação do local de destino (SEA neste caso) com os dados mais recentes e, depois de concluída, replicará os deltas antes do failover voltar para o Sudeste Asiático.
 
 ### <a name="reprotect-customization"></a>Personalização da nova proteção
 Se quiser escolher a conta de armazenamento de extração ou a rede durante a nova proteção, você pode fazer isso usando a opção personalizar fornecida na folha da nova proteção.
@@ -72,7 +72,7 @@ Você pode personalizar as propriedades a seguir da máquina virtual de destino 
 |Propriedade |Observações  |
 |---------|---------|
 |Grupo de recursos de destino     | Você pode optar por alterar o grupo de recursos de destino no qual a máquina virtual será criada. Como parte da nova proteção, a máquina virtual de destino será excluída, portanto, você pode escolher um novo grupo de recursos no qual você pode criar a VM depois do failover         |
-|Rede virtual de destino     | A rede não pode ser alterada durante a nova proteção. Para alterar a rede, refaça o mapeamento de rede.         |
+|Rede virtual de destino     | A rede não pode ser alterada durante a jb de nova proteção. Para alterar a rede, refaça o mapeamento de rede.         |
 |Armazenamento de destino     | Você pode alterar a conta de armazenamento à qual a máquina virtual será criada depois do failover.         |
 |Armazenamento de cache     | Você pode especificar uma conta de armazenamento de cache que será usada durante a replicação. Se você usar os padrões, uma nova conta de armazenamento de cache será criada, se ela ainda não existir.         |
 |Conjunto de disponibilidade     |Se a máquina virtual na Ásia Oriental fizer parte de um conjunto de disponibilidade, você pode escolher um conjunto de disponibilidade para a máquina virtual de destino do Sudeste Asiático. Os padrões encontrarão o conjunto de disponibilidade SEA existente e tentarão usá-lo. Durante a personalização, você pode especificar um conjunto AV totalmente novo.         |
@@ -88,7 +88,7 @@ Após habilitar a primeira proteção, a seguir estão os artefatos que são ger
 
 A seguir estão a lista de etapas que ocorrem quando você disparar um trabalho da nova proteção. Este é o caso no qual a máquina virtual lateral de destino existe.
 
-1. Os artefatos necessários são criados como parte da nova proteção. Se já existirem, eles serão reutilizados.
+1. Os artefatos necessários são criados como parte de proteger novamente. Se já existirem, eles serão reutilizados.
 2. A máquina virtual lateral (Sudeste Asiático) de destino é primeiro desativada, se ela estiver em execução.
 3. O disco da máquina virtual lateral de destino é copiado pelo Azure Site Recovery em um contêiner como um blob de semeadura.
 4. A máquina virtual lateral de destino é excluída.
@@ -99,7 +99,7 @@ A seguir estão a lista de etapas que ocorrem quando você disparar um trabalho 
 > [!NOTE]
 > Não é possível proteger em um nível do plano de recuperação. Você só pode proteger novamente em um nível de VM.
 
-Depois que o Proteja Novamente for bem-sucedido, a máquina virtual entrará no estado protegido.
+Depois que o trabalho de proteger novamente for bem-sucedido, a máquina virtual entrará no estado protegido.
 
 ## <a name="next-steps"></a>Próximas etapas
 

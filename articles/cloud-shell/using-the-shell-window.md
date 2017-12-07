@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: juluk
-ms.openlocfilehash: 5d376ea0bce1088206aa369decf92b1b7523918a
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 4eb5680c618d78e0722e1eb4a0f551f26b4dc902
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="using-the-azure-cloud-shell-window"></a>Usando a janela do Azure Cloud Shell
 
@@ -32,7 +32,7 @@ Use o seletor de ambiente na barra de ferramentas do Cloud Shell para alternar e
 ## <a name="restart-cloud-shell"></a>Reiniciar o Cloud Shell
 ![](media/using-the-shell-window/restart.png)
 > [!WARNING]
-> Reiniciar o Cloud Shell redefinirá o estado do computador e quaisquer arquivos não persistidos pelo seu compartilhamento de arquivos serão perdidos.
+> Reiniciar o Cloud Shell redefinirá o estado do computador, e quaisquer arquivos não persistentes no seu compartilhamento de arquivos do Azure serão perdidos.
 
 * Clique no ícone de reinicialização na barra de ferramentas do Cloud Shell para redefinir o estado da máquina.
 
