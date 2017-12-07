@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 11/23/2017
 ms.author: jeedes
-ms.openlocfilehash: b23e73c47b9a00893e036b67826e4b7ead819a1d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 52212c44c925598b2c19df1b20eb4e8123f974ba
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-druva"></a>Tutorial: integração do Azure Active Directory com o Druva
 
@@ -104,21 +104,27 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
  
     ![Caixa de diálogo Logon único](./media/active-directory-saas-druva-tutorial/tutorial_druva_samlbase.png)
 
-3. Na seção **Domínio e URLs do Druva**, execute as seguintes etapas:
+3. Na seção **Domínio e URLs do Druva**, se desejar configurar o aplicativo no modo iniciado pelo **IDP**:
 
     ![Configurar Logon Único](./media/active-directory-saas-druva-tutorial/tutorial_druva_url.png)
 
+    Na caixa de texto **Identificador**, digite o valor da cadeia de caracteres: `druva-cloud`
+    
+4. Marque **Mostrar configurações de URL avançadas**. Se quiser configurar o aplicativo no modo iniciado em **SP**:
+
+    ![Configurar Logon Único](./media/active-directory-saas-druva-tutorial/tutorial_druva_url1.png)
+    
     Na caixa de texto **URL de Logon**, digite a URL: `https://cloud.druva.com/home`
 
-4. Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado no computador.
+5. Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado no computador.
 
     ![O link de download do Certificado](./media/active-directory-saas-druva-tutorial/tutorial_druva_certificate.png) 
 
-5. Seu aplicativo Druva espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados de acordo com a sua configuração de **Atributos do Token SAML**. 
+6. Seu aplicativo Druva espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados de acordo com a sua configuração de **Atributos do Token SAML**. 
 
     ![Configurar Logon Único](./media/active-directory-saas-druva-tutorial/tutorial_druva_attribute.png)
 
-6. Na seção **Atributos de Usuário** da caixa de diálogo **Logon único**, configure o atributo do token SAML, conforme mostrado na imagem anterior e realize as seguintes etapas:
+7. Na seção **Atributos de Usuário** da caixa de diálogo **Logon único**, configure o atributo do token SAML, conforme mostrado na imagem anterior e realize as seguintes etapas:
 
     | Nome do atributo      | Valor do atributo      |
     | ------------------- | -------------------- |
@@ -136,47 +142,47 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     
     d. Clique em **OK**.    
 
-7. Clique no botão **Salvar** .
+8. Clique no botão **Salvar** .
 
     ![Configurar Logon Único](./media/active-directory-saas-druva-tutorial/tutorial_general_400.png)
 
-8. Na seção **Configuração do Druva**, clique em **Configurar o Druva** para abrir a janela **Configurar logon**. Copie a **URL do serviço de logon único do SAML e a URL de logoff** da **seção de Referência Rápida.**
+9. Na seção **Configuração do Druva**, clique em **Configurar o Druva** para abrir a janela **Configurar logon**. Copie a **URL do serviço de logon único do SAML e a URL de logoff** da **seção de Referência Rápida.**
 
     ![Configurar Logon Único](./media/active-directory-saas-druva-tutorial/tutorial_druva_configure.png) 
 
-9. Em outra janela do navegador da Web, faça logon em seu site de empresa do Druva como administrador.
+10. Em outra janela do navegador da Web, faça logon em seu site de empresa do Druva como administrador.
 
-10. Vá para **Gerenciar \> Configurações**.
+11. Vá para **Gerenciar \> Configurações**.
 
     ![Configurações](./media/active-directory-saas-druva-tutorial/ic795091.png "Configurações")
 
-11. Na caixa de diálogo Configurações de Logon Único, execute as seguintes etapas:
+12. Na caixa de diálogo Configurações de Logon Único, execute as seguintes etapas:
 
     ![Configurações de Logon Único](./media/active-directory-saas-druva-tutorial/ic795092.png "Configurações de Logon Único")
     
-    a. Cole o valor da **URL do Serviço de Logon Único SAML** copiado do Portal do Azure na caixa de texto **URL de Logon do Provedor de ID**.
-    
-    b. Cole o valor da **URL de Saída** copiado do Portal do Azure na caixa de texto **URL de Logon do Provedor de ID**.
-    
-     c. Abra seu certificado codificado em Base 64 no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado do Provedor de ID**
+    a. Na caixa de texto **URL de Logon do Provedor de Identidade**, cole o valor da **URL do Serviço de Logon Único** copiado do Portal do Azure.
+        
+    b. Na caixa de texto **URL de Logoff do Provedor de Identidade**, cole o valor da **URL de Saída** copiado do Portal do Azure
+        
+    c. Abra seu certificado codificado em Base 64 no bloco de notas, copie o conteúdo dele na área de transferência e cole-o na caixa de texto **Certificado do Provedor de ID**
      
-     d. Para abrir a página **Configurações**, clique em **Salvar**.
+    d. Para abrir a página **Configurações**, clique em **Salvar**.
 
-12. Na página **Configurações**, clique em **Gerar Token de SSO**.
+13. Na página **Configurações**, clique em **Gerar Token de SSO**.
 
     ![Configurações](./media/active-directory-saas-druva-tutorial/ic795093.png "Configurações")
 
-13. No diálogo **Token de Autenticação de Logon Único** , realize as seguintes etapas:
+14. No diálogo **Token de Autenticação de Logon Único** , realize as seguintes etapas:
 
     ![Token SSO](./media/active-directory-saas-druva-tutorial/ic795094.png "Token SSO")
     
-    a. Clique em **Copiar**, cole o valor copiado na caixa de texto **Valor** na seção **Adicionar Atributo**.
+    a. Clique em **Copiar**, cole o valor copiado na caixa de texto **Valor** na seção **Adicionar Atributo** no Portal do Azure.
     
     b. Clique em **fechar**
 
 > [!TIP]
 > É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
-> 
+ 
 
 ### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
@@ -280,8 +286,6 @@ Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso
 
 * [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
-
-
 
 <!--Image references-->
 

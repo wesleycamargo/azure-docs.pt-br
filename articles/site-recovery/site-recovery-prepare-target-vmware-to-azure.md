@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: backup-recovery
-ms.date: 5/31/2017
+ms.date: 11/23/2017
 ms.author: bsiva
-ms.openlocfilehash: c84a775564769ddc796aa9d75add019ef1003175
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 98e0a7cd77e8e6e9ce124845aad49bd03a2bf1d8
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="prepare-target-vmware-to-azure"></a>Preparar destino (VMware para Azure)
 > [!div class="op_single_selector"]
@@ -29,7 +29,7 @@ Este artigo descreve como configurar seu ambiente do Azure para iniciar a replic
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-O artigo pressupõe o seguinte:
+Este artigo supõe que:
 - Você criou um Cofre dos Serviços de Recuperação para proteger suas máquinas virtuais VMware. Você pode criar um Cofre dos Serviços de Recuperação no [Portal do Azure](http://portal.azure.com "Portal do Azure").
 - Você [configurou seu ambiente local](./site-recovery-set-up-vmware-to-azure.md) para replicar máquinas virtuais VMware no Azure.
 
@@ -46,7 +46,7 @@ Com base no modelo de implantação escolhido, uma validação é executada para
 
 Depois que as validações são concluídas com êxito, clique em OK de modo a passar para a próxima etapa.
 
-Caso não tenha uma rede virtual ou conta de armazenamento do Resource Manager compatível, ou queira adicionar mais, você pode fazer isso clicando nos botões **+ Conta de Armazenamento** ou **+ Rede** na parte superior da folha.
+Caso não tenha uma rede virtual ou conta de armazenamento do Resource Manager compatível, crie uma clicando nos botões **+ Conta de Armazenamento** ou **+ Rede** na parte superior da página.
 
 ## <a name="next-steps"></a>Próximas etapas
 [Definir configurações de replicação](./site-recovery-setup-replication-settings-vmware.md).

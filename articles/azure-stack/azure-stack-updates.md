@@ -14,17 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: twooley
-ms.openlocfilehash: 3d0d5ea6cc3f3cc7bc0550b83dabbf0ae6af8a27
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f5c7810a88bee65cf22276082f72b18a7f9e983f
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Gerenciar atualizações na visão geral de pilha do Azure
 
 *Aplica-se a: sistemas integrados de pilha do Azure*
 
-A Microsoft lançará pacotes de atualização para sistemas de pilha do Azure integradas com regularidade. Cada versão das atualizações de software da Microsoft é fornecido como um pacote de atualização. Como um operador de pilha do Azure, você pode importar facilmente, instalar e monitorar o progresso da instalação desses atualizar pacotes do portal do administrador. 
+A Microsoft lançará pacotes de atualização para sistemas de pilha do Azure integrado em um ritmo regular que normalmente cairá em quarta terça-feira de cada mês, iniciando na disponibilidade geral. Pergunte ao seu OEM sobre seu processo de notificação específico para garantir o alcance de notificações de atualização de sua organização, ou verifique aqui em sistemas de notes\Integrated Concepts\Release notas de versão para obter mais informações sobre versões específicas.
+
+Cada versão das atualizações de software da Microsoft é fornecido como um pacote de atualização. Como um operador de pilha do Azure, você pode importar facilmente, instalar e monitorar o progresso da instalação desses atualizar pacotes do portal do administrador. 
 
 O fornecedor do hardware fabricante (OEM) também irá liberar atualizações, como atualizações de firmware e driver. Essas atualizações são entregues como pacotes separados pelo seu fornecedor de hardware de OEM e são gerenciadas separadamente das atualizações da Microsoft.
 

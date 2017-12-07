@@ -16,13 +16,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: billgib; sstein
-ms.openlocfilehash: c036901bde5fff0d63ee2494de87e49410662099
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 48e8eb91a5febcc1109bee3404bb534bd0391f88
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 11/28/2017
 ---
-# <a name="setup-and-use-log-analytics-oms-with-a-multi-tenant-azure-sql-database-saas-app"></a>Configurar e usar o Log Analytics (OMS) com um aplicativo SaaS multilocatário do Banco de Dados SQL do Azure
+# <a name="set-up-and-use-log-analytics-oms-with-a-multi-tenant-azure-sql-database-saas-app"></a>Configurar e usar o Log Analytics (OMS) com um aplicativo SaaS multilocatário do Banco de Dados SQL do Azure
 
 Neste tutorial, você configura e usa o *Log Analytics ([OMS](https://www.microsoft.com/cloud-platform/operations-management-suite))* para monitorar pools elásticos e bancos de dados. Este tutorial se baseia no [tutorial de Gerenciamento e Monitoramento do Desempenho](saas-dbpertenant-performance-monitoring.md). Ele mostra como usar o *Log Analytics* para ampliar o monitoramento e os alertas fornecidos no portal do Azure. O Log Analytics é adequado para monitoramento e alertas em grande escala, porque ele dá suporte a centenas de pools e centenas de milhares de bancos de dados. Ele também fornece uma única solução de monitoramento, que pode integrar o monitoramento de diferentes aplicativos e serviços do Azure, entre várias assinaturas do Azure.
 
@@ -34,7 +34,7 @@ Neste tutorial, você aprenderá a:
 
 Para concluir este tutorial, verifique se todos os pré-requisitos a seguir são atendidos:
 
-* O aplicativo SaaS de Banco de Dados Multilocatário Wingtip Tickets foi implantado. Para implantá-lo em menos de cinco minutos, consulte [Implantar e explorar o aplicativo SaaS de Banco de Dados Multilocatário Wingtip Tickets](saas-dbpertenant-get-started-deploy.md)
+* O aplicativo Wingtip Tickets SaaS Database Per Tenant é implantado. Para implantá-lo em menos de cinco minutos, veja [Implantar e explorar o aplicativo Wingtip Tickets SaaS Database Per Tenant](saas-dbpertenant-get-started-deploy.md)
 * O Azure PowerShell está instalado. Para obter detalhes, consulte [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 
 Consulte o [Tutorial de monitoramento e gerenciamento de desempenho](saas-dbpertenant-performance-monitoring.md) para uma discussão sobre padrões e cenários de SaaS, e como eles afetam os requisitos de uma solução de monitoramento.
@@ -57,9 +57,9 @@ Os espaços de trabalho e as soluções de análise do Log Analytics podem ser a
 1. Defina **$DemoScenario** = 2, **Gerar carga de intensidade normal (aproximadamente 40 DTU)**.
 1. Para executar o script, pressione **F5**.
 
-## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Pegue os scripts do aplicativo Wingtip Tickets SaaS Database Per Tenant
+## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obter os scripts do aplicativo Wingtip Tickets SaaS Database Per Tenant
 
-Os scripts e o código-fonte do aplicativo SaaS de Banco de Dados Multilocatário Wingtip Tickets estão disponíveis no repositório GitHub [WingtipTicketsSaaS-MultitenantDB](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant). Os arquivos de script estão localizados na [pasta de Módulos de Aprendizado](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/tree/master/Learning%20Modules). Baixe a pasta **Módulos de Aprendizado** em seu computador local, mantendo a estrutura de pastas.
+Os scripts e o código-fonte do aplicativo SaaS de Banco de Dados Multilocatário Wingtip Tickets estão disponíveis no repositório [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) do GitHub. Confira as [diretrizes gerais](saas-tenancy-wingtip-app-guidance-tips.md) para obter as etapas para baixar e desbloquear os scripts SaaS do Wingtip Tickets.
 
 ## <a name="installing-and-configuring-log-analytics-and-the-azure-sql-analytics-solution"></a>Instalando e configurando o Log Analytics e a solução Análise de SQL do Azure
 
@@ -85,7 +85,8 @@ Neste exercício, abra o Log Analytics e o portal do OMS para examinar a telemet
 1. Selecione **Visão geral** para abrir a solução Log Analytics no Portal do Azure.
    ![overview-link](media/saas-dbpertenant-log-analytics/click-overview.png)
 
-    **IMPORTANTE**: pode levar alguns minutos até que a solução esteja ativa. Tenha paciência!
+    > [!IMPORTANT]
+    > Pode demorar alguns minutos até que a solução esteja ativa. Tenha paciência!
 
 1. Clique no bloco Análise de SQL do Azure para abri-lo.
 
@@ -107,7 +108,7 @@ Neste exercício, abra o Log Analytics e o portal do OMS para examinar a telemet
 
 1. No portal do OMS, você pode configurar alertas. Clique na parte de alertas do modo de exibição de DTU do Banco de Dados.
 
-1. Na exibição Pesquisa de Logs que aparece, você verá um gráfico de barras com as métricas que estão sendo representadas.
+1. Na exibição Pesquisa de Logs que aparece, você verá um grafo de barras com as métricas que estão sendo representadas.
 
     ![pesquisa do log](media/saas-dbpertenant-log-analytics/log-search.png)
 

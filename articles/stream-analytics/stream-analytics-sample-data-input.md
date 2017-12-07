@@ -1,10 +1,10 @@
 ---
-title: Entradas de amostragem no Stream Analytics do Azure | Microsoft Docs
+title: Testes de consulta no Azure Stream Analytics | Microsoft Docs
 description: Identificar problemas ao solucionar problemas em trabalhos do Stream Analytics.
 keywords: "entrada de solução de problemas, amostragem de entrada"
 documentationcenter: 
 services: stream-analytics
-author: samacha
+author: jseb225
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
-ms.author: samacha
-ms.openlocfilehash: db9686fad7153d63fc659869b93821200e08397c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: jeanb
+ms.openlocfilehash: e2636b8b89b86bbb2a2991972386462535d5a10f
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
-# <a name="azure-stream-analytics-input-stream-sampling"></a>Amostragem do fluxo de entrada do Stream Analytics do Azure
+# <a name="azure-stream-analytics-query-testing-and-input-stream-sampling"></a>Amostragem do fluxo de entrada e teste de consulta do Azure Stream Analytics
 
 Usando o Stream Analytics do Azure, você pode criar uma amostra dos eventos de entrada que acompanham um arquivo e testar consultas no portal sem a necessidade de iniciar ou interromper um trabalho.
 

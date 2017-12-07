@@ -172,8 +172,6 @@
           href: change-vm-size.md
         - name: Marcar uma VM
           href: tag.md
-        - name: Usar cloud-init
-          href: using-cloud-init.md
         - name: Como executar scripts em uma VM
           href: extensions-customscript.md
         - name: Usar Área de Trabalho Remota
@@ -252,6 +250,22 @@
               href: terraform-install-configure.md
             - name: Como criar uma VM completa
               href: terraform-create-complete-vm.md
+        - name: Cloud-init
+          items:
+            - name: Visão geral da inicialização de nuvem
+              href: using-cloud-init.md
+            - name: Configurar nome do host da máquina virtual
+              href: cloudinit-update-vm-hostname.md
+            - name: Atualizar pacotes em uma máquina virtual
+              href: cloudinit-update-vm.md
+            - name: Adicionar um usuário a uma máquina virtual
+              href: cloudinit-add-user.md
+            - name: Configurar o arquivo de permuta
+              href: cloudinit-configure-swapfile.md
+            - name: Executar o script bash existente
+              href: cloudinit-bash-script.md
+            - name: Preparar a máquina virtual existente para uma inicialização de nuvem
+              href: cloudinit-prepare-custom-image.md
         - name: Jenkins
           href: ../../jenkins/overview.md
           items:

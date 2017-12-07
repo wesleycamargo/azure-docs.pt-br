@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 06/05/2017
+ms.date: 11/28/2017
 ms.author: ruturajd
-ms.openlocfilehash: 1ca34b262a51b694cb9541750588bbea139eeae1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad424818f41e6b48e754dd0d39771248a1cd04fb
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="fail-back-from-azure-to-an-on-premises-site"></a>Failback do Azure para um site local
 
@@ -135,3 +135,17 @@ Após o trabalho Proteja novamente, a máquina virtual está replicando para o A
 
 ## <a name="common-issues"></a>Problemas comuns
 Verifique se o vCenter está em um estado conectado antes de fazer um failback. Caso contrário, desconectando discos e anexá-los de volta para a máquina virtual falhará.
+
+### <a name="common-error-codes"></a>Códigos de erro comuns
+
+#### <a name="error-code-8038"></a>Código de erro 8038
+
+*Falha ao ativar a máquina virtual local devido ao erro*
+
+Isso ocorre quando 
+1. A máquina virtual local é ativada em um host que não tem memória suficiente provisionada.
+
+Para resolver esse problema
+1. Você pode provisionar mais memória no host ESXi.
+2. Mova o vMotion da VM para outro host ESXi com memória suficiente para inicializar a máquina virtual.
+

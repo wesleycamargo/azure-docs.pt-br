@@ -13,8 +13,10 @@
 - name: Guia de início rápido
   expanded: true
   items:
-    - name: Criar aplicativo .NET
+    - name: Criar aplicativo .NET Core
       href: app-service-web-get-started-dotnet.md
+    - name: Criar aplicativo .NET Framework
+      href: app-service-web-get-started-dotnet-framework.md
     - name: Criar aplicativo Node.js
       href: app-service-web-get-started-nodejs.md
     - name: Criar aplicativo PHP
