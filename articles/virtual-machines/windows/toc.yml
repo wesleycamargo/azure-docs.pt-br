@@ -164,6 +164,8 @@
       items:
         - name: Pagar antecipadamente pelas VMs - Instâncias Reservadas
           href: prepay-reserved-vm-instances.md
+        - name: Uso de VM
+          href: vm-usage.md
         - name: Tarefas comuns do PowerShell
           href: ps-common-ref.md
         - name: Como mover uma VM
