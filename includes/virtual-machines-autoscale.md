@@ -44,7 +44,7 @@ Você pode [configurar gatilhos](../articles/monitoring-and-diagnostics/insights
 
 Você pode adicionar ou remover VMs alterando a capacidade do conjunto de dimensionamento. No portal do Azure, você pode reduzir ou aumentar o número de VMs (mostrado como **contagem de instâncias**) no conjunto de dimensionamento deslizando a barra Condição de substituição na tela Dimensionamento para a esquerda ou para a direita.
 
-Usando o PowerShell do Azure, você precisa obter o objeto de conjunto de dimensionamento usando [Get-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss). Defina a propriedade **sku.capacity** como o número de VMs que você deseja e atualize o conjunto de dimensionamento com [Update-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss). Usando a CLI do Azure, altere a capacidade com o parâmetro **– new-capacity** para o comando [az vmss scale](https://docs.microsoft.com/cli/azure/vmss#scale).
+Usando o PowerShell do Azure, você precisa obter o objeto de conjunto de dimensionamento usando [Get-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/get-azurermvmss). Defina a propriedade **sku.capacity** como o número de VMs que você deseja e atualize o conjunto de dimensionamento com [Update-AzureRmVmss](https://docs.microsoft.com/powershell/module/azurerm.compute/update-azurermvmss). Usando a CLI do Azure, altere a capacidade com o parâmetro **– new-capacity** para o comando [az vmss scale](https://docs.microsoft.com/cli/azure/vmss#az_vmss_scale).
 
 ### <a name="vertical"></a>Vertical
 

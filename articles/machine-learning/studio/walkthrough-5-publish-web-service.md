@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/23/2017
 ms.author: garye
-ms.openlocfilehash: 1bbc8ce31fc8e5ffb048a1fb9553a82975680a3c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ba8f1678d87159088c58cf0e05e0fe5a6579b358
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="walkthrough-step-5-deploy-the-azure-machine-learning-web-service"></a>Etapa 5 do passo-a-passo: Implantar o serviço Web de Azure Machine Learning
 Esta é a quinta etapa do passo a passo, [Desenvolver uma solução de análise preditiva com o Azure Machine Learning](walkthrough-develop-predictive-solution.md)
@@ -190,26 +190,6 @@ Os resultados do teste são exibidos no lado direito da página na coluna de sa�
 
 
 ## <a name="manage-the-web-service"></a>Gerenciar o serviço Web
-
-### <a name="manage-a-classic-web-service-in-the-azure-classic-portal"></a>Gerenciar um serviço Web Clássico no Portal Clássico do Azure
-
-Assim que implantar o serviço Web clássico, você poderá gerenciá-lo no [Portal Clássico do Azure](https://manage.windowsazure.com).
-
-1. Entre no [Portal clássico do Azure](https://manage.windowsazure.com)
-2. No painel de serviços do Microsoft Azure, clique em **Machine Learning**
-3. Clique no espaço de trabalho
-4. Clique na guia **Serviços Web**
-5. Clique no serviço Web que criamos
-6. Clique no ponto de extremidade "padrão"
-
-Aqui, você pode fazer coisas como monitorar como o serviço Web está se saindo e fazer ajustes de desempenho alterando quantas chamadas simultâneas o serviço pode processar.
-
-Para obter mais informações, consulte:
-
-* [Criando pontos de extremidade](create-endpoint.md)
-* [Dimensionando serviço Web](scaling-webservice.md)
-
-### <a name="manage-a-classic-or-new-web-service-in-the-azure-machine-learning-web-services-portal"></a>Gerenciar um serviço Web Novo ou Clássico no portal de serviços Web do Azure Machine Learning
 
 Assim que você implantar o serviço Web, clássico ou novo, poderá gerenciá-lo no [portal de serviços Web do Microsoft Azure Machine Learning](https://services.azureml.net/quickstart).
 

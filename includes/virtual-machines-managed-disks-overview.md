@@ -1,6 +1,6 @@
 # <a name="azure-managed-disks-overview"></a>Visão geral do Azure Managed Disks
 
-O Azure Managed Disks simplifica o gerenciamento de discos para VMs IaaS do Azure por meio do gerenciamento de [contas de armazenamento](../articles/storage/common/storage-introduction.md) associadas aos discos de VM. Você só precisa especificar o tipo ([Premium](../articles/storage/common/storage-premium-storage.md) ou [Standard](../articles/storage/common/storage-standard-storage.md)) e o tamanho do disco que você precisa, e o Azure criará e gerenciará o disco para você.
+O Azure Managed Disks simplifica o gerenciamento de discos para VMs IaaS do Azure por meio do gerenciamento de [contas de armazenamento](../articles/storage/common/storage-introduction.md) associadas aos discos de VM. Você só precisa especificar o tipo ([Premium](../articles/virtual-machines/windows/premium-storage.md) ou [Standard](../articles/virtual-machines/windows/standard-storage.md)) e o tamanho do disco que você precisa, e o Azure criará e gerenciará o disco para você.
 
 ## <a name="benefits-of-managed-disks"></a>Benefícios dos discos gerenciados
 
@@ -44,7 +44,7 @@ Ao usar o Managed Disks, as seguintes considerações de cobrança se aplicam:
 
 Vamos examinar esses itens com mais detalhes.
 
-**Tipo de armazenamento:** o Managed Disks oferece dois níveis de desempenho: [Premium](../articles/storage/common/storage-premium-storage.md) (baseado em SSD) e [Standard](../articles/storage/common/storage-standard-storage.md) (baseado em disco rígido). A cobrança de um disco gerenciado depende de qual tipo de armazenamento você selecionou para o disco.
+**Tipo de armazenamento:** o Managed Disks oferece dois níveis de desempenho: [Premium](../articles/virtual-machines/windows/premium-storage.md) (baseado em SSD) e [Standard](../articles/virtual-machines/windows/standard-storage.md) (baseado em disco rígido). A cobrança de um disco gerenciado depende de qual tipo de armazenamento você selecionou para o disco.
 
 
 **Tamanho do disco**: a cobrança do disco gerenciado depende do tamanho do disco provisionado. O Azure mapeia o tamanho provisionado (arredondado) para a opção mais próxima do Managed Disks, conforme especificado na tabela abaixo. Cada disco gerenciado será mapeado para um dos tamanhos provisionados com suporte e será cobrado adequadamente. Por exemplo, se você criar um disco gerenciado padrão e especificar um tamanho provisionado de 200 GB, será cobrado de acordo com o preço do tipo de disco S20.
@@ -131,9 +131,9 @@ Para saber mais sobre o Managed Disks, confira os artigos a seguir.
 
 ### <a name="compare-managed-disks-storage-options"></a>Comparar as opções de armazenamento de Managed Disks
 
-* [Discos e armazenamento Premium](../articles/storage/common/storage-premium-storage.md)
+* [Discos e armazenamento Premium](../articles/virtual-machines/windows/premium-storage.md)
 
-* [Discos e armazenamento Standard](../articles/storage/common/storage-standard-storage.md)
+* [Discos e armazenamento Standard](../articles/virtual-machines/windows/standard-storage.md)
 
 ### <a name="operational-guidance"></a>Diretrizes operacionais
 
