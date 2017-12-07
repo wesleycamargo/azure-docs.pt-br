@@ -4,7 +4,7 @@ description: "Processo e Tecnologia de Análise Avançada em ação"
 services: machine-learning
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 88ba8e28-0bd7-49fe-8320-5dfa83b65724
 ms.service: machine-learning
@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/24/2017
-ms.author: bradsev;hangzh;weig
-ms.openlocfilehash: 9a913533074bfd9b077d66d133f0ad02319a53ad
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/24/2017
+ms.author: bradsev;weig
+ms.openlocfilehash: 9c858427b01f7b94aae87136a46e1d9ae5e09a1c
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>O Processo de Ciência de Dados de Equipe em ação: usando o SQL Data Warehouse
 Neste tutorial, explicamos como criar e implantar de um modelo de Machine Learning usando o SQL DW (SQL Data Warehouse) para um conjunto de dados publicamente disponível – o conjunto de dados [Corridas de Táxi de NYC](http://www.andresmh.com/nyctaxitrips/). O modelo de classificação binária construído prevê se uma gorjeta foi paga ou não por uma corrida. Também discutimos os modelos de regressão e classificação multiclasse que preveem a distribuição das gorjetas pagas.
@@ -681,14 +681,14 @@ Agora você está pronto para explorar os dados amostrados. Começamos observand
 
     df1['trip_distance'].describe()
 
-### <a name="visualization-box-plot-example"></a>Visualização: exemplo de plotagem da caixa
+### <a name="visualization-box-plot-example"></a>Visualização: exemplo de gráfico da caixa
 Em seguida, analisamos a caixa para a distância de viagem para visualizar os quantis.
 
     df1.boxplot(column='trip_distance',return_type='dict')
 
 ![Plotar nº 1][1]
 
-### <a name="visualization-distribution-plot-example"></a>Visualização: exemplo de plotagem de distribuição
+### <a name="visualization-distribution-plot-example"></a>Visualização: exemplo de gráfico de distribuição
 Plotagens para visualização da distribuição e um histograma para os exemplos de distâncias de corridas.
 
     fig = plt.figure()
@@ -699,7 +699,7 @@ Plotagens para visualização da distribuição e um histograma para os exemplos
 
 ![Plotar nº 2][2]
 
-### <a name="visualization-bar-and-line-plots"></a>Visualização: plotagens de barra e linha
+### <a name="visualization-bar-and-line-plots"></a>Visualização: gráficos de barra e linha
 Neste exemplo, podemos compartimentalizar a distância da viagem em cinco compartimentos e visualizar os resultados de compartimentalização.
 
     trip_dist_bins = [0, 1, 2, 4, 10, 1000]
@@ -839,7 +839,6 @@ Neste exercício, já exploramos e engenhamos os dados no SQL Data Warehouse e e
 3. Insira o nome de DNS do banco de dados no campo **Nome do servidor de banco de dados** . Formato: `tcp:<your_virtual_machine_DNS_name>,1433`
 4. Insira o **Nome do banco de dados** no campo correspondente.
 5. Insira o *Nome de usuário do SQL* em **Nome de conta do usuário do servidor** e a *senha* em **Senha da conta de usuário do servidor**.
-6. Marque a opção **Aceitar qualquer certificado do servidor** .
 7. Na área de edição de texto **Consulta de banco de dados** , cole a consulta que extrai os campos de banco de dados necessários (incluindo quaisquer campos calculados, como rótulos) e reduza as amostras de dados para o tamanho de amostra desejado.
 
 Veja na figura abaixo um exemplo de experimento de classificação binária que lê dados diretamente do banco de dados do SQL Data Warehouse (lembre-se de substituir os nomes de tabela nyctaxi_trip e nyctaxi_fare pelo nome do esquema e nomes de tabela usados no passo a passo). Experimentos semelhantes podem ser construídos por meio de classificação multiclasse e problemas de regressão.

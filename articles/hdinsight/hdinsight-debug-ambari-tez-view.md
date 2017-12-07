@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/04/2017
+ms.date: 12/05/2017
 ms.author: larryfr
-ms.openlocfilehash: e0df58c24653d60e7594a70b911540662548a236
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b565ef0f7672d1288e922e28551ad3f6ec5b6cb7
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="use-ambari-views-to-debug-tez-jobs-on-hdinsight"></a>Usar os modos de exibição do Ambari para depurar trabalhos do Tez no HDInsight
 
-A interface do usuário da Web do Ambari para HDInsight contém uma exibição do Tez que pode ser usada para entender e depurar trabalhos que usam o Tez. O modo de exibição do Tez permite que você visualize o trabalho como um gráfico de itens conectados, detalhe cada item e recupere estatísticas e informações de log.
+A interface do usuário da Web do Ambari para HDInsight contém uma exibição do Tez que pode ser usada para entender e depurar trabalhos que usam o Tez. O modo de exibição do Tez permite que você visualize o trabalho como um grafo de itens conectados, detalhe cada item e recupere estatísticas e informações de log.
 
 > [!IMPORTANT]
 > As etapas deste documento exigem um cluster HDInsight que usa Linux. O Linux é o único sistema operacional usado no HDInsight versão 3.4 ou superior. Para obter mais informações, consulte [Controle de versão do componente do HDInsight](hdinsight-component-versioning.md#hdinsight-windows-retirement).
@@ -37,7 +37,7 @@ A interface do usuário da Web do Ambari para HDInsight contém uma exibição d
 
 Tez é uma estrutura extensível para processamento de dados no Hadoop que fornece maior velocidade de processamento do que o MapReduce tradicional. Para clusters HDInsight baseados em Linux, é o mecanismo padrão para Hive.
 
-O Tez cria um DAG (gráfico acíclico dirigido) que descreve a ordem das ações necessárias ao trabalho. As ações individuais são chamadas de vértices e executam uma parte do trabalho geral. A execução real do trabalho descrita por um vértice é chamada de tarefa e pode ser distribuída em vários nós no cluster.
+O Tez cria um DAG (grafo direcionado acíclico) que descreve a ordem das ações necessárias ao trabalho. As ações individuais são chamadas de vértices e executam uma parte do trabalho geral. A execução real do trabalho descrita por um vértice é chamada de tarefa e pode ser distribuída em vários nós no cluster.
 
 ### <a name="understanding-the-tez-view"></a>Noções básicas do layout da interface de usuário do Tez
 
@@ -102,7 +102,7 @@ Use as etapas a seguir para executar uma consulta do Hive que usa o Tez:
     Em __Detalhes da consulta__, você pode usar os links para encontrar mais informações sobre o __Aplicativo__ ou o __DAG__ para esta consulta.
     
     * O link __Aplicativo__ exibe informações sobre o aplicativo YARN para esta consulta. Aqui você pode acessar os logs de aplicativo YARN.
-    * O link __DAG__ exibe informações sobre o gráfico acíclico dirigido para esta consulta. Aqui você pode exibir uma representação gráfica do DAG. Você também pode encontrar informações sobre os vértices no DAG.
+    * O link __DAG__ exibe informações sobre o grafo direcionado acíclico para esta consulta. Aqui você pode exibir uma representação gráfica do DAG. Você também pode encontrar informações sobre os vértices no DAG.
 
 ## <a name="next-steps"></a>Próximas etapas
 

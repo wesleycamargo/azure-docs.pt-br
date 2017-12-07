@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: ninarn
-ms.openlocfilehash: 20fbc21224410456919e82f3a63c506eb6e573e4
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 8c0bd1aa2236eb44a41142f9cfc20c220ca49e99
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configuração de armazenamento para VMs do SQL Server
 Quando você configurar uma imagem de máquina virtual do SQL Server no Azure, o Portal ajuda você a automatizar a configuração de armazenamento. Isso inclui a anexação de armazenamento para a VM, tornando o armazenamento acessível para o SQL Server e configurando-o para otimizar seus requisitos específicos de desempenho.
@@ -30,7 +30,7 @@ Este tópico explica como o Azure configura o armazenamento para suas VMs do SQL
 ## <a name="prerequisites"></a>Pré-requisitos
 Para usar as definições automatizadas de configuração de armazenamento, sua máquina virtual exige as seguintes características:
 
-* Deve ser provisionada com uma [imagem da galeria do SQL Server](virtual-machines-windows-sql-server-iaas-overview.md#option-1-create-a-sql-vm-with-per-minute-licensing).
+* Deve ser provisionada com uma [imagem da galeria do SQL Server](virtual-machines-windows-sql-server-iaas-overview.md#payasyougo).
 * Deve usar o [Modelo de implantação do Resource Manager](../../../azure-resource-manager/resource-manager-deployment-model.md).
 * Deve usar o [Armazenamento Premium](../premium-storage.md).
 

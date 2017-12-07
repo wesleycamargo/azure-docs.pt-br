@@ -1,6 +1,6 @@
 ---
-title: Como consultar dados do Graph no Azure Cosmos DB? | Microsoft Docs
-description: Aprenda a consultar dados do Graph no Azure Cosmos DB
+title: Como consultar dados do grafo no Azure Cosmos DB? | Microsoft Docs
+description: Aprenda a consultar dados do grafo no Azure Cosmos DB
 services: cosmos-db
 documentationcenter: 
 author: dennyglee
@@ -10,16 +10,17 @@ tags:
 ms.assetid: 8bde5c80-581c-4f70-acb4-9578873c92fa
 ms.service: cosmos-db
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 05/10/2017
 ms.author: denlee
-ms.openlocfilehash: ee420983104f199edf57966bf22aa4d8451b4782
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.custom: mvc
+ms.openlocfilehash: b47aee24d4cc8e7fdf05ce03ed3aa0fb7c7432b6
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="azure-cosmos-db-how-to-query-with-the-graph-api-preview"></a>Azure Cosmos DB: Como consultar com a API do Graph (visualização)?
 
@@ -32,11 +33,11 @@ Este artigo aborda as seguintes tarefas:
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para essas consultas funcionarem, você deve ter uma conta do Azure Cosmos DB e ter dados de gráfico no contêiner. Não tenho nenhum deles? Complete o [Guia de início rápido de cinco minutos](create-graph-dotnet.md) ou o [tutorial de desenvolvedor](tutorial-query-graph.md) para criar uma conta e preencher seu banco de dados. Você pode executar as seguintes consultas usando a [Biblioteca de gráficos do .NET do Azure Cosmos DB](graph-sdk-dotnet.md), [Console do Gremlin](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) ou o seu driver favorito do Gremlin.
+Para essas consultas funcionarem, você deve ter uma conta do Azure Cosmos DB e ter dados de grafo no contêiner. Não tenho nenhum deles? Complete o [Guia de início rápido de cinco minutos](create-graph-dotnet.md) ou o [tutorial de desenvolvedor](tutorial-query-graph.md) para criar uma conta e preencher seu banco de dados. Você pode executar as seguintes consultas usando a [Biblioteca de grafos do .NET do Azure Cosmos DB](graph-sdk-dotnet.md), [Console do Gremlin](https://tinkerpop.apache.org/docs/current/reference/#gremlin-console) ou o seu driver favorito do Gremlin.
 
-## <a name="count-vertices-in-the-graph"></a>Contagem de vértices no gráfico
+## <a name="count-vertices-in-the-graph"></a>Contagem de vértices no grafo
 
-O trecho a seguir mostra como contar o número de vértices no gráfico:
+O trecho a seguir mostra como contar o número de vértices no grafo:
 
 ```
 g.V().count()
@@ -60,7 +61,7 @@ g.V().hasLabel('person').values('firstName')
 
 ## <a name="find-related-edges-and-vertices"></a>Localizar os vértices e bordas relacionadas
 
-Até agora, só vimos operadores de consulta que funcionam em qualquer banco de dados. Os gráficos são rápidos e eficientes para operações de passagem quando você precisa navegar até os vértices e bordas relacionadas. Vamos encontrar todos os amigos de Thomas. Fazemos isso usando a etapa `outE` do Gremlin para localizar todos as bordas externas de Thomas, depois passamos para os vértices internos dessas bordas usando a etapa `inV` do Gremlin:
+Até agora, só vimos operadores de consulta que funcionam em qualquer banco de dados. Os grafo são rápidos e eficientes para operações de passagem quando você precisa navegar até os vértices e bordas relacionadas. Vamos encontrar todos os amigos de Thomas. Fazemos isso usando a etapa `outE` do Gremlin para localizar todos as bordas externas de Thomas, depois passamos para os vértices internos dessas bordas usando a etapa `inV` do Gremlin:
 
 ```cs
 g.V('thomas').outE('knows').inV().hasLabel('person')
@@ -72,7 +73,7 @@ A próxima consulta executa dois saltos para localizar todos os "amigos dos amig
 g.V('thomas').outE('knows').inV().hasLabel('person').outE('knows').inV().hasLabel('person')
 ```
 
-Você pode criar consultas mais complexas e implementar uma lógica avançada de passagem de gráfico usando o Gremlin, incluindo a combinação de expressões de filtro, executando o loop usando a etapa `loop` e implementando a navegação condicional usando a etapa `choose`. Saiba mais sobre o que você pode fazer com o [Suporte do Gremlin](gremlin-support.md)!
+Você pode criar consultas mais complexas e implementar uma lógica avançada de passagem de grafo usando o Gremlin, incluindo a combinação de expressões de filtro, executando o loop usando a etapa `loop` e implementando a navegação condicional usando a etapa `choose`. Saiba mais sobre o que você pode fazer com o [Suporte do Gremlin](gremlin-support.md)!
 
 ## <a name="next-steps"></a>Próximas etapas
 

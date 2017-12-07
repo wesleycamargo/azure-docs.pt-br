@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: 0ebf8964bc565e5d4f95fb1ad3edbc16f841851c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0d59dccec4532ff0903972f2b15ed9dd8429a2ed
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="deploying-a-machine-learning-model-as-a-web-service"></a>Implantação de um modelo de Machine Learning como um serviço Web
 
@@ -25,7 +25,7 @@ Este documento aborda as etapas para implantar seus modelos como serviços Web u
 ## <a name="deploying-web-services"></a>Implantação de serviços Web
 Usando as CLIs, você pode implantar os serviços Web para execução no computador local ou em um cluster.
 
-É recomendável começar com uma implantação local. Primeiramente, valide que seu modelo e código funcionam e, em seguida, implante um serviço Web a um cluster para uso em escala de produção. Para obter mais informações sobre como configurar seu ambiente para implantação de cluster, consulte [Configuração de Gerenciamento de Modelos](model-management-configuration.md). 
+É recomendável começar com uma implantação local. Primeiramente, valide que seu modelo e código funcionam e, em seguida, implante um serviço Web a um cluster para uso em escala de produção. Para obter mais informações sobre como configurar seu ambiente para implantação de cluster, consulte [Configuração de Gerenciamento de Modelos](deployment-setup-configuration.md). 
 
 A seguir estão as etapas de implantação:
 1. Use seu modelo de Machine Learning treinado e salvo
@@ -186,4 +186,4 @@ az ml service run realtime -i <service id> -d "{\"input_df\": [{\"sepal length\"
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora que você testou seu serviço Web para ser executado localmente, você pode implantá-lo em um cluster para uso em larga escala. Para obter detalhes sobre como configurar um cluster para implantação de serviço Web, consulte [Configuração de Gerenciamento de Modelos](model-management-configuration.md). 
+Agora que você testou seu serviço Web para ser executado localmente, você pode implantá-lo em um cluster para uso em larga escala. Para obter detalhes sobre como configurar um cluster para implantação de serviço Web, consulte [Configuração de Gerenciamento de Modelos](deployment-setup-configuration.md). 

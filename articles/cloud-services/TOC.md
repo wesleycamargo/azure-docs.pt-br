@@ -41,7 +41,6 @@
 ### [Criar e implantar um serviço de nuvem no portal](cloud-services-how-to-create-deploy-portal.md)
 ### [Criar um contêiner de serviço de nuvem vazio no PowerShell](cloud-services-powershell-create-cloud-container.md)
 ### [Configurar um nome de domínio personalizado](cloud-services-custom-domain-name-portal.md)
-### [Preparar uma implantação de serviço de nuvem (Node.js)](cloud-services-nodejs-stage-application.md)
 ### [Conectar a um Controlador de Domínio personalizado](cloud-services-connect-to-custom-domain.md)
 
 ## Gerenciar serviço

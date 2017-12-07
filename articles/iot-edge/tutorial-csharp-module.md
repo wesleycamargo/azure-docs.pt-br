@@ -3,17 +3,17 @@ title: "Módulo do Azure IoT Edge em C# | Microsoft Docs"
 description: "Criar um módulo do IoT Edge com código em C# e implantá-lo em um dispositivo de borda"
 services: iot-edge
 keywords: 
-author: JimacoMS2
+author: kgremban
 manager: timlt
 ms.author: v-jamebr
 ms.date: 11/15/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 35a38be747f7bb75ed8865dedbd446a43e5397a8
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: b8afc266cd416f39a895285d05b8ff323fb46330
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="develop-and-deploy-a-c-iot-edge-module-to-your-simulated-device---preview"></a>Desenvolver e implantar um módulo do IoT Edge em C# em seu dispositivo simulado - versão prévia
 
@@ -269,7 +269,7 @@ Adicione as credenciais do seu registro ao tempo de execução do Edge no comput
     {
        "routes":{
           "sensorToFilter":"FROM /messages/modules/tempSensor/outputs/temperatureOutput INTO BrokeredEndpoint(\"/modules/filterModule/inputs/input1\")",
-          "filterToIoTHub":"FROM /messages/modules/filtermodule/outputs/output1 INTO $upstream"
+          "filterToIoTHub":"FROM /messages/modules/filterModule/outputs/output1 INTO $upstream"
        }
     }
     ```

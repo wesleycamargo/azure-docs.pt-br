@@ -1,6 +1,6 @@
 ---
 title: "Criação de um gatilho de HTTP com uma associação de entrada do Azure Cosmos DB | Microsoft Docs"
-description: Saiba como usar as Azure Functions com gatilhos de HTTP para consultar o Azure Cosmos DB.
+description: Saiba como usar o Azure Functions com gatilhos HTTP para consultar o Azure Cosmos DB.
 services: cosmos-db
 documentationcenter: 
 author: mimig1
@@ -10,20 +10,21 @@ ms.service: cosmos-db
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: mvc
+ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: mimig
-ms.openlocfilehash: 86a660309fd3fd80f10f706ff460af2309c12174
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: mvc
+ms.openlocfilehash: 3fca64db9e19f8295fc462b790beb95f6796ae4c
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
-# <a name="create-an-azure-functions-http-trigger-with-an-azure-cosmos-db-input-binding"></a>Como criar um gatilho de HTTP de Azure Functions com uma associação de entrada do Azure Cosmos DB
+# <a name="create-an-azure-functions-http-trigger-with-an-azure-cosmos-db-input-binding"></a>Como criar um gatilho HTTP do Azure Functions com uma associação de entrada do Azure Cosmos DB
 
-O Azure Cosmos DB é um banco de dados multimodelo distribuído globalmente, sem esquema e sem servidor. A Azure Function é um serviço de computação sem servidor que permite que você execute o código sob demanda. Ao emparelhar esses dois Serviços do Azure, você tem a base para uma arquitetura sem servidor que permite que você se concentre em criar ótimos aplicativos sem se preocupar com provisionamento e manutenção de servidores para as necessidades do seu banco de dados e de computação.
+O Azure Cosmos DB é um banco de dados multimodelo distribuído globalmente, sem esquema e sem servidor. O Azure Function é um serviço de computação sem servidor que permite que você execute o código sob demanda. Ao emparelhar esses dois serviços do Azure, você obtém uma base para uma arquitetura sem servidor que permite que você se concentre em criar ótimos aplicativos sem se preocupar com provisionamento e manutenção de servidores para as necessidades do seu banco de dados e de computação.
 
-Este tutorial baseia-se no código criado no [Início rápido da API do Graph para .NET](create-graph-dotnet.md). Este tutorial adiciona uma Azure Function que contém um [gatilho HTTP](https://github.com/MicrosoftDocs/azure-docs-pr/azure-functions/functions-bindings-http-webhook.md#http-trigger). O gatilho HTTP usa uma [associação de entrada](https://github.com/MicrosoftDocs/azure-docs-pr/azure-functions/functions-triggers-bindings.md) do Azure Cosmos DB para recuperar dados do banco de dados de gráfico criado no início rápido. Este gatilho HTTP específico aciona uma consulta de dados ao Azure Cosmos DB, mas as associações de entrada do Azure Cosmos DB podem ser usadas para recuperar valores de entradas de dados para tudo o que a sua função precisar.
+Este tutorial é baseado no código criado no [Início rápido da API do Graph para .NET](create-graph-dotnet.md). Este tutorial adiciona um Azure Function que contém um [gatilho HTTP](https://github.com/MicrosoftDocs/azure-docs-pr/azure-functions/functions-bindings-http-webhook.md#http-trigger). O gatilho HTTP usa uma [associação de entrada](https://github.com/MicrosoftDocs/azure-docs-pr/azure-functions/functions-triggers-bindings.md) do Azure Cosmos DB para recuperar dados do banco de dados de grafo criado no início rápido. Este gatilho HTTP específico aciona uma consulta de dados ao Azure Cosmos DB, mas as associações de entrada do Azure Cosmos DB podem ser usadas para recuperar valores de entradas de dados para tudo o que a sua função precisar.
 
 Este tutorial cobre as seguintes tarefas:
 
@@ -47,15 +48,15 @@ Este tutorial cobre as seguintes tarefas:
 
 1. Adicione um projeto do **Azure Functions** à solução clicando o botão direito no nó em**Gerenciador de Soluções** e, em seguida, escolha **Adicionar**  >  **Novo Projeto**. Escolha **Azure Functions** na caixa de diálogo e defina o nome dele como **PeopleDataFunctions**.
 
-   ![Como adicionar um projeto do Azure Function para a solução](./media/tutorial-functions-http-trigger/01-add-function-project.png)
+   ![Como adicionar um projeto do Azure Function na solução](./media/tutorial-functions-http-trigger/01-add-function-project.png)
 
-2. Depois de criar o projeto do Azure Functions, realize as atualizações e instalações relacionadas ao NuGet. 
+2. Depois de criar o projeto do Azure Functions, execute as atualizações e as instalações relacionadas ao NuGet. 
 
     a. Para garantir que você tem as funções de SDK mais atuais, use o Gerenciador de NuGet para atualizar o pacote **Microsoft.NET.Sdk.Functions**. No **Gerenciador de Soluções**, clique com o botão direito do mouse no projeto e escolha **Gerenciar Pacotes NuGet**. Na guia **Instalados**, selecione Microsoft.NET.Sdk.Functions e, então, clique em **Atualizar**.
 
    ![Como atualizar pacotes NuGet](./media/tutorial-functions-http-trigger/02-update-functions-sdk.png)
 
-    b. Na guia **Procurar**, digite **azure.graphs** para localizar o pacote **Microsoft.Azure.Graphs** e, em seguida, clique em **Instalar**. Este pacote contém o SDK de cliente .NET do API do Graph.
+    b. Na guia **Procurar**, digite **azure.graphs** para localizar o pacote **Microsoft.Azure.Graphs** e, em seguida, clique em **Instalar**. Este pacote contém o SDK de cliente .NET da API do Graph.
 
    ![Como instalar a API do Graph](./media/tutorial-functions-http-trigger/03-add-azure-graphs.png)
 
@@ -63,14 +64,14 @@ Este tutorial cobre as seguintes tarefas:
 
    ![Como instalar o Mono.CSharp](./media/tutorial-functions-http-trigger/04-add-mono.png)
 
-3. O Gerenciador de soluções agora deve incluir os pacotes que você instalou, conforme mostrado aqui. 
+3. O Gerenciador de Soluções agora deve incluir os pacotes que você instalou, conforme mostrado aqui. 
    
-   Em seguida, é preciso escrever um código, portanto, vamos adicionar um novo item **Azure Function** ao projeto. 
+   Em seguida, é necessário escrever um código, portanto, vamos adicionar um novo item do **Azure Function** ao projeto. 
 
     a. Clique com o botão direito do mouse no nó do projeto no **Gerenciador de Soluções**, escolha **Adicionar** > **Novo Item**.   
-    b. Na caixa de diálogo **Adicionar Novo Item**, selecione **Itens do Visual C#**, selecione **Azure Function**, digite **Pesquisa** como o nome para seu projeto e, em seguida, clique em **Adicionar**.  
+    b. Na caixa de diálogo **Adicionar Novo Item**, selecione **Itens do Visual C#**, selecione **Azure Function**, digite **Pesquisa** como o nome do seu projeto e, em seguida, clique em **Adicionar**.  
  
-   ![Como criar uma nova função chamada de Pesquisa](./media/tutorial-functions-http-trigger/05-add-function.png)
+   ![Como criar uma nova função chamada Pesquisa](./media/tutorial-functions-http-trigger/05-add-function.png)
 
 4. A Azure Function atenderá solicitações HTTP para que o modelo de gatilho Http seja apropriado aqui.
    
@@ -97,7 +98,7 @@ Este tutorial cobre as seguintes tarefas:
    using System.Threading.Tasks;
    ```
 
-6. Em seguida, substitua o código da classe da Azure Function pelo código a seguir. O código pesquisa o banco de dados do Azure Cosmos DB usando a API do Graph para qualquer pessoa ou para uma pessoa específica identificada pelo `name` parâmetro de cadeia de caracteres de consulta.
+6. Em seguida, substitua o código da classe da Azure Function pelo código a seguir. O código pesquisa o banco de dados do Azure Cosmos DB usando a API do Graph para qualquer pessoa ou para uma pessoa específica identificada pelo parâmetro de cadeia de caracteres de consulta `name`.
 
    ```csharp
    public static class Search

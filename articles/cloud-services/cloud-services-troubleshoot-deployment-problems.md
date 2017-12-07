@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/03/2017
 ms.author: v-six
-ms.openlocfilehash: 944a29aebf7abfe32a7789ab239718b1cd2d7b15
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 3adf4dd824b31d5e3d368a0199bc2e981cafe176
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="troubleshoot-cloud-service-deployment-problems"></a>Solucionar problemas de implantação do serviço de nuvem
 Quando você implanta um pacote de aplicativos do serviço de nuvem no Azure, é possível obter informações sobre a implantação no painel **Propriedades** no portal do Azure. Você pode usar os detalhes nesse painel para ajudá-lo a solucionar problemas com o serviço de nuvem, e pode fornecer essas informações ao suporte do Azure ao abrir uma nova solicitação de suporte.
@@ -27,7 +27,6 @@ Quando você implanta um pacote de aplicativos do serviço de nuvem no Azure, é
 Você pode encontrar o painel **Propriedades** da seguinte maneira:
 
 * No portal do Azure, clique na implantação de seu serviço de nuvem, clique em **Todas as configurações** e em **Propriedades**.
-* No portal clássico do Azure, clique na implantação de seu serviço de nuvem e clique em **PAINEL**, localizado no canto inferior direito da página (em **visão rápida**). Lembre-se de que não há um rótulo de "Propriedades" nesse painel.
 
 > [!NOTE]
 > Você pode copiar o conteúdo do painel **Propriedades** para a área de transferência clicando no ícone no canto superior direito do painel.

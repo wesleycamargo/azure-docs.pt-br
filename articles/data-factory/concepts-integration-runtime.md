@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/15/2017
+ms.date: 12/05/2017
 ms.author: shlo
-ms.openlocfilehash: c3cf9bfeabb65fa15941e3085d9f9146c3feef80
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 5c78f61074258c734cefade28d6aca1055519758
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Integration Runtime no Azure Data Factory
 O IR (Integration Runtime) é a infraestrutura de computação usada pelo Azure Data Factory para fornecer as seguintes funcionalidades de integração de dados entre diferentes ambientes de rede:
@@ -141,7 +141,7 @@ Estados Unidos | Leste dos EUA | Leste dos EUA
 &nbsp; | Centro-Sul dos Estados Unidos | Centro-Sul dos Estados Unidos
 &nbsp; | Centro-Oeste dos EUA | Centro-Oeste dos EUA
 &nbsp; | Oeste dos EUA | Oeste dos EUA
-&nbsp; | Oeste dos EUA 2 | Oeste dos EUA
+&nbsp; | Oeste dos EUA 2 | Oeste dos EUA 2
 Canadá | Leste do Canadá | Canadá Central
 &nbsp; | Canadá Central | Canadá Central
 Brasil | Sul do Brasil | Sul do Brasil

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/11/2017
 ms.author: v-deasim
-ms.openlocfilehash: 8df9fd46fe3ce8d87e7ad5377a21a0bc7a458d2b
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: f09195dc07a96ebcca7f7a9e4bcf521fae13630c
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="custom-reports-from-verizon"></a>Relatórios personalizados da Verizon
 
@@ -30,7 +30,7 @@ Ao usar relatórios personalizados de Verizon via Portal de gerenciamento para p
 ## <a name="accessing-verizon-custom-reports"></a>Como acessar Relatórios personalizados da Verizon
 1. Na folha do perfil do CDN, clique no botão **Gerenciar** .
    
-    ![botão gerenciar da folha Perfil CDN](./media/cdn-reports/cdn-manage-btn.png)
+    ![Botão Gerenciar perfil da CDN](./media/cdn-reports/cdn-manage-btn.png)
    
     O portal de gerenciamento da CDN é aberto.
 2. Passe o mouse sobre a guia **Análise**, depois sobre o submenu **Relatórios Principais**. Clique em **CNAMEs de Borda**.
@@ -40,7 +40,7 @@ Ao usar relatórios personalizados de Verizon via Portal de gerenciamento para p
 ## <a name="edge-cnames-custom-report"></a>Relatório personalizado de CNAMEs de borda
 O relatório personalizado de CNAMEs de borda fornece ocorrências e estatísticas de dados transferidos para CNAMEs de borda em que o log de relatório personalizado foi habilitado. CNAMEs de borda consistem em nomes de host de ponto de extremidade de CDN do Azure e quaisquer nomes de host de domínio personalizados associados. 
 
-O log de dados de relatório personalizado se inicia uma hora depois de você habilitar a funcionalidade de geração de relatórios personalizados de CNAMEs de borda. Você pode exibir dados de relatório por meio da geração de um relatório de CNAMEs de borda para uma plataforma específica ou para todas as plataformas. A cobertura desse relatório é limitada aos CNAMEs de borda para os quais foram coletados dados de relatório personalizado durante o período de tempo especificado. O relatório de CNAMEs de borda consiste em uma tabela de dados e gráficos para os 10 principais CNAMEs de borda de acordo com a métrica definida na opção Métrica. 
+O log de dados de relatório personalizado se inicia uma hora depois de você habilitar a funcionalidade de geração de relatórios personalizados de CNAMEs de borda. Você pode exibir dados de relatório por meio da geração de um relatório de CNAMEs de borda para uma plataforma específica ou para todas as plataformas. A cobertura desse relatório é limitada aos CNAMEs de borda para os quais foram coletados dados de relatório personalizado durante o período de tempo especificado. O relatório de CNAMEs de borda consiste em uma tabela de dados e grafos para os 10 principais CNAMEs de borda de acordo com a métrica definida na opção Métrica. 
 
 Gere um relatório personalizado definindo as seguintes opções de relatório:
 

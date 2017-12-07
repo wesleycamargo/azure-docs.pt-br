@@ -11,11 +11,11 @@ ms.devlang: azure-cli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 11/03/2017
-ms.openlocfilehash: 286b16148d28509714862714dcc5986496d9af44
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 9a94f257e5cd3534127e8594ddee3c5f837876df
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="list-and-update-configurations-of-an-azure-database-for-mysql-server-using-azure-cli"></a>Listar e atualizar as configurações de um Banco de Dados do Azure para o servidor MySQL usando a CLI do Azure
 Este script de exemplo da CLI lista todos os parâmetros de configuração disponíveis, bem como seus valores permitidos para o Banco de Dados do Azure para o servidor MySQL e define o *innodb_lock_wait_timeout* com um valor diferente do padrão.
@@ -37,12 +37,12 @@ Este script usa os seguintes comandos. Cada comando na tabela redireciona para a
 
 | **Comando** | **Observações** |
 |---|---|
-| [az group create](/cli/azure/group#create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
-| [az mysql server create](/cli/azure/mysql/server#create) | Cria um servidor MySQL que hospeda os bancos de dados. |
-| [az mysql server configuration list](/cli/azure/mysql/server/configuration#list) | Liste as configurações de um Banco de Dados do Azure para o servidor MySQL. |
-| [az mysql server configuration set](/cli/azure/mysql/server/configuration#set) | Atualize a configuração de um Banco de Dados do Azure para o servidor MySQL. |
-| [az mysql server configuration show](/cli/azure/mysql/server/configuration#show) | Mostre a configuração de um Banco de Dados do Azure para o servidor MySQL. |
-| [az group delete](/cli/azure/group#delete) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
+| [az group create](/cli/azure/group#az_group_create) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [az mysql server create](/cli/azure/mysql/server#az_msql_server_create) | Cria um servidor MySQL que hospeda os bancos de dados. |
+| [az mysql server configuration list](/cli/azure/mysql/server/configuration#az_msql_server_configuration_list) | Liste as configurações de um Banco de Dados do Azure para o servidor MySQL. |
+| [az mysql server configuration set](/cli/azure/mysql/server/configuration#az_msql_server_configuration_set) | Atualize a configuração de um Banco de Dados do Azure para o servidor MySQL. |
+| [az mysql server configuration show](/cli/azure/mysql/server/configuration#az_msql_server_configuration_show) | Mostre a configuração de um Banco de Dados do Azure para o servidor MySQL. |
+| [az group delete](/cli/azure/group#az_group_delete) | Exclui um grupo de recursos, incluindo todos os recursos aninhados. |
 
 ## <a name="next-steps"></a>Próximas etapas
 - Para ler mais sobre a CLI do Azure: [documentação da CLI do Azure](/cli/azure/overview).

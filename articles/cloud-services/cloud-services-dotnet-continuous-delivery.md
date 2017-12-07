@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/12/2017
 ms.author: kraigb
-ms.openlocfilehash: 0979722b9ec715e91825c7aba74657451df6e83f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 470fda7722e6a22e50ed66a7bc193fc7c9f71536
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="continuous-delivery-for-cloud-services-in-azure"></a>Fornecimento contínuo de serviços de nuvem no Azure
 O processo descrito neste artigo mostra como configurar o fornecimento contínuo de aplicativos na nuvem do Azure. Este processo permite criar pacotes automaticamente e implantar o pacote no Azure após cada verificação de código. O processo de compilação do pacote descrito neste artigo equivale ao comando **Package** do Visual Studio, e as etapas de publicação equivalem ao comando **Publish** do Visual Studio.
@@ -310,7 +310,7 @@ Esta etapa opcional conecta o TFS Team Build ao script criado na etapa 4, que ma
 12. Coloque uma compilação em fila para executar a compilação do pacote e publicar. Se você tiver um gatilho definido para Integração Contínua, você vai executar esse comportamento em cada check-in.
 
 ### <a name="publishcloudserviceps1-script-template"></a>Modelo de script PublishCloudService.ps1
-```
+```powershell
 Param(  $serviceName = "",
         $storageAccountName = "",
         $packageLocation = "",
@@ -522,7 +522,6 @@ Para habilitar a depuração remota ao usar a entrega contínua, consulte [Habil
 [Scale out your build system]: https://msdn.microsoft.com/library/dd793166.aspx
 [Deploy and configure a build server]: https://msdn.microsoft.com/library/ms181712.aspx
 [Azure PowerShell cmdlets]: /powershell/azureps-cmdlets-docs
-[the .publishsettings file]: https://manage.windowsazure.com/download/publishprofile.aspx?wa=wsignin1.0
 [0]: ./media/cloud-services-dotnet-continuous-delivery/tfs-01bc.png
 [2]: ./media/cloud-services-dotnet-continuous-delivery/tfs-02.png
 [3]: ./media/cloud-services-dotnet-continuous-delivery/common-task-tfs-03.png

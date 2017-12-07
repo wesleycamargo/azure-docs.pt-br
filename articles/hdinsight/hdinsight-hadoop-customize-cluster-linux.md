@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: larryfr
-ms.openlocfilehash: f166158d09cd867718acecc6c97ce16b839f49bd
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 5e4fe189a3fa7269a271b422116dc6838e7ef3cb
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>Personalizar clusters HDInsight baseados em Linux usando ações de script
 
@@ -76,9 +76,6 @@ Uma ação de script é simplesmente um script Bash para o qual você fornece um
         > O HDInsight suporta apenas contas do Azure Storage de __Uso geral__. Atualmente ele não dá suporte ao tipo de conta __Armazenamento de blobs__.
 
 * Podem ser restritos à **execução somente em determinados tipos de nó**, por exemplo, nos nós de cabeçalho ou nos nós de trabalho.
-
-  > [!NOTE]
-  > Quando usado com HDInsight Premium, você pode especificar que o script deve ser usado no nó de borda.
 
 * Pode ser **persistente** ou **ad hoc**.
 

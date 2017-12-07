@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/03/2017
+ms.date: 12/04/2017
 ms.author: cherylmc
-ms.openlocfilehash: 2d5da55e757d190db0334ad82eae4042deb5205c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ae8de17c6b2ca8e1b9888612221c7f39b629c1b1
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="about-vpn-gateway"></a>Sobre o Gateway de VPN
 
@@ -87,9 +87,6 @@ Uma conexão de gateway de VPN Ponto a Site (P2S) permite que você crie uma con
 
 Ao contrário das conexões S2S, as conexões P2S não exigem um endereço IP público local ou um dispositivo VPN. As conexões P2S podem ser usadas com as conexões S2S pelo mesmo gateway de VPN, desde que todos os requisitos de configuração de ambas as conexões sejam compatíveis. Para saber mais sobre conexões Ponto a Site, confira [Sobre VPN Ponto a Site](point-to-site-about.md).
 
->[!NOTE]
->Autenticação RADIUS P2S e IKEv2 estão atualmente em versão prévia.
->
 
 ![Exemplo de conexão Ponto de Site do Gateway de VPN do Azure](./media/vpn-gateway-about-vpngateways/point-to-site.png)
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/28/2017
 ms.author: v-donglo
-ms.openlocfilehash: 2fc71d3a03ff978485104bcd1cd9391c1d5ee392
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ed9b4e2fc2dd7c795861dc8f1c0f2c6d61d26439
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="manage-a-web-service-using-the-azure-machine-learning-web-services-portal"></a>Gerenciar um serviço Web usando o portal de Serviços Web do Azure Machine Learning
 Com o portal de Serviços Web do Microsoft Azure Machine Learning, você pode gerenciar seus serviços Web novos e clássicos de Machine Learning. Como os serviços Web clássicos e os novos serviços Web têm base em tecnologias subjacentes diferentes, você tem recursos de gerenciamento um pouco diferentes para cada um deles.
@@ -71,7 +71,7 @@ Clique na guia **PAINEL** .
 
 No painel, você pode exibir o uso geral do serviço Web em um período de tempo. Você pode selecionar o período para exibir no menu suspenso Período no canto superior direito dos gráficos de uso. O painel mostra as seguintes informações:
 
-* **Solicitações ao longo do tempo** exibe um gráfico de etapa do número de solicitações ao longo do período selecionado. Ele pode ajudar a identificar se houver picos de uso.
+* **Solicitações ao longo do tempo** exibe um grafo de etapa do número de solicitações ao longo do período selecionado. Ele pode ajudar a identificar se houver picos de uso.
 * **Solicitações de solicitação-resposta** exibe o número total de chamadas de solicitação-resposta que o serviço recebeu no período de tempo selecionado e quantos deles falharam.
 * **Tempo médio de computação de solicitação-resposta** exibe uma média do tempo necessário para executar as solicitações recebidas.
 * **Solicitações de lote** exibe o número total de chamadas de lote que o serviço recebeu no período de tempo selecionado e quantos deles falharam.
@@ -138,7 +138,7 @@ Clique na guia **PAINEL** .
 
 No painel, você pode exibir o uso geral do serviço Web em um período de tempo. Você pode selecionar o período para exibir no menu suspenso Período no canto superior direito dos gráficos de uso. O painel mostra as seguintes informações:
 
-* **Solicitações ao longo do tempo** exibe um gráfico de etapa do número de solicitações ao longo do período selecionado. Ele pode ajudar a identificar se houver picos de uso.
+* **Solicitações ao longo do tempo** exibe um grafo de etapa do número de solicitações ao longo do período selecionado. Ele pode ajudar a identificar se houver picos de uso.
 * **Solicitações de solicitação-resposta** exibe o número total de chamadas de solicitação-resposta que o serviço recebeu no período de tempo selecionado e quantos deles falharam.
 * **Tempo médio de computação de solicitação-resposta** exibe uma média do tempo necessário para executar as solicitações recebidas.
 * **Solicitações de lote** exibe o número total de chamadas de lote que o serviço recebeu no período de tempo selecionado e quantos deles falharam.
@@ -155,36 +155,4 @@ Você pode atualizar as seguintes propriedades:
 * **Registrar em log** permite habilitar ou desabilitar o registro de erros em log no ponto de extremidade. Para obter mais informações sobre Registrar em Log, veja Habilitar [registro em log de serviços Web do Machine Learning](web-services-logging.md).
 * **Habilitar dados de Exemplo** permite que você forneça dados de exemplo que podem ser usados para testar o seu serviço de Solicitação-Resposta. Se você criou o serviço Web no Machine Learning Studio, os dados de exemplo são retirados dos dados usados para treinar seu modelo. Se você criou o serviço programaticamente, os dados foram extraídos dos dados de exemplo fornecidos como parte do pacote JSON.
 
-## <a name="grant-or-suspend-access-to-web-services-for-users-in-the-portal"></a>Conceder ou suspender o acesso a serviços Web para os usuários no portal
-No Portal Clássico do Azure você pode permitir ou negar acesso a usuários específicos.
-
-### <a name="access-for-users-of-new-web-services"></a>Acesso para usuários dos Novos Serviços Web
-Para permitir que outros usuários trabalhem com os serviços Web no portal de Serviços de Web do Azure Machine Learning, você deve adicioná-los como coadministradores em sua assinatura do Azure.
-
-Entre no [Portal Clássico do Azure](https://manage.windowsazure.com/) usando sua conta do Microsoft Azure – use a conta que está associada à assinatura do Azure.
-
-1. No painel de navegação à esquerda, clique em **Configurações** e em **Administradores**.
-2. Clique em **Adicionar** na parte inferior da tela. 
-3. Na caixa de diálogo ADICIONAR COADMINISTRADOR, digite o endereço de email da pessoa que deseja adicionar como Coadministrador e, em seguida, selecione a assinatura à qual deseja que o Coadministrador tenha acesso.
-4. Clique em **Salvar**.
-
-### <a name="access-for-users-of-classic-web-services"></a>Acesso para usuários dos Serviços Web Clássicos
-Para gerenciar um espaço de trabalho:
-
-Entre no [Portal Clássico do Azure](https://manage.windowsazure.com/) usando sua conta do Microsoft Azure – use a conta que está associada à assinatura do Azure.
-
-1. No painel de serviços do Microsoft Azure, clique em **APRENDIZADO DE MÁQUINA**.
-2. Clique no espaço de trabalho que você deseja gerenciar.
-3. Clique na guia **CONFIGURAR** .
-
-Na guia de configuração, você pode suspender o acesso ao espaço de trabalho do Machine Learning clicando em **NEGAR**. Os usuários não poderão mais abrir o espaço de trabalho no Machine Learning Studio. Para restaurar o acesso, clique em **PERMITIR**.
-
-Para usuários específicos:
-
-Para gerenciar as contas adicionais quem têm acesso ao espaço de trabalho no Machine Learning Studio, clique em **Entrar no Estúdio AM** na guia **PAINEL**. Isso abre o espaço de trabalho no Machine Learning Studio. Daqui, clique na guia **CONFIGURAÇÕES** e, em seguida, em **USUÁRIOS**. Você pode clicar em **CONVIDAR MAIS USUÁRIOS** para dar acesso aos usuários ao espaço de trabalho, ou selecionar um usuário e clicar em **REMOVER**.
-
-> [!NOTE]
-> O link **Entrar no Estúdio AM** abre o Machine Learning Studio usando a conta da Microsoft com a qual você está conectado no momento. A Conta da Microsoft que você usou para entrar no Portal Clássico do Azure para criar um espaço de trabalho não tem automaticamente permissão para abrir esse espaço de trabalho. Para abrir um espaço de trabalho, você deve estar conectado à Conta da Microsoft que foi definido como proprietária do espaço de trabalho ou você precisa receber um convite do proprietário para ingressar no espaço de trabalho.
-> 
-> 
 

@@ -10,11 +10,11 @@ ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: quickstart
 ms.date: 11/27/2017
-ms.openlocfilehash: c77ea674a1f8ad2b4c879f65a3fdb6758e3ddf63
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: d462bb19b7a662f7d65529b5a2ec9f65be19d131
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="create-an-azure-database-for-postgresql-using-the-azure-cli"></a>Criar um servidor de Banco de Dados do Azure para PostgreSQL usando a CLI do Azure
 O Banco de Dados do Azure para PostgreSQL é um serviço gerenciado que permite executar, gerenciar e dimensionar os bancos de dados altamente disponíveis do PostgreSQL na nuvem. A CLI do Azure é usada para criar e gerenciar recursos do Azure da linha de comando ou em scripts. Este início rápido mostra como criar um Banco de Dados do Azure para o servidor PostgreSQL em um [grupo de recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) usando a CLI do Azure.
@@ -30,7 +30,7 @@ Se você estiver executando a CLI localmente, precisará fazer logon em sua cont
 az login
 ```
 
-Se tiver várias assinaturas, escolha a que for adequada para cobrança do recurso. Selecione uma ID da assinatura específica em sua conta usando o comando [az account set](/cli/azure/account#set).
+Se tiver várias assinaturas, escolha a que for adequada para cobrança do recurso. Selecione uma ID da assinatura específica em sua conta usando o comando [az account set](/cli/azure/account#az_account_set).
 ```azurecli-interactive
 az account set --subscription 00000000-0000-0000-0000-000000000000
 ```
@@ -44,7 +44,7 @@ az group create --name myresourcegroup --location westus
 
 ## <a name="create-an-azure-database-for-postgresql-server"></a>Criar um Banco de Dados do Azure para o servidor PostgreSQL
 
-Crie um [Banco de Dados do Azure para PostgreSQL](overview.md) usando o comando [az postgres server create](/cli/azure/postgres/server#create). Um servidor contém um grupo de bancos de dados gerenciados conjuntamente. 
+Crie um [Banco de Dados do Azure para PostgreSQL](overview.md) usando o comando [az postgres server create](/cli/azure/postgres/server#az_postgres_server_create). Um servidor contém um grupo de bancos de dados gerenciados conjuntamente. 
 
 O exemplo a seguir cria um servidor chamado `mypgserver-20170401` em seu grupo de recursos `myresourcegroup` com o logon de administrador de servidor `mylogin`. O nome de um servidor é mapeado para o nome DNS e, portanto, deve ser globalmente exclusivo no Azure. Substitua o `<server_admin_password>` com seu próprio valor.
 ```azurecli-interactive
