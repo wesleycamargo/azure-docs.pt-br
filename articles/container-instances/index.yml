@@ -49,5 +49,7 @@ sections:
         items:
           - title: Linha de comando
             html: '<p><a href="/cli/azure/container">CLI do Azure</a></p><p><a href="/powershell/module/azurerm.containerinstance#container_instances">PowerShell</a></p>'
+          - title: Linguagens
+            html: <p><a href="/dotnet/api/overview/azure/containerinstances">.NET</a></p><p><a href="/python/api/overview/azure/containerinstance">Python</a></p><p><a href="/java/api/overview/azure/containerinstance">Java</a></p><p><a href="/javascript/api/overview/azure/containerinstance">Node.js</a></p>
           - title: REST
-            html: <p><a href="/rest/api/container-instances">referência da API REST (a página pode estar em inglês)</a></p>
+            html: <p><a href="/rest/api/container-instances">referência da API REST (a página pode estar em inglês)</a></p><p><a href="/azure/templates/microsoft.containerinstance/containergroups">Modelo do Resource Manager</a></p>

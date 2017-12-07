@@ -12,11 +12,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jingwang
-ms.openlocfilehash: 3b2fbab10836b138792efad7ea30f4f0d15905c3
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 69707931402de597c9d6a329da349723da2a782a
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-store-by-using-azure-data-factory"></a>Copiar dados para ou do Azure Data Lake Store usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -58,7 +58,7 @@ As propriedades a seguir têm suporte no serviço vinculado do Azure Data Lake S
 Consulte as seções a seguir para mais propriedades e amostras JSON para diferentes tipos de autenticação, respectivamente:
 
 - [Usar a autenticação de entidade de serviço](#using-service-principal-authentication)
-- [Usar autenticação de identidade do serviço gerenciado](#using-managed-service-identitiy-authentication)
+- [Usar autenticação de identidade do serviço gerenciado](#using-managed-service-identity-authentication)
 
 ### <a name="using-service-principal-authentication"></a>Usar a autenticação de entidade de serviço
 

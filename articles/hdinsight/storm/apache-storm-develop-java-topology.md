@@ -14,14 +14,14 @@ ms.devlang: java
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/28/2017
+ms.date: 12/01/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 07cdc3d37bd845b054b4019d4823d39a1bc74079
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: ca566aed706d4598c6067d42bdbec08d16dc3841
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="create-an-apache-storm-topology-in-java"></a>Criar uma topologia Apache Storm em Java
 
@@ -132,7 +132,7 @@ O Maven permite que você defina valores de nível de projeto chamados proprieda
 <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <!--
-    This is a version of Storm from the Hortonworks repository that is compatible with HDInsight 3.5.
+    This is a version of Storm from the Hortonworks repository that is compatible with HDInsight 3.6.
     -->
     <storm.version>1.1.0.2.6.1.9-1</storm.version>
 </properties>
@@ -182,21 +182,21 @@ Para topologias Apache Storm implementadas em Java, o [plug-in Maven Exec](http:
 <plugin>
     <groupId>org.codehaus.mojo</groupId>
     <artifactId>exec-maven-plugin</artifactId>
-    <version>1.4.0</version>
+    <version>1.5.0</version>
     <executions>
-    <execution>
-    <goals>
-        <goal>exec</goal>
-    </goals>
-    </execution>
+        <execution>
+        <goals>
+            <goal>exec</goal>
+        </goals>
+        </execution>
     </executions>
     <configuration>
-    <executable>java</executable>
-    <includeProjectDependencies>true</includeProjectDependencies>
-    <includePluginDependencies>false</includePluginDependencies>
-    <classpathScope>compile</classpathScope>
-    <mainClass>${storm.topology}</mainClass>
-    <cleanupDaemonThreads>false</cleanupDaemonThreads> 
+        <executable>java</executable>
+        <includeProjectDependencies>true</includeProjectDependencies>
+        <includePluginDependencies>false</includePluginDependencies>
+        <classpathScope>compile</classpathScope>
+        <mainClass>${storm.topology}</mainClass>
+        <cleanupDaemonThreads>false</cleanupDaemonThreads> 
     </configuration>
 </plugin>
 ```
@@ -471,9 +471,9 @@ public class WordCount extends BaseBasicBolt {
 
 ### <a name="define-the-topology"></a>Definir a topologia
 
-A topologia vincula os spouts e bolts em um gráfico, que define como os dados fluem entre os componentes. Ele também fornece dicas de paralelismo que o Storm usará ao criar instâncias dos componentes de dentro do cluster.
+A topologia vincula os spouts e bolts em um grafo, que define como os dados fluem entre os componentes. Ele também fornece dicas de paralelismo que o Storm usará ao criar instâncias dos componentes de dentro do cluster.
 
-A imagem a seguir é um diagrama básico do gráfico de componentes para esta topologia.
+A imagem a seguir é um diagrama básico do grafo de componentes para esta topologia.
 
 ![diagrama mostrando a organização de spouts e bolts](./media/apache-storm-develop-java-topology/wordcount-topology.png)
 

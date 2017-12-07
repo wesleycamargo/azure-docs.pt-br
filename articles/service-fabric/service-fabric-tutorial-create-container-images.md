@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 09/15/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 08b3cc4a52c09ee03818b563794ef9b009d12ef4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ecb70b88f6548e4730bcc1578de2f748cda33b0a
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="create-container-images-for-service-fabric"></a>Criar imagens de contêiner para o Service Fabric
 
@@ -53,9 +53,9 @@ O aplicativo de exemplo usado neste tutorial é um aplicativo de votação. O ap
 Use o git para baixar uma cópia do aplicativo em seu ambiente de desenvolvimento.
 
 ```bash
-git clone https://github.com/Azure-Samples/service-fabric-dotnet-containers.git
+git clone https://github.com/Azure-Samples/service-fabric-containers.git
 
-cd service-fabric-dotnet-containers/Linux/container-tutorial/
+cd service-fabric-containers/Linux/container-tutorial/
 ```
 
 O diretório 'container-tutorial' contém uma pasta chamada 'azure-vote'. Esta pasta 'azure-vote' contém o código-fonte de front-end e um Dockerfile para criar front-end. O diretório 'container-tutorial' também contém o diretório 'redis' que tem o Dockerfile para montar a imagem do redis. Esses diretórios contêm os ativos necessários para este conjunto de tutoriais. 

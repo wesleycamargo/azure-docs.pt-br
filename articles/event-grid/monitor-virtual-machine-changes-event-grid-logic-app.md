@@ -9,13 +9,13 @@ ms.assetid:
 ms.workload: logic-apps
 ms.service: logic-apps
 ms.topic: article
-ms.date: 08/16/2017
+ms.date: 11/30/2017
 ms.author: LADocs; estfan
-ms.openlocfilehash: 8b9c7c9502be1a9d8681a304a6663c23c02c0298
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: df1e19b772b41064aff1f345dee93813f0c21c73
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Como monitorar alterações de máquina virtual com a Grade de Eventos do Azure e os aplicativos lógicos
 
@@ -91,7 +91,7 @@ Primeiro, crie um aplicativo lógico e adicione um gatilho de Grade de eventos q
    ![Entrar com suas credenciais do Azure](./media/monitor-virtual-machine-changes-event-grid-logic-app/sign-in-event-grid.png)
 
    > [!NOTE]
-   > Se você estiver conectado com uma conta pessoal da Microsoft, como @outlook.com ou @hotmail.com, talvez o gatilho da Grade de Eventos não apareça corretamente. Como alternativa, escolha [Conectar-se à Entidade de Serviço](/azure-resource-manager/resource-group-create-service-principal-portal.md) ou autentique como membro do Azure Active Directory associado à sua assinatura do Azure, por exemplo, *nome de usuário*@emailoutlook.onmicrosoft.com.
+   > Se você estiver conectado com uma conta pessoal da Microsoft, como @outlook.com ou @hotmail.com, talvez o gatilho da Grade de Eventos não apareça corretamente. Como alternativa, escolha [Conectar-se à Entidade de Serviço](../azure-resource-manager/resource-group-create-service-principal-portal.md) ou autentique como membro do Azure Active Directory associado à sua assinatura do Azure, por exemplo, *nome de usuário*@emailoutlook.onmicrosoft.com.
 
 8. Agora, assine seu aplicativo lógico para eventos do publicador. Forneça os detalhes para a sua assinatura de evento, conforme especificado na tabela a seguir:
 
@@ -236,12 +236,12 @@ Você pode monitorar outras alterações de configuração com grades de eventos
 
 Este tutorial usa recursos e executa ações que geram encargos na sua assinatura do Azure. Ao concluir o tutorial e testar, confira se desabilitou ou excluiu todos os recursos que você não deseja para evitar encargos.
 
-* Para interromper a execução do seu aplicativo lógico sem excluir o trabalho, desabilite o aplicativo. No menu do aplicativo lógico, escolha **Visão geral**. Na barra de ferramentas, escolha **Desabilitar**.
+* Para interromper a execução do seu aplicativo lógico sem excluir o seu trabalho, desabilite o aplicativo. No menu do aplicativo lógico, escolha **Visão geral**. Na barra de ferramentas, escolha **Desabilitar**.
 
   ![Como desabilitar o aplicativo lógico](./media/monitor-virtual-machine-changes-event-grid-logic-app/turn-off-disable-logic-app.png)
 
   > [!TIP]
-  > Se o menu do aplicativo lógico não aparecer, tente retornar ao Painel do Azure e abra novamente o aplicativo lógico.
+  > Se o menu do aplicativo lógico não aparecer, tente retornar ao painel do Azure e abra novamente o aplicativo lógico.
 
 * Para excluir seu aplicativo permanentemente, escolha **Visão geral** no menu do aplicativo lógico. Na barra de ferramentas, escolha **Excluir**. Confirme que você deseja excluir o aplicativo lógico e escolha **Excluir**.
 
