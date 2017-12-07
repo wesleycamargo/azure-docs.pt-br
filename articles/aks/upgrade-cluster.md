@@ -1,27 +1,19 @@
 ---
-title: "Fazer upgrade de um cluster do Serviço de Contêiner do Azure (AKS) | Microsoft Docs"
+title: "Fazer upgrade de um cluster do AKS (Serviço de Contêiner do Azure)"
 description: "Fazer upgrade de um cluster do AKS (Serviço de Contêiner do Azure)"
 services: container-service
-documentationcenter: 
 author: gabrtv
 manager: timlt
-editor: 
-tags: aks, azure-container-service
-keywords: "Kubernetes, Docker, Contêineres, microsserviços, Azure"
-ms.assetid: 
 ms.service: container-service
-ms.devlang: na
-ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: na
+ms.topic: article
 ms.date: 11/15/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: bff0a69d3dac076333de569b2c29af2887e4e1de
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 40b55309ee4c52743b30682d8751e6e432f9bb4a
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="upgrade-an-azure-container-service-aks-cluster"></a>Fazer upgrade de um cluster do AKS (Serviço de Contêiner do Azure)
 
