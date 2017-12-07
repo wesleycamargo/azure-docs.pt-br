@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/02/2017
 ms.author: kumud
-ms.openlocfilehash: 4cd65c01d75af8539f5fa13dbbd2aaec548aea0b
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 646ade828e96810bdc3b07d4dc5c0276a1621969
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="how-to-configure-high-availability-ports-for-internal-load-balancer"></a>Como configurar a alta disponibilidade de portas para o Load Balancer Interno
 
@@ -41,13 +41,10 @@ Figura 1 – dispositivos de rede Virtual implantados atrás de um Load Balancer
 
 ## <a name="preview-sign-up"></a>Inscrição na versão prévia
 
-Para participar da versão prévia do recurso de portas de alta disponibilidade no Load Balancer Standard, registre sua assinatura para obter acesso usando a CLI do Azure 2.0 ou o PowerShell.  Registre sua assinatura para
-
-1. [Versão prévia do Load Balancer Standard](https://aka.ms/lbpreview#preview-sign-up) e 
-2. [Versão prévia de Portas de HA](https://aka.ms/haports#preview-sign-up).
+Para participar da versão prévia do recurso de portas de alta disponibilidade no Load Balancer Standard, registre sua assinatura para obter acesso usando a CLI do Azure 2.0 ou o PowerShell. Registre sua assinatura da [versão prévia do Load Balancer Standard](https://aka.ms/lbpreview#preview-sign-up).
 
 >[!NOTE]
->Para usar esse recurso, você também deve se inscrever para a [Versão prévia padrão](https://aka.ms/lbpreview#preview-sign-up) do Load Balancer além das portas de alta disponibilidade. O registro das Portas de alta disponibilidade ou das versões prévias padrão do Load Balancer pode levar até uma hora.
+>O registro das versões prévias do Load Balancer Standard pode levar até uma hora.
 
 ## <a name="configuring-ha-ports"></a>Configurando portas de HA
 

@@ -3,7 +3,7 @@ title: Proteja Novamente do Azure para um site local | Microsoft Docs
 description: "Após o failover de máquinas virtuais no Azure, você pode iniciar um failback para trazer as máquinas virtuais de volta para o local. Saiba como proteger novamente antes de um failback."
 services: site-recovery
 documentationcenter: 
-author: ruturaj
+author: rajani-janaki-ram
 manager: gauravd
 editor: 
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
@@ -13,12 +13,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 06/05/2017
-ms.author: ruturajd
-ms.openlocfilehash: 3644b41c3e3293a263bd9ff996d4e3d26417aeed
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: rajanaki
+ms.openlocfilehash: 17a43de3faaa3a146fa9d8f43d36545d6d82b274
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="reprotect-from-azure-to-an-on-premises-site"></a>Proteja Novamente do Azure para um site local
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 Este artigo descreve como proteger novamente as máquinas virtuais do Azure para um site local. Quando estiver pronto, siga as instruções neste artigo para fazer o failback de suas máquinas virtuais VMware ou de servidores físicos Windows/Linux após a realização do failover do site local para o Azure (conforme descrito em [Replicar máquinas virtuais VMware e servidores físicos para o Azure com o Azure Site Recovery](site-recovery-failover.md)).
 
 > [!WARNING]
-> Não é possível realizar o failback após [concluir a migração](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), mover a máquina virtual para outro grupo de recursos ou excluir a máquina virtual do Azure. Se você desabilitar a proteção da máquina virtual, não é possível realizar o failback.
+> Não é possível realizar o failback após [concluir a migração](site-recovery-migrate-to-azure.md#what-do-we-mean-by-migration), mover a máquina virtual para outro grupo de recursos ou excluir a máquina virtual do Azure. Se você desabilitar a proteção da máquina virtual, não é possível realizar o failback. Se a máquina virtual foi criada primeiro no Azure (nascida na nuvem), então você não poderá protegê-la novamente para o local. A máquina deve ter sido inicialmente protegida no local e ter tido o failover para o Azure antes da nova proteção.
 
 
 Depois que o proteja novamente for concluído e as máquinas virtuais protegidas estiverem replicando, você pode iniciar um failback nas máquinas virtuais para trazê-las para o site local.
@@ -62,13 +62,20 @@ Quando você se prepara para proteger novamente máquinas virtuais, realize ou c
   * **Servidor de destino mestre**: o servidor de destino mestre recebe dados do failback. O servidor de gerenciamento local criado tem um servidor de destino mestre instalado por padrão. No entanto, dependendo do volume do tráfego de failback, talvez seja necessário criar um servidor de destino mestre separado para o failback.
     * [Uma máquina virtual Linux precisa de um servidor de destino mestre do Linux](site-recovery-how-to-install-linux-master-target.md).
     * Uma máquina virtual Windows precisa de um servidor de destino mestre do Windows. Você pode usar o servidor de processo local e os computadores de servidor de destino mestre novamente.
+    * O destino mestre tem outros pré-requisitos listados em [Tarefas comuns para verificar em um destino mestre antes de proteger novamente](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server).
 
-    O destino mestre tem outros pré-requisitos listados em [Tarefas comuns para verificar em um destino mestre antes de proteger novamente](site-recovery-how-to-reprotect.md#common-things-to-check-after-completing-installation-of-the-master-target-server).
+> [!NOTE]
+> Todas as máquinas virtuais de um grupo de replicação devem ser do mesmo tipo de sistema operacional (todas com Windows ou todas com Linux). Atualmente, um grupo de replicação com sistemas operacionais misturados não têm suporte para proteger novamente e para fazer o failback no local. Isso ocorre porque o destino mestre deve ser do mesmo sistema operacional da máquina virtual e todas as máquinas virtuais de um grupo de replicação devem ter o mesmo destino mestre. 
+
+    
 
 * Um servidor de configuração é necessário localmente ao fazer um failback. Durante o failback, a máquina virtual deve existir no banco de dados do servidor de configuração. Caso contrário, o failback será malsucedido. 
 
 > [!IMPORTANT]
 > Faça o backup agendado regular de seu servidor. de configuração. Em caso de desastre, restaure o servidor com o mesmo endereço IP para que o failback funcione.
+
+> [!WARNING]
+> Um Grupo de Replicação deve ter apenas máquinas virtuais do Windows ou máquinas virtuais do Linux e não uma mistura de ambas, porque todas as VMs em um grupo de replicação usam o mesmo servidor de Destino Mestre e a VM do Linux requer um servidor de Destino Mestre do Linux e o mesmo acontece para a VM do Windows.
 
 * Defina a configuração `disk.EnableUUID=true` nos parâmetros de configuração da máquina virtual de destino mestre no VMware. Se essa linha não existir, adicione-a. Essa configuração é necessária para fornecer um UUID consistente para o VMDK (disco de máquina virtual) para que ele monte corretamente.
 
@@ -170,6 +177,8 @@ Atualmente, o Azure Site Recovery dá suporte ao failback somente para um reposi
 * O servidor de destino mestre não pode ter instantâneos nos discos. Se houver instantâneos, a nova proteção e o failback falharão.
 
 * O destino mestre não pode ter um controlador Paravirtual SCSI. O controlador só pode ser um controlador LSI Logic. Sem um controlador de Lógica LSI, a nova proteção falha.
+
+* Em qualquer instância em particular, o destino mestre pode ter no máximo 60 discos conectados a ele. Se o número de máquinas virtuais que estiverem sendo reprotegidas para o destino mestre no local for maior do que a soma total de 60 discos, as novas proteções para o destino mestre começarão a falhar. Certifique-se de que você tenha slots de disco suficientes no destino mestre ou implante servidores de destino mestre adicionais.
 
 <!--
 ### Failback policy

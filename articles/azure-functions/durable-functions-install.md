@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: debadde78d937bcd4ec1df665aacfd1887fbcd02
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 03326304e438f3b716c43d268f07d8e22cd15ea3
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>Instalar a extensão de Funções Duráveis e exemplos (Azure Functions)
 
@@ -33,7 +33,7 @@ Atualmente, o Visual Studio fornece a melhor experiência para desenvolver aplic
 
 ### <a name="prerequisites"></a>Pré-requisitos
 
-* Instale a [versão mais recente do Visual Studio](https://www.visualstudio.com/downloads/) (versão 15.3 ou posterior). Inclua as ferramentas do Azure em suas opções de instalação.
+* Instale a [versão mais recente do Visual Studio](https://www.visualstudio.com/downloads/) (versão 15.3 ou posterior). Inclua a carga de trabalho do **desenvolvimento do Azure** em suas opções de instalação.
 
 ### <a name="start-with-sample-functions"></a>Comece com as funções de exemplo
 
@@ -61,7 +61,7 @@ Se preferir, você poderá usar o portal do Azure para o desenvolvimento de Fun�
 
 1. Crie um novo aplicativo de funções em [functions.azure.com](https://functions.azure.com/signin).
 2. Configure o aplicativo de funções para [usar a versão de tempo de execução 2.0](functions-versions.md).
-3. Crie uma nova função e selecione o modelo **Orquestrador de Funções Duráveis – C#**.
+3. Crie uma nova função, escolhendo "C#" para a linguagem e "Todos" para Cenário. Em seguida, selecione o modelo **Orquestrador de Funções Duráveis – C#**.
 4. Em **Extensões não instaladas**, clique em **Instalar** para baixar a extensão de NuGet.org.
 
 ### <a name="copy-sample-code-to-the-function-app"></a>Copie o código de exemplo para o aplicativo de funções

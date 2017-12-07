@@ -1,5 +1,5 @@
 ---
-title: "Como configurar APIs de autenticação e autorização no Azure Time Series Insights"
+title: Como autenticar e autorizar pela API no Azure Time Series Insights
 description: "Este artigo descreve como configurar a autenticação e autorização para um aplicativo personalizado que chama a API do Azure Time Series Insights."
 services: time-series-insights
 ms.service: time-series-insights
@@ -11,12 +11,12 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: article
-ms.date: 11/21/2017
-ms.openlocfilehash: cab37f65541ecf8bfa58edcd40df0aed39b37680
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.date: 11/27/2017
+ms.openlocfilehash: dd78e1e726029aaceef5aff0e0eed84acac646cf
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autenticação e autorização para API do Azure Time Series Insights
 
@@ -32,7 +32,7 @@ Quando você tiver um aplicativo que precisa acessar o Time Series Insights, voc
 * Você não precisa alterar as credenciais do aplicativo se alterar suas responsabilidades.
 * Você pode usar um certificado ou uma chave de aplicativo para automatizar a autenticação ao executar um script autônomo.
 
-Este tópico mostra como executar essas etapas no portal do Azure. Ele se concentra em um aplicativo de locatário único que se destina a ser executado em uma única organização. Você normalmente usa os aplicativos com um único locatário para os aplicativos da linha de negócios executados em sua organização.
+Este artigo mostra como executar essas etapas no portal do Azure. Ele se concentra em um aplicativo de locatário único que se destina a ser executado em uma única organização. Você normalmente usa os aplicativos com um único locatário para os aplicativos da linha de negócios executados em sua organização.
 
 O fluxo de instalação consiste em três etapas de alto nível:
 

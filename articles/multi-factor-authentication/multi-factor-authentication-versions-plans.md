@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: joflore
-ms.openlocfilehash: c5c93c8e8d108a9a5a29477a532d682659c9d512
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: ddac8feedc8ded73e0f436c1e5dd6391016943a9
+ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Como obter a Autenticação Multifator do Azure
 
@@ -56,7 +56,7 @@ A tabela a seguir fornece uma lista dos recursos que estão disponíveis em vár
 | SMS como um fator secundário |● |● |● |
 | Senhas de aplicativos para clientes que não oferecem suporte a MFA |● |● |● |
 | Controle do administrador sobre métodos de verificação |● |● |● |
-| Proteger contas que não são de administrador com MFA | | |● |
+| Proteger contas que não são de administrador com MFA |● (Somente para aplicativos do Office 365) | |● |
 | Modo PIN | | |● |
 | Alerta de fraude | | |● |
 | Relatórios de MFA | | |● |

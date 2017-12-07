@@ -15,14 +15,16 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 05/22/2017
 ms.author: glenga
-ms.openlocfilehash: ac0399867e0cdab1825022c4ed73ce003cc8c7e6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9d8261a22f5ea9ce61bcdc79d24a6c054597039b
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Usar o Azure Functions para conectar a um banco de dados SQL do Azure
-Este tópico mostra como usar o Azure Functions para criar um trabalho agendado que limpa linhas em uma tabela em um banco de dados SQL do Azure. A nova função C# é criada com base em um gatilho de temporizador predefinido no Portal do Azure. Para dar suporte a esse cenário, você também precisa definir uma cadeia de conexão de banco de dados como uma configuração no aplicativo de funções. Esse cenário usa uma operação em massa no banco de dados. Para que sua função processe operações CRUD individuais em uma tabela dos Aplicativos Móveis, você deve usar as [Associações de aplicativos móveis](functions-bindings-mobile-apps.md).
+Este tópico mostra como usar o Azure Functions para criar um trabalho agendado que limpa linhas em uma tabela em um banco de dados SQL do Azure. A nova função C# é criada com base em um gatilho de temporizador predefinido no Portal do Azure. Para dar suporte a esse cenário, você também precisa definir uma cadeia de conexão de banco de dados como uma configuração de aplicativo no aplicativo de funções. Esse cenário usa uma operação em massa no banco de dados. 
+
+Para que sua função processe operações criar, ler, atualizar e excluir (CRUD) individuais em uma tabela dos Aplicativos Móveis, você deve usar as [Associações de aplicativos móveis](functions-bindings-mobile-apps.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -59,7 +61,7 @@ Um aplicativo de função hospeda a execução de suas funções no Azure. É um
     | Configuração       | Valor sugerido | Descrição             | 
     | ------------ | ------------------ | --------------------- | 
     | **Nome**  |  sqldb_connection  | Usado para acessar a cadeia de conexão armazenada no seu código de função.    |
-    | **Valor** | Cadeia de caracteres copiada  | Cole a cadeia de conexão que você copiou na seção anterior. |
+    | **Valor** | Cadeia de caracteres copiada  | Cole a cadeia de caracteres de conexão que você copiou na seção anterior e substitua os espaços reservados `{your_username}` e `{your_password}` por valores reais. |
     | **Tipo** | Banco de Dados SQL | Use a conexão do Banco de Dados SQL. |   
 
 3. Clique em **Salvar**.
@@ -84,7 +86,7 @@ Agora, você pode adicionar o código de função C# que conecta ao Banco de Dad
     using System.Threading.Tasks;
     ```
 
-4. Substitua a função **Run** existente por este código:
+4. Substitua a função `Run` existente por este código:
     ```cs
     public static async Task Run(TimerInfo myTimer, TraceWriter log)
     {
@@ -105,7 +107,7 @@ Agora, você pode adicionar o código de função C# que conecta ao Banco de Dad
     }
     ```
 
-    Este comando atualiza a coluna **Status** com base na data de envio. Ele deve atualizar 32 linhas de dados.
+    Este comando atualiza a coluna `Status` com base na data de envio. Ele deve atualizar 32 linhas de dados.
 
 5. Clique em **Salvar**, observe nas janelas de **Logs** a execução da próxima função e observe o número de linhas atualizadas na tabela **SalesOrderHeader**.
 

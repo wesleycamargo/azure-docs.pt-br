@@ -13,13 +13,13 @@ ms.workload: On Demand
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 11/29/2017
 ms.author: genemi
-ms.openlocfilehash: bdf83fac9bd0ac6790062f802748a18045c7a171
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 44c4491e7c198eec43a31480ef3df748626b7b75
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="connectivity-libraries-and-frameworks-for-microsoft-sql-server"></a>Estruturas e bibliotecas de conectividade para Microsoft SQL Server
 
@@ -47,12 +47,25 @@ A tabela a seguir lista alguns exemplos das estruturas de ORM (Mapeamento Objeto
 | Node.js | Windows, Linux, macOS | [Sequelize ORM](http://docs.sequelizejs.com) |
 | Python | Windows, Linux, macOS |[Django](https://www.djangoproject.com/) |
 | Ruby | Windows, Linux, macOS | [Ruby on Rails](http://rubyonrails.org/) |
+||||
 
 ## <a name="related-links"></a>Links relacionados
 - [SQL Server Drivers](http://msdn.microsoft.com/library/mt654049.aspx) (Drivers do SQL Server) para se conectar de aplicativos cliente
-- [Conectar-se ao Banco de Dados SQL usando .NET (C#)](sql-database-connect-query-dotnet.md)
-- [Conectar-se ao Banco de Dados SQL usando o PHP](sql-database-connect-query-php.md)
-- [Conectar-se ao Banco de Dados SQL usando Node.js](sql-database-connect-query-nodejs.md)
-- [Conectar-se ao Banco de Dados SQL usando o Java](sql-database-connect-query-java.md)
-- [Conectar-se ao Banco de Dados SQL usando Phyton](sql-database-connect-query-python.md)
-- [Conectar-se ao Banco de Dados SQL usando o Ruby](sql-database-connect-query-ruby.md)
+- Conectar ao Banco de Dados SQL:
+    - [Conectar-se ao Banco de Dados SQL usando .NET (C#)](sql-database-connect-query-dotnet.md)
+    - [Conectar-se ao Banco de Dados SQL usando o PHP](sql-database-connect-query-php.md)
+    - [Conectar-se ao Banco de Dados SQL usando Node.js](sql-database-connect-query-nodejs.md)
+    - [Conectar-se ao Banco de Dados SQL usando o Java](sql-database-connect-query-java.md)
+    - [Conectar-se ao Banco de Dados SQL usando Phyton](sql-database-connect-query-python.md)
+    - [Conectar-se ao Banco de Dados SQL usando o Ruby](sql-database-connect-query-ruby.md)
+- Exemplos de código de lógica de repetição:
+    - [Conectar-se de forma resiliente ao SQL com ADO.NET][step-4-connect-resiliently-to-sql-with-ado-net-a78n]
+    - [Conectar-se de forma resiliente ao SQL com PHP][step-4-connect-resiliently-to-sql-with-php-p42h]
+
+
+<!-- Link references. -->
+
+[step-4-connect-resiliently-to-sql-with-ado-net-a78n]: https://docs.microsoft.com/sql/connect/ado-net/step-4-connect-resiliently-to-sql-with-ado-net
+
+[step-4-connect-resiliently-to-sql-with-php-p42h]: https://docs.microsoft.com/sql/connect/php/step-4-connect-resiliently-to-sql-with-php
+

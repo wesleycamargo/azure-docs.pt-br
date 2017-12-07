@@ -12,6 +12,6 @@ Se você ainda não fez isso, adicione Aplicativos de Funções aos seus favorit
 
 3. Feche o menu e role para baixo até a parte inferior para ver o ícone do Functions. Clique nesse ícone para ver uma lista de todos os seus aplicativos de funções. Clique em seu aplicativo de funções para trabalhar com funções neste aplicativo. 
  
-    ![](./media/functions-portal-favorite-function-apps/functions-function-apps-hub.png)
+    ![Aplicativos de funções nos Favoritos](./media/functions-portal-favorite-function-apps/functions-function-apps-hub.png)
  
      

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2017
+ms.date: 11/28/2017
 ms.author: jeedes
-ms.openlocfilehash: cf44d749ecbfcffb3d5a6e5e12aa49e66f7cde2e
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 620b0f62bceeda6fac87c31b325a078260f7d3d0
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>Tutorial: Integração do Azure Active Directory ao Cezanne HR Software
 
@@ -108,11 +108,14 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![Informações de logon único de Domínio e URLs do Cezanne HR Software](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_url.png)
 
-    a. Na caixa de texto **URL de Logon**, digite a URL: `https://w3.cezanneondemand.com/CezanneOnDemand/-/optyma`
+    a. Na caixa de texto **URL de Logon**, digite a URL: `https://w3.cezanneondemand.com/CezanneOnDemand/-/<tenantidentifier>`
 
     b. Na caixa de texto **Identificador**, digite a URL: `https://w3.cezanneondemand.com/CezanneOnDemand/`
 
-    c. Na caixa de texto **URL de Resposta**, digite a URL: `https://w3.cezanneondemand.com:443/cezanneondemand/-/optyma/Saml/samlp`
+    c. Na caixa de texto **URL de Resposta**, digite a URL: `https://w3.cezanneondemand.com:443/cezanneondemand/-/<tenantidentifier>/Saml/samlp`
+    
+    > [!NOTE]
+    > Esses valores não são reais. Atualize esses valores com a URL de Resposta e a URL de Logon reais. Para obter esses valores, entre em contato com a [equipe de suporte ao cliente do Cezanne HR Software](https://cezannehr.com/services/support/).
 
 4. Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado no computador.
 
@@ -146,7 +149,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
     
     a. Insira o nome do seu Provedor de Identidade como o **Nome de Exibição**.
 
-    b. Na caixa de texto **Identificador de Entidade**, cole o valor da **ID da Entidade do SAML** copiado do Portal do Azure. 
+    b. Na caixa de texto **Identificador de Entidade**, cole o valor da **ID da Entidade do SAML** que você copiou do portal do Azure. 
 
     c. Altere a **Associação SAML** para 'POST'.
 

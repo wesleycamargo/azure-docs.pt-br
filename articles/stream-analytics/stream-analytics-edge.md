@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 11/16/2017
 ms.author: jeanb
-ms.openlocfilehash: f1df2f52d00444ba0a27644a6e65cee789788f58
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: ad2a5891e207f6e8320c3e54ae7c817b49db4672
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>Azure Stream Analytics no IoT Edge (visualização)
 
@@ -61,6 +61,11 @@ Você pode seguir [este tutorial passo a passo](https://docs.microsoft.com/azure
 
 #### <a name="create-an-asa-edge-job"></a>Criar um trabalho de Borda ASA
 1. No portal do Azure, crie um novo "trabalho Stream Analytics". [Link direto para criar um novo trabalho ASA aqui](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob).
+
+> [!Note]
+> Você pode criar trabalhos de borda em todas as regiões com suporte do ASA, **exceto na região "Oeste dos EUA 2"**.
+> Essa limitação será removida em breve.
+
 2. Na tela de criação, selecione **Borda** como **ambiente de hospedagem** (veja a figura a seguir) e ![Criação do trabalho](media/stream-analytics-edge/ASAEdge_create.png)
 3. Definição de trabalho
     1. **Definir Fluxo(s) de Entrada**. Defina um ou mais fluxos de entrada para o trabalho.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: juluk
-ms.openlocfilehash: 08ab3b38e4c1fbeb1fac67c5d1b6f6749f7a0a3e
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 05c4d419f6d7b42a14b9bb13570daaa666d52db3
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Visão geral do Azure Cloud Shell
 O Azure Cloud Shell é um shell interativo e acessível pelo navegador para o gerenciamento de recursos do Azure.
@@ -55,9 +55,9 @@ Além de Cloud Shell disponível no portal do Azure, ele também pode ser acessa
 * [Aplicativo móvel do Azure](https://azure.microsoft.com/features/azure-portal/mobile-app/)
 * [Extensão Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
-### <a name="connect-your-azure-files-storage"></a>Conectar o armazenamento de arquivos do Azure
+### <a name="connect-your-microsoft-azure-files-storage"></a>Conectar seu armazenamento de arquivos do Microsoft Azure
 Os computadores do Cloud Shell são temporários e, assim, exigem que um compartilhamento de Arquivos do Azure seja montado como `clouddrive` para manter seu diretório $Home.
-Na primeira inicialização, o Cloud Shell solicita a criação de um grupo de recursos, uma conta de armazenamento e um compartilhamento de arquivos em seu nome. Essa é uma etapa única e será anexada automaticamente para todas as sessões. Um compartilhamento de arquivo único pode ser mapeado e será usado pelo Bash e pelo PowerShell no Cloud Shell (Versão prévia).
+Na primeira inicialização, o Cloud Shell solicita a criação de um grupo de recursos, uma conta de armazenamento e um compartilhamento de arquivos do Azure em seu nome. Essa é uma etapa única e será anexada automaticamente para todas as sessões. Um único compartilhamento de arquivos do Azure pode ser mapeado e será usado pelo Bash e pelo PowerShell no Cloud Shell (versão prévia).
 
 #### <a name="create-new-storage"></a>Criar novo armazenamento
 ![](media/overview/basic-storage.png)
@@ -70,7 +70,7 @@ Três recursos serão criados em seu nome:
 3. Um Compartilhamento de Arquivos chamado: `cs-<user>-<domain>-com-<uniqueGuid>`
 
 > [!Note]
-> O Bash no Cloud Shell também cria uma imagem de disco de 5 GB padrão para manter `$Home`. Todos os arquivos em seu diretório $Home como chaves SSH são mantidos em sua imagem de disco do usuário armazenada no compartilhamento de arquivo montados. Aplica as práticas recomendadas ao salvar arquivos no diretório $Home e compartilhamento de arquivos montado.
+> O Bash no Cloud Shell também cria uma imagem de disco de 5 GB padrão para manter `$Home`. Todos os arquivos em seu diretório $Home, como as chaves SSH, são mantidos em sua imagem de disco do usuário armazenada no compartilhamento de arquivos montados. Aplique as práticas recomendadas ao salvar arquivos no diretório $Home e no compartilhamento de arquivos montado.
 
 #### <a name="use-existing-resources"></a>Usar recursos existentes
 ![](media/overview/advanced-storage.png)
@@ -79,13 +79,13 @@ Uma opção avançada é fornecida para associar os recursos existentes ao Cloud
 No prompt de configuração de armazenamento, clique em “Mostrar configurações avançadas” para mostrar as opções adicionais.
 As listas suspensas são filtradas para sua região do Cloud Shell atribuída e para contas de armazenamento com redundância local/global.
 
-[Saiba mais sobre o armazenamento do Cloud Shell, atualização de compartilhamentos de arquivos e upload/download de arquivos.](persisting-shell-storage.md)
+[Saiba mais sobre o armazenamento do Cloud Shell, a atualização de compartilhamentos de arquivos do Azure e como carregar/baixar arquivos.](persisting-shell-storage.md)
 
 ## <a name="concepts"></a>Conceitos
 * O Cloud Shell é executado em um host temporário fornecido por sessão e por usuário
 * O Cloud Shell atinge o tempo limite após 20 minutos sem atividade interativa
-* O Cloud Shell exige a montagem de um compartilhamento de arquivos
-* O Cloud Shell usa o mesmo compartilhamento de arquivos para Bash e PowerShell
+* O Cloud Shell exige que um compartilhamento de arquivos do Azure seja montado
+* O Cloud Shell usa o mesmo compartilhamento de arquivos para o Bash e o PowerShell
 * É atribuído ao Cloud Shell um computador por conta de usuário
 * As permissões são definidas da mesma forma que para um usuário normal do Linux em Bash
 

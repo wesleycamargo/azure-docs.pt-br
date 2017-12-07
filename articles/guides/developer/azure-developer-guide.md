@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 2de8349c9e727dca48ab8ca3e04851a5ee57d30b
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: 37942b7aa2fa675e316f368e8c74cb2081ba4648
+ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 11/30/2017
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guia de introdução para desenvolvedores do Azure
 
@@ -106,7 +106,7 @@ Além de hospedagem de aplicativos, o Azure oferece ofertas de serviços que pod
 A maioria dos aplicativos deve armazenar dados, portanto, independentemente de como você decide hospedar o aplicativo no Azure, considere um ou mais dos seguintes serviços de dados e armazenamento.
 
 -   **Azure Cosmos DB**: um serviço de banco de dados multimodelo distribuído globalmente projetado para permitir que você dimensione de forma elástica a transferência e armazenamento em qualquer número de regiões geográficas com um SLA abrangente. 
-    >**Quando usar:** quando seu aplicativo precisa de bancos de dados de documento, de tabela ou de gráfico, incluindo bancos de dados MongoDB, com vários modelos de consistência bem definidos. 
+    >**Quando usar:** quando seu aplicativo precisa de bancos de dados de documento, de tabela ou de grafo, incluindo bancos de dados MongoDB, com vários modelos de consistência bem definidos. 
 
     >**Introdução**: [compilar um aplicativo Web do Azure Cosmos DB](../../cosmos-db/create-documentdb-dotnet.md). Se você for um desenvolvedor do MongoDB, consulte [Compilar um aplicativo Web do MongoDB com o Azure Cosmos DB](../../cosmos-db/create-mongodb-dotnet.md).
 
@@ -159,7 +159,7 @@ O Azure fornece várias maneiras de utilizar contêineres em seus aplicativos.
 
 -   **Azure AD (Azure Active Directory)**: o serviço de gerenciamento de acesso e identidade baseado em nuvem multilocatário da Microsoft. É possível adicionar SSO (login único) aos seus aplicativos integrando com o Azure AD. É possível acessar as propriedades do diretório utilizando diretamente a API do Graph do Azure AD ou a API do Microsoft Graph. É possível integrar com o suporte do Azure AD para a estrutura de autorização OAuth2.0 e Open ID Connect, utilizando os pontos de extremidade HTTP/REST nativos e as bibliotecas multiplataformas de autenticação do Azure AD.
 
-    >**Quando utilizar**: quando quiser fornecer uma experiência de SSO, trabalhe com dados baseados em gráfico ou autentique usuários baseados em domínio.
+    >**Quando utilizar**: quando quiser fornecer uma experiência de SSO, trabalhe com dados baseados em grafo ou autentique usuários baseados em domínio.
 
     >**Introdução**: Para saber mais, consulte o [Guia do desenvolvedor do Azure Active Directory](../../active-directory/develop/active-directory-developers-guide.md).
 
@@ -299,7 +299,7 @@ Ao permitir acesso aos recursos do Azure, a melhor prática sempre será fornece
 
 -   **Objetos de entidade de serviço**: além de fornecer acesso a entidades de usuários e grupos, é possível conceder o mesmo acesso a uma entidade de serviço.
 
-    > **Quando utilizar**: ao gerenciar programaticamente recursos do Azure ou conceder acesso para aplicativos. Para obter mais informações, consulte [Criar suplicação do Active Directory e entidade de serviço](../../resource-group-create-service-principal-portal.md).
+    > **Quando utilizar**: ao gerenciar programaticamente recursos do Azure ou conceder acesso para aplicativos. Para obter mais informações, consulte [Criar entidade de serviço e aplicativo do Active Directory](../../resource-group-create-service-principal-portal.md).
 
 #### <a name="tags"></a>Marcas
 

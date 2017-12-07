@@ -13,13 +13,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 08/03/2017
+ms.date: 11/27/2017
 ms.author: danlep
-ms.openlocfilehash: 87d60ae51aaa33b709d272605419fd85eeb5d93d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c77cd0148a7e3e7b99e90e29bc1499dae8f95028
+ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="install-a-lemp-web-server-on-an-azure-vm"></a>Instalar um servidor Web LEMP em uma VM do Azure
 Este artigo explica como implantar um servidor Web NGINX, MySQL e PHP (a pilha LEMP) em uma VM do Ubuntu no Azure. A pilha LEMP é uma alternativa para a popular [pilha LAMP](tutorial-lamp-stack.md), que você também pode instalar no Azure. Para ver o servidor LEMP em ação, opcionalmente, você pode instalar e configurar um site de WordPress. Neste tutorial, você aprenderá a:
@@ -31,6 +31,8 @@ Este artigo explica como implantar um servidor Web NGINX, MySQL e PHP (a pilha L
 > * Verificar a instalação e a configuração
 > * Instalar o WordPress no servidor LEMP
 
+
+Essa configuração destina-se a testes rápidos ou provas de conceito.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -73,7 +75,7 @@ Verifique a versão do MySQL com o seguinte comando (observe o parâmetro `V` em
 mysql -V
 ```
 
-É recomendável executar o seguinte script para ajudar a proteger a instalação do MySQL:
+Para proteger a instalação do MySQL, execute o script `mysql_secure_installation`. Se estiver configurando um servidor temporário, você poderá ignorar essa etapa. 
 
 ```bash
 mysql_secure_installation
@@ -81,7 +83,8 @@ mysql_secure_installation
 
 Digite a senha raiz do MySQL e defina as configurações de segurança do seu ambiente.
 
-Se você deseja criar um banco de dados MySQL, adicionar usuários ou alterar definições de configuração, faça logon no MySQL:
+Se você quiser experimentar os recursos MySQL (criar um banco de dados MySQL, adicionar usuários ou alterar as definições de configuração), faça logon no MySQL. Esta etapa não é necessária para concluir este tutorial. 
+
 
 ```bash
 mysql -u root -p

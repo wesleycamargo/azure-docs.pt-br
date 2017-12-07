@@ -1,0 +1,1 @@
+Quando você estiver desenvolvendo localmente, as configurações de aplicativo serão adicionadas ao [arquivo local.settings.json](../articles/azure-functions/functions-run-local.md#local-settings-file).

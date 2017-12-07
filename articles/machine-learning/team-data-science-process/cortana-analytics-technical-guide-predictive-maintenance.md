@@ -14,74 +14,79 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: fboylu
-ms.openlocfilehash: 03ae6245e83c1f26546ec2a33c74dc9519847d7b
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 080618b844669cbea29a6a48c32e937705b06e3f
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-predictive-maintenance-in-aerospace-and-other-businesses"></a>Guia técnico do Modelo de Solução do Cortana Intelligence para a manutenção preventiva no setor aeroespacial e em outras empresas
 
-## <a name="important"></a>**Importante**
-Este artigo foi preterido. A discussão ainda é relevante para o problema em questão, ou seja, a manutenção preditiva no setor aeroespacial, mas confira a [Visão geral da solução para profissionais de negócios](https://github.com/Azure/cortana-intelligence-predictive-maintenance-aerospace) para obter informações atuais.
+>[!Important]
+Este artigo foi preterido. A discussão sobre a manutenção preditiva no setor aeroespacial continua relevante, mas consulte a [Visão geral da solução para empresas](https://github.com/Azure/cortana-intelligence-predictive-maintenance-aerospace) para obter informações mais recentes.
 
-## <a name="acknowledgements"></a>**Confirmações**
-Este artigo foi autorizado pelos cientistas de dados Yan Zhang, Gauher Shaheen, Fidan Boylu Uz e o engenheiro de software Dan Grecoe da Microsoft.
 
-## <a name="overview"></a>**Visão geral**
-Os Modelos de Solução foram projetados para acelerar o processo de criação de uma demonstração E2E sobre o Cortana Intelligence Suite. Um modelo implantado provisiona a sua assinatura com os componentes necessários do Cortana Intelligence e cria as relações entre eles. Ele também propaga o pipeline de dados com dados de amostra gerados por um aplicativo gerador de dados que você baixa e instala no computador local depois de implantar o modelo de solução. Os dados criados pelo gerador alimentam o pipeline de dados e iniciam a geração das previsões de aprendizado de máquina, que podem ser visualizadas no painel do Power BI. O processo de implantação guia você pelas diversas etapas para configurar as credenciais da sua solução. Registre as credenciais, como o nome da solução, o nome de usuário e a senha, fornecidas durante a implantação.  
+Os modelos de solução foram projetados para acelerar o processo de criação de uma demonstração E2E sobre o Cortana Intelligence Suite. Um modelo implantado fornece à sua assinatura os componentes necessários do Cortana Intelligence e cria as relações entre eles. Ele também alimenta o pipeline de dados com dados de amostra produzidos por um aplicativo gerador de dados, que você baixa e instala no computador local depois de implantar o modelo de solução. Os dados produzidos pelo gerador irrigam o pipeline de dados e iniciam a geração das previsões de aprendizado de máquina, que podem ser visualizadas no painel do Power BI.
 
-O objetivo deste documento é explicar a arquitetura de referência e os componentes provisionados em sua assinatura como parte do modelo de solução, e ele mostra como substituir os dados de exemplo pelos seus próprios dados e como modificar o modelo da solução.  
+O processo de implantação guia você pelas diversas etapas para configurar as credenciais da sua solução. Registre essas credenciais, como o nome da solução, o nome de usuário e a senha que você fornece durante a implantação. 
+
+
+Os objetivos deste artigo são:
+- Descrever a arquitetura de referência e os componentes provisionados em sua assinatura.
+- Demonstrar como substituir os dados de exemplo pelos seus próprios dados. 
+- Mostrar como modificar o modelo de solução.  
 
 > [!TIP]
-> Você pode baixar e imprimir uma [versão em PDF deste documento](http://download.microsoft.com/download/F/4/D/F4D7D208-D080-42ED-8813-6030D23329E9/cortana-analytics-technical-guide-predictive-maintenance.pdf).
+> Você pode baixar e imprimir uma [versão em PDF deste artigo](http://download.microsoft.com/download/F/4/D/F4D7D208-D080-42ED-8813-6030D23329E9/cortana-analytics-technical-guide-predictive-maintenance.pdf).
 > 
 > 
 
-## <a name="overview"></a>**Visão geral**
+## <a name="overview"></a>Visão geral
 ![Arquitetura de manutenção preditiva](./media/cortana-analytics-technical-guide-predictive-maintenance/predictive-maintenance-architecture.png)
 
-A implantação da solução ativa serviços do Azure no Cortana Analytics Suite (Hub de Eventos, Stream Analytics, HDInsight, Data Factory, Machine Learning, *etc.*). O diagrama da arquitetura acima mostra como a Manutenção Preventiva do Modelo de Solução Aeroespacial é criada. Você pode investigar esses serviços no portal do Azure clicando neles no diagrama do modelo de solução criado com a implantação da solução (com exceção do HDInsight, pois ele é provisionado sob demanda quando as atividades do pipeline relacionado são obrigatoriamente executadas e mais tarde excluídas).
+Quando você implanta a solução, ela ativa serviços do Azure no Cortana Analytics Suite (Hub de Eventos, Stream Analytics, HDInsight, Data Factory, Machine Learning, etc.). O diagrama da arquitetura acima mostra como a Manutenção Preventiva do Modelo de Solução Aeroespacial é criada. Você pode investigar esses serviços no portal do Azure clicando neles no diagrama do modelo de solução criado com a implantação da solução (isso não se aplica ao HDInsight, pois ele é provisionado sob demanda quando as atividades do pipeline relacionado são obrigatoriamente executadas e mais tarde excluídas).
 Baixe uma [versão em tamanho original do diagrama](http://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-maintenance-prediction.png).
 
 As seções a seguir descrevem as partes da solução.
 
-## <a name="data-source-and-ingestion"></a>**Fonte de dados e ingestão**
+## <a name="data-source-and-ingestion"></a>Fonte de dados e ingestão de dados
 ### <a name="synthetic-data-source"></a>Fonte de dados sintética
-Para esse modelo, a fonte de dados usada é gerada por meio de um aplicativo da área de trabalho que você baixa e executa localmente após a implantação bem-sucedida. As instruções para baixar e instalar esse aplicativo estão na barra de propriedades quando selecionar o primeiro nó chamado Gerador de Dados de Manutenção Preditiva no diagrama do modelo de solução. Esse aplicativo alimenta o serviço [Hub de Eventos do Azure](#azure-event-hub) com pontos de dados, ou eventos, usados no restante do fluxo da solução. Essa fonte de dados deriva de dados publicamente disponíveis no [repositório de dados da NASA](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/) usando o [Turbofan Engine Degradation Simulation Data Set](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/#turbofan).
+Para esse modelo, a fonte de dados usada é gerada por meio de um aplicativo da área de trabalho que você baixa e executa localmente após a implantação bem-sucedida.
+
+Para encontrar as instruções para baixar e instalar este aplicativo, selecione o primeiro nó, Gerador de Dados de Manutenção Preditiva, no diagrama do modelo de solução. As instruções podem ser encontradas na barra Propriedades. Esse aplicativo alimenta o serviço [Hub de Eventos do Azure](#azure-event-hub) com pontos de dados, ou eventos, usados no restante do fluxo da solução. Essa fonte de dados deriva de dados publicamente disponíveis no [repositório de dados da NASA](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/) usando o [Turbofan Engine Degradation Simulation Data Set](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/#turbofan).
 
 O aplicativo de geração de eventos preenche o Hub de Eventos do Azure somente enquanto ele está em execução no computador.
 
 ### <a name="azure-event-hub"></a>Hub de Eventos do Azure
 O serviço [Hub de Eventos do Azure](https://azure.microsoft.com/services/event-hubs/) é o destinatário da entrada fornecida pela Fonte de dados sintética.
 
-## <a name="data-preparation-and-analysis"></a>**Preparação e análise de dados**
+## <a name="data-preparation-and-analysis"></a>Preparação e análise de dados
 ### <a name="azure-stream-analytics"></a>Stream Analytics do Azure
-Use o serviço [Stream Analytics do Azure](https://azure.microsoft.com/services/stream-analytics/) para fornecer uma análise quase em tempo real no fluxo de entrada do serviço [Hub de Eventos do Azure](#azure-event-hub) e para publicar os resultados em um painel do [Power BI](https://powerbi.microsoft.com), bem como para arquivar todos os eventos brutos de entrada no serviço [Armazenamento do Azure](https://azure.microsoft.com/services/storage/) para um processamento posterior pelo serviço [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/).
+Use o [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) para fornecer análises praticamente em tempo real no fluxo de entrada do serviço [Hub de Eventos do Azure](#azure-event-hub). Em seguida, publique os resultados em um painel do [Power BI](https://powerbi.microsoft.com) e arquive todos os eventos de entrada não processados no serviço [Armazenamento do Azure](https://azure.microsoft.com/services/storage/) para processamento posterior no serviço [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/).
 
 ### <a name="hdinsight-custom-aggregation"></a>Agregação personalizada do HDInsight
 Execute scripts do [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) (orquestrado pelo Azure Data Factory) usando o HDInsight para fornecer as agregações nos eventos brutos arquivados usando o serviço Azure Stream Analytics.
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
-Faça previsões sobre a RUL (vida útil restante) de um motor de aeronave específico considerando as entradas recebidas com o [serviço Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) (orquestrado pelo Azure Data Factory) para 
+Faça previsões sobre a RUL (vida útil restante) de um motor de aeronave específico usando as entradas recebidas com o [serviço Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) (orquestrado pelo Azure Data Factory). 
 
-## <a name="data-publishing"></a>**Publicação de dados**
-### <a name="azure-sql-database-service"></a>Serviço Banco de Dados SQL do Azure
-Use o serviço [Banco de Dados SQL do Azure](https://azure.microsoft.com/services/sql-database/) para armazenar (gerenciado pelo Azure Data Factory) as previsões recebidas pelo serviço Azure Machine Learning e que são consumidas no painel do [Power BI](https://powerbi.microsoft.com).
+## <a name="data-publishing"></a>Publicação de dados
+### <a name="azure-sql-database"></a>Banco de Dados SQL do Azure
+Use o [Banco de Dados SQL do Azure](https://azure.microsoft.com/services/sql-database/) para armazenar as previsões recebidas pelo serviço Azure Machine Learning e que serão consumidas no painel do [Power BI](https://powerbi.microsoft.com).
 
-## <a name="data-consumption"></a>**Consumo de dados**
+## <a name="data-consumption"></a>Consumo de dados
 ### <a name="power-bi"></a>Power BI
-Use o serviço [Power BI](https://powerbi.microsoft.com) para mostrar um painel que contém as agregações e os alertas fornecidos pelo serviço [Stream Analytics do Azure](https://azure.microsoft.com/services/stream-analytics/), bem como as previsões de RUL armazenadas no [Banco de Dados SQL do Azure](https://azure.microsoft.com/services/sql-database/) que foram produzidas usando o serviço [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/).
+Use o [Power BI](https://powerbi.microsoft.com) para mostrar um painel com as agregações e os alertas fornecidos pelo [Stream Analytics do Azure](https://azure.microsoft.com/services/stream-analytics/), bem como as previsões de RUL armazenadas no [Banco de Dados SQL do Azure](https://azure.microsoft.com/services/sql-database/) que foram produzidas usando o [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/).
 
-## <a name="how-to-bring-in-your-own-data"></a>**Como inserir seus próprios dados**
+## <a name="how-to-bring-in-your-own-data"></a>Como inserir seus próprios dados
 Esta seção descreve como inserir seus próprios dados no Azure e quais áreas exigem alterações nos dados trazidos para essa arquitetura.
 
-É improvável que seu conjunto de dados corresponda ao conjunto de dados usado pelo [Turbofan Engine Degradation Simulation Data Set](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/#turbofan) usado para esse modelo de solução. A compreensão dos seus dados e dos requisitos é fundamental para a forma como você modificará esse modelo para que ele funcione com seus próprios dados. 
+É improvável que seu conjunto de dados corresponda ao conjunto de dados usado pelo [Turbofan Engine Degradation Simulation Data Set](http://ti.arc.nasa.gov/tech/dash/pcoe/prognostic-data-repository/#turbofan) utilizado para esse modelo de solução. A compreensão dos seus dados e dos requisitos é fundamental para a forma como você modificará esse modelo para que ele funcione com seus próprios dados. 
 
-As seções a seguir discutem as seções do modelo que exigem modificações quando um novo conjunto de dados é introduzido.
+As seções a seguir discutem as partes do modelo que exigem modificações quando um novo conjunto de dados é introduzido.
 
 ### <a name="azure-event-hub"></a>Hub de Eventos do Azure
-O serviço Hub de Eventos do Azure é genérico; os dados podem ser publicados no hub no formato CSV ou JSON. Não ocorrerá nenhum processamento especial no Hub de Eventos do Azure, mas é importante que você compreenda os dados inseridos nele.
+O Hub de Eventos do Azure é genérico. Os dados podem ser publicados no hub no formato CSV ou JSON. Não ocorrerá nenhum processamento especial no Hub de Eventos do Azure, mas é importante que você compreenda os dados inseridos nele.
 
 Esse documento não descreve como incluir seus dados, mas você pode facilmente enviar eventos ou dados para um Hub de Eventos do Azure usando as APIs do Hub de Eventos.
 
@@ -142,7 +147,7 @@ O experimento do [Azure Machine Learning](https://azure.microsoft.com/services/m
 
 Para saber mais sobre como o experimento do Azure Machine Learning foi criado, confira [Manutenção preventiva: etapa 1 de 3, preparação de dados e engenharia de recursos](http://gallery.cortanaanalytics.com/Experiment/Predictive-Maintenance-Step-1-of-3-data-preparation-and-feature-engineering-2).
 
-## <a name="monitor-progress"></a>**Monitorar o progresso**
+## <a name="monitor-progress"></a>Monitorar o progresso
 Depois que o Gerador de Dados é iniciado, o pipeline começa a esvaziar e os diferentes componentes de sua solução começam a entrar em ação seguindo os comandos emitidos pelo data factory. Há duas maneiras possíveis de monitorar o pipeline.
 
 1. Um dos trabalhos do Stream Analytics grava os dados brutos de entrada no armazenamento de blobs. Se você clicar no componente Armazenamento de Blobs de sua solução na tela na qual implantou a solução com êxito e clicar em Abrir no painel à direita, será levado para o [portal do Azure](https://portal.azure.com/). No portal, clique em Blobs. No painel seguinte, você vê uma lista de Contêineres. Clique em **maintenancesadata**. O próximo painel é a pasta **rawdata**. Dentro da pasta rawdata, há pastas com nomes como hour=17 e hour=18. A presença dessas pastas indica que dados não processados estão sendo gerados no seu computador e armazenados no armazenamento de blobs. Você deve ver arquivos csv com tamanhos finitos em MB nessas pastas.
@@ -152,7 +157,7 @@ Depois que o Gerador de Dados é iniciado, o pipeline começa a esvaziar e os di
    
     Aqui, é possível clicar em Nova Consulta e consular o número de linhas (por exemplo, selecione count(*) em PMResult ). À medida que o banco de dados aumenta, o número de linhas na tabela deve aumentar.
 
-## <a name="power-bi-dashboard"></a>**Painel do Power BI**
+## <a name="power-bi-dashboard"></a>Painel do Power BI
 
 Configure um painel do Power BI para visualizar seus dados do Azure Stream Analytics (afunilamento) e os resultados de previsão em lote de machine learning do Azure (caminho frio).
 
@@ -194,7 +199,7 @@ As etapas a seguir mostram como conectar o arquivo pbix ao Banco de Dados SQL en
      <br/>
    * Para agendar a atualização dos dados, passe o mouse sobre o conjunto de dados **PredictiveMaintenanceAerospace**, clique no ![Ícone de Elipse](./media/cortana-analytics-technical-guide-predictive-maintenance/icon-elipsis.png) e escolha **Agendar Atualização**.
      <br/>
-     **Observação**: se for exibida uma mensagem de aviso, clique em **Editar Credenciais** e verifique se suas credenciais do banco de dados são iguais às descritas na etapa 1.
+     **Observação:** se for exibida uma mensagem de aviso, clique em **Editar Credenciais** e verifique se suas credenciais do banco de dados são iguais às descritas na etapa 1.
      <br/>
      ![Agendar atualização](./media/cortana-analytics-technical-guide-predictive-maintenance/schedule-refresh.png)
      <br/>
@@ -227,10 +232,10 @@ As etapas a seguir mostram como visualizar a saída de dados dos trabalhos do St
    * Clique no ícone **Fixar Visual** no canto superior direito desse gráfico de linha. Uma janela "Fixar ao painel" poderá aparecer para que você escolha um painel. Selecione "Demonstração de manutenção preditiva" e clique em "Fixar".
    * Passe o mouse sobre esse bloco no painel, clique no ícone "editar" no canto superior direito para alterar o título para "Exibição de frota do sensor 11 em relação ao Limite 48,26" e o subtítulo"Média na frota ao longo do tempo".
 
-## <a name="how-to-delete-your-solution"></a>**Como excluir a solução**
-Não se esqueça de parar o gerador de dados quando não estiver usando ativamente a solução, pois a execução dele incorrerá em custos mais altos. Se não estiver usando a solução, exclua-a. A exclusão da solução exclui todos os componentes que foram provisionados em sua assinatura quando você implantou a solução. Para excluir a solução, clique com botão no nome da solução no painel esquerdo do modelo de solução e clique em Excluir.
+## <a name="delete-your-solution"></a>Excluir sua solução
+Não se esqueça de parar o gerador de dados quando não estiver usando ativamente a solução, pois a execução do gerador de dados incorrerá em custos mais altos. Se não estiver usando a solução, exclua-a. A exclusão da solução exclui todos os componentes que foram provisionados em sua assinatura quando você implantou a solução. Para excluir a solução, clique em seu respectivo nome no painel esquerdo do modelo de solução e clique em **Excluir**.
 
-## <a name="cost-estimation-tools"></a>**Ferramentas de estimativa de custo**
+## <a name="cost-estimation-tools"></a>Ferramentas de estimativa de custo
 As duas ferramentas a seguir estão disponíveis para ajudar você a entender melhor os custos totais envolvidos na execução da Manutenção Preditiva para o Modelo de Solução Aeroespacial em sua assinatura:
 
 * [Ferramenta Calculadora de Preço do Microsoft Azure (online)](https://azure.microsoft.com/pricing/calculator/)

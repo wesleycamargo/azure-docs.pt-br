@@ -14,20 +14,20 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/08/2017
 ms.author: anwestg
-ms.openlocfilehash: 1e4188313a87d07f396e5f8edc8969dd5da2c436
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b6078ba7b553773294ebbf11949f7d3b53f46f0c
+ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="install-the-azure-functions-runtime-preview"></a>Instalar a visualização do Azure Functions Runtime
 
 Se você quiser instalar a visualização do Azure Functions Runtime, execute estas etapas:
 
-1. Certifique-se de que sua máquina atenda aos requisitos mínimos
-1. Baixe o [Instalador da visualização do Azure Functions Runtime](https://aka.ms/azafr). 
-1. Instalar a visualização do Azure Functions Runtime
-1. Concluir a configuração da visualização do Azure Functions Runtime
+1. Certifique-se de que sua máquina atenda aos requisitos mínimos.
+1. Baixe o [Instalador da visualização do Azure Functions Runtime](https://aka.ms/azafr).
+1. Instale a visualização do Azure Functions Runtime.
+1. Conclua a configuração da visualização do Azure Functions Runtime.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -46,22 +46,22 @@ O instalador da versão prévia do Azure Functions Runtime orienta você durante
 
     ![Instalador da visualização do Azure Functions Runtime][1]
 
-1. **Clique em Avançar** para passar para o primeiro estágio do instalador
-1. Depois de ler os termos do **EULA**, **marque a caixa** para aceitar os termos e **clique em Avançar** para avançar.
-1. Agora, selecione as funções que você deseja instalar neste computador **Função de Gerenciamento do Functions** e/ou **Função de Trabalho do Functions** e **clique em Avançar**
+1. Clique em **Avançar**.
+1. Depois de ler os termos do **EULA**, **marque a caixa** para aceitar os termos e clique em **Avançar** para avançar.
+1. Agora, selecione as funções que você deseja instalar neste computador **Função de Gerenciamento do Functions** e/ou **Função de Trabalho do Functions** e clique em **Avançar**.
 
     ![Instalador da visualização do Azure Functions Runtime - Seleção de função][3]
 
     > [!NOTE]
-    > Você pode instalar a **Função de Trabalho do Functions** em muitas outras máquinas. Para fazer isso, siga estas instruções e selecione somente a **Função de Trabalho do Functions** no instalador.
+    > Você pode instalar a **Função de trabalho do Functions** em muitos outros computadores. Para fazer isso, siga estas instruções e só selecione a **Função de trabalho do Functions** no instalador.
 
-1. **Clique em Avançar** para instalar o **Instalador do Azure Functions Runtime** em seu computador.
-1. Após a conclusão, o instalador iniciará a **ferramenta de Configuração do Azure Functions Runtime**.
+1. Clique em **Avançar** para que o **Assistente de instalação do Tempo de Execução do Azure Functions** comece o processo de instalação no seu computador.
+1. Após a conclusão, o assistente de instalação iniciará a ferramenta de configuração do **Tempo de Execução do Azure Functions**.
 
     ![Instalador da visualização do Azure Functions Runtime concluída][5]
 
     > [!NOTE]
-    > Se você estiver instalando no **Windows 10** e o recurso **Contêiner** não tiver sido habilitado, o instalador do **Azure Functions Runtime** solicitará a reinicialização do computador para concluir a instalação.
+    > Se você estiver instalando no **Windows 10** e o recurso **Contêiner** não tiver sido habilitado, a **Configuração do Azure Functions Runtime** solicitará a reinicialização do computador para concluir a instalação.
 
 ## <a name="configure-the-azure-functions-runtime"></a>Configurar o Azure Functions Runtime
 
@@ -71,27 +71,27 @@ Para concluir a instalação do Azure Functions Runtime, você deverá concluir 
 
     ![Ferramenta de configuração da visualização do Azure Functions Runtime][6]
 
-1. Clique na guia **Banco de Dados**, insira os **detalhes da conexão de sua instância do SQL Server** e **clique em Aplicar**.  Isso é necessário para que o Azure Functions Runtime crie um banco de dados para dar suporte ao Runtime.
+1. Clique na guia **Banco de Dados**, insira os detalhes da conexão de sua instância do SQL Server e clique em **Aplicar**.  Isso é necessário para que o Azure Functions Runtime crie um banco de dados para dar suporte ao Runtime.
     
     ![Configuração de banco de dados da visualização do Azure Functions Runtime][7]
 
-1. Clique na guia **Credenciais**.  Nessa tela, você deve criar duas credenciais novas para uso com um compartilhamento de arquivos para hospedagem de todas as suas Azure Functions.  **Especifique combinações de nome de usuário e senha** para o **Proprietário do Compartilhamento de Arquivo** e para o **Usuário do Compartilhamento de Arquivo** e clique em **Aplicar**.
+1. Clique na guia **Credenciais**.  Nessa tela, você deve criar duas credenciais novas para uso com um compartilhamento de arquivos para hospedagem de todas as suas Azure Functions.  Especifique combinações de **Nome de usuário** e **Senha** para o **proprietário do compartilhamento de arquivo** e para o **usuário do compartilhamento de arquivo** e clique em **Aplicar**.
 
     ![Credenciais da visualização do Azure Functions Runtime][8]
 
-1. Clique na guia **Compartilhamento de Arquivos**.  Nessa tela, você deve especificar os detalhes do **Local do Compartilhamento de Arquivo**.  Isso pode ser criado para você, ou você pode usar um Compartilhamento de Arquivo existente e clicar em **Aplicar**.  Se você selecionar um novo local de Compartilhamento de Arquivos, especifique um diretório para ser usado pelo Azure Functions Runtime.
+1. Clique na guia **Compartilhamento de Arquivos**.  Nessa tela, você deve especificar os detalhes do Local do **Compartilhamento de Arquivo**.  Isso pode ser criado para você, ou você pode usar um Compartilhamento de Arquivo existente e clicar em **Aplicar**.  Se você selecionar um novo local de Compartilhamento de Arquivos, especifique um diretório para ser usado pelo Azure Functions Runtime.
     
     ![Compartilhamento de arquivo da visualização do Azure Functions Runtime][9]
 
-1. Clique na guia **IIS**.  Essa guia mostra os detalhes dos sites no IIS que serão criados pela instalação do Azure Functions Runtime.  **Clique em Aplicar** para concluir.
+1. Clique na guia **IIS**.  Essa guia mostra os detalhes dos sites no IIS que serão criados pela ferramenta de configuração do Azure Functions Runtime.  Clique em **Aplicar** para concluir.
 
     ![IIS da visualização do Azure Functions Runtime][10]
 
-1. Clique na guia **Serviços**.  Essa guia mostra o status dos serviços em sua instalação do Azure Functions Runtime.  Se, após a configuração inicial, o **Serviço de Ativação de Host do Azure Functions** não estiver em execução, clique em **Iniciar Serviço**
+1. Clique na guia **Serviços**.  Essa guia mostra o status dos serviços em sua instalação do Tempo de Execução do Azure Functions.  Se, após a configuração inicial, o **Serviço de Ativação de Host do Azure Functions** não estiver em execução, clique em **Iniciar Serviço**.
 
     ![Configuração da visualização do Azure Functions Runtime completa][11]
 
-1. Por fim, navegue até o **Portal do Azure Functions Runtime** como`https://<machinename>/`
+1. Por fim, navegue até o **Portal do Azure Functions Runtime** como`https://<machinename>/`.
 
     ![Portal de visualização do Azure Functions Runtime][12]
 

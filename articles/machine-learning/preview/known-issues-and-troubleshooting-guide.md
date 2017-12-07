@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/20/2017
-ms.openlocfilehash: a03fb4f202bddb6454f703c998e95abf13d14fff
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 5c7c15eacdf43d3623000ed228adfaeb55803c8f
+ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/29/2017
 ---
 # <a name="azure-machine-learning-workbench---known-issues-and-troubleshooting-guide"></a>Azure Machine Learning Workbench – problemas conhecidos e Guia de solução de problemas 
 Este artigo ajuda a localizar e corrigir os erros ou falhas encontrados como parte do uso do aplicativo Azure Machine Learning Workbench. 
@@ -39,6 +39,17 @@ Se houver problemas durante a instalação, os arquivos de log do instalador est
 /tmp/amlinstaller/logs/*
 ```
 É possível compactar o conteúdo desses diretórios e enviá-los para diagnóstico.
+
+### <a name="app-update"></a>Atualização de aplicativo 
+#### <a name="no-update-notification-on-windows-desktop"></a>Nenhuma notificação de atualização na área de trabalho do Windows 
+Esse problema será resolvido em uma próxima atualização. Enquanto isso, a solução alternativa é evitar iniciar o aplicativo pelo atalho fixado na barra de tarefas. Em vez de abrir o aplicativo usando o menu Iniciar ou a barra de pesquisa da página Iniciar ou seu respectivo atalho na área de trabalho (se houver). 
+
+#### <a name="no-update-notification-on-an-ubuntu-data-sciece-virtual-machine-dsvm"></a>Nenhuma notificação de atualização em uma Máquina Virtual de Ciência de Dados (DSVM) do Ubuntu
+Execute as seguintes etapas para baixar o aplicativo mais recente:   
+   - remova a pasta \Users\AppData\Local\amlworkbench
+   - remover o script `c:\dsvm\tools\setup\InstallAMLFromLocal.ps1`
+   - remover o atalho da área de trabalho que inicia o script acima
+   - instale corretamente usando [https://aka.ms/azureml-wb-msi](https://aka.ms/azureml-wb-msi)
 
 ### <a name="workbench-desktop-app"></a>Aplicativo da área de trabalho do Workbench
 Se estiver tendo problemas para entrar ou se a área de trabalho do Workbench falhar, os arquivos de log poderão ser encontrados aqui:

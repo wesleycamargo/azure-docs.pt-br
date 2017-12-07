@@ -15,11 +15,11 @@ ms.devlang:
 ms.topic: article
 ms.date: 11/08/2017
 ms.author: anjangsh; billgib; genemi
-ms.openlocfilehash: 54aa3d9982ff5cd99be2eb145e223397ca8d6a3f
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: fb4311f28f55cfeb3f07a441adde18ae95f39e90
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="cross-tenant-analytics-using-extracted-data"></a>Análise entre locatários usando dados extraídos
 
@@ -73,7 +73,7 @@ Ao entender a consistência com que cada locatário está usando o serviço, voc
 Para concluir este tutorial, certifique-se de atender a todos os seguintes pré-requisitos:
 
 - O aplicativo Wingtip Tickets SaaS Database Per Tenant é implantado. Para implantar em menos de cinco minutos, confira [Implantar e explorar o aplicativo de SaaS do Wingtip](saas-dbpertenant-get-started-deploy.md)
-- Os scripts Wingtip Tickets SaaS Database Per Tenant e o [código-fonte](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/) do aplicativo são baixadas do GitHub. Veja as instruções de download. Não se esqueça de *desbloquear o arquivo zip* antes de extrair seu conteúdo.
+- Os scripts Wingtip Tickets SaaS Database Per Tenant e o [código-fonte](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant/) do aplicativo são baixadas do GitHub. Veja as instruções de download. Não se esqueça de *desbloquear o arquivo zip* antes de extrair seu conteúdo. Confira as [diretrizes gerais](saas-tenancy-wingtip-app-guidance-tips.md) para obter as etapas para baixar e desbloquear os scripts SaaS do Wingtip Tickets.
 - O Power BI Desktop está instalado. [Baixe o Power BI Desktop](https://powerbi.microsoft.com/downloads/)
 - O lote de locatários adicionais foi provisionado. Confira o [**Tutorial de provisionamento de locatários**](saas-dbpertenant-provision-and-catalog.md).
 - Uma conta de trabalho e o banco de dados de conta de trabalho foram criados. Veja as etapas apropriadas no [**Tutorial de gerenciamento de esquema**](saas-tenancy-schema-management.md#create-a-job-account-database-and-new-job-account).
@@ -115,7 +115,7 @@ Veja os seguintes itens de banco de dados no Pesquisador de Objetos do SSMS expa
 
 ![architectureOverView](media/saas-tenancy-tenant-analytics/tenantAnalytics.png)
 
-## <a name="data-extraction"></a>Extração de Dados 
+## <a name="data-extraction"></a>Extração de dados 
 
 ### <a name="create-target-groups"></a>Criar grupos de destino 
 
@@ -147,7 +147,7 @@ Repita as etapas acima, mas desta vez substitua **\ExtractTickets.sql** por **\E
 
 A execução com êxito do trabalho popula a tabela de EventsRawData no repositório de análise com novos eventos e informações de locais de todos os locatários. 
 
-## <a name="data-reorganization"></a>Reorganização de Dados
+## <a name="data-reorganization"></a>Reorganização de dados
 
 ### <a name="shred-extracted-data-to-populate-star-schema-tables"></a>Destruir dados extraídos para popular tabelas de esquema em estrela
 

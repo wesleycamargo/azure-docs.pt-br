@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/11/2017
 ms.author: sstein
-ms.openlocfilehash: 17eb9b3ff059912e4fe3fafda0b9c435e3983888
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: b82623f63681daff502f1e23d052da7480dda942
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="learn-how-to-provision-new-tenants-and-register-them-in-the-catalog"></a>Saiba como provisionar novos locatários e registrá-los no catálogo
 
@@ -68,9 +68,9 @@ A abordagem de provisionamento usada deve ser compreendida em sua estratégia ge
 O aplicativo Wingtip Tickets SaaS Database per Tenant provisiona novos locatários copiando um banco de dados modelo chamado _basetenantdb_, implantado no servidor de catálogo.  O provisionamento pode ser integrado ao aplicativo como parte de uma experiência de inscrição, e/ou com suporte offline por meio do uso de scripts. Este tutorial explora o provisionamento usando o PowerShell. Os scripts de provisionamento copiam o banco de dados basetenantdb para criar um novo banco de dados de locatário em um pool elástico e, depois, o inicializam com informações específicas do locatário e o registram no mapa de fragmentos do catálogo.  No aplicativo Wingtip Tickets SaaS Database Per tenant, os bancos de dados recebem nomes com base no nome do locatário, mas isso não é uma parte crítica do padrão, o uso do catálogo permite que qualquer nome seja atribuído ao banco de dados do locatário.+ 
 
 
-## <a name="get-the-wingtip-application-scripts"></a>Obter os scripts do aplicativo Wingtip
+## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obter os scripts do aplicativo Wingtip Tickets SaaS Database Per Tenant
 
-O código-fonte do aplicativo e os scripts do Wingtip SaaS estão disponíveis no repositório [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) do GitHub. [Etapas para baixar os scripts do Wingtip Tickets SaaS](saas-dbpertenant-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-tickets-saas-database-per-tenant-scripts).
+Os scripts e o código-fonte do aplicativo SaaS de Banco de Dados Multilocatário Wingtip Tickets estão disponíveis no repositório [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) do GitHub. Confira as [diretrizes gerais](saas-tenancy-wingtip-app-guidance-tips.md) para obter as etapas para baixar e desbloquear os scripts SaaS do Wingtip Tickets.
 
 
 ## <a name="provision-and-catalog-detailed-walkthrough"></a>Passo a passo detalhado para provisionar e catalogar

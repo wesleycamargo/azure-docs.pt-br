@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: AyoOlubeko
-ms.openlocfilehash: c85dec1023e4d4f0a14dfbc249850b6dc6e78edf
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c0ed3eb344ea8ec7e2d3e86125d60c8cc28f723d
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="run-ad-hoc-analytics-queries-across-multiple-azure-sql-databases"></a>Executar consultas de análise ad hoc em vários bancos de dados SQL do Azure
 
-Neste tutorial, você executa consultas distribuídas em todo o conjunto de bancos de dados de locatários para habilitar o relatório ad hoc interativo. Essas consultas podem extrair insights escondidos nos dados operacionais diários do aplicativo SaaS Wingtip Tickets. Para fazer essas extrações, você implanta um banco de dados de análise adicional no servidor de catálogo e usa a Consulta Elástica para habilitar consultas distribuídas.
+Neste tutorial, você executa consultas distribuídas em todo o conjunto de bancos de dados de locatários para habilitar os relatórios ad hoc interativos. Essas consultas podem extrair insights escondidos nos dados operacionais diários do aplicativo SaaS Wingtip Tickets. Para fazer essas extrações, você implanta um banco de dados de análise adicional no servidor de catálogo e usa a Consulta Elástica para habilitar consultas distribuídas.
 
 
 Neste tutorial, você aprende:
@@ -37,12 +37,12 @@ Neste tutorial, você aprende:
 
 Para concluir este tutorial, verifique se todos os pré-requisitos a seguir são atendidos:
 
-* O aplicativo SaaS de Banco de Dados Multilocatário Wingtip Tickets foi implantado. Para implantá-lo em menos de cinco minutos, consulte [Implantar e explorar o aplicativo SaaS de Banco de Dados Multilocatário Wingtip Tickets](saas-multitenantdb-get-started-deploy.md)
+* O aplicativo SaaS de Banco de Dados Multilocatário Wingtip Tickets foi implantado. Para implantá-lo em menos de cinco minutos, confira [Implantar e explorar o aplicativo SaaS de Banco de Dados Multilocatário Wingtip Tickets](saas-multitenantdb-get-started-deploy.md)
 * O Azure PowerShell está instalado. Para obter detalhes, consulte [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
 * O SSMS (SQL Server Management Studio) está instalado. Para baixar e instalar a versão mais recente do SSMS, confira [Baixar o SSMS (SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
 
-## <a name="ad-hoc-reporting-pattern"></a>Padrão do relatório ad hoc
+## <a name="ad-hoc-reporting-pattern"></a>Padrão dos relatórios ad hoc
 
 ![padrão do relatório ad hoc](media/saas-multitenantdb-adhoc-reporting/adhocreportingpattern_shardedmultitenantDB.png)
 
@@ -52,18 +52,17 @@ Os aplicativos SaaS podem analisar a enorme quantidade de dados de locatários a
 
 Ao distribuir consultas entre os bancos de dados de locatário, a Consulta Elástica fornece ideias imediatas sobre dados de produção em tempo real. No entanto, como a Consulta Elástica extrai dados possivelmente de vários bancos de dados, a latência da consulta, às vezes, pode ser maior que para consultas equivalentes enviadas para um único banco de dados de vários locatários. Certifique-se de criar consultas para minimizar os dados retornados. A Consulta Elástica é geralmente mais adequada para consultar pequenas quantidades de dados em tempo real, em vez de criar consultas ou relatórios de análise complexos ou usados com frequência. Se as consultas não tiverem um bom desempenho, examine o [plano de execução](https://docs.microsoft.com/sql/relational-databases/performance/display-an-actual-execution-plan) para ver qual parte da consulta foi propagada para o banco de dados remoto. Além disso, avalie a quantidade de dados que está sendo retornada. As consultas que exigem um processamento analítico complexo podem ser mais bem atendidas salvando os dados de locatários extraídos em um banco de dados otimizado para consultas de análise. O Banco de Dados SQL e o SQL Data Warehouse podem hospedar esse banco de dados de análise.
 
-<!-- ?? This pattern for analytics is explained in the [tenant analytics tutorial](saas-multitenantdb-tenant-analytics.md).
--->
+Esse padrão para análise é explicado no [tutorial de análise de locatário](saas-multitenantdb-tenant-analytics.md).
 
-## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-scripts"></a>Obter os scripts do aplicativo SaaS de Banco de Dados Multilocatário Wingtip Tickets
+## <a name="get-the-wingtip-tickets-saas-multi-tenant-database-application-source-code-and-scripts"></a>Obter o código-fonte e os scripts do aplicativo de banco de dados multilocatário SaaS Wingtip Tickets
 
-Os scripts e o código-fonte do aplicativo SaaS de Banco de Dados Multilocatário Wingtip Tickets estão disponíveis no [repositório GitHub WingtipTicketsSaaS-MultitenantDB](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB). Siga as etapas de desbloqueio descritas no arquivo Leiame.
+Os scripts e o código-fonte do aplicativo SaaS de Banco de Dados Multilocatário Wingtip Tickets estão disponíveis no repositório [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) do GitHub. Confira as [diretrizes gerais](saas-tenancy-wingtip-app-guidance-tips.md) para obter as etapas para baixar e desbloquear os scripts SaaS do Wingtip Tickets.
 
 ## <a name="create-ticket-sales-data"></a>Criar dados de vendas de ingresso
 
 Para executar consultas em um conjunto de dados mais interessante, crie dados de vendas de ingresso executando o gerador de ingressos.
 
-1. No *ISE do PowerShell*, abra o script ...\\Learning Modules\\Operational Analytics\\Adhoc Reporting\\*Demo-AdhocReporting.ps1* e defina os seguintes valores:
+1. No *ISE do PowerShell*, abra o script ...\\Módulos de Aprendizado\\Operational Analytics\\Adhoc Reporting\\ *Demo-AdhocReporting.ps1* e defina os seguintes valores:
    * **$DemoScenario** = 1, **Comprar ingressos de eventos em todos os locais**.
 2. Pressione **F5** para executar o script e gerar vendas de ingresso. Enquanto o script é executado, continue as etapas neste tutorial. Os dados de ingresso são consultados na seção *Executar consultas ad hoc distribuídas*; portanto, aguarde a conclusão do gerador de ingressos.
 
@@ -77,26 +76,26 @@ Para obter esse padrão, todas as tabelas de locatários incluem uma coluna *Ven
 
 Este exercício implanta o banco de dados *adhocreporting*. Esse é o banco de dados principal que contém o esquema usado para consultar em todos os bancos de dados de locatário. O banco de dados é implantado no servidor de catálogo existente, que é o servidor usado para todos os bancos de dados relacionados ao gerenciamento no aplicativo de exemplo.
 
-1. Abra ...\\Learning Modules\\Operational Analytics\\Adhoc Reporting\\*Demo-AdhocReporting.ps1* no *ISE do PowerShell* e defina os seguintes valores:
+1. Abra ...\\Módulos de Aprendizado\\Análise Operacional\\Relatórios Ad hoc\\*Demo-AdhocReporting.ps1* no *ISE do PowerShell* e defina os seguintes valores:
    * **$DemoScenario** = 2, **Implantar banco de dados de análise Ad hoc**.
 
 2. Pressione **F5** para executar o script e criar o banco de dados *adhocreporting*.
 
 Na próxima seção, você adiciona o esquema ao banco de dados para que ele possa ser usado para executar consultas distribuídas.
 
-## <a name="configure-the-head-database-for-running-distributed-queries"></a>Configurar o banco de dados “principal” para executar consultas distribuídas
+## <a name="configure-the-head-database-for-running-distributed-queries"></a>Configurar o banco de dados ‘principal’ para executar consultas distribuídas
 
 Este exercício adiciona o esquema (a fonte de dados externa e as definições de tabela externa) ao banco de dados de relatórios ad hoc que habilita a consulta em todos os bancos de dados de locatários.
 
 1. Abra o SQL Server Management Studio e conecte-se ao banco de dados de relatórios Ad hoc criado na etapa anterior. O nome do banco de dados é *adhocreporting*.
-2. Abra ...\Learning Modules\Operational Analytics\Adhoc Reporting\ *Initialize-AdhocReportingDB.sql* no SSMS.
+2. Abra ...\Módulos de Aprendizado\Operational Analytics\Adhoc Reporting\ *Initialize-AdhocReportingDB.sql* no SSMS.
 3. Examine o script SQL e observe o seguinte:
 
    A Consulta Elástica usa uma credencial com escopo de banco de dados para acessar cada um dos bancos de dados de locatário. Essa credencial precisa estar disponível em todos os bancos de dados e normalmente deve receber os direitos mínimos necessários para permitir essas consultas ad hoc.
 
     ![criar credencial](media/saas-multitenantdb-adhoc-reporting/create-credential.png)
 
-   A fonte de dados externa, que é definida para usar o mapa do fragmento locatário no banco de dados de catálogo. Usando isso como fonte de dados externa, as consultas são distribuídas para todos os bancos de dados registrados no catálogo quando a consulta é executada. Como os nomes de servidor são diferentes para cada implantação, esse script de inicialização obtém a localização do banco de dados de catálogo recuperando o servidor atual (@@servername) em que o script é executado.
+   Usando o banco de dados do catálogo como a fonte de dados externa, as consultas são distribuídas para todos os bancos de dados registrados no catálogo quando a consulta é executada. Como os nomes de servidor são diferentes para cada implantação, esse script de inicialização obtém a localização do banco de dados de catálogo recuperando o servidor atual (@@servername) em que o script é executado.
 
     ![Criar fonte de dados externa](media/saas-multitenantdb-adhoc-reporting/create-external-data-source.png)
 
@@ -120,7 +119,7 @@ Agora que o banco de dados *adhocreporting* está configurado, siga em frente e 
 
 Ao inspecionar o plano de execução, passe o mouse sobre os ícones de plano para obter detalhes. 
 
-1. Abra ...\\Learning Modules\\Operational Analytics\\Adhoc Reporting\\*Demo-AdhocReportingQueries.sql* no SSMS.
+1. Em *SSMS*, abra ...\\Módulos de Aprendizado\\Análise Operacional\\Relatórios Ad hoc\\*Demo-AdhocReportingQueries.sql*.
 2. Verifique se você está conectado ao banco de dados **adhocreporting**.
 3. Selecione o menu **Consulta** e clique em **Incluir Plano de Execução Atual**
 4. Realce a consulta *Which venues are currently registered? (Quais locais estão registrados no momento?)* e pressione **F5**.
@@ -153,11 +152,9 @@ Neste tutorial, você aprendeu a:
 > [!div class="checklist"]
 
 > * Executar consultas distribuídas entre todos os bancos de dados de locatário
-> * Implantar um banco de dados de relatórios ad hoc e adicionar o esquema a ele para executar consultas distribuídas.
+> * Implante um banco de dados de relatórios ad hoc e adicione o esquema a ele para executar consultas distribuídas.
 
-<!-- ??
-Now try the [Tenant Analytics tutorial](saas-multitenantdb-tenant-analytics.md) to explore extracting data to a separate analytics database for more complex analytics processing...
--->
+Agora, experimente o [Tutorial de análise de locatário](saas-multitenantdb-tenant-analytics.md) para explorar a extração de dados para um banco de dados de análise separado para o processamento de análise mais complexo.
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
