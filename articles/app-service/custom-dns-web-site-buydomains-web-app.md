@@ -12,13 +12,13 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2016
+ms.date: 11/24/2017
 ms.author: cephalin
-ms.openlocfilehash: 3cb22b935624041ab51e64028a1b668fd694f9b5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ba6e3a79e5eb4eca4a3c7d35ada8c58bfe2295e
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="buy-a-custom-domain-name-for-azure-web-apps"></a>Comprar um nome de domínio personalizado para aplicativos Web do Azure
 
@@ -31,6 +31,7 @@ Este artigo é para o Serviço de Aplicativo do Azure (aplicativos Web, aplicati
 Para concluir este tutorial:
 
 * [Crie um aplicativo do Serviço de Aplicativo](/azure/app-service/) ou use um aplicativo que você criou para outro tutorial.
+* [Remova o limite de gastos em minha assinatura](../billing/billing-spending-limit.md#remove). Não é possível comprar domínios do Serviço de Aplicativo com os créditos de assinatura gratuita.
 
 ## <a name="prepare-the-app"></a>Preparar o aplicativo
 
@@ -82,15 +83,25 @@ Na guia **Aplicativos Web**, clique no nome do seu aplicativo Web, selecione **C
    
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
 
-Na página **Domínios personalizados**, clique em **Comprar domínios**.
+Na página **Domínios personalizados**, clique em **Comprar domínio**.
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-1.png)
 
+> [!NOTE]
+> Se não conseguir ver a seção **Domínios do Serviço de Aplicativo**, você precisará remover o limite de gastos em sua conta do Azure (veja [Pré-requisitos](#prerequisites)).
+>
+>
+
 ### <a name="configure-the-domain-purchase"></a>Configurar a compra de domínio
 
-Na página **Domínio de Serviço de Aplicativo**, na caixa **Pesquisar domínio**, digite o nome de domínio que você deseja comprar e digite `Enter`. Os domínios disponíveis sugeridos são mostrados logo abaixo da caixa de texto. Selecione um ou mais domínios que deseja comprar. 
+Na página **Domínio de Serviço de Aplicativo**, na caixa **Pesquisar domínio**, digite o nome de domínio que você deseja comprar e digite `Enter`. Os domínios disponíveis sugeridos são mostrados logo abaixo da caixa de texto. Selecione um ou mais domínios que deseja comprar.
    
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-2.png)
+
+> [!NOTE]
+> Os [domínios de nível superior](https://wikipedia.org/wiki/Top-level_domain) a seguir têm suporte dos domínios do Serviço de Aplicativo: _com_, _net_, _co.uk_, _org_, _nl_, _in_, _biz_, _org.uk_ e _co.in_.
+>
+>
 
 Clique em **Informações de Contato** e preencha o formulário de informações de contato do domínio. Quando terminar, clique em **OK** para retornar à página de Domínio do Serviço de Aplicativo.
    
@@ -100,8 +111,7 @@ Em seguida, selecione as opções desejadas para seu domínio. Consulte a tabela
 
 | Configuração | Valor sugerido | Descrição |
 |-|-|-|
-|Renovação automática | **Habilitar** | Renova seu Domínio do Serviço de Aplicativo automaticamente todo ano. Seu cartão de crédito é cobrado no mesmo preço de compra no momento da renovação. |
-|Proteção de privacidade | Habilitar | Escolha "Proteção de privacidade", que está incluída no preço de compra _gratuitamente_ (exceto por domínios de nível superior cujo registro não dê suporte a proteção de privacidade, como _.co.in_, _.co.uk_ e assim por diante). |
+|Proteção de privacidade | Habilitar | Escolha "Proteção de privacidade," que está incluído no preço de compra _gratuitamente_. Alguns domínios de nível superior são gerenciados pelo registradores que não dão suporte à proteção de privacidade e eles são listados na página **Proteção de privacidade**. |
 | Atribuir nomes de host padrão | **www** e **@** | Se você quiser, selecione as associações de nome do host desejadas. Quando a operação de compra de domínio for concluída, seu aplicativo Web pode ser acessado nos nomes de host selecionados. Se o aplicativo Web estiver por trás do [Gerenciador de Tráfego do Azure](https://azure.microsoft.com/services/traffic-manager/), você não verá a opção de atribuir o domínio raiz (@), pois o Gerenciador de Tráfego não dá suporte a registros A. Você pode fazer alterações às atribuições de nome do host após a compra de domínio ser concluída. |
 
 ### <a name="accept-terms-and-purchase"></a>Aceitar os termos e comprar
@@ -125,7 +135,7 @@ Se você tiver atribuído nomes de host padrão ao seu aplicativo Web, também v
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-bind-success.png)
 
-Você também verá os nomes de host selecionados na página **Domínios personalizados** na seção **Nomes de host**. 
+Você também verá os nomes de host selecionados na página **Domínios personalizados** na seção **Nomes de host personalizados**. 
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-hostnames-added.png)
 
@@ -182,7 +192,25 @@ Agora você deve ver os nomes do host recentemente atribuídos na página **Dom�
 
 Navegue até o nome do host listado no navegador. No exemplo na captura de tela anterior, tente navegar para _abc.kontoso.net_.
 
-<a name="custom" />
+## <a name="renew-the-domain"></a>Renovar o domínio
+
+O domínio Serviço de Aplicativo que você comprou é válido por um ano a partir do momento da compra. Por padrão, o domínio é configurado para ser renovado automaticamente cobrando seu método de pagamento para o próximo ano. Se você deseja desativar a renovação automática ou se quiser renovar manualmente seu domínio, siga as etapas aqui.
+
+Na guia **Aplicativos Web**, clique no nome do seu aplicativo Web, selecione **Configurações** e selecione **Domínios personalizados**.
+
+![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-6.png)
+
+Na seção **Domínios do Serviço de Aplicativo**, selecione o domínio que deseja configurar.
+
+![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-select-domain.png)
+
+No painel de navegação esquerdo do domínio, selecione **Renovação de domínio**. Para parar a renovação de seu domínio automaticamente, selecione **Desativar** e, em seguida, **Salvar**. 
+
+![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-autorenew.png)
+
+Para renovar manualmente seu domínio, selecione **Renovar domínio**. No entanto, esse botão não estará ativo até 90 dias antes da expiração do domínio.
+
+<a name="custom"></a>
 
 ## <a name="manage-custom-dns-records"></a>Gerenciar registros DNS personalizados
 
@@ -236,6 +264,14 @@ Se o período de cancelamento do domínio adquirido não tiver se passado, selec
 
 ![](./media/custom-dns-web-site-buydomains-web-app/dncmntask-cname-buydomains-cancel.png)
 
-Selecione **OK** para confirmar a operação. Se você não quiser continuar, clique em qualquer lugar fora da caixa de diálogo de confirmação.
+Para confirmar a operação, selecione **Sim**.
 
 Depois que a operação estiver concluída, o domínio será liberado da sua assinatura e ficará disponível para qualquer pessoa comprar novamente. 
+
+## <a name="direct-default-url-to-a-custom-directory"></a>Direcionar a URL padrão para um diretório personalizado
+
+Por padrão, o Serviço de Aplicativo direciona solicitações da Web para o diretório raiz do seu código de aplicativo. Para direcioná-los para um subdiretório, como o `public`, veja [Direcionar a URL padrão para um diretório personalizado](app-service-web-tutorial-custom-domain.md#virtualdir).
+
+## <a name="more-resources"></a>Mais recursos
+
+[Perguntas frequentes: Domínio do Serviço de Aplicativo (versão prévia) e Domínios Personalizados](https://blogs.msdn.microsoft.com/appserviceteam/2017/08/08/faq-app-service-domain-preview-and-custom-domains/)

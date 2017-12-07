@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/01/2017
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 09850217018321f67e2e20270aadd054258c90a2
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 8ff071ed1ce5a3e9927e4c24d23efae3ae0cd6c6
+ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 11/27/2017
 ---
 # <a name="copy-data-tofrom-on-premises-oracle-using-azure-data-factory"></a>Copiar dados para dentro e fora do Oracle local usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -573,7 +573,7 @@ Ao mover dados do Oracle, os seguintes mapeamentos são usados do tipo de dados 
 | Tipo de dados do Oracle | Tipo de dados do .NET Framework |
 | --- | --- |
 | BFILE |Byte[] |
-| BLOB |Byte[] |
+| BLOB |Byte[]<br/>(só terá suporte no Oracle 10g e superior quando estiver usando o driver da Microsoft) |
 | CHAR |Cadeia de caracteres |
 | CLOB |Cadeia de caracteres |
 | DATE |DateTime |

@@ -135,13 +135,29 @@
         - name: Planejamento de capacidade de replicação do VMware no Azure
           href: site-recovery-plan-capacity-vmware.md
         - name: Ferramenta Planejador de Implantações de replicação do VMware para o Azure
-          href: site-recovery-deployment-planner.md
-        - name: Planejamento da capacidade de replicação do Hyper-V para o Azure
-          href: site-recovery-capacity-planner.md
-        - name: Ferramenta Planejador de Capacidade de replicação do Hyper-V para o Azure
-          href: site-recovery-capacity-planning-for-hyper-v-replication.md
+          href: null
+          items:
+            - name: Visão geral e pré-requisitos
+              href: site-recovery-deployment-planner.md
+            - name: Executar o planejador de implantação
+              href: site-recovery-vmware-deployment-planner-run.md
+            - name: Analisar o relatório gerado
+              href: site-recovery-vmware-deployment-planner-analyze-report.md
+            - name: Analisar o relatório de estimativa de custo de recuperação de desastres
+              href: site-recovery-vmware-deployment-planner-cost-estimation.md
         - name: Expandir servidores de processo para a replicação do VMware
           href: site-recovery-vmware-to-azure-manage-scaleout-process-server.md
+        - name: Ferramenta e planejamento da implantação de replicação do Hyper-V para o Azure
+          href: null
+          items:
+            - name: Visão geral e pré-requisitos
+              href: site-recovery-hyper-v-deployment-planner.md
+            - name: Executar o planejador de implantação
+              href: site-recovery-hyper-v-deployment-planner-run.md
+            - name: Analisar o relatório gerado
+              href: site-recovery-hyper-v-deployment-planner-analyze-report.md
+            - name: Analisar o relatório de estimativa de custo de recuperação de desastres
+              href: site-recovery-hyper-v-deployment-planner-cost-estimation.md
         - name: Testes da escala de desempenho de replicação do Hyper-V entre sites locais
           href: site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md
     - name: Configurar

@@ -20,16 +20,19 @@
  
 ## Gerenciar
 ### [Gerenciar com o Azure PowerShell](cdn-manage-powershell.md)
+### [Restringir o acesso por país](cdn-restrict-access-by-country.md)
+### [Melhorar o desempenho ao compactar arquivos](cdn-improve-performance.md)
+### Controlar o comportamento do cache
+#### [Como funciona o cache](cdn-how-caching-works.md)
+#### [Controlar o comportamento do cache com regras de cache](cdn-caching-rules.md)
+#### Armazenar o conteúdo em cache por cadeias de caracteres de consulta
+##### [Camada Standard](cdn-query-string.md)
+##### [Camada Premium](cdn-query-string-premium.md)
+#### [Limpar ativos armazenados em cache](cdn-purge-endpoint.md)
+#### [Pré-carregar ativos armazenados em cache](cdn-preload-endpoint.md)
 ### Configurar vida útil
 #### [Conteúdo da Web do Azure](cdn-manage-expiration-of-cloud-service-content.md)
 #### [Armazenamento de Blobs do Azure](cdn-manage-expiration-of-blob-content.md)
-### [Restringir o acesso por país](cdn-restrict-access-by-country.md)
-### [Melhorar o desempenho ao compactar arquivos](cdn-improve-performance.md)
-### Armazenar o conteúdo em cache por cadeia de caracteres de consulta
-#### [Camada Standard](cdn-query-string.md)
-#### [Camada Premium](cdn-query-string-premium.md)
-### [Limpar ativos armazenados em cache](cdn-purge-endpoint.md)
-### [Pré-carregar ativos armazenados em cache](cdn-preload-endpoint.md)
 ### [Autenticação de token](cdn-token-auth.md)
 ### [Monitorar recursos](cdn-resource-health.md)
 ### [Substituir comportamento com regras](cdn-rules-engine.md)

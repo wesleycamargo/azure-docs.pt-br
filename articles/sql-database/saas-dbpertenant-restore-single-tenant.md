@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: billgib;sstein
-ms.openlocfilehash: 866b5eec6e9c7e8bf98547143c0393bfb6f97b14
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: ee2bc6d8b75b92243c0550db0044895e41c9474b
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="restore-a-single-tenants-azure-sql-database-in-a-multi-tenant-saas-app"></a>Restaurar um banco de dados SQL do Azure de locatário único em um aplicativo SaaS multilocatário
 
@@ -53,9 +53,9 @@ No primeiro padrão, os dados são restaurados para um novo banco de dados. O lo
 
 No segundo padrão, que assume que o locatário sofreu uma perda ou corrupção de dados, o banco de dados de produção do locatário é restaurado para um ponto anterior no tempo. No padrão de restauração no local, o locatário é colocado offline por um curto período de tempo enquanto o banco de dados é restaurado e colocado online novamente. O banco de dados original é excluído, mas ainda pode ser restaurado se você precisar voltar para um ponto mais anterior ainda no tempo. Uma variação desse padrão pode renomear o banco de dados em vez de excluí-lo, embora renomear o banco de dados não ofereça nenhuma vantagem adicional em termos de segurança de dados.
 
-## <a name="get-the-wingtip-application-scripts"></a>Obter os scripts do aplicativo Wingtip
+## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Obter os scripts do aplicativo Wingtip Tickets SaaS Database Per Tenant
 
-Os scripts de SaaS do Wingtip e o código-fonte do aplicativo estão disponíveis no repositório GitHub [WingtipSaaS](https://github.com/Microsoft/WingtipSaaS). [Etapas para baixar os scripts do SaaS Wingtip](saas-dbpertenant-wingtip-app-guidance-tips.md#download-and-unblock-the-wingtip-tickets-saas-database-per-tenant-scripts).
+Os scripts e o código-fonte do aplicativo SaaS de Banco de Dados Multilocatário Wingtip Tickets estão disponíveis no repositório [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant) do GitHub. Confira as [diretrizes gerais](saas-tenancy-wingtip-app-guidance-tips.md) para obter as etapas para baixar e desbloquear os scripts SaaS do Wingtip Tickets.
 
 ## <a name="simulate-a-tenant-accidentally-deleting-data"></a>Simular um locatário excluindo acidentalmente os dados
 

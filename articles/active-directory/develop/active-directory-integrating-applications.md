@@ -16,11 +16,11 @@ ms.date: 10/04/2017
 ms.author: bryanla
 ms.custom: aaddev
 ms.reviewer: luleon
-ms.openlocfilehash: d9816f53e1d0e09f938452a022c75a3d20a43da4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8a5eab88e10b330bf4da88c01d24a11e95277439
+ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 11/28/2017
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Integrando aplicativos com o Active Directory do Azure
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -148,7 +148,7 @@ Além disso, antes que um cliente possa acessar uma API Web exposta por um aplic
 
 ### <a name="configuring-a-resource-application-to-expose-web-apis"></a>Configurando um aplicativo de recurso para expor APIs Web
 
-Você pode desenvolver uma API Web e disponibilizá-la aos aplicativos cliente expondo [escopos](active-directory-dev-glossary.md#scopes) e [funções](active-directory-dev-glossary.md#roles) de acesso. Uma API Web corretamente configurada é disponibilizada assim como outras APIs Web da Microsoft, incluindo a Graph API e as APIs do Office 365 Os escopos de acesso são expostos por meio do [manifesto do aplicativo](active-directory-dev-glossary.md#application-manifest), que é um arquivo JSON que representa a configuração de identidade do aplicativo. 
+Você pode desenvolver uma API Web e disponibilizá-la aos aplicativos cliente expondo [escopos](active-directory-dev-glossary.md#scopes) e [funções](active-directory-dev-glossary.md#roles) de acesso. Uma API Web corretamente configurada é disponibilizada assim como outras APIs Web da Microsoft, incluindo a API do Graph e as APIs do Office 365. Os escopos de acesso são expostos por meio do [manifesto do aplicativo](active-directory-dev-glossary.md#application-manifest), que é um arquivo JSON que representa a configuração de identidade do aplicativo. 
 
 A seção a seguir mostra como expor escopos de acesso modificando o manifesto do aplicativo de recurso.
 
@@ -178,7 +178,7 @@ A seção a seguir mostra como expor escopos de acesso modificando o manifesto d
   }
   ```
   > [!NOTE]
-  > O valor "id" deve ser gerado usando uma ferramenta de geração de GUID como [guidgen]](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx) ou de maneira programática. Ele representa um identificador exclusivo para o escopo exposto pela API Web. Depois que um cliente está configurado adequadamente com permissões para acessar a sua API Web, o Azure AD emite um token de acesso OAuth2.0. Quando o cliente chama a API Web, ele apresenta o token de acesso que tem a declaração de escopo (scp) definida para as permissões solicitadas no seu registro de aplicativo.
+  > O valor da "id" deve ser gerado usando uma ferramenta de geração de GUID como [guidgen](https://msdn.microsoft.com/library/ms241442%28v=vs.80%29.aspx) ou de modo programático. Ele representa um identificador exclusivo para o escopo exposto pela API Web. Depois que um cliente está configurado adequadamente com permissões para acessar a sua API Web, o Azure AD emite um token de acesso OAuth2.0. Quando o cliente chama a API Web, ele apresenta o token de acesso que tem a declaração de escopo (scp) definida para as permissões solicitadas no seu registro de aplicativo.
   >
   > É possível expor escopos adicionais posteriormente conforme a necessidade. Lembre-se de que a API Web pode expor vários escopos associados a uma variedade de funções diferentes. O recurso pode controlar o acesso à API Web em tempo de execução, avaliando declarações de escopo (`scp`) no token de acesso OAuth 2.0 recebido.
   > 
@@ -214,7 +214,7 @@ Conforme mencionado anteriormente, além de expor/acessar APIs para seus própri
 Para uma discussão completa sobre os escopos expostos pela API do Microsoft Graph, consulte o artigo [Escopos de permissão | Conceitos da API do Microsoft Graph](https://graph.microsoft.io/docs/authorization/permission_scopes).
 
 > [!NOTE]
-> Devido a uma limitação atual, os aplicativos cliente nativos só poderão chamar a Graph API do AD do Azure se eles usarem a permissão "Acessar diretório da sua organização". Essa restrição não se aplica a aplicativos Web.
+> Devido a uma limitação atual, os aplicativos cliente nativos só poderão chamar a API do Graph do AD do Azure se eles usarem a permissão "Acessar diretório da sua organização". Essa restrição não se aplica a aplicativos Web.
 > 
 > 
 
