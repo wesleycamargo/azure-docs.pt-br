@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: a3872aae3a9eb8da0b881ec9388f54546e84b08b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c775780a39c4d423c62bf88f55d35675c70442c7
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="how-to-use-role-based-access-control-in-azure-api-management"></a>Como usar o Controle de Acesso Baseado em Função no Gerenciamento de API do Azure
 O Gerenciamento de API do Azure depende do RBAC (Controle de Acesso Baseado em Função) do Azure para habilitar o gerenciamento de acesso refinado de serviços e entidades de Gerenciamento de API (por exemplo, APIs e políticas). Este artigo fornece uma visão geral das funções internas e personalizadas no Gerenciamento de API. Para obter mais informações sobre gerenciamento de acesso no Portal do Azure, confira [Introdução ao gerenciamento de acesso no portal do Azure](https://azure.microsoft.com/documentation/articles/role-based-access-control-what-is/).
@@ -32,9 +32,9 @@ A tabela a seguir fornece breves descrições das funções internas. Atribua es
 | ------------- | ---- | ---- | ---- | ---- | ---- | ---- |
 | Colaborador do serviço de Gerenciamento de API do Azure | ✓ | ✓  | ✓  | ✓ | Superusuário. Tem acesso total de CRUD aos serviços e entidades do Gerenciamento de API (por exemplo, APIs e políticas). Tem acesso ao portal do publicador herdado. |
 | Leitor do serviço de Gerenciamento de API do Azure | ✓ | | || Tem acesso somente leitura aos serviços e entidades do Gerenciamento de API. |
-| Operador do serviço de Gerenciamento de API do Azure | ✓ | | ✓  | | Pode gerenciar os serviços de Gerenciamento de API, mas não entidades.|
-| Editor do serviço de Gerenciamento de API do Azure<sup>*</sup> | ✓ | ✓  | |  | Pode gerenciar as entidades de Gerenciamento de API, mas não os serviços.|
-| Gerenciador de conteúdo do Gerenciamento de API do Azure<sup>*</sup> | ✓ | | | ✓  | Pode gerenciar o portal do desenvolvedor. Acesso somente leitura aos serviços e entidades.|
+| Operador do serviço de Gerenciamento de API do Azure | ✓ | | ✓ | | Pode gerenciar os serviços de Gerenciamento de API, mas não entidades.|
+| Editor do serviço de Gerenciamento de API do Azure<sup>*</sup> | ✓ | ✓ | |  | Pode gerenciar as entidades de Gerenciamento de API, mas não os serviços.|
+| Gerenciador de conteúdo do Gerenciamento de API do Azure<sup>*</sup> | ✓ | | | ✓ | Pode gerenciar o portal do desenvolvedor. Acesso somente leitura aos serviços e entidades.|
 
 <sup>[1] Acesso de leitura a serviços e entidades de Gerenciamento de API (por exemplo, APIs e políticas).</sup>
 
@@ -61,9 +61,12 @@ New-AzureRmRoleAssignment -ObjectId <object ID of the user account> -RoleDefinit
 
 O artigo [Operações do provedor de recursos do Azure Resource Manager](../active-directory/role-based-access-control-resource-provider-operations.md#microsoftapimanagement) contém a lista de permissões que podem ser concedidas no nível de Gerenciamento de API.
 
-## <a name="watch-a-video-overview"></a>Assista a uma visão geral em vídeo
+## <a name="video"></a>Vídeo
 
-Para obter mais informações, você pode assistir ao vídeo [Controle de acesso baseado em função no Gerenciamento de API](https://channel9.msdn.com/Blogs/AzureApiMgmt/Role-Based-Access-Control-in-API-Management/player).
+
+> [!VIDEO https://channel9.msdn.com/Blogs/AzureApiMgmt/Role-Based-Access-Control-in-API-Management/player]
+>
+>
 
 ## <a name="next-steps"></a>Próximas etapas
 

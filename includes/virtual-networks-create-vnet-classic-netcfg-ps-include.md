@@ -22,19 +22,26 @@ Para criar uma rede virtual com um arquivo netcfg usando o PowerShell, conclua a
 4. Para criar a rede virtual descrita neste cenário, adicione o seguinte XML logo abaixo do elemento **<VirtualNetworkSites>** :
 
    ```xml
-        <VirtualNetworkSite name="TestVNet" Location="East US">
-          <AddressSpace>
-            <AddressPrefix>192.168.0.0/16</AddressPrefix>
-          </AddressSpace>
-          <Subnets>
-            <Subnet name="FrontEnd">
-              <AddressPrefix>192.168.1.0/24</AddressPrefix>
-            </Subnet>
-            <Subnet name="BackEnd">
-              <AddressPrefix>192.168.2.0/24</AddressPrefix>
-            </Subnet>
-          </Subnets>
-        </VirtualNetworkSite>
+         <?xml version="1.0" encoding="utf-8"?>
+         <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
+           <VirtualNetworkConfiguration>
+             <VirtualNetworkSites>
+                 <VirtualNetworkSite name="TestVNet" Location="East US">
+                   <AddressSpace>
+                     <AddressPrefix>192.168.0.0/16</AddressPrefix>
+                   </AddressSpace>
+                   <Subnets>
+                     <Subnet name="FrontEnd">
+                       <AddressPrefix>192.168.1.0/24</AddressPrefix>
+                     </Subnet>
+                     <Subnet name="BackEnd">
+                       <AddressPrefix>192.168.2.0/24</AddressPrefix>
+                     </Subnet>
+                   </Subnets>
+                 </VirtualNetworkSite>
+             </VirtualNetworkSites>
+           </VirtualNetworkConfiguration>
+         </NetworkConfiguration>
    ```
    
 5. Salve o arquivo de configuração de rede.

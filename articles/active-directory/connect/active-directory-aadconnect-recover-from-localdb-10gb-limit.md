@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: billmath
-ms.openlocfilehash: 08e682c51b12d4506019d2f6b68e1eae0798b990
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ab2aed2b9e86dc9b3111dc1fdf9deea2e2930c7c
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect: Como se recuperar de um limite de 10 GB do LocalDB
 O Azure AD Connect requer um banco de dados do SQL Server para armazenar dados de identidade. Você pode usar o padrão que do SQL Server 2012 Express LocalDB instalado com o Azure AD Connect ou usar seu próprio SQL completo. O SQL Server Express impõe um limite de tamanho de 10 GB. Ao usar o LocalDB e esse limite for atingido, o serviço de sincronização do Azure do AD Connect não pode iniciar ou sincronizar corretamente. Este artigo fornece as etapas de recuperação.
@@ -63,11 +63,11 @@ O nome do banco de dados criado para o Azure AD Connect é **ADSync**. Para exec
 * A conta de serviço de sincronização que é usada como o contexto operacional do serviço de sincronização do Azure do AD Connect.
 * O grupo local ADSyncAdmins criado durante a instalação.
 
-1. O banco de dados por meio da cópia de backup **ADSync.mdf** e **ADSync_log.ldf** arquivos localizados em `%ProgramFiles%\program files\Microsoft Azure AD Sync\Data` para um local seguro.
+1. O banco de dados por meio da cópia de backup **ADSync.mdf** e **ADSync_log.ldf** arquivos localizados em `%ProgramFiles%\Microsoft Azure AD Sync\Data` para um local seguro.
 
 2. Inicie uma nova sessão do PowerShell.
 
-3. Navegue até a pasta `%ProgramFiles%\Program Files\Microsoft SQL Server\110\Tools\Binn`.
+3. Navegue até a pasta `%ProgramFiles%\Microsoft SQL Server\110\Tools\Binn`.
 
 4. Iniciar **sqlcmd** utilitário executando o comando `./SQLCMD.EXE -S “(localdb)\.\ADSync” -U <Username> -P <Password>`, usando a credencial de um administrador do sistema ou o DBO do banco de dados.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: apimpm
-ms.openlocfilehash: 87d4e3fc4f30d5c7b147fb460fb43367aef19118
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 87fb2b49ef6680d3d7a46f378aedf99936fb580c
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Como salvar e definir a configuração de seu serviço de Gerenciamento de API usando o Git
 > 
@@ -284,7 +284,7 @@ Para saber mais sobre outras maneiras de gerenciar sua instância de serviço, c
   * [Referência de cmdlets do PowerShell para implantação de serviços](https://msdn.microsoft.com/library/azure/mt619282.aspx)
   * [Referência de cmdlet do PowerShell para gerenciamento de serviços](https://msdn.microsoft.com/library/azure/mt613507.aspx)
 * Gerenciar a instância de seu serviço no portal do editor.
-  * [Gerenciar sua primeira API](api-management-get-started.md)
+  * [Gerenciar sua primeira API](import-and-publish.md)
 * Gerenciar a instância de seu serviço usando a API REST
   * [Referência de API REST do Gerenciamento de API](https://msdn.microsoft.com/library/azure/dn776326.aspx)
 

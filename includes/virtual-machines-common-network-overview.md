@@ -19,7 +19,7 @@ Além desses recursos básicos, você também deve considerar estes recursos opc
 
 Uma [NIC (interface de rede)](../articles/virtual-network/virtual-network-network-interface.md) é a interconexão entre uma VM e uma VNet (rede virtual). Uma VM deve ter pelo menos uma NIC, mas pode ter mais de uma, dependendo do tamanho da VM que você criar. Saiba mais sobre quantas NICs cada tamanho de VM oferece suporte para [Windows](../articles/virtual-machines/windows/sizes.md) ou [Linux](../articles/virtual-machines/linux/sizes.md).
 
-Você pode criar uma VM com várias placas de rede e, em seguida, adicionar ou remover NICs por meio do ciclo de vida de uma VM. Várias NICs permitem que uma máquina virtual se conecte a várias sub-redes e envie ou receba tráfego na interface mais apropriada. Saiba mais sobre como usar várias NICs com uma VM do [Windows](../articles/virtual-machines/windows/multiple-nics.md) ou [Linux](../articles/virtual-machines/linux/multiple-nics.md).
+Você pode criar uma VM com várias placas de rede e, em seguida, adicionar ou remover NICs por meio do ciclo de vida de uma VM. Várias NICs permitem que uma máquina virtual se conecte a várias sub-redes e envie ou receba tráfego na interface mais apropriada.
 
 Se a VM for adicionada a um conjunto de disponibilidade, VMs no conjunto de disponibilidade deverão ter uma ou várias NICs. Não é necessário ter o mesmo número de NICs em VMs com mais de uma NIC, mas elas devem ter pelo menos duas.
 
@@ -30,8 +30,8 @@ Esta tabela lista os métodos que você pode usar para criar uma interface de re
 | Método | Descrição |
 | ------ | ----------- |
 | Portal do Azure | Quando você cria uma VM no portal do Azure, uma interface de rede é criada automaticamente para você (não é possível usar uma NIC que você cria separadamente). O portal cria uma VM com apenas uma NIC. Se quiser criar uma VM com mais de uma NIC, você deverá criá-la com um método diferente. |
-| [Azure PowerShell](../articles/virtual-network/virtual-network-deploy-multinic-arm-ps.md) | Use [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) com o parâmetro **-PublicIpAddressId** para fornecer o identificador do endereço IP público que você criou anteriormente. |
-| [CLI do Azure](../articles/virtual-network/virtual-network-deploy-multinic-arm-cli.md) | Para fornecer o identificador do endereço IP público que você criou anteriormente, use [az network nic create](https://docs.microsoft.com/cli/azure/network/nic#create) com o parâmetro **--public-ip-address**. |
+| [Azure PowerShell](../articles/virtual-machines/windows/multiple-nics.md) | Use [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) com o parâmetro **-PublicIpAddressId** para fornecer o identificador do endereço IP público que você criou anteriormente. |
+| [CLI do Azure](../articles/virtual-machines/linux/multiple-nics.md) | Para fornecer o identificador do endereço IP público que você criou anteriormente, use [az network nic create](https://docs.microsoft.com/cli/azure/network/nic#create) com o parâmetro **--public-ip-address**. |
 | [Modelo](../articles/virtual-network/virtual-network-deploy-multinic-arm-template.md) | Use [Interface de rede em uma rede Virtual com endereço IP público](https://github.com/Azure/azure-quickstart-templates/tree/master/101-nic-publicip-dns-vnet) como um guia para a implantação de uma interface de rede usando um modelo. |
 
 ## <a name="ip-addresses"></a>Endereços IP 
