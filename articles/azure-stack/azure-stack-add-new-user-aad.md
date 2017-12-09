@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.openlocfilehash: 91d1c52c0abf14656e08b511e4f6c8041e319020
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b7fd3c36825746a009c01c97fb8664e04278159f
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 *Aplica-se a: Kit de desenvolvimento de pilha do Azure*
 
@@ -28,7 +28,7 @@ Depois de [Implantando o Kit de desenvolvimento do Azure pilha](azure-stack-run-
 ## <a name="create-an-azure-stack-tenant-account-using-the-azure-portal"></a>Criar uma conta de locatário do Azure Stack usando o portal do Azure
 É necessário ter uma assinatura do Azure para usar o portal do Azure.
 
-1. Faça logon no [Azure](http://manage.windowsazure.com).
+1. Faça logon no [Azure](https://portal.azure.com).
 2. Na barra de navegação à esquerda do Microsoft Azure, clique em **Active Directory**.
 3. Na lista de diretórios, clique no diretório que deseja usar para o Azure Stack ou crie um novo.
 4. Nesta página de diretório, clique em **Usuários**.
