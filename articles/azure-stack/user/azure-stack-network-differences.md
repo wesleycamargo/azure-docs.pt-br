@@ -8,11 +8,11 @@ ms.author: victorh
 ms.date: 9/25/2017
 ms.topic: article
 ms.service: azure-stack
-ms.openlocfilehash: 7b7bac508a759a1367ac7328840848efe17ea3c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3c72c58e63335f1cb440811e283bd742b8124161
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="considerations-for-azure-stack-networking"></a>Considerações de rede de pilha do Azure
 
@@ -34,7 +34,7 @@ Este artigo fornece uma visão geral das considerações de rede e seus recursos
 | |Conjuntos de registros do DNS por região|5000 (padrão)<br>Pode ser aumentado na solicitação.|5.000|
 ||Servidores de nome para a delegação de zona|Para cada zona de usuário (Locatário) que é criada, o Azure fornece quatro servidores de nome.|A pilha do Azure fornece dois servidores de nome para cada região do usuário (Locatário) que é criado.|
 | Rede virtual|Emparelhamento de rede virtual|Conecte duas redes virtuais na mesma região através da rede de backbone do Azure.|Ainda não tem suporte|
-| |Endereços IPv6|Você pode atribuir um endereço IPv6 como parte do [configuração de Interface de rede](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-network-interface-addresses#ip-address-versions).|Há suporte apenas para IPv4.|
+| |Endereços IPv6|Você pode atribuir um endereço IPv6 como parte do [configuração de Interface de rede](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface-addresses#ip-address-versions).|Há suporte apenas para IPv4.|
 |Gateways VPN|Gateway VPN ponto a Site|Suportado|Ainda não tem suporte|
 | |Gateway de Vnet para Vnet|Suportado|Ainda não tem suporte|
 | |SKUs de Gateway VPN|Suporte para Basic, GW1, GW2, GW3, padrão de alto desempenho, altíssimo desempenho. |Suporte para Basic, Standard e SKUs de alto desempenho.|

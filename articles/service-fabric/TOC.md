@@ -101,7 +101,6 @@
 
 ## Gerenciar aplicativos
 ### [Visão geral](service-fabric-application-lifecycle.md)
-### [A configuração ImageStoreConnectionString](service-fabric-image-store-connection-string.md)
 ### Atualização de aplicativo
 #### [Visão geral](service-fabric-application-upgrade.md)
 #### [Configuração](service-fabric-visualstudio-configure-upgrade.md)
@@ -109,6 +108,7 @@
 #### [Serialização de dados nas atualizações de aplicativo](service-fabric-application-upgrade-data-serialization.md)
 #### [Tópicos avançados de atualização de aplicativo](service-fabric-application-upgrade-advanced.md)
 ### [Visão geral de análise de falhas](service-fabric-testability-overview.md)
+### [A configuração ImageStoreConnectionString](service-fabric-image-store-connection-string.md)
 
 ## Criar e gerenciar clusters
 ### [Visão geral](service-fabric-deploy-anywhere.md)
@@ -136,8 +136,6 @@
 #### [Limitação](service-fabric-cluster-resource-manager-advanced-throttling.md)
 #### [Movimento de serviço](service-fabric-cluster-resource-manager-movement-cost.md)
 
-## [Integrar com o Gerenciamento de API](service-fabric-api-management-overview.md)
-
 ## Monitorar e diagnosticar
 ### [Monitorar e diagnosticar aplicativos](service-fabric-diagnostics-overview.md)
 ### Gerar eventos
@@ -164,13 +162,14 @@
 #### [Analisar eventos com o OMS](service-fabric-diagnostics-event-analysis-oms.md)
 ### [Solucionar problemas do seu cluster local](service-fabric-troubleshoot-local-cluster-setup.md)
 
+## [Integrar com o Gerenciamento de API](service-fabric-api-management-overview.md)
+
 # Guias de instruções
 ## Configurar seu ambiente de desenvolvimento
 ### [Windows](service-fabric-get-started.md)
 ### [Linux](service-fabric-get-started-linux.md)
 ### [Mac OS](service-fabric-get-started-mac.md)
-
-## [Configurar a CLI do Service Fabric](service-fabric-cli.md)
+### [Configurar a CLI do Service Fabric](service-fabric-cli.md)
 
 ## Compilar um aplicativo
 ### [Criar seu primeiro aplicativo C# no Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md)

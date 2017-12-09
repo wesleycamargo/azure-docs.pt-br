@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2017
 ms.author: sngun
-ms.openlocfilehash: 9a0ad3d8c2cdd3cd1d46e789c2b65677ac5a10b1
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 1cfbe988d881075d1a7bfc7513fbe5f44a531abd
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="install-and-configure-cli-for-use-with-azure-stack"></a>Instalar e configurar o CLI para uso com a pilha do Azure
 
@@ -145,7 +145,7 @@ Use as seguintes etapas para se conectar ao Azure pilha:
      --profile 2017-03-09-profile
    ```
 
-4. Entre seu ambiente de pilha do Azure usando o `az login` comando. Você pode entrar no ambiente de pilha do Azure como um usuário ou como um [entidade de serviço](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-application-objects). 
+4. Entre seu ambiente de pilha do Azure usando o `az login` comando. Você pode entrar no ambiente de pilha do Azure como um usuário ou como um [entidade de serviço](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects). 
 
    * Entrar como um *usuário*: você pode especificar o nome de usuário e senha diretamente dentro de `az login` comando ou autenticar usando um navegador. Você precisa fazer o último se sua conta tiver habilitada a autenticação multifator.
 
