@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/14/2017
 ms.author: jeffgilb
-ms.openlocfilehash: 8a0d23e14ef50034d5f9595cf154c3513a09c464
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 19a8db99c62fb4f560ce082d0974ef619080ef2d
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Pré-requisitos de implantação de pilha do Azure
 
@@ -176,7 +176,7 @@ Para configurar a telemetria do SQL Server, consulte [como configurar o SQL Serv
 
 Por meio do registro, a pilha do Azure também está configurada para informações sobre o uso de encaminhamento para o Azure. Relatório de uso é controlado independentemente da telemetria. Você pode desativar o uso de relatórios quando [registrando](azure-stack-register.md) usando o script no Github. Basta definir o **$reportUsage** parâmetro **$false**.
 
-Dados de uso são formatados como detalhado no [dados de uso da pilha do relatório do Azure para o Azure](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-usage-reporting). Usuários do Kit de desenvolvimento de pilha do Azure, na verdade, não são cobrados. Essa funcionalidade está incluída no kit de desenvolvimento para que você possa testar para ver como funciona o relatório de uso. 
+Dados de uso são formatados como detalhado no [dados de uso da pilha do relatório do Azure para o Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-usage-reporting). Usuários do Kit de desenvolvimento de pilha do Azure, na verdade, não são cobrados. Essa funcionalidade está incluída no kit de desenvolvimento para que você possa testar para ver como funciona o relatório de uso. 
 
 
 ## <a name="next-steps"></a>Próximas etapas

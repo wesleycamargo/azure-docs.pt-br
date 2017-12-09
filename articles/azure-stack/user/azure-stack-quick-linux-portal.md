@@ -10,11 +10,11 @@ ms.topic: quickstart
 ms.date: 09/25/2017
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: f986c060b26489e412f6230665ec76a4730293f1
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: a97372002052570ccad2bb8bc442eb0dd1ca76d9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-a-linux-virtual-machine-with-the-azure-stack-portal"></a>Criar uma máquina virtual Linux com o portal de pilha do Azure
 
@@ -30,7 +30,7 @@ Máquinas de virtuais de pilha do Azure podem ser criadas por meio do portal de 
 
 * **Acesso a um cliente SSH**
 
-   Se você estiver usando o Kit de desenvolvimento de pilha do Azure (ASDK), você não pode ter acesso a um cliente SSH no seu ambiente. Se esse for o caso, você pode escolher entre vários pacotes que incluem um cliente SSH. Por exemplo, você pode instalar PuTTY que inclui um cliente SSH e um gerador de chave SSH (puttygen.exe). Para obter mais informações sobre as opções possíveis, consulte o seguinte relacionados ao artigo do Azure: [como chaves usar SSH com o Windows no Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/ssh-from-windows#windows-packages-and-ssh-clients).
+   Se você estiver usando o Kit de desenvolvimento de pilha do Azure (ASDK), você não pode ter acesso a um cliente SSH no seu ambiente. Se esse for o caso, você pode escolher entre vários pacotes que incluem um cliente SSH. Por exemplo, você pode instalar PuTTY que inclui um cliente SSH e um gerador de chave SSH (puttygen.exe). Para obter mais informações sobre as opções possíveis, consulte o seguinte relacionados ao artigo do Azure: [como chaves usar SSH com o Windows no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows#windows-packages-and-ssh-clients).
 
    Este guia de início rápido usa PuTTY para gerar as chaves SSH e conectar à máquina virtual Linux. Para baixar e instalar o PuTTY, vá para [http://www.putty.org/](http://www.putty.org).
 

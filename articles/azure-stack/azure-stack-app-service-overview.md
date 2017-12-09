@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2017
 ms.author: anwestg
-ms.openlocfilehash: 19b712d622276b6521317d79c68fc093dba547db
-ms.sourcegitcommit: 54fd091c82a71fbc663b2220b27bc0b691a39b5b
+ms.openlocfilehash: fd2d355b2556faddb06acf2998b54ffcc9aa7919
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/12/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="app-service-on-azure-stack-overview"></a>Serviço de Aplicativo na visão geral do Azure Stack
 
@@ -37,8 +37,8 @@ Veja alguns recursos importantes do Serviço de Aplicativo:
 
 Serviço de aplicativo oferece vários tipos de aplicativo, cada um deles se destina a hospedar uma carga de trabalho específica:
 
-- [Aplicativos Web](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-overview) para hospedar sites e aplicativos web.
-- [Aplicativos de API](https://docs.microsoft.com/en-us/azure/app-service-api/app-service-api-apps-why-best-platform) para hospedagem de APIs RESTful.
+- [Aplicativos Web](https://docs.microsoft.com/azure/app-service-web/app-service-web-overview) para hospedar sites e aplicativos web.
+- [Aplicativos de API](https://docs.microsoft.com/azure/app-service-api/app-service-api-apps-why-best-platform) para hospedagem de APIs RESTful.
 - Funções do Azure para hospedar as cargas de trabalho sem servidor acionados por eventos.
 
 O aplicativo word aqui refere-se aos recursos de hospedagem dedicados à execução de uma carga de trabalho. Usando "aplicativo Web" como exemplo, você provavelmente já está acostumado a pensar em um aplicativo Web como os recursos de computação e o código do aplicativo que, juntos, fornecem funcionalidade a um navegador. Mas, no serviço de aplicativo, um aplicativo web é os recursos de computação pilha do Azure fornece para hospedar o código do aplicativo.
@@ -49,7 +49,7 @@ Seu aplicativo pode ser composto de vários aplicativos de serviço de aplicativ
 
    ![](media/azure-stack-app-service-overview/image01.png)
 
-## <a name="what-is-an-app-service-plan"></a>O que é um plano do Serviço de Aplicações?
+## <a name="what-is-an-app-service-plan"></a>O que é um plano do Serviço de Aplicativo?
 
 O provedor de recursos do serviço de aplicativo usa o mesmo código que usa o serviço de aplicativo do Azure. Como resultado, alguns conceitos comuns valem descrevendo. No serviço de aplicativo, o contêiner de preços para aplicativos é chamado o plano de serviço de aplicativo. Representa o conjunto de máquinas virtuais dedicadas usadas para manter seus aplicativos. Dentro de uma determinada assinatura, você pode ter vários planos de serviço de aplicativo.
 
