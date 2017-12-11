@@ -205,11 +205,6 @@
 ##### [SharePoint](application-proxy-enable-remote-access-sharepoint.md)
 ##### [Equipes da Microsoft](application-proxy-teams.md)
 #### [Solucionar problemas](active-directory-application-proxy-troubleshoot.md)
-#### Usar o portal clássico
-##### [Baixar conectores](application-proxy-enable-classic-portal.md)
-##### [Publicar aplicativos](active-directory-application-proxy-publish.md)
-##### [Usar conectores](active-directory-application-proxy-connectors-azure-portal.md)
-##### [Acesso condicional](application-proxy-enable-remote-access-sharepoint.md)
 
 ### Gerenciar aplicativos empresariais
 #### [Atribuir usuários](active-directory-coreapps-assign-user-azure-portal.md)

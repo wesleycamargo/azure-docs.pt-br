@@ -31,8 +31,6 @@
       href: tutorial-kubernetes-upgrade-cluster.md
 - name: Guias de instruções
   items:
-    - name: Integrar no Azure com OSBA
-      href: integrate-azure.md
     - name: Dimensionar um cluster AKS
       href: scale-cluster.md
     - name: Atualizar um cluster AKS
@@ -43,6 +41,8 @@
       href: kubernetes-draft.md
     - name: Manter os dados com Arquivos do Azure
       href: azure-files.md
+    - name: Integrar no Azure com OSBA
+      href: integrate-azure.md
     - name: Usar painel do Kubernetes
       href: kubernetes-dashboard.md
     - name: Criar uma entidade de serviço
