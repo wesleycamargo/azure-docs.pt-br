@@ -135,6 +135,8 @@
       items:
         - name: Implantação contínua
           href: functions-continuous-deployment.md
+        - name: Implantação por push do Zip
+          href: deployment-zip-push.md
         - name: Automatizar implantação de recursos
           href: functions-infrastructure-as-code.md
         - name: Funções locais
