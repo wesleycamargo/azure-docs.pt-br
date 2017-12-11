@@ -11,6 +11,9 @@
   items:
     - name: Criar um cluster Storm
       href: apache-storm-tutorial-get-started-linux.md
+    - name: Instalar aplicativos HDInsight
+      href: ../hdinsight-apps-install-applications.md
+      maintainContext: true
     - name: Planejamento da capacidade
       href: ../hdinsight-capacity-planning.md
       maintainContext: true
@@ -45,17 +48,11 @@
           href: apache-storm-sensor-data-analysis.md
     - name: Estender clusters
       items:
-        - name: Usar conta de armazenamento segura habilitada
-          href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
-          maintainContext: true
         - name: Personalizar clusters usando Bootstrap
           href: ../hdinsight-hadoop-customize-cluster-bootstrap.md
           maintainContext: true
         - name: Personalizar clusters usando a Ação de Script
           href: ../hdinsight-hadoop-customize-cluster-linux.md
-          maintainContext: true
-        - name: Conectar o HDInsight à sua rede local
-          href: ../connect-on-premises-network.md
           maintainContext: true
         - name: Desenvolver ações de script
           href: ../hdinsight-hadoop-script-actions-linux.md
@@ -63,14 +60,8 @@
         - name: Instalar ou atualizar o Mono
           href: ../hdinsight-hadoop-install-mono.md
           maintainContext: true
-        - name: Usar Rede Virtual
-          href: ../hdinsight-extend-hadoop-virtual-network.md
-          maintainContext: true
         - name: Criar aplicativos HDInsight
           items:
-            - name: Instalar aplicativos HDInsight
-              href: ../hdinsight-apps-install-applications.md
-              maintainContext: true
             - name: Instalar aplicativos personalizados
               href: ../hdinsight-apps-install-custom-applications.md
               maintainContext: true
@@ -180,20 +171,6 @@
         - name: Aplicação de patches de SO para cluster HDInsight
           href: ../hdinsight-os-patching.md
           maintainContext: true
-    - name: Monitoramento
-      items:
-        - name: Usar Log Analytics do Azure
-          href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
-          maintainContext: true
-        - name: Painéis específicos do cluster
-          href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
-          maintainContext: true
-        - name: Usar consultas com o Log Analytics
-          href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
-          maintainContext: true
-        - name: Monitorar o desempenho do cluster
-          href: ../hdinsight-key-scenarios-to-monitor.md
-          maintainContext: true
     - name: Solucionar problemas
       href: ../hdinsight-troubleshoot-guide.md
       maintainContext: true
@@ -220,6 +197,33 @@
             - name: Habilitar despejos de heap para serviços Hadoop
               href: ../hdinsight-hadoop-collect-debug-heap-dump-linux.md
               maintainContext: true
+- name: Preparação corporativa
+  items:
+    - name: Proteção de dados
+      href: ../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
+      maintainContext: true
+    - name: Acesso à rede
+      items:
+        - name: HDInsight na VNet do Azure
+          href: ../hdinsight-extend-hadoop-virtual-network.md
+          maintainContext: true
+        - name: Conectar o HDInsight à rede local
+          href: ../connect-on-premises-network.md
+          maintainContext: true
+    - name: Monitoramento usando OMS
+      items:
+        - name: Usar Log Analytics do Azure
+          href: ../hdinsight-hadoop-oms-log-analytics-tutorial.md
+          maintainContext: true
+        - name: Painéis específicos do cluster
+          href: ../hdinsight-hadoop-oms-log-analytics-management-solutions.md
+          maintainContext: true
+        - name: Usar consultas com o Log Analytics
+          href: ../hdinsight-hadoop-oms-log-analytics-use-queries.md
+          maintainContext: true
+        - name: Monitorar o desempenho do cluster
+          href: ../hdinsight-key-scenarios-to-monitor.md
+          maintainContext: true
 - name: Referência
   items:
     - name: Exemplos de código

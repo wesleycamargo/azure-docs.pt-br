@@ -73,6 +73,9 @@
           href: sizes-compute.md
         - name: Otimizado para memória
           href: sizes-memory.md
+          items:
+            - name: VCPUs restritas
+              href: constrained-vcpu.md
         - name: Otimizado para armazenamento
           href: sizes-storage.md
         - name: GPU otimizada
@@ -164,6 +167,8 @@
       items:
         - name: Pagar antecipadamente pelas VMs - Instâncias Reservadas
           href: prepay-reserved-vm-instances.md
+        - name: Uso de VM
+          href: vm-usage.md
         - name: Tarefas comuns de CLI
           href: cli-manage.md
         - name: Como mover uma VM

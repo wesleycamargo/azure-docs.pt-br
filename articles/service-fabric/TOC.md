@@ -50,14 +50,11 @@
 ## [Terminologia](service-fabric-technical-overview.md)
 
 ## Criar aplicativos e serviços
-### Modelos de programação com suporte
-#### [Visão geral](service-fabric-choose-framework.md)
-#### Contêineres
-##### [Visão geral](service-fabric-containers-overview.md)
+### [Modelos de programação com suporte](service-fabric-choose-framework.md)
+#### [Contêineres](service-fabric-containers-overview.md)
 ##### [Docker compose (visualização)](service-fabric-docker-compose.md)
 ##### [Governança de recursos](service-fabric-resource-governance.md)
-#### Reliable Services
-##### [Visão geral](service-fabric-reliable-services-introduction.md)
+#### [Reliable Services](service-fabric-reliable-services-introduction.md)
 ##### [Ciclo de vida dos Reliable Services - C#](service-fabric-reliable-services-lifecycle.md)
 ##### [Ciclo de vida dos Reliable Services - Java](service-fabric-reliable-services-lifecycle-java.md)
 ##### [Coleções Confiáveis](service-fabric-reliable-services-reliable-collections.md)
@@ -69,8 +66,7 @@
 ##### [Gerenciador de estado confiável e Aspectos internos confiáveis da coleção](service-fabric-reliable-services-reliable-collections-internals.md)
 ##### [Uso avançado](service-fabric-reliable-services-advanced-usage.md)
 
-#### Reliable Actors
-##### [Visão geral](service-fabric-reliable-actors-introduction.md)
+#### [Reliable Actors](service-fabric-reliable-actors-introduction.md)
 ##### [Arquitetura](service-fabric-reliable-actors-platform.md)
 ##### [Ciclo de vida e coleta de lixo](service-fabric-reliable-actors-lifecycle.md)
 ##### [Gerenciamento de estado](service-fabric-reliable-actors-state-management.md)
@@ -86,10 +82,9 @@
 #### [Estado do serviço](service-fabric-concepts-state.md)
 #### [Particionamento de serviço](service-fabric-concepts-partitioning.md)
 #### [Disponibilidade de serviços](service-fabric-availability-services.md)
-#### [Instâncias e réplicas](service-fabric-concepts-replica-lifecycle.md)
+#### [Réplica e ciclo de vida da instância](service-fabric-concepts-replica-lifecycle.md)
 #### [Reconfiguração](service-fabric-concepts-reconfiguration.md)
-#### Comunicação de serviço
-##### [Visão geral](service-fabric-connect-and-communicate-with-services.md)
+#### [Comunicação de serviço](service-fabric-connect-and-communicate-with-services.md)
 ##### [Serviço DNS](service-fabric-dnsservice.md)
 ##### [Proxy reverso](service-fabric-reverseproxy.md)
 ##### [Configurar o proxy reverso para comunicação segura](service-fabric-reverseproxy-configure-secure-communication.md)
@@ -99,10 +94,8 @@
 
 ### [Planejar a capacidade do aplicativo](service-fabric-capacity-planning.md)
 
-## Gerenciar aplicativos
-### [Visão geral](service-fabric-application-lifecycle.md)
-### Atualização de aplicativo
-#### [Visão geral](service-fabric-application-upgrade.md)
+## [Gerenciar aplicativos](service-fabric-application-lifecycle.md)
+### [Atualização de aplicativo](service-fabric-application-upgrade.md)
 #### [Configuração](service-fabric-visualstudio-configure-upgrade.md)
 #### [Parâmetros de atualização de aplicativo](service-fabric-application-upgrade-parameters.md)
 #### [Serialização de dados nas atualizações de aplicativo](service-fabric-application-upgrade-data-serialization.md)
@@ -110,8 +103,7 @@
 ### [Visão geral de análise de falhas](service-fabric-testability-overview.md)
 ### [A configuração ImageStoreConnectionString](service-fabric-image-store-connection-string.md)
 
-## Criar e gerenciar clusters
-### [Visão geral](service-fabric-deploy-anywhere.md)
+## [Criar e gerenciar clusters](service-fabric-deploy-anywhere.md)
 ### Planejar e preparar
 #### [Planejamento da capacidade](service-fabric-cluster-capacity.md)
 #### [Recuperação de desastre](service-fabric-disaster-recovery.md)
@@ -121,8 +113,7 @@
 ### Clusters no Azure
 #### [Tipos de nós e Conjuntos de Dimensionamento de VMs](service-fabric-cluster-nodetypes.md)
 #### [Padrões de rede do cluster](service-fabric-patterns-networking.md)
-### Gerenciador de recursos de cluster
-#### [Visão geral](service-fabric-cluster-resource-manager-introduction.md)
+### [Gerenciador de recursos do cluster](service-fabric-cluster-resource-manager-introduction.md)
 #### [Arquitetura](service-fabric-cluster-resource-manager-architecture.md)
 #### [Descrever um cluster](service-fabric-cluster-resource-manager-cluster-description.md)
 #### [Visão geral de grupos de aplicativos](service-fabric-cluster-resource-manager-application-groups.md)
@@ -230,7 +221,7 @@
 #### [Gerenciar os segredos do aplicativo](service-fabric-application-secret-management.md)  
 #### [Configurar políticas de segurança para seu aplicativo](service-fabric-application-runas-security.md)
 
-## Trabalhar em um ambiente de desenvolvimento do Windows
+## Trabalhar em um ambiente de desenvolvimento do Windows/VS
 ### [Gerenciar aplicativos no Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 ### [Configurar conexões seguras no Visual Studio](service-fabric-visualstudio-configure-secure-connections.md)
 ### [Configurar seu aplicativo para vários ambientes](service-fabric-manage-multiple-environment-app-configuration.md)
@@ -239,7 +230,7 @@
 ### [Monitorar e diagnosticar localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 ### [Configurar um cluster do Linux no Windows](service-fabric-local-linux-cluster-windows.md)
 
-## Trabalhar em um ambiente de desenvolvimento do Linux
+## Trabalhar em um ambiente de desenvolvimento do Linux/Eclipse
 ### [Introdução ao plug-in Eclipse para desenvolvimento de Java](service-fabric-get-started-eclipse.md)
 ### [Depurar um serviço Java no Eclipse](service-fabric-debugging-your-application-java.md)
 ### [Monitorar e diagnosticar localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
