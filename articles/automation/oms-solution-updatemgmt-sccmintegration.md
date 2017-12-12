@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
 ms.author: eslesar
-ms.openlocfilehash: c3ae8da65e03fe9e11b5657a6a40d02de0567da6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 04540524f83e367f92912171ddc55b6e6f82f80e
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
-# <a name="integrate-system-center-configuration-manager-with-oms-update-management-preview"></a>Integrar o System Center Configuration Manager com o Gerenciamento de Atualizações do OMS [versão prévia]
+# <a name="integrate-system-center-configuration-manager-with-oms-update-management"></a>Integrar o System Center Configuration Manager com o Gerenciamento de Atualizações do OMS
 
 Os clientes que investiram no System Center Configuration Manager para gerenciar PCs, servidores e dispositivos móveis também dependem da força e maturidade dele no gerenciamento de atualizações de software como parte do ciclo de SUM (gerenciamento de atualização de software) deles.  
 
@@ -42,12 +42,13 @@ Como gerenciar clientes hospedados no IaaS do Azure com seu ambiente existente d
 Se você pretende continuar gerenciando implantações de atualização do Configuration Manager, execute as etapas a seguir.  O OMS se conecta ao Configuration Manager para aplicar as atualizações aos computadores cliente conectados ao seu espaço de trabalho do Log Analytics. O conteúdo de atualização está disponível do cache do computador cliente, como se a implantação fosse gerenciada pelo Configuration Manager.  
 
 1. Crie uma implantação de atualização de software do site de nível superior na hierarquia do Configuration Manager usando o processo descrito em [processo de implantação de atualização de software](https://docs.microsoft.com/en-us/sccm/sum/deploy-use/deploy-software-updates).  A única configuração que deve ser realizada de forma diferente de uma implantação padrão é a opção **Não instalar atualizações de software** para controlar o comportamento de download do pacote de implantação. Esse comportamento é gerenciado pela solução de Gerenciamento de Atualizações do OMS por meio da criação de uma implantação de atualização agendada na próxima etapa.  
-2. No Portal do Azure, selecione sua conta de Automação na tela **Conta de Automação** e, em seguida, crie uma variável de tipo booliano denominada **UseOMSForSCCMUpdates** com um valor de **true**, seguindo [Para criar uma nova variável com o Portal do Azure](../automation/automation-variables.md#to-create-a-new-variable-with-the-azure-portal).
-3. No portal do OMS, abra o painel de Gerenciamento de Atualizações.  Crie uma nova implantação seguindo as etapas descritas em [Criar uma Implantação de Atualização](../operations-management-suite/oms-solution-update-management.md#creating-an-update-deployment) e, na lista suspensa, selecione a coleção apropriada do Configuration Manager representada como um grupo de computadores do OMS.  Tenha em mente os seguintes pontos importantes:
+
+1. No portal do OMS, abra o painel de Gerenciamento de Atualizações.  Crie uma nova implantação seguindo as etapas descritas em [Criar uma Implantação de Atualização](../operations-management-suite/oms-solution-update-management.md#creating-an-update-deployment) e, na lista suspensa, selecione a coleção apropriada do Configuration Manager representada como um grupo de computadores do OMS.  Tenha em mente os seguintes pontos importantes:
     1. Se uma janela de manutenção for definida na coleção de dispositivos do Configuration Manager selecionada, os membros da coleção respeitarão a ela em vez da configuração **Duração** definida na implantação agendada no OMS.
-    2. Os membros da coleção de destino devem ter uma conexão com a Internet (direta, através de um servidor proxy ou por meio do Gateway de OMS).  
+    1. Os membros da coleção de destino devem ter uma conexão com a Internet (direta, através de um servidor proxy ou por meio do Gateway de OMS).  
 
 Depois de concluir a implantação de atualização com a solução do OMS, os computadores de destino que são membros do grupo de computadores selecionado instalarão atualizações no horário agendado, do cache local do cliente deles.  Você pode [exibir o status de implantação de atualização](../operations-management-suite/oms-solution-update-management.md#viewing-update-deployments) para monitorar os resultados de sua implantação.  
+
 
 ### <a name="manage-software-updates-from-oms"></a>Gerenciar atualizações de software do OMS
 

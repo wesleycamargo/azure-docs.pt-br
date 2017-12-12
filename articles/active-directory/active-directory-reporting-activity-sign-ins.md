@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d28def78ef34e7c41e846fc10771992f109efd45
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: b764c813910b8188b2da7a8168d7e8ab8af70762
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Relatórios de atividades de entrada no portal do Azure Active Directory
 
@@ -137,15 +137,15 @@ Com as informações fornecidas pelo relatório de entrada de usuário, você en
 
 
 
-O ponto de entrada para esses dados é o gráfico de entrada do usuário na seção **Visão geral** em **Usuários e grupos**.
+O ponto de entrada para esses dados é o grafo de entrada do usuário na seção **Visão geral** em **Usuários e grupos**.
 
 ![Atividade de entrada](./media/active-directory-reporting-activity-sign-ins/45.png "Atividade de entrada")
 
-O gráfico de entrada do usuário mostra agregações semanais de entradas para todos os usuários em um determinado período de tempo. O padrão para o período é de 30 dias.
+O grafo de entrada do usuário mostra agregações semanais de entradas para todos os usuários em um determinado período de tempo. O padrão para o período é de 30 dias.
 
 ![Atividade de entrada](./media/active-directory-reporting-activity-sign-ins/46.png "Atividade de entrada")
 
-Quando você clica em um dia no gráfico de entradas, obtém uma lista detalhada das atividades de entrada do dia.
+Quando você clica em um dia no grafo de entradas, obtém uma lista detalhada das atividades de entrada do dia.
 
 ![Atividade de entrada](./media/active-directory-reporting-activity-sign-ins/41.png "Atividade de entrada")
 
@@ -175,7 +175,7 @@ Seu ponto de entrada para esses dados é composto pelos três principais aplicat
 
 ![Atividade de entrada](./media/active-directory-reporting-activity-sign-ins/64.png "Atividade de entrada")
 
-As agregações semanais ao gráfico de uso do aplicativo de entradas para seus três principais aplicativos em um determinado período de tempo. O padrão para o período é de 30 dias.
+As agregações semanais ao grafo de uso do aplicativo de entradas para seus três principais aplicativos em um determinado período de tempo. O padrão para o período é de 30 dias.
 
 ![Atividade de entrada](./media/active-directory-reporting-activity-sign-ins/47.png "Atividade de entrada")
 
@@ -184,7 +184,7 @@ Se desejar, você pode definir o foco em um aplicativo específico.
 
 ![Relatórios](./media/active-directory-reporting-activity-sign-ins/single_spp_usage_graph.png "Relatórios")
 
-Quando você clica em um dia no gráfico de uso do aplicativo, pode obter uma lista detalhada das atividades de entrada.
+Quando você clica em um dia no grafo de uso do aplicativo, pode obter uma lista detalhada das atividades de entrada.
 
 
 ![Atividade de entrada](./media/active-directory-reporting-activity-sign-ins/48.png "Atividade de entrada")

@@ -75,6 +75,7 @@
 ##### [Serialização de tipo](service-fabric-reliable-actors-notes-on-actor-type-serialization.md)
 
 ### [Modelo de aplicativo](service-fabric-application-model.md)
+### [Manifestos de aplicativo e serviço](service-fabric-application-and-service-manifests.md)
 ### [Modelo de hospedagem](service-fabric-hosting-model.md)
 
 ### Serviços

@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Documentação da Grade de Eventos do Azure
+title: "Documentação da Grade de Eventos do Azure"
 metadata:
-  title: 'Documentação da Grade de Eventos do Azure - Tutoriais, Referência da API'
-  description: Use a Grade de Eventos do Azure para reagir a eventos relevantes nos serviços do Azure e não do Azure quase em tempo real.
+  title: "Documentação da Grade de Eventos do Azure - Tutoriais, Referência da API"
+  description: "Use a Grade de Eventos do Azure para reagir a eventos relevantes nos serviços do Azure e não do Azure quase em tempo real."
   services: event-grid
   author: czeumault
   manager: carolz
@@ -13,47 +13,52 @@ metadata:
   ms.topic: landing-page
   ms.date: 08/10/2017
   ms.author: carolz
+  ms.openlocfilehash: 63363a652402a20ed8972cf51bf475412f11bd4e
+  ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+  ms.translationtype: HT
+  ms.contentlocale: pt-BR
+  ms.lasthandoff: 12/02/2017
 abstract:
-  description: 'A Grade de Eventos do Azure é um serviço de roteamento de eventos inteligente totalmente gerenciado que permite um consumo de eventos uniforme usando um modelo do tipo publicar-assinar. Use a Grade de Eventos do Azure para reagir a eventos relevantes nos serviços do Azure e não do Azure quase em tempo real. Saiba como usar a Grade de Eventos do Azure com nossos guias de início rápido, tutoriais e exemplos.'
+  description: "A Grade de Eventos do Azure é um serviço de roteamento de eventos inteligente totalmente gerenciado que permite um consumo de eventos uniforme usando um modelo do tipo publicar-assinar. Use a Grade de Eventos do Azure para reagir a eventos relevantes nos serviços do Azure e não do Azure quase em tempo real. Saiba como usar a Grade de Eventos do Azure com nossos guias de início rápido, tutoriais e exemplos."
 sections:
-  - title: Guia de início rápido de 5 minutos
+- title: "Guia de início rápido de 5 minutos"
+  items:
+  - type: paragraph
+    text: Saiba como criar e assinar eventos personalizados.
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: Saiba como criar e assinar eventos personalizados.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /azure/event-grid/media/index/cli.svg
-            text: CLI do Azure
-            href: /azure/event-grid/custom-event-quickstart
-          - image:
-              src: /azure/event-grid/media/index/logo_powershell.svg
-            text: Azure PowerShell
-            href: /azure/event-grid/custom-event-quickstart-powershell
-          - image:
-              src: /azure/event-grid/media/index/portal.svg
-            text: Portal do Azure
-            href: /azure/event-grid/custom-event-quickstart-portal
-  - title: Tutoriais Passo a Passo
+    - image:
+        src: /azure/event-grid/media/index/cli.svg
+      text: CLI do Azure
+      href: /azure/event-grid/custom-event-quickstart
+    - image:
+        src: /azure/event-grid/media/index/logo_powershell.svg
+      text: Azure PowerShell
+      href: /azure/event-grid/custom-event-quickstart-powershell
+    - image:
+        src: /azure/event-grid/media/index/portal.svg
+      text: Portal do Azure
+      href: /azure/event-grid/custom-event-quickstart-portal
+- title: Tutoriais Passo a Passo
+  items:
+  - type: paragraph
+    text: Saiba como desenvolver aplicativos que reagem a eventos.
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: Saiba como desenvolver aplicativos que reagem a eventos.
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/event-grid/monitor-virtual-machine-changes-event-grid-logic-app">Monitorar as alterações nas VMs com aplicativos lógicos</a>
-          - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event">Redimensionar imagens carregadas</a>
-          - html: <a href="/azure/event-grid/ensure-tags-exists-on-new-virtual-machines">Integrando a Automação do Azure com a Grade de Eventos</a>
-  - title: Referência
+    - html: "<a href=\"/azure/event-grid/monitor-virtual-machine-changes-event-grid-logic-app\">Monitorar as alterações nas VMs com aplicativos lógicos</a>"
+    - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event">Redimensionar imagens carregadas</a>
+    - html: "<a href=\"/azure/event-grid/ensure-tags-exists-on-new-virtual-machines\">Integrando a Automação do Azure com a Grade de Eventos</a>"
+- title: "Referência"
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Linha de comando
-            html: <p><a href="/cli/azure/eventgrid">CLI do Azure</a></p><p><a href="/powershell/module/azurerm.eventgrid">PowerShell</a></p>
-          - title: APIs REST
-            html: <p><a href="/rest/api/eventgrid">REST</a></p>
-          - title: Esquemas
-            html: <p><a href="/azure/event-grid/subscription-creation-schema ">Esquema da Assinatura</a></p><p><a href="/azure/event-grid/event-schema">Esquema do evento</a></p>
+    - title: Linha de comando
+      html: <p><a href="/cli/azure/eventgrid">CLI do Azure</a></p><p><a href="/powershell/module/azurerm.eventgrid">PowerShell</a></p>
+    - title: APIs REST
+      html: <p><a href="/rest/api/eventgrid">REST</a></p>
+    - title: Esquemas
+      html: <p><a href="/azure/event-grid/subscription-creation-schema ">Esquema da Assinatura</a></p><p><a href="/azure/event-grid/event-schema">Esquema do evento</a></p>

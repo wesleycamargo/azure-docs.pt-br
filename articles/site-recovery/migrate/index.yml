@@ -1,8 +1,8 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Documentação do Azure Site Recovery
+title: "Documentação do Azure Site Recovery"
 metadata:
-  title: 'Documentação do Azure Site Recovery - tutoriais, referência de API | Microsoft Docs'
+  title: "Documentação do Azure Site Recovery - tutoriais, referência de API | Microsoft Docs"
   meta.description: Learn how to migrate to Azure with Azure Site Recovery
   services: site-recovery
   author: rayne-wiselman
@@ -13,26 +13,31 @@ metadata:
   ms.topic: landing-page
   ms.date: 11/26/2017
   ms.author: raynew
+  ms.openlocfilehash: 3742ef09cbe8d9bb07930ce61c41be25212528a2
+  ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+  ms.translationtype: HT
+  ms.contentlocale: pt-BR
+  ms.lasthandoff: 11/29/2017
 abstract:
-  description: 'Além de coordenar a recuperação de desastres de máquinas locais e VMs do Azure, o Azure Site Recovery coordena e gerencia a migração de máquinas locais para o Azure e a migração de VMs do Azure entre regiões do Azure. Saiba como configurar a migração com nossos tutoriais.'
+  description: "Além de coordenar a recuperação de desastres de máquinas locais e VMs do Azure, o Azure Site Recovery coordena e gerencia a migração de máquinas locais para o Azure e a migração de VMs do Azure entre regiões do Azure. Saiba como configurar a migração com nossos tutoriais."
 sections:
-  - title: Tutoriais passo a passo
+- title: Tutoriais passo a passo
+  items:
+  - type: paragraph
+    text: Saiba como migrar VMs locais.
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: Saiba como migrar VMs locais.
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="tutorial-prepare-azure">Preparar o Azure</a>
-          - html: <a href="tutorial-migrate-on-premises-to-azure">Migrar máquinas locais para o Azure</a>
-          - html: <a href="tutorial-migrate-aws-to-azure">Migrar instâncias do AWS para o Azure</a>
-  - title: Referência
+    - html: <a href="tutorial-prepare-azure">Preparar o Azure</a>
+    - html: "<a href=\"tutorial-migrate-on-premises-to-azure\">Migrar máquinas locais para o Azure</a>"
+    - html: "<a href=\"tutorial-migrate-aws-to-azure\">Migrar instâncias do AWS para o Azure</a>"
+- title: "Referência"
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Linha de comando
-            html: <p><a href="/powershell/module/azurerm.siterecovery/?view=azurermps-4.3.1">PowerShell do Azure</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/site-recovery/">referência da API REST (a página pode estar em inglês)</a></p>
+    - title: Linha de comando
+      html: <p><a href="/powershell/module/azurerm.siterecovery/?view=azurermps-4.3.1">PowerShell do Azure</a></p>
+    - title: REST
+      html: "<p><a href=\"/rest/api/site-recovery/\">referência da API REST (a página pode estar em inglês)</a></p>"

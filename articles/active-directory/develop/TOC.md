@@ -50,7 +50,7 @@
 ### [Habilitar SSO em iOS](active-directory-sso-ios.md)
 ## [Azure AD B2B](../active-directory-b2b-what-is-azure-ad-b2b.md)
 ## [Provisionamento de usuário com SCIM](../active-directory-scim-provisioning.md)
-## [API do Azure AD Graph](active-directory-graph-api.md)
+## [API do Graph do AD do Azure](active-directory-graph-api.md)
 ### [Introdução ao AAD Graph](active-directory-graph-api-quickstart.md)
 ## [Certificação do AppSource](active-directory-devhowto-appsource-certified.md)
 ## [Galeria de aplicativos do Azure AD](active-directory-app-gallery-listing.md)
@@ -62,6 +62,7 @@
 ### [O que aconteceu com meu projeto da API Web?](vs-active-directory-webapi-what-happened.md)
 ## [Windows Server ADFS](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/overview/ad-fs-scenarios-for-developers)
 ## [Migração do ACS](active-directory-acs-migration.md)
+## [Práticas recomendadas para o tratamento de erro do ADAL](active-directory-devhowto-adal-error-handling.md)
 # Referência
 ## [Exemplos de código](https://azure.microsoft.com/en-us/resources/samples/?service=active-directory)
 ## [Bibliotecas de autenticação (ADAL)](active-directory-authentication-libraries.md)

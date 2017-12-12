@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/02/2017
 ms.author: garye
-ms.openlocfilehash: 2b4d04af7fe7a40a1d907a06ab8772f20956bc19
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b162d7534eff0d1f79808fc86bacf92dbfc2f84a
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Perguntas frequentes (FAQ) sobre o Azure Machine Learning: cobrança, recursos, limitações e suporte
 Aqui estão algumas perguntas frequentes e as respostas correspondentes sobre o Azure Machine Learning, um serviço de nuvem para o desenvolvimento de modelos de previsão e soluções de operacionalização por meio de serviços Web. Essas perguntas frequentes fornecem perguntas sobre como usar o serviço, o que inclui o modelo de cobrança, os recursos, as limitações e o suporte.
@@ -230,7 +230,7 @@ Para obter mais informações, consulte [Treinar novamente os modelos de Machine
 
 **Como posso monitorar meu serviço Web implantado na produção?**
 
-Após implantar um modelo de previsão, você pode monitorá-lo no portal clássico do Azure (somente os serviços Web clássicos) ou no portal dos Serviços Web do Azure Machine Learning. Cada serviço implantado tem seu próprio painel, onde você pode ver informações de monitoramento do serviço. Para obter mais informações sobre como gerenciar os serviços Web implantados, confira [Gerenciar um serviço Web usando o portal dos Serviços Web do Azure Machine Learning](manage-new-webservice.md) e [Gerenciar um espaço de trabalho do Azure Machine Learning](manage-workspace.md).
+Após implantar um modelo de previsão, você pode monitorá-lo no portal dos Serviços Web do Azure Machine Learning. Cada serviço implantado tem seu próprio painel, onde você pode ver informações de monitoramento do serviço. Para obter mais informações sobre como gerenciar os serviços Web implantados, confira [Gerenciar um serviço Web usando o portal dos Serviços Web do Azure Machine Learning](manage-new-webservice.md) e [Gerenciar um espaço de trabalho do Azure Machine Learning](manage-workspace.md).
 
 **Existe um lugar onde posso ver a saída do meu RRS/BES?**
 
@@ -285,7 +285,7 @@ Não.
 ## <a name="security-and-availability"></a>Segurança e disponibilidade
 **Quem pode acessar o ponto de extremidade http para o serviço Web por padrão? Como faço para restringir o acesso ao ponto de extremidade?**
 
-Depois que um serviço Web for implantado, criaremos um ponto de extremidade padrão para esse serviço. O ponto de extremidade padrão pode ser chamado usando sua chave de API. Você pode adicionar mais pontos de extremidade com suas próprias chaves no portal clássico do Azure ou de forma programática, usando as APIs de Gerenciamento de Serviço Web. São necessárias chaves de acesso para fazer chamadas ao serviço Web. Para saber mais, veja [Como consumir um serviço Web do Azure Machine Learning](consume-web-services.md).
+Depois que um serviço Web for implantado, criaremos um ponto de extremidade padrão para esse serviço. O ponto de extremidade padrão pode ser chamado usando sua chave de API. Você pode adicionar mais pontos de extremidade com suas próprias chaves no portal de Serviços Web ou de forma programática, usando as APIs de Gerenciamento de Serviço Web. São necessárias chaves de acesso para fazer chamadas ao serviço Web. Para saber mais, veja [Como consumir um serviço Web do Azure Machine Learning](consume-web-services.md).
 
 **O que acontece se minha conta de armazenamento do Azure não puder ser encontrada?**
 
@@ -297,7 +297,7 @@ Se você excluir acidentalmente a conta de armazenamento, recrie essa conta de a
 
 O Machine Learning Studio depende de uma conta de armazenamento do Azure fornecida pelo usuário para armazenar dados intermediários ao executar o fluxo de trabalho. Esta conta de armazenamento é fornecida ao Machine Learning Studio quando um espaço de trabalho é criado e as chaves de acesso são associadas a ele. Se as chaves de acesso forem alteradas, depois que o espaço de trabalho for criado, ele não poderá mais acessar a conta de armazenamento. Ele deixará de funcionar e todos os testes no espaço de trabalho falharão.
 
-Se tiver alterado as chaves de acesso da conta de armazenamento, sincronize novamente as chaves de acesso na configuração do espaço de trabalho usando o portal clássico do Azure.  
+Se tiver alterado as chaves de acesso da conta de armazenamento, sincronize novamente as chaves de acesso na configuração do espaço de trabalho usando o portal do Azure.  
 
 ## <a name="support-and-training"></a>Suporte e treinamento
 **Onde posso obter treinamento para o Azure Machine Learning?**
@@ -509,7 +509,7 @@ Tudo o que você precisa é de uma conta da Microsoft. Vá para o [início do Az
 
 **Como assinar a camada Standard do Azure Machine Learning?**
 
-Primeiro, você deve ter acesso a uma assinatura do Azure para criar um espaço de trabalho Standard do Machine Learning. Você pode inscrever-se em uma assinatura do Azure com avaliação gratuita de 30 dias e atualizar posteriormente para uma assinatura paga ou comprar uma assinatura do Azure paga imediatamente. Em seguida, é possível criar um espaço de trabalho do Machine Learning no portal clássico do Microsoft Azure depois de ter acesso à assinatura. Veja as [instruções passo a passo](https://azure.microsoft.com/trial/get-started-machine-learning-b/).
+Primeiro, você deve ter acesso a uma assinatura do Azure para criar um espaço de trabalho Standard do Machine Learning. Você pode inscrever-se em uma assinatura do Azure com avaliação gratuita de 30 dias e atualizar posteriormente para uma assinatura paga ou comprar uma assinatura do Azure paga imediatamente. Em seguida, é possível criar um espaço de trabalho do Machine Learning no portal do Microsoft Azure depois de ter acesso à assinatura. Veja as [instruções passo a passo](https://azure.microsoft.com/trial/get-started-machine-learning-b/).
 
 Se preferir, é possível ser convidado por um proprietário de espaço de trabalho Standard Machine Learning para acessar o espaço de trabalho do proprietário.
 

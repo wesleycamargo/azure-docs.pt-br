@@ -12,7 +12,7 @@
 # Como
 ## Configurar alta disponibilidade
 ### [Opções de alta disponibilidade](../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json) 
-### [Configurar o grupo de disponibilidade Always On no portal clássico](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
+### [Configurar o grupo de disponibilidade Always On no portal](virtual-machines-windows-classic-portal-sql-alwayson-availability-groups.md)
 ### [Configurar o grupo de disponibilidade Always On com o PowerShell](virtual-machines-windows-classic-ps-sql-alwayson-availability-groups.md)
 ### [Configurar um ouvinte interno para um grupo de disponibilidade](virtual-machines-windows-classic-ps-sql-int-listener.md)
 ### [Configurar um ouvinte externo para um grupo de disponibilidade](virtual-machines-windows-classic-ps-sql-ext-listener.md)

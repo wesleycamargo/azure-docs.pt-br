@@ -14,130 +14,69 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/15/2016
 ms.author: apimpm
-ms.openlocfilehash: e85979859cca40b852e1f39ccaedf6e2781f84a1
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 7458ad6e0a864d742f74ce743ce3179594113c00
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="add-caching-to-improve-performance-in-azure-api-management"></a>Adicionar caching para melhorar o desempenho no Gerenciamento de API do Azure
 É possível configurar as operações do Gerenciamento de API para cache das respostas. O cache das respostas pode reduzir significativamente a latência da API, o consumo da largura de banda e a carga de serviço Web para dados que não são alterados com frequência.
+ 
+Para saber mais sobre o cache, veja [Políticas de armazenamento em cache do Gerenciamento de API](api-management-caching-policies.md) e [Armazenamento em cache personalizado no Gerenciamento de API do Azure](api-management-sample-cache-by-key.md).
 
-Este guia mostra como adicionar o caching das respostas para sua API e configurar políticas para as operações de API de Eco. Você pode chamar a operação por meio do portal do desenvolvedor para verificar o caching em ação.
+![políticas de cache](media/api-management-howto-cache/cache-policies.png)
 
-> [!NOTE]
-> Para saber mais sobre itens de cache por chave usando expressões de política, confira [Cache personalizado no Gerenciamento de API do Azure](api-management-sample-cache-by-key.md).
-> 
-> 
+O que você aprenderá:
+
+> [!div class="checklist"]
+> * Adicionar o cache de resposta à sua API
+> * Verificação do cache em ação
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de seguir as etapas neste guia, você deve ter uma instância do serviço de Gerenciamento de API com uma API e um produto configurado. Se ainda não criou uma instância de serviço de Gerenciamento de API, confira [Criar uma instância de serviço de Gerenciamento de API][Create an API Management service instance] no tutorial [Introdução ao Gerenciamento de API do Azure][Get started with Azure API Management].
 
-## <a name="configure-caching"> </a>Configurar uma operação para caching
-Nesta etapa, você examinará as configurações de cache da operação **Recurso GET (em cache)** do exemplo de API de Eco.
+Para concluir este tutorial:
 
-> [!NOTE]
-> Cada instância de serviço de Gerenciamento de API vem pré-configurada com uma API de Eco que pode ser usada para experimentar e aprender sobre o Gerenciamento de API. Para obter mais informações, confira [Introdução ao Gerenciamento de API do Azure][Get started with Azure API Management].
-> 
-> 
++ [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md)
++ [Importar e publicar uma API](import-and-publish.md)
 
-Para começar, clique em **Portal do Editor** no Portal do Azure para acessar o serviço de Gerenciamento de API. Isso levará você ao portal do editor de Gerenciamento de API.
+## <a name="caching-policies"> </a>Adicionar as políticas de cache
 
-![Portal do editor][api-management-management-console]
+Com as políticas de armazenamento em cache mostradas neste exemplo, a primeira solicitação feita à operação **GetSpeakers** retorna uma resposta do serviço de back-end. Esta resposta será armazenada em cache, com uma chave de acordo com os parâmetros de cadeia de consulta e cabeçalhos especificados. Chamadas subsequentes para a operação, com parâmetros correspondentes, retornarão respostas em cache até que o intervalo de duração de cache expire.
 
-Clique em **APIs** no menu **Gerenciamento de API** à esquerda e clique em **API de Eco**.
+1. Entre no portal do Azure em [https://portal.azure.com](https://portal.azure.com).
+2. Navegue até sua instância APIM.
+3. Selecione a guia **API**.
+4. Clique em **API de Conferência de Demonstração** na sua lista de APIs.
+5. Selecione **GetSpeakers**.
+6. Na parte superior da tela, selecione a guia **Design**.
+7. Na janela **Processamento de entrada**, clique no triângulo (ao lado de lápis).
 
-![API de Eco][api-management-echo-api]
+    ![editor de códigos](media/api-management-howto-cache/code-editor.png)
+8. Selecione **Editor de código**.
+9. No elemento de **entrada**, adicione a seguinte política:
 
-Clique na guia **Operações** e na operação **Recurso GET (em cache)**, na lista **Operações**.
-
-![Operações de API de ECO][api-management-echo-api-operations]
-
-Clique na guia **Cache** para ver as configurações de cache para esta operação.
-
-![Guia Cache][api-management-caching-tab]
-
-Para habilitar o cache de uma operação, marque a caixa de seleção **Habilitar** . Neste exemplo, o caching está habilitado.
-
-A resposta de cada operação tem uma chave baseada nos valores dos campos **Variar por parâmetros da cadeia de consulta** e **Variar por cabeçalhos**. Se quiser armazenar em cache várias respostas com base em cabeçalhos ou parâmetros de cadeias de consulta, você pode configurá-las nesses dois campos.
-
-**Duração** especifica o intervalo de vencimento das respostas armazenadas em cache. Neste exemplo, o intervalo é de **3600** segundos, que equivale a uma hora.
-
-Utilizando a configuração de cache neste exemplo, a primeira solicitação para a operação **Recurso GET (em cache)** retorna uma resposta do serviço de back-end. Esta resposta será armazenada em cache, com uma chave de acordo com os parâmetros de cadeia de consulta e cabeçalhos especificados. Chamadas subsequentes para a operação, com parâmetros correspondentes, retornarão respostas em cache até que o intervalo de duração de cache expire.
-
-## <a name="caching-policies"> </a>Examinar as políticas de cache
-Nesta etapa, você analisará as configurações de cache da operação **Recurso GET (em cache)** do exemplo de API de Echo.
-
-Quando as configurações de cache são definidas para uma operação na guia **Cache** , políticas de cache são adicionadas à operação. Essas políticas podem ser vistas e editadas no editor de políticas.
-
-Clique em **Políticas** no menu **Gerenciamento de API** à esquerda e selecione **API de Eco/Recurso GET (em cache)** na lista suspensa **Operação**.
-
-![Operação de escopo da política][api-management-operation-dropdown]
-
-Exibe as políticas para esta operação no editor de políticas.
-
-![Editor de políticas de Gerenciamento de API][api-management-policy-editor]
-
-A definição de política para esta operação inclui as políticas que definem a configuração de cache, que foram revisadas usando a guia **Cache** na etapa anterior.
-
-```xml
-<policies>
-    <inbound>
-        <base />
         <cache-lookup vary-by-developer="false" vary-by-developer-groups="false">
             <vary-by-header>Accept</vary-by-header>
             <vary-by-header>Accept-Charset</vary-by-header>
+            <vary-by-header>Authorization</vary-by-header>
         </cache-lookup>
-        <rewrite-uri template="/resource" />
-    </inbound>
-    <outbound>
-        <base />
-        <cache-store caching-mode="cache-on" duration="3600" />
-    </outbound>
-</policies>
-```
 
-> [!NOTE]
-> As alterações feitas nas políticas de cache no editor de políticas serão refletidas na guia **Cache** de uma operação e vice-versa.
-> 
-> 
+10. No elemento de **saída**, adicione a seguinte política:
+
+        <cache-store caching-mode="cache-on" duration="20" />
+
+    **Duração** especifica o intervalo de vencimento das respostas armazenadas em cache. Neste exemplo, o intervalo restante é de **20** segundos.
 
 ## <a name="test-operation"> </a>Chamar uma operação e testar o cache
-Para ver o cache em funcionamento, podemos chamar a operação por meio do portal do desenvolvedor. Clique em **Portal do desenvolvedor** no menu superior direito.
+Para ver o cache em funcionamento, chame a operação por meio do portal do desenvolvedor.
 
-![Portal do desenvolvedor][api-management-developer-portal-menu]
-
-Clique em **APIs** no menu superior e selecione **API de Eco**.
-
-![API de Eco][api-management-apis-echo-api]
-
-> Se você tem apenas uma API configurada ou visível na conta, clicar em APIs levará você diretamente às operações dessa API.
-> 
-> 
-
-Selecione a operação **Recurso GET (em cache)** e clique em **Abrir Console**.
-
-![Abrir console][api-management-open-console]
-
-O console permite que você invoque operações diretamente por meio do portal do desenvolvedor.
-
-![Console][api-management-console]
-
-Mantenha os valores padrão para **param1** e **param2**.
-
-Selecione a chave desejada na lista suspensa **subscription-key** . Se a sua conta tiver somente uma assinatura, ela já estará selecionada.
-
-Insira **sampleheader:value1** na caixa de texto **Cabeçalhos de solicitação**.
-
-Clique em **HTTP Get** e anote os cabeçalhos de resposta.
-
-Insira **sampleheader:value2** na caixa de texto **Cabeçalhos de solicitação** e clique em **HTTP Get**.
-
-Observe que o valor de **sampleheader** ainda será **value1** na resposta. Teste alguns valores diferentes e observe que a resposta armazenada em cache da primeira chamada será retornada.
-
-Insira **25** no campo **param2** e clique em **HTTP Get**.
-
-Observe que agora o valor de **sampleheader** na resposta será **value2**. Como os resultados da operação têm uma chave de acordo com a cadeia de consulta, a resposta em cache anterior não foi retornada.
+1. No portal do Azure, navegue até sua instância do APIM.
+2. Selecione a guia **APIs**.
+3. Selecione a API para a qual você adicionou políticas de cache.
+4. Selecione a operação **GetSpeakers**.
+5. Clique na guia **Teste** no menu superior direito.
+6. Pressione **Enviar**.
 
 ## <a name="next-steps"> </a>Próximas etapas
 * Para saber mais sobre as políticas de cache, veja [Políticas de cache][Caching policies] na [Referência de política do Gerenciamento de API][API Management policy reference].
@@ -160,12 +99,12 @@ Observe que agora o valor de **sampleheader** na resposta será **value2**. Como
 [Monitoring and analytics]: api-management-monitoring.md
 [Add APIs to a product]: api-management-howto-add-products.md#add-apis
 [Publish a product]: api-management-howto-add-products.md#publish-product
-[Get started with Azure API Management]: api-management-get-started.md
+[Get started with Azure API Management]: get-started-create-service-instance.md
 
 [API Management policy reference]: https://msdn.microsoft.com/library/azure/dn894081.aspx
 [Caching policies]: https://msdn.microsoft.com/library/azure/dn894086.aspx
 
-[Create an API Management service instance]: api-management-get-started.md#create-service-instance
+[Create an API Management service instance]: get-started-create-service-instance.md
 
 [Configure an operation for caching]: #configure-caching
 [Review the caching policies]: #caching-policies

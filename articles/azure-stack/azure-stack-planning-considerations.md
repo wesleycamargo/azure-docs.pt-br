@@ -3,8 +3,8 @@ title: "Considerações de planejamento para a pilha do Azure sistemas integrado
 description: "Saiba o que você pode fazer para planejar agora e preparar para pilha com vários nós do Azure."
 services: azure-stack
 documentationcenter: 
-author: twooley
-manager: byronr
+author: mattbriggs
+manager: femila
 editor: 
 ms.assetid: 90f8fa1a-cace-4bfa-852b-5abe2b307615
 ms.service: azure-stack
@@ -13,12 +13,12 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
-ms.author: twooley
-ms.openlocfilehash: 8484f7947f23a00c05b34babf13cd75f9d227740
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.author: mabrigg
+ms.openlocfilehash: b39b3b8f73f9deef48173c712d7966eb13c6ecc3
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="planning-considerations-for-azure-stack-integrated-systems"></a>Considerações de planejamento para a pilha do Azure sistemas integrados
 
@@ -102,7 +102,7 @@ A tabela a seguir resume essas decisões de nomeação de domínio.
 
 | Nome | Descrição | 
 | -------- | ------------- | 
-|Nome da região | O nome da sua região do Azure pilha primeiro. Esse nome é usado como parte do FQDN para os endereços IP virtuais públicos (VIPs) que gerencia a pilha do Azure. Normalmente, o nome da região seria um identificador de local físico, como um local de datacenter. | 
+|Nome de região | O nome da sua região do Azure pilha primeiro. Esse nome é usado como parte do FQDN para os endereços IP virtuais públicos (VIPs) que gerencia a pilha do Azure. Normalmente, o nome da região seria um identificador de local físico, como um local de datacenter. | 
 | Nome de domínio externo | O nome da zona de sistema de nome de domínio (DNS) para pontos de extremidade com externo VIPs. Usado no FQDN para esses VIPs públicos. | 
 | Nome de domínio (interno) privada | O nome do domínio (e zona DNS interna) criado na pilha do Azure para gerenciamento de infraestrutura. 
 | | |
@@ -163,7 +163,7 @@ A infraestrutura de rede para a pilha do Azure consiste em várias redes lógica
 
 A tabela a seguir mostra as redes lógicas e os intervalos de sub-rede IPv4 associados que você deve planejar.
 
-| Rede lógica | Descrição | Tamanho | 
+| Rede Lógica | Descrição | Tamanho | 
 | -------- | ------------- | ------------ | 
 | VIP público | Endereços IP públicos para um pequeno conjunto de serviços de pilha do Azure, com o restante usados por máquinas virtuais de locatário. A infraestrutura de pilha do Azure usa 32 endereços da rede. Se você planeja usar o serviço de aplicativo e os provedores de recursos do SQL, isso usa mais de 7. | / 26 (62 hosts) - /22 (1022 hosts)<br><br>Recomendado = /24 (254 hosts) | 
 | Infraestrutura de chave | Endereços IP de ponta a ponta para fins de roteamento, dedicados alternar interfaces de gerenciamento e os endereços de loopback atribuídos ao comutador. | / 26 | 
@@ -176,7 +176,7 @@ A tabela a seguir mostra as redes lógicas e os intervalos de sub-rede IPv4 asso
 
 Você precisará de um uplink configurado para as opções de borda em seu data center. Você pode rotear esse tráfego de camada 3 das chaves top-of-rack (TOR) que fazem parte de um sistema de pilha do Azure integradas usando qualquer um dos seguintes métodos:
 
-- Border Gateway Protocol (BGP) 
+- Protocolo BGP (Border Gateway Protocol) 
 - roteamento estático
 
 É recomendável BGP porque ela permite que a atualização automática de rotas que são publicadas pelo Software de carga balanceamento multiplexador (SLB MUX) para redes externas. Isso é importante se você adicionar intervalos de endereços IP públicos após a implantação. Se você fizer o emparelhamento de BGP TOR alterna para o comutador de agregação que estão conectados os comutadores TOR à, intervalos de endereço IP público que você adicionar pós-implantação são anunciado automaticamente para a opção de agregação sem intervenção manual. Se você usar o roteamento estático, você deve atualizar manualmente as rotas para os novos intervalos de cada vez que adicionar um bloco de endereço IP público.
@@ -227,7 +227,7 @@ A tabela a seguir resume os cenários de conectividade híbrida, com casos de us
 | Pilha de Azure multilocatário, implantação de internet | VPN site a site | Tráfego do locatário de rede virtual para o destino é seguro. | Largura de banda é limitada pelo túnel VPN site a site.<br><br>Requer um gateway da rede virtual e um dispositivo VPN na rede de destino. | Onde quer que o provedor ofereça uma nuvem de multilocatária de cenários de hospedagem, em que os locatários não confia entre si e o tráfego deve ser criptografada.
 |  |  |  |  |  |
 
-#### <a name="using-expressroute"></a>Uso da rota expressa
+#### <a name="using-expressroute"></a>Usando o ExpressRoute
 
 Você pode se conectar a pilha do Azure para o Azure por meio de [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) para cenários de multilocatários e de intranet de único locatário. Você precisará de um circuito de rota expressa provisionado por meio de [um provedor de conectividade](https://docs.microsoft.com/azure/expressroute/expressroute-locations).
 
