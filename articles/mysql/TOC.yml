@@ -83,12 +83,6 @@
           href: concepts-compatibility.md
         - name: Desenvolvimento de aplicativo
           href: concepts-database-application-development.md
-    - name: Migre seu banco de dados
-      items:
-        - name: Despejar e restaurar
-          href: concepts-migrate-dump-restore.md
-        - name: Importação e exportação
-          href: concepts-migrate-import-export.md
 - name: Guias de instruções
   items:
     - name: Gerenciar um servidor
@@ -107,6 +101,12 @@
           href: howto-restore-server-portal.md
         - name: CLI do Azure
           href: howto-restore-server-cli.md
+    - name: Migrar um banco de dados
+      items:
+        - name: Despejar e restaurar
+          href: concepts-migrate-dump-restore.md
+        - name: Importação e exportação
+          href: concepts-migrate-import-export.md
     - name: Conectar aplicativos
       items:
         - name: Criar usuários
