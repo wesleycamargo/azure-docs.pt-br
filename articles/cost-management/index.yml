@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Documentação do gerenciamento de custo do Azure
+title: "Documentação do gerenciamento de custo do Azure"
 metadata:
-  title: 'Documentação do Gerenciamento de Custos - Tutoriais, Referência de API | Microsoft Docs'
-  description: 'O Gerenciamento de Custos do Azure por Cloudyn é uma solução de gerenciamento de custos de várias nuvens que ajuda você a usar o Azure e outros recursos de nuvem. Saiba como analisar o uso e os custos, gerenciar ativamente os custos, previsão de gastos e otimizar os custos com tutoriais e guias de início rápido.'
+  title: "Documentação do Gerenciamento de Custos - Tutoriais, Referência de API | Microsoft Docs"
+  description: "O Gerenciamento de Custos do Azure por Cloudyn é uma solução de gerenciamento de custos de várias nuvens que ajuda você a usar o Azure e outros recursos de nuvem. Saiba como analisar o uso e os custos, gerenciar ativamente os custos, previsão de gastos e otimizar os custos com tutoriais e guias de início rápido."
   services: cost-management
   author: czeumault
   manager: carolz
@@ -13,28 +13,33 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/18/2017
   ms.author: carolz
+  ms.openlocfilehash: d277487ff94578643fd455e460e49299938590d7
+  ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+  ms.translationtype: HT
+  ms.contentlocale: pt-BR
+  ms.lasthandoff: 11/07/2017
 abstract:
-  description: 'O Gerenciamento de Custos do Azure por Cloudyn é uma solução de gerenciamento de custos de várias nuvens que ajuda você a usar e gerenciar, da melhor forma, o Azure e outros recursos de nuvem. Saiba como analisar o uso e os custos, gerenciar ativamente os custos, previsão de gastos e otimizar os custos com tutoriais e guias de início rápido.'
+  description: "O Gerenciamento de Custos do Azure por Cloudyn é uma solução de gerenciamento de custos de várias nuvens que ajuda você a usar e gerenciar, da melhor forma, o Azure e outros recursos de nuvem. Saiba como analisar o uso e os custos, gerenciar ativamente os custos, previsão de gastos e otimizar os custos com tutoriais e guias de início rápido."
 sections:
-  - title: Guia de início rápido de 5 minutos
+- title: "Guia de início rápido de 5 minutos"
+  items:
+  - type: paragraph
+    text: "Saiba como registrar suas informações de contrato ou assinatura do Azure com o Gerenciamento de Custos e comece a exibir os dados de custo."
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: Saiba como registrar suas informações de contrato ou assinatura do Azure com o Gerenciamento de Custos e comece a exibir os dados de custo.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
-            text: Exibir Dados de Custo
-            href: quick-register-azure-sub
-  - title: Tutoriais passo a passo
+    - image:
+        src: https://docs.microsoft.com/media/common/i_portal.svg
+      text: Exibir Dados de Custo
+      href: quick-register-azure-sub
+- title: Tutoriais passo a passo
+  items:
+  - type: paragraph
+    text: "Saiba como analisar o uso e os custos, gerenciar ativamente os custos, previsão de gastos e otimizar os custos com o Gerenciamento de Custos."
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: 'Saiba como analisar o uso e os custos, gerenciar ativamente os custos, previsão de gastos e otimizar os custos com o Gerenciamento de Custos.'
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="tutorial-review-usage">Analise o uso e os custos para detectar anomalias e eficiência</a>
-          - html: <a href="tutorial-user-access">Atribuir acesso aos dados de Gerenciamento de Custos</a>
-          - html: <a href="tutorial-forecast-spending">Previsão de despesas futuras</a>
-          - html: <a href="tutorial-manage-costs">Gerenciar os custos com a alocação de custos e relatórios de análise e estorno</a>
+    - html: "<a href=\"tutorial-review-usage\">Analise o uso e os custos para detectar anomalias e eficiência</a>"
+    - html: <a href="tutorial-user-access">Atribuir acesso aos dados de Gerenciamento de Custos</a>
+    - html: "<a href=\"tutorial-forecast-spending\">Previsão de despesas futuras</a>"
+    - html: "<a href=\"tutorial-manage-costs\">Gerenciar os custos com a alocação de custos e relatórios de análise e estorno</a>"

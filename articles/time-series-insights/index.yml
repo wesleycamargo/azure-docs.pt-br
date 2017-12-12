@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Documentação da Análise de Séries Temporais do Azure
+title: "Documentação da Análise de Séries Temporais do Azure"
 metadata:
-  title: 'Documentação da Análise de Séries Temporais do Azure - Tutoriais, Referência de API | Microsoft Docs'
-  description: 'Saiba como executar a análise da IoT na nuvem com o processamento de eventos totalmente gerenciado. Analise dados em tempo real usando aplicativos, sensores, dispositivos e muito mais.'
+  title: "Documentação da Análise de Séries Temporais do Azure - Tutoriais, Referência de API | Microsoft Docs"
+  description: "Saiba como executar a análise da IoT na nuvem com o processamento de eventos totalmente gerenciado. Analise dados em tempo real usando aplicativos, sensores, dispositivos e muito mais."
   services: time-series-insights
   author: kfile
   manager: jhubbard
@@ -13,25 +13,30 @@ metadata:
   ms.topic: landing-page
   ms.date: 11/13/2017
   ms.author: kfile
+  ms.openlocfilehash: 08532fdde75215d6f00456637615ec93af7c9d6d
+  ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+  ms.translationtype: HT
+  ms.contentlocale: pt-BR
+  ms.lasthandoff: 11/15/2017
 abstract:
-  description: 'Saiba como configurar um ambiente do Time Series Insights, explorar e analisar os dados das séries temporais de suas soluções de IoT ou coisas conectadas. A documentação descreve os pré-requisitos, instruções, referências de API e outros artigos para ajudá-lo a começar a usar em minutos.'
+  description: "Saiba como configurar um ambiente do Time Series Insights, explorar e analisar os dados das séries temporais de suas soluções de IoT ou coisas conectadas. A documentação descreve os pré-requisitos, instruções, referências de API e outros artigos para ajudá-lo a começar a usar em minutos."
 sections:
-  - title: Guia de início rápido de 5 minutos
+- title: "Guia de início rápido de 5 minutos"
+  items:
+  - type: paragraph
+    text: Saiba como implantar o Log Analytics e configurar a coleta de dados do Azure, outros provedores de nuvem e recursos locais.
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: 'Saiba como implantar o Log Analytics e configurar a coleta de dados do Azure, outros provedores de nuvem e recursos locais.'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/en-us/azure/time-series-insights/media/index/time-series-insights.svg'
-            text: Explorar o Azure Time Series Insights
-            href: /azure/time-series-insights/time-series-quickstart
-  - title: Referência
+    - image:
+        src: https://docs.microsoft.com/en-us/azure/time-series-insights/media/index/time-series-insights.svg
+      text: Explorar o Azure Time Series Insights
+      href: /azure/time-series-insights/time-series-quickstart
+- title: "Referência"
+  items:
+  - type: list
+    style: cards
+    className: cardsD
     items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: APIs
-            html: <p><a href="/rest/api/time-series-insights/time-series-insights-reference-queryapi">API de consulta</a></p><p><a href="/rest/api/time-series-insights/time-series-insights-reference-query-syntax">Sintaxe de Consulta</a></p>
+    - title: APIs
+      html: <p><a href="/rest/api/time-series-insights/time-series-insights-reference-queryapi">API de consulta</a></p><p><a href="/rest/api/time-series-insights/time-series-insights-reference-query-syntax">Sintaxe de Consulta</a></p>
