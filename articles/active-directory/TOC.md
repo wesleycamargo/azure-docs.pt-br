@@ -219,7 +219,6 @@
 ### [Configurar a aceleração automática da entrada usando a Política de HRD](active-directory-auto-acceleration-using-hrd.md)
 
 ### [Gerenciar o acesso aos aplicativos](active-directory-managing-access-to-apps.md)
-#### [Acesso de autoatendimento](active-directory-self-service-application-access.md)
 #### [Acesso SSO](active-directory-appssoaccess-whatis.md)
 #### [Certificados para SSO](active-directory-sso-certs.md)
 #### [Restrições de locatário](active-directory-tenant-restrictions.md)
