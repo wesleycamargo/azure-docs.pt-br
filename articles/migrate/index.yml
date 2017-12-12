@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Documentação das Migrações para Azure
+title: "Documentação das Migrações para Azure"
 metadata:
-  title: 'Documentação das Migrações para Azure - Tutoriais, Referência da API | Microsoft Docs'
-  description: Saiba como avaliar os computadores locais para a migração para o Azure
+  title: "Documentação das Migrações para Azure - Tutoriais, Referência da API | Microsoft Docs"
+  description: "Saiba como avaliar os computadores locais para a migração para o Azure"
   services: migration-planner
   author: rayne-wiselman
   manager: carmonm
@@ -13,14 +13,19 @@ metadata:
   ms.topic: landing-page
   ms.date: 11/22/2017
   ms.author: raynew
+  ms.openlocfilehash: 64e5293473dd9b5d4b55088e447a5ec3a289372d
+  ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+  ms.translationtype: HT
+  ms.contentlocale: pt-BR
+  ms.lasthandoff: 11/27/2017
 abstract:
-  description: As Migrações para Azure ajudam a descobrir e avaliar a adequação dos computadores locais para a migração para o Azure e fornecem estimativas de tamanho e custo para executar as VMs do Azure.
+  description: "As Migrações para Azure ajudam a descobrir e avaliar a adequação dos computadores locais para a migração para o Azure e fornecem estimativas de tamanho e custo para executar as VMs do Azure."
 sections:
-  - title: Tutoriais Passo a Passo
+- title: Tutoriais Passo a Passo
+  items:
+  - type: paragraph
+    text: "Saiba como avaliar as VMs do VMware para a migração para o Azure"
+  - type: list
+    style: unordered
     items:
-      - type: paragraph
-        text: Saiba como avaliar as VMs do VMware para a migração para o Azure
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="tutorial-assessment-vmware">Descobrir e avaliar as VMs do VMware locais</a>
+    - html: <a href="tutorial-assessment-vmware">Descobrir e avaliar as VMs do VMware locais</a>

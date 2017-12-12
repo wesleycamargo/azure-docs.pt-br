@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Documentação dos Serviços do Azure Baseados na Localização (versão prévia)
+title: "Documentação dos Serviços do Azure Baseados na Localização (versão prévia)"
 metadata:
-  document_id: null
-  title: Documentação dos Serviços do Azure Baseados na Localização (versão prévia) | Microsoft Docs
+  document_id: 
+  title: "Documentação dos Serviços do Azure Baseados na Localização (versão prévia) | Microsoft Docs"
   meta.description: Use Azure Location Based Services (preview) to provide geospatial services to your web or mobile application.
   services: location-based-services
   author: philmea
@@ -14,27 +14,32 @@ metadata:
   ms.topic: landing-page
   ms.date: 11/22/2017
   ms.author: philmea
+  ms.openlocfilehash: fa69448296105ce8fd3cc1b885c3aa793882f909
+  ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+  ms.translationtype: HT
+  ms.contentlocale: pt-BR
+  ms.lasthandoff: 11/28/2017
 abstract:
-  description: 'Os Serviços do Azure Baseados na Localização (versão prévia) fornecem aos desenvolvedores de todos os setores recursos avançados geoespaciais, contendo os novos dados de mapeamento necessários para fornecer um contexto geográfico para aplicativos Web e móveis. Esse serviço é um conjunto de APIs REST compatíveis com a One API do Azure, acompanhado de um controle JavaScript baseado na Web para tornar o desenvolvimento fácil, flexível e portátil em várias mídias.'
+  description: "Os Serviços do Azure Baseados na Localização (versão prévia) fornecem aos desenvolvedores de todos os setores recursos avançados geoespaciais, contendo os novos dados de mapeamento necessários para fornecer um contexto geográfico para aplicativos Web e móveis. Esse serviço é um conjunto de APIs REST compatíveis com a One API do Azure, acompanhado de um controle JavaScript baseado na Web para tornar o desenvolvimento fácil, flexível e portátil em várias mídias."
 sections:
-  - title: Guia de início rápido de 5 minutos
+- title: "Guia de início rápido de 5 minutos"
+  items:
+  - type: paragraph
+    text: "Inicie um aplicativo de pesquisa do mapa usando os Serviços do Azure Baseados na Localização (versão prévia)."
+  - type: list
+    style: icon48
     items:
-      - type: paragraph
-        text: Inicie um aplicativo de pesquisa do mapa usando os Serviços do Azure Baseados na Localização (versão prévia).
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /azure/sql-database/media/index/portal.svg
-            text: Inicie o aplicativo de mapa de demonstração
-            href: /azure/location-based-services/quick-demo-map-app
-  - title: Tutoriais passo a passo
+    - image:
+        src: /azure/sql-database/media/index/portal.svg
+      text: "Inicie o aplicativo de mapa de demonstração"
+      href: /azure/location-based-services/quick-demo-map-app
+- title: Tutoriais passo a passo
+  items:
+  - type: paragraph
+    text: "Crie um aplicativo Web geoespacial para pesquisar pontos de interesse e rotas para locais usando os Serviços do Azure Baseados na Localização (versão prévia)."
+  - type: list
+    style: ordered
     items:
-      - type: paragraph
-        text: Crie um aplicativo Web geoespacial para pesquisar pontos de interesse e rotas para locais usando os Serviços do Azure Baseados na Localização (versão prévia).
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/location-based-services/tutorial-search-location">Pesquisar pontos de interesse</a>
-          - html: <a href="/azure/location-based-services/tutorial-route-location">Rota para um ponto de interesse</a>
-          - html: <a href="/azure/location-based-services/tutorial-prioritized-routes">Rotas por modo de viagem</a>
+    - html: <a href="/azure/location-based-services/tutorial-search-location">Pesquisar pontos de interesse</a>
+    - html: <a href="/azure/location-based-services/tutorial-route-location">Rota para um ponto de interesse</a>
+    - html: <a href="/azure/location-based-services/tutorial-prioritized-routes">Rotas por modo de viagem</a>
