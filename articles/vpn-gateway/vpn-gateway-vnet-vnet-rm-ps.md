@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/27/2017
 ms.author: cherylmc
-ms.openlocfilehash: 8a772680355a62c13dbe0361b5b58029642cf84d
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 54cb7a9630a64be1a3012604929613fe0a843666
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Configurar uma conexão gateway de VPN de Vnet pra VNet usando o PowerShell
 
@@ -39,15 +39,23 @@ As etapas neste artigo se aplicam ao modelo de implantação do Gerenciador de R
 
 ## <a name="about"></a>Sobre a conexão de VNets
 
-A conexão de uma rede virtual a outra rede virtual usando o tipo de conexão VNet a VNet é semelhante à criação de uma conexão IPsec com um site local. Os dois tipos de conectividade usam um gateway de VPN para fornecer um túnel seguro usando IPsec/IKE, e ambos funcionam da mesma forma ao se comunicar. A diferença entre os tipos de conexão é a maneira que o gateway de rede local é configurado. Ao criar uma conexão de VNet a VNet, você não vê o espaço de endereço de gateway de rede local. Ele é criado e preenchido automaticamente. Se você atualizar o espaço de endereço de uma rede virtual, a outra saberá automaticamente rotear para o espaço de endereço atualizado.
+Há várias maneiras de conectar redes virtuais. As seções a seguir descrevem as diferentes maneiras de conectar redes virtuais.
 
-Se você estiver trabalhando com uma configuração complicada, talvez você prefira usar um tipo de conexão IPsec, em vez de VNet a VNet. Isso permite que você especifique o espaço de endereço adicional para o gateway de rede local a fim de rotear o tráfego. Se você conectar suas VNets usando o tipo de conexão IPsec, será necessário criar e configurar manualmente o gateway de rede local. Para saber mais, consulte [Configurações site a site](vpn-gateway-create-site-to-site-rm-powershell.md).
+### <a name="vnet-to-vnet"></a>VNet a VNet
 
-Além disso, se suas VNets estiverem na mesma região, convém considerar conectá-las usando o emparelhamento VNet. O emparelhamento de VNet não usa um gateway de VPN, e os preços e funcionalidade é um pouco diferente. Para obter mais informações, consulte [Emparelhamento da VNet](../virtual-network/virtual-network-peering-overview.md).
+A configuração de uma conexão VNet a VNet é uma boa maneira de conectar redes virtuais com facilidade. A conexão de uma rede virtual a outra rede virtual usando o tipo de conexão VNet a VNet (VNet2VNet) é semelhante à criação de uma conexão IPsec Site a Site com um site local.  Os dois tipos de conectividade usam um gateway de VPN para fornecer um túnel seguro usando IPsec/IKE, e ambos funcionam da mesma forma ao se comunicar. A diferença entre os tipos de conexão é a maneira que o gateway de rede local é configurado. Ao criar uma conexão de VNet a VNet, você não vê o espaço de endereço de gateway de rede local. Ele é criado e preenchido automaticamente. Se você atualizar o espaço de endereço de uma VNet, a outra saberá automaticamente como rotear para o espaço de endereço atualizado. A criação de uma conexão VNet a VNet é normalmente mais rápida e fácil do que a criação de uma conexão Site a Site entre VNets.
 
-### <a name="why"></a>Por que criar uma conexão de VNet para VNet?
+### <a name="site-to-site-ipsec"></a>Site a Site (IPsec)
 
-Você talvez queira conectar redes virtuais pelos seguintes motivos:
+Se você estiver trabalhando com uma configuração de rede complicada, talvez prefira se conectar suas redes virtuais usando as etapas de [Site a Site](vpn-gateway-create-site-to-site-rm-powershell.md) etapas, em vez das etapas de VNet para VNet. Quando você usar as etapas de Site a Site, vai criar e configurar os gateways de rede local manualmente. O gateway de rede local para cada VNet trata a outra VNet como um site local. Isso permite que você especifique o espaço de endereço adicional para o gateway de rede local a fim de rotear o tráfego. Se o espaço de endereço para uma rede virtual for alterado, você precisará atualizar o gateway de rede local correspondente para refletir a alteração. Ele não é atualizado automaticamente.
+
+### <a name="vnet-peering"></a>Emparelhamento VNet
+
+Talvez você queira considerar a conexão de suas VNets usando o Emparelhamento de VNet. O emparelhamento de VNet não usa um gateway de VPN e tem restrições diferentes. Além disso, os [preços do emparelhamento VNet](https://azure.microsoft.com/pricing/details/virtual-network) são calculados de maneira diferente dos [preços de Gateway de VPN de VNet a VNet](https://azure.microsoft.com/pricing/details/vpn-gateway). Para obter mais informações, consulte [Emparelhamento da VNet](../virtual-network/virtual-network-peering-overview.md).
+
+## <a name="why"></a>Por que criar uma conexão de VNet para VNet?
+
+Talvez você queira conectar redes virtuais usando uma conexão VNet a VNet pelos seguintes motivos:
 
 * **Redundância geográfica entre regiões e presença geográfica**
 
@@ -59,7 +67,7 @@ Você talvez queira conectar redes virtuais pelos seguintes motivos:
 
 Você pode combinar a comunicação de VNet a VNet usando configurações multissite. Isso permite estabelecer topologias de rede que combinam conectividade entre instalações a conectividade de rede intervirtual.
 
-## <a name="which-set-of-steps-should-i-use"></a>Qual conjunto de etapas devo usar?
+## <a name="steps"></a>Quais etapas de VNet a VNet devo usar?
 
 Neste artigo, você verá dois conjuntos de etapas diferentes. Um conjunto de etapas para [VNets que residem na mesma assinatura](#samesub), e um para [VNets que residem em assinaturas diferentes](#difsub).
 A principal diferença entre os conjuntos é que você deve usar sessões separadas do PowerShell ao configurar as conexões para VNets que residem em assinaturas diferentes. 

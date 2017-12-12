@@ -4,7 +4,7 @@ description: "Banco de dados distribuído de nível corporativo com capacidade d
 services: sql-data-warehouse
 documentationcenter: NA
 author: jrowlandjones
-manager: bjhubbard
+manager: jenniehubbard
 editor: 
 ms.assetid: 4006c201-ec71-4982-b8ba-24bba879d7bb
 ms.service: sql-data-warehouse
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: overview
 ms.date: 10/23/2017
-ms.author: jrj;barbkess
-ms.openlocfilehash: d5ad5b566bd8d40ab6d7a9151af54890fd47cc88
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.author: jrj
+ms.openlocfilehash: 7fd17c29c413905084c6b3736018d111d3b28fea
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="what-is-azure-sql-data-warehouse"></a>O que é o SQL Data Warehouse do Azure?
 
@@ -41,9 +41,9 @@ Os resultados da análise podem ir para aplicativos ou bancos de dados em todo o
 
 O SQL Data Warehouse oferece [níveis de desempenho](performance-tiers.md) projetados para flexibilidade para atender às suas necessidades dos dados, grandes ou pequenos. Você pode escolher um data warehouse otimizado para elasticidade ou para a computação. 
 
-- A **camada de desempenho Otimizado para Elasticidade** separa as camadas de armazenamento e computação na arquitetura. Essa opção se destaca em cargas de trabalho que podem aproveitar ao máximo a separação entre o armazenamento e a computação, dimensionando com frequência para dar suporte a curtos períodos de atividade no horário de pico. Essa camada de computação tem o menor ponto de preço de entrada e é dimensionada para dar suporte à maioria das cargas de trabalho do cliente.
+- A **camada de desempenho Otimizado para Elasticidade** separa as camadas de armazenamento e computação na arquitetura. Essa opção se destaca em cargas de trabalho que podem aproveitar ao máximo a separação entre o armazenamento e a computação, dimensionando com frequência para dar suporte a curtos períodos de atividade na atividade de pico. Essa camada de computação tem o menor ponto de preço de entrada e é dimensionada para dar suporte à maioria das cargas de trabalho do cliente.
 
-- A **camada de desempenho Otimizado para Computação** usa o hardware mais recente do Azure para apresentar um novo cache de disco de estado sólido NVM que mantém os dados acessados com mais frequência próximos às CPUs, que é exatamente onde você os deseja. Por criar camadas de armazenamento automaticamente, essa camada de desempenho se destaca com consultas complexas, já que todas as E/S são mantidas locais na camada de computação. Além disso, o columnstore foi aprimorado para armazenar uma quantidade ilimitada de dados no Data Warehouse do SQL. A camada de desempenho Otimizado para Computação fornece o maior nível de escalabilidade, permitindo que você dimensione até 30.000 cDWU (Unidades de Data Warehouse de computação). Escolha essa camada para cargas de trabalho que exijam desempenho contínuo e ultrarrápido.
+- O **nível de desempenho Otimizado para Computação** usa o hardware mais recente do Azure para apresentar um novo cache de disco de estado sólido NVMe que mantém os dados acessados com mais frequência próximos às CPUs, que está exatamente onde você os deseja. Ao criar camadas de armazenamento automaticamente, esse nível de desempenho se destaca com consultas complexas, já que todas as E/S são mantidas locais na camada de computação. Além disso, o columnstore foi aprimorado para armazenar uma quantidade ilimitada de dados no SQL Data Warehouse. O nível de desempenho Otimizado para Computação fornece o maior nível de escalabilidade, permitindo que você aumente até 30.000 cDWU (Unidades de Data Warehouse de computação). Escolha essa camada para cargas de trabalho que exijam desempenho contínuo e ultrarrápido.
 
 ## <a name="next-steps"></a>Próximas etapas
 Agora que você sabe um pouco sobre o SQL Data Warehouse, saiba como [criar um SQL Data Warehouse][create a SQL Data Warehouse] e [carregar dados de amostra][load sample data] rapidamente. Se você ainda não conhece o Azure, poderá achar o [Glossário do Azure][Azure glossary] útil à medida que encontrar nova terminologia. Ou, dê uma olhada em alguns desses outros Recursos do SQL Data Warehouse.  

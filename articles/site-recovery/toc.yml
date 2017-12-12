@@ -139,24 +139,24 @@
           items:
             - name: Visão geral e pré-requisitos
               href: site-recovery-deployment-planner.md
-            - name: Executar o planejador de implantação
+            - name: Executar ferramenta Planejador de Implantação
               href: site-recovery-vmware-deployment-planner-run.md
             - name: Analisar o relatório gerado
               href: site-recovery-vmware-deployment-planner-analyze-report.md
-            - name: Analisar o relatório de estimativa de custo de recuperação de desastres
+            - name: Analisar relatório da estimativa de custo
               href: site-recovery-vmware-deployment-planner-cost-estimation.md
         - name: Expandir servidores de processo para a replicação do VMware
           href: site-recovery-vmware-to-azure-manage-scaleout-process-server.md
-        - name: Ferramenta e planejamento da implantação de replicação do Hyper-V para o Azure
+        - name: Ferramenta Planejador de Implantação de replicação do Hyper-V para o Azure
           href: null
           items:
             - name: Visão geral e pré-requisitos
               href: site-recovery-hyper-v-deployment-planner.md
-            - name: Executar o planejador de implantação
+            - name: Executar ferramenta Planejador de Implantação
               href: site-recovery-hyper-v-deployment-planner-run.md
             - name: Analisar o relatório gerado
               href: site-recovery-hyper-v-deployment-planner-analyze-report.md
-            - name: Analisar o relatório de estimativa de custo de recuperação de desastres
+            - name: Analisar relatório da estimativa de custo
               href: site-recovery-hyper-v-deployment-planner-cost-estimation.md
         - name: Testes da escala de desempenho de replicação do Hyper-V entre sites locais
           href: site-recovery-performance-and-scaling-testing-on-premises-to-on-premises.md

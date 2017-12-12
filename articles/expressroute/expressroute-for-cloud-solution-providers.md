@@ -14,29 +14,29 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2016
 ms.author: richcar
-ms.openlocfilehash: 72b724d5cf6787f8d6afc73fb37f4944cbae78a3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dfae23638e31242dc795922fd62d1abb02579480
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="expressroute-for-cloud-solution-providers-csp"></a>ExpressRoute para Provedores de Soluções na Nuvem (CSP)
-A Microsoft fornece serviços de Hyper-escala para revendedores e distribuidores tradicionais (CSP) poderem provisionar rapidamente novos serviços e soluções para seus clientes sem a necessidade de investir no desenvolvimento desses novos serviços. Para permitir que o Provedor de Soluções na Nuvem (CSP) tenha a capacidade de gerenciar esses novos serviços diretamente, a Microsoft oferece programas e APIs que permitem que o CSP gerencie recursos do Microsoft Azure em nome de seus clientes. Um desses recursos é o ExpressRoute. o ExpressRoute permite que o CSP conecte os recursos do cliente aos serviços do Azure. o ExpressRoute é um link de comunicações privado de alta velocidade para serviços do Azure. 
+A Microsoft fornece serviços de hiperescala para revendedores e distribuidores tradicionais (CSP) poderem provisionar rapidamente novos serviços e soluções para seus clientes sem a necessidade de investir no desenvolvimento desses novos serviços. Para permitir que o Provedor de Soluções na Nuvem (CSP) tenha a capacidade de gerenciar esses novos serviços diretamente, a Microsoft oferece programas e APIs que permitem que o CSP gerencie recursos do Microsoft Azure em nome de seus clientes. Um desses recursos é o ExpressRoute. o ExpressRoute permite que o CSP conecte os recursos do cliente aos serviços do Azure. o ExpressRoute é um link de comunicações privado de alta velocidade para serviços do Azure. 
 
-A Rota Expressa é composta de um par de circuitos para alta disponibilidade conectados a uma única assinatura de cliente e não pode ser compartilhada por vários clientes. Cada circuito deve ser encerrado em um roteador diferente para manter a alta disponibilidade.
+O ExpressRoute é composto de um par de circuitos para alta disponibilidade conectados a uma única assinatura de cliente e não pode ser compartilhada por vários clientes. Cada circuito deve ser encerrado em um roteador diferente para manter a alta disponibilidade.
 
 > [!NOTE]
 > Existem limites de largura de banda e de conexão no ExpressRoute, o que significa que as implementações grandes/complexas exigirão vários circuitos de ExpressRoute para um único cliente.
 > 
 > 
 
-O Microsoft Azure fornece um número crescente de serviços que você pode oferecer aos seus clientes.  Para tirar melhor proveito desses serviços exigirão o uso de conexões de ExpressRoute para acesso de baixa latência e de alta velocidade ao ambiente do Microsoft Azure.
+O Microsoft Azure fornece um número crescente de serviços que você pode oferecer aos seus clientes. O ExpressRoute ajuda você e seus clientes a tirar proveito desses serviços, fornecendo acesso de baixa latência de alta velocidade ao ambiente do Microsoft Azure.
 
 ## <a name="microsoft-azure-management"></a>Gerenciamento do Microsoft Azure
 A Microsoft fornece CSPs com APIs para gerenciar as assinaturas de cliente do Azure, permitindo a integração programática com seus próprios sistemas de gerenciamento de serviço. Os recursos de gerenciamento com suporte podem ser encontrados [aqui](https://msdn.microsoft.com/library/partnercenter/dn974944.aspx).
 
 ## <a name="microsoft-azure-resource-management"></a>Gerenciamento de recursos do Microsoft Azure
-Dependendo do contrato que você tenha com o cliente, isso determinará como a assinatura será gerenciada. O CSP pode gerenciar diretamente a criação e a manutenção de recursos ou o cliente pode manter o controle da assinatura do Microsoft Azure e criar recursos necessário do Azure. Se o cliente gerenciar a criação de recursos na sua assinatura do Microsoft Azure, ele usará um destes dois modelos: o modelo “Connect-Through” ou o modelo “Direct-To”. Esses modelos serão descritos em detalhes nas seções a seguir.  
+O contrato que você tem com o cliente determinará como a assinatura será gerenciada. O CSP pode gerenciar diretamente a criação e a manutenção de recursos ou o cliente pode manter o controle da assinatura do Microsoft Azure e criar recursos necessário do Azure. Se o cliente gerenciar a criação de recursos na sua assinatura do Microsoft Azure, ele usará um destes dois modelos: o modelo “*Connect-Through*” ou o modelo “*Direct-To*”. Esses modelos serão descritos em detalhes nas seções a seguir.  
 
 ### <a name="connect-through-model"></a>Modelo Connect-Through
 ![texto alt](./media/expressroute-for-cloud-solution-providers/connect-through.png)  
@@ -67,7 +67,7 @@ A escolha entre essas duas opções se baseia nas necessidades do cliente e em s
 
 * **RBAC (Controle de Acesso Baseado em Função)** – o RBAC baseia-se no Azure Active Directory.  Para saber mais sobre o RBAC do Azure, entre [aqui](../active-directory/role-based-access-control-configure.md).
 * **Rede** – aborda vários tópicos da rede no Microsoft Azure.
-* **AAD (Azure Active Directory)** – o AAD fornece gerenciamento de identidades para o Microsoft Azure e para aplicativos SaaS de terceiros. Para saber mais sobre o AD do Azure, entre [aqui](https://azure.microsoft.com/documentation/services/active-directory/).  
+* **Azure AD (Azure Active Directory)** – o Azure AD fornece gerenciamento de identidades para o Microsoft Azure e para aplicativos SaaS de terceiros. Para saber mais sobre o AD do Azure, entre [aqui](https://azure.microsoft.com/documentation/services/active-directory/).  
 
 ## <a name="network-speeds"></a>Velocidades de rede
 o ExpressRoute dá suporte a velocidades de rede de 50 Mb/s a 10Gb/s. Isso permite que os clientes comprem a quantidade de largura de banda de rede necessária para seu ambiente exclusivo.

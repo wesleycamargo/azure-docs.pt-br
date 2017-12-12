@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/25/2017
+ms.date: 12/04/2017
 ms.author: cherylmc
-ms.openlocfilehash: 8c4b2d578a8a586fc63c972ab5da694b2dd9d571
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 367288e313ae5517b126b17c905ae291b5b37975
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Configurar uma conexão Ponto a Site a uma VNet usando a autenticação de certificado nativa do Azure: PowerShell
 
@@ -36,7 +36,7 @@ Um gateway VPN Ponto a Site (P2S) permite que você crie uma conexão segura par
 
 Os clientes que se conectam podem usar os seguintes métodos de autenticação:
 
-* Servidor RADIUS - atualmente em versão prévia
+* Servidor RADIUS
 * Autenticação de certificado nativa do Azure de Gateway de VPN
 
 Este artigo ajudará você a definir uma configuração de P2S com autenticação usando a autenticação de certificado nativa do Azure. Se você quiser usar RADIUS para autenticar usuários conectados, confira [P2S usando a autenticação RADIUS](point-to-site-how-to-radius-ps.md).
@@ -47,11 +47,7 @@ As conexões Ponto a Site não exigem um dispositivo VPN ou um endereço IP volt
 
 * O SSTP é um túnel de VPN baseado em SSL que tem suporte apenas em plataformas de cliente do Windows. Ele pode entrar em firewalls, tornando-o uma opção ideal para se conectar ao Azure de qualquer lugar. No lado do servidor, há suporte para as versões 1.0, 1.1 e 1.2 do SSTP. O cliente decide qual versão usar. Por padrão, para Windows 8.1 e posterior, o SSTP usa 1.2.
 
-* VPN IKEv2, uma solução de VPN IPsec baseada em padrões. VPN IKEv2 pode ser usada para se conectar de dispositivos Mac (OSX versões 10.11 e acima). Atualmente, o IKEv2 está em Versão Prévia.
-
->[!NOTE]
->Atualmente, o IKEv2 para P2S está em Versão Prévia.
->
+* VPN IKEv2, uma solução de VPN IPsec baseada em padrões. VPN IKEv2 pode ser usada para se conectar de dispositivos Mac (OSX versões 10.11 e acima).
 
 Conexões de autenticação de certificado nativa de Ponto a Site do Azure exigem o seguinte:
 
@@ -69,10 +65,10 @@ Para saber mais sobre conexões Ponto a Site, confira [Sobre conexões Ponto a S
 
 ### <a name="example"></a>Valores de exemplo
 
-Você pode usar os valores do exemplo para criar um ambiente de teste ou fazer referência a esses valores para entender melhor os exemplos neste artigo. Definimos as variáveis na seção [1](#declare) do artigo. Você pode usar as etapas como um passo a passo e usar os valores sem alterá-los, ou alterá-los para refletir seu ambiente.
+Você pode usar os valores do exemplo para criar um ambiente de teste ou fazer referência a esses valores para entender melhor os exemplos neste artigo. As variáveis são definidas na seção [1](#declare) do artigo. Você pode usar as etapas como um passo a passo e usar os valores sem alterá-los, ou alterá-los para refletir seu ambiente.
 
 * **Nome: VNet1**
-* **Espaço de endereço: 192.168.0.0/16** e **10.254.0.0/16**<br>Neste exemplo, usamos mais de um espaço de endereço para ilustrar que esta configuração funciona com vários espaços de endereço. No entanto, vários espaços de endereço não são necessários para esta configuração.
+* **Espaço de endereço: 192.168.0.0/16** e **10.254.0.0/16**<br>Este exemplo usa mais de um espaço de endereço para ilustrar que esta configuração funciona com vários espaços de endereço. No entanto, vários espaços de endereço não são necessários para esta configuração.
 * **Nome da sub-rede: FrontEnd**
   * **Intervalo de endereços da sub-rede: 192.168.1.0/24**
 * **Nome da sub-rede: BackEnd**
@@ -143,7 +139,7 @@ Nesta seção, faça logon e declare os valores usados para esta configuração.
   ```
 3. Crie a rede virtual.
 
-  Neste exemplo, o parâmetro de servidor -DnsServer é opcional. A especificação de um valor não cria um novo servidor DNS. O endereço IP do servidor DNS especificado deve ser um servidor DNS que pode resolver os nomes dos recursos aos quais você está se conectando a partir da sua rede virtual. Neste exemplo, usamos um endereço IP privado, mas é provável que ele não seja o endereço IP do seu servidor DNS. Use seus próprios valores. O valor especificado é usado pelos recursos que são implantados para a rede virtual, não com a conexão de P2S no cliente de VPN.
+  Neste exemplo, o parâmetro de servidor -DnsServer é opcional. A especificação de um valor não cria um novo servidor DNS. O endereço IP do servidor DNS especificado deve ser um servidor DNS que pode resolver os nomes dos recursos aos quais você está se conectando a partir da sua rede virtual. Este exemplo um endereço IP privado, mas é provável que ele não seja o endereço IP do seu servidor DNS. Use seus próprios valores. O valor especificado é usado pelos recursos que são implantados para a rede virtual, não com a conexão de P2S no cliente de VPN.
 
   ```powershell
   New-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $RG -Location $Location -AddressPrefix $VNetPrefix1,$VNetPrefix2 -Subnet $fesub, $besub, $gwsub -DnsServer 10.2.1.3
@@ -167,14 +163,14 @@ Nesta seção, faça logon e declare os valores usados para esta configuração.
 
 Configurar e criar o gateway de rede virtual para sua rede virtual.
 
-* O *-GatewayType* deve ser **Vpn** e o *-VpnType* deve ser **RouteBased**.
+* O -GatewayType deve ser **Vpn** e o -VpnType deve ser **RouteBased**.
 * O -VpnClientProtocols é usado para especificar os tipos de túneis que você deseja habilitar. As duas opções de túneis são **SSTP** e **IKEv2**. Você pode habilitar um deles ou ambos. Se você quiser habilitar os dois, especifique os dois nomes separados por uma vírgula. O cliente Strongswan no Android e no Linux, e o cliente VPN IKEv2 nativo no iOS e no OSX usarão somente o túnel IKEv2 para se conectar. Os clientes Windows tentam o IKEv2 primeiro e, se isso gerar a conexão, retornarão ao SSTP.
-* Um gateway de VPN pode levar até 45 minutos para ser concluído, dependendo do [SKU de gateway](vpn-gateway-about-vpn-gateway-settings.md) selecionado. Neste exemplo, usamos IKEv2, que está atualmente disponível em versão prévia.
+* Um gateway de VPN pode levar até 45 minutos para ser concluído, dependendo do [SKU de gateway](vpn-gateway-about-vpn-gateway-settings.md) selecionado. Este exemplo usa IKEv2, que está atualmente disponível em versão prévia.
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `
 -Location $Location -IpConfigurations $ipconf -GatewayType Vpn `
--VpnType RouteBased -EnableBgp $false -GatewaySku VpnGw1 -VpnClientProtocols "IKEv2"
+-VpnType RouteBased -EnableBgp $false -GatewaySku VpnGw1 -VpnClientProtocol "IKEv2"
 ```
 
 ## <a name="addresspool"></a>4. Adicionar o pool de endereços do cliente VPN

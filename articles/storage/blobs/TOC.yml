@@ -60,6 +60,8 @@
       items:
         - name: Replicação
           href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+        - name: Opções da conta de armazenamento
+          href: storage-account-options.md
         - name: 'Camadas de arquivamento, dinâmicas e estáticas'
           href: storage-blob-storage-tiers.md
         - name: Reagindo a eventos

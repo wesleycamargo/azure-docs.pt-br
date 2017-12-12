@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 11/16/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3028e913937db304ac0a1df8e6a095072630505d
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 22c5597cf14f27671667176dce8782cf0c79918d
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Desenvolva soluções de computação paralela em larga escala com o Lote
 
@@ -56,10 +56,8 @@ Alguns dos recursos a seguir - contas, nó de computação, pool, trabalhos e ta
 * [Nó de computação](#compute-node)
 * [Pool](#pool)
 * [Trabalho](#job)
-
   * [Agendas de trabalho](#scheduled-jobs)
 * [Tarefa](#task)
-
   * [Iniciar tarefa](#start-task)
   * [Tarefa do Gerenciador de Trabalhos](#job-manager-task)
   * [Tarefas de preparação e liberação do trabalho](#job-preparation-and-release-tasks)
@@ -263,6 +261,9 @@ Ao criar uma tarefa, você pode especificar:
 * As **restrições** de acordo com as quais a tarefa deve ser executada. Por exemplo, as restrições incluem o tempo máximo que a tarefa pode ser executada, o número máximo de vezes que uma tarefa com falha deve ser repetida e o tempo máximo que os arquivos no diretório de trabalho da tarefa são mantidos.
 * **Pacotes de aplicativos** para implantar no nó de computação no qual a tarefa está agendada para ser executada. [Application packages](#application-packages) fornecem uma implantação simplificada e controle de versão dos aplicativos que suas tarefas executam. Os pacotes de aplicativos de nível de tarefa são especialmente úteis em ambientes de pool compartilhado, em que diferentes trabalhos são executados em um pool e o pool não é excluído quando um trabalho é concluído. Se o trabalho tiver menos tarefas do que os nós no pool, pacotes de aplicativos de tarefa poderão minimizar a transferência de dados, pois o aplicativo é implantado apenas para os nós que executam tarefas.
 * Uma referência de **imagem de contêiner** no Hub do Docker ou um registro particular e configurações adicionais para criar um contêiner do Docker no qual a tarefa é executada no nó. Só será possível especificar essas informações se o pool for definido com uma configuração de contêiner.
+
+> [!NOTE]
+> O tempo de vida máximo de uma tarefa, desde quando é adicionada ao trabalho até ser concluída, é de sete dias. As tarefas concluídas persistem indefinidamente; os dados para as tarefas não concluídas dentro do tempo de vida máximo não ficam acessíveis.
 
 Além das tarefas que você pode definir para realizar computação em um nó, as tarefas especiais a seguir também são fornecidas pelo serviço Lote:
 

@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/14/2017
+ms.date: 12/08/2017
 ms.author: jeffgilb
-ms.openlocfilehash: 19a8db99c62fb4f560ce082d0974ef619080ef2d
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 2bfd9b2603575545fef1c26310a2eecd2c8968e4
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Pré-requisitos de implantação de pilha do Azure
 
@@ -121,62 +121,6 @@ Verifique se há um servidor DHCP disponível na rede ao qual a NIC se conecta. 
 
 ### <a name="internet-access"></a>Acesso à Internet
 A pilha do Azure requer acesso à Internet, diretamente ou através de um proxy transparente. A pilha do Azure não oferece suporte à configuração de um proxy da web para habilitar o acesso à Internet. O IP do host e o novo IP atribuído ao MAS-BGPNAT01 (pelo DHCP ou IP estático) devem ser capaz de acessar a Internet. As portas 80 e 443 são usadas em domínios de graph.windows.net e login.microsoftonline.com.
-
-## <a name="telemetry"></a>Telemetria
-
-Telemetria nos ajuda a formatar versões futuras da pilha do Azure. Ele nos permite responder rapidamente aos comentários, fornece novos recursos e melhorar a qualidade. A pilha do Microsoft Azure inclui o Windows Server 2016 e do SQL Server 2014. Nenhum destes produtos são alterados de configurações padrão e ambos são descritas pela declaração de privacidade do Microsoft Enterprise. A pilha do Azure também contém o software de código-fonte aberto que não foi modificado para enviar telemetria à Microsoft. Aqui estão alguns exemplos de dados de telemetria de pilha do Azure:
-
-- informações de registro de implantação
-- Quando um alerta é aberto e fechado
-- o número de recursos de rede
-
-Para oferecer suporte ao fluxo de dados de telemetria, a porta 443 (HTTPS) deve estar aberta em sua rede. O ponto de extremidade do cliente é https://vortex-win.data.microsoft.com.
-
-Se você não quiser fornecer Telemetria da pilha do Azure, você pode desativá-lo no host do kit de desenvolvimento e as máquinas virtuais de infraestrutura conforme explicado a seguir.
-
-### <a name="turn-off-telemetry-on-the-development-kit-host-optional"></a>Desativar a telemetria no host do kit de desenvolvimento (opcional)
-
->[!NOTE]
-Se você deseja desativar a telemetria para o host do kit de desenvolvimento, você deve fazer isso antes de executar o script de implantação.
-
-Antes de [a execução do script asdk installer.ps1]() para implantar o host do kit de desenvolvimento, inicialize o CloudBuilder.vhdx e execute o seguinte script em uma janela elevada do PowerShell:
-```powershell
-### Get current AllowTelmetry value on DVM Host
-(Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
--Name AllowTelemetry).AllowTelemetry
-### Set & Get updated AllowTelemetry value for ASDK-Host 
-Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
--Name "AllowTelemetry" -Value '0'  
-(Get-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" `
--Name AllowTelemetry).AllowTelemetry
-```
-
-Configuração **AllowTelemetry** como 0 desativa a telemetria para a implantação do Windows e a pilha do Azure. Somente os eventos críticos de segurança do sistema operacional são enviados. A configuração controla telemetria do Windows em todos os hosts e máquinas virtuais da infraestrutura e é reaplicada ao novo/VMs de nós quando ocorrem operações de expansão.
-
-
-### <a name="turn-off-telemetry-on-the-infrastructure-virtual-machines-optional"></a>Desativar a telemetria nas máquinas virtuais de infraestrutura (opcional)
-
-Após a implantação for bem-sucedida, execute o seguinte script em uma janela elevada do PowerShell (como o usuário AzureStack\AzureStackAdmin) no host do kit de desenvolvimento:
-
-```powershell
-$AzSVMs= get-vm |  where {$_.Name -like "AzS-*"}
-### Show current AllowTelemetry value for all AzS-VMs
-invoke-command -computername $AzSVMs.name {(Get-ItemProperty -Path `
-"HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" -Name AllowTelemetry).AllowTelemetry}
-### Set & Get updated AllowTelemetry value for all AzS-VMs
-invoke-command -computername $AzSVMs.name {Set-ItemProperty -Path `
-"HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" -Name "AllowTelemetry" -Value '0'}
-invoke-command -computername $AzSVMs.name {(Get-ItemProperty -Path `
-"HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\DataCollection" -Name AllowTelemetry).AllowTelemetry}
-```
-
-Para configurar a telemetria do SQL Server, consulte [como configurar o SQL Server 2016](https://support.microsoft.com/en-us/help/3153756/how-to-configure-sql-server-2016-to-send-feedback-to-microsoft).
-
-### <a name="usage-reporting"></a>Relatório de uso
-
-Por meio do registro, a pilha do Azure também está configurada para informações sobre o uso de encaminhamento para o Azure. Relatório de uso é controlado independentemente da telemetria. Você pode desativar o uso de relatórios quando [registrando](azure-stack-register.md) usando o script no Github. Basta definir o **$reportUsage** parâmetro **$false**.
-
-Dados de uso são formatados como detalhado no [dados de uso da pilha do relatório do Azure para o Azure](https://docs.microsoft.com/azure/azure-stack/azure-stack-usage-reporting). Usuários do Kit de desenvolvimento de pilha do Azure, na verdade, não são cobrados. Essa funcionalidade está incluída no kit de desenvolvimento para que você possa testar para ver como funciona o relatório de uso. 
 
 
 ## <a name="next-steps"></a>Próximas etapas
