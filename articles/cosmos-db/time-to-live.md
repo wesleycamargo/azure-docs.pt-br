@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2017
 ms.author: arramac
-ms.openlocfilehash: 6213019131eec60263172f468ced516037a33c61
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9b236ab8dd80b0c34501e0d60ba74dee3043d262
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="expire-data-in-azure-cosmos-db-collections-automatically-with-time-to-live"></a>Expirar os dados em coleções do Azure Cosmos DB automaticamente com a vida útil
 Os aplicativos podem gerar e armazenar grandes quantidades de dados. Alguns desses dados, como dados de evento, logs e informações da sessão do usuário gerados por computador, são úteis apenas por determinado período. Depois que os dados se tornam excedentes para as necessidades do aplicativo, é seguro limpar esses dados e reduzir as necessidades de armazenamento de um aplicativo.
@@ -149,6 +149,8 @@ Para desabilitar a TTL por completo em uma coleção e fazer com que o processo 
     
     await client.ReplaceDocumentCollectionAsync(collection);
 
+## <a name="ttl-and-index-interaction"></a>TTL e interação de índice
+A adição ou alteração de TTL é uma alteração para índice subjacente. Quando não há TTL e um valor TTL válido é fornecido isso resulta em uma operação de re-indexação. Para um índice consistente - o usuário não verá nenhuma alteração no estado de índice. No caso de índice lento - o índice, em primeiro lugar, está sempre atualizando e com essa alteração no TTL o índice é recriado do zero. O impacto no último caso é que consultas realizadas durante a recriação de índice não darão retornos completos ou corretos. Não altere o TTL para índice lento caso você precise da contagem exata de dados etc, pois o modo de indexação já é lento.  O ideal é que sempre se escolha o índice consistente. 
 
 ## <a name="faq"></a>Perguntas frequentes
 **Qual o preço da TTL?**

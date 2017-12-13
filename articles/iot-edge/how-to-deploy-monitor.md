@@ -6,14 +6,14 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 11/15/2017
+ms.date: 12/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: e7007bd6cca24dc4c2573fb274cecbf88ecfa374
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: b507b9108dca2fd3aee4acdac231acad9c9154e8
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale---preview"></a>Implantar e monitorar módulos do IoT Edge em escala – versão prévia
 
@@ -42,19 +42,21 @@ Para obter mais informações sobre dispositivos gêmeos e marcações, consulte
 
 1. Entre no [Portal do Azure][lnk-portal] e navegue até o seu Hub IoT. 
 1. Selecione **IoT Edge (versão prévia)**.
-1. Selecione **Criar Implantação de Borda**.
+1. Selecione **Adicionar implantação do IoT Edge**.
 
 Há cinco etapas para criar uma implantação. As seções a seguir explicam cada uma delas. 
 
-### <a name="step-1-label-deployment"></a>Etapa 1: Rotular a implantação
+### <a name="step-1-name-and-label"></a>Etapa 1: Nome e rótulo
 
-1. Dê à implantação uma ID exclusiva. Evite usar espaços e os seguintes caracteres inválidos: `& ^ [ ] { } \ | " < > /`.
+1. Dê à implantação um nome exclusivo. Evite usar espaços e os seguintes caracteres inválidos: `& ^ [ ] { } \ | " < > /`.
 1. Adicione rótulos para ajudar a acompanhar as implantações. Rótulos são pares de **Nome** e **Valor** que descrevem a implantação. Por exemplo, `HostPlatform, Linux` ou `Version, 3.0.1`.
 1. Selecione **Avançar** para ir para a etapa 2. 
 
-### <a name="step-2-add-modules"></a>Etapa 2: Adicionar módulos
+### <a name="step-2-add-modules-optional"></a>Etapa 2: Adicionar módulos (opcional)
 
 Há dois tipos de módulos que podem ser adicionados a uma implantação. O primeiro é um módulo baseado em um serviço do Azure, como a Conta de Armazenamento ou o Stream Analytics. O segundo é um módulo baseado em seu próprio código. Adicione vários módulos de um desses tipos a uma implantação. 
+
+Se você criar uma implantação sem módulos, ela remove todos os módulos existentes dos dispositivos. 
 
 >[!NOTE]
 >O Azure Machine Learning e o Azure Functions ainda não dão suporte à implantação automatizada do serviço do Azure. Use a implantação de módulo personalizado para adicionar esses serviços manualmente à implantação. 

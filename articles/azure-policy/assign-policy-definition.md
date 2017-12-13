@@ -5,15 +5,15 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/02/2017
+ms.date: 12/06/2017
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 85136ff2783b21472ef02aee15f8ec5844a00c12
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: b28e442a075e38a4fbe7b0d9d46f2c9d23e7c6fb
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment"></a>Criar uma atribuição de política para identificar recursos sem conformidade em seu ambiente do Azure
 A primeira etapa para compreender a conformidade no Azure é saber qual é a situação de seus recursos atuais. Este guia de início rápido orienta você no processo de criação de uma atribuição de política para identificar máquinas virtuais que não estão usando discos gerenciados.
@@ -21,20 +21,6 @@ A primeira etapa para compreender a conformidade no Azure é saber qual é a sit
 No final deste processo, você terá identificado com êxito quais máquinas virtuais não estão usando discos gerenciados e, portanto, *não estão em conformidade*.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-
-## <a name="opt-in-to-azure-policy"></a>Aceitar a Política do Azure
-
-Agora o Azure Policy está disponível em Visualização Pública e é necessário registrar-se para solicitar acesso.
-
-1. Vá até a Política do Azure em https://aka.ms/getpolicy e selecione **Inscrever-se** no painel esquerdo.
-
-   ![Pesquisar pela política](media/assign-policy-definition/sign-up.png)
-
-2. Aceite a Política do Azure selecionando na lista **Assinatura** as assinaturas com que gostaria de trabalhar. Em seguida, selecione **Registrar**.
-
-   ![Aceitar o uso da Política do Azure](media/assign-policy-definition/preview-opt-in.png)
-
-   Sua solicitação é aprovada automaticamente para versão prévia. Aguarde até 30 minutos para o sistema processar seu registro.
 
 ## <a name="create-a-policy-assignment"></a>Criar uma atribuição de política
 
@@ -65,7 +51,7 @@ Neste guia de início rápido, criamos uma atribuição de política e atribuím
    Há dois tipos de preço na Política do Azure – *Gratuito* e *Standard*. Com a camada Gratuita, você só pode impor políticas para recursos futuros, enquanto com a Standard, você também pode impô-las para recursos existentes para compreender melhor seu estado de conformidade. Como estamos na versão prévia limitada, ainda não lançamos um modelo de preços, de modo que você não receberá uma fatura por selecionar a opção *Standard*. Para saber mais sobre os preços, veja: [Preços da Política do Azure](https://azure.microsoft.com/pricing/details/azure-policy/).
 
 7. Selecione o **Escopo** a que você gostaria que a política fosse aplicado.  Um escopo determina em quais recursos ou agrupamento de recursos a atribuição de política é imposta. Pode variar de uma assinatura a grupos de recursos.
-8. Selecione a assinatura (ou grupo de recursos) que você registrou anteriormente quando aceitou a Política do Azure. Neste exemplo, estamos usando esta assinatura – **Azure Analytics Capacity Dev**, mas suas opções serão diferentes.
+8. Selecione a assinatura (ou grupo de recursos) que você registrou anteriormente. Neste exemplo, estamos usando esta assinatura – **Azure Analytics Capacity Dev**, mas suas opções serão diferentes.
 
    ![Encontre a definição de política correta](media/assign-policy-definition/assign-policy.png)
 

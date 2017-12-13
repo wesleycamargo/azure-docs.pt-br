@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial, azure
 ms.topic: article
 ms.date: 09/21/2017
-ms.openlocfilehash: 9e20c606973447e0b01eaf9716fabf47eefd228b
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: e85515c29d8f626c7eb2bfb636dc6c18da78b5c5
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="bike-share-tutorial-advanced-data-preparation-with-azure-machine-learning-workbench"></a>Tutorial de compartilhamento de bicicleta: preparação de dados avançada com o Azure Machine Learning Workbench
 Os serviços do Azure Machine Learning (versão prévia) são uma solução integrada de análise avançada e de ciência de dados de ponta a ponta para cientistas profissionais prepararem dados, desenvolverem experiências e implantarem modelos em escala de nuvem.
@@ -201,7 +201,7 @@ Para retornar a __Exibição de Dados__, selecione __Dados__ no canto superior e
    ![Imagem da caixa de diálogo de filtro](media/tutorial-bikeshare-dataprep/weatherfilterinfm15.png)
 
    > [!NOTE]
-   > FM-15 é um tipo de METAR (Informe Meteorológico Regular de Aeródromo). Na prática, os relatórios FM-15 são considerados os mais completos, com poucos dados ausentes.
+   > FM-15 é um tipo de METAR (Informe Meteorológico Regular de Aeródromo). Os relatórios FM-15 são considerados empiricamente os mais completos, com poucos dados ausentes.
 
 ## <a name="remove-a-column"></a>Remover uma coluna
 

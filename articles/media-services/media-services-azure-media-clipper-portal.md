@@ -9,16 +9,20 @@ ms.author: dwgeo
 ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: faaae7edbc2fb62ae219dd963f405e7246c982d4
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 1deca68cd6a61ede7536c4d5544036a10c54209b
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-clips-with-azure-media-clipper-in-the-portal"></a>Criar clipes com o Azure Media Clipper no portal
 Use o Azure Media Clipper no portal para criar clipes com base em ativos em suas contas dos serviços de mídia. Para começar, navegue para sua conta dos serviços de mídia no portal. Em seguida, selecione a guia **Subclipe**.
 
 Na guia **Subclipe**, você pode começar a compor clipes. No portal, o Clipper carrega MP4s de taxa de bits única, MP4s de múltiplas taxas de bits e arquivos mortos dinâmicos que são publicados com um localizador de streaming válido. Os ativos não publicados não são carregados.
+
+O Clipper está atualmente em visualização pública. Para acessar o Clipper no portal do Azure, vá até esta [página de visualização pública](https://portal.azure.com/?feature.subclipper=true).
+
+A imagem a seguir ilustra a página de aterrisagem do Clipper em sua conta de serviços de mídia: ![Azure Media Clipper portal do Azure](media/media-services-azure-media-clipper-portal/media-services-azure-media-clipper-portal.png)
 
 ## <a name="producing-clips"></a>Produzindo clipes
 Para criar um clipe, arraste e solte um ativo para a interface do clipe. Se os tempos de marca forem conhecidos, insira-os manualmente na interface. Caso contrário, reproduza o ativo ou arraste o playhead para localizar o tempo de marca de entrada e de saída desejado. Se nenhum tempo de marca de entrada e de saída for fornecido, o clipe começará desde o início ou continuará até o final do ativo de entrada, respectivamente.
@@ -28,7 +32,12 @@ Para navegar com a precisão de quadro/precisão de GOP, use os botões de avan�
 ## <a name="producing-dynamic-manifest-filters"></a>Produzindo os filtros de manifesto dinâmico
 Os [filtros de manifesto dinâmico](https://azure.microsoft.com/blog/dynamic-manifest/) descrevem um conjunto de regras baseado nos atributos do manifesto e na linha do tempo do ativo. Essas regras determinam como o ponto de extremidade de streaming manipula a playlist de saída (manifesto). O filtro pode ser usado para alterar quais segmentos são transmitidos para reprodução. Os filtros produzidos pelo Clipper são filtros locais e são específicos ao ativo de origem. Ao contrário de clipes renderizados, os filtros não são ativos novos e não exigem um trabalho de codificação para serem produzidos. Eles podem ser criados rapidamente por meio do [SDK do .NET](https://docs.microsoft.com/azure/media-services/media-services-dotnet-dynamic-manifest) ou da [API REST](https://docs.microsoft.com/azure/media-services/media-services-rest-dynamic-manifest); no entanto, eles são apenas precisos para GOP. Normalmente, os ativos codificados para streaming têm um tamanho de GOP igual a dois segundos.
 
-Para criar um filtro de manifesto dinâmico, selecione o filtro de manifesto dinâmico como o modo de recorte no menu de configurações avançadas. Siga o mesmo processo para produzir um clipe para criar o filtro. Os filtros só podem ser produzidos em relação a um único ativo.
+Para criar um filtro dinâmico de manifesto, navegue até a guia **Ativos** e selecione o ativo desejado. Clique em **Subclipe** no menu superior. Selecione o filtro de manifesto dinâmico como o modo de recorte no menu de configurações avançadas. Siga o mesmo processo para produzir um clipe renderizado para criar o filtro. Os filtros só podem ser produzidos em relação a um único ativo.
+
+A imagem a seguir ilustra o recorte no modo dinâmico de filtro de manifesto no portal do Azure: ![um recorte de mídia do Azure no modo filtro de manifesto dinâmico no portal do Azure](media/media-services-azure-media-clipper-portal/media-services-azure-media-clipper-filter.PNG)
 
 ## <a name="submitting-clipping-jobs"></a>Enviando trabalhos de recorte
 Quando terminar de compor o clipe, selecione o botão de envio do trabalho para iniciar o trabalho de recorte ou a chamada de manifesto dinâmico correspondente.
+
+## <a name="next-steps"></a>Próximas etapas
+Para começar a usar o Azure Media Clipper, leia o artigo de [introdução](media-services-azure-media-clipper-getting-started.md) para obter detalhes sobre como implantar o widget.
