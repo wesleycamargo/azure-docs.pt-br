@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2016
 ms.author: LADocs; jehollan
-ms.openlocfilehash: 413a2ba9107ca259ed577825bf0a17ff5622f1ac
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a17de187f67c075147ea8ff7f69434014eea3fdb
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="logic-apps-loops-scopes-and-debatching"></a>Loops, Escopos e Debatch dos Aplicativos Lógicos
   
@@ -26,7 +26,7 @@ Os Aplicativos Lógicos fornecem várias maneiras de trabalhar com matrizes, col
   
 ## <a name="foreach-loop-and-arrays"></a>Matrizes e loop ForEach
   
-Os Aplicativos Lógicos permitem que você faça um loop em um conjunto de dados e execute uma ação para cada item.  Isso é possível por meio da ação `foreach` .  No designer, você pode especificar a adição de um loop for each.  Depois de selecionar a matriz em que você deseja iterar, você poderá começar a adicionar ações.  No momento, você está limitado a apenas uma ação por loop foreach, mas essa restrição será eliminada nas próximas semanas.  Uma vez no loop, você poderá começar a especificar o que deve ocorrer em cada valor da matriz.
+Os Aplicativos Lógicos permitem que você faça um loop em um conjunto de dados e execute uma ação para cada item.  Isso é possível por meio da ação `foreach` .  No designer, você pode especificar a adição de um loop for each.  Depois de selecionar a matriz em que você deseja iterar, você poderá começar a adicionar ações.  Você pode adicionar várias ações por loop foreach.  Uma vez no loop, você poderá começar a especificar o que deve ocorrer em cada valor da matriz.
 
 Se você estiver usando o modo de exibição de código, poderá especificar um loop for each como o abaixo.  Este é um exemplo de um loop for each que envia um email para cada endereço de email com 'microsoft.com':
 

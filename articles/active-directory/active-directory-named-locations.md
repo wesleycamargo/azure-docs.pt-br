@@ -1,6 +1,6 @@
 ---
 title: "Localizações nomeadas no Azure Active Directory | Microsoft Docs"
-description: "Ao configurar localizações nomeadas, você pode evitar que endereços IP que pertencem à sua organização gerem falsos positivos para o tipo de evento de risco Viagem impossível a localizações atípicas."
+description: "Saiba o que são localizações nomeadas e como configurá-las."
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -11,22 +11,50 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 12/05/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: da437908509e40386ed23863648bd6956b308186
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 126646d7460831f0235221595b8a93c88be6146d
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="named-locations-in-azure-active-directory"></a>Localizações nomeadas no Azure Active Directory
 
-Com o recurso de localizações nomeadas do Azure Active Directory, você pode rotular os intervalos de endereços IP confiáveis em suas organizações. Em seu ambiente, você pode usar localizações nomeadas no contexto da detecção de [eventos de risco](active-directory-reporting-risk-events.md). O recurso ajuda a reduzir o número de falsos positivos relatados para o tipo de evento de risco *Impossível viajar para localizações atípicas*. 
+Com locais nomeados, você pode rotular os intervalos de endereços IP confiáveis em sua organização. O Azure Active Directory usa localizações nomeadas nos seguintes contextos:
 
-## <a name="configuration"></a>Configuração
+- A detecção de [eventos de risco](active-directory-reporting-risk-events.md) para reduzir o número de falsos positivos relatados.  
 
-Para configurar uma localização nomeada:
+- [Acesso condicional com base em localização](active-directory-conditional-access-azure-portal.md#locations).
+
+
+Este artigo explica como você pode configurar localizações nomeadas em seu ambiente.
+
+
+## <a name="entry-points"></a>Pontos de entrada
+
+Você pode acessar a página de configuração da localização nomeada na seção de **Segurança** da página do Active Directory do Azure clicando em:
+
+![Pontos de entrada](./media/active-directory-named-locations/34.png)
+
+- **Acesso condicional:**
+
+    - Na seção **Gerenciar**, clique em **Localizações nomeadas**.
+    
+        ![O comando Localizações nomeadas](./media/active-directory-named-locations/06.png)
+
+- **Entradas de risco:**
+
+    - Na barra de ferramentas na parte superior, clique em **Adicionar intervalos de endereços IP conhecidos**.
+
+       ![O comando Localizações nomeadas](./media/active-directory-named-locations/35.png)
+
+
+
+## <a name="configuration-example"></a>Exemplo de configuração
+
+**Para configurar uma localização nomeada:**
 
 1. Entre no [Portal do Azure](https://portal.azure.com) como administrador global.
 
@@ -34,22 +62,22 @@ Para configurar uma localização nomeada:
 
     ![O link do Azure Active Directory no painel esquerdo](./media/active-directory-named-locations/01.png)
 
-3. Na folha **Azure Active Directory**, na seção **Segurança**, clique em **Acesso condicional**.
+3. Na página do **Active Directory do Azure**, na seção **Segurança**, clique em **Acesso condicional**.
 
     ![O comando Acesso condicional](./media/active-directory-named-locations/05.png)
 
 
-4. Na folha **Acesso Condicional**, na seção **Gerenciar**, clique em **Localizações nomeadas**.
+4. Na página **Acesso Condicional**, na seção **Gerenciar**, clique em **Localizações nomeadas**.
 
     ![O comando Localizações nomeadas](./media/active-directory-named-locations/06.png)
 
 
-5. Na folha **Localizações nomeadas**, clique em **Novo local**.
+5. Na página **Localizações nomeadas**, clique em **Novo local**.
 
     ![O comando Novo local](./media/active-directory-named-locations/07.png)
 
 
-6. Na folha **Novo**, faça o seguinte:
+6. Na página **Novo**, faça o seguinte:
 
     ![A Nova folha](./media/active-directory-named-locations/56.png)
 
@@ -73,5 +101,10 @@ Para configurar uma localização nomeada:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Para saber mais sobre eventos de risco, veja [Eventos de risco do Azure Active Directory](active-directory-reporting-risk-events.md).
+Para saber mais sobre:
 
+- **Eventos de risco**, consulte [Eventos de risco do Active Directory do Azure](active-directory-reporting-risk-events.md).
+
+- **Acesso condicional**, consulte [Acesso condicional no Active Directory do Azure](active-directory-conditional-access-azure-portal.md).
+
+- **Relatório de entradas de risco**, consulte [Relatório de entrada de risco no portal do Active Directory do Azure](active-directory-reporting-security-risky-sign-ins.md).  

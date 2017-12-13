@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/03/2017
 ms.author: v-six
-ms.openlocfilehash: ec33ba08c6284e90edc1870eef4bf3059b917efb
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: d24a55fd3b93760035f852a24537c1cec9e4bab2
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="troubleshoot-cloud-service-roles-that-fail-to-start"></a>Solução de problemas de funções do serviço de nuvem com falha de inicialização
 Veja alguns problemas comuns e soluções relacionadas às funções do serviço de nuvem do Azure com falha na inicialização.
@@ -62,9 +62,8 @@ Depois que o serviço for implantado novamente, você verá uma mensagem de erro
 Você pode usar a Área de Trabalho Remota para acessar a função e exibir informações de erros mais completas remotamente. Use as seguintes etapas para exibir os erros usando a Área de Trabalho Remota:
 
 1. Verifique se o Azure SDK 1.3 ou posterior está instalado.
-2. Durante a implantação da solução usando o Visual Studio, escolha "Configurar conexões da Área de Trabalho Remota...". Para obter mais informações sobre como configurar a Conexão de Área de Trabalho Remota, confira [Usando a Área de Trabalho Remota com as Funções do Azure](../vs-azure-tools-remote-desktop-roles.md).
-3. No Portal Clássico do Microsoft Azure, depois que a instância mostrar um status de **Pronto**, clique em uma das instâncias de função.
-4. Clique no ícone **Conectar** na área **Acesso Remoto** da faixa de opções.
+2. Durante a implantação da solução usando o Visual Studio, escolha "Configurar conexões da Área de Trabalho Remota". Para obter mais informações sobre como configurar a Conexão de Área de Trabalho Remota, confira [Usando a Área de Trabalho Remota com as Funções do Azure](../vs-azure-tools-remote-desktop-roles.md).
+3. No portal do Microsoft Azure, depois que a instância mostrar um status de **Pronto**, acesse-a remotamente. Para obter mais informações sobre como usar a área de trabalho com Serviços de Nuvem, consulte [Remoto em instâncias de função](cloud-services-role-enable-remote-desktop-new-portal.md#remote-into-role-instances).
 5. Entre na máquina virtual usando as credenciais especificadas durante a configuração da Área de Trabalho Remota.
 6. Abra uma janela de comando.
 7. Digite `IPconfig`.
