@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2017
 ms.author: vvasic
-ms.openlocfilehash: 6d5fc10b5186f2830f724325846a485e4064d12b
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 9f201454d58dbc646923d0155ff41761d593ab7e
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas de banco de dados SQL do Azure e o log de diagnóstico 
 O Banco de Dados SQL do Azure pode emitir métrica e logs de diagnóstico para facilitar o monitoramento. Você pode configurar o Banco de Dados SQL para armazenar o uso de recursos, trabalhos, sessões e conectividade em um destes recursos do Azure:
@@ -48,7 +48,7 @@ Quando você habilitar o log de diagnóstico e métricas, você precisa especifi
 
 Você pode provisionar um novo recurso do Azure ou selecionar um recurso existente. Depois de selecionar o recurso de armazenamento, você precisa especificar quais dados coletar. As opções disponíveis incluem:
 
-- [Métricas de 1 minuto](sql-database-metrics-diag-logging.md#1-minute-metrics): contêm o percentual de DTU, o limite de DTU, o percentual de CPU, o percentual de leitura de dados físicos, o percentual de gravação em log, êxito/falha/bloqueio por conexões de firewall, o percentual de sessões, o percentual de funcionários, o armazenamento, o percentual de armazenamento e o percentual de armazenamento XTP.
+- [Todas as métricas](sql-database-metrics-diag-logging.md#all-metrics): contém o percentual de DTU, o limite de DTU, o percentual de CPU, o percentual de leitura de dados físicos, o percentual de gravação em log, êxito/falha/bloqueio por conexões de firewall, o percentual de sessões, o percentual de funcionários, o armazenamento, o percentual de armazenamento e o percentual de armazenamento XTP.
 - [QueryStoreRuntimeStatistics](sql-database-metrics-diag-logging.md#query-store-runtime-statistics): contém informações sobre as estatísticas de tempo de execução da consulta, como o uso de CPU e a duração da consulta.
 - [QueryStoreWaitStatistics](sql-database-metrics-diag-logging.md#query-store-wait-statistics): contém informações sobre as estatísticas de espera da consulta, que informam sobre o que suas consultas aguardaram, como CPU, LOG e LOCKING.
 - [Erros](sql-database-metrics-diag-logging.md#errors-dataset): contém informações sobre erros de SQL que ocorreram neste banco de dados.
@@ -243,7 +243,7 @@ Ou, simplesmente:
 insights-{metrics|logs}-{category name}/resourceId=/{resource Id}/y={four-digit numeric year}/m={two-digit numeric month}/d={two-digit numeric day}/h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
 
-Por exemplo, um nome de blob para métricas de 1 minuto pode ser:
+Por exemplo, um nome de blob para todas as métricas pode ser:
 
 ```powershell
 insights-metrics-minute/resourceId=/SUBSCRIPTIONS/s1id1234-5679-0123-4567-890123456789/RESOURCEGROUPS/TESTRESOURCEGROUP/PROVIDERS/MICROSOFT.SQL/ servers/Server1/databases/database1/y=2016/m=08/d=22/h=18/m=00/PT1H.json
@@ -261,7 +261,7 @@ Saiba como [baixar métricas e logs de diagnóstico do Armazenamento](../storage
 
 ## <a name="metrics-and-logs-available"></a>Métricas e logs disponíveis
 
-### <a name="1-minute-metrics"></a>métricas de 1 minuto
+### <a name="all-metrics"></a>Todas as métricas
 
 |**Recurso**|**Métricas**|
 |---|---|

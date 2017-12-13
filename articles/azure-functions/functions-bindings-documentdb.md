@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: a725d6e08721107ddd83999dac85dddb88896ebf
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 91289507b9989da9d5c36628fe25cd2e60b8814d
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions"></a>Associações do Azure Cosmos DB para Azure Functions
 
@@ -170,9 +170,49 @@ A associação de entrada de API do DocumentDB recupera um ou mais documentos do
 
 Consulte o exemplo de linguagem específica que lê um único documento:
 
+* [Pré-compilado C#](#input---c-example)
 * [Script C#](#input---c-script-example)
 * [F#](#input---f-example)
 * [JavaScript](#input---javascript-example)
+
+### <a name="input---c-example"></a>Entrada – exemplo de C#
+
+O exemplo a seguir mostra uma [função C# pré-compilada](functions-dotnet-class-library.md) que recupera um documento único a partir de um banco de dados e uma coleção específicos. Primeiro, os valores `Id` e `Maker` de uma instância `CarReview` são passados para uma fila. 
+
+ ```cs
+    public class CarReview
+    {
+        public string Id { get; set; }
+        public string Maker { get; set; }
+        public string Description { get; set; }
+        public string Model { get; set; }
+        public string Image { get; set; }
+        public string Review { get; set; }
+    }
+ ```
+
+A associação do Cosmos DB usa `Id` e `Maker` da mensagem da fila para recuperar o documento do banco de dados.
+
+```cs
+    using Microsoft.Azure.WebJobs;
+    using Microsoft.Azure.WebJobs.Host;
+    using Microsoft.Azure.WebJobs.Extensions.DocumentDB;
+
+    namespace CosmosDB
+    {
+        public static class SingleEntry
+        {
+            [FunctionName("SingleEntry")]
+            public static void Run(
+                [QueueTrigger("car-reviews", Connection = "StorageConnectionString")] CarReview carReview,
+                [DocumentDB("cars", "car-reviews", PartitionKey = "{maker}", Id= "{id}", ConnectionStringSetting = "CarReviewsConnectionString")] CarReview document,
+                TraceWriter log)
+            {
+                log.Info( $"Selected Review - {document?.Review}"); 
+            }
+        }
+    }
+```
 
 ### <a name="input---c-script-example"></a>Entrada - exemplo de script C#
 
@@ -632,7 +672,7 @@ module.exports = function (context) {
 };
 ```
 
-## <a name="output---attributes"></a>Saída – atributos
+## <a name="output---attributes"></a>Saída - atributos
 
 Para funções [C# pré-compiladas](functions-dotnet-class-library.md), use o atributo [DocumentDB](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.DocumentDB/DocumentDBAttribute.cs), o qual é definido no pacote NuGet [Microsoft.Azure.WebJobs.Extensions.DocumentDB](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DocumentDB).
 

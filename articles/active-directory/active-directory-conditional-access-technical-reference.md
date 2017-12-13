@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/29/2017
+ms.date: 12/05/2017
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: cfb3a309208c78dc7896d61891da9825cf36dbd9
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 5fad793bcf9ac86c2a1bc67e74dfb62af9876100
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-conditional-access-technical-reference"></a>Referência técnica de acesso condicional do Azure Active Directory
 
@@ -117,7 +117,7 @@ Em sua política de acesso condicional, você pode selecionar **Navegadores** co
 
 ![Controlar acesso para navegadores com suporte](./media/active-directory-conditional-access-technical-reference/05.png)
 
-Essa configuração tem um impacto nas tentativas de acesso feitas a partir dos seguintes navegadores: 
+Essa configuração funciona com todos os navegadores. No entanto, para satisfazer uma política de dispositivo, como um requisito de conformidade de dispositivo, há suporte para os sistemas operacionais e navegadores a seguir:
 
 
 | SO                     | Navegadores                            | Suporte     |
@@ -138,6 +138,9 @@ Essa configuração tem um impacto nas tentativas de acesso feitas a partir dos 
 > [!NOTE]
 > Para obter suporte ao Chrome, use a Atualização do Windows 10 para Criadores (versão 1703) ou posterior.<br>
 > Você pode instalar [essa extensão](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji).
+
+Esses navegadores dão suporte à autenticação de dispositivo, permitindo que o dispositivo seja identificado e validado em relação a uma política. A verificação de dispositivo falha caso o navegador esteja sendo executado em modo privado. 
+
 
 ### <a name="supported-mobile-applications-and-desktop-clients"></a>Aplicativos móveis e cliente de área de trabalho com suporte
 

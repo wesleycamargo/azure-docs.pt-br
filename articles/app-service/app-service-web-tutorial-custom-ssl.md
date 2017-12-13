@@ -12,14 +12,14 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
-ms.date: 06/23/2017
+ms.date: 11/30/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: c18ca8e81fefdee723714c6535160e75ef4d698d
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: f69bc731b2858c338d7f7b4d347e7107a0f4eeed
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Associar um certificado SSL personalizado existente a aplicativos Web do Azure
 
@@ -214,61 +214,17 @@ Agora, tudo o que resta fazer é certificar-se de que o HTTPS funcione com seu d
 
 ## <a name="enforce-https"></a>Impor HTTPS
 
-O Serviço de Aplicativo *não* impõe o HTTPS, de modo que qualquer um ainda pode acessar seu aplicativo Web usando HTTP. Para impor o HTTPS ao aplicativo Web, defina uma regra de reescrita no arquivo _web.config_ do aplicativo Web. Todo aplicativo do Serviço de Aplicativo usa esse arquivo, independentemente da estrutura de linguagem do seu aplicativo Web.
+Por padrão, todos ainda podem acessar seu aplicativo Web usando HTTP. Você pode redirecionar todas as solicitações HTTP para a porta HTTPS.
 
-> [!NOTE]
-> Há um redirecionamento de solicitações específico a um idioma. O ASP.NET MVC pode usar o filtro [RequireHttps](http://msdn.microsoft.com/library/system.web.mvc.requirehttpsattribute.aspx) em vez da regra de reescrita em _web.config_.
+Na sua página do aplicativo Web, na navegação esquerda, selecione **Domínios personalizados**. Depois, em **HTTPS somente**, selecione **Ligado**.
 
-Se você é um desenvolvedor do .NET, você deve estar relativamente familiarizado com esse arquivo. Ele está na raiz de sua solução.
+![Impor HTTPS](./media/app-service-web-tutorial-custom-ssl/enforce-https.png)
 
-Como alternativa, se você desenvolve com PHP, Node.js, Python ou Java, há uma chance de termos gerado esse arquivo em seu nome no Serviço de Aplicativo.
+Quando a operação estiver concluída, navegue até qualquer uma das URLs HTTP que aponte para seu aplicativo. Por exemplo:
 
-Conecte-se ao ponto de extremidade FTP do seu aplicativo Web, seguindo as instruções em [Implantar seu aplicativo no Serviço de Aplicativo do Azure usando FTP/S](app-service-deploy-ftp.md).
-
-Esse arquivo deve estar localizado em _/home/site/wwwroot_. Caso contrário, crie um arquivo _web.config_ nesta pasta com o seguinte XML:
-
-```xml   
-<?xml version="1.0" encoding="UTF-8"?>
-<configuration>
-  <system.webServer>
-    <rewrite>
-      <rules>
-        <!-- BEGIN rule ELEMENT FOR HTTPS REDIRECT -->
-        <rule name="Force HTTPS" enabled="true">
-          <match url="(.*)" ignoreCase="false" />
-          <conditions>
-            <add input="{HTTPS}" pattern="off" />
-          </conditions>
-          <action type="Redirect" url="https://{HTTP_HOST}/{R:1}" appendQueryString="true" redirectType="Permanent" />
-        </rule>
-        <!-- END rule ELEMENT FOR HTTPS REDIRECT -->
-      </rules>
-    </rewrite>
-  </system.webServer>
-</configuration>
-```
-
-Para um arquivo _web.config_ existente, copie todo o elemento `<rule>` para o elemento `configuration/system.webServer/rewrite/rules` do _web.config_. Se houver outros elementos `<rule>` no _web.config_, coloque o elemento `<rule>` copiado antes dos outros elementos `<rule>`.
-
-Essa regra retorna um HTTP 301 (redirecionamento permanente) para o protocolo HTTPS sempre que o usuário fizer uma solicitação HTTP ao aplicativo Web. Por exemplo, ele redireciona de `http://contoso.com` para `https://contoso.com`.
-
-Para obter mais informações sobre o Módulo de Reescrita de URL do IIS, consulte a documentação [Reescrita de URL](http://www.iis.net/downloads/microsoft/url-rewrite) .
-
-## <a name="enforce-https-for-web-apps-on-linux"></a>Impor o HTTPS a aplicativos Web no Linux
-
-O Serviço de Aplicativo no Linux *não* impõe o HTTPS e, portanto, qualquer pessoa ainda pode acessar o aplicativo Web usando o HTTP. Para impor o HTTPS ao aplicativo Web, defina uma regra de reescrita no arquivo _.htaccess_ do aplicativo Web. 
-
-Conecte-se ao ponto de extremidade FTP do seu aplicativo Web, seguindo as instruções em [Implantar seu aplicativo no Serviço de Aplicativo do Azure usando FTP/S](app-service-deploy-ftp.md).
-
-Em _/home/site/wwwroot_, crie um arquivo _.htaccess_ com o seguinte código:
-
-```
-RewriteEngine On
-RewriteCond %{HTTP:X-ARR-SSL} ^$
-RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-```
-
-Essa regra retorna um HTTP 301 (redirecionamento permanente) para o protocolo HTTPS sempre que o usuário fizer uma solicitação HTTP ao aplicativo Web. Por exemplo, ele redireciona de `http://contoso.com` para `https://contoso.com`.
+- `http://<app_name>.azurewebsites.net`
+- `http://contoso.com`
+- `http://www.contoso.com`
 
 ## <a name="automate-with-scripts"></a>Automatizar com scripts
 
@@ -311,8 +267,8 @@ New-AzureRmWebAppSSLBinding `
     -CertificatePassword <PFX_password> `
     -SslState SniEnabled
 ```
-## <a name="public-certificates-optional"></a>Certificados Públicos (opcionais)
-Você pode carregar [Certificados Públicos](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) para seu aplicativo Web. Você pode usar os Certificados Públicos com aplicativos Web no serviço de aplicativo ou no ASE (Ambiente de Serviço de Aplicativo). Se você precisar armazenar o certificado no repositório de certificados LocalMachine, use um aplicativo Web no Ambiente de Serviço de Aplicativo. Para saber mais detalhes, consulte [Como configurar certificados públicos em seu aplicativo Web](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer).
+## <a name="public-certificates-optional"></a>Certificados públicos (opcional)
+Você pode carregar [certificados públicos](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) para seu aplicativo Web. Você também pode usar certificados públicos para aplicativos em Ambientes de Serviço de Aplicativo. Se você precisar armazenar o certificado no repositório de certificados LocalMachine, é preciso usar um aplicativo Web no Ambiente de Serviço de Aplicativo. Para obter mais informações, consulte [Como configurar certificados públicos para seu Aplicativo Web](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer).
 
 ![Carregar um certificado público](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
 
@@ -330,3 +286,5 @@ Vá para o próximo tutorial para saber como usar a Rede de Distribuição de Co
 
 > [!div class="nextstepaction"]
 > [Adicionar uma CDN (Rede de Distribuição de Conteúdo) a um Serviço de Aplicativo do Azure](app-service-web-tutorial-content-delivery-network.md)
+
+Para obter mais informações, consulte [Usar um certificado SSL no código do aplicativo no Serviço de Aplicativo do Azure](app-service-web-ssl-cert-load.md).

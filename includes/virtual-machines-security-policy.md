@@ -24,7 +24,7 @@ Quando você se conectar a máquinas virtuais, deverá usar a criptografia de ch
 
 ## <a name="policies"></a>Políticas
 
-[Políticas do Azure Resource manager](../articles/azure-resource-manager/resource-manager-policy.md) podem ser usadas para definir o comportamento desejado para a sua organização [VMs do Windows](../articles/virtual-machines/windows/policy.md) e [VMs do Linux](../articles/virtual-machines/linux/policy.md). Usando políticas, uma organização pode impor várias convenções e regras em toda a empresa. A imposição do comportamento desejado pode ajudar a reduzir o risco e contribui para o sucesso da organização.
+As [Políticas do Azure](../articles/azure-policy/azure-policy-introduction.md) podem ser usadas para definir o comportamento desejado para as [VMs do Windows](../articles/virtual-machines/windows/policy.md) e [VMs do Linux](../articles/virtual-machines/linux/policy.md) da sua organização. Usando políticas, uma organização pode impor várias convenções e regras em toda a empresa. A imposição do comportamento desejado pode ajudar a reduzir o risco e contribui para o sucesso da organização.
 
 ## <a name="role-based-access-control"></a>Controle de acesso baseado em função
 

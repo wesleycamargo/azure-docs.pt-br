@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 11/13/2017
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: b91902b13e7633a0724a57ff7fceb68e50abd13a
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: 8a2fdc89241c659505d9e61e843c1ddf438f8c53
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="reset-your-work-or-school-password"></a>Redefinir sua senha corporativa ou de estudante
 
@@ -122,6 +122,7 @@ Agora você deve poder acessar sua conta. Caso contrário, contate a equipe de T
 
 | Caso de erro| Que erro você vê?| Solução |
 | --- | --- | --- |
+| Eu vejo um erro quando tento alterar minha senha. | Infelizmente, sua senha contém uma palavra, uma frase ou um padrão que pode ser facilmente adivinhado. Tente novamente com uma senha diferente. | Escolha uma senha que seja mais difícil de ser adivinhada. |
 | Uma página "Contate seu administrador" é exibida após a inserção da minha ID de usuário | Contate o administrador. <br> <br> Detectamos que a senha da sua conta de usuário não é gerenciada pela Microsoft. Portanto, não podemos redefinir sua senha automaticamente. <br> <br> Você precisa contatar sua equipe de TI para receber mais assistência. | Você está vendo esta mensagem porque a equipe de TI gerencia sua senha no seu ambiente local. Não é possível redefinir a senha usando o link "Não é possível acessar sua conta". <br> <br> Para redefinir a senha, contate a equipe de TI diretamente para obter ajuda e informe que deseja redefinir a senha para que ela possa habilitar o recurso para você.|
 | Recebo um erro "Sua conta não está habilitada para redefinição de senha" depois de inserir a ID de usuário | Sua conta não está habilitada para redefinição de senha. <br> <br> A equipe de TI não configurou sua conta para usar esse serviço. <br> <br> Se desejar, podemos pode contatar um administrador na sua organização para redefinir a senha para você. | Você está vendo esta mensagem porque a equipe de TI não habilitou a redefinição de senha para a organização usando o link "Não é possível acessar sua conta" ou não licenciou você para usar o recurso. <br> <br> Para redefinir a senha, selecione o link "Contate um administrador" para enviar um email à equipe de TI da empresa e informe que deseja redefinir a senha para que ela possa habilitar esse recurso para você. |
 | Recebo um erro "Não foi possível verificar sua conta" depois de inserir a ID de usuário | Não foi possível verificar sua conta. <br> <br> Se desejar, podemos pode contatar um administrador na sua organização para redefinir a senha para você. | Você está vendo esta mensagem porque a redefinição de senha está habilitada, mas você não se registrou para usar o serviço. Para se registrar para redefinição de senha, vá para http://aka.ms/ssprsetup depois que você tiver recuperado o acesso à sua conta. <br> <br> A fim de redefinir a senha, selecione o link "Contate um administrador" para enviar um email à equipe de TI da empresa. |

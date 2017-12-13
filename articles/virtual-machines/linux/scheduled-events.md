@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2017
 ms.author: zivr
-ms.openlocfilehash: 2df39c64470e28bdf664d388041ae1b17d80db69
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 763e690cac06fc321f7d1f873da7405c44c02b80
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-metadata-service-scheduled-events-preview-for-linux-vms"></a>Serviço de Metadados do Azure: Eventos Agendados (versão prévia) para VMs do Linux
 
@@ -54,7 +54,7 @@ O Serviço de Metadados do Azure expõe informações sobre a execução de Máq
 
 ### <a name="scope"></a>Escopo
 Os eventos agendados são entregues a:
-- Todas as máquinas virtuais em um serviço de nuvem
+- Todas as Máquinas Virtuais em um Serviço de Nuvem
 - Todas as máquinas virtuais em um conjunto de disponibilidade
 - Todas as máquinas virtuais em um Grupo de Posicionamento do Conjunto de Escala. 
 
@@ -87,7 +87,7 @@ Ao consultar o Serviço de Metadados você deverá fornecer o cabeçalho `Metada
 Na primeira vez em que fizer uma solicitação de eventos programados, o Azure habilitará implicitamente o recurso em sua Máquina Virtual. Como resultado, você deve esperar um atraso na resposta em sua primeira chamada de até dois minutos.
 
 > [!NOTE]
-> Os eventos agendados serão desabilitados automaticamente para seu serviço se ele não chamar o ponto de extremidade por 1 dia. Quando os eventos agendados é desabilitado para o serviço, não haverá eventos criados para a manutenção iniciada pelo usuário.
+> Os Eventos Agendados serão desabilitados automaticamente para seu serviço se ele não chamar o ponto de extremidade por um dia. Quando os Eventos Agendados forem desabilitados para o serviço, não haverá eventos criados para a manutenção iniciada pelo usuário.
 
 ### <a name="user-initiated-maintenance"></a>Manutenção iniciada pelo usuário
 A manutenção de máquinas virtuais iniciada pelo usuário pelo portal do Azure, API, CLI ou PowerShell resulta em um evento agendado. Isso permite que você teste a lógica de preparação de manutenção em seu aplicativo e permite que seu aplicativo se prepare para manutenção iniciada pelo usuário.

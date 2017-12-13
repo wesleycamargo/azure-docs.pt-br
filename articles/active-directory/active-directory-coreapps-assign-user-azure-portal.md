@@ -3,8 +3,8 @@ title: "Atribuir um usuário ou grupo a um aplicativo empresarial no Azure Activ
 description: "Como selecionar um aplicativo empresarial par atribuir um usuário ou um grupo a ele no Azure Active Directory"
 services: active-directory
 documentationcenter: 
-author: curtand
-manager: femila
+author: daveba
+manager: mtillman
 editor: 
 ms.assetid: 5817ad48-d916-492b-a8d0-2ade8c50a224
 ms.service: active-directory
@@ -12,25 +12,27 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/28/2017
-ms.author: curtand
-ms.reviewer: asteen
-ms.openlocfilehash: 8e61044f261033a473241e2de152026bf49c4c70
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/30/2017
+ms.author: daveba
+ms.reviewer: luleon
+ms.openlocfilehash: 65727ee9330a1a6650eb54595ebc93a7a693923c
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Atribuir um usuário ou um grupo a um aplicativo empresarial no Azure Active Directory
-É fácil atribuir um usuário ou um grupo aos aplicativos empresariais no Azure AD (Azure Active Directory). Você deve ter as permissões apropriadas para gerenciar o aplicativo empresarial, além de ser um administrador global do diretório.
+Para atribuir um usuário ou grupo a um aplicativo corporativo, você deverá ter as permissões apropriadas para gerenciar o aplicativo empresarial, além de ser um administrador global do diretório.
+> [!NOTE]
+> Para aplicativos da Microsoft (como aplicativos do Office 365), use o PowerShell para atribuir usuários a um aplicativo empresarial.
 
-## <a name="how-do-i-assign-user-access-to-an-enterprise-app"></a>Como atribuir acesso de usuário a um aplicativo empresarial?
+## <a name="how-do-i-assign-user-access-to-an-enterprise-app-in-the-azure-portal"></a>Como fazer para atribuir acesso de usuário a um aplicativo empresarial no portal do Azure?
 1. Entre no [Portal do Azure](https://portal.azure.com) com uma conta que seja um administrador global do diretório.
 2. Selecione **Mais serviços**, insira Azure Active Directory na caixa de texto, em seguida, selecione **Enter**.
 3. Na folha **Azure Active Directory – *nomedodiretório*** (ou seja, a folha do Azure AD para o diretório que você está gerenciando), escolha **Aplicativos empresariais**.
 
     ![Abrir aplicativos empresariais](./media/active-directory-coreapps-assign-user-azure-portal/open-enterprise-apps.png)
-4. Na folha **Aplicativos empresariais**, escolha **Todos os aplicativos**. Você verá uma lista dos aplicativos que pode gerenciar.
+4. Na folha **Aplicativos empresariais**, escolha **Todos os aplicativos**. Lista os aplicativos que você pode gerenciar.
 5. Na folha **Aplicativos empresariais – Todos os aplicativos** , escolha um aplicativo.
 6. Na folha ***appname*** (ou seja, a folha com o nome do aplicativo selecionado no título), selecione **Usuários e Grupos**.
 
@@ -41,7 +43,72 @@ ms.lasthandoff: 10/11/2017
     ![Atribuir um usuário ou um grupo ao aplicativo](./media/active-directory-coreapps-assign-user-azure-portal/assign-users.png)
 9. Na folha **Usuários e grupos**, selecione um ou mais usuários ou grupos na lista, em seguida, pressione o botão **Selecionar** na parte inferior da folha.
 10. Na folha **Adicionar Atribuição**, selecione **Função**. Então, na folha **Selecionar Função**, escolha uma função para aplicar nos usuários ou grupos selecionados, em seguida, selecione o botão **OK** na parte inferior da folha.
-11. Na folha **Adicionar Atribuição**, selecione o botão **Atribuir** na parte inferior da folha. Os usuários ou os grupos atribuídos terão as permissões definidas pela função selecionada para esse aplicativo empresarial.
+11. Na folha **Adicionar Atribuição**, selecione o botão **Atribuir** na parte inferior da folha. Os usuários ou os grupos atribuídos têm as permissões definidas pela função selecionada para esse aplicativo empresarial.
+
+## <a name="how-do-i-assign-a-user-to-an-enterprise-app-using-powershell"></a>Como atribuir um usuário a um aplicativo empresarial usando o PowerShell?
+
+1. Abra um prompt elevado do Windows PowerShell.
+
+    >[!NOTE] 
+    > Você precisa instalar o módulo do Azure AD (use o comando `Install-Module -Name AzureAD`). Se solicitado a instalar um módulo do NuGet ou o novo módulo do Azure Active Directory V2 PowerShell, digite Y e pressione ENTER.
+
+2. Execute `Connect-AzureAD` e entre com uma conta de usuário de Administrador Global.
+3. Use o script abaixo para atribuir um usuário e uma função a um aplicativo:
+
+    ```powershell
+    # Assign the values to the variables
+    $username = "<You user's UPN>"
+    $app_name = "<Your App's display name>"
+    $app_role_name = "<App role display name>"
+    
+    # Get the user to assign, and the service principal for the app to assign to
+    $user = Get-AzureADUser -ObjectId "$username"
+    $sp = Get-AzureADServicePrincipal -Filter "displayName eq '$app_name'"
+    $appRole = $sp.AppRoles | Where-Object { $_.DisplayName -eq $app_role_name }
+    
+    # Assign the user to the app role
+    New-AzureADUserAppRoleAssignment -ObjectId $user.ObjectId -PrincipalId $user.ObjectId -ResourceId $sp.ObjectId -Id $appRole.Id
+    ```     
+
+Para saber mais sobre como atribuir um usuário a uma função de aplicativo, consulte a documentação sobre [New-AzureADUserAppRoleAssignment](https://docs.microsoft.com/en-us/powershell/module/azuread/new-azureaduserapproleassignment?view=azureadps-2.0)
+
+### <a name="example"></a>Exemplo
+
+Este exemplo atribui a usuária Brenda Fernandes ao aplicativo [Microsoft Workplace Analytics](https://products.office.com/en-us/business/workplace-analytics) usando o PowerShell.
+
+1. No PowerShell, atribua os valores correspondentes às variáveis $username, app_name $ e $app_role_name. 
+
+    ```powershell
+    # Assign the values to the variables
+    $username = "britta.simon@contoso.com"
+    $app_name = "Workplace Analytics"
+    ```
+
+2. Neste exemplo, não sabemos o nome exato da função de aplicativo que desejamos atribuir à Brenda Fernandes. Execute os comandos a seguir para obter o usuário ($user) e a entidade de serviço ($sp) usando o nome UPN do usuário e o nome de exibição da entidade de serviço.
+
+    ```powershell
+    # Get the user to assign, and the service principal for the app to assign to
+    $user = Get-AzureADUser -ObjectId "$username"
+    $sp = Get-AzureADServicePrincipal -Filter "displayName eq '$app_name'"
+    ```
+        
+3. Execute o comando `$sp.AppRoles` para exibir as funções disponíveis para o aplicativo Workplace Analytics. Neste exemplo, queremos atribuir a Brenda Fernandes a função de Analista (acesso limitado).
+    
+    ![Função do Workplace Analytics](media/active-directory-coreapps-assign-user-azure-portal/workplace-analytics-role.png)
+
+4. Atribua o nome de função à variável `$app_role_name`.
+        
+    ```powershell
+    # Assign the values to the variables
+    $app_role_name = "Analyst (Limited access)"
+    ```
+
+5. Execute o seguinte comando para atribuir o usuário à função de aplicativo:
+
+    ```powershell
+    # Assign the user to the app role
+    New-AzureADUserAppRoleAssignment -ObjectId $user.ObjectId -PrincipalId $user.ObjectId -ResourceId $sp.ObjectId -Id $appRole.Id
+    ```
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Ver todos os meus grupos](active-directory-groups-view-azure-portal.md)
