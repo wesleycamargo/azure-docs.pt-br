@@ -68,8 +68,9 @@ Execute aplicativos de HPC comerciais ou personalizados no Azure. Vários exempl
 
 ### <a name="ai-and-deep-learning"></a>IA e deep learning
 
+* Treinamento de [IA em lote](../articles/batch-ai/overview.md) para modelos de deep learning
 * [Microsoft Cognitive Toolkit](https://docs.microsoft.com/cognitive-toolkit/cntk-on-azure)
-* [Kit de ferramentas de deep learning para VM de Ciência de Dados](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning)
+* [VM de deep learning](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning)
 * [Receitas do Shipyard do Lote para deep learning](https://github.com/Azure/batch-shipyard/tree/master/recipes#deeplearning)
 
 
@@ -104,7 +105,7 @@ Saiba como:
 
 * [Introdução ao desenvolvimento com o Lote](../articles/batch/batch-dotnet-get-started.md)
 * [Usar exemplos de código do Lote do Azure](https://github.com/Azure/azure-batch-samples)
-* [Usar VMs de baixa prioridade com o Lote (versão prévia)](../articles/batch/batch-low-pri-vms.md)
+* [Usar VMs de baixa prioridade com o Lote](../articles/batch/batch-low-pri-vms.md)
 * [Executar cargas de trabalho de HPC em contêineres com Shipyard do Lote](https://github.com/Azure/batch-shipyard)
 * [Usar a linguagem R com o Lote](https://github.com/Azure/doAzureParallel)
 
@@ -138,7 +139,7 @@ As máquinas virtuais do Azure, os conjuntos de dimensionamento de máquinas vir
 * [Armazenamento de arquivos](../articles/storage/storage-files-introduction.md)
 
 ### <a name="data-and-analytics"></a>Dados e análises
-* [HDInsight](../articles/hdinsight/hdinsight-hadoop-introduction.md) para clusters Hadoop no Azure
+* [HDInsight](../articles/hdinsight/hadoop/apache-hadoop-introduction.md) para clusters Hadoop no Azure
 * [Fábrica de dados](../articles/data-factory/introduction.md)
 * [Data Lake Store](../articles/data-lake-store/data-lake-store-overview.md)
 * [Machine Learning](../articles/machine-learning/machine-learning-what-is-machine-learning.md)

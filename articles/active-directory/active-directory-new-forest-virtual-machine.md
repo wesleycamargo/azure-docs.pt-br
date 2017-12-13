@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/06/2017
 ms.author: joflore
-ms.openlocfilehash: 0a45a563d8aed45dd30cc76a13b0e197c248be84
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 18151f647b857dec78e659a3394359ff21a818c7
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="install-a-new-active-directory-forest-on-an-azure-virtual-network"></a>Instalar uma nova floresta do Active Directory em uma rede virtual do Azure
-Este tópico mostra como criar um novo ambiente do Active Directory do Windows Server em uma rede virtual do Azure em uma máquina virtual (VM) em uma [rede virtual do Azure](../virtual-network/virtual-networks-overview.md). Nesse caso, a rede virtual do Azure não está conectada a uma rede local.
+Este artigo mostra como criar um novo ambiente do Active Directory do Windows Server em uma máquina virtual (VM) em uma [Rede virtual do Azure](../virtual-network/virtual-networks-overview.md). Nesse caso, a rede virtual do Azure não está conectada a uma rede local.
 
-Você também pode estar interessado nestes tópicos relacionados:
+Você também pode se interessar por estes artigos relacionados:
 
 * Para um vídeo que mostra essas etapas, consulte [Como instalar uma nova floresta do Active Directory em uma rede virtual do Azure](http://channel9.msdn.com/Series/Microsoft-Azure-Tutorials/How-to-install-a-new-Active-Directory-forest-on-an-Azure-virtual-network)
 * Você também pode [configurar uma VPN site a site](../vpn-gateway/vpn-gateway-site-to-site-create.md) e então instalar uma nova floresta ou então estender uma floresta local para uma rede virtual do Azure. Para essas etapas, consulte [Instalar um controlador de domínio do Active Directory de réplica em uma rede virtual do Azure](active-directory-install-replica-active-directory-domain-controller.md).
@@ -87,7 +87,7 @@ Após a instalação do DC, conecte-se novamente à VM e faça logon no DC. Não
    3. Na guia **Encaminhadores**, clique no endereço IP do encaminhador e clique em **Editar**.  Selecione o endereço IP e clique em **Excluir**.
    4. Clique em **OK** para fechar o editor e em **Ok** novamente para fechar as propriedades do servidor DNS.
 2. Atualize a configuração do servidor DNS para a rede virtual.
-   1. Clique em **Redes virtuais** > clique duas vezes na rede virtual que você criou > **Configurar** > **Servidores DNS**, digite o nome e o DIP de uma das VMs que executa a função de servidor DC/DNS e clique em **Salvar**.
+   1. Clique em **Redes virtuais** > clique duas vezes na rede virtual que você criou > **Configurar** > **Servidores DNS**, digite o nome e o IP de uma das VMs que executa a função de servidor DC/DNS e clique em **Salvar**.
    2. Selecione a VM e clique em **Reiniciar** para disparar a VM e definir as configurações de resolvedor DNS com o endereço IP do novo servidor DNS.
 
 ## <a name="create-vms-for-domain-members"></a>Criar VMs para membros do domínio

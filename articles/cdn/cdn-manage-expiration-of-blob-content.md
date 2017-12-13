@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: mazha
-ms.openlocfilehash: 50015fabb323e618d3c093d4083cc648ff13b8f1
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 694d0c27b26c1ed9f6a1a54f766d024d882b5b64
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-content-delivery-network"></a>Gerencie expiração de armazenamento Blob do Azure na Rede de Distribuição de Conteúdo do Microsoft Azure
 > [!div class="op_single_selector"]
@@ -29,8 +29,10 @@ ms.lasthandoff: 11/30/2017
 
 O [Serviço de armazenamento de blobs](../storage/common/storage-introduction.md#blob-storage) no Armazenamento do Azure é uma das várias origens baseadas no Azure integradas à CDN (Rede de Distribuição de Conteúdo) do Azure. Qualquer conteúdo de blob publicamente acessível pode ser armazenado em cache no Azure CDN até que o tempo de vida (TTL) seja decorrido. A vida útil é determinada pelo cabeçalho `Cache-Control` na resposta HTTP do servidor de origem. Este artigo descreve várias maneiras que você pode definir o cabeçalho `Cache-Control` em um blob no Armazenamento do Azure.
 
+Também é possível controlar as configurações de cache do portal do Azure, definindo as [regras de cache da CDN](cdn-caching-rules.md). Se você configurar uma ou mais regras de cache e definir o comportamento do cache para **Substituir** ou **Ignorar cache**, as configurações de cache fornecidas pela origem discutidas neste artigo serão ignoradas. Para obter informações sobre conceitos gerais de cache, consulte [Como funciona o cache](cdn-how-caching-works.md).
+
 > [!TIP]
-> Você pode optar por não definir nenhuma vida útil em um blob. Nesse caso, o Azure CDN aplica automaticamente um TTL padrão de sete dias. Esse padrão TTL aplica-se somente para otimizações de entrega da web gerais. Para otimizações de arquivo grande, o TTL padrão é de um dia e para otimizações de streaming de mídia, o TTL padrão é um ano.
+> Você pode optar por não definir nenhuma vida útil em um blob. Nesse caso, a CDN do Azure aplica automaticamente um TTL padrão de sete dias, exceto se você tiver configurado as regras de cache no portal do Azure. Esse padrão TTL aplica-se somente para otimizações de entrega da web gerais. Para otimizações de arquivo grande, o TTL padrão é de um dia e para otimizações de streaming de mídia, o TTL padrão é um ano.
 > 
 > Para obter mais informações sobre como a CDN do Azure trabalha para acelerar o acesso a blob e outros arquivos, consulte [Visão geral da Rede de Distribuição de Conteúdo do Azure](cdn-overview.md).
 > 
@@ -111,9 +113,9 @@ Para atualizar a propriedade *CacheControl* de um blob com o Gerenciador de Arma
 ![Propriedades do Gerenciador do Armazenamento do Microsoft Azure](./media/cdn-manage-expiration-of-blob-content/cdn-storage-explorer-properties.png)
 
 ### <a name="azure-command-line-interface"></a>Interface de linha de comando do Azure
-Quando você carrega um blob, pode definir a propriedade *cacheControl* com o `-p` switch no [CLI do Azure](../cli-install-nodejs.md). O exemplo a seguir mostra como definir o TTL para uma hora (3600 segundos):
+Com a [Interface de linha de comando (CLI) do Azure](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest), você pode gerenciar recursos de blob do Azure a partir da linha de comando. Para definir um cabeçalho de cache-control ao carregar um blob com a CLI do Azure, defina a propriedade *cacheControl* usando a opção `-p`. O exemplo a seguir mostra como definir o TTL para uma hora (3600 segundos):
   
-```command
+```azurecli
 azure storage blob upload -c <connectionstring> -p cacheControl="max-age=3600" .\test.txt myContainer test.txt
 ```
 
@@ -129,4 +131,5 @@ Você pode facilmente verificar as configurações TTL dos seus blobs. Com as [f
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Saiba como gerenciar a expiração do conteúdo do Serviço de Nuvem na CDN do Azure](cdn-manage-expiration-of-cloud-service-content.md)
+* [Saiba mais sobre conceitos de cache](cdn-how-caching-works.md)
 

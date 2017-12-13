@@ -54,7 +54,7 @@ Não. As VMs em um conjunto de disponibilidade devem usar todos os discos gerenc
 
 **O Managed Disks é a opção padrão no portal do Azure?**
 
-Atualmente não, mas ele se tornará o padrão no futuro.
+Sim. 
 
 **É possível criar um disco gerenciado vazio?**
 
@@ -108,6 +108,40 @@ Não. Não é possível atualizar a propriedade de nome do computador. A nova VM
 **Onde posso encontrar modelos do Azure Resource Manager de exemplo para criar VMs com discos gerenciados?**
 * [Lista de modelos que usam o Managed Disks](https://github.com/Azure/azure-quickstart-templates/blob/master/managed-disk-support-list.md)
 * https://github.com/chagarw/MDPP
+
+## <a name="migrate-to-managed-disks"></a>Como migrar para Managed Disks 
+
+**Quais alterações são necessárias em uma já existente configuração de serviço do Backup do Azure antes/depois da migração para os Managed Disks?**
+
+Nenhuma alteração é necessária. 
+
+**Os meus backups de VM criados pelo Serviço de Backup do Azure continuarão a funcionar antes da migração?**
+
+Sim, os backups funcionam perfeitamente.
+
+**Quais alterações são necessárias em uma já existente configuração de criptografia de discos do Azure antes/depois da migração para os Managed Disks?**
+
+Nenhuma alteração é necessária. 
+
+**Há suporte para a migração automatizada de um Conjuntos de Dimensionamento de VMs (VMSS) existente desde discos não gerenciados para os Managed Disks com suporte?**
+
+Não. Você pode criar um novo VMSS com os Managed Disks usando a imagem do seu antigo VMSS com discos não gerenciados. 
+
+**Posso criar um disco gerenciado de um instantâneo de blob de páginas tirado antes da migração para os Managed Disks?**
+
+Não. Você pode exportar um instantâneo de blob de páginas como um blob de páginas e, em seguida, criar um disco gerenciado a partir do blob de páginas exportado. 
+
+**Posso fazer failover de meus computadores locais protegidos pelo Azure Site Recovery em uma VM com os Managed Disks?**
+
+Sim, você pode optar por fazer failover para uma VM com os Managed Disks.
+
+**A migração tem algum impacto sobre as VMs do Azure protegidas pelo Azure Site Recovery (ASR) por meio da replicação do Azure para o Azure?**
+
+Sim. Não há suporte para a proteção do Azure para o Azure do ASR para VMs com os Managed Disks. Ela terá suporte até o final do ano de 2018. 
+
+**Posso migrar VMs com discos não gerenciados localizados em contas de armazenamento ou criptografados anteriormente em discos gerenciados?**
+
+Sim
 
 ## <a name="managed-disks-and-storage-service-encryption"></a>Managed Disks e Criptografia de Serviço de Armazenamento 
 

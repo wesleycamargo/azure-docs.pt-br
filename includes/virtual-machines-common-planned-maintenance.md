@@ -47,4 +47,4 @@ Em um conjunto de disponibilidade, VMs individuais são distribuídas em até 20
 
 Os conjuntos de dimensionamento de máquinas virtuais são um recurso de computação do Azure que permite implantar e gerenciar um conjunto de VMs idênticas como um único recurso. O conjunto de dimensionamento é implantado automaticamente nos domínios de atualização, como VMs em um conjunto de disponibilidade. Assim como com conjuntos de disponibilidade, com conjuntos de dimensionamento somente um domínio de atualização é afetado em um determinado momento.
 
-Para saber mais sobre como configurar as máquinas virtuais para alta disponibilidade, consulte Gerenciar a disponibilidade de máquinas virtuais para Windows (../articles/virtual-machines/windows/manage-availability.md) ou [Linux](../articles/virtual-machines/linux/manage-availability.md).
+Para obter mais informações sobre como configurar as máquinas virtuais para alta disponibilidade, consulte Gerenciar a disponibilidade de suas máquinas virtuais do [Windows](../articles/virtual-machines/windows/manage-availability.md) ou [Linux](../articles/virtual-machines/linux/manage-availability.md).

@@ -2,7 +2,7 @@ Há alguns limites no número de métricas e eventos por aplicativo (isto é, po
 
 | **Recurso** | **Limite padrão** | **Observação**
 | --- | --- | --- |
-| Total de dados por dia | 500 GB | Você pode reduzir os dados ao definir um limite. Se precisar de mais, envie um email para AIDataCap@microsoft.com.
+| Total de dados por dia | 100 GB | Você pode reduzir os dados ao definir um limite. Caso precise de mais, é possível aumentar o limite até 1.000 GB a partir do portal. Para capacidades maiores que 1.000 GB, envie um email para AIDataCap@microsoft.com.
 | Dados gratuitos por mês<br/> (Plano de preços básico) | 1 GB | Dados adicionais são cobrados por gigabyte.
 | Limitação | 32.000 eventos/s | O limite é medido em um minuto.
 | Retenção de dados | 90 dias | Este recurso destina-se a [Pesquisa](../articles/application-insights/app-insights-diagnostic-search.md), [Análise](../articles/application-insights/app-insights-analytics.md) e [Metrics Explorer](../articles/application-insights/app-insights-metrics-explorer.md).

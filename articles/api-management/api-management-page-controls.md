@@ -3,27 +3,26 @@ title: "Controles de página do Gerenciamento de API do Azure | Microsoft Docs"
 description: "Saiba mais sobre os controles de página disponíveis para uso em modelos de portal do desenvolvedor no Gerenciamento de API do Azure."
 services: api-management
 documentationcenter: 
-author: vladvino
-manager: erikre
+author: juliako
+manager: cfowler
 editor: 
-ms.assetid: 03e0ac8d-64ff-4e9a-b029-d7be14fb31e3
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/20/2017
 ms.author: apimpm
-ms.openlocfilehash: 6aa7a25a9addceee78abe027fb3a19351940464e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4fd91ae079ff054932f4572874001dd69dd848e7
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="azure-api-management-page-controls"></a>Controles de página do Gerenciamento de API do Azure
 O Gerenciamento de API do Azure fornece os controles a seguir para uso em modelos de portal do desenvolvedor.  
   
- Para usar um controle, coloque-o no local desejado no modelo do portal do desenvolvedor. Alguns controles, como o [app-actions](#app-actions), têm parâmetros, como mostrado no exemplo a seguir.  
+Para usar um controle, coloque-o no local desejado no modelo do portal do desenvolvedor. Alguns controles, como o [app-actions](#app-actions), têm parâmetros, como mostrado no exemplo a seguir:  
   
 ```xml  
 <app-actions params="{ appId: '{{app.id}}' }"></app-actions>  
@@ -36,19 +35,12 @@ O Gerenciamento de API do Azure fornece os controles a seguir para uso em modelo
 ## <a name="developer-portal-template-page-controls"></a>Controles de página do modelo do portal do desenvolvedor  
   
 -   [app-actions](#app-actions)  
-  
 -   [basic-signin](#basic-signin)  
-  
 -   [paging-control](#paging-control)  
-  
 -   [providers](#providers)  
-  
 -   [search-control](#search-control)  
-  
 -   [sign-up](#sign-up)  
-  
 -   [subscribe-button](#subscribe-button)  
-  
 -   [subscription-cancel](#subscription-cancel)  
   
 ##  <a name="app-actions"></a> app-actions  
@@ -69,7 +61,7 @@ O Gerenciamento de API do Azure fornece os controles a seguir para uso em modelo
 |appId|A ID do aplicativo.|  
   
 ### <a name="developer-portal-templates"></a>Modelos de portal do desenvolvedor  
- O controle `app-actions` pode ser usado nos modelos de portal do desenvolvedor a seguir.  
+ O controle `app-actions` pode ser usado nos modelos de portal do desenvolvedor a seguir:  
   
 -   [Aplicativos](api-management-user-profile-templates.md#Applications)  
   
@@ -88,7 +80,7 @@ O Gerenciamento de API do Azure fornece os controles a seguir para uso em modelo
  Nenhuma.  
   
 ### <a name="developer-portal-templates"></a>Modelos de portal do desenvolvedor  
- O controle `basic-signin` pode ser usado nos modelos de portal do desenvolvedor a seguir.  
+ O controle `basic-signin` pode ser usado nos modelos de portal do desenvolvedor a seguir:  
   
 -   [Entrar](api-management-page-templates.md#SignIn)  
   
@@ -107,7 +99,7 @@ O Gerenciamento de API do Azure fornece os controles a seguir para uso em modelo
  Nenhuma.  
   
 ### <a name="developer-portal-templates"></a>Modelos de portal do desenvolvedor  
- O controle `paging-control` pode ser usado nos modelos de portal do desenvolvedor a seguir.  
+ O controle `paging-control` pode ser usado nos modelos de portal do desenvolvedor a seguir:  
   
 -   [Lista de APIs](api-management-api-templates.md#APIList)  
   
@@ -130,7 +122,7 @@ O Gerenciamento de API do Azure fornece os controles a seguir para uso em modelo
  Nenhuma.  
   
 ### <a name="developer-portal-templates"></a>Modelos de portal do desenvolvedor  
- O controle `providers` pode ser usado nos modelos de portal do desenvolvedor a seguir.  
+ O controle `providers` pode ser usado nos modelos de portal do desenvolvedor a seguir:  
   
 -   [Entrar](api-management-page-templates.md#SignIn)  
   
@@ -149,7 +141,7 @@ O Gerenciamento de API do Azure fornece os controles a seguir para uso em modelo
  Nenhuma.  
   
 ### <a name="developer-portal-templates"></a>Modelos de portal do desenvolvedor  
- O controle `search-control` pode ser usado nos modelos de portal do desenvolvedor a seguir.  
+ O controle `search-control` pode ser usado nos modelos de portal do desenvolvedor a seguir:  
   
 -   [Lista de APIs](api-management-api-templates.md#APIList)  
   
@@ -170,7 +162,7 @@ O Gerenciamento de API do Azure fornece os controles a seguir para uso em modelo
  Nenhuma.  
   
 ### <a name="developer-portal-templates"></a>Modelos de portal do desenvolvedor  
- O controle `sign-up` pode ser usado nos modelos de portal do desenvolvedor a seguir.  
+ O controle `sign-up` pode ser usado nos modelos de portal do desenvolvedor a seguir:  
   
 -   [Inscrever-se](api-management-page-templates.md#SignUp)  
   
@@ -189,7 +181,7 @@ O Gerenciamento de API do Azure fornece os controles a seguir para uso em modelo
  Nenhuma.  
   
 ### <a name="developer-portal-templates"></a>Modelos de portal do desenvolvedor  
- O controle `subscribe-button` pode ser usado nos modelos de portal do desenvolvedor a seguir.  
+ O controle `subscribe-button` pode ser usado nos modelos de portal do desenvolvedor a seguir:  
   
 -   [Produto](api-management-product-templates.md#Product)  
   
@@ -211,10 +203,10 @@ O Gerenciamento de API do Azure fornece os controles a seguir para uso em modelo
 |Parâmetro|Descrição|  
 |---------------|-----------------|  
 |subscriptionId|A ID da assinatura a ser cancelada.|  
-|cancelUrl|A URL de cancelamento da assinatura.|  
+|cancelUrl|A assinatura cancela a URL.|  
   
 ### <a name="developer-portal-templates"></a>Modelos de portal do desenvolvedor  
- O controle `subscription-cancel` pode ser usado nos modelos de portal do desenvolvedor a seguir.  
+ O controle `subscription-cancel` pode ser usado nos modelos de portal do desenvolvedor a seguir:  
   
 -   [Produto](api-management-product-templates.md#Product)
 

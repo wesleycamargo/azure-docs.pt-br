@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 12/05/2017
 ms.author: billmath
-ms.openlocfilehash: b85afe54832319fae2ea3a2501ec268bc63fc7c1
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 1bc76062b05938992b71eedaa71b3c7dfedd7ef4
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Logon Único Contínuo do Azure Active Directory: Início Rápido
 
@@ -127,7 +127,7 @@ Por padrão, o navegador calcula automaticamente a zona correta, Internet ou Int
 
 ### <a name="browser-considerations"></a>Considerações de navegador
 
-#### <a name="mozilla-firefox"></a>Mozilla Firefox
+#### <a name="mozilla-firefox-all-platforms"></a>Mozilla Firefox (todas as plataformas)
 
 O Mozilla Firefox não usa a autenticação Kerberos automaticamente. Cada usuário precisa adicionar manualmente as URLs do Azure AD às suas configurações do Firefox através das seguintes etapas:
 1. Execute o Firefox e digite `about:config` na barra de endereços. Ignore as notificações que aparecerem.
@@ -136,11 +136,15 @@ O Mozilla Firefox não usa a autenticação Kerberos automaticamente. Cada usuá
 4. Insira https://autologon.microsoftazuread-sso.com, https://aadg.windows.net.nsatc.net no campo.
 5. Selecione **OK** e, em seguida, reabra o navegador.
 
-#### <a name="safari-on-mac-os"></a>Safari no Mac OS
+#### <a name="safari-mac-os"></a>Safari (Mac OS)
 
 Certifique-se de que o computador executando o Mac OS é associado ao Azure AD. Para obter instruções sobre como associar o Azure AD, veja [Práticas recomendadas para integrar o OS X com o Active Directory](http://training.apple.com/pdf/Best_Practices_for_Integrating_OS_X_with_Active_Directory.pdf).
 
-#### <a name="google-chrome-on-mac-os"></a>Google Chrome no Mac OS
+#### <a name="google-chrome-all-platforms"></a>Google Chrome (todas as plataformas)
+
+Caso tenha substituído as configurações de política [AuthNegotiateDelegateWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthNegotiateDelegateWhitelist) ou [AuthServerWhitelist](https://www.chromium.org/administrators/policy-list-3#AuthServerWhitelist) no seu ambiente, verifique se você também adicionou URLs do Azure AD a elas (https://autologon.microsoftazuread-sso.com e https://aadg.windows.net.nsatc.net).
+
+#### <a name="google-chrome-mac-os-only"></a>Google Chrome (somente Mac OS)
 
 Para o Google Chrome no Mac OS e outras plataformas que não sejam Windows, veja [The Chromium Project Policy List](https://dev.chromium.org/administrators/policy-list-3#AuthServerWhitelist) para obter informações sobre como adicionar as URLs do Azure AD à lista de permissões para uma autenticação integrada.
 
@@ -149,9 +153,6 @@ O uso de extensões de Política de Grupo do Active Directory de terceiros para 
 #### <a name="known-browser-limitations"></a>Limitações conhecidas do navegador
 
 O SSO Contínuo não funciona no modo de navegação particular em navegadores Firefox e Edge. Também não funciona no Internet Explorer se o navegador estiver em execução no modo de proteção aprimorada.
-
->[!IMPORTANT]
->Recentemente, nós revertemos o suporte ao Edge para investigarmos problemas reportados por clientes.
 
 ## <a name="step-4-test-the-feature"></a>Etapa 4: testar o recurso
 

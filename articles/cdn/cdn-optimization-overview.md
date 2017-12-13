@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/16/2017
 ms.author: v-semcev
-ms.openlocfilehash: 98941c49b057380b3ef9164515bcc2a63ccb56ce
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3544112b025f5df10e6f67c8e2e02f4bb587b4e0
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="optimize-azure-content-delivery-for-your-scenario"></a>Otimizar a distribuição de conteúdo do Azure para seu cenário
 
@@ -103,7 +103,7 @@ Se você usar a Rede de Distribuição de Conteúdo do Azure da Akamai, deverá 
 
 Se você usar a Rede de Distribuição de Conteúdo do Azure da Akamai, os downloads de arquivos grandes maiores que 10 MB serão otimizados para o conteúdo. Se o tamanho médio do arquivo for menor que 10 MB, talvez você deseje usar a distribuição na Web geral. Se os tamanhos médios dos arquivos forem consistentemente maiores que 10 MB, talvez seja mais eficiente criar um ponto de extremidade separado para arquivos grandes. Por exemplo, atualizações de firmware ou software geralmente são arquivos grandes.
 
-A Rede de Distribuição de Conteúdo do Azure da Verizon uma o tipo de otimização de distribuição na Web geral para distribuir mídia de streaming.
+A Rede de Distribuição de Conteúdo do Azure da Verizon usa o tipo geral de otimização de distribuição na Web para distribuir conteúdo de download de arquivos grandes.
 
 Para saber mais sobre a otimização de arquivos grandes, consulte [Otimização de arquivos grandes](cdn-large-file-optimization.md).
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.openlocfilehash: 9841b61c21586976ee06ffc1fe4d01e3fc3428b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bc331e1557c3a35ea3faa8e021923764ec748a4f
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-machine-learning-web-services-deployment-and-consumption"></a>Serviços Web do Azure Machine Learning: implantação e consumo
 Você pode usar o Azure Machine Learning para implantar fluxos de trabalho e modelos de aprendizado de máquina como serviços Web. Esses serviços Web podem ser usados para chamar os modelos de aprendizado de máquina de aplicativos pela Internet para fazer previsões em tempo real ou no modo de lote. Como os serviços Web são RESTful, você pode chamá-los por meio de várias linguagens de programação e plataformas, como .NET e Java, e de aplicativos, como o Excel.
@@ -26,6 +26,7 @@ Você pode usar o Azure Machine Learning para implantar fluxos de trabalho e mod
 As próximas seções fornecem links para passo a passos, código e documentação para ajudá-lo a se familiarizar.
 
 ## <a name="deploy-a-web-service"></a>Implantar um serviço Web
+
 ### <a name="with-azure-machine-learning-studio"></a>Com o Azure Machine Learning Studio
 O Machine Learning Studio e o portal dos Serviços Web do Microsoft Azure Machine Learning ajudam a implantar e gerenciar um serviço Web sem a necessidade de escrever código.
 
@@ -58,7 +59,7 @@ Executar o aplicativo cria um modelo JSON do serviço Web. Para usar o modelo pa
 
 * Nome e chave da conta de armazenamento
 
-    Você pode obter o nome e a chave da conta de armazenamento no [Portal do Azure](https://portal.azure.com/) ou no [Portal Clássico do Azure](http://manage.windowsazure.com/).
+    É possível obter o nome e a chave da conta de armazenamento no [portal do Azure](https://portal.azure.com/).
 * ID do plano de compromisso
 
     Você pode obter a ID do plano no portal [Serviços Web do Azure Machine Learning](https://services.azureml.net) fazendo logon e clicando no nome de um plano.

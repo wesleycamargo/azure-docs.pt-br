@@ -6,19 +6,18 @@ documentationcenter:
 author: antonba
 manager: erikre
 editor: 
-ms.assetid: 64b58f7b-ca22-47dc-89c0-f6bb0af27a48
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2017
+ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 7fad1b662c587fed6cd7dd6a1792d8598f0e4f85
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: b3fda4e6f38b0966820cc56d24e52feb07b44d15
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>Como usar o Gerenciamento de API do Azure com redes virtuais
 As redes virtuais do Azure (VNETs) permitem que você coloque qualquer um dos recursos do Azure em uma rede não roteável para a Internet com acesso controlado. Essas redes podem ser conectadas às redes locais usando várias tecnologias VPN. Para saber mais sobre redes virtuais do Azure, confira [Visão geral da Rede Virtual do Azure](../virtual-network/virtual-networks-overview.md).
@@ -110,11 +109,11 @@ Quando uma instância do serviço Gerenciamento de API está hospedada em uma re
 | --- | --- | --- | --- | --- | --- |
 | * / 80, 443 |Entrada |TCP |INTERNET / VIRTUAL_NETWORK|Comunicação do cliente com o Gerenciamento de API|Externo |
 | * / 3443 |Entrada |TCP |INTERNET / VIRTUAL_NETWORK|Ponto de extremidade de gerenciamento para o Portal do Azure e o Powershell |Interna |
-| * / 80, 443 |Saída |TCP |VIRTUAL_NETWORK/INTERNET|**Acesso aos pontos de extremidade de Armazenamento do Azure** |Interno e externo |
+| * / 80, 443 |Saída |TCP |VIRTUAL_NETWORK/INTERNET|Dependência no Armazenamento do Microsoft Azure, Barramento de Serviço do Microsoft Azure e Azure Active Directory (quando aplicável).|Interno e externo | 
 | * / 1433 |Saída |TCP |VIRTUAL_NETWORK/INTERNET|**Acesso aos pontos de extremidade do SQL do Azure** |Interno e externo |
 | * / 11000 - 11999 |Saída |TCP |VIRTUAL_NETWORK/INTERNET|**Acesso ao Azure SQL V12** |Interno e externo |
 | * / 14000 - 14999 |Saída |TCP |VIRTUAL_NETWORK/INTERNET|**Acesso ao Azure SQL V12** |Interno e externo |
-| * / 5671 |Saída |AMQP |VIRTUAL_NETWORK/INTERNET|Dependência para registrar em log a política de Hub de Eventos e o agente de monitoramento |Interno e externo |
+| * / 5671, 5672 |Saída |TCP |VIRTUAL_NETWORK/INTERNET|Dependência para registrar em log a política de Hub de Eventos e o agente de monitoramento |Interno e externo |
 | * / 445 |Saída |TCP |VIRTUAL_NETWORK/INTERNET|Dependência do Compartilhamento de Arquivos do Azure para GIT |Interno e externo |
 | * / 25028 |Saída |TCP |VIRTUAL_NETWORK/INTERNET|Conectar à retransmissão de SMTP para enviar emails |Interno e externo |
 | * / 6381 - 6383 |Entrada e Saída |TCP |VIRTUAL_NETWORK / VIRTUAL_NETWORK|Acesso a Instâncias de Cache Redis entre RoleInstances |Interno e externo |
@@ -134,6 +133,8 @@ Quando uma instância do serviço Gerenciamento de API está hospedada em uma re
  * A configuração de ExpressRoute anuncia 0.0.0.0/0 e, por padrão, encapsula à força todo o tráfego de saída no local.
  * O UDR aplicada à sub-rede que contém o Gerenciamento de API do Azure define 0.0.0.0/0 com um tipo do próximo salto da Internet.
  O efeito combinado dessas etapas é que a UDR do nível de sub-rede tem precedência sobre o túnel forçado do ExpressRoute, garantindo acesso de Internet de saída do Gerenciamento de API do Azure.
+
+**Roteamento por meio de dispositivos de rede virtual**: as configurações que usam um UDR com uma rota padrão (0.0.0.0/0) para rotear o tráfego de internet destinado da sub-rede de Gerenciamento de API por meio de um dispositivo de rede virtual em execução no Azure impedirão a comunicação completa entre o Gerenciamento de API e os serviços necessários. Não há suporte para essa configuração. 
 
 >[!WARNING]  
 >O Gerenciamento de API do Azure não tem suporte com configurações do ExpressRoute que **incorretamente cruzam anúncios de rotas do caminho de emparelhamento público para o caminho de emparelhamento privado**. As configurações de ExpressRoute com emparelhamento público definido receberão anúncios de rota da Microsoft para um grande conjunto de intervalos de endereços IP do Microsoft Azure. Se esses intervalos de endereços forem incorretamente anunciados de modo cruzado no caminho de emparelhamento privado, o resultado final será que todos os pacotes de saída de rede da sub-rede da instância do Gerenciamento de API do Azure serão incorretamente encapsulados à força em uma infraestrutura de rede local do cliente. Esse fluxo de rede interrompe o Gerenciamento de API do Azure. A solução para esse problema é parar as rotas de anúncios cruzados do caminho de emparelhamento público para o caminho de emparelhamento particular.
