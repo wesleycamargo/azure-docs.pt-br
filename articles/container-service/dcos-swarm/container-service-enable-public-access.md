@@ -1,29 +1,23 @@
 ---
-title: "Habilitar o acesso ao aplicativo de contêiner de DC/OS do Azure | Microsoft Docs"
-description: "Como habilitar o acesso público aos contêineres de DC/OS no Serviço de Contêiner do Azure."
+title: "Habilitar o acesso ao aplicativo de contêiner de DC/SO do Azure"
+description: "Como habilitar o acesso público aos contêineres de DC/SO no Serviço de Contêiner do Azure."
 services: container-service
-documentationcenter: 
 author: sauryadas
 manager: madhana
-editor: 
-tags: acs, azure-container-service
-keywords: "Docker, Contêineres, Microsserviços, Mesos, Azure"
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 08/26/2016
 ms.author: saudas
 ms.custom: mvc
-ms.openlocfilehash: c9ef5913859cf3a55a2de2107a9304f1d28a4829
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aedc97335a0b9ad00cf653477b62bf530b556900
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="enable-public-access-to-an-azure-container-service-application"></a>Habilitar acesso público a um aplicativo do Serviço de Contêiner do Azure
-Todos os contêineres DC/OS no [pool de agentes públicos](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) do ACS são automaticamente expostos à Internet. Por padrão, as portas **80**, **443**, **8080** estão abertas e qualquer contêiner (público) que esteja ouvindo nessas portas estará acessível. Este artigo mostra como abrir mais portas para seus aplicativos no Serviço de Contêiner do Azure.
+
+Todos os contêineres DC/SO no [pool de agentes públicos](container-service-mesos-marathon-ui.md#deploy-a-docker-formatted-container) do ACS são automaticamente expostos à Internet. Por padrão, as portas **80**, **443**, **8080** estão abertas e qualquer contêiner (público) que esteja ouvindo nessas portas estará acessível. Este artigo mostra como abrir mais portas para seus aplicativos no Serviço de Contêiner do Azure.
 
 ## <a name="open-a-port-portal"></a>Abrir uma porta (portal)
 Primeiro, é necessário abrir a porta que queremos.
@@ -84,7 +78,7 @@ Em seguida, precisamos adicionar uma regra de segurança que encaminhe o tráfeg
    | Ação |Permita ou negue o tráfego que atenda aos critérios. |
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba mais sobre a diferença entre [agentes DC/OS públicos e privados](container-service-dcos-agents.md).
+Saiba mais sobre a diferença entre [agentes DC/SO públicos e privados](container-service-dcos-agents.md).
 
-Leia mais informações sobre [como gerenciar seus contêineres de DC/OS](container-service-mesos-marathon-ui.md).
+Leia mais informações sobre [como gerenciar seus contêineres de DC/SO](container-service-mesos-marathon-ui.md).
 

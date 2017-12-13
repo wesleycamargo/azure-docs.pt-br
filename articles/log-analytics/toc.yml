@@ -41,6 +41,8 @@
       href: log-analytics-usage.md
     - name: Gerenciar acesso
       href: log-analytics-manage-access.md
+    - name: Monitorar ambientes híbridos
+      href: log-analytics-concept-hybrid.md
     - name: Recursos para provedores de serviço
       href: log-analytics-service-providers.md
     - name: Pesquisa de log
@@ -58,11 +60,7 @@
         - name: Fontes conectadas
           items:
             - name: Agentes do Windows
-              href: log-analytics-windows-agents.md
-            - name: Agentes do Linux
-              href: log-analytics-agent-linux.md
-            - name: Máquinas virtuais do Azure
-              href: log-analytics-azure-vm-extension.md
+              href: log-analytics-agent-windows.md
             - name: Recursos do Azure
               href: log-analytics-azure-storage.md
             - name: Recursos de PaaS do Azure
@@ -75,6 +73,8 @@
               href: log-analytics-sccm.md
             - name: Gateway do OMS
               href: log-analytics-oms-gateway.md
+            - name: Solucionar problemas do agente Linux
+              href: log-analytics-agent-linux-support.md
         - name: Fontes de dados
           items:
             - name: Visão geral de fontes de dados
@@ -158,6 +158,8 @@
           href: log-analytics-solution-alert-management.md
     - name: Gerenciar
       items:
+        - name: Gerenciamento de agentes
+          href: log-analytics-agent-manage.md
         - name: Gerenciar o custo do espaço de trabalho
           href: log-analytics-manage-cost-storage.md
         - name: Excluir um espaço de trabalho

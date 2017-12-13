@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/08/2017
 ms.author: delhan
-ms.openlocfilehash: e06c73c2c00b27178f8431b83b5c5a42110b6b1e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3187939fa813f941c2fe12a359df474a6c487c71
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guia de solução de problemas do Gerenciador de Armazenamento do Azure
 
@@ -172,6 +172,14 @@ Se você estiver se conectando a um serviço usando uma URL SAS e enfrentando es
 - Verifique se a URL não expirou.
 
 - Se a URL SAS tiver base em uma política de acesso, verifique se a política de acesso não foi revogada.
+
+Se você acidentalmente anexar uma URL SAS inválida e não conseguir desanexá-la, siga estas etapas:
+1.  Ao executar o Gerenciador de Armazenamento, pressione F12 para abrir a janela de ferramentas para desenvolvedores.
+2.  Clique na guia Aplicativo e clique em Armazenamento Local > file:// na árvore à esquerda.
+3.  Localize a chave associada ao tipo de serviço do URI SAS problemático. Por exemplo, se o URI SAS inválido for para um contêiner de blobs, procure a chave chamada “StorageExplorer_AddStorageServiceSAS_v1_blob”.
+4.  O valor da chave deve ser uma matriz JSON. Localize o objeto associado ao URI inválido e remova-o.
+5.  Pressione Ctrl+R para recarregar o Gerenciador de Armazenamento.
+
 
 ## <a name="next-steps"></a>Próximas etapas
 

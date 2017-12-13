@@ -1,22 +1,22 @@
 ---
-title: "Visão geral do Serviço de Provisionamento de Dispositivos no Hub IoT do Azure (versão prévia) | Microsoft Docs"
+title: "Visão geral do Serviço de Provisionamento de Dispositivos no Hub IoT do Azure | Microsoft Docs"
 description: "Descreve o provisionamento do dispositivos no Azure com o Serviço de Provisionamento de Dispositivos e o Hub IoT"
 services: iot-dps
 keywords: 
 author: nberdy
 ms.author: nberdy
-ms.date: 09/05/2017
+ms.date: 12/05/2017
 ms.topic: article
 ms.service: iot-dps
 documentationcenter: 
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: a9df3f4e27e0d6e11b9d85a44467f3c62f453121
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 021ff1299321ae1aece3a77fc61129517c85697b
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service-preview"></a>Provisionando dispositivos com o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure (versão prévia)
 O Microsoft Azure fornece um conjunto avançado de serviços de nuvem pública integrados para todas as suas necessidades de soluções de IoT. O Serviço de Provisionamento de Dispositivos no Hub IoT é um serviço auxiliar para o Hub IoT que permite o provisionamento de toque zero, Just-In-Time no Hub IoT correto sem necessidade de intervenção humana, permitindo que os clientes provisionem milhões de dispositivos de modo seguro e escalonável.
@@ -59,7 +59,7 @@ Esta etapa trata-se do que acontece na linha de produção. As funções envolvi
 
 O Serviço de Provisionamento do Dispositivos não introduz uma nova etapa no processo de fabricação; em vez disso, ele está associado à etapa existente que instala o software inicial e (idealmente) o HSM no dispositivo. Em vez de criar uma ID de dispositivo nesta etapa, o dispositivo é simplesmente programado com as informações do serviço de provisionamento de modo que ele chama o serviço de provisionamento para obter as informações de conexão/a atribuição de solução de IoT do dispositivo quando ele é ativado.
 
-Também nesta etapa, o fabricante fornece as informações de chave de identificação ao implantador/operador do dispositivo. Isso pode ser algo tão simples quanto confirmar que todos os dispositivos têm um certificado X.509 gerado de uma AC raiz fornecida pelo implantador/operador do dispositivo ou pode ser algo como extrair a parte pública da chave de endosso do TPM de cada dispositivo TPM. Esses serviços são oferecidos por muitos fabricantes de silício atualmente.
+Também nesta etapa, o fabricante fornece as informações de chave de identificação ao implantador/operador do dispositivo. Isso pode ser algo tão simples quanto confirmar que todos os dispositivos têm um certificado X.509 gerado de um certificado de autenticação fornecido pelo implantador/operador do dispositivo ou pode ser algo como extrair a parte pública da chave de endosso do TPM de cada dispositivo TPM. Esses serviços são oferecidos por muitos fabricantes de silício atualmente.
 
 ### <a name="cloud-setup-step"></a>Etapa de configuração de nuvem
 Esta etapa trata da configuração de nuvem para o provisionamento automático adequado. Geralmente, há dois tipos de usuários envolvidos na etapa de configuração de nuvem: alguém que sabe como os dispositivos precisam ser configurados inicialmente (um operador de dispositivo) e outra pessoa que sabe como os dispositivos devem ser divididos entre os Hubs IoT (um operador de solução).
@@ -84,19 +84,29 @@ O Serviço de Provisionamento de Dispositivos tem muitos recursos que o tornam i
 * **Várias políticas de alocação** para controlar como o Serviço de Provisionamento de Dispositivos atribui dispositivos para Hubs IoT para dar suporte a seus cenários.
 * **Logs de monitoramento e diagnóstico** para verificar se tudo está funcionando corretamente.
 * **Suporte a vários hubs** que permite que o Serviço de Provisionamento de Dispositivos atribua dispositivos a mais de um Hub IoT. O Serviço de Provisionamento de Dispositivos pode se comunicar com hubs entre várias assinaturas do Azure.
+* **Suporte de região cruzada** que permite que o Serviço de Provisionamento de Dispositivos atribua dispositivos a Hubs IoT em outras regiões.
 
 Você pode aprender mais sobre os conceitos e recursos envolvidos no provisionamento do dispositivo em [conceitos de dispositivo](concepts-device.md), [conceitos de serviço](concepts-service.md) e [conceitos de segurança](concepts-security.md).
 
 ## <a name="cross-platform-support"></a>Suporte de multiplaforma
-O Serviço de Provisionamento de Dispositivos, assim como todos os serviços IoT do Azure, funciona em multiplaforma com uma variedade de sistemas operacionais. A visualização pública dá suporte a um conjunto limitado de idiomas/protocolos com suporte; no entanto, muitos mais estarão disponíveis quando o Serviço de Provisionamento de Dispositivos estiver disponível. Para a visualização pública, o Serviço de Provisionamento de Dispositivos só dá suporte a conexões HTTPS para operações de dispositivo e de serviço. O SDK do dispositivo é em C e o SDK do serviço é em C#.
+O Serviço de Provisionamento de Dispositivos, assim como todos os serviços IoT do Azure, funciona em multiplaforma com uma variedade de sistemas operacionais. O Azure oferece SDKs de software livre em uma variedade de [idiomas](https://github.com/Azure/azure-iot-sdks) para facilitar a conexão de dispositivos e gerenciar o serviço. O Serviço de Provisionamento de Dispositivos fornece suporte aos seguintes protocolos para conectar dispositivos:
+
+* HTTPS
+* AMQP
+* AMQP sobre websockets
+* MQTT
+* MQTT sobre websockets
+
+O Serviço de Provisionamento de Dispositivos fornece suporte apenas a conexões HTTPS para operações de serviço.
 
 ## <a name="regions"></a>Regiões
-O Serviço de Provisionamento de Dispositivos está disponível no Leste dos EUA, na Europa Ocidental e no Sudeste Asiático para a visualização pública. Mantemos uma lista atualizada de regiões existentes e recentemente anunciadas para todos os serviços.
+O Serviço de Provisionamento de Dispositivos está disponível em muitas regiões. Mantemos uma lista atualizada das regiões existentes e recentemente anunciadas para todos os serviços em [Regiões do Azure](https://azure.microsoft.com/regions/). É possível consultar onde o Serviço de Provisionamento de Dispositivos está disponível, na página [Status do Azure](https://azure.microsoft.com/status/).
 
-* [Regiões do Azure](https://azure.microsoft.com/regions/)
+> [!NOTE]
+> O Serviço de Provisionamento de Dispositivos é global e não limitado a um local. No entanto, é necessário especificar uma região na qual os metadados associados ao seu perfil do Serviço de Provisionamento de Dispositivos irão residir.
 
 ## <a name="availability"></a>Disponibilidade
-Durante a visualização pública, mantemos a melhor disponibilidade possível do serviço. Durante a visualização pública, não há nenhum Contrato de Nível de Serviço. O [SLA completo do Azure](https://azure.microsoft.com/support/legal/sla/) explica a disponibilidade garantida do Azure como um todo.
+Mantemos um Contrato de Nível de Serviço de 99,9% para o Serviço de Provisionamento de Dispositivos e você pode [ler o SLA](https://azure.microsoft.com/support/legal/sla/iot-hub/). O [SLA completo do Azure](https://azure.microsoft.com/support/legal/sla/) explica a disponibilidade garantida do Azure como um todo.
 
 ## <a name="quotas"></a>Cotas
 Cada assinatura do Azure tem limites de cota em vigor que podem afetar o escopo de sua solução de IoT. O limite atual em uma base por assinatura é 10 Serviços de Provisionamento de Dispositivos por assinatura.

@@ -8,11 +8,11 @@ ms.topic: article
 ms.service: machine-learning
 services: machine-learning
 ms.date: 10/27/2017
-ms.openlocfilehash: 07e74c64e587cce99612cd5047516bf131943f2e
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: f8ea2c269906732aef8d577c0d744e730c1dedcd
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="aerial-image-classification"></a>Classificação de imagem aérea
 
@@ -59,9 +59,14 @@ As instruções a seguir orientarão você no processo de configurar o ambiente 
 - [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md)
     - Siga o [Guia de início rápido de instalação e de criação](quickstart-installation.md) para instalar o Azure Machine Learning Workbench e criar as Contas de gerenciamento de modelos e de experimentação.
 - SDK do Python do [Batch AI](https://github.com/Azure/BatchAI) e CLI do Azure 2.0
-    - Instale o SDK do Batch AI e a CLI do Azure 2.0 seguindo as instruções da [seção Pré-requisitos de receitas](https://github.com/Azure/BatchAI/tree/master/recipes).
-        - A partir da redação deste artigo, o Azure Machine Learning Workbench usa um fork separado da CLI do Azure 2.0. Para maior clareza, nós nos referimos à versão do Workbench da CLI como "uma CLI iniciada no Azure Machine Learning Workbench" e a versão de lançamento geral (que inclui o Batch AI) como "CLI do Azure 2.0".
-    - Crie uma entidade de serviço e um aplicativo do Azure Active Directory seguindo [essas instruções](https://github.com/Azure/azure-sdk-for-python/wiki/Contributing-to-the-tests#getting-azure-credentials). Registre a ID do cliente, o segredo e a ID de locatário.
+    - Conclua as seguintes seções no [LEIAME Receitas do IA do Lote](https://github.com/Azure/BatchAI/tree/master/recipes):
+        - "Pré-requisitos"
+        - "Criar e obter o aplicativo do AAD (Azure Active Directory)"
+        - "Registrar provedores de recursos do IA do Lote" (em "Executar receitas usando a CLI do Azure 2.0")
+        - "Instalar o cliente de gerenciamento do AI do Lote do Azure"
+        - "Instalar o SDK do Python do Azure"
+    - Registre a ID do cliente, o segredo e a ID do locatário do aplicativo do Azure Active Directory que você será direcionado para criar. Você usará essas credenciais posteriormente neste tutorial.
+    - No momento em que este artigo foi escrito, o Azure Machine Learning Workbench e o AI do Lote do Azure usavam forks separados da CLI do Azure 2.0. Para maior clareza, nós nos referimos à versão do Workbench da CLI como "uma CLI iniciada no Azure Machine Learning Workbench" e a versão de lançamento geral (que inclui o Batch AI) como "CLI do Azure 2.0".
 - [AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy), um utilitário gratuito para coordenar a transferência de arquivos entre contas de armazenamento do Azure
     - Certifique-se de que a pasta que contém o executável AzCopy está na variável de ambiente PATH do seu sistema. (Instruções sobre como modificar as variáveis de ambiente estão disponíveis [aqui](https://support.microsoft.com/en-us/help/310519/how-to-manage-environment-variables-in-windows-xp).)
 - Um cliente SSH. Recomendamos o [PuTTY](http://www.putty.org/).
@@ -215,7 +220,7 @@ Seu cluster do Batch AI acessa seus dados de treinamento em um Servidor de Arqui
 1. Use o comando a seguir para criar um Servidor de Arquivos de Rede:
 
     ```
-    az batchai file-server create -n landuseclassifier -u demoUser -p Dem0Pa$$w0rd --vm-size Standard_D2_V2 --disk-count 1 --disk-size 1000 --storage-sku Premium_LRS
+    az batchai file-server create -n landuseclassifier -u demoUser -p Dem0Pa$$w0rd --vm-size Standard_DS2_V2 --disk-count 1 --disk-size 1000 --storage-sku Premium_LRS
     ```
 
 1. Verifique o status de provisionamento do Servidor de Arquivos de Rede usando o seguinte comando:
@@ -415,7 +420,7 @@ O Azure Machine Learning Workbench ajuda cientistas de dados a implantar código
 
 ## <a name="next-steps"></a>Próximas etapas
 Para aprofundar-se neste exemplo:
-- No recurso Histórico de Execuções do Azure Machine Learning Workbench, clique nos símbolos de engrenagem para selecionar quais gráficos e métricas serão exibidos.
+- No recurso Histórico de Execuções do Azure Machine Learning Workbench, clique nos símbolos de engrenagem para selecionar quais grafos e métricas serão exibidos.
 - Examine os scripts de exemplo de instruções que chamam o `run_logger`. Verifique se você entendeu como cada métrica está sendo gravada.
 - Examine os scripts de exemplo de instruções que chamam o `blob_service`. Verifique se você entendeu como os modelos treinados e previsões são armazenados e recuperados na nuvem.
 - Explore o conteúdo dos contêineres criados na conta de armazenamento de blobs. Verifique se você entendeu qual script ou comando é responsável pela criação de cada grupo de arquivos.

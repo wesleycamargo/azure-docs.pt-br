@@ -26,7 +26,7 @@ Introdução ao Armazenamento Premium, [Criar sua conta gratuita do Azure](https
 Para obter informações sobre como migrar suas VMs existentes para o Armazenamento Premium, confira [Converter uma VM do Windows de discos não gerenciados para discos gerenciados](../articles/virtual-machines/windows/convert-unmanaged-to-managed-disks.md) ou [Converter uma VM do Linux de discos não gerenciados para discos gerenciados](../articles/virtual-machines/linux/convert-unmanaged-to-managed-disks.md).
 
 > [!NOTE]
-> O Armazenamento Premium está disponível na maioria das regiões. Para obter a lista de regiões disponíveis, em [Serviços do Azure por região](https://azure.microsoft.com/regions/#services), examine as regiões em que há suporte para as VMs da série de tamanho Premium (VMs da série DS, série DSV2, série GS e série Fs).
+> O Armazenamento Premium está disponível na maioria das regiões. Para obter a lista de regiões disponíveis, consulte a linha de **Armazenamento em Disco** em [Produtos do Azure disponíveis por região](https://azure.microsoft.com/regions/#services).
 > 
 
 ## <a name="features"></a>Recursos

@@ -1,9 +1,9 @@
 ---
-title: Usar cloud-init para personalizar uma VM Linux | Microsoft Docs
-description: "Como usar cloud-init para personalizar uma VM Linux durante a criação com a CLI do Azure 2.0"
+title: "Visão geral do suporte de cloud-init para máquinas virtuais Linux no Azure | Microsoft Docs"
+description: "Visão geral dos recursos de cloud-init no Microsoft Azure"
 services: virtual-machines-linux
 documentationcenter: 
-author: iainfoulds
+author: rickstercdn
 manager: jeconnoc
 editor: 
 tags: azure-resource-manager
@@ -13,171 +13,86 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 10/03/2017
-ms.author: iainfou
-ms.openlocfilehash: 5559f258f5c29b07edb5e61be4755d67173019e0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 11/29/2017
+ms.author: rclaus
+ms.openlocfilehash: ce238a3093e29c3091f979bbd9e80f28495307da
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
-# <a name="use-cloud-init-to-customize-a-linux-vm-in-azure"></a>Usar inicialização de nuvem para personalizar uma VM Linux no Azure
-Este artigo mostra como usar a [inicialização de nuvem](https://cloudinit.readthedocs.io) para definir o nome do host, atualizar pacotes instalados e gerenciar contas de usuário em uma VM (máquina virtual) no Azure. Esses scripts de inicialização de nuvem são executados na inicialização quando você cria uma VM com a CLI do Azure 2.0. Para obter uma visão mais detalhada sobre como instalar aplicativos, gravar arquivos de configuração e injetar chaves do Key Vault, consulte [este tutorial](tutorial-automate-vm-deployment.md). Você também pode executar essas etapas com a [CLI do Azure 1.0](using-cloud-init-nodejs.md).
-
+# <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Cloud-init para máquinas virtuais no Azure
+Este artigo mostra que o suporte que existe para a [cloud-init](https://cloudinit.readthedocs.io) para configurar uma máquina virtual VM ou conjunto de dimensionamento de máquinas virtuais (VMSS) no momento do provisionamento no Azure. Esses scripts de cloud-init são executados na primeira inicialização depois que os recursos são provisionados pelo Azure.  
 
 ## <a name="cloud-init-overview"></a>Visão geral da inicialização de nuvem
-[Inicialização de nuvem](https://cloudinit.readthedocs.io) é uma abordagem amplamente utilizada para personalizar uma VM do Linux, quando ela é inicializada pela primeira vez. Você pode utilizar a inicialização de nuvem para instalar pacotes e gravar arquivos, ou para configurar usuários e segurança. Como a inicialização de nuvem é executada durante o processo de inicialização inicial, não há etapa adicional ou agentes necessários para aplicar a configuração.
+[Inicialização de nuvem](https://cloudinit.readthedocs.io) é uma abordagem amplamente utilizada para personalizar uma VM do Linux, quando ela é inicializada pela primeira vez. Você pode utilizar a inicialização de nuvem para instalar pacotes e gravar arquivos, ou para configurar usuários e segurança. Como cloud-init é executado durante o processo de inicialização inicial, não há etapa adicional ou agentes necessários para aplicar a configuração.  Para obter mais informações sobre como formatar corretamente seus arquivos `#cloud-config`, consulte o [site de documentação de cloud-init](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  Os arquivos `#cloud-config`são arquivos de texto codificados em base64.
 
 A inicialização de nuvem também funciona em distribuições. Por exemplo, você não usa **apt-get install** nem **yum install** para instalar um pacote. Em vez disso, você pode definir uma lista de pacotes para instalar. Inicialização de nuvem usa automaticamente a ferramenta de gerenciamento de pacote nativo de distribuição que você selecionar.
 
-Estamos trabalhando com parceiros para incluir a inicialização de nuvem e trabalhar nas imagens que eles fornecem para o Azure. A tabela a seguir descreve a disponibilidade de inicialização de nuvem atual nas imagens da plataforma Azure:
+ Trabalhamos ativamente com nossos parceiros endossados de distribuição de Linux para termos imagens de cloud-init habilitadas disponíveis no marketplace do Azure. Essas imagens farão com que as suas configurações e implantações de cloud-init funcionem perfeitamente com máquinas virtuais e conjuntos de dimensionamento de máquinas virtuais do Microsoft Azure (VMSS). A tabela a seguir descreve a disponibilidade de imagens habilitadas de cloud-init na plataforma do Azure:
 
-| Alias | Editor | Oferta | SKU | Versão |
+| Editor | Oferta | SKU | Versão | Cloud-init pronto
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| UbuntuLTS |Canônico |UbuntuServer |16.04-LTS |mais recente |
-| UbuntuLTS |Canônico |UbuntuServer |14.04.5-LTS |mais recente |
-| CoreOS |CoreOS |CoreOS |Estável |mais recente |
+|Canônico |UbuntuServer |16.04-LTS |mais recente |sim | 
+|Canônico |UbuntuServer |14.04.5-LTS |mais recente |sim |
+|CoreOS |CoreOS |Estável |mais recente |sim |
+|OpenLogic |CentOS |7-CI |mais recente |preview |
+|RedHat |RHEL |7-RAW-CI |mais recente |preview |
 
+## <a name="what-is-the-difference-between-cloud-init-and-the-linux-agent-wala"></a>Qual é a diferença entre cloud-init e o Agente do Linux (WALA)?
+WALA é um agente específico da plataforma do Azure usado para provisionar e configurar VMs e lidar com extensões do Azure. Estamos aprimorando a tarefa de configuração de VMs para usar cloud-init em vez do agente do Linux, para permitir que os clientes existentes de cloud-init usem seus scripts atuais de cloud-init.  Se você tiver investimentos existentes em scripts de cloud-init para configurar os sistemas Linux, não há **nenhuma configuração adicional necessária** para habilitá-los. 
 
-## <a name="set-the-hostname-with-cloud-init"></a>Defina o nome do host com a inicialização de nuvem
-Arquivos de inicialização de nuvem são gravados no [YAML](http://www.yaml.org). Para executar um script de inicialização de nuvem quando você cria uma VM no Azure com [az vm create](/cli/azure/vm#create), especifique o arquivo de inicialização de nuvem com a opção `--custom-data`. Examinaremos alguns exemplos do que você pode configurar com um arquivo de inicialização de nuvem. Um cenário comum é definir o nome do host de uma VM. Por padrão, o nome do blob é idêntico ao nome da VM. 
+Se você não incluir a opção de linha de comando do AzureCLI `--custom-data` no momento de provisionamento, WALA usa os parâmetros necessários mínimos para provisionar a VM e concluir a implantação com os padrões.  Se você fizer referência ao interruptor `--custom-data` do cloud-init, tudo o que estiver contido em seus dados personalizados (configurações individuais ou script completo) substituirá os padrões WALA definidos. 
 
-Primeiro, crie um grupo de recursos com [az group create](/cli/azure/group#create). O exemplo a seguir cria o grupo de recursos chamado *myResourceGroup* na localização *eastus*:
+As configurações de WALA de VMs são restringidas ao tempo para trabalharem dentro do tempo máximo de provisionamento da VM.  As configurações de cloud-init aplicadas às VMs não têm restrições de tempo e não farão com que uma implantação falhe por tempo limite. 
 
-```azurecli
+## <a name="deploying-a-cloud-init-enabled-virtual-machine"></a>Implantando uma Máquina Virtual habilitada para cloud-init
+Implantar uma máquina virtual habilitada para cloud-init é tão simples quanto fazer referência a uma distribuição habilitada para cloud-init durante a implantação.  Os mantenedores da distribuição de Linux precisam optar por habilitar e integrar o cloud-init em suas imagens publicadas da base do Azure. Depois de confirmar, a imagem que você deseja implantar é habilitada para cloud-init, e você pode usar o AzureCLI para implantar a imagem. 
+
+A primeira etapa para implantar essa imagem é criar um grupo de recursos com o comando [az group create](/cli/azure/group#create). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. 
+
+O exemplo a seguir cria um grupo de recursos chamado *myResourceGroup* no local *eastus*.
+
+```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
 ```
-
-No shell atual, crie um arquivo chamado *cloud_init_hostname.txt* e cole a configuração a seguir. Por exemplo, crie o arquivo no Cloud Shell e não em seu computador local. Você pode usar qualquer editor que queira. No Cloud Shell, insira `sensible-editor cloud_init_hostname.txt` para criar o arquivo e ver uma lista de editores disponíveis. Certifique-se de que o arquivo de inicialização de nuvem inteiro seja copiado corretamente, especialmente a primeira linha:
-
-```yaml
-#cloud-config
-hostname: myhostname
-```
-
-Agora, crie uma VM com [az vm create](/cli/azure/vm#create) e especifique o arquivo de inicialização de nuvem com `--custom-data cloud_init_hostname.txt` da seguinte maneira:
-
-```azurecli
-az vm create \
-    --resource-group myResourceGroup \
-    --name myVMHostname \
-    --image UbuntuLTS \
-    --admin-username azureuser \
-    --generate-ssh-keys \
-    --custom-data cloud_init_hostname.txt
-```
-
-Depois de criado, a CLI do Azure mostra informações sobre a VM. Use o `publicIpAddress` para conectar por SSH à VM. Insira seu próprio endereço da seguinte maneira:
-
-```bash
-ssh azureuser@publicIpAddress
-```
-
-Para ver o nome da VM, use o comando `hostname` da seguinte maneira:
-
-```bash
-hostname
-```
-
-A VM deve relatar o nome de host como esse valor definido no arquivo de inicialização de nuvem, conforme mostrado no exemplo de saída a seguir:
-
-```bash
-myhostname
-```
-
-## <a name="update-a-vm-with-cloud-init"></a>Atualizar uma VM com a inicialização de nuvem
-Para fins de segurança, convém configurar uma VM para aplicar as atualizações mais recentes na primeira inicialização. Como a inicialização de nuvem funciona em diferentes distribuições de Linux, não é necessário especificar `apt` ou `yum` para o gerenciador de pacotes. Em vez disso, você define `package_upgrade` e permite que o processo de inicialização de nuvem determine o mecanismo apropriado para a distribuição em uso. Esse fluxo de trabalho permite que você use os mesmos scripts de inicialização de nuvem entre distribuições.
-
-Para ver o processo de atualização em ação, crie um arquivo de inicialização de nuvem chamado *cloud_init_upgrade.txt* e cole a seguinte configuração:
+A próxima etapa é criar um arquivo no shell atual, chamado *cloud-init.txt*, e colar a configuração a seguir. Para este exemplo, crie o arquivo no Cloud Shell, não no seu computador local. Você pode usar qualquer editor que queira. Insira `sensible-editor cloud-init.txt` para criar o arquivo e ver uma lista de editores disponíveis. Escolha #1 para usar o editor **nano**. Certifique-se de que o arquivo de inicialização de nuvem inteiro seja copiado corretamente, especialmente a primeira linha:
 
 ```yaml
 #cloud-config
 package_upgrade: true
+packages:
+  -httpd
 ```
+Pressione `ctrl-X` para sair do arquivo, digite `y` para salvar o arquivo e pressione `enter` para confirmar o nome do arquivo na saída.
 
-Agora, crie uma VM com [az vm create](/cli/azure/vm#create) e especifique o arquivo de inicialização de nuvem com `--custom-data cloud_init_upgrade.txt` da seguinte maneira:
+A etapa final cria uma VM com o comando [az vm create](/cli/azure/vm#az_vm_create). 
 
-```azurecli
+O exemplo a seguir cria uma VM denominada *centos74* e cria chaves SSH, se elas ainda não existirem em um local de chave padrão. Para usar um conjunto específico de chaves, use a opção `--ssh-key-value`.  Utiçize o `--custom-data` parâmetro para passar no arquivo de configuração de inicialização de nuvem. Forneça o caminho completo para a configuração *cloud-init.txt* se você salvou o arquivo fora do seu diretório de trabalho atual. O exemplo a seguir cria uma VM chamada *centos74*:
+
+```azurecli-interactive 
 az vm create \
-    --resource-group myResourceGroup \
-    --name myVMUpgrade \
-    --image UbuntuLTS \
-    --admin-username azureuser \
-    --generate-ssh-keys \
-    --custom-data cloud_init_upgrade.txt
+  --resource-group myResourceGroup \
+  --name centos74 \
+  --image OpenLogic:CentOS:7-CI:latest \
+  --custom-data cloud-init.txt \
+  --generate-ssh-keys 
 ```
 
-Conecte-se por SSH ao endereço IP público da VM mostrado na saída do comando anterior. Insira seu próprio endereço IP público da seguinte maneira:
+Quando a VM tiver sido criada, a CLI do Azure mostrará informações específicas para a sua implantação. Anote `publicIpAddress`. Esse endereço é usado para acessar a VM.  Leva algum tempo para que a VM seja criada, os pacotes sejam instalados e o aplicativo comece a funcionar. Há tarefas em segundo plano que continuarão em execução depois que a CLI do Azure faz você voltar para o prompt. Você pode usar SSH na VM e usar as etapas descritas na seção de resolução de problemas para exibir os logs de cloud-init. 
 
-```bash
-ssh azureuser@publicIpAddress
-```
+## <a name="troubleshooting-cloud-init"></a>Resolução de problemas do cloud-init
+Depois que a VM tiver sido provisionada, o cloud-init será executado em todos os módulos e o script definido em `--custom-data` para configurar a VM.  Se você precisar solucionar quaisquer erros ou omissões da configuração, você precisará pesquisar o nome do módulo (`disk_setup` ou `runcmd` por exemplo) no log do cloud-init - localizado em **/var/log/cloud-init.log**.
 
-Execute a ferramenta de gerenciamento de pacotes e verifique se há atualizações. O exemplo a seguir usa `apt-get` em uma VM do Ubuntu:
+> [!NOTE]
+> Nem toda falha do módulo resulta em uma falha fatal de configuração geral do cloud-init. Por exemplo, usando o módulo `runcmd`, se o script falhar, o cloud-init ainda relatará o provisionamento bem-sucedido, porque o módulo runcmd foi executado.
 
-```bash
-sudo apt-get upgrade
-```
-
-Já que a inicialização de nuvem verificou em busca de atualizações e instalou-as no ato da inicialização, não existem atualizações para aplicar, conforme mostrado no exemplo de saída a seguir:
-
-```bash
-Reading package lists... Done
-Building dependency tree
-Reading state information... Done
-Calculating upgrade... Done
-0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
-```
-
-## <a name="add-a-user-to-a-vm-with-cloud-init"></a>Adicionar um usuário a uma VM com a inicialização de nuvem
-Uma das primeiras tarefas em qualquer nova VM Linux é adicionar um usuário para você ou para evitar o uso de *root*. As chaves de SSH são uma prática recomendada para segurança e usabilidade. As chaves são adicionadas ao arquivo *~/.ssh/authorized_keys* com esse script de inicialização de nuvem.
-
-Para adicionar um usuário a uma VM Linux, crie um arquivo de inicialização de nuvem chamado *cloud_init_add_user.txt* e cole a configuração a seguir. Forneça o valor de sua própria chave pública (assim como o conteúdo de *~/.ssh/id_rsa.pub*) para *ssh-authorized-keys*:
-
-```yaml
-#cloud-config
-users:
-  - name: myadminuser
-    groups: sudo
-    shell: /bin/bash
-    sudo: ['ALL=(ALL) NOPASSWD:ALL']
-    ssh-authorized-keys:
-      - ssh-rsa AAAAB3<snip>
-```
-
-Agora, crie uma VM com [az vm create](/cli/azure/vm#create) e especifique o arquivo de inicialização de nuvem com `--custom-data cloud_init_add_user.txt` da seguinte maneira:
-
-```azurecli
-az vm create \
-    --resource-group myResourceGroup \
-    --name myVMUser \
-    --image UbuntuLTS \
-    --admin-username azureuser \
-    --generate-ssh-keys \
-    --custom-data cloud_init_add_user.txt
-```
-
-Conecte-se por SSH ao endereço IP público da VM mostrado na saída do comando anterior. Insira seu próprio endereço IP público da seguinte maneira:
-
-```bash
-ssh myadminuser@publicIpAddress
-```
-
-Para confirmar se o usuário foi adicionado para a VM e os grupos especificados, exiba o conteúdo do arquivo */etc/group* da seguinte maneira:
-
-```bash
-cat /etc/group
-```
-
-A saída de exemplo a seguir mostra que o usuário do arquivo *cloud_init_add_user.txt* foi adicionado à VM e ao grupo apropriado:
-
-```bash
-root:x:0:
-<snip />
-sudo:x:27:myadminuser
-<snip />
-myadminuser:x:1000:
-```
+Para obter mais detalhes de registro do cloud-init, consulte a [documentação do cloud-init](http://cloudinit.readthedocs.io/en/latest/topics/logging.html) 
 
 ## <a name="next-steps"></a>Próximas etapas
-A inicialização de nuvem é uma das maneiras padrão de modificar suas VMs Linux na inicialização. No Azure, você também pode usar extensões de VM para modificar sua VM Linux na inicialização ou quando ela estiver em execução. Por exemplo, você pode usar a extensão de VM do Azure para executar um script em uma VM em execução, não apenas na primeira inicialização. Para obter mais informações sobre extensões de VM, consulte [Extensões e recursos de VM](extensions-features.md) ou, para obter exemplos de como usar a extensão, consulte [Gerenciar usuários, conectar-se por SSH e verificar ou reparar discos em VMs Linux do Azure usando a extensão VMAccess](using-vmaccess-extension.md).
+Para obter exemplos de alterações de configuração do cloud-init, consulte os seguintes documentos:
+ 
+- [Add an additional Linux user to a VM](cloudinit-add-user.md) (Adicionar um usuário adicional do Linux a uma VM)
+- [Run a package manager to update existing packages on first boot](cloudinit-update-vm.md) (Executar um gerenciador de pacotes para atualizar os pacotes existentes na primeira inicialização)
+- [Change VM local hostname](cloudinit-update-vm-hostname.md) (Alterar o nome do host local da VM) 
+- [Install an application package, update configuration files and inject keys](tutorial-automate-vm-deployment.md) (Instalar um pacote de aplicativo, atualizar os arquivos de configuração e injetar chaves)

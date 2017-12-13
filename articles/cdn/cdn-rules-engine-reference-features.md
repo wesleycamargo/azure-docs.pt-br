@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: rli
-ms.openlocfilehash: ec2555df27f4b709d06b660bf161f741e5b86ea6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 107601fcc53e5f5b6f809bb3c7fceaf5e5c03d36
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-cdn-rules-engine-features"></a>Recursos do mecanismo de regras da CDN do Azure
 Este tópico lista descrições detalhadas dos recursos disponíveis para o [Mecanismo de regras](cdn-rules-engine.md)da CDN (Rede de Distribuição de Conteúdo) do Azure.
@@ -644,7 +644,7 @@ Desabilitado|O cabeçalho de resposta X-EC-Debug será excluído da resposta.
 
 **Comportamento padrão:** desabilitado.
 
-###<a name="modify-client-response-header"></a>Modificar Cabeçalho de Resposta do Cliente
+###<a name="modify-client-request-header"></a>Modificar Cabeçalho de Solicitação do Cliente
 **Finalidade:** cada solicitação contém um conjunto de [cabeçalhos de solicitação]() que a descrevem. Este recurso pode:
 
 - Acrescente ou substitua o valor atribuído a um cabeçalho de solicitação. Se o cabeçalho de solicitação especificado não existir, esse recurso o adicionará à solicitação.
@@ -680,7 +680,7 @@ Informações de chave:
 ###<a name="modify-client-response-header"></a>Modificar Cabeçalho de Resposta do Cliente
 Cada resposta contém um conjunto de [cabeçalhos de resposta]() que o descrevem. Este recurso pode:
 
-- Acrescente ou substitua o valor atribuído a um cabeçalho de resposta. Se o cabeçalho de solicitação especificado não existir, esse recurso o adicionará à resposta.
+- Acrescente ou substitua o valor atribuído a um cabeçalho de resposta. Se o cabeçalho de resposta especificado não existir, esse recurso o adicionará à resposta.
 - Exclua um cabeçalho de resposta da resposta.
 
 Por padrão, os valores de cabeçalho de resposta são definidos por um servidor de origem e por nossos servidores de borda.
@@ -689,9 +689,9 @@ Uma das seguintes ações pode ser realizada em um cabeçalho de resposta:
 
 Opção|Descrição|Exemplo
 -|-|-
-Acrescentar|O valor especificado será adicionado ao fim do valor de cabeçalho de solicitação existente.|**Valor de cabeçalho de resposta (Cliente):**Valor1 <br/> **Valor de cabeçalho de resposta (Mecanismo de Regras de HTTP):** Valor2 <br/>**Novo valor de cabeçalho de resposta:** Value1Value2
-Substituir|O valor de cabeçalho de solicitação será definido com o valor especificado.|**Valor de cabeçalho de resposta (Cliente):**Valor1 <br/>**Valor de cabeçalho de resposta (Mecanismo de Regras de HTTP):** Valor2 <br/>**Novo valor de cabeçalho de resposta:** Value2 <br/>
-Excluir|Exclui o cabeçalho de solicitação especificado.|**Valor de cabeçalho (cliente) da solicitação:** Value1 <br/> **Modificar a configuração de Cabeçalho de Solicitação de Cliente:** exclua o cabeçalho de resposta em questão. <br/>**Resultado:** o cabeçalho de resposta especificado não será encaminhado ao solicitante.
+Acrescentar|O valor especificado será adicionado ao fim do valor de cabeçalho de resposta existente.|**Valor de cabeçalho de resposta (Cliente):**Valor1 <br/> **Valor de cabeçalho de resposta (Mecanismo de Regras de HTTP):** Valor2 <br/>**Novo valor de cabeçalho de resposta:** Value1Value2
+Substituir|O valor de cabeçalho de resposta será definido com o valor especificado.|**Valor de cabeçalho de resposta (Cliente):**Valor1 <br/>**Valor de cabeçalho de resposta (Mecanismo de Regras de HTTP):** Valor2 <br/>**Novo valor de cabeçalho de resposta:** Value2 <br/>
+Exclusão|Exclui o cabeçalho de resposta especificado.|**Valor de cabeçalho de resposta (Cliente):** Value1 <br/> **Modificar a configuração de Cabeçalho de Resposta do Cliente:** exclua o cabeçalho de resposta em questão. <br/>**Resultado:** o cabeçalho de resposta especificado não será encaminhado ao solicitante.
 
 Informações de chave:
 

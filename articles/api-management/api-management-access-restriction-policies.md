@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: a8bbe6c4f6919f150012163b0c7559d2986e072f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f9872ee033d8c0bed215f8b37d64395e5dcd534c
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="api-management-access-restriction-policies"></a>Políticas de restrição de acesso do Gerenciamento de API
 Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -26,17 +26,11 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 ##  <a name="AccessRestrictionPolicies"></a> Políticas de restrição de acesso  
   
 -   [Verificar cabeçalho HTTP](api-management-access-restriction-policies.md#CheckHTTPHeader) - Impõe a existência e/ou valor de um cabeçalho HTTP.  
-  
 -   [Limitar a taxa de chamada por assinatura](api-management-access-restriction-policies.md#LimitCallRate) - Previne picos de uso da API limitando a taxa de chamada, baseado em assinatura.  
-  
 -   [Limitar a taxa de chamada por chave](#LimitCallRateByKey) - Previne picos de uso da API limitando a taxa de chamada, baseado em chave.  
-  
 -   [Restringir IP do autor da chamada](api-management-access-restriction-policies.md#RestrictCallerIPs) - Filtra (permite/recusa) chamadas de endereços IP específicos e/ou intervalos de endereços.  
-  
 -   [Definir a cota de uso por assinatura](api-management-access-restriction-policies.md#SetUsageQuota) - Permite que você aplique uma cota renovável ou permanente de volume de chamada e/ou largura de banda, baseado em assinatura.  
-  
 -   [Definir a cota de uso por chave](#SetUsageQuotaByKey) - Permite que você aplique uma cota renovável ou permanente de volume de chamada e/ou largura de banda, baseado em chave.  
-  
 -   [Validar JWT](api-management-access-restriction-policies.md#ValidateJWT) - Impõe a existência e a validade de JWT extraída de um cabeçalho HTTP especificado ou um parâmetro de consulta especificado.  
   
 ##  <a name="CheckHTTPHeader"></a> Verificar cabeçalho HTTP  
@@ -235,7 +229,6 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
  Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
   
 -   **Seções de política:** de entrada  
-  
 -   **Escopos de política:** global, produto, API, operação  
   
 ##  <a name="SetUsageQuota"></a> Definir a cota de uso por assinatura  
@@ -291,7 +284,6 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
  Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
   
 -   **Seções de política:** de entrada  
-  
 -   **Escopos de política:** produto  
   
 ##  <a name="SetUsageQuotaByKey"></a> Definir uma cota de uso por chave  
@@ -352,7 +344,6 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
  Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
   
 -   **Seções de política:** de entrada  
-  
 -   **Escopos de política:** global, produto, API, operação  
   
 ##  <a name="ValidateJWT"></a> Validar JWT  
@@ -523,8 +514,13 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
  Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
   
 -   **Seções de política:** de entrada  
-  
 -   **Escopos de política:** global, produto, API, operação  
   
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre como trabalhar com políticas, veja [Políticas em Gerenciamento de API](api-management-howto-policies.md).  
+
+Para obter mais informações sobre como trabalhar com políticas, consulte:
+
++ [Políticas no Gerenciamento de API](api-management-howto-policies.md)
++ [Transformar APIs](transform-api.md)
++ [Referência de Política](api-management-policy-reference.md) para uma lista completa das instruções de política e suas configurações
++ [Exemplos de política](policy-samples.md)   

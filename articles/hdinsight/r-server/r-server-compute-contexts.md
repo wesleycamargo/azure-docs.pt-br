@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 06/19/2017
 ms.author: bradsev
-ms.openlocfilehash: 24df96f55b0f207d8576bd05c2c83a884e7fc2bd
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 4c839bf0c39bf10855f8a31770b82a04ed1ca457
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="compute-context-options-for-r-server-on-hdinsight"></a>Opções de contexto de computação para o Servidor R no HDInsight
 
@@ -33,19 +33,19 @@ O [Microsoft R Server no Azure HDInsight](r-server-overview.md) fornece os recur
 ## <a name="compute-contexts-for-an-edge-node"></a>Contextos de computação para um nó de extremidade
 Em geral, um script de R que é executado no Servidor R no nó de borda é executado no interpretador de R nesse nó. As exceções são aquelas etapas que chamam uma função ScaleR. As chamadas de ScaleR são executadas em um ambiente de computação que é determinado pela configuração do contexto de computação do ScaleR.  Quando você executa o script R de um nó de borda, os valores possíveis de contexto de computação são:
 
-- local sequencial (*‘local’*)
-- local paralelo (*‘localpar’*)
+- local sequencial (*local*)
+- local paralelo (*localpar*)
 - Map Reduce
 - Spark
 
-As opções *‘local’* e *‘localpar’* diferem apenas em como chamadas do **rxExec** são executadas. As duas executam outras chamadas de função rx de forma paralela entre os núcleos disponíveis, a menos que seja especificado de outra forma por meio do uso da opção **numCoresToUse** de ScaleR, por exemplo, `rxOptions(numCoresToUse=6)`. Opções de execução paralela oferecem um desempenho ideal.
+As opções *local* e *localpar* diferem apenas em como as chamadas de **rxExec** são executadas. As duas executam outras chamadas de função rx de forma paralela entre os núcleos disponíveis, a menos que seja especificado de outra forma por meio do uso da opção **numCoresToUse** de ScaleR, por exemplo, `rxOptions(numCoresToUse=6)`. Opções de execução paralela oferecem um desempenho ideal.
 
 A tabela a seguir resume as várias opções de contexto de computação para definir como as chamadas são executadas:
 
 | Contexto de computação  | Como definir                      | Contexto de execução                        |
 | ---------------- | ------------------------------- | ---------------------------------------- |
-| Local sequencial | rxSetComputeContext(‘local’)    | Execução em paralelo entre os núcleos do servidor de nó de borda, exceto para chamadas rxExec, que são executadas em série |
-| Local paralelo   | rxSetComputeContext(‘localpar’) | Execução paralela entre os núcleos do servidor de nó de borda |
+| Local sequencial | rxSetComputeContext('local')    | Execução em paralelo entre os núcleos do servidor de nó de borda, exceto para chamadas rxExec, que são executadas em série |
+| Local paralelo   | rxSetComputeContext('localpar') | Execução paralela entre os núcleos do servidor de nó de borda |
 | Spark            | RxSpark()                       | Execução distribuída em paralelo por meio do Spark em todos os nós do cluster do HDI |
 | Map Reduce       | RxHadoopMR()                    | Execução distribuída em paralelo por meio do Map Reduce em todos os nós do cluster do HDI |
 
@@ -62,8 +62,8 @@ Qual das três opções que fornecem execução em paralelo você ddeve escolher
 Com esses princípios, as seções a seguir oferecem algumas regras gerais para selecionar um contexto de computação.
 
 ### <a name="local"></a>Local
-* Se a quantidade de dados a ser analisada for pequena e não demandar análise repetida, transmita-a diretamente para a rotina de análise usando *'local'* ou *'localpar'*.
-* Se a quantidade de dados a ser analisada for de pequeno ou médio porte e necessitar de análise repetida, copie-a para o sistema de arquivos local, importe-a para XDF e analise-a por meio de *'local'* ou *'localpar'*.
+* Se a quantidade de dados a ser analisada for pequena e não exigir a repetição da análise, transmita-a diretamente para a rotina de análise usando *local* ou *localpar*.
+* Se a quantidade de dados a ser analisada for de pequeno ou médio porte e exigir a repetição da análise, copie-a para o sistema de arquivos local, importe-a para XDF e analise-a por meio de *local* ou *localpar*.
 
 ### <a name="hadoop-spark"></a>Hadoop Spark
 * Se a quantidade de dados a serem analisados for grande, importe-os para um Spark DataFrame usando **RxHiveData** ou **RxParquetData** ou para o XDF no HDFS (exceto se o armazenamento for um problema) e analise-os usando o contexto de computação do Spark.
@@ -76,7 +76,7 @@ Para obter mais informações e exemplos de contextos de computação de ScaleR,
 
     > ?rxSetComputeContext
 
-Você também pode consultar o “[Guia de computação distribuída do ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-distributed-computing)” disponível na biblioteca [MSDN do R Server](https://msdn.microsoft.com/library/mt674634.aspx "R Server no MSDN").
+Você também pode consultar o [Guia de computação distribuída do ScaleR](https://msdn.microsoft.com/microsoft-r/scaler-distributed-computing) disponível na biblioteca [MSDN do R Server](https://msdn.microsoft.com/library/mt674634.aspx).
 
 ## <a name="next-steps"></a>Próximas etapas
 Neste artigo você aprendeu sobre as opções que estão disponíveis para especificar se e como a execução é paralelizada entre núcleos do nó de borda ou o cluster HDInsight. Para aprender mais sobre como usar o R Server com clusters HDInsight, veja os tópicos a seguir:

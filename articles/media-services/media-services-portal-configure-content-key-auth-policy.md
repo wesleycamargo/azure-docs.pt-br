@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: juliako
-ms.openlocfilehash: 5a35c7255a1c30a693862589c14f6a22a1900790
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 36ec76718d21cac5ae3203f1c6d4b8af2aacb9ed
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="configure-content-key-authorization-policy"></a>Configurar a Política de Autorização de Chave de Conteúdo
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -28,9 +28,9 @@ Os Serviços de Mídia do Microsoft Azure permitem distribuir fluxos MPEG-DASH, 
 
 Os Serviços de Mídia também fornecem um **Serviço de Entrega de Chaves/Licenças** por meio do qual os clientes podem obter chaves AES ou licenças do PlayReady/Widevine para reproduzir o conteúdo criptografado.
 
-Este tópico mostra como usar o Portal do Azure para configurar a política de autorização de chave de conteúdo. A chave pode ser usada posteriormente para criptografar dinamicamente o conteúdo. Observe que, no momento, você pode criptografar o seguintes formatos de streaming: HLS, MPEG DASH, e Smooth Streaming. Não é possível criptografar downloads progressivos.
+Este artigo mostra como usar o Portal do Azure para configurar a política de autorização de chave de conteúdo. A chave pode ser usada posteriormente para criptografar dinamicamente o conteúdo. Observe que, no momento, você pode criptografar o seguintes formatos de streaming: HLS, MPEG DASH, e Smooth Streaming. Não é possível criptografar downloads progressivos.
 
-Quando um player solicita um fluxo definido para ser criptografado dinamicamente, os Serviços de Mídia usam a chave configurada para criptografar dinamicamente o conteúdo usando a criptografia AES ou DRM. Para descriptografar o fluxo, o player solicitará a chave do serviço de distribuição de chaves. Para decidir se o usuário está autorizado para obter a chave ou não, o serviço avalia as políticas de autorização que você especificou para a chave.
+Quando um player solicita um fluxo definido para ser criptografado dinamicamente, os Serviços de Mídia usam a chave configurada para criptografar dinamicamente o conteúdo usando a criptografia AES ou DRM. Para descriptografar o fluxo, o player solicita a chave do serviço de distribuição de chaves. Para decidir se o usuário está autorizado para obter a chave ou não, o serviço avalia as políticas de autorização que você especificou para a chave.
 
 Se você pretende ter várias chaves de conteúdo ou se deseja especificar uma URL de **Serviço de Entrega de Chave/Licença** diferente do serviço de entrega de chaves dos Serviços de Mídia, use o SDK do .NET dos Serviços de Mídia ou as APIs REST.
 
@@ -42,6 +42,7 @@ Se você pretende ter várias chaves de conteúdo ou se deseja especificar uma U
 * Quando sua conta AMS é criada, um ponto de extremidade de streaming **padrão** é adicionado à sua conta em estado **Parado**. Para começar a transmitir seu conteúdo e aproveitar o empacotamento dinâmico e a criptografia dinâmica, o ponto de extremidade de streaming deve estar no estado **Executando**. 
 * O ativo deve conter um conjunto de MP4s de taxa de bits adaptável ou arquivos de Smooth Streaming de taxa de bits adaptável. Para obter mais informações, consulte [Codificar um ativo](media-services-encode-asset.md).
 * O serviço de entrega de chave armazena em cache ContentKeyAuthorizationPolicy e seus objetos relacionados (opções e restrições da política) por 15 minutos.  Se você criar um ContentKeyAuthorizationPolicy e optar por usar uma restrição "Token", testá-lo e, em seguida, atualizar a política de restrição "Aberta", levará aproximadamente 15 minutos antes da política alternar para a versão "Aberta" da política.
+* O ponto de extremidade de streaming AMS define o valor do cabeçalho do 'Access-Control-Allow-Origin' do CORS na resposta de simulação como o curinga '\*'. Isso funciona bem com a maioria dos players, incluindo o nosso Player de Mídia do Azure, Roku e JW e outros. No entanto, alguns players que aproveitam dashjs não funcionam, já que com o modo de credencial definido para "incluir", XMLHttpRequest em dashjs não permite o curinga “\*” como o valor de “'Access-Control-Allow-Origin”. Como uma solução alternativa para essa limitação em dashjs, é possível hospedar seu cliente a partir de um único domínio, os Serviços de Mídia do Microsoft Azure podem especificar esse domínio no cabeçalho da resposta de simulação. Você pode alcançar, ao abrir um tíquete de suporte através do Portal do Azure.
 
 ## <a name="how-to-configure-the-key-authorization-policy"></a>Como: configurar a política de autorização da chave
 Para configurar a política de autorização da chave, selecione a página **PROTEÇÃO DE CONTEÚDO** .
@@ -49,7 +50,7 @@ Para configurar a política de autorização da chave, selecione a página **PRO
 Os serviços de mídia oferecem suporte a várias maneiras de autenticar os usuários que fazem solicitações de chave. A política de autorização de chave de conteúdo pode ter restrições de autorização **abertas**, de **token** ou de **IP** (a de **IP** pode ser configurada com REST ou SDK do .NET).
 
 ### <a name="open-restriction"></a>Restrição aberta
-A restrição **aberta** significa que o sistema fornecerá a chave para qualquer pessoa que fizer uma solicitação de chave. Essa restrição pode ser útil para fins de teste.
+A restrição **aberta** significa que o sistema entrega a chave para qualquer pessoa que faça uma solicitação de chave. Essa restrição pode ser útil para fins de teste.
 
 ![OpenPolicy][open_policy]
 
@@ -60,17 +61,17 @@ A política restrita do **token** deve ser acompanhada por um token emitido por 
 
 Os Serviços de Mídia não fornecem **Serviços de Token Seguro**. Você pode criar um STS personalizado ou usar o Microsoft Azure ACS para emitir tokens. O STS deve ser configurado para criar um token assinado com as a chave especificada e declarações de emissão que você especificou na configuração de restrição do token. O serviço de distribuição de chaves dos serviços de mídia retornará a chave de criptografia para o cliente se o token for válido e as declarações no token corresponderem aos configurados para a chave de conteúdo. Para saber mais, consulte [Uso do Azure ACS para emitir tokens](http://mingfeiy.com/acs-with-key-services).
 
-Ao configurar a política com restrição de **TOKEN**, você deve definir valores para **chave de verificação**, **emissor** e **Público**. A chave de verificação primária contém a chave que o token foi assinado, o emissor é o serviço de token seguro que emite o token. A audiência (às vezes chamada de escopo) descreve a intenção do token ou o recurso que o token autoriza o acesso. O serviço de distribuição de chaves dos serviços de mídia valida que esses valores no token correspondem aos valores no modelo.
+Ao configurar a política restrita por **token**, você deverá especificar a **chave de verificação** primária, o **emissor do certificado** e os parâmetros de **audiência**. A **chave de verificação** primária contém a chave com a qual o token foi assinado, o **emissor do certificado** é o serviço de token seguro que emite o token. O **público** (às vezes chamada de **escopo**) descreve a intenção do token ou o recurso ao qual o token autoriza o acesso. O serviço de distribuição de chaves dos serviços de mídia valida que esses valores no token correspondem aos valores no modelo.
 
 ### <a name="playready"></a>PlayReady
 Ao proteger o conteúdo com **PlayReady**, uma das coisas que você precisa especificar na sua política de autorização é uma cadeia de caracteres XML que define o modelo de licença do PlayReady. Por padrão, a seguinte política é definida:
 
 <PlayReadyLicenseResponseTemplate xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/Azure/MediaServices/KeyDelivery/PlayReadyTemplate/v1"> <LicenseTemplates> <PlayReadyLicenseTemplate><AllowTestDevices>true</AllowTestDevices> <ContentKey i:type="ContentEncryptionKeyFromHeader" /> <LicenseType>Nonpersistent</LicenseType> <PlayRight> <AllowPassingVideoContentToUnknownOutput>Allowed</AllowPassingVideoContentToUnknownOutput> </PlayRight> </PlayReadyLicenseTemplate> </LicenseTemplates> </PlayReadyLicenseResponseTemplate>
 
-Você pode clicar no botão **Importar a política XML** e fornecer um XML diferente que está em conformidade com o esquema XML definido [aqui](media-services-playready-license-template-overview.md).
+Você pode clicar no botão **importar xml de política** e fornecer um XML diferente que esteja em conformidade com o Esquema XML definido [aqui](media-services-playready-license-template-overview.md).
 
-## <a name="next-step"></a>Próxima etapa
-Revise os roteiros de aprendizagem dos Serviços de Mídia.
+## <a name="next-steps"></a>Próximas etapas
+Examine os roteiros de aprendizagem dos Serviços de Mídia.
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 

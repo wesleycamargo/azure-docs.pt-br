@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/19/2017
+ms.date: 11/03/2017
 ms.author: roalexan
-ms.openlocfilehash: 53a6b18fb74db46ccb66c7c70851a9bf364e927c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b2c9f53de1abd2aea5fabbefecc5bbb144148a7b
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="learn-how-to-manage-azureml-web-services-using-api-management"></a>Saiba como gerenciar os serviços Web do AzureML usando o Gerenciamento de API
 ## <a name="overview"></a>Visão geral
@@ -39,94 +39,133 @@ Para concluir este guia, você precisa:
 * O espaço de trabalho, o serviço e a api_key para um teste do AzureML implantado como um serviço Web. Clique [aqui](create-experiment.md) para obter detalhes sobre como criar um teste do AzureML. Clique [aqui](publish-a-machine-learning-web-service.md) para obter detalhes sobre como implantar um teste do AzureML como um serviço Web. Como alternativa, o Apêndice A traz instruções sobre como criar e testar um teste simples do AzureML e implantá-lo como um serviço Web.
 
 ## <a name="create-an-api-management-instance"></a>Criar uma instância de Gerenciamento de API
-A seguir estão as etapas para usar o Gerenciamento de API para gerenciar seu serviço Web do AzureML. Primeiro, crie uma instância de serviço. Faça logon no [Portal Clássico](https://manage.windowsazure.com/) e clique em **Novo** > **Serviços de Aplicativos** > **Gerenciamento de API** > **Criar**.
 
-![create-instance](./media/manage-web-service-endpoints-using-api-management/create-instance.png)
+Você pode gerenciar seu serviço Web do Azure Machine Learning com uma instância de Gerenciamento de API.
 
-Especifique uma **URL**exclusiva. Este guia usa **demoazureml** – você precisará escolher algo diferente. Selecione a **Assinatura** e a **Região** da sua instância de serviço. Após fazer suas seleções, clique no botão Avançar.
+1. Entre no [Portal do Azure](https://portal.azure.com).
+2. Selecione **+ Criar um recurso**.
+3. Na caixa de pesquisa, digite "Gerenciamento de API" e selecione o recurso de "Gerenciamento de API".
+4. Clique em **Criar**.
+5. O valor **Nome** será usado para criar uma URL exclusiva (este exemplo usa "demoazureml").
+6. Selecione uma **Assinatura**, um **Grupo de recursos** e um **Local** para sua instância de serviço.
+7. Especifique um valor para **Nome da organização** (este exemplo usa "demoazureml").
+8. Insira seu **Email do administrador** – este email será usado para notificações do sistema de Gerenciamento de API.
+9. Clique em **Criar**.
 
-![create-service-1](./media/manage-web-service-endpoints-using-api-management/create-service-1.png)
+Pode levar até 30 minutos para um novo serviço ser criado.
 
-Especifique um valor para o **Nome da Organização**. Este guia usa **demoazureml** – você precisará escolher algo diferente. Insira seu endereço de email no campo **email do administrador** . Esse endereço de email é usado para notificações do sistema de Gerenciamento de API.
+![create-service](./media/manage-web-service-endpoints-using-api-management/create-service.png)
 
-![create-service-2](./media/manage-web-service-endpoints-using-api-management/create-service-2.png)
-
-Clique na caixa de seleção para criar sua instância de serviço. *Demora até 30 minutos para um novo serviço ser criado*.
 
 ## <a name="create-the-api"></a>Criar a API
 Após criar a instância de serviço, a próxima etapa é criar a API. Uma API consiste em um conjunto de operações que podem ser iniciadas a partir de uma aplicativo cliente. Todas as operações de API são colocadas em proxies de serviços Web existentes. Este guia cria APIs que atua como proxy para os serviços Web RRS e BES do AzureML existentes.
 
-As APIs são criadas e configuradas no portal do editor de API, que pode ser acessado por meio do Portal Clássico do Azure. Para acessar o portal do editor, selecione a instância de serviço.
+Para criar a API:
 
-![select-service-instance](./media/manage-web-service-endpoints-using-api-management/select-service-instance.png)
+1. No portal do Azure, abra a instância de serviço que você acabou de criar.
+2. No painel de navegação esquerdo, selecione **APIs**.
 
-Clique em **Gerenciar** no Portal Clássico do Azure do seu serviço de Gerenciamento de API.
+   ![api-management-menu](./media/manage-web-service-endpoints-using-api-management/api-management.png)
 
-![manage-service](./media/manage-web-service-endpoints-using-api-management/manage-service.png)
+1. Clique em **Adicionar API**.
+2. Insira um **nome de API Web** (este exemplo usa a "API de demonstração do AzureML").
+3. Para **URL do serviço Web**, digite "`https://ussouthcentral.services.azureml.net`".
+4. Insira um **sufixo de URL da API Web**. Isso se tornará a última parte da URL que os clientes usarão para enviar solicitações à instância de serviço (este exemplo usa "azureml-demo").
+5. Para o **esquema de URL da API Web**, selecione **HTTPS**.
+6. Para **Produtos**, selecione **Inicial**.
+7. Clique em **Salvar**.
 
-Clique em **APIs** no menu **Gerenciamento de API** à esquerda e depois clique em **Adicionar API**.
-
-![api-management-menu](./media/manage-web-service-endpoints-using-api-management/api-management-menu.png)
-
-Digite **AzureML demonstração API** como o **Nome da API Web**. Digite **https://ussouthcentral.services.azureml.net** como a **URL do serviço Web**. Digite **azureml-demo** como o **sufixo da URL da API Web**. Marque **HTTPS** como o esquema de **URL da API Web**. Selecione **Iniciador** como **Produtos**. Quando terminar, clique em **Salvar** para criar a API.
-
-![add-new-api](./media/manage-web-service-endpoints-using-api-management/add-new-api.png)
 
 ## <a name="add-the-operations"></a>Adicionar as operações
-Clique em **Adicionar operação** para adicionar operações a esta API.
 
-![add-operation](./media/manage-web-service-endpoints-using-api-management/add-operation.png)
+Operações são adicionadas e configuradas em uma API no Portal do editor. Para acessar o portal do publicador, clique em **Portal do publicador** no portal do Azure para seu serviço de Gerenciamento de API, selecione **APIs**, **Operações** e, em seguida, clique em **Adicionar operação**.
+
+![add-operation](./media/manage-web-service-endpoints-using-api-management/add-an-operation.png)
 
 A janela **Nova operação** será exibida e a guia **Assinatura** será selecionada por padrão.
 
 ## <a name="add-rrs-operation"></a>Adicionar operação RRS
-Primeiro, crie uma operação para o serviço RRS do AzureML. Selecione **POST** como o **Verbo HTTP**. Digite **/workspaces/{workspace}/services/{service}/execute?api-version={apiversion}&details={details}** como o **Modelo de URL**. Digite **RRS Execute** como o **Nome de exibição**.
+Primeiro, crie uma operação para o serviço RRS do AzureML:
 
-![add-rrs-operation-signature](./media/manage-web-service-endpoints-using-api-management/add-rrs-operation-signature.png)
+1. Para o **verbo HTTP**, selecione **POST**.
+2. Para o **modelo de URL**, digite "`/workspaces/{workspace}/services/{service}/execute?api-version={apiversion}&details={details}`".
+3. Insira um **Nome de exibição** (este exemplo usa "RRS Execute").
 
-Clique em **Respostas** > **ADICIONAR** à esquerda e selecione **200 OK**. Clique em **Salvar** para salvar esta operação.
+   ![add-rrs-operation-signature](./media/manage-web-service-endpoints-using-api-management/add-rrs-operation-signature.png)
 
-![add-rrs-operation-response](./media/manage-web-service-endpoints-using-api-management/add-rrs-operation-response.png)
+4. Clique em **Respostas** > **ADICIONAR** à esquerda e selecione **200 OK**.
+5. Clique em **Salvar** para salvar esta operação.
+
+   ![add-rrs-operation-response](./media/manage-web-service-endpoints-using-api-management/add-rrs-operation-response.png)
 
 ## <a name="add-bes-operations"></a>Adicionar operações BES
-Capturas de tela não estão incluídas para as operações BES pois são muito semelhantes àquelas para adicionar a operação RRS.
+
+> [!NOTE]
+> Capturas de tela não estão incluídas aqui para as operações BES, pois são muito semelhantes àquelas para adicionar a operação RRS.
 
 ### <a name="submit-but-not-start-a-batch-execution-job"></a>Enviar (mas não iniciar) um trabalho de execução em lotes
-Clique em **Adicionar operação** para adicionar a operação BES do AzureML à API. Selecione **POST** para o **Verbo HTTP**. Digite **/workspaces/{workspace}/services/{service}/jobs?api-version={apiversion}** para o **Modelo de URL**. Digite **BES Submit** para o **Nome de exibição**. Clique em **Respostas** > **ADICIONAR** à esquerda e selecione **200 OK**. Clique em **Salvar** para salvar esta operação.
+
+1. Clique em **Adicionar operação** para adicionar uma operação BES à API.
+2. Para o **verbo HTTP**, selecione **POST**.
+3. Para o **modelo de URL**, digite "`/workspaces/{workspace}/services/{service}/jobs?api-version={apiversion}`".
+4. Insira um **Nome de exibição** (este exemplo usa "BES Submit").
+5. Clique em **Respostas** > **ADICIONAR** à esquerda e selecione **200 OK**.
+6. Clique em **Salvar**.
 
 ### <a name="start-a-batch-execution-job"></a>Iniciar um trabalho de execução em lotes
-Clique em **Adicionar operação** para adicionar a operação BES do AzureML à API. Selecione **POST** para o **Verbo HTTP**. Digite **/workspaces/ {espaço} {serviço} /services/ /jobs/ {jobid} / iniciar? api-version = {apiversion}** para o **modelo de URL**. Digite **BES Start** para o **Nome de exibição**. Clique em **Respostas** > **ADICIONAR** à esquerda e selecione **200 OK**. Clique em **Salvar** para salvar esta operação.
+
+1. Clique em **Adicionar operação** para adicionar uma operação BES à API.
+2. Para o **verbo HTTP**, selecione **POST**.
+3. Para o **verbo HTTP**, digite "`/workspaces/{workspace}/services/{service}/jobs/{jobid}/start?api-version={apiversion}`".
+4. Insira um **Nome de exibição** (este exemplo usa "BES Start").
+6. Clique em **Respostas** > **ADICIONAR** à esquerda e selecione **200 OK**.
+7. Clique em **Salvar**.
 
 ### <a name="get-the-status-or-result-of-a-batch-execution-job"></a>Obter o status ou o resultado de um trabalho de execução em lotes
-Clique em **Adicionar operação** para adicionar a operação BES do AzureML à API. Selecione **GET** para o **Verbo HTTP**. Digite **/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}** para o **Modelo de URL**. Digite **BES Status** para o **Nome de exibição**. Clique em **Respostas** > **ADICIONAR** à esquerda e selecione **200 OK**. Clique em **Salvar** para salvar esta operação.
+
+1. Clique em **Adicionar operação** para adicionar uma operação BES à API.
+2. Para o **verbo HTTP**, selecione **GET**.
+3. Para o **modelo de URL**, digite "`/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}`".
+4. Insira um **Nome de exibição** (este exemplo usa "BES Status").
+6. Clique em **Respostas** > **ADICIONAR** à esquerda e selecione **200 OK**.
+7. Clique em **Salvar**.
 
 ### <a name="delete-a-batch-execution-job"></a>Excluir um trabalho de execução em lote
-Clique em **Adicionar operação** para adicionar a operação BES do AzureML à API. Selecione **DELETE** para o **Verbo HTTP**. Digite **/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}** para o **Modelo de URL**. Digite **BES Delete** para o **Nome de exibição**. Clique em **Respostas** > **ADICIONAR** à esquerda e selecione **200 OK**. Clique em **Salvar** para salvar esta operação.
 
-## <a name="call-an-operation-from-the-developer-portal"></a>Chamar uma operação no Portal do Desenvolvedor
-As operações podem ser chamadas diretamente do Portal do Desenvolvedor, que fornece uma forma conveniente de exibir e testar as operações de uma API. Nesta etapa do guia, você chamará o método **RRS Execute** que foi adicionado à **API de demonstração do AzureML**. Clique em **Portal do desenvolvedor** no menu da parte superior direita do Portal Clássico.
+1. Clique em **Adicionar operação** para adicionar uma operação BES à API.
+2. Para o **verbo HTTP**, selecione **DELETE**.
+3. Para o **modelo de URL**, digite "`/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}`".
+4. Insira um **Nome de exibição** (este exemplo usa "BES Delete").
+5. Clique em **Respostas** > **ADICIONAR** à esquerda e selecione **200 OK**.
+6. Clique em **Salvar**.
 
-![developer-portal](./media/manage-web-service-endpoints-using-api-management/developer-portal.png)
+## <a name="call-an-operation-from-the-developer-portal"></a>Chamar uma operação no portal do Desenvolvedor
 
-Clique em **APIs** no menu superior e depois clique em **API de demonstração do AzureML** para ver as operações disponíveis.
+As operações podem ser chamadas diretamente do Portal do Desenvolvedor, que fornece uma forma conveniente de exibir e testar as operações de uma API. Nesta etapa do guia, você chamará o método **RRS Execute** que foi adicionado à **API de demonstração do AzureML**. 
 
-![demoazureml-api](./media/manage-web-service-endpoints-using-api-management/demoazureml-api.png)
+1. Clique em **Portal do desenvolvedor**.
 
-Selecione **RRS Execute** para a operação. Clique em **Experimentar**.
+   ![developer-portal](./media/manage-web-service-endpoints-using-api-management/developer-portal.png)
 
-![avaliar](./media/manage-web-service-endpoints-using-api-management/try-it.png)
+2. Clique em **APIs** no menu superior e depois clique em **API de demonstração do AzureML** para ver as operações disponíveis.
 
-Para os parâmetros Request, digite seu **espaço de trabalho**, **serviço**, **2.0** para **apiversion** e **true** para **detalhes**. Você pode encontrar o **espaço de trabalho** e o **serviço** no painel de serviço Web do AzureML (confira **Testar o serviço Web** no Apêndice A).
+   ![demoazureml-api](./media/manage-web-service-endpoints-using-api-management/demoazureml-api.png)
 
-Para cabeçalhos Request, clique em **Adicionar cabeçalho** e digite **Content-Type** e **application/json**; em seguida, clique em **Adicionar cabeçalho** e digite **Authorization** e **Bearer<YOUR AZUREML SERVICE API-KEY>**. Você pode encontrar a **chave de api** no painel de serviço Web do AzureML (confira **Testar o serviço Web** no Apêndice A).
+3. Selecione **RRS Execute** para a operação. Clique em **Experimentar**.
 
-Digite **{"Inputs": {"input1": {"ColumnNames": ["Col2"], "Values": [["Este é um bom dia"]]}}, "GlobalParameters": {}}** para o corpo da solicitação.
+   ![avaliar](./media/manage-web-service-endpoints-using-api-management/try-it.png)
 
-![azureml-demo-api](./media/manage-web-service-endpoints-using-api-management/azureml-demo-api.png)
+4. Para os **Parâmetros de solicitação**, digite seu **espaço de trabalho** e **serviço**, digite “2.0” para **apiversion** e “true” para os **detalhes**. Você pode encontrar o **espaço de trabalho** e o **serviço** no painel de serviço Web do AzureML (confira **Testar o serviço Web** no Apêndice A).
 
-Clique em **Enviar**.
+   Para **Cabeçalhos de solicitação**, clique em **Adicionar cabeçalho** e digite "Content-Type" e "application/json". Clique em **Adicionar cabeçalho** novamente e digite "Autorização" e "Portador *\<sua chave da API de serviço\>*". Você pode encontrar a API-KEY no painel de serviço Web do AzureML (confira **Testar o serviço Web** no Apêndice A).
 
-![Enviar](./media/manage-web-service-endpoints-using-api-management/send.png)
+   Para o **corpo da solicitação**, digite `{"Inputs": {"input1": {"ColumnNames": ["Col2"], "Values": [["This is a good day"]]}}, "GlobalParameters": {}}`.
+
+   ![azureml-demo-api](./media/manage-web-service-endpoints-using-api-management/azureml-demo-api.png)
+
+5. Clique em **Enviar**.
+
+   ![Enviar](./media/manage-web-service-endpoints-using-api-management/send.png)
 
 Após invocar uma operação, o portal do desenvolvedor exibe a **URL solicitada** do serviço back-end, o **Status de resposta**, os **Cabeçalhos de resposta** e qualquer **Conteúdo de resposta**.
 

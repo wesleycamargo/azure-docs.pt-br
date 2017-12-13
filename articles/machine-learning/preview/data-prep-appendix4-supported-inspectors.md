@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/11/2017
-ms.openlocfilehash: 35d7c04f245e93d8cc795dca7c01c2bab5a14eb8
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 51a1b65446a1a0db93c21378f156b608a38ef817
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="supported-inspectors-for-the-azure-machine-learning-data-preparation-preview"></a>Inspetores com suporte para a versão prévia da preparação dos dados do Azure Machine Learning
 Este documento descreve o conjunto de inspetores disponíveis nesta versão prévia.
@@ -87,7 +87,7 @@ Um gráfico de dispersão para duas colunas numéricas. Os dados são reduzidos 
 
 
 ## <a name="time-series"></a>Série temporal
-Um gráfico de linha com reconhecimento de tempo no eixo x.
+Um grafo de linha com reconhecimento de tempo no eixo x.
 
 ### <a name="options"></a>Opções
 - Coluna de data
@@ -96,7 +96,7 @@ Um gráfico de linha com reconhecimento de tempo no eixo x.
 
 
 ### <a name="actions"></a>Ações
-Esse inspetor dá suporte à filtragem por meio de um método de Clicar e Arrastar a Seleção para selecionar um intervalo no gráfico. Depois de concluir a seleção, aplique os filtros conforme descrito anteriormente.
+Esse inspetor dá suporte à filtragem por meio de um método de Clicar e Arrastar a Seleção para selecionar um intervalo no grafo. Depois de concluir a seleção, aplique os filtros conforme descrito anteriormente.
 
 
 ## <a name="map"></a>Mapa 
@@ -113,3 +113,18 @@ Um mapa com pontos plotados, assumindo que a latitude e a longitude foram especi
 Esse inspetor dá suporte à filtragem por meio da seleção de ponto do mapa. Pressione a tecla **Ctrl** e clique e arraste o mouse para formar um quadrado em torno dos pontos. Em seguida, aplique os filtros conforme descrito anteriormente.
 
 É possível dimensionar rapidamente o mapa para mostrar somente os pontos possíveis pressionando **E** no lado esquerdo do mapa.
+
+
+## <a name="pattern-frequency"></a>Frequência do padrão 
+
+Esse inspetor mostra uma lista de padrões na coluna de cadeia de caracteres selecionada. Os padrões são representados usando uma expressão regular como sintaxe. Passar o mouse sobre o padrão mostra exemplos de valores representados por esse padrão. Junto com os padrões, as coberturas aproximadas em termos de percentual também são mostradas.
+
+![Imagem do inspetor de padrão](media/data-prep-appendix4-supported-inspectors/PatternInspectorProductNumber.png)
+
+### <a name="options"></a>Opções
+- Número de valores principais
+- Decrescente
+- Mostrar halo
+
+### <a name="actions"></a>Ações
+Esse inspetor dá suporte à filtragem com base em padrões exibidos. Pressione a tecla **Ctrl** e selecione as barras preenchidas no inspetor de padrão. Em seguida, aplique os filtros conforme descrito anteriormente. Como resultado da ação do usuário, uma etapa de Filtro avançado é adicionada. Você pode ver e modificar o código Python gerado invocando a opção de edição da etapa de Filtro avançado.

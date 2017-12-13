@@ -8,14 +8,26 @@ manager: jhubbard
 editor: jasonwhowell
 ms.service: mysql-database
 ms.topic: article
-ms.date: 11/03/2017
-ms.openlocfilehash: 88a3114271088ad49a3d4231facc88ee6f89b54b
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.date: 12/01/2017
+ms.openlocfilehash: 9320a08217a5748ee8e41ab6f282490757b4acd1
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="azure-database-for-mysql-videos"></a>Vídeos sobre o Banco de Dados do Azure para MySQL
+
+[Visão geral: Banco de Dados do Azure para PostgreSQL e MySQL](https://channel9.msdn.com/Events/Connect/2017/T147)
+
+<iframe src="https://channel9.msdn.com/Events/Connect/2017/T147/player" width="800" height="450" allowFullScreen frameBorder="0"></iframe>
+
+O Banco de Dados do Azure para PostgreSQL e o Banco de Dados do Azure para MySQL reúnem os mecanismos de banco de dados da Community Edition e as funcionalidades de um serviço totalmente gerenciado – assim, você pode se concentrar em seus aplicativos em vez de ter que gerenciar um banco de dados. Prepare-se para obter uma breve visão geral das vantagens de usar o serviço e veja algumas funcionalidades em ação.
+
+[Aprofunde-se nas funcionalidades de serviço gerenciado para MySQL e PostgreSQL](https://channel9.msdn.com/Events/Connect/2017/T148)
+
+<iframe src="https://channel9.msdn.com/Events/Connect/2017/T148/player" width="800" height="450" allowFullScreen frameBorder="0"></iframe>
+
+O Banco de Dados do Azure para PostgreSQL e o Banco de Dados do Azure para MySQL reúnem os mecanismos de banco de dados da Community Edition e as funcionalidades de um serviço totalmente gerenciado. Prepare-se para aprofundar-se sobre como esses serviços funcionam – como garantimos alta disponibilidade e rápido dimensionamento (em segundos), para você poder atender às necessidades dos clientes. Você também conhecerá alguns investimentos subjacentes em segurança e disponibilidade em todo o mundo.
 
 [Como começar a usar o novo serviço Banco de Dados do Azure para MySQL](https://channel9.msdn.com/events/Build/2017/B8045)
 

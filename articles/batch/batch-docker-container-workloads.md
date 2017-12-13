@@ -1,6 +1,6 @@
 ---
-title: "Cargas de trabalho de contêiner do Docker no Lote do Azure | Microsoft Docs"
-description: "Saiba como executar aplicativos de imagens de contêiner do Docker no Lote do Azure."
+title: "Cargas de trabalho de contêiner no Lote do Azure | Microsoft Docs"
+description: "Saiba como executar aplicativos de imagens de contêiner no Lote do Azure."
 services: batch
 author: v-dotren
 manager: timlt
@@ -8,15 +8,15 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 11/15/2017
+ms.date: 12/01/2017
 ms.author: v-dotren
-ms.openlocfilehash: fc15b2db051b5ebbf39665b803b22d3a5e4885f9
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 1795bdde5506f599849a30d4e59ed7b916595ac4
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/04/2017
 ---
-# <a name="run-docker-container-applications-on-azure-batch"></a>Executar aplicativos de contêiner do Docker no Lote do Azure
+# <a name="run-container-applications-on-azure-batch"></a>Executar aplicativos de contêiner no Lote do Azure
 
 O Lote do Azure permite executar e dimensionar um grande número trabalhos de computação em lote no Azure. Até agora, as tarefas do Lote foram executadas diretamente em VMs (máquinas virtuais) em um pool do Lote, mas agora você pode configurar um pool do Lote para executar tarefas em contêineres do Docker.
 
@@ -112,12 +112,11 @@ O processo de pull (ou pré-busca) permite que você carregue previamente imagen
 
 ### <a name="pool-without-prefetched-container-images"></a>Pool sem imagens de contêiner de pré-busca
 
-Para configurar o pool sem imagens de contêiner de pré-busca, use um `ContainerConfiguration` conforme mostrado no exemplo a seguir. Isso e os exemplos a seguir presumem que você está usando uma imagem personalizada do Ubuntu 16.04 LTS com o Mecanismo do Docker instalado.
+Para configurar o pool sem imagens de contêiner de pré-busca, defina os objetos `ContainerConfiguration` e `VirtualMachineConfiguration` conforme mostrado no exemplo a seguir. Isso e os exemplos a seguir presumem que você está usando uma imagem personalizada do Ubuntu 16.04 LTS com o Mecanismo do Docker instalado.
 
 ```csharp
 // Specify container configuration
-ContainerConfiguration containerConfig = new ContainerConfiguration(
-    type: "Docker");
+ContainerConfiguration containerConfig = new ContainerConfiguration();
 
 // VM configuration
 VirtualMachineConfiguration virtualMachineConfiguration = new VirtualMachineConfiguration(
@@ -136,14 +135,14 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 pool.Commit();
 ```
 
+
 ### <a name="prefetch-images-for-container-configuration"></a>Imagens de pré-busca para configuração do contêiner
 
-Para executar a pré-busca de imagens de contêiner no pool, adicione a lista de imagens de contêiner (`containerImageNames`) à configuração do contêiner e nomeie a lista de imagens. O exemplo a seguir pressupõe que você está usando uma imagem personalizada do Ubuntu 16.04 LTS, fez a pré-busca de uma imagem de TensorFlow do [Hub do Docker](https://hub.docker.com) e iniciou o TensorFlow em uma tarefa inicial.
+Para executar a pré-busca de imagens de contêiner no pool, adicione a lista de imagens de contêiner (`containerImageNames`) à `ContainerConfiguration` e nomeie a lista de imagens. O exemplo a seguir pressupõe que você está usando uma imagem personalizada do Ubuntu 16.04 LTS, fez a pré-busca de uma imagem de TensorFlow do [Hub do Docker](https://hub.docker.com) e iniciou o TensorFlow em uma tarefa inicial.
 
 ```csharp
 // Specify container configuration, prefetching Docker images
 ContainerConfiguration containerConfig = new ContainerConfiguration(
-    type: "Docker",
     containerImageNames: new List<string> { "tensorflow/tensorflow:latest-gpu" } );
 
 // VM configuration
@@ -176,7 +175,7 @@ pool.Commit();
 
 ### <a name="prefetch-images-from-a-private-container-registry"></a>Imagens de pré-busca de um registro de contêiner privado
 
-Você também pode executar a pré-busca de imagens de contêiner ao fazer a autenticação em um servidor de registro de contêiner privado. O exemplo a seguir presume que você está usando uma imagem personalizada do Ubuntu 16.04 LTS e está buscando previamente uma imagem TensorFlow privada de um registro de contêiner do azure privado.
+Você também pode executar a pré-busca de imagens de contêiner ao fazer a autenticação em um servidor de registro de contêiner privado. No exemplo a seguir, os objetos `ContainerConfiguration` e `VirtualMachineConfiguration` usam uma imagem personalizada do Ubuntu 16.04 LTS e realizam a pré-busca de uma imagem privada do TensorFlow de um Registro de Contêiner do Azure privado.
 
 ```csharp
 // Specify a container registry
@@ -187,7 +186,6 @@ ContainerRegistry containerRegistry = new ContainerRegistry (
 
 // Create container configuration, prefetching Docker images from the container registry
 ContainerConfiguration containerConfig = new ContainerConfiguration(
-    type: "Docker",
     containerImageNames: new List<string> {
         "myContainerRegistry.azurecr.io/tensorflow/tensorflow:latest-gpu" },
     containerRegistries: new List<ContainerRegistry> { containerRegistry } );

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: juliako
-ms.openlocfilehash: 895d6307b1cef74e195cc2ffd8dbef4196e97b1f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2027aed8a604c33c96c66c23e9ddaa51f632edb5
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>Proteger o conteúdo do HLS com o Apple FairPlay ou Microsoft PlayReady
 Os Serviços de Mídia do Azure permitem que você criptografe seu conteúdo de HLS (HTTP Live Streaming) de maneira dinâmica, usando os seguintes formatos:  
@@ -33,12 +33,12 @@ Os Serviços de Mídia do Azure permitem que você criptografe seu conteúdo de 
 
 A imagem a seguir mostra o fluxo de trabalho da **criptografia dinâmica do HLS + FairPlay ou PlayReady**.
 
-![Diagrama do fluxo de trabalho de criptografia dinâmica](./media/media-services-content-protection-overview/media-services-content-protection-with-fairplay.png)
+![Diagrama do fluxo de trabalho de criptografia dinâmica](./media/media-services-content-protection-overview/media-services-content-protection-with-FairPlay.png)
 
-Este tópico demonstra como usar os Serviços de Mídia para criptografar de forma dinâmica o conteúdo de HLS com o Apple FairPlay. Ele também mostra como usar o serviço de distribuição de licença dos Serviços de Mídia para entregar licenças do FairPlay aos clientes.
+Este artigo demonstra como usar os Serviços de Mídia para criptografar dinamicamente o seu conteúdo de HLS com o Apple FairPlay. Ele também mostra como usar o serviço de distribuição de licença dos Serviços de Mídia para entregar licenças do FairPlay aos clientes.
 
 > [!NOTE]
-> Se quiser criptografar o conteúdo do HLS com o PlayReady, você precisará criar uma chave de conteúdo comum e associá-la ao seu ativo. Você também precisa configurar a política de autorização da chave de conteúdo, como descrito em [Uso da criptografia comum dinâmica PlayReady](media-services-protect-with-drm.md).
+> Se quiser criptografar o conteúdo do HLS com o PlayReady, você precisará criar uma chave de conteúdo comum e associá-la ao seu ativo. Você também precisa configurar a política de autorização da chave de conteúdo, como descrito em [Uso da criptografia comum dinâmica PlayReady](media-services-protect-with-playready-widevine.md).
 >
 >
 
@@ -65,14 +65,14 @@ Os seguintes itens devem ser definidos no lado de distribuição de chaves dos S
         Vá para a pasta onde se encontram o certificado FairPlay e outros arquivos enviados pela Apple.
     2. Execute o comando a seguir na linha de comando. Isso converte o arquivo .cer em um arquivo .pem.
 
-        "C:\OpenSSL-Win32\bin\openssl.exe" x509 -inform der -in fairplay.cer -out fairplay-out.pem
+        "C:\OpenSSL-Win32\bin\openssl.exe" x509 -inform der -in FairPlay.cer -out FairPlay-out.pem
     3. Execute o comando a seguir na linha de comando. Isso converte o arquivo .pem em um arquivo .pfx com a chave privada. A senha para o arquivo .pfx é solicitada pelo OpenSSL.
 
-        "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12 -export -out fairplay-out.pfx -inkey privatekey.pem -in fairplay-out.pem -passin file:privatekey-pem-pass.txt
+        "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12 -export -out FairPlay-out.pfx -inkey privatekey.pem -in FairPlay-out.pem -passin file:privatekey-pem-pass.txt
   * **Senha do Certificado do Aplicativo**: a senha para a criação do arquivo .pfx.
   * **ID da senha do Certificado do Aplicativo**: você deve fazer upload da senha, de maneira semelhante a como faz upload de outras chaves dos Serviços de Mídia. Use o valor de enumeração **ContentKeyType.FairPlayPfxPassword** para obter a ID dos Serviços de Mídia. É necessário usá-la na opção de política de distribuição de chaves.
   * **iv**: é um valor aleatório de 16 bytes. Ele deve corresponder ao iv na política de distribuição de ativos. Você gera o iv e o coloca em dois locais: na política de distribuição de ativos e na opção de política de distribuição de chaves.
-  * **ASK**: essa chave é recebida quando você gera a certificação usando o portal do Desenvolvedor da Apple. Cada equipe de desenvolvimento receberá uma ASK exclusiva. Salve uma cópia da ASK e armazene-a em um local seguro. Você precisará configurar a ASK como FairPlayAsk nos Serviços de Mídia posteriormente.
+  * **ASK**: essa chave é recebida quando você gera a certificação usando o portal do Desenvolvedor da Apple. Cada equipe de desenvolvimento receberá uma ASK exclusiva. Salve uma cópia da ASK e armazene-a em um local seguro. Você precisará configurar posteriormente a ASK como FairPlayAsk nos Serviços de Mídia.
   * **ID da ASK**: essa ID é obtida quando você faz upload da ASK nos Serviços de Mídia. Você deve fazer upload da ASK usando o valor de enumeração **ContentKeyType.FairPlayAsk**. Como resultado, a ID dos Serviços de Mídia é retornada, que deve ser usada na configuração da opção de política de distribuição de chaves.
 
 Os seguintes itens devem ser definidos pelo lado do cliente FPS:
@@ -125,7 +125,7 @@ Você pode desenvolver aplicativos player usando o SDK do iOS. Para poder reprod
     spc=<Base64 encoded SPC>
 
 > [!NOTE]
-> O Player de Mídia do Azure não dá suporte para a reprodução do FairPlay pronto para uso. Para ter a reprodução do FairPlay no MAC OS X, obtenha o player de exemplo na conta de desenvolvedor da Apple.
+> O Player de Mídia do Azure suporta a reprodução FairPlay. Consulte [Documentação do Player de Mídia do Azure](https://amp.azure.net/libs/amp/latest/docs/index.html) para obter mais informações.
 >
 >
 
@@ -157,7 +157,7 @@ O exemplo a seguir demonstra a capacidade de usar os Serviços de Mídia para di
 Substitua o código no seu arquivo Program.cs pelo código mostrado nesta seção.
 
 >[!NOTE]
->Há um limite de 1.000.000 políticas para diferentes políticas de AMS (por exemplo, para política de Localizador ou ContentKeyAuthorizationPolicy). Use a mesma ID de política, se você estiver sempre usando os mesmos dias/permissões de acesso, por exemplo, políticas de localizadores que devem permanecer no local por um longo período (políticas de não carregamento). Para obter mais informações, consulte [este](media-services-dotnet-manage-entities.md#limit-access-policies) tópico.
+>Há um limite de 1.000.000 políticas para diferentes políticas de AMS (por exemplo, para política de Localizador ou ContentKeyAuthorizationPolicy). Use a mesma ID de política, se você estiver sempre usando os mesmos dias/permissões de acesso, por exemplo, políticas de localizadores que devem permanecer no local por um longo período (políticas de não carregamento). Para saber mais, confira [este artigo](media-services-dotnet-manage-entities.md#limit-access-policies).
 
 Certifique-se de atualizar as variáveis para que indiquem as pastas onde estão localizados os arquivos de entrada.
 

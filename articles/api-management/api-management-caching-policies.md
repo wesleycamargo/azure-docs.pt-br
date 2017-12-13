@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: c7604fdb948a2f4d2adca5d6821d9ea36e96dae6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 488a4c4b7daf5c07ca5f6b6bb72464279658d372
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="api-management-caching-policies"></a>Políticas de cache do Gerenciamento de API
 Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -28,15 +28,12 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 -   Resposta das políticas de cache  
   
     -   [Obter do cache](api-management-caching-policies.md#GetFromCache): executa a pesquisa em cache e retorna uma resposta válida armazenada em cache quando disponível.  
-  
     -   [Armazenar em cache](api-management-caching-policies.md#StoreToCache): armazena a resposta em cache de acordo com a configuração de controle de cache especificada.  
   
 -   Valor das políticas de cache  
-  
-    -   [Obter valor do cache](#GetFromCacheByKey) - Recupere um item em cache por chave.  
-  
-    -   [Armazenar valor em cache](#StoreToCacheByKey) -Armazene um item no cache por chave.  
-  
+
+    -   [Obter valor do cache](#GetFromCacheByKey) - Recupere um item em cache por chave. 
+    -   [Armazenar valor em cache](#StoreToCacheByKey) -Armazene um item no cache por chave. 
     -   [Remover o valor do cache](#RemoveCacheByKey) - remove um item no cache por chave.  
   
 ##  <a name="GetFromCache"></a> Obter do cache  
@@ -54,7 +51,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   <vary-by-header>Accept-Charset</vary-by-header>  
   <!-- should be present in most cases -->  
   <vary-by-header>Authorization</vary-by-header>  
-  <!-- should be present when allow-authorized-response-caching is "true"-->  
+  <!-- should be present when allow-private-response-caching is "true"-->  
   <vary-by-header>header name</vary-by-header>  
   <!-- optional, can repeated several times -->  
   <vary-by-query-parameter>parameter name</vary-by-query-parameter>  
@@ -119,14 +116,13 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 |allow-private-response-caching|Quando definido como `true`, permite armazenar em cache as solicitações que contêm um cabeçalho Authorization.|Não|false|  
 |downstream-caching-type|Este atributo deve ser definido como um dos valores a seguir.<br /><br /> -   none: o cache downstream não é permitido.<br />-   private: o cache downstream privado é permitido.<br />-   public: o cache downstream privado e compartilhado é permitido.|Não|nenhum|  
 |must-revalidate|Quando o cache downstream está habilitado, este atributo ativa ou desativa a diretiva de controle de cache `must-revalidate` em respostas do gateway.|Não|verdadeiro|  
-|vary-by-developer|Definido como `true` para respostas em cache por chave de desenvolvedor.|Não|false|  
-|vary-by-developer-groups|Definido como `true` para respostas em cache por função de usuário.|Não|false|  
+|vary-by-developer|Definido como `true` para respostas em cache por chave de desenvolvedor.|Sim||  
+|vary-by-developer-groups|Definido como `true` para respostas em cache por função de usuário.|Sim||  
   
 ### <a name="usage"></a>Uso  
  Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
   
 -   **Seções de política:** entrada  
-  
 -   **Escopos de política:** API, operação, produto  
   
 ##  <a name="StoreToCache"></a> Armazenar em cache  
@@ -198,8 +194,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 ### <a name="usage"></a>Uso  
  Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
   
--   **Seções de política:** saída  
-  
+-   **Seções de política:** saída    
 -   **Escopos de política:** API, operação, produto  
   
 ##  <a name="GetFromCacheByKey"></a> Obter valor do cache  
@@ -244,7 +239,6 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
  Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
   
 -   **Seções de política:** entrada, saída, back-end, em caso de erro  
-  
 -   **Escopos de política:** global, API, operação, produto  
   
 ##  <a name="StoreToCacheByKey"></a> Armazenar valor em cache  
@@ -287,11 +281,10 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
  Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
   
 -   **Seções de política:** entrada, saída, back-end, em caso de erro  
-  
 -   **Escopos de política:** global, API, operação, produto  
   
 ###  <a name="RemoveCacheByKey"></a> Remover valor do cache  
- `cache-remove-value` exclui um item em cache identificado por sua chave. A chave pode ter um valor de cadeia de caracteres arbitrário e geralmente é fornecida usando uma expressão de política.  
+`cache-remove-value` exclui um item em cache identificado por sua chave. A chave pode ter um valor de cadeia de caracteres arbitrário e geralmente é fornecida usando uma expressão de política.  
   
 #### <a name="policy-statement"></a>Declaração de política  
   
@@ -325,9 +318,13 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
  Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
   
 -   **Seções de política:** entrada, saída, back-end, em caso de erro  
-  
 -   **Escopos de política:** global, API, operação, produto  
-  
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre como trabalhar com políticas, veja [Políticas em Gerenciamento de API](api-management-howto-policies.md).  
+
+Para obter mais informações sobre como trabalhar com políticas, consulte:
+
++ [Políticas no Gerenciamento de API](api-management-howto-policies.md)
++ [Transformar APIs](transform-api.md)
++ [Referência de Política](api-management-policy-reference.md) para uma lista completa das instruções de política e suas configurações
++ [Exemplos de política](policy-samples.md)   

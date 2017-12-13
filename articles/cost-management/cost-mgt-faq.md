@@ -5,16 +5,16 @@ services: cost-management
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/21/2017
+ms.date: 12/04/2017
 ms.topic: article
 ms.service: cost-management
 manager: carmonm
 ms.custom: 
-ms.openlocfilehash: 043aea81258d96fc6598903f9b523f29a5bf2c15
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 67ec6489a6aeed946d41ac8b297d3d99b86e4169
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="frequently-asked-questions-for-azure-cost-management"></a>Perguntas frequentes sobre o Gerenciamento de Custos do Azure
 
@@ -92,20 +92,13 @@ Para os CSPs:
 
 Para adicionar contas do CSP adicionais a uma entidade, selecione **Acesso MSP** em vez de **Enterprise** ao criar a nova entidade. Se sua conta está registrada como um Contrato Enterprise e você deseja adicionar as credenciais do CSP, a equipe de suporte do Cloudyn talvez precise modificar as configurações da conta. Se você for um assinante pago do Azure, poderá criar uma nova solicitação de suporte no portal do Azure. Selecione **Ajuda + suporte** e, em seguida, selecione **Nova solicitação de suporte**.
 
-## <a name="how-do-i-change-the-currency-symbol-used-in-cloudyn"></a>Como fazer para alterar o símbolo de moeda usado no Cloudyn?
+## <a name="currency-symbols-in-cloudyn-reports"></a>Símbolos de moeda em relatórios do Cloudyn
 
-Quando todas as contas do Azure em uma única entidade usam a mesma moeda, a moeda usada é detectada automaticamente. No entanto, o símbolo de moeda é mostrado erroneamente como  **$**  no caso das seguintes moedas:
+Você pode ter várias contas do Azure usando moedas diferentes. No entanto, os relatórios de custos no Cloudyn não mostram mais de um tipo de moeda por relatório.
 
-- GBP = Libra esterlina do Reino Unido
-- EUR = euro Europeu
-- INR = Rúpia indiana
-- NOK = Coroa norueguesa
+Se você tiver várias assinaturas usando moedas diferentes, uma entidade pai e suas moedas de entidades filho serão exibidas com o símbolo **$**. A melhor prática sugerida é evitar o uso de moedas diferentes na mesma hierarquia de entidades. Em outras palavras, todas as suas assinaturas organizadas em uma estrutura de entidade devem usar a mesma moeda.
 
-Embora o símbolo de moeda possa mostrar **$** para dólares americanos, os valores de custo são mostrados na sua moeda correta. Por exemplo, se todas as suas contas usam Euros na mesma entidade, os _valores_ mostrados no Cloudyn estarão em Euros, mesmo que o símbolo **$** apareça erroneamente.
-
-Se você for um cliente do Contrato Enterprise do Azure, a equipe de suporte do Cloudyn poderá alterar o símbolo de moeda mostrado em relatórios de custo de $. Você pode criar uma nova solicitação de suporte no portal do Azure. Selecione **Ajuda + suporte** e, em seguida, selecione **Nova solicitação de suporte**.
-
-Se você for um cliente CSP, não poderá alterar o símbolo de moeda. O Cloudyn dá suporte somente a tabelas de preços em dólares americanos. O Cloudyn está explorando a opção de dar suporte a tabelas de preços em moedas diferentes.
+O Cloudyn detecta a moeda da assinatura do Contrato Enterprise e apresenta-a da forma correta nos relatórios automaticamente.  No entanto, o Cloudyn apenas exibe o símbolo **$** para contas do Azure diretas da Web e de CSP.
 
 ## <a name="what-are-cloudyn-data-refresh-timelines"></a>Quais são os cronogramas de atualização de dados do Cloudyn?
 

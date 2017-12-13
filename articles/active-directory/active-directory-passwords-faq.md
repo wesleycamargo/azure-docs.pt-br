@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 12/06/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 112bfeea29eacd0615f1d134567ec52264318b5f
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 6497421b1c51e361d6881332a19c19c7d47c8e29
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="password-management-frequently-asked-questions"></a>Perguntas frequentes sobre gerenciamento de senhas
 
@@ -81,6 +81,19 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
 
 ## <a name="password-reset"></a>Redefinição de senha
 
+* **P: você impede que usuários realizem várias tentativas para redefinir uma senha em um curto período de tempo?**
+
+  > **R:** sim, existem recursos de segurança internos na redefinição de senha para proteção contra uso indevido. 
+  >
+  > Os usuários poderão realizar apenas cinco tentativas de redefinição de senha dentro de um período de 24 horas, antes de serem bloqueados por 24 horas. 
+  >
+  > Os usuários poderão tentar validar um número de telefone, enviar um SMS ou validar questões de segurança e responder apenas cinco vezes em uma hora, antes de serem bloqueados por 24 horas. 
+  >
+  > Os usuários poderão enviar um email no máximo 10 vezes dentro de um período de 10 minutos, antes de serem bloqueados por 24 horas.
+  >
+  > Os contadores serão redefinidos quando o usuário redefinir sua senha.
+  >
+  >
 * **P: quanto tempo deve levar até que eu receba uma chamada telefônica, um SMS ou um email de redefinição de senha?**
 
   > **R:** Emails, mensagens SMS e chamadas telefônicas devem chegar em menos de um minuto. O caso comum é de 5 a 20 segundos.
@@ -163,11 +176,6 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
 * **P: se um usuário tiver registrado mais do que o número máximo de perguntas obrigatórias para a redefinição, como as perguntas de segurança serão selecionadas durante a redefinição?**
 
   > **R:** *X* perguntas de segurança são selecionadas aleatoriamente do número total de perguntas que um usuário registrou, em que *X* é a quantidade que é definida para a opção **Número de perguntas obrigatórias para a redefinição**. Por exemplo, se um usuário tiver registrado cinco perguntas de segurança, mas apenas três forem necessárias para redefinir uma senha, três das cinco perguntas serão selecionadas aleatoriamente e serão apresentadas na reinicialização. Se o usuário der respostas erradas, o processo de seleção ocorrerá novamente para evitar hammering de perguntas.
-  >
-  >
-* **P: você impede que usuários realizem várias tentativas para redefinir uma senha em um curto período de tempo?**
-
-  > **R:** sim, existem recursos de segurança internos na redefinição de senha para proteção contra uso indevido. Os usuários podem realizar somente cinco tentativas de redefinição de senha em uma mesma hora antes de serem bloqueados por 24 horas. Os usuários podem tentar validar um número de telefone somente cinco vezes em uma mesma hora antes de serem bloqueados por 24 horas. Os usuários podem tentar um único método de validação somente cinco vezes em uma mesma hora antes de serem bloqueados por 24 horas.
   >
   >
 * **P: por quanto tempo vale a senha de uso único por email e SMS?**

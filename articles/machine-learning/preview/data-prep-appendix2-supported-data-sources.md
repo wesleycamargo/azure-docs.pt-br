@@ -12,11 +12,11 @@ ms.custom:
 ms.devlang: 
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: db4774de28a17e022de111986f72a1f15ec32beb
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 458338cd23c704c40c512dd96b22a4790f27d017
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="supported-data-sources-for-azure-machine-learning-data-preparation"></a>Fontes de dados com suporte para preparação de dados de do Azure Machine Learning 
 Este artigo descreve as fontes de dados com suporte no momento para preparação de dados do Azure Machine Learning.
@@ -24,6 +24,25 @@ Este artigo descreve as fontes de dados com suporte no momento para preparação
 As fontes de dados com suporte para essa versão são as seguintes.
 
 ## <a name="types"></a>Tipos 
+
+### <a name="sql-server"></a>SQL Server
+Leia no SQL Server local ou no banco de dados SQL do Azure.
+
+#### <a name="options"></a>Opções
+- Endereço do servidor
+- Servidor de confiança (mesmo quando o certificado no servidor não é válido. Use com cuidado)
+- Tipo de autenticação (Windows, servidor)
+- Nome de usuário
+- Senha
+- Banco de dados ao qual se conectar
+- Consulta SQL
+
+#### <a name="notes"></a>Observações
+- As colunas Sql-variant não são compatíveis
+- Coluna de hora é convertida em datetime anexando a horado banco de dados à data 1970/1/1
+- Quando executado em um cluster Spark, todas as colunas relacionadas a dados (date, datetime, datetime2, datetimeoffset) avaliarão valores incorretos para datas anteriores a 1583
+- Os valores em colunas decimais podem perder a precisão devido à conversão para decimal
+
 ### <a name="directory-vs-file"></a>Diretório vs. arquivo
 Escolha um único arquivo e leia-o na preparação de dados. O tipo de arquivo é analisado para determinar os parâmetros padrão para a conexão de arquivo mostrada na próxima tela.
 
@@ -88,6 +107,9 @@ A execução de escalar horizontalmente depende das funcionalidades de leitura d
 ## <a name="locations"></a>Locais
 ### <a name="local"></a>Local
 Um disco rígido local ou local de armazenamento de rede mapeado.
+
+### <a name="sql-server"></a>SQL Server
+Servidor SQL local ou banco de dados SQL do Azure.
 
 ### <a name="azure-blob-storage"></a>Armazenamento do Blob do Azure
 O armazenamento de Blobs do Azure requer uma assinatura do Azure.

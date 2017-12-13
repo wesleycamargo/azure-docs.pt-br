@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/29/2017
 ms.author: genli
-ms.openlocfilehash: 85d4764534c77ea0e4d999e249abe456d0234d75
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: d9384af2cf1d8b3f55f9ec2316046536634c124e
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Extensão de VM de Diagnóstico de Desempenho do Azure para Windows
 
@@ -46,7 +46,6 @@ O JSON a seguir mostra o esquema para a Extensão de Diagnóstico de Desempenho 
         "settings": {
             "performanceScenario": "[parameters('performanceScenario')]",
                   "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
-                  "diagnosticsTrace": "[parameters('diagnosticsTrace')]",
                   "perfCounterTrace": "[parameters('perfCounterTrace')]",
                   "networkTrace": "[parameters('networkTrace')]",
                   "xperfTrace": "[parameters('xperfTrace')]",
@@ -72,13 +71,11 @@ O JSON a seguir mostra o esquema para a Extensão de Diagnóstico de Desempenho 
 |typeHandlerVersion|1.0|Versão do manipulador de extensão
 |performanceScenario|básico|Cenário de desempenho para o qual capturar os dados. Os valores válidos são: **basic**, **vmslow**, **azurefiles** e **custom**.
 |traceDurationInSeconds|300|Duração dos Rastreamentos se qualquer uma das opções de rastreamento estiver selecionada.
-|DiagnosticsTrace|d|Opção para habilitar o rastreamento de diagnóstico. Os valores válidos são **d** ou valor vazio. Se você não deseja capturar esse rastreamento, deixe o valor como vazio.
 |perfCounterTrace|p|Opção para habilitar o rastreamento do contador de desempenho. Os valores válidos são **p** ou valor vazio. Se você não deseja capturar esse rastreamento, deixe o valor como vazio.
 |networkTrace|n|Opção para habilitar o rastreamento do Netmon. Os valores válidos são **n** ou valor vazio. Se você não deseja capturar esse rastreamento, deixe o valor como vazio.
 |xperfTrace|x|Opção para habilitar o rastreamento do XPerf. Os valores válidos são **x** ou valor vazio. Se você não deseja capturar esse rastreamento, deixe o valor como vazio.
 |storPortTrace|s|Opção para habilitar o rastreamento do StorPort. Os valores válidos são s ou valor vazio. Se você não deseja capturar esse rastreamento, deixe o valor como vazio.
 |srNumber|123452016365929|O número do tíquete de suporte, se disponível. Deixe como vazio se você não o tem.
-|requestTimeUtc|9/2/2017 23:06|Data e hora atual em Utc. Você não precisará fornecer esse valor se você estiver usando o portal para instalar esta extensão.
 |storageAccountName|mystorageaccount|Nome da conta de armazenamento para armazenar os logs de diagnóstico e os resultados.
 |storageAccountKey|lDuVvxuZB28NNP…hAiRF3voADxLBTcc==|A chave para a conta de armazenamento.
 
@@ -104,7 +101,7 @@ Siga estas etapas para instalar a extensão de VM em máquinas virtuais do Windo
     ![Mensagem de provisionamento bem-sucedido](media/performance-diagnostics-vm-extension/provisioning-succeeded-message.png)
 
     > [!NOTE]
-    > A execução da extensão será iniciada depois que o provisionamento for bem-sucedido e levará alguns minutos ou menos para concluir a execução no cenário básico. Para outros cenários, ela será executada pela duração especificada durante a instalação.
+    > A execução da extensão inicia depois que o provisionamento for bem-sucedido e leva alguns minutos ou menos para concluir a execução no cenário básico. Para outros cenários, ela é executada pela duração especificada durante a instalação.
 
 ## <a name="remove-the-extension"></a>Remover a extensão
 Para remover a extensão de uma máquina virtual, siga estas etapas:
@@ -153,10 +150,6 @@ Extensões de VM do Azure podem ser implantadas com modelos do Azure Resource Ma
       "type": "int",
     "defaultValue": 300
     },
-    "diagnosticsTrace": {
-      "type": "string",
-      "defaultValue": "d"
-    },
     "perfCounterTrace": {
       "type": "string",
       "defaultValue": "p"
@@ -192,7 +185,6 @@ Extensões de VM do Azure podem ser implantadas com modelos do Azure Resource Ma
         "settings": {
             "performanceScenario": "[parameters('performanceScenario')]",
                   "traceDurationInSeconds": "[parameters('traceDurationInSeconds')]",
-                  "diagnosticsTrace": "[parameters('diagnosticsTrace')]",
                   "perfCounterTrace": "[parameters('perfCounterTrace')]",
                   "networkTrace": "[parameters('networkTrace')]",
                   "xperfTrace": "[parameters('xperfTrace')]",
@@ -216,8 +208,8 @@ O comando `Set-AzureRmVMExtension` pode ser usado para implantar a extensão da 
 PowerShell
 
 ````
-$PublicSettings = @{ "performanceScenario" = "basic"; "traceDurationInSeconds" = 300; "diagnosticsTrace" = "d"; "perfCounterTrace" = "p"; "networkTrace" = ""; "xperfTrace" = ""; "storPortTrace" = ""; "srNumber" = ""; "requestTimeUtc" = "2017-09-28T22:08:53.736Z" }
-$ProtectedSettings = @{"storageAccountName" = "mystorageaccount" ; "storageAccountKey" = "mystoragekey"}
+$PublicSettings = @{ "performanceScenario":"basic","traceDurationInSeconds":300,"perfCounterTrace":"p","networkTrace":"","xperfTrace":"","storPortTrace":"","srNumber":"","requestTimeUtc":"2017-09-28T22:08:53.736Z" }
+$ProtectedSettings = @{"storageAccountName":"mystorageaccount","storageAccountKey":"mystoragekey"}
 
 Set-AzureRmVMExtension -ExtensionName "AzurePerformanceDiagnostics" `
     -ResourceGroupName "myResourceGroup" `
@@ -237,7 +229,7 @@ A ferramenta PerfInsights coleta vários logs, configurações, dados de diagnó
 
 A saída da extensão é armazenada dentro de uma pasta chamada log_collection na unidade temporária (geralmente D:\log_collection) por padrão. Nesta pasta, você pode ver o arquivo zip que contém os logs de diagnóstico e de um relatório com as descobertas e recomendações.
 
-O arquivo zip criado também é carregado na conta de armazenamento fornecida durante a instalação e é compartilhado por 30 dias usando [Assinaturas de Acesso Compartilhado (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Um arquivo de texto chamado *zipfilename*_saslink.txt também é criado na pasta log_collection. Esse arquivo contém o link SAS criado para baixar o arquivo zip. Qualquer pessoa que tenha esse link poderá baixar o arquivo zip.
+O arquivo zip criado também é carregado na conta de armazenamento fornecida durante a instalação e é compartilhado por 30 dias usando [Assinaturas de Acesso Compartilhado (SAS)](../../storage/common/storage-dotnet-shared-access-signature-part-1.md). Um arquivo de texto chamado *zipfilename*_saslink.txt também é criado na pasta log_collection. Esse arquivo contém o link SAS criado para baixar o arquivo zip. Qualquer pessoa que tenha esse link pode baixar o arquivo zip.
 
 A Microsoft pode usar esse link SAS para baixar os dados de diagnóstico para uma investigação adicional pelo engenheiro de suporte que está trabalhando em seu tíquete de suporte.
 

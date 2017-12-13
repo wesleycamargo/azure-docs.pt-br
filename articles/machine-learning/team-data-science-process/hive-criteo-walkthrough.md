@@ -4,7 +4,7 @@ description: "Usando o Processo de Ciência de Dados de Equipe para um cenário 
 services: machine-learning,hdinsight
 documentationcenter: 
 author: bradsev
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 72d958c4-3205-49b9-ad82-47998d400d2b
 ms.service: machine-learning
@@ -12,22 +12,22 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/29/2017
+ms.date: 11/29/2017
 ms.author: bradsev
-ms.openlocfilehash: 13dc1b516946aadc9c8a57a55768113bc925e63e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 760e08643fb3e71478fc899278591569da1d515b
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>O Processo de Ciência de Dados de Equipe em ação - usando um cluster Hadoop do Azure HDInsight em um conjunto de dados de 1 TB
 
-Neste passo a passo, demonstramos como usar o Processo de Ciência de Dados de Equipe em um cenário completo com um [cluster Hadoop do Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) para armazenar, explorar, apresentar dados de engenharia e reduzir dados de exemplo de um dos conjuntos de dados [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) publicamente disponível. Usamos o Azure Machine Learning para criar um modelo de classificação binária nesses dados. Nós também mostramos como publicar um desses modelos como um serviço Web.
+Este passo a passo demonstra como usar o Processo de Ciência de Dados da Equipe em um cenário de ponta a ponta com um [cluster do Hadoop do Azure HDInsight](https://azure.microsoft.com/services/hdinsight/) para armazenar, explorar, apresentar, projetar recursos e reduzir dados de exemplo de um dos conjuntos de dados [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/) publicamente disponível. Ele usa o Azure Machine Learning para criar um modelo de classificação binária nesses dados. Também mostra como publicar um desses modelos como um serviço Web.
 
 Também é possível usar um bloco de anotações do IPython para executar as tarefas apresentadas nesse passo a passo. Usuários que gostariam de testar essa abordagem devem consultar o tópico [Passo a passo da Criteo usando uma conexão ODBC do Hive](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/iPythonNotebooks/machine-Learning-data-science-process-hive-walkthrough-criteo.ipynb) .
 
 ## <a name="dataset"></a>Descrição do conjunto de dados da Criteo
-O conjunto de dados da Criteo é um conjunto de dados de previsão de cliques que contém cerca de 370 GB de arquivos TSV comprimidos em gzip (cerca de 1,3 TB de arquivos não comprimidos), totalizando mais de 4,3 bilhões de registros. Ele é obtido a partir de 24 dias de cliques de dados disponibilizados pela [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/). Para a conveniência dos cientistas de dados, nós descompactamos os dados disponibilizados para fazermos os experimentos.
+O conjunto de dados da Criteo é um conjunto de dados de previsão de cliques que contém cerca de 370 GB de arquivos TSV comprimidos em gzip (cerca de 1,3 TB de arquivos não comprimidos), totalizando mais de 4,3 bilhões de registros. Ele é obtido a partir de 24 dias de cliques de dados disponibilizados pela [Criteo](http://labs.criteo.com/downloads/download-terabyte-click-logs/). Para a conveniência dos cientistas de dados, descompactamos os dados disponibilizados para experimentos.
 
 Cada registro deste conjunto de dados contém 40 colunas:
 
@@ -44,7 +44,7 @@ Este é um trecho das 20 primeiras colunas de duas observações (linhas) desse 
     0       40      42      2       54      3       0       0       2       16      0       1       4448    4       1acfe1ee        1b2ff61f        2e8b2631        6faef306        c6fc10d3    6fcd6dcb           
     0               24              27      5               0       2       1               3       10064           9a8cb066        7a06385f        417e6103        2170fc56        acf676aa    6fcd6dcb                      
 
-Há valores ausentes nas colunas numéricas e categóricas do conjunto de dados. Nós descrevemos um método simples para lidar com os valores ausentes. Detalhes adicionais dos dados são explorados quando os armazenamos em tabelas do Hive.
+Há valores ausentes nas colunas numéricas e categóricas do conjunto de dados. É descrito um método simples para lidar com os valores ausentes. Detalhes adicionais dos dados são explorados aos armazená-los em tabelas do Hive.
 
 **Definição:** *CTR (taxa de clickthrough):* é o percentual de cliques nos dados. Neste conjunto de dados da Criteo, a CTR é de cerca de 3,3% ou 0,033.
 
@@ -94,9 +94,9 @@ Um típico primeiro logon no nó principal do cluster é semelhante ao seguinte:
 
 ![Entrar no cluster](./media/hive-criteo-walkthrough/Yys9Vvm.png)
 
-À esquerda, vemos a "Linha de Comando do Hadoop", que é onde fazemos o trabalho pesado de exploração de dados. Nós também vemos duas URLs úteis - "Status do Hadoop Yarn" e "Nó de Nome do Hadoop". A URL do status de yarn mostra o andamento do trabalho e a URL de nó de nome fornece detalhes sobre a configuração do cluster.
+À esquerda, vemos a "Linha de Comando do Hadoop", que é nossa força para a exploração de dados. Observe duas URLs úteis: "Status do Hadoop Yarn" e "Nó de Nome do Hadoop". A URL do status de yarn mostra o andamento do trabalho e a URL de nó de nome fornece detalhes sobre a configuração do cluster.
 
-Agora estamos prontos para começar a primeira parte do passo a passo: explorar dados usando o Hive e preparar dados para o Azure Machine Learning.
+Agora você está preparado e pronto para começar a primeira parte do passo a passo: explorar dados usando o Hive e preparar dados para o Azure Machine Learning.
 
 ## <a name="hive-db-tables"></a> Criar tabelas e banco de dados do Hive
 Para criar tabelas de Hive para nosso conjunto de dados da Criteo, abra a ***Linha de Comando do Hadoop*** na área de trabalho do nó principal e entre no diretório do Hive digitando o comando
@@ -104,7 +104,7 @@ Para criar tabelas de Hive para nosso conjunto de dados da Criteo, abra a ***Lin
     cd %hive_home%\bin
 
 > [!NOTE]
-> Execute todos os comandos do Hive neste passo a passo no prompt do diretório bin/do Hive. Isso soluciona automaticamente possíveis problemas de caminho. Nós usamos os termos "Prompt do diretório do Hive", "prompt do diretório bin/ do Hive" e "Linha de Comando do Hadoop" alternadamente.
+> Execute todos os comandos do Hive neste passo a passo no prompt do diretório bin/do Hive. Isso soluciona automaticamente possíveis problemas de caminho. Os termos "Prompt do diretório do Hive", "prompt do diretório bin/ do Hive" e "Linha de Comando do Hadoop" são intercambiáveis.
 > 
 > [!NOTE]
 > Para executar qualquer consulta de Hive, é sempre possível usar os seguintes comandos:
@@ -122,7 +122,7 @@ O código abaixo cria um banco de dados "criteo" e gera quatro tabelas:
 * uma *tabela para ser usada como o conjunto de dados de treinamento* criada no dia\_21 e
 * duas *tabelas para uso como conjuntos de dados de teste* criadas no dia\_22 e no dia\_23, respectivamente.
 
-Nós dividimos nosso conjunto de dados de teste em duas tabelas diferentes porque um dos dias é feriado, e queremos determinar se o modelo é capaz de detectar diferenças entre dias que são feriado e dias que não são, com base na taxa de clickthrough.
+Divida o conjunto de dados de teste em duas tabelas diferentes, pois um dos dias é um feriado. O objetivo é determinar se o modelo pode detectar diferenças entre um feriado e um dia útil da taxa de clickthrough.
 
 O script [sample&#95;hive&#95;create&#95;criteo&#95;database&#95;and&#95;tables.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql) é exibido aqui para fins de conveniência:
 
@@ -155,9 +155,9 @@ O script [sample&#95;hive&#95;create&#95;criteo&#95;database&#95;and&#95;tables.
     LINES TERMINATED BY '\n'
     STORED AS TEXTFILE LOCATION 'wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/test/day_23';
 
-Observe que todas essas tabelas são externas, uma vez que apenas apontamos para locais do Armazenamento de Blob do Azure (wasb).
+Todas essas tabelas são externas, portanto, você pode simplesmente apontar para os locais de Armazenamento de Blobs do Azure (wasb).
 
-**Há duas maneiras de executar QUALQUER consulta de Hive que mencionamos agora.**
+**Há duas maneiras de executar a consulta ANY do Hive:**
 
 1. **Usando a linha de comando REPL do Hive**: a primeira maneira é emitir um comando "hive" e copiar e colar uma consulta na linha de comando REPL do Hive. Para fazer isto:
    
@@ -170,7 +170,7 @@ Observe que todas essas tabelas são externas, uma vez que apenas apontamos para
         hive -f C:\temp\sample_hive_create_criteo_database_and_tables.hql
 
 ### <a name="confirm-database-and-table-creation"></a>Confirme a criação do banco de dados e da tabela
-Em seguida, confirmamos a criação do banco de dados com o seguinte comando no prompt do diretório bin/do Hive:
+Em seguida, confirmamos a criação do banco de dados com o seguinte comando no prompt do diretório bin/ do Hive:
 
         hive -e "show databases;"
 
@@ -182,11 +182,11 @@ Isso fornece:
 
 Isso confirma a criação do novo banco de dados, "criteo".
 
-Para ver quais tabelas foram criadas, basta emitirmos o comando aqui no prompt do diretório bin/ do Hive:
+Para ver quais tabelas foram criadas, basta emitir o comando aqui no prompt do diretório bin/ do Hive:
 
         hive -e "show tables in criteo;"
 
-Você verá a saída a seguir:
+Você então deve ver o seguinte resultado:
 
         criteo_count
         criteo_test_day_22
@@ -195,7 +195,7 @@ Você verá a saída a seguir:
         Time taken: 1.437 seconds, Fetched: 4 row(s)
 
 ## <a name="exploration"></a> Exploração de dados no Hive
-Agora, estamos prontos para fazer algumas explorações de dados básicas no Hive. Vamos começar pela contagem do número de exemplos nas tabelas de dados de treinamento e teste.
+Agora você está pronto para fazer uma exploração de dados básica no Hive. Comece contando o número de exemplos nas tabelas de dados de treinamento e teste.
 
 ### <a name="number-of-train-examples"></a>Número de exemplos de treinamento
 O conteúdo de [sample&#95;hive&#95;count&#95;train&#95;table&#95;examples.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_count_train_table_examples.hql) é mostrado aqui:
@@ -212,7 +212,7 @@ Também é possível emitir o seguinte comando no prompt do diretório bin/do Hi
         hive -f C:\temp\sample_hive_count_criteo_train_table_examples.hql
 
 ### <a name="number-of-test-examples-in-the-two-test-datasets"></a>Número de exemplos de teste nos dois conjuntos de dados de teste
-Agora, nós contamos o número de exemplos nos dois conjuntos de dados de teste. O conteúdo de [sample&#95;hive&#95;count&#95;criteo&#95;test&#95;day&#95;22&#95;table&#95;examples.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_count_criteo_test_day_22_table_examples.hql) é mostrado aqui:
+Agora conte o número de exemplos nos dois conjuntos de dados de teste. O conteúdo de [sample&#95;hive&#95;count&#95;criteo&#95;test&#95;day&#95;22&#95;table&#95;examples.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_count_criteo_test_day_22_table_examples.hql) é mostrado aqui:
 
         SELECT COUNT(*) FROM criteo.criteo_test_day_22;
 
@@ -221,11 +221,11 @@ Isso resulta em:
         189747893
         Time taken: 267.968 seconds, Fetched: 1 row(s)
 
-Como de costume, também podemos chamar o script no prompt do diretório bin/do Hive emitindo o comando:
+Como de costume, você também pode chamar o script no prompt do diretório bin/ do Hive emitindo o comando:
 
         hive -f C:\temp\sample_hive_count_criteo_test_day_22_table_examples.hql
 
-Por fim, examinamos o número de exemplos de teste do conjunto de dados de teste com base no dia\_23.
+Por fim, examine o número de exemplos de teste do conjunto de dados de teste com base no dia\_23.
 
 O comando para fazer isso é semelhante ao que acabou de ser mostrado (confira [sample&#95;hive&#95;count&#95;criteo&#95;test&#95;day&#95;23&#95;examples.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_count_criteo_test_day_23_examples.hql)):
 
@@ -237,7 +237,7 @@ Isso fornece:
         Time taken: 253.089 seconds, Fetched: 1 row(s)
 
 ### <a name="label-distribution-in-the-train-dataset"></a>Distribuição de rótulos no conjunto de dados de treinamento
-A distribuição de rótulos no conjunto de dados de treinamento é de interesse. Para ver isso, mostramos o conteúdo de [sample&#95;hive&#95;criteo&#95;label&#95;distribution&#95;train&#95;table.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_label_distribution_train_table.hql):
+A distribuição de rótulos no conjunto de dados de treinamento é de interesse. Para ver isso, mostre o conteúdo de [sample&#95;hive&#95;criteo&#95;label&#95;distribution&#95;train&#95;table.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_label_distribution_train_table.hql):
 
         SELECT Col1, COUNT(*) AS CT FROM criteo.criteo_train GROUP BY Col1;
 
@@ -250,7 +250,7 @@ Isso gera a distribuição de rótulos:
 Observe que o percentual de rótulos positivos é de cerca de 3,3% (consistente com o conjunto de dados original).
 
 ### <a name="histogram-distributions-of-some-numeric-variables-in-the-train-dataset"></a>Distribuições de histograma de algumas variáveis numéricas no conjunto de dados de treinamento
-Podemos usar função nativa do Hive "histogram\_numeric" para descobrir como é a distribuição das variáveis numéricas. Eis o conteúdo de [sample&#95;hive&#95;criteo&#95;histogram&#95;numeric.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_histogram_numeric.hql):
+Você pode usar a função nativa do Hive "histogram\_numeric" para descobrir como é a distribuição das variáveis numéricas. Eis o conteúdo de [sample&#95;hive&#95;criteo&#95;histogram&#95;numeric.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_histogram_numeric.hql):
 
         SELECT CAST(hist.x as int) as bin_center, CAST(hist.y as bigint) as bin_height FROM
             (SELECT
@@ -296,10 +296,10 @@ Isso resulta em:
         1.0     2.1418600917169246      2.1418600917169246    6.21887086390288 27.53454893115633       65535.0
         Time taken: 564.953 seconds, Fetched: 1 row(s)
 
-Observe que, normalmente, a distribuição de percentis está estreitamente relacionada à distribuição de histograma de qualquer variável numérica.         
+A distribuição de percentis está fortemente relacionada à distribuição de histograma de qualquer variável numérica.         
 
 ### <a name="find-number-of-unique-values-for-some-categorical-columns-in-the-train-dataset"></a>Encontre o número de valores exclusivos para algumas colunas categóricas no conjunto de dados de treinamento
-Continuando a exploração de dados, nós encontramos agora, para algumas colunas categóricas, o número de valores exclusivos que elas levam. Para fazer isso, mostramos o conteúdo de [sample&#95;hive&#95;criteo&#95;unique&#95;values&#95;categoricals.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_categoricals.hql):
+Continuando a exploração de dados, encontre, para algumas colunas categóricas, o número de valores exclusivos que elas levam. Para fazer isso, mostre o conteúdo de [sample&#95;hive&#95;criteo&#95;unique&#95;values&#95;categoricals.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_categoricals.hql):
 
         SELECT COUNT(DISTINCT(Col15)) AS num_uniques FROM criteo.criteo_train;
 
@@ -308,9 +308,9 @@ Isso resulta em:
         19011825
         Time taken: 448.116 seconds, Fetched: 1 row(s)
 
-Observe que Col15 tem valores exclusivos em 19M! Usar técnicas simples como codificação "one-hot" para codificar variáveis categóricas altamente dimensionais deste tipo é inviável. Em particular, nós explicamos e demonstramos uma técnica poderosa e robusta chamada [Aprendizado com contagens](http://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) para lidar com esse problema de modo eficaz.
+Observe que Col15 tem valores exclusivos em 19M! Usar técnicas simples como "codificação one-hot" para codificar essas variáveis categóricas altamente dimensionais desse tipo é inviável. Em particular, foi explicada e demonstrada uma técnica eficaz e robusta chamada [Aprendizado com contagens](http://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) para lidar com esse problema de modo eficiente.
 
-Finalizamos esta subseção examinando também o número de valores exclusivos para algumas outras colunas categóricas. O conteúdo de [sample&#95;hive&#95;criteo&#95;unique&#95;values&#95;multiple&#95;categoricals.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_multiple_categoricals.hql) é:
+Por fim, examine o número de valores exclusivos de algumas outras colunas categóricas também. O conteúdo de [sample&#95;hive&#95;criteo&#95;unique&#95;values&#95;multiple&#95;categoricals.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_multiple_categoricals.hql) é:
 
         SELECT COUNT(DISTINCT(Col16)), COUNT(DISTINCT(Col17)),
         COUNT(DISTINCT(Col18), COUNT(DISTINCT(Col19), COUNT(DISTINCT(Col20))
@@ -321,7 +321,7 @@ Isso resulta em:
         30935   15200   7349    20067   3
         Time taken: 1933.883 seconds, Fetched: 1 row(s)
 
-Mais uma vez vemos que, com exceção de Col20, todas as colunas têm muitos valores exclusivos.
+Mais uma vez, observe que, com exceção de Col20, todas as colunas têm muitos valores exclusivos.
 
 ### <a name="co-occurrence-counts-of-pairs-of-categorical-variables-in-the-train-dataset"></a>Contagens de ocorrências conjuntas de pares de variáveis categóricas no conjunto de dados de treinamento
 
@@ -329,7 +329,7 @@ As contagens de ocorrências conjuntas de pares de variáveis categóricas no co
 
         SELECT Col15, Col16, COUNT(*) AS paired_count FROM criteo.criteo_train GROUP BY Col15, Col16 ORDER BY paired_count DESC LIMIT 15;
 
-Neste caso, ordenamos as contagens de modo inverso e examinamos as 15 primeiras. Isso nos fornece:
+Reverta a ordem das contagens pela ocorrência e examine as 15 primeiras neste caso. Isso nos fornece:
 
         ad98e872        cea68cd3        8964458
         ad98e872        3dbb483e        8444762
@@ -349,9 +349,9 @@ Neste caso, ordenamos as contagens de modo inverso e examinamos as 15 primeiras.
         Time taken: 560.22 seconds, Fetched: 15 row(s)
 
 ## <a name="downsample"></a> Reduzir a resolução de conjuntos de dados para o Azure Machine Learning
-Após termos explorado os conjuntos de dados e demonstrado como podemos fazer esse tipo de exploração para quaisquer variáveis (incluindo combinações), agora nós reduzimos a resolução dos conjuntos de dados para que possamos criar modelos no Azure Machine Learning. Lembre-se de que o problema em que nos concentramos é: dado um conjunto de atributos de exemplo (valores de recursos da Col2 à Col40), podermos prever se Col1 é 0 (sem cliques) ou 1 (com clique).
+Depois de ter explorado os conjuntos de dados e demonstrado como fazer esse tipo de exploração para quaisquer variáveis (incluindo combinações), reduza os conjuntos de dados para que seja possível criar modelos no Azure Machine Learning. Lembre-se de que o foco do problema é: dado um conjunto de atributos de exemplo (valores de recursos da Col2 à Col40), prever se Col1 é 0 (sem cliques) ou 1 (com clique).
 
-Para reduzir nossos conjuntos de dados de treinamento e teste para 1% do tamanho original, usamos a função nativa RAND() do Hive. O seguinte script, [sample&#95;hive&#95;criteo&#95;downsample&#95;train&#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_train_dataset.hql) faz isso para o conjunto de dados de treinamento:
+Para reduzir os conjuntos de dados de treinamento e teste para 1% do tamanho original, use a função nativa RAND() do Hive. O seguinte script, [sample&#95;hive&#95;criteo&#95;downsample&#95;train&#95;dataset.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_downsample_train_dataset.hql) faz isso para o conjunto de dados de treinamento:
 
         CREATE TABLE criteo.criteo_train_downsample_1perc (
         col1 string,col2 double,col3 double,col4 double,col5 double,col6 double,col7 double,col8 double,col9 double,col10 double,col11 double,col12 double,col13 double,col14 double,col15 string,col16 string,col17 string,col18 string,col19 string,col20 string,col21 string,col22 string,col23 string,col24 string,col25 string,col26 string,col27 string,col28 string,col29 string,col30 string,col31 string,col32 string,col33 string,col34 string,col35 string,col36 string,col37 string,col38 string,col39 string,col40 string)
@@ -402,18 +402,18 @@ Isso resulta em:
         Time taken: 1.86 seconds
         Time taken: 300.02 seconds
 
-Com isso, nós estamos prontos para usar nossos conjuntos de dados de treinamento e teste reduzidos para criar modelos no Azure Machine Learning.
+Com isso, você está pronto para usar conjuntos de dados de treinamento e teste reduzidos para criar modelos no Azure Machine Learning.
 
-Há um componente final importante antes de passarmos para o Azure Machine Learning, que é relacionado à tabela de contagem. Na próxima sub-seção, discutiremos este componente detalhadamente.
+Há um componente final importante antes de passar para o Azure Machine Learning, que se refere à tabela de contagem. Na próxima subseção, a tabela de contagem é abordada em detalhes.
 
 ## <a name="count"></a> Uma breve discussão sobre a tabela de contagem
-Como vimos, diversas variáveis categóricas têm uma dimensionalidade muito alta. Em nosso passo a passo, nós apresentamos uma técnica poderosa chamada [Aprendizado com contagens](http://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) para codificar essas variáveis de maneira eficiente e robusta. Mais informações sobre essa técnica são disponibilizadas no link fornecido.
+Como vimos, diversas variáveis categóricas têm uma dimensionalidade muito alta. Em nosso passo a passo, apresentamos uma técnica eficaz chamada [Aprendizado com contagens](http://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) para codificar essas variáveis de maneira eficiente e robusta. Mais informações sobre essa técnica são disponibilizadas no link fornecido.
 
 [!NOTE]
->Neste passo a passo, nos concentramos no uso de tabelas de contagem para produzir representações compactas de recursos categóricos de alta dimensionalidade. Essa não é a única maneira de codificar recursos categóricos. Para saber mais sobre outras técnicas, usuários interessados podem conferir [codificação one-hot](http://en.wikipedia.org/wiki/One-hot) e [hash de recursos](http://en.wikipedia.org/wiki/Feature_hashing).
+>Neste passo a passo, o foco está no uso de tabelas de contagem para produzir representações compactas de recursos categóricos de grande dimensão. Essa não é a única maneira de codificar recursos categóricos. Para saber mais sobre outras técnicas, usuários interessados podem conferir [codificação one-hot](http://en.wikipedia.org/wiki/One-hot) e [hash de recursos](http://en.wikipedia.org/wiki/Feature_hashing).
 >
 
-Para criar tabelas de contagem com os dados de contagem, usamos os dados na pasta raw/count. Na seção de modelagem, mostramos aos usuários como criar essas tabelas de contagem para recursos categóricos do zero ou como usar uma tabela de contagem criada previamente para seus explorações. A seguir, quando falamos em "tabelas criadas previamente", nos referimos ao uso das tabelas de contagem que fornecemos. Fornecemos instruções detalhadas sobre como acessar essas tabelas na próxima seção.
+Para criar tabelas de contagem nos dados de contagem, usamos os dados na pasta raw/count. Na seção de modelagem, é mostrado aos usuários como criar essas tabelas de contagem para recursos categóricos do zero ou como usar uma tabela de contagem criada previamente para suas explorações. A seguir, quando são mencionadas as "tabelas de contagem pré-criadas", estamos nos referindo às tabelas de contagem que foram fornecidas. Fornecemos instruções detalhadas sobre como acessar essas tabelas na próxima seção.
 
 ## <a name="aml"></a> Criar um modelo com o Azure Machine Learning
 Nosso processo de criação de modelo no Azure Machine Learning seguirá estas etapas:
@@ -424,7 +424,7 @@ Nosso processo de criação de modelo no Azure Machine Learning seguirá estas e
 4. [Avaliar o modelo](#step4)
 5. [Publicar o modelo como um serviço Web](#step5)
 
-Agora, nós estamos prontos para criar modelos no Estúdio do Azure Machine Learning. Nossos dados reduzidos são salvos como tabelas de Hive do cluster. Nós usaremos o módulo **Importar Dados** do Azure Machine Learning para ler esses dados. As credenciais para acessar a conta de armazenamento deste cluster estão abaixo.
+Agora você está pronto para criar modelos no Azure Machine Learning Studio. Nossos dados reduzidos são salvos como tabelas de Hive do cluster. Use o módulo **Importar Dados** do Azure Machine Learning para ler esses dados. As credenciais para acessar a conta de armazenamento deste cluster estão abaixo.
 
 ### <a name="step1"></a> Etapa 1: passar dados de tabelas do Hive para o Azure Machine Learning usando o módulo Importar Dados e selecioná-los para um teste de aprendizado de máquina
 Comece selecionando **+NOVO** -> **EXPERIMENTO** -> **Experimento em Branco**. Depois, na caixa **Pesquisar** na parte superior esquerda, procure "Importar Dados". Arraste e solte o módulo **Importar Dados** na tela do experimento (a parte central da tela) para usar o módulo para acesso a dados.
@@ -433,7 +433,7 @@ Esta é a aparência do **Importar Dados** ao obter dados da tabela do Hive:
 
 ![Importar Dados obtém os dados](./media/hive-criteo-walkthrough/i3zRaoj.png)
 
-Para o módulo **Importar Dados** , os valores dos parâmetros que são fornecidos no gráfico são somente exemplos do tipo de valores que você precisará fornecer. Aqui estão algumas diretrizes gerais sobre como preencher o conjunto de parâmetros para o módulo **Importar Dados** .
+Para o módulo **Importar Dados**, os valores dos parâmetros que são fornecidos no gráfico são somente exemplos do tipo de valores que você precisará fornecer. Aqui estão algumas diretrizes gerais sobre como preencher o conjunto de parâmetros para o módulo **Importar Dados** .
 
 1. Escolha "Consulta de Hive" para **Fonte de dados**
 2. Na caixa **Consulta de banco de dados Hive**, um simples SELECT * FROM <your\_database\_name.your\_table\_name> é suficiente.
@@ -465,49 +465,49 @@ Nosso experimento do AM do Azure tem esta aparência:
 
 ![Teste do Machine Learning](./media/hive-criteo-walkthrough/xRpVfrY.png)
 
-Agora, vamos examinar os principais componentes nesse experimento. Como lembrete, primeiro precisamos arrastar nosso treinamento salvo e os conjuntos de dados de teste para a nossa tela de experimento.
+Agora vamos examinar os principais componentes desse experimento. Arraste os conjuntos de dados de teste e treinamento salvos na tela de experimento primeiro.
 
 #### <a name="clean-missing-data"></a>Limpar dados ausentes
-O módulo **Limpar dados ausentes** faz o que o nome diz: limpa dados ausentes de maneiras que podem ser especificadas pelo usuário. Examinando este módulo, vemos isso:
+O módulo **Limpar dados ausentes** faz o que o nome diz: limpa dados ausentes de maneiras que podem ser especificadas pelo usuário. Examine este módulo para ver isto:
 
 ![Limpar dados ausentes](./media/hive-criteo-walkthrough/0ycXod6.png)
 
 Aqui, optamos por substituir todos os valores ausentes por um 0. Existem outras opções que podem ser vistas examinando os menus suspensos no módulo.
 
 #### <a name="feature-engineering-on-the-data"></a>Engenharia de recurso nos dados
-Pode haver milhões de valores exclusivos para alguns recursos categóricos de grandes conjuntos de dados. Usar métodos simples como codificação one-hot para representar recursos categóricos altamente dimensionais é totalmente impraticável. Neste passo a passo, demonstramos como usar recursos de contagem usando módulos internos de Azure Machine Learning para gerar representações compactas dessas variáveis categóricas de grande dimensão. O resultado final é um tamanho de modelo menor, tempos de treinamento mais rápidos e métricas de desempenho que são muito semelhantes a outras técnicas.
+Pode haver milhões de valores exclusivos para alguns recursos categóricos de grandes conjuntos de dados. Usar métodos simples como codificação one-hot para representar recursos categóricos altamente dimensionais é totalmente impraticável. Este passo a passo demonstra como usar recursos de contagem usando módulos internos de Azure Machine Learning para gerar representações compactas dessas variáveis categóricas de grande dimensão. O resultado final é um tamanho de modelo menor, tempos de treinamento mais rápidos e métricas de desempenho que são muito semelhantes a outras técnicas.
 
 ##### <a name="building-counting-transforms"></a>Criando transformações de contagem
-Para criar recursos de contagem, usamos o módulo **Criar transformação de contagem** que está disponível no Azure Machine Learning. O módulo tem esta aparência:
+Para criar recursos de contagem, use o módulo **Criar transformação de contagem** disponível no Azure Machine Learning. O módulo tem esta aparência:
 
 ![Módulo Compilar Transformação de Contagem](./media/hive-criteo-walkthrough/e0eqKtZ.png)
 ![Módulo Compilar Transformação de Contagem](./media/hive-criteo-walkthrough/OdDN0vw.png)
 
 > [!IMPORTANT] 
-> Na caixa **Contar colunas**, inserimos as colunas nas quais desejamos realizar contagens. Geralmente, essas são (conforme mencionado) colunas categóricas altamente dimensionais. No início, mencionamos que o conjunto de dados Criteo tem 26 colunas categóricas: de Col15 para Col40. Aqui, podemos contar todas elas e dar a elas seus índices (de 15 a 40 separados por vírgulas, como mostrado).
+> Na caixa **Contar colunas**, insira as colunas em que você deseja realizar contagens. Geralmente, essas são (conforme mencionado) colunas categóricas altamente dimensionais. Lembre-se de que o conjunto de dados Criteo tem 26 colunas categóricas: da Col15 até a Col40. Aqui, contamos todas elas e apresentamos seus índices (de 15 a 40, separados por vírgulas, como mostrado).
 > 
 
 Para usar o módulo no modo MapReduce (apropriado para grandes conjuntos de dados), precisamos de acesso a um cluster HDInsight Hadoop (aquele usado para a exploração de recurso também pode ser reutilizado para essa finalidade) e suas credenciais. Os valores anteriores ilustram a aparência dos valores preenchidos (substitua os valores fornecidos como ilustração por aqueles relevantes para seu próprio caso de uso).
 
 ![Parâmetros do módulo](./media/hive-criteo-walkthrough/05IqySf.png)
 
-Na figura acima, vamos mostrar como inserir o local do blob de entrada. Esse local tem os dados reservados para a criação de tabelas de contagem.
+A figura anterior mostra como inserir o local de blob de entrada. Esse local tem os dados reservados para a criação de tabelas de contagem.
 
-Após a execução desse módulo, podemos salvar a transformação para mais tarde clicando com botão direito do mouse no módulo e selecionando a opção **Salvar como Transformação** :
+Após a execução desse módulo, salve a transformação para mais tarde clicando com o botão direito do mouse no módulo e selecionando a opção **Salvar como Transformação**:
 
 ![Opção “Salvar como transformação”](./media/hive-criteo-walkthrough/IcVgvHR.png)
 
-Em nossa arquitetura de experimento mostrada acima, o conjunto de dados "ytransform2" corresponde exatamente a uma transformação de contagem salva. Para o restante desse experimento, assumimos que o leitor usou um módulo **Compilar transformação de contagem** em alguns dados para gerar contagens e usá-las para gerar recursos de contagem em conjuntos de dados de treinamento e de teste.
+Em nossa arquitetura de experimento mostrada acima, o conjunto de dados "ytransform2" corresponde exatamente a uma transformação de contagem salva. Para o restante desse experimento, presume-se que o leitor usou um módulo **Criar transformação de contagem** em alguns dados para gerar contagens e usá-las para gerar recursos de contagem em conjuntos de dados de treinamento e de teste.
 
 ##### <a name="choosing-what-count-features-to-include-as-part-of-the-train-and-test-datasets"></a>Escolhendo quais recursos de contagem incluir como parte dos conjuntos de dados de treinamento e de teste
-Assim que tivermos uma transformação de contagem pronta, o usuário pode escolher quais recursos incluir nos seus conjuntos de dados de treinamento e de teste usando o módulo **Modificar parâmetros da tabela de contagem** . Vamos mostrar esse módulo aqui para fins de conclusão, mas, para manter a simplicidade, não use de fato no nosso experimento.
+Assim que houver uma transformação de contagem pronta, o usuário poderá escolher quais recursos incluir nos seus conjuntos de dados de treinamento e de teste usando o módulo **Modificar parâmetros da tabela de contagem**. Para fins de integridade, esse módulo é mostrado aqui. Porém, para fins de simplicidade, não o usamos realmente em nosso experimento.
 
 ![Parâmetros Modificar Tabela de Contagem](./media/hive-criteo-walkthrough/PfCHkVg.png)
 
-Nesse caso, como se vê, optamos por usar somente os log-possibilidades e ignorar a coluna de retirada. Também podemos definir parâmetros, como o limite da lixeira, quantos exemplos pseudo anteriores adicionar para suavização e se o ruído Laplaciano deve ser usado ou não. Todos esses são recursos avançados e deve-se observar que os valores padrão são um bom ponto de partida para usuários não familiarizados com esse tipo de geração de recurso.
+Nesse caso, como pode ser visto, as chances de log devem ser usadas e a coluna de recuo é ignorada. Você também pode definir parâmetros, como o limite da lixeira, quantos pseudoexemplos anteriores adicionar para suavização e se o ruído Laplaciano deve ser usado ou não. Todos esses são recursos avançados e deve-se observar que os valores padrão são um bom ponto de partida para usuários não familiarizados com esse tipo de geração de recurso.
 
 ##### <a name="data-transformation-before-generating-the-count-features"></a>Transformação de dados antes de gerar os recursos de contagem
-Agora vamos nos concentrar em um ponto importante sobre como transformar nossos dados de treinamento e de teste antes de realmente gerar recursos de contagem. Observe que há dois módulos **Executar Script R** usados antes de podermos aplicar a transformação de contagem aos nossos dados.
+Agora o foco está em um ponto importante sobre como transformar nossos dados de treinamento e de teste antes de realmente gerar recursos de contagem. Observe que há dois módulos **Executar Script R** usados antes da aplicação da transformação de contagem aos dados.
 
 ![Executar Script R](./media/hive-criteo-walkthrough/aF59wbc.png)
 
@@ -515,64 +515,64 @@ Veja o primeiro script R:
 
 ![Primeiro script R](./media/hive-criteo-walkthrough/3hkIoMx.png)
 
-Nesse script R, renomeamos nossas colunas para nomes "Col1" a "Col40". Isso ocorre porque a transformação de contagem espera nomes nesse formato.
+Esse script R renomeia as colunas com nomes "Col1" para "Col40". Isso ocorre porque a transformação de contagem espera nomes nesse formato.
 
-No segundo script R, podemos equilibrar a distribuição entre classes positivas e negativas (classes 1 e 0, respectivamente) reduzindo a classe negativa. O script R aqui mostra como fazer isso:
+O segundo script R equilibra a distribuição entre classes positivas e negativas (classes 1 e 0, respectivamente) reduzindo a amostragem da classe negativa. O script R aqui mostra como fazer isso:
 
 ![Segundo script R](./media/hive-criteo-walkthrough/91wvcwN.png)
 
-Nesse script R simples, usamos "pos\_neg\_ratio" para definir a quantidade de equilíbrio entre as classes positiva e negativa. Isso é importante, já que melhorar o desequilíbrio de classe normalmente tem benefícios de desempenho para problemas de classificação em que a distribuição de classe está distorcida (lembre-se de que em nosso caso, temos classes positivo 3,3% e 96,7% negativo).
+Neste script R simples, usamos "pos\_neg\_ratio" para definir a quantidade de equilíbrio entre as classes positiva e negativa. É importante fazer isso, já que melhorar o desequilíbrio de classe normalmente tem benefícios de desempenho para problemas de classificação em que a distribuição de classe está distorcida (lembre-se de que, neste caso, você tem 3,3% de classes positivas e 96,7% de negativas).
 
 ##### <a name="applying-the-count-transformation-on-our-data"></a>Aplicando a transformação de contagem aos nossos dados
-Por fim, podemos usar o módulo **Aplicar transformação** para aplicar as transformações de contagem aos nossos conjuntos de dados de treino e de teste. Este módulo usa a transformação da contagem salva como uma entrada e os conjuntos de dados de treinamento ou de teste como outra entrada e retorna dados com recursos de contagem. Isso é mostrado aqui:
+Por fim, você pode usar o módulo **Aplicar Transformação** para aplicar as transformações de contagem aos conjuntos de dados de treino e de teste. Este módulo usa a transformação da contagem salva como uma entrada e os conjuntos de dados de treinamento ou de teste como outra entrada e retorna dados com recursos de contagem. Isso é mostrado aqui:
 
 ![Aplicar o módulo de transformação](./media/hive-criteo-walkthrough/xnQvsYf.png)
 
 ##### <a name="an-excerpt-of-what-the-count-features-look-like"></a>Um trecho de como os recursos de contagem se parecem
-É instrutivo observar a aparência dos recursos de contagem em nosso caso. Mostramos aqui um trecho disso:
+É instrutivo observar a aparência dos recursos de contagem em nosso caso. Aqui está um trecho disto:
 
 ![Recursos de contagem](./media/hive-criteo-walkthrough/FO1nNfw.png)
 
-Nesse trecho, mostramos que para as colunas que pudemos contar, obtivemos as contagens e possibilidades de log além de qualquer retirada relevante.
+Esse trecho mostra que, para as colunas contadas, você recebe as chances de log e contagens, além de quaisquer retiradas relevantes.
 
-Agora estamos prontos para criar um modelo de Azure Machine Learning usando esses conjuntos de dados transformados. Na próxima seção, vamos mostrar como isso pode ser feito.
+Você agora está pronto para criar um modelo de Azure Machine Learning usando esses conjuntos de dados transformados. A próxima seção mostra como isso pode ser feito.
 
 ### <a name="step3"></a>Etapa 3: Criar, treinar e pontuar o modelo
 
 #### <a name="choice-of-learner"></a>Opção do aprendiz
-Primeiro precisamos escolher um aprendiz. Vamos usar uma árvore de decisão aumentada, de duas classes, como nosso aprendiz. Aqui estão as opções padrão para esse aprendiz:
+Primeiro, você precisa escolher um aprendiz. Use uma árvore de decisão aprimorada de duas classes como nosso aprendiz. Aqui estão as opções padrão para esse aprendiz:
 
 ![Parâmetros da árvore de decisão aumentada de duas classes](./media/hive-criteo-walkthrough/bH3ST2z.png)
 
-Para nosso experimento, vamos escolher os valores padrão. Podemos observar que os padrões são geralmente significativos e uma boa maneira de se obter linhas de base rápidas sobre o desempenho. Se desejar, depois de ter uma linha de base, você pode melhorar o desempenho varrendo parâmetros.
+Para o teste, escolha os valores padrão. Observe que os padrões geralmente são significativos e uma boa maneira de obter linhas de base rápidas sobre o desempenho. Se desejar, depois de ter uma linha de base, você pode melhorar o desempenho varrendo parâmetros.
 
 #### <a name="train-the-model"></a>Treinar o modelo
-Para obter treinamento, podemos simplesmente invocar um módulo **Modelo de treinamento** . As duas entradas para ele são o aprendiz Árvore de Decisão Aumentada de Duas Classes e nosso conjunto de dados de treinamento. Isso é mostrado aqui:
+Para treinamento, podemos simplesmente invocar um módulo **Treinar Modelo**. As duas entradas para ele são o aprendiz Árvore de Decisão Aumentada de Duas Classes e nosso conjunto de dados de treinamento. Isso é mostrado aqui:
 
 ![Módulo Treinar Modelo](./media/hive-criteo-walkthrough/2bZDZTy.png)
 
 #### <a name="score-the-model"></a>Pontuar o modelo
-Assim que tivermos um modelo treinado, estamos prontos para avaliar o conjunto de dados de teste e seu desempenho. Podemos fazer isso usando o módulo **Modelo de pontuação** mostrado na figura a seguir, junto com um módulo **Avaliar modelo**:
+Assim que você tiver um modelo treinado, estará pronto para avaliar o conjunto de dados de teste e seu desempenho. Faça isso usando o módulo **Modelo de Pontuação** mostrado na figura a seguir, junto com um módulo **Modelo de Avaliação**:
 
 ![Módulo de Modelo de Pontuação](./media/hive-criteo-walkthrough/fydcv6u.png)
 
 ### <a name="step4"></a> Etapa 4: Avaliar o modelo
-Por fim, gostaríamos de analisar o desempenho do modelo. Normalmente, para problemas de classificação de duas classes (binária), uma boa medida é o AUC. Para visualizá-lo, vinculamos o módulo **Modelo de classificação** a um módulo **Modelo de avaliação**. Clicar em **Visualizar** no módulo **Modelo de avaliação** produz um gráfico semelhante ao seguinte exemplo:
+Por fim, você deve analisar o desempenho do modelo. Normalmente, para problemas de classificação de duas classes (binária), uma boa medida é o AUC. Para visualizar isso, vincule o módulo **Modelo de Pontuação** a um módulo **Modelo de Avaliação**. Clicar em **Visualizar** no módulo **Modelo de avaliação** produz um gráfico semelhante ao seguinte exemplo:
 
 ![Avaliar o modelo de BDT do módulo](./media/hive-criteo-walkthrough/0Tl0cdg.png)
 
-Em problemas de classificação binária (ou de duas classes), uma boa medida da precisão de previsão é o AUC (área abaixo da curva). A seguir, mostramos nossos resultados usando esse modelo em nosso conjunto de dados de teste. Para obtê-los, clique com o botão direito do mouse na porta de saída do módulo **Modelo de avaliação** e selecione **Visualizar**.
+Em problemas de classificação binária (ou de duas classes), uma boa medida da precisão de previsão é o AUC (área abaixo da curva). A seção a seguir mostra os resultados usando esse modelo em nosso conjunto de dados de teste. Para obtê-los, clique com o botão direito do mouse na porta de saída do módulo **Modelo de avaliação** e selecione **Visualizar**.
 
 ![Módulo Visualizar modelo de avaliação](./media/hive-criteo-walkthrough/IRfc7fH.png)
 
 ### <a name="step5"></a> Etapa 5: Publicar o modelo como um serviço Web a ser consumido
 A capacidade de publicar um modelo de Azure Machine Learning como serviços Web com um nível mínimo de confusão é um recurso valioso para torná-lo amplamente disponível. Depois disso, qualquer pessoa pode fazer chamadas para o serviço Web com dados de entrada para os quais precisem de previsões, e o serviço Web usa o modelo para retornar as previsões.
 
-Para fazer isso, primeiro salvamos nosso modelo treinado como um objeto de Modelo Treinado. Isso é feito clicando com o botão direito do mouse no módulo **Modelo de treinamento** e usando a opção **Salvar como um Modelo Treinado**.
+Para fazer isso, primeiro salve o modelo treinado como um objeto de Modelo Treinado. Isso é feito clicando com o botão direito do mouse no módulo **Modelo de treinamento** e usando a opção **Salvar como um Modelo Treinado**.
 
-Em seguida, precisamos criar portas de entrada e saída para nosso serviço Web:
+Em seguida, crie portas de entrada e saída para o serviço Web:
 
-* uma porta de entrada usa dados da mesma forma como os dados para os quais precisamos de previsões
+* uma porta de entrada usa dados da mesma forma que os dados para os quais você precisa de previsões
 * uma porta de saída retorna os Rótulos Pontuados e as probabilidades associadas.
 
 #### <a name="select-a-few-rows-of-data-for-the-input-port"></a>Selecionar algumas linhas de dados para a porta de entrada
@@ -581,24 +581,24 @@ Podemos, de maneira conveniente, usar uma **Transformação do tipo Apply SQL** 
 ![Dados na porta de entrada](./media/hive-criteo-walkthrough/XqVtSxu.png)
 
 #### <a name="web-service"></a>Serviço Web
-Agora estamos prontos para executar um experimento pequeno que pode ser usado para publicar nosso serviço Web.
+Agora você está pronto para executar um pequeno experimento que pode ser usado para publicar nosso serviço Web.
 
 #### <a name="generate-input-data-for-webservice"></a>Gerar dados de entrada para o serviço Web
-Como etapa inicial, como a tabela de contagem é grande, pegamos algumas linhas de dados de teste e geramos dados de saída por meio delas com recursos de contagem. Isso pode servir como o formato de dados de entrada para nosso serviço Web. Isso é mostrado aqui:
+Como etapa inicial, considerando que a tabela de contagem é grande, pegue algumas linhas de dados de teste e gere dados de saída delas com recursos de contagem. Isso pode servir como o formato de dados de entrada para nosso serviço Web. Isso é mostrado aqui:
 
 ![Criar dados de entrada de BDT](./media/hive-criteo-walkthrough/OEJMmst.png)
 
 > [!NOTE]
-> Para o formato de dados de entrada, usamos a SAÍDA do módulo **Recursos de contagem** . Após o fim da execução do experimento, nós salvamos a saída do módulo **Recursos de contagem** como um conjunto de dados. Esse conjunto de dados é usado para os dados de entrada no serviço Web.
+> Para o formato de dados de entrada, usamos a SAÍDA do módulo **Recursos de Contagem**. Após o fim da execução do experimento, nós salvamos a saída do módulo **Recursos de contagem** como um conjunto de dados. Esse conjunto de dados é usado para os dados de entrada no serviço Web.
 > 
 > 
 
 #### <a name="scoring-experiment-for-publishing-webservice"></a>Experimento de pontuação publicação do serviço Web
-Primeiro, mostramos sua aparência. A estrutura essencial é um módulo do **Pontuar Modelo** que aceita o nosso objeto de modelo treinado e algumas linhas de dados de entrada que geramos nas etapas anteriores usando o módulo **Recursos de contagem**. Usamos "Selecionar Colunas do Conjunto de Dados" para projetar os Rótulos pontuados e as Probabilidades de pontuação.
+Primeiro, é mostrada a aparência. A estrutura essencial é um módulo **Modelo de Pontuação** que aceita o objeto de modelo treinado e algumas linhas de dados de entrada geradas nas etapas anteriores usando o módulo **Recursos de Contagem**. Use "Selecionar Colunas do Conjunto de Dados" para projetar os Rótulos pontuados e as Probabilidades de pontuação.
 
 ![Projetar Colunas no Conjunto de Dados](./media/hive-criteo-walkthrough/kRHrIbe.png)
 
-Observe como o módulo **Projetar Colunas no Conjunto de Dados** pode ser usado para “filtrar” dados de um conjunto de dados. Mostramos o conteúdo aqui:
+Observe como o módulo **Projetar Colunas no Conjunto de Dados** pode ser usado para “filtrar” dados de um conjunto de dados. O conteúdo é mostrado aqui:
 
 ![Filtragem com Selecionar Colunas no módulo Conjunto de Dados](./media/hive-criteo-walkthrough/oVUJC9K.png)
 
@@ -606,28 +606,28 @@ Para obter as portas de entrada e de saída azuis, basta clicar em **preparar se
 
 ![PUBLICAR SERVIÇO WEB](./media/hive-criteo-walkthrough/WO0nens.png)
 
-Após o serviço Web ser publicado, somos redirecionados para uma página parecida com esta:
+Após o serviço Web ser publicado, somos redirecionados a uma página parecida com esta:
 
 ![Painel de serviço Web](./media/hive-criteo-walkthrough/YKzxAA5.png)
 
 Vemos dois links para serviços Web no lado esquerdo:
 
-* O **REQUEST/RESPONSE** Service (ou RRS) é destinado a previsões únicas e é o que usamos neste workshop.
+* O RRS (ou Serviço de **SOLICITAÇÃO/RESPOSTA**) é destinado a previsões únicas e é o que estamos neste workshop.
 * O serviço **EXECUÇÃO EM LOTES** (BES) é usado para previsões em lotes e exige que os dados de entrada usados para fazer previsões residam no Armazenamento de Blob do Azure.
 
 Clicar no link **SOLICITAÇÃO/RESPOSTA** nos leva a uma página que nos fornece um código gravado previamente em C#, python e R. Esse código pode ser usado de modo conveniente para fazer chamadas para o serviço Web. Observe que a chave da API nesta página deve ser usada para autenticação.
 
 É conveniente copiar esse código python para uma nova célula no bloco de anotações IPython.
 
-Aqui, mostramos um segmento de código Python com a chave de API correta.
+Aqui está um segmento de código Python com a chave de API correta.
 
 ![Código Python](./media/hive-criteo-walkthrough/f8N4L4g.png)
 
-Observe que substituímos a chave de API padrão com a chave de API de nossos serviços Web. Clicar em **Executar** nessa célula em um bloco de anotações IPython produz a seguinte resposta:
+Observe que a chave de API padrão foi substituída pela chave de API dos webservices. Clicar em **Executar** nessa célula em um bloco de anotações IPython produz a seguinte resposta:
 
 ![Resposta do IPython](./media/hive-criteo-walkthrough/KSxmia2.png)
 
-Podemos ver que para os dois exemplos de teste sobre os quais perguntamos (na estrutura JSON do script Python), recebemos respostas no formulário "Scored Labels, Scored Probabilities". Observe que, neste caso, escolhemos os valores padrão que o código predefinido fornece (0 para todas as colunas numéricas e a cadeia de caracteres "value" para todas as colunas categóricas).
+Para os dois exemplos de teste sobre os quais perguntamos (na estrutura JSON do script Python), você recebe respostas na forma de "Rótulos Pontuados, Probabilidades Pontuadas". Neste caso, foram escolhidos os valores padrão que o código predefinido fornece (0 para todas as colunas numéricas e a cadeia de caracteres "value" para todas as colunas categóricas).
 
-Isso conclui nosso passo a passo total mostrando como lidar com o conjunto de dados de grande dimensão usando o Azure Machine Learning. Começamos com um terabyte de dados, construímos um modelo de previsão e o implantamos como um serviço Web na nuvem.
+Isso conclui nosso passo a passo que mostra como lidar com o conjunto de dados de grande escala usando o Azure Machine Learning. Você começou com um terabyte de dados, construiu um modelo de previsão e o implantou como um serviço Web na nuvem.
 

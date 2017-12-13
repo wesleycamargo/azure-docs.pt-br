@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2017
 ms.author: garye
-ms.openlocfilehash: bdf0bd54130521a7178af3a28731f4c0e21e3e0b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 75577ad318f2ff23a7b7d10cf551f3bced56fb62
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="deploy-an-azure-machine-learning-web-service"></a>Implantar um serviço Web de Azure Machine Learning
 O Azure Machine Learning permite compilar, testar e implantar soluções de análise preditiva.
@@ -108,7 +108,7 @@ Na página **CONFIGURAÇÃO**, você pode alterar a descrição, o título, atua
 Depois de implantar o serviço Web, é possível:
 
 * **Acessá-lo** por meio da API do serviço Web.
-* **Gerenciá-lo** por meio do portal de serviços Web de Azure Machine Learning ou Portal Clássico do Azure.
+* **Gerenciá-lo** por meio do portal de serviços Web do Azure Machine Learning.
 * **Atualizá-lo** se o seu modelo for alterado.
 
 #### <a name="access-your-new-web-service"></a>Acessar seu Novo serviço Web
@@ -141,7 +141,7 @@ Para testar o serviço de execução em lote, clique no link de visualização d
 
 ![Testar o serviço Web](./media/publish-a-machine-learning-web-service/figure-3.png)
 
-Na página **CONFIGURAÇÃO** , você pode alterar o nome de exibição do serviço e fornecer uma descrição. O nome e a descrição são exibidos no [Portal Clássico do Azure](http://manage.windowsazure.com/) , no qual você gerencia seus serviços Web.
+Na página **CONFIGURAÇÃO** , você pode alterar o nome de exibição do serviço e fornecer uma descrição. O nome e a descrição são exibidos no [Portal do Azure](https://portal.azure.com/), no qual você gerencia seus serviços Web.
 
 Você pode fornecer uma descrição dos dados de entrada, dados de saída e parâmetros de serviço Web inserindo uma cadeia de caracteres para cada coluna em **INPUT SCHEMA**, **OUTPUT SCHEMA**, e **Web SERVICE PARAMETER**. Essas descrições são usadas na documentação do código de exemplo fornecida para o serviço Web.
 

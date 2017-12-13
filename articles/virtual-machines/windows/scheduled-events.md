@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2017
 ms.author: zivr
-ms.openlocfilehash: 2b873501085ba2d293be564009b5d5daccbf9c1e
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 75e811f77bade3701cce2d9945cf35d6e14e376f
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-metadata-service-scheduled-events-preview-for-windows-vms"></a>Serviço de Metadados do Azure: Eventos Agendados (versão prévia) para VMs do Windows
 
@@ -55,7 +55,7 @@ O Serviço de Metadados do Azure expõe informações sobre a execução de Máq
 ### <a name="scope"></a>Escopo
 Os eventos agendados são entregues a:
 - Todas as Máquinas Virtuais em um Serviço de Nuvem
-- Todas as Máquinas Virtuais em um Conjunto de Disponibilidade
+- Todas as máquinas virtuais em um conjunto de disponibilidade
 - Todas as máquinas virtuais em um Grupo de Posicionamento do Conjunto de Escala. 
 
 Como resultado, você deve verificar o campo `Resources` no evento para identificar quais VMs serão afetadas. 
@@ -69,11 +69,11 @@ No caso em que uma máquina virtual é criada em uma VNet (Rede Virtual), o serv
 Se a Máquina Virtual não for criada em uma Rede Virtual, casos padrão para serviços de nuvem e VMs clássicas, uma lógica adicional será necessária para descobrir o endereço IP a ser utilizado. Consulte esse exemplo para saber como [descobrir o ponto de extremidade do host](https://github.com/azure-samples/virtual-machines-python-scheduled-events-discover-endpoint-for-non-vnet-vm).
 
 ### <a name="versioning"></a>Controle de versão 
-O Serviço de Eventos Agendados tem controle de versão. As versões são obrigatórias e a versão atual é `2017-08-01`.
+O serviço de eventos agendados tem controle de versão. As versões são obrigatórias e a versão atual é `2017-08-01`.
 
 | Versão | Notas de versão | 
 | - | - | 
-| 2017-08-01 | <li> Removido o sublinhado inicial dos nomes de recursos para as VMs de Iaas<br><li>Requisito de Cabeçalho de Metadados imposto para todas as solicitações | 
+| 2017-08-01 | <li> Removido o sublinhado inicial dos nomes de recursos para as VMs de Iaas<br><li>Requisito de cabeçalho de metadados imposto para todas as solicitações | 
 | 2017-03-01 | <li>Versão Prévia Pública
 
 > [!NOTE] 
@@ -150,7 +150,7 @@ Cada evento é agendado uma quantidade mínima de tempo no futuro com base no ti
 
 Após a descoberta de um evento futuro e concluído sua lógica de desligamento normal, você poderá aprovar o evento pendente fazendo uma chamada `POST` para o serviço de metadados com `EventId`. Isso indica para o Azure que ele pode encurtar o tempo mínimo de notificação (quando possível). 
 
-A seguir, o json esperado no corpo da solicitação `POST`. A solicitação deve conter uma lista de `StartRequests`. Cada `StartRequest` contém o `EventId` para o evento que você deseja agilizar:
+A seguir vemos o json esperado no corpo da solicitação `POST`. A solicitação deve conter uma lista de `StartRequests`. Cada `StartRequest` contém o `EventId` para o evento que você deseja agilizar:
 ```
 {
     "StartRequests" : [

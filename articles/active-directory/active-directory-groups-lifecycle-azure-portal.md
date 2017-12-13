@@ -1,5 +1,5 @@
 ---
-title: "Visualização do vencimento de grupos do Office 365 no Azure Active Directory | Microsoft Docs"
+title: "Expiração de grupos do Office 365 no Azure Active Directory | Microsoft Docs"
 description: "Como configurar o vencimento de grupos do Office 365 no Azure Active Directory (visualização)"
 services: active-directory
 documentationcenter: 
@@ -12,29 +12,31 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 12/01/2017
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: 8a43df84fd050d7b4bd8d937b8c55e744cb805d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c2dd56bd34e5b7845298fab1f36e231113a2e28e
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
-# <a name="configure-office-365-groups-expiration-preview"></a>Como configurar o vencimento de grupos do Office 365 (visualização)
+# <a name="configure-expiration-for-office-365-groups-preview"></a>Configurar a expiração dos grupos do Office 365 (visualização)
 
-Agora é possível gerenciar o ciclo de vida de grupos do Office 365, definindo o vencimento de todos os grupos Office 365 que você selecionar. Depois de definir o vencimento, os proprietários desses grupos receberão uma solicitação para renovar seus grupos, se assim desejarem. Os grupos do Office 365 que não forem renovados, serão excluídos. Os proprietários ou os administradores de grupos poderão restaurar qualquer grupo do Office 365 excluído em um prazo de 30 dias.  
-
+Agora é possível gerenciar o ciclo de vida de grupos do Office 365 definindo-se os recursos de expiração para eles. Você pode configurar o vencimento apenas dos grupos do Office 365 no Azure Active Directory (Azure AD). Depois de configurar a expiração de um grupo:
+-   Os proprietários do grupo serão notificados para renovar o grupo à medida que a expiração se aproximar
+-   Todos os grupos não renovados serão excluídos
+-   Os proprietários ou os administradores de grupos poderão restaurar, dentro de 30 dias, qualquer grupo do Office 365 excluído
 
 > [!NOTE]
-> Você pode definir o vencimento de grupos somente do Office 365.
->
-> Atribuir um vencimento para grupos do O365 requer que uma licença Premium do Azure AD esteja atribuída para:
->   - O administrador que define as configurações de vencimento para o locatário
->   - Todos os membros dos grupos selecionados para esta configuração
+> A configuração da expiração dos grupos do Office 365 requer uma licença do Azure AD Premium ou uma licença do Azure AD Basic EDU para todos os membros dos grupos aos quais são aplicadas as configurações de expiração.
+> 
+> Para clientes do Azure AD Basic EDU licenciados: para configurar essa política pela primeira vez, use os cmdlets do PowerShell do Azure Active Directory. Depois disso, você poderá atualizar as configurações de expiração usando o PowerShell ou o portal do Azure AD, com uma conta que seja um Administrador de Conta de Usuário ou Administrador Global em seu locatário do Azure AD.
 
-## <a name="set-office-365-groups-expiration"></a>Como configurar o vencimento de grupos do Office 365
+Para obter informações sobre como baixar e instalar os cmdlets do PowerShell do Azure AD, confira [PowerShell do Azure Active Directory para Graph - Versão de visualização pública 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
+
+## <a name="set-group-expiration"></a>Definir a expiração de grupo
 
 1. Abra o [Centro de administração do Azure AD ](https://aad.portal.azure.com) com uma conta de administrador global no seu locatário do Azure AD.
 
@@ -51,7 +53,6 @@ Agora é possível gerenciar o ciclo de vida de grupos do Office 365, definindo 
   * Selecione quais grupos do Office 365 expirarão. Habilite a o vencimento para **Todos** os grupos do Office 365, selecione entre os grupos do Office 365 ou selecione **Nenhum** para desabilitar a validade de todos os grupos.
   * Salve as configurações quando terminar selecionando **Salvar**.
 
-Para obter instruções sobre como baixar e instalar o módulo do PowerShell da Microsoft para configurar o vencimento de grupos do Office 365 por meio do PowerShell, confira [Azure V2 PowerShell módulo do Azure Active Directory - versão de visualização pública 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
 
 Os proprietários de grupos do Office 365 receberão emails como este 30 dias, 15 dias e 1 dia antes do vencimento do grupo.
 
@@ -68,7 +69,8 @@ Para restaurar o grupo, selecione **Restauração grupo** ou use cmdlets do Powe
 Se o grupo que você está restaurando contém documentos, sites do SharePoint ou outros objetos persistentes, pode levar até 24 horas para restaurar completamente o grupo e seu conteúdo.
 
 > [!NOTE]
-> * Ao implantar as configurações de vencimento, pode haver alguns grupos que são mais antigos que a janela de vencimento. Esses grupos não serão excluídos imediatamente, mas estão definidos como 30 dias até o vencimento. O primeiro email de notificação de renovação é enviado dentro de um dia. Por exemplo, um grupo foi criado 400 dias atrás e o intervalo de vencimento é definido para 180 dias. Ao aplicar as configurações de vencimento, um grupo tem 30 dias antes de ser excluído, a menos que seja renovado pelo proprietário.
+> * Quando você configura a expiração pela primeira vez, todos os grupos mais antigos que o intervalo de expiração são definidos como 30 dias até a expiração. O primeiro email de notificação de renovação é enviado dentro de um dia. 
+>   Por exemplo, um grupo foi criado 400 dias atrás e o intervalo de vencimento é definido para 180 dias. Ao aplicar as configurações de vencimento, um grupo tem 30 dias antes de ser excluído, a menos que seja renovado pelo proprietário.
 > * Quando um grupo dinâmico é excluído e restaurado, ele é visto como um grupo novo e preenchido novamente de acordo com a regra. Esse processo pode levar até 24 horas.
 
 ## <a name="next-steps"></a>Próximas etapas

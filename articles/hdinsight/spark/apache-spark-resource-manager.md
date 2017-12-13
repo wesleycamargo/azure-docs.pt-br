@@ -16,22 +16,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
 ms.author: jgao
-ms.openlocfilehash: 3c98150239134c686ac8edebd3c477bec8be7dd8
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: b2208f0553ce62be054409a415723445733708d4
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="manage-resources-for-apache-spark-cluster-on-azure-hdinsight"></a>Gerenciar os recursos para o cluster do Apache Spark no Azure HDInsight 
 
-Neste artigo, você aprenderá como acessar interfaces do usuário, como a do Ambari, a do YARN e a do Servidor de Histórico do Spark, associadas ao seu cluster do Spark. Você também aprenderá a ajustar a configuração do cluster para obter desempenho ideal.
+Saiba como acessar interfaces como a interface do usuário do Ambari, a interface do usuário do YARN e o servidor de histórico do Spark associados ao cluster do Spark e como ajustar a configuração do cluster para o desempenho ideal.
 
 **Pré-requisitos:**
 
-* Uma assinatura do Azure. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Um cluster do Apache Spark no HDInsight. Para obter instruções, consulte o artigo sobre como [Criar clusters do Apache Spark no Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
-## <a name="how-do-i-launch-the-ambari-web-ui"></a>Como inicio a interface do usuário do Ambari Web?
+## <a name="open-the-ambari-web-ui"></a>Abrir a interface do usuário da Web do Ambari
 1. No [portal do Azure](https://portal.azure.com/), no quadro inicial, clique no bloco do cluster Spark (se você o tiver fixado no quadro inicial). Você também pode navegar até o cluster em **Procurar Tudo** > **Clusters HDInsight**.
 2. Para o seu cluster do Spark, clique em **Painel**. Quando solicitado, insira as credenciais de administrador para o cluster Spark.
 
@@ -40,7 +39,7 @@ Neste artigo, você aprenderá como acessar interfaces do usuário, como a do Am
 
     ![Interface da Web Ambari](./media/apache-spark-resource-manager/ambari-web-ui.png "Ambari Web da interface do usuário")   
 
-## <a name="how-do-i-launch-the-spark-history-server"></a>Como inicio o Servidor de Histórico do Spark?
+## <a name="open-the-spark-history-server"></a>Abrir o servidor de histórico do Spark
 1. No [portal do Azure](https://portal.azure.com/), no quadro inicial, clique no bloco do cluster Spark (se você o tiver fixado no quadro inicial).
 2. Na folha do cluster, em **Links Rápidos**, clique em **Painel do Cluster**. Na folha **Painel do Cluster**, clique em **Servidor de Histórico do Spark**.
 
@@ -48,7 +47,7 @@ Neste artigo, você aprenderá como acessar interfaces do usuário, como a do Am
 
     Quando solicitado, insira as credenciais de administrador para o cluster Spark.
 
-## <a name="how-do-i-launch-the-yarn-ui"></a>Como inicio a interface do usuário do Yarn?
+## <a name="open-the-yarn-ui"></a>Abrir a interface do usuário do Yarn
 É possível usar a interface do usuário do YARN para monitorar aplicativos que estão em execução no momento no cluster Spark.
 
 1. Na folha do cluster, clique em **Painel do Cluster** e em **YARN**.
@@ -60,7 +59,7 @@ Neste artigo, você aprenderá como acessar interfaces do usuário, como a do Am
    >
    >
 
-## <a name="what-is-the-optimum-cluster-configuration-to-run-spark-applications"></a>Qual é a configuração de cluster ideal para executar aplicativos Spark?
+## <a name="the-optimum-cluster-configuration-to-run-spark-applications"></a>A configuração de cluster ideal para executar aplicativos Spark
 Os três principais parâmetros que podem ser usados para a configuração do Spark dependendo dos requisitos de aplicativo são `spark.executor.instances`, `spark.executor.cores` e `spark.executor.memory`. Um Executor é um processo iniciado por um aplicativo Spark. Ele é executado no nó de trabalho e é responsável por realizar as tarefas do aplicativo. O número padrão de executores e os tamanhos do executor para cada cluster são calculados com base no número de nós de trabalho e no tamanho do nó de trabalho. Essas informações são armazenadas em `spark-defaults.conf` nos nós do cabeçalho do cluster.
 
 Os três parâmetros de configuração podem ser definidos no nível de cluster (para todos os aplicativos que são executados no cluster) ou também podem ser especificados para cada aplicativo individualmente.

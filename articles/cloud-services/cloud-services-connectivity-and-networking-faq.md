@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2017
 ms.author: genli
-ms.openlocfilehash: 7b435b6904b05228a63e3ed3a9fed78747b843c9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d86f3ec043c504c9d79b18f1f0b4c9cf0adb115b
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problemas de rede e conectividade para Serviços de Nuvem do Azure: perguntas frequentes
 
@@ -48,8 +48,8 @@ Você também pode criar uma tarefa de inicialização para bloquear seletivamen
 
 ## <a name="when-i-try-to-rdp-to-my-cloud-service-instance-i-get-the-message-the-user-account-has-expired"></a>Quando tento fazer RDP para minha instância de serviço de nuvem, recebo a mensagem: "A conta do usuário expirou".
 Você pode receber a mensagem de erro "Esta conta de usuário expirou" quando você ignora a data de validade configurada nas configurações de RDP. Você pode alterar a data de validade no portal seguindo estas etapas:
-1. Faça logon no Console de Gerenciamento do Azure (https://manage.windowsazure.com), navegue até seu serviço de nuvem e selecione a guia **Configurar**.
-2. Selecione **Remoto**.
+1. Realize o logon no [portal do Azure](https://portal.azure.com), navegue até o seu serviço de nuvem e selecione o guia **Área de Trabalho Remota**.
+2. Selecione o slot de implantação de **Produção** ou **Preparo**.
 3. Altere a data "Expira em" e, em seguida, salve a configuração.
 
 Agora você deve ser capaz de fazer RDP para seu computador.

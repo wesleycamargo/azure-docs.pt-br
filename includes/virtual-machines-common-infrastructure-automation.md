@@ -1,20 +1,20 @@
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Usar ferramentas de automação de infraestrutura com máquinas virtuais no Azure
-Para criar VMs (máquinas virtuais) em larga escala de maneira consistente, é ideal ter algum grau de automação. Há muitas ferramentas e soluções que permitem automatizar a implantação de toda a infraestrutura do Azure e ciclo de vida de gerenciamento. Este artigo apresenta algumas das ferramentas de automação de infraestrutura que você pode usar no Azure. Essas ferramentas normalmente se encaixam em uma das seguintes abordagens:
+Para criar VMs (máquinas virtuais) em larga escala de maneira consistente, é ideal ter algum grau de automação. Há muitas ferramentas e soluções que permitem automatizar a implantação de toda a infraestrutura do Azure e o ciclo de vida de gerenciamento. Este artigo apresenta algumas das ferramentas de automação de infraestrutura que você pode usar no Azure. Essas ferramentas normalmente se encaixam em uma das seguintes abordagens:
 
 - Automatizar a configuração de VMs
     - As ferramentas incluem [Ansible](#ansible), [Chef](#chef) e [Puppet](#puppet).
-    - Ferramentas específicas para a personalização de VM incluem [cloud-init](#cloud-init) para VMs do Linux, [DSC (Configuração de Estado Desejado) do PowerShell](#powershell-dsc)e a [Extensão de Script Personalizado do Azure](#azure-custom-script-extension) para todas as VMs do Azure.
+    - As ferramentas específicas para a personalização de VM incluem [cloud-init](#cloud-init) para VMs do Linux, [DSC (Configuração de Estado Desejado) do PowerShell](#powershell-dsc) e [Extensão de Script Personalizado do Azure](#azure-custom-script-extension) para todas as VMs do Azure.
  
 - Automatizar o gerenciamento de infraestrutura
-    - As ferramentas incluem o [Packer](#packer), para automatizar as builds de imagem de VM personalizadas, e [Terraform](#terraform), para automatizar a infraestrutura do processo de compilação.
-    - A [Automação do Azure](#azure-automation) pode executar ações em sua infraestrutura do Azure e local.
+    - As ferramentas incluem o [Packer](#packer), para automatizar as builds de imagem de VM personalizadas, e o [Terraform](#terraform), para automatizar a infraestrutura do processo de compilação.
+    - A [Automação do Azure](#azure-automation) pode executar ações em sua infraestrutura local e do Azure.
 
-- Automatizar a entrega e a implantação de aplicativo
+- Automatizar a entrega e a implantação de aplicativos
     - Os exemplos incluem [Visual Studio Team Services](#visual-studio-team-services) e [Jenkins](#jenkins).
 
 
 ## <a name="ansible"></a>Ansible
-[Ansible](https://www.ansible.com/) é um mecanismo de automação para gerenciamento de configuração, criação de VMs ou implantação do aplicativo. O Ansible usa um modelo de sem agente, normalmente com as chaves SSH para autenticar e gerenciar computadores de destino. As tarefas de configuração são definidas em runbooks, com uma quantidade de módulos do Ansible para executar tarefas específicas. Para saber mais, confira [Como o Ansible funciona](https://www.ansible.com/how-ansible-works).
+[Ansible](https://www.ansible.com/) é um mecanismo de automação para gerenciamento de configurações, criação de VMs ou implantação de aplicativos. O Ansible usa um modelo sem agente, normalmente com as chaves SSH para autenticar e gerenciar computadores de destino. As tarefas de configuração são definidas em runbooks, com uma quantidade de módulos do Ansible para executar tarefas específicas. Para saber mais, confira [Como o Ansible funciona](https://www.ansible.com/how-ansible-works).
 
 Saiba como:
 
@@ -41,21 +41,24 @@ Saiba como:
 
 
 ## <a name="cloud-init"></a>Cloud-init
-[Inicialização de nuvem](https://cloudinit.readthedocs.io) é uma abordagem amplamente utilizada para personalizar uma VM do Linux, quando ela é inicializada pela primeira vez. Você pode utilizar a inicialização de nuvem para instalar pacotes e gravar arquivos, ou para configurar usuários e segurança. Como a inicialização de nuvem é executada durante o processo de inicialização inicial, não há etapa adicional ou agentes necessários para aplicar a configuração.
+[Inicialização de nuvem](https://cloudinit.readthedocs.io) é uma abordagem amplamente utilizada para personalizar uma VM do Linux, quando ela é inicializada pela primeira vez. Você pode utilizar a inicialização de nuvem para instalar pacotes e gravar arquivos, ou para configurar usuários e segurança. Como o cloud-init é executado durante o processo de inicialização inicial, não há etapa adicional ou agentes necessários para aplicar a configuração.  Para obter mais informações sobre como formatar corretamente seus arquivos `#cloud-config`, consulte o [site de documentação de cloud-init](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  Os arquivos `#cloud-config` são arquivos de texto codificados em base64.
 
-A inicialização de nuvem também funciona em distribuições. Por exemplo, você não usa **apt-get install** nem **yum install** para instalar um pacote. Em vez disso, defina uma lista de pacotes para instalar. Inicialização de nuvem usa automaticamente a ferramenta de gerenciamento de pacote nativo de distribuição que você selecionar.
+A inicialização de nuvem também funciona em distribuições. Por exemplo, você não usa **apt-get install** nem **yum install** para instalar um pacote. Em vez disso, você pode definir uma lista de pacotes para instalar. Inicialização de nuvem usa automaticamente a ferramenta de gerenciamento de pacote nativo de distribuição que você selecionar.
 
-Estamos trabalhando com parceiros para incluir a inicialização de nuvem e trabalhar nas imagens que eles fornecem para o Azure. A tabela a seguir descreve a disponibilidade de inicialização de nuvem atual nas imagens da plataforma Azure:
+ Trabalhamos ativamente com nossos parceiros endossados de distribuição de Linux para termos imagens de cloud-init habilitadas disponíveis no marketplace do Azure. Essas imagens farão com que as suas configurações e implantações de cloud-init funcionem perfeitamente com VMs e Conjuntos de Dimensionamento de VM (VMSS). A tabela a seguir descreve a disponibilidade de imagens habilitadas de cloud-init na plataforma do Azure:
 
-| Alias | Editor | Oferta | SKU | Versão |
+| Editor | Oferta | SKU | Versão | Cloud-init pronto
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| UbuntuLTS |Canônico |UbuntuServer |14.04.5-LTS |mais recente |
-| UbuntuLTS |Canônico |UbuntuServer |16.04-LTS |mais recente |
-| CoreOS |CoreOS |CoreOS |Estável |mais recente |
+|Canônico |UbuntuServer |16.04-LTS |mais recente |sim | 
+|Canônico |UbuntuServer |14.04.5-LTS |mais recente |sim |
+|CoreOS |CoreOS |Estável |mais recente |sim |
+|OpenLogic |CentOS |7-CI |mais recente |preview |
+|RedHat |RHEL |7-RAW-CI |mais recente |preview |
 
-Saiba como:
+Saiba mais detalhes sobre o cloud-init no Azure:
 
-- [Personalizar uma VM Linux com o cloud-init](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md).
+- [Suporte do cloud-init para máquinas virtuais Linux no Azure](../articles/virtual-machines/linux/using-cloud-init.md)
+- [Tente um tutorial sobre configuração de VM automatizada usando o cloud-init](../articles/virtual-machines/linux/tutorial-automate-vm-deployment.md).
 
 
 ## <a name="powershell-dsc"></a>DSC do PowerShell
