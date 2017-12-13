@@ -11,7 +11,8 @@
 ## [Introdução ao Advisor](advisor-get-started.md)
 
 # Referência
-## [REST](https://docs.microsoft.com/rest/api/advisor)
+## [API REST](https://docs.microsoft.com/rest/api/advisor)
+## [CLI](https://docs.microsoft.com/cli/azure/advisor)
 
 # Relacionados
 ## [Central de Segurança](https://azure.microsoft.com/services/security-center/)
