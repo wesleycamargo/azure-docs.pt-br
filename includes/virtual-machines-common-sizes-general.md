@@ -8,15 +8,7 @@ Os tamanhos de VM para uso geral fornecem uma relação de CPU para memória equ
 
 - Os tamanhos da camada básicos são principalmente para as cargas de trabalho de desenvolvimento e outros aplicativos que não requerem o balanceamento de carga, dimensionamento automático ou máquinas virtuais que consomem muita memória. Para obter informações sobre os tamanhos da VM mais adequados para os aplicativos de produção, consulte (Tamanhos das máquinas virtuais) [virtual-machines-size-specs.md] e para obter informações sobre os preços da VM, consulte [Preços das Máquinas Virtuais](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
-## <a name="b-series-preview"></a>Série B (visualização)
-
-> [!NOTE] 
-> As visualizações são disponibilizadas a você se concordar com os termos de uso. Para obter mais informações, consulte [Termos de Uso Complementares do Microsoft Azure para Visualizações do Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-> Essa visualização será limitada a seguintes regiões:
-> - Oeste dos EUA 2
-> - Leste dos EUA
-> - Europa Ocidental
-> - Sudeste do Pacífico Asiático
+## <a name="b-series"></a>Série B
 
 As VMs expansíveis série B são ideais para cargas de trabalho que não precisam do desempenho total da CPU continuamente, como servidores web, bancos de dados pequenos e ambientes de desenvolvimento e teste. Normalmente, essas cargas de trabalho têm requisitos de desempenho expansíveis. A série B fornece esses clientes a possibilidade de comprar um tamanho VM com um preço consciência da linha de base de desempenho que permite que a instância VM criar créditos quando a VM é menor que o desempenho de base. Quando a VM tiver acumulado crédito, poderá disparar acima da linha de base da VM usando até 100% da CPU quando seu aplicativo requer o maior desempenho de CPU.
 
@@ -31,7 +23,7 @@ As VMs expansíveis série B são ideais para cargas de trabalho que não precis
 | Standard_B8ms | 8           | 32             | 64                         | 135%                  | 81                 | 1944           | 16                                     | 4320 / 50                                 | 4320 / 50                                 | 4  |
 
 
-## <a name="dsv3-series"></a>Dsv3-series
+## <a name="dsv3-series"></a>Série Dsv3*
 
 ACU: 160-190
 
@@ -46,9 +38,9 @@ Os tamanhos da Dsv3-series são baseados no processador Intel XEON ® E5-2673 v4
 | Standard_D16s_v3 | 16     | 64          | 128            | 32             | 32,000 / 256 (400)                                                    | 25.600 / 384                              | 8 / alta                                       |
 | Standard_D32s_v3 | 32     | 128          | 256            | 32             | 64,000 / 512 (800)                                                    | 51.200 / 768                              | 8/Extremamente alta                                       |
 | Standard_D64s_v3 | 64     | 256          | 512            | 32             | 128,000 / 1024 (1600)                                                    | 80,000 / 1200                              | 8/Extremamente alta                                       |
+*A tecnologia Intel® Hyper-Threading da VM série Dsv3
 
-
-## <a name="dv3-series"></a>Dv3-series
+## <a name="dv3-series"></a>Série Dv3* 
 
 ACU: 160-190
 
@@ -65,7 +57,7 @@ O armazenamento do disco de dados é faturado separadamente das máquinas virtua
 | Standard_D16_v3 | 16        | 64          | 400            | 32             | 24000/375/187                                            | 8 / alta                     |
 | Standard_D32_v3 | 32        | 128          | 800            | 32             | 48000/750/375                                            | 8/Extremamente alta                     |
 | Standard_D64_v3 | 64        | 256          | 1600            | 32             | 96000/1000/500                                            | 8/Extremamente alta                     |
-
+*A tecnologia Intel® Hyper-Threading da VM série Dv3
 
 ## <a name="dsv2-series"></a>Série DSv2
 

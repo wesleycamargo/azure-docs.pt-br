@@ -12,19 +12,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/30/2017
+ms.date: 11/28/2017
 ms.author: nisoneji
-ms.openlocfilehash: 840a559a82f3227a865d3c606b2fa321cb6144ab
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: f504888aac9e8d97e974fb5bec0a12a8ede39c76
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/05/2017
 ---
+A nova versão aprimorada do [Planejador de Implantações do Azure Site Recovery do Hyper-V para o Azure](site-recovery-hyper-v-deployment-planner.md) agora está disponível e substitui a antiga ferramenta. Use a nova ferramenta para o planejamento da implantação. A ferramenta oferece as seguintes diretrizes:
+* Avaliação de qualificação de VM com base no número de discos, no tamanho do disco, em IOPS, em variações e em algumas características da VM.
+* Largura de banda de rede necessária versus avaliação de RPO.
+* Requisitos de infraestrutura do Azure.
+* Requisitos da infraestrutura local.
+* Diretriz de envio em lote da replicação inicial.
+* Custo total estimado de DR para o Azure.
+
 # <a name="plan-capacity-for-protecting-hyper-v-vms-with-site-recovery"></a>Planejar a capacidade para proteger VMs Hyper-V com o Site Recovery
 
 O Planejador de Capacidade do Azure Site Recovery ajuda a descobrir os requisitos de capacidade ao replicar VMs Hyper-V com o Azure Site Recovery.
 
-Use o Planejador de Capacidade do Site Recovery para analisar o ambiente de origem e as cargas de trabalho, estimar as necessidades de largura de banda e recursos do servidor necessários no local de origem, bem como os recursos (máquinas virtuais e armazenamento, etc.) necessários no local de destino.
+Use o Planejador de Capacidade do Site Recovery para analisar o ambiente de origem e as cargas de trabalho, estimar as necessidades de largura de banda e os recursos de servidor que serão necessários para o local de origem e os recursos (máquinas virtuais, armazenamento etc.), que serão necessários no local de destino.
 
 Você pode executar a ferramenta em vários modos:
 

@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: szark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 486ad6bb148583a957fb82b7954ff94f853b12cc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 59266c6d6452eeff56b05e60389ac14f0b2c3f1f
+ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/02/2017
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Noções básicas e uso do Agente Linux do Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -143,6 +143,7 @@ Um arquivo de configuração (/ etc/waagent.conf) controla as ações de waagent
     Provisioning.MonitorHostName=y
     Provisioning.DecodeCustomData=n
     Provisioning.ExecuteCustomData=n
+    Provisioning.AllowResetSysUser=n
     Provisioning.PasswordCryptId=6
     Provisioning.PasswordCryptSaltLength=10
     ResourceDisk.Format=y
@@ -157,6 +158,7 @@ Um arquivo de configuração (/ etc/waagent.conf) controla as ações de waagent
     OS.OpensslPath=None
     HttpProxy.Host=None
     HttpProxy.Port=None
+    AutoUpdate.Enabled=y
 
 Várias opções de configuração são descritas em detalhes abaixo. Há três tipos opções de configuração: Booliano, String ou Integer. As opções de configuração booliana podem ser especificadas como "y" ou "n". A palavra-chave especial "Nenhum" pode ser usado para entradas de configuração de tipo algum sequência conforme detalhado abaixo.
 
@@ -209,8 +211,12 @@ Padrão: n
 
 Se definido, o waagent executará o CustomData após o provisionamento.
 
+**Provisioning.AllowResetSysUser** Tipo: booliano Padrão: n
+
+Essa opção permite que a senha do usuário sys seja redefinida; o padrão é ficar desabilitada.
+
 **Provisioning.PasswordCryptId**  
-Tipo: Sequência  
+Tipo: String  
 Padrão: 6
 
 Algoritmo usado pelo Crypt ao gerar o hash de senha.  
@@ -220,7 +226,7 @@ Algoritmo usado pelo Crypt ao gerar o hash de senha.
  6 - SHA-512  
 
 **Provisioning.PasswordCryptSaltLength**  
-Tipo: Sequência  
+Tipo: String  
 Padrão: 10
 
 Comprimento de sal aleatório usado ao gerar o hash de senha.
@@ -290,6 +296,12 @@ Tipo: String
 Padrão: nenhum
 
 Se definido, o agente usará este servidor proxy para acessar a internet. 
+
+**AutoUpdate.Enabled** Tipo: booliano Padrão: y
+
+Habilite ou desabilite a atualização automática para o processamento de estado de meta; o padrão é habilitada.
+
+
 
 ## <a name="ubuntu-cloud-images"></a>Imagens de nuvem do Ubuntu
 Observe que as Imagens de Nuvem do Ubuntu utilizam [cloud-init](https://launchpad.net/ubuntu/+source/cloud-init) para executar muitas tarefas de configuração que de outra forma seriam gerenciadas pelo Agente Linux do Azure.  Observe as seguintes diferenças:

@@ -1,26 +1,19 @@
 ---
-title: "Usar Rascunho com o Serviço de Contêiner do Azure e Registro de Contêiner do Azure | Microsoft Docs"
+title: "Usar Rascunho com o Serviço de Contêiner do Azure e Registro de Contêiner do Azure"
 description: "Crie um cluster Kubernetes ACS e um Registro de Contêiner do Azure para criar seu primeiro aplicativo no Azure com o Rascunho."
 services: container-service
-documentationcenter: 
 author: squillace
-manager: gamonroy
-editor: 
-tags: draft, helm, acs, azure-container-service
-keywords: "Docker, Contêineres, microsserviços, Kubernetes, Rascunho, Azure"
+manager: timlt
 ms.service: container-service
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 09/14/2017
 ms.author: rasquill
 ms.custom: mvc
-ms.openlocfilehash: 08fd66ed68b651bd24bc1bc58ec9631106665381
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 9cf5b1227e69ada46bc0b1e5ff01cc12e73598f7
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="use-draft-with-azure-container-service-and-azure-container-registry-to-build-and-deploy-an-application-to-kubernetes"></a>Use o Rascunho com o Serviço de Contêiner do Azure e o Registro de Contêiner do Azure para criar e implantar um aplicativo no Kubernetes
 

@@ -1,41 +1,33 @@
 ---
-title: "Instâncias de Contêiner do Azure – grupo de vários contêineres | Azure Docs"
-description: "Instâncias de Contêiner do Azure – grupo de vários contêineres"
+title: "Implantar grupos com vários contêineres em Instâncias de Contêiner do Azure"
+description: "Saiba como implantar um grupo de contêiner com vários contêineres em Instâncias de Contêiner do Azure."
 services: container-instances
-documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
-tags: 
-keywords: 
-ms.assetid: 
 ms.service: container-instances
-ms.devlang: azurecli
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/26/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 140f58582645ea32f77e901eb13364ed145bbecf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5e1f23e20b001404d3f781e7e6deac87ede12684
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="deploy-a-container-group"></a>Implantar um grupo de contêineres
 
-As Instâncias de Contêiner do Azure dão suporte à implantação de vários contêineres em um único host utilizando um *grupo contêineres*. Isso é útil ao criar um aplicativo secundário para registro em log, monitoramento ou qualquer outra configuração em que um serviço precise de um segundo processo anexado. 
+As Instâncias de Contêiner do Azure dão suporte à implantação de vários contêineres em um único host utilizando um *grupo contêineres*. Isso é útil ao criar um aplicativo secundário para registro em log, monitoramento ou qualquer outra configuração em que um serviço precise de um segundo processo anexado.
 
 Este documento explica passo a passo como executar uma configuração de sidecar simples de vários contêineres usando um modelo do Azure Resource Manager.
 
 ## <a name="configure-the-template"></a>Configurar o modelo
 
-Crie um arquivo chamado `azuredeploy.json` e copie o seguinte JSON nele. 
+Crie um arquivo chamado `azuredeploy.json` e copie o seguinte JSON nele.
 
-Neste exemplo, é definido um grupo de contêineres com dois contêineres e um endereço IP público. O primeiro contêiner do grupo executa um aplicativo voltado para a Internet. O outro contêiner, o secundário, faz uma solicitação HTTP para o aplicativo Web principal por meio da rede local do grupo. 
+Neste exemplo, é definido um grupo de contêineres com dois contêineres e um endereço IP público. O primeiro contêiner do grupo executa um aplicativo voltado para a Internet. O outro contêiner, o secundário, faz uma solicitação HTTP para o aplicativo Web principal por meio da rede local do grupo.
 
-Este exemplo secundário pode ser expandido para disparar um alerta, caso receba um código de resposta HTTP diferente de 200 OK. 
+Este exemplo secundário pode ser expandido para disparar um alerta, caso receba um código de resposta HTTP diferente de 200 OK.
 
 ```json
 {
@@ -46,7 +38,7 @@ Este exemplo secundário pode ser expandido para disparar um alerta, caso receba
   "variables": {
     "container1name": "aci-tutorial-app",
     "container1image": "microsoft/aci-helloworld:latest",
-    "container2name": "aci-tutorial-sidecar",    
+    "container2name": "aci-tutorial-sidecar",
     "container2image": "microsoft/aci-tutorial-sidecar"
   },
     "resources": [
@@ -135,7 +127,7 @@ Implante o modelo com o comando [az group deployment create](/cli/azure/group/de
 az group deployment create --name myContainerGroup --resource-group myResourceGroup --template-file azuredeploy.json
 ```
 
-Em alguns segundos, você receberá uma resposta inicial do Azure. 
+Em alguns segundos, você receberá uma resposta inicial do Azure.
 
 ## <a name="view-deployment-state"></a>Exibir estado da implantação
 
@@ -153,9 +145,9 @@ Name              ResourceGroup    ProvisioningState    Image                   
 myContainerGroup  myResourceGrou2  Succeeded            microsoft/aci-tutorial-sidecar,microsoft/aci-tutorial-app:v1      40.118.253.154:80  1.0 core/1.5 gb   Linux     westus
 ```
 
-## <a name="view-logs"></a>Exibir logs   
+## <a name="view-logs"></a>Exibir logs
 
-Exiba a saída de log de um contêiner usando o comando `az container logs`. O argumento `--container-name` especifica o contêiner do qual efetuar pull dos logs. Neste exemplo, é especificado o primeiro contêiner. 
+Exiba a saída de log de um contêiner usando o comando `az container logs`. O argumento `--container-name` especifica o contêiner do qual efetuar pull dos logs. Neste exemplo, é especificado o primeiro contêiner.
 
 ```azurecli-interactive
 az container logs --name myContainerGroup --container-name aci-tutorial-app --resource-group myResourceGroup

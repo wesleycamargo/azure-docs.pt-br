@@ -8,11 +8,11 @@ ms.author: philmea
 ms.date: 11/29/2017
 ms.topic: how-to
 ms.service: location-based-services
-ms.openlocfilehash: f7337c1c5821016987096da47dda4ac1124d7910
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: d928e4ff7c6e35291bcc1e6a1359d54542968278
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="how-to-find-an-address-using-the-azure-location-based-services-preview-search-service"></a>Como encontrar um endereço usando o serviço de pesquisa Serviços do Azure Baseados na Localização (versão prévia)
 O serviço de pesquisa é um conjunto RESTful de APIs projetado para desenvolvedores procurarem endereços, locais, pontos de interesse, anúncios de empresas e outras informações geográficas. O Serviço de Pesquisa atribui um valor de latitude/longitude para um endereço específico, cruzamento, recurso geográfico ou POI (ponto de interesse). Os valores de latitude e longitude retornados pelas APIs do Serviço de Pesquisa podem ser usados como parâmetros em outros Serviços do Azure Baseados na Localização, como as APIs de Rota e de Fluxo de Tráfego.
@@ -62,12 +62,11 @@ A maioria das consultas de pesquisa usa o padrão 'maxFuzzyLevel=1' para ter mel
     
     Os resultados variam para essa consulta, não associados a nenhum local de referência específico. Você pode usar o parâmetro **countrySet** para especificar apenas os países nos quais seu aplicativo precisa de cobertura, já que o comportamento padrão é pesquisar no mundo inteiro, retornando possivelmente resultados desnecessários.
 
-5. Adicione o seguinte valor à cadeia de consulta e clique em **Enviar**:
-    ```
-        ,countrySet=US
-    ```
-    >[!NOTE] 
-    >Separe por vírgula os parâmetros de URI adicionais na cadeia de consulta.
+5. Adicione a seguinte par de Chave/Valor para a seção **Params** e clique em **Enviar**:
+
+    | Chave | Valor |
+    |------------------|-------------------------|
+    | countrySet | EUA |
     
     Os resultados agora são limitados pelo código do país e a consulta retorna as pizzarias no Brasil.
     
@@ -116,10 +115,11 @@ Você pode transmitir um endereço de rua completo ou parcial para a API de Pesq
         400 Broad, Seattle
     ```
 
-5. Adicione o seguinte valor à cadeia de consulta e clique em **Enviar**:
-    ```
-        ,typeahead
-    ```
+5. Adicione a seguinte par de Chave/Valor para a seção **Params** e clique em **Enviar**:
+
+    | Chave | Valor |
+    |-----|------------|
+    | typeahead | verdadeiro |
 
     O sinalizador **typeahead** informa à API de Pesquisa de Endereço para tratar a consulta como uma entrada parcial e retornar uma matriz de valores de previsão.
 
@@ -150,37 +150,43 @@ Você pode transmitir um endereço de rua completo ou parcial para a API de Pesq
     
     A resposta inclui a entrada do POI Pão de Açúcar com uma categoria de POI de "Montanha". 
     
-4. Adicione o seguinte valor à cadeia de consulta e clique em **Enviar**:
-    ```
-        ,number
-    ```
+4. Adicione a seguinte par de Chave/Valor para a seção **Params** e clique em **Enviar**:
+
+    | Chave | Valor |
+    |-----|------------|
+    | número | verdadeiro |
+
     Se o parâmetro de consulta [number](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) é enviado com a solicitação, a resposta pode incluir o lado da rua (esquerda/direita) e também uma posição ajustada para o número.
     
-5. Adicione o seguinte valor à cadeia de consulta e clique em **Enviar**:
-    ```
-        ,spatialKeys
-    ```
+5. Adicione a seguinte par de Chave/Valor para a seção **Params** e clique em **Enviar**:
+
+    | Chave | Valor |
+    |-----|------------|
+    | spatialKeys | verdadeiro |
 
     Quando o parâmetro de consulta [spatialKeys](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) é definido, a resposta contém a informação geoespacial principal proprietária de um local especificado.
 
-6. Adicione o seguinte valor à cadeia de consulta e clique em **Enviar**:
-    ```
-        ,returnSpeedLimit
-    ```
+6. Adicione a seguinte par de Chave/Valor para a seção **Params** e clique em **Enviar**:
+
+    | Chave | Valor |
+    |-----|------------|
+    | returnSpeedLimit | verdadeiro |
     
     Quando o parâmetro de consulta [returnSpeedLimit](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) é definido, a resposta retorna o limite de velocidade indicado.
 
-7. Adicione o seguinte valor à cadeia de consulta e clique em **Enviar**:
-    ```
-        ,returnRoadUse
-    ```
+7. Adicione a seguinte par de Chave/Valor para a seção **Params** e clique em **Enviar**:
+
+    | Chave | Valor |
+    |-----|------------|
+    | returnRoadUse | verdadeiro |
 
     Quando o parâmetro de consulta [returnRoadUse](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters) é definido, a resposta retorna a matriz de uso de estrada para reversegeocodes no nível da rua.
 
-8. Adicione o seguinte valor à cadeia de consulta e clique em **Enviar**:
-    ```
-        ,roadUse
-    ```
+8. Adicione a seguinte par de Chave/Valor para a seção **Params** e clique em **Enviar**:
+
+    | Chave | Valor |
+    |-----|------------|
+    | roadUse | verdadeiro |
 
     Você pode restringir a consulta invertida de geocodificação para um tipo específico de estrada usando o parâmetro de consulta [roadUse](https://docs.microsoft.com/en-us/rest/api/location-based-services/search/getsearchaddressreverse#search_getsearchaddressreverse_uri_parameters).
     

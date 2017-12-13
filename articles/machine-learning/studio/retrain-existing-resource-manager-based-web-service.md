@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2017
 ms.author: v-donglo
-ms.openlocfilehash: 40079da0e04520477771a11a1e4111768cf18280
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 4f117e7099ffd0a8f85aa96f0fd075d4bcbeb6b4
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="retrain-an-existing-predictive-web-service"></a>Readaptar um serviço Web de previsão existente
 Este documento descreve o processo de readaptação do cenário a seguir:
@@ -86,20 +86,19 @@ Na seção **Informações básicas de consumo** da página **Consumir**, locali
 ### <a name="update-the-azure-storage-information"></a>Atualize as informações do Armazenamento do Azure
 O código de exemplo de BES carrega um arquivo de uma unidade local (por exemplo "C:\temp\CensusIpnput.csv") para o armazenamento do Azure, processa e grava os resultados de volta para o armazenamento do Azure.  
 
-Para atualizar as informações do Armazenamento do Azure, você deve recuperar as informações de chave, contêiner e nome da conta de armazenamento do Portal Clássico do Azure e atualizar os valores correspondentes no código.
 Depois de executar o experimento, o fluxo de trabalho resultante deve ser semelhante ao seguinte:
 
 ![Fluxo de trabalho resultante após a execução][4]
 
-1. Entre no portal clássico do Azure.
-2. Na coluna de navegação à esquerda, clique em **Armazenamento**.
+1. Entre no Portal do Azure.
+2. Na coluna de navegação esquerda, clique em **Mais serviços**, pesquise **Contas de armazenamento** e selecione.
 3. Na lista de contas de armazenamento, selecione uma para armazenar o modelo recuperado.
-4. Na parte inferior da página, clique em **Gerenciar Chaves de Acesso**.
-5. Copie e salve a **Chave de Acesso Primária** e feche a caixa de diálogo.
-6. Na parte superior da página, clique em **Contêineres**.
+4. Na coluna de navegação à esquerda, clique em **Chaves de acesso**.
+5. Copie e salve a **Chave de Acesso Primária**.
+6. Na coluna de navegação à esquerda, clique em **Contêineres**.
 7. Selecione um contêiner existente ou crie um novo e salve o nome.
 
-Localize as declarações *StorageAccountName*, *StorageAccountKey* e *StorageContainerName* e atualize os valores salvos no portal clássico.
+Localize as declarações *StorageAccountName*, *StorageAccountKey* e *StorageContainerName* e atualize os valores salvos no portal.
 
     const string StorageAccountName = "mystorageacct"; // Replace this with your Azure storage account name
     const string StorageAccountKey = "a_storage_account_key"; // Replace this with your Azure Storage key

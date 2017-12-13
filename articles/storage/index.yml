@@ -3,50 +3,86 @@ documentType: LandingData
 title: "Documentação do Armazenamento do Azure"
 metadata:
   title: "Documentação do Armazenamento do Azure - Tutoriais, Referência de API | Microsoft Docs"
-  description: "Armazenamento do Microsoft Azure é um serviço de nuvem gerenciado pela Microsoft que fornece armazenamento altamente disponível, seguro, durável, escalonável e redundante. O Armazenamento do Microsoft Azure consiste no armazenamento de Blobs, armazenamento de Arquivos e armazenamento de Filas."
+  description: "O Armazenamento do Azure é um serviço de nuvem gerenciado pela Microsoft que fornece um armazenamento altamente disponível, seguro, durável, escalonável e redundante. O Armazenamento do Microsoft Azure consiste no armazenamento de Blobs, armazenamento de Arquivos e armazenamento de Filas."
   services: storage
-  author: czeumault
-  manager: carolz
+  author: tamram
+  manager: jeconnoc
   ms.service: storage
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/20/2017
-  ms.author: carolz
-  ms.openlocfilehash: b3413ad99086970357e1c2ac426150cedd0f8064
-  ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+  ms.date: 12/08/2017
+  ms.author: tamram
+  ms.openlocfilehash: 04198a4f256be34dc0b79413c792f2e979b918ed
+  ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/11/2017
+  ms.lasthandoff: 12/13/2017
 abstract:
   description: "Armazenamento do Microsoft Azure é um serviço de nuvem gerenciado pela Microsoft que fornece armazenamento altamente disponível, seguro, durável, escalonável e redundante. O Armazenamento do Microsoft Azure consiste no armazenamento de Blobs, armazenamento de Arquivos e armazenamento de Filas.  Saiba como usar o Armazenamento do Microsoft Azure em seus aplicativos com tutoriais e guias de início rápido."
 sections:
 - title: "Guia de início rápido de 5 minutos"
   items:
   - type: paragraph
-    text: Crie um namespace exclusivo para armazenar e acessar os objetos de dados do Armazenamento do Microsoft Azure.
-  - type: list
-    style: icon48
-    items:
+    text: "Aprenda a trabalhar com o Armazenamento do Azure explorando esses inícios rápidos."
+  - type: table
+    style: dataMatrix
+    columns:
     - image:
-        src: https://docs.microsoft.com/media/common/powershell.svg
-      text: Azure PowerShell
-      href: /azure/storage/common/storage-quickstart-create-storage-account-powershell
+        src: media/index/logo_powershell.svg
+        text: Powershell
     - image:
-        src: /azure/virtual-machines/linux/media/index/cli.svg
-      text: CLI do Azure
-      href: /azure/storage/common/storage-quickstart-create-storage-account-cli
+        src: media/index/cli.svg
+        text: CLI do Azure
+    - image:
+        src: media/index/logo_net.svg
+    - image:
+        src: media/index/logo_java.svg
+    - image:
+        src: media/index/logo_python.svg
+    - image:
+        src: media/index/logo_nodejs.svg
+    rows:
+    - title: Criar Conta de Armazenamento
+      values:
+      - href: /azure/storage/common/storage-quickstart-create-storage-account-powershell?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - href: /azure/storage/common/storage-quickstart-create-storage-account-cli?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - href: 
+      - href: 
+      - href: 
+      - href: 
+    - title: "Inícios rápidos do blob"
+      values:
+      - href: /azure/storage/blobs/storage-quickstart-blobs-powershell
+      - href: /azure/storage/blobs/storage-quickstart-blobs-cli
+      - href: /azure/storage/blobs/storage-quickstart-blobs-dotnet
+      - href: /azure/storage/blobs/storage-quickstart-blobs-java
+      - href: /azure/storage/blobs/storage-quickstart-blobs-python
+      - href: /azure/storage/blobs/storage-quickstart-blobs-nodejs
 - title: Tutoriais Passo a Passo
   items:
   - type: paragraph
     text: Saiba como carregar e processar dados de imagem na nuvem.
   - type: list
-    style: ordered
+    style: unordered
     items:
     - html: <a href="/azure/storage/blobs/storage-upload-process-images">Carregar e recuperar dados de imagem na nuvem</a>
     - html: <a href="/azure/event-grid/resize-images-on-storage-blob-upload-event?toc=%2fazure%2fstorage%2fblobs%2ftoc.json">Disparar o Azure Functions para processar blobs</a>
     - html: <a href="/azure/storage/blobs/storage-secure-access-application">Proteger dados do aplicativo</a>
     - html: <a href="/azure/storage/blobs/storage-monitor-troubleshoot-storage-application">Monitorar e solucionar problemas de armazenamento</a>
+  - type: paragraph
+    text: Saiba como criar seu aplicativo para alta disponibilidade no Armazenamento do Azure.
+  - type: list
+    style: unordered
+    items:
+    - html: "<a href=\"/azure/storage/blobs/storage-create-geo-redundant-storage\">Torne os dados do aplicativo altamente disponíveis</a>"
+    - html: <a href="/azure/storage/blobs/storage-simulate-failure-ragrs-account-app">Simular uma falha ao acessar o armazenamento redundante com acesso de leitura</a>
+  - type: paragraph
+    text: "Saiba como pesquisar os dados não estruturados no Armazenamento do Azure."
+  - type: list
+    style: unordered
+    items:
+    - html: "<a href=\"/azure/storage/blobs/storage-unstructured-search\">Pesquisar dados não estruturados no armazenamento em nuvem</a>"
 - title: Exemplos
   items:
   - type: paragraph
@@ -55,6 +91,8 @@ sections:
     style: unordered
     className: spaced noBullet
     items:
+    - html: .NET &#58; <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=blob&sort=0&platform=dotnet">Blobs</a> | <a     href="https://azure.microsoft.com/resources/samples/?service=storage&term=file&sort=0&platform=dotnet">Arquivos</a> | <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=queue&sort=0&platform=dotnet">Filas</a>
+    - html: Java &#58; <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=blob&sort=0&platform=java">Blobs</a> | <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=file&sort=0&platform=java">Arquivos</a> | <a href="https://azure.microsoft.com/resources/samples/?service=storage&term=queue&sort=0&platform=java">Filas</a>
     - html: <a href="/azure/storage/blobs/storage-samples-blobs-powershell">PowerShell do Azure</a>
     - html: <a href="/azure/storage/blobs/storage-samples-blobs-cli">CLI do Azure</a>
 - title: "Treinamento em Vídeo Pluralsight gratuito"
@@ -84,4 +122,4 @@ sections:
     - title: Linguagens
       html: <p><a href="/java/api/">Java</a></p><p><a href="http://azure.github.io/azure-storage-node">Node.js</a></p><p><a href="http://azure.github.io/azure-storage-php/">PHP</a></p><p><a href="http://azure.github.io/azure-storage-ruby">Ruby</a></p><p><a href="https://azure-storage.readthedocs.io/en/latest/index.html">Python</a></p><p><a href="http://azure.github.io/azure-storage-cpp">C++</a></p><p><a href="https://github.com/Azure/azure-storage-ios">iOS</a></p><p><a href="http://azure.github.io/azure-storage-android">Android</a></p>
     - title: REST
-      html: <p><a href="/rest/api/storageservices/azure-storage-services-rest-api-reference">Blobs, Filas, Tabelas e Arquivos</a></p><p><a href="/rest/api/storagerp">Provedor de recursos</a></p><p><a href="/rest/api/storageimportexport">Importar/exportar</a></p><p><a href="/rest/api/storageservices">API REST do Armazenamento de Dados</a></p>
+      html: <p><a href="/rest/api/storageservices">Blobs, Filas, Tabelas e Arquivos</a></p><p><a href="/rest/api/storagerp">Provedor de recursos</a></p><p><a href="/rest/api/storageimportexport">Importar/exportar</a></p>

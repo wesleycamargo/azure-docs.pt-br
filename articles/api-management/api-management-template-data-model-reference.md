@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 12/05/2017
 ms.author: apimpm
-ms.openlocfilehash: 72936a4d38f809934ddea74e5ae4a6029450a97c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 92a52910ef8b9f078a8ea6ac409f89719f889b24
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="azure-api-management-template-data-model-reference"></a>Referência de modelo de dados de modelo do Gerenciamento de API do Azure
 Este tópico descreve as representações de entidade e tipo para itens comuns usados nos modelos de dados para os modelos de portal do desenvolvedor no Gerenciamento de API do Azure.  
@@ -332,7 +332,7 @@ Este tópico descreve as representações de entidade e tipo para itens comuns u
 |DelegationEnabled|booleano|Se a entrada delegada está habilitada.|  
 |DelegationUrl|string|A URL de entrada delegada, se estiver habilitada.|  
 |SsoSignUpUrl|string|O logon único na URL para o usuário, se estiver presente.|  
-|AuxServiceUrl|string|Se o usuário atual for um administrador, isso será um link para a instância de serviço no Portal Clássico do Azure.|  
+|AuxServiceUrl|string|Se o usuário atual for um administrador, isso será um link para a instância de serviço no portal do Azure.|  
 |Provedores|Coleção de entidades de [Provedor](#Provider)|Os provedores de autenticação para este usuário.|  
 |UserRegistrationTerms|string|Termos que um usuário deve aceitar antes de entrar.|  
 |UserRegistrationTermsEnabled|booleano|Se os termos estão habilitados.|  

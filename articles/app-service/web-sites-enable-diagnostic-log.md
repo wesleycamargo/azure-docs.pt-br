@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 1d8d0caa1aa9e21bf724d60127dc6f2ac9a49ecf
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: a5ac6c02e28c19346abae9e5ea3dba9af4022dde
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Habilitar o registro em log de diagnóstico para aplicativos Web no Serviço de Aplicativo do Azure
 ## <a name="overview"></a>Visão geral
@@ -60,7 +60,7 @@ Ao habilitar o **diagnóstico de aplicativos**, você também escolhe o **Nível
 >
 >
 
-Para **Log do aplicativo**, você pode ativar a opção do sistema de arquivos temporariamente para fins de depuração. Esta opção é desativada automaticamente em 12 horas. Você também pode ativar a opção de armazenamento de blob para selecionar um contêiner de blog para gravar logs.
+Para **Log do aplicativo**, você pode ativar a opção do sistema de arquivos temporariamente para fins de depuração. Esta opção é desativada automaticamente em 12 horas. Você também pode ativar a opção de armazenamento de blob para selecionar um contêiner de blob para gravar logs.
 
 Para **Log do servidor Web**, você pode selecionar **armazenamento** ou **sistema de arquivos**. Selecionar **armazenamento** permite que você selecione uma conta de armazenamento e, em seguida, um contêiner de blob onde os logs estejam gravados. 
 

@@ -16,11 +16,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/08/2017
 ms.author: wesmc
-ms.openlocfilehash: 70219ada2f4886f40d088486063afda2bc489611
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 5e0ff1b98be73eb5990601ae7c5528e4a7af670b
+ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Associações de Hubs de Eventos do Azure para o Azure Functions
 
@@ -33,6 +33,27 @@ Este artigo explica como trabalhar com associações de [Hubs de Eventos do Azur
 Use o gatilho dos Hubs de Eventos do Azure para responder a um evento enviado para uma transmissão de evento do hub de eventos. É necessário ter acesso de leitura ao hub de eventos para configurar o gatilho.
 
 Quando uma função de gatilho dos Hubs de Eventos é disparada, a mensagem que a dispara é passada para a função como cadeia de caracteres.
+
+## <a name="trigger---scaling"></a>Gatilho - dimensionamento
+
+Cada instância de uma função disparada pelo Hub de Eventos é suportada por apenas uma instância de EPH (EventProcessorHost). Os Hubs de Eventos fazem com que apenas 1 EPH possa obter uma concessão em determinada partição.
+
+Por exemplo, suponha que vamos começar com a configuração e as premissas para um Hub de Eventos abaixo:
+
+1. 10 partições.
+1. 1000 eventos distribuídos uniformemente em todas as partições => 100 mensagens em cada partição.
+
+Quando sua função é habilitada pela primeira vez, há apenas uma instância da função. Vamos chamar essa instância de função Function_0. Function_0 terá 1 EPH que consegue obter uma concessão em todas as 10 partições. Ela começará a ler eventos das partições 0 a 9. Daqui em diante, uma destas opções ocorrerá:
+
+* **Somente uma instância de função é necessária**-: Function_0 é capaz de processar todos os 1000 antes que lógica de dimensionamento do Azure Functions seja ativada. Portanto, todas as 1000 mensagens são processadas pela Function_0.
+
+* **Adicionar mais uma instância de função**: a lógica de dimensionamento do Azure Functions determina que Function_0 tem mais mensagens do que ela pode processar e, portanto, uma nova instância, Function_1, é criada. Os Hubs de Eventos detectam que uma nova instância EPH está tentando ler mensagens. Os Hubs de Eventos iniciam o balanceamento de carga das partições entre as instâncias EPH, por exemplo,as partições de 0 a 4 são atribuídas a Function_0 e as partições de 5 a 9 são atribuídas a Function_1. 
+
+* **Adicionar mais N instâncias de função**: a lógica de dimensionamento do Azure Functions determina que Function_0 e Function_1 têm mais mensagens do que podem processar. Ela escala novamente para Function_2...N, em que N é maior do que as partições do Hub de Eventos. Os Hubs de Eventos fazem o balanceamento de carga das partições nas instâncias Function_0 a Function_9.
+
+O que é único na lógica de dimensionamento do Azure Functions é o fato de que N é maior que o número de partições. Isso é feito para garantir que sempre existam instâncias do EPH prontamente disponíveis para garantir rapidamente as partições quando ficam disponíveis de outras instâncias. Os usuários pagam apenas pelos recursos usados quando a instância de função é executada e não serão cobrados por esse excesso de provisionamento.
+
+Se todas as execuções de função tiverem êxito sem erros, os pontos de verificação serão adicionados à conta de armazenamento associada. Quando a verificação é bem-sucedida, todas as 1000 mensagens deixam de ser recuperadas.
 
 ## <a name="trigger---example"></a>Gatilho - exemplo
 
@@ -176,7 +197,7 @@ module.exports = function (context, myEventHubMessage) {
 };
 ```
 
-## <a name="trigger---attributes"></a>Gatilho - atributos
+## <a name="trigger---attributes"></a>Gatilho – atributos
 
 Para funções [C# pré-compiladas](functions-dotnet-class-library.md), use o atributo [EventHubTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubTriggerAttribute.cs), definido no pacote NuGet [Microsoft.Azure.WebJobs.ServiceBus](http://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus).
 
@@ -269,7 +290,7 @@ public static void Run(TimerInfo myTimer, out string outputEventHubMessage, Trac
 }
 ```
 
-Este é o código C# script que cria várias mensagens:
+Este é o código de script C# que cria várias mensagens:
 
 ```cs
 public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessage, TraceWriter log)
@@ -363,7 +384,7 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, Trac
 }
 ```
 
-Para ver um exemplo completo, consulte [Saída - exemplo de C# pré-compilado](#output---c-example).
+Para ver um exemplo completo, consulte [Saída – exemplo de C# pré-compilado](#output---c-example).
 
 ## <a name="output---configuration"></a>Saída - configuração
 
@@ -383,7 +404,7 @@ A tabela a seguir explica as propriedades de configuração de associação que 
 
 Em C# e C# script, envie mensagens usando um parâmetro de método, como `out string paramName`. No script do C#, `paramName` é o valor especificado na propriedade `name` de *function.json*. Para gravar várias mensagens, você pode usar `ICollector<string>` ou `IAsyncCollector<string>` no lugar de `out string`.
 
-Em JavaScript, acesse o evento de saída usando `context.bindings.<name>`. `<name>` É o valor especificado na propriedade `name` de *function.json*.
+Em JavaScript, acesse o evento de saída usando `context.bindings.<name>`. `<name>` é o valor especificado na propriedade `name` de *function.json*.
 
 ## <a name="next-steps"></a>Próximas etapas
 

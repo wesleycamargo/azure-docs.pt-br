@@ -12,14 +12,14 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2017
+ms.date: 11/29/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8bb5470918aa3ad15cb9081f5c02b40984d83f51
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.openlocfilehash: 210ba4a90f24ce9b0b55c4565028232c2b7fd7cc
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="batch-service-quotas-and-limits"></a>Cotas e limites de serviço do Lote
 
@@ -51,10 +51,11 @@ Se você usou uma versão anterior da API do Lote para criar uma conta de Lote c
 | Pacotes de aplicativos por aplicativo |40 |
 | Tamanho do pacote de aplicativos (cada) |Aproximadamente 195 GB<sup>1</sup> |
 | Tamanho de tarefa inicial máximo | 32768 caracteres<sup>2</sup> |
+| Tempo de vida máximo da tarefa | 7 dias<sup>3</sup> |
 
 <sup>1</sup> O limite do Armazenamento do Azure para o tamanho máximo do blob de blocos<br />
-<sup>2</sup> Inclui arquivos de recurso e variáveis de ambiente
-
+<sup>2</sup> Inclui arquivos de recurso e variáveis de ambiente<br />
+<sup>3</sup> O tempo de vida máximo de uma tarefa, desde quando é adicionada ao trabalho até ser concluída, é de 7 dias. As tarefas concluídas persistem indefinidamente; os dados das tarefas não concluídas dentro do tempo de vida máximo não ficam acessíveis.
 
 
 ## <a name="view-batch-quotas"></a>Exibir cotas do Lote

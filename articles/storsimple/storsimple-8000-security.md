@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 06/02/2017
+ms.date: 12/06/2017
 ms.author: alkohli
-ms.openlocfilehash: e4980cdb77650f011d143ed9e86fbe0af6b29d5d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a8990d68b327e5688c7078a6b1a9d41ad0600a67
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="storsimple-security-and-data-protection"></a>Proteção de dados e segurança de StorSimple
 
@@ -157,7 +157,7 @@ A chave da criptografia de dados do serviço é gerada apenas no primeiro dispos
 > 
 > Se a chave de criptografia de dados de serviço for perdida, um profissional de suporte da Microsoft poderá ajudar a recuperá-la, desde que você tenha pelo menos um dispositivo no estado online. É recomendável alterar a chave de criptografia de dados de serviço depois de recuperá-la. Para obter instruções, vá para [Alterar a chave de criptografia de dados do serviço](storsimple-service-dashboard.md#change-the-service-data-encryption-key).
 
-Você pode alterar a chave de criptografia de dados do serviço e o certificado de criptografia de dados correspondente selecionando a opção **Alterar chave de criptografia de dados do serviço** no painel de serviço. Para garantir que a segurança dos dados não seja comprometida, use um dispositivo StorSimple físico para alterar a chave de criptografia de dados de serviço. Alterar as chaves de criptografia requer que todos os dispositivos sejam atualizados com a nova chave. Portanto, é recomendável que você altere a chave quando todos os dispositivos estiverem online. Se os dispositivos estiverem offline, suas chaves podem ser alteradas em um momento diferente. Os dispositivos com chaves desatualizadas ainda poderão executar backups, mas não poderão restaurar dados até que a chave seja atualizada. Para saber mais, acesse [Usar o painel de serviço Gerenciador de Dispositivos StorSimple](storsimple-8000-service-dashboard.md).
+Para alterar a chave de criptografia de dados do serviço e o certificado de criptografia de dados correspondente, siga as etapas em [Alterar a chave de criptografia de dados do serviço para o seu serviço Gerenciador de Dispositivos do StorSimple](storsimple-8000-manage-service.md#change-the-service-data-encryption-key). Alterar as chaves de criptografia requer que todos os dispositivos sejam atualizados com a nova chave. Portanto, é recomendável que você altere a chave quando todos os dispositivos estiverem online. Se os dispositivos estiverem offline, suas chaves podem ser alteradas em um momento diferente. Os dispositivos com chaves desatualizadas ainda poderão executar backups, mas não poderão restaurar dados até que a chave seja atualizada.
 
 A chave de criptografia de dados de serviço e o certificado de criptografia de dados não expiram. No entanto, recomendamos a alteração anual da chave de criptografia de dados do serviço para ajudar a impedir o comprometimento da chave.
 
@@ -212,7 +212,7 @@ A seguir estão algumas perguntas e respostas sobre segurança e o Microsoft Azu
 
 **R:** Você deve alterar imediatamente a chave de criptografia de dados de serviço e as chaves de conta de armazenamento para a conta de armazenamento que está sendo usada para dados em camadas. Para obter instruções, vá para:
 
-* [Alterar a chave de criptografia de dados do serviço](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
+* [Alterar a chave de criptografia de dados do serviço](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 * [Rotação de chave de contas de armazenamento](storsimple-8000-manage-storage-accounts.md#key-rotation-of-storage-accounts)
 
 **P:** Eu tenho um dispositivo StorSimple novo que está solicitando a chave de registro. Como recuperá-la?
@@ -225,7 +225,7 @@ A seguir estão algumas perguntas e respostas sobre segurança e o Microsoft Azu
 
 **R:** Entre em contato com o Suporte da Microsoft. Eles podem fazer logon em uma sessão de suporte no seu dispositivo e ajudar você a recuperar a chave (contanto que pelo menos um dispositivo esteja online). Imediatamente depois de obter a chave de criptografia de dados de serviço, você deve alterá-la para garantir que a nova chave seja conhecida apenas por você. Para obter instruções, vá para:
 
-* [Alterar a chave de criptografia de dados do serviço](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
+* [Alterar a chave de criptografia de dados do serviço](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 
 **P:** Autorizei um dispositivo para uma alteração de chave de criptografia de dados de serviço, mas ele não iniciou o processo de alteração da chave. O que devo fazer?
 
@@ -240,7 +240,7 @@ A seguir estão algumas perguntas e respostas sobre segurança e o Microsoft Azu
 **R:** Altere e redefina as senhas que permitem o acesso ao dispositivo StorSimple e altere a chave de criptografia de dados do serviço para garantir que as novas informações não sejam conhecidas por pessoal não autorizado. Para obter instruções, vá para:
 
 * [Usar o serviço do Gerenciador de Dispositivos do StorSimple para alterar suas senhas do StorSimple](storsimple-8000-change-passwords.md)
-* [Alterar a chave de criptografia de dados do serviço](storsimple-service-dashboard.md#change-the-service-data-encryption-key)
+* [Alterar a chave de criptografia de dados do serviço](storsimple-8000-manage-service.md#change-the-service-data-encryption-key)
 * [Configure o CHAP para o seu dispositivo StorSimple](storsimple-8000-configure-chap.md)
 
 **P:** Desejo fornecer a senha do StorSimple Snapshot Manager para um host que está se conectando ao dispositivo StorSimple, mas a senha não está disponível. O que posso fazer?

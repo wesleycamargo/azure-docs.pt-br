@@ -12,13 +12,13 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/08/2017
+ms.date: 12/04/2017
 ms.author: wgries
-ms.openlocfilehash: 265c5f660c4bee53a2faf4a073384587eb3f65fc
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: f12ee39f900373fcab80e59bc20de59fa039f0ff
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="troubleshoot-azure-file-sync-preview"></a>Solucionar problemas da Sincronização de Arquivos do Azure (versão prévia)
 Use a Sincronização de arquivos do Azure (versão prévia) para centralizar os compartilhamentos de arquivos de sua organização em Arquivos do Azure, sem abrir mão da flexibilidade, do desempenho e da compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -26,7 +26,7 @@ Use a Sincronização de arquivos do Azure (versão prévia) para centralizar os
 Este artigo foi projetado para ajudá-lo a solucionar problemas e resolver problemas encontrados com a implantação da Sincronização de arquivos do Azure. Nós também descrevemos como coletar logs importantes do sistema para ajudar em uma investigação mais profunda dos problemas. Se você não vir a resposta para sua pergunta aqui, poderá entrar em contato conosco pelos seguintes canais (em ordem progressiva):
 
 1. A seção de comentários deste artigo.
-2. O [Fórum do Armazenamento do Azure](https://social.msdn.microsoft.com/Forums/home?forum=windowsazuredata).
+2. O [Fórum do Armazenamento do Azure](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata).
 3. O [UserVoice do Arquivos do Azure](https://feedback.azure.com/forums/217298-storage/category/180670-files). 
 4. O Suporte da Microsoft. Para criar uma nova solicitação de suporte, no Portal do Azure, na guia **Ajuda**, selecione o botão **Ajuda + suporte** e, em seguida, selecione **Nova solicitação de suporte**.
 
@@ -43,8 +43,8 @@ Examine o installer.log para determinar a causa da falha de instalação.
 > [!Note]  
 > A instalação do agente falhará se sua máquina usar o Microsoft Update e o serviço Windows Update não estiver em execução.
 
-<a id="server-registration-missing"></a>**O servidor não está listado em Servidores Registrados no Portal do Azure**  
-Se um servidor não estiver listado em **Servidores Registrados** para um Serviço de Sincronização de Armazenamento, execute as seguintes etapas:
+<a id="server-registration-missing"></a>**O servidor não está listado em servidores registrados no portal do Azure**  
+Se algum servidor não estiver listado em **Servidores registrados** de um Serviço de Sincronização de Armazenamento:
 1. Faça logon no servidor que você deseja registrar.
 2. Abra o Explorador de arquivos e, em seguida, vá para o diretório de instalação do agente de sincronização de armazenamento (o local padrão é C:\Program Files\Azure\StorageSyncAgent). 
 3. Execute ServerRegistration.exe e siga o assistente para registrar o servidor com um Serviço de Sincronização de Armazenamento.
@@ -55,7 +55,7 @@ Se um servidor não estiver listado em **Servidores Registrados** para um Servi�
 
 Esta mensagem é exibida se o servidor foi registrado anteriormente com um Serviço de Sincronização de Armazenamento. Para cancelar o registro do servidor com o Serviço de Sincronização de Armazenamento atual e registrar com o novo Serviço de Sincronização de Armazenamento, siga as etapas para [Cancelar o registro de um servidor com uma Sincronização de arquivos do Azure](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
 
-Se o servidor não estiver listado nos **Servidores Registrados** no Serviço de Sincronização de Armazenamento, execute os seguintes comandos do PowerShell no servidor onde você deseja cancelar o registro:
+Se o servidor não estiver listado em **Servidores registrados** no Serviço de Sincronização de Armazenamento, no servidor cujo registro você deseja cancelar, execute os seguintes comandos do PowerShell:
 
 ```PowerShell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
@@ -68,23 +68,23 @@ Reset-StorageSyncServer
 <a id="web-site-not-trusted"></a>**Ao registrar um servidor, obtenho várias respostas de "sites não confiáveis". Por quê?**  
 Esse erro ocorre porque a política **Segurança reforçada do Internet Explorer** está habilitada durante o registro do servidor. Para saber mais sobre como desabilitar corretamente a política **Segurança reforçada do Internet Explorer**, confira [Preparar servidores do Windows para uso com a Sincronização de Arquivos do Azure](storage-sync-files-deployment-guide.md#prepare-windows-server-to-use-with-azure-file-sync) e [Como implantar a Sincronização de arquivos do Azure (versão prévia)](storage-sync-files-deployment-guide.md).
 
-## <a name="sync-group-management"></a>Gerenciamento de grupos de sincronização
-<a id="cloud-endpoint-using-share"></a>**Falha na criação de ponto de extremidade da nuvem com o seguinte erro: "O compartilhamento de arquivos do Azure especificado já está em uso por um ponto de extremidade da nuvem diferente"**  
-Esse erro ocorre se o compartilhamento de arquivos do Azure já está em uso por outro ponto de extremidade da nuvem. 
+## <a name="sync-group-management"></a>Gerenciamento de grupo de sincronização
+<a id="cloud-endpoint-using-share"></a>**Falha na criação de ponto de extremidade de nuvem, com este erro: "O FileShare do Azure especificado já está sendo usado por um CloudEndpoint diferente"**  
+Esse problema ocorre quando o compartilhamento de arquivos do Azure já está sendo usado por outro ponto de extremidade de nuvem. 
 
-Se você estiver recebendo esse erro e o compartilhamento de arquivos do Azure não está atualmente em uso por um ponto de extremidade da nuvem, execute as etapas a seguir para limpar os metadados de Sincronização de arquivos do Azure no compartilhamento de arquivos do Azure:
+Se essa mensagem aparecer e o compartilhamento de arquivos do Azure não estiver sendo usado por um ponto de extremidade de nuvem no momento, conclua as seguintes etapas para limpar os metadados da Sincronização de arquivos do Azure no compartilhamento de arquivos do Azure:
 
 > [!Warning]  
-> Excluir os metadados em um compartilhamento de arquivos do Azure que está atualmente em uso por um ponto de extremidade da nuvem fará com que as operações de Sincronização de arquivos do Azure falhem. 
+> Excluir os metadados em um compartilhamento de arquivos do Azure que está sendo usado no momento por um ponto de extremidade de nuvem faz com que as operações da Sincronização de arquivos do Azure falhem. 
 
 1. Navegue até o seu compartilhamento de arquivos do Azure no Portal do Azure.  
 2. Clique com botão direito no compartilhamento de arquivos do Azure e selecione **Editar metadados**.
 3. Clique com botão direito em **SyncService** e selecione **Excluir**.
 
-<a id="cloud-endpoint-authfailed"></a>**Falha na criação de ponto de extremidade de nuvem com erro: AuthorizationFailed**  
-Esse problema ocorrerá se a conta de usuário não tiver direitos suficientes para criar um Ponto de extremidade de nuvem. 
+<a id="cloud-endpoint-authfailed"></a>**Falha na criação de ponto de extremidade de nuvem, com este erro: "AuthorizationFailed"**  
+Esse problema ocorre quando a conta de usuário não tem direitos suficientes para criar um ponto de extremidade de nuvem. 
 
-Para criar um Ponto de extremidade de nuvem, sua conta de usuário deve ter as seguintes permissões de Autorização da Microsoft:  
+Para criar um ponto de extremidade de nuvem, sua conta de usuário deve ter as seguintes permissões de Autorização da Microsoft:  
 * Leitura: Obter a definição da função
 * Gravação: Criar ou atualizar definição de função personalizada
 * Leitura: Obter a atribuição da função
@@ -102,27 +102,27 @@ Para determinar se sua função de conta de usuário tem as permissões necessá
     * **Atribuição de função** deve ter **Permissões de Leitura** e de **Gravação**.
     * **Definição de função** deve ter **Permissões de Leitura** e de **Gravação**.
 
-<a id="cloud-endpoint-deleteinternalerror"></a>**Falha na exclusão de ponto de extremidade com erro: MgmtInternalError**  
-Esse problema pode ocorrer se a conta de armazenamento ou compartilhamento de Arquivo do Azure foi excluída antes de excluir o Ponto de extremidade de nuvem. Esse problema será corrigido em uma atualização futura. Nesse momento, você poderá excluir um ponto de extremidade de nuvem depois que você excluir a conta de armazenamento ou compartilhamento de arquivos do Azure.
+<a id="cloud-endpoint-deleteinternalerror"></a>**Falha na exclusão do ponto de extremidade de nuvem, com este erro: "MgmtInternalError"**  
+Esse problema pode ocorrer quando a conta de armazenamento ou o compartilhamento de arquivos do Azure é excluída antes da exclusão do ponto de extremidade de nuvem. Esse problema será corrigido em uma atualização futura. Nesse momento, você poderá excluir um ponto de extremidade de nuvem depois que excluir a conta de armazenamento ou o compartilhamento de arquivos do Azure.
 
-Para evitar que esse problema ocorra, exclua o Ponto de extremidade de nuvem antes de excluir a conta de armazenamento ou compartilhamento de Arquivo do Azure.
+Enquanto isso, para evitar que esse problema ocorra, exclua o ponto de extremidade de nuvem antes de excluir a conta de armazenamento ou o compartilhamento de arquivos do Azure.
 
 ## <a name="sync"></a>Sincronizar
-<a id="afs-change-detection"></a>**Se eu criei um arquivo diretamente em meu compartilhamento de arquivos do Azure no SMB ou por meio do portal, quanto tempo leva para o arquivo a ser sincronizado servidores no grupo de sincronização?**  
+<a id="afs-change-detection"></a>**Se eu criar um arquivo diretamente em meu compartilhamento de arquivos do Azure usando SMB ou por meio do portal, quanto tempo levará para que o arquivo seja sincronizado com os servidores no grupo de sincronização?**  
 [!INCLUDE [storage-sync-files-change-detection](../../../includes/storage-sync-files-change-detection.md)]
 
 <a id="broken-sync"></a>**A sincronização falha em um servidor**  
 Se a sincronização falhar em um servidor:
-1. Verifique se existe um ponto de extremidade do servidor no Portal do Azure para o diretório que você deseja sincronizar para um Compartilhamento de Arquivo do Azure:
+1. Verifique se existe um ponto de extremidade do servidor no portal do Azure para o diretório que você deseja sincronizar com um compartilhamento de arquivos do Azure:
     
-    ![Uma captura de tela de um Grupo de Sincronização com um ponto de extremidade de nuvem e do servidor no Portal do Azure](media/storage-sync-files-troubleshoot/sync-troubleshoot-1.png)
+    ![Uma captura de tela de um grupo de sincronização com um ponto de extremidade de nuvem e um ponto de extremidade do servidor no portal do Azure](media/storage-sync-files-troubleshoot/sync-troubleshoot-1.png)
 
 2. No Visualizador de Eventos, examine os logs de eventos operacionais e de diagnóstico, localizados em aplicativos e Services\Microsoft\FileSync\Agent.
     1. Confirme se o servidor tem conectividade com a Internet.
     2. Verifique se o serviço de Sincronização de arquivos do Azure está em execução no servidor. Abra o snap-in do MMC de Serviços e verifique se o serviço de Agente de Sincronização de Armazenamento (FileSyncSvc) está em execução.
 
 <a id="replica-not-ready"></a>**Falha na sincronização com erro: 0x80c8300f – a réplica não está pronta para executar a operação necessária**  
-Esse erro será esperado se você criar um Ponto de extremidade de nuvem e usar um compartilhamento de Arquivo do Azure que contém dados. Quando o trabalho de detecção de alteração for concluída em execução no compartilhamento de arquivos do Azure (pode levar até 24 horas), a sincronização deve começar a funcionar corretamente.
+Esse problema é esperado quando você cria um ponto de extremidade de nuvem e usa um compartilhamento de arquivos do Azure que contém dados. Quando o trabalho de detecção de alteração for concluída em execução no compartilhamento de arquivos do Azure (pode levar até 24 horas), a sincronização deve começar a funcionar corretamente.
 
 <a id="broken-sync-files"></a>**Como solucionar problemas de falha de sincronização de arquivos individuais**  
 Se os arquivos individuais não sincronizar:
@@ -133,6 +133,28 @@ Se os arquivos individuais não sincronizar:
     > A Sincronização de arquivos do Azure periodicamente gera instantâneos do VSS para arquivos para sincronizar arquivos com identificadores abertos.
 
 ## <a name="cloud-tiering"></a>Disposição em camadas de nuvem 
+Há dois caminhos para falhas na definição de camadas de nuvem:
+
+- A definição de camadas de arquivos pode falhar, o que significa que a Sincronização de arquivos do Azure tenta definir camadas de arquivos nos Arquivos do Azure sem sucesso.
+- A recuperação de arquivos pode falhar, o que significa que o filtro do sistema de arquivos da Sincronização de arquivos do Azure (StorageSync.sys) falha ao baixar dados quando um usuário tenta acessar um arquivo que foi definido em camadas.
+
+Há duas classes principais de falhas que podem ocorrer por meio de um desses caminhos de falha:
+
+- Falhas no armazenamento em nuvem
+    - *Problemas transitórios de disponibilidade do serviço de armazenamento*. Consulte [SLA (Contrato de Nível de Serviço) para Armazenamento do Azure](https://azure.microsoft.com/support/legal/sla/storage/v1_2/) para obter mais informações.
+    - *Compartilhamento de arquivos do Azure inacessível*. Essa falha normalmente acontece quando você exclui o compartilhamento de arquivos do Azure quando ele ainda é um ponto de extremidade de nuvem em um grupo de sincronização.
+    - *Conta de armazenamento inacessível*. Essa falha normalmente acontece quando você exclui a conta de armazenamento enquanto ela ainda tem um compartilhamento de arquivos do Azure que é um ponto de extremidade de nuvem em um grupo de sincronização. 
+- Falhas de servidor 
+    - *O filtro do sistema de arquivos da Sincronização de arquivos do Azure (StorageSync.sys) não está carregado*. Para responder às solicitações de definição de camadas/recuperação, o filtro do sistema de arquivos da Sincronização de arquivos do Azure deve ser carregado. O filtro pode não ser carregado por diversos motivos, mas o motivo mais comum é quando um administrador o descarrega manualmente. O filtro do sistema de arquivos da Sincronização de arquivos do Azure deve ser carregado sempre para que a Sincronização de arquivos do Azure funcione corretamente.
+    - *Ponto de nova análise ausente, corrompido ou desfeito por algum outro motivo*. Um ponto de nova análise é uma estrutura de dados especial em um arquivo que consiste em duas partes:
+        1. Uma marca de nova análise, que indica para o sistema operacional que o filtro do sistema de arquivos da Sincronização de arquivos do Azure (StorageSync.sys) pode precisar executar alguma ação na E/S do arquivo. 
+        2. Dados de nova análise, que indica para o filtro do sistema de arquivos qual é o URI do arquivo no ponto de extremidade de nuvem associado (o compartilhamento de arquivos do Azure). 
+        
+        A maneira mais comum de corromper um ponto de nova análise é quando um administrador tenta modificar a marca ou seus dados. 
+    - *Problemas de conectividade de rede*. Para a definir camadas ou recuperar um arquivo, o servidor deve ter conectividade com a Internet.
+
+As seções a seguir indicam como solucionar problemas de definição de camadas de nuvem e determinar se o problema é do armazenamento em nuvem ou do servidor.
+
 <a id="files-fail-tiering"></a>**Como solucionar problemas de arquivos que falham ao serem dispostos em camadas**  
 Se os arquivos não camada para arquivos do Azure:
 

@@ -14,15 +14,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/28/2017
 ms.author: adegeo
-ms.openlocfilehash: 15acfbce3bde585ed2b39762b08733901133a3dd
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 5057a741a60bf9632f15dbc47236791e06f5bf6b
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="upgrade-the-runtime-of-a-service-fabric-cluster"></a>Fazer upgrade do tempo de execução de um cluster do Service Fabric
 
-Este tutorial é a parte quatro de uma série e mostra como fazer upgrade do tempo de execução do Service Fabric ou de um cluster do Azure Service Fabric. Esta parte do tutorial foi criada para clusters do Service Fabric em execução no Azure e não se aplica a clusters do Service Fabric auto-hospedado.
+Este tutorial é a parte três de uma série e mostra como fazer upgrade do tempo de execução do Service Fabric ou de um cluster do Azure Service Fabric. Esta parte do tutorial foi criada para clusters do Service Fabric em execução no Azure e não se aplica a clusters do Service Fabric autônomo.
 
 > [!WARNING]
 > Esta parte do tutorial requer o PowerShell. As ferramentas da CLI do Azure ainda não dão suporte ao upgrade do tempo de execução do cluster. Como alternativa, pode ser feito o upgrade de um cluster no portal. Para saber mais, veja [Upgrade de um cluster do Azure Service Fabric](service-fabric-cluster-upgrade.md).
@@ -34,6 +34,13 @@ Neste tutorial, você aprenderá como:
 > [!div class="checklist"]
 > * Ler a versão do cluster
 > * Definir a versão de cluster
+
+Nesta série de tutoriais, você aprenderá a:
+> [!div class="checklist"]
+> * Criar um [cluster do Windows](service-fabric-tutorial-create-vnet-and-windows-cluster.md) ou [cluster do Linux](service-fabric-tutorial-create-vnet-and-linux-cluster.md) seguro no Azure usando um modelo
+> * [Reduzir ou escalar um cluster horizontalmente](service-fabric-tutorial-scale-cluster.md)
+> * Atualizar o tempo de execução de um cluster
+> * [Implantar o Gerenciamento de API com o Service Fabric](service-fabric-tutorial-deploy-api-management.md)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar este tutorial:
@@ -190,3 +197,7 @@ Neste tutorial, você aprendeu como:
 > * Obter a versão do tempo de execução do cluster
 > * Fazer upgrade do tempo de execução do cluster
 > * Monitorar o upgrade
+
+Em seguida, avance para o próximo tutorial para saber como implantar um Gerenciamento de API com um cluster do Service Fabric.
+> [!div class="nextstepaction"]
+> [Implantar o Gerenciamento de API com o Service Fabric](service-fabric-tutorial-deploy-api-management.md)

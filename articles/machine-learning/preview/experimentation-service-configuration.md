@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 470bba665dcf8b3517b86ee633a9570ec0f3cd33
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 26ab8f9ab561cc218f3dcb249741a96d8f14c579
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="configuring-azure-machine-learning-experimentation-service"></a>Configuração do Serviço de Experimentação do Azure Machine Learning
 
@@ -198,7 +198,7 @@ A VM remota deve atender aos seguintes requisitos:
 Você pode usar o comando a seguir para criar tanto a definição de destino de computação quanto a configuração de execução para execuções baseadas em Docker remotas.
 
 ```
-az ml computetarget attach --name "remotevm" --address "remotevm_IP_address" --username "sshuser" --password "sshpassword" --type remotedocker
+az ml computetarget attach remotedocker --name "remotevm" --address "remotevm_IP_address" --username "sshuser" --password "sshpassword" 
 ```
 
 Depois de configurar o destino de computação, você pode usar o seguinte comando para executar o script.
@@ -211,7 +211,7 @@ $ az ml experiment submit -c remotevm myscript.py
 O processo de construção do Docker para VMs remotas é exatamente o mesmo que o processo para execuções do Docker local, de modo que você pode esperar experiências de execução semelhantes.
 
 >[!TIP]
->Se você preferir evitar a latência introduzida criando a imagem do Docker para a sua primeira execução, poderá usar o comando a seguir para preparar o destino de computação antes de executar o script. az ml experiment prepare -c <remotedocker>
+>Se você preferir evitar a latência introduzida criando a imagem do Docker para a sua primeira execução, poderá usar o comando a seguir para preparar o destino de computação antes de executar o script. az ml experiment prepare -c remotedocker
 
 
 _**Visão geral da execução da vm remota para um script Python:**_
@@ -226,7 +226,7 @@ O HDInsight é uma plataforma popular para análise de Big Data com suporte para
 Você pode criar um destino de computação e uma configuração de execução para um cluster do HDInsight Spark usando o seguinte comando:
 
 ```
-$ az ml computetarget attach --name "myhdi" --address "<FQDN or IP address>" --username "sshuser" --password "sshpassword" --type cluster 
+$ az ml computetarget attach cluster --name "myhdi" --address "<FQDN or IP address>" --username "sshuser" --password "sshpassword"  
 ```
 
 >[!NOTE]
@@ -253,6 +253,29 @@ _**Visão geral da execução baseada em HDInsight para um script PySpark**_
 ## <a name="running-a-script-on-gpu"></a>Como executar um script na GPU
 Para executar os scripts na GPU, você pode seguir as diretrizes neste artigo:[Como usar a GPU no Azure Machine Learning](how-to-use-gpu.md)
 
+## <a name="using-ssh-key-based-authentication-for-creating-and-using-compute-targets"></a>Usar a autenticação baseada em chave SSH para criar e usar destinos de computação
+O Azure Machine Learning Workbench permite criar e usar destinos de computação usando a autenticação baseada em chave SSH além do esquema baseado em nome de usuário/senha. Você pode usar essa funcionalidade com o remotedocker ou o cluster como o destino de computação. Quando você usa esse esquema, o Workbench cria um par de chaves pública/privada e relata a chave pública novamente. Você acrescenta a chave pública nos arquivos ~/.ssh/authorized_keys do seu nome de usuário. Em seguida, o Azure Machine Learning Workbench usa a autenticação baseada em chave SSH para acessar e executar neste destino de computação. Como a chave privada do destino de computação é salva no repositório de chaves do espaço de trabalho, outros usuários do espaço de trabalho podem usar o destino de computação da mesma forma, fornecendo o nome de usuário que foi usado para criar o destino de computação.  
+
+Siga estas etapas para usar essa funcionalidade. 
+
+- Crie um destino de computação usando um dos comandos a seguir.
+
+```
+az ml computetarget attach remotedocker --name "remotevm" --address "remotevm_IP_address" --username "sshuser" --use-azureml-ssh-key
+```
+ou o
+```
+az ml computetarget attach remotedocker --name "remotevm" --address "remotevm_IP_address" --username "sshuser" -k
+```
+- Acrescente a chave pública gerada pelo Workbench no arquivo ~/.ssh/authorized_keys no destino de computação anexado. 
+
+[!IMPORTANT] Você precisa fazer logon no destino de computação com o mesmo nome de usuário que foi usado para criar o destino de computação. 
+
+- Agora você pode preparar e usar o destino de computação usando a autenticação baseada em chave SSH.
+
+```
+az ml experiment prepare -c remotevm
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Criar e instalar o Azure Machine Learning](quickstart-installation.md)

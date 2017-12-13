@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 09/20/2017
 ms.author: vturecek
-ms.openlocfilehash: 438eeee7353cbd1d534f27471c9c9054aecc12e8
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 53c9072f98dfe9c03b85eb7409b8ed91c3c0ce33
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="service-remoting-with-reliable-services"></a>Comunicação Remota do Serviço com Reliable Services
 Para serviços que não estão vinculados a um protocolo de comunicação específico ou pilha, como WebAPI, WCF (Windows Communication Foundation) ou outros, a estrutura do Reliable Services fornece um mecanismo de comunicação remota para configurar a chamada de procedimento remoto para serviços de forma rápida e fácil.
@@ -79,10 +79,10 @@ string message = await helloWorldClient.HelloWorldAsync();
 
 ```
 
-A estrutura remota propaga exceções lançadas no serviço para o cliente. A lógica de manipulação de exceção no cliente usando `ServiceProxy` pode manipular diretamente as exceções que o serviço lança.
+A estrutura remota propaga exceções geradas pelo serviço para o cliente. Como resultado, ao usar `ServiceProxy`, o cliente é responsável pelo tratamento das exceções geradas pelo serviço.
 
 ## <a name="service-proxy-lifetime"></a>Tempo de vida de Proxy do Serviço
-A criação do Proxy do Serviço é uma operação simples, de modo que os usuários podem criar quantos forem necessários. As instâncias do Proxy do Serviço podem ser reutilizadas enquanto os usuários precisarem. Se uma chamada de procedimento remoto lança uma exceção, os usuários ainda podem reutilizar a mesma instância do proxy. Cada ServiceProxy contém um cliente de comunicação usado para enviar mensagens durante a transmissão. Ao chamar as chamadas remotas, internamente verificamos para ver se o cliente de comunicação é válido. Com base nesse resultado, recriamos o cliente de comunicação se necessário. Por isso, se ocorrer Exceção, os usuários não precisarão recriar o proxy do serviço, mas isso é feito de maneira transparente.
+A criação do Proxy do Serviço é uma operação simples, de modo que os usuários podem criar quantos forem necessários. As instâncias do Proxy do Serviço podem ser reutilizadas enquanto os usuários precisarem. Se uma chamada de procedimento remoto lança uma exceção, os usuários ainda podem reutilizar a mesma instância do proxy. Cada ServiceProxy contém um cliente de comunicação usado para enviar mensagens durante a transmissão. Ao chamar as chamadas remotas, internamente verificamos para ver se o cliente de comunicação é válido. Com base nesse resultado, recriamos o cliente de comunicação se necessário. Por isso, se uma exceção ocorrer, os usuários não precisam recriar `ServiceProxy` porque isso é feito de maneira transparente.
 
 ### <a name="serviceproxyfactory-lifetime"></a>Tempo de vida de ServiceProxyFactory
 [ServiceProxyFactory](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.remoting.client.serviceproxyfactory) é um alocador que cria instâncias de proxy para interfaces remotas diferentes. Se você usar a api `ServiceProxy.Create` para criar um proxy, então, a estrutura criará um ServiceProxy de singleton.
@@ -91,12 +91,13 @@ A criação do alocador é uma operação cara. ServiceProxyFactory mantém um c
 A prática recomendada é armazenar em cache ServiceProxyFactory por mais tempo possível.
 
 ## <a name="remoting-exception-handling"></a>Tratamento de exceções remotas
-Todas as exceções remotas lançadas pela API de serviço são reenviadas para o cliente como AggregateException. RemoteExceptions deve ser serializáveis DataContract serializável, ou [ServiceException](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.serviceexception) é lançada para a API do proxy com o erro de serialização.
+Todas as exceções remotas geradas pela API de serviço são reenviadas ao cliente como AggregateException. RemoteExceptions devem ser serializáveis como DataContract; se não forem, a API do proxy gera [ServiceException](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.serviceexception) dentro do erro de serialização nela.
 
-ServiceProxy trata todas as exceções de failover da partição de serviço para a qual foi criado. Ele resolverá novamente os pontos de extremidade se houver exceções de failover (exceções não transitórias) e repetirá a chamada com o ponto de extremidade correto. O número de tentativas da exceção de failover é indefinido.
-Se ocorrer Exceções Transitórias, o proxy tentará novamente a chamada.
+O ServiceProxy trata todas as exceções de failover para a partição de serviço para a qual foi criado. Ele resolverá novamente os pontos de extremidade em casos de exceções de failover (exceções não transitórias) e repetirá a chamada com o ponto de extremidade correto. O número de tentativas da exceção de failover é indefinido.
+Se exceções transitórias ocorrerem, o proxy tentará novamente a chamada.
 
-Os parâmetros de repetição padrão são fornecidos por [OperationRetrySettings]. (https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings) O usuário pode configurar esses valores passando o objeto OperationRetrySettings para ServiceProxyFactory construtor.
+Os parâmetros de repetição padrão são fornecidos por [OperationRetrySettings](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.client.operationretrysettings).
+O usuário pode configurar esses valores, passando o objeto OperationRetrySettings para o construtor ServiceProxyFactory.
 ## <a name="how-to-use-remoting-v2-stack"></a>Como utiliza a Pilha V2 de Comunicação Remota
 Com o pacote de Comunicação Remota NuGet 2.8, você tem a opção de usar a Pilha V2 de Comunicação Remota. A Pilha V2 de Comunicação Remota é mais eficaz e fornece recursos como APIs mais conectáveis e serializáveis.
 Por padrão, se você não fizer as seguintes alterações, continuará utilizando a Pilha V1 de Comunicação Remota.

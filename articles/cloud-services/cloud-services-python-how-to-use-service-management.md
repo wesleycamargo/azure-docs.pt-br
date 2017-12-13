@@ -14,17 +14,17 @@ ms.devlang: python
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: lmazuel
-ms.openlocfilehash: 13249ba9a4b317a3154776b411ce0bb1f316b3bb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a55a38df765dcd1947312e729dbd37e3284876cf
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="how-to-use-service-management-from-python"></a>Como usar o Gerenciamento de Serviços no Python
-Este guia mostra como executar tarefas de gerenciamento de serviços comuns de forma programática no Python. A classe **ServiceManagementService** no [SDK do Azure para Python](https://github.com/Azure/azure-sdk-for-python) dá suporte a acesso programático para grande parte da funcionalidade relacionada ao gerenciamento de serviços que está disponível no [Portal Clássico do Azure][management-portal] (como **criação, atualização e exclusão de serviços de nuvem, implantações, serviços de gerenciamento de dados e máquinas virtuais**). Essa funcionalidade pode ser útil na criação de aplicativos que precisam de acesso programático ao gerenciamento de serviços.
+Este guia mostra como executar tarefas de gerenciamento de serviços comuns de forma programática no Python. A classe **ServiceManagementService** no [SDK do Azure para Python](https://github.com/Azure/azure-sdk-for-python) dá suporte a acesso programático para grande parte da funcionalidade relacionada ao gerenciamento de serviços que está disponível no [Portal do Azure][management-portal] (como **criação, atualização e exclusão de serviços de nuvem, implantações, serviços de gerenciamento de dados e máquinas virtuais**). Essa funcionalidade pode ser útil na criação de aplicativos que precisam de acesso programático ao gerenciamento de serviços.
 
 ## <a name="WhatIs"> </a>O que é gerenciamento de serviços
-A API de Gerenciamento de Serviços fornece acesso programático à grande parte da funcionalidade do gerenciamento de serviços disponível por meio do [Portal Clássico do Azure][management-portal]. O SDK do Azure para Python permite que você gerencie os serviços de nuvem e as contas de armazenamento.
+A API de Gerenciamento de Serviços fornece acesso programático à grande parte da funcionalidade do gerenciamento de serviços disponível por meio do [Portal do Azure][management-portal]. O SDK do Azure para Python permite que você gerencie os serviços de nuvem e as contas de armazenamento.
 
 Para usar a API de Gerenciamento de Serviços, é necessário [criar uma conta do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -35,7 +35,7 @@ O SDK do Azure para Python encapsula a [API de Gerenciamento de Serviços do Azu
 Todos os recursos descritos neste artigo estão disponíveis no pacote do `azure-servicemanagement-legacy` , que pode ser instalado usando o pip. Para obter mais informações sobre a instalação (por exemplo, se você for novo no Python), consulte este artigo: [Instalando o Python e o SDK do Azure](../python-how-to-install.md)
 
 ## <a name="Connect"> </a>Como conectar-se ao gerenciamento de serviços
-Para conectar-se ao ponto de extremidade do Gerenciamento de Serviços, você precisa da ID de sua assinatura do Azure e um certificado de gerenciamento válido. Você pode obter sua ID de assinatura por meio do [Portal Clássico do Azure][management-portal].
+Para conectar-se ao ponto de extremidade do Gerenciamento de Serviços, você precisa da ID de sua assinatura do Azure e um certificado de gerenciamento válido. Você pode obter sua ID de assinatura por meio do [Portal do Azure][management-portal].
 
 > [!NOTE]
 > Agora é possível usar certificados criados com o OpenSSL quando for executado no Windows.  Isso requer o Python 2.7.4 ou posterior. Recomendamos que os usuários usem o OpenSSL, em vez de .pfx, já que o suporte para certificados .pfx provavelmente será removido no futuro.
@@ -53,7 +53,7 @@ Para criar o certificado `.cer` , execute isto:
 
 Para saber mais sobre certificados do Azure, confira [Visão geral dos Certificados de Serviços de Nuvem do Azure](cloud-services-certs-create.md). Para obter uma descrição completa dos parâmetros do OpenSSL, consulte a documentação em [http://www.openssl.org/docs/apps/openssl.html](http://www.openssl.org/docs/apps/openssl.html).
 
-Depois de criar esses arquivos, você precisará carregar o arquivo `.cer` no Azure por meio da ação "Carregar" da guia "Configurações" do [Portal Clássico do Azure][management-portal] e anotar o local no qual você salvou o arquivo `.pem`.
+Depois de criar esses arquivos, você precisará carregar o arquivo `.cer` no Azure por meio da ação "Carregar" da guia "Configurações" do [Portal do Azure][management-portal] e anotar o local no qual você salvou o arquivo `.pem`.
 
 Depois de ter obtido a ID de sua assinatura, criado um certificado e carregado o arquivo `.cer` no Azure, você pode conectar-se ao ponto de extremidade de gerenciamento do Azure passando a ID da assinatura e o caminho para o arquivo `.pem` para o **ServiceManagementService**:
 
@@ -74,7 +74,7 @@ Você pode criar um certificado de gerenciamento autoassinado em seu computador 
 
 O comando cria o arquivo `.cer` e o instala no repositório de certificados **Pessoal** . Para obter mais informações, confira a [Visão geral sobre certificados para os Serviços de Nuvem do Azure](cloud-services-certs-create.md).
 
-Depois que tiver criado o certificado, você precisará carregar do arquivo `.cer` no Azure por meio da ação "Carregar" da guia "Configurações" no [Portal Clássico do Azure][management-portal].
+Depois que tiver criado o certificado, você precisará carregar do arquivo `.cer` no Azure por meio da ação "Carregar" da guia "Configurações" no [Portal do Azure][management-portal].
 
 Depois que tiver obtido a ID da sua assinatura, criado um certificado e carregado o arquivo `.cer` para o Azure, você poderá conectar-se ao ponto de extremidade de gerenciamento do Azure, passando a ID da assinatura e a localização do certificado em seu repositório de certificados **Pessoal** para **ServiceManagementService** (novamente, substitua *AzureCertificate* pelo nome do seu certificado):
 
@@ -421,7 +421,7 @@ Para saber mais, consulte o [Centro de Desenvolvedores do Python](/develop/pytho
 [How to: Create a virtual machine]: #CreateVM
 [How to: Delete a virtual machine]: #DeleteVM
 [Next Steps]: #NextSteps
-[management-portal]: https://manage.windowsazure.com/
+[management-portal]: https://portal.azure.com/
 [svc-mgmt-rest-api]: http://msdn.microsoft.com/library/windowsazure/ee460799.aspx
 
 

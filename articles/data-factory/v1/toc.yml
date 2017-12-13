@@ -76,7 +76,7 @@
               href: data-factory-azure-documentdb-connector.md
             - name: Repositório Azure Data Lake
               href: data-factory-azure-datalake-connector.md
-            - name: Pesquisa do Azure
+            - name: Azure Search
               href: data-factory-azure-search-connector.md
             - name: Banco de Dados SQL do Azure
               href: data-factory-azure-sql-connector.md
@@ -179,6 +179,8 @@
           href: data-factory-troubleshoot.md
         - name: Solucionar problemas usando o Gateway de Gerenciamento de Dados
           href: data-factory-troubleshoot-gateway-issues.md
+    - name: Chamar pacotes SSIS usando a atividade de procedimento armazenado
+      href: how-to-invoke-ssis-package-stored-procedure-activity.md
 - name: Referência
   items:
     - name: Exemplos de código

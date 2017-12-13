@@ -3,8 +3,8 @@ title: Indexando tabelas no SQL Data Warehouse | Microsoft Azure
 description: "Introdução à indexação de tabela no Azure SQL Data Warehouse."
 services: sql-data-warehouse
 documentationcenter: NA
-author: shivaniguptamsft
-manager: barbkess
+author: barbkess
+manager: jenniehubbard
 editor: 
 ms.assetid: 3e617674-7b62-43ab-9ca2-3f40c41d5a88
 ms.service: sql-data-warehouse
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 07/12/2016
-ms.author: shigu;barbkess
-ms.openlocfilehash: b205ed47833f675286539705e2754d2ea3821b8e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/06/2017
+ms.author: barbkess
+ms.openlocfilehash: 672270536a7405e617edbcf5ec0e6eff68be7fde
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="indexing-tables-in-sql-data-warehouse"></a>Indexando tabelas no SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -191,7 +191,7 @@ Se você tiver identificado tabelas com segmentos de má qualidade, desejará id
 Esses fatores podem fazer com que um índice columnstore tenha menos que o ideal de um milhão de linhas por grupo de linhas.  Eles também podem colocar as linhas no rowgroup delta, em vez do rowgroup compactado. 
 
 ### <a name="memory-pressure-when-index-was-built"></a>Pressão de memória quando o índice foi criado
-O número de linhas por grupo de linhas compactado está diretamente relacionado à largura da linha e à quantidade de memória disponível para processar o grupo de linhas.  Quando as linhas são gravadas nas tabelas columnstore sob pressão da memória, a qualidade do segmento columnstore pode ficar prejudicada.  Portanto, a prática recomendada é fornecer à sessão que está gravando o acesso de tabelas de índice columnstore o máximo de memória possível.  Como há uma compensação entre a memória e simultaneidade, a orientação sobre a alocação de memória correta depende dos dados em cada linha da tabela, da quantidade de DWUS que você alocou para o seu sistema e a quantidade de slots de simultaneidade que pode ser dada à sessão que está gravando dados em sua tabela.  Como prática recomendada, sugerimos iniciar com xlargerc se você estiver usando DW300 ou menos, largerc se estiver usando DW400 DW600 e mediumrc se estiver usando DW1000 ou mais.
+O número de linhas por grupo de linhas compactado está diretamente relacionado à largura da linha e à quantidade de memória disponível para processar o grupo de linhas.  Quando as linhas são gravadas nas tabelas columnstore sob pressão da memória, a qualidade do segmento columnstore pode ficar prejudicada.  Portanto, a prática recomendada é fornecer à sessão que está gravando o acesso de tabelas de índice columnstore o máximo de memória possível.  Como há uma compensação entre a memória e simultaneidade, a orientação sobre a alocação de memória correta depende dos dados em cada linha da tabela, das unidades de data warehouse alocadas para o seu sistema, e o número de slots de simultaneidade que pode ser dado à sessão que está gravando dados em sua tabela.  Como prática recomendada, sugerimos iniciar com xlargerc se você estiver usando DW300 ou menos, largerc se estiver usando DW400 DW600 e mediumrc se estiver usando DW1000 ou mais.
 
 ### <a name="high-volume-of-dml-operations"></a>Alto volume de operações DML
 Um alto volume de operações DML pesadas que atualizam e excluem linhas pode causar ineficiência ao columnstore. Isso acontece principalmente quando a maioria das linhas em um rowgroup é modificada.
@@ -247,7 +247,7 @@ ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_CO
 ALTER INDEX ALL ON [dbo].[FactInternetSales] REBUILD Partition = 5 WITH (DATA_COMPRESSION = COLUMNSTORE)
 ```
 
-A recriação de um índice no SQL Data Warehouse é uma operação offline.  Para obter mais informações sobre como recompilar índices, consulte a seção ALTER INDEX REBUILD em [Usar ALTER INDEX REBUILD para desfragmentar o índice columnstore offline][Columnstore Indexes Defragmentation] e o tópico da sintaxe [ALTER INDEX][ALTER INDEX].
+A recriação de um índice no SQL Data Warehouse é uma operação offline.  Para obter mais informações sobre como recompilar índices, consulte a seção ALTER INDEX REBUILD em [Desfragmentação dos índices columnstore][Columnstore Indexes Defragmentation] e [ALTER INDEX][ALTER INDEX].
 
 ### <a name="step-3-verify-clustered-columnstore-segment-quality-has-improved"></a>Etapa 3: verificar se melhorou a qualidade do segmento columnstore clusterizado
 Execute novamente a consulta que identificou a tabela com segmentos de má qualidade e verifique se a qualidade melhorou.  Se a qualidade do segmento não melhorou, é possível que as linhas da tabela sejam muito amplas.  Considere usar uma classe de recurso maior ou mais DWU durante a recriação de índices.

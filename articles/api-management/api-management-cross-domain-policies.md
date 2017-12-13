@@ -12,13 +12,13 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2017
+ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 05b25ffad4a91859932cd53475d82b11bf3e43e5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 590831454e8a18678e357b4824eb35a717d1fee0
+ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/04/2017
 ---
 # <a name="api-management-cross-domain-policies"></a>Políticas entre domínios de Gerenciamento de API
 Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -26,9 +26,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
 ##  <a name="CrossDomainPolicies"></a> Políticas entre domínios  
   
 -   [Permitir chamadas entre domínios](api-management-cross-domain-policies.md#AllowCrossDomainCalls) - Torna a API acessível por meio de clientes Adobe Flash e Microsoft Silverlight baseados em navegadores.  
-  
 -   [CORS](api-management-cross-domain-policies.md#CORS) - Adicionar suporte de compartilhamento de recursos entre origens (CORS) a uma operação ou a uma API para permitir chamadas entre domínios de clientes baseados em navegadores.  
-  
 -   [JSONP](api-management-cross-domain-policies.md#JSONP) - Adiciona suporte JSON com preenchimento (JSONP) a uma operação ou a uma API para permitir chamadas entre domínios de clientes JavaScript baseados em navegadores.  
   
 ##  <a name="AllowCrossDomainCalls"></a> Permitir chamadas entre domínios  
@@ -63,7 +61,6 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
  Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
   
 -   **Seções de política:** entrada  
-  
 -   **Escopos de política:** global  
   
 ##  <a name="CORS"></a> CORS  
@@ -147,7 +144,6 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
  Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
   
 -   **Seções de política:** entrada  
-  
 -   **Escopos de política:** API, operação  
   
 ##  <a name="JSONP"></a> JSONP  
@@ -185,8 +181,13 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
  Essa política pode ser usada nas [seções](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) e nos [escopos](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) da política a seguir.  
   
 -   **Seções de política:** saída  
-  
 -   **Escopos de política:** global, produto, API, operação  
   
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre como trabalhar com políticas, veja [Políticas em Gerenciamento de API](api-management-howto-policies.md).  
+
+Para obter mais informações sobre como trabalhar com políticas, consulte:
+
++ [Políticas no Gerenciamento de API](api-management-howto-policies.md)
++ [Transformar APIs](transform-api.md)
++ [Referência de Política](api-management-policy-reference.md) para uma lista completa das instruções de política e suas configurações
++ [Exemplos de política](policy-samples.md)   

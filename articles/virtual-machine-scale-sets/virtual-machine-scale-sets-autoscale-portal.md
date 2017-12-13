@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 3714a4feb14bc47132e501629fc339bc7d0e40a1
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 141ae5f004ec1c85c506955873c69c03a89cd08c
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-in-the-azure-portal"></a>Dimensionamento automático de um conjunto de dimensionamento de máquinas virtuais no portal do Azure
 Ao criar um conjunto de dimensionamento, o número de instâncias de VM que você deseja executar é definido. À medida que seu aplicativo precisar de alterações, você poderá aumentar ou diminuir automaticamente o número de instâncias de VM. A capacidade de autoescala permite acompanhar a demanda do cliente ou reagir a alterações de desempenho do aplicativo durante todo o ciclo de vida do aplicativo.
@@ -122,7 +122,7 @@ Os exemplos anteriores dimensionaram automaticamente um conjunto de dimensioname
 
     ![Criar regras de dimensionamento automático que são dimensionadas com agendamento](media/virtual-machine-scale-sets-autoscale-portal/schedule-autoscale.PNG)
 
-Para ver como as regras de dimensionamento automático são aplicadas, selecione **Histórico de execuções** na parte superior da janela **Colocação em Escala**. O grafo e a lista de eventos mostram quando as regras de dimensionamento automático são acionadas e o número de instâncias de VM na sua escala aumenta ou diminui.
+Para ver como as regras de dimensionamento automático são aplicadas, selecione **Histórico de execuções** na parte superior da janela **Colocação em Escala**. A lista de eventos e grafo mostra quando as regras de dimensionamento automático são acionadas e o número de instâncias da VM no seu conjunto de dimensionamento aumenta ou diminui.
 
 
 ## <a name="next-steps"></a>Próximas etapas

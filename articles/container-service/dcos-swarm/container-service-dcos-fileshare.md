@@ -1,29 +1,22 @@
 ---
-title: "Compartilhamento de arquivos para o cluster do sistema operacional e do controlador de domínio do Azure | Microsoft Docs"
+title: "Compartilhamento de arquivos para cluster de controlador de domínio/sistema operacional"
 description: "Criar e montar um compartilhamento de arquivos em um cluster de controlador de domínio/sistema operacional no Serviço de Contêiner do Azure"
 services: container-service
-documentationcenter: 
 author: julienstroheker
 manager: dcaro
-editor: 
-tags: acs, azure-container-service
-keywords: "Docker, Contêineres, Microsserviços, Mesos, Azure, FileShare, cifs"
-ms.assetid: 
 ms.service: container-service
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 06/07/2017
 ms.author: juliens
 ms.custom: mvc
-ms.openlocfilehash: a5905cac12f52f94a5722cc01495d5c1168634f8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c1c318f4204efd24a2d9d3d83bb1cb71f5775bdb
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="create-and-mount-a-file-share-to-a-dcos-cluster"></a>Criar e montar um compartilhamento de arquivos em um cluster de controlador de domínio/sistema operacional
+
 Este tutorial fornece detalhes sobre como criar um compartilhamento de arquivos no Azure e montá-lo em cada agente e o mestre do cluster de DC/SO. A configuração de um compartilhamento de arquivos facilita o compartilhamento de arquivos no cluster, como configuração, acesso, logs e muito mais. As tarefas a seguir são concluídas neste tutorial:
 
 > [!div class="checklist"]

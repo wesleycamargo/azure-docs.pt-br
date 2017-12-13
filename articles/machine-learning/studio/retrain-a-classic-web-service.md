@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.openlocfilehash: 04e019501be6880fcc7e92de690a9f31195282e4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ab3c0b5776f9a32ab2703f462d58071f7bfd52ff
+ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/01/2017
 ---
 # <a name="retrain-a-classic-web-service"></a>Treinar novamente um serviço Web Clássico
 O Serviço Web Preditivo implantado é o ponto de extremidade de pontuação padrão. Os pontos de extremidade padrão são mantidos em sincronização com o experimento de origem e os experimentos de pontuação; portanto, o modelo treinado para o ponto de extremidade padrão não pode ser substituído. Para adaptar novamente o serviço Web, você deve adicionar um novo ponto de extremidade ao serviço Web. 
@@ -39,15 +39,14 @@ O serviço Web de previsão implantado contém um padrão de pontuação de pont
 Para criar um novo ponto de extremidade de pontuação, no Serviço da Web Preditivo que possa ser atualizado com o modelo treinado:
 
 > [!NOTE]
-> Certifique-se de que você está adicionando o ponto de extremidade ao serviço Web de previsão e não ao serviço da Web de treinamento. Se você tiver implantado corretamente um serviço Web de previsão e um serviço da Web de treinamento, você verá dois serviços Web separados listados. O serviço Web de previsão deve terminar com "[exp. preditivo]".
+> Certifique-se de que você está adicionando o ponto de extremidade ao serviço Web de previsão e não ao serviço da Web de treinamento. Se você tiver implantado corretamente um serviço Web de previsão e um serviço da Web de treinamento, você verá dois serviços Web separados listados. O serviço Web de previsão deve terminar com "[predictive exp.]".
 > 
 > 
 
-Há três maneiras em que você pode adicionar um novo ponto de extremidade em um serviço Web:
+Há duas maneiras de adicionar um novo ponto de extremidade a um serviço Web:
 
 1. Programaticamente
 2. Use o portal dos Serviços do BizTalk do Microsoft Azure
-3. Use o portal clássico do Azure
 
 ### <a name="programmatically-add-an-endpoint"></a>Adicionar um ponto de extremidade programaticamente
 Você pode adicionar pontos de extremidade de pontuação usando o código de exemplo fornecido neste [repositório github](https://github.com/raymondlaghaeian/AML_EndpointMgmt/blob/master/Program.cs).
@@ -58,18 +57,10 @@ Você pode adicionar pontos de extremidade de pontuação usando o código de ex
 3. Clique em **Adicionar**.
 4. Digite um nome e uma descrição para o novo ponto de extremidade. Selecione o nível de log e se os dados de exemplo estão habilitados. Para obter mais informações sobre registro em log, consulte [Habilitar o log de serviços Web de Machine Learning](web-services-logging.md).
 
-### <a name="use-the-azure-classic-portal-to-add-an-endpoint"></a>Use o Portal Clássico do Azure para adicionar um ponto de extremidade
-1. Entre no [portal clássico do Azure](https://manage.windowsazure.com).
-2. No menu esquerdo, clique em **Machine Learning**.
-3. Em Nome, clique em seu espaço de Em Nome, clique em seu espaço de trabalho e, em seguida, clique em **Serviços Web**.
-4. Em Nome, clique em **Modelo de Censo [exp. preditivo]**.
-5. Na parte inferior da página, clique em **Adicionar Ponto de Extremidade**. Para saber mais sobre a adição de pontos de extremidade, veja [Criação de pontos de extremidade](create-endpoint.md). 
-
 ## <a name="update-the-added-endpoints-trained-model"></a>Atualizar modelo treinado do ponto de extremidade adicionado
 Para concluir o processo de novos treinamentos, você deve atualizar o modelo treinado do novo ponto de extremidade que você adicionou.
 
-* Se tiver adicionado um novo ponto de extremidade usando o portal do Azure, você poderá clicar no nome do novo do ponto de extremidade no portal do Azure e, em seguida, no link **UpdateResource** para obter a URL de que precisa para atualizar o modelo do ponto de extremidade.
-* Se você tiver adicionado o ponto de extremidade usando o código de exemplo, isso inclui o local da URL de Ajuda identificado pelo valor *HelpLocationURL* na saída.
+Se você tiver adicionado o ponto de extremidade usando o código de exemplo, isso inclui o local da URL de Ajuda identificado pelo valor *HelpLocationURL* na saída.
 
 Para recuperar a URL do caminho:
 

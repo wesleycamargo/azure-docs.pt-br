@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/26/2017
+ms.date: 12/05/2017
 ms.author: alkohli
-ms.openlocfilehash: 70c85bcb2c26d2ad3d0515d24e028f84495634c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d3965c74d51996b3e4144130fad01fae9e265897
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="use-the-storsimple-device-manager-service-in-azure-portal-to-clone-a-volume"></a>Usar o serviço do Gerenciador de Dispositivos do StorSimple no Portal do Azure para clonar um volume
 
@@ -69,12 +69,7 @@ Siga as seguintes etapas para criar um clone do seu volume com base no catálogo
    
     ![Lista de conjunto de backup](./media/storsimple-8000-clone-volume-u2/bucatalog.png)
      
-3. Expanda o conjunto de backup para exibir os volumes associados. Esses volumes devem ficar offline no host e no dispositivo antes que você possa restaurá-los. Acesse os volumes na folha **Volumes** do seu dispositivo e siga as etapas em [Colocar um volume offline](storsimple-8000-manage-volumes-u2.md#take-a-volume-offline) para colocá-los offline.
-   
-   > [!IMPORTANT]
-   > Verifique se você colocou os volumes offline primeiro no host antes de colocar os volumes offline no dispositivo. Se você não colocar os volumes offline no host, poderá ocorrer corrupção nos dados.
-   
-4. Navegue de volta para o **Catálogo de Backup** e selecione um volume em um conjunto de backup. Clique com botão direito do mouse e, no menu de contexto, selecione **Clonar**.
+3. Expandir o conjunto de backup para exibir os volumes associados e selecionar um volume em um conjunto de backup. Clique com botão direito do mouse e, no menu de contexto, selecione **Clonar**.
 
    ![Lista de conjunto de backup](./media/storsimple-8000-clone-volume-u2/clonevol3b.png) 
 

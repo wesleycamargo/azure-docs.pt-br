@@ -5,15 +5,15 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 11/17/2017
+ms.date: 12/06/2017
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: 517f85307e97c1e98a84da95cb51660d6d4fe679
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: ba425e938f81ffb37a2c8bc2a764a4db074e9106
+ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Criar e gerenciar políticas para impor a conformidade
 
@@ -26,22 +26,6 @@ Compreender como criar e gerenciar políticas no Azure é importante para manter
 > * Implementar uma nova política em toda a organização
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
-
-## <a name="opt-in-to-azure-policy"></a>Aceitar a Política do Azure
-
-A Política do Azure está disponível na versão prévia limitada e, portanto, você precisa se registrar para solicitar acesso.
-
-1. Vá até a Política do Azure em https://aka.ms/getpolicy e selecione **Inscrever-se** no painel esquerdo.
-
-   ![Pesquisar pela política](media/assign-policy-definition/sign-up.png)
-
-2. Aceite a Política do Azure selecionando na lista **Assinatura** as assinaturas com que gostaria de trabalhar. Em seguida, selecione **Registrar**.
-
-   A lista de assinatura inclui todas as suas assinaturas do Azure.
-
-   ![Aceitar o uso da Política do Azure](media/assign-policy-definition/preview-opt-in.png)
-
-   Dependendo da demanda, pode levar alguns dias para aceitarmos sua solicitação de registro. Após sua solicitação ser aceita, você receberá um email informando que pode começar a usar o serviço.
 
 ## <a name="assign-a-policy"></a>Atribuir uma política
 
@@ -69,7 +53,7 @@ A primeira etapa para impor a conformidade com a Política do Azure é atribuir 
 
    Há dois tipos de preço na Política do Azure – *Gratuito* e *Standard*. Com a camada Gratuita, você só pode impor políticas para recursos futuros, enquanto com a Standard, você também pode impô-las para recursos existentes para compreender melhor seu estado de conformidade. Como estamos na versão prévia limitada, ainda não lançamos um modelo de preços, de modo que você não receberá uma fatura por selecionar a opção *Standard*. Para saber mais sobre os preços, veja: [Preços da Política do Azure](https://acom-milestone-ignite.azurewebsites.net/pricing/details/azure-policy/).
 
-8. Selecione o **Escopo** – a assinatura (ou grupo de recursos) que você registrou anteriormente quando aceitou a Política do Azure. Um escopo determina em quais recursos ou agrupamento de recursos a atribuição de política é imposta. Pode variar de uma assinatura a grupos de recursos.
+8. Selecione o **Escopo** – a assinatura (ou grupo de recursos) que você registrou anteriormente. Um escopo determina em quais recursos ou agrupamento de recursos a atribuição de política é imposta. Pode variar de uma assinatura a grupos de recursos.
 
    Para este exemplo, estamos usando esta assinatura – **Azure Analytics Capacity Dev**. Sua assinatura será diferente.
 
@@ -94,9 +78,9 @@ Agora que atribuímos a definição de política, vamos criar uma nova política
       - As regras/condições da política, nesse caso – tamanho do SKU de VM igual a série G
       - O efeito da política, neste caso – **Negar**.
 
-   Esta deve ser a aparência do JSON
+    Esta deve ser a aparência do JSON
 
-```json
+    ```json
 {
     "policyRule": {
       "if": {
@@ -116,11 +100,9 @@ Agora que atribuímos a definição de política, vamos criar uma nova política
       }
     }
 }
-```
+    ```
 
-<!-- Update the following link to the top level samples page
--->
-   Para exibir exemplos de código json, consulte este artigo – [Modelos do Azure Policy](json-samples.md)
+    Para exibir exemplos de código json, leia o artigo [Modelos do Azure Policy](json-samples.md).
 
 4. Selecione **Salvar**.
 

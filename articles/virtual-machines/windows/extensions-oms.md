@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danis
-ms.openlocfilehash: b4cd56606d0f84653f3e50634fc5e4d1318c0f94
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: cfdbf6c3d1ac86d430543eada15c1e3b31e3712f
+ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="oms-virtual-machine-extension-for-windows"></a>Extensão da máquina virtual do OMS para Windows
 
@@ -28,7 +28,12 @@ O OMS (Operations Management Suite) fornece recursos de monitoramento, alertas e
 ## <a name="prerequisites"></a>Pré-requisitos
 
 ### <a name="operating-system"></a>Sistema operacional
+
 A extensão do Agente do OMS para Windows pode ser executada nas versões 2008 R2, 2012, 2012 R2 e 2016 do Windows Server.
+
+### <a name="azure-security-center"></a>Central de Segurança do Azure
+
+A Central de Segurança do Azure provisiona o agente do OMS e conecta-se com o espaço de trabalho do Log Analytics padrão da assinatura do Azure automaticamente. Se você estiver usando a Central de Segurança do Azure, não execute as etapas neste documento. Isso substituiria o espaço de trabalho configurado e interromperia a conexão com a Central de Segurança do Azure.
 
 ### <a name="internet-connectivity"></a>Conectividade com a Internet
 A extensão do agente do OMS para Windows requer que a máquina virtual de destino esteja conectada à Internet. 

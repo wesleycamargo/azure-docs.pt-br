@@ -1,27 +1,19 @@
 ---
-title: Tutorial do Kubernetes no Azure - Implantar cluster | Microsoft Docs
+title: "Tutorial do Kubernetes no Azure – Implantar cluster"
 description: Tutorial do AKS - Implantar cluster
 services: container-service
-documentationcenter: 
 author: neilpeterson
 manager: timlt
-editor: 
-tags: aks, azure-container-service
-keywords: "Docker, Contêineres, Microsserviços, Kubernetes, DC/SO, Azure"
-ms.assetid: 
 ms.service: container-service
-ms.devlang: azurecli
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/15/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 69dea4ab748d88d18cf01dc9b3fc1bdddd562681
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: a03bbfbdedd418216c26379e9d8dbd780fa89fd8
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="deploy-an-azure-container-service-aks-cluster"></a>Implantar um cluster do AKS (Serviço de Contêiner do Azure)
 

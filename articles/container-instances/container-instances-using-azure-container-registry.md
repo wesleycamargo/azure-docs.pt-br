@@ -1,27 +1,19 @@
 ---
-title: "Implantar do Registro de Contêiner do Azure em Instâncias de Contêiner do Azure | Azure Docs"
-description: "Implantar do Registro de Contêiner do Azure em Instâncias de Contêiner do Azure"
+title: "Implantar do Registro de Contêiner do Azure em Instâncias de Contêiner do Azure"
+description: "Implantar Instâncias de Contêiner do Azure do 	Registro de Contêiner do Azure"
 services: container-instances
-documentationcenter: 
 author: seanmck
 manager: timlt
-editor: 
-tags: 
-keywords: 
-ms.assetid: 
 ms.service: container-instances
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 08/02/2017
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: aa1c4ea379c10dff246e2f924a345f9fa444aa64
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9667a5b840d6c1fab5087cfcf3ede34a732fbe01
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="deploy-to-azure-container-instances-from-the-azure-container-registry"></a>Implantar do Registro de Contêiner do Azure em Instâncias de Contêiner do Azure
 

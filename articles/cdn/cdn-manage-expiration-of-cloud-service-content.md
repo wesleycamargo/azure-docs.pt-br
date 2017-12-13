@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: mazha
-ms.openlocfilehash: fe519c3ad5f99899277bf005929142c52a4c4724
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: dca6ca5f21f4a4f1701af57eb40d92094b6a4754
+ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="manage-expiration-of-web-content-in-azure-content-delivery-network"></a>Como gerenciar a expiração do conteúdo da Web na Rede de Distribuição de Conteúdo do Microsoft Azure
 > [!div class="op_single_selector"]
@@ -26,10 +26,12 @@ ms.lasthandoff: 11/23/2017
 > * [Armazenamento de Blobs do Azure](cdn-manage-expiration-of-blob-content.md)
 > 
 
-Os arquivos de qualquer servidor Web de origem publicamente acessível podem ser armazenados em cache na CDN (Rede de Distribuição de Conteúdo) do Azure até que a TTL (vida útil) tenha decorrida. A vida útil é determinada pelo cabeçalho `Cache-Control` na resposta HTTP do servidor de origem. Este artigo descreve como definir cabeçalhos `Cache-Control` para recurso de Aplicativos Web do Serviço de Aplicativo do Microsoft Azure, Serviços de Nuvem do Microsoft Azure, aplicativos ASP.NET e sites do IIS (Serviços de Informações da Internet), todos configurados de forma semelhante. Você pode definir o cabeçalho `Cache-Control` usando arquivos de configuração ou programaticamente.
+Os arquivos de qualquer servidor Web de origem publicamente acessível podem ser armazenados em cache na CDN (Rede de Distribuição de Conteúdo) do Azure até que a TTL (vida útil) tenha decorrida. A vida útil é determinada pelo cabeçalho `Cache-Control` na resposta HTTP do servidor de origem. Este artigo descreve como definir cabeçalhos `Cache-Control` para recurso de Aplicativos Web do Serviço de Aplicativo do Microsoft Azure, Serviços de Nuvem do Microsoft Azure, aplicativos ASP.NET e sites do IIS (Serviços de Informações da Internet), todos configurados de forma semelhante. Você pode definir o cabeçalho `Cache-Control` usando arquivos de configuração ou programaticamente. 
+
+Também é possível controlar as configurações de cache do Portal do Azure, definindo as [regras de cache da CDN](cdn-caching-rules.md). Se você configurar uma ou mais regras de cache e definir o comportamento do cache para **Substituir** ou **Ignorar cache**, as configurações de cache fornecidas pela origem discutidas neste artigo serão ignoradas. Para obter informações sobre conceitos gerais de cache, consulte [Como funciona o cache](cdn-how-caching-works.md).
 
 > [!TIP]
-> Você pode optar por não definir nenhuma vida útil em um arquivo. Nesse caso, o Azure CDN aplica automaticamente um TTL padrão de sete dias. Esse padrão TTL aplica-se somente a otimizações de entrega da web geral. Para otimizações de arquivo grande, o TTL padrão é de um dia e para otimizações de streaming de mídia, o TTL padrão é um ano.
+> Você pode optar por não definir nenhuma vida útil em um arquivo. Nesse caso, o Azure CDN aplica automaticamente um TTL padrão de sete dias, exceto se tiver configurado as regras de cache no Portal do Azure. Esse padrão TTL aplica-se somente para otimizações de entrega da web gerais. Para otimizações de arquivo grande, o TTL padrão é de um dia e para otimizações de streaming de mídia, o TTL padrão é um ano.
 > 
 > Para obter mais informações sobre como a CDN do Azure trabalha para acelerar o acesso a arquivos e outros recursos, consulte [Visão geral da Rede de Distribuição de Conteúdo do Azure](cdn-overview.md).
 > 
@@ -82,5 +84,5 @@ Você pode facilmente verificar as configurações TTL do seu conteúdo da Web. 
 ## <a name="next-steps"></a>Próximas etapas
 * [Leia os detalhes sobre o elemento **clientCache**](http://www.iis.net/ConfigReference/system.webServer/staticContent/clientCache)
 * [Leia a documentação sobre a propriedade **HttpResponse.Cache**](http://msdn.microsoft.com/library/system.web.httpresponse.cache.aspx) 
-* [Leia a documentação sobre a **classe HttpCachePolicy**](http://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx).  
-
+* [Leia a documentação da **Classe HttpCachePolicy**](http://msdn.microsoft.com/library/system.web.httpcachepolicy.aspx)  
+* [Saiba mais sobre conceitos de cache](cdn-how-caching-works.md)

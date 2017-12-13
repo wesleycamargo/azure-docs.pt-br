@@ -14,102 +14,92 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/22/2017
+ms.date: 11/29/2017
 ms.author: jgao
-ms.openlocfilehash: db8f0056fa3813e95c2c5bea583d7b66ac64260f
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: 78ab44a7afa6523e1e9e4082b3f45b1a28affe77
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/05/2017
 ---
-# <a name="run-interactive-queries-on-an-hdinsight-spark-cluster"></a>Executar consultas interativas em um cluster HDInsight Spark
+# <a name="run-interactive-queries-on-spark-clusters-in-hdinsight"></a>Executar consultas interativas em clusters do Spark no HDInsight
 
-Neste artigo, você pode usar um bloco de anotações do Jupyter para executar consultas interativas do Spark SQL com relação a um cluster Spark. O bloco de anotações do Jupyter é um aplicativo baseado em navegador que estende a experiência interativa baseada em console para a Web. Para obter mais informações, consulte [O bloco de anotações do Jupyter](http://jupyter-notebook.readthedocs.io/en/latest/notebook.html).
+Saiba como usar o Notebook Jupyter para executar consultas SQL interativas do Spark em um cluster do Spark. 
 
-Para este tutorial, você deve usar o kernel **PySpark** do bloco de anotações do Jupyter para executar uma consulta SQL Spark interativa. Blocos de anotações do Jupyter em de clusters HDInsight também dão suporte a dois outros kernels – **PySpark3** e **Spark**. Para saber mais sobre os três kernels e os benefícios de usar o **PySpark**, consulte [Usar kernels de blocos de anotações do Jupyter com clusters do Apache Spark no HDInsight](apache-spark-jupyter-notebook-kernels.md).
+O [Notebook Jupyter](http://jupyter-notebook.readthedocs.io/en/latest/notebook.html) é um aplicativo baseado em navegador que estende para a Web a experiência interativa baseada em console. O Spark no HDInsight também inclui o [Notebook Zeppelin](apache-spark-zeppelin-notebook.md). Neste tutorial, é usado o Notebook Jupyter.
+
+Os Notebooks Jupyter nos clusters do HDInsight dão suporte a três kernels – **PySpark**, **PySpark3** e **Spark**. Neste tutorial, é usado o kernel **PySpark**. Para saber mais sobre os três kernels e os benefícios de usar o **PySpark**, consulte [Usar kernels de blocos de anotações do Jupyter com clusters do Apache Spark no HDInsight](apache-spark-jupyter-notebook-kernels.md). Para usar o Notebook Zeppelin, consulte [Usar notebooks Zeppelin com cluster Apache Spark no Azure HDInsight](./apache-spark-zeppelin-notebook.md).
+
+Neste tutorial, você consultará dados em um arquivo CSV. Primeiro você deve carregar esses dados no Spark como um dataframe. Em seguida, você poderá executar consultas no dataframe usando o Notebook Jupyter. 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 * **Um cluster HDInsight Spark do Azure**. Para obter instruções, consulte [Criar um cluster do Apache Spark no Azure HDInsight](apache-spark-jupyter-spark-sql.md).
+* **Um notebook Jupyter usando PySpark**. Para obter instruções, consulte [Criar um Notebook Jupyter](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
 
-## <a name="create-a-jupyter-notebook-to-run-interactive-queries"></a>Criar um bloco de anotações do Jupyter para executar consultas interativas
+## <a name="create-a-dataframe-from-a-csv-file"></a>Criar um dataframe usando um arquivo CSV
 
-Para executar consultas, usamos dados de exemplo que estão disponíveis por padrão no armazenamento associado ao cluster. No entanto, você deve primeiro carregar esses dados no Spark como um dataframe. Quando tiver o dataframe, você poderá executar consultas nele usando o bloco de anotações do Jupyter. Neste artigo, você verá como:
+Com um SQLContext, os aplicativos podem criar dataframes usando um RDD, uma tabela do Hive ou uma fonte de dados existente. 
 
-* Registrar um conjunto de dados de exemplo como um dataframe do Spark.
-* Executar consultas no dataframe.
+**Para criar um dataframe usando um arquivo CSV**
 
-Vamos começar.
+1. Crie um notebook Jupyter usando o PySpark, se você ainda não tiver um. Para obter instruções, consulte [Criar um Notebook Jupyter](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
 
-1. Abra o [Portal do Azure](https://portal.azure.com/). Se você tiver optado por fixar o cluster ao painel, clique no bloco do cluster no painel para iniciar a folha de cluster.
+2. Cole o código a seguir em uma célula vazia do notebook e, em seguida, pressione **SHIFT + ENTER** para executar o código. O código importa os tipos obrigatórios necessários para este cenário:
 
-    Se você não fixar o cluster ao painel, no painel esquerdo, clique em **Clusters HDInsight** e clique no cluster que você criou.
+    ```PySpark
+    from pyspark.sql import *
+    from pyspark.sql.types import *
+    ```
+    Usando o kernel PySpark para criar um notebook, os contextos do Spark e do Hive serão criados automaticamente quando você executar a primeira célula de código. Você não precisa criar nenhum contexto explicitamente.
 
-3. Em **Links rápidos**, clique em **Painéis de cluster**e, em seguida, clique em **Anotações do Jupyter**. Se você receber uma solicitação, insira as credenciais de administrador para o cluster.
-
-   ![Abrir um bloco de anotações Jupyter para executar uma consulta interativa SQL do Spark](./media/apache-spark-load-data-run-query/hdinsight-spark-start-jupyter-interactive-spark-sql-query.png "Abrir um bloco de anotações Jupyter para executar uma consulta interativa SQL do Spark")
-
-   > [!NOTE]
-   > Você também pode acessar o bloco de anotações Jupyter de seu cluster abrindo a seguinte URL no navegador. Substitua **CLUSTERNAME** pelo nome do cluster:
-   >
-   > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
-   >
-   >
-3. Crie um notebook. Clique em **Novo** e em **PySpark**.
-
-   ![Criar um bloco de anotações Jupyter para executar consulta interativa SQL do Spark](./media/apache-spark-load-data-run-query/hdinsight-spark-create-jupyter-interactive-Spark-SQL-query.png "Criar um bloco de anotações Jupyter para executar uma consulta interativa SQL do Spark")
-
-   Um novo bloco de anotações é criado e aberto com o nome Untitled(Untitled.pynb).
-
-4. Clique no nome do bloco de anotações na parte superior e, se desejar, digite um nome amigável.
-
-    ![Forneça um nome para o bloco de anotações Jupyter para executar a consulta interativa Spark](./media/apache-spark-load-data-run-query/hdinsight-spark-jupyter-notebook-name.png "Forneça um nome para o bloco de anotações Jupyter para executar a consulta interativa Spark")
-
-5. Cole o código a seguir em uma célula vazia e pressione **SHIFT + ENTER** para executar o código. O código importa os tipos obrigatórios necessários para este cenário:
-
-        from pyspark.sql import *
-        from pyspark.sql.types import *
-
-    Por ter criado um notebook usando o kernel PySpark, não será necessário criar nenhum contexto explicitamente. Os contextos do Spark e do Hive são criados automaticamente para você ao executar a primeira célula do código.
+    Ao executar uma consulta interativa no Jupyter, a legenda da guia ou da janela do navegador da Web mostra um status **(Ocupado)** ao lado do título do notebook. Você também verá um círculo sólido ao lado do texto **PySpark** no canto superior direito. Após a conclusão do trabalho, isso será alterado para um círculo vazio.
 
     ![Status de consulta interativa SQL Spark](./media/apache-spark-load-data-run-query/hdinsight-spark-interactive-spark-query-status.png "Status de consulta interativa SQL Spark")
 
-    Toda vez que você executar uma consulta interativa no Jupyter, o título da janela do navegador da Web mostrará um status **(Ocupado)** com o título do bloco de anotações. Você também verá um círculo sólido ao lado do texto **PySpark** no canto superior direito. Após a conclusão do trabalho, isso será alterado para um círculo vazio.
+3. Execute o seguinte código para criar um dataframe e uma tabela temporária (**hvac**): o código não extrai todas as colunas disponíveis no arquivo CSV. 
 
-6. Antes de você carregar os dados em um cluster Spark, examinaremos um instantâneo dele. Os dados de exemplo usados neste tutorial estão disponíveis como um arquivo CSV em todos os clusters HDInsight Spark em **\HdiSamples\HdiSamples\SensorSampleData\hvac\hvac.csv**. Os dados capturam as variações de temperatura de um prédio. Aqui estão as primeiras linhas dos dados.
+    ```PySpark
+    # Create an RDD from sample data
+    hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+    
+    # Create a schema for our data
+    Entry = Row('Date', 'Time', 'TargetTemp', 'ActualTemp', 'BuildingID')
+    
+    # Parse the data and create a schema
+    hvacParts = hvacText.map(lambda s: s.split(',')).filter(lambda s: s[0] != 'Date')
+    hvac = hvacParts.map(lambda p: Entry(str(p[0]), str(p[1]), int(p[2]), int(p[3]), int(p[6])))
+    
+    # Infer the schema and create a table       
+    hvacTable = sqlContext.createDataFrame(hvac)
+    hvacTable.registerTempTable('hvactemptable')
+    dfw = DataFrameWriter(hvacTable)
+    dfw.saveAsTable('hvac')
+    ```
+    A captura de tela a seguir mostra um instantâneo do arquivo HVAC.csv. O arquivo CSV vem com todos os clusters do Spark no HDInsigt. Os dados capturam as variações de temperatura de um prédio.
 
     ![Instantâneo de dados para consulta SQL interativa do Spark](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "Instantâneo de dados para consulta SQL interativa do Spark")
 
-6. Crie um dataframe e uma tabela temporária (**hvac**) executando o código a seguir. Neste tutorial, não criamos todas as colunas disponíveis no arquivo CSV. 
+## <a name="run-queries-on-the-dataframe"></a>Executar consultas no dataframe
 
-        # Create an RDD from sample data
-        hvacText = sc.textFile("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
+Depois que a tabela for criada, você poderá executar uma consulta interativa nos dados.
 
-        # Create a schema for our data
-        Entry = Row('Date', 'Time', 'TargetTemp', 'ActualTemp', 'BuildingID')
+**Para executar uma consulta**
 
-        # Parse the data and create a schema
-        hvacParts = hvacText.map(lambda s: s.split(',')).filter(lambda s: s[0] != 'Date')
-        hvac = hvacParts.map(lambda p: Entry(str(p[0]), str(p[1]), int(p[2]), int(p[3]), int(p[6])))
-        
-        # Infer the schema and create a table       
-        hvacTable = sqlContext.createDataFrame(hvac)
-        hvacTable.registerTempTable('hvactemptable')
-        dfw = DataFrameWriter(hvacTable)
-        dfw.saveAsTable('hvac')
+1. Execute o seguinte código em uma célula vazia do notebook:
 
-7. Uma vez criada a tabela, execute uma consulta interativa nos dados, use o código a seguir.
+    ```PySpark
+    %%sql
+    SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
+    ```
 
-        %%sql
-        SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
-
-   Como está usando um kernel PySpark, agora você pode executar diretamente uma consulta interativa SQL na tabela temporária **hvac** que você criou usando a palavra mágica `%%sql`. Para saber mais sobre a palavra mágica `%%sql`, e outras palavras mágicas disponíveis com o kernel PySpark, confira [Kernels disponíveis em notebooks Jupyter com clusters HDInsight Spark](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
+   Como o kernel PySpark é usado no notebook, agora é possível executar uma consulta SQL interativa diretamente na tabela temporária **hvac** que você criou usando a mágica `%%sql`. Para saber mais sobre a palavra mágica `%%sql`, e outras palavras mágicas disponíveis com o kernel PySpark, confira [Kernels disponíveis em notebooks Jupyter com clusters HDInsight Spark](apache-spark-jupyter-notebook-kernels.md#parameters-supported-with-the-sql-magic).
 
    A saída tabular a seguir é exibida por padrão.
 
      ![Tabela de saída do resultado da consulta interativa Spark](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result.png "Tabela de saída do resultado da consulta interativa Spark")
 
-9. Você também pode ver os resultados em outras visualizações. Para ver um gráfico de área para a mesma saída, selecione **Área** e, em seguida, defina outros valores conforme mostrado.
+3. Você também pode ver os resultados em outras visualizações. Para ver um gráfico de área para a mesma saída, selecione **Área** e, em seguida, defina outros valores conforme mostrado.
 
     ![Grafo de área de resultado de consulta interativa do Spark](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result-area-chart.png "Grafo de área de resultado de consulta interativa do Spark")
 
@@ -119,7 +109,7 @@ Vamos começar.
 
 ## <a name="next-step"></a>Próxima etapa
 
-Neste artigo, você aprendeu como executar consultas interativas no Spark usando o bloco de anotações do Jupyter. Avance para o próximo artigo para ver como os dados que você registrou no Spark podem ser removidos em uma ferramenta de análise de BI, assim como Power BI e Tableau. 
+Neste artigo, você aprendeu como executar consultas interativas no Spark Notebooks Jupyter. Avance para o próximo artigo para ver como os dados que você registrou no Spark podem ser removidos em uma ferramenta de análise de BI, assim como Power BI e Tableau. 
 
 > [!div class="nextstepaction"]
 >[Spark BI usando ferramentas de visualização de dados com o Azure HDInsight](apache-spark-use-bi-tools.md)

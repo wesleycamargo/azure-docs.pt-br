@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/07/2017
 ms.author: ancav
-ms.openlocfilehash: df5059b5509ca4989369cf3bcba8cb89f1c25db4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 70ec03d2ed32cb0362bf2f7b24c66979093603be
+ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/05/2017
 ---
 # <a name="best-practices-for-autoscale"></a>Práticas recomendadas para Dimensionamento Automático
 Este artigo ensina práticas recomendadas para o dimensionamento automático no Azure. O dimensionamento automático do Azure Monitor aplica-se somente aos [Conjuntos de Dimensionamento da Máquina Virtual](https://azure.microsoft.com/services/virtual-machine-scale-sets/), [Serviços de Nuvem](https://azure.microsoft.com/services/cloud-services/) e [Serviço de Aplicativo - Aplicativos Web](https://azure.microsoft.com/services/app-service/web/). Outros serviços do Azure usam métodos de dimensionamento diferentes.
@@ -30,8 +30,8 @@ Este artigo ensina práticas recomendadas para o dimensionamento automático no 
   Uma configuração de dimensionamento automático tem um valor máximo, mínimo e padrão de instâncias.
 * Um trabalho de dimensionamento automático sempre lê a métrica associada para expandir, verificando se ele ultrapassou o limite configurado para escalar ou reduzir horizontalmente. Você pode exibir uma lista de métricas que o dimensionamento automático pode dimensionar em [métricas comuns de dimensionamento automático do Azure Monitor](insights-autoscale-common-metrics.md).
 * Todos os limites são calculados em um nível de instância. Por exemplo, "escalar horizontalmente por 1 instância quando a média da CPU > 80% quando a contagem de instâncias for 2" significa escalar horizontalmente quando a média da CPU em todas as instâncias for maior que 80%.
-* Você sempre receberá notificações de falha via email. Especificamente o proprietário, o colaborador e os leitores do recurso de destino receberão email. Você também receberá um email de *recuperação* quando o dimensionamento automático se recuperar de uma falha e iniciar o funcionamento normalmente.
-* Você pode optar por receber uma notificação de ação de escala com êxito por meio de email e ganchos.
+* Todas as falhas de dimensionamento automático são registradas no log de atividades. Você pode configurar um [alerta do log de atividade](./monitoring-activity-log-alerts.md) para que você possa ser notificado por email, SMS, webhook, etc. sempre que houver uma falha de dimensionamento automático.
+* Da mesma forma, todas as ações de escala bem-sucedidas são lançadas no Log de atividades. Você pode configurar um alerta do log de atividades para que você possa ser notificado por email, SMS, webhook, etc. sempre que houver uma ação de dimensionamento automático bem-sucedida. Você também pode configurar as notificações por e-mail ou webhook para obter notificações de ações de dimensionamento bem-sucedidas através do guia de notificações nas configurações de dimensionamento automático.
 
 ## <a name="autoscale-best-practices"></a>Práticas recomendadas de dimensionamento automático
 Use as seguintes práticas recomendadas ao usar o dimensionamento automático.
@@ -40,7 +40,7 @@ Use as seguintes práticas recomendadas ao usar o dimensionamento automático.
 Se você tiver uma configuração que tenha no máximo = 2, mínimo = 2 e atual contagem de instâncias for 2, nenhuma ação de escala poderá ocorrer. Mantenha uma margem suficiente entre as contagens de instância máxima e mínima, que são inclusivas. O dimensionamento automático sempre dimensiona dentro desses limites.
 
 ### <a name="manual-scaling-is-reset-by-autoscale-min-and-max"></a>O redimensionamento manual é redefinido pelo máximo e pelo mínimo do dimensionamento automático
-Se você atualizar manualmente a contagem de instâncias para um valor acima ou abaixo do máximo, o mecanismo de dimensionamento automático dimensionará novamente para o mínimo (se estiver abaixo) ou máximo (se estiver acima) automaticamente. Por exemplo, você pode definir o intervalo entre 3 e 6. Se você tiver uma instância em execução, o mecanismo de dimensionamento automático dimensionará para 3 instâncias na sua próxima execução. Da mesma forma, ele reduziria 8 instâncias para 6 na sua próxima execução.  O redimensionamento manual é muito temporário, a menos que você também redefina as regras de dimensionamento automático.
+Se você atualizar manualmente a contagem de instâncias para um valor acima ou abaixo do máximo, o mecanismo de dimensionamento automático dimensionará novamente para o mínimo (se estiver abaixo) ou máximo (se estiver acima) automaticamente. Por exemplo, você pode definir o intervalo entre 3 e 6. Se você tiver uma instância em execução, o mecanismo de dimensionamento automático dimensionará para 3 instâncias na sua próxima execução. Da mesma forma, se você definir manualmente a escala para 8 instâncias, na próxima execução, o dimensionamento automático será dimensionado de volta para 6 instâncias na sua próxima execução.  O redimensionamento manual é muito temporário, a menos que você também redefina as regras de dimensionamento automático.
 
 ### <a name="always-use-a-scale-out-and-scale-in-rule-combination-that-performs-an-increase-and-decrease"></a>Sempre use uma combinação de regras de escala e redução horizontal que executa um aumento e uma redução
 Se você usar apenas uma parte da combinação, o dimensionamento automático reduzirá horizontalmente a única redução ou escala, até que o máximo ou o mínimo seja alcançado.
@@ -113,7 +113,7 @@ Vamos examinar isso usando um exemplo:
 
 A imagem abaixo mostra uma configuração de dimensionamento automático com um perfil padrão de instâncias mínimas = 2 e máximo de instâncias = 10. Neste exemplo, as regras são configuradas para escalar horizontalmente quando a contagem de mensagens na fila for maior que 10 e reduzir horizontalmente de quando a contagem de mensagens na fila for menor que 3. Agora, o recurso pode ser dimensionado entre 2 e 10 instâncias.
 
-Além disso, há um perfil recorrente para segunda-feira. Ele é definido para instâncias mínimas = 2 e máximo de instâncias = 12. Isso significa que na segunda-feira, na primeira vez que o dimensionamento automático verificar essa condição, a contagem de instâncias era de 2, e ela será dimensionada para o novo mínimo de 3. Enquanto o dimensionamento automático continuar encontrando essa condição de perfil correspondida (segunda-feira), ele só processará as regras de redução/escala horizontal com base na CPU configuradas para esse perfil. Neste momento, ele não verificará o comprimento da fila. No entanto, se você deseja que a condição de comprimento de fila seja verificada, você deve incluir as regras do perfil padrão também em seu perfil de segunda-feira.
+Além disso, há um perfil recorrente para segunda-feira. Ele é definido para instâncias mínimas = 3 e instâncias máximas = 10. Isso significa que na segunda-feira, na primeira vez que o dimensionamento automático verificar essa condição, a contagem de instâncias era de 2, e ela será dimensionada para o novo mínimo de 3. Enquanto o dimensionamento automático continuar encontrando essa condição de perfil correspondida (segunda-feira), ele só processará as regras de redução/escala horizontal com base na CPU configuradas para esse perfil. Neste momento, ele não verificará o comprimento da fila. No entanto, se você deseja que a condição de comprimento de fila seja verificada, você deve incluir as regras do perfil padrão também em seu perfil de segunda-feira.
 
 Da mesma forma, quando o dimensionamento automático alternar de volta para o perfil padrão, ele primeiro verifica se as condições de mínimas e máxima são atendidas. Se o número de instâncias no momento é 12, ele é dimensionado em 10, o máximo permitido para o perfil padrão.
 
@@ -143,14 +143,17 @@ Por outro lado, se a CPU é 25% e a memória é 51%, dimensionamento automático
 A contagem de instâncias padrão é importante porque o dimensionamento automático dimensiona o serviço para essa contagem quando métricas não estão disponíveis. Portanto, selecione uma contagem de instância padrão que seja segura para suas cargas de trabalho.
 
 ### <a name="configure-autoscale-notifications"></a>Configurar notificações de dimensionamento automático
-O dimensionamento automático notificará os administradores e os colaboradores do recurso por email se ocorrer qualquer uma das seguintes condições:
+O dimensionamento automático registrará no Log de atividades se qualquer das seguintes condições ocorrer:
 
-* O serviço de dimensionamento automático não pode executar uma ação.
+* O dimensionamento automático emite uma operação de dimensionamento
+* O serviço de dimensionamento automático conclui com sucesso uma ação de dimensionamento
+* O serviço de dimensionamento automático não pode executar uma ação de dimensionamento.
 * As métricas não estão disponíveis para o serviço de dimensionamento automático tomar uma decisão de escala.
 * As métricas estão disponíveis (recuperação) novamente para tomar uma decisão de escala.
-  Além das condições acima, você pode configurar notificações por email ou webhook para obter notificações de ações de dimensionamento bem-sucedido.
-  
+
 Você também pode usar um alerta do Log de Atividades para monitorar a integridade do mecanismo de dimensionamento automático. Aqui estão exemplos para [criar um Alerta de Log de Atividades para monitorar todas as operações do mecanismo de dimensionamento automático em sua assinatura](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert) ou [criar um Alerta de Log de Atividades para monitorar todas as operações de escalar horizontalmente/reduzir horizontalmente com falha na sua assinatura](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-failed-alert).
+
+Além de usar os alertas do log de atividades, você também pode configurar as notificações por e-mail ou webhook para obter notificações de ações de dimensionamento bem-sucedidas através do guia de notificações nas configurações de dimensionamento automático.
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Crie um Alerta de Log de Atividades para monitorar todas as operações de mecanismo de dimensionamento automático em sua assinatura.](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)

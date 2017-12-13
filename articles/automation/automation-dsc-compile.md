@@ -13,11 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 02/07/2017
 ms.author: magoedte; eslesar
-ms.openlocfilehash: 1aadd604e676659475f00760af3b0bdfb13a4792
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7b126072424bfc6ad54fd2497ffcdb410b9dc5fe
+ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/06/2017
 ---
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>Compilando configurações no DSC de Automação do Azure
 
@@ -128,6 +128,50 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -A
 ```
 
 Para obter informações sobre como transmitir PSCredentials como parâmetros, confira <a href="#credential-assets">**Ativos de credencial**</a> abaixo.
+
+## <a name="composite-resources"></a>Recursos de composição
+
+**Recursos de Composição** permitem que você use as configurações DSC como recursos aninhados dentro de uma configuração.  Isso permite que você aplique várias configurações para um único recurso.  Consulte [recursos de composição: utilizando uma configuração DSC como um recurso](https://docs.microsoft.com/en-us/powershell/dsc/authoringresourcecomposite) para saber mais sobre **Recursos de Composição**
+
+> [!NOTE]
+> Para que os **Recursos de Composição** sejam compilados corretamente, primeiro você deverá garantir que todos os Recursos DSC que a composição confie sejam instalados primeiro no repositório dos Módulos de Conta de Automação do Azure ou não serão importados corretamente.
+
+Para adicionar um **Recursos de Composição** DSC, você deverá adicionar o módulo de recurso a um arquivo (*.zip). Acesse o repositório de Módulos na sua Conta de Automação do Azure.  Em seguida, clique no botão 'Adicionar um Módulo'.
+
+![Adicionar módulo](./media/automation-dsc-compile/add_module.png)
+
+Navegue até o diretório onde seu arquivo está localizado.  Selecione o arquivo e clique em OK.
+
+![Selecione Módulo](./media/automation-dsc-compile/select_dscresource.png)
+
+Em seguida, você será levado de volta ao diretório de módulos, onde é possível monitorar o status do seu **Recursos de Composição** enquanto ele desempacota e se registra com Automação do Azure.
+
+![Importar Recursos de Composição](./media/automation-dsc-compile/register_composite_resource.png)
+
+Quando o módulo estiver registrado, você poderá clicar nele para validar que os **Recursos de Composição** estão disponíveis para serem utilizados em uma configuração.
+
+![Validar Recursos de Composição](./media/automation-dsc-compile/validate_composite_resource.png)
+
+Então, será possível chamar os **Recursos de Composição** na sua configuração, desse modo:
+
+```powershell
+
+    Node ($AllNodes.Where{$_.Role -eq "WebServer"}).NodeName
+    {
+            
+            JoinDomain DomainJoin
+            {
+                DomainName = $DomainName
+                Admincreds = $Admincreds
+            }
+
+            PSWAWebServer InstallPSWAWebServer
+            {
+                DependsOn = "[JoinDomain]DomainJoin"
+            }        
+    }
+
+```
 
 ## <a name="configurationdata"></a>ConfigurationData
 **ConfigurationData** permite que você separe a configuração estrutural de qualquer configuração específica do ambiente durante o uso da DSC do PowerShell. Veja [Separar “O que” de “Onde” na DSC do PowerShell](http://blogs.msdn.com/b/powershell/archive/2014/01/09/continuous-deployment-using-dsc-with-minimal-change.aspx) para saber mais sobre **ConfigurationData**.
@@ -242,7 +286,7 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName "MyResourceGroup" -A
 
 ## <a name="importing-node-configurations"></a>Como importar configurações de nó
 
-Você também pode importar configurações de nó (MOFs) que você compilou fora do Azure. Uma das vantagens disso é que as configurações de nó podem ser assinadas.
+Você também pode importar configurações de nó (MOFs) que você compilou fora do Azure. Uma vantagem disso é que as configurações dos nós podem ser assinadas.
 Uma configuração de nó assinada é verificada localmente em um nó gerenciado pelo agente de DSC, garantindo que a configuração aplicada ao nó seja proveniente de uma origem autorizada.
 
 > [!NOTE]
