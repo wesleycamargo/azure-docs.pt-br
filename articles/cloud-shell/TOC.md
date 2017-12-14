@@ -17,7 +17,7 @@
 # Exemplos
 ## [Implantar recursos do Azure com o Terraform em Bash](example-terraform-bash.md)
 
-# [Preços](pricing.md)
+# [Inserir Cloud Shell](embed-cloud-shell.md)
 
 # [Solução de problemas](troubleshooting.md)
 
