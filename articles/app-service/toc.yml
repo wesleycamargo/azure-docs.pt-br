@@ -89,6 +89,8 @@
       items:
         - name: Implantar o aplicativo
           items:
+            - name: Implantar arquivo ZIP
+              href: app-service-deploy-zip.md
             - name: Implantar por FTP
               href: app-service-deploy-ftp.md
             - name: Implantar por sincronização de nuvem

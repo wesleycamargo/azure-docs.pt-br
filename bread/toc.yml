@@ -150,7 +150,7 @@
         - name: Face
           tocHref: /azure/cognitive-services/face/
           topicHref: /azure/cognitive-services/face/
-        - name: Serviço Inteligente de Reconhecimento Vocal (LUIS)
+        - name: Reconhecimento Vocal (LUIS)
           tocHref: /azure/cognitive-services/LUIS/
           topicHref: /azure/cognitive-services/LUIS/
         - name: Análise de texto

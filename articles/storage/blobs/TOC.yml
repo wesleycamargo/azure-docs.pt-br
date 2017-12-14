@@ -22,6 +22,8 @@
       href: storage-quickstart-blobs-java.md
     - name: Trabalhar com blobs – Python
       href: storage-quickstart-blobs-python.md
+    - name: Trabalhar com blobs - Ruby
+      href: storage-quickstart-blobs-ruby.md
     - name: Trabalhar com blobs - Node.js
       href: storage-quickstart-blobs-nodejs.md
     - name: Trabalhar com blobs - Gerenciador de Armazenamento
@@ -46,6 +48,16 @@
           href: storage-simulate-failure-ragrs-account-app.md
     - name: Pesquisar dados não estruturados no armazenamento em nuvem
       href: storage-unstructured-search.md
+    - name: Otimizar escalabilidade e desempenho de aplicativo de armazenamento
+      items:
+        - name: Criar uma VM e uma conta de armazenamento
+          href: storage-blob-scalable-app-create-vm.md
+        - name: Carregar dados grandes para uma conta de armazenamento do Azure
+          href: storage-blob-scalable-app-upload-files.md
+        - name: Baixar dados grandes de uma conta de armazenamento do Azure
+          href: storage-blob-scalable-app-download-files.md
+        - name: Verificar taxa de transferência e métricas de latência
+          href: storage-blob-scalable-app-verify-metrics.md
 - name: Exemplos
   items:
     - name: .NET
