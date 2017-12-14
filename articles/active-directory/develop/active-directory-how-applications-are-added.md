@@ -4,7 +4,7 @@ description: "Este artigo descreve como os aplicativos são adicionados a uma in
 services: active-directory
 documentationcenter: 
 author: shoatman
-manager: kbrint
+manager: mtillman
 editor: 
 ms.assetid: 3321d130-f2a8-4e38-b35e-0959693f3576
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 02/09/2016
 ms.author: shoatman
 ms.custom: aaddev
-ms.openlocfilehash: a97c6af38b1d3191447ad16a789a034a9d475422
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 51ef7e554b6fd3764893f0fd35464088e42e49f8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Como e por que os aplicativos são adicionados ao AD do Azure
 Uma das coisas inicialmente confusas ao exibir uma lista de aplicativos na sua instância do Active Directory do Azure é compreender de onde vieram os aplicativos e por que eles existem.  Este artigo fornece uma visão geral de alto nível de como os aplicativos são representados no diretório, além de contexto que irá ajudá-lo a compreender como um aplicativo passou a estar em seu diretório.
@@ -79,11 +79,11 @@ Os aplicativos que você adiciona por conta própria incluem:
 * Aplicativos publicados por você usando o proxy de aplicativo do AD do Azure.
 
 ### <a name="a-couple-of-notes-and-exceptions"></a>Algumas observações e exceções
-* Nem todas as entidades de serviço apontam de volta para objetos de aplicativo.  Hein? Quando o AD do Azure foi originalmente criado, os serviços fornecidos aos aplicativos eram muito mais limitados e a entidade de serviço foi suficiente para estabelecer uma identidade de aplicativo.  A entidade de serviço original era mais próxima, em termos de formato, da conta de serviço do Active Directory do Windows Server.  Por esse motivo, ainda é possível criar entidades de serviço usando o PowerShell do AD do Azure sem primeiro criar um objeto de aplicativo.  A Graph API requer um objeto de aplicativo antes de criar uma entidade de serviço.
+* Nem todas as entidades de serviço apontam de volta para objetos de aplicativo.  Hein? Quando o AD do Azure foi originalmente criado, os serviços fornecidos aos aplicativos eram muito mais limitados e a entidade de serviço foi suficiente para estabelecer uma identidade de aplicativo.  A entidade de serviço original era mais próxima, em termos de formato, da conta de serviço do Active Directory do Windows Server.  Por esse motivo, ainda é possível criar entidades de serviço usando o PowerShell do AD do Azure sem primeiro criar um objeto de aplicativo.  A API do Graph requer um objeto de aplicativo antes de criar uma entidade de serviço.
 * Nem todas as informações descritas acima estão expostas programaticamente.  Os itens a seguir estão disponíveis apenas na interface do usuário:
   * Declara regras de transformação
   * Mapeamentos de atributos (provisionamento do usuário)
-* Para obter informações mais detalhadas sobre a entidade de serviço e objetos de aplicativo, consulte a documentação de referência de Graph API REST do AD do Azure.  *Dica*: a documentação da Graph API do AD do Azure é o mais parecida possível com uma referência a esquema do AD do Azure que está disponível no momento.  
+* Para obter informações mais detalhadas sobre a entidade de serviço e objetos de aplicativo, consulte a documentação de referência de Graph API REST do AD do Azure.  *Dica*: a documentação da API do Graph do AD do Azure é o mais parecida possível com uma referência a esquema do AD do Azure que está disponível no momento.  
   * [Aplicativo](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#application-entity)
   * [Entidade de serviço](https://msdn.microsoft.com/library/azure/ad/graph/api/entity-and-complex-type-reference#serviceprincipal-entity)
 
@@ -133,7 +133,7 @@ Saiba mais sobre como adicionar aplicativos ao AD do Azure e como configurar ser
 
 * Desenvolvedores: [Saiba como integrar um aplicativo ao AAD](https://msdn.microsoft.com/library/azure/dn151122.aspx)
 * Desenvolvedores: [Examinar o código de exemplo para aplicativos integrados ao Azure Active Directory no GitHub](https://github.com/AzureADSamples)
-* Desenvolvedores e profissionais de TI: [Leia a documentação da API REST para a Graph API do Active Directory do Azure](https://msdn.microsoft.com/library/azure/hh974478.aspx)
+* Desenvolvedores e profissionais de TI: [Leia a documentação da API REST para a API do Graph do Active Directory do Azure](https://msdn.microsoft.com/library/azure/hh974478.aspx)
 * Profissionais de TI: [Saiba como usar aplicativos pré-integrados do Active Directory do Azure a partir da Galeria de Aplicativos](https://msdn.microsoft.com/library/azure/dn308590.aspx)
 * Profissionais de TI: [Localize tutoriais para a configuração de determinados aplicativos pré-integrados](https://msdn.microsoft.com/library/azure/dn893637.aspx)
 * Profissionais de TI: [Saiba como publicar um aplicativo usando o Proxy do aplicativo do Active Directory do Azure](https://msdn.microsoft.com/library/azure/dn768219.aspx)

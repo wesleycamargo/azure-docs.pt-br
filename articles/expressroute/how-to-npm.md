@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/13/2017
 ms.author: cherylmc
-ms.openlocfilehash: 9e459a42a9fd7caedfa255a7baf51273eef2265a
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 6a03986288fdb6acaf234a8abf690f728d160fd7
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="configure-network-performance-monitor-for-expressroute-preview"></a>Configurar o Monitor de Desempenho de Rede para ExpressRoute (versão prévia)
 
@@ -129,7 +129,7 @@ Se você já estiver usando o Monitor de Desempenho de Rede para monitorar outro
 
 ### <a name="proxy"></a>2.3: definir configurações de proxy (opcional)
 
-Caso esteja usando um proxy da Web para acessar a Internet, utilize as etapas a seguir para definir configurações de proxy para o Microsoft Monitoring Agent. Execute essas etapas para cada servidor. Se você tiver vários servidores que precisa configurar, talvez seja mais fácil usar um script para automatizar esse processo. Se tiver, consulte [Definir configurações de proxy para o Microsoft Monitoring Agent usando um script](../log-analytics/log-analytics-windows-agents.md#to-configure-proxy-settings-for-the-microsoft-monitoring-agent-using-a-script).
+Caso esteja usando um proxy da Web para acessar a Internet, utilize as etapas a seguir para definir configurações de proxy para o Microsoft Monitoring Agent. Execute essas etapas para cada servidor. Se você tiver vários servidores que precisa configurar, talvez seja mais fácil usar um script para automatizar esse processo. Se tiver, consulte [Definir configurações de proxy para o Microsoft Monitoring Agent usando um script](../log-analytics/log-analytics-windows-agent.md).
 
 Para definir configurações de proxy para o Microsoft Monitoring Agent usando o Painel de Controle:
 

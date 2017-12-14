@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 21d1ba02052862e16ef27ec313d53cd0bffcc21a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 60fcb24ffe813d7fb633c5398252dc8ea7d7a19f
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Estrutura de segurança: Dados confidenciais | Atenuações 
 | Produto/serviço | Artigo |
@@ -27,7 +27,7 @@ ms.lasthandoff: 10/11/2017
 | **Aplicativo Web** | <ul><li>[Garantir que conteúdos confidenciais não sejam armazenados em cache no navegador](#cache-browser)</li><li>[Criptografar as seções dos arquivos de configuração do aplicativo Web que contêm dados confidenciais](#encrypt-data)</li><li>[Desabilitar explicitamente o atributo HTML de preenchimento automático em formulários e entradas com informações confidenciais](#autocomplete-input)</li><li>[Garantir que os dados confidenciais exibidos na tela do usuário sejam mascarados](#data-mask)</li></ul> | 
 | **Banco de dados** | <ul><li>[Implementar a máscara de dados dinâmicos para evitar a exposição de dados confidenciais a usuários sem privilégios](#dynamic-users)</li><li>[Garantir que as senhas sejam armazenadas em um formato hash salgado](#salted-hash)</li><li>[Garantir que os dados confidenciais nas colunas do banco de dados sejam criptografados](#db-encrypted)</li><li>[Garantir que a criptografia no nível do banco de dados (TDE) esteja habilitada](#tde-enabled)</li><li>[Garantir que os backups de banco de dados estejam criptografados](#backup)</li></ul> | 
 | **API da Web** | <ul><li>[Garantir que os dados confidenciais relevantes para a API Web não sejam salvos no armazenamento do navegador](#api-browser)</li></ul> | 
-| Azure Document DB | <ul><li>[Criptografar os dados confidenciais armazenados no DocumentDB](#encrypt-docdb)</li></ul> | 
+| Azure Document DB | <ul><li>[Criptografar dados confidenciais armazenados no Azure Cosmos DB](#encrypt-docdb)</li></ul> | 
 | **Limite de confiança da VM da IaaS do Azure** | <ul><li>[Usar o Azure Disk Encryption para criptografar os discos utilizados por máquinas virtuais](#disk-vm)</li></ul> | 
 | **Limite de confiança do Service Fabric** | <ul><li>[Criptografar segredos nos aplicativos do Service Fabric](#fabric-apps)</li></ul> | 
 | **Dynamics CRM** | <ul><li>[Executar a modelagem de segurança e usar unidades de negócios/equipes onde for necessário](#modeling-teams)</li><li>[Minimizar o acesso ao compartilhamento de recursos em entidades críticas](#entities)</li><li>[Instruir os usuários sobre os riscos associados ao recurso de compartilhamento do Dynamics CRM e as práticas recomendadas de segurança](#good-practices)</li><li>[Incluir uma regra de padrões de desenvolvimento que impeça a exibição dos detalhes de configuração do gerenciamento de exceções](#exception-mgmt)</li></ul> | 

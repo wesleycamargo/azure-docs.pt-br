@@ -14,18 +14,19 @@ ms.workload: data-services
 ms.custom: performance
 ms.date: 11/10/2017
 ms.author: jrj;barbkess
-ms.openlocfilehash: c403a73d03fd5152e2c0617b3e3784926c28f5c3
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: de1220e9b5a01429f4eea5c3605f1cf7221f3e1e
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="azure-sql-data-warehouse-performance-tiers-preview"></a>Níveis de desempenho do SQL Data Warehouse do Azure (Versão prévia)
 O SQL Data Warehouse oferece dois níveis de desempenho que são otimizados para cargas de trabalho analíticas. Este artigo explica os conceitos de níveis de desempenho para ajudá-lo a escolher o nível de desempenho mais adequado para sua carga de trabalho. 
 
-
 ## <a name="what-is-a-performance-tier"></a>O que é um nível de desempenho?
 Um nível de desempenho é uma opção que determina a configuração do data warehouse. Essa opção é uma das primeiras escolhas que você faz ao criar um data warehouse.  
+
+> [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T140/player]
 
 - O **nível de desempenho Otimizado para Elasticidade** separa as camadas de armazenamento e computação na arquitetura. Essa opção se destaca em cargas de trabalho que podem aproveitar ao máximo a separação entre o armazenamento e a computação, dimensionando com frequência para dar suporte a curtos períodos de atividade na atividade de pico. Essa camada de computação tem o menor ponto de preço de entrada e é dimensionada para dar suporte à maioria das cargas de trabalho do cliente.
 

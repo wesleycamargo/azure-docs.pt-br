@@ -3,7 +3,7 @@ title: "Criação Gráfica na Automação do Azure | Microsoft Docs"
 description: "A criação gráfica permite criar runbooks para a Automação do Azure sem trabalhar com código. Este artigo fornece uma introdução à criação gráfica e todos os detalhes necessários para iniciar a criação de um runbook gráfico."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 ms.assetid: 4b6f840c-e941-4293-a728-b33407317943
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: 137e8503b9759136510db59700c3032853246c89
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 59f1f8c544c7ab3dce9373d65e0f6cbaa62c8f67
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Criação gráfica na Automação do Azure
 ## <a name="introduction"></a>Introdução
@@ -61,7 +61,7 @@ O controle de Teste não é exibido quando o editor gráfico é iniciado pela pr
 
 ## <a name="graphical-runbook-procedures"></a>Procedimentos de runbook gráfico
 ### <a name="exporting-and-importing-a-graphical-runbook"></a>Exportar e importar um runbook gráfico
-Você pode exportar apenas a versão publicada de um runbook gráfico.  Se o runbook ainda não foi publicado, o botão **Exportar publicado** estará desabilitado.  Quando você clica no botão **Exportar publicado** , o runbook é baixado no computador local.  O nome do arquivo corresponde ao nome do runbook com uma extensão *graphrunbook* .
+Você pode exportar apenas a versão publicada de um runbook gráfico.  Se o runbook ainda não foi publicado, o botão **Exportar publicado** estará desabilitado.  Quando você clica no botão **Exportar publicado** , o runbook é baixado no computador local.  O nome do arquivo corresponde ao nome do runbook com uma extensão *graphrunbook*.
 
 ![Exportar publicado](media/automation-graphical-authoring-intro/runbook-export.png)
 
@@ -83,7 +83,7 @@ O controle de Teste solicitará parâmetros de entrada, e você poderá iniciar 
 ### <a name="publishing-a-graphical-runbook"></a>Publicando um runbook gráfico
 Cada runbook na Automação do Azure tem um Rascunho e uma versão Publicada. Somente a versão Publicada está disponível para ser executada, e somente a versão de Rascunho pode ser editada. A versão Publicada não é afetada pelas alterações feitas na versão de Rascunho. Quando a versão de Rascunho está pronta para ser disponibilizada, você a publica, o que substitui a versão Publicada pela versão de Rascunho.
 
-Você pode publicar um runbook gráfico abrindo o runbook para edição e, em seguida, clicando no botão **Publicar** .
+Você pode publicar um runbook gráfico abrindo o runbook para edição e, em seguida, clicando no botão **Publicar**.
 
 ![Botão Publicar](media/automation-graphical-authoring-intro/runbook-edit-publish.png)
 
@@ -256,7 +256,7 @@ Os pontos de verificação são habilitados somente nos runbooks do Fluxo de Tra
 Os runbooks na Automação do Azure que gerenciam os recursos do Azure irão requerer a autenticação do Azure.  O [Executar Como Conta](automation-offering-get-started.md#creating-an-automation-account) (também conhecido como uma entidade de serviço) é o método padrão para acessar os recursos do Azure Resource Manager em sua assinatura com os runbooks de Automação.  Você pode adicionar essa funcionalidade a um runbook gráfico adicionando o ativo de Conexão **AzureRunAsConnection**, que está usando o cmdlet [Get-AutomationConnection](https://technet.microsoft.com/library/dn919922%28v=sc.16%29.aspx) do PowerShell e o cmdlet [Add-AzureRmAccount](https://msdn.microsoft.com/library/mt619267.aspx), à tela. Isso é ilustrado no exemplo a seguir.<br>![Atividades de Autenticação Executar Como](media/automation-graphical-authoring-intro/authenticate-run-as-account.png)<br>
 A atividade Executar Como Conexão de Get (por exemplo, Get-AutomationConnection), é configurada com uma fonte de dados com valor constante denominada AzureRunAsConnection.<br>![Configuração da Conexão Executar Como](media/automation-graphical-authoring-intro/authenticate-runas-parameterset.png)<br>
 A próxima atividade, Add-AzureRmAccount, adiciona a conta Executar Como autenticada para usar no runbook.<br>
-![Conjunto de parâmetros Add-AzureRmAccount](media/automation-graphical-authoring-intro/authenticate-conn-to-azure-parameter-set.png)<br>
+![Conjunto de Parâmetros Add-AzureRmAccount](media/automation-graphical-authoring-intro/authenticate-conn-to-azure-parameter-set.png)<br>
 Para os parâmetros **APPLICATIONID**, **CERTIFICATETHUMBPRINT** e **TENANTID**, você precisará especificar o nome da propriedade para o caminho Campo porque a atividade produz um objeto com várias propriedades.  Caso contrário, quando você executar o runbook, ele falhará ao tentar autenticar-se.  Isso é o que você precisa, no mínimo, para autenticar seu runbook com a conta Executar Como.
 
 Para manter a compatibilidade com versões anteriores para os assinantes que criaram uma conta de Automação utilizando uma [conta de Usuário do Azure AD](automation-create-aduser-account.md) para gerenciar a implantação clássica do Azure ou os recursos do Azure Resource Manager, o método de autenticação é o cmdlet Add-AzureAccount com um [ativo de credencial](automation-credentials.md) que representa um usuário do Active Directory com acesso à conta do Azure.

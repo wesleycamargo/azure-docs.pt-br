@@ -4,7 +4,7 @@ description: Como criar um aplicativo para iOS que se integre ao Azure AD para f
 services: active-directory
 documentationcenter: ios
 author: brandwe
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 42303177-9566-48ed-8abb-279fcf1e6ddb
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 57f465df99ac234466459b8031f61805d8334b59
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e497b9e02e21967e71fc9b4fef8dfe0e63e682c3
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="integrate-azure-ad-into-an-ios-app"></a>Integrar o Azure AD em um aplicativo iOS
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -151,7 +151,7 @@ O princípio básico da ADAL é que sempre que seu aplicativo precisar de um tok
 
     ```
 
-2. Agora, precisamos usar esse token para pesquisar usuários no gráfico. Encontre o comentário `// TODO: implement SearchUsersList`. Esse método faz uma solicitação GET para que a Graph API do AD do Azure procure por usuários cujo UPN começa com o termo de pesquisa fornecido.  Para consultar a API do Graph do Azure AD, você precisa incluir um access_token no cabeçalho `Authorization` da solicitação. É aí que a ADAL entra em cena.
+2. Agora, precisamos usar esse token para pesquisar usuários no grafo. Encontre o comentário `// TODO: implement SearchUsersList`. Esse método faz uma solicitação GET para que a API do Graph do AD do Azure procure por usuários cujo UPN começa com o termo de pesquisa fornecido.  Para consultar a API do Graph do Azure AD, você precisa incluir um access_token no cabeçalho `Authorization` da solicitação. É aí que a ADAL entra em cena.
 
     ```ObjC
     +(void) searchUserList:(NSString*)searchString

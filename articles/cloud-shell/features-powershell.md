@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/6/2017
 ms.author: damaerte
-ms.openlocfilehash: 6ec1d8dac4e07b28b92c2aee5d1e9d47fa62b7a1
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 31ba4b68850e14fc038df0bbe91146b90f8ca4b3
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="features--tools-for-powershell-in-azure-cloud-shell-preview"></a>Recursos e ferramentas para o PowerShell no Azure Cloud Shell (versão prévia)
 
@@ -47,7 +47,7 @@ Como cada solicitação ao Cloud Shell aloca um computador temporário, os arqui
 
 PowerShell no Cloud Shell (versão prévia) começa com você no drive do Azure (`Azure:`).
 A unidade do Azure permite a fácil detecção e navegação de recursos do Azure, como computação, rede, armazenamento e etc. de forma semelhante à navegação de sistema de arquivos.
-Você pode continuar a usar os [cmdlets do Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure) comuns para gerenciar esses recursos.
+Você pode continuar a usar os [cmdlets do Azure PowerShell](https://docs.microsoft.com/powershell/azure) comuns para gerenciar esses recursos.
 Todas as alterações feitas aos recursos do Azure, diretamente no portal do Azure ou por meio de cmdlets do Azure PowerShell, são refletidas imediatamente na unidade do Azure.
 
 ![](media/features-powershell/azure-drive.png)
@@ -91,7 +91,7 @@ Esses comandos são criados em cima de comunicação remota do PowerShell e exig
 
 |**Categoria**    |**Nome**                                 |
 |----------------|-----------------------------------------|
-|Ferramentas do Azure     |[Azure PowerShell (5.0.1)](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.0.0)<br> [CLI do Azure (2.0.22)](https://docs.microsoft.com/en-us/cli/azure/overview)|
+|Ferramentas do Azure     |[Azure PowerShell (5.0.1)](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-5.0.0)<br> [CLI do Azure (2.0.22)](https://docs.microsoft.com/cli/azure/overview)|
 |Editores de texto    |vim<br> nano                             |
 |Gerenciador de Pacotes |PowerShellGet<br> PackageManagement<br> npm<br> pip |
 |Controle do código-fonte  |git                                      |

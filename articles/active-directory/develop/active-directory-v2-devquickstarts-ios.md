@@ -4,7 +4,7 @@ description: "Como criar um aplicativo iOS que conecte usuários com a conta pes
 services: active-directory
 documentationcenter: 
 author: brandwe
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: fd3603c0-42f7-438c-87b5-a52d20d6344b
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: cf1455dc3d55ea3581195f7a315556d134c23a26
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 398ddbd004b4a12f4aa79ed64cc85f0e5bc5407a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="add-sign-in-to-an-ios-app-using-a-third-party-library-with-graph-api-using-the-v20-endpoint"></a>Adicionar entrada a um aplicativo iOS usando uma biblioteca de terceiros com a API do Graph usando o ponto de extremidade v2.0
 A plataforma de identidade da Microsoft usa padrões abertos, como OAuth2 e OpenID Connect. Os desenvolvedores podem usar qualquer biblioteca desejada para integrar aos nossos serviços. Para ajudar os desenvolvedores a usar nossa plataforma com outras bibliotecas, escrevemos alguns guias passo a passo como este para demonstrar como configurar bibliotecas de terceiros que se conectam à plataforma de identidade da Microsoft. A maioria das bibliotecas que implementa [a especificação RFC6749 do OAuth2](https://tools.ietf.org/html/rfc6749) pode se conectar à plataforma de identidade da Microsoft.
@@ -93,7 +93,7 @@ Temos a seguinte estrutura configurada para nosso projeto no esqueleto:
 
 * Um modo de exibição mestre com uma pesquisa UPN
 * Uma Exibição de Detalhes para os dados sobre o usuário selecionado
-* Um Modo de Exibição de Logon onde um usuário pode se conectar ao aplicativo para consultar o gráfico
+* Um Modo de Exibição de Logon onde um usuário pode se conectar ao aplicativo para consultar o grafo
 
 Passaremos por diversos arquivos no esqueleto para adicionar autenticação. Outras partes do código, como o código visual, não pertencem à identidade, mas são fornecidas para você.
 
@@ -392,7 +392,7 @@ if (searchText.length > 0) {
 ```
 
 ## <a name="write-a-helper-class-to-access-the-graph-api"></a>Escrever uma classe auxiliar para acessar a API do Graph
-Essa é a parte principal do nosso aplicativo. Enquanto o restante estava inserindo código no padrão MVC da Apple, aqui vamos escrever código para consultar o gráfico conforme o usuário digita e retornar os dados. O código está abaixo e uma explicação detalhada vem a seguir.
+Essa é a parte principal do nosso aplicativo. Enquanto o restante estava inserindo código no padrão MVC da Apple, aqui vamos escrever código para consultar o grafo conforme o usuário digita e retornar os dados. O código está abaixo e uma explicação detalhada vem a seguir.
 
 ### <a name="create-a-new-objective-c-header-file"></a>Criar um novo arquivo de cabeçalho em Objective-C
 Nomeie o arquivo `GraphAPICaller.h`e adicione o código a seguir.
@@ -535,7 +535,7 @@ NSArray *accounts = [store accountsWithAccountType:@"myGraphService"];
                            NSArray *graphDataArray = [dataReturned objectForKey:@"value"];
 ```
 
-Por fim, veremos como é possível retornar os dados para o MasterViewController. Os dados são retornados como serializados e precisam ser desserializados e carregados em um objeto que o MainViewController possa consumir. Para essa finalidade, o esqueleto tem um arquivo `User.m/h` que cria um objeto User. Popule esse objeto User com informações do gráfico.
+Por fim, veremos como é possível retornar os dados para o MasterViewController. Os dados são retornados como serializados e precisam ser desserializados e carregados em um objeto que o MainViewController possa consumir. Para essa finalidade, o esqueleto tem um arquivo `User.m/h` que cria um objeto User. Popule esse objeto User com informações do grafo.
 
 ```objc
                            // We can grab the top most JSON node to get our graph data.

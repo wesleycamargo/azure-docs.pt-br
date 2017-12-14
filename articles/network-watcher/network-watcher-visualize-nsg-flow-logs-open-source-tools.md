@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 8b313b68be07da1a943748d21da68c169980cfc2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6caff3237e9694a00fc0847d5612b7a6e08d4b69
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Visualizar logs de fluxo NSG do Observador de Rede do Azure usando ferramentas de código aberto
 
@@ -39,7 +39,7 @@ Nessa situação, você deve habilitar o Registro em Log do Fluxo do Grupo de Se
 
 
 ### <a name="set-up-the-elastic-stack"></a>Configurar o Elastic Stack
-Ao conectar os logs de fluxo NSG ao Elastic Stack, podemos criar um painel Kibana que nos permitirá pesquisar, criar gráficos, analisar e derivar informações de nossos logs.
+Ao conectar os logs de fluxo NSG ao Elastic Stack, podemos criar um painel Kibana que nos permitirá pesquisar, criar grafos, analisar e derivar informações de nossos logs.
 
 #### <a name="install-elasticsearch"></a>Instalar Elasticsearch
 
@@ -103,7 +103,7 @@ input {
          storage_access_key => "VGhpcyBpcyBhIGZha2Uga2V5Lg=="
          container => "insights-logs-networksecuritygroupflowevent"
          codec => "json"
-         # Refer https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-read-nsg-flow-logs
+         # Refer https://docs.microsoft.com/azure/network-watcher/network-watcher-read-nsg-flow-logs
          # Typical numbers could be 21/9 or 12/2 depends on the nsg log file types
          file_head_bytes => 12
          file_tail_bytes => 2
@@ -211,7 +211,7 @@ Você também pode criar suas próprias visualizações e painéis personalizado
 
 O painel de exemplo fornece várias visualizações dos logs de fluxo:
 
-1. Fluxos por Decisão/Direção ao Longo do Tempo - gráficos da série de tempo mostrando o número de fluxos durante o período de tempo. Você pode editar a unidade de tempo e o alcance das duas visualizações. Os Fluxos por Decisão mostram a proporção de permitir ou negar decisões tomadas, enquanto os Fluxos por Direção mostram a proporção do tráfego de entrada e de saída. Com esses elementos visuais, você pode examinar as tendências de tráfego ao longo do tempo e procure por picos ou padrões incomuns.
+1. Fluxos por Decisão/Direção ao Longo do Tempo - grafos da série de tempo mostrando o número de fluxos durante o período de tempo. Você pode editar a unidade de tempo e o alcance das duas visualizações. Os Fluxos por Decisão mostram a proporção de permitir ou negar decisões tomadas, enquanto os Fluxos por Direção mostram a proporção do tráfego de entrada e de saída. Com esses elementos visuais, você pode examinar as tendências de tráfego ao longo do tempo e procure por picos ou padrões incomuns.
 
   ![figura2][2]
 
@@ -223,7 +223,7 @@ O painel de exemplo fornece várias visualizações dos logs de fluxo:
 
   ![figura4][4]
 
-1. Fluxos de NSG e Regra - um gráfico de barras mostrando a distribuição dos fluxos em cada NSG, além da distribuição de regras em cada NSG. A partir daqui, você pode ver quais regras e NSG geraram mais tráfego.
+1. Fluxos de NSG e Regra - um grafo de barras mostrando a distribuição dos fluxos em cada NSG, além da distribuição de regras em cada NSG. A partir daqui, você pode ver quais regras e NSG geraram mais tráfego.
 
   ![figura5][5]
 

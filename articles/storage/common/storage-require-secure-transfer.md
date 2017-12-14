@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 06/20/2017
 ms.author: fryu
-ms.openlocfilehash: 1bb87cf3e37e486f9a03da43df652442c19fd218
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 797ac45a41cdf655e7465a01875a0394081c08a7
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="require-secure-transfer-in-azure-storage"></a>Requer transferência segura no Armazenamento do Microsoft Azure
 
@@ -54,8 +54,8 @@ Você pode habilitar a "Transferência segura obrigatória" ao criar uma conta d
 
 Para exigir a transferência segura programaticamente, use a configuração _supportsHttpsTrafficOnly_ nas propriedades da conta de armazenamento com a API REST, ferramentas ou bibliotecas:
 
-* [API REST](https://docs.microsoft.com/en-us/rest/api/storagerp/storageaccounts) (Versão: 2016-12-01)
-* [PowerShell](https://docs.microsoft.com/en-us/powershell/module/azurerm.storage/set-azurermstorageaccount?view=azurermps-4.1.0) (Versão: 4.1.0)
+* [API REST](https://docs.microsoft.com/rest/api/storagerp/storageaccounts) (Versão: 2016-12-01)
+* [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.storage/set-azurermstorageaccount?view=azurermps-4.1.0) (Versão: 4.1.0)
 * [CLI](https://pypi.python.org/pypi/azure-cli-storage/2.0.11) (Versão: 2.0.11)
 * [NodeJS](https://www.npmjs.com/package/azure-arm-storage/) (Versão: 1.1.0)
 * [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/6.3.0-preview) (Versão: 6.3.0)

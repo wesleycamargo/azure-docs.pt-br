@@ -16,11 +16,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Active
 ms.date: 11/07/2017
 ms.author: carlrab
-ms.openlocfilehash: 4e22a512f7ee11dde14f8eac818506b59791e17f
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 8a31ed948fe9387720db61018e0edded530cd900
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="sql-server-database-migration-to-sql-database-in-the-cloud"></a>Migração de banco de dados do SQL Server para o Banco de Dados SQL na nuvem
 Neste artigo, você aprenderá sobre os dois principais métodos para migrar um banco de dados SQL Server 2005 ou posterior para o Banco de Dados SQL. O primeiro método é mais simples, mas requer algum tempo de inatividade, possivelmente substancial, durante a migração. O segundo método é mais complexo, mas elimina substancialmente o tempo de inatividade durante a migração.
@@ -39,11 +39,11 @@ A lista a seguir contém o fluxo de trabalho geral para uma migração de banco 
 
   ![Diagrama de migração do VSSSDT](./media/sql-database-cloud-migrate/azure-sql-migration-sql-db.png)
 
-1. [Avalie](https://docs.microsoft.com/en-us/sql/dma/dma-assesssqlonprem) o banco de dados em termos de compatibilidade usando a versão mais recente do [DMA (Assistente de Migração de Dados)](https://www.microsoft.com/download/details.aspx?id=53595).
+1. [Avalie](https://docs.microsoft.com/sql/dma/dma-assesssqlonprem) o banco de dados em termos de compatibilidade usando a versão mais recente do [DMA (Assistente de Migração de Dados)](https://www.microsoft.com/download/details.aspx?id=53595).
 2. Prepare as correções necessárias como scripts Transact-SQL.
 3. Faça uma cópia transacionalmente consistente do banco de dados de origem que está sendo migrado e verifique se não há mais alterações sendo feitas no banco de dados de origem (ou você pode aplicar essas alterações manualmente após a migração). Há vários métodos para fechar um banco de dados para novas sessões, desde desabilitar a conectividade do cliente até criar um [instantâneo do banco de dados](https://msdn.microsoft.com/library/ms175876.aspx).
 4. Implante os scripts Transact-SQL para aplicar as correções à cópia do banco de dados.
-5. [Migre](https://docs.microsoft.com/en-us/sql/dma/dma-migrateonpremsql) a cópia do banco de dados para um novo Banco de Dados SQL do Azure usando o Assistente de Migração de Dados.
+5. [Migre](https://docs.microsoft.com/sql/dma/dma-migrateonpremsql) a cópia do banco de dados para um novo Banco de Dados SQL do Azure usando o Assistente de Migração de Dados.
 
 ### <a name="optimizing-data-transfer-performance-during-migration"></a>Otimizando o desempenho de transferência de dados durante a migração 
 

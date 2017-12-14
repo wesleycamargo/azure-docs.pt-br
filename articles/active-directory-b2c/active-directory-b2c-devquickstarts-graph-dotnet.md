@@ -4,7 +4,7 @@ description: "Como chamar a API do Graph para um locatário B2C usando uma ident
 services: active-directory-b2c
 documentationcenter: .net
 author: parakhj
-manager: krassk
+manager: mtillman
 editor: parakhj
 ms.assetid: f9904516-d9f7-43b1-ae4f-e4d9eb1c67a0
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: parakhj
-ms.openlocfilehash: cce30360145fe430141ceaf2efc91a6b87938601
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: d7d809570012b292877813c7350e55edf509183b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: usar a API do Graph do Azure AD
 
@@ -71,7 +71,7 @@ Agora, você tem um aplicativo que tem permissão para criar, ler e atualizar us
 ## <a name="configure-delete-permissions-for-your-application"></a>Configurar permissões de exclusão para seu aplicativo
 Atualmente, a permissão *Ler e gravar dados de diretório* **NÃO** inclui a capacidade de fazer qualquer exclusão, como excluir usuários. Se você quiser fornecer ao seu aplicativo a capacidade de excluir os usuários, será necessário executar estas etapas adicionais envolvendo o PowerShell, caso contrário, pule para a próxima seção.
 
-Se você ainda não tiver instalado, instale primeiro o [módulo do PowerShell do Azure AD v1 (MSOnline)](https://docs.microsoft.com/en-us/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0):
+Se você ainda não tiver instalado, instale primeiro o [módulo do PowerShell do Azure AD v1 (MSOnline)](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0):
 
 ```powershell
 Install-Module MSOnline

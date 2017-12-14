@@ -4,7 +4,7 @@ description: "Proteger suas trocas de declarações da API REST personalizadas n
 services: active-directory-b2c
 documentationcenter: 
 author: yoelhor
-manager: joroja
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory-b2c
@@ -14,18 +14,18 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/25/2017
 ms.author: yoelh
-ms.openlocfilehash: 641e0cc691eae77ef0480e5743d85e020cd8d354
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: d65d94bb5c807abfd6cbb1fae786a02f179e93d6
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>Proteja seus serviços RESTful usando a autenticação básica HTTP
 Em um [artigo relacionado do Azure AD B2C](active-directory-b2c-custom-rest-api-netfw.md), você criará um serviço RESTful (API Web) que se integra aos percursos do usuário do Azure AD B2C (Azure Active Directory B2C) sem autenticação. 
 
 Este artigo mostra como adicionar autenticação básica HTTP ao serviço RESTful para que somente usuários verificados, incluindo o B2C, possam acessar a API. Com a autenticação básica HTTP, é possível definir as credenciais do usuário (ID e segredo do aplicativo) em sua política personalizada. 
 
-Para obter mais informações, consulte [Autenticação básica na API Web ASP.NET](https://docs.microsoft.com/en-us/aspnet/web-api/overview/security/basic-authentication).
+Para obter mais informações, consulte [Autenticação básica na API Web ASP.NET](https://docs.microsoft.com/aspnet/web-api/overview/security/basic-authentication).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 Execute as etapas descritas no artigo [Integrar as trocas de declarações da API REST ao percurso do usuário do Azure AD B2C](active-directory-b2c-custom-rest-api-netfw.md).

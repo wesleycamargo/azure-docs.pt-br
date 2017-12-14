@@ -19,7 +19,7 @@ Contas de Armazenamento de Blobs expõem o atributo **Camada de Acesso** que pod
 * Uma camada de acesso **Dinâmica** , que indica que os objetos na conta de armazenamento serão acessados com mais frequência. Isso permite que você armazene dados por um custo menor de acesso.
 * Uma camada de acesso **Estática** , que indica que os objetos na conta de armazenamento serão acessados com menos frequência. Isso permite que você armazene dados por um custo menor de armazenamento de dados.
 
-Se houver uma alteração no padrão de uso dos dados, você também poderá alternar entre as camadas de acesso a qualquer momento. A alteração da camada de acesso pode resultar em cobranças adicionais. Confira [Preços e cobrança para contas de Armazenamento de Blobs](../articles/storage/blobs/storage-blob-storage-tiers.md#pricing-and-billing) para obter mais detalhes.
+Se houver uma alteração no padrão de uso dos dados, você também poderá alternar entre as camadas de acesso a qualquer momento. A alteração da camada de acesso pode resultar em cobranças adicionais. Confira [Preços e cobrança para contas de Armazenamento de Blobs](../articles/storage/blobs/storage-account-options.md#pricing-and-billing) para obter mais detalhes.
 
 Para saber mais sobre contas de Armazenamento de Blobs, confira [Armazenamento de Blobs do Azure: camadas estática e dinâmica](../articles/storage/blobs/storage-blob-storage-tiers.md).
 

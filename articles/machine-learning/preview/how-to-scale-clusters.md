@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/04/2017
-ms.openlocfilehash: 44aa167375355433851453010cebe5b49ef56ebd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8d709936bfba5c89091d7f26449d165bddb930de
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="scaling-the-cluster-to-manage-web-service-throughput"></a>Dimensionamento do cluster para gerenciar a taxa de transferência do serviço Web
 
@@ -29,7 +29,7 @@ Para entender mais bem o dimensionamento automático, considere o seguinte exemp
 
 Os serviços têm várias demandas de pico: o Serviço 1 (linha azul) exige 40 pods na demanda de pico, o Serviço 2 (linha laranja) exige 38 no pico e o Serviço 3 (linha cinza) exige 50 no pico. Se você reservar a capacidade de pico necessária para cada serviço separadamente, este cluster precisaria de, pelo menos, 40 + 38 + 50 = 128 pods totais.
 
-Mas, considere o uso de pod real a qualquer momento, representado pela linha tracejada preta no gráfico. Nesse caso, o *maior número de pods usados de uma vez* é de 64, que ocorre às 20:00 quando o serviço 3 está no pico. Neste momento, o Serviço 3 usa 50 pods, mas o Serviço 2 usa apenas 9 pods e o Serviço 1 usa apenas 5. Lembre-se de que esse é o *uso de pico* para este cluster. Isso significa que em nenhum momento o cluster usa mais de 64 pods – metade do requisito calculado de 128 pods para os três serviços dimensionados independentemente do uso de pico.
+Mas, considere o uso de pod real a qualquer momento, representado pela linha tracejada preta no grafo. Nesse caso, o *maior número de pods usados de uma vez* é de 64, que ocorre às 20:00 quando o serviço 3 está no pico. Neste momento, o Serviço 3 usa 50 pods, mas o Serviço 2 usa apenas 9 pods e o Serviço 1 usa apenas 5. Lembre-se de que esse é o *uso de pico* para este cluster. Isso significa que em nenhum momento o cluster usa mais de 64 pods – metade do requisito calculado de 128 pods para os três serviços dimensionados independentemente do uso de pico.
 
 Ao reatribuir pods no cluster, ou seja, pelo redimensionamento, para atender à demanda atual de cada serviço em vez de simplesmente exigir recursos suficientes para o pico de demanda de todos os serviços, você pode diminuir o tamanho do cluster. Neste exemplo simples, o dimensionamento automático diminui o número necessário de pods de 128 para 64, cortando o tamanho do cluster necessário pela metade.
 
@@ -55,7 +55,7 @@ O comando a seguir define a contagem de nós de agente no cluster:
 az acs scale -g <resource group> -n <cluster name> --new-agent-count <new scale>
 ```
 
-Isso levará alguns minutos para ser concluído. Para obter mais informações sobre o dimensionamento do número de nós no cluster, consulte [Dimensionar nós de agente em um cluster do Serviço de contêiner](https://docs.microsoft.com/en-us/azure/container-service/container-service-scale).
+Isso levará alguns minutos para ser concluído. Para obter mais informações sobre o dimensionamento do número de nós no cluster, consulte [Dimensionar nós de agente em um cluster do Serviço de contêiner](https://docs.microsoft.com/azure/container-service/container-service-scale).
 
 ### <a name="scaling-the-number-of-kubernetes-pod-replicas-in-a-cluster"></a>Dimensionando o número de réplicas de pod Kubernetes em um cluster
  

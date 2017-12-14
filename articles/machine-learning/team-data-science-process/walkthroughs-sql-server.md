@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: bradsev
-ms.openlocfilehash: 8a8a400b87bacae7f0c34ad5643f66c078053f7a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3f7d6a0b7b1f874d87e10c490d0b48fe6e6083ef
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="sql-server-data-science-walkthroughs-using-r-python-and-t-sql"></a>Passo a passos de ciência de dados do SQL Server usando R, Python e T-SQL
 
@@ -39,12 +39,12 @@ O passo a passo [Utilizar os Serviços de R do SQL Server](https://msdn.microsof
 
 ## <a name="predict-taxi-tips-using-r-from-t-sql-or-stored-procedures-with-sql-server"></a>Prever gorjetas de táxi usando R a partir do T-SQL ou de procedimentos armazenados com o SQL Server
 
-O [Passo a passo de ciência de dados para R e SQL Server](https://docs.microsoft.com/en-us/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough) proporciona aos programadores de SQL uma experiência de criar uma solução de análise avançada com o Transact-SQL usando os Serviços de R do SQL Server para operacionalizar uma solução de R. 
+O [Passo a passo de ciência de dados para R e SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/walkthrough-data-science-end-to-end-walkthrough) proporciona aos programadores de SQL uma experiência de criar uma solução de análise avançada com o Transact-SQL usando os Serviços de R do SQL Server para operacionalizar uma solução de R. 
 
 
 ## <a name="predict-taxi-tips-using-python-in-sql-server-stored-procedures"></a>Prever gorjetas de táxi usando Python em procedimentos armazenados do SQL Server
 
-O passo a passo [Utilizar o T-SQL com Serviços Python do SQL Server](https://docs.microsoft.com/en-us/sql/advanced-analytics/tutorials/sqldev-in-database-python-for-sql-developers) fornece aos programadores do SQL a experiência de criação de uma solução de Machine Learning no SQL Server. Ele demonstra como incorporar o Python em um aplicativo adicionando um código do Python aos procedimentos armazenados.
+O passo a passo [Utilizar o T-SQL com Serviços Python do SQL Server](https://docs.microsoft.com/sql/advanced-analytics/tutorials/sqldev-in-database-python-for-sql-developers) fornece aos programadores do SQL a experiência de criação de uma solução de Machine Learning no SQL Server. Ele demonstra como incorporar o Python em um aplicativo adicionando um código do Python aos procedimentos armazenados.
 
 
 ## <a name="next-steps"></a>Próximas etapas

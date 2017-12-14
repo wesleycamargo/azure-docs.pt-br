@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: trinadhk;markgal;jpallavi;
-ms.openlocfilehash: 5c4ea3e3714f6a3989a260937c2c67815a6dd6f7
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: f7fc4d367a0594a77d7ee25bbd1e40c4b2949c19
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Solucionar problemas de backup de máquinas virtuais do Azure
 > [!div class="op_single_selector"]
@@ -34,7 +34,7 @@ Você pode solucionar os erros encontrados enquanto usa o Backup do Azure com as
 ### <a name="error-the-specified-disk-configuration-is-not-supported"></a>Erro: Não há suporte para a Configuração de Disco especificada
 
 > [!NOTE]
-> Temos uma versão prévia privada para dar suporte a backups para VMs com discos > de 1TB não gerenciado. Para obter detalhes, consulte [versão prévia privada para suporte de backup de VM de disco grandes](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
+> Temos uma versão prévia privada para dar suporte a backups para VMs com discos > 1TB não gerenciados. Para obter detalhes, consulte [Versão prévia privada para suporte de backup de VM de discos grandes](https://gallery.technet.microsoft.com/Instant-recovery-point-and-25fe398a)
 >
 >
 
@@ -69,7 +69,7 @@ Atualmente, o Backup do Azure não dá suporte a tamanhos de disco [maiores que 
 | Falha na validação pois a máquina virtual é criptografada somente com BEK. Os backups podem ser habilitados somente para máquinas virtuais criptografadas com BEK e KEK. |A máquina virtual deve ser criptografado usando a Chave de Criptografia BitLocker e a Chave de Criptografia. Depois disso, o backup deve ser habilitado. |
 | O Serviço de Backup do Azure não tem permissões suficientes para o cofre da chave para Backup de máquinas virtuais criptografadas. |Essas permissões podem ser fornecidas pelo serviço de backup no PowerShell usando as etapas mencionadas na seção **Habilitar Backup** da [documentação do PowerShell](backup-azure-vms-automation.md). |
 |Falha na instalação da extensão do instantâneo com erro – COM+ não pôde se comunicar com o Coordenador de Transações Distribuídas da Microsoft | Tente iniciar o serviço Windows "Aplicativo de Sistema COM+" (em um prompt de comandos com privilégios elevados – _net start-COMSysApp_). <br>Se ele falhar ao iniciar, siga etapas a seguir:<ol><li> Valide que a conta de Logon do serviço "Coordenador de Transações Distribuídas" é "Serviço de Rede". Se não for, altere-a para "Serviço de Rede", reinicie este serviço e, em seguida, tente iniciar o serviço "Aplicativo de Sistema COM+".<li>Se ele ainda falhar ao iniciar, desinstale/instale serviço "Coordenador de Transações Distribuídas" seguindo as etapas a seguir:<br> – Interrompa o serviço MSDTC<br> – Abra um prompt de comando (cmd) <br> – Execute o comando “msdtc -uninstall” <br> – Execute o comando “msdtc -install” <br> – Inicie o serviço MSDTC<li>Inicie o serviço Windows "Aplicativo de Sistema COM+" e, depois de iniciado, dispare o backup do portal.</ol> |
-|  A operação de instantâneo falhou devido a um erro de COM+ | A ação recomendada é reiniciar o serviço Windows “Aplicativo do Sistema COM+” (em um prompt de comandos com privilégios elevados – _net start COMSysApp_). Se o problema persistir, reinicie a VM. Se a reinicialização da VM não funcionar, tente [remover a Extensão VMSnapshot](https://docs.microsoft.com/en-us/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#cause-3-the-backup-extension-fails-to-update-or-load) e disparar o backup manualmente. |
+|  A operação de instantâneo falhou devido a um erro de COM+ | A ação recomendada é reiniciar o serviço Windows “Aplicativo do Sistema COM+” (em um prompt de comandos com privilégios elevados – _net start COMSysApp_). Se o problema persistir, reinicie a VM. Se a reinicialização da VM não funcionar, tente [remover a Extensão VMSnapshot](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#cause-3-the-backup-extension-fails-to-update-or-load) e disparar o backup manualmente. |
 | Falha ao congelar um ou mais pontos de montagem da VM para tirar um instantâneo consistente do sistema de arquivos | Use as seguintes etapas: <ol><li>Verifique o estado do sistema de arquivos de todos os dispositivos montados usando o comando _'tune2fs'_.<br> Por exemplo: tune2fs -l /dev/sdb1 \| grep "Filesystem state" <li>Desmonte os dispositivos para qual o estado do sistema de arquivos não é limpo usando o comando _'unmount'_ <li> Execute a verificação de FileSystemConsistency nesses dispositivos usando o comando _'fsck'_ <li> Montar os dispositivos novamente e tente fazer o backup.</ol> |
 | Falha na operação de instantâneo devido a falha na criação do canal de comunicação de rede segura | <ol><Li> Abra o Editor do Registro executando regedit.exe no modo elevado. <li> Identifique todas as versões do .NetFramework presentes no sistema. Eles estão presentes na hierarquia de chave do Registro "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft" <li> Para cada .NetFramework presente na chave do Registro, adicione a seguinte chave: <br> "SchUseStrongCrypto"=dword:00000001 </ol>|
 | Falha na operação de instantâneo devido a uma falha na instalação de Pacotes Redistribuíveis do Visual C++ para Visual Studio 2012 | Navegue até C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion and install vcredist2012_x64. Certifique-se de que o valor de chave do Registro para permitir a instalação desse serviço esteja definida com o valor correto, ou seja, que o valor da chave do Registro _HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver_ esteja definido como 3 e não como 4. Se você ainda estiver enfrentando problemas com a instalação, reinicie o serviço de instalação executando _MSIEXEC /UNREGISTER_ seguido de _MSIEXEC /REGISTER_ em um prompt de comandos com privilégios elevados.  |

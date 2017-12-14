@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: f87f65788075c7f4067e77946e1bcbc8f3709317
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 633bf79a3bcaa9c97a5c70e3b362fd928178dcce
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="windows-phone-silverlight-sdk-upgrade-procedures"></a>Procedimentos de atualização do SDK do Windows Phone Silverlight
 Se você já tiver integrado uma versão anterior do SDK no seu aplicativo, você deve considerar os seguintes pontos ao atualizar o SDK.
@@ -128,7 +128,7 @@ Se você quiser especificá-lo em tempo de execução, você pode chamar o méto
         /* Initialize Engagement angent with above configuration. */
         EngagementAgent.Instance.Init(engagementConfiguration);
 
-A cadeia de conexão do seu aplicativo é exibida no Portal Clássico do Azure.
+A cadeia de conexão para o seu aplicativo é exibida no Portal do Azure.
 
 ### <a name="items-name-change"></a>Alteração do nome de itens
 Todos os itens chamados *capptain* foram nomeados como *engagement*. Da mesma forma de *Capptain* para *Engagement*.

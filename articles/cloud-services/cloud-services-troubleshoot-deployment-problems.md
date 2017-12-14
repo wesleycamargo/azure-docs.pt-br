@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/03/2017
 ms.author: v-six
-ms.openlocfilehash: 3adf4dd824b31d5e3d368a0199bc2e981cafe176
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 3c56a5750c9f8a6c59ea07c01c101f358331174b
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="troubleshoot-cloud-service-deployment-problems"></a>Solucionar problemas de implantação do serviço de nuvem
 Quando você implanta um pacote de aplicativos do serviço de nuvem no Azure, é possível obter informações sobre a implantação no painel **Propriedades** no portal do Azure. Você pode usar os detalhes nesse painel para ajudá-lo a solucionar problemas com o serviço de nuvem, e pode fornecer essas informações ao suporte do Azure ao abrir uma nova solicitação de suporte.
@@ -82,6 +82,6 @@ Para saber mais sobre como solucionar o problema, confira a postagem de blog [Da
 >
 
 ## <a name="next-steps"></a>Próximas etapas
-Confira mais [artigos sobre solução de problemas](https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-allocation-failures) para serviços de nuvem.
+Confira mais [artigos sobre solução de problemas](https://docs.microsoft.com/azure/cloud-services/cloud-services-allocation-failures) para serviços de nuvem.
 
 Para saber como solucionar problemas das funções do serviço de nuvem usando os dados de diagnóstico do computador Azure PaaS, confira a [série de blogs de Kevin Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).

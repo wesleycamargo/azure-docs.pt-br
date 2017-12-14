@@ -4,7 +4,7 @@ description: "Uma lista de termos referentes a conceitos e recursos de desenvolv
 services: active-directory
 documentationcenter: 
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 551512df-46fb-4219-a14b-9c9fc23998ba
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 11/16/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 6a657177087ca01f4507b12048a88850aea1a03f
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 81e0778a0ae168170436213d8aa48c8d60575da2
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-developer-glossary"></a>Glossário de desenvolvedor do Azure Active Directory
 Este artigo contém as definições de alguns dos conceitos básicos para desenvolvedores do Azure Active Directory (AD), que são úteis ao se aprender sobre desenvolvimento de aplicativos para o Azure AD.

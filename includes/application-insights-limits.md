@@ -11,7 +11,7 @@ Há alguns limites no número de métricas e eventos por aplicativo (isto é, po
 | Tamanho dos nomes de propriedade e métrica | 150 | Veja [esquemas de tipo](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/)
 | Tamanho da cadeia de caracteres do valor da propriedade | 8.192 | Veja [esquemas de tipo](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/)
 | Comprimento da mensagem de rastreamento e de exceção | 10.000 | Veja [esquemas de tipo](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/EndpointSpecs/Schemas/Docs/)
-| Contagem de [testes de disponibilidade](../articles/application-insights/app-insights-monitor-web-app-availability.md) por aplicativo  | 10 |
+| Contagem de [testes de disponibilidade](../articles/application-insights/app-insights-monitor-web-app-availability.md) por aplicativo  | 100 |
 | Retenção de dados do [criador de perfil](../articles/application-insights/app-insights-profiler.md) | 5 dias |
 | Dados do [criador de perfil](../articles/application-insights/app-insights-profiler.md) enviados por dia | 10GB |
 

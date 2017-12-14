@@ -1,11 +1,10 @@
 ---
-title: Recursos e SDK .NET da API do Graph do BD Cosmos do Azure | Microsoft Docs
-description: "Saiba tudo sobre a API do Graph do BD Cosmos do Azure, incluindo as datas de lançamento, as datas de desativação e as alterações feitas entre cada versão."
+title: Recursos e SDK .NET da API do Graph do Azure Cosmos DB | Microsoft Docs
+description: "Saiba tudo sobre a API do Graph do Azure Cosmos DB, incluindo as datas de lançamento, as datas de desativação e as alterações feitas entre cada versão."
 services: cosmos-db
 documentationcenter: .net
-author: rnagpal
+author: luisbosquez
 manager: jhubbard
-editor: cgronlun
 ms.assetid: 
 ms.service: cosmos-db
 ms.workload: data-services
@@ -13,20 +12,20 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/17/2017
-ms.author: mimig
-ms.openlocfilehash: 7d6ba5794e4a3e431abd72a780b60b9e59e9f4db
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.author: lbosq
+ms.openlocfilehash: 28f926d8d1f4c6006a348ba9c8289b885aef7641
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmos-db-graph-net-api-download-and-release-notes"></a>API .NET Graph do BD Cosmos do Azure: download e notas de versão
+# <a name="azure-cosmos-db-graph-net-api-download-and-release-notes"></a>API .NET Graph do Azure Cosmos DB: download e notas de versão
 
 |   |   |
 |---|---|
 |**Baixe o SDK**|[NuGet](https://aka.ms/acdbgraphnuget)|
 |**Documentação da API**|[Documentação de referência de API .NET](https://aka.ms/acdbgraphapiref)|
-|**Início rápido**|[BD Cosmos do Azure: criar um aplicativo gráfico usando .NET e a API do Graph](create-graph-dotnet.md)|
+|**Início rápido**|[Azure Cosmos DB: criar um aplicativo de grafos usando .NET e a API do Graph](create-graph-dotnet.md)|
 |**Tutorial**|[Azure CosmosDB: Criar um contêiner com a API do Graph](tutorial-develop-graph-dotnet.md)|
 |**Framework atualmente com suporte**| [Microsoft .NET Framework 4.6.1](https://www.microsoft.com/en-us/download/details.aspx?id=49981)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
@@ -92,4 +91,4 @@ Qualquer solicitação feita ao BD Cosmos do Azure usando um SDK obsoleto será 
 | [0.1.0-preview](#0.1.0-preview) |8 de maio de 2017 |--- |
 
 ## <a name="see-also"></a>Consulte também
-Para saber mais sobre a API do Graph do BD Cosmos do Azure, consulte [Introdução ao BD Cosmos do Azure: API do Graph](graph-introduction.md). 
+Para saber mais sobre a API do Graph do Azure Cosmos DB, consulte [Introdução ao Azure Cosmos DB: API do Graph](graph-introduction.md). 

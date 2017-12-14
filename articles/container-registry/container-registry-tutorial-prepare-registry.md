@@ -9,11 +9,11 @@ ms.topic: tutorial
 ms.date: 10/26/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 9503dc4a1fa8bc7773677de1673fed3abe1c1b51
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 7ae0fbf5f7566bd3f1f6591501b8b004a1e5cb0f
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="prepare-a-geo-replicated-azure-container-registry"></a>Preparar um Registro de contêiner do Azure com replicação geográfica
 
@@ -93,7 +93,7 @@ Quando a replicação for concluída, o portal refletirá *Pronto* para ambas as
 
 Agora que você configurou a replicação geográfica, crie uma imagem de contêiner e efetue push dela para seu Registro. Primeiro, é necessário fazer logon em sua instância do ACR antes de efetuar push das imagens para ela. Com [SKUs Básicos, Standard e Premium](container-registry-skus.md), é possível autenticar-se usando sua identidade do Azure.
 
-Use o comando [az acr login](https://docs.microsoft.com/en-us/cli/azure/acr#az_acr_login) para autenticar e armazenar em cache as credenciais em seu Registro. Substitua `<acrName>` pelo nome do Registro criado nas etapas anteriores.
+Use o comando [az acr login](https://docs.microsoft.com/cli/azure/acr#az_acr_login) para autenticar e armazenar em cache as credenciais em seu Registro. Substitua `<acrName>` pelo nome do Registro criado nas etapas anteriores.
 
 ```azurecli
 az acr login --name <acrName>

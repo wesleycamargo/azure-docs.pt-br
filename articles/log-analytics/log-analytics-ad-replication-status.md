@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: bfe52ef5d9d09ffe179faaf6ffbd90ef964fbda9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e56687519459f93998bcdd92336050093539270a
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="monitor-active-directory-replication-status-with-log-analytics"></a>Monitorar o status da replicação do Active Directory com o Log Analytics
 
@@ -32,7 +32,7 @@ O pacote de solução de Status de Replicação do AD monitora regularmente seu 
 ## <a name="installing-and-configuring-the-solution"></a>Instalando e configurando a solução
 Use as informações a seguir para instalar e configurar a solução.
 
-* Você deve instalar os agentes em controladores de domínio membros do domínio a ser avaliado. Ou você deve instalar agentes em servidores membros e configurar os agentes para enviar dados de replicação do AD para o OMS. Para entender como conectar computadores Windows ao OMS, consulte [Conectar computadores Windows ao Log Analytics](log-analytics-windows-agents.md). Se o controlador de domínio já fizer parte de um ambiente existente do System Center Operations Manager que você quer conectar ao OMS, veja [Conectar o Operations Manager ao Log Analytics](log-analytics-om-agents.md).
+* Você deve instalar os agentes em controladores de domínio membros do domínio a ser avaliado. Ou você deve instalar agentes em servidores membros e configurar os agentes para enviar dados de replicação do AD para o OMS. Para entender como conectar computadores Windows ao OMS, consulte [Conectar computadores Windows ao Log Analytics](log-analytics-windows-agent.md). Se o controlador de domínio já fizer parte de um ambiente existente do System Center Operations Manager que você quer conectar ao OMS, veja [Conectar o Operations Manager ao Log Analytics](log-analytics-om-agents.md).
 * Adicione a solução de Status de Replicação do Active Directory ao espaço de trabalho do OMS usando o processo descrito em [Adicionar soluções do Log Analytics por meio da Galeria de Soluções](log-analytics-add-solutions.md).  Não é necessária nenhuma configuração.
 
 ## <a name="ad-replication-status-data-collection-details"></a>Detalhes de coleta de dados do Status de Replicação do AD
@@ -47,7 +47,7 @@ Se não quiser conectar qualquer um dos seus controladores de domínio diretamen
 
 ### <a name="to-enable-a-non-domain-controller-to-send-ad-data-to-oms"></a>Para habilitar um controlador que não seja de domínio para enviar dados do AD para o OMS
 1. Verifique se o computador é um membro do domínio que você deseja monitorar usando a solução de Status de Replicação do AD.
-2. [Conecte o computador Windows ao OMS](log-analytics-windows-agents.md) ou [conecte-o usando seu ambiente existente do Operations Manager para OMS](log-analytics-om-agents.md), se ele ainda não estiver conectado.
+2. [Conecte o computador Windows ao OMS](log-analytics-windows-agent.md) ou [conecte-o usando seu ambiente existente do Operations Manager para OMS](log-analytics-om-agents.md), se ele ainda não estiver conectado.
 3. Nesse computador, defina a seguinte chave do Registro:
 
    * Chave: **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\HealthService\Parameters\Management Groups\<ManagementGroupName>\Solutions\ADReplication**
@@ -148,7 +148,7 @@ R: As permissões de usuário normais para o Active Directory são suficientes.
 ## <a name="troubleshoot-data-collection-problems"></a>Solucionar problemas de coleta de dados
 Para coletar dados, o pacote de solução de Status de Replicação do AD requer pelo menos um controlador de domínio esteja conectado ao seu espaço de trabalho do OMS. Até você conectar um controlador de domínio, será exibida uma mensagem indicando que os **dados ainda estão sendo coletados**.
 
-Se você precisar de assistência para conectar um dos seus controladores de domínio, você poderá exibir a documentação em [Conectar computadores Windows ao Log Analytics](log-analytics-windows-agents.md). Como alternativa, se o controlador de domínio já estiver conectado a um ambiente existente do System Center Operations Manager, você poderá exibir a documentação em [Conectar o System Center Operations Manager ao Log Analytics](log-analytics-om-agents.md).
+Se você precisar de assistência para conectar um dos seus controladores de domínio, você poderá exibir a documentação em [Conectar computadores Windows ao Log Analytics](log-analytics-windows-agent.md). Como alternativa, se o controlador de domínio já estiver conectado a um ambiente existente do System Center Operations Manager, você poderá exibir a documentação em [Conectar o System Center Operations Manager ao Log Analytics](log-analytics-om-agents.md).
 
 Se você não quiser conectar nenhum controlador de domínio diretamente ao OMS ou SCOM, consulte [Para habilitar um controlador que não seja de domínio para enviar dados do AD para o OMS](#to-enable-a-non-domain-controller-to-send-ad-data-to-oms).
 

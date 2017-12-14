@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 08/11/2017
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 528b569ff9ffb3659e9210ea70e3aa06921cfe0d
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 81cc7f78ef777e02b195422a81d9a9f15cb63564
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="track-software-changes-in-your-environment-with-the-change-tracking-solution"></a>Controlar alterações de software no ambiente com a solução Controle de Alterações
 
@@ -32,7 +32,7 @@ Instale a solução para atualizar o tipo de agente já instalado. Alterações 
 ## <a name="installing-and-configuring-the-solution"></a>Instalando e configurando a solução
 Use as informações a seguir para instalar e configurar a solução.
 
-* Você deve ter um agente do [Windows](log-analytics-windows-agents.md), do [Operations Manager](log-analytics-om-agents.md) ou do [Linux](log-analytics-linux-agents.md) em cada computador no qual deseja controlar as alterações.
+* Você deve ter um agente do [Windows](log-analytics-windows-agent.md), do [Operations Manager](log-analytics-om-agents.md) ou do [Linux](log-analytics-linux-agents.md) em cada computador no qual deseja controlar as alterações.
 * Adicionar a solução de controle de alterações ao seu espaço de trabalho do OMS a [do Azure marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.ChangeTrackingOMS?tab=Overview). Ou, você pode adicionar a solução usando as informações em [soluções de análise de Log adicionar da Galeria de soluções](log-analytics-add-solutions.md). Nenhuma configuração adicional é necessária.
 
 ### <a name="configure-linux-files-to-track"></a>Configurar arquivos do Linux para controle

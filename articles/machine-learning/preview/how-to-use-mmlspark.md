@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/26/2017
-ms.openlocfilehash: 228ff59e2a495e8ca7c310214327bc846ecfb828
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 9ba2cbe1d6ce4b2010decb8bff4fa46faf0852b3
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-use-microsoft-machine-learning-library-for-apache-spark"></a>Como usar a Biblioteca do Microsoft Machine Learning para Apache Spark
 
@@ -29,7 +29,7 @@ A MMLSpark ([Biblioteca do Microsoft Azure Machine Learning para Apache Spark](h
 
 Para percorrer este guia de instruções, você precisa:
 - [Instalar o Azure Machine Learning Workbench](quickstart-installation.md)
-- [Configurar o cluster Azure HDInsight Spark](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql)
+- [Configurar o cluster Azure HDInsight Spark](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql)
 
 ## <a name="run-your-experiment-in-docker-container"></a>Executar seu experimento no contêiner do Docker
 
@@ -41,7 +41,7 @@ Após a execução, você pode exibir os resultados na exibição de histórico 
 
 ## <a name="install-mmlspark-on-azure-hdinsight-spark-cluster"></a>Instalar o MMLSpark no Cluster do Azure HDInsight Spark.
 
-Para concluir esta etapa e a seguinte, é preciso primeiro [criar um cluster do Azure HDInsight Spark](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql).
+Para concluir esta etapa e a seguinte, é preciso primeiro [criar um cluster do Azure HDInsight Spark](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql).
 
 Por padrão, o Azure Machine Learning Workbench instala o pacote MMLSpark no seu cluster quando você executa o experimento. Você pode controlar esse comportamento e instalar outros pacotes do Spark editando um arquivo chamado _aml_config/spark_dependencies.yml_ na pasta do projeto.
 

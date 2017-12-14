@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/21/2017
 ms.author: dimakwan
-ms.openlocfilehash: 25c543528119410dff0684845a713dcb0d6151d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3bdf30dad5e729ae1e028be2d917b6c38e1bebaf
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-an-azure-cosmos-db-account-using-powershell"></a>Criar uma conta do Azure Cosmos DB usando o PowerShell
 
@@ -66,7 +66,7 @@ Exemplo:
 * O exemplo anterior cria uma conta de banco de dados com duas regiões. Também é possível criar uma conta de banco de dados com uma região (que é designada como a região de gravação e tem um valor de prioridade de failover de 0) ou com mais de duas regiões. Para saber mais, veja [Contas de banco de dados com várias regiões][scaling-globally].
 * As localizações devem ser regiões nas quais o Azure Cosmos DB está disponível. Confira a lista atual de regiões na [página Regiões do Azure](https://azure.microsoft.com/regions/#services).
 
-## <a id="update-documentdb-account-powershell"></a> Atualizar uma conta de banco de dados do DocumentDB
+## <a id="update-documentdb-account-powershell"></a> Atualizar uma conta de banco de dados do Azure Cosmos DB
 
 Esse comando permite que você atualize as propriedades de sua conta de banco de dados do Azure Cosmos DB. Isso inclui a política de consistência e os locais nos quais a conta de banco de dados existe.
 
@@ -97,7 +97,7 @@ Exemplo:
     $CosmosDBProperties = @{"databaseAccountOfferType"="Standard"; "locations"=$locations; "consistencyPolicy"=$consistencyPolicy; "ipRangeFilter"=$iprangefilter}
     Set-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test" -Properties $CosmosDBProperties
 
-## <a id="delete-documentdb-account-powershell"></a> Excluir uma conta de banco de dados do DocumentDB
+## <a id="delete-documentdb-account-powershell"></a> Excluir uma conta de banco de dados do Azure Cosmos DB
 
 Esse comando permite que você exclua uma conta de banco de dados existente do Azure Cosmos DB.
 
@@ -110,7 +110,7 @@ Exemplo:
 
     Remove-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test"
 
-## <a id="get-documentdb-properties-powershell"></a>Obter propriedades de uma conta de banco de dados do DocumentDB
+## <a id="get-documentdb-properties-powershell"></a> Obter as propriedades de uma conta de banco de dados do Azure Cosmos DB
 
 Esse comando permite que você obtenha as propriedades de uma conta de banco de dados existente do Azure Cosmos DB.
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Inactive
 ms.date: 09/25/2017
 ms.author: v-daljep
-ms.openlocfilehash: 358986f58c431aebfe7b41daa8c40ba641dc408a
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: e147ca57658c232580fd9867790e55c3454e7e05
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Use o log de diagnóstico de desempenho do Banco de Dados SQL do Azure com Intelligent Insights
 
@@ -139,13 +139,13 @@ A última parte do log de desempenho do Intelligent Insights refere-se à análi
 "rootCauseAnalysis_s" : "High data IO caused performance to degrade. It seems that this database is missing some indexes that could help."
 ```
 
-O log de desempenho do Intelligent Insights pode ser usado com o [Azure Log Analytics]( https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql) ou com uma solução de terceiros para recursos personalizados de alerta e relatórios de DevOps.
+O log de desempenho do Intelligent Insights pode ser usado com o [Azure Log Analytics]( https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql) ou com uma solução de terceiros para recursos personalizados de alerta e relatórios de DevOps.
 
 ## <a name="next-steps"></a>Próximas etapas
 - Saiba mais sobre conceitos de [Intelligent Insights](sql-database-intelligent-insights.md).
 - Saiba como [Solucionar problemas de desempenho do Banco de Dados SQL do Azure com Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
-- Saiba como [monitorar o Banco de dados SQL do Azure usando a Análise de SQL do Azure](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql).
-- Saiba como [coletar e consumir dados de log dos recursos do Azure](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
+- Saiba como [monitorar o Banco de dados SQL do Azure usando a Análise de SQL do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql).
+- Saiba como [coletar e consumir dados de log dos recursos do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
 
 
 

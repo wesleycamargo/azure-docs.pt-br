@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: magoedte
-ms.openlocfilehash: b810e37e393ddab55500f636b72450789285a4f0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 601e059af6040834f1ceb520ffe23aeadb6cdb18
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 #  <a name="agent-health-solution-in-oms"></a>Solução Integridade do Agente do OMS
 A solução Integridade do Agente do OMS ajuda você a entender, para todos os agentes que se reportam diretamente ao espaço de trabalho do OMS ou a um grupo de gerenciamento do System Center Operations Manager conectado ao OMS, quais estão respondendo e enviando dados operacionais.  Você pode também manter controle de quantos agentes estão implantados, onde eles estão distribuídos geograficamente e executam outras consultas para saber a distribuição dos agentes implantados no Azure, em outros ambientes de nuvem ou no local.    
 
 ## <a name="prerequisites"></a>Pré-requisitos
-Antes de implantar essa solução, confirme se você atualmente tem [agentes do Windows](../log-analytics/log-analytics-windows-agents.md) com suporte se reportando ao espaço de trabalho do OMS ou a um [grupo de gerenciamento do Operations Manager](../log-analytics/log-analytics-om-agents.md) integrado ao seu espaço de trabalho do OMS.    
+Antes de implantar essa solução, confirme se você atualmente tem [agentes do Windows](../log-analytics/log-analytics-windows-agent.md) com suporte se reportando ao espaço de trabalho do OMS ou a um [grupo de gerenciamento do Operations Manager](../log-analytics/log-analytics-om-agents.md) integrado ao seu espaço de trabalho do OMS.    
 
 ## <a name="solution-components"></a>Componentes da solução
 Essa solução consiste nos seguintes recursos que são adicionados ao seu espaço de trabalho e aos agentes conectados diretamente ou ao grupo de gerenciamento conectado do Operations Manager.

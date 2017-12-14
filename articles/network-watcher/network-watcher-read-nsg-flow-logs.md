@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: jdial
-ms.openlocfilehash: 1eea88827733e44bd0ebd88ab5179f4d3a7b6b04
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: daf4e70767d59a602d7ff1a2099af904b314c5f9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="read-nsg-flow-logs"></a>Ler logs de fluxo NSG
 
@@ -35,7 +35,7 @@ Antes de começar, você deve habilitar o registro em log de fluxo do grupo de s
 
 ## <a name="retrieve-the-block-list"></a>Recuperar a lista de blocos
 
-O PowerShell a seguir define as variáveis necessárias para consultar o blob de log do fluxo NSG e lista de blocos dentro do blob de blocos [CloudBlockBlob](https://docs.microsoft.com/en-us/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azurestorage-8.1.3). Atualize o script para conter os valores válidos para o seu ambiente.
+O PowerShell a seguir define as variáveis necessárias para consultar o blob de log do fluxo NSG e lista de blocos dentro do blob de blocos [CloudBlockBlob](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudblockblob?view=azurestorage-8.1.3). Atualize o script para conter os valores válidos para o seu ambiente.
 
 ```powershell
 # The SubscriptionID to use

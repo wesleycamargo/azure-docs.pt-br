@@ -4,7 +4,7 @@ description: "Uma introdução a como você pode usar o Azure AD para provisiona
 services: active-directory
 documentationcenter: 
 author: asmalser-msft
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 58c5fa2d-bb33-4fba-8742-4441adf2cb62
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/15/2017
 ms.author: asmalser
-ms.openlocfilehash: 3fe57e9c22d04a3557978093ce3fe86613c5c1d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cd82ef109abbc5707db4c02c2f14f9d55dfb74e3
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatize o provisionamento e o desprovisionamento de usuários para aplicativos SaaS com o Azure Active Directory
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>O que é o provisionamento automatizado de usuários para aplicativos SaaS?
@@ -64,7 +64,7 @@ O **Serviço de provisionamento do Azure AD** provisiona usuários para aplicati
 
 ## <a name="what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning"></a>Quais aplicativos e sistemas posso usar com o provisionamento de usuário automático do Azure AD?
 
-O Azure AD apresenta suporte pré-integrado para vários sistemas de recursos humanos e aplicativos SaaS populares, bem como suporte genérico para aplicativos que implementam partes específicas do [padrão SCIM 2.0](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-scim-provisioning).
+O Azure AD apresenta suporte pré-integrado para vários sistemas de recursos humanos e aplicativos SaaS populares, bem como suporte genérico para aplicativos que implementam partes específicas do [padrão SCIM 2.0](https://docs.microsoft.com/azure/active-directory/active-directory-scim-provisioning).
 
 Todos os aplicativos "Em destaque" na galeria de aplicativos do Azure AD dão suporte a provisionamento de usuários automatizado. [A lista de aplicativos em destaque pode ser exibida aqui.](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps?page=1&subcategories=featured)
 

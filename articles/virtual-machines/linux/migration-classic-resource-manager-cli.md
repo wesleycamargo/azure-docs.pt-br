@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/30/2017
 ms.author: kasing
-ms.openlocfilehash: 1d6f2d8319dde63434041885dcf5ff1a1cde3bcc
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 607ab59dbeb414c69a6272d0aeb00299296bca6a
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>Migrar recursos de IaaS do modelo clássico para o Azure Resource Manager usando a CLI do Azure
 Estas etapas mostram como usar a CLI (interface de linha de comando) do Azure para migrar recursos de IaaS (infraestrutura como serviço) do modelo de implantação clássico para o modelo de implantação do Azure Resource Manager. O artigo exige a [CLI do Azure 1.0](../../cli-install-nodejs.md). Como a CLI do Azure 2.0 só é aplicável a recursos do Azure Resource Manager, ela não pode ser usada nessa migração.
@@ -48,7 +48,7 @@ Veja a seguir algumas das práticas que recomendamos durante a avaliação de mi
 > 
 
 ## <a name="step-2-set-your-subscription-and-register-the-provider"></a>Etapa 2: Definir sua assinatura e registrar o provedor
-Para cenários de migração, é necessário instalar seu ambiente tanto para o modelo clássico quanto para o Gerenciador de Recursos. [Instale a CLI do Azure](../../cli-install-nodejs.md) e [selecione sua assinatura](../../xplat-cli-connect.md).
+Para cenários de migração, é necessário instalar seu ambiente tanto para o modelo clássico quanto para o Gerenciador de Recursos. [Instale a CLI do Azure](../../cli-install-nodejs.md) e [selecione sua assinatura](/cli/azure/authenticate-azure-cli).
 
 Entre em sua conta.
 

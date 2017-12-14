@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: danlep
-ms.openlocfilehash: be957651af78519f678321aec511b71cb18a85f2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 12835039478b71f86b68218442e321b1a5b404a1
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="azure-cli-commands-in-resource-manager-mode"></a>Comandos da CLI do Azure no modo do Gerenciador de Recursos
 Este artigo fornece a sintaxe e as opções de comandos da CLI (interface de linha de comando) do Azure que normalmente seriam usadas para criar e gerenciar recursos do Azure no modelo de implantação do Azure Resource Manager. É possível acessar esses comandos executando a CLI no modo ARM (Resource Manager). Essa não é uma referência completa, e sua versão da CLI poderá mostrar comandos ou parâmetros um pouco diferentes. Para obter uma visão geral dos recursos e dos grupos de recursos do Azure, confira [Visão geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).  
@@ -29,7 +29,7 @@ Este artigo fornece a sintaxe e as opções de comandos da CLI (interface de lin
 >Saiba mais sobre as [CLIs novas e antigas do Azure](/cli/azure/old-and-new-clis).
 >
 
-Para começar, primeiro [instale a CLI do Azure](../cli-install-nodejs.md) e [conecte-se à sua assinatura do Azure](../xplat-cli-connect.md).
+Para começar, primeiro [instale a CLI do Azure](../cli-install-nodejs.md) e [conecte-se à sua assinatura do Azure](/cli/azure/authenticate-azure-cli).
 
 Para ver as atuais opções e a sintaxe de comandos na linha de comando no modo do Gerenciador de Recursos, digite `azure help` ou, para exibir a ajuda para um comando específico, `azure help [command]`. Também é possível encontrar exemplos da CLI na documentação de criação e gerenciamento de serviços específicos do Azure.
 

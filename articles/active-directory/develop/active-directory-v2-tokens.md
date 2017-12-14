@@ -4,7 +4,7 @@ description: "Os tipos de tokens e declarações emitidos pelo ponto de extremid
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: dc58c282-9684-4b38-b151-f3e079f034fd
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: ec25d4375647a2c8983d7573b9912e544fc3e7b2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 01994e067bd7ce0343f12ec3334a91bd062251a8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-v20-tokens-reference"></a>Referência de tokens do Azure Active Directory v2.0
 O ponto de extremidade do Azure AD (Azure Active Directory) v 2.0 emite vários tipos de tokens de segurança em cada [fluxo de autenticação](active-directory-v2-flows.md). Esta referência descreve o formato, as características de segurança e o conteúdo de cada tipo de token.

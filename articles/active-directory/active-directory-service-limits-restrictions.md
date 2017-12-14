@@ -4,7 +4,7 @@ description: "Restrições de uso e outros limites de serviço para o serviço A
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: e4166a30-eb45-43b8-a466-6254b664fd1a
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 08/28/2017
 ms.author: curtand
 ms.custom: aaddev;it-pro
 ms.reviewer: jeffsta
-ms.openlocfilehash: c387467dfd91e2904e6c1f043506280fc08c92e7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9cec1e9e63d6fa9cdb372c0df8f16376482bad71
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-service-limits-and-restrictions"></a>Restrições e limites de serviço do AD do Azure
 Este artigo contém as restrições de uso e outros limites de serviço para o serviço Azure AD (Azure Active Directory). Se você estiver procurando o conjunto completo de limites de serviço do Microsoft Azure, veja [Assinatura do Azure e limites de serviços, cotas e restrições](../azure-subscription-service-limits.md).

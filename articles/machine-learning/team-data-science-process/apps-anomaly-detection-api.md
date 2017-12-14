@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/05/2017
 ms.author: alok;rotimpe
-ms.openlocfilehash: cd7dab8514b41d930d01fd134229cc9da48b18fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 519ac38c484b9631a3fc096a17be026e9378a178
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>API de detecção de anomalias do Machine Learning
 ## <a name="overview"></a>Visão geral
@@ -44,13 +44,13 @@ A oferta da Detecção de Anomalias vem com ferramentas úteis para você começ
 >
 
 ## <a name="api-deployment"></a>Implantação da API
-Para usar a API, você deve implantá-la na sua assinatura do Azure, onde ela será hospedada como um serviço Web do Azure Machine Learning.  Você pode fazer isso na [Galeria do Cortana Intelligence](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  Dois Serviços Web do AzureML (e seus recursos relacionados) serão implantados na sua assinatura do Azure — um para detecção de anomalias com detecção de sazonalidade e outro sem detecção de sazonalidade.  Depois que a implantação for concluída, você poderá gerenciar suas APIs na página de [serviços Web do AzureML](https://services.azureml.net/webservices/).  Nessa página, você poderá encontrar a localização do seu ponto de extremidade, chaves de API, bem como um código de amostra para chamar a API.  Instruções mais detalhadas estão disponíveis [aqui](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-manage-new-webservice).
+Para usar a API, você deve implantá-la na sua assinatura do Azure, onde ela será hospedada como um serviço Web do Azure Machine Learning.  Você pode fazer isso na [Galeria do Cortana Intelligence](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2).  Dois Serviços Web do AzureML (e seus recursos relacionados) serão implantados na sua assinatura do Azure — um para detecção de anomalias com detecção de sazonalidade e outro sem detecção de sazonalidade.  Depois que a implantação for concluída, você poderá gerenciar suas APIs na página de [serviços Web do AzureML](https://services.azureml.net/webservices/).  Nessa página, você poderá encontrar a localização do seu ponto de extremidade, chaves de API, bem como um código de amostra para chamar a API.  Instruções mais detalhadas estão disponíveis [aqui](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice).
 
 ## <a name="scaling-the-api"></a>Dimensionando a API
 Por padrão, sua implantação terá um plano de cobrança de desenvolvimento/teste gratuito que inclui 1.000 transações/mês e 2 horas de computação/mês.  Você pode atualizar para outro plano de acordo com suas necessidades.  Os detalhes sobre o preço de diferentes planos estão disponíveis [aqui](https://azure.microsoft.com/en-us/pricing/details/machine-learning/), em "Preço da API Web de produção".
 
 ## <a name="managing-aml-plans"></a>Gerenciando planos do AML 
-Você pode gerenciar seu plano de cobrança [aqui](https://services.azureml.net/plans/).  O nome do plano será baseado no nome do grupo de recursos que você escolheu durante a implantação da API, além de uma cadeia de caracteres que é exclusiva à sua assinatura.  As instruções sobre como atualizar seu plano estão disponíveis [aqui](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-manage-new-webservice), na seção "Gerenciando planos de cobranças".
+Você pode gerenciar seu plano de cobrança [aqui](https://services.azureml.net/plans/).  O nome do plano será baseado no nome do grupo de recursos que você escolheu durante a implantação da API, além de uma cadeia de caracteres que é exclusiva à sua assinatura.  As instruções sobre como atualizar seu plano estão disponíveis [aqui](https://docs.microsoft.com/azure/machine-learning/machine-learning-manage-new-webservice), na seção "Gerenciando planos de cobranças".
 
 ## <a name="api-definition"></a>Definição da API
 O serviço Web fornece uma API baseada em REST por HTTPS que pode ser consumida de várias maneiras, incluindo um aplicativo Web ou móvel, R, Python, Excel, etc.  Você envia seus dados de série temporal para esse serviço por meio de uma chamada à API REST, e será executada uma combinação dos três tipos de anomalia descritos abaixo.

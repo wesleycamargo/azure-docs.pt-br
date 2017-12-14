@@ -3,11 +3,11 @@ layout: HubPage
 hide_bc: True
 title: "Documentação do Microsoft Azure"
 description: "Saiba como compilar e gerenciar aplicativos avançados com os serviços de nuvem do Microsoft Azure. Obtenha documentação, código de exemplo, tutoriais e muito mais."
-ms.openlocfilehash: aba00d7c90d173ecf58fedc1b8af5d1be418358c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 85745cf147296e053824a879108c1ea607343f57
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -591,7 +591,7 @@ ms.lasthandoff: 10/11/2017
                                         <li>
                                             <a href="/azure/cognitive-services/Custom-Vision-Service/home">
                                                 <img src="media/index/cs-custom-vision.svg" alt="" />
-                                                <p>Pesquisa de Visão Personalizada</p>
+                                                <p>Serviço de Visão Personalizada</p>
                                             </a>
                                         </li>
                                         <li>

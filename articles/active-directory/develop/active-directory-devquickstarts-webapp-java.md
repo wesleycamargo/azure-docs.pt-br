@@ -4,7 +4,7 @@ description: "Crie um aplicativo Web Java que conecta os usuários com uma conta
 services: active-directory
 documentationcenter: java
 author: navyasric
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 2b92b605-9cd5-4b99-bcbb-66c026558119
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 02/01/2017
 ms.author: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 5358404881b65d217ab36a41ca04a73f2c462c86
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0e849f99edfc80f7f175c0829552f39da456a204
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="java-web-app-sign-in-and-sign-out-with-azure-ad"></a>Entrada e saída do aplicativo Web com o Azure AD
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -335,7 +335,7 @@ Nosso objetivo nesta etapa é criar arquivos Java que:
 * Obterão alguns dados sobre o usuário.
 
     > [!NOTE]
-    > Para obter dados sobre o usuário, use a API do Graph do Azure AD. A Graph API é um serviço Web seguro que pode ser usado para capturar dados sobre sua organização, incluindo usuários individuais. Essa abordagem é melhor do que preencher previamente os dados confidenciais em tokens, pois ela garante que:
+    > Para obter dados sobre o usuário, use a API do Graph do Azure AD. A API do Graph é um serviço Web seguro que pode ser usado para capturar dados sobre sua organização, incluindo usuários individuais. Essa abordagem é melhor do que preencher previamente os dados confidenciais em tokens, pois ela garante que:
     > * Os usuários que solicitarem dados sejam autorizados.
     > * Qualquer pessoa que possa conseguir o token (de um telefone desbloqueado ou cache de um navegador da Web em uma área de trabalho, por exemplo), não poderá obter detalhes importantes sobre o usuário ou a organização.
 
@@ -723,7 +723,7 @@ Para gravar alguns arquivos Java para este trabalho:
 
     ```
 
-## <a name="step-6-create-the-java-graph-api-model-files-for-basicfilter-mvc"></a>Etapa 6: criar os arquivos de Modelo da API do Graph (para BasicFilter MVC)
+## <a name="step-6-create-the-java-graph-api-model-files-for-basicfilter-mvc"></a>Etapa 6: criar os arquivos de Modelo da API do Graph em Java (para BasicFilter MVC)
 Como indicado anteriormente, use a API do Graph para obter dados do usuário conectado. Para facilitar esse processo, crie um arquivo para representar um objeto de diretório e um arquivo para representar o usuário, de forma que o padrão OO do Java possa ser usado.
 
 1. Crie um arquivo chamado DirectoryObject.java, que você pode usar para armazenar dados básicos sobre qualquer objeto do diretório. Você pode usar esse arquivo mais tarde para qualquer outra consulta do Graph que possa executar. Para criar o arquivo, cole o seguinte código:
@@ -1369,7 +1369,7 @@ Reconhecemos que o Java pode ser detalhado, mas você está quase terminando. An
     }
     ```
 
-3. Crie um arquivo chamado AadController.java, que é o controlador do seu padrão MVC. O arquivo fornece o controlador JSP e expõe o ponto de extremidade de URL seguro/aad para o aplicativo. O arquivo também inclui a consulta do gráfico. Para criar o arquivo, cole o seguinte código:
+3. Crie um arquivo chamado AadController.java, que é o controlador do seu padrão MVC. O arquivo fornece o controlador JSP e expõe o ponto de extremidade de URL seguro/aad para o aplicativo. O arquivo também inclui a consulta do grafo. Para criar o arquivo, cole o seguinte código:
 
     ```Java
     package com.microsoft.aad.adal4jsample;

@@ -4,7 +4,7 @@ description: "Uma visão geral dos cinco cenários mais comuns de autenticação
 services: active-directory
 documentationcenter: dev-center-name
 author: skwan
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 0c84e7d0-16aa-4897-82f2-f53c6c990fd9
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 04/27/2017
 ms.author: skwan
 ms.custom: aaddev
-ms.openlocfilehash: 2f9410bdaa037f1839cf7c12c3532b51be669ed5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 32077c1e9415dd8be7064a2377ee806ae21d1390
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="authentication-scenarios-for-azure-ad"></a>Cenários de autenticação do AD do Azure
 O Azure Active Directory (Azure AD) simplifica a autenticação para os desenvolvedores fornecendo identidade como serviço, com suporte para protocolos padrão da indústria, como OAuth 2.0 e OpenID Connect, bem como bibliotecas de código aberto para plataformas diferentes para ajudá-lo a começar a codificar rapidamente. Este documento ajudará a compreender as vários cenários aos quais o Azure AD oferece suporte e mostrará como começar. Ele é dividido nas seguintes seções:
@@ -104,7 +104,7 @@ Qualquer aplicativo que terceirize a autenticação ao Azure AD deve ser registr
 O provisionamento fica mais claro quando você entende que há duas categorias de aplicativos que podem ser desenvolvidos e integrados no Azure AD:
 
 * Aplicativo de locatário único: um aplicativo de locatário único destina-se ao uso em uma organização. Eles normalmente são aplicativos de linha de negócios (LoB) escritos por um desenvolvedor empresarial. Um aplicativo de locatário único só precisa ser acessado por usuários em um diretório e, como resultado, ele só precisa ser provisionado em um diretório. Esses aplicativos geralmente são registrados por um desenvolvedor na organização.
-* Aplicativos multilocatários: um aplicativo multilocatário é destinado para uso em muitas organizações, não apenas em uma organização. Esses são normalmente aplicativos de software como serviço (SaaS) escritos por um fornecedor de software independente (ISV). Aplicativos multilocatários precisam ser provisionados em cada diretório em que serão usados, o que requer o consentimento do usuário ou administrador para registrá-los. Esse processo de consentimento é iniciado quando um aplicativo tiver sido registrado no diretório e receber acesso à Graph API ou talvez a outra API da Web. Quando um usuário ou administrador de uma organização diferente se inscreve para usar o aplicativo, é apresentada uma caixa de diálogo que exibe as permissões exigidas pelo aplicativo. O usuário ou administrador pode então dar consentimento para o aplicativo, que fornece ao aplicativo acesso aos dados declarados e, por fim, registra o aplicativo em seu diretório. Para obter mais informações, consulte [Visão geral da estrutura de consentimento](active-directory-integrating-applications.md#overview-of-the-consent-framework).
+* Aplicativos multilocatários: um aplicativo multilocatário é destinado para uso em muitas organizações, não apenas em uma organização. Esses são normalmente aplicativos de software como serviço (SaaS) escritos por um fornecedor de software independente (ISV). Aplicativos multilocatários precisam ser provisionados em cada diretório em que serão usados, o que requer o consentimento do usuário ou administrador para registrá-los. Esse processo de consentimento é iniciado quando um aplicativo tiver sido registrado no diretório e receber acesso à API do Graph ou talvez a outra API da Web. Quando um usuário ou administrador de uma organização diferente se inscreve para usar o aplicativo, é apresentada uma caixa de diálogo que exibe as permissões exigidas pelo aplicativo. O usuário ou administrador pode então dar consentimento para o aplicativo, que fornece ao aplicativo acesso aos dados declarados e, por fim, registra o aplicativo em seu diretório. Para obter mais informações, consulte [Visão geral da estrutura de consentimento](active-directory-integrating-applications.md#overview-of-the-consent-framework).
 
 Surgem algumas considerações adicionais ao desenvolver um aplicativo multilocatário em vez de um aplicativo de locatário único. Por exemplo, se você estiver disponibilizando seu aplicativo a usuários em vários diretórios, você precisa de um mecanismo para determinar em qual locatário eles estão. Um aplicativo de locatário único só precisa procurar em seu próprio diretório por um usuário, enquanto que um aplicativo multilocatário precisa identificar um usuário específico em todos os diretórios no Azure AD. Para realizar essa tarefa, o Azure AD fornece um ponto de extremidade de autenticação comum em que qualquer aplicativo multilocatário pode direcionar solicitações de entrada, em vez de um ponto de extremidade específico de locatário. Esse ponto de extremidade é https://login.microsoftonline.com/common para todos os diretórios no Azure AD, ao passo que um ponto de extremidade específico do locatário pode ser https://login.microsoftonline.com/contoso.onmicrosoft.com. O ponto de extremidade comum deve ser considerado com especial importância ao desenvolver seu aplicativo, pois você precisará da lógica necessária para lidar com vários locatários durante o login, logout e validação de token.
 

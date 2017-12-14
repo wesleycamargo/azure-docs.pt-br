@@ -115,7 +115,7 @@ Se você puder acessar o aplicativo, certifique-se de que seu dispositivo de bor
 
 ## <a name="step-4-if-you-cannot-access-the-application-use-ip-verify-to-check-the-settings"></a>Etapa 4 Se você não puder acessar o aplicativo, use o IP Verify para verificar as configurações. 
 
-Para saber mais, veja [Visão geral do monitoramento de rede do Azure](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview). 
+Para saber mais, veja [Visão geral do monitoramento de rede do Azure](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 [Solucionar problemas de conexões de Área de Trabalho Remota para uma máquina virtual do Azure baseada no Windows](../articles/virtual-machines/windows/troubleshoot-rdp-connection.md)

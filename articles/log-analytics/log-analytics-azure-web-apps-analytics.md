@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2017
 ms.author: banders
-ms.openlocfilehash: 9ef26d4b6bfd92925a70b7bbdf8979e287c73445
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d910339cc35e09705e543706b40dfe8e0ea9dd42
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>Exibir dados analíticos de métricas entre todos os recursos do aplicativo Web do Azure
 
@@ -39,7 +39,7 @@ Ao contrário da maioria das outras soluções do Log Analytics, os dados não s
 
 | Fonte Conectada | Suportado | Descrição |
 | --- | --- | --- |
-| [Agentes do Windows](log-analytics-windows-agents.md) | Não | A solução não coleta informações de agentes do Windows. |
+| [Agentes do Windows](log-analytics-windows-agent.md) | Não | A solução não coleta informações de agentes do Windows. |
 | [Agentes do Linux](log-analytics-linux-agents.md) | Não | A solução não coleta informações de agentes do Linux. |
 | [Grupo de gerenciamento do SCOM](log-analytics-om-agents.md) | Não | A solução não coleta informações de agentes em um grupo de gerenciamento de SCOM conectado. |
 | [Conta de armazenamento do Azure](log-analytics-azure-storage.md) | Não | A solução não coleta informações do armazenamento do Azure. |

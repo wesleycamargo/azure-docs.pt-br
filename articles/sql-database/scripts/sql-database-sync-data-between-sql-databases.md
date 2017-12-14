@@ -9,7 +9,7 @@ editor:
 tags: 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: load & move data
+ms.custom: load & move data, mvc
 ms.devlang: PowerShell
 ms.topic: sample
 ms.tgt_pltfrm: sql-database
@@ -17,11 +17,11 @@ ms.workload: database
 ms.date: 07/31/2017
 ms.author: jognanay
 ms.reviewer: douglasl
-ms.openlocfilehash: 81bec820bd815f0a8826f3a5dc46b1924aa07772
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: fe52538c95619cd5bf69ff706ec266195194ace9
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="use-powershell-to-sync-between-multiple-sql-databases"></a>Usar o PowerShell para sincronização entre vários bancos de dados SQL
  
@@ -367,9 +367,9 @@ Os exemplos de script do PowerShell do Banco de Dados SQL adicionais podem ser e
 Para saber mais sobre a Sincronização de Dados SQL, veja:
 
 -   [Sincronizar dados entre vários bancos de dados locais e de nuvem com a Sincronização de Dados SQL do Azure](../sql-database-sync-data.md)
--   [Configurar a Sincronização de Dados SQL Azure](../sql-database-get-started-sql-data-sync.md)
+-   [Configurar a Sincronização de Dados SQL do Azure](../sql-database-get-started-sql-data-sync.md)
 -   [Melhores práticas para a Sincronização de Dados SQL do Azure](../sql-database-best-practices-data-sync.md)
--   [Monitorar Sincronização de Dados SQL Azure com o Log Analytics do OMS](../sql-database-sync-monitor-oms.md)
+-   [Monitorar Sincronização de Dados SQL do Azure com o Log Analytics do OMS](../sql-database-sync-monitor-oms.md)
 -   [Solucionar problemas com a Sincronização de Dados SQL do Azure](../sql-database-troubleshoot-data-sync.md)
 
 -   Conclua os exemplos do PowerShell que mostram como configurar a Sincronização de Dados SQL:

@@ -4,7 +4,7 @@ description: "O Azure Active Directory pode provisionar automaticamente usuário
 services: active-directory
 documentationcenter: 
 author: asmalser-msft
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 4d86f3dc-e2d3-4bde-81a3-4a0e092551c0
 ms.service: active-directory
@@ -12,25 +12,20 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/28/2017
+ms.date: 12/12/2017
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.custom: aaddev;it-pro;oldportal
-ms.openlocfilehash: 91978cee88d55c99bcb63c63cdaf01581ae84668
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.custom: aaddev;it-pro
+ms.openlocfilehash: 82649b0da67882a0088876798b6f0d79e46051a7
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="using-system-for-cross-domain-identity-management-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Usar o sistema de gerenciamento de identidade de domínio cruzado para provisionar automaticamente usuários e grupos do Azure Active Directory a aplicativos
 
 ## <a name="overview"></a>Visão geral
 O Azure Active Directory (Azure AD) pode provisionar automaticamente usuários e grupos para qualquer repositório de identidades ou aplicativos que seja administrado por um serviço Web com a interface definida na [especificação do protocolo Sistema de Gerenciamento de Identidade entre Domínios (SCIM) 2.0](https://tools.ietf.org/html/draft-ietf-scim-api-19). O Azure Active Directory pode enviar solicitações para criar, modificar ou excluir usuários e grupos atribuídos ao serviço Web. O serviço Web pode então converter essas solicitações em operações no repositório de identidades de destino. 
-
-> [!IMPORTANT]
-> A Microsoft recomenda que você gerencie o Azure AD usando o [Centro de administração do AD do Azure](https://aad.portal.azure.com) no portal do Azure em vez de usar o portal clássico do Azure mencionado neste artigo. 
-
-
 
 ![][0]
 *Figura 1: Provisionando do Azure Active Directory a um repositório de identidades por meio de um serviço Web*
@@ -87,7 +82,7 @@ Os aplicativos que dão suporte ao perfil SCIM descrito neste artigo podem ser c
 13. Clique em **Salvar** para iniciar o serviço de provisionamento do Azure AD. 
 14. Caso esteja sincronizando apenas usuários e grupos atribuídos (recomendado), certifique-se de selecionar a guia **Usuários e grupos** e designar os usuários e/ou grupos que você deseja sincronizar.
 
-Depois de iniciada a sincronização inicial, você pode usar a guia **Logs de auditoria** para monitorar o progresso, que mostra todas as ações executadas pelo serviço de provisionamento em seu aplicativo. Para obter mais informações sobre como ler os logs de provisionamento do Azure AD, consulte [Relatando o provisionamento automático de conta de usuário](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
+Depois de iniciada a sincronização inicial, você pode usar a guia **Logs de auditoria** para monitorar o progresso, que mostra todas as ações executadas pelo serviço de provisionamento em seu aplicativo. Para obter mais informações sobre como ler os logs de provisionamento do Azure AD, consulte [Relatando o provisionamento automático de conta de usuário](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).
 
 >[!NOTE]
 >Observe que a sincronização inicial levará mais tempo do que as sincronizações subsequentes, que ocorrem aproximadamente a cada 20 minutos, desde que o serviço esteja em execução. 
@@ -159,7 +154,7 @@ A maneira mais fácil de implementar um ponto de extremidade SCIM que possa acei
 13. Clique em **Salvar** para iniciar o serviço de provisionamento do Azure AD. 
 14. Caso esteja sincronizando apenas usuários e grupos atribuídos (recomendado), certifique-se de selecionar a guia **Usuários e grupos** e designar os usuários e/ou grupos que você deseja sincronizar.
 
-Depois de iniciada a sincronização inicial, você pode usar a guia **Logs de auditoria** para monitorar o progresso, que mostra todas as ações executadas pelo serviço de provisionamento em seu aplicativo. Para obter mais informações sobre como ler os logs de provisionamento do Azure AD, consulte [Relatando o provisionamento automático de conta de usuário](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-saas-provisioning-reporting).
+Depois de iniciada a sincronização inicial, você pode usar a guia **Logs de auditoria** para monitorar o progresso, que mostra todas as ações executadas pelo serviço de provisionamento em seu aplicativo. Para obter mais informações sobre como ler os logs de provisionamento do Azure AD, consulte [Relatando o provisionamento automático de conta de usuário](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting).
 
 A etapa final da verificação do exemplo é abrir o arquivo TargetFile.csv da pasta \AzureAD-BYOA-Provisioning-Samples\ProvisioningAgent\bin\Debug no seu computador com Windows. Depois que o processo de provisionamento é executado, esse arquivo mostra os detalhes de todos os usuários e grupos provisionados e atribuídos.
 

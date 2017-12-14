@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: barclayn
-ms.openlocfilehash: 0ec9ceb63c3e1872e9815a7895b624276fc46123
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7ce6297d7d6b61ac95df58db3fa1a2a0a123a64e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="document-protection-of-personal-data-with-azure-reporting-tools"></a>Documentar a proteção de dados pessoais com ferramentas de relatório do Azure
 
@@ -90,7 +90,7 @@ Visite o site [Referência da API de auditoria do Azure Active Directory](https:
 
 ### <a name="log-analytics"></a>Log Analytics
 
-O [Log Analytics](https://azure.microsoft.com/services/log-analytics/) pode [coletar dados do Azure Monitor](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-storage) para correlacioná-los com outros dados e fornecer análise adicional. O Azure Monitor coleta e analisa os dados de monitoramento para o ambiente do Azure. 
+O [Log Analytics](https://azure.microsoft.com/services/log-analytics/) pode [coletar dados do Azure Monitor](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) para correlacioná-los com outros dados e fornecer análise adicional. O Azure Monitor coleta e analisa os dados de monitoramento para o ambiente do Azure. 
 
 Ferramentas de análise no Log Analytics, como pesquisas de logs, exibições e soluções, funcionam com todos os dados coletados, fornecendo uma análise centralizada de todo o ambiente. O Log Analytics pode agregar e analisar logs de Eventos do Windows, logs do IIS e Syslogs, que podem ajudar a detectar violações potenciais de dados pessoais que podem expor dados pessoais a usuários não autorizados.
 
@@ -140,7 +140,7 @@ Há várias maneiras de usar os dados no Log de atividades e outros recursos do 
 
 - Armazene os dados por períodos mais longos do que os padrões, usando uma [conta de armazenamento do Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction) e configurando uma política de retenção.
 
-- Visualize os dados em gráficos, usando o [portal do Azure](https://azure.microsoft.com/features/azure-portal/), o [Azure Application Insights](https://azure.microsoft.com/services/application-insights/), o [Microsoft PowerBI](https://powerbi.microsoft.com/) ou ferramentas de visualização de terceiros.
+- Visualize os dados em grafos, usando o [portal do Azure](https://azure.microsoft.com/features/azure-portal/), o [Azure Application Insights](https://azure.microsoft.com/services/application-insights/), o [Microsoft PowerBI](https://powerbi.microsoft.com/) ou ferramentas de visualização de terceiros.
 
 - Consulte os dados usando a API REST do Azure Monitor, comandos da CLI, cmdlets do [PowerShell](https://docs.microsoft.com/powershell/) ou o SDK do .NET.
 

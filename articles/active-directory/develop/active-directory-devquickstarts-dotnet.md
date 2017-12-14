@@ -4,7 +4,7 @@ description: "Como compilar um aplicativo .NET de área de trabalho do Windows q
 services: active-directory
 documentationcenter: .net
 author: jmprieur
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: ed33574f-6fa3-402c-b030-fae76fba84e1
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7a252e0e5243c7b7489373845531cb913ca1f6aa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 41abe20d778a8c51c6b19733ddf5426d12d8751e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="integrate-azure-ad-into-a-windows-desktop-wpf-app"></a>Integrar o AD do Azure em um aplicativo WPF de área de trabalho do Windows
 [!INCLUDE [active-directory-devquickstarts-switcher](../../../includes/active-directory-devquickstarts-switcher.md)]
@@ -30,7 +30,7 @@ Se você estiver desenvolvendo um aplicativo de desktop, o AD do Azure torna a a
 
 Para clientes nativos .NET que precisam acessar recursos protegidos, o AD do Azure fornece a biblioteca de autenticação do Active Directory, ou ADAL.  A única finalidade da ADAL é tornar mais fácil para seu aplicativo obter tokens de acesso.  Para demonstrar como é fácil, vamos compilar aqui um aplicativo de lista de tarefas pendentes para .NET WPF que:
 
-* Obtém tokens de acesso para chamar a Graph API do AD do Azure usando o [protocolo de autenticação OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx).
+* Obtém tokens de acesso para chamar a API do Graph do Azure AD usando o [protocolo de autenticação OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx).
 * Pesquisa um diretório para usuários com um determinado alias.
 * Desconecta usuários.
 
@@ -43,7 +43,7 @@ Para compilar o aplicativo em funcionamento completo, você precisará:
 Para começar, [baixe o esqueleto do aplicativo](https://github.com/AzureADQuickStarts/NativeClient-DotNet/archive/skeleton.zip) ou [baixe o exemplo concluído](https://github.com/AzureADQuickStarts/NativeClient-DotNet/archive/complete.zip).  Você também precisará de um locatário do AD do Azure no qual você possa criar usuários e registrar um aplicativo.  Se você ainda não tiver um locatário [saiba como obter um](active-directory-howto-tenant.md).
 
 ## <a name="1-register-the-directorysearcher-application"></a>1. Registrar o aplicativo DirectorySearcher
-Para habilitar seu aplicativo para obter tokens, primeiro será necessário registrá-lo no seu locatário do AD do Azure e conceder permissão para acessar a Graph API do AD do Azure:
+Para habilitar seu aplicativo para obter tokens, primeiro será necessário registrá-lo no seu locatário do AD do Azure e conceder permissão para acessar a API do Graph do AD do Azure:
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 2. Na barra superior, clique na sua conta e, na lista **Diretório**, escolha o locatário do Active Directory em que você deseja registrar seu aplicativo.
@@ -53,7 +53,7 @@ Para habilitar seu aplicativo para obter tokens, primeiro será necessário regi
   * O **Nome** do aplicativo descreverá seu aplicativo para os usuários finais
   * O **URI de redirecionamento** é uma combinação de esquema e de cadeia de caracteres que o AD do Azure usará para retornar respostas de tokens.  Insira um valor específico para seu aplicativo, por exemplo, `http://DirectorySearcher`.
 6. Depois de concluir o registro, o AAD atribuirá a seu aplicativo uma ID do Aplicativo única.  Você precisará desse valor nas próximas seções, então copie-o da página do aplicativo.
-7. Na página **Configurações**, escolha **Permissões Necessárias** e escolha **Adicionar**. Escolha o **Microsoft Graph** como a API e adicione a permissão **Ler Dados do Diretório** em **Permissões Delegadas**.  Isso permitirá que seu aplicativo consulte a Graph API para usuários.
+7. Na página **Configurações**, escolha **Permissões Necessárias** e escolha **Adicionar**. Escolha o **Microsoft Graph** como a API e adicione a permissão **Ler Dados do Diretório** em **Permissões Delegadas**.  Isso permitirá que seu aplicativo consulte a API do Graph para usuários.
 
 ## <a name="2-install--configure-adal"></a>2. Instalar e Configurar o ADAL
 Agora que você tem um aplicativo no AD do Azure, você pode instalar a ADAL e escrever seu código relacionado à identidade.  Para que a ADAL possa se comunicar com o Azure AD, é necessário fornecer a ela algumas informações sobre o registro do aplicativo.
@@ -85,7 +85,7 @@ public MainWindow()
 }
 ```
 
-* Agora localize o método `Search(...)` , que será chamado quando os usuário clicar no botão "Pesquisar" na interface do usuário do aplicativo.  Esse método faz uma solicitação GET para que a Graph API do AD do Azure procure por usuários cujo UPN começa com o termo de pesquisa fornecido.  Mas para consultar a Graph API, você precisa incluir um access_token no cabeçalho `Authorization` da solicitação - é aí que entra a ADAL.
+* Agora localize o método `Search(...)` , que será chamado quando os usuário clicar no botão "Pesquisar" na interface do usuário do aplicativo.  Esse método faz uma solicitação GET para que a API do Graph do AD do Azure procure por usuários cujo UPN começa com o termo de pesquisa fornecido.  Mas para consultar a API do Graph, você precisa incluir um access_token no cabeçalho `Authorization` da solicitação - é aí que entra a ADAL.
 
 ```C#
 private async void Search(object sender, RoutedEventArgs e)

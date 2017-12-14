@@ -5,22 +5,22 @@ services: active-directory
 keywords: "Gerenciamento de senha do Active Directory, gerenciamento de senha, autoatendimento de redefinição de senha do Azure AD"
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: sahenry
 ms.assetid: 
 ms.service: active-directory
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm: 
+ms.devlang: 
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 12/06/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 8ca760c3f144cda15920dd401c6a8726d3d53da0
-ms.sourcegitcommit: 651a6fa44431814a42407ef0df49ca0159db5b02
+ms.openlocfilehash: 6dfc3246b210b382665eeef2d638945c91d5b62f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="password-writeback-overview"></a>Visão geral de write-back de senha
 
@@ -160,7 +160,6 @@ O write-back de senha oferece suporte para os seguintes tipos de senha de usuár
   * Qualquer operação de alteração de senha voluntária de autoatendimento do administrador
   * Qualquer operação para forçar o autoatendimento de alteração de senha do administrador, por exemplo, expiração de senha
   * Qualquer redefinição de senha de autoatendimento do administrador originada do [portal de redefinição de senha](https://passwordreset.microsoftonline.com)
-  * Qualquer redefinição de senha do usuário final iniciada pelo administrador no [portal clássico do Azure](https://manage.windowsazure.com)
   * Qualquer redefinição de senha do usuário final iniciada pelo administrador no [portal do Azure](https://portal.azure.com)
 
 ### <a name="user-and-admin-operations-that-are-not-supported-for-password-writeback"></a>Operações de administrador e usuário sem suporte para write-back de senha

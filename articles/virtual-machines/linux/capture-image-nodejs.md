@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/09/2017
 ms.author: iainfou
-ms.openlocfilehash: b1164fbd816eea5189786850f096438e32f8f802
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f990a0da0be7f10dc16aa2e5a6320b456cfffed1
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="capture-a-linux-virtual-machine-running-on-azure"></a>Capturar uma máquina virtual do Linux em execução no Azure
 Siga as etapas neste artigo para generalizar e capturar sua VM (máquina virtual) do Linux do Azure no modelo de implantação do Gerenciador de Recursos. Ao generalizar a VM, você remove informações de conta pessoal e prepara a VM a ser usada como uma imagem. Em seguida, você captura a imagem de um VHD (disco rígido virtual) generalizado para o sistema operacional, VHDs para discos de dados anexados e um [modelo do Resource Manager](../../azure-resource-manager/resource-group-overview.md) para novas implantações de VM. Este artigo fornece detalhes sobre como capturar uma imagem de VM com a CLI do Azure 1.0 para uma VM usando discos não gerenciados. Você também pode [capturar uma VM usando o Azure Managed Disks com a CLI 2.0 do Azure](capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Os Managed Disks são tratados pela plataforma do Azure e não exigem nenhuma preparação ou local para armazenamento. Para saber mais, veja [Visão geral dos Azure Managed Disks](../windows/managed-disks-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
@@ -61,7 +61,7 @@ Primeiro, execute o comando **waagent** com o parâmetro **deprovision** na VM L
 ## <a name="step-2-capture-the-vm"></a>Etapa 2: Capturar a VM
 Use a CLI do Azure para generalizar e capturar a VM. Nos exemplos a seguir, substitua os nomes de parâmetro de exemplo com seus próprios valores. Os nomes de parâmetro de exemplo incluem **myResourceGroup**, **myVnet** e **myVM**.
 
-1. No computador local, abra a CLI do Azure e [faça logon com sua assinatura do Azure](../../xplat-cli-connect.md). 
+1. No computador local, abra a CLI do Azure e [faça logon com sua assinatura do Azure](/cli/azure/authenticate-azure-cli). 
 2. Certifique-se de estar no modo Resource Manager.
    
     ```azurecli

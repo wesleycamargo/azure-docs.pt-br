@@ -5,7 +5,7 @@ services: multi-factor-authentication
 keywords: "servidor de autenticação, página de ativação de aplicativo de autenticação multifator do azure, download de servidor de autenticação"
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.assetid: e94120e4-ed77-44b8-84e4-1c5f7e186a6b
 ms.service: multi-factor-authentication
 ms.workload: identity
@@ -16,11 +16,11 @@ ms.date: 10/02/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: a164dfa23a0bd8a598eb8871a160ced4158b172a
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 4a3e7bd851c2b7e082caeeb451c865eab4fe6635
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Introdução ao Servidor de Autenticação Multifator do Azure
 
@@ -89,7 +89,7 @@ Se você não estiver usando o recurso de Confirmação de Eventos e os usuário
 | 134.170.165.72/29 |255.255.255.248 |134.170.165.72 – 134.170.165.79 |
 | 70.37.154.200/29 |255.255.255.248 |70.37.154.201 – 70.37.154.206 |
 
-## <a name="download-the-mfa-server---public-preview"></a>Baixar o Servidor MFA - Versão prévia pública
+## <a name="download-the-mfa-server"></a>Baixar o Servidor MFA
 
 Siga estas etapas para baixar o Servidor de Autenticação Multifator do Azure do portal do Azure:
 
@@ -101,28 +101,6 @@ Siga estas etapas para baixar o Servidor de Autenticação Multifator do Azure d
    ![Baixar o Servidor MFA](./media/multi-factor-authentication-get-started-server/downloadportal.png)
 
 5. Mantenha essa página aberta, pois vamos referenciá-la depois de executar o instalador.
-
-
-## <a name="download-the-mfa-server"></a>Baixar o Servidor MFA
-
-Siga estas etapas para baixar o Servidor de Autenticação Multifator do Azure do portal pfweb:
-
-1. Entre no [Portal do Azure](https://portal.azure.com) como administrador.
-2. Selecione **Active Directory**à esquerda
-3. Selecionar **Usuários e grupos**
-4. Selecionar **Todos os usuários**
-5. Selecionar **Autenticação Multifator**
-6. Na seção **autenticação multifator**, selecione **configurações de serviço**
-
-   ![Página de configurações do serviço](./media/multi-factor-authentication-get-started-server/servicesettings.png)
-
-6. Na página das configurações de serviços, na parte inferior da tela, clique em **Ir para o portal**. Uma nova página é aberta.
-7. Selecione **Downloads**.
-8. Clique no link **Baixar** e salve o instalador.
-
-   ![Baixar o Servidor MFA](./media/multi-factor-authentication-get-started-server/download4.png)
-
-9. Mantenha essa página aberta, pois vamos referenciá-la depois de executar o instalador.
 
 ## <a name="install-and-configure-the-mfa-server"></a>Instalar e configurar o Servidor MFA
 

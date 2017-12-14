@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/27/2017
 ms.author: magoedte;banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e78ca1da8cafe93e76d640c0e6d5ad5309655c1b
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 6919b40ac6edff289f3eb171e88ca6d76288f2a3
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>Otimizar seu ambiente do Active Directory com a solução de Verificação de Integridade do Active Directory no Log Analytics
 
@@ -52,7 +52,7 @@ Após a adição da solução e a conclusão da verificação, as informações 
 
 Para executar a verificação de integridade nos controladores de domínio membros do domínio que será avaliado, eles precisam de um agente e de conectividade com o Log Analytics usando um dos seguintes métodos com suporte:
 
-1. Instale o [MMA (Microsoft Monitoring Agent)](log-analytics-windows-agents.md) se o controlador de domínio ainda não tiver sido monitorado pelo System Center 2016 - Operations Manager ou Operations Manager 2012 R2.
+1. Instale o [MMA (Microsoft Monitoring Agent)](log-analytics-windows-agent.md) se o controlador de domínio ainda não tiver sido monitorado pelo System Center 2016 - Operations Manager ou Operations Manager 2012 R2.
 2. Se for monitorado com o System Center 2016 – Operations Manager ou Operations Manager 2012 R2, e o grupo de gerenciamento não for integrado com o serviço Log Analytics, o controlador de domínio poderá ter hospedagem múltipla com o Log Analytics para coletar dados, encaminhar o serviço e ainda ser monitorado pelo Operations Manager.  
 3. Caso contrário, se seu grupo de gerenciamento Operations Manager for integrado com o serviço, você precisará adicionar controladores de domínio para a coleção de dados pelo serviço seguindo as etapas em [adicionar computadores gerenciados por agente](log-analytics-om-agents.md#connecting-operations-manager-to-oms) depois de habilitar a solução em seu espaço de trabalho.  
 
@@ -102,7 +102,7 @@ Não necessariamente. As recomendações baseiam-se no conhecimento e nas experi
 
 Cada recomendação inclui diretrizes sobre sua importância. Você deve usar essas diretrizes para avaliar se é adequado implementar a recomendação considerando a natureza de seus serviços de TI e as necessidades comerciais da sua organização.
 
-## <a name="use-health-check-focus-area-recommendations"></a>Usar as recomendações da área de foco da verificação da integridade
+## <a name="use-health-check-focus-area-recommendations"></a>Usar as recomendações da área de foco da Verificação da Integridade
 Após a instalação, é possível exibir o resumo das recomendações usando o bloco Verificação de Integridade do Active Directory na página de solução no Portal do Azure.
 
 Veja as avaliações de conformidade resumidas para sua infraestrutura e faça uma busca detalhada das recomendações.

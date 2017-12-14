@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: b3a9befe5c6607c108e11b583f8b67c483710021
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: c8f49a778ab5e32108531cab05cab7f7eb092221
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-database-security-best-practices"></a>Melhores práticas de segurança do banco de dados do Azure
 
@@ -137,7 +137,7 @@ Se você estiver interagindo com o Armazenamento do Azure pelo Portal do Azure, 
 
 As organizações que não protegem os dados em trânsito são mais suscetíveis de [ataques man-in-the-middle](https://technet.microsoft.com/library/gg195821.aspx), [eavesdropping](https://technet.microsoft.com/library/gg195641.aspx) e sequestro de sessão. Esses ataques podem ser a primeira etapa na obtenção de acesso a dados confidenciais.
 
-Para aprender mais sobre a opção de VPN do Azure lendo o artigo [Planejamento e design para o Gateway de VPN](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-plan-design).
+Para aprender mais sobre a opção de VPN do Azure lendo o artigo [Planejamento e design para o Gateway de VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-plan-design).
 
 ## <a name="enable-database-auditing"></a>Habilitar a auditoria do banco de dados
 A auditoria de uma instância do Mecanismo de Banco de Dados do SQL Server ou de um banco de dados individual envolve o acompanhamento e o registro em log de eventos que ocorrem no Mecanismo de Banco de Dados. A auditoria do SQL Server permite criar auditorias de servidor, que podem conter especificações de auditoria de servidor para eventos no nível do servidor e especificações de auditoria de banco de dados para eventos no nível do banco de dados. Os eventos auditados podem ser gravados nos logs de eventos ou nos arquivos de auditoria.

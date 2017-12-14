@@ -8,11 +8,11 @@ ms.author: robb
 ms.date: 11/06/2017
 ms.topic: article
 ms.service: monitoring-and-diagnostics
-ms.openlocfilehash: 709a98f8bcdb75962f8e41de348ca7a41c677610
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: c189e67c481239a8a68f2e2b30d05bb615cfa24e
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Monitorar os serviços do Azure no Grafana
 Também monitore serviços e aplicativos do Azure no [Grafana](https://grafana.com/) usando o [plug-in de fonte de dados do Azure Monitor](https://grafana.com/plugins/grafana-azure-monitor-datasource). O plug-in reúne dados de desempenho do aplicativo coletados pelo SDK do Application Insights, bem como dados de infraestrutura fornecidos pelo Azure Monitor. Em seguida, exiba esses dados no painel do Grafana.
@@ -62,7 +62,7 @@ O Grafana usa uma entidade de serviço do Azure Active Directory para se conecta
 
 1. Consulte [estas instruções](../azure-resource-manager/resource-group-create-service-principal-portal.md) para criar uma entidade de serviço. Copie e salve a ID do locatário, a ID do cliente e um segredo do cliente.
 
-2. Consulte [Atribuir aplicativo à função](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role) para atribuir a função de leitor ao aplicativo Azure Active Directory.   
+2. Consulte [Atribuir aplicativo à função](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role) para atribuir a função de leitor ao aplicativo Azure Active Directory.     
 
 3. Se você usar o Application Insights, também poderá incluir a API do Application Insights e a ID do aplicativo para coletar métricas baseadas no Application Insights. Para obter mais informações, consulte [Obtendo sua chave de API e a ID do Aplicativo](https://dev.applicationinsights.io/documentation/Authorization/API-key-and-App-ID).
 

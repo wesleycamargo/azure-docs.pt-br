@@ -4,7 +4,7 @@ description: Perguntas frequentes sobre o Active Directory B2C do Azure.
 services: active-directory-b2c
 documentationcenter: 
 author: saeeda
-manager: krassk
+manager: mtillman
 editor: bryanla
 ms.assetid: ed33c2ca-76d0-442a-abb1-8b7b7bb92d6a
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2017
 ms.author: saeeda
-ms.openlocfilehash: 397c0c610c05e65d06a6319672446a6e4c9c445a
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 8bc487bdcc33f70d39d884830bfaf9187828694e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-b2c-frequently-asked-questions-faq"></a>Azure AD B2C: Perguntas frequentes (FAQ) 
 Esta página responde a perguntas frequentes sobre o Azure AD (Azure Active Directory) B2C. Continue verificando as atualizações.
@@ -37,7 +37,7 @@ Em um locatário do Azure AD B2C, a maioria dos aplicativos quer que o usuário 
 ### <a name="which-social-identity-providers-do-you-support-now-which-ones-do-you-plan-to-support-in-the-future"></a>A quais provedores de identidade social você oferece suporte? A quais você planeja oferecer suporte no futuro?
 Atualmente, há suporte para Facebook, Google+, LinkedIn, Amazon, Twitter (versão prévia), WeChat (versão prévia), Weibo (versão prévia) e QQ (versão prévia). Vamos adicionar suporte para outros provedores de identidade social populares com base na demanda do cliente.
 
-O Azure AD B2C também adicionou suporte para [políticas personalizadas](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-overview-custom).  Essas [políticas personalizadas](https://docs.microsoft.com/en-us/azure/active-directory-b2c/active-directory-b2c-overview-custom) permitem que um desenvolvedor crie sua própria política com qualquer provedor de identidade que dê suporte ao [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) ou SAML. 
+O Azure AD B2C também adicionou suporte para [políticas personalizadas](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom).  Essas [políticas personalizadas](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom) permitem que um desenvolvedor crie sua própria política com qualquer provedor de identidade que dê suporte ao [OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) ou SAML. 
 
 Comece a usar políticas personalizadas verificando nosso [pacote de políticas personalizadas para iniciantes](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack).
 
@@ -87,7 +87,7 @@ Não, o Azure AD Connect não foi projetado para funcionar com o AD B2C do Azure
 Não, por motivos de segurança, as páginas do Azure AD B2C não podem ser abertas em um iFrame.  Nosso serviço comunica-se com o navegador para proibir iFrames.  A comunidade de segurança em geral e a especificação OAUTH2, não recomenda o uso de iFrames para experiências de identidade devido ao risco de clickjacking.
 
 ### <a name="does-azure-ad-b2c-work-with-crm-systems-such-as-microsoft-dynamics"></a>O AD B2C do Azure funciona com sistemas CRM, como o Microsoft Dynamics?
-A integração com o Portal do Microsoft Dynamics 365 está disponível.  Consulte [Configurando o Portal do Dynamics 365 para usar o Azure AD B2C para autenticação](https://docs.microsoft.com/en-us/dynamics365/customer-engagement/portals/azure-ad-b2c).
+A integração com o Portal do Microsoft Dynamics 365 está disponível.  Consulte [Configurando o Portal do Dynamics 365 para usar o Azure AD B2C para autenticação](https://docs.microsoft.com/dynamics365/customer-engagement/portals/azure-ad-b2c).
 
 ### <a name="does-azure-ad-b2c-work-with-sharepoint-on-premises-2016-or-earlier"></a>O AD B2C do Azure funciona com o SharePoint local 2016 ou anterior?
 O Azure AD B2C não se destina ao cenário de compartilhamento com parceiros externos do SharePoint. Consulte [Azure AD B2B](http://blogs.technet.com/b/ad/archive/2015/09/15/learn-all-about-the-azure-ad-b2b-collaboration-preview.aspx).

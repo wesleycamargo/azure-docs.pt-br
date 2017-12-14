@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 04/26/2017
 ms.author: danis
-ms.openlocfilehash: dcb7a777c66200c5046a6ad34dc4ff5d346f13e0
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: b20c54660552f527ff403fb41f2a04e478832d43
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="oms-virtual-machine-extension-for-linux"></a>Extensão da máquina virtual do OMS para Linux
 
@@ -182,7 +182,7 @@ A saída de execução da extensão é registrada no seguinte arquivo:
 | 10 | A VM já está conectada a um espaço de trabalho do OMS | Para conectar a VM ao espaço de trabalho especificado no esquema de extensão, defina stopOnMultipleConnections como falso nas configurações públicas ou remova esta propriedade. Essa VM é cobrada uma vez para cada espaço de trabalho ao qual está conectada. |
 | 11 | Configuração inválida fornecida para a extensão | Siga os exemplos anteriores para definir todos os valores de propriedade necessários para a implantação. |
 | 12 | O gerenciador de pacotes dpkg está bloqueado | Verifique se todas as operações de atualização de dpkg no computador foram concluídas e tente novamente. |
-| 20 | Habilitar chamado prematuramente | [Atualize o Agente Linux do Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/update-agent) para a versão mais recente disponível. |
+| 20 | Habilitar chamado prematuramente | [Atualize o Agente Linux do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) para a versão mais recente disponível. |
 | 51 | Não há suporte para essa extensão no sistema operacional da VM | |
 | 55 | Não é possível conectar ao serviço do Microsoft Operations Management Suite | Verifique se o sistema tem acesso à Internet ou que um proxy HTTP válido foi fornecido. Além disso, verifique a exatidão da ID do espaço de trabalho. |
 

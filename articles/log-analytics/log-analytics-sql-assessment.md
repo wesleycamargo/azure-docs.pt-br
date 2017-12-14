@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/27/2017
 ms.author: magoedte;banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ec66c322550ac3a7729dc1fddc8c026fb4ec1895
-ms.sourcegitcommit: b83781292640e82b5c172210c7190cf97fabb704
+ms.openlocfilehash: 04a5959d69cd42e77317161d743be7d778e3186d
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="optimize-your-sql-environment-with-the-sql-server-health-check-solution-in-log-analytics"></a>Otimize seu ambiente SQL com a solução de Verificação da Integridade do SQL Server no Log Analytics
 
@@ -52,7 +52,7 @@ Após ter adicionado a solução e a avaliação ser concluída, as informaçõe
 
 Para executar a verificação de integridade nos servidores do SQL Server, são necessários um agente e uma conectividade para o Log Analytics usando um dos seguintes métodos com suporte:
 
-1. Instale o [MMA (Microsoft Monitoring Agent)](log-analytics-windows-agents.md) se o servidor ainda não for monitorado pelo System Center 2016 - Operations Manager ou Operations Manager 2012 R2.
+1. Instale o [MMA (Microsoft Monitoring Agent)](log-analytics-windows-agent.md) se o servidor ainda não for monitorado pelo System Center 2016 - Operations Manager ou Operations Manager 2012 R2.
 2. Se for monitorado com o System Center 2016 – Operations Manager ou Operations Manager 2012 R2, e o grupo de gerenciamento não for integrado com o serviço Log Analytics, o servidor poderá ter hospedagem múltipla com o Log Analytics para coletar dados, encaminhar o serviço e ainda ser monitorado pelo Operations Manager.  
 3. Caso contrário, se seu grupo de gerenciamento Operations Manager for integrado com o serviço, você precisará adicionar controladores de domínio para a coleção de dados pelo serviço seguindo as etapas em [adicionar computadores gerenciados por agente](log-analytics-om-agents.md#connecting-operations-manager-to-oms) depois de habilitar a solução em seu espaço de trabalho.  
 
@@ -221,7 +221,7 @@ Se houver recomendações que deseja ignorar, você poderá criar um arquivo de 
 
 * A verificação é executada a cada sete dias.
 
-*Há uma maneira de configurar a frequência com a qual a verificação é executada?*
+*Existe alguma maneira de configurar a frequência de execução da verificação?*
 
 * Não no momento.
 

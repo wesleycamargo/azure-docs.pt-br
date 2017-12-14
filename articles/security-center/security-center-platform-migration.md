@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/24/2017
 ms.author: yurid
-ms.openlocfilehash: 5ddf71dcd9c5a2b03e3b1441d8c9b4d91b6bad12
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 89970b50a2f7246a43ac9666be4d992649605cbf
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-security-center-platform-migration"></a>Migração de plataforma da Central de Segurança do Azure
 
@@ -36,7 +36,7 @@ De agora em diante, a Central de Segurança do Azure usa o Microsoft Monitoring 
 
 ## <a name="agent"></a>Agente
 
-Como parte da transição, o Microsoft Monitoring Agent (para [Windows](../log-analytics/log-analytics-windows-agents.md) ou [Linux](../log-analytics/log-analytics-linux-agents.md)) é instalado em todas as VMs do Azure cujos dados estejam sendo coletados no momento.  Se a VM já possui o Microsoft Monitoring Agent instalado, a Central de Segurança otimiza o agente instalado atual.
+Como parte da transição, o Microsoft Monitoring Agent (para [Windows](../log-analytics/log-analytics-windows-agent.md) ou [Linux](../log-analytics/log-analytics-linux-agents.md)) é instalado em todas as VMs do Azure cujos dados estejam sendo coletados no momento.  Se a VM já possui o Microsoft Monitoring Agent instalado, a Central de Segurança otimiza o agente instalado atual.
 
 Por um período de tempo (normalmente de alguns dias), os dois agentes serão executados lado a lado para garantir uma transição suave sem perda de dados. Isso permite que a Microsoft valide se o novo pipeline de dados está funcionando antes de interromper o uso do pipeline atual. Depois da verificação, o agente de monitoramento do Azure será removido das VMs. Você não precisa fazer nada. Um email avisará quando todos os clientes forem migrados.
  

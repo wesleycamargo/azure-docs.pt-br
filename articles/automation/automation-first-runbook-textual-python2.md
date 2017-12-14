@@ -3,7 +3,7 @@ title: "Meu primeiro runbook Python na Automação do Azure | Microsoft Docs"
 description: "Este tutorial guia o usuário pela criação, pelos testes e pela publicação de um runbook Python simples."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 ms.service: automation
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
-ms.author: eslesar
-ms.openlocfilehash: 4e7b3049fff76c86956e08d71b22a0f8dbf55b0e
-ms.sourcegitcommit: 76a3cbac40337ce88f41f9c21a388e21bbd9c13f
+ms.author: gwallace
+ms.openlocfilehash: 8a7c03f10d4310bcdb13ef76b598c22912707c08
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="my-first-python-runbook"></a>Meu primeiro runbook Python
 
@@ -210,8 +210,8 @@ Clique em **OK** para iniciar o runbook. Ele é executado e inicia a VM especifi
 ## <a name="next-steps"></a>Próximas etapas
 
 * Para começar a usar os runbooks do PowerShell, veja [Meu primeiro runbook do PowerShell](automation-first-runbook-textual-powershell.md)
-* Para começar a usar runbooks gráficos, veja [O meu primeiro runbook gráfico](automation-first-runbook-graphical.md)
+* Para começar a usar os runbooks Gráficos, consulte [Meu primeiro runbook gráfico](automation-first-runbook-graphical.md)
 * Para começar a usar runbooks de fluxo de trabalho do PowerShell, veja [Meu primeiro runbook de Fluxo de Trabalho do PowerShell](automation-first-runbook-textual.md)
 * Para saber mais sobre os tipos de runbook, suas vantagens e limitações, veja [Tipos de runbook da Automação do Azure](automation-runbook-types.md)
-* Para obter informações sobre como desenvolver para o Azure em Python, consulte [Azure para desenvolvedores de Python](https://docs.microsoft.com/en-us/python/azure/?view=azure-python).
-* Para exibir runbooks de amostra do Python 2, consulte o [GitHub de Automação do Azure](https://docs.microsoft.com/en-us/python/azure/?view=azure-python).
+* Para obter informações sobre como desenvolver para o Azure em Python, consulte [Azure para desenvolvedores de Python](https://docs.microsoft.com/python/azure/?view=azure-python).
+* Para exibir runbooks de amostra do Python 2, consulte o [GitHub de Automação do Azure](https://docs.microsoft.com/python/azure/?view=azure-python).

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: bwren
-ms.openlocfilehash: 452dd602387db6db04ca87f6834c9e8606185484
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 94dedebe48060441cd3167fea87f6b721eb14517
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="what-is-operations-management-suite-oms"></a>O que é Operations Management Suite (OMS)?
 Este artigo fornece uma introdução ao OMS (Operations Management Suite), incluindo uma visão geral sobre o valor de negócios que ele fornece, os serviços e as soluções de gerenciamento incluídos e as ofertas que reúnem serviços e soluções diferentes.  Há links para a documentação detalhada sobre como implantar e usar cada solução e serviço.
@@ -64,7 +64,7 @@ O [Log Analytics](http://azure.microsoft.com/documentation/services/log-analytic
 #### <a name="collecting-data"></a>Coletando dados
 Há várias maneiras de obter dados para o repositório que o Log Analytics vai analisar.
 
-- **Computadores Windows ou Linux e máquinas virtuais.**  Instale o Microsoft Monitoring Agent em computadores ou máquinas virtuais [Windows](../log-analytics/log-analytics-windows-agents.md) e [Linux](../log-analytics/log-analytics-linux-agents.md) de que você deseja coletar dados.  O agente fará o download automaticamente da configuração do Log Analytics que define os eventos e dados de desempenho que devem ser coletados.  Você pode instalar o agente em máquinas virtuais em execução no Azure facilmente usando o portal do Azure.  Se você tiver um ambiente existente do Operations Manager, poderá conectar o grupo de gerenciamento ao Log Analytics e começar a coletar dados de todos os agentes existentes.
+- **Computadores Windows ou Linux e máquinas virtuais.**  Instale o Microsoft Monitoring Agent em computadores ou máquinas virtuais [Windows](../log-analytics/log-analytics-windows-agent.md) e [Linux](../log-analytics/log-analytics-linux-agents.md) de que você deseja coletar dados.  O agente fará o download automaticamente da configuração do Log Analytics que define os eventos e dados de desempenho que devem ser coletados.  Você pode instalar o agente em máquinas virtuais em execução no Azure facilmente usando o portal do Azure.  Se você tiver um ambiente existente do Operations Manager, poderá conectar o grupo de gerenciamento ao Log Analytics e começar a coletar dados de todos os agentes existentes.
 - **Serviços do Azure.**  O Log Analytics coleta a telemetria do [Diagnóstico do Azure e do Monitoramento do Azure](../log-analytics/log-analytics-azure-storage.md) no repositório para que você possa monitorar os recursos do Azure.
 - **API do Coletor de Dados.**  O Log Analytics tem uma [API REST para preenchimento de dados de qualquer cliente](../log-analytics/log-analytics-data-collector-api.md).  Isso permite coletar dados de aplicativos de terceiros ou implementar cenários de gerenciamento personalizado.  Um método comum é usar um runbook na Automação do Azure para coletar dados e usar a API do coletor de dados para gravá-lo no repositório.
 

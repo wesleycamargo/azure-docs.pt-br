@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/01/2017
 ms.author: negat
-ms.openlocfilehash: 65f02c4675eb752dcc82e9a1d1c7f6c2c193fc32
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e1672474e22411e7f7fca4082ce83146e40ebfbc
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="learn-about-virtual-machine-scale-set-templates"></a>Saiba mais sobre os modelos do conjunto de dimensionamento de máquinas virtuais
 Os [modelos do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#template-deployment) são uma excelente maneira de implantar grupos de recursos relacionados. Esta série de tutoriais mostra como criar um modelo de conjunto de dimensionamento mínimo viável e como modificar esse modelo para adaptá-lo a vários cenários. Todos os exemplos foram obtidos neste [repositório GitHub](https://github.com/gatneil/mvss). 
@@ -123,7 +123,7 @@ Nesse caso, há somente um elemento na lista, a rede virtual do exemplo anterior
        ],
 ```
 ## <a name="specify-scale-set-properties"></a>Especificar as propriedades do conjunto de dimensionamento
-Os conjunto de dimensionamento têm várias propriedades para personalizar as VMs no conjunto de dimensionamento. Para obter uma lista completa dessas propriedades, consulte a [documentação da API REST sobre conjuntos de dimensionamento](https://docs.microsoft.com/en-us/rest/api/virtualmachinescalesets/create-or-update-a-set). Para este tutorial, definiremos apenas algumas propriedades mais usadas.
+Os conjunto de dimensionamento têm várias propriedades para personalizar as VMs no conjunto de dimensionamento. Para obter uma lista completa dessas propriedades, consulte a [documentação da API REST sobre conjuntos de dimensionamento](https://docs.microsoft.com/rest/api/virtualmachinescalesets/create-or-update-a-set). Para este tutorial, definiremos apenas algumas propriedades mais usadas.
 ### <a name="supply-vm-size-and-capacity"></a>Fornecer o tamanho e a capacidade da VM
 O conjunto de dimensionamento precisa saber qual tamanho de VM será criado (“nome de SKU”) e quantas dessas VMs serão criadas (“capacidade de SKU”). Para ver quais tamanhos de VM estão disponíveis, consulte a [documentação Tamanhos de VM](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-sizes).
 

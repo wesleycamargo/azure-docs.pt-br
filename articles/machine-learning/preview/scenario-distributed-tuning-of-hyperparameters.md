@@ -8,11 +8,11 @@ ms.topic: article
 ms.author: dmpechyo
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.date: 09/20/2017
-ms.openlocfilehash: 9372e45e8666dc572b805dfd4a505c9446145079
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 4f739ff26c3df8add01bed6d797f292ff6e26db9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="distributed-tuning-of-hyperparameters-using-azure-machine-learning-workbench"></a>Ajuste distribuído de hiperparâmetros usando o Azure Machine Learning Workbench
 
@@ -36,8 +36,8 @@ A pesquisa de grade usando validação cruzada pode ser demorada. Se um algoritm
 * Uma [conta do Azure](https://azure.microsoft.com/free/) (avaliações gratuitas estão disponíveis).
 * Uma cópia instalada do [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md) seguindo o [Guia de início rápido de instalação e de criação](./quickstart-installation.md) para instalar o Workbench e criar contas.
 * Este cenário pressupõe que você está executando o Azure ML Workbench no Windows 10 e no MacOS com o mecanismo do Docker instalado localmente. 
-* Para executar o cenário com um contêiner remoto do Docker, provisione a DSVM (Máquina Virtual de Ciência de Dados) do Ubuntu seguindo as [instruções](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-provision-vm). Recomendamos usar uma máquina virtual com pelo menos 8 núcleos e 28 Gb de memória. As instâncias D4 de máquinas virtuais têm essa capacidade. 
-* Para executar esse cenário com um cluster Spark, forneça o Cluster HDInsight do Azure seguindo essas [instruções](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). É recomendável ter um cluster com pelo menos 
+* Para executar o cenário com um contêiner remoto do Docker, provisione a DSVM (Máquina Virtual de Ciência de Dados) do Ubuntu seguindo as [instruções](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm). Recomendamos usar uma máquina virtual com pelo menos 8 núcleos e 28 Gb de memória. As instâncias D4 de máquinas virtuais têm essa capacidade. 
+* Para executar esse cenário com um cluster Spark, forneça o Cluster HDInsight do Azure seguindo essas [instruções](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters). É recomendável ter um cluster com pelo menos 
 - seis nós de trabalho
 - oito núcleos
 - 28 GB de memória em ambos os nós de trabalho e cabeçalho. As instâncias D4 de máquinas virtuais têm essa capacidade. É recomendável alterar os seguintes parâmetros para maximizar o desempenho do cluster.
@@ -45,11 +45,11 @@ A pesquisa de grade usando validação cruzada pode ser demorada. Se um algoritm
 - spark.executor.cores
 - spark.executor.memory 
 
-Você pode seguir essas [instruções](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-resource-manager) e editar as definições na seção "padrões personalizados de Spark".
+Você pode seguir essas [instruções](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-resource-manager) e editar as definições na seção "padrões personalizados de Spark".
 
      **Troubleshooting**: Your Azure subscription might have a quota on the number of cores that can be used. The Azure portal does not allow the creation of cluster with the total number of cores exceeding the quota. To find you quota, go in the Azure portal to the Subscriptions section, click on the subscription used to deploy a cluster and then click on **Usage+quotas**. Usually quotas are defined per Azure region and you can choose to deploy the Spark cluster in a region where you have enough free cores. 
 
-* Crie uma conta de armazenamento do Azure usada para armazenar o conjunto de dados. Siga as [instruções](https://docs.microsoft.com/en-us/azure/storage/common/storage-create-storage-account) para criar uma conta de armazenamento.
+* Crie uma conta de armazenamento do Azure usada para armazenar o conjunto de dados. Siga as [instruções](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) para criar uma conta de armazenamento.
 
 ## <a name="data-description"></a>Descrição dos dados
 

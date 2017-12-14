@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: sujie
-ms.openlocfilehash: 8e3f1ae6739896dfd1329561dbcede38a6069546
-ms.sourcegitcommit: 963e0a2171c32903617d883bb1130c7c9189d730
+ms.openlocfilehash: b06eae6b85f2ca41390955cde2499af2531e2e12
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-azure-stream-analytics-tools-for-visual-studio"></a>Usar ferramentas do Azure Stream Analytics para Visual Studio
 As Ferramentas do Stream Analytics do Azure para Visual Studio agora estão disponíveis para o público geral. Essas ferramentas permitem uma experiência mais avançada para os usuários do Stream Analytics solucionarem problemas, bem como escreverem consultas complexas e até mesmo escreverem consultas localmente. Você também pode exportar um trabalho do Stream Analytics em um projeto do Visual Studio.
@@ -40,7 +40,7 @@ Você precisará dos seguintes pré-requisitos para concluir este tutorial:
 
 * Conclua as etapas até "Criar um trabalho de Stream Analytics" no tutorial [Criar uma solução de IoT usando o Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics). 
 * Instale o Visual Studio 2017, o Visual Studio 2015, o Visual Studio 2013 Update 4. As edições Enterprise (Ultimate/Premium), Professional, Community têm suporte. Não há suporte para a Edição Express. 
-* Siga as [instruções de instalação](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install) para instalar as ferramentas do Stream Analytics para o Visual Studio.
+* Siga as [instruções de instalação](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install) para instalar as ferramentas do Stream Analytics para o Visual Studio.
 
 ## <a name="create-a-stream-analytics-project"></a>Criar um projeto do Stream Analytics
 No Visual Studio, selecione **Arquivo** > **Novo Projeto**. Na lista de modelos à esquerda, selecione **Stream Analytics** e então selecione **Aplicativo do Stream Analytics do Azure**.

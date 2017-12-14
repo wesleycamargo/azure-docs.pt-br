@@ -14,24 +14,24 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/20/2017
 ms.author: suchiagicha
-ms.openlocfilehash: 75bdd4644f4ccc583271b9169c50a375e2cd6629
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a21dfde5544045e4961549fe5728e14647eb886
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-fabrictransport-settings-for-reliable-actors"></a>Definir as configurações de FabricTransport para os Reliable Actors
 
 Aqui estão as configurações que você pode configurar:
 - C#: [FabricTransportRemotingSettings](
-https://docs.microsoft.com/en-us/java/api/microsoft.servicefabric.services.remoting.fabrictransport._fabric_transport_remoting_settings)
+https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.fabrictransport._fabric_transport_remoting_settings)
 - Java: [FabricTransportRemotingSettings](https://docs.microsoft.com/java/api/microsoft.servicefabric.services.remoting.fabrictransport._fabric_transport_remoting_settings)
 
 Modifique a configuração padrão de FabricTransport das seguintes maneiras.
 
 ## <a name="assembly-attribute"></a>Atributo de assembly
 
-O atributo [FabricTransportActorRemotingProvider](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.actors.remoting.fabrictransport.fabrictransportactorremotingproviderattribute?redirectedfrom=MSDN#microsoft_servicefabric_actors_remoting_fabrictransport_fabrictransportactorremotingproviderattribute) precisa ser aplicado no cliente do ator e nos assemblies do serviço de ator.
+O atributo [FabricTransportActorRemotingProvider](https://docs.microsoft.com/dotnet/api/microsoft.servicefabric.actors.remoting.fabrictransport.fabrictransportactorremotingproviderattribute?redirectedfrom=MSDN#microsoft_servicefabric_actors_remoting_fabrictransport_fabrictransportactorremotingproviderattribute) precisa ser aplicado no cliente do ator e nos assemblies do serviço de ator.
 
 O exemplo a seguir mostra como alterar o valor padrão das configurações OperationTimeout do FabricTransport:
 
@@ -49,7 +49,7 @@ O exemplo a seguir mostra como alterar o valor padrão das configurações Opera
 
 ## <a name="config-package"></a>Pacote de configuração
 
-Você pode usar um [pacote de configuração](service-fabric-application-model.md) para modificar a configuração padrão.
+Você pode usar um [pacote de configuração](service-fabric-application-and-service-manifests.md) para modificar a configuração padrão.
 
 ### <a name="configure-fabrictransport-settings-for-the-actor-service"></a>Definir as configurações do FabricTransport para o serviço de ator
 

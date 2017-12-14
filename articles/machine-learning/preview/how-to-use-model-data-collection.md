@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: 6a40a85426d2be72fa688548f7ab30e7e5f92146
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 9ceb299b3ee521aeefb45c21920bd3b6e0049d26
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="collect-model-data-by-using-data-collection"></a>Coletar dados de modelo usando a coleta de dados
 
@@ -98,9 +98,9 @@ Os dados podem ser consumidos de blobs do Azure de diversas maneiras, tanto por 
 - Machine Learning Workbench do Azure: abra o arquivo .csv no Azure Machine Learning Workbench adicionando o arquivo .csv como uma fonte de dados.
 - Excel: abra os arquivos csv diários como uma planilha.
 - [Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-azure-and-power-bi/): crie gráficos contendo dados extraídos por pull de dados .csv em blobs.
-- [Spark](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-spark-overview): crie um dataframe com uma grande porção de dados csv.
+- [Spark](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-overview): crie um dataframe com uma grande porção de dados csv.
     ```python
     var df = spark.read.format("com.databricks.spark.csv").option("inferSchema","true").option("header","true").load("wasb://modeldata@<storageaccount>.blob.core.windows.net/<subscription_id>/<resource_group_name>/<model_management_account_name>/<webservice_name>/<model_id>-<model_name>-<model_version>/<identifier>/<year>/<month>/<date>/*")
     ```
-- [Hive](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-linux-tutorial-get-started): carregue dados csv em uma tabela de Hive e execute consultas SQL diretamente no blob.
+- [Hive](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-linux-tutorial-get-started): carregue dados csv em uma tabela de Hive e execute consultas SQL diretamente no blob.
 

@@ -14,11 +14,11 @@ ms.topic: article
 ms.date: 11/01/2017
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 1547b5c3a5c629b85ff5fa9de6b39b25531d9ec9
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: b7686dc5c52737106a8bc819c160b67baaffd147
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Ambientes de computação com suporte do Azure Data Factory
 > [!NOTE]
@@ -50,7 +50,7 @@ Após 15 de dezembro de 2017:
 
 - Não será mais possível criar clusters HDInsight baseados em Linux versão 3.3 (ou versões anteriores) usando o Serviço Vinculado sob demanda do HDInsight no Azure Data Factory v1. 
 
-- Se [osType e/ou a propriedade Version](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) não estiverem especificados explicitamente nas definições JSON existentes do Serviço Vinculado sob demanda do HDInsight no Azure Data Factory v1, o valor padrão será alterado de **Version=3.1, osType=Windows** para **Version=3.6, osType=Linux**.
+- Se [osType e/ou a propriedade Version](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) não estiverem especificados explicitamente nas definições JSON existentes do Serviço Vinculado sob demanda do HDInsight no Azure Data Factory v1, o valor padrão será alterado de **Version=3.1, osType=Windows** para **Version=3.6, osType=Linux**.
 
 Após 31 de julho de 2018:
 
@@ -58,10 +58,10 @@ Após 31 de julho de 2018:
 
  **Ações recomendadas** 
 
-- Atualize [osType e/ou a propriedade Version](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) das definições de Serviço Vinculado sob demanda do HDInsight no Azure Data Factory v1 afetadas para versões do HDInsight baseado em Linux (HDInsight 3.6) mais recentes para garantir que você possa usar os componentes e correções mais recentes do ecossistema Hadoop. 
-- Antes de 15 de dezembro de 2017, teste as atividades de streaming do Hive, Pig, MapReduce e Hadoop do Azure Data Factory V1 que referenciam o Serviço Vinculado afetado para garantir que elas são compatíveis com o novo valor padrão de *osType* e/ou *Version* (Version=3.6, osType=Linux) ou com a versão e o osType explícitos do HDInsight para a qual você está atualizando. Para saber mais sobre compatibilidade, examine as páginas da Web de documentação [Migrar de um cluster HDInsight baseado no Windows para um cluster baseado em Linux](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-migrate-from-windows-to-linux) e [Quais são os componentes e as versões do Hadoop disponíveis com o HDInsight?](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-component-versioning#hortonworks-release-notes-associated-with-hdinsight-versions). 
+- Atualize [osType e/ou a propriedade Version](https://docs.microsoft.com/azure/data-factory/v1/data-factory-compute-linked-services#azure-hdinsight-on-demand-linked-service) das definições de Serviço Vinculado sob demanda do HDInsight no Azure Data Factory v1 afetadas para versões do HDInsight baseado em Linux (HDInsight 3.6) mais recentes para garantir que você possa usar os componentes e correções mais recentes do ecossistema Hadoop. 
+- Antes de 15 de dezembro de 2017, teste as atividades de streaming do Hive, Pig, MapReduce e Hadoop do Azure Data Factory V1 que referenciam o Serviço Vinculado afetado para garantir que elas são compatíveis com o novo valor padrão de *osType* e/ou *Version* (Version=3.6, osType=Linux) ou com a versão e o osType explícitos do HDInsight para a qual você está atualizando. Para saber mais sobre compatibilidade, examine as páginas da Web de documentação [Migrar de um cluster HDInsight baseado no Windows para um cluster baseado em Linux](https://docs.microsoft.com/azure/hdinsight/hdinsight-migrate-from-windows-to-linux) e [Quais são os componentes e as versões do Hadoop disponíveis com o HDInsight?](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning#hortonworks-release-notes-associated-with-hdinsight-versions). 
 - Defina explicitamente o osType como Windows antes de 15 de dezembro de 2017, se desejar continuar usando o Serviço vinculado do HDInsight do Azure Data Factory v1 sob demanda para criar clusters HDInsight baseados no Windows. No entanto, ainda recomendamos migrar para clusters HDInsight baseados no Linux antes de 31 de julho de 2018. 
-- Atualize a definição JSON de atividade personalizada do DotNet para usar um Serviço Vinculado em Lote do Azure em vez disso, se você estiver usando o Serviço Vinculado do HDInsight sob demanda para executar uma Atividade personalizada do DotNet do Azure Data Factory v1. Saiba mais na página da Web de documentação [Usar atividades personalizadas em um pipeline do Azure DataFactory](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-use-custom-activities). 
+- Atualize a definição JSON de atividade personalizada do DotNet para usar um Serviço Vinculado em Lote do Azure em vez disso, se você estiver usando o Serviço Vinculado do HDInsight sob demanda para executar uma Atividade personalizada do DotNet do Azure Data Factory v1. Saiba mais na página da Web de documentação [Usar atividades personalizadas em um pipeline do Azure DataFactory](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities). 
 
 >[!Note]
 >Para clientes que usam seu Serviço Vinculado do HDInsight BYOC (Traga seu próprio cluster) no Azure Data Factory v1 ou os que estão usando BYOC e o Serviço Vinculado sob demanda do HDInsight no Azure Data Factory v2, a política de suporte de versão mais recente dos clusters HDInsight do Azure já foi imposta, portanto, nenhuma ação é necessária. 

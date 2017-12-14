@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2017
 ms.author: magoedte
-ms.openlocfilehash: d9f86ac19044fd13e77d35d6c3dd9964c3852001
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1549408c6885ee556a142ab7de613ebb1629070d
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="manage-workspaces"></a>Gerenciar espaços de trabalho
 
@@ -51,7 +51,7 @@ Com base nas características anteriores, pode ser útil criar vários espaços 
 * Você é um provedor de serviço gerenciado e precisa para manter os dados do Log Analytics para cada cliente que você gerencia isolados dos de outros clientes.
 * Você gerencia vários clientes e deseja que cada cliente/departamento/grupo de negócios veja seus próprios dados, mas não os dados de outras pessoas.
 
-Ao usar agentes para coletar dados, você pode [configurar cada agente para relatar para um ou mais espaços de trabalho](log-analytics-windows-agents.md).
+Ao usar agentes para coletar dados, você pode [configurar cada agente para relatar para um ou mais espaços de trabalho](log-analytics-windows-agent.md).
 
 Se você estiver usando o System Center Operations Manager, cada grupo de gerenciamento do Operations Manager poderá ser conectado a apenas um espaço de trabalho. No entanto, o Microsoft Monitoring Agent no computador pode ser configurado para relatórios do Operations Manager e um espaço de trabalho diferente do Log Analytics.  
 

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 499ba030e9768b82dfdc01df416fc9c8fe3de37d
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: de225fde09665f25b326f4012ff0452ab6cef83b
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-operational-security-checklist"></a>Lista de verificação de segurança operacional do Azure
 Implantar um aplicativo no Azure é rápido, fácil e econômico. Antes de implantar o aplicativo na nuvem em produção útil para ter uma lista de verificação visando ajudar na avaliação de seu aplicativo mediante uma lista de ações de segurança operacional essenciais e recomendadas a você.
@@ -52,6 +52,6 @@ Muitas organizações implantaram e operaram com sucesso seus aplicativos na nuv
 ## <a name="next-steps"></a>Próximas etapas
 Neste documento, apresentamos a você a solução de Segurança e Auditoria do OMS. Para saber mais sobre a Segurança do OMS, veja os seguintes artigos:
 
-- [Visão geral do OMS (Operations Management Suite)](https://docs.microsoft.com/en-us/azure/operations-management-suite/operations-management-suite-overview).
+- [Visão geral do OMS (Operations Management Suite)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview).
 - [Design e segurança operacional](https://www.microsoft.com/trustcenter/security/designopsecurity).
 - [Planejamento e operações da Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide).

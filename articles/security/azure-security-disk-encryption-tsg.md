@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: devtiw
-ms.openlocfilehash: c7734b8e02b6a2f08f5fc6ebe4b2ec43e34b35c3
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 618e5e6d159a8f0d4610d6d652c21e121a93a5e0
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Guia de solução de problemas do Azure Disk Encryption
 
@@ -36,7 +36,7 @@ A criptografia de disco do SO (sistema operacional) Linux deve desmontar a unida
 - O disco do SO usa um esquema LVM (Gerenciador de Volume Lógico). Embora o suporte ao disco de dados LVM limitado esteja disponível, um disco de SO LVM, não.
 - Os requisitos mínimos de memória não são atendidos (7 GB é sugerido para criptografia de disco do SO).
 - As unidades de dados são montadas recursivamente no diretório /mnt/ ou uma na outra (por exemplo, /mnt/data1, /mnt/data2, /data3 + /data3/data4).
-- Outros [pré-requisitos](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption) do Azure Disk Encryption para Linux não são atendidos.
+- Outros [pré-requisitos](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) do Azure Disk Encryption para Linux não são atendidos.
 
 ## <a name="unable-to-encrypt"></a>Não será possível criptografar
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/13/2017
 ms.author: magoedte
-ms.openlocfilehash: 7bae18e151fbdccf95f3fe5f569041d6dd9c42eb
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: e818a1b94891e687d8aa5962092e0a577b0db356
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="configure-collection-of-azure-paas-resource-metrics-with-log-analytics"></a>Coletar métricas de recursos de PaaS do Azure com Log Analytics
 
@@ -37,7 +37,7 @@ Verifique se você tem os seguintes módulos do Azure Resource Manager instalado
 >[!NOTE]
 >É recomendável que todos os seus módulos do Azure Resource Manager estejam na mesma versão para garantir a compatibilidade quando você executar comandos do Gerenciador de Recursos do Azure do PowerShell.
 >
-Para instalar a versão mais recente dos módulos do Azure Resource Manager em seu computador, consulte [Instalar e configurar o Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-4.4.1#update-azps).  
+Para instalar a versão mais recente dos módulos do Azure Resource Manager em seu computador, consulte [Instalar e configurar o Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.4.1#update-azps).  
 
 ## <a name="enable-azure-diagnostics"></a>Habilitar o Diagnóstico do Azure  
 Configurar o Diagnóstico do Azure para recursos de PaaS é feito por meio da execução do script, **Enable-AzureRMDiagnostics.ps1**, que está disponível na [Galeria do PowerShell](https://www.powershellgallery.com/packages/Enable-AzureRMDiagnostics/2.52/DisplayScript).  O script oferece suporte para os seguintes cenários:

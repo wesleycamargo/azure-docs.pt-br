@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: banders
-ms.openlocfilehash: 1ad56a54f094f3c314596b3a7c9fecd09647d065
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fa8f51d621bc262ec72ef03929689c4af3c339a6
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="view-azure-activity-logs"></a>Exibir logs de atividade do Azure
 
@@ -52,7 +52,7 @@ Ao contrário da maioria das outras soluções do Log Analytics, dados não são
 
 | Fonte Conectada | Suportado | Descrição |
 | --- | --- | --- |
-| [Agentes do Windows](log-analytics-windows-agents.md) | Não | A solução não coleta informações de agentes do Windows. |
+| [Agentes do Windows](log-analytics-windows-agent.md) | Não | A solução não coleta informações de agentes do Windows. |
 | [Agentes do Linux](log-analytics-linux-agents.md) | Não | A solução não coleta informações de agentes do Linux. |
 | [Grupo de gerenciamento do SCOM](log-analytics-om-agents.md) | Não | A solução não coleta informações de agentes em um grupo de gerenciamento de SCOM conectado. |
 | [Conta de armazenamento do Azure](log-analytics-azure-storage.md) | Não | A solução não coleta informações de armazenamento do Azure. |

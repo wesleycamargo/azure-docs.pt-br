@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: ced8ecde1f36c49b479c7b253a90614567783663
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: db9840817d92b4f2f63009d30dbd554666d53dbe
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-operational-security-best-practices"></a>Práticas recomendadas de Segurança Operacional do Azure
 A Segurança Operacional do Azure refere-se a serviços, controles e recursos disponíveis aos usuários para proteger seus dados, aplicativos e outros recursos no Microsoft Azure. A Segurança Operacional do Azure baseia-se em uma estrutura que incorpora o conhecimento adquirido por meio de várias funcionalidades que são exclusivas à Microsoft, incluindo o Microsoft Security Development Lifecycle (SDL), o programa Microsoft Security Response Center e uma conscientização profunda do cenário de ameaças à segurança cibernética.
@@ -156,7 +156,7 @@ O [Observador de Rede](https://docs.microsoft.com/azure/network-watcher/network-
 Monitore e diagnostique problemas de rede sem fazer logon em suas VMs (máquinas virtuais), usando o Observador de Rede. Disparar [captura de pacote](https://docs.microsoft.com/azure/network-watcher/network-watcher-alert-triggered-packet-capture) por meio da configuração de alertas e obter acesso a informações de desempenho em tempo real no nível de pacote. Ao ver um problema, você poderá investigar os detalhes para um diagnóstico melhor.
 
 ### <a name="gain-insight-into-your-network-traffic-using-flow-logs"></a>Obtenha informações sobre seu tráfego de rede usando os logs de fluxo
-Criar um entendimento aprofundado sobre o padrão de tráfego de sua rede, usando os [logs de fluxo do Grupo de Segurança de Rede](https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-nsg-flow-logging-overview). As informações fornecidas pelos logs de fluxo ajudam a reunir dados para conformidade, auditoria e monitoramento do seu perfil de segurança de rede.
+Criar um entendimento aprofundado sobre o padrão de tráfego de sua rede, usando os [logs de fluxo do Grupo de Segurança de Rede](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview). As informações fornecidas pelos logs de fluxo ajudam a reunir dados para conformidade, auditoria e monitoramento do seu perfil de segurança de rede.
 
 ### <a name="diagnose-vpn-connectivity-issues"></a>Diagnosticar problemas de conectividade de VPN
 O Observador de Rede fornece a habilidade para [diagnosticar os problemas mais comuns de Gateway de VPN e de conexões](https://docs.microsoft.com/azure/network-watcher/network-watcher-diagnose-on-premises-connectivity). Permite que você não apenas identifique o problema, mas que também use os logs detalhados criados para ajudar a investigar ainda mais.

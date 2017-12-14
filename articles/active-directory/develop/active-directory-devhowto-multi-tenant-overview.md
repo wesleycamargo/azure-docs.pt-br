@@ -4,7 +4,7 @@ description: "Instruções passo a passo para a criação de um aplicativo que p
 services: active-directory
 documentationcenter: 
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 35af95cb-ced3-46ad-b01d-5d2f6fd064a3
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 09/26/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: b409aa762b60c6bed0ee26f4b9fa7c347d9eb997
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f6d8d2c07c2860059c4e9deb75d0bc4a876e057b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-ad-user-using-the-multi-tenant-application-pattern"></a>Como entrar em qualquer usuário do Azure AD (Active Directory) usando o padrão de aplicativo multilocatário
 Se você oferecer um aplicativo Software como Serviço para muitas organizações, poderá configurar seu aplicativo para aceitar entradas de qualquer locatário do Azure AD.  No Azure AD, essa configuração é chamada de tornar seu aplicativo multilocatário.  Os usuários em qualquer locatário do Azure AD poderão entrar em seu aplicativo após o consentimento para usar sua conta com o aplicativo.  

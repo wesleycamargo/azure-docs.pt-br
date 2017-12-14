@@ -4,7 +4,7 @@ description: "Uma ferramenta auxiliar usada para demonstrar o recurso de persona
 services: active-directory-b2c
 documentationcenter: 
 author: swkrish
-manager: mbaldwin
+manager: mtillman
 editor: bryanla
 ms.assetid: ae935d52-3520-4a94-b66e-b35bb40e7514
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/07/2017
 ms.author: swkrish
-ms.openlocfilehash: e0c2d827553567ddbc7d006192dc35574e66f1cd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a9ccdea64213d564b271699afe28f5ae6db0a71a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-a-helper-tool-used-to-demonstrate-the-page-user-interface-ui-customization-feature"></a>Azure Active Directory B2C: uma ferramenta auxiliar usada para demonstrar o recurso de personalização da interface de usuário (IU) da página
 Este artigo é um complemento do [artigo principal sobre a personalização da interface do usuário](active-directory-b2c-reference-ui-customization.md) no Active Directory B2C do Azure (AD do Azure). As etapas a seguir descrevem como usufruir do recurso de personalização da interface do usuário da página usando conteúdo de exemplo HTML e CSS que fornecemos.

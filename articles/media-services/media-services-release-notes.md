@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: juliako
-ms.openlocfilehash: 358b3701773e6cd61b4a3dfddf4bb092741ff713
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 0da456e13042168f3c8e871f180e6477b73392d5
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-media-services-release-notes"></a>Notas de versão dos Serviços de Mídia do Azure
 Estas notas de versão resumem as alterações de versões anteriores e os problemas conhecidos.
@@ -58,7 +58,7 @@ Para obter informações sobre o histórico de versões da API REST dos Serviço
 2.  Se você tiver o vídeo de origem codificado com o codec de vídeo H.265(HEVC), como o vídeo capturado usando iOS11 ou GoPro Hero 6, você poderá usar o Codificador Premium ou o Codificador Standard para codificar esses vídeos. Consulte os [Termos de Serviços Online](https://azure.microsoft.com/support/legal/) para conferir uma nota importante sobre licença(s) de patente.
 3.  Se você tiver um conteúdo com trilhas de áudio em vários idiomas, contanto que os valores de idioma estejam rotulados corretamente de acordo com a especificação de formato de arquivo correspondente (por exemplo, ISO MP4), poderá usar o Codificador Standard para codificar o conteúdo para streaming. O localizador de streaming resultante listará os idiomas de áudio disponíveis.
 4.  Agora, o Codificador Standard dá suporte a duas novas predefinições de sistema somente de áudio, "Áudio AAC" e "Áudio AAC de Boa Qualidade". Os dois produzem saída AAC em estéreo, com taxas de bits de 128 kbps e 192 kbps, respectivamente.
-5.  Agora, o Codificador Premium dá suporte a formatos de arquivo QuickTime/MOV como entrada, desde o codec de vídeo seja um dos [tipos Apple ProRes listados aqui](https://docs.microsoft.com/en-us/azure/media-services/media-services-media-encoder-standard-formats), e o áudio seja AAC ou PCM.
+5.  Agora, o Codificador Premium dá suporte a formatos de arquivo QuickTime/MOV como entrada, desde o codec de vídeo seja um dos [tipos Apple ProRes listados aqui](https://docs.microsoft.com/azure/media-services/media-services-media-encoder-standard-formats), e o áudio seja AAC ou PCM.
 
 > [!NOTE]
 > O Codificador Premium não oferece suporte, por exemplo, ao vídeo DVC/DVCPro encapsulado em arquivos QuickTime/MOV, como entrada.  No entanto, o Codificador Standard oferece suporte a esse codecs de vídeo.
@@ -324,13 +324,6 @@ SDK dos Serviços de Mídia para .NET agora está na versão 3.0.0.7
 * **Origem** foi renomeada para [StreamingEndpoint].
 * Uma mudança no comportamento padrão quando você usa o **Portal do Azure** para codificar e depois publicar arquivos MP4.
 
-Anteriormente, ao usar o Portal Clássico do Azure para publicar um ativo de vídeo MP4 de arquivo único, uma URL SAS seria criada (as URLs SAS permitem baixar o vídeo de um armazenamento de blobs). No momento, ao usar o Portal Clássico do Azure para codificar e depois publicar um ativo de vídeo MP4 de arquivo único, a URL gerada aponta para um ponto de extremidade de streaming dos Serviços de Mídia do Azure.  Essa mudança não afeta vídeos MP4 que são carregados diretamente para os Serviços de Mídia e publicados sem serem codificados pelos Serviços de Mídia do Azure.
-
-No momento, há as duas opções a seguir para solucionar o problema.
-
-* Habilitar unidades de streaming e usar empacotamento dinâmico para transmitir o ativo .mp4 como uma apresentação de smooth streaming.
-* Criar uma URL SAS para baixar (ou reproduzir progressivamente) o .mp4. Para obter mais informações sobre como criar um localizador SAS, consulte [Entregando Conteúdo].
-
 ### <a id="sept_14_GA_changes"></a>Novos recursos/cenários que fazem parte da versão do GA
 * **Processador de Mídia do Indexador**. Para saber mais, confira [Indexando arquivos de mídia com o Azure Media Indexer].
 * A entidade [StreamingEndpoint] agora permite adicionar nomes (host) de domínio personalizados.
@@ -561,7 +554,7 @@ A seguinte funcionalidade era nova na versão de novembro do SDK.
 [Detalhes dos preços dos Serviços de Mídia]: http://azure.microsoft.com/pricing/details/media-services/
 [Metadados de entrada]: http://msdn.microsoft.com/library/azure/dn783120.aspx
 [Metadados de saída]: http://msdn.microsoft.com/library/azure/dn783217.aspx
-[Entregando Conteúdo]: http://msdn.microsoft.com/library/azure/hh973618.aspx
+[Delivering Content]: http://msdn.microsoft.com/library/azure/hh973618.aspx
 [Indexando arquivos de mídia com o Azure Media Indexer]: http://msdn.microsoft.com/library/azure/dn783455.aspx
 [StreamingEndpoint]: http://msdn.microsoft.com/library/azure/dn783468.aspx
 [Trabalhando com a Transmissão ao Vivo dos Serviços de Mídia do Azure]: http://msdn.microsoft.com/library/azure/dn783466.aspx

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2017
 ms.author: kumud
-ms.openlocfilehash: 08e4e22ae7e5d6f6efad458b4240a6d57090e865
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: c6b89cb473f6b7a14bd9de88dfb72a2a42d915f5
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-load-balancer-standard-overview-preview"></a>Visão geral do Azure Load Balancer Standard (versão prévia)
 
@@ -335,7 +335,7 @@ O Load Balancer Standard está disponível atualmente nestas regiões:
 
 ## <a name="sku-service-limits-and-abilities"></a>Limites de serviço e capacidades do SKU
 
-Os [Limites de serviço de rede](https://docs.microsoft.com/en-us/azure/azure-subscription-service-limits#networking-limits) do Azure se aplicam de acordo com a região e com a assinatura. 
+Os [Limites de serviço de rede](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits) do Azure se aplicam de acordo com a região e com a assinatura. 
 
 A tabela a seguir compara os limites e as capacidades dos SKUs Básico e Standard do Load Balancer:
 

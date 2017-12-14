@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
-ms.openlocfilehash: 668b32e99ba9a3bdf8e8f16ac51c35c609444cd9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ade40f8937d56cc561741e251095c4f14b4bb304
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Entenda sua fatura do Microsoft Azure
 Para entender sua fatura do Azure, compare sua fatura com o arquivo de uso diário detalhado e os relatórios de gerenciamento de custo no Portal do Azure.
@@ -31,7 +31,7 @@ Para obter um PDF de sua fatura e uma cópia do download do arquivo de uso diár
 
 Para termos e descrições detalhados de sua fatura e arquivo de uso diário detalhado, consulte [Compreender os termos em sua fatura do Microsoft Azure](billing-understand-your-invoice.md) e [Compreender os termos em seu uso detalhado do Microsoft Azure](billing-understand-your-usage.md). 
 
-Para obter detalhes sobre os relatórios de gerenciamento de custo, consulte [Gerenciamento de custos do portal do Azure](https://docs.microsoft.com/en-us/azure/billing/billing-getting-started).
+Para obter detalhes sobre os relatórios de gerenciamento de custo, consulte [Gerenciamento de custos do portal do Azure](https://docs.microsoft.com/azure/billing/billing-getting-started).
 
 ## <a name="charges"></a>Como fazer para ter certeza de que os encargos na minha fatura estão corretos?
 <div style="padding-top: 56.25%; position: relative; width: 100%;">
@@ -42,7 +42,7 @@ Se há um encargo na fatura sobre o qual você deseja obter mais detalhes, há d
 
 ### <a name="option-1-review-your-invoice-and-compare-the-usage-and-costs-with-the-detailed-usage-csv-file"></a>Opção 1: examine a fatura e compare o uso e os custos com o arquivo CSV de uso detalhado
 
-O arquivo CSV de uso detalhado mostra os encargos por período de cobrança e de uso diário. Para obter o arquivo CSV de uso detalhado, veja [How to get your Azure billing invoice and daily usage data](https://docs.microsoft.com/en-us/azure/billing/billing-download-azure-invoice-daily-usage-date) (Como obter sua fatura de cobrança e os dados de uso diário do Azure).
+O arquivo CSV de uso detalhado mostra os encargos por período de cobrança e de uso diário. Para obter o arquivo CSV de uso detalhado, veja [How to get your Azure billing invoice and daily usage data](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date) (Como obter sua fatura de cobrança e os dados de uso diário do Azure).
 
 Os encargos de uso são exibidos no nível do medidor. Os termos na lista a seguir têm o mesmo significado na fatura e no arquivo de uso detalhado. Por exemplo, o ciclo de cobrança na fatura é equivalente ao período de cobrança mostrado no arquivo de uso detalhado.
 

@@ -15,11 +15,11 @@ ms.workload: NA
 ms.date: 09/20/2017
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 69a59ea9fb93f6e9f3f3eea66b1a9e973b1b4eea
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 8fe3266cfcb7141684f9e1b5dfa74d6569c23b24
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="monitor-windows-containers-on-service-fabric-using-oms"></a>Monitorar os contêineres do Windows no Service Fabric usando o OMS
 
@@ -41,7 +41,7 @@ Antes de iniciar este tutorial, você deverá:
 
 Caso você tenha usado o [modelo fornecido](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Tutorial) na primeira parte deste tutorial, ele deverá incluir as seguintes adições a um modelo genérico do Azure Resource Manager do Service Fabric. Caso você tenha um cluster próprio que esteja procurando configurar para monitorar contêineres com o OMS:
 * Faça as seguintes alterações em seu modelo do Resource Manager.
-* Implante-o usando o PowerShell para atualizar seu cluster [implantando o modelo](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-creation-via-arm). O Azure Resource Manager detecta que o recurso existe, então ele o lançará como uma atualização.
+* Implante-o usando o PowerShell para atualizar seu cluster [implantando o modelo](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm). O Azure Resource Manager detecta que o recurso existe, então ele o lançará como uma atualização.
 
 ### <a name="adding-oms-to-your-cluster-template"></a>Adicionando o OMS ao modelo de cluster
 

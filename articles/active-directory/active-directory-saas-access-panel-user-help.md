@@ -4,7 +4,7 @@ description: "Obtenha instruções sobre como executar tarefas comuns ao trabalh
 services: active-directory
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: c67cd675-b567-41e1-8bc2-e06fe0b38d3b
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: japere
-ms.openlocfilehash: 9e2f8aa6ad7534ff822907285aa9fe290a4db586
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 5887dbd606acd1df47be1c421bee1a1008dc91d1
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="do-you-need-help-with-the-my-apps-portal"></a>Precisa de ajuda com o portal Meus Aplicativos?
 
@@ -35,7 +35,7 @@ Problemas gerais a serem verificados:
 
 - Verifique se sua senha não está expirada ou foi esquecida. Veja [aqui](active-directory-passwords-update-your-own-password.md) mais detalhes de como atualizar sua senha.
 
-- Verifique se suas informações de contato de autenticação estão atualizadas e não estão bloqueando o acesso. Veja [aqui](https://docs.microsoft.com/en-us/azure/multi-factor-authentication/end-user/multi-factor-authentication-end-user) mais detalhes de como configurar suas informações de autenticação.
+- Verifique se suas informações de contato de autenticação estão atualizadas e não estão bloqueando o acesso. Veja [aqui](https://docs.microsoft.com/azure/multi-factor-authentication/end-user/multi-factor-authentication-end-user) mais detalhes de como configurar suas informações de autenticação.
 
 - Tente limpar os cookies do navegador e tente entrar novamente.
 

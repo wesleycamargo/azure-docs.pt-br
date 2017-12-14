@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/10/2017
 ms.author: mazha
-ms.openlocfilehash: 694d0c27b26c1ed9f6a1a54f766d024d882b5b64
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 6f82ae396a17f903a522c716f73a5f7d2de660e7
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="manage-expiration-of-azure-blob-storage-in-azure-content-delivery-network"></a>Gerencie expiração de armazenamento Blob do Azure na Rede de Distribuição de Conteúdo do Microsoft Azure
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ Também é possível controlar as configurações de cache do portal do Azure, d
 > 
 > Para obter mais informações sobre como a CDN do Azure trabalha para acelerar o acesso a blob e outros arquivos, consulte [Visão geral da Rede de Distribuição de Conteúdo do Azure](cdn-overview.md).
 > 
-> Para mais informações sobre o Armazenamento de Blobs do Azure, confira [Introdução ao armazenamento de Blobs](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blobs-introduction).
+> Para mais informações sobre o Armazenamento de Blobs do Azure, confira [Introdução ao armazenamento de Blobs](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction).
  
 
 ## <a name="setting-cache-control-headers-by-using-azure-powershell"></a>Configurando cabeçalhos de Cache-Control usando Azure PowerShell
@@ -113,7 +113,7 @@ Para atualizar a propriedade *CacheControl* de um blob com o Gerenciador de Arma
 ![Propriedades do Gerenciador do Armazenamento do Microsoft Azure](./media/cdn-manage-expiration-of-blob-content/cdn-storage-explorer-properties.png)
 
 ### <a name="azure-command-line-interface"></a>Interface de linha de comando do Azure
-Com a [Interface de linha de comando (CLI) do Azure](https://docs.microsoft.com/en-us/cli/azure/overview?view=azure-cli-latest), você pode gerenciar recursos de blob do Azure a partir da linha de comando. Para definir um cabeçalho de cache-control ao carregar um blob com a CLI do Azure, defina a propriedade *cacheControl* usando a opção `-p`. O exemplo a seguir mostra como definir o TTL para uma hora (3600 segundos):
+Com a [Interface de linha de comando (CLI) do Azure](https://docs.microsoft.com/cli/azure/overview?view=azure-cli-latest), você pode gerenciar recursos de blob do Azure a partir da linha de comando. Para definir um cabeçalho de cache-control ao carregar um blob com a CLI do Azure, defina a propriedade *cacheControl* usando a opção `-p`. O exemplo a seguir mostra como definir o TTL para uma hora (3600 segundos):
   
 ```azurecli
 azure storage blob upload -c <connectionstring> -p cacheControl="max-age=3600" .\test.txt myContainer test.txt

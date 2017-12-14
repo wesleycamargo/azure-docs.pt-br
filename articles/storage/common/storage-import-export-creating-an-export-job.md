@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: bdeac373aa8270bd9de8f135ec7166d744fd83ae
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 70f74b685f4d5b902b6f6780f7c1de4d357164b8
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="creating-an-export-job-for-the-azure-importexport-service"></a>Criando um trabalho de exportação para o serviço de Importação/Exportação do Azure
 A criação de um trabalho de exportação do serviço de Importação/Exportação do Microsoft Azure usando a API REST envolve as seguintes etapas:
@@ -57,7 +57,7 @@ Antes de criar um trabalho de exportação, você precisa obter um nome e o ende
 
 Siga as etapas abaixo para obter a localização de envio:
 
--   Identifique o nome da localização de sua conta de armazenamento. Esse valor pode ser encontrado no campo **Local** do **Painel** da conta de armazenamento no portal clássico ou consultado usando a operação [Get Storage Account Properties](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties) da API de gerenciamento de serviços.
+-   Identifique o nome da localização de sua conta de armazenamento. Esse valor pode ser encontrado no campo **Local** do **Painel** da conta de armazenamento no portal do Azure ou consultado usando a operação [Get Storage Account Properties](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties) da API de gerenciamento de serviços.
 
 -   Recupere a localização que está disponível para processar essa conta de armazenamento chamando a operação `Get Location`.
 

@@ -10,14 +10,15 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: sample
 ms.date: 10/31/2017
 ms.author: apimpm
-ms.openlocfilehash: 0e8089cbcc5e38504d6b4c7ced372781f9a5e6d8
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.custom: mvc
+ms.openlocfilehash: e951eb47290a2d1b6f892f1ccf923f6ce0c1899c
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="api-management-policy-samples"></a>Políticas de gerenciamento de API de exemplo
 
@@ -31,7 +32,7 @@ As [políticas](api-management-howto-policies.md) são funcionalidades poderosas
 |[Adicionar recursos a um serviço de back-end e armazenar a resposta em cache](./policies/cache-response.md?toc=api-management/toc.json) |Mostra como adicionar recursos a um serviço de back-end. Por exemplo, aceitar um nome do local em vez de latitude e longitude em uma API de previsão do tempo.|
 |[Autorizar o acesso com base em declarações JWT](./policies/authorize-request-based-on-jwt-claims.md?toc=api-management/toc.json) |Mostra como autorizar o acesso a métodos HTTP específicos em uma API com base em declarações de JWT.|
 |[Autorizar o acesso usando o token OAuth do Google](./policies/use-google-as-oauth-token-provider.md?toc=api-management/toc.json) |Mostra como autorizar o acesso aos pontos de extremidade usando o Google como um provedor de token OAuth.|
-|[Gerar Assinatura de Acesso Compartilhado e encaminhar solicitação para o armazenamento do Azure](./policies/generate-shared-access-signature.md?toc=api-management/toc.json) |Mostra como gerar uma [Assinatura de Acesso Compartilhado](https://docs.microsoft.com/en-us/azure/storage/storage-dotnet-shared-access-signature-part-1) usando expressões e encaminhar a solicitação para o armazenamento do Azure com a política rewrite-uri. |
+|[Gerar Assinatura de Acesso Compartilhado e encaminhar solicitação para o armazenamento do Azure](./policies/generate-shared-access-signature.md?toc=api-management/toc.json) |Mostra como gerar uma [Assinatura de Acesso Compartilhado](https://docs.microsoft.com/azure/storage/storage-dotnet-shared-access-signature-part-1) usando expressões e encaminhar a solicitação para o armazenamento do Azure com a política rewrite-uri. |
 |[Obter token de acesso OAuth2 do AAD e encaminhá-lo para o back-end](./policies/use-oauth2-for-authorization.md?toc=api-management/toc.json) |Fornece um exemplo de como usar o OAuth2 para autorização entre o gateway e um back-end. Ele mostra como obter um token de acesso do AAD e encaminhá-lo para o back-end.|
 |[Obter token X-CSRF do SAP Gateway usando a política de solicitação de envio](./policies/get-x-csrf-token-from-sap-gateway.md?toc=api-management/toc.json) |Mostra como implementar o padrão X-CSRF usado por várias APIs. Este exemplo é específico do SAP Gateway. |
 |[Rotear a solicitação com base no tamanho do corpo](./policies/route-requests-based-on-size.md?toc=api-management/toc.json) |Demonstra como rotear solicitações com base no tamanho do corpo.|

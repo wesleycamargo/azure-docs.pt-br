@@ -4,7 +4,7 @@ description: "Uma descrição da autorização no ponto de extremidade v2.0 do A
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 8f98cbf0-a71d-4e34-babf-e644ad9ff423
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 04869a7627ecb3e6a0d11733fae7da2ecb04ed51
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a93cfd710f89efbd4dab01b84ecdb12b4acb0033
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="scopes-permissions-and-consent-in-the-azure-active-directory-v20-endpoint"></a>Escopos, permissões e consentimento no ponto de extremidade v2.0 do Azure Active Directory
 Os aplicativos que se integram ao Azure AD (Azure Active Directory) seguem um modelo de autorização que fornece aos usuários controle sobre como um aplicativo pode acessar seus dados. A implementação v2.0 desse modelo de autorização foi atualizada e altera a maneira como um aplicativo deve interagir com o Azure AD. Este artigo aborda os conceitos básicos deste modelo de autorização, incluindo escopos, permissões e consentimento.
@@ -33,7 +33,7 @@ Os aplicativos que se integram ao Azure AD (Azure Active Directory) seguem um mo
 O Azure AD implementa o protocolo de autorização [OAuth 2.0](active-directory-v2-protocols.md). O OAuth 2.0 é um método pelo qual um aplicativo de terceiros pode acessar recursos hospedados na Web em nome do usuário. Qualquer recurso hospedado na Web que se integre ao Azure AD terá um identificador de recurso, ou *URI de ID de Aplicativo*. Por exemplo, alguns dos recursos hospedados na Web da Microsoft incluem:
 
 * A API de Email Unificado do Office 365: `https://outlook.office.com`
-* A Graph API do AD do Azure: `https://graph.windows.net`
+* A API do Graph do AD do Azure: `https://graph.windows.net`
 * Microsoft Graph: `https://graph.microsoft.com`
 
 Isso se aplica a todos os recursos de terceiros que se integraram ao Azure AD. Qualquer um desses recursos também pode definir um conjunto de permissões que pode ser usado para dividir a funcionalidade desse recurso em partes menores. Por exemplo, o [Microsoft Graph](https://graph.microsoft.io) definiu permissões para realizar as seguintes tarefas, entre outras:
@@ -46,8 +46,8 @@ Definindo esses tipos de permissões, o recurso tem controle refinado sobre seus
 
 No Azure AD e no OAuth, esses tipos de permissões são chamados de *escopos*. Eles também são chamados de *oAuth2Permissions*. Um escopo é representado no AD do Azure como um valor de cadeia de caracteres. Continuando com o exemplo do Microsoft Graph,o valor do escopo para cada permissão é:
 
-* Ler o calendário de um usuário usando o `Calendar.Read`
-* Escrever no calendário de um usuário usando o `Mail.ReadWrite`
+* Ler o calendário de um usuário usando o `Calendars.Read`
+* Escrever no calendário de um usuário usando o `Calendars.ReadWrite`
 * Enviar email como um usuário usando `Mail.Send`
 
 Um aplicativo pode solicitar essas permissões especificando os escopos em solicitações para o ponto de extremidade v2.0.
@@ -81,7 +81,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 &response_mode=query
 &scope=
-https%3A%2F%2Fgraph.microsoft.com%2Fcalendar.read%20
+https%3A%2F%2Fgraph.microsoft.com%2Fcalendars.read%20
 https%3A%2F%2Fgraph.microsoft.com%2Fmail.send
 &state=12345
 ```
