@@ -4,7 +4,7 @@ description: "Com o controle de acesso condicional, o Active Directory do Azure 
 documentationcenter: 
 services: active-directory
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: b92fa5a9-c04c-4692-b495-ff64d023792c
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 2c57b394beb6382807a4c8c83de975a0ae68d726
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 28d10cd6be93226c93bda98c88cee454ec5cb2c7
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definir uma estratégia de adoção de identidade híbrida
 Nesta tarefa, você vai definir uma estratégia de adoção para sua solução de identidade híbrida para atender aos requisitos de negócios que abordamos nos tópicos:
@@ -172,7 +172,7 @@ Lembre-se de que os itens a seguir não têm suporte e não devem ser escolhidos
 > 
 
 ## <a name="define-multi-factor-authentication-strategy"></a>Definir uma estratégia de autenticação multifator
-Nesta tarefa, você define a estratégia de autenticação multifator que vai usar.  O Azure Multi-Factor Authentication é fornecido em duas versões distintas.  Uma delas é baseada na nuvem e a outra é local usando o servidor Azure MFA.  Com base na avaliação que você fez anteriormente, determine a solução mais adequada para sua estratégia.  Use a tabela abaixo para determinar a opção de design que melhor atende aos requisitos de segurança da empresa:
+Nesta tarefa, você define a estratégia de autenticação multifator que vai usar.  A Autenticação Multifator do Azure é fornecido em duas versões distintas.  Uma delas é baseada na nuvem e a outra é local usando o servidor Azure MFA.  Com base na avaliação que você fez anteriormente, determine a solução mais adequada para sua estratégia.  Use a tabela abaixo para determinar a opção de design que melhor atende aos requisitos de segurança da empresa:
 
 Opções de design de vários fatores:
 
@@ -192,7 +192,7 @@ Mesmo que defina uma solução para sua estratégia, você deve usar a avaliaç�
 | Azure AD e AD local usando federação com AD FS |Ambos |
 | AD do Azure e AD local usando o Azure AD Connect sem sincronização de senha |Ambos |
 | O AD do Azure e o AD local usando o Azure AD Connect com sincronização de senha |Ambos |
-| AD local |Servidor Multi-Factor Authentication |
+| AD local |Servidor de Autenticação Multifator |
 
 > [!NOTE]
 > Você deve garantir que a opção de design de autenticação multifator selecionada seja compatível com os recursos necessários para o seu design.  Para saber mais, leia [Escolha a solução de segurança multifator mais adequada](../multi-factor-authentication/multi-factor-authentication-get-started.md#what-am-i-trying-to-secure).
@@ -200,7 +200,7 @@ Mesmo que defina uma solução para sua estratégia, você deve usar a avaliaç�
 > 
 
 ## <a name="multi-factor-auth-provider"></a>Provedor de Multi-Factor Authentication
-A autenticação multifator está disponível por padrão para administradores globais que tenham um locatário do Active Directory do Azure. No entanto, se desejar estender este recurso para todos os usuários ou se pretende permitir que os administradores globais aproveitem os recursos, como o portal de gerenciamento, saudações personalizadas e relatórios, você deve comprar e configurar o provedor de Multi-Factor Authentication.
+A autenticação multifator está disponível por padrão para administradores globais que tenham um locatário do Active Directory do Azure. No entanto, se desejar estender este recurso para todos os usuários ou se pretende permitir que os administradores globais aproveitem os recursos, como o portal de gerenciamento, saudações personalizadas e relatórios, você deve comprar e configurar o provedor de Autenticação Multifator.
 
 > [!NOTE]
 > Você deve garantir que a opção de design de autenticação multifator selecionada seja compatível com os recursos necessários para o seu design. 

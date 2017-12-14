@@ -6,7 +6,7 @@ Quando não precisar mais de um disco de dados conectado a uma VM (máquina virt
 ## <a name="find-the-disk"></a>Localize o disco
 Antes de poder desanexar um disco de uma VM, você precisa descobrir o número LUN, que é um identificador para o disco a ser desanexado. Para fazer isso, siga estas etapas:
 
-1. Abra a CLI do Azure e [conecte-se à sua assinatura do Azure](../articles/xplat-cli-connect.md). Verifique se você está no modo de Gerenciamento de Serviços do Azure (`azure config mode asm`).
+1. Abra a CLI do Azure e [conecte-se à sua assinatura do Azure](/cli/azure/authenticate-azure-cli). Verifique se você está no modo de Gerenciamento de Serviços do Azure (`azure config mode asm`).
 2. Descubra quais discos estão anexados à sua VM. O exemplo a seguir lista os discos para a VM chamada `myVM`:
 
     ```azurecli

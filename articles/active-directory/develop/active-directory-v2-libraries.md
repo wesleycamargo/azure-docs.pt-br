@@ -4,7 +4,7 @@ description: "Bibliotecas de cliente compatíveis e bibliotecas de middleware de
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 19cec615-e51f-4141-9f8c-aaf38ff9f746
 ms.service: active-directory
@@ -15,19 +15,19 @@ ms.workload: identity
 ms.date: 08/22/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 50a1cc0bf9e00cf5b866b88b3e88c62b06a2376b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a1e2c4db54ca81325751ed85b26b904174e94078
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-v20-authentication-libraries"></a>Bibliotecas de autenticação do Azure Active Directory v2.0
-O [ponto de extremidade do Azure Active Directory (Azure AD) v2.0](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-compare) dá suporte aos protocolos padrão do setor, OAuth 2.0 e OpenID Connect 1.0. Você pode usar várias bibliotecas da Microsoft e de outras organizações com o ponto de extremidade v2.0.
+O [ponto de extremidade do Azure Active Directory (Azure AD) v2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-compare) dá suporte aos protocolos padrão do setor, OAuth 2.0 e OpenID Connect 1.0. Você pode usar várias bibliotecas da Microsoft e de outras organizações com o ponto de extremidade v2.0.
 
 Quando você compila um aplicativo que usa o ponto de extremidade v2.0, é recomendável usar bibliotecas escritas por especialistas em domínio de protocolo que seguem uma metodologia SDL (Security Development Lifecycle), como [a seguida pela Microsoft][Microsoft-SDL]. Se você codificar suporte para os protocolos manualmente, recomendamos que você siga a metodologia SDL e preste muita atenção nas considerações de segurança encontradas nas especificações dos padrões de cada um dos protocolos.
 
 > [!NOTE]
-> Procurando as bibliotecas do Azure AD v 1.0 (ADAL)? Confira a [guia de biblioteca ADAL](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-authentication-libraries). 
+> Procurando as bibliotecas do Azure AD v 1.0 (ADAL)? Confira a [guia de biblioteca ADAL](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries). 
 > 
 > 
 

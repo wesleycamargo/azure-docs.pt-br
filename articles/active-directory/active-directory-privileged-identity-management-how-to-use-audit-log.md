@@ -4,7 +4,7 @@ description: "Saiba como usar o log de auditoria na extensão do Privileged Iden
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 5d13a6dd-1fcb-4e76-82fb-cb2f4f0e4357
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 02/14/2017
 ms.author: billmath
 ms.custom: pim
-ms.openlocfilehash: 7d9a5255a64d46c1388d328a606b3f297d61262b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dd6cecf9211dada02025d93e4d63234ff0a73949
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="using-the-audit-log-in-pim"></a>Usar o log de auditoria no PIM
 Você pode usar o log de auditoria do PIM (Privileged Identity Management) para ver todas as ativações e atribuições de usuário dentro de um determinado período de tempo. Se você quiser ver o histórico completo de auditoria da atividade em seu locatário, incluindo o administrador, usuário final e atividade de sincronização, use os [Relatórios de acesso e uso do Azure Active Directory.](active-directory-view-access-usage-reports.md)
@@ -27,8 +27,8 @@ Você pode usar o log de auditoria do PIM (Privileged Identity Management) para 
 ## <a name="navigate-to-the-audit-log"></a>Navegar até o log de auditoria
 No painel do [portal do Azure](https://portal.azure.com) , selecione o aplicativo **Azure AD Privileged Identity Management** . Aqui, acesse o log de auditoria clicando em **Gerenciar funções privilegiadas** > **Histórico de auditoria** no painel do PIM.
 
-## <a name="the-audit-log-graph"></a>O gráfico do log de auditoria
-Você pode usar o log de auditoria para exibir, em um gráfico de linha, o total de ativações, o número máximo de ativações diárias e a média diária de ativações.  Você também pode filtrar os dados por função se houver mais de uma função no histórico de auditoria.
+## <a name="the-audit-log-graph"></a>O grafo do log de auditoria
+Você pode usar o log de auditoria para exibir, em um grafo de linha, o total de ativações, o número máximo de ativações diárias e a média diária de ativações.  Você também pode filtrar os dados por função se houver mais de uma função no histórico de auditoria.
 
 Use os botões de **tempo**, **ação** e **função** para classificar o log.
 

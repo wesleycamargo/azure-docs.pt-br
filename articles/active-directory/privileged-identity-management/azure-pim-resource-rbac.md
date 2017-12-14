@@ -4,7 +4,7 @@ description: "Tenha uma visão geral do recurso de RBAC no PIM incluindo termino
 services: active-directory
 documentationcenter: 
 author: barclayn
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
 ms.author: barclayn
-ms.openlocfilehash: 114ef434e6167ef2b25b040e35ab3ce1b85151a9
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 19715f800e7d8d40336d8e9fa3bf8073795dce5b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="pim-for-azure-resources-preview"></a>PIM recursos do Azure (Visualização)
 
@@ -81,7 +81,7 @@ Para localizar e gerenciar funções para um recurso do Azure, selecione Azure R
 
 O painel de Modo de exibição do administrador possui quatro componentes principais. Uma representação gráfica das ativações de função de recurso dos últimos sete dias. Esses dados estão no escopo das ativações de telas e recursos selecionados para as funções mais comuns (Proprietário, Colaborador, Administrador de Acesso do Usuário) e todas as funções combinadas.
 
-No lado direito do gráfico ativações, há dois gráficos que exibem a distribuição de atribuições de função por tipo de atribuição, para os usuários e para os grupos. Selecionar uma fatia do gráfico altera o valor para uma porcentagem (ou vice-versa).
+No lado direito do grafo de ativações, há dois gráficos que exibem a distribuição de atribuições de função por tipo de atribuição, para os usuários e para os grupos. Selecionar uma fatia do gráfico altera o valor para uma porcentagem (ou vice-versa).
 
 ![](media/azure-pim-resource-rbac/admin-view.png)
 

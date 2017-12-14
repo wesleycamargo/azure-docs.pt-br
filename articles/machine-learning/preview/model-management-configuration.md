@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/29/2017
-ms.openlocfilehash: c89596a6d721c4cba899b8a6e2859ee36cba7b80
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 151e7c2dc808a8fa117a0d7a1950185abe9e3152
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="model-management-setup"></a>Configuração do gerenciamento de modelos
 
@@ -27,7 +27,7 @@ Ao final deste documento, seu ambiente de gerenciamento de modelos deverá estar
 
 ## <a name="what-you-need-to-get-started"></a>Para começar, você precisa do seguinte:
 Para aproveitar este guia ao máximo, você deve ter acesso de proprietário a uma assinatura do Azure na qual você possa implantar seus modelos.
-A CLI vem pré-instalada no Azure Machine Learning Workbench e nas [DSVMs do Azure](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).
+A CLI vem pré-instalada no Azure Machine Learning Workbench e nas [DSVMs do Azure](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).
 
 ## <a name="using-the-cli"></a>Usando a CLI
 Para usar as CLIs (interfaces de linha de comando) do Workbench, clique em **Arquivo** -] **Abrir interface de linha de comando**. 

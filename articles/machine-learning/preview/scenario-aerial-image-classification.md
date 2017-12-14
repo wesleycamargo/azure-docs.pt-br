@@ -8,11 +8,11 @@ ms.topic: article
 ms.service: machine-learning
 services: machine-learning
 ms.date: 10/27/2017
-ms.openlocfilehash: f8ea2c269906732aef8d577c0d744e730c1dedcd
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: cb66514f40bd37f0495eca5037740d318fd5ea09
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="aerial-image-classification"></a>Classificação de imagem aérea
 
@@ -67,7 +67,7 @@ As instruções a seguir orientarão você no processo de configurar o ambiente 
         - "Instalar o SDK do Python do Azure"
     - Registre a ID do cliente, o segredo e a ID do locatário do aplicativo do Azure Active Directory que você será direcionado para criar. Você usará essas credenciais posteriormente neste tutorial.
     - No momento em que este artigo foi escrito, o Azure Machine Learning Workbench e o AI do Lote do Azure usavam forks separados da CLI do Azure 2.0. Para maior clareza, nós nos referimos à versão do Workbench da CLI como "uma CLI iniciada no Azure Machine Learning Workbench" e a versão de lançamento geral (que inclui o Batch AI) como "CLI do Azure 2.0".
-- [AzCopy](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy), um utilitário gratuito para coordenar a transferência de arquivos entre contas de armazenamento do Azure
+- [AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy), um utilitário gratuito para coordenar a transferência de arquivos entre contas de armazenamento do Azure
     - Certifique-se de que a pasta que contém o executável AzCopy está na variável de ambiente PATH do seu sistema. (Instruções sobre como modificar as variáveis de ambiente estão disponíveis [aqui](https://support.microsoft.com/en-us/help/310519/how-to-manage-environment-variables-in-windows-xp).)
 - Um cliente SSH. Recomendamos o [PuTTY](http://www.putty.org/).
 

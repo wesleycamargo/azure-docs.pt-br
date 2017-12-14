@@ -15,11 +15,11 @@ ms.devlang: gremlin
 ms.topic: article
 ms.date: 09/08/2017
 ms.author: khdang
-ms.openlocfilehash: 473cc23c73a721c54bc87c03069f4f3688cde11f
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: d2ea692c5c353586cc2b653e57eca7ccb8c9c7ce
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-cosmos-db-perform-graph-analytics-by-using-spark-and-apache-tinkerpop-gremlin"></a>Azure Cosmos DB: executar análise de grafo usando o Spark e o Gremlin do Apache TinkerPop
 
@@ -176,7 +176,7 @@ Quando você criou o TinkerPop3 na etapa anterior, o processo também puxou toda
 
 ## <a name="get-the-azure-cosmos-db-spark-connector"></a>Obter o conector Spark do Azure Cosmos DB
 
-1. Obter o conector Spark do Azure Cosmos DB `azure-documentdb-spark-0.0.3-SNAPSHOT.jar` e o SDK Java do Cosmos DB `azure-documentdb-1.10.0.jar` no conector Spark do [Azure Cosmos DB no GitHub](https://github.com/Azure/azure-cosmosdb-spark/tree/master/releases/azure-cosmosdb-spark-0.0.3_2.0.2_2.11).
+1. Obter o conector Spark do Azure Cosmos DB `azure-cosmosdb-spark-0.0.3-SNAPSHOT.jar` e o SDK Java do Cosmos DB `azure-documentdb-1.12.0.jar` no conector Spark do [Azure Cosmos DB no GitHub](https://github.com/Azure/azure-cosmosdb-spark/tree/master/releases/azure-cosmosdb-spark-0.0.3_2.0.2_2.11).
 
 2. Como alternativa, você pode criá-lo localmente. Como a versão mais recente do Spark-Gremlin foi criada com o Spark 1.6.1 e não é compatível com o Spark 2.0.2, que é usado atualmente no Conector Spark do Azure Cosmos DB, você pode compilar o código TinkerPop3 mais recente e instalar os jars manualmente. Faça o seguinte:
 
@@ -352,7 +352,6 @@ Para demonstrar como persistir um grafo no Azure Cosmos DB, este exemplo usa o g
 
 1. Para carregar o grafo, edite `gremlin-spark.properties` para definir `graphReader` como `DocumentDBInputRDD`:
 
-
     ```
     gremlin.hadoop.graphReader=com.microsoft.azure.documentdb.spark.gremlin.DocumentDBInputRDD
     ```
@@ -361,8 +360,7 @@ Para demonstrar como persistir um grafo no Azure Cosmos DB, este exemplo usa o g
 
     a. Inicie o Console do Gremlin `bin/gremlin.sh`.
 
-    b. Crie um grafo com as configurações `graph = GraphFactory.open('conf/hadoop/gremlin-spark.properties')`.
-
+    b. Criar um grafo com as configurações`graph = GraphFactory.open('conf/hadoop/gremlin-spark.properties')`.
 
     c. Crie uma passagem de grafo com SparkGraphComputer `g = graph.traversal().withComputer(SparkGraphComputer)`.
 

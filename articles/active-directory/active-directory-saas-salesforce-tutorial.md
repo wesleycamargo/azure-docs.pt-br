@@ -4,7 +4,7 @@ description: "Saiba como configurar o logon único entre o Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: d2d7d420-dc91-41b8-a6b3-59579e043b35
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: jeedes
-ms.openlocfilehash: 9aecd7310ad44eb585c1326a3c705ed822735b9a
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: ed127afbca5135ade21f6ac53d18d46e88939fd9
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-salesforce"></a>Tutorial: Integração do Azure Active Directory com o Salesforce
 
@@ -137,11 +137,11 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
 
 7. Abra uma nova guia no navegador e faça logon em sua conta de administrador do Salesforce.
 
-8. Clique na **Configuração** no **ícone de configurações** no canto superior direito da página.
+8. Clique na **Configuração** no **ícone de configurações**, no canto superior direito da página.
 
     ![Configurar Logon Único](./media/active-directory-saas-salesforce-tutorial/configure1.png)
 
-9. Role para baixo até o **SETTINGS** no painel de navegação, clique em **identidade** para expandir a seção correspondente. Em seguida, clique em **Configurações de Logon Único**.
+9. Role para baixo até **CONFIGURAÇÕES** no painel de navegação e clique em **Identidade** para expandir a seção correspondente. Em seguida, clique em **Configurações de Logon Único**.
 
     ![Configurar Logon Único](./media/active-directory-saas-salesforce-tutorial/sf-admin-sso.png)
 
@@ -172,15 +172,15 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
       * Conta empresarial: `https://<subdomain>.my.salesforce.com`
       * Conta de desenvolvedor: `https://<subdomain>-dev-ed.my.salesforce.com`
       
-    d. Para carregar o **Certificado do Provedor de Identidade**, clique em **Escolher Arquivo** para navegar e selecionar o arquivo do certificado que você baixou do portal do Azure.
+    d. Para carregar o **Certificado de Provedor de Identidade**, clique em **Escolher Arquivo** para navegar e selecionar o arquivo do certificado que você baixou do portal do Azure.
 
     e. Como **Tipo de Identidade SAML**, escolha uma das seguintes opções:
     
-      * Selecione **A declaração contém o nome de usuário do Salesforce**, se o nome de usuário Salesforce do usuário estiver sendo passado na declaração SAML
+      * Selecione **A declaração contém o nome do usuário do Salesforce**, se o nome do usuário do Salesforce estiver sendo transmitido na declaração SAML
 
-      * Selecione **A declaração contém a ID de Federação do objeto de usuário**, se a ID de Federação do objeto do Usuário estiver sendo passada na declaração SAML
+      * Selecione **A declaração contém a ID de Federação do objeto de Usuário**, se a ID de Federação do objeto de Usuário estiver sendo transmitida na declaração SAML
 
-      * Selecione **A declaração contém a ID de Usuário do objeto de usuário**, se a ID de Usuário do objeto do Usuário estiver sendo passada na declaração SAML
+      * Selecione **A declaração contém a ID de Usuário do objeto de Usuário**, se a ID de Usuário do objeto de Usuário estiver sendo transmitida na declaração SAML
 
     f. Para **Local de Identidade do SAML**, selecione **A identidade está no elemento NameIdentifier da declaração Subject**.
 
@@ -190,7 +190,7 @@ Nesta seção, você habilita o logon único do Azure AD no portal do Azure e co
     
     i. Finalmente, clique em **Salvar** para aplicar as configurações de logon único do SAML.
 
-14. No painel de navegação à esquerda no Salesforce, clique em **Configurações da Empresa** para expandir a seção correspondente e, em seguida, clique em **Meu Domínio**.
+14. No painel de navegação à esquerda no Salesforce, clique em **Configurações da Empresa** para expandir a seção correspondente e clique em **Meu Domínio**.
 
     ![Configurar Logon Único](./media/active-directory-saas-salesforce-tutorial/sf-my-domain.png)
 

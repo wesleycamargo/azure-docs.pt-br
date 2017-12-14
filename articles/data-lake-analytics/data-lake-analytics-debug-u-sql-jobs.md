@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/31/2017
 ms.author: yanacai
-ms.openlocfilehash: 8b16fda041663160c62710cabbe0cd2bd4a83d1e
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 739d46753729b70a24dbd3d6e2d78f8513e143e6
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Depurar um código C# definido pelo usuário em trabalhos com falha do U-SQL
 
-O U-SQL oferece um modelo de extensibilidade usando C#. Em scripts do U-SQL, é fácil chamar funções de C# e executar funções analíticas não compatíveis com linguagens declarativas semelhantes ao SQL. Para saber mais sobre a extensibilidade do U-SQL, consulte [Guia de programação do U-SQL](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#use-user-defined-functions-udf). 
+O U-SQL oferece um modelo de extensibilidade usando C#. Em scripts do U-SQL, é fácil chamar funções de C# e executar funções analíticas não compatíveis com linguagens declarativas semelhantes ao SQL. Para saber mais sobre a extensibilidade do U-SQL, consulte [Guia de programação do U-SQL](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#use-user-defined-functions-udf). 
 
 Na prática, qualquer código pode precisar de depuração, mas é difícil depurar um trabalho distribuído com código personalizado na nuvem com arquivos de log limitados. As [Ferramentas do Azure Data Lake para Visual Studio](http://aka.ms/adltoolsvs) oferecem um recurso chamado **Falha na Depuração de Vértice**, que ajuda a depurar de forma mais fácil as falhas que ocorrem no código personalizado. Quando o trabalho do U-SQL falha, o serviço mantém o estado de falha e a ferramenta ajuda a baixar o ambiente de falha da nuvem para o computador local a fim de realizar a depuração. O download local captura todo o ambiente de nuvem, incluindo dados de entrada e código do usuário.
 

@@ -1,3 +1,4 @@
+
 1. Após a criação e execução da máquina virtual do Azure, clique no ícone de Máquinas Virtuais no Portal do Azure para exibir suas VMs.
 
 1. Clique nas reticências, **...** , da nova VM.

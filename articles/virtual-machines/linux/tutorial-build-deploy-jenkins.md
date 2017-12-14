@@ -14,11 +14,11 @@ ms.workload: infrastructure
 ms.date: 10/19/2017
 ms.author: ahomer
 ms.custom: mvc
-ms.openlocfilehash: c96aafeb05293ccdc4c30c2b828cead1dfdb157c
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: bfda0475b58556db1236c8b051c59393384720f7
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="deploy-your-app-to-linux-vms-by-using-jenkins-and-team-services"></a>Implantar seu aplicativo em VMs Linux usando o Jenkins e o Team Services
 
@@ -40,7 +40,7 @@ Você vai:
 
 ## <a name="before-you-begin"></a>Antes de começar
 
-* Você precisa ter acesso a um servidor Jenkins. Se você ainda não tiver criado um servidor Jenkins, consulte [Criar um mestre Jenkins em uma máquina virtual do Azure](https://docs.microsoft.com/en-us/azure/jenkins/install-jenkins-solution-template). 
+* Você precisa ter acesso a um servidor Jenkins. Se você ainda não tiver criado um servidor Jenkins, consulte [Criar um mestre Jenkins em uma máquina virtual do Azure](https://docs.microsoft.com/azure/jenkins/install-jenkins-solution-template). 
 
 * Entre em sua conta do Team Services (**https://{youraccount}.visualstudio.com**). 
   Você pode obter uma [conta gratuita do Team Services](https://go.microsoft.com/fwlink/?LinkId=307137&clcid=0x409&wt.mc_id=o~msft~vscom~home-vsts-hero~27308&campaign=o~msft~vscom~home-vsts-hero~27308).
@@ -48,9 +48,9 @@ Você vai:
   > [!NOTE]
   > Para saber mais, confira [Conectar-se ao Team Services](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
 
-*  É necessária uma máquina virtual Linux para um destino de implantação.  Para obter mais informações, consulte [Criar e gerenciar VMs Linux com a CLI do Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-manage-vm).
+*  É necessária uma máquina virtual Linux para um destino de implantação.  Para obter mais informações, consulte [Criar e gerenciar VMs Linux com a CLI do Azure](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm).
 
-*  Abra a porta de entrada 80 para sua máquina virtual. Para obter mais informações, consulte [Criar grupos de segurança de rede usando o Portal do Azure](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-create-nsg-arm-pportal).
+*  Abra a porta de entrada 80 para sua máquina virtual. Para obter mais informações, consulte [Criar grupos de segurança de rede usando o Portal do Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-create-nsg-arm-pportal).
 
 ## <a name="get-the-sample-app"></a>Obter o aplicativo de exemplo
 

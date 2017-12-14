@@ -1,5 +1,5 @@
 
-1. Conecte-se à sua assinatura do Azure usando as etapas listadas em [Conectar ao Azure pela CLI do Azure 1.0](../articles/xplat-cli-connect.md).
+1. Conecte-se à sua assinatura do Azure usando as etapas listadas em [Conectar ao Azure pela CLI do Azure 1.0](/cli/azure/authenticate-azure-cli).
 
 2. Verifique se que você está no modo de implantação Clássica da seguinte maneira:
 

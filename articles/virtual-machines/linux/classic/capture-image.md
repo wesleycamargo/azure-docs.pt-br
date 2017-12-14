@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: iainfou
-ms.openlocfilehash: f140ff3841259251ddaf39124db2756084b26a53
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: e9296241b2128c9abe762f595161895948c8f70c
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="how-to-capture-a-classic-linux-virtual-machine-as-an-image"></a>Como capturar uma máquina virtual clássica do Linux como uma imagem
 > [!IMPORTANT]
@@ -59,7 +59,7 @@ Essas etapas pressupõem que você já criou uma VM do Azure usando o modelo de 
    > [!NOTE]
    > As etapas restantes presumem que você já [instalou a CLI do Azure](../../../cli-install-nodejs.md) no computador cliente. Todas as etapas a seguir também podem ser executadas no [Portal do Azure](http://portal.azure.com).
 
-5. No computador cliente, abra a CLI do Azure e faça logon com sua assinatura do Azure. Para obter detalhes, leia [Conectar-se a uma assinatura do Azure da CLI do Azure](../../../xplat-cli-connect.md).
+5. No computador cliente, abra a CLI do Azure e faça logon com sua assinatura do Azure. Para obter detalhes, leia [Conectar-se a uma assinatura do Azure da CLI do Azure](/cli/azure/authenticate-azure-cli).
 
    > [!NOTE]
    > Faça logon no portal do Azure.

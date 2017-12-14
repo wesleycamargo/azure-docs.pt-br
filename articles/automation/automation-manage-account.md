@@ -3,7 +3,7 @@ title: "Gerenciamento de conta de automação do Azure | Microsoft Docs"
 description: "Este artigo descreve como gerenciar a configuração da sua conta de automação, como renovação de certificados, exclusão e uma configuração incorreta."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/13/2017
 ms.author: magoedte
-ms.openlocfilehash: fa3109f15cf14a95af35e814fb61a505d3130462
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c7ad5f539afc25c7c36712f8af25ce4e4f6d31a7
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="manage-azure-automation-account"></a>Como gerenciar uma conta de Automação do Azure
 Em algum momento antes que a conta de Automação expire, será necessário renovar o certificado. Se achar que a conta Executar como foi comprometida, você poderá excluí-la e recriá-la. Esta seção descreve como realizar essas operações.

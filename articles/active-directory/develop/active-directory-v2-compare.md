@@ -4,7 +4,7 @@ description: "Uma comparação entre o Azure AD original e os pontos de extremid
 services: active-directory
 documentationcenter: 
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 5060da46-b091-4e25-9fa8-af4ae4359b6c
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 05/01/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 81de65b0e825dec64383f52b02c5ee56c9434807
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4216c2215f494a81935cd4cdca52427b0cbac143
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="whats-different-about-the-v20-endpoint"></a>O que há de diferente no ponto de extremidade v2.0?
 Se você estiver familiarizado com o Azure Active Directory ou se tiver integrado aplicativos com o Azure AD anteriormente, poderá encontrar algumas diferenças inesperadas ponto de extremidade v2.0.  Este documento chama a atenção para essas diferenças para sua compreensão.
@@ -54,7 +54,7 @@ Com o ponto de extremidade v2.0, agora você pode registrar todos os componentes
 Nosso objetivo é que isso resulte em uma experiência de desenvolvimento e gerenciamento de aplicativos mais simplificada e crie uma visão mais consolidada de um projeto simples no qual você estiver trabalhando.
 
 ## <a name="scopes-not-resources"></a>Escopos, não recursos
-No Azure Active Directory, um aplicativo pode se comportar como um **recurso** ou um contêiner de tokens.  Um recurso pode definir um número de **escopos** ou **oAuth2Permissions** que ele entende, permitindo que os aplicativos cliente solicitem tokens a esse recurso para um determinado conjunto de escopos.  Considere a Graph API do AD do Azure como um exemplo de um recurso:
+No Azure Active Directory, um aplicativo pode se comportar como um **recurso** ou um contêiner de tokens.  Um recurso pode definir um número de **escopos** ou **oAuth2Permissions** que ele entende, permitindo que os aplicativos cliente solicitem tokens a esse recurso para um determinado conjunto de escopos.  Considere a API do Graph do AD do Azure como um exemplo de um recurso:
 
 * Identificador de recurso, ou `AppID URI`: `https://graph.windows.net/`
 * Escopos, ou `OAuth2Permissions`: `Directory.Read`, `Directory.Write`, etc.  

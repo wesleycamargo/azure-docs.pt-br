@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 09542c0e7f628ca4fea00a6562c0b9525432c213
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 977c5d64a32157b39aa6b618196dde20c4c3cc8e
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="event-analysis-and-visualization-with-oms"></a>Análise de eventos e visualização com OMS
 
@@ -41,7 +41,7 @@ Consulte [Configurar o Log Analytics do OMS](service-fabric-diagnostics-oms-setu
 
 ## <a name="using-the-oms-agent"></a>Uso do Agente do OMS
 
-É recomendado usar EventFlow e WAD como soluções de agregação, pois permitem uma abordagem mais modular para diagnósticos e monitoramento. Por exemplo, se você quiser alterar as saídas de EventFlow, não será preciso alterar a instrumentação real, apenas fazer uma modificação simples no arquivo de configuração. Se, no entanto, você decidir investir no uso do Log Analytics do OMS, configure o [agente do OMS](../log-analytics/log-analytics-windows-agents.md). Você também deve usar o agente do OMS ao implantar contêineres ao seu cluster, conforme discutido abaixo. 
+É recomendado usar EventFlow e WAD como soluções de agregação, pois permitem uma abordagem mais modular para diagnósticos e monitoramento. Por exemplo, se você quiser alterar as saídas de EventFlow, não será preciso alterar a instrumentação real, apenas fazer uma modificação simples no arquivo de configuração. Se, no entanto, você decidir investir no uso do Log Analytics do OMS, configure o [agente do OMS](../log-analytics/log-analytics-windows-agent.md). Você também deve usar o agente do OMS ao implantar contêineres ao seu cluster, conforme discutido abaixo. 
 
 Siga para [Adicionar o Agente do OMS a um cluster](service-fabric-diagnostics-oms-agent.md) para consultar as etapas para isso.
 

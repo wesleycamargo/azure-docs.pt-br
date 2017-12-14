@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/31/2016
 ms.author: deonhe
-ms.openlocfilehash: 4597ee28e4c3b797c0ab050b21a126a95d9e8191
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ebd6a8cb70f218c3b56bc78c9b853dbf51ab468
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-process-edifact-invoices-using-azure-biztalk-services"></a>Tutorial: Processar faturas EDIFACT usando os Serviços BizTalk do Azure
 
@@ -55,7 +55,7 @@ Para concluir o cenário, usamos as filas do Barramento de Serviço para enviar 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * Você deve ter um namespace do Barramento de Serviço. Para obter instruções sobre como criar um namespace, confira [Como criar ou modificar um namespace do Barramento de Serviço](https://msdn.microsoft.com/library/azure/hh674478.aspx). Vamos supor que você já tenha um namespace de Barramento de serviço provisionado, chamado **edifactbts**.
-* Você deve ter uma assinatura dos Serviços BizTalk. Para obter instruções, confira [Criar um Serviço BizTalk usando o portal clássico do Azure](http://go.microsoft.com/fwlink/?LinkID=302280). Para este tutorial, suponhamos que você tenha uma assinatura dos Serviços BizTalk chamada **contosowabs**.
+* Você deve ter uma assinatura dos Serviços BizTalk. Para este tutorial, suponhamos que você tenha uma assinatura dos Serviços BizTalk chamada **contosowabs**.
 * Registre sua assinatura dos Serviços BizTalk no Portal dos Serviços BizTalk. Para obter instruções, confira [Registrar uma implantação de Serviço BizTalk no Portal dos Serviços BizTalk](https://msdn.microsoft.com/library/hh689837.aspx)
 * Você deve ter o Visual Studio instalado.
 * Você deve ter o SDK dos Serviços BizTalk instalado. Você pode baixar o SDK em [http://go.microsoft.com/fwlink/?LinkId=235057](http://go.microsoft.com/fwlink/?LinkId=235057)  

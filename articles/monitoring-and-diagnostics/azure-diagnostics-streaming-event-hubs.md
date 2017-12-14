@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/13/2017
 ms.author: robb
-ms.openlocfilehash: 1c05bd6dc4c4d394aa043b9995de9c184e4f14c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ca0dd96389a605ed8bf34af81eb4d75bef581338
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Streaming de dados de Diagnóstico do Azure no afunilamento usando os Hubs de Eventos
 O Diagnóstico do Azure fornece maneiras flexíveis para coletar as métricas e os logs das VMs (máquinas virtuais) dos serviços de nuvem e para transferir os resultados para o armazenamento do Azure. A partir de março de 2016 (SDK 2.9), você poderá enviar o Diagnóstico para fontes de dados personalizadas e transferir dados do afunilamento em questão de segundos usando os [Hubs de Eventos do Azure](https://azure.microsoft.com/services/event-hubs/).
@@ -104,7 +104,7 @@ O coletor do Hubs de Eventos também deve ser declarado e definido na seção **
 }
 ```
 
-O valor `SharedAccessKeyName` deve ser compatível com uma chave de SAS (Assinatura de Acesso Compartilhado) e com uma política definida no namespace **Hubs de Eventos** . Navegue até o painel Hubs de Eventos no [Portal do Azure](https://manage.windowsazure.com), clique na guia **Configurar** e configure uma política nomeada (por exemplo, "SendRule") que tenha permissões de *Envio* . A **StorageAccount** também é declarada em **PrivateConfig**. Não é necessário alterar os valores aqui se eles estiverem funcionando. Neste exemplo, deixamos os valores vazios, o que é um sinal de que um ativo de downstream definirá os valores. Por exemplo, o arquivo de configuração do ambiente *ServiceConfiguration.Cloud.cscfg* define as chaves e os nomes apropriados do ambiente.  
+O valor `SharedAccessKeyName` deve ser compatível com uma chave de SAS (Assinatura de Acesso Compartilhado) e com uma política definida no namespace **Hubs de Eventos** . Navegue até o painel Hubs de Eventos no [Portal do Azure](https://portal.azure.com), clique na guia **Configurar** e configure uma política nomeada (por exemplo, "SendRule") que tenha permissões de *Envio* . A **StorageAccount** também é declarada em **PrivateConfig**. Não é necessário alterar os valores aqui se eles estiverem funcionando. Neste exemplo, deixamos os valores vazios, o que é um sinal de que um ativo de downstream definirá os valores. Por exemplo, o arquivo de configuração do ambiente *ServiceConfiguration.Cloud.cscfg* define as chaves e os nomes apropriados do ambiente.  
 
 > [!WARNING]
 > A chave de SAS dos Hubs de Eventos é armazenada em texto sem formatação no arquivo *.wadcfgx* . Muitas vezes, essa chave é verificada no controle do código-fonte ou está disponível como um ativo no servidor de build e, portanto, você deve protegê-la de maneira apropriada. É recomendável usar uma chave de SAS com permissões do tipo *Somente envio* , de forma que um usuário mal-intencionado possa gravar no hub de eventos, mas não escutar nele nem gerenciá-lo.

@@ -3,7 +3,7 @@ title: " Corrigir Alertas da VM do Azure com Runbooks de Automação | Microsoft
 description: "Este artigo demonstra como integrar os alertas de Máquina Virtual do Azure com runbooks de Automação do Azure e corrigir automaticamente os problemas"
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: tysonn
 ms.assetid: 1f7baa7f-7283-4a4f-9385-3f5cd1062c7f
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/29/2017
 ms.author: csand;magoedte
-ms.openlocfilehash: 18cccc88ab74235722e2f4886671fc483ab67da8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ef18a2de8ce62de945c49b91dc74aca7d7f408b0
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-automation-scenario---remediate-azure-vm-alerts"></a>Cenário de Automação do Azure - corrigir alertas de VM do Azure
 As Máquinas Virtuais do Azure e a Automação do Azure lançaram um novo recurso que permite que você configure os alertas de VM (Máquina Virtual) para executar runbooks de Automação. Essa nova funcionalidade permite que você execute a correção standard automaticamente em resposta a alertas de VM, como reiniciar ou parar a VM.
@@ -174,7 +174,7 @@ if ($WebhookData)
 Quando você configura um alerta em uma VM do Azure, agora você tem a capacidade de configurar facilmente um runbook de Automação para executar a ação de correção automaticamente quando o alerta for disparado. Para esta versão, você pode escolher dentre runbooks para reiniciar, parar ou excluir uma VM dependendo do cenário de alerta. Isso é apenas o começo da habilitação de cenários em que você controla as ações (notificação, solução de problemas, correção) que serão executadas automaticamente quando um alerta for disparado.
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para começar a usar runbooks gráficos, veja [O meu primeiro runbook gráfico](automation-first-runbook-graphical.md)
+* Para começar a usar os runbooks Gráficos, consulte [Meu primeiro runbook gráfico](automation-first-runbook-graphical.md)
 * Para começar a usar os runbooks de fluxo de trabalho do PowerShell, confira [Meu primeiro runbook de fluxo de trabalho do PowerShell](automation-first-runbook-textual.md)
 * Para saber mais sobre os tipos de runbook, suas vantagens e limitações, veja [Tipos de runbook da Automação do Azure](automation-runbook-types.md)
 

@@ -15,18 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/10/2017
 ms.author: kumud
-ms.openlocfilehash: adcbe69abca72aa0372b78eb357efdc56acf1c26
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 76782ac1e78cd0f7da4bc1aad8eff00d79865ed7
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="get-started-with-azure-dns-using-azure-cli-20"></a>Introdução ao DNS do Azure usando a CLI do Azure 2.0
 
 > [!div class="op_single_selector"]
 > * [Portal do Azure](dns-getstarted-portal.md)
 > * [PowerShell](dns-getstarted-powershell.md)
-> * [CLI 1.0 do Azure](dns-getstarted-cli-nodejs.md)
 > * [CLI 2.0 do Azure](dns-getstarted-cli.md)
 
 Este artigo explica as etapas de criação de sua primeira zona e registro DNS usando a CLI do Azure 2.0 entre plataformas, que está disponível para Windows, Mac e Linux. Você também pode executar essas etapas usando o Portal do Azure ou o Azure PowerShell.

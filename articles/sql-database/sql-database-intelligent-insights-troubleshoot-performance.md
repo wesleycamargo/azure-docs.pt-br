@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Inactive
 ms.date: 09/25/2017
 ms.author: v-daljep
-ms.openlocfilehash: 85da2a521af0ca92c07d8b2041e92b98f98e9661
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: cce112929ff2f4fb48c2c6e2ddc2d4eee743b790
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Solucionar problemas de desempenho do banco de dados SQL do Azure com Insights inteligentes
 
@@ -52,7 +52,7 @@ O Intelligent Insights detecta automaticamente os problemas de desempenho com o 
 | [Downgrade do Tipo de Preço](sql-database-intelligent-insights-troubleshoot-performance.md#pricing-tier-downgrade) | Uma ação de downgrade de tipo de preço diminuiu os recursos disponíveis, o que afeta o desempenho do Banco de Dados SQL. |
 
 > [!TIP]
-> Para otimização contínua do desempenho do Banco de Dados SQL, habilite [Ajuste automático do Banco de Dados SQL do Azure](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-automatic-tuning). Esse recurso exclusivo de inteligência interna do Banco de Dados SQL monitora continuamente seu banco de dados SQL, ajusta de modo automático os índices e aplica correções de plano de execução de consulta.
+> Para otimização contínua do desempenho do Banco de Dados SQL, habilite [Ajuste automático do Banco de Dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-automatic-tuning). Esse recurso exclusivo de inteligência interna do Banco de Dados SQL monitora continuamente seu banco de dados SQL, ajusta de modo automático os índices e aplica correções de plano de execução de consulta.
 >
 
 A seção a seguir descreve os padrões de desempenho detectáveis listados anteriormente em mais detalhes.
@@ -63,7 +63,7 @@ A seção a seguir descreve os padrões de desempenho detectáveis listados ante
 
 Esse padrão de desempenho detectável combina problemas de desempenho relacionados a alcançar os limites de recurso, limites de trabalho e limites de sessão disponíveis. Depois que esse problema de desempenho é detectado, um campo de descrição do log de diagnóstico indica se o problema de desempenho está relacionado a limites de recurso, trabalho ou sessão.
 
-Recursos no Banco de Dados SQL normalmente são conhecidos como [recursos DTU](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-what-is-a-dtu). Eles consistem em uma medida combinada de recursos de CPU e E/S (E/S de log de dados e transações). O padrão de alcance dos de limites do recurso é reconhecido quando uma degradação de desempenho de consulta detectada é causada por qualquer um dos limites de recurso medidos.
+Recursos no Banco de Dados SQL normalmente são conhecidos como [recursos DTU](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu). Eles consistem em uma medida combinada de recursos de CPU e E/S (E/S de log de dados e transações). O padrão de alcance dos de limites do recurso é reconhecido quando uma degradação de desempenho de consulta detectada é causada por qualquer um dos limites de recurso medidos.
 
 O recurso de limites de sessão denota o número de logons simultâneos disponíveis para o Banco de Dados SQL. Esse padrão de desempenho é reconhecido quando aplicativos que estão se conectando aos Bancos de Dados SQL atingem o número de logons simultâneos disponíveis para o banco de dados. Se aplicativos tentarem usar mais sessões do que as disponíveis em um banco de dados, o desempenho da consulta será afetado.
 
@@ -75,7 +75,7 @@ O log de diagnóstico gera hashes de consulta das consultas que afetaram o desem
 
 Se você tiver atingido os limites de sessão disponíveis, poderá otimizar seus aplicativos reduzindo o número de logons feitos no banco de dados. Se não for possível reduzir o número de logons de seus aplicativos para o banco de dados, considere aumentar o tipo de preço do banco de dados. Ou você pode dividir e mover o banco de dados em vários bancos de dados para uma distribuição mais balanceada de carga de trabalho.
 
-Para mais sugestões sobre como resolver limites de sessão, consulte [Como lidar com os limites máximos de logons no Banco de Dados SQL](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). Para descobrir os limites de recurso disponíveis para sua assinatura, consulte [Limites de recursos do Banco de Dados SQL](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-resource-limits).
+Para mais sugestões sobre como resolver limites de sessão, consulte [Como lidar com os limites máximos de logons no Banco de Dados SQL](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). Para descobrir os limites de recurso disponíveis para sua assinatura, consulte [Limites de recursos do Banco de Dados SQL](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits).
 
 ## <a name="workload-increase"></a>Aumento da Carga de Trabalho
 
@@ -145,7 +145,7 @@ A opção de configuração do servidor MAXDOP no Banco de Dados SQL é usada pa
 
 O log de diagnóstico produz hashes de consulta relacionados a consultas para as quais a duração da execução é aumentada porque eles foram paralelizados mais do que deveriam ter sido. O log também gera tempos de espera CXP. Esse tempo representa o tempo que um thread único de coordenador/organizador (thread 0) aguarda a conclusão de todos os outros threads antes de mesclar os resultados e seguir adiante. Além disso, o log de diagnóstico gera os tempos de espera em que as consultas de baixo desempenho estavam aguardando em execução no geral. Você pode usar essa informação como a base para a solução de problemas.
 
-Primeiro, otimize ou simplifique consultas complexas. Uma prática recomendada é dividir trabalhos em lote grandes em partes menores. Além disso, crie índices para dar suporte às suas consultas. Você pode impor manualmente o grau máximo de paralelismo (MAXDOP) para uma consulta sinalizada como de baixo desempenho. Para configurar essa operação usando T-SQL, consulte [Configurar a opção de configuração de servidor MAXDOP](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option).
+Primeiro, otimize ou simplifique consultas complexas. Uma prática recomendada é dividir trabalhos em lote grandes em partes menores. Além disso, crie índices para dar suporte às suas consultas. Você pode impor manualmente o grau máximo de paralelismo (MAXDOP) para uma consulta sinalizada como de baixo desempenho. Para configurar essa operação usando T-SQL, consulte [Configurar a opção de configuração de servidor MAXDOP](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option).
 
 A definição da opção de configuração do servidor MAXDOP como zero (0) como um valor padrão denota que o Banco de Dados SQL pode usar todos os núcleos de CPU lógicos disponíveis para paralelizar threads executando uma única consulta. Configuração MAXDOP como um (1) indica que apenas um núcleo pode ser usado para uma única execução de consulta. Em termos práticos, isso significa que o paralelismo está desativado. Dependendo do caso, dos núcleos disponíveis para o banco de dados e das informações do log de diagnóstico, ajuste a opção MAXDOP para o número de núcleos de execução paralela da consulta que pode resolver o problema no seu caso.
 
@@ -231,7 +231,7 @@ Esse padrão de desempenho detectável indica uma condição de desempenho do ba
 
 O log de diagnóstico gera detalhes de contenção de tempDB. Você pode usar as informações como o ponto de partida para solução de problemas. Há duas medidas que você pode adotar para aliviar esse tipo de contenção e aumentar a taxa de transferência da carga de trabalho geral: você pode parar de usar as tabelas temporárias. Você também pode usar tabelas de otimização de memória. 
 
-Para obter mais informações, consulte [Introdução às tabelas com otimização de memória](https://docs.microsoft.com/en-us/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables). 
+Para obter mais informações, consulte [Introdução às tabelas com otimização de memória](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables). 
 
 ## <a name="elastic-pool-dtu-shortage"></a>Insuficiência de DTU no pool elástico
 
@@ -328,10 +328,10 @@ Acesse o Intelligent Insights por meio do portal do Azure indo para Análise de 
 > [!TIP]
 > Selecione o fluxograma para baixar uma versão em PDF.
 
-O Intelligent Insights geralmente precisa de uma hora para executar a análise da causa raiz do problema de desempenho. Se você não puder localizar o problema no Intelligent Insights e ele for crucial para você, use o Repositório de Consultas para identificar manualmente a causa raiz do problema de desempenho. (Normalmente, esses problemas têm uma idade inferior a uma hora.) Para obter mais informações, consulte [Monitorar desempenho usando o Repositório de Consultas](https://docs.microsoft.com/en-us/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store).
+O Intelligent Insights geralmente precisa de uma hora para executar a análise da causa raiz do problema de desempenho. Se você não puder localizar o problema no Intelligent Insights e ele for crucial para você, use o Repositório de Consultas para identificar manualmente a causa raiz do problema de desempenho. (Normalmente, esses problemas têm uma idade inferior a uma hora.) Para obter mais informações, consulte [Monitorar desempenho usando o Repositório de Consultas](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store).
 
 ## <a name="next-steps"></a>Próximas etapas
 - Aprenda os conceitos de [Intelligent Insights](sql-database-intelligent-insights.md).
 - Use o [log de diagnóstico de desempenho do Banco de Dados SQL do Azure com Intelligent Insights](sql-database-intelligent-insights-use-diagnostics-log.md).
-- Monitore o [Banco de Dados SQL do Azure usando a Análise de SQL do Azure](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql).
+- Monitore o [Banco de Dados SQL do Azure usando a Análise de SQL do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql).
 - Saiba como [coletar e consumir dados de log dos recursos do Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).

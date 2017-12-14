@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: tomsh
-ms.openlocfilehash: 682ad79cc5fe4f08051477b7b90ae80981e5d595
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: a8b76e2895edcdbbddafbee7116e163d1789c06d
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-service-fabric-security-best-practices"></a>Melhores práticas de segurança do Azure Service Fabric
 Implantar um aplicativo no Azure é rápido, fácil e econômico. Antes de implantar seu aplicativo na nuvem em produção, examine a nossa lista de melhores práticas recomendadas e essenciais para a implementação de clusters seguros no seu aplicativo.
@@ -64,7 +64,7 @@ Os clusters devem ser protegidos para evitar que usuários não autorizados se c
 Há três [cenários](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-security) para implementar a segurança de cluster usando diversas tecnologias:
 
 -   Segurança nó a nó: Esse cenário protege a comunicação entre VMs e computadores no cluster. Esse tipo de segurança faz com que somente os computadores autorizados a ingressar no cluster possam hospedar aplicativos e serviços no cluster.
-Nesse cenário, os clusters em execução no Azure ou clusters autônomos que sáo executados no Windows podem usar a [segurança de certificado](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-x509-security) ou então a [segurança do Windows](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-windows-cluster-windows-security) para computadores Windows Server.
+Nesse cenário, os clusters em execução no Azure ou clusters autônomos que sáo executados no Windows podem usar a [segurança de certificado](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-x509-security) ou então a [segurança do Windows](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-windows-security) para computadores Windows Server.
 -   Segurança cliente a nó: Esse cenário protege a comunicação entre um cliente do Service Fabric e nós individuais do cluster.
 -   Controle de acesso baseado em função (RBAC): Esse cenário usa identidades separadas (certificados, o Azure AD, e assim por diante) para cada função de cliente de usuário e administrador que acessa o cluster. Especifique as identidades de função ao criar o cluster.
 
@@ -125,7 +125,7 @@ As [configurações de segurança do replicador](https://docs.microsoft.com/azur
 Configurações do replicador configuram o replicador que será responsável por tornar o Provedor de Estado do Ator altamente confiável.
 
 ## <a name="configure-ssl-for-azure-service-fabric"></a>Configurar o SSL para o Azure Service Fabric
-O processo de autenticação do servidor [autentica](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) os pontos de extremidade de gerenciamento de cluster para um cliente de gerenciamento. O cliente de gerenciamento, em seguida, reconhece que ele está se comunicando com o cluster real. Esse certificado também fornece um [SSL](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-creation-via-arm) para a API de gerenciamento de HTTPS e para o Service Fabric Explorer sobre HTTPS.
+O processo de autenticação do servidor [autentica](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) os pontos de extremidade de gerenciamento de cluster para um cliente de gerenciamento. O cliente de gerenciamento, em seguida, reconhece que ele está se comunicando com o cluster real. Esse certificado também fornece um [SSL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm) para a API de gerenciamento de HTTPS e para o Service Fabric Explorer sobre HTTPS.
 Você deve obter um nome de domínio personalizado para seu cluster. Quando você solicitar um certificado de uma autoridade de certificação, o nome de assunto do certificado deve corresponder ao nome de domínio personalizado usado para o seu cluster.
 
 Para configurar SSL para um aplicativo, você precisa primeiro obter um certificado SSL que tenha sido assinado por uma autoridade de certificação. A autoridade de certificação é um terceiro confiável que emite certificados para fins de segurança SSL. Se você ainda não tiver um certificado SSL, você precisará obtê-lo junto a uma empresa que venda certificados SSL.

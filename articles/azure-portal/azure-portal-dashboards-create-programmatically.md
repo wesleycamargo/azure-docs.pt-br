@@ -6,18 +6,18 @@ documentationcenter:
 author: adamab
 manager: timlt
 editor: tysonn
-ms.service: multiple
+ms.service: azure-portal
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
-ms.openlocfilehash: 6c0d76207233a04bdec604d95f1779c62f6e2d8f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d9acb58791cb1412d5e67479ca6490e1548be2c8
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="programmatically-create-azure-dashboards"></a>Criar de maneira programática Painéis do Azure
 
@@ -27,7 +27,7 @@ Este documento explica o processo de criação e publicação de forma programá
 
 ## <a name="overview"></a>Visão geral
 
-Os painéis compartilhados no Azure são [recursos](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview) assim como máquinas virtuais e contas de armazenamento.  Portanto, eles podem ser gerenciados programaticamente por meio de [APIs REST do Azure Resource Manager](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-manager-rest-api), [CLI do Azure](https://docs.microsoft.com/en-us/cli/azure/overview), [comandos do Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/get-started-azureps?view=azurermps-4.2.0) e muitos recursos do [Portal do Azure](https://portal.azure.com) compilados no topo dessas APIs para facilitar o gerenciamento de recursos.  
+Os painéis compartilhados no Azure são [recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) assim como máquinas virtuais e contas de armazenamento.  Portanto, eles podem ser gerenciados programaticamente por meio de [APIs REST do Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-rest-api), [CLI do Azure](https://docs.microsoft.com/cli/azure/overview), [comandos do Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps?view=azurermps-4.2.0) e muitos recursos do [Portal do Azure](https://portal.azure.com) compilados no topo dessas APIs para facilitar o gerenciamento de recursos.  
 
 Cada uma dessas APIs e ferramentas oferece maneiras de criar, listar, recuperar, modificar e excluir recursos.  Como painéis são recursos, você pode escolher sua API/ferramenta favorita para usar.
 
@@ -55,7 +55,7 @@ Depois de configurar o painel de sua preferência, as próximas etapas são publ
 
 ![Comando de compartilhamento](./media/azure-portal-dashboards-create-programmatically/share-command.png)
 
-Clicar no comando Compartilhamento mostra uma caixa de diálogo que solicita a escolha de a qual grupo de recursos e assinatura publicar. Tenha em mente que você [deve ter acesso de gravação](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-configure) à assinatura e ao grupo de recursos que escolher.
+Clicar no comando Compartilhamento mostra uma caixa de diálogo que solicita a escolha de a qual grupo de recursos e assinatura publicar. Tenha em mente que você [deve ter acesso de gravação](https://docs.microsoft.com/azure/active-directory/role-based-access-control-configure) à assinatura e ao grupo de recursos que escolher.
 
 ![compartilhamento e acesso](./media/azure-portal-dashboards-create-programmatically/sharing-and-access.png)
 
@@ -79,11 +79,11 @@ Não é necessário entender completamente a estrutura JSON do painel para criar
 
 No futuro, para publicar esse painel para qualquer máquina virtual, você precisará parametrizar cada ocorrência dessa cadeia de caracteres no JSON. 
 
-Há dois tipos de APIs que criam recursos no Azure. [APIs fundamentais](https://docs.microsoft.com/en-us/rest/api/resources/resources) que criam um recurso de cada vez e um sistema de [implantação baseada em modelo](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy) que pode coordenar a criação de vários recursos dependentes com uma única chamada à API. O último, dá suporte de modo nativo à parametrização e modelagem para que possamos usar em nosso exemplo.
+Há dois tipos de APIs que criam recursos no Azure. [APIs fundamentais](https://docs.microsoft.com/rest/api/resources/resources) que criam um recurso de cada vez e um sistema de [implantação baseada em modelo](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy) que pode coordenar a criação de vários recursos dependentes com uma única chamada à API. O último, dá suporte de modo nativo à parametrização e modelagem para que possamos usar em nosso exemplo.
 
 ## <a name="programmatically-create-a-dashboard-from-your-template-using-a-template-deployment"></a>Criar programaticamente um painel de seu modelo usando uma implantação de modelo
 
-O Azure oferece a capacidade de coordenar a implantação de vários recursos. Você cria um modelo de implantação que expressa o conjunto de recursos para implantar, bem como as relações entre eles.  O formato JSON de cada recurso é o mesmo como se você estivesse criando um de cada vez. A diferença é que a [linguagem do modelo](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authoring-templates) adiciona alguns conceitos como variáveis, parâmetros, funções básicas e muito mais. Essa sintaxe estendida só tem suporte no contexto de uma implantação de modelo e não funciona se usada com as APIs fundamentais discutidas anteriormente.
+O Azure oferece a capacidade de coordenar a implantação de vários recursos. Você cria um modelo de implantação que expressa o conjunto de recursos para implantar, bem como as relações entre eles.  O formato JSON de cada recurso é o mesmo como se você estivesse criando um de cada vez. A diferença é que a [linguagem do modelo](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authoring-templates) adiciona alguns conceitos como variáveis, parâmetros, funções básicas e muito mais. Essa sintaxe estendida só tem suporte no contexto de uma implantação de modelo e não funciona se usada com as APIs fundamentais discutidas anteriormente.
 
 Se estiver indo por essa rota, a parametrização deverá ser feita usando a sintaxe do parâmetro do modelo.  Você substitui todas as instâncias da ID de recurso que encontramos anteriormente, conforme mostrado aqui.
 
@@ -119,7 +119,7 @@ Você também precisa declarar alguns metadados de modelo necessários e os par�
 
 __Você pode ver o modelo de trabalho completo no final deste documento.__
 
-Depois de ter criado seu modelo, é possível implantá-lo usando as [APIs REST](https://docs.microsoft.com/en-us/rest/api/resources/deployments), o [PowerShell](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-template-deploy), a [CLI do Azure](https://docs.microsoft.com/en-us/cli/azure/group/deployment#az_group_deployment_create) ou a [página de implantação de modelo do portal](https://portal.azure.com/#create/Microsoft.Template).
+Depois de ter criado seu modelo, é possível implantá-lo usando as [APIs REST](https://docs.microsoft.com/rest/api/resources/deployments), o [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), a [CLI do Azure](https://docs.microsoft.com/cli/azure/group/deployment#az_group_deployment_create) ou a [página de implantação de modelo do portal](https://portal.azure.com/#create/Microsoft.Template).
 
 Aqui estão duas versões do nosso painel JSON de exemplo. O primeiro é a versão que exportamos do portal que já estava associada a um recurso. O segundo é a versão do modelo que pode ser vinculada por meio de programação para qualquer VM e implantada usando o Azure Resource Manager.
 

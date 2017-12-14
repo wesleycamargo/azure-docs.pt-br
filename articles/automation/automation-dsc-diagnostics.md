@@ -3,7 +3,7 @@ title: "Encaminhar dados de relatório DSC de Automação do Azure para o OMS Lo
 description: "Este artigo demonstra como enviar dados de relatório de DSC (Configuração de Estado Desejado) para Gerenciamento e Log Analytics do Microsoft Operations Management Suite para fornecer informações adicionais."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 ms.service: automation
@@ -12,12 +12,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
-ms.author: eslesar
-ms.openlocfilehash: 316031c5297a0201c8db4a9e177298c78962c673
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: gwallace
+ms.openlocfilehash: 5de22072a436e7a2dbaa7d413595c048f730189b
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="forward-azure-automation-dsc-reporting-data-to-oms-log-analytics"></a>Encaminhar dados de relatório DSC de Automação do Azure para o OMS Log Analytics
 
@@ -43,7 +43,7 @@ Para começar a enviar seus relatórios de DSC de Automação para Log Analytics
 
 Para começar a importar dados do DSC de Automação do Azure para Log Analytics, conclua as seguintes etapas:
 
-1. Faça logon em sua conta do Azure no PowerShell. Veja [Fazer logon com o Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azure/authenticate-azureps?view=azurermps-4.0.0)
+1. Faça logon em sua conta do Azure no PowerShell. Veja [Fazer logon com o Azure PowerShell](https://docs.microsoft.com/powershell/azure/authenticate-azureps?view=azurermps-4.0.0)
 1. Obtenha o _ResourceId_ de sua conta de automação executando o seguinte comando do PowerShell: (se você tiver mais de uma conta de automação, escolha o _ResourceID_ para a que deseja configurar).
 
   ```powershell

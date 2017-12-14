@@ -3,7 +3,7 @@ title: Suporte do BD Cosmos do Azure para Gremlin | Microsoft Docs
 description: "Saiba mais sobre a linguagem Gremlin do Apache TinkerPop e quais são os recursos e as etapas disponíveis no Azure Cosmos DB"
 services: cosmos-db
 documentationcenter: 
-author: dennyglee
+author: luisbosquez
 manager: jhubbard
 editor: 
 tags: 
@@ -14,28 +14,28 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
 ms.date: 11/15/2017
-ms.author: denlee
-ms.openlocfilehash: 746cf8f88f84c81ff76340f2cfbfa11609c6483a
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.author: lbosq
+ms.openlocfilehash: f95a0abcd50b94714a76b36a0b5f9c73da909879
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="azure-cosmos-db-gremlin-graph-support"></a>Suporte do BD Cosmos do Azure para gráfico do Gremlin
-O Azure Cosmos DB dá suporte à linguagem de cruzamento de gráficos [Gremlin](http://tinkerpop.apache.org) da [Apache Tinkerpop](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), que é uma API do Graph para criar entidades de gráficos e executar operações de consulta de gráficos. É possível usar a linguagem Gremlin para criar entidades de gráfico (vértices e bordas), modificar propriedades dentro dessas entidades, executar consultas e passagens e excluir entidades. 
+# <a name="azure-cosmos-db-gremlin-graph-support"></a>Suporte do Azure Cosmos DB para grafo do Gremlin
+O Azure Cosmos DB dá suporte à linguagem de cruzamento de grafo [Gremlin](http://tinkerpop.apache.org) da [Apache Tinkerpop](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), que é uma API do Graph para criar entidades de grafo e executar operações de consulta de grafo. É possível usar a linguagem Gremlin para criar entidades de grafo (vértices e bordas), modificar propriedades dentro dessas entidades, executar consultas e passagens e excluir entidades. 
 
-O BD Cosmos do Azure traz recursos prontos para empresas para bancos de dados de gráfico. Isso inclui distribuição global, dimensionamento independente do armazenamento e da taxa de transferência, latências de milissegundos de dígito único previsíveis, indexação automática e SLAs, leitura disponível para contas de bancos de dados abrangendo duas ou mais regiões do Azure. Como o BD Cosmos do Azure dá suporte a TinkerPop/Gremlin, você pode migrar com facilidade aplicativos escritos usando outro banco de dados de gráfico sem a necessidade de fazer alterações no código. Além disso, devido ao suporte para Gremlin, o BD Cosmos do Azure integra-se perfeitamente com estruturas de análise habilitadas para TinkerPop, como o [Apache Spark GraphX](http://spark.apache.org/graphx/). 
+O Azure Cosmos DB traz recursos prontos para empresas para bancos de dados de grafo. Isso inclui distribuição global, dimensionamento independente do armazenamento e da taxa de transferência, latências de milissegundos de dígito único previsíveis, indexação automática e SLAs, leitura disponível para contas de bancos de dados abrangendo duas ou mais regiões do Azure. Como o Azure Cosmos DB dá suporte a TinkerPop/Gremlin, você pode migrar com facilidade aplicativos escritos usando outro banco de dados de grafo sem a necessidade de fazer alterações no código. Além disso, devido ao suporte para Gremlin, o Azure Cosmos DB integra-se perfeitamente com estruturas de análise habilitadas para TinkerPop, como o [Apache Spark GraphX](http://spark.apache.org/graphx/). 
 
 Neste artigo, fornecemos uma explicação rápida do Gremlin e listamos os recursos e etapas do Gremlin que têm suporte na versão prévia do suporte para API do Graph.
 
 ## <a name="gremlin-by-example"></a>Gremlin pelo exemplo
-Vamos usar um gráfico de exemplo para entender como as consultas podem ser expressas no Gremlin. A figura a seguir mostra um aplicativo de negócios que gerencia dados sobre usuários, interesses e dispositivos na forma de um gráfico.  
+Vamos usar um grafo de exemplo para entender como as consultas podem ser expressas no Gremlin. A figura a seguir mostra um aplicativo de negócios que gerencia dados sobre usuários, interesses e dispositivos na forma de um grafo.  
 
 ![Banco de dados de exemplo mostrando interesses, dispositivos e pessoas](./media/gremlin-support/sample-graph.png) 
 
-Este gráfico tem os seguintes tipos de vértice (chamados de "rótulo" no Gremlin):
+Este grafo tem os seguintes tipos de vértice (chamados de "rótulo" no Gremlin):
 
-- Pessoas: o gráfico tem três pessoas; Robin, Thomas e Ben
+- Pessoas: o grafo tem três pessoas; Robin, Thomas e Ben
 - Interesses: os interesses dessas pessoas, que neste exemplo é o jogo de futebol
 - Dispositivos: os dispositivos que as pessoas usam
 - Sistemas operacionais: os sistemas operacionais que os dispositivos executam
@@ -43,13 +43,13 @@ Este gráfico tem os seguintes tipos de vértice (chamados de "rótulo" no Greml
 Nós representamos as relações entre essas entidades usando os seguintes tipos/rótulos de borda:
 
 - Knows (conhece): por exemplo, "Thomas conhece Robin"
-- Interested (interessado): para representar os interesses das pessoas em nosso gráfico, por exemplo, "Ben está interessado em futebol"
+- Interested (interessado): para representar os interesses das pessoas em nosso grafo, por exemplo, "Ben está interessado em futebol"
 - RunsOS: o laptop executa o sistema operacional Windows
 - Uses (usa): para representar qual dispositivo uma pessoa usa. Por exemplo, Robin usa um telefone Motorola com o número de série 77
 
-Vamos executar algumas operações nesse gráfico usando o [Console do Gremlin](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console). Você também pode executar essas operações usando drivers do Gremlin na plataforma de sua escolha (Java, Node.js, Python ou .NET).  Antes de examinarmos o que tem suporte no BD Cosmos do Azure, vejamos alguns exemplos para nos familiarizarmos com a sintaxe.
+Vamos executar algumas operações nesse grafo usando o [Console do Gremlin](http://tinkerpop.apache.org/docs/current/reference/#gremlin-console). Você também pode executar essas operações usando drivers do Gremlin na plataforma de sua escolha (Java, Node.js, Python ou .NET).  Antes de examinarmos o que tem suporte no BD Cosmos do Azure, vejamos alguns exemplos para nos familiarizarmos com a sintaxe.
 
-Primeiro, vamos ver o CRUD. A seguinte instrução do Gremlin insere o vértice "Thomas" no gráfico:
+Primeiro, vamos ver o CRUD. A seguinte instrução do Gremlin insere o vértice "Thomas" no grafo:
 
 ```
 :> g.addV('person').property('id', 'thomas.1').property('firstName', 'Thomas').property('lastName', 'Andersen').property('age', 44)
@@ -66,7 +66,7 @@ A consulta a seguir retorna os vértices do tipo "pessoa" na ordem decrescente d
 :> g.V().hasLabel('person').order().by('firstName', decr)
 ```
 
-Os gráficos se destacam em situações em que você precisa responder perguntas como "Quais sistemas operacionais os amigos de Thomas usam?". Você pode executar essa passagem simples do Gremlin para obter informações do gráfico:
+Os grafos se destacam em situações em que você precisa responder perguntas como "Quais sistemas operacionais os amigos de Thomas usam?". Você pode executar essa passagem simples do Gremlin para obter informações do grafo:
 
 ```
 :> g.V('thomas.1').out('knows').out('uses').out('runsos').group().by('name').by(count())
@@ -74,13 +74,13 @@ Os gráficos se destacam em situações em que você precisa responder perguntas
 Agora, vejamos o que o BD Cosmos do Azure oferece para desenvolvedores de Gremlin.
 
 ## <a name="gremlin-features"></a>Recursos do Gremlin
-O TinkerPop é um padrão que abrange uma ampla variedade de tecnologias de gráfico. Portanto, ele tem uma terminologia padrão para descrever quais recursos são fornecidos por um provedor de gráfico. O BD Cosmos do Azure fornece um banco de dados de gráfico gravável, persistente e de alta simultaneidade que pode ser particionado em vários servidores ou clusters. 
+O TinkerPop é um padrão que abrange uma ampla variedade de tecnologias de grafo. Portanto, ele tem uma terminologia padrão para descrever quais recursos são fornecidos por um provedor de grafo. O Azure Cosmos DB fornece um banco de dados de grafo gravável, persistente e de alta simultaneidade que pode ser particionado em vários servidores ou clusters. 
 
 A tabela a seguir lista os recursos do TinkerPop que são implementados pelo BD Cosmos do Azure: 
 
 | Categoria | Implementação do BD Cosmos do Azure |  Observações | 
 | --- | --- | --- |
-| Recursos de gráfico | Fornece Persistence e ConcurrentAccess na versão prévia. Projetado para dar suporte a Transactions | Métodos de computador podem ser implementados por meio do conector Spark. |
+| Recursos de grafo | Fornece Persistence e ConcurrentAccess na versão prévia. Projetado para dar suporte a Transactions | Métodos de computador podem ser implementados por meio do conector Spark. |
 | Recursos variáveis | Dá suporte a Boolean, Integer, Byte, Double, Float, Integer, Long, String | Dá suporte a tipos primitivos, é compatível com tipos complexos por meio do modelo de dados |
 | Recursos do vértice | Dá suporte a RemoveVertices, MetaProperties, AddVertices, MultiProperties, StringIds, UserSuppliedIds, AddProperty, RemoveProperty  | Dá suporte à criação, modificação e exclusão de vértices |
 | Recursos de propriedade do vértice | StringIds, UserSuppliedIds, AddProperty, RemoveProperty, BooleanValues, ByteValues, DoubleValues, FloatValues, IntegerValues, LongValues, StringValues | Dá suporte à criação, modificação e exclusão de propriedades do vértice |
@@ -89,7 +89,7 @@ A tabela a seguir lista os recursos do TinkerPop que são implementados pelo BD 
 
 ## <a name="gremlin-wire-format-graphson"></a>Formato de transmissão do Gremlin: GraphSON
 
-O BD Cosmos do Azure usa o [formato GraphSON](https://github.com/thinkaurelius/faunus/wiki/GraphSON-Format) ao retornar resultados de operações Gremlin. GraphSON é o formato padrão do Gremlin para representar vértices, bordas e propriedades (propriedades com um ou vários valores) usando JSON. 
+O Azure Cosmos DB usa o [formato GraphSON](https://github.com/thinkaurelius/faunus/wiki/GraphSON-Format) ao retornar resultados de operações Gremlin. GraphSON é o formato padrão do Gremlin para representar vértices, bordas e propriedades (propriedades com um ou vários valores) usando JSON. 
 
 Por exemplo, o trecho a seguir mostra uma representação em GraphSON de um vértice *retornado ao cliente* no Azure Cosmos DB. 
 
@@ -136,12 +136,12 @@ As propriedades usadas por GraphSON para vértices são as seguintes:
 | --- | --- |
 | ID | A ID do vértice. Deve ser exclusiva (em combinação com o valor de _partition, se aplicável) |
 | label | O rótulo do vértice. É opcional e é usado para descrever o tipo de entidade. |
-| type | Usado para distinguir vértices de documentos que não são gráficos |
+| type | Usado para distinguir vértices de documentos que não são grafos |
 | propriedades | Recipiente de propriedades definidas pelo usuário associadas ao vértice. Cada propriedade pode ter vários valores. |
-| _partition (configurável) | A chave de partição do vértice. Pode ser usada para escalar horizontalmente os gráficos para vários servidores |
+| _partition (configurável) | A chave de partição do vértice. Pode ser usada para escalar horizontalmente os grafos para vários servidores |
 | outE | Contém uma lista de bordas externas de um vértice. Armazenar as informações de adjacência com o vértice permite a execução rápida de passagens. As bordas são agrupadas com base em seus rótulos. |
 
-E a borda contém as seguintes informações para ajudar com a navegação para outras partes do gráfico.
+E a borda contém as seguintes informações para ajudar com a navegação para outras partes do grafo.
 
 | Propriedade | Descrição |
 | --- | --- |
@@ -158,9 +158,9 @@ Cada propriedade pode armazenar diversos valores em uma matriz.
 
 ## <a name="gremlin-partitioning"></a>Particionamento do Gremlin
 
-No BD Cosmos do Azure, os gráficos são armazenados dentro de contêineres que podem ser dimensionados de forma independente em termos de armazenamento e taxa de transferência (expressa em solicitações normalizadas por segundo). Cada contêiner deve definir uma propriedade de chave de partição opcional, mas recomendada, que determina um limite de partição lógico para dados relacionados. Cada vértice/borda deve ter uma propriedade `id` exclusiva para entidades dentro desse valor de chave de partição. Os detalhes são abrangidos em [Particionamento no BD Cosmos do Azure](partition-data.md).
+No Azure Cosmos DB, os grafos são armazenados dentro de contêineres que podem ser dimensionados de forma independente em termos de armazenamento e taxa de transferência (expressa em solicitações normalizadas por segundo). Cada contêiner deve definir uma propriedade de chave de partição opcional, mas recomendada, que determina um limite de partição lógico para dados relacionados. Cada vértice/borda deve ter uma propriedade `id` exclusiva para entidades dentro desse valor de chave de partição. Os detalhes são abrangidos em [Particionamento no BD Cosmos do Azure](partition-data.md).
 
-As operações de Gremlin funcionam perfeitamente em dados de gráfico que abrangem várias partições no BD Cosmos do Azure. No entanto, é recomendável escolher uma chave de partição para seus gráficos que seja usada comumente como filtro em consultas, tenha muitos valores distintos e frequência semelhante de acesso a esses valores. 
+As operações de Gremlin funcionam perfeitamente em dados de grafo que abrangem várias partições no Azure Cosmos DB. No entanto, é recomendável escolher uma chave de partição para seus grafos que seja usada comumente como filtro em consultas, tenha muitos valores distintos e frequência semelhante de acesso a esses valores. 
 
 ## <a name="gremlin-steps"></a>Etapas do Gremlin
 Agora, vejamos as etapas do Gremlin com suporte do BD Cosmos do Azure. Para obter uma referência completa sobre o Gremlin, consulte [Referência do TinkerPop](http://tinkerpop.apache.org/docs/current/reference).
@@ -168,7 +168,7 @@ Agora, vejamos as etapas do Gremlin com suporte do BD Cosmos do Azure. Para obte
 | Etapa | Descrição | Documentação do TinkerPop 3.2 | Observações |
 | --- | --- | --- | --- |
 | `addE` | Adiciona uma borda entre dois vértices | [Etapa addE](http://tinkerpop.apache.org/docs/current/reference/#addedge-step) | |
-| `addV` | Adiciona um vértice ao gráfico | [Etapa addV](http://tinkerpop.apache.org/docs/current/reference/#addvertex-step) | |
+| `addV` | Adiciona um vértice ao grafo | [Etapa addV](http://tinkerpop.apache.org/docs/current/reference/#addvertex-step) | |
 | `and` | Garante que todas as passagens retornem um valor | [e uma etapa](http://tinkerpop.apache.org/docs/current/reference/#and-step) | |
 | `as` | Um modulador de etapa para atribuir uma variável à saída de uma etapa | [Etapa as](http://tinkerpop.apache.org/docs/current/reference/#as-step) | |
 | `by` | Um modulador de etapa usado com `group` e `order` | [Etapa by](http://tinkerpop.apache.org/docs/current/reference/#by-step) | |
@@ -205,5 +205,5 @@ Agora, vejamos as etapas do Gremlin com suporte do BD Cosmos do Azure. Para obte
 O mecanismo otimizado para gravação do BD Cosmos do Azure dá suporte à indexação automática de todas as propriedades dentro dos vértices e bordas por padrão. Sendo assim, consultas com filtros, consultas de intervalo, classificações ou agregações de qualquer propriedade são processadas no índice e atendidas de modo eficiente. Para obter mais informações sobre como a indexação funciona no BD Cosmos do Azure, consulte nosso artigo sobre [Indexação independente do esquema](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf).
 
 ## <a name="next-steps"></a>Próximas etapas
-* Comece a compilar um aplicativo de gráfico [usando nossos SDKs](create-graph-dotnet.md) 
-* Saiba mais sobre o [Suporte para gráfico do BD Cosmos do Azure](graph-introduction.md)
+* Comece a compilar um aplicativo de grafo [usando nossos SDKs](create-graph-dotnet.md) 
+* Saiba mais sobre o [Suporte para grafo do Azure Cosmos DB](graph-introduction.md)

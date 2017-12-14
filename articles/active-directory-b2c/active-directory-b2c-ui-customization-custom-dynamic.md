@@ -4,7 +4,7 @@ description: "Dar suporte a várias experiências de identidade visual com conte
 services: active-directory-b2c
 documentationcenter: 
 author: yoelhor
-manager: joroja
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/20/2017
 ms.author: yoelh
-ms.openlocfilehash: fffb6c82b2e04976c420fba07bbcf967ffd25929
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 342e82071778156477d216c9b624a938c48cb37f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: configurar a interface do usuário com conteúdo dinâmico usando políticas personalizadas
 Usando as políticas personalizadas do Azure AD B2C (Azure Active Directory B2C), é possível enviar um parâmetro em uma cadeia de caracteres de consulta. Passando o parâmetro para seu ponto de extremidade HTML, é possível alterar dinamicamente o conteúdo da página. Por exemplo, é possível alterar a imagem de tela de fundo na página de inscrição ou de entrada do Azure AD B2C, com base em um parâmetro passado do seu aplicativo Web ou móvel. 
@@ -155,7 +155,7 @@ Localize o elemento `<img>` que contém o valor `ID` *background_background_imag
     A janela **Criar Serviço de Aplicativo** é aberta. Nela, é possível começar a criar todos os recursos necessários do Azure para executar o aplicativo Web ASP.NET no Azure.
 
     > [!NOTE]
-    > Para obter mais informações sobre a publicação, consulte [Criar um aplicativo Web ASP.NET no Azure](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure).
+    > Para obter mais informações sobre a publicação, consulte [Criar um aplicativo Web ASP.NET no Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure).
 
 3. Na caixa **Nome do aplicativo Web**, digite um nome exclusivo para o aplicativo (os caracteres válidos são a-z, 0-9 e hífen [-]). A URL do aplicativo Web é `http://<app_name>.azurewebsites.NET`, onde `<app_name>` é o nome do aplicativo Web. Você pode aceitar o nome gerado automaticamente, que é exclusivo.
 

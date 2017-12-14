@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 15afdead60d4c1ee3c7e3c079d43e0651b262ec8
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: e033b1005902a9639fc352ffb9af91cb20875bee
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="search-nearby-point-of-interest-using-azure-location-based-services"></a>Procurar um ponto de interesse próximo usando os Serviços do Azure Baseados na Localização
 
@@ -40,7 +40,7 @@ Faça logon no [Portal do Azure](https://portal.azure.com).
 Siga estas etapas para criar uma nova conta dos Serviços Baseados na Localização.
 
 1. No canto superior esquerdo do [Portal do Azure](https://portal.azure.com), clique em **Criar um recurso**.
-2. Na caixa *Pesquisar no Marketplace*, digite **location based services**.
+2. Na caixa *Pesquisar no Marketplace*, digite **serviços baseados na localização**.
 3. Em *Resultados*, clique em **Serviços Baseados na Localização (versão prévia)**. Clique no botão **Criar** que aparece abaixo do mapa. 
 4. Na página **Criar Conta dos Serviços Baseados na Localização**, insira os seguintes valores:
     - O *Nome* da sua nova conta. 
@@ -101,12 +101,12 @@ A API de Controle de Mapa do Azure é uma biblioteca cliente conveniente que per
             }
         </style>
     </head>
+
     <body>
         <div id="map"></div>
         <script>
-        // Embed Map Control JavaScript code here
+            // Embed Map Control JavaScript code here
         </script>
-
     </body>
 
     </html>
@@ -115,26 +115,25 @@ A API de Controle de Mapa do Azure é uma biblioteca cliente conveniente que per
  
 3.  Adicione o seguinte código JavaScript ao bloco de *script* do arquivo HTML. Substitua o espaço reservado *<insert-key>* pela chave primária da conta dos Serviços Baseados em Localização. 
 
-    ```HTML/JavaScript
-            // Instantiate map to the div with id "map"
-            var subscriptionKey = "<insert-key>";
-            var map = new atlas.Map("map", {
-                "subscription-key": subscriptionKey
-            });
-
+    ```JavaScript
+    // Instantiate map to the div with id "map"
+    var subscriptionKey = "<insert-key>";
+    var map = new atlas.Map("map", {
+        "subscription-key": subscriptionKey
+    });
     ```
     Esse segmento inicia a API de Controle de mapa para sua chave de assinatura. **Atlas** é o namespace que contém a API de Controle de mapa do Azure e os componentes visuais relacionados. **atlas.Map** fornece o controle para um mapa visual e interativo na Web. Você pode observar a aparência do mapa abrindo a página HTML no navegador. 
 
 4. Adicione o código JavaScript a seguir ao bloco de *script* para adicionar uma camada de marcações de pesquisa ao Controle de Mapeamento:
 
-    ```HTML/JavaScript
-            // Initialize the pin layer for search results to the map
-            var searchLayerName = "search-results";
-            map.addPins([], {
-                name: searchLayerName,
-                cluster: false,
-                icon: "pin-round-darkblue"
-            });
+    ```JavaScript
+    // Initialize the pin layer for search results to the map
+    var searchLayerName = "search-results";
+    map.addPins([], {
+        name: searchLayerName,
+        cluster: false,
+        icon: "pin-round-darkblue"
+    });
     ```
 
 5. Salve o arquivo no seu computador. 
@@ -147,91 +146,91 @@ A API de Controle de Mapa do Azure é uma biblioteca cliente conveniente que per
 Esta seção mostra como usar a API do Serviço de Pesquisa dos Serviços do Azure Baseados na Localização para encontrar um ponto de interesse em seu mapa. É uma API RESTful projetada para desenvolvedores para a procura de endereços, pontos de interesse e outras informações geográficas. O Serviço de Pesquisa atribui informações de latitude e longitude a um endereço especificado. 
 
 1. Abra o arquivo **MapSearch.html** criado na seção anterior e adicione o seguinte código JavaScript ao bloco de *script* para ilustrar o Serviço de Pesquisa. 
-    ```HTML/JavaScript
-            // Perform a request to the search service and create a pin on the map for each result
-            var xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-                var searchPins = [];
+    ```JavaScript
+    // Perform a request to the search service and create a pin on the map for each result
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+        var searchPins = [];
 
-                if (this.readyState === 4 && this.status === 200) {
-                    var response = JSON.parse(this.responseText);
+        if (this.readyState === 4 && this.status === 200) {
+            var response = JSON.parse(this.responseText);
 
-                    var poiResults = response.results.filter((result) => { return result.type === "POI" }) || [];
+            var poiResults = response.results.filter((result) => { return result.type === "POI" }) || [];
 
-                    searchPins = poiResults.map((poiResult) => {
-                        var poiPosition = [poiResult.position.lon, poiResult.position.lat];
-                        return new atlas.data.Feature(new atlas.data.Point(poiPosition), {
-                            name: poiResult.poi.name,
-                            address: poiResult.address.freeformAddress,
-                            position: poiResult.position.lat + ", " + poiResult.position.lon
-                        });
-                    });
+            searchPins = poiResults.map((poiResult) => {
+                var poiPosition = [poiResult.position.lon, poiResult.position.lat];
+                return new atlas.data.Feature(new atlas.data.Point(poiPosition), {
+                    name: poiResult.poi.name,
+                    address: poiResult.address.freeformAddress,
+                    position: poiResult.position.lat + ", " + poiResult.position.lon
+                });
+            });
 
-                    map.addPins(searchPins, {
-                        name: searchLayerName
-                    });
+            map.addPins(searchPins, {
+                name: searchLayerName
+            });
 
-                    var lons = searchPins.map((pin) => { return pin.geometry.coordinates[0] });
-                    var lats = searchPins.map((pin) => { return pin.geometry.coordinates[1] });
+            var lons = searchPins.map((pin) => { return pin.geometry.coordinates[0] });
+            var lats = searchPins.map((pin) => { return pin.geometry.coordinates[1] });
 
-                    var swLon = Math.min.apply(null, lons);
-                    var swLat = Math.min.apply(null, lats);
-                    var neLon = Math.max.apply(null, lons);
-                    var neLat = Math.max.apply(null, lats);
+            var swLon = Math.min.apply(null, lons);
+            var swLat = Math.min.apply(null, lats);
+            var neLon = Math.max.apply(null, lons);
+            var neLat = Math.max.apply(null, lats);
 
-                    map.setCameraBounds({
-                        bounds: [swLon, swLat, neLon, neLat],
-                        padding: 50
-                    });
-                }
-            };
+            map.setCameraBounds({
+                bounds: [swLon, swLat, neLon, neLat],
+                padding: 50
+            });
+        }
+    };
     ```
     Esse trecho de código cria uma [XMLHttpRequest](https://xhr.spec.whatwg.org/) e adiciona um manipulador de eventos para analisar a resposta de entrada. Para uma resposta bem-sucedida, ele coleta endereços, nomes, informações de latitude e longitude de cada local retornado, na variável `searchPins`. Por fim, adiciona essa coleção de pontos de localização para o controle de `map` como marcações. 
 
 2. Adicione o seguinte código para o bloco de *script* para enviar o XMLHttpRequest ao Serviço de Pesquisa dos Serviços do Azure Baseados na Localização:
 
-    ```HTML/JavaScript
-            var url = "https://atlas.microsoft.com/search/fuzzy/json?";
-            url += "&api-version=1.0";
-            url += "&query=gasoline%20station";
-            url += "&subscription-key=" + subscriptionKey;
-            url += "&lat=47.6292";
-            url += "&lon=-122.2337";
-            url += "&radius=100000"
+    ```JavaScript
+    var url = "https://atlas.microsoft.com/search/fuzzy/json?";
+    url += "&api-version=1.0";
+    url += "&query=gasoline%20station";
+    url += "&subscription-key=" + subscriptionKey;
+    url += "&lat=47.6292";
+    url += "&lon=-122.2337";
+    url += "&radius=100000";
 
-            xhttp.open("GET", url, true);
-            xhttp.send();
+    xhttp.open("GET", url, true);
+    xhttp.send();
     ``` 
     Este trecho de código usa a API de pesquisa básica do Serviço de Pesquisa, chamada de **Pesquisa Difusa**. Ele trata das entradas mais difusas, lidando com qualquer combinação de endereço ou tokens *POI*. Ele procura o **posto gasolina** próximo ao endereço fornecido na latitude e longitude e dentro do raio especificado. Ele usa a chave de assinatura da conta fornecida anteriormente no arquivo de exemplo para fazer a chamada para os Serviços Baseados na Localização. Ele retorna os resultados como pares de latitude/longitude para os locais encontrados. É possível observar as marcações de pesquisa abrindo a página HTML no navegador. 
 
 3. Adicione as linhas a seguir o bloco de *script* para criar pop-ups para os pontos de interesse retornados pelo Serviço de Pesquisa:
 
-    ```HTML/JavaScript
-            // Add a popup to the map which will display some basic information about a search result on hover over a pin
-            var popup = new atlas.Popup();
-            map.addEventListener("mouseover", searchLayerName, (e) => {
-                var popupContentElement = document.createElement("div");
-                popupContentElement.style.padding = "5px";
+    ```JavaScript
+    // Add a popup to the map which will display some basic information about a search result on hover over a pin
+    var popup = new atlas.Popup();
+    map.addEventListener("mouseover", searchLayerName, (e) => {
+        var popupContentElement = document.createElement("div");
+        popupContentElement.style.padding = "5px";
 
-                var popupNameElement = document.createElement("div");
-                popupNameElement.innerText = e.features[0].properties.name;
-                popupContentElement.appendChild(popupNameElement);
+        var popupNameElement = document.createElement("div");
+        popupNameElement.innerText = e.features[0].properties.name;
+        popupContentElement.appendChild(popupNameElement);
 
-                var popupAddressElement = document.createElement("div");
-                popupAddressElement.innerText = e.features[0].properties.address;
-                popupContentElement.appendChild(popupAddressElement);
+        var popupAddressElement = document.createElement("div");
+        popupAddressElement.innerText = e.features[0].properties.address;
+        popupContentElement.appendChild(popupAddressElement);
 
-                var popupPositionElement = document.createElement("div");
-                popupPositionElement.innerText = e.features[0].properties.position;
-                popupContentElement.appendChild(popupPositionElement);
+        var popupPositionElement = document.createElement("div");
+        popupPositionElement.innerText = e.features[0].properties.position;
+        popupContentElement.appendChild(popupPositionElement);
 
-                popup.setPopupOptions({
-                    position: e.features[0].geometry.coordinates,
-                    content: popupContentElement
-                });
+        popup.setPopupOptions({
+            position: e.features[0].geometry.coordinates,
+            content: popupContentElement
+        });
 
-                popup.open(map);
-            });
+        popup.open(map);
+    });
     ```
     A API **atlas.Popup** fornece uma janela de informações ancorada na posição requerida no mapa. Este trecho de código define o conteúdo e a posição para a pop-up, além de adicionar um ouvinte de eventos para o controle de `map`, aguardando o _mouse_ passar sobre a pop-up. 
 

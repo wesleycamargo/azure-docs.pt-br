@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: c09a01af8053feb4d5450b350503484507014765
-ms.sourcegitcommit: 9ae92168678610f97ed466206063ec658261b195
+ms.openlocfilehash: 16d79f02bffeb3db22a0190822d4304d3a1de73b
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="connect-computers-without-internet-access-to-oms-using-the-oms-gateway"></a>Conectar computadores sem acesso à Internet ao OMS usando o Gateway do OMS
 
@@ -129,7 +129,7 @@ Para saber como projetar e implantar um cluster de balanceamento de carga de red
 ## <a name="configure-oms-agent-and-operations-manager-management-group"></a>Configurar agente do OMS e grupo de gerenciamento do Operations Manager
 A seção a seguir inclui as etapas sobre como configurar agentes do OMS, um grupo de gerenciamento do Operations Manager ou Hybrid Runbook Workers da Automação do Azure conectados diretamente ao Gateway do OMS para se comunicar com o OMS.  
 
-Para entender os requisitos e as etapas de instalação do agente do OMS em computadores com Windows que se conectam diretamente ao OMS, confira [Conectar computadores com Windows ao OMS](log-analytics-windows-agents.md) ou, para computadores com Linux, confira [Conectar computadores com Linux ao OMS](log-analytics-linux-agents.md). 
+Para entender os requisitos e as etapas de instalação do agente do OMS em computadores com Windows que se conectam diretamente ao OMS, confira [Conectar computadores com Windows ao OMS](log-analytics-windows-agent.md) ou, para computadores com Linux, confira [Conectar computadores com Linux ao OMS](log-analytics-linux-agents.md). 
 
 ### <a name="configuring-the-oms-agent-and-operations-manager-to-use-the-oms-gateway-as-a-proxy-server"></a>Configurando o agente do OMS e o Operations Manager para usar o Gateway do OMS como um servidor proxy
 

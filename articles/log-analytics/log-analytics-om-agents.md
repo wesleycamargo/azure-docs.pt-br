@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2017
+ms.date: 12/10/2017
 ms.author: magoedte
-ms.openlocfilehash: 387ec757ec17799408ef45bfeb523eb98a5b1013
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6db47c7baa0a345a32d26d56e843acd0204ae50b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="connect-operations-manager-to-log-analytics"></a>Conectar o Operations Manager ao Log Analytics
 Para manter seu investimento existente no System Center Operations Manager e usar funcionalidades estendidas com o Log Analytics, você pode integrar o Operations Manager ao seu espaço de trabalho do OMS.  Isso permite aproveitar as oportunidades do OMS e continuar a usar o Operations Manager para:
@@ -40,9 +40,9 @@ Se suas políticas de segurança não permitem que computadores em sua rede se c
 ## <a name="system-requirements"></a>Requisitos do sistema
 Antes de começar, examine os detalhes a seguir para verificar se você atende aos pré-requisitos.
 
-* O OMS dá suporte apenas ao Operations Manager 2016, Operations Manager 2012 SP1 UR10 e superior e ao Operations Manager 2012 R2 UR11 e superior.
+* O OMS dá suporte apenas ao Operations Manager 2016, Operations Manager 2012 SP1 UR6 e superior e ao Operations Manager 2012 R2 UR2 e superior.  Foi adicionado suporte a proxy ao Operations Manager 2012 SP1 UR7 e Operations Manager 2012 R2 UR3.
 * Todos os agentes do Operations Manager devem atender aos requisitos de suporte mínimos. Verifique se os agentes estão em dia pelo menos até a atualização mínima, caso contrário o tráfego de agente do Windows poderão falhar e muitos erros poderão lotar o log de eventos do Operations Manager.
-* Uma assinatura do Azure Log Analytics.  Para obter informações adicionais, leia a [Introdução ao Log Analytics](log-analytics-get-started.md).
+* Uma assinatura do OMS.  Para obter informações adicionais, leia a [Introdução ao Log Analytics](log-analytics-get-started.md).
 
 ### <a name="network"></a>Rede
 As informações abaixo listam as informações de configuração de proxy e firewall necessárias para o agente do Operations Manager, servidores de gerenciamento e console de Operações para se comunicar com o OMS.  O tráfego de cada componente sai da rede para o serviço OMS.     
@@ -208,7 +208,7 @@ Para excluir os dois conectores, Microsoft.SystemCenter.Advisor.DataConnector e 
 > 
 
 ```
-    `param(
+    param(
     [String] $connectorName,
     [String] $msName="localhost"
     )

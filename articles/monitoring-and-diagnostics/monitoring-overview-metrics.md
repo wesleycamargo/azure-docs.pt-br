@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: johnkem
-ms.openlocfilehash: eb519aab87c13e8836bf1d41992812762f0cd737
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 32ca0ce5148ae2641500c98cb04b0d7db1987960
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="overview-of-metrics-in-microsoft-azure"></a>Visão geral das métricas no Microsoft Azure
 Este artigo descreve o que são as métricas no Microsoft Azure, seus benefícios e como começar a usá-las.  
@@ -89,11 +89,11 @@ O Azure Monitor também tem uma nova experiência de criação de gráficos de m
 ## <a name="access-metrics-via-the-rest-api"></a>Acessar métricas pela API REST
 As Métricas do Azure podem ser acessadas pelas APIs do Azure Monitor. Há duas APIs que ajudam você a descobrir e acessar as métricas:
 
-* Use a [API REST de definições de Métrica do Azure Monitor](https://docs.microsoft.com/en-us/rest/api/monitor/metricdefinitions) para acessar a lista de métricas e dimensões disponíveis em um serviço.
-* Use a [API REST de Métricas do Azure Monitor](https://docs.microsoft.com/en-us/rest/api/monitor/metrics) para segmentar, filtrar e acessar os dados de métricas reais.
+* Use a [API REST de definições de Métrica do Azure Monitor](https://docs.microsoft.com/rest/api/monitor/metricdefinitions) para acessar a lista de métricas e dimensões disponíveis em um serviço.
+* Use a [API REST de Métricas do Azure Monitor](https://docs.microsoft.com/rest/api/monitor/metrics) para segmentar, filtrar e acessar os dados de métricas reais.
 
 > [!NOTE]
-> Este artigo aborda as métricas por meio da [nova API para métricas](https://docs.microsoft.com/en-us/rest/api/monitor/) dos recursos do Azure. A versão de API das novas definições de métrica e das APIs de métricas é 2017-05-01-preview. As definições de métrica herdadas e as métricas podem ser acessadas com a versão da 2014-04-01 da API.
+> Este artigo aborda as métricas por meio da [nova API para métricas](https://docs.microsoft.com/rest/api/monitor/) dos recursos do Azure. A versão de API das novas definições de métrica e das APIs de métricas é 2017-05-01-preview. As definições de métrica herdadas e as métricas podem ser acessadas com a versão da 2014-04-01 da API.
 >
 >
 

@@ -4,7 +4,7 @@ description: "Uma lista de todos os guias e artigos de referência no guia do de
 services: active-directory
 documentationcenter: dev-center-name
 author: bryanla
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 5c872c89-ef04-4f4c-98de-bc0c7460c7c2
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/19/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 307e6ddc9b3d5a85a25b185144a548e0101a9877
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b6190f64633034bb5fc28a1caf7ffa6c09215ef1
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="articles-in-the-azure-ad-developer-guide"></a>Artigos no guia do desenvolvedor do Azure AD
 Veja a seguir uma lista de todos os tópicos abordados no guia do desenvolvedor do Azure Active Directory.
@@ -37,7 +37,7 @@ Estes artigos descrevem conceitos e recursos específicos do Azure Active Direct
 | [SSO móvel e da área de trabalho](active-directory-sso-android.md)                                                                         | Como obter o logon único ao trabalhar em aplicativos nativos |
 | [Azure AD B2B](../active-directory-b2b-what-is-azure-ad-b2b.md)                                                                 | Como convidar usuários externos em seu locatário do Azure AD |
 | [Provisionamento do usuário com SCIM 2.0](../active-directory-scim-provisioning.md)                                                     | Como usar o protocolo SCIM para sincronizar usuários de locatários do Azure AD |
-| [API do Azure AD Graph](active-directory-graph-api.md)                                                                             | Como consultar usuário, grupo e outros dados usando APIs REST da Microsoft |
+| [API do Graph do AD do Azure](active-directory-graph-api.md)                                                                             | Como consultar usuário, grupo e outros dados usando APIs REST da Microsoft |
 | [Certificação do AppSource](active-directory-devhowto-appsource-certified.md)                                                     | Como publicar um aplicativo no Microsoft AppSource |
 | [Galeria de aplicativos do Azure AD](active-directory-app-gallery-listing.md)                                                                 |Como publicar um aplicativo na galeria de aplicativos do Azure AD|
 | [Painel do vendedor do Office 365](https://msdn.microsoft.com/office/office365/howto/submit-web-apps-seller-dashboard)               | Como publicar um aplicativo no painel do vendedor O365 |

@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2017
 ms.author: bwren
-ms.openlocfilehash: 6fc556ceb34cde26d5f3789a2397cdaa34b0b84d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 08d8ebfd18491eb78190651b76f444ffe0eca899
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="create-log-searches-in-azure-log-analytics-using-the-log-search-portal"></a>Crie pesquisas de logs no Azure Log Analytics utilizando o portal de Pesquisa de Logs
 
 > [!NOTE]
 > Este artigo descreve o portal de Pesquisa de Logs no Azure Log Analytics utilizando a nova linguagem de consulta.  Você pode saber mais sobre a nova linguagem e obter o procedimento para fazer upgrade do espaço de trabalho em [Fazer upgrade do espaço de trabalho do Azure Log Analytics para uma nova pesquisa de logs](log-analytics-log-search-upgrade.md).  
 >
-> Se o espaço de trabalho não foi atualizado para a nova linguagem de consulta, você deverá consultar [Localizar dados usando pesquisas de logs no Log Analytics](log-analytics-log-searches.md) para obter informações sobre a versão atual do portal de Pesquisa de Logs.
+> Se o seu espaço de trabalho não tiver sido atualizado para a nova linguagem de consulta, você deverá consultar [Localizar dados usando pesquisas de logs no Log Analytics](log-analytics-log-searches.md) para obter informações sobre a versão atual do portal de Pesquisa de Logs.
 
 Este artigo inclui um tutorial que descreve como criar pesquisas de logs e analisar dados armazenados em seu espaço de trabalho do Log Analytics utilizando o portal de Pesquisa de Logs.  O tutorial inclui executar algumas consultas simples para retornar diferentes tipos de dados e analisar os resultados.  Ele concentra-se em recursos no portal de Pesquisa de Logs para modificar a consulta em vez de modificá-la diretamente.  Para obter detalhes sobre a edição direta da consulta, consulte a [Referência de linguagem de consulta](https://go.microsoft.com/fwlink/?linkid=856079).
 
@@ -34,7 +34,7 @@ Para criar pesquisas no portal de Análise Avançada em vez do portal de Pesquis
 Este tutorial assume que você já possui um espaço de trabalho do Log Analytics com pelo menos uma fonte conectada que gera dados para as consultas a serem analisadas.  
 
 - Se você não possuir um espaço de trabalho, poderá criar um livre utilizando o procedimento em [Introdução a um espaço de trabalho do Log Analytics](log-analytics-get-started.md).
-- Conecte ao menos um [agente do Windows](log-analytics-windows-agents.md) ou um [agente do Linux](log-analytics-linux-agents.md) ao espaço de trabalho.  
+- Conecte ao menos um [agente do Windows](log-analytics-windows-agent.md) ou um [agente do Linux](log-analytics-linux-agents.md) ao espaço de trabalho.  
 
 ## <a name="open-the-log-search-portal"></a>Abra o portal de Pesquisa de Logs
 Inicie abrindo o portal de Pesquisa de Logs.  É possível acessá-lo no portal do Azure ou no portal do OMS.
@@ -68,7 +68,7 @@ Apenas as primeiras propriedades de cada registro são exibidas.  Clique em **mo
 ## <a name="set-the-time-scope"></a>Defina o escopo de tempo
 Cada registro coletado pelo Log Analytics possui uma propriedade **TimeGenerated** que contém a data e hora em que a gravação foi criada.  Uma consulta no portal de Pesquisa de Logs somente retorna registros com **TimeGenerated** dentro do escopo de tempo exibido no lado esquerdo da tela.  
 
-É possível alterar o filtro de tempo, selecionando o menu suspenso ou modificando o controle deslizante.  O controle deslizante exibe um gráfico de barras que mostra o número relativo de registros para cada segmento de tempo dentro do intervalo.  Este segmento irá variar dependendo do intervalo.
+É possível alterar o filtro de tempo, selecionando o menu suspenso ou modificando o controle deslizante.  O controle deslizante exibe um grafo de barras que mostra o número relativo de registros para cada segmento de tempo dentro do intervalo.  Este segmento irá variar dependendo do intervalo.
 
 O escopo de tempo padrão é **1 dia**.  Altere esse valor para **7 dias** e o número total de registros deverá aumentar.
 

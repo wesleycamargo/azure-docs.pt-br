@@ -11,11 +11,11 @@ caps.latest.revision: "26"
 author: revitalbarletz
 ms.author: revitalb
 manager: jlembicz
-ms.openlocfilehash: f49004b68f95ae796196009e3cf879e3503ecf91
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 7ca5502efa281dcc0f374312d8f36f8c64d9c6c9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="security-trimming-with-azure-search"></a>Restrições de segurança com o Azure Search
 
@@ -108,13 +108,13 @@ Se você precisar atualizar um documento existente com a lista de grupos, poder�
 }
 ```
 
-Para obter detalhes completos sobre como adicionar ou atualizar os documentos, leia [Editar documentos](https://docs.microsoft.com/en-us/rest/api/searchservice/addupdate-or-delete-documents).
+Para obter detalhes completos sobre como adicionar ou atualizar os documentos, leia [Editar documentos](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
    
 ## <a name="apply-the-security-filter"></a>Aplicar o filtro de segurança
 
 Para cortar documentos com base em acesso `group_ids`, você deverá emitir uma consulta de pesquisa com um filtro `group_ids/any(g:search.in(g, 'group_id1, group_id2,...'))`, em que 'group_id1, group_id2,...' são os grupos aos quais o emissor da solicitação de pesquisa pertence.
 Esse filtro corresponde a todos os documentos para os quais o campo `group_ids` contém um dos identificadores determinados.
-Para obter detalhes completos sobre pesquisar documentos usando o Azure Search, você pode ler [Pesquisar documentos](https://docs.microsoft.com/en-us/rest/api/searchservice/search-documents).
+Para obter detalhes completos sobre pesquisar documentos usando o Azure Search, você pode ler [Pesquisar documentos](https://docs.microsoft.com/rest/api/searchservice/search-documents).
 Observe que este exemplo mostra como pesquisar documentos usando uma solicitação POST.
 
 Emita a solicitação HTTP POST:

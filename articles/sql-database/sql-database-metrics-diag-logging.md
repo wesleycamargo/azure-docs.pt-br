@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2017
 ms.author: vvasic
-ms.openlocfilehash: 9f201454d58dbc646923d0155ff41761d593ab7e
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 2e377ef96f6c2b5866ad258a88d6403fd0bb1e41
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Métricas de banco de dados SQL do Azure e o log de diagnóstico 
 O Banco de Dados SQL do Azure pode emitir métrica e logs de diagnóstico para facilitar o monitoramento. Você pode configurar o Banco de Dados SQL para armazenar o uso de recursos, trabalhos, sessões e conectividade em um destes recursos do Azure:
@@ -318,7 +318,7 @@ Saiba como [baixar métricas e logs de diagnóstico do Armazenamento](../storage
 |query_id_d|ID da consulta no Repositório de Consultas.|
 |plan_id_d|ID do plano no Repositório de Consultas.|
 
-Saiba mais sobre os [Dados de estatísticas de tempo de execução do Repositório de Consultas](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql).
+Saiba mais sobre os [Dados de estatísticas de tempo de execução do Repositório de Consultas](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql).
 
 ### <a name="query-store-wait-statistics"></a>Estatísticas de espera do Repositório de consultas
 
@@ -356,7 +356,7 @@ Saiba mais sobre os [Dados de estatísticas de tempo de execução do Repositór
 |query_id_d|ID da consulta no Repositório de Consultas.|
 |plan_id_d|ID do plano no Repositório de Consultas.|
 
-Saiba mais sobre os [Dados de estatísticas de espera no Repositório de Consultas](https://docs.microsoft.com/en-us/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql).
+Saiba mais sobre os [Dados de estatísticas de espera no Repositório de Consultas](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql).
 
 ### <a name="errors-dataset"></a>Conjunto de dados de erros
 
@@ -414,7 +414,7 @@ Saiba mais sobre as [Mensagens de erro do SQL Server](https://msdn.microsoft.com
 |delta_wait_time_ms_d|Tempo total de espera no período.|
 |delta_waiting_tasks_count_d|Número de tarefas em espera.|
 
-Saiba mais sobre as [estatísticas de espera no banco de dados](https://docs.microsoft.com/en-us/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql).
+Saiba mais sobre as [estatísticas de espera no banco de dados](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-wait-stats-transact-sql).
 
 ### <a name="time-outs-dataset"></a>Conjunto de dados de tempos limite
 

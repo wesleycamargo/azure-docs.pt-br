@@ -7,11 +7,11 @@ author: binderjoe
 ms.author: jbinder
 ms.date: 10/19/2017
 ms.topic: article
-ms.openlocfilehash: 61b7677b2941fe95106e43012eee458692a3cc43
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 667752d8830cdac5e2338fd3ed7904917123be94
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="terraform-with-azure"></a>Terraform com o Azure
 
@@ -44,6 +44,6 @@ O Terraform é uma opção de ferramenta popular para cenários com várias nuve
 
 Agora que você tem uma visão geral do Terraform e seus benefícios, aqui estão as próximas etapas sugeridas:
 
-- Comece [instalando e configurando o Terraform para usá-lo no Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/terraform-install-configure).
-- [Criar uma máquina virtual do Azure usando o Terraform](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/terraform-create-complete-vm)
+- Comece [instalando e configurando o Terraform para usá-lo no Azure](https://docs.microsoft.com/azure/virtual-machines/linux/terraform-install-configure).
+- [Criar uma máquina virtual do Azure usando o Terraform](https://docs.microsoft.com/azure/virtual-machines/linux/terraform-create-complete-vm)
 - Explorar o [módulo do Azure Resource Manager para Terraform](https://www.terraform.io/docs/providers/azurerm/) 

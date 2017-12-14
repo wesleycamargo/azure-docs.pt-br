@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: 1dfa93643f45a96ded3fd022aa8b1c71d487acb4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c872bfe36673af1292b5af9cf40374de39a5c159
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-store"></a>Diretrizes de ajuste do desempenho para Storm no HDInsight e Azure Data Lake Store
 
@@ -29,8 +29,8 @@ Entenda os fatores que devem ser considerados ao ajustar o desempenho de uma top
 * **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Uma conta do repositório Azure Data Lake**. Para obter instruções sobre como criar uma, consulte [Introdução ao Azure Data Lake Store](data-lake-store-get-started-portal.md).
 * **Um cluster HDInsight do Azure** com acesso a uma conta do Data Lake Store. Confira [Criar um cluster HDInsight com o Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md). Certifique-se de habilitar a área de trabalho remota para o cluster.
-* **Executando um cluster Storm no Data Lake Store**. Para obter mais informações, consulte [Storm no HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-storm-overview).
-* **Diretrizes de ajuste de desempenho do Data Lake Store**.  Para ver conceitos gerais de desempenho, consulte [Diretrizes de ajuste de desempenho do Data Lake Store](https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-performance-tuning-guidance).  
+* **Executando um cluster Storm no Data Lake Store**. Para obter mais informações, consulte [Storm no HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-overview).
+* **Diretrizes de ajuste de desempenho do Data Lake Store**.  Para ver conceitos gerais de desempenho, consulte [Diretrizes de ajuste de desempenho do Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance).  
 
 ## <a name="tune-the-parallelism-of-the-topology"></a>Ajuste do paralelismo da topologia
 
@@ -122,7 +122,7 @@ Enquanto a topologia estiver em execução, você pode monitorá-la na interface
 
 ## <a name="troubleshoot-common-problems"></a>Solução de problemas comuns
 Eis alguns cenários comuns de solução de problemas.
-* **Grande número de tuplas atingindo o tempo limite.** Procure em cada nó na topologia para determinar onde está o afunilamento. O motivo mais comum para isso é que os bolts não estão conseguindo acompanhar os spouts. Isso faz com que as tuplas congestionem os buffers internos que estão aguardando para ser processados. Considere aumentar o valor de tempo limite ou diminuir o máx. de spouts pendentes.
+* **Grande número de tuplas atingindo o tempo limite.** Procure em cada nó na topologia para determinar onde está o gargalo. O motivo mais comum para isso é que os bolts não estão conseguindo acompanhar os spouts. Isso faz com que as tuplas congestionem os buffers internos que estão aguardando para ser processados. Considere aumentar o valor de tempo limite ou diminuir o máx. de spouts pendentes.
 
 * **Há uma latência alta de execução do processo total, mas uma latência baixa de processo do bolt.** Nesse caso, é possível que as tuplas não estejam sendo reconhecidas rápido o suficiente. Verifique se há um número suficiente de confirmadores. Outra possibilidade é que estejam aguardando na fila por tempo demais antes que os bolts comecem a processá-las. Diminua o máx. de spouts pendentes.
 

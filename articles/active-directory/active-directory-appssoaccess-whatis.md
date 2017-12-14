@@ -4,7 +4,7 @@ description: "Use o Active Directory do Azure para habilitar o logon único para
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 75d1a3fd-b3c5-4495-a5c8-c4c24145ff00
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 09/11/2017
 ms.author: curtand
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: 89bffc9726a2c54e59281045d16472335b2a7fed
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: b577a427590b058319f9315a6d54deb6ec1c7634
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>O que é o acesso a aplicativos e logon único com o Azure Active Directory?
 Sign-on único significa poder acessar todos os aplicativos e recursos que você precisa para fazer negócios, inscrevendo-se apenas uma vez usando uma conta de usuário único. Depois de conectado, você pode acessar todos os aplicativos sem a exigência de autenticação (por exemplo, digite uma senha) uma segunda vez.
@@ -111,7 +111,7 @@ Depois de localizar seu aplicativo, você pode começar seguindo as instruções
 Se seu aplicativo não for encontrado na Galeria de aplicativos do AD do Azure, você tem estas opções:
 
 * **Adicionar um aplicativo não listado que você está usando** - Use a categoria Personalizada na galeria de aplicativos no Portal de Gerenciamento do Azure para se conectar a um aplicativo não listado que sua organização está usando. Você pode adicionar qualquer aplicativo que ofereça suporte ao SAML 2.0 como um aplicativo federado ou qualquer aplicativo que tenha uma página de entrada baseada em HTML como um aplicativo do SSO de senha. Para obter mais detalhes, veja este artigo sobre [como adicionar seu próprio aplicativo](application-config-sso-how-to-configure-federated-sso-non-gallery.md).
-* **Adicione seu próprio aplicativo que estiver desenvolvendo** - se você tiver desenvolvido o aplicativo, siga as orientações na documentação do desenvolvedor do AD do Azure para implementar o logon único federado ou provisionamento usando o Graph API do AD do Azure. Para obter mais informações, consulte estes recursos:
+* **Adicione seu próprio aplicativo que estiver desenvolvendo** - se você tiver desenvolvido o aplicativo, siga as orientações na documentação do desenvolvedor do AD do Azure para implementar o logon único federado ou provisionamento usando a API do Graph do AD do Azure. Para obter mais informações, consulte estes recursos:
   
   * [Cenários de autenticação do Azure AD](active-directory-authentication-scenarios.md)
   * [https://GitHub.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-dotnet](https://github.com/AzureADSamples/WebApp-MultiTenant-OpenIdConnect-DotNet)

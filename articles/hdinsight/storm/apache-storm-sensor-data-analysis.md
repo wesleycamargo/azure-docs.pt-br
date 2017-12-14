@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 10/19/2017
 ms.author: larryfr
-ms.openlocfilehash: 87c2aece68c5de06d683abf971b6c7ccf7f67a54
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 8c8cda26f2b9b564dee330e4883ec12f39feb652
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="analyze-sensor-data-with-apache-storm-event-hub-and-hbase-in-hdinsight-hadoop"></a>Analisar dados de sensor com o Apache Storm e com o HBase no HDInsight (Hadoop)
 
@@ -241,7 +241,7 @@ Antes de testar, você deve iniciar o painel de controle para exibir a saída da
    
     ![Painel com dados](./media/apache-storm-sensor-data-analysis/datadashboard.png)
 
-2. Enquanto o painel é executado, use o comando de `node app.js` das etapas anteriores para enviar novos dados para os Hubs de Eventos. Como os valores de temperatura são gerados aleatoriamente, o gráfico será atualizado para mostrar grandes mudanças de temperatura.
+2. Enquanto o painel é executado, use o comando de `node app.js` das etapas anteriores para enviar novos dados para os Hubs de Eventos. Como os valores de temperatura são gerados aleatoriamente, o grafo será atualizado para mostrar grandes mudanças de temperatura.
    
    > [!NOTE]
    > Você deve estar no diretório **hdinsight-eventhub-example/SendEvents/Nodejs** ao usar o comando `node app.js`.
@@ -361,7 +361,7 @@ Para gravar no HBase usando o cluster Storm, você deve fornecer o bolt do HBase
     > [!NOTE]
     > Substitua 'nome_do_cluster_do_HDInsight' pelo nome do seu cluster HDInsight. Quando solicitado, insira a senha para o logon de administrador do HDInsight.
     >
-    > Este exemplo exige o Azure PowerShell. Para saber mais sobre como usar o Azure PowerShell, confira [Introdução ao Azure PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/Getting-Started-with-Windows-PowerShell?view=powershell-6)
+    > Este exemplo exige o Azure PowerShell. Para saber mais sobre como usar o Azure PowerShell, confira [Introdução ao Azure PowerShell](https://docs.microsoft.com/powershell/scripting/Getting-Started-with-Windows-PowerShell?view=powershell-6)
 
     As informações retornadas por esses exemplos são semelhantes ao seguinte texto:
 

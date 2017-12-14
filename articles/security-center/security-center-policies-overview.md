@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: 60cc65bb94e05da1c0b7ee20930c0530f46e71ec
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 7a4d056fa71f211dea5e7be649c39034eabc9395
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="security-policies-overview"></a>Visão geral das políticas de segurança
 Este artigo apresenta uma visão geral das políticas de segurança na Central de Segurança.
@@ -29,7 +29,7 @@ Uma política de segurança define a configuração desejada de suas cargas de t
 As políticas de Central de Segurança contêm os seguintes componentes:
 
 - **Coleta de dados**: determina configurações de provisionamento de agente e de [coleta de dados](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection).
-- **Política de segurança**: determina que controles a Central de Segurança monitora e recomenda. Você pode editar a [política de segurança](https://docs.microsoft.com/en-us/azure/security-center/security-center-policies) na Central de Segurança. Você também pode usar o [Azure Policy](security-center-azure-policy.md) (em versão prévia limitada) para criar novas definições, definir políticas adicionais e atribuir políticas entre grupos de gerenciamento.
+- **Política de segurança**: determina que controles a Central de Segurança monitora e recomenda. Você pode editar a [política de segurança](https://docs.microsoft.com/azure/security-center/security-center-policies) na Central de Segurança. Você também pode usar o [Azure Policy](security-center-azure-policy.md) (em versão prévia limitada) para criar novas definições, definir políticas adicionais e atribuir políticas entre grupos de gerenciamento.
 - **Notificações por email**: determina contatos de segurança e configurações de [notificação por email](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details).
 - **Tipo de preço**: define a [seleção de preço](https://docs.microsoft.com/azure/security-center/security-center-pricing) padrão ou gratuita. A camada que você escolhe determina quais recursos da Central de Segurança estão disponíveis para os recursos no escopo. Você pode especificar uma camada para assinaturas, grupos de recursos e espaços de trabalho. 
 

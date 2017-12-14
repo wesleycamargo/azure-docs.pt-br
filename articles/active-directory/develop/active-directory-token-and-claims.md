@@ -4,7 +4,7 @@ description: "Um guia para compreender e avaliar as declarações em tokens SAML
 documentationcenter: na
 author: dstrockis
 services: active-directory
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 166aa18e-1746-4c5e-b382-68338af921e2
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 09/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: be28230b9c56dcbca4ba8f70e44741f65a447f73
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3104b47d7ff8585142674b0ee545012f1e291ddd
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-token-reference"></a>Referência de token do Azure AD
 O Azure Active Directory (Azure AD) emite vários tipos de tokens de segurança no processamento de cada fluxo de autenticação. Este documento descreve o formato, as características de segurança e o conteúdo de cada tipo de token.
@@ -69,7 +69,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctODkwYS0y
 | `roles` |Funções |Representa todas as funções de aplicativo que a entidade recebeu direta e indiretamente por meio da associação a um grupo e pode ser usado para impor o controle de acesso baseado em função. As funções de aplicativo são definidas segundo o aplicativo, por meio da propriedade `appRoles` do manifesto do aplicativo. A propriedade `value` de cada função de aplicativo é o valor que aparece na declaração de funções. <br><br> **Valor de exemplo de SAML**: <br> `<Attribute Name="http://schemas.microsoft.com/ws/2008/06/identity/claims/role">`<br>`<AttributeValue>Admin</AttributeValue>` <br><br> **Valor de exemplo de JWT**: <br> `“roles”: ["Admin", … ]` |
 | `scp` |Escopo |Indica as permissões de representação concedidas ao aplicativo cliente. A permissão padrão é `user_impersonation`. O proprietário do recurso protegido pode registrar valores adicionais no AD do Azure. <br><br> **Valor de exemplo de JWT**: <br> `"scp": "user_impersonation"` |
 | `sub` |Assunto |Identifica o item mais importante sobre o qual o token declara informações, como o usuário de um aplicativo. Esse valor é imutável e não pode ser reatribuído ou reutilizado, então ele pode ser usado para executar verificações de autorização com segurança. Como o assunto está sempre presente nos tokens emitidos pelo Azure AD, é recomendável usar esse valor em um sistema de autorização de uso geral. <br> `SubjectConfirmation` não é uma declaração. Ele descreve como o assunto do token é verificado. `Bearer` indica que o assunto é confirmado pela posse do token. <br><br> **Valor de exemplo de SAML**: <br> `<Subject>`<br>`<NameID>S40rgb3XjhFTv6EQTETkEzcgVmToHKRkZUIsJlmLdVc</NameID>`<br>`<SubjectConfirmation Method="urn:oasis:names:tc:SAML:2.0:cm:bearer" />`<br>`</Subject>` <br><br> **Valor de exemplo de JWT**: <br> `"sub":"92d0312b-26b9-4887-a338-7b00fb3c5eab"` |
-| `tid` |ID do locatário |Um identificador imutável, não reutilizável que identifica o locatário do diretório que emitiu o token. Você pode usar esse valor para acessar os recursos de diretório específicos de um determinado locatário em um aplicativo multilocatário. Por exemplo, você pode usar esse valor para identificar o locatário em uma chamada à Graph API. <br><br> **Valor de exemplo de SAML**: <br> `<Attribute Name=”http://schemas.microsoft.com/identity/claims/tenantid”>`<br>`<AttributeValue>cbb1a5ac-f33b-45fa-9bf5-f37db0fed422<AttributeValue>` <br><br> **Valor de exemplo de JWT**: <br> `"tid":"cbb1a5ac-f33b-45fa-9bf5-f37db0fed422"` |
+| `tid` |ID do locatário |Um identificador imutável, não reutilizável que identifica o locatário do diretório que emitiu o token. Você pode usar esse valor para acessar os recursos de diretório específicos de um determinado locatário em um aplicativo multilocatário. Por exemplo, você pode usar esse valor para identificar o locatário em uma chamada à API do Graph. <br><br> **Valor de exemplo de SAML**: <br> `<Attribute Name=”http://schemas.microsoft.com/identity/claims/tenantid”>`<br>`<AttributeValue>cbb1a5ac-f33b-45fa-9bf5-f37db0fed422<AttributeValue>` <br><br> **Valor de exemplo de JWT**: <br> `"tid":"cbb1a5ac-f33b-45fa-9bf5-f37db0fed422"` |
 | `nbf`, `exp` |Tempo de vida do token |Define o intervalo de tempo no qual um token é válido. O serviço que valida o token deve verificar se a data atual está dentro do tempo de vida do token; se não estiver, ele deverá rejeitar o token. O serviço pode fornecer uma margem de cinco minutos além do intervalo de tempo de vida do token para levar em conta as diferenças na hora do relógio ("distorção de tempo") entre o AD do Azure e o serviço. <br><br> **Valor de exemplo de SAML**: <br> `<Conditions`<br>`NotBefore="2013-03-18T21:32:51.261Z"`<br>`NotOnOrAfter="2013-03-18T22:32:51.261Z"`<br>`>` <br><br> **Valor de exemplo de JWT**: <br> `"nbf":1363289634, "exp":1363293234` |
 | `upn` |Nome UPN |Armazena o nome de usuário da entidade de usuário.<br><br> **Valor de exemplo de JWT**: <br> `"upn": frankm@contoso.com` |
 | `ver` |Versão |Armazena o número de versão do token. <br><br> **Valor de exemplo de JWT**: <br> `"ver": "1.0"` |
@@ -96,7 +96,7 @@ Ao resgatar um token de atualização para um novo token de acesso, você recebe
 
 ## <a name="validating-tokens"></a>Validando tokens
 
-Para validar um id_token ou access_token, o aplicativo deverá validar a assinatura e as declarações do token. Para validar os tokens de acesso, o aplicativo também deve validar o emissor, o público-alvo e os tokens de assinatura. Estes precisam ser validados em relação aos valores no documento de descoberta OpenID. Por exemplo, a versão independente de locatário do documento está localizada em [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration). O middleware de Azure AD tem recursos internos para validar os tokens de acesso e você pode navegar pelas nossas [amostras](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-code-samples) para encontrar um no idioma de sua escolha. Para obter mais informações sobre como validar explicitamente um token JWT, consulte a [amostra de validação manual de JWT](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation).  
+Para validar um id_token ou access_token, o aplicativo deverá validar a assinatura e as declarações do token. Para validar os tokens de acesso, o aplicativo também deve validar o emissor, o público-alvo e os tokens de assinatura. Estes precisam ser validados em relação aos valores no documento de descoberta OpenID. Por exemplo, a versão independente de locatário do documento está localizada em [https://login.microsoftonline.com/common/.well-known/openid-configuration](https://login.microsoftonline.com/common/.well-known/openid-configuration). O middleware de Azure AD tem recursos internos para validar os tokens de acesso e você pode navegar pelas nossas [amostras](https://docs.microsoft.com/azure/active-directory/active-directory-code-samples) para encontrar um no idioma de sua escolha. Para obter mais informações sobre como validar explicitamente um token JWT, consulte a [amostra de validação manual de JWT](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation).  
 
 Fornecemos bibliotecas e códigos de exemplo que mostram como tratar com facilidade a validação do token. As informações abaixo são fornecidas simplesmente para aqueles que desejam entender o processo subjacente.  Também há várias bibliotecas de software livre de terceiros disponíveis para validação de JWT; há pelo menos uma opção para quase todos os idiomas e plataformas. Para saber mais sobre bibliotecas de autenticação e exemplos de código do AD do Azure, veja [bibliotecas de autenticação do AD do Azure](active-directory-authentication-libraries.md).
 

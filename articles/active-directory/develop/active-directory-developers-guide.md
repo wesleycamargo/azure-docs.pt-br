@@ -3,7 +3,7 @@ title: Azure Active Directory para desenvolvedores | Microsoft Docs
 description: "Este artigo fornece uma visão geral sobre como conectar-se às contas corporativa e de estudante da Microsoft usando o Azure Active Directory."
 services: active-directory
 author: dstrockis
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 5c872c89-ef04-4f4c-98de-bc0c7460c7c2
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.workload: identity
 ms.date: 04/07/2017
 ms.author: dastrock
 ms.custom: aaddev
-ms.openlocfilehash: 1614e37693adad268965e586f919a842c8f42e6a
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: c7375b91790cc7a089560bd823e99850e3b34fec
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-for-developers"></a>Azure Active Directory para desenvolvedores
 O Azure AD (Azure Active Directory) é um serviço de identidade de nuvem que permite aos desenvolvedores conectar com segurança qualquer usuário com uma conta corporativa ou de estudante da Microsoft. A documentação mostra como adicionar suporte do Azure AD para o seu aplicativo usando os protocolos padrão do setor: OAuth e OpenID Connect.

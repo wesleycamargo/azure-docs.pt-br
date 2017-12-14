@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/30/2017
 ms.author: magoedte;eslesar
-ms.openlocfilehash: 119d8abcea91bf5c6ea03212fcb886f9e31c1ada
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: aea0b93e658a0c5dd14deedbd2c5c92bb1fbf652
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gerenciar atualizações de vários computadores
 
@@ -84,7 +84,7 @@ O gerenciamento de atualizações está habilitado para sua máquina virtual.
 
 ## <a name="enable-update-management-for-non-azure-virtual-machines-and-computers"></a>Habilitar o gerenciamento de atualizações para computadores e máquinas virtuais que não são Azure
 
-Para obter instruções sobre como habilitar o gerenciamento de atualizações para computadores e máquinas virtuais Windows que não são Azure, confira [Conectar computadores Windows ao serviço Log Analytics no Azure](../log-analytics/log-analytics-windows-agents.md).
+Para obter instruções sobre como habilitar o gerenciamento de atualizações para computadores e máquinas virtuais Windows que não são Azure, confira [Conectar computadores Windows ao serviço Log Analytics no Azure](../log-analytics/log-analytics-windows-agent.md).
 
 Para obter instruções sobre como habilitar o gerenciamento de atualizações para computadores e máquinas virtuais Linux que não são Azure, confira [Conectar computadores Linux ao Log Analytics](../log-analytics/log-analytics-agent-linux.md).
 

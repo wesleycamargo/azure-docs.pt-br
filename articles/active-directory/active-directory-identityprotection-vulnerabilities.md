@@ -5,7 +5,7 @@ services: active-directory
 keywords: "azure active directory identity protection, cloud app discovery, gerenciamento de aplicativos, segurança, risco, nível de risco, vulnerabilidade, política de segurança"
 documentationcenter: 
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: 92233a5b-cb34-4d28-88cc-d5d29c0f3256
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/17/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: dfb75c91d66d61a63e3f6c3e431a9a45465cbf5c
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: ce3d50c4c111c2a47b2732cb3a39bf0dfc28853e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="vulnerabilities-detected-by-azure-active-directory-identity-protection"></a>Vulnerabilidades detectadas pelo Azure Active Directory Identity Protection
 Vulnerabilidades são pontos fracos no seu ambiente que podem ser explorados por um invasor. É recomendável resolver essas vulnerabilidades para melhorar a postura de segurança de sua organização e impedir que invasores possam explorá-las.
@@ -32,13 +32,13 @@ Vulnerabilidades são pontos fracos no seu ambiente que podem ser explorados por
 As seções a seguir fornecem uma visão geral das vulnerabilidades relatadas pelo Identity Protection.
 
 ## <a name="multi-factor-authentication-registration-not-configured"></a>Registro de autenticação multifator não configurado
-Essa vulnerabilidade ajuda a controlar a implantação do Azure Multi-Factor Authentication na sua organização. 
+Essa vulnerabilidade ajuda a controlar a implantação da Autenticação Multifator do Azure na sua organização. 
 
 A Azure Multi-Factor Authentication fornece uma segunda camada de segurança para a autenticação do usuário. Ela ajuda a proteger o acesso a dados e aplicativos ao mesmo tempo que atende à demanda dos usuários para um processo de entrada simples. Ele fornece autenticação forte por meio de uma variedade de opções de fácil verificação — chamada telefônica, mensagem de texto, notificação de aplicativo móvel ou verificação de código e tokens OATH de terceiros.
 
-Recomendamos exigir o Azure Multi-Factor Authentication para entradas de usuário. A autenticação multifator desempenha um papel fundamental nas políticas de acesso condicional baseadas em risco disponíveis por meio do Identity Protection.
+Recomendamos exigir a Autenticação Multifator do Azure para entradas de usuário. A autenticação multifator desempenha um papel fundamental nas políticas de acesso condicional baseadas em risco disponíveis por meio do Identity Protection.
 
-Para obter mais detalhes, veja [O que é o Azure Multi-Factor Authentication?](../multi-factor-authentication/multi-factor-authentication.md)
+Para obter mais detalhes, veja [O que é a Autenticação Multifator do Azure?](../multi-factor-authentication/multi-factor-authentication.md)
 
 ## <a name="unmanaged-cloud-apps"></a>Aplicativos de nuvem não gerenciados
 Essa vulnerabilidade ajuda a identificar aplicativos de nuvem não gerenciados na sua organização.

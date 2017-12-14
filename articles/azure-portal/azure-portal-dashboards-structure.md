@@ -6,25 +6,25 @@ documentationcenter:
 author: adamab
 manager: timlt
 editor: tysonn
-ms.service: multiple
+ms.service: azure-portal
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: adamab
-ms.openlocfilehash: 694b5bd1ddfbaa4c973e9f55bce1c94ffd89c3dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f71ff9383f20a1a75fd2c1cf4dc3aaf049d970cf
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="the-structure-of-azure-dashboards"></a>A estrutura de Painéis do Azure
 Este documento explica a estrutura de um painel do Azure, usando o painel a seguir como exemplo:
 
 ![painel de amostra](./media/azure-portal-dashboards-structure/sample-dashboard.png)
 
-Como os [painéis compartilhados do Azure são recursos](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview), este painel pode ser representado como JSON.  O JSON a seguir representa o painel visualizado acima.
+Como os [painéis compartilhados do Azure são recursos](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview), este painel pode ser representado como JSON.  O JSON a seguir representa o painel visualizado acima.
 
 ```json
 
@@ -294,7 +294,7 @@ Vamos dividir as seções relevantes do JSON.  As propriedades de nível superio
 
 ### <a name="the-id-property"></a>A propriedade id
 
-A ID de recurso do Azure está sujeita às [convenções de nomenclatura dos recursos do Azure](https://docs.microsoft.com/en-us/azure/architecture/best-practices/naming-conventions). Quando o portal cria um painel, ele, geralmente, escolhe uma ID na forma de um GUID, mas você é livre para usar qualquer nome válido ao criar programaticamente. 
+A ID de recurso do Azure está sujeita às [convenções de nomenclatura dos recursos do Azure](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). Quando o portal cria um painel, ele, geralmente, escolhe uma ID na forma de um GUID, mas você é livre para usar qualquer nome válido ao criar programaticamente. 
 
 ### <a name="the-name-property"></a>A propriedade name
 O nome é o segmento da ID de recurso que não inclui informações de assinatura, tipo de recurso ou grupo de recursos. Basicamente, é o último segmento da ID de recurso.
@@ -303,7 +303,7 @@ O nome é o segmento da ID de recurso que não inclui informações de assinatur
 Todos os painéis são do tipo __Microsoft.Portal/dashboards__.
 
 ### <a name="the-location-property"></a>A propriedade location
-Ao contrário de outros recursos, os painéis não têm um componente de tempo de execução.  Para os painéis, o local indica a localização geográfica principal que armazena a representação JSON do painel. O valor deve ser um dos códigos de local que podem ser buscados usando a [API de locais no recurso de assinaturas](https://docs.microsoft.com/en-us/rest/api/resources/subscriptions).
+Ao contrário de outros recursos, os painéis não têm um componente de tempo de execução.  Para os painéis, o local indica a localização geográfica principal que armazena a representação JSON do painel. O valor deve ser um dos códigos de local que podem ser buscados usando a [API de locais no recurso de assinaturas](https://docs.microsoft.com/rest/api/resources/subscriptions).
 
 ### <a name="the-tags-property"></a>A propriedade tags
 Marcas são um recurso comum de recursos do Azure que lhe permitem organizar seus recursos por pares de valor de nome arbitrário. Para os painéis, há uma marca especial chamada __título oculto__. Se seu painel tem essa propriedade preenchida, ele é usado como o nome de exibição para o painel no portal. As IDs de recurso do Azure não podem ser renomeadas, mas as marcas podem. Esta marca dá uma maneira de ter um nome de exibição renomeável para seu painel.

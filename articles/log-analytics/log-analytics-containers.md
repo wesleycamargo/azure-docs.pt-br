@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/06/2017
 ms.author: magoedte;banders
-ms.openlocfilehash: d200587e211758ade85b14cbeb206ebce9291f1d
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 4087cb787e43c3d1b40ad082e84534b34918c9e9
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="container-monitoring-solution-in-log-analytics"></a>Solução de Monitoramento de contêiner no Log Analytics
 
@@ -137,7 +137,7 @@ sudo docker run --privileged -d -v /var/run/docker.sock:/var/run/docker.sock -v 
 
 **Alternância de uso de um agente do Linux instalado para outro em um contêiner**
 
-Se anteriormente você utilizou o agente instalado diretamente e, em vez disso, deseja usar um agente em execução em um contêiner, primeiro você deverá remover o Agente do OMS para Linux. Veja [Desinstalar o Agente do OMS para Linux](log-analytics-agent-linux.md#uninstalling-the-oms-agent-for-linux) para entender como desinstalar o agente com êxito.  
+Se anteriormente você utilizou o agente instalado diretamente e, em vez disso, deseja usar um agente em execução em um contêiner, primeiro você deverá remover o Agente do OMS para Linux. Veja [Desinstalar o Agente do OMS para Linux](log-analytics-agent-linux.md) para entender como desinstalar o agente com êxito.  
 
 #### <a name="configure-an-oms-agent-for-docker-swarm"></a>Configurar um agente do OMS para o Docker Swarm
 
@@ -515,9 +515,9 @@ Para obter mais informações sobre a configuração do daemon do Docker usada c
 
 #### <a name="install-windows-agents"></a>Instalar agentes do Windows
 
-Para habilitar o monitoramento do contêiner do Windows e do Hyper-V, instale o MMA (Microsoft Monitoring Agent) em computadores com Windows que sejam hosts do contêiner. Para computadores que executam o Windows no seu ambiente local, consulte [Conectar computadores Windows ao Log Analytics](log-analytics-windows-agents.md). Para máquinas virtuais em execução no Azure, conecte-as ao Log Analytics usando a [extensão da máquina virtual](log-analytics-azure-vm-extension.md).
+Para habilitar o monitoramento do contêiner do Windows e do Hyper-V, instale o MMA (Microsoft Monitoring Agent) em computadores com Windows que sejam hosts do contêiner. Para computadores que executam o Windows no seu ambiente local, consulte [Conectar computadores Windows ao Log Analytics](log-analytics-windows-agent.md). Para máquinas virtuais em execução no Azure, conecte-as ao Log Analytics usando a [extensão da máquina virtual](log-analytics-azure-vm-extension.md).
 
-Você pode monitorar os contêineres do Windows em execução no Service Fabric. No entanto, apenas [máquinas virtuais em execução no Azure](log-analytics-azure-vm-extension.md) e [computadores executando o Windows no seu ambiente local](log-analytics-windows-agents.md) têm suporte atualmente para o Service Fabric.
+Você pode monitorar os contêineres do Windows em execução no Service Fabric. No entanto, apenas [máquinas virtuais em execução no Azure](log-analytics-azure-vm-extension.md) e [computadores executando o Windows no seu ambiente local](log-analytics-windows-agent.md) têm suporte atualmente para o Service Fabric.
 
 Você pode verificar se a solução de Monitoramento de contêiner está definida corretamente para o Windows. Para verificar se o pacote de gerenciamento foi baixado corretamente, procure *ContainerManagement.xxx*. Os arquivos devem estar na pasta C:\Arquivos de Programas\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs.
 
@@ -534,7 +534,7 @@ A solução de Monitoramento de contêineres coleta vários dados de log e métr
 Os dados são coletados a cada três minutos pelos tipos de agente a seguir.
 
 - [Agente do OMS para Linux](log-analytics-linux-agents.md)
-- [Agente do Windows](log-analytics-windows-agents.md)
+- [Agente do Windows](log-analytics-windows-agent.md)
 - [Extensão de VM do Log Analytics](log-analytics-azure-vm-extension.md)
 
 

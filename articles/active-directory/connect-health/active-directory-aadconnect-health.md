@@ -4,7 +4,7 @@ description: "Esta é a página de Integridade do Azure AD Connect que descreve 
 services: active-directory
 documentationcenter: 
 author: karavar
-manager: samueld
+manager: mtillman
 editor: curtand
 ms.assetid: 82798ea6-5cd3-4f30-93ae-d56536f8d8e3
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 24552ef153f5aa601b2998129a7bbacc8f9da6bf
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 9919e326613ce81db32f1d72a8cb5e3668992885
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="monitor-your-on-premises-identity-infrastructure-and-synchronization-services-in-the-cloud"></a>Monitorar infraestrutura de identidade local e serviços de sincronização na nuvem
 O Azure AD (Azure Active Directory) Connect Health ajuda no monitoramento e na obtenção de informações sobre a sua infraestrutura de identidade local e os serviços de sincronização. Ele permite manter uma conexão confiável com o Office 365 e o Microsoft Online Services, fornecendo recursos de monitoramento para os componentes de identidade de chave, como servidores do AD FS (Serviços de Federação do Active Directory), servidores do Azure AD Connect (também conhecido como Mecanismo de Sincronização), controladores de domínio do Active Directory etc. Ele também torna os pontos de dados principais sobre esses componentes facilmente acessíveis para que você possa usá-los e obter informações importantes para tomar decisões informadas.
@@ -73,7 +73,7 @@ O Azure AD Connect Health para AD DS (Active Directory Domain Services) fornece 
 * Alertas de monitoramento para detectar quando controladores de domínio não estão íntegros, juntamente com as notificações por email para alertas críticos
 * O painel de Controladores de Domínio que fornece uma visão geral da integridade e do status operacional dos controladores de domínio
 * O painel de Status de Replicação com informações mais recentes de replicação e links para guias de solução de problemas quando são detectados erros
-* Acesso rápido em qualquer lugar a gráficos de dados de desempenho de contadores de desempenho comuns, necessários para fins de monitoramento e solução de problemas
+* Acesso rápido em qualquer lugar a grafos de dados de desempenho de contadores de desempenho comuns, necessários para fins de monitoramento e solução de problemas
 
 Leia mais aqui sobre o [Uso do Azure AD Connect Health com AD DS](active-directory-aadconnect-health-adds.md)
 

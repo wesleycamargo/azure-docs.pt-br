@@ -4,7 +4,7 @@ description: "Integrar as trocas de declarações da API REST no percurso do usu
 services: active-directory-b2c
 documentationcenter: 
 author: yoelhor
-manager: joroja
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/30/2017
 ms.author: yoelh
-ms.openlocfilehash: e9a5b6ffdf2a2c30ae1bcb2bd8f91adb12f35266
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: b7ce383b5297b0973f2999e7310fad94a0abe7dd
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-of-user-input"></a>Integrar as trocas de declarações da API REST no percurso do usuário do Azure AD B2C como validação da entrada do usuário
 Com a Estrutura de Experiência de Identidade subjacente ao Azure AD B2C (Azure Active Directory B2C), é possível integrar-se a uma API RESTful em um percurso do usuário. Neste passo a passo, você aprenderá como o Azure AD B2C interage com serviços RESTful do .NET Framework (API Web).
@@ -215,7 +215,7 @@ Na API Web, um _controlador_ é um objeto que manipula as solicitações HTTP. O
     A janela **Criar Serviço de Aplicativo** é aberta. Nela, é possível criar todos os recursos do Azure necessários para executar o aplicativo Web ASP.NET no Azure.
 
     > [!NOTE]
-    >Para obter mais informações sobre como publicar, consulte: [Criar um aplicativo Web ASP.NET no Azure](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure).
+    >Para obter mais informações sobre como publicar, consulte: [Criar um aplicativo Web ASP.NET no Azure](https://docs.microsoft.com/azure/app-service-web/app-service-web-get-started-dotnet#publish-to-azure).
 
 3. Na caixa **Nome do aplicativo Web**, digite um nome exclusivo para o aplicativo (os caracteres válidos são a a z, 0 a 9 e hífen [-]). A URL do aplicativo Web é http://<nome_do_aplicativo>.azurewebsites.NET, em que *nome_do_aplicativo* é o nome do seu aplicativo Web. Você pode aceitar o nome gerado automaticamente, que é exclusivo.
 

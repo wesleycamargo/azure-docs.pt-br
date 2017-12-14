@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: guybo
-ms.openlocfilehash: c7093e221ff8fe69ded1cfbce4f3ddeb1a195666
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aef243e34f1d5fc8240576a9803bb8b08693a7b7
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="upgrade-a-virtual-machine-scale-set"></a>Atualizar um conjunto de escala de máquina virtual
 Este artigo descreve como você pode implementar uma atualização de sistema operacional para um conjunto de escala de máquina virtual do Azure sem nenhum tempo de inatividade. Nesse contexto, uma atualização do SO envolve uma alteração da versão ou SKU do SO, ou alteração do URI de uma imagem personalizada. Atualizar sem tempo de inatividade significa atualizar uma máquina virtual por vez ou em grupos (por exemplo, um domínio de falha por vez), em vez de todas de uma só vez. Ao fazer isso, todas as máquinas virtuais que não estiverem sendo atualizadas podem continuar em execução.
@@ -31,7 +31,7 @@ Para evitar ambiguidade, vamos distinguir quatro tipos de atualização do SO qu
 * Alterar a referência de imagem de um conjunto de dimensionamento que foi criado utilizando o Azure Managed Disks.
 * A aplicação de patch no SO de dentro de uma máquina virtual (exemplos disso incluem instalar um patch de segurança e executar o Windows Update). Esse cenário tem suporte, mas não é abordado neste artigo.
 
-Conjuntos de escala de máquina virtual implantados como parte de um cluster do [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) não são abordados aqui. Consulte [Patch no SO do Windows no seu cluster de Service Fabric](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-patch-orchestration-application) para obter mais informações sobre aplicação de patch do Service Fabric.
+Conjuntos de escala de máquina virtual implantados como parte de um cluster do [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) não são abordados aqui. Consulte [Patch no SO do Windows no seu cluster de Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-patch-orchestration-application) para obter mais informações sobre aplicação de patch do Service Fabric.
 
 A sequência básica para alterar a versão/SKU do sistema operacional de uma imagem de plataforma, ou o URI de uma imagem personalizada será semelhante ao seguinte:
 

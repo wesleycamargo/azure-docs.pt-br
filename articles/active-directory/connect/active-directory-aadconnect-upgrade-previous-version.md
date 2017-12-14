@@ -4,7 +4,7 @@ description: "Explica os diferentes métodos para atualizar para a versão mais 
 services: active-directory
 documentationcenter: 
 author: AndKjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 31f084d8-2b89-478c-9079-76cf92e6618f
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: Identity
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: c4f0ec95c02116a19f2d69c6fa1e8aa639c56c69
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: acce2e8f0c875d0211f132efab5f55d77a0def67
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-upgrade-from-a-previous-version-to-the-latest"></a>Azure AD Connect: atualização de uma versão anterior para a mais recente
 Este tópico descreve os diferentes métodos que você pode usar para atualizar sua instalação do Azure Active Directory (Azure AD) Connect para a versão mais recente. Recomendamos que você se mantenha atualizado com as versões do Azure AD Connect. Também é possível usar as etapas descritas na seção [migração Swing](#swing-migration) ao fazer uma alteração significativa na configuração.
@@ -48,7 +48,7 @@ Se você tiver feito alterações nas regras de sincronização prontas, essas r
 
 Durante a atualização in-loco, poderá haver alterações introduzidas que exijam que atividades de sincronização específicas (incluindo as etapas de importação completa e sincronização completa) sejam executadas após a conclusão da atualização. Para adiar tais atividades, consulte a seção [Como adiar a sincronização completa após a atualização](#how-to-defer-full-synchronization-after-upgrade).
 
-Se estiver usando o Azure AD Connect com um conector não padrão (por exemplo, Conector do LDAP Genérico e Conector do SQL Genérico), atualize a configuração do conector correspondente no [Synchronization Service Manager](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-connectors) após a atualização in-loco. Para obter detalhes sobre como atualizar a configuração do conector, consulte a seção do artigo [Histórico de lançamento de versão do conector – Solução de problemas](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnectsync-connector-version-history#troubleshooting). Se você não atualizar a configuração, as etapas de execução de importação e exportação não funcionarão corretamente para o conector. Você receberá o seguinte erro no log de eventos do aplicativo com a mensagem *“A versão do assembly na configuração do Conector do AAD (“X.X.XXX.X”) é anterior à versão real (“X.X.XXX.X”) de "C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll"”.*
+Se estiver usando o Azure AD Connect com um conector não padrão (por exemplo, Conector do LDAP Genérico e Conector do SQL Genérico), atualize a configuração do conector correspondente no [Synchronization Service Manager](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-service-manager-ui-connectors) após a atualização in-loco. Para obter detalhes sobre como atualizar a configuração do conector, consulte a seção do artigo [Histórico de lançamento de versão do conector – Solução de problemas](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnectsync-connector-version-history#troubleshooting). Se você não atualizar a configuração, as etapas de execução de importação e exportação não funcionarão corretamente para o conector. Você receberá o seguinte erro no log de eventos do aplicativo com a mensagem *“A versão do assembly na configuração do Conector do AAD (“X.X.XXX.X”) é anterior à versão real (“X.X.XXX.X”) de "C:\Program Files\Microsoft Azure AD Sync\Extensions\Microsoft.IAM.Connector.GenericLdap.dll"”.*
 
 ## <a name="swing-migration"></a>Migração swing
 Se você tiver uma implantação complexa ou muitos objetos, talvez seja impossível fazer uma atualização in-loco do sistema dinâmico. Para alguns clientes, o processo poderá levar vários dias e, durante esse tempo, nenhuma alteração delta será processada. Você também pode usar esse método quando planejar fazer alterações significativas em sua configuração e quiser experimentá-las antes de enviá-las por push para a nuvem.

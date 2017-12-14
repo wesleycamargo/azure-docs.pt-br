@@ -9,11 +9,11 @@ ms.topic: article
 ms.workload: identity
 ms.date: 10/12/2017
 ms.author: bruceper
-ms.openlocfilehash: 8d617726a4ee9335728ab82104efbd845e3b0d05
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 30b6bd694eba43a9c46f02404e7fdc0e936e9755
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guia do desenvolvedor do Cofre da Chave do Azure
 
@@ -104,7 +104,7 @@ No Node.js, a API de gerenciamento do Key Vault e a API de objeto do Key Vault s
 
 #### <a name="azure-powershell"></a>Azure PowerShell 
 
-[Azure PowerShell para Key Vault](https://docs.microsoft.com/en-us/powershell/module/azurerm.keyvault)
+[Azure PowerShell para Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault)
 
 ### <a name="quick-start-guides"></a>Guias de início rápido
 

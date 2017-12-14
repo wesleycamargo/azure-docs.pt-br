@@ -4,7 +4,7 @@ description: "Esta é a página Azure AD Connect Health que discutirá como moni
 services: active-directory
 documentationcenter: 
 author: karavar
-manager: femila
+manager: mtillman
 ms.assetid: 1dfbeaba-bda2-4f68-ac89-1dbfaf5b4015
 ms.service: active-directory
 ms.workload: identity
@@ -14,11 +14,11 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4b06338cb62cc458e7b097db36023f0746d4e969
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 821d4bd7e6b526ad826caf005456edf8235291b8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Monitorar a sincronização do Azure AD Connect com o Azure AD Connect Health
 A documentação a seguir é específica do monitoramento da sincronização do Azure AD Connect (Sync) com o Azure AD Connect Health.  Para saber mais sobre como monitorar o AD FS com o Azure AD Connect Health, consulte [Usando o Azure AD Connect Health com o AD FS](active-directory-aadconnect-health-adfs.md). Além disso, para obter informações sobre como monitorar os Serviços de Domínio do Active Directory com o Azure AD Connect Health, confira [Usar o Azure AD Connect Health com o AD DS](active-directory-aadconnect-health-adds.md).
@@ -44,7 +44,7 @@ Você pode alterar isso clicando em "Configurações" e permitindo que o agente 
 ![Azure AD Connect Health para sincronização](./media/active-directory-aadconnect-health-sync/banner2.png)
 
 ## <a name="sync-insight"></a>Detalhes da sincronização
-Os administradores frequentemente querem saber sobre o tempo necessário para sincronizar alterações ao Azure AD e a quantidade de alterações que ocorrem. Esse recurso fornece uma maneira fácil de visualizá-lo usando os gráficos abaixo:   
+Os administradores frequentemente querem saber sobre o tempo necessário para sincronizar alterações ao Azure AD e a quantidade de alterações que ocorrem. Esse recurso fornece uma maneira fácil de visualizá-lo usando os grafos abaixo:   
 
 * Latência de operações de sincronização
 * Tendência de alteração de objeto

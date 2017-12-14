@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 10/25/2017
 ms.author: carlrab
-ms.openlocfilehash: dd78b1a8703f2e6aaa7854a7b3cb774d014e7270
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: a15c23683a3334328720e8ae4369b2495f9613de
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-sql-database-features"></a>Recursos do Banco de Dados SQL do Azure
 
@@ -69,7 +69,7 @@ A tabela a seguir lista os principais recursos do SQL Server e fornece informaç
 | [Gatilhos DDL](https://docs.microsoft.com/sql/relational-databases/triggers/ddl-triggers) | Apenas banco de dados |
 | [Transações distribuídas - MS DTC](https://docs.microsoft.com/sql/relational-databases/native-client-ole-db-transactions/supporting-distributed-transactions) | Não - veja [transações elásticas](sql-database-elastic-transactions-overview.md) |
 | [Instruções DML](https://docs.microsoft.com/sql/t-sql/queries/queries) | Sim |
-| [Gatilhos DML](https://docs.microsoft.com/en-us/sql/relational-databases/triggers/create-dml-triggers) | Maioria - veja Instruções individuais | 
+| [Gatilhos DML](https://docs.microsoft.com/sql/relational-databases/triggers/create-dml-triggers) | Maioria - veja Instruções individuais | 
 | [DMVs](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) | Alguns - veja DMVs individuais |
 |[Mascaramento de dados dinâmicos](/sql/relational-databases/security/dynamic-data-masking)|[Sim](sql-database-dynamic-data-masking-get-started.md)|
 | [Notificações de eventos](https://docs.microsoft.com/sql/relational-databases/service-broker/event-notifications) | Não - veja [Alertas](sql-database-insights-alerts-portal.md) |

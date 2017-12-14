@@ -3,7 +3,7 @@ title: "Introdução ao Azure Active Directory | Microsoft Docs"
 description: "Obter licenças, adicionar o nome de domínio, criar página de conexão personalizada e adicionar autoatendimento de redefinição de senha no Azure Active Directory"
 keywords: 
 author: curtand
-manager: michael.tillman
+manager: mtillman
 ms.author: curtand
 ms.reviewer: jsnow
 ms.date: 11/14/2017
@@ -15,11 +15,11 @@ ms.technology:
 ms.assetid: 
 services: active-directory
 ms.custom: it-pro
-ms.openlocfilehash: dd745869494a1ed740a0a05a5508363334aa7360
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: eb428b6ce8af85f06506fb9edc2696477d87c70e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="get-started-with-azure-ad"></a>Introdução ao Azure AD
 O gerenciamento de identidade moderno requer confiabilidade consistente e dimensionável para garantir a disponibilidade de aplicativos e serviços somente a usuários autenticados. Para oferecer suporte adequado às necessidades de gerenciamento de identidade de usuários, TI precisa de uma maneira de fornecer acesso a aplicativos SaaS (software como serviço) públicos aprovados, uma maneira de hospedar aplicativos de linha de negócios internos e até mesmo maneiras de melhorar o desenvolvimento e o uso de aplicativo local. Todos esses requisitos apontam para a necessidade de uma solução de gerenciamento de identidade baseada em nuvem.      

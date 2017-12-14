@@ -4,7 +4,7 @@ description: "Proteja suas trocas de declarações da API REST personalizadas no
 services: active-directory-b2c
 documentationcenter: 
 author: yoelhor
-manager: joroja
+manager: mtillman
 editor: 
 ms.assetid: 
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 09/25/2017
 ms.author: yoelh
-ms.openlocfilehash: 867484799020a4e65844523a88240b3d550c69f7
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.openlocfilehash: 9547ba8c65360a03168ff1b6eba01038554e7fd3
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>Proteger seu serviço RESTful usando certificados do cliente
 Em um artigo relacionado, [crie um serviço RESTful](active-directory-b2c-custom-rest-api-netfw.md) que interage com o Azure Active Directory B2C (Azure AD B2C).
@@ -41,7 +41,7 @@ Este artigo detalha como:
 Para configurar o **Serviço de Aplicativo do Azure** para exigir certificados do cliente, defina a configuração do site `clientCertEnabled` do aplicativo Web como *true*. Para fazer essa alteração, é necessário usar a API REST. A configuração está disponível por meio da experiência de gerenciamento no Portal do Azure. Para localizar a configuração, no menu **Configurações** do aplicativo RESTful, em **Ferramentas de desenvolvimento**, selecione **Resource Explorer**.
 
 >[!NOTE]
->Verifique se seu plano de Serviço de Aplicativo do Azure é Standard ou superior. Para obter mais informações, consulte [Visão geral detalhada de planos de serviço de aplicativo do Azure](https://docs.microsoft.com/en-us/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview).
+>Verifique se seu plano de Serviço de Aplicativo do Azure é Standard ou superior. Para obter mais informações, consulte [Visão geral detalhada de planos de serviço de aplicativo do Azure](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview).
 
 
 Use o [Azure Resource Explorer (Versão Prévia)](https://resources.azure.com) para definir a propriedade **clientCertEnabled** como *true*, conforme mostrado na imagem a seguir:
@@ -49,7 +49,7 @@ Use o [Azure Resource Explorer (Versão Prévia)](https://resources.azure.com) p
 ![Definir clientCertEnabled por meio do Azure Resource Explorer](media/aadb2c-ief-rest-api-netfw-secure-cert/rest-api-netfw-secure-client-cert-resource-explorer.png)
 
 >[!NOTE]
->Para obter mais informações sobre como definir a propriedade **clientCertEnabled**, consulte [Como configurar a autenticação mútua TLS para Aplicativo Web](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-configure-tls-mutual-auth).
+>Para obter mais informações sobre como definir a propriedade **clientCertEnabled**, consulte [Como configurar a autenticação mútua TLS para Aplicativo Web](https://docs.microsoft.com/azure/app-service-web/app-service-web-configure-tls-mutual-auth).
 
 >[!TIP]
 >Outra opção, para facilitar a criação da chamada à API REST, é usar a ferramenta [ARMClient](https://github.com/projectkudu/ARMClient).
@@ -165,7 +165,7 @@ O certificado do cliente que o Azure AD B2C envia para seu serviço RESTful não
 Nesta seção, você adicionará o código ASP.NET que valida as propriedades do certificado para fins de autenticação.
 
 > [!NOTE]
->Para obter mais informações sobre como configurar o Serviço de Aplicativo do Azure para autenticação de certificado do cliente, consulte [Como configurar a autenticação mútua TLS para Aplicativo Web](https://docs.microsoft.com/en-us/azure/app-service-web/app-service-web-configure-tls-mutual-auth).
+>Para obter mais informações sobre como configurar o Serviço de Aplicativo do Azure para autenticação de certificado do cliente, consulte [Como configurar a autenticação mútua TLS para Aplicativo Web](https://docs.microsoft.com/azure/app-service-web/app-service-web-configure-tls-mutual-auth).
 
 ### <a name="61-add-application-settings-to-your-projects-webconfig-file"></a>6.1 Adicionar configurações de aplicativo ao arquivo web.config do projeto
 No projeto do Visual Studio que você criou anteriormente, adicione as seguintes configurações de aplicativo ao arquivo *web.config* no elemento `appSettings`:

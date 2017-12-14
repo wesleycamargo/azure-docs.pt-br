@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2017
 ms.author: ancav
-ms.openlocfilehash: d171538ea57839eccddcc74ca099a39aee34ea10
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7e16926b5a1c28c0c8c80ee8c17e8c2fdb9e55a7
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="scale-instance-count-manually-or-automatically"></a>Dimensionar a contagem de instância manualmente ou automaticamente
 No [Portal do Azure](https://portal.azure.com/), você pode definir manualmente a contagem de instâncias de seu serviço ou definir parâmetros para que o dimensionamento seja feito automaticamente com base na demanda. Isso é normalmente conhecido como *escala horizontal* ou *redução horizontal*.
@@ -26,11 +26,6 @@ No [Portal do Azure](https://portal.azure.com/), você pode definir manualmente 
 Antes de dimensionamento com base na contagem de instâncias, você deve considerar que o dimensionamento é afetado pela **camada de preços** além de contagem de instâncias. Diferentes faixas de preço podem ter diferentes números de núcleos e memória e, portanto, terão melhor desempenho para o mesmo número de instâncias (o que significa *escalar verticalmente* ou *reduzir verticalmente*). Este artigo aborda especificamente a *redução horizontal* e a *escala horizontal*.
 
 Você pode reduzir horizontalmente no portal e também pode usar a [API REST](https://msdn.microsoft.com/library/azure/dn931953.aspx) ou o [SDK .NET](http://www.nuget.org/packages/Microsoft.Azure.Management.Monitor) para ajustar a escala manual ou automaticamente.
-
-> [!NOTE]
-> Este artigo descreve como criar uma configuração de dimensionamento automático no portal em [http://portal.azure.com](http://portal.azure.com). As configurações de autoescala criadas nesse portal não podem ser editadas no portal clássico ([http://manage.windowsazure.com](http://manage.windowsazure.com)).
-> 
-> 
 
 ## <a name="scaling-manually"></a>Dimensionando manualmente
 1. No [Portal do Azure](https://portal.azure.com/), clique em **Procurar**, navegue até o recurso que você deseja dimensionar, como um **plano do Serviço de Aplicativo**.

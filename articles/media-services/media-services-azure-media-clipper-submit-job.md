@@ -9,11 +9,11 @@ ms.author: dwgeo
 ms.date: 11/10/2017
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: d29889a4c972638f5d127e9c518aa85fbc19d861
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 8372c405087c0dc7a000a65265bb99c395c3a8d6
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="submit-clipping-jobs-from-azure-media-clipper"></a>Enviar trabalhos de recorte do Azure Media Clipper
 O Azure Media Clipper exige que um método **submitSubclipCallback** seja implementado para manipular o envio de trabalhos de recorte. Essa função serve para implementar um HTTP POST da saída do Clipper para um serviço Web. Esse serviço Web é o local em que você pode enviar o trabalho de codificação. A saída do Clipper é uma predefinição de codificação do Media Encoder Standard dos trabalhos renderizados ou o conteúdo da API REST para chamadas de filtro de manifesto dinâmico. Esse modelo de passagem é necessário porque as credenciais da conta dos serviços de mídia não são seguras no navegador do cliente.
@@ -151,7 +151,7 @@ O contrato de saída do trabalho para um recorte renderizado é um objeto JSON c
 }
 ```
 
-Para executar o trabalho de codificação, envie o trabalho de codificação do Media Encoder Standard com a predefinição associada. Consulte este artigo para obter detalhes sobre como enviar codificação trabalhos usando o [.NET SDK](https://docs.microsoft.com/en-us/azure/media-services/media-services-dotnet-encode-with-media-encoder-standard) ou [API REST](https://docs.microsoft.com/en-us/azure/media-services/media-services-rest-encode-asset).
+Para executar o trabalho de codificação, envie o trabalho de codificação do Media Encoder Standard com a predefinição associada. Consulte este artigo para obter detalhes sobre como enviar codificação trabalhos usando o [.NET SDK](https://docs.microsoft.com/azure/media-services/media-services-dotnet-encode-with-media-encoder-standard) ou [API REST](https://docs.microsoft.com/azure/media-services/media-services-rest-encode-asset).
 
 ## <a name="quickly-creating-video-clips-without-encoding"></a>Criação rápida de clipes de vídeos sem codificação
 Como alternativa para criar um trabalho de codificação, você pode usar o Azure Media Clipper para criar filtros de manifestos dinâmicos. Os filtros não exigem codificação e podem ser criados rapidamente já que um novo ativo não é criado. O contrato de saída para um recorte de filtro é um objeto JSON com as seguintes propriedades:
@@ -227,4 +227,4 @@ Como alternativa para criar um trabalho de codificação, você pode usar o Azur
 }
 ```
 
-Para enviar a chamada REST para criar o filtro de manifesto dinâmico, envie a carga de filtro associada usando o [API REST](https://docs.microsoft.com/en-us/azure/media-services/media-services-rest-dynamic-manifest).
+Para enviar a chamada REST para criar o filtro de manifesto dinâmico, envie a carga de filtro associada usando o [API REST](https://docs.microsoft.com/azure/media-services/media-services-rest-dynamic-manifest).

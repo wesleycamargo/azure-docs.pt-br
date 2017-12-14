@@ -18,11 +18,11 @@ ms.dyn365.ops.version:
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: mcollier
-ms.openlocfilehash: ab522b444c234e1159acfea1780bae1801c4d047
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 357a63c65a4f6864dca259aad8a76f83681cd501
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-monitoring-rest-api-walkthrough"></a>Passo a passo da API REST de Monitoramento do Azure
 Este artigo mostra como executar autenticação para que o seu código possa usar a [referência de API REST do Monitor do Microsoft Azure](https://msdn.microsoft.com/library/azure/dn931943.aspx).         
@@ -93,7 +93,7 @@ Após a autenticação, as consultas podem então ser executadas na API REST do 
 
 ## <a name="retrieve-metric-definitions-multi-dimensional-api"></a>Recuperar as definições de métrica (API multidimensional)
 
-Use a [API REST de definições da Métrica do Azure Monitor](https://docs.microsoft.com/en-us/rest/api/monitor/metricdefinitions) para acessar a lista de métricas disponíveis para um serviço.
+Use a [API REST de definições da Métrica do Azure Monitor](https://docs.microsoft.com/rest/api/monitor/metricdefinitions) para acessar a lista de métricas disponíveis para um serviço.
 
 **Método**: GET
 

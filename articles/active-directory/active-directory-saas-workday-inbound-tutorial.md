@@ -4,7 +4,7 @@ description: Saiba como usar o Workday como fonte de dados de identidade para Ac
 services: active-directory
 author: asmalser-msft
 documentationcenter: na
-manager: femila
+manager: mtillman
 ms.assetid: 1a2c375a-1bb1-4a61-8115-5a69972c6ad6
 ms.service: active-directory
 ms.devlang: na
@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/26/2017
 ms.author: asmalser
-ms.openlocfilehash: 86f5591cd2d67d7f734b7148b79c8ee388336283
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f267a59fadb7f402ac81f43b5465b6ac1f28943e
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning-with-on-premises-active-directory-and-azure-active-directory"></a>Tutorial: configurar Workday para provisionamento automático de usuário com Azure Active Directory e Active Directory local
 O objetivo deste tutorial é mostrar as etapas necessárias para importar pessoas do Workday tanto no Active Directory como no Azure Active Directory, com write-back opcional de alguns atributos para Workday. 
@@ -176,7 +176,7 @@ Nesta etapa, você deve conceder permissões ao novo grupo de segurança para op
 1. Insira as políticas de segurança de domínio na caixa de pesquisa e, em seguida, clique no link **Políticas de Segurança de Domínio para a Área Funcional**.  
    
     ![Políticas de Segurança de Domínio](./media/active-directory-saas-workday-inbound-tutorial/IC750986.png "Políticas de Segurança de Domínio")  
-2. Pesquise o sistema e selecione a área funcional **Sistema** .  Clique em **OK**.  
+2. Pesquise o sistema e selecione a área funcional **Sistema**.  Clique em **OK**.  
    
     ![Políticas de Segurança de Domínio](./media/active-directory-saas-workday-inbound-tutorial/IC750987.png "Políticas de Segurança de Domínio")  
 3. Na lista de políticas de segurança para a área funcional do sistema, expanda a **Administração de Segurança** e selecione a política de segurança de domínio, **Provisionamento de Conta Externa**.  

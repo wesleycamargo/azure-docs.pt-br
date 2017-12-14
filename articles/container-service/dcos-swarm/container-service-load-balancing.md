@@ -1,21 +1,21 @@
 ---
 title: "Balancear carga de contêineres em um cluster DC/SO do Azure"
-description: "Balancear carga entre vários contêineres em um cluster DC/SO do Serviço de Contêiner do Azure."
+description: "Balancear a carga entre vários contêineres em um cluster do Serviço de Contêiner do Azure DC/OS."
 services: container-service
 author: rgardler
 manager: timlt
 ms.service: container-service
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/02/2017
 ms.author: rogardle
 ms.custom: mvc
-ms.openlocfilehash: 8dfa99b609cf2c54d29c55d3f5ba748910f7513b
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 6f5467d0fbcc577a548f1100ed6e4d380fe38759
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/13/2017
 ---
-# <a name="load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>Balancear carga de contêineres em um cluster DC/SO do Serviço de Contêiner do Azure.
+# <a name="load-balance-containers-in-an-azure-container-service-dcos-cluster"></a>Balancear a carga de contêineres em um cluster do Serviço de Contêiner do Azure DC/OS
 
 Neste artigo, exploramos como criar um balanceador de carga interno em um Serviço de Contêiner do Azure gerenciado por DC/SO usando o Marathon-LB. Essa configuração permite que você dimensione seus aplicativos horizontalmente. Também permite que você aproveite os clusters de agentes públicos e privados colocando seus balanceadores de carga no cluster público e seus contêineres de aplicativo no cluster privado. Neste tutorial, você:
 

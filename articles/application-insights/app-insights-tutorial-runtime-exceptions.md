@@ -10,11 +10,11 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 11e0f2f19acc843f1c558b5d0cfe84291035a6a5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f6844dd6747854a60ff8eb8be0d913b73ca2bdb2
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Localizar e diagnosticar exceções de tempo de execução com o Azure Application Insights
 
@@ -37,7 +37,7 @@ Para concluir este tutorial:
     - Desenvolvimento Web e ASP.NET
     - Desenvolvimento do Azure
 - Baixe e instale o [Depurador de Instantâneo do Visual Studio](http://aka.ms/snapshotdebugger).
-- Habilite o [Depurador de Instantâneo do Visual Studio](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-snapshot-debugger)
+- Habilite o [Depurador de Instantâneo do Visual Studio](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger)
 - Implante um aplicativo .NET para Azure e [habilite o SDK do Application Insights](app-insights-asp-net.md). 
 - O tutorial acompanha a identificação de uma exceção em seu aplicativo, portanto, modifique seu código no seu ambiente de desenvolvimento ou teste para gerar uma exceção. 
 
@@ -49,7 +49,7 @@ Faça logon no portal do Azure em [https://portal.azure.com](https://portal.azur
 O Application Insights coleta quaisquer falhas em seu aplicativo e permite que você exiba sua frequência em diferentes operações para ajudá-lo a concentrar seus esforços naquelas que têm mais impacto.  Então você pode fazer drill down nos detalhes dessas falhas para identificar a causa raiz.   
 
 1. Selecione **Application Insights** e, em seguida, sua assinatura.  
-1. Para abrir o painel **Falhas**, selecione **Falhas** no menu **Investigar** ou clique no gráfico **Solicitações com falha**.
+1. Para abrir o painel **Falhas**, selecione **Falhas** no menu **Investigar** ou clique no grafo **Solicitações com falha**.
 
     ![Solicitações falhas](media/app-insights-tutorial-runtime-exceptions/failed-requests.png)
 

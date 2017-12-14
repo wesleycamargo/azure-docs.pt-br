@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/15/2017
 ms.author: tdykstra
-ms.openlocfilehash: 33d4a193cc3152bfab1f03dde32ad4f1bcb0afe1
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 1a8158dd60b6e2eb15a16bf3efb60ef30d602fd6
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="monitor-azure-functions"></a>Monitorar Azure Functions
 
@@ -486,7 +486,7 @@ Você pode transmitir arquivos de log para uma sessão de linha de comando em um
 
 ### <a name="monitor-function-app-log-files-with-the-azure-cli-10"></a>Monitorar arquivos de log do aplicativo de funções com a CLI do Azure 1.0
 
-Para começar, [instale a CLI do Azure 1.0](../cli-install-nodejs.md) e [entre no Azure](../xplat-cli-connect.md).
+Para começar, [instale a CLI do Azure 1.0](../cli-install-nodejs.md) e [entre no Azure](/cli/azure/authenticate-azure-cli).
 
 Use os comandos a seguir para habilitar o modo clássico do Gerenciamento de Serviço, escolha a sua assinatura e transmita arquivos de log:
 

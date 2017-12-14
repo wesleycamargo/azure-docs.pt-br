@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: davidmu
-ms.openlocfilehash: 9d3732d538f3ed9ecb87247f378a3736692025ca
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: beb2dab177d021fee1dbbe630f8b6854a7d94f68
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli-20"></a>Criar um gateway de aplicativo usando a CLI do Azure 2.0
 
@@ -42,7 +42,7 @@ O Gateway de Aplicativo do Azure é uma solução de virtualização dedicada qu
 
 ## <a name="prerequisite-install-the-azure-cli-20"></a>Pré-requisito: instalar a CLI do Azure 2.0
 
-Para executar as etapas deste artigo, será necessário [instalar a CLI do Azure para macOS, Linux e Windows](https://docs.microsoft.com/en-us/cli/azure/install-az-cli2).
+Para executar as etapas deste artigo, será necessário [instalar a CLI do Azure para macOS, Linux e Windows](https://docs.microsoft.com/cli/azure/install-az-cli2).
 
 > [!NOTE]
 > Você precisa de uma conta do Azure para criar um gateway de aplicativo. Se não tiver uma, inscreva-se em uma [avaliação gratuita](../active-directory/sign-up-organization.md).

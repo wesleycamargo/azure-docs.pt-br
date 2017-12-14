@@ -4,7 +4,7 @@ description: "Cobertura detalhada do manifesto do aplicativo do Azure Active Dir
 services: active-directory
 documentationcenter: 
 author: sureshja
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 4804f3d4-0ff1-4280-b663-f8f10d54d184
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 07/20/2017
 ms.author: sureshja
 ms.custom: aaddev
 ms.reviewer: elisol
-ms.openlocfilehash: d5e18f41d6eb69ccb7eafaa4de2646c4c38df5e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c92631323040f9be015d3824b9803cdde95d874b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="understanding-the-azure-active-directory-application-manifest"></a>Noções básicas sobre o manifesto de aplicativo do Active Directory do Azure
 Os aplicativos que se integram com o Active Directory do Azure (AD) devem ser registrados em um locatário do Azure AD, fornecendo uma configuração persistente de identidade para o aplicativo. Essa configuração é consultada em tempo de execução, permitindo cenários que permitem que um aplicativo terceirize e agencie autenticação/autorização por meio do Azure AD. Para saber mais sobre o modelo de aplicativo Azure AD, consulte o artigo [Adição, atualização e remoção de um aplicativo][ADD-UPD-RMV-APP].
@@ -30,7 +30,7 @@ Na verdade, várias opções estão disponíveis para atualizar propriedades de 
 
 * A **interface de usuário da Web do [Portal do Azure][AZURE-PORTAL]** permite que você atualize as propriedades mais comuns de um aplicativo. Essa é a maneira mais rápida e menos propensa a erro de atualizar as propriedades do aplicativo, mas não lhe dá acesso total a todas as propriedades como os dois métodos a seguir.
 * Para cenários mais avançados em que é necessário atualizar as propriedades que não são expostas no portal clássico do Azure, você pode modificar o **manifesto do aplicativo**. Esse é o foco deste artigo e será discutido mais detalhadamente, começando na próxima seção.
-* Também é possível **escrever um aplicativo que usa a [Graph API][GRAPH-API]** para atualizar seu aplicativo, o que requer maior esforço. Isso pode ser uma opção atraente se você estiver gravando o software de gerenciamento ou precisar atualizar as propriedades do aplicativo regularmente de forma automática.
+* Também é possível **escrever um aplicativo que usa a [API do Graph][GRAPH-API]** para atualizar seu aplicativo, o que requer maior esforço. Isso pode ser uma opção atraente se você estiver gravando o software de gerenciamento ou precisar atualizar as propriedades do aplicativo regularmente de forma automática.
 
 ## <a name="using-the-application-manifest-to-update-an-applications-identity-configuration"></a>Usando o manifesto do aplicativo para atualizar a configuração de identidade do aplicativo
 Por meio do [Portal do Azure][AZURE-PORTAL], você pode gerenciar a configuração da identidade do seu aplicativo atualizando o manifesto do aplicativo usando o editor de manifesto embutido. Também é possível baixar e carregar o manifesto do aplicativo como um arquivo JSON. Nenhum arquivo real é armazenado no diretório. O manifesto do aplicativo é meramente uma operação HTTP GET na entidade Aplicativo do da API do Graph do Azure AD e o carregamento é uma operação HTTP PATCH na entidade Aplicativo.
