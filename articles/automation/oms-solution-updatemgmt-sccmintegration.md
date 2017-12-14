@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/25/2017
 ms.author: eslesar
-ms.openlocfilehash: 04540524f83e367f92912171ddc55b6e6f82f80e
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: ec97432cd14c6289928f0419c242e1ccc2c8d876
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="integrate-system-center-configuration-manager-with-oms-update-management"></a>Integrar o System Center Configuration Manager com o Gerenciamento de Atualizações do OMS
 
@@ -41,7 +41,7 @@ Como gerenciar clientes hospedados no IaaS do Azure com seu ambiente existente d
 
 Se você pretende continuar gerenciando implantações de atualização do Configuration Manager, execute as etapas a seguir.  O OMS se conecta ao Configuration Manager para aplicar as atualizações aos computadores cliente conectados ao seu espaço de trabalho do Log Analytics. O conteúdo de atualização está disponível do cache do computador cliente, como se a implantação fosse gerenciada pelo Configuration Manager.  
 
-1. Crie uma implantação de atualização de software do site de nível superior na hierarquia do Configuration Manager usando o processo descrito em [processo de implantação de atualização de software](https://docs.microsoft.com/en-us/sccm/sum/deploy-use/deploy-software-updates).  A única configuração que deve ser realizada de forma diferente de uma implantação padrão é a opção **Não instalar atualizações de software** para controlar o comportamento de download do pacote de implantação. Esse comportamento é gerenciado pela solução de Gerenciamento de Atualizações do OMS por meio da criação de uma implantação de atualização agendada na próxima etapa.  
+1. Crie uma implantação de atualização de software do site de nível superior na hierarquia do Configuration Manager usando o processo descrito em [processo de implantação de atualização de software](https://docs.microsoft.com/sccm/sum/deploy-use/deploy-software-updates).  A única configuração que deve ser realizada de forma diferente de uma implantação padrão é a opção **Não instalar atualizações de software** para controlar o comportamento de download do pacote de implantação. Esse comportamento é gerenciado pela solução de Gerenciamento de Atualizações do OMS por meio da criação de uma implantação de atualização agendada na próxima etapa.  
 
 1. No portal do OMS, abra o painel de Gerenciamento de Atualizações.  Crie uma nova implantação seguindo as etapas descritas em [Criar uma Implantação de Atualização](../operations-management-suite/oms-solution-update-management.md#creating-an-update-deployment) e, na lista suspensa, selecione a coleção apropriada do Configuration Manager representada como um grupo de computadores do OMS.  Tenha em mente os seguintes pontos importantes:
     1. Se uma janela de manutenção for definida na coleção de dispositivos do Configuration Manager selecionada, os membros da coleção respeitarão a ela em vez da configuração **Duração** definida na implantação agendada no OMS.

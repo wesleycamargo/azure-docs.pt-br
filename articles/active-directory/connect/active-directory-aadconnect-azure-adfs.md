@@ -5,7 +5,7 @@ keywords: "implantar o AD FS no azure, implantar adfs do azure, adfs do azure, a
 services: active-directory
 documentationcenter: 
 author: anandyadavmsft
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 692a188c-badc-44aa-ba86-71c0e8074510
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: anandy; billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ddd29a1230286de8999175498ee793f3b3ea24e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 954d161b3fbc66f594429f33d1bb5c88c2bc83b4
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Implantando os Serviços de Federação do Active Directory no Azure
 O AD FS fornece recursos simplificados e seguros de federação de identidade e de logon único (SSO) da Web. A federação com o Azure AD ou o O365 habilita os usuários a se autenticar usando credenciais locais e acessar todos os recursos na nuvem. Como resultado, é importante ter uma infraestrutura altamente disponível do AD FS para garantir o acesso a recursos locais e na nuvem. Implantar o AD FS no Azure pode ajudar a atingir a alta disponibilidade necessária com esforço mínimo.

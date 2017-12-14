@@ -4,7 +4,7 @@ description: "Esta é a página Azure AD Connect Health que discutirá como moni
 services: active-directory
 documentationcenter: 
 author: arluca
-manager: femila
+manager: mtillman
 editor: curtand
 ms.assetid: 19e3cf15-f150-46a3-a10c-2990702cd700
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
-ms.openlocfilehash: 9e5b45d71b978c383932409f0037a4f6f32d0cb3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dcfb43003e81bb51574b401c21202925b16305f8
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="using-azure-ad-connect-health-with-ad-ds"></a>Usar o Azure AD Connect Health com o AD DS
 A documentação a seguir é específica para o monitoramento dos Serviços de Domínio do Active Directory com o Azure AD Connect Health. As versões com suporte do AD DS são: Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 e Windows Server 2016.
@@ -51,7 +51,7 @@ Esse recurso fornece tendências gráficas de diferentes contadores de desempenh
 
 ![Monitoramento](./media/active-directory-aadconnect-health/aadconnect-health-adds-monitoring.png)
 
-Por padrão, selecionamos previamente quatro contadores de desempenho. No entanto, você pode incluir outros clicando no comando de filtro e marcando ou desmarcando todos os contadores de desempenho desejados. Além disso, você pode clicar duas vezes em um gráfico do contador de desempenho para abrir uma nova folha, que inclui pontos de dados para cada um dos controladores de domínio monitorados.
+Por padrão, selecionamos previamente quatro contadores de desempenho. No entanto, você pode incluir outros clicando no comando de filtro e marcando ou desmarcando todos os contadores de desempenho desejados. Além disso, você pode clicar duas vezes em um grafo do contador de desempenho para abrir uma nova folha, que inclui pontos de dados para cada um dos controladores de domínio monitorados.
 
 ## <a name="related-links"></a>Links relacionados
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)

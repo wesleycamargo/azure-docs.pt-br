@@ -15,17 +15,17 @@ ms.workload: data-services
 ms.custom: quickstart
 ms.date: 11/06/2017
 ms.author: elbutter
-ms.openlocfilehash: e2138f26a78338406b466bdd2aa6e756e602726d
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 8947da9d34261be46ad9aea961b6020141484172
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-azure-functions-to-automate-sql-dw-compute-levels"></a>Use o Azure Functions para automatizar os níveis de computação SQL DW
 
 Este tutorial demonstra como você pode usar o Azure Functions para gerenciar os níveis de computação do SQL Data Warehouse do Azure. Essas arquiteturas são recomendadas para uso com o SQL Data Warehouse [Otimizado para elasticidade][Performance Tiers].
 
-Para usar o Aplicativo de funções do Azure com o Azure SQL Data Warehouse, você deve criar uma [Conta de entidade de serviço](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal) com acesso de colaborador na mesma assinatura que a sua instância do data warehouse. 
+Para usar o Aplicativo de funções do Azure com o Azure SQL Data Warehouse, você deve criar uma [Conta de entidade de serviço](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) com acesso de colaborador na mesma assinatura que a sua instância do data warehouse. 
 
 ## <a name="deploy-timer-based-scaler-with-an-azure-resource-manager-template"></a>Implantar o escalonador baseado em temporizador com um modelo do Azure Resource Manager
 

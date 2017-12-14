@@ -4,7 +4,7 @@ description: "Como adicionar uma assinatura existente ao seu diretório do Azure
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: bc4773c2-bc4a-4d21-9264-2267065f0aea
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.date: 10/17/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 67df6d893c0770b9210fc73e96865d5c6396796c
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: e14d1c54a084a66bd33904b8c90e2973c0f7d6fb
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-add-an-azure-subscription-to-azure-active-directory"></a>Como adicionar uma assinatura do Azure ao Azure Active Directory
 Este artigo aborda informações sobre a relação entre uma assinatura do Azure e o Azure AD (Azure Active Directory) e como adicionar uma assinatura existente ao diretório do Azure AD. A sua assinatura do Azure tem uma relação de confiança com o Azure AD, o que significa que ela confia no diretório para autenticar usuários, serviços e dispositivos. Várias assinaturas podem confiar no mesmo diretório, mas cada assinatura confia em apenas um diretório. 

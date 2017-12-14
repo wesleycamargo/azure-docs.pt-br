@@ -15,14 +15,14 @@ ms.topic: get-started-article
 ms.workload: tbd
 ms.date: 05/05/2017
 ms.author: mbullwin
-ms.openlocfilehash: 9e27ffe72986406031ba6cf9b1153090f6ff1113
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 44044939f044b573d19270830ab140e8332b6825
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights para Serviços de Nuvem do Azure
-[Os aplicativos do serviço de nuvem do Microsoft Azure](https://azure.microsoft.com/services/cloud-services/) podem ser monitorados pelo [Application Insights][start] para ver a disponibilidade, desempenho, falhas e uso combinando os dados dos SDKs do Application Insights com os dados de [Diagnóstico do Azure](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/azure-diagnostics) em seus Serviços de Nuvem. Com os comentários que você obtiver sobre o desempenho e a eficiência de seu aplicativo em uso, você pode fazer escolhas informadas sobre a direção do projeto em cada ciclo de vida de desenvolvimento.
+[Os aplicativos do serviço de nuvem do Microsoft Azure](https://azure.microsoft.com/services/cloud-services/) podem ser monitorados pelo [Application Insights][start] para ver a disponibilidade, desempenho, falhas e uso combinando os dados dos SDKs do Application Insights com os dados de [Diagnóstico do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) em seus Serviços de Nuvem. Com os comentários que você obtiver sobre o desempenho e a eficiência de seu aplicativo em uso, você pode fazer escolhas informadas sobre a direção do projeto em cada ciclo de vida de desenvolvimento.
 
 ![Exemplo](./media/app-insights-cloudservices/sample.png)
 
@@ -142,7 +142,7 @@ Adicione mais telemetria: confira as seções a seguir e publique seu aplicativo
 * Consulte [Solução de problemas][qna].
 
 ## <a name="view-azure-diagnostic-events"></a>Exibir eventos de Diagnóstico do Azure
-Onde encontrar as informações de [Diagnóstico do Azure](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/azure-diagnostics) no Application Insights:
+Onde encontrar as informações de [Diagnóstico do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) no Application Insights:
 
 * Os contadores de desempenho são exibidos como métricas personalizadas. 
 * Os logs de eventos do Windows são mostrados como eventos de rastreamentos e personalizados.

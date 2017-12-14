@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: f0cb50c5ad991073b83dc5e87fbfb0300f40fc03
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: c359b77efbfdbcf7d2c0193dc015ce418a3d997d
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="integrate-security-center-security-policies-with-azure-policy"></a>Integrar políticas de segurança da Central de Segurança com o Azure Policy
 Este artigo ajuda você a configurar as políticas de segurança da Central de Segurança do Azure, fornecidas pelo Azure Policy. 
@@ -30,7 +30,7 @@ A Central de Segurança cria automaticamente uma política de segurança padrão
 * Monitorar a conformidade da política.
 
 > [!NOTE]
-> A Política do Azure está em versão prévia limitada. Para se inscrever, vá até [Criar uma conta no Azure Policy](https://aka.ms/getpolicy). Para obter mais informações sobre o Azure Policy, confira [Criar e gerenciar políticas para impor a conformidade](http://docs.microsoft.com/en-us/azure/azure-policy/create-manage-policy).
+> A Política do Azure está em versão prévia limitada. Para se inscrever, vá até [Criar uma conta no Azure Policy](https://aka.ms/getpolicy). Para obter mais informações sobre o Azure Policy, confira [Criar e gerenciar políticas para impor a conformidade](http://docs.microsoft.com/azure/azure-policy/create-manage-policy).
 
 ## <a name="edit-security-policies"></a>Editar políticas de segurança
 Você pode editar a política de segurança padrão para cada uma de suas assinaturas do Azure na Central de Segurança. Para modificar uma política de segurança, você deve ser proprietário, colaborador ou administrador de segurança da assinatura ou do grupo de gerenciamento que a contém. Para exibir suas políticas de segurança na Central de Segurança, faça o seguinte:

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2017
 ms.author: yurid
-ms.openlocfilehash: 6ea08dc4a3082ead9e18fb6c0c30f2ed1df765d8
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: f533afebcb945a5ffe269ad8f21a095a81f54a18
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Guia de planejamento e operações da Central de Segurança do Azure
 Este guia destina-se a profissionais de TI (tecnologia da informação), arquitetos de TI, analistas de segurança da informação e administradores de nuvem cujas organizações planejam usar a Central de Segurança do Azure.
@@ -125,7 +125,7 @@ Uma política de segurança define a configuração desejada de suas cargas de t
 
 As políticas de Central de Segurança contêm os seguintes componentes:
 - [Coleta de dados](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection): configurações de provisionamento de agente e de coleta de dados.
-- [Política de segurança](https://docs.microsoft.com/azure/security-center/security-center-policies): uma [Política do Azure](http://docs.microsoft.com/en-us/azure/azure-policy/azure-policy-introduction) que determina quais controles são monitorados e recomendados pela Central de Segurança ou usa a política do Azure para criar novas definições, definir políticas adicionais e atribuir políticas a Grupos de Gerenciamento.
+- [Política de segurança](https://docs.microsoft.com/azure/security-center/security-center-policies): uma [Política do Azure](http://docs.microsoft.com/azure/azure-policy/azure-policy-introduction) que determina quais controles são monitorados e recomendados pela Central de Segurança ou usa a política do Azure para criar novas definições, definir políticas adicionais e atribuir políticas a Grupos de Gerenciamento.
 - [Notificações por email](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details): configurações de contatos de segurança e de notificação.
 - [Tipo de preço](https://docs.microsoft.com/azure/security-center/security-center-pricing): seleção de preços Gratuito ou Standard, que determina quais recursos da Central de Segurança estão disponíveis para os recursos no escopo (pode ser especificado para assinaturas, grupos de recursos e espaços de trabalho).
 
@@ -187,7 +187,7 @@ Ao aceitar usar a Central de Segurança em seu ambiente atual do Azure pela prim
 
 Depois de endereçar todas as recomendações, a seção **Prevenção** deverá ficar verde para todos os recursos endereçados. Nesse ponto, o monitoramento contínuo fica mais fácil, pois você só executará ações com base nas alterações nos blocos de integridade e de recomendações de segurança do recurso.
 
-A seção **Detecção** é mais reativa, pois são alertas sobre os problemas que estão acontecendo agora ou que ocorreram no passado e foram detectados pelos controles da Central de Segurança e sistemas de terceiros. O bloco Alertas de Segurança mostra gráficos de barras que representam o número de alertas de detecção de ameaças encontrados em cada dia, e sua distribuição entre as várias categorias de gravidade (baixa, média, alta). Para obter mais informações sobre os Alertas de Segurança, leia [Gerenciando e respondendo aos alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md).
+A seção **Detecção** é mais reativa, pois são alertas sobre os problemas que estão acontecendo agora ou que ocorreram no passado e foram detectados pelos controles da Central de Segurança e sistemas de terceiros. O bloco Alertas de Segurança mostra grafos de barras que representam o número de alertas de detecção de ameaças encontrados em cada dia, e sua distribuição entre as várias categorias de gravidade (baixa, média, alta). Para obter mais informações sobre os Alertas de Segurança, leia [Gerenciando e respondendo aos alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md).
 
 Planeje acessar a opção [Inteligência contra ameaças](https://docs.microsoft.com/azure/security-center/security-center-threat-intel) como parte de suas operações diárias de segurança. Lá, você pode identificar ameaças à segurança do ambiente, como identificar se determinado computador faz parte de um botnet.
 

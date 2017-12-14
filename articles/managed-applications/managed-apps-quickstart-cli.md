@@ -10,11 +10,11 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.date: 10/20/2017
 ms.author: tomfitz
-ms.openlocfilehash: e104778db445d078ffca7a9ddb9d28fc84a93c81
-ms.sourcegitcommit: 3ab5ea589751d068d3e52db828742ce8ebed4761
+ms.openlocfilehash: 062e6b4d9edd9ca9220b8d11336f1a3ff544a1dd
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/27/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="create-and-deploy-an-azure-managed-application-with-azure-cli"></a>Criar e implementar um aplicativo gerenciado pelo Azure com a CLI do Azure
 
@@ -121,5 +121,4 @@ Depois que a implantação for concluída com êxito, veja se o aplicativo geren
 
 * Para obter uma introdução aos aplicativos gerenciados, consulte [Visão geral de aplicativos gerenciados](overview.md).
 * Para obter exemplos dos arquivos, consulte [Exemplos de aplicativo gerenciado](https://github.com/Azure/azure-managedapp-samples/tree/master/samples).
-* Para obter informações sobre como publicar aplicativos gerenciados para o Azure Marketplace, confira [Criar aplicativo do marketplace](publish-marketplace-app.md).
 * Para saber como criar um arquivo de definição de interface do usuário para um aplicativo gerenciado, consulte [Introdução a CreateUiDefinition](create-uidefinition-overview.md).
