@@ -15,11 +15,11 @@ ms.topic: quickstart
 ms.date: 07/10/2017
 ms.author: erikje
 ms.custom: mvc
-ms.openlocfilehash: 3d3f31775ae9384faeae20f108b71cea5dcc2934
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 04742a587284cf72632360a9575a63a576da36e8
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-stack-development-kit-deployment-quickstart"></a>Início rápido da implantação do Kit de Desenvolvimento do Azure Stack
 
@@ -31,9 +31,9 @@ O [Kit de desenvolvimento de pilha do Azure](azure-stack-poc.md) é um ambiente 
 
 2. [**Baixe e extraia o pacote de implantação**](azure-stack-run-powershell-script.md#download-and-extract-the-development-kit). Você pode baixar o pacote de implantação para o host do kit de desenvolvimento ou para um outro computador. Os arquivos extraídos implantação levarem até 60 GB de espaço livre em disco, por isso usando outro computador pode ajudar a reduzir os requisitos de hardware para o host do kit de desenvolvimento.
 
-3. [**Preparar o host do kit de desenvolvimento** ](azure-stack-run-powershell-script.md#prepare-the-development-kit-host) usando o instalador. Após essa etapa, o host do kit de desenvolvimento será inicializado a Cloudbuilder.vhdx (arquivos de instalação de um disco rígido virtual que inclui um sistema operacional inicializável e a pilha do Azure).
+3. [**Preparar o host do kit de desenvolvimento** ](azure-stack-run-powershell-script.md) usando o instalador. Após essa etapa, o host do kit de desenvolvimento será inicializado a Cloudbuilder.vhdx (arquivos de instalação de um disco rígido virtual que inclui um sistema operacional inicializável e a pilha do Azure).
 
-4. [**Implantar o kit de desenvolvimento** ](azure-stack-run-powershell-script.md#deploy-the-development-kit) no host do kit de desenvolvimento.
+4. [**Implantar o kit de desenvolvimento** ](azure-stack-run-powershell-script.md) no host do kit de desenvolvimento.
 
 5. Se sua implantação de pilha do Azure usa o Active Directory do Azure, você deve [registrar pilha do Azure com o Azure](azure-stack-register.md) para que você possa [baixar itens do marketplace do Azure](azure-stack-download-azure-marketplace-item.md) a pilha do Azure.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/08/2017
 ms.author: jeffgilb
-ms.openlocfilehash: 2bfd9b2603575545fef1c26310a2eecd2c8968e4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0fa0d00112e731a9f2effd453ba74f5561fca358
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-stack-deployment-prerequisites"></a>Pré-requisitos de implantação de pilha do Azure
 
@@ -85,7 +85,7 @@ Para implantar a pilha do Azure usando uma conta do AD do Azure, você deve prep
 
 1. Crie uma conta do AD do Azure que é o administrador do diretório para pelo menos um AD do Azure. Se você já tiver um, você pode usá-lo. Caso contrário, você pode criar um gratuitamente em [http://azure.microsoft.com/en-us/pricing/free-trial/](http://azure.microsoft.com/pricing/free-trial/) (na China, visite <http://go.microsoft.com/fwlink/?LinkID=717821> em vez disso). Se você planeja posteriormente [registrar pilha do Azure com o Azure](azure-stack-register.md), você também deve ter uma assinatura neste recém-criada em conta.
    
-    Salvar essas credenciais para uso na etapa 6 de [implantar o kit de desenvolvimento](azure-stack-run-powershell-script.md#deploy-the-development-kit). Isso *administrador de serviço* conta pode configurar e gerenciar nuvens de recursos, contas de usuário, planos de locatários, cotas e preços. No portal, ele pode criar nuvens de sites, nuvens privadas de máquina virtual, criar planos e gerenciar assinaturas de usuário.
+    Salvar essas credenciais para uso na etapa 6 de [implantar o kit de desenvolvimento](azure-stack-run-powershell-script.md). Isso *administrador de serviço* conta pode configurar e gerenciar nuvens de recursos, contas de usuário, planos de locatários, cotas e preços. No portal, ele pode criar nuvens de sites, nuvens privadas de máquina virtual, criar planos e gerenciar assinaturas de usuário.
 2. [Criar](azure-stack-add-new-user-aad.md) pelo menos uma conta de forma que você pode entrar o Kit de desenvolvimento como um locatário.
    
    | **Conta do Active Directory do Azure** | **Com suporte?** |
