@@ -8,11 +8,11 @@ ms.author: jehunte
 ms.date: 09/13/2017
 ms.topic: hero-article
 manager: carmonm
-ms.openlocfilehash: bfdd67ac1018f242e415da1a66d93f22bea8d054
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 275e4e9103808710e2a71168a05b3440bb288c6a
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Gerenciar uma Máquina Virtual do Azure com a coleta de inventário
 
@@ -20,7 +20,7 @@ Você pode habilitar o acompanhamento de inventário para uma máquina virtual d
 
 ## <a name="before-you-begin"></a>Antes de começar
 Se você não tiver uma assinatura do Azure, [crie uma conta gratuita](https://azure.microsoft.com/free/).
-Se você não tiver uma máquina virtual do Azure, [crie uma máquina virtual](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal).
+Se você não tiver uma máquina virtual do Azure, [crie uma máquina virtual](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entrar no Portal do Azure
 Entre no [Portal do Azure](https://portal.azure.com/).

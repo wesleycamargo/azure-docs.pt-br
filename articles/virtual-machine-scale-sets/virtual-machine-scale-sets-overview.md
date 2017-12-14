@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 09/01/2017
 ms.author: guybo
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5a786e9baa275e029343571bdb9a6480334f5cf3
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 3a0d181ad0732458e67d0f3f1d6676be099b52fc
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="what-are-virtual-machine-scale-sets-in-azure"></a>O que são conjuntos de dimensionamento de máquinas virtuais no Azure?
 Os conjuntos de dimensionamento de máquinas virtuais são um recurso de computação do Azure que você pode usar para implantar e gerenciar um conjunto de VMs idênticas. Com todas as VMs configuradas igualmente, os conjuntos de dimensionamento são projetados para dar suporte total ao dimensionamento e nenhum pré-provisionamento de VMs é necessário. Portanto, é mais fácil criar serviços em larga escala direcionados para Big Compute, Big Data e cargas de trabalho em contêineres.
@@ -124,7 +124,7 @@ Esta seção lista alguns cenários típicos de conjunto de dimensionamento. Al�
 * Um conjunto de escala dá suporte a até 1.000 VMs. Se você criar e carregar suas próprias imagens VM personalizadas, o limite será 300. Para considerações sobre o uso de conjuntos de dimensionamento grandes, confira [Trabalhando com conjuntos de dimensionamento de máquinas virtuais grandes](virtual-machine-scale-sets-placement-groups.md).
 * Você não precisa criar contas de armazenamento do Azure previamente para usar conjuntos de dimensionamento. Os conjuntos de dimensionamento dão suporte a discos gerenciados do Azure, o que elimina as preocupações de desempenho em relação ao número de discos por conta de armazenamento. Para saber mais, confira [Conjuntos de dimensionamento de máquinas virtuais do Azure e discos gerenciados](virtual-machine-scale-sets-managed-disks.md).
 * Considere o uso de armazenamento Premium do Azure, em vez de Armazenamento do Azure para ter tempos de provisionamento de VM mais rápidos e mais previsíveis, além de um melhor desempenho de E/S.
-* A cota de vCPUs na região na qual você está implantando limita o número de VMs que podem ser criadas. Talvez seja necessário entrar em contato com o Atendimento ao Cliente para aumentar o limite da cota de computação, mesmo que hoje você tenha um limite alto de vCPUs para uso com os Serviços de Nuvem do Azure hoje. Para consultar a cota, execute este comando da CLI do Azure: `azure vm list-usage`. Ou execute este comando do PowerShell: `Get-AzureRmVMUsage`.
+* A cota de vCPUs na região na qual você está implantando limita o número de VMs que podem ser criadas. Talvez seja necessário entrar em contato com o Atendimento ao Cliente para aumentar o limite da cota de computação, mesmo que hoje você tenha um limite alto de vCPUs para uso com os Serviços de Nuvem do Azure hoje. Para consultar a cota, execute este comando da CLI do Azure: `az vm list-usage`. Ou execute este comando do PowerShell: `Get-AzureRmVMUsage`.
 
 ## <a name="frequently-asked-questions-for-scale-sets"></a>Perguntas frequentes sobre os conjuntos de dimensionamento
 **P.** Quantas VMs posso ter em um conjunto de dimensionamento?

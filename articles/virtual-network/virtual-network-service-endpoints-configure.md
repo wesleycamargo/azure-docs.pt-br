@@ -15,11 +15,11 @@ ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: anithaa
 ms.custom: 
-ms.openlocfilehash: 9c953e697d5d1c6e53df8eaf72c4e4fbd83ca286
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c9c23462f80533a224c3c2ac3658b9630f1798f9
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="configure-virtual-network-service-endpoints"></a>Configurar pontos de extremidade de serviço de rede virtual
 
@@ -385,7 +385,7 @@ Pontos de extremidade de serviço podem ser configurados em redes virtuais de fo
 
 Para garantir recursos de serviço do Azure para uma rede virtual, o usuário deve ter permissão "Microsoft.Network/JoinServicetoaSubnet" para as sub-redes que estão sendo adicionadas. Essa permissão está incluída nas funções de administrador de serviço internas por padrão e pode ser modificada com a criação de funções personalizadas.
 
-Saiba mais sobre [funções internas](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) e como atribuir permissões específicas a [funções personalizadas](https://docs.microsoft.com/en-us/azure/active-directory/role-based-access-control-custom-roles).
+Saiba mais sobre [funções internas](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles) e como atribuir permissões específicas a [funções personalizadas](https://docs.microsoft.com/azure/active-directory/role-based-access-control-custom-roles).
 
 As VNets e os recursos de serviço do Azure podem estar na mesma assinatura ou em assinaturas diferentes. Se eles estão em assinaturas diferentes, os recursos devem estar no mesmo locatário do AD (Active Directory) durante essa versão prévia.
 

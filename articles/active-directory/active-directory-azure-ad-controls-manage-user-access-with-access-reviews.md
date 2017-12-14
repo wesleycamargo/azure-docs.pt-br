@@ -4,7 +4,7 @@ description: "Saiba como gerenciar o acesso de usuários como membros de um grup
 services: active-directory
 documentationcenter: 
 author: markwahl-msft
-manager: femila
+manager: mtillman
 editor: 
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.openlocfilehash: c4ea5d797613b214be569c6405a0fc672cae83a0
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 6a4d25b2eb228cafab48419a0d0eda92bba9f1ec
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="manage-user-access-with-azure-ad-access-reviews"></a>Gestão do acesso do usuário com revisões de acesso do Azure AD
 
@@ -30,7 +30,7 @@ Com o Azure Active Directory (Azure AD), você pode garantir facilmente que os u
 
 ## <a name="prerequisites"></a>Pré-requisitos 
 
-As revisões de acesso estão disponíveis com a edição Premium P2 do Azure AD, que está incluída no Microsoft Enterprise Mobility + Security, E5. Para obter mais informações, consulte [Edições do Active Directory do Azure](active-directory-editions.md). Cada usuário que interage com esse recurso, para criar uma revisão, acessar uma revisão ou aplicar uma revisão, deve ter uma licença.
+As revisões de acesso estão disponíveis com a edição Premium P2 do Azure AD, que está incluída no Microsoft Enterprise Mobility + Security, E5. Para obter mais informações, consulte [Edições do Active Directory do Azure](active-directory-editions.md). Cada usuário que interage com esse recurso para criar, acessar ou aplicar uma revisão deve ter uma licença.
 
 
 ## <a name="create-and-perform-an-access-review"></a>Criar e executar uma revisão de acesso
@@ -45,7 +45,7 @@ Você pode ter um ou mais usuários como revisores de uma revisão de acesso.
 
 4. Inicie a revisão de acesso. Para obter mais informações, confira [Criar uma revisão de acesso](active-directory-azure-ad-controls-create-access-review.md).
 
-5. Solicite que os revisores forneçam a entrada. Por padrão, todos receberão um email do Azure AD com um link para o painel de acesso, onde poderão [executar sua revisão de acesso](active-directory-azure-ad-controls-perform-access-review.md).
+5. Solicite que os revisores forneçam a entrada. Por padrão, todos receberão um email do Azure AD com um link para o painel de acesso, no qual poderão [executar sua revisão de acesso](active-directory-azure-ad-controls-perform-access-review.md).
 
 6. Se os revisores não tiverem fornecido uma avaliação, você pode pedir ao Azure AD para enviar um lembrete a eles. Por padrão, o Azure AD enviará automaticamente um lembrete após passar a metade do tempo para o prazo final para revisores que ainda não responderam.
 

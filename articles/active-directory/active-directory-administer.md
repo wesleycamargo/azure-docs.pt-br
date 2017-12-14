@@ -4,7 +4,7 @@ description: "Explica o que é um locatário do Azure AD e como gerenciar o Azur
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 ms.assetid: d4ca2365-6729-48f7-bb7f-c0f5ffe740a3
 ms.service: active-directory
 ms.workload: identity
@@ -15,11 +15,11 @@ ms.date: 08/23/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro;oldportal
-ms.openlocfilehash: f0ffb0b82acd002cb02adc6e82a447d2b788496f
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 7adaf2aa51d2a48116a816d83b42ba8416c157cb
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="manage-your-azure-ad-directory"></a>Gerenciar seu diretório do Azure AD
 
@@ -98,7 +98,7 @@ Você pode gerenciar cada diretório como um recurso completamente independente:
   * Se você atribuir ou remover uma função de administrador para um usuário em um diretório, a alteração não afeta nenhuma função de administrador que o usuário possa ter em outro diretório.
 * **Independência de sincronização**. Você pode configurar cada locatário do Azure AD de maneira independente para sincronizar os dados de uma única instância da ferramenta de sincronização do diretório do Azure AD Connect.
 
-Observe também que, ao contrário de outros recursos do Azure, seus diretórios não são recursos filho de uma assinatura do Azure. Então, se você cancelar ou permitir que a sua assinatura do Azure expire, ainda poderá acessar os dados de diretório usando o PowerShell do Azure AD, o Azure Graph API ou outras interfaces, como o Centro de Administração do Office 365. Você também pode associar outra assinatura ao diretório.
+Observe também que, ao contrário de outros recursos do Azure, seus diretórios não são recursos filho de uma assinatura do Azure. Então, se você cancelar ou permitir que a sua assinatura do Azure expire, ainda poderá acessar os dados de diretório usando o PowerShell do Azure AD, o Azure API do Graph ou outras interfaces, como o Centro de Administração do Office 365. Você também pode associar outra assinatura ao diretório.
 
 ## <a name="how-to-prepare-to-delete-an-azure-ad-directory"></a>Como preparar para excluir um diretório do Azure AD
 Um administrador global pode excluir um diretório do Azure AD a partir do portal. Quando um diretório é excluído, todos os recursos que estão contidos no diretório também são excluídos. Verifique se você não precisa do diretório antes de excluí-lo.

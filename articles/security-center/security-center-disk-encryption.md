@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2017
 ms.author: tomsh
-ms.openlocfilehash: 8d39aafb0ab7b0e87afdf4d2f50f1e224b8d251f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fa55df0c4d5291834035ea5cae58fa3d75de7e02
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="encrypt-an-azure-virtual-machine"></a>Criptografar uma Máquina Virtual do Azure
 A Central de Segurança do Azure alertará você se houver máquinas virtuais que não estejam criptografadas. Esses alertas serão mostrados como Alta Severidade e a recomendação é criptografar essas máquinas virtuais.
@@ -26,7 +26,7 @@ A Central de Segurança do Azure alertará você se houver máquinas virtuais qu
 ![Recomendação de criptografia de disco](./media/security-center-disk-encryption/security-center-disk-encryption-fig1.png)
 
 > [!NOTE]
-> As informações neste documento se aplicam à criptografia de máquinas virtuais sem usar uma Chave de Criptografia de Chave (que é necessária para fazer backup de máquinas virtuais usando o Backup do Azure). Confira o artigo [Azure Disk Encryption para máquinas virtuais do Azure do Windows e do Linux](https://docs.microsoft.com/en-us/azure/security/azure-security-disk-encryption) para obter informações sobre como usar uma Chave de Criptografia de Chave para dar suporte ao Backup do Azure para Máquinas Virtuais do Azure criptografadas.
+> As informações neste documento se aplicam à criptografia de máquinas virtuais sem usar uma Chave de Criptografia de Chave (que é necessária para fazer backup de máquinas virtuais usando o Backup do Azure). Confira o artigo [Azure Disk Encryption para máquinas virtuais do Azure do Windows e do Linux](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) para obter informações sobre como usar uma Chave de Criptografia de Chave para dar suporte ao Backup do Azure para Máquinas Virtuais do Azure criptografadas.
 >
 >
 

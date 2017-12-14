@@ -4,7 +4,7 @@ description: Desenvolvendo aplicativos voltados para o consumidor com o Active D
 services: active-directory-b2c
 documentationcenter: 
 author: saeedakhter-msft
-manager: krassk
+manager: mtillman
 editor: parakhj
 ms.assetid: c465dbde-f800-4f2e-8814-0ff5f5dae610
 ms.service: active-directory-b2c
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/06/2016
 ms.author: saeedakhter-msft
-ms.openlocfilehash: 44d5d31d49c375c802a67511d1f962df20656559
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bd29d78fa38dc4b5713d018eceed56e6b93739b4
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-b2c-focus-on-your-app-let-us-worry-about-sign-up-and-sign-in"></a>Azure AD B2C: concentre-se em seu aplicativo, deixe que nos preocupemos com a inscrição e a conexão
 
@@ -58,7 +58,7 @@ Aprenda a usar os recursos específicos do Azure Active Directory B2C:
 
 * Configure contas do [Facebook](active-directory-b2c-setup-fb-app.md), do [Google+](active-directory-b2c-setup-goog-app.md), da [Microsoft](active-directory-b2c-setup-msa-app.md), da [Amazon](active-directory-b2c-setup-amzn-app.md) e do [LinkedIn](active-directory-b2c-setup-li-app.md) para usá-las em seus aplicativos voltados para o consumidor.
 * [Usar atributos personalizados para coletar informações sobre seus consumidores](active-directory-b2c-reference-custom-attr.md).
-* [Habilite o Azure Multi-Factor Authentication em seus aplicativos voltados para o consumidor](active-directory-b2c-reference-mfa.md).
+* [Habilite a Autenticação Multifator do Azure em seus aplicativos voltados para o consumidor](active-directory-b2c-reference-mfa.md).
 * [Configure a redefinição de senha de autoatendimento para seus consumidores](active-directory-b2c-reference-sspr.md).
 * [Personalize a aparência das páginas de inscrição, de entrada e outras páginas voltadas ao consumidor](active-directory-b2c-reference-ui-customization.md) fornecidas pelo Azure Active Directory B2C.
 * [Use a API do Graph do Azure Active Directory para criar, ler, atualizar e excluir programaticamente os consumidores](active-directory-b2c-devquickstarts-graph-dotnet.md) em seu locatário do Azure Active Directory B2C.
