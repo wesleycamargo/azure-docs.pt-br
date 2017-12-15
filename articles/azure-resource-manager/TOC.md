@@ -15,12 +15,11 @@
 #### [Parâmetros](resource-manager-templates-parameters.md)
 #### [Variáveis](resource-manager-templates-variables.md)
 #### [Recursos](resource-manager-templates-resources.md)
-### [Práticas recomendadas para modelos](resource-manager-template-best-practices.md)
+#### [Saídas](resource-manager-templates-outputs.md)
 ### [Vincular a outros modelos](resource-group-linked-templates.md)
 ### [Definir dependência entre recursos](resource-group-define-dependencies.md)
 ### [Criar múltiplas instâncias](resource-group-create-multiple.md)
-### [Atualizar recurso](resource-manager-update.md)
-### [Compartilhar estado entre modelos vinculados](best-practices-resource-manager-state.md)
+### [Atualizar recurso](/azure/architecture/building-blocks/extending-templates/update-resource)
 ### [Padrões para projetar modelos](best-practices-resource-manager-design-templates.md)
 
 
