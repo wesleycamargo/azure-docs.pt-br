@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2017
+ms.date: 12/14/2017
 ms.author: JeffGo
-ms.openlocfilehash: 6c74071cedb1da9a59f47b10eaf538d24cb9ab01
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 111b6274f4a3633fa4dd367866bf4e4e72d6e2df
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Usar bancos de dados SQL na pilha do Microsoft Azure
 
@@ -47,7 +47,11 @@ Você deve criar um (ou mais) servidores SQL e/ou fornecer acesso a instâncias 
 
     a. Em instalações do Kit de desenvolvimento na pilha do Azure (ASDK), faça logon no host físico.
 
-    b. Em sistemas com vários nós, o host deve ser um sistema que pode acessar o ponto de extremidade com privilégios.
+    b. Em sistemas com vários nós, o host deve ser um sistema que pode acessar o ponto de extremidade com privilégios. 
+    
+    >[!NOTE]
+    > O sistema onde o script está sendo executado *deve* ser um sistema Windows 10 ou Windows Server 2016 com a versão mais recente do tempo de execução .NET instalada. Caso contrário, haverá falha na instalação. O host ASDK atende a esses critérios.
+
 
 3. Baixe o provedor de recursos SQL binário e execute o Self-extractor para extrair o conteúdo para um diretório temporário.
 
@@ -56,16 +60,19 @@ Você deve criar um (ou mais) servidores SQL e/ou fornecer acesso a instâncias 
 
     | Compilação de pilha do Azure | Instalador de SQL RP |
     | --- | --- |
-    | 1.0.171122.1 | [SQL RP versão 1.1.10.0](https://aka.ms/azurestacksqlrp) |
+    | 1.0.171122.1 | [SQL RP versão 1.1.12.0](https://aka.ms/azurestacksqlrp) |
     | 1.0.171028.1 | [SQL RP versão 1.1.8.0](https://aka.ms/azurestacksqlrp1710) |
     | 1.0.170928.3 | [SQL RP versão 1.1.3.0](https://aka.ms/azurestacksqlrp1709) |
    
 
 4. O certificado de raiz de pilha do Azure é recuperado do ponto de extremidade com privilégios. Para ASDK, um certificado autoassinado é criado como parte desse processo. Para vários nós, você deve fornecer um certificado apropriado.
 
-    Se você precisa fornecer seu próprio certificado, será necessário o seguinte certificado:
+    Se você precisa fornecer seu próprio certificado, você precisará de um arquivo PFX no **DependencyFilesLocalPath** (veja abaixo) da seguinte maneira:
 
-    Um certificado curinga para \*.dbadapter.\< região\>.\< fqdn externo\>. Esse certificado deve ser confiável, como seria emitido por uma autoridade de certificação. Ou seja, a cadeia de confiança deve existir sem a necessidade de certificados intermediários. Um certificado de site único pode ser usado com o nome VM explícito [sqladapter] usado durante a instalação.
+    - Um certificado curinga para \*.dbadapter.\< região\>.\< fqdn externo\> ou um certificado de site único com um nome comum de sqladapter.dbadapter.\< região\>.\< fqdn externo\>
+    - Esse certificado deve ser confiável, como seria emitido por uma autoridade de certificação. Ou seja, a cadeia de confiança deve existir sem a necessidade de certificados intermediários.
+    - Somente um arquivo de certificado único existe no DependencyFilesLocalPath.
+    - O nome do arquivo não deve conter caracteres especiais.
 
 
 5. Abra um **novo** console do PowerShell (administrativo) com privilégios elevados e vá para o diretório onde você extraiu os arquivos. Use uma nova janela para evitar problemas que podem surgir de módulos do PowerShell incorretos já carregados no sistema.

@@ -44,6 +44,8 @@
       href: time-series-insights-send-events.md
     - name: Dimensione seu ambiente
       href: time-series-insights-how-to-scale-your-environment.md
+    - name: Gerenciar recursos usando modelos
+      href: time-series-insights-manage-resources-using-azure-resource-manager-template.md
 - name: Referência
   items:
     - name: API de Consulta
