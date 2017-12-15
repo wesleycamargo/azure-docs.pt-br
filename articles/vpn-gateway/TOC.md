@@ -75,6 +75,7 @@
 ## Configurar dispositivos VPN de terceiros
 ### [Configuração de visão geral e do Azure](vpn-gateway-3rdparty-device-config-overview.md)
 ### [Exemplo: dispositivo Cisco ASA (IKEv2/no BGP)](vpn-gateway-3rdparty-device-config-cisco-asa.md)
+## [Clássico para migração do Gerenciador de Recursos](vpn-gateway-classic-resource-manager-migration.md)
 ## Solucionar problemas
 ### [Validar a taxa de transferência VPN em uma VNet](vpn-gateway-validate-throughput-to-vnet.md)
 ### [VPN sugerida pela comunidade ou configurações do dispositivo de firewall](vpn-gateway-third-party-settings.md)
@@ -92,7 +93,8 @@
 
 # Relacionados
 ## [Rede Virtual](/azure/virtual-network/)
-## [Application Gateway](/azure/application-gateway/)
+## [Gateway de Aplicativo
+](/azure/application-gateway/)
 ## [DNS do Azure](/azure/dns/)
 ## [Gerenciador de Tráfego](/azure/traffic-manager/)
 ## [Balanceador de Carga](/azure/load-balancer/)

@@ -85,6 +85,7 @@
 ## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=expressroute)
 ## [SLA](https://azure.microsoft.com/support/legal/sla/)
 ## [Limites de Serviço e Assinatura](../azure-subscription-service-limits.md?toc=%2fazure%2fexpressroute%2ftoc.json)
+## [ExpressRoute para Provedores de Soluções na Nuvem (CSP)](expressroute-for-cloud-solution-providers.md)
 ## [Vídeos](https://azure.microsoft.com/documentation/videos/index/?services=expressroute)
 ### [Conectar um gateway de rede virtual a um circuito](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit/)
 ### [Criar uma rede virtual para o ExpressRoute](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-virtual-network/)

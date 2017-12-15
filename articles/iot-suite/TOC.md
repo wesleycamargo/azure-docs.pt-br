@@ -71,6 +71,7 @@
 ### [Implantar um gateway da fábrica conectada](iot-suite-connected-factory-gateway-deployment.md)
 ### [Personalizar a fábrica conectada](iot-suite-connected-factory-customize.md)
 ### [Usar Editor OPC para fábrica conectada](iot-suite-connected-factory-publisher.md)
+### [Configurar a fábrica conectada](iot-suite-connected-factory-configure.md)
 ## [Permissões no azureiotsuite.com](iot-suite-permissions.md)
 
 # Referência
