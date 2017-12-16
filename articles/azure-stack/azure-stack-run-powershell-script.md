@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/11/2017
+ms.date: 12/15/2017
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 7c320c6ba51ae0800407aab7aee92c42b2b441a7
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 470a45aea253e1e238983527427b600117e413fe
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="deploy-the-azure-stack-development-kit"></a>Implantar o Kit de desenvolvimento de pilha do Azure
 
@@ -104,7 +104,7 @@ Depois de preparar o computador de host ASDK, o ASDK pode ser implantado na imag
 1. Depois que o computador host é inicializado com êxito na imagem de CloudBuilder.vhdx, faça logon usando as credenciais de administrador especificadas nas etapas anteriores. 
 2. Abra um console do PowerShell com privilégios elevados e execute o **\AzureStack_Installer\asdk-installer.ps1** script (que agora pode ser em uma unidade diferente da imagem CloudBuilder.vhdx). Clique em **Instalar**.
 3. No **tipo** caixa de lista suspensa, selecione **nuvem do Azure** ou **do AD FS**.
-    - **Nuvem do Azure**: configura o Azure Active Directory (AD do Azure) como o provedor de identidade. Para usar essa opção, você precisará de uma conexão de internet, o nome completo do AD do Azure locatário de diretório na forma de *domainname*. c o m e credenciais de administrador global para o diretório especificado. 
+    - **Nuvem do Azure**: configura o Azure Active Directory (AD do Azure) como o provedor de identidade. Para usar essa opção, você precisará de uma conexão de internet, o nome completo do AD do Azure locatário de diretório na forma de *domainname*. c o m ou do AD do Azure verificar as credenciais de administrador global e nome de domínio personalizado para o diretório especificado. 
     - **O AD FS**: O carimbo de padrão, o serviço de diretório será usado como o provedor de identidade. É a conta padrão para entrar com azurestackadmin@azurestack.local, e a senha a ser usada é fornecida como parte da instalação.
 4. Em **senha de Administrador Local**, além de **senha** caixa, digite a senha de administrador local (que deve corresponder à senha de administrador local configurado atual) e, em seguida, clique em **Próxima**.
 5. Selecione um adaptador de rede a ser usado para o kit de desenvolvimento e, em seguida, clique em **próximo**.
@@ -206,7 +206,7 @@ Se sua identidade do AD do Azure está associada com **maior do que um** diretó
 cd C:\CloudDeployment\Setup 
 $adminpass = Get-Credential Administrator 
 $aadcred = Get-Credential "<Azure AD global administrator account name>" #Example: user@AADDirName.onmicrosoft.com 
-.\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -InfraAzureDirectoryTenantAdminCredential $aadcred -InfraAzureDirectoryTenantName "<specific Azure AD directory in the form of domainname.onmicrosoft.com>" -TimeServer 52.168.138.145 #Example time server IP address.
+.\InstallAzureStackPOC.ps1 -AdminPassword $adminpass.Password -InfraAzureDirectoryTenantAdminCredential $aadcred -InfraAzureDirectoryTenantName "<Azure AD directory in the form of domainname.onmicrosoft.com or an Azure AD verified custom domain name>" -TimeServer 52.168.138.145 #Example time server IP address.
 ```
 
 Se seu ambiente **não** ter o DHCP habilitado, você deve incluir os seguintes parâmetros adicionais para uma das opções acima (uso de exemplo fornecidos): 
@@ -219,7 +219,7 @@ Se seu ambiente **não** ter o DHCP habilitado, você deve incluir os seguintes 
 |Parâmetro|Obrigatório/Opcional|Descrição|
 |-----|-----|-----|
 |AdminPassword|Obrigatório|Define a conta de administrador local e todas as outras contas de usuário em todas as máquinas virtuais criadas como parte da implantação do kit de desenvolvimento. Esta senha deve corresponder a senha de administrador local atual no host.|
-|InfraAzureDirectoryTenantName|Obrigatório|Define o diretório do locatário. Use esse parâmetro para especificar um diretório específico em que a conta do AAD tem permissões para gerenciar vários diretórios. Nome de um locatário de diretório do AAD no formato completo. c o m.|
+|InfraAzureDirectoryTenantName|Obrigatório|Define o diretório do locatário. Use esse parâmetro para especificar um diretório específico em que a conta do AAD tem permissões para gerenciar vários diretórios. Nome de um locatário de diretório do AAD no formato completo. c o m ou do AD do Azure verificar o nome de domínio personalizado.|
 |TimeServer|Obrigatório|Use esse parâmetro para especificar um servidor de tempo específico. Esse parâmetro deve ser fornecido como um endereço IP do servidor de tempo válido. Não há suporte para nomes de servidor.|
 |InfraAzureDirectoryTenantAdminCredential|Opcional|Define o nome de usuário do Active Directory do Azure e a senha. Essas credenciais do Azure devem ser um ID. Org|
 |InfraAzureEnvironment|Opcional|Selecione o ambiente do Azure com o qual você deseja registrar essa implantação de pilha do Azure. As opções incluem pública do Azure, Azure - China, Azure - governo dos EUA.|
@@ -227,7 +227,7 @@ Se seu ambiente **não** ter o DHCP habilitado, você deve incluir os seguintes 
 |NatIPv4Address|Necessário para suporte de NAT DHCP|Define um endereço IP estático para MAS BGPNAT01. Use esse parâmetro apenas se o DHCP não puder atribuir um endereço IP válido para acessar a Internet.|
 |NatIPv4Subnet|Necessário para suporte de NAT DHCP|Prefixo de sub-rede IP usado para DHCP sobre suporte NAT. Use esse parâmetro apenas se o DHCP não puder atribuir um endereço IP válido para acessar a Internet.|
 |PublicVlanId|Opcional|Define a ID de VLAN. Somente use esse parâmetro se o host e BGPNAT01 MAS deverá configurar o ID de VLAN para acessar a rede física (e Internet). Por exemplo,.\InstallAzureStackPOC.ps1-Verbose - PublicVLan 305|
-|Executar novamente|Opcional|Use este sinalizador para executar novamente a implantação. Todas as entradas anteriores é usada. Inserir novamente dados previamente fornecidos não são suportados porque vários valores exclusivos são gerados e usados para implantação.|
+|Execute novamente|Opcional|Use este sinalizador para executar novamente a implantação. Todas as entradas anteriores é usada. Inserir novamente dados previamente fornecidos não são suportados porque vários valores exclusivos são gerados e usados para implantação.|
 
 ## <a name="activate-the-administrator-and-tenant-portals"></a>Ativar os portais de administrador e locatário
 Depois de implantações que usam o AD do Azure, você deve ativar ambos os portais de administrador e locatário pilha do Azure. Essa ativação consente fornecendo o portal de pilha do Azure e o Azure Resource Manager as permissões corretas (listadas na página de consentimento) para todos os usuários do diretório.

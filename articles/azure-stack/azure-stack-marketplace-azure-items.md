@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/14/2017
 ms.author: JeffGoldner
-ms.openlocfilehash: 939ae243c02eb375251cc4d959ab5d46dc41c040
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 4701891600ab0f3eb6105bec26ca4b911568c4ee
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 12/15/2017
@@ -30,10 +30,13 @@ ms.lasthandoff: 12/15/2017
 
 |  | Nome do item | Descrição | Editor | Tipo de sistema operacional |
 | --- | --- | --- | --- | --- |
+| ![](media/azure-stack-marketplace-azure-items/cse.png) | [Extensão SQL IaaS](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| <b>Baixar essa extensão para implantar qualquer SQL Server no item do Marketplace do Windows - isso é necessário.</b> | Microsoft | Windows |
+| ![](media/azure-stack-marketplace-azure-items/cse.png) | [Extensão do Script personalizado](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/extensions-customscript)| <b>Baixe essa atualização para a versão na caixa da extensão de Script personalizado para Windows.</b> | Microsoft | Windows |
+| ![](media/azure-stack-marketplace-azure-items/dsc.png) | [Extensão de DSC do PowerShell](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-dsc-overview)| <b>Baixe essa atualização para a versão de caixa de entrada da extensão de DSC do PowerShell.</b> | Microsoft | Windows |
+| ![](media/azure-stack-marketplace-azure-items/cse.png) | [Extensão de Antimalware da Microsoft](https://docs.microsoft.com/en-us/azure/security/azure-security-antimalware)| O Antimalware da Microsoft para Azure é uma solução de agente único para aplicativos e ambientes de locatário, projetado para ser executado em segundo plano sem intervenção humana. | Microsoft | Windows |
 | ![](media/azure-stack-marketplace-azure-items/dockerextension.png) | [Docker](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft.docker-arm) | Extensão de docker para máquinas virtuais Linux. | Microsoft | Linux |
-| ![](media/azure-stack-marketplace-azure-items/sql.png) | [Extensão SQL IaaS](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension)| <b>Baixar essa extensão para implantar qualquer SQL Server no item do Marketplace do Windows - isso é necessário.</b> | Microsoft | Windows |
-| ![](media/azure-stack-marketplace-azure-items/acronis.png) | [Extensão Acronis Backup para Windows](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-win-arm) | A extensão de Backup Acronis do Microsoft Azure faz parte da família de produtos de proteção de dados de Acronis Backup. | GmbH internacionais de Acronis. | Windows |
 | ![](media/azure-stack-marketplace-azure-items/acronis.png) | [Extensão de Backup Acronis para Linux](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-lin-arm) | A extensão de Backup Acronis do Microsoft Azure faz parte da família de produtos de proteção de dados de Acronis Backup. | GmbH internacionais de Acronis. | Linux |
+| ![](media/azure-stack-marketplace-azure-items/acronis.png) | [Extensão Acronis Backup para Windows](https://azuremarketplace.microsoft.com/marketplace/apps/Acronis.acronis-backup-win-arm) | A extensão de Backup Acronis do Microsoft Azure faz parte da família de produtos de proteção de dados de Acronis Backup. | GmbH internacionais de Acronis. | Windows |
 | ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Agente do Deep Security para Linux](https://azuremarketplace.microsoft.com/marketplace/apps/TrendMicroDeepSecurity.dsa-linux) | Extensão do Trend Micro Deep Security para Linux. | Trend Micro | Linux |
 | ![](media/azure-stack-marketplace-azure-items/trendmicro.png) | [Agente do Deep Security para Windows](https://azuremarketplace.microsoft.com/marketplace/apps/TrendMicroDeepSecurity.dsa-windows-arm) | Extensão de Micro Deep Security da Trend para Windows. | Trend Micro | Windows |
 

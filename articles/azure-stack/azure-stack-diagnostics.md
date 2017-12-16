@@ -7,14 +7,14 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 12/15/2017
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 16b56c71e2c81bead7c578a973840391996e845b
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: fdbf9b1b77c2c64b3ebfcdbc5463916f317e4881
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Ferramentas de diagnóstico de pilha do Azure
 
@@ -29,11 +29,11 @@ Nossas ferramentas de diagnóstico ajudam a garantir que o mecanismo de coleta d
  
 ## <a name="trace-collector"></a>Coletor de rastreamento
  
-O coletor de rastreamento é habilitado por padrão e é executado continuamente no plano de fundo para coletar todos os logs de rastreamento de eventos para Windows (ETW) de serviços de componentes da pilha do Azure. Logs do ETW são armazenados em um compartilhamento local comum com um limite de duração de cinco dias. Quando esse limite é atingido, os arquivos mais antigos são excluídos conforme novos arquivos serão criados. O tamanho máximo padrão permitido para cada arquivo é de 200MB. Uma verificação de tamanho ocorre periodicamente (a cada 2 minutos) e se o arquivo atual > = 200 MB, ele será salvo e um novo arquivo é gerado. Também há um limite de 8GB no tamanho total do arquivo gerado por sessão de evento. 
+O coletor de rastreamento é habilitado por padrão e é executado continuamente no plano de fundo para coletar todos os logs de rastreamento de eventos para Windows (ETW) de serviços de componentes da pilha do Azure. Logs do ETW são armazenados em um compartilhamento local comum com um limite de duração de cinco dias. Quando esse limite é atingido, os arquivos mais antigos são excluídos conforme novos arquivos serão criados. O tamanho máximo padrão permitido para cada arquivo é de 200 MB. Uma verificação de tamanho ocorre a cada 2 minutos, e se o arquivo atual > = 200 MB, ele será salvo e um novo arquivo é gerado. Também há um limite de 8 GB no tamanho total do arquivo gerado por sessão de evento. 
 
 ## <a name="log-collection-tool"></a>Ferramenta de coleta de log
  
-O cmdlet do PowerShell **Get-AzureStackLog** pode ser usado para coletar logs de todos os componentes em um ambiente de pilha do Azure. Ele os salva em arquivos zip em um local definido pelo usuário. Se precisar de nossa equipe de suporte técnico os logs para ajudar a solucionar um problema, eles podem solicitar que você executar essa ferramenta.
+O cmdlet do PowerShell **Get-AzureStackLog** pode ser usado para coletar logs de todos os componentes em um ambiente de pilha do Azure. Ele os salva em arquivos zip em um local definido pelo usuário. Se a equipe de suporte técnico de pilha do Azure precisa de logs para ajudar a solucionar um problema, eles podem solicitar que você execute essa ferramenta.
 
 > [!CAUTION]
 > Esses arquivos de log podem conter informações de identificação pessoal (PII). Leve isso em consideração antes de lançar publicamente os arquivos de log.
@@ -136,11 +136,11 @@ if($s)
 
 
 ### <a name="collect-logs-using-a-graphical-user-interface"></a>Coletar logs usando a interface gráfica do usuário
-Em vez de fornecer os parâmetros necessários para o cmdlet Get-AzureStackLog recuperar os logs de pilha do Azure, você também pode aproveitar as ferramentas de pilha do Azure de código aberto disponíveis localizadas na pilha do Azure ferramentas GitHub repositório principal no http://aka.ms/AzureStackTools.
+Em vez de fornecer os parâmetros necessários para o cmdlet Get-AzureStackLog recuperar os logs de pilha do Azure, você também pode aproveitar as ferramentas de pilha do Azure de código aberto disponíveis localizadas na pilha do Azure ferramentas GitHub ferramentas repositório principal no http://aka.ms/AzureStackTools.
 
-O **ERCS_AzureStackLogs.ps1** script do PowerShell é armazenado no repositório GitHub ferramentas e é atualizado regularmente. O script iniciado a partir de uma sessão do PowerShell administrativa, conecta-se ao ponto de extremidade com privilégios e executa o Get-AzureStackLog com parâmetros fornecidos. Se nenhum parâmetro for fornecido, o script padrão será solicitar parâmetros por meio de uma interface gráfica do usuário.
+O **ERCS_AzureStackLogs.ps1** script do PowerShell é armazenado no repositório GitHub ferramentas e é atualizado regularmente. Para garantir que você tem a versão mais recente disponível, você deve baixá-lo diretamente do http://aka.ms/ERCS. O script iniciado a partir de uma sessão do PowerShell administrativa, conecta-se ao ponto de extremidade com privilégios e executa o Get-AzureStackLog com parâmetros fornecidos. Se nenhum parâmetro for fornecido, o script padrão para solicitar parâmetros por meio de uma interface gráfica do usuário.
 
-Para saber mais sobre o PowerShell ERCS_AzureStackLogs.ps1 script que você pode assistir [um breve vídeo](https://www.youtube.com/watch?v=Utt7pLsXEBc) ou exibir o script [arquivo Leiame](https://github.com/Azure/AzureStack-Tools/blob/master/Support/ERCS_Logs/ReadMe.md) localizado no repositório do GitHub de ferramentas de pilha do Azure. 
+Para saber mais sobre o script do PowerShell ERCS_AzureStackLogs.ps1, você pode assistir [um breve vídeo](https://www.youtube.com/watch?v=Utt7pLsXEBc) ou exibir o script [arquivo Leiame](https://github.com/Azure/AzureStack-Tools/blob/master/Support/ERCS_Logs/ReadMe.md) localizado no repositório do GitHub de ferramentas de pilha do Azure. 
 
 ### <a name="additional-considerations"></a>Considerações adicionais
 
