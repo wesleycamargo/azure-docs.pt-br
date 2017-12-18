@@ -1,6 +1,6 @@
 ---
 title: "Passo a passo da solução de fábrica conectada - Azure | Microsoft Docs"
-description: "Uma descrição da fábrica conectada da solução pré-configurada de do Azure e sua arquitetura."
+description: "Uma descrição da fábrica conectada da solução pré-configurada do IoT do Azure e sua arquitetura."
 services: 
 suite: iot-suite
 documentationcenter: 
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2017
+ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 237ca28c699984e89127a95b2141fe9131ad868c
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: 88fe50460baf8b7180da113b33a03120f39cf44f
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="connected-factory-preconfigured-solution-walkthrough"></a>Passo a passo de solução pré-configurada de fábrica conectada
 
@@ -169,7 +169,7 @@ O aplicativo Web implantado como parte da solução pré-configurada é composto
 11. O navegador da Web se conecta ao WebApp da fábrica conectada.
     - Renderiza o painel da fábrica conectada.
     - Conecta-se via HTTPS.
-    - O acesso ao Aplicativo da fábrica de conectada aplicativo requer a autenticação do usuário por meio do Azure Active Directory.
+    - O acesso ao Aplicativo da fábrica conectada requer a autenticação do usuário por meio do Azure Active Directory.
     - Qualquer chamada do WebApi para o aplicativo da fábrica conectada é protegida por Anti-Forgery-Tokens.
 
 12. Nas atualizações de dados, o WebApp da fábrica conectada envia dados atualizados para o navegador da Web.
@@ -190,7 +190,7 @@ O aplicativo Web implantado como parte da solução pré-configurada é composto
     - Lê todos os dispositivos conhecidos do Hub IoT.
     - Usa MQTT sobre TLS sobre Socket ou Secure Websocket.
 
-3. O navegador da Web conecta-se ao WebApp da fábrica conectada e renderiza o painel de fábrica conectado.
+3. O navegador da Web conecta-se ao WebApp da fábrica conectada e renderiza o painel da fábrica conectada.
     - Usa HTTPS.
     - Um usuário seleciona um servidor de agente do usuário de OPC para se conectar-se a ele.
 
@@ -199,7 +199,7 @@ O aplicativo Web implantado como parte da solução pré-configurada é composto
 
 5. O transporte de proxy de OPC recebe uma solicitação da pilha de agente do usuário de OPC para estabelecer uma conexão de soquete TCP ao servidor de agente do usuário de OPC.
     - Ele apenas recupera o conteúdo de TCP e usa-o inalterado.
-    - Esta etapa é interna para a WebApp da fábrica conectada.
+    - Essa etapa é interna no WebApp da fábrica conectada.
 
 6. O proxy de OPC (componente do cliente) procura o dispositivo de Proxy de OPC (componente do servidor) no registro de dispositivo do Hub IoT. Em seguida, chama um método de dispositivo do dispositivo do proxy de OPC (componente do servidor) no Hub IoT.
     - Usa HTTPS sobre TCP/TLS para procurar o proxy de OPC.
@@ -232,7 +232,7 @@ O aplicativo Web implantado como parte da solução pré-configurada é composto
 Você pode continuar a introdução ao IoT Suite lendo os seguintes artigos:
 
 * [Permissões no site azureiotsuite.com][lnk-permissions]
-* [Implantar um gateway no Windows ou Linux para a solução pré-configurada de fábrica conectada](iot-suite-connected-factory-gateway-deployment.md)
+* [Implantar um gateway no Windows ou Linux para a solução pré-configurada da fábrica conectada](iot-suite-connected-factory-gateway-deployment.md)
 * [Implementação de referência do Publicador de OPC](iot-suite-connected-factory-publisher.md).
 
 [connected-factory-logical]:media/iot-suite-connected-factory-walkthrough/cf-logical-architecture.png

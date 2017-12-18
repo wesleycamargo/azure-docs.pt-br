@@ -3,7 +3,7 @@ title: "Como criar conta autônoma de automação do Azure | Microsoft Docs"
 description: "Tutorial que explica a criação, os testes e o uso de exemplo da autenticação de entidade de segurança na Automação do Azure."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: 
 ms.assetid: 2f783441-15c7-4ea0-ba27-d7daa39b1dd3
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/18/2017
 ms.author: magoedte
-ms.openlocfilehash: e3c18c7886c8338efc6168464b63a9557909a769
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dc4bfa4a94eaa2fb4e0e821c4931dcd1963f3109
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Como criar conta autônoma de automação do Azure
 Este tópico mostra como criar uma conta de automação no portal do Azure, se desejar avaliar e aprender a automação do Azure sem incluir a integração com o Log Analytics do OMS para fornecer monitoramento avançado de trabalhos de runbook ou soluções de gerenciamento adicionais.  Você pode adicionar essas soluções de gerenciamento ou integrar o Log Analytics a qualquer momento no futuro.  Com a conta de automação, você será capaz de autenticar runbooks gerenciamento de recursos no Azure Resource Manager ou implantação clássica do Azure.
@@ -86,7 +86,7 @@ A tabela a seguir resume os recursos para a conta Executar como Clássica.<br>
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* Para saber mais sobre a autorização gráfica, confira [Criação gráfica na automação do Azure](automation-graphical-authoring-intro.md).
+* Para saber mais sobre a criação gráfica, confira [Criação gráfica na Automação do Azure](automation-graphical-authoring-intro.md).
 * Para começar a usar os runbooks do PowerShell, confira [Meu primeiro runbook do PowerShell](automation-first-runbook-textual-powershell.md).
 * Para começar a usar os runbooks do fluxo de trabalho do PowerShell, veja [Meu primeiro runbook do fluxo de trabalho do PowerShell](automation-first-runbook-textual.md).
 * Para começar a usar runbooks Python2, veja [Meu primeiro runbook Python2](automation-first-runbook-textual-python2.md).

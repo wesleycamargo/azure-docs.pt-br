@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/18/2017
+ms.date: 12/13/2017
 ms.author: yurid
-ms.openlocfilehash: e68ec1b7d82a0e1d98953521b05f423044e6d2f2
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 71dcafab92a9045388c2e602c0dc297aed32e527
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="adaptive-application-controls-in-azure-security-center-preview"></a>Controles de aplicativo adaptáveis na Central de Segurança do Azure (Versão prévia)
 Saiba como configurar o controle de aplicativo na Central de Segurança do Azure usando este passo a passo.
@@ -32,9 +32,6 @@ Os controles de aplicativo adaptáveis ajudam a controlar quais aplicativos pode
 - Evite a execução de aplicativos antigos e sem suporte.
 - Impeça o uso de ferramentas de software específicas que não são permitidas em sua organização.
 - Habilite a TI a controlar o acesso a dados confidenciais pelo uso do aplicativo.
-
-> [!NOTE]
-> Os Controles de aplicativo adaptáveis estão disponíveis aos clientes Standard da Central de Segurança do Azure como uma versão prévia pública limitada. Envie um email com suas IDs de assinatura para [nós](mailto:ASC_appcontrol@microsoft.com) para ingressar na visualização.
 
 ## <a name="how-to-enable-adaptive-application-controls"></a>Como habilitar os controles de aplicativo adaptáveis?
 Os controles de aplicativo adaptáveis o ajudam a definir um conjunto de aplicativos que podem ser executados em grupos de recursos configurados. Este recurso só está disponível para computadores Windows (todas as versões, clássica ou Azure Resource Manager). As etapas a seguir podem ser usadas para configurar a lista de permissões de aplicativos na Central de Segurança:
@@ -72,7 +69,7 @@ Em **Selecionar VMs**, revise a lista de VMs recomendadas e desmarque as que nã
 
 - **NOME**: o caminho completo do aplicativo
 - **PROCESSOS**: quantos aplicativos residem em cada caminho
-- **COMUNS**: verdadeiro indica que esses processos foram executados na maioria das VMs no grupo de recursos.
+- **COMUNS**: “Sim” indica que esses processos foram executados na maioria das VMs no grupo de recursos.
 - **EXPLORÁVEL**: um ícone de aviso indica se os aplicativos podem ser usados por um invasor para ignorar a lista de permissões de aplicativos. É recomendável examinar esses aplicativos antes da aprovação. 
 
 Depois de concluir suas seleções, clique no botão **Criar**. Por padrão, a Central de Segurança sempre habilita o controle de aplicativo no modo *Auditoria*. Após verificar que a lista de permissões não tem nenhum efeito adverso sobre sua carga de trabalho, você pode alterar para o modo *Impor*.

@@ -3,7 +3,7 @@ title: "Introdução à Automação do Azure | Microsoft Docs"
 description: "Este artigo fornece uma visão geral do serviço de Automação do Azure, revisando o design e os detalhes de implementação na preparação para carregar a oferta do Azure Marketplace."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/31/2017
 ms.author: magoedte
-ms.openlocfilehash: 486e2b2da7a78cdc39743e60f4140fc58275a8fc
-ms.sourcegitcommit: 9c3150e91cc3075141dc2955a01f47040d76048a
+ms.openlocfilehash: 2a57b60a2222d6e2ea864410edc6a32a0bf0c76c
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="getting-started-with-azure-automation"></a>Introdução à Automação do Azure
 
@@ -112,7 +112,7 @@ A tabela a seguir resume os métodos de autenticação diferentes para cada ambi
 A seção **Como\Autenticação e segurança**, oferece suporte a artigos fornecendo etapas de visão geral e implementação para configurar a autenticação para esses ambientes, seja com uma conta existente ou nova que você dedica para esse ambiente.  Para a conta Executar como do Azure e Executar como clássica, o tópico [Atualização da Conta de automação Executar como](automation-create-runas-account.md) descreve como atualizar sua conta de automação existente com as contas Executar como a partir do portal ou usando o PowerShell se ele não foi originalmente configurado com uma conta Executar como ou Executar como clássica. Se você quiser criar uma conta Executar como e uma conta Executar como clássica com um certificado emitido por sua autoridade de certificação corporativa (CA), examine este artigo para saber como criar contas usando esta configuração.     
  
 ## <a name="network-planning"></a>Planejamento da rede
-Para que o Hybrid Runbook Worker local se conecte e se registre no serviço OMS (Microsoft Operations Management Suite), ele deve ter acesso ao número da porta e às URLs descritas abaixo.  Isso é um adendo às [portas e URLs necessárias para que o Microsoft Monitoring Agent](../log-analytics/log-analytics-windows-agents.md#network) se conecte ao OMS. Se você usar um servidor proxy para comunicação entre o agente e o serviço do OMS, será necessário garantir que os recursos apropriados estejam acessíveis. Se você usar um firewall para restringir o acesso à Internet, precisará configurar o firewall para permitir o acesso.
+Para que o Hybrid Runbook Worker local se conecte e se registre no serviço OMS (Microsoft Operations Management Suite), ele deve ter acesso ao número da porta e às URLs descritas abaixo.  Isso é um adendo às [portas e URLs necessárias para que o Microsoft Monitoring Agent](../log-analytics/log-analytics-windows-agent.md) se conecte ao OMS. Se você usar um servidor proxy para comunicação entre o agente e o serviço do OMS, será necessário garantir que os recursos apropriados estejam acessíveis. Se você usar um firewall para restringir o acesso à Internet, precisará configurar o firewall para permitir o acesso.
 
 As informações a seguir listam a porta e as URLs que são necessárias para que o Hybrid Runbook Worker se comunique com a Automação.
 
@@ -161,7 +161,7 @@ O método recomendado para a automação integrada é selecionando a oferta de A
 
 2. Clique em **Novo**.<br><br> ![Selecione a opção Novo no portal do Azure](media/automation-offering-get-started/automation-portal-martketplacestart.png)<br>  
 
-3. Procure **Automação** e, em seguida, nos resultados da pesquisa selecione **Automação e controle***.<br><br> ![Pesquise e selecione Automação e controle no Marketplace](media/automation-offering-get-started/automation-portal-martketplace-select-automationandcontrol.png).<br>   
+3. Procure **Automação** e, em seguida, nos resultados da pesquisa selecione **Automação e controle***.<br><br> ![Pesquise e selecione Automação e Controle no Marketplace](media/automation-offering-get-started/automation-portal-martketplace-select-automationandcontrol.png).<br>   
 
 4. Depois de ler a descrição para a oferta, clique em **Criar**.  
 

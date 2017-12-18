@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2017
+ms.date: 12/06/2017
 ms.author: yurid
-ms.openlocfilehash: 72a3e1eafb6f4150d8410fdd5a7a6095909c052d
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: c41e233e177f540562d80649c7bffc15e208e870
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-security-center-data-security"></a>Segurança dos Dados da Central de Segurança do Azure
 Para ajudar os clientes a evitarem, detectarem e responderem às ameaças, a Central de Segurança do Azure coleta e processa dados relacionados à segurança, incluindo informações da configuração, metadados, logs de eventos, arquivos de despejo corrompidos e mais. A Microsoft obedece às diretrizes rígidas de conformidade e segurança — da codificação à operação de um serviço.
@@ -69,6 +69,16 @@ Quando você escolhe habilitar a Central de Segurança no Azure, a coleta de dad
 
 Se você estiver usando a Central de Segurança do Azure Gratuita, também poderá desabilitar a coleta de dados de máquinas virtuais na Política de Segurança. A Coleta de Dados é necessária para as assinaturas na camada Standard. Os instantâneos de disco da VM e a coleção de artefatos ainda serão habilitados mesmo que a coleta de dados tenha sido desabilitada.
 
+## <a name="data-consumption"></a>Consumo de Dados
+
+Os clientes podem consumir dados relacionados à Central de Segurança de diferentes fluxos de dados, conforme mostrado abaixo:
+
+* **Atividade do Azure**: todos os alertas de segurança, as solicitações [just in time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time) aprovadas da Central de Segurança e todos os alertas gerados por [controles de aplicativo adaptável](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application).
+* **Log Analytics**: todos os alertas de segurança.
+
+
+> [!NOTE]
+> Recomendações de segurança também podem ser consumidas por meio da API REST. Leia [Referência da API REST do provedor de recursos de segurança](https://msdn.microsoft.com/library/mt704034(Azure.100).aspx) para obter mais informações. 
 
 ## <a name="see-also"></a>Consulte também
 Neste documento, você aprendeu como os dados são gerenciados e protegidos na Central de Segurança do Azure. Para saber mais sobre a Central de Segurança do Azure, consulte:

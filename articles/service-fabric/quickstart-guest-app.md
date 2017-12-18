@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 06/13/2017
+ms.date: 12/06/2017
 ms.author: adegeo
-ms.openlocfilehash: f63cf0baf7636d0294ced7c2dc6b3112fa9900ee
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 304d22c14f6877138213db14333773f1e293c57a
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="host-a-nodejs-application-on-azure-service-fabric"></a>Hospedar um aplicativo Node.js no Azure Service Fabric
 
@@ -43,7 +43,7 @@ No diálogo **Novo Projeto**, escolha **Cloud > Aplicativo do Service Fabric**.
 Nomeie o aplicativo **MyGuestApp** e pressione **OK**.
 
 >[!IMPORTANT]
->O Node.js pode interromper o limite de 260 caracteres para caminhos do Windows facilmente. Use um caminho curto para o projeto, como **c:\code\svc1**. Opcionalmente, você pode seguir [estas instruções](https://stackoverflow.com/a/41687101/1664231) para habilitar caminhos de arquivo longos no Windows 10.
+>O Node.js pode interromper o limite de 260 caracteres para caminhos do Windows facilmente. Use um caminho curto para o projeto, como **c:\code\svc1**. Como opção, você pode seguir **[estas instruções](https://stackoverflow.com/a/41687101/1664231)** para habilitar caminhos de arquivo longos no Windows 10.
    
 ![Caixa de diálogo Novo projeto no Visual Studio][new-project]
 

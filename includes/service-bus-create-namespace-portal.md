@@ -3,7 +3,7 @@ Para começar a usar as entidades de mensagens do Barramento de Serviço no Azur
 Para criar um namespace:
 
 1. Faça logon no [Portal do Azure][Azure portal].
-2. No painel de navegação esquerdo do portal, clique em **Novo**, depois em **Integração Corporativa** e em **Barramento de Serviço**.
+2. No painel de navegação esquerdo do portal, clique em **+ Criar um recurso**, depois em **Integração Corporativa** e em **Barramento de Serviço**.
 3. Na caixa de diálogo **Criar um namespace** , digite um nome de namespace. O sistema imediatamente verifica para ver se o nome está disponível.
 4. Depois de verificar se o nome do namespace está disponível, escolha o tipo de preço (Básico, Standard ou Premium).
 5. No campo **Assinatura** , escolha uma assinatura do Azure na qual criar o namespace.
@@ -14,14 +14,14 @@ Para criar um namespace:
 8. Clique em **Criar**. Agora, o sistema cria o seu namespace e o habilita. Talvez você precise aguardar vários minutos, conforme o sistema fornece recursos para sua conta.
 
 ### <a name="obtain-the-management-credentials"></a>Obter as credenciais de gerenciamento
-A criação de um novo namespace gerará automaticamente uma regra de SAS (assinatura de acesso compartilhado) inicial com um par de chaves primárias e secundárias associado que concede controle total sobre todos os aspectos do namespace. Confira [Autenticação e autorização do Barramento de Serviço](../articles/service-bus-messaging/service-bus-authentication-and-authorization.md) para saber como criar regras adicionais com direitos mais restritos para remetentes e destinatários regulares. Para copiar a regra inicial, siga estas etapas: 
+A criação de um novo namespace gera automaticamente uma regra de SAS (assinatura de acesso compartilhado) inicial com um par de chaves primárias e secundárias associado que concede, cada um, controle total sobre todos os aspectos do namespace. Consulte [Autenticação e autorização do Barramento de Serviço](../articles/service-bus-messaging/service-bus-authentication-and-authorization.md) para obter mais informações sobre como criar regras adicionais com direitos mais restritos para remetentes e destinatários regulares. Para copiar a regra inicial, siga estas etapas: 
 
 1. Na lista de namespaces, clique no nome do namespace recém-criado.
-2. Na folha namespace, clique em **Políticas de acesso compartilhado**.
-3. Na folha **Políticas de acesso compartilhado**, clique em **RootManageSharedAccessKey**.
+2. Na janela namespace, clique em **Políticas de acesso compartilhado**.
+3. Na tela **Políticas de acesso compartilhado**, clique em **RootManageSharedAccessKey**.
    
     ![informações de conexão][connection-info]
-4. Na folha **Política: RootManageSharedAccessKey**, clique no botão copiar ao lado da **Chave primária da cadeia de conexão** para copiar a cadeia de conexão na área de transferência para uso posterior. Cole esse valor no Bloco de notas ou em outro local temporário.
+4. Na janela **Política: RootManageSharedAccessKey**, clique no botão copiar ao lado da **Chave primária da cadeia de conexão** para copiar a cadeia de conexão na área de transferência para uso posterior. Cole esse valor no Bloco de notas ou em outro local temporário.
    
     ![connection-string][connection-string]
 

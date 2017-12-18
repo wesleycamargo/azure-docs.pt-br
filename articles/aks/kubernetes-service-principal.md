@@ -9,15 +9,15 @@ ms.topic: get-started-article
 ms.date: 11/30/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: a217f4cc8ac18888de8dfa803b4b8667a566dc0b
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 23d59d37e25775f67d01813bbf53d150f1973622
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="service-principals-with-azure-container-service-aks"></a>Entidades de serviço com o Serviço de Contêiner do Azure (AKS)
 
-Um cluster AKS requer uma [entidade de serviço do Azure Active Directory](../active-directory/develop/active-directory-application-objects.md) para interagir com as APIs do Azure. A entidade de serviço é necessária para gerenciar dinamicamente recursos como [rotas definidas pelo usuário](../virtual-network/virtual-networks-udr-overview.md) e o [Azure Load Balancer da Camada 4](../load-balancer/load-balancer-overview.md).
+Um cluster AKS requer uma [entidade de serviço do Azure Active Directory][aad-service-principal] para interagir com as APIs do Azure. A entidade de serviço é necessária para gerenciar dinamicamente recursos como [rotas definidas pelo usuário][user-defined-routes] e o [Azure Load Balancer da Camada 4][azure-load-balancer-overview].
 
 Este artigo mostra diferentes opções para configurar uma entidade de serviço para o cluster Kubernetes no AKS.
 
@@ -26,7 +26,7 @@ Este artigo mostra diferentes opções para configurar uma entidade de serviço 
 
 Para criar uma entidade de serviço do Azure AD, você deve ter permissões para registrar um aplicativo com o locatário do Azure AD e para atribuir o aplicativo a uma função em sua assinatura. Se você não tiver as permissões necessárias, talvez precise solicitar ao administrador do seu Azure Ad ou assinatura que atribua as permissões necessárias ou pré-crie uma entidade de serviço para o cluster Kubernetes.
 
-Você também precisa da CLI do Azure versão 2.0.21 ou posterior instalada e configurada. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI do Azure](/cli/azure/install-azure-cli).
+Você também precisa da CLI do Azure versão 2.0.21 ou posterior instalada e configurada. Execute `az --version` para encontrar a versão. Se precisar instalar ou atualizar, consulte [Instalar a CLI do Azure][install-azure-cli].
 
 ## <a name="create-sp-with-aks-cluster"></a>Criar SP com cluster AKS
 
@@ -44,7 +44,7 @@ Uma entidade de serviço existente do Azure AD pode ser usada ou criada previame
 
 ## <a name="pre-create-a-new-sp"></a>Pré-criar um novo SP
 
-Para criar a entidade de serviço com a CLI do Azure, use o comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac).
+Para criar a entidade de serviço com a CLI do Azure, use o comando [az ad sp create-for-rbac][az-ad-sp-create].
 
 ```azurecli
 az ad sp create-for-rbac --skip-assignment
@@ -83,7 +83,7 @@ Ao trabalhar com entidades de serviço AKS e do Azure AD, tenha em mente o segui
 * Ao especificar a **ID do cliente** da entidade de serviço, você pode usar o valor de `appId` (conforme mostrado neste artigo) ou `name` da entidade de serviço correspondente (por exemplo, `https://www.contoso.org/example`).
 * Nas VMs mestre e de nó no cluster Kubernetes, as credenciais de entidade de serviço são armazenadas no arquivo `/etc/kubernetes/azure.json`.
 * Se você usar o comando `az aks create` para gerar a entidade de serviço automaticamente, as credenciais da entidade de serviço serão gravadas no arquivo `~/.azure/acsServicePrincipal.json` no computador usado para executar o comando.
-* Quando você usa o comando `az aks create` para gerar a entidade de serviço automaticamente, ela também pode autenticar com um [registro de contêiner do Azure](../container-registry/container-registry-intro.md) criado na mesma assinatura.
+* Quando você usa o comando `az aks create` para gerar a entidade de serviço automaticamente, ela também pode autenticar com um [registro de contêiner do Azure][acr-into] criado na mesma assinatura.
 * Ao excluir um cluster AKS que foi criado por `az aks create`, a entidade de serviço que foi criada automaticamente não será excluída. Você pode usar `az ad sp delete --id $clientID` para excluí-la.
 
 ## <a name="next-steps"></a>Próximas etapas
@@ -91,4 +91,13 @@ Ao trabalhar com entidades de serviço AKS e do Azure AD, tenha em mente o segui
 Para saber mais sobre entidades de serviço do Azure Active Directory, veja a documentação de aplicativos do Azure AD.
 
 > [!div class="nextstepaction"]
-> [Objetos de aplicativo e entidade de serviço](../active-directory/develop/active-directory-application-objects.md)
+> [Objetos de aplicativo e entidade de serviço][service-principal]
+
+<!-- LINKS - internal -->
+[aad-service-principal]: ../active-directory/develop/active-directory-application-objects.md
+[acr-intro]: ../container-registry/container-registry-intro.md
+[az-ad-sp-create]: /cli/azure/ad/sp#az_ad_sp_create_for_rbac
+[azure-load-balancer-overview]: ../load-balancer/load-balancer-overview.md
+[install-azure-cli]: /cli/azure/install-azure-cli
+[service-principal]: ../active-directory/develop/active-directory-application-objects.md
+[user-defined-routes]: ../load-balancer/load-balancer-overview.md

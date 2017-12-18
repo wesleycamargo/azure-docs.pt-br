@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/11/2017
 ms.author: bwren
-ms.openlocfilehash: 76f69946724b5297b1f9a1f715819c69c4a4a51d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fb4e9150c1069d48399fb217f865b294ccd317dc
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="oms-architecture"></a>Arquitetura do OMS
 O [OMS (Operations Management Suite)](https://azure.microsoft.com/documentation/services/operations-management-suite/) é uma coleção de serviços baseados em nuvem para gerenciar seus ambientes locais e na nuvem.  Este artigo descreve os diferentes componentes locais e na nuvem do OMS e sua arquitetura de computação em nuvem de alto nível.  Consulte a documentação de cada serviço para obter mais detalhes.
 
 ## <a name="log-analytics"></a>Log Analytics
-Todos os dados coletados pelo [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) são armazenados no repositório do OMS, que é hospedado no Azure.  As Fontes Conectadas geram os dados coletados no repositório do OMS.  Atualmente, há três tipos de fontes conectadas com suporte.
+Todos os dados coletados pelo [Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) são armazenados no repositório do OMS, que fica hospedado no Azure.  As Fontes Conectadas geram os dados coletados no repositório do OMS.  Atualmente, há três tipos de fontes conectadas com suporte.
 
-* Um agente instalado em um computador com [Windows](../log-analytics/log-analytics-windows-agents.md) ou [Linux](../log-analytics/log-analytics-linux-agents.md) conectado diretamente ao OMS.
-* Um grupo de gerenciamento do SCOM (System Center Operations Manager) [conectado ao Log Analytics](../log-analytics/log-analytics-om-agents.md) .  Os agentes do SCOM continuam se comunicando com servidores de gerenciamento que encaminham eventos e dados de desempenho para o Log Analytics.
+* Um agente instalado em um computador com [Windows](../log-analytics/log-analytics-windows-agent.md) ou [Linux](../log-analytics/log-analytics-linux-agents.md) conectado diretamente ao OMS.
+* Um grupo de gerenciamento do SCOM (System Center Operations Manager) [conectado ao Log Analytics](../log-analytics/log-analytics-om-agents.md) .  Os agentes do SCOM continuam se comunicando com servidores de gerenciamento, os quais encaminham eventos e dados de desempenho para o Log Analytics.
 * Uma [conta de armazenamento do Azure](../log-analytics/log-analytics-azure-storage.md) que coleta dados do [Diagnóstico do Azure](../cloud-services/cloud-services-dotnet-diagnostics.md) por meio de uma função de trabalho, função web ou máquina virtual no Azure.
 
 As fontes de dados definem os dados coletados pelo Log Analytics de fontes conectadas, incluindo logs de eventos e contadores de desempenho.  As soluções adicionam funcionalidade ao OMS e podem ser facilmente adicionadas ao seu espaço de trabalho por meio da [Galeria de Soluções do OMS](../log-analytics/log-analytics-add-solutions.md).  Algumas soluções podem exigir uma conexão direta ao Log Analytics por meio de agentes do SCOM, enquanto outras podem exigir a instalação de um agente adicional.
@@ -52,7 +52,7 @@ O Backup do Azure apresenta três cenários fundamentais.
 
 * Computador com Windows com o agente do Backup do Azure.  Isso permite que você faça backup de arquivos e pastas por meio de qualquer servidor ou cliente Windows diretamente em seu cofre de backup do Azure.  
 * DPM (System Center Data Protection Manager) ou Servidor de Backup do Microsoft Azure. Isso permite que você aproveite o DPM ou o Servidor de Backup do Microsoft Azure para fazer backup de arquivos e pastas, além de cargas de trabalho do aplicativo, como SQL e SharePoint, no armazenamento local e, em seguida, replicá-los em seu cofre de backup do Azure.
-* Extensões da Máquina Virtual do Azure.  Isso permite que você faça backup de máquinas virtuais do Azure em seu cofre de backup do Azure.
+* Extensões da Máquina Virtual do Azure.  Isso permite que você faça backup de máquinas virtuais do Azure para seu cofre de backup do Azure.
 
 O Backup do Azure traz uma solução do OMS que exibe estatísticas e links para iniciar o portal do Azure para qualquer operação.
 

@@ -5,7 +5,7 @@ services: active-directory
 keywords: 
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: sahenry
 ms.assetid: f8cd7e68-2c8e-4f30-b326-b22b16de9787
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.topic: get-started-article
 ms.date: 11/16/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 4e2f788f4e4dfd013754925d8f6dbc3bf35b1a91
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 79089f09342f520f7d43115cc606d794db6c1602
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-successfully-roll-out-self-service-password-reset"></a>Como distribuir com sucesso a redefinição de senha de autoatendimento
 
@@ -37,6 +37,10 @@ Para garantir uma distribuição uniforme da funcionalidade de autoatendimento d
 9. Determine quando você deseja impor o registro. Você pode optar por impor o registro a qualquer momento. Você também pode exigir que os usuários confirmem novamente as informações de autenticação após um período determinado.
 10. Usar o recurso de geração de relatórios. Ao longo do tempo, você pode examinar o registro de usuários e o uso com o [recurso de geração de relatórios que o Azure AD fornece](active-directory-passwords-reporting.md).
 11. Habilitar a redefinição de senha. Quando você estiver pronto, habilite a redefinição de senha para todos os usuários definindo a opção **Autoatendimento Redefinição de Senha Habilitado** como **Todos**. 
+
+   > [!NOTE]
+   > Alterar essa opção de um grupo selecionado para qualquer pessoa não invalida os dados de autenticação existentes que um usuário registrou como parte de um grupo de teste. Usuários que estão configurados e têm dados de autenticação registrados válidos continuam a funcionar.
+
 12. [Permitir que os usuários do Windows 10 redefinam sua senha na tela de logon](active-directory-passwords-login.md).
 
    > [!IMPORTANT]
@@ -56,9 +60,9 @@ Muitos clientes acham que a maneira mais fácil de fazer com que os usuários us
 
 Muitos clientes preferem hospedar uma página e criar uma entrada DNS raiz, como https://passwords.contoso.com. Eles preenchem a página com links para as seguintes informações:
 
-* [Portal de redefinição de senha do Azure AD](https://aka.ms/sspr)
-* [Portal de registro de redefinição de senha do Azure AD](http://aka.ms/ssprsetup)
-* [Portal de alteração de senha do Azure AD](https://account.activedirectory.windowsazure.com/ChangePassword.aspx)
+* [Portal de redefinição de senha do Azure AD - https://aka.ms/sspr](https://aka.ms/sspr)
+* [Portal de registro de redefinição de senha do Azure AD - http://aka.ms/ssprsetup](http://aka.ms/ssprsetup)
+* [Portal de alteração de senha do Azure AD - https://account.activedirectory.windowsazure.com/ChangePassword.aspx](https://account.activedirectory.windowsazure.com/ChangePassword.aspx)
 * Outras informações específicas da organização
 
 Em quaisquer comunicações por email ou folhetos enviados por você, é possível incluir uma URL personalizada que seja fácil de lembrar para que os usuários possam acessar quando precisarem usar os serviços. Para o seu benefício, criamos uma [página de exemplo de redefinição de senha](https://github.com/ajamess/password-reset-page) que pode ser usada e personalizada de acordo com as necessidades de sua organização.

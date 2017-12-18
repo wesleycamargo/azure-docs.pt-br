@@ -3,7 +3,7 @@ title: "Chamando um Runbook de Automação do Azure a partir de um Alerta do Log
 description: "Este artigo fornece uma visão geral de como chamar um runbook de Automação a partir de um alerta do Log Analytics do OMS da Microsoft."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: jwhit
 editor: 
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 01/31/2017
 ms.author: magoedte
-ms.openlocfilehash: 10b445f8fcaa80182119e47f37ffb11240a46869
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 0c0b15f33a177afc70a3662c5bd008eb236ed0d6
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="calling-an-azure-automation-runbook-from-an-oms-log-analytics-alert"></a>Chamando um runbook de Automação do Azure a partir de um alerta do Log Analytics do OMS
 
@@ -43,7 +43,7 @@ Se você tiver a oferta Automação e Controle instalada e configurada em seu es
 
 ## <a name="characteristics-of-a-runbook-for-both-options"></a>Características de um runbook (para ambas as opções)
 
-Os dois métodos para chamar o runbook desde o alerta do Log Analytics têm características que precisam ser compreendidas antes de configurar suas regras de alerta.
+Os dois métodos para chamar o runbook desde o alerta do Log Analytics têm características que precisam ser compreendidas antes de configurar suas regras de alerta. Os dados de alerta estão em formato json em uma única propriedade chamada **SearchResult**. Esse formato é para ações de runbook e webhook com um payload padrão. Para ações de webhook com payloads personalizados, incluindo **IncludeSearchResults:True** no **RequestBody**, a propriedade é **SearchResults**.
 
 * Você deve ter um parâmetro de entrada do runbook denominado **WebhookData** que é do tipo **Objeto**. Pode ser obrigatório ou opcional. O alerta passa os resultados da pesquisa para o runbook usando o parâmetro de entrada.
 
@@ -61,6 +61,7 @@ Os dois métodos para chamar o runbook desde o alerta do Log Analytics têm cara
     ```
 
     *$SearchResults* é uma matriz de objetos; cada objeto contém campos com os valores de um resultado da pesquisa
+
 
 ## <a name="example-walkthrough"></a>Exemplo de passo a passo
 
@@ -80,6 +81,9 @@ $SearchResult.SvcDisplayName_CF
 Quando o serviço para, a regra de alerta no Log Analytics detecta uma correspondência, dispara o runbook e envia o contexto do alerta para o runbook. O runbook execução uma ação para verificar se o serviço está parado e, se estiver, tentará reiniciar o serviço, verificará se ele iniciou corretamente e enviará os resultados.     
 
 Como alternativa, se você não tivesse sua conta de Automação vinculada ao espaço de trabalho do OMS, configuraria a regra de alerta com uma ação do webhook para disparar o runbook, configuraria o runbook para converter a cadeia de caracteres formatada do JSON e filtraria \*.SearchResult\* seguindo as orientações mencionadas anteriormente.    
+
+>[!NOTE]
+> Se o espaço de trabalho foi atualizado para a [nova linguagem de consulta do Log Analytics](../log-analytics/log-analytics-log-search-upgrade.md), então, a carga de webhook foi alterada.  Os detalhes do formato estão na [API REST do Azure Log Analytics](https://aka.ms/loganalyticsapiresponse).
 
 ## <a name="next-steps"></a>Próximas etapas
 
