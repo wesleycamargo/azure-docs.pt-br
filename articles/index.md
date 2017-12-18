@@ -4,11 +4,11 @@ hide_bc: True
 title: "Documentação do Microsoft Azure"
 description: "Saiba como compilar e gerenciar aplicativos avançados com os serviços de nuvem do Microsoft Azure. Obtenha documentação, código de exemplo, tutoriais e muito mais."
 featureFlags: clicktale
-ms.openlocfilehash: a32159494fc374a162db07b67eb95ade87390d31
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 69213ca5c456f13b39c68eae2839329bfd05df6d
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/16/2017
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -178,6 +178,7 @@ ms.lasthandoff: 12/14/2017
                                                 <h4>Bancos de dados relacionais</h4>
                                                 <ul class="noBullet">
                                                     <li><a class="barLink" href="/azure/sql-database/">Banco de dados SQL como um serviço</a></li>
+                                                    <li><a class="barLink" href="/azure/sql-data-warehouse/">SQL Data Warehouse como um serviço</a></li>
                                                     <li><a class="barLink" href="/azure/postgresql/">Banco de dados PostgreSQL como um serviço</a></li>
                                                     <li><a class="barLink" href="/azure/mysql/">Banco de Dados MySQL como um serviço</a></li>
                                                 </ul>
