@@ -13,13 +13,13 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 12/04/2017
+ms.date: 12/08/2017
 ms.author: owend
-ms.openlocfilehash: 224ecbb80e8fc5b3f1a32e42eda7ec5452e9e553
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 60097a18afc76e09ecd7d69eececea53e9712bec
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="what-is-azure-analysis-services"></a>O que é o Azure Analysis Services?
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
@@ -116,7 +116,7 @@ Para saber mais sobre a Segurança do Azure, confira a [Central de Confiabilidad
 ## <a name="supports-the-latest-client-tools"></a>Dá suporte às ferramentas de cliente mais recentes
 ![Visualizações de dados](./media/analysis-services-overview/aas-overview-clients.png)
 
-Ferramentas modernas de exploração de dados e visualização como o Power BI, Excel e ferramentas de terceiros fornecem aos usuários ideias altamente interativas e visualmente avançadas sobre seus dados de modelo.
+Há suporte para ferramentas modernas de exploração e visualização de dados como o Power BI, Excel, SQL Server 2017 Reporting Services e ferramentas de terceiros, fornecendo aos usuários ideias altamente interativas e visualmente avançadas sobre seus dados de modelo. 
 
 Os clientes usam [bibliotecas de cliente](analysis-services-data-providers.md) MSOLAP, AMO ou ADOMD para se conectar aos servidores do Analysis Services. Os aplicativos cliente da Microsoft, como o Power BI Desktop e o Excel, instalam as três bibliotecas de cliente. Mas tenha em mente que, dependendo da versão ou da frequência de atualizações, as bibliotecas de cliente podem não ser as versões mais recentes exigidas pelo Azure Analysis Services. O mesmo se aplica a aplicativos personalizados ou outras interfaces, como AsCmd, TOM, ADOMD.NET. Esses aplicativos normalmente exigem a instalação manual das bibliotecas como parte de um pacote.
 

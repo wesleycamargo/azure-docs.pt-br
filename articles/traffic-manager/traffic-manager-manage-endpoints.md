@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: kumud
-ms.openlocfilehash: 765d12bc283d991783fb3190ce7917b573f9fc78
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c80d104fc456849f8bfd5169dd8ce1361d906a65
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="add-disable-enable-or-delete-endpoints"></a>Adicionar, desabilitar, habilitar ou excluir pontos de extremidade
 
@@ -39,7 +39,7 @@ Você também pode desabilitar pontos de extremidade individuais que fazem parte
     1. Para **Tipo**, clique em **Ponto de Extremidade do Azure**.
     2. Forneça um **Nome** pelo qual deseja reconhecer esse ponto de extremidade.
     3. Para o **Tipo de recurso de destino**, na lista suspensa, escolha o tipo de recurso adequado.
-    4. Para **Recurso de destino**, na lista suspensa, escolha o recurso de destino adequado para mostrar a listagem de recursos sob a mesma assinatura no **folha de Recursos**. Na folha **Recursos** que é exibida, escolha o serviço que você deseja adicionar como o primeiro ponto de extremidade.
+    4. Para **Recurso de destino**, clique no seletor **Escolher...** para listar os recursos sob a mesma assinatura na **Folha de recursos**. Na folha **Recursos** que é exibida, escolha o serviço que você deseja adicionar como o primeiro ponto de extremidade.
     5. Para **Prioridade**, selecione **1**. Isso faz com que todo o tráfego passe para esse ponto de extremidade, se ele estiver íntegro.
     6. Mantenha a opção **Adicionar como desabilitado** desmarcada.
     7. Clique em **OK**

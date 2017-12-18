@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/10/2017
 ms.author: shlo
-ms.openlocfilehash: 6f4c0b11039bbdaf29c90ec2358934dc1c24af90
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: c472cf080f8138ec6d0210f3ca4a8b3f3c33e7ae
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Gatilhos e execução de pipeline no Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -131,7 +131,7 @@ Consulte [Guia de início rápido: criar um data factory usando o .NET](quicksta
 ## <a name="triggers"></a>Gatilhos
 Gatilhos fornecem a segunda maneira de realizar uma execução de pipeline. Os gatilhos representam uma unidade de processamento que determina quando uma execução de pipeline precisa ser inicializada. Atualmente, o Data Factory dá suporte a um gatilho que invoca um pipeline em um agendamento de relógio. Ele é chamado de **Gatilho do Agendador**. Atualmente, o Data Factory não dá suporte a gatilhos baseados em evento como um gatilho de uma execução de pipeline no evento de uma entrada de arquivo.
 
-Pipelines e gatilhos têm uma relação "n-m". Vários gatilhos podem disparar um único pipeline e o mesmo gatilho pode disparar vários pipelines. Na seguinte definição JSON de um gatilho, a propriedade **pipelines** se refere a uma lista dos pipelines que são disparados pelo gatilho específico, bem como valores para parâmetros de pipeline.
+Pipelines e gatilhos têm uma relação de muitos para muitos. Vários gatilhos podem disparar um único pipeline ou um único gatilho pode disparar vários pipelines. Na seguinte definição JSON de um gatilho, a propriedade **pipelines** se refere a uma lista dos pipelines que são disparados pelo gatilho específico, bem como valores para parâmetros de pipeline.
 
 ### <a name="basic-trigger-definition"></a>Definição básica do gatilho: 
 ```json
@@ -165,7 +165,7 @@ O gatilho de agendador executa pipelines em um agendamento de relógio. Esse gat
 ### <a name="scheduler-trigger-json-definition"></a>Definição JSON de gatilho de agendador
 Quando você cria um gatilho de agendador, você pode especificar o agendamento e a recorrência usando JSON, conforme mostrado no exemplo nesta seção. 
 
-Para que o gatilho de agendador dispare uma execução de pipeline, inclua uma referência de pipeline do pipeline específico na definição do gatilho. Pipelines e gatilhos têm uma relação "n-m". Vários gatilhos podem disparar um único pipeline. O mesmo gatilho pode disparar vários pipelines.
+Para que o gatilho de agendador dispare uma execução de pipeline, inclua uma referência de pipeline do pipeline específico na definição do gatilho. Pipelines e gatilhos têm uma relação de muitos para muitos. Vários gatilhos podem disparar um único pipeline. Um único gatilho pode disparar vários pipelines.
 
 ```json
 {

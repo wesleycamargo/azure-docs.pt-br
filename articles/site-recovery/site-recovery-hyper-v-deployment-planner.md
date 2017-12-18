@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/02/2017
 ms.author: nisoneji
-ms.openlocfilehash: 54edb2d02701d36af52088cb8df7e252504a8760
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 815148d2a39ce8b18092619c9687a56b457c8339
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Planejador de Implantações do Azure Site Recovery para Hyper-V para o Azure
 Este artigo é o guia do usuário do Planejador de Implantações do Azure Site Recovery para implantações de produção do Hyper-V para o Azure.
@@ -34,12 +34,15 @@ A ferramenta fornece os seguintes detalhes:
 
 **Avaliação de compatibilidade**
 
-* Avaliação de qualificação de uma VM com base no número de discos, no tamanho do disco, no IOPS, na em algumas características da VM.
+* Avaliação de qualificação de VM com base no número de discos, no tamanho do disco, em IOPS, em variações e em algumas características da VM.
 
 **Largura de banda de rede necessária versus avaliação de RPO**
 
 * A largura de banda de rede estimada que é necessária para a replicação delta
 * A taxa de transferência que o Azure Site Recovery pode obter do local para o Azure
+* O RPO que pode ser obtido para uma determinada largura de banda
+* Impacto sobre o RPO desejado se for provisionada menos largura de banda.
+
     
 **Requisitos de infraestrutura do Azure**
 
@@ -52,6 +55,7 @@ A ferramenta fornece os seguintes detalhes:
 
 **Requisitos de infraestrutura local**
 * O espaço de armazenamento livre necessário em cada volume do armazenamento do Hyper-V para a replicação inicial e a replicação delta bem-sucedidas para garantir que a replicação de VM não causará nenhum tempo de inatividade indesejado para seus aplicativos de produção
+* Frequência máxima de cópia a ser definida para replicação do Hyper-V
 
 **Diretrizes de envio em lote da replicação inicial** 
 * Número de lotes de VMs a serem usados para proteção

@@ -13,17 +13,17 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/14/2017
+ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 3b56c91accfb6fe6358032e1dd329a931abfc3c1
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: bd68859e3837f7e5adbe911518631cb7abc2c2ce
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="get-started-with-the-connected-factory-preconfigured-solution"></a>Introdução à solução pré-configurada de fábrica conectada
 
-As [soluções pré-configuradas][lnk-preconfigured-solutions] do Azure IoT Suite combinam vários serviços de IoT do Azure para fornecer soluções de ponta a ponta que implementam cenários comuns de negócios de IoT. A solução pré-configurada de *fábrica conectada* conecta aos dispositivos industriais e os monitora. Você pode usar a solução para analisar o fluxo de dados de dispositivos e promover a lucratividade e a produtividade operacionais.
+As [soluções pré-configuradas][lnk-preconfigured-solutions] do Azure IoT Suite combinam vários serviços de IoT do Azure para fornecer soluções de ponta a ponta que implementam cenários comuns de negócios de IoT. A solução pré-configurada de *Fábrica conectada* conecta-se aos dispositivos industriais e os monitora. Você pode usar a solução para analisar o fluxo de dados de dispositivos e promover a lucratividade e a produtividade operacionais.
 
 Este tutorial mostra como provisionar a solução pré-configurada de fábrica conectada. Ele também explica os recursos básicos da solução pré-configurada. Você pode acessar muitos desses recursos no *painel* de solução que é implantado como parte da solução pré-configurada:
 
@@ -33,8 +33,6 @@ Para concluir este tutorial, você precisa de uma assinatura ativa do Azure.
 
 > [!NOTE]
 > Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação gratuita do Azure][lnk_free_trial].
-> 
-> 
 
 ## <a name="provision-the-solution"></a>Provisionar a solução
 
@@ -58,17 +56,17 @@ Há detalhes que você esperaria ver e que não estão listados para sua soluç�
 
 ## <a name="scenario-overview"></a>Visão geral do cenário
 
-Quando você implantar a solução pré-configurada de fábrica conectada, ela será pré-populada com recursos que permitem que você percorra um cenário industrial comum. Nesse cenário, várias fábricas conectadas à solução relatam os valores de dados necessários para calcular a OEE (eficiência geral de equipamentos) e KPIs (indicadores chave de desempenho). As seções a seguir mostram como:
+Quando você implantar a solução pré-configurada de fábrica conectada, ela será pré-preenchida com recursos que permitem que você percorra um cenário industrial comum. Nesse cenário, várias fábricas conectadas à solução relatam os valores de dados necessários para calcular a OEE (eficiência geral de equipamentos) e KPIs (indicadores chave de desempenho). As seções a seguir mostram como:
 
 * Monitorar fábrica, linhas de produção, OEE de estação e valores de KPI
 * Analisar os dados de telemetria gerados por esses dispositivos usando Análises de Séries Temporais do Azure
-* Agir sobre alertas para corrigir problemas
+* Agir sobre alarmes para corrigir problemas
 
 Um recurso-chave desse cenário é que você pode executar todas essas ações remotamente no painel da solução. Não é necessário acesso físico aos dispositivos.
 
 ## <a name="view-the-solution-dashboard"></a>Exibir o painel de solução
 
-O painel de solução permite que você gerencie a solução implantada. É uma representação hierárquica de uma configuração global de fábrica. Por exemplo, você pode exibir KPIs e OEE, publicar novos nós para alertas de telemetria e de ação.
+O painel de solução permite que você gerencie a solução implantada. É uma representação hierárquica de uma configuração global de fábrica. Por exemplo, você pode exibir KPIs e OEE, publicar novos nós para alarmes de telemetria e de ação.
 
 1. Quando o provisionamento for concluído e o bloco da solução pré-configurada indicar **Pronto**, escolha **Iniciar** para abrir o portal de solução de fábrica conectada em uma nova guia.
 
@@ -80,17 +78,17 @@ O painel de solução permite que você gerencie a solução implantada. É uma 
 
 O painel exibe as seguintes informações:
 
-* Um painel **Lista de fábricas** que mostra o status, o local e a configuração atual de produção na solução. Quando você executa a solução pela primeira vez, há vários dispositivos simulados. A simulação de linha de produção é composta de três servidores OPC UA reais por linha de produção que executam tarefas simuladas e compartilham dados. Para obter mais informações sobre o OPC UA, consulte as [Perguntas frequentes sobre fábrica conectada](iot-suite-faq-cf.md).
+* Um painel **Locais de fábricas** que mostra o status, o local e a configuração atual de produção na solução. Quando você executa a solução pela primeira vez, há vários dispositivos simulados. A simulação de linha de produção é composta de três servidores OPC UA reais por linha de produção que executam tarefas simuladas e compartilham dados. Para obter mais informações sobre o OPC UA, consulte as [Perguntas frequentes sobre fábrica conectada](iot-suite-faq-cf.md).
 * Um **mapa** que exibe o local de cada dispositivo conectado à solução. A solução pode usar a API do Bing Maps para criar gráficos de informações no mapa. Se sua assinatura estiver habilitada para a API do Bing Maps Enterprise, esse recurso será usado automaticamente. Caso contrário, confira as [Perguntas frequentes][lnk-faq] para aprender a fazer o mapa dinâmico.
-* Um painel **Alertas** que exibe alertas gerados quando um valor KPI/OEE ou de telemetria excede um limite específico.
+* Um painel **Alarmes** que exibe alarmes gerados quando um valor OEE/KPI ou de telemetria excede um limite específico.
 * Um painel **Eficiência Geral de Equipamento** que mostra os valores OEE para toda a empresa ou a fábrica/produção linha/estação que você está exibindo. Esse valor é agregado da exibição de estação para o nível corporativo. A figura de OEE e seus elementos constituintes podem ser mais analisados.
 * Painel **Indicadores Chave de Desempenho** que exibe o número de unidades produzidas e a energia usada por toda a empresa ou a linha de produção/fábrica/estação que você está exibindo. Esses valores são agregados de uma exibição de estação para o nível corporativo.
 
 ## <a name="view-factories"></a>Exibir fábricas
 
-O painel *Fábricas* mostra a localização geográfica de todas as fábricas da solução, seus status e a configuração de produção atual. Na lista de locais, você pode navegar para os outros níveis na hierarquia de solução. As linhas na lista são hiperlinks que vinculam os detalhes das linhas de produção nesse local. Em seguida, é possível analisar os detalhes da linha de produção e a exibição de nível de estação. Você também pode aplicar um filtro à lista.
+O painel *Locais de Fábricas* mostra a localização geográfica de todas as fábricas da solução, seus status e a configuração de produção atual. Na lista de locais, você pode navegar para os outros níveis na hierarquia de solução. As linhas na lista são hiperlinks que vinculam os detalhes das linhas de produção nesse local. Em seguida, é possível analisar os detalhes da linha de produção e a exibição de nível de estação. Você também pode aplicar um filtro à lista.
 
-![Fábricas de solução pré-configurada de fábrica conectada][cf-img-factories] 
+![Fábricas de solução pré-configurada de fábrica conectada][cf-img-factories]
 
 1. O **painel Fábrica** mostra a lista de fábricas para essa solução.
 
@@ -102,7 +100,7 @@ O painel *Fábricas* mostra a localização geográfica de todas as fábricas da
 
 5. Para exibir os nós OPC UA publicados de uma estação na linha de produção, clique na linha na lista.
 
-6. Para exibir detalhes sobre um nó específico na estação, clique na linha na lista. Essa ação abre o painel de contexto com visualizações de Informações da Série Temporal. Clique nesses gráficos para continuar a análise no ambiente do explorador de Análises de Séries Temporais.
+6. Para exibir detalhes sobre um nó específico na estação, clique na linha na lista. Essa ação abre o painel de contexto com visualizações de Informações da Série Temporal. Clique nesses grafos para continuar a análise no ambiente do explorador de Análises de Séries Temporais.
 
 ## <a name="view-map"></a>Exibir mapa
 
@@ -110,31 +108,31 @@ Se sua assinatura tiver acesso à API do Bing Maps, o mapa de *Fábricas* mostra
 
 ![Mapa de solução pré-configurada de fábrica conectada][cf-img-map]
 
-## <a name="view-alerts"></a>Exibir alertas
+## <a name="view-alarms"></a>Exibir alarmes
 
-O painel **Alerta** mostra os alertas gerados devido a um valor relatado ou a um valor calculado de OEE/KPI que excedeu seu limite configurado. Este painel exibe alertas em cada nível da hierarquia do modo de exibição de nível de estação para o modo de exibição global. Os alertas contêm uma descrição do alerta, data, hora, local e número de ocorrências. Você pode se aprofundar nos dados que causaram o alerta usando os dados de informações da série temporal. Os dados de Informações de Série Temporal são visualizados em alertas, quando aplicável. Se for Administrador, você poderá executar ações de padrão em relação aos alertas, como:
+O painel **Alarmes** mostra os alarmes gerados devido a um valor relatado ou a um valor calculado de OEE/KPI que excedeu seu limite configurado. Este painel exibe alarmes em cada nível da hierarquia do modo de exibição de nível de estação para o modo de exibição global. Os alarmes contêm uma descrição do alarme, da data, da hora, do local e do número de ocorrências. Você pode se aprofundar nos dados que causaram o alarme usando os dados de informações da série temporal. Os dados do Time Series Insights são visualizados em alarmes, quando aplicável. Se você for um Administrador, poderá executar ações padrão em relação aos alarmes, como:
 
-* Feche o alerta.
-* Reconhecer o alerta.
+* Fechar o alarme.
+* Reconhecer o alarme.
 
 Opcionalmente, você pode executar ações mais complexas. Por exemplo, para o nó Pressure OPC UA do Assembly, você pode:
 
 * Exiba informações de suporte em uma página da Web em uma nova janela do navegador.
-* Mitigar a causa do alerta chamando um método de OPC UA no dispositivo.
+* Mitigar a causa do alarme chamando um método de OPC UA no dispositivo.
 * Suprima a disponibilidade das ações padrão.
 
-    ![Alertas de solução pré-configurada de fábrica conectada][cf-img-alerts]
+    ![Alarmes de solução pré-configurada de fábrica conectada][cf-img-alerts]
 
 > [!NOTE]
-> Esses alertas são gerados por regras que são especificadas em um arquivo de configuração da solução pré-configurada. Essas regras podem gerar alertas quando os valores de nó de UA OPC ou valores de OEE ou KPI excedem o limite configurado.
+> Esses alarmes são gerados por regras que são especificadas em um arquivo de configuração da solução pré-configurada. Essas regras podem gerar alarmes quando os valores de OEE ou KPI ou valores de nó de UA OPC excedem o limite configurado.
 
-1. O **Painel de alertas** mostra os alertas gerados nesta solução.
+1. O **Painel de alarmes** mostra os alarmes gerados nesta solução.
 
-2. Para exibir os detalhes de um alerta, clique no alerta no painel de alertas.
+2. Para exibir os detalhes de um alarme, clique no alerta no painel de alarmes.
 
-3. Para analisar melhor os dados de alerta, clique no gráfico no painel de alerta para abrir o ambiente de soluções de informações da série temporal.
+3. Para analisar melhor os dados de alarme, clique no grafo no painel de alarme para abrir o ambiente de soluções de informações da série temporal.
 
-4. Para resolver o alerta, várias ações estão disponíveis no painel de alerta. Escolha a opção apropriada para você e clique no botão de comando de execução de ação.
+4. Para resolver o alarme, várias ações estão disponíveis no painel de alarme. Escolha a opção apropriada para você e clique no botão de comando de execução de ação.
 
 ## <a name="view-overall-equipment-efficiency"></a>Exibir a eficiência geral do equipamento
 
@@ -148,7 +146,7 @@ O OEE classifica a eficiência do processo de fabricação, usando uma chave par
 
     ![Visualização de TSI de solução pré-configurada de fábrica conectada][cf-img-tsi-visualization]
 
-3. Para analisar melhor os dados de alerta, clique no gráfico no painel de alerta. Essa ação abre o ambiente de explorador Insights de Informações da Série Temporal.
+3. Para analisar melhor os dados de alarme, clique no grafo no painel de alarme. Essa ação abre o ambiente de explorador Insights de Informações da Série Temporal.
 
     ![Explorador de TSI de solução pré-configurada de fábrica conectada][cf-img-tsi-explorer]
 
@@ -160,11 +158,11 @@ A solução fornece dois indicadores-chave de desempenho, *unidades por hora* e 
 
 1. Para exibir as unidades por hora ou energia usadas para qualquer nível na hierarquia, navegue até o modo de exibição específico de que você precisa. As unidades por hora e energia usadas são exibidas no painel.
 
-2. Para analisar melhor as unidades por hora ou a energia usada em qualquer nível na hierarquia, clique no medidor do painel **Indicadores chave de desempenho**. É exibido um painel de contexto com Informações da Série de Tempo com visualizações, habilitando-o a exibir dados da última hora, das últimas 24 horas e dos últimos sete dias.
+2. Para analisar melhor as unidades por hora ou a energia usada em qualquer nível na hierarquia, clique no medidor do painel **Indicadores de Chave de Desempenho**. É exibido um painel de contexto com Informações da Série de Tempo com visualizações, habilitando-o a exibir dados da última hora, das últimas 24 horas e dos últimos sete dias.
 
 ## <a name="scenario-review"></a>Análise do cenário
 
-Nesse cenário, você monitorou os valores de OEE e KPIs de fábricas no painel. Você usou então Informações da Série Temporal para fornecer mais informações e analisar ainda mais os dados de telemetria de OEE e KPIs para ajudar na detecção de anomalias. Você também usou o painel de alerta para exibir os problemas com as fábricas e usou as ações disponíveis para resolver o alerta.
+Nesse cenário, você monitorou os valores de OEE e KPIs de fábricas no painel. Você usou então Informações da Série Temporal para fornecer mais informações e analisar ainda mais os dados de telemetria de OEE e KPIs para ajudar na detecção de anomalias. Você também usou o painel de alarme para exibir os problemas com as fábricas e usou as ações disponíveis para resolver o alarme.
 
 ## <a name="other-features"></a>Outros recursos
 
@@ -172,28 +170,28 @@ As seções a seguir descrevem alguns recursos adicionais de solução de fábri
 
 ## <a name="apply-filters"></a>Aplicar filtros
 
-1. Clique na **divisa** para exibir uma lista de filtros disponíveis no painel nos locais de fábrica ou no painel de alertas.
+1. Clique no **funil** para exibir uma lista de filtros disponíveis no painel nos locais de fábrica ou no painel de alarmes.
 
-2. O painel de filtros é exibido para você. 
+2. O painel de filtros é exibido para você.
 
     ![Filtros de solução pré-configurados de fábrica conectada][cf-img-alert-filter]
 
 3. Escolha o filtro necessário. Também é possível digitar texto livre nos campos de filtro.
 
-4. O filtro é aplicado para você. O estado do filtro também é mostrado no painel por meio de um funil que é exibido nas tabelas de fábricas e alertas.
+4. O filtro é aplicado para você. O estado do filtro também é mostrado no painel por meio de um funil que é exibido nas tabelas de fábricas e alarmes.
 
     ![Filtros de solução pré-configurados de fábrica conectada][cf-img-alert-filter-funnel]
 
     > [!NOTE]
     > Um filtro ativo não afeta os valores OEE e KPI exibidos. Ele apenas filtra o conteúdo da lista.
 
-5. Para limpar um filtro, clique no funil e clique no filtro no painel de contexto de filtro. O texto **Tudo** é exibido nas tabelas de alertas e fábricas.
+5. Para limpar um filtro, clique no funil e clique no filtro no painel de contexto de filtro. O texto **Tudo** é exibido nas tabelas de alarmes e fábricas.
 
 ## <a name="browse-an-opc-ua-server"></a>Procurar um servidor de OPC UA
 
 Ao implantar a solução pré-configurada, você provisiona automaticamente servidores OPC UA simulados que pode procurar por meio do navegador de solução. Esses servidores são *servidores OPC UA simulados*. Com os servidores simulados, você pode experimentar mais facilmente a solução pré-configurada sem a necessidade de implantar servidores físicos reais. Se deseja conectar um servidor de OPC UA real à solução, confira o tutorial [Conectar seu dispositivo OPC UA à solução pré-configurada de fábrica conectada][lnk-connect-cf].
 
-1. Clique no **ícone de fábrica** na barra de navegação do painel.
+1. Clique no **ícone do navegador** na barra de navegação do painel.
 
     ![Navegador de servidor de chamada de solução pré-configurada de fábrica conectada][cf-img-server-browser]
 
@@ -223,11 +221,11 @@ Ao procurar um *servidor OPC UA simulado*, você também pode optar por publicar
 
 4. É exibido um painel de contexto que informa que a publicação foi bem-sucedida. O nó aparece na exibição do nível de estação com uma marca de seleção ao lado dele.
 
-    ![Publicação com êxito de chamada de solução pré-configurada de fábrica conectada][cf-img-publish-success]
+    ![Publicação pré-configurada com êxito de fábrica conectada][cf-img-publish-success]
 
 ## <a name="command-and-control"></a>Comando e controle
 
-A fábrica conectada permite que você comande e controle os dispositivos do setor diretamente da nuvem. Você pode usar esse recurso para responder aos alertas gerados pelo dispositivo. Por exemplo, você pode enviar um comando para o dispositivo da nuvem. Você pode encontrar os comandos disponíveis no nó **StationCommands** na árvore do navegador de servidores OPC UA. Nesse cenário, você abre uma válvula de liberação de pressão na estação de montagem de uma linha de produção em Munique. Para usar a funcionalidade de comando e controle, você deve estar na função de **Administrador** para a implantação da solução pré-configurada.
+A fábrica conectada permite que você comande e controle os dispositivos do setor diretamente da nuvem. Você pode usar esse recurso para responder aos alarmes gerados pelo dispositivo. Por exemplo, você pode enviar um comando para o dispositivo da nuvem. Você pode encontrar os comandos disponíveis no nó **StationCommands** na árvore do navegador de servidores OPC UA. Nesse cenário, você abre uma válvula de liberação de pressão na estação de montagem de uma linha de produção em Munique. Para usar a funcionalidade de comando e controle, você deve estar na função de **Administrador** para a implantação da solução pré-configurada.
 
 1. Navegue até o **StationCommands** nó na árvore do navegador do servidor UA OPC.
 
@@ -248,7 +246,6 @@ A fábrica conectada permite que você comande e controle os dispositivos do set
 7. O painel de contexto é atualizado para informar que a chamada de método foi bem-sucedida. Você pode verificar se a chamada foi bem-sucedida lendo o valor do nó de pressão atualizado como resultado da chamada.
 
     ![Sucesso de chamada de solução pré-configurada de fábrica conectada][cf-img-call-success]
-
 
 ## <a name="behind-the-scenes"></a>Nos bastidores
 

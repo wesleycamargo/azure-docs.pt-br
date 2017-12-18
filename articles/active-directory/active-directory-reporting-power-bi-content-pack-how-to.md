@@ -3,21 +3,21 @@ title: "Como usar o pacote de conteúdo do Power BI do Azure Active Directory | 
 description: "Aprenda a usar o Pacote de Conteúdo do Power BI do Azure Active Directory"
 services: active-directory
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: addd60fe-d5ac-4b8b-983c-0736c80ace02
 ms.service: active-directory
-ms.devlang: na
+ms.devlang: 
 ms.topic: get-started-article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 10/18/2017
+ms.date: 12/06/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ba3f9f74fd7ba658b4e082775e471ed65a386fed
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 503b3f4c576382d8ce965d1f90aadda32c819a0b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Como usar o Pacote de Conteúdo do Power BI do Azure Active Directory
 
@@ -46,7 +46,7 @@ Este tópico fornece instruções passo a passo sobre como instalar e usar o pac
 5.  Quando solicitado, digite sua ID de locatário do Azure AD e clique em **Avançar**.
 
     > [!TIP] 
-    > É uma maneira rápida de obter a ID de locatário para seu locatário do Office 365/Azure AD é fazer logon no Portal do Azure AD, fazer drill down até o diretório e copiar esta ID da URL: https://manage.windowsazure.com/woodgroveonline.com#Workspaces/ActiveDirectoryExtension/Directory/<tenantid>/directoryQuickStart
+    > Uma forma rápida de obter a ID de locatário do seu Office 365/Azure AD é entrar no portal do Azure AD, fazer o drill down até o diretório e copiar a **ID do Diretório** na página [**Propriedades**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties).
 
     ![Pacote de Conteúdo do Power BI do Azure Active Directory](./media/active-directory-reporting-power-bi-content-pack-how-to/04.png) 
 

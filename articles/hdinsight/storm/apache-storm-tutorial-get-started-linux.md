@@ -13,14 +13,14 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/06/2017
+ms.date: 12/05/2017
 ms.author: larryfr
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: d8b7d5830684b5e19eadd1b145a933527c2aa9fd
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 19ab428913517e4f3df156c93782fe23f1cd67ec
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/07/2017
 ---
 #<a name="get-started-with-apache-storm-on-hdinsight-using-the-storm-starter-examples"></a>Introdução ao Apache Storm no HDInsight usando os exemplos do storm-starter
 
@@ -47,7 +47,7 @@ Use as seguintes etapas para criar um cluster Storm no HDInsight:
 
     ![Criar um cluster HDInsight](./media/apache-storm-tutorial-get-started-linux/create-hdinsight.png)
 
-2. Na folha **Básico** , insira as seguintes informações:
+2. Na seção **Básico**, insira as seguintes informações:
 
     * **Nome do cluster**: o nome do cluster HDInsight.
     * **Assinatura**: selecione a assinatura a ser utilizada.
@@ -58,7 +58,7 @@ Use as seguintes etapas para criar um cluster Storm no HDInsight:
 
    ![Escolha a assinatura](./media/apache-storm-tutorial-get-started-linux/hdinsight-basic-configuration.png)
 
-3. Selecione **Tipo de cluster** e defina os seguintes valores na folha **Configuração de Cluster**:
+3. Selecione **Tipo de cluster** e defina os seguintes valores na seção **Configuração de Cluster**:
 
     * **Tipo de Cluster**: Storm
 
@@ -74,11 +74,11 @@ Use as seguintes etapas para criar um cluster Storm no HDInsight:
 
 4. Depois de selecionar o tipo de cluster, use o botão __Selecionar__ para definir o tipo de cluster. Em seguida, use o botão __Avançar__ para concluir a configuração básica.
 
-5. Na folha **Armazenamento**, selecione ou crie uma Conta de armazenamento. Para as etapas neste documento, deixe os outros campos nessa folha com os valores padrão. Use o botão __Avançar__ para salvar a configuração de armazenamento.
+5. Na seção **Armazenamento**, selecione ou crie uma Conta de armazenamento. Para as etapas neste documento, deixe os outros campos nessa janela com os valores padrão. Use o botão __Avançar__ para salvar a configuração de armazenamento.
 
     ![Definir as configurações de conta de armazenamento do HDInsight](./media/apache-storm-tutorial-get-started-linux/set-hdinsight-storage-account.png)
 
-6. Na folha **Resumo**, examine a configuração do cluster. Use os links __Editar__ para alterar as configurações que estão incorretas. Por fim, use o botão __Criar__ para criar o cluster.
+6. Na seção **Resumo**, examine a configuração do cluster. Use os links __Editar__ para alterar as configurações que estão incorretas. Por fim, use o botão __Criar__ para criar o cluster.
 
     ![Resumo da configuração do cluster](./media/apache-storm-tutorial-get-started-linux/hdinsight-configuration-summary.png)
 
@@ -103,10 +103,7 @@ Use as seguintes etapas para criar um cluster Storm no HDInsight:
 
         storm jar /usr/hdp/current/storm-client/contrib/storm-starter/storm-starter-topologies-*.jar org.apache.storm.starter.WordCountTopology wordcount
 
-    > [!NOTE]
-    > Em versões anteriores do HDInsight, o nome de classe da topologia é `storm.starter.WordCountTopology` em vez de `org.apache.storm.starter.WordCountTopology`.
-
-    Esse comando inicia a topologia WordCount de exemplo no cluster, com um nome amigável de 'wordcount'. Ela gera sentenças aleatoriamente e conta a ocorrência de cada palavra nas sentenças.
+    Esse comando inicia a topologia de WordCount de exemplo no cluster. Essa topologia gera sentenças aleatórias e conta de quantas vezes palavras ocorrem. O nome amigável da topologia é `wordcount`.
 
     > [!NOTE]
     > Ao enviar suas próprias topologias para o cluster, primeiro você deverá copiar o arquivo jar com o cluster antes de usar o comando `storm`. Use o comando `scp` para copiar o arquivo. Por exemplo, `scp FILENAME.jar USERNAME@CLUSTERNAME-ssh.azurehdinsight.net:FILENAME.jar`
@@ -199,7 +196,7 @@ Se você tiver um problema com a criação de clusters HDInsight, consulte [requ
 
 Nesse tutorial do Apache Storm você aprendeu os fundamentos do trabalho com o Storm no HDInsight. A seguir, aprenda a [Desenvolver topologias baseadas em Java usando o Maven](apache-storm-develop-java-topology.md).
 
-Se você já está familiarizado com o desenvolvimento de topologias baseadas em Java e deseja implantar uma topologia existente no HDInsight, consulte [Implantar e gerenciar topologias Apache Storm no HDInsight](apache-storm-deploy-monitor-topology-linux.md).
+Se você já está familiarizado com o desenvolvimento de topologias baseadas em Java, consulte o documento [Implantar e gerenciar topologias Apache Storm no HDInsight](apache-storm-deploy-monitor-topology-linux.md).
 
 Se você for um desenvolvedor .NET, poderá criar topologias em C# ou híbridas C#/Java usando o Visual Studio. Para obter mais informações, consulte [Desenvolver topologias C# para o Apache Storm no HDInsight usando ferramentas do Hadoop para Visual Studio](apache-storm-develop-csharp-visual-studio-topology.md).
 

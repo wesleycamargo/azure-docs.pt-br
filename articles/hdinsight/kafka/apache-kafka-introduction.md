@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/07/2017
 ms.author: larryfr
-ms.openlocfilehash: c4e0d792ae8f4c17d53430f49d81d179e56b9722
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 09a661b2a100245dd424e24d8a8ddef56c573b02
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="introducing-apache-kafka-on-hdinsight"></a>Introdução ao Apache Kafka no HDInsight
 
@@ -62,6 +62,8 @@ O Kafka no HDInsight oferece os seguintes recursos:
 ![Configuração do cluster Kafka](./media/apache-kafka-introduction/kafka-cluster.png)
 
 Este diagrama mostra uma configuração típica de Kafka que usa grupos de consumidores, particionamento e a replicação oferece leitura paralela de eventos com tolerância a falhas. O Apache ZooKeeper é criado para transações simultâneas, flexíveis e de baixa latência, já que ele gerencia o estado do cluster Kafka. O Kafka armazena registros em *tópicos*. Os registros são produzidos por *produtores* e consumidos por *consumidores*. Os produtores recuperam registros de *agentes* do Kafka. Cada nó de trabalho no cluster HDInsight é um agente do Kafka. Uma partição é criada para cada consumidor, permitindo que o processamento paralelo de fluxo de dados. A replicação é utilizada para distribuir as partições entre os nós, protegendo contra falhas de nó (agente). Uma partição marcada com um *(L)* é líder para determinada partição. O produtor tráfego é roteado para o preenchimento de cada nó, usando o estado gerenciado pelo ZooKeeper.
+
+Cada agente Kafka usa Azure Managed Disks. O número de discos é definido pelo usuário e pode fornecer até 16 TB de armazenamento por agente.
 
 > [!IMPORTANT]
 > O Kafka não está ciente do hardware subjacente (rack) no data center do Azure. Para garantir que partições sejam balanceadas corretamente do hardware subjacente, veja [configurar a alta disponibilidade de dados (Kafka)](apache-kafka-high-availability.md).
