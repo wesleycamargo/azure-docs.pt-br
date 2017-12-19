@@ -33,6 +33,10 @@
           href: monitoring-overview-metrics.md
         - name: Alertas
           href: monitoring-overview-alerts.md
+        - name: Alertas (Versão prévia)
+          href: monitoring-overview-unified-alerts.md
+        - name: Alertas de registro
+          href: monitor-alerts-unified-log.md
         - name: Autoscale
           href: monitoring-overview-autoscale.md
         - name: Log de atividades
@@ -74,6 +78,8 @@
           href: monitoring-near-real-time-metric-alerts.md
         - name: Configurar alertas no Portal do Azure
           href: insights-alerts-portal.md
+        - name: Configurar alerta de métricas ou de log (Versão prévia) no portal do Azure
+          href: monitor-alerts-unified-usage.md
         - name: Configurar alertas com a CLI
           href: insights-alerts-command-line-interface.md
         - name: Configurar alertas com o Azure PowerShell
