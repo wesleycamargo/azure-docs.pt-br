@@ -5,6 +5,7 @@
 ## [Pontos de extremidade de serviço de rede virtual](virtual-network-service-endpoints-overview.md)
 ## [Rede virtual dos serviços do Azure](virtual-network-for-azure-services.md)
 ## [Segurança](security-overview.md)
+## [Rede de contêiner](container-networking.md)
 ## [Continuidade dos negócios](virtual-network-disaster-recovery-guidance.md)
 ## [Endereçamento IP](virtual-network-ip-addresses-overview-arm.md)
 ## [Proteção contra DDoS](ddos-protection-overview.md)
@@ -186,7 +187,8 @@
 
 # Relacionados
 ## [Máquinas virtuais](/azure/virtual-machines/)
-## [Gateway de Aplicativo](/azure/application-gateway/)
+## [Gateway de Aplicativo
+](/azure/application-gateway/)
 ## [DNS do Azure](/azure/dns/)
 ## [Gerenciador de Tráfego](/azure/traffic-manager/)
 ## [Balanceador de Carga](/azure/load-balancer/)
