@@ -59,8 +59,6 @@
           items:
             - name: Preparar cargas de trabalho do Servidor de Backup do Azure no portal do Azure
               href: backup-azure-microsoft-azure-backup.md
-            - name: Preparar cargas de trabalho do Servidor de Backup do Azure no portal clássico
-              href: backup-azure-microsoft-azure-backup-classic.md
             - name: Adicionar armazenamento ao Servidor de Backup do Azure
               href: backup-mabs-add-storage.md
             - name: Atualizar Servidor de Backup do Azure para v.2
@@ -89,8 +87,6 @@
               href: backup-azure-arm-vms-prepare.md
             - name: Backups consistentes do aplicativo das VMs Linux
               href: backup-azure-linux-app-consistent.md
-            - name: Preparar máquinas virtuais do Azure
-              href: backup-azure-vms-prepare.md
         - name: Planejar seu ambiente
           items:
             - name: Planejar a infraestrutura de backup de VMs
@@ -101,16 +97,12 @@
               href: backup-azure-arm-vms.md
             - name: Fazer backup de máquinas virtuais criptografadas
               href: backup-azure-vms-encryption.md
-            - name: Fazer backup de máquinas virtuais do Azure
-              href: backup-azure-vms.md
         - name: Gerenciar e monitorar VMs
           items:
             - name: Gerenciar backups de VM do Azure no Portal do Azure
               href: backup-azure-manage-vms.md
             - name: Monitorar alertas de backups de VM do Azure no Portal do Azure
               href: backup-azure-monitor-vms.md
-            - name: Gerenciar e monitorar os backups de VM do Azure no Portal Clássico
-              href: backup-azure-manage-vms-classic.md
         - name: Restaurar dados das VMs
           items:
             - name: Recuperar arquivos de backups de VM do Azure
@@ -119,8 +111,6 @@
               href: backup-azure-arm-restore-vms.md
             - name: Restaurar máquinas virtuais criptografadas
               href: backup-azure-vms-encryption.md
-            - name: Restaurar máquinas virtuais no Azure
-              href: backup-azure-restore-vms.md
             - name: Restaurar chave e segredo do Key Vault para VMs criptografadas
               href: backup-azure-restore-key-secret.md
     - name: Configurar relatórios de Backup do Azure
@@ -135,8 +125,6 @@
       items:
         - name: Preparar as cargas de trabalho do DPM no portal do Azure
           href: backup-azure-dpm-introduction.md
-        - name: Preparar as cargas de trabalho do DPM no portal clássico
-          href: backup-azure-dpm-introduction-classic.md
         - name: Usar o DPM do System Center para fazer backup de um servidor do Exchange
           href: backup-azure-backup-exchange-server.md
         - name: Recuperar dados em um servidor DPM alternativo
@@ -149,16 +137,10 @@
       items:
         - name: VMs do Azure no portal do Azure
           href: backup-azure-vms-automation.md
-        - name: VMs do Azure no portal clássico
-          href: backup-azure-vms-classic-automation.md
         - name: DPM no portal do Azure
           href: backup-dpm-automation.md
-        - name: DPM no portal clássico
-          href: backup-dpm-automation-classic.md
         - name: Windows Server no portal do Azure
           href: backup-client-automation.md
-        - name: Windows Server no portal clássico
-          href: backup-client-automation-classic.md
     - name: Banco de Dados SQL do Azure
       items:
         - name: Configurar retenção de backup de longo prazo
@@ -181,14 +163,6 @@
           href: backup-azure-restore-system-state.md
         - name: Monitorar e gerenciar cofres dos Serviços de Recuperação
           href: backup-azure-manage-windows-server.md
-        - name: Recuperação e backup usando o portal clássico
-          items:
-            - name: Windows Server usando o modelo de implantação clássico
-              href: backup-configure-vault-classic.md
-            - name: Gerenciar cofres de Backup usando o modelo de implantação clássico
-              href: backup-azure-manage-windows-server-classic.md
-            - name: Recuperar arquivos em um Windows Server usando o modelo de implantação clássico
-              href: backup-azure-restore-windows-server-classic.md
     - name: Cofre dos Serviços de Recuperação
       items:
         - name: Visão geral de cofres de Serviços de Recuperação
@@ -201,8 +175,6 @@
       items:
         - name: Problemas de backup de VM do Azure no portal do Azure
           href: backup-azure-vms-troubleshoot.md
-        - name: Problemas de backup de VM do Azure no portal clássico
-          href: backup-azure-vms-troubleshoot-classic.md
         - name: 'Falha no backup de VM do Azure: não foi possível se comunicar com o agente de VM para o status do instantâneo - a subtarefa da VM atingiu o tempo limite'
           href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
         - name: Lentidão de backup de arquivos e pastas no Backup do Azure
