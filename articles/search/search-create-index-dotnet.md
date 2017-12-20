@@ -16,10 +16,10 @@ ms.tgt_pltfrm: na
 ms.date: 05/22/2017
 ms.author: brjohnst
 ms.openlocfilehash: fac41903c3e5731d17f832ff58145fe74dfa29f1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="create-an-azure-search-index-using-the-net-sdk"></a>Criar um índice do Azure Search usando o SDK do .NET
 > [!div class="op_single_selector"]
@@ -80,7 +80,7 @@ O `SearchServiceClient` tem uma propriedade `Indexes`. Essa propriedade fornece 
 <a name="DefineIndex"></a>
 
 ## <a name="define-your-azure-search-index"></a>Defina seu índice do Azure Search
-Uma única chamada para o método `Indexes.Create` criará o seu índice. Esse método aceita como um parâmetro um objeto `Index` , que define o índice do seu Azure Search. Você precisa criar um objeto `Index` e inicializá-lo da seguinte maneira:
+Uma única chamada para o método `Indexes.Create` criará o seu índice. Esse método aceita como um parâmetro um objeto `Index` , que define o índice da suo Azure Search. Você precisa criar um objeto `Index` e inicializá-lo da seguinte maneira:
 
 1. Defina a propriedade `Name` do objeto `Index` como o nome do índice.
 2. Defina a propriedade `Fields` do objeto `Index` para uma matriz de objetos `Field`. A maneira mais fácil de criar os objetos `Field` é chamando o método `FieldBuilder.BuildForType`, passando uma classe de modelo para o parâmetro de tipo. Uma classe de modelo tem propriedades que mapeiam para os campos do seu índice. Isso permite a vinculação de documentos do índice de pesquisa a instâncias da sua classe de modelo.

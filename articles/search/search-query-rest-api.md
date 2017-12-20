@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.date: 01/12/2017
 ms.author: ashmaka
 ms.openlocfilehash: 49062bec233ad35cd457f9665fa94c1855343582
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
-# <a name="query-your-azure-search-index-using-the-rest-api"></a>Consultar seu índice de Pesquisa do Azure usando a API REST
+# <a name="query-your-azure-search-index-using-the-rest-api"></a>Consultar seu índice do Azure Search usando a API REST
 > [!div class="op_single_selector"]
 >
 > * [Visão geral](search-query-overview.md)
@@ -33,11 +33,11 @@ Este artigo mostra como consultar um índice usando a [API REST do Azure Search]
 
 Antes de começar este passo a passo, você já deve ter [criado um índice do Azure Search](search-what-is-an-index.md), e este já deve estar [preenchido com os dados](search-what-is-data-import.md). Para obter informações de contexto, veja [Como funciona a pesquisa de texto completo no Azure Search](search-lucene-query-architecture.md).
 
-## <a name="identify-your-azure-search-services-query-api-key"></a>Identificar sua api-key de consulta do serviço de Pesquisa do Azure
-Um componente-chave de todas as operações de pesquisa na API REST da Pesquisa do Azure é a *api-key* que foi gerada para o serviço provisionado. Ter uma chave válida estabelece a relação de confiança, para cada solicitação, entre o aplicativo que envia a solicitação e o serviço que lida com ela.
+## <a name="identify-your-azure-search-services-query-api-key"></a>Identificar sua api-key de consulta do serviço de Azure Search
+Um componente-chave de todas as operações de pesquisa na API REST do Azure Search é a *api-key* que foi gerada para o serviço provisionado. Ter uma chave válida estabelece a relação de confiança, para cada solicitação, entre o aplicativo que envia a solicitação e o serviço que lida com ela.
 
 1. Para localizar as api-keys de seu serviço, você deve entrar no [portal do Azure](https://portal.azure.com/)
-2. Vá para a folha do serviço de Pesquisa do Azure
+2. Vá para a folha do serviço de Azure Search
 3. Clique no ícone "Chaves"
 
 O serviço tem *chaves de administração* e *chaves de consulta*.
@@ -129,7 +129,7 @@ api-key: [query key]
 }
 ```
 
-Uma solicitação de consulta bem-sucedida resultará em um Código de Status `200 OK` e os resultados da pesquisa serão retornados como JSON no corpo da resposta. Esta é a aparência dos resultados da consulta acima, supondo que o índice "hotéis" seja preenchido com os dados de exemplo em [Importação de Dados na Pesquisa do Azure usando a API REST](search-import-data-rest-api.md) (observe que o JSON foi formatado para ter clareza).
+Uma solicitação de consulta bem-sucedida resultará em um Código de Status `200 OK` e os resultados da pesquisa serão retornados como JSON no corpo da resposta. Esta é a aparência dos resultados da consulta acima, supondo que o índice "hotéis" seja preenchido com os dados de exemplo em [Importação de Dados no Azure Search usando a API REST](search-import-data-rest-api.md) (observe que o JSON foi formatado para ter clareza).
 
 ```JSON
 {
@@ -162,4 +162,4 @@ Uma solicitação de consulta bem-sucedida resultará em um Código de Status `2
 }
 ```
 
-Para saber mais, visite a seção "Resposta" de [Pesquisar Documentos](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). Para obter mais informações sobre outros códigos de status HTTP que podem ser retornados em caso de falha, confira [Códigos de status HTTP (Pesquisa do Azure)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
+Para saber mais, visite a seção "Resposta" de [Pesquisar Documentos](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). Para obter mais informações sobre outros códigos de status HTTP que podem ser retornados em caso de falha, confira [Códigos de status HTTP (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).

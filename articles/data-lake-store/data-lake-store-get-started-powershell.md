@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 09/28/2017
 ms.author: nitinme
 ms.openlocfilehash: 3428c3852f156df850f4b9e8833d15f4ae32729d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="get-started-with-azure-data-lake-store-using-azure-powershell"></a>Introdução ao Repositório Azure Data Lake usando o Azure PowerShell
 > [!div class="op_single_selector"]
@@ -121,7 +121,7 @@ Quando solicitado, insira **Y** para excluir a conta.
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Diretrizes de ajuste do desempenho para o PowerShell com Azure Data Lake Store](data-lake-store-performance-tuning-powershell.md)
-* [Usar o Azure Data Lake Store para requisitos de big data](data-lake-store-data-scenarios.md) 
+* [Usar o Azure Data Lake Store para requisitos de Big Data](data-lake-store-data-scenarios.md) 
 * [Proteger dados no Repositório Data Lake](data-lake-store-secure-data.md)
 * [Usar a Análise Data Lake do Azure com o Repositório Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Usar o Azure HDInsight com o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)

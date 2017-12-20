@@ -16,10 +16,10 @@ ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: martinle;barbkess
 ms.openlocfilehash: a41393730143b14e91318a61858d989fff3786c1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="visualize-data-with-power-bi"></a>Visualizar os dados com o Power BI
 > [!div class="op_single_selector"]
@@ -72,7 +72,7 @@ Agora você está pronto para usar o Power BI para analisar os dados de exemplo 
     O Power BI reconhecerá isso automaticamente como dados geográficos e os colocará em um mapa para você.
    
     ![Mapa do Power BI][7]
-2. Esta etapa cria um gráfico de barras que mostra o valor de vendas por receita de cliente. Para criar isso, vá para a exibição expandida AggregateSales. Clique no campo SalesAmount. Arraste o campo Receita de Cliente para a esquerda e solte-o no Eixo.
+2. Esta etapa cria um grafo de barras que mostra o valor de vendas por receita de cliente. Para criar isso, vá para a exibição expandida AggregateSales. Clique no campo SalesAmount. Arraste o campo Receita de Cliente para a esquerda e solte-o no Eixo.
    
     ![Selecionar eixo no Power BI][8]
    

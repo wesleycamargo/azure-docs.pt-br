@@ -1,6 +1,6 @@
 ---
 title: Carregar dados (API REST - Azure Search) | Microsoft Docs
-description: "Aprenda a carregar dados em um índice na Pesquisa do Azure usando a API REST."
+description: "Aprenda a carregar dados em um índice no Azure Search usando a API REST."
 services: search
 documentationcenter: 
 author: ashmaka
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.date: 12/08/2016
 ms.author: ashmaka
 ms.openlocfilehash: f22a33ed86fbfc46dfa732239263a49f34c4afee
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
-# <a name="upload-data-to-azure-search-using-the-rest-api"></a>Carregar dados para a Pesquisa do Azure usando a API REST
+# <a name="upload-data-to-azure-search-using-the-rest-api"></a>Carregar dados para o Azure Search usando a API REST
 > [!div class="op_single_selector"]
 >
 > * [Visão geral](search-what-is-data-import.md)
@@ -30,17 +30,17 @@ ms.lasthandoff: 10/11/2017
 >
 >
 
-Este artigo mostrará como usar a [API REST de Pesquisa do Azure](https://docs.microsoft.com/rest/api/searchservice/) para importar dados para um índice de Pesquisa do Azure.
+Este artigo mostrará como usar a [API REST de Azure Search](https://docs.microsoft.com/rest/api/searchservice/) para importar dados para um índice de Azure Search.
 
-Antes de começar este passo a passo, você já deve ter [criado um índice de Pesquisa do Azure](search-what-is-an-index.md).
+Antes de começar este passo a passo, você já deve ter [criado um índice de Azure Search](search-what-is-an-index.md).
 
 Para enviar documentos no índice usando a API REST, você emitirá uma solicitação HTTP POST para o ponto de extremidade da URL do índice. O corpo da solicitação HTTP é um objeto JSON que contém os documentos a serem adicionados, modificados ou excluídos.
 
-## <a name="identify-your-azure-search-services-admin-api-key"></a>Identificar a chave de API do administrador de seu serviço de Pesquisa do Azure
-Ao emitir solicitações HTTP em seu serviço usando a API REST, *todas* as solicitações de API devem incluir a api-key que foi gerada para o serviço de Pesquisa provisionado. Ter uma chave válida estabelece a relação de confiança, para cada solicitação, entre o aplicativo que envia a solicitação e o serviço que lida com ela.
+## <a name="identify-your-azure-search-services-admin-api-key"></a>Identificar a api-key do administrador de seu serviço de Azure Search
+Ao emitir solicitações HTTP em seu serviço usando a API REST, *todas* as solicitações de API devem incluir a api-key que foi gerada para o serviço Search provisionado. Ter uma chave válida estabelece a relação de confiança, para cada solicitação, entre o aplicativo que envia a solicitação e o serviço que lida com ela.
 
 1. Para localizar as api-keys de seu serviço, você deve entrar no [portal do Azure](https://portal.azure.com/)
-2. Vá para a folha do serviço de Pesquisa do Azure
+2. Vá para a folha do serviço de Azure Search
 3. Clique no ícone de "Chaves"
 
 O serviço terá *chaves de administração* e *chaves de consulta*.
@@ -51,7 +51,7 @@ O serviço terá *chaves de administração* e *chaves de consulta*.
 Para importar dados para um índice, você pode usar a chave de administração principal ou secundária.
 
 ## <a name="decide-which-indexing-action-to-use"></a>Decidir qual ação de indexação será usada
-Ao usar a API REST, você emitirá solicitações HTTP POST com corpos de solicitação JSON para a URL de ponto de extremidade do índice de Pesquisa do Azure. O objeto JSON no corpo da solicitação HTTP conterá uma única matriz JSON chamada "value", que contém objetos JSON que representam documentos que você deseja adicionar ao índice, atualizar ou excluir.
+Ao usar a API REST, você emitirá solicitações HTTP POST com corpos de solicitação JSON para a URL de ponto de extremidade do índice de Azure Search. O objeto JSON no corpo da solicitação HTTP conterá uma única matriz JSON chamada "value", que contém objetos JSON que representam documentos que você deseja adicionar ao índice, atualizar ou excluir.
 
 Cada objeto JSON da matriz "value" representa um documento a ser indexado. Cada um desses objetos contém a chave do documento e especifica a ação de indexação desejada (carregar, mesclar, excluir, etc.). Dependendo de qual das ações abaixo você escolher, apenas determinados campos deverão ser incluídos em cada documento:
 
@@ -175,7 +175,7 @@ Um código de status `503` será retornado se nenhum dos itens na solicitação 
 >
 >
 
-Para obter mais informações sobre as ações do documento e as respostas de êxito/erro, consulte [Adicionar, Atualizar ou Excluir Documentos](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents). Para obter mais informações sobre outros códigos de status HTTP que podem ser retornados em caso de falha, confira [Códigos de status HTTP (Pesquisa do Azure)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
+Para obter mais informações sobre as ações do documento e as respostas de êxito/erro, consulte [Adicionar, Atualizar ou Excluir Documentos](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents). Para obter mais informações sobre outros códigos de status HTTP que podem ser retornados em caso de falha, confira [Códigos de status HTTP (Azure Search)](https://docs.microsoft.com/rest/api/searchservice/HTTP-status-codes).
 
 ## <a name="next-steps"></a>Próximas etapas
-Depois de popular o índice de Pesquisa do Azure, você estará pronto para começar a emitir consultas para pesquisar documentos. Veja [Consultar seu Índice de Pesquisa do Azure](search-query-overview.md) para obter detalhes.
+Depois de popular o índice de Azure Search, você estará pronto para começar a emitir consultas para pesquisar documentos. Veja [Consultar seu Índice de Azure Search](search-query-overview.md) para obter detalhes.
