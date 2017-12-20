@@ -32,6 +32,7 @@
 ### [Habilitar uma imagem licenciada](devtest-lab-enable-licensed-images.md)
 ### [Para adicionar marcas a um laboratório](devtest-lab-add-tag.md)
 ### [Notificação de postagem em um laboratório](devtest-lab-announcements.md)
+### [Adicionar informações de suporte a um laboratório](devtest-lab-internal-support-message.md)
 
 ## [Selecionar imagem personalizada ou fórmula](devtest-lab-comparing-vm-base-image-types.md)
 
