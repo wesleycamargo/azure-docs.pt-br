@@ -90,9 +90,8 @@
 
 #### Criar uma VM com vários endereços IP
 ##### [Portal do Azure](virtual-network-multiple-ip-addresses-portal.md)
-##### [Azure PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
-##### [CLI 2.0 do Azure](virtual-network-multiple-ip-addresses-cli.md)
-##### [CLI 1.0 do Azure](virtual-network-multiple-ip-addresses-cli-nodejs.md)
+##### [PowerShell do Azure](virtual-network-multiple-ip-addresses-powershell.md)
+##### [CLI do Azure](virtual-network-multiple-ip-addresses-cli.md)
 ##### [Modelo](virtual-network-multiple-ip-addresses-template.md)
 
 #### [Criar uma VM com rede acelerada](virtual-network-create-vm-accelerated-networking.md)
@@ -187,7 +186,8 @@
 
 # Relacionados
 ## [Máquinas virtuais](/azure/virtual-machines/)
-## [Gateway de Aplicativo](/azure/application-gateway/)
+## [Gateway de Aplicativo
+](/azure/application-gateway/)
 ## [DNS do Azure](/azure/dns/)
 ## [Gerenciador de Tráfego](/azure/traffic-manager/)
 ## [Balanceador de Carga](/azure/load-balancer/)
