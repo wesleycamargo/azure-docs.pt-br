@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: b360fe9f28eeb9b10c82fce729165b1b572ac3c6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 275c0fdfecac558e4f10d36eee71d38528f34679
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-always-on-availability-group-in-azure-virtual-machines-classic"></a>Configurar grupo de disponibilidade AlwaysOn em Máquinas Virtuais do Azure (clássico)
 > [!div class="op_single_selector"]
@@ -62,7 +62,7 @@ Este tutorial pressupõe o seguinte:
 > 
 
 ## <a name="create-the-virtual-network-and-domain-controller-server"></a>Criar a rede virtual e o servidor de controlador de domínio
-Comece com uma nova conta de avaliação do Azure. Após configurar sua conta, você deverá estar na tela inicial do portal clássico do Azure.
+Comece com uma nova conta de avaliação do Azure. Após configurar sua conta, você deverá estar na tela inicial do portal do Azure.
 
 1. Clique no **novo** no canto esquerdo da parte inferior da página, conforme mostrado na seguinte captura de tela.
    
@@ -89,7 +89,7 @@ Comece com uma nova conta de avaliação do Azure. Após configurar sua conta, v
    | Configuração de máquina virtual |**CLOUD SERVICE** = Criar um novo serviço de nuvem<br/>**CLOUD SERVICE DNS NAME** = um nome de serviço de nuvem exclusivo<br/>**DNS NAME** = um nome exclusivo (ex: ContosoDC123)<br/>**REGION/AFFINITY GROUP/VIRTUAL NETWORK** = ContosoNET<br/>**VIRTUAL NETWORK SUBNETS** = Back(10.10.2.0/24)<br/>**CONTA DE ARMAZENAMENTO** = Use uma conta de armazenamento gerada automaticamente<br/>**AVAILABILITY SET** = (Nenhum) |
    | Opções de máquina virtual |Usar padrões |
 
-Após configurar a nova máquina virtual, aguarde a máquina virtual ser provisionada. Esse processo demora algum tempo para concluir. Se você clicar na guia **Máquina Virtual** no portal clássico do Azure, poderá ver os estados de ciclo de ContosoDC desde **Iniciando (Provisionamento)** até **Parado**, **Iniciando**, **Em execução (Provisionamento)** e, finalmente, **Em execução**.
+Após configurar a nova máquina virtual, aguarde a máquina virtual ser provisionada. Esse processo demora algum tempo para concluir. Se você clicar na guia **Máquina Virtual** no portal do Azure, poderá ver os estados de ciclo de ContosoDC desde **Iniciando (Provisionamento)** até **Parado**, **Iniciando**, **Em execução (Provisionamento)** e, finalmente, **Em execução**.
 
 O servidor de DC agora foi provisionado com êxito. Em seguida, você configurará o domínio do Active Directory nesse servidor de DC.
 

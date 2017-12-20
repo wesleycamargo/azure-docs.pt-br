@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/20/2017
+ms.date: 12/12/2017
 ms.author: mimig
-ms.openlocfilehash: 9dc0f5140a538c3a359dd90b74de822dc163fd70
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.openlocfilehash: 02bb5d23ee9468ab1f74396877cdcd6bdd8b8fba
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>API .NET de Tabela do Azure CosmosDB: download e notas de versão
 > [!div class="op_single_selector"]
@@ -36,7 +36,7 @@ ms.lasthandoff: 11/20/2017
 |**Framework atualmente com suporte**|[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)|
 
 > [!IMPORTANT]
-> Se você criou uma conta da API de Tabela durante a versão prévia, crie um [nova conta da API de Tabela](create-table-dotnet.md#create-a-database-account) para trabalhar com os SDKs da API de Tabela disponível geralmente.
+> Se você criou uma conta da API de Tabela durante a versão prévia, crie uma [nova conta da API de Tabela](create-table-dotnet.md#create-a-database-account) para trabalhar com os SDKs da API de Tabela disponíveis para o público em geral.
 >
 
 ## <a name="release-notes"></a>Notas de versão
@@ -50,6 +50,8 @@ ms.lasthandoff: 11/20/2017
 ## <a name="release-and-retirement-dates"></a>Datas de lançamento e desativação
 A Microsoft notifica pelo menos **12 meses** antes de desativar um SDK, a fim de realizar uma transição tranquila para uma versão mais recente/com suporte.
 
+O pacote de versão prévia [WindowsAzure.Storage-PremiumTable](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) foi preterido e substituído pelo pacote [Microsoft.Azure.CosmosDB.Table](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). O SDK WindowsAzure.Storage-PremiumTable será desativado em 15 de novembro de 2018, quando as solicitações para o SDK obsoleto não serão permitidas.
+
 Os novos recursos, funcionalidades e otimizações são adicionados apenas ao SDK atual. Portanto, recomendamos que você atualize sempre que possível para a versão do SDK mais recente. 
 
 Qualquer solicitação feita ao BD Cosmos do Azure usando um SDK obsoleto é rejeitada pelo serviço.
@@ -58,7 +60,7 @@ Qualquer solicitação feita ao BD Cosmos do Azure usando um SDK obsoleto é rej
 | Versão | Data do lançamento | Data de desativação |
 | --- | --- | --- |
 | [1.0.0](#1.0.0) |15 de novembro de 2017|--- |
-| [0.9.0-preview](#0.1.0-preview) |11 de novembro de 2017 |--- |
+| [0.9.0-preview](#0.9.0-preview) |11 de novembro de 2017 |--- |
 
 ## <a name="troubleshooting"></a>Solucionar problemas
 

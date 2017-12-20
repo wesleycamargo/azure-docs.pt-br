@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: security
 ms.date: 10/31/2016
 ms.author: rortloff;barbkess
-ms.openlocfilehash: f4a2376fe4fb710d031c35ca7fdbf4c7bb0f3caa
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7f5dab6936e8cac10ac7a4a7dc4c3be116de5ad5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="get-started-with-threat-detection"></a>Introdução à detecção de ameaças
 > [!div class="op_single_selector"]
@@ -55,7 +55,7 @@ Por exemplo, a Detecção de Ameaças detecta determinadas atividades anormais d
    O email fornecerá informações sobre o evento de segurança suspeito, incluindo a natureza das atividades anormais, nome do banco de dados, nome do servidor e a hora do evento. Além disso, ele fornecerá informações sobre as possíveis causas e ações recomendadas para investigar e atenuar a ameaça em potencial no banco de dados.<br/>
    
     ![Painel de navegação][4]
-2. No email, clique no link **Log de Auditoria do SQL do Azure** , que iniciará o portal clássico do Azure e mostrará os registros de Auditoria relevantes na época do evento suspeito.
+2. No email, clique no link **Log de Auditoria do SQL do Azure** , que iniciará o portal do Azure e mostrará os registros de Auditoria relevantes na época do evento suspeito.
    
     ![Painel de navegação][5]
 3. Clique nos registros de auditoria para exibir mais detalhes sobre as atividades suspeitas do banco de dados, como a instrução SQL, motivo da falha e IP do cliente.

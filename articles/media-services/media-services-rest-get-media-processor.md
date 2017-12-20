@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: 4ad90ad979c5bd74fc55155098c88d5c13cb12e2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4e673a92a9740b96eac20cdf5673395bacca8b77
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-get-a-media-processor-instance"></a>Como obter uma instância do Processador de Mídia
 > [!div class="op_single_selector"]
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 > 
 
 ## <a name="overview"></a>Visão geral
-Nos Serviços de Mídia, um processador de mídia é um componente que manipula uma tarefa de processamento específica, como codificação, conversão de formato, criptografia ou descriptografia de conteúdo de mídia. Normalmente, você cria um processador de mídia quando está criando uma tarefa para codificar, criptografar ou converter o formato do conteúdo de mídia.
+Processadores de Mídia são um componente que manipula uma tarefa de processamento de vídeo ou áudio específica, como codificação, conversão de formato, criptografia ou descriptografia de conteúdo de mídia. Todas as tarefas enviadas aos Serviços de Mídia exigem um processador de mídia para codificar, criptografar ou converter o conteúdo de áudio ou vídeo. 
 
 ## <a name="azure-media-processors"></a>Processadores de mídia do Azure 
 
@@ -44,8 +44,6 @@ O tópico a seguir fornece listas de processadores de mídia:
 
 Para saber mais sobre como conectar-se à API do AMS, veja [Acessar a API dos Serviços de Mídia do Azure com a autenticação do Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
->[!NOTE]
->Depois de se conectar com êxito em https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos serviços de mídia. Você deve fazer chamadas subsequentes para o novo URI.
 
 ## <a name="get-a-media-processor"></a>Obter um processador de mídia
 
@@ -60,7 +58,7 @@ Solicitação:
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer <token>
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
 Resposta:
@@ -89,5 +87,5 @@ Resposta:
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
-Agora que você já sabe como obter uma instância do processador de mídia, vá para o tópico [Como Codificar um Ativo](media-services-rest-get-started.md) , que mostrará como usar o Codificador de Mídia Standard para codificar um ativo.
+Agora que você já sabe como obter uma instância do processador de mídia, vá para o artigo [Como Codificar um Ativo](media-services-rest-get-started.md) que demonstra como usar o Media Encoder Standard para codificar um ativo.
 
