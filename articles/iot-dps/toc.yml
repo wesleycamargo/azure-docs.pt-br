@@ -36,7 +36,11 @@
 - name: Guias de instruções
   items:
     - name: Gerenciar registros do dispositivo
-      href: how-to-manage-enrollments.md
+      items:
+        - name: Gerenciar registros de dispositivo com o portal do Azure
+          href: how-to-manage-enrollments.md
+        - name: Gerenciar registros de dispositivo com os SDKs de Serviço
+          href: how-to-manage-enrollments-sdks.md
     - name: Usar um HSM com SDK
       href: use-hsm-with-sdk.md
     - name: Controlar o acesso ao Serviço de Provisionamento

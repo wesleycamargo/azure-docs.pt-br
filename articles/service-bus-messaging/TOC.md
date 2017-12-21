@@ -26,6 +26,8 @@
 
 # Como
 ## Planejar e projetar
+### [Identidade do Serviço Gerenciado (versão prévia)](service-bus-managed-service-identity.md)
+### [Controle de Acesso Baseado em Função (versão prévia)](service-bus-role-based-access-control.md)
 ### [Mensagens premium](service-bus-premium-messaging.md)
 ### [Comparar filas do Azure e filas do Barramento de Serviço](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 ### [Otimizar desempenho](service-bus-performance-improvements.md)

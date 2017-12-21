@@ -48,6 +48,10 @@
 ### [Visão geral da solução da fábrica conectada](iot-suite-connected-factory-overview.md)
 ### [Guia da solução da fábrica conectada](iot-suite-connected-factory-sample-walkthrough.md)
 
+## Simulação de dispositivo
+### [Implantar simulação de dispositivo](iot-suite-device-simulation-deploy.md)
+### [Explorar simulação de dispositivo](iot-suite-device-simulation-explore.md)
+
 # Guias de instruções
 ## Monitoramento remoto
 ### [Executar o monitoramento avançado](iot-suite-remote-monitoring-monitor.md)
