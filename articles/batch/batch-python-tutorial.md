@@ -16,10 +16,10 @@ ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: bd5a977c10d3955639beb893cd7a37581b14f7c0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="get-started-with-the-batch-sdk-for-python"></a>Introdução ao SDK do Lote para Python
 
@@ -107,7 +107,7 @@ O diagrama a seguir ilustra as operações principais executadas pelos scripts d
 [**Etapa 3.**](#step-3-create-batch-pool) Criar um **pool** do Lote.<br/>
   &nbsp;&nbsp;&nbsp;&nbsp;**3a.** O pool **StartTask** baixa o script de tarefa (python_tutorial_task.py) para os nós quando eles ingressam no pool.<br/>
 [**Etapa 4.**](#step-4-create-batch-job) Crie um **trabalho** do Lote.<br/>
-[**Etapa 5.**](#step-5-add-tasks-to-job) Adicione **tarefas** ao trabalho.<br/>
+[**Etapa 5.**](#step-5-add-tasks-to-job) Adicione **Tarefas** ao trabalho.<br/>
   &nbsp;&nbsp;&nbsp;&nbsp;**5a.** As tarefas serão agendadas para a execução em nós.<br/>
     &nbsp;&nbsp;&nbsp;&nbsp;**5b.** Cada tarefa baixa seus dados de entrada do Armazenamento do Azure e então inicia a execução.<br/>
 [**Etapa 6.**](#step-6-monitor-tasks) Monitore as tarefas.<br/>

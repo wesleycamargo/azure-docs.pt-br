@@ -16,10 +16,10 @@ ms.date: 06/28/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 83f751c6b5e44705509804e6872bb16d7c2e1d18
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="get-started-building-solutions-with-the-batch-client-library-for-net"></a>Comece a criar soluções com a biblioteca de cliente do Lote para .NET
 
@@ -73,7 +73,7 @@ O diagrama a seguir ilustra as principais operações executadas pelo aplicativo
 [**Etapa 3.**](#step-3-create-batch-pool) Criar um **pool** do Lote.<br/>
   &nbsp;&nbsp;&nbsp;&nbsp;**3a.** O pool **StartTask** baixa os arquivos binários da tarefa (TaskApplication) para os nós quando eles ingressam no pool.<br/>
 [**Etapa 4.**](#step-4-create-batch-job) Crie um **trabalho** do Lote.<br/>
-[**Etapa 5.**](#step-5-add-tasks-to-job) Adicione **tarefas** ao trabalho.<br/>
+[**Etapa 5.**](#step-5-add-tasks-to-job) Adicione **Tarefas** ao trabalho.<br/>
   &nbsp;&nbsp;&nbsp;&nbsp;**5a.** As tarefas serão agendadas para a execução em nós.<br/>
     &nbsp;&nbsp;&nbsp;&nbsp;**5b.** Cada tarefa baixa seus dados de entrada do Armazenamento do Azure e então inicia a execução.<br/>
 [**Etapa 6.**](#step-6-monitor-tasks) Monitore as tarefas.<br/>
@@ -509,7 +509,7 @@ private static void UploadFileToContainer(string filePath, string containerSas)
 
 ## <a name="step-6-monitor-tasks"></a>Etapa 6: Monitorar tarefas
 ![Monitorar tarefas][6]<br/>
-*O aplicativo cliente (1) monitora as tarefas para a conclusão e o status de êxito e (2) os dados resultantes do upload de tarefas para o Armazenamento do Azure*
+*O aplicativo cliente (1) monitora as tarefas para a conclusão e o status de êxito e (2) os dados resultantes do carregamento de tarefas para o Armazenamento do Azure*
 
 Quando as tarefas são adicionadas a um trabalho, são automaticamente enfileiradas e agendadas para execução em nós de computação no pool associado ao trabalho. Com base nas configurações especificadas, o Lote manipula o enfileiramento, o agendamento, a repetição de todas as tarefas e outras obrigações de administração de tarefas para você.
 
