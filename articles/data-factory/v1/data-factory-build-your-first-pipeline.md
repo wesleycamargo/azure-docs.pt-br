@@ -16,10 +16,10 @@ ms.date: 11/01/2017
 ms.author: spelluru
 robots: noindex
 ms.openlocfilehash: a1a0679b91304df5cbc3dcaec14abfeaaa25c04f
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Tutorial: crie seu primeiro pipeline para processar dados usando cluster Hadoop
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.lasthandoff: 11/02/2017
 
 
 > [!NOTE]
-> Este artigo se aplica à versão 1 do Data Factory, que está com GA (disponibilidade geral). Se estiver usando a versão 2 do serviço Data Factory, que está em versão prévia, consulte [Início rápido: Criar um data factory usando o Azure Data Factory versão 2](../quickstart-create-data-factory-dot-net.md).
+> Este artigo se aplica à versão 1 do Data Factory, que está com GA (disponibilidade geral). Se estiver usando a versão 2 do serviço Data Factory, que está em versão prévia, confira [Início rápido: Criar um data factory usando o Azure Data Factory versão 2](../quickstart-create-data-factory-dot-net.md).
 
 Neste tutorial, você deve criar sua Azure Data Factory com um pipeline de dados. O pipeline transforma dados de entrada, executando o script do Hive em um cluster Azure HDInsight (Hadoop) para gerar dados de saída.  
 
