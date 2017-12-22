@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 09/23/2016
 ms.author: robb
 ms.openlocfilehash: 3e09c145d35665ec1c2467b60f06191ac51a5c16
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="create-metric-alerts-in-azure-monitor-for-azure-services---azure-portal"></a>Criar alertas de métrica no Azure Monitor para serviços do Azure – Portal do Azure
 > [!div class="op_single_selector"]
@@ -85,7 +85,7 @@ Em alguns minutos, o alerta estará ativo e disparará conforme descrito anterio
 ## <a name="managing-your-alerts"></a>Gerenciar seus alertas
 Depois de criar um alerta, você poderá selecioná-lo e:
 
-* Exibir um gráfico mostrando o limite de métrica e os valores reais do dia anterior.
+* Exibir um grafo mostrando o limite de métrica e os valores reais do dia anterior.
 * Editar ou exclui-lo.
 * **Desabilitar** ou **Habilitar** se você quiser interromper temporariamente ou continuar recebendo notificações do alerta.
 

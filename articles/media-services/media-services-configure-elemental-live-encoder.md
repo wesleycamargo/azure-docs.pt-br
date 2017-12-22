@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 01/05/2017
 ms.author: cenkd;anilmur;juliako
 ms.openlocfilehash: 668a3ab46a70c0ee25fa87031d27c0f4333ec89c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="use-the-elemental-live-encoder-to-send-a-single-bitrate-live-stream"></a>Usar o codificador Elemental Live para enviar uma transmissão ao vivo de taxa de bits única
 > [!div class="op_single_selector"]
@@ -141,7 +141,7 @@ Após a transmissão estar em execução por 30 segundos, navegue de volta até 
 
 ### <a name="test-playback"></a>Reprodução de teste
 
-Navegue até a ferramenta AMSE e clique com botão direito do mouse no canal a ser testado. No menu, passe o mouse sobre **Reproduzir a Visualização** e selecione **Azure Media Player**.  
+Navegue até a ferramenta AMSE e clique com botão direito do mouse no canal a ser testado. No menu, passe o mouse sobre **Reproduzir a Visualização** e selecione **Player de Mídia do Azure**.  
 
     ![Elemental](./media/media-services-elemental-live-encoder/media-services-elemental8.png)
 
@@ -160,7 +160,7 @@ Se um erro for recebido, será necessário redefinir o canal e ajustar as config
     >[!NOTE]
     > A criação do programa leva menos tempo do que a criação do canal.   
       
-5. Quando o programa estiver em execução, confirme a reprodução clicando com o botão direito do programa e navegando até **Reproduzi o(s) programa(s)**, em seguida, selecionando **com o Azure Media Player**.  
+5. Quando o programa estiver em execução, confirme a reprodução clicando com o botão direito do programa e navegando até **Reproduzi o(s) programa(s)**, em seguida, selecionando **com o Player de Mídia do Azure**.  
 6. Depois de confirmar, clique novamente com botão direito no programa e selecione **Copie a URL de Saída para Área de Transferência** (ou recupere essas informações na opção **Informações e configurações do programa** do menu).
 
 A transmissão agora está pronta para ser inserida em um player ou distribuída para um público para a exibição ao vivo.  

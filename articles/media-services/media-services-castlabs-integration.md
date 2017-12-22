@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: Mingfeiy;willzhan;Juliako
 ms.openlocfilehash: 5b69e804809f834e81221fb2787a997a52dbe286
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="using-castlabs-to-deliver-widevine-licenses-to-azure-media-services"></a>Usando o castLabs para fornecer licenças Widevine para os Serviços de Mídia do Azure
 > [!div class="op_single_selector"]
@@ -42,7 +42,7 @@ O diagrama a seguir demonstra uma arquitetura de integração de alto nível dos
 * O castLabs e o AMS têm autenticação de token interna. As seções a seguir discutem os tokens de autenticação. 
 * Quando um cliente solicita o fluxo do vídeo, o conteúdo é criptografado dinamicamente com **Criptografia comum** (CENC) e dinamicamente fornecido pelo AMS para DASH e Smooth Streaming. Também fornecemos criptografia de fluxo elementar PlayReady M2TS para protocolo de streaming do HLS.
 * A licença do PlayReady é recuperada do servidor de licença do AMS e a licença Widevine é recuperada do servidor de licenças castLabs. 
-* O Media Player decide automaticamente quais licenças buscar com base na capacidade de plataforma do cliente. 
+* O Player de Mídia decide automaticamente quais licenças buscar com base na capacidade de plataforma do cliente. 
 
 ## <a name="authentication-token-generation-for-getting-a-license"></a>Geração de token de autenticação para obter uma licença
 O castLabs e o AMS oferecem suporte ao formato de token JWT (JSON Web Token) usado para autorizar uma licença. 
@@ -93,10 +93,10 @@ Para usar o aplicativo Web (STS):
 3. Navegue até o site.
 
 ## <a name="playing-back-a-video"></a>Reproduzir um vídeo
-Para reproduzir um vídeo criptografado com criptografia comum (PlayReady e/ou Widevine), é possível usar o [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html). Ao executar o aplicativo de console, a ID de chave de conteúdo e a URL de manifesto são exibidos.
+Para reproduzir um vídeo criptografado com criptografia comum (PlayReady e/ou Widevine), é possível usar o [Player de Mídia do Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html). Ao executar o aplicativo de console, a ID de chave de conteúdo e a URL de manifesto são exibidos.
 
 1. Abra uma nova guia e inicie seu STS: http://[yourStsName].azurewebsites.net/api/token/assetid/[yourCastLabsAssetId]/contentkeyid/[thecontentkeyid].
-2. Vá para [Azure Media Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
+2. Vá para [Player de Mídia do Azure](http://amsplayer.azurewebsites.net/azuremediaplayer.html).
 3. Cole na URL de streaming.
 4. Clique na caixa de seleção **Opções avançadas** .
 5. Selecione PlayReady e/ou Widevine na lista suspensa **Proteção** .

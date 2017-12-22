@@ -15,10 +15,10 @@ ms.topic: article
 ms.date: 03/12/2017
 ms.author: juliako
 ms.openlocfilehash: ec8c1da633374ba684f6a0a895c542ee76ef73b8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="upload-files-into-a-media-services-account-using-net"></a>Carregar arquivos em uma conta dos Serviços de Mídia usando o .NET
 > [!div class="op_single_selector"]
@@ -167,7 +167,7 @@ Ao carregar um grande número de ativos, considere o seguinte.
 * Mantenha ParallelTransferThreadCount no valor padrão de 10.
 
 ## <a id="ingest_in_bulk"></a>Ingestão de ativos em massa usando o SDK do .NET dos Serviços de Mídia
-O carregamento de grandes arquivos de ativo pode ser um afunilamento durante a criação do ativo. A ingestão de ativos em massa, ou "Ingestão em massa", envolve a dissociação da criação do ativo do processo de carregamento. Para usar uma abordagem de ingestão em massa, crie um manifesto (IngestManifest) que descreve o ativo e seus arquivos associados. Em seguida, use o método de carregamento de sua escolha para carregar os arquivos associados ao contêiner de blob do manifesto. Os serviços de mídia do Microsoft Azure observa o contêiner de blob associado ao manifesto. Depois que um arquivo é carregado para o contêiner de blob, os serviços de mídia do Microsoft Azure concluem a criação do ativo com base na configuração do ativo no manifesto (IngestManifestAsset).
+O carregamento de grandes arquivos de ativo pode ser um gargalo durante a criação do ativo. A ingestão de ativos em massa, ou "Ingestão em massa", envolve a dissociação da criação do ativo do processo de carregamento. Para usar uma abordagem de ingestão em massa, crie um manifesto (IngestManifest) que descreve o ativo e seus arquivos associados. Em seguida, use o método de carregamento de sua escolha para carregar os arquivos associados ao contêiner de blob do manifesto. Os serviços de mídia do Microsoft Azure observa o contêiner de blob associado ao manifesto. Depois que um arquivo é carregado para o contêiner de blob, os serviços de mídia do Microsoft Azure concluem a criação do ativo com base na configuração do ativo no manifesto (IngestManifestAsset).
 
 Para criar um novo IngestManifest chame o método Criar exposto pela coleção IngestManifests no CloudMediaContext. Esse método criará um novo IngestManifest com o nome manifesto fornecido.
 
