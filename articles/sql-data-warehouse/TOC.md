@@ -1,6 +1,7 @@
 # Visão geral
 
 ## [Sobre o SQL Data Warehouse](sql-data-warehouse-overview-what-is.md)
+## [Roteiro](cheat-sheet.md)
 
 # Guia de início rápido
 
