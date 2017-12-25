@@ -296,7 +296,7 @@ O ADAL usa – canOpenURL: para verificar se o agente está instalado no disposi
 
 <key>LSApplicationQueriesSchemes</key>
 
-<array> <string>msauth</string>
+<array><string>msauth</string>
 </array>
 
 ### <a name="youve-configured-sso"></a>Você configurou o SSO!
