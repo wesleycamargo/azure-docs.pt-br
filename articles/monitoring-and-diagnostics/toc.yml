@@ -164,6 +164,8 @@
       href: monitoring-metric-charts.md
     - name: Enviar métricas para o Grafana
       href: monitor-send-to-grafana.md
+    - name: Enviar dados de monitoramento para um hub de eventos
+      href: monitor-stream-monitoring-data-event-hubs.md
 - name: Referência
   items:
     - name: CLI do Azure

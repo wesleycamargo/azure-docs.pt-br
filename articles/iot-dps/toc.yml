@@ -37,10 +37,14 @@
           items:
             - name: Java
               href: quick-enroll-device-tpm-java.md
+            - name: Node.js
+              href: quick-enroll-device-tpm-node.md
         - name: X.509
           items:
             - name: Java
               href: quick-enroll-device-x509-java.md
+            - name: Node.js
+              href: quick-enroll-device-x509-node.md
 - name: Tutoriais
   items:
     - name: 1 - Configurar recursos de nuvem
@@ -67,6 +71,8 @@
           href: how-to-manage-enrollments.md
         - name: Gerenciar registros de dispositivo com os SDKs de Serviço
           href: how-to-manage-enrollments-sdks.md
+    - name: Revogar o acesso do dispositivo
+      href: how-to-revoke-device-access-portal.md
     - name: Usar um HSM com SDK
       href: use-hsm-with-sdk.md
     - name: Controlar o acesso ao Serviço de Provisionamento
