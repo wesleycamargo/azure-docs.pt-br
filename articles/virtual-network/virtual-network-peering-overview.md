@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: narayan;anavin
-ms.openlocfilehash: 7d3e6a34b5851a5a35a530b18efc3db3e2249274
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: df1d316654bdfd282965000966f79543e0d5124c
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="virtual-network-peering"></a>Emparelhamento de rede virtual
 
@@ -35,7 +35,7 @@ Os benefícios do uso do emparelhamento de rede virtual incluem:
 
 ## <a name="requirements-constraints"></a>Requisitos e restrições
 
-* O emparelhamento de redes virtuais na mesma região está disponível ao público em geral. O emparelhamento de redes virtuais em regiões diferentes está atualmente em versão prévia no Centro-oeste dos EUA, Central do Canadá e Oeste dos EUA 2. Antes de fazer o emparelhamento das redes virtuais em regiões diferentes, você deve primeiro [registrar sua assinatura](virtual-network-create-peering.md#register) para a versão prévia. Tentar criar um emparelhamento entre redes virtuais em regiões diferentes falhará se você não tiver concluído o registro para a versão prévia.
+* O emparelhamento de redes virtuais na mesma região está disponível ao público em geral. O emparelhamento de redes virtuais em regiões diferentes está atualmente em versão prévia no Centro-oeste dos EUA, Central do Canadá e Oeste dos EUA 2. Antes de fazer o emparelhamento das redes virtuais em regiões diferentes, você deve primeiro [registrar sua assinatura](virtual-network-create-peering.md#register) para a versão prévia. A tentativa de criar um emparelhamento entre redes virtuais em regiões diferentes falhará se você não tiver concluído o registro para a versão prévia.
     > [!WARNING]
     > Os emparelhamentos de rede virtual criados entre regiões podem não ter o mesmo nível de disponibilidade e confiabilidade encontrado em emparelhamentos em uma versão de disponibilidade geral. Emparelhamentos de rede virtual podem ter funcionalidades restringidas e podem não estar disponíveis em todas as regiões do Azure. Para ver as notificações mais recentes sobre disponibilidade e o status desse recurso, verifique a página [Atualizações da Rede Virtual](https://azure.microsoft.com/updates/?product=virtual-network) .
 
@@ -63,13 +63,15 @@ Ao configurar o emparelhamento de rede virtual, você pode abrir ou fechar as re
 
 ## <a name="service-chaining"></a>Encadeamento de serviços
 
-Você pode configurar rotas definidas pelo usuário que apontam para máquinas virtuais em redes virtuais emparelhadas como o endereço IP "próximo salto" para habilitar o encadeamento de serviços. O encadeamento de serviços permite que você direcione o tráfego de uma rede virtual para uma solução virtual em uma rede virtual emparelhada através de rotas definidas pelo usuário.
+Você pode configurar rotas definidas pelo usuário que apontam para máquinas virtuais em redes virtuais emparelhadas como o endereço IP de *próximo salto*, ou para gateways de rede virtual, para habilitar o encadeamento de serviços. O encadeamento de serviços permite que você direcione o tráfego de uma rede virtual para uma solução de virtualização, ou um gateway de rede virtual, em uma rede virtual emparelhada através de rotas definidas pelo usuário.
 
-Você também pode criar efetivamente ambientes do tipo hub e spoke, nos quais o hub pode hospedar componentes de infraestrutura, como um dispositivo de rede virtual. Todas as redes virtuais contadas podem emparelhar com a rede virtual do hub. O tráfego pode fluir por meio de dispositivos de rede virtual que estejam em execução na rede virtual do hub. Resumindo, o emparelhamento de redes virtuais permite que o endereço IP de próximo salto na tabela de rotas definida pelo usuário seja o endereço IP de uma máquina virtual na rede virtual emparelhada. Para saber mais sobre as rotas definidas pelo usuário, confira [visão geral de rotas definidas pelo usuário](virtual-networks-udr-overview.md). Para saber como criar uma topologia de rede de hub e spoke, consulte [Topologia de rede de hub e spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering).
+Você pode implantar redes do tipo hub e spoke, nos quais a rede virtual do hub pode hospedar componentes de infraestrutura, como uma solução de virtualização ou gateway de VPN de rede. Todas as redes virtuais contadas podem emparelhar com a rede virtual do hub. O tráfego pode fluir por meio de soluções de virtualização ou gateways de VPN de rede que estejam na rede virtual do hub. 
+
+O emparelhamento de redes virtuais permite que o próximo salto em uma rota definida pelo usuário seja o endereço IP de uma máquina virtual na rede virtual emparelhada, ou o gateway de VPN. No entanto, não é possível rotear entre redes virtuais com uma rota definida pelo usuário especificando um gateway de ExpressRoute como o tipo de próximo salto. Para saber mais sobre as rotas definidas pelo usuário, confira [Visão geral de rotas definidas pelo usuário](virtual-networks-udr-overview.md#user-defined). Para saber como criar uma topologia de rede de hub e spoke, consulte [Topologia de rede de hub e spoke](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json#virtual network-peering).
 
 ## <a name="gateways-and-on-premises-connectivity"></a>Gateways e conectividade local
 
-Cada rede virtual, independentemente de estar emparelhada com outra rede virtual ou não, ainda pode ter seu próprio gateway e usá-lo para se conectar a uma rede local. Você também pode configurar a [conexão rede virtual para rede virtual](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md) usando gateways, mesmo que as redes virtuais estejam emparelhadas.
+Cada rede virtual, independentemente de estar emparelhada com outra rede virtual ou não, ainda pode ter seu próprio gateway e usá-lo para se conectar a uma rede local. Você também pode configurar a [conexão rede virtual para rede virtual](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json) usando gateways, mesmo que as redes virtuais estejam emparelhadas.
 
 Quando as duas opções para a interconectividade de rede virtual estiverem configuradas, o tráfego entre as redes virtuais fluirá através da configuração do emparelhamento (isto é, por meio do backbone do Azure).
 
@@ -98,20 +100,17 @@ Por exemplo, se você pretende emparelhar redes virtuais chamadas myVirtualNetwo
 
 ## <a name="monitor"></a>Monitoramento
 
-Ao emparelhar duas redes virtuais criadas por meio do Resource Manager, um emparelhamento deve ser configurado para cada rede virtual no emparelhamento.
-Você pode monitorar o status de sua conexão de emparelhamento. O status do emparelhamento pode ser um dos seguintes:
+Ao emparelhar duas redes virtuais criadas por meio do Resource Manager, um emparelhamento deve ser configurado para cada rede virtual no emparelhamento. Você pode monitorar o status de sua conexão de emparelhamento. O status do emparelhamento pode ser um dos seguintes:
 
-* **Iniciado:** quando você cria o emparelhamento para a segunda rede virtual a partir da primeira rede virtual, o status de emparelhamento é Iniciado.
-
-* **Conectado:** quando você cria o emparelhamento a partir da segunda rede virtual para a primeira rede virtual, seu status de emparelhamento é Conectado. Se você exibir o status de emparelhamento para a primeira rede virtual, você verá seu status alterado de Iniciado para Conectado. O emparelhamento não é estabelecido com êxito até que o status de emparelhamento para ambos os emparelhamentos de rede virtual seja Conectado.
-
-* **Desconectado**: se um dos seus vínculos de emparelhamento é excluído depois que uma conexão foi estabelecida, o status de emparelhamento é desconectado.
+* **Iniciado**: o estado exibido quando você cria o emparelhamento a partir da primeira rede virtual para a segunda rede virtual.
+* **Conectado**: o estado exibido após a criação do emparelhamento a partir da segunda rede virtual para a primeira rede virtual. O estado de emparelhamento da primeira rede virtual muda de *Iniciado* para *Conectado*. Um emparelhamento de rede virtual não é estabelecido com êxito até que o estado dos dois emparelhamentos de rede virtual seja *Conectado*.
+* **Desconectado**: o estado mostrado se um emparelhamento de uma rede virtual para outra for excluído após o estabelecimento de um emparelhamento entre duas redes virtuais.
 
 ## <a name="troubleshoot"></a>Solucionar problemas
 
-Para solucionar problemas de tráfego que flui entre sua conexão de emparelhamento, você pode [verificar suas rotas eficientes.](virtual-network-routes-troubleshoot-portal.md)
+Para confirmar um emparelhamento de rede virtual, você pode [verificar rotas efetivas](virtual-network-routes-troubleshoot-portal.md) para uma interface de rede em qualquer sub-rede em uma rede virtual. Se um emparelhamento de rede virtual existir, todas as sub-redes na rede virtual terão rotas com o tipo de próximo salto *Emparelhamento VNet*, para cada espaço de endereço em cada rede virtual emparelhada.
 
-Você também pode solucionar os problemas de conectividade a uma máquina virtual em uma rede virtual emparelhada usando a [verificação de conectividade](../network-watcher/network-watcher-connectivity-portal.md) do Observador de Rede. A verificação de conectividade permite ver como está roteado diretamente do adaptador de rede da sua VM de origem ao adaptador de rede da sua VM de destino.
+Você também pode solucionar os problemas de conectividade com uma máquina virtual em uma rede virtual emparelhada usando a [verificação de conectividade](../network-watcher/network-watcher-connectivity-portal.md) do Observador de Rede. A verificação de conectividade permite que você veja como o tráfego é roteado da interface de rede de uma máquina virtual de origem até a interface de rede de uma máquina virtual de destino.
 
 ## <a name="limits"></a>limites
 

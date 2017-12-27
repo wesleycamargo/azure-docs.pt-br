@@ -15,18 +15,18 @@ ms.topic: hero-article
 ms.date: 07/19/2017
 ms.author: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: b45e9479fa2e06f2c15ace9138e48ced94bacbda
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5874e6ce7d19c5106bc88ce9ff7fddd1842e0c3b
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="how-to-get-an-azure-active-directory-tenant"></a>Como obter um locatário do Active Directory do Azure
 No AD do Azure, um [locatário](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) é representativo de uma organização.  Ele é uma instância dedicada do serviço Azure AD que uma organização recebe e detém como sua propriedade quando se inscreve em um serviço de nuvem da Microsoft, como o Azure, o Microsoft InTune ou o Office 365.  Cada locatário do AD do Azure é distinto e separado de outros diretórios do AD do Azure.  
 
 Um locatário acomoda os usuários em uma empresa e as informações sobre eles - suas senhas, dados de perfil do usuário, permissões e assim por diante.  Ele também contém grupos, aplicativos e outras informações referentes a uma organização e à sua segurança.
 
-Para permitir que os usuários do AD do Azure entrem no aplicativo, você deve registrá-lo em um locatário de sua propriedade.  Publicar um aplicativo em um locatário do AD do Azure é **totalmente gratuito**.  Na verdade, a maioria dos desenvolvedores criará vários locatários e aplicativos para fins de experimentação, teste, desenvolvimento e preparo.  As organizações que se inscreverem em seu aplicativo e tornarem-se clientes dele podem optar por adquirir licenças, se desejarem tirar proveito dos recursos avançados de diretório.
+Para permitir que os usuários do AD do Azure entrem no aplicativo, você deve registrá-lo em um locatário de sua propriedade.  Publicar um aplicativo em um locatário do AD do Azure é **totalmente gratuito**.  Na verdade, a maioria dos desenvolvedores cria vários locatários e aplicativos para fins de experimentação, teste, desenvolvimento e preparo.  As organizações que se inscreverem em seu aplicativo e tornarem-se clientes dele podem optar por adquirir licenças, se desejarem tirar proveito dos recursos avançados de diretório.
 
 Então, como você faria para obter um locatário do AD do Azure?  O processo pode ser um pouco se diferente se você:
 
@@ -53,7 +53,7 @@ Para fazer isso, siga essas etapas.  Como alternativa, você poderá criar um no
    * Nome de usuário: (escolha um nome de usuário para esse administrador)
    * Perfil: (preencha os valores apropriados para Nome, Sobrenome, Cargo e Departamento)
    * Função: administrador global
-6. Quando você tiver preenchido o formulário “Adicionar usuário” e recebido a senha temporária para o novo usuário administrativo, certifique-se de registrar essa senha, pois você precisará fazer logon com esse novo usuário para alterá-la. Você também pode enviar a senha diretamente para o usuário, usando um email alternativo.
+6. Quando você tiver preenchido o formulário “Adicionar usuário” e recebido a senha temporária para o novo usuário administrativo, certifique-se de registrar essa senha, pois você precisa fazer logon com esse novo usuário para alterá-la. Você também pode enviar a senha diretamente para o usuário, usando um email alternativo.
 7. Clique em **Criar** para criar o novo usuário.
 8. Para alterar a senha temporária, acesse [https://login.microsoftonline.com](https://login.microsoftonline.com) usando essa nova conta de usuário e altere a senha quando for solicitado.
 
@@ -61,6 +61,4 @@ Para fazer isso, siga essas etapas.  Como alternativa, você poderá criar um no
 Se você já se inscreveu anteriormente para uma assinatura do Azure com sua conta organizacional, você já tem um locatário!  No [Portal do Azure](https://portal.azure.com), você deve encontrar um locatário ao navegar até "Mais Serviços" e "Azure Active Directory".  Você é livre para usar esse locatário como desejar.
 
 ## <a name="start-from-scratch"></a>Começar do zero
-Se todos os itens acima forem sem sentido para você, não se preocupe.  Basta visitar [https://account.windowsazure.com/organization](https://account.windowsazure.com/organization) para inscrever-se no Azure com uma nova organização.  Depois de concluir o processo, você terá seu próprio locatário do AD do Azure com o nome de domínio escolhido durante a inscrição.  No [Portal do Azure](https://portal.azure.com), você pode localizar seu locatário navegando até "Azure Active Directory" no painel de navegação à esquerda.
-
-Como parte do processo de inscrição para o Azure, será solicitado que você forneça detalhes de cartão de crédito.  Você pode prosseguir com confiança - você não será cobrado para publicar aplicativos no AD do Azure nem para criar novos locatários.
+Se todos os itens acima forem sem sentido para você, não se preocupe. Visite o [Portal do Azure](https://portal.azure.com/#create/Microsoft.AzureActiveDirectory) para criar um novo diretório do Azure AD. Depois de concluir o processo, você terá seu próprio locatário do Azure AD com o nome de domínio escolhido durante a inscrição.  No [Portal do Azure](https://portal.azure.com), você pode localizar seu locatário navegando até **Azure Active Directory** no painel de navegação à esquerda.

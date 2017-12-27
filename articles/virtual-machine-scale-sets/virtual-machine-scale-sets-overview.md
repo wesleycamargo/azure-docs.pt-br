@@ -3,8 +3,8 @@ title: "Visão Geral dos Conjuntos de dimensionamento de máquinas virtuais do A
 description: "Saiba mais sobre os Conjuntos de dimensionamento de máquinas virtuais do Azure"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: gbowerman
-manager: timlt
+author: gatneil
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/01/2017
-ms.author: guybo
+ms.author: negat
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3a0d181ad0732458e67d0f3f1d6676be099b52fc
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 7f2048a39f28a74ca8a31c2e6d7466c69ba4d58f
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="what-are-virtual-machine-scale-sets-in-azure"></a>O que são conjuntos de dimensionamento de máquinas virtuais no Azure?
-Os conjuntos de dimensionamento de máquinas virtuais são um recurso de computação do Azure que você pode usar para implantar e gerenciar um conjunto de VMs idênticas. Com todas as VMs configuradas igualmente, os conjuntos de dimensionamento são projetados para dar suporte total ao dimensionamento e nenhum pré-provisionamento de VMs é necessário. Portanto, é mais fácil criar serviços em larga escala direcionados para Big Compute, Big Data e cargas de trabalho em contêineres.
+Os conjuntos de dimensionamento de máquinas virtuais são um recurso de computação do Azure que você pode usar para implantar e gerenciar um conjunto de VMs idênticas. Com todas as VMs configuradas igualmente, os conjuntos de dimensionamento são projetados para dar suporte total ao dimensionamento e nenhum pré-provisionamento de VMs é necessário. Portanto, é mais fácil compilar serviços em larga escala direcionados a cargas de trabalho com uso intenso de computação, muitos dados e em contêineres.
 
 Para aplicativos que necessitam dimensionar os recursos de computação, as operações de dimensionamento são balanceadas implicitamente entre domínios de falha e atualização. Para ver uma introdução aos conjuntos de dimensionamento, confira o [Comunicado no blog do Azure](https://azure.microsoft.com/blog/azure-virtual-machine-scale-sets-ga/).
 
@@ -50,7 +50,7 @@ Para exemplos do modelo Início Rápido, um botão "Implantação do Azure" no a
 ## <a name="autoscale"></a>Autoscale
 Para manter o desempenho do aplicativo consistente, você poderá aumentar ou diminuir automaticamente o número de instâncias de VM em seu conjunto de escala. Essa capacidade de dimensionamento automático reduz a sobrecarga de gerenciamento para monitorar e ajustar sua escala definida como alterações de demanda do cliente ao longo do tempo. Defina regras com base nas métricas de desempenho, na resposta do aplicativo ou em uma agenda fixa e o conjunto de escala será redimensionado automaticamente conforme necessário.
 
-Para as regras básicas de dimensionamento automático, você pode usar métricas de desempenho baseadas em host, como uso de CPU ou E/S de disco. Essas métricas baseadas em host estão disponíveis imediatamente, sem agentes adicionais ou extensões para instalar e configurar. As regras de dimensionamento automático que usam métricas baseadas em host podem ser tratadas com uma das ferramentas a seguir:
+Para as regras básicas de dimensionamento automático, você pode usar métricas de desempenho baseadas em host, como uso de CPU ou E/S de disco. Essas métricas baseadas em host ficam disponíveis automaticamente, sem agentes adicionais ou extensões para instalar e configurar. As regras de dimensionamento automático que usam métricas baseadas em host podem ser tratadas com uma das ferramentas a seguir:
 
 - [Portal do Azure](virtual-machine-scale-sets-autoscale-portal.md)
 - [Azure PowerShell](virtual-machine-scale-sets-autoscale-powershell.md)
@@ -123,7 +123,7 @@ Esta seção lista alguns cenários típicos de conjunto de dimensionamento. Al�
 ## <a name="scale-set-performance-and-scale-guidance"></a>Orientação de dimensionamento e desempenho do conjunto de dimensionamento
 * Um conjunto de escala dá suporte a até 1.000 VMs. Se você criar e carregar suas próprias imagens VM personalizadas, o limite será 300. Para considerações sobre o uso de conjuntos de dimensionamento grandes, confira [Trabalhando com conjuntos de dimensionamento de máquinas virtuais grandes](virtual-machine-scale-sets-placement-groups.md).
 * Você não precisa criar contas de armazenamento do Azure previamente para usar conjuntos de dimensionamento. Os conjuntos de dimensionamento dão suporte a discos gerenciados do Azure, o que elimina as preocupações de desempenho em relação ao número de discos por conta de armazenamento. Para saber mais, confira [Conjuntos de dimensionamento de máquinas virtuais do Azure e discos gerenciados](virtual-machine-scale-sets-managed-disks.md).
-* Considere o uso de armazenamento Premium do Azure, em vez de Armazenamento do Azure para ter tempos de provisionamento de VM mais rápidos e mais previsíveis, além de um melhor desempenho de E/S.
+* Considere o uso de Armazenamento Premium do Azure, em vez de Armazenamento do Azure para ter tempos de provisionamento de VM mais rápidos e mais previsíveis, além de um melhor desempenho de E/S.
 * A cota de vCPUs na região na qual você está implantando limita o número de VMs que podem ser criadas. Talvez seja necessário entrar em contato com o Atendimento ao Cliente para aumentar o limite da cota de computação, mesmo que hoje você tenha um limite alto de vCPUs para uso com os Serviços de Nuvem do Azure hoje. Para consultar a cota, execute este comando da CLI do Azure: `az vm list-usage`. Ou execute este comando do PowerShell: `Get-AzureRmVMUsage`.
 
 ## <a name="frequently-asked-questions-for-scale-sets"></a>Perguntas frequentes sobre os conjuntos de dimensionamento
@@ -159,7 +159,7 @@ Esta seção lista alguns cenários típicos de conjunto de dimensionamento. Al�
 
 **P.** Ao usar várias extensões em um conjunto de dimensionamento, posso impor uma sequência de execução?
 
-**A.** Não diretamente, mas para a extensão de customScript, o script poderia aguardar por outra extensão ser concluída. Encontre orientações adicionais sobre o sequenciamento de extensão nesta postagem de blog: [Extension Sequencing in Azure VM Scale Sets](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/)(Sequenciamento de extensão em conjuntos de dimensionamento de VMs do Azure).
+**A.** Não diretamente, mas para a extensão de customScript, o script poderia aguardar por outra extensão ser concluída. Encontre orientações adicionais sobre o sequenciamento de extensão na postagem de blog [Sequenciamento de extensão em conjuntos de dimensionamento de máquinas virtuais do Azure](https://msftstack.wordpress.com/2016/05/12/extension-sequencing-in-azure-vm-scale-sets/).
 
 **P.** Os conjuntos de dimensionamento funcionam com os conjuntos de disponibilidade do Azure?
 

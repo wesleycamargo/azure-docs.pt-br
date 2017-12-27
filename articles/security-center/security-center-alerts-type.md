@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/22/2017
+ms.date: 12/19/2017
 ms.author: yurid
-ms.openlocfilehash: 829657664cf1e37b22d57c62614300a205b5e91c
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: f4614ac55cde26e921edfe41160e2766aef6bb2c
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Noções básicas de alertas de segurança na Central de Segurança do Azure
 Este artigo ajuda você a compreender os diferentes tipos de alertas de segurança e as informações relacionadas disponíveis na Central de Segurança do Azure. Para saber mais sobre como gerenciar os alertas e os incidentes, confira [Gerenciar e responder aos alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md).
@@ -41,236 +41,160 @@ A Central de Segurança do Azure pode usar a análise de comportamento para iden
 
 > [!NOTE]
 > Para saber mais sobre como funcionam os recursos de detecção da Central de Segurança, confira [Recursos de detecção da Central de Segurança do Azure](security-center-detection-capabilities.md).
->
+
+
+### <a name="event-analysis"></a>Análise de eventos
+A Central de Segurança usa análises avançadas para identificar recursos comprometidos com base na análise dos logs de evento da máquina virtual. Por exemplo, Eventos de Criação do Processos e Eventos de Logon. Além disso, há uma correlação com outros sinais para verificar se há suporte a evidências de uma campanha generalizada.
+
+* **Execução de processo suspeita detectada**: invasores geralmente tentam executar códigos mal-intencionados sem detecção mascarando-os como processos benignos. Esses alertas indicam que uma execução de processo corresponde a um dos seguintes padrões:
+    * Um processo conhecido por ser usado para fins mal-intencionados foi executado. Embora comandos individuais possam parecer benignos, o alerta é classificado com base em uma agregação desses comandos. 
+    * Um processo foi executado em um local incomum.
+    * Um processo foi executado em um local em comum com arquivos suspeitos conhecidos.
+    * Um processo foi executado em um caminho suspeito.
+    * Um processo foi executado em um contexto anormal.
+    * Um processo foi executado por uma conta incomum.
+    * Um processo com uma extensão suspeita foi executado.
+    * Um processo com uma extensão dupla suspeita foi executado.
+    * Um processo com um caractere suspeito da direita para esquerda (RLO) em seu nome de arquivo foi executado.
+    * Um processo cujo nome é muito semelhante, mas é diferente de um processo de execução muito comum foi executado.
+    * Um processo cujo nome corresponde a uma ferramenta de invasão conhecida foi executado.
+    * Um processo com um nome aleatório foi executado.
+    * Um processo com uma extensão suspeita foi executado.
+    * Um arquivo oculto foi executado.
+    * Um processo foi executado como um filho de um outro processo não relacionado.
+    * Um processo incomum foi criado por um processo de sistema.
+    * Um processo anormal foi iniciado pelo serviço de atualização do Windows.
+    * Um processo foi executado com uma linha de comando incomum. Isso foi associado com processos legítimos sendo sequestrados para a execução de conteúdo mal-intencionado.
+    * Uma tentativa de iniciar todos os executáveis (*.exe) em um diretório foi executada na linha de comando.
+    * Um processo foi executado pelo utilitário PsExec, o qual pode ser usado para executar processos remotamente.
+    * O pai executável Apache Tomcat® (Tomcat#.exe) foi usado para iniciar processos filho suspeitos, os quais podem hospedar ou iniciar comandos mal-intencionados.
+    * O “Auxiliar de Compatibilidade de Programas” (pcalua.exe) do Microsoft Windows foi usado para iniciar o código executável, o qual poderia ser mal-intencionado. 
+    * Uma intermitência de encerramento de processo suspeita foi detectada.
+    * O processo de sistema SVCHOST foi executado em um contexto anormal.
+    * O processo de sistema SVCHOST foi executado em um raro grupo de serviço.
+    * Uma linha de comando suspeita foi executada.
+    * Um script do PowerShell tem características em comum com scripts suspeitos conhecidos.
+    * Um cmdlet Powersploit do PowerShell mal-intencionado e conhecido foi executado.
+    * Um usuário interno do SQL executou um processo que normalmente não executaria.
+    * Um executável codificado em base 64 foi detectado, o que pode indicar um invasor tentando evitar sua detecção por meio da criação de um executável na hora por meio de uma sequência de comandos.
+
+* **Atividade suspeita de recurso RDP**: o alvo dos invasores geralmente são portas de gerenciamento abertas como RDP com ataques de força bruta. Esses alertas indicam atividade de logon suspeita em Área de Trabalho Remota apontando que:
+    * Houve tentativas de logon em Área de Trabalho Remota.
+    * Houve tentativas de logon em Área de Trabalho Remota usando contas inválidas.
+    * Houve tentativas de logon em Área de Trabalho Remota, e algumas conseguiram fazer logon no computador.
+* **Atividade suspeita de recurso SSH**: o alvo dos invasores geralmente são portas de gerenciamento abertas como SSH com ataques de força bruta. Esses alertas indicam atividade de logon suspeita em SSH apontando que:
+    * Houve tentativas de logon com falha no SSH.
+    * Houve tentativas de logon no SSH, e algumas tiveram êxito.
+* **Valor de registro suspeito do WindowPosition**: esse alerta indica que houve uma tentativa de alteração de configuração do registro do WindowPosition, o que pode ser um indicativo de ocultação de janelas de aplicativo em seções não visíveis da área de trabalho.
+* **Possível tentativa de ignorar o AppLocker**: o AppLocker pode ser usado para limitar os processos que podem ser executados no Windows, limitando a exposição a malware. Esse alerta indica uma possível tentativa de ignorar restrições do AppLocker usando executáveis confiáveis (permitidos pela política do AppLocker) para executar um código não confiável.
+* **Comunicações suspeitas de pipe nomeado**: esse alerta indica que dados foram gravados em um pipe nomeado local a partir de um comando de console do Windows. Pipes nomeados são conhecidos por serem usados por invasores para criar tarefas e se comunicar com um implante mal-intencionado.
+* **Decodificação de um executável usando a ferramenta interna certutil.exe**: esse alerta indica que um utilitário de administrador interno (certutil.exe) foi usado para decodificar um executável. Os invasores são conhecidos por abusar da funcionalidade de ferramentas de administrador legítimas para executar ações mal-intencionadas, por exemplo, usando uma ferramenta como o certutil.exe para decodificar um executável mal-intencionado que será executado posteriormente.
+* **Um log de eventos foi limpo**: esse alerta aponta uma operação de limpeza do log de eventos, normalmente usada por invasores para tentar esconder seus rastros.
+* **Desativando e excluindo arquivos de log do IIS**: esse alerta indica que o arquivo de log do IIS foi desabilitado e/ou excluído, o que normalmente é usado pelos invasores para tentar esconder seus rastros.
+* **Exclusão de arquivo suspeito**: esse alerta indica a exclusão suspeita de arquivos, o que pode ser usado por um invasor para remover evidências de binários mal-intencionados.
+* **Todas as cópias de sombra de arquivo foram excluídas**: esse alerta indica que as cópias de sombra foram excluídas.
+* **Um arquivo de histórico foi limpo**: esse alerta indica que o arquivo de log do histórico de comandos foi limpo, o que pode ser usado por um invasor para esconder seus rastros.
+* **Comandos de limpeza de arquivo suspeito**: esse alerta indica uma combinação de comandos systeminfo usada para executar uma atividade de autolimpeza pós-comprometimento.  Embora *systeminfo.exe* seja uma ferramenta legítima do Windows, executá-la duas vezes consecutivas seguida por um comando de exclusão da maneira que ocorreu aqui é raro.
+* **Criação de conta suspeita**: esse alerta indica que foi criada uma conta bastante semelhante a uma conta interna com privilégio administrativo. Essa técnica pode ser usada para criar uma conta de invasor sem ser detectada. 
+* **Atividade de logon suspeita**: esse alerta indica uma atividade de logon incomum, o que pode indicar um ataque de força bruta ao protocolo SMB (Server Message Block). Se o recurso afetado atua como um servidor do IIS, esse alerta pode ocorrer devido a uma configuração de autenticação específica do IIS que é legítima.
+* **Atividade de cópia de sombra de volume suspeita**: esse alerta indica uma atividade de exclusão de cópia de sombra no recurso. Cópia de sombra de volume (VSC) é um artefato importante que armazena instantâneos de dados. Essa atividade é geralmente associada a Ransowmare, mas também poderia ser legítima.
+* **Método de persistência de registro do Windows**: esse alerta indica uma tentativa de manter um executável no registro do Windows. Um malware geralmente usa essa técnica para sobreviver a uma inicialização.
+* **O firewall do Windows foi desabilitado**: esse alerta indica que um firewall do Windows foi desabilitado.
+* **Nova regra de firewall suspeita**: esse alerta indica que uma nova regra de firewall foi adicionada por meio do *netsh.exe* para permitir o tráfego de um executável em um local suspeito.
+* **Um novo usuário foi adicionado ao grupo de administradores**: esse alerta indica que um novo usuário foi adicionado ao grupo de administradores local.
+* **Um novo serviço foi criado**: esse alerta indica que um novo serviço foi criado.
+* **Execuções de XCOPY suspeitas**: esse alerta indica uma série de execuções de XCOPY, o que pode sinalizar que um dos seus computadores foi comprometido e usado para propagar o malware.
+* **Supressão de aviso legal exibido aos usuários durante o logon**: esse alerta indica uma alteração na chave do registro que controla se um aviso legal é exibido aos usuários quando eles fazem logon. Essa é uma atividade comum realizada por invasores depois de terem comprometido um host.
+* **Detectada uma mistura anormal de caracteres maiúsculos e minúsculos na linha de comando**: esse alerta indica o uso de uma mistura de caracteres maiúsculos e minúsculos na linha de comando, que é uma técnica usada por invasores para burlar regras de computador baseadas em maiúsculas e minúsculas ou em hash.
+* **Linha de comando ofuscada**: esse alerta indica que os indicadores suspeitos de ofuscação foram detectados na linha de comando.
+* **Várias contas de domínio consultadas**: invasores geralmente fazem consultas a contas de domínio do AD enquanto fazem o reconhecimento de usuários, contas de administrador de domínio, controladores de domínio e relações de confiança entre domínios. Esse alerta indica que um número incomum de contas de domínio diferentes foi consultado dentro de um curto período de tempo.
+* **Possível atividade de reconhecimento de local**: esse alerta indica que foi executada uma combinação de comandos systeminfo associada à atividade de reconhecimento.  Embora *systeminfo.exe* seja uma ferramenta legítima do Windows, é raro que ela seja executada duas vezes consecutivas.
+* **Possível execução de keygen executável**: esse alerta indica que um processo cujo nome é uma indicação de uma ferramenta keygen foi executado. Essas ferramentas são normalmente usadas para anular os mecanismos de licenciamento de software, mas seu download geralmente vem em um pacote com outros softwares mal-intencionados. 
+* **Execução suspeita via rundll32.exe**: esse alerta indica que rundll32.exe foi usado para executar um processo com um nome incomum, consistente com o esquema de nomenclatura de processo usado por invasores para instalar um primeiro estágio de implantação em um host comprometido.
+* **Combinação suspeita de HTA e PowerShell**: esse alerta indica que um Host de Aplicativo do Microsoft HTML (HTA) está iniciando comandos do PowerShell. Essa é uma técnica usada pelos invasores para iniciar scripts do PowerShell mal-intencionados.
+* **Alteração para uma chave do registro que pode ser usada para ignorar o UAC**: esse alerta indica que uma chave do registro que pode ser usada para ignorar o UAC (controle de conta de usuário) foi alterada, o que geralmente é usado por invasores para se mover de um usuário sem privilégios (padrão) para um acesso privilegiado (por exemplo, administrador) em um host comprometido.
+* **Uso de nome de domínio suspeito na linha de comando**: esse alerta indica que um nome de domínio suspeito foi usado, o que pode ser evidência de que um invasor está hospedando ferramentas mal-intencionados e como pontos de extremidade para o comando e controle e pesquisa de dados. 
+* **Uma conta foi criada em vários hosts em um período de 24 horas**: esse alerta indica que foi feita uma tentativa para criar a mesma conta de usuário em vários hosts, o que pode ser evidência de um invasor se movendo lateralmente na rede depois de uma ou mais entidades de rede terem sido comprometidas.
+* **Uso suspeito de CACLS para diminuir o estado de segurança do sistema**: esse alerta indica que a lista de controle de acesso de alteração (CACLS) foi alterada. Essa técnica geralmente é usada pelos invasores para fornecer acesso completo a binários do sistema como ftp.exe, net.exe, wscript.exe, etc. 
+* **Tíquete de ouro Kerberos suspeito ataca parâmetros**: esse alerta indica que parâmetros de linha de comando consistentes com um ataque de tíquete de ouro Kerberos foram executados. Uma chave krbtgt comprometida pode ser usada por um invasor para representar qualquer usuário desejado. 
+* **Habilitação da chave do registro WDigest UseLogonCredential**: esse alerta indica que a chave do registro foi alterada para permitir que as credenciais de logon sejam armazenadas em texto não criptografado na memória LSA e depois poder ser coletado da memória.
+* **Uso potencialmente suspeito de ferramenta Telegram**: esse alerta indica que o Telegram foi instalado, um serviço de mensagens instantâneas grátis baseado em nuvem usado por invasores para transferir binários mal-intencionados para qualquer outro computador, telefone ou tablet.
+* **Criação de um novo ASEP**: esse alerta indica a criação de um novo ASEP (ponto de extensibilidade de início automático), que faz com que o nome do processo identificado na linha de comando seja iniciado automaticamente e possa ser usado por um invasor para obter persistência. 
+* **Alterações suspeitas de Set-ExecutionPolicy e WinRM** : esse alerta indica alterações de configuração, que são associadas com o uso de webshell ChinaChopper mal-intencionado.
+* **Desabilitação de serviços essenciais**: esse alerta indica que o comando “net.exe stop” foi usado para parar os serviços críticos como SharedAccess ou Central de Segurança do Windows. 
+* **Uso suspeito de opção de FTP -s**: esse alerta indica o uso de opção de FTPs "-s", que pode ser usado por um malware para se conectar a um servidor FTP e baixar binários mal-intencionados adicionais.
+* **Preparação para vazamento de documentos por meio da backdoor do IIS**: esse alerta indica que documentos estão sendo reunidos e preparados para vazamento.
+* **Execução suspeita do comando VBScript.Encode**: esse alerta indica que o comando *VBScript.Encode* foi executado, o que codifica scripts em texto ilegível, tornando mais difícil o exame do código pelos usuários.
+* **Alocação de objeto VBScript HTTP**: esse alerta indica a criação de um arquivo VBScript usando o Prompt de comando, o que pode ser usado para baixar arquivos mal-intencionados.
+* **Ataque a teclas sticky**: esse alerta indica que um invasor pode estar subvertendo um binário de acessibilidade (por exemplo teclas sticky, teclado na tela, narrador) para fornecer acesso a backdoor.
+* **Indicadores de ransomware Petya**: esse alerta indica que as técnicas associadas ao ransomware Petya foram observadas.
+* **Um módulo de kernel foi carregado**: esse alerta indica que um módulo de kernel foi carregado.
+* **Um módulo de kernel foi removido**: esse alerta indica que um módulo de kernel foi removido.
+* **Logon anormal em um computador**: esse alerta indica que um usuário fez logon de um endereço IP incomum.
+* **Um arquivo foi baixado e executado**: esse alerta indica que um arquivo foi baixado para o computador, recebeu privilégios de execução e foi executado.
+* **Tentativa de desabilitar a AMSI**: esse alerta indica uma tentativa de desabilitar a interface de verificação antimalware (AMSI), o que pode desativar a detecção antimalware.
+* **Indicadores de ransomware**: esse alerta indica atividades suspeitas tradicionalmente associadas a ransomware de tela de bloqueio e de criptografia.
+* **Arquivo de saída de rastreamento de coleção suspeito**: esse alerta indica que um rastreamento (por exemplo, de atividade de rede) foi coletado e enviado para um tipo de arquivo incomum.
+* **Software de alto risco**: esse alerta indica o uso de software que foi associado com à instalação de malware. Os invasores geralmente empacotam um malware com ferramentas benignas, como a mostrada nesse, e instalam o malware silenciosamente em segundo plano.
+* **Criação de arquivo suspeito**: esse alerta indica a criação ou a execução de um processo usado pelos invasores para baixar malware adicional para um host comprometido depois de um anexo em um documento de phishing ter sido aberto.
+* **Credenciais suspeitas na linha de comando**: esse alerta indica uma senha suspeita usada para executar um arquivo. Essa técnica tem sido usada por invasores para executar o malware Pirpi.
+* **Possível execução de malware dropper**: esse alerta indica um nome de arquivo que tem sido usado por invasores para instalar malware.
+* **Execução suspeita via rundll32.exe**: esse alerta indica que rundll32.exe está sendo usado para executar um notepad.exe ou reg.exe, consistente com a técnica de injeção de processo usada por invasores.
+* **Argumentos de linha de comando suspeitos**: esse alerta indica argumentos de linha de comando suspeitos que têm sido usados em conjunto com um shell inverso usado pelo grupo de atividade HYDROGEN.
+* **Credenciais de documento suspeitas**: esse alerta indica que um hash de senha comum e pré-calculado suspeito e usado por malware está sendo usado para executar um arquivo.
+* **Criação dinâmica de script do PS**: esse alerta indica um script do PowerShell que está sendo construído dinamicamente. Os invasores usam essa técnica para compilar um script progressivamente para fugir de sistemas IDS.
+* **Indicadores de Metasploit**: esse alerta indica atividades associadas com a estrutura Metasploit, que fornece uma variedade de ferramentas e recursos ao invasor.
+* **Violação do SENSE**: esse alerta indica uma tentativa de desabilitar o SENSE, o serviço de monitoramento de segurança do Windows Defender ATP.
+* **Atividade suspeita da conta**: esse alerta indica uma tentativa de se conectar a um computador usando uma conta que foi comprometida recentemente.
+* **Acesso possivelmente suspeito a tarefas de agendamento**: esse alerta indica que um trabalho cron foi executado, o que pode ser usado por invasores para executar programas mal-intencionados de forma programada.
+* **Acesso possivelmente suspeito a arquivos de histórico de comando**: esse alerta indica acesso anormal ao arquivo de histórico de comandos.
+* **Criação de conta**: esse alerta indica a criação de uma nova conta no computador.
+* **Alteração da configuração de bash**: esse alerta indica que um arquivo de perfil Bash foi acessado, o que pode ser evidência de que um invasor está tentando executar programas mal-intencionados de forma programada.
+* **Sequência suspeita de tentativas com falha de sudo**: esse alerta indica uma sequência de comandos do sudo sem êxito, que é geralmente observada em tentativas de força bruta de escalonar privilégios por usuários não autorizados.
+* **Tentativas suspeitas de sudo com êxito**: esse alerta indica uma sequência de tentativas de sudo com falha seguida de uma tentativa de sudo com êxito, que é geralmente observada em tentativas de força bruta de escalonar privilégios por usuários não autorizados. 
+* **Um novo usuário foi adicionado ao grupo sudoers**: esse alerta indica que um usuário foi adicionado ao grupo sudoers, que permite que seus membros executem comandos com privilégios elevados.
+* **Logon de rede com credenciais de texto sem formatação**: esse alerta indica que foi observado um logon de rede onde a senha foi enviada pela rede no formato de texto não criptografado. Isso é comum em logons de um script ASP usando a ADVAPI ou quando um usuário faz logon no IIS usando o modo de autenticação básica do IIS. A autenticação básica não é o método recomendado, a menos que seja encapsulada em uma camada de criptografia, como SSL (ou seja, usando apenas a conexões HTTPS).
 
 ### <a name="crash-analysis"></a>Análise de falha
+
+
 A análise do despejo de memória é um método usado para detectar um malware sofisticado capaz de escapar das soluções de segurança tradicionais. Várias formas de malware tentam reduzir a chance de serem detectadas por produtos antivírus nunca gravando no disco ou criptografando os componentes de software gravados no disco. Esta técnica torna o malware difícil de detectar usando as abordagens tradicionais antimalware. No entanto, esse tipo de malware pode ser detectado usando a análise de memória, pois o malware deve deixar rastreamentos na memória para poder funcionar.
 
 Quando o software falha, um despejo de memória captura uma parte da memória no momento da falha. A falha pode ser causada por malware, problemas gerais do aplicativo ou do sistema. Analisando a memória no despejo de falha, a Central de Segurança pode detectar as técnicas usadas para explorar as vulnerabilidades no software, acessar os dados confidenciais e manter-se de maneira furtiva em uma máquina comprometida. Isso é feito com um mínimo de impacto no desempenho para os hosts quando a análise é executada pelo back-end da Central de Segurança.
 
-Os campos a seguir são comuns aos exemplos de alerta de despejo de memória que aparecem posteriormente neste artigo:
-
-* DUMPFILE: nome do arquivo de despejo de memória.
-* PROCESSNAME: nome do processo de falha.
-* PROCESSVERSION: versão do processo de falha.
-
-### <a name="code-injection-discovered"></a>Injeção de código descoberta
-A injeção de código é a inserção de módulos executáveis em processos ou threads em execução.  Essa técnica é usada por malware para acessar dados, ocultar ou impedir sua remoção (por exemplo, persistência). Esse alerta indica que um módulo injetado está presente no despejo de memória. Os desenvolvedores de software legítimo ocasionalmente executam a injeção de código por motivos não mal-intencionados, como modificar ou estender um aplicativo existente ou um componente do sistema operacional.  Para ajudar a diferenciar módulos injetados mal-intencionados dos não mal-intencionados, a Central de Segurança verifica se o módulo injetado se encaixa em um perfil comportamento suspeito. O resultado dessa verificação é indicado pelo campo "ASSINATURA" do alerta e refletido na gravidade, na descrição e nas etapas de solução do alerta. 
-
-Esse alerta fornece os seguintes campos adicionais:
-
-- ADDRESS: o local do módulo injetado na memória
-- IMAGENAME: o nome do módulo injetado. Observe que esse campo pode ficar em branco se o nome da imagem não for fornecido dentro dela.
-- SIGNATURE: indica se o módulo injetado se encaixa em um perfil de comportamento suspeito. 
-
-A tabela a seguir mostra exemplos de resultados e suas descrições:
-
-| Campo Signature                      | Descrição                                                                                                       |
-|--------------------------------------|-------------------------------------------------------------------------------------------------------------------|
-| Exploração de carregador refletivo suspeito | Esse comportamento suspeito geralmente se correlaciona com o código injetado de carregamento independentemente do carregador do sistema operacional |
-| Exploração injetada suspeita          | Indica uma má intenção que frequentemente se correlaciona para injetar código na memória                                       |
-| Exploração de injeção suspeita         | Indica uma má intenção que frequentemente se correlaciona para uso de código injetado na memória                                   |
-| Exploração de depurador injetado suspeito | Indica uma má intenção que frequentemente se correlaciona com a detecção ou evasão de um depurador                         |
-| Exploração remota injetada suspeita   | Indica uma má intenção que frequentemente se correlaciona para comandar n cenários de controle (C2)                                 |
-
-Veja um exemplo desse tipo de alerta:
-
-![Alerta de injeção de código](./media/security-center-alerts-type/security-center-alerts-type-fig21.png)
-
-### <a name="suspicious-code-segment"></a>Segmento de código suspeito
-O segmento de código suspeito indica que um segmento de código foi alocado usando métodos não padrão, como os usados pela injeção refletiva e pelo esvaziamento de processo.  Além disso, esse alerta processa características adicionais do segmento de código para fornecer contexto aos recursos e comportamentos do segmento de código relatado.
-
-Esse alerta fornece os seguintes campos adicionais:
-
-- ADDRESS: o local do módulo injetado na memória
-- SIZE: o tamanho do segmento de código suspeito
-- STRINGSIGNATURES: esse campo lista recursos de APIs cujos nomes de função estão contidos no segmento de código. Recursos de exemplos podem incluir:
-    - Descritores de seção de imagem, Execução de código dinâmico para x64, Alocação de memória e capacidade de carregador, Recurso de injeção de código remota, Recurso de sequestro de controle, Ler variáveis de ambiente, Ler memória de processo arbitrário, Consultar ou modificar privilégios de token, Comunicação de rede HTTP/HTTPS e Comunicação de soquete de rede.
-- IMAGEDETECTED: esse campo indica se uma imagem PE foi inserida no processo em que o segmento de código suspeito foi detectado e em qual endereço o módulo injetado começa.
-- SHELLCODE: esse campo indica a presença de comportamento normalmente usado por conteúdos mal-intencionados para obter acesso a funções confidenciais de segurança do sistema operacional. 
-
-Veja um exemplo desse tipo de alerta:
-
-![Alerta de segmento de código suspeito](./media/security-center-alerts-type/security-center-alerts-type-fig22.png)
-
-### <a name="shellcode-discovered"></a>Shellcode descoberto
-Shellcode é a carga executada depois que o malware explorou uma vulnerabilidade do software. Esse alerta indica que a análise do despejo de memória detectou um código executável com um comportamento normalmente executado por cargas mal-intencionadas. Embora software que não seja mal-intencionado possa executar esse comportamento, não é comum às práticas de desenvolvimento de software normal.
-
-Esse exemplo de alerta do Shellcode fornece o seguinte campo adicional:
-
-* ADDRESS: o local do shellcode na memória.
-
-Veja um exemplo desse tipo de alerta:
-
-![Alerta de shellcode](./media/security-center-alerts-type/security-center-alerts-type-fig2.png)
-
-### <a name="module-hijacking-discovered"></a>Descoberta de sequestro do módulo
-O Windows usa DLLs (bibliotecas de vínculo dinâmico) para permitir que o software use funcionalidades comuns de sistema do Windows. O sequestro de DLL ocorre quando o malware altera a ordem de carregamento de DLL para carregar cargas maliciosas na memória, onde o código arbitrário pode ser executado. Este alerta indica que a análise de despejo de memória detectou um módulo com um nome parecido carregado de dois caminhos diferentes. Um dos caminhos carregados vem de um local de binários de sistema comuns do Windows.
-
-Os desenvolvedores de software legítimos ocasionalmente alteram a ordem de carregamento de DLL por motivos lícitos, por exemplo, para instrumentação, extensão do sistema operacional Windows ou de aplicativos do Windows. Para ajudar a diferenciar as alterações mal-intencionadas das bem-intencionadas na ordem de carregamento de DLL, a Central de Segurança do Azure verifica se um módulo carregado se encaixa em um perfil suspeito. O resultado dessa verificação é indicado pelo campo "ASSINATURA" do alerta e refletido na gravidade, na descrição e nas etapas de solução do alerta. Para pesquisar se o módulo é legítimo ou mal-intencionado, analise a cópia em disco do módulo sequestrado. Por exemplo, você pode verificar a assinatura digital do arquivo ou executar uma verificação antivírus.
-
-Além dos campos comuns descritos na seção "Shellcode descoberto" acima, esse alerta fornece os seguintes campos:
-
-* SIGNATURE: indica se o módulo de sequestro se encaixa em um perfil de comportamento suspeito.
-* HIJACKEDMODULE: o nome do módulo do sistema Windows sequestrado.
-* HIJACKEDMODULEPATH: o caminho do módulo do sistema Windows sequestrado.
-* HIJACKINGMODULEPATH: o caminho do módulo sequestrado.
-
-Veja um exemplo desse tipo de alerta:
-
-![Alerta de sequestro de módulo](./media/security-center-alerts-type/security-center-alerts-type-fig3.png)
-
-### <a name="masquerading-windows-module-detected"></a>Módulo do Windows simulado detectado
-O malware pode usar nomes comuns de binários (por exemplo, SVCHOST.EXE) ou módulos (por exemplo, NTDLL. DLL) do sistema Windows para *se misturar* e ocultar a natureza do software mal-intencionado dos administradores de sistema. O alerta indica que a análise de despejo de memória detectou que o arquivo de despejo de memória contém módulos que usam nomes de módulo do sistema Windows, mas não atendem a outros critérios típicos de módulos do Windows. A análise da cópia em disco do módulo simulado pode fornecer mais informações sobre a natureza legítima ou mal-intencionada do módulo. A análise pode incluir:
-
-* A confirmação de que o arquivo em questão é enviado como parte de um pacote de software legítimo.
-* Verifique a assinatura digital do arquivo.
-* Execute uma varredura antivírus no arquivo.
-
-Além dos campos comuns descritos anteriormente na seção "Shellcode descoberto", o alerta fornece os seguintes campos adicionais:
-
-* DETAILS: descreve se os metadados dos módulos são válidos e se o módulo foi carregado de um caminho do sistema.
-* NAME: o nome do módulo do Windows simulado.
-* PATH: o caminho do módulo do Windows simulado.
-
-Esse alerta também extrai e exibe determinados campos do cabeçalho PE do módulo, como "CHECKSUM" e "TIMESTAMP". Esses campos serão exibidos somente se os campos estiverem presentes no módulo. Confira a [Especificação Microsoft PE e COFF](https://msdn.microsoft.com/windows/hardware/gg463119.aspx) para obter detalhes sobre esses campos.
-
-Veja um exemplo desse tipo de alerta:
-
-![Alerta do Windows simulado](./media/security-center-alerts-type/security-center-alerts-type-fig4.png)
-
-### <a name="modified-system-binary-discovered"></a>Binário do sistema modificado descoberto
-Malware pode modificar os principais binários do sistema para acessar dados secretamente ou persistir furtivamente em um sistema comprometido. O alerta indica que a análise de despejo de memória detectou binários principais do sistema operacional Windows que foram modificados na memória ou no disco.
-
-Os desenvolvedores de software legítimos ocasionalmente modificam módulos do sistema na memória por motivos lícitos, por exemplo, para desvios ou para compatibilidade de aplicativos. Para ajudar a diferenciar módulos bem-intencionadas de mal-intencionados, a Central de Segurança do Azure verifica se um módulo alterado se encaixa em um perfil suspeito. O resultado dessa verificação é indicado pela severidade, pela descrição e pelas etapas de solução do alerta.
-
-Além dos campos comuns descritos anteriormente na seção "Shellcode descoberto", o alerta fornece os seguintes campos adicionais:
-
-* MODULENAME: nome do binário do sistema modificado.
-* MODULEVERSION: versão do binário do sistema modificado.
-
-Veja um exemplo desse tipo de alerta:
-
-![Alerta de binário do sistema](./media/security-center-alerts-type/security-center-alerts-type-fig5.png)
-
-### <a name="suspicious-process-executed"></a>Processo suspeito executado
-A Central de Segurança identifica um processo suspeito executado na máquina virtual de destino e dispara um alerta. A detecção não procura o nome específico, mas procura pelo parâmetro do arquivo executável. Portanto, mesmo que o invasor renomeie o arquivo executável, a Central de Segurança ainda poderá detectar o processo suspeito.
-
-Veja um exemplo desse tipo de alerta:
-
-![Alerta de processo suspeito](./media/security-center-alerts-type/security-center-alerts-type-fig6-new.png)
-
-### <a name="multiple-domains-accounts-queried"></a>Várias contas de domínio consultadas
-A Central de Segurança pode detectar várias tentativas para consultar as contas do Domínio do Active Directory, sendo algo que normalmente é feito pelo invasores durante o reconhecimento da rede. Os invasores podem aproveitar essa técnica para consultar o domínio a fim de identificar os usuários, quais são as contas do administrador de domínio, quais computadores são os controladores de domínio e também a relação de confiança de domínio potencial com outros domínios.
-
-Veja um exemplo desse tipo de alerta:
-
-![Alerta de conta de vários domínios](./media/security-center-alerts-type/security-center-alerts-type-fig7-new.png)
-
-### <a name="local-administrators-group-members-were-enumerated"></a>Os membros do grupo Administradores locais foram enumerados
-
-A Central de Segurança vai disparar um alerta quando o evento de segurança 4798, no Windows Server 2016 e no Windows 10, for disparado. Isso acontece quando os grupos de administradores locais são enumerados, que é algo normalmente feito por invasores durante o reconhecimento de rede. Os invasores podem aproveitar essa técnica para consultar a identidade de usuários com privilégios administrativos.
-
-Veja um exemplo desse tipo de alerta:
-
-![Administrador local](./media/security-center-alerts-type/security-center-alerts-type-fig14-new.png)
-
-### <a name="anomalous-mix-of-upper-and-lower-case-characters"></a>Mistura anormal de caracteres maiúsculos e minúsculos
-
-A Central de Segurança vai disparar um alerta ao detectar o uso de uma combinação de caracteres maiúsculos e minúsculos na linha de comando. Alguns invasores podem usar essa técnica para ocultar de maiúsculas e minúsculas ou regra de computador com base em hash.
-
-Veja um exemplo desse tipo de alerta:
-
-![Mistura anormal](./media/security-center-alerts-type/security-center-alerts-type-fig15-new.png)
-
-### <a name="suspected-kerberos-golden-ticket-attack"></a>Ataque de tíquete do ouro do Kerberos
-
-Uma chave [krbtgt](https://technet.microsoft.com/library/dn745899.aspx) comprometida pode ser usada por um invasor para criar "Tíquetes de ouro" Kerberos, permitindo que o invasor represente qualquer usuário desejado. A Central de segurança vai disparar um alerta quando detectar esse tipo de atividade.
-
-> [!NOTE] 
-> Para saber mais sobre o Tíquete de ouro Kerberos, leia [Guia de atenuação de roubo de credenciais do Windows 10](http://download.microsoft.com/download/C/1/4/C14579CA-E564-4743-8B51-61C0882662AC/Windows%2010%20credential%20theft%20mitigation%20guide.docx).
-
-Veja um exemplo desse tipo de alerta:
-
-![Tíquete de ouro](./media/security-center-alerts-type/security-center-alerts-type-fig16-new.png)
-
-### <a name="suspicious-account-created"></a>Conta suspeita criada
-
-A Central de Segurança vai disparar um alerta quando uma conta for criada com bastante semelhança à uma conta de privilégios de administrador interna existente. Essa técnica pode ser usada pelos invasores para criar uma conta de invasor que passe despercebida pela verificação humana.
- 
-Veja um exemplo desse tipo de alerta:
-
-![Conta suspeita](./media/security-center-alerts-type/security-center-alerts-type-fig17-new.png)
-
-### <a name="suspicious-firewall-rule-created"></a>Regra de firewall suspeita criada
-
-Os invasores podem tentar contornar a segurança do host criando regras de firewall personalizadas para permitir que aplicativos mal-intencionados se comuniquem com o comando e controle, ou para iniciar ataques pela rede por meio do host comprometido. A Central de Segurança vai disparar um alerta quando detectar que uma nova regra de firewall foi criada de um arquivo executável em um local suspeito.
- 
-Veja um exemplo desse tipo de alerta:
-
-![Regra de Firewall](./media/security-center-alerts-type/security-center-alerts-type-fig18-new.png)
-
-### <a name="suspicious-combination-of-hta-and-powershell"></a>Combinação suspeita de HTA e PowerShell
-
-A Central de Segurança vai disparar um alerta quando detectar que um host de aplicativo HTML da Microsoft (HTA) está iniciando comandos do PowerShell. Essa é uma técnica usada pelos invasores para iniciar scripts do PowerShell mal-intencionados.
- 
-Veja um exemplo desse tipo de alerta:
-
-![HTA e PS](./media/security-center-alerts-type/security-center-alerts-type-fig19-new.png)
-
+* **Injeção de código descoberta**: a injeção de código é a inserção de módulos executáveis em processos ou threads em execução. Essa técnica é usada por malware para acessar dados, ocultar ou impedir sua remoção (por exemplo, persistência). Esse alerta indica que um módulo injetado está presente no despejo de memória. Os desenvolvedores de software legítimo ocasionalmente executam a injeção de código por motivos não mal-intencionados, como modificar ou estender um aplicativo existente ou um componente do sistema operacional. Para ajudar a diferenciar módulos injetados mal-intencionados dos não mal-intencionados, a Central de Segurança verifica se o módulo injetado se encaixa em um perfil comportamento suspeito. O resultado dessa verificação é indicado pelo campo "ASSINATURA" do alerta e refletido na gravidade, na descrição e nas etapas de solução do alerta.
+* **Segmento de código suspeito**: esse alerta indica que um segmento de código foi alocado usando métodos não padrão, como os usados pela injeção refletiva e pelo esvaziamento de processo. Características adicionais do segmento de código são processadas para fornecer contexto aos recursos e comportamentos do segmento de código relatado.
+* **Shellcode descoberto**: shellcode é o payload executado depois de o malware ter explorado uma vulnerabilidade do software. Esse alerta indica que a análise do despejo de memória detectou um código executável com um comportamento normalmente executado por cargas mal-intencionadas. Embora software que não seja mal-intencionado possa executar esse comportamento, não é comum às práticas de desenvolvimento de software normal.
+* **Sequestro de módulo descoberto**: o Windows usa DLLs (bibliotecas de vínculo dinâmico) para permitir que o software use funcionalidades comuns de sistema do Windows. O sequestro de DLL ocorre quando o malware altera a ordem de carregamento de DLL para carregar cargas maliciosas na memória, onde o código arbitrário pode ser executado. Este alerta indica que a análise de despejo de memória detectou um módulo com um nome parecido carregado de dois caminhos diferentes. Um dos caminhos carregados vem de um local de binários de sistema comuns do Windows. Os desenvolvedores de software legítimos ocasionalmente alteram a ordem de carregamento de DLL por motivos lícitos, por exemplo, para instrumentação, extensão do sistema operacional Windows ou de aplicativos do Windows. Para ajudar a diferenciar alterações mal-intencionadas das bem-intencionadas na ordem de carregamento de DLL, a Central de Segurança verifica se um módulo carregado se encaixa em um perfil suspeito. 
+* **Simulação de módulo do Windows detectado**: o malware pode usar nomes comuns de binários (por exemplo, SVCHOST.EXE) ou módulos (por exemplo, NTDLL. DLL) do sistema Windows para se misturar e ocultar a natureza do software mal-intencionado dos administradores de sistema. O alerta indica que o arquivo de despejo de memória contém módulos que usam nomes de módulo do sistema Windows, mas não atendem a outros critérios típicos de módulos do Windows. A análise da cópia em disco do módulo simulado pode fornecer mais informações sobre a natureza legítima ou mal-intencionada do módulo.
+* **Binário de sistema modificado descoberto**: malware pode modificar os principais binários do sistema para acessar dados secretamente ou persistir furtivamente em um sistema comprometido. O alerta indica que a análise de despejo de memória detectou binários principais do sistema operacional Windows que foram modificados na memória ou no disco. Os desenvolvedores de software legítimos ocasionalmente modificam módulos do sistema na memória por motivos lícitos, por exemplo, para desvios ou para compatibilidade de aplicativos. Para ajudar a diferenciar módulos bem-intencionadas de mal-intencionados, a Central de Segurança verifica se um módulo alterado se encaixa em um perfil suspeito. 
 
 ## <a name="network-analysis"></a>Análise de Rede
 A detecção de ameaças da rede da Central de Segurança funciona coletando automaticamente as informações de segurança de seu tráfego do Azure IPFIX (Internet Protocol Flow Information Export). Ele analisa essas informações geralmente correlacionando informações de várias fontes para identificar ameaças.
 
-### <a name="suspicious-outgoing-traffic-detected"></a>Tráfego de saída suspeito detectado
-Os dispositivos de rede podem ser descobertos e analisados da mesma forma que outros tipos de sistemas. Os invasores normalmente começam com verificação de porta ou varredura de porta. No exemplo a seguir, você tem um tráfego suspeito de SSH (Secure Shell) de uma VM. Nesse cenário, é possível usar força bruta de SSH ou um ataque de varredura de porta contra um recurso externo.
+* **Possíveis tentativas de entrada de força bruta no SQL**: a análise de tráfego de rede detectou comunicação suspeita de entrada de SQL. Esta atividade é consistente com as tentativas de força bruta contra servidores SQL.
+* **Atividade suspeita de entrada de rede RDP de várias fontes**: a análise de tráfego de rede detectou entrada anormal de comunicação de protocolo de área de trabalho remota (RDP) de várias fontes. Especificamente, dados de amostra de rede mostram IPs exclusivos conectando-se ao seu computador, o que é considerado anormal para esse ambiente. Essa atividade pode indicar uma tentativa de força bruta no ponto de extremidade RDP em vários hosts (Botnet).
+* **Atividade suspeita de entrada de rede RDP**: a análise de tráfego de rede detectou entrada anormal de comunicação de protocolo de área de trabalho remota (RDP). Especificamente, dados de amostra de rede mostram um alto número de conexões de entrada ao seu computador, o que é considerado anormal para esse ambiente. Essa atividade pode indicar uma tentativa de força bruta no ponto de extremidade RDP.
+* **Atividade suspeita de saída de rede RDP para várias fontes**: a análise de tráfego de rede detectou saída anormal de comunicação de protocolo de área de trabalho remota (RDP) para vários destinos. Essa atividade pode indicar que o computador foi comprometido e agora está sendo usado força bruta em pontos de extremidade RDP externos. Observe que esse tipo de atividade poderia possivelmente fazer com que seu IP fosse sinalizado como mal-intencionado por entidades externas.
+* **Atividade suspeita de saída de rede RDP**: a análise de tráfego de rede detectou saída anormal de comunicação de protocolo de área de trabalho remota (RDP). Especificamente, dados de amostra de rede mostram um alto número de conexões de saída do seu computador, o que é considerado anormal para esse ambiente. Essa atividade pode indicar que o computador foi comprometido e agora está sendo usado força bruta em pontos de extremidade RDP externos. Observe que esse tipo de atividade poderia possivelmente fazer com que seu IP fosse sinalizado como mal-intencionado por entidades externas.
+* **Atividade suspeita de entrada de rede do SSH**: a análise de tráfego de rede detectou entrada anormal de comunicação do SSH. Especificamente, dados de amostra de rede mostram um alto número de conexões de entrada ao seu computador, o que é considerado anormal para esse ambiente. Essa atividade pode indicar uma tentativa de força bruta no ponto de extremidade do SSH.
+* **Atividade suspeita de entrada de rede do SSH de várias fontes**: a análise de tráfego de rede detectou entrada anormal de comunicação do SSH. Especificamente, dados de amostra de rede mostram IPs exclusivos conectando-se ao seu computador, o que é considerado anormal para esse ambiente. Essa atividade pode indicar uma tentativa de força bruta no ponto de extremidade do SSH em vários hosts (Botnet).
+* **Atividade suspeita de saída de rede do SSH**: a análise de tráfego de rede detectou saída anormal de comunicação do SSH. Especificamente, dados de amostra de rede mostram um alto número de conexões de saída do seu computador, o que é considerado anormal para esse ambiente. Essa atividade pode indicar que o computador foi comprometido e agora está sendo usado força bruta em pontos de extremidade externos do SSH. Observe que esse tipo de atividade poderia possivelmente fazer com que seu IP fosse sinalizado como mal-intencionado por entidades externas.
+* **Atividade suspeita de saída de rede do SSH para várias fontes**: a análise de tráfego de rede detectou saída anormal de comunicação do SSH para vários destinos. Especificamente, dados de amostra de rede mostram seu computador conectando-se a IP exclusivos, o que é considerado anormal para esse ambiente. Essa atividade pode indicar que o computador foi comprometido e agora está sendo usado força bruta em pontos de extremidade externos do SSH. Observe que esse tipo de atividade poderia possivelmente fazer com que seu IP fosse sinalizado como mal-intencionado por entidades externas.
+* **Detectada comunicação de rede com um computador mal-intencionado**: a análise de tráfego de rede indica que o computador se comunicou com o que é possivelmente um centro de Comando e Controle.
+* **Detectado computador possivelmente comprometido**: a análise de tráfego de rede detectou atividade de saída, o que pode indicar que ele está atuando como parte de uma botnet. A análise é baseada em IPs acessados pelo seu recurso junto com os registros DNS públicos.
 
-![Alerta de tráfego de saída suspeito](./media/security-center-alerts-type/security-center-alerts-type-fig8.png)
-
-Esse alerta fornece informações que você pode usar para identificar o recurso que foi usado para iniciar esse ataque. Esse alerta também fornece informações para identificar a máquina comprometida, o tempo de detecção, além do protocolo e da porta que foram usados. Essa página também fornece uma lista de etapas de correção que podem ser usadas para atenuar esse problema.
-
-### <a name="network-communication-with-a-malicious-machine"></a>Comunicação de rede com uma máquina mal-intencionada
-Aproveitando os feeds de inteligência de ameaças da Microsoft, a Central de Segurança do Azure pode detectar máquinas comprometidas que estão se comunicando com endereços IP mal-intencionados. Em muitos casos, o endereço mal-intencionado é um centro de comando e controle. Nesse caso, a Central de Segurança detectou que a comunicação foi feita usando o malware Pony Loader (também conhecido como [Fareit](https://www.microsoft.com/security/portal/threat/encyclopedia/entry.aspx?Name=PWS:Win32/Fareit.AF)).
-
-![alerta de comunicação de rede](./media/security-center-alerts-type/security-center-alerts-type-fig9.png)
-
-Esse alerta fornece informações que permitem a identificação do recurso usado para iniciar esse ataque, o recurso atacado, o IP da vítima, o IP do invasor e o tempo de detecção.
-
-> [!NOTE]
-> Endereços IP ativos foram removidos nesta captura de tela por fins de privacidade.
->
->
-
-### <a name="possible-outgoing-denial-of-service-attack-detected"></a>Possível saída do ataque de negação de serviço detectada
-O tráfego de rede anormal proveniente de uma máquina virtual pode levar a Central de Segurança a disparar um possível tipo de ataque de negação de serviço.
-
-Veja um exemplo desse tipo de alerta:
-
-![DOS de Saída](./media/security-center-alerts-type/security-center-alerts-type-fig10-new.png)
-
+ 
 ## <a name="resource-analysis"></a>Análise de Recursos
-A análise de recursos da Central de Segurança concentra-se em serviços PaaS (plataforma como serviço), como a integração com o recurso [Detecção de ameaças do Banco de Dados SQL do Azure](../sql-database/sql-database-threat-detection.md). Com base nos resultados da análise dessas áreas, a Central de Segurança dispara um alerta relacionado aos recursos.
 
-### <a name="potential-sql-injection"></a>Potencial injeção de SQL
-A injeção de SQL é um ataque em que o código mal-intencionado é inserido em cadeias de caracteres, passadas posteriormente para uma instância do SQL Server para análise e execução. Qualquer procedimento que constrói instruções SQL deve ser revisado em busca de vulnerabilidades de injeção, pois o SQL Server executa todas as consultas sintaticamente válidas que recebe. A Detecção de Ameaças SQL usa o aprendizado de máquina, análise de comportamento e detecção de anomalias para determinar os eventos suspeitos que podem estar ocorrendo em seus Bancos de Dados SQL do Azure. Por exemplo:
+A análise de recursos da Central de Segurança concentra-se em serviços PaaS (plataforma como serviço), como a integração com o recurso [Detecção de ameaças do Banco de Dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection). Com base nos resultados da análise dessas áreas, a Central de Segurança dispara um alerta relacionado aos recursos.
 
-* Tentativa de acesso do banco de dados por um antigo funcionário
-* Ataques de injeção de SQL
-* Acesso incomum e um banco de dados de produção de um usuário em casa
-
-![Alerta de Potencial Injeção de SQL](./media/security-center-alerts-type/security-center-alerts-type-fig11.png)
-
-As informações neste alerta podem ser usadas para identificar o recurso atacado, o tempo de detecção e o estado do ataque. Também fornecem um link para mais etapas de investigação.
-
-### <a name="vulnerability-to-sql-injection"></a>Vulnerabilidade à Injeção de SQL
-Este alerta é disparado quando um erro de aplicativo é detectado em um banco de dados. Esse alerta pode indicar uma possível vulnerabilidade a ataques de injeção de SQL.
-
-![Alerta de Potencial Injeção de SQL](./media/security-center-alerts-type/security-center-alerts-type-fig12-new.png)
-
-### <a name="unusual-access-from-unfamiliar-location"></a>Acesso incomum de um local desconhecido
-Este alerta é disparado quando um evento de acesso de um endereço IP desconhecido foi detectado no servidor, que não foi visto no último período.
-
-![Alerta de acesso incomum](./media/security-center-alerts-type/security-center-alerts-type-fig13-new.png)
+* **Potencial injeção de SQL**: a injeção de SQL é um ataque em que o código mal-intencionado é inserido em cadeias de caracteres, passadas posteriormente para uma instância do SQL Server para análise e execução. Qualquer procedimento que constrói instruções SQL deve ser revisado em busca de vulnerabilidades de injeção, pois o SQL Server executa todas as consultas sintaticamente válidas que recebe. A Detecção de Ameaças SQL usa o aprendizado de máquina, análise de comportamento e detecção de anomalias para determinar os eventos suspeitos que podem estar ocorrendo em seus Bancos de Dados SQL do Azure. Por exemplo: 
+    * Tentativa de acesso do banco de dados por um antigo funcionário
+    * Ataques de injeção de SQL
+    * Acesso incomum e um banco de dados de produção de um usuário em casa
+* **Vulnerabilidade à injeção de SQL**: esse alerta é disparado quando um erro de aplicativo é detectado em um banco de dados. Esse alerta pode indicar uma possível vulnerabilidade a ataques de injeção de SQL.
+* **Acesso não usual de um local não familiar**: esse alerta é disparado quando um evento de acesso de um endereço IP desconhecido foi detectado no servidor, que não foi visto no último período.
 
 ## <a name="contextual-information"></a>Informações Contextuais
 Durante uma investigação, os analistas precisarão de contexto extra para atingirem um veredito sobre a natureza da ameaça e como resolvê-la.  Por exemplo, uma anomalia de rede foi detectada, mas sem compreender o que está acontecendo na rede ou em relação ao recurso de destino é cada difíceis de entender as ações a serem tomadas. Para ajudar com isso, um incidente de segurança pode incluir artefatos, eventos relacionados e informações que podem ajudar quem estiver investigando. A disponibilidade de informações adicionais irá variar com base no tipo de ameaça detectada e an configuração do seu ambiente e não estará disponível para todos os incidentes de segurança.
@@ -284,7 +208,7 @@ Se houver informações adicionais disponíveis, elas serão mostradas no Incide
 ![Alerta de acesso incomum](./media/security-center-alerts-type/security-center-alerts-type-fig20.png) 
 
 
-## <a name="see-also"></a>Consulte também
+## <a name="next-steps"></a>Próximas etapas
 Neste artigo, você aprendeu sobre os diferentes tipos de alertas de segurança na Central de Segurança. Para saber mais sobre a Central de Segurança, confira o seguinte:
 
 * [Manipulação de incidente de segurança na Central de Segurança do Azure](security-center-incident.md)

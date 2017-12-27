@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 08/23/2017
+ms.date: 12/20/2017
 ms.author: sethm
-ms.openlocfilehash: 77ee85db0bcc701514a1a98da9405a79d658d49d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d1b1c0661458669dc8f05a49037943320de2ecb3
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="what-is-azure-relay"></a>O que é Retransmissão do Azure?
 
@@ -54,11 +54,12 @@ A funcionalidade de [Conexões Híbridas de Retransmissão do Azure](relay-hybri
 
 As Conexões Híbridas suplantam primeiro recurso, também denominado "Serviços BizTalk", que foi criado na Retransmissão de WCF do Barramento de Serviço do Azure. A nova capacidade Conexões Híbridas complementa o recurso Retransmissão de WCF existente e essas duas capacidades de serviços existirão lado a lado no serviço de Retransmissão do Azure. Eles compartilham um gateway comum, mas têm implementações diferentes.
 
-## <a name="wcf-relays"></a>Retransmissões de WCF
+## <a name="wcf-relay"></a>Retransmissão de WCF
 
-A Retransmissão de WCF funciona para o todo o .NET Framework (NETFX) e o WCF. Você inicia a conexão entre o serviço local e o serviço de retransmissão usando um conjunto de associações de "retransmissão" WCF. Nos bastidores, as associações de retransmissão são mapeadas para novos elementos de ligação de transporte projetados para criar componentes de canal WCF que são integrados ao Barramento de Serviço na nuvem.
+A Retransmissão de WCF funciona para todo o .NET Framework (NETFX) e o WCF. Você inicia a conexão entre o serviço local e o serviço de retransmissão usando um conjunto de associações de "retransmissão" WCF. Nos bastidores, as associações de retransmissão são mapeadas para novos elementos de ligação de transporte projetados para criar componentes de canal WCF que são integrados ao Barramento de Serviço na nuvem. Para saber mais, confira a [introdução ao WCF Relay](relay-wcf-dotnet-get-started.md).
 
 ## <a name="architecture-processing-of-incoming-relay-requests"></a>Arquitetura: processamento de mensagens de solicitações de retransmissão
+
 Quando um cliente envia uma solicitação ao Serviço [Azure Relay](/azure/service-bus-relay/), o balanceador de carga do Azure direciona para qualquer um dos nós do gateway. Se a solicitação for uma solicitação de escuta, o nó do gateway cria uma nova retransmissão. Se a solicitação for uma solicitação de conexão com uma retransmissão específica, o nó do gateway encaminha a solicitação de conexão para o nó do gateway que tem a retransmissão. O nó do gateway que tem a retransmissão envia uma solicitação de encontro ao cliente de escuta, pedindo ao ouvinte para criar um canal temporário para o nó do gateway que recebeu a solicitação de conexão.
 
 Quando a conexão de retransmissão é estabelecida, os clientes podem trocar mensagens por meio do nó do gateway usado para o encontro.

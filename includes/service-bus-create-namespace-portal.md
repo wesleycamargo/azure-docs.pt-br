@@ -16,7 +16,7 @@ Para criar um namespace:
 ### <a name="obtain-the-management-credentials"></a>Obter as credenciais de gerenciamento
 A criação de um novo namespace gera automaticamente uma regra de SAS (assinatura de acesso compartilhado) inicial com um par de chaves primárias e secundárias associado que concede, cada um, controle total sobre todos os aspectos do namespace. Consulte [Autenticação e autorização do Barramento de Serviço](../articles/service-bus-messaging/service-bus-authentication-and-authorization.md) para obter mais informações sobre como criar regras adicionais com direitos mais restritos para remetentes e destinatários regulares. Para copiar a regra inicial, siga estas etapas: 
 
-1. Na lista de namespaces, clique no nome do namespace recém-criado.
+1.  Clique em **Todos os recursos** e depois clique no nome do namespace recém-criado.
 2. Na janela namespace, clique em **Políticas de acesso compartilhado**.
 3. Na tela **Políticas de acesso compartilhado**, clique em **RootManageSharedAccessKey**.
    

@@ -1,12 +1,11 @@
 ---
-title: 'Azure Active Directory B2C: registro de aplicativos | Microsoft Docs'
+title: Registro do aplicativo - Azure Active Directory B2C
 description: Como registrar seu aplicativo com o B2C do Active Directory do Azure
 services: active-directory-b2c
-documentationcenter: 
-author: parakhj
+author: PatAltimore
 manager: mtillman
-editor: PatAltimore
-ms.assetid: 20e92275-b25d-45dd-9090-181a60c99f69
+editor: parakhj
+ms.custom: seo
 ms.service: active-directory-b2c
 ms.workload: identity
 ms.tgt_pltfrm: na
@@ -14,11 +13,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 6/13/2017
 ms.author: parakhj
-ms.openlocfilehash: 36a421056b123f397c3d5f7d7bfb4c5314c82b78
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b1d145466382c8fc2ea6c5e4e295940b0f000b97
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-active-directory-b2c-register-your-application"></a>Azure Active Directory B2C: registrar seu aplicativo
 
@@ -28,7 +27,7 @@ Este Guia de início rápido ajuda você a registrar um aplicativo em um locatá
 
 Para compilar um aplicativo que aceite a inscrição e a entrada do consumidor, primeiro será necessário registrar o aplicativo em um locatário do Azure Active Directory B2C. Obtenha seu próprio locatário usando as etapas descritas em [Criar um locatário do Azure AD B2C](active-directory-b2c-get-started.md).
 
-Os aplicativos criados da folha Azure AD B2C no portal do Azure devem ser gerenciados do mesmo local. Se você editar os aplicativos B2C usando o PowerShell ou outro portal, eles deixarão de ter suporte e não funcionarão com o Azure AD B2C. Consulte os detalhes da seção [aplicativos com falha](#faulted-apps). 
+Os aplicativos criados no Portal do Azure devem ser gerenciados do mesmo local. Se você editar os aplicativos B2C do Azure AD usando o PowerShell ou outro portal, eles deixarão de ter suporte e não funcionarão com o Azure AD B2C. Consulte os detalhes da seção [aplicativos com falha](#faulted-apps). 
 
 Este artigo usa exemplos que ajudarão você a começar a usar nossos exemplos. Você pode aprender mais sobre esses exemplos nos artigos subsequentes.
 
@@ -117,7 +116,7 @@ Os dois últimos podem ser adicionados porque eles são subdomínios da primeira
 
 Há duas considerações importantes ao escolher um URI de redirecionamento para aplicativos móveis/nativo:
 
-* **Exclusivo**: o esquema do URI de redirecionamento deve ser exclusivo para cada aplicativo. Em nosso exemplo (com.onmicrosoft.contoso.appname://redirect/path), podemos usar com.onmicrosoft.contoso.appname como o esquema. É recomendável seguir esse padrão. Se dois aplicativos compartilharem o mesmo esquema, o usuário verá uma caixa de diálogo "escolher aplicativo". Se o usuário fizer uma escolha incorreta, o logon falhará.
+* **Exclusivo**: o esquema do URI de redirecionamento deve ser exclusivo para cada aplicativo. NO exemplo (com.onmicrosoft.contoso.appname://redirect/path), usamos com.onmicrosoft.contoso.appname como o esquema. É recomendável seguir esse padrão. Se dois aplicativos compartilharem o mesmo esquema, o usuário verá uma caixa de diálogo "escolher aplicativo". Se o usuário fizer uma escolha incorreta, o logon falhará.
 * **Completo**: o URI de redirecionamento deve ter um esquema e um caminho. O caminho deve conter pelo menos uma barra “/” depois do domínio (por exemplo, //contoso/ funciona e //contoso falha).
 
 Verifique se não há caracteres especiais, como sublinhados, no uri de redirecionamento.
@@ -126,16 +125,16 @@ Verifique se não há caracteres especiais, como sublinhados, no uri de redireci
 
 Os aplicativos B2C NÃO devem ser editados:
 
-* Em outros portais de gerenciamento de aplicativo, como o [portal clássico do Azure](https://manage.windowsazure.com/) e o [Portal de Registro de Aplicativo](https://apps.dev.microsoft.com/).
+* Em outros portais de gerenciamento de aplicativo, como o [Portal de Registro de Aplicativo](https://apps.dev.microsoft.com/).
 * Uso da API do Graph ou do PowerShell
 
-Se você editar o aplicativo B2C conforme descrito acima e tentar editá-lo novamente na folha de recursos do Azure AD B2C no Portal do Azure, ele se tornará um aplicativo com falha e o aplicativo não poderá ser usado com o Azure AD B2C. Você precisa excluir o aplicativo e criá-lo novamente.
+Se você editar o aplicativo B2C do Azure AD conforme descrito e tentar editá-lo novamente nos recursos do Azure AD B2C no Portal do Azure, ele se tornará um aplicativo com falha e o aplicativo não poderá ser usado com o Azure AD B2C. Você precisa excluir o aplicativo e criá-lo novamente.
 
 Para excluir o aplicativo, vá para o [Portal de Registro de Aplicativo](https://apps.dev.microsoft.com/) e exclua o aplicativo localmente. Para que o aplicativo fique visível, você precisa ser o proprietário do aplicativo (e não apenas um administrador do locatário).
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Agora que já tem um aplicativo registrado com o Azure AD B2C, você pode concluir um de nossos [tutoriais de início rápido](active-directory-b2c-overview.md#get-started) para começar a trabalhar.
+Agora que já tem um aplicativo registrado com o Azure AD B2C, você pode concluir um dos [tutoriais de início rápido](active-directory-b2c-overview.md#get-started) para começar a trabalhar.
 
 > [!div class="nextstepaction"]
 > [Criar um aplicativo Web ASP.NET com inscrição, entrada e redefinição de senha](active-directory-b2c-devquickstarts-web-dotnet-susi.md)

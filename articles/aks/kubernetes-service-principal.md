@@ -9,11 +9,11 @@ ms.topic: get-started-article
 ms.date: 11/30/2017
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 23d59d37e25775f67d01813bbf53d150f1973622
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9814dca53f1a410f4d1e95cc18b98373f27f9802
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="service-principals-with-azure-container-service-aks"></a>Entidades de serviço com o Serviço de Contêiner do Azure (AKS)
 
@@ -83,7 +83,7 @@ Ao trabalhar com entidades de serviço AKS e do Azure AD, tenha em mente o segui
 * Ao especificar a **ID do cliente** da entidade de serviço, você pode usar o valor de `appId` (conforme mostrado neste artigo) ou `name` da entidade de serviço correspondente (por exemplo, `https://www.contoso.org/example`).
 * Nas VMs mestre e de nó no cluster Kubernetes, as credenciais de entidade de serviço são armazenadas no arquivo `/etc/kubernetes/azure.json`.
 * Se você usar o comando `az aks create` para gerar a entidade de serviço automaticamente, as credenciais da entidade de serviço serão gravadas no arquivo `~/.azure/acsServicePrincipal.json` no computador usado para executar o comando.
-* Quando você usa o comando `az aks create` para gerar a entidade de serviço automaticamente, ela também pode autenticar com um [registro de contêiner do Azure][acr-into] criado na mesma assinatura.
+* Quando você usa o comando `az aks create` para gerar a entidade de serviço automaticamente, ela também pode autenticar com um [registro de contêiner do Azure][acr-intro] criado na mesma assinatura.
 * Ao excluir um cluster AKS que foi criado por `az aks create`, a entidade de serviço que foi criada automaticamente não será excluída. Você pode usar `az ad sp delete --id $clientID` para excluí-la.
 
 ## <a name="next-steps"></a>Próximas etapas
