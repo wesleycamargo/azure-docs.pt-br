@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: 29823708b2d26a383b76e371499859e57f470c6f
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: ac7f8ddaf84ba94075a9c9c3195bd57534c6821b
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="troubleshoot-routes-using-azure-powershell"></a>Solucionar problemas de rotas usando o Azure PowerShell
 > [!div class="op_single_selector"]
@@ -57,7 +57,7 @@ Para ver as rotas agregadas aplicadas a uma VM, siga as etapas a seguir:
 ### <a name="view-effective-routes-for-a-network-interface"></a>Exibir rotas em vigor para um adaptador de rede
 Para ver as rotas agregadas aplicadas a um adaptador de rede, siga as etapas a seguir:
 
-1. Inicie uma sessão do Azure PowerShell e faça logon no Azure. Se você não estiver familiarizado com o Azure PowerShell, leia o artigo [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) .
+1. Inicie uma sessão do Azure PowerShell e faça logon no Azure. Se você não estiver familiarizado com o Azure PowerShell, leia o artigo [Como instalar e configurar o Azure PowerShell](/powershell/azure/overview) . Sua conta deve ter a operação *Microsoft.Network/networkInterfaces/effectiveRouteTable/action* atribuída a ela para o adaptador de rede. Para saber como atribuir operações a contas, consulte [Criar funções personalizadas para o Controle de Acesso Baseado em Função do Azure](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
 2. O comando a seguir retorna todas as rotas aplicadas a um adaptador de rede denominado *VM1-NIC1* no grupo de recursos *RG1*.
    
        Get-AzureRmEffectiveRouteTable -NetworkInterfaceName VM1-NIC1 -ResourceGroupName RG1

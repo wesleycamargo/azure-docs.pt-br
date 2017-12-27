@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: tables
 ms.date: 11/06/2017
 ms.author: barbkess
-ms.openlocfilehash: 2349708f607364c34926a2ea1baa025201934973
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 4d5777e69b7ea3fa206bf8909c255b998be69e8a
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="managing-statistics-on-tables-in-sql-data-warehouse"></a>Gerenciamento de estatísticas em tabelas no SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -33,32 +33,30 @@ ms.lasthandoff: 12/07/2017
 > 
 > 
 
-Quanto mais o SQL Data Warehouse sabe sobre seus dados, mais rápido ele pode executar consultas neles.  A maneira com a qual você informa o SQL Data Warehouse sobre seus dados é coletando estatísticas sobre seus dados.  Ter estatísticas sobre seus dados é uma das coisas mais importantes que você pode fazer para otimizar as consultas.  As estatísticas ajudam o SQL Data Warehouse a criar o plano ideal para suas consultas.  Isso porque o otimizador de consulta do SQL Data Warehouse é um otimizador baseado em custo.  Ou seja, ele compara o custo de vários planos de consulta e depois escolhe o plano com o menor custo, que também deverá ser o plano com execução mais rápida.
+Quanto mais o SQL Data Warehouse sabe sobre seus dados, mais rápido ele pode executar consultas neles.  A maneira com a qual você informa o SQL Data Warehouse sobre seus dados é coletando estatísticas sobre seus dados. Ter estatísticas sobre seus dados é uma das coisas mais importantes que você pode fazer para otimizar as consultas. Isso porque o otimizador de consulta do SQL Data Warehouse é um otimizador baseado em custo. Ele compara o custo de vários planos de consulta e depois escolhe o plano com o menor custo, que também deverá ser o plano com execução mais rápida. Por exemplo, se o otimizador estimar que a data usada para filtrar sua consulta retornará 1 linha, ele poderá escolher um plano muito diferente do que se estimar que a data selecionada retornará 1 milhão de linhas.
 
-As estatísticas podem ser criadas em uma única coluna, várias colunas ou em um índice de uma tabela.  As estatísticas são armazenadas em um histograma que captura o intervalo e a seletividade dos valores.  Isso é particularmente interessante quando o otimizador precisa avaliar cláusulas JOIN, GROUP BY, HAVING e WHERE em uma consulta.  Por exemplo, se o otimizador estimar que a data usada para filtrar sua consulta retornará 1 linha, ele poderá escolher um plano muito diferente do que se estimar que a data selecionada retornará 1 milhão de linhas.  Embora a criação de estatísticas seja extremamente importante, é igualmente importante que as estatísticas reflitam com *precisão* o estado atual da tabela.  Ter estatísticas atualizadas garante a seleção de um bom plano pelo otimizador.  Os planos criados pelo otimizador são tão bons quanto as estatísticas sobre seus dados.
-
-NO momento, o processo de criação e atualização de estatísticas é um processo manual, mas é muito simples.  Isso é diferente do SQL Server, que cria e atualiza automaticamente as estatísticas em colunas e índices únicos.  Ao usar as informações a seguir, você pode automatizar bastante o gerenciamento das estatísticas em seus dados. 
+NO momento, o processo de criação e atualização de estatísticas é um processo manual, mas é muito simples.  Em breve você será capaz de criar e atualizar as estatísticas em colunas únicas e índices automaticamente.  Ao usar as informações a seguir, você pode automatizar bastante o gerenciamento das estatísticas em seus dados. 
 
 ## <a name="getting-started-with-statistics"></a>Introdução às estatísticas
- Criar estatísticas de exemplo em cada coluna é uma maneira fácil de começar a usar as estatísticas.  Como é igualmente importante manter estatísticas atualizadas, pode ser uma abordagem conservadora atualizar as estatísticas diariamente ou após cada carregamento. Sempre há compensações entre o desempenho e o custo para a criação e a atualização das estatísticas.  Se você achar que está demorando muito para manter todas as estatísticas, convém tentar ser mais seletivo sobre quais colunas têm estatísticas ou quais colunas precisam de uma atualização frequente.  Por exemplo, convém atualizar diariamente as colunas de datas, pois novos valores podem ser adicionados, e não após cada carregamento. Novamente, você terá mais benefícios se tiver estatísticas em colunas envolvidas em cláusulas JOINs, GROUP BY, HAVING e WHERE.  Se você tiver uma tabela com muitas colunas que são usadas somente na cláusula SELECT, as estatísticas nessas colunas não serão úteis, e gastar um pouco mais de esforço para identificar apenas as colunas nas quais as estatísticas serão úteis pode reduzir o tempo de manutenção das estatísticas.
+Criar estatísticas de exemplo em cada coluna é uma maneira fácil de começar a usar as estatísticas. Estatísticas desatualizadas resultarão em um desempenho de consulta abaixo do ideal. No entanto, pode ocorrer o consumo de memória para atualizar estatísticas em todas as colunas conforme os dados aumentam. 
 
-## <a name="multi-column-statistics"></a>Estatísticas de várias colunas
-Além de criar estatísticas em colunas únicas, talvez você perceba que suas consultas se beneficiariam de estatísticas em várias colunas.  Estatísticas de várias colunas são estatísticas criadas em uma lista de colunas.  Elas incluem estatísticas sobre uma única coluna na primeira coluna da lista, além de algumas informações de correlação entre colunas chamadas de densidades.  Por exemplo, se você tiver uma tabela que se une a outras duas colunas, você perceberá que o SQL Data Warehouse pode otimizar ainda mais o plano se ele compreender a relação entre as duas colunas.   As estatísticas de várias colunas podem melhorar o desempenho de consulta de algumas operações como junções compostas e agrupar por.
+A seguir estão algumas recomendações para diferentes cenários:
+| **Cenários** | Recomendações |
+|:--- |:--- |
+| **Introdução** | Atualizar todas as colunas após a migração para o SQL DW |
+| **Coluna mais importante para estatísticas** | Chave de distribuição de hash |
+| **Segunda coluna mais importante para estatísticas** | Chave de partição |
+| **Outras colunas importantes para estatísticas** | Data, JOINs frequentes, GROUP BY, HAVING e WHERE |
+| **Frequência de atualizações de estatísticas**  | Conservadora: diária <br></br> Depois de carregar ou transformar os dados |
+| **Amostragem** |  Abaixo das linhas 1 B, usar a amostragem padrão (20%) <br></br> Com tabelas de mais de linhas 1 B, as estatísticas em um intervalo de 2% são boas |
 
 ## <a name="updating-statistics"></a>Atualização de estatísticas
-Atualizar as estatísticas é uma parte importante de sua rotina de gerenciamento de banco de dados.  Quando a distribuição dos dados no banco de dados é alterada, as estatísticas precisam ser atualizadas.  Estatísticas desatualizadas resultarão em um desempenho de consulta abaixo do ideal.
 
-Uma prática recomendada é atualizar as estatísticas em colunas de data por dia à medida que novas datas são adicionadas.  Sempre que há um carregamento de novas linhas no data warehouse, novas datas de carga ou datas de transação são adicionadas. Isso muda a distribuição de dados e desatualiza as estatísticas. Por outro lado, as estatísticas em uma coluna de país em uma tabela de cliente talvez nunca tenham de ser atualizadas, já que a distribuição de valores geralmente não é alterada. Supondo que a distribuição seja constante entre os clientes, adicionar novas linhas à variação de tabela não alterará a distribuição dos dados. No entanto, se seu data warehouse contiver apenas um país e se você exibir dados de um país, resultando em dados de vários países sendo armazenados, definitivamente será necessário atualizar as estatísticas na coluna país.
+Uma prática recomendada é atualizar as estatísticas em colunas de data por dia à medida que novas datas são adicionadas. Sempre que há um carregamento de novas linhas no data warehouse, novas datas de carga ou datas de transação são adicionadas. Isso muda a distribuição de dados e desatualiza as estatísticas. Por outro lado, as estatísticas em uma coluna de país em uma tabela de cliente talvez nunca tenham de ser atualizadas, já que a distribuição de valores geralmente não é alterada. Supondo que a distribuição seja constante entre os clientes, adicionar novas linhas à variação de tabela não alterará a distribuição dos dados. No entanto, se seu data warehouse contiver apenas um país e se você exibir dados de um país, resultando em dados de vários países sendo armazenados, definitivamente será necessário atualizar as estatísticas na coluna país.
 
-Uma das primeiras perguntas a serem feitas durante a solução de uma consulta é, "As estatísticas estão atualizadas?"
+Uma das primeiras perguntas a serem feitas durante a solução de problemas de uma consulta é, **"As estatísticas estão atualizadas?"**
 
-Essa questão não pode ser respondida pela idade dos dados. Um objeto de estatísticas atualizado pode ser muito antigo se não haja nenhuma alteração material nos dados subjacentes. Quando o número de linhas tiver mudado substancialmente ou se houver uma alteração material na distribuição dos valores de uma determinada coluna, *será necessário* atualizar as estatísticas.  
-
-Para referência, o **SQL Server** (não o SQL Data Warehouse) atualiza automaticamente as estatísticas para estas situações:
-
-* Se você não tiver nenhuma linha na tabela, quando adicionar linhas, obterá uma atualização automática das estatísticas
-* Quando você adicionar mais de 500 linhas a uma tabela, começando com menos de 500 linhas (por exemplo, no início você tem 499 e, em seguida, adiciona 500 linhas para ter um total de 999 linhas), obterá uma atualização automática 
-* Quando você tiver mais de 500 linhas, terá de adicionar outras 500 linhas mais 20% do tamanho da tabela antes de ver uma atualização automática nas estatísticas
+Essa questão não pode ser respondida pela idade dos dados. Um objeto de estatísticas atualizado pode ser muito antigo se não haja nenhuma alteração material nos dados subjacentes. Quando o número de linhas tiver mudado substancialmente ou se houver uma alteração material na distribuição dos valores de uma determinada coluna, *será necessário* atualizar as estatísticas.
 
 Como não há nenhuma DMV para determinar se os dados da tabela foram alterados desde que a última vez em que as estatísticas foram atualizadas, saber a idade das estatísticas pode fornecer uma parte da cena.  Você pode usar a consulta a seguir para determinar a última vez que suas estatísticas foram atualizadas em cada tabela.  
 
@@ -94,7 +92,7 @@ WHERE
     st.[user_created] = 1;
 ```
 
-As colunas de data em um data warehouse, por exemplo, normalmente precisam de atualizações frequentes de estatísticas. Sempre que há um carregamento de novas linhas no data warehouse, novas datas de carga ou datas de transação são adicionadas. Isso muda a distribuição de dados e desatualiza as estatísticas.  Por outro lado, talvez as estatísticas em uma coluna de gênero de uma tabela de clientes nunca precisem ser atualizadas. Supondo que a distribuição seja constante entre os clientes, adicionar novas linhas à variação de tabela não alterará a distribuição dos dados. No entanto, se o data warehouse contiver apenas um gênero, e um novo requisito resultar em vários gêneros, será definitivamente necessário atualizar as estatísticas na coluna gênero.
+As **colunas de data** em um data warehouse, por exemplo, normalmente precisam de atualizações frequentes de estatísticas. Sempre que há um carregamento de novas linhas no data warehouse, novas datas de carga ou datas de transação são adicionadas. Isso muda a distribuição de dados e desatualiza as estatísticas.  Por outro lado, talvez as estatísticas em uma coluna de gênero de uma tabela de clientes nunca precisem ser atualizadas. Supondo que a distribuição seja constante entre os clientes, adicionar novas linhas à variação de tabela não alterará a distribuição dos dados. No entanto, se o data warehouse contiver apenas um gênero, e um novo requisito resultar em vários gêneros, será definitivamente necessário atualizar as estatísticas na coluna gênero.
 
 Para obter mais explicações, veja [Estatísticas][Statistics] no MSDN.
 
@@ -122,7 +120,7 @@ Estes exemplos mostram como usar várias opções para a criação de estatísti
 ### <a name="a-create-single-column-statistics-with-default-options"></a>R. Criar estatísticas de coluna única com opções padrão
 Para criar estatísticas em uma coluna, basta fornecer um nome para o objeto de estatísticas e o nome da coluna.
 
-Esta sintaxe usa todas as opções padrão. Por padrão, o SQL Data Warehouse utiliza uma amostragem de 20 por cento da tabela ao criar estatísticas.
+Esta sintaxe usa todas as opções padrão. Por padrão, o SQL Data Warehouse utiliza uma **amostragem de 20%** da tabela ao criar estatísticas.
 
 ```sql
 CREATE STATISTICS [statistics_name] ON [schema_name].[table_name]([column_name]);
@@ -189,7 +187,7 @@ Para criar estatísticas de várias colunas, basta usar os exemplos anteriores, 
 > 
 > 
 
-Neste exemplo, o histograma está em *product\_category*. As estatísticas entre colunas são calculadas em *product\_category* e *product\_sub_c\ategory*:
+Neste exemplo, o histograma está em *product\_category*. As estatísticas entre colunas são calculadas em *product\_category* e *product\_sub_category*:
 
 ```sql
 CREATE STATISTICS stats_2cols ON table1 (product_category, product_sub_category) WHERE product_category > '2000101' AND product_category < '20001231' WITH SAMPLE = 50 PERCENT;
