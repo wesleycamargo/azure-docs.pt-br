@@ -34,7 +34,7 @@ Vamos examinar alguns elementos do email para que você conheça a melhor maneir
 O assunto do email segue o seguinte padrão: você foi convidado para a organização &lt;nomedolocatário&gt;
 
 ### <a name="from-address"></a>Do endereço
-Usamos um padrão parecido com o do LinkedIn para o endereço De.  Você deve deixar claro quem é o emissor do convite e de qual empresa, e também esclarecer que o email é proveniente de um endereço de email da Microsoft. O formato é: &lt;Nome de exibição do emissor do convite&gt; de &lt;nome do locatário&gt; (via Microsoft) <invites@microsoft.com&gt;
+Usamos um padrão parecido com o do LinkedIn para o endereço De.  Você deve deixar claro quem é o emissor do convite e de qual empresa, e também esclarecer que o email é proveniente de um endereço de email da Microsoft. O formato é: &lt;Nome de exibição do emissor do convite&gt; de &lt;nome do locatário&gt; (via Microsoft) <invites@microsoft.com&gt;.
 
 ### <a name="reply-to"></a>Responder Para
 O email para resposta é definido como o email do emissor do convite, quando houver um disponível, para que a resposta envie um email ao emissor do convite.
