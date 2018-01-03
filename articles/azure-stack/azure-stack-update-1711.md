@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/11/2017
 ms.author: andredm
-ms.openlocfilehash: 3c51348be75a11419c12bc517ab7131323016a55
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 578d17bcfbb7e12c9855132772c2068a5cdf1f62
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-stack-1711-update"></a>Atualização de pilha 1711 do Azure
 
@@ -51,6 +51,7 @@ Esta atualização inclui os seguintes aprimoramentos e correções para a pilha
 - Os usuários agora podem ativar máquinas virtuais do Windows automaticamente
 - Ponto de extremidade privilegiado adicionado cmdlet do PowerShell para recuperar as chaves de recuperação do BitLocker para fins de retenção
 - Suporte para atualizar as imagens offline durante a atualização de infraestrutura
+- Habilitar o backup de infraestrutura com o serviço de Backup habilitar
 
 #### <a name="fixes"></a>Correções
 
@@ -138,6 +139,17 @@ No Azure Active Directory Federation Services (ADFS) implantado a ambientes, o *
 
 > [!IMPORTANT]
 > Embora o **azurestack\cloudadmin** conta é o proprietário da assinatura do provedor padrão em ambientes do AD FS implantado, ele não tem permissões para RDP para o host. Continuar a usar o **azurestack\azurestackadmin** conta ou a conta de administrador local para fazer logon, acessar e gerenciar o host, conforme necessário.
+
+#### <a name="infrastructure-backup-sevice"></a>Serviço de Backup de infraestrutura
+<!-- 1974890-->
+
+- **Não há suporte para backups de pré-1711 para recuperação de nuvem.**  
+  Pré-1711 backups não são compatíveis com a recuperação de nuvem. Você deve atualizar primeiro para 1711 e permitir backups. Se você tiver habilitado a backups, certifique-se de fazer um backup após a atualização para 1711. Backups de pré-1711 devem ser excluídos.
+
+- **Habilitar o backup de infraestrutura em ASDK é apenas para teste.**  
+  Backups de infraestrutura podem ser usados para restaurar as soluções de vários nós. Você pode habilitar o backup de infraestrutura em ASDK mas não há nenhuma maneira de testar a recuperação.
+
+Para obter mais informações, consulte [Backup e recuperação de dados para a pilha do Azure com o serviço de Backup de infraestrutura](C:\Git\MS\azure-docs-pr\articles\azure-stack\azure-stack-backup-infrastructure-backup.md).
 
 ## <a name="download-the-update"></a>Baixe a atualização
 

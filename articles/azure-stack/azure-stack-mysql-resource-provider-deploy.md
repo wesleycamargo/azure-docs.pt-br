@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 12/15/2017
 ms.author: JeffGo
-ms.openlocfilehash: 37fc6a737bd1cfb09caf69ea2c6d81ea0b7d8693
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 71abceb1afe315a09ea88b593f9806e9e8b31f16
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Usar bancos de dados MySQL na pilha do Microsoft Azure
 
@@ -158,7 +158,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 ### <a name="deploysqlproviderps1-parameters"></a>Parâmetros de DeploySqlProvider.ps1
 Você pode especificar esses parâmetros na linha de comando. Se você não fizer isso, ou qualquer parâmetro de validação falha, você precisará fornecer as necessárias.
 
-| Nome do Parâmetro | Descrição | Comentário ou valor padrão |
+| Nome do Parâmetro | DESCRIÇÃO | Comentário ou valor padrão |
 | --- | --- | --- |
 | **CloudAdminCredential** | A credencial do administrador da nuvem, necessário para acessar o ponto de extremidade Privleged. | _obrigatório_ |
 | **AzCredential** | Forneça as credenciais para a conta de administrador de serviço de pilha do Azure. Use as mesmas credenciais que você usou para implantar a pilha do Azure). | _obrigatório_ |
@@ -168,8 +168,8 @@ Você pode especificar esses parâmetros na linha de comando. Se você não fize
 | **DefaultSSLCertificatePassword** | A senha para o certificado. pfx | _obrigatório_ |
 | **MaxRetryCount** | Defina quantas vezes você deseja repetir a cada operação se houver uma falha.| 2 |
 | **RetryDuration** | Defina o tempo limite entre as repetições, em segundos. | 120 |
-| **Desinstalar** | Remover o provedor de recursos e todos os respectivos recursos (consulte as observações abaixo) | Não |
-| **DebugMode** | Impede que a limpeza automática em caso de falha | Não |
+| **Desinstalar** | Remover o provedor de recursos e todos os respectivos recursos (consulte as observações abaixo) | Não  |
+| **DebugMode** | Impede que a limpeza automática em caso de falha | Não  |
 | **AcceptLicense** | Ignora o prompt para aceitar a licença GPL (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | |
 
 
@@ -264,6 +264,73 @@ Crie planos e ofertas para disponibilizar os bancos de dados MySQL para locatár
 Você pode modificar a senha primeiro alterá-la na instância do servidor MySQL. Navegue até **recursos ADMINISTRATIVOS** &gt; **servidores de hospedagem MySQL** &gt; e clique no servidor de hospedagem. No painel configurações, clique em senha.
 
 ![Atualize a senha de administrador](./media/azure-stack-mysql-rp-deploy/mysql-update-password.png)
+
+## <a name="update-the-mysql-resource-provider-adapter-multi-node-only-builds-1710-and-later"></a>Atualizar o adaptador de provedor de recursos do MySQL (com vários nós apenas, compilações 1710 e posteriores)
+Sempre que a compilação de pilha do Azure é atualizada, será lançado um novo adaptador de provedor de recursos do MySQL. Enquanto o adaptador existente pode continuar a trabalhar, é recomendável atualizar para a versão mais recente assim que possível após a pilha do Azure é atualizada. O processo de atualização é muito semelhante ao processo de instalação descrito acima. Uma nova VM será criada com o código mais recente do RP e configurações serão migradas para essa nova instância, incluindo o banco de dados e hospedagem de informações do servidor, bem como o registro DNS necessário.
+
+Use o script de UpdateMySQLProvider.ps1 com os mesmos argumentos como acima. Você deve fornecer o certificado aqui também.
+
+> [!NOTE]
+> Somente há suporte para atualização em sistemas com vários nós.
+
+```
+# Install the AzureRM.Bootstrapper module, set the profile, and install AzureRM and AzureStack modules
+Install-Module -Name AzureRm.BootStrapper -Force
+Use-AzureRmProfile -Profile 2017-03-09-profile
+Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
+
+# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack and the default prefix is AzS
+# For integrated systems, the domain and the prefix will be the same.
+$domain = "AzureStack"
+$prefix = "AzS"
+$privilegedEndpoint = "$prefix-ERCS01"
+
+# Point to the directory where the RP installation files were extracted
+$tempDir = 'C:\TEMP\SQLRP'
+
+# The service admin account (can be AAD or ADFS)
+$serviceAdmin = "admin@mydomain.onmicrosoft.com"
+$AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass)
+
+# Set credentials for the new Resource Provider VM
+$vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("sqlrpadmin", $vmLocalAdminPass)
+
+# and the cloudadmin credential required for Privileged Endpoint access
+$CloudAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domain\cloudadmin", $CloudAdminPass)
+
+# change the following as appropriate
+$PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+
+# Change directory to the folder where you extracted the installation files
+# and adjust the endpoints
+. $tempDir\UpdateMySQLProvider.ps1 -AzCredential $AdminCreds `
+  -VMLocalCredential $vmLocalAdminCreds `
+  -CloudAdminCredential $cloudAdminCreds `
+  -PrivilegedEndpoint $privilegedEndpoint `
+  -DefaultSSLCertificatePassword $PfxPass `
+  -DependencyFilesLocalPath $tempDir\cert `
+  -AcceptLicense
+ ```
+
+### <a name="updatemysqlproviderps1-parameters"></a>Parâmetros de UpdateMySQLProvider.ps1
+Você pode especificar esses parâmetros na linha de comando. Se você não fizer isso, ou qualquer parâmetro de validação falha, você precisará fornecer as necessárias.
+
+| Nome do Parâmetro | DESCRIÇÃO | Comentário ou valor padrão |
+| --- | --- | --- |
+| **CloudAdminCredential** | A credencial do administrador da nuvem, necessário para acessar o ponto de extremidade com privilégios. | _obrigatório_ |
+| **AzCredential** | Forneça as credenciais para a conta de administrador de serviço de pilha do Azure. Use as mesmas credenciais que você usou para implantar a pilha do Azure). | _obrigatório_ |
+| **VMLocalCredential** | Defina as credenciais para a conta de administrador local do provedor de recursos SQL VM. | _obrigatório_ |
+| **PrivilegedEndpoint** | Forneça o endereço IP ou nome DNS do ponto de extremidade Privleged. |  _obrigatório_ |
+| **DependencyFilesLocalPath** | O arquivo PFX de certificado deve ser colocado nesse diretório também. | _opcional_ (_obrigatório_ para vários nós) |
+| **DefaultSSLCertificatePassword** | A senha para o certificado. pfx | _obrigatório_ |
+| **MaxRetryCount** | Defina quantas vezes você deseja repetir a cada operação se houver uma falha.| 2 |
+| **RetryDuration** | Defina o tempo limite entre as repetições, em segundos. | 120 |
+| **Desinstalar** | Remover o provedor de recursos e todos os respectivos recursos (consulte as observações abaixo) | Não  |
+| **DebugMode** | Impede que a limpeza automática em caso de falha | Não  |
+| **AcceptLicense** | Ignora o prompt para aceitar a licença GPL (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | |
 
 ## <a name="remove-the-mysql-resource-provider-adapter"></a>Remova o adaptador de provedor de recursos MySQL
 
