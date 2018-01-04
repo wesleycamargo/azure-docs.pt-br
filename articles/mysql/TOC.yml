@@ -107,6 +107,8 @@
           href: concepts-migrate-dump-restore.md
         - name: Importação e exportação
           href: concepts-migrate-import-export.md
+        - name: Migração com tempo de inatividade mínimo
+          href: howto-migrate-online.md
     - name: Conectar aplicativos
       items:
         - name: Criar usuários
@@ -151,7 +153,7 @@
       href: 'https://social.msdn.microsoft.com/forums/security/en-US/home?forum=AzureDatabaseforMySQL'
     - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-database-mysql'
-    - name: Vídeos
+    - name: vídeos
       href: videos.md
     - name: Solicitar um recurso
       href: 'https://feedback.azure.com/forums/597982-azure-database-for-mysql'

@@ -46,6 +46,8 @@
           href: storage-create-geo-redundant-storage.md
         - name: Simular uma falha no armazenamento RA-GRS
           href: storage-simulate-failure-ragrs-account-app.md
+    - name: Migrar dados de local para a nuvem com AzCopy
+      href: ../common/storage-use-azcopy-migrate-on-premises-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Pesquisar dados não estruturados no armazenamento em nuvem
       href: storage-unstructured-search.md
     - name: Otimizar escalabilidade e desempenho de aplicativo de armazenamento
@@ -353,7 +355,7 @@
       href: 'https://azure.microsoft.com/updates/?product=storage'
     - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/windows-azure-storage'
-    - name: Vídeos
+    - name: vídeos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=storage'
     - name: Gerenciador de Armazenamento do Azure
       items:

@@ -4,11 +4,11 @@ hide_bc: True
 title: "Documentação do Microsoft Azure"
 description: "Saiba como compilar e gerenciar aplicativos avançados com os serviços de nuvem do Microsoft Azure. Obtenha documentação, código de exemplo, tutoriais e muito mais."
 featureFlags: clicktale
-ms.openlocfilehash: 57c55fd3b7bf0152c30fb9dc1fb9348e63a89003
-ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
+ms.openlocfilehash: 2df814a9132e13bd177e5690f97376bd793bd9b7
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/02/2018
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -444,7 +444,7 @@ ms.lasthandoff: 12/20/2017
                                         <li>
                                             <a href="/azure/api-management/">
                                                 <img src="media/index/APIManagement.svg" alt="" />
-                                                <p>Gerenciamento de API</p>
+                                                <p>Gerenciamento da API</p>
                                             </a>
                                         </li>
                                         <li>
@@ -480,7 +480,7 @@ ms.lasthandoff: 12/20/2017
                                         <li>
                                             <a href="/azure/biztalk-services/">
                                                 <img src="media/index/BizTalkServices.svg" alt="" />
-                                                <p>Serviços Biztalk</p>
+                                                <p>Serviços BizTalk</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -545,7 +545,8 @@ ms.lasthandoff: 12/20/2017
                                         <li>
                                             <a href="/azure/application-gateway/">
                                                 <img src="media/index/ApplicationGateway.svg" alt="" />
-                                                <p>Gateway de Aplicativo</p>
+                                                <p>Gateway de Aplicativo
+</p>
                                             </a>
                                         </li>
                                         <li>
@@ -864,13 +865,13 @@ ms.lasthandoff: 12/20/2017
                                         <li>
                                             <a href="/azure/stream-analytics/">
                                                 <img src="media/index/StreamAnalytics.svg" alt="" />
-                                                <p>Stream Analytics</p>
+                                                <p>Análise de fluxo</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/data-lake-analytics/">
                                                 <img src="media/index/Azure-Data-Lake-Analytics-COLOR.svg" alt="" />
-                                                <p>Análises Data Lake</p>
+                                                <p>Data Lake Analytics</p>
                                             </a>
                                         </li>
                                         <li>
@@ -882,7 +883,7 @@ ms.lasthandoff: 12/20/2017
                                         <li>
                                             <a href="/azure/event-hubs/">
                                                 <img src="media/index/eventhubs.svg" alt="" />
-                                                <p>Hubs de Eventos</p>
+                                                <p>Hubs de evento</p>
                                             </a>
                                         </li>
                                         <li>
@@ -945,7 +946,7 @@ ms.lasthandoff: 12/20/2017
                                         <li>
                                             <a href="/azure/api-management/">
                                                 <img src="media/index/APIManagement.svg" alt="" />
-                                                <p>Gerenciamento de API</p>
+                                                <p>Gerenciamento da API</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1002,13 +1003,13 @@ ms.lasthandoff: 12/20/2017
                                         <li>
                                             <a href="/azure/event-hubs/">
                                                 <img src="media/index/eventhubs.svg" alt="" />
-                                                <p>Hubs de Eventos</p>
+                                                <p>Hubs de evento</p>
                                             </a>
                                         </li>
                                         <li>
                                             <a href="/azure/stream-analytics/">
                                                 <img src="media/index/StreamAnalytics.svg" alt="" />
-                                                <p>Stream Analytics</p>
+                                                <p>Análise de fluxo</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1124,7 +1125,7 @@ ms.lasthandoff: 12/20/2017
                                         <li>
                                             <a href="/azure/key-vault/">
                                                 <img src="media/index/KeyVault.svg" alt="" />
-                                                <p>Cofre de Chaves</p>
+                                                <p>Cofre da Chave</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1534,7 +1535,8 @@ ms.lasthandoff: 12/20/2017
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Gateway de Aplicativo</h3>
+                                                    <h3>Gateway de Aplicativo
+</h3>
                                                     <p>
 Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de entrega integrados </p>
                                                 </div>
@@ -2358,7 +2360,7 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Stream Analytics</h3>
+                                                    <h3>Análise de fluxo</h3>
                                                     <p>Processamento de fluxo de dados em tempo real de milhões de dispositivos IoT</p>
                                                 </div>
                                             </div>
@@ -2377,7 +2379,7 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Análises Data Lake</h3>
+                                                    <h3>Data Lake Analytics</h3>
                                                     <p>Serviço de análise distribuído que facilita o uso de big data</p>
                                                 </div>
                                             </div>
@@ -2415,7 +2417,7 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Hubs de Eventos</h3>
+                                                    <h3>Hubs de evento</h3>
                                                     <p>Receber telemetria de milhões de dispositivos</p>
                                                 </div>
                                             </div>
@@ -2666,7 +2668,7 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                             <div class="cardPadding">
                                                 <div class="card">
                                                     <div class="cardText">
-                                                        <h3>idioma</h3>
+                                                        <h3>Linguagem</h3>
                                                         <ul class="noBullet">
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-spell-check/"><img src="media/index/API_Bing_Spell_Check.svg" alt="" />Verificação Ortográfica do Bing</a>
@@ -2728,7 +2730,7 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                             <div class="cardPadding">
                                                 <div class="card">
                                                     <div class="cardText">
-                                                        <h3>Pesquisar</h3>
+                                                        <h3>Search</h3>
                                                         <ul class="noBullet">
                                                             <li>
                                                                 <a class="barLink" href="/azure/cognitive-services/bing-news-search/search-the-web"><img src="media/index/API_Bing_News_Search.svg" alt="" />Bing Notícias</a>
@@ -2889,7 +2891,7 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Hubs de Eventos</h3>
+                                                    <h3>Hubs de evento</h3>
                                                     <p>Receber telemetria de milhões de dispositivos</p>
                                                 </div>
                                             </div>
@@ -2908,7 +2910,7 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Stream Analytics</h3>
+                                                    <h3>Análise de fluxo</h3>
                                                     <p>Processamento de fluxo de dados em tempo real de milhões de dispositivos IoT</p>
                                                 </div>
                                             </div>
@@ -3084,7 +3086,7 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Gerenciamento de API</h3>
+                                                    <h3>Gerenciamento da API</h3>
                                                     <p>Publicar APIs para desenvolvedores, parceiros e funcionários de forma segura e em escala</p>
                                                 </div>
                                             </div>
@@ -3198,7 +3200,7 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Serviços Biztalk</h3>
+                                                    <h3>Serviços BizTalk</h3>
                                                     <p>Integrar a empresa e a nuvem diretamente</p>
                                                 </div>
                                             </div>
@@ -3260,7 +3262,7 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Cofre de Chaves</h3>
+                                                    <h3>Cofre da Chave</h3>
                                                     <p>Saiba como gerenciar chaves criptográficas e segredos</p>
                                                 </div>
                                             </div>
@@ -3436,7 +3438,7 @@ Balanceador de Carga de Camada 7 com balanceamento de carga HTTP e controle de e
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Gerenciamento de API</h3>
+                                                    <h3>Gerenciamento da API</h3>
                                                     <p>Publicar APIs para desenvolvedores, parceiros e funcionários de forma segura e em escala</p>
                                                 </div>
                                             </div>
@@ -4161,6 +4163,34 @@ CLI do Azure </h3>
                                                 </h3>
                                                 <p>
                                                     <a href="https://visualstudiogallery.msdn.microsoft.com/c9eb3ba8-0c59-4944-9a62-6eee37294597">Baixar</a>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="cardSize">
+                                    <div class="cardPadding">
+                                        <div class="card">
+                                            <div class="cardImageOuter">
+                                                <div class="cardImage">
+                                                    <img src="https://docs.microsoft.com/en-us/media/common/i_tools.svg" alt="" />
+                                                </div>
+                                            </div>
+                                            <div class="cardText">
+                                                <h3>
+Ferramentas do SQL </h3>
+                                                <p>
+                                                    <a href="/sql/sql-operations-studio/download">SQL Operations Studio <sup>VERSÃO PRÉVIA</sup></a>
+                                                </p>
+                                                <p>
+                                                    <a href="/sql/ssms/download-sql-server-management-studio-ssms">SQL Server Management Studio (SSMS)</a>
+                                                </p>                                            <p>
+                                                    <a href="/sql/ssdt/download-sql-server-data-tools-ssdt">SSDT (Ferramentas de Dados do SQL Server)</a>
+                                                </p>
+                                                <p>
+                                                    <a href="/sql/tools/overview-sql-tools">Ver todas as ferramentas do SQL</a>
                                                 </p>
                                             </div>
                                         </div>

@@ -12,7 +12,7 @@
     - name: Instalar aplicativos HDInsight
       href: ../hdinsight-apps-install-applications.md
       maintainContext: true
-    - name: Planejamento da capacidade
+    - name: planejamento de capacidade
       href: ../hdinsight-capacity-planning.md
       maintainContext: true
 - name: Como
@@ -98,6 +98,8 @@
         - name: Analisar usando Power Query
           href: ../hadoop/apache-hadoop-connect-excel-power-query.md
           maintainContext: true
+        - name: Conectar o Power BI à Consulta Interativa
+          href: ./apache-hadoop-connect-hive-power-bi-directquery.md
         - name: Conectar Power BI ao Hadoop
           href: ../hadoop/apache-hadoop-connect-hive-power-bi.md
           maintainContext: true

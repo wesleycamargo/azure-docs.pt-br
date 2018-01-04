@@ -29,7 +29,7 @@
 #### [Modelo](virtual-networks-create-vnet-arm-template-click.md)
 
 ### Grupos de segurança de rede
-#### [Portal do Azure](virtual-networks-create-nsg-arm-pportal.md)
+#### [portal do Azure](virtual-networks-create-nsg-arm-pportal.md)
 #### [PowerShell do Azure](virtual-networks-create-nsg-arm-ps.md)
 #### [CLI do Azure](virtual-networks-create-nsg-arm-cli.md)
 #### [Modelo](virtual-networks-create-nsg-arm-template.md)
@@ -39,7 +39,7 @@
 ##### [CLI 1.0 do Azure](virtual-networks-create-nsg-classic-cli.md)
 
 ### Rotas definidas pelo usuário
-#### [Portal do Azure](create-user-defined-route-portal.md)
+#### [portal do Azure](create-user-defined-route-portal.md)
 #### [PowerShell do Azure](virtual-network-create-udr-arm-ps.md)
 #### [CLI do Azure](virtual-network-create-udr-arm-cli.md)
 #### [Modelo](virtual-network-create-udr-arm-template.md)
@@ -56,7 +56,7 @@
 ### [Pontos de extremidade de serviço de rede virtual](virtual-network-service-endpoints-configure.md)
 
 ### Endereço IP público - zona de disponibilidade
-#### [Portal do Azure](create-public-ip-availability-zone-portal.md)
+#### [portal do Azure](create-public-ip-availability-zone-portal.md)
 #### [CLI do Azure](create-public-ip-availability-zone-cli.md)
 #### [PowerShell](create-public-ip-availability-zone-powershell.md)
 
@@ -70,16 +70,16 @@
 ##### Clássico
 ###### [PowerShell do Azure](virtual-networks-reserved-public-ip.md)
 
-#### Criar uma VM com um endereço IP privado estático
-##### [Portal do Azure](virtual-networks-static-private-ip-arm-pportal.md)
+#### Criar VM - endereço IP privado estático
+##### [portal do Azure](virtual-networks-static-private-ip-arm-pportal.md)
 ##### [PowerShell do Azure](virtual-networks-static-private-ip-arm-ps.md)
 ##### [CLI do Azure](virtual-networks-static-private-ip-arm-cli.md)
 ##### Clássico
-###### [Portal do Azure](virtual-networks-static-private-ip-classic-pportal.md)
+###### [portal do Azure](virtual-networks-static-private-ip-classic-pportal.md)
 ###### [PowerShell do Azure](virtual-networks-static-private-ip-classic-ps.md)
 ###### [CLI do Azure](virtual-networks-static-private-ip-classic-cli.md)
 
-#### Criar uma VM com várias interfaces de rede
+#### Criar VM - várias interfaces de rede
 ##### [PowerShell do Azure](../virtual-machines/windows/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 ##### [CLI do Azure](../virtual-machines/linux/multiple-nics.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 ##### [Modelo](virtual-network-deploy-multinic-arm-template.md)
@@ -88,13 +88,15 @@
 ###### [PowerShell do Azure](virtual-network-deploy-multinic-classic-ps.md)
 ###### [CLI do Azure](virtual-network-deploy-multinic-classic-cli.md)
 
-#### Criar uma VM com vários endereços IP
-##### [Portal do Azure](virtual-network-multiple-ip-addresses-portal.md)
+#### Criar VM - vários endereços IP
+##### [portal do Azure](virtual-network-multiple-ip-addresses-portal.md)
 ##### [PowerShell do Azure](virtual-network-multiple-ip-addresses-powershell.md)
 ##### [CLI do Azure](virtual-network-multiple-ip-addresses-cli.md)
 ##### [Modelo](virtual-network-multiple-ip-addresses-template.md)
 
-#### [Criar uma VM com rede acelerada](virtual-network-create-vm-accelerated-networking.md)
+#### Criar VM - rede acelerada
+##### [PowerShell do Azure](create-vm-accelerated-networking-powershell.md)
+##### [CLI do Azure](create-vm-accelerated-networking-cli.md)
 
 ### Cenários de conectividade
 #### [VNet (rede virtual) para VNet](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
@@ -116,7 +118,7 @@
 
 ### Clássico
 #### [Rede virtual](create-virtual-network-classic.md)
-##### [Portal do Azure](virtual-networks-create-vnet-classic-pportal.md)
+##### [portal do Azure](virtual-networks-create-vnet-classic-pportal.md)
 ##### [PowerShell do Azure](virtual-networks-create-vnet-classic-netcfg-ps.md)
 ##### [CLI do Azure](virtual-networks-create-vnet-classic-cli.md)
 #### [Especificar as configurações de DNS em um arquivo de configuração de rede virtual](virtual-networks-specifying-a-dns-settings-in-a-virtual-network-configuration-file.md)
@@ -137,7 +139,7 @@
 
 ### Clássico
 #### Listas de controle de acesso
-##### [Portal do Azure](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+##### [portal do Azure](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 ##### [PowerShell do Azure](virtual-networks-acl-powershell.md)
 
 ## Gerenciar
@@ -148,7 +150,7 @@
 ##### [Arquivo de configuração de rede](virtual-networks-using-network-configuration-file.md)
 ##### [Migrar de um grupo de afinidade para uma região](virtual-networks-migrate-to-regional-vnet.md)
 ### Grupos de segurança de rede
-#### [Portal do Azure](virtual-network-manage-nsg-arm-portal.md)
+#### [portal do Azure](virtual-network-manage-nsg-arm-portal.md)
 #### [PowerShell do Azure](virtual-network-manage-nsg-arm-ps.md)
 #### [CLI do Azure](virtual-network-manage-nsg-arm-cli.md)
 
@@ -160,15 +162,15 @@
 #### [Mover uma VM para uma sub-rede diferente](virtual-networks-move-vm-role-to-subnet.md)
 ### [Endereços IP públicos](virtual-network-public-ip-address.md)
 ### Proteção contra DDoS
-#### [Portal do Azure](ddos-protection-manage-portal.md)
+#### [portal do Azure](ddos-protection-manage-portal.md)
 #### [PowerShell do Azure](ddos-protection-manage-ps.md)
 
 ## Solucionar problemas
 ### Grupos de segurança de rede
-#### [Portal do Azure](virtual-network-nsg-troubleshoot-portal.md)
+#### [portal do Azure](virtual-network-nsg-troubleshoot-portal.md)
 #### [PowerShell do Azure](virtual-network-nsg-troubleshoot-powershell.md)
 ### Rotas
-#### [Portal do Azure](virtual-network-routes-troubleshoot-portal.md)
+#### [portal do Azure](virtual-network-routes-troubleshoot-portal.md)
 #### [PowerShell do Azure](virtual-network-routes-troubleshoot-powershell.md)
 ### [Teste de taxa de transferência](virtual-network-bandwidth-testing.md)
 ### [Não é possível excluir as redes virtuais](virtual-network-troubleshoot-cannot-delete-vnet.md)
@@ -186,8 +188,7 @@
 
 # Relacionados
 ## [Máquinas virtuais](/azure/virtual-machines/)
-## [Gateway de Aplicativo
-](/azure/application-gateway/)
+## [Gateway de Aplicativo](/azure/application-gateway/)
 ## [DNS do Azure](/azure/dns/)
 ## [Gerenciador de Tráfego](/azure/traffic-manager/)
 ## [Balanceador de Carga](/azure/load-balancer/)
