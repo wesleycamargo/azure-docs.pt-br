@@ -3,7 +3,7 @@ title: "Hybrid Runbook Worker Windows da Automação do Azure | Microsoft Docs"
 description: "Este artigo fornece informações sobre como instalar um Hybrid Runbook Worker da Automação do Azure que permita executar runbooks em computadores Windows no seu datacenter local ou ambiente de nuvem."
 services: automation
 documentationcenter: 
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 ms.assetid: 
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2017
 ms.author: magoedte
-ms.openlocfilehash: 5f55d64d08a9c3ed98a47aa4ba00a6b1f698144e
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 71c98a7e17472ae0aa7646b9e7fc745363546211
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-deploy-a-windows-hybrid-runbook-worker"></a>Como implantar um Hybrid Runbook Worker Windows
 
@@ -129,7 +129,7 @@ Os Runbooks podem usar qualquer uma das atividades e cmdlets definidos nos módu
 
 Como a principal finalidade do recurso Runbook Worker Híbrido é gerenciar recursos locais, você provavelmente precisará instalar os módulos que dão suporte a esses recursos.  Veja [Instalar Módulos](http://msdn.microsoft.com/library/dd878350.aspx) para obter informações sobre como instalar os módulos do Windows PowerShell.  Os módulos instalados devem estar em um local referenciado pela variável de ambiente PSModulePath, para que eles sejam importados automaticamente pelo Hybrid Worker.  Para saber mais, veja [Modificando o caminho de instalação do PSModulePath](https://msdn.microsoft.com/library/dd878326%28v=vs.85%29.aspx). 
 
-## <a name="troubleshooting"></a>Solucionar problemas 
+## <a name="troubleshooting"></a>solução de problemas 
 
 O Hybrid Runbook Worker depende do Microsoft Monitoring Agent para se comunicar com sua conta de Automação para registrar o worker, receber trabalhos de runbook e relatar status. Se o registro do worker falhar, aqui estão algumas das possíveis causas do erro:  
 

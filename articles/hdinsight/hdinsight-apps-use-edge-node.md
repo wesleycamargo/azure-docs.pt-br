@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2017
+ms.date: 12/15/2017
 ms.author: jgao
-ms.openlocfilehash: ad161ada875ab30ed8de24506ed27265f26e994a
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: d529e66c80c6a3e305ffdf9a2df181a976e07127
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="use-empty-edge-nodes-on-hadoop-clusters-in-hdinsight"></a>Usar nós de borda vazios em clusters Hadoop no HDInsight
 
@@ -132,7 +132,7 @@ O nó de borda aparece como um aplicativo no portal do Azure.  O portal fornece 
 
 **Para usar o Hive no nó de borda**
 
-1. Use SSH para conectar-se ao nó de borda. Para saber mais, confira [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
+1. Use SSH para conectar-se ao nó de borda. Para obter informações, consulte [Usar SSH com HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md).
 
 2. Depois que você tiver se conectado ao nó de borda usando o SSH, use o seguinte comando para abrir o console do Hive:
    

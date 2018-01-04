@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: yurid
-ms.openlocfilehash: 1af02c90c6a97bed612903de438b4d8c26be19b6
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: db8b0cc58738308116da84f2a45d6507c87f3cde
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="best-practices-for-azure-vm-security"></a>Práticas recomendadas para a segurança de VM do Azure
 
@@ -51,7 +51,7 @@ A primeira etapa para proteger sua VM é garantir que somente usuários autoriza
 
 Máquinas virtuais que pertencem a um grupo de recursos naturalmente herdam suas políticas. Apesar de recomendarmos essa abordagem para gerenciar VMs, você também pode controlar o acesso às políticas VM individuais usando [o controle de acesso baseado em função (RBAC)](../active-directory/role-based-access-control-configure.md).
 
-Quando você habilita as políticas do Gerenciador de recursos e o RBAC para controlar o acesso VM, você ajuda a melhorar a segurança geral de VM. É recomendável que você consolide VMs com o mesmo ciclo de vida no mesmo grupo de recursos. Usando grupos de recursos, você pode implantar, monitorar e acumular custos para os seus recursos de cobrança. Para habilitar os usuários acessar e configurar máquinas virtuais, use uma [abordagem de privilégios mínimos](https://technet.microsoft.com/en-us/windows-server-docs/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models). E quando você atribuir privilégios a usuários, planeje usar as seguintes funções internas do Azure:
+Quando você habilita as políticas do Gerenciador de recursos e o RBAC para controlar o acesso VM, você ajuda a melhorar a segurança geral de VM. É recomendável que você consolide VMs com o mesmo ciclo de vida no mesmo grupo de recursos. Usando grupos de recursos, você pode implantar, monitorar e acumular custos para os seus recursos de cobrança. Para habilitar os usuários acessar e configurar máquinas virtuais, use uma [abordagem de privilégios mínimos](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models). E quando você atribuir privilégios a usuários, planeje usar as seguintes funções internas do Azure:
 
 - [Colaborador de Máquina Virtual](../active-directory/role-based-access-built-in-roles.md#virtual-machine-contributor): pode gerenciar VMs, mas não a rede virtual nem a conta de armazenamento à qual ele está conectado.
 - [Colaborador de Máquina Virtual Clássica](../active-directory/role-based-access-built-in-roles.md#classic-virtual-machine-contributor): pode gerenciar VMs criadas usando o modelo de implantação clássica, mas não a rede ou armazenamento de conta virtual para o qual as VMs estão conectadas.
@@ -80,7 +80,7 @@ A [criptografia de dados em repouso](https://blogs.microsoft.com/cybertrust/2015
 
 Você pode aplicar o Disk Encryption para ajudar a proteger seus dados e atender a requisitos de conformidade e segurança da organização. Sua organização deve cogitar usar a criptografia para ajudar a reduzir riscos relativos ao acesso a dados não autorizado. Também recomendamos que você criptografe as unidades antes de gravar dados confidenciais-los.
 
-Certifique-se de criptografar os volumes de dados VM para protegê-los em repouso em sua conta de armazenamento do Azure. Proteja as chaves de criptografia e o segredo usando o [Azure Key Vault](https://azure.microsoft.com/en-us/documentation/articles/key-vault-whatis/).
+Certifique-se de criptografar os volumes de dados VM para protegê-los em repouso em sua conta de armazenamento do Azure. Proteja as chaves de criptografia e o segredo usando o [Azure Key Vault](https://azure.microsoft.com/documentation/articles/key-vault-whatis/).
 
 As organizações que não impõem criptografia de dados estão mais expostas a problemas de integridade de dados. Por exemplo, usuários não autorizados ou não autorizados podem roubar dados nas contas comprometidas ou acesso não autorizado a dados codificados em ClearFormat. Além de assumir a tais riscos, de acordo com as normas do setor, as empresas devem comprovar que estão tendo o cuidado e usando controles de segurança corretas para aprimorar a segurança de dados.
 
@@ -122,7 +122,7 @@ As organizações que não impõem uma postura de segurança forte para suas VMs
 
 Abuso de recursos pode ser um problema quando os processos VM consomem mais recursos do que deveriam. Problemas de desempenho com uma máquina virtual podem levar a interrupção do serviço, o que viola o princípio de segurança de disponibilidade. Por esse motivo, é fundamental monitorar o acesso à VM não apenas de forma reativa, enquanto um problema está ocorrendo, mas também de forma proativa, em relação ao desempenho de linha de base, conforme medido durante a operação normal.
 
-Analisando [arquivos de log de diagnóstico do Azure](https://azure.microsoft.com/en-us/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/), você pode monitorar os recursos VM e identificar problemas potenciais que podem comprometer o desempenho e disponibilidade. A Extensão de Diagnóstico do Azure fornece funcionalidades de monitoramento e diagnóstico em VMs baseadas no Windows. É possível habilitar essas funcionalidades ao incluir a extensão como parte do [modelo do Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md).
+Analisando [arquivos de log de diagnóstico do Azure](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/), você pode monitorar os recursos VM e identificar problemas potenciais que podem comprometer o desempenho e disponibilidade. A Extensão de Diagnóstico do Azure fornece funcionalidades de monitoramento e diagnóstico em VMs baseadas no Windows. É possível habilitar essas funcionalidades ao incluir a extensão como parte do [modelo do Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md).
 
 Também é possível usar o [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-metrics.md) para obter visibilidade da integridade do recurso.
 

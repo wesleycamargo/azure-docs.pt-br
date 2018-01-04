@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/21/2016
 ms.author: markgal;trinadhk;giridham;
-ms.openlocfilehash: b9dc3f52e5fc275bc56b9964f2115833f2dde42e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ebd7a886f5853ec3fa9b6e816083e9edd868ef76
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="monitor-alerts-for-azure-virtual-machine-backups"></a>Monitorar alertas para os backups das máquinas virtuais do Azure
 Os alertas são respostas do serviço informando que um limite do evento foi atingido ou ultrapassado. Saber quando os problemas iniciam pode ser essencial para manter baixos os custos do negócio. Os alertas normalmente não ocorrem em um agendamento e é útil saber assim que possível após sua ocorrência. Por exemplo, quando um trabalho de backup ou de restauração falha, um alerta ocorre em até cinco minutos após a falha. No painel do cofre, o bloco Alertas de Backup exibe os eventos nos níveis Crítico e Aviso. Nas configurações Alertas de Backup, você pode exibir todos os eventos. Mas o que fazer se um alerta ocorrer quando você estiver trabalhando em um problema separado? Se você não sabe quando o alerta ocorre, pode ser uma inconveniência secundária ou pode comprometer os dados. Para verificar se as pessoas corretas estão cientes de um alerta, quando ele ocorre, configure o serviço para enviar notificações de alerta por email. Para obter detalhes sobre como configurar as notificações por email, confira [Configurar notificações](backup-azure-monitor-vms.md#configure-notifications).
@@ -139,7 +139,7 @@ Usando o botão **Colunas**, você pode habilitar os atributos de eventos adicio
 3. Clique em **Redefinir** para redefinir a lista de atributos na folha **Eventos**. Depois de adicionar ou remover os atributos da lista, use **Redefinir** para exibir a nova lista de atributos do Evento.
 4. Clique em **Atualizar** para atualizar os dados nos atributos do Evento. A tabela a seguir fornece informações sobre cada atributo.
 
-| Nome da coluna | Descrição |
+| Nome da coluna | DESCRIÇÃO |
 | --- | --- |
 | Operação |O nome da operação |
 | Nível |No nível da operação, os valores podem ser: Informativo, Aviso, Erro ou Crítico |
@@ -168,11 +168,11 @@ PS C:\> Add-AzureRmLogAlertRule -Name backupFailedAlert -Location "East US" -Res
 
 **OperationName** : OperationName está no formato "Microsoft.RecoveryServices/recoveryServicesVault/*EventName*", em que *EventName* pode ser:<br/>
 
-* Registrar <br/>
+* Registrar  <br/>
 * Cancelar o registro  <br/>
 * Configurar Proteção  <br/>
-* Backup  <br/>
-* Restaurar  <br/>
+* Backup <br/>
+* Restore <br/>
 * Parar Proteção  <br/>
 * Excluir Dados de Backup  <br/>
 * Criar Política de Proteção  <br/>
@@ -213,4 +213,4 @@ Os logs de eventos permitem um ótimo post-mortem e suporte de auditoria para as
 
 Para obter uma explicação abrangente dos eventos, operações e os logs de auditoria entre os serviços do Azure, confira o artigo [Exibir eventos e logs de auditoria](../monitoring-and-diagnostics/insights-debugging-with-events.md).
 
-Para obter informações sobre como recriar uma máquina virtual a partir de um ponto de recuperação, verifique [Restaurar VMs do Azure](backup-azure-restore-vms.md). Se você precisar de informações sobre como proteger suas máquinas virtuais, consulte [Primeira consideração: fazer backup das VMs em um cofre dos Serviços de Recuperação](backup-azure-vms-first-look-arm.md). Saiba mais sobre as tarefas de gerenciamento para backups da VM no artigo [Gerenciar backups da máquina virtual do Azure](backup-azure-manage-vms.md).
+Para obter informações sobre como recriar uma máquina virtual a partir de um ponto de recuperação, verifique [Restaurar VMs do Azure](backup-azure-arm-restore-vms.md). Se você precisar de informações sobre como proteger suas máquinas virtuais, consulte [Primeira consideração: fazer backup das VMs em um cofre dos Serviços de Recuperação](backup-azure-vms-first-look-arm.md). Saiba mais sobre as tarefas de gerenciamento para backups da VM no artigo [Gerenciar backups da máquina virtual do Azure](backup-azure-manage-vms.md).

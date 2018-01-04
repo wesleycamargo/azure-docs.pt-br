@@ -13,29 +13,29 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: reference
-ms.date: 11/10/2017
+ms.date: 12/14/2017
 ms.author: kevin;barbkess
-ms.openlocfilehash: d10d06edfc75594854d8f4da5cf29d6c2fd5ed24
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
+ms.openlocfilehash: 3a8edb3806f981ebb6f8c1ca6c994ae198df2ec2
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>Limites de capacidade do SQL Data Warehouse
 As tabelas a seguir contêm os valores máximos permitidos para vários componentes do Azure SQL Data Warehouse.
 
 ## <a name="workload-management"></a>Gerenciamento de carga de trabalho
-| Categoria | Descrição | Máximo |
+| Categoria | DESCRIÇÃO | Máximo |
 |:--- |:--- |:--- |
 | [DWU (Unidades de Data Warehouse)][Data Warehouse Units (DWU)] |DWU máxima para um único Data Warehouse do SQL | Otimizado para o [nível de desempenho](performance-tiers.md) Elasticidade: DW6000<br></br>Otimizado para o [nível de desempenho](performance-tiers.md) Computação: DW30000c |
-| [DWU (Unidades de Data Warehouse)][Data Warehouse Units (DWU)] |DTU padrão por servidor |54.000<br></br>Por padrão, cada SQL Server (por exemplo, myserver.database.windows.net) tem uma Cota de DTU de 54.000, que permite até DW6000c. Essa cota é simplesmente um limite de segurança. Você pode aumentar sua cota [criando um tíquete de suporte][creating a support ticket] e selecionando *Cota* como o tipo de solicitação.  Para calcular suas necessidades de DTU, multiplique 7,5 pelo total de DWU necessário ou 9,0 pelo total de cDWU necessário. Por exemplo:<br></br>DW6000 x 7,5 = 45.000 DTUs<br></br>DW600c x 9,0 = 54.000 DTUs.<br></br>Exiba seu consumo atual de DTU na opção SQL Server no portal. Os bancos de dados em pausa e que não estão em pausa contam como a cota de DTU. |
+| [DWU (Unidades de Data Warehouse)][Data Warehouse Units (DWU)] |DTU padrão por servidor |54.000<br></br>Por padrão, cada SQL Server (por exemplo, myserver.database.windows.net) tem uma Cota de DTU de 54.000, que permite até DW6000c. Essa cota é simplesmente um limite de segurança. Você pode aumentar sua cota [criando um tíquete de suporte][creating a support ticket] e selecionando *Cota* como o tipo de solicitação.  Para calcular suas necessidades de DTU, multiplique 7,5 pelo total de DWU necessário ou 9,0 pelo total de cDWU necessário. Por exemplo: <br></br>DW6000 x 7,5 = 45.000 DTUs<br></br>DW600c x 9,0 = 54.000 DTUs.<br></br>Exiba seu consumo atual de DTU na opção SQL Server no portal. Os bancos de dados em pausa e que não estão em pausa contam como a cota de DTU. |
 | Conexão de banco de dados |Sessões abertas simultâneas |1024<br/><br/>Cada uma das 1.024 sessões ativas pode enviar solicitações para um banco de dados do SQL Data Warehouse ao mesmo tempo. Observe que há limites no número de consultas que podem ser executadas simultaneamente. Quando o limite de simultaneidade for excedido, a solicitação irá para uma fila interna onde aguardará seu processamento. |
 | Conexão de banco de dados |Memória máxima para instruções preparadas |20 MB |
 | [Gerenciamento de carga de trabalho][Workload management] |Máximo de consultas simultâneas |32<br/><br/> Por padrão, o SQL Data Warehouse pode executar um máximo de 32 consultas simultâneas e coloca as consultas restantes na fila.<br/><br/>O número de consultas simultâneas pode diminuir quando os usuários são atribuídos a classes de recurso superiores ou quando o SQL Data Warehouse tem um [nível de serviço](performance-tiers.md#service-levels) inferior. Algumas consultas, como as consultas DMV, sempre têm permissão para executar. |
 | [tempdb][Tempdb] |GB máximo |399 GB por DW100. Portanto, em DWU1000, o tempdb é dimensionado para 3,99 TB |
 
 ## <a name="database-objects"></a>Objetos de banco de dados
-| Categoria | Descrição | Máximo |
+| Categoria | DESCRIÇÃO | Máximo |
 |:--- |:--- |:--- |
 | Banco de dados |Tamanho máx. |240 TB compactados em disco<br/><br/>Este espaço é independente do espaço de tempdb ou de log, portanto, é dedicado às tabelas permanentes.  A compactação do columnstore clusterizado é estimada em cinco vezes.  Essa compactação permite que o banco de dados aumente até aproximadamente 1 PB quando todas as tabelas são de columnstore clusterizado (o tipo de tabela padrão). |
 | Tabela |Tamanho máx. |60 TB compactados em disco |
@@ -56,19 +56,19 @@ As tabelas a seguir contêm os valores máximos permitidos para vários componen
 | Visualizar |Colunas por exibição |1.024 |
 
 ## <a name="loads"></a>Cargas
-| Categoria | Descrição | Máximo |
+| Categoria | DESCRIÇÃO | Máximo |
 |:--- |:--- |:--- |
 | Cargas de Polybase |MB por segundo |1<br/><br/>O Polybase é carregado apenas em linhas menores que 1 MB e não pode ser carregado em VARCHAR(MAX), NVARCHAR(MAX) ou VARBINARY(MAX).<br/><br/> |
 
 ## <a name="queries"></a>Consultas
-| Categoria | Descrição | Máximo |
+| Categoria | DESCRIÇÃO | Máximo |
 |:--- |:--- |:--- |
 | Consultar |Consultas em fila em tabelas de usuário. |1000 |
 | Consultar |Consultas simultâneas em exibições do sistema. |100 |
 | Consultar |Consultas em fila em exibições do sistema |1000 |
 | Consultar |Máximo de parâmetros |2098 |
 | Batch |Tamanho máximo |65.536*4096 |
-| Resultados de SELECT |Colunas por linha |4.096<br/><br/>Nunca será possível ter mais de 4.096 colunas por linha no resultado de SELECT. Não há garantia de que você sempre terá 4096. Se o plano de consulta exigir uma tabela temporária, poderão ser aplicadas no máximo 1024 colunas por tabela. |
+| Resultados de SELECT |Colunas por linha |4096<br/><br/>Nunca será possível ter mais de 4.096 colunas por linha no resultado de SELECT. Não há garantia de que você sempre terá 4096. Se o plano de consulta exigir uma tabela temporária, poderão ser aplicadas no máximo 1024 colunas por tabela. |
 | SELECIONAR |Subconsultas aninhadas |32<br/><br/>Nunca será possível ter mais de 32 subconsultas aninhadas em uma instrução SELECT. Não há garantia de que você sempre terá 32. Por exemplo, JOIN pode introduzir uma subconsulta no plano de consulta. O número de subconsultas também pode ser limitado pela memória disponível. |
 | SELECIONAR |Colunas por JOIN |1024 colunas<br/><br/>Nunca será possível ter mais de 1.024 colunas em JOIN. Não há garantia de que você sempre terá 1024. Se o plano JOIN exigir uma tabela temporária com mais colunas do que o resultado de JOIN, o limite de 1024 se aplicará à tabela temporária. |
 | SELECIONAR |Bytes por colunas GROUP BY. |8.060<br/><br/>As colunas na cláusula GROUP BY podem ter, no máximo, 8.060 bytes. |

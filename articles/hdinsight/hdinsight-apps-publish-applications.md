@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/21/2017
+ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: c4db342299e009249ac98a2b58fb882c57c01a0b
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 597ea68f063d02541132d275de815c1673369ae0
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="publish-an-hdinsight-application-in-the-azure-marketplace"></a>Publicar um aplicativo HDInsight no Azure Marketplace
 É possível instalar um aplicativo Azure HDInsight em um cluster HDInsight baseado em Linux. Neste artigo, aprenda como publicar um aplicativo HDInsight no Azure Marketplace. Para obter informações gerais sobre a publicação no Azure Marketplace, consulte [Publish an offer in the Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md) (Publicar uma oferta no Azure Marketplace).
@@ -32,7 +32,7 @@ Para obter mais informações, consulte estes artigos relacionados ao aplicativo
 * [Instalar aplicativos HDInsight](hdinsight-apps-install-applications.md). Saiba como instalar um aplicativo HDInsight em seus clusters.
 * [Instalar aplicativos HDInsight personalizados](hdinsight-apps-install-custom-applications.md). Saiba como instalar e testar aplicativos HDInsight personalizados.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Para enviar seu aplicativo personalizado no Marketplace, primeiro [crie e teste seu aplicativo personalizado](hdinsight-apps-install-custom-applications.md).
 
 Também é necessário registrar sua conta de desenvolvedor. Para obter mais informações, consulte [Publish an offer in the Azure Marketplace](../marketplace-publishing/marketplace-publishing-getting-started.md) (Publicar uma oferta no Azure Marketplace) e [Create a Microsoft Developer account](../marketplace-publishing/marketplace-publishing-accounts-creation-registration.md) (Criar uma conta de Desenvolvedor Microsoft).
@@ -51,7 +51,7 @@ Duas etapas são envolvidas na publicação de aplicativos no Marketplace. Prime
 }
 ```
 
-| Campo | Descrição | Valores possíveis |
+| Campo | DESCRIÇÃO | Valores possíveis |
 | --- | --- | --- |
 | tipos |Os tipos de cluster com os quais o aplicativo é compatível. |Hadoop, HBase, Storm, Spark (ou qualquer combinação deles) |
 | versões |Os tipos de cluster HDInsight com os quais o aplicativo é compatível. |3.4 |

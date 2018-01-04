@@ -3,7 +3,7 @@ title: "Anexar ou desanexar um disco de dados a uma máquina virtual no Azure De
 description: "Saiba como anexar ou desanexar um disco de dados a uma máquina virtual no Azure DevTest Labs"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 9616bf38-7db8-4915-a32a-e4f40a7a56ad
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
-ms.author: tarcher
-ms.openlocfilehash: 1e156b2baad0d49c21e852a22d3b149e630b3750
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.author: v-craic
+ms.openlocfilehash: c1f83097fe4e5da3a46f693d37b001dbb6831527
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="attach-or-detach-a-data-disk-to-a-virtual-machine-in-azure-devtest-labs"></a>Anexar ou desanexar um disco de dados a uma máquina virtual no Azure DevTest Labs
 O [Azure Managed Disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) gerencia as contas de armazenamento associadas aos discos de dados da máquina virtual. Um usuário anexa um novo disco de dados a uma VM, especifica o tipo e o tamanho do disco que é necessário e o Azure cria e gerencia o disco automaticamente. O disco de dados pode então ser desanexado da VM e reanexado posteriormente à mesma VM ou anexado a outra VM que pertença ao mesmo usuário.

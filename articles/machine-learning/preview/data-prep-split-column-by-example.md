@@ -5,17 +5,17 @@ services: machine-learning
 author: ranvijaykumar
 ms.author: ranku
 manager: mwinkle
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, reference
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: 013c99045621e4651a44ab99c9f695fff6004654
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: df31e5b0dfd3b41f5fc125bf3a59cfd6e8e5f4e1
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="split-column-by-example-transformation"></a>Transformação Dividir coluna por exemplo
 Essa transformação divide preditivamente o conteúdo de uma coluna em limites significativos sem a necessidade de entrada do usuário. O algoritmo de divisão seleciona os limites depois de analisar o conteúdo da coluna. Esses limites podem ser definidos por

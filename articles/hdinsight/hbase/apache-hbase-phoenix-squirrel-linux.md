@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/22/2017
+ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: 4ec2d5d82c5a6fa0b4a6a485bcacf592ba28a89c
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 12791da56f32ffffa4b1131c408829f50f6e9124
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="use-apache-phoenix-with-linux-based-hbase-clusters-in-hdinsight"></a>Usar o Apache Phoenix com clusters do HBase baseados em Linux no HDInsight
 Saiba como usar o [Apache Phoenix](http://phoenix.apache.org/) no Azure HDInsight e como usar o SQLLine. Para obter mais informações sobre o Phoenix, consulte [Phoenix em 15 minutos ou menos](http://phoenix.apache.org/Phoenix-in-15-minutes-or-less.html). Para conhecer a gramática do Phoenix, consulte [Gramática do Phoenix](http://phoenix.apache.org/language/index.html).
@@ -32,7 +32,7 @@ Saiba como usar o [Apache Phoenix](http://phoenix.apache.org/) no Azure HDInsigh
 ## <a name="use-sqlline"></a>Usar o SQLLine
 [SQLLine](http://sqlline.sourceforge.net/) é um utilitário de linha de comando para executar o SQL.
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>pré-requisitos
 Antes de poder usar o SQLLine, você deve ter os seguintes itens:
 
 * **Um cluster HBase no HDInsight**. Para criar um, veja [Introdução ao Apache HBase no HDInsight](./apache-hbase-tutorial-get-started-linux.md).
@@ -85,10 +85,4 @@ Neste artigo, você aprendeu a usar o Apache Phoenix no HDInsight. Para saber ma
 [hdinsight-hbase-provision-vnet]:apache-hbase-provision-vnet.md
 [hdinsight-hbase-overview]:apache-hbase-overview.md
 
-[hdinsight-hbase-phoenix-sqlline]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-phoenix-sqlline.png
-[img-certificate]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-vpn-certificate.png
-[img-vnet-diagram]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-vnet-point-to-site.png
-[img-squirrel-driver]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-squirrel-driver.png
-[img-squirrel-alias]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-squirrel-alias.png
-[img-squirrel]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-squirrel.png
-[img-squirrel-sql]: ./media/hdinsight-hbase-phoenix-squirrel/hdinsight-hbase-squirrel-sql.png
+

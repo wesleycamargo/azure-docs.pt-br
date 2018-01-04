@@ -12,11 +12,11 @@ documentationcenter:
 manager: timlt
 ms.devlang: na
 ms.custom: mvc
-ms.openlocfilehash: 7d8eb900bdc90a391d4121b7bfb863fc274fc564
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 19cf9da839d9d3a1ec78c8d1f6994628684f4e31
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-location-based-services"></a>Encontre rotas para diferentes modos de viagem usando os Serviços do Azure Baseados na Localização
 
@@ -26,7 +26,7 @@ Este tutorial mostra como usar sua conta dos Serviços do Azure Baseados na Loca
 > * Configurar sua consulta do Serviço de Roteiros
 > * Renderizar rotas priorizadas por modo de viagem
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Antes de prosseguir, verifique se você [criou sua conta dos Serviços do Azure Baseados na Localização](./tutorial-search-location.md#createaccount) e [obteve a chave de assinatura da conta](./tutorial-search-location.md#getkey). Você também pode observar como usar o Controle de mapa e as APIs de Serviço de Pesquisa, conforme discutido no tutorial [Pesquisar ponto de interesse próximo usando os Serviços do Azure Baseados na Localização](./tutorial-search-location.md), bem como saber mais sobre o uso básico das APIs do Serviço de Roteiros, conforme discutido no tutorial [Rota para um ponto de interesse usando os Serviços do Azure Baseados na Localização](./tutorial-route-location.md).
 
@@ -209,9 +209,9 @@ Esta seção mostra como usar a API do Serviço de Roteiros dos Serviços do Azu
     ```
     Esse trecho de código cria uma [XMLHttpRequest](https://xhr.spec.whatwg.org/) e adiciona um manipulador de eventos para analisar a resposta de entrada. Para uma resposta bem-sucedida, ele cria uma matriz de coordenadas para a rota retornada e adiciona a camada `truckRouteLayerName` do mapa. 
     
-    O trecho de código também envia a consulta ao Serviço de Roteiros para obter a rota entre o ponto de partida e final especificados da chave de assinatura da conta. Os parâmetros opcionais a seguir são usados para indicar a rota de um caminhão pesado: - O parâmetro `travelMode=truck` especifica o modo de viagem como *caminhão*. Outros modos de viagem com suporte são *táxi*, *ônibus*, *van*, *motocicleta* e o *carro*  padrão. 
-        - Os parâmetros `vehicleWidth`, `vehicleHeight` e `vehicleLength` especificam as dimensões do veículo em metros e só são considerados se o modo de viagem for *caminhão*. 
-        - O `vehicleLoadType` classifica a carga como perigosa e restrita em algumas estradas. Isso também só é considerado para o modo *caminhão* atualmente. 
+    O trecho de código também envia a consulta ao Serviço de Roteiros para obter a rota entre o ponto de partida e final especificados da chave de assinatura da conta. Os parâmetros opcionais a seguir são usados para indicar a rota de um caminhão pesado: - O parâmetro `travelMode=truck` especifica o modo de viagem como *caminhão*. Outros modos de viagem com suporte são *táxi*, *ônibus*, *van*, *motocicleta* e o *carro*  padrão.  
+        - Os parâmetros `vehicleWidth`, `vehicleHeight` e `vehicleLength` especificam as dimensões do veículo em metros e só são considerados se o modo de viagem for *caminhão*.  
+        - O `vehicleLoadType` classifica a carga como perigosa e restrita em algumas estradas. Isso também só é considerado para o modo *caminhão* atualmente.  
 
 2. Adicione o seguinte código JavaScript para obter a rota para um carro usando o Serviço de Roteiros:
 

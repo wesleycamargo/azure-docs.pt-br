@@ -3,7 +3,7 @@ title: "Controle as alterações nas suas máquinas virtuais do Azure | Microsof
 description: "Use o controle de alterações para controlar alterações em arquivos e registro nas suas máquinas virtuais."
 services: automation
 documentationcenter: automation
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 tags: azure-service-management
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: 
 ms.workload: infrastructure
 ms.date: 09/25/2017
-ms.author: eslesar
+ms.author: gwallace
 ms.custom: 
-ms.openlocfilehash: 5c6e8390ec8533fc7ab281c212e47a6982b30f1a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3a661fada2e768c2206183c125593d019b557c1d
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="track-changes-in-your-azure-virtual-machines"></a>Controle as alterações nas suas máquinas virtuais do Azure
 
@@ -31,7 +31,7 @@ Você pode habilitar o controle de alterações diretamente da sua máquina virt
 Se não tiver uma máquina virtual do Azure, você poderá criar uma seguindo as instruções no arquivo [Início rápido do Windows](../virtual-machines/windows/quick-create-portal.md) ou [Início rápido do Linux](../virtual-machines/linux/quick-create-portal.md).
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entrar no Portal do Azure
-Entre no [Portal do Azure](https://portal.azure.com/).
+Entre no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="enable-change-tracking-for-an-azure-virtual-machine"></a>Habilitar o controle de alterações para uma máquina virtual do Azure
 

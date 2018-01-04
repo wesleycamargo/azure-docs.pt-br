@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 37f1f5bbd5f39290121414a4c5532abdb2b6f9ae
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 824af3f0f5f6d42341f6f1dc94104f6009b568b8
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="create-a-vm-classic-with-multiple-nics-using-powershell"></a>Criar uma VM (Clássica) com diversas NICs usando PowerShell
 
@@ -33,9 +33,9 @@ Você pode criar máquinas virtuais (VMs) no Azure e anexar várias interfaces d
 
 [!INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-As etapas a seguir usam um grupo de recursos chamado *IaaSStory* para os servidores Web e o grupo de recursos e *IaaSStory-BackEnd* para os servidores DB.
+As etapas a seguir usam um grupo de recursos chamado *IaaSStory* para os serviços Web e o grupo de recursos e *IaaSStory-BackEnd* para os servidores DB.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Antes de criar os servidores DB, você precisa criar o grupo de recursos *IaaSStory* com todos os recursos necessários para este cenário. Para criar esses recursos, conclua as etapas a seguir. Crie uma rede virtual seguindo as etapas no artigo [Criar uma rede virtual](virtual-networks-create-vnet-classic-netcfg-ps.md).
 
@@ -73,7 +73,7 @@ Baixe o script completo do PowerShell usado [aqui](https://raw.githubusercontent
     $numberOfVMs           = 2
     ```
 
-### <a name="step-2---create-necessary-resources-for-your-vms"></a>Etapa 2 – Criar recursos necessários para as VMs
+### <a name="step-2---create-necessary-resources-for-your-vms"></a>Etapa 2: criar recursos necessários para as VMs
 Você precisa criar um novo serviço de nuvem e conta de armazenamento para os discos de dados para todas as VMs. Você também precisa especificar uma imagem e uma conta de administrador local para as VMs. Para criar esses recursos, siga estes etapas:
 
 1. Crie um novo serviço de nuvem
@@ -180,7 +180,7 @@ Você deve usar um loop para criar várias VMs desejadas e para criar as NICs e 
     }
     ```
 
-### <a name="step-4---run-the-script"></a>Etapa 4 – Executar o script
+### <a name="step-4---run-the-script"></a>Etapa 4: executar o script
 Agora que você baixou e alterou o script de acordo com suas necessidades, execute o script para criar VMs do banco de dados de back-end com várias NICs.
 
 1. Salve seu script e execute-o no prompt de comando do **PowerShell** ou **PowerShell ISE**. A saída inicial será exibida, conforme mostrado abaixo:
@@ -198,4 +198,4 @@ Agora que você baixou e alterou o script de acordo com suas necessidades, execu
 
 ### <a name="step-5---configure-routing-within-the-vms-operating-system"></a>Etapa 5 – Configurar o roteamento dentro do sistema operacional da VM
 
-O protocolo DHCP do Azure atribui um gateway padrão ao primeiro adaptador de rede (primário) anexado à máquina virtual. O Azure não atribui um gateway padrão aos adaptadores de rede adicionais (secundários) anexados à máquina virtual. Portanto, por padrão, não é possível se comunicar com os recursos fora da sub-rede na qual um adaptador de rede secundária se encontra. No entanto, os adaptador de rede secundários podem se comunicar com os recursos fora da sua sub-rede. Para configurar o roteamento de adaptadores de rede secundários, consulte [Roteamento em um sistema operacional de máquina virtual com vários adaptadores de rede](virtual-network-network-interface-vm.md#routing-within-a-virtual-machine-operating-system-with-multiple-network-interfaces).
+O protocolo DHCP do Azure atribui um gateway padrão ao primeiro adaptador de rede (primário) anexado à máquina virtual. O Azure não atribui um gateway padrão aos adaptadores de rede adicionais (secundários) anexados à máquina virtual. Portanto, por padrão, não é possível se comunicar com os recursos fora da sub-rede na qual um adaptador de rede secundária se encontra. No entanto, os adaptador de rede secundários podem se comunicar com os recursos fora da sua sub-rede. Para configurar o roteamento de adaptadores de rede secundários, consulte [Roteamento em um sistema operacional de máquina virtual com vários adaptadores de rede](virtual-network-network-interface-vm.md).

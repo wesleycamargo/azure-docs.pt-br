@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/31/2017
 ms.author: LADocs; padmavc
-ms.openlocfilehash: 1bfaa7b31bfed3ada22c83516839ebd95a351854
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bfad01d8c14cdd972ebe8e4038f226ffe0da93b1
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="exchange-x12-messages-for-enterprise-integration-with-logic-apps"></a>Troca de mensagens X12 para integração de empresas com aplicativos lógicos
 
@@ -57,19 +57,19 @@ Caso não encontre nenhuma conta de integração, [crie uma primeiro](../logic-a
 
 4. Selecione **Visão geral** e, em seguida, selecione o bloco de **Contratos**. Se não tiver um bloco de Contratos, primeiro adicione o bloco. 
 
-    ![Escolha o bloco de "Contratos"](./media/logic-apps-enterprise-integration-agreements/agreement-1.png)
+    ![Escolha o bloco de "Contratos"](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
 
 5. Quando a folha "Contratos" abrir, selecione **Adicionar**.
 
-    ![Escolha "Adicionar"](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)     
+    ![Escolha "Adicionar"](./media/logic-apps-enterprise-integration-as2/agreement-2.png)     
 
 6. Em **Adicionar**, insira um **Nome** para o seu contrato. Quanto ao tipo de contrato, selecione **X12**. Selecione o **Parceiro Host**, a **Identidade do Host**, o **Parceiro Convidado** e a **Identidade do Convidado** para o contrato. Confira a tabela dessa etapa para obter mais informações sobre a propriedade.
 
     ![Fornecer detalhes de contrato](./media/logic-apps-enterprise-integration-x12/x12-1.png)  
 
-    | Propriedade | Descrição |
+    | Propriedade | DESCRIÇÃO |
     | --- | --- |
-    | Nome |Nome do contrato |
+    | NOME |Nome do contrato |
     | Tipo de contrato | Deve ser X12 |
     | Parceiro de Host |Um contrato precisa dos parceiros host e convidado. O parceiro host representa a organização que está configurando o contrato. |
     | Identidade do Host |Um identificador para o parceiro host |
@@ -98,7 +98,7 @@ Agora o contrato está pronto para lidar com mensagens de entrada de acordo com 
 
 ![Definir propriedades do identificador](./media/logic-apps-enterprise-integration-x12/x12-2.png)  
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
 | ISA1 (Qualificador de Autorização) |Selecione o valor do Qualificador de autorização na lista suspensa. |
 | ISA2 |Opcional. Insira o valor de Informações de autorização. Se o valor inserido para ISA1 é diferente de 00, insira no mínimo um caractere alfanumérico e no máximo 10. |
@@ -109,7 +109,7 @@ Agora o contrato está pronto para lidar com mensagens de entrada de acordo com 
 
 ![Definir propriedades de confirmação](./media/logic-apps-enterprise-integration-x12/x12-3.png) 
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
 | TA1 esperado |Retorna uma confirmação técnica ao emissor de intercâmbio |
 | FA esperado |Retorna uma confirmação funcional ao emissor de intercâmbio. Então, selecione se deseja as confirmações 997 ou 999, com base na versão de esquema |
@@ -121,7 +121,7 @@ Escolha um esquema para cada tipo de transação (ST1) e o Aplicativo de remeten
 
 ![Selecione um esquema](./media/logic-apps-enterprise-integration-x12/x12-33.png) 
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
 | Versão |Selecione a versão X12 |
 | Tipo de Transação (ST01) |Selecione o tipo de transação |
@@ -135,7 +135,7 @@ Escolha um esquema para cada tipo de transação (ST1) e o Aplicativo de remeten
 
 ![Especifica o separador em um conjunto de transações: escolha o identificador padrão ou o separador de repetição](./media/logic-apps-enterprise-integration-x12/x12-34.png)
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
 | Uso de ISA11 |Especifica o separador a ser usado em um conjunto de transações: <p>Selecione o **identificador padrão** para usar um ponto (.) em notação decimal, em vez de uma notação decimal no documento de entrada do pipeline de recebimento EDI. <p>Selecione o **separador de repetição** para especificar o separador para as ocorrências repetidas de um elemento de dados simples ou uma estrutura de dados repetidos. Por exemplo, geralmente o circunflexo (^) é usado como o separador de repetição. Para esquemas HIPAA, só é possível usar circunflexo (^). |
 
@@ -143,7 +143,7 @@ Escolha um esquema para cada tipo de transação (ST1) e o Aplicativo de remeten
 
 ![Selecione como manipular duplicatas de número de controle](./media/logic-apps-enterprise-integration-x12/x12-35.png) 
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
 | Recusar duplicatas de Números de Controle de Intercâmbio |Bloqueia o intercâmbio de duplicatas. Verifica o número de controle de intercâmbio (ISA13) para o número de controle de intercâmbio recebido. Se uma correspondência for detectada, o pipeline de recebimento não processará o intercâmbio. Você pode especificar o número de dias para executar a verificação. Para isso, forneça um valor para a *Verificação de ISA13 duplicados a cada (dias)*. |
 | Recusar duplicatas de Números de controle de grupo |Bloqueia intercâmbios com números de controle de grupo de duplicatas. |
@@ -155,7 +155,7 @@ Escolha um esquema para cada tipo de transação (ST1) e o Aplicativo de remeten
 
 Quando você conclui cada linha de validação, outra é adicionada automaticamente. Se você não especificar regras, a validação usa a linha "Padrão".
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
 | Tipo de Mensagem |Seleciona o tipo de mensagem EDI. |
 | Validação de EDI |Executa a validação de EDI nos tipos de dados conforme a definição das propriedades de EDI do esquema, restrições de comprimento, elementos de dados vazios e separadores à direita. |
@@ -168,7 +168,7 @@ Quando você conclui cada linha de validação, outra é adicionada automaticame
 
 ![Selecione Configurações internas](./media/logic-apps-enterprise-integration-x12/x12-37.png) 
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
 | Converte o formato decimal implícito "Nn" para o valor numérico de base 10 |Converte um número de EDI especificado no formato "Nn" em um valor numérico de base 10 |
 | Criar marcas XML vazias se forem permitidos separadores à direita |Marque essa caixa de seleção para que o remetente do intercâmbio inclua marcas XML vazias para separadores à direita. |
@@ -194,7 +194,7 @@ Agora o contrato está pronto para lidar com mensagens de saída de acordo com a
 
 ![Definir propriedades do identificador](./media/logic-apps-enterprise-integration-x12/x12-4.png)  
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
 | Qualificador de Autorização (ISA1) |Selecione o valor do Qualificador de autorização na lista suspensa. |
 | ISA2 |Insira o valor de Informações de autorização. Se esse valor é diferente de 00, insira no mínimo um caractere alfanumérico e no máximo 10. |
@@ -205,7 +205,7 @@ Agora o contrato está pronto para lidar com mensagens de saída de acordo com a
 
 ![Definir propriedades de confirmação](./media/logic-apps-enterprise-integration-x12/x12-5.png)  
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
 | TA1 esperado |Retorna uma confirmação técnica (TA1) ao emissor de intercâmbio. Essa configuração especifica que o parceiro host que está enviando a mensagem solicitou uma confirmação do parceiro convidado no contrato. Essas confirmações são esperadas pelo parceiro host com base nas Configurações de Recebimento do contrato. |
 | FA esperado |Retorna uma confirmação funcional (FA) ao emissor de intercâmbio. Selecione se quer as confirmações 997 ou as 999, com base nas versões de esquema com as quais você está trabalhando. Essas confirmações são esperadas pelo parceiro host com base nas Configurações de Recebimento do contrato. |
@@ -215,7 +215,7 @@ Agora o contrato está pronto para lidar com mensagens de saída de acordo com a
 
 ![Selecione o esquema a ser usado](./media/logic-apps-enterprise-integration-x12/x12-5.png)  
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
 | Versão |Selecione a versão X12 |
 | Tipo de Transação (ST01) |Selecione o tipo de transação |
@@ -228,7 +228,7 @@ Agora o contrato está pronto para lidar com mensagens de saída de acordo com a
 
 ![Especifica o separador em um conjunto de transações: escolha o identificador padrão ou o separador de repetição](./media/logic-apps-enterprise-integration-x12/x12-6.png) 
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
 | Uso de ISA11 |Especifica o separador a ser usado em um conjunto de transações: <p>Selecione o **identificador padrão** para usar um ponto (.) em notação decimal, em vez de uma notação decimal no documento de entrada do pipeline de recebimento EDI. <p>Selecione o **separador de repetição** para especificar o separador para as ocorrências repetidas de um elemento de dados simples ou uma estrutura de dados repetidos. Por exemplo, geralmente o circunflexo (^) é usado como o separador de repetição. Para esquemas HIPAA, só é possível usar circunflexo (^). |
 
@@ -236,7 +236,7 @@ Agora o contrato está pronto para lidar com mensagens de saída de acordo com a
 
 ![Especifique as propriedades do número de controle](./media/logic-apps-enterprise-integration-x12/x12-8.png) 
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
 | Número de Versão de Controle (ISA12) |Selecione a versão do padrão X12 |
 | Indicador de Uso (ISA15) |Selecione o contexto de um intercâmbio.  Os valores são informações, dados de produção ou dados de teste |
@@ -260,7 +260,7 @@ Além do conjunto de caracteres, você pode inserir um conjunto diferente de del
 
 ![Especifique os delimitadores para os tipos de mensagem](./media/logic-apps-enterprise-integration-x12/x12-9.png) 
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
 | Conjunto de Caracteres a ser usado |Selecione o conjunto de caracteres X12 para validar as propriedades. As opções são básico, estendido e UTF8. |
 | Esquema |Selecione um esquema na lista suspensa. Depois de concluir cada linha, uma nova linha é adicionada automaticamente. Para o esquema selecionado, selecione o conjunto de separadores que deseja usar, com base nas seguintes descrições do separador. |
@@ -280,7 +280,7 @@ Além do conjunto de caracteres, você pode inserir um conjunto diferente de del
 
 Quando você conclui cada linha de validação, outra é adicionada automaticamente. Se você não especificar regras, a validação usa a linha "Padrão".
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
 | Tipo de Mensagem |Seleciona o tipo de mensagem EDI. |
 | Validação de EDI |Executa a validação de EDI nos tipos de dados conforme a definição das propriedades de EDI do esquema, restrições de comprimento, elementos de dados vazios e separadores à direita. |
@@ -299,7 +299,7 @@ Quando você conclui cada linha de validação, outra é adicionada automaticame
 
     ![Escolha o bloco de "Contratos" para exibir todos os contratos](./media/logic-apps-enterprise-integration-x12/x12-1-5.png)   
 
-## <a name="view-the-swagger"></a>Exibir o Swagger
+## <a name="view-the-swagger"></a>Exibir o swagger
 Consulte os [detalhes do Swagger](/connectors/x12/). 
 
 ## <a name="learn-more"></a>Saiba mais

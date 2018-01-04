@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2017
+ms.date: 12/15/2017
 ms.author: jgao
-ms.openlocfilehash: 58028c969130991f3dfa6556baa37a0510f9c7e3
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 04bb16d4779741d71f686f53a8f325243ab8499e
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-by-using-azure-powershell"></a>Gerenciar clusters Hadoop no HDInsight Usando o PowerShell do Azure
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -31,9 +31,9 @@ O Azure PowerShell pode ser usado para controlar e automatizar a implantação e
 
 Antes de começar este artigo, você deve ter os seguintes itens:
 
-* **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-## <a name="install-azure-powershell"></a>Instale o Azure PowerShell
+## <a name="install-azure-powershell"></a>Instalar o Azure Powershell
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 Se você instalou o Azure PowerShell versão 0.9x, deve desinstalá-lo antes de instalar uma versão mais recente.
@@ -80,7 +80,7 @@ Remove-AzureRmResourceGroup -Name <Resource Group Name>
 O recurso de dimensionamento de clusters permite que você altere o número de nós de trabalhador usados por um cluster em execução no Azure HDInsight sem precisar recriar o cluster.
 
 > [!NOTE]
-> Somente clusters HDInsight versão 3.1.3 ou superior são compatíveis. Se não tiver certeza quanto à versão de seu cluster, você poderá verificar a página Propriedades.  Confira [Listar e mostrar clusters](hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
+> Somente clusters HDInsight versão 3.1.3 ou superior são compatíveis. Se não tiver certeza quanto à versão de seu cluster, você poderá verificar a página Propriedades.  Consulte [Listar e mostrar clusters](hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
 >
 >
 
@@ -236,7 +236,7 @@ Consulte [Usar o Oozie com Hadoop para definir e executar um fluxo de trabalho n
 ## <a name="upload-data-to-azure-blob-storage"></a>Carregar dados no armazenamento de Blob do Azure
 Veja [Carregar dados no HDInsight][hdinsight-upload-data].
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 * [Documentação de referência do cmdlet do HDInsight][hdinsight-powershell-reference]
 * [Administrar o HDInsight usando o Portal do Azure][hdinsight-admin-portal]
 * [Administrar o HDInsight usando uma interface de linha de comando][hdinsight-admin-cli]

@@ -7,6 +7,7 @@ author: miprasad
 manager: kristin.tolle
 editor: miprasad
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2017
 ms.author: miprasad
-ms.openlocfilehash: ea95f9e4a6e11ddac96e956bdf0f1e4255954b24
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 7db93786b71fb7876ae02fd8fd006a1e8e0c2271
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="customer-churn-prediction-using-azure-machine-learning"></a>Previsão de rotatividade de clientes usando o Azure Machine Learning
 
@@ -54,7 +55,7 @@ Alguns fatores que contribuem para a rotatividade do cliente de telecomunicaçõ
 
 Nesta solução, usaremos um exemplo concreto da criação de um modelo de rotatividade de clientes preditivo para empresas de telecomunicações.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * Uma [conta do Azure](https://azure.microsoft.com/free/) (avaliações gratuitas estão disponíveis)
 

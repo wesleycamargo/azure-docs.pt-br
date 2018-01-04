@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/15/2017
 ms.author: mimig
-ms.openlocfilehash: 189f576f9ead5d67b76b3e47c312f3de76df77fe
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: e6f87cd82ebe31965fcaac1f66d2df03fd58294f
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>Azure Cosmos DB como um repositório de valores de chave – Visão geral do custo
 
-O Azure Cosmos DB é um serviço de multimodelo de banco de dados distribuído globalmente para a criação fácil de aplicativos altamente disponíveis de grande escala. Por padrão, o Azure Cosmos DB indexa automaticamente e com eficiência todos os dados ingeridos. Isso permite consultas [SQL](documentdb-sql-query.md) (e [JavaScript](programming.md)) rápidas e consistentes em qualquer tipo de dados. 
+O Azure Cosmos DB é um serviço de multimodelo de banco de dados distribuído globalmente para a criação fácil de aplicativos altamente disponíveis de grande escala. Por padrão, o Azure Cosmos DB indexa automaticamente e com eficiência todos os dados ingeridos. Isso permite consultas [SQL](sql-api-sql-query.md) (e [JavaScript](programming.md)) rápidas e consistentes em qualquer tipo de dados. 
 
 Este artigo descreve o custo do Azure Cosmos DB para operações simples de gravação e leitura quando ele é usado como um repositório de chaves/valores. Operações de gravação incluem inserções, substituições, exclusões e upserts de documentos. Além de garantir uma 99,99% SLA de disponibilidade para todas as contas de região única e todas as contas de várias regiões com consistência reduzida e 99,999% disponibilidade de leitura em todas as contas de banco de dados de várias regiões, o Azure Cosmos DB oferece garantidamente < latência de 10 ms para leituras e < latência de 15 ms para gravações (indexadas), respectivamente, no 99º percentual. 
 

@@ -9,13 +9,13 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
-ms.topic: hero-article
+ms.topic: tutorial
 ms.date: 11/06/2017
-ms.openlocfilehash: 79374f18d46e8e7d84772423c2cd40d9acb4d7dd
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: f3b4b41593e0956e98f05c7f8d1c71632a489e56
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="classify-iris-part-2-build-a-model"></a>Parte 2 de Classificação da Íris: Criar um modelo
 Os serviços do Azure Machine Learning (versão prévia) são uma solução integrada de análise avançada e de ciência de dados de ponta a ponta para cientistas de dados profissionais prepararem dados, desenvolverem testes e implantarem modelos em escala de nuvem.
@@ -34,7 +34,7 @@ Este tutorial é a parte dois de uma série de três partes. Nessa parte do tuto
 
 Este tutorial usa o [Conjunto de dados de flor de íris](https://en.wikipedia.org/wiki/Iris_flower_data_set) atemporal. As capturas de tela são específicas do Windows, mas a experiência no macOS é quase idêntica.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Concluir a primeira parte desta série de tutoriais. Siga o [tutorial Preparar dados](tutorial-classifying-iris-part-1.md) para criar recursos do Azure Machine Learning e instalar o aplicativo Azure Machine Learning Workbench antes de iniciar as etapas neste tutorial.
 
 Opcionalmente, você pode fazer experiências com a execução de scripts em um contêiner do Docker local. Para fazer isso, você precisa de um mecanismo Docker (o Community Edition é suficiente) instalado e iniciado localmente no seu computador Windows ou Mac OS. Para obter mais informações sobre como instalar o Docker, confira [Instruções de instalação do Docker](https://docs.docker.com/engine/installation/).

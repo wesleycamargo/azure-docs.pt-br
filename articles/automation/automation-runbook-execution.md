@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2017
 ms.author: magoedte;bwren
-ms.openlocfilehash: c883421c6fc79b233b2d47afde9cbe6edb909a51
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: a443071aee3e0f845de4387322d2866157a9fe87
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Execução de runbook na Automação do Azure
 Quando você inicia um runbook na Automação do Azure, um trabalho é criado. Um trabalho é uma instância única de execução de um runbook. Um trabalhador da Automação do Azure é atribuído para executar cada tarefa. Enquanto os trabalhadores são compartilhados por várias contas do Azure, os trabalhos de diferentes contas de automação ficam isolados uns dos outros. Você não tem controle sobre qual trabalhador atende a solicitação do seu trabalho. Um único runbook pode ter vários trabalhos em execução ao mesmo tempo.  O ambiente de execução para trabalhos da mesma conta de Automação do Azure pode ser reutilizado. Quando você exibe a lista de runbooks no Portal do Azure, ela lista o status de todos os trabalhos iniciados para cada runbook. Você pode exibir a lista de trabalhos para cada runbook a fim de acompanhar o status de cada um. Para obter uma descrição das diferentes opções de status de trabalho, confira [Status de trabalho](#job-statuses).
@@ -36,17 +36,17 @@ Os trabalhos têm acesso aos recursos do Azure fazendo uma conexão à sua assin
 ## <a name="job-statuses"></a>Status de trabalho
 A tabela a seguir descreve os diferentes status possíveis para um trabalho.
 
-| Status | Descrição |
+| Status | DESCRIÇÃO |
 |:--- |:--- |
 | Concluído |Operação concluída com sucesso. |
-| Falha |Para [runbooks gráficos e de fluxo de trabalho do PowerShell](automation-runbook-types.md), o runbook falhou ao compilar.  Para [runbooks de Script do PowerShell](automation-runbook-types.md), o runbook falhou ao iniciar ou o trabalho encontrou uma exceção. |
-| Erro, aguardando recursos |O trabalho falhou porque atingiu o limite de [fração justa](#fairshare) três vezes e iniciou do mesmo ponto de verificação ou desde o início do runbook em cada uma das vezes. |
+| Com falha |Para [runbooks gráficos e de fluxo de trabalho do PowerShell](automation-runbook-types.md), o runbook falhou ao compilar.  Para [runbooks de Script do PowerShell](automation-runbook-types.md), o runbook falhou ao iniciar ou o trabalho encontrou uma exceção. |
+| Erro, aguardando recursos |O trabalho falhou porque atingiu o limite de [fração justa](#fair-share) três vezes e iniciou do mesmo ponto de verificação ou desde o início do runbook em cada uma das vezes. |
 | Em fila |O trabalho está aguardando recursos de um trabalho do Automation ficar disponível para que ele possa ser iniciado. |
 | Iniciando |O trabalho foi atribuído a um trabalho, e o sistema está iniciando-o. |
 | Continuando |O sistema está reiniciando o trabalho depois que ele foi suspenso. |
 | Executando |O trabalho está em execução. |
-| Executando, aguardando recursos |O trabalho foi descarregado, pois atingiu o limite de [fração justa](#fairshare) . Ele será retomado em breve do seu último ponto de verificação. |
-| Parada |O trabalho foi interrompido pelo usuário antes de ser concluído. |
+| Executando, aguardando recursos |O trabalho foi descarregado, pois atingiu o limite de [fração justa](#fair-share) . Ele será retomado em breve do seu último ponto de verificação. |
+| Parado |O trabalho foi interrompido pelo usuário antes de ser concluído. |
 | Parando |O sistema está no processo de interromper o trabalho. |
 | Suspenso |O trabalho foi suspenso pelo usuário, pelo sistema ou por um comando no runbook. Um trabalho suspenso pode ser iniciado novamente e retomará do seu último ponto de verificação ou desde o início do runbook, se ele não tiver pontos de verificação. O runbook só será suspenso pelo sistema quando ocorrer uma exceção. Por padrão, ErrorActionPreference é definido como **Continuar** o que significa que o trabalho continua a ser executado no caso de um erro. Se essa variável de preferência for definida como **Parar**, o trabalho será suspenso no caso de um erro.  Aplica-se a somente [runbooks gráficos e de fluxo de trabalho do PowerShell](automation-runbook-types.md). |
 | Suspensão |O sistema está tentando suspender o trabalho por solicitação do usuário. O runbook precisa atingir seu próximo ponto de verificação antes de poder ser suspenso. Se já passou de seu último ponto de verificação, ele será concluído antes de ser suspenso.  Aplica-se a somente [runbooks gráficos e de fluxo de trabalho do PowerShell](automation-runbook-types.md). |

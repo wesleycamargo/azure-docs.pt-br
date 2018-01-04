@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: shlo
-ms.openlocfilehash: df139383eb2fa20fe75ecc6b3f5e2aa0773f186c
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: a33855213c4bd3a677c8ebbed6624c85138d8ea6
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="update-azure-machine-learning-models-by-using-update-resource-activity"></a>Atualizar modelos do Azure Machine Learning usando a atividade de atualização de recursos
 Este artigo complementa o principal Azure Data Factory - Artigo de integração do Azure Machine Learning: [Criar pipelines de previsão usando o Azure Machine Learning e o Azure Data Factory](transform-data-using-machine-learning.md). Se você ainda não fez isso, leia o artigo principal antes de ler este. 
@@ -60,15 +60,15 @@ O trecho JSON a seguir define uma atividade de execução em lotes do Azure Mach
 
 
 
-| Propriedade                      | Descrição                              | Obrigatório |
+| Propriedade                      | DESCRIÇÃO                              | Obrigatório |
 | :---------------------------- | :--------------------------------------- | :------- |
-| name                          | Nome da atividade no pipeline     | Sim      |
-| description                   | Texto que descreve o que a atividade faz.  | Não       |
-| type                          | Para a atividade de atualização de recursos do Azure Machine Learning, o tipo de atividade é **AzureMLUpdateResource**. | Sim      |
-| linkedServiceName             | O serviço vinculado do Azure Machine Learning que contém a propriedade updateResourceEndpoint. | Sim      |
-| trainedModelName              | O nome do módulo de modelo treinado no teste do serviço Web a ser atualizado | Sim      |
-| trainedModelLinkedServiceName | Nome do serviço vinculado do Armazenamento do Azure mantendo o arquivo ilearner que é carregado pela operação de atualização | Sim      |
-| trainedModelFilePath          | O caminho do arquivo relativo no trainedModelLinkedService para representar o arquivo ilearner que é carregado pela operação de atualização | Sim      |
+| Nome                          | Nome da atividade no pipeline     | sim      |
+| Descrição                   | Texto que descreve o que a atividade faz.  | Não        |
+| Tipo                          | Para a atividade de atualização de recursos do Azure Machine Learning, o tipo de atividade é **AzureMLUpdateResource**. | sim      |
+| linkedServiceName             | O serviço vinculado do Azure Machine Learning que contém a propriedade updateResourceEndpoint. | sim      |
+| trainedModelName              | O nome do módulo de modelo treinado no teste do serviço Web a ser atualizado | sim      |
+| trainedModelLinkedServiceName | Nome do serviço vinculado do Armazenamento do Azure mantendo o arquivo ilearner que é carregado pela operação de atualização | sim      |
+| trainedModelFilePath          | O caminho do arquivo relativo no trainedModelLinkedService para representar o arquivo ilearner que é carregado pela operação de atualização | sim      |
 
 
 ## <a name="end-to-end-workflow"></a>Fluxos de trabalho completos
@@ -86,33 +86,6 @@ Para que o fluxo de trabalho de ponta a ponta mencionado acima funcione, você p
 2. Um serviço vinculado do Azure Machine Learning para o ponto de extremidade do recurso de atualização do serviço Web de previsão. Esse serviço vinculado é usado pela atividade de atualização de recursos para atualizar o serviço Web de previsão usando o arquivo iLearner retornado da etapa acima. 
 
 Para o segundo serviço vinculado do Azure Machine Learning, a configuração é diferente quando o serviço Web do Azure Machine Learning é um serviço Web clássico ou é um novo serviço Web. As diferenças são discutidas separadamente nas seções a seguir. 
-
-## <a name="web-service-is-a-classic-web-service"></a>O serviço Web é um serviço Web clássico
-Se o serviço Web de previsão for um **serviço Web clássico**, crie o segundo **ponto de extremidade não padrão e atualizável** usando o portal do Azure. Confira o artigo [Criar pontos de extremidade](../machine-learning/machine-learning-create-endpoint.md) para conhecer as etapas. Depois de criar o ponto de extremidade atualizável não padrão, execute as seguintes etapas:
-
-* Clique em **EXECUÇÃO EM LOTE** para obter o valor do URI para a propriedade JSON **mlEndpoint**.
-* Clique no link **ATUALIZAR RECURSO** para obter o valor do URI para a propriedade JSON **updateResourceEndpoint**. A chave de API está na própria página do ponto de extremidade (no canto inferior direito).
-
-![ponto de extremidade atualizável](./media/update-machine-learning-models/updatable-endpoint.png)
-
-Depois disso, use o seguinte exemplo de serviço vinculado para criar um novo serviço vinculado do Azure Machine Learning. O serviço vinculado usa o apiKey para autenticação.  
-
-```json
-{
-    "name": "updatableScoringEndpoint2",
-    "properties": {
-        "type": "AzureML",
-        "typeProperties": {
-            "mlEndpoint": "https://ussouthcentral.services.azureml.net/workspaces/xxx/services/--scoring experiment--/jobs",
-            "apiKey": {
-            "type": "SecureString",
-            "value": "APIKeyOfEndpoint2"
-            },
-            "updateResourceEndpoint": "https://management.azureml.net/workspaces/xxx/webservices/--scoring experiment--/endpoints/endpoint2"
-        }
-    }
-}
-```
 
 ## <a name="web-service-is-new-azure-resource-manager-web-service"></a>O serviço Web é um novo serviço Web do Azure Resource Manager 
 

@@ -16,11 +16,11 @@ ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: jdial
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8555bd830583f51164d39ca0e7b95813b7d35965
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: e5569209d3628003b3f3e169b227e069b920c03f
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="create-a-vm-classic-with-multiple-nics-using-the-azure-cli-10"></a>Criar uma VM (Clássica) com várias NICs usando a CLI do Azure 1.0
 
@@ -33,9 +33,9 @@ Você pode criar máquinas virtuais (VMs) no Azure e anexar várias interfaces d
 
 [!INCLUDE [virtual-network-deploy-multinic-scenario-include.md](../../includes/virtual-network-deploy-multinic-scenario-include.md)]
 
-As etapas a seguir usam um grupo de recursos chamado *IaaSStory* para os servidores Web e o grupo de recursos e *IaaSStory-BackEnd* para os servidores DB.
+As etapas a seguir usam um grupo de recursos chamado *IaaSStory* para os serviços Web e o grupo de recursos e *IaaSStory-BackEnd* para os servidores DB.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Antes de criar os servidores DB, você precisa criar o grupo de recursos *IaaSStory* com todos os recursos necessários para este cenário. Para criar esses recursos, conclua as etapas a seguir. Criar uma rede virtual, seguindo as etapas do artigo [Criar uma rede virtual](virtual-networks-create-vnet-classic-cli.md).
 
 [!INCLUDE [azure-cli-prerequisites-include.md](../../includes/azure-cli-prerequisites-include.md)]
@@ -76,7 +76,7 @@ Você pode baixar o script bash completo usado [aqui](https://raw.githubusercont
     numberOfVMs=2
     ```
 
-### <a name="step-2---create-necessary-resources-for-your-vms"></a>Etapa 2 – Criar recursos necessários para as VMs
+### <a name="step-2---create-necessary-resources-for-your-vms"></a>Etapa 2: criar recursos necessários para as VMs
 1. Crie um novo serviço de nuvem para todas as VMs de back-end. Observe o uso da variável `$backendCSName` para o nome do grupo de recursos e `$location` para a região do Azure.
 
     ```azurecli
@@ -191,4 +191,4 @@ Agora que você baixou e alterou o script de acordo com suas necessidades, execu
 
 ### <a name="step-5---configure-routing-within-the-vms-operating-system"></a>Etapa 5 – Configurar o roteamento dentro do sistema operacional da VM
 
-O protocolo DHCP do Azure atribui um gateway padrão ao primeiro adaptador de rede (primário) anexado à máquina virtual. O Azure não atribui um gateway padrão aos adaptadores de rede adicionais (secundários) anexados à máquina virtual. Portanto, por padrão, não é possível se comunicar com os recursos fora da sub-rede na qual um adaptador de rede secundária se encontra. No entanto, os adaptador de rede secundários podem se comunicar com os recursos fora da sua sub-rede. Para configurar o roteamento de adaptadores de rede secundários, consulte [Roteamento em um sistema operacional de máquina virtual com vários adaptadores de rede](virtual-network-network-interface-vm.md#routing-within-a-virtual-machine-operating-system-with-multiple-network-interfaces).
+O protocolo DHCP do Azure atribui um gateway padrão ao primeiro adaptador de rede (primário) anexado à máquina virtual. O Azure não atribui um gateway padrão aos adaptadores de rede adicionais (secundários) anexados à máquina virtual. Portanto, por padrão, não é possível se comunicar com os recursos fora da sub-rede na qual um adaptador de rede secundária se encontra. No entanto, os adaptador de rede secundários podem se comunicar com os recursos fora da sua sub-rede. Para configurar o roteamento de adaptadores de rede secundários, consulte [Roteamento em um sistema operacional de máquina virtual com vários adaptadores de rede](virtual-network-network-interface-vm.md).

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/08/2017
 ms.author: LADocs; mandia
-ms.openlocfilehash: 91b2f16611b88aa4b9395ca301d88042065ad9dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6a283d8772e48aa6671d88288c2083d891a220d5
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="exchange-as2-messages-for-enterprise-integration-with-logic-apps"></a>Troca de mensagens AS2 para integração empresarial com aplicativos lógicos
 
@@ -45,7 +45,7 @@ Depois de [criar uma conta de integração](../logic-apps/logic-apps-enterprise-
     > [!TIP]
     > Se você não encontrar a opção **Mais serviços**, talvez seja necessário expandir o menu primeiro. Na parte superior do menu recolhido, selecione **Mostrar menu**.
 
-    ![Mais serviços, filtre "integração" e selecione "Contas de Integração"](./media/logic-apps-enterprise-integration-agreements/overview-1.png)
+    ![Mais serviços, filtre "integração" e selecione "Contas de Integração"](./media/logic-apps-enterprise-integration-as2/overview-1.png)
 
 3. Quando a folha **Contas de integração** abrir, selecione a conta de integração onde você deseja criar o contrato.
 Caso não encontre nenhuma conta de integração, [crie uma primeiro](../logic-apps/logic-apps-enterprise-integration-accounts.md "O que é uma conta de integração?").  
@@ -54,19 +54,19 @@ Caso não encontre nenhuma conta de integração, [crie uma primeiro](../logic-a
 
 4. Escolha o bloco **Contratos**. Se não tiver um bloco de Contratos, primeiro adicione o bloco.
 
-    ![Escolha o bloco de "Contratos"](./media/logic-apps-enterprise-integration-agreements/agreement-1.png)
+    ![Escolha o bloco de "Contratos"](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
 
 5. Quando a folha "Contratos" abrir, selecione **Adicionar**.
 
-    ![Escolha "Adicionar"](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)
+    ![Escolha "Adicionar"](./media/logic-apps-enterprise-integration-as2/agreement-2.png)
 
 6. Em **Adicionar**, insira um **Nome** para o seu contrato. Para **Tipo de contrato**, selecione **AS2**. Selecione o **Parceiro Host**, a **Identidade do Host**, o **Parceiro Convidado** e a **Identidade do Convidado** para o contrato.
 
-    ![Fornecer detalhes de contrato](./media/logic-apps-enterprise-integration-agreements/agreement-3.png)  
+    ![Fornecer detalhes de contrato](./media/logic-apps-enterprise-integration-as2/agreement-3.png)  
 
-    | Propriedade | Descrição |
+    | Propriedade | DESCRIÇÃO |
     | --- | --- |
-    | Nome |Nome do contrato |
+    | NOME |Nome do contrato |
     | Tipo de contrato | Deve ser AS2 |
     | Parceiro de Host |Um contrato precisa dos parceiros host e convidado. O parceiro host representa a organização que está configurando o contrato. |
     | Identidade do Host |Um identificador para o parceiro host |
@@ -82,7 +82,7 @@ Depois de configurar as propriedades do contrato, você pode configurar como est
 1.  Em **Adicionar**, selecione **Configurações de Recebimento**.
 Configure essas propriedades com base em seu contrato com o parceiro que troca mensagens com você. Para obter descrições de propriedades, confira a tabela nesta seção.
 
-    ![Configure "Configurações de recebimento"](./media/logic-apps-enterprise-integration-agreements/agreement-4.png)
+    ![Configure "Configurações de recebimento"](./media/logic-apps-enterprise-integration-as2/agreement-4.png)
 
 2. Você também pode substituir as propriedades de mensagens de entrada selecionando **Substituir as propriedades de mensagem**.
 
@@ -102,7 +102,7 @@ Configure essas propriedades com base em seu contrato com o parceiro que troca m
 
 Agora o contrato está pronto para lidar com mensagens de entrada de acordo com as configurações selecionadas.
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
 | Substituir as propriedades de mensagem |Indica que as propriedades nas mensagens recebidas podem ser substituídas. |
 | Mensagem deve ser assinada |Exige que as mensagens sejam assinadas digitalmente. Configura o certificado público do parceiro convidado para verificação de assinatura.  |
@@ -122,7 +122,7 @@ Você pode configurar como este contrato identifica e trata mensagens de saída 
 1.  Em **Adicionar**, selecione **Configurações de Envio**.
 Configure essas propriedades com base em seu contrato com o parceiro que troca mensagens com você. Para obter descrições de propriedades, confira a tabela nesta seção.
 
-    ![Definição das propriedades de "Configurações de Envio"](./media/logic-apps-enterprise-integration-agreements/agreement-51.png)
+    ![Definição das propriedades de "Configurações de Envio"](./media/logic-apps-enterprise-integration-as2/agreement-51.png)
 
 2. Para enviar mensagens assinadas a seu parceiro, selecione **Habilitar a assinatura de mensagens**. Para assinar as mensagens, na lista **Algoritmo MIC**, selecione o *algoritmo MIC de certificado privado de parceiro host*. E, na lista de **Certificados**, selecione um [certificado particular de parceiro host](../logic-apps/logic-apps-enterprise-integration-certificates.md) existente.
 
@@ -147,7 +147,7 @@ E, na lista de **Certificados**, selecione um [certificado público de parceiro 
 
 Agora o contrato está pronto para lidar com mensagens de saída de acordo com as configurações selecionadas.
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
 | Habilitar a assinatura de mensagens |Exige que todas as mensagens enviadas do contrato sejam assinadas. |
 | Algoritmo de Controle de Integridade de Credenciais |O algoritmo a ser usado para assinar mensagens. Configura o Algoritmo MIC do certificado particular do parceiro do host para assinar as mensagens. |
@@ -172,9 +172,9 @@ Agora o contrato está pronto para lidar com mensagens de saída de acordo com a
 
 2.  Você também pode visualizar seus contratos na visão geral de conta de integração. Na folha de conta de integração, escolha **Visão geral** e selecione o bloco **Contratos**. 
 
-    ![Escolha o bloco de "Contratos" para exibir todos os contratos](./media/logic-apps-enterprise-integration-agreements/agreement-6.png)
+    ![Escolha o bloco de "Contratos" para exibir todos os contratos](./media/logic-apps-enterprise-integration-as2/agreement-6.png)
 
-## <a name="view-the-swagger"></a>Exibir o Swagger
+## <a name="view-the-swagger"></a>Exibir o swagger
 Consulte os [detalhes do Swagger](/connectors/as2/). 
 
 ## <a name="next-steps"></a>Próximas etapas

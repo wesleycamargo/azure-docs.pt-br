@@ -15,11 +15,11 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: tamram
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6a2525c02ce7bd3969469d2e28a5fccc948f89b1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: aecce83b4d4444f2651f48475b596fa76cb5f44a
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>Executar tarefas de preparação e liberação do trabalho em nós de computação do Lote
 
@@ -99,7 +99,7 @@ myJob.JobPreparationTask =
 
 // Assign the job release task to the job
 myJob.JobReleaseTask =
-    new JobPreparationTask { CommandLine = jobReleaseCmdLine };
+    new JobReleaseTask { CommandLine = jobReleaseCmdLine };
 
 await myJob.CommitAsync();
 ```
@@ -111,7 +111,7 @@ Conforme mencionado anteriormente, a tarefa de liberação é executada quando u
 // Job Release Task on any node that executed job tasks. Note that the
 // Job Release Task is also executed when a job is deleted, thus you
 // need not call Terminate if you typically delete jobs after task completion.
-await myBatchClient.JobOperations.TerminateJobAsy("JobPrepReleaseSampleJob");
+await myBatchClient.JobOperations.TerminateJobAsync("JobPrepReleaseSampleJob");
 ```
 
 ## <a name="code-sample-on-github"></a>Exemplo de código no GitHub
@@ -184,7 +184,7 @@ A captura de tela abaixo mostra a **Folha de tarefas de preparação** no portal
 ![Propriedades de preparação de trabalho no portal do Azure][1]
 
 ## <a name="next-steps"></a>Próximas etapas
-### <a name="application-packages"></a>Pacotes de aplicativos
+### <a name="application-packages"></a>pacotes de aplicativos
 Além da tarefa de preparação de trabalho, você também pode usar o recurso de [pacotes de aplicativos](batch-application-packages.md) do Lote para preparar nós de computação para execução da tarefa. Esse recurso é especialmente útil para implantação de aplicativos que não exigem a execução de um instalados, aplicativos que contêm muitos arquivos (mais de 100) ou aplicativos que exigem um controle de versão estrito.
 
 ### <a name="installing-applications-and-staging-data"></a>Instalação de aplicativos e preparação de dados

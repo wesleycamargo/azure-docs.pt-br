@@ -11,14 +11,14 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/31/2017
+ms.topic: reference
+ms.date: 12/18/2017
 ms.author: jeannt
-ms.openlocfilehash: 54bef3e257363300ee1a13f7f45fc983e465ddbf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 15e68e9b4e6432d14c403e3532b934bfad58b35b
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning"></a>Guia de linguagem de especificação de rede neural Net# para Azure Machine Learning
 ## <a name="overview"></a>Visão geral
@@ -86,16 +86,16 @@ Por exemplo, a instrução a seguir define uma constante **x**:
 
     Const X = 28;  
 
-Para definir duas ou mais constantes simultaneamente, coloque os nomes de identificador e os valores entre chaves e separe-os usando ponto e vírgula. Por exemplo:  
+Para definir duas ou mais constantes simultaneamente, coloque os nomes de identificador e os valores entre chaves e separe-os usando ponto e vírgula. Por exemplo:   
 
     Const { X = 28; Y = 4; }  
 
-O lado direito de cada expressão de atribuição pode ser um número inteiro, um número real, um valor booliano (verdadeiro ou falso) ou uma expressão matemática. Por exemplo:  
+O lado direito de cada expressão de atribuição pode ser um número inteiro, um número real, um valor booliano (verdadeiro ou falso) ou uma expressão matemática. Por exemplo:   
 
     Const { X = 17 * 2; Y = true; }  
 
 ## <a name="layer-declaration"></a>Declaração de camada
-A declaração de camada é obrigatória. Ela define o tamanho e a origem da camada, incluindo seus pacotes de conexão e atributos. A instrução de declaração começa pelo nome da camada (entrada, oculta ou saída), seguida pelas dimensões da camada (uma tupla de números inteiros positivos). Por exemplo:  
+A declaração de camada é obrigatória. Ela define o tamanho e a origem da camada, incluindo seus pacotes de conexão e atributos. A instrução de declaração começa pelo nome da camada (entrada, oculta ou saída), seguida pelas dimensões da camada (uma tupla de números inteiros positivos). Por exemplo:   
 
     input Data auto;
     hidden Hidden[5,20] from Data all;

@@ -5,18 +5,18 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: bbbee61d6cd67dd437e4fbcd7260d2f378531912
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 50d2d481b91199630bbfbf3cfdd21a1bf3062ff0
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="supported-data-exports-for-this-preview"></a>Exportações de dados com suporte para essa versão prévia 
 É possível exportar para diversos formatos diferentes. Você pode usar esses formatos para manter os resultados intermediários de preparação de dados antes de integrar os resultados ao restante do fluxo de trabalho de Machine Learning.
@@ -61,6 +61,6 @@ O Parquet como um formato é relativamente novo e tem algumas inconsistências d
 ### <a name="local"></a>Local 
 Disco rígido local ou local de armazenamento de rede mapeado.
 
-### <a name="azure-blob-storage"></a>Armazenamento do Blob do Azure
+### <a name="azure-blob-storage"></a>Armazenamento de Blobs do Azure
 O armazenamento de Blobs do Azure requer uma assinatura do Azure.
 

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2016
 ms.author: arramac
-ms.openlocfilehash: 041982f251ddee7570619c0e7e61d07906aaed2f
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: 73e546dea2c1c102736a2043e0b67f0f2c622b18
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="modeling-document-data-for-nosql-databases"></a>Modelando dados de documentos para bancos de dados NoSQL
 Embora bancos de dados sem esquemas, como o Azure Cosmos DB, facilitem muito a adoção de mudanças em seu modelo de dados, ainda é recomendável dedicar algum tempo para considerar os dados. 
@@ -39,7 +39,7 @@ Ao começar a modelar dados em um repositório de documentos, como o Azure Cosmo
 
 Antes de nos aprofundarmos demais, vamos voltar um pouco e ver como modelaríamos algo num banco de dados relacional, que é um processo que muitos de nós já conhecemos. O exemplo a seguir mostra como uma pessoa poderia ser armazenada em um banco de dados relacional. 
 
-![Modelo de banco de dados relacional](./media/documentdb-modeling-data/relational-data-model.png)
+![Modelo de banco de dados relacional](./media/sql-api-modeling-data/relational-data-model.png)
 
 Durante anos trabalhando com bancos de dados relacionais, aprendemos a normalizar, normalizar e normalizar.
 
@@ -290,7 +290,7 @@ No exemplo acima, tiramos a coleção ilimitada do documento da editora. Em vez 
 ### <a name="how-do-i-model-manymany-relationships"></a>Como eu modelo relações de muitos para muitos?
 Em um banco de dados relacional, relações *muitos:muitos* frequentemente são modeladas com tabelas de junção, que simplesmente reúnem os registros de outras tabelas. 
 
-![Associar tabelas](./media/documentdb-modeling-data/join-table.png)
+![Associar tabelas](./media/sql-api-modeling-data/join-table.png)
 
 Você pode ficar tentado a fazer a mesma coisa usando documentos e produzir um modelo de dados semelhante ao seguinte.
 
@@ -395,4 +395,4 @@ Assim como não há apenas uma forma de representar um dado em uma tela, não h�
 
 Para saber mais sobre o Azure Cosmos DB, consulte a página de [documentação](https://azure.microsoft.com/documentation/services/cosmos-db/) do serviço. 
 
-Para entender como fragmentar seus dados em várias partições, consulte [Particionando dados no Azure Cosmos DB](documentdb-partition-data.md). 
+Para entender como fragmentar seus dados em várias partições, consulte [Particionando dados no Azure Cosmos DB](sql-api-partition-data.md). 

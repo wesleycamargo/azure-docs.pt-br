@@ -38,7 +38,6 @@
 #### [Gerenciar ACRs](storsimple-virtual-array-manage-acrs.md)
 #### [Gerenciar trabalhos](storsimple-virtual-array-manage-jobs.md)
 #### [Alterar a senha de dispositivo](storsimple-virtual-array-change-device-admin-password.md)
-#### [Configurar o MPIO no host do Windows Server](storsimple-virtual-array-configure-mpio-windows-server.md)
 #### [Monitorar o uso de alertas](storsimple-virtual-array-manage-alerts.md)
 #### [Diagnosticar e solucionar problemas](storsimple-virtual-array-diagnose-problems.md)
 #### [Solicitação de suporte de log](storsimple-virtual-array-log-support-ticket.md)
@@ -179,7 +178,7 @@
 #### [Dos dispositivos da série 5000/7000](storsimple-8000-migrate-from-5000-7000.md)
 #### [De outros dispositivos de armazenamento](http://download.microsoft.com/download/9/4/A/94AB8165-CCC4-430B-801B-9FD40C8DA340/Migrating Data to StorSimple Volumes_09-02-15.pdf)
 
-### Atualização
+### Atualizar
 #### [Instalar a Atualização 5 - atual](storsimple-8000-install-update-5.md)
 #### [Instalar a Atualização 4](storsimple-8000-install-update-4.md)
 

@@ -15,11 +15,11 @@ ms.workload: storage-backup-recovery
 ms.date: 12/20/2017
 ms.author: markgal;trinadhk;pullabhk
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9a934a1f0a6185b2a0df09409b0962b301124901
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 474c5a6d0e7d3647ca14cb61e7b2718c99fdfa72
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="use-azurermrecoveryservicesbackup-cmdlets-to-back-up-virtual-machines"></a>Usar os cmdlets AzureRM.RecoveryServices.Backup para fazer backup de máquinas virtuais
 
@@ -93,11 +93,13 @@ Cmdlet          Wait-AzureRmRecoveryServicesBackupJob              1.4.0      Az
 
     ```
     PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
+    PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Backup"
     ```
 
 6. Você pode verificar se os provedores foram registrados com êxito usando os seguintes comandos:
     ```
     PS C:\> Get-AzureRmResourceProvider -ProviderNamespace  "Microsoft.RecoveryServices"
+    PS C:\> Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.Backup"
     ``` 
 Na saída do comando, o **RegistrationState** deve ser definido como **Registrado**. Caso não esteja, basta executar novamente o cmdlet **[Register-AzureRmResourceProvider](http://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)** mostrado acima.
 

@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2017
+ms.date: 12/14/2017
 ms.author: mblythe
 ms.custom: 
-ms.openlocfilehash: 120f5d69441c5e01ffafbdb8dccb179bf00bdb0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 38d2e3f2f2aa057b50ba12138cafc512ac110f9b
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="call-a-function-from-microsoft-flow"></a>Chamar uma função do Microsoft Flow
 
@@ -39,7 +39,7 @@ Neste tópico, você aprenderá a:
 > * Crie um fluxo para enviar email se um reparo for econômico.
 > * Execute o fluxo.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 + Uma [conta do Microsoft Flow](https://flow.microsoft.com/documentation/sign-up-sign-in/) ativa com as mesmas credenciais de entrada da sua conta do Azure. 
 + SharePoint, que você pode usar como uma fonte de dados para este fluxo. Inscreva-se para [uma versão de avaliação do Office 365](https://signup.microsoft.com/Signup?OfferId=467eab54-127b-42d3-b046-3844b860bebf&dl=O365_BUSINESS_PREMIUM&ali=1) se ainda não tiver o SharePoint.
@@ -133,7 +133,7 @@ Você primeiro cria um fluxo de espaço em branco (sem um modelo) e adiciona um 
 
 4. Clique em **Nova etapa** e, em seguida, **Adicionar uma condição**.
 
-    ![Adicionar uma condição](media/functions-flow-scenario/add-condition.png)
+    ![Adicione uma condição](media/functions-flow-scenario/add-condition.png)
 
     O Microsoft Flow adiciona duas ramificações ao fluxo: **Se Sim** e **Se não**. Você adiciona etapas a uma ou ambas as ramificações depois de definir a condição que você deseja corresponder.
 
@@ -179,7 +179,7 @@ Agora, você adiciona o conector personalizado que chama a função no Azure. Vo
 
 4. Na parte inferior da ramificação **Se sim**, clique em **Mais** e, em seguida, **Adicionar uma condição**.
 
-    ![Adicionar uma condição](media/functions-flow-scenario/condition2-add.png)
+    ![Adicione uma condição](media/functions-flow-scenario/condition2-add.png)
 
 5. No cartão **Condição 2**, clique na primeira caixa e selecione **Mensagem** na caixa de diálogo **Conteúdo dinâmico**.
 
@@ -232,7 +232,7 @@ Agora que o fluxo está concluído, você adiciona uma linha à lista do SharePo
     | **Título**           | Turbina 60 |
     | **LastServiceDate** | 08/04/2017 |
     | **MaxOutput**       | 2500 |
-    | **ServiceRequired** | Sim |
+    | **ServiceRequired** | sim |
     | **EstimatedEffort** | 10 |
 
 3. Clique em **Concluído**.

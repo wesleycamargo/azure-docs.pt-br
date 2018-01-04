@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.openlocfilehash: a348647becbb9119cc649e366f34c4c37f2bea43
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c3b691022b02aa2f3836c4e3a96dd5db7affad76
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>Diretrizes do desenvolvedor para acesso condicional do Azure Active Directory
 
@@ -74,7 +74,7 @@ Os desenvolvedores podem aceitar esse desafio e acrescentá-lo em uma nova solic
 
 ## <a name="scenarios"></a>Cenários
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>pré-requisitos
 
 O acesso condicional do Azure AD é um recurso incluído no [Azure AD Premium](../active-directory-whatis.md#choose-an-edition).  Você pode saber mais sobre os requisitos de licenciamento no [relatório de uso não licenciado](../active-directory-conditional-access-unlicensed-usage-report.md).  Os desenvolvedores podem ingressar no [Microsoft Developer Network](https://msdn.microsoft.com/dn308572.aspx), que inclui uma assinatura gratuita para o Enterprise Mobility Suite que, por sua vez, inclui o Azure AD Premium.
 
@@ -110,7 +110,7 @@ O desafio de declarações está dentro do cabeçalho ```WWW-Authenticate```, qu
 
 O cabeçalho ```WWW-Authenticate``` têm uma estrutura única e não é tão simples de analisar para extrair valores.  Aqui está um método breve para ajudar.
 
-    ```C#
+```C#
         /// <summary>
         /// This method extracts the claims value from the 403 error response from MS Graph. 
         /// </summary>
@@ -138,7 +138,7 @@ O cabeçalho ```WWW-Authenticate``` têm uma estrutura única e não é tão sim
             }
             return null; 
         }
-    ```
+```
 
 Para obter exemplos de código que demonstrem como lidar com o desafio de declarações, consulte o [exemplo de código “em nome de”](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca) para .NET ADAL.
 

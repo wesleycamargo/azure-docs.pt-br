@@ -3,7 +3,7 @@ title: "Configurar servidores para um estado desejado e gerenciar a dessincroniz
 description: "Tutorial – gerenciar configurações de servidor com a DSC de Automação do Azure"
 services: automation
 documentationcenter: automation
-author: eslesar
+author: georgewallace
 manager: carmonm
 editor: tysonn
 tags: azure-service-management
@@ -14,13 +14,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 09/25/2017
-ms.author: eslesar
+ms.author: gwallace
 ms.custom: 
-ms.openlocfilehash: 9c0a44b37ac303f3e93c54e3bf691f14ba1d65e9
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c510b2244dfa85b12ed08cad9dbab75067ebe41a
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>Configurar servidores para um estado desejado e gerenciar dessincronização
 
@@ -35,7 +35,7 @@ A DSC (Desired State Configuration) de Automação do Azure permite que você es
 > * Atribuir uma configuração de nó a um nó gerenciado
 > * Verificar o status de conformidade de um nó gerenciado
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para concluir este tutorial, você precisará de:
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/28/2017
+ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: 1520cea72069be5d7bb078a3770d61fade26b853
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4fbc6e18565ec14a3ccb4499b24804f681026023
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>Use o módulo do PowerShell para gerenciar recursos do Barramento de Serviço
 
@@ -26,7 +26,7 @@ O PowerShell do Microsoft Azure é um ambiente de script que você pode usar par
 
 Também é possível gerenciar entidades do Barramento de Serviço usando modelos do Azure Resource Manager. Para obter mais informações, consulte o artigo [Criar recursos do Barramento de Serviço usando modelos do Azure Resource Manager](service-bus-resource-manager-overview.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Antes de começar, você precisará atender aos seguintes pré-requisitos:
 
