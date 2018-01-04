@@ -15,11 +15,11 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: bac9169bc41927ef8cf88aee256b2e057ccad4e9
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 0dba36e5490af56debd3b64b20d39809cd5d5f81
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Comparação de Serviço de Aplicativo, Máquinas Virtuais, Service Fabric e Serviços de Nuvem do Azure
 ## <a name="overview"></a>Visão geral
@@ -111,6 +111,8 @@ O Serviço de Aplicativo do Azure é uma ótima solução para esse cenário, po
 * Adicione mais recursos e serviços do Azure para seu aplicativo conforme necessário.
 * Proteja seu aplicativo web com HTTPS.
 
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
+
 ### <a id="designer"></a> Sou um designer gráfico ou Web designer e desejo projetar e criar sites para meus clientes
 Para desenvolvedores da Web e Web designers, o Serviço de Aplicativo do Azure se integra facilmente com uma variedade de estruturas e ferramentas, inclui suporte à implantação para Git e FTP e oferece uma integração coesa com ferramentas e serviços como Visual Studio e Banco de dados SQL. Com o Serviço de Aplicativo, você pode:
 
@@ -164,7 +166,7 @@ Para saber mais sobre as três opções de hospedagem da Web, confira [Introduç
 Para se familiarizar com as opções escolhidas para seu aplicativo, consulte os seguintes recursos:
 
 * [Serviço de Aplicativo do Azure](/azure/app-service/)
-* [Serviços de nuvem do Azure](/azure/cloud-services/)
+* [Serviços de Nuvem do Azure](/azure/cloud-services/)
 * [Máquinas Virtuais do Azure](/azure/virtual-machines/)
 * [Service Fabric](/azure/service-fabric/)
 

@@ -179,7 +179,7 @@ Localize o elemento `<img>` que contém o valor `ID` *background_background_imag
 3. Na janela **CORS**, na caixa **Origens permitidas**, siga um destes procedimentos:
 
     * Insira a URL ou URLs das quais você deseja que as chamadas JavaScript venham.
-    * Insira um asterisco (*) para especificar que todos os domínios de origem são aceitos.
+    * Insira um asterisco ( * ) para especificar que todos os domínios de origem são aceitos.
 
 4. Selecione **Salvar**.
 

@@ -40,7 +40,7 @@ Use as etapas a seguir para configurar arquivos para controle em computadores Li
 
 1. No portal do OMS, clique em **Configurações** (símbolo de engrenagem).
 2. Na página **Configurações**, clique em **Dados** e, em seguida, clique em **Controle de Arquivos do Linux**.
-3. Em Controle de Alterações de Arquivos do Linux, digite o caminho completo, incluindo o nome do arquivo que você deseja controlar e, em seguida, clique no símbolo **Adicionar**. Por exemplo: “/etc/*.conf”
+3. Em Controle de Alterações de Arquivos do Linux, digite o caminho completo, incluindo o nome do arquivo que você deseja controlar e, em seguida, clique no símbolo **Adicionar**. Por exemplo: “/etc/* .conf”
 4. Clique em **Salvar**.  
 
 > [!NOTE]

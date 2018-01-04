@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 12/04/2017
+ms.date: 12/15/2017
 ms.author: lbosq
-ms.openlocfilehash: 727e13669ec120bfa9c9da759316ed067be9aa82
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: b5160aec6504dfa924279286d9676a97716f5a6c
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-python-and-the-azure-portal"></a>Azure Cosmos DB: Criar um banco de dados de grafo usando Python e o portal do Azure
 
@@ -30,7 +30,7 @@ O Azure Cosmos DB é o serviço de banco de dados multimodelo distribuído globa
 > [!NOTE]
 > Este guia de início rápido requer uma conta de banco de dados de grafo criada depois de 27 de novembro de 2017. As contas existentes oferecerão suporte a Python depois de serem migradas para a disponibilidade geral.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] Como alternativa, você pode [Experimentar o Azure Cosmos DB gratuitamente](https://azure.microsoft.com/try/cosmosdb/) sem uma assinatura do Azure, sem ônus e sem compromisso.
 
@@ -58,12 +58,12 @@ Agora, você pode usar a ferramenta Data Explorer no portal do Azure para criar 
 
 2. Na página **Adicionar Grafo**, insira as configurações do novo grafo.
 
-    Configuração|Valor sugerido|Descrição
+    Configuração|Valor sugerido|DESCRIÇÃO
     ---|---|---
     ID do banco de dados|banco de dados de exemplo|Digite *banco de dados de exemplo* como o nome do novo banco de dados. Os nomes de banco de dados devem ter entre um e 255 caracteres e não podem conter `/ \ # ?` nem espaços à direita.
     ID do Grafo|grafo de exemplo|Digite *grafo de exemplo* como o nome da nova coleção. Os nomes de grafo têm os mesmos requisitos de caractere do que as IDs de banco de dados.
-    Capacidade de Armazenamento|Fixo (10 GB)|Deixe o valor padrão de **fixado (10 GB)**. Esse valor é a capacidade de armazenamento do banco de dados.
-    Taxa de transferência|400 RUs|Altere a taxa de transferência para 400 unidades de solicitação por segundo (RU/s). Se quiser reduzir a latência, você poderá escalar verticalmente a taxa de transferência mais tarde.
+    Capacidade de Armazenamento|Fixo (10 GB)|Deixe o valor padrão de **Fixo (10 GB)**. Esse valor é a capacidade de armazenamento do banco de dados.
+    Throughput|400 RUs|Altere a taxa de transferência para 400 unidades de solicitação por segundo (RU/s). Se quiser reduzir a latência, você poderá escalar verticalmente a taxa de transferência mais tarde.
 
 3. Quando o formulário estiver preenchido, clique em **OK**.
 
@@ -205,7 +205,7 @@ Agora, você pode voltar para o Data Explorer, ver os vértices adicionados ao g
 
 5. Clique em **Adicionar propriedade** para adicionar cada uma das propriedades a seguir. Observe que você pode criar propriedades exclusivas para cada pessoa no grafo. Somente a chave da id é necessária.
 
-    chave|valor|Observações
+    chave|value|Observações
     ----|----|----
     ID|ashley|O identificador exclusivo do vértice. Se você não especificar uma ID, ela será gerada para você.
     gender|feminino| 
@@ -222,7 +222,7 @@ Agora, você pode voltar para o Data Explorer, ver os vértices adicionados ao g
 
 9. Clique em **Adicionar propriedade** para adicionar cada uma das propriedades a seguir:
 
-    chave|valor|Observações
+    chave|value|Observações
     ----|----|----
     ID|rakesh|O identificador exclusivo do vértice. Se você não especificar uma ID, ela será gerada para você.
     gender|masculino| 

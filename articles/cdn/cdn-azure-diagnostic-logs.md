@@ -318,7 +318,7 @@ A tabela a seguir mostra uma lista de métricas disponíveis nos logs de anális
 | EgressCacheUncacheable | Transferência de dados de saída para ativos impedidos de serem armazenados em cache pelos cabeçalhos Cache-Control e/ou Expires do ativo. Indica que não deve ser armazenado em cache em um POP ou pelo cliente HTTP.                   |Sim   | Não  |
 | EgressCacheOthers |  Transferências de dados de saída para outros cenários de cache.             |Sim   | Não  |
 
-*Transferência de dados de saída refere-se ao tráfego entregue de servidores POP da CDN para o cliente.
+* Transferência de dados de saída refere-se ao tráfego entregue de servidores POP da CDN para o cliente.
 
 
 ### <a name="schema-of-the-core-analytics-logs"></a>Esquema dos logs de análise de núcleo 

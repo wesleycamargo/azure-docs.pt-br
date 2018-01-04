@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 12/20/2017
 ms.author: sethm
-ms.openlocfilehash: 8391199fe4045ffdb5091cda69d50f592a4bfb83
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: c4c9c94d369e0ed1ddbfe31484f55b0d276918d3
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="create-a-relay-namespace-using-the-azure-portal"></a>Criar um namespace de retransmissão usando o Portal do Azure
 
@@ -33,7 +33,8 @@ Um namespace é um contêiner de escopo para todos os componentes do Azure Relay
 
 Parabéns! Agora, você criou um namespace de retransmissão.
 
-## <a name="next-steps"></a>Próximas etapas:
+## <a name="next-steps"></a>Próximas etapas
+
 * [Perguntas frequentes sobre retransmissão](relay-faq.md)
 * [Introdução ao .NET](relay-hybrid-connections-dotnet-get-started.md)
 * [Introdução ao Node](relay-hybrid-connections-node-get-started.md)

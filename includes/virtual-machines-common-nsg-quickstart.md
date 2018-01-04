@@ -5,7 +5,7 @@ Vamos usar um exemplo comum de tráfego da Web na porta 80. Quando você tiver u
 1. Criará um Grupo de Segurança de Rede.
 2. Criará uma regra de entrada permitindo o tráfego com:
    * o intervalo de porta de destino de "80"
-   * intervalo de porta de origem "*" (permitindo qualquer porta de origem)
+   * intervalo de porta de origem " * " (permitindo qualquer porta de origem)
    * um valor de prioridade inferior a 65.500 (para que a prioridade seja maior do que a regra de negação de entrada padrão catch-all)
 3. Associe o Grupo de Segurança de Rede à interface de rede da VM ou sub-rede.
 

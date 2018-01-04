@@ -247,7 +247,7 @@ Você tem as seguintes opções para configurar o agente do Azure AD Connect Hea
 
 > [!NOTE]
 > Todos os serviços do agente do Azure AD Connect Health devem ser reiniciados para que as configurações de proxy sejam atualizadas. Execute o comando a seguir:<br>
-> Restart-Service AdHealth*
+> Restart-Service AdHealth *
 >
 >
 

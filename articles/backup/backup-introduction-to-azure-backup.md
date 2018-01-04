@@ -16,11 +16,11 @@ ms.topic: overview
 ms.date: 9/29/2017
 ms.author: markgal;trinadhk;anuragm
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 304db0cdcf650697f8e7d328b5f7214ab5ccef8c
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 4a917fbbc1beff9a8b16ba044052cc9864cd9728
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Visão geral dos recursos do Backup do Azure
 O Backup do Azure é o serviço baseado no Azure que você pode usar para fazer backup (ou proteger) e restaurar os dados na nuvem da Microsoft. Ele substitui a solução de backup local ou externa existente por uma solução confiável, segura e econômica baseada em nuvem. O Backup do Azure oferece vários componentes que você pode baixar e implantar em um computador, servidor, ou na nuvem. O componente ou o agente que você implanta depende daquilo que deseja proteger. Todos os componentes do Backup do Azure (independentemente de você estar protegendo dados localmente ou na nuvem) podem ser usados para fazer backup de dados em um cofre dos Serviços de Recuperação no Azure. Confira a [Tabela de componentes do Backup do Azure](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (mais adiante neste artigo) para obter informações sobre qual componente usar para proteger dados, aplicativos ou cargas de trabalho específicos.
@@ -121,11 +121,11 @@ As seções a seguir fornecem as tabelas que resumem a disponibilidade ou o supo
 ### <a name="storage"></a>Armazenamento
 | Recurso | Agente de Backup do Azure | System Center DPM | Servidor de Backup do Azure | Backup de VM IaaS do Azure |
 | --- | --- | --- | --- | --- |
-| Cofre dos Serviços de Recuperação |![Sim][green] |![Sim][green] |![Sim][green] |![Sim][green] |
-| Armazenamento em disco | |![Sim][green] |![Sim][green] | |
-| Armazenamento em fita | |![Sim][green] | | |
-| Compactação <br/>(no cofre dos Serviços de Recuperação) |![Sim][green] |![Sim][green] |![Sim][green] | |
-| Backup incremental |![Sim][green] |![Sim][green] |![Sim][green] |![Sim][green] |
+| Cofre dos Serviços de Recuperação |![sim][green] |![sim][green] |![sim][green] |![sim][green] |
+| Armazenamento em disco | |![sim][green] |![sim][green] | |
+| Armazenamento em fita | |![sim][green] | | |
+| Compactação <br/>(no cofre dos Serviços de Recuperação) |![sim][green] |![sim][green] |![sim][green] | |
+| Backup incremental |![sim][green] |![sim][green] |![sim][green] |![sim][green] |
 | Eliminação de duplicação de disco | |![Parcialmente][yellow] |![Parcialmente][yellow] | | |
 
 ![chave de tabela](./media/backup-introduction-to-azure-backup/table-key.png)
@@ -162,8 +162,8 @@ O **Backup Incremental** alcança alta eficiência de armazenamento e de rede ar
 ### <a name="security"></a>Segurança
 | Recurso | Agente de Backup do Azure | System Center DPM | Servidor de Backup do Azure | Backup de VM IaaS do Azure |
 | --- | --- | --- | --- | --- |
-| Segurança de rede<br/> (para o Azure) |![Sim][green] |![Sim][green] |![Sim][green] |![Parcialmente][yellow] |
-| Segurança de dados<br/> (no Azure) |![Sim][green] |![Sim][green] |![Sim][green] |![Parcialmente][yellow] |
+| Segurança de rede<br/> (para o Azure) |![sim][green] |![sim][green] |![sim][green] |![Parcialmente][yellow] |
+| Segurança de dados<br/> (no Azure) |![sim][green] |![sim][green] |![sim][green] |![Parcialmente][yellow] |
 
 ![chave de tabela](./media/backup-introduction-to-azure-backup/table-key.png)
 
@@ -181,8 +181,8 @@ Fazer backup de VMs do Azure requer a configuração da criptografia *na* máqui
 ### <a name="network"></a>Rede
 | Recurso | Agente de Backup do Azure | System Center DPM | Servidor de Backup do Azure | Backup de VM IaaS do Azure |
 | --- | --- | --- | --- | --- |
-| Compactação de rede <br/>(para **servidor de backup**) | |![Sim][green] |![Sim][green] | |
-| Compactação de rede <br/>(para o **Cofre dos Serviços de Recuperação**) |![Sim][green] |![Sim][green] |![Sim][green] | |
+| Compactação de rede <br/>(para **servidor de backup**) | |![sim][green] |![sim][green] | |
+| Compactação de rede <br/>(para o **Cofre dos Serviços de Recuperação**) |![sim][green] |![sim][green] |![sim][green] | |
 | Protocolo de rede <br/>(para **servidor de backup**) | |TCP |TCP | |
 | Protocolo de rede <br/>(para o **Cofre dos Serviços de Recuperação**) |HTTPS |HTTPS |HTTPS |HTTPS |
 
@@ -211,7 +211,7 @@ O Backup do Azure tem um limite de 9999 pontos de recuperação, também conheci
 
 ## <a name="what-is-a-protected-instance"></a>O que é uma instância protegida
 Uma instância protegida é uma referência genérica para um computador Windows, um servidor (físico ou virtual) ou banco de dados SQL que tenha sido configurado para fazer backup do Azure. Uma instância está protegida quando você configura uma política de backup para o computador, servidor ou banco de dados e criar uma cópia de backup dos dados. Cópias subsequentes dos dados de backup para essa instância protegido (que são chamados de pontos de recuperação), aumentam a quantidade de armazenamento consumido. Você pode criar pontos de recuperação até 9999 para uma instância protegida. Se você excluir um ponto de recuperação de armazenamento, não conta com o total de pontos de recuperação de 9999.
-Alguns exemplos comuns de instâncias protegidas são máquinas virtuais, servidores de aplicativos, bancos de dados e computadores pessoais com o sistema operacional Windows. Por exemplo:
+Alguns exemplos comuns de instâncias protegidas são máquinas virtuais, servidores de aplicativos, bancos de dados e computadores pessoais com o sistema operacional Windows. Por exemplo: 
 
 * Uma máquina virtual executando a malha de hipervisor Hyper-V ou Azure IaaS. Os sistemas operacionais de convidados para a máquina virtual podem ser Windows Server ou Linux.
 * Um servidor de aplicativos: o servidor de aplicativos pode ser uma máquina física ou virtual executando o Windows Server e cargas de trabalho com dados em que é preciso ser feito backup. Cargas de trabalho comuns são: Microsoft SQL Server, Microsoft Exchange Server, Microsoft SharePoint Server e a função de Servidor de Arquivos do Windows Server. Para fazer o backup dessas cargas de trabalho você precisa do System Center Data Protection Manager (DPM) ou do servidor de Backup do Azure.
@@ -254,7 +254,7 @@ Para obter detalhes sobre como proteger outras cargas de trabalho, experimente u
 
 * [Fazer backup do seu servidor Windows](backup-configure-vault.md)
 * [Fazer backup de cargas de trabalho do aplicativo](backup-azure-microsoft-azure-backup.md)
-* [Backup de VM IaaS do Azure](backup-azure-vms-prepare.md)
+* [Backup de VM IaaS do Azure](backup-azure-arm-vms-prepare.md)
 
 [green]: ./media/backup-introduction-to-azure-backup/green.png
 [yellow]: ./media/backup-introduction-to-azure-backup/yellow.png

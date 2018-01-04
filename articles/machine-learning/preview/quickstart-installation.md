@@ -9,13 +9,13 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 10/13/2017
-ms.openlocfilehash: fd99fec7ead28c02ffe0d8b8165e8a0ab89d525e
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 9a2648d800b803bf0d9d565a806e627c49bb1a00
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="create-azure-machine-learning-preview-accounts-and-install-azure-machine-learning-workbench"></a>Criar contas de versão prévia do Azure Machine Learning e instalar o Azure Machine Learning Workbench
 Os serviços do Azure Machine Learning (versão prévia) são uma solução integrada de análise avançada e de ciência de dados de ponta a ponta. Ele ajuda os cientistas de dados profissionais a prepar dados, desenvolver experimentos e implar modelos em escala de nuvem.
@@ -24,7 +24,7 @@ Este guia de início rápido mostra como criar contas de gerenciamento de modelo
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Atualmente, é possível instalar o aplicativo de área de trabalho do Azure Machine Learning Workbench somente nos seguintes sistemas operacionais: 
 - Windows 10
@@ -33,7 +33,7 @@ Atualmente, é possível instalar o aplicativo de área de trabalho do Azure Mac
 - macOS High Sierra
 
 ## <a name="sign-in-to-the-azure-portal"></a>Entrar no Portal do Azure
-Entre no [Portal do Azure](https://portal.azure.com/).
+Entre no [portal do Azure](https://portal.azure.com/).
 
 ## <a name="create-azure-machine-learning-accounts"></a>Criar contas do Azure Machine Learning
 Use o Portal do Azure para provisionar contas do Azure Machine Learning: 
@@ -49,12 +49,12 @@ Use o Portal do Azure para provisionar contas do Azure Machine Learning:
 
 4. Preencha o formulário de Experimentação do Machine Learning com as seguintes informações:
 
-   Configuração|Valor sugerido|Descrição
+   Configuração|Valor sugerido|DESCRIÇÃO
    ---|---|---
    Nome da conta de experimentação | _Nome exclusivo_ |Escolha um nome exclusivo que identifique a sua conta. Você pode usar seu próprio nome ou um nome do projeto ou departamental que melhor identifique o experimento. O nome deve ter entre 2 e 32 caracteres. Ele deve conter apenas caracteres alfanuméricos e traços (-). 
    Assinatura | _Sua assinatura_ |Escolha a assinatura do Azure que você deseja usar para o experimento. Se você tiver várias assinaturas, escolha a que for adequada para a cobrança do recurso.
    Grupo de recursos | _O seu grupo de recursos_ | Você pode criar um novo nome do grupo de recursos ou você pode usar um existente de sua assinatura.
-   Local | _A região mais próxima de seus usuários_ | Escolha a localização mais próxima de seus usuários e dos recursos de dados.
+   Local padrão | _A região mais próxima de seus usuários_ | Escolha a localização mais próxima de seus usuários e dos recursos de dados.
    Número de estações | 2 | Insira o número de estações. Essa seleção afeta o [preço](https://azure.microsoft.com/pricing/details/machine-learning/). As duas primeiras estações são gratuitas. Use duas estações para os fins deste guia de início rápido. Você poderá atualizar o número de estações conforme necessário posteriormente no Portal do Azure.
    Conta de armazenamento | _Nome exclusivo_ | Selecione **Criar nova** e forneça um nome para criar uma conta de armazenamento do Azure. Selecione **Usar existente**e selecione uma conta de armazenamento existente na lista suspensa. A conta de armazenamento é necessária e é usada para conter os artefatos de projeto e dados do histórico de execuções. 
    Espaço de trabalho para a conta de Experimentação | _Nome exclusivo_ | Forneça um nome para o novo espaço de trabalho. O nome deve ter entre 2 e 32 caracteres. Ele deve conter apenas caracteres alfanuméricos e traços (-).
