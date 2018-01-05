@@ -22,6 +22,7 @@
 ## Implantar
 ### [Criar com o Visual Studio](virtual-machine-scale-sets-vs-create.md)
 ### [Conjunto de dimensionamento com discos gerenciados](virtual-machine-scale-sets-managed-disks.md)
+### [Usar Zonas de Disponibilidade](virtual-machine-scale-sets-use-availability-zones.md)
 ### [Escala automática do conjunto de dimensionamento](virtual-machine-scale-sets-autoscale-overview.md)
 #### [Usar o Portal do Azure](virtual-machine-scale-sets-autoscale-portal.md)
 #### [Usar a CLI do Azure 2.0](virtual-machine-scale-sets-autoscale-cli.md)

@@ -191,6 +191,8 @@
           href: agent-user-guide.md
         - name: Manutenção planejada
           href: maintenance-notifications.md
+        - name: Perguntas frequentes de manutenção acelerada
+          href: accelerated-maintenance.md
         - name: Eventos agendados
           href: scheduled-events.md
         - name: Monitorizar metadados
@@ -304,6 +306,8 @@
           href: ../../virtual-network/virtual-network-deploy-static-pip-arm-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
         - name: Como usar várias NICs
           href: multiple-nics.md
+        - name: Usar rede acelerada
+          href: ../../virtual-network/create-vm-accelerated-networking-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json
         - name: Como atribuir o nome DNS público
           href: portal-create-fqdn.md
         - name: Resolução DNS
@@ -440,7 +444,7 @@
       href: 'https://azure.microsoft.com/regions/services/'
     - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-virtual-machine'
-    - name: Vídeos
+    - name: vídeos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines'
     - name: Perguntas frequentes
       href: faq.md

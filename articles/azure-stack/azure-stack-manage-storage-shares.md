@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: brenduns
 ms.reviewer: jiahan
-ms.openlocfilehash: 7056aefc6bc6203c8961b8a254a2b631c9072c7b
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: dce4252846732ca5161018103438df1f9ff6146d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Gerenciar a capacidade de armazenamento para a pilha do Azure
 
@@ -53,7 +53,7 @@ Compartilhamentos em volumes mantêm dados de locatário. Dados de locatário in
 Quando um compartilhamento é baixo no espaço livre e ações a serem [recuperar](#reclaim-capacity) espaço não são bem-sucedidas ou disponível, o operador de nuvem do Azure pilha pode [migrar](#migrate-a-container-between) os contêineres de blob de um compartilhamento para outro.
 
 - Para obter mais informações sobre contêineres e blobs, consulte [armazenamento de Blob](azure-stack-key-features.md#blob-storage) em recursos de chave e os conceitos na pilha do Azure.
-- Para obter informações sobre como os usuários de locatário funcionam com o armazenamento de blog na pilha do Azure, consulte [serviços de armazenamento do Azure pilha](/azure/azure-stack/user/azure-stack-storage-overview#azure-stack-storage-services).
+- Para obter informações sobre como os usuários de locatário funcionam com o armazenamento de blob na pilha do Azure, consulte [serviços de armazenamento do Azure pilha](/azure/azure-stack/user/azure-stack-storage-overview#azure-stack-storage-services).
 
 
 ### <a name="containers"></a>Contêineres

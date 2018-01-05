@@ -26,8 +26,12 @@
       href: tutorial-deploy-function.md
 - name: Guias de instruções
   items:
-    - name: Criar um gateway transparente
-      href: how-to-create-transparent-gateway.md
+    - name: Criar gateways
+      items:
+        - name: Criar um gateway transparente
+          href: how-to-create-transparent-gateway.md
+        - name: Gateway do Modbus
+          href: deploy-modbus-gateway.md
     - name: Implantar e monitorar em escala
       href: how-to-deploy-monitor.md
     - name: Provisionar um dispositivo do IoT Core
@@ -91,5 +95,5 @@
       href: 'http://stackoverflow.com/questions/tagged/azure-iot-hub'
     - name: Estudos de casos técnicos
       href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
-    - name: Vídeos
+    - name: vídeos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=iot-hub'

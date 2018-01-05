@@ -52,6 +52,7 @@
 ## Gerenciar
 ### [Girar credenciais de entrada/saída](stream-analytics-login-credentials-inputs-outputs.md)
 ### [Confiabilidade do trabalho durante atualizações](stream-analytics-job-reliability.md)
+### [Configurar nível de compatibilidade](stream-analytics-compatibility-level.md)
 
 ## Solucionar problemas
 ### [Guia de Solução de problemas](stream-analytics-troubleshooting-guide.md)
