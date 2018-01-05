@@ -54,6 +54,8 @@
 #### [Conformidade - UK-OFFICIAL](./blueprints/uk-official-three-tier-applications-overview.md)
 ##### [Visão geral](./blueprints/uk-official-three-tier-applications-overview.md)
 ##### [Visão geral dos princípios](./blueprints/uk-official-three-tier-applications-principles-overview.md)
+#### Conformidade - Serviços Financeiros
+##### [Serviços Financeiros para Cargas de Trabalho Regulamentadas](./blueprints/financial-services-regulated-workloads.md)
 
 # Introdução
 ## [Introdução à segurança do Azure](azure-security-getting-started.md)
@@ -100,7 +102,7 @@
 ### [Práticas recomendadas de segurança de gerenciamento de identidade](azure-security-identity-management-best-practices.md)
 
 ## Serviços PaaS
-### [Proteção das implantações PaaS](security-paas-deployments.md)
+### [Proteção de implantações de PaaS](security-paas-deployments.md)
 #### [Proteção dos aplicativos Web e móveis de PaaS usando os Serviços de Aplicativos](security-paas-applications-using-app-services.md)
 #### [Proteção dos aplicativos Web e móveis de PaaS usando o SQL](security-paas-applications-using-sql.md)
 ##### [Práticas recomendadas de segurança do Banco de Dados SQL](azure-database-security-best-practices.md)
@@ -121,7 +123,7 @@
 ## [Microsoft Security Response Center](azure-security-response-center.md)
 ## [Teste de caneta](azure-security-pen-testing.md)
 ## [Central de Segurança](../security-center/security-center-intro.md?toc=%2fazure%2fsecurity-center%2ftoc.json)
-## [Cofre de Chaves](../key-vault/key-vault-whatis.md)
+## [Cofre da Chave](../key-vault/key-vault-whatis.md)
 ## [Log Analytics](../log-analytics/log-analytics-overview.md)
 ## [Autenticação Multifator](../multi-factor-authentication/multi-factor-authentication.md)
 ## [Active Directory do Azure](../active-directory/active-directory-whatis.md)

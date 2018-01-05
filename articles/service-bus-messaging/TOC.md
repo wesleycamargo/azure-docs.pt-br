@@ -6,7 +6,6 @@
 
 # Introdução
 ## [Criar um namespace](service-bus-create-namespace-portal.md)
-### [Filas, tópicos e assinaturas](service-bus-queues-topics-subscriptions.md)
 ## Usar as filas
 ### [.NET](service-bus-dotnet-get-started-with-queues.md)
 ### [Java](service-bus-java-how-to-use-queues.md)
@@ -37,6 +36,7 @@
 
 ## Desenvolver
 ### Manipulação de mensagens
+#### [Filas, tópicos e assinaturas](service-bus-queues-topics-subscriptions.md)
 #### [Mensagens, conteúdos e serialização](service-bus-messages-payloads.md)
 #### [Transferências de mensagem, bloqueios e liquidação](message-transfers-locks-settlement.md)
 #### [Carimbos de data/hora e sequenciamento de mensagem](message-sequencing.md)
