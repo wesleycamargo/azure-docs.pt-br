@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/02/2018
+ms.date: 01/05/2018
 ms.author: alfredop
-ms.openlocfilehash: 5008c2a7764a17a937c8ab2025ac430f05b780cf
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: 9ec0b0456a0e7bc5f86f33981d4be6289f5fbc71
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="frequently-asked-questions-in-azure-stack-usage-api"></a>Perguntas frequentes no uso da pilha do Azure API
 Este artigo responde algumas perguntas frequentes sobre a API de uso de pilha do Azure.
@@ -31,23 +31,23 @@ Uso é relatado para os seguintes provedores de recursos.
 | **Rede** |F271A8A388C44D93956A063E1D2FA80B |Uso de endereço IP estático |Endereços IP| Contagem de endereços IP usados |
 | |9E2739BA86744796B465F64674B822BA |Uso de endereço IP dinâmico |Endereços IP| Contagem de endereços IP usados |
 | **Armazenamento** |B4438D5D-453B-4EE1-B42A-DC72E377F1E4 |TableCapacity |GB\*horas |Capacidade total consumida por tabelas |
-| | B5C15376-6C94-4FDD-B655-1A69D138ACA3 |PageBlobCapacity |GB\*horas |Capacidade total consumida por blobs de página |
-| | B03C6AE7-B080-4BFA-84A3-22C800F315C6 |QueueCapacity |GB\*horas |Capacidade total consumida pela fila |
-| | 09F8879E-87E9-4305-A572-4B7BE209F857 |BlockBlobCapacity |GB\*horas |Capacidade total consumida por blobs de bloco |
-| | B9FF3CD0-28AA-4762-84BB-FF8FBAEA6A90 |TableTransactions |Contagem de solicitações em 10.000 |Solicitações de serviço de tabela (por 10.000) |
-| | 50A1AEAF-8ECA-48A0-8973-A5B3077FEE0D |TableDataTransIn |Dados de entrada em GB |Entrada de dados de serviço de tabela em GB |
-| | 1B8C1DEC-EE42-414B-AA36-6229CF199370 |TableDataTransOut |Saída em GB |Saída de dados de serviço de tabela em GB |
-| | 43DAF82B-4618-444A-B994-40C23F7CD438 |BlobTransactions |Contagem de solicitações em 10.000 |Solicitações de serviço BLOB (por 10.000) |
-| | 9764F92C-E44A-498E-8DC1-AAD66587A810 |BlobDataTransIn |Dados de entrada em GB |Entrada de dados de serviço de blob em GB |
-| | 3023FEF4-ECA5-4D7B-87B3-CFBC061931E8 |BlobDataTransOut |Saída em GB |Saída de dados de serviço de blob em GB |
-| | EB43DD12-1AA6-4C4B-872C-FAF15A6785EA |QueueTransactions |Contagem de solicitações em 10.000 |Solicitações de serviço de fila (por 10.000) |
-| | E518E809-E369-4A45-9274-2017B29FFF25 |QueueDataTransIn |Dados de entrada em GB |Entrada de dados de serviço de fila em GB |
-| | DD0A10BA-A5D6-4CB6-88C0-7D585CEF9FC2 |QueueDataTransOut |Saída em GB |Saída de dados de serviço de fila em GB |
+| |B5C15376-6C94-4FDD-B655-1A69D138ACA3 |PageBlobCapacity |GB\*horas |Capacidade total consumida por blobs de página |
+| |B03C6AE7-B080-4BFA-84A3-22C800F315C6 |QueueCapacity |GB\*horas |Capacidade total consumida pela fila |
+| |09F8879E-87E9-4305-A572-4B7BE209F857 |BlockBlobCapacity |GB\*horas |Capacidade total consumida por blobs de bloco |
+| |B9FF3CD0-28AA-4762-84BB-FF8FBAEA6A90 |TableTransactions |Contagem de 10, milhares de solicitações |Solicitações de serviço de tabela (por 10, milhares) |
+| |50A1AEAF-8ECA-48A0-8973-A5B3077FEE0D |TableDataTransIn |Dados de entrada em GB |Entrada de dados de serviço de tabela em GB |
+| |1B8C1DEC-EE42-414B-AA36-6229CF199370 |TableDataTransOut |Saída em GB |Saída de dados de serviço de tabela em GB |
+| |43DAF82B-4618-444A-B994-40C23F7CD438 |BlobTransactions |Contagem de solicitações em 10, milhares |Solicitações de serviço BLOB (por 10, milhares) |
+| |9764F92C-E44A-498E-8DC1-AAD66587A810 |BlobDataTransIn |Dados de entrada em GB |Entrada de dados de serviço de blob em GB |
+| |3023FEF4-ECA5-4D7B-87B3-CFBC061931E8 |BlobDataTransOut |Saída em GB |Saída de dados de serviço de blob em GB |
+| |EB43DD12-1AA6-4C4B-872C-FAF15A6785EA |QueueTransactions |Contagem de solicitações em 10, milhares |Solicitações de serviço de fila (por 10, milhares) |
+| |E518E809-E369-4A45-9274-2017B29FFF25 |QueueDataTransIn |Dados de entrada em GB |Entrada de dados de serviço de fila em GB |
+| |DD0A10BA-A5D6-4CB6-88C0-7D585CEF9FC2 |QueueDataTransOut |Saída em GB |Saída de dados de serviço de fila em GB |
 | **Computação** |FAB6EB84-500B-4A09-A8CA-7358F8BBAEA5 |Horas de tamanho VM de base |Minutos de núcleo virtual | Número de núcleos virtuais vezes minutos que a VM foi executada |
 | |9CD92D4C-BAFD-4492-B278-BEDC2DE8232A |Horas de tamanho VM do Windows |Minutos de núcleo virtual | Número de núcleos virtuais vezes minutos que a VM foi executada |
 | |6DAB500F-A4FD-49C4-956D-229BB9C8C793 |Horas de tamanho VM |Horas VM |Captura de VM de Base e o Windows. Não ajustar de núcleos |
-| **Cofre de Chaves** | EBF13B9F-B3EA-46FE-BF54-396E93D48AB4 |Transações de Cofre de chaves | Contagem de solicitações em 10.000| Número de solicitações da API REST recebidas pelo plano de dados do Cofre de chaves |
-
+| **Cofre de Chaves** |EBF13B9F-B3EA-46FE-BF54-396E93D48AB4 |Transações de Cofre de chaves | Contagem de 10, milhares de solicitações| Número de solicitações da API REST recebidas pelo plano de dados do Cofre de chaves |
+| **Serviço de aplicativo** |190C935E-9ADA-48FF-9AB8-56EA1CF9ADAA  | Serviço de Aplicativo   | Horas de núcleo virtual  | Número de núcleos virtuais usadas para executar o serviço de aplicativo |
 
 ## <a name="how-do-the-azure-stack-usage-apis-compare-to-the-azure-usage-apihttpsmsdnmicrosoftcomlibraryazure1ea5b323-54bb-423d-916f-190de96c6a3c-currently-in-public-preview"></a>Como fazer o uso da pilha do Azure APIs comparam com o [uso do Azure API](https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c) (atualmente em visualização pública)?
 * A API de uso do locatário é consistente com a API do Azure, com uma exceção: o *showDetails* sinalizador atualmente não tem suporte na pilha do Azure.

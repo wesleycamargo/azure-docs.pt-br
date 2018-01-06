@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: mabrigg
-ms.openlocfilehash: 55688ad4959d59e41dca9be2d00011e1d41ebd8c
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 96eebf340f13f2f5e9e922fee8032d04fce1d130
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="monitor-updates-in-azure-stack-using-the-privileged-endpoint"></a>Monitorar atualizações na pilha do Azure usando o ponto de extremidade com privilégios
 
 *Aplica-se a: sistemas integrados de pilha do Azure*
 
-Você pode usar o ponto de extremidade com privilégios para monitorar o progresso de uma execução de atualização da pilha do Azure e retomar uma atualização com falha, execute a partir da última etapa bem-sucedida. 
+Você pode usar o ponto de extremidade com privilégios para monitorar o progresso de uma execução de atualização da pilha do Azure e retomar uma atualização com falha, execute a partir da última etapa bem-sucedida deve pilha Azure portal ficam indisponível.  Usando o portal do Azure pilha é o método recomendado para gerenciar atualizações na pilha do Azure.
 
 Os seguintes cmdlets do PowerShell novos para gerenciamento de atualização são incluídos na atualização 1710 para sistemas de pilha do Azure integradas.
 
-| Cmdlet  | Descrição  |
+| Cmdlet  | DESCRIÇÃO  |
 |---------|---------|
 | `Get-AzureStackUpdateStatus` | Retorna o status da atualização atualmente em execução, concluído ou com falha. Fornece o status de alto nível da operação de atualização e um documento XML que descreve a etapa atual e o estado correspondente. |
 | `Get-AzureStackUpdateVerboseLog` | Retorna os logs detalhados que são gerados pela atualização. |
@@ -70,7 +70,7 @@ Você também pode determinar se os cmdlets estão disponíveis por meio de prog
    ```powershell
    $commands | ? Source -eq $updateManagementModuleName 
    ```
-   Por exemplo:
+   Por exemplo: 
    ```powershell
    $commands | ? Source -eq $updateManagementModuleName
    
