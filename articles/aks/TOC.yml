@@ -39,14 +39,18 @@
       href: kubernetes-helm.md
     - name: Desenvolver aplicativos com Draft
       href: kubernetes-draft.md
-    - name: Manter os dados com Arquivos do Azure
-      href: azure-files.md
     - name: Integrar no Azure com OSBA
       href: integrate-azure.md
     - name: Usar painel do Kubernetes
       href: kubernetes-dashboard.md
     - name: Criar uma entidade de serviço
       href: kubernetes-service-principal.md
+    - name: Configurar volumes de dados
+      items:
+        - name: Arquivos do Azure - Volume persistente
+          href: azure-files-dynamic-pv.md
+        - name: Arquivos do Azure - Volume
+          href: azure-files.md
 - name: Referência
   items:
     - name: CLI do Azure
@@ -65,5 +69,5 @@
       href: 'https://github.com/Azure/AKS/issues'
     - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-container-service'
-    - name: Vídeos
+    - name: vídeos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest'

@@ -36,6 +36,8 @@
   items:
     - name: Enviar dados dos Hubs de Eventos para o data warehouse
       href: event-grid-event-hubs-integration.md
+    - name: Modelos para assinaturas de evento
+      href: event-subscription-template.md
 - name: Referência
   items:
     - name: CLI do Azure

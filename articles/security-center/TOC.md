@@ -24,7 +24,7 @@
 
 ## [Integração](security-center-onboarding.md)
 ## [Eventos](security-center-events-dashboard.md)
-## [Pesquisar](security-center-search.md)
+## [Search](security-center-search.md)
 
 ## Evitar
 ### [Soluções de segurança](security-center-partner-integration.md)
@@ -90,6 +90,7 @@
 
 # Recursos
 ## [Roteiro do Azure](https://azure.microsoft.com/roadmap/?category=security-identity)
+## [Roteiro de Preparação da Central de Segurança](security-center-readiness-roadmap.md)
 ## [Blog Segurança, Privacidade e Conformidade do Azure](http://blogs.msdn.com/b/azuresecurity/)
 ## [Calculadora de preço](https://azure.microsoft.com/pricing/calculator/)
 ## [Visão geral do serviço](https://azure.microsoft.com/services/security-center/)
