@@ -191,6 +191,8 @@
           href: agent-user-guide.md
         - name: Manutenção planejada
           href: maintenance-notifications.md
+        - name: Atenuando a execução especulativa
+          href: mitigate-se.md
         - name: Perguntas frequentes de manutenção acelerada
           href: accelerated-maintenance.md
         - name: Eventos agendados

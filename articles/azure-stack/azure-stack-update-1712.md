@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/05/2018
+ms.date: 01/08/2018
 ms.author: andredm
-ms.openlocfilehash: 92708909a472f98b45492f3c0c807634f1c204d7
-ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
+ms.openlocfilehash: fadd72d76862694af96b51d198b6693e104c05de
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-stack-1712-update"></a>Atualização de 1712 de pilha do Azure
 
@@ -31,17 +31,9 @@ Este artigo descreve as melhorias e correções neste pacote de atualização, p
 
 ## <a name="build-reference"></a>Referência de build
 
-É o número de compilação de atualização do Azure pilha 1712 **180103.2**.
+É o número de compilação de atualização do Azure pilha 1712 **180106.1**. Se um cliente tiver implantado **180103.2** anteriormente, você não precisa aplicar **180106.1**.
 
 ## <a name="before-you-begin"></a>Antes de começar
-
-> [!WARNING]
-> Se você estiver em uma sessão remota do interativa PEP ativa no momento, você precisa sair da sessão antes de iniciar o processo de instalação de atualização da pilha do Azure. Você pode digitar **sair** no console remoto para sair da sessão.
-> Você pode verificar se há quaisquer sessões remotas de PEP existentes executando dois comandos do PowerShell, primeiro **Get-PSSession** que lista todas as sessões remotas ativas, em seguida, **Remove-PSSession** encerrar e Remova as sessões remotas ativas. Os comandos do PowerShell precisam ser executado de qualquer computador usado para criar sessões remotas PEP no ambiente de pilha do Azure. Aqui está o exemplo de comando do PowerShell:
-```
-Get-PSSession | Remove-PSSession
-```
-Além disso, não crie uma sessão PEP mesmo após a atualização da pilha do Azure foi iniciado.
 
 > [!IMPORTANT]
 > Não tente criar máquinas virtuais durante o processo de instalação de atualização de 1712. Consulte [gerenciar atualizações na visão geral do Azure pilha](https://docs.microsoft.com/azure/azure-stack/azure-stack-updates#plan-for-updates) para obter mais detalhes.
@@ -100,7 +92,7 @@ Esta seção contém os problemas conhecidos que podem ocorrer durante a instala
 
 ### <a name="known-issues-post-installation"></a>Problemas conhecidos (após a instalação)
 
-Esta seção contém os problemas conhecidos de pós-instalação com compilação **180103.2**.
+Esta seção contém os problemas conhecidos de pós-instalação com compilação **180106.1**.
 
 #### <a name="portal"></a>Portal
 
@@ -161,6 +153,11 @@ No Azure Active Directory Federation Services (ADFS) implantado a ambientes, o *
 
 Você pode baixar o pacote de atualização do Azure pilha 1712 [aqui](https://aka.ms/azurestackupdatedownload).
 
+## <a name="more-information"></a>Mais informações
+
+A Microsoft fornece uma maneira de monitorar e retomar atualizações usando o ponto de extremidade privilegiado (PEP) instalado com 1712 de atualização.
+
+- Consulte o [monitorar atualizações na pilha do Azure usando a documentação do ponto de extremidade com privilégios](https://docs.microsoft.com/azure/azure-stack/azure-stack-monitor-update). 
 ## <a name="see-also"></a>Consulte também
 
 - Consulte [gerenciar atualizações na visão geral do Azure pilha](azure-stack-updates.md) para obter uma visão geral do gerenciamento de atualizações na pilha do Azure.

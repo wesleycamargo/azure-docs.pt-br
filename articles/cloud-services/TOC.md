@@ -44,6 +44,7 @@
 ### [Conectar a um Controlador de Domínio personalizado](cloud-services-connect-to-custom-domain.md)
 
 ## Gerenciar serviço
+### [Atenuando a execução especulativa](mitigate-se.md}
 ### [Tarefas de gerenciamento comum](cloud-services-how-to-manage-portal.md)
 ### [Configurar serviço de nuvem](cloud-services-how-to-configure-portal.md)
 ### [Gerenciar um Serviço de Nuvem usando Automação do Azure](automation-manage-cloud-services.md)
