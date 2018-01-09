@@ -15,18 +15,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: cherylmc
-ms.openlocfilehash: 35c9da37a3e21a0b98928f6c1a7c6df1630e69c1
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: fc3ba82003d7714ee26ffcfb32f096f0374d2800
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Configurar uma conexão Ponto a Site a uma VNet usando a autenticação de certificado nativa do Azure: Portal do Azure
 
 Este artigo mostra como criar uma rede virtual com uma conexão Ponto a Site no modelo de implantação do Gerenciador de Recursos usando o Portal do Azure. Essa configuração usa certificados para autenticação. Nessa configuração, o gateway de VPN do Azure executa a validação do certificado, em vez de um servidor RADIUS. Você também pode criar essa configuração usando uma ferramenta de implantação ou um modelo de implantação diferente, selecionando uma opção diferente na lista a seguir:
 
 > [!div class="op_single_selector"]
-> * [Portal do Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> * [portal do Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 > * [Portal do Azure (clássico)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 >
@@ -81,7 +81,6 @@ Você pode usar os seguintes valores para criar um ambiente de teste ou fazer re
 ## <a name="createvnet"></a>1. Criar uma rede virtual
 
 Antes de começar, verifique se você tem uma assinatura do Azure. Se ainda não tiver uma assinatura do Azure, você poderá ativar os [Benefícios do assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) ou inscrever-se para obter uma [conta gratuita](https://azure.microsoft.com/pricing/free-trial).
-
 [!INCLUDE [Basic Point-to-Site VNet](../../includes/vpn-gateway-basic-p2s-vnet-rm-portal-include.md)]
 
 ## <a name="gatewaysubnet"></a>2. Adicionar uma sub-rede de gateway

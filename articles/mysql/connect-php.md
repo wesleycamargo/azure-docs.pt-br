@@ -10,19 +10,19 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 09/22/2017
-ms.openlocfilehash: 2af5871e8bf67070c83b5faebc1f9e44b0de609e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 530b02e7cd2a45ce3d9b8968b090d2b48b34e843
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-database-for-mysql-use-php-to-connect-and-query-data"></a>Banco de Dados do Azure para MySQL: usar PHP para se conectar e consultar dados
 Este guia de início rápido demonstra como se conectar a um banco de dados do Azure para MySQL usando aplicativo [PHP](http://php.net/manual/intro-whatis.php). Ele mostra como usar instruções SQL para consultar, inserir, atualizar e excluir dados no banco de dados. Este tópico pressupõe que você está familiarizado com o desenvolvimento usando PHP e começou recentemente a trabalhar com o Banco de Dados do Azure para MySQL.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Este guia de início rápido usa os recursos criados em um destes guias como ponto de partida:
-- [Criar um Banco de Dados do Azure para servidor MySQL usando o portal do Azure](./quickstart-create-mysql-server-database-using-azure-portal.md)
-- [Criar um Banco de Dados do Azure para servidor MySQL usando a CLI do Azure](./quickstart-create-mysql-server-database-using-azure-cli.md)
+- [Criar um servidor de Banco de Dados do Azure para MySQL usando o portal do Azure](./quickstart-create-mysql-server-database-using-azure-portal.md)
+- [Criar um servidor de Banco de Dados do Azure para MySQL usando a CLI do Azure](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
 ## <a name="install-php"></a>Instalar o PHP
 Instalar o PHP em seu próprio servidor ou crie um [aplicativo Web](../app-service/app-service-web-overview.md) do Azure que inclua o PHP.
@@ -231,4 +231,4 @@ mysqli_close($conn);
 
 ## <a name="next-steps"></a>Próximas etapas
 > [!div class="nextstepaction"]
-> [Compilar um aplicativo Web PHP e MySQL no Azure](../app-service/app-service-web-tutorial-php-mysql.md?toc=%2fazure%2fmysql%2ftoc.json)
+> [Se conectar ao banco de dados do Azure para MySQL via SSL] (howto-configure-ssl.md)

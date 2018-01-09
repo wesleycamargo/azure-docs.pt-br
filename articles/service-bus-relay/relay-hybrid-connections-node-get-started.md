@@ -14,11 +14,11 @@ ms.tgt_pltfrm: node
 ms.workload: na
 ms.date: 12/20/2017
 ms.author: sethm
-ms.openlocfilehash: 0349afa355038644e695858cc42d12a68ca2bdd8
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: d79c05253da568d3a9b2f2912d22eab2df586821
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="get-started-with-relay-hybrid-connections"></a>Introdução às Conexões Híbridas de Retransmissão
 
@@ -28,14 +28,14 @@ Este tutorial fornece uma introdução ao [Conexões Híbridas de Retransmissão
 
 ## <a name="what-will-be-accomplished"></a>O que será realizado
 
-Como as Conexões Híbridas exigem um componente de cliente e de servidor, criaremos dois aplicativos de console neste tutorial. Siga estas etapas:
+Já que as Conexões Híbridas exigem um componente de cliente e de servidor, crie dois aplicativos de console neste tutorial. Siga estas etapas:
 
 1. Criar um namespace de retransmissão usando o Portal do Azure.
 2. Criar uma conexão híbrida usando o portal do Azure.
 3. Escrever um aplicativo de console do servidor para enviar mensagens.
 4. Escrever um aplicativo de console de cliente para enviar mensagens.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 1. [Node.js](https://nodejs.org/en/).
 2. Uma assinatura do Azure.
@@ -56,13 +56,13 @@ Se você já tiver uma conexão híbrida criada, vá até a seção [Criar um ap
 
 ## <a name="3-create-a-server-application-listener"></a>3. Criar um aplicativo de servidor (escuta)
 
-Para escutar e receber mensagens da retransmissão, escreveremos um aplicativo de console em Node.
+Para escutar e receber mensagens da retransmissão, grave um aplicativo de console Node.js.
 
 [!INCLUDE [relay-hybrid-connections-node-get-started-server](../../includes/relay-hybrid-connections-node-get-started-server.md)]
 
 ## <a name="4-create-a-client-application-sender"></a>4. Criar um aplicativo de cliente (remetente)
 
-Para enviar mensagens à retransmissão, escreveremos um aplicativo de console em Node.
+Para enviar mensagens à Retransmissão, grave um aplicativo de console Node.js.
 
 [!INCLUDE [relay-hybrid-connections-node-get-started-client](../../includes/relay-hybrid-connections-node-get-started-client.md)]
 
@@ -76,7 +76,7 @@ Para enviar mensagens à retransmissão, escreveremos um aplicativo de console e
 
 Parabéns, você criou um aplicativo de Conexões Híbridas de ponta a ponta usando o Node.js!
 
-## <a name="next-steps"></a>Próximas etapas:
+## <a name="next-steps"></a>Próximas etapas
 
 * [Perguntas frequentes sobre retransmissão](relay-faq.md)
 * [Criar um namespace](relay-create-namespace-portal.md)

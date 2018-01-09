@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
 ms.author: glenga
-ms.openlocfilehash: ee12caaad4095cff6dae3282f747ae804f93db81
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 12c7eb78b5049b385ee34c7ac8e3574b064d7ecf
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="create-a-xamarinforms-app"></a>Criar um aplicativo Xamarin.Forms
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -28,7 +28,7 @@ Este tutorial mostra como adicionar um serviço de back-end baseado em nuvem a u
 
 A conclusão desse tutorial é um pré-requisito para todos os outros tutoriais de Aplicativos Móveis para o Xamarin.Forms.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Para concluir este tutorial, você precisará do seguinte:
 
 * Uma conta ativa do Azure. Se você não tem uma conta, você pode se inscrever para uma avaliação do Azure e obter até 10 aplicativos móveis gratuitos que você pode continuar a usar mesmo após o fim do seu período de avaliação. Para saber mais, confira [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
@@ -59,7 +59,7 @@ Em um computador Mac ou Windows, faça o seguinte:
 
 1. Vá para o [Portal do Azure].
 
-2. Na folha **Configurações** do seu aplicativo móvel, em **Móvel**, selecione **Introdução** > **Xamarin.Forms**. Na **etapa 3**, selecione **Criar um novo aplicativo**e selecione **Baixar**.
+2. Na folha configurações do seu Aplicativo Móvel, clique em **Início Rápido** (em Implantação) > **Xamarin.Forms**. Na etapa 3, clique em **Criar um novo aplicativo** se essa opção ainda não tiver sido selecionada.  Em seguida, clique no botão **Baixar** .
 
    Essa ação baixa um projeto que contém um aplicativo cliente conectado ao seu aplicativo móvel. Salve o arquivo do projeto compactado em seu computador local e anote onde ele foi salvo.
 

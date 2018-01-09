@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/19/2017
-ms.author: cherylmc,yushwang
-ms.openlocfilehash: 8af984a7321d99faecb9d79903a442c938460919
-ms.sourcegitcommit: cf4c0ad6a628dfcbf5b841896ab3c78b97d4eafd
+ms.date: 12/20/2017
+ms.author: cherylmc,yushwang,anzaman
+ms.openlocfilehash: 2b648caa51eb457a62e846b74f1b95ca84974635
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/21/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="vpn-gateway-faq"></a>Perguntas frequentes de gateway de VPN
 
@@ -41,7 +41,7 @@ Você pode se conectar a vários sites usando o Windows PowerShell e as APIs RES
 Há suporte para as seguintes conexões entre locais:
 
 * Site a Site – conexão VPN no IPsec (IKE v1 e IKE v2). Esse tipo de conexão exige um dispositivo VPN ou RRAS. Para obter mais informações, consulte [Site a Site](vpn-gateway-howto-site-to-site-resource-manager-portal.md).
-* Ponto a Site – conexão VPN no SSTP (Secure Socket Tunneling Protocol). Essa conexão não exige um dispositivo VPN. Para obter mais informações, consulte [Ponto a Site](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
+* Ponto a Site – conexão VPN no SSTP (Secure Socket Tunneling Protocol) ou IKE v2. Essa conexão não exige um dispositivo VPN. Para obter mais informações, consulte [Ponto a Site](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
 * VNet a VNet - esse tipo de conexão é igual a uma configuração Site a Site. VNet a VNet é uma conexão VPN sobre IPsec (IKE v1 e IKE v2). Ela não requer um dispositivo VPN. Para obter mais informações, consulte [VNet a VNet](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md).
 * Multissite - essa é uma variação da configuração Site a Site que permite conectar vários sites locais a uma rede virtual. Para obter mais informações, consulte [Multissite](vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md).
 * ExpressRoute - ExpressRoute é uma conexão direta com o Azure a partir de sua WAN, não uma conexão VPN na Internet pública. Para saber mais, veja a [Visão geral técnica do ExpressRoute](../expressroute/expressroute-introduction.md) e as [Perguntas frequentes sobre o ExpressRoute](../expressroute/expressroute-faqs.md).
@@ -71,10 +71,10 @@ Os gateways baseados em política implementam VPNs baseadas em política. As VPN
 Gateways baseados em rota implementam VPNs baseadas em rota. As VPNs baseadas em rota usam "rotas" da tabela de roteamento ou de encaminhamento de IP para direcionar pacotes para as interfaces de túnel correspondentes. As interfaces de túnel criptografam ou descriptografam então os pacotes para dentro e para fora dos túneis. O seletor de política ou de tráfego para as VPNs baseadas em rota são configurados como qualquer para qualquer (ou curingas).
 
 ### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>Posso atualizar meu gateway de VPN baseado em Política para baseado em Rota?
-Não. Um tipo de gateway de rede virtual do Azure não pode ser alterado de baseado em política para baseado em rota ou ao contrário. O gateway deve ser excluído e recriado, um processo que demora em torno de 60 minutos. O endereço IP do gateway não será preservado e nem a Chave Pré-compartilhada (PSK).
+Nº Um tipo de gateway de rede virtual do Azure não pode ser alterado de baseado em política para baseado em rota ou ao contrário. O gateway deve ser excluído e recriado, um processo que demora em torno de 60 minutos. O endereço IP do gateway não será preservado e nem a Chave Pré-compartilhada (PSK).
 1. Exclua todas as conexões associadas ao gateway a ser excluído.
 2. Exclua o gateway:
-* [Portal do Azure](vpn-gateway-delete-vnet-gateway-portal.md)
+* [portal do Azure](vpn-gateway-delete-vnet-gateway-portal.md)
 * [PowerShell do Azure](vpn-gateway-delete-vnet-gateway-powershell.md)
 * [Azure Powershell - clássico](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 3. [Criar um novo gateway do tipo desejado e concluir a configuração da VPN](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)
@@ -87,15 +87,15 @@ Quando você cria a sub-rede de gateway, pode especificar o número de endereço
 
 ### <a name="can-i-deploy-virtual-machines-or-role-instances-to-my-gateway-subnet"></a>Posso implantar máquinas virtuais ou instâncias de função na minha sub-rede de gateway?
 
-Não.
+Nº
 
 ### <a name="can-i-get-my-vpn-gateway-ip-address-before-i-create-it"></a>Posso obter o endereço IP do gateway de VPN antes de criá-lo?
 
-Não. Você precisa criar seu gateway primeiro para obter o endereço IP. O endereço IP será alterado se você excluir e recriar o gateway de VPN.
+Nº Você precisa criar seu gateway primeiro para obter o endereço IP. O endereço IP será alterado se você excluir e recriar o gateway de VPN.
 
 ### <a name="can-i-request-a-static-public-ip-address-for-my-vpn-gateway"></a>Eu posso solicitar um endereço IP Público Estático para o meu gateway de VPN?
 
-Não. Somente a atribuição de endereço IP Dinâmico é suportada. No entanto, isso não significa que o endereço IP é alterado depois que ele foi atribuído ao seu gateway de VPN. A única vez em que o endereço IP de gateway de VPN é alterado é quando o gateway é excluído e recriado. O endereço IP público do gateway de VPN não muda durante o redimensionamento, a redefinição ou a manutenção/atualização interna do gateway de VPN. 
+Nº Somente a atribuição de endereço IP Dinâmico é suportada. No entanto, isso não significa que o endereço IP é alterado depois que ele foi atribuído ao seu gateway de VPN. A única vez em que o endereço IP de gateway de VPN é alterado é quando o gateway é excluído e recriado. O endereço IP público do gateway de VPN não muda durante o redimensionamento, a redefinição ou a manutenção/atualização interna do gateway de VPN. 
 
 ### <a name="how-does-my-vpn-tunnel-get-authenticated"></a>Como meu túnel de VPN é autenticado?
 
@@ -229,7 +229,7 @@ Você também pode se conectar à sua máquina virtual com o endereço IP privad
 
 ### <a name="if-my-virtual-machine-is-in-a-virtual-network-with-cross-premises-connectivity-does-all-the-traffic-from-my-vm-go-through-that-connection"></a>Se a minha máquina virtual estiver em uma rede virtual com conectividade entre locais, todo o tráfego de minha VM passará por essa conexão?
 
-Não. Somente o tráfego com um destino IP contido em intervalos de endereços IP de rede Local virtual de rede especificado passará pelo gateway de rede virtual. O tráfego que tiver um destino IP localizado na rede virtual permanecerá na rede virtual. Outro tráfego é enviado pelo balanceador de carga para as redes públicas ou, se for usado o túnel forçado, enviado pelo gateway da VPN do Azure.
+Nº Somente o tráfego com um destino IP contido em intervalos de endereços IP de rede Local virtual de rede especificado passará pelo gateway de rede virtual. O tráfego que tiver um destino IP localizado na rede virtual permanecerá na rede virtual. Outro tráfego é enviado pelo balanceador de carga para as redes públicas ou, se for usado o túnel forçado, enviado pelo gateway da VPN do Azure.
 
 ### <a name="how-do-i-troubleshoot-an-rdp-connection-to-a-vm"></a>Como eu faço para solucionar problemas de uma conexão de RDP para uma VM
 

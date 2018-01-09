@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/13/2017
+ms.date: 01/02/2018
 ms.author: yurid
-ms.openlocfilehash: 71dcafab92a9045388c2e602c0dc297aed32e527
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: b54dfc454cfcdefb56bfda9b242412e0f213b50b
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="adaptive-application-controls-in-azure-security-center-preview"></a>Controles de aplicativo adaptáveis na Central de Segurança do Azure (Versão prévia)
 Saiba como configurar o controle de aplicativo na Central de Segurança do Azure usando este passo a passo.
@@ -36,12 +36,11 @@ Os controles de aplicativo adaptáveis ajudam a controlar quais aplicativos pode
 ## <a name="how-to-enable-adaptive-application-controls"></a>Como habilitar os controles de aplicativo adaptáveis?
 Os controles de aplicativo adaptáveis o ajudam a definir um conjunto de aplicativos que podem ser executados em grupos de recursos configurados. Este recurso só está disponível para computadores Windows (todas as versões, clássica ou Azure Resource Manager). As etapas a seguir podem ser usadas para configurar a lista de permissões de aplicativos na Central de Segurança:
 
-1.  Abra o painel **Central de Segurança** e clique em **Visão Geral**.
-2.  Em **Defesa da nuvem avançada**, o bloco **Controles de aplicativo adaptáveis** mostra quantas VMs têm o controle ativado atualmente em comparação com todas as VMs. Ele também mostra o número de problemas encontrados na última semana: 
+1.  Abra o painel **Central de Segurança** e clique em **controles de aplicativo adaptáveis** localizado na seção **Defesa da nuvem avançada** no painel de navegação esquerdo.
 
-    ![Controles de aplicativo adaptáveis](./media/security-center-adaptive-application\security-center-adaptive-application-fig1.png)
+    ![Defesa](./media/security-center-adaptive-application/security-center-adaptive-application-fig1-new.png)
 
-3. Clique no bloco **Controles de aplicativo adaptáveis** para obter mais opções.
+2. A página **Controles de aplicativo adaptativo** aparece.
 
     ![controls](./media/security-center-adaptive-application/security-center-adaptive-application-fig2.png)
 

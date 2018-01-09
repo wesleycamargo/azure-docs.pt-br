@@ -6,20 +6,20 @@ author: seanmck
 manager: timlt
 ms.service: container-instances
 ms.topic: overview
-ms.date: 07/20/2017
+ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 98feed192f21cbc2bf9197b6d32646f50ddbd0c5
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 83666edc75a6c75fd2361e79192f9717d69fd746
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-container-instances"></a>Instâncias de Contêiner do Azure
 
 Os contêineres estão se tornando o modo preferido para empacotar, implantar e gerenciar aplicativos de nuvem. As Instâncias de Contêiner do Azure oferecem a maneira mais rápida e simples para executar um contêiner no Azure, sem a necessidade de provisionar máquinas virtuais nem adotar um serviço de nível superior.
 
-As Instâncias de Contêiner do Azure são uma ótima solução para qualquer cenário que possa ser usado em contêineres isolados, incluindo aplicativos simples, automação de tarefas e criação de trabalhos. Para cenários em que você precisa de orquestração de contêiner completa, incluindo descoberta do serviço em vários contêineres, dimensionamento automático e atualizações de aplicativo coordenadas, recomendamos o [Serviço de Contêiner do Azure](https://docs.microsoft.com/azure/container-service/).
+As Instâncias de Contêiner do Azure são uma ótima solução para qualquer cenário que possa ser usado em contêineres isolados, incluindo aplicativos simples, automação de tarefas e criação de trabalhos. Para cenários em que você precisa de orquestração de contêineres completa, incluindo descoberta do serviço em vários contêineres, dimensionamento automático e atualizações de aplicativo coordenadas, recomendamos o [AKS (Serviço de Contêiner do Azure)](../aks/index.yml).
 
 ## <a name="fast-startup-times"></a>Inicialização mais rápida
 
@@ -39,7 +39,7 @@ Com as Instâncias de Contêiner do Azure, você pode expor seus contêineres di
 
 ## <a name="persistent-storage"></a>Armazenamento persistente
 
-Para recuperar e persistir estados com as Instâncias de Contêiner do Azure, nós oferecemos a montagem direta de compartilhamentos de arquivos do Azure.
+Para recuperar e persistir estados com as Instâncias de Contêiner do Azure, nós oferecemos a [montagem direta de compartilhamentos de arquivos do Azure](container-instances-mounting-azure-files-volume.md).
 
 ## <a name="linux-and-windows-containers"></a>Contêineres do Windows e do Linux
 
@@ -47,7 +47,7 @@ Com as Instâncias de Contêiner do Azure, você pode agendar contêineres do Wi
 
 ## <a name="co-scheduled-groups"></a>Grupos coagendados
 
-As Instâncias de Contêiner do Azure dão suporte à programação de grupos com vários contêineres que compartilham um computador host, uma rede local, um armazenamento e um ciclo de vida. Isso permite que você combine seu aplicativo principal com outros que atuam em uma função de suporte, como o registro em log.
+As Instâncias de Contêiner do Azure são compatíveis com a programação de [grupos com vários contêineres](container-instances-container-groups.md) que compartilham um computador host, uma rede local, um armazenamento e um ciclo de vida. Isso permite que você combine seu aplicativo principal com outros que atuam em uma função de suporte, como o registro em log.
 
 ## <a name="next-steps"></a>Próximas etapas
 

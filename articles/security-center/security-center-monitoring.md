@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/07/2017
+ms.date: 12/28/2017
 ms.author: yurid
-ms.openlocfilehash: d610a4ae97657013f6bb784790f073c3d986959f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a14528013b34b912f4f2e1bc07094c7b20a0f63c
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="security-health-monitoring-in-azure-security-center"></a>Monitoramento de integridade de segurança na Central de segurança do Azure
 Este artigo o ajuda a usar os recursos de monitoramento na Central de segurança do Azure para monitorar a conformidade com as políticas.
@@ -45,13 +45,14 @@ Ao clicar no bloco **Computação**, você verá três guias:
 
 ![Atualização de sistema ausente por máquina virtual](./media/security-center-monitoring/security-center-monitoring-fig1-sep2017.png)
 
-Há várias seções em cada guia e, em cada seção, você pode selecionar uma opção individual para ver mais detalhes sobre as etapas recomendadas e resolver esse problema específico. 
+Há várias seções em cada guia e, em cada seção, você pode selecionar uma opção individual para ver mais detalhes sobre as etapas recomendadas e resolver esse problema específico.
 
 #### <a name="monitoring-recommendations"></a>Recomendações de monitoramento
-Esta seção mostra o número total de máquinas virtuais e computadores que foram inicializados para provisionamento automático e seus status atuais. Quando você clica nessa entrada, a folha **O agente de VM está faltando ou não está respondendo** é aberta. 
+Esta seção mostra o número total de máquinas virtuais e computadores que foram inicializados para provisionamento automático e seus status atuais. Quando você clicar nesta entrada, a seção **Problemas de integridade do agente de monitoramento** é aberta.
 
-![Atualização de sistema ausente por máquina virtual](./media/security-center-monitoring/security-center-monitoring-fig1-new003-2017.png)
+![Problemas de integridade do agente de monitoramento](./media/security-center-monitoring/security-center-monitoring-fig1-new003-2017.png)
 
+VMs e computadores em que a Central de Segurança não pode monitorar com êxito são listados. Selecione uma VM ou um computador para obter informações detalhadas. O **ESTADO DO MONITORAMENTO** define o problema.
 
 #### <a name="recommendations"></a>Recomendações
 Esta seção tem um conjunto de [recomendações para cada máquina virtual e computador](security-center-virtual-machine-recommendations.md) que a Central de Segurança do Azure monitora. A primeira coluna lista a recomendação. A segunda coluna mostra o número total de máquinas virtuais e computadores que são afetados por essa recomendação. A terceira coluna mostra a severidade do problema, conforme ilustrado na captura de tela abaixo:
@@ -66,7 +67,7 @@ Cada recomendação tem um conjunto de ações que podem ser executadas depois q
 
 ![Atualizações de sistema ausentes para máquinas virtuais](./media/security-center-monitoring/security-center-monitoring-fig9-sep2017.png)
 
-As **Atualizações de sistema ausentes** têm um resumo de atualizações críticas em formato de gráfico, um para Windows e outro para Linux. A segunda parte tem uma tabela com as seguintes informações:
+As **Atualizações de sistema ausentes** têm um resumo de atualizações críticas em formato de grafo, um para Windows e outro para Linux. A segunda parte tem uma tabela com as seguintes informações:
 
 * **NOME**: nome da atualização ausente.
 * **NÃO. DE VMs E COMPUTADORES**: número total de máquinas virtuais e computadores que não têm essa atualização.
@@ -79,7 +80,7 @@ As **Atualizações de sistema ausentes** têm um resumo de atualizações crít
   * **Média**: são necessárias etapas adicionais ou não críticas para concluir um processo ou eliminar a vulnerabilidade.
   * **Baixa**: uma vulnerabilidade que deve ser abordada, mas não exige atenção imediata. (Por padrão, não são apresentadas recomendações baixas, mas você pode filtrar as recomendações baixas caso deseje exibi-las.)
 
-Para exibir os detalhes de recomendação, clique no nome da atualização ausente na lista. 
+Para exibir os detalhes de recomendação, clique no nome da atualização ausente na lista.
 
 ![Atualizações de sistema ausentes para uma máquina virtual específica](./media/security-center-monitoring/security-center-monitoring-fig4-sep2017.png)
 
@@ -121,7 +122,7 @@ Em um cenário no qual você há uma recomendação (que não é o caso do exemp
 
 ![Detalhes do serviço de nuvem](./media/security-center-monitoring/security-center-monitoring-fig8-new3.png)
 
-Para ver uma explicação mais detalhada sobre essa recomendação, clique em **Atualizar versão do sistema operacional** na coluna **DESCRIÇÃO**. 
+Para ver uma explicação mais detalhada sobre essa recomendação, clique em **Atualizar versão do sistema operacional** na coluna **DESCRIÇÃO**.
 
 ![Recomendações dos serviços de nuvem](./media/security-center-monitoring/security-center-monitoring-fig8-new4.png)  
 

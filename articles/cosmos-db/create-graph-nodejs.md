@@ -13,21 +13,21 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 08/29/2017
+ms.date: 01/02/2018
 ms.author: lbosq
-ms.openlocfilehash: d60a431f53b72544c0116080cc78381fb302b7be
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: faec967c1f5405cd9a5b49c16fed575f6675478c
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-cosmos-db-build-a-nodejs-application-by-using-graph-api"></a>Azure Cosmos DB: Compilar um aplicativo Node.js usando a API do Graph
 
 O Azure Cosmos DB é o serviço de banco de dados multi-modelo distribuído globalmente da Microsoft. É possível criar e consultar rapidamente documentos, chave/valor e bancos de dados do grafo. Todos se beneficiam de recursos de escala horizontal e distribuição global no núcleo do Azure Cosmos DB. 
 
-Este artigo de Início rápido demonstra como criar uma conta do Azure Cosmos DB para a API do Graph (versão prévia), um banco de dados e um grafo usando o portal do Azure. Em seguida, você compila e executa um aplicativo de console usando o driver [Gremlin Node.js](https://www.npmjs.com/package/gremlin) de software livre.
+Este artigo de Início rápido demonstra como criar uma conta do Azure Cosmos DB para a API do Graph, um banco de dados e um grafo usando o Portal do Azure. Em seguida, você compila e executa um aplicativo de console usando o driver [Gremlin Node.js](https://www.npmjs.com/package/gremlin) de software livre.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Antes que possa executar esta amostra, você deverá ter os seguintes pré-requisitos:
 * [Node.js](https://nodejs.org/en/) versão v0.10.29 ou posterior
@@ -35,7 +35,7 @@ Antes que possa executar esta amostra, você deverá ter os seguintes pré-requi
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="create-a-database-account"></a>Crie uma conta de banco de dados
+## <a name="create-a-database-account"></a>Criar uma conta de banco de dados
 
 [!INCLUDE [cosmos-db-create-dbaccount-graph](../../includes/cosmos-db-create-dbaccount-graph.md)]
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: 5c5fa4927073ff52418a940fce59ca1f6b57daa6
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c9e0441ec42e5710f43bbe7fa8af4a9fe7447a69
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="what-is-azure-iot-suite"></a>O que é o Azure IoT Suite?
 
@@ -30,6 +30,10 @@ O Azure IoT Suite é um conjunto de *soluções pré-configuradas* que:
 * Você pode personalizar para atender às suas necessidades específicas
 
 As soluções pré-configuradas do *IoT Suite* são todas projetadas de acordo com os mesmos princípios e metas.
+
+O vídeo a seguir apresenta uma visão geral da solução de monitoramento remoto pré-configurada:
+
+>[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Meet-the-new-Remote-Monitoring-accelerator-for-Azure-IoT/Player]
 
 ## <a name="preconfigured-solutions-overview"></a>Visão geral das soluções pré-configuradas
 
@@ -56,9 +60,9 @@ A tabela a seguir mostra como essas soluções são mapeadas para recursos espec
 
 | Solução | Ingestão de dados | Identidade do dispositivo | Gerenciamento de dispositivos | Processamento de borda | Comando e controle | Regras e ações | Análise preditiva |
 | ------------------------------------------------------------ | -- | -- | -- | -- | -- | -- | -- |
-| [Monitoramento remoto](iot-suite-remote-monitoring-explore.md)  |Sim |Sim |Sim |-   |Sim |Sim |-   |
-| [Manutenção preditiva](iot-suite-predictive-overview.md)   |Sim |Sim |-   |-   |Sim |Sim |Sim |
-| [Fábrica conectada](iot-suite-connected-factory-overview.md) |Sim |Sim |Sim |Sim |Sim |sim |-   |
+| [Monitoramento remoto](iot-suite-remote-monitoring-explore.md)  |sim |sim |sim |-   |sim |sim |-   |
+| [Manutenção preditiva](iot-suite-predictive-overview.md)   |sim |sim |-   |-   |sim |sim |sim |
+| [Fábrica conectada](iot-suite-connected-factory-overview.md) |sim |sim |sim |sim |sim |sim |-   |
 
 * *Ingestão de dados*: entrada de dados em escala para a nuvem.
 * *Identidade do dispositivo*: gerenciar identidades exclusivas de dispositivo e controlar o acesso do dispositivo à solução.
@@ -76,14 +80,14 @@ Quando você implanta uma solução pré-configurada, o processo de provisioname
 
 |                      | Monitoramento remoto  | Manutenção preditiva | Fábrica conectada |
 | -------------------- | ------------------ | ---------------------- | ----------------- |
-| Hub IoT              | Sim                |                        | Sim               |
-| Hubs de Eventos           |                    | Sim                    |                   |
-| Análises de Séries Temporais |                    |                        | Sim               |
-| Serviços de Contêiner   | Sim                |                        | Sim               |
-| Stream Analytics     |                    | Sim                    |                   |
-| Aplicativos Web             | Sim                | Sim                    | Sim               |
-| Banco de Dados Cosmos            | Sim                | Sim                    | Sim               |
-| Tabelas do Azure         |                    | Sim                    | Sim               |
+| Hub IoT              | sim                |                        | sim               |
+| Hubs de evento           |                    | sim                    |                   |
+| Análises de Séries Temporais |                    |                        | sim               |
+| Serviços de Contêiner   | sim                |                        | sim               |
+| Análise de fluxo     |                    | sim                    |                   |
+| Aplicativos Web             | sim                | sim                    | sim               |
+| Banco de Dados Cosmos            | sim                | sim                    | sim               |
+| Tabelas do Azure         |                    | sim                    | sim               |
 
 > [!NOTE]
 > Para obter mais informações sobre os recursos implantados na solução pré-configurada de monitoramento remoto, consulte este [artigo](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/blob/master/README.md#basic-vs-standard-deployments) no GitHub.

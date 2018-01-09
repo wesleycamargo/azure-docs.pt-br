@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/27/2017
 ms.author: magoedte
-ms.openlocfilehash: 029ecaf43249175504cc1e22d246f24e927234af
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: bc0913568be13aa348a6750f4304086aeec66b04
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="update-your-automation-account-authentication-with-run-as-accounts"></a>Atualizar a autenticação de conta de Automação com contas Executar como 
 Você pode atualizar sua conta de Automação existente no portal do Azure ou usar o PowerShell se:
@@ -40,7 +40,7 @@ O processo cria os seguintes itens na sua conta de Automação.
 * Cria um ativo de certificado de Automação chamado *AzureClassicRunAsCertificate* na conta de Automação especificada. O ativo de certificado contém a chave privada do certificado usada pelo certificado de gerenciamento.
 * Cria um ativo de conexão de Automação chamado *AzureClassicRunAsConnection* na conta de Automação especificada. O ativo de conexão contém o nome da assinatura, subscriptionId e o nome do ativo de certificado.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Se você optar por [usar o PowerShell para criar as contas Executar como](#create-run-as-account-using-powershell), esse processo requer:
 
 * O Windows 10 e Windows Server 2016 com módulos do Azure Resource Manager 3.4.1 e posterior. O script do PowerShell não oferece suporte a versões anteriores do Windows.
@@ -57,16 +57,16 @@ Para obter os valores para *SubscriptionID*, *ResourceGroup* e *AutomationAccoun
 Para atualizar uma conta da Automação, você deve ter os seguintes privilégios e permissões específicas necessárias para concluir este tópico.   
  
 * Sua conta de usuário do AD precisa ser adicionada a uma função com permissões equivalentes à função de Colaborador para recursos Microsoft.Automation conforme descrito no artigo [Controle de acesso baseado em função na Automação do Azure](automation-role-based-access-control.md#contributor-role-permissions).  
-* Usuários não administrativos em seu locatário do Azure AD podem [registrar aplicativos AD](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions) se os registros do aplicativo configuração estão definidos como **Sim**.  Se a configuração de registros do aplicativo estiver definido como **Não**, o usuário que executa esta ação deverá ser um administrador global no Azure AD. 
+* Usuários não administradores em seu locatário do Azure AD podem [registrar aplicativos do AD](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions) se a opção **Os usuários podem registrar aplicativos** do o locatário do Azure AD na página **Configurações do usuário** está definida como **Sim**. Se a configuração de registros do aplicativo estiver definido como **Não**, o usuário que executa esta ação deverá ser um administrador global no Azure AD.
 
 Caso não seja membro da instância do Active Directory da assinatura antes de ser adicionados à função de administrador global/coadministrador da assinatura, você será adicionado ao Active Directory como convidado. Nesse caso, você receberá um aviso "Você não tem permissões para criar..." na folha **Adicionar Conta de Automação**. Os usuários adicionados à função de administrador global/coadministrador primeiro podem ser removidos das assinaturas da instância do Active Directory e adicionados novamente para torná-los Usuários completos no Active Directory. Para verificar essa situação, no painel **Azure Active Directory** no portal do Azure, selecione **Usuários e grupos**, selecione **Todos os usuários** e, depois de selecionar o usuário específico, selecione **Perfil**. O valor do atributo **Tipo de usuário** sob o perfil de usuários não deve ser igual a **Convidado**.
 
 ## <a name="create-run-as-account-from-the-portal"></a>Criar a conta Executar como no portal
-Nesta seção, execute as seguintes etapas para atualizar sua conta de Automação do Azure no portal do Azure.  Você cria as contas Executar como e Executar como Clássica individualmente, e se não precisar gerenciar recursos clássicos, poderá criar apenas a conta Executar como do Azure.  
+Nesta seção, execute as seguintes etapas para atualizar sua conta de Automação do Azure no portal do Azure.  Você pode criar as contas Executar Como e Executar Como Clássicas individualmente. Se você não precisa gerenciar recursos clássicos, é possível criar apenas a conta Executar Como do Azure.  
 
 1. Conecte-se no Portal do Azure com uma conta que seja membro da função Administradores da Assinatura e coadministradora da assinatura.
 2. No portal do Azure, clique em **Mais serviços** encontrado no canto inferior esquerdo. Na lista de recursos, digite **Automação**. Quando você começa a digitar, a lista é filtrada com base em sua entrada. Selecione **Contas de Automação**.
-3. Na página de contas de Automação, selecione a sua conta Executar como.  
+3. Na página **Contas de Automação**, selecione sua conta de Automação da lista de contas de Automação.
 4. No painel do lado esquerdo, selecione **Contas Executar como** na seção **Configurações de conta**.  
 5. Dependendo da conta de que você precisa, selecione **Conta Executar como do Azure** ou **Conta Executar como Clássica do Azure**.  Após a seleção, o painel **Adicionar Executar como do Azure** ou **Adicionar conta Executar como Clássica do Azure** aparecerá e após a revisão das informações de visão geral, clique em **Criar** para prosseguir com a criação da conta Executar como.  
 6. Enquanto o Azure cria a conta Executar como, você poderá acompanhar o andamento em **Notificações** no menu.  Uma faixa também é exibida informando que a conta está sendo criada.  A conclusão desse processo pode levar alguns minutos.  

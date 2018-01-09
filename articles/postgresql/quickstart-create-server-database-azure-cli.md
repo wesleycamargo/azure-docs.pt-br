@@ -9,13 +9,13 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.devlang: azure-cli
 ms.topic: quickstart
-ms.date: 11/27/2017
+ms.date: 01/02/2018
 ms.custom: mvc
-ms.openlocfilehash: a2036174b32f6b910b6934d05fd7439f60427947
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: ab07172d62806631f73c1df35c7d646e83ad5221
+ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="create-an-azure-database-for-postgresql-using-the-azure-cli"></a>Criar um servidor de Banco de Dados do Azure para PostgreSQL usando a CLI do Azure
 O Banco de Dados do Azure para PostgreSQL é um serviço gerenciado que permite executar, gerenciar e dimensionar os bancos de dados altamente disponíveis do PostgreSQL na nuvem. A CLI do Azure é usada para criar e gerenciar recursos do Azure da linha de comando ou em scripts. Este início rápido mostra como criar um Banco de Dados do Azure para o servidor PostgreSQL em um [grupo de recursos do Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) usando a CLI do Azure.
@@ -24,21 +24,21 @@ Se você não tiver uma assinatura do Azure, crie uma conta [gratuita](https://a
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-Se você optar por instalar e usar a CLI localmente, este artigo exigirá que seja executada a CLI do Azure versão 2.0 ou posterior. Execute `az --version` para encontrar a versão. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
+Se você optar por instalar e usar a CLI localmente, este artigo exigirá que seja executada a CLI do Azure versão 2.0 ou posterior. Para ver a versão instalada, execute o comando `az --version`. Se você precisa instalar ou atualizar, consulte [Instalar a CLI 2.0 do Azure]( /cli/azure/install-azure-cli). 
 
-Se você estiver executando a CLI localmente, precisará fazer logon em sua conta usando o comando [az login](/cli/azure/authenticate-azure-cli?view=interactive-log-in).
+Se você estiver executando a CLI localmente, precisará fazer logon em sua conta usando o comando [az login](/cli/azure/authenticate-azure-cli?view=interactive-log-in). Observe a propriedade **id** da saída do comando para o nome da assinatura correspondente.
 ```azurecli-interactive
 az login
 ```
 
-Se tiver várias assinaturas, escolha a que for adequada para cobrança do recurso. Selecione uma ID da assinatura específica em sua conta usando o comando [az account set](/cli/azure/account#az_account_set).
+Se tiver várias assinaturas, escolha a que for adequada para cobrança do recurso. Selecione a ID da assinatura específica em sua conta usando o comando [az account set](/cli/azure/account#az_account_set). Substitua a propriedade **id** da saída **logon az** para a sua assinatura no espaço reservado da ID da assinatura.
 ```azurecli-interactive
-az account set --subscription 00000000-0000-0000-0000-000000000000
+az account set --subscription <subscription id>
 ```
 
 ## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
-Crie um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) usando o comando [az group create](/cli/azure/group#az_group_create). Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados em grupo. O exemplo a seguir cria um grupo de recursos denominado `myresourcegroup` no local `westus`.
+Crie um [grupo de recursos do Azure](../azure-resource-manager/resource-group-overview.md) usando o comando [az group create](/cli/azure/group#az_group_create). Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados em grupo. Você deve fornecer um nome exclusivo. O exemplo a seguir cria um grupo de recursos denominado `myresourcegroup` no local `westus`.
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
 ```
@@ -53,7 +53,7 @@ az postgres server create --resource-group myresourcegroup --name mypgserver-201
 ```
 
 > [!IMPORTANT]
-> O logon de administrador do servidor e a senha que você especificar aqui são necessárias para fazer logon no servidor e em seus bancos de dados mais tarde neste início rápido. Lembre-se ou registre essas informações para o uso posterior.
+> O logon de administrador do servidor e a senha que você especificar aqui são necessários para fazer logon no servidor e em seus bancos de dados mais tarde neste Guia de início rápido. Lembre-se ou registre essas informações para o uso posterior.
 
 Por padrão, o banco de dados **postgres** é criado em seu servidor. O [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) é um banco de dados padrão destinado a uso por usuários, utilitários e aplicativos de terceiros. 
 
