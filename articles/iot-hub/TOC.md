@@ -162,7 +162,8 @@
 
 # Relacionados
 ## [Azure IoT Suite](https://azure.microsoft.com/documentation/suites/iot-suite/)
-## [Hubs de Eventos do Azure](https://azure.microsoft.com/documentation/services/event-hubs/)
+## [Serviço de Provisionamento de Dispositivos no Hub IoT do Azure](https://azure.microsoft.com/documentation/services/iot-dps/)
+## [Hubs de eventos do Azure](https://azure.microsoft.com/documentation/services/event-hubs/)
 ## [Stream Analytics](https://azure.microsoft.com/documentation/services/stream-analytics/)
 ## [Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/)
 

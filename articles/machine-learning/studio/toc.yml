@@ -7,9 +7,9 @@
       href: what-is-machine-learning.md
     - name: Machine Learning Studio
       href: what-is-ml-studio.md
-    - name: Funcionalidades do Estúdio AM
+    - name: Funcionalidades do ML Studio
       href: studio-overview-diagram.md
-    - name: Noções básicas do Estúdio AM (infográfico)
+    - name: Noções básicas do ML Studio (infográfico)
       href: basics-infographic-with-algorithm-examples.md
     - name: Perguntas frequentes
       href: faq.md
@@ -195,7 +195,7 @@
       href: web-service-error-codes.md
 - name: Relacionados
   items:
-    - name: Galeria do Cortana Intelligence
+    - name: Galeria de IA do Azure
       items:
         - name: Visão geral
           href: gallery-how-to-use-contribute-publish.md
@@ -233,7 +233,7 @@
       href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning'
     - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-machine-learning'
-    - name: Vídeos
+    - name: vídeos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=machine-learning'
     - name: Obter ajuda do chat ao vivo
       href: live-chat.md

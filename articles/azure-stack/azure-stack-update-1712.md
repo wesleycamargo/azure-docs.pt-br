@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2018
 ms.author: andredm
-ms.openlocfilehash: fadd72d76862694af96b51d198b6693e104c05de
-ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
+ms.openlocfilehash: 344fe7496a9129ea1653881a72139fea8a202ff0
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: MT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 01/08/2018
@@ -55,7 +55,6 @@ Esta atualização inclui os seguintes aprimoramentos e correções para a pilha
 
 #### <a name="new-features"></a>Novos recursos
 
-- Nova experiência do usuário durante a criação de itens do Marketplace
 - AzureStack de teste para validar a nuvem de pilha do Azure disponível por meio do ponto de extremidade com privilégios
 - Capacidade de registrar uma implantação desconectada da pilha do Azure
 - Alertas de monitoramento para expiração da conta de usuário e de certificado
@@ -76,7 +75,7 @@ Esta atualização inclui os seguintes aprimoramentos e correções para a pilha
 
 - [3 de janeiro - 2018 — KB4056890 (Build de SO 14393.2007)](https://support.microsoft.com/help/4056890/windows-10-update-kb4056890)
     - Esta atualização inclui as correções de software para o problema de segurança do setor descrito por [MSRC segurança comunicado ADV 180002](https://portal.msrc.microsoft.com/en-US/security-guidance/advisory/ADV180002).
- 
+
 ### <a name="known-issues-with-the-update-process"></a>Problemas conhecidos com o processo de atualização
 
 Esta seção contém os problemas conhecidos que podem ocorrer durante a instalação da atualização 1712.
@@ -103,7 +102,7 @@ Esta seção contém os problemas conhecidos de pós-instalação com compilaç�
 
    - Você pode ver uma linha em branco na parte superior da lista. Você ainda deve ser capaz de selecionar um item conforme o esperado.
    - Se a lista de itens na lista suspensa é curta, você não poderá exibir os nomes de item.
-   - Se você tiver várias assinaturas de usuário, a lista suspensa de grupo de recursos pode estar vazia. 
+   - Se você tiver várias assinaturas de usuário, a lista suspensa de grupo de recursos pode estar vazia.
 
         > [!NOTE]
         > Solução alternativa para os últimos dois problemas, você pode digitar o nome da assinatura ou grupo de recursos (se souber) ou você pode usar o PowerShell em vez disso.
@@ -124,16 +123,16 @@ Esta seção contém os problemas conhecidos de pós-instalação com compilaç�
 - Você pode configurar uma máquina virtual conjunto de disponibilidade somente com um domínio de falha de um e um domínio de atualização de um.
 - Não há nenhuma experiência marketplace para criar conjuntos de escala de máquina virtual. Você pode criar uma escala definida por meio de um modelo.
 - As configurações de escala para conjuntos de escala de máquinas virtuais não estão disponíveis no portal. Como alternativa, você pode usar [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). Por causa das diferenças de versão do PowerShell, você deve usar o `-Name` parâmetro em vez de `-VMScaleSetName`.
- 
+
 #### <a name="networking"></a>Rede
 - Você não pode criar um balanceador de carga com um endereço IP público usando o portal. Como alternativa, você pode usar o PowerShell para criar o balanceador de carga.
 - Quando você cria um balanceador de carga de rede, você deve criar uma regra NAT (conversão) do endereço de rede. Se você não fizer isso, você receberá um erro ao tentar adicionar uma regra NAT depois que o balanceador de carga é criado.
 - Não é possível desassociar um endereço IP público de uma máquina virtual (VM), depois que a máquina virtual foi criada e associada com o endereço IP. Dissociação parece funcionar, mas o endereço IP público atribuído anteriormente permanecerá associado à VM original. Esse comportamento ocorre mesmo se você reatribuir o endereço IP para uma nova VM (conhecido como um *permuta de VIP*). Todas as futuras tentativas de conexão por esse resultado do endereço IP em uma conexão à VM originalmente associado e não para o novo. No momento, você só deve usar os novos endereços IP públicos para criação de uma nova VM.
 - Operadores de pilha do Azure podem ser impossível implantar, excluir, modificar VNETs ou grupos de segurança de rede. Esse problema é visto principalmente nas tentativas de atualização subsequentes do mesmo pacote. Isso é causado por um problema de empacotamento com uma atualização que está sendo investigado.
 - O balanceamento de carga interno (ILB) incorretamente lida com endereços MAC para VMs de back-end que interrompe a instâncias do Linux.
- 
+
 #### <a name="sqlmysql"></a>SQL/MySQL
-- Pode demorar até uma hora para que os locatários podem criar bancos de dados em um novo SQL ou MySQL SKU. 
+- Pode demorar até uma hora para que os locatários podem criar bancos de dados em um novo SQL ou MySQL SKU.
 - Criação de itens diretamente no SQL e em servidores que não são executados pelo provedor de recursos de hospedagem MySQL não tem suporte e pode resultar em um estado não correspondente.
 
     > [!NOTE]
@@ -158,6 +157,7 @@ Você pode baixar o pacote de atualização do Azure pilha 1712 [aqui](https://a
 A Microsoft fornece uma maneira de monitorar e retomar atualizações usando o ponto de extremidade privilegiado (PEP) instalado com 1712 de atualização.
 
 - Consulte o [monitorar atualizações na pilha do Azure usando a documentação do ponto de extremidade com privilégios](https://docs.microsoft.com/azure/azure-stack/azure-stack-monitor-update). 
+
 ## <a name="see-also"></a>Consulte também
 
 - Consulte [gerenciar atualizações na visão geral do Azure pilha](azure-stack-updates.md) para obter uma visão geral do gerenciamento de atualizações na pilha do Azure.
