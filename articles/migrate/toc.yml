@@ -22,8 +22,6 @@
       href: how-to-create-a-group.md
     - name: Agrupar máquinas usando dependências da máquina
       href: how-to-create-group-machine-dependencies.md
-    - name: Agrupar máquinas usando a marcação do VMware
-      href: how-to-tag-v-center.md
     - name: Refinar um grupo usando as dependências do grupo
       href: how-to-create-group-dependencies.md
     - name: Personalizar uma avaliação
