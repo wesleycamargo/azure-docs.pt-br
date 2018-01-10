@@ -9,7 +9,7 @@
 ### [.NET](search-create-index-dotnet.md)
 ### [REST](search-create-index-rest-api.md)
 ## [Adicionar dados](search-what-is-data-import.md)
-### [Portal do Azure](search-import-data-portal.md)
+### [portal do Azure](search-import-data-portal.md)
 ### [.NET](search-import-data-dotnet.md)
 ### [REST](search-import-data-rest-api.md)
 ## [Pesquisar um índice](search-query-overview.md)
@@ -51,12 +51,12 @@
 ### [Indexador do Armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md)
 ### [Indexador do Armazenamento de Tabelas do Azure](search-howto-indexing-azure-tables.md)
 ### [Indexador do SQL do Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-### [Indexador de Banco de dados do Azure Cosmos](search-howto-index-documentdb.md)
+### [Indexador de Banco de dados do Azure Cosmos](search-howto-index-cosmosdb.md)
 ### [Indexar blobs do CSV](search-howto-index-csv-blobs.md)
 ### [Indexar blobs do JSON](search-howto-index-json-blobs.md)
 ### [Configurar conexões do indexador para o SQL Server na VM do Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 ### [Mapeamentos de campo em indexadores](search-indexer-field-mappings.md)
-##  Pesquisar
+##  Search
 ### [Como funciona a pesquisa de texto completo](search-lucene-query-architecture.md)
 ### Construção da Consulta
 #### [Sintaxe de consulta simples](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
