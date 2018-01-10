@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: e9b979861f5ad815fd3794a98f3b9ca2115b415c
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 720a5bd7fc3335e96570268c983578aad0774d7e
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-app-service-plan-overview"></a>Visão geral do plano do Serviço de Aplicativo do Azure
 
-No Serviço de Aplicativo, um aplicativo é executado em um _Plano de Serviço de Aplicativo_. Um plano de serviço de aplicativo define um conjunto de recursos de computação para um aplicativo Web ser executado. Esses recursos de computação são análogos ao [ _farm de servidores_ ](https://wikipedia.org/wiki/Server_farm) na hospedagem na web convencional. Um ou mais aplicativos podem ser configurados para ser executado nos mesmos recursos de computação (ou no mesmo plano de Serviço de Aplicativo). 
+No Serviço de Aplicativo, um aplicativo é executado em um _Plano de Serviço de Aplicativo_. Um plano de serviço de aplicativo define um conjunto de recursos de computação para um aplicativo Web ser executado. Esses recursos de computação são análogos ao [ _farm de servidores_ ](https://wikipedia.org/wiki/Server_farm) na hospedagem na web convencional. Um ou mais aplicativos podem ser configurados para ser executado nos mesmos recursos de computação (ou no mesmo plano de Serviço de Aplicativo).
 
 Quando você cria um plano de serviço de aplicativo em uma determinada região (por exemplo, Europa Ocidental), um conjunto de recursos de computação é criado para esse plano nessa região. Quaisquer aplicativos que você coloque nesse plano de serviço de aplicativo é executado nesses recursos de computação conforme definido pelo seu plano de serviço de aplicativo. Cada plano de serviço de aplicativo define:
 
@@ -38,6 +38,8 @@ O _tipo de preço_ de um plano de serviço de aplicativo determina quais recurso
 - **Computação dedicada**: Os tipos **Básico**, **Standard**, **Premium**, e **PremiumV2** executam aplicativos em máquinas virtuais dedicadas do Azure. Somente os aplicativos no mesmo plano do serviço de aplicativo compartilham os mesmos recursos de computação. Quanto maior o nível, mais instâncias de máquina virtual estão disponíveis para a sua expansão.
 - **Isolado**: esse tipo executa redes virtuais do Azure de máquinas virtuais dedicadas do Azure, que fornecem isolamento de rede sobre o isolamento de computação para os seus aplicativos. Ele fornece a capacidade máxima de expansão.
 - **Consumo**: esse tipo está disponível apenas para [aplicativos de funções](../azure-functions/functions-overview.md). Ele dimensiona as funções dinamicamente, dependendo da carga de trabalho. Para obter mais informações, consulte [Comparação dos planos de hospedagem do Azure Functions](../azure-functions/functions-scale.md).
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 Cada tipo também fornece um subconjunto específico de recursos do serviço de aplicativo. Esses recursos incluem domínios personalizados e certificados SSL, dimensionamento automático, slots de implantação, backups, integração do Gerenciador de tráfego do Microsoft Azure e muito mais. Quanto maior o nível, mais recursos estão disponíveis. Para descobrir quais recursos têm suporte em cada tipo de preços, consulte os [Detalhes do plano do serviço de aplicativo](https://azure.microsoft.com/pricing/details/app-service/plans/).
 

@@ -15,20 +15,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 1fbfbbc79a415af5e874c304412854849e134eb7
-ms.sourcegitcommit: 2d1153d625a7318d7b12a6493f5a2122a16052e0
+ms.openlocfilehash: 8928e56f353858234db314714d411a9c2990eb4e
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/20/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>Dimensionamento automático de um conjunto de dimensionamento de máquinas virtuais com o Azure PowerShell
-Ao criar um conjunto de dimensionamento, o número de instâncias de VM que você deseja executar é definido. À medida que seu aplicativo precisar de alterações, você poderá aumentar ou diminuir automaticamente o número de instâncias de VM. A capacidade de dimensionamento automático permite acompanhar a demanda do cliente ou reagir a alterações de desempenho do aplicativo durante todo o ciclo de vida do aplicativo.
+Ao criar um conjunto de dimensionamento, o número de instâncias de VM que você deseja executar é definido. À medida que seu aplicativo precisar de alterações, você poderá aumentar ou diminuir automaticamente o número de instâncias de VM. A capacidade de autoescala permite acompanhar a demanda do cliente ou reagir a alterações de desempenho do aplicativo durante todo o ciclo de vida do aplicativo.
 
-Este artigo mostra como criar regras de dimensionamento automático com o Azure PowerShell que monitoram o desempenho das instâncias de VM no seu conjunto de dimensionamento. Essas regras de dimensionamento automático aumentam ou diminuem o número de instâncias de VM em resposta a essas métricas de desempenho. Também é possível executar essas etapas com a [CLI do Azure 2.0](virtual-machine-scale-sets-autoscale-cli.md) ou no [Portal do Azure](virtual-machine-scale-sets-autoscale-portal.md).
+Este artigo mostra como criar regras de dimensionamento automático com o Azure PowerShell que monitoram o desempenho das instâncias de VM no seu conjunto de dimensionamento. Essas regras de autoescala aumentam ou diminuem o número de instâncias de VM em resposta a essas métricas de desempenho. Também é possível executar essas etapas com a [CLI do Azure 2.0](virtual-machine-scale-sets-autoscale-cli.md) ou no [Portal do Azure](virtual-machine-scale-sets-autoscale-portal.md).
 
 
-## <a name="prerequisites"></a>Pré-requisitos
-Para criar regras de dimensionamento automático, você precisará de um conjunto de dimensionamento de máquinas virtuais existente. É possível criar um conjunto de dimensionamento com o [Portal do Azure](virtual-machine-scale-sets-portal-create.md), o [Azure PowerShell](virtual-machine-scale-sets-create.md#create-from-powershell) ou a [CLI do Azure 2.0](virtual-machine-scale-sets-create.md#create-from-azure-cli).
+## <a name="prerequisites"></a>pré-requisitos
+Para criar regras de autoescala, você precisará de um conjunto de dimensionamento de máquinas virtuais existente. É possível criar um conjunto de dimensionamento com o [Portal do Azure](virtual-machine-scale-sets-create-portal.md), o [Azure PowerShell](virtual-machine-scale-sets-create-powershell.md) ou a [CLI do Azure 2.0](virtual-machine-scale-sets-create-cli.md).
 
 Para facilitar a criação de regras de dimensionamento automático, defina algumas variáveis para o conjunto de dimensionamento. O exemplo a seguir define variáveis para o conjunto de dimensionamento chamado *myScaleSet* no grupo de recursos denominado *myResourceGroup* e na região *Leste dos EUA*. Sua ID de assinatura é obtida com [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription). Se você tiver várias assinaturas associadas à sua conta, somente a primeira será retornada. Ajuste os nomes e a ID da assinatura da seguinte maneira:
 
@@ -54,11 +54,11 @@ Os seguintes parâmetros são usados para essa regra:
 | *-MetricStatistic*      | Define como as métricas coletadas devem ser agregadas para análise.                                                | Média        |
 | *-TimeWindow*           | O tempo monitorado antes de comparar os valores de métrica e de limite.                                   | 10 minutos      |
 | *-Operator*             | Operador usado para comparar os dados da métrica com o limite.                                                     | Maior que   |
-| *-Threshold*            | O valor que faz com que a regra de dimensionamento automático dispare uma ação.                                                      | 70%            |
+| *-Threshold*            | O valor que faz com que a regra de autoescala dispare uma ação.                                                      | 70%            |
 | *-ScaleActionDirection* | Define se o conjunto de dimensionamento deve ser dimensionado expandido ou reduzido quando a regra se aplica.                                             | Aumento       |
 | *–ScaleActionScaleType* | Indica que o número de instâncias de VM que deve ser modificado por um valor de percentual.                                 | Porcentagem de modificação |
 | *-ScaleActionValue*     | O percentual de instâncias de VM que deve ser alterado quando a regra disparar.                                            | 20             |
-| *-ScaleActionCooldown*  | O tempo de espera antes da regra ser aplicada novamente para que as ações de dimensionamento automático tenham tempo para entrar em vigor. | 5 minutos      |
+| *-ScaleActionCooldown*  | O tempo de espera antes da regra ser aplicada novamente para que as ações de autoescala tenham tempo para entrar em vigor. | 5 minutos      |
 
 O exemplo a seguir cria um objeto chamado *myRuleScaleOut* que contém essa regra de expansão. O *-MetricResourceId* usa as variáveis definidas anteriormente para a ID de assinatura, o nome do grupo de recursos e o nome do conjunto de dimensionamento:
 
@@ -140,7 +140,7 @@ Para criar regras de dimensionamento automático com base em agendamento em vez 
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste artigo, você aprendeu a usar as regras de dimensionamento automático para escalar horizontalmente e expandir ou diminuir o *número* de instâncias de VM no seu conjunto de dimensionamento. Também é possível escalar verticalmente para aumentar ou diminuir o *tamanho* da instância VM. Para obter mais informações, consulte [Dimensionamento vertical automático com conjuntos de Dimensionamento de Máquinas Virtuais](virtual-machine-scale-sets-vertical-scale-reprovision.md).
+Neste artigo, você aprendeu a usar as regras de autoescala para escalar horizontalmente e expandir ou diminuir o *número* de instâncias de VM no seu conjunto de dimensionamento. Também é possível escalar verticalmente para aumentar ou diminuir o *tamanho* da instância VM. Para obter mais informações, consulte [Dimensionamento vertical automático com conjuntos de Dimensionamento de Máquinas Virtuais](virtual-machine-scale-sets-vertical-scale-reprovision.md).
 
 Para obter informações sobre como gerenciar suas instâncias de VM, consulte [Gerenciar conjuntos de dimensionamento de máquinas virtuais com o Azure PowerShell](virtual-machine-scale-sets-windows-manage.md).
 

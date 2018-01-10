@@ -138,7 +138,7 @@ Use as etapas a seguir para habilitar backups das VMs usando o [portal do Azure]
 
 4.  Verifique se o Agente de Backup está instalado na VM. Se a VM for criada usando uma imagem da galeria do Azure, o Agente de Backup já estará instalado. Caso contrário (ou seja, se você estiver usando uma imagem personalizada), use as instruções para [instalar o agente de VM em uma máquina virtual](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent-on-the-virtual-machine).
 
-5.  Verifique se a VM permite a conectividade de rede para que o serviço de backup funcione. Siga as instruções para a [conectividade de rede](../articles/backup/backup-azure-arm-vms-prepare.md#network-connectivity).
+5.  Verifique se a VM permite a conectividade de rede para que o serviço de backup funcione. Siga as instruções para a [conectividade de rede](../articles/backup/backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 6.  Depois que as etapas anteriores forem concluídas, o backup será executado em intervalos regulares, conforme especificado na política de backup. Se necessário, dispare o primeiro backup manualmente no painel do cofre do portal do Azure.
 

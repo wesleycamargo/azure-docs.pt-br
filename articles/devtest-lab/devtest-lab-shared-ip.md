@@ -3,7 +3,7 @@ title: "Entender os endereços IP compartilhados no Azure DevTest Labs | Microso
 description: "Saiba como o Azure DevTest Labs usa endereços IP compartilhados para minimizar os endereços IP públicos necessários para acessar as VMs de seu laboratório."
 services: devtest-lab
 documentationcenter: na
-author: camsoper
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2017
-ms.author: casoper
-ms.openlocfilehash: 9f6e1980bf5ea5b41da98a135d89f1c5159921a7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: v-craic
+ms.openlocfilehash: 921db397a9a30a102d47d5e6c379e98daba6e5c5
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="understand-shared-ip-addresses-in-azure-devtest-labs"></a>Entender os endereços IP compartilhados no Azure DevTest Labs
 

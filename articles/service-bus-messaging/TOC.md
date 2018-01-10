@@ -64,6 +64,7 @@
 #### [Entidades em cadeia com encaminhamento automático](service-bus-auto-forwarding.md)
 #### [Processamento de transação](service-bus-transactions.md)
 #### [Implementação do namespace emparelhado](service-bus-paired-namespaces.md)
+### [Diagnóstico e rastreamento ponta a ponta](service-bus-end-to-end-tracing.md)
 ## Gerenciar
 ### [Monitorar Barramento de Serviço com o Monitoramento do Azure](service-bus-metrics-azure-monitor.md)
 ### [Bibliotecas de gerenciamento do Barramento de Serviço](service-bus-management-libraries.md)

@@ -13,11 +13,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/23/2017
   ms.author: carolz
-  ms.openlocfilehash: e65162e1badfb7a965f96a3207552063075c2834
-  ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+  ms.openlocfilehash: 0d66952b5f159ce92b8586f7beb71c25fe7c7b39
+  ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/11/2017
+  ms.lasthandoff: 01/10/2018
 abstract:
   description: "O Azure Site Recovery coordena e gerencia a recuperação de desastre para VMs do Azure, VMs locais e servidores físicos. Saiba como fazer replicação, failover e fail back com os nossos guias de início rápido e tutoriais."
 sections:
@@ -54,6 +54,17 @@ sections:
     - html: "<a href=\"tutorial-vmware-to-azure\">Configurar a recuperação de desastre</a>"
     - html: "<a href=\"tutorial-dr-drill-azure\">Realizar uma simulação de recuperação de desastre</a>"
     - html: <a href="tutorial-vmware-to-azure-failover-failback">Fazer failover e failback</a>
+  - type: text
+    html: <h3>Hyper-V</h3>
+  - type: list
+    style: ordered
+    items:
+    - html: <a href="tutorial-prepare-azure">Preparar o Azure</a>
+    - html: <a href="tutorial-prepare-on-premises-hyper-v">Preparar Hyper-V local</a>
+    - html: "<a href=\"tutorial-hyper-v-to-azure\">Configurar a recuperação de desastres para as VMs do Hyper-V</a>"
+    - html: "<a href=\"tutorial-hyper-v-vmm-to-azure\">Configurar a recuperação de desastres para as VMs do Hyper-V gerenciadas pelo System Center VMM</a>"
+    - html: "<a href=\"tutorial-dr-drill-azure\">Realizar uma simulação de recuperação de desastre</a>"
+    - html: <a href="tutorial-hyper-v-to-azure-failover-failback">Fazer failover e failback</a>
   - type: text
     html: <h3>Migrar para o Azure</h3>
   - type: list

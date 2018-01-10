@@ -3,7 +3,7 @@ title: "Adicionar usuários e proprietários aos Azure DevTest Labs | Microsoft 
 description: "Adicionar usuários e proprietários aos Azure DevTest Labs usando o portal do Azure ou o PowerShell"
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 4f51d9a5-2702-45f0-a2d5-a3635b58c416
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2017
-ms.author: tarcher
-ms.openlocfilehash: d67fa257574d6cb4ad4b18521900374fb51da290
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: v-craic
+ms.openlocfilehash: 2921356f848739d602807236006f9867eaa2a4e4
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="add-owners-and-users-in-azure-devtest-labs"></a>Adicionar usuários e proprietários aos Azure DevTest Labs
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/How-to-set-security-in-your-DevTest-Lab/player]
@@ -39,20 +39,20 @@ A tabela a seguir ilustra as ações que podem ser executadas por usuários em c
 | **Ações que os usuários nesta função podem executar** | **Usuário do DevTest Labs** | **Proprietário** | **Colaborador** |
 | --- | --- | --- | --- |
 | **Tarefas do laboratório** | | | |
-| Adicionar usuários a um laboratório |Não |Sim |Não |
-| Atualizar configurações de custo |Não |Sim |Sim |
+| Adicionar usuários a um laboratório |Não  |sim |Não  |
+| Atualizar configurações de custo |Não  |sim |sim |
 | **Tarefas de base da VM** | | | |
-| Adicionar e remover imagens personalizadas |Não |Sim |Sim |
-| Adicionar, atualizar e excluir fórmulas |Sim |Sim |Sim |
-| Incluir imagens do Azure Marketplace na listra branca |Não |Sim |Sim |
+| Adicionar e remover imagens personalizadas |Não  |sim |sim |
+| Adicionar, atualizar e excluir fórmulas |sim |sim |sim |
+| Incluir imagens do Azure Marketplace na listra branca |Não  |sim |sim |
 | **Tarefas da VM** | | | |
-| Criar VMs |Sim |Sim |Sim |
-| Iniciar, parar e excluir VMs |Somente máquinas virtuais criadas pelo usuário |Sim |Sim |
-| Atualizar políticas de VM |Não |Sim |Sim |
-| Adicionar/remover discos de dados de/para máquinas virtuais |Somente máquinas virtuais criadas pelo usuário |Sim |Sim |
+| Criar VMs |sim |sim |sim |
+| Iniciar, parar e excluir VMs |Somente máquinas virtuais criadas pelo usuário |sim |sim |
+| Atualizar políticas de VM |Não  |sim |sim |
+| Adicionar/remover discos de dados de/para máquinas virtuais |Somente máquinas virtuais criadas pelo usuário |sim |sim |
 | **Tarefas de artefato** | | | |
-| Adicionar e remover repositórios de artefato |Não |Sim |Sim |
-| Aplicar artefatos |Sim |Sim |Sim |
+| Adicionar e remover repositórios de artefato |Não  |sim |sim |
+| Aplicar artefatos |sim |sim |sim |
 
 > [!NOTE]
 > Quando um usuário cria uma VM, esse usuário é atribuído automaticamente à função **Proprietário** da VM criada.

@@ -44,6 +44,7 @@
 ### [Gerenciar perfis de usuário](active-directory-users-profile-azure-portal.md)
 ### [Compartilhar contas](active-directory-sharing-accounts.md)
 ### [Atribuir usuários a funções de administrador](active-directory-users-assign-role-azure-portal.md)
+### [Restaurar um usuário excluído](active-directory-users-restore.md)
 ### [Adicionar usuários convidados de outro diretório (B2B)](active-directory-b2b-what-is-azure-ad-b2b.md)
 #### [Admins adicionando usuários B2B](active-directory-b2b-admin-add-users.md)
 #### [Trabalhos de informação adicionando usuários B2B](active-directory-b2b-iw-add-users.md)

@@ -3,7 +3,7 @@ title: "Habilitar uma imagem licenciada em seu laboratório no Azure DevTest Lab
 description: Saiba como habilitar uma imagem licenciada no Azure DevTest Labs usando o Portal do Azure
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 221390d2-8d3b-4e1f-b454-43d33f8072b7
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2017
-ms.author: tarcher
-ms.openlocfilehash: a74eff05285602574e45703dbe5b6caf074adecd
-ms.sourcegitcommit: 51ea178c8205726e8772f8c6f53637b0d43259c6
+ms.author: v-craic
+ms.openlocfilehash: 3c969495454db2cd301fc985e512531ef0d4b103
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="enable-a-licensed-image-in-your-lab-in-azure-devtest-labs"></a>Habilitar uma imagem licenciada em seu laboratório no Azure DevTest Labs
 
@@ -83,4 +83,4 @@ Habilite a implantação programática para uma imagem licenciada executando est
 
 ## <a name="next-steps"></a>Próximas etapas
 
-- [Adicionar uma VM ao laboratório](./devtest-lab-add-vm-with-artifacts.md)
+- [Adicionar uma VM ao laboratório](devtest-lab-add-vm.md)

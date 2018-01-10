@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: iainfou
-ms.openlocfilehash: 5686d8bd3f9817be2308583afe778e0615154580
-ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
+ms.openlocfilehash: 6ae05dc8faf950f584806d9b4a3e7e1466ded652
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="manage-a-virtual-machine-scale-set-with-the-azure-cli-20"></a>Gerenciar um conjunto de dimensionamento de máquina virtual com a CLI do Azure 2.0
 Durante todo o ciclo de vida do conjunto de dimensionamento de uma máquina virtual, você poderá precisar executar uma ou mais tarefas de gerenciamento. Além disso, talvez você deseje criar scripts que automatizam várias tarefas do ciclo de vida. Este artigo fornece detalhes sobre alguns dos comandos comuns do CLI do Azure 2.0 que permitem executar essas tarefas.
 
-Para concluir essas tarefas de gerenciamento, é necessário o build mais recente da CLI do Azure 2.0. Para obter informações sobre como instalar e usar a versão mais recente, consulte [Instalar a CLI do Azure 2.0](/cli/azure/install-azure-cli). Se for preciso criar um conjunto de dimensionamento de máquinas virtuais, você pode [criar um conjunto de dimensionamento no portal do Azure](virtual-machine-scale-sets-portal-create.md).
+Para concluir essas tarefas de gerenciamento, é necessário o build mais recente da CLI do Azure 2.0. Para obter informações sobre como instalar e usar a versão mais recente, consulte [Instalar a CLI do Azure 2.0](/cli/azure/install-azure-cli). Se for preciso criar um conjunto de dimensionamento de máquinas virtuais, você pode [criar um conjunto de dimensionamento no portal do Azure](virtual-machine-scale-sets-create-portal.md).
 
 
 ## <a name="view-information-about-a-scale-set"></a>Exibir informações sobre um conjunto de dimensionamento
@@ -127,7 +127,7 @@ az vmss restart --resource-group myResourceGroup --name myScaleSet --instance-id
 
 
 ## <a name="remove-vms-from-a-scale-set"></a>Remover VMs de um conjunto de dimensionamento
-Para remover uma ou mais VMs em um conjunto de dimensionamento, use [az vmss delete-instances](/cli/azure/vmss#delete-instances). O parâmetro `--instance-ids`` permite que você especifique uma ou mais VMs a serem removidas. Se você especificar * para a ID de instância, todas as VMs no conjunto de dimensionamento são removidas. Para remover várias VMs, separe cada ID de instância com um espaço.
+Para remover uma ou mais VMs em um conjunto de dimensionamento, use [az vmss delete-instances](/cli/azure/vmss#delete-instances). O parâmetro `--instance-ids` permite que você especifique uma ou mais VMs para remover. Se você especificar * para a ID de instância, todas as VMs no conjunto de dimensionamento são removidas. Para remover várias VMs, separe cada ID de instância com um espaço.
 
 O exemplo a seguir remove a instância *0* no conjunto de dimensionamento chamado *myScaleSet* e o grupo de recursos *myResourceGroup*. Forneça seus valores conforme a seguir:
 

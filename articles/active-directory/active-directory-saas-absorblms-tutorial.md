@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: jeedes
-ms.openlocfilehash: df39b957e70be38331b3711a36ce847348049591
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 4231b5e72ea0852de344e7484bdf20997243cee6
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-absorb-lms"></a>Tutorial: Integração do Azure Active Directory ao Absorb LMS
 
@@ -30,9 +30,9 @@ A integração do Absorb LMS ao Azure AD oferece os seguintes benefícios:
 - É possível habilitar os usuários para que entrem automaticamente no Absorb LMS (por meio de logon único) com suas contas do Azure AD.
 - Você pode gerenciar suas contas em um único local, o portal clássico do Azure.
 
-Se deseja saber mais sobre a integração de aplicativos SaaS (software como serviço) ao Azure AD, consulte [O que é o acesso do aplicativo e o logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md).
+Se desejar saber mais sobre a integração de aplicativos SaaS (software como serviço) ao Azure AD, consulte [O que é o acesso do aplicativo e o logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD ao Absorb LMS, você precisará dos seguintes itens:
 
@@ -51,7 +51,7 @@ Para testar as etapas neste tutorial, siga estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 * Adicionar o Absorb LMS da Galeria
-* Configurar e testar o logon único do AD do Azure
+* configurar e testar o logon único do AD do Azure
 
 ## <a name="add-absorb-lms-from-the-gallery"></a>Adicionar o Absorb LMS da galeria
 Para configurar a integração do Absorb LMS com o Azure AD, adicione o Absorb LMS da galeria à sua lista de aplicativos SaaS gerenciados.

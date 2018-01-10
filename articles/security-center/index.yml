@@ -1,0 +1,75 @@
+### YamlMime:YamlDocument
+documentType: LandingData
+title: "Documentação da Central de Segurança do Azure"
+metadata:
+  title: "Documentação da Central de Segurança do Azure - Tutoriais, Referência de API | Microsoft Doc"
+  meta.description: Azure Security Center provides unified security management and advanced threat protection across hybrid cloud workloads. Learn how to get started with Security Center, apply security policies across your workloads, limit your exposure to threats, and detect and respond to attacks with our quickstarts and tutorials..
+  services: security-center
+  author: cmcclister
+  manager: carolz
+  ms.service: security-center
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 01/05/18
+  ms.author: cmcclister
+  ms.openlocfilehash: 2d0c22cc59e0185caa9c298e1c26026e00faf2a5
+  ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
+  ms.translationtype: HT
+  ms.contentlocale: pt-BR
+  ms.lasthandoff: 01/10/2018
+abstract:
+  description: "A Central de Segurança do Azure fornece um gerenciamento de segurança unificado e proteção avançada contra ameaças nas cargas de trabalho de nuvem híbrida. Saiba como começar com a Central de Segurança, aplicar políticas de segurança em suas cargas de trabalho, limitar a exposição a ameaças, detectar e responder a ataques com tutoriais e guias de início rápido."
+sections:
+- title: "Guia de início rápido de 5 minutos"
+  items:
+  - type: paragraph
+    text: "Saiba como integrar suas VMs e computadores na Central de Segurança e conectar suas soluções de segurança."
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: /media/common/i_subscription.svg
+      text: Assinaturas integradas do Azure
+      href: /azure/security-center/security-center-get-started
+    - image:
+        src: /media/logos/logo_Windows.svg
+      text: Computadores integrados com Windows
+      href: /azure/security-center/quick-onboard-windows-computer
+    - image:
+        src: /media/logos/logo_linux.svg
+      text: Computadores integrados com Linux
+      href: /azure/security-center/quick-onboard-linux-computer
+    - image:
+        src: /media/common/i_multi-connect.svg
+      text: "Conectar soluções de segurança"
+      href: /azure/security-center/quick-security-solutions
+- title: Tutoriais Passo a Passo
+  items:
+  - type: paragraph
+    text: "Saiba como definir políticas de segurança, proteger seus recursos da atividade mal-intencionada e responder a incidentes e alertas de segurança."
+  - type: list
+    style: ordered
+    items:
+    - html: "<a href=\"/azure/security-center/tutorial-security-policy\">Definir e avaliar as políticas de segurança</a>"
+    - html: <a href="/azure/security-center/tutorial-protect-resources">Proteger seus recursos</a>
+    - html: "<a href=\"/azure/security-center/tutorial-security-incident\">Responder a alertas de segurança</a>"
+- title: "Treinamento em Vídeo Gratuito"
+  items:
+  - type: list
+    style: cards
+    className: cardsFTitle
+    items:
+    - title: "Conceitos Básicos da Central de Segurança do Azure"
+      href: https://mva.microsoft.com/en-US/training-courses/hybrid-cloud-workload-protection-with-azure-security-center-18173?l=Ld0LK42jE_006218965
+      image:
+        src: https://docs.microsoft.com/media/logos/logo_azure.svg
+        href: https://mva.microsoft.com/en-US/training-courses/hybrid-cloud-workload-protection-with-azure-security-center-18173?l=Ld0LK42jE_006218965
+- title: "Referência"
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: REST
+      html: "<p><a href=\"https://msdn.microsoft.com/library/mt704034(Azure.100).aspx\">referência da API REST (a página pode estar em inglês)</a></p>"
