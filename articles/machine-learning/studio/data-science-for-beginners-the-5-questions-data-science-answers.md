@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/13/2017
+ms.date: 01/03/2018
 ms.author: cgronlun
-ms.openlocfilehash: 47257bdb054b069c864ebf545b0c00bdfb05a9ad
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0482a680999e58b8be45334c9ae620b6b37ac273
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Ciência de dados para iniciantes, vídeo 1: As cinco perguntas que a ciência de dados responde
 Obtenha uma breve introdução à ciência de dados com *Ciência de dados para iniciantes* em cinco vídeos curtos de um grande cientista de dados. Esses vídeos são básicos, mas úteis, esteja você interessado em fazer a ciência de dados ou trabalhar com os cientistas de dados.
 
-Este primeiro vídeo é sobre os tipos de perguntas que a ciência de dados pode responder. Para aproveitar ao máximo da série, assista a todos os vídeos. [Acessar a lista de vídeos](#other-videos-in-this-series)
+Este primeiro vídeo é sobre os tipos de perguntas que a ciência de dados pode responder. Para aproveitar ao máximo da série, assista a todos os vídeos. [Acesse a lista de vídeos](#other-videos-in-this-series)
 <br>
 
 > [!VIDEO https://channel9.msdn.com/Shows/SupervisionNotRequired/8/player]
@@ -70,7 +70,7 @@ Essa família de algoritmos é chamada de classificação de duas classes.
 
 Ela é útil para qualquer pergunta que tenha apenas duas respostas possíveis.
 
-Por exemplo:
+Por exemplo: 
 
 * Este pneu falhará nos próximos 1000 Km: Sim ou não?
 * O que traz mais clientes: um cupom de $5 ou 25% de desconto?

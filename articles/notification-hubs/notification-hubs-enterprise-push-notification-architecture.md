@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: d71c706a7db570e88339c4ff7af05a48c05df65b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c626d6415a27f8495304eeaab480ab62606102ea
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="enterprise-push-architectural-guidance"></a>Orientação arquitetural do push corporativo
 As empresas hoje estão gradualmente migrando para a criação de aplicativos móveis para os usuários finais (externos) ou para os funcionários (internos). Eles têm sistemas de back-end no local como mainframes ou alguns aplicativos LoB que devem ser integrados na arquitetura de aplicativos móveis. Este guia falará sobre a melhor maneira de fazer essa integração recomendado a melhor solução para cenários comuns.
@@ -212,7 +212,7 @@ O código de exemplo completo está disponível em [Exemplos do Hub de Notifica�
    
     ![][3]
    
-    g. Configure o trabalho para ser “Executado Continuamente” para que, quando fizer logon no [Portal Clássico do Azure] , você veja algo semelhante ao seguinte:
+    g. Configure o trabalho para ser “Executado Continuamente” para que, quando fizer logon no [Portal do Azure], você veja algo semelhante ao seguinte:
    
     ![][4]
 3. **EnterprisePushMobileApp**
@@ -245,7 +245,7 @@ O código de exemplo completo está disponível em [Exemplos do Hub de Notifica�
 3. Execute o aplicativo de console **EnterprisePushBackendSystem** que simulará o back-end do LoB e começará a enviar mensagens e você deverá ver notificações do sistema que aparecem como o seguinte:
    
     ![][5]
-4. Originalmente, as mensagens foram enviadas para os tópicos do Barramento de Serviço que estava sendo monitorado por assinaturas do Barramento de Serviço no seu WebJob. Depois que uma mensagem foi recebida, uma notificação foi criada e enviada ao aplicativo móvel. Você pode verificar os logs do WebJob para confirmar o processamento quando for para o link Logs no [Portal Clássico do Azure] para seu WebJob:
+4. Originalmente, as mensagens foram enviadas para os tópicos do Barramento de Serviço que estava sendo monitorado por assinaturas do Barramento de Serviço no seu WebJob. Depois que uma mensagem foi recebida, uma notificação foi criada e enviada ao aplicativo móvel. Você pode verificar os logs do WebJob para confirmar o processamento quando for para o link Logs no [Portal do Azure] para seu WebJob:
    
     ![][6]
 
@@ -264,4 +264,4 @@ O código de exemplo completo está disponível em [Exemplos do Hub de Notifica�
 [Programação Pub/Sub do Barramento de Serviço]: http://azure.microsoft.com/documentation/articles/service-bus-dotnet-how-to-use-topics-subscriptions/
 [Trabalho Web do Azure]: ../app-service/web-sites-create-web-jobs.md
 [Hubs de Notificação - tutorial do Windows Universal]: http://azure.microsoft.com/documentation/articles/notification-hubs-windows-store-dotnet-get-started/
-[Portal Clássico do Azure]: https://manage.windowsazure.com/
+[Portal do Azure]: https://portal.azure.com/

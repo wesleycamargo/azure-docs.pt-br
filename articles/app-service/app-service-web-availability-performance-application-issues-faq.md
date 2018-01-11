@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
 ms.author: genli
-ms.openlocfilehash: d997c291e487e27b7e12c015e34ad839ac020151
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 36869eb523706787257160e5859f50b24f7bf08b
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Perguntas frequentes do desempenho do aplicativo para Aplicativos Web no Azure
 
@@ -174,7 +174,7 @@ Esse problema foi corrigido no Kestrel versão 1.0.2. Esta versão está incluí
 
 Se você usar o recurso de Cache Local do Serviço de Aplicativo, a estrutura de pasta de arquivos de log e das pastas de dados para a instância do Serviço de Aplicativo serão afetados. Quando o Cache Local é usado, as subpastas são criadas nas pastas de dados e arquivos de log de armazenamento. As subpastas usam padrão de nomenclatura "identificador exclusivo" + carimbo de data/hora. Cada uma das subpastas corresponde a uma instância de VM na qual o aplicativo Web está executando ou foi executado.
 
-Para determinar se você está usando o Cache Local, verifique sua guia **Configurações de aplicativo** do Serviço de Aplicativo. Se o Cache Local está sendo usado, a configuração de aplicativo `WEBSITE_LOCAL_CACHE_OPTION` é definida como `Always`. 
+Para determinar se você está usando o Cache Local, verifique sua guia **Configurações de aplicativo** do Serviço de Aplicativo. Se o Cache Local está sendo usado, a configuração de aplicativo `WEBSITE_LOCAL_CACHE_OPTION` é definida como `Always`.
 
 Se você não estiver usando o Cache Local e estiver enfrentando esse problema, envie uma solicitação de suporte.
 

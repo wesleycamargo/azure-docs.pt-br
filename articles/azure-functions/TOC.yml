@@ -71,10 +71,10 @@
       items:
         - name: Idiomas com suporte
           href: supported-languages.md
-        - name: 'Script C#'
-          href: functions-reference-csharp.md
-        - name: Biblioteca de classes do .NET
+        - name: 'C# (biblioteca de classes)'
           href: functions-dotnet-class-library.md
+        - name: 'Script do C# (.csx)'
+          href: functions-reference-csharp.md
         - name: 'F#'
           href: functions-reference-fsharp.md
         - name: JavaScript
@@ -183,7 +183,7 @@
           href: functions-bindings-storage-blob.md
         - name: Azure Cosmos DB
           href: functions-bindings-documentdb.md
-        - name: Hubs de Eventos
+        - name: Hubs de evento
           href: functions-bindings-event-hubs.md
         - name: Arquivo externo
           href: functions-bindings-external-file.md
@@ -225,7 +225,7 @@
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Disponibilidade regional
       href: 'https://azure.microsoft.com/regions/services/'
-    - name: Vídeos
+    - name: vídeos
       href: 'https://www.youtube.com/c/AzureFunctions'
     - name: Fórum do MSDN
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions'

@@ -1,6 +1,6 @@
 ---
 title: Perguntas frequentes sobre o Azure Active Directory | Microsoft Docs
-description: As Respostas Frequentes do Azure Active Directory respondem a perguntas sobre o acesso ao Azure e o Azure Active Directory, o gerenciamento de senhas e o acesso ao aplicativo.
+description: As Perguntas Frequentes do Azure Active Directory respondem a perguntas sobre o Azure e o Azure Active Directory, o gerenciamento de senhas e o acesso ao aplicativo.
 services: active-directory
 documentationcenter: 
 author: MarkusVi
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/08/2017
+ms.date: 12/14/2017
 ms.author: markvi
-ms.openlocfilehash: 5ec11f1a125cc4c6e7f5165091411dea7daca193
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7640d2ba495d465f06bd918df0c08f0d85b42e76
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-active-directory-faq"></a>Perguntas frequentes sobre o Azure Active Directory
 O Azure AD (Azure Active Directory) é uma solução abrangente de IDaaS (identidade como um serviço) que inclui todos os aspectos de identidade, gerenciamento de acesso e segurança.
@@ -27,9 +27,9 @@ Para obter mais informações, confira [O que é Azure Active Directory?](active
 
 
 ## <a name="access-azure-and-azure-active-directory"></a>Acessar o Azure e o Azure Active Directory
-**P: por que é mostrado "Nenhuma assinatura encontrada" quando tento acessar o Azure AD no Portal Clássico do Azure?**
+**P: por que é mostrado "Nenhuma assinatura encontrada" quando tento acessar o Azure AD no Portal do Azure?**
 
-**R:** para acessar o portal clássico do Azure, cada usuário precisa de permissões com uma assinatura do Azure. Se tiver uma assinatura paga do Office 365 ou Azure AD, acesse [http://aka.ms/accessAAD](http://aka.ms/accessAAD) para obter uma etapa de ativação única. Caso contrário, você precisará ativar uma [conta do Azure](https://azure.microsoft.com/pricing/free-trial/) grátis ou uma assinatura paga.
+**R:** para acessar o Portal do Azure, cada usuário precisa de permissões com uma assinatura do Azure. Se tiver uma assinatura paga do Office 365 ou Azure AD, acesse [http://aka.ms/accessAAD](http://aka.ms/accessAAD) para obter uma etapa de ativação única. Caso contrário, você precisará ativar uma [conta do Azure](https://azure.microsoft.com/pricing/free-trial/) grátis ou uma assinatura paga.
 
 Para obter mais informações, consulte:
 
@@ -44,11 +44,9 @@ Para obter mais informações, consulte:
 Todos os usuários que estão configurados para usar serviços Web são definidos como contas de usuário em uma ou mais instâncias do Azure AD. Você pode configurar essas contas de recursos do Azure AD gratuitamente, como acesso a aplicativos de nuvem.
 
 Serviços pagos do Azure AD, como Enterprise Mobility + Security, complementam outros serviços Web, como Office 365 e Microsoft Azure, com soluções abrangentes de segurança e gerenciamento de escala empresarial.
-- - -
-**P: por que posso entrar no portal do Azure, mas não no portal clássico do Azure?**
 
-**R:** o portal do Azure não requer uma assinatura válida, e o portal clássico requer uma assinatura válida.  Se não tiver uma assinatura, você não poderá entrar no portal clássico.
 - - -
+
 **P: quais são as diferenças entre o Administrador de Assinatura e o Administrador de Diretório?**
 
 **R:** Por padrão, você recebe a função de Administrador de Assinatura quando se inscreve no Azure. Um administrador de assinatura pode usar uma conta da Microsoft ou uma conta corporativa ou de estudante do diretório ao qual a assinatura do Azure está associada.  Essa função está autorizada a gerenciar serviços no portal do Azure.
@@ -56,7 +54,7 @@ Serviços pagos do Azure AD, como Enterprise Mobility + Security, complementam o
 Se outros usuários precisarem entrar e acessar serviços usando a mesma assinatura, você poderá adicioná-los como coadministradores. Essa função tem os mesmos privilégios de acesso que o administrador de serviços, mas não pode alterar a associação de assinaturas nos diretórios do Azure.  Para obter informações adicionais sobre os administradores de assinatura, confira [Como adicionar ou alterar as funções de administrador do Azure](../billing-add-change-azure-subscription-administrator.md) e [Como as assinaturas do Azure estão associadas ao Azure Active Directory](active-directory-how-subscriptions-associated-directory.md).
 
 
-O Azure AD tem um conjunto diferente de funções administrativas para gerenciar o diretório e os recursos relacionados à identidade.  Esses administradores terão acesso a vários recursos no portal do Azure ou no portal clássico do Azure. A função do administrador determina o que ele pode fazer, como criar ou editar usuários, atribuir funções administrativas a outras pessoas, redefinir senhas de usuário, gerenciar licenças de usuário ou gerenciar domínios.  Para obter informações adicionais sobre administradores de diretório do Azure AD e suas funções, confira [Atribuindo funções de administrador no Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md).
+O Azure AD tem um conjunto diferente de funções administrativas para gerenciar o diretório e os recursos relacionados à identidade.  Esses administradores terão acesso a vários recursos no portal do Azure ou no Portal do Azure. A função do administrador determina o que ele pode fazer, como criar ou editar usuários, atribuir funções administrativas a outras pessoas, redefinir senhas de usuário, gerenciar licenças de usuário ou gerenciar domínios.  Para obter informações adicionais sobre administradores de diretório do Azure AD e suas funções, confira [Atribuindo funções de administrador no Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md).
 
 Além disso, os serviços pagos do Azure AD, como Enterprise Mobility + Security, complementam outros serviços Web, como Office 365 e Microsoft Azure, com soluções abrangentes de segurança e gerenciamento de escala empresarial.
 
@@ -137,16 +135,20 @@ Para contas do Azure AD, os administradores podem redefinir senhas usando uma da
 
 - - -
 ## <a name="security"></a>Segurança
-**P: As contas são bloqueadas após uma quantidade específica de tentativas com falha, ou uma estratégia mais sofisticada é usada?**</br>
+**P: As contas são bloqueadas após uma quantidade específica de tentativas com falha, ou uma estratégia mais sofisticada é usada?**
+
 Usamos uma estratégia mais sofisticada para bloquear contas.  Ela se baseia no IP da solicitação e nas senhas inseridas. A duração do bloqueio também aumenta com base na probabilidade de ser um ataque.  
 
-**P: Determinadas senhas (comuns) são rejeitadas com as mensagens 'essa senha foi usada muitas vezes', isso se refere a senhas usadas no diretório ativo atual?**</br>
+**P: Determinadas senhas (comuns) são rejeitadas com as mensagens 'essa senha foi usada muitas vezes', isso se refere a senhas usadas no diretório ativo atual?**
+
 Isso se refere a senhas comuns no mundo todo, como qualquer variante de "Senha" e "123456".
 
-**P: Uma solicitação de entrada de fontes questionáveis (botnets, ponto de extremidade tor) será bloqueada em um locatário B2C, ou isso exige um locatário de edição Basic ou Premium?**</br>
+**P: Uma solicitação de entrada de fontes questionáveis (botnets, ponto de extremidade tor) será bloqueada em um locatário B2C, ou isso exige um locatário de edição Basic ou Premium?**
+
 Temos um gateway que filtra solicitações e fornece alguma proteção contra botnets, e ele é aplicado a todos os locatários B2C.
 
 ## <a name="application-access"></a>Acesso a aplicativos
+
 **P: onde obter uma lista de aplicativos que estão pré-integrados ao Azure AD e seus recursos?**
 
 **R:** o Azure AD tem mais de 2.600 aplicativos pré-integrados da Microsoft, provedores de serviços de aplicativos e parceiros. Todos os aplicativos pré-integrados dão suporte ao SSO (logon único). O SSO permite que você use suas credenciais organizacionais para acessar os aplicativos. Alguns dos aplicativos também dão suporte ao provisionamento e ao desprovisionamento automatizados.

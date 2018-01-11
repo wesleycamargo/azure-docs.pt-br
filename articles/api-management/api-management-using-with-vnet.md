@@ -105,7 +105,7 @@ Veja a seguir uma lista de problemas comuns de erro de configuração que podem 
 
 Quando uma instância do serviço Gerenciamento de API está hospedada em uma rede virtual, as portas na tabela a seguir são usadas.
 
-| Porta(s) de Origem/Destino | Direção | Protocolo de transporte | Origem/Destino | Finalidade (*) | Tipo de Rede Virtual |
+| Porta(s) de Origem/Destino | Direção | Protocolo de transporte | Origem/Destino | Finalidade ( * ) | Tipo de Rede Virtual |
 | --- | --- | --- | --- | --- | --- |
 | * / 80, 443 |Entrada |TCP |INTERNET / VIRTUAL_NETWORK|Comunicação do cliente com o Gerenciamento de API|Externo |
 | * / 3443 |Entrada |TCP |INTERNET / VIRTUAL_NETWORK|Ponto de extremidade de gerenciamento para o Portal do Azure e o Powershell |Interna |
@@ -117,7 +117,7 @@ Quando uma instância do serviço Gerenciamento de API está hospedada em uma re
 | * / 445 |Saída |TCP |VIRTUAL_NETWORK/INTERNET|Dependência do Compartilhamento de Arquivos do Azure para GIT |Interno e externo |
 | * / 25028 |Saída |TCP |VIRTUAL_NETWORK/INTERNET|Conectar à retransmissão de SMTP para enviar emails |Interno e externo |
 | * / 6381 - 6383 |Entrada e Saída |TCP |VIRTUAL_NETWORK / VIRTUAL_NETWORK|Acesso a Instâncias de Cache Redis entre RoleInstances |Interno e externo |
-| * / * | Entrada |TCP |AZURE_LOAD_BALANCER / VIRTUAL_NETWORK| Balanceador de carga de infraestrutura do Azure |Interno e externo |
+| * / *  | Entrada |TCP |AZURE_LOAD_BALANCER / VIRTUAL_NETWORK| Balanceador de carga de infraestrutura do Azure |Interno e externo |
 
 >[!IMPORTANT]
 > * As Portas para as quais a *Finalidade* é **negrito** são necessárias para o serviço de Gerenciamento de API ser implantado com êxito. No entanto, bloquear as outras portas causará degradação da capacidade de usar e monitorar o serviço em execução.

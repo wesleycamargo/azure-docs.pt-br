@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: support-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/29/2017
+ms.date: 12/20/2017
 ms.author: tomfitz
-ms.openlocfilehash: db7561c31c0748ae5c1500ba8c39dfa79274901e
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: ca7e3cb541948e6cc0b8d077616f3611e3ab2477
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Solução de erros comuns de implantação do Azure com o Azure Resource Manager
 
@@ -34,11 +34,11 @@ Este tópico descreve alguns erros comuns de implantação do Azure que você po
 | AllocationFailed | O cluster ou a região não tem recursos disponíveis ou não aceita o tamanho solicitado de VM. Repita a solicitação mais tarde ou solicite um tamanho de VM diferente. | [Problemas de provisionamento e a alocação para Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md) e [Problemas de provisionamento e a alocação para Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) |
 | AnotherOperationInProgress | Aguarde a conclusão da operação simultânea. | |
 | AuthorizationFailed | Sua conta ou entidade de serviço não tem acesso suficiente para concluir a implantação. Verifique a função a que sua conta pertence e seu acesso para o escopo da implantação. | [Controle de Acesso Baseado em Função do Azure](../active-directory/role-based-access-control-configure.md) |
-| BadRequest | Você enviou valores de implantação que não coincidem com o que é esperado pelo Resource Manager. Verifique a mensagem de status interna para obter ajuda com a solução de problemas. | [Referência de modelos](/azure/templates/) e [Locais com suporte](resource-manager-template-location.md) |
+| BadRequest | Você enviou valores de implantação que não coincidem com o que é esperado pelo Resource Manager. Verifique a mensagem de status interna para obter ajuda com a solução de problemas. | [Referência de modelos](/azure/templates/) e [Locais com suporte](resource-manager-templates-resources.md#location) |
 | Conflito | Você está solicitando uma operação que não é permitida no estado atual do recurso. Por exemplo, o redimensionamento do disco é permitido apenas ao criar uma VM ou quando a VM é desalocada. | |
 | DeploymentActive | Aguarde a conclusão da implantação simultânea nesse grupo de recursos. | |
 | DnsRecordInUse | O nome do registro DNS deve ser exclusivo. Forneça um nome diferente ou modifique o registro existente. | |
-| ImageNotFound | Verifique as configurações de imagem da VM. | [Solucionar problemas de imagens Linux](../virtual-machines/linux/troubleshoot-deployment-new-vm.md) e [Solucionar problemas imagens do Windows](../virtual-machines/windows/troubleshoot-deployment-new-vm.md) |
+| ImageNotFound | Verifique as configurações de imagem da VM. |  |
 | InUseSubnetCannotBeDeleted | Você pode encontrar este erro quando tenta atualizar um recurso, mas a solicitação é processada excluindo e criando o recurso. Certifique-se de especificar todos os valores inalterados. | [Atualizar recurso](/azure/architecture/building-blocks/extending-templates/update-resource) |
 | InvalidAuthenticationTokenTenant | Obtenha o token de acesso do locatário correto. Você só pode obter o token do locatário a que sua conta pertence. | |
 | InvalidContentLink | Provavelmente você tentou vincular a um modelo aninhado que não está disponível. Verifique uma segunda vez o URI que você forneceu para o modelo aninhado. Caso o modelo exista em uma conta de armazenamento, verifique se o URI está acessível. Pode ser necessário passar um token SAS. | [Modelos vinculados](resource-group-linked-templates.md) |
@@ -51,7 +51,7 @@ Este tópico descreve alguns erros comuns de implantação do Azure que você po
 | InvalidTemplate | Verifique se há erros na sintaxe do modelo. | [Resolver modelo inválido](resource-manager-invalid-template-errors.md) |
 | LinkedAuthorizationFailed | Verifique se sua conta pertence ao mesmo locatário que o grupo de recursos em que você está implantando. | |
 | LinkedInvalidPropertyId | A ID de um recurso não está sendo resolvida corretamente. Verifique se você forneceu todos os valores necessários para a ID do recurso, incluindo a ID de assinatura, nome do grupo de recursos, o tipo de recurso, o nome do recurso pai (se necessário) e o nome de recurso. | |
-| LocationRequired | Forneça um local para o recurso. | [Definir local](resource-manager-template-location.md) |
+| LocationRequired | Forneça um local para o recurso. | [Definir local](resource-manager-templates-resources.md#location) |
 | MissingRegistrationForLocation | Verifique o status de registro do provedor de recursos e os locais com suporte. | [Resolver registro](resource-manager-register-provider-errors.md) |
 | MissingSubscriptionRegistration | Registre sua assinatura no provedor de recursos. | [Resolver registro](resource-manager-register-provider-errors.md) |
 | NoRegisteredProviderFound | Verifique o status do registro do provedor de recursos. | [Resolver registro](resource-manager-register-provider-errors.md) |

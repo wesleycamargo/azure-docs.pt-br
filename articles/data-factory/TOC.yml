@@ -303,6 +303,8 @@
       items:
         - name: Criar um gatilho de agenda
           href: how-to-create-schedule-trigger.md
+        - name: Criar um gatilho de janela em cascata
+          href: how-to-create-tumbling-window-trigger.md
 - name: Referência
   items:
     - name: .NET

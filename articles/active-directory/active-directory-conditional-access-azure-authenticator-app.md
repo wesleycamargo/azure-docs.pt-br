@@ -15,16 +15,16 @@ ms.topic: article
 ms.date: 05/16/2017
 ms.author: femila
 ROBOTS: NOINDEX, NOFOLLOW
-ms.openlocfilehash: 60a5cc2ecc550c76ca3cb1f1d4d20070b3e3b035
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 349649e015aae7198d2c40efc3c1865cad087e8a
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-authenticator-for-android"></a>Azure Authenticator para Android
 O administrador de TI pode ter recomendado usar o Microsoft Azure Authenticator para entrar e acessar os recursos de trabalho. Esse aplicativo fornece essas duas opções de entrada:
 
-* A Multi-Factor Authentication permite proteger suas contas de trabalho ou escolar com verificação de duas etapas. Entre usando algo que você conhece (por exemplo, sua senha) e proteja a conta mais com algo que você tem (uma chave de segurança desse aplicativo). O aplicativo Azure Authenticator notifica você sobre uma solicitação de verificação de dois fatores pendente exibindo um alerta no dispositivo móvel. Basta simplesmente exibir a solicitação no aplicativo e tocar em verificar ou cancelar. Como alternativa, você precisará digitar a senha exibida no aplicativo.
+* A Autenticação Multifator permite proteger suas contas de trabalho ou escolar com verificação de duas etapas. Entre usando algo que você conhece (por exemplo, sua senha) e proteja a conta mais com algo que você tem (uma chave de segurança desse aplicativo). O aplicativo Azure Authenticator notifica você sobre uma solicitação de verificação de dois fatores pendente exibindo um alerta no dispositivo móvel. Basta simplesmente exibir a solicitação no aplicativo e tocar em verificar ou cancelar. Como alternativa, você precisará digitar a senha exibida no aplicativo.
 * A Conta de Trabalho permite transformar seu telefone ou tablet Android em um dispositivo confiável e fornecer SSO (Logon Único) para aplicativos da empresa. Seu administrador de TI pode exigir que você adicione uma conta de trabalho para acessar os recursos da empresa. O SSO permite entrar uma vez e aproveitar automaticamente a assinatura em todos os aplicativos de que sua empresa disponibilizou para você.
 
 ## <a name="installing-the-azure-authenticator-app"></a>Instalar o aplicativo Azure Authenticator
@@ -41,7 +41,7 @@ As instruções a seguir são aplicáveis para Samsung GS3 ou superior e tablets
 4. Na tela Ativar administrador do dispositivo, clique em **Ativar**.
 5. Na tela de Política de Privacidade, marque a caixa de seleção e clique em **Confirmar**.
 6. Na tela de Ingresso no Local de Trabalho, digite a identificação do usuário fornecida pela sua organização e clique em **Ingressar**.
-7. Para entrar no aplicativo Azure Authenticator, insira a c****onta e a senha da empresa e clique em **Entrar**.
+7. Para entrar no aplicativo Azure Authenticator, insira a conta e a senha da empresa e clique em **Entrar**.
 8. A próxima tela que exibe informações sobre a MFA (Multi-Factor Authentication) serve para conceder segurança adicional e é opcional. Você verá esta tela se seu trabalho ou escola exigir autenticação de dois fatores para criar uma conta de trabalho. Ela fornece instruções para verificar sua conta.
 9. A tela de Ingresso no Local de Trabalho exibe a mensagem "**Ingressar em seu local de trabalho**". O aplicativo Azure Authenticator está tentando ingressar seu dispositivo na área de trabalho.
 10. Você verá a mensagem Ingresso no local de trabalho concluído na próxima tela.
@@ -116,6 +116,6 @@ Em um dispositivo Samsung Android, os privilégios de administrador do dispositi
 1. Em **Configurações**, em **Sistema**, selecione **Segurança**.
 2. Em **Administração de Dispositivo**, clique em **Administradores de dispositivo**. Verifique se a caixa de seleção ao lado de **Azure Authenticator** está desmarcada.
 
-## <a name="troubleshooting"></a>Solucionar problemas
+## <a name="troubleshooting"></a>solução de problemas
 Se o **Erro do Repositório de Chaves** for exibido, ele poderá ocorrer por você não ter a tela de bloqueio configurada com um PIN. Para contornar esse problema, desinstale o aplicativo Azure Authenticator, configure um PIN para a tela de bloqueio e reinstale o aplicativo.
 

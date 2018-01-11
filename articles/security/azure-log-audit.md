@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: d8d52b7e151d116678169dd4839f0380f63132d7
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 032aa4a6cedd49ff9c3b4803561b8b187e8f9af5
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="azure-logging-and-auditing"></a>Log e auditoria do Azure
 ## <a name="introduction"></a>Introdução
@@ -71,9 +71,9 @@ A tabela a seguir lista os tipos mais importantes de logs disponíveis no Azure.
 |[Logs de Diagnóstico do Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|dados frequentes sobre a operação de recursos do Azure Resource Manager na assinatura| Fornecem informações sobre as operações que o recurso executou por conta própria| Azure Monitor, [Stream](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|
 |[Relatórios do AAD](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal)|Logs e relatórios|Atividades de conexão do usuário e informações de atividades do Sistema sobre gerenciamento de usuários e grupos|[API do Graph](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api-quickstart)|
 |[Máquina Virtual e Serviços de Nuvem](https://docs.microsoft.com/azure/cloud-services/cloud-services-dotnet-diagnostics-storage)|Log de eventos do Windows e syslog do Linux|    Capturam dados do sistema e dados de logs nas máquinas virtuais e transferem os dados para uma conta de armazenamento de sua escolha.|   Windows com [WAD](https://docs.microsoft.com/azure/azure-diagnostics) (armazenamento do Diagnóstico do Microsoft Azure) e Linux no Azure Monitor|
-|[Análise de Armazenamento](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)|Log de armazenamento; fornece dados de métrica de uma conta de armazenamento|Fornece informações das solicitações de rastreamento, analisa tendências de uso e diagnostica problemas com a conta de armazenamento.|    API REST ou [biblioteca de cliente](https://msdn.microsoft.com/en-us/library/azure/mt347887.aspx)|
+|[Análise de Armazenamento](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)|Log de armazenamento; fornece dados de métrica de uma conta de armazenamento|Fornece informações das solicitações de rastreamento, analisa tendências de uso e diagnostica problemas com a conta de armazenamento.|    API REST ou [biblioteca de cliente](https://msdn.microsoft.com/library/azure/mt347887.aspx)|
 |[Logs de fluxo do NSG (Grupo de Segurança de Rede)](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)|Formato JSON; mostra os fluxos de entrada e saída por regra|Exibe informações sobre o tráfego IP de entrada e saída por meio de um Grupo de Segurança de Rede|[Observador de Rede](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)|
-|[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview)|Logs, exceções e diagnóstico personalizado|    Serviço APM (Gerenciamento de Desempenho de Aplicativos) para desenvolvedores da Web em várias plataformas.| API REST, [Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-azure-and-power-bi/)|
+|[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview)|Logs, exceções e diagnóstico personalizado|    Serviço APM (Gerenciamento de Desempenho de Aplicativos) para desenvolvedores da Web em várias plataformas.| API REST, [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)|
 |Dados do processo/alerta de segurança| Alerta da Central de Segurança do Azure, alerta do OMS| Informações de segurança e alertas.|   APIs REST, JSON|
 
 ### <a name="activity-log"></a>Log de Atividade
@@ -119,7 +119,7 @@ Os Logs de Diagnóstico do Azure oferecem várias opções de configuração, ou
 **Serviços com suporte, esquema dos Logs de Diagnóstico e categorias de logs com suporte por tipo de recurso**
 
 
-| O Barramento de | Esquema e Documentos | Tipo de recurso | Categoria |
+| Serviço | Esquema e Documentos | Tipo de recurso | Categoria |
 | ------- | ------------- | ------------- | -------- |
 |Balanceador de carga| [Análise de log para o Balanceador de Carga do Azure (Preview)](https://docs.microsoft.com/azure/load-balancer/load-balancer-monitor-log)|Microsoft.Network/loadBalancers|    LoadBalancerAlertEvent|
 |||Microsoft.Network/loadBalancers| LoadBalancerProbeHealthStatus
@@ -131,17 +131,17 @@ Os Logs de Diagnóstico do Azure oferecem várias opções de configuração, ou
 |Cofre da Chave|[Logs do Cofre da Chave do Azure](https://docs.microsoft.com/azure/key-vault/key-vault-logging)|Microsoft.KeyVault/vaults|AuditEvent|
 |Azure Search|[Habilitação e uso da análise de tráfego de pesquisa](https://docs.microsoft.com/azure/search/search-traffic-analytics)|Microsoft.Search/searchServices|OperationLogs|
 |Repositório Data Lake|[Acessando os logs de diagnóstico do Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-diagnostic-logs)|Microsoft.DataLakeStore/accounts|Audit|
-|Análises Data Lake|[Acessando os logs de diagnóstico do Azure Data Lake Analytics](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-diagnostic-logs)|Microsoft.DataLakeAnalytics/accounts|Audit|
-|||Microsoft.DataLakeAnalytics/accounts|Solicitações|
-|||Microsoft.DataLakeStore/accounts|Solicitações|
+|Data Lake Analytics|[Acessando os logs de diagnóstico do Azure Data Lake Analytics](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-diagnostic-logs)|Microsoft.DataLakeAnalytics/accounts|Audit|
+|||Microsoft.DataLakeAnalytics/accounts|Requests|
+|||Microsoft.DataLakeStore/accounts|Requests|
 |Aplicativos Lógicos|[Esquema de controle personalizado dos Aplicativos Lógicos B2B](https://docs.microsoft.com/azure/logic-apps/logic-apps-track-integration-account-custom-tracking-schema)|Microsoft.Logic/workflows|WorkflowRuntime|
 |||Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|
 |Lote do Azure|[Logs de diagnóstico do Lote do Azure](https://docs.microsoft.com/azure/batch/batch-diagnostics)|Microsoft.Batch/batchAccounts|ServiceLog|
 |Automação do Azure|[Análise de log para automação do Azure](https://docs.microsoft.com/azure/automation/automation-manage-send-joblogs-log-analytics)|Microsoft.Automation/automationAccounts|JobLogs|
 |||Microsoft.Automation/automationAccounts|JobStreams|
-|Hubs de Eventos|[Logs de diagnóstico dos Hubs de Eventos do Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs)|Microsoft.EventHub/namespaces|ArchiveLogs|
+|Hubs de evento|[Logs de diagnóstico dos Hubs de Eventos do Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs)|Microsoft.EventHub/namespaces|ArchiveLogs|
 |||Microsoft.EventHub/namespaces|OperationalLogs|
-|Stream Analytics|[Logs de diagnóstico do trabalho](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-job-diagnostic-logs)|Microsoft.StreamAnalytics/streamingjobs|Execução|
+|Análise de fluxo|[Logs de diagnóstico do trabalho](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-job-diagnostic-logs)|Microsoft.StreamAnalytics/streamingjobs|Execução|
 |||Microsoft.StreamAnalytics/streamingjobs|Criação|
 |Barramento de Serviço|[Logs de diagnóstico do Barramento de Serviço do Azure](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-diagnostic-logs)|Microsoft.ServiceBus/namespaces|OperationalLogs|
 
@@ -298,7 +298,7 @@ O Application Insights é indicado para a equipe de desenvolvimento, para ajudá
 
 **Lista de cenários de integração e descrição:**
 
-| Cenários de integração | Descrição |
+| Cenários de integração | DESCRIÇÃO |
 | --------------------- | :---------- |
 |[Mapa do aplicativo](https://docs.microsoft.com/azure/application-insights/app-insights-app-map)|Os componentes de seu aplicativo, com as principais métricas e alertas.||
 |[Pesquisa de diagnóstico para dados da instância](https://docs.microsoft.com/azure/application-insights/app-insights-diagnostic-search)| pesquise e filtre eventos como solicitações, exceções, chamadas de dependência, rastreamentos de log e exibições de página.||
@@ -352,7 +352,7 @@ Há quatro maneiras diferentes de [coletar logs e métricas para os serviços do
 
 4.  Scripts para coletar e postar dados para o Log Analytics (espaços em branco na tabela a seguir e para os serviços que não estão listados)
 
-| O Barramento de | Tipo de recurso | Logs | Métricas | Solução |
+| Serviço | Tipo de recurso | Logs | Métricas | Solução |
 | :------ | :------------ | :--- | :------ | :------- |
 |Application gateways|  Microsoft.Network/<br>applicationGateways|  Diagnostics|Diagnostics|    [Análise de Gateway de](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics) [Aplicativo do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-networking-analytics#azure-application-gateway-analytics-solution-in-log-analytics)|
 |Application insights||     Conector|  Conector|  [Conector do Application](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/) [Insights (Visualização)](https://blogs.technet.microsoft.com/msoms/2016/09/26/application-insights-connector-in-oms/)|
@@ -398,10 +398,10 @@ Atualmente, a integração de log do Azure dá suporte à integração de Logs d
 
 | Tipo de log | Log Analytics que dá suporte a JSON (Splunk, ArcSight, Qradar) |
 | :------- | :-------------------------------------------------------- |
-|Logs de auditoria do AAD|    sim|
-|Logs de atividade| Sim|
-|Alertas do ASC |Sim|
-|Logs de diagnóstico (logs de recurso)|  Sim|
+|Logs de auditoria do AAD|    Sim|
+|Logs de atividade| sim|
+|Alertas do ASC |sim|
+|Logs de diagnóstico (logs de recurso)|  sim|
 |Logs da VM|   Sim, por meio de eventos encaminhados e não por meio do JSON|
 
 

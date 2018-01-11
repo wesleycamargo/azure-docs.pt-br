@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/25/2017
-ms.author: mbullwin
-ms.openlocfilehash: afe37dd1fcf2b663f3bf97d04b187b356381f3f3
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.date: 12/14/2017
+ms.author: sdash
+ms.openlocfilehash: 6932802e7852efa90551c27f9145f7ca6e685d7e
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Monitorar a disponibilidade e a capacidade de resposta de qualquer site
 Após implantar o aplicativo Web ou site em qualquer servidor, você pode configurar testes para monitorar sua disponibilidade e capacidade de resposta. [Application Insights do Azure](app-insights-overview.md) envia solicitações da Web ao aplicativo em intervalos regulares de pontos no mundo todo. Ele o alertará se o aplicativo não responder ou responder lentamente.
@@ -31,7 +31,7 @@ Há dois tipos de testes de disponibilidade:
 
 Você pode criar até 100 testes de disponibilidade por recurso de aplicativo.
 
-## <a name="create"></a>1. Abrir um recurso para os seus relatórios de teste de disponibilidade
+## <a name="create"></a>Abrir um recurso para os seus relatórios de teste de disponibilidade
 
 **Se você já configurou o Application Insights** para seu aplicativo web, abra o recurso Application Insights no [portal do Azure](https://portal.azure.com).
 
@@ -41,7 +41,7 @@ Você pode criar até 100 testes de disponibilidade por recurso de aplicativo.
 
 Clique em **Todos os recursos** para abrir a folha de Visão geral do novo recurso.
 
-## <a name="setup"></a>2. Criar um teste de ping de URL
+## <a name="setup"></a>Criar um teste de ping de URL
 Abra a folha Disponibilidade e adicione um teste.
 
 ![Preencha pelo menos o URL do seu site](./media/app-insights-monitor-web-app-availability/13-availability.png)
@@ -68,7 +68,7 @@ Abra a folha Disponibilidade e adicione um teste.
 Adicione mais testes. Por exemplo, além de testar a página inicial, você pode verificar se o banco de dados está sendo executado testando a URL para uma pesquisa.
 
 
-## <a name="monitor"></a>3. Ver os resultados de teste de disponibilidade
+## <a name="monitor"></a>Ver os resultados do teste de disponibilidade
 
 Após alguns minutos, clique em **Atualizar** para ver os resultados de teste. 
 
@@ -102,14 +102,11 @@ Clique em um ponto vermelho.
 De um resultado do teste de disponibilidade, você pode:
 
 * Inspecionar a resposta recebida do servidor.
-* Abrir a telemetria enviada pelo seu aplicativo de servidor ao processar a instância de solicitação com falha.
+* Diagnosticar falha com a telemetria do lado do servidor coletada durante o processamento da instância de solicitação com falha.
 * Registrar um problema ou um item de trabalho no Git ou no VSTS para controlar o problema. O bug conterá um link para este evento.
 * Abrir o resultado do teste na Web no Visual Studio.
 
-
-*Parece correto, mas é relatado como uma falha?* Verifique todas as imagens, scripts, folhas de estilos e outros arquivos carregados pela página. Se qualquer um deles falhar, o teste será relatado como falha, mesmo se a página html principal carregar com êxito.
-
-*Não há itens relacionados?* Se você o Application Insights está configurado para seu aplicativo do lado do servidor, talvez seja porque a [amostragem](app-insights-sampling.md) está em operação. 
+*Parece correto, mas é relatado como uma falha?* Consulte [Perguntas frequentes](#qna) para conhecer maneiras de reduzir o ruído.
 
 ## <a name="multi-step-web-tests"></a>Testes na Web com diversas etapas
 Você pode monitorar um cenário que envolve uma sequência de URLs. Por exemplo, se estiver monitorando um site de vendas, você poderá testar se adicionar itens ao carrinho de compras funciona corretamente.
@@ -256,6 +253,20 @@ Quando o teste for concluído, você verá os tempos de resposta e as taxas de �
 * Configure um [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) , que é chamado quando um alerta é gerado.
 
 ## <a name="qna"></a>Dúvidas? Problemas?
+* *Falha de teste intermitente com um erro de violação do protocolo?*
+
+    O erro ("violação de protocolo... CR deve ser seguido por LF"), indica um problema com o servidor (ou dependências). Isso acontece quando cabeçalhos malformados são definidos na resposta. Pode ser causado por balanceadores de carga ou CDNs. Especificamente, talvez alguns cabeçalhos não estejam usando CRLF para indicar o fim da linha, o que viola a especificação de HTTP e, portanto, causa falha na validação do nível de WebRequest .NET. Inspecione a resposta para encontrar cabeçalhos que possam estar em violação.
+    
+    Observação: a URL pode não falhar em navegadores que têm uma validação reduzida dos cabeçalhos HTTP. Consulte esta postagem de blog para obter uma explicação detalhada do problema: http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
+* *Site parece certo, mas vejo falhas de teste?*
+
+    * Verifique todas as imagens, scripts, folhas de estilos e outros arquivos carregados pela página. Se qualquer um deles falhar, o teste será relatado como falha, mesmo se a página html principal carregar com êxito. Para dessensibilizar o teste para essas falhas de recurso, simplesmente desmarque "Analisar Solicitações Dependentes" da configuração do teste. 
+
+    * Para reduzir a probabilidade de ruído de blips de rede transitória etc., verifique se a configuração "Habilitar novas tentativas para falhas de teste" está marcada. Você também pode testar em mais locais e gerenciar adequadamente o limite de regra de alerta para evitar problemas específicos de local que estão causando alertas desnecessários.
+    
+* *Não vejo qualquer telemetria do lado servidor relacionado a falhas no teste de diagnóstico?*
+    
+    Se você o Application Insights está configurado para seu aplicativo do lado do servidor, talvez seja porque a [amostragem](app-insights-sampling.md) está em operação.
 * *Posso chamar o código através do meu teste na Web?*
 
     Não. As etapas do teste devem estar no arquivo .webtest. E não é possível chamar outros testes da Web nem usar loops. Porém, há vários plug-ins que podem ser úteis.

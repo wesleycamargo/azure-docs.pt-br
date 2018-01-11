@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: integrate
 ms.date: 10/31/2016
 ms.author: martinle;barbkess
-ms.openlocfilehash: 4b7609fc5d6ce7bf0e3bd3ebf6d8f52e93a40a75
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ea9a2ff0c95a73b348d3b48e9e62957d5cce31c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="use-power-bi-with-sql-data-warehouse"></a>Usar o Power BI com o SQL Data Warehouse
 Assim como o Banco de Dados SQL do Azure, a Conexão Direta do SQL Data Warehouse permite ao usuário aproveitar a aplicação lógica ao longo dos recursos analíticos do Power BI.  Com a Conexão Direta, as consultas são enviadas de volta ao SQL Data Warehouse do Azure em tempo real enquanto você explora os dados.  Esse recurso, combinado com a escala do SQL Data Warehouse, permite aos usuários criar relatórios dinâmicos dos terabytes de dados em questão de minutos.  Além disso, a introdução do botão Abrir no Power BI permite que os usuários conectem o Power BI diretamente ao respectivo SQL Data Warehouse sem coletar informações de outras partes do Azure.
@@ -39,7 +39,7 @@ Essas restrições e observações podem mudar à medida que aprimoramos as expe
 ## <a name="using-the-open-in-power-bi-button"></a>Usando o botão ‘Abrir no Power BI’
 A maneira mais fácil de mover entre o SQL Data Warehouse e o Power BI é usando o botão Abrir no Power BI. Esse botão permite que você comece a criar novos painéis diretamente no Power BI.  
 
-1. Para começar, navegue até sua instância do SQL Data Warehouse no Portal clássico do Azure.
+1. Para começar, navegue até a sua instância do SQL Data Warehouse no portal do Azure.
 2. Clique no botão “Abrir no Power BI”.
 3. Se não pudermos conectar você diretamente ou se você não tiver uma conta do Power BI, será preciso se conectar.  
 4. Você será direcionado para a página de conexão do SQL Data Warehouse, com as informações do seu SQL Data Warehouse previamente populadas.

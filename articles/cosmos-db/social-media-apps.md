@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
 ms.author: mimig
-ms.openlocfilehash: 9f2a3e104df579029da56ba515b2159c18f4eae6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c89b2db6d5a80f184ca98ef757605272d385a81c
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Expandindo o Azure Cosmos DB para as redes sociais
 Viver em uma sociedade amplamente interconectada significa que, em determinado momento da vida, você acaba se tornando parte de uma **rede social**. Usamos redes sociais para manter contato com amigos, colegas, família ou, às vezes, para compartilhar nosso entusiasmo com pessoas que têm os mesmos interesses.
@@ -103,7 +103,7 @@ A criação de feeds resume-se à criação de documentos que podem reter uma li
         {"relevance":7, "post":"w34r-qeg6-ref6-8565"}
     ]
 
-Poderíamos ter um fluxo “mais recentes” com as postagens ordenadas por data de criação, um fluxo “mais populares” com as postagens com o maior número de curtidas nas últimas 24 horas... Poderíamos, até mesmo, implementar um fluxo personalizado para cada usuário baseado em lógica como seguidores e interesses, e ainda seria uma lista de postagens. É uma questão de como criar essas listas, mas fazer com que o desempenho de leitura permaneça ilimitado. Depois de adquirirmos uma dessas listas, emitiremos uma única consulta para o Cosmos DB usando o [operador IN](documentdb-sql-query.md#WhereClause) para obter páginas de postagens de uma só vez.
+Poderíamos ter um fluxo “mais recentes” com as postagens ordenadas por data de criação, um fluxo “mais populares” com as postagens com o maior número de curtidas nas últimas 24 horas... Poderíamos, até mesmo, implementar um fluxo personalizado para cada usuário baseado em lógica como seguidores e interesses, e ainda seria uma lista de postagens. É uma questão de como criar essas listas, mas fazer com que o desempenho de leitura permaneça ilimitado. Depois de adquirirmos uma dessas listas, emitiremos uma única consulta para o Cosmos DB usando o [operador IN](sql-api-sql-query.md#WhereClause) para obter páginas de postagens de uma só vez.
 
 As transmissões de feed podem ser criadas usando processos em segundo plano dos [Serviços de Aplicativos do Azure](https://azure.microsoft.com/services/app-service/): [Webjobs](../app-service/web-sites-create-web-jobs.md). Depois de criar uma postagem, o processamento em segundo plano pode ser disparado usando o [Armazenamento do Azure](https://azure.microsoft.com/services/storage/), ao passo que as [Filas](../storage/queues/storage-dotnet-how-to-use-queues.md) e os Webjobs podem ser disparados usando o [SDK do Azure Webjobs](https://github.com/Azure/azure-webjobs-sdk/wiki), implementando a propagação de postagem nas transmissões, de acordo com nossa própria lógica personalizada. 
 
@@ -134,7 +134,7 @@ Para resolver isso, podemos usar uma abordagem mista. Como parte do documento de
         "totalPoints":11342
     }
 
-E o gráfico real de seguidores pode ser armazenado usando a [API do Graph Gremlin](../cosmos-db/graph-introduction.md) do Azure Cosmos DB, para criar [vértices](http://mathworld.wolfram.com/GraphVertex.html) para cada usuário e [bordas](http://mathworld.wolfram.com/GraphEdge.html) que mantêm as relações "A segue B". A API do Graph permite que você não apenas obtenha os seguidores de um determinado usuário, mas também criem consultas mais complexas para até mesmo sugerir pessoas em comum. Se adicionarmos ao gráfico as Categorias de Conteúdo que as pessoas curtem, poderemos começar a combinar experiências que incluem a descoberta de conteúdo inteligente, sugestão de conteúdo curtido pelas pessoas que seguimos ou localização das pessoas com quem podemos ter muito em comum.
+E o grafo real de seguidores pode ser armazenado usando a [API do Graph Gremlin](../cosmos-db/graph-introduction.md) do Azure Cosmos DB, para criar [vértices](http://mathworld.wolfram.com/GraphVertex.html) para cada usuário e [bordas](http://mathworld.wolfram.com/GraphEdge.html) que mantêm as relações "A segue B". A API do Graph permite que você não apenas obtenha os seguidores de um determinado usuário, mas também criem consultas mais complexas para até mesmo sugerir pessoas em comum. Se adicionarmos ao grafo as Categorias de Conteúdo que as pessoas curtem, poderemos começar a combinar experiências que incluem a descoberta de conteúdo inteligente, sugestão de conteúdo curtido pelas pessoas que seguimos ou localização das pessoas com quem podemos ter muito em comum.
 
 O documento Estatísticas do Usuário ainda pode ser usado para criar cartões na interface do usuário ou visualizações rápidas de perfil.
 
@@ -237,7 +237,7 @@ Se as coisas ficarem cada vez melhores e usuários de outra região, país ou co
 
 Mas espere... logo você percebe que a experiência deles com a plataforma não é ideal; eles estão tão distantes de sua região operacional que a latência é terrível e, obviamente, você não deseja perdê-los. Se houvesse uma maneira fácil de **estender seu alcance global**... mas há!
 
-O Cosmos DB permite [replicar os dados globalmente](../cosmos-db/tutorial-global-distribution-documentdb.md) e de forma transparente com alguns cliques e selecionar automaticamente uma das regiões disponíveis por meio do [código cliente](../cosmos-db/tutorial-global-distribution-documentdb.md). Isso também significa que é possível ter [várias regiões de failover](regional-failover.md). 
+O Cosmos DB permite [replicar os dados globalmente](../cosmos-db/tutorial-global-distribution-sql-api.md) e de forma transparente com alguns cliques e selecionar automaticamente uma das regiões disponíveis por meio do [código cliente](../cosmos-db/tutorial-global-distribution-sql-api.md). Isso também significa que é possível ter [várias regiões de failover](regional-failover.md). 
 
 Ao replicar os dados globalmente, você precisa garantir que os clientes podem aproveitá-los. Se você estiver usando um front-end da Web ou acessando APIs em clientes móveis, poderá implantar o [Gerenciador de Tráfego do Azure](https://azure.microsoft.com/services/traffic-manager/) e clonar o Serviço de Aplicativo do Azure em todas as regiões desejadas, usando uma configuração de desempenho para dar suporte à cobertura global estendida. Quando os clientes acessarem o front-end ou as APIs, eles serão roteados para o Serviço de Aplicativo mais próximo, que, por sua vez, se conectará à réplica local do Cosmos DB.
 

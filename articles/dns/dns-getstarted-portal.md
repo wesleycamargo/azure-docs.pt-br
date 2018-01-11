@@ -3,8 +3,8 @@ title: "Introdução ao DNS do Azure usando o Portal do Azure | Microsoft Docs"
 description: "Saiba como criar uma zona e registro DNS no DNS do Azure. Este é uma guia passo a passo para criar e gerenciar sua primeira zona e registro DNS usando o Portal do Azure."
 services: dns
 documentationcenter: na
-author: jtuliani
-manager: timlt
+author: KumudD
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: fb0aa0a6-d096-4d6a-b2f6-eda1c64f6182
@@ -13,20 +13,19 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/10/2017
-ms.author: jonatul
-ms.openlocfilehash: 93b24e3d9fbb3fbb3ea995271fd63d1e82eb9c9e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/18/2017
+ms.author: kumud
+ms.openlocfilehash: b2a9a7dbd1fa7da7ebe479ac166602245cdaefde
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="get-started-with-azure-dns-using-the-azure-portal"></a>Introdução ao DNS do Azure usando o Portal do Azure
 
 > [!div class="op_single_selector"]
 > * [Portal do Azure](dns-getstarted-portal.md)
 > * [PowerShell](dns-getstarted-powershell.md)
-> * [CLI 1.0 do Azure](dns-getstarted-cli-nodejs.md)
 > * [CLI 2.0 do Azure](dns-getstarted-cli.md)
 
 Este artigo explica as etapas para criar sua primeira zona e registro DNS usando o Portal do Azure. Você também pode executar essas etapas usando o Azure PowerShell ou a CLI do Azure de plataforma cruzada.
@@ -36,11 +35,11 @@ Uma zona DNS é usada para hospedar os registros DNS para um domínio específic
 ## <a name="create-a-dns-zone"></a>Criar uma zona DNS
 
 1. Entrar no Portal do Azure
-2. No menu Hub, clique em **Novo > Rede >**, em seguida, clique em **Zona DNS** para abrir a folha Criar zona DNS.
+2. No menu Hub, clique em **Novo > Rede >**, em seguida, clique em **Zona DNS** para abrir a página **Criar zona DNS**.
 
     ![Zona DNS](./media/dns-getstarted-portal/openzone650.png)
 
-4. Na folha **Criar zona DNS**, insira os seguintes valores e clique em **Criar**:
+4. Na página **Criar zona DNS**, insira os seguintes valores e clique em **Criar**:
 
 
    | **Configuração** | **Valor** | **Detalhes** |
@@ -57,11 +56,11 @@ Uma zona DNS é usada para hospedar os registros DNS para um domínio específic
 
 O exemplo a seguir explica o processo de criação de um novo registro 'A'. Para outros tipos de registro e para modificar os registros existentes, confira [Gerenciar registros DNS e conjuntos de registros usando o Portal do Azure](dns-operations-recordsets-portal.md). 
 
-1. Com a zona DNS criada, no painel **Favoritos** do portal do Azure, clique em **Todos os recursos**. Clique na zona DNS **contoso.com** na folha Todos os recursos. Se a assinatura que você selecionou já contém vários recursos, você pode inserir **contoso.com** na caixa **Filtrar por nome...** para acessar a Zona DNS facilmente.
+1. Com a zona DNS criada, no painel **Favoritos** do portal do Azure, clique em **Todos os recursos**. Clique na zona DNS **contoso.com** na página Todos os recursos. Se a assinatura que você selecionou já contém vários recursos, você pode inserir **contoso.com** na caixa **Filtrar por nome...** para acessar a Zona DNS facilmente.
 
-1. Na parte superior da folha **zona DNS**, selecione **+Conjunto de registros** para abrir a folha **Adicionar conjunto de registros**.
+1. Na parte superior da página **zona DNS**, selecione **+Conjunto de registros** para abrir a página **Adicionar conjunto de registros**.
 
-1. Na folha **Adicionar conjunto de registros**, digite os valores abaixo e clique em **OK**. Neste exemplo, você está criando um registro A.
+1. Na página **Adicionar conjunto de registros**, digite os valores abaixo e clique em **OK**. Neste exemplo, você está criando um registro A.
 
    |**Configuração** | **Valor** | **Detalhes** |
    |---|---|---|
@@ -73,7 +72,7 @@ O exemplo a seguir explica o processo de criação de um novo registro 'A'. Para
 
 ## <a name="view-records"></a>Exibir registros
 
-Na parte inferior da folha Zona DNS, é possível ver os registros da zona DNS. Você deve ver os registros DNS e SOA padrão, que são criados em cada zona, além de quaisquer registros novos que você criou.
+Na parte inferior da página Zona DNS, é possível ver os registros da zona DNS. Você deve ver os registros DNS e SOA padrão, que são criados em cada zona, além de quaisquer registros novos que você criou.
 
 ![zona](./media/dns-getstarted-portal/viewzone500.png)
 
@@ -92,8 +91,8 @@ Esses servidores de nome devem ser configurados com o registrador de nome de dom
 
 Para excluir todos os recursos criados neste artigo, conclua as seguintes etapas:
 
-1. No painel **Favoritos** do portal do Azure, clique em **Todos os recursos**. Clique no grupo de recursos **MyResourceGroup** na folha Todos os recursos. Se a assinatura que você selecionou já contém vários recursos, você pode inserir **MyResourceGroup** na caixa **Filtrar por nome...** para acessar o grupo de recursos facilmente.
-1. Na folha **MyResourceGroup**, clique no botão **Excluir**.
+1. No painel **Favoritos** do portal do Azure, clique em **Todos os recursos**. Clique no grupo de recursos **MyResourceGroup** na página Todos os recursos. Se a assinatura que você selecionou já contém vários recursos, você pode inserir **MyResourceGroup** na caixa **Filtrar por nome...** para acessar o grupo de recursos facilmente.
+1. Na página **MyResourceGroup**, clique no botão **Excluir**.
 1. O portal requer que você digite o nome do grupo de recursos para confirmar se deseja excluí-lo. Clique em **Excluir**, digite *MyResourceGroup* para o nome do grupo de recursos, em seguida, clique em **Excluir**. A exclusão de um grupo de recursos exclui todos os recursos contidos nele e, portanto, confirme sempre o conteúdo de um grupo de recursos antes de excluí-lo. O portal exclui todos os recursos contidos no grupo de recursos e o exclui em seguida. Esse processo leva vários minutos.
 
 

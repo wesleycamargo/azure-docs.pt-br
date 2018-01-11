@@ -9,13 +9,13 @@ ms.service: batch
 ms.devlang: na
 ms.topic: article
 ms.workload: big-compute
-ms.date: 10/17/2017
+ms.date: 12/18/2017
 ms.author: markscu
-ms.openlocfilehash: 87ec0e1b6d01fc5d13e9b9f46987e416d8e1958f
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: c2d4a33cd6c4c9db608a76b24935b474b551b291
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="use-azure-batch-cli-templates-and-file-transfer-preview"></a>Usar modelos CLI do Lote do Azure e o arquivo de transferência (Versão prévia)
 
@@ -53,14 +53,14 @@ Para obter instruções sobre como instalar a CLI do Azure, consulte [Instalar a
 Depois que a CLI do Azure for instalada, a versão mais recente da extensão do Lote pode ser instalada usando o seguinte comando de CLI:
 
 ```azurecli
-az extension add --source https://github.com/Azure/azure-batch-cli-extensions/releases/download/azure-batch-cli-extensions-2.0.0/azure_batch_cli_extensions-2.0.0-py2.py3-none-any.whl
+az extension add --source https://github.com/Azure/azure-batch-cli-extensions/releases/download/azure-batch-cli-extensions-2.0.1/azure_batch_cli_extensions-2.0.1-py2.py3-none-any.whl
 ```
 
 Para obter mais informações sobre a extensão do Lote, consulte [Extensões de CLI do Lote do Microsoft Azure para Windows, Mac e Linux](https://github.com/Azure/azure-batch-cli-extensions#microsoft-azure-batch-cli-extensions-for-windows-mac-and-linux).
 
 ## <a name="templates"></a>Modelos
 
-A CLI do Lote do Azure permite que os itens como pools, trabalhos e tarefas sejam criados, especificando um arquivo JSON contendo os valores e nomes de propriedades. Por exemplo:
+A CLI do Lote do Azure permite que os itens como pools, trabalhos e tarefas sejam criados, especificando um arquivo JSON contendo os valores e nomes de propriedades. Por exemplo: 
 
 ```azurecli
 az batch pool create –-json-file AppPool.json

@@ -5,16 +5,16 @@ services: machine-learning
 author: totekp
 ms.author: kefzhou
 manager: akannava
-ms.reviewer: akannava, haining, mldocs
+ms.reviewer: akannava, haining, mldocs, garyericson, jasonwhowell
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/29/2017
-ms.openlocfilehash: aaadf526577b9b6c254204aae90200661d40f325
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: 40e066fe602e8c4680043158f1d401a884e07c19
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="find-runs-with-the-best-accuracy-and-lowest-duration"></a>Localizar execuções com a maior precisão e no menor tempo
 Como há várias execuções, um caso de uso deve encontrar execuções com a maior precisão. Uma abordagem é usar a interface de linha de comando (CLI) com uma consulta [JMESPath](http://jmespath.org/). Para saber mais sobre como usar JMESPath na CLI do Azure, veja [Usar consultas JMESPath com a CLI do Azure 2.0](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest). No exemplo a seguir, quatro execuções são criadas com valores de precisão de 0, 0,98 e 1 e 1. Execuções são filtradas se estiverem no intervalo `[MaxAccuracy-Threshold, MaxAccuracy]` em que `Threshold = .03`.

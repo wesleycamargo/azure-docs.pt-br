@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/21/2017
 ms.author: dimakwan
-ms.openlocfilehash: 3bdf30dad5e729ae1e028be2d917b6c38e1bebaf
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: d2436ad639c53360f4d1afde99d668285b606aa9
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-an-azure-cosmos-db-account-using-powershell"></a>Criar uma conta do Azure Cosmos DB usando o PowerShell
 
-O guia a seguir descreve os comandos para automatizar o gerenciamento de suas contas de banco de dados do Azure Cosmos DB usando o Azure PowerShell. Isso também inclui comandos para gerenciar as chaves de conta e as prioridades de failover em [contas de banco de dados com várias regiões][scaling-globally]. A atualização de sua conta de banco de dados permite que você adicione ou remova regiões e modifique políticas de consistência. Para o gerenciamento de plataforma cruzada de sua conta do Azure Cosmos DB, use a [CLI do Azure](cli-samples.md), a [API REST do Provedor de Recursos][rp-rest-api] ou o [portal do Azure](create-documentdb-dotnet.md#create-account).
+O guia a seguir descreve os comandos para automatizar o gerenciamento de suas contas de banco de dados do Azure Cosmos DB usando o Azure PowerShell. Isso também inclui comandos para gerenciar as chaves de conta e as prioridades de failover em [contas de banco de dados com várias regiões][scaling-globally]. A atualização de sua conta de banco de dados permite que você adicione ou remova regiões e modifique políticas de consistência. Para o gerenciamento de plataforma cruzada de sua conta do Azure Cosmos DB, use a [CLI do Azure](cli-samples.md), a [API REST do Provedor de Recursos][rp-rest-api] ou o [portal do Azure](create-sql-api-dotnet.md#create-account).
 
 ## <a name="getting-started"></a>Introdução
 
@@ -194,8 +194,7 @@ Exemplo:
 
 ## <a name="next-steps"></a>Próximas etapas
 
-* Para se conectar usando o .NET, consulte [Conectar e consultar com o .NET](create-documentdb-dotnet.md).
-* Para se conectar usando o .NET Core, consulte [Conectar e consultar com o .NET Core](create-documentdb-dotnet-core.md).
+* Para se conectar usando o .NET, consulte [Conectar e consultar com o .NET](create-sql-api-dotnet.md).
 * Para se conectar usando o Node.js, consulte [Conectar e consultar com o Node.js e um aplicativo do MongoDB](create-mongodb-nodejs.md).
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->

@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2017
+ms.date: 12/15/2017
 ms.author: jgao
-ms.openlocfilehash: 093042da6f7d51cec3111f073da0ce3a66f2cddc
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 491dbd157255dc4fa7f77178f9486959ba4847a1
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="manage-hadoop-clusters-in-hdinsight-using-the-azure-cli"></a>Gerenciar clusters Hadoop no HDInsight usando a CLI do Azure
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
@@ -29,7 +29,7 @@ Saiba como usar a [Interface de Linha de Comando do Azure](../cli-install-nodejs
 
 Este artigo aborda apenas o uso da CLI do Azure com o HDInsight. Para obter um guia geral sobre como usar a CLI do Azure, confira [Instalar e configurar a CLI do Azure][azure-command-line-tools].
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Antes de começar este artigo, você deve ter o seguinte:
 
 * **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
@@ -47,7 +47,7 @@ Antes de começar este artigo, você deve ter o seguinte:
     azure config mode arm
     ```
 
-Para obter ajuda, use a opção **-h** .  Por exemplo:
+Para obter ajuda, use a opção **-h** .  Por exemplo: 
 
 ```cli
 azure hdinsight cluster create -h

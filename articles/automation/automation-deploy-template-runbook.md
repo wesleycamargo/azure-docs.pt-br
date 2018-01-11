@@ -13,11 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: TBD
 ms.date: 07/09/2017
 ms.author: gwallace
-ms.openlocfilehash: dc283973efd936d50418d303bbc359dd4312a121
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 63c8f1b1190e19e1f1d2a7871bffee44ef5c7877
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>Implantar um modelo do Azure Resource Manager em um runbook do PowerShell de Automação do Azure
 
@@ -27,7 +27,7 @@ Ao fazer isso, você pode automatizar a implantação de recursos do Azure. Voc�
 
 Neste tópico, criamos um runbook do PowerShell que usa um modelo do Resource Manager armazenado no [Armazenamento do Azure](../storage/common/storage-introduction.md) para implantar uma nova conta de Armazenamento do Azure.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para concluir este tutorial, você precisará do seguinte:
 
@@ -156,7 +156,7 @@ $Parameters = @{
     }
 
 # Create a new context
-$Context = New-AzureStorageContext -StorageAccountKey $StorageAccountKey
+$Context = New-AzureStorageContext -StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey
 
 Get-AzureStorageFileContent -ShareName 'resource-templates' -Context $Context -path 'TemplateTest.json' -Destination 'C:\Temp'
 
@@ -185,7 +185,7 @@ $importParams = @{
     AutomationAccountName = 'MyAutomationAccount'
     Type = 'PowerShell'
 }
-Import-AzureRmAutomationRunbook @
+Import-AzureRmAutomationRunbook @importParams
 
 # Publish the runbook
 $publishParams = @{

@@ -3,7 +3,7 @@ Para permitir que o Mobile Engagement envie Notificações por Push em seu nome,
 
 1. Navegue até o portal do Mobile Engagement. Verifique se você está no item correto e, em seguida, clique no botão **Acionar** na parte inferior:
    
-    ![](./media/mobile-engagement-ios-send-push/engage-button.png)
+    ![](./media/mobile-engagement-create-app-in-portal-new/engage-button.png)
 2. Você será levado para a página **Configurações** no Portal do Compromisso. Então, clique na seção **Push Nativo** para carregar seu certificado .p12:
    
     ![](./media/mobile-engagement-ios-send-push/engagement-portal.png)

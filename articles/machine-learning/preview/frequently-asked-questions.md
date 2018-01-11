@@ -4,16 +4,17 @@ description: "Este artigo contém perguntas frequentes e respostas para recursos
 services: machine-learning
 author: serinakaye
 ms.author: serinak
+manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 08/30/2017
-ms.openlocfilehash: 33583fb3d9bca94592c05c4c39c802e673a2ea8a
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 94c6576f92b5a004e0fd509c1dc6e091c294658a
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-machine-learning-frequently-asked-questions"></a>Perguntas frequentes sobre o Azure Machine Learning
 
@@ -126,11 +127,11 @@ O Azure Machine Learning Workbench é um aplicativo complementar criado para cie
 
 **O Workbench é um IDE?**
 
-Não. O Machine Learning Workbench foi projetado como um complemento a IDEs populares, como Blocos de Anotações do Jupyter, Visual Studio Code e PyCharm, mas não é um IDE totalmente funcional. O Machine Learning Workbench oferece alguns recursos básicos de edição de texto, mas depuração, intellisense e outros recursos de IDE comumente usados não têm suporte. É recomendável que você use seu IDE favorito para o desenvolvimento, edição e depuração de código. 
+Nº O Machine Learning Workbench foi projetado como um complemento a IDEs populares, como Blocos de Anotações do Jupyter, Visual Studio Code e PyCharm, mas não é um IDE totalmente funcional. O Machine Learning Workbench oferece alguns recursos básicos de edição de texto, mas depuração, intellisense e outros recursos de IDE comumente usados não têm suporte. É recomendável que você use seu IDE favorito para o desenvolvimento, edição e depuração de código. 
 
 **Há um custo para usar o Azure Machine Learning Workbench?**
 
-Não. O Azure Machine Learning Workbench é um aplicativo gratuito. Você pode baixá-lo em tantos computadores e usuários quantos precisar. Para usar o Azure Machine Learning Workbench, você deve ter uma conta de Experimentação. .  
+Nº O Azure Machine Learning Workbench é um aplicativo gratuito. Você pode baixá-lo em tantos computadores e usuários quantos precisar. Para usar o Azure Machine Learning Workbench, você deve ter uma conta de Experimentação. .  
 
 **Há suporte para funcionalidades de linha de comando?**
 
@@ -199,7 +200,7 @@ Não, o Serviço de Experimentação permite tantos experimentos quantos você p
 
 **Serei cobrado com base em quantas vezes meus serviços Web forem chamados?**
 
-Não. Os serviços Web podem ser chamados quantas vezes forem necessárias, sem nenhuma implicação de cobrança do Gerenciamento de Modelos. Você terá controle completo para dimensionar suas implantações para que atendam às necessidades dos seus aplicativos.
+Nº Os serviços Web podem ser chamados quantas vezes forem necessárias, sem nenhuma implicação de cobrança do Gerenciamento de Modelos. Você terá controle completo para dimensionar suas implantações para que atendam às necessidades dos seus aplicativos.
 
 **Como posso dimensionar o número de unidades comprados no Gerenciamento de Modelos do Azure Machine Learning?**
 

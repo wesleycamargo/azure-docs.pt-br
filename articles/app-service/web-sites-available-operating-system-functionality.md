@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/01/2016
 ms.author: cephalin
-ms.openlocfilehash: 18ff5c81d0aa5e8a28ed8a11dad19811d2fa1d2c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a5f022eca8f901388c9cf003f3320db1b9c49e6a
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Funcionalidade do sistema operacional no Serviço de Aplicativo do Azure
 Este artigo descreve a funcionalidade do sistema operacional de linha de base comum disponível a todos os aplicativos em execução no [Serviço de Aplicativo do Azure](http://go.microsoft.com/fwlink/?LinkId=529714). Essa funcionalidade inclui acesso a arquivos, redes e registros, além de logs de diagnóstico e eventos. 
@@ -27,6 +27,8 @@ Este artigo descreve a funcionalidade do sistema operacional de linha de base co
 
 ## <a name="app-service-plan-tiers"></a>Camadas de plano do Serviço de Aplicativo
 O Serviço de Aplicativo executa aplicativos do cliente em um ambiente de hospedagem multilocatário. Os aplicativos implantados nas camadas **Gratuito** e **Compartilhado** são executados em processos de trabalho nas máquinas virtuais compartilhadas, enquanto os aplicativos implantados nas camadas **Standard** e **Premium** são executados em máquinas virtuais dedicadas especificamente aos aplicativos associados a um único cliente.
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 Como o Serviço de Aplicativo dá suporte a uma experiência de dimensionamento perfeita entre camadas diferentes, a configuração de segurança imposta para aplicativos do Serviço de Aplicativo permanece a mesma. Isso garante que os aplicativos Web não se comportem inesperadamente de maneira diferente, falhando de maneiras inesperadas, quando o plano do Serviço de Aplicativo alterna de uma camada para outra.
 

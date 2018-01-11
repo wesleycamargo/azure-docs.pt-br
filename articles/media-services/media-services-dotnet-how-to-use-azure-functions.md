@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/03/2017
+ms.date: 12/09/2017
 ms.author: juliako
-ms.openlocfilehash: e8cad53d95186f4f7679d1f19f339ad4149059a8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f99fe340b6cfebaafb04af9dba8abf9cb0f09a2b
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Desenvolver o Azure Functions com os Serviços de Mídia
 
-Este tópico mostra como começar a criação de Azure Functions que usam os Serviços de Mídia. A Azure Function definida neste tópico monitora um contêiner de conta de armazenamento chamado **input** para novos arquivos MP4. Depois que um arquivo for solto no contêiner de armazenamento, o gatilho de blob executará a função. Para examinar as funções do Azure, consulte [visão geral](../azure-functions/functions-overview.md) e outros tópicos na seção **funções do Azure**.
+Este artigo mostra como começar a criação de Azure Functions que usam os Serviços de Mídia. A Azure Function definida neste artigo monitora um contêiner de conta de armazenamento chamado **input** para novos arquivos MP4. Depois que um arquivo for solto no contêiner de armazenamento, o gatilho de blob executará a função. Para examinar as funções do Azure, consulte [visão geral](../azure-functions/functions-overview.md) e outros tópicos na seção **funções do Azure**.
 
 Se você quiser explorar e implantar as Azure Functions existentes que usam o Serviços de Mídia do Azure, confira [Azure Functions dos Serviços de Mídia](https://github.com/Azure-Samples/media-services-dotnet-functions-integration). Esse repositório contém exemplosque usam os Serviços de Mídia para mostrar os fluxos de trabalho relativos à ingestão de conteúdo diretamente do armazenamento de blobs, à codificação e à gravação do conteúdo de volta no armazenamento de blobs. Ele também inclui exemplos de como monitorar as notificações de trabalho por meio de Webhooks e Filas do Azure. Você também pode desenvolver as Funções com base em exemplos do repositório [Azure Functions nos Serviços de Mídia](https://github.com/Azure-Samples/media-services-dotnet-functions-integration). Para implantar as funções, pressione o botão **Implantar no Azure**.
 
@@ -45,11 +45,11 @@ Ao desenvolver funções dos Serviços de Mídia, é útil adicionar variáveis 
 
 A função, definida neste artigo, pressupõe que você tenha as seguintes variáveis de ambiente nas configurações do aplicativo:
 
-**AMSAADTenantDomain**: ponto de extremidade de locatário do Azure AD. Para obter mais informações sobre como se conectar à API do AMS, consulte [este](media-services-use-aad-auth-to-access-ams-api.md) artigo.
+**AMSAADTenantDomain**: ponto de extremidade de locatário do Microsoft Azure AD. Para obter mais informações sobre como se conectar à API do AMS, consulte [este](media-services-use-aad-auth-to-access-ams-api.md) artigo.
 
 **AMSRESTAPIEndpoint**: URI que representa o ponto de extremidade da API REST. 
 
-**AMSClientId**: ID do cliente do aplicativo do Azure AD.
+**AMSClientId**: ID do cliente do aplicativo do Microsoft Azure AD.
 
 **AMSClientSecret**: segredo do cliente do aplicativo do Azure AD.
 
@@ -134,7 +134,7 @@ O exemplo definido nesta seção demonstra
 
 No cenário da vida real, provavelmente, você desejará acompanhar o andamento do trabalho e, em seguida, publicar o ativo codificado. Para obter mais informações, consulte [Usar o Azure WebHooks para monitorar notificações de trabalho dos Serviços de Mídia](media-services-dotnet-check-job-progress-with-webhooks.md). Para obter mais exemplos, consulte [Azure Functions nos Serviços de Mídia](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).  
 
-Substitua o conteúdo do arquivo run.csx pelo código a seguir. Depois de definir a função, clique em **Salvar e Executar**.
+Substitua o conteúdo do arquivo run.csx existente pelo seguinte código: depois de ter definindo sua função, clique em **Salvar e executar**.
 
 ```
 #r "Microsoft.WindowsAzure.Storage"
@@ -334,7 +334,7 @@ Para testar a função, você precisa carregar um arquivo MP4 no contêiner **in
 1. Selecione a conta de armazenamento que você especificou na variável de ambiente **StorageConnection**.
 2. Clique em **Blobs**.
 3. Clique em **+ Contêiner**. Nomeie o contêiner **entrada**.
-4. Pressione **Carregar** e navegue até um arquivo .mp4 que você deseja carregar.
+4. Pressione **Carregar** e navegue até um arquivo .mp4 que você deseje carregar.
 
 >[!NOTE]
 > Ao usar um gatilho de blob em um plano de Consumo, pode haver um atraso de até 10 minutos no processamento de novos blobs depois que um aplicativo de funções ficar ocioso. Depois que o aplicativo de funções estiver em execução, os blobs serão processados imediatamente. Para obter mais informações, consulte [Gatilhos e associações de armazenamento de blobs](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob#blob-storage-triggers-and-bindings).

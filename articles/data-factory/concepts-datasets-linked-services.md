@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: 
 ms.date: 09/05/2017
 ms.author: shlo
-ms.openlocfilehash: a13e19c7e1a22581b14d1a96e20b8a649c303fc3
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: e8572af6187a889067341bbebb254d701b39395a
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="datasets-and-linked-services-in-azure-data-factory"></a>Conjuntos de dados e serviços vinculados no Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -43,6 +43,56 @@ Veja abaixo um cenário de exemplo. Para copiar dados do armazenamento de Blobs 
 O seguinte diagrama mostra a relação entre pipeline, atividade, conjunto de dados e serviço vinculado no Data Factory:
 
 ![Relação entre pipeline, atividade e conjunto de dados, serviços vinculados](media/concepts-datasets-linked-services/relationship-between-data-factory-entities.png)
+
+## <a name="linked-service-json"></a>JOSN de serviço vinculado
+Um serviço vinculado no Data Factory é definido no formato JSON da seguinte maneira:
+
+```json
+{
+    "name": "<Name of the linked service>",
+    "properties": {
+        "type": "<Type of the linked service>",
+        "typeProperties": {
+              "<data store or compute-specific type properties>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+A tabela a seguir descreve as propriedades no JSON acima:
+
+Propriedade | Descrição | Obrigatório |
+-------- | ----------- | -------- |
+name | Nome do serviço vinculado. Consulte [Azure Data Factory – Regras de nomenclatura](naming-rules.md). |  Sim |
+type | Tipo de serviço vinculado. Por exemplo: AzureStorage (armazenamento de dados) ou AzureBatch (computação). Consulte a descrição de typeProperties. | Sim |
+typeProperties | As propriedades de tipo são diferentes para cada armazenamento de dados ou de computação. <br/><br/> Para os tipos de armazenamento de dados suportados e suas propriedades de tipo, consulte a tabela [tipo de conjunto de dados](#dataset-type) neste artigo. Navegue até o artigo de conector do armazenamento de dados para saber mais sobre as propriedades de tipo específicas para um armazenamento de dados. <br/><br/> Para os tipos de computação suportados e suas propriedades de tipo, consulte [serviços vinculados de computação](compute-linked-services.md). | Sim |
+connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime do Azure ou o Integration Runtime auto-hospedado (se o armazenamento de dados estiver localizado em uma rede privada). Se não for especificado, ele usa o Integration Runtime padrão do Azure. | Não
+
+## <a name="linked-service-example"></a>Exemplo de serviço vinculado
+O seguinte serviço vinculado é um serviço vinculado de Armazenamento do Azure. Observe que o tipo é definido como AzureStorage. As propriedades de tipo para o serviço vinculado do Armazenamento do Azure incluem uma cadeia de conexão. O serviço de Data Factory usa essa cadeia de conexão para se conectar ao armazenamento de dados em tempo de execução. 
+
+```json
+{
+    "name": "AzureStorageLinkedService",
+    "properties": {
+        "type": "AzureStorage",
+        "typeProperties": {
+            "connectionString": {
+                "type": "SecureString",
+                "value": "DefaultEndpointsProtocol=https;AccountName=<accountname>;AccountKey=<accountkey>"
+            }
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
 
 ## <a name="dataset-json"></a>Conjunto de dados do JSON
 Um conjunto de dados no Data Factory é definido no formato JSON da seguinte maneira:
@@ -72,12 +122,12 @@ Um conjunto de dados no Data Factory é definido no formato JSON da seguinte man
 ```
 A tabela a seguir descreve as propriedades no JSON acima:
 
-Propriedade | Descrição | Obrigatório | Padrão
--------- | ----------- | -------- | -------
-name | Nome do conjunto de dados. | Consulte [Azure Data Factory – Regras de nomenclatura](naming-rules.md). | Sim | ND
-type | Tipo de conjunto de dados. | Especifique um dos tipos com suporte no Data Factory (por exemplo: AzureBlob, AzureSqlTable). <br/><br/>Para obter detalhes, consulte [Tipos de conjunto de dados](#dataset-types). | Sim | ND
-estrutura | Esquema do conjunto de dados. | Para obter detalhes, consulte [Estrutura de conjunto de dados](#dataset-structure). | Não | ND
-typeProperties | As propriedades de tipo são diferentes para cada tipo (por exemplo: Blob do Azure, tabela do SQL Azure). Para obter detalhes sobre os tipos com suporte e suas propriedades, consulte [Tipo de conjunto de dados](#dataset-type). | Sim | ND
+Propriedade | Descrição | Obrigatório |
+-------- | ----------- | -------- |
+name | Nome do conjunto de dados. Consulte [Azure Data Factory – Regras de nomenclatura](naming-rules.md). |  Sim |
+type | Tipo de conjunto de dados. Especifique um dos tipos com suporte no Data Factory (por exemplo: AzureBlob, AzureSqlTable). <br/><br/>Para obter detalhes, consulte [Tipos de conjunto de dados](#dataset-types). | Sim |
+estrutura | Esquema do conjunto de dados. Para obter detalhes, consulte [Estrutura de conjunto de dados](#dataset-structure). | Não |
+typeProperties | As propriedades de tipo são diferentes para cada tipo (por exemplo: Blob do Azure, tabela do SQL Azure). Para obter detalhes sobre os tipos com suporte e suas propriedades, consulte [Tipo de conjunto de dados](#dataset-type). | Sim |
 
 ## <a name="dataset-example"></a>Exemplo de conjunto de dados
 No exemplo a seguir, o conjunto de dados representa uma tabela chamada MyTable em um banco de dados SQL.
@@ -104,28 +154,6 @@ Observe os seguintes pontos:
 - O tipo foi definido como AzureSqlTable.
 - A propriedade de tipo tableName (específica do tipo AzureSqlTable) foi definida como MyTable.
 - linkedServiceName se refere a um serviço vinculado do tipo AzureSqlDatabase, que é definido no seguinte trecho de JSON.
-
-## <a name="linked-service-example"></a>Exemplo de serviço vinculado
-AzureSqlLinkedService é definido da seguinte maneira:
-
-```json
-{
-    "name": "AzureSqlLinkedService",
-    "properties": {
-        "type": "AzureSqlDatabase",
-        "description": "",
-        "typeProperties": {
-            "connectionString": "Data Source=tcp:<servername>.database.windows.net,1433;Initial Catalog=<databasename>;User ID=<username>@<servername>;Password=<password>;Integrated Security=False;Encrypt=True;Connect Timeout=30"
-        }
-    }
-}
-```
-No trecho de JSON anterior:
-
-- **type** foi definido como AzureSqlDatabase.
-- A propriedade de tipo **connectionString** especifica informações para se conectar a um banco de dados SQL.
-
-Como você pode ver, o serviço vinculado define como se conectar a um banco de dados SQL. O conjunto de dados define qual tabela é usada como uma entrada e saída para a atividade em um pipeline.
 
 ## <a name="dataset-type"></a>Tipo de conjunto de dados
 Há muitos tipos diferentes de conjuntos de dados, dependendo do armazenamento de dados que você usa. Consulte a tabela a seguir para obter uma lista de armazenamentos de dados com suporte pelo Data Factory. Clique em um armazenamento de dados para saber como criar um serviço vinculado e um conjunto de dados para esse armazenamento de dados.

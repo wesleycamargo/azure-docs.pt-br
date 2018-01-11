@@ -15,19 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: markgal;trinadhk;
-ms.openlocfilehash: b659d5dc894afd2beef529c6b4f736e888b4540e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a3b8bb53c467ad6f595a52e2a2e8f805a8f062f6
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>Usar o portal do Azure para restaurar máquinas virtuais
-> [!div class="op_single_selector"]
-> * [Restaurar VMs no portal clássico](backup-azure-restore-vms.md)
-> * [Restaurar VMs no portal do Azure](backup-azure-arm-restore-vms.md)
->
->
-
 Proteja seus dados criando instantâneos de dados em intervalos definidos. Esses instantâneos são conhecidos como pontos de recuperação e são armazenados nos cofres dos Serviços de Recuperação. Se for necessário reparar ou recriar uma VM (máquina virtual), você poderá restaurá-la de qualquer um dos pontos de recuperação salvos. Quando restaura um ponto de recuperação, você pode:
 
 * Criar uma nova VM, que é uma representação pontual da VM copiada em backup.

@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: f4461b5c10ea4e4cce4c13cb590dd398c37cb7b6
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: e57ad43cc9a82e3944e93c6500ad5740818d10cc
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="explore-the-capabilities-of-the-remote-monitoring-preconfigured-solution"></a>Explorar os recursos da solução de monitoramento remoto pré-configurada
 
@@ -43,7 +43,7 @@ Se você ainda não implantou a solução de monitoramento remoto, conclua o tut
 Você pode usar a implantação de IoT de exemplo da Contoso para compreender os cenários básicos que a solução de monitoramento remoto fornece para uso imediato. Esses cenários são baseados em implantações de IoT reais. Provavelmente, você vai optar por personalizar a solução de monitoramento remoto para atender aos seus requisitos específicos, mas o exemplo da Contoso ajuda a aprender os conceitos básicos.
 
 > [!NOTE]
-> Se você tiver usado o CLI para implantar a solução pré-configurada, o arquivo `deployment-{your deployment name}-output.json` conterá informações sobre a implantação, como a URL para acessar o exemplo implantado.
+> Se você usou o CLI para implantar a solução pré-configurada, o arquivo `deployment-{your deployment name}-output.json` contém informações sobre implantação, como a URL para acessar a amostra implantada.
 
 O exemplo da Contoso provisiona um conjunto de dispositivos simulados e as regras que agem sobre eles. Depois de compreender os cenários básicos, você poderá continuar explorando mais os recursos da solução em [Perform advanced device monitoring using the remote monitoring solution](iot-suite-remote-monitoring-monitor.md) (Executar o monitoramento de dispositivos avançado usando a solução de monitoramento remoto).
 
@@ -101,11 +101,11 @@ Como operador, você vê no painel que há um alarme relacionado à pressão de 
 
 1. Feche **Detalhes do dispositivo**.
 
-1. Para navegar até a página **Manutenção**, clique em **...** na coluna **Explorar Alarme** ao lado do alarme na grade de alarme.
+1. Para navegar até a página de **Manutenção**, escolha **Manutenção** no menu de navegação.
 
 Na página **Manutenção**, você pode exibir os detalhes da regra que disparou o alarme de pressão do Resfriador.
 
-1. Você pode ver o número de vezes que o alarme foi disparado, as confirmações e os alarmes abertos e fechados:
+1. A lista de notificações mostra o número de vezes que o alarme foi disparado, as confirmações e os alarmes abertos e fechados:
 
     ![A página manutenção mostra a lista de alarmes que foram disparados](media/iot-suite-remote-monitoring-explore/maintenancealarmlist.png)
 
@@ -123,9 +123,9 @@ Você identificou o problema que disparou o alarme e o dispositivo associado. Co
 
     ![Selecionar o dispositivo e agendar uma ação](media/iot-suite-remote-monitoring-explore/maintenanceschedule.png)
 
-1. Para exibir o status do trabalho, retorne à página **Manutenção** e exiba a lista de trabalhos na exibição **Status do Sistema**. Você pode ver que o trabalho foi executado para liberar a pressão da válvula no Resfriador:
+1. Para exibir o status do trabalho, retorne à página **Manutenção** e exiba a lista de trabalhos na exibição **Trabalhos**. Você pode ver que o trabalho foi executado para liberar a pressão da válvula no Resfriador:
 
-    ![O status dos trabalhos no Status do Sistema](media/iot-suite-remote-monitoring-explore/maintenancerunningjob.png)
+    ![O status dos trabalhos no modo de exibição de Trabalhos](media/iot-suite-remote-monitoring-explore/maintenancerunningjob.png)
 
 Por fim, confirme se os valores de telemetria do Resfriador voltaram ao normal.
 
@@ -167,13 +167,13 @@ Para executar as tarefas de gerenciamento de dispositivo necessárias, use a pá
 
 Você pode usar a página **Manutenção** para acompanhar o trabalho conforme ele é executado.
 
-1. Para exibir a lista de trabalhos, navegue até a página **Manutenção** e clique em **Status do sistema**.
+1. Para exibir a lista de trabalhos, navegue até a página **Manutenção** e clique em **Trabalhos**.
 
 1. Localize o evento relacionado ao trabalho que você criou. Verifique se que o processo de atualização de firmware foi iniciado corretamente.
 
-Você pode criar um filtro para verificar a atualização da versão de firmware corretamente.
+Você pode criar um filtro para verificar se a versão de firmware atualizou corretamente.
 
-1. Para criar um filtro, navegue até a página **Dispositivos** e selecione **Gerenciar**:
+1. Para criar um filtro, navegue até a página **Dispositivos** e selecione **Gerenciar filtros**:
 
     ![Gerenciar filtros de dispositivo](media/iot-suite-remote-monitoring-explore/devicesmanagefilters.png)
 
@@ -202,7 +202,7 @@ Você pode criar nomes de marca a serem usados com os dispositivos.
 
     ![Selecionar dispositivos de protótipo e caminhão](media/iot-suite-remote-monitoring-explore/devicesmultiselect.png)
 
-1. Escolha **Marca** e, em seguida, crie uma nova marca de cadeia de caracteres chamada **FieldService** com o valor **ConnectedVehicle**. Escolha um nome para o trabalho. Em seguida, clique em **Aplicar**:
+1. Escolha **Marca** e, em seguida, crie uma nova marca de texto chamada **FieldService** com o valor **ConnectedVehicle**. Escolha um nome para o trabalho. Em seguida, clique em **Aplicar**:
 
     ![Adicionar marcas aos dispositivos de protótipo e caminhão](media/iot-suite-remote-monitoring-explore/devicesaddtag.png)
 
@@ -210,7 +210,7 @@ Você pode criar nomes de marca a serem usados com os dispositivos.
 
     ![Selecionar os dispositivos Resfriador, Elevador e Mecanismo](media/iot-suite-remote-monitoring-explore/devicesmultiselect2.png)
 
-1. Escolha **Marca** e, em seguida, criar uma nova marca chamada **FieldService** com o valor **SmartBuilding**. Escolha um nome para o trabalho. Em seguida, clique em **Salvar**:
+1. Escolha **Marca** e, em seguida, criar uma nova marca de texto chamada **FieldService** com o valor **SmartBuilding**. Escolha um nome para o trabalho. Em seguida, clique em **Salvar**:
 
     ![Adicionar marcas aos dispositivos resfriador, mecanismo e elevador](media/iot-suite-remote-monitoring-explore/devicesaddtag2.png)
 

@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2017
+ms.date: 12/20/2017
 ms.author: sethm;clemensv
-ms.openlocfilehash: ffab5b058420d61be17d386a46a29391d5728859
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: bfe7b95236c1a5336c1bb3a93d0eb5ca880adabf
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="event-hubs-authentication-and-security-model-overview"></a>Visão geral do modelo de autenticação e segurança dos Hubs de Eventos
 
@@ -110,11 +110,11 @@ Na ausência de autenticação SAS para grupos de consumidores individuais, voc�
 
 Para saber mais sobre os Hubs de Eventos, veja os tópicos a seguir:
 
-* [Visão Geral dos Hubs de Eventos]
+* [Visão geral de Hubs de Evento]
 * [Visão Geral de Assinatura de Acesso Compartilhado]
 * [Aplicativos de exemplo que usam Hub de Eventos]
 
-[Visão Geral dos Hubs de Eventos]: event-hubs-what-is-event-hubs.md
+[Visão geral de Hubs de Evento]: event-hubs-what-is-event-hubs.md
 [Aplicativos de exemplo que usam Hub de Eventos]: https://github.com/Azure/azure-event-hubs/tree/master/samples
 [Visão Geral de Assinatura de Acesso Compartilhado]: ../service-bus-messaging/service-bus-sas.md
 

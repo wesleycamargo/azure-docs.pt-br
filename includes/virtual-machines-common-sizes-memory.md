@@ -1,7 +1,7 @@
 
 Os tamanhos de VM otimizados para memória oferecem uma taxa de memória alta para CPU que são ideais para servidores de banco de dados relacionais, caches médio a grande e análises in-memory. Este artigo fornece informações sobre o número de vCPUs, discos de dados e NICs, bem como a taxa de transferência de armazenamento e largura de banda de rede para cada tamanho neste agrupamento. 
 
-* A série M oferece a contagem de vCPU mais alta (até 128 vCPUs) e a memória maior (até 2,0 TiB) de qualquer máquina virtual na nuvem.  Ele é ideal para bancos de dados muito grandes ou outros aplicativos que se beneficiam de altas contagens de vCPU e de grandes quantidades de memória.
+* A série M oferece a contagem de vCPU mais alta (até 128 vCPUs) e a memória maior (até 3,8 TiB) de qualquer máquina virtual na nuvem.  Ele é ideal para bancos de dados muito grandes ou outros aplicativos que se beneficiam de altas contagens de vCPU e de grandes quantidades de memória.
 
 * As séries Dv2, D e G, bem como as equivalentes DS/GS são ideais para aplicativos que exigem CPUs mais rápidas, melhor desempenho de armazenamento temporário ou que têm maior demanda de memória.  Elas oferecem uma combinação poderosa para vários aplicativos de nível empresarial.
 
@@ -10,7 +10,7 @@ Os tamanhos de VM otimizados para memória oferecem uma taxa de memória alta pa
 * A série Dv2, uma continuação da série D original, apresenta uma CPU mais potente. A CPU da série Dv2 é aproximadamente 35% mais rápida do que a CPU da série D. Ela se baseia na última geração do processador Intel Xeon® E5-2673 v3 (Haswell) de 2.4 GHz e, com a Intel Turbo Boost Technology 2.0, pode chegar a até 3.1 GHz. A série Dv2 tem as mesmas configurações de memória e disco que a série D.
 
 
-## <a name="esv3-series"></a>Esv3-series*
+## <a name="esv3-series-sup1sup"></a>Esv3-series <sup>1</sup>
 
 ACU: 160-190
 
@@ -23,12 +23,12 @@ As instâncias ESv3-series são baseadas no processador Intel XEON ® E5-2673 v4
 | Standard_E4s_v3  | 4      | 32          | 64             | 8              | 8,000 / 64 (100)                                                      | 6.400 / 96                                | 2 / moderada                                   |
 | Standard_E8s_v3  | 8      | 64          | 128            | 16             | 16,000 / 128 (200)                                                    | 12.800 / 192                              | 4 / alta                                       |
 | Standard_E16s_v3 | 16     | 128         | 256            | 32             | 32,000 / 256 (400)                                                    | 25.600 / 384                              | 8 / alta                                       |
-| Standard_E32s_v3 | 32     | 256         | 512            | 32             | 64,000 / 512 (800)                                                    | 51.200 / 768                              | 8 / extremamente alta                             |
-| Standard_E64s_v3 | 64     | 432         | 864            | 32             | 128,000/1024 (1600)                                                   | 80,000 / 1200                             | 8 / extremamente alta                             |
-*A tecnologia Intel® Hyper-Threading da VM Esv3-series
+| Standard_E32s_v3 <sup>2</sup> | 32     | 256         | 512            | 32             | 64,000 / 512 (800)                                                    | 51.200 / 768                              | 8 / extremamente alta                             |
+| Standard_E64s_v3 <sup>2</sup> | 64     | 432         | 864            | 32             | 128,000/1024 (1600)                                                   | 80,000 / 1200                             | 8 / extremamente alta                             |
 
+<sup>1</sup>A tecnologia Intel® Hyper-Threading da VM Esv3-series <sup>2</sup>Tamanhos limitados de núcleo disponíveis 
 
-## <a name="ev3-series"></a>Ev3-series*
+## <a name="ev3-series-sup1sup"></a>Ev3-series <sup>1</sup>
 
 ACU: 160 - 190 
 
@@ -45,9 +45,10 @@ O armazenamento do disco de dados é faturado separadamente das máquinas virtua
 | Standard_E16_v3 | 16        | 128         | 400            | 32             | 24000/375/187                                            | 8 / alta                     |
 | Standard_E32_v3 | 32        | 256         | 800            | 32             | 48000/750/375                                            | 8 / extremamente alta           |
 | Standard_E64_v3 | 64        | 432         | 1600           | 32             | 96000/1000/500                                           | 8 / extremamente alta           |
-*A tecnologia Intel® Hyper-Threading da VM Ev3-series
 
-## <a name="m-series"></a>Série M*
+<sup>1</sup> A tecnologia Intel® Hyper-Threading da VM Ev3-series
+
+## <a name="m-series-sup1sup"></a>M-series <sup>1</sup>
 
 ACU: 160 a 180
 
@@ -55,16 +56,18 @@ ACU: 160 a 180
 |-----------------|------|-------------|----------------|----------------|-----------------------------------------------------------------------|-------------------------------------------|------------------------------|
 | Standard_M64s  | 64   | 1024        | 2.048           | 64             | 80,000 / 800 (6348)       | 40.000 / 1.000                            | 8 / 16000          |
 | Standard_M64ms  | 64   | 1792        | 2.048           | 64             | 80,000 / 800 (6348)       | 40.000 / 1.000                            | 8 / 16000          |
-| Standard_M128s** | 128  | 2.048        | 4096           | 64             | 160,000 / 1,600 (12,696) | 80.000 / 2.000                            | 8 / 25000          |
+| Standard_M128s <sup>2.3</sup> | 128  | 2.048        | 4096           | 64             | 160,000 / 1,600 (12,696) | 80.000 / 2.000                            | 8 / 25000          |
+| Standard_M128ms <sup>2. 3</sup> | 128  | 3800        | 4096           | 64             | 160,000 / 1,600 (12,696) | 80.000 / 2.000                            | 8 / 25000          |
 
+<sup>1</sup> A tecnologia Intel® Hyper-Threading da VM série M
 
-*A tecnologia Intel® Hyper-Threading da VM série M
+<sup>2</sup> Mais de 64 vCPUs exigem um destes sistemas operacionais convidados com suporte: Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2 e Red Hat Enterprise Linux ou CentOS 7.3 com LIS 4.2.1 
 
-**Mais de 64 vCPUs exigem um destes sistemas operacionais convidados com suporte: Windows Server 2016, Ubuntu 16.04 LTS, SLES 12 SP2 e Red Hat Enterprise Linux ou CentOS 7.3 com LIS 4.2.1 
+<sup>3</sup> Tamanhos limitados de núcleos disponíveis.
 
 <br>
 
-## <a name="gs-series"></a>Série GS*
+## <a name="gs-series-sup1sup"></a>Série GS <sup>1</sup>
 
 ACU: 180 - 240
 
@@ -73,13 +76,14 @@ ACU: 180 - 240
 | Standard_GS1 |2 |28 |56 |8 |10.000 / 100 (264) |5.000 / 125 |2 / 2000 |
 | Standard_GS2 |4 |56 |112 |16 |20.000 / 200 (528) |10.000 / 250 |2 / 4000 |
 | Standard_GS3 |8 |112 |224 |32 |40.000 / 400 (1.056) |20.000 / 500 |4 / 8000 |
-| Standard_GS4 |16 |224 |448 |64 |80.000 / 800 (2.112) |40.000 / 1.000 |8 / 6000 - 16000 &#8224; |
-| Standard_GS5** |32 |448 |896 |64 |160.000 / 1.600 (4.224) |80.000 / 2.000 |8 / 20000 |
+| Standard_GS4 <sup>3</sup> |16 |224 |448 |64 |80.000 / 800 (2.112) |40.000 / 1.000 |8 / 6000 - 16000 &#8224; |
+| Standard_GS5 <sup>2, 3</sup> |32 |448 |896 |64 |160.000 / 1.600 (4.224) |80.000 / 2.000 |8 / 20000 |
 
-*A taxa de transferência máxima possível do disco (IOPS ou MBps) com uma VM da série GS pode ser limitada pelo número, tamanho e distribuição dos discos anexados. Para obter detalhes, confira [Armazenamento Premium: armazenamento de alto desempenho para cargas de trabalho das máquinas virtuais do Azure](../articles/virtual-machines/windows/premium-storage.md). 
+<sup>1</sup> A taxa de transferência máxima possível do disco (IOPS ou MBps) com uma VM da série GS pode ser limitada pelo número, tamanho e distribuição dos discos anexados. Para obter detalhes, confira [Armazenamento Premium: armazenamento de alto desempenho para cargas de trabalho das máquinas virtuais do Azure](../articles/virtual-machines/windows/premium-storage.md). 
 
-**A instância é isolada em hardware dedicado a um único cliente.
+<sup>2</sup> A instância é isolada em hardware dedicado a um único cliente.
 
+<sup>3</sup> Tamanhos limitados de núcleos disponíveis 
 
 <br>
 
@@ -93,13 +97,13 @@ ACU: 180 - 240
 | Standard_G2  | 4         | 56          | 768            | 12000 / 187 / 93                                         | 16 / 16 x 500                       | 2 / 4000                     |
 | Standard_G3  | 8         | 112         | 1.536          | 24000 / 375 / 187                                        | 32 / 32 x 500                     | 4 / 8000                |
 | Standard_G4  | 16        | 224         | 3.072          | 48000 / 750 / 375                                        | 64 / 64 x 500                     | 8 / 6000 - 16000 &#8224;          |
-| Standard_G5* | 32        | 448         | 6.144          | 96000 / 1500 / 750                                       | 64 / 64 x 500                     | 8 / 20000           |
+| Standard_G5 <sup>1</sup> | 32        | 448         | 6.144          | 96000 / 1500 / 750                                       | 64 / 64 x 500                     | 8 / 20000           |
 
-*A instância é isolada em hardware dedicado a um único cliente.
+<sup>1</sup> A instância é isolada em hardware dedicado a um único cliente.
 <br>
 
 
-## <a name="dsv2-series"></a>Série DSv2*
+## <a name="dsv2-series-sup1sup"></a>Série DSv2 <sup>1</sup>
 
 ACU: 210 - 250
 
@@ -109,13 +113,13 @@ ACU: 210 - 250
 | Standard_DS12_v2 |4 |28 |56 |16 |16.000 / 128 (144) |12.800 / 192 |4 / 3000 |
 | Standard_DS13_v2 |8 |56 |112 |32 |32.000 / 256 (288) |25.600 / 384 |8 / 6000 |
 | Standard_DS14_v2 |16 |112 |224 |64 |64.000 / 512 (576) |51.200 / 768 |8 / 6000 - 12000 &#8224; |
-| Standard_DS15_v2** |20 |140 |280 |64 |80.000 / 640 (720) |64.000 / 960 |8 / 20000***
+| Standard_DS15_v2 <sup>2</sup> |20 |140 |280 |64 |80.000 / 640 (720) |64.000 / 960 |8 / 20000 <sup>3</sup>
 
-*A taxa de transferência máxima possível do disco (IOPS ou MBps) com uma VM da série DSv2 pode ser limitada pelo número, tamanho e distribuição dos discos anexados.  Para obter detalhes, confira [Armazenamento Premium: armazenamento de alto desempenho para cargas de trabalho das máquinas virtuais do Azure](../articles/virtual-machines/windows/premium-storage.md).
+<sup>1</sup> A taxa de transferência máxima possível do disco (IOPS ou MBps) com uma VM da série DSv2 pode ser limitada pelo número, tamanho e distribuição dos discos anexados.  Para obter detalhes, confira [Armazenamento Premium: armazenamento de alto desempenho para cargas de trabalho das máquinas virtuais do Azure](../articles/virtual-machines/windows/premium-storage.md).
 
-**A instância é um nó isolado que garante que sua VM é a única VM em nosso nó Intel Haswell.
+<sup>2</sup> A instância é um nó isolado que garante que sua VM é a única VM em nosso nó Intel Haswell.
 
-***25000 Mbps com Rede Acelerada.
+<sup>3</sup> 25000 Mbps com Rede Acelerada.
 
 <br>
 
@@ -129,15 +133,15 @@ ACU: 210 - 250
 | Standard_D12_v2   | 4         | 28          | 200            | 12000 / 187 / 93                                         | 16 / 16 x 500                         | 4 / 3000                     |
 | Standard_D13_v2   | 8         | 56          | 400            | 24000 / 375 / 187                                        | 32 / 32 x 500                       | 8 / 6000                     |
 | Standard_D14_v2   | 16        | 112         | 800            | 48000 / 750 / 375                                        | 64 / 64x500                       | 8 / 6000 - 12000 &#8224;          |
-| Standard_D15_v2* | 20        | 140         | 1.000          | 60000 / 937 / 468                                        | 64 / 64x500                       | 8 / 20000** |
+| Standard_D15_v2 <sup>1</sup> | 20        | 140         | 1.000          | 60000 / 937 / 468                                        | 64 / 64x500                       | 8 / 20000 <sup>2</sup> |
 
-*A instância é um nó isolado que garante que sua VM é a única VM em nosso nó Intel Haswell.
+<sup>1</sup> A instância é um nó isolado que garante que sua VM é a única VM em nosso nó Intel Haswell.
 
-**25000 Mbps com Rede Acelerada.
+<sup>2</sup> 25000 Mbps com Rede Acelerada.
 
 <br>
 
-## <a name="ds-series"></a>Série DS*
+## <a name="ds-series-sup1sup"></a>Série DS <sup>1</sup>
 
 ACU: 160
 
@@ -148,7 +152,7 @@ ACU: 160
 | Standard_DS13 |8 |56 |112 |32 |32.000 / 256 (288) |25.600 / 256 |8 / 4000 |
 | Standard_DS14 |16 |112 |224 |64 |64.000 / 512 (576) |51.200 / 512 |8 / 6000 - 8000 &#8224; |
 
-*A taxa de transferência máxima possível do disco (IOPS ou MBps) com uma VM da série DS pode ser limitada pelo número, tamanho e distribuição dos discos anexados.  Para obter detalhes, confira [Armazenamento Premium: armazenamento de alto desempenho para cargas de trabalho das máquinas virtuais do Azure](../articles/virtual-machines/windows/premium-storage.md).
+<sup>1</sup> A taxa de transferência máxima possível do disco (IOPS ou MBps) com uma VM da série DS pode ser limitada pelo número, tamanho e distribuição dos discos anexados.  Para obter detalhes, confira [Armazenamento Premium: armazenamento de alto desempenho para cargas de trabalho das máquinas virtuais do Azure](../articles/virtual-machines/windows/premium-storage.md).
 
 
 ## <a name="d-series"></a>Série D

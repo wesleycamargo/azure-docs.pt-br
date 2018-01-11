@@ -7,18 +7,20 @@ author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.reviewer: veyalla
-ms.date: 11/17/2017
+ms.date: 12/06/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: d3ff260b4ac238ce7aaa2a63538dede7bd21a19c
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: cc34e5cecafe485608ba428395b690ba57f71e9c
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="install-the-iot-edge-runtime-on-windows-iot-core---preview"></a>Instalar o tempo de execução do Azure IoT Edge em um dispositivo Windows IoT Core - versão prévia
 
-O tempo de execução do Azure IoT Edge pode executar até mesmo em pequenos dispositivos de computador de placa única (SBC) que são muito predominantes do setor de IoT. Este artigo o orienta por meio do provisionamento de tempo de execução em um [MinnowBoard Turbot][lnk-minnow] executando o Windows IoT Core de quadro de desenvolvimento.
+Azure IoT Edge e [Windows IoT Core](https://docs.microsoft.com/windows/iot-core/) trabalham juntos para permitir computação de borda até em dispositivos pequenos. O tempo de execução do Azure IoT Edge pode executar até mesmo em pequenos dispositivos de computador de placa única (SBC) que são muito predominantes do setor de IoT. 
+
+Este artigo o orienta por meio do provisionamento de tempo de execução em um [MinnowBoard Turbot][lnk-minnow] executando o Windows IoT Core de quadro de desenvolvimento. O Windows IoT Core oferece suporte ao Azure IoT Edge somente em processadores Intel baseados em x64. 
 
 ## <a name="install-the-runtime"></a>Instalar o tempo de execução
 

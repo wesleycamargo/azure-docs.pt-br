@@ -23,8 +23,8 @@
       href: container-instances-tutorial-deploy-app.md
 - name: Conceitos
   items:
-    - name: Regiões e disponibilidade
-      href: container-instances-region-availability.md
+    - name: Cotas e limites regionais
+      href: container-instances-quotas.md
     - name: Relação com orquestradores
       href: container-instances-orchestrator-relationship.md
     - name: Grupos de contêineres
@@ -71,5 +71,5 @@
       href: 'https://feedback.azure.com/forums/602224-azure-container-instances'
     - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-container-instances'
-    - name: Vídeos
+    - name: vídeos
       href: 'https://azure.microsoft.com/resources/videos/index/?services=container-instances&sort=newest'

@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 05/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: 1e7b5d4409b3e53db9313cf353894d5818837588
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 4cbc423555abfe6beee2c89d9df0760ce7c2fd6e
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API do Application Insights para métricas e eventos personalizados
 
@@ -522,7 +522,7 @@ Se a [amostragem](app-insights-sampling.md) estiver em funcionamento, a propried
 exceptions | summarize sum(itemCount) by type
 ```
 
-A maioria das informações de pilha importante já foi extraída em variáveis separadas, mas você pode extrair e separar a estrutura `details` para obter mais. Como essa estrutura é dinâmica, você deverá converter o resultado para o tipo esperado. Por exemplo:
+A maioria das informações de pilha importante já foi extraída em variáveis separadas, mas você pode extrair e separar a estrutura `details` para obter mais. Como essa estrutura é dinâmica, você deverá converter o resultado para o tipo esperado. Por exemplo: 
 
 ```AIQL
 exceptions
@@ -555,7 +555,7 @@ Você pode pesquisar no conteúdo da mensagem, mas (diferentemente de valores de
 O limite de tamanho de `message` é muito maior do que o limite de propriedades.
 Uma vantagem de TrackTrace é que você pode colocar dados relativamente compridos na mensagem. Por exemplo, você pode codificar dados POST.  
 
-Além disso, você pode adicionar um nível de severidade à mensagem. E, como ocorre com outros casos de telemetria, você pode adicionar valores de propriedade para ajudar a filtrar ou a pesquisar diferentes conjuntos de rastreamentos. Por exemplo:
+Além disso, você pode adicionar um nível de severidade à mensagem. E, como ocorre com outros casos de telemetria, você pode adicionar valores de propriedade para ajudar a filtrar ou a pesquisar diferentes conjuntos de rastreamentos. Por exemplo: 
 
     var telemetry = new Microsoft.ApplicationInsights.TelemetryClient();
     telemetry.TrackTrace("Slow database response",
@@ -688,7 +688,7 @@ Você pode anexar propriedades e medidas para seus eventos (e também para métr
 
 Há um limite de 8192 para o tamanho da cadeia de caracteres. (Se você deseja enviar grandes quantidades de dados, use o parâmetro de mensagem de [TrackTrace](#track-trace).)
 
-*Métricas* são valores numéricos que podem ser apresentados graficamente. Por exemplo, convém verificar se há um aumento gradual nas pontuações que seus jogadores atingem. Os gráficos podem ser segmentados pelas propriedades enviadas com o evento para que você possa obter gráficos separado ou empilhados para jogos diferentes.
+*Métricas* são valores numéricos que podem ser apresentados graficamente. Por exemplo, convém verificar se há um aumento gradual nas pontuações que seus jogadores atingem. Os grafos podem ser segmentados pelas propriedades enviadas com o evento para que você possa obter grafos separado ou empilhados para jogos diferentes.
 
 Para que os valores de métrica sejam exibidos corretamente, eles devem ser maiores ou iguais a 0.
 
@@ -900,7 +900,7 @@ Chamadas de telemetria individuais podem substituir os valores padrão em seus d
 
 [Adicione propriedades](app-insights-api-filtering-sampling.md#add-properties) à telemetria implementando `ITelemetryInitializer`. Por exemplo, é possível adicionar números de versão ou valores que são calculados de outras propriedades.
 
-A [filtragem](app-insights-api-filtering-sampling.md#filtering) pode modificar ou descartar a telemetria antes que ela seja enviada do SDK pela implementação de `ITelemetryProcesor`. Você controla o que é enviado ou descartado, mas precisa levar em conta o efeito em suas métricas. Dependendo de como você descartar os itens, você poderá perder a capacidade de navegar entre itens relacionados.
+A [filtragem](app-insights-api-filtering-sampling.md#filtering) pode modificar ou descartar a telemetria antes que ela seja enviada do SDK pela implementação de `ITelemetryProcessor`. Você controla o que é enviado ou descartado, mas precisa levar em conta o efeito em suas métricas. Dependendo de como você descartar os itens, você poderá perder a capacidade de navegar entre itens relacionados.
 
 A [amostragem](app-insights-api-filtering-sampling.md) é uma solução em pacote para reduzir o volume de dados enviados de seu aplicativo ao portal. Isso é feito sem afetar as métricas exibidas. E também sem afetar sua capacidade de diagnosticar problemas ao navegar entre itens relacionados, como exceções, solicitações e exibições de página.
 
@@ -999,7 +999,7 @@ Em páginas da Web, convém defini-la com base no estado do servidor Web, em vez
 
 
 ## <a name="telemetrycontext"></a>TelemetryContext
-TelemetryClient tem uma propriedade de Contexto, que contém valores que serão enviadas com todos os dados de telemetria. Normalmente, eles são definidos pelos módulos padrão de telemetria, mas você pode também defini-las por conta própria. Por exemplo:
+TelemetryClient tem uma propriedade de Contexto, que contém valores que serão enviadas com todos os dados de telemetria. Normalmente, eles são definidos pelos módulos padrão de telemetria, mas você pode também defini-las por conta própria. Por exemplo: 
 
     telemetry.Context.Operation.Name = "MyOperationName";
 
@@ -1017,7 +1017,7 @@ Se você definir qualquer um desses valores por conta própria, considere remove
 * **Sessão**: a sessão do usuário. A ID é definida para um valor gerado, que é alterado quando o usuário ficar inativo por um tempo.
 * **Usuário**: informações do usuário.
 
-## <a name="limits"></a>Limites
+## <a name="limits"></a>limites
 [!INCLUDE [application-insights-limits](../../includes/application-insights-limits.md)]
 
 Para evitar atingir o limite de taxa de dados, use [amostragem](app-insights-sampling.md).

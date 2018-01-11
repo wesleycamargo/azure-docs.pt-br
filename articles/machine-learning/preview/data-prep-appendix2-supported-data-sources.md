@@ -5,18 +5,18 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: 458338cd23c704c40c512dd96b22a4790f27d017
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 32707a8089abef6caebedea168f5891161b1b480
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="supported-data-sources-for-azure-machine-learning-data-preparation"></a>Fontes de dados com suporte para preparação de dados de do Azure Machine Learning 
 Este artigo descreve as fontes de dados com suporte no momento para preparação de dados do Azure Machine Learning.
@@ -32,7 +32,7 @@ Leia no SQL Server local ou no banco de dados SQL do Azure.
 - Endereço do servidor
 - Servidor de confiança (mesmo quando o certificado no servidor não é válido. Use com cuidado)
 - Tipo de autenticação (Windows, servidor)
-- Nome de usuário
+- Nome do Usuário
 - Senha
 - Banco de dados ao qual se conectar
 - Consulta SQL
@@ -111,6 +111,6 @@ Um disco rígido local ou local de armazenamento de rede mapeado.
 ### <a name="sql-server"></a>SQL Server
 Servidor SQL local ou banco de dados SQL do Azure.
 
-### <a name="azure-blob-storage"></a>Armazenamento do Blob do Azure
+### <a name="azure-blob-storage"></a>Armazenamento de Blobs do Azure
 O armazenamento de Blobs do Azure requer uma assinatura do Azure.
 

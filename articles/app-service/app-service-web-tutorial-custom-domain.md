@@ -16,11 +16,11 @@ ms.topic: tutorial
 ms.date: 06/23/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 1a0b54e75bd6356ba7ba351d51d5f4a59bd64c75
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 9b35572b3275b5a2c5e89adf4890a2659d09626e
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="map-an-existing-custom-dns-name-to-azure-web-apps"></a>Mapear um nome DNS personalizado existente para aplicativos Web do Azure
 
@@ -43,7 +43,7 @@ Você pode usar um **registro CNAME** ou um **registro A** para mapear um nome D
 
 Para migrar um site ativo e seu nome de domínio DNS para o Serviço de Aplicativo, consulte [Migrar um nome DNS ativo para o Serviço de Aplicativo do Azure](app-service-custom-domain-name-migrate.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para concluir este tutorial:
 
@@ -58,6 +58,8 @@ Para concluir este tutorial:
 ## <a name="prepare-the-app"></a>Preparar o aplicativo
 
 Para mapear um nome DNS personalizado para um aplicativo Web, o [plano do Serviço de Aplicativo](https://azure.microsoft.com/pricing/details/app-service/) do aplicativo Web deve ser uma camada paga (**Compartilhado**, **Básico**, **Standard** ou **Premium**). Nesta etapa, você verifica se o aplicativo do Serviço de Aplicativo está no tipo de preço com suporte.
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 ### <a name="sign-in-to-azure"></a>Entrar no Azure
 
@@ -324,7 +326,7 @@ Para obter mais informações, consulte [Atribuir um domínio personalizado para
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste tutorial, você aprendeu a:
+Neste tutorial, você aprendeu como:
 
 > [!div class="checklist"]
 > * Mapear um subdomínio usando um registro CNAME

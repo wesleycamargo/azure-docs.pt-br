@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/14/2017
 ms.author: robinsh
-ms.openlocfilehash: 565bcba848de1c518b25ff4c55a9a47aaa45bfb4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 170c3091efc90f640792682377ed10e2eab0cab3
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="perform-azure-blob-storage-operations-with-azure-powershell"></a>Executar operações de armazenamento de Blobs do Azure com o Azure PowerShell
 
@@ -152,7 +152,7 @@ Você pode desejar copiar um blob para uma conta de armazenamento separada. Um e
 Configure uma segunda conta de armazenamento, recupere o contexto, configure um contêiner nessa conta de armazenamento e execute a cópia. Esta parte do script é quase idêntica ao script acima, exceto usando o uso da segunda conta de armazenamento, em vez da primeira.
 
 ```powershell
-#create new storage acount, get context 
+#create new storage account, get context 
 $storageAccount2Name = "blobstutorialtestcopy"
 $storageAccount2 = New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Name $storageAccount2Name `

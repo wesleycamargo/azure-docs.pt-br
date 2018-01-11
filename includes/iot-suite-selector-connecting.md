@@ -54,7 +54,7 @@ Para localizar as credenciais que o dispositivo deverá usar para conectar-se à
 
 1. Localize o grupo de recursos que contém os serviços do Azure que a solução de monitoramento remoto usa. O grupo de recursos tem o mesmo nome que a solução de monitoramento remoto provisionada.
 
-1. Navegue até o Hub IoT neste grupo de recursos. Em seguida, escolha **Device Explorer**:
+1. Navegue até o Hub IoT neste grupo de recursos. Em seguida, escolha **dispositivos IoT**:
 
     ![Gerenciador de dispositivos](media/iot-suite-selector-connecting/deviceexplorer.png)
 

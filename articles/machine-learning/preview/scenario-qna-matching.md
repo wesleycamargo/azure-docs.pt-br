@@ -6,6 +6,7 @@ documentationcenter:
 author: mezmicrosoft
 editor: mezmicrosoft
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -13,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: mez
-ms.manager: tihazen
-ms.openlocfilehash: 8edc21fb8f42ee5897c4e938045cc1f42aedb3ce
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+manager: tihazen
+ms.openlocfilehash: 33f807a4a0bbc4afd1f2fbe017f8913eccacc34b
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 #  <a name="q--a-matching-using-azure-machine-learning-workbench"></a>Correspondência de P e R usando o Azure Machine Learning Workbench
 Responder a perguntas abertas é difícil e geralmente requer esforço manual de SMEs (especialistas no assunto). Para ajudar a reduzir as demandas em SMEs internos, as empresas geralmente criam listas de Perguntas frequentes como uma forma de auxiliar os usuários. Este exemplo demonstra vários métodos de aprendizado de máquina eficazes para corresponder consultas em aberto a pares de pergunta/respostas de perguntas frequentes pré-existentes. Este exemplo demonstra um processo de desenvolvimento fácil para criar essa solução usando o Azure Machine Learning Workbench. 
@@ -38,7 +39,7 @@ As principais etapas necessárias para fornecer essa solução são as seguintes
 4. Treine modelos de classificação de texto e avalie o desempenho do modelo.
 
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Os pré-requisitos para executar este exemplo são os seguintes:
 
@@ -79,7 +80,7 @@ A combinação desses três conjuntos de dados cria pares de P e R em que uma re
 
 O esquema de dados e os links de download direto dos três conjuntos de dados podem ser encontrados na tabela a seguir:
 
-| Conjunto de dados | Campo | Tipo | Descrição
+| Conjunto de dados | Campo | type | DESCRIÇÃO
 | ----------|------------|------------|--------
 | [perguntas](https://bostondata.blob.core.windows.net/stackoverflow/orig-q.tsv.gz) | ID | Cadeia de caracteres | A ID exclusiva da pergunta (chave primária)
 |  | AnswerId | Cadeia de caracteres | A ID exclusiva da resposta por pergunta
@@ -99,7 +100,7 @@ O exemplo de correspondência de P e R é apresentado por meio de três tipos de
 
 Os arquivos neste exemplo são organizados da seguinte maneira.
 
-| Nome do Arquivo | Tipo | Descrição
+| Nome do Arquivo | type | DESCRIÇÃO
 | ----------|------------|--------
 | `Image` | Pasta | A pasta usada para salvar as imagens para o arquivo LEIAME
 | `notebooks` | Pasta | A pasta Blocos de anotações do Jupyter

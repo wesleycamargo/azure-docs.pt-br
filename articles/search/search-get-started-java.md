@@ -15,21 +15,21 @@ ms.tgt_pltfrm: na
 ms.date: 07/14/2016
 ms.author: evboyle
 ms.openlocfilehash: f6ca06a0349def97b38a1bf6d0d8f36236077e92
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
-# <a name="get-started-with-azure-search-in-java"></a>Introdução à Pesquisa do Azure em Java
+# <a name="get-started-with-azure-search-in-java"></a>Introdução ao Azure Search em Java
 > [!div class="op_single_selector"]
 > * [Portal](search-get-started-portal.md)
 > * [.NET](search-howto-dotnet-sdk.md)
 > 
 > 
 
-Aprenda a criar um aplicativo de pesquisa Java personalizado que usa a Pesquisa do Azure para sua experiência de pesquisa. O tutorial usa a [API REST do Serviço de Pesquisa do Azure](https://msdn.microsoft.com/library/dn798935.aspx) para construir os objetos e as operações usados neste exercício.
+Aprenda a criar um aplicativo de pesquisa Java personalizado que usa o Azure Search para sua experiência de pesquisa. O tutorial usa a [API REST do Serviço de Azure Search](https://msdn.microsoft.com/library/dn798935.aspx) para construir os objetos e as operações usados neste exercício.
 
-Para executar este exemplo, você deve ter um serviço de Pesquisa do Azure, no qual pode se inscrever no [Portal do Azure](https://portal.azure.com). Consulte [Criar um serviço de Pesquisa do Azure no portal](search-create-service-portal.md) para encontrar instruções passo a passo.
+Para executar este exemplo, você deve ter um serviço de Azure Search, no qual pode se inscrever no [Portal do Azure](https://portal.azure.com). Consulte [Criar um serviço de Azure Search no portal](search-create-service-portal.md) para encontrar instruções passo a passo.
 
 Para compilar e testar este exemplo, usamos o seguinte software:
 
@@ -55,16 +55,16 @@ A lista a seguir descreve os arquivos que são relevantes para este exemplo.
 * SearchServiceClient.java: lida com solicitações HTTP
 * SearchServiceHelper.java: uma classe auxiliar que fornece métodos estáticos
 * Document.Java: fornece o modelo de dados
-* config.properties: define a URL do serviço de Pesquisa e a chave de Api
+* config.properties: define a URL do serviço Search e a chave de Api
 * Pom.xml: uma dependência do Maven
 
 <a id="sub-2"></a>
 
-## <a name="find-the-service-name-and-api-key-of-your-azure-search-service"></a>Localizar o nome do serviço e a chave de api do serviço de Pesquisa do Azure
-Todas as chamadas da API REST na Pesquisa do Azure exigem que você forneça a URL do serviço e uma chave de api. 
+## <a name="find-the-service-name-and-api-key-of-your-azure-search-service"></a>Localizar o nome do serviço e a chave de api do serviço de Azure Search
+Todas as chamadas da API REST no Azure Search exigem que você forneça a URL do serviço e uma chave de api. 
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
-2. Na barra de atalhos, clique em **Serviço de Pesquisa** para listar todos os serviços da Pesquisa do Azure provisionados para sua assinatura.
+2. Na barra de atalhos, clique em **Serviço de Pesquisa** para listar todos os serviços do Azure Search provisionados para sua assinatura.
 3. Selecione o serviço que você deseja usar.
 4. No painel de serviço, você verá blocos com as informações essenciais e o ícone de chave para acessar as chaves de administrador.
    
@@ -160,11 +160,11 @@ Você também pode tentar qualquer um destes termos:
 * goose +cape
 
 ## <a name="next-steps"></a>Próximas etapas
-Este é o primeiro tutorial da Pesquisa do Azure com base em Java e no conjunto de dados do USGS. Ao longo do tempo, ampliaremos este tutorial para demonstrar outros recursos de pesquisa que talvez você queira usar em suas soluções personalizadas.
+Este é o primeiro tutorial do Azure Search com base em Java e no conjunto de dados do USGS. Ao longo do tempo, ampliaremos este tutorial para demonstrar outros recursos de pesquisa que talvez você queira usar em suas soluções personalizadas.
 
 Se você já tiver algum conhecimento sobre o Azure Search, use este exemplo como um trampolim para experimentos adicionais, talvez aumentando a [página de pesquisa](search-pagination-page-layout.md) ou implementando [navegação facetada](search-faceted-navigation.md). Você também pode melhorar a página de resultados da pesquisa adicionando contagens e documentos em lote para que os usuários possam percorrer os resultados.
 
-Ainda não conhece a Pesquisa do Azure? Recomendamos os outros tutoriais para que você compreenda o que pode criar. Visite nossa [página de documentação](https://azure.microsoft.com/documentation/services/search/) para encontrar mais recursos. Você também pode exibir os links em nossa [Lista de vídeos e Tutorial](search-video-demo-tutorial-list.md) para acessar mais informações.
+Ainda não conhece o Azure Search? Recomendamos os outros tutoriais para que você compreenda o que pode criar. Visite nossa [página de documentação](https://azure.microsoft.com/documentation/services/search/) para encontrar mais recursos. Você também pode exibir os links em nossa [Lista de vídeos e Tutorial](search-video-demo-tutorial-list.md) para acessar mais informações.
 
 <!--Image references-->
 [1]: ./media/search-get-started-java/create-search-portal-1.PNG

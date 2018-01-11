@@ -44,6 +44,7 @@
 ### [Gerenciar perfis de usuário](active-directory-users-profile-azure-portal.md)
 ### [Compartilhar contas](active-directory-sharing-accounts.md)
 ### [Atribuir usuários a funções de administrador](active-directory-users-assign-role-azure-portal.md)
+### [Restaurar um usuário excluído](active-directory-users-restore.md)
 ### [Adicionar usuários convidados de outro diretório (B2B)](active-directory-b2b-what-is-azure-ad-b2b.md)
 #### [Admins adicionando usuários B2B](active-directory-b2b-admin-add-users.md)
 #### [Trabalhos de informação adicionando usuários B2B](active-directory-b2b-iw-add-users.md)
@@ -73,7 +74,7 @@
 
 ## [Gerenciar grupos e membros](active-directory-manage-groups.md)
 ### Gerenciar grupos
-#### [Portal do Azure](active-directory-groups-create-azure-portal.md)
+#### [portal do Azure](active-directory-groups-create-azure-portal.md)
 #### [PowerShell do Azure](active-directory-accessmanagement-groups-settings-v2-cmdlets.md)
 ### [Gerenciar membros do grupo](active-directory-groups-members-azure-portal.md)
 ### [Gerenciar proprietários do grupo](active-directory-accessmanagement-managing-group-owners.md)
@@ -140,11 +141,11 @@
 ### [Requisitos de dados de SSPR](active-directory-passwords-data.md)
 ### [Relatórios de SSPR](active-directory-passwords-reporting.md)
 ### Administradores de TI: redefinir senhas
-#### [Portal do Azure](active-directory-users-reset-password-azure-portal.md)
+#### [portal do Azure](active-directory-users-reset-password-azure-portal.md)
 ### [Licença SSPR](active-directory-passwords-licensing.md)
 ### [Write-back de senha](active-directory-passwords-writeback.md)
 ### [Solucionar problemas](active-directory-passwords-troubleshoot.md)
-### [PERGUNTAS FREQUENTES](active-directory-passwords-faq.md)
+### [Perguntas frequentes](active-directory-passwords-faq.md)
 
 
 ## Gerenciar dispositivos

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
-ms.openlocfilehash: eda3b0d37f670f179804442710784e18f46bd848
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 5ff52449414a6c9796b66195c33721553220f6bc
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrar para o Armazenamento Premium usando o Azure Site Recovery
 
@@ -202,7 +202,7 @@ O Site Recovery vai criar uma instância VM cujo tipo é igual ou semelhante ou 
    * Para uma VM criada usando o modelo de implantação clássico: adicione a VM ao conjunto de disponibilidade no Portal do Azure. Para obter as etapas detalhadas, vá para [Adicionar uma máquina virtual existente ao conjunto de disponibilidade](../linux/classic/configure-availability.md#addmachine).
    * Para uma VM criada pelo modelo de implantação do Resource Manager: salve a configuração da VM e, em seguida, exclua e recrie as VMs no conjunto de disponibilidade. Para fazer isso, use o script em [Definir Conjunto de Disponibilidade de VM do Azure Resource Manager](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4). Antes de executar esse script, verifique as limitações dele e planeje o tempo de inatividade.
 
-2. **Exclua VMs e discos antigos**. Verifique se os discos Premium são consistentes com os discos de origem e se as novas VMs realizam a mesma função que as VMs de origem. No modelo de implantação do Resource Manager, exclua a VM e exclua os discos das contas de armazenamento de origem no Portal do Azure. No modelo de implantação clássico, você pode excluir a VM e os discos no portal clássico ou no Portal do Azure. Se houver um problema que não permita a exclusão do disco mesmo após excluir a VM, consulte [Solucionar erros ao excluir VHDs](../../storage/common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md).
+2. **Exclua VMs e discos antigos**. Verifique se os discos Premium são consistentes com os discos de origem e se as novas VMs realizam a mesma função que as VMs de origem. Exclua a VM e exclua os discos das contas de armazenamento de origem no Portal do Azure. Se houver um problema que não permita a exclusão do disco mesmo após excluir a VM, consulte [Solucionar erros ao excluir VHDs](../../storage/common/storage-resource-manager-cannot-delete-storage-account-container-vhd.md).
 
 3. **Limpe a infraestrutura do Azure Site Recovery**. Se o Site Recovery não for mais necessário, você poderá limpar a infraestrutura dele. Exclua itens duplicados, o servidor de configuração e a política de recuperação, então exclua o cofre do Azure Site Recovery.
 

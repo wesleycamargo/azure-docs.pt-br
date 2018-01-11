@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: f9bdc28349c540ee68b421b7643e4bed099c9fdd
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 357937aad5eb13ca87267629eb542cc43119dc0a
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-and-manage-sql-database-elastic-jobs-using-powershell-preview"></a>Criar e gerenciar trabalhos elástico do Banco de Dados SQL usando o PowerShell (visualização)
 
@@ -203,7 +203,7 @@ Abrir uma conexão ao recurso trabalhos de Banco de Dados Elástico:
 ## <a name="encrypted-credentials-within-the-elastic-database-jobs"></a>Credenciais criptografadas no recurso trabalhos de Banco de Dados Elástico
 As credenciais do banco de dados podem ser inseridas no *banco de dados de controle* dos trabalhos com a sua senha criptografada. É necessário armazenar as credenciais para habilitar os trabalhos que serão executados posteriormente (usando planos de trabalho).
 
-Criptografia funciona por meio de um certificado criado como parte do script de instalação. O script de instalação cria e carrega o certificado no Serviço de Nuvem do Azure para descriptografia das senhas criptografadas armazenadas. O Serviço de Nuvem do Azure armazena posteriormente a chave pública no *banco de dados de controle* dos trabalhos, o que permite que a interface do Portal Clássico do Azure ou a API do PowerShell criptografe uma senha fornecida sem exigir que o certificado seja instalado localmente.
+Criptografia funciona por meio de um certificado criado como parte do script de instalação. O script de instalação cria e carrega o certificado no Serviço de Nuvem do Azure para descriptografia das senhas criptografadas armazenadas. O Serviço de Nuvem do Azure armazena posteriormente a chave pública no *banco de dados de controle* dos trabalhos, o que permite que a interface do portal do Azure ou a API do PowerShell criptografe uma senha fornecida sem exigir que o certificado seja instalado localmente.
 
 As senhas das credenciais são criptografadas e protegidas contra usuários com acesso somente leitura a objetos do recurso trabalhos de Banco de Dados Elástico. Mas é possível que um usuário mal-intencionado com acesso de leitura/gravação aos objetos do recurso trabalhos de Banco de Dados Elástico extraia uma senha. As credenciais são projetadas para ser reutilizadas em execuções de trabalho. As credenciais são passadas aos bancos de dados de destino durante o estabelecimento de conexões. Atualmente, não existem restrições nos bancos de dados de destino usados para cada credencial. Um usuário mal-intencionado poderia adicionar um destino de banco de dados a um banco de dados sob o controle do usuário mal-intencionado. O usuário poderia em seguida iniciar um trabalho visando esse banco de dados para obter a senha da credencial.
 

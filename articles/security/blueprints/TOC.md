@@ -18,7 +18,8 @@
 ### [Governança no Azure](../governance-in-azure.md)
 ### [Criptografia de dados em repouso](../azure-security-encryption-atrest.md)
 ### Plantas de Arquitetura
-#### [Conformidade - PCI DSS](payment-processing-blueprint.md)
+#### Conformidade - PCI DSS
+##### [Processamento de pagamento para ambientes em conformidade com o PCI DSS](payment-processing-blueprint.md)
 ##### [Visão geral dos requisitos](pci-dss-requirements-overview.md)
 ##### [Requisito 1 - firewalls](pci-dss-requirement-1-firewall.md)
 ##### [Requisito 2 - senhas](pci-dss-requirement-2-password.md)
@@ -32,7 +33,8 @@
 ##### [Requisito 10 - monitoramento](pci-dss-requirement-10-monitoring.md)
 ##### [Requisito 11 - teste](pci-dss-requirement-11-testing.md)
 ##### [Requisito 12 - política](pci-dss-requirement-12-policy.md)
-#### [Conformidade - FedRAMP](fedramp.md)
+#### Conformidade - FedRAMP
+##### [Aplicativos Web para FedRAMP](fedramp.md)
 ##### [Visão geral dos controles de segurança](fedramp-controls-overview.md)
 ##### [Controle de acesso](fedramp-access-controls.md)
 ##### [Auditoria e contabilidade](fedramp-audit-accountability-controls.md)
@@ -51,10 +53,11 @@
 ##### [Proteções do sistema e das comunicações](fedramp-system-communications-protection-controls.md)
 ##### [Integridades do sistema e das informações](fedramp-system-information-integrity-controls.md)
 ##### [Aquisições do sistema e de serviços](fedramp-system-services-acquisition-controls.md)
-#### [Conformidade - UK-OFFICIAL](uk-official-three-tier-applications-overview.md)
+#### Conformidade - UK-OFFICIAL
+##### [Aplicativos Web de três camadas para UK-OFFICIAL](uk-official-three-tier-applications-overview.md)
 ##### [Visão geral](uk-official-three-tier-applications-overview.md)
 ##### [Visão geral dos princípios](uk-official-three-tier-applications-principles-overview.md)
-#### [Conformidade - Serviços Financeiros](financial-services-regulated-workloads.md)
+#### Conformidade - Serviços Financeiros
 ##### [Serviços Financeiros para Cargas de Trabalho Regulamentadas](financial-services-regulated-workloads.md)
 
 # Introdução

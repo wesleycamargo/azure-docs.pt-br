@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/23/2017
+ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: a2760072acb7c62204759f3ec0d3cb9899460f2d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cdbac0fd18ad440ece35881cbe165c3c7eff8914
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="service-bus-authentication-with-shared-access-signatures"></a>Autenticação do Barramento de Serviço com Assinaturas de Acesso Compartilhado
 
@@ -66,7 +66,7 @@ Nessa figura, as regras de autorização *manageRuleNS*, *sendRuleNS* e *listenR
 
 Os parâmetros de chave de uma [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) são os seguintes:
 
-| Parâmetro | Descrição |
+| Parâmetro | DESCRIÇÃO |
 | --- | --- |
 | *KeyName* |Uma cadeia de caracteres que descreve a regra de autorização. |
 | *PrimaryKey* |Uma chave primária de 256 bits codificada em base64 para assinatura e validação do token SAS. |
@@ -128,7 +128,7 @@ O ponto de extremidade para acessar regras de autorização de acesso compartilh
 https://management.core.windows.net/{subscriptionId}/services/ServiceBus/namespaces/{namespace}/AuthorizationRules/
 ```
 
-Para criar um objeto [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) em um namespace do Barramento de Serviço, execute uma operação POST nesse ponto de extremidade com as informações da regra serializadas como JSON ou XML. Por exemplo:
+Para criar um objeto [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) em um namespace do Barramento de Serviço, execute uma operação POST nesse ponto de extremidade com as informações da regra serializadas como JSON ou XML. Por exemplo: 
 
 ```csharp
 // Base address for accessing authorization rules on a namespace

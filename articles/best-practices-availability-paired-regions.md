@@ -12,13 +12,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2017
+ms.date: 12/11/2017
 ms.author: raynew
-ms.openlocfilehash: 4a846cc3e2f06199bdef9e597198f309801d5c75
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.openlocfilehash: 394f353837433e241e4da6f4accdb5eaa24bae46
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuidade dos negócios e recuperação de desastres (BCDR): Regiões Emparelhadas do Azure
 
@@ -39,6 +39,7 @@ Figura 1 – Diagrama do par da região do Azure
 | Canadá |Canadá Central |Leste do Canadá |
 | China |Norte da China |Leste da China|
 | Índia |Índia Central |Sul da Índia |
+| Índia |Índia Ocidental (1) |Sul da Índia |
 | Japão |Leste do Japão |Oeste do Japão |
 | Coreia |Coreia Central |Sul da Coreia |
 | América do Norte |Centro-Norte dos EUA |Centro-Sul dos Estados Unidos |
@@ -47,9 +48,9 @@ Figura 1 – Diagrama do par da região do Azure
 | América do Norte |Oeste dos EUA 2 |Centro-Oeste dos EUA |
 | Europa |Norte da Europa |Europa Ocidental |
 | Japão |Leste do Japão |Oeste do Japão |
-| Brasil |Sul do Brasil (1) |Centro-Sul dos Estados Unidos |
-| Governo dos EUA |Gov. EUA - Iowa (2) |US Gov Virginia |
-| Governo dos EUA |Gov. EUA - Virgínia (3) |Governo dos EUA do Texas |
+| Brasil |Sul do Brasil (2) |Centro-Sul dos Estados Unidos |
+| Governo dos EUA |Gov. EUA - Iowa (3) |US Gov Virginia |
+| Governo dos EUA |Gov. EUA - Virgínia (4) |Governo dos EUA do Texas |
 | Governo dos EUA |Governo dos EUA do Arizona |Governo dos EUA do Texas |
 | Departamento de Defesa dos EUA |DoD do Leste dos EUA |DoD Central dos EUA |
 | Reino Unido |Oeste do Reino Unido |Sul do Reino Unido |
@@ -57,11 +58,10 @@ Figura 1 – Diagrama do par da região do Azure
 
 Tabela 1 – mapeamento de pares regionais do Azure
 
-> (1) O Sul do Brasil é exclusivo porque ele está associado a uma região fora de sua própria região geográfica. A região secundária do Sul do Brasil é o Centro-Sul dos EUA. No entanto, a região secundária do Centro-Sul dos EUA não é o Sul do Brasil.
->
-> (2) região secundária do Gov. EUA Iowa é Gov. EUA Virgínia, mas região secundária de Gov. EUA Virgínia não está no Gov. EUA Iowa.
-> 
-> (3) região secundária do Gov. EUA Virgínia é Gov. EUA Texas, mas região secundária de Gov. EUA Texas não está no Gov. EUA Virgínia.
+- > (1) Índia Ocidental é diferente porque ele está associado a outra região em apenas uma direção. A região secundária da Índia Ocidental é o Sul da Índia, mas a região secundária do Sul da Índia é a Índia Central.
+- > (2) O Sul do Brasil é exclusivo porque ele está associado a uma região fora de sua própria região geográfica. A região secundária do Sul do Brasil é o Centro-Sul dos EUA. No entanto, a região secundária do Centro-Sul dos EUA não é o Sul do Brasil.
+- > (3) A região secundária do Gov. EUA Iowa é Gov. EUA Virgínia, mas região secundária de Gov. EUA Virgínia não está no Gov. EUA Iowa.
+- > (4) A região secundária do Gov. EUA Virgínia é Gov. EUA Texas, mas região secundária de Gov. EUA Texas não está no Gov. EUA Virgínia.
 
 
 É recomendável que você replique as cargas de trabalho entre os pares regionais para se beneficiar das políticas de isolamento e a disponibilidade do Azure. Por exemplo, as atualizações do sistema Azure planejadas são implantadas em sequência (não ao mesmo tempo) em regiões emparelhadas. Isso significa que, mesmo no caso de uma atualização falhar, ambas as regiões não serão afetadas simultaneamente. Além disso, no caso improvável de uma interrupção ampla, a recuperação de pelo menos uma região de cada par é priorizada.

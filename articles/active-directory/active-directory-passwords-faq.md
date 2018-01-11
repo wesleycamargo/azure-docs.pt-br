@@ -5,7 +5,7 @@ services: active-directory
 keywords: "Gerenciamento de senhas do Active Directory, gerenciamento de senhas, autoatendimento de redefinição de senha do Azure AD"
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
+manager: mtillman
 ms.reviewer: sahenry
 ms.assetid: 
 ms.service: active-directory
@@ -16,11 +16,11 @@ ms.topic: article
 ms.date: 12/06/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 6497421b1c51e361d6881332a19c19c7d47c8e29
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 4216c417d137c00587bf65b39410eca6f4cef8bc
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="password-management-frequently-asked-questions"></a>Perguntas frequentes sobre gerenciamento de senhas
 
@@ -41,6 +41,11 @@ Esta seção de perguntas frequentes é dividida nas seguintes seções:
 * **P: meus usuários podem registrar seus próprios dados de redefinição de senha?**
 
   > **R:** Sim. Desde que a redefinição de senha esteja habilitada e eles sejam licenciados, os usuários podem ir para o portal de registro de redefinição de senha (http://aka.ms/ssprsetup) para registrar as informações de autenticação. Os usuários também podem registrar por meio do painel de acesso (http://myapps.microsoft.com). Para registrar-se por meio do Painel de Acesso, eles precisam selecionar a imagem do perfil, selecionar **Perfil** e, em seguida, selecionar a opção **Registrar-se para redefinição de senha**.
+  >
+  >
+* **P: se habilitar a redefinição de senha para um grupo e, em seguida, optar por habilitá-la para todos, meu usuários deverão se registrar novamente?**
+
+  > **R:** Não. Os usuários que possuem dados de autenticação populados não devem se registrar novamente.
   >
   >
 * **P: posso definir dados de redefinição de senha em nome dos meus usuários?**

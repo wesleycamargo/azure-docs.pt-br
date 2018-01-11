@@ -22,6 +22,8 @@
 
 # Como
 ## Planejar e projetar
+### [Identidade do Serviço Gerenciado (versão prévia)](event-hubs-managed-service-identity.md)
+### [Controle de Acesso Baseado em Função (versão prévia)](event-hubs-role-based-access-control.md)
 ### [Recuperação de desastres geográficos e replicação geográfica](event-hubs-geo-dr.md)
 ### [Hubs de Eventos Dedicados](event-hubs-dedicated-overview.md)
 ### [Visão geral do modelo de segurança e autenticação](event-hubs-authentication-and-security-model-overview.md)

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/19/2017
 ms.author: tamram
-ms.openlocfilehash: a300294c83cb206e6211985c736e3ff01bb1ab43
-ms.sourcegitcommit: 5a6e943718a8d2bc5babea3cd624c0557ab67bd5
+ms.openlocfilehash: 7313df35baadf7aa6d476f44b113dc60e6845f4b
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-the-azure-cli"></a>Transferir objetos de/para o Armazenamento de Blobs do Azure usando a CLI do Azure
 
@@ -35,7 +35,7 @@ Se você optar por instalar e usar a CLI localmente, este guia de início rápid
 
 ## <a name="create-a-container"></a>Criar um contêiner
 
-Os blobs são sempre carregados em um contêiner. Os contêineres permitem que você organize grupos de blobs da mesma forma que organiza os arquivos em diretórios no seu computador.
+Os blobs são sempre carregados em um contêiner. É possível organizar grupos de blobs de forma similar àquela em que você organiza os arquivos em pastas no seu computador.
 
 Crie um contêiner para armazenar os blobs com o comando [az storage container create](/cli/azure/storage/container#create).
 
@@ -47,7 +47,10 @@ az storage container create --name mystoragecontainer
 
 O Armazenamento de Blobs dá suporte a blobs de blocos, blobs de acréscimo e blobs de páginas. A maioria dos arquivos armazenados no Armazenamento de Blobs são armazenados como blobs de blocos. Os blobs de acréscimo são usados quando os dados devem ser adicionados a um blob existente sem modificar o conteúdo existente, como para o registro em log. Os blobs de página auxiliam os arquivos VHD das máquinas virtuais IaaS.
 
-Neste exemplo, carregamos um blob para o contêiner criados na última etapa com o comando [az storage blob upload](/cli/azure/storage/blob#upload).
+Primeiramente, crie um arquivo para ser carregado em um blob.
+Se você estiver usando o Azure Cloud Shell, use o seguinte para criar um arquivo: `vi helloworld` quando o arquivo é aberto, pressione **insert**, digite "Olá, Mundo" e, em seguida, pressione **Esc**, digite `:x` e pressione **Enter**.
+
+Nesse exemplo, você carregou um blob no contêiner criado na etapa anterior usando o comando [az storage blob upload](/cli/azure/storage/blob#upload).
 
 ```azurecli-interactive
 az storage blob upload \
@@ -56,7 +59,18 @@ az storage blob upload \
     --file ~/path/to/local/file
 ```
 
-Essa operação cria o blob se ele ainda não existir e o substitui se já existir. Carregue quantos arquivos desejar antes de continuar.
+Se você tiver usado o método descrito anteriormente para criar um arquivo no Azure Cloud Shell, será possível usar esse comando de CLI no lugar desse método (observe que, embora normalmente fosse necessário especificar um caminho, esse não é o caso agora porque o arquivo foi criado no diretório base):
+
+```azurecli-interactive
+az storage blob upload \
+    --container-name mystoragecontainer \
+    --name helloworld
+    --file helloworld
+```
+
+Essa operação criará o blob se ele ainda não existir e o substituirá se já existir. Carregue quantos arquivos desejar antes de continuar.
+
+Para carregar vários arquivos ao mesmo tempo, você pode usar o comando [az storage blob upload-batch](/cli/azure/storage/blob#upload-batch).
 
 ## <a name="list-the-blobs-in-a-container"></a>Listar os blobs em um contêiner
 
@@ -70,7 +84,7 @@ az storage blob list \
 
 ## <a name="download-a-blob"></a>Baixar um blob
 
-Use o comando [az storage blob download](/cli/azure/storage/blob#download) para baixar um blob que você carregou anteriormente.
+Use o comando [az storage blob download](/cli/azure/storage/blob#download) para baixar o blob que você carregou anteriormente.
 
 ```azurecli-interactive
 az storage blob download \

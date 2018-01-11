@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/13/2017
+ms.date: 01/03/2018
 ms.author: cgronlun
-ms.openlocfilehash: 10a9608bc35d44a800acda9406390c3944a86c2c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 79c66fe29c8d51a8cd1db24a024974f943e89e74
+ms.sourcegitcommit: 4bd369fc472dced985239aef736fece42fecfb3b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>Prever uma resposta com um modelo simples
 ## <a name="video-4-data-science-for-beginners-series"></a>Vídeo 4: Série de ciência de dados para iniciantes
 Aprenda como criar um modelo simples de regressão para prever o preço de um diamante no vídeo 4, Ciência de dados para iniciantes. Vamos desenhar um modelo de regressão com dados de destino.
 
-Para aproveitar ao máximo da série, assista a todos os vídeos. [Acessar a lista de vídeos](#other-videos-in-this-series)
+Para aproveitar ao máximo da série, assista a todos os vídeos. [Acesse a lista de vídeos](#other-videos-in-this-series)
 <br>
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/data-science-for-beginners-series-predict-an-answer-with-a-simple-model/player]
@@ -74,13 +74,13 @@ Em seguida, desenharemos um eixo vertical para registrar o preço e o conectarem
 
 ![Eixos de peso e preço](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/weight-and-price-axes.png)
 
-Agora, vamos pegar esses dados e transformá-los em uma *dispersão*. Essa é uma excelente maneira de visualizar conjuntos de dados numéricos.
+Agora, vamos pegar esses dados e transformá-los em um *gráfico de dispersão*. Essa é uma excelente maneira de visualizar conjuntos de dados numéricos.
 
 Para o primeiro ponto de dados, desenhamos uma linha vertical no quilate 1,01. Em seguida, desenhamos uma linha horizontal em $7.366. No local onde elas se encontram, desenhamos um ponto. Isso representa nosso primeiro diamante.
 
 Agora fazemos isso para cada diamante nesta lista. Quando terminarmos, este será o resultado: um monte de pontos, um para cada diamante.
 
-![dispersão](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/scatter-plot.png)
+![Gráfico de dispersão](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/scatter-plot.png)
 
 ## <a name="draw-the-model-through-the-data-points"></a>Desenhar o modelo usando os pontos de dados
 Agora, se você os pontos e semicerrar os olhos, a coleção parecerá uma linha espessa e difusa. Podemos usar nosso marcador para desenhar uma linha reta através deles.

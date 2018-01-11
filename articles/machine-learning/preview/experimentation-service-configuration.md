@@ -10,11 +10,11 @@ ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/28/2017
-ms.openlocfilehash: 26ab8f9ab561cc218f3dcb249741a96d8f14c579
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: bd152cc79c08124a1acab2aefc8652c7d162ea2c
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configuring-azure-machine-learning-experimentation-service"></a>Configuração do Serviço de Experimentação do Azure Machine Learning
 
@@ -221,7 +221,8 @@ _**Visão geral da execução da vm remota para um script Python:**_
 ## <a name="running-a-script-on-an-hdinsight-cluster"></a>Como executar um script em um cluster HDInsight
 O HDInsight é uma plataforma popular para análise de Big Data com suporte para Apache Spark. O Workbench permite experimentação Big Data usando clusters HDInsight Spark. 
 
->![OBSERVAÇÃO] O cluster HDInsight deve usar o Blob do Azure como o armazenamento primário. O uso do armazenamento do Azure Data Lake ainda não tem suporte.
+>[!NOTE]
+>O cluster HDInsight deve usar o Blob do Azure como o armazenamento primário. O uso do armazenamento do Azure Data Lake ainda não tem suporte.
 
 Você pode criar um destino de computação e uma configuração de execução para um cluster do HDInsight Spark usando o seguinte comando:
 
@@ -269,7 +270,8 @@ az ml computetarget attach remotedocker --name "remotevm" --address "remotevm_IP
 ```
 - Acrescente a chave pública gerada pelo Workbench no arquivo ~/.ssh/authorized_keys no destino de computação anexado. 
 
-[!IMPORTANT] Você precisa fazer logon no destino de computação com o mesmo nome de usuário que foi usado para criar o destino de computação. 
+>[!IMPORTANT]
+>Você precisa fazer logon no destino de computação com o mesmo nome de usuário que foi usado para criar o destino de computação. 
 
 - Agora você pode preparar e usar o destino de computação usando a autenticação baseada em chave SSH.
 

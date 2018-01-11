@@ -16,18 +16,13 @@ ms.topic: article
 ms.date: 8/15/2017
 ms.author: trinadhk;jimpark;markgal;
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 40983a3de104238d09b976b5fcf2419da42c1bba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 892a88a2bc9d492f8a3afe59c05b4729f4830e6d
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="back-up-azure-virtual-machines-to-a-recovery-services-vault"></a>Fazer backup de máquinas virtuais do Azure em um cofre dos Serviços de Recuperação
-> [!div class="op_single_selector"]
-> * [Fazer backup de VMs no cofre dos Serviços de Recuperação](backup-azure-arm-vms.md)
-> * [Fazer backup de VMs no cofre de Backup](backup-azure-vms.md)
->
->
 
 Este artigo detalha como para fazer backup de VMs do Azure (implantadas pelo Resource Manager ou com a implantação clássica) em um cofre dos Serviços de Recuperação. A maior parte do trabalho para fazer backup de VMs é a preparação. Antes de fazer backup ou proteger uma VM, você deverá atender aos [pré-requisitos](backup-azure-arm-vms-prepare.md) para preparar o ambiente e proteger suas VMs. Depois de concluir os pré-requisitos, você pode iniciar a operação de backup para tirar instantâneos da sua VM.
 

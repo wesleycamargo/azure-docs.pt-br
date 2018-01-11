@@ -3,8 +3,8 @@ title: "Implantar um conjunto de dimensionamento de máquinas virtuais usando o 
 description: "Implantar um conjunto de escala de máquina virtual usando o Visual Studio e um modelo do Resource Manager"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: gbowerman
-manager: timlt
+author: gatneil
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: ed0786b8-34b2-49a8-85b5-2a628128ead6
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/13/2017
-ms.author: guybo
+ms.author: negat
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 78a4b0c8d305f57f495402cecb92d18425ff6bff
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 73454abc11a832a1b7f4131bf13699bd0a94edea
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Como criar um Conjunto de Dimensionamento de Máquinas Virtuais com o Visual Studio
 Este artigo mostra como implantar um Conjunto de Escala de Máquina Virtual do Azure usando uma Implantação de Grupo de Recursos do Visual Studio.
@@ -53,7 +53,7 @@ Para começar a implantar Conjuntos de Dimensionamento de Máquinas Virtuais no 
 
 4. Depois de criar o projeto, você verá scripts de implantação do PowerShell, um Modelo do Azure Resource Manager e um arquivo de parâmetros para o Conjunto de Dimensionamento de Máquinas Virtuais.
    
-    ![Gerenciador de Soluções][solution_explorer]
+    ![Gerenciador de soluções][solution_explorer]
 
 ## <a name="customize-your-project"></a>Personalizar seu projeto
 Agora você pode editar o Modelo para personalizá-lo de acordo com as necessidades de seu aplicativo, como adicionar propriedades de extensão de VM ou editar regras de balanceamento de carga. Por padrão, os Modelos do Conjunto de Dimensionamento de Máquinas Virtuais são configurados para implantar a extensão AzureDiagnostics, que facilita a adição de regras de escala automática. Ela também implanta um balanceador de carga com um endereço IP público, configurado com regras NAT de entrada. 

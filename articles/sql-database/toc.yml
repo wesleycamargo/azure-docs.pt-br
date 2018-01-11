@@ -279,7 +279,7 @@
         - name: Carregar dados com o BCP
           href: sql-database-load-from-csv-with-bcp.md
         - name: Carregar dados com o ADF
-          href: ../data-factory/v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md
+          href: ../data-factory/connector-azure-sql-database.md
         - name: Sincronizar dados
           href: sql-database-get-started-sql-data-sync.md
     - name: Monitorar e ajustar
@@ -448,7 +448,7 @@
       href: 'https://social.msdn.microsoft.com/Forums/home?forum=ssdsgetstarted'
     - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/sql-azure'
-    - name: Vídeos
+    - name: vídeos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=sql-database'
     - name: Atualizações de serviço
       href: 'https://azure.microsoft.com/updates/?service=sql-database'

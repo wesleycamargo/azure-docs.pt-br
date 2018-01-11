@@ -8,11 +8,11 @@ ms.service: container-registry
 ms.topic: overview-article
 ms.date: 10/24/2017
 ms.author: stevelas
-ms.openlocfilehash: dfab0a371ffb2d8ea52bea2cdcf3d92d6c669a9d
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 92df5a37d62dc9731842a4312339aa571072a487
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="geo-replication-in-azure-container-registry"></a>Replicação geográfica no Registro de Contêiner do Azure
 
@@ -94,7 +94,7 @@ O ACR começa a sincronizar imagens em réplicas configurados. Depois de conclu�
 
 ## <a name="geo-replication-pricing"></a>Preços da replicação geográfica
 
-A replicação geográfica é um recurso do [SKU Premium](container-registry-skus.md#premium) do Registro de Contêiner do Azure. Quando você replica um Registro para as regiões desejadas, incorre em taxas de Registro do Premium para cada região.
+A replicação geográfica é um recurso do [SKU Premium](container-registry-skus.md) do Registro de Contêiner do Azure. Quando você replica um Registro para as regiões desejadas, incorre em taxas de Registro do Premium para cada região.
 
 No exemplo anterior, a Contoso consolidou dois registros inoperantes em um, adicionado réplicas ao Oeste dos EUA, Canadá Central e Europa Ocidental. A Contoso pagaria o Premium quatro vezes por mês, sem nenhuma configuração ou gerenciamento adicional. Agora cada região efetua pull de suas imagens localmente, melhorando o desempenho e a confiabilidade sem taxas de saída de rede do Oeste dos EUA para o Canadá e o Leste dos EUA.
 

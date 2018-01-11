@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 10/10/2017
 ms.author: curtand
 ms.reviewer: jeffsta
-ms.openlocfilehash: 4121f94e15d9ba938d90d72e70d7bcb49a6c1ed5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6f1085a8b434aca18499e17ba1c1d086edfc302e
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="add-or-change-profile-information-for-a-user-in-azure-active-directory"></a>Adicionar ou alterar as informações de perfil de um usuário no Azure Active Directory
 Este artigo explica como adicionar informações de perfil do usuário, como uma foto de perfil ou informações de autenticação de email e telefone, no Azure AD (Azure Active Directory). Para obter informações sobre como adicionar novos usuários em sua organização, consulte [Adicionar novos usuários ao Azure Active Directory](active-directory-users-create-azure-portal.md).
@@ -42,5 +42,4 @@ Este artigo explica como adicionar informações de perfil do usuário, como uma
 * [Adicionar novos usuários ao Azure Active Directory](active-directory-users-create-azure-portal.md)
 * [Redefinir a senha de um usuário no Azure Active Directory](active-directory-users-reset-password-azure-portal.md)
 * [Atribuir um usuário às funções de administrador no Azure Active Directory](active-directory-users-assign-role-azure-portal.md)
-* [Adicionar ou alterar as informações de perfil de um usuário no Azure Active Directory](active-directory-users-work-info-azure-portal.md)
 * [Excluir um usuário de um diretório no Azure Active Directory](active-directory-users-delete-user-azure-portal.md)

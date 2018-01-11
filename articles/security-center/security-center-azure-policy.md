@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2017
 ms.author: yurid
-ms.openlocfilehash: c359b77efbfdbcf7d2c0193dc015ce418a3d997d
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 045cf83caa15cb2487b4781f3c1f42752880580c
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="integrate-security-center-security-policies-with-azure-policy"></a>Integrar políticas de segurança da Central de Segurança com o Azure Policy
 Este artigo ajuda você a configurar as políticas de segurança da Central de Segurança do Azure, fornecidas pelo Azure Policy. 
@@ -39,14 +39,14 @@ Você pode editar a política de segurança padrão para cada uma de suas assina
 
 2. No painel **Central de Segurança**, em **Geral**, selecione **Política de segurança**.
 
-    ![O painel Gerenciamento de Política](./media/security-center-policies/security-center-policies-fig10.png)
+    ![O painel Gerenciamento de Política](./media/security-center-azure-policy/security-center-policies-fig10.png)
 
 3. Selecione a assinatura para a qual deseja habilitar uma política de segurança.  
 
 4. Na seção **Componentes da Política**, selecione **Política de segurança**.  
     A janela **Noções básicas** é aberta.
 
-    ![Componentes da política](./media/security-center-policies/security-center-policies-fig12.png)
+    ![Componentes da política](./media/security-center-azure-policy/security-center-policies-fig12.png)
 
 5. Para excluir uma definição de política, em **Políticas e parâmetros**, ao lado da definição que deseja excluir, selecione **Excluir**.
 
@@ -57,12 +57,12 @@ Você pode editar a política de segurança padrão para cada uma de suas assina
 
     * Para adicionar uma definição de política, selecione o sinal de adição (+) ao lado da definição.
 
-    ![Definições de políticas disponíveis](./media/security-center-policies/security-center-policies-fig11.png)
+    ![Definições de políticas disponíveis](./media/security-center-azure-policy/security-center-policies-fig11.png)
 
     * Para obter uma explicação detalhada de uma política, selecione-a.  
     Uma janela com a **Versão prévia** da definição é aberta. Ela exibe uma descrição da definição e um link para o código JSON que fornece a estrutura da [definição de política](../azure-policy/policy-definition.md).
 
-    ![A janela da Versão prévia da definição](./media/security-center-policies/security-center-policies-fig14.png)
+    ![A janela da Versão prévia da definição](./media/security-center-azure-policy/security-center-policies-fig14.png)
 
 7. Ao concluir a edição, selecione **Salvar**.
 

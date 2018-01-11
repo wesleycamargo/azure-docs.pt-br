@@ -12,15 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2017
+ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: bdd4c7948608c03447d1e040a746ed0eb7b0771b
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f16c65286b0aa079889c9d53e98bf54e3d57c95f
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="paired-namespace-implementation-details-and-cost-implications"></a>Detalhes e implicações de custo da implementação do namespace emparelhado
+
 O método [PairNamespaceAsync][PairNamespaceAsync], que usa uma instância de [SendAvailabilityPairedNamespaceOptions][SendAvailabilityPairedNamespaceOptions], realiza tarefas visíveis em seu nome. Como o uso do recurso envolve considerações sobre o custo, convém entender essas tarefas para que quando isso ocorrer você já saiba do que se trata. A API realiza o seguinte comportamento automático em seu nome:
 
 * Criação de filas de pendências.

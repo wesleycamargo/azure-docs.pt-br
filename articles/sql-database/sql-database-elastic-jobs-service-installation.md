@@ -15,14 +15,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/24/2016
 ms.author: ddove
-ms.openlocfilehash: 7c741deba180af56414b0711de94ba110aeea9b8
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: ef5a8931eeda0f7ddc485632acaf2d76b71dccde
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="installing-elastic-database-jobs-overview"></a>Visão geral de Instalando trabalhos de Banco de Dados Elástico
-Os [**trabalhos de Banco de Dados Elástico**](sql-database-elastic-jobs-overview.md) podem ser instalados por meio do PowerShell ou pelo portal clássico do Azure. Será possível obter acesso para criar e gerenciar trabalhos usando a API do PowerShell apenas se você instalar o pacote do PowerShell. Além disso, as APIs do PowerShell fornecem muito mais funcionalidade do que o portal neste momento.
+Os [**trabalhos de Banco de Dados Elástico**](sql-database-elastic-jobs-overview.md) podem ser instalados por meio do PowerShell ou pelo portal do Azure. Será possível obter acesso para criar e gerenciar trabalhos usando a API do PowerShell apenas se você instalar o pacote do PowerShell. Além disso, as APIs do PowerShell fornecem muito mais funcionalidade do que o portal neste momento.
 
 Se você já tiver instalado os **trabalhos de Banco de Dados Elástico** por meio do Portal usando um **pool elástico** existente, a versão prévia mais recente do Powershell incluirá scripts para atualizar sua instalação existente. É altamente recomendável atualizar sua instalação para a versão mais recente dos componentes dos **trabalhos de Banco de Dados Elástico** para aproveitar a nova funcionalidade exposta por meio das APIs do PowerShell.
 
@@ -155,7 +155,7 @@ Após a [criação de um pool elástico](sql-database-elastic-pool-manage-portal
 
 **Tempo estimado para conclusão:** 10 minutos.
 
-1. Na exibição de painel do pool elástico, por meio do [Portal do Azure](https://portal.azure.com/#), clique em **Criar trabalho**.
+1. Na exibição de painel do pool elástico, por meio do [portal do Azure](https://portal.azure.com/#), clique em **Criar trabalho**.
 2. Se estiver criando um trabalho pela primeira vez, será necessário instalar os **trabalhos de Banco de Dados Elástico** clicando em **VISUALIZAR TERMOS**.
 3. Aceite os termos clicando na caixa de seleção.
 4. No modo de exibição "Instalar serviços", clique em **CREDENCIAIS DO TRABALHO**.

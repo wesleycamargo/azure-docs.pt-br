@@ -14,19 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: trinadhk;markgal;jpallavi;
-ms.openlocfilehash: f7fc4d367a0594a77d7ee25bbd1e40c4b2949c19
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: d09208596de4609faace67e11926ad30f68cd901
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="troubleshoot-azure-virtual-machine-backup"></a>Solucionar problemas de backup de máquinas virtuais do Azure
-> [!div class="op_single_selector"]
-> * [Cofre dos serviços de recuperação](backup-azure-vms-troubleshoot.md)
-> * [Cofre de backup](backup-azure-vms-troubleshoot-classic.md)
->
->
-
 Você pode solucionar os erros encontrados enquanto usa o Backup do Azure com as informações listadas na tabela a seguir.
 
 ## <a name="backup"></a>Backup
@@ -137,7 +131,7 @@ Como verificar a versão do Agente de VM em VMs do Windows:
 O backup de VM depende da emissão de comandos de instantâneo para o armazenamento subjacente. Não ter acesso ao armazenamento, ou atrasos na execução da tarefa do instantâneo, pode resultar na falha do trabalho de backup. O descrito a seguir pode causar falha na tarefa do instantâneo.
 
 1. O acesso à rede para o Armazenamento é bloqueado usando NSG<br>
-    Saiba mais sobre como [habilitar o acesso à rede](backup-azure-vms-prepare.md#network-connectivity) para o Armazenamento usando WhiteListing de IPs ou por meio do servidor proxy.
+    Saiba mais sobre como [habilitar o acesso à rede](backup-azure-arm-vms-prepare.md#establish-network-connectivity) para o Armazenamento usando WhiteListing de IPs ou por meio do servidor proxy.
 2. Máquinas virtuais com o backup do SQL Server configurado podem causar atraso na tarefa do instantâneo  <br>
    Por padrão, o backup de VM emite backup completo de VSS em VMs do Windows. Em VMs que estão executando SQL Servers, se o backup do SQL Server estiver configurado, isso poderá causar atraso na execução do instantâneo. Defina a chave do Registro a seguir se houver falhas de backup devido a problemas de instantâneo.
 
@@ -169,7 +163,7 @@ Após a resolução de nomes ser feita corretamente, o acesso às IPs Azure tamb
    * Desbloquear os IPs usando o cmdlet [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx) . Execute este cmdlet na VM do Azure em uma janela do PowerShell com privilégios elevados (executar como Administrador).
    * Adicione regras ao NSG (se você tiver uma em vigor) para permitir o acesso aos IPs.
 2. Criar um caminho para a transmissão do tráfego HTTP
-   * Se você tiver alguma restrição de rede no local (um Grupo de Segurança de Rede, por exemplo), implante um servidor proxy HTTP para encaminhar o tráfego. As etapas para implantar um servidor proxy HTTP podem ser encontradas [aqui](backup-azure-vms-prepare.md#network-connectivity).
+   * Se você tiver alguma restrição de rede no local (um Grupo de Segurança de Rede, por exemplo), implante um servidor proxy HTTP para encaminhar o tráfego. As etapas para implantar um servidor proxy HTTP podem ser encontradas [aqui](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
    * Adicione regras ao NSG (se você tiver uma em vigor) para permitir o acesso à INTERNET do Proxy HTTP.
 
 > [!NOTE]

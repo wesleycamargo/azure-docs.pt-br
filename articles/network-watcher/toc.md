@@ -9,6 +9,7 @@
 ## [Solução de problemas de conectividade VPN](network-watcher-troubleshoot-overview.md)
 ## [Verificação de conectividade](network-watcher-connectivity-overview.md)
 ## [Limites de serviço](../azure-subscription-service-limits.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#network-watcher-limits)
+
 # Introdução
 ## [Configurar o Observador de Rede](network-watcher-create.md)
 ## Gerenciar captura de pacotes
@@ -18,13 +19,13 @@
 ### [CLI do Azure](network-watcher-packet-capture-manage-cli.md)
 ### [REST](network-watcher-packet-capture-manage-rest.md)
 ## Verifique os fluxos de IP fluxos de e para uma máquina virtual
-### [Portal do Azure](network-watcher-check-ip-flow-verify-portal.md)
+### [portal do Azure](network-watcher-check-ip-flow-verify-portal.md)
 ### [PowerShell do Azure](network-watcher-check-ip-flow-verify-powershell.md)
 ### [CLI 1.0 do Azure](network-watcher-check-ip-flow-verify-cli-nodejs.md)
 ### [CLI do Azure](network-watcher-check-ip-flow-verify-cli.md)
 ### [REST](network-watcher-check-ip-flow-verify-rest.md)
 ## Analisar o próximo salto
-### [Portal do Azure](network-watcher-check-next-hop-portal.md)
+### [portal do Azure](network-watcher-check-next-hop-portal.md)
 ### [PowerShell do Azure](network-watcher-check-next-hop-powershell.md)
 ### [CLI 1.0 do Azure](network-watcher-check-next-hop-cli-nodejs.md)
 ### [CLI do Azure](network-watcher-check-next-hop-cli.md)
@@ -35,7 +36,7 @@
 ### [CLI do Azure](network-watcher-topology-cli.md)
 ### [REST](network-watcher-topology-rest.md)
 ## Solucionar problemas de conexões e o Gateway de VPN
-### [Portal do Azure](network-watcher-troubleshoot-manage-portal.md)
+### [portal do Azure](network-watcher-troubleshoot-manage-portal.md)
 ### [PowerShell do Azure](network-watcher-troubleshoot-manage-powershell.md)
 ### [CLI 1.0 do Azure](network-watcher-troubleshoot-manage-cli-nodejs.md)
 ### [CLI do Azure](network-watcher-troubleshoot-manage-cli.md)
@@ -46,16 +47,17 @@
 ### [CLI do Azure](network-watcher-security-group-view-cli.md)
 ### [REST](network-watcher-security-group-view-rest.md)
 ## Testar a conectividade
-### [Portal do Azure](network-watcher-connectivity-portal.md)
+### [portal do Azure](network-watcher-connectivity-portal.md)
 ### [PowerShell do Azure](network-watcher-connectivity-powershell.md)
 ### [CLI do Azure](network-watcher-connectivity-cli.md)
 ### [REST](network-watcher-connectivity-rest.md)
 ## Configurar logs de fluxo NSG
-### [Portal do Azure](network-watcher-nsg-flow-logging-portal.md)
+### [portal do Azure](network-watcher-nsg-flow-logging-portal.md)
 ### [PowerShell do Azure](network-watcher-nsg-flow-logging-powershell.md)
 ### [CLI 1.0 do Azure](network-watcher-nsg-flow-logging-cli-nodejs.md)
 ### [CLI do Azure](network-watcher-nsg-flow-logging-cli.md)
 ### [REST](network-watcher-nsg-flow-logging-rest.md)
+
 # Como
 ## [Monitorar o Gateway de VPN com a Automação do Azure](network-watcher-monitor-with-azure-automation.md)
 ## [Diagnosticar a conectividade local por meio do Gateway de VPN](network-watcher-diagnose-on-premises-connectivity.md)
@@ -72,9 +74,15 @@
 ### [Usar o Elastic Stack](network-watcher-visualize-nsg-flow-logs-open-source-tools.md)
 ### [Usar o Grafana](network-watcher-nsg-grafana.md)
 ### [Usar o Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md)
+## [Determinar a latência relativa entre um local e a região do Azure](view-relative-latencies.md)
 
 # Referência
-## [PowerShell do Azure](/powershell/azure/overview)
+## [CLI do Azure](/cli/azure/network/watcher)
+## [PowerShell do Azure](/powershell/module/azurerm.network/#network_watcher)
+## [Java](/java/api/com.microsoft.azure.management.network)
+## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/Azure/Network/Mgmt/V2016_09_01/Models/NetworkWatcher) 
+## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.html#azure.mgmt.network.NetworkManagementClient.network_watchers)
+
 ## [.NET](/dotnet/api)
 ## [REST](/rest/api/networkwatcher/)
 # Relacionados

@@ -1,6 +1,6 @@
 ---
 title: Gerenciar o Azure Search com scripts do PowerShell | Microsoft Docs
-description: "Gerencie o serviço de Pesquisa do Azure com scripts do PowerShell. Criar ou atualizar um serviço da Pesquisa do Azure e gerenciar chaves de administração da Pesquisa do Azure"
+description: "Gerencie o serviço de Azure Search com scripts do PowerShell. Criar ou atualizar um serviço do Azure Search e gerenciar chaves de administração do Azure Search"
 services: search
 documentationcenter: 
 author: seansaleh
@@ -16,20 +16,20 @@ ms.tgt_pltfrm: powershell
 ms.date: 08/15/2016
 ms.author: seasa
 ms.openlocfilehash: aa51c846efef12461ec382274199bc049c42aaa3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="manage-your-azure-search-service-with-powershell"></a>Gerencie o serviço de Pesquisa do Azure com o PowerShell
+# <a name="manage-your-azure-search-service-with-powershell"></a>Gerencie o serviço de Azure Search com o PowerShell
 > [!div class="op_single_selector"]
 > * [Portal](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
 > 
 > 
 
-Este tópico descreve os comandos do PowerShell para executar muitas das tarefas de gerenciamento dos serviços da Pesquisa do Azure. Vamos apresentar a criação de um serviço de pesquisa, como escaloná-lo e como gerenciar suas chaves de API.
-Esses comandos são paralelos às opções de gerenciamento disponíveis na [API REST de Gerenciamento da Pesquisa do Azure](http://msdn.microsoft.com/library/dn832684.aspx).
+Este tópico descreve os comandos do PowerShell para executar muitas das tarefas de gerenciamento dos serviços do Azure Search. Vamos apresentar a criação de um serviço de pesquisa, como escaloná-lo e como gerenciar suas chaves de API.
+Esses comandos são paralelos às opções de gerenciamento disponíveis na [API REST de Gerenciamento do Azure Search](http://msdn.microsoft.com/library/dn832684.aspx).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * É necessário ter o Azure PowerShell 1.0 ou superior. Para obter instruções, consulte [Instalar e configurar o PowerShell do Azure](/powershell/azure/overview).
@@ -132,9 +132,9 @@ Para especificar a assinatura, execute o comando a seguir. No exemplo a seguir, 
 ## <a name="next-steps"></a>Próximas etapas
 Agora que o serviço foi criado, você pode executar as próximas etapas: compilar um [índice](search-what-is-an-index.md), [consultar um índice](search-query-overview.md) e, por fim, criar e gerenciar o seu próprio aplicativo de pesquisa que usa o Azure Search.
 
-* [Criar um índice de Pesquisa do Azure no portal do Azure](search-create-index-portal.md)
-* [Consultar um índice da Pesquisa do Azure usando o Gerenciador de Pesquisa no portal do Azure](search-explorer.md)
+* [Criar um índice de Azure Search no portal do Azure](search-create-index-portal.md)
+* [Consultar um índice do Azure Search usando o Gerenciador de Pesquisa no portal do Azure](search-explorer.md)
 * [Configurar um indexador para carregar dados de outros serviços](search-indexer-overview.md)
-* [Como usar a pesquisa do Azure no .NET](search-howto-dotnet-sdk.md)
-* [Analisar o tráfego da Pesquisa do Azure](search-traffic-analytics.md)
+* [Como usar o Azure Search no .NET](search-howto-dotnet-sdk.md)
+* [Analisar o tráfego do Azure Search](search-traffic-analytics.md)
 

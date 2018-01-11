@@ -1,6 +1,6 @@
 ---
 title: "Portal do Azure: máscara de dados dinâmicos do Banco de Dados SQL | Microsoft Docs"
-description: "Como começar a usar a máscara de dados dinâmicos do Banco de Dados SQL no Portal do Azure"
+description: "Como começar a usar a máscara de dados dinâmicos do Banco de Dados SQL no portal do Azure"
 services: sql-database
 documentationcenter: 
 author: ronitr
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: Inactive
 ms.date: 11/22/2016
 ms.author: ronitr
-ms.openlocfilehash: aae91ef276625b13119c449636c9accc61e0a302
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 20d344bc6ae971012bd181d14d130432263a3b76
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="get-started-with-sql-database-dynamic-data-masking-with-the-azure-portal"></a>Introdução à máscara de dados dinâmicos do Banco de Dados SQL com o portal do Azure
 

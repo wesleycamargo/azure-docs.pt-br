@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/19/2016
 ms.author: piyushjo
-ms.openlocfilehash: fe85a99a92fb39082cafe7422b356de1f20f14bd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2bd2329026057a4a23295880d0d304e4e8effd1c
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="windows-universal-apps-sdk-upgrade-procedures"></a>Procedimentos de atualização de aplicativos do Windows Universal
 Se você já tiver integrado uma versão anterior do Engagement no seu aplicativo, você deve considerar os seguintes pontos ao atualizar o SDK.
@@ -294,7 +294,7 @@ Se você quiser especificá-lo em tempo de execução, você pode chamar o méto
     /* Initialize Engagement agent with above configuration. */
     EngagementAgent.Instance.Init(args, engagementConfiguration);
 
-A cadeia de conexão do seu aplicativo é exibida no Portal Clássico do Azure.
+A cadeia de conexão para o seu aplicativo é exibida no Portal do Azure.
 
 ### <a name="items-name-change"></a>Alteração do nome de itens
 Todos os itens chamados *capptain* foram nomeados como *engagement*. Da mesma forma de *Capptain* para *Engagement*.

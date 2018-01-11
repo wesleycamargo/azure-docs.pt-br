@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
 ms.custom: tables
-ms.date: 12/06/2017
+ms.date: 12/14/2017
 ms.author: barbkess
-ms.openlocfilehash: d736ad0dbfb109500a150d2bc3f7c40b16206fdb
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 46f7d2ea19a88e65b2d039fdf36d1619c4d74020
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="overview-of-tables-in-sql-data-warehouse"></a>Visão geral das tabelas no SQL Data Warehouse
 > [!div class="op_single_selector"]
@@ -60,7 +60,7 @@ As estatísticas são extremamente importantes para obter o melhor desempenho do
 Tabelas temporárias são as tabelas que só existem durante o logon e não podem ser vistas por outros usuários.  As tabelas temporárias podem ser uma boa maneira de evitar que outras pessoas vejam os resultados temporários e também reduzem a necessidade de limpeza.  Como as tabelas temporárias também utilizam o armazenamento local, podem oferecer um desempenho mais rápido para algumas operações.  Confira o artigo [Tabelas Temporárias][Temporary] para obter mais detalhes sobre elas.
 
 ## <a name="external-tables"></a>Tabelas externas
-Tabelas externas, também conhecidas como tabelas Polybase, são tabelas que podem ser consultadas no SQL Data Warehouse, mas apontam para os dados externos do SQL Data Warehouse.  Por exemplo, você pode criar uma tabela externa que aponta para os arquivos no Armazenamento de Blobs do Azure.  Para obter mais detalhes sobre como criar e consultar uma tabela externa, confira [Carregar dados com o Polybase][Load data with Polybase].  
+Tabelas externas, também conhecidas como tabelas Polybase, são tabelas que podem ser consultadas no SQL Data Warehouse, mas apontam para os dados externos do SQL Data Warehouse.  Por exemplo, você pode criar uma tabela externa que aponta para os arquivos no Armazenamento de Blobs do Azure ou no Azure Data Lake Store.  Para obter mais detalhes sobre como criar e consultar uma tabela externa, confira [Carregar dados com o Polybase][Load data with Polybase].  
 
 ## <a name="unsupported-table-features"></a>Recursos da tabela sem suporte
 Embora o SQL Data Warehouse contenha muitos dos mesmos recursos da tabela oferecidos por outros bancos de dados, há alguns recursos que ainda não têm suporte.  Abaixo, está uma lista de alguns dos recursos da tabela que ainda não têm suporte.

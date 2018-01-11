@@ -6,7 +6,6 @@
 
 # Introdução
 ## [Criar um namespace](service-bus-create-namespace-portal.md)
-### [Filas, tópicos e assinaturas](service-bus-queues-topics-subscriptions.md)
 ## Usar as filas
 ### [.NET](service-bus-dotnet-get-started-with-queues.md)
 ### [Java](service-bus-java-how-to-use-queues.md)
@@ -26,6 +25,8 @@
 
 # Como
 ## Planejar e projetar
+### [Identidade do Serviço Gerenciado (versão prévia)](service-bus-managed-service-identity.md)
+### [Controle de Acesso Baseado em Função (versão prévia)](service-bus-role-based-access-control.md)
 ### [Mensagens premium](service-bus-premium-messaging.md)
 ### [Comparar filas do Azure e filas do Barramento de Serviço](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 ### [Otimizar desempenho](service-bus-performance-improvements.md)
@@ -35,6 +36,7 @@
 
 ## Desenvolver
 ### Manipulação de mensagens
+#### [Filas, tópicos e assinaturas](service-bus-queues-topics-subscriptions.md)
 #### [Mensagens, conteúdos e serialização](service-bus-messages-payloads.md)
 #### [Transferências de mensagem, bloqueios e liquidação](message-transfers-locks-settlement.md)
 #### [Carimbos de data/hora e sequenciamento de mensagem](message-sequencing.md)
@@ -62,6 +64,7 @@
 #### [Entidades em cadeia com encaminhamento automático](service-bus-auto-forwarding.md)
 #### [Processamento de transação](service-bus-transactions.md)
 #### [Implementação do namespace emparelhado](service-bus-paired-namespaces.md)
+### [Diagnóstico e rastreamento ponta a ponta](service-bus-end-to-end-tracing.md)
 ## Gerenciar
 ### [Monitorar Barramento de Serviço com o Monitoramento do Azure](service-bus-metrics-azure-monitor.md)
 ### [Bibliotecas de gerenciamento do Barramento de Serviço](service-bus-management-libraries.md)

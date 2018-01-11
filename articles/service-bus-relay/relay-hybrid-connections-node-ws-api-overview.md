@@ -1,6 +1,6 @@
 ---
-title: "Visão geral das APIs de Nó de Retransmissão do Azure | Microsoft Docs"
-description: "Visão geral da API de Nó de Retransmissão"
+title: "Visão geral das APIs de Node de Retransmissão do Azure | Microsoft Docs"
+description: "Visão geral da API de Node de Retransmissão"
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
@@ -20,13 +20,13 @@ ms.translationtype: HT
 ms.contentlocale: pt-BR
 ms.lasthandoff: 10/11/2017
 ---
-# <a name="relay-hybrid-connections-node-api-overview"></a>Visão geral da API do Nó de Conexões Híbridas de Retransmissão
+# <a name="relay-hybrid-connections-node-api-overview"></a>Visão geral da API de Node de Conexões Híbridas de Retransmissão
 
 ## <a name="overview"></a>Visão geral
 
-O [ `hyco-ws` ](https://www.npmjs.com/package/hyco-ws) pacote de nó para as conexões de retransmissão híbridas do Azure baseia-se e estende o ['ws'](https://www.npmjs.com/package/ws) pacote NPM. Este pacote novamente exporta todas as exportações do pacote base e adiciona novos exportações que permitem a integração com o recurso de conexões híbridas do serviço de retransmissão do Azure. 
+O [ `hyco-ws` ](https://www.npmjs.com/package/hyco-ws) pacote de Node para as Conexões Híbridas de Retransmissão do Azure baseia-se e estende o ['ws'](https://www.npmjs.com/package/ws) pacote NPM. Este pacote novamente exporta todas as exportações do pacote base e adiciona novos exportações que permitem a integração com o recurso de Conexões Híbridas do serviço de retransmissão do Azure. 
 
-Os aplicativos existentes que `require('ws')` pode usar esse pacote com `require('hyco-ws')` em vez disso, que também permite cenários híbridos em que um aplicativo pode escutar conexões WebSocket localmente do "dentro do firewall" e por meio de conexões híbridas, tudo ao mesmo tempo.
+Os aplicativos existentes que `require('ws')` pode usar esse pacote com `require('hyco-ws')` em vez disso, que também permite cenários híbridos em que um aplicativo pode escutar conexões WebSocket localmente do "dentro do firewall" e por meio de Conexões Híbridas, tudo ao mesmo tempo.
   
 ## <a name="documentation"></a>Documentação
 
@@ -47,7 +47,7 @@ listenUri = WebSocket.appendRelayToken(listenUri, 'ruleName', '...key...')
 
 ```
 
-Os métodos auxiliares para uso com este pacote, mas também podem ser usados por um servidor de nó para habilitar clientes da web ou dispositivo criar ouvintes ou remetentes. O servidor usa esses métodos, passando-os URIs que incorporar tokens de curta duração. Esses URIs também pode ser usado com pilhas WebSocket comuns que não oferecem suporte a cabeçalhos HTTP de configuração para o handshake do WebSocket. A incorporação de tokens de autorização no URI é suportada principalmente para os cenários de uso da biblioteca externa. 
+Os métodos auxiliares para uso com este pacote, mas também podem ser usados por um servidor de Node para habilitar clientes da web ou dispositivo criar ouvintes ou remetentes. O servidor usa esses métodos, passando-os URIs que incorporar tokens de curta duração. Esses URIs também pode ser usado com pilhas WebSocket comuns que não oferecem suporte a cabeçalhos HTTP de configuração para o handshake do WebSocket. A incorporação de tokens de autorização no URI é suportada principalmente para os cenários de uso da biblioteca externa. 
 
 #### <a name="createrelaylistenuri"></a>createRelayListenUri
 

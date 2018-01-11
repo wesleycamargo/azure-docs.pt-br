@@ -15,11 +15,11 @@ ms.date: 08/23/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro;oldportal
-ms.openlocfilehash: 7adaf2aa51d2a48116a816d83b42ba8416c157cb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 0218365a21f241b5672774005cd6e0417fba358b
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="manage-your-azure-ad-directory"></a>Gerenciar seu diretório do Azure AD
 
@@ -80,7 +80,6 @@ A partir de qualquer um desses portais (ou cmdlets), você pode:
 * Configurar a integração local com os serviços de identidade e autenticação do Azure AD
 
 O Centro de administração do Azure, o Centro de Administração do Office 365, o portal de conta do Microsoft Intune e os cmdlets do Azure AD realizam leituras e gravações a partir de uma única instância compartilhada do Azure AD que está associada ao diretório da sua organização. Cada uma dessas ferramentas age como uma interface de front-end que recebe e/ou modifica seus dados de diretório.
-
 Quando você altera os dados da sua organização usando quaisquer dos portais ou cmdlets enquanto está conectado sob o contexto de um desses serviços, as alterações também são mostradas nos outros portais na próxima vez que você entrar. Esses dados são compartilhados entre os serviços de nuvem da Microsoft que você deseja assinar.
 
 Por exemplo, se você usou o Centro de Administração do Office 365 para bloquear a conexão de um usuário, essa ação impedirá que o usuário faça logon em qualquer outro serviço ao qual sua organização esteja inscrita atualmente. Se você visualizar a mesma conta de usuário no portal de conta do Microsoft Intune, você também verá que o usuário está bloqueado.
@@ -117,8 +116,8 @@ As seguintes condições são verificadas:
 
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Fórum do Azure AD](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD)
-* [Fórum de autenticação multifator do Azure](https://social.msdn.microsoft.com/Forums/home?forum=windowsazureactiveauthentication)
-* [Perguntas do Stack Overflow para Azure](http://stackoverflow.com/questions/tagged/azure)
+* [Fórum do Azure AD](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=windowsazuread)
+* [Fórum de autenticação multifator do Azure](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazureactiveauthentication)
+* [Perguntas sobre o StackOverflow para Azure](https://stackoverflow.com/questions/tagged/azure-active-directory)
 * [Azure Active Directory PowerShell](https://docs.microsoft.com/powershell/azure/active-directory)
 * [Atribuindo funções de administrador no Azure AD](active-directory-assign-admin-roles-azure-portal.md)

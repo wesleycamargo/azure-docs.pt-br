@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: c309c7c25a3ed75e96dec8046934530e24890f38
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: d06dd0a8ec63202825be347c4b69e21a6dd4b7db
+ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Adicionar, alterar ou remover endereços IP para um adaptador de rede do Azure
 
@@ -41,7 +41,7 @@ Conclua as seguintes tarefas antes de concluir quaisquer etapas em qualquer seç
 
 Você pode adicionar quantos endereços [IPv4](#ipv4) [privados](#private) e [públicos](#public) forem necessários a um adaptador de rede, desde que respeite os limites listados no artigo [Limites do Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). Não é possível usar o portal para adicionar um endereço IPv6 a um adaptador de rede existente (embora seja possível usar o portal para adicionar um endereço IPv6 privado durante a criação do adaptador de rede). Use o PowerShell ou a CLI para adicionar um endereço IPv6 privado a uma [configuração de IP secundário](#secondary) (desde que não haja uma configuração de IP secundário) de um adaptador de rede não anexado a uma máquina virtual. Não é possível usar qualquer ferramenta para adicionar um endereço IPv6 público a um adaptador de rede. Confira [IPv6](#ipv6) para obter detalhes sobre como usar endereços IPv6. 
 
-1. Faça logon no [portal do Azure](https://portal.azure.com) com uma conta que tenha, no mínimo, permissões para a função de Colaborador de rede para a sua assinatura. Leia o artigo [Funções internas para o controle de acesso baseado em função do Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) para saber mais sobre como atribuir funções e permissões às contas.
+1. Faça logon no [portal do Azure](https://portal.azure.com) com uma conta que tenha, no mínimo, permissões para a função de Colaborador de rede para a sua assinatura. Leia o artigo [Funções internas para o Controle de Acesso Baseado em Função do Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) para saber mais sobre como atribuir funções e permissões às contas.
 2. Na caixa que contém o texto *Pesquisar recursos*, na parte superior do portal do Azure, digite *adaptadores de rede*. Quando o texto **adaptadores de rede** aparecer nos resultados da pesquisa, clique nele.
 3. Na folha **Adaptadores de rede** exibida, clique no adaptador de rede ao qual deseja adicionar um endereço IPv4.
 4. Clique em **Configurações de IP** na seção **CONFIGURAÇÕES** da folha do adaptador de rede selecionado.
@@ -50,24 +50,24 @@ Você pode adicionar quantos endereços [IPv4](#ipv4) [privados](#private) e [p�
 
     |Configuração|Obrigatório?|Detalhes|
     |---|---|---|
-    |Nome|Sim|Deve ser exclusivo ao adaptador de rede|
-    |Tipo|Sim|Como você está adicionando uma configuração de IP a um adaptador de rede existente, e cada adaptador de rede deve ter uma configuração de IP [primária](#primary), sua única opção é **Secundária**.|
-    |Método de atribuição de endereço IP privado|Sim|[**Dinâmico**](#dynamic): o Azure atribui o próximo endereço disponível para o intervalo de endereços de sub-rede na qual o adaptador de rede está implantado. [**Estático**](#static): você atribui um endereço não utilizado ao intervalo de endereços de sub-rede na qual o adaptador de rede está implantado.|
-    |Endereço IP público|Não|**Desabilitado:** no momento, nenhum recurso de endereço IP público está associado à configuração de IP. **Habilitado:** selecione um endereço IP público IPv4 existente ou crie um novo. Para saber como criar um endereço IP público, leia o artigo [Endereços IP públicos](virtual-network-public-ip-address.md#create-a-public-ip-address).|
+    |NOME|sim|Deve ser exclusivo ao adaptador de rede|
+    |type|sim|Como você está adicionando uma configuração de IP a um adaptador de rede existente, e cada adaptador de rede deve ter uma configuração de IP [primária](#primary), sua única opção é **Secundária**.|
+    |Método de atribuição de endereço IP privado|sim|[**Dinâmico**](#dynamic): o Azure atribui o próximo endereço disponível para o intervalo de endereços de sub-rede na qual o adaptador de rede está implantado. [**Estático**](#static): você atribui um endereço não utilizado ao intervalo de endereços de sub-rede na qual o adaptador de rede está implantado.|
+    |Endereço IP público|Não |**Desabilitado:** no momento, nenhum recurso de endereço IP público está associado à configuração de IP. **Habilitado:** selecione um endereço IP público IPv4 existente ou crie um novo. Para saber como criar um endereço IP público, leia o artigo [Endereços IP públicos](virtual-network-public-ip-address.md#create-a-public-ip-address).|
 7. Adicione manualmente endereços IP privados secundários ao sistema operacional da máquina virtual seguindo as instruções do artigo [Como atribuir vários endereços IP a sistemas operacionais de máquina virtual](virtual-network-multiple-ip-addresses-portal.md#os-config). Confira endereços IP [privados](#private) para ver considerações especiais antes de adicionar manualmente os endereços IP ao sistema operacional de uma máquina virtual. Não adicione endereços IP públicos ao sistema operacional da máquina virtual.
 
 **Comandos**
 
-|Ferramenta|Command|
+|Ferramenta|Get-Help|
 |---|---|
 |CLI|[az network nic ip-config create](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#create)|
 |PowerShell|[Add-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/add-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
 
 ## <a name="change-ip-address-settings"></a>Alterar configurações de endereço IP
 
-Você pode precisar alterar o método de atribuição de endereço IPv4, alterar o endereço IPv4 estático ou alterar o endereço IP público atribuído a um adaptador de rede. Se você estiver alterando o endereço IPv4 privado de uma configuração de IP secundário associada a um adaptador de rede secundário em uma máquina virtual (saiba mais sobre [adaptadores de rede primário e secundário](virtual-network-network-interface-vm.md#about)), coloque a máquina virtual no estado interrompido (desalocado) antes de concluir as etapas a seguir: 
+Você pode precisar alterar o método de atribuição de endereço IPv4, alterar o endereço IPv4 estático ou alterar o endereço IP público atribuído a um adaptador de rede. Se você estiver alterando o endereço IPv4 privado de uma configuração de IP secundário associada a um adaptador de rede secundário em uma máquina virtual (saiba mais sobre [adaptadores de rede primário e secundário](virtual-network-network-interface-vm.md)), coloque a máquina virtual no estado interrompido (desalocado) antes de concluir as etapas a seguir: 
 
-1. Faça logon no [portal do Azure](https://portal.azure.com) com uma conta que tenha, no mínimo, permissões para a função de Colaborador de rede para a sua assinatura. Leia o artigo [Funções internas para o controle de acesso baseado em função do Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) para saber mais sobre como atribuir funções e permissões às contas.
+1. Faça logon no [portal do Azure](https://portal.azure.com) com uma conta que tenha, no mínimo, permissões para a função de Colaborador de rede para a sua assinatura. Leia o artigo [Funções internas para o Controle de Acesso Baseado em Função do Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) para saber mais sobre como atribuir funções e permissões às contas.
 2. Na caixa que contém o texto *Pesquisar recursos*, na parte superior do portal do Azure, digite *adaptadores de rede*. Quando o texto **adaptadores de rede** aparecer nos resultados da pesquisa, clique nele.
 3. Na folha **Adaptadores de rede** que aparece, clique no adaptador de rede que você deseja exibir ou do qual deseja alterar as configurações de endereço IP.
 4. Clique em **Configurações de IP** na seção **CONFIGURAÇÕES** da folha do adaptador de rede selecionado.
@@ -79,7 +79,7 @@ Você pode precisar alterar o método de atribuição de endereço IPv4, alterar
 
 **Comandos**
 
-|Ferramenta|Command|
+|Ferramenta|Get-Help|
 |---|---|
 |CLI|[az network nic ip-config update](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#update)|
 |PowerShell|[Set-AzureRMNetworkInterfaceIpConfig](/powershell/module/azurerm.network/set-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
@@ -88,7 +88,7 @@ Você pode precisar alterar o método de atribuição de endereço IPv4, alterar
 
 Você pode remover endereços IP [privados](#private) e [públicos ](#public) de um adaptador de rede, mas um adaptador de rede deve sempre ter pelo menos um endereço IPv4 privado atribuído a ele.
 
-1. Faça logon no [portal do Azure](https://portal.azure.com) com uma conta que tenha, no mínimo, permissões para a função de Colaborador de rede para a sua assinatura. Leia o artigo [Funções internas para o controle de acesso baseado em função do Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) para saber mais sobre como atribuir funções e permissões às contas.
+1. Faça logon no [portal do Azure](https://portal.azure.com) com uma conta que tenha, no mínimo, permissões para a função de Colaborador de rede para a sua assinatura. Leia o artigo [Funções internas para o Controle de Acesso Baseado em Função do Azure](../active-directory/role-based-access-built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) para saber mais sobre como atribuir funções e permissões às contas.
 2. Na caixa que contém o texto *Pesquisar recursos*, na parte superior do portal do Azure, digite *adaptadores de rede*. Quando o texto **adaptadores de rede** aparecer nos resultados da pesquisa, clique nele.
 3. Na folha **Adaptadores de rede** exibida, clique no adaptador de rede do qual você deseja remover endereços IP.
 4. Clique em **Configurações de IP** na seção **CONFIGURAÇÕES** da folha do adaptador de rede selecionado.
@@ -97,7 +97,7 @@ Você pode remover endereços IP [privados](#private) e [públicos ](#public) de
 
 **Comandos**
 
-|Ferramenta|Command|
+|Ferramenta|Get-Help|
 |---|---|
 |CLI|[az network nic ip-config delete](/cli/azure/network/nic/ip-config?toc=%2fazure%2fvirtual-network%2ftoc.json#delete)|
 |PowerShell|[Remove-AzureRmNetworkInterfaceIpConfig](/powershell/module/azurerm.network/remove-azurermnetworkinterfaceipconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)|
@@ -199,7 +199,7 @@ Não é possível atribuir um endereço IPv6 público a uma configuração de IP
 Um endereço IP público é criado com o SKU Básico ou Standard.  Para obter mais detalhes sobre as diferenças em SKUs, consulte [Gerenciar endereços IP públicos](virtual-network-public-ip-address.md).
 
 > [!NOTE]
-> Quando você atribui um endereço IP público de SKU Standard ao adaptador de rede de uma máquina virtual, você deve permitir explicitamente o tráfego pretendido com um [grupo de segurança de rede](security-overview.md#network-security-groups). A comunicação com o recurso falha até que você crie e associe um grupo de segurança de rede e permita o tráfego desejado explicitamente.
+> Quando você atribui um endereço IP público de SKU padrão ao adaptador de rede de uma máquina virtual, deve permitir explicitamente o tráfego pretendido com um [grupo de segurança de rede](security-overview.md#network-security-groups). A comunicação com o recurso falha até que você crie e associe um grupo de segurança de rede e permita o tráfego desejado explicitamente.
 
 ## <a name="next-steps"></a>Próximas etapas
 Para criar uma máquina virtual com diferentes configurações de IP, leia os seguintes artigos:

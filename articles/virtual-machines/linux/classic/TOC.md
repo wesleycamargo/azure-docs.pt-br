@@ -1,59 +1,39 @@
 # [Visão geral](../overview.md)
-## [Imagens](about-images.md)
-## [Extensões de VM](agents-and-extensions.md)
-## [Disponibilidade](configure-availability.md)
-## [Perguntas frequentes](faq.md)
+## [Extensões de VM](agents-and-extensions-classic.md)
+## [Disponibilidade](configure-availability-classic.md)
+## [Perguntas frequentes](faq-classic.md)
 
 # Introdução
-## [Criar uma VM do Linux com o Portal do Azure](createportal.md)
-## [Instalar a CLI do Azure.](../../../cli-install-nodejs.md)
-## [Criar chaves SSH](../mac-create-ssh-keys.md)
+## [Criar uma VM do Linux com o Portal do Azure](createportal-classic.md)
 
 # Como
 ## Computação
-### [Criar uma VM personalizada](create-custom.md)
-### [Capturar uma VM](capture-image.md)
-### [Usar a Área de Trabalho Remota com uma VM Linux](remote-desktop.md)
-### [Gerenciar extensões de VM](manage-extensions.md)
-### [Gerenciar VMs com o Visual Studio](manage-visual-studio.md)
-### [Monitorar as VMs usando a Extensão de VM de Diagnóstico](../diagnostic-extension.md)
+### [Criar uma VM personalizada](create-custom-classic.md)
+### [Capturar uma VM](capture-image-classic.md)
+### [Usar a Área de Trabalho Remota com uma VM Linux](remote-desktop-classic.md)
+### [Gerenciar extensões de VM](manage-extensions-classic.md)
 ### [Monitorar as VMs usando a v2.x da Extensão de VM de Diagnóstico](diagnostic-extension-v2.md)
-### [Injetar dados personalizados](inject-custom-data.md)
-### [Redefinir senhas ou chaves do Linux, corrigir SSH e verificar discos](reset-access.md)
-### [Manutenção](planned-maintenance-schedule.md)
-### [Criar um host do Docker usando a CLI](cli-use-docker.md)
-### [Criar um host do Docker usando o Portal do Azure](portal-use-docker.md)
-### [Como usar o docker com o swarm](../../virtual-machines-linux-docker-swarm.md)
+### [Redefinir senhas ou chaves do Linux, corrigir SSH e verificar discos](reset-access-classic.md)
+### [Manutenção](planned-maintenance-schedule-classic.md)
 
 ## Usar o Armazenamento
-### [Anexar um disco de dados](attach-disk.md)
-### [Desanexar e disco de dados](detach-disk.md)
+### [Anexar um disco de dados](attach-disk-classic.md)
+### [Desanexar e disco de dados](detach-disk-classic.md)
 
 ## Rede
 ### [Abrir portas para sua VM](setup-endpoints.md)
-### [Conectar VMs a uma rede virtual ou serviço de nuvem](connect-vms.md)
-
-## Implantar imagens
-### [Criar e carregar um VHD](create-upload-vhd.md)
-### [Criar e carregar um VHD FreeBSD](freebsd-create-upload-vhd.md)
-### [Lista de imagens da VM do Oracle](oracle-images.md)
 
 ## Gerenciar cargas de trabalho
-### [SAP](sap-get-started.md)
-### MySQL e MariaDB
-#### [Tutorial de cluster MariaDB](mariadb-mysql-cluster.md)
-#### [Instalar MySQL em uma VM OpenSUSE](mysql-on-opensuse.md)
-#### [Como usar conjuntos com balanceamento de carga para clusterizar MySQL](mysql-cluster.md)
-#### [Otimização do desempenho do MySQL](optimize-mysql.md)
+### [Tutorial de cluster MariaDB](mariadb-mysql-cluster.md)
+### [Instalar MySQL em uma VM OpenSUSE](mysql-on-opensuse.md)
+### [Como usar conjuntos com balanceamento de carga para clusterizar MySQL](mysql-cluster.md)
+### [Otimização do desempenho do MySQL](optimize-mysql.md)
 
 ## Executar aplicativos
-### [Aplicativo Web Ruby on Rails](virtual-machines-linux-classic-ruby-rails-web-app.md)
+### [Aplicativo Web Ruby on Rails](ruby-rails-web-app.md)
 ### [Cliente Cassandra e Node.js](cassandra-nodejs.md)
-### [Pilha LAMP](lamp-script.md)
 ### [Tomcat](setup-tomcat.md)
-### [Aplicativo Web com Visual Studio](web-app-visual-studio.md)
 ### [Cluster RDMA para executar aplicativos MPI](rdma-cluster.md)
-### [Como usar o plug-in subordinado do Azure com a Integração contínua do Hudson](../../virtual-machines-azure-slave-plugin-for-hudson.md)
 ### HPC Pack
 #### [Criar um cluster para cargas de trabalho do Linux](hpcpack-cluster-powershell-script.md)
 #### [Gerenciar um cluster nós do Linux](hpcpack-cluster.md)

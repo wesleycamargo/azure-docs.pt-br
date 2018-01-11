@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/08/2017
 ms.author: radwiv;chadmat;genli
-ms.openlocfilehash: 3a1a6e2acd2ff40c2b35a6099f8a9fc7eb104bbc
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e7e3c641791e7c72f5c2d6f8ecf674d1d7ee7ffa
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Como validar a taxa de transferência VPN para uma rede virtual
 
@@ -53,7 +53,7 @@ O diagrama a seguir mostra a conectividade lógica de uma rede local para uma re
 4.  Determine a largura de banda do Provedor de Serviços de Internet (ISP).
 5.  Calcule sua taxa de transferência esperada - Menor largura de banda de (VM, Gateway, ISP) * 0,8.
 
-Se a taxa de transferência calculada não atender aos requisitos de taxa de transferência de linha de base do aplicativo, será necessário aumentar a largura de banda do recurso identificado como o afunilamento. Para redimensionar um Gateway de VPN do Azure, consulte [Alterar um SKU de gateway](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku). Para redimensionar uma máquina virtual, consulte [Redimensionar uma VM](../virtual-machines/virtual-machines-windows-resize-vm.md). Se não houver largura de banda de Internet esperada, também convém entrar em contato com seu ISP.
+Se a taxa de transferência calculada não atender aos requisitos de taxa de transferência de linha de base do aplicativo, será necessário aumentar a largura de banda do recurso identificado como o gargalo. Para redimensionar um Gateway de VPN do Azure, consulte [Alterar um SKU de gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku). Para redimensionar uma máquina virtual, consulte [Redimensionar uma VM](../virtual-machines/virtual-machines-windows-resize-vm.md). Se não houver largura de banda de Internet esperada, também convém entrar em contato com seu ISP.
 
 ## <a name="validate-network-throughput-by-using-performance-tools"></a>Validar a taxa de transferência de rede usando as ferramentas de desempenho
 
@@ -122,7 +122,7 @@ Baixar [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). Para 
 É possível que você tenha experiência com cópia de arquivo lenta ao utilizar o Windows Explorer ou ao arrastar e soltar por meio de uma sessão RDP. Esse problema normalmente ocorre devido a um ou ambos os seguintes fatores:
 
 - Os aplicativos de cópia de arquivo, como o Windows Explorer e o RDP não usam múltiplos threads ao copiar arquivos. Para obter melhor desempenho, use um aplicativo de cópia de arquivo multi-threaded como o [Richcopy](https://technet.microsoft.com/en-us/magazine/2009.04.utilityspotlight.aspx) para copiar arquivos usando 16 ou 32 threads. Para alterar o número de thread para cópia de arquivo no Richcopy, clique em **Ação** > **Opções de cópia** > **Cópia de arquivos**.<br><br>
-![Problemas com cópia de arquivo lenta](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
+![Problemas de cópia de arquivo lenta](./media/vpn-gateway-validate-throughput-to-vnet/Richcopy.png)<br>
 - Velocidade de leitura/gravação de disco de VM insuficiente. Para obter mais informações, consulte [Solução de Problemas de Armazenamento do Azure](../storage/common/storage-e2e-troubleshooting.md).
 
 ## <a name="on-premises-device-external-facing-interface"></a>Interface externa do dispositivo local

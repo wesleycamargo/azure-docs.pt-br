@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: afee79e5081cbc6c217569a9d1bffdd7726e2f61
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 6ff8e5ccdc7e14ed39466b4525fdbae86fdc4e9a
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="create-content-keys-with-rest"></a>Criar chaves de conteúdo com REST
 > [!div class="op_single_selector"]
@@ -35,18 +35,18 @@ Quando você fornece ativos para seus clientes, é possível [configurar para qu
 
 Os ativos criptografados precisam ser associados a **ContentKey**s. Este artigo descreve como criar uma chave de conteúdo.
 
-A seguir estão as etapas gerais para gerar chaves de conteúdo que você associará aos ativos que você deseja que sejam criptografados. 
+A seguir, estão as etapas gerais para gerar chaves de conteúdo que você associará aos ativos que deseja que sejam criptografados. 
 
 1. Gere aleatoriamente uma chave AES de 16 bytes (para criptografia comum e de envelope) ou uma chave AES de 32 bytes (para criptografia de armazenamento). 
    
-    Esta será a chave de conteúdo para o seu ativo, o que significa que será necessário usar a mesma chave de conteúdo com todos os arquivos associados a esse ativo durante a descriptografia. 
+    Esta é a chave de conteúdo para o seu ativo, o que significa que será necessário usar a mesma chave de conteúdo com todos os arquivos associados a esse ativo durante a descriptografia. 
 2. Chame os métodos [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) e [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) para obter o Certificado X.509 correto que deve ser usado para criptografar sua chave de conteúdo.
 3. Criptografe a chave de conteúdo com a chave pública do certificado X.509. 
    
    O SDK do .NET dos serviços de mídia usa RSA com OAEP ao fazer a criptografia.  Você pode ver um exemplo na [função EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
 4. Crie um valor de soma de verificação (com base no algoritmo de soma de verificação de chave AES PlayReady) calculado usando o identificador de chave e a chave de conteúdo. Para obter mais informações, consulte a seção "Algoritmo de soma de verificação de chave de AES PlayReady" do documento de objeto de cabeçalho PlayReady, localizado [aqui](http://www.microsoft.com/playready/documents/).
    
-   A seguir, um exemplo .NET que calcula a soma de verificação usando a parte GUID do identificador de chave e a chave de conteúdo limpa.
+   O exemplo de .NET a seguir calcula a soma de verificação usando a parte GUID do identificador de chave e a chave de conteúdo limpa.
    
         public static string CalculateChecksum(byte[] contentKey, Guid keyId)
          {
@@ -68,7 +68,7 @@ A seguir estão as etapas gerais para gerar chaves de conteúdo que você associ
 5. Crie a chave de conteúdo com os valores **EncryptedContentKey** (convertido em cadeia de caracteres codificada em base64), **ProtectionKeyId**, **ProtectionKeyType**, **ContentKeyType** e **Checksum** que você recebeu nas etapas anteriores.
 6. Associar a entidade **ContentKey** com sua entidade **ativos** por meio da operação $links.
 
-Observe que este tópico mostra como gerar uma chave AES, criptografar a chave e calcular a soma de verificação. 
+Este tópico não mostra como gerar uma chave AES, como criptografar a chave e como calcular a soma de verificação. 
 
 >[!NOTE]
 
@@ -77,9 +77,6 @@ Observe que este tópico mostra como gerar uma chave AES, criptografar a chave e
 ## <a name="connect-to-media-services"></a>Conectar-se aos Serviços de Mídia
 
 Para saber mais sobre como conectar-se à API do AMS, veja [Acessar a API dos Serviços de Mídia do Azure com a autenticação do Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
-
->[!NOTE]
->Depois de se conectar com êxito em https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos serviços de mídia. Você deve fazer chamadas subsequentes para o novo URI.
 
 ## <a name="retrieve-the-protectionkeyid"></a>Recuperação de ProtectionKeyId
 O exemplo a seguir mostra como recuperar o ProtectionKeyId, uma impressão digital de certificado, para o certificado que você deve usar ao criptografar a chave de conteúdo. Conclua esta etapa para certificar-se de que você já tem o certificado apropriado em seu computador.
@@ -92,7 +89,7 @@ Solicitação:
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423034908&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=7eSLe1GHnxgilr3F2FPCGxdL2%2bwy%2f39XhMPGY9IizfU%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
 
@@ -124,7 +121,7 @@ Solicitação:
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-e769-2233-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423141026&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=lDBz5YXKiWe5L7eXOHsLHc9kKEUcUiFJvrNFFSksgkM%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     x-ms-client-request-id: 78d1247a-58d7-40e5-96cc-70ff0dfa7382
     Host: media.windows.net
 
@@ -152,7 +149,7 @@ Resposta:
 ## <a name="create-the-contentkey"></a>Criar o ContentKey
 Depois de recuperar o certificado X.509 e usar sua chave pública para criptografar a chave de conteúdo, crie uma entidade **ContentKey** e defina seus valores de propriedade adequadamente.
 
-Um dos valores que você deve definir quando criar o conteúdo chave é o tipo. Escolha um dos seguintes valores.
+Um dos valores que você deve definir quando criar o conteúdo chave é o tipo. Escolha um dos seguintes valores:
 
     public enum ContentKeyType
     {
@@ -179,7 +176,7 @@ Um dos valores que você deve definir quando criar o conteúdo chave é o tipo. 
     }
 
 
-O exemplo a seguir mostra como criar um **ContentKey** com um **ContentKeyType** definido para criptografia de armazenamento ("1") e o **ProtectionKeyType** definido como "0", para indicar que a ID da chave de proteção é a impressão digital do certificado X.509.  
+O exemplo a seguir mostra como criar um **ContentKey** com um **ContentKeyType** definido para criptografia de armazenamento ("1") e o **ProtectionKeyType** definido como "0" para indicar que a ID da chave de proteção é a impressão digital do certificado X.509.  
 
 Solicitação
 
@@ -191,7 +188,7 @@ Solicitação
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423034908&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=7eSLe1GHnxgilr3F2FPCGxdL2%2bwy%2f39XhMPGY9IizfU%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
     {
     "Name":"ContentKey",
@@ -241,7 +238,7 @@ Solicitação:
     Accept-Charset: UTF-8
     Content-Type: application/json
     Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=juliakoams1&urn%3aSubscriptionId=zbbef702-2233-477b-9f16-bc4d3aa97387&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1423141026&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=lDBz5YXKiWe5L7eXOHsLHc9kKEUcUiFJvrNFFSksgkM%3d
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Host: media.windows.net
 
 

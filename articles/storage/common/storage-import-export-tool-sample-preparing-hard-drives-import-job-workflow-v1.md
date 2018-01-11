@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
-ms.openlocfilehash: 179c6bac9a2d9509baa0007a7008d75d0874a25e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 66e85bd3e9e43ae360d0507f5bdf3596abbeb7d1
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="sample-workflow-to-prepare-hard-drives-for-an-import-job"></a>Fluxo de trabalho de exemplo para preparo dos discos rígidos para um trabalho de importação
 Este tópico explica o processo completo de preparar unidades para um trabalho de importação.  
@@ -169,7 +169,7 @@ WAImportExport.exe PrepImport /j:SecondDrive.jrn /id:BlueRayIso /srcfile:K:\Temp
 
 ## <a name="copy-session-completion"></a>Conclusão da sessão de cópia
 
-Depois de concluir as sessões de cópia, você pode desconectar as duas unidades do computador de cópia e enviá-las para o datacenter do Microsoft Azure apropriado. Carregue os dois arquivos do diário, `FirstDrive.jrn` e `SecondDrive.jrn`, quando criar o trabalho de importação no [Portal do Microsoft Azure](https://manage.windowsazure.com/).  
+Depois de concluir as sessões de cópia, você pode desconectar as duas unidades do computador de cópia e enviá-las para o datacenter do Microsoft Azure apropriado. Atualizar os dois arquivos do diário, `FirstDrive.jrn` e `SecondDrive.jrn`, ao criar a tarefa de importação no [portal do Azure](https://portal.azure.com).  
   
 ## <a name="next-steps"></a>Próximas etapas
 

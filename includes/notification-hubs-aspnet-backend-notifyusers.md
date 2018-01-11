@@ -148,7 +148,7 @@ Nesta seção, você adiciona um novo controlador ao back-end WebAPI para manipu
    
         using Microsoft.Azure.NotificationHubs;
 
-6. Substitua a definição da classe `Notifications` pelo seguinte e substitua os dois espaços reservados pela cadeia de conexão (com acesso completo) para o hub de notificação e o nome do hub (disponível no [portal clássico do Azure](http://manage.windowsazure.com)):
+6. Substitua a definição da classe `Notifications` pelo seguinte e substitua os dois espaços reservados pela cadeia de conexão (com acesso completo) para o hub de notificação e o nome do hub (disponível no [portal do Azure](http://portal.azure.com)):
    
         public class Notifications
         {

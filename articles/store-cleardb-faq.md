@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
-ms.openlocfilehash: b0fad1d151799f88c72cfe1359978d69cc1421c2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0d1e3c826e61b8dee264e1c01fd2d54ba7ebb636
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>Perguntas frequentes sobre bancos de dados MySql do ClearDB com o Serviço de Aplicativo do Azure
 Estas perguntas frequentes respondem a dúvidas comuns sobre como usar e adquirir os bancos de dados MySQL do ClearDB para aplicativos Web do Azure.
@@ -40,7 +40,7 @@ Isso depende do tipo de assinatura que você está usando. Veja a seguir alguns 
 * [Pré-pago](/offers/ms-azr-0003p/): exige um cartão de crédito, e quando você comprar um banco de dados MySQL pago, ele será cobrado no cartão de crédito.
 * [Avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/): inclui créditos para uso com os serviços do Microsoft Azure, mas não permite a compra de recursos de terceiros. Para comprar serviços de terceiros ou um banco de dados MySQL pago, você precisa usar uma assinatura habilitada para cartão de crédito. Para aplicativos Web, você pode criar um banco de dados MySQL do ClearDB GRATUITO.
 * [Assinatura do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) e **Desenvolvimento/Teste MSDN Pré-Pago**: semelhante à Avaliação gratuita, uma assinatura do MSDN exige que você tenha um cartão de crédito para comprar uma solução paga do MySQL da ClearDB.
-* [EA (Enterprise Agreement)](https://azure.microsoft.com/pricing/enterprise-agreement/): os clientes de EA recebem em uma fatura consolidada e separada uma cobrança por seu EA a cada trimestre referente a todas as suas compras (de terceiros) no Azure Marketplace. Você será cobrado fora do compromisso monetário por qualquer compra no marketplace. Observe que, no momento, o Armazenamento do Azure não está disponível para clientes inscritos no Azerbaijão, na Croácia, na Noruega e em Porto Rico. 
+* [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/): os clientes de EA recebem em uma fatura consolidada e separada uma cobrança por seu EA a cada trimestre referente a todas as suas compras (de terceiros) no Azure Marketplace. Você será cobrado fora do compromisso monetário por qualquer compra no marketplace. Observe que, no momento, o Armazenamento do Azure não está disponível para clientes inscritos no Azerbaijão, na Croácia, na Noruega e em Porto Rico. 
 * [DreamSpark](https://www.dreamspark.com/Product/Product.aspx?productid=99): você só pode criar bancos de dados ClearDB GRATUITOS para Aplicativos Web. Não há limite para o número de bancos de dados MySQL ClearDB Gratuitos que você pode criar. Observe que os bancos de dados Gratuitos não devem ser usados para aplicativos Web de produção, pois esse serviço é destinado apenas para avaliação.
 
 ## <a name="why-was-i-charged-350-for-a-web-app--mysql-from-the-azure-marketplace"></a>Por que recebi uma cobrança de US$ 3,50 por um aplicativo Web + MySQL no Azure Marketplace?
@@ -68,7 +68,7 @@ Use Basic ou um tipo de preço mais alto para aplicativos Web. Para o ClearDB, r
 No [portal do Azure](https://portal.azure.com), você pode escalar verticalmente um banco de dados de hospedagem compartilhada ClearDB. Leia este [artigo](https://blogs.msdn.microsoft.com/appserviceteam/2016/10/06/upgrade-your-cleardb-mysql-database-in-azure-portal/) para saber mais. Atualmente, não oferecemos suporte à atualização de clusters Premium do ClearDB no portal do Azure.
 
 ## <a name="i-cant-see-my-cleardb-database-in-azure-portal"></a>Por que não consigo ver meu banco de dados ClearDB no portal do Azure?
-Se criarmos o banco de dados ClearDB usando o Azure Resource Manager ou o [novo portal do Azure](https://portal.azure.com), ele não será visível no [antigo portal do Azure](https://manage.windowsazure.com). Para contornar esse problema, vincule o banco de dados manualmente ao aplicativo Web. Da mesma forma, se criarmos o banco de dados ClearDB no [portal antigo](https://manage.windowsazure.com), você não poderá ver o banco de dados no [novo portal do Azure](https://portal.azure.com). Não há nenhuma solução alternativa para o segundo cenário.
+Se você tiver criado um banco de dados ClearDB no modo clássico, você não poderá ver seu banco de dados no [Portal do Azure](https://portal.azure.com). Não há nenhuma solução alternativa para esse cenário.
 
 ## <a name="who-do-i-contact-for-support-when-my-database-is-down"></a>Quem devo contatar para obter suporte quando meu banco de dados ficar inativo?
 Entre em contato com o [Suporte do ClearDB](https://www.cleardb.com/developers/help/support) para quaisquer problemas relacionados ao banco de dados. Esteja preparado para fornecer as informações de sua assinatura do Azure.

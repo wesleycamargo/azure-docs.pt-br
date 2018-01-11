@@ -5,19 +5,19 @@ keywords:
 author: jeffgilb
 manager: mtillman
 ms.reviewer: jsnow
-ms.author: jeffgilb
-ms.date: 7/5/2017
+ms.author: billmath
+ms.date: 01/03/2018
 ms.topic: article
 ms.prod: 
 ms.service: azure
 ms.technology: 
 ms.assetid: 
 ms.custom: it-pro
-ms.openlocfilehash: 4bed74307f6f95cff9c779abc72da6514d869ea3
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 78813cfbfc9d28e9578f1970083e17d423e071b5
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="microsoft-hybrid-identity-solutions"></a>Soluções de identidade híbrida da Microsoft
 As soluções de identidade híbridas do [Microsoft Azure AD (Azure Active Directory)](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) permitem que você sincronize objetos de diretório locais com o Azure AD enquanto ainda está gerenciando seus usuários locais. A primeira decisão a tomar ao planejar sincronizar seu Windows Server Active Directory localmente com o Azure AD é se você deseja usar a identidade sincronizada ou a identidade federada. As identidades sincronizadas e, opcionalmente, os hashes de senha, permitem que os usuários usem a mesma senha para acessar os recursos organizacionais locais e baseados em nuvem. Para requisitos de cenário mais avançados, como SSO (logon único) ou MFA local, você precisa implantar os Serviços de Federação do Active Directory (AD FS) para federar as identidades. 
@@ -50,9 +50,6 @@ A autenticação de passagem é configurada por meio do Azure AD Connect, que ut
 
 - Windows Server 2012 R2 ou posterior
 - Ingressado em um domínio na floresta em que os usuários são validados
-
-> [!NOTE]
-> A autenticação de passagem do Azure AD está na versão prévia no momento e tem suporte para clientes baseados em navegador da Web e clientes do Office que dão suporte à autenticação moderna. Para clientes que não têm suporte, como clientes herdados do Office e Exchange ActiveSync (incluindo clientes de email nativo em dispositivos móveis), é recomendável usar a autenticação moderna equivalente. A autenticação moderna não só permite a autenticação de passagem, mas também permite que políticas de acesso condicional sejam aplicadas, como a autenticação multifator. 
 
 A autenticação de passagem no momento não tem suporte ao usar dispositivos Windows 10 ingressados no Azure AD. No entanto, você pode usar a sincronização de hash de senha como um fallback automático para dar suporte ao Windows 10 e aos clientes herdados mencionados anteriormente. Durante a versão prévia, a sincronização de hash de senha está habilitada por padrão quando a autenticação de passagem é selecionada como a opção de entrada no Azure AD Connect.
 

@@ -11,14 +11,14 @@ ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 12/01/2017
 ms.author: magoedte;eslesar
-ms.openlocfilehash: e3d605b12a1db2fca1048be15e7b365e5336f663
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 71322c650b2ee464bab91bf8d4b176f3b2d93949
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="update-management-solution-in-oms"></a>Solução Gerenciamento de Atualizações no OMS
 
@@ -56,7 +56,7 @@ Você pode implantar e instalar atualizações de software em computadores que p
 
 Na data e hora especificadas na implantação da atualização, os computadores de destino executam a implantação em paralelo.  Uma verificação é executada primeiro para verificar se as atualizações ainda são necessárias e as instala.  É importante observar que, para computadores cliente do WSUS, se as atualizações não forem aprovadas no WSUS, a implantação de atualização falhará.  Os resultados das atualizações aplicadas são encaminhados ao OMS para serem processados e resumidos em painéis ou com a pesquisa de eventos.     
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 * A solução dá suporte à execução de avaliações de atualização no Windows Server 2008 e superior e à atualização de implantações no Windows Server 2008 R2 SP1 e superior.  Não há suporte para o Nano Server.
 
     > [!NOTE]
@@ -96,7 +96,7 @@ Se o grupo de gerenciamento do System Center Operations Manager estiver conectad
 * Microsoft.IntelligencePack.UpdateAssessment.Configuration (Microsoft.IntelligencePack.UpdateAssessment.Configuration)
 * MP de Implantação de Atualizações
 
-Para saber mais sobre como os pacotes de gerenciamento da solução são atualizados, veja [Conectar o Operations Manager ao Log Analytics](../log-analytics/log-analytics-om-agents.md).
+Para obter mais informações sobre como os pacotes de gerenciamento da solução são atualizados, veja [Conectar o Operations Manager ao Log Analytics](../log-analytics/log-analytics-om-agents.md).
 
 ### <a name="hybrid-worker-groups"></a>Grupos de Hybrid Worker
 Depois que você habilita essa solução, qualquer computador com Windows conectado diretamente a seu espaço de trabalho do OMS é automaticamente configurado como um Hybrid Runbook Worker para dar suporte aos runbooks incluídos nessa solução.  Para cada computador Windows gerenciado pela solução, ele será listado sob a folha Hybrid Runbook Worker Groups da conta de Automação seguindo a convenção de nomenclatura *Hostname FQDN_GUID*.  Não é possível direcionar esses grupos com runbooks em sua conta, caso contrário, haverá falha. Esses grupos devem dar suporte à solução de gerenciamento.   
@@ -142,12 +142,12 @@ Para confirmar se um grupo de gerenciamento do Operations Manager está se comun
 ### <a name="supported-agents"></a>Agentes com suporte
 A tabela a seguir descreve as fontes conectadas que têm suporte dessa solução.
 
-| Fonte Conectada | Suportado | Descrição |
+| Fonte Conectada | Com suporte | DESCRIÇÃO |
 | --- | --- | --- |
-| Agentes do Windows |Sim |A solução coleta informações sobre atualizações do sistema de agentes do Windows e inicia a instalação de atualizações necessárias. |
-| Agentes do Linux |Sim |A solução coleta informações sobre atualizações do sistema de agentes Linux e inicia a instalação das atualizações necessárias em distribuições com suporte. |
-| Grupo de gerenciamento do Operations Manager |Sim |A solução coleta informações sobre atualizações do sistema de agentes em um grupo de gerenciamento conectados.<br>Uma conexão direta do agente do Operations Manager ao Log Analytics não é necessária. Os dados são encaminhados do grupo de gerenciamento para o repositório do OMS. |
-| Conta de Armazenamento do Azure |Não |O armazenamento do Azure não inclui informações sobre atualizações do sistema. |
+| Agentes do Windows |sim |A solução coleta informações sobre atualizações do sistema de agentes do Windows e inicia a instalação de atualizações necessárias. |
+| Agentes do Linux |sim |A solução coleta informações sobre atualizações do sistema de agentes Linux e inicia a instalação das atualizações necessárias em distribuições com suporte. |
+| Grupo de gerenciamento do Operations Manager |sim |A solução coleta informações sobre atualizações do sistema de agentes em um grupo de gerenciamento conectados.<br>Uma conexão direta do agente do Operations Manager ao Log Analytics não é necessária. Os dados são encaminhados do grupo de gerenciamento para o repositório do OMS. |
+| Conta de Armazenamento do Azure |Não  |O armazenamento do Azure não inclui informações sobre atualizações do sistema. |
 
 ### <a name="collection-frequency"></a>Frequência de coleta
 Para cada computador gerenciado do Windows, uma verificação é executada duas vezes por dia. A cada 15 minutos, a API do Windows é chamada para consultar a hora da última atualização para determinar se o status for alterado e, nesse caso, é iniciada uma verificação de conformidade.  Para cada computador Linux gerenciado, uma verificação é executada a cada três horas.
@@ -179,18 +179,18 @@ Clique no bloco **Implantação de Atualização** para exibir a lista das Impla
 
 As propriedades exibidas para cada Implantação de Atualizações são descritas na tabela a seguir.
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
-| Nome |Nome da Implantação de Atualizações. |
+| NOME |Nome da Implantação de Atualizações. |
 | Agenda |Tipo de agenda.  As opções disponíveis são *Uma Vez*, *Recorrente Semanal* ou *Recorrente Mensal*. |
 | Hora de Início |A data e a hora em que a Implantação de Atualizações está agendada para iniciar. |
-| Duração |O número de minutos que a Implantação de Atualização pode ser executada.  Se todas as atualizações não forem instaladas nesse período, as atualizações restantes deverão aguardar até a próxima Implantação de Atualização. |
+| Duration |O número de minutos que a Implantação de Atualização pode ser executada.  Se todas as atualizações não forem instaladas nesse período, as atualizações restantes deverão aguardar até a próxima Implantação de Atualização. |
 | Servidores |O número de computadores afetados pela Implantação de Atualizações.  |
 | Status |O status atual da Implantação de Atualizações.<br><br>Os valores possíveis são:<br>- Não iniciado<br>- Executando<br>- Concluído |
 
 Selecione uma Implantação de Atualização concluída para exibir a tela de detalhes que inclui as colunas na tabela a seguir.  Essas colunas não estarão preenchidas se a Implantação de Atualizações ainda não tiver sido iniciada.<br><br> ![Visão geral dos resultados da Implantação de Atualizações](./media/oms-solution-update-management/update-management-deploymentresults-dashboard.png)
 
-| Coluna | Descrição |
+| Coluna | DESCRIÇÃO |
 | --- | --- |
 | **Exibição de Computadores** | |
 | Computadores com Windows |Lista o número de computadores com Windows na Implantação de Atualizações por status.  Clique em um status para executar uma pesquisa de log que retorna todos os registros de atualização com esse status para a Implantação de Atualizações. |
@@ -203,13 +203,13 @@ Selecione uma Implantação de Atualização concluída para exibir a tela de de
 ### <a name="creating-an-update-deployment"></a>Criação de uma Implantação de Atualizações
 Crie uma nova Implantação de Atualizações clicando no botão **Adicionar** na parte superior da tela para abrir a página **Nova Implantação de Atualizações**.  Você deve fornecer valores para as propriedades na tabela a seguir.
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
-| Nome |Nome exclusivo para identificar a Implantação de Atualizações. |
+| NOME |Nome exclusivo para identificar a Implantação de Atualizações. |
 | Fuso horário |Fuso horário a ser usado para a hora de início. |
 | Tipo de Agenda | Tipo de agenda.  As opções disponíveis são *Uma Vez*, *Recorrente Semanal* ou *Recorrente Mensal*.  
 | Hora de Início |Data e hora para iniciar a Implantação de Atualizações. **Observação:** o momento mais antecipado em que uma implantação pode ser executada é 30 minutos a contar da hora atual, se você precisa implantar imediatamente. |
-| Duração |O número de minutos que a Implantação de Atualização pode ser executada.  Se todas as atualizações não forem instaladas nesse período, as atualizações restantes deverão aguardar até a próxima Implantação de Atualização. |
+| Duration |O número de minutos que a Implantação de Atualização pode ser executada.  Se todas as atualizações não forem instaladas nesse período, as atualizações restantes deverão aguardar até a próxima Implantação de Atualização. |
 | Computadores |Nomes de computadores ou grupos para incluir e direcionar na Implantação de Atualizações.  Selecione uma ou mais entradas na lista suspensa. |
 
 <br><br> ![Página Nova Implantação de Atualizações](./media/oms-solution-update-management/update-newupdaterun-page.png)
@@ -225,9 +225,9 @@ A solução de gerenciamento de atualização cria dois tipos de registros no re
 ### <a name="update-records"></a>Registros de atualização
 Um registro com um tipo **Update** é criado para cada atualização instalada ou necessária em cada computador. Os registros Update têm as propriedades descritas na tabela a seguir.
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
-| Tipo |*Atualização* |
+| type |*Atualização* |
 | SourceSystem |A fonte que aprovou a instalação da atualização.<br>Os valores possíveis são:<br>- Microsoft Update<br>- Windows Update<br>- SCCM<br>- Servidores Linux (buscados de Gerenciadores de Pacotes) |
 | Aprovado |Especifica se a atualização foi aprovada para instalação.<br> Para os servidores Linux, atualmente isso é opcional, já que a aplicação de patch não é gerenciada pelo OMS. |
 | Classificação para o Windows |Classificação da Atualização.<br>Os valores possíveis são:<br>- Aplicativos<br>- Atualizações Críticas<br>- Atualizações de Definição<br>- Feature Packs<br>- Atualizações de Segurança<br>- Service Packs<br>- Pacotes Cumulativos de Atualização<br>- Atualizações |
@@ -266,9 +266,9 @@ Na exibição **Lista**, clique no link **Exibir** ao lado da KBID para abrir o 
 ### <a name="updatesummary-records"></a>Registros de UpdateSummary
 Um registro com um tipo **UpdateSummary** é criado para cada computador de agente do Windows. Esse registro é atualizado toda vez que o computador é examinado em busca de atualizações. Os registros **UpdateSummary** têm as propriedades descritas na tabela a seguir.
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
-| Tipo |UpdateSummary |
+| type |UpdateSummary |
 | SourceSystem |OpsManager |
 | Computador |Nome do computador. |
 | CriticalUpdatesMissing |Número de atualizações críticas ausentes no computador. |
@@ -289,7 +289,7 @@ Um registro com um tipo **UpdateSummary** é criado para cada computador de agen
 ## <a name="sample-log-searches"></a>Pesquisas de log de exemplo
 A tabela a seguir fornece pesquisas de log de exemplo para os registros de atualização coletados por essa solução.
 
-| Consultar | Descrição |
+| Consultar | DESCRIÇÃO |
 | --- | --- |
 | Type:Update OSType!=Linux UpdateState=Needed Optional=false Approved!=false &#124; measure count() by Computer |Computadores baseados no Windows Server que precisam de atualizações |
 | Type:Update OSType=Linux UpdateState!="Not needed" &#124; measure count() by Computer |Servidores Linux que precisam de atualizações | 
@@ -319,7 +319,7 @@ Os clientes que investiram no System Center Configuration Manager para gerenciar
 
 Para saber como integrar a solução Gerenciamento de Atualizações de OMS ao System Center Configuration Manager, veja [Integrar o System Center Configuration Manager ao Gerenciamento de Atualizações do OMS](../automation/oms-solution-updatemgmt-sccmintegration.md).
 
-## <a name="troubleshooting"></a>Solucionar problemas
+## <a name="troubleshooting"></a>solução de problemas
 
 Esta seção fornece informações para ajudar a solucionar problemas da solução de Gerenciamento de Atualizações.
 

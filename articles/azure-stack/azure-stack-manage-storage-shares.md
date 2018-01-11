@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.date: 12/14/2017
 ms.author: brenduns
 ms.reviewer: jiahan
-ms.openlocfilehash: f305f6ca3c92824aeed8a3b04181cc87e34b5321
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: dce4252846732ca5161018103438df1f9ff6146d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Gerenciar a capacidade de armazenamento para a pilha do Azure
 
@@ -53,7 +53,7 @@ Compartilhamentos em volumes mantêm dados de locatário. Dados de locatário in
 Quando um compartilhamento é baixo no espaço livre e ações a serem [recuperar](#reclaim-capacity) espaço não são bem-sucedidas ou disponível, o operador de nuvem do Azure pilha pode [migrar](#migrate-a-container-between) os contêineres de blob de um compartilhamento para outro.
 
 - Para obter mais informações sobre contêineres e blobs, consulte [armazenamento de Blob](azure-stack-key-features.md#blob-storage) em recursos de chave e os conceitos na pilha do Azure.
-- Para obter informações sobre como os usuários de locatário funcionam com o armazenamento de blog na pilha do Azure, consulte [serviços de armazenamento do Azure pilha](/azure/azure-stack/user/azure-stack-storage-overview#azure-stack-storage-services).
+- Para obter informações sobre como os usuários de locatário funcionam com o armazenamento de blob na pilha do Azure, consulte [serviços de armazenamento do Azure pilha](/azure/azure-stack/user/azure-stack-storage-overview#azure-stack-storage-services).
 
 
 ### <a name="containers"></a>Contêineres
@@ -63,7 +63,7 @@ Depois de um blob é colocado em um contêiner, blob pode aumentar para usar mai
 
 Contêineres não estão limitados a um único compartilhamento. Quando os dados de blob combinados em um contêiner crescem use 80% ou mais de espaço disponível, o contêiner insere *estouro* modo. No modo de estouro, quaisquer novos blobs que são criados no contêiner são alocados para um volume diferente que tenha espaço suficiente. Ao longo do tempo, um contêiner no modo de estouro pode ter os blobs que são distribuídos entre vários volumes.
 
-Quando 80% e 90% do espaço disponível em um volume é usado, o sistema gera alertas no portal do administrador de pilha do Azure. Operadores de nuvem devem analisar a capacidade de armazenamento disponível e planeja reequilibrar o conteúdo. O serviço de armazenamento para de funcionar quando um disco é 100% usado e não há que nenhum alertas adicionais são geradas.
+Quando 80% e 90% do espaço disponível em um volume é usado, o sistema gera alertas no portal do administrador de pilha do Azure. Operadores de nuvem devem analisar a capacidade de armazenamento disponível e planeja reequilibrar o conteúdo. O serviço de armazenamento para de funcionar quando um disco é 100% usado e não há alertas adicionais são geradas.
 
 ### <a name="disks"></a>Discos
 Discos de VM são adicionados aos contêineres por locatários e incluem um disco do sistema operacional. Máquinas virtuais também podem ter um ou mais discos de dados. Os dois tipos de discos são armazenados como blobs de página. As diretrizes para locatários são colocar cada disco em um contêiner separado para melhorar o desempenho da VM.
@@ -123,7 +123,7 @@ Você pode tentar liberar espaço em um compartilhamento com uso excessivo migra
 
 Migração consolida um blob de contêineres no compartilhamento de novo.
 
-- Se um contêiner entrou no modo de estouro e colocou blobs em volumes adicionais, o novo compartilhamento deve ter capacidade suficiente para manter todos os blobs para o contêiner que você migrar. Isso inclui os blogs situados em compartilhamentos adicionais.
+- Se um contêiner entrou no modo de estouro e colocou blobs em volumes adicionais, o novo compartilhamento deve ter capacidade suficiente para manter todos os blobs para o contêiner que você migrar. Isso inclui os blobs que estão localizados em compartilhamentos adicionais.
 
 - O cmdlet do PowerShell *AzsStorageContainer Get* identifica apenas o espaço em uso no volume inicial para um contêiner. O cmdlet não identifica o espaço usado por blobs colocados em volumes adicionais. Portanto, o tamanho total de um contêiner pode não ser evidente. É possível que a consolidação de um contêiner em um novo compartilhamento pode enviar esse novo compartilhamento em uma condição de estouro coloca os dados em compartilhamentos adicionais. Como resultado, talvez seja necessário reequilibrar compartilhamentos novamente.
 

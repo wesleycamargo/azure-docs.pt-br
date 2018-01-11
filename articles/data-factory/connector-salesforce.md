@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/24/2017
 ms.author: jingwang
-ms.openlocfilehash: d0db2bd3a7e4d93a8d0690fcb4535c4552cef7ab
-ms.sourcegitcommit: 5bced5b36f6172a3c20dbfdf311b1ad38de6176a
+ms.openlocfilehash: d5bad9a3be9c3165e5d26001353b8955ff81a764
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="copy-data-fromto-salesforce-using-azure-data-factory"></a>Copiar dados de/para Salesforce usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -65,8 +65,8 @@ As propriedades a seguir têm suporte para o serviço vinculado do Salesforce:
 | type |A propriedade type deve ser definida para: **Salesforce**. |Sim |
 | environmentUrl | Especifica a URL da instância do Salesforce. <br> – O padrão é `"https://login.salesforce.com"`. <br> – Para copiar dados da área restrita, especifique `"https://test.salesforce.com"`. <br> – Para copiar dados do domínio personalizado, especifique, por exemplo, `"https://[domain].my.salesforce.com"`. |Não |
 | Nome de Usuário |Especifique um nome de usuário para a conta de usuário. |Sim |
-| Senha |Especifique um senha para a conta de usuário.<br/><br/>Você pode optar por este campo marcado como uma SecureString para armazená-la com segurança no ADF ou armazene a senha no Azure Key Vault e permitir que o ADF copiar pull de atividade a partir daí, ao executar a cópia de dados - Saiba mais [armazenar credenciais no cofre de chaves](store-credentials-in-key-vault.md). |Sim |
-| securityToken |Especifique um token de segurança para a conta de usuário. Veja [Obter token de segurança](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) para ver instruções sobre como redefinir/obter o token de segurança. Para saber mais sobre os tokens de segurança em geral, veja [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm) (Segurança e a API).<br/><br/>Você pode optar por este campo marcado como uma SecureString para armazená-la com segurança no ADF ou armazene o token de segurança no Azure Key Vault e permitir que o ADF copie pull de atividade a partir daí, ao executar a cópia de dados - Saiba mais [armazenar credenciais no cofre de chaves](store-credentials-in-key-vault.md). |Sim |
+| Senha |Especifique um senha para a conta de usuário.<br/><br/>Você pode optar por marcar este campo como um SecureString para armazená-lo com segurança no ADF, ou armazenar a senha no Azure Key Vault e permitir que o pull de atividade de cópia possa agir a partir daí ao executar a cópia de dados - Saiba mais em [Armazenar Credenciais no Key Vault](store-credentials-in-key-vault.md). |Sim |
+| securityToken |Especifique um token de segurança para a conta de usuário. Veja [Obter token de segurança](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) para ver instruções sobre como redefinir/obter o token de segurança. Para saber mais sobre os tokens de segurança em geral, veja [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm) (Segurança e a API).<br/><br/>Você pode optar por marcar este campo como um SecureString para armazená-lo com segurança no ADF, ou armazenar o token de segurança no Azure Key Vault e permitir que o pull de atividade de cópia possa agir a partir daí ao executar a cópia de dados - Saiba mais em [Armazenar Credenciais no Key Vault](store-credentials-in-key-vault.md). |Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Se não for especificado, ele usa o Integration Runtime padrão do Azure. | Não para fonte, Sim para o coletor |
 
 >[!IMPORTANT]

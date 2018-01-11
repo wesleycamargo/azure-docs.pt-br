@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/23/2016
 ms.author: anithaa
-ms.openlocfilehash: f01d3b43a7953697a6b03e176dace33448d95cd9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 92816a5b1a74be5b64d974ad9ade47374db5db10
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="troubleshoot-network-security-groups-using-the-azure-portal"></a>Solucionar problemas de grupos de segurança de rede usando o Portal do Azure
 > [!div class="op_single_selector"]
@@ -46,7 +46,7 @@ Siga as etapas a seguir para solucionar problemas de NSGs em uma VM:
 
 Você pode exibir uma lista completa das regras de segurança em vigor em uma NIC, por meio da VM em si. Você também poderá adicionar, modificar e excluir tanto a NIC quanto as regras NSG da sub-rede da folha regras em vigor, se você tiver permissões para realizar essas operações.
 
-1. Entre no Portal do Azure em https://portal.azure.com.
+1. Entre no Portal do Azure em https://portal.azure.com com uma conta do Azure. Sua conta deve ter a operação *Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action* atribuída a ela para o adaptador de rede. Para saber como atribuir operações a contas, consulte [Criar funções personalizadas para o Controle de Acesso Baseado em Função do Azure](../active-directory/role-based-access-control-custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#actions).
 2. Clique em **Mais serviços** e em **Máquinas virtuais** na lista exibida.
 3. Selecione uma VM para solucionar problemas na lista, e uma folha da VM com opções é exibida.
 4. Clique em **Diagnosticar e resolver problemas** e selecione um problema comum. Neste exemplo, **Não é possível me conectar à minha VM do Windows** está selecionado. 

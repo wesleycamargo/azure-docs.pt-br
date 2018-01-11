@@ -12,7 +12,7 @@ As VMs da série F são uma ótima opção para as cargas de trabalho que exigem
 
 A série Fs fornece todas as vantagens da série F, além do armazenamento Premium.
 
-## <a name="fsv2-series"></a>Série Fsv2*
+## <a name="fsv2-series-sup1sup"></a>Série Fsv2 <sup>1</sup>
 
 ACU: 195 - 210
 
@@ -25,9 +25,10 @@ ACU: 195 - 210
 | Standard_F32s_v2 | 32     | 64          | 256            | 32             | 64000 (512)                                                           | Extremamente Alto                                 |
 | Standard_F64s_v2 | 64     | 128         | 512            | 32             | 128000 (1024)                                                         | Extremamente Alto                                 |
 | Standard_F72s_v2 | 72     | 144         | 576            | 32             | 144000 (1520)                                                         | Extremamente Alto                                 |
-*A tecnologia Intel® Hyper-Threading da VM série Fsv2
 
-## <a name="fs-series"></a>Série Fs*
+<sup>1</sup>A tecnologia Intel® Hyper-Threading da VM série 1Fsv2
+
+## <a name="fs-series-sup1sup"></a>FS-series <sup>1</sup>
 
 ACU: 210 - 250
 
@@ -41,7 +42,7 @@ ACU: 210 - 250
 
 MBps = 10^6 bytes por segundo e GiB = 1024^3 bytes.
 
-*A taxa de transferência máxima possível do disco (IOPS ou MBps) com uma VM da série Fs pode ser limitada pelo número, tamanho e distribuição dos discos anexados.  Para obter detalhes, confira [Armazenamento Premium: armazenamento de alto desempenho para cargas de trabalho das máquinas virtuais do Azure](../articles/virtual-machines/windows/premium-storage.md).
+<sup>1</sup>A taxa de transferência máxima possível do disco (IOPS ou MBps) com uma VM da série Fs pode ser limitada pelo número, tamanho e distribuição dos discos anexados.  Para obter detalhes, confira [Armazenamento Premium: armazenamento de alto desempenho para cargas de trabalho das máquinas virtuais do Azure](../articles/virtual-machines/windows/premium-storage.md).
 
 
 <br>

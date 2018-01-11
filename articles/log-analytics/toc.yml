@@ -73,8 +73,6 @@
               href: log-analytics-sccm.md
             - name: Gateway do OMS
               href: log-analytics-oms-gateway.md
-            - name: Solucionar problemas do agente Linux
-              href: log-analytics-agent-linux-support.md
         - name: Fontes de dados
           items:
             - name: Visão geral de fontes de dados
@@ -89,7 +87,7 @@
               href: log-analytics-data-sources-alerts-nagios-zabbix.md
             - name: syslog
               href: log-analytics-data-sources-syslog.md
-            - name: Contadores de desempenho
+            - name: contadores de desempenho
               href: log-analytics-data-sources-performance-counters.md
             - name: Desempenho de aplicativo Linux
               href: log-analytics-data-sources-linux-applications.md
@@ -99,6 +97,8 @@
               href: log-analytics-data-sources-custom-logs.md
             - name: Campos Personalizados
               href: log-analytics-custom-fields.md
+            - name: API do coletor de dados
+              href: log-analytics-data-collector-api.md
     - name: Consultar dados
       items:
         - name: Documentação da linguagem
@@ -164,15 +164,25 @@
           href: log-analytics-manage-cost-storage.md
         - name: Excluir um espaço de trabalho
           href: log-analytics-manage-del-workspace.md
+    - name: Solucionar problemas
+      items:
+        - name: Solucionar Problemas de Extensões da VM
+          href: log-analytics-azure-vmext-troubleshoot.md
+        - name: Solucionar problemas do agente Linux
+          href: log-analytics-agent-linux-support.md
     - name: Use as soluções
       items:
         - name: Visão geral das soluções
           href: log-analytics-add-solutions.md
         - name: Soluções de destino
           href: ../operations-management-suite/operations-management-suite-solution-targeting.md?toc=%2fazure%2flog-analytics%2ftoc.json
-        - name: Log Analytics de Atividade
-          href: log-analytics-activity.md
-        - name: Verificação de Integridade do AD
+        - name: Logs de atividades do Azure
+          items:
+            - name: Análise
+              href: log-analytics-activity.md
+            - name: Coletar entre assinaturas
+              href: log-analytics-activity-logs-subscriptions.md
+        - name: Avaliação do AD
           href: log-analytics-ad-assessment.md
         - name: Status de replicação do AD
           href: log-analytics-ad-replication-status.md
@@ -199,7 +209,7 @@
           items:
             - name: Conexões de Gerenciamento do Serviço de TI
               href: log-analytics-itsmc-connections.md
-        - name: Cofre de Chaves
+        - name: Cofre da Chave
           href: log-analytics-azure-key-vault.md
         - name: Mensagens dos Aplicativos Lógicos B2B
           items:
@@ -244,8 +254,6 @@
           href: log-analytics-wire-data.md
     - name: Desenvolver
       items:
-        - name: API do coletor de dados
-          href: log-analytics-data-collector-api.md
         - name: Cmdlets do PowerShell
           href: log-analytics-powershell-workspace-configuration.md
         - name: Modelos do Gerenciador de Recursos

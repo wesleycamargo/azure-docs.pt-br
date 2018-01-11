@@ -7,6 +7,7 @@ author: miprasad
 manager: kristin.tolle
 editor: miprasad
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/16/2017
 ms.author: miprasad
-ms.openlocfilehash: 4a0985cd993c53dcf75d3b29e57598e72908163b
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 255c39ea21378aae23fc61da6dc882138fb66ab1
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="sentiment-analysis-using-deep-learning-with-azure-machine-learning"></a>Análise de Sentimento usando Aprendizado profundo com o Azure Machine Learning
 
@@ -38,7 +39,7 @@ A explosão de dados e a proliferação de dispositivos móveis criou muitas opo
 
 Para obter o valor da análise de sentimento, as empresas devem ter a capacidade de explorar grandes repositórios de dados sociais não estruturados com relação a ideias acionáveis. Neste exemplo, desenvolveremos modelos de aprendizado profundo para realizar análises de sentimento de revisões de filme usando o AMLWorkbench
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 * Uma [conta do Azure](https://azure.microsoft.com/free/) (avaliações gratuitas estão disponíveis).
 

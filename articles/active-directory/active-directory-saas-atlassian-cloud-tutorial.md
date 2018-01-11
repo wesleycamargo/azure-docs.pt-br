@@ -4,20 +4,21 @@ description: "Saiba como configurar o logon único entre o Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
+ms.reviewer: joflore
 ms.assetid: 729b8eb6-efc4-47fb-9f34-8998ca2c9545
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/14/2017
+ms.date: 12/05/2017
 ms.author: jeedes
-ms.openlocfilehash: 2891838b56dd15cb5f97dcae391770143a80c781
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: db9e9c7ae8380612bac9d0aeaaaf6df78cba523f
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-atlassian-cloud"></a>Tutorial: Integração do Azure Active Directory com o Atlassian Cloud
 
@@ -25,259 +26,296 @@ Neste tutorial, você aprenderá a integrar o Atlassian Cloud ao Azure AD (Azure
 
 A integração do Atlassian Cloud ao Azure AD oferece os seguintes benefícios:
 
-- No Azure AD, você pode controlar quem tem acesso ao Atlassian Cloud
-- Você pode habilitar os usuários a fazer logon automaticamente no Atlassian Cloud (Logon Único) com suas contas do Azure AD
-- Você pode gerenciar suas contas em um única localização: o Portal do Azure
+- No Azure AD, é possível controlar quem tem acesso ao Atlassian Cloud.
+- Você pode habilitar os usuários a fazer logon automaticamente no Atlassian Cloud (Logon Único) com as respectivas contas do Azure AD.
+- Você pode gerenciar suas contas em um único local, o portal clássico do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
+Para obter mais informações sobre a integração de aplicativos de SaaS (software como serviço) ao Azure AD, consulte [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com o Atlassian Cloud, você precisa dos seguintes itens:
 
-- Uma assinatura do AD do Azure
-- Uma assinatura do Atlassian Cloud habilitada para logon único
+- Uma assinatura do Azure AD.
+- Para habilitar o logon único Security Assertion Markup Language (SAML) para produtos Atlassian Cloud, você precisará configurar o Identity Manager. Saiba mais sobre o [Identity Manager]( https://www.atlassian.com/enterprise/cloud/identity-manager).
 
 > [!NOTE]
-> Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
+> Ao testar as etapas deste tutorial, recomendamos que você não use um ambiente de produção.
 
-Para testar as etapas deste tutorial, você deve seguir estas recomendações:
+Para testar as etapas neste tutorial, siga estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, será possível obter uma versão de avaliação de um mês aqui: [Oferta de avaliação](https://azure.microsoft.com/pricing/free-trial/).
+- Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
-Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
+Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito no tutorial consiste em dois blocos de construção principais:
 
-1. Adição do Atlassian Cloud da galeria
-2. Configurar e testar o logon único do AD do Azure
+* Adição do Atlassian Cloud da galeria
+* Configurar e testar o logon único do AD do Azure
 
-## <a name="adding-atlassian-cloud-from-the-gallery"></a>Adição do Atlassian Cloud da galeria
-Para configurar a integração do Atlassian Cloud ao Azure AD, você precisará adicionar o Atlassian Cloud da galeria à sua lista de aplicativos SaaS gerenciados.
+## <a name="add-atlassian-cloud-from-the-gallery"></a>Adicionar o Atlassian Cloud por meio da galeria
+Para configurar a integração do Atlassian Cloud ao Azure AD, adicione o Atlassian Cloud da galeria à sua lista de aplicativos SaaS gerenciados, fazendo o seguinte:
 
-**Para adicionar o Atlassian Cloud da galeria, execute as seguintes etapas:**
+1. No [portal do Azure](https://portal.azure.com), no painel esquerdo, selecione o botão **Azure Active Directory**. 
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
+    ![O botão Azure Active Directory][1]
 
-    ![Active Directory][1]
+2. Selecione **Aplicativos empresariais** > **Todos os aplicativos**.
 
-2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
-
-    ![Aplicativos][2]
+    ![O painel Aplicativos Empresariais][2]
     
-3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
+3. Para adicionar um aplicativo, selecione **Novo aplicativo**.
 
-    ![Aplicativos][3]
+    ![O botão “Novo aplicativo”][3]
 
-4. Na caixa de pesquisa, digite **Atlassian Cloud**.
+4. Na caixa de pesquisa, digite **Atlassian Cloud**, na lista de resultados, selecione **Atlassian Cloud**e, em seguida, selecione **Adicionar**.
 
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_search.png)
+    ![Atlassian Cloud na lista de resultados](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_addfromgallery.png)
 
-5. No painel de resultados, selecione **Atlassian Cloud** e, depois, clique no botão **Adicionar** para adicionar o aplicativo.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_addfromgallery.png)
+Nesta seção, você configurará e testará o logon único do Azure AD com o Atlassian Cloud, com base em um usuário de teste chamado *Britta Simon*.
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
-Nesta seção, você configurará e testará o logon único do Azure AD com o Atlassian Cloud, com base em um usuário de teste chamado “Brenda Fernandes”.
+Para que o logon único funcione, o Azure AD precisa identificar o usuário do Atlassian Cloud e sua contraparte do Azure AD. Em outras palavras, você precisa estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Atlassian Cloud.
 
-Para que o logon único funcione, o Azure AD precisa saber qual usuário do Atlassian Cloud é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vínculo entre um usuário do Azure AD e o usuário relacionado do Atlassian Cloud.
+Para estabelecer a relação de vinculação, atribuir como o *nome de usuário* do Atlassian Cloud o mesmo valor que é atribuído ao *nome de usuário* do Azure AD.
 
-Essa relação de vínculo é estabelecida atribuindo o valor de **nome de usuário** no Azure AD ao valor de **Nome de usuário** no Atlassian Cloud.
+Para configurar e testar o logon único do Azure AD com o Atlassian Cloud, você precisa concluir os blocos de construção nas seguintes seções.
 
-Para configurar e testar o logon único do Azure AD com o Atlassian Cloud, você precisa concluir os seguintes blocos de construção:
-
-1. **[Configuração do logon único do AD do Azure](#configuring-azure-ad-single-sign-on)** : para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
-3. **[Criação de um usuário de teste do Atlassian Cloud](#creating-an-atlassian-cloud-test-user)** – para ter um equivalente de Brenda Fernandes no Atlassian Cloud que esteja vinculado à sua representação no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
-
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
 Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e configurará o logon único em seu aplicativo Atlassian Cloud.
 
-**Para configurar o logon único do Azure AD com o Atlassian Cloud, execute as seguintes etapas:**
+Para configurar o logon único do Azure AD com o Atlassian Cloud, faça o seguinte:
 
-1. No portal do Azure, na página de integração de aplicativo do **Atlassian Cloud**, clique em **Logon único**.
+1. No portal do Azure, na página de integração de aplicativo do **Atlassian Cloud**, selecione **Logon único**.
 
-    ![Configurar Logon Único][4]
+    ![Link Configurar logon único][4]
 
-2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
+2. Na janela **Logon único**, na caixa **Modo Logon único**, selecione **Logon baseado em SAML**.
  
-    ![Configurar Logon Único](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_samlbase.png)
+    ![Janela de Logon único](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_samlbase.png)
 
-3. Na seção **URLs e Domínio do Atlassian Cloud**, se desejar configurar o aplicativo em modo iniciado pelo **IDP**, siga as etapas abaixo:
+3. Para configurar o aplicativo no modo iniciado pelo IDP, em **URLs e Domínio do Atlassian Cloud**, faça o seguinte:
 
-    ![Configurar Logon Único](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_url.png)
+    ![Informações de logon único em Domínio e URLs do Atlassian Cloud](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_url.png)
+    
+    a. Na caixa **Identificador**, digite **`https://auth.atlassian.com/saml/<unique ID>`**.
+    
+    b. Na caixa **URL de Resposta**, digite **`https://auth.atlassian.com/login/callback?connection=saml-<unique ID>`**.
 
-    a. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `https://<instancename>.atlassian.net/admin/saml/edit`
+    c. Na caixa de **Estado de Retransmissão**, digite uma URL com o seguinte padrão: **`https://<instancename>.atlassian.net`**.
 
-    b. Na caixa de texto **URL de Resposta**, digite uma URL como: `https://id.atlassian.com/login/saml/acs`
+4. Para configurar o aplicativo no modo iniciado pelo SP, selecione o **Mostrar configurações de URL avançadas** e, em seguida, na caixa **URL de logon**, digite uma URL com a seguinte sintaxe: **`https://<instancename>.atlassian.net`**.
 
-4. Marque **Mostrar configurações avançadas de URL** e realize a seguinte etapa se quiser configurar o aplicativo no modo iniciado pelo **SP**:
-
-    ![Configurar Logon Único](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_url1.png)
-
-    Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão: `https://<instancename>.atlassian.net`
+    ![Informações de logon único em Domínio e URLs do Atlassian Cloud](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_url1.png)
 
     > [!NOTE] 
-    > Esses valores não são reais. Atualize esses valores com o Identificador e a URL de Logon reais. Você pode obter os valores exatos na tela Configuração do SAML do Atlassian Cloud.
- 
-5. Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado no computador.
+    > Os valores anteriores não são reais. Atualize-os com o Identificador, a URL de Resposta e a URL de Logon reais. Você pode obter os valores reais na tela Configuração do SAML do Atlassian Cloud. Explicamos os valores posteriormente no tutorial.
 
-    ![Configurar Logon Único](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_certificate.png) 
+5. Na seção **Certificado de Autenticação do SAML**, selecione **Certificado (Base64)** e salve o arquivo do certificado no computador.
 
-6. Na seção **Configuração do Atlassian Cloud**, clique em **Configurar Atlassian Cloud** para abrir a janela **Configurar logon**. Copie a **ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.**
+    ![O link de download do Certificado](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_certificate.png) 
 
-    ![Configurar Logon Único](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_configure.png) 
+6. Seu aplicativo Atlassian Cloud espera encontrar as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados de acordo com a sua configuração de Atributos de Token SAML. 
 
-7. Para configurar o SSO para seu aplicativo, faça logon no Portal do Atlassian usando os direitos de administrador.
+    Por padrão, o valor do **identificador de usuário** é mapeado para user.userprincipalname. Altere este valor para mapear para user.mail. Você também pode escolher qualquer outro valor apropriado de acordo com a configuração de sua organização, mas, na maioria dos casos, o email deve funcionar.
 
-8. Na seção Autenticação do painel de navegação esquerdo, clique em **Domínios**.
+    ![O link de download do Certificado](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_attribute.png) 
 
-    ![Configurar Logon Único](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_06.png)
+7. Selecione **Salvar**.
 
-    a. Na caia de texto, digite seu nome de domínio e clique em **Adicionar domínio**.
-        
-    ![Configurar Logon Único](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_07.png)
+    ![O botão Salvar de Configurar Logon Único](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_general_400.png)
 
-    b. Para verificar o domínio, clique em **Verificar**. 
+8. Para abrir a janela **Configurar o logon**, na seção **Configuração do Atlassian Cloud**, selecione **Configurar Atlassian Cloud**. 
 
-    ![Configurar Logon Único](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_08.png)
+9. Na seção **Referência Rápida**, copie a **ID da Entidade SAML** e a **URL do Serviço de Logon Único SAML**. 
 
-    c. Baixe o arquivo html de verificação de domínio, carregue-o na pasta raiz do site do seu domínio e, em seguida, clique em **Verificar domínio**.
+    ![Configuração do Atlassian Cloud](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_configure.png) 
+
+10. Para configurar o SSO para seu aplicativo, faça logon no portal do Atlassian usando com as credenciais de administrador.
+
+11. Vá para **Administração de Site da Atlassian** > **Organizações e Segurança**. Se você ainda não fez isso, crie e atribua um nome para sua organização e, em seguida, no painel esquerdo, selecione **Domínios**.
+
+    ![Configurar o logon único](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_06.png)
+
+12. Selecione o modo em que você deseja verificar seu domínio: **DNS** ou **HTTPS**.
+
+    ![Configurar o logon único](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_17.png)
+
+13. Para verificação de DNS, na janela **Domínios**, selecione a guia **DNS** e, em seguida, faça o seguinte:
+
+    ![Configurar o logon único](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_18.png)
+
+    a. Para copiar o valor para seu registro de texto (registro TXT), selecione **Cópia**.
+
+    b. Para adicionar um registro, vá para a página de configurações no seu DNS.
+
+    c. Selecione a opção de adicionar um novo registro e cole o valor que você copiou na janela **Domínios** para o campo **Valor**. Seu registro DNS também pode referir-se a ela como **Resposta** ou **Descrição**.
+
+    d. O registro DNS também pode incluir os seguintes campos:
     
-    ![Configurar o logon único](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_09.png)
-
-    d. Depois que o domínio for verificado, o valor do campo **Status** será **Verificado**.
-
-    ![Configurar Logon Único](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_10.png)
-
-9. Na barra de navegação à esquerda, clique em **SAML**.
- 
-    ![Configurar Logon Único](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_11.png)
-
-10. Crie uma Configuração de SAML e adicione a configuração do provedor de identidade.
-
-    ![Configurar Logon Único](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_12.png)
-
-    a. Na caixa de texto **ID da Entidade do Provedor de Identidade**, cole o valor da **ID da Entidade SAML** copiado do portal do Azure.
-
-    b. Na caixa de texto **URL de SSO do Provedor de Identidade**, cole o valor da **URL de Serviço de Logon Único SAML** que você copiou do portal do Azure.
-
-    c. Abra o certificado baixado do portal do Azure, copie os valores sem as linhas Begin e End e cole-os na caixa **Certificado X509 público**.
+    * Na caixa **Tipo de registro**, digite **TXT**.
+    * Na caixa **Alias/Host/nome**, deixe o valor padrão (@ ou em branco).
+    * Na caixa **Tempo de vida (TTL)**, digite **86400**.
     
-    d. Clique em **Salvar Configuração** para salvar as configurações.
+    e.  Salve o registro.
+
+14. Retorne para a janela **Domínios** na administração da organização e, em seguida, selecione **Verificar domínio**. Na caixa **Domínio**, digite seu nome de domínio e, em seguida, selecione **Verificar domínio**.
+
+    ![Configurar o logon único](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_19.png)  
+
+    > [!NOTE]
+    > Como pode levar até 72h para que as alterações ao registro TXT entrem em vigor, você não saberá imediatamente se sua verificação de domínio foi bem-sucedida. Para exibir o status de verificação, verifique a janela **Domínios** logo depois de concluir este procedimento. O status atualizado será exibido como *Verificado*, conforme mostrado na imagem a seguir:
+    > 
+    > ![Configurar o logon único](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_20.png)
+    > 
+    > 
+
+15. Para verificação de HTTPS, na janela **Domínios**, selecione a guia **HTTPS** e, em seguida, faça o seguinte:
+
+    ![Configurar o logon único](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_21.png)
+
+    a. Para fazer o download do arquivo HTML, selecione **Fazer o download do arquivo**.
+
+    b. Carregue o arquivo HTML no diretório raiz do seu domínio.
+
+16. Retorne para a página **Domínios** na administração da organização e selecione **Verificar domínio**. Na janela **Verificar domínio**, na caixa **Domínio**, digite seu **nome de domínio** e, em seguida, selecione **Verificar domínio**.
+
+    ![Configurar o logon único](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_22.png)
+
+17. Se o processo de verificação puder localizar o arquivo que você carregou no diretório raiz, o status do domínio será atualizado para *Verificado*, conforme mostrado aqui:
+
+    ![Configurar o logon único](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_23.png)
+
+    > [!NOTE]
+    > Para obter mais informações, consulte [Verificação de domínio Atlassian](https://confluence.atlassian.com/cloud/domain-verification-873871234.html).
+
+18. No painel à esquerda, selecione **Logon único SAML**. Se você ainda não fez isso, assine o Identity Manager da Atlassian.
+
+    ![Configurar o logon único](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_11.png)
+
+19. Na janela de **Adicionar configuração SAML**, faça o seguinte:
+
+    ![Configurar o logon único](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_12.png)
+
+    a. Na caixa **ID da Entidade do Provedor de Identidade**, cole o ID da entidade SAML que você copiou do portal do Azure.
+
+    b. Na caixa **URL de SSO do Provedor de Identidade**, cole a URL de serviço de logon único SAML que você copiou do portal do Azure.
+
+    c. Abra o certificado baixado do portal do Azure em arquivo .txt, copie o valor (sem as linhas *Begin Certificate* e *End Certificate*) e cole-os na caixa **Certificado X509 público**.
+    
+    d. Selecione **Salvar configuração**.
      
-11. Atualize as configurações do Azure AD para garantir que você configurou a URL do Identificador correta.
+20. Para garantir que você configurou as URLs corretas, atualize as configurações do Azure AD fazendo o seguinte:
   
-    a. Copie a **ID de Identidade do SP** da tela SAML e cole-a no Azure AD como o valor do **Identificador**.
+    ![Configurar o logon único](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_13.png)
 
-    b. A URL de Entrada é a URL do locatário do seu Atlassian Cloud.   
-
-     ![Configurar Logon Único](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_13.png)
+    a. Na janela de SAML, copie a **ID de Entidade do SP** e, em seguida, no portal da Azure, na seção **Domínio e URLs** do Atlassian Cloud, cole-o na caixa do **Identificador**.
     
-12. No portal do Azure, clique no botão **Salvar**.
+    b. Na janela de SAML, copie a **URL do Serviço do Consumidor de Declaração de SP** e, em seguida, no portal da Azure, na seção **Domínio e URLs** do Atlassian Cloud, cole-o na caixa do **URL de Resposta**.  
+        A URL de logon é a URL do locatário do seu Atlassian Cloud. 
 
-    ![Configurar Logon Único](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_general_400.png)
+    > [!NOTE]
+    > Se você for um cliente existente, depois de atualizar os valores da **ID de identidade SP** e **URL do Serviço de Consumidor de Declaração de SP** no portal do Azure, selecione **Sim, atualize a configuração**. Se você for um novo cliente, você pode ignorar esta etapa. 
+    
+21. No portal do Azure, selecione **Salvar**.
+
+    ![Configurar o logon único](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_general_400.png)
 
 > [!TIP]
-> Agora, é possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> Ao configurar o aplicativo, você pode ler as instruções anteriores em uma versão concisa no [portal do Azure](https://portal.azure.com). Depois de adicionar esse aplicativo a partir da seção **Active Directory** > **Aplicativos Empresariais**, selecione a guia **Logon Único** e, em seguida, acesse a documentação inserida na seção **Configuração**, na parte inferior da janela. Para saber mais, confira a [documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985).
 
-### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
-O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
 
-![Criar um usuário do AD do Azure][100]
+Nesta seção, você cria o usuário de teste Brenda Fernandes no portal do Azure fazendo o seguinte:
 
-**Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
+   ![Criar um usuário de teste do Azure AD][100]
 
-1. No **Portal do Azure**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
+1. No Portal do Azure, no painel esquerdo, selecione o botão **Azure Active Directory**.
 
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-atlassian-cloud-tutorial/create_aaduser_01.png) 
+    ![O botão Azure Active Directory](./media/active-directory-saas-atlassian-cloud-tutorial/create_aaduser_01.png)
 
-2. Vá para **Usuários e grupos** e clique em **Todos os usuários** para exibir a lista de usuários.
-    
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-atlassian-cloud-tutorial/create_aaduser_02.png) 
+2. Para exibir a lista de usuários, selecione **Usuários e grupos** > **Todos os usuários**.
 
-3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo.
+    ![Os links “Usuários e grupos” e “Todos os usuários”](./media/active-directory-saas-atlassian-cloud-tutorial/create_aaduser_02.png)
+
+3. Na janela **Todos os usuários**, selecione **Adicionar**.
+
+    ![O botão Adicionar](./media/active-directory-saas-atlassian-cloud-tutorial/create_aaduser_03.png)
+
+4. Na janela **Usuário**, faça o seguinte:
+
+    ![A janela de usuário](./media/active-directory-saas-atlassian-cloud-tutorial/create_aaduser_04.png)
+
+    a. Na caixa **Nome**, digite **BrendaFernandes**.
+
+    b. Na caixa **Nome de usuário**, digite o endereço de email do usuário Brenda Fernandes.
+
+    c. Marque a caixa de seleção **Mostrar Senha** e, em seguida, anote o valor exibido na caixa **Senha**.
+
+    d. Selecione **Criar**.
+  
+### <a name="create-an-atlassian-cloud-test-user"></a>Criar um usuário de teste do Atlassian Cloud
+
+Para permitir que os usuários do Azure AD entrar no Atlassian Cloud, provisione as contas de usuário manualmente no Atlassian Cloud fazendo o seguinte:
+
+1. No painel **Administração**, selecione **Usuários**.
+
+    ![O link de Usuários do Atlassian Cloud](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_14.png) 
+
+2. Para criar um usuário no Atlassian Cloud, selecione **Convidar usuário**.
+
+    ![Criar um usuário do Atlassian Cloud](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_15.png) 
+
+3. Na caixa **Endereço de email**, insira o endereço de email do usuário e atribua o acesso ao aplicativo. 
+
+    ![Criar um usuário do Atlassian Cloud](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_16.png)
  
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-atlassian-cloud-tutorial/create_aaduser_03.png) 
-
-4. Na página do diálogo **Usuário**, execute as seguintes etapas:
- 
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-atlassian-cloud-tutorial/create_aaduser_04.png) 
-
-    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
-
-    b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
-
-    c. Selecione **Mostrar senha** e anote o valor de **senha**.
-
-    d. Clique em **Criar**.
- 
-### <a name="creating-an-atlassian-cloud-test-user"></a>Criação de um usuário de teste do Atlassian Cloud
-
-Para que os usuários do Azure AD possam fazer logon no Atlassian Cloud, eles devem ser provisionados no Atlassian Cloud.  
-No caso do Atlassian Cloud, o provisionamento é uma tarefa manual.
-
-**Para provisionar uma conta de usuário, execute as seguintes etapas:**
-
-1. Na seção Administração do site, clique no botão **Usuários**
-
-    ![Criar usuário do Atlassian Cloud](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_14.png) 
-
-2. Clique no botão **Criar Usuário** para criar um usuário no Atlassian Cloud
-
-    ![Criar usuário do Atlassian Cloud](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_15.png) 
-
-3. Insira o **Endereço de email**, o **Nome de usuário** e o **Nome completo** do usuário e atribua o acesso ao aplicativo. 
-
-    ![Criar usuário do Atlassian Cloud](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_16.png)
- 
-4. Clique no botão **Criar usuário** para enviar o convite por email ao usuário. Quando aceitar o convite, o usuário ficará ativo no sistema. 
+4. Para enviar um convite por email para o usuário, selecione **Convidar usuários**.  
+    Um convite por email é enviado ao usuário e, depois de aceitar o convite, o usuário está ativo no sistema. 
 
 >[!NOTE] 
->Você também pode criar os usuários em massa clicando no botão **Criar em Massa** na seção Usuários.
+>Você também pode criar usuários em massa clicando no botão **Criar em Massa** na seção **Usuários**.
 
-### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
-Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo a ela acesso ao Atlassian Cloud.
+Nesta seção, você permitirá que Britta Simon use o logon único do Azure concedendo a ela acesso ao Atlassian Cloud. Para fazer isso, faça o seguinte:
 
-![Atribuir usuário][200] 
+![Atribuir a função de usuário][200] 
 
-**Para atribuir Brenda Fernandes ao Atlassian Cloud, execute as seguintes etapas:**
-
-1. No Portal do Azure, abra a exibição de aplicativos e, em seguida, navegue até a exibição de diretório e vá para **Aplicativos Empresariais** e clique em **Todos os aplicativos**.
+1. No portal do Azure, abra a exibição de **Aplicativos**, acesse a exibição de diretório e, em seguida, selecione **Aplicativos Empresariais** > **Todos os aplicativos**.
 
     ![Atribuir usuário][201] 
 
-2. Na lista de aplicativos, selecione **Atlassian Cloud**.
+2. Na lista de **Aplicativos**, selecione **Atlassian Cloud**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_app.png) 
+    ![O link para o Atlassian Cloud na lista de aplicativos](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_app.png)  
 
-3. No menu à esquerda, clique em **usuários e grupos**.
+3. No painel esquerdo, selecione **Usuários e grupos**.
 
-    ![Atribuir usuário][202] 
+    ![O link “Usuários e grupos”][202]
 
-4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
+4. Selecione **Adicionar** e, em seguida, no painel **Adicionar Atribuição**, selecione **Usuários e grupos**.
 
-    ![Atribuir usuário][203]
+    ![O painel Adicionar Atribuição][203]
 
-5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
+5. Na janela **Usuários e grupos**, na lista **Usuários**, selecione **Britta Simon**.
 
-6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
+6. Na janela **Usuários e grupos**, selecione **Selecionar**.
 
-7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+7. Na janela **Adicionar Atribuição**, selecione **Atribuir**.
     
-### <a name="testing-single-sign-on"></a>Teste do logon único
+### <a name="test-single-sign-on"></a>Testar logon único
 
-Nesta seção, você testará sua configuração de SSO do Azure AD usando o Painel de Acesso.
+Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco Atlassian Cloud no Painel de Acesso, você deve entrar automaticamente no aplicativo Atlassian Cloud. Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md). 
+Ao selecionar o bloco **Atlassian Cloud** no Painel de Acesso, você deve entrar automaticamente no aplicativo Atlassian Cloud.
+Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
-* [Lista de tutoriais sobre como integrar aplicativos SaaS com o Active Directory do Azure](active-directory-saas-tutorial-list.md)
+* [Lista de tutoriais sobre como integrar aplicativos SaaS ao Active Directory do Azure](active-directory-saas-tutorial-list.md)
 * [O que é o acesso a aplicativos e logon único com o Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 

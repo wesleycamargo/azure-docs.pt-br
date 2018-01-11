@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2017
+ms.date: 12/20/2017
 ms.author: sethm
-ms.openlocfilehash: fb331bf6e11ac8378004c6da73b589130f9a8ddf
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a2674ad4db9749b0a2d9342017a230797514763
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Migrar da autorização do Serviço de Controle de Acesso do Azure Active Directory para Assinatura de Acesso Compartilhado
 
@@ -31,7 +31,7 @@ Para todos os aplicativos existentes que dependem do ACS, solicitamos que os cli
 
 ## <a name="migration-scenarios"></a>Cenários de migração
 
-O ACS e a Retransmissão são integrados por meio do conhecimento compartilhado de uma *chave de assinatura*. A chave de assinatura é usada por um namespace do ACS para assinar tokens de autorização e é usada pela Retransmissão do Azure para verificar se o token foi emitido pelo namespace emparelhado do ACS. O namespace do ACS contém identidades de serviço e as regras de autorização. As regras de autorização definem qual identidade de serviço ou token emitido pelo provedor de identidade externo, recebe qual tipo de acesso a uma parte do gráfico de namespace da Retransmissão, na forma de uma correspondência de prefixo mais longa.
+O ACS e a Retransmissão são integrados por meio do conhecimento compartilhado de uma *chave de assinatura*. A chave de assinatura é usada por um namespace do ACS para assinar tokens de autorização e é usada pela Retransmissão do Azure para verificar se o token foi emitido pelo namespace emparelhado do ACS. O namespace do ACS contém identidades de serviço e as regras de autorização. As regras de autorização definem qual identidade de serviço ou token emitido pelo provedor de identidade externo, recebe qual tipo de acesso a uma parte do grafo de namespace da Retransmissão, na forma de uma correspondência de prefixo mais longa.
 
 Por exemplo, uma regra do ACS pode conceder a declaração **Enviar** no prefixo de caminho `/` a uma identidade de serviço, o que significa que um token emitido pelo ACS com base nessa regra concede ao cliente os direitos para enviar a todas as entidades no namespace. Se o prefixo de caminho for `/abc`, a identidade ficará restrita ao envio para entidades chamadas `abc` ou organizadas sob esse prefixo. Presume-se que os leitores destas diretrizes de migração já estejam familiarizados com esses conceitos.
 

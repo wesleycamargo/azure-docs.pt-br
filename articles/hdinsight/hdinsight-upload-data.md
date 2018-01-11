@@ -15,19 +15,19 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2017
+ms.date: 12/15/2017
 ms.author: jgao
-ms.openlocfilehash: 9cdf41bd5c15abca3570a08584dc0958497848a7
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: cfe1b6bee9bc1f093b239f8f4acc523e47ad5d1a
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="upload-data-for-hadoop-jobs-in-hdinsight"></a>Carregar dados para trabalhos do Hadoop no HDInsight
 
 O Azure HDInsight fornece um HDFS (sistema de arquivos distribuído) completo do Hadoop no Armazenamento do Azure e no Azure Data Lake Store. O Armazenamento do Azure e o Data Lake Store foram projetados como uma extensão do HDFS para fornecer uma experiência contínua para os clientes. Eles habilitam o conjunto completo de componentes no ecossistema do Hadoop para operar diretamente nos dados gerenciados por ele. O Armazenamento do Azure e o Data Lake Store são sistemas de arquivos distintos otimizados para armazenamento de dados e computação nesses dados. Para obter informações sobre os benefícios do uso do Armazenamento do Azure, consulte [Usar o Armazenamento do Azure com o HDInsight][hdinsight-storage] e [Usar o Data Lake Store com o HDInsight](hdinsight-hadoop-use-data-lake-store.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Observe os seguintes requisitos antes de começar:
 
@@ -246,7 +246,7 @@ O Armazenamento do Azure também pode ser acessado usando um SDK do Azure com as
 
 Para obter mais informações sobre como instalar os SDKs do Azure, consulte [Downloads do Azure](https://azure.microsoft.com/downloads/)
 
-### <a name="troubleshooting"></a>Solucionar problemas
+### <a name="troubleshooting"></a>solução de problemas
 #### <a id="storageexception"></a>Exceção de armazenamento para gravar no blob
 **Sintomas**: ao usar os comandos `hadoop` ou `hdfs dfs` para gravar arquivos que têm aproximadamente 12 GB ou mais em um cluster HBase, você pode encontrar o seguinte erro:
 

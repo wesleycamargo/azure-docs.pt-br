@@ -11,13 +11,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/16/2017
+ms.date: 12/11/2017
 ms.author: alkohli
-ms.openlocfilehash: b5c84dbea574afceba93d978425a70ce33271e36
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 36df62c4b01c623702707d39c6af59f4752ee6e0
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-8000-series-device"></a>Migrar dados do StorSimple série 5000-7000 para um dispositivo série 8000
 
@@ -73,12 +73,12 @@ Antes de começar a migração, verifique se:
     > [!IMPORTANT]
     > Recomendamos que você tenha acesso de série ao dispositivo durante o processo de migração. Caso haja problemas no dispositivo, o acesso de série pode ajudar a solucionar o problema.
 
-* Seu dispositivo de origem da série 5000 ou 7000 está executando a versão 2.1.1.518 do software. Não há suporte para versões anteriores.
+* Seu dispositivo de origem da série 5000 ou 7000 está executando a versão 2.1.1.518 ou posterior do software. Não há suporte para versões anteriores.
 * Para verificar a versão em execução na série 5000 ou 7000, veja o canto superior direito da interface de usuário da Web. Isso deve exibir a versão do software que o dispositivo está executando. Para a migração, a série 5000 ou 7000 deve estar executando a versão 2.1.1.518.
 
     ![Verificar a versão do software no dispositivo herdado](media/storsimple-8000-migrate-from-5000-7000/check-version-legacy-device1.png)
 
-    * Se seu dispositivo ligado não está executando a versão 2.1.1.518, atualize o sistema para a versão mínima necessária. Para obter instruções detalhadas, consulte [Atualizar seu sistema para v2.1.1.518](http://onlinehelp.storsimple.com/111_Appliance/6_System_Upgrade_Guides/Current_(v2.1.1)/000_Software_Patch_Upgrade_Guide_v2.1.1.518).
+    * Se o seu dispositivo ligado não está executando a versão 2.1.1.518 ou posterior, atualize o sistema para a versão mínima necessária. Para obter instruções detalhadas, consulte [Atualizar seu sistema para v2.1.1.518](http://onlinehelp.storsimple.com/111_Appliance/6_System_Upgrade_Guides/Current_(v2.1.1)/000_Software_Patch_Upgrade_Guide_v2.1.1.518).
     * Se você estiver executando a versão 2.1.1.518, acesse a interface da Web para ver se há notificações sobre falhas de restauração do registro. Se a restauração do registro falhou, execute a restauração do registro. Para saber mais, vá para [Como executar a restauração do registro](http://onlinehelp.storsimple.com/111_Appliance/2_User_Guides/1_Current_(v2.1.1)/1_Web_UI_User_Guide_WIP/2_Configuration/4_Cloud_Accounts/1_Cloud_Credentials#Restoring_Backup_Registry).
     * Se você tiver um dispositivo desligado que não estava executando a versão 2.1.1.518, faça failover em um dispositivo de substituição que esteja executando a versão 2.1.1.518. Para obter instruções detalhadas, consulte a recuperação de desastre do seu dispositivo StorSimple série 5000/7000.
     * Faça backup dos dados para seu dispositivo usando um instantâneo de nuvem.

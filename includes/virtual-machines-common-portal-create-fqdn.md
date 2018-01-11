@@ -6,7 +6,7 @@
 2. Insira o nome DNS desejado e então selecione **Salvar**.
    
    ![Inserir um rótulo de nome DNS para seu recurso IP público](./media/virtual-machines-common-portal-create-fqdn/dnsNameLabel.PNG)
- 
+
 
 3. Para retornar para a folha de visão geral da VM, feche a folha *Endereço IP público*. Verifique se o *Nome DNS* é mostrado agora.
    

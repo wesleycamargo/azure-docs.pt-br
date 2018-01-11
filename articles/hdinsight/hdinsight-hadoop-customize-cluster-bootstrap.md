@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/21/2017
+ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: e5ed66e263c3048981279ad26cb204ded8e8fba3
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: ea5453f98c427304fd0b437ba27846a008da2585
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="customize-hdinsight-clusters-using-bootstrap"></a>Personalizar clusters do HDInsight usando a Inicialização
 
@@ -76,7 +76,7 @@ New-AzureRmHDInsightCluster `
     -ClusterSizeInNodes $clusterSizeInNodes `
     -ClusterType Hadoop `
     -OSType Linux `
-    -Version "3.5" `
+    -Version "3.6" `
     -HttpCredential $httpCredential `
     -Config $config 
 ```
@@ -85,7 +85,7 @@ Um script do PowerShell completo em funcionamento pode ser encontrado no [Apênd
 
 **Para verificar a alteração:**
 
-1. Entre no [portal do Azure](https://portal.azure.com).
+1. Entre no [Portal do Azure](https://portal.azure.com).
 2. No menu esquerdo, clique em **Clusters HDInsight**. Caso não visualize essa opção, clique primeiro em **Mais serviços**.
 3. Clique no cluster que você acabou de criar usando o script do PowerShell.
 4. Clique em **Painel** na parte superior da folha para abrir a interface do usuário do Ambari.
@@ -249,7 +249,7 @@ New-AzureRmHDInsightCluster `
     -ClusterSizeInNodes 1 `
     -ClusterType Hadoop `
     -OSType Linux `
-    -Version "3.5" `
+    -Version "3.6" `
     -HttpCredential $httpCredential `
     -SshCredential $sshCredential `
     -Config $config

@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2017
+ms.date: 12/15/2017
 ms.author: JeffGo
-ms.openlocfilehash: 111b6274f4a3633fa4dd367866bf4e4e72d6e2df
-ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
+ms.openlocfilehash: 4d6683a1a80dfdccdc5d46e9bac095a0d9f4d3e1
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/15/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="use-sql-databases-on-microsoft-azure-stack"></a>Usar bancos de dados SQL na pilha do Microsoft Azure
 
@@ -60,6 +60,7 @@ Você deve criar um (ou mais) servidores SQL e/ou fornecer acesso a instâncias 
 
     | Compilação de pilha do Azure | Instalador de SQL RP |
     | --- | --- |
+    | 1.0.180102.3 | **Aguarde para obter mais informações, compilações atuais não serão instalado, mas continuarão a ser executado em vários nós após uma atualização da pilha do Azure.** |
     | 1.0.171122.1 | [SQL RP versão 1.1.12.0](https://aka.ms/azurestacksqlrp) |
     | 1.0.171028.1 | [SQL RP versão 1.1.8.0](https://aka.ms/azurestacksqlrp1710) |
     | 1.0.170928.3 | [SQL RP versão 1.1.3.0](https://aka.ms/azurestacksqlrp1709) |
@@ -140,7 +141,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 ### <a name="deploysqlproviderps1-parameters"></a>Parâmetros de DeploySqlProvider.ps1
 Você pode especificar esses parâmetros na linha de comando. Se você não fizer isso, ou qualquer parâmetro de validação falha, você precisará fornecer as necessárias.
 
-| Nome do Parâmetro | Descrição | Comentário ou valor padrão |
+| Nome do Parâmetro | DESCRIÇÃO | Comentário ou valor padrão |
 | --- | --- | --- |
 | **CloudAdminCredential** | A credencial do administrador da nuvem, necessário para acessar o ponto de extremidade com privilégios. | _obrigatório_ |
 | **AzCredential** | Forneça as credenciais para a conta de administrador de serviço de pilha do Azure. Use as mesmas credenciais que você usou para implantar a pilha do Azure). | _obrigatório_ |
@@ -150,8 +151,8 @@ Você pode especificar esses parâmetros na linha de comando. Se você não fize
 | **DefaultSSLCertificatePassword** | A senha para o certificado. pfx | _obrigatório_ |
 | **MaxRetryCount** | Defina quantas vezes você deseja repetir a cada operação se houver uma falha.| 2 |
 | **RetryDuration** | Defina o tempo limite entre as repetições, em segundos. | 120 |
-| **Desinstalar** | Remover o provedor de recursos e todos os respectivos recursos (consulte as observações abaixo) | Não |
-| **DebugMode** | Impede que a limpeza automática em caso de falha | Não |
+| **Desinstalar** | Remover o provedor de recursos e todos os respectivos recursos (consulte as observações abaixo) | Não  |
+| **DebugMode** | Impede que a limpeza automática em caso de falha | Não  |
 
 
 ## <a name="verify-the-deployment-using-the-azure-stack-portal"></a>Verifique se a implantação usando o portal de pilha do Azure
@@ -165,6 +166,73 @@ Você pode especificar esses parâmetros na linha de comando. Se você não fize
 2. Verifique se a implantação foi bem-sucedida. Procurar **grupos de recursos** &gt;, clique no **system.\< local\>.sqladapter** recursos de grupo e verifique se todas as implantações de quatro foi bem-sucedida.
 
       ![Verifique se a implantação do SQL RP](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
+
+
+## <a name="update-the-sql-resource-provider-adapter-multi-node-only-builds-1710-and-later"></a>Atualizar o adaptador de provedor de recursos do SQL (com vários nós apenas, compilações 1710 e posteriores)
+Sempre que a compilação de pilha do Azure é atualizada, será lançado um novo adaptador de provedor de recursos do SQL. Enquanto o adaptador existente pode continuar a trabalhar, é recomendável atualizar para a versão mais recente assim que possível após a pilha do Azure é atualizada. O processo de atualização é muito semelhante ao processo de instalação descrito acima. Uma nova VM será criada com o código mais recente do RP e configurações serão migradas para essa nova instância, incluindo o banco de dados e hospedagem de informações do servidor, bem como o registro DNS necessário.
+
+Use o script de UpdateSQLProvider.ps1 com os mesmos argumentos como acima. Você deve fornecer o certificado aqui também.
+
+> [!NOTE]
+> Somente há suporte para atualização em sistemas com vários nós.
+
+```
+# Install the AzureRM.Bootstrapper module, set the profile, and install AzureRM and AzureStack modules
+Install-Module -Name AzureRm.BootStrapper -Force
+Use-AzureRmProfile -Profile 2017-03-09-profile
+Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
+
+# Use the NetBIOS name for the Azure Stack domain. On ASDK, the default is AzureStack and the default prefix is AzS
+# For integrated systems, the domain and the prefix will be the same.
+$domain = "AzureStack"
+$prefix = "AzS"
+$privilegedEndpoint = "$prefix-ERCS01"
+
+# Point to the directory where the RP installation files were extracted
+$tempDir = 'C:\TEMP\SQLRP'
+
+# The service admin account (can be AAD or ADFS)
+$serviceAdmin = "admin@mydomain.onmicrosoft.com"
+$AdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$AdminCreds = New-Object System.Management.Automation.PSCredential ($serviceAdmin, $AdminPass)
+
+# Set credentials for the new Resource Provider VM
+$vmLocalAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$vmLocalAdminCreds = New-Object System.Management.Automation.PSCredential ("sqlrpadmin", $vmLocalAdminPass)
+
+# and the cloudadmin credential required for Privileged Endpoint access
+$CloudAdminPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+$CloudAdminCreds = New-Object System.Management.Automation.PSCredential ("$domain\cloudadmin", $CloudAdminPass)
+
+# change the following as appropriate
+$PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
+
+# Change directory to the folder where you extracted the installation files
+# and adjust the endpoints
+. $tempDir\UpdateSQLProvider.ps1 -AzCredential $AdminCreds `
+  -VMLocalCredential $vmLocalAdminCreds `
+  -CloudAdminCredential $cloudAdminCreds `
+  -PrivilegedEndpoint $privilegedEndpoint `
+  -DefaultSSLCertificatePassword $PfxPass `
+  -DependencyFilesLocalPath $tempDir\cert
+ ```
+
+### <a name="updatesqlproviderps1-parameters"></a>Parâmetros de UpdateSQLProvider.ps1
+Você pode especificar esses parâmetros na linha de comando. Se você não fizer isso, ou qualquer parâmetro de validação falha, você precisará fornecer as necessárias.
+
+| Nome do Parâmetro | DESCRIÇÃO | Comentário ou valor padrão |
+| --- | --- | --- |
+| **CloudAdminCredential** | A credencial do administrador da nuvem, necessário para acessar o ponto de extremidade com privilégios. | _obrigatório_ |
+| **AzCredential** | Forneça as credenciais para a conta de administrador de serviço de pilha do Azure. Use as mesmas credenciais que você usou para implantar a pilha do Azure). | _obrigatório_ |
+| **VMLocalCredential** | Defina as credenciais para a conta de administrador local do provedor de recursos SQL VM. | _obrigatório_ |
+| **PrivilegedEndpoint** | Forneça o endereço IP ou nome DNS do ponto de extremidade Privleged. |  _obrigatório_ |
+| **DependencyFilesLocalPath** | O arquivo PFX de certificado deve ser colocado nesse diretório também. | _opcional_ (_obrigatório_ para vários nós) |
+| **DefaultSSLCertificatePassword** | A senha para o certificado. pfx | _obrigatório_ |
+| **MaxRetryCount** | Defina quantas vezes você deseja repetir a cada operação se houver uma falha.| 2 |
+| **RetryDuration** | Defina o tempo limite entre as repetições, em segundos. | 120 |
+| **Desinstalar** | Remover o provedor de recursos e todos os respectivos recursos (consulte as observações abaixo) | Não  |
+| **DebugMode** | Impede que a limpeza automática em caso de falha | Não  |
+
 
 
 ## <a name="remove-the-sql-resource-provider-adapter"></a>Remova o adaptador de provedor de recursos do SQL

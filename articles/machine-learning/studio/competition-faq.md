@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2017
+ms.date: 12/18/2017
 ms.author: haining;garye
-ms.openlocfilehash: 809df66042f6c765ed56836db40f72a5cd8ca7f6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 848d0a0882d538cadadf3172a20e628799488042
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>Perguntas frequentes sobre as Competições do Microsoft Cortana Intelligence
 **O que são as Competições do Cortana Intelligence?**
@@ -53,7 +53,7 @@ Os participantes da competição usam o Azure Machine Learning Studio, um servi�
 
 **É necessário ser um cientista de dados para participar?**
 
-Não. Na verdade, incentivamos entusiastas de dados, pessoas que têm curiosidade a respeito da ciência de dados e outros aspirantes a cientista de dados para participar de nossa competição. Criamos documentos de suporte para permitir que todos possam participar. Nosso público-alvo é:
+Nº Na verdade, incentivamos entusiastas de dados, pessoas que têm curiosidade a respeito da ciência de dados e outros aspirantes a cientista de dados para participar de nossa competição. Criamos documentos de suporte para permitir que todos possam participar. Nosso público-alvo é:
 
 * **Desenvolvedores de Dados**, **Cientistas de Dados**, profissionais de **BI** e de **Análise**: aqueles responsáveis por produzir conteúdo de dados e análises para outras pessoas consumirem
 * **Administradores de Dados**: aqueles que têm conhecimento sobre os dados, o que eles significam, como eles devem ser usados e para qual finalidade
@@ -104,7 +104,7 @@ A hora de envio fará o desempate. A entrada enviada mais cedo prevalecerá sobr
 
 **Posso participar usando um espaço de trabalho convidado?**
 
-Não. Você deve usar um espaço de trabalho Gratuito ou Standard para participar. É possível abrir o teste inicial da competição em um espaço de trabalho Convidado, mas você não poderá criar uma entrada válida para envio nesse espaço de trabalho. 
+Nº Você deve usar um espaço de trabalho Gratuito ou Standard para participar. É possível abrir o teste inicial da competição em um espaço de trabalho Convidado, mas você não poderá criar uma entrada válida para envio nesse espaço de trabalho. 
 
 **Posso participar usando um espaço de trabalho em qualquer região do Azure?**
 

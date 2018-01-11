@@ -9,13 +9,13 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
-ms.topic: hero-article
+ms.topic: tutorial
 ms.date: 09/28/2017
-ms.openlocfilehash: fcef59d38cce5f8860508ebeeda0b1b97f5e83f1
-ms.sourcegitcommit: 6a22af82b88674cd029387f6cedf0fb9f8830afd
+ms.openlocfilehash: f417154c2c2a27b356cefb94739838bd2136e756
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="classify-iris-part-1-prepare-the-data"></a>Parte 1 de Classificação da Íris: Preparar dados
 Os serviços do Azure Machine Learning (versão prévia) são uma solução integrada de análise avançada e de ciência de dados de ponta a ponta para cientistas de dados profissionais prepararem dados, desenvolverem testes e implantarem modelos em escala de nuvem.
@@ -28,7 +28,7 @@ Este tutorial é a parte um de uma série de três partes. Neste tutorial, perco
 
 Este tutorial usa o [Conjunto de dados de flor de íris](https://en.wikipedia.org/wiki/Iris_flower_data_set) atemporal. As capturas de tela são específicas do Windows, mas a experiência no macOS é quase idêntica.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 - Criar uma conta de Experimentação do Azure Machine Learning.
 - Instalar o Azure Machine Learning Workbench.
 
@@ -105,7 +105,7 @@ Você pode seguir as instruções no artigo [Guia de início rápido para instal
 
    Essa ação abre o painel **Inspetores** e exibe um histograma com quatro barras. A coluna de destino possui três valores distintos: **Iris_virginica**, **Iris_versicolor**, **Iris-setosa** e um valor **(nulo)**.
 
-9. Para filtrar os valores nulos, selecione a barra do gráfico que representa o valor nulo. Há uma linha com um valor **(nulo)**. Para remover essa linha, selecione o sinal de subtração (**-**).
+9. Para filtrar os valores nulos, selecione a barra do grafo que representa o valor nulo. Há uma linha com um valor **(nulo)**. Para remover essa linha, selecione o sinal de subtração (**-**).
 
    ![Histograma de contagem de valor](media/tutorial-classifying-iris/filter_out.png)
 
@@ -113,7 +113,7 @@ Você pode seguir as instruções no artigo [Guia de início rápido para instal
 
    ![Etapas](media/tutorial-classifying-iris/steps.png)
 
-11. Feche o editor de preparação dos dados. Selecione **Fechar** (x) na guia **iris-1** com o ícone de gráfico. O trabalho é salvo automaticamente no arquivo **iris-1.dprep** mostrado no cabeçalho **Preparações de dados**.
+11. Feche o editor de preparação dos dados. Selecione **Fechar** (x) na guia **iris-1** com o ícone de grafo. O trabalho é salvo automaticamente no arquivo **iris-1.dprep** mostrado no cabeçalho **Preparações de dados**.
 
 ## <a name="generate-pythonpyspark-code-to-invoke-a-data-preparation-package"></a>Gerar código Python/PySpark para invocar um pacote de preparação de dados
 

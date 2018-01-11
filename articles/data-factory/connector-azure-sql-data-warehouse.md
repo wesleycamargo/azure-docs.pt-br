@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2017
+ms.date: 12/18/2017
 ms.author: jingwang
-ms.openlocfilehash: ddddf280613554e81884dbcbd0c0011e505500bc
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 6cf6b6b59f222f68036dab68e4d20db0d0b9dd6d
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiar dados de e para o SQL Data Warehouse do Azure usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -48,11 +48,11 @@ As seções que se seguem fornecem detalhes sobre as propriedades que são usada
 
 As propriedades a seguir têm suporte no serviço vinculado do SQL Data Warehouse do Azure:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type deve ser definida como: **AzureSqlDW** | Sim |
-| connectionString |Especifique as informações necessárias para se conectar à instância do SQL Data Warehouse do Azure para a propriedade connectionString. Há suporte somente para autenticação básica. Marque esse campo como uma SecureString. |Sim |
-| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime do Azure ou o Integration Runtime auto-hospedado (se o armazenamento de dados estiver localizado em uma rede privada). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não |
+| Tipo | A propriedade type deve ser definida como: **AzureSqlDW** | sim |
+| connectionString |Especifique as informações necessárias para se conectar à instância do SQL Data Warehouse do Azure para a propriedade connectionString. Há suporte somente para autenticação básica. Marque esse campo como uma SecureString. |sim |
+| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime do Azure ou o Integration Runtime auto-hospedado (se o armazenamento de dados estiver localizado em uma rede privada). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não  |
 
 
 > [!IMPORTANT]
@@ -85,10 +85,10 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados de/para o SQL Data Warehouse do Azure, defina a propriedade type do conjunto de dados como **AzureSqlDWTable**. Há suporte para as seguintes propriedades:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type do conjunto de dados deve ser definida como: **AzureSqlDWTable** | Sim |
-| tableName |Nome da tabela ou exibição na instância do SQL Data Warehouse do Azure à qual o serviço vinculado se refere. | Sim |
+| Tipo | A propriedade type do conjunto de dados deve ser definida como: **AzureSqlDWTable** | sim |
+| tableName |Nome da tabela ou exibição na instância do SQL Data Warehouse do Azure à qual o serviço vinculado se refere. | sim |
 
 **Exemplo:**
 
@@ -117,12 +117,12 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados do SQL Data Warehouse do Azure, defina o tipo de fonte na atividade de cópia como **SqlDWSource**. As propriedades a seguir têm suporte na seção **source** da atividade de cópia:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type da fonte da atividade de cópia deve ser definida como: **SqlDWSource** | Sim |
-| SqlReaderQuery |Utiliza a consulta SQL personalizada para ler os dados. Exemplo: `select * from MyTable`. |Não |
-| sqlReaderStoredProcedureName |Nome do procedimento armazenado que lê os dados da tabela de origem. A última instrução SQL deve ser uma instrução SELECT no procedimento armazenado. |Não |
-| storedProcedureParameters |Parâmetros para o procedimento armazenado.<br/>Os valores permitidos são: pares nome/valor. Nomes e uso de maiúsculas e minúsculas de parâmetros devem corresponder aos nomes e o uso de maiúsculas e minúsculas dos parâmetros do procedimento armazenado. |Não |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **SqlDWSource** | sim |
+| SqlReaderQuery |Utiliza a consulta SQL personalizada para ler os dados. Exemplo: `select * from MyTable`. |Não  |
+| sqlReaderStoredProcedureName |Nome do procedimento armazenado que lê os dados da tabela de origem. A última instrução SQL deve ser uma instrução SELECT no procedimento armazenado. |Não  |
+| storedProcedureParameters |Parâmetros para o procedimento armazenado.<br/>Os valores permitidos são: pares nome/valor. Nomes e uso de maiúsculas e minúsculas de parâmetros devem corresponder aos nomes e o uso de maiúsculas e minúsculas dos parâmetros do procedimento armazenado. |Não  |
 
 **Pontos a serem observados:**
 
@@ -221,18 +221,18 @@ GO
 
 Para copiar dados para o SQL Data Warehouse do Azure, defina o tipo de coletor na atividade de cópia como **SqlDWSink**. As propriedades a seguir têm suporte na seção **sink** da atividade de cópia:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | O tipo de propriedade do coletor de atividade de cópia deve ser definido como: **SqlDWSink** | Sim |
-| allowPolyBase |Indica se o PolyBase (quando aplicável) deve ser utilizado em vez do mecanismo BULKINSERT. <br/><br/> **Usar o PolyBase é a maneira recomendada para carregar dados no SQL Data Warehouse.** Confira a seção [Usar o PolyBase para carregar dados no Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) para obter os detalhes e as restrições.<br/><br/>Os valores permitidos são: **True** (padrão) e **False**.  |Não |
-| polyBaseSettings |Um grupo de propriedades que pode ser especificado quando a propriedade **allowPolybase** está definida como **true**. |Não |
-| rejectValue |Especifica o número ou o percentual de linhas que podem ser rejeitadas antes de a consulta falhar.<br/><br/>Saiba mais sobre as opções de rejeição do PolyBase na seção **Argumentos** do tópico [CRIAR TABELA EXTERNA (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx) . <br/><br/>Os valores permitidos são: 0 (padrão), 1, 2, ... |Não |
-| rejectType |Especifica se a opção rejectValue é especificada como um valor literal ou um percentual.<br/><br/>Os valores permitidos são: **Valor** (padrão) e **Percentual**. |Não |
+| Tipo | O tipo de propriedade do coletor de atividade de cópia deve ser definido como: **SqlDWSink** | sim |
+| allowPolyBase |Indica se o PolyBase (quando aplicável) deve ser utilizado em vez do mecanismo BULKINSERT. <br/><br/> **Usar o PolyBase é a maneira recomendada para carregar dados no SQL Data Warehouse.** Confira a seção [Usar o PolyBase para carregar dados no Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) para obter os detalhes e as restrições.<br/><br/>Os valores permitidos são: **True** (padrão) e **False**.  |Não  |
+| polyBaseSettings |Um grupo de propriedades que pode ser especificado quando a propriedade **allowPolybase** está definida como **true**. |Não  |
+| rejectValue |Especifica o número ou o percentual de linhas que podem ser rejeitadas antes de a consulta falhar.<br/><br/>Saiba mais sobre as opções de rejeição do PolyBase na seção **Argumentos** do tópico [CRIAR TABELA EXTERNA (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx) . <br/><br/>Os valores permitidos são: 0 (padrão), 1, 2, ... |Não  |
+| rejectType |Especifica se a opção rejectValue é especificada como um valor literal ou um percentual.<br/><br/>Os valores permitidos são: **Valor** (padrão) e **Percentual**. |Não  |
 | rejectSampleValue |Determina o número de linhas a serem recuperadas antes de o PolyBase recalcular o percentual de linhas rejeitadas.<br/><br/>Valores permitidos são: 1, 2, … |Sim, se **rejectType** for **percentual** |
-| useTypeDefault |Especifica como tratar valores ausentes nos arquivos de texto delimitados quando PolyBase recupera dados do arquivo de texto.<br/><br/>Saiba mais sobre essa propriedade na seção Argumentos em [CRIAR FORMATO DE ARQUIVO EXTERNO (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>Os valores permitidos são: **True**, **False** (padrão). |Não |
+| useTypeDefault |Especifica como tratar valores ausentes nos arquivos de texto delimitados quando PolyBase recupera dados do arquivo de texto.<br/><br/>Saiba mais sobre essa propriedade na seção Argumentos em [CRIAR FORMATO DE ARQUIVO EXTERNO (Transact-SQL)](https://msdn.microsoft.com/library/dn935026.aspx).<br/><br/>Os valores permitidos são: **True**, **False** (padrão). |Não  |
 | writeBatchSize |Insere dados na tabela SQL quando o tamanho do buffer atinge writeBatchSize. Aplica-se somente quando o PolyBase não é usado.<br/><br/>Os valores permitidos são: inteiro (número de linhas). |Não (o padrão é 10000) |
-| writeBatchTimeout |Tempo de espera para a operação de inserção em lotes ser concluída antes de atingir o tempo limite. Aplica-se somente quando o PolyBase não é usado.<br/><br/>Os valores permitidos são: período. Exemplo: "00:30:00" (30 minutos). |Não |
-| preCopyScript |Especifica uma consulta SQL para a atividade de cópia, a ser executada antes de gravar dados no SQL Data Warehouse do Azure em cada execução. Você pode usar essa propriedade para limpar os dados previamente carregados. |Não |(#repeatability-during-copy). |Uma instrução de consulta. |Não |
+| writeBatchTimeout |Tempo de espera para a operação de inserção em lotes ser concluída antes de atingir o tempo limite. Aplica-se somente quando o PolyBase não é usado.<br/><br/>Os valores permitidos são: período. Exemplo: "00:30:00" (30 minutos). |Não  |
+| preCopyScript |Especifica uma consulta SQL para a atividade de cópia, a ser executada antes de gravar dados no SQL Data Warehouse do Azure em cada execução. Você pode usar essa propriedade para limpar os dados previamente carregados. |Não  |(#repeatability-during-copy). |Uma instrução de consulta. |Não  |
 
 **Exemplo:**
 
@@ -296,7 +296,6 @@ Se os requisitos não forem atendidos, o Azure Data Factory verificará as confi
 
 3. Não há uma configuração `skipHeaderLineCount` em **BlobSource** ou **AzureDataLakeStore** para a atividade de cópia no pipeline.
 4. Não há nenhuma configuração `sliceIdentifierColumnName` em **SqlDWSink** para a atividade de Cópia no pipeline. (O PolyBase garante que todos os dados são atualizados ou que nada é atualizado em uma execução única. Para obter **repetibilidade**, você pode usar `sqlWriterCleanupScript`).
-5. Não há nenhum `columnMapping` sendo usado na atividade de Cópia associada.
 
 ```json
 "activities":[
@@ -320,7 +319,7 @@ Se os requisitos não forem atendidos, o Azure Data Factory verificará as confi
                 "type": "BlobSource",
             },
             "sink": {
-                "type": "SqlDwSink",
+                "type": "SqlDWSink",
                 "allowPolyBase": true
             }
         }
@@ -356,12 +355,15 @@ Para usar esse recurso, crie um [serviço vinculado de Armazenamento do Azure](c
                 "type": "SqlSource",
             },
             "sink": {
-                "type": "SqlDwSink",
+                "type": "SqlDWSink",
                 "allowPolyBase": true
             },
             "enableStaging": true,
             "stagingSettings": {
-                "linkedServiceName": "MyStagingBlob"
+                "linkedServiceName": {
+                    "referenceName": "MyStagingBlob",
+                    "type": "LinkedServiceReference"
+                }
             }
         }
     }
@@ -421,12 +423,12 @@ Ao copiar dados de/para o SQL Data Warehouse do Azure, os seguintes mapeamentos 
 |:--- |:--- |
 | bigint |Int64 |
 | binário |Byte[] |
-| bit |Booliano |
+| bit |BOOLEAN |
 | char |String, Char[] |
-| data |DateTime |
-| DateTime |DateTime |
-| datetime2 |DateTime |
-| Datetimeoffset |Datetimeoffset |
+| data |Datetime |
+| DateTime |Datetime |
+| datetime2 |Datetime |
+| Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
 | Atributo FILESTREAM (varbinary(max)) |Byte[] |
 | Float |Duplo |
@@ -439,11 +441,11 @@ Ao copiar dados de/para o SQL Data Warehouse do Azure, os seguintes mapeamentos 
 | nvarchar |String, Char[] |
 | real |Single |
 | rowversion |Byte[] |
-| smalldatetime |DateTime |
+| smalldatetime |Datetime |
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Objeto * |
-| texto |String, Char[] |
+| text |String, Char[] |
 | tempo real |timespan |
 | timestamp |Byte[] |
 | tinyint |Byte |

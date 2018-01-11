@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/29/2017
+ms.date: 12/07/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: 4034fd0aa64627c107a43208dcca766f7f44d5d4
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5512be8ce5b9cf28bceb3468ec6032c0778156f4
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtros e manifestos dinâmicos
-A partir da versão 2.11, os Serviços de Mídia permitem definir filtros para seus ativos. Esses filtros são regras do lado do servidor que permitirão aos clientes optar por realizar ações como: reproduzir apenas uma seção de um vídeo (em vez de reproduzir o vídeo inteiro) ou especificar apenas um subconjunto de representações de áudio e vídeo com o qual o dispositivo do cliente pode lidar (em vez de todas as representações que estão associadas ao ativo). A filtragem de ativos é arquivada por meio de **Manifestos Dinâmicos**criados mediante solicitação do cliente para transmitir um vídeo com base em filtros especificados.
+A partir da versão 2.17, os Serviços de Mídia do Microsoft Azure permitem definir filtros para seus ativos. Esses filtros são regras do lado do servidor que permitirão aos clientes optar por realizar ações como: reproduzir apenas uma seção de um vídeo (em vez de reproduzir o vídeo inteiro) ou especificar apenas um subconjunto de representações de áudio e vídeo com o qual o dispositivo do cliente pode lidar (em vez de todas as representações que estão associadas ao ativo). A filtragem de ativos é arquivada por meio de **Manifestos Dinâmicos**criados mediante solicitação do cliente para transmitir um vídeo com base em filtros especificados.
 
 Este tópico analisa cenários os comuns nos quais o uso dos filtros seria muito útil para seus clientes e links para os tópicos que demonstram como criar os filtros por meio de programação (no momento, você pode criar filtros somente com as APIs REST).
 
@@ -124,12 +124,12 @@ Os ativos podem incluir vários idiomas de áudio, como inglês, espanhol, franc
 ![Filtragem das faixas de idioma][language_filter]
 
 ## <a name="trimming-start-of-an-asset"></a>Corte do início de um ativo
-Na maioria dos eventos de transmissão ao vivo, os operadores executam alguns testes antes do evento real. Por exemplo, eles podem incluir um slate antes do início do evento com a seguinte frase: "O programa será iniciado em instantes". Se o programa estiver sendo arquivado, o teste e os dados do slate também são arquivados e serão incluídos na apresentação. No entanto, essas informações não devem ser mostradas para os clientes. Com o manifesto dinâmico, é possível criar um filtro de hora de início e remover os dados indesejados do manifesto.
+Na maioria dos eventos de transmissão ao vivo, os operadores executam alguns testes antes do evento real. Por exemplo, eles podem incluir um slate antes do início do evento com a seguinte frase: "O programa será iniciado em instantes". Se o programa estiver sendo arquivado, o teste e os dados da imagem fixa também são arquivados e incluídos na apresentação. No entanto, essas informações não devem ser mostradas para os clientes. Com o manifesto dinâmico, é possível criar um filtro de hora de início e remover os dados indesejados do manifesto.
 
 ![Corte do início][trim_filter]
 
-## <a name="creating-sub-clips-views-from-a-live-archive"></a>Criar subclipes (exibições) de um arquivo ao vivo
-Muitos eventos ao vivo são de longa duração e o arquivamento dinâmico pode incluir vários eventos. Após o término do evento ao vivo, talvez os difusores queiram dividir o arquivo ao vivo em sequências lógicas de início e parada do programa. Em seguida, publicam esses programas virtuais separadamente sem pós-processamento do arquivo em tempo real e sem criar ativos separados (o que não obterá benefícios dos fragmentos de cache existentes nas CDNs). Exemplos desses programas virtuais (subclipes) são os tempos de um jogo de futebol ou de basquete, os innings no beisebol ou eventos individuais de uma tarde de programas Olímpicos.
+## <a name="creating-subclips-views-from-a-live-archive"></a>Criar subclipes (exibições) de um arquivo ao vivo
+Muitos eventos ao vivo são de longa duração e o arquivamento dinâmico pode incluir vários eventos. Após o término do evento ao vivo, talvez os difusores queiram dividir o arquivo ao vivo em sequências lógicas de início e parada do programa. Em seguida, publicam esses programas virtuais separadamente sem pós-processamento do arquivo em tempo real e sem criar ativos separados (o que não obtém os benefícios dos fragmentos de cache existentes nas CDNs). Exemplos desses programas virtuais são os tempos de um jogo de futebol ou de basquete, entradas no beisebol ou eventos individuais de qualquer programa de esportes.
 
 Com o manifesto dinâmico, é possível criar filtros usando os horários de início/término e criar modos de exibição virtuais que ultrapassam seu arquivo ao vivo. 
 
@@ -140,24 +140,24 @@ Ativos filtrados:
 ![Esqui][skiing]
 
 ## <a name="adjusting-presentation-window-dvr"></a>Ajuste da janela de apresentação (DVR)
-Atualmente, o Serviços de Mídia do Azure oferece arquivamento circular onde a duração pode ser configurada entre 5 minutos e 25 horas. A filtragem de manifesto pode ser usada para criar uma janela DVR com rolagem que ultrapassa o arquivo, sem excluir a mídia. Há muitos cenários em que os difusores podem desejar fornecer uma janela DVR limitada que se move com a borda ao vivo e, ao mesmo, tempo manter uma janela de arquivamento maior. Talvez o difusor queira usar os dados que estão fora da janela DVR para realçar clipes ou talvez ele queira fornecer janelas DVR diferentes para dispositivos diferentes. Por exemplo, a maioria dos dispositivos móveis não lida com janelas DVR grandes (você pode ter uma janela DVR de 2 minutos para dispositivos móveis e de 1 hora para os clientes de desktop).
+Atualmente, o Serviços de Mídia do Azure oferece arquivamento circular onde a duração pode ser configurada entre 5 minutos e 25 horas. A filtragem de manifesto pode ser usada para criar uma janela DVR com rolagem que ultrapassa o arquivo, sem excluir a mídia. Há muitos cenários em que os difusores podem desejar fornecer uma janela DVR limitada que se move com a borda ao vivo e, ao mesmo tempo manter uma janela de arquivamento maior. Talvez o difusor queira usar os dados que estão fora da janela DVR para realçar clipes ou talvez ele queira fornecer janelas DVR diferentes para dispositivos diferentes. Por exemplo, a maioria dos dispositivos móveis não lida com janelas DVR grandes (você pode ter uma janela DVR de 2 minutos para dispositivos móveis e de uma hora para os clientes de desktop).
 
 ![Janela DVR][dvr_filter]
 
 ## <a name="adjusting-livebackoff-live-position"></a>Ajustar o LiveBackoff (posição ao vivo)
-A filtragem de manifesto pode ser usada para remover vários segundos da borda ao vivo de um programa ao vivo. Isso permite que os difusores assistam à apresentação no ponto de publicação de visualização e criar pontos de inserção de anúncio antes que os visualizadores recebam o fluxo (normalmente retirado por 30 segundos). Os difusores, enviam esses anúncios para suas estruturas de cliente no horário para que eles recebam e processem as informações antes da oportunidade de anúncio.
+A filtragem de manifesto pode ser usada para remover vários segundos da borda ao vivo de um programa ao vivo. A filtragem permite que os difusores assistam à apresentação no ponto de publicação de visualização e criem pontos de inserção de anúncio antes que os visualizadores recebam o fluxo (retirado por 30 segundos). Os difusores, enviam esses anúncios para suas estruturas de cliente no horário para que eles recebam e processem as informações antes da oportunidade de anúncio.
 
-Além do suporte do anúncio, o LiveBackoff pode ser usado para ajustar a posição de download ao vivo do cliente para que, quando os clientes se deslocarem e alcançarem a borda ao vivo, ainda possam obter fragmentos do servidor em vez de obter erros HTTP 404 ou 412.
+Além do suporte do anúncio, o a configuração do LiveBackoff pode ser usada para ajustar a posição dos visualizadores para que, quando os clientes se deslocarem e alcançarem a borda ao vivo, ainda possam obter fragmentos do servidor em vez de obter um erro HTTP 404 ou 412.
 
 ![livebackoff_filter][livebackoff_filter]
 
 ## <a name="combining-multiple-rules-in-a-single-filter"></a>Combinar várias regras em um único filtro
-É possível combinar várias regras de filtragem em um único filtro. Por exemplo, você pode definir uma regra de intervalo para remover o slate de um arquivo ao vivo e filtrar as taxas de bits disponíveis. Para várias regras de filtragem, o resultado final é a composição (somente intersecção) dessas regras.
+É possível combinar várias regras de filtragem em um único filtro. Por exemplo, você pode definir uma “regra de intervalo” para remover a imagem fixa de um arquivo ao vivo e filtrar as taxas de bits disponíveis. Ao aplicar várias regras de filtragem, o resultado final é a intersecção de todas essas regras.
 
 ![várias regras][multiple-rules]
 
 ## <a name="create-filters-programmatically"></a>Criar filtros por meio de programa
-O tópico a seguir analisa as entidades dos Serviços de Mídia relacionadas aos filtros. O tópico também mostra como criar filtros programaticamente.  
+O artigo a seguir analisa as entidades dos Serviços de Mídia do Azure relacionadas aos filtros. O artigo também mostra como criar filtros programaticamente.  
 
 [Criar filtros com APIs REST](media-services-rest-dynamic-manifest.md).
 
@@ -166,9 +166,9 @@ Você também pode combinar vários filtros em uma única URL.
 
 O seguinte cenário demonstra por que talvez seja conveniente combinar filtros:
 
-1. Você precisa filtrar as qualidades de seus vídeos para dispositivos móveis, como Android ou iPAD (para limitar as qualidades de vídeos). Para remover as qualidades indesejadas, você criaria um filtro global que é adequado para perfis de dispositivos. Como mencionado acima, os filtros globais podem ser usados para todos os seus ativos com a mesma conta de serviços de mídia sem qualquer outra associação. 
+1. Você precisa filtrar as qualidades de seus vídeos para dispositivos móveis, como Android ou iPAD (para limitar as qualidades de vídeos). Para remover as qualidades indesejadas, você criaria um filtro global adequado para os perfis de dispositivos. Como mencionado anteriormente neste artigo, os filtros globais podem ser usados para todos os seus ativos com a mesma conta de serviços de mídia sem qualquer outra associação. 
 2. Você também deseja cortar a hora de início e de término de um ativo. Para conseguir isso, você criaria um filtro local e definiria a hora de início/término. 
-3. Você deseja combinar esses dois filtros (sem a combinação, você precisaria adicionar a filtragem de qualidade ao filtro de corte, o que dificultará o uso do filtro).
+3. Você deseja combinar esses dois filtros (sem a combinação, você precisa adicionar a filtragem de qualidade ao filtro de corte, o que dificultará ainda mais o uso do filtro).
 
 Para combinar os filtros, você precisa definir os nomes dos filtros para a URL do manifesto/playlist com ponto e vírgula delimitado. Vamos supor que você tenha um filtro chamado *MyMobileDevice* que filtra as qualidades e tenha outro chamado *MyStartTime* para definir uma hora de início específica. Você pode combiná-los assim:
 
@@ -176,7 +176,7 @@ Para combinar os filtros, você precisa definir os nomes dos filtros para a URL 
 
 Você pode combinar até três filtros. 
 
-Para saber mais, confira [este blog](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) .
+Para saber mais, confira [este](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/) blog.
 
 ## <a name="know-issues-and-limitations"></a>Conheça os problemas e limitações
 * Manifesto dinâmico opera nos limites do GOP (quadros chave) e, como consequência, o corte tem precisão de GOP. 

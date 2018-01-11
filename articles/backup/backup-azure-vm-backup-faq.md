@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 7/18/2017
 ms.author: trinadhk;pullabhk;
-ms.openlocfilehash: 85d6ec20fb0447165c672ba267569994e3a96e45
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: bc5b97192e0d4ad896d6d74a8745a3866d053a25
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Perguntas sobre o serviço de Backup do Azure
 Este artigo possui respostas para perguntas comuns para ajudar você a compreender rapidamente os componentes do Backup de VM do Azure. Em algumas das respostas, há links para artigos com informações abrangentes. Você também pode postar perguntas sobre o serviço de Backup do Azure no [fórum de discussão](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -29,7 +29,7 @@ Este artigo possui respostas para perguntas comuns para ajudar você a compreend
 Os cofres dos Serviços de Recuperação dão suporte a ambos os modelos.  Você pode fazer backup de uma VM clássica (criada no portal Clássico) ou uma VM do Resource Manager (criada no portal do Azure) em um cofre dos Serviços de Recuperação.
 
 ### <a name="what-configurations-are-not-supported-by-azure-vm-backup"></a>Quais configurações não têm suporte pelo backup de VM do Azure?
-Confira os [Sistemas operacionais com suporte](backup-azure-arm-vms-prepare.md#supported-operating-system-for-backup) e [Limitações de backup de VM](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm)
+Confira os [Sistemas operacionais com suporte](backup-azure-arm-vms-prepare.md#supported-operating-systems-for-backup) e [Limitações de backup de VM](backup-azure-arm-vms-prepare.md#limitations-when-backing-up-and-restoring-a-vm)
 
 ### <a name="why-cant-i-see-my-vm-in-configure-backup-wizard"></a>Por que não consigo ver minha VM no assistente de backup de configuração?
 No Assistente de backup de configuração, o Backup do Azure lista apenas as VMs que:
@@ -38,7 +38,7 @@ No Assistente de backup de configuração, o Backup do Azure lista apenas as VMs
 
 ## <a name="backup"></a>Backup
 ### <a name="will-on-demand-backup-job-follow-same-retention-schedule-as-scheduled-backups"></a>O trabalho de backup sob demanda seguirá o mesmo agendamento de retenção que os backups agendados?
-Não. Você deve especificar o período de retenção para um trabalho de backup sob demanda. Por padrão, ele é retido por 30 dias quando disparado do portal. 
+Nº Você deve especificar o período de retenção para um trabalho de backup sob demanda. Por padrão, ele é retido por 30 dias quando disparado do portal. 
 
 ### <a name="i-recently-enabled-azure-disk-encryption-on-some-vms-will-my-backups-continue-to-work"></a>Eu recentemente habilitei a Criptografia de Disco do Azure em algumas VMs. Meus backups continuarão a funcionar?
 Você precisa conceder permissões para o serviço de Backup do Azure acessar o Key Vault. Você pode fornecer essas permissões no PowerShell usando as etapas mencionadas na seção *Habilitar Backup* da documentação do [PowerShell](backup-azure-vms-automation.md).
@@ -52,7 +52,7 @@ Sim. Mesmo quando um computador é desligado, os backups funcionam e o ponto de 
 ### <a name="can-i-cancel-an-in-progress-backup-job"></a>Posso cancelar um trabalho de backup em andamento?
 Sim. Você poderá cancelar o trabalho de backup se ele estiver na fase "Criando instantâneo". **Você não pode cancelar um trabalho se a transferência de dados de instantâneo está em andamento**. 
 
-## <a name="restore"></a>Restaurar
+## <a name="restore"></a>Restore
 ### <a name="how-do-i-decide-between-restoring-disks-versus-full-vm-restore"></a>Como decidir entre a restauração de discos em comparação com a restauração completa da VM?
 Pense na restauração completa da VM do Azure como uma opção de criação rápida. A opção de restauração de VM altera os nomes dos discos, os contêineres usados por esses discos, os endereços IP públicos e os nomes de adaptadores de rede. A alteração é necessária para manter a exclusividade de recursos criados durante a criação da VM. Mas ele não adicionará a VM ao conjunto de disponibilidade. 
 

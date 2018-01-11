@@ -1,6 +1,7 @@
 # Visão geral
 
 ## [Sobre o SQL Data Warehouse](sql-data-warehouse-overview-what-is.md)
+## [Roteiro](cheat-sheet.md)
 
 # Guia de início rápido
 
@@ -32,7 +33,7 @@
 
 ## Carregar e mover dados
 ### [Visão geral](design-elt-data-loading.md)
-### [Diretrizes](guidance-for-loading-data.md)
+### [práticas recomendadas](guidance-for-loading-data.md)
 
 
 ## Integração
@@ -89,12 +90,11 @@
 
 
 ## Carregar e mover dados
-### [AdventureWorks](sql-data-warehouse-load-sample-databases.md)
+### [Dados públicos da Contoso](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
 ### [Repositório Azure Data Lake](sql-data-warehouse-load-from-azure-data-lake-store.md)
 ### [BCP](sql-data-warehouse-load-with-bcp.md)
 ### [Fábrica de dados](sql-data-warehouse-load-with-data-factory.md)
-### [PolyBase do armazenamento de blobs](sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md)
-### [PolyBase do SQL Server](sql-data-warehouse-load-from-sql-server-with-polybase.md)
+### [AzCopy](sql-data-warehouse-load-from-sql-server-with-polybase.md)
 ### [RedGate](sql-data-warehouse-load-with-redgate.md)
 ### [SSIS](sql-data-warehouse-load-from-sql-server-with-integration-services.md)
 

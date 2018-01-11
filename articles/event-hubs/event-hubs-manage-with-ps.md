@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: 2b49c01153b1104612e6ebf9c88566fc40d1f635
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: de86b8241166d4e0bd03beb22550464457e3db5e
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="use-powershell-to-manage-event-hubs-resources"></a>Usar o PowerShell para gerenciar recursos dos Hubs de Eventos
 
@@ -26,7 +26,7 @@ O PowerShell do Microsoft Azure é um ambiente de script que você pode usar par
 
 Também é possível gerenciar recursos dos Hubs de Eventos usando modelos do Azure Resource Manager. Para saber mais, confira o artigo [Criar um namespace dos Hubs de Eventos com um hub de eventos e um grupo de consumidores usando um modelo do Azure Resource Manager](event-hubs-resource-manager-namespace-event-hub.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Antes de começar, você precisará do seguinte:
 
@@ -103,7 +103,7 @@ else
 
 ### <a name="create-a-consumer-group"></a>Criar um grupo de consumidores
 
-Para criar um grupo de consumidores em um hub de eventos, execute as verificações de namespace e hub de eventos usando os scripts na seção anterior. Em seguida, use o cmdlet [New-AzureRmEventHubConsumerGroup](/powershell/module/azurerm.eventhub/new-azurermeventhubconsumergroup) para criar o grupo de consumidores no hub de eventos. Por exemplo:
+Para criar um grupo de consumidores em um hub de eventos, execute as verificações de namespace e hub de eventos usando os scripts na seção anterior. Em seguida, use o cmdlet [New-AzureRmEventHubConsumerGroup](/powershell/module/azurerm.eventhub/new-azurermeventhubconsumergroup) para criar o grupo de consumidores no hub de eventos. Por exemplo: 
 
 ```powershell
 # Check if consumer group already exists

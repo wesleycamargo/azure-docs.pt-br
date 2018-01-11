@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/21/2017
 ms.author: chackdan
-ms.openlocfilehash: 874cf647d4b708bbbc64246ac0dff133639ad86c
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: be880efdcf1276252c76f27c2f2fd99edd606caa
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Criar um cluster do Service Fabric no usando o portal do Azure
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ Este é um guia passo a passo que orienta você pelas etapas de configuração d
 
 Um cluster seguro é um cluster que impede o acesso não autorizado às operações de gerenciamento, que inclui implantar, atualizar e excluir aplicativos, serviços e os dados que eles contêm. Um cluster não seguro é um cluster ao qual qualquer pessoa pode se conectar a qualquer momento e realizar operações de gerenciamento. Embora seja possível criar um cluster não seguro, é **altamente recomendável criar um cluster seguro**. Um cluster não seguro **não pode ser protegido posteriormente** - um novo cluster deverá ser criado.
 
-Os conceitos são os mesmos para a criação de clusters seguros, se os clusters são do Linux ou do Windows. Para obter mais informações e scripts auxiliares para criar clusters do Linux seguras, consulte [Criando clusters seguros no Linux](service-fabric-cluster-creation-via-arm.md#secure-linux-clusters). Os parâmetros obtidos pelo script auxiliar fornecido podem ser inseridos diretamente no portal, conforme descrito na seção [Criar um cluster no portal do Azure](#create-cluster-portal).
+Os conceitos são os mesmos para a criação de clusters seguros, se os clusters são do Linux ou do Windows. Para obter mais informações e scripts auxiliares para criar clusters do Linux seguros, consulte [Criando clusters seguros](service-fabric-cluster-creation-via-arm.md). Os parâmetros obtidos pelo script auxiliar fornecido podem ser inseridos diretamente no portal, conforme descrito na seção [Criar um cluster no portal do Azure](#create-cluster-portal).
 
 ## <a name="configure-key-vault"></a>Configurar o Key Vault 
 ### <a name="log-in-to-azure"></a>Fazer logon no Azure
@@ -114,7 +114,15 @@ Crie um Cofre de Chaves no novo grupo de recursos. O Cofre de Chaves **deve esta
     Tags                             :
 ```
 
-Se você tiver um Cofre de Chaves existente, poderá habilitá-lo para implantação usando a CLI do Azure:
+Se você tiver um Key Vault existente, poderá habilitá-lo para implantação usando uma das seguintes maneiras:
+
+##### <a name="azure-powershell"></a>Azure PowerShell
+
+```powershell
+PS C:\Users\vturecek> Set-AzureRmKeyVaultAccessPolicy -VaultName 'myvault' -EnabledForDeployment
+```
+
+##### <a name="azure-cli"></a>CLI do Azure:
 
 ```cli
 > azure login

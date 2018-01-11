@@ -6,20 +6,20 @@ keywords: "Não adicione ou edite palavras-chave sem consultar seu especialista 
 author: philmea
 ms.author: philmea
 ms.date: 11/22/2017
-ms.topic: how-to
+ms.topic: article
 ms.service: location-based-services
 manager: timlt
-ms.openlocfilehash: 9ddd11806accddb41c02c0c6681aac07bba25356
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 06743640aae5e06d0160105458d9a3cfa35d5040
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="how-to-use-the-azure-location-based-services-map-control"></a>Como usar o Controle de Mapeamento dos Serviços do Azure Baseados na Localização
 A biblioteca Javascript do lado do cliente do Controle de Mapeamento permite renderizar mapas e funcionalidade inserida nos Serviços do Azure Baseados na Localização em seu aplicativo Web ou móvel. 
 
-## <a name="prerequisites"></a>Pré-requisitos
-Uma conta e uma chave de assinatura dos Serviços do Azure Baseados na Localização. Para saber mais sobre como criar uma conta e recuperar uma chave de assinatura, confira [Como gerenciar sua conta e chaves dos Serviços do Azure Baseados na Localização](how-to-manage-account-keys.md). 
+## <a name="prerequisites"></a>pré-requisitos
+Uma conta e chave de assinatura dos Serviços do Azure Baseados na Localização. Para saber mais sobre como criar uma conta e recuperar uma chave de assinatura, confira [Como gerenciar sua conta e chaves dos Serviços do Azure Baseados na Localização](how-to-manage-account-keys.md). 
 
 ## <a name="create-a-new-map-in-a-web-page-using-the-map-control-api"></a>Criar um novo mapa em uma página da Web usando a API de Controle de Mapeamento
 Você pode inserir um mapa em uma página da Web usando a biblioteca Javascript do lado do cliente do Controle de Mapeamento.

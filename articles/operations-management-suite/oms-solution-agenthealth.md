@@ -11,19 +11,19 @@ ms.service: operations-management-suite
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 07/17/2017
 ms.author: magoedte
-ms.openlocfilehash: 601e059af6040834f1ceb520ffe23aeadb6cdb18
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 939bf5ae6ee306008567ce62ddf8a6d1f05da60a
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/03/2018
 ---
 #  <a name="agent-health-solution-in-oms"></a>Solução Integridade do Agente do OMS
 A solução Integridade do Agente do OMS ajuda você a entender, para todos os agentes que se reportam diretamente ao espaço de trabalho do OMS ou a um grupo de gerenciamento do System Center Operations Manager conectado ao OMS, quais estão respondendo e enviando dados operacionais.  Você pode também manter controle de quantos agentes estão implantados, onde eles estão distribuídos geograficamente e executam outras consultas para saber a distribuição dos agentes implantados no Azure, em outros ambientes de nuvem ou no local.    
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Antes de implantar essa solução, confirme se você atualmente tem [agentes do Windows](../log-analytics/log-analytics-windows-agent.md) com suporte se reportando ao espaço de trabalho do OMS ou a um [grupo de gerenciamento do Operations Manager](../log-analytics/log-analytics-om-agents.md) integrado ao seu espaço de trabalho do OMS.    
 
 ## <a name="solution-components"></a>Componentes da solução
@@ -35,7 +35,7 @@ Se o grupo de gerenciamento do System Center Operations Manager estiver conectad
 * Pacote de inteligência do Microsoft System Center Advisor HealthAssessment Direct (Microsoft.IntelligencePacks.HealthAssessmentDirect)
 * Pacote de inteligência do Microsoft System Center Advisor HealthAssessment Server Channel (Microsoft.IntelligencePacks.HealthAssessmentViaServer).  
 
-Para saber mais sobre como os pacotes de gerenciamento da solução são atualizados, veja [Conectar o Operations Manager ao Log Analytics](../log-analytics/log-analytics-om-agents.md).
+Para obter mais informações sobre como os pacotes de gerenciamento da solução são atualizados, veja [Conectar o Operations Manager ao Log Analytics](../log-analytics/log-analytics-om-agents.md).
 
 ## <a name="configuration"></a>Configuração
 Adicione a solução Integridade do Agente ao seu espaço de trabalho do OMS usando o processo descrito em [Adicionar soluções](../log-analytics/log-analytics-add-solutions.md). Não é necessária nenhuma configuração.
@@ -45,17 +45,17 @@ Adicione a solução Integridade do Agente ao seu espaço de trabalho do OMS usa
 ### <a name="supported-agents"></a>Agentes com suporte
 A tabela a seguir descreve as fontes conectadas que têm suporte dessa solução.
 
-| Fonte Conectada | Suportado | Descrição |
+| Fonte Conectada | Com suporte | DESCRIÇÃO |
 | --- | --- | --- |
-| Agentes do Windows | Sim | Os eventos de pulsação são coletados dos agentes diretos do Windows.|
-| Grupo de gerenciamento do System Center Operations Manager | Sim | Os eventos de pulsação são coletados dos agentes que se reportam ao grupo de gerenciamento a cada 60 segundos e, em seguida, encaminhados para o Log Analytics. Uma conexão direta de agentes do Operations Manager ao Log Analytics não é necessária. Os dados de evento de pulsação são encaminhados do grupo de gerenciamento para o repositório do Log Analytics.|
+| Agentes do Windows | sim | Os eventos de pulsação são coletados dos agentes diretos do Windows.|
+| Grupo de gerenciamento do System Center Operations Manager | sim | Os eventos de pulsação são coletados dos agentes que se reportam ao grupo de gerenciamento a cada 60 segundos e, em seguida, encaminhados para o Log Analytics. Uma conexão direta de agentes do Operations Manager ao Log Analytics não é necessária. Os dados de evento de pulsação são encaminhados do grupo de gerenciamento para o repositório do Log Analytics.|
 
 ## <a name="using-the-solution"></a>Usando a solução
 Quando você adicionar a solução ao espaço de trabalho do OMS, o bloco **Integridade do Agente** será adicionado ao seu painel do OMS. Esse bloco mostra o número total de agentes e o número de agentes sem resposta nas últimas 24 horas.<br><br> ![Bloco da solução Integridade do Agente no painel](./media/oms-solution-agenthealth/agenthealth-solution-tile-homepage.png)
 
 Clique no bloco **Integridade do Agente** para abrir o painel **Integridade do Agente**.  O painel inclui as colunas na tabela a seguir. Cada coluna lista os dez principais eventos por contagem que correspondem aos critérios da coluna para o intervalo de tempo especificado. É possível executar uma pesquisa de logs que fornece a lista inteira selecionando **Ver todos** no canto inferior direito de cada coluna ou clicando no cabeçalho da coluna.
 
-| Coluna | Descrição |
+| Coluna | DESCRIÇÃO |
 |--------|-------------|
 | Contagem de agentes ao longo do tempo | Uma tendência de sua contagem de agentes durante um período de sete dias para agentes do Linux e do Windows.|
 | Contagem de agentes sem resposta | Uma lista de agentes que ainda não enviou uma pulsação nas últimas 24 horas.|
@@ -74,9 +74,9 @@ A solução cria um tipo de registro no repositório do OMS.
 ### <a name="heartbeat-records"></a>Registros de pulsação
 Um registro com o tipo **pulsação** é criado.  Esses registros têm as propriedades descritas na tabela a seguir.  
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
-| Tipo | *Pulsação*|
+| type | *Pulsação*|
 | Categoria | O valor é *Agente Direto*, *Agente SCOM* ou *o Servidor de Gerenciamento do SCOM*.|
 | Computador | Nome do computador.|
 | OSType | Sistema operacional Windows ou Linux.|
@@ -97,7 +97,7 @@ Cada agente subordinado a um servidor de gerenciamento do Operations Manager env
 ## <a name="sample-log-searches"></a>Pesquisas de log de exemplo
 A tabela a seguir fornece pesquisas de log de exemplo para os registros coletados por essa solução.
 
-| Consultar | Descrição |
+| Consultar | DESCRIÇÃO |
 | --- | --- |
 | Type=Heartbeat &#124; distinct Computer |Número total de agentes |
 | Type=Heartbeat &#124; measure max(TimeGenerated) as LastCall by Computer &#124; where LastCall < NOW-24HOURS |Contagem de agentes sem resposta nas últimas 24 horas |
@@ -116,7 +116,7 @@ A tabela a seguir fornece pesquisas de log de exemplo para os registros coletado
 >[!NOTE]
 > Se o seu espaço de trabalho fosse atualizado para a [nova linguagem de consulta do Log Analytics](../log-analytics/log-analytics-log-search-upgrade.md), as consultas acima seriam alteradas para o demonstrado a seguir.
 >
->| Consultar | Descrição |
+>| Consultar | DESCRIÇÃO |
 |:---|:---|
 | Heartbeat &#124; distinct Computer |Número total de agentes |
 | Heartbeat &#124; summarize LastCall = max(TimeGenerated) by Computer &#124; where LastCall < ago(24h) |Contagem de agentes sem resposta nas últimas 24 horas |

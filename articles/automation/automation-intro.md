@@ -1,86 +1,83 @@
 ---
-title: "O que é a Automação do Azure | Microsoft Docs"
-description: "Saiba qual valor a Automação do Azure fornece e obtenha respostas para perguntas comuns para que você pode começar a criar usando runbooks e DSC de Automação do Azure."
+title: "Visão geral da Automação do Azure | Microsoft Docs"
+description: "Saiba como usar a Automação do Azure para automatizar o ciclo de vida de infraestrutura e de aplicativos."
 services: automation
+author: eamonoreilly
 documentationcenter: 
-author: georgewallace
-manager: jwhit
-editor: 
-keywords: "o que é automação, automação do azure, exemplos de automação do azure"
+keywords: "automação do azure, DSC, powershell, configuração de estado desejado, gerenciamento de atualizações, controle e alterações, inventário, runbooks, pyhon, gráfico"
 ms.assetid: 0cf1f3e8-dd30-4f33-b52a-e148e97802a9
 ms.service: automation
-ms.workload: tbd
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/10/2016
-ms.author: magoedte;bwren
-ms.openlocfilehash: ae2b607be9a02e688a6b513d593f79eeb985ca93
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 12/13/2017
+ms.author: eamono
+ms.openlocfilehash: aab15392187a00aebf707f553a097961ce438194
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 12/22/2017
 ---
-# <a name="azure-automation-overview"></a>Visão geral da Automação do Azure
-A Automação do Microsoft Azure fornece uma maneira para os usuários automatizarem tarefas manuais, longas, sujeitas a erros e repetidas com frequência que normalmente são executadas em um ambiente de nuvem e corporativo. Ele economiza tempo e aumenta a confiabilidade das tarefas administrativas regulares e até mesmo agenda a sua execução automática em intervalos regulares. Você pode automatizar processos usando runbooks ou automatizar o gerenciamento de configuração usando Configuração de Estado Desejado. Este artigo fornece uma visão geral da Automação do Azure e responde a perguntas comuns. Você pode consultar outros artigos desta biblioteca para obter informações mais detalhadas sobre os diferentes tópicos.
+# <a name="an-introduction-to-azure-automation"></a>Uma introdução à Automação do Azure
 
-## <a name="automating-processes-with-runbooks"></a>Automatizando processos com runbooks
-Um runbook é um conjunto de tarefas que executa um processo automatizado na Automação do Azure. Pode ser um processo simples, como iniciar uma máquina virtual e criar uma entrada de log, ou você pode ter um runbook complexo que combina outros runbooks menores para executar um processo complexo em vários recursos ou até mesmo várias nuvens e em ambientes locais.  
+A Automação do Azure oferece um serviço de configuração e de automação baseado em nuvem que fornece gerenciamento consistente em seus ambientes Azure e não Azure. Ele é composto por automação de processos, gerenciamento de atualizações e recursos de configuração. A Automação do Azure fornece controle total durante a implantação, operações e encerramento de cargas de trabalho e de recursos.
+Este artigo fornece uma visão geral da Automação do Azure e responde algumas perguntas comuns. Para obter mais informações sobre os diferentes recursos, acesse os links em toda esta visão geral.
 
-Por exemplo, você pode ter um processo manual existente para truncar um banco de dados SQL, que esteja prestes a atingir o volume máximo, que inclui várias etapas, como conectar-se ao servidor, conectar-se ao banco de dados, obter o tamanho atual do banco de dados, verificar se o limite foi excedido a fim de truncar e notificar o usuário. Em vez de executar cada uma dessas etapas manualmente, você pode criar um runbook que executa todas essas tarefas como um único processo. Você inicia o runbook, fornece as informações necessárias, como o nome do servidor SQL, o nome do banco de dados e o email do destinatário, e aguarda enquanto o processo é concluído. 
+## <a name="azure-automation-capabilities"></a>Recursos da Automação do Azure
 
-## <a name="what-can-runbooks-automate"></a>O que os runbooks podem automatizar?
-Os runbooks na Automação do Azure são baseados no Windows PowerShell ou Fluxo de Trabalho do Windows PowerShell, portanto eles fazem tudo o que o PowerShell pode fazer. Se um aplicativo ou serviço tiver uma API, um runbook pode trabalhar com ele. Se você tiver um módulo do PowerShell para o aplicativo, pode carregar esse módulo na Automação do Azure e incluir esses cmdlets em seu runbook. Os runbooks da Automação do Azure são executados na nuvem do Azure e podem acessar qualquer recurso de nuvem ou recursos externos que podem ser acessados da nuvem. Usando o [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md), os runbooks podem ser executados em seu data center local para gerenciar recursos locais. 
+![Recursos de visão geral de Automação](media/automation-overview/automation-overview.png)
 
-## <a name="getting-runbooks-from-the-community"></a>Obtendo runbooks da comunidade
-A [Galeria de Runbooks](automation-runbook-gallery.md#runbooks-in-runbook-gallery) contém runbooks da Microsoft e da comunidade que você pode usar inalterados em seu ambiente ou personalizá-los para suas próprias finalidades. Eles também são úteis como referências para aprender a criar seus próprios runbooks. Você ainda pode contribuir na galeria com seus próprios runbooks que acredita que os outros usuários podem considerar úteis. 
+### <a name="process-automation"></a>Automação de processos
 
-## <a name="creating-runbooks-with-azure-automation"></a>Criação de Runbooks com a Automação do Azure
-Você pode [criar seus próprios runbooks](automation-creating-importing-runbook.md) do zero ou modificar runbooks da [Galeria de Runbooks](http://msdn.microsoft.com/library/azure/dn781422.aspx) para seus próprios requisitos. Há quatro [tipos de runbook](automation-runbook-types.md) diferentes entre os quais você pode escolher com base em seus requisitos e experiência do PowerShell. Se você preferir trabalhar diretamente com o código do PowerShell, use um [runbook do PowerShell](automation-runbook-types.md#powershell-runbooks) ou [runbook de Fluxo de Trabalho](automation-runbook-types.md#powershell-workflow-runbooks) do PowerShell que você edita offline ou com o [editor de texto](http://msdn.microsoft.com/library/azure/dn879137.aspx) no Portal do Azure. Se preferir editar um runbook sem ser exposto ao código subjacente, crie um [Runbook gráfico](automation-runbook-types.md#graphical-runbooks) usando o [editor gráfico](automation-graphical-authoring-intro.md) no portal do Azure. 
+A Automação do Azure fornece a capacidade de automatizar tarefas de gerenciamento de nuvem frequentes, demoradas e propensas a erros. Esta automação ajuda você a focar em trabalhos que agregam valor. Ao reduzir erros e melhorar a eficiência, também ajuda a diminuir os custos operacionais. É possível integrar os serviços do Azure e outros sistemas públicos necessários na implantação, configuração e gerenciamento de seus processos de ponta a ponta. O serviço permite [criar runbooks](automation-runbook-types.md) graficamente, no PowerShell ou no Python. Usando um Hybrid Runbook Worker, é possível unificar o gerenciamento por meio da orquestração entre ambientes locais. [Webhooks](automation-webhooks.md) fornecem uma forma de atender a solicitações e garantir a entrega e operações contínuas disparando automação do ITSM, DevOps e sistemas de monitoramento.
 
-Prefere assistir do que ler? Examine o vídeo abaixo da sessão do Microsoft Ignite de maio de 2015. Observação: embora os conceitos e recursos discutidos neste vídeo estejam corretos, a Automação do Azure avançou muito desde que esse vídeo foi gravado, e agora possui uma interface de usuário mais ampla no Portal do Azure e oferece suporte a recursos adicionais.
+### <a name="configuration-management"></a>Gerenciamento de configuração
 
-> [!VIDEO https://channel9.msdn.com/Events/Ignite/2015/BRK3451/player]
-> 
-> 
+A [configuração de estado desejado](automation-dsc-overview.md) da Automação do Azure é uma solução baseada em nuvem para DSC do PowerShell que fornece serviços necessários para ambientes corporativos. Gerencie recursos de DSC na Automação do Azure e aplique as configurações a máquinas virtuais ou físicas de um Servidor de Recepção de DSC na nuvem do Azure. Ele oferece relatórios avançados que informam sobre eventos importantes como quando nós desviaram de sua configuração atribuída. É possível monitorar e atualizar automaticamente a configuração do computador em máquinas virtuais e físicas, no Windows ou Linux, na nuvem ou local.
 
-## <a name="automating-configuration-management-with-desired-state-configuration"></a>Automatizando o gerenciamento de configuração com a Configuração de Estado Desejado
-[PowerShell DSC](https://technet.microsoft.com/library/dn249912.aspx) é uma plataforma de gerenciamento que permite gerenciar, implantar e impor a configuração em hosts físicos e máquinas virtuais usando uma sintaxe declarativa do PowerShell. Você pode definir configurações em um servidor de recepção DSC central que podem ser recuperadas e aplicadas automaticamente por computadores de destino. O DSC fornece um conjunto de cmdlets do PowerShell que você pode usar para gerenciar configurações e recursos.  
+É possível obter inventário sobre recursos no convidado para visibilidade sobre aplicativos instalados e outros itens de configuração. Funcionalidades avançadas de relatório e de pesquisa estão disponíveis para encontrar rapidamente informações detalhadas a fim de ajudar a entender o que foi configurado dentro do sistema operacional. É possível controlar as alterações entre serviços, daemons, software, Registro e arquivos para identificar rapidamente o que pode estar causando problemas. Além disso, o DSC pode ajudar a diagnosticar e alertar quando ocorrem alterações indesejadas em seu ambiente.
 
-[DSC de Automação do Azure](automation-dsc-overview.md) é uma solução baseada em nuvem para DSC do PowerShell que fornece os serviços necessários para ambientes corporativos.  Você pode gerenciar seus recursos de DSC na Automação do Azure e aplicar as configurações a máquinas virtuais ou físicas que as recuperam de um servidor de recepção DSC na nuvem do Azure.  Ele também fornece serviços de relatório que informam sobre eventos importantes, como nós que desviam de sua configuração atribuída e quando uma nova configuração foi aplicada. 
+### <a name="update-management"></a>Gerenciamento de atualizações
 
-## <a name="creating-your-own-dsc-configurations-with-azure-automation"></a>Criando suas próprias configurações DSC com a Automação do Azure
-[Configurações DSC](automation-dsc-overview.md) especifica o estado desejado de um nó.  Vários nós podem aplicar a mesma configuração para garantir que todos eles mantenham um estado idêntico.  Você pode criar uma configuração que usa qualquer editor de texto em seu computador local e importá-la para Automação do Azure, onde poderá compilá-la e aplicar nós.
+Atualize os sistemas Windows e Linux em ambientes híbridos na Automação do Azure. Obtenha visibilidade da conformidade de atualização no Azure, nuvens locais e outras nuvens. É possível criar implantações de agendamento para orquestrar a instalação de atualizações em uma janela de manutenção definida. Caso uma atualização não deva ser instalada em um computador, é possível excluir essas atualizações de uma implantação.
 
-## <a name="getting-modules-and-configurations"></a>Obtendo módulos e configurações
-Você pode obter [módulos do PowerShell](automation-runbook-gallery.md#modules-in-powershell-gallery) contendo cmdlets que você pode usar em seus runbooks e configurações de DSC da [Galeria do PowerShell](http://www.powershellgallery.com/). Você pode iniciar esta galeria no portal do Azure e importar módulos diretamente na Automação do Azure ou pode baixá-los e instalá-los manualmente. Não é possível instalar os módulos diretamente do portal do Azure, mas você pode baixá-los e instalá-los como o faria com qualquer módulo. 
+### <a name="shared-capabilities"></a>Funcionalidades compartilhadas
 
-## <a name="example-practical-applications-of-azure-automation"></a>Aplicações de exemplo da Automação do Azure
-A seguir temos alguns exemplos de quais são os tipos de cenários de automação com a Automação do Azure. 
+A Automação do Azure é composta por um conjunto de recursos compartilhados que facilitam a automatização e configurar seu ambiente em escala.
 
-* Criar e copiar máquinas virtuais em diferentes assinaturas do Azure. 
-* Agendar cópias de arquivos de um computador local para um contêiner de armazenamento de Blob do Azure. 
-* Automatizar funções de segurança, como negar solicitações de um cliente, quando um ataque de negação de serviço é detectado. 
-* Verifique se as máquinas se alinham continuamente com a política de segurança configurada.
-* Gerencie a implantação contínua do código do aplicativo na nuvem e na infraestrutura local. 
-* Crie uma floresta do Active Directory no Azure para seu ambiente de laboratório. 
-* Truncar uma tabela em um banco de dados SQL se ele estiver se aproximando do tamanho máximo. 
-* Atualize remotamente as configurações do ambiente de um Site do Azure 
+* **[Controle de acesso baseado em função](automation-role-based-access-control.md)** – Controle o acesso à conta com uma função de operador de Automação que habilita tarefa a ser executada sem dar funcionalidades de criação.
+* **[Variáveis](automation-variables.md)** – Forneça uma maneira de manter o conteúdo que pode ser usado em runbooks e configurações. É possível alterar valores sem ter que modificar nenhum runbook e configurações que os referenciam.
+* **[Credenciais](automation-credentials.md)** – Armazene seguramente informações confidenciais que podem ser usadas por runbooks e configurações em tempo de execução.
+* **[Certificados](automation-certificates.md)** – Armazene e disponibilize em tempo de execução para que eles possam ser usados para autenticação e proteção de recursos implantados.
+* **[Conexões](automation-connections.md)** – Armazenar um par de informação nome/valor que contém informações comuns ao se conectar a sistemas em recursos de conexão. As conexões são definidas pelo autor do módulo para uso em tempo de execução nas configurações e runbooks.
+* **[Agendas](automation-schedules.md)** – Usado no serviço para disparar automação em horários predefinidos.
+* **[Integração com o controle de código-fonte](automation-source-control-integration.md)** – Promove configuração como código em que o check-in de runbooks ou configurações pode ser feito em um sistema de controle do código-fonte.
+* **[Módulos do PowerShell](automation-integration-modules.md)** – Módulos são usados para gerenciar o Azure e outros sistemas. Importe para a conta de Automação da Microsoft, de terceiros, da comunidade, ou cmdlets definidos personalizados e recursos de DSC.
 
-## <a name="how-does-azure-automation-relate-to-other-automation-tools"></a>Como a Automação do Azure se relaciona com outras ferramentas de automação?
-[SMA (Service Management Automation)](http://technet.microsoft.com/library/dn469260.aspx) destina-se a automatizar tarefas de gerenciamento na nuvem privada. Ele é instalado localmente em seu data center como um componente do [Microsoft Azure Pack](https://www.microsoft.com/en-us/server-cloud/). O SMA e a Automação do Azure usam o mesmo formato de runbook com base no fluxo de trabalho do Windows PowerShell e no Fluxo de Trabalho do Windows PowerShell, mas o SMA não dá suporte para [runbooks gráficos](automation-graphical-authoring-intro.md).  
+### <a name="windows-and-linux"></a>Windows e Linux
 
-[System Center 2012 Orchestrator](http://technet.microsoft.com/library/hh237242.aspx) destina-se à automação de recursos locais. Ele usa um formato de runbook diferente da Automação do Azure e do Service Management Automation e tem uma interface gráfica para criar runbooks sem a necessidade de qualquer script. Seus runbooks são compostos por atividades de Pacotes de Integração que são escritos especificamente para o Orchestrator. 
+A Automação do Azure foi criada para funcionar em seu ambiente de nuvem híbrida e também para Windows e Linux. Ela oferece uma maneira consistente de automatizar e configurar cargas de trabalho implantadas e o sistema operacional no qual elas estão sendo executadas.
 
-## <a name="where-can-i-get-more-information"></a>Onde posso obter mais informações?
-Uma variedade de recursos está disponível para você aprender mais sobre a Automação do Azure e criar seus próprios runbooks. 
+### <a name="community-gallery"></a>Galeria da comunidade
 
-* **Biblioteca da Automação do Azure** é onde você está agora. Os artigos nessa biblioteca fornecem a documentação completa sobre a configuração e administração da Automação do Azure e para a criação de seus próprios runbooks. 
-* [Cmdlets do Azure PowerShell](http://msdn.microsoft.com/library/jj156055.aspx) fornece informações para automatizar operações do Azure usando o Windows PowerShell. Os runbooks usam esses cmdlets para trabalhar com recursos do Azure. 
-* [Blog de Gerenciamento](https://azure.microsoft.com/blog/tag/azure-automation/) fornece as informações mais recentes sobre a Automação do Azure e outras tecnologias de gerenciamento da Microsoft. Você deve assinar esse blog para se manter atualizado com o que há de mais recente da equipe de Automação do Azure. 
-* [Fórum de automação](http://go.microsoft.com/fwlink/p/?LinkId=390561) permite que você poste dúvidas sobre a Automação do Azure a serem resolvidas pela Microsoft e pela comunidade de automação. 
-* [Cmdlets de Automação do Azure](https://msdn.microsoft.com/library/mt244122.aspx) fornece informações sobre como automatizar tarefas administrativas. Ele contém cmdlets para gerenciar contas de automação, ativos, runbooks, DSC.
+Procure na [galeria de Automação](automation-runbook-gallery.md) runbooks e módulos para começar rapidamente a integrar e criar seus processos da galeria do PowerShell e do Microsoft Script Center.
 
-## <a name="can-i-provide-feedback"></a>Posso fornecer comentários?
-**Envie-nos comentários!** Se você estiver procurando por uma solução de runbook de Automação do Azure ou por um módulo de integração, poste uma Solicitação de script no Script Center. Se você tiver comentários ou solicitações de recurso para a Automação do Azure, poste-os em [User Voice](http://feedback.windowsazure.com/forums/34192--general-feedback). Obrigado! 
+## <a name="common-scenarios-for-automation"></a>Cenários comuns de Automação
 
+A Automação do Azure é gerenciada em todo o ciclo de vida da infraestrutura e de aplicativos. Transfira conhecimento para o sistema sobre como a organização oferece e mantém as cargas de trabalho. Crie em linguagens comuns como PowerShell, configuração de estado desejado, Python e runbooks gráficos. Obtenha um inventário completo de recursos implantados para direcionamento, relatórios e conformidade. Identifique alterações que podem causar erros de configuração e melhore a conformidade operacional.
+
+* **Compilar/implantar recursos** – Implante VMs em um ambiente híbrido usando modelos de Runbooks e do Azure Resource Manager. Integre-se a ferramentas de desenvolvimento como Jenkins e Visual Studio Team Services.
+* **Configurar VMs** – Avalie e configure computadores Windows e Linux com a configuração desejada para a infraestrutura e o aplicativo.
+* **Monitorar** – Identifique alterações nos computadores que estão causando problemas e corrija ou escalone para sistemas de gerenciamento.
+* **Proteger** – Coloque a VM em quarentena se forem gerados alertas de segurança. Defina requisitos no convidado.
+* **Reger** – Configure controle de acesso baseado em função para equipes. Recupere recursos não utilizados.
+
+## <a name="pricing-for-automation"></a>Preço da Automação
+
+É possível examinar o preço da Automação do Azure na página [preços](https://azure.microsoft.com/pricing/details/automation/).
+
+## <a name="next-steps"></a>Próximas etapas
+
+> [!div class="nextstepaction"]
+> [Criar uma conta de Automação](automation-quickstart-create-account.md)

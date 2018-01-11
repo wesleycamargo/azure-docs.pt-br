@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/23/2017
+ms.date: 12/20/2017
 ms.author: jgao
-ms.openlocfilehash: 983c7d1f7e3b562a8b89f6afaf52a3289ab33f17
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 96be510476434168a31c78f3a5f97c12ea1eee0f
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="hadoop-tutorial-get-started-using-hadoop-in-hdinsight"></a>Tutorial do Hadoop: Introdução ao uso do Hadoop no HDInsight
 
@@ -29,7 +29,7 @@ Aprenda a criar clusters [Hadoop](http://hadoop.apache.org/) no HDInsight e a ex
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Antes de começar este tutorial, você deverá ter o seguinte:
 
 * **Assinatura do Azure**: para criar uma conta de avaliação gratuita de um mês, acesse [azure.microsoft.com/free](https://azure.microsoft.com/free).
@@ -58,7 +58,7 @@ O modelo do Resource Manager usado neste tutorial está localizado no [GitHub](h
     Algumas propriedades foram inseridas no código do modelo.  Você pode configurar esses valores do modelo.
 
     * **Local**: O local do cluster e da conta de armazenamento dependente usam o mesmo local que o grupo de recursos.
-    * **Versão do cluster**: 3.5
+    * **Versão do cluster**: 3.6
     * **Tipo de SO**: Linux
     * **Número de nós de trabalho**: 2
 
@@ -66,11 +66,11 @@ O modelo do Resource Manager usado neste tutorial está localizado no [GitHub](h
      
      Para obter mais explicação sobre essas propriedades, confira [Criar clusters Hadoop no HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 
-3. Selecione **Concordo com os termos e condições declarados acima** e **Fixar no painel**, depois clique em **Comprar**. Você verá um novo bloco intitulado **Implantando a implantação de modelo** no painel do portal. A criação de um cluster demora cerca de 20 minutos. Depois que o cluster for criado, a legenda do bloco será alterada para o nome do grupo de recursos especificado. E o portal abre automaticamente o grupo de recursos em uma nova folha. Você pode ver ambos o cluster e o armazenamento padrão listados.
+3. Selecione **Concordo com os termos e condições declarados acima** e **Fixar no painel**, depois clique em **Comprar**. Você verá um novo bloco intitulado **Implantando a implantação de modelo** no painel do portal. A criação de um cluster demora cerca de 20 minutos. Depois que o cluster for criado, a legenda do bloco será alterada para o nome do grupo de recursos especificado. E o portal abre automaticamente o grupo de recursos. Você pode ver ambos o cluster e o armazenamento padrão listados.
    
     ![Grupo de recursos de introdução ao HDInsight para Linux](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-resource-group.png "Grupo de recursos de cluster do Azure HDInsight").
 
-4. Clique no nome do cluster para abrir o cluster em uma nova folha.
+4. Clique no nome do cluster para abrir o cluster.
 
    ![Configurações de cluster de introdução do HDInsight para Linux](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-cluster-settings.png "Propriedades do cluster do HDInsight")
 
@@ -120,7 +120,7 @@ Após concluir o tutorial, convém excluir o cluster. Com o HDInsight, seus dado
 
 1. Entre no [Portal do Azure](https://portal.azure.com).
 2. No painel do portal, clique no bloco com o nome do grupo de recursos usado ao criar o cluster.
-3. Clique em **Excluir** na folha de recursos para excluir o grupo de recursos que contém o cluster e a conta de armazenamento padrão ou clique no nome do cluster no bloco **Recursos** e clique em **Excluir** na folha do cluster. Observe que a exclusão do grupo de recursos exclui a conta de armazenamento. Para manter a conta de armazenamento, exclua apenas o cluster.
+3. Clique em **Excluir** para excluir o grupo de recursos que contém o cluster e a conta de armazenamento padrão ou clique no nome do cluster no bloco **Recursos** e clique em **Excluir**. Observe que a exclusão do grupo de recursos exclui a conta de armazenamento. Para manter a conta de armazenamento, exclua apenas o cluster.
 
 ## <a name="troubleshoot"></a>Solucionar problemas
 
@@ -136,12 +136,12 @@ Para saber mais sobre como analisar dados com o HDInsight, consulte os seguintes
 * Para saber mais sobre o MapReduce, uma maneira de gravar programas que processam dados no Hadoop, consulte [Usar o MapReduce com HDInsight](hdinsight-use-mapreduce.md).
 * Para saber mais sobre como usar as Ferramentas do HDInsight para o Visual Studio para analisar dados no HDInsight, consulte [Introdução às ferramentas do Hadoop do Visual Studio para o HDInsight](apache-hadoop-visual-studio-tools-get-started.md).
 
-Se você estiver pronto para começar a trabalhar com seus próprios dados e precisa saber mais sobre como o HDInsight armazena dados ou obtém dados no HDInsight, consulte:
+Se você estiver pronto para começar a trabalhar com seus próprios dados e precisa saber mais sobre como o HDInsight armazena dados ou obtém dados no HDInsight, consulte os seguintes artigos:
 
 * Para saber mais sobre como o HDInsight usa o Armazenamento do Azure, veja [Usar Armazenamento do Azure com o HDInsight](../hdinsight-hadoop-use-blob-storage.md).
 * Para obter informações sobre como carregar arquivos no HDInsight, consulte [Carregar dados no HDInsight](../hdinsight-upload-data.md).
 
-Se você quiser saber mais sobre como criar ou gerenciar um cluster HDInsight, consulte:
+Se você quiser saber mais sobre como criar ou gerenciar um cluster HDInsight, consulte os seguintes artigos:
 
 * Para saber mais sobre como gerenciar o cluster HDInsight baseado em Linux, consulte [Gerenciar clusters HDInsight usando o Ambari](../hdinsight-hadoop-manage-ambari.md).
 * Para saber mais sobre as opções que você pode selecionar ao criar um cluster HDInsight, confira [Como criar o HDInsight no Linux usando opções personalizadas](../hdinsight-hadoop-provision-linux-clusters.md).

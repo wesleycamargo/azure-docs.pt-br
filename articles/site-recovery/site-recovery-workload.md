@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/30/2017
+ms.date: 12/15/2017
 ms.author: raynew
-ms.openlocfilehash: 3987b50a7a1798d2094e8271ad2cc317c7f472ef
-ms.sourcegitcommit: 43c3d0d61c008195a0177ec56bf0795dc103b8fa
+ms.openlocfilehash: 3105eaa9e97f02f2337832bef538959a94263ea4
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Quais cargas de trabalho posso proteger com o Azure Site Recovery?
 
@@ -49,21 +49,20 @@ O Site Recovery contribui para a recuperação e a proteção no nível do aplic
 ## <a name="workload-summary"></a>Resumo de carga de trabalho
 O Site Recovery pode replicar qualquer aplicativo em execução em um computador com suporte. Além disso, uma parceria com as equipes de produto para executar testes adicionais específicos do aplicativo.
 
-| **Carga de trabalho** | **Replicar máquinas virtuais do Hyper-V para um site secundário** | **Replicar VMs do Hyper-V para o Azure** | **Replicar VMs do VMware para um site secundário** | **Replicar VMs do VMware para o Azure** |
-| --- | --- | --- | --- | --- |
-| Active Directory, DNS |S |S |S |S |
-| Aplicativos Web (IIS, SQL) |S |S |S |S |
-| System Center Operations Manager |S |S |S |S |
-| Sharepoint |S |S |S |S |
-| SAP<br/><br/>Replicar site SAP para Azure para não cluster |Y (testado pela Microsoft) |Y (testado pela Microsoft) |Y (testado pela Microsoft) |Y (testado pela Microsoft) |
-| Exchange (não DAG) |S |S |S |S |
-| Área de Trabalho Remota/VDI |S |S |S |N/D |
-| Linux (sistema operacional e aplicativos) |Y (testado pela Microsoft) |Y (testado pela Microsoft) |Y (testado pela Microsoft) |Y (testado pela Microsoft) |
-| Dynamics AX |S |S |S |S |
-| Dynamics CRM |S |Em breve |S |Em breve |
-| Oracle |Y (testado pela Microsoft) |Y (testado pela Microsoft) |Y (testado pela Microsoft) |Y (testado pela Microsoft) |
-| Servidor de arquivos do Windows |S |S |S |S |
-| Citrix XenApp e XenDesktop |N/D |S |N/D |S |
+| **Carga de trabalho** |**Replicar VMs do Azure para o Azure** |**Replicar máquinas virtuais do Hyper-V para um site secundário** | **Replicar VMs do Hyper-V para o Azure** | **Replicar VMs do VMware para um site secundário** | **Replicar VMs do VMware para o Azure** |
+| --- | --- | --- | --- | --- |---|
+| Active Directory, DNS |S |S |S |S |S|
+| Aplicativos Web (IIS, SQL) |S |S |S |S |S|
+| System Center Operations Manager |S |S |S |S |S|
+| Sharepoint |S |S |S |S |S|
+| SAP<br/><br/>Replicar site SAP para Azure para não cluster |Y (testado pela Microsoft) |Y (testado pela Microsoft) |Y (testado pela Microsoft) |Y (testado pela Microsoft) |Y (testado pela Microsoft)|
+| Exchange (não DAG) |S |S |S |S |S|
+| Área de Trabalho Remota/VDI |S |S |S |S |S|
+| Linux (sistema operacional e aplicativos) |Y (testado pela Microsoft) |Y (testado pela Microsoft) |Y (testado pela Microsoft) |Y (testado pela Microsoft) |Y (testado pela Microsoft)|
+| Dynamics AX |S |S |S |S |S|
+| Oracle |Y (testado pela Microsoft) |Y (testado pela Microsoft) |Y (testado pela Microsoft) |Y (testado pela Microsoft) |Y (testado pela Microsoft)|
+| Servidor de arquivos do Windows |S |S |S |S |S|
+| Citrix XenApp e XenDesktop |S|N/D |S |N/D |S |
 
 ## <a name="replicate-active-directory-and-dns"></a>Replicar o Active Directory e o DNS
 As infraestruturas do DNS e do Active Directory são essenciais para a maioria dos aplicativos corporativos. Durante a recuperação de desastre, você precisará proteger e recuperar esses componentes de infraestrutura antes de recuperar suas cargas de trabalho e aplicativos.
@@ -106,20 +105,23 @@ O Azure Site Recovery ajuda a proteger sua solução ERP do Dynamics AX:
 O RDS (Serviços da Área de Trabalho Remota) habilita a infraestrutura da área de trabalho virtual (VDI), áreas de trabalho baseadas em sessão e aplicativos, permitindo que os usuários trabalhem de qualquer lugar. Com o Azure Site Recovery, você pode:
 
 * Replicar as áreas de trabalho virtuais em pool gerenciadas ou não para um site secundário e aplicativos e sessões remotos para um site secundário ou Azure.
+
 * Aqui está o que você pode replicar:
 
-| **RDS** | **Replicar máquinas virtuais do Hyper-V para um site secundário** | **Replicar VMs do Hyper-V para o Azure** | **Replicar VMs do VMware para um site secundário** | **Replicar VMs do VMware para o Azure** | **Replicar servidores físicos para um site secundário** | **Replicar servidores físicos para o Azure** |
-| --- | --- | --- | --- | --- | --- | --- |
-| **Área de trabalho virtual em pool (não gerenciada)** |Sim |Não |Sim |Não |Sim |Não |
-| **Área de trabalho virtual em pool (gerenciada e sem UPD)** |Sim |Não |Sim |Não |Sim |Não |
-| **Aplicativos remotos e sessões da área de trabalho (sem UDP)** |Sim |Sim |Sim |Sim |Sim |Sim |
+| **RDS** |**Replicar VMs do Azure para o Azure** | **Replicar máquinas virtuais do Hyper-V para um site secundário** | **Replicar VMs do Hyper-V para o Azure** | **Replicar VMs do VMware para um site secundário** | **Replicar VMs do VMware para o Azure** | **Replicar servidores físicos para um site secundário** | **Replicar servidores físicos para o Azure** |
+|---| --- | --- | --- | --- | --- | --- | --- |
+| **Área de trabalho virtual em pool (não gerenciada)** |Não|Sim |Não |Sim |Não |Sim |Não |
+| **Área de trabalho virtual em pool (gerenciada e sem UPD)** |Não|Sim |Não |Sim |Não |Sim |Não |
+| **Aplicativos remotos e sessões da área de trabalho (sem UDP)** |Sim|Sim |Sim |Sim |Sim |Sim |Sim |
+
+[Configurar a recuperação de desastre para RDS usando o Azure Site Recovery](https://docs.microsoft.com/en-us/windows-server/remote/remote-desktop-services/rds-disaster-recovery-with-azure).
 
 [Saiba mais](https://gallery.technet.microsoft.com/Remote-Desktop-DR-Solution-bdf6ddcb) sobre como proteger o RDS.
 
 ## <a name="protect-exchange"></a>Proteger o Exchange
 O Site Recovery ajuda a proteger o Exchange da seguinte maneira:
 
-* Para as implantações pequenas do Exchange, como um único servidor ou servidores sem cluster, o Site Recovery pode replicar e fazer failover no Azure ou em um site secundário.
+* Para implantações pequenas do Exchange, como um servidor único ou autônomo, o Site Recovery pode replicar e fazer failover no Azure ou em um site secundário.
 * Para as implantações maiores, o Site Recovery integra-se ao Exchange DAGS.
 * Os Exchange DAGs são a solução recomendada para recuperação de desastre do Exchange em uma empresa.  Os planos de recuperação do Site Recovery podem incluir DAGs para coordenar o failover do DAG nos sites.
 
@@ -138,7 +140,7 @@ Use o Site Recovery para proteger sua implantação do SAP como a seguir:
 ## <a name="protect-iis"></a>Proteger o IIS
 Use o Site Recovery para proteger sua implantação do IIS como mostrado abaixo:
 
-O Azure Site Recovery oferece recuperação de desastre replicando os componentes essenciais de seu ambiente em um site remoto frio ou em uma nuvem pública, como o Microsoft Azure. Já que a máquina virtual com o servidor Web e o banco de dados estão sendo replicados no local de recuperação, não há nenhum requisito para fazer backup de arquivos de configuração ou certificados separadamente. As associações e mapeamentos de aplicativo dependentes de variáveis de ambiente que são alterados após o failover podem ser atualizados por meio de scripts integrados aos planos de recuperação de desastre. As máquinas virtuais somente aparecem no site de recuperação no caso de um failover. Além disso, o Azure Site Recovery também ajuda a organizar o failover de ponta a ponta oferecendo os seguintes recursos:
+O Azure Site Recovery oferece recuperação de desastre replicando os componentes essenciais de seu ambiente em um site remoto frio ou em uma nuvem pública, como o Microsoft Azure. Já que as máquinas virtuais com o servidor Web e o banco de dados estão sendo replicadas no local de recuperação, não há nenhum requisito para fazer backup de arquivos de configuração ou certificados separadamente. As associações e mapeamentos de aplicativo dependentes de variáveis de ambiente que são alterados após o failover podem ser atualizados por meio de scripts integrados aos planos de recuperação de desastre. As máquinas virtuais somente aparecem no site de recuperação no caso de um failover. Além disso, o Azure Site Recovery também ajuda a organizar o failover de ponta a ponta oferecendo os seguintes recursos:
 
 -   O desligamento e a inicialização de máquinas virtuais nas várias camadas.
 -   A adição de scripts para permitir a atualização das dependências do aplicativo e associações em máquinas virtuais depois da inicialização. Os scripts também podem ser usados para atualizar o servidor DNS a fim de apontar para o local de recuperação.

@@ -3,7 +3,7 @@ title: "Criar artefatos personalizados para sua máquina virtual do DevTest Labs
 description: "Aprenda a criar seus próprios artefatos para uso com o Azure DevTest Labs."
 services: devtest-lab,virtual-machines
 documentationcenter: na
-author: tomarcher
+author: craigcaseyMSFT
 manager: douge
 editor: 
 ms.assetid: 32dcdc61-ec23-4a01-b731-78c029ea5316
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/16/2017
-ms.author: tarcher
-ms.openlocfilehash: 679819618452d65847c6163569e04945ba8a414d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: v-craic
+ms.openlocfilehash: 7766227d66df94eca72072f52ff02928f8ee277b
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="create-custom-artifacts-for-your-devtest-labs-virtual-machine"></a>Criar artefatos personalizados para sua máquina virtual do DevTest Labs
 
@@ -52,15 +52,15 @@ O exemplo a seguir mostra as seções que compõem a estrutura básica de um arq
       }
     }
 
-| Nome do elemento | Obrigatório? | Descrição |
+| Nome do elemento | Obrigatório? | DESCRIÇÃO |
 | --- | --- | --- |
-| $schema |Não |Local do arquivo de esquema JSON. O arquivo de esquema JSON pode lhe ajudar a testar a validade do arquivo de definição. |
-| título |Sim |Nome do artefato exibido no laboratório. |
-| Descrição |Sim |Descrição do artefato exibido no laboratório. |
-| iconUri |Não |URI do ícone exibido no laboratório. |
-| targetOsType |Sim |Sistema operacional da VM em que o artefato está instalado. As opções com suporte são Windows e Linux. |
-| parâmetros |Não |Valores fornecidos quando o comando de instalação do artefato é executado em um computador. Isso ajuda você a personalizar seu artefato. |
-| runCommand |Sim |Comando de instalação do artefato executado em uma VM. |
+| $schema |Não  |Local do arquivo de esquema JSON. O arquivo de esquema JSON pode lhe ajudar a testar a validade do arquivo de definição. |
+| título |sim |Nome do artefato exibido no laboratório. |
+| Descrição |sim |Descrição do artefato exibido no laboratório. |
+| iconUri |Não  |URI do ícone exibido no laboratório. |
+| targetOsType |sim |Sistema operacional da VM em que o artefato está instalado. As opções com suporte são Windows e Linux. |
+| parâmetros |Não  |Valores fornecidos quando o comando de instalação do artefato é executado em um computador. Isso ajuda você a personalizar seu artefato. |
+| runCommand |sim |Comando de instalação do artefato executado em uma VM. |
 
 ### <a name="artifact-parameters"></a>Parâmetros do artefato
 Na seção de parâmetros do arquivo de definição, especifique quais valores um usuário pode inserir ao instalar um artefato. Você pode consultar esses valores no comando de instalação do artefato.
@@ -75,11 +75,11 @@ Para definir parâmetros, use a seguinte estrutura:
         }
       }
 
-| Nome do elemento | Obrigatório? | Descrição |
+| Nome do elemento | Obrigatório? | DESCRIÇÃO |
 | --- | --- | --- |
-| type |Sim |Tipo do valor do parâmetro. Veja a lista a seguir para os tipos permitidos. |
-| displayName |Sim |Nome do parâmetro exibido para um usuário no laboratório. | |
-| Descrição |Sim |Descrição do parâmetro exibido no laboratório. |
+| Tipo |sim |Tipo do valor do parâmetro. Veja a lista a seguir para os tipos permitidos. |
+| displayName |sim |Nome do parâmetro exibido para um usuário no laboratório. | |
+| Descrição |sim |Descrição do parâmetro exibido no laboratório. |
 
 Os tipos permitidos são:
 

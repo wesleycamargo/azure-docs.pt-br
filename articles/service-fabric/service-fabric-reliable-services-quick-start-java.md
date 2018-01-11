@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: 59b58e9d9bdb044c81261fd19338c3f95bd409b3
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: ab675207094bc8ee317573192c33c20039780fe2
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="get-started-with-reliable-services"></a>Introdução aos Reliable Services
 > [!div class="op_single_selector"]
@@ -76,8 +76,25 @@ HelloWorldApplication/
 ├── settings.gradle
 └── uninstall.sh
 ```
+### <a name="service-registration"></a>Registro do serviço
+Os tipos de serviço devem ser registrados com o tempo de execução do Service Fabric. O tipo de serviço é definido na `ServiceManifest.xml` e sua classe de serviço que implementa `StatelessService`. O registro de serviço é executado no ponto de entrada principal do processo. Neste exemplo, o ponto de entrada principal do processo é `HelloWorldServiceHost.java`:
+
+```java
+public static void main(String[] args) throws Exception {
+    try {
+        ServiceRuntime.registerStatelessServiceAsync("HelloWorldType", (context) -> new HelloWorldService(), Duration.ofSeconds(10));
+        logger.log(Level.INFO, "Registered stateless service type HelloWorldType.");
+        Thread.sleep(Long.MAX_VALUE);
+    }
+    catch (Exception ex) {
+        logger.log(Level.SEVERE, "Exception in registration:", ex);
+        throw ex;
+    }
+}
+```
 
 ## <a name="implement-the-service"></a>Implementar o serviço
+
 Abra **HelloWorldApplication/HelloWorld/src/statelessservice/HelloWorldService.java**. Essa classe define o tipo de serviço e pode executar qualquer código. A API de serviço fornece dois pontos de entrada para seu código:
 
 * Um método de ponto de entrada em aberto chamado `runAsync()`, em que você pode começar a executar qualquer carga de trabalho, incluindo cargas de trabalho de computação de longa duração.
@@ -116,45 +133,107 @@ Essa orquestração é gerenciada pelo Service Fabric para manter o serviço alt
 O cancelamento da sua carga de trabalho é um esforço cooperativo orquestrado pelo token de cancelamento fornecido. O sistema aguarda o encerramento da tarefa (por conclusão bem-sucedida, cancelamento ou falha) antes de prosseguir. É importante honrar o token de cancelamento, concluir qualquer trabalho e sair do `runAsync()` o mais rapidamente possível quando o sistema solicita o cancelamento. O exemplo a seguir demonstra como processar um evento de cancelamento:
 
 ```java
-    @Override
-    protected CompletableFuture<?> runAsync(CancellationToken cancellationToken) {
+@Override
+protected CompletableFuture<?> runAsync(CancellationToken cancellationToken) {
 
-        // TODO: Replace the following sample code with your own logic
-        // or remove this runAsync override if it's not needed in your service.
+    // TODO: Replace the following sample code with your own logic
+    // or remove this runAsync override if it's not needed in your service.
 
-        CompletableFuture.runAsync(() -> {
-          long iterations = 0;
-          while(true)
-          {
-            cancellationToken.throwIfCancellationRequested();
-            logger.log(Level.INFO, "Working-{0}", ++iterations);
+    return CompletableFuture.runAsync(() -> {
+        long iterations = 0;
+        while(true)
+        {
+        cancellationToken.throwIfCancellationRequested();
+        logger.log(Level.INFO, "Working-{0}", ++iterations);
 
-            try
-            {
-              Thread.sleep(1000);
-            }
-            catch (IOException ex) {}
-          }
-        });
-    }
-```
-
-### <a name="service-registration"></a>Registro do serviço
-Os tipos de serviço devem ser registrados com o tempo de execução do Service Fabric. O tipo de serviço é definido na `ServiceManifest.xml` e sua classe de serviço que implementa `StatelessService`. O registro de serviço é executado no ponto de entrada principal do processo. Neste exemplo, o ponto de entrada principal do processo é `HelloWorldServiceHost.java`:
-
-```java
-public static void main(String[] args) throws Exception {
-    try {
-        ServiceRuntime.registerStatelessServiceAsync("HelloWorldType", (context) -> new HelloWorldService(), Duration.ofSeconds(10));
-        logger.log(Level.INFO, "Registered stateless service type HelloWorldType.");
-        Thread.sleep(Long.MAX_VALUE);
-    }
-    catch (Exception ex) {
-        logger.log(Level.SEVERE, "Exception in registration:", ex);
-        throw ex;
-    }
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException ex){}
+        }
+    });
 }
 ```
+
+Neste exemplo de serviço sem estado, a contagem é armazenada em uma variável local. Mas como esse é um serviço sem estado, o valor que é armazenado existe apenas para o ciclo de vida atual da sua instância de serviço. Quando o serviço se move ou é reiniciado, o valor é perdido.
+
+## <a name="create-a-stateful-service"></a>Criar um serviço com estado
+O Service Fabric introduz um novo tipo de serviço que é com estado. Um serviço com estado pode manter o estado de maneira confiável dentro do próprio serviço, localizado em conjunto com o código que o está usando. O estado é altamente disponibilizado pelo Service Fabric sem a necessidade de persistir o estado em um repositório externo.
+
+Para converter o valor de contador de sem estado para altamente disponível e persistente, mesmo quando o serviço for movido ou reiniciado, você precisa de um serviço com estado.
+
+No mesmo diretório que o aplicativo HelloWorld, você pode adicionar um novo serviço executando o comando `yo azuresfjava:AddService`. Escolha o "Serviço com Estado Confiável" para a sua estrutura e nomeie o serviço como "HelloWorldStateful". 
+
+Seu aplicativo agora deve ter dois serviços: o serviço sem estado HelloWorld e o serviço com estado HelloWorldStateful.
+
+Um serviço com estado tem os mesmos pontos de entrada que um serviço sem estado. A principal diferença é a disponibilidade de um provedor de estado que pode armazenar estados de maneira confiável. O Service Fabric é fornecido com uma implementação de provedor de estado chamada Coleções Confiáveis, que permite que você crie estruturas de dados replicados por meio do Gerenciador de Estado Confiável. Por padrão, um serviço confiável com estado usa esse provedor de estado.
+
+Abra HelloWorldStateful.java em **HelloWorldStateful -> src**, que contém o método RunAsync a seguir:
+
+```java
+@Override
+protected CompletableFuture<?> runAsync(CancellationToken cancellationToken) {
+    Transaction tx = stateManager.createTransaction();
+    return this.stateManager.<String, Long>getOrAddReliableHashMapAsync("myHashMap").thenCompose((map) -> {
+        return map.computeAsync(tx, "counter", (k, v) -> {
+            if (v == null)
+                return 1L;
+            else
+                return ++v;
+            }, Duration.ofSeconds(4), cancellationToken)
+                .thenCompose((r) -> tx.commitAsync())
+                .whenComplete((r, e) -> {
+            try {
+                tx.close();
+            } catch (Exception e) {
+                logger.log(Level.SEVERE, e.getMessage());
+            }
+        });
+    });
+}
+```
+
+### <a name="runasync"></a>RunAsync
+`RunAsync()` opera da mesma forma em serviços com e sem estado. No entanto, em um serviço com estado, a plataforma executa trabalho adicional em seu nome antes de executar `RunAsync()`. Esse trabalho pode incluir garantir que o Gerenciador de Estado Confiável e as Coleções Confiáveis estejam prontos para uso.
+
+### <a name="reliable-collections-and-the-reliable-state-manager"></a>Coleções Confiáveis e Gerenciador de Estado Confiável
+```java
+ReliableHashMap<String,Long> map = this.stateManager.<String, Long>getOrAddReliableHashMapAsync("myHashMap")
+```
+
+[ReliableHashMap](https://docs.microsoft.com/en-us/java/api/microsoft.servicefabric.data.collections._reliable_hash_map) é uma implementação de dicionário que você pode usar para armazenar o estado no serviço de forma confiável. Com o Service Fabric e os Hashmaps Confiáveis, você agora pode armazenar dados diretamente em seu serviço sem a necessidade de um repositório persistente externo. Os Hashmaps Confiáveis tornam os dados altamente disponíveis. O Service Fabric consegue isso criando e gerenciando várias *réplicas* do seu serviço para você. Ele também fornece uma API que abstrai as complexidades de gerenciar essas réplicas e as respectivas transições de estado.
+
+As Coleções Confiáveis podem armazenar qualquer tipo Java, incluindo tipos personalizados, com algumas limitações:
+
+* O Service Fabric torna seu estado altamente disponível *replicando* o estado entre nós, e os Hashmaps Confiáveis armazenam seus dados no disco local em cada réplica. Isso significa que tudo o que é armazenado nos Hashmaps Confiáveis deve ser *serializável*. 
+* Os objetos são replicados para alta disponibilidade quando você confirma transações nos Hashmaps Confiáveis. Objetos armazenados nos Hashmaps confiáveis são mantidos na memória local do serviço. Isso significa que você tem uma referência local para o objeto.
+  
+   É importante que você não modifique instâncias locais desses objetos sem executar uma operação de atualização na coleção confiável em uma transação. Isso ocorre porque as mudanças para instâncias de objetos locais não serão replicadas automaticamente. Você deve inserir novamente o objeto de volta no dicionário ou usar um dos métodos *atualizar* do dicionário.
+
+O Gerenciador de Estado Confiável gerencia os Hashmaps Confiáveis para você. Basta solicitar ao Gerenciador de Estado Confiável uma coleção confiável por nome a qualquer momento e em qualquer lugar no seu serviço. O Gerenciador de Estado Confiável assegura que você obtenha uma referência de volta. Não é recomendável salvar referências nas instâncias de coleção confiável em propriedades ou variáveis de membro de classe. É preciso tomar muito cuidado para garantir que a referência seja definida para uma instância o tempo todo no ciclo de vida do serviço. O Gerenciador de Estado Confiável faz esse trabalho para você e jé otimizado para repetir visitas.
+
+
+### <a name="transactional-and-asynchronous-operations"></a>Operações transacionais e assíncronas
+```java
+return map.computeAsync(tx, "counter", (k, v) -> {
+    if (v == null)
+        return 1L;
+    else
+        return ++v;
+    }, Duration.ofSeconds(4), cancellationToken)
+        .thenCompose((r) -> tx.commitAsync())
+        .whenComplete((r, e) -> {
+    try {
+        tx.close();
+    } catch (Exception e) {
+        logger.log(Level.SEVERE, e.getMessage());
+    }
+});
+```
+
+As operações nos Hashmaps Confiáveis são assíncronas. Isso ocorre porque as operações de gravação nas Coleções Confiáveis executam operações de E/S para replicar e manter os dados no disco.
+
+As operações de Hashmap Confiável são *transacionais*, de modo que você pode manter o estado consistente entre vários Hashmaps Confiáveis e operações. Por exemplo, você pode obter um item de trabalho de um Dicionário Confiável, executar uma operação nele e salvar o resultado em outro Hashmap Confiável, tudo em uma única transação. Trata-se de uma operação atômica e ela garante que toda a operação seja bem-sucedida ou revertida. Se ocorrer um erro depois de remover o item da fila, mas antes de salvar o resultado, toda a transação será revertida e o item permanecerá na fila para processamento.
+
 
 ## <a name="run-the-application"></a>Executar o aplicativo
 

@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/02/2017
+ms.date: 01/02/2018
 ms.author: mikhegn
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 40b29ccb454caf5462807d6c24ca3f470865d368
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: bdf73cc13cbdbe75c426fc17fce2828164297826
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="create-a-net-service-fabric-application-in-azure"></a>Criar um aplicativo .NET do Service Fabric no Azure
 O Azure Service Fabric é uma plataforma de sistemas distribuídos para implantação e gerenciamento de contêineres e microsserviços escalonáveis e confiáveis. 
@@ -38,7 +38,7 @@ Com esse aplicativo, você aprenderá a:
 > * Expandir o aplicativo para vários nós
 > * Executar um upgrade sem interrupção do aplicativo
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Para concluir este guia de início rápido:
 1. [Instale o Visual Studio 2017](https://www.visualstudio.com/) com as cargas de trabalho de **desenvolvimento do Azure** e de **desenvolvimento para a Web e ASP.NET**.
 2. [Instalar o Git](https://git-scm.com/)
@@ -92,7 +92,7 @@ Ao depurar o aplicativo no Visual Studio, você usa um cluster de desenvolviment
 Para ver o que acontece no código, conclua as seguintes etapas:
 1. Abra o arquivo **/VotingWeb/Controllers/VotesController.cs** e defina um ponto de interrupção no método **Put** da API Web (linha 47) – É possível pesquisar o arquivo no Gerenciador de Soluções no Visual Studio.
 
-2. Abra o arquivo **/VotingData/ControllersVoteDataController.cs** e defina um ponto de interrupção no método **Put** nesta API Web (linha 50).
+2. Abra o arquivo **/VotingData/Controllers/VoteDataController.cs** e defina um ponto de interrupção no método **Put** nesta API Web (linha 50).
 
 3. Volte para o navegador e clique em uma opção de votação ou adicione uma nova opção de votação. Você chegou ao primeiro ponto de interrupção no controlador de API do front-end da Web.
     - Esse é o local em que o JavaScript no navegador envia uma solicitação para o controlador da API Web no serviço de front-end.
@@ -134,7 +134,7 @@ Agora que o aplicativo está pronto, você poderá implantá-lo no cluster diret
 
     ![Caixa de diálogo Publicar](./media/service-fabric-quickstart-dotnet/publish-app.png)
 
-2. Copie o **Ponto de Extremidade de Conexão** da página do cluster Party no campo **Ponto de Extremidade de Conexão** e clique em **Publicar**. Por exemplo: `winh1x87d1d.westus.cloudapp.azure.com:19000`.
+2. Copie o **Ponto de Extremidade de Conexão** da página do cluster Party no campo **Ponto de Extremidade de Conexão** e clique em **Publicar**. Por exemplo, `winh1x87d1d.westus.cloudapp.azure.com:19000`.
 
     Cada aplicativo no cluster deve ter um nome exclusivo.  No entanto, Clusters Party são um ambiente público compartilhado e pode haver um conflito com um aplicativo existente.  Se houver um conflito de nome, renomeie o projeto do Visual Studio e implante novamente.
 
@@ -171,7 +171,7 @@ Ao implantar novas atualizações no aplicativo, o Service Fabric distribui a at
 Para fazer upgrade do aplicativo, faça o seguinte:
 
 1. Abra o arquivo **/VotingWeb/Views/Home/Index.cshtml** no Visual Studio.
-2. Altere o <h2> cabeçalho na página adicionando ou atualizando o texto. Por exemplo, altere o cabeçalho para "Exemplo de votação do Service Fabric v2".
+2. Altere o cabeçalho na página adicionando ou atualizando o texto. Por exemplo, altere o cabeçalho para "Exemplo de votação do Service Fabric v2".
 3. Salve o arquivo.
 4. Clique com o botão direito do mouse em **Votação** no Gerenciador de Soluções e escolha **Publicar**. A caixa de diálogo Publicar será exibida.
 5. Clique no botão **Versão do Manifesto** para alterar a versão do serviço e do aplicativo.

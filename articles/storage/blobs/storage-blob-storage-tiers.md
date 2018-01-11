@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/11/2017
 ms.author: kuhussai
-ms.openlocfilehash: fd3ca18fd7a9d1226d41229d37e637a62478f92a
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: b8f0f899dff0f9e238017cb77126b3ca1275f3cd
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Armazenamento de Blobs do Azure: camadas de armazenamento frequentes, esporádicas e de arquivo
 
@@ -32,7 +32,7 @@ Cada um desses cenários de acesso a dados se beneficia de uma camada diferente 
 
 ## <a name="storage-accounts-that-support-tiering"></a>Contas de armazenamento que dão suporte a camadas
 
-Você pode definir apenas seus dados de armazenamento de objetos em camadas frequentes, esporádicas ou de arquivo em contas de Armazenamento de Blobs ou de Uso geral v2 (GPv2). Contas de Uso geral v1 (GPv1) não dão suporte a camadas. No entanto, os clientes podem converter facilmente suas contas de Armazenamento de Blob ou de GPv1 existentes para contas de GPv2 por meio de um processo simples de um clique no portal do Azure. O GPv2 fornece uma nova estrutura de preços para acesso a blobs, arquivos, filas e também a uma variedade de outros novos recursos de armazenamento. Além disso, mais adiante, alguns novos recursos e cortes de preços serão oferecidos somente em contas GPv2. Portanto, os clientes devem avaliar usar contas de GPv2, mas apenas usá-las depois de revisar os preços de todos os serviços, uma vez que algumas cargas de trabalho podem ser mais caras em GPv2 do que em GPv1. Consulte [Opções de conta de armazenamento do Azure](storage-account-options.md) para saber mais.
+Você pode definir apenas seus dados de armazenamento de objetos em camadas frequentes, esporádicas ou de arquivo em contas de Armazenamento de Blobs ou de Uso geral v2 (GPv2). Contas de Uso geral v1 (GPv1) não dão suporte a camadas. No entanto, os clientes podem converter facilmente suas contas de Armazenamento de Blob ou de GPv1 existentes para contas de GPv2 por meio de um processo simples de um clique no portal do Azure. O GPv2 fornece uma nova estrutura de preços para acesso a blobs, arquivos, filas e também a uma variedade de outros novos recursos de armazenamento. Além disso, mais adiante, alguns novos recursos e cortes de preços serão oferecidos somente em contas GPv2. Portanto, os clientes devem avaliar usar contas de GPv2, mas apenas usá-las depois de revisar os preços de todos os serviços, uma vez que algumas cargas de trabalho podem ser mais caras em GPv2 do que em GPv1. Consulte [Opções de conta de armazenamento do Azure](../common/storage-account-options.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para saber mais.
 
 Contas de Armazenamento de Blobs e de GPv2 expõem o atributo **Camada de Acesso** no nível da conta, o que permite que você especifique a camada de armazenamento padrão como frequente ou esporádica para qualquer blob na conta de armazenamento que não tenha o nível definido no nível do objeto. Para objetos com a camada definida no nível do objeto, a camada da conta não será aplicada. A camada de arquivo só pode ser aplicada no nível de objeto. Você pode alternar entre esses níveis de armazenamento a qualquer momento.
 
@@ -139,7 +139,7 @@ Nesta seção, os cenários a seguir são demonstrados usando o Portal do Azure:
 
 Recomendamos que você use o GPv2 em vez de contas de Armazenamento de Blobs para camadas. O GPv2 dá suporte a todos os recursos aos quais as contas de Armazenamento de Blobs dão suporte e muito mais. O preço entre o Armazenamento de Blobs e o GPv2 são quase idênticos, mas alguns novos recursos e cortes de preços só estarão disponíveis em contas de GPv2. Contas de GPv1 não dão suporte a camadas.
 
-A estrutura de preços entre contas de GPv1 e GPv2 é diferente, e os clientes devem avaliar cuidadosamente antes de decidir usar contas de GPv2. Você pode converter facilmente uma conta existente de Armazenamento de Blobs ou de GPv1 em GPv2 por meio de um processo simples de um clique. Consulte [Opções de conta de armazenamento do Azure](storage-account-options.md) para saber mais.
+A estrutura de preços entre contas de GPv1 e GPv2 é diferente, e os clientes devem avaliar cuidadosamente antes de decidir usar contas de GPv2. Você pode converter facilmente uma conta existente de Armazenamento de Blobs ou de GPv1 em GPv2 por meio de um processo simples de um clique. Consulte [Opções de conta de armazenamento do Azure](../common/storage-account-options.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) para saber mais.
 
 **Posso armazenar objetos em todas as três camadas de armazenamento (frequente, esporádica e arquivo) na mesma conta?**
 

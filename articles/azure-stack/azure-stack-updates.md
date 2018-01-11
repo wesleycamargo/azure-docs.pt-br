@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: mabrigg
-ms.openlocfilehash: 4355e7a8c220dea03df5eda54ed4e94d6ebc5c94
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 23b05909bda7785b45aeaeed0bd75a90de9ffe50
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Gerenciar atualizações na visão geral de pilha do Azure
 
 *Aplica-se a: sistemas integrados de pilha do Azure*
 
-A Microsoft lançará pacotes de atualização para sistemas de pilha do Azure integrado em um ritmo regular que normalmente cairá em quarta terça-feira de cada mês, iniciando na disponibilidade geral. Pergunte ao seu OEM sobre seu processo de notificação específico para garantir o alcance de notificações de atualização de sua organização, ou verifique aqui em sistemas de notes\Integrated Concepts\Release notas de versão para obter mais informações sobre versões específicas.
+A Microsoft lançará pacotes de atualização para sistemas de pilha do Azure integrado em um ritmo regular que normalmente cairá em quarta terça-feira de cada mês, iniciando na disponibilidade geral. Pergunte ao seu OEM sobre seu processo de notificação específico para garantir o alcance de notificações de atualização de sua organização, ou verifique aqui em sistemas de Notes\Integrated Overview\Release notas de versão para obter mais informações sobre versões específicas.
 
 Cada versão das atualizações de software da Microsoft é fornecido como um pacote de atualização. Como um operador de pilha do Azure, você pode importar facilmente, instalar e monitorar o progresso da instalação desses atualizar pacotes do portal do administrador. 
 

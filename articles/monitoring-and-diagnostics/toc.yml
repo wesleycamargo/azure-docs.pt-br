@@ -90,6 +90,8 @@
           href: monitoring-enable-alerts-using-template.md
     - name: Usar autoescala
       items:
+        - name: Compreender configurações de Autoescala
+          href: monitoring-understanding-autoscale-settings.md
         - name: Práticas recomendadas
           href: insights-autoscale-best-practices.md
         - name: Métricas comuns
@@ -162,6 +164,8 @@
       href: monitoring-metric-charts.md
     - name: Enviar métricas para o Grafana
       href: monitor-send-to-grafana.md
+    - name: Enviar dados de monitoramento para um hub de eventos
+      href: monitor-stream-monitoring-data-event-hubs.md
 - name: Referência
   items:
     - name: CLI do Azure

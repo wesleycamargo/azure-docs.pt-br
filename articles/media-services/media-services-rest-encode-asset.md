@@ -12,13 +12,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: 1622149009a37b864e84caa158da960ccc03ca65
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: a58cf1402d31538cb4d9753a66846f683839810c
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Como codificar um ativo usando o Media Encoder Standard
 > [!div class="op_single_selector"]
@@ -52,16 +52,11 @@ Antes de começar a fazer referência a processadores de mídia, verifique se vo
 
 Para saber mais sobre como conectar-se à API do AMS, veja [Acessar a API dos Serviços de Mídia do Azure com a autenticação do Azure AD](media-services-use-aad-auth-to-access-ams-api.md). 
 
->[!NOTE]
->Depois de se conectar com êxito em https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos serviços de mídia. Você deve fazer chamadas subsequentes para o novo URI.
-
 ## <a name="create-a-job-with-a-single-encoding-task"></a>Criar um trabalho com uma única tarefa de codificação
 > [!NOTE]
 > Ao trabalhar com a API REST dos Serviços de Mídia, as seguintes considerações se aplicam:
 >
 > Ao acessar entidades nos serviços de mídia, você deve definir valores e campos de cabeçalho específicos nas suas solicitações HTTP. Para obter mais informações, consulte [Configuração para desenvolvimento da API REST dos Serviços de Mídia](media-services-rest-how-to-use.md).
->
-> Depois de se conectar com êxito em https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos serviços de mídia. Você deve fazer chamadas subsequentes para o novo URI. Para saber mais sobre como conectar-se à API do AMS, veja [Acessar a API dos Serviços de Mídia do Azure com a autenticação do Azure AD](media-services-use-aad-auth-to-access-ams-api.md).
 >
 > Ao usar o JSON e especificar o uso da palavra-chave **__metadata** na solicitação (por exemplo, para referenciar um objeto vinculado), é necessário definir o cabeçalho **Accept** como [formato JSON Detalhado](http://www.odata.org/documentation/odata-version-3-0/json-verbose-format/): Accept: application/json;odata=verbose.
 >
@@ -76,7 +71,7 @@ Solicitação:
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer <token value>
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
     Host: media.windows.net
@@ -95,13 +90,13 @@ O exemplo a seguir mostra como definir o atributo assetName:
     { "TaskBody" : "<?xml version=\"1.0\" encoding=\"utf-8\"?><taskBody><inputAsset>JobInputAsset(0)</inputAsset><outputAsset assetName=\"CustomOutputAssetName\">JobOutputAsset(0)</outputAsset></taskBody>"}
 
 ## <a name="considerations"></a>Considerações
-* As propriedades TaskBody devem usar o XML literal para definir o número de entradas ou os ativos de saída que são usados pela tarefa. O tópico da tarefa contém a Definição de Esquema XML para o XML.
+* As propriedades TaskBody devem usar o XML literal para definir o número de entradas ou os ativos de saída que são usados pela tarefa. O artigo da tarefa contém a Definição de Esquema XML para o XML.
 * Na definição de TaskBody, cada valor interno para <inputAsset> e <outputAsset> deve ser definido como JobInputAsset(value) ou JobOutputAsset(value).
 * Uma tarefa pode ter vários ativos de saída. Um JobOutputAsset(x) só pode ser usado uma vez como uma saída de uma tarefa em um trabalho.
 * Você pode especificar JobInputAsset ou JobOutputAsset como um ativo de entrada de uma tarefa.
 * As tarefas não devem formar um ciclo.
 * O parâmetro de valor passado para JobInputAsset ou JobOutputAsset representa o valor de índice de um ativo. Os ativos reais são definidos nas propriedades de navegação InputMediaAssets e OutputMediaAssets na definição de entidade do trabalho.
-* Como os Serviços de Mídia se baseiam no OData v3, os ativos individuais nas coleções de propriedades de navegação InputMediaAssets e OutputMediaAssets são referenciados por meio de um par nome-valor “__metadata : uri”.
+* Como os Serviços de Mídia se baseiam no OData v3, os ativos individuais nas coleções de propriedades de navegação InputMediaAssets e OutputMediaAssets são referenciados por meio de um par nome-valor “__metadata: uri”.
 * InputMediaAssets são mapeados para um ou mais ativos criados nos Serviços de Mídia. Os OutputMediaAssets são criados pelo sistema. Eles não referenciam um ativo existente.
 * OutputMediaAssets podem ser nomeados usando o atributo assetName. Se esse atributo não estiver presente, então o nome do OutputMediaAsset será tudo o que é o valor de texto interno do elemento <outputAsset> com um sufixo do valor do nome do trabalho ou o valor da ID de trabalho (no caso em que a propriedade Nome não esteja definida). Por exemplo, se você definir um valor para assetName como “Sample”, a propriedade Name de OutputMediaAsset deverá ser definida como “Sample”. No entanto, se você não definiu um valor para assetName, mas definiu o nome do trabalho como “NewJob”, o Nome do OutputMediaAsset poderá ser “JobOutputAsset(value)_NewJob”.
 
@@ -118,7 +113,7 @@ Em muitos cenários de aplicativo, os desenvolvedores querem criar uma série de
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer <token value>
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
 
@@ -162,7 +157,7 @@ O exemplo a seguir mostra como usar o processamento em lotes OData para criar um
     Accept: multipart/mixed
     Accept-Charset: UTF-8
     Authorization: Bearer <token>
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
     Host: media.windows.net
 
@@ -182,7 +177,7 @@ O exemplo a seguir mostra como usar o processamento em lotes OData para criar um
     MaxDataServiceVersion: 3.0
     Accept-Charset: UTF-8
     Authorization: Bearer <token>
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
 
     {"Name" : "NewTestJob", "InputMediaAssets@odata.bind":["https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3A2a22445d-1500-80c6-4b34-f1e5190d33c6')"]}
@@ -199,7 +194,7 @@ O exemplo a seguir mostra como usar o processamento em lotes OData para criar um
     MaxDataServiceVersion: 3.0
     Accept-Charset: UTF-8
     Authorization: Bearer <token>
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
 
     {  
@@ -223,7 +218,7 @@ O exemplo a seguir mostra como criar um JobTemplate com um TaskTemplate definido
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer <token value>
     Host: media.windows.net
 
@@ -250,7 +245,7 @@ O seguinte exemplo mostra como criar um trabalho que referencia uma ID de JobTem
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.11
+    x-ms-version: 2.17
     Authorization: Bearer <token value>
     Host: media.windows.net
 

@@ -13,21 +13,22 @@ ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
+ms.date: 12/13/2017
 ms.workload: On Demand
-ms.date: 09/08/2017
 ms.author: sashan
-ms.openlocfilehash: 0fb11ee553685618cc7466d3ad8b07ba01611027
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.reviewer: carlrab
+ms.openlocfilehash: 3d6ad95c1ca316b2e7c3f722315d2ddec03a3716
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="designing-highly-available-services-using-azure-sql-database"></a>Criar serviços altamente disponíveis usando o Banco de Dados SQL do Azure
 
 Ao criar e implantar serviços altamente disponíveis no Banco de Dados SQL do Azure, use [grupos de failover e a replicação geográfica ativa](sql-database-geo-replication-overview.md) para fornecer resiliência a interrupções regionais e falhas catastróficas. Ela também permite a recuperação rápida em bancos de dados secundários. Este artigo tem como foco os padrões comuns de aplicativos e aborda as vantagens e desvantagens de cada opção. Para obter informações sobre o uso da replicação geográfica ativa com Pools elásticos, confira [Estratégias de recuperação de desastres do pool elástico](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 
 ## <a name="scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime"></a>Cenário 1: Usando duas regiões do Azure para continuidade dos negócios com tempo de inatividade mínimo
-Neste cenário, os aplicativos têm as seguintes características: 
+Nesse cenário, os aplicativos têm as seguintes características: 
 *   O aplicativo está ativo em uma região do Azure
 *   Todas as sessões do banco de dados exigem acesso de leitura e gravação (RW) nos dados
 *   A camada da Web e a camada de dados devem estar colocalizadas para reduzir a latência e o custo de tráfego 

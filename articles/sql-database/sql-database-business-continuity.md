@@ -16,11 +16,11 @@ ms.tgt_pltfrm: NA
 ms.workload: On Demand
 ms.date: 08/25/2017
 ms.author: sashan
-ms.openlocfilehash: 936f95700cb57325a572e5509334398a724c4986
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: c2c5f18b736c83c281d56e0bdda977a9f8c48101
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Visão geral da continuidade dos negócios com o Banco de Dados SQL do Azure
 
@@ -129,7 +129,7 @@ Independentemente do recurso de continuidade de negócios usados, você deve:
 Se você não se preparar corretamente, colocar seus aplicativos online após um failover ou uma recuperação de banco de dados exigirá um tempo adicional e, provavelmente, a solução de problemas também será exigida em um momento de estresse, ou seja, uma combinação ruim.
 
 ### <a name="fail-over-to-a-geo-replicated-secondary-database"></a>Fazer failover em um banco de dados secundário com replicação geográfica
-Se você estiver usando a replicação geográfica ativa e os grupos de failover automático (em versão prévia) como mecanismos de recuperação, você poderá configurar uma política de failover automático ou usar o [failover manual](sql-database-disaster-recovery.md#fail-over-to-geo-replicated-secondary-database). Depois de iniciado, o failover faz com que o secundário se torne o novo primário e fique pronto para registrar novas transações e responder à consultas, com perda mínima de dados, para os dados que ainda não foram replicados. Para obter informações sobre como criar o processo de failover, confira [Criar um aplicativo para recuperação de desastre na nuvem](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
+Se você estiver usando a replicação geográfica ativa e os grupos de failover automático (em versão prévia) como mecanismos de recuperação, você poderá configurar uma política de failover automático ou usar o [failover manual](sql-database-disaster-recovery.md#fail-over-to-geo-replicated-secondary-server-in-the-failover-group). Depois de iniciado, o failover faz com que o secundário se torne o novo primário e fique pronto para registrar novas transações e responder à consultas, com perda mínima de dados, para os dados que ainda não foram replicados. Para obter informações sobre como criar o processo de failover, confira [Criar um aplicativo para recuperação de desastre na nuvem](sql-database-designing-cloud-solutions-for-disaster-recovery.md).
 
 > [!NOTE]
 > Quando o data center volta a ficar online, os primários antigos reconectam-se automaticamente ao novo primário e se tornam bancos de dados secundários. Se você precisar realocar o primário de volta para a região original, poderá iniciar um failover planejado manualmente (failback). 

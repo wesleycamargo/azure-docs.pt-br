@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: jodebrui
-ms.openlocfilehash: f136faf3df761b048c88e72f564f81fd32e630ab
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 23b313a473b93ba0eab7fc4cf97a5d26bfa31505
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Otimizar o desempenho usando tecnologias In-Memory no Banco de Dados SQL
 
@@ -77,9 +77,7 @@ Vídeos detalhados sobre as tecnologias:
 
 O OLTP in-memory inclui tabelas com otimização de memória, que são usadas para armazenar dados do usuário. Essas tabelas precisam caber na memória. Como você gerencia a memória diretamente no serviço do Banco de Dados SQL, temos o conceito de uma cota para dados de usuário. Esse conceito é conhecido como *Armazenamento de OLTP In-Memory*.
 
-Cada tipo de preço de banco de dados independente e cada tipo de preço de pool elástico com suporte incluem determinada quantidade de Armazenamento do OLTP in-memory. Até o momento em que esse documento foi redigido, você recebe um gigabyte de armazenamento para cada 125 DTUs (unidades de transação do banco de dados) ou eDTUs (unidades de transação do banco de dados elástico).
-
-Os artigo [Tipos de preço do Banco de Dados SQL](sql-database-service-tiers.md) contém a lista oficial de armazenamento do OLTP in-memory disponível para cada tipo de preço de banco de dados independente e pool elástico com suporte.
+Cada tipo de preço de banco de dados independente e cada tipo de preço de pool elástico com suporte incluem determinada quantidade de Armazenamento do OLTP in-memory. Até o momento em que esse documento foi redigido, você recebe um gigabyte de armazenamento para cada 125 DTUs (unidades de transação do banco de dados) ou eDTUs (unidades de transação do banco de dados elástico). Para saber mais, consulte [Limites do Recurso](sql-database-resource-limits.md).
 
 Os itens a seguir contam para seu limite de armazenamento do OLTP in-memory:
 

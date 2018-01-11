@@ -5,20 +5,20 @@ services: service-fabric
 documentationcenter: .net
 author: mcoskun
 manager: timlt
-editor: masnider,rajak
+editor: masnider,rajak,zhol
 ms.assetid: 62857523-604b-434e-bd1c-2141ea4b00d1
 ms.service: service-fabric
 ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 5/3/2017
+ms.date: 12/10/2017
 ms.author: mcoskun
-ms.openlocfilehash: 053a7bca76362035e428fc11806b3e4f83d00946
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f9c48598a6bfb33f0151eff74ec5dd0ffb47b228
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="guidelines-and-recommendations-for-reliable-collections-in-azure-service-fabric"></a>Diretrizes e recomendações para Coleções Confiáveis no Azure Service Fabric
 Esta seção fornece diretrizes para usar o Gerenciador de Estado Confiável e Coleções Confiáveis. A meta é ajudar os usuários a evitar armadilhas comuns.
@@ -33,6 +33,7 @@ As diretrizes são organizadas como recomendações simples prefixadas com *uma 
 * Não crie uma transação dentro da instrução `using` de outra transação porque isso pode causar deadlocks.
 * Certifique-se de que a implementação de `IComparable<TKey>` esteja correta. O sistema depende de `IComparable<TKey>` para mesclar os pontos de verificação.
 * Use bloqueio de atualização durante a leitura de um item com uma intenção de atualizá-lo para impedir determinada classe de deadlocks.
+* Considere manter o número de Coleções Confiáveis por partição inferior a 1000. Prefira Coleções Confiáveis com mais itens em vez de mais Coleções Confiáveis com menos itens.
 * Considere manter seus itens (por exemplo, TKey + TValue para o Dicionário Confiável) abaixo de 80 KBytes: quanto menor, melhor. Isso reduz a quantidade de uso do Heap de Objetos Grandes, bem como os requisitos de disco e de E/S da rede. Muitas vezes, isso reduz a replicação de dados duplicados quando apenas uma pequena parte do valor está sendo atualizada. Uma maneira comum de fazer isso no Dicionário Confiável é dividir as linhas em várias linhas.
 * Considere o uso da funcionalidade de backup e restauração para ter uma recuperação de desastre.
 * Evite a mistura de operações de entidade única e operações de várias entidades (por exemplo, de `GetCountAsync`, `CreateEnumerableAsync`) na mesma transação devido a níveis de isolamento diferentes.

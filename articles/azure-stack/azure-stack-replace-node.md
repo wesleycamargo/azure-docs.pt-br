@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: f3d6215b672be0d8de8ba0d94320b1a2413eadf1
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 468af385833395963ef8acad905b99a9b7e6b8fa
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="replace-a-scale-unit-node-on-an-azure-stack-integrated-system"></a>Substituir um nó de unidade de escala em um sistema de pilha do Azure integrado
 
@@ -28,29 +28,33 @@ Este artigo descreve o processo geral para substituir um computador físico (tam
 
 O diagrama de fluxo a seguir mostra o processo geral de FRU para substituir um nó de unidade de escala inteiro.
 
-![Gráfico de fluxo de processo do nó de substituição](media/azure-stack-replace-node/ReplaceNodeFlow.PNG)
+![Gráfico de fluxo de processo do nó de substituição](media/azure-stack-replace-node/replacenodeflow.png)
 
 * Esta ação pode não ser necessária com base na condição do hardware física.
 
 ## <a name="review-alert-information"></a>Revise as informações de alerta
 
-Se um nó de unidade de escala estiver inativo, você receberá todos os alertas críticos seguintes:
+Se um nó de unidade de escala estiver inativo, você receberá os seguintes alertas críticos:
 
 - Nó não está conectado ao controlador de rede
 - Nó inacessível para o posicionamento de máquina virtual
 - Nó de unidade de escala está offline
 
-![Lista de alertas de unidade de escala para baixo](media/azure-stack-replace-node/NodeDownAlerts.PNG)
+![Lista de alertas de unidade de escala para baixo](media/azure-stack-replace-node/nodedownalerts.png)
 
-Se você abrir o alerta "o nó de unidade de escala está offline", a descrição do alerta contém o nó de unidade de escala está inacessível. Você também pode receber alertas adicionais na solução de monitoramento específico do OEM que está em execução no host de ciclo de vida de hardware.
+Se você abrir o **nó de unidade de escala está off-line** contém a descrição do alerta alerta, o nó de unidade de escala está inacessível. Você também pode receber alertas adicionais na solução de monitoramento específico do OEM que está em execução no host de ciclo de vida de hardware.
 
-![Detalhes do alerta offline do nó](media/azure-stack-replace-node/NodeOffline.PNG)
+![Detalhes do alerta offline do nó](media/azure-stack-replace-node/nodeoffline.png)
 
 ## <a name="scale-unit-node-replacement-process"></a>Processo de substituição do nó de unidade de escala
 
 As etapas a seguir são fornecidas como uma visão geral do processo de substituição do nó de unidade de escala. Consulte a documentação de FRU do fornecedor de hardware seu OEM para obter etapas detalhadas que são específicas para seu sistema. Não siga essas etapas sem fazer referência a documentação fornecida pelo OEM.
 
 1. Use o [drenar](azure-stack-node-actions.md#scale-unit-node-actions) ação para colocar o nó de unidade de escala no modo de manutenção. Esta ação pode não ser necessária com base na condição do hardware física.
+
+   > [!NOTE]
+   > Em qualquer caso, somente um nó pode ser descarregado e desligá-la ao mesmo tempo sem quebrar a S2D (espaços de armazenamento diretos).
+
 2. Se o nó ainda está ligado, use o [desligue](azure-stack-node-actions.md#scale-unit-node-actions) ação. Esta ação pode não ser necessária com base na condição do hardware física.
  
    > [!NOTE]
@@ -64,4 +68,4 @@ As etapas a seguir são fornecidas como uma visão geral do processo de substitu
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para obter informações sobre como substituir um disco físico trocados, consulte [substituir um disco](azure-stack-replace-disk.md). 
-- Para obter informações sobre como substituir um componente de hardware não intercambiáveis, consulte [substituir um componente de hardware](azure-stack-replace-component.md). 
+- Para obter informações sobre como substituir um componente de hardware não intercambiáveis, consulte [substituir um componente de hardware](azure-stack-replace-component.md).

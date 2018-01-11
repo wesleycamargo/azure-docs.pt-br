@@ -4,7 +4,7 @@ description: "Saiba como configurar logon único entre o Azure Active Directory 
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: bd4413c2-0d7c-41a7-aba4-b7a7a28c9448
 ms.service: active-directory
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/20/2017
 ms.author: jeedes
-ms.openlocfilehash: 8e8ea13167ab4f1a43f753a91f9398582d519c6d
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: 00292d0aed24ea034eba8686bcd9cbdd1ef676e3
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/11/2017
 ---
-# <a name="tutorial-azure-active-directory-integration-with-teamworkcom"></a>Tutorial: Integração do Azure Active Directory com o Teamwork.com
+# <a name="tutorial-azure-active-directory-integration-with-teamworkcomhttpswwwteamworkcomprojects"></a>Tutorial: Integração do Azure Active Directory com o [Teamwork.com](https://www.teamwork.com/projects)
 
 Neste tutorial, você aprende como integrar o Teamwork.com com o Azure Active Directory (Azure AD).
 
@@ -37,7 +37,7 @@ Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure
 Para configurar a integração do Azure Active Directory ao Teamwork.com, você precisa dos seguintes itens:
 
 - Uma assinatura do AD do Azure
-- Uma assinatura do Teamwork.com habilitada para logon único
+- Uma assinatura do [Teamwork.com](https://www.teamwork.com/projects) plano Pro ou superior
 
 > [!NOTE]
 > Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.

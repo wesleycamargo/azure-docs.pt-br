@@ -14,11 +14,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 03/06/2017
 ms.author: parakhj
-ms.openlocfilehash: ac40d5a4838ac23d2613f1e2380fed3d28e31d7a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: dd08c666c09b651e6c0def72a89eda56ba73e34d
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-android-application"></a>Azure AD B2C: entrar usando um aplicativo Android
 
@@ -43,15 +43,13 @@ Em seguida, você precisa criar um aplicativo em seu diretório B2C. Isso fornec
 * Copie a **ID de aplicativo** atribuída ao aplicativo. Você precisará dessas informações posteriormente.
 * Configure um **URI de redirecionamento** de cliente nativo (por exemplo, com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect). Você também precisará dela mais tarde.
 
-[!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
-
 ## <a name="create-your-policies"></a>Criar suas políticas
 
 No AD B2C do Azure, cada experiência do usuário é definida por uma [política](active-directory-b2c-reference-policies.md). Esse aplicativo contém uma experiência de identidade: uma combinação de entrada e inscrição. Você deve criar esta política seguindo as instruções de [Artigo de referência de política](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). Ao criar a política, não se esqueça de fazer o seguinte:
 
 * Escolha o **Nome de exibição** e os atributos de inscrição em sua política.
 * Escolha as declarações de aplicativo **Nome de exibição** e **ID do Objeto** em todas as políticas. Você pode escolher outras declarações também.
-* Copie o **Nome** de cada política depois de criá-la. Ele deve ter o prefixo `b2c_1_`.  Posteriormente, você precisará do nome da política.
+* Copie o **Nome** de cada política após criá-la. Ele deve ter o prefixo `b2c_1_`.  Posteriormente, você precisará do nome da política.
 
 [!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 

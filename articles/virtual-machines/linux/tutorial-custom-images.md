@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/21/2017
+ms.date: 12/13/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 23212bc947dc523561acdf9d1ca784d1bab2c84c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e73494ff4827b74cbb42b2b0f1f9738c78960e23
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-custom-image-of-an-azure-vm-using-the-cli"></a>Criar uma imagem personalizada de uma VM do Azure usando a CLI
 
@@ -117,7 +117,7 @@ Liste todas as imagens por nome em um formato de tabela.
 
 ```azurecli-interactive 
 az image list \
-  --resource-group myResourceGroup
+    --resource-group myResourceGroup
 ```
 
 Exclua uma imagem. Este exemplo exclui a imagem denominada *myOldImage* do *myResourceGroup*.

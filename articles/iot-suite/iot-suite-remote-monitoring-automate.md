@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 173ffbdd70313ef5a0d2af2cf1c8996d2395274a
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: e00c4ab2fc8bb13a765f7c2154555607dddfc651
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="detect-issues-using-threshold-based-rules"></a>Detectar problemas usando regras baseadas em limites
 
@@ -67,12 +67,12 @@ Use os seguintes valores para criar a regra:
 | Configuração          | Valor                                 |
 | ---------------- | ------------------------------------- |
 | Nome             | Aviso de resfriador                       |
-| Fonte           | Grupo de dispositivos **Resfriador**              |
-| Campo de gatilho    | Pressão                              |
+| Fonte           | Grupo de dispositivos dos **Resfriadores**             |
+| Campo de gatilho    | pressure                              |
 | Operador de gatilho | Maior que                          |
 | Valor do gatilho    | 150                                   |
 | Nível de severidade   | Aviso                               |
-| Texto do evento de alarme | A pressão do resfriador excedeu PSI 150 |
+| Descrição      | A pressão do resfriador excedeu PSI 150 |
 
 Para salvar a nova regra, escolha **Aplicar**.
 

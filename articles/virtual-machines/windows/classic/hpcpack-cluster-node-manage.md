@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 12/29/2016
 ms.author: danlep
-ms.openlocfilehash: dc9f354191b9e80ff6a01bd401a874c6998bda79
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2ad67efecf9a688ac3e7ccd7cc32576e9a46d1f5
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="manage-the-number-and-availability-of-compute-nodes-in-an-hpc-pack-cluster-in-azure"></a>Gerenciar o número e a disponibilidade de nós de computação em um cluster HPC Pack no Azure
 Se você criou um cluster HPC Pack 2012 R2 em VMs do Azure, pode ser conveniente encontrar maneiras de adicionar, remover, iniciar (provisionar) ou interromper (desprovisionar) facilmente algumas VMs de nó de computação no cluster. Para executar essas tarefas, execute scripts do Azure PowerShell que estão instalados na VM de nó de cabeçalho. Esses scripts ajudam a controlar o número e a disponibilidade dos recursos do cluster HPC Pack para que você possa controlar os custos.
@@ -59,7 +59,7 @@ Add-HPCIaaSNode.ps1 [-ServiceName] <String> [-ImageName] <String>
 ```
 ### <a name="parameters"></a>Parâmetros
 * **ServiceName**: nome do serviço de nuvem ao qual novas VMs do nó de computação são adicionadas.
-* **ImageName**: o nome da imagem da VM do Azure, que pode ser obtido por meio do Portal Clássico do Azure ou do cmdlet **Get-AzureVMImage** do Azure PowerShell. A imagem deve atender aos seguintes requisitos:
+* **ImageName**: o nome da imagem da VM do Azure, que pode ser obtido por meio do portal do Azure ou do cmdlet **Get-AzureVMImage** do Azure PowerShell. A imagem deve atender aos seguintes requisitos:
   
   1. Um sistema operacional Windows deve ser instalado.
   2. O HPC Pack deve ser instalado na função de nó de computação.

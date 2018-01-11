@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/02/2017
 ms.author: nisoneji
-ms.openlocfilehash: 714c2074f643d2b168c054c5af467b550f57daba
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 9340fe48c1da874d6c0cf02c026e5dec6ddabbe7
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Analise o relatório do planejador de implantação do Azure Site Recovery
 O relatório gerado do Microsoft Excel contém as seguintes planilhas:
@@ -188,7 +188,7 @@ Por exemplo, se as características de carga de trabalho de um disco o colocarem
 
 **IOPS de L/G de pico (com Fator de Crescimento)**: IOPS de leitura/gravação de carga de trabalho de pico no disco (o padrão é o 95º percentil), incluindo o fator de crescimento futuro (o padrão é 30%). Observe que o IOPS total de leitura/gravação de uma VM nem sempre é a soma de IOPS de leitura/gravação dos discos individuais da VM, pois o IOPS de leitura/gravação de pico da VM é o pico da soma do IOPS de leitura/gravação dos discos individuais durante cada minuto do período de criação de perfil.
 
-**Variação de dados de pico em MBps (com Fator de Crescimento)**: a taxa de variação de pico no disco (o padrão é o 95º percentil), incluindo o fator de crescimento futuro (o padrão é 30%). Observe que a variação total dos dados da VM nem sempre é a soma da variação de dados dos discos individuais da VM, pois o pico da variação de dados da VM é o pico da soma da variação dos discos individuais durante cada minuto do período de criação de perfil.
+**Variação de dados de pico em MB/s (com Fator de Crescimento)**: a taxa de variação de pico no disco (o padrão é o 95º percentil), incluindo o fator de crescimento futuro (o padrão é 30%). Observe que a variação total dos dados da VM nem sempre é a soma da variação de dados dos discos individuais da VM, pois o pico da variação de dados da VM é o pico da soma da variação dos discos individuais durante cada minuto do período de criação de perfil.
 
 **Tamanho de VM do Azure**: o tamanho ideal de máquina virtual mapeada dos Serviços de Nuvem do Azure para essa VM local. O mapeamento é baseado na memória da VM local, no número de discos/núcleos/NICs e IOPS de leitura/gravação. A recomendação é sempre o menor tamanho de VM do Azure que corresponde a todas as características da VM local.
 
@@ -235,15 +235,15 @@ O relatório do Microsoft Excel gerado pelo planejador de implantação do Azure
 
 * O IOPS de origem excede o limite de IOPS de armazenamento com suporte de 80.000 por VM.
 
-* A variação de dados média excede o limite de variação de dados do Azure Site Recovery com suporte de 10 MBps para o tamanho médio de E/S do disco.
+* A variação de dados média da VM de origem excede o limite de variação de dados do Azure Site Recovery com suporte de 10 MB/s para o tamanho médio de E/S.
 
-* O IOPS médio de gravação eficiente excede o limite com suporte de 840 para disco de IOPS do Azure Site Recovery.
+* O IOPS médio de gravação eficiente da VM de origem excede o limite com suporte de 840 de IOPS do Azure Site Recovery.
 
 * O armazenamento de instantâneos calculado excede o limite com suporte de 10 TB para armazenamento de instantâneos.
 
 **IOPS de L/G de pico (com Fator de Crescimento)**: o pico de IOPS de carga de trabalho no disco (o padrão é o 95º percentil), incluindo o fator de crescimento futuro (o padrão é 30%). Observe que o IOPS total de leitura/gravação da VM nem sempre é a soma de IOPS de leitura/gravação dos discos individuais da VM, pois o IOPS de leitura/gravação de pico da VM é o pico da soma do IOPS de leitura/gravação dos discos individuais durante cada minuto do período de criação de perfil.
 
-**Variação de dados de pico em MBps (com Fator de Crescimento)**: a taxa de variação de pico no disco (o padrão é o 95º percentil), incluindo o fator de crescimento futuro (o padrão é 30%). Observe que a variação total dos dados da VM nem sempre é a soma da variação de dados dos discos individuais da VM, pois o pico da variação de dados da VM é o pico da soma da variação dos discos individuais durante cada minuto do período de criação de perfil.
+**Variação de dados de pico em MB/s (com Fator de Crescimento)**: a taxa de variação de pico no disco (o padrão é o 95º percentil), incluindo o fator de crescimento futuro (o padrão é 30%). Observe que a variação total dos dados da VM nem sempre é a soma da variação de dados dos discos individuais da VM, pois o pico da variação de dados da VM é o pico da soma da variação dos discos individuais durante cada minuto do período de criação de perfil.
 
 **Número de discos**: o número total de VHDs na VM.
 
@@ -260,14 +260,11 @@ O relatório do Microsoft Excel gerado pelo planejador de implantação do Azure
 ## <a name="azure-site-recovery-limits"></a>Limites da Azure Site Recovery
 A tabela a seguir fornece os limites do Azure Site Recovery. Esses limites são baseados em nossos testes, mas eles não podem abranger todas as combinações possíveis de E/S de aplicativos. Os resultados reais podem variar dependendo da combinação de E/S do aplicativo. Para obter os melhores resultados, mesmo após planejar a implantação, é sempre recomendável executar amplos testes de aplicativos usando um failover de teste para obter a visão real do desempenho do aplicativo.
  
-**Destino de armazenamento de replicação** | **Tamanho de E/S de disco de origem médio** |**Variação nos dados média do disco de origem** | **Total de variação de dados de disco de origem por dia**
+**Destino de armazenamento de replicação** | **Tamanho de E/S médio da VM de origem** |**Variação média de dados da VM de origem** | **Variação total de dados da VM de origem por dia**
 ---|---|---|---
-Armazenamento Standard | 8 KB | 2 Mbps | 168 GB por disco
-Disco Premium P10 ou P15 | 8 KB  | 2 Mbps | 168 GB por disco
-Disco Premium P10 ou P15 | 16 KB | 4 Mbps |  336 GB por disco
-Disco Premium P10 ou P15 | 32 KB ou maior | 8 Mbps | 672 GB por disco
-Disco Premium P20 ou P30 ou P40 ou P50 | 8 KB    | 5 Mbps | 421 GB por disco
-Disco Premium P20 ou P30 ou P40 ou P50 | 16 KB ou maior |10 Mbps | 842 GB por disco
+Armazenamento Standard | 8 KB | 2 MB/s por VM | 168 GB por VM
+Armazenamento Premium | 8 KB  | 5 MB/s por VM | 421 GB por VM
+Armazenamento Premium | 16 KB ou mais| 10 MB/s por VM | 842 GB por VM
 
 Esses limites são números médios, pressupondo uma sobreposição de E/S de 30%. O Azure Site Recovery pode lidar com uma taxa de transferência maior com base na taxa de sobreposição, tamanhos maiores de gravação e comportamento de E/S de carga de trabalho real. Os números anteriores pressupõem uma lista de pendências típica de aproximadamente cinco minutos. Ou seja, depois que os dados são carregados, eles são processados, e um ponto de recuperação é criado dentro de cinco minutos.
 

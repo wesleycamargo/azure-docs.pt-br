@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 10/21/2017
 ms.author: markvi
 ms.reviewer: asteen
-ms.openlocfilehash: ded33a94205a67c7a9bcd37a8f0c7747f1d709fa
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: ffbc8af54ce542630f9bdc77a8823d3c2a22afd6
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Guia de introdução: integrando o Active Directory do Azure com aplicativos
 ## <a name="overview"></a>Visão geral
@@ -56,7 +56,7 @@ Antes de ir para a integração de aplicativos com o AD do Azure, é importante 
 
 Talvez você não tenha as respostas a todas essas perguntas com antecedência, mas tudo bem.  Este guia pode ajudá-lo a responder a algumas dessas perguntas e tomar algumas decisões informadas.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 * Uma assinatura do Azure e um diretório do Azure Active Directory.  Se você ainda não tem uma assinatura do Azure, você pode experimentar o Azure gratuitamente por 30 dias. [Experimente!](https://azure.microsoft.com/trial/get-started-active-directory/)
 
 ## <a name="application-integration-with-azure-ad"></a>Integração de aplicativos com o AD do Azure
@@ -88,7 +88,7 @@ Os artigos a seguir descrevem as maneiras pelas quais você pode gerenciar o ace
 ## <a name="integrating-custom-applications"></a>Integrando aplicativos personalizados
 Se você estiver escrevendo um novo aplicativo e desejar ajudar os desenvolvedores a aproveitar o potencial do AD do Azure, veja [Orientando desenvolvedores](active-directory-applications-guiding-developers-for-lob-applications.md).
 
-Se desejar adicionar seu aplicativo personalizado à Galeria de Aplicativos do Azure, veja [“Traga seu próprio aplicativo” com a configuração do SAML por autoatendimento do AD do Azure](http://blogs.technet.com/b/ad/archive/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-gt-now-in-preview.aspx).
+Se desejar adicionar seu aplicativo personalizado à Galeria de Aplicativos do Azure, veja [“Traga seu próprio aplicativo” com a configuração do SAML por autoatendimento do AD do Azure](https://cloudblogs.microsoft.com/enterprisemobility/2015/06/17/bring-your-own-app-with-azure-ad-self-service-saml-configuration-now-in-preview/).
 
 ## <a name="see-also"></a>Consulte também
 * [Índice de artigos para Gerenciamento de Aplicativos no Active Directory do Azure](active-directory-apps-index.md)

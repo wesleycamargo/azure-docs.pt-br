@@ -341,7 +341,7 @@ Nesta seção, você irá configurar o fluxo de dados de usuário do Workday par
 | **WorkSpaceReference** | physicalDeliveryOfficeName    |     |  Criar + atualizar |
 | **PostalCode**  |   postalCode  |     | Criar + atualizar |
 | **LocalReference** |  preferredLanguage  |     |  Criar + atualizar |
-| **Replace(Mid(Replace(\[EmployeeID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.)*$)", , "", , )**      |    sAMAccountName            |     |         Gravado na criação somente |
+| **Replace(Mid(Replace(\[EmployeeID\], , "(\[\\\\/\\\\\\\\\\\\\[\\\\\]\\\\:\\\\;\\\\|\\\\=\\\\,\\\\+\\\\\*\\\\?\\\\&lt;\\\\&gt;\])", , "", , ), 1, 20), , "([\\\\.)\*\$](file:///\\.) *$)", , "", , )**      |    sAMAccountName            |     |         Gravado na criação somente |
 | **Sobrenome**   |   sn   |     |  Criar + atualizar |
 | **CountryRegionReference** |  st     |     | Criar + atualizar |
 | **AddressLineData**    |  streetAddress  |     |   Criar + atualizar |

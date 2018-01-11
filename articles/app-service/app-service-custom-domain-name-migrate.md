@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/28/2017
 ms.author: cephalin
-ms.openlocfilehash: a1fe545e4a341709232cba36c6e3cf3b4ce82e80
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cd04be2046a23901471cb7bd0da9e0ed2d514d0d
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Migrar um nome DNS ativo para o Serviço de Aplicativo do Azure
 
@@ -29,7 +29,7 @@ Quando você migra um site ativo e seu nome de domínio DNS para o Serviço de A
 
 Caso não esteja preocupado com o tempo de inatividade na resolução do DNS, consulte [Mapear um nome DNS personalizado existente para Aplicativos Web do Azure](app-service-web-tutorial-custom-domain.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para concluir estas instruções:
 
@@ -50,7 +50,7 @@ Quando você finalmente migrar o nome DNS personalizado do site antigo para o ap
 
 Para verificar a propriedade do domínio, adicione um registro TXT. O registro TXT mapeia de _awverify.&lt;subdomain>_ para _&lt;appname>.azurewebsites.net_. 
 
-O registro TXT necessário depende do registro DNS que você deseja migrar. Para obter exemplos, consulte a seguinte tabela (`@` normalmente representa o domínio raiz):  
+O registro TXT necessário depende do registro DNS que você deseja migrar. Para obter exemplos, consulte a seguinte tabela (`@` normalmente representa o domínio raiz):
 
 | Exemplo de registro DNS | Host TXT | Valor TXT |
 | - | - | - |

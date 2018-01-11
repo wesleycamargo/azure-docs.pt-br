@@ -4,7 +4,7 @@ description: "Saiba como usar inicialização de nuvem e o Key Vault para person
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
 ms.assetid: 
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/11/2017
+ms.date: 12/13/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 4e2d07a03902a8c837150da8d50ab9abec8d1c95
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 83773e513ee2c92da733df05cd17dda2940a28cd
+ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-customize-a-linux-virtual-machine-on-first-boot"></a>Como personalizar uma máquina virtual de Linux na primeira inicialização
 Em um tutorial anterior, você aprendeu como SSH em uma máquina virtual (VM) e instalar manualmente o NGINX. Para criar VMs de maneira rápida e consistente, alguma forma de automação, em geral, é desejada. Uma abordagem comum para personalizar uma VM na primeira inicialização é utilizar [inicialização de nuvem](https://cloudinit.readthedocs.io). Neste tutorial, você aprenderá a:
@@ -46,11 +46,13 @@ A inicialização de nuvem também funciona em distribuições. Por exemplo, voc
 
 Estamos trabalhando com parceiros para incluir a inicialização de nuvem e trabalhar nas imagens que eles fornecem para o Azure. A tabela a seguir descreve a disponibilidade de inicialização de nuvem atual nas imagens da plataforma Azure:
 
-| Alias | Editor | Oferta | SKU | Versão |
+| Alias | Publicador | Oferta | SKU | Versão |
 |:--- |:--- |:--- |:--- |:--- |:--- |
 | UbuntuLTS |Canônico |UbuntuServer |16.04-LTS |mais recente |
 | UbuntuLTS |Canônico |UbuntuServer |14.04.5-LTS |mais recente |
 | CoreOS |CoreOS |CoreOS |Estável |mais recente |
+| | OpenLogic | CentOS | 7-CI | mais recente |
+| | RedHat | RHEL | 7-RAW-CI | mais recente
 
 
 ## <a name="create-cloud-init-config-file"></a>Criar arquivo de configuração cloud-init

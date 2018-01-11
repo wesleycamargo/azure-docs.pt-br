@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2017
 ms.author: dobett
-ms.openlocfilehash: 7e6590b97470bb00c5967f232e3ae134ce20a347
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 406fd095896e2c00920555d3dfce1b5c2ae7fca7
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="glossary-of-iot-hub-terms"></a>Glossário de termos do Hub IoT
 Este artigo lista alguns dos termos comuns usados nos artigos do Hub IoT.
@@ -29,7 +29,7 @@ O [AMQP (Advanced Message Queueing Protocol)](https://www.amqp.org/) é um dos p
 ## <a name="azure-cli"></a>CLI do Azure
 A [CLI do Azure](../cli-install-nodejs.md) é uma ferramenta de comando de plataforma cruzada, de software livre, baseada em shell para criar e gerenciar os recursos no Microsoft Azure. Esta versão da CLI é implementada usando o Node.js.
 
-## <a name="azure-cli-20"></a>CLI 2.0 do Azure
+## <a name="azure-cli-20"></a>CLI do Azure 2.0
 A [CLI 2.0 do Azure](https://docs.microsoft.com/cli/azure/install-az-cli2) é uma ferramenta de comando de plataforma cruzada, de software livre, baseada em shell para criar e gerenciar os recursos no Microsoft Azure. Esta versão de visualização da CLI é implementada usando Python.
 
 
@@ -161,48 +161,7 @@ O [registro de identidade](iot-hub-devguide-identity-registry.md) é o component
 ## <a name="interactive-message"></a>Mensagem interativa
 Uma mensagem interativa é uma mensagem da [nuvem para o dispositivo](#cloud-to-device) que dispara uma ação imediata no back-end da solução. Por exemplo, um dispositivo pode enviar um alarme sobre uma falha que deve ser registrada automaticamente em um sistema de CRM.
 
-## <a name="iot-edge"></a>IoT Edge
-O Azure IoT Edge permite a implantação orientada a nuvem do código específico da solução e de serviços do Azure para dispositivos locais. Os dispositivos IoT Edge podem agregar dados de outros dispositivos para realizar a computação e a análise antes de os dados serem enviados para a nuvem. Para obter mais informações, consulte [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/).
-
-## <a name="iot-edge-agent"></a>Agente do IoT Edge
-A parte do tempo de execução do IoT Edge responsável por implantar e monitorar módulos.
-
-## <a name="iot-edge-device"></a>Dispositivo IoT Edge
-Os dispositivos IoT Edge têm o tempo de execução do IoT Edge instalado e são sinalizados como “dispositivo IoT Edge” nos detalhes do dispositivo. Saiba como [implantar o Azure IoT Edge em um dispositivo simulado no Linux – versão prévia](https://docs.microsoft.com/azure/iot-edge/tutorial-simulate-device-linux).
-
-## <a name="iot-edge-deployment"></a>Implantação do IoT Edge
-Uma implantação do IoT Edge configura um conjunto de destino de dispositivos IoT Edge para executar um conjunto de módulos do IoT Edge. Cada implantação continuamente garante que todos os dispositivos que correspondem à sua condição de destino estejam executando o conjunto de módulos especificado, mesmo quando novos dispositivos são criados ou modificados para corresponder à condição de destino. Cada dispositivo IoT Edge recebe apenas a implantação de prioridade mais alta cuja condição de destino ele atende. Saiba mais sobre a [implantação do IoT Edge](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring).
-
-## <a name="iot-edge-deployment-manifest"></a>Manifesto de implantação do IoT Edge
-Um documento Json que contém as informações a serem copiadas em um ou mais módulos gêmeos de dispositivos IoT Edge para implantar um conjunto de módulos, rotas e propriedades desejadas do módulo associado.
-
-## <a name="iot-edge-gateway-device"></a>Dispositivo de gateway IoT Edge
-Um dispositivo IoT Edge com dispositivo downstream. O dispositivo downstream pode ser um dispositivo IoT Edge ou não.
-
-## <a name="iot-edge-hub"></a>Hub do IoT Edge
-A parte do tempo de execução do IoT Edge responsável pelas comunicações de módulo para módulo e comunicações upstream (para o Hub IoT) e downstream (para fora do Hub IoT). 
-
-## <a name="iot-edge-leaf-device"></a>Dispositivo de folha IoT Edge
-Um dispositivo IoT Edge sem nenhum dispositivo downstream. 
-
-## <a name="iot-edge-module"></a>Módulo do IoT Edge
-Um módulo do IoT Edge é um contêiner do Docker que você pode implantar para dispositivos IoT Edge. Ele executa uma tarefa específica, como a ingestão de uma mensagem de um dispositivo, a transformação de uma mensagem ou o envio de uma mensagem para um Hub IoT. Ele se comunica com outros módulos e envia dados para o tempo de execução do IoT Edge. [Entender os requisitos e as ferramentas para desenvolvimento de módulos do IoT Edge](https://docs.microsoft.com/azure/iot-edge/module-development).
-
-## <a name="iot-edge-module-identity"></a>Identidade do módulo do IoT Edge
-Um registro no Registro de identidade do módulo do Hub IoT detalhando as credenciais de segurança e existência a serem usadas por um módulo para a autenticação com um hub de borda ou Hub IoT.
-
-## <a name="iot-edge-module-image"></a>Imagem do módulo do IoT Edge
-A imagem do docker que é usada pelo tempo de execução do IoT Edge para instanciar as instâncias do módulo.
-
-## <a name="iot-edge-module-twin"></a>Módulo gêmeo do IoT Edge
-Um documento Json persistido no Hub IoT que armazena as informações de estado para uma instância de módulo. 
-
-## <a name="iot-edge-runtime"></a>Tempo de execução do IoT Edge
-O tempo de execução do IoT Edge inclui tudo que a Microsoft distribui para ser instalado em um dispositivo IoT Edge. Ele inclui o agente do Edge, o hub do Edge e a ferramenta CTL do Edge.
-
-## <a name="iot-edge-set-modules-to-a-single-device"></a>Módulos de definição do IoT Edge para um único dispositivo
-Uma operação que copia o conteúdo de um manifesto do IoT Edge no módulo gêmeo de um dispositivo. A API subjacente é uma “aplicar configuração” genérica, que simplesmente utiliza o manifesto do IoT Edge como uma entrada.
-s
+[!INCLUDE [azure-iot-hub-edge-glossary-includes](../../includes/azure-iot-hub-edge-glossary-includes.md)]
 
 ## <a name="iot-hub"></a>Hub IoT
 O Hub IoT é um serviço totalmente gerenciado que permite comunicações bidirecionais confiáveis e seguras entre milhões de dispositivos e um back-end da solução. Para saber mais, confira [O que é o Hub IoT do Azure?](iot-hub-what-is-iot-hub.md) Usando a [assinatura do Azure](#subscription), você pode criar hubs IoT para lidar com suas cargas de trabalho de mensagens IoT.
@@ -239,9 +198,6 @@ Um dispositivo físico é um dispositivo real como um Raspberry Pi que se conect
 
 ## <a name="primary-and-secondary-keys"></a>Chaves primárias e secundárias
 Quando você se conecta a um ponto de extremidade voltado para o dispositivo ou voltado para o serviço em um hub IoT, sua [cadeia de conexão](#connection-string) inclui a chave para conceder acesso. Quando você adiciona um dispositivo ao [registro de identidade](#identity-registry) ou adiciona uma [política de acesso compartilhado](#shared-access-policy) para o hub, o serviço gera uma chave primária e secundária. Ter duas chaves permite que você passe de uma chave para outra quando você atualiza uma chave sem perder o acesso ao hub IoT.
-
-## <a name="priority"></a>Prioridade
-Quando duas implantações do IoT Edge visam o mesmo dispositivo, a implantação com a prioridade mais alta é aplicada. Se duas implantações tiverem a mesma prioridade, a implantação com a criação mais recente será aplicada. Saiba mais sobre a [prioridade](#https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring#priority).
 
 ## <a name="protocol-gateway"></a>Gateway de protocolo
 Um gateway de protocolo geralmente é implantado na nuvem e fornece serviços de conversão de protocolo para dispositivos que se conectam ao [Hub IoT](#iot-hub). Para saber mais, confira [O que é o Hub IoT do Azure?](iot-hub-what-is-iot-hub.md)
@@ -287,9 +243,6 @@ No contexto de um [dispositivo gêmeo](iot-hub-devguide-device-twins.md), as pro
 
 ## <a name="tags"></a>Marcas
 No contexto de um [dispositivo gêmeo](iot-hub-devguide-device-twins.md), as marcas são metadados do dispositivo armazenadas e recuperadas pelo back-end da solução na forma de um documento JSON. As marcas não são visíveis para os aplicativos em um dispositivo.
-
-## <a name="target-condition"></a>Condição de destino
-Em uma implantação do IoT Edge, a condição de destino é qualquer condição booliana nas marcas do dispositivo gêmeo para selecionar os dispositivos de destino da implantação, por exemplo, "tag.environment = prod". A condição de destino é avaliada continuamente para incluir quaisquer novos dispositivos que atendem aos requisitos ou remover os dispositivos que não atendem mais. Saiba mais sobre a [condição de destino](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring#target-condition)
 
 ## <a name="telemetry"></a>Telemetria
 Os dispositivos coletam dados de telemetria, como a velocidade do vento ou a temperatura, e usam [mensagens de ponto de dados](#data-point-messages) para enviar a telemetria para um hub IoT.

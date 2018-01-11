@@ -42,7 +42,7 @@ A coluna **Status** traz as informações mais importantes e mostra o problema m
 
 | Status | Comentário |
 | --- | --- |
-| stopped-* |Não foi possível concluir a execução. Por exemplo, se o sistema remoto está inoperante e não pode ser contatado. |
+| stopped- *  |Não foi possível concluir a execução. Por exemplo, se o sistema remoto está inoperante e não pode ser contatado. |
 | stopped-error-limit |Há mais de 5.000 erros. A execução foi interrompida automaticamente devido ao grande número de erros. |
 | completed-\*-errors |A execução foi concluída, mas há erros (menos de 5.000) que devem ser investigados. |
 | completed-\*-warnings |A execução foi concluída, mas alguns dados não estão no estado esperado. Se houver erros, geralmente, essa mensagem indicará apenas um sintoma. Até que tenha resolvido os erros, você não deverá investigar os avisos. |

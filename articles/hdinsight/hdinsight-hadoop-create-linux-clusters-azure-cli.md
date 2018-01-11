@@ -16,11 +16,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 12/01/2017
 ms.author: larryfr
-ms.openlocfilehash: 25dc37c10435e45bc56fd48488f9f238922ed6e3
-ms.sourcegitcommit: 80eb8523913fc7c5f876ab9afde506f39d17b5a1
+ms.openlocfilehash: 0ae573922938b775900b839a24a917e4211fbadc
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/02/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Criar os clusters do HDInsight usando a CLI do Azure
 
@@ -45,7 +45,7 @@ As etapas deste documento são um passo a passo para a criação de um cluster H
 
 ## <a name="log-in-to-your-azure-subscription"></a>Entre na sua assinatura do Azure
 
-Siga as etapas documentadas em [Conectar a uma assinatura do Azure por meio da CLI do Azure (Interface de Linha de Comando do Azure)](../xplat-cli-connect.md) e conecte à sua assinatura usando o método de **logon** .
+Siga as etapas documentadas em [Conectar a uma assinatura do Azure por meio da CLI do Azure (Interface de Linha de Comando do Azure)](/cli/azure/authenticate-azure-cli) e conecte à sua assinatura usando o método de **logon** .
 
 ## <a name="create-a-cluster"></a>Criar um cluster
 
@@ -117,7 +117,7 @@ As etapas a seguir devem ser executadas de uma linha de comando, como o PowerShe
     * Substitua `sshuser` e `sshuserpassword` pelo nome de usuário e senha que você deseja usar quando acessar o cluster usando SSH
 
     > [!IMPORTANT]
-    > Este exemplo cria um cluster com duas anotações de trabalho. Você também pode alterar o número de nós de trabalho após a criação do cluster realizando operações de colocação em escala. Se você planeja usar mais de 32 nós de trabalho, será necessário selecionar um tamanho de nó de cabeçalho com pelo menos oito núcleos e 14 GB de RAM. Você pode definir o tamanho do nó principal usando o parâmetro `--headNodeSize` durante a criação do cluster.
+    > Este exemplo cria um cluster com dois nós de trabalho. Você também pode alterar o número de nós de trabalho após a criação do cluster realizando operações de colocação em escala. Se você planeja usar mais de 32 nós de trabalho, será necessário selecionar um tamanho de nó de cabeçalho com pelo menos oito núcleos e 14 GB de RAM. Você pode definir o tamanho do nó principal usando o parâmetro `--headNodeSize` durante a criação do cluster.
     >
     > Para saber mais sobre tamanhos de nós e custos associados, consulte [Preços do HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/).
 

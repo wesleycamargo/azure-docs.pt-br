@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: 5369946b1e8a4851ee940cf6fe91a1bdb94db5f3
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 61179c5bf29ed2c338b45ba909ec01237806cf26
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Gerenciar um plano do Serviço de Aplicativo no Azure
 
-Um [Plano do Serviço de Aplicativo](azure-web-sites-web-hosting-plans-in-depth-overview.md) fornece os recursos de um aplicativo de serviço de aplicativo precisa ser executado. Este guia de instruções mostra como gerenciar um Plano do Serviço de Aplicativo. 
+Um [Plano do Serviço de Aplicativo](azure-web-sites-web-hosting-plans-in-depth-overview.md) fornece os recursos de um aplicativo de serviço de aplicativo precisa ser executado. Este guia de instruções mostra como gerenciar um Plano do Serviço de Aplicativo.
 
 ## <a name="create-an-app-service-plan"></a>Criar um plano de Serviço de Aplicativo
 
@@ -68,6 +68,8 @@ Selecione **Alterar plano do Serviço de Aplicativo** para iniciar o processo.
 > 
 
 ![Seletor de plano do Serviço de Aplicativo.][change]
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 Cada plano tem seu próprio tipo de preço. Por exemplo, mover um site de uma camada **Gratuita** para uma camada **Standard** habilita todos os aplicativos aplicados a ela a usarem os recursos da camada **Standard**. No entanto, mover um aplicativo de um plano de camada superior para um plano de camada inferior significa que você não tem mais acesso a determinados recursos. Se seu aplicativo usa um recurso que não está disponível no plano de destino, você receberá um erro que mostra qual recurso está em uso que não está disponível. Por exemplo, se um dos seus aplicativos usa certificados SSL, você poderá ver a mensagem de erro: `Cannot update the site with hostname '<app_name>' because its current SSL configuration 'SNI based SSL enabled' is not allowed in the target compute mode. Allowed SSL configuration is 'Disabled'.`nesse caso, você precisa aumentar o preço do plano de destino para **Básico** ou superior, ou você precisa remover todas as conexões SSL seu aplicativo, antes de você poder mover o aplicativo para o plano de destino.
 

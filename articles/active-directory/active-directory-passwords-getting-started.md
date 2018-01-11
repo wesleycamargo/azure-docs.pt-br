@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/16/2017
+ms.date: 12/22/2017
 ms.author: joflore
 ms.custom: it-pro
-ms.openlocfilehash: 6c5eed2cf8f61785f1a60cd2175334771a49ed41
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 87e0d96c3bd0e9a488734487b5f39503c28f9b00
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="azure-ad-self-service-password-reset-rapid-deployment"></a>Implantação rápida da redefinição da senha de autoatendimento do Azure AD
 
@@ -36,40 +36,43 @@ Este guia pressupõe que você já tem um locatário do Azure Active Directory (
 1. No seu locatário existente do Azure AD, selecione **Redefinir senha**.
 
 2. Na página **Propriedades**, na opção **Redefinição da senha de autoatendimento habilitada**, escolha uma das seguintes opções:
-    * **Ninguém**: Ninguém pode usar a funcionalidade de SSPR.
-    * **Selecionado**: Somente os membros de um grupo específico do Azure AD escolhido podem usar a funcionalidade de SSPR. É recomendável definir um grupo de usuários e usar essa configuração ao implantar essa funcionalidade para uma prova de conceito.
-    * **Todos**: Todos os usuários com contas no seu locatário do Azure AD podem usar a funcionalidade de SSPR. É recomendável usar essa configuração quando você estiver pronto para implantar essa funcionalidade em todo o seu locatário depois de concluir uma prova de conceito.
+   * **Ninguém**: Ninguém pode usar a funcionalidade de SSPR.
+   * **Selecionado**: Somente os membros de um grupo específico do Azure AD escolhido podem usar a funcionalidade de SSPR. É recomendável definir um grupo de usuários e usar essa configuração ao implantar essa funcionalidade para uma prova de conceito.
+   * **Todos**: Todos os usuários com contas no seu locatário do Azure AD podem usar a funcionalidade de SSPR. É recomendável usar essa configuração quando você estiver pronto para implantar essa funcionalidade em todo o seu locatário depois de concluir uma prova de conceito.
+
+   > [!IMPORTANT]
+   > Contas de Administrador do Azure sempre terão a capacidade de redefinir suas senhas, não importando o modo como essa opção é definida. 
 
 3. Na página **Métodos de autenticação**, escolha o seguinte:
-    * **Número de métodos necessários para redefinir**: Oferecemos suporte a um mínimo de um ou um máximo de dois.
-    * **Métodos disponíveis para os usuários**: É necessário pelo menos um, mas é aconselhável ter uma opção extra disponível.
-        * **Email**: Envia um email com um código para o endereço de email de autenticação configurado do usuário.
-        * **Telefone celular**: Dá ao usuário a opção de receber uma chamada ou uma mensagem de texto com um código para o seu número de telefone celular configurado.
-        * **Telefone comercial**: Faz uma chamada para o usuário com um código para o número de telefone comercial configurado.
-        * **Perguntas de segurança**: Exige que você escolha:
-            * **Número de perguntas obrigatórias para registrar**: O mínimo para um registro bem-sucedido. Um usuário pode optar por responder mais perguntas para criar um pool de perguntas para efetuar pull. Essa opção pode ser definida para três a cinco perguntas e deve ser maior ou igual ao número de perguntas obrigatórias para redefinir a senha. O usuário pode adicionar perguntas personalizadas se eles selecionarem o botão **Personalizado** quando eles selecionam as perguntas de segurança.
-            * **Número de perguntas necessárias para a redefinição**: Podem ser definidas de três a cinco perguntas a serem respondidas corretamente antes de permitir que uma senha de usuário seja redefinida ou desbloqueada.
+   * **Número de métodos necessários para redefinir**: Oferecemos suporte a um mínimo de um ou um máximo de dois.
+   * **Métodos disponíveis para os usuários**: É necessário pelo menos um, mas é aconselhável ter uma opção extra disponível.
+      * **Email**: Envia um email com um código para o endereço de email de autenticação configurado do usuário.
+      * **Telefone celular**: Dá ao usuário a opção de receber uma chamada ou uma mensagem de texto com um código para o seu número de telefone celular configurado.
+      * **Telefone comercial**: Faz uma chamada para o usuário com um código para o número de telefone comercial configurado.
+      * **Perguntas de segurança**: Exige que você escolha:
+         * **Número de perguntas obrigatórias para registrar**: O mínimo para um registro bem-sucedido. Um usuário pode optar por responder mais perguntas para criar um pool de perguntas para efetuar pull. Essa opção pode ser definida para três a cinco perguntas e deve ser maior ou igual ao número de perguntas obrigatórias para redefinir a senha. O usuário pode adicionar perguntas personalizadas se eles selecionarem o botão **Personalizado** quando eles selecionam as perguntas de segurança.
+         * **Número de perguntas necessárias para a redefinição**: Podem ser definidas de três a cinco perguntas a serem respondidas corretamente antes de permitir que uma senha de usuário seja redefinida ou desbloqueada.
             
     ![Autenticação][Authentication]
 
 4. Recomendado: Em **Personalização**, você pode alterar o link **Entre em contato com seu administrador** para apontar para um email ou página que você definir. É recomendável definir esse link para algo como um endereço de email ou site os quais os usuários já estão acostumados a usar para obter suporte.
 
 5. Opcional: A página **Registro** fornece aos administradores as opções para:
-    * Exigir que os usuários se registrem ao entrar.
-    * Definir o número de dias antes que os usuários precisem reconfirmar suas informações de autenticação.
+   * Exigir que os usuários se registrem ao entrar.
+   * Definir o número de dias antes que os usuários precisem reconfirmar suas informações de autenticação.
 
 6. Opcional: A página **Notificações** fornece aos administradores as opções para:
-    * Notificar os usuários sobre as redefinições de senha.
-    * Notificar todos os administradores quando outros administradores redefinirem suas próprias senhas.
+   * Notificar os usuários sobre as redefinições de senha.
+   * Notificar todos os administradores quando outros administradores redefinirem suas próprias senhas.
 
 Neste ponto, você configurou a SSPR para o seu locatário do Azure AD. Os usuários agora podem usar as instruções encontradas nos artigos [Registrar para redefinição de senha de autoatendimento](active-directory-passwords-reset-register.md) e [Redefinir ou alterar sua senha](active-directory-passwords-update-your-own-password.md) para atualizar a senha sem a intervenção do administrador. Você pode parar aqui se usa apenas a nuvem. Ou você pode continuar para a próxima seção para configurar a sincronização de senhas para um domínio do Active Directory local.
 
-> [!IMPORTANT]
+> [!TIP]
 > Teste a SSPR com um usuário e não como um administrador, pois a Microsoft impõe requisitos de autenticação fortes para contas de administrador do Azure. Para obter mais informações sobre a política de senha do administrador, confira o nosso artigo de [política de senha](active-directory-passwords-policy.md#administrator-password-policy-differences).
 
 ## <a name="configure-synchronization-to-an-existing-identity-source"></a>Como configurar a sincronização com uma fonte de identidade existente
 
-Para habilitar a sincronização de identidades local ao Azure AD, você precisa instalar e configurar o [Azure AD Connect](./connect/active-directory-aadconnect.md) em um servidor na sua organização. Esse aplicativo lida com a sincronização de usuários e grupos da fonte de identidade existente para o seu locatário do Azure AD. Para obter mais informações, consulte:
+Para habilitar a sincronização de identidades local ao Azure AD, você precisa instalar e configurar o [Azure AD Connect](./connect/active-directory-aadconnect.md) em um servidor na sua organização. Esse aplicativo lida com a sincronização de usuários e grupos da fonte de identidade existente para o seu locatário do Azure AD. Para obter mais informações, confira:
 
 * [Como atualizar do DirSync ou sincronizar o Azure AD com o Azure AD Connect](./connect/active-directory-aadconnect-dirsync-deprecated.md)
 * [Introdução ao Azure AD Connect usando configurações expressas](./connect/active-directory-aadconnect-get-started-express.md)

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: mazha
-ms.openlocfilehash: 04c9ad5e58af073204eb6a16df96f0517a0ee668
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 9ffd05a0eb4d976dc40a1c5d45fd22ebf9bd4db1
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="control-azure-content-delivery-network-caching-behavior-with-query-strings"></a>Controle o comportamento de cache da Rede de Distribuição de Conteúdo do Microsoft Azure  com cadeias de caracteres de consulta
 > [!div class="op_single_selector"]
@@ -43,13 +43,13 @@ Estão disponíveis três modos de cadeia de caracteres de consulta:
    
    ![Pontos de extremidade de perfil CDN](./media/cdn-query-string/cdn-endpoints.png)
    
-2. Em Configurações, clique em **Cache**.
+2. No painel esquerdo em Configurações, clique em **Regras de cache**.
    
-    ![Botão de Cache do perfil da CDN](./media/cdn-query-string/cdn-cache-btn.png)
+    ![Botão de regras de cache da CDN](./media/cdn-query-string/cdn-caching-rules-btn.png)
    
 3. Na lista **Comportamento de cache da cadeia de caracteres de consulta**, selecione um modo de cadeia de caracteres de consulta e, em seguida, clique em **Salvar**.
    
-  <!--- Replace screen shot after general caching goes live ![CDN query string caching options](./media/cdn-query-string/cdn-query-string.png) --->
+   ![Opções de cache de cadeia de caracteres de consulta CDN](./media/cdn-query-string/cdn-query-string.png)
 
 > [!IMPORTANT]
 > Como é necessário um tempo para que o registro se propague através da CDN, as alterações nas configurações da cadeia de caracteres de cache poderão não estar visíveis imediatamente. Para perfis da **CDN do Azure da Akamai** , a propagação normalmente é concluída em um minuto. Para perfis da **Azure CDN da Verizon**, a propagação geralmente é concluída em 90 minutos, mas em alguns casos pode levar mais tempo.

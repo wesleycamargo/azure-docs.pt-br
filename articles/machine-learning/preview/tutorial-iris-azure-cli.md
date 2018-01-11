@@ -9,13 +9,13 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: mvc, tutorial
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/15/2017
-ms.openlocfilehash: 8ffa1c6dd4794cbea6b2c1904e08557ba2a68ba2
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 21fb0bca08bca0fe6384bbc9ba2511f7d8b746cf
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="tutorial-classifying-iris-using-the-command-line-interface"></a>Tutorial: classificando a íris usando a interface de linha de comando
 Os serviços do Azure Machine Learning (versão prévia) são uma solução integrada de análise avançada e de ciência de dados de ponta a ponta para cientistas de dados profissionais prepararem dados, desenvolverem testes e implantarem modelos em escala de nuvem.
@@ -30,7 +30,7 @@ Neste tutorial, você aprenderá a usar as ferramentas da CLI (interface de linh
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 - Você precisa ter acesso a uma assinatura do Azure e permissões para criar recursos nessa assinatura. 
 - Você precisa instalar o aplicativo Azure Machine Learing Workbench seguindo o [Guia de início rápido para instalação e criação](quickstart-installation.md). 
 

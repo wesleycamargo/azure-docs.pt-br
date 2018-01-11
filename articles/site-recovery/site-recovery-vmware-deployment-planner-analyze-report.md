@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/04/2017
 ms.author: nisoneji
-ms.openlocfilehash: 1eddd18e9b5ac0b4cb174e635f0f3cfd2f41059d
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: fe50f159baedf5455c2ea3cfe825d6d826e70851
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="azure-site-recovery-deployment-planner-report"></a>Relatório do Planejador de Implantações do Azure Site Recovery
 O relatório gerado do Microsoft Excel contém as seguintes planilhas:
@@ -234,8 +234,8 @@ Por exemplo, se as características de carga de trabalho de um disco o colocarem
 * O tamanho total da VM (replicação + TFO) excede o limite de tamanho de conta de armazenamento com suporte (35 TB). Essa incompatibilidade normalmente ocorre quando um único disco na VM tem uma característica de desempenho que excede os limites máximo com suporte do Azure ou do Site Recovery para o armazenamento standard. Essa instância coloca a VM na zona de armazenamento premium. No entanto, o tamanho máximo com suporte de uma conta de armazenamento premium é de 35 TB, e uma única VM protegida não pode ser protegida em várias contas de armazenamento. Além disso, observe que quando um failover de teste é executado em uma VM protegida, ele é executado na mesma conta de armazenamento em que a replicação está em andamento. Nessa instância, configure duas vezes o tamanho do disco para que a replicação progrida e o failover de teste tenha êxito em paralelo.
 * O IOPS de origem excede o limite de IOPS de armazenamento com suporte de 5000 por disco.
 * O IOPS de origem excede o limite de IOPS de armazenamento com suporte de 80.000 por VM.
-* A variação de dados média excede o limite de variação de dados do Site Recovery com suporte de 10 MBps para o tamanho médio de E/S do disco.
-* A variação total de dados em todos os discos na VM excede o limite máximo com suporte de variação de dados do Site Recovery de 54 MBps por VM.
+* A variação de dados média excede o limite de variação de dados do Site Recovery com suporte de 10 MB/s para o tamanho médio de E/S do disco.
+* A variação total de dados em todos os discos na VM excede o limite máximo de variação de dados com suporte do Site Recovery de 54 MB!s por VM.
 * O IOPS médio de gravação eficiente excede o limite de IOPS do Site Recovery de 840 com suporte para disco.
 * O armazenamento de instantâneos calculado excede o limite com suporte de 10 TB para armazenamento de instantâneos.
 
@@ -263,12 +263,12 @@ A tabela a seguir fornece os limites do Azure Site Recovery. Esses limites são 
  
 **Destino de armazenamento de replicação** | **Tamanho de E/S de disco de origem médio** |**Variação nos dados média do disco de origem** | **Total de variação de dados de disco de origem por dia**
 ---|---|---|---
-Armazenamento Standard | 8 KB | 2 Mbps | 168 GB por disco
-Disco Premium P10 ou P15 | 8 KB  | 2 Mbps | 168 GB por disco
-Disco Premium P10 ou P15 | 16 KB | 4 Mbps |  336 GB por disco
-Disco Premium P10 ou P15 | 32 KB ou maior | 8 Mbps | 672 GB por disco
-Disco Premium P20 ou P30 ou P40 ou P50 | 8 KB    | 5 Mbps | 421 GB por disco
-Disco Premium P20 ou P30 ou P40 ou P50 | 16 KB ou maior |10 Mbps | 842 GB por disco
+Armazenamento Standard | 8 KB | 2 MB/s | 168 GB por disco
+Disco Premium P10 ou P15 | 8 KB  | 2 MB/s | 168 GB por disco
+Disco Premium P10 ou P15 | 16 KB | 4 MB/s |  336 GB por disco
+Disco Premium P10 ou P15 | 32 KB ou maior | 8 MB/s | 672 GB por disco
+Disco Premium P20 ou P30 ou P40 ou P50 | 8 KB    | 5 MB/s | 421 GB por disco
+Disco Premium P20 ou P30 ou P40 ou P50 | 16 KB ou maior |10 MB/s | 842 GB por disco
 
 Esses são números médios, pressupondo uma sobreposição de E/S de 30%. O Site Recovery pode lidar com uma maior taxa de transferência com base na taxa de sobreposição, em tamanhos maiores de gravação e em comportamento de E/S de carga de trabalho real. Os números anteriores pressupõem uma lista de pendências típica de aproximadamente cinco minutos. Ou seja, depois que os dados são carregados, eles são processados, e um ponto de recuperação é criado dentro de cinco minutos.
 

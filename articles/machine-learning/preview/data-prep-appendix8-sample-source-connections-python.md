@@ -5,25 +5,25 @@ services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
-ms.reviewer: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.custom: 
 ms.devlang: 
 ms.topic: article
 ms.date: 09/11/2017
-ms.openlocfilehash: 9aaf4329b25cb189146949afed89cf15619ba592
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 3ffe0e385f9dd71d8341305f42ceb10e0ea49af4
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="sample-of-custom-source-connections-python"></a>Exemplo de conexões origem personalizada (Python) 
 Antes de ler este apêndice, leia [Visão geral da extensibilidade do Python](data-prep-python-extensibility-overview.md).
 
 ## <a name="load-data-from-dataworld"></a>Carregar dados de data.world
 
-### <a name="prerequisites"></a>Pré-requisitos
+### <a name="prerequisites"></a>pré-requisitos
 
 #### <a name="register-yourself-at-dataworld"></a>Registrar-se em data.world
 É necessário um token de API do site data.world.

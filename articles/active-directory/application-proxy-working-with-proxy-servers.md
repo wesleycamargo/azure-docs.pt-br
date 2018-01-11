@@ -108,8 +108,8 @@ Há quatro aspectos a considerar no proxy de saída:
 #### <a name="proxy-outbound-rules"></a>Regras de saída do proxy
 Permita o acesso aos seguintes pontos de extremidade para acesso ao serviço de conector:
 
-* *.msappproxy.net
-* *.servicebus.windows.net
+* * .msappproxy.net
+* * .servicebus.windows.net
 
 Para o registro inicial, permita o acesso aos seguintes pontos de extremidade:
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 6/06/2017
 ms.author: johnkem
-ms.openlocfilehash: 88c5701279f370914fac68872d67b02a7571748a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f0e507cf2804edbcdd6c87f47b30defbc6a5eb94
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Transmissão do Log de Atividades do Azure para os Hubs de Eventos
 Os [**Logs de Atividade do Azure**](monitoring-overview-activity-logs.md) podem ser transmitidos quase em tempo real a qualquer aplicativo usando a opção interna "Exportar" no Portal, ou habilitando a ID da Regra de Barramento de Serviço em um Perfil de Log por meio de Cmdlets do Azure PowerShell ou da CLI do Azure.
@@ -30,7 +30,7 @@ Veja algumas maneiras de usar o recurso de streaming para o Log de Atividade:
 * **Compilar uma plataforma de registro em log e telemetria personalizada** – Se você já tiver uma plataforma de telemetria personalizada ou estiver pensando em criar uma, a natureza altamente escalonável de publicação-assinatura dos Hubs de Eventos permite a flexibilidade de ingestão de log de atividade. [Consulte o guia de Dan Rosanova sobre como usar os Hubs de Eventos em uma plataforma de telemetria de escala global.](https://azure.microsoft.com/documentation/videos/build-2015-designing-and-sizing-a-global-scale-telemetry-platform-on-azure-event-Hubs/)
 
 ## <a name="enable-streaming-of-the-activity-log"></a>Habilitar o streaming do Log de Atividades
-Você pode habilitar o streaming do Log de Atividades programaticamente ou por meio do portal. De qualquer forma, você escolhe um namespace de barramento de serviço e uma política de acesso compartilhado para esse namespace e um hub de eventos é criado no namespace quando ocorre o primeiro novo evento de Log de Atividades. Se você não tiver um Namespace do Barramento de Serviço, você precisará primeiro criar um. Se você tiver distribuído anteriormente eventos de Log de Atividades para esse namespace do barramento de serviço, o Hub de Eventos criado anteriormente será reutilizado. A política de acesso compartilhado define as permissões que o mecanismo de streaming tem. Atualmente, o streaming para um Hub de Eventos exige as **Gerenciar**, **Enviar** e **Escutar**. Você pode criar ou modificar políticas de acesso compartilhado do Namespace do Barramento de Serviço no portal clássico, na guia "Configurar" para seu Namespace de Barramento de Serviço. Para atualizar o perfil de registro do Log de Atividades a fim de incluir o streaming, o usuário fazendo a alteração deve ter a permissão ListKey nessa Regra de Autorização do Barramento de Serviço.
+Você pode habilitar o streaming do Log de Atividades programaticamente ou por meio do portal. De qualquer forma, você escolhe um namespace de barramento de serviço e uma política de acesso compartilhado para esse namespace e um hub de eventos é criado no namespace quando ocorre o primeiro novo evento de Log de Atividades. Se você não tiver um Namespace do Barramento de Serviço, você precisará primeiro criar um. Se você tiver distribuído anteriormente eventos de Log de Atividades para esse namespace do barramento de serviço, o Hub de Eventos criado anteriormente será reutilizado. A política de acesso compartilhado define as permissões que o mecanismo de streaming tem. Atualmente, o streaming para um Hub de Eventos exige as **Gerenciar**, **Enviar** e **Escutar**. Você pode criar ou modificar políticas de acesso compartilhado do Namespace do Barramento de Serviço no portal do Azure, na guia "Configurar" para seu Namespace de Barramento de Serviço. Para atualizar o perfil de registro do Log de Atividades a fim de incluir o streaming, o usuário fazendo a alteração deve ter a permissão ListKey nessa Regra de Autorização do Barramento de Serviço.
 
 O namespace do barramento de serviço ou do hub de eventos não precisa estar na mesma assinatura que a assinatura que emite os logs, contanto que o usuário que define a configuração tenha acesso RBAC apropriado a ambas as assinaturas.
 

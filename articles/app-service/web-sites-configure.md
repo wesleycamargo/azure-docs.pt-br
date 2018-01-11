@@ -14,13 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: fd1a8cf442ea0688e027f8f8028ee8b4e149d8d2
-ms.sourcegitcommit: a7c01dbb03870adcb04ca34745ef256414dfc0b3
+ms.openlocfilehash: 9ec501d0a4e1c6165b83b5b590b87b0baa284423
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/17/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Configurar aplicativos Web no Serviço de Aplicativo do Azure
+
 Este tópico explica como configurar um aplicativo Web usando o [Portal do Azure].
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
@@ -45,6 +46,8 @@ Por razões técnicas, a habilitação do Java para seu aplicativo desabilita as
 
 <a name="platform"></a>
 **Plataforma**. Seleciona se o seu aplicativo é executado em ambiente de 32 ou 64 bits. O ambiente de 64-bit requere o modo Básico ou Padrão. Modos Livre e Compartilhado são sempre executados em um ambiente de 32 bits.
+
+[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
 **Web Sockets**. Defina a opção como **ATIVADO** para habilitar o protocolo WebSocket; por exemplo, se seu aplicativo Web usar [ASP.NET SignalR] ou [socket.io](https://socket.io/).
 
@@ -120,7 +123,7 @@ Para exibir os arquivos de log, você deve criar credenciais FTP da seguinte man
 
 ![Definir credenciais de implantação][configure03]
 
-O nome de usuário completo do FTP é "app\nomedousuário", onde *app* é o nome do seu aplicativo Web. O nome de usuário é listado no aplicativo Web, em **Essentials**.  
+O nome de usuário completo do FTP é "app\nomedousuário", onde *app* é o nome do seu aplicativo Web. O nome de usuário é listado no aplicativo Web, em **Essentials**.
 
 ![Credenciais de implantação FTP][configure02]
 

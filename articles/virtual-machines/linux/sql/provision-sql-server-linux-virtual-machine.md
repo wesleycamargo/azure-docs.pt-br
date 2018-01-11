@@ -1,4 +1,4 @@
----
+﻿---
 title: Criar uma VM Linux com SQL Server 2017 no Azure | Microsoft Docs
 description: "Este tutorial mostra como criar uma máquina virtual Linux com SQL Server 2017 no portal do Azure."
 services: virtual-machines-linux
@@ -13,10 +13,10 @@ ms.service: virtual-machines-sql
 ms.workload: iaas-sql-server
 ms.technology: database-engine
 ms.openlocfilehash: 8d714718e4fc27f0abbfede8fe6d0e2693698ec1
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="provision-a-linux-sql-server-virtual-machine-in-the-azure-portal"></a>Provisionar uma máquina virtual Linux com SQL Server no portal do Azure
 
@@ -43,7 +43,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 1. No painel esquerdo, clique em **Novo**.
 
-1. 1. No painel **Novo**, clique em **Computador**.
+1. No painel **Novo**, clique em **Computador**.
 
 1. Clique em **Ver todos os** ao lado do cabeçalho **Em destaque**.
 

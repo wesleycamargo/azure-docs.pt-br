@@ -143,7 +143,7 @@
       href: unique-keys.md
     - name: Consistência
       href: consistency-levels.md
-    - name: Taxa de transferência
+    - name: Throughput
       href: request-units.md
     - name: APIs de vários modelos
       items:
@@ -187,8 +187,10 @@
               href: programming.md
             - name: Testes de desempenho
               href: performance-testing.md
-            - name: Dicas de desempenho
+            - name: Dicas de desempenho para .NET
               href: performance-tips.md
+            - name: Dicas de desempenho para Java
+              href: performance-tips-java.md
             - name: Instalação de vários mestres
               href: multi-region-writers.md
             - name: DateTimes
@@ -235,7 +237,7 @@
                   href: sql-api-sql-query-cheat-sheet.md
                 - name: Stack Overflow
                   href: 'http://stackoverflow.com/questions/tagged/azure-cosmosdb'
-                - name: Vídeos
+                - name: vídeos
                   href: 'https://azure.microsoft.com/documentation/videos/index/?services=cosmos-db'
                 - name: Atualizações de serviço
                   href: 'https://azure.microsoft.com/updates/?product=cosmos-db'
@@ -252,6 +254,8 @@
               href: mongodb-mongochef.md
             - name: Usando o Robomongo
               href: mongodb-robomongo.md
+            - name: Usando Mongoose
+              href: mongodb-mongoose.md
             - name: Suporte para recursos do MongoDB
               href: mongodb-feature-support.md
             - name: Série de tutoriais Angular

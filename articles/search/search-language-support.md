@@ -1,6 +1,6 @@
 ---
 title: "Vários idiomas do Azure Search | Microsoft Docs"
-description: "A Pesquisa do Azure dá suporte a 56 idiomas, aproveitando os analisadores de linguagem da Lucene e a tecnologia Processamento de Linguagem Natural da Microsoft."
+description: "O Azure Search dá suporte a 56 idiomas, aproveitando os analisadores de linguagem da Lucene e a tecnologia Processamento de Linguagem Natural da Microsoft."
 services: search
 documentationcenter: 
 author: yahnoosh
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.date: 01/23/2017
 ms.author: jlembicz
 ms.openlocfilehash: dbbab31bac66ce73dbf9883992713a2c16581e19
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/21/2017
 ---
-# <a name="create-an-index-for-documents-in-multiple-languages-in-azure-search"></a>Crie um índice para documentos em vários idiomas na Pesquisa do Azure
+# <a name="create-an-index-for-documents-in-multiple-languages-in-azure-search"></a>Crie um índice para documentos em vários idiomas no Azure Search
 > [!div class="op_single_selector"]
 >
 > * [Portal](search-language-support.md)
@@ -31,7 +31,7 @@ ms.lasthandoff: 10/11/2017
 
 Ampliar o poder dos analisadores de linguagem é tão fácil quanto definir uma propriedade em um campo pesquisável na definição de índice. Agora você pode realizar esta etapa no portal.
 
-Veja abaixo as capturas de tela das folhas do Portal do Azure para a Pesquisa do Azure que permitem que os usuários definam um esquema de índice. Nesta folha, os usuários podem criar todos os campos e definir a propriedade do analisador de cada um deles.
+Veja abaixo as capturas de tela das folhas do Portal do Azure para o Azure Search que permitem que os usuários definam um esquema de índice. Nesta folha, os usuários podem criar todos os campos e definir a propriedade do analisador de cada um deles.
 
 > [!IMPORTANT]
 > Você pode definir um analisador de linguagem apenas durante a definição de campo, como ao criar um novo índice do zero ou ao adicionar um novo campo a um índice existente. Lembre-se de especificar por completo todos os atributos, incluindo o analisador, ao criar o campo. Você não poderá editar os atributos ou alterar o tipo de analisador depois de salvar suas alterações.
@@ -57,7 +57,7 @@ Veja abaixo as capturas de tela das folhas do Portal do Azure para a Pesquisa do
 ![][2]
 *Selecione um dos analisadores com suporte para cada campo*
 
-Por padrão, todos os campos pesquisáveis usam o [analisador padrão da Lucene](http://lucene.apache.org/core/4_10_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) que é independente de linguagem. Para exibir a lista completa de analisadores com suporte, veja [Suporte de idioma na Pesquisa do Azure](https://msdn.microsoft.com/library/azure/dn879793.aspx).
+Por padrão, todos os campos pesquisáveis usam o [analisador padrão da Lucene](http://lucene.apache.org/core/4_10_0/analyzers-common/org/apache/lucene/analysis/standard/StandardAnalyzer.html) que é independente de linguagem. Para exibir a lista completa de analisadores com suporte, veja [Suporte de idioma no Azure Search](https://msdn.microsoft.com/library/azure/dn879793.aspx).
 
 Quando o analisador de linguagem for selecionado para um campo, ele será usado com cada solicitação de indexação e pesquisa para esse campo. Quando uma consulta é executada em vários campos usando analisadores diferentes, a consulta será processada de modo independente pelos analisadores certos para cada campo.
 
@@ -70,7 +70,7 @@ Se o idioma do agente emissor de uma consulta for conhecido, uma solicitação d
 
 `https://[service name].search.windows.net/indexes/[index name]/docs?search=darmowy&searchFields=description_pl&api-version=2016-09-01`
 
-Você pode consultar o índice do portal, usando o **Search Explorer** para colar uma consulta semelhante à mostrado acima. O Search Explorer está disponível na barra de comandos na folha de serviço. Confira [Consultar seu Índice de Pesquisa do Azure no portal](search-explorer.md) para obter detalhes.
+Você pode consultar o índice do portal, usando o **Search Explorer** para colar uma consulta semelhante à mostrado acima. O Search Explorer está disponível na barra de comandos na folha de serviço. Confira [Consultar seu Índice de Azure Search no portal](search-explorer.md) para obter detalhes.
 
 Às vezes, o idioma do agente emissor de uma consulta não é conhecido; nesse caso, a consulta pode ser emitida em todos os campos simultaneamente. Se necessário, a preferência de resultados em um determinado idioma pode ser definida usando os [perfis de pontuação](https://msdn.microsoft.com/library/azure/dn798928.aspx). No exemplo abaixo, as correspondências encontradas na descrição em inglês terão uma pontuação superior em relação às correspondências em polonês e francês:
 
@@ -85,7 +85,7 @@ Você pode consultar o índice do portal, usando o **Search Explorer** para cola
 
 `https://[service name].search.windows.net/indexes/[index name]/docs?search=Microsoft&scoringProfile=englishFirst&api-version=2016-09-01`
 
-Se você é um desenvolvedor do .NET, é importante lembrar que você pode configurar os analisadores de linguagem usando o [SDK do .NET da Pesquisa do Azure](http://www.nuget.org/packages/Microsoft.Azure.Search). A versão mais recente também inclui o suporte para os analisadores de linguagem da Microsoft.
+Se você é um desenvolvedor do .NET, é importante lembrar que você pode configurar os analisadores de linguagem usando o [SDK do .NET do Azure Search](http://www.nuget.org/packages/Microsoft.Azure.Search). A versão mais recente também inclui o suporte para os analisadores de linguagem da Microsoft.
 
 <!-- Image References -->
 [1]: ./media/search-language-support/AnalyzerTab.png

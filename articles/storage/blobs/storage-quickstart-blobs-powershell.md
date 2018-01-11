@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 07/19/2017
 ms.author: tamram
-ms.openlocfilehash: 7892200610d2b78c81dc16ff03abb9f0ed386fdc
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: bbc0de7b3a63e8b541a6425e0c7fef9a72dfdffc
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="transfer-objects-tofrom-azure-blob-storage-using-azure-powershell"></a>Transferir objetos de/para o Armazenamento de Blobs do Azure usando o Azure PowerShell
 
@@ -33,7 +33,7 @@ Este início rápido requer o módulo Azure PowerShell versão 3.6 ou posterior.
 
 ## <a name="create-a-container"></a>Criar um contêiner
 
-Os blobs são sempre carregados em um contêiner. Isso permite que você organize grupos de blobs da mesma forma que organiza os arquivos em pastas no seu computador.
+Os blobs são sempre carregados em um contêiner. É possível organizar grupos de blobs de forma similar àquela em que você organiza os arquivos em pastas no seu computador.
 
 Defina o nome do contêiner e crie o contêiner usando [New-AzureStorageContainer](/powershell/module/azure.storage/new-azurestoragecontainer), definindo as permissões para o “blob” para permitir o acesso público dos arquivos. O nome do contêiner neste exemplo é *quickstartblobs*.
 
@@ -48,7 +48,7 @@ O Armazenamento de Blobs dá suporte a blobs de blocos, blobs de acréscimo e bl
 
 Para carregar um arquivo em um blob de blocos, obtenha uma referência de contêiner e uma referência para o blob de blocos nesse contêiner. Após obter a referência de blob, você pode carregar dados nele usando [Set-AzureStorageBlobContent](/powershell/module/azure.storage/set-azurestorageblobcontent). Essa operação cria o blob, se ele ainda não existir, ou o substitui, se ele já existir.
 
-Os exemplos a seguir carregam a Image001.jpg e Image002.png da pasta D:\\_TestImages no disco local para o contêiner que você acabou de criar.
+Os exemplos a seguir carregam a Image001.jpg e Image002.png da pasta D:\\_TestImages no disco local para o contêiner que você criou.
 
 ```powershell
 # upload a file

@@ -1,5 +1,5 @@
 ---
-title: "Início Rápido do Azure - Fazer backup de uma VM com o PowerShell | Microsoft Docs"
+title: "Início Rápido do Azure – Fazer backup de uma VM com o PowerShell | Microsoft Docs"
 description: "Saiba como fazer backup de máquinas virtuais com o Azure PowerShell"
 services: virtual-machines-windows, azure-backup
 documentationcenter: virtual-machines
@@ -13,14 +13,14 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 09/18/2017
+ms.date: 12/18/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 98a86652b13f62ef7acade9eb69e81852b2fc091
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 9abb85c7a23a1fadc0afc1c4716c81aae712f30b
+ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>Fazer backup de uma máquina virtual no Azure com o PowerShell
 O módulo do Azure PowerShell é usado para criar e gerenciar recursos do Azure da linha de comando do ou em scripts. Você pode proteger seus dados fazendo backups em intervalos regulares. O Backup do Azure cria pontos de recuperação que são armazenados em cofres de recuperação com redundância geográfica. Este artigo fornece detalhes sobre como fazer backup de uma VM (máquina virtual) com o módulo do Azure PowerShell. Você também pode executar essas etapas com a [CLI do Azure ](quick-backup-vm-cli.md) ou o [portal do Azure](quick-backup-vm-portal.md).
@@ -136,7 +136,7 @@ Remove-AzureRmResourceGroup -Name "myResourceGroup"
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste início rápido, você criou um cofre dos Serviços de Recuperação, habilitou a proteção em uma máquina virtual e criou o ponto de recuperação inicial. Para saber mais sobre os Serviços de Recuperação e o Backup do Azure, prossiga para os tutoriais.
+Neste início rápido, você criou um cofre dos Serviços de Recuperação, habilitou a proteção em uma VM e criou o ponto de recuperação inicial. Para saber mais sobre os Serviços de Recuperação e o Backup do Azure, prossiga para os tutoriais.
 
 > [!div class="nextstepaction"]
 > [Fazer backup de várias VMs do Azure](./tutorial-backup-vm-at-scale.md)

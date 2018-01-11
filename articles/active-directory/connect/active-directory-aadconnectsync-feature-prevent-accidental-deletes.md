@@ -4,7 +4,7 @@ description: "Este tópico descreve o recurso de prevenção contra exclusões a
 services: active-directory
 documentationcenter: 
 author: AndKjell
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: 6b852cb4-2850-40a1-8280-8724081601f7
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2017
 ms.author: billmath
-ms.openlocfilehash: a33fb729cff5007e40820af696cfec823a3ecfde
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 72283424ab750d10f9a0739347650d0a9eee1520
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Sincronização do Azure AD Connect: impedir exclusões acidentais
 Este tópico descreve o recurso de prevenção contra exclusões acidentais (que impede exclusões acidentais) no Azure AD Connect.
@@ -32,7 +32,7 @@ Os cenários comuns quando você vê muitas exclusões incluem:
 * Todos os objetos em uma UO são excluídos.
 * Uma UO é renomeada e todos os objetos são considerados fora do escopo de sincronização.
 
-O valor padrão de 500 objetos pode ser alterado com o PowerShell, usando `Enable-ADSyncExportDeletionThreshold`. Você deve configurar esse valor para ajustar o tamanho da sua organização. Como o agendador de sincronização é executado a cada 30 minutos, o valor é o número de exclusões visto em 30 minutos.
+O valor padrão de 500 objetos pode ser alterado com o PowerShell usando `Enable-ADSyncExportDeletionThreshold`, que é parte do módulo AD Sync instalado com o Azure Active Directory Connect. Você deve configurar esse valor para ajustar o tamanho da sua organização. Como o agendador de sincronização é executado a cada 30 minutos, o valor é o número de exclusões visto em 30 minutos.
 
 Se houver muitas exclusões preparadas para serem exportadas para o Azure AD, a exportação será interrompida e você receberá um email como este:
 

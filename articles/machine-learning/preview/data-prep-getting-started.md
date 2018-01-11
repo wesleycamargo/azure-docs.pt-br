@@ -1,17 +1,20 @@
 ---
 title: "Introdução à Preparação de Dados para Azure Machine Learning | Microsoft Docs"
 description: "Este é o guia de introdução para a seção de preparação de dados do AML Workbench"
+services: machine-learning
 author: cforbe
 ms.author: cforbe
+manager: mwinkle
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: faf6e557914a33454229b5830419b9ef6f200a8c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8f90bcb83233b1a2f1a5d342ee444e4b02d4927d
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="getting-started-with-data-preparation"></a>Introdução à preparação de dados
 
@@ -121,6 +124,6 @@ Quando concluir a preparação de dados, você pode gravar o fluxo de dados em u
 [Apêndice 9 – Exemplo de conexões de destino em Python](data-prep-appendix9-sample-destination-connections-python.md)  
 [Apêndice 10 – Exemplo de transformações de coluna em Python](data-prep-appendix10-sample-custom-column-transforms-python.md)  
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
 
 [Tutorial de preparação de dados avançada](tutorial-bikeshare-dataprep.md)

@@ -4,8 +4,8 @@ description: "Saiba mais sobre como configurar uma conexão de dados com o Strea
 keywords: "fluxo de dados, conexão de dados, fluxo de eventos"
 services: stream-analytics
 documentationcenter: 
-author: samacha
-manager: jhubbard
+author: SnehaGunda
+manager: kfile
 editor: cgronlun
 ms.assetid: 8155823c-9dd8-4a6b-8393-34452d299b68
 ms.service: stream-analytics
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 07/05/2017
-ms.author: samacha
-ms.openlocfilehash: 652137cf7a41f8d90a56aebe9f82fd37d5e4683d
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.date: 12/11/2017
+ms.author: sngun
+ms.openlocfilehash: e8b55269e861dc010c911491d52973b674dd50ca
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="data-connection-learn-about-data-stream-inputs-from-events-to-stream-analytics"></a>Conexão de dados: saiba mais sobre entradas de fluxo de dados de eventos para o Stream Analytics
 A conexão de dados para um trabalho do Stream Analytics é um fluxo de eventos de uma fonte de dados, que é conhecido como a *entrada* de um trabalho. O Stream Analytics tem integração de primeira classe com fontes de fluxo de dados do Azure, incluindo [Hubs de Eventos do Azure](https://azure.microsoft.com/services/event-hubs/), [Hub IoT do Azure](https://azure.microsoft.com/services/iot-hub/) e [Armazenamento de Blobs do Azure](https://azure.microsoft.com/services/storage/blobs/). Essas fontes de entrada podem ser da mesma assinatura do Azure que o trabalho de análise ou de uma assinatura diferente.
@@ -37,9 +37,9 @@ Para saber como criar entradas de dados de referência, veja [Usar dados de refe
 
 ## <a name="compression"></a>Compactação
 
-O Azure Stream Analytics dá suporte à compactação em todas as fontes de entrada de fluxo de dados (Armazenamento de blobs, Hub IoT e Hubs de Eventos). Este recurso adiciona uma nova opção de lista suspensa à folha **Nova entrada** no Portal do Azure, permitindo que você opte por compactar os fluxos de dados. Os tipos de compactação com suporte no momento são Nenhuma, GZip e Deflate. 
+O Azure Stream Analytics dá suporte à compactação em todas as fontes de entrada de fluxo de dados (Armazenamento de blobs, Hub IoT e Hubs de Eventos). Este recurso adiciona uma nova opção de lista suspensa à folha **Nova entrada** no Portal do Azure, permitindo que você opte por compactar os fluxos de dados. Os tipos de referência para compactação com suporte no momento são Nenhuma, GZip e Deflate. O suporte para a compactação não está disponível para os dados de referência.
 
-A compactação não tem suporte em combinação com a serialização Avro e não é aplicável a dados de referência. 
+Você não precisa especificar o tipo de compactação com a serialização Avro. Se os dados de entrada Avro forem compactados, eles são manipulados de forma transparente. 
 
 ## <a name="create-data-stream-input-from-event-hubs"></a>Criar entrada de fluxo de dados dos Hubs de Eventos
 

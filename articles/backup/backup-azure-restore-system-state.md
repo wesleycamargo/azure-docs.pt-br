@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 8/18/2017
 ms.author: saurse;trinadhk;markgal;
-ms.openlocfilehash: 971f7979ca27bce5d147a9d479248c808dc658e3
-ms.sourcegitcommit: adf6a4c89364394931c1d29e4057a50799c90fc0
+ms.openlocfilehash: 57277b36c0a77247b7c91d7a0035f7b4ec60c7e0
+ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 12/19/2017
 ---
 # <a name="restore-system-state-to-windows-server"></a>Restaurar o Estado do Sistema para Windows Server
 
@@ -89,9 +89,6 @@ A terminologia usada nessas etapas inclui:
 1. Abra o snap-in do **Backup do Microsoft Azure** no *Computador de destino*.
 2. Verifique se a *Máquina de destino* e a *Máquina de origem* estão registradas no mesmo cofre Serviços de Recuperação.
 3. Clique em **Recuperar Dados** para iniciar o fluxo de trabalho.
-
-    ![Recuperar Dados](./media/backup-azure-restore-windows-server-classic/recover.png)
-
 4. Selecione **Outro servidor**
 
     ![Outro servidor](./media/backup-azure-restore-system-state/anotherserver.png)
@@ -99,12 +96,9 @@ A terminologia usada nessas etapas inclui:
 5. Forneça o arquivo de credencial de cofre que corresponde ao *Cofre de exemplo*. Se o arquivo de credencial de cofre for inválido (ou tiver expirado), baixe um novo arquivo de credencial de cofre do *Cofre de exemplo* no Portal do Azure. Depois que o arquivo de credencial de cofre for fornecido, o cofre de Serviços de Recuperação associado ao arquivo de credencial de cofre é exibido.
 
 6. No painel Selecionar Servidor de Backup, selecione o *Computador de origem* na lista de computadores exibidos.
-
-    ![Lista de computadores](./media/backup-azure-restore-windows-server-classic/machinelist.png)
-
 7. No painel Selecionar Modo de Recuperação, escolha **Estado do Sistema** e clique em **Avançar**. 
 
-    ![Pesquisar](./media/backup-azure-restore-system-state/recover-type-selection.png)
+    ![Search](./media/backup-azure-restore-system-state/recover-type-selection.png)
 
 8. No Calendário no painel **Selecionar Volume e Data**, selecione um ponto de recuperação. Você pode restaurar de qualquer ponto de recuperação. As datas em **negrito** indicam a disponibilidade de pelo menos um ponto de recuperação. Depois de selecionar uma data, se houver vários pontos de recuperação disponíveis, escolha o ponto de recuperação específico no menu suspenso **Hora**. 
 

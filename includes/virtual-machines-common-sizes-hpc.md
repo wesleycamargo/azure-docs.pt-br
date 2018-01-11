@@ -17,10 +17,10 @@ ACU: 290-300
 | Standard_H16 |16 |112 |2000 |64 |64 x 500 |4 |
 | Standard_H8m |8 |112 |1000 |32 |32 x 500 |2  |
 | Standard_H16m |16 |224 |2000 |64 |64 x 500 |4  |
-| Standard_H16r* |16 |112 |2000 |64 |64 x 500 |4  |
-| Standard_H16mr* |16 |224 |2000 |64 |64 x 500 |4 |
+| Standard_H16r <sup>1</sup> |16 |112 |2000 |64 |64 x 500 |4  |
+| Standard_H16mr <sup>1</sup> |16 |224 |2000 |64 |64 x 500 |4 |
 
-*Para os aplicativos MPI, a rede de back-end RDMA dedicada é habilitada pela rede InfiniBand FDR, que fornece latência ultrabaixa e largura de banda alta.
+<sup>1</sup> Para os aplicativos MPI, a rede de back-end RDMA dedicada é habilitada pela rede InfiniBand FDR, que fornece latência ultrabaixa e largura de banda alta.
 
 <br>
 
@@ -32,12 +32,12 @@ ACU: 225
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento temporário (HDD): GiB | Discos de dados máximos | Taxa de transferência máxima do disco de dados: IOPS | Máximo de NICs|
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_A8* |8 |56 |382 |32 |32 x 500 |2 |
-| Standard_A9* |16 |112 |382 |64 |64x500 |4 |
+| Standard_A8 <sup>1</sup> |8 |56 |382 |32 |32 x 500 |2 |
+| Standard_A9 <sup>1</sup> |16 |112 |382 |64 |64x500 |4 |
 | Standard_A10 |8 |56 |382 |32 |32 x 500 |2  |
 | Standard_A11 |16 |112 |382 |64 |64x500 |4 |
 
-*Para os aplicativos MPI, a rede de back-end RDMA dedicada é habilitada pela rede InfiniBand FDR, que fornece latência ultrabaixa e largura de banda alta.
+<sup>1</sup>Para os aplicativos MPI, a rede de back-end RDMA dedicada é habilitada pela rede InfiniBand FDR, que fornece latência ultrabaixa e largura de banda alta.
 
 <br>
 

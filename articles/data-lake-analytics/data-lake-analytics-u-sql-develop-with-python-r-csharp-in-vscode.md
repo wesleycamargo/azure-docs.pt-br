@@ -1,6 +1,6 @@
 ---
-title: Desenvolver U-SQL com Python, R e CSharp para Azure Data Lake Analytics no Visual Studio Code | Microsoft Docs
-description: Saiba como usar o code-behind com Python, R e CSharp ao enviar o trabalho no Azure Data Lake.
+title: Desenvolver U-SQL com Python, R e C# para Azure Data Lake Analytics no Visual Studio Code | Microsoft Docs
+description: Saiba como usar o code-behind com Python, R e C# ao enviar o trabalho no Azure Data Lake.
 services: data-lake-analytics
 documentationcenter: 
 author: jejiang
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 11/22/2017
 ms.author: jejiang
-ms.openlocfilehash: 82f6527388017aadecf761871f5acb25eb100acb
-ms.sourcegitcommit: 21a58a43ceceaefb4cd46c29180a629429bfcf76
+ms.openlocfilehash: 8fd8decfde1220be6aaa099c3afb24e8c1eecce4
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/27/2017
+ms.lasthandoff: 12/07/2017
 ---
-# <a name="develop-u-sql-with-python-r-and-csharp-for-azure-data-lake-analytics-in-visual-studio-code"></a>Desenvolver U-SQL com Python, R e CSharp para Azure Data Lake Analytics no Visual Studio Code
-Saiba como usar o Visual Studio Code (VSCode) para escrever code behind em Python, R e CSharp com U-SQL e enviar trabalhos ao serviço do Azure Data Lake. Para saber mais sobre Azure Data Lake Tools para VSCode, confira [Usar as Ferramentas do Azure Data Lake para Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md).
+# <a name="develop-u-sql-with-python-r-and-c-for-azure-data-lake-analytics-in-visual-studio-code"></a>Desenvolver U-SQL com Python, R e C# para Azure Data Lake Analytics no Visual Studio Code
+Saiba como usar o Visual Studio Code (VSCode) para gravar code behind em Python, R e C# com U-SQL e enviar trabalhos ao serviço do Azure Data Lake. Para saber mais sobre Azure Data Lake Tools para VSCode, confira [Usar as Ferramentas do Azure Data Lake para Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md).
 
 Antes de escrever código personalizado do code-behind, você precisa abrir uma pasta ou um espaço de trabalho no VSCode.
 

@@ -15,13 +15,17 @@ ms.topic: quickstart
 ms.date: 06/14/2017
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 47f8fd97ad3be833e4f86f4bda57b140ce73c5de
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 5860c88b3b6c9f6f715c8e2d8ce667189f9b4438
+ms.sourcegitcommit: 3fca41d1c978d4b9165666bb2a9a1fe2a13aabb6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/15/2017
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>Criar um aplicativo Web ASP.NET Core no Azure
+
+> [!NOTE]
+> Este artigo implanta um aplicativo no Serviço de Aplicativo no Windows. Para implantar o Serviço de Aplicativo em _Linux_, consulte [Criar um aplicativo Web .NET Core no Serviço de Aplicativo em Linux](./containers/quickstart-dotnetcore.md).
+>
 
 Os [aplicativos Web do Azure](app-service-web-overview.md) fornecem um serviço de hospedagem na Web altamente escalonável,com aplicação automática de patches.  Este guia de início rápido mostra como implantar seu primeiro aplicativo Web ASP.NET Core em aplicativos Web do Azure. Quando terminar, você terá um grupo de recursos que consiste em um plano do Serviço de Aplicativo e um aplicativo Web do Azure com um aplicativo Web implantado.
 
@@ -29,7 +33,7 @@ Os [aplicativos Web do Azure](app-service-web-overview.md) fornecem um serviço 
 > Se você quiser saber como criar e implantar um aplicativo Web do ASP.NET Framework, o artigo está disponível [aqui](app-service-web-get-started-dotnet-framework.md). 
 >
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para concluir este tutorial:
 
@@ -106,10 +110,10 @@ Na caixa de diálogo **Configurar Plano do Serviço de Aplicativo**, use as conf
 
 ![Criar plano de Serviço de Aplicativo](./media/app-service-web-get-started-dotnet/configure-app-service-plan.png)
 
-| Configuração | Valor sugerido | Descrição |
+| Configuração | Valor sugerido | DESCRIÇÃO |
 |-|-|-|
 |Plano do Serviço de Aplicativo| myAppServicePlan | O nome do plano do Serviço de Aplicativo. |
-| Local | Europa Ocidental | O datacenter onde o aplicativo Web está hospedado. |
+| Local padrão | Europa Ocidental | O datacenter onde o aplicativo Web está hospedado. |
 | Tamanho | Grátis | O [Tipo de preço](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) determina os recursos de hospedagem. |
 
 Selecione **OK**.

@@ -4,7 +4,7 @@ Os tamanhos de VM para uso geral fornecem uma relação de CPU para memória equ
 
 - As VMs da série D são projetadas para executar aplicativos que exigem maior capacidade de computação e de desempenho de disco temporário. As VMs da série D fornecem processadores mais rápidos, uma maior taxa de memória por vCPU e uma unidade de estado sólido (SSD) para o disco temporário. Para obter detalhes, confira o anúncio no blog do Azure, [Novos tamanhos de máquina virtual da série D](https://azure.microsoft.com/blog/2014/09/22/new-d-series-virtual-machine-sizes/).
 
-- A série Dv2, uma continuação da série D original, apresenta uma CPU mais potente. A CPU da série Dv2 é aproximadamente 35% mais rápida do que a CPU da série D. Ela se baseia na última geração do processador Intel Xeon® E5-2673 v3 (Haswell) de 2.4 GHz e, com a Intel Turbo Boost Technology 2.0, pode chegar a até 3.1 GHz. A série Dv2 tem as mesmas configurações de memória e disco que a série D.
+- Série Dv2, série Dv3, uma continuação da série D original, apresenta uma CPU mais potente. A CPU da série Dv2 é aproximadamente 35% mais rápida do que a CPU da série D. Ela se baseia na última geração do processador Intel Xeon® E5-2673 v3 (Haswell) de 2.4 GHz e, com a Intel Turbo Boost Technology 2.0, pode chegar a até 3.1 GHz. A série Dv2 tem as mesmas configurações de memória e disco que a série D.
 
 - Os tamanhos da camada básicos são principalmente para as cargas de trabalho de desenvolvimento e outros aplicativos que não requerem o balanceamento de carga, dimensionamento automático ou máquinas virtuais que consomem muita memória. Para obter informações sobre os tamanhos da VM mais adequados para os aplicativos de produção, consulte (Tamanhos das máquinas virtuais) [virtual-machines-size-specs.md] e para obter informações sobre os preços da VM, consulte [Preços das Máquinas Virtuais](https://azure.microsoft.com/pricing/details/virtual-machines/).
 
@@ -23,11 +23,11 @@ As VMs expansíveis série B são ideais para cargas de trabalho que não precis
 | Standard_B8ms | 8           | 32             | 64                         | 135%                  | 81                 | 1944           | 16                                     | 4320 / 50                                 | 4320 / 50                                 | 4  |
 
 
-## <a name="dsv3-series"></a>Série Dsv3*
+## <a name="dsv3-series-sup1sup"></a>Série Dsv3 <sup>1</sup>
 
 ACU: 160-190
 
-Os tamanhos da Dsv3-series são baseados no processador Intel XEON ® E5-2673 v4 (Broadwell) de 2.3 GHz e podem atingir 3.5 GHz com a Tecnologia Intel Turbo Boost 2.0, e utilizam armazenamento premium. Os tamanhos da série Dsv3 oferecem uma combinação de vCPU, memória e armazenamento temporário para a maioria das cargas de trabalho de produção.
+Os tamanhos da série Dsv3 são baseados no processador Intel Xeon® E5-2673 v3 (Haswell) de 2.4 GHz ou no processador mais recente Intel XEON ® E5-2673 v4 (Broadwell) de 2.3 GHz que podem atingir 3.5 GHz com a Tecnologia Intel Turbo Boost 2.0, e utilizam armazenamento premium. Os tamanhos da série Dsv3 oferecem uma combinação de vCPU, memória e armazenamento temporário para a maioria das cargas de trabalho de produção.
 
 
 | Tamanho             | vCPU | Memória: GiB | Armazenamento temporário (SSD) GiB | Discos de dados máximos | Taxa de transferência máxima do disco em cache e armazenamento temporário: IOPS / MBps (tamanho do cache em GiB) | Taxa de transferência máxima do disco não armazenado em cache: IOPS / MBps | Máximo de NICs/Largura de banda de rede esperado (Mbps) |
@@ -38,13 +38,14 @@ Os tamanhos da Dsv3-series são baseados no processador Intel XEON ® E5-2673 v4
 | Standard_D16s_v3 | 16     | 64          | 128            | 32             | 32,000 / 256 (400)                                                    | 25.600 / 384                              | 8 / alta                                       |
 | Standard_D32s_v3 | 32     | 128          | 256            | 32             | 64,000 / 512 (800)                                                    | 51.200 / 768                              | 8/Extremamente alta                                       |
 | Standard_D64s_v3 | 64     | 256          | 512            | 32             | 128,000 / 1024 (1600)                                                    | 80,000 / 1200                              | 8/Extremamente alta                                       |
-*A tecnologia Intel® Hyper-Threading da VM série Dsv3
 
-## <a name="dv3-series"></a>Série Dv3* 
+<sup>1</sup> A tecnologia Intel® Hyper-Threading da VM série Dsv3
+
+## <a name="dv3-series-sup1sup"></a>Série Dv3 <sup>1</sup>
 
 ACU: 160-190
 
-Os tamanhos da Dv3-series são baseados no processador Intel XEON ® E5-2673 v4 (Broadwell) de 2.3 GHz e podem atingir 3.5 GHz com a Tecnologia Intel Turbo Boost 2.0. Os tamanhos da série Dv3 oferecem uma combinação de vCPU, memória e armazenamento temporário para a maioria das cargas de trabalho de produção.
+Os tamanhos da série Dv3 são baseados no processador Intel Xeon® E5-2673 v3 (Haswell) de 2.4 GHz ou no processador Intel XEON ® E5-2673 v4 (Broadwell) de 2.3 GHz que podem atingir 3.5 GHz com a Tecnologia Intel Turbo Boost 2.0. Os tamanhos da série Dv3 oferecem uma combinação de vCPU, memória e armazenamento temporário para a maioria das cargas de trabalho de produção.
 
 O armazenamento do disco de dados é faturado separadamente das máquinas virtuais. Para usar discos de armazenamento premium, use os tamanhos Dsv3. Os medidores de cobrança e preço para os tamanhos Dsv3 são os mesmos que os da Dv3-series. 
 
@@ -57,7 +58,8 @@ O armazenamento do disco de dados é faturado separadamente das máquinas virtua
 | Standard_D16_v3 | 16        | 64          | 400            | 32             | 24000/375/187                                            | 8 / alta                     |
 | Standard_D32_v3 | 32        | 128          | 800            | 32             | 48000/750/375                                            | 8/Extremamente alta                     |
 | Standard_D64_v3 | 64        | 256          | 1600            | 32             | 96000/1000/500                                            | 8/Extremamente alta                     |
-*A tecnologia Intel® Hyper-Threading da VM série Dv3
+
+<sup>1</sup> A tecnologia Intel® Hyper-Threading da VM série Dv3
 
 ## <a name="dsv2-series"></a>Série DSv2
 
@@ -137,7 +139,7 @@ ACU: 50-100
 
 | Tamanho | vCPU | Memória: GiB | Armazenamento temporário (HDD): GiB | Discos de dados máximos | Taxa de transferência máxima do disco de dados: IOPS | Máximo de NICs/Largura de banda de rede esperado (Mbps)  |
 | --- | --- | --- | --- | --- | --- | --- |
-| Standard_A0* |1 |0,768 |20 |1 |1 x 500 |2 / 100 |
+| Standard_A0 <sup>1</sup> |1 |0,768 |20 |1 |1 x 500 |2 / 100 |
 | Standard_A1 |1 |1,75 |70 |2 |2x500 |2 / 500  |
 | Standard_A2 |2 |3,5 |135 |4 |4x500 |2 / 500 |
 | Standard_A3 |4 |7 |285 |8 |8 x 500 |2 / 1000 |
@@ -147,7 +149,7 @@ ACU: 50-100
 | Standard_A7 |8 |56 |605 |16 |16 x 500 |4 / 2000 |
 <br>
 
-*O tamanho A0 está assinado em excesso no hardware físico. Para este tamanho específico somente, outras implantações de clientes podem afetar o desempenho da carga de trabalho em execução. O desempenho relativo é descrito a seguir como a linha de base esperada, sujeito a uma variação aproximada de 15%.
+<sup>1</sup> O tamanho A0 está assinado em excesso no hardware físico. Para este tamanho específico somente, outras implantações de clientes podem afetar o desempenho da carga de trabalho em execução. O desempenho relativo é descrito a seguir como a linha de base esperada, sujeito a uma variação aproximada de 15%.
 
 ### <a name="standard-a0---a4-using-cli-and-powershell"></a>Standard A0 - A4 usando CLI e PowerShell
 No modelo de implantação clássica, alguns nomes de tamanhos de VM são ligeiramente diferentes na CLI e no PowerShell:

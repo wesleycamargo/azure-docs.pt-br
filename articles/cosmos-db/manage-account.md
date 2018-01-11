@@ -1,7 +1,7 @@
 ---
 title: Gerenciar uma conta do Azure Cosmos DB pelo Portal do Azure | Microsoft Docs
 description: Saiba como gerenciar sua conta do Azure Cosmos DB pelo Portal do Azure. Encontre um guia sobre como usar o Portal do Azure para exibir, copiar, excluir e acessar contas.
-keywords: Portal do Azure, banco de dados de documentos, azure, Microsoft azure
+keywords: Portal do Azure, azure, Microsoft azure
 services: cosmos-db
 documentationcenter: 
 author: kirillg
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: kirillg
-ms.openlocfilehash: 16cdd2780ae090a5388b3d2e6e4ab52a24f8116a
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: e5820cb17cfbaa15f10f24881f02a37aec617267
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-manage-an-azure-cosmos-db-account"></a>Como gerenciar uma conta do Azure Cosmos DB
 Saiba como definir a consistência global, trabalhar com chaves e excluir uma conta do Azure Cosmos DB no portal do Azure.

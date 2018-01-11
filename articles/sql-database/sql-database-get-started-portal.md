@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 08/25/2017
 ms.author: carlrab
-ms.openlocfilehash: 8ea4f39ced17a7a6de63c544157c5f1793042c0e
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 7b84e6f001f9d485c1d92b5d017daa96321eaab6
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="create-an-azure-sql-database-in-the-azure-portal"></a>Criar um Banco de Dados SQL do Azure no portal do Azure
 
@@ -46,12 +46,12 @@ Execute estas etapas para criar um Banco de Dados SQL que contém os dados de ex
 
 3. Preencha o formulário do Banco de Dados SQL com as informações abaixo, conforme mostrado na imagem anterior:   
 
-   | Configuração       | Valor sugerido | Descrição | 
+   | Configuração       | Valor sugerido | DESCRIÇÃO | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **Nome do banco de dados** | mySampleDatabase | Para ver os nomes do banco de dados válidos, consulte [Identificadores do Banco de Dados](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). | 
    | **Assinatura** | Sua assinatura  | Para obter detalhes sobre suas assinaturas, consulte [Assinaturas](https://account.windowsazure.com/Subscriptions). |
    | **Grupo de recursos**  | myResourceGroup | Para ver os nomes do grupo de recursos válidos, consulte [Regras e restrições de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
-   | **Fonte da origem** | Exemplo (AdventureWorksLT) | Carrega o esquema AdventureWorksLT e os dados no novo banco de dados |
+   | **Selecionar fonte** | Exemplo (AdventureWorksLT) | Carrega o esquema AdventureWorksLT e os dados no novo banco de dados |
 
    > [!IMPORTANT]
    > Você deve selecionar o banco de dados de exemplo neste formulário porque ele é usado no restante deste início rápido.
@@ -59,11 +59,11 @@ Execute estas etapas para criar um Banco de Dados SQL que contém os dados de ex
 
 4. Em **Servidor**, clique em **Definir configurações obrigatórias** e preencha o formulário do SQL Server (servidor lógico) com as informações abaixo, conforme mostrado na imagem a seguir:   
 
-   | Configuração       | Valor sugerido | Descrição | 
+   | Configuração       | Valor sugerido | DESCRIÇÃO | 
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **Nome do servidor** | Qualquer nome exclusivo globalmente | Para ver os nomes do servidor válidos, consulte [Regras e restrições de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). | 
    | **Logon de administrador do servidor** | Qualquer nome válido | Para ver os nomes de logon válidos, consulte [Identificadores do Banco de Dados](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). |
-   | **Senha** | Qualquer senha válida | Sua senha deve ter, pelo menos, oito caracteres e deve conter caracteres de três das seguintes categorias: caracteres com letras maiúsculas, letras minúsculas, números e caracteres não alfanuméricos. |
+   | **Senha** | Qualquer senha válida | Sua senha deve ter, pelo menos, 8 caracteres e deve conter caracteres de três das seguintes categorias: caracteres com letras maiúsculas, letras minúsculas, números e caracteres não alfanuméricos. |
    | **Assinatura** | Sua assinatura | Para obter detalhes sobre suas assinaturas, consulte [Assinaturas](https://account.windowsazure.com/Subscriptions). |
    | **Grupo de recursos** | myResourceGroup | Para ver os nomes do grupo de recursos válidos, consulte [Regras e restrições de nomenclatura](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions). |
    | **Localidade** | Qualquer local válido | Para obter mais informações sobre as regiões, consulte [Regiões do Azure](https://azure.microsoft.com/regions/). |
@@ -142,7 +142,7 @@ Agora que você criou um banco de dados de exemplo no Azure, usaremos a ferramen
 
    ![menu ferramentas](./media/sql-database-get-started-portal/tools-menu.png) 
 
-2. Marque a caixa de seleção **Termos da versão prévia** e clique em **OK**. A página do Editor de consulta é aberta.
+2. Clique na caixa de seleção **Termos da versão prévia** e clique em **OK**. A página do Editor de consulta é aberta.
 
 3. Clique em **Logon**, revise as informações de logon e clique em **OK** para se conectar usando a autenticação do SQL Server com o logon e a senha de administrador do servidor criados anteriormente.
 

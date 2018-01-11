@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: mabrigg
-ms.openlocfilehash: 5f760ae0cc33e138fc3d484711b8747b984977d4
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 4937b7725c8f39314ccc41584a8646b7197f6bdf
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="replace-a-hardware-component-on-an-azure-stack-scale-unit-node"></a>Substituir um componente de hardware em um nó de unidade de escala de pilha do Azure
 
 *Aplica-se a: sistemas integrados de pilha do Azure*
 
-Este artigo descreve o processo geral para substituir os componentes de hardware que não trocados. Substituição real etapas irão variar com base no seu fornecedor de hardware do fabricante (OEM). Consulte a documentação do fornecedor campo FRU (unidade renovável) para obter etapas detalhadas que são específicas para seu sistema de pilha do Azure integradas.
+Este artigo descreve o processo geral para substituir os componentes de hardware que não trocados. Substituição real etapas variam com base no seu fornecedor de hardware do fabricante (OEM). Consulte a documentação do fornecedor campo FRU (unidade renovável) para obter etapas detalhadas que são específicas para seu sistema de pilha do Azure integradas.
 
 Componentes não intercambiáveis incluem o seguinte:
 
@@ -40,7 +40,7 @@ Componentes não intercambiáveis incluem o seguinte:
 
 O diagrama de fluxo a seguir mostra o processo geral de FRU para substituir um componente de hardware não removível.
 
-![Fluxograma mostrando o fluxo de substituição de componente](media/azure-stack-replace-component/ReplaceComponentFlow.PNG)
+![Fluxograma mostrando o fluxo de substituição de componente](media/azure-stack-replace-component/replacecomponentflow.PNG)
 
 * Esta ação pode não ser necessária com base na condição do hardware física.
 
@@ -48,13 +48,17 @@ O diagrama de fluxo a seguir mostra o processo geral de FRU para substituir um c
 
 ## <a name="review-alert-information"></a>Revise as informações de alerta
 
-A integridade de pilha do Azure e o sistema de monitoramento monitora a integridade dos adaptadores de rede e unidades de dados que são controladas por espaços de armazenamento diretos. Ele não monitora outros componentes de hardware. Para todos os outros componentes de hardware, os alertas são gerados no hardware específicos de fornecedor solução que é executado no host de ciclo de vida do hardware de monitoramento.
+O sistema de monitoramento e integridade de pilha do Azure rastreará a integridade de adaptadores de rede e unidades de dados controladas por espaços de armazenamento diretos. Não controla de outros componentes de hardware. Para todos os outros componentes de hardware, os alertas são gerados no hardware específicos de fornecedor solução que é executado no host de ciclo de vida do hardware de monitoramento.
 
 ## <a name="component-replacement-process"></a>Processo de substituição de componente
 
-As etapas a seguir são fornecidas como uma visão geral do processo de substituição de componente. Não siga essas etapas sem fazer referência a documentação do FRU fornecidos pelo OEM.
+As etapas a seguir fornecem uma visão geral do processo de substituição de componente. Não siga essas etapas sem fazer referência a documentação do FRU fornecidos pelo OEM.
 
 1. Use o [drenar](azure-stack-node-actions.md#scale-unit-node-actions) ação para colocar o nó de unidade de escala no modo de manutenção. Esta ação pode não ser necessária com base na condição do hardware física.
+
+   > [!NOTE]
+   > Em qualquer caso, somente um nó pode ser descarregado e desligá-la ao mesmo tempo sem quebrar a S2D (espaços de armazenamento diretos).
+
 2. Após o nó de unidade de escala no modo de manutenção, use o [desligue](azure-stack-node-actions.md#scale-unit-node-actions) ação. Esta ação pode não ser necessária com base na condição do hardware física.
  
    > [!NOTE]
@@ -69,4 +73,5 @@ As etapas a seguir são fornecidas como uma visão geral do processo de substitu
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para obter informações sobre como substituir um disco físico trocados, consulte [substituir um disco](azure-stack-replace-disk.md).
-- Para obter informações sobre a substituição de um nó físico, consulte [substituir um nó de unidade de escala](azure-stack-replace-node.md). 
+- Para obter informações sobre a substituição de um nó físico, consulte [substituir um nó de unidade de escala](azure-stack-replace-node.md).
+- 

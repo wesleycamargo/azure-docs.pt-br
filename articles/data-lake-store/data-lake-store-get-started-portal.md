@@ -15,10 +15,10 @@ ms.workload: big-data
 ms.date: 09/28/2017
 ms.author: nitinme
 ms.openlocfilehash: 4d3a5c0c49b881db69a9d5cccc65406322212a8d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/18/2017
 ---
 # <a name="get-started-with-azure-data-lake-store-using-the-azure-portal"></a>Introdução ao Azure Data Lake Store usando o portal do Azure
 > [!div class="op_single_selector"]
@@ -123,7 +123,7 @@ Para excluir uma conta do Repositório Azure Data Lake da folha de seu Repositó
 ![Excluir conta do Data Lake](./media/data-lake-store-get-started-portal/ADL.Delete.Account.png "Excluir conta do Data Lake")
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Usar o Azure Data Lake Store para requisitos de big data](data-lake-store-data-scenarios.md) 
+* [Usar o Azure Data Lake Store para requisitos de Big Data](data-lake-store-data-scenarios.md) 
 * [Proteger dados no Repositório Data Lake](data-lake-store-secure-data.md)
 * [Usar a Análise Data Lake do Azure com o Repositório Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Usar o Azure HDInsight com o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)

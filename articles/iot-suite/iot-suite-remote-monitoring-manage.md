@@ -7,16 +7,16 @@ author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-suite
-ms.date: 11/10/2017
+ms.date: 12/12/2017
 ms.topic: article
 ms.devlang: NA
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.openlocfilehash: 84c2eaaab2dfc09c93fbfeac3fe2bfcc7066a411
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: fab3fd4163141aadc06b385f5759c19eece7fd14
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="manage-and-configure-your-devices"></a>Gerenciar e configurar dispositivos
 
@@ -40,13 +40,13 @@ Para seguir este tutorial, você precisará de uma instância implantada de solu
 
 Se você ainda não implantou a solução de monitoramento remoto, conclua o tutorial [Deploy the remote monitoring preconfigured solution](iot-suite-remote-monitoring-deploy.md) (Implantar a solução de monitoramento remoto pré-configurada).
 
-## <a name="provision-a-simulated-device"></a>Provisionar um dispositivo simulado
+## <a name="add-a-simulated-device"></a>Adicionar um dispositivo simulado
 
-Navegue até a página **Dispositivos** na solução e, em seguida, selecione **Provisionar**. No painel **Provisionar** escolha **Simulado**:
+Navegue até a página **Dispositivos** na solução e, em seguida, selecione **Novo dispositivo**. No painel **Novo dispositivo**, escolha **Simulado**:
 
 ![Provisionar um dispositivo simulado](media/iot-suite-remote-monitoring-manage/devicesprovision.png)
 
-Deixe o número de dispositivos a serem provisionados definido como **1**. Escolha **Mecanismo** como o **Modelo de dispositivo** e, em seguida, escolha **Aplicar** para criar o dispositivo simulado:
+Deixe o número de dispositivos a serem provisionados definido como **1**. Escolha **Mecanismo Defeituoso** como o **Modelo de dispositivo** e, em seguida, escolha **Aplicar** para criar o dispositivo simulado:
 
 ![Provisionar um dispositivo de mecanismo simulado](media/iot-suite-remote-monitoring-manage/devicesprovisionengine.png)
 
@@ -68,7 +68,7 @@ Para exibir um diagnóstico detalhado, role para baixo até a exibição **Diagn
 
 ## <a name="act-on-a-device"></a>Agir em um dispositivo
 
-Para agir em um dispositivo, selecione-o na lista de dispositivos e, em seguida, escolha **Agendar**. O modelo de dispositivo **Mecanismo** especifica quatro métodos que precisam ter suporte em um dispositivo:
+Para agir em um ou mais de um dispositivo, selecione-o(s) na lista de dispositivos e, em seguida, escolha **Agendar**. O modelo de dispositivo **Mecanismo** especifica quatro métodos que precisam ter suporte em um dispositivo:
 
 ![Métodos de mecanismo](media/iot-suite-remote-monitoring-manage/devicesmethods.png)
 
@@ -76,7 +76,7 @@ Escolha **Reiniciar**, defina o nome do trabalho **RestartEngine** e, em seguida
 
 ![Agendar o método reiniciar](media/iot-suite-remote-monitoring-manage/devicesrestartengine.png)
 
-Para acompanhar o status do trabalho na página **Manutenção**, escolha **Status do Sistema**:
+Para acompanhar o status do trabalho na página **Manutenção**, escolha **Trabalhos**:
 
 ![Monitorar o trabalho de agendas](media/iot-suite-remote-monitoring-manage/maintenancerestart.png)
 
@@ -96,7 +96,7 @@ Para fazer uma alteração, adicione um nome para o trabalho, atualize os valore
 
 ![Atualizar um valor da propriedade do dispositivo](media/iot-suite-remote-monitoring-manage/devicesreconfigurephysical.png)
 
-Para acompanhar o status do trabalho na página **Manutenção** escolha **Status do Sistema**.
+Para acompanhar o status do trabalho na página **Manutenção**, escolha **Trabalhos**.
 
 ## <a name="next-steps"></a>Próximas etapas
 
