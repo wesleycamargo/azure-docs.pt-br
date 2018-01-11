@@ -6,24 +6,24 @@ author: mmacy
 manager: timlt
 ms.service: container-registry
 ms.topic: quickstart
-ms.date: 10/31/2017
+ms.date: 12/06/2017
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: e6338ca03bcb0daa040a62b06cfa3ad7ba66a1b2
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: c6ce1c16a3f7d5b52a3fcb47213618eb75183149
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-a-container-registry-using-the-azure-portal"></a>Criar um registro de contêiner usando o portal do Azure
 
 Um registro de contêiner do Azure é um registro particular do Docker no Azure no qual você pode armazenar e gerenciar suas imagens de contêiner particulares do Docker. Neste guia de início rápido, você criará um registro de contêiner com o Portal do Azure.
 
-Para concluir este guia de início rápido, você deve ter o Docker instalado localmente. O Docker fornece pacotes que configuram facilmente o Docker em qualquer sistema [Mac](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) ou [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
+Para concluir este guia de início rápido, você deve ter o Docker instalado localmente. O Docker fornece pacotes que configuram facilmente o Docker em qualquer sistema [Mac][docker-mac], [Windows][docker-windows] ou [Linux][docker-linux].
 
-## <a name="log-in-to-azure"></a>Fazer logon no Azure
+## <a name="sign-in-to-azure"></a>Entrar no Azure
 
-Faça logon no Portal do Azure em https://portal.azure.com.
+Entre no portal do Azure em https://portal.azure.com.
 
 ## <a name="create-a-container-registry"></a>Criar um registro de contêiner
 
@@ -35,7 +35,7 @@ Insira os valores para **Nome do registro** e **Grupo de recursos**. O nome do r
 
 ![Criar um registro de contêiner no Portal do Azure][qs-portal-03]
 
-Neste guia de início rápido, criamos um registro *Básico*. O Registro de Contêiner do Azure está disponível em várias SKUs diferentes, descritos brevemente na tabela a seguir. Para obter detalhes estendidos sobre cada um, consulte [SKUs de registro de contêiner](container-registry-skus.md).
+Neste guia de início rápido, criamos um registro *Básico*. O Registro de Contêiner do Azure está disponível em várias SKUs diferentes, descritos brevemente na tabela a seguir. Para obter detalhes estendidos sobre cada um, consulte [SKUs de registro de contêiner][container-registry-skus].
 
 [!INCLUDE [container-registry-sku-matrix](../../includes/container-registry-sku-matrix.md)]
 
@@ -55,13 +55,13 @@ Você usará esses valores nas etapas seguintes ao trabalhar com o registro na C
 
 ## <a name="log-in-to-acr"></a>Fazer logon no ACR
 
-Antes de enviar por push e pull imagens de contêiner, você deverá fazer logon na instância ACR. Para fazer isso, use o comando [docker login](https://docs.docker.com/engine/reference/commandline/login/). Substitua os valores *nome de usuário*, *senha* e *servidor de logon* por aqueles que você anotou na etapa anterior.
+Antes de enviar por push e pull imagens de contêiner, você deverá fazer logon na instância ACR. Para fazer isso, use o comando [docker login][docker-login]. Substitua os valores *nome de usuário*, *senha* e *servidor de logon* por aqueles que você anotou na etapa anterior.
 
 ```bash
 docker login --username <username> --password <password> <login server>
 ```
 
-O comando retorna `Login Succeeded` na conclusão. Você também poderá ver um aviso de segurança recomendando usar o parâmetro `--password-stdin`. Embora seu uso esteja fora do escopo deste artigo, é recomendável seguir essa prática recomendada. Consulte a referência do comando [docker login](https://docs.docker.com/engine/reference/commandline/login/) para ver mais informações.
+O comando retorna `Login Succeeded` na conclusão. Você também poderá ver um aviso de segurança recomendando usar o parâmetro `--password-stdin`. Embora seu uso esteja fora do escopo deste artigo, é recomendável seguir essa prática recomendada. Consulte a referência do comando [docker login][docker-login] para ver mais informações.
 
 ## <a name="push-image-to-acr"></a>Enviar imagem por push para o ACR
 
@@ -71,13 +71,13 @@ Para enviar por push uma imagem para o Registro de Contêiner do Azure, primeiro
 docker pull microsoft/aci-helloworld
 ```
 
-Antes de enviar a imagem por push para o registro, você deve marcar a imagem com o nome do servidor de logon do ACR. Marque a imagem usando o comando [docker tag](https://docs.docker.com/engine/reference/commandline/tag/). Substitua o *servidor de logon* pelo nome do servidor de logon que você anotou anteriormente.
+Antes de enviar a imagem por push para o registro, você deve marcar a imagem com o nome do servidor de logon do ACR. Marque a imagem usando o comando [docker tag][docker-tag]. Substitua o *servidor de logon* pelo nome do servidor de logon que você anotou anteriormente.
 
 ```
 docker tag microsoft/aci-helloworld <login server>/aci-helloworld:v1
 ```
 
-Por fim, use [docker push](https://docs.docker.com/engine/reference/commandline/push/) para enviar a imagem por push para a instância do ACR. Substitua o *servidor de logon* pelo nome do servidor de logon da sua instância do ACR.
+Por fim, use [docker push][docker-push] para enviar a imagem por push para a instância do ACR. Substitua o *servidor de logon* pelo nome do servidor de logon da sua instância do ACR.
 
 ```
 docker push <login server>/aci-helloworld:v1
@@ -115,7 +115,7 @@ Quando não for mais necessário, exclua o grupo de recursos **myResourceGroup**
 Neste guia de início rápido, você ciou um Registro de Contêiner do Azure com a CLI do Azure. Se você quiser usar o Registro de Contêiner do Azure com Instâncias de Contêiner do Azure, prossiga para o tutorial de Instâncias de Contêiner do Azure.
 
 > [!div class="nextstepaction"]
-> [Tutoriais sobre Instâncias de Contêiner do Azure](../container-instances/container-instances-tutorial-prepare-app.md)
+> [Tutoriais sobre Instâncias de Contêiner do Azure][container-instances-tutorial-prepare-app]
 
 <!-- IMAGES -->
 [qs-portal-01]: ./media/container-registry-get-started-portal/qs-portal-01.png
@@ -127,3 +127,15 @@ Neste guia de início rápido, você ciou um Registro de Contêiner do Azure com
 [qs-portal-07]: ./media/container-registry-get-started-portal/qs-portal-07.png
 [qs-portal-08]: ./media/container-registry-get-started-portal/qs-portal-08.png
 [qs-portal-09]: ./media/container-registry-get-started-portal/qs-portal-09.png
+
+<!-- LINKS - external -->
+[docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
+[docker-login]: https://docs.docker.com/engine/reference/commandline/login/
+[docker-mac]: https://docs.docker.com/docker-for-mac/
+[docker-push]: https://docs.docker.com/engine/reference/commandline/push/
+[docker-tag]: https://docs.docker.com/engine/reference/commandline/tag/
+[docker-windows]: https://docs.docker.com/docker-for-windows/
+
+<!-- LINKS - internal -->
+[container-instances-tutorial-prepare-app]: ../container-instances/container-instances-tutorial-prepare-app.md
+[container-registry-skus]: container-registry-skus.md

@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/31/2017
+ms.date: 12/08/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 3fd5a5b9d2e2eec485fd9ecc5380ad6adb9851d0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 77c8c8dbe6228d80062f34f4bb7fc93a1871e8c4
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-function-triggered-by-azure-queue-storage"></a>Criar uma função disparada pelo Armazenamento de Filas do Azure
 
@@ -52,13 +52,16 @@ Em seguida, crie uma nova função no novo aplicativo de funções.
 
     ![Página de início rápido de funções no portal do Azure](./media/functions-create-storage-queue-triggered-function/add-first-function.png)
 
-2. Selecione o modelo **QueueTrigger** para o idioma desejado e use as configurações especificadas na tabela.
+2. No campo de pesquisa, digite `queue` e depois escolha a linguagem desejada para o modelo de gatilho de armazenamento de filas.
 
-    ![Crie a função disparada por filas de armazenamento.](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png)
+    ![Escolha o modelo de gatilho de armazenamento de filas.](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal.png)
+
+3. Use as configurações conforme especificado na tabela abaixo da imagem.
+    ![Configure a função disparada do armazenamento de filas.](./media/functions-create-storage-queue-triggered-function/functions-create-queue-storage-trigger-portal-2.png)
     
     | Configuração | Valor sugerido | Descrição |
     |---|---|---|
-    | **Nomeie sua função** | Exclusivo no aplicativo de funções | O nome dessa função disparada por filas. |
+    | **Nome** | Exclusivo no aplicativo de funções | O nome dessa função disparada por filas. |
     | **Nome da fila**   | myqueue-items    | Nome da fila à qual se conectar em sua conta de armazenamento. |
     | **Conexão da conta de armazenamento** | AzureWebJobStorage | Você pode usar a conexão da conta de armazenamento que já está sendo usada por seu aplicativo de funções ou criar uma nova.  |    
 
