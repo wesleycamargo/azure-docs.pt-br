@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: mareat
-ms.openlocfilehash: eaee4e1ed213d0834d959d862feffd4bca57cd9f
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 8d82ffa84c3d75ec3acd102a2de2bdce3718a995
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Gerenciar e analisar os logs de fluxo do grupo de segurança de rede no Azure usando o Observador de Rede e o Graylog
 
@@ -152,8 +152,8 @@ A seção de filtro, em seguida, mescla cada arquivo de log do fluxo para que ca
 
 Por fim, a seção de saída encaminha cada evento de Logstash para o servidor do Graylog. Para atender a suas necessidades específicas, modifique o arquivo de configuração do Logstash.
 
-    > [!NOTE]
-    > The previous config file assumes that the Graylog server has been configured on the local host loopback IP address 127.0.0.1. If not, be sure to change the host parameter in the output section to the correct IP address.
+   > [!NOTE]
+   > O arquivo de configuração anterior pressupõe que o servidor Graylog foi configurado no endereço IP 127.0.0.1 de loopback do host local. Caso contrário, certifique-se de alterar o parâmetro do host na seção de saída para o endereço IP correto.
 
 Para obter mais informações sobre como instalar o Logstash, consulte a [documentação](https://www.elastic.co/guide/en/beats/libbeat/5.2/logstash-installation.html) do Logstash.
 

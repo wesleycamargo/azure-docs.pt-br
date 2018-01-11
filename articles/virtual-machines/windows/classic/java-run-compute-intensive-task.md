@@ -15,11 +15,11 @@ ms.devlang: Java
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: robmcm
-ms.openlocfilehash: a71efa7ff052c7c69de2b9aba3c1ed9328538e3f
-ms.sourcegitcommit: ce934aca02072bdd2ec8d01dcbdca39134436359
+ms.openlocfilehash: 76997f2e31f3edd6260b2ae19631236bc1c0c1b6
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/08/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="how-to-run-a-compute-intensive-task-in-java-on-a-virtual-machine"></a>Como executar uma tarefa com uso intenso de computação no Java em uma máquina virtual
 > [!IMPORTANT] 
@@ -51,7 +51,7 @@ Este é um exemplo do aplicativo Java que monitora a tarefa de computação inte
 [!INCLUDE [create-account-and-vms-note](../../../../includes/create-account-and-vms-note.md)]
 
 ## <a name="to-create-a-virtual-machine"></a>Para criar uma máquina virtual
-1. Faça logon no [portal clássico do Azure](https://manage.windowsazure.com).
+1. Faça logon no [Portal do Azure](https://portal.azure.com).
 2. Clique em **Nova**, clique em **Computação**, clique em **Máquina virtual** e, em seguida, clique em **Da Galeria**.
 3. Na caixa de diálogo **Seleção de imagem da máquina virtual**, selecione **JDK 7 Windows Server 2012**.
    Observe que o **JDK 6 Windows Server 2012** está disponível caso você tenha aplicativos legados que ainda não estejam prontos para serem executados no JDK 7.
@@ -74,7 +74,7 @@ Este é um exemplo do aplicativo Java que monitora a tarefa de computação inte
    2. Clique em **Concluído**.
 
 ## <a name="to-remotely-log-in-to-your-virtual-machine"></a>Para fazer logon remotamente na máquina virtual
-1. Faça logon no [portal clássico do Azure](https://manage.windowsazure.com).
+1. Faça logon no [portal do Azure](https://portal.azure.com).
 2. Clique em **Máquinas Virtuais**.
 3. Clique no nome da máquina virtual na qual você deseja fazer logon.
 4. Clique em **Conectar**.
@@ -87,15 +87,15 @@ Para começar a usar filas do Barramento de Serviço no Azure, primeiro crie um 
 
 Para criar um namespace de serviço:
 
-1. Faça logon no [portal clássico do Azure](https://manage.windowsazure.com).
-2. No painel de navegação esquerdo inferior do portal clássico do Azure, clique em **Barramento de Serviço, Controle de Acesso e Caching**.
-3. No painel superior esquerdo do portal clássico do Azure, clique no nó de **Barramento de Serviço** e, em seguida, clique no botão **Novo**.  
+1. Faça logon no [portal do Azure](https://portal.azure.com).
+2. No painel de navegação esquerdo inferior do portal do Azure, clique em **Barramento de Serviço, Controle de Acesso e Caching**.
+3. No painel superior esquerdo do portal do Azure, clique no nó de **Barramento de Serviço** e, em seguida, clique no botão **Novo**.  
    ![Captura de tela do nó do Service Bus][svc_bus_node]
 4. Na caixa de diálogo **Criar um novo namespace de serviço**, digite um **Namespace** e, em seguida, para verificar se ele é exclusivo, clique no botão **Verificar Disponibilidade**.  
    ![Criar uma captura de tela do novo Namespace][create_namespace]
 5. Depois de verificar se o nome do namespace está disponível, escolha o país ou a região na qual o namespace deve estar hospedado e, em seguida, clique no botão **Criar Namespace** .  
    
-   O namespace que você criou aparecerá no portal clássico do Azure e demorará algum tempo para ser ativado. Aguarde até que o status esteja **Ativo** para passar à próxima etapa.
+   O namespace que você criou aparecerá no portal do Azure e demorará algum tempo para ser ativado. Aguarde até que o status esteja **Ativo** para passar à próxima etapa.
 
 ## <a name="obtain-the-default-management-credentials-for-the-namespace"></a>Obter as Credenciais de gerenciamento padrão do namespace
 A fim de executar operações de gerenciamento, como criar uma fila no novo namespace, você precisar obter as credenciais de gerenciamento para o namespace.

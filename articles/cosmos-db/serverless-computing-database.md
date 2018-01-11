@@ -12,13 +12,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 12/12/2017
 ms.author: mimig
-ms.openlocfilehash: f9bcecff4031bcf51e3885ad98da69d9be41b397
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 8ec4cf774306a5b74627adc0d405bab09645ec9a
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: computação de banco de dados sem servidor usando o Azure Functions
 
@@ -44,7 +44,7 @@ O gatilho, a associação de entrada e a associação de saída do Azure Cosmos 
 * Uma associação de entrada a um contêiner do Azure Cosmos DB pode ser usada na mesma função de um gatilho do Azure Cosmos DB e pode ser usada com ou sem uma associação de saída também. Use essa combinação para aplicar informações de moeda atualizadas (extraídas com uma associação de entrada a um contêiner de câmbio) ao feed de alterações de novos pedidos em seu serviço de carrinho de compras. O total do carrinho de compras atualizado, com a conversão de moeda atual aplicada, pode ser gravado em um terceiro contêiner usando uma associação de saída.
 
 > [!NOTE]
-> Neste momento, o gatilho, as associações de entrada e as associações de saída do Azure Cosmos DB funcionam apenas com contas do DocumentDB, Tabela e API do Graph.
+> Neste momento, o gatilho, as associações de entrada e as associações de saída do Azure Cosmos DB funcionam apenas com contas da API do Graph e a API do SQL.
 
 ## <a name="use-cases"></a>Casos de uso
 
@@ -86,14 +86,14 @@ As imagens a seguir mostram o código no portal do Azure para este cenário.
 
 ### <a name="gaming-use-case---azure-cosmos-db-trigger-and-output-binding"></a>Caso de uso de jogos – gatilho e associação de saída do Azure Cosmos DB
 
-Em jogos, quando um novo usuário é criado, você pode pesquisar outros usuários que talvez o conheçam usando a [API do Graph do Azure Cosmos DB](graph-introduction.md). Em seguida, você pode gravar os resultados em um [banco de dados de Tabela do Azure Cosmos DB](table-introduction.md) para fácil recuperação.
+Em jogos, quando um novo usuário é criado, você pode pesquisar outros usuários que talvez o conheçam usando a [API do Graph do Azure Cosmos DB](graph-introduction.md). Em seguida, você pode gravar os resultados em um [banco de dados de SQL do Azure Cosmos DB] para fácil recuperação.
 
 **Implementação:** use um gatilho e uma associação de saída do Azure Cosmos DB
 
-1. Usando um [banco de dados de gráfico](graph-introduction.md) do Azure Cosmos DB para armazenar todos os usuários, você pode criar uma nova função com um gatilho do Azure Cosmos DB. 
+1. Usando um [banco de dados de grafo](graph-introduction.md) do Azure Cosmos DB para armazenar todos os usuários, você pode criar uma nova função com um gatilho do Azure Cosmos DB. 
 2. Sempre que um novo usuário é inserido, a função é invocada e, em seguida, o resultado é armazenado usando uma **associação de saída**.
-3. A função consulta o banco de dados de gráfico para pesquisar todos os usuários que estão diretamente relacionados ao novo usuário e retorna o conjunto de dados para a função.
-4. Em seguida, esses dados são armazenados em um [banco de dados de tabela](table-introduction.md) do Azure Cosmos DB como um conjunto de pares chave-valor, que pode ser recuperado com facilidade por qualquer aplicativo front-end que mostra ao novo usuário seus amigos conectados.
+3. A função consulta o banco de dados de grafo para pesquisar todos os usuários que estão diretamente relacionados ao novo usuário e retorna o conjunto de dados para a função.
+4. Em seguida, esses dados são armazenados no Azure Cosmos DB, que podem ser recuperados com facilidade por qualquer aplicativo front-end que mostre ao novo usuário seus amigos conectados.
 
 ### <a name="retail-use-case---multiple-functions"></a>Caso de uso de varejo – Várias funções
 

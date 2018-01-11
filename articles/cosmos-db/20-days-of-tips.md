@@ -13,11 +13,11 @@ ms.topic: article
 ms.date: 10/03/2017
 ms.author: mimig
 ms.custom: cda
-ms.openlocfilehash: 7d26974f67b69b2b861ef11ad8d76f34f53d453f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 976be65fc4668a911bfa93ef87a7f14686a79f31
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="20-days-of-azure-cosmos-db-tips"></a>20 dias de dicas do Azure Cosmos DB
 
@@ -51,7 +51,7 @@ Dica 3: Precisa de seu aplicativo para ser incrivelmente rápido em qualquer lug
 
 [![Retweetar no twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/905783001937833984)   [![Compartilhar no LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6311547372904214528)
 
-## <a name="tip-4-gremlin-graph-support"></a>Dica 4: Suporte de gráfico Gremlin
+## <a name="tip-4-gremlin-graph-support"></a>Dica 4: Suporte de grafo Gremlin
 
 Dica 4: Gremlin é a sua praia? O #cosmosdb também adora Gremlin! Exibir, consultar e editar seu banco de dados de grafo usando o portal do Azure [https://aka.ms/tfmi37](https://aka.ms/tfmi37)  
 
@@ -103,7 +103,7 @@ Dica 10: saiba como copiar os dados do MongoDB para o Azure Cosmos DB usando o S
 
 Dica 11: compile um aplicativo de acompanhamento de hero usando o React, o Node.js e o Azure Cosmos DB.
 
-Artigo: [Criar um aplicativo do MongoDB com React e Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/tutorial-develop-mongodb-react?WT.mc_id=sicotint)
+Artigo: [Criar um aplicativo do MongoDB com React e Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/tutorial-develop-mongodb-react?WT.mc_id=sicotint)
 
 [![Retweetar no twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/910156604875649025)   [![Compartilhar no LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6315922463670751233)
 
@@ -119,7 +119,7 @@ Dica 12: vá para o modo sem servidor com o Azure #CosmosDB e @AzureFunctions! D
 
 Dica 13: do zero para o hero com @John_Papa e o Azure Cosmos DB. Aprenda a criar um aplicativo do MEAN do zero
 
-Artigo: [Criar um aplicativo do MongoDB com Angular e Azure Cosmos DB](https://docs.microsoft.com/en-us/azure/cosmos-db/tutorial-develop-mongodb-nodejs?WT.mc_id=sicotint&utm_content=buffer2495b&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer)
+Artigo: [Criar um aplicativo do MongoDB com Angular e Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/tutorial-develop-mongodb-nodejs?WT.mc_id=sicotint&utm_content=buffer2495b&utm_medium=social&utm_source=twitter.com&utm_campaign=buffer)
 
 [![Retweetar no twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/910881618855907329)   [![Compartilhar no LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6316647045599944704)
 
@@ -177,7 +177,7 @@ Dica 19: partição! Partition! Partition! O porquê e o como no Azure #CosmosDB
 
 Dica 20: todos adoram a boa e velha cola. O Azure #CosmosDB também tem uma. Dê uma olhadinha em [https://aka.ms/Nt01nl](https://aka.ms/Nt01nl)
 
-Cola: [Azure Cosmos DB: PDF de cola de consulta SQL da API do DocumentDB](https://aka.ms/Nt01nl)
+Roteiro: [Azure Cosmos DB: PDF de roteiro de consultas SQL](https://aka.ms/Nt01nl)
 
 [![Retweetar no twitter](./media/20-days-of-tips/twitter-icon.png)](https://twitter.com/simona_cotin/status/913793292474732544)   [![Compartilhar no LinkedIn](./media/20-days-of-tips/linkedin-icon.png)](https://www.linkedin.com/feed/update/urn:li:activity:6319559027986698241)
 

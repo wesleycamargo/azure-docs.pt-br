@@ -16,11 +16,11 @@ ms.topic: article
 ms.custom: H1Hack27Feb2017
 ms.date: 07/29/2016
 ms.author: LADocs; b-hoedid
-ms.openlocfilehash: 044de27c75da93c95609110d2b73336c42f746fe
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a8bae22b28b7de2f2579f310c8bd4b0e43885a0d
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="scenario-exception-handling-and-error-logging-for-logic-apps"></a>Cenário: Tratamento de exceção e log de erros de aplicativos lógicos
 
@@ -45,7 +45,7 @@ O projeto tinha dois requisitos principais:
 
 ## <a name="how-we-solved-the-problem"></a>Como solucionamos o problema
 
-Escolhemos o [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/ "Azure Cosmos DB") como um repositório dos registros de log e erros (o Cosmos DB refere-se aos registros como documentos). Como o Aplicativo Lógico do Azure tem um modelo padrão para todas as respostas, não será necessário criar um esquema personalizado. Nós poderíamos criar um aplicativo de API para **Inserir** e **Consultar** registros de erro e de log. Também poderíamos definir um esquema para cada um deles no aplicativo de API.  
+Escolhemos o [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/ "Azure Cosmos DB") como um repositório dos registros de log e erros (o Cosmos DB refere-se aos registros como documentos). Como o Aplicativo Lógico do Azure tem um modelo padrão para todas as respostas, não será necessário criar um esquema personalizado. Nós poderíamos criar um aplicativo de API para **Inserir** e **Consultar** registros de erro e de log. Também poderíamos definir um esquema para cada um deles no aplicativo de API.  
 
 Outro requisito era eliminar registros após determinada data. O Cosmos DB tem uma propriedade chamada [TTL](https://azure.microsoft.com/blog/documentdb-now-supports-time-to-live-ttl/ "Time to Live") (vida útil), que nos permitiu definir um valor de **TTL** para cada registro ou coleção. Essa funcionalidade eliminou a necessidade de excluir manualmente os registros do Cosmos DB.
 
@@ -107,7 +107,7 @@ Devemos registrar a origem (solicitação) do registro do paciente do portal do 
    O gatilho proveniente do CRM fornece a **CRM PatentId**, o **tipo de registro**, o **Registro Novo ou Atualizado** (valor booliano novo ou atualizado) e a **SalesforceId**. O **SalesforceId** pode ser nulo porque é usado somente para uma atualização.
    Obtemos o registro do CRM usando a **PatientID** do CRM e o **Tipo de Registro**.
 
-2. Em seguida, precisamos adicionar a operação **InsertLogEntry** de nosso aplicativo de API do DocumentDB, conforme mostrado aqui no Designer de Aplicativo Lógico.
+2. Em seguida, precisamos adicionar a operação **InsertLogEntry** do nosso aplicativo de API do SQL do Azure Cosmos DB, conforme mostrado aqui no Designer de Aplicativo Lógico.
 
    **Inserir entrada de log**
 
@@ -400,7 +400,7 @@ Assim que você obtiver a resposta, poderá passá-la para o aplicativo lógico 
 
 ## <a name="cosmos-db-repository-and-portal"></a>Repositório e portal do Cosmos DB
 
-Nossa solução adicionou funcionalidades ao [Cosmos DB](https://azure.microsoft.com/services/documentdb).
+Nossa solução adicionou funcionalidades ao [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db).
 
 ### <a name="error-management-portal"></a>Portal de gerenciamento de erros
 
@@ -430,14 +430,14 @@ Para exibir os logs, também criamos um aplicativo Web do MVC. Estes são exempl
 
 Nosso aplicativo de API de gerenciamento de exceções do Aplicativo Lógico do Azure de software livre fornece a funcionalidade conforme descrito a seguir - existem dois controladores:
 
-* **ErrorController** insere um registro de erro (documento) em uma coleção do DocumentDB.
-* **LogController** insere um registro de log (documento) em uma coleção do DocumentDB.
+* **ErrorController** insere um registro de erro (documento) em uma coleção do Azure Cosmos DB.
+* **LogController** insere um registro de log (documento) em uma coleção do Azure Cosmos DB.
 
 > [!TIP]
-> Ambos os controladores usam operações `async Task<dynamic>`, permitindo que as operações sejam resolvidas em tempo de execução, para que possamos criar o esquema do DocumentDB no corpo da operação. 
+> Ambos os controladores usam operações `async Task<dynamic>`, permitindo que as operações sejam resolvidas em tempo de execução, para que possamos criar o esquema do Azure Cosmos DB no corpo da operação. 
 > 
 
-Todos os documentos do DocumentDB devem ter uma ID exclusiva. Estamos usando o `PatientId` e adicionando um carimbo de data/hora convertido em um valor de carimbo de data/hora do Unix (double). Truncamos o valor para remover o valor fracionário.
+Todos os documentos do Azure Cosmos DB devem ter uma ID exclusiva. Estamos usando o `PatientId` e adicionando um carimbo de data/hora convertido em um valor de carimbo de data/hora do Unix (double). Truncamos o valor para remover o valor fracionário.
 
 Você pode exibir o código-fonte da nossa API de controlador erro [o GitHub](https://github.com/HEDIDIN/LogicAppsExceptionManagementApi/blob/master/Logic App Exception Management API/Controllers/ErrorController.cs).
 
@@ -479,7 +479,7 @@ A expressão no exemplo de código anterior verifica o status de *Create_NewPati
 ## <a name="summary"></a>Resumo
 
 * Você pode implementar facilmente o tratamento de logs e de erros em um aplicativo lógico.
-* Você pode usar o DocumentDB como o repositório de registros de log e de erros (documentos).
+* Você pode usar o Azure Cosmos DB como o repositório de registros de log e de erros (documentos).
 * Você pode usar o MVC para criar um portal para exibir os registros de log e de erros.
 
 ### <a name="source-code"></a>Código-fonte

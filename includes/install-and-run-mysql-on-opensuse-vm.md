@@ -36,11 +36,11 @@
         mysql -u root -p
    
     Digite a senha raiz de MySQL (que você alterou na etapa anterior) e será exibido um prompt onde você poderá executar instruções SQL para interagir com o banco de dados.
-7. Para criar um novo usuário do MySQL, execute o seguinte no prompt **mysql>**:
+7. Para criar um novo usuário do MySQL, execute o seguinte comando no prompt **mysql>**:
    
         CREATE USER 'mysqluser'@'localhost' IDENTIFIED BY 'password';
    
-    Observe que o ponto e vírgula (;) no final das linhas são cruciais para encerrar os comandos.
+    Observe que o ponto e vírgula (;) no final das linhas é crucial para encerrar os comandos.
 8. Para criar um banco de dados e conceder as `mysqluser` permissões de usuário a ele, emita os seguintes comandos:
    
         CREATE DATABASE testdatabase;
@@ -57,7 +57,7 @@
         quit
 
 ## <a name="add-an-endpoint"></a>Adicionar um ponto de extremidade
-1. Após a instalação do MySQL, você precisará configurar um ponto de extremidade para acessar remotamente o MySQL. Faça logon no [Portal Clássico do Azure][AzurePortal]. Clique em **Máquinas Virtuais**, clique no nome de sua nova máquina virtual e clique em **Pontos de Extremidade**.
+1. Após a instalação do MySQL, você precisará configurar um ponto de extremidade para acessar remotamente o MySQL. Faça logon no [Portal do Azure][AzurePortal]. Clique em **Máquinas Virtuais**, clique no nome de sua nova máquina virtual e clique em **Pontos de Extremidade**.
 2. Clique em **Adicionar** na parte inferior da página.
 3. Adicione um ponto de extremidade chamado "MySQL" com o protocolo **TCP** e as portas **Pública** e **Privada** configuradas como "3306".
 4. Para conectar-se remotamente à máquina virtual do seu computador, digite:
@@ -69,6 +69,6 @@
         mysql -u mysqluser -p -h testlinuxvm.cloudapp.net
 
 [MySQLDocs]: http://dev.mysql.com/doc/
-[AzurePortal]: http://manage.windowsazure.com
+[AzurePortal]: http://portal.azure.com
 
 [Image9]: ./media/install-and-run-mysql-on-opensuse-vm/LinuxVmAddEndpointMySQL.png

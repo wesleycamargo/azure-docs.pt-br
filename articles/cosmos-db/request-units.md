@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: mimig
-ms.openlocfilehash: fc544a776293e94114d8c07d89df588a17aa1962
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 57e8274d67bff86832d9cd070b781ade6575dee7
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unidades de Solicitação no Azure Cosmos DB
 Agora disponível: [calculadora de unidades de solicitação](https://www.documentdb.com/capacityplanner) do Azure Cosmos DB. Saiba mais em [Estimativa das necessidades de produção](request-units.md#estimating-throughput-needs).
@@ -26,9 +26,9 @@ Agora disponível: [calculadora de unidades de solicitação](https://www.docume
 ![Calculadora de produtividade][5]
 
 ## <a name="introduction"></a>Introdução
-O [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) é o multimodelo de banco de dados distribuído globalmente da Microsoft. Com o Azure Cosmos DB, você não precisa alugar máquinas virtuais, implantar softwares ou monitorar bancos de dados. O Azure Cosmos DB é operado e continuamente monitorado pelos melhores engenheiros da Microsoft para fornecer disponibilidade, desempenho e proteção de dados da mais alta qualidade. Você pode acessar seus dados usando as APIs de sua escolha, como SQL por meio da [API do DocumentDB](documentdb-introduction.md), APIs do MongoDB, [API de Tabela](table-introduction.md) e Gremlin por meio da [API do Graph](graph-introduction.md) – todos têm suporte nativo. A moeda do Azure Cosmos DB é a RU (Unidade de Solicitação). Com RUs, você não precisa reservar capacidades de leitura/gravação nem provisionar CPU, memória e IOPS.
+O [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) é o multimodelo de banco de dados distribuído globalmente da Microsoft. Com o Azure Cosmos DB, você não precisa alugar máquinas virtuais, implantar softwares ou monitorar bancos de dados. O Azure Cosmos DB é operado e continuamente monitorado pelos melhores engenheiros da Microsoft para fornecer disponibilidade, desempenho e proteção de dados da mais alta qualidade. Você pode acessar seus dados usando as APIs de sua escolha, como [ API do SQL](documentdb-introduction.md), [API do MongoDB](mongodb-introduction.md), [API de Tabela](table-introduction.md) e Gremlin por meio da [API do Graph](graph-introduction.md) – todos têm suporte nativo. A moeda do Azure Cosmos DB é a RU (Unidade de Solicitação). Com RUs, você não precisa reservar capacidades de leitura/gravação nem provisionar CPU, memória e IOPS.
 
-O Azure Cosmos DB dá suporte a uma série de APIs com operações diferentes que variam de leituras e gravações simples a consultas de gráfico complexas. Como nem todas as solicitações são iguais, elas são atribuídas a uma quantidade normalizada de **unidades de solicitação** com base na quantidade de computação necessária para atender à solicitação. O número de unidades de solicitação de uma operação é determinístico e você pode acompanhar o número de unidades de solicitação consumidas por uma operação no Azure Cosmos DB por meio de um cabeçalho de resposta. 
+O Azure Cosmos DB dá suporte a uma série de APIs com operações diferentes que variam de leituras e gravações simples a consultas de grafo complexas. Como nem todas as solicitações são iguais, elas são atribuídas a uma quantidade normalizada de **unidades de solicitação** com base na quantidade de computação necessária para atender à solicitação. O número de unidades de solicitação de uma operação é determinístico e você pode acompanhar o número de unidades de solicitação consumidas por uma operação no Azure Cosmos DB por meio de um cabeçalho de resposta. 
 
 Para fornecer um desempenho previsível, você precisa reservar a produtividade em unidades de 100 RUs/segundo. 
 
@@ -53,7 +53,7 @@ Recomendamos que você comece assistindo ao vídeo a seguir, no qual Aravind Ram
 > 
 
 ## <a name="specifying-request-unit-capacity-in-azure-cosmos-db"></a>Especificando a capacidade de unidades de solicitação no Azure Cosmos DB
-Ao iniciar uma nova coleção, tabela ou um novo gráfico, especifique o número de unidades de solicitação por segundo (RU por segundo) que você deseja ter reservado. Com base na produtividade provisionada, o Azure Cosmos DB aloca partições físicas para hospedar sua coleção e divide/redistribui os dados entre partições conforme eles aumentam.
+Ao iniciar uma nova coleção, tabela ou um novo grafo, especifique o número de unidades de solicitação por segundo (RU por segundo) que você deseja ter reservado. Com base na produtividade provisionada, o Azure Cosmos DB aloca partições físicas para hospedar sua coleção e divide/redistribui os dados entre partições conforme eles aumentam.
 
 O Azure Cosmos DB exige que uma chave de partição seja especificada quando uma coleção é provisionada com 2.500 unidades de solicitação ou mais. Uma chave de partição também é necessária para dimensionar a produtividade da coleção além das 2.500 unidades de solicitação no futuro. Portanto, é altamente recomendável configurar uma [chave de partição](partition-data.md) durante a criação de um contêiner, independentemente da produtividade inicial. Uma vez que seus dados talvez precisem ser divididos em várias partições, é necessário selecionar uma chave de partição que tenha alta cardinalidade (100 milhões de valores distintos). Ao selecionar uma chave de partição com muitos valores distintos, você garante que sua coleção/tabela/gráfico e solicitações possam ser colocados em escala de maneira uniforme pelo Azure Cosmos DB. 
 
@@ -75,7 +75,7 @@ await client.CreateDocumentCollectionAsync(
 
 O Azure Cosmos DB opera em um modelo de reserva na produtividade. Ou seja, você será cobrado pela quantidade de produtividade *reservada*, independentemente do quanto da produtividade estiver em *uso*. À medida que a carga, os dados e os padrões de uso do aplicativo mudarem, você poderá aumentar ou reduzir verticalmente a quantidade de RUs reservadas por meio de SDKs ou usando o [Portal do Azure](https://portal.azure.com).
 
-Cada coleção/tabela/gráfico é mapeado para um recurso `Offer` no Azure Cosmos DB, que tem metadados sobre a produtividade provisionada. Altere a produtividade alocada procurando o recurso de oferta correspondente de um contêiner e, em seguida, atualizando-o com o novo valor de produtividade. Aqui está um trecho de código para alterar a taxa de transferência de uma coleção para 5.000 unidades de solicitação por segundo usando o SDK do .NET:
+Cada coleção/tabela/grafo é mapeado para um recurso `Offer` no Azure Cosmos DB, que tem metadados sobre a produtividade provisionada. Altere a produtividade alocada procurando o recurso de oferta correspondente de um contêiner e, em seguida, atualizando-o com o novo valor de produtividade. Aqui está um trecho de código para alterar a taxa de transferência de uma coleção para 5.000 unidades de solicitação por segundo usando o SDK do .NET:
 
 ```csharp
 // Fetch the resource to be updated

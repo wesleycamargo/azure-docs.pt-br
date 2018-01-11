@@ -4,7 +4,7 @@ description: Este artigo descreve como usar o portal do Azure para registrar um 
 services: active-directory
 documentationcenter: .net
 author: priyamohanram
-manager: mbaldwin
+manager: mtillman
 editor: 
 ms.assetid: 7dc7b89f-653f-405a-b5f4-2c1288720c15
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 07/20/2017
 ms.author: priyamo
 ms.reviewer: elisol
-ms.openlocfilehash: 2f2817688beb2028fd0bba8522827d87a0097f21
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4f32f57d4c8b3e13d2aa31b04ee10bb46a6c71f7
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="register-your-application-with-your-azure-active-directory-tenant"></a>Registrar seu aplicativo com o locatário do Azure Active Directory
 
@@ -45,7 +45,7 @@ Você pode facilmente modificar configurações do aplicativo existentes usando 
   * A página **Propriedades** permite que você modifique as informações gerais do aplicativo. Isso inclui o nome do aplicativo, a URL de entrada e a URL de logoff.
   * A página **URLs de Resposta** permite que você adicione uma URL de resposta, que é para onde o Azure AD envia respostas de tokens.
   * A página **Proprietários** permite que você adicione os proprietários do aplicativo.
-  * A página **Permissões** permite que você configure as permissões para o aplicativo. Por exemplo, para acessar a API do Microsoft Graph, clique em **Adicionar** e selecione **Microsoft Graph** no seletor de API; em seguida, escolha a permissão necessária, por exemplo, **Ler Dados do Diretório**.
+  * A página **Permissões Necessárias** permite que você configure as permissões para o aplicativo. Por exemplo, para acessar a API do Microsoft Graph, clique em **Adicionar** e selecione **Microsoft Graph** no seletor de API; em seguida, escolha a permissão necessária, por exemplo, **Ler Dados do Diretório**.
   * A página **Chaves** permite que você adicione segredos do aplicativo. O segredo só será exibido uma vez imediatamente após a criação, portanto não deixe de copiá-lo para uso posterior.
 
 ## <a name="use-the-inline-manifest-editor"></a>Usar o editor de manifesto embutido

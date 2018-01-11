@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/23/2017
 ms.author: v-deasim
-ms.openlocfilehash: 8f89ef5a1763d5fc4ad09a9aeae89ccf683138c7
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 2a94ba5cb9f026f66bc1f3b379f00b291a2299c9
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="control-azure-content-delivery-network-caching-behavior-with-caching-rules"></a>Controlar o comportamento de cache da Rede de Distribuição de Conteúdo com regras de cache
 
@@ -40,13 +40,19 @@ Para obter informações sobre o comportamento de cache padrão e os cabeçalhos
 Como configurar as regras de cache da CDN:
 
 1. Abra o Portal do Azure, selecione um perfil da CDN e selecione um ponto de extremidade.
-2. No painel esquerdo em Configurações, clique em **Cache**.
-3. Crie uma regra de cache global da seguinte maneira:
+2. No painel esquerdo em Configurações, clique em **Regras de cache**.
+
+   ![Botão de regras de cache da CDN](./media/cdn-caching-rules/cdn-caching-rules-btn.png)
+
+1. Crie uma regra de cache global da seguinte maneira:
    1. Em **Regras de cache globais**, defina **Comportamento de cache de cadeia de caracteres de consulta** para **Ignorar cadeias de caracteres**.
    2. Definir **Comportamento do cache** para **Definir se ausente**.
+       
    3. Para **Duração da expiração do cache**, digite 10 no campo **Dias**.
 
        A regra de cache global afeta todos as solicitações para o ponto de extremidade. Essa regra aceita os cabeçalhos de diretivas de cache de origem, se existirem (`Cache-Control` ou `Expires`); caso contrário, se eles não forem especificados, ele define o cache para 10 dias. 
+
+     ![Regras de cache globais](./media/cdn-caching-rules/cdn-global-caching-rules.png)
 
 4. Crie uma regra de cache personalizada da seguinte maneira:
     1. Em **Regras de cache personalizadas**, defina **Condição de correspondência** para **Caminho** e **Valor de correspondência** para `/images/*.jpg`.
@@ -54,7 +60,7 @@ Como configurar as regras de cache da CDN:
        
        Essa regra de cache personalizada define uma duração de cache de 30 dias em qualquer `.jpg` arquivo de imagem na pasta `/images` do seu ponto de extremidade. Ele substitui quaisquer cabeçalhos HTTP `Cache-Control` ou `Expires` enviados pelo servidor de origem.
 
-  ![Caixa de diálogo de regras de cache](./media/cdn-caching-rules/cdn-caching-rules-dialog.png)
+    ![Personalizar regras de cache](./media/cdn-caching-rules/cdn-custom-caching-rules.png)
 
 > [!NOTE] 
 > Os arquivos que são armazenados em cache antes de uma alteração de regra mantêm a configuração da duração do cache de origem. Para reiniciar as durações de cache, será necessário [limpar o arquivo](cdn-purge-endpoint.md). Para pontos de extremidade da **CDN do Azure da Verizon**, poderá demorar até 90 minutos para que as regras de cache entrem em vigor.

@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/11/2017
 ms.author: gokuma;bradsev
-ms.openlocfilehash: 564c06c5017a77431b7d6fed7b43c47141b12252
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8f1477c5fd8f57a815eeb603d2bde580bf78cca2
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Ferramentas de ingestão de dados de Máquina Virtual de Ciência de Dados
 
@@ -35,7 +35,7 @@ Aqui estão algumas ferramentas de movimentação de dados que fornecemos na DSV
 | Versões do DSVM com suporte      | Windows      |
 | Usos típicos      | Importar de vários blobs do armazenamento do Azure para o Azure Data Lake Store.      |
 |  Como usar/executar?    |   Abra um prompt de comando e digite `adlcopy` para obter ajuda.    |
-| Links para exemplos      | [Como usar AdlCopy]https://docs.microsoft.com/en-us/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
+| Links para exemplos      | [Utilizando AdlCopy]https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)      |
 | Ferramentas relacionadas ao DSVM      | AzCopy, Linha de Comando do Azure     |
 
 ## <a name="azure-command-line"></a>Linha de comando do Azure
@@ -58,19 +58,19 @@ Aqui estão algumas ferramentas de movimentação de dados que fornecemos na DSV
 | Versões do DSVM com suporte      | Windows      |
 | Usos típicos      | Copiar arquivos para o armazenamento de blobs, copiar blobs entre contas.      |
 |  Como usar/executar?    |   Abra um prompt de comando e digite `azcopy` para obter ajuda.    |
-| Links para exemplos      | [AzCopy no Windows](https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy)      |
+| Links para exemplos      | [AzCopy no Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy)      |
 | Ferramentas relacionadas ao DSVM      | AdlCopy     |
 
 
-## <a name="azure-cosmos-db-documentdb-api-data-migration-tool"></a>Azure Cosmos DB: ferramenta de Migração de Dados da API do DocumentDB
+## <a name="azure-cosmos-db-data-migration-tool"></a>Ferramenta de migração de dados do Azure Cosmos DB
 
 |    |           |
 | ------------- | ------------- |
-| O que é?   | Ferramenta para importar dados de várias fontes, incluindo arquivos JSON, arquivos CSV, SQL, MongoDB, armazenamento de Tabela do Azure, Amazon DynamoDB e coleções de API do DocumentDB do Azure Cosmos DB em Azure Cosmos DB ou Azure DocumentDB.      |
+| O que é?   | Ferramenta para importar dados de várias fontes, incluindo arquivos JSON, arquivos CSV, SQL, MongoDB, armazenamento de Tabela do Azure, Amazon DynamoDB e coleções de API de SQL do Azure Cosmos DB no Azure Cosmos DB.      |
 | Versões do DSVM com suporte      | Windows      |
 | Usos típicos      | Importar arquivos de uma VM para CosmosDB, importar dados do armazenamento de tabela do Azure para CosmosDB ou importar dados de um banco de dados SQL Server para CosmosDB.     |
 |  Como usar/executar?    |   Para usar a versão de linha de comando, abra um prompt de comando e digite `dt`. Para usar a ferramenta de GUI, abra um prompt de comando e digite `dtui`.    |
-| Links para exemplos      | [Dados de importação do CosmosDB](https://docs.microsoft.com/en-us/azure/cosmos-db/import-data)      |
+| Links para exemplos      | [Dados de importação do CosmosDB](https://docs.microsoft.com/azure/cosmos-db/import-data)      |
 | Ferramentas relacionadas ao DSVM      | AzCopy, AdlCopy      |
 
 
@@ -82,7 +82,7 @@ Aqui estão algumas ferramentas de movimentação de dados que fornecemos na DSV
 | Versões do DSVM com suporte      | Windows      |
 | Usos típicos      | Importar um arquivo CSV para uma tabela do SQL Server, exportar uma tabela do SQL Server para um arquivo.      |
 |  Como usar/executar?    |   Abra um prompt de comando e digite `bcp` para obter ajuda.    |
-| Links para exemplos      | [Utilitário de Cópia em Massa](https://docs.microsoft.com/en-us/sql/tools/bcp-utility)      |
+| Links para exemplos      | [Utilitário de Cópia em Massa](https://docs.microsoft.com/sql/tools/bcp-utility)      |
 | Ferramentas relacionadas ao DSVM      | SQL Server, sqlcmd      |
 
 
