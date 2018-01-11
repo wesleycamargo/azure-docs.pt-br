@@ -17,11 +17,11 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 06/22/2017
 ms.author: carlrab
-ms.openlocfilehash: c6c450b0b3b0422121d23ba5d5556637f6d298bc
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.openlocfilehash: c52ac86ad5f3ad97a2e6dca38a84444b45bd73e5
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="azure-sql-database-use-visual-studio-code-to-connect-and-query-data"></a>Banco de Dados SQL do Azure: Use Visual Studio Code para se conectar e consultar dados
 
@@ -183,5 +183,5 @@ Use o código a seguir para excluir o novo produto que você adicionou anteriorm
 ## <a name="next-steps"></a>Próximas etapas
 
 - Para conectar e consultar usando SQL Server Management Studio, veja [Conectar e consultar com o SSMS](sql-database-connect-query-ssms.md).
-- Para se conectar e consultar usando o portal do Azure, consulte [Conectar e consultar com o editor de consultas do SQL do Portal do Azure](sql-database-connect-query-portal.md).
+- Para se conectar e consultar usando o Portal do Azure, consulte [Conectar e consultar com o editor de consultas SQL do portal do Azure](sql-database-connect-query-portal.md).
 - Para obter um artigo da MSDN magazine sobre como usar o Visual Studio Code, veja [Criar um banco de dados IDE com a postagem de blog de extensão MSSQL](https://msdn.microsoft.com/magazine/mt809115).

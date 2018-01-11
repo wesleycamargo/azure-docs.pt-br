@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 11/03/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 03246846484878f7155449ad11b009aeffe8a576
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: 3136bccb7724c95c4001e353d7feeecb045f1273
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="choose-between-flow-logic-apps-functions-and-webjobs"></a>Escolha entre o Flow, os Aplicativos Lógicos, o Functions e o WebJobs
 Este artigo compara e contrasta os seguintes serviços na nuvem da Microsoft, que podem todos solucionar problemas de integração e automatizar processos de negócios:
@@ -41,18 +41,18 @@ Podemos discutir Microsoft Flow e o Aplicativo Lógico do Azure juntos porque am
 * Eles têm o mesmo designer de fluxo de trabalho
 * [Conectores](../connectors/apis-list.md) que funcionam em um também podem funcionar no outro
 
-O Flow permite que qualquer trabalhador possa fazer integrações simples (por exemplo, obter SMS para emails importantes) sem passar por desenvolvedores ou pelo departamento de TI. Por outro lado, o Aplicativo Lógico pode habilitar integrações avançadas ou essenciais (por exemplo, processos de B2B) em que há a necessidade de práticas de segurança e DevOps de nível empresarial. É comum que um fluxo de trabalho de negócios aumente de complexidade ao longo do tempo. Da mesma forma, você pode começar com um fluxo e convertê-lo em um aplicativo lógico conforme a necessidade.
+O Flow permite que qualquer trabalhador possa fazer integrações simples (por exemplo, um processo de aprovação em uma Biblioteca de Documentos do SharePoint) sem passar por desenvolvedores ou pelo departamento de TI. Por outro lado, Aplicativos Lógicos podem habilitar integrações avançadas (por exemplo, processos de B2B) em que há a necessidade de práticas de segurança e DevOps de nível empresarial. É comum que um fluxo de trabalho de negócios aumente de complexidade ao longo do tempo. Da mesma forma, você pode começar com um fluxo e convertê-lo em um aplicativo lógico conforme a necessidade.
 
 A tabela a seguir ajuda a determinar o que é melhor para determinada integração, o Flow ou os Aplicativos Lógicos.
 
 |  | Flow | Aplicativos Lógicos |
 | --- | --- | --- |
-| Público-alvo |Funcionários do escritório, usuários de negócios |profissionais de TI, desenvolvedores |
-| Cenários |Autoatendimento |Essenciais |
+| Público-alvo |Funcionários do escritório, usuários de negócios, administradores do SharePoint |Integradores profissionais e desenvolvedores, profissionais de TI |
+| Cenários |Autoatendimento |Integrações avançadas |
 | Ferramenta de design |Aplicativo do navegador e móvel, somente interface do usuário |No navegador e no [Visual Studio](../logic-apps/logic-apps-deploy-from-vs.md), [Exibição de código](../logic-apps/logic-apps-author-definitions.md) disponível |
-| DevOps |Ad-hoc, desenvolver em produção |controle de origem, teste, suporte, automação e capacidade de gerenciamento no [Azure Resource Manager](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md) |
-| Experiência de administrador |[https://flow.microsoft.com](https://flow.microsoft.com) |[https://portal.azure.com](https://portal.azure.com) |
-| Segurança |Práticas padrão: [soberania de dados](https://wikipedia.org/wiki/Technological_Sovereignty), [criptografia em repouso](https://wikipedia.org/wiki/Data_at_rest#Encryption) para dados confidenciais etc. |Garantia de segurança do Azure: [segurança do Azure](https://www.microsoft.com/trustcenter/Security/AzureSecurity), [Central de Segurança](https://azure.microsoft.com/services/security-center/), [logs de auditoria](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) e muito mais. |
+| Gerenciamento do Ciclo de Vida do Aplicativo (ALM) |Criar e testar em ambientes de não produção, promover para produção quando estiver pronto. |DevOps: controle de origem, teste, suporte, automação e capacidade de gerenciamento no [Azure Resource Manager](../logic-apps/logic-apps-create-deploy-azure-resource-manager-templates.md) |
+| Experiência de administrador |Gerenciar ambientes do Flow e políticas de Prevenção de perda de dados (DLP), acompanhar o licenciamento [https://admin.flow.microsoft.com](https://admin.flow.microsoft.com) |Gerenciar grupos de recursos, conexões, gerenciamento de acesso e registro em log [https://portal.azure.com](https://portal.azure.com) |
+| Segurança |Segurança do Office 365 e logs de auditoria de e conformidade, Prevenção de perda de dados (DLP), [criptografia em repouso](https://wikipedia.org/wiki/Data_at_rest#Encryption) para dados confidenciais, etc. |Garantia de segurança do Azure: [segurança do Azure](https://www.microsoft.com/trustcenter/Security/AzureSecurity), [Central de Segurança](https://azure.microsoft.com/services/security-center/), [logs de auditoria](https://azure.microsoft.com/blog/azure-audit-logs-ux-refresh/) e muito mais. |
 
 <a name="function"></a>
 
@@ -106,7 +106,7 @@ O uso do Functions ou do WebJobs depende do que você já está fazendo com o Se
 Conforme mencionado anteriormente, o serviço mais adequado para você depende da situação. 
 
 * Para a otimização de negócios simples, use o Flow.
-* Se seu cenário de integração é muito avançado para o Flow, ou se você precisa de recursos de DevOps e conformidades de segurança, use os Aplicativos Lógicos.
+* Se seu cenário de integração for muito avançado para o Flow ou se você precisa de recursos de DevOps, use os Aplicativos Lógicos.
 * Se uma etapa no seu cenário de integração requer transformação altamente personalizada ou código especializado, escreva uma função e dispare-a como uma ação em seu aplicativo lógico.
 
 Você pode chamar um aplicativo lógico em um fluxo. Você também pode chamar uma função em um aplicativo lógico e um aplicativo lógico em uma função. A integração entre o Flow, o Aplicativo Lógico e o Functions segue melhorando a cada dia. Você pode criar algo em um serviço e usá-lo em outros serviços. Portanto, todo o investimento feito nessas três tecnologias vale a pena.

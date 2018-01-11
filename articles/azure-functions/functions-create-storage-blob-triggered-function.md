@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/31/2017
+ms.date: 12/07/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: db95f3991cfc36e0588f94aa7053bf3f5a794222
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e34d3634b592efe4581135f9dee52bf77d7506cd
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>Criar uma função disparada pelo Armazenamento de Blobs do Azure
 
@@ -51,19 +51,23 @@ Em seguida, crie uma nova função no novo aplicativo de funções.
 
     ![Página de início rápido de funções no portal do Azure](./media/functions-create-storage-blob-triggered-function/add-first-function.png)
 
-2. Selecione o modelo **BlobTrigger** para o idioma desejado e use as configurações especificadas na tabela.
+2. No campo de pesquisa, digite `blob` e depois escolha a linguagem desejada para o modelo de gatilho do armazenamento de Blob.
 
-    ![Crie a função disparada pelo Armazenamento de Blobs.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
+    ![Escolha o modelo de gatilho de armazenamento de Blob.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
+ 
+3. Use as configurações conforme especificado na tabela abaixo da imagem.
+
+    ![Crie a função disparada pelo Armazenamento de Blobs.](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal-2.png)
 
     | Configuração | Valor sugerido | Descrição |
     |---|---|---|
-    | **Caminho**   | mycontainer/{name}    | Local no Armazenamento de Blobs que está sendo monitorada. O nome do arquivo do blob é passado na associação como o parâmetro _name_.  |
-    | **Conexão da conta de armazenamento** | AzureWebJobStorage | Você pode usar a conexão da conta de armazenamento que já está sendo usada por seu aplicativo de funções ou criar uma nova.  |
-    | **Nomeie sua função** | Exclusivo no aplicativo de funções | O nome dessa função disparada pelo blob. |
+    | **Nome** | Exclusivo no aplicativo de funções | O nome dessa função disparada pelo blob. |
+    | **Caminho**   | samples-workitems/{name}    | Local no Armazenamento de Blobs que está sendo monitorada. O nome do arquivo do blob é passado na associação como o parâmetro _name_.  |
+    | **Conexão da conta de armazenamento** | AzureWebJobsStorage | Você pode usar a conexão da conta de armazenamento que já está sendo usada por seu aplicativo de funções ou criar uma nova.  |
 
 3. Clique em **Criar** para criar a função.
 
-Em seguida, você pode se conectar à sua conta de armazenamento do Azure e criar o contêiner **mycontainer**.
+Em seguida, você pode se conectar à sua conta de armazenamento do Azure e criar o contêiner **samples-workitems**.
 
 ## <a name="create-the-container"></a>Criar o contêiner
 
@@ -79,7 +83,7 @@ Em seguida, você pode se conectar à sua conta de armazenamento do Azure e cria
 
     ![Insira as credenciais de armazenamento e conecte-se.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-connect-2.png)
 
-1. Expanda a conta de armazenamento anexada, clique com o botão direito do mouse em **Contêineres de blob**, clique em **Criar contêiner de blob**, digite `mycontainer` e pressione enter.
+1. Expanda a conta de armazenamento anexada, clique com o botão direito do mouse em **Contêineres de blob**, clique em **Criar contêiner de blob**, digite `samples-workitems` e pressione enter.
 
     ![Crie uma fila de armazenamento.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-create-blob-container.png)
 
@@ -89,7 +93,7 @@ Agora que você tem um contêiner de blob, você pode testar a função carregan
 
 1. De volta ao Portal do Azure, navegue até sua função, expanda os **Logs** na parte inferior da página e verifique se o streaming de log não está em pausa.
 
-1. No Gerenciador de Armazenamento, expanda sua conta de armazenamento, **Contêineres de blob** e **mycontainer**. Clique em **Carregar** e depois em **Carregar arquivos...**.
+1. No Gerenciador de Armazenamento, expanda sua conta de armazenamento, **Contêineres de blob** e **samples-workitems**. Clique em **Carregar** e depois em **Carregar arquivos...**.
 
     ![Carregue um arquivo para o contêiner de blob.](./media/functions-create-storage-blob-triggered-function/functions-storage-manager-upload-file-blob.png)
 
