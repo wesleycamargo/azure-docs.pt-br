@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 09/20/2017
 ms.author: sstein
-ms.openlocfilehash: 9b6c60a14578842f4b3b1a9e4724eab6de3f8815
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 84706837aeb416d13dab617f51a33d62a934c016
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/07/2017
 ---
 # <a name="performance-recommendations"></a>Recomendações do desempenho
 
@@ -57,7 +57,12 @@ Para ajudá-lo a estimar o impacto dessa recomendação, você receberá uma com
 
 Depois de aplicar essa recomendação, ela habilitará a parametrização forçada em seu banco de dados em minutos e iniciará o processo de monitoramento, que dura aproximadamente 24 horas. Após esse período, você poderá ver o relatório de validação que mostra o uso da CPU do seu banco de dados 24 horas antes e depois da aplicação da recomendação. O Assistente do Banco de Dados SQL tem um mecanismo de segurança que reverte a recomendação aplicada automaticamente caso uma redução de desempenho seja detectada.
 
-## <a name="fix-schema-issues-recommendations"></a>Recomendações para corrigir problemas do esquema
+## <a name="fix-schema-issues-recommendations-preview"></a>Recomendações para corrigir problemas do esquema (versão prévia)
+
+> [!IMPORTANT]
+> A Microsoft está no processo de substituição de recomendações do tipo "Corrigir problema de esquema". Você deve começar usando o [Intelligent Insights](sql-database-intelligent-insights.md) para monitoramento automático de seus problemas de desempenho do banco de dados, que incluem problemas de esquema que recomendações do tipo "Corrigir problema de esquema" abordavam anteriormente.
+> 
+
 Recomendações para **Corrigir problemas do esquema** aparecem quando o serviço de Banco de Dados SQL observa uma anomalia no número erros de SQL relacionados ao esquema ocorrendo no Banco de Dados SQL do Azure. Essa recomendação normalmente aparece quando seu banco de dados encontra vários erros relacionados ao esquema (nome da coluna inválido, nome do objeto inválido etc.) no período de uma hora.
 
 "Problemas de esquema" são uma classe de erros de sintaxe no servidor SQL que ocorrem quando a definição da consulta SQL e a definição do esquema do banco de dados não estão alinhadas. Por exemplo, uma das colunas esperadas pela consulta pode estar ausente na tabela de destino ou vice-versa. 

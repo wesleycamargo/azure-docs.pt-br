@@ -1,24 +1,22 @@
 ---
-title: "Criar um espaço de trabalho do Machine Learning | Microsoft Docs"
+title: "Criar um espaço de trabalho do Machine Learning Studio | Microsoft Docs"
 description: "Como criar um espaço de trabalho para o Machine Learning Studio do Microsoft Azure"
 services: machine-learning
-documentationcenter: 
 author: garyericson
 manager: jhubbard
 editor: cgronlun
 ms.assetid: aa96b784-ac6c-44bc-a28a-85d49fbe90a2
 ms.service: machine-learning
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
-ms.date: 02/27/2017
-ms.author: garye;bradsev;ahgyger
-ms.openlocfilehash: 4e1fa0a9abd4721d15a94923263ff2f521bceee8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/07/2017
+ms.author: garye
+ms.reviewer: garyericson, jasonwhowell, MicrosoftDocs/mlreview
+ms.openlocfilehash: 7aad885b1643ddeb25e5d00a151005b8444315fa
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="create-and-share-an-azure-machine-learning-workspace"></a>Criar e compartilhar um espaço de trabalho de Azure Machine Learning
 Esse menu vincula-se aos tópicos que descrevem como configurar os vários ambientes de ciência de dados usados pelo CAPS (Processo Cortana Analytics).
@@ -39,16 +37,16 @@ Para usar o Azure Machine Learning Studio, você precisa ter um espaço de traba
 
 2. Clique em **+Novo**
 
-3. Selecione **Inteligência + análise**, clique em **Espaço de Trabalho do Machine Learning**, e clique em **Criar**
+3. Na caixa de pesquisa, digite **Espaço de trabalho do Microsoft Azure Machine Learning Studio** e selecione o item correspondente. Em seguida, selecione **Criar** na parte inferior da página.
 
-4. Insira suas informações de espaço de trabalho
+4. Insira suas informações de espaço de trabalho:
 
     - O *nome do espaço de trabalho* pode ter até 260 caracteres, sem terminar com um espaço. O nome não pode incluir estes caracteres:`< > * % & : \ ? + /`
     - O *plano do serviço Web* escolhido (ou criado), juntamente com o *tipo de preço* associado, será usado se você implantar os serviços Web deste espaço de trabalho.
 
     ![Criar um novo espaço de trabalho](./media/create-workspace/create-new-workspace.png)
 
-5. Clique em **Criar**
+5. Clique em **Criar**.
 
 Após a implantação do espaço de trabalho, abra-o no Machine Learning Studio.
 

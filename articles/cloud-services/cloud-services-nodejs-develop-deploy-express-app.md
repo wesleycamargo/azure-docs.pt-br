@@ -1,6 +1,6 @@
 ---
-title: Aplicativo Web com Express (Node.js) | Microsoft Docs
-description: "Um tutorial que complementa o tutorial de serviço de nuvem e demonstra como usar o módulo Express."
+title: "Criar e implantar um aplicativo Node.js Express para Serviços de Nuvem do Microsoft Azure"
+description: "Criar e implantar um aplicativo Express.js para Serviços de Nuvem do Microsoft Azure"
 services: cloud-services
 documentationcenter: nodejs
 author: craigshoemaker
@@ -14,15 +14,16 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: cshoe
-ms.openlocfilehash: aa62438732db9e8df129440e6949858d9a61f65f
-ms.sourcegitcommit: e38120a5575ed35ebe7dccd4daf8d5673534626c
+ms.openlocfilehash: befca8d95880936e96d1b3618c172f87499627ed
+ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/13/2017
+ms.lasthandoff: 12/07/2017
 ---
-# <a name="build-a-nodejs-web-application-using-express-on-an-azure-cloud-service"></a>Criar um aplicativo web do Node.js usando o Express em um Serviço de Nuvem do Microsoft Azure
+# <a name="build-and-deploy-a-nodejs-web-application-using-express-on-an-azure-cloud-services"></a>Criar um aplicativo Web do Node.js usando o Express em um Serviço de Nuvem do Microsoft Azure
+
 O Node.js inclui um conjunto mínimo de funcionalidades em tempo de execução básico.
-Os desenvolvedores normalmente usam módulos de terceiros para fornecer funcionalidade adicional ao desenvolver um aplicativo do Node.js. Neste tutorial, você vai criar um novo aplicativo usando o módulo [Express][Express], que fornece uma estrutura MVC para criar aplicativos web do Node.js.
+Os desenvolvedores normalmente usam módulos de terceiros para fornecer funcionalidade adicional ao desenvolver um aplicativo do Node.js. Neste tutorial, você vai criar um novo aplicativo usando o módulo [Express](https://github.com/expressjs/express), que fornece uma estrutura MVC para criar aplicativos Web do Node.js.
 
 Abaixo, uma captura de tela do aplicativo concluído:
 

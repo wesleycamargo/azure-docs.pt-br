@@ -14,11 +14,11 @@ ms.devlang: java
 ms.topic: article
 ms.date: 06/29/2016
 ms.author: yuaxu
-ms.openlocfilehash: 76ec01c874fceedab7d76b2ef58e4b45b5489f58
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 3b3fc05cfec2b20501a28f3d76f474ccd49e27e8
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="use-notification-hubs-to-send-breaking-news"></a>Usar hubs de notificação para enviar notícias recentes
 [!INCLUDE [notification-hubs-selector-breaking-news](../../includes/notification-hubs-selector-breaking-news.md)]
@@ -278,7 +278,7 @@ O aplicativo agora está completo e pode armazenar um conjunto de categorias no 
 2. Habilite uma ou mais alternâncias de categorias e depois clique em **Assinar**.
    
     O aplicativo converte as categorias selecionadas em rótulos e solicita um novo registro do dispositivo para os rótulos selecionados do hub de notificação. As categorias registradas são retornadas e exibidas em uma caixa de diálogo.
-3. Envie uma nova notificação, executando o aplicativo de Console .NET.  Como alternativa, você pode enviar notificações de modelo marcado usando a guia depuração de seu hub de notificação no [Portal clássico do Azure].
+3. Envie uma nova notificação, executando o aplicativo de Console .NET.  Como alternativa, você pode enviar notificações de modelo marcado usando a guia depuração de seu hub de notificação no [portal do Azure].
    
     As notificações para as categorias selecionadas são exibidas como notificações do sistema.
 
@@ -302,5 +302,5 @@ Neste tutorial, aprendemos a enviar as últimas notícias por categoria. Conside
 [Submit an app page]: http://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: http://go.microsoft.com/fwlink/p/?LinkId=262039
 [Live SDK for Windows]: http://go.microsoft.com/fwlink/p/?LinkId=262253
-[Portal clássico do Azure]: https://manage.windowsazure.com
+[portal do Azure]: https://portal.azure.com
 [wns object]: http://go.microsoft.com/fwlink/p/?LinkId=260591

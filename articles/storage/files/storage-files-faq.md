@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/04/2017
 ms.author: renash
-ms.openlocfilehash: 0bcf56e06c34af94746d42d8af18e32fcd9a7496
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: f0337002bbaf554a6a775464edefc032e6c7bab2
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="frequently-asked-questions-about-azure-files"></a>Perguntas frequentes sobre o Arquivos do Azure
 O serviço [Arquivos do Azure](storage-files-introduction.md) oferece compartilhamentos de arquivos totalmente gerenciados na nuvem, acessíveis por meio do protocolo [SMB (Service Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) padrão do setor (também conhecido como CIFS ou Common Internet File System). Você pode montar compartilhamentos de arquivos do Azure simultaneamente em implantações locais ou na nuvem do Windows, do Linux e do macOS. Você também pode armazenar em cache os compartilhamentos de arquivos do Azure nos computadores Windows Server usando a Sincronização de Arquivos do Azure (versão prévia) para acesso rápido perto de onde os dados são usados.
@@ -80,7 +80,7 @@ Este artigo responde perguntas frequentes sobre funcionalidades e recursos do se
 
 ## <a name="azure-file-sync"></a>Sincronização de Arquivos do Azure
 * <a id="afs-region-availability"></a>**Quais regiões têm suporte para Sincronização de Arquivos do Azure (versão prévia)?**  
-    Atualmente, a Sincronização de Arquivos do Azure está disponível atualmente no Oeste dos EUA, na Europa Ocidental, no Leste da Austrália e no Sudeste Asiático. O suporte para regiões mais será adicionado conforme seguirmos trabalhando rumo à disponibilidade geral. Para saber mais, veja [Disponibilidade por região](storage-sync-files-planning.md#region-availability).
+    Atualmente, a Sincronização de arquivos do Azure está disponível no Leste dos EUA, Oeste dos EUA, Europa Ocidental, Leste da Austrália e no Sudeste Asiático. O suporte para regiões mais será adicionado conforme seguirmos trabalhando rumo à disponibilidade geral. Para saber mais, veja [Disponibilidade por região](storage-sync-files-planning.md#region-availability).
 
 * <a id="cross-domain-sync"></a>**É possível ter servidores ingressados e não ingressados no domínio no mesmo grupo de sincronização?**  
     Sim. Sim, um grupo de sincronização poderá conter pontos de extremidade do servidor com diferentes associações do Active Directory, mesmo se eles não forem ingressados no domínio. Embora essa configuração funcione tecnicamente, não recomendamos isso como uma configuração típica, já que as ACLs (listas de controle de acesso) que são definidas para arquivos e pastas em um servidor podem não ser impostas por outros servidores no grupo de sincronização. Para obter melhores resultados, recomendamos a sincronização entre servidores na mesma floresta do Active Directory entre servidores que estão em diferentes florestas do Active Directory mas têm relações de confiança estabelecidas ou então entre servidores que não estão em um domínio. Recomendamos que você evite usar uma mistura dessas configurações.

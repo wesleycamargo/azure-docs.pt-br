@@ -1,6 +1,6 @@
 ---
-title: "Introdução às ferramentas de banco de dados elástico | Microsoft Docs"
-description: "A explicação básica do recurso das ferramentas de banco de dados elástico do Banco de Dados SQL do Azure, incluindo um exemplo de aplicativo fácil de executar."
+title: "Introdução às Ferramentas de Banco de Dados Elástico – Azure | Microsoft Docs"
+description: "A explicação básica do recurso das Ferramentas de Banco de Dados Elástico do Banco de Dados SQL do Azure, incluindo um exemplo de aplicativo fácil de executar."
 services: sql-database
 documentationcenter: 
 manager: jstrauss
@@ -15,45 +15,49 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2017
 ms.author: anjangsh
-ms.openlocfilehash: e7e072e310cabc2c4520df7e9f4f9e45b8218998
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 615e5b0bf299a844ea2d37476fc704c48e17b363
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Introdução às ferramentas do Banco de Dados Elástico
-Este documento apresenta a experiência do desenvolvedor para [biblioteca de cliente do banco de dados elástico](sql-database-elastic-database-client-library.md), ajudando você a executar um aplicativo de exemplo. O aplicativo de exemplo cria um aplicativo fragmentado simples e explora os principais recursos das ferramentas de banco de dados elástico. Ele se concentra nos casos de uso para [gerenciamento de mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md), [roteamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md) e [consulta de vários fragmentos](sql-database-elastic-scale-multishard-querying.md). A biblioteca de cliente está disponível para .Net, bem como para Java. 
+Este documento apresenta a experiência do desenvolvedor para a [biblioteca de cliente do banco de dados elástico](sql-database-elastic-database-client-library.md), ajudando você a executar um aplicativo de exemplo. O aplicativo de exemplo cria um aplicativo fragmentado simples e explora os principais recursos das Ferramentas de Banco de Dados Elástico do Banco de Dados SQL do Microsoft Azure. Ele se concentra nos casos de uso para [gerenciamento de mapa de fragmentos](sql-database-elastic-scale-shard-map-management.md), [roteamento dependente de dados](sql-database-elastic-scale-data-dependent-routing.md) e [consulta de vários fragmentos](sql-database-elastic-scale-multishard-querying.md). A biblioteca de clientes está disponível para .NET, bem como para Java. 
 
-## <a name="elastic-database-tools-for-java"></a>Ferramentas de banco de dados elástico para Java
+## <a name="elastic-database-tools-for-java"></a>Ferramentas de Banco de Dados Elástico para Java
 ### <a name="prerequisites"></a>Pré-requisitos
-* Um JDK (Java Developer Kit) versão 1.8 ou posterior
+* Um Java Developer Kit (JDK) versão 1.8 ou posterior
 * [Maven](http://maven.apache.org/download.cgi)
-* Um servidor lógico no SQL Server local ou do Azure
+* Um servidor lógico no Azure ou em uma instância do SQL Server local
 
 ### <a name="download-and-run-the-sample-app"></a>Baixar e executar o aplicativo de amostra
-Siga as etapas abaixo para criar os arquivos JAR e começar a trabalhar com o projeto de exemplo: 
-1. Clone o [repositório GitHub](https://github.com/Microsoft/elastic-db-tools-for-java) que contém a biblioteca de cliente junto com o aplicativo de exemplo. 
-2. Edite o arquivo _./sample/src/main/resources/resource.properties_ para definir o seguinte.
+Para criar os arquivos JAR e começar a trabalhar com o projeto de exemplo, siga as etapas a seguir: 
+1. Clone o [repositório GitHub](https://github.com/Microsoft/elastic-db-tools-for-java) que contém a biblioteca de clientes junto com o aplicativo de exemplo. 
+
+2. Edite o arquivo _./sample/src/main/resources/resource.properties_ para definir o seguinte:
     * TEST_CONN_USER
     * TEST_CONN_PASSWORD
     * TEST_CONN_SERVER_NAME
-3. Do diretório _./sample_, execute o seguinte comando para criar o projeto de exemplo.<br>
+
+3. Para criar o projeto de exemplo, no diretório _./sample_, execute o seguinte comando:
 
     ```
     mvn install
     ```
     
-4. Do diretório _./sample_, execute o seguinte comando para iniciar o projeto de exemplo. 
+4. Para iniciar o projeto de exemplo, no diretório _./sample_, execute o seguinte comando: 
     
     ```
     mvn -q exec:java "-Dexec.mainClass=com.microsoft.azure.elasticdb.samples.elasticscalestarterkit.Program"
     ```
     
-5. Experimente com as diferentes opções para saber mais sobre os recursos da biblioteca de clientes. Fique à vontade para explorar o código para saber mais sobre a implementação do aplicativo de exemplo.
+5. Para saber mais sobre os recursos da biblioteca de clientes, experimente com as diferentes opções. Fique à vontade para explorar o código para saber mais sobre a implementação do aplicativo de exemplo.
 
     ![Progresso de java][5]
     
-Parabéns! Você criou e executou com sucesso seu primeiro aplicativo fragmentado usando as ferramentas de banco de dados elástico no Banco de Dados SQL. Use o Visual Studio ou o SQL Server Management Studio para conectar-se ao seu banco de dados SQL e observe rapidamente os fragmentos criados pelo exemplo. Você observará novos bancos de dados de fragmentos de amostra e um banco de dados de gerenciador de mapa de fragmentos que a amostra criou. Para adicionar a biblioteca de cliente a seu próprio projeto Maven, adicione a seguinte dependência em seu arquivo POM.<br>
+Parabéns! Você criou e executou com sucesso seu primeiro aplicativo fragmentado usando as Ferramentas de Banco de Dados Elástico no Banco de Dados SQL do Microsoft Azure. Use o Visual Studio ou o SQL Server Management Studio para conectar-se ao seu banco de dados SQL e observe rapidamente os fragmentos criados pelo exemplo. Você observará novos bancos de dados de fragmentos de amostra e um banco de dados de gerenciador de mapa de fragmentos que a amostra criou. 
+
+Para adicionar a biblioteca de clientes a seu próprio projeto Maven, adicione a seguinte dependência em seu arquivo POM:
 
 ```xml
 <dependency> 
@@ -63,7 +67,7 @@ Parabéns! Você criou e executou com sucesso seu primeiro aplicativo fragmentad
 </dependency> 
 ```
 
-## <a name="elastic-database-tools-for-net"></a>Ferramentas de banco de dados elástico para .Net 
+## <a name="elastic-database-tools-for-net"></a>Ferramentas de Banco de Dados Elástico para .NET 
 ### <a name="prerequisites"></a>Pré-requisitos
 * Visual Studio 2012 ou posterior com C#. Baixe a versão gratuita em [Downloads do Visual Studio](http://www.visualstudio.com/downloads/download-visual-studio-vs.aspx).
 * NuGet 2.7 ou posterior. Para obter a versão mais recente, veja [Instalação do NuGet](http://docs.nuget.org/docs/start-here/installing-nuget).
@@ -75,17 +79,17 @@ Para baixar e executar a amostra, siga estas etapas:
 
 1. Baixe as [Ferramentas de Banco de Dados Elástico para Azure SQL – Introdução](https://code.msdn.microsoft.com/windowsapps/Elastic-Scale-with-Azure-a80d8dc6) do MSDN. Descompacte o exemplo em um local de sua escolha.
 
-2. Para criar um projeto, abra a solução **ElasticScaleStarterKit.sln** do diretório **C#**.
+2. Para criar um projeto, abra a solução *ElasticScaleStarterKit.sln* do diretório *C#*.
 
-3. Na solução para o exemplo de projeto, abra o arquivo **app.config**. Siga as instruções no arquivo para adicionar o nome de seu servidor de Banco de Dados SQL do Azure e suas informações de entrada (nome de usuário e senha).
+3. Na solução para o exemplo de projeto, abra o arquivo *app.config*. Siga as instruções no arquivo para adicionar o nome de seu servidor de Banco de Dados SQL do Microsoft Azure e suas informações de entrada (nome de usuário e senha).
 
-4. Compile e execute o aplicativo. Quando receber a solicitação, permita que o Visual Studio restaure os pacotes NuGet da solução. Isso baixa a versão mais recente das bibliotecas de cliente do banco de dados elástico do NuGet.
+4. Compile e execute o aplicativo. Quando você receber a solicitação, permita que o Visual Studio restaure os pacotes NuGet da solução. Essa ação faz o download da versão mais recente das bibliotecas de clientes do banco de dados elástico do NuGet.
 
-5. Experimente com as diferentes opções para saber mais sobre os recursos da biblioteca de clientes. Observe as etapas que o aplicativo realiza na saída do console e fique à vontade para explorar o código nos bastidores.
+5. Para saber mais sobre os recursos da biblioteca de clientes, experimente com as diferentes opções. Observe as etapas que o aplicativo realiza na saída do console e fique à vontade para explorar o código nos bastidores.
    
     ![Andamento][4]
 
-Parabéns -- você criou e executou com sucesso seu primeiro aplicativo fragmentado usando as ferramentas de banco de dados elástico no Banco de Dados SQL. Use o Visual Studio ou o SQL Server Management Studio para conectar-se ao seu banco de dados SQL e observe rapidamente os fragmentos criados pelo exemplo. Você observará novos bancos de dados de fragmentos de amostra e um banco de dados de gerenciador de mapa de fragmentos que a amostra criou.
+Parabéns! Você criou e executou com sucesso seu primeiro aplicativo fragmentado usando as Ferramentas de Banco de Dados Elástico no Banco de Dados SQL. Use o Visual Studio ou o SQL Server Management Studio para conectar-se ao seu banco de dados SQL e observe rapidamente os fragmentos criados pelo exemplo. Você observará novos bancos de dados de fragmentos de amostra e um banco de dados de gerenciador de mapa de fragmentos que a amostra criou.
 
 > [!IMPORTANT]
 > Recomendamos que você sempre use a versão mais recente do Management Studio a fim de permanecer sincronizado com as atualizações no Azure e no Banco de Dados SQL. [Atualizar o SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
@@ -93,28 +97,28 @@ Parabéns -- você criou e executou com sucesso seu primeiro aplicativo fragment
 > 
 
 ## <a name="key-pieces-of-the-code-sample"></a>Principais partes do exemplo de código
-* **Gerenciamento de fragmentos e mapas de fragmentos**: o código ilustra como trabalhar com fragmentos, intervalos e mapeamentos no arquivo **ShardManagementUtils.cs**. Para saber mais, confira [Escale horizontalmente os bancos de dados com o gerenciador do mapa de fragmentos](http://go.microsoft.com/?linkid=9862595).  
+* **Gerenciamento de fragmentos e mapas de fragmentos**: o código ilustra como trabalhar com fragmentos, intervalos e mapeamentos no arquivo *ShardManagementUtils.cs*. Para saber mais, confira [Escale horizontalmente os bancos de dados com o gerenciador do mapa de fragmentos](http://go.microsoft.com/?linkid=9862595).  
 
-* **Roteamento dependente de dados**: o roteamento de transações para o fragmento correto é mostrado em **DataDependentRoutingSample.cs**. Para obter mais detalhes, veja [Roteamento dependente de dados](http://go.microsoft.com/?linkid=9862596). 
+* **Roteamento dependente de dados**: o roteamento de transações para o fragmento correto é mostrado no arquivo *DataDependentRoutingSample.cs*. Para obter mais detalhes, veja [Roteamento dependente de dados](http://go.microsoft.com/?linkid=9862596). 
 
-* **Consulta em vários fragmentos**: a consulta entre os fragmentos é ilustrada no arquivo **MultiShardQuerySample.cs**. Para saber mais, confira [Consulta de vários fragmentos](http://go.microsoft.com/?linkid=9862597).
+* **Consulta em vários fragmentos**: a consulta entre os fragmentos é ilustrada no arquivo *MultiShardQuerySample.cs*. Para saber mais, confira [Consulta de vários fragmentos](http://go.microsoft.com/?linkid=9862597).
 
-* **Consulta em vários fragmentos**: a adição iterativa de novos fragmentos vazios é realizada pelo código no arquivo **CreateShardSample.cs**. Para saber mais, confira [Escale horizontalmente os bancos de dados com o gerenciador do mapa de fragmentos](http://go.microsoft.com/?linkid=9862595).
+* **Consulta em vários fragmentos**: a adição iterativa de novos fragmentos vazios é realizada pelo código no arquivo *CreateShardSample.cs*. Para saber mais, confira [Escale horizontalmente os bancos de dados com o gerenciador do mapa de fragmentos](http://go.microsoft.com/?linkid=9862595).
 
 ## <a name="other-elastic-scale-operations"></a>Outras operações da escala elástica
-* **Divisão de um fragmento existente**: a capacidade de dividir fragmentos é fornecida pela **ferramenta de divisão e mesclagem**. Para saber mais, confira [Mover dados entre bancos de dados na nuvem escalados horizontalmente](sql-database-elastic-scale-overview-split-and-merge.md).
+* **Divisão de um fragmento existente**: a capacidade de dividir fragmentos é fornecida pela ferramenta de divisão e mesclagem. Para saber mais, confira [Mover dados entre bancos de dados na nuvem escalados horizontalmente](sql-database-elastic-scale-overview-split-and-merge.md).
 
-* **Mesclagem de fragmentos existentes**: a mesclagem de fragmentos também é realizada usando a **ferramenta de divisão e mesclagem**. Para saber mais, confira [Mover dados entre bancos de dados na nuvem escalados horizontalmente](sql-database-elastic-scale-overview-split-and-merge.md).   
+* **Mesclagem de fragmentos existentes**: a mesclagem de fragmentos também é realizada usando a ferramenta de divisão e mesclagem. Para saber mais, confira [Mover dados entre bancos de dados na nuvem escalados horizontalmente](sql-database-elastic-scale-overview-split-and-merge.md).   
 
 ## <a name="cost"></a>Custo
-As ferramentas de banco de dados elástico são gratuitas. Ao usar as ferramentas de banco de dados elástico, você não é cobrado por mais nada além do custo de uso do Azure. 
+A biblioteca das Ferramentas de Banco de Dados Elástico é gratuita. Ao usar as Ferramentas de Banco de Dados Elástico, você não é cobrado por mais nada além do custo de uso do Azure. 
 
-Por exemplo, o aplicativo de exemplo cria novos bancos de dados. O custo disso depende da edição de Banco de Dados SQL do Azure escolhida e do uso que o Azure faz de seu aplicativo.
+Por exemplo, o aplicativo de exemplo cria novos bancos de dados. O custo desse recurso depende da edição de Banco de Dados SQL do Azure escolhida e do uso que o Azure faz de seu aplicativo.
 
 Para obter informações sobre os preços, veja [Detalhes de preços do Banco de Dados SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais sobre as ferramentas de banco de dados elástico, confira estas páginas:
+Para saber mais sobre as Ferramentas de Banco de Dados Elástico, confira os arquivos a seguir:
 
 * Exemplos de código: 
   * Ferramentas do Banco de Dados Elástico ([.NET](http://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE), [Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22))

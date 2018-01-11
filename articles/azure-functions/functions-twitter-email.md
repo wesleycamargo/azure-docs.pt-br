@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/04/2017
+ms.date: 12/08/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 794ad146ee8cb72370216677913013b6bbcb4b8f
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 9402dbbf66bbbf7ff23f3fc29cbb38f8aa8615e6
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Criar uma função que se integra aos Aplicativos Lógicos do Azure
 
@@ -72,28 +72,31 @@ As APIs de Serviços Cognitivos estão disponíveis no Azure como recursos indiv
  
     ![simétricas](media/functions-twitter-email/keys.png)
 
-## <a name="create-the-function"></a>Criar a função
+[!INCLUDE [functions-portal-favorite-function-apps](../../includes/functions-portal-favorite-function-apps.md)]
+
+## <a name="create-the-function-app"></a>Crie o aplicativo de funções
 
 O Functions fornece uma ótima maneira de descarregar tarefas de processamento em um fluxo de trabalho de aplicativos lógicos. Este tutorial usa uma função HTTP disparada para processar pontuações de sentimento de tweet dos Serviços Cognitivos e retornar um valor de categoria.  
 
-1. Clique no botão **Novo** e selecione **Computação** > **Aplicativo de funções**. Em seguida, use as configurações como especificado na tabela abaixo. Aceite os termos, então selecione **Fixar no painel**.
+[!INCLUDE [Create function app Azure portal](../../includes/functions-create-function-app-portal.md)]
 
-    ![Criar um Aplicativo de funções do Azure](media/functions-twitter-email/create_fun.png)
+## <a name="create-an-http-triggered-function"></a>Crie uma função disparada por HTTP  
 
-    | Configuração      |  Valor sugerido   | Descrição       |
-    | --- | --- | --- |
-    | **Nome** | MyFunctionApp | Escolha um nome de conta exclusivo. |
-    | **Grupo de recursos** | myResourceGroup | Use o mesmo grupo de recursos para todos os serviços neste tutorial.|
-    | **Plano de hospedagem** | Plano de consumo | Isso define suas alocações de custo e de uso.
-    | **Localidade** | Oeste dos EUA | Use o local mais próximo de você. |
-    | **Armazenamento** | Criar Novo | Gera automaticamente uma nova conta de armazenamento.|
-    | **Tipo de preços** | F0 | Comece com o nível mais baixo. Caso suas chamadas se esgotem, dimensione para uma camada mais elevada.|
+1. Expanda seu aplicativo de funções e clique no botão **+** ao lado de **Functions**. Se essa for a primeira função em seu aplicativo de funções, selecione **Função personalizada**. Exibe o conjunto completo de modelos de função.
 
-2. Selecione seu aplicativo de funções no seu painel e expanda sua função, clique no botão **+** próximo a **Funções**, clique em **Webhook + API**,  **CSharp** e então **Criar Esta Função**. Isso criará uma função usando o modelo HTTPTrigger do C#. Seu código aparecerá em uma nova janela como `run.csx`
+    ![Página de início rápido de funções no portal do Azure](media/functions-twitter-email/add-first-function.png)
 
-    ![Folha Aplicativos de Funções, Funções +](media/functions-twitter-email/add_fun.png)
+2. No campo de pesquisa, digite `http` e, em seguida, escolha **C#** para o modelo de gatilho HTTP. 
 
-3. Substitua o conteúdo do arquivo `run.csx` pelo código abaixo e clique em **Salvar**:
+    ![Escolha o gatilho HTTP](./media/functions-twitter-email/select-http-trigger-portal.png)
+
+3. Digite um **Nome** para sua função, escolha `Function` para  **[Nível de autenticação](functions-bindings-http-webhook.md#http-auth)**e, em seguida, selecione **Criar**. 
+
+    ![Criar a função disparada por HTTP](./media/functions-twitter-email/select-http-trigger-portal-2.png)
+
+    Isso cria uma função de script C# usando o modelo de gatilho de HTTP. Seu código aparece em uma nova janela como `run.csx`.
+
+4. Substitua o conteúdo do arquivo `run.csx` pelo código abaixo e clique em **Salvar**:
 
     ```csharp
     using System.Net;

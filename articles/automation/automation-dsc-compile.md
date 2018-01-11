@@ -3,7 +3,7 @@ title: "Compilando as configurações no DSC de Automação do Azure | Microsoft
 description: "Este artigo descreve como compilar as configurações da DSC (Configuração de Estado Desejado) para Automação do Azure."
 services: automation
 documentationcenter: na
-author: eslesar
+author: georgewallace
 manager: carmonm
 ms.assetid: 49f20b31-4fa5-4712-b1c7-8f4409f1aecc
 ms.service: automation
@@ -12,16 +12,16 @@ ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 02/07/2017
-ms.author: magoedte; eslesar
-ms.openlocfilehash: 7b126072424bfc6ad54fd2497ffcdb410b9dc5fe
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.author: magoedte; gwallace
+ms.openlocfilehash: 96702fb1b377861c3692358a5754e73475cee84d
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="compiling-configurations-in-azure-automation-dsc"></a>Compilando configurações no DSC de Automação do Azure
 
-Você pode compilar as configurações DSC (Configuração de Estado Desejado) de duas maneiras com a Automação do Azure: no Portal do Azure e com o Windows PowerShell. A seguinte tabela ajudará você a determinar quando usar qual método com base nas características de cada um:
+Você pode compilar as configurações DSC (Configuração de Estado Desejado) de duas maneiras com a Automação do Azure: no Portal do Azure e com o Windows PowerShell. A seguinte tabela ajuda você a determinar quando usar qual método com base nas características de cada um:
 
 ### <a name="azure-portal"></a>Portal do Azure
 
@@ -131,16 +131,16 @@ Para obter informações sobre como transmitir PSCredentials como parâmetros, c
 
 ## <a name="composite-resources"></a>Recursos de composição
 
-**Recursos de Composição** permitem que você use as configurações DSC como recursos aninhados dentro de uma configuração.  Isso permite que você aplique várias configurações para um único recurso.  Consulte [recursos de composição: utilizando uma configuração DSC como um recurso](https://docs.microsoft.com/en-us/powershell/dsc/authoringresourcecomposite) para saber mais sobre **Recursos de Composição**
+**Recursos de Composição** permitem que você use as configurações DSC como recursos aninhados dentro de uma configuração. Isso permite que você aplique várias configurações para um único recurso.  Consulte [recursos de composição: utilizando uma configuração DSC como um recurso](https://docs.microsoft.com/powershell/dsc/authoringresourcecomposite) para saber mais sobre **Recursos de Composição**
 
 > [!NOTE]
 > Para que os **Recursos de Composição** sejam compilados corretamente, primeiro você deverá garantir que todos os Recursos DSC que a composição confie sejam instalados primeiro no repositório dos Módulos de Conta de Automação do Azure ou não serão importados corretamente.
 
-Para adicionar um **Recursos de Composição** DSC, você deverá adicionar o módulo de recurso a um arquivo (*.zip). Acesse o repositório de Módulos na sua Conta de Automação do Azure.  Em seguida, clique no botão 'Adicionar um Módulo'.
+Para adicionar um **Recursos de Composição** DSC, você deverá adicionar o módulo de recurso a um arquivo (*.zip). Acesse o repositório de Módulos na sua Conta de Automação do Azure. Em seguida, clique no botão 'Adicionar um Módulo'.
 
 ![Adicionar módulo](./media/automation-dsc-compile/add_module.png)
 
-Navegue até o diretório onde seu arquivo está localizado.  Selecione o arquivo e clique em OK.
+Navegue até o diretório onde seu arquivo está localizado. Selecione o arquivo e clique em OK.
 
 ![Selecione Módulo](./media/automation-dsc-compile/select_dscresource.png)
 

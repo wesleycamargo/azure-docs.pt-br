@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2017
 ms.author: muralikk
-ms.openlocfilehash: 221bd7662eb4974395c7f970961d5bfb556417f4
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: ffcf0766b89cdab7c79c28dad6bf4c80275e33fc
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="use-the-microsoft-azure-importexport-service-to-transfer-data-to-azure-storage"></a>Usar o serviço de Importação/Exportação do Microsoft Azure para transferir dados para o Armazenamento do Azure
 Neste artigo, apresentamos instruções passo a passo sobre como usar o serviço de Importação/Exportação do Azure para transferir com segurança grandes quantidades de dados para o armazenamento de Blobs e do Azure e Arquivos do Azure enviando unidades de disco para um data center do Azure. Este serviço também pode ser usado para transferir dados do armazenamento do Azure para as discos rígidos e enviá-los aos seu site local. Os dados de uma única unidade de disco SATA interna podem ser importados para o armazenamento de Blobs do Azure ou para o os Arquivos do Azure. 
@@ -177,6 +177,8 @@ Locais de envio com suporte:
 * Leste da China
 * Norte da China
 * Sul do Reino Unido
+* Alemanha Central
+* Nordeste da Alemanha
 
 ### <a name="shipping"></a>Remessa
 **Unidades de envio para o data center:**
@@ -493,7 +495,7 @@ Não. Você precisará enviar suas próprias unidades para os trabalhos de impor
 
 **Como fazer para acessar dados importados por este serviço**
 
-Os dados em sua conta de armazenamento do Azure podem ser acessados por meio do Portal do Azure ou usando uma ferramenta autônoma chamada Gerenciador de Armazenamento. https://docs.microsoft.com/pt-br/azure/vs-azure-tools-storage-manage-with-storage-explorer 
+Os dados em sua conta de armazenamento do Azure podem ser acessados por meio do Portal do Azure ou usando uma ferramenta autônoma chamada Gerenciador de Armazenamento. https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer 
 
 **Depois de o trabalho de importação ser concluído, como ficarão meus dados na conta de armazenamento? A hierarquia de diretório será preservada?**
 

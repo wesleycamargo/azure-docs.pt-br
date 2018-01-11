@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: tomfitz
-ms.openlocfilehash: 9f90bc80c146c6c2da04aacbc110f7d389c0baa2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ecfb7f726d5447710948405b2dd83fcd1db3dff2
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>Exibir logs de atividade para auditar ações em recursos
 Com os logs de atividade, você pode determinar:
@@ -38,10 +38,10 @@ Você pode recuperar informações dos logs de atividade por meio do Portal, do 
    
     ![selecionar logs de atividade](./media/resource-group-audit/select-monitor.png)
 
-   Ou, para filtrar automaticamente o log de atividades para um determinado recurso ou grupo de recursos, selecione **Log de atividades** na folha desse recurso. Observe que o log de atividades é automaticamente filtrado pelo recurso selecionado.
+   Ou, para filtrar automaticamente o log de atividades para um determinado recurso ou grupo de recursos, selecione **Log de atividades**. Observe que o log de atividades é automaticamente filtrado pelo recurso selecionado.
    
     ![filtrar por recurso](./media/resource-group-audit/filtered-by-resource.png)
-2. Na folha **Log de Atividades**, você vê um resumo das operações recentes.
+2. No **Log de Atividades**, você vê um resumo das operações recentes.
    
     ![mostrar ações](./media/resource-group-audit/audit-summary.png)
 3. Para restringir o número de operações exibidas, selecione condições diferentes. Por exemplo, a imagem a seguir mostra os campos **Intervalo de tempo** e **Evento iniciado por** alterados para exibir as ações realizadas por um determinado usuário ou aplicativo no mês passado. Selecione **Aplicar** para exibir os resultados da consulta.
@@ -147,4 +147,5 @@ As operações de REST para trabalhar com o log de atividade fazem parte da [API
 * Para aprender sobre como definir políticas de segurança, confira [Controle de acesso baseado em função do Azure](../active-directory/role-based-access-control-configure.md).
 * Para saber mais sobre os comandos para exibir as operações de implantação, consulte [Exibir operações de implantação](resource-manager-deployment-operations.md).
 * Para saber como impedir exclusões em um recurso para todos os usuários, confira [Bloquear recursos com o Azure Resource Manager](resource-group-lock-resources.md).
+* Para ver a lista de operações disponíveis para cada provedor do Microsoft Azure Resource Manager, consulte [operações do provedor de recursos do Azure Resource Manager](~/articles/active-directory/role-based-access-control-resource-provider-operations.md)
 

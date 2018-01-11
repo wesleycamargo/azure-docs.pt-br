@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: banders
-ms.openlocfilehash: 62d31ed486458245156f7fc832294d662c62991e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6785bfcefb09fa6135ba451fafa76efc8c2e6c76
+ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="connect-configuration-manager-to-log-analytics"></a>Conectar o Configuration Manager ao Log Analytics
 Você pode conectar o System Center Configuration Manager ao Log Analytics no OMS para sincronizar os dados de coleção de dispositivos. Isso disponibiliza dados da hierarquia do Configuration Manager no OMS.
@@ -48,29 +48,29 @@ O procedimento a seguir concede ao Portal de Gerenciamento do Azure permissões 
 >
 >
 
-1. Abra o [Portal do Azure](https://portal.azure.com/) e clique em **Procurar** > **Log Analytics (OMS)** para abrir a folha do Log Analytics (OMS).  
-2. Na folha **Log Analytics (OMS)**, clique em **Adicionar** para abrir a folha **Espaço de Trabalho do OMS**.  
-   ![Folha do OMS](./media/log-analytics-sccm/sccm-azure01.png)
-3. Na folha **Espaço de Trabalho do OMS**, forneça as seguintes informações e clique em **OK**.
+1. Abra o [Portal do Azure](https://portal.azure.com/) e clique em **Procurar** > **Log Analytics (OMS)** para abrir o Log Analytics (OMS).  
+2. No **Log Analytics (OMS)**, clique **Adicionar** para abrir o **Espaço de Trabalho do OMS**.  
+   ![OMS](./media/log-analytics-sccm/sccm-azure01.png)
+3. No **Espaço de Trabalho do OMS**, forneça as seguintes informações e clique em **OK**.
 
    * **Espaço de Trabalho do OMS**
    * **Assinatura**
    * **Grupo de recursos**
    * **Localidade**
-   * **Tipo de preço**  
-     ![Folha do OMS](./media/log-analytics-sccm/sccm-azure02.png)  
+   * **Tipo de preços**  
+     ![OMS](./media/log-analytics-sccm/sccm-azure02.png)  
 
      > [!NOTE]
      > O exemplo acima cria um novo grupo de recursos. O grupo de recursos é usado apenas para conceder ao Configuration Manager as permissões para o espaço de trabalho do OMS nesse exemplo.
      >
      >
-4. Clique em **Procurar** > **Grupos de recursos** para abrir a folha **Grupos de recursos**.
-5. Na folha **Grupos de recursos**, clique no grupo de recursos criado acima para abrir a folha de configurações &lt;nome de grupo de recursos&gt;.  
-   ![folha de configurações do grupo de recursos](./media/log-analytics-sccm/sccm-azure03.png)
-6. Na folha de configurações &lt;nome do grupo de recursos&gt;, clique em IAM (Controle de acesso) para abrir a folha Usuários do &lt;nome de grupo de recursos&gt;.  
-   ![Folha de Usuários do grupo de recursos](./media/log-analytics-sccm/sccm-azure04.png)  
-7. Na folha Usuários do &lt;nome do grupo de recursos&gt;, clique em **Adicionar** para abrir a folha **Adicionar acesso**.
-8. Na folha **Adicionar acesso**, clique em **Selecionar uma função** e selecione a função **Colaborador**.  
+4. Clique em **Procurar** > **Grupos de recursos** para abrir os **Grupos de recursos**.
+5. Em **Grupos de recursos**, clique no grupo de recursos criado acima para abrir as configurações &lt;nome de grupo de recursos&gt;.  
+   ![configurações do grupo de recursos](./media/log-analytics-sccm/sccm-azure03.png)
+6. Nas configurações &lt;nome do grupo de recursos&gt;, clique em IAM (Controle de acesso) para abrir Usuários do &lt;nome de grupo de recursos&gt;.  
+   ![Usuários do grupo de recursos](./media/log-analytics-sccm/sccm-azure04.png)  
+7. Em Usuários do &lt;nome do grupo de recursos&gt;, clique em **Adicionar** para abrir **Adicionar acesso**.
+8. Em **Adicionar acesso**, clique em **Selecionar uma função** e selecione a função **Colaborador**.  
    ![selecione uma função](./media/log-analytics-sccm/sccm-azure05.png)  
 9. Clique em **Adicionar usuários**, selecione o usuário do Configuration Manager, clique em **Selecione** e, em seguida, clique em **OK**.  
    ![adicionar usuários](./media/log-analytics-sccm/sccm-azure06.png)  
@@ -107,11 +107,11 @@ Se uma senha ou chave secreta de cliente expirar ou for perdida, você precisar�
 2. Nessa página, clique na guia **Azure Active Directory** para exibir seu **Locatário**, **ID do Cliente**, **Client secret key expiration (Expiração da chave secreta do cliente)**. **Verifique se** sua **Chave secreta do cliente** caso ela tenha expirado.
 
 ## <a name="download-and-install-the-agent"></a>Baixe e instale o agente
-1. No portal do OMS, você deve [Baixar o arquivo de instalação do agente do OMS](log-analytics-windows-agents.md#download-the-agent-setup-file-from-oms).
+1. No portal do OMS, você deve [Baixar o arquivo de instalação do agente do OMS](log-analytics-windows-agent.md).
 2. Use um dos seguintes métodos para instalar e configurar o agente no computador que executa a função de sistema de site do ponto de conexão de serviço do Configuration Manager:
-   * [Instalar o agente usando a instalação](log-analytics-windows-agents.md#install-the-agent-using-setup)
-   * [Instalar o agente usando a linha de comando](log-analytics-windows-agents.md#install-the-agent-using-the-command-line)
-   * [Instalar o agente usando o DSC na Automação do Azure](log-analytics-windows-agents.md#install-the-agent-using-dsc-in-azure-automation)
+   * [Instalar o agente usando a instalação](log-analytics-windows-agent.md)
+   * [Instalar o agente usando a linha de comando](log-analytics-windows-agent.md)
+   * [Instalar o agente usando o DSC na Automação do Azure](log-analytics-windows-agent.md)
 
 ## <a name="import-collections"></a>Importe coleções
 Depois de adicionar uma conexão do OMS ao Configuration Manager e instalar o agente no computador executando a função de sistema de site do ponto de conexão de serviço do Configuration Manager, a próxima etapa é importar coleções do Configuration Manager no OMS como grupos de computadores.

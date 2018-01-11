@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/03/2017
 ms.author: divacc@microsoft.com
-ms.openlocfilehash: 0985c7da429202cc6003df73c6ca17714b5a1287
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 9a9e9b3116c0d787162284197c8dbbd77374cff3
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-marketplace-seller-guide"></a>Guia de vendedor do Azure Marketplace
 
 Bem-vindo(a) ao Guia de vendedores do Azure Marketplace. Este guia destina-se a usuários de negócios e gerentes de produto em ISVs (fornecedores de software independentes) interessados em vender suas imagens de máquina virtual Certificada do Azure para desenvolvedores e profissionais de TI. Uma vez que os clientes do Azure estão localizados no mundo inteiro, o [Azure Marketplace](https://azuremarketplace.microsoft.com/) pode proporcionar grande alcance e exposição aos seus produtos.
 
 > [!NOTE]
-> Se você estiver interessado em vender seu [aplicativo gerenciado](https://docs.microsoft.com/en-us/azure/managed-applications/overview), siga as instruções para listá-las no Azure Marketplace [aqui](https://docs.microsoft.com/en-us/azure/managed-applications/publish-marketplace-app).
+> Se você estiver interessado em vender seu [aplicativo gerenciado](https://docs.microsoft.com/azure/managed-applications/overview), siga as instruções para listá-las no Azure Marketplace [aqui](https://docs.microsoft.com/azure/managed-applications/publish-marketplace-app).
 
 > [!NOTE]
 > Se você estiver interessado em vender seus produtos de SaaS (software como serviço) acabados a _profissionais e desenvolvedores de TI_, consulte saas-on-amp@microsoft.com para saber mais sobre suas opções.
@@ -100,7 +100,7 @@ Figura 1: Processo de venda no Azure Marketplace
 Dependendo da carga de trabalho (máquina virtual ou aplicativo gerenciado) que você planejar publicar, você seguirá um processo diferente para publicar sua oferta. O seguinte conteúdo é focado na publicação de _ofertas de máquina virtual_.
 
 > [!NOTE]
-> Se você estiver interessado em vender seu [aplicativo gerenciado](https://docs.microsoft.com/en-us/azure/managed-applications/overview), siga as instruções para listá-las no Azure Marketplace [aqui](https://docs.microsoft.com/en-us/azure/managed-applications/publish-marketplace-app).
+> Se você estiver interessado em vender seu [aplicativo gerenciado](https://docs.microsoft.com/azure/managed-applications/overview), siga as instruções para listá-las no Azure Marketplace [aqui](https://docs.microsoft.com/azure/managed-applications/publish-marketplace-app).
 
 > [!NOTE]
 > Se você estiver interessado em vender seus produtos de SaaS (software como serviço) acabados a _profissionais e desenvolvedores de TI_, consulte saas-on-amp@microsoft.com para saber mais sobre suas opções.
@@ -209,8 +209,8 @@ Saiba mais sobre nossos [programas de entrada no mercado](https://partner.micros
 
 Antes do lançamento, recomendamos algumas etapas para que sua oferta ganhe força no Marketplace. Use esta lista de verificação para saber se você &#39; está pronto:
 
-- **Anunciei&#39 que minha oferta está disponível no Marketplace** fazendo uma postagem em um blog, enviando e-mails ou emitindo um comunicado à imprensa.
-- **&#39; m promovendo minha oferta no meu próprio site**, direcionando os clientes para minha oferta no Marketplace.
+- **Anunciei que minha oferta está disponível no Marketplace** fazendo uma postagem em um blog, enviando e-mails ou emitindo um comunicado à imprensa.
+- **Estou promovendo minha oferta no meu próprio site**, direcionando os clientes para minha oferta no Marketplace.
 - **Publiquei um test-drive** para que os clientes possam testar a execução de minha oferta no Azure durante um café.
 - **Habilitei a geração de cliente potencial sob demanda** para que sempre que um cliente clicar para implantar meu aplicativo, eu receba seu nome e informações de contato.
 - **Estabeleci uma conexão com meu gerente do parceiros** na Microsoft (se eu tiver um) a fim de explorar outras oportunidades.

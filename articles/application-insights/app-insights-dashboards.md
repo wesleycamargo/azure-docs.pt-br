@@ -13,11 +13,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 9a4a839e7b5cc772fb9d4c57ed70484d90a87fdd
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: a6d3c89f0f99128e2bf754391c79c3d616f0730a
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="navigation-and-dashboards-in-the-application-insights-portal"></a>Navegação e painéis no portal do Application Insights
 Após de ter [Configurado o Application Insights no seu projeto](app-insights-overview.md), os dados de telemetria sobre desempenho e uso do aplicativo aparecerá no recurso do Application Insights do projeto no [portal do Azure](https://portal.azure.com).
@@ -72,7 +72,7 @@ Quando um bloco estiver no painel, você poderá ajustá-lo.
 ![Passe o mouse sobre um gráfico para editá-lo.](./media/app-insights-dashboards/36.png)
 
 1. Adicione um gráfico ao bloco.
-2. Defina a métrica, a dimensão de grupo e o estilo (tabela, gráfico) de um diagrama.
+2. Defina a métrica, a dimensão de grupo e o estilo (tabela, grafo) de um diagrama.
 3. Percorra o diagrama para aplicar zoom; clique no botão de desfazer para redefinir o período de tempo; defina propriedades de filtro para os gráficos no bloco.
 4. Defina o título do bloco.
 
@@ -97,6 +97,9 @@ Quando você tiver criado um painel, poderá compartilhá-lo com outros usuário
 ![No cabeçalho do painel de controle, clique em Compartilhar](./media/app-insights-dashboards/41.png)
 
 Saiba mais sobre [Funções e controle de acesso](app-insights-resources-roles-access-control.md).
+
+## <a name="create-dashboards-programmatically"></a>Crie painéis programaticamente
+Você pode automatizar a criação de painéis usando o [Azure Resource Manager](https://docs.microsoft.com/azure/azure-portal/azure-portal-dashboards-create-programmatically) e um editor de JSON simples.
 
 ## <a name="app-navigation"></a>Navegação do aplicativo
 A folha de visão geral é o gateway para obter mais informações sobre seu aplicativo.

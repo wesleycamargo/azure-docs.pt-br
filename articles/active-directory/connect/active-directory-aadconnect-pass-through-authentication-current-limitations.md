@@ -5,20 +5,20 @@ services: active-directory
 keywords: "Autenticação de Passagem do Azure AD Connect, instalar o Active Directory, componentes necessários para o Azure AD, SSO, Logon único"
 documentationcenter: 
 author: swkrish
-manager: femila
+manager: mtillman
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 12/12/2017
 ms.author: billmath
-ms.openlocfilehash: a7edfd1939ad45dd3309fe5eaee2afa36086e9eb
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 98de47eab2636277acfd6393a7574ae18487bc6a
+ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/13/2017
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Autenticação de passagem do Azure Active Directory: limitações atuais
 
@@ -30,8 +30,8 @@ ms.lasthandoff: 12/06/2017
 Os cenários a seguir têm suporte total:
 
 - Entradas de usuário em todos os aplicativos baseados em navegador da Web
-- Entradas de usuário em aplicativos cliente Office 365 com suporte para [autenticação moderna](https://aka.ms/modernauthga)
-- Office 2016 e Office 2013 _com_ autenticação moderna
+- Entradas de usuário em aplicativos Office com suporte para [autenticação moderna](https://aka.ms/modernauthga): Office 2016 e Office 2013 _com_ autenticação moderna
+- Entradas do usuário para o Skype for Business que suportam autenticação moderna, incluindo topologias online e híbrida. Saiba mais sobre topologias com suporte [aqui](https://technet.microsoft.com/library/mt803262.aspx).
 - Ingressos em domínio do Azure AD para dispositivos com Windows 10
 - Suporte ao Exchange ActiveSync
 
@@ -40,11 +40,11 @@ Os cenários a seguir têm suporte total:
 Os cenários a seguir _não_ têm suporte:
 
 - Entradas do usuário em aplicativos de cliente do Office herdados – Office 2010 e Office 2013 _sem_ autenticação moderna. As organizações são incentivadas a mudar para autenticação moderna se possível. A autenticação moderna possibilita o suporte à Autenticação de Passagem. Também ajuda a proteger suas contas de usuário usando recursos de [acesso condicional](../active-directory-conditional-access-azure-portal.md), como Autenticação Multifator do Azure.
-- O usuário entra em aplicativos cliente do Skype for Business, incluindo o Skype for Business 2016.
+- O usuário entra em aplicativos cliente do Skype for Business, _sem_ autenticação moderna.
 - Entradas de usuário no PowerShell versão 1.0. Recomendamos usar o PowerShell versão 2.0.
-- Azure Active Directory Domain Services.
 - Senhas de aplicativo para Autenticação Multifator.
 - Detecção de usuários com [credenciais vazadas](../active-directory-reporting-risk-events.md#leaked-credentials).
+- Azure AD Domain Services precisa de sincronização de Hash de senha para ser habilitado no locatário. Portanto, os locatários que _somente_ usam a autenticação de passagem não funcionam para cenários que precisam de Azure AD Domain Services.
 
 >[!IMPORTANT]
 >Como alternativa para cenários sem suporte _apenas_, habilite a sincronização de hash de senha na página [Recursos opcionais](active-directory-aadconnect-get-started-custom.md#optional-features) do assistente do Azure AD Connect.

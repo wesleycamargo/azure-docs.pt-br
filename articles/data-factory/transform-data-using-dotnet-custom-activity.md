@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: shengc
-ms.openlocfilehash: e470071ca0ff45fce0a410b18ea9a91e1925af4b
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: 9673c5ad3ae48f9f2b8a47165b739cc2431060ae
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Usar atividades personalizadas em um pipeline do Data Factory do Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -308,14 +308,30 @@ Caso deseje consumir o conteúdo de stdout.txt em atividades de downstream, é p
 
   Com as alterações apresentadas na Atividade Personalizada do Azure Data Factory V2, é possível escrever livremente sua lógica de código personalizada na sua linguagem preferida e executá-lo no Windows e em sistemas operacionais do Linux com suporte do Lote do Azure. 
 
+  A tabela a seguir descreve as diferenças entre a Atividade Personalizada do Data Factory V2 e a Atividade de DotNet do Data Factory V1 (Personalizada): 
+
+
+|Diferenças      |Atividade Personalizada do ADFv2      |Atividade de DotNet do ADFv1 (Personalizada)      |
+| ---- | ---- | ---- |
+|Como a lógica personalizada é definida      |Executando qualquer executável (existente ou implementar seu próprio executável)      |Implementando um DLL do .net      |
+|Ambiente de execução da lógica personalizada      |Windows ou Linux      |Windows (.Net Framework 4.5.2)      |
+|Execução de scripts      |Suporte a execução de scripts diretamente (por exemplo "cmd /c echo hello world" na VM do Windows)      |Requer a implementação no .Net DLL      |
+|Conjunto de dados necessário      |Opcional      |Necessário para atividades de cadeia e transmitir informações      |
+|Transmitir informações de atividade para lógica personalizada      |Por meio de ReferenceObjects (LinkedServices e conjuntos de dados) e ExtendedProperties (propriedades personalizadas) e      |Por meio de conjuntos de dados de ExtendedProperties (propriedades personalizadas), de entrada e de saída      |
+|Recuperar informações em lógica personalizada      |Analisar o activity.json, o linkedServices.json e o datasets.json armazenados na mesma pasta do executável      |Por meio de .Net SDK (quadro para .net 4.5.2)      |
+|Registro em log      |Grava diretamente no STDOUT      |Implementando agente na DLL do .Net      |
+
+
   Se você tiver um código .Net escrito para Atividade DotNet (Personalizada) V1, será necessário modificar o código para trabalhar com a Atividade Personalizada do V2, com as seguintes diretrizes de alto nível:  
 
-  > - Alterar o projeto de uma biblioteca de classes .NET para um Aplicativo de Console. 
-  > - Iniciar o aplicativo com o método Principal, o método Executar da interface IDotNetActivity não é mais necessário. 
-  > - Ler e analisar os Serviços Vinculados, os Conjuntos de Dados e a Atividade com o serializador JSON em vez de como objetos de fortemente tipados e passar os valores das propriedades necessárias para a lógica de código personalizado principal. Consulte o código anterior SampleApp.exe como exemplo. 
-  > - Não há mais suporte para o objeto de agente, saídas executáveis podem ser impressas no console e salvas em stdout.txt. 
-  > - O pacote NuGet Microsoft.Azure.Management.DataFactories não é mais necessário. 
-  > - Compilar seu código, carregar o executável e as dependências para o Armazenamento do Azure e definir o caminho na propriedade folderPath. 
+   - Alterar o projeto de uma biblioteca de classes .NET para um Aplicativo de Console. 
+   - Iniciar o aplicativo com o método Principal, o método Executar da interface IDotNetActivity não é mais necessário. 
+   - Ler e analisar os Serviços Vinculados, os Conjuntos de Dados e a Atividade com o serializador JSON em vez de como objetos de fortemente tipados e passar os valores das propriedades necessárias para a lógica de código personalizado principal. Consulte o código anterior SampleApp.exe como exemplo. 
+   - Não há mais suporte para o objeto de agente, saídas executáveis podem ser impressas no console e salvas em stdout.txt. 
+   - O pacote NuGet Microsoft.Azure.Management.DataFactories não é mais necessário. 
+   - Compilar seu código, carregar o executável e as dependências para o Armazenamento do Azure e definir o caminho na propriedade folderPath. 
+
+Para um exemplo completo de como o exemplo de DLL de ponta a ponta e o pipeline descritos no documento [Usar atividades personalizadas em um pipeline do Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-use-custom-activities) do Data Factory V1 podem ser regravados no estilo de atividade personalizada do Data Factory V2. Consulte um [exemplo de atividade personalizada do Data Factory V2](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample). 
 
 ## <a name="auto-scaling-of-azure-batch"></a>Dimensionamento automático do Lote do Azure
 Você também pode criar um pool de Lotes do Azure com o recurso **autoscale** . Por exemplo, você poderia criar um pool do Lote do Azure sem nenhuma VM dedicada e uma fórmula de escala automática com base no número de tarefas pendentes. 

@@ -4,7 +4,7 @@ description: "Conexão do usuário do Azure AD Connect para configurações pers
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: curtand
 ms.assetid: 547b118e-7282-4c7f-be87-c035561001df
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2017
 ms.author: billmath
-ms.openlocfilehash: 1d580ae43925bfb2cbe0fd9461cfb7e207fa56ec
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4670ec3cacd8d69a4ed59aa2bbbeb2e5c893f173
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Opções de entrada de usuário do Azure AD Connect
 O Azure AD (Azure Active Directory) Connect permite que os usuários se conectem a recursos de nuvem e locais usando as mesmas senhas. Este artigo descreve os principais conceitos de cada modelo de identidade, a fim de ajudá-lo a escolher a identidade que você deseja usar para entrar no Azure AD.
@@ -28,6 +28,10 @@ Se já estiver familiarizado com o modelo de identidade do Azure AD e desejar sa
 * [Sincronização de hash de senha](#password-synchronization) com [SSO (logon único) contínuo](active-directory-aadconnect-sso.md)
 * [Autenticação de passagem](active-directory-aadconnect-pass-through-authentication.md) com o [SSO (logon único) contínuo](active-directory-aadconnect-sso.md)
 * [SSO federado (com o AD FS [Serviços de Federação do Active Directory])](#federation-that-uses-a-new-or-existing-farm-with-ad-fs-in-windows-server-2012-r2)
+
+> [!NOTE] 
+> É importante lembrar que ao configurar a federação do Azure Active Directory, você estabelece relação de confiança entre seu locatário do Azure Active Directory e seus domínios federados. Com este domínio federado de relação de confiança, os usuários terão acesso aos recursos de nuvem do Azure Active Directory no locatário.  
+>
 
 ## <a name="choosing-the-user-sign-in-method-for-your-organization"></a>Escolhendo um método de conexão do usuário para sua organização
 Para a maioria das organizações que deseja apenas habilitar a conexão do usuário no Office 365, em aplicativos SaaS e em outros recursos baseados no Azure AD, recomendamos a opção de sincronização de hash padrão. No entanto, algumas organizações tem um motivo específico pelo qual indicam que não podem usar essa opção. Elas podem escolher uma opção de conexão federada, como o AD FS ou a autenticação de passagem. É possível usar a tabela a seguir para ajudá-lo a fazer a escolha certa.

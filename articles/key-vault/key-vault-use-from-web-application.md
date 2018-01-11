@@ -11,11 +11,11 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: adhurwit
-ms.openlocfilehash: 1846305e6834145046cf9903714c68e9a6fd4f7d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 107be940b4c105056c63f793fb0111b03469bf66
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="use-azure-key-vault-from-a-web-application"></a>Usar cofre da chave do Azure em um aplicativo Web
 
@@ -36,7 +36,7 @@ Para concluir este tutorial, você precisará do seguinte:
 * Um aplicativo Web. Mostraremos as etapas para um aplicativo ASP.NET MVC implantado no Azure como um aplicativo Web.
 
 >[!IMPORTANT]
->* Este exemplo depende de uma maneira mais antiga de provisionamento manual das identidades do AAD. Atualmente, há um novo recurso em versão prévia chamado [MSI (Identidade do serviço gerenciada)](https://docs.microsoft.com/azure/active-directory/msi-overview), que pode provisionar automaticamente as identidades do AAD. Confira o seguinte exemplo em [github](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) para obter mais detalhes.
+>* Este exemplo depende de uma maneira mais antiga de provisionamento manual das identidades do AAD. Atualmente, há um novo recurso em versão prévia chamado [MSI (Identidade do serviço gerenciada)](https://docs.microsoft.com/azure/active-directory/msi-overview), que pode provisionar automaticamente as identidades do AAD. Confira o seguinte exemplo em [GitHub](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) para obter mais detalhes.
 
 > [!NOTE]
 >* É essencial que você conclua as etapas listadas em [Introdução ao cofre da chave do Azure](key-vault-get-started.md) para este tutorial, para que você tenha o URI de um segredo e a ID do cliente e o segredo do cliente para um aplicativo Web.
@@ -107,7 +107,7 @@ public static async Task<string> GetToken(string authority, string resource, str
 ```
 
 > [!NOTE]
->* Atualmente, o novo recurso MSI (Identidade do Serviço Gerenciada) é a maneira mais fácil de autenticar. Para obter mais detalhes, consulte o seguinte link para ver um exemplo usando o [Key Vault com MSI em um aplicativo no .NET](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) e [MSI relacionado ao tutorial Serviço de Aplicativo e Funções](https://docs.microsoft.com/en-us/azure/app-service/app-service-managed-service-identity). 
+>* Atualmente, o novo recurso MSI (Identidade do Serviço Gerenciada) é a maneira mais fácil de autenticar. Para obter mais detalhes, consulte o seguinte link para ver um exemplo usando o [Key Vault com MSI em um aplicativo no .NET](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet/) e [MSI relacionado ao tutorial Serviço de Aplicativo e Funções](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity). 
 >* Usar uma ID do Cliente e um Segredo do Cliente é outra maneira de autenticar um aplicativo do Azure AD. E usá-lo em seu aplicativo Web permite uma separação de funções e mais controle sobre o gerenciamento de chaves. Mas ele se baseia na colocação do Segredo do Cliente nas definições das suas configurações, o que pode ser tão arriscado quanto colocar o segredo que você deseja proteger nas definições da sua configuração. Consulte a seguir, uma discussão sobre como usar uma ID do Cliente e um Certificado em vez da ID do Cliente e o Segredo do Cliente para autenticar o aplicativo Azure AD.
 
 ## <a id="appstart"></a>Recuperar o segredo ao iniciar o aplicativo
@@ -147,11 +147,11 @@ Outra maneira de autenticar um aplicativo do AD do Azure é usar uma ID do Clien
 Para os nossos objetivos, definiremos um certificado de teste. Veja alguns comandos que você pode usar em um Prompt de Comando do Desenvolvedor para criar um certificado. Altere o diretório em que você deseja que os arquivos de certificado sejam criados.  Além disso, para a data inicial e a data final do certificado, use a data atual mais 1 ano.
 
 ```
-makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 03/07/2017 -e 03/07/2018 -r
+makecert -sv mykey.pvk -n "cn=KVWebApp" KVWebApp.cer -b 07/31/2017 -e 07/31/2018 -r
 pvk2pfx -pvk mykey.pvk -spc KVWebApp.cer -pfx KVWebApp.pfx -po test123
 ```
 
-Anote a data de término e a senha para o .pfx (neste exemplo: 31/07/2016 e test123). Você precisará delas mais tarde.
+Anote a data de término e a senha para o .pfx (neste exemplo: 31/07/2017 e test123). Você precisará delas mais tarde.
 
 Para saber mais sobre a criação de um certificado de teste, confira [Como criar seu próprio certificado de teste](https://msdn.microsoft.com/library/ff699202.aspx)
 

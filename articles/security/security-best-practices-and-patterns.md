@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 593cb6da3527a32906e8e9faa11dc13a3ef5440f
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: c8a25d64f3925ec963d8d02c827bd2045994feac
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="azure-security-best-practices-and-patterns"></a>Padrões e práticas recomendadas de segurança do Azure
 No momento, temos os artigos de padrões e práticas recomendadas de segurança do Azure a seguir. Não deixe de visitar este site periodicamente para ver as atualizações para nossa lista crescente de padrões e práticas recomendadas de segurança do Azure:  
@@ -30,7 +30,7 @@ No momento, temos os artigos de padrões e práticas recomendadas de segurança 
 * [Práticas recomendadas de segurança do IaaS do Azure] (azure-security-iaas.md)
 * [Práticas recomendadas de segurança de limites do Azure](../best-practices-network-security.md)
 * [Implementar uma arquitetura de rede híbrida segura no Azure](../guidance/guidance-iaas-ra-secure-vnet-hybrid.md)
-* [Melhores Práticas de PaaS do Azure] (https://docs.microsoft.com/en-us/azure/security/security-paas-deployments)
+* [Melhores Práticas de PaaS do Azure] (https://docs.microsoft.com/azure/security/security-paas-deployments)
 
 O Azure fornece uma plataforma segura na qual você pode criar suas soluções. Também fornecemos serviços e tecnologias para tornar as suas soluções no Azure mais seguras. Devido às muitas opções disponíveis, muitos de vocês expressaram interesse no que a Microsoft aconselha como práticas recomendadas e padrões para aprimorar a segurança.
 

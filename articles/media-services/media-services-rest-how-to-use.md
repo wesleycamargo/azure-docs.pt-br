@@ -12,22 +12,22 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/10/2017
-ms.author: juliako
-ms.openlocfilehash: eada8f2bcd2488d5ed36b0c24aa3d1b917815517
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/05/2017
+ms.author: juliako;johndeu
+ms.openlocfilehash: 066959058576af830103aa98a12f0c36acfdbb14
+ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="media-services-operations-rest-api-overview"></a>Visão geral da API REST das operações dos Serviços de Mídia
 [!INCLUDE [media-services-selector-setup](../../includes/media-services-selector-setup.md)]
 
-A API **REST das Operações dos Serviços de Mídia** é usada para criar trabalhos, ativos, políticas de acesso e outras operações em objetos em uma conta de Serviço de Mídia. Para saber mais, consulte [Referência da API REST das Operações dos Serviços de Mídia](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
+A API **REST das Operações dos Serviços de Mídia** é usada para criar trabalhos, ativos, canais ao vivo e outros recursos em uma conta de Serviços de Mídia do Azure. Para saber mais, consulte [Referência da API REST das Operações dos Serviços de Mídia](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference).
 
-Os serviços de mídia do Microsoft Azure é um serviço que aceita solicitações HTTP com base em OData e pode responder em verbose JSON ou atom+pub. Como os serviços de mídia estão em conformidade com as diretrizes de design do Azure, há um conjunto de cabeçalhos HTTP necessários que cada cliente deve usar ao se conectar aos serviços de mídia, bem como um conjunto de cabeçalhos opcionais que podem ser usados. As seções a seguir descrevem os cabeçalhos e verbos HTTP que podem ser usados ao criar solicitações e receber respostas dos serviços de mídia.
+Os Serviços de Mídia do Microsoft Azure fornecem uma API REST que aceita o formato JSON ou XML atom+pub. API REST do Serviços de Mídia do Microsoft Azure requer cabeçalhos HTTP específicos que cada cliente deve enviar ao se conectar aos Serviços de Mídia do Microsoft Azure, bem como um conjunto de cabeçalhos opcionais. As seções a seguir descrevem os cabeçalhos e verbos HTTP que podem ser usados ao criar solicitações e receber respostas dos serviços de mídia.
 
-Este tópico apresenta uma visão geral de como usar REST v2 com Serviços de Mídia.
+A autenticação para a API REST de Serviços de Mídia do Azure é feita por meio da autenticação do Microsoft Azure Active Directory que está descrita no artigo [Usar a autenticação do Microsoft Azure AD para acessar a API de serviços de mídia do Azure com REST](media-services-rest-connect-with-aad.md)
 
 ## <a name="considerations"></a>Considerações
 
@@ -41,7 +41,7 @@ As seguintes considerações se aplicam ao usar REST.
         Accept: application/json;odata=verbose
         DataServiceVersion: 3.0
         MaxDataServiceVersion: 3.0
-        x-ms-version: 2.11
+        x-ms-version: 2.17
         Authorization: Bearer <token> 
         Host: media.windows.net
   
@@ -52,17 +52,17 @@ As seguintes considerações se aplicam ao usar REST.
         . . . 
 
 ## <a name="standard-http-request-headers-supported-by-media-services"></a>Os cabeçalhos de solicitação HTTP padrão suportados pelos serviços de mídia
-Para todas as chamadas feitas nos serviços de mídia, há um conjunto de cabeçalhos necessários que você deve incluir na solicitação e também um conjunto de cabeçalhos opcionais você talvez queira incluir. A tabela a seguir lista os cabeçalhos necessários:
+Para todas as chamadas feitas nos serviços de mídia, há um conjunto de cabeçalhos necessários que você deve incluir na solicitação e também um conjunto de cabeçalhos opcionais você talvez queira incluir. A tabela abaixo lista os cabeçalhos necessários:
 
 | Cabeçalho | Tipo | Valor |
 | --- | --- | --- |
-| Autorização |Portador |Portador é o único mecanismo de autorização aceito. O valor também deve incluir o token de acesso fornecido pelo ACS. |
-| x-ms-version |Decimal |2.11 |
+| Autorização |Portador |Portador é o único mecanismo de autorização aceito. O valor também deve incluir o token de acesso fornecido pelo Microsoft Azure Active Directory. |
+| x-ms-version |Decimal |2.17 (ou versão mais recente)|
 | DataServiceVersion |Decimal |3.0 |
 | MaxDataServiceVersion |Decimal |3.0 |
 
 > [!NOTE]
-> Como os serviços de mídia usam o OData para expor seu repositório de metadados de ativo subjacente por meio de APIs REST, os cabeçalhos DataServiceVersion e MaxDataServiceVersion devem ser incluídos em qualquer solicitação. No entanto, se não forem, então os serviços de mídia assumem que o valor DataServiceVersion em uso é 3.0.
+> Como os Serviços de Mídia do Microsoft Azure usam o OData para expor seu APIs REST, os cabeçalhos DataServiceVersion e MaxDataServiceVersion devem ser incluídos em todas as solicitações. No entanto, se não forem, então os Serviços de Mídia do Microsoft Azure assumem que o valor DataServiceVersion em uso é 3.0.
 > 
 > 
 
@@ -71,7 +71,7 @@ Este é um conjunto de cabeçalhos opcional:
 | Cabeçalho | Tipo | Valor |
 | --- | --- | --- |
 | Data |Data do RFC 1123 |Carimbo de hora da solicitação |
-| Aceitar |Tipo de conteúdo |O conteúdo solicitado para a resposta, como o seguinte:<p> -application/json;odata=verbose<p> - application/atom+xml<p> As respostas podem ter tipos de conteúdo diferentes como uma busca de blob, em que uma resposta bem-sucedida conterá o fluxo de blob como carga. |
+| Aceitar |Tipo de conteúdo |O conteúdo solicitado para a resposta, como o seguinte:<p> -application/json;odata=verbose<p> - application/atom+xml<p> As respostas podem ter tipos de conteúdo diferentes como uma busca de blob, em que uma resposta bem-sucedida contém o fluxo de blob como carga. |
 | Codificação aceita |Gzip, deflate |Codificar GZIP e DEFLATE, quando aplicável. Observação: para grandes recursos, os Serviços de Mídia podem ignorar esse cabeçalho e retornar dados não compactados. |
 | Idioma aceito |"en", "es", e assim por diante. |Especifica o idioma preferencial para a resposta. |
 | Conjunto de caracteres aceito |Tipo de conjunto de caracteres como "UTF-8" |Padrão é UTF-8. |
@@ -86,7 +86,7 @@ Este é um conjunto de cabeçalhos que podem ser retornados para você, dependen
 | --- | --- | --- |
 | ID da solicitação |Cadeia de caracteres |Um identificador exclusivo para a operação atual, serviço gerado. |
 | ID da solicitação de cliente |Cadeia de caracteres |Um identificador especificado pelo chamador na solicitação original, se presente. |
-| Data |Data do RFC 1123 |A data em que a solicitação foi processada. |
+| Data |Data do RFC 1123 |A data/hora em que a solicitação foi processada. |
 | Tipo de conteúdo |Varia |O tipo de conteúdo do corpo da resposta. |
 | Codificação de conteúdo |Varia |Gzip ou deflate, conforme apropriado. |
 
@@ -102,18 +102,22 @@ A seguir está uma lista completa de verbos HTTP que podem ser usados quando faz
 | MESCLAR |Atualiza um objeto existente com alterações de propriedade nomeada. |
 | HEAD |Retorna metadados de um objeto para uma resposta GET. |
 
-## <a name="discover-media-services-model"></a>Descobrir o modelo Serviços de Mídia
-Para tornar as entidades de serviços de mídia mais detectáveis, a operação de $metadata pode ser usada. Ele permite que você recupere todos os tipos de entidade válidos, propriedades da entidade, associações, funções, ações e assim por diante. O exemplo a seguir mostra como construir o URI: https://media.windows.net/API/$metadata.
+## <a name="discover-and-browse-the-media-services-entity-model"></a>Descobrir e procurar o modelo de entidade dos Serviços de Mídia do Azure
+Para tornar as entidades de serviços de mídia mais detectáveis, a operação de $metadata pode ser usada. Ele permite que você recupere todos os tipos de entidade válidos, propriedades da entidade, associações, funções, ações e assim por diante. Adicionando a operação $metadata ao final do seu ponto de extremidade de API REST de Serviços de Mídia do Azure, você pode acessar esse serviço de descoberta.
+
+ /api/$metadata.
 
 Você deve acrescentar "?api-version=2.x" ao final do URI se desejar exibir os metadados em um navegador, ou não incluir o cabeçalho x-ms-version na solicitação.
 
-## <a name="connect-to-media-services"></a>Conectar-se aos Serviços de Mídia
+## <a name="authenticate-with-media-services-rest-using-azure-active-directory"></a>Autenticar com o REST de Serviços de Mídia do Microsoft Azure usando o Azure Active Directory
 
-Para saber mais sobre como conectar-se à API do AMS, veja [Acessar a API dos Serviços de Mídia do Azure com a autenticação do Azure AD](media-services-use-aad-auth-to-access-ams-api.md). Depois de se conectar com êxito em https://media.windows.net, você receberá um redirecionamento 301 especificando outro URI dos serviços de mídia. Você deve fazer chamadas subsequentes para o novo URI.
+A autenticação da API REST é feita por meio do Azure Active Directory (AAD).
+Para obter detalhes sobre como obter os detalhes de autenticação necessários para sua conta de Serviços de Mídia do Microsoft Azure do Portal do Azure, consulte [Acessar a API de Serviços de Mídia do Microsoft Azure com a autenticação do Microsoft Azure Active Directory](media-services-use-aad-auth-to-access-ams-api.md).
+
+Para obter detalhes sobre como gravar um código que se conecte à API REST usando a autenticação do Azure AD, consulte o artigo [Usar a autenticação do Microsoft Azure Active Directory para acessar a API de Serviços de Mídia do Microsoft Azure com REST](media-services-rest-connect-with-aad.md).
 
 ## <a name="next-steps"></a>Próximas etapas
-
-Para acessar APIs AMS com REST, consulte [Usar autenticação do Azure AD para acessar a API de Serviços de Mídia do Azure com REST](media-services-rest-connect-with-aad.md).
+Para saber como usar a autenticação do Azure AD com a API REST de Serviços de Mídia do Microsoft Azure, consulte [Usar a autenticação do Microsoft Azure Active Directory para acessar a API de Serviços de Mídia do Microsoft Azure com REST](media-services-rest-connect-with-aad.md).
 
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

@@ -9,15 +9,15 @@ ms.topic: article
 ms.date: 11/15/2017
 ms.author: gamonroy
 ms.custom: mvc
-ms.openlocfilehash: 299eb74686f00dc6d5eb9a1c6127aa134dcd9b77
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: a5380a3815335d7347b57dac49a3dca02c9d981c
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="scale-an-azure-container-service-aks-cluster"></a>Escalar um cluster do Serviço de Contêiner do Azure (AKS)
 
-É fácil escalar um cluster do AKS para um número diferente de nós.  Selecione o número de nós desejado e execute o comando `az aks scale`.  Ao reduzir verticalmente, os nós serão cuidadosamente [isolados e drenados](https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/) para minimizar a interrupção na execução de aplicativos.  Ao escalar verticalmente, o comando `az` aguarda até que os nós sejam marcados como `Ready` pelo cluster do Kubernetes.
+É fácil escalar um cluster do AKS para um número diferente de nós.  Selecione o número de nós desejado e execute o comando `az aks scale`.  Ao reduzir verticalmente, os nós serão cuidadosamente [isolados e drenados][kubernetes-drain] para minimizar a interrupção na execução de aplicativos.  Ao escalar verticalmente, o comando `az` aguarda até que os nós sejam marcados como `Ready` pelo cluster do Kubernetes.
 
 ## <a name="scale-the-cluster-nodes"></a>Escalar os nós de cluster
 
@@ -88,4 +88,10 @@ Saída:
 Saiba mais sobre como implantar e gerenciar o AKS com os tutoriais do AKS.
 
 > [!div class="nextstepaction"]
-> [Tutorial do AKS](./tutorial-kubernetes-prepare-app.md)
+> [Tutorial do AKS][aks-tutorial]
+
+<!-- LINKS - external -->
+[kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
+
+<!-- LINKS - internal -->
+[aks-tutorial]: ./tutorial-kubernetes-prepare-app.md

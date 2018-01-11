@@ -4,7 +4,7 @@ description: "Saiba como expandir discos rígidos virtuais em uma VM Linux com a
 services: virtual-machines-linux
 documentationcenter: 
 author: iainfoulds
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 
 ms.service: virtual-machines-linux
@@ -12,13 +12,13 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 08/21/2017
+ms.date: 12/13/2017
 ms.author: iainfou
-ms.openlocfilehash: b82cc0473c003da767ee230ab485c69b233977d1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6bc370c1f02eedf996824136b117a4021915fc57
+ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/14/2017
 ---
 # <a name="how-to-expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Como expandir discos rígidos virtuais em uma VM Linux com a CLI do Azure
 Normalmente, o tamanho do disco rígido virtual padrão do sistema operacional é de 30 GB em uma VM (máquina virtual) do Linux no Azure. É possível [adicionar discos de dados](add-disk.md) para fornecer espaço de armazenamento adicional, mas você também pode desejar expandir um disco de dados existente. Este artigo fornece detalhes de como expandir discos gerenciados de uma VM Linux com a CLI do Azure 2.0. Você também pode expandir o disco do sistema operacional não gerenciado com a [CLI do Azure 1.0](expand-disks-nodejs.md).
@@ -26,7 +26,7 @@ Normalmente, o tamanho do disco rígido virtual padrão do sistema operacional �
 > [!WARNING]
 > Certifique-se sempre de fazer backup dos dados antes de realizar operações de redimensionamento do disco. Para saber mais, confira [Fazer backup de máquinas virtuais do Linux no Azure](tutorial-backup-vms.md).
 
-## <a name="expand-disk"></a>Expandir disco
+## <a name="expand-azure-managed-disk"></a>Expandir disco gerenciado do Azure
 Certifique-se de que você tenha instalado a versão mais recente da [CLI 2.0 do Azure](/cli/azure/install-az-cli2) e entrado em uma conta do Azure usando [az login](/cli/azure/#login).
 
 Este artigo requer uma VM existente no Azure com, pelo menos, um disco de dados anexado e preparado. Caso ainda não tenha uma VM que possa ser usada, confira [Criar e preparar uma VM com discos de dados](tutorial-manage-disks.md#create-and-attach-disks).
@@ -40,7 +40,7 @@ Nas amostras a seguir, substitua os nomes de parâmetro de exemplo por seus pró
     ```
 
     > [!NOTE]
-    > `az vm stop` não libera os recursos de computação. Para liberar os recursos de computação, use `az vm deallocate`. A VM deve ser desalocada para que o disco rígido virtual seja expandido.
+    > A VM deve ser desalocada para que o disco rígido virtual seja expandido. `az vm stop` não libera os recursos de computação. Para liberar os recursos de computação, use `az vm deallocate`.
 
 2. Veja uma lista de discos gerenciados em um grupo de recursos com [az disk list](/cli/azure/disk#list). O exemplo a seguir exibe uma lista de discos gerenciados no grupo de recursos chamado *myResourceGroup*:
 
@@ -69,13 +69,17 @@ Nas amostras a seguir, substitua os nomes de parâmetro de exemplo por seus pró
     az vm start --resource-group myResourceGroup --name myVM
     ```
 
-4. SSH da VM com as credenciais apropriadas. Você pode obter o endereço IP público da sua VM com [az vm show](/cli/azure/vm#show):
+
+## <a name="expand-disk-partition-and-filesystem"></a>Expanda a partição de disco e de sistema de arquivos
+Para usar o disco expandido, é preciso expandir a partição subjacente e o sistema de arquivos.
+
+1. SSH da VM com as credenciais apropriadas. Você pode obter o endereço IP público da sua VM com [az vm show](/cli/azure/vm#show):
 
     ```azurecli
     az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
     ```
 
-5. Para usar o disco expandido, é preciso expandir a partição subjacente e o sistema de arquivos.
+2. Para usar o disco expandido, é preciso expandir a partição subjacente e o sistema de arquivos.
 
     a. Se já estiver montado, desmonte o disco:
 
@@ -116,25 +120,25 @@ Nas amostras a seguir, substitua os nomes de parâmetro de exemplo por seus pró
 
     d. Para sair, digite `quit`
 
-5. Com a partição redimensionada, verifique a consistência da partição com `e2fsck`:
+3. Com a partição redimensionada, verifique a consistência da partição com `e2fsck`:
 
     ```bash
     sudo e2fsck -f /dev/sdc1
     ```
 
-6. Agora redimensione o sistema de arquivos com `resize2fs`:
+4. Agora redimensione o sistema de arquivos com `resize2fs`:
 
     ```bash
     sudo resize2fs /dev/sdc1
     ```
 
-7. Monte a partição no local desejado, como `/datadrive`:
+5. Monte a partição no local desejado, como `/datadrive`:
 
     ```bash
     sudo mount /dev/sdc1 /datadrive
     ```
 
-8. Para verificar se o disco do sistema operacional foi redimensionado, use `df -h`. A seguinte saída de exemplo mostra que a unidade de dados, */dev/sdc1*, agora tem 200 GB:
+6. Para verificar se o disco do sistema operacional foi redimensionado, use `df -h`. A seguinte saída de exemplo mostra que a unidade de dados, */dev/sdc1*, agora tem 200 GB:
 
     ```bash
     Filesystem      Size   Used  Avail Use% Mounted on
