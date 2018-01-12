@@ -121,6 +121,8 @@
         - name: Carregar dados para trabalhos Hadoop
           href: ../hdinsight-upload-data.md
           maintainContext: true
+        - name: Carregar dados em massa para Phoenix usando psql
+          href: apache-hbase-phoenix-psql.md
         - name: Vários clusters HDInsight com Data Lake Store
           href: ../hdinsight-multiple-clusters-data-lake-store.md
           maintainContext: true

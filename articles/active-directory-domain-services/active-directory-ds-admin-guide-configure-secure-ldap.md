@@ -4,7 +4,7 @@ description: "Configurar o LDAP Seguro (LDAPS) para um domínio gerenciado dos S
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: mahesh-unnikrishnan
+manager: mtillman
 editor: curtand
 ms.assetid: c6da94b6-4328-4230-801a-4b646055d4d7
 ms.service: active-directory-ds
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 12/08/2017
 ms.author: maheshu
-ms.openlocfilehash: 0d2e7e6f17fecb9809ac76fbfa0db860b7948a7e
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: 771ca39b37e6fb2d75a86df3ac785bc293b4cd5f
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Configurar o LDAPS (LDAP Seguro) para um domínio gerenciado do Azure AD Domain Services
 Este artigo mostra como você pode habilitar o protocolo LDAPS para seu domínio gerenciado dos Serviços de Domínio do Azure AD. O LDAP Seguro também é conhecido como “LDAP sobre protocolo SSL/TLS”.
@@ -39,23 +39,18 @@ Para executar as tarefas listadas neste artigo, você precisa do seguinte:
 ### <a name="requirements-for-the-secure-ldap-certificate"></a>Requisitos para o certificado LDAP seguro
 Obtenha um certificado válido que esteja de acordo com as diretrizes a seguir, antes de habilitar o LDAP seguro. Você encontrará falhas se tentar habilitar o LDAP seguro para seu domínio gerenciado com um certificado inválido/incorreto.
 
-1. **Emissor confiável** – o certificado deve ser emitido por uma autoridade confiável para os computadores que se conectarem ao domínio gerenciado usando LDAP seguro. Essa autoridade pode ser uma autoridade de certificação pública de confiança nesses computadores.
+1. **Emissor confiável** – o certificado deve ser emitido por uma autoridade confiável para os computadores que se conectarem ao domínio gerenciado usando LDAP seguro. Essa autoridade pode ser uma autoridade de certificação (CA) pública de confiança nesses computadores.
 2. **Tempo de vida** : o certificado deve ser válido por, pelo menos, os próximos três a seis meses. O acesso LDAP seguro para seu domínio gerenciado é interrompido quando o certificado expira.
 3. **Nome da entidade** : o nome da entidade do certificado deve ser um caractere curinga para seu domínio gerenciado. Por exemplo, se o domínio se chamar “contoso100.com”, o nome da entidade do certificado deverá ser “*.contoso100.com”. Defina o nome DNS (nome alternativo da entidade) como esse nome curinga.
 4. **Uso de chave** : o certificado deve ser configurado para estas utilizações - assinaturas digitais e codificação de chave.
 5. **Finalidade do certificado** : o certificado deve ser válido para autenticação de servidor SSL.
-
-> [!NOTE]
-> **Autoridades de Certificação Corporativas:** o Azure AD Domain Services não dá suporte ao uso de certificados LDAP seguros emitidos pela autoridade de certificação corporativa de sua organização. Essa restrição ocorre porque o serviço não confia em sua autoridade de certificação corporativa como uma autoridade de certificação raiz. 
->
->
 
 <br>
 
 ## <a name="task-1---obtain-a-certificate-for-secure-ldap"></a>Tarefa 1 – obter um certificado para LDAP seguro
 A primeira tarefa envolve a obtenção de um certificado que será usado para acesso LDAP seguro ao domínio gerenciado. Você tem duas opções:
 
-* Obtenha um certificado de uma autoridade de certificação pública.
+* Obtenha um certificado de uma CA pública ou CA corporativa.
 * Crie um certificado autoassinado.
 
 > [!NOTE]
@@ -63,7 +58,7 @@ A primeira tarefa envolve a obtenção de um certificado que será usado para ac
 >
 
 ### <a name="option-a-recommended---obtain-a-secure-ldap-certificate-from-a-certification-authority"></a>Opção A (recomendada) - obter um certificado LDAP seguro de uma autoridade de certificação
-Se sua organização obtiver seus certificados de uma autoridade de certificação pública, obtenha o certificado LDAP seguro da autoridade de certificação pública.
+Se sua organização obtiver seus certificados de uma CA pública, obtenha o certificado LDAP seguro da CA pública. Se você implantar uma CA corporativa, obtenha o certificado LDAP seguro da CA corporativa.
 
 > [!TIP]
 > **Use certificados autoassinados para domínios gerenciados com sufixos de domínio '.onmicrosoft.com'.**

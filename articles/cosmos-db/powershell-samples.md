@@ -15,21 +15,23 @@ ms.tgt_pltfrm: na
 ms.workload: database
 ms.date: 10/16/2017
 ms.author: mimig
-ms.openlocfilehash: f2687369b8e247f00e9de5f3f79d8e44be5b8300
-ms.sourcegitcommit: bd0d3ae20773fc87b19dd7f9542f3960211495f9
+ms.openlocfilehash: de892cc631585c55b0c15f4efe1e06ad55afdce5
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db"></a>Exemplos do Azure PowerShell para o BD Cosmos do Azure
+
+[!INCLUDE [cosmos-db-sql-api](../../includes/cosmos-db-sql-api.md)]
 
 A tabela a seguir inclui links para scripts de exemplo do Azure PowerShell para o BD Cosmos do Azure. Neste momento, só é possível gerenciar o accountlayer do Azure Cosmos DB por meio do PowerShell. Outros recursos como bancos de dados e coleções não podem ser gerenciados por meio do PowerShell.
 
 | |  |
 |---|---|
 |**Criar uma conta do BD Cosmos do Azure**||
-|[Criar uma conta da API do DocumentDB](scripts/create-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cria uma única conta do BD Cosmos do Azure para ser usada com a API do DocumentDB. |
-|**Dimensionar o BD Cosmos do Azure**||
+|[Criar uma conta da API do SQL](scripts/create-database-account-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Cria uma única conta do BD Cosmos do Azure para ser usada com a API do SQL. |
+|**Dimensionar o Azure Cosmos DB**||
 |[Replicar uma conta do BD Cosmos do Azure em várias regiões e configurar as prioridades de failover](scripts/scale-multiregion-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json)|Replica globalmente os dados da conta em várias regiões com uma prioridade de failover especificada.|
 |**Proteger o Azure Cosmos DB**||
 | [Obter chaves da conta](scripts/secure-get-account-key-powershell.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Obtém a chaves de gravação mestre primária e secundária e as chaves somente leitura primária e secundária da conta.|

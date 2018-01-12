@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 191870aea5f35830115ae1e8885cd3035597411f
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: 6392a14f6bbc3c4708b36e3e1ab0b5b45a4d0671
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="api-management-advanced-policies"></a>Políticas avançadas de Gerenciamento de API
 Este tópico fornece uma referência para as políticas de Gerenciamento de API a seguir. Para obter mais informações sobre como adicionar e configurar políticas, consulte [Políticas de Gerenciamento de API](http://go.microsoft.com/fwlink/?LinkID=398186).  
@@ -242,7 +242,7 @@ Este tópico fornece uma referência para as políticas de Gerenciamento de API 
   
 |Atributo|Descrição|Obrigatório|Padrão|  
 |---------------|-----------------|--------------|-------------|  
-|timeout="integer"|O intervalo de tempo limite em segundos antes de a chamada para o serviço de back-end falhar.|Não|Sem tempo limite|  
+|timeout="integer"|O intervalo de tempo limite em segundos antes de a chamada para o serviço de back-end falhar.|Não|300 segundos|  
 |follow-redirects="true &#124; false"|Especifica se os redirecionamentos do serviço de back-end são seguidos pelo gateway ou retornados ao chamador.|Não|false|  
   
 ### <a name="usage"></a>Uso  

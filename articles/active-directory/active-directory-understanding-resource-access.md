@@ -4,21 +4,21 @@ description: "Este tópico explica os conceitos sobre como usar os administrador
 services: active-directory
 documentationcenter: 
 author: curtand
-manager: femila
+manager: mtillman
 ms.assetid: 174f1706-b959-4230-9a75-bf651227ebf6
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2017
+ms.date: 12/06/2017
 ms.author: curtand
-ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 9492afeda8c11d9d4df866e416a2c2c7e1684569
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.custom: it-pro;
+ms.openlocfilehash: ad6658aaed55801ac8f6a39a721fb7469892303d
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="understanding-resource-access-in-azure"></a>Noções básicas sobre o acesso aos recursos do Azure
 
@@ -26,27 +26,22 @@ O controle de acesso no Azure parte de uma perspectiva de cobrança. O propriet�
 
 <br><br>![Contas do Azure][1]
 
-As assinaturas também têm uma associação com um diretório. O diretório define um conjunto de usuários. Estes podem ser usuários do trabalho ou da escola que criou o diretório ou podem ser usuários externos (ou seja, Contas da Microsoft). As assinaturas são acessíveis por um subconjunto desses usuários do diretório que foram atribuídos como um serviço SA (Administrador) ou CA (Coadministrador); a única exceção é que, por motivos de herança, Contas da Microsoft (anteriormente chamadas de Windows Live ID) podem ser atribuídas como SA ou CA sem estarem presentes no diretório.
+As assinaturas também têm uma associação com um diretório. O diretório define um conjunto de usuários. Estes podem ser usuários do trabalho ou da escola que criou o diretório ou podem ser usuários convidados. As assinaturas são acessíveis por um subconjunto desses usuários do diretório que foram atribuídos como um serviço SA (Administrador) ou CA (Coadministrador); a única exceção é que, por motivos de herança, contas da Microsoft (anteriormente chamadas de Windows Live ID) podem ser atribuídas como SA ou CA sem estarem presentes no diretório.
 
 <br><br>![Controle de acesso no Azure][2]
 
-A funcionalidade no Portal clássico do Azure permite que os SAs que se conectaram usando uma Conta da Microsoft alterem o diretório ao qual uma assinatura está associada usando o comando **Editar Diretório** na página **Assinaturas** em **Configurações**. Observe que esta operação tem implicações no controle de acesso da assinatura.
+Funcionalidade no portal do Azure permite que SAs inscritos usando uma Conta da Microsoft para alterar o diretório ao qual uma assinatura está associada. Esta operação tem implicações no controle de acesso da assinatura.
 
-> [!NOTE]
-> O comando **Editar Diretório** no Portal clássico do Azure não está disponível para os usuários que se conectaram usando uma conta corporativa ou de estudante, pois essas contas podem se conectar apenas ao diretório ao qual pertencem.
-> 
-> 
+<br><br>![Fluxo de entrada do usuário simples][3]
 
-<br><br>![Fluxo de Logon de Usuário Simples][3]
-
-No caso mais simples, uma organização (como por exemplo, Contoso) fará a cobrança e o controle de acesso no mesmo conjunto de assinaturas. Ou seja, o diretório está associado às assinaturas pertencentes a uma única conta do Azure. Após o logon bem-sucedido no Portal clássico do Azure, os usuários veem duas coleções de recursos (representadas em laranja na ilustração anterior):
+No caso mais simples, uma organização (como por exemplo, Contoso) fará a cobrança e o controle de acesso no mesmo conjunto de assinaturas. Ou seja, o diretório está associado às assinaturas pertencentes a uma única conta do Azure. Após o logon bem-sucedido no Portal do Azure, os usuários veem duas coleções de recursos (representadas em laranja na ilustração anterior):
 
 * Diretórios onde sua conta de usuário existe (originados ou adicionados como uma entidade externa). Observe que o diretório usado para logon não é relevante para esse cálculo, portanto os diretórios serão sempre mostrados independentemente de onde você fez logon.
 * Recursos que fazem parte das assinaturas que estão associados com o diretório usado para fazer logon E que o usuário pode acessar (seja um SA ou CA).
 
 <br><br>![Usuário com Várias Assinaturas e Diretórios][4]
 
-Os usuários com assinaturas em vários diretórios têm a capacidade de alternar o contexto atual do Portal clássico do Azure usando o filtro de assinatura. Internamente, isso resulta em um logon separado para um diretório diferente, mas isso é feito diretamente usando logon único (SSO).
+Os usuários com assinaturas em vários diretórios têm a capacidade de alternar o contexto atual do Portal do Azure usando o filtro de assinatura. Internamente, isso resulta em um logon separado para um diretório diferente, mas isso é feito diretamente usando logon único (SSO).
 
 Operações como mover recursos entre as assinaturas podem ser mais difíceis como resultado desta visão única de diretório de assinaturas. Para executar a transferência de recursos, talvez seja necessário usar primeiro o comando **Editar Diretório** na página Assinaturas em **Configurações** para associar as assinaturas ao mesmo diretório.
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: samacha
-ms.openlocfilehash: 8bdbcf78f2892cbd1e1cc09cef220dff08dd9490
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a4eb8642a0496e126b79724b4048bae7cc15a68
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="add-a-streaming-data-input-or-reference-data-to-a-stream-analytics-job"></a>Adicionar um fluxo de entrada ou dados de referência a um trabalho do Stream Analytics
 Saiba como conectar uma fonte de dados ao trabalho do Stream Analytics como fluxo de entrada de dados de Hubs de Eventos ou dados de referência do armazenamento de Blobs.
@@ -38,7 +38,7 @@ Para adicionar uma entrada ao trabalho do Stream Analytics:
 
 1. No portal do Azure, clique em **Entradas** e, em seguida, em **Adicionar uma Entrada** em seu trabalho do Stream Analytics.
    
-    ![Portal clássico do Azure - adicionar uma entrada.](./media/stream-analytics-add-inputs/1-stream-analytics-add-inputs.png)  
+    ![Portal do Azure – adicione uma entrada.](./media/stream-analytics-add-inputs/1-stream-analytics-add-inputs.png)  
    
     No portal do Azure, clique no bloco **Entradas** no seu trabalho do Stream Analytics.  
    

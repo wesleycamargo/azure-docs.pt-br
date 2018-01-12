@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: mabrigg
-ms.openlocfilehash: 949715317de69064bb66fb470a805e367512bd6f
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 80c3f248edb40b66e3177c512f3caf77295c6c5d
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="using-the-privileged-endpoint-in-azure-stack"></a>Usando o ponto de extremidade com privilégios na pilha do Azure
 
 *Aplica-se a: Azure pilha integrado sistemas e o Kit de desenvolvimento de pilha do Azure*
 
-Como um operador de pilha do Azure, você deve usar o portal do administrador, PowerShell ou APIs do Gerenciador de recursos do Azure para tarefas de gerenciamento mais diárias. No entanto, para alguns menos operações comuns, você precisa usar o *privilegiado do ponto de extremidade*. Esse ponto de extremidade é um console do PowerShell remoto pré-configurado que fornece recursos suficientes para ajudá-lo a executar uma tarefa obrigatória. O ponto de extremidade utiliza PowerShell JEA (Just Enough Administration) para expor apenas um conjunto restrito de cmdlets. Para acessar o ponto de extremidade com privilégios e invocar um conjunto restrito de cmdlets, uma conta de baixo privilégio é usada. Nenhuma conta de administrador é necessária. Para obter segurança adicional, o script não é permitido.
+Como um operador de pilha do Azure, você deve usar o portal do administrador, PowerShell ou APIs do Gerenciador de recursos do Azure para tarefas de gerenciamento mais diárias. No entanto, para alguns menos operações comuns, você precisa usar o *privilegiado do ponto de extremidade* (PEP). Esse ponto de extremidade é um console do PowerShell remoto pré-configurado que fornece recursos suficientes para ajudá-lo a executar uma tarefa obrigatória. O ponto de extremidade utiliza PowerShell JEA (Just Enough Administration) para expor apenas um conjunto restrito de cmdlets. Para acessar o ponto de extremidade com privilégios e invocar um conjunto restrito de cmdlets, uma conta de baixo privilégio é usada. Nenhuma conta de administrador é necessária. Para obter segurança adicional, o script não é permitido.
 
 Você pode usar o ponto de extremidade com privilégios para executar tarefas como a seguir:
 
@@ -98,6 +98,7 @@ Antes de iniciar este procedimento para um sistema integrado, certifique-se de q
     - Remover CloudAdminUser
     - Select-Object
     - Conjunto CloudAdminUserPassword
+    - Teste AzureStack
     - Stop-AzureStack
     - Get-ClusterLog
 

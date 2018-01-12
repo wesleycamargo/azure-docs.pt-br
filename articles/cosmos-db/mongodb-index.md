@@ -11,19 +11,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2017
+ms.date: 12/12/2017
 ms.author: mimig
-ms.openlocfilehash: 8feabb464c87032db40a66a67f471d0f41cd98eb
-ms.sourcegitcommit: c50171c9f28881ed3ac33100c2ea82a17bfedbff
+ms.openlocfilehash: 63cfa92feb08f32081fe02d4202fa6256c7b99dc
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/26/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="azure-cosmos-db-mongodb-api-documentation"></a>Azure Cosmos DB: documentação da API do MongoDB
 
 Este artigo fornece links para todo o conteúdo do Azure Cosmos DB específico para a API do MongoDB.
 
-Estes artigos não se aplicam à API do DocumentDB, à API do Graph ou à API de tabela. 
+Estes artigos não se aplicam à API do SQL, à API do Graph ou à API de tabela. 
 
 ## <a name="introduction-and-concepts"></a>Introdução e conceitos
 
@@ -31,16 +31,18 @@ A leitura destes tópicos e recursos é indispensável para você começar a apr
 
 - [Introdução à API do MongoDB](mongodb-introduction.md)
 - [Conectar-se à sua conta MongoDB](connect-mongodb-account.md)
+- [Suporte para recursos e sintaxe do MongoDB](mongodb-feature-support.md)
 
 ## <a name="quickstarts"></a>Guia de início rápido
 
 Os tópicos do Guia de Início Rápido são a maneira mais rápida de criar um aplicativo de trabalho com o Azure Cosmos DB. Em cada Guia de Início Rápido, você aprenderá como usar o portal do Azure baseado em interface do usuário e sua linguagem de codificação favorita para criar soluções de banco de dados com o Azure Cosmos DB. Aplicativos Web clonáveis da área do GitHub disponíveis para cada Guia de Início Rápido. 
 
 
-- [MongoDB + Express + AngularJS + Node.js + aplicativos Web](create-mongodb-nodejs.md)
+- [Node.js + Express + AngularJS + aplicativos Web](create-mongodb-nodejs.md)
 - [.NET + Portal do Azure + Aplicativos Web](create-mongodb-dotnet.md)
 - [Java + Portal do Azure + Aplicativos Web](create-mongodb-java.md)
 - [Go + Portal do Azure + Go](create-mongodb-golang.md)
+- [Python + Flask + portal do Azure](create-mongodb-flask.md)
 
 ## <a name="tutorials"></a>Tutoriais
 

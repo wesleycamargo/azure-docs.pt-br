@@ -33,9 +33,9 @@
       href: how-to-search-for-address.md
 - name: Referência
   items:
-    - name: API Funcional - REST
+    - name: API Funcional
       href: 'https://docs.microsoft.com/en-us/rest/api/location-based-services/'
-    - name: API de Gerenciamento - REST
+    - name: API de gerenciamento
       href: 'https://docs.microsoft.com/en-us/rest/api/location-based-services-management/'
     - name: API do Controle de Mapeamento - Javascript
       href: 'https://docs.microsoft.com/en-us/javascript/api/location-based-services-javascript/'
@@ -57,5 +57,5 @@
       href: 'http://stackoverflow.com/questions/tagged/azure-location-based-services'
     - name: Estudos de casos técnicos
       href: 'https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured'
-    - name: Vídeos
+    - name: vídeos
       href: 'https://azure.microsoft.com/documentation/videos'

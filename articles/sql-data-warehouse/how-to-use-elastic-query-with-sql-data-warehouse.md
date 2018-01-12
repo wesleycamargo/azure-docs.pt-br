@@ -15,11 +15,11 @@ ms.workload: data-services
 ms.custom: integrate
 ms.date: 09/18/2017
 ms.author: elbutter
-ms.openlocfilehash: 295cc59fdb23105534b4e7431902eaa720643330
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4c351d88b31adfa3443dd2231f67bb442f2b8fe0
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="how-to-use-elastic-query-with-sql-data-warehouse"></a>Como usar Consulta Elástica com o SQL Data Warehouse
 
@@ -78,7 +78,7 @@ Para obter mais informações sobre Consulta Elástica com o banco de dados SQL,
 
 ### <a name="elastic-querying"></a>Consulta Elástica
 
-- A tabela externa e a tabela armazenada em cache internamente existem como objetos diferentes com a instância do banco de dados SQL. Considere criar uma exibição na parte superior da parte em cache da tabela e a tabela externa que une ambas as tabelas e aplica os filtros ao ponto de limite de cada tabela.
+- Em muitos casos, alguém pode querer gerenciar um tipo de tabela ampliada, em que uma parte da sua tabela está no Banco de Dados SQL em cache dados de desempenho com o restante dos dados armazenados no SQL Data Warehouse. Você precisará ter dois objetos no Banco de Dados SQL: uma tabela externa dentro do Banco de Dados SQL que faz referência à tabela base no SQL Data Warehouse, e a parte "em cache" da tabela no Banco de Dados SQL. Considere a criação de uma exibição pela parte superior da parte em cache da tabela e a tabela externa que une as tabelas e aplica os filtros que separam dados materializados no Banco de Dados SQL e no dados expostos do SQL Data Warehouse por meio de tabelas externas.
 
   Imagine que gostaríamos de manter o ano mais recente dos dados em uma instância do banco de dados SQL. Temos duas tabelas **ext.Orders**, que referenciam as tabelas de ordem do data warehouse e **dbo.Orders**, que representam os anos mais recentes de dados dentro na instância do banco de dados SQL. Em vez de solicitar que os usuários decidam se vão consultar uma tabela ou outra, criamos uma exibição na parte superior das duas tabelas no ponto de partição do ano mais recente.
 
@@ -135,13 +135,17 @@ Para obter mais informações sobre Consulta Elástica com o banco de dados SQL,
 
 ## <a name="faq"></a>Perguntas frequentes
 
-P: Posso usar bancos de dados dentro de um pool de Banco de Dados Elástico com consulta elástica?
+P: Posso usar bancos de dados dentro de um pool de banco de dados elástico com consulta elástica?
 
 R: Sim. Bancos de dados SQL em um pool elástico podem usar a consulta elástica. 
 
 P: Há um limite a quantos bancos de dados eu posso usar para consulta elástica?
 
-R: Servidores lógicos têm limites de DTU em vigor para impedir que os clientes gastando demais acidentalmente. Se você estiver habilitando vários bancos de dados para consulta elástica junto com uma instância do SQL Data Warehouse, poderá atingir o limite inesperadamente. Se isso ocorrer, envie uma solicitação para aumentar o limite de DTU em seu servidor lógico. Você pode aumentar sua cota [criando um tíquete de suporte](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) e selecionando *Cota* como o tipo de solicitação
+R: Não há um limite a quantos bancos de dados eu posso usar para consulta elástica. No entanto, cada consulta elástica (consultas que atingem o SQL Data Warehouse) contará para limites de simultaneidade normais.
+
+P: Há limites de DTU envolvidos na consulta elástica?
+
+R: Os limites de DTU não são impostos de maneira diferente da consulta elástica. A política padrão é que servidores lógicos têm limites de DTU em vigor para impedir que os clientes gastando demais acidentalmente. Se você estiver habilitando vários bancos de dados para consulta elástica junto com uma instância do SQL Data Warehouse, poderá atingir o limite inesperadamente. Se isso ocorrer, envie uma solicitação para aumentar o limite de DTU em seu servidor lógico. Você pode aumentar sua cota [criando um tíquete de suporte](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket) e selecionando *Cota* como o tipo de solicitação
 
 P: Posso usar Segurança em Nível de Linha/Máscara de Dados Dinâmicos com Consulta Elástica?
 

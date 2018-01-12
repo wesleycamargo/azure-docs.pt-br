@@ -4,7 +4,7 @@ description: "Compreenda e resolva erros de diretórios incompatíveis para dom�
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: mahesh-unnikrishnan
+manager: mtillman
 editor: curtand
 ms.assetid: 40eb75b7-827e-4d30-af6c-ca3c2af915c7
 ms.service: active-directory-ds
@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/30/2017
+ms.date: 12/11/2017
 ms.author: maheshu
-ms.openlocfilehash: 9c9a47e9b3050eb7f41202d6a4b9202ba0f379df
-ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+ms.openlocfilehash: 24e11769e9b403bc00157e3f60869effa6a9633f
+ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>Resolva erros de diretórios incompatíveis para domínios gerenciados existentes do Azure AD Domain Services
-Você tem um domínio gerenciado que foi habilitado usando o portal clássico do Azure. Quando navega para o novo portal do Azure e exibe o domínio gerenciado, você vê a seguinte mensagem de erro:
+Você tem um domínio gerenciado dos Azure AD Domain Services. Quando navega para o portal do Azure e exibe o domínio gerenciado, você vê a seguinte mensagem de erro:
 
 ![Erro de diretórios incompatíveis](.\media\getting-started\mismatched-tenant-error.png)
 
@@ -33,7 +33,7 @@ Este erro é causado quando seu domínio gerenciado e a rede virtual em que ele 
 
 O novo portal do Azure (e, especificamente, a extensão do Azure AD Domain Services) foi criado com base no Azure Resource Manager. No ambiente do Azure Resource Manager moderno, certas restrições são impostas para fornecer maior segurança e RBAC (controle de acesso baseado em função) aos recursos. Habilitar o Azure AD Domain Services para um locatário do Azure AD é uma operação sensível, pois ela faz com que os hashes de credenciais sejam sincronizados com o domínio gerenciado. Esta operação requer que você seja um administrador de locatários do diretório. Além disso, você precisa ter privilégios administrativos na rede virtual em que habilitar o domínio gerenciado. Para as verificações de RBAC funcionarem de forma consistente, o domínio gerenciado e a rede virtual devem pertencer ao mesmo locatário do Azure AD.
 
-Em resumo, você não pode habilitar um domínio gerenciado para um locatário do Azure AD “contoso.com” em uma rede virtual que pertence a uma assinatura do Azure pertencente a outro locatário do Azure AD, como “fabrikam.com”. O portal clássico do Azure não foi criado sobre a plataforma do Resource Manager e não impõe essas restrições.
+Em resumo, você não pode habilitar um domínio gerenciado para um locatário do Azure AD “contoso.com” em uma rede virtual que pertence a uma assinatura do Azure pertencente a outro locatário do Azure AD, como “fabrikam.com”. 
 
 **Configuração válida**: neste cenário de implantação, o domínio gerenciado Contoso está habilitado para o locatário Contoso do Azure AD. O domínio gerenciado é exposto em uma rede virtual pertencente a uma assinatura do Azure que pertence ao locatário Contoso do Azure AD. Portanto, tanto o domínio gerenciado quanto a rede virtual pertencem ao mesmo locatário do Azure AD. Essa configuração é válida e tem suporte completo.
 

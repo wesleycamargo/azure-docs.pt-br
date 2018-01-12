@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 11/17/2017
-ms.openlocfilehash: 3938af29caec99f076452529cbc5d93cf2c8802b
-ms.sourcegitcommit: a036a565bca3e47187eefcaf3cc54e3b5af5b369
+ms.openlocfilehash: 3e7e80d58a3eb27920736a1594633021b90014e9
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="migrate-sql-server-to-azure-sql-database"></a>Migrar SQL Server para BD SQL do Azure
 Você pode usar o serviço de migração do banco de dados do Azure para migrar os bancos de dados de uma instância do SQL Server local para o banco de dados do SQL Azure. Neste artigo, você migra o banco de dados **Adventureworks2012** restaurado em uma instância local do SQL Server 2016 ou posterior para um Banco de Dados SQL do Azure usando o Microsoft Azure PowerShell.

@@ -12,16 +12,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/28/2017
+ms.date: 12/07/2017
 ms.author: chackdan
-ms.openlocfilehash: e75929ee5d3f57af77c66910cc294a7c0fb6629a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: f0fdbd7fc4ec48037371ffa296cf668897e45b70
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Cenários de segurança do cluster do Service Fabric
-Um cluster do Azure Service Fabric é um recurso que pertence a você. Você deve proteger os clusters para ajudar a impedir que usuários não autorizados se conectem a eles. Um cluster seguro é especialmente importante quando você está executando cargas de trabalho de produção no cluster. Embora seja possível criar um cluster não seguro, se ele expuser pontos de extremidade de gerenciamento na Internet pública, usuários anônimos poderão se conectar a ele. 
+Um cluster do Azure Service Fabric é um recurso que pertence a você. É sua responsabilidade proteger os clusters para ajudar a impedir que usuários não autorizados se conectem a eles. Um cluster seguro é especialmente importante quando você está executando cargas de trabalho de produção no cluster. Embora seja possível criar um cluster não seguro, se ele expuser pontos de extremidade de gerenciamento na Internet pública, usuários anônimos poderão se conectar a ele. Clusters desprotegidos não são compatíveis com cargas de trabalho de produção. 
 
 Este artigo é uma visão geral dos cenários de segurança para clusters do Azure e clusters autônomos, bem como das diversas tecnologias que você pode usar para implementá-los:
 

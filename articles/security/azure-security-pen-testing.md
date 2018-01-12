@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2017
+ms.date: 12/08/2017
 ms.author: yurid
-ms.openlocfilehash: 3ad22e78693c54c62f9230f7f52460e01e5e0022
-ms.sourcegitcommit: 8aa014454fc7947f1ed54d380c63423500123b4a
+ms.openlocfilehash: dd5c874406ec184a2526a9eb0843cd6f3b6b3aa1
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/23/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="pen-testing"></a>Teste de Caneta
 Um dos benefícios do uso do Azure para implantação e testes de aplicativos é que você pode criar rapidamente ambientes.  Você não precisa se preocupar sobre requisição, aquisição e "posicionamento no rack e empilhamento" do seu próprio hardware local.
@@ -29,11 +29,12 @@ Talvez você já saiba que a Microsoft realiza [teste de penetração do nosso a
 
 Nós não fazemos teste de caneta em seu aplicativo para você, mas entendemos que você desejará e precisará executar testes de caneta em seus próprios aplicativos. Isso é uma boa coisa, porque quando você aumenta a segurança de seus aplicativos, você ajuda a tornar todo o ecossistema do Azure mais seguro.
 
-Quando você faz o teste de caneta em seus aplicativos, ele pode parecer um ataque para nós. Nós [monitoramos continuamente](http://blogs.msdn.com/b/azuresecurity/archive/2015/07/05/best-practices-to-protect-your-azure-deployment-against-cloud-drive-by-attacks.aspx) em busca de padrões de ataque e iniciaremos um processo de resposta a incidente, se necessário. Não será bom para você e nem para nós se dispararmos uma resposta a incidente devido ao seu próprio teste de caneta de inspeção.
-
 O que fazer?
 
-Quando estiver pronto para fazer o teste de caneta em seus aplicativos hospedados no Azure, você deverá [nos informar](https://portal.msrc.microsoft.com/en-us/engage/pentest). Quando notificada, a Microsoft não o desligará inadvertidamente (por exemplo, bloqueando o endereço IP do qual você está testando). Os testes devem estar em conformidade com os termos e condições de teste de caneta do Azure descritos em [Regras de engajamento do teste de penetração unificado do Microsoft Cloud](https://technet.microsoft.com/en-us/mt784683).
+Desde 15 de junho de 2017, a Microsoft não exige aprovação prévia para realizar testes de penetração com base nos recursos do Azure. Os clientes que desejam documentar formalmente futuros testes de penetração no Microsoft Azure são incentivados a preencher o [formulário Notificação de teste de penetração do Azure Service](https://portal.msrc.microsoft.com/engage/pentest). Esse processo só está relacionado ao Microsoft Azure e não se aplica a outro serviço do Microsoft Cloud. 
+
+>[!IMPORTANT] 
+>Embora a notificação da Microsoft da caneta as atividades de teste não é mais necessário clientes ainda devem estar de acordo com o [Microsoft nuvem unificado penetração teste regras](https://technet.microsoft.com/en-us/mt784683). 
 
 Os testes padrão que você pode executar incluem:
 

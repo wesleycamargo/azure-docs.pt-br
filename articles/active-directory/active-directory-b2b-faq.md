@@ -4,7 +4,7 @@ description: "Obtenha respostas para as perguntas frequentes sobre a colaboraç�
 services: active-directory
 documentationcenter: 
 author: sasubram
-manager: femila
+manager: mtillman
 editor: 
 tags: 
 ms.assetid: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: NA
 ms.workload: identity
 ms.date: 05/23/2017
 ms.author: sasubram
-ms.openlocfilehash: 0e3ae7f176f41b4b0984dbef0748451c7ebff9e7
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: fecfb7217434a93fd5d44f1f07709009de7710fb
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Perguntas frequentes sobre a colaboração B2B do Azure Active Directory
 
@@ -115,7 +115,7 @@ Recomendamos convidar um usuário da organização parceira para participar da o
 Se o parceiro tiver um locatário do Azure AD que está federado à infraestrutura de autenticação local, o SSO (logon único) local será feito automaticamente. Se o parceiro não tiver um locatário do Azure AD, uma conta do Azure AD será criada para novos usuários. 
 
 ### <a name="i-thought-azure-ad-b2b-didnt-accept-gmailcom-and-outlookcom-email-addresses-and-that-b2c-was-used-for-those-kinds-of-accounts"></a>Achei que o Azure AD B2B não aceitava endereços de email gmail.com e outlook.com nem que o B2C fosse usado para esses tipos de contas.
-Estamos removendo as diferenças entre a colaboração B2B e B2C (entre empresas) em termos de quais identidades têm suporte. A identidade usada não é um bom motivo para optar por usar o B2B ou o B2C. Para obter informações sobre como escolher sua opção de colaboração, consulte [Comparação da colaboração B2B e B2C no Azure Active Directory](active-directory-b2b-compare-b2c.md).
+Estamos removendo as diferenças entre a colaboração B2B e B2C (entre clientes) em termos de quais identidades têm suporte. A identidade usada não é um bom motivo para optar por usar o B2B ou o B2C. Para obter informações sobre como escolher sua opção de colaboração, consulte [Comparação da colaboração B2B e B2C no Azure Active Directory](active-directory-b2b-compare-b2c.md).
 
 ### <a name="what-applications-and-services-support-azure-b2b-guest-users"></a>Quais aplicativos e serviços fornecem suporte aos usuários convidados B2B do Azure?
 Todos os aplicativos integrados ao Azure AD dão suporte a usuários convidados do B2B do Azure. 

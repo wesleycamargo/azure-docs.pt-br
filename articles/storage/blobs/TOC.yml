@@ -8,10 +8,10 @@
       href: ../common/storage-decide-blobs-files-disks.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
 - name: Guia de início rápido
   items:
-    - name: Criar uma conta de armazenamento – PowerShell
-      href: ../common/storage-quickstart-create-storage-account-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Criar uma conta de armazenamento – CLI
-      href: ../common/storage-quickstart-create-storage-account-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Criar uma conta de armazenamento
+      href: ../common/storage-quickstart-create-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Trabalhar com blobs - portal do Azure
+      href: storage-quickstart-blobs-portal.md
     - name: Trabalhar com blobs – PowerShell
       href: storage-quickstart-blobs-powershell.md
     - name: Trabalhar com blobs – CLI
@@ -58,7 +58,7 @@
           href: storage-blob-scalable-app-upload-files.md
         - name: Baixar dados grandes de uma conta de armazenamento do Azure
           href: storage-blob-scalable-app-download-files.md
-        - name: Verificar taxa de transferência e métricas de latência
+        - name: Verificar as métricas de taxa de transferência e de latência
           href: storage-blob-scalable-app-verify-metrics.md
 - name: Exemplos
   items:
@@ -70,6 +70,10 @@
       href: storage-samples-blobs-powershell.md
     - name: CLI do Azure
       href: storage-samples-blobs-cli.md
+    - name: .NET
+      href: ../common/storage-samples-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+    - name: Java
+      href: ../common/storage-samples-java.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
 - name: Conceitos
   items:
     - name: Planejar e projetar
@@ -94,16 +98,32 @@
           href: ../common/storage-moving-data.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: Armazenamento Premium
           items:
-            - name: Armazenamento Premium de alto desempenho para Discos de VM
-              href: ../common/storage-premium-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Migração para o Armazenamento Premium do Azure usando o Azure Site Recovery
-              href: ../common/storage-migrate-to-premium-storage-using-azure-site-recovery.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Design para alto desempenho
-              href: ../common/storage-premium-storage-performance.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Linux
+              items:
+                - name: Armazenamento Premium de alto desempenho para Discos de VM
+                  href: 'https://docs.microsoft.com/azure/virtual-machines/linux/premium-storage'
+                - name: Migração para o Armazenamento Premium do Azure usando o Azure Site Recovery
+                  href: 'https://docs.microsoft.com/azure/virtual-machines/linux/migrate-to-premium-storage-using-azure-site-recovery'
+                - name: Design para alto desempenho
+                  href: 'https://docs.microsoft.com/azure/virtual-machines/linux/premium-storage-performance'
+            - name: Windows
+              items:
+                - name: Armazenamento Premium de alto desempenho para Discos de VM
+                  href: 'https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage'
+                - name: Migração para o Armazenamento Premium do Azure usando o Azure Site Recovery
+                  href: 'https://docs.microsoft.com/azure/virtual-machines/windows/migrate-to-premium-storage-using-azure-site-recovery'
+                - name: Design para alto desempenho
+                  href: 'https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance'
         - name: Armazenamento Standard
           items:
-            - name: Armazenamento Standard econômico e discos de VM gerenciados e não gerenciados
-              href: ../common/storage-standard-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+            - name: Linux
+              items:
+                - name: Armazenamento Padrão para discos de VM
+                  href: 'https://docs.microsoft.com/azure/virtual-machines/linux/standard-storage'
+            - name: Windows
+              items:
+                - name: Armazenamento Padrão para discos de VM
+                  href: 'https://docs.microsoft.com/azure/virtual-machines/windows/standard-storage'
     - name: Segurança
       items:
         - name: Guia de segurança
@@ -146,6 +166,8 @@
       href: ../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Desenvolver
       items:
+        - name: REST
+          href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: .NET
           href: storage-dotnet-how-to-use-blobs.md
         - name: Java
@@ -172,8 +194,6 @@
           href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Gerenciar
       items:
-        - name: PowerShell para Blobs do Azure
-          href: storage-how-to-use-blobs-powershell.md
         - name: PowerShell para Armazenamento do Azure
           href: ../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
         - name: 'PowerShell para nuvens Governamentais, na China e na Alemanha'

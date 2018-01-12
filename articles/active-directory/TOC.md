@@ -217,7 +217,7 @@
 #### [Gerenciar o provisionamento de conta de usuário](active-directory-enterprise-apps-manage-provisioning.md)
 #### [Gerenciar logon único para aplicativos corporativos](active-directory-enterprise-apps-manage-sso.md)
 #### [Assinatura de certificados avançada para aplicativos SAML](active-directory-enterprise-apps-advance-certificate-options.md)
-#### [Ocultar um aplicativo de terceiros da experiência de um usuário](active-directory-coreapps-hide-third-party-app.md)
+#### [Como remover um aplicativo da experiência de um usuário](active-directory-coreapps-hide-third-party-app.md)
 ### [Configurar a aceleração automática da entrada usando a Política de HRD](active-directory-auto-acceleration-using-hrd.md)
 
 ### [Gerenciar o acesso aos aplicativos](active-directory-managing-access-to-apps.md)
@@ -283,6 +283,7 @@
 ## Proteger suas identidades
 ### [Acesso condicional](active-directory-conditional-access-azure-portal.md)
 #### [Controles](active-directory-conditional-access-controls.md)
+#### [Condição de localização](active-directory-conditional-access-locations.md)
 #### [Introdução](active-directory-conditional-access-azure-portal-get-started.md)
 #### [práticas recomendadas](active-directory-conditional-access-best-practices.md)
 #### [Entender as políticas do dispositivo para os serviços do Office 365](active-directory-conditional-access-device-policies.md)

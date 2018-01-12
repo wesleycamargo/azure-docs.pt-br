@@ -11,13 +11,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/15/2017
+ms.date: 01/10/2018
 ms.author: JeffGo
-ms.openlocfilehash: 065d4cbc9a324f00a0985c4ebed3d4dffc79d91a
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: d0394fd1edf21cdbb863a88a1d3ecef118a7d886
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/05/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="use-mysql-databases-on-microsoft-azure-stack"></a>Usar bancos de dados MySQL na pilha do Microsoft Azure
 
@@ -25,7 +25,7 @@ ms.lasthandoff: 01/05/2018
 
 Você pode implantar um provedor de recursos do MySQL na pilha do Azure. Depois de implantar o provedor de recursos, você pode criar servidores MySQL e bancos de dados por meio de modelos de implantação do Gerenciador de recursos do Azure e fornecem bancos de dados MySQL como um serviço. Bancos de dados MySQL, que são comuns em sites da web, suportam a várias plataformas de site. Por exemplo, depois de implantar o provedor de recursos, você pode criar sites de WordPress da plataforma de aplicativos Web do Azure como um complemento de serviço (PaaS) para a pilha do Azure.
 
-Para implantar o provedor do MySQL em um sistema que não tem acesso à internet, você pode copiar o arquivo [mysql-conector-net-6.9.9.msi](https://dev.mysql.com/get/Download/sConnector-Net/mysql-connector-net-6.9.9.msi) para um compartilhamento local. Em seguida, fornece esse nome de compartilhamento quando solicitado. Você também deve instalar os módulos do Azure e o Azure PowerShell de pilha.
+Para implantar o provedor do MySQL em um sistema que não tem acesso à internet, você pode copiar o arquivo [mysql-conector-net-6.10.5.msi](https://dev.mysql.com/get/Download/sConnector-Net/mysql-connector-net-6.10.5.msi) para um compartilhamento local. Em seguida, fornece esse nome de compartilhamento quando solicitado. Você também deve instalar os módulos do Azure e o Azure PowerShell de pilha.
 
 
 ## <a name="mysql-server-resource-provider-adapter-architecture"></a>Arquitetura de adaptador de provedor de recursos do MySQL Server
@@ -71,10 +71,9 @@ A conta do sistema deve ter os seguintes privilégios:
 
     | Compilação de pilha do Azure | Instalador do MySQL RP |
     | --- | --- |
-    | 1.0.180102.3 | **Aguarde para obter mais informações, compilações atuais não serão instalado, mas continuarão a ser executado em vários nós após uma atualização da pilha do Azure.** |
-    | 1.0.171122.1 | [RP MySQL versão 1.1.12.0](https://aka.ms/azurestackmysqlrp) |
+    | 1.0.180102.3 ou 1.0.180106.1 (com vários nós) | [RP MySQL versão 1.1.14.0](https://aka.ms/azurestackmysqlrp1712) |
+    | 1.0.171122.1 | [RP MySQL versão 1.1.12.0](https://aka.ms/azurestackmysqlrp1711) |
     | 1.0.171028.1 | [RP MySQL versão 1.1.8.0](https://aka.ms/azurestackmysqlrp1710) |
-    | 1.0.170928.3 | [RP MySQL versão 1.1.3.0](https://aka.ms/azurestackmysqlrp1709) |
 
 4.  O certificado de raiz de pilha do Azure é recuperado do ponto de extremidade com privilégios. Para ASDK, um certificado autoassinado é criado como parte desse processo. Para vários nós, você deve fornecer um certificado apropriado.
 
@@ -165,7 +164,7 @@ Você pode especificar esses parâmetros na linha de comando. Se você não fize
 | **AzCredential** | Forneça as credenciais para a conta de administrador de serviço de pilha do Azure. Use as mesmas credenciais que você usou para implantar a pilha do Azure). | _obrigatório_ |
 | **VMLocalCredential** | Defina as credenciais para a conta de administrador local do provedor de recursos MySQL VM. | _obrigatório_ |
 | **PrivilegedEndpoint** | Forneça o endereço IP ou nome DNS do ponto de extremidade com privilégios. |  _obrigatório_ |
-| **DependencyFilesLocalPath** | Caminho para um compartilhamento local contendo [mysql-conector-net-6.9.9.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.9.9.msi). Se você fornecer um, o arquivo de certificado deve ser colocado nesse diretório também. | _opcional_ (_obrigatório_ para vários nós) |
+| **DependencyFilesLocalPath** | Caminho para um compartilhamento local contendo [mysql-conector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi). Se você fornecer um, o arquivo de certificado deve ser colocado nesse diretório também. | _opcional_ (_obrigatório_ para vários nós) |
 | **DefaultSSLCertificatePassword** | A senha para o certificado. pfx | _obrigatório_ |
 | **MaxRetryCount** | Defina quantas vezes você deseja repetir a cada operação se houver uma falha.| 2 |
 | **RetryDuration** | Defina o tempo limite entre as repetições, em segundos. | 120 |

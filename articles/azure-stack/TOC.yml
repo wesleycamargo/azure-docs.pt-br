@@ -154,6 +154,8 @@
               href: Azure-stack-create-service-principals.md
             - name: Habilitar multilocação
               href: azure-stack-enable-multitenancy.md
+        - name: Girar segredos
+          href: azure-stack-rotate-secrets.md
     - name: Oferecer serviços
       items:
         - name: Visão geral da oferta de serviços
@@ -248,6 +250,8 @@
           href: azure-stack-troubleshooting.md
         - name: Diagnósticos no Azure Stack
           href: azure-stack-diagnostics.md
+        - name: Validação de pilha do Azure
+          href: azure-stack-diagnostic-test.md
         - name: Reimplantar o Kit de Desenvolvimento do Azure Stack
           href: azure-stack-redeploy.md
 - name: Referência
