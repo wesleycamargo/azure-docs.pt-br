@@ -12,6 +12,8 @@
   items:
     - name: Criar arquivos de aplicativo gerenciado
       href: publish-service-catalog-app.md
+    - name: Criar aplicativo do Marketplace
+      href: publish-marketplace-app.md
 - name: Exemplos
   items:
     - name: CLI do Azure
