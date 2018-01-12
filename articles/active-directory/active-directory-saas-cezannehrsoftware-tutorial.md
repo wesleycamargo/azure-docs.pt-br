@@ -4,7 +4,7 @@ description: "Saiba como configurar o logon único entre o Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: femila
+manager: mtillman
 ms.reviewer: joflore
 ms.assetid: 62b42e15-c282-492d-823a-a7c1c539f2cc
 ms.service: active-directory
@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: jeedes
-ms.openlocfilehash: 620b0f62bceeda6fac87c31b325a078260f7d3d0
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 3934f814a9060adf275a4bdcc83403da4b2a4075
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cezanne-hr-software"></a>Tutorial: Integração do Azure Active Directory ao Cezanne HR Software
 
@@ -125,25 +125,29 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
 
     ![Botão Salvar em Configurar Logon Único](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_general_400.png)
 
-6. Na seção **Configuração do Cezanne HR Software**, clique em **Configurar o Cezanne HR Software** para abrir a janela **Configurar logon**. Copie a **ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.**
+6. Na seção **Configuração do Cezanne HR Software**, clique em **Configurar o Cezanne HR Software** para abrir a janela **Configurar logon**.
 
-    ![Configuração do Software Cezanne HR](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_configure.png) 
+    ![Configuração do Software Cezanne HR](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_configure.png)
 
-7. Em uma janela diferente do navegador da Web, faça logon em seu locatário do Cezanne HR Software como um administrador.
+7. Role para baixo até a seção **Referência rápida**. Copie a **URL do Serviço de Logon Único SAML e ID da Entidade SAML** da **seção de Referência Rápida.**
 
-8. No painel de navegação esquerdo, clique em **Configuração do Sistema**. Vá para **Configurações de Segurança**. Em seguida, navegue até **Configuração de Logon Único**.
+    ![Configuração do Software Cezanne HR](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_configure1.png)
+
+8. Em uma janela diferente do navegador da Web, faça logon em seu locatário do Cezanne HR Software como um administrador.
+
+9. No painel de navegação esquerdo, clique em **Configuração do Sistema**. Vá para **Configurações de Segurança**. Em seguida, navegue até **Configuração de Logon Único**.
 
     ![Configurar o logon único no lado do aplicativo](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_000.png)
 
-9. No painel **Permitir que os usuários façam logon usando o SSO (Serviço de Logon Único)** a seguir, marque a caixa **SAML 2.0** e selecione a opção **Configuração Avançada**.
+10. No painel **Permitir que os usuários façam logon usando o SSO (Serviço de Logon Único)** a seguir, marque a caixa **SAML 2.0** e selecione a opção **Configuração Avançada**.
 
     ![Configurar o logon único no lado do aplicativo](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_001.png)
 
-10. Clique no botão **Adicionar Novo** .
+11. Clique no botão **Adicionar Novo** .
 
     ![Configurar o logon único no lado do aplicativo](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_002.png)
 
-11. Execute as etapas a seguir na seção **PROVEDORES DE IDENTIDADE DO SAML 2.0** .
+12. Execute as etapas a seguir na seção **PROVEDORES DE IDENTIDADE DO SAML 2.0** .
 
     ![Configurar o logon único no lado do aplicativo](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_003.png)
     
@@ -161,7 +165,7 @@ Nesta seção, você habilitará o logon único do Azure AD no portal do Azure e
     
     g. Clique no botão **Ok** . 
 
-12. Clique no botão **Salvar** .
+13. Clique no botão **Salvar** .
 
     ![Configurar o logon único no lado do aplicativo](./media/active-directory-saas-cezannehrsoftware-tutorial/tutorial_cezannehrsoftware_004.png)
 

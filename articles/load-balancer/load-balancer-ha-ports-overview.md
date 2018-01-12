@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2017
 ms.author: kumud
-ms.openlocfilehash: f72f4a3a81fc3a03c86805787caeeacbe6135c5e
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 46e284d1636988390f3533d93bfd07399f45dc92
+ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 12/09/2017
 ---
 # <a name="high-availability-ports-overview"></a>Visão geral de portas de alta disponibilidade
 
@@ -74,7 +74,7 @@ Para participar da versão prévia do recurso de portas de alta disponibilidade 
 
 A seguir, estão as configurações com suporte ou exceções para o recurso de portas de alta disponibilidade:
 
-- Uma configuração de IP de front-end pode ter uma única regra de balanceador de carga de DSR com portas de alta disponibilidade, ou pode ter uma única regra de balanceador de carga não DSR com portas de alta disponibilidade. Ele não pode ter ambos.
+- Uma configuração de IP de front-end pode ter uma única regra de balanceador de carga de DSR (DSR - Floating IP in Azure) com portas de alta disponibilidade, ou pode ter uma única regra de balanceador de carga não DSR com portas de alta disponibilidade. Ele não pode ter ambos.
 - Uma única configuração de IP de adaptador de rede pode ter apenas uma regra de balanceador de carga não DSR com portas de alta disponibilidade. Não é possível configurar todas as outras regras para este ipconfig.
 - Uma mesma configuração de IP de adaptador de rede pode ter uma ou mais regras de balanceador de carga DSR com portas de alta disponibilidade, desde que todas as respectivas configurações de IP de front-end sejam exclusivas.
 - Se todas as regras de balanceamento de carga forem de portas de alta disponibilidade (somente DSR), duas (ou mais) regras de Load Balancer apontando para o mesmo pool de back-end poderão coexistir. O mesmo acontecerá se todas as regras não forem de portas de alta disponibilidade (DSR e não DSR). Se houver uma combinação de regras de portas de alta disponibilidade e portas que não são de alta disponibilidade, essas duas regras de balanceamento de carga não poderão coexistir.

@@ -4,7 +4,7 @@ description: "Perguntas frequentes sobre os Serviços de Domínio do Active Dire
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: stevenpo
+manager: mtillman
 editor: curtand
 ms.assetid: 48731820-9e8c-4ec2-95e8-83dba1e58775
 ms.service: active-directory-ds
@@ -12,19 +12,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 12/07/2017
 ms.author: maheshu
-ms.openlocfilehash: 2705e97bd5b259ef68090e5688df57e0d3478f30
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: cfab51f985dd0b9db109f1ca8e4030bc9d0de1cc
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-active-directory-domain-services-frequently-asked-questions-faqs"></a>Azure Active Directory Domain Services: perguntas frequentes
 Esta página responde a perguntas frequentes sobre o Azure Active Directory Domain Services. Continue verificando as atualizações.
 
 ### <a name="troubleshooting-guide"></a>Guia de Solução de Problemas
-Consulte nosso [Guia de solução de problemas](active-directory-ds-troubleshooting.md) a fim de obter soluções para os problemas comuns encontrados ao configurar ou administrar os Serviços de Domínio do AD do Azure.
+Consulte o [Guia de solução de problemas](active-directory-ds-troubleshooting.md) a fim de obter soluções para os problemas comuns encontrados ao configurar ou administrar os Serviços de Domínio do AD do Azure.
 
 ### <a name="configuration"></a>Configuração
 #### <a name="can-i-create-multiple-managed-domains-for-a-single-azure-ad-directory"></a>Posso criar vários domínios gerenciados para um único diretório do Azure AD?
@@ -34,10 +34,10 @@ Não. Você pode criar apenas um único domínio atendido pelo Azure AD Domain S
 Sim. O Azure AD Domain Services pode ser habilitado em uma rede virtual do Azure Resource Manager. Esta funcionalidade está em preview.
 
 #### <a name="can-i-migrate-my-existing-managed-domain-from-a-classic-virtual-network-to-a-resource-manager-virtual-network"></a>Posso migrar meu domínio gerenciado existente de uma rede virtual clássica para uma rede virtual do Resource Manager?
-Não atualmente. Forneceremos futuramente um mecanismo para migrar seu domínio gerenciado existente de uma rede virtual clássica para uma rede virtual do Resource Manager.
+Não atualmente. A Microsoft fornecerá futuramente um mecanismo para migrar seu domínio gerenciado existente de uma rede virtual clássica para uma rede virtual do Resource Manager.
 
 #### <a name="can-i-enable-azure-ad-domain-services-in-an-azure-csp-cloud-solution-provider-subscription"></a>Posso habilitar o Azure AD Domain Services em uma assinatura do Azure CSP (Provedor de Soluções de Nuvem)?
-Não. Estamos trabalhando para adicionar suporte para assinaturas do CSP.
+Não. A equipe de produto está trabalhando para adicionar suporte para assinaturas do CSP.
 
 #### <a name="can-i-enable-azure-ad-domain-services-in-a-federated-azure-ad-directory-i-use-adfs-to-authenticate-users-for-access-to-office-365-and-do-not-synchronize-password-hashes-to-azure-ad-can-i-enable-azure-ad-domain-services-for-this-directory"></a>É possível habilitar o Azure AD Domain Services em um diretório federado do Azure AD? Uso o ADFS para autenticar usuários para acesso ao Office 365 e não sincronizar hashes de senha com o Azure AD. É possível habilitar o Azure AD Domain Services nesse diretório?
 Não. O Azure AD Domain Services precisa de acesso aos hashes de senha das contas de usuário, para autenticar os usuários por NTLM ou Kerberos. Em um diretório federado, os hashes de senha não são armazenados no diretório do Azure AD. Portanto, o Azure AD Domain Services não funciona nesses diretórios do Azure AD.
@@ -46,13 +46,13 @@ Não. O Azure AD Domain Services precisa de acesso aos hashes de senha das conta
 O próprio serviço não oferece suporte diretamente para esse cenário. Seu domínio gerenciado está disponível somente em uma rede virtual por vez. No entanto, você pode configurar a conectividade entre várias redes virtuais para expor os Azure AD Domain Services a outras redes virtuais. Veja como você pode [conectar redes virtuais no Azure](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
 
 #### <a name="can-i-enable-azure-ad-domain-services-using-powershell"></a>Posso habilitar os Serviços de Domínio do AD do Azure usando o PowerShell?
-A implantação do PowerShell/automatizada dos Serviços de Domínio do AD do Azure não está disponível no momento.
+Sim. Veja [como habilitar os Serviços de Domínio do AD do Azure usando o PowerShell](active-directory-ds-enable-using-powershell.md).
 
 #### <a name="is-azure-ad-domain-services-available-in-the-new-azure-portal"></a>Os Serviços de Domínio do AD do Azure estão disponíveis no novo portal do Azure?
 Sim. O Azure AD Domain Services pode ser configurado no [Portal do Azure](https://portal.azure.com). Não há mais suporte ao [Portal Clássico do Azure](https://manage.windowsazure.com).
 
 #### <a name="can-i-enable-azure-ad-domain-services-using-a-resource-manager-template"></a>Posso habilitar os Azure AD Domain Services usando um modelo do Resource Manager?
-Não. Algumas tarefas precisam ser executadas como parte da habilitação do Azure AD Domain Services. Essas tarefas não são possíveis por meio de um modelo do Resource Manager. Use o novo portal do Azure para habilitar o Azure AD Domain Services para seu diretório.
+Sim. Veja [como habilitar os Serviços de Domínio do AD do Azure usando o PowerShell](active-directory-ds-enable-using-powershell.md).
 
 #### <a name="can-i-add-domain-controllers-to-an-azure-ad-domain-services-managed-domain"></a>Posso adicionar controladores de domínio a um domínio gerenciado dos Serviços de Domínio do AD do Azure?
 Não. O domínio fornecido pelo Azure AD Domain Services é um domínio gerenciado. Você não precisa provisionar, configurar ou gerenciar de outra forma os controladores de domínio para este domínio. Essas atividades de gerenciamento são fornecidas como um serviço pela Microsoft. Portanto, você não pode adicionar outros controladores de domínio (leitura-gravação ou somente leitura) ao domínio gerenciado.

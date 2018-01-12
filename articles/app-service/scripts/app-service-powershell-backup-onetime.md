@@ -15,11 +15,11 @@ ms.topic: sample
 ms.date: 10/30/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: f6e8410eae619977c0ce3779df2e725bd3be5393
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 5984a7707552b2740b48e3c9da40a5e96a3a279b
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="back-up-a-web-app"></a>Fazer backup de um aplicativo Web
 
@@ -48,7 +48,7 @@ Este script usa os seguintes comandos. Cada comando na tabela redireciona para a
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
 | [New-AzureRmStorageAccount](/powershell/module/azurerm.storage/new-azurermstorageaccount) | Cria uma conta de armazenamento. |
 | [New-AzureStorageContainer](/powershell/module/azure.storage/new-azurestoragecontainer) | Cria um contêiner de armazenamento do Azure. |
-| [New-AzureStorageContainerSASToken](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Cria um grupo de recursos no qual todos os recursos são armazenados. |
+| [New-AzureStorageContainerSASToken](/powershell/module/azure.storage/new-azurestoragecontainersastoken) | Gera um token SAS para um contêiner de armazenamento do Azure.  |
 | [New-AzureRmAppServicePlan](/powershell/module/azurerm.websites/new-azurermappserviceplan) | Cria um Plano do Serviço de Aplicativo. |
 | [New-AzureRmWebApp](/powershell/module/azurerm.websites/new-azurermwebapp) | Cria um aplicativo web. |
 | [New-AzureRmWebAppBackup](/powershell/module/azurerm.websites/new-azurermwebappbackup) | Cria um backup de um aplicativo Web. |

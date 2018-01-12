@@ -6,33 +6,32 @@ documentationcenter:
 author: juliako
 manager: cfowler
 editor: 
-ms.assetid: 63ed95da-1b82-44b0-b8ff-eebd535bc5c7
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 12/10/2017
 ms.author: juliako
-ms.openlocfilehash: b5616aa9f8b15ab576d914fbae89a56f64c27f4a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4ffced8e11f05d214995f9fc8506dd7c6c7deaa5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/11/2017
 ---
 #  <a name="use-azure-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Usar o Codificador de Mídia do Azure Standard para gerar automaticamente uma escada de taxa de bits
 
 ## <a name="overview"></a>Visão geral
 
-Este tópico mostra como usar o Media Encoder Standard (MES) para gerar automaticamente uma escada de taxa de bits (pares de resolução de taxa de bits) com base na resolução de entrada e na taxa de bits. A predefinição gerada automaticamente nunca excederá a resolução de entrada e a taxa de bits. Por exemplo, se a entrada for 720p em 3Mbps, a saída continuará 720p na melhor das hipóteses e iniciará com taxas menores que 3Mbps.
+Este artigo mostra como usar o Media Encoder Standard (MES) para gerar automaticamente uma escada de taxa de bits (pares de resolução de taxa de bits) com base na resolução de entrada e na taxa de bits. A predefinição gerada automaticamente nunca excederá a resolução de entrada e a taxa de bits. Por exemplo, se a entrada for 720p em 720p, a saída continuará 720p na melhor das hipóteses e iniciará com taxas menores que 3 Mbps.
 
 ### <a name="encoding-for-streaming-only"></a>Codificar para Streaming Somente
 
-Se sua intenção for codificar o vídeo de origem somente para streaming, é recomendável usar a predefinição "Streaming adaptável" ao criar uma tarefa de codificação. Ao usar a predefinição do **Streaming Adaptável**, o codificador MES protegerá, de forma inteligente, uma escada de taxa de bits. No entanto, não será possível controlar os custos de codificação, já que o serviço determina quantas camadas usar e em qual resolução. Você pode ver exemplos das camadas de saída produzidas por MES como resultado de codificação com a predefinição do **Streaming Adaptável** no final deste tópico. O Ativo de saída conterá arquivos MP4 onde áudio e vídeo não são intercalados.
+Se sua intenção for codificar o vídeo de origem somente para streaming, é recomendável usar a predefinição "Streaming adaptável" ao criar uma tarefa de codificação. Ao usar a predefinição do **Streaming Adaptável**, o codificador MES protegerá, de forma inteligente, uma escada de taxa de bits. No entanto, não será possível controlar os custos de codificação, já que o serviço determina quantas camadas usar e em qual resolução. Você pode ver exemplos das camadas de saída produzidas por MES como resultado de codificação com a predefinição do **Streaming Adaptável** no final deste artigo. O Ativo de saída contém arquivos MP4 onde áudio e vídeo não são intercalados.
 
 ### <a name="encoding-for-streaming-and-progressive-download"></a>Codificação para download progressivo e streaming
 
-Se sua intenção for codificar o vídeo de origem de streaming, bem como para produzir arquivos MP4 para download progressivo, é recomendável usar a predefinição "conteúdo adaptável várias taxas de bits MP4" ao criar uma tarefa de codificação. Ao usar a predefinição **MP4 de Taxa de Bits Múltiplas Adaptável a Conteúdo**, o codificador MES aplicará a mesma lógica de codificação como acima, mas agora, o ativo de saída conterá arquivos MP4 onde áudio e vídeo são intercalados. Você pode usar um desses arquivos MP4 (por exemplo, a versão de taxa de bits mais alta) como um arquivo de download progressivo.
+Se sua intenção for codificar o vídeo de origem de streaming, bem como para produzir arquivos MP4 para fazer o download progressivo, é recomendável usar a predefinição "conteúdo adaptável várias taxas de bits MP4" ao criar uma tarefa de codificação. Ao usar a predefinição **MP4 de Taxa de Bits Múltiplas Adaptável a Conteúdo**, o codificador MES aplica a mesma lógica de codificação como acima, mas agora, o ativo de saída conterá arquivos MP4 onde áudio e vídeo são intercalados. Você pode usar um desses arquivos MP4 (por exemplo, a versão de taxa de bits mais alta) como um arquivo de download progressivo.
 
 ## <a id="encoding_with_dotnet"></a>Codificação com o SDK do .NET dos Serviços de Mídia
 
@@ -41,7 +40,7 @@ O exemplo de código a seguir usa o SDK .NET dos Serviços de Mídia para execut
 - Crie um trabalho de codificação.
 - Obtenha uma referência para o Codificador de Mídia Padrão.
 - Adicione uma tarefa de codificação ao trabalho e especifique para usar a predefinição do **Streaming Adaptável**. 
-- Crie um ativo de saída que conterá o ativo codificado.
+- Crie um ativo de saída contendo o ativo codificado.
 - Adicione um manipulador de eventos para verificar o progresso do trabalho.
 - Enviar o trabalho.
 
@@ -51,28 +50,37 @@ Configure seu ambiente de desenvolvimento e preencha o arquivo de configuração
 
 #### <a name="example"></a>Exemplo
 
-    using System;
-    using System.Configuration;
-    using System.Linq;
-    using Microsoft.WindowsAzure.MediaServices.Client;
-    using System.Threading;
+```
+using System;
+using System.Configuration;
+using System.Linq;
+using Microsoft.WindowsAzure.MediaServices.Client;
+using System.Threading;
 
-    namespace AdaptiveStreamingMESPresest
+namespace AdaptiveStreamingMESPresest
+{
+    class Program
     {
-        class Program
-        {
         // Read values from the App.config file.
         private static readonly string _AADTenantDomain =
-        ConfigurationManager.AppSettings["AADTenantDomain"];
+            ConfigurationManager.AppSettings["AMSAADTenantDomain"];
         private static readonly string _RESTAPIEndpoint =
-        ConfigurationManager.AppSettings["MediaServiceRESTAPIEndpoint"];
+            ConfigurationManager.AppSettings["AMSRESTAPIEndpoint"];
+        private static readonly string _AMSClientId =
+            ConfigurationManager.AppSettings["AMSClientId"];
+        private static readonly string _AMSClientSecret =
+            ConfigurationManager.AppSettings["AMSClientSecret"];
 
         // Field for service context.
         private static CloudMediaContext _context = null;
 
         static void Main(string[] args)
         {
-            var tokenCredentials = new AzureAdTokenCredentials(_AADTenantDomain, AzureEnvironments.AzureCloudEnvironment);
+            AzureAdTokenCredentials tokenCredentials =
+                new AzureAdTokenCredentials(_AADTenantDomain,
+                    new AzureAdClientSymmetricKey(_AMSClientId, _AMSClientSecret),
+                    AzureEnvironments.AzureCloudEnvironment);
+
             var tokenProvider = new AzureAdTokenProvider(tokenCredentials);
 
             _context = new CloudMediaContext(new Uri(_RESTAPIEndpoint), tokenProvider);
@@ -122,26 +130,26 @@ Configure seu ambiente de desenvolvimento e preencha o arquivo de configuração
             Console.WriteLine("  Current state: " + e.CurrentState);
             switch (e.CurrentState)
             {
-            case JobState.Finished:
-                Console.WriteLine();
-                Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
-                break;
-            case JobState.Canceling:
-            case JobState.Queued:
-            case JobState.Scheduled:
-            case JobState.Processing:
-                Console.WriteLine("Please wait...\n");
-                break;
-            case JobState.Canceled:
-            case JobState.Error:
+                case JobState.Finished:
+                    Console.WriteLine();
+                    Console.WriteLine("Job is finished. Please wait while local tasks or downloads complete...");
+                    break;
+                case JobState.Canceling:
+                case JobState.Queued:
+                case JobState.Scheduled:
+                case JobState.Processing:
+                    Console.WriteLine("Please wait...\n");
+                    break;
+                case JobState.Canceled:
+                case JobState.Error:
 
-                // Cast sender as a job.
-                IJob job = (IJob)sender;
+                    // Cast sender as a job.
+                    IJob job = (IJob)sender;
 
-                // Display or log error details as needed.
-                break;
-            default:
-                break;
+                    // Display or log error details as needed.
+                    break;
+                default:
+                    break;
             }
         }
         private static IMediaProcessor GetLatestMediaProcessorByName(string mediaProcessorName)
@@ -150,12 +158,13 @@ Configure seu ambiente de desenvolvimento e preencha o arquivo de configuração
             ToList().OrderBy(p => new Version(p.Version)).LastOrDefault();
 
             if (processor == null)
-            throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
+                throw new ArgumentException(string.Format("Unknown media processor", mediaProcessorName));
 
             return processor;
         }
-        }
     }
+}
+```
 
 ## <a id="output"></a>Saída
 

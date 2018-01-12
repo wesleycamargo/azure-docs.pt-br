@@ -1,37 +1,36 @@
 ---
-title: "Localizar relatórios de atividade no Portal do Azure | Microsoft Docs"
-description: "Saiba como localizar relatórios de atividade do Azure Active Directory no Portal do Azure."
+title: "Encontrar relatórios de atividade de usuário do Azure Active Directory no portal do Azure | Microsoft Docs"
+description: "Saiba onde os relatórios de atividade do usuário do Azure Active Directory estão no portal do Azure."
 services: active-directory
 documentationcenter: 
-author: MarkusVi
-manager: femila
+author: curtand
+manager: mtillman
 editor: 
 ms.assetid: d93521f8-dc21-4feb-aaff-4bb300f04812
 ms.service: active-directory
-ms.devlang: na
+ms.devlang: 
 ms.topic: article
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: 
 ms.workload: identity
-ms.date: 10/21/2017
-ms.author: dhanyahk;markvi
+ms.date: 12/06/2017
+ms.author: curtand
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 6f1485ad57eb28841ef5fe585e8cf1b8eb29e4a7
-ms.sourcegitcommit: 4ed3fe11c138eeed19aef0315a4f470f447eac0c
+ms.openlocfilehash: 23c186e268e9a43982ec6c34d350900793fad8de
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/23/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Localizar relatórios de atividade no Portal do Azure
 
-Se você estiver mudando do Portal Clássico do Azure para o Portal do Azure, dê uma nova olhada nos logs de atividade do Azure Active Directory (Azure AD). Em uma [postagem de blog](https://blogs.technet.microsoft.com/enterprisemobility/2016/11/08/azuread-weve-just-turned-on-detailed-auditing-and-sign-in-logs-in-the-new-azure-portal/) recente, explicamos como você pode ver os logs de atividade no contexto do recurso no qual você está trabalhando no Portal do Azure. Neste artigo, descrevemos como localizar relatórios que você usou no Portal Clássico do Azure no Portal do Azure.
+Neste artigo, descrevemos como localizar relatórios de atividade de usuário do Azure Active Directory no portal do Azure.
 
 ## <a name="whats-new"></a>Novidades
 
-Os relatórios no Portal Clássico do Azure são separados em categorias:
-
-1.  Relatórios de segurança
-2.  Relatórios de atividades
-3.  Relatórios de aplicativo integrados
+Os relatórios no Portal Clássico do Azure estavam separados em categorias:
+* Relatórios de segurança
+* Relatórios de atividades
+* Relatórios de aplicativo integrados
 
 ### <a name="activity-and-integrated-app-reports"></a>Relatórios do aplicativo integrado e de atividade
 
@@ -43,14 +42,14 @@ Para ver essa exibição, na folha **Azure Active Directory**, em **ATIVIDADE**,
 
 Os relatórios a seguir são consolidados nessa exibição:
 
--   Relatório de auditoria
--   Atividade de redefinição de senha
--   Atividade de registro de redefinição de senha
--   Atividade dos grupos de autoatendimento
--   Alterações de nome do grupo do Office365
--   Atividade de provisionamento de conta
--   Status de substituição de senha
--   Erros de provisionamento de conta
+* Relatório de auditoria
+* Atividade de redefinição de senha
+* Atividade de registro de redefinição de senha
+* Atividade dos grupos de autoatendimento
+* Alterações de nome do grupo do Office365
+* Atividade de provisionamento de conta
+* Status de substituição de senha
+* Erros de provisionamento de conta
 
 
 O relatório Uso do Aplicativo foi aprimorado e está incluído na exibição **Entradas**. Para ver essa exibição, na folha **Azure Active Directory**, em **ATIVIDADE**, selecione **Entradas**.

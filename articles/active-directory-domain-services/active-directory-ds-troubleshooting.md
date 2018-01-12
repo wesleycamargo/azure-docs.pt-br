@@ -4,7 +4,7 @@ description: "Guia de solução de problemas para os Serviços de Domínio do AD
 services: active-directory-ds
 documentationcenter: 
 author: mahesh-unnikrishnan
-manager: mahesh-unnikrishnan
+manager: mtillman
 editor: curtand
 ms.assetid: 4bc8c604-f57c-4f28-9dac-8b9164a0cf0b
 ms.service: active-directory-ds
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2017
+ms.date: 12/07/2017
 ms.author: maheshu
-ms.openlocfilehash: 3acecdf753162ad703ff51acf40c34335bf6cdcb
-ms.sourcegitcommit: 3ee36b8a4115fce8b79dd912486adb7610866a7c
+ms.openlocfilehash: 5fe36241efc11cbb85231137649f7b97e23cc0a5
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="azure-ad-domain-services---troubleshooting-guide"></a>Azure AD Domain Services – Guia de solução de problemas
 Este artigo fornece dicas de solução de problemas que você pode encontrar ao configurar ou administrar os Serviços de Domínio do AD (Active Directory do Azure).
@@ -57,13 +57,10 @@ Verifique se há um aplicativo com o nome ‘Sincronização dos Serviços de Do
 
 Execute as seguintes etapas para verificar a presença do aplicativo e excluí-lo, caso ele já exista:
 
-1. Navegue até o **portal clássico do Azure** ([https://manage.windowsazure.com](https://manage.windowsazure.com)).
-2. No painel esquerdo, selecione o nó **Active Directory** .
-3. Selecione o locatário do AD do Azure (diretório) para o qual você deseja habilitar os Serviços de Domínio do AD do Azure.
-4. Navegue até a guia **Aplicativos** .
-5. Escolha a opção **Aplicativos que minha empresa possui** na lista suspensa.
-6. Verifique se há um aplicativo chamado **Sincronização dos Azure AD Domain Services**. Se o aplicativo já existir, exclua-o.
-7. Após a exclusão do aplicativo, tente habilitar os Serviços de Domínio do AD do Azure novamente.
+1. Navegue até a seção **Aplicativos** do seu diretório do Azure AD no [portal do Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/).
+2. Selecione **Todos os Aplicativos** no menu suspenso **Mostrar**. Selecione **Qualquer** no menu suspenso **Status do aplicativo**. Selecione **Qualquer** no menu suspenso **Visibilidade do aplicativo**.
+3. Digite **Azure AD Domain Services Sync** na caixa de pesquisa. Se o aplicativo já existir, clique nele e clique no botão **Excluir** na barra de ferramentas para excluí-lo.
+4. Após a exclusão do aplicativo, tente habilitar os Serviços de Domínio do AD do Azure novamente.
 
 ### <a name="invalid-configuration"></a>Configuração inválida
 **Mensagem de erro:**
@@ -153,7 +150,7 @@ O Azure AD protege você contra a exclusão acidental de objetos de usuário. Qu
 
 A conta de usuário permanecerá no estado desabilitado no domínio gerenciado, mesmo se você recriar uma conta de usuário com o mesmo UPN no diretório do Azure AD. Para remover a conta de usuário do domínio gerenciado, você precisa forçar sua exclusão do locatário do Azure Active Directory.
 
-Para remover completamente a conta de usuário de seu domínio gerenciado, exclua permanentemente o usuário do seu locatário do Azure AD. Use o cmdlet Remove-MsolUser PowerShell com a opção '-RemoveFromRecycleBin', como descrito neste [artigo MSDN](https://msdn.microsoft.com/library/azure/dn194132.aspx).
+Para remover completamente a conta de usuário de seu domínio gerenciado, exclua permanentemente o usuário do seu locatário do Azure AD. Use o `Remove-MsolUser`cmdlet do PowerShell com a opção `-RemoveFromRecycleBin`, conforme descrito neste [artigo do MSDN](https://msdn.microsoft.com/library/azure/dn194132.aspx).
 
 ## <a name="contact-us"></a>Entre em contato
 Entre em contato com a equipe de produto do Azure Active Directory Domain Services para [compartilhar comentários ou obter suporte](active-directory-ds-contact-us.md).

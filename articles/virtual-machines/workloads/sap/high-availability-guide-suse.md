@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/27/2017
 ms.author: sedusch
-ms.openlocfilehash: ed728011f2cb7b6108e19a916010fd5447c07093
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 609b811705bb6f116db055b756910450f8990528
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Alta disponibilidade do SAP NetWeaver em VMs do Azure no SUSE Linux Enterprise Server para aplicativos SAP
 
@@ -153,7 +153,7 @@ Você pode usar um dos modelos de início rápido no github para implantar todos
    3. Nome de Usuário de Administrador e Senha do Administrador  
       É criado um novo usuário que pode ser usado para fazer logon no computador.
    4. ID da Sub-rede  
-      A ID da sub-rede à qual as máquinas virtuais devem estar conectadas. Deixe vazio se você deseja criar uma nova rede virtual ou selecione a sub-rede da sua VPN ou a rede virtual da ExpressRoute para conectar a máquina virtual à sua rede local. A ID geralmente tem esta aparência: /subscriptions/**&lt;id da assinatura&gt;**/resourceGroups/**&lt;nome do grupo de recursos&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;nome de rede virtual&gt;**/subnets/**&lt;nome da sub-rede&gt;**
+      A ID da sub-rede à qual as máquinas virtuais devem estar conectadas. Deixe vazio se você deseja criar uma nova rede virtual ou selecione a sub-rede da sua VPN ou a rede virtual da ExpressRoute para conectar a máquina virtual à sua rede local. A ID geralmente tem esta aparência: /subscriptions/**&lt;ID da assinatura&gt;**/resourceGroups/**&lt;nome do grupo de recursos&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;nome de rede virtual&gt;**/subnets/**&lt;nome da sub-rede&gt;**
 
 ### <a name="installation"></a>Instalação
 
@@ -475,7 +475,7 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
    sudo crm configure
 
    crm(live)configure# primitive vip_<b>NWS</b>_nfs IPaddr2 \
-     params ip=<b>10.0.0.4</b> cidr_netmask=24 \
+     params ip=<b>10.0.0.4</b> cidr_netmask=<b>24</b> \
      op monitor interval=10 timeout=20
 
    crm(live)configure# primitive nc_<b>NWS</b>_nfs anything \
@@ -495,7 +495,7 @@ O dispositivo STONITH usa uma Entidade de Serviço para autorização no Microso
 
 1. Acesse <https://portal.azure.com>
 1. Abra a folha Azure Active Directory  
-   Vá para Propriedades e anote a ID do Diretório. Essa é a **id de locatário**.
+   Vá para Propriedades e anote a ID do Diretório. Essa é a **ID de locatário**.
 1. Clique em Registros do Aplicativo
 1. Clique em Adicionar
 1. Digite um Nome, selecione Tipo de Aplicativo "Aplicativo Web/API", insira uma URL de logon (por exemplo, http://localhost) e clique em Criar
@@ -503,7 +503,7 @@ O dispositivo STONITH usa uma Entidade de Serviço para autorização no Microso
 1. Selecione o novo Aplicativo e clique em Chaves na guia Configurações
 1. Insira uma descrição para uma nova chave, selecione "Nunca expira" e clique em Salvar
 1. Anote o Valor. Ele é usado como **senha** da Entidade de Serviço
-1. Anote a ID do Aplicativo. Ela é usada como nome de usuário (**id de logon** nas etapas abaixo) da Entidade de Serviço
+1. Anote a ID do Aplicativo. Ela é usada como nome de usuário (**ID de logon** nas etapas abaixo) da Entidade de Serviço
 
 A Entidade de Serviço não tem permissões para acessar os recursos do Azure por padrão. Você precisa fornecer as permissões da Entidade de Serviço para iniciar e parar (desalocar) todas as máquinas virtuais do cluster.
 
@@ -523,13 +523,13 @@ Depois de editar as permissões das máquinas virtuais, você pode configurar os
 <pre><code>
 sudo crm configure
 
-# replace the bold string with your subscription id, resource group, tenant id, service principal id and password
+# replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
 
 crm(live)configure# primitive rsc_st_azure_1 stonith:fence_azure_arm \
-   params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 crm(live)configure# primitive rsc_st_azure_2 stonith:fence_azure_arm \
-   params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 crm(live)configure# colocation col_st_azure -2000: rsc_st_azure_1:Started rsc_st_azure_2:Started
 
@@ -556,7 +556,7 @@ Você pode usar um dos modelos de início rápido no github para implantar todos
    1. Prefixo de recurso (somente modelo multi-SID do ASCS/SCS)  
       Digite o prefixo que você deseja usar. O valor é usado como um prefixo para os recursos que serão implantados.
    3. ID do sistema SAP (somente modelo convergido)  
-      Insira a ID do sistema SAP do sistema SAP, que você deseja instalar. A ID é usada como um prefixo para os recursos que serão implantados.
+      Insira a ID do sistema SAP do sistema SAP que você deseja instalar. A ID é usada como um prefixo para os recursos que serão implantados.
    4. Tipo de Pilha  
       Selecionar o tipo de pilha do SAP NetWeaver
    5. Tipo de sistema operacional  
@@ -570,7 +570,7 @@ Você pode usar um dos modelos de início rápido no github para implantar todos
    9. Nome de Usuário de Administrador e Senha do Administrador  
       É criado um novo usuário que pode ser usado para fazer logon no computador.
    10. ID da Sub-rede  
-   A ID da sub-rede à qual as máquinas virtuais devem estar conectadas.  Deixe em branco se você deseja criar uma nova rede virtual ou selecione a mesma sub-rede usada ou criada como parte da implantação do servidor NFS. A ID geralmente tem esta aparência: /subscriptions/**&lt;id da assinatura&gt;**/resourceGroups/**&lt;nome do grupo de recursos&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;nome de rede virtual&gt;**/subnets/**&lt;nome da sub-rede&gt;**
+   A ID da sub-rede à qual as máquinas virtuais devem estar conectadas.  Deixe em branco se você deseja criar uma nova rede virtual ou selecione a mesma sub-rede usada ou criada como parte da implantação do servidor NFS. A ID geralmente tem esta aparência: /subscriptions/**&lt;ID da assinatura&gt;**/resourceGroups/**&lt;nome do grupo de recursos&gt;**/providers/Microsoft.Network/virtualNetworks/**&lt;nome de rede virtual&gt;**/subnets/**&lt;nome da sub-rede&gt;**
 
 ### <a name="installation"></a>Instalação
 
@@ -967,7 +967,7 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
      op monitor interval="10s"
 
    crm(live)configure# primitive vip_<b>NWS</b>_ASCS IPaddr2 \
-     params ip=<b>10.0.0.10</b> cidr_netmask=24 \
+     params ip=<b>10.0.0.10</b> cidr_netmask=<b>24</b> \
      op monitor interval=10 timeout=20
 
    crm(live)configure# primitive nc_<b>NWS</b>_ASCS anything \
@@ -1041,7 +1041,7 @@ Os itens a seguir são prefixados com **[A]** – aplicável a todos os nós, **
      op monitor interval="10s"
 
    crm(live)configure# primitive vip_<b>NWS</b>_ERS IPaddr2 \
-     params ip=<b>10.0.0.11</b> cidr_netmask=24 \
+     params ip=<b>10.0.0.11</b> cidr_netmask=<b>24</b> \
      op monitor interval=10 timeout=20
 
    crm(live)configure# primitive nc_<b>NWS</b>_ERS anything \
@@ -1228,7 +1228,7 @@ O dispositivo STONITH usa uma Entidade de Serviço para autorização no Microso
 
 1. Acesse <https://portal.azure.com>
 1. Abra a folha Azure Active Directory  
-   Vá para Propriedades e anote a ID do Diretório. Essa é a **id de locatário**.
+   Vá para Propriedades e anote a ID do Diretório. Essa é a **ID de locatário**.
 1. Clique em Registros do Aplicativo
 1. Clique em Adicionar
 1. Digite um Nome, selecione Tipo de Aplicativo "Aplicativo Web/API", insira uma URL de logon (por exemplo, http://localhost) e clique em Criar
@@ -1236,7 +1236,7 @@ O dispositivo STONITH usa uma Entidade de Serviço para autorização no Microso
 1. Selecione o novo Aplicativo e clique em Chaves na guia Configurações
 1. Insira uma descrição para uma nova chave, selecione "Nunca expira" e clique em Salvar
 1. Anote o Valor. Ele é usado como **senha** da Entidade de Serviço
-1. Anote a ID do Aplicativo. Ela é usada como nome de usuário (**id de logon** nas etapas abaixo) da Entidade de Serviço
+1. Anote a ID do Aplicativo. Ela é usada como nome de usuário (**ID de logon** nas etapas abaixo) da Entidade de Serviço
 
 A Entidade de Serviço não tem permissões para acessar os recursos do Azure por padrão. Você precisa fornecer as permissões da Entidade de Serviço para iniciar e parar (desalocar) todas as máquinas virtuais do cluster.
 
@@ -1256,13 +1256,13 @@ Depois de editar as permissões das máquinas virtuais, você pode configurar os
 <pre><code>
 sudo crm configure
 
-# replace the bold string with your subscription id, resource group, tenant id, service principal id and password
+# replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
 
 crm(live)configure# primitive rsc_st_azure_1 stonith:fence_azure_arm \
-   params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 crm(live)configure# primitive rsc_st_azure_2 stonith:fence_azure_arm \
-   params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+   params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 crm(live)configure# colocation col_st_azure -2000: rsc_st_azure_1:Started rsc_st_azure_2:Started
 
@@ -1280,7 +1280,7 @@ sudo crm configure property stonith-enabled=true
 
 ## <a name="install-database"></a>Instalar banco de dados
 
-Neste exemplo, uma replicação de sistema do SAP HANA está instalada e configurada. O SAP HANA será executado no mesmo cluster que o ASCS/SCS e o ERS do SAP NetWeaver. Você também pode instalar o SAP HANA em um cluster dedicado. Veja [Alta disponibilidade do SAP HANA em VMs (máquinas virtuais) do Azure][sap-hana-ha] para obter mais informações.
+Neste exemplo, uma replicação de sistema do SAP HANA está instalada e configurada. O SAP HANA será executado no mesmo cluster que o ASCS/SCS e o ERS do SAP NetWeaver. Você também pode instalar o SAP HANA em um cluster dedicado. Para obter informações, veja [Alta disponibilidade do SAP HANA em VMs (máquinas virtuais) do Azure][sap-hana-ha].
 
 ### <a name="prepare-for-sap-hana-installation"></a>Preparar para a instalação do SAP HANA
 
@@ -1326,7 +1326,7 @@ Normalmente, é recomendável usar LVM para volumes que armazenam arquivos de lo
    sudo chattr +i /hana/data
    sudo chattr +i /hana/log
    sudo chattr +i /hana/shared
-   # write down the id of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
+   # write down the ID of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
    sudo blkid
    </code></pre>
    
@@ -1440,7 +1440,7 @@ As etapas a seguir se baseiam no capítulo 4 do [guia Cenário Otimizado para De
    <pre><code>
    sudo crm configure
 
-   # replace the bold string with your instance number and HANA system id
+   # replace the bold string with your instance number and HANA system ID
    
    crm(live)configure# primitive rsc_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b>   ocf:suse:SAPHanaTopology \
      operations $id="rsc_sap2_<b>HDB</b>_HDB<b>03</b>-operations" \
@@ -1461,7 +1461,7 @@ As etapas a seguir se baseiam no capítulo 4 do [guia Cenário Otimizado para De
    <pre><code>
    sudo crm configure
 
-   # replace the bold string with your instance number, HANA system id and the frontend IP address of the Azure load balancer. 
+   # replace the bold string with your instance number, HANA system ID and the frontend IP address of the Azure load balancer. 
     
    crm(live)configure# primitive rsc_SAPHana_<b>HDB</b>_HDB<b>03</b> ocf:suse:SAPHana \
      operations $id="rsc_sap_<b>HDB</b>_HDB<b>03</b>-operations" \

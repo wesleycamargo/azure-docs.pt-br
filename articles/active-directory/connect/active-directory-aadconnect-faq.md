@@ -4,7 +4,7 @@ description: "Esta página tem perguntas frequentes sobre o Azure AD Connect."
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 ms.assetid: 4e47a087-ebcd-4b63-9574-0c31907a39a3
 ms.service: active-directory
 ms.workload: identity
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/12/2017
 ms.author: billmath
-ms.openlocfilehash: 9d11795aa8b768a8574c3f8bc375b74402825ba3
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 13f12f39fb72bd7d4e32056753a012c38034f807
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="frequently-asked-questions-for-azure-active-directory-connect"></a>Perguntas frequentes sobre o Azure Active Directory Connect
 
@@ -35,6 +35,11 @@ Há suporte para isso nas compilações de fevereiro de 2016.
 Sim. Depois de instalar o agente, você pode concluir o processo de registro usando o seguinte cmdlet do PowerShell: 
 
 `Register-AzureADConnectHealthADDSAgent -Credentials $cred`
+
+**P: AADConnect dá suporte à sincronização de dois domínios com o Azure AD?**</br>
+Sim, isso é suportado. Consulte [Vários domínios](active-directory-aadconnect-multiple-domains.md)
+ 
+**P: Damos suporte a vários conectores para o mesmo domínio do Active Directory no Azure AD?**</br> Não, não há suporte para isso 
 
 ## <a name="network"></a>Rede
 **P: Tenho um firewall, dispositivo de rede ou outra coisa que limita o tempo máximo que as conexões podem permanecer abertas na minha rede. Qual deve ser o limiar de tempo limite no lado do cliente ao usar o Azure Connect AD?**  
@@ -78,8 +83,6 @@ Não, não há suporte para esse recurso no momento.
 **P: Há suporte para o atributo ImmutableId definido manualmente em objetos de Grupo/Contato existentes do Azure AD para correspondência rígida com objetos de Grupo/Contato do AD locais?**  
 Não, não há suporte para esse recurso no momento.
 
-
-
 ## <a name="custom-configuration"></a>Configuração personalizada
 **P: Onde os cmdlets do PowerShell para o Azure AD Connect estão documentados?**  
 Com exceção dos cmdlets documentados neste site, não há suporte para outros cmdlets do PowerShell encontrados no Azure AD Connect para uso do cliente.
@@ -95,8 +98,6 @@ Atualmente, não há suporte para a modificação dos atributos HTML da página 
 
 **P: Existe uma maneira de evitar sessões simultâneas?**</br>
 Não.
-
-
 
 ## <a name="troubleshooting"></a>Solucionar problemas
 **P: Como posso obter ajuda com o Azure AD Connect?**

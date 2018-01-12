@@ -16,6 +16,7 @@
 ### [Criar VMs](devtest-lab-add-vm.md)
 ### [Criar e gerenciar VMs requisitáveis](devtest-lab-add-claimable-vm.md)
 ### [Criar e gerenciar VMs com a CLI do Azure](devtest-lab-vmcli.md)
+### [Criar uma VM usando um modelo do Resource Manager](devtest-lab-use-resource-manager-template.md)
 ### [Reiniciar uma VM](devtest-lab-restart-vm.md)
 
 ## Usar ambientes em um laboratório
@@ -46,7 +47,6 @@
 
 ## Gerenciar modelos reutilizáveis
 ### [Adicionar um repositório Git para artefatos e modelos](devtest-lab-add-artifact-repo.md)
-### [Usar um modelo do gerenciador de recursos](devtest-lab-use-resource-manager-template.md)
 ### [Gerenciar fórmulas](devtest-lab-manage-formulas.md)
 
 ## Gerenciar artefatos
@@ -74,7 +74,7 @@
 
 
 # Relacionados
-## [PERGUNTAS FREQUENTES](devtest-lab-faq.md)
+## [Perguntas frequentes](devtest-lab-faq.md)
 ## [Atualizações de serviço](https://azure.microsoft.com/updates/?product=devtest-lab)
 ## [Fórum do MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDevTestLabs)
 ## [Blog da equipe](https://blogs.msdn.microsoft.com/devtestlab/)

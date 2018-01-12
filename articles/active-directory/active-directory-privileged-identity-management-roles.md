@@ -4,7 +4,7 @@ description: "Aprenda quais funções são usadas para identidades com privilég
 services: active-directory
 documentationcenter: 
 author: billmath
-manager: femila
+manager: mtillman
 editor: 
 ms.assetid: ac812ccc-cf4e-4ac2-b981-69598056c9ed
 ms.service: active-directory
@@ -15,11 +15,11 @@ ms.workload: identity
 ms.date: 07/31/2017
 ms.author: billmath
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: e3f67b978ff66cbb71709f2f8d66986a33149ae6
-ms.sourcegitcommit: 732e5df390dea94c363fc99b9d781e64cb75e220
+ms.openlocfilehash: bba26a947607a3679d191a2cd8164d27f61e2ba1
+ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/14/2017
+ms.lasthandoff: 12/11/2017
 ---
 # <a name="different-administrative-role-in-azure-active-directory-pim"></a>Função administrativa diferente no PIM do Azure Active Directory
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
@@ -27,9 +27,9 @@ ms.lasthandoff: 11/14/2017
 Você pode atribuir usuários na sua organização a diferentes funções administrativas no Azure AD. Essas atribuições de função controlam quais tarefas, como adicionar ou remover usuários ou alterar configurações do serviço, os usuários podem executar no Azure AD, Office 365 e outros aplicativos conectados e Microsoft Online Services.  
 
 > [!IMPORTANT]
-> A Microsoft recomenda que você gerencie o Azure AD usando o [Centro de administração do AD do Azure](https://aad.portal.azure.com) no portal do Azure em vez de usar o portal clássico do Azure mencionado neste artigo.
+> A Microsoft recomenda que você gerencie o Azure AD usando o [Centro de administração do Azure AD](https://aad.portal.azure.com) no portal do Azure.
 
-Um administrador global pode atualizar quais usuários são **permanentemente** atribuídos às funções no Azure AD, usando cmdlets do PowerShell como `Add-MsolRoleMember` e `Remove-MsolRoleMember`, ou por meio do portal clássico, como descrito em [Atribuindo funções de administrador no Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md).
+Um administrador global pode atualizar quais usuários são **permanentemente** atribuídos às funções no Azure AD, usando cmdlets do PowerShell como `Add-MsolRoleMember` e `Remove-MsolRoleMember`, ou por meio do portal, como descrito em [Atribuindo funções de administrador no Azure Active Directory](active-directory-assign-admin-roles-azure-portal.md).
 
 O Azure AD PIM (Privileged Identity Management) gerencia políticas para o acesso privilegiado para usuários no Azure AD. O PIM atribui usuários a uma ou mais funções no Azure AD e você pode atribuir uma pessoa para estar permanentemente na função ou qualificada para a função. Quando um usuário é atribuído permanentemente a uma função ou ativa uma atribuição de função qualificada, ele pode gerenciar o Azure Active Directory, o Office 365 e outros aplicativos com as permissões atribuídas às suas funções.
 
@@ -75,15 +75,14 @@ As assinaturas e grupos de recursos do Azure também não são representados no 
 ## <a name="user-roles-and-signing-in"></a>Funções de usuário e entrada
 Para alguns serviços e aplicativos da Microsoft, atribuir um usuário a uma função pode não ser suficiente para permitir que aquele usuário seja um administrador.
 
-O acesso ao portal clássico do Azure requer que o usuário seja um administrador ou coadministrador de serviços em uma assinatura do Azure, mesmo se o usuário não precisar gerenciar as assinaturas do Azure.  Por exemplo, para gerenciar as definições de configuração do Azure AD no portal clássico, um usuário deve ser um administrador global no Azure AD e um coadministrador de assinatura em uma assinatura do Azure.  Para saber como adicionar usuários às assinaturas do Azure, consulte [Como adicionar ou alterar funções de administrador do Azure](../billing/billing-add-change-azure-subscription-administrator.md).
+O acesso ao portal do Azure requer que o usuário seja um administrador ou coadministrador de serviços em uma assinatura do Azure, mesmo se o usuário não precisar gerenciar as assinaturas do Azure.  Por exemplo, para gerenciar as definições de configuração do Azure AD, um usuário deve ser um administrador global no Azure AD e um coadministrador de assinatura em uma assinatura do Azure.  Para saber como adicionar usuários às assinaturas do Azure, consulte [Como adicionar ou alterar funções de administrador do Azure](../billing/billing-add-change-azure-subscription-administrator.md).
 
 O acesso ao Microsoft Online Services pode exigir que o usuário também tenha uma licença atribuída antes de poder abrir o portal do serviço ou realizar tarefas administrativas.
 
 ## <a name="assign-a-license-to-a-user-in-azure-ad"></a>Atribuir uma licença a um usuário no Azure AD
-1. Entre no [Portal Clássico do Azure](http://manage.windowsazure.com) com uma conta de administrador global ou uma conta de coadministrador.
-2. Selecione **Todos os Itens** no menu principal.
-3. Selecione o diretório com o qual você deseja trabalhar e que tem licenças associadas a ele.
-4. Selecione **Licenças**. A lista de licenças disponíveis será exibida.
+1. Entre no [Portal do Azure](http://portal.azure.com) com uma conta de administrador global ou uma conta de coadministrador.
+3. Selecione oAzure AD e o diretório com o qual você deseja trabalhar e que tem licenças associadas a ele.
+4. Selecione **Licenças** à esquerda. A lista de licenças disponíveis será exibida.
 5. Selecione o plano de licença que contém as licenças que você deseja distribuir.
 6. Selecione **Atribuir Usuários**.
 7. Selecione o usuário ao qual você deseja atribuir uma licença.

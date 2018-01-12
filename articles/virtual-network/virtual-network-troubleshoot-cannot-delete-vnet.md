@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/03/2017
+ms.date: 12/12/2017
 ms.author: genli
-ms.openlocfilehash: e0e58e443897adad2b6029db4e64fa220cebb6b8
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 60e4a0dbbc15b0414bf1b81e1fd7885e47aa962d
+ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 12/12/2017
 ---
 # <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>Solução de problemas: falha ao excluir uma rede virtual no Azure
 
@@ -65,13 +65,7 @@ Se o Serviço de Domínio do Active Directory estiver habilitado e conectado à 
 
 ![Verifique o dispositivo conectado](media/virtual-network-troubleshoot-cannot-delete-vnet/enable-domain-services.png)
 
-Para desabilitar o serviço, siga estas etapas:
-
-1. Vá para o [portal clássico do Azure](https://manage.windowsazure.com).
-2. No painel esquerdo, selecione **Active Directory**.
-3. Selecione o diretório do Azure AD (Azure Active Directory) que tem o Serviço de Domínio do Active Directory habilitado.
-4. Selecione a guia **Configurar** .
-5. Em **serviços de domínio**, altere a opção **Habilitar serviços de domínio para este diretório** para **Não**.  
+Para desabilitar o serviço, consulte [Azure Active Directory Domain Services usando o portal do Azure](../active-directory-domain-services/active-directory-ds-disable-aadds.md).
 
 ### <a name="check-whether-the-virtual-network-is-connected-to-other-resource"></a>Verifique se a rede virtual está conectada a outro recurso
 

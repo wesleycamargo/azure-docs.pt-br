@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/14/2017
 ms.author: tonguyen
-ms.openlocfilehash: d74f649a8b5f35ffe16479576959e5ebb2857bf1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4bbb13f31c42a57815dca176408d5c2e82feb5e0
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Evite cobranças inesperadas com o gerenciamento de custo e a cobrança do Azure
 
@@ -28,6 +28,8 @@ Ao se inscrever no Azure, há várias coisas que podem ser feitas para você ter
 - Se sua assinatura for um EA (Contrato Enterprise), a visualização pública para visualização dos custos no portal do Azure agora estará disponível. Se sua assinatura for feita por meio do CSP (Provedor de Soluções na Nuvem) ou pelo Azure Sponsorship, alguns dos recursos a seguir poderão não se aplicar ao seu caso. Consulte [Recursos adicionais do EA, CSP e Sponsorship](#other-offers) para obter mais informações.
 
 - Se sua assinatura for uma Avaliação Gratuita, do [Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), do AIO (Azure via Open) ou BizSpark, ela será desabilitada automaticamente quando todos os créditos forem usados. Saiba mais sobre os [limites de gastos](#spending-limit) para evitar que sua assinatura desabilitada de forma inesperada.
+
+- Se tiver se inscrito na [Conta gratuita do Azure](https://azure.microsoft.com/en-us/free/), [você poderá usar alguns dos serviços do Azure mais populares gratuitamente por 12 meses](billing-create-free-services-included-free-account.md). Juntamente com as recomendações listadas abaixo, consulte [Evitar ser cobrado na conta gratuita](billing-avoid-charges-free-account.md).
 
 ## <a name="get-estimated-costs-before-adding-azure-services"></a>Obter custos estimados antes de adicionar serviços do Azure
 

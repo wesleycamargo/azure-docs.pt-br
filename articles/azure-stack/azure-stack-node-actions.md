@@ -12,19 +12,23 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/09/2017
+ms.date: 01/09/2018
 ms.author: mabrigg
-ms.openlocfilehash: 4b94092f1284abfa2462ddef04b6e84136e54dde
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 55cc0eb3cc187d87e0d2ae96e2433cb9682ab370
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="scale-unit-node-actions-in-azure-stack"></a>Ações de nó de unidade de escala na pilha do Azure
 
 *Aplica-se a: sistemas integrados de pilha do Azure*
 
 Este artigo descreve como exibir o status de uma unidade de escala e seus nós associados e como usar as ações de nó disponível. Ações de nó incluem ativação, desativar, drenar, retomam e reparar. Normalmente, você deve usar essas ações de nó durante a substituição de campo de partes de ou para cenários de recuperação de nó.
+
+> [!Important]  
+> Todas as ações de nó descritas neste artigo devem apenas destino um nó por vez.
+
 
 ## <a name="view-the-status-of-a-scale-unit-and-its-nodes"></a>Exibir o status de uma unidade de escala e de seus nós
 
@@ -75,13 +79,17 @@ O estado operacional do nó determina quais opções estão disponíveis.
 
 O **desligue** ação desativa o nó. É o mesmo como se você pressionar o botão de energia. Ele faz **não** envia um sinal de desligamento para o sistema operacional. Para operações de desligamento planejado, verifique se que você descarregar um nó de unidade de escala pela primeira vez.
 
-Esta ação normalmente é usada quando um nó está em um estado suspenso e não responde às solicitações.  
+Esta ação normalmente é usada quando um nó está em um estado suspenso e não responde às solicitações.
+
+> [!Important] 
+> Essa funcionalidade só está disponível por meio do PowerShell. Ele estará disponível no portal do administrador do Azure pilha novamente mais tarde.
+
 
 Para executar o desligamento de ação por meio do PowerShell:
 
-  ````PowerShell
+````PowerShell
   Stop-AzsScaleUnitNode -Region <RegionName> -Name <NodeName>
-  ```` 
+```` 
 
 No caso improvável de que a ação de desligamento não funciona, use a interface da web do BMC.
 
@@ -89,11 +97,14 @@ No caso improvável de que a ação de desligamento não funciona, use a interfa
 
 O **ligar** ação ativa o nó. É o mesmo como se você pressionar o botão de energia. 
 
+> [!Important] 
+> Essa funcionalidade só está disponível por meio do PowerShell. Ele estará disponível no portal do administrador do Azure pilha novamente mais tarde.
+
 Para executar a potência em ação por meio do PowerShell:
 
-  ````PowerShell
+````PowerShell
   Start-AzsScaleUnitNode -Region <RegionName> -Name <NodeName>
-  ````
+````
 
 No caso improvável de que a ação de ligar não funciona, use a interface da web do BMC.
 

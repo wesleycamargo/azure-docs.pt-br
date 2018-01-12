@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: mabrigg
-ms.openlocfilehash: df1f4c6fadd08b17a1a1eb8bbe41ab71ae4729fc
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: daea97c0f5ee6ef855dc50c1ed6c7934aa85a1c4
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="back-up-azure-stack"></a>Fazer backup do Azure pilha
 
@@ -26,12 +26,12 @@ ms.lasthandoff: 01/02/2018
 
 Execute um backup sob demanda na pilha do Azure com o backup em vigor. Se você precisar habilitar o serviço de Backup de infraestrutura, consulte [habilitar o Backup para a pilha do Azure no portal de administração](azure-stack-backup-enable-backup-console.md).
 
-## <a name="start-azure-stack-backup"></a>Iniciar o Backup de pilha do Azure
+## <a name="start-azure-stack-backup"></a>Iniciar o backup de pilha do Azure
 
 Abra o Windows PowerShell com um prompt com privilégios elevados e execute os seguintes comandos:
 
    ```powershell
-   Start-AzSBackup -Location $location
+   Start-AzSBackup -Location $location.Name
    ```
 
 ## <a name="confirm-backup-completed-in-the-administration-portal"></a>Confirme o backup foi concluído no portal de administração

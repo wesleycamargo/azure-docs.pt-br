@@ -13,11 +13,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 04/25/2017
 ms.author: sedusch
-ms.openlocfilehash: 951150e621d21037b0adde7287b9f985290d8d11
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5f6ef18e93b8f77162b3524f31cb632e1db38f80
+ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/08/2017
 ---
 # <a name="high-availability-of-sap-hana-on-azure-virtual-machines-vms"></a>Alta disponibilidade do SAP HANA em VMs (máquinas virtuais) do Azure
 
@@ -85,12 +85,12 @@ O Azure Marketplace contém uma imagem para SUSE Linux Enterprise Server for SAP
 1. Crie um Balanceador de Carga (interno)  
    Selecione a VNET da etapa acima
 1. Crie a Máquina Virtual 1  
-   https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1  
+   Use pelo menos SLES4SAP 12 SP1. Neste exemplo, usaremos a imagem SLES4SAP 12 SP1 BYOS https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1  
    SLES For SAP Applications 12 SP1 (BYOS)  
    Escolha a Conta de Armazenamento 1  
    Escolha o Conjunto de Disponibilidade  
 1. Crie a Máquina Virtual 2  
-   https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1  
+   Use pelo menos SLES4SAP 12 SP1. Neste exemplo, usaremos a imagem SLES4SAP 12 SP1 BYOS https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1  
    SLES For SAP Applications 12 SP1 (BYOS)  
    Escolha a Conta de Armazenamento 2   
    Escolha o Conjunto de Disponibilidade  
@@ -99,7 +99,7 @@ O Azure Marketplace contém uma imagem para SUSE Linux Enterprise Server for SAP
     1. Crie um pool de IPs de front-end
         1. Abra o balanceador de carga, escolha o pool de IPs de front-end e clique em Adicionar
         1. Digite o nome do novo pool de IPs de front-end (por exemplo hana-front-end)
-       1. Clique em OK
+        1. Clique em OK
         1. Depois que o novo pool de IPs de front-end for criado, anote seu endereço IP
     1. Crie um pool de back-end
         1. Abra o balanceador de carga, escolha os pools de back-end e clique em Adicionar
@@ -109,7 +109,7 @@ O Azure Marketplace contém uma imagem para SUSE Linux Enterprise Server for SAP
         1. Selecione as máquinas virtuais do cluster SAP HANA
         1. Clique em OK
     1. Criar uma investigação de integridade
-       1. Abra o balanceador de carga, selecione as investigações de integridade e clique em Adicionar
+        1. Abra o balanceador de carga, selecione as investigações de integridade e clique em Adicionar
         1. Digite o nome da nova investigação de integridade (por exemplo, hana-hp)
         1. Escolha TCP como protocolo, porta 625**03**, mantenha o Intervalo como 5 e o Limite de não integridade como 2
         1. Clique em OK
@@ -119,7 +119,7 @@ O Azure Marketplace contém uma imagem para SUSE Linux Enterprise Server for SAP
         1. Escolha o endereço IP de front-end, o pool de back-end e a investigação de integridade criados anteriormente (por exemplo hana-front-end)
         1. Mantenha o protocolo TCP, insira a porta 3**03**15
         1. Aumente o tempo limite de ociosidade para 30 minutos
-       1. **Habilite o IP Flutuante**
+        1. **Habilite o IP Flutuante**
         1. Clique em OK
         1. Repita as etapas acima para a porta 3**03**17
 
@@ -129,7 +129,7 @@ Você pode usar um dos modelos de início rápido no github para implantar todos
 1. Abra o [modelo de banco de dados][template-multisid-db] ou o [modelo convergido][template-converged] no portal do Azure. O modelo de banco de dados cria apenas as regras de balanceamento de carga para um banco de dados, enquanto o modelo convergido também cria as regras de balanceamento de carga para uma instância ASCS/SCS e ERS (apenas Linux). Se você planeja instalar um sistema baseado no SAP NetWeaver e também quer instalar a instância ASCS/SCS nas mesmas máquinas, use o [modelo convergido][template-converged].
 1. Defina os seguintes parâmetros
     1. ID do sistema SAP  
-       Insira a ID do sistema SAP do sistema SAP, que você deseja instalar. A Id será usada como um prefixo para os recursos que serão implantados.
+       Insira a ID do sistema SAP do sistema SAP que você deseja instalar. A ID será usada como um prefixo para os recursos que serão implantados.
     1. Tipo de pilha (aplicável somente se você usar o modelo convergido)  
        Selecionar o tipo de pilha do SAP NetWeaver
     1. Tipo de sistema operacional  
@@ -145,7 +145,7 @@ Você pode usar um dos modelos de início rápido no github para implantar todos
     1. Sub-rede Nova ou Existente  
        Determina se uma nova rede virtual e sub-rede devem ser criadas ou se uma sub-rede existente deve ser usada. Se você já tiver uma rede virtual conectada à sua rede local, selecione a rede existente.
     1. ID da Sub-rede  
-    A ID da sub-rede à qual as máquinas virtuais devem estar conectadas. Selecione a sub-rede da sua VPN ou a rede virtual da ExpressRoute para conectar a máquina virtual à sua rede local. A ID geralmente é semelhante a /subscriptions/`<subscription id`>/resourceGroups/`<resource group name`>/providers/Microsoft.Network/virtualNetworks/`<virtual network name`>/subnets/`<subnet name`>
+    A ID da sub-rede à qual as máquinas virtuais devem estar conectadas. Selecione a sub-rede da sua VPN ou a rede virtual da ExpressRoute para conectar a máquina virtual à sua rede local. A ID geralmente é semelhante a /subscriptions/`<subscription ID`>/resourceGroups/`<resource group name`>/providers/Microsoft.Network/virtualNetworks/`<virtual network name`>/subnets/`<subnet name`>
 
 ## <a name="setting-up-linux-ha"></a>Configuração de HA do Linux
 
@@ -229,7 +229,7 @@ Os itens a seguir são prefixados com [A] – aplicável a todos os nós, [1] �
     sudo mkdir -p /hana/data
     sudo mkdir -p /hana/log
     sudo mkdir -p /hana/shared
-    # write down the id of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
+    # write down the ID of /dev/vg_hana_data/hana_data, /dev/vg_hana_log/hana_log and /dev/vg_hana_shared/hana_shared
     sudo blkid
     </code></pre>
         * Crie entradas fstab para os três volumes lógicos
@@ -252,7 +252,7 @@ Os itens a seguir são prefixados com [A] – aplicável a todos os nós, [1] �
     sudo fdisk /dev/sdc
     sudo mkfs.xfs /dev/sdc1
     
-    # <a name="write-down-the-id-of-devsdc1"></a>escreva a id de /dev/sdc1
+    # <a name="write-down-the-id-of-devsdc1"></a>escreva a ID de /dev/sdc1
     sudo /sbin/blkid  sudo vi /etc/fstab
     ```
 
@@ -450,7 +450,7 @@ O dispositivo STONITH usa uma Entidade de Serviço para autorização no Microso
 
 1. Acesse <https://portal.azure.com>
 1. Abra a folha Azure Active Directory  
-   Vá para Propriedades e anote a ID do Diretório. Essa é a **id de locatário**.
+   Vá para Propriedades e anote a ID do Diretório. Essa é a **ID de locatário**.
 1. Clique em Registros do Aplicativo
 1. Clique em Adicionar
 1. Digite um Nome, selecione Tipo de Aplicativo "Aplicativo Web/API", insira uma URL de logon (por exemplo, http://localhost) e clique em Criar
@@ -458,7 +458,7 @@ O dispositivo STONITH usa uma Entidade de Serviço para autorização no Microso
 1. Selecione o novo Aplicativo e clique em Chaves na guia Configurações
 1. Insira uma descrição para uma nova chave, selecione "Nunca expira" e clique em Salvar
 1. Anote o Valor. Ele é usado como **senha** da Entidade de Serviço
-1. Anote a ID do Aplicativo. Ela é usada como nome de usuário (**id de logon** nas etapas abaixo) da Entidade de Serviço
+1. Anote a ID do Aplicativo. Ela é usada como nome de usuário (**ID de logon** nas etapas abaixo) da Entidade de Serviço
 
 A Entidade de Serviço não tem permissões para acessar os recursos do Azure por padrão. Você precisa fornecer as permissões da Entidade de Serviço para iniciar e parar (desalocar) todas as máquinas virtuais do cluster.
 
@@ -476,13 +476,13 @@ Depois de editar as permissões das máquinas virtuais, você pode configurar os
 <pre>
 sudo vi crm-fencing.txt
 # enter the following to crm-fencing.txt
-# replace the bold string with your subscription id, resource group, tenant id, service principal id and password
+# replace the bold string with your subscription ID, resource group, tenant ID, service principal ID and password
 <code>
 primitive rsc_st_azure_1 stonith:fence_azure_arm \
-    params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+    params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 primitive rsc_st_azure_2 stonith:fence_azure_arm \
-    params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
+    params subscriptionId="<b>subscription ID</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant ID</b>" login="<b>login ID</b>" passwd="<b>password</b>"
 
 colocation col_st_azure -2000: rsc_st_azure_1:Started rsc_st_azure_2:Started
 </code>
@@ -496,7 +496,7 @@ sudo crm configure load update crm-fencing.txt
 <pre>
 sudo vi crm-saphanatop.txt
 # enter the following to crm-saphana.txt
-# replace the bold string with your instance number and HANA system id
+# replace the bold string with your instance number and HANA system ID
 <code>
 primitive rsc_SAPHanaTopology_<b>HDB</b>_HDB<b>03</b> ocf:suse:SAPHanaTopology \
     operations $id="rsc_sap2_<b>HDB</b>_HDB<b>03</b>-operations" \
@@ -516,7 +516,7 @@ sudo crm configure load update crm-saphanatop.txt
 <pre>
 sudo vi crm-saphana.txt
 # enter the following to crm-saphana.txt
-# replace the bold string with your instance number, HANA system id and the frontend IP address of the Azure load balancer. 
+# replace the bold string with your instance number, HANA system ID and the frontend IP address of the Azure load balancer. 
 <code>
 primitive rsc_SAPHana_<b>HDB</b>_HDB<b>03</b> ocf:suse:SAPHana \
     operations $id="rsc_sap_<b>HDB</b>_HDB<b>03</b>-operations" \
@@ -627,7 +627,7 @@ A migração cria restrições de local que precisam ser excluídas novamente.
 <pre><code>
 crm configure edited
 
-# delete location contraints that are named like the following contraint. You should have two contraints, one for the SAP HANA resource and one for the IP address group.
+# delete location constraints that are named like the following contraint. You should have two constraints, one for the SAP HANA resource and one for the IP address group.
 location cli-prefer-g_ip_<b>HDB</b>_HDB<b>03</b> g_ip_<b>HDB</b>_HDB<b>03</b> role=Started inf: <b>saphanavm2</b>
 </code></pre>
 
