@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2017
 ms.author: v-jysur
-ms.openlocfilehash: 991f86c328aba9aa184658c7da748f24ee2d6506
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 6a08f042aad8ad00d712420d8f4d3b17305188e1
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="centrally-manage-itsm-work-items-using-it-service-management-connector-preview"></a>Gerenciar itens de trabalho de ITSM de forma centralizada usando o Conector de Gerenciamento de Serviço de TI (Visualização)
 
@@ -105,7 +105,7 @@ ServiceDeskWorkItemType_s="Incident"
 - Atribuído a
 - Categoria
 - Title
-- Descrição
+- DESCRIÇÃO
 - Data de criação
 - Data de fechamento
 - Data de resolução
@@ -125,7 +125,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Fonte
 - Atribuído a
 - Title
-- Tipo
+- type
 - Categoria
 - Estado
 - Escalonamento
@@ -143,7 +143,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Data de término prevista
 - Data de início do trabalho
 - Data de término do trabalho
-- Descrição
+- DESCRIÇÃO
 - Computador
 
 ## <a name="output-data-for-a-servicenow-incident"></a>Dados de saída de um incidente do ServiceNow
@@ -177,7 +177,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | ClosedBy_s | Fechado por |
 | AssignedTo_s | Atribuído a  |
 | Title_s|  Descrição breve |
-| Type_s|  Tipo |
+| Type_s|  type |
 | Category_s|  Categoria |
 | CRState_s|  Estado|
 | Urgency_s|  Urgência |
@@ -190,7 +190,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | PlannedEndDate_t  |   Data de término planejada |
 | WorkStartDate_t  | Data de início real |
 | WorkEndDate_t | Data de término real|
-| Description_s | Descrição |
+| Description_s | DESCRIÇÃO |
 | Computador  | Item de Configuração |
 
 **Tela de exemplo do Log Analytics para dados de ITSM:**
@@ -292,11 +292,11 @@ Ao criar/editar uma regra de alerta do Azure, use um grupo de ações que tenha 
 
 ## <a name="troubleshoot-itsm-connections-in-oms"></a>Solucionar problemas de conexões de ITSM no OMS
 1.  Se a conexão falhar na interface do usuário de origem conectada, com uma mensagem **Erro ao salvar conexão**, execute as seguintes etapas:
- - Para conexões com o ServiceNow, o Cherwell e o Provance,  
-        - verifique se você digitou corretamente o nome de usuário, a senha, a ID do cliente e o segredo do cliente para cada uma das conexões.  
-        - verifique se você tem privilégios suficientes no produto de ITSM correspondente para fazer a conexão.  
- - Para conexões do Service Manager,  
-        - verifique se o aplicativo Web está implantado com êxito e se a conexão híbrida está criada. Para verificar se a conexão está estabelecida com êxito com o computador do Service Manager local, visite a URL do aplicativo Web conforme detalhado na documentação para fazer a [conexão híbrida](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).  
+- Para conexões com o ServiceNow, o Cherwell e o Provance,  
+       - verifique se você digitou corretamente o nome de usuário, a senha, a ID do cliente e o segredo do cliente para cada uma das conexões.  
+       - verifique se você tem privilégios suficientes no produto de ITSM correspondente para fazer a conexão.  
+- Para conexões do Service Manager,  
+       - verifique se o aplicativo Web está implantado com êxito e se a conexão híbrida está criada. Para verificar se a conexão está estabelecida com êxito com o computador do Service Manager local, visite a URL do aplicativo Web conforme detalhado na documentação para fazer a [conexão híbrida](log-analytics-itsmc-connections.md#configure-the-hybrid-connection).  
 
 2.  Se os dados do ServiceNow não estiverem sendo sincronizados com o Log Analytics, verifique se a instância do ServiceNow não está em suspensão. As instâncias de desenvolvimento do ServiceNow, às vezes, entram em suspensão quando ficam ociosas por um longo período. Caso contrário, relate o problema.
 3.  Se os alertas do OMS são disparados mas os itens de trabalho não são criados no produto de ITSM ou se os itens de configuração não são criados/vinculados aos itens de trabalho ou para obter qualquer outra informação genérica, procure nos seguintes locais:

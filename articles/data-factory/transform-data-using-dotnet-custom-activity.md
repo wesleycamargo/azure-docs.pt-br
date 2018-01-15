@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: shengc
-ms.openlocfilehash: 9673c5ad3ae48f9f2b8a47165b739cc2431060ae
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 6300e59d001864c7adc6ba369586dbe848a85edd
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Usar atividades personalizadas em um pipeline do Data Factory do Azure
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -105,17 +105,17 @@ Neste exemplo, helloworld.exe é um aplicativo personalizado armazenado na pasta
 
 A tabela a seguir descreve os nomes e as descrições de propriedades que são específicas a esta atividade. 
 
-| Propriedade              | Descrição                              | Obrigatório |
+| Propriedade              | DESCRIÇÃO                              | Obrigatório |
 | :-------------------- | :--------------------------------------- | :------- |
-| name                  | Nome da atividade no pipeline     | Sim      |
-| description           | Texto que descreve o que a atividade faz.  | Não       |
-| type                  | Para a atividade personalizada, o tipo de atividade é **Personalizado**. | Sim      |
+| Nome                  | Nome da atividade no pipeline     | Sim      |
+| Descrição           | Texto que descreve o que a atividade faz.  | Não        |
+| Tipo                  | Para a atividade personalizada, o tipo de atividade é **Personalizado**. | Sim      |
 | linkedServiceName     | Serviço vinculado ao Lote do Azure. Para saber mais sobre esse serviço vinculado, consulte o artigo [Compute linked services](compute-linked-services.md) (Serviços de computação vinculados).  | Sim      |
 | command               | Comando do aplicativo personalizado a ser executado. Se o aplicativo já estiver disponível no nó do pool do Lote do Azure, resourceLinkedService e folderPath poderão ser ignorados. Por exemplo, você pode especificar o comando como `cmd /c dir`, que tem suporte nativo no nó do pool do Lote do Windows. | Sim      |
-| resourceLinkedService | Serviço de vinculado do Armazenamento do Azure para a conta de armazenamento na qual o aplicativo personalizado é armazenado | Não       |
-| folderPath            | Caminho para a pasta do aplicativo personalizado e de todas as suas dependências | Não       |
-| referenceObjects      | Uma matriz de serviços vinculados e conjuntos de dados existentes. Os serviços vinculados e os conjuntos de dados referenciados são passados para o aplicativo personalizado no formato JSON para que o seu código personalizado possa referenciar os recursos do Data Factory | Não       |
-| extendedProperties    | Propriedades definidas pelo usuário que podem ser passadas para o aplicativo personalizado no formato JSON para que o seu código personalizado possa referenciar propriedades adicionais | Não       |
+| resourceLinkedService | Serviço de vinculado do Armazenamento do Azure para a conta de armazenamento na qual o aplicativo personalizado é armazenado | Não        |
+| folderPath            | Caminho para a pasta do aplicativo personalizado e de todas as suas dependências | Não        |
+| referenceObjects      | Uma matriz de serviços vinculados e conjuntos de dados existentes. Os serviços vinculados e os conjuntos de dados referenciados são passados para o aplicativo personalizado no formato JSON para que o seu código personalizado possa referenciar os recursos do Data Factory | Não        |
+| extendedProperties    | Propriedades definidas pelo usuário que podem ser passadas para o aplicativo personalizado no formato JSON para que o seu código personalizado possa referenciar propriedades adicionais | Não        |
 
 ## <a name="executing-commands"></a>Execução de comandos
 
@@ -331,7 +331,7 @@ Caso deseje consumir o conteúdo de stdout.txt em atividades de downstream, é p
    - O pacote NuGet Microsoft.Azure.Management.DataFactories não é mais necessário. 
    - Compilar seu código, carregar o executável e as dependências para o Armazenamento do Azure e definir o caminho na propriedade folderPath. 
 
-Para um exemplo completo de como o exemplo de DLL de ponta a ponta e o pipeline descritos no documento [Usar atividades personalizadas em um pipeline do Azure Data Factory](https://docs.microsoft.com/en-us/azure/data-factory/v1/data-factory-use-custom-activities) do Data Factory V1 podem ser regravados no estilo de atividade personalizada do Data Factory V2. Consulte um [exemplo de atividade personalizada do Data Factory V2](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample). 
+Para um exemplo completo de como o exemplo de DLL de ponta a ponta e o pipeline descritos no documento [Usar atividades personalizadas em um pipeline do Azure Data Factory](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities) do Data Factory V1 podem ser regravados no estilo de atividade personalizada do Data Factory V2. Consulte um [exemplo de atividade personalizada do Data Factory V2](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ADFv2CustomActivitySample). 
 
 ## <a name="auto-scaling-of-azure-batch"></a>Dimensionamento automático do Lote do Azure
 Você também pode criar um pool de Lotes do Azure com o recurso **autoscale** . Por exemplo, você poderia criar um pool do Lote do Azure sem nenhuma VM dedicada e uma fórmula de escala automática com base no número de tarefas pendentes. 

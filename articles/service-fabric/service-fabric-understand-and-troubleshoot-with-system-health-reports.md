@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/18/2017
+ms.date: 12/11/2017
 ms.author: oanapl
-ms.openlocfilehash: 42dca05c4d7d104ed0e7e21f1e53411e5983cd38
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: cd9a144baf06422b425a0bc6c516600d6fcd4b97
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="use-system-health-reports-to-troubleshoot"></a>Usar relatórios de integridade do sistema para solução de problemas
 Os componentes do Service Fabric do Azure apresentam relatórios de integridade do sistema em todas as entidades no cluster prontos para uso. O [repositório de integridade](service-fabric-health-introduction.md#health-store) cria e exclui entidades baseado nos relatórios do sistema. Ele também os organiza em uma hierarquia que captura interações de entidade.
@@ -632,7 +632,7 @@ A propriedade e o texto indicam qual API ficou paralisada. As próximas etapas a
 
 - **IStatefulServiceReplica.ChangeRole(P)**: o caso mais comum é que o serviço não retornou uma tarefa de `RunAsync`.
 
-Outras chamadas à API que podem ficar paralisadas estão na interface **IReplicator**. Por exemplo:
+Outras chamadas à API que podem ficar paralisadas estão na interface **IReplicator**. Por exemplo: 
 
 - **IReplicator.CatchupReplicaSet**: este aviso indica que um dos seguintes. Há réplicas ativas insuficientes, o que pode ser determinado examinando o status das réplicas na partição ou no relatório de integridade System.FM para uma reconfiguração paralisada. Ou as réplicas não estão confirmando operações. O cmdlet do PowerShell `Get-ServiceFabricDeployedReplicaDetail` pode ser usado para determinar o andamento de todas as réplicas. O problema etá nas réplicas cujo `LastAppliedReplicationSequenceNumber` está atrás do `CommittedSequenceNumber` do principal.
 
