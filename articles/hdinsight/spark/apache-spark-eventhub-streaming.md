@@ -4,7 +4,7 @@ description: "Compile um exemplo de streaming do Apache Spark sobre como enviar 
 keywords: streaming do apache spark, streaming do spark, exemplo de spark, exemplo de streaming do apache spark, exemplo do hub de evento do azure, exemplo de spark
 services: hdinsight
 documentationcenter: 
-author: nitinme
+author: mumian
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/28/2017
-ms.author: nitinme
-ms.openlocfilehash: d0678388fea79797c3cb4cd84deeab827981ebff
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.author: jgao
+ms.openlocfilehash: 43ae956ca284485cc68f8120a31af1c493c0b254
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="apache-spark-streaming-process-data-from-azure-event-hubs-with-spark-cluster-on-hdinsight"></a>Streaming do Apache Spark: processe dados de Hubs de Eventos do Azure com o cluster Spark no HDInsight
 
@@ -35,7 +35,7 @@ Neste artigo, você criará um exemplo de streaming do Apache Spark que envolve 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* Uma assinatura do Azure. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* Uma assinatura do Azure. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 * Um cluster do Apache Spark no HDInsight. Para obter instruções, consulte o artigo sobre como [Criar clusters do Apache Spark no Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
@@ -250,7 +250,7 @@ Um exemplo de aplicativo de streaming Spark escrito em Scala, que recebe eventos
 
 7. Crie o arquivo jar de saída. Execute as seguintes etapas:
 
-   1. Na caixa de diálogo **Estrutura do Projeto**, clique em **Artefatos** e, em seguida, clique no sinal de mais. Na caixa de diálogo pop-up, clique em **JAR** e, em seguida, clique em **Dos módulos com dependências**.      
+   1. Na caixa de diálogo **Estrutura do Projeto** clique em **Artefatos** e em seguida, clique no sinal de mais. Na caixa de diálogo pop-up, clique em **JAR** e, em seguida, clique em **Dos módulos com dependências**.      
        
        ![Exemplo de streaming do Apache Spark – Criar JAR](./media/apache-spark-eventhub-streaming/spark-streaming-example-create-jar.png "Exemplo de streaming do Apache Spark – Criar JAR")
    2. Na caixa de diálogo **Criar JAR de Módulos,** clique no botão de reticências (![reticências](./media/apache-spark-eventhub-streaming/ellipsis.png)) em relação à **Classe Principal**.

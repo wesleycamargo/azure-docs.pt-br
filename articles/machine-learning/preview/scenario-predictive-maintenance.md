@@ -11,11 +11,11 @@ ms.workload: data-services
 ms.topic: article
 ms.custom: mvc
 ms.date: 10/05/2017
-ms.openlocfilehash: d8e34924cb29e2e6469d009e40b04d5cee8930a6
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 0299e73aecca3b3e5714b37c8b0b776ec8561e29
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="predictive-maintenance-real-world-scenario"></a>Cenário do mundo real de manutenção preditiva.
 
@@ -32,7 +32,7 @@ A seguir está o link para o repositório GitHub público: [https://github.com/A
 
 Um grande problema enfrentado pelos negócios nos setores de ativos pesados são os custos significativos associados a atrasos para problemas mecânicos. A maioria dos negócios está interessada em prever quando esses problemas ocorrem para evitá-los proativamente antes que eles ocorram. A meta é reduzir os custos diminuindo o tempo de inatividade e possivelmente aumentar a segurança. 
 
-Esse cenário leva ideias do [guia estratégico de manutenção preditiva](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance) para demonstrar a criação de um modelo preditivo para um conjunto de dados simulados. Os dados de exemplo são derivados de elementos comuns observados em muitos casos de uso de manutenção preditiva.
+Esse cenário leva ideias do [guia estratégico de manutenção preditiva](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/cortana-analytics-playbook-predictive-maintenance) para demonstrar a criação de um modelo preditivo para um conjunto de dados simulados. Os dados de exemplo são derivados de elementos comuns observados em muitos casos de uso de manutenção preditiva.
 
 O problema de negócios para esses dados simulados é prever problemas causados por falhas em componentes. A pergunta de negócios, portanto, é “*qual é a probabilidade de um computador ficar inoperante devido à falha de um componente*?” Esse problema é formatado como um problema de classificação multiclasse (vários componentes por computador) e um algoritmo de aprendizado de máquina é usado para criar o modelo preditivo. O modelo é treinado em dados históricos coletados dos computadores. Nesse cenário, o usuário passa por várias etapas de implementação desse modelo no ambiente do Azure Machine Learning Workbench.
 

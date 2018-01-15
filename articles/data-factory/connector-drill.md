@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: faaed02cff92f43d5e0e35a5aa5f0809318cce8f
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 2925476687ed59fd5e82d63df54ca4be5c54e3de
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-drill-using-azure-data-factory-beta"></a>Copiar dados do Drill utilizando o Azure Data Factory (Beta)
 
@@ -27,7 +27,7 @@ Este artigo descreve como usar a atividade de cópia no Azure Data Factory para 
 > Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em versão prévia. Se você estiver usando a versão 1 do serviço Data Factory, que está com GA (disponibilidade geral), consulte a [Atividade de cópia na V1](v1/data-factory-data-movement-activities.md).
 
 > [!IMPORTANT]
-> Esse conector está atualmente em Beta. Você pode experimentar e fornecer comentários. Não use em ambientes de produção.
+> Esse conector está atualmente em versão beta. Você pode experimentá-lo e oferecer comentários. Não utilize-o em ambientes de produção.
 
 ## <a name="supported-capabilities"></a>Funcionalidades com suporte
 
@@ -37,7 +37,7 @@ Azure Data Factory fornece um driver interno para habilitar a conectividade, por
 
 ## <a name="getting-started"></a>Introdução
 
-Você pode criar um pipeline com atividade de cópia usando o SDK do .NET, o SDK do Python, o Azure PowerShell, a API REST ou o modelo do Azure Resource Manager. Confira o [Tutorial de atividade de cópia](quickstart-create-data-factory-dot-net.md) para obter instruções passo a passo sobre a criação de um pipeline com uma atividade de cópia.
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 As seções a seguir fornecem detalhes sobre as propriedades usadas para definir entidades do Data Factory específicas ao conector do Drill.
 
@@ -45,11 +45,11 @@ As seções a seguir fornecem detalhes sobre as propriedades usadas para definir
 
 As propriedades a seguir têm suporte para o serviço vinculado do Drill:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type deve ser definida como: **Drill** | Sim |
-| connectionString | Uma cadeia de conexão ODBC para conectar-se a análise. Você pode optar por este campo marcado como uma SecureString para armazená-la com segurança no ADF ou armazenar a senha no Azure Key Vault e permitir o pull de atividade de cópia a partir daí, ao executar a cópia de dados - Saiba mais de [Armazenar credenciais no Key Vault](store-credentials-in-key-vault.md). | Sim |
-| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime auto-hospedado ou o Integration Runtime do Azure (se seu armazenamento de dados estiver publicamente acessível). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não |
+| Tipo | A propriedade type deve ser definida como: **Drill** | Sim |
+| connectionString | Uma cadeia de conexão ODBC para conectar-se a análise. Você pode optar por marcar este campo como uma SecureString para armazená-la com segurança no ADF ou armazenar a senha no Azure Key Vault e permitir o pull de atividade de cópia a partir daí, ao executar a cópia de dados - Saiba mais de [Armazenar credenciais no Key Vault](store-credentials-in-key-vault.md). | Sim |
+| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime auto-hospedado ou o Integration Runtime do Azure (se seu armazenamento de dados estiver publicamente acessível). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não  |
 
 **Exemplo:**
 
@@ -76,7 +76,7 @@ As propriedades a seguir têm suporte para o serviço vinculado do Drill:
 
 Para obter uma lista completa das seções e propriedades disponíveis para definir os conjuntos de dados, confira o artigo sobre [conjuntos de dados](concepts-datasets-linked-services.md). Esta seção fornece uma lista das propriedades com suporte pelo conjunto de dados do Drill.
 
-Para copiar dados do Drill, defina a propriedade tipo do conjunto de dados como **DrillTable**. Não há nenhuma propriedade adicional de tipo específico nesse tipo de conjunto de dados.
+Para copiar dados do Drill, defina a propriedade tipo do conjunto de dados como **DrillTable**. Não há nenhuma propriedade adicional específica do type nesse tipo de conjunto de dados.
 
 **Exemplo**
 
@@ -101,9 +101,9 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados de HTTP, defina o tipo de origem na atividade de cópia como **HttpSource**. As propriedades a seguir têm suporte na seção **source** da atividade de cópia:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade tipo da origem da atividade de cópia deve ser definida como: **DrillSource** | Sim |
+| Tipo | A propriedade tipo da origem da atividade de cópia deve ser definida como: **DrillSource** | Sim |
 | query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Sim |
 
 **Exemplo:**

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 343facadfec217adaef9a05426e7ae914f4cfd38
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 8f586c12ce1d24cfccbd6804e80dae51f6adf085
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-teradata-using-azure-data-factory"></a>Copiar dados do Teradata usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -46,7 +46,8 @@ Para usar esse conector do Teradata, você precisa:
 - Instalar o [Provedor de dados .NET para Teradata](http://go.microsoft.com/fwlink/?LinkId=278886) versão 14 ou superior no computador do Integration Runtime.
 
 ## <a name="getting-started"></a>Introdução
-Você pode criar um pipeline com atividade de cópia usando o SDK do .NET, o SDK do Python, o Azure PowerShell, a API REST ou o modelo do Azure Resource Manager. Confira o [Tutorial de atividade de cópia](quickstart-create-data-factory-dot-net.md) para obter instruções passo a passo sobre a criação de um pipeline com uma atividade de cópia.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 As seções que a seguir fornecem detalhes sobre as propriedades usadas para definir entidades do Data Factory específicas ao Teradata.
 
@@ -54,10 +55,10 @@ As seções que a seguir fornecem detalhes sobre as propriedades usadas para def
 
 As propriedades a seguir têm suporte para o serviço vinculado do Teradata:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type deve ser definida como: **Teradata** | Sim |
-| server | Nome do servidor Teradata. | Sim |
+| Tipo | A propriedade type deve ser definida como: **Teradata** | Sim |
+| Servidor | Nome do servidor Teradata. | Sim |
 | authenticationType | Tipo de autenticação usado para se conectar ao banco de dados Teradata.<br/>Os valores permitidos são: **Básico** e **Windows**. | Sim |
 | Nome de Usuário | Especifique o nome de usuário para se conectar ao banco de dados Teradata. | Sim |
 | Senha | Especifique a senha da conta de usuário que você especificou para o nome de usuário. Marque esse campo como uma SecureString. | Sim |
@@ -93,9 +94,9 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados do Teradata, defina a propriedade type do conjunto de dados como **RelationalTable**. Há suporte para as seguintes propriedades:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type do conjunto de dados deve ser definida como: **RelationalTable** | Sim |
+| Tipo | A propriedade type do conjunto de dados deve ser definida como: **RelationalTable** | Sim |
 | tableName | Nome da tabela no banco de dados Teradata. | Não (se "query" na fonte da atividade for especificada) |
 
 **Exemplo:**
@@ -122,9 +123,9 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados do Teradata, defina o tipo de origem na atividade de cópia como **RelationalSource**. As propriedades a seguir têm suporte na seção **source** da atividade de cópia:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type da fonte da atividade de cópia deve ser definida como: **RelationalSource** | Sim |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **RelationalSource** | Sim |
 | query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se "tableName" no conjunto de dados for especificado) |
 
 **Exemplo:**
@@ -176,17 +177,17 @@ Ao copiar dados do Teradata, os seguintes mapeamentos são usados de tipos de da
 | Duplo |Duplo |
 | Graphic |Cadeia de caracteres |
 | Número inteiro |Int32 |
-| Intervalo - dia |TimeSpan |
-| Intervalo - dia para hora |TimeSpan |
-| Intervalo - dia para minuto |TimeSpan |
-| Interval Day To Second |TimeSpan |
-| Intervalo - hora |TimeSpan |
-| Intervalo - hora para minuto |TimeSpan |
-| Interval Hour To Second |TimeSpan |
-| Interval Minute |TimeSpan |
-| Interval Minute To Second |TimeSpan |
+| Intervalo - dia |timespan |
+| Intervalo - dia para hora |timespan |
+| Intervalo - dia para minuto |timespan |
+| Interval Day To Second |timespan |
+| Intervalo - hora |timespan |
+| Intervalo - hora para minuto |timespan |
+| Interval Hour To Second |timespan |
+| Interval Minute |timespan |
+| Interval Minute To Second |timespan |
 | Interval Month |Cadeia de caracteres |
-| Interval Second |TimeSpan |
+| Interval Second |timespan |
 | Interval Year |Cadeia de caracteres |
 | Interval Year To Month |Cadeia de caracteres |
 | Número |Duplo |
@@ -196,14 +197,14 @@ Ao copiar dados do Teradata, os seguintes mapeamentos são usados de tipos de da
 | Period(Timestamp) |Cadeia de caracteres |
 | Period(Timestamp With Time Zone) |Cadeia de caracteres |
 | SmallInt |Int16 |
-| Hora |TimeSpan |
+| Hora |timespan |
 | Hora com fuso horário |Cadeia de caracteres |
-| Timestamp |DateTime |
-| Timestamp With Time Zone |Datetimeoffset |
+| Timestamp |Datetime |
+| Timestamp With Time Zone |DateTimeOffset |
 | VarByte |Byte[] |
 | VarChar |Cadeia de caracteres |
 | VarGraphic |Cadeia de caracteres |
-| Xml |Cadeia de caracteres |
+| xml |Cadeia de caracteres |
 
 
 ## <a name="next-steps"></a>Próximas etapas

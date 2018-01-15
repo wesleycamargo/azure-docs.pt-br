@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/29/2017
+ms.date: 01/10/2018
 ms.author: ryanwi
-ms.openlocfilehash: 3f46d743b85b1133f64309f01074cbc3b430183f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 15ea4cbc02a0311b26e75ae7156c42f6bc2b9b82
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="connect-to-a-secure-cluster"></a>Conectar a um cluster seguro
 
@@ -34,7 +34,7 @@ Você pode se conectar a um cluster usando o comando `sfctl cluster select`.
 
 Certificados de cliente podem ser especificados em dois modos diferentes, como um par de certificados e chaves ou como um arquivo pem individual. Para arquivos `pem` protegidos por senha, você será solicitado automaticamente para inserir a senha.
 
-Para especificar o certificado do cliente como um arquivo pem, especifique o caminho do arquivo no argumento `--pem`. Por exemplo:
+Para especificar o certificado do cliente como um arquivo pem, especifique o caminho do arquivo no argumento `--pem`. Por exemplo: 
 
 ```azurecli
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem
@@ -48,7 +48,7 @@ Para especificar um certificado, o par de chaves usa os argumentos `--cert` e `-
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --cert ./client.crt --key ./keyfile.key
 ```
 
-Às vezes, os certificados usados para proteger clusters de teste ou de desenvolvimento falham na validação do certificado. Para ignorar a verificação do certificado, especifique a opção `--no-verify`. Por exemplo:
+Às vezes, os certificados usados para proteger clusters de teste ou de desenvolvimento falham na validação do certificado. Para ignorar a verificação do certificado, especifique a opção `--no-verify`. Por exemplo: 
 
 > [!WARNING]
 > Não use a opção `no-verify` ao se conectar aos clusters de produção do Service Fabric.
@@ -57,7 +57,7 @@ sfctl cluster select --endpoint https://testsecurecluster.com:19080 --cert ./cli
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
 ```
 
-Além disso, você pode especificar caminhos para diretórios de certificados de CA confiáveis ou certificados individuais. Para especificar esses caminhos, use o argumento `--ca`. Por exemplo:
+Além disso, você pode especificar caminhos para diretórios de certificados de CA confiáveis ou certificados individuais. Para especificar esses caminhos, use o argumento `--ca`. Por exemplo: 
 
 ```azurecli
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --ca ./trusted_ca

@@ -3,7 +3,7 @@ title: Kit de Ferramentas Cognitivas da Microsoft com Azure HDInsight Spark para
 description: Saiba como o modelo de aprendizado aprofundado treinado das Ferramentas Cognitivas da Microsoft pode ser aplicado a um conjunto de dados usando a API Python Spark em um cluster do Azure HDInsight Spark.
 services: hdinsight
 documentationcenter: 
-author: nitinme
+author: mumian
 manager: jhubbard
 editor: cgronlun
 tags: azure-portal
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
-ms.author: nitinme
-ms.openlocfilehash: e4bf0b176817daf3c128f26f407cde2ce1adba4c
-ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+ms.author: jgao
+ms.openlocfilehash: 036efd040370a821befbbd57beec24372fd0d204
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="use-microsoft-cognitive-toolkit-deep-learning-model-with-azure-hdinsight-spark-cluster"></a>Use o modelo de aprendizado profundo treinado das Ferramentas Cognitivas da Microsoft com o cluster do Azure HDInsight Spark
 
@@ -98,7 +98,7 @@ Para usar o Kit de Ferramentas Cognitivas da Microsoft com o cluster do Azure HD
 * [Spark com BI: executar análise de dados interativa usando o Spark no HDInsight com ferramentas de BI](apache-spark-use-bi-tools.md)
 * [Spark com Machine Learning: usar o Spark no HDInsight para analisar a temperatura de prédios usando dados do sistema HVAC](apache-spark-ipython-notebook-machine-learning.md)
 * [Spark com Machine Learning: usar o Spark no HDInsight para prever resultados da inspeção de alimentos](apache-spark-machine-learning-mllib-ipython.md)
-* [Streaming Spark: usar o Spark no HDInsight para a criação de aplicativos de streaming em tempo real](apache-spark-eventhub-streaming.md)
+* [Streaming Spark: use o Spark no HDInsight para a criação de aplicativos streaming em tempo real](apache-spark-eventhub-streaming.md)
 * [Análise de log do site usando o Spark no HDInsight](apache-spark-custom-library-website-log-analysis.md)
 * [Análise da telemetria de dados do Application Insight usando o Spark no HDInsight](apache-spark-analyze-application-insight-logs.md)
 

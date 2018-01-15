@@ -10,11 +10,11 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.date: 10/26/2017
 ms.author: tomfitz
-ms.openlocfilehash: 7f0f18062bc426508ec98b190fe0b73e41e88aa2
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: a26cfc632dacb41435b3755409d3e91630f5f3eb
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="azure-managed-applications-overview"></a>Visão geral de aplicativos gerenciados do Azure
 
@@ -48,6 +48,8 @@ Para obter informações sobre como publicar um aplicativo gerenciado do Catálo
 
 Os fornecedores que desejam cobrar por seus serviços podem disponibilizar um aplicativo gerenciado no marketplace do Azure. Depois que o fornecedor publicar um aplicativo, ele ficará disponível para os usuários fora da organização. Com essa abordagem, os MSPs (provedores de serviços gerenciados), ISVs (fornecedores de software independentes) e SIs (integradores de sistema) podem oferecer suas soluções a todos os clientes do Azure.
 
+Para obter informações sobre como publicar aplicativos gerenciados para o Marketplace, confira [Criar aplicativo do marketplace](publish-marketplace-app.md).
+
 ## <a name="resource-groups-for-managed-applications"></a>Grupos de recursos para aplicativos gerenciados
 
 Normalmente, os recursos de um aplicativo gerenciado residem em dois grupos de recursos. O consumidor gerencia um grupo de recursos, e o fornecedor gerencia o outro grupo de recursos. Ao definir o aplicativo gerenciado, o fornecedor especifica os níveis de acesso. A imagem a seguir mostra um cenário no qual o fornecedor solicita a função de proprietário para o grupo de recursos gerenciados. O fornecedor aplicou um bloqueio somente leitura nesse grupo de recursos para o consumidor.
@@ -70,4 +72,4 @@ Quando o consumidor exclui o aplicativo gerenciado, o grupo de recursos gerencia
 
 * Para obter uma introdução à definição e implantação de um aplicativo gerenciado, confira [Criar e implantar um aplicativo gerenciado do Azure com a CLI do Azure](managed-apps-quickstart-cli.md)
 * Para obter informações sobre como publicar um aplicativo interno, confira [Criar o aplicativo do catálogo de serviços](publish-service-catalog-app.md).
-
+* Para obter informações sobre como publicar aplicativos gerenciados para o marketplace, confira [Criar aplicativo do marketplace](publish-marketplace-app.md).
