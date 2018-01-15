@@ -16,7 +16,7 @@
 #### [Variáveis](resource-manager-templates-variables.md)
 #### [Recursos](resource-manager-templates-resources.md)
 #### [Saídas](resource-manager-templates-outputs.md)
-### [Vincular a outros modelos](resource-group-linked-templates.md)
+### [Modelos vinculados e aninhados](resource-group-linked-templates.md)
 ### [Definir dependência entre recursos](resource-group-define-dependencies.md)
 ### [Criar múltiplas instâncias](resource-group-create-multiple.md)
 ### [Atualizar recurso](/azure/architecture/building-blocks/extending-templates/update-resource)
@@ -43,7 +43,7 @@
 ## Gerenciar
 ### [PowerShell do Azure](powershell-azure-resource-manager.md)
 ### [CLI do Azure](xplat-cli-azure-resource-manager.md)
-### [Portal do Azure](resource-group-portal.md)
+### [portal do Azure](resource-group-portal.md)
 ### [API REST](resource-manager-rest-api.md)
 ### [Usar marcações para organizar recursos](resource-group-using-tags.md)
 ### [Mover recursos para um novo grupo ou assinatura](resource-group-move-resources.md)
@@ -55,7 +55,7 @@
 ### Criar uma entidade de serviço
 #### [PowerShell do Azure](resource-group-authenticate-service-principal.md)
 #### [CLI do Azure](/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-#### [Portal do Azure](resource-group-create-service-principal-portal.md)
+#### [portal do Azure](resource-group-create-service-principal-portal.md)
 ### [API de autenticação para assinaturas de acesso](resource-manager-api-authentication.md)
 ### [Bloquear recursos](resource-group-lock-resources.md)
 

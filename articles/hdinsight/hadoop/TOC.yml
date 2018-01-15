@@ -256,9 +256,15 @@
           href: ../hdinsight-hadoop-manage-ambari.md
           maintainContext: true
           items:
+            - name: Otimize os clusters com a IU web do Ambari
+              href: ../hdinsight-changing-configs-via-ambari.md
+              maintainContext: true
             - name: Usar API REST do Ambari
               href: ../hdinsight-hadoop-manage-ambari-rest-api.md
               maintainContext: true
+        - name: Gerenciar logs para um cluster HDInsight
+          href: ../hdinsight-log-management.md
+          maintainContext: true
         - name: Adicionar contas de armazenamento
           href: ../hdinsight-hadoop-add-storage.md
           maintainContext: true
@@ -304,6 +310,9 @@
       href: ../hdinsight-troubleshoot-guide.md
       maintainContext: true
       items:
+        - name: Solucionar problemas de um cluster HDInsight lento ou falhando
+          href: ../hdinsight-troubleshoot-failed-cluster.md
+          maintainContext: true
         - name: Solução de problemas do HDFS
           href: ../hdinsight-troubleshoot-hdfs.md
           maintainContext: true

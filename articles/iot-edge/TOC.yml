@@ -6,13 +6,13 @@
       href: how-iot-edge-works.md
 - name: Guia de início rápido
   items:
-    - name: Implantar a borda - Linux
+    - name: Implantar para o edge - Linux
       href: quickstart-linux.md
     - name: Implantar a borda - Windows
       href: quickstart.md
 - name: Tutoriais
   items:
-    - name: Simular um dispositivo de borda - Linux
+    - name: Simular um dispositivo do Edge - Linux/Mac
       href: tutorial-simulate-device-linux.md
     - name: Simular um dispositivo de borda - Windows
       href: tutorial-simulate-device-windows.md

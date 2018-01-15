@@ -35,6 +35,8 @@
       href: scale-cluster.md
     - name: Atualizar um cluster AKS
       href: upgrade-cluster.md
+    - name: Autenticar com o ACR
+      href: ../container-registry/container-registry-auth-aks.md?toc=%2fazure%2faks%2ftoc.json
     - name: Executar aplicativos com Helm
       href: kubernetes-helm.md
     - name: Desenvolver aplicativos com Draft
