@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 01/09/2018
 ms.author: jingwang
-ms.openlocfilehash: 232096acb2f79e1c1a7816e4074674b48534c440
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 89c971ae0dd0a519a1b0214e33b5a6ad2bb7fc99
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-azure-database-for-mysql-using-azure-data-factory"></a>Copiar dados do Banco de Dados do Azure para MySQL usando o Azure Data Factory
 
@@ -34,7 +34,7 @@ Azure Data Factory fornece um driver interno para habilitar a conectividade, por
 
 ## <a name="getting-started"></a>Introdução
 
-Você pode criar um pipeline com atividade de cópia usando o SDK do .NET, o SDK do Python, o Azure PowerShell, a API REST ou o modelo do Azure Resource Manager. Confira o [Tutorial de atividade de cópia](quickstart-create-data-factory-dot-net.md) para obter instruções passo a passo sobre a criação de um pipeline com uma atividade de cópia.
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 As seções que se seguem fornecem detalhes sobre as propriedades que são usadas para definir entidades do Data Factory específicas ao conector do Banco de Dados do Azure para MySQL.
 
@@ -42,11 +42,11 @@ As seções que se seguem fornecem detalhes sobre as propriedades que são usada
 
 As propriedades a seguir têm suporte no serviço vinculado do Banco de Dados do Azure para MySQL:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A tipo da propriedade deve ser definida como: **AzureMySql** | Sim |
+| Tipo | A tipo da propriedade deve ser definida como: **AzureMySql** | Sim |
 | connectionString | Obtenha as informações de conexão necessárias para se conectar ao Banco de Dados do Azure para MySQL. Marque esse campo como uma SecureString. | Sim |
-| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime do Azure ou o Integration Runtime auto-hospedado (se o armazenamento de dados estiver localizado em uma rede privada). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não |
+| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime do Azure ou o Integration Runtime auto-hospedado (se o armazenamento de dados estiver localizado em uma rede privada). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não  |
 
 **Exemplo:**
 
@@ -58,7 +58,7 @@ As propriedades a seguir têm suporte no serviço vinculado do Banco de Dados do
         "typeProperties": {
             "connectionString": {
                  "type": "SecureString",
-                 "value": "Server=<server>.mysql.database.azure.com;Port=3306;Database=<database>;UID=<username>;PWD=<password>"
+                 "value": "Server=<server>.mysql.database.azure.com;Port=<port>;Database=<database>;UID=<username>;PWD=<password>"
             }
         },
         "connectVia": {
@@ -75,9 +75,9 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados de/para o Banco de Dados do Azure para MySQL, defina o tipo da propriedade do conjunto de dados como **AzureMySqlTable**. Há suporte para as seguintes propriedades:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | O tipo da propriedade do conjunto de dados deve ser definida como: **AzureMySqlTable** | Sim |
+| Tipo | O tipo da propriedade do conjunto de dados deve ser definida como: **AzureMySqlTable** | Sim |
 | tableName | Nome da tabela no banco de dados MySQL. | Não (se "query" na fonte da atividade for especificada) |
 
 **Exemplo**
@@ -106,9 +106,9 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados do Banco de Dados do Azure para MySQL, defina o tipo de fonte na atividade de cópia como **AzureMySqlSource**. As propriedades a seguir têm suporte na seção **source** da atividade de cópia:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type da fonte da atividade de cópia deve ser definida como: **AzureMySqlSource** | Sim |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **AzureMySqlSource** | Sim |
 | query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se "tableName" no conjunto de dados for especificado) |
 
 **Exemplo:**
@@ -133,7 +133,7 @@ Para copiar dados do Banco de Dados do Azure para MySQL, defina o tipo de fonte 
         "typeProperties": {
             "source": {
                 "type": "AzureMySqlSource",
-                "query": "SELECT * FROM MyTable"
+                "query": "<custom query e.g. SELECT * FROM MyTable>"
             },
             "sink": {
                 "type": "<sink type>"

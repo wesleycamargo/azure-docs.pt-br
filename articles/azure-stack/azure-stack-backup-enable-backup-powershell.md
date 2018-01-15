@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/15/2017
 ms.author: mabrigg
-ms.openlocfilehash: 5326aa5af174c9027729b98eac62a314e3ecc122
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: cbec6242fb4e185c9801a93fc2c4b35721269c2f
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="enable-backup-for-azure-stack-with-powershell"></a>Habilitar o Backup para a pilha do Azure com o PowerShell
 
@@ -28,7 +28,7 @@ Habilite a infraestrutura de serviço de Backup com o Windows PowerShell para qu
 
 ## <a name="download-azure-stack-tools"></a>Baixar ferramentas de pilha do Azure
 
-Instalar e PowerShell configurado para a pilha do Azure e as ferramentas de pilha do Azure. Consulte [colocar em funcionamento com o PowerShell no Azure pilha](https://review.docs.microsoft.com/en-us/azure/azure-stack/azure-stack-powershell-configure-quickstart).
+Instalar e PowerShell configurado para a pilha do Azure e as ferramentas de pilha do Azure. Consulte [colocar em funcionamento com o PowerShell no Azure pilha](https://docs.microsoft.com/azure/azure-stack/azure-stack-powershell-configure-quickstart).
 
 ##  <a name="load-the-connect-and-infrastructure-modules"></a>Carregar os módulos Connect e infraestrutura
 

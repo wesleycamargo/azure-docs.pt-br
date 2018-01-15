@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2017
+ms.date: 01/08/2017
 ms.author: larryfr
-ms.openlocfilehash: 7640c243495df88d89f61ed613d7fb68cef9a04b
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 67a58c2377af129d8e2bc0c67d2dffe179fe998f
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Estender o Azure HDInsight usando uma Rede Virtual do Azure
 
@@ -424,17 +424,6 @@ $nsg = New-AzureRmNetworkSecurityGroup `
         -Access Allow `
         -Priority 305 `
         -Direction Inbound `
-    | Add-AzureRmNetworkSecurityRuleConfig `
-        -Name "blockeverything" `
-        -Description "Block everything else" `
-        -Protocol "*" `
-        -SourcePortRange "*" `
-        -DestinationPortRange "*" `
-        -SourceAddressPrefix "Internet" `
-        -DestinationAddressPrefix "VirtualNetwork" `
-        -Access Deny `
-        -Priority 500 `
-        -Direction Inbound
 # Set the changes to the security group
 Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg
 # Apply the NSG to the subnet
@@ -478,7 +467,6 @@ Use as etapas a seguir para criar uma rede virtual que restringe o tráfego de e
     az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule2 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "23.99.5.239" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 303 --direction "Inbound"
     az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule2 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "168.61.48.131" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 304 --direction "Inbound"
     az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n hdirule2 --protocol "*" --source-port-range "*" --destination-port-range "443" --source-address-prefix "138.91.141.162" --destination-address-prefix "VirtualNetwork" --access "Allow" --priority 305 --direction "Inbound"
-    az network nsg rule create -g RESOURCEGROUPNAME --nsg-name hdisecure -n block --protocol "*" --source-port-range "*" --destination-port-range "*" --source-address-prefix "Internet" --destination-address-prefix "VirtualNetwork" --access "Deny" --priority 500 --direction "Inbound"
     ```
 
 3. Para recuperar o identificador exclusivo desse grupo de segurança de rede, use o seguinte comando:
@@ -587,7 +575,7 @@ No servidor DNS personalizado da rede virtual:
     
     * Substitua o valor `192.168.0.1` pelo endereço IP do servidor DNS local. Essa entrada encaminha todas as outras solicitações DNS para o servidor DNS local.
 
-3. Para usar a configuração, reinicie o Bind. Por exemplo: `sudo service bind9 restart`.
+3. Para usar a configuração, reinicie o Bind. Por exemplo, `sudo service bind9 restart`.
 
 4. Adicione um encaminhador condicional ao servidor DNS local. Configure o encaminhador condicional para enviar solicitações para o sufixo DNS da etapa 1 para o servidor DNS personalizado.
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/16/2017
 ms.author: jingwang
-ms.openlocfilehash: d423cf7896b66b729faa1e032462277a9283884d
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 501deec6d766cca500a2a6060e147bf69ba6507b
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-and-to-hdfs-using-azure-data-factory"></a>Copiar dados de e para o HDFS usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -45,7 +45,8 @@ Especificamente, este conector HDFS dá suporte a:
 Para copiar dados de/para um HDFS que não esteja acessível publicamente, você precisará configurar um Integration Runtime auto-hospedado. Consulte o artigo [Integration Runtime auto-hospedado](concepts-integration-runtime.md) para saber mais detalhes.
 
 ## <a name="getting-started"></a>Introdução
-Você pode criar um pipeline com atividade de cópia usando o SDK do .NET, o SDK do Python, o Azure PowerShell, a API REST ou o modelo do Azure Resource Manager. Confira o [Tutorial de atividade de cópia](quickstart-create-data-factory-dot-net.md) para obter instruções passo a passo sobre a criação de um pipeline com uma atividade de cópia.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 As seções que se seguem fornecem detalhes sobre as propriedades que são usadas para definir entidades do Data Factory específicas ao HDFS.
 
@@ -53,14 +54,14 @@ As seções que se seguem fornecem detalhes sobre as propriedades que são usada
 
 As propriedades a seguir têm suporte para o serviço vinculado do HDFS:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type deve ser definida como: **Hdfs**. | Sim |
+| Tipo | A propriedade type deve ser definida como: **Hdfs**. | Sim |
 | url |URL para o HDFS |Sim |
 | authenticationType | Os valores permitidos são: **Anônima** ou **Windows**. <br><br> Para usar **autenticação Kerberos** com o conector HDFS, veja [esta seção](#use-kerberos-authentication-for-hdfs-connector) para configurar seu ambiente local adequadamente. |Sim |
 | userName |Nome de usuário para a autenticação do Windows. Para a autenticação Kerberos, especifique `<username>@<domain>.com`. |Sim (para a Autenticação do Windows) |
 | Senha |Senha para a autenticação do Windows. Marque esse campo como SecureString. |Sim (para a Autenticação do Windows) |
-| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime auto-hospedado ou o Integration Runtime do Azure (se seu armazenamento de dados estiver publicamente acessível). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não |
+| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime auto-hospedado ou o Integration Runtime do Azure (se seu armazenamento de dados estiver publicamente acessível). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não  |
 
 **Exemplo: usando a autenticação anônima**
 
@@ -112,13 +113,13 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados do HDFS, defina a propriedade type do conjunto de dados como **FileShare**. Há suporte para as seguintes propriedades:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type do conjunto de dados deve ser definida como: **FileShare** |Sim |
+| Tipo | A propriedade type do conjunto de dados deve ser definida como: **FileShare** |Sim |
 | folderPath | Caminho para a pasta. Por exemplo: pasta/subpasta/ |Sim |
-| fileName | Especifique o nome do arquivo no **folderPath** se você quiser copiar de um arquivo específico. Se você não especificar algum valor para essa propriedade, o conjunto de dados apontará para todos os arquivos na pasta como fontes. |Não |
+| fileName | Especifique o nome do arquivo no **folderPath** se você quiser copiar de um arquivo específico. Se você não especificar algum valor para essa propriedade, o conjunto de dados apontará para todos os arquivos na pasta como fontes. |Não  |
 | formato | Se você quiser **copiar arquivos no estado em que se encontram** entre repositórios baseados em arquivo (cópia binária), ignore a seção de formato nas duas definições de conjunto de dados de entrada e de saída.<br/><br/>Se você quiser analisar arquivos com um formato específico, há suporte para os seguintes tipos de formatos de arquivo: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat** e **ParquetFormat**. Defina a propriedade **type** sob formato como um desses valores. Para saber mais, veja as seções [Formato de texto](supported-file-formats-and-compression-codecs.md#text-format), [Formato Json](supported-file-formats-and-compression-codecs.md#json-format), [Formato Avro](supported-file-formats-and-compression-codecs.md#avro-format), [Formato Orc](supported-file-formats-and-compression-codecs.md#orc-format), e [Formato Parquet](supported-file-formats-and-compression-codecs.md#parquet-format). |Não (somente para o cenário de cópia binária) |
-| compactação | Especifique o tipo e o nível de compactação para os dados. Para obter mais informações, consulte [Formatos de arquivo e codecs de compactação com suporte](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Os tipos com suporte são: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**.<br/>Os níveis com suporte são **Ideal** e **O mais rápido**. |Não |
+| compactação | Especifique o tipo e o nível de compactação para os dados. Para obter mais informações, consulte [Formatos de arquivo e codecs de compactação com suporte](supported-file-formats-and-compression-codecs.md#compression-support).<br/>Os tipos com suporte são: **GZip**, **Deflate**, **BZip2** e **ZipDeflate**.<br/>Os níveis com suporte são **Ideal** e **O mais rápido**. |Não  |
 
 **Exemplo:**
 
@@ -156,14 +157,14 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados do HDFS, defina o tipo de fonte na atividade de cópia como **HdfsSource**. As propriedades a seguir têm suporte na seção **source** da atividade de cópia:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type da fonte da atividade de cópia deve ser definida como: **HdfsSource** |Sim |
-| recursiva | Indica se os dados são lidos recursivamente a partir das subpastas ou somente da pasta especificada.<br/>Os valores permitidos são: **true** (padrão), **false** | Não |
-| distcpSettings | Grupo de propriedades ao usar DistCp de HDFS. | Não |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **HdfsSource** |Sim |
+| recursiva | Indica se os dados são lidos recursivamente a partir das subpastas ou somente da pasta especificada.<br/>Os valores permitidos são: **true** (padrão), **false** | Não  |
+| distcpSettings | Grupo de propriedades ao usar DistCp de HDFS. | Não  |
 | resourceManagerEndpoint | O ponto de extremidade de YARN ResourceManager | Sim se usando DistCp |
 | tempScriptPath | Um caminho de pasta usado para armazenar o script de comando temporário DistCp. O arquivo de script é gerado pelo Data Factory e será removido após a conclusão do trabalho de cópia. | Sim se usando DistCp |
-| distcpOptions | Opções adicionais fornecidas ao comando DistCp. | Não |
+| distcpOptions | Opções adicionais fornecidas ao comando DistCp. | Não  |
 
 **Exemplo: fonte HDFS na atividade de cópia usando UNLOAD**
 

@@ -3,7 +3,7 @@ title: Diretrizes de ajuste do desempenho para uso do PowerShell com o Data Lake
 description: Dicas sobre como melhorar o desempenho ao usar o Azure PowerShell com o Data Lake Store
 services: data-lake-store
 documentationcenter: 
-author: nitinme
+author: stewu
 manager: jhubbard
 editor: cgronlun
 ms.service: data-lake-store
@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/30/2017
-ms.author: nitinme
-ms.openlocfilehash: 49404c7df6423a20c71347e4a764d5626110310e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 01/09/2018
+ms.author: stewu
+ms.openlocfilehash: 63e1114d49b7bcb8910e8cd8205f10d1e8587f61
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="performance-tuning-guidance-for-using-powershell-with-azure-data-lake-store"></a>Diretrizes de ajuste do desempenho para uso do PowerShell com o Azure Data Lake Store
 
@@ -25,7 +25,7 @@ Este artigo lista as propriedades que podem ser ajustadas para obter um melhor d
 
 ## <a name="performance-related-properties"></a>Propriedades relacionadas com desempenho
 
-| Propriedade            | Padrão | Descrição |
+| Propriedade            | Padrão | DESCRIÇÃO |
 |---------------------|---------|-------------|
 | PerFileThreadCount  | 10      | Esse parâmetro permite que você escolha o número de threads paralelos para carregar ou baixar cada arquivo. Esse número representa o máximo de threads que pode ser alocado por arquivo, mas você pode obter menos threads dependendo do cenário (por exemplo, se você estiver carregando um arquivo de 1 KB, você obterá um thread mesmo que você peça 20 threads).  |
 | ConcurrentFileCount | 10      | Esse parâmetro é especificamente para carregar ou baixar pastas. Esse parâmetro determina o número de arquivos simultâneos que podem ser carregados ou baixados. Esse número representa o número máximo de arquivos simultâneos que podem ser carregados ou baixados ao mesmo tempo, mas você pode obter menor simultaneidade, dependendo do cenário (por exemplo, se você estiver carregando dois arquivos, você obterá dois uploads de arquivo simultâneos mesmo se você pedir 15). |
@@ -95,7 +95,7 @@ Você pode continuar a ajustar essas configurações, alterando **PerFileThreadC
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Usar o Azure Data Lake Store para requisitos de Big Data](data-lake-store-data-scenarios.md) 
-* [Proteger dados no Repositório Data Lake](data-lake-store-secure-data.md)
+* [Proteger dados no Data Lake Store](data-lake-store-secure-data.md)
 * [Usar a Análise Data Lake do Azure com o Repositório Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Usar o Azure HDInsight com o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)
 

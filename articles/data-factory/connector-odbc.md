@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/19/2017
 ms.author: jingwang
-ms.openlocfilehash: 37957c75fbe18734761ed8b33a27fe566018f4d2
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 5ef8b81b2aa4df802f67b1a9e90b6bd60dcd1168
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-and-to-odbc-data-stores-using-azure-data-factory"></a>Copiar dados de e para armazenamentos de dados ODBC usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -43,7 +43,8 @@ Para usar esse conector ODBC, você precisa:
 - Instalar o driver ODBC para o armazenamento de dados no computador do Integration Runtime.
 
 ## <a name="getting-started"></a>Introdução
-Você pode criar um pipeline com atividade de cópia usando o SDK do .NET, o SDK do Python, o Azure PowerShell, a API REST ou o modelo do Azure Resource Manager. Confira o [Tutorial de atividade de cópia](quickstart-create-data-factory-dot-net.md) para obter instruções passo a passo sobre a criação de um pipeline com uma atividade de cópia.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 As seções a seguir fornecem detalhes sobre as propriedades usadas para definir entidades do Data Factory específicas ao conector ODBC.
 
@@ -51,14 +52,14 @@ As seções a seguir fornecem detalhes sobre as propriedades usadas para definir
 
 As propriedades a seguir têm suporte para o serviço vinculado do ODBC:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type deve ser definida como: **Odbc** | Sim |
+| Tipo | A propriedade type deve ser definida como: **Odbc** | Sim |
 | connectionString | A cadeia de conexão, exceto a parte de credencial. Você pode especificar a cadeia de conexão com um padrão como `"Driver={SQL Server};Server=Server.database.windows.net; Database=TestDatabase;"` ou usar DSN (nome da fonte de dados) do sistema que você configurou no computador do Integration Runtime com o `"DSN=<name of the DSN on IR machine>;"` (é necessário ainda especificar a parte de credencial no serviço vinculado adequadamente).| Sim |
 | authenticationType | Tipo de autenticação usado para se conectar ao armazenamento de dados ODBC.<br/>Os valores permitidos são: **Básica** e **Anônima**. | Sim |
-| userName | Especifique o nome de usuário se você estiver usando a autenticação Básica. | Não |
-| Senha | Especifique a senha da conta de usuário que você especificou para userName. Marque esse campo como uma SecureString. | Não |
-| credencial | A parte da credencial de acesso da cadeia de conexão especificada no formato propriedade-valor específico do driver. Exemplo: `"RefreshToken=<secret refresh token>;"`. Marque esse campo como uma SecureString. | Não |
+| userName | Especifique o nome de usuário se você estiver usando a autenticação Básica. | Não  |
+| Senha | Especifique a senha da conta de usuário que você especificou para userName. Marque esse campo como uma SecureString. | Não  |
+| credencial | A parte da credencial de acesso da cadeia de conexão especificada no formato propriedade-valor específico do driver. Exemplo: `"RefreshToken=<secret refresh token>;"`. Marque esse campo como uma SecureString. | Não  |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. É necessário um Integration Runtime auto-hospedado, conforme mencionado nos [Pré-requisitos](#prerequisites). |Sim |
 
 **Exemplo 1: usando a autenticação Básica**
@@ -120,9 +121,9 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados de/para um armazenamento de dados compatível com ODBC, defina a propriedade type do conjunto de dados como **RelationalTable**. Há suporte para as seguintes propriedades:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type do conjunto de dados deve ser definida como: **RelationalTable** | Sim |
+| Tipo | A propriedade type do conjunto de dados deve ser definida como: **RelationalTable** | Sim |
 | tableName | Nome da tabela no repositório de dados ODBC. | Não para fonte (se "query" na fonte da atividade for especificada);<br/>Sim para coletor |
 
 **Exemplo**
@@ -151,9 +152,9 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados de um armazenamento de dados compatível com ODBC, defina o tipo de fonte na atividade de cópia como **RelationalSource**. As propriedades a seguir têm suporte na seção **source** da atividade de cópia:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type da fonte da atividade de cópia deve ser definida como: **RelationalSource** | Sim |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **RelationalSource** | Sim |
 | query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se "tableName" no conjunto de dados for especificado) |
 
 **Exemplo:**
@@ -192,12 +193,12 @@ Para copiar dados de um armazenamento de dados compatível com ODBC, defina o ti
 
 Para copiar dados para um armazenamento de dados compatível com ODBC, defina o tipo de coletor na atividade de cópia como **OdbcSink**. As propriedades a seguir têm suporte na seção **sink** da atividade de cópia:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | O tipo de propriedade do coletor da atividade de cópia deve ser definido como: **BlobSink** | Sim |
-| writeBatchTimeout |Tempo de espera para a operação de inserção em lotes ser concluída antes de atingir o tempo limite.<br/>Os valores permitidos são: período. Exemplo: "00:30:00" (30 minutos). |Não |
+| Tipo | O tipo de propriedade do coletor da atividade de cópia deve ser definido como: **BlobSink** | Sim |
+| writeBatchTimeout |Tempo de espera para a operação de inserção em lotes ser concluída antes de atingir o tempo limite.<br/>Os valores permitidos são: período. Exemplo: "00:30:00" (30 minutos). |Não  |
 | writeBatchSize |Insere dados na tabela SQL quando o tamanho do buffer atinge writeBatchSize.<br/>Os valores permitidos são: inteiro (número de linhas). |Não (o padrão é 0 – detectado automaticamente) |
-| preCopyScript |Especifica uma consulta SQL para a atividade de cópia, a ser executada antes de gravar dados no armazenamento de dados em cada execução. Você pode usar essa propriedade para limpar os dados previamente carregados. |Não |
+| preCopyScript |Especifica uma consulta SQL para a atividade de cópia, a ser executada antes de gravar dados no armazenamento de dados em cada execução. Você pode usar essa propriedade para limpar os dados previamente carregados. |Não  |
 
 > [!NOTE]
 > Para "writeBatchSize", se não estiver definida (detectada automaticamente), a atividade de cópia primeiro detecta se o driver dá suporte a operações em lote e define-a como 10000, se houver suporte, ou como 1, caso não haja. Se você definir explicitamente o valor como diferente de 0, a atividade de cópia respeitará o valor e falhará em tempo de execução se o driver não der suporte a operações em lote.

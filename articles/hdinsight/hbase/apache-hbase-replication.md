@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 01/03/2018
 ms.author: jgao
-ms.openlocfilehash: b5497e9d66833ec8bc291c40d71931aff11820c2
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.openlocfilehash: b0a22815dc0bf0ea31e47efe5152498f9aa45de4
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Configurar a replicação de cluster HBase nas redes virtuais do Azure
 
@@ -43,7 +43,7 @@ Casos de uso de replicação de HBase para duas redes virtuais:
 
 É possível replicar clusters usando os scripts [ação de script](../hdinsight-hadoop-customize-cluster-linux.md) do [GitHub](https://github.com/Azure/hbase-utils/tree/master/replication).
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar este tutorial, você deverá ter uma assinatura do Azure. Consulte [Obter uma avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
 ## <a name="set-up-the-environments"></a>Configurar os ambientes
@@ -283,4 +283,4 @@ Neste tutorial, você aprendeu a configurar a replicação de HBase em uma rede 
 * [Introdução ao Apache HBase no HDInsight](./apache-hbase-tutorial-get-started-linux.md)
 * [Visão geral do HDInsight HBase](./apache-hbase-overview.md)
 * [Criar clusters HBase na rede virtual do Azure](./apache-hbase-provision-vnet.md)
-* [Analisar dados de sensor com o Storm e o HBase no HDInsight (Hadoop)](../storm/apache-storm-sensor-data-analysis.md)
+

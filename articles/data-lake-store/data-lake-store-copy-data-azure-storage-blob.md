@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/03/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 2dd327f4e4abf19d41a54919c8b9c2e488d34d68
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 33bfd200f72cb56b391cab52bf90f19b568893a9
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="copy-data-from-azure-storage-blobs-to-data-lake-store"></a>Copiar dados de Blobs do Armazenamento do Azure para o Repositório Data Lake
 > [!div class="op_single_selector"]
@@ -40,7 +40,7 @@ Além disso, você pode usar a ferramenta AdlCopy de dois modos diferentes:
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar este artigo, você deve ter o seguinte:
 
-* **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Blobs de Armazenamento do Azure** com alguns dados.
 * **Uma conta do repositório Azure Data Lake**. Para obter instruções sobre como criar uma, consulte [Introdução ao repositório Azure Data Lake](data-lake-store-get-started-portal.md)
 * **Conta do Azure Data Lake Analytics (opcional)** : confira [Introdução ao Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md) para obter instruções sobre como criar uma conta do Repositório Data Lake.
@@ -53,7 +53,7 @@ Use a sintaxe a seguir para trabalhar com a ferramenta AdlCopy
 
 Os parâmetros na sintaxe estão descritos abaixo:
 
-| Opção | Descrição |
+| Opção | DESCRIÇÃO |
 | --- | --- |
 | Fonte |Especifica o local da fonte de dados no blob de armazenamento do Azure. A origem pode ser um contêiner de blob, um blob ou outra conta do Data Lake Store. |
 | Dest |Especifica o destino do Repositório Data Lake para onde copiar. |
@@ -68,7 +68,7 @@ Os parâmetros na sintaxe estão descritos abaixo:
 
         AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adls_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container>
 
-    Por exemplo:
+    Por exemplo: 
 
         AdlCopy /source https://mystorage.blob.core.windows.net/mycluster/HdiSamples/HdiSamples/WebsiteLogSampleData/SampleLog/909f2b.log /dest swebhdfs://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
 
@@ -86,7 +86,7 @@ Os parâmetros na sintaxe estão descritos abaixo:
 
         AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/ /dest swebhdfs://<dest_adls_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container>        
 
-    Por exemplo:
+    Por exemplo: 
 
         AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/example/data/gutenberg/ /dest adl://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ==
 
@@ -102,7 +102,7 @@ Você também pode usar o AdlCopy para copiar dados entre duas contas do Data La
 
         AdlCopy /Source adl://<source_adls_account>.azuredatalakestore.net/<path_to_file> /dest adl://<dest_adls_account>.azuredatalakestore.net/<path>/
 
-    Por exemplo:
+    Por exemplo: 
 
         AdlCopy /Source adl://mydatastore.azuredatalakestore.net/mynewfolder/909f2b.log /dest adl://mynewdatalakestore.azuredatalakestore.net/mynewfolder/
 
@@ -140,7 +140,7 @@ Execute o seguinte comando para copiar de um blob de Armazenamento do Azure para
 
     AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adls_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container> /Account <data_lake_analytics_account> /Unit <number_of_data_lake_analytics_units_to_be_used>
 
-Por exemplo:
+Por exemplo: 
 
     AdlCopy /Source https://mystorage.blob.core.windows.net/mycluster/example/data/gutenberg/ /dest swebhdfs://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ== /Account mydatalakeanalyticaccount /Units 2
 
@@ -160,7 +160,7 @@ Nesta seção, você aprenderá a usar o AdlCopy para copiar dados de uma origem
 
         AdlCopy /source https://<source_account>.blob.core.windows.net/<source_container>/<blob name> /dest swebhdfs://<dest_adls_account>.azuredatalakestore.net/<dest_folder>/ /sourcekey <storage_account_key_for_storage_container> /Pattern *.csv
 
-    Por exemplo:
+    Por exemplo: 
 
         AdlCopy /source https://mystorage.blob.core.windows.net/mycluster/HdiSamples/HdiSamples/FoodInspectionData/ /dest adl://mydatalakestore.azuredatalakestore.net/mynewfolder/ /sourcekey uJUfvD6cEvhfLoBae2yyQf8t9/BpbWZ4XoYj4kAS5Jf40pZaMNf0q6a8yqTxktwVgRED4vPHeh/50iS9atS5LQ== /Pattern *.csv
 
@@ -179,6 +179,6 @@ O AdlCopy dá suporte à cópia de dados que contém milhares de arquivos e past
 * 1.0.13 – se você estiver copiando dados para a mesma conta do Azure Data Lake Store entre vários comandos adlcopy, você não precisará mais digitar suas credenciais novamente para cada execução. O Adlcopy agora gravará essas informações em cache entre várias execuções.
 
 ## <a name="next-steps"></a>Próximas etapas
-* [Proteger dados no Repositório Data Lake](data-lake-store-secure-data.md)
+* [Proteger dados no Data Lake Store](data-lake-store-secure-data.md)
 * [Usar a Análise Data Lake do Azure com o Repositório Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Usar o Azure HDInsight com o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)

@@ -11,14 +11,14 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 09/26/2016
 ms.author: magoedte
-ms.openlocfilehash: b7b27ca64d9aacabf96fdff8e7dca16f13000d19
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: e1734bdd22ecfc4e54074f02582f5a8eca7d4f59
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="azure-automation-scenario---automate-removal-of-resource-groups"></a>Cenário da Automação do Azure - automatize a remoção de grupos de recursos
 Muitos clientes criam mais de um grupo de recursos. Alguns podem ser usados para gerenciar aplicativos de produção e outros podem ser usados como ambientes de desenvolvimento, teste e preparo. A automatização da implantação desses recursos é uma coisa, mas poder encerrar um grupo de recursos com um clique do botão é outra. Você pode simplificar essa tarefa comum de gerenciamento usando a Automação do Azure. Isso é útil se você está trabalhando com uma assinatura do Azure com um limite de gastos por meio de uma oferta de membro como o MSDN ou o programa Microsoft Partner Network Cloud Essentials.
@@ -28,14 +28,14 @@ Este cenário se baseia em um runbook do PowerShell e foi projetado para remover
 ## <a name="getting-the-scenario"></a>Obtendo o cenário
 Este cenário consiste em um runbook do PowerShell que você pode baixar da [Galeria do PowerShell](https://www.powershellgallery.com/packages/Remove-ResourceGroup/1.0/DisplayScript). Você também pode importá-la diretamente da [Galeria de runbooks](automation-runbook-gallery.md) no portal do Azure.<br><br>
 
-| Runbook | Descrição |
+| Runbook | DESCRIÇÃO |
 | --- | --- |
 | Remove-ResourceGroup |Remove um ou mais grupos de recursos do Azure e seus recursos associados da assinatura. |
 
 <br>
 Os parâmetros de entrada a seguir são definidos para este runbook:
 
-| Parâmetro | Descrição |
+| Parâmetro | DESCRIÇÃO |
 | --- | --- |
 | NameFilter (Obrigatório) |Especifica um filtro de nome para limitar os grupos de recursos que você pretende excluir. Você pode passar vários valores usando uma lista separada por vírgulas.<br>O filtro não diferencia maiúsculas de minúsculas e corresponderá a qualquer grupo de recursos que contenha a cadeia de caracteres. |
 | PreviewMode (opcional) |Executa o runbook para ver quais grupos de recursos seriam excluídos, mas não realiza nenhuma ação.<br>O padrão é **true** para ajudar a evitar a exclusão acidental de um ou mais grupos de recursos passados para o runbook. |

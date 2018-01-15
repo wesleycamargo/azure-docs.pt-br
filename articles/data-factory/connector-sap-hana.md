@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 31fce15ab0c3496e4d74e105134c29373a777c18
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: dc97840e08f29777b56e7cfc9cced699c0eda2ff
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-sap-hana-using-azure-data-factory"></a>Copiar dados do SAP HANA usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -50,7 +50,8 @@ Para usar esse conector do SAP HANA, você precisa:
 - Instalar o driver ODBC do SAP HANA no computador do Integration Runtime. Baixe o driver ODBC do SAP HANA do [Centro de Download de Software SAP](https://support.sap.com/swdc). Pesquisa com a palavra-chave **CLIENTE SAP HANA para Windows**.
 
 ## <a name="getting-started"></a>Introdução
-Você pode criar um pipeline com atividade de cópia usando o SDK do .NET, o SDK do Python, o Azure PowerShell, a API REST ou o modelo do Azure Resource Manager. Confira o [Tutorial de atividade de cópia](quickstart-create-data-factory-dot-net.md) para obter instruções passo a passo sobre a criação de um pipeline com uma atividade de cópia.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 As seções que a seguir fornecem detalhes sobre as propriedades usadas para definir entidades do Data Factory específicas ao conector do SAP HANA.
 
@@ -58,10 +59,10 @@ As seções que a seguir fornecem detalhes sobre as propriedades usadas para def
 
 As propriedades a seguir têm suporte para o serviço vinculado do SAP HANA:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type deve ser definida como: **SapHana** | Sim |
-| server | Nome do servidor no qual reside a instância do SAP HANA. Se o servidor estiver usando uma porta personalizada, especifique `server:port`. | Sim |
+| Tipo | A propriedade type deve ser definida como: **SapHana** | Sim |
+| Servidor | Nome do servidor no qual reside a instância do SAP HANA. Se o servidor estiver usando uma porta personalizada, especifique `server:port`. | Sim |
 | authenticationType | Tipo de autenticação usado para se conectar ao banco de dados SAP HANA.<br/>Os valores permitidos são: **Básica** e **Windows** | Sim |
 | userName | Nome do usuário que tem acesso ao servidor SAP. | Sim |
 | Senha | Senha do usuário. Marque esse campo como uma SecureString. | Sim |
@@ -121,9 +122,9 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados do SAP HANA, defina o tipo de origem na atividade de cópia como **RelationalSource**. As propriedades a seguir têm suporte na seção **source** da atividade de cópia:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type da fonte da atividade de cópia deve ser definida como: **RelationalSource** | Sim |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **RelationalSource** | Sim |
 | query | Especifica a consulta SQL para ler dados da instância do SAP HANA. | Sim |
 
 **Exemplo:**
@@ -170,7 +171,7 @@ Ao copiar dados do SAP HANA, os seguintes mapeamentos são usados de tipos de da
 | BOOLEAN | Byte |
 | CLOB | Byte[] |
 | DATE | Datetime |
-| DECIMAL | DECIMAL |
+| DECIMAL | Decimal |
 | DOUBLE | Single |
 | INT | Int32 |
 | NVARCHAR | Cadeia de caracteres |

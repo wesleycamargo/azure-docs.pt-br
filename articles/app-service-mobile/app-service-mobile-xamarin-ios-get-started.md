@@ -3,8 +3,8 @@ title: "Introdução aos Aplicativos Móveis do Serviço de Aplicativo do Azure 
 description: "Siga este tutorial para começar a usar os Aplicativos Móveis para desenvolvimento do Xamarin.iOS."
 services: app-service\mobile
 documentationcenter: xamarin
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 14428794-52ad-4b51-956c-deb296cafa34
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
-ms.author: syntaxc4
-ms.openlocfilehash: 8dc965df2cd45366970effb29f246b0045a94717
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: 8b890630d352619da86c3017426e24f55ef016d9
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="create-a-xamarinios-app"></a>Criar um aplicativo Xamarin.iOS
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -71,7 +71,7 @@ Siga as etapas a seguir para configurar o projeto de servidor para usar o back-e
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Adicionar sincronização offline ao seu aplicativo](app-service-mobile-xamarin-ios-get-started-offline-data.md)
-* [Adicionar autenticação ao seu aplicativo ](app-service-mobile-xamarin-ios-get-started-users.md)
+* [Adicionar autenticação ao seu aplicativo](app-service-mobile-xamarin-ios-get-started-users.md)
 * [Adicionar notificações por push ao seu aplicativo Xamarin.Android](app-service-mobile-xamarin-ios-get-started-push.md)
 * [Como usar o cliente gerenciado para aplicativos móveis do Azure](app-service-mobile-dotnet-how-to-use-client-library.md)
 

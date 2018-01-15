@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 6f9ca3d9b0f41210a3f43a8ae505f0a90b130b34
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: f3bc2f14b182e502c651ff44ef49b88cd34e1f50
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="understand-how-iot-edge-modules-can-be-used-configured-and-reused---preview"></a>Noções básicas sobre como os módulos do IoT Edge podem ser usados, configurados e reutilizados - versão prévia
 
@@ -83,7 +83,7 @@ As rotas têm a seguinte sintaxe:
 
 A *fonte* pode ser qualquer uma dos seguintes:
 
-| Fonte | Descrição |
+| Fonte | DESCRIÇÃO |
 | ------ | ----------- |
 | `/*` | Todas as mensagens de dispositivo para nuvem de qualquer dispositivo ou módulo |
 | `/messages/*` | Qualquer mensagem de dispositivo para nuvem enviada por um dispositivo ou por um módulo por meio de algumas ou nenhuma saída |
@@ -96,10 +96,10 @@ A condição pode ser qualquer condição que tenha suporte pela [linguagem de c
 
 O coletor pode ser um dos seguintes:
 
-| Coletor | Descrição |
+| Coletor | DESCRIÇÃO |
 | ---- | ----------- |
 | `$upstream` | Enviar a mensagem para o Hub IoT |
-| `BrokeredEndpoint(/modules/{moduleId}/inputs/{input})` | Enviar a mensagem para a entrada `{input}` do módulo`{moduleId}` |
+| `BrokeredEndpoint("/modules/{moduleId}/inputs/{input}")` | Enviar a mensagem para a entrada `{input}` do módulo`{moduleId}` |
 
 É importante observar que o hub do Edge oferece garantias de pelo menos uma vez, o que significa que as mensagens serão armazenadas localmente caso uma rota não possa entregar a mensagem para o coletor, por exemplo, o hub do Edge não pode se conectar ao Hub IoT ou o módulo de destino não está conectado.
 
@@ -193,27 +193,27 @@ As propriedades desejadas são definidas durante a aplicação de um manifesto d
 
 ### <a name="edge-agent-twin-desired-properties"></a>Propriedades desejadas do gêmeo do agente do Edge
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 | -------- | ----------- | -------- |
 | schemaVersion | Tem que ser "1.0" | Sim |
 | runtime.type | Tem que ser "docker" | Sim |
 | runtime.settings.minDockerVersion | Definido para a versão mínima do Docker necessária para o manifesto de implantação | Sim |
-| runtime.settings.loggingOptions | Um JSON em cadeias de caracteres que contém as opções de registro para o contêiner do agente do Edge. [Opções de registro em log do Docker][lnk-docker-logging-options] | Não |
+| runtime.settings.loggingOptions | Um JSON em cadeias de caracteres que contém as opções de registro para o contêiner do agente do Edge. [Opções de registro em log do Docker][lnk-docker-logging-options] | Não  |
 | systemModules.edgeAgent.type | Tem que ser "docker" | Sim |
 | systemModules.edgeAgent.settings.image | O URI da imagem do agente do Edge. Atualmente, o agente do Edge não é capaz de se atualizar. | Sim |
-| systemModules.edgeAgent.settings.createOptions | Um JSON em cadeias de caracteres que contém as opções para a criação do contêiner do agente do Edge. [Opções de criação de docker][lnk-docker-create-options] | Não |
+| systemModules.edgeAgent.settings.createOptions | Um JSON em cadeias de caracteres que contém as opções para a criação do contêiner do agente do Edge. [Opções de criação de docker][lnk-docker-create-options] | Não  |
 | systemModules.edgeAgent.configuration.id | A ID da implantação que implantou este módulo. | Isso é definido pelo Hub IoT quando esse manifesto é aplicado usando uma implantação. Não faz parte de um manifesto de implantação. |
 | systemModules.edgeHub.type | Tem que ser "docker" | Sim |
 | systemModules.edgeHub.status | Deve estar "em execução" | Sim |
 | systemModules.edgeHub.restartPolicy | Deve estar "sempre" | Sim |
 | systemModules.edgeHub.settings.image | O URI da imagem do hub do Edge. | Sim |
-| systemModules.edgeHub.settings.createOptions | Um JSON em cadeias de caracteres que contém as opções para a criação do contêiner do hub do Edge. [Opções de criação de docker][lnk-docker-create-options] | Não |
+| systemModules.edgeHub.settings.createOptions | Um JSON em cadeias de caracteres que contém as opções para a criação do contêiner do hub do Edge. [Opções de criação de docker][lnk-docker-create-options] | Não  |
 | systemModules.edgeHub.configuration.id | A ID da implantação que implantou este módulo. | Isso é definido pelo Hub IoT quando esse manifesto é aplicado usando uma implantação. Não faz parte de um manifesto de implantação. |
 | modules.{moduleId}.version | Uma cadeia definida pelo usuário que representa a versão desse módulo. | Sim |
 | modules.{moduleId}.type | Tem que ser "docker" | Sim |
 | modules.{moduleId}.restartPolicy | {"never" \| "on-failed" \| "on-unhealthy" \| "always"} | Sim |
 | modules.{moduleId}.settings.image | O URI para a imagem do módulo. | Sim |
-| modules.{moduleId}.settings.createOptions | Um JSON em cadeias de caracteres que contém as opções para a criação do contêiner do módulo. [Opções de criação de docker][lnk-docker-create-options] | Não |
+| modules.{moduleId}.settings.createOptions | Um JSON em cadeias de caracteres que contém as opções para a criação do contêiner do módulo. [Opções de criação de docker][lnk-docker-create-options] | Não  |
 | modules.{moduleId}.configuration.id | A ID da implantação que implantou este módulo. | Isso é definido pelo Hub IoT quando esse manifesto é aplicado usando uma implantação. Não faz parte de um manifesto de implantação. |
 
 ### <a name="edge-agent-twin-reported-properties"></a>Propriedades relatadas do gêmeo do agente do Edge
@@ -231,7 +231,7 @@ Esta última informação é útil no caso de as propriedades desejadas mais rec
 
 A tabela a seguir não inclui as informações que são copiadas das propriedades desejadas.
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | -------- | ----------- |
 | lastDesiredVersion | Este int refere-se à última versão das propriedades desejadas processadas pelo agente do Edge. |
 | lastDesiredStatus.code | Este é o código de status que se refere às últimas propriedades desejadas vistas pelo agente do Edge. Valores permitidos: `200` Êxito, `400` Configuração inválida, `412` Versão do esquema inválido, `417` As propriedades desejadas estão vazias, `500` Falha |
@@ -264,7 +264,7 @@ As propriedades desejadas são definidas durante a aplicação de um manifesto d
 
 ### <a name="edge-hub-twin-desired-properties"></a>Propriedades desejadas do gêmeo do hub do Edge
 
-| Propriedade | Descrição | Necessárias no manifesto de implantação |
+| Propriedade | DESCRIÇÃO | Necessárias no manifesto de implantação |
 | -------- | ----------- | -------- |
 | schemaVersion | Tem que ser "1.0" | Sim |
 | routes.{routeName} | Uma cadeia de caracteres que representa uma rota do hub do Edge. | O elemento `routes` pode estar presente mas vazio. |
@@ -272,7 +272,7 @@ As propriedades desejadas são definidas durante a aplicação de um manifesto d
 
 ### <a name="edge-hub-twin-reported-properties"></a>Propriedades relatadas do gêmeo do hub do Edge
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | -------- | ----------- |
 | lastDesiredVersion | Este int refere-se à última versão das propriedades desejadas processadas pelo hub do Edge. |
 | lastDesiredStatus.code | Este é o código de status que se refere às últimas propriedades desejadas vistas pelo hub do Edge. Valores permitidos: `200` Êxito, `400` Configuração inválida, `500` Falha |

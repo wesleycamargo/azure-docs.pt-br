@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/29/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: f68239b2f4f7a2ba0617023d9397184c483a4d99
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: e537d8a6ea53bf4366168727de8ef95b96281d5b
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="service-to-service-authentication-with-data-lake-store-using-java"></a>Autenticação serviço a serviço com o Data Lake Store usando o Java
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/21/2017
 Neste artigo, você aprenderá como usar o SDK do Java para fazer a autenticação serviço a serviço com o Azure Data Lake Store. Não há suporte para a autenticação do usuário final com o Data Lake Store usando o SDK do Java.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * **Criar um aplicativo "Web" do Azure Active Directory**. Você deve ter concluído as etapas em [Autenticação serviço a serviço com o Data Lake Store usando o Azure Active Directory](data-lake-store-service-to-service-authenticate-using-active-directory.md).
 

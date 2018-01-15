@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2018
 ms.author: mabrigg
-ms.openlocfilehash: 9b65a3cb5cdcc8a558e5c989026f2eee2f527bb5
-ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
+ms.openlocfilehash: 0a4118a8927e4261fafa307af5b9c29623ce5c3f
+ms.sourcegitcommit: e19f6a1709b0fe0f898386118fbef858d430e19d
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/12/2018
+ms.lasthandoff: 01/13/2018
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Girar segredos na pilha do Azure
 
@@ -30,7 +30,7 @@ Atualize as senhas para os componentes da pilha do Azure em um ritmo regular.
 
 Os controladores de gerenciamento da placa-base (BMC) monitoram o estado físico dos seus servidores. As especificações e instruções sobre como atualizar a senha do BMC variam com base no seu fornecedor de hardware do fabricante (OEM).
 
-1. Atualize o BMC em seu servidor seguindo as instruções do OEM. A senha para cada BMC em seu ambiente deve ser o mesmo.
+1. Atualize o BMC em servidores físicos da pilha do Azure seguindo as instruções do OEM. A senha para cada BMC em seu ambiente deve ser o mesmo.
 2. Abra um ponto de extremidade com privilégios em sessões de pilha do Azure. Para obter instruções, consulte [usando o ponto de extremidade com privilégios na pilha do Azure](azure-stack-privileged-endpoint.md).
 3. Após o PowerShell prompt foi alterado para **[endereço IP ou ERCS VM name]: PS >** ou **[azs ercs01]: PS >**, dependendo do ambiente, execute `Set-BmcPassword` executando `invoke-command`. Passe a variável de sessão com privilégios de ponto de extremidade como um parâmetro.  
 Por exemplo: 

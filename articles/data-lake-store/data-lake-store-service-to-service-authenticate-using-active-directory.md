@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/28/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 9a4502ecfd5471cc2a968f995e66e595f59384b3
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 0b3f19bb92d1eeb214150bf118d546cd1c67cd78
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="service-to-service-authentication-with-data-lake-store-using-azure-active-directory"></a>Autenticação de serviço a serviço com o Data Lake Store usando o Azure Active Directory
 > [!div class="op_single_selector"]
@@ -56,7 +56,7 @@ Ao fazer logon por meio de programação, você precisa da ID para seu aplicativ
 ## <a name="step-3-assign-the-azure-ad-application-to-the-azure-data-lake-store-account-file-or-folder"></a>Etapa 3: Atribuir o aplicativo do Azure AD ao arquivo ou pasta da conta do Azure Data Lake Store
 
 
-1. Entre no [portal do Azure](https://portal.azure.com). Abra a conta do Azure Data Lake Store que você deseja associar ao aplicativo do Azure Active Directory criado anteriormente.
+1. Entre no [Portal do Azure](https://portal.azure.com). Abra a conta do Azure Data Lake Store que você deseja associar ao aplicativo do Azure Active Directory criado anteriormente.
 2. Na folha de sua conta do Repositório Data Lake, clique em **Gerenciador de Dados**.
    
     ![Crie diretórios na conta do Data Lake Store](./media/data-lake-store-authenticate-using-active-directory/adl.start.data.explorer.png "criar diretórios na conta Data Lake")

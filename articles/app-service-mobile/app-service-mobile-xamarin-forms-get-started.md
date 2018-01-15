@@ -3,8 +3,8 @@ title: "Introdução aos Aplicativos Móveis usando o Xamarin.Forms"
 description: "Siga este tutorial para começar a usar os Aplicativos Móveis para desenvolvimento do Xamarin.Forms"
 services: app-service\mobile
 documentationcenter: xamarin
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 5e692220-cc89-4548-96c8-35259722acf5
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: 12c7eb78b5049b385ee34c7ac8e3574b064d7ecf
-ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
+ms.author: crdun
+ms.openlocfilehash: 01a8e356649c070a5cf36ae070195abce699f85e
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="create-a-xamarinforms-app"></a>Criar um aplicativo Xamarin.Forms
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -28,7 +28,7 @@ Este tutorial mostra como adicionar um serviço de back-end baseado em nuvem a u
 
 A conclusão desse tutorial é um pré-requisito para todos os outros tutoriais de Aplicativos Móveis para o Xamarin.Forms.
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 Para concluir este tutorial, você precisará do seguinte:
 
 * Uma conta ativa do Azure. Se você não tem uma conta, você pode se inscrever para uma avaliação do Azure e obter até 10 aplicativos móveis gratuitos que você pode continuar a usar mesmo após o fim do seu período de avaliação. Para saber mais, confira [Avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).

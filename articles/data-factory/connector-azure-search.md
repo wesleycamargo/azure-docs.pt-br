@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 2b6219dc509b1af8f196f056b489a31fa331acaf
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 844efa74aba8a5dbc3a116456900d59dab3bafab
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-to-an-azure-search-index-using-azure-data-factory"></a>Copiar dados em um índice do Azure Search usando o Azure Data Factory
 
@@ -35,7 +35,8 @@ Este artigo descreve como usar a atividade de cópia no Azure Data Factory para 
 Você pode copiar dados de qualquer armazenamento de dados de origem com suporte para o índice do Azure Search. Para obter uma lista de armazenamentos de dados com suporte como origens/coletores da atividade de cópia, confira a tabela [Armazenamentos de dados com suporte](copy-activity-overview.md#supported-data-stores-and-formats).
 
 ## <a name="getting-started"></a>Introdução
-Você pode criar um pipeline com atividade de cópia usando o SDK do .NET, o SDK do Python, o Azure PowerShell, a API REST ou o modelo do Azure Resource Manager. Confira o [Tutorial de atividade de cópia](quickstart-create-data-factory-dot-net.md) para obter instruções passo a passo sobre a criação de um pipeline com uma atividade de cópia.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 As seções que se seguem fornecem detalhes sobre as propriedades que são usadas para definir entidades do Data Factory específicas ao conector do Azure Search.
 
@@ -43,12 +44,12 @@ As seções que se seguem fornecem detalhes sobre as propriedades que são usada
 
 As propriedades a seguir têm suporte no serviço vinculado do Azure Search:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type deve ser definida como: **AzureSearch** | Sim |
+| Tipo | A propriedade type deve ser definida como: **AzureSearch** | Sim |
 | URL | URL para o serviço Azure Search. | Sim |
 | chave | Chave de administração para o serviço Azure Search. Marque esse campo como uma SecureString. | Sim |
-| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime do Azure ou o Integration Runtime auto-hospedado (se o armazenamento de dados estiver localizado em uma rede privada). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não |
+| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime do Azure ou o Integration Runtime auto-hospedado (se o armazenamento de dados estiver localizado em uma rede privada). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não  |
 
 > [!IMPORTANT]
 > Ao copiar dados de um armazenamento de dados de nuvem para o índice do Azure Search, você precisa referenciar um Integration Runtime do Azure no serviço vinculado do Azure Search com a região explícita no connactVia. Defina a região como a que seu Azure Search reside. Aprenda mais do [Azure Integration Runtime](concepts-integration-runtime.md#azure-integration-runtime).
@@ -81,9 +82,9 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados no Azure Search, defina a propriedade type do conjunto de dados como **RelationalTable**. Há suporte para as seguintes propriedades:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type do conjunto de dados deve ser definida como: **AzureSearchIndex** | Sim |
+| Tipo | A propriedade type do conjunto de dados deve ser definida como: **AzureSearchIndex** | Sim |
 | indexName | Nome do índice do Azure Search. O Data Factory não cria o índice. O índice deve existir no Azure Search. | Sim |
 
 **Exemplo:**
@@ -112,11 +113,11 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar no Azure Search, defina o tipo de fonte na atividade de cópia como **AzureSearchIndexSink**. As propriedades a seguir têm suporte na seção **sink** da atividade de cópia:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type da fonte da atividade de cópia deve ser definida como: **AzureSearchIndexSink** | Sim |
-| writeBehavior | Especifica se deve mesclar ou substituir quando já existe um documento no índice. Veja a [propriedade WriteBehavior](#writebehavior-property).<br/><br/>Os valores permitidos são: **Merge** (padrão) e **Upload**. | Não |
-| writeBatchSize | Carrega dados para o índice do Azure Search quando o tamanho do buffer atinge writeBatchSize. Veja a [propriedade WriteBatchSize](#writebatchsize-property) para obter detalhes.<br/><br/>Os valores permitidos são: inteiros de 1 a 1.000; o valor padrão é 1.000. | Não |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **AzureSearchIndexSink** | Sim |
+| writeBehavior | Especifica se deve mesclar ou substituir quando já existe um documento no índice. Veja a [propriedade WriteBehavior](#writebehavior-property).<br/><br/>Os valores permitidos são: **Merge** (padrão) e **Upload**. | Não  |
+| writeBatchSize | Carrega dados para o índice do Azure Search quando o tamanho do buffer atinge writeBatchSize. Veja a [propriedade WriteBatchSize](#writebatchsize-property) para obter detalhes.<br/><br/>Os valores permitidos são: inteiros de 1 a 1.000; o valor padrão é 1.000. | Não  |
 
 ### <a name="writebehavior-property"></a>Propriedade WriteBehavior
 
@@ -175,7 +176,7 @@ A tabela a seguir especifica se um tipo de dados do Azure Search tem suporte ou 
 | Int32 | S |
 | Int64 | S |
 | Duplo | S |
-| Booliano | S |
+| BOOLEAN | S |
 | DataTimeOffset | S |
 | Matriz de cadeia de caracteres | N |
 | GeographyPoint | N |

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/01/2017
 ms.author: jingwang
-ms.openlocfilehash: d91ff1738f423928699f056a4d529d764889a6e9
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: fa5259427b232c641b6155ea9c4d9b4440f9ca5f
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Copiar dados do MySQL usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -46,7 +46,8 @@ Para usar esse conector do MySQL, você precisa:
 > Se você encontrar o erro "A autenticação falhou porque a entidade remota fechou o fluxo de transporte.", considere atualizar o Conector do MySQL/Net para uma versão superior.
 
 ## <a name="getting-started"></a>Introdução
-Você pode criar um pipeline com atividade de cópia usando o SDK do .NET, o SDK do Python, o Azure PowerShell, a API REST ou o modelo do Azure Resource Manager. Confira o [Tutorial de atividade de cópia](quickstart-create-data-factory-dot-net.md) para obter instruções passo a passo sobre a criação de um pipeline com uma atividade de cópia.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 As seções a seguir fornecem detalhes sobre as propriedades usadas para definir entidades do Data Factory específicas ao conector do MySQL.
 
@@ -54,12 +55,12 @@ As seções a seguir fornecem detalhes sobre as propriedades usadas para definir
 
 As propriedades a seguir têm suporte para o serviço vinculado do MySQL:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type deve ser definida como: **MySql** | Sim |
-| server | Nome do servidor MySQL. | Sim |
-| database | Nome do banco de dados MySQL. | Sim |
-| schema | Nome do esquema no banco de dados. | Não |
+| Tipo | A propriedade type deve ser definida como: **MySql** | Sim |
+| Servidor | Nome do servidor MySQL. | Sim |
+| Banco de Dados | Nome do banco de dados MySQL. | Sim |
+| schema | Nome do esquema no banco de dados. | Não  |
 | Nome de Usuário | Especifique o nome de usuário para se conectar ao banco de dados MySQL. | Sim |
 | Senha | Especifique a senha da conta de usuário que você especificou. Marque esse campo como SecureString. | Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. É necessário um Integration Runtime auto-hospedado, conforme mencionado nos [Pré-requisitos](#prerequisites). |Sim |
@@ -94,9 +95,9 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados do MySQL, defina a propriedade type do conjunto de dados como **RelationalTable**. Há suporte para as seguintes propriedades:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type do conjunto de dados deve ser definida como: **RelationalTable** | Sim |
+| Tipo | A propriedade type do conjunto de dados deve ser definida como: **RelationalTable** | Sim |
 | tableName | Nome da tabela no banco de dados MySQL. | Não (se "query" na fonte da atividade for especificada) |
 
 **Exemplo**
@@ -124,9 +125,9 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados do MySQL, defina o tipo de origem na atividade de cópia como **RelationalSource**. As propriedades a seguir têm suporte na seção **source** da atividade de cópia:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type da fonte da atividade de cópia deve ser definida como: **RelationalSource** | Sim |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **RelationalSource** | Sim |
 | query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se "tableName" no conjunto de dados for especificado) |
 
 **Exemplo:**

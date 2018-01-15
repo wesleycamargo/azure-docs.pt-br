@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 6cf6b6b59f222f68036dab68e4d20db0d0b9dd6d
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 9360c0ee90f9a4ffdffd7649505699f656833bbe
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Copiar dados de e para o SQL Data Warehouse do Azure usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -40,7 +40,8 @@ Especificamente, este conector do SQL Data Warehouse do Azure dá suporte a:
 - Como o coletor, dá suporte ao carregamento de dados usando **PolyBase** ou inserção em massa. A primeira opção é a **recomendada** para melhor desempenho de cópia.
 
 ## <a name="getting-started"></a>Introdução
-Você pode criar um pipeline com atividade de cópia usando o SDK do .NET, o SDK do Python, o Azure PowerShell, a API REST ou o modelo do Azure Resource Manager. Confira o [Tutorial de atividade de cópia](quickstart-create-data-factory-dot-net.md) para obter instruções passo a passo sobre a criação de um pipeline com uma atividade de cópia.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 As seções que se seguem fornecem detalhes sobre as propriedades que são usadas para definir entidades do Data Factory específicas ao conector do SQL Data Warehouse do Azure.
 
@@ -50,8 +51,8 @@ As propriedades a seguir têm suporte no serviço vinculado do SQL Data Warehous
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type deve ser definida como: **AzureSqlDW** | sim |
-| connectionString |Especifique as informações necessárias para se conectar à instância do SQL Data Warehouse do Azure para a propriedade connectionString. Há suporte somente para autenticação básica. Marque esse campo como uma SecureString. |sim |
+| Tipo | A propriedade type deve ser definida como: **AzureSqlDW** | Sim |
+| connectionString |Especifique as informações necessárias para se conectar à instância do SQL Data Warehouse do Azure para a propriedade connectionString. Há suporte somente para autenticação básica. Marque esse campo como uma SecureString. |Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime do Azure ou o Integration Runtime auto-hospedado (se o armazenamento de dados estiver localizado em uma rede privada). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não  |
 
 
@@ -87,8 +88,8 @@ Para copiar dados de/para o SQL Data Warehouse do Azure, defina a propriedade ty
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type do conjunto de dados deve ser definida como: **AzureSqlDWTable** | sim |
-| tableName |Nome da tabela ou exibição na instância do SQL Data Warehouse do Azure à qual o serviço vinculado se refere. | sim |
+| Tipo | A propriedade type do conjunto de dados deve ser definida como: **AzureSqlDWTable** | Sim |
+| tableName |Nome da tabela ou exibição na instância do SQL Data Warehouse do Azure à qual o serviço vinculado se refere. | Sim |
 
 **Exemplo:**
 
@@ -119,7 +120,7 @@ Para copiar dados do SQL Data Warehouse do Azure, defina o tipo de fonte na ativ
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **SqlDWSource** | sim |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **SqlDWSource** | Sim |
 | SqlReaderQuery |Utiliza a consulta SQL personalizada para ler os dados. Exemplo: `select * from MyTable`. |Não  |
 | sqlReaderStoredProcedureName |Nome do procedimento armazenado que lê os dados da tabela de origem. A última instrução SQL deve ser uma instrução SELECT no procedimento armazenado. |Não  |
 | storedProcedureParameters |Parâmetros para o procedimento armazenado.<br/>Os valores permitidos são: pares nome/valor. Nomes e uso de maiúsculas e minúsculas de parâmetros devem corresponder aos nomes e o uso de maiúsculas e minúsculas dos parâmetros do procedimento armazenado. |Não  |
@@ -223,7 +224,7 @@ Para copiar dados para o SQL Data Warehouse do Azure, defina o tipo de coletor n
 
 | Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| Tipo | O tipo de propriedade do coletor de atividade de cópia deve ser definido como: **SqlDWSink** | sim |
+| Tipo | O tipo de propriedade do coletor de atividade de cópia deve ser definido como: **SqlDWSink** | Sim |
 | allowPolyBase |Indica se o PolyBase (quando aplicável) deve ser utilizado em vez do mecanismo BULKINSERT. <br/><br/> **Usar o PolyBase é a maneira recomendada para carregar dados no SQL Data Warehouse.** Confira a seção [Usar o PolyBase para carregar dados no Azure SQL Data Warehouse](#use-polybase-to-load-data-into-azure-sql-data-warehouse) para obter os detalhes e as restrições.<br/><br/>Os valores permitidos são: **True** (padrão) e **False**.  |Não  |
 | polyBaseSettings |Um grupo de propriedades que pode ser especificado quando a propriedade **allowPolybase** está definida como **true**. |Não  |
 | rejectValue |Especifica o número ou o percentual de linhas que podem ser rejeitadas antes de a consulta falhar.<br/><br/>Saiba mais sobre as opções de rejeição do PolyBase na seção **Argumentos** do tópico [CRIAR TABELA EXTERNA (Transact-SQL)](https://msdn.microsoft.com/library/dn935021.aspx) . <br/><br/>Os valores permitidos são: 0 (padrão), 1, 2, ... |Não  |

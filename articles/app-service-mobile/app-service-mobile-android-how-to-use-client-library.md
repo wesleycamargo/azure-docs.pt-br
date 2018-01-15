@@ -3,8 +3,8 @@ title: "Como usar o SDK de Aplicativos Móveis do Azure para Android | Microsoft
 description: "Como usar o SDK de Aplicativos Móveis do Azure para Android"
 services: app-service\mobile
 documentationcenter: android
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 ms.assetid: 5352d1e4-7685-4a11-aaf4-10bd2fa9f9fc
 ms.service: app-service-mobile
 ms.workload: mobile
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
 ms.date: 11/16/2017
-ms.author: glenga
-ms.openlocfilehash: ac5cbb51a5ed340a6cbf2eeefa41feb337d28fb9
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.author: crdun
+ms.openlocfilehash: f04f3fc7d2ff2e01baa78571b2ba267f8e4905c6
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Como usar o SDK de Aplicativos Móveis do Azure para Android
 
@@ -99,7 +99,7 @@ O `<MobileAppUrl>` é uma cadeia de caracteres ou um objeto de URL que aponta pa
 
 O cliente também exige acesso à atividade ou ao contexto - o parâmetro `this` no exemplo.  A construção de MobileServiceClient deve acontecer dentro do método `onCreate()` da Atividade referenciada no arquivo `AndroidManifest.xml`.
 
-Como prática recomendada, você deve abstrair a comunicação do servidor em sua própria classe (padrão singleton).  Nesse caso, você deve passar a Atividade dentro do construtor para configurar corretamente o serviço.  Por exemplo:
+Como prática recomendada, você deve abstrair a comunicação do servidor em sua própria classe (padrão singleton).  Nesse caso, você deve passar a Atividade dentro do construtor para configurar corretamente o serviço.  Por exemplo: 
 
 ```java
 package com.example.appname.services;
@@ -198,7 +198,7 @@ Uma tabela de back-end dos Aplicativos Móveis do Azure define cinco campos espe
 * `byte[] version`: normalmente é representado como uma cadeia de caracteres, a versão também é definida pelo servidor.
 * `boolean deleted`: indica que o registro foi excluído, mas ainda não foi limpo.  Não use `deleted` como uma propriedade em sua classe.
 
-O campo `id` é obrigatório.  O campo `updatedAt` e o campo `version` são usados para sincronização offline (para sincronização incremental e resolução de conflitos, respectivamente).  O campo `createdAt` é um campo de referência e não é usado pelo cliente.  Os nomes são nomes "across-the-wire" nomes das propriedades e não são ajustáveis.  No entanto, você pode criar um mapeamento entre seu objeto e os nomes "across-the-wire" usando a biblioteca [gson][3].  Por exemplo:
+O campo `id` é obrigatório.  O campo `updatedAt` e o campo `version` são usados para sincronização offline (para sincronização incremental e resolução de conflitos, respectivamente).  O campo `createdAt` é um campo de referência e não é usado pelo cliente.  Os nomes são nomes "across-the-wire" nomes das propriedades e não são ajustáveis.  No entanto, você pode criar um mapeamento entre seu objeto e os nomes "across-the-wire" usando a biblioteca [gson][3].  Por exemplo: 
 
 ```java
 package com.example.zumoappname;
@@ -447,7 +447,7 @@ Uma solicitação para todos os registros usando esse método cria no mínimo du
 
 ### <a name="chaining"></a>Como concatenar métodos de consulta
 
-Os métodos usados nas tabelas de back-end de consulta podem ser concatenados. O encadeamento de métodos de consulta permite a você selecionar colunas específicas ou linhas filtradas que são classificadas e paginadas. Você pode criar filtros lógicos complexos.  Cada método de consulta retorna um objeto de consulta. Para encerrar a série de métodos e realmente executar a consulta, chame o método **execute** . Por exemplo:
+Os métodos usados nas tabelas de back-end de consulta podem ser concatenados. O encadeamento de métodos de consulta permite a você selecionar colunas específicas ou linhas filtradas que são classificadas e paginadas. Você pode criar filtros lógicos complexos.  Cada método de consulta retorna um objeto de consulta. Para encerrar a série de métodos e realmente executar a consulta, chame o método **execute** . Por exemplo: 
 
 ```java
 List<ToDoItem> results = mToDoTable
@@ -517,7 +517,7 @@ public class ToDoItemAdapter extends ArrayAdapter<ToDoItem> {
 }
 ```
 
-Substitua o método **getView** dos adaptadores. Por exemplo:
+Substitua o método **getView** dos adaptadores. Por exemplo: 
 
 ```
     @Override
@@ -821,7 +821,7 @@ AsyncTask<Void, Void, Void> initializeStore(MobileServiceClient mClient)
 Para uma tabela online, use `.getTable()`.  Para uma tabela offline, use `.getSyncTable()`:
 
 ```java
-MobileServiceTable<ToDoItem> mToDoTable = mClient.getSyncTable("ToDoItem", ToDoItem.class);
+MobileServiceSyncTable<ToDoItem> mToDoTable = mClient.getSyncTable("ToDoItem", ToDoItem.class);
 ```
 
 Todos os métodos disponíveis para tabelas online (incluindo a filtragem, classificação, paginação, inserção de dados, atualização de dados e exclusão de dados) funcionam igualmente bem em tabelas online e offline.

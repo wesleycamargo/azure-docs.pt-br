@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/08/2017
 ms.author: sethm
-ms.openlocfilehash: f13c7330c9e828abe6557149b9a31c7170e33dcd
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: d564f3974b2bc6355bb5dc5320a5193fe3c196af
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="storage-queues-and-service-bus-queues---compared-and-contrasted"></a>Filas do Armazenamento e filas do Barramento de Serviço — comparações e contrastes
 Este artigo analisa as diferenças e semelhanças entre os dois tipos de fila oferecidos pelo Microsoft Azure atualmente: filas do Armazenamento e filas do Barramento de Serviço. Usando essas informações, é possível comparar e contrastar as respectivas tecnologias e tomar uma decisão mais informada sobre qual solução atende melhor às suas necessidades.
@@ -107,7 +107,7 @@ Esta seção compara recursos avançados fornecidos pelas filas do Armazenamento
 | Atualização in-loco |**Sim** |**Sim** |
 | Log de transações do servidor |**Sim** |**Não** |
 | Métricas de armazenamento |**Sim**<br/><br/>**Métricas de Minuto**: fornecem métricas em tempo real para disponibilidade, TPS, contagens de chamada de API, contagens de erros e muito mais, tudo em tempo real (agregados por minuto e relatados poucos minutos após o que acabou de acontecer em produção). Para obter mais informações, confira [Sobre as Métricas de Analítica de Armazenamento](/rest/api/storageservices/fileservices/About-Storage-Analytics-Metrics). |**Sim**<br/><br/>(consultas em massa chamando [GetQueues](/dotnet/api/microsoft.servicebus.namespacemanager.getqueues#Microsoft_ServiceBus_NamespaceManager_GetQueues)) |
-| Gerenciamento de estado |**Não** |**Sim**<br/><br/>[Microsoft.ServiceBus.Messaging.EntityStatus.Active](/dotnet/api/microsoft.servicebus.messaging.entitystatus.active), [Microsoft.ServiceBus.Messaging.EntityStatus.Disabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus.disabled), [Microsoft.ServiceBus.Messaging.EntityStatus.SendDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus.senddisabled), [Microsoft.ServiceBus.Messaging.EntityStatus.ReceiveDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus.receivedisabled) |
+| Gerenciamento de estado |**Não** |**Sim**<br/><br/>[Microsoft.ServiceBus.Messaging.EntityStatus.Active](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.Disabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.SendDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus), [Microsoft.ServiceBus.Messaging.EntityStatus.ReceiveDisabled](/dotnet/api/microsoft.servicebus.messaging.entitystatus) |
 | Encaminhamento automático de mensagem |**Não** |**Sim** |
 | Função Limpar fila |**Sim** |**Não** |
 | Grupos de mensagens |**Não** |**Sim**<br/><br/>(por meio do uso de sessões de mensagens) |

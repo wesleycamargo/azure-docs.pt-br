@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/07/2017
+ms.date: 01/11/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: aaf2da57d8653371ab0b46e47474442aa4be1d65
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7814b53a69506f81bc6a75387c62766e36d528d8
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-active-directory-app-based-conditional-access"></a>Acesso condicional baseado em aplicativo do Azure Active Directory  
 
@@ -389,9 +389,9 @@ Para a política de acesso condicional nesta etapa, você precisa configurar os 
 
     - **Exigir um aplicativo cliente aprovado (versão prévia)**
 
-    - **Exigir um dos controles selecionados**   
+    - **Exigir todos os controles selecionados**   
  
-    ![Acesso condicional](./media/active-directory-conditional-access-mam/11.png)
+    ![Acesso condicional](./media/active-directory-conditional-access-mam/13.png)
 
 
 

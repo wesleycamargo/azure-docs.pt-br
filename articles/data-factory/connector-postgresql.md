@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: jingwang
-ms.openlocfilehash: 0dd2c7aa0f8e845c8aae42575c3e46e3ac17ad63
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: 7a16c932aa82eab3083408c2b1d0f94eb788751c
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-postgresql-by-using-azure-data-factory"></a>Copiar dados do PostgreSQL usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -44,7 +44,8 @@ Para usar esse conector do PostgreSQL, você precisa:
 - Instale o [provedor de dados Ngpsql para PostgreSQL](http://go.microsoft.com/fwlink/?linkid=282716) com versão entre 2.0.12 e 3.1.9 no computador do Integration Runtime.
 
 ## <a name="getting-started"></a>Introdução
-Você pode criar um pipeline com atividade de cópia usando o SDK do .NET, o SDK do Python, o Azure PowerShell, a API REST ou o modelo do Azure Resource Manager. Confira o [Tutorial de atividade de cópia](quickstart-create-data-factory-dot-net.md) para obter instruções passo a passo sobre a criação de um pipeline com uma atividade de cópia.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 As seções que se seguem fornecem detalhes sobre as propriedades que são usadas para definir entidades do Data Factory específicas ao conector do PostgreSQL.
 
@@ -52,12 +53,12 @@ As seções que se seguem fornecem detalhes sobre as propriedades que são usada
 
 As propriedades a seguir têm suporte para o serviço vinculado do PostgreSQL:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type deve ser definida como: **PostgreSql** | Sim |
-| server | Nome do servidor PostgreSQL. |Sim |
-| database | Nome do banco de dados PostgreSQL. |Sim |
-| schema | Nome do esquema no banco de dados. O nome do esquema diferencia maiúsculas de minúsculas. |Não |
+| Tipo | A propriedade type deve ser definida como: **PostgreSql** | Sim |
+| Servidor | Nome do servidor PostgreSQL. |Sim |
+| Banco de Dados | Nome do banco de dados PostgreSQL. |Sim |
+| schema | Nome do esquema no banco de dados. O nome do esquema diferencia maiúsculas de minúsculas. |Não  |
 | Nome de Usuário | Especifica o nome de usuário para se conectar ao banco de dados PostgreSQL. |Sim |
 | Senha | Especifique a senha da conta de usuário que você especificou para o nome de usuário. Marque esse campo como uma SecureString. |Sim |
 | connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. É necessário um Integration Runtime auto-hospedado, conforme mencionado nos [Pré-requisitos](#prerequisites). |Sim |
@@ -92,9 +93,9 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados do PostgreSQL, defina a propriedade type do conjunto de dados como **RelationalTable**. Há suporte para as seguintes propriedades:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type do conjunto de dados deve ser definida como: **RelationalTable** | Sim |
+| Tipo | A propriedade type do conjunto de dados deve ser definida como: **RelationalTable** | Sim |
 | tableName | Nome da tabela no banco de dados PostgreSQL. | Não (se "query" na fonte da atividade for especificada) |
 
 **Exemplo**
@@ -122,9 +123,9 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados do PostgreSQL, defina o tipo de origem na atividade de cópia como **RelationalSource**. As propriedades a seguir têm suporte na seção **source** da atividade de cópia:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type da fonte da atividade de cópia deve ser definida como: **RelationalSource** | Sim |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **RelationalSource** | Sim |
 | query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"query": "SELECT * FROM \"MySchema\".\"MyTable\""`. | Não (se "tableName" no conjunto de dados for especificado) |
 
 > [!NOTE]

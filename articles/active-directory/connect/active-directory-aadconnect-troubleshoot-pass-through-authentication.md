@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2017
+ms.date: 01/05/2018
 ms.author: billmath
-ms.openlocfilehash: d25f682d3c42f95752d09454f778c3975f551cca
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: b842791be74094c87643528c0b4d3a65be6b3cb1
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Solucionar problemas de Autenticação de Passagem do Azure Active Directory
 
@@ -41,7 +41,7 @@ Verifique se o recurso de Autenticação de passagem ainda está **Habilitado** 
 
 Se o usuário não consegue entrar usando a autenticação de passagem, ele poderá ver um dos seguintes erros voltados ao usuário na tela de entrada do Azure AD: 
 
-|Erro|Descrição|Resolução
+|Erro|DESCRIÇÃO|Resolução
 | --- | --- | ---
 |AADSTS80001|Não é possível conectar ao Active Directory|Verifique se os servidores do agente são membros da mesma floresta do AD que os usuários cujas senhas precisam ser validadas e se são capazes de se conectar ao Active Directory.  
 |AADSTS8002|Um tempo limite ao estabelecer conexão com o Active Directory|Verifique se o Active Directory está disponível e respondendo às solicitações dos agentes.
@@ -165,7 +165,7 @@ Se o log de auditoria estiver habilitado, será possível encontrar informaçõe
     </QueryList>
 ```
 
-### <a name="performance-monitor-counters"></a>Contadores do Monitor de Desempenho
+## <a name="performance-monitor-counters"></a>Contadores do Monitor de Desempenho
 
 Outra maneira de monitorar agentes de autenticação é o controle de contadores do Monitor de Desempenho específicos em cada servidor em que o agente de autenticação está instalado. Use os seguintes contadores Globais (**Nº de autenticações PTA**, **Nº de autenticações PTA com falha** e **Nº de autenticações PTA com êxito**) e contadores de Erro (**Nº de erros de autenticação PTA**):
 

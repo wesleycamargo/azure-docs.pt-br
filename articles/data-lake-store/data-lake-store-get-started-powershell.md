@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/28/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 3428c3852f156df850f4b9e8833d15f4ae32729d
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 31c98b930ccb8203316e3a3b13c3c0dc7d74dd9c
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="get-started-with-azure-data-lake-store-using-azure-powershell"></a>Introdução ao Repositório Azure Data Lake usando o Azure PowerShell
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ Saiba como usar o Azure PowerShell para criar uma conta do Repositório Azure Da
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-* **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure PowerShell 1.0 ou superior**. Consulte [Como instalar e configurar o PowerShell do Azure](/powershell/azure/overview).
 
 ## <a name="authentication"></a>Autenticação
@@ -122,6 +122,6 @@ Quando solicitado, insira **Y** para excluir a conta.
 ## <a name="next-steps"></a>Próximas etapas
 * [Diretrizes de ajuste do desempenho para o PowerShell com Azure Data Lake Store](data-lake-store-performance-tuning-powershell.md)
 * [Usar o Azure Data Lake Store para requisitos de Big Data](data-lake-store-data-scenarios.md) 
-* [Proteger dados no Repositório Data Lake](data-lake-store-secure-data.md)
+* [Proteger dados no Data Lake Store](data-lake-store-secure-data.md)
 * [Usar a Análise Data Lake do Azure com o Repositório Data Lake](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 * [Usar o Azure HDInsight com o Repositório Data Lake](data-lake-store-hdinsight-hadoop-use-portal.md)

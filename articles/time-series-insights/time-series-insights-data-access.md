@@ -3,19 +3,19 @@ title: "Configurar a segurança para acessar e gerenciar o Azure Time Series Ins
 description: "Este artigo descreve como configurar a segurança e as permissões como políticas de gerenciamento de acesso e políticas de acesso de dados para proteger o Azure Time Series Insights."
 services: time-series-insights
 ms.service: time-series-insights
-author: op-ravi
-ms.author: omravi
+author: ashannon7
+ms.author: anshan
 manager: jhubbard
 editor: MicrosoftDocs/tsidocs
 ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: article
 ms.date: 11/15/2017
-ms.openlocfilehash: 22c8e4481f2ba4163a55cc1bbb6b33c10379a605
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: c7d4079c9106226e0d07aa97c4a52c16ddb257c3
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="grant-data-access-to-a-time-series-insights-environment-using-azure-portal"></a>Conceder acesso a dados em um ambiente de Análise de Séries Temporais usando o portal do Azure
 
@@ -69,4 +69,4 @@ Siga estas etapas para conceder acesso a dados para uma entidade de usuário:
 ## <a name="next-steps"></a>Próximas etapas
 * Saiba [como adicionar uma fonte de evento do Hub de Eventos ao ambiente do Azure Time Series Insights](time-series-insights-how-to-add-an-event-source-eventhub.md).
 * [Enviar eventos](time-series-insights-send-events.md) para a origem do evento.
-* Exibir seu ambiente no [Explorador do Time Series Insights](https://insights.timeseries.azure.com).
+* Exibir seu ambiente no [explorador do Time Series Insights](https://insights.timeseries.azure.com).

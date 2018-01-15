@@ -13,20 +13,18 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: identity
-ms.date: 05/23/2017
+ms.date: 01/08/2018
 ms.author: sasubram
-ms.openlocfilehash: fecfb7217434a93fd5d44f1f07709009de7710fb
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.reviewer: sasubram
+ms.openlocfilehash: 4c43082281cbc95ae75b65a2aefadbbab6d7cd30
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Perguntas frequentes sobre a colaboração B2B do Azure Active Directory
 
 Essas perguntas frequentes sobre a colaboração B2B (entre empresas) do Azure AD (Azure Active Directory) são atualizadas periodicamente para incluir novos tópicos.
-
-### <a name="is-azure-ad-b2b-collaboration-available-in-the-azure-classic-portal"></a>A colaboração do Azure AD B2B está disponível no portal clássico do Azure?
-Não. Os recursos de colaboração do Azure AD B2B estão disponíveis somente no [portal do Azure](https://portal.azure.com) e no [Painel de Acesso](https://myapps.microsoft.com/). 
 
 ### <a name="can-we-customize-our-sign-in-page-so-it-is-more-intuitive-for-our-b2b-collaboration-guest-users"></a>Podemos personalizar nossa página de conexão para que ela seja mais intuitiva para nossos usuários convidados de colaboração B2B?
 Claro que não! Consulte nossa [postagem de blog sobre esse recurso](https://blogs.technet.microsoft.com/enterprisemobility/2017/04/07/improving-the-branding-logic-of-azure-ad-login-pages/). Para obter mais informações sobre como personalizar a página de conexão de sua organização, consulte [Adicionar a identidade visual da empresa às páginas de conexão e do Painel de Acesso](customize-branding.md).

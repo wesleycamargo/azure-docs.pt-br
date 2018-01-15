@@ -11,11 +11,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: billmath
-ms.openlocfilehash: 6f5ca44e08c783fdf22a14d71c56c3019cc2bb52
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1bc669dfa5a41e38b35751af62560ff650575a08
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="claims-mapping-in-azure-active-directory-public-preview"></a>Mapeamento de declarações no Azure Active Directory (visualização pública)
 
@@ -280,7 +280,7 @@ Se a fonte for uma transformação, o elemento **TransformationID** deverá ser 
 O elemento ID identifica qual propriedade na origem fornece o valor da declaração. A tabela a seguir lista os valores de ID válida para cada valor de Origem.
 
 #### <a name="table-3-valid-id-values-per-source"></a>Tabela 3: Valores de ID válida por origem
-|Fonte|ID|Descrição|
+|Fonte|ID|DESCRIÇÃO|
 |-----|-----|-----|
 |Usuário|sobrenome|Nome da família|
 |Usuário|givenname|Nome|
@@ -353,7 +353,7 @@ O elemento ID identifica qual propriedade na origem fornece o valor da declaraç
 Com base no método escolhido, um conjunto de entradas e saídas é esperado. Elas são definidas usando os elementos **InputClaims**, **InputParameters** e **OutputClaims**.
 
 #### <a name="table-4-transformation-methods-and-expected-inputs-and-outputs"></a>Tabela 4: Métodos de transformação e entradas e saídas esperadas
-|TransformationMethod|Entrada esperada|Saída esperada|Descrição|
+|TransformationMethod|Entrada esperada|Saída esperada|DESCRIÇÃO|
 |-----|-----|-----|-----|
 |Ingressar|cadeia1, cadeia2, separador|outputClaim|Une cadeias de entrada usando um separador entre elas. Por exemplo: cadeia1: "foo@bar.com", cadeia2: "sandbox", separador: "." resulta no outputClaim: "foo@bar.com.sandbox"|
 |ExtractMailPrefix|mail|outputClaim|Extrai a parte local do endereço de email. Por exemplo: email: "foo@bar.com" resulta no outputClaim: "foo". Se não houver um @ presente, a cadeia de caracteres de entrada original será retornada sem alterações.|
@@ -378,7 +378,7 @@ Com base no método escolhido, um conjunto de entradas e saídas é esperado. El
 **NameID e UPN SAML:** os atributos dos quais você obtém os valores de NameID e UPN, bem como as transformações de declarações que são permitidas, são limitados.
 
 #### <a name="table-5-attributes-allowed-as-a-data-source-for-saml-nameid"></a>Tabela 5: Atributos permitidos como fonte de dados para NameID SAML
-|Fonte|ID|Descrição|
+|Fonte|ID|DESCRIÇÃO|
 |-----|-----|-----|
 |Usuário|mail|Endereço de Email|
 |Usuário|userprincipalname|Nome UPN|
@@ -490,7 +490,7 @@ Neste exemplo, você cria uma política que emite uma declaração personalizada
     1. Para criar a política, execute este comando: 
      
      ``` powershell
-    New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema":[{"Source":"user","ID":"extensionattribute1"},{"Source":"transformation","ID":"DataJoin","TransformationId":"JoinTheData","JwtClaimType":"JoinedData"}],"ClaimsTransformation":[{"ID":"JoinTheData","TransformationMethod":"Join","InputClaims":[{"ClaimTypeReferenceId":"extensionattribute1","TransformationClaimType":"string1"}], "InputParameters": [{"Id":"string2","Value":"sandbox"},{"Id":"separator","Value":"."}],"OutputClaims":[{"ClaimTypeReferenceId":"DataJoin","TransformationClaimType":"outputClaim"}]}]}}') -DisplayName "TransformClaimsExample” -Type "ClaimsMappingPolicy"
+    New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema":[{"Source":"user","ID":"extensionattribute1"},{"Source":"transformation","ID":"DataJoin","TransformationId":"JoinTheData","JwtClaimType":"JoinedData"}],"ClaimsTransformations":[{"ID":"JoinTheData","TransformationMethod":"Join","InputClaims":[{"ClaimTypeReferenceId":"extensionattribute1","TransformationClaimType":"string1"}], "InputParameters": [{"ID":"string2","Value":"sandbox"},{"ID":"separator","Value":"."}],"OutputClaims":[{"ClaimTypeReferenceId":"DataJoin","TransformationClaimType":"outputClaim"}]}]}}') -DisplayName "TransformClaimsExample" -Type "ClaimsMappingPolicy" 
     ```
     
     2. Para ver a nova política e obter a ObjectId da política, execute o comando a seguir: 

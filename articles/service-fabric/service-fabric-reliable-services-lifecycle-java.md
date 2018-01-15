@@ -13,11 +13,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: pakunapa;
-ms.openlocfilehash: 93fd003ff5ba7673e5a719fb1ced0cbb97034610
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 6945c3333b43877a62158e2a367b1aa3dd615129
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="reliable-services-lifecycle-overview"></a>Visão geral do ciclo de vida do Reliable Services
 > [!div class="op_single_selector"]
@@ -115,7 +115,7 @@ O Service Fabric altera o Primário de um serviço com estado por vários motivo
 
 Os serviços que não tratam o cancelamento corretamente podem enfrentar vários problemas. Essas operações são lentas porque o Service Fabric aguarda até que os serviços parem normalmente. Em última instância, isso leva a falhas de upgrade que atingem um tempo limite e são revertidas. Falha em cumprir o token de cancelamento também pode causar clusters desequilibrados. Os clusters tornam-se desequilibrados porque os nós ficam ativos, mas os serviços não podem ser reequilibrados porque demora muito para movê-los para outro lugar. 
 
-Uma vez que os serviços têm estado, também é provável que eles usem [Coleções Confiáveis](service-fabric-reliable-services-reliable-collections.md). No Service Fabric, quando um Primário é rebaixado, uma das primeiras coisas que acontece é que o acesso de gravação ao estado subjacente é revogado. Isso leva a um segundo conjunto de problemas que pode afetar o ciclo de vida do serviço. As coleções retornam exceções que se baseiam no tempo e em se a réplica está sendo movida ou desligada. Essas exceções devem ser tratadas corretamente. As exceções geradas pelo Service Fabric se classificam nas categorias permanentes [(`FabricException`)](https://docs.microsoft.com/en-us/java/api/system.fabric.exception) e transitórias [(`FabricTransientException`)](https://docs.microsoft.com/en-us/java/api/system.fabric.exception._fabric_transient_exception). As exceções permanentes devem ser registradas e geradas, enquanto as exceções transitórias podem ser recuperadas com base em alguma lógica de repetição.
+Uma vez que os serviços têm estado, também é provável que eles usem [Coleções Confiáveis](service-fabric-reliable-services-reliable-collections.md). No Service Fabric, quando um Primário é rebaixado, uma das primeiras coisas que acontece é que o acesso de gravação ao estado subjacente é revogado. Isso leva a um segundo conjunto de problemas que pode afetar o ciclo de vida do serviço. As coleções retornam exceções que se baseiam no tempo e em se a réplica está sendo movida ou desligada. Essas exceções devem ser tratadas corretamente. As exceções geradas pelo Service Fabric se classificam nas categorias permanentes [(`FabricException`)](https://docs.microsoft.com/java/api/system.fabric.exception) e transitórias [(`FabricTransientException`)](https://docs.microsoft.com/java/api/system.fabric.exception._fabric_transient_exception). As exceções permanentes devem ser registradas e geradas, enquanto as exceções transitórias podem ser recuperadas com base em alguma lógica de repetição.
 
 O tratamento das exceções que resultam do uso de `ReliableCollections` em conjunto com eventos de ciclo de vida do serviço é uma importante etapa do teste e da validação de um Serviço Confiável. A recomendação é sempre executar seu serviço sob carga durante a execução de upgrades e [fazer o teste de caos](service-fabric-controlled-chaos.md) antes de implantar em produção. Essas etapas básicas ajudam a garantir que o serviço seja implementado corretamente, além de tratar os eventos do ciclo de vida corretamente.
 

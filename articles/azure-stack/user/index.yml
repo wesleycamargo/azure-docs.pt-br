@@ -14,11 +14,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 10/02/2017
   ms.author: carolz
-  ms.openlocfilehash: 13bfcbfdb180ee50efa392ad43d58839e7e52cf0
-  ms.sourcegitcommit: 5d772f6c5fd066b38396a7eb179751132c22b681
+  ms.openlocfilehash: 6ab2ecc6e2082939b51eef8a95fe68a9303ab47c
+  ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
   ms.translationtype: MT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/13/2017
+  ms.lasthandoff: 01/12/2018
 abstract:
   description: "O Azure Stack é uma plataforma desktop em nuvem híbrida que possibilita usar serviços do Azure por meio do datacenter da sua empresa ou do seu provedor de serviços. Como desenvolvedor, você pode criar aplicativos no Azure Stack. Você pode implantá-los no Azure Stack, no Azure ou você pode criar aplicativos verdadeiramente híbridos aproveitam a conectividade entre uma nuvem do Azure Stack e o Azure. Saiba como criar recursos e implantar aplicativos com tutoriais e guias de início rápido.<br/><br/>Se você tiver um operador de pilha do Azure que gerencia a infraestrutura e ofertas de serviços, consulte nosso <a href=\"/azure/azure-stack/\">documentação operador</a>."
 sections:
@@ -38,7 +38,7 @@ sections:
       text: PowerShell
       href: azure-stack-quick-create-vm-windows-powershell.md
     - image:
-        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg
+        src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/cli.svg
       text: CLI
       href: azure-stack-quick-create-vm-windows-cli.md
   - type: paragraph
@@ -55,7 +55,7 @@ sections:
       text: PowerShell
       href: azure-stack-quick-create-vm-linux-powershell.md
     - image:
-        src: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/media/index/cli.svg
+        src: https://docs.microsoft.com/azure/virtual-machines/linux/media/index/cli.svg
       text: CLI
       href: azure-stack-quick-create-vm-linux-cli.md
 - title: Tutoriais Passo a Passo

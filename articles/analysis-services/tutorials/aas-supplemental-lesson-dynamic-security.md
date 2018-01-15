@@ -13,17 +13,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 919094c5e8c528810ce6545d6b0cf8d9f95cca2a
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 7512af39041090db22d4ef45ec46925c14c4adb9
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="supplemental-lesson---dynamic-security"></a>Lição suplementar – segurança dinâmica
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
 Nesta lição suplementar, você cria uma função adicional que implementa a segurança dinâmica. A segurança dinâmica oferece segurança no nível de linha com base no nome de usuário ou na ID de logon do usuário conectado no momento. 
   
@@ -185,7 +183,7 @@ Nesta tarefa, você usa o recurso Analisar no Excel no SSDT para testar a eficá
   
     Esse usuário não pode procurar nem consultar nenhum dado de vendas pela Internet de outras regiões que não aquela a que ele pertence. Essa restrição existe porque o filtro de linha definido para a tabela DimSalesTerritory, na função de usuário Funcionários de Vendas por Região, protege dados para todos os dados relacionados a outras regiões de vendas.  
   
-## <a name="see-also"></a>Consulte também  
+## <a name="see-also"></a>Veja também  
 [Função USERNAME (DAX)](https://msdn.microsoft.com/library/hh230954.aspx)  
 [Função LOOKUPVALUE (DAX)](https://msdn.microsoft.com/library/gg492170.aspx)  
 [Função CUSTOMDATA (DAX)](https://msdn.microsoft.com/library/hh213140.aspx)  

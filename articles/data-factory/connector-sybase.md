@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: ff008b6fdfe9e248a0588f24a1cb87b39ca8d90c
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: f903b786635213b93769a54ec69964a2fe212172
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-sybase-using-azure-data-factory"></a>Copiar dados do Sybase usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -46,7 +46,8 @@ Para usar esse conector do Sybase, você precisa:
 - Instalar o [provedor de dados do Sybase iAnywhere.Data.SQLAnywhere](http://go.microsoft.com/fwlink/?linkid=324846) 16 ou superior no computador do Integration Runtime.
 
 ## <a name="getting-started"></a>Introdução
-Você pode criar um pipeline com atividade de cópia usando o SDK do .NET, o SDK do Python, o Azure PowerShell, a API REST ou o modelo do Azure Resource Manager. Confira o [Tutorial de atividade de cópia](quickstart-create-data-factory-dot-net.md) para obter instruções passo a passo sobre a criação de um pipeline com uma atividade de cópia.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 As seções que a seguir fornecem detalhes sobre as propriedades usadas para definir entidades do Data Factory específicas ao Sybase.
 
@@ -54,12 +55,12 @@ As seções que a seguir fornecem detalhes sobre as propriedades usadas para def
 
 As propriedades a seguir têm suporte para o serviço vinculado do Sybase:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type deve ser definida como: **Sybase** | Sim |
-| server | Nome do servidor do Sybase. |Sim |
-| database | Nome do banco de dados do Sybase. |Sim |
-| schema | Nome do esquema no banco de dados. |Não |
+| Tipo | A propriedade type deve ser definida como: **Sybase** | Sim |
+| Servidor | Nome do servidor do Sybase. |Sim |
+| Banco de Dados | Nome do banco de dados do Sybase. |Sim |
+| schema | Nome do esquema no banco de dados. |Não  |
 | authenticationType | Tipo de autenticação usado para se conectar ao banco de dados Sybase.<br/>Os valores permitidos são: **Básico** e **Windows**. |Sim |
 | Nome de Usuário | Especifique o nome de usuário para se conectar ao banco de dados Sybase. |Sim |
 | Senha | Especifique a senha da conta de usuário que você especificou para o nome de usuário. Marque esse campo como uma SecureString. |Sim |
@@ -96,9 +97,9 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados do Sybase, defina a propriedade type do conjunto de dados como **RelationalTable**. Há suporte para as seguintes propriedades:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type do conjunto de dados deve ser definida como: **RelationalTable** | Sim |
+| Tipo | A propriedade type do conjunto de dados deve ser definida como: **RelationalTable** | Sim |
 | tableName | Nome da tabela no banco de dados do Sybase. | Não (se "query" na fonte da atividade for especificada) |
 
 **Exemplo**
@@ -125,9 +126,9 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados do Sybase, defina o tipo de origem na atividade de cópia como **RelationalSource**. As propriedades a seguir têm suporte na seção **source** da atividade de cópia:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type da fonte da atividade de cópia deve ser definida como: **RelationalSource** | Sim |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **RelationalSource** | Sim |
 | query | Utiliza a consulta SQL personalizada para ler os dados. Por exemplo: `"SELECT * FROM MyTable"`. | Não (se "tableName" no conjunto de dados for especificado) |
 
 **Exemplo:**

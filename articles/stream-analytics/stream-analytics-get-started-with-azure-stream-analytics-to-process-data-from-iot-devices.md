@@ -4,7 +4,7 @@ description: Marcas e dados de sensor de fluxos IoT com o processamento de dados
 keywords: "solução iot, introdução ao ioT"
 services: stream-analytics
 documentationcenter: 
-author: samacha
+author: SnehaGunda
 manager: jhubbard
 editor: cgronlun
 ms.assetid: 3e829055-75ed-469f-91f5-f0dc95046bdb
@@ -14,12 +14,12 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
-ms.author: samacha
-ms.openlocfilehash: 3146604dd2dbc626d8179d5c91e3cf895b9f67da
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: sngun
+ms.openlocfilehash: a4b2fda6c5cc5ea341618ec5fa8638a5c887bf84
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="get-started-with-azure-stream-analytics-to-process-data-from-iot-devices"></a>Introdução ao Stream Analytics do Azure para processar dados de dispositivos IoT
 Neste tutorial, você aprenderá a criar a lógica de processamento de fluxo para reunir dados dos dispositivos da Internet das Coisas (IoT). Usaremos um caso de uso real da Internet das coisas (IoT) para demonstrar como compilar uma solução rápida e econômica.
@@ -31,11 +31,7 @@ Neste tutorial, você aprenderá a criar a lógica de processamento de fluxo par
 ## <a name="scenario"></a>Cenário
 Contoso, que é uma empresa no espaço de automação industrial, automatizou completamente seu processo de fabricação. O maquinário desta fábrica tem sensores capazes de emitir fluxos de dados em tempo real. Nesse cenário, um gerente de chão de fábrica quer ter informações em tempo real dos dados de sensor para procurar por padrões e tomar ações com relação a eles. Nós usaremos a Stream Analytics Query Language (SAQL) sobre os dados do sensor para descobrir padrões interessantes no fluxo de entrada de dados.
 
-Aqui, os dados estão sendo gerados de um dispositivo de tag de sensor da Texas Instruments.
-
-![Tag de sensor Texas Instruments](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-01.jpg)
-
-A carga de dados está no formato JSON e é semelhante ao seguinte:
+Aqui, os dados estão sendo gerados de um dispositivo de tag de sensor da Texas Instruments. A carga de dados está no formato JSON e é semelhante ao seguinte:
 
     {
         "time": "2016-01-26T20:47:53.0000000",  
@@ -68,7 +64,7 @@ Para facilitar o uso, este guia de Introdução fornece um arquivo de dados de e
    
     ![criação do trabalho em andamento](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-03b.png)
 
-### <a name="create-an-azure-stream-analytics-query"></a>Criar uma instância do Azure Stream Analytics
+## <a name="create-an-azure-stream-analytics-query"></a>Criar uma instância do Azure Stream Analytics
 Depois que o trabalho é criado, é hora de abri-lo e criar uma consulta. Você pode acessar facilmente o trabalho clicando no bloco para ele.
 
 ![Bloco de trabalho](./media/stream-analytics-get-started-with-iot-devices/stream-analytics-get-started-with-iot-devices-04.png)

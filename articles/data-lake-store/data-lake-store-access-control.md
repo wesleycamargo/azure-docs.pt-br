@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/03/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 43582ae805d560e72fb8d03ab8e0abee4c4325b7
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ec0d1fa9c422dbe4958c5d5f0b7a6e093aeb32da
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="access-control-in-azure-data-lake-store"></a>Controle de acesso no Azure Data Lake Store
 
@@ -249,7 +249,7 @@ Em um sistema HDFS, umask normalmente é uma opção de configuração de todo o
 |------------ |---------|---------------------------------------|
 | usuário proprietário | ---     | Sem efeito                             |
 | grupo proprietário| ---     | Sem efeito                             |
-| outro       | RWX     | Remover Ler + Gravar + Executar         |
+| Outros       | RWX     | Remover Ler + Gravar + Executar         |
 
 A ilustração a seguir mostra esta umask em ação. O efeito líquido é remover **Ler + Gravar + Executar** para **outro** usuário. Como a umask não especificou bits para o **usuário proprietário** e o **grupo proprietário**, essas permissões não são transformadas.
 
@@ -274,7 +274,7 @@ Aqui estão algumas perguntas que surgem com frequência sobre ACLs no Data Lake
 
 ### <a name="do-i-have-to-enable-support-for-acls"></a>É necessário habilitar o suporte para ACLs?
 
-Não. O controle de acesso via ACLs está sempre ativado para uma conta do Data Lake Store.
+Nº O controle de acesso via ACLs está sempre ativado para uma conta do Data Lake Store.
 
 ### <a name="which-permissions-are-required-to-recursively-delete-a-folder-and-its-contents"></a>Quais são as permissões necessárias para excluir recursivamente uma pasta e seu conteúdo?
 
@@ -308,7 +308,7 @@ Um GUID é mostrado quando o usuário não existe mais no Azure AD. Geralmente i
 
 ### <a name="does-data-lake-store-support-inheritance-of-acls"></a>O Data Lake Store dá suporte à herança de ACLs?
 
-Não.
+Nº
 
 ### <a name="what-is-the-difference-between-mask-and-umask"></a>Qual é a diferença entre mask e umask?
 

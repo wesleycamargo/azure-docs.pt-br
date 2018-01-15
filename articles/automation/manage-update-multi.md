@@ -11,14 +11,14 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 11/30/2017
 ms.author: magoedte;gwallace
-ms.openlocfilehash: 9bd6a290320958e2bc534ceb0abbcb647084920b
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.openlocfilehash: 1763077aa733fc93dd59147405db9942c6c98960
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gerenciar atualizações de vários computadores
 
@@ -110,12 +110,12 @@ Os agentes instalados em máquinas virtuais e computadores coletam dados sobre a
 
 A tabela a seguir descreve as fontes conectadas às quais essa solução dá suporte:
 
-| Fonte conectada | Suportado | Descrição |
+| Fonte conectada | Com suporte | DESCRIÇÃO |
 | --- | --- | --- |
 | Agentes do Windows |Sim |O gerenciamento de atualizações coleta informações sobre atualizações do sistema de agentes do Windows e inicia a instalação de atualizações necessárias. |
 | Agentes do Linux |Sim |O gerenciamento de atualizações coleta informações sobre atualizações do sistema de agentes Linux e inicia a instalação das atualizações necessárias em distribuições com suporte. |
 | Grupo de gerenciamento do Operations Manager |Sim |O gerenciamento de atualizações coleta informações sobre atualizações do sistema de agentes em um grupo de gerenciamento conectado. |
-| Conta de Armazenamento do Azure |Não |O armazenamento do Azure não inclui informações sobre atualizações do sistema. |
+| Conta de Armazenamento do Azure |Não  |O armazenamento do Azure não inclui informações sobre atualizações do sistema. |
 
 ### <a name="collection-frequency"></a>Frequência de coleta
 

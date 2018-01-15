@@ -11,14 +11,14 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 08/31/2017
 ms.author: magoedte
-ms.openlocfilehash: 2a57b60a2222d6e2ea864410edc6a32a0bf0c76c
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 69670d789d75a99d69538821d88427bd8ac397be
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="getting-started-with-azure-automation"></a>Introdução à Automação do Azure
 
@@ -88,10 +88,6 @@ Todas as tarefas de automação que você executa contra recursos usando os cmdl
 
 Os recursos de Automação para cada conta de Automação estão associados a uma única região do Azure, mas as contas de Automação podem gerenciar todos os recursos em sua assinatura. Crie contas de Automação em regiões diferentes se você tiver políticas que exijam que dados e recursos sejam isolados em uma região específica.
 
-> [!NOTE]
-> As contas de Automação e os recursos que eles contêm, que são criados no portal do Azure, não podem ser acessados no portal clássico do Azure. Se quiser gerenciar essas contas ou os recursos com o Windows PowerShell, você deve usar os módulos do Azure Resource Manager.
-> 
-
 Ao criar uma conta de Automação no portal do Azure, você cria automaticamente duas entidades:
 
 * Uma conta Executar como. Essa conta cria uma entidade de serviço no Azure AD (Azure Active Directory) e um certificado. Também atribui o RBAC (controle de acesso baseado em função) de Colaborador, que gerencia os recursos do Resource Manager por meio de runbooks.
@@ -146,7 +142,7 @@ Para obter uma lista de endereços IP em vez de nomes, baixe e leia o arquivo xm
 
 Há diferentes maneiras de criar uma conta de automação no portal do Azure.  A tabela a seguir apresenta cada tipo de experiência de implantação e as diferenças entre eles.  
 
-|Método | Descrição |
+|Método | DESCRIÇÃO |
 |-------|-------------|
 | Selecione Automação e controle no Marketplace | Uma oferta, que cria uma conta de automação e um espaço de trabalho do OMS vinculados uns aos outros no mesmo grupo de recursos e região.  A integração com o OMS também inclui o benefício do uso do Log Analytics para monitorar e analisar os fluxos de trabalho e o status do trabalho de runbook ao longo do tempo e utilizar recursos avançados para escalar ou investigar problemas. A oferta também implanta as soluções de Gerenciamento de Atualizações e Controle de Alterações, que são habilitadas por padrão. |
 | Selecione a automação do Marketplace | Cria uma conta de automação em um grupo de recursos novos ou existentes que não está vinculada a um espaço de trabalho do OMS e não inclui todas as soluções disponíveis da oferta de Automação e controle. Isso é uma configuração básica que apresenta a automação e pode ajudá-lo a aprender a escrever runbooks, configurações da DSC e usar os recursos do serviço. |

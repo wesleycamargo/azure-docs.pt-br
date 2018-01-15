@@ -1,24 +1,20 @@
 ---
 title: "Sobre armazenamento de discos não gerenciados (blobs de página) e gerenciados para VMs Linux do Microsoft Azure | Microsoft Docs"
 description: "Saiba mais sobre os fundamentos de armazenamento de discos não gerenciados (blobs de página) e gerenciados para máquinas virtuais do Linux no Azure."
-services: storage
-documentationcenter: 
-author: robinsh
-manager: timlt
-editor: tysonn
-ms.assetid: 7be8dd52-98f7-4187-9b78-55197915bc9b
-ms.service: storage
+services: virtual-machines
+author: iainfoulds
+manager: jeconnoc
+ms.service: virtual-machines
 ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.tgt_pltfrm: linux
 ms.topic: article
 ms.date: 11/15/2017
-ms.author: robinsh
-ms.openlocfilehash: fee78c87c1d73f2a0816d6e52ad48a93eef8dfc3
-ms.sourcegitcommit: 1d8612a3c08dc633664ed4fb7c65807608a9ee20
+ms.author: iainfou
+ms.openlocfilehash: 107e332a0f8c9d5a84a74de685ca458fb29caa8b
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="about-disks-storage-for-azure-linux-vms"></a>Sobre armazenamento de discos para VMs do Linux do Azure
 Assim como qualquer outro computador, as máquinas virtuais do Azure usam os discos como locais onde armazenar um sistema operacional, aplicativos e dados. Todas as máquinas virtuais do Azure têm pelo menos dois discos - um disco do sistema operacional Linux e um disco temporário. O disco do sistema operacional é criado por meio de uma imagem, e o disco do sistema operacional e a imagem na verdade são VHDs (discos rígidos virtuais) armazenados em uma conta de armazenamento do Azure. Máquinas virtuais também podem ter um ou mais discos de dados que também são armazenados em VHDs. 
@@ -45,7 +41,7 @@ Para obter mais informações sobre como o Azure usa o disco temporário, consul
 Um disco de dados é um VHD anexado a uma máquina virtual para armazenar dados de aplicativos ou outros dados que precisam ser mantidos. Discos de dados são registrados como unidades SCSI e rotulados com a letra que você escolher. Cada disco de dados tem uma capacidade máxima de 4095 GB. O tamanho da máquina virtual determina quantos discos de dados você pode anexar a ele e o tipo de armazenamento que pode usar para hospedar os discos.
 
 > [!NOTE]
-> Para obter mais detalhes sobre as capacidades de máquinas virtuais, consulte [Tamanhos das máquinas virtuais do Linux](../windows/sizes.md).
+> Para obter mais detalhes sobre as capacidades de máquinas virtuais, consulte [Tamanhos das máquinas virtuais do Linux](./sizes.md).
 > 
 
 Quando você cria uma máquina virtual por meio de uma imagem, o Azure cria um disco do sistema operacional. Se você usar uma imagem que inclui discos de dados, o Azure também cria os discos de dados quando cria a máquina virtual. Caso contrário, adicione discos de dados após criar a máquina virtual.
@@ -54,7 +50,7 @@ Você pode adicionar discos de dados a uma máquina virtual a qualquer momento *
 
 [!INCLUDE [storage-about-vhds-and-disks-windows-and-linux](../../../includes/storage-about-vhds-and-disks-windows-and-linux.md)]
 
-## <a name="troubleshooting"></a>Solucionar problemas
+## <a name="troubleshooting"></a>solução de problemas
 [!INCLUDE [virtual-machines-linux-lunzero](../../../includes/virtual-machines-linux-lunzero.md)]
 
 ## <a name="next-steps"></a>Próximas etapas

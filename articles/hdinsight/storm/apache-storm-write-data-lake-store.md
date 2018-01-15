@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/11/2017
+ms.date: 01/04/2018
 ms.author: larryfr
-ms.openlocfilehash: efb0a19e0793a93b2bfab93adb747e6f130341df
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.openlocfilehash: 5550dc2ffc53c6ccd30ecb4901ec98c4d38e366b
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="write-to-hdfs-from-apache-storm-on-hdinsight"></a>Gravar para HDFS do Apache Storm no HDInsight
 
@@ -28,13 +28,13 @@ Saiba como usar o Storm para gravar dados no armazenamento compatível com HDFS 
 > [!IMPORTANT]
 > A topologia de exemplo usada neste documento depende de componentes que estão incluídos com o Storm no HDInsight. Pode exigir modificações para funcionar com o Azure Data Lake Store quando usado com outros clusters do Apache Storm.
 
-## <a name="get-the-code"></a>Obter código
+## <a name="get-the-code"></a>Obter o código
 
 O projeto que contém essa topologia está disponível como um download em [https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store](https://github.com/Azure-Samples/hdinsight-storm-azure-data-lake-store).
 
 Para compilar esse projeto, você precisará da seguinte configuração para seu ambiente de desenvolvimento:
 
-* [Java JDK 1.8](https://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) ou superior. HDInsight 3.5 ou superior exige Java 8.
+* [Java JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) ou superior. HDInsight 3.5 ou superior exige Java 8.
 
 * [Maven 3.x](https://maven.apache.org/download.cgi)
 
@@ -140,7 +140,7 @@ Para saber mais sobre a estrutura Flux, confirma [https://storm.apache.org/relea
 
 Por padrão, o Storm no HDInsight não inclui os componentes que o HdfsBolt usa para se comunicar com o Armazenamento do Azure ou o Data Lake Store no classpath do Storm. Use a ação de script a seguir para adicionar esses componentes ao diretório `extlib` para Storm no seu cluster:
 
-* URI do script:`https://000aarperiscus.blob.core.windows.net/certs/stormextlib.sh`
+* URI do script:`https://hdiconfigactions.blob.core.windows.net/linuxstormextlibv01/stormextlib.sh`
 * Nós para aplicar a: Nimbus, Supervisor
 * Parâmetros: nenhum
 

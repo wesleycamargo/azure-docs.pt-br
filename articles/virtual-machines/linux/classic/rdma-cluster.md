@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: danlep
-ms.openlocfilehash: 52048fb8ccd445b93296d2686ca46785b0c3e726
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: e09b472a53c02b39bcf7ad06d228049b0a392452
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="set-up-a-linux-rdma-cluster-to-run-mpi-applications"></a>Configurar um cluster de RDMA do Linux para executar aplicativos MPI
 Saiba como configurar um cluster RDMA do Linux no Azure com [tamanhos de VM de computação de alto desempenho](../sizes-hpc.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) para executar aplicativos MPI (Interface de Transmissão de Mensagens) paralelos. Este artigo fornece etapas para preparar uma imagem do HPC Linux para executar o Intel MPI em um cluster. Após a preparação, você implanta um cluster de VMs usando essa imagem e um dos tamanhos de VM do Azure compatíveis com RDMA (atualmente H16r, H16mr, A8 ou A9). Use o cluster para executar aplicativos MPI que se comunicam com eficiência por uma rede de alta taxa de transferência e baixa latência baseada na tecnologia RDMA (acesso remoto direto à memória).
@@ -304,7 +304,7 @@ cluster12
 O comando Intel MPI a seguir executa um parâmetro de comparação de pingpong para verificar a configuração do cluster e a conexão com a rede RDMA.
 
 ```
-mpirun -hosts <host1>,<host2> -ppn 1 -n 2 -env I_MPI_FABRICS=dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 IMB-MPI1 pingpong
+mpirun -hosts <host1>,<host2> -ppn 1 -n 2 -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 IMB-MPI1 pingpong
 ```
 
 Em um cluster ativo com dois nós, você verá uma saída semelhante ao que se segue. Na rede RDMA do Azure, espere latência em três microssegundos ou menos para até 512 bytes de tamanhos de mensagem.

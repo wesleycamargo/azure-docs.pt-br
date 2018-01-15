@@ -3,8 +3,8 @@ title: "Controle de versão de cliente e servidor SDK em Aplicativos Móveis e S
 description: "Lista dos SDKs clientes e compatibilidade com versões do SDK do servidor para os Serviços Móveis e Aplicativos Móveis do Azure"
 services: app-service\mobile
 documentationcenter: 
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 35b19672-c9d6-49b5-b405-a6dcd1107cd5
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: f79e819b1547f81498ea213858faf3c75e374782
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: 37bf36af535eb9b5c8b0ba38434b71f1a6686811
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Controle de versão de cliente e servidor em Aplicativos Móveis e Serviços Móveis
 A versão mais recente dos Serviços Móveis do Azure é o recurso **Aplicativos Móveis** do Serviço de Aplicativo do Azure.
@@ -33,7 +33,7 @@ Para saber mais sobre a migração para o Serviço de Aplicativo sem qualquer al
 ## <a name="header-specification"></a>Especificação de cabeçalho
 A chave `ZUMO-API-VERSION` pode ser especificada no cabeçalho HTTP ou na cadeia de consulta. O valor é uma cadeia de caracteres de versão no formulário **x.y.z**.
 
-Por exemplo:
+Por exemplo: 
 
 GET https://service.azurewebsites.net/tables/TodoItem
 
@@ -85,10 +85,10 @@ Observação: os SDKs do cliente dos Serviços Móveis *não* enviam um valor de
 <!-- TODO: add Node npm version -->
 
 ### <a name="behavior-of-mobile-services-backends"></a>Comportamento dos back-ends de Serviços Móveis
-| ZUMO-API-VERSION | Valor de MS_SkipVersionCheck | Resposta |
+| ZUMO-API-VERSION | Valor de MS_SkipVersionCheck | Response |
 | --- | --- | --- |
 | Não especificado |Qualquer |200 - OK |
-| Qualquer valor |Verdadeiro |200 - OK |
+| Qualquer valor |True |200 - OK |
 | Qualquer valor |Falso/não especificado |400 - solicitação inválida |
 
 ## <a name="2.0.0"></a>Servidor e cliente de Aplicativos Móveis do Azure
@@ -112,9 +112,9 @@ A verificação de versão está incluída nas seguintes versões do SDK do serv
 | Node.js |[azure-mobile-apps)](https://www.npmjs.com/package/azure-mobile-apps) |2.0.0 |
 
 ### <a name="behavior-of-mobile-apps-backends"></a>Comportamento dos back-ends de Aplicativos Móveis
-| ZUMO-API-VERSION | Valor de MS_SkipVersionCheck | Resposta |
+| ZUMO-API-VERSION | Valor de MS_SkipVersionCheck | Response |
 | --- | --- | --- |
-| x.y.z ou Null |Verdadeiro |200 - OK |
+| x.y.z ou Null |True |200 - OK |
 | Nulo |Falso/não especificado |400 - solicitação inválida |
 | 1.x.y |Falso/não especificado |400 - solicitação inválida |
 | 2.0.0-2.x.y |Falso/não especificado |200 - OK |

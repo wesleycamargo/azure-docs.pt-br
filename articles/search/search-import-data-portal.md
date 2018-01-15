@@ -15,13 +15,13 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 05/01/2017
 ms.author: heidist
-ms.openlocfilehash: a3e6dd66197a17bfdc80c04130e198b787692a58
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 710543b5423d2b651545151eb4a8d426720e28e0
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="import-data-to-azure-search-using-the-portal"></a>Importar dados para a Pesquisa do Azure usando o portal
+# <a name="import-data-to-azure-search-using-the-portal"></a>Importar dados para o Azure Search usando o portal
 O portal do Azure fornece um assistente de **Importação de dados** no painel do Azure Search para carregar os dados em um índice. 
 
   ![Importar Dados na barra de comandos][1]
@@ -58,7 +58,7 @@ Um conjunto de dados bidimensional é uma entrada exigida. Você só pode import
 | **Fonte de dados existente** |Se já houver indexadores definidos em seu serviço de pesquisa, selecione uma definição de fonte de dados existente para outra importação. |
 | **Banco de Dados SQL do Azure** |É possível especificar o nome do serviço, credenciais para um usuário de banco de dados com permissão de leitura e um nome de banco de dados na página ou por meio de uma cadeia de conexão do ADO.NET. Escolha a opção de cadeia de conexão para exibir ou personalizar as propriedades. <br/><br/>A tabela ou exibição que fornece o conjunto de linhas deve ser especificada na página. Essa opção aparece após o êxito da conexão, fornecendo uma lista suspensa para que você possa fazer uma seleção. |
 | **SQL Server em VM do Azure** |Especifique um nome de serviço totalmente qualificado, a ID e a senha de usuário e um banco de dados como uma cadeia de conexão. Para usar esta fonte de dados, você deve ter instalado um certificado no repositório local que criptografa a conexão. Para obter instruções, veja [Conexão de VM do SQL ao Azure Search](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md). <br/><br/>A tabela ou exibição que fornece o conjunto de linhas deve ser especificada na página. Essa opção aparece após o êxito da conexão, fornecendo uma lista suspensa para que você possa fazer uma seleção. |
-| **Azure Cosmos DB** |Os requisitos incluem a conta, o banco de dados e a coleção. Todos os documentos na coleção serão incluídos no índice. Você pode definir uma consulta para nivelar ou filtrar o conjunto de linhas, ou para detectar documentos alterados para operações de atualização de dados subsequentes. |
+| **Banco de dados do Azure Cosmos** |Os requisitos incluem a conta, o banco de dados e a coleção. Todos os documentos na coleção serão incluídos no índice. Você pode definir uma consulta para nivelar ou filtrar o conjunto de linhas, ou para detectar documentos alterados para operações de atualização de dados subsequentes. |
 | **Armazenamento de Blobs do Azure** |Os requisitos incluem a conta de armazenamento e um contêiner. Como opção, se os nomes de blob seguirem uma convenção de nomenclatura virtual para fins de agrupamento, você poderá especificar a parte do diretório virtual do nome como uma pasta no contêiner. Confira [Indexação do Armazenamento de Blobs](search-howto-indexing-azure-blob-storage.md) para saber mais. |
 | **Armazenamento de Tabelas do Azure** |Os requisitos incluem a conta de armazenamento e um nome de tabela. Como opção, você pode especificar uma consulta para recuperar um subconjunto das tabelas. Confira [Indexação do Armazenamento de Tabelas](search-howto-indexing-azure-tables.md) para saber mais. |
 
@@ -113,7 +113,7 @@ As edições que não exigem a recriação incluem adicionar um novo campo, alte
 Consulte estes links para saber mais sobre os indexadores:
 
 * [Indexação do Banco de Dados SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Indexação do Azure Cosmos DB](search-howto-index-documentdb.md)
+* [Indexação do Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Indexação do Armazenamento de Blobs](search-howto-indexing-azure-blob-storage.md)
 * [Indexação do Armazenamento de Tabelas](search-howto-indexing-azure-tables.md)
 

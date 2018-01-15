@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2017
 ms.author: jingwang
-ms.openlocfilehash: 41842806aecfc0ed6ac663262305785a23c5ba5d
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: 7316ad5637fbfc11f3da48394874f814dc47be31
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-to-and-from-sql-server-using-azure-data-factory"></a>Copiar dados de e para um SQL Server usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -45,7 +45,8 @@ Especificamente, este conector do SQL Server dá suporte a:
 Para usar a cópia de dados de um banco de dados do SQL Server que não está acessível publicamente, você precisa configurar um Integration Runtime auto-hospedado. Consulte o artigo [Self-hosted integration runtime](create-self-hosted-integration-runtime.md) (Integration Runtime auto-hospedado) para obter detalhes. O Integration Runtime fornece um driver de banco de dados do SQL Server interno, portanto, não é necessário instalar manualmente qualquer driver ao copiar dados de/para no banco de dados do SQL Server.
 
 ## <a name="getting-started"></a>Introdução
-Você pode criar um pipeline com atividade de cópia usando o SDK do .NET, o SDK do Python, o Azure PowerShell, a API REST ou o modelo do Azure Resource Manager. Confira o [Tutorial de atividade de cópia](quickstart-create-data-factory-dot-net.md) para obter instruções passo a passo sobre a criação de um pipeline com uma atividade de cópia.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 As seções que se seguem fornecem detalhes sobre as propriedades usadas para definir entidades do Data Factory específicas ao conector do banco de dados SQL Server.
 
@@ -53,13 +54,13 @@ As seções que se seguem fornecem detalhes sobre as propriedades usadas para de
 
 As propriedades a seguir têm suporte para o serviço vinculado do SQL Server:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type deve ser definida como **SqlServer** | Sim |
+| Tipo | A propriedade type deve ser definida como **SqlServer** | Sim |
 | connectionString |Especifique as informações de connectionString necessárias para conexão com o banco de dados do SQL Server usando a autenticação SQL ou a autenticação do Windows. Marque esse campo como uma SecureString. |Sim |
-| userName |Especifique o nome de usuário se você estiver usando a Autenticação do Windows. Exemplo: **domainname\\username**. |Não |
-| Senha |Especifique a senha da conta de usuário que você especificou para userName. Marque esse campo como uma SecureString. |Não |
-| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime auto-hospedado ou o Integration Runtime do Azure (se seu armazenamento de dados estiver publicamente acessível). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não |
+| userName |Especifique o nome de usuário se você estiver usando a Autenticação do Windows. Exemplo: **domainname\\username**. |Não  |
+| Senha |Especifique a senha da conta de usuário que você especificou para userName. Marque esse campo como uma SecureString. |Não  |
+| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime auto-hospedado ou o Integration Runtime do Azure (se seu armazenamento de dados estiver publicamente acessível). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não  |
 
 **Exemplo 1: usando a autenticação SQL**
 
@@ -114,9 +115,9 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados de/para o banco de dados do SQL Server, defina a propriedade type do conjunto de dados como **SqlServerTable**. Há suporte para as seguintes propriedades:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type do conjunto de dados deve ser definida como: **SqlServerTable** | Sim |
+| Tipo | A propriedade type do conjunto de dados deve ser definida como: **SqlServerTable** | Sim |
 | tableName |Nome da tabela ou exibição na instância do banco de dados SQL Server à qual o serviço vinculado se refere. | Sim |
 
 **Exemplo:**
@@ -146,12 +147,12 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados do SQL Server, defina o tipo de origem na atividade de cópia como **SqlSource**. As propriedades a seguir têm suporte na seção **source** da atividade de cópia:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type da fonte da atividade de cópia deve ser definida como: **SqlSource** | Sim |
-| SqlReaderQuery |Utiliza a consulta SQL personalizada para ler os dados. Exemplo: `select * from MyTable`. |Não |
-| sqlReaderStoredProcedureName |Nome do procedimento armazenado que lê os dados da tabela de origem. A última instrução SQL deve ser uma instrução SELECT no procedimento armazenado. |Não |
-| storedProcedureParameters |Parâmetros para o procedimento armazenado.<br/>Os valores permitidos são: pares nome/valor. Nomes e uso de maiúsculas e minúsculas de parâmetros devem corresponder aos nomes e o uso de maiúsculas e minúsculas dos parâmetros do procedimento armazenado. |Não |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **SqlSource** | Sim |
+| SqlReaderQuery |Utiliza a consulta SQL personalizada para ler os dados. Exemplo: `select * from MyTable`. |Não  |
+| sqlReaderStoredProcedureName |Nome do procedimento armazenado que lê os dados da tabela de origem. A última instrução SQL deve ser uma instrução SELECT no procedimento armazenado. |Não  |
+| storedProcedureParameters |Parâmetros para o procedimento armazenado.<br/>Os valores permitidos são: pares nome/valor. Nomes e uso de maiúsculas e minúsculas de parâmetros devem corresponder aos nomes e o uso de maiúsculas e minúsculas dos parâmetros do procedimento armazenado. |Não  |
 
 **Pontos a serem observados:**
 
@@ -250,15 +251,15 @@ GO
 
 Para copiar dados para o SQL Server, defina o tipo de coletor na atividade de cópia como **SqlSink**. As propriedades a seguir têm suporte na seção **sink** da atividade de cópia:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | O tipo de propriedade do coletor de atividade de cópia deve ser definido como: **SqlSink** | Sim |
+| Tipo | O tipo de propriedade do coletor de atividade de cópia deve ser definido como: **SqlSink** | Sim |
 | writeBatchSize |Insere dados na tabela SQL quando o tamanho do buffer atinge writeBatchSize.<br/>Os valores permitidos são: inteiro (número de linhas). |Não (padrão: 10000) |
-| writeBatchTimeout |Tempo de espera para a operação de inserção em lotes ser concluída antes de atingir o tempo limite.<br/>Os valores permitidos são: período. Exemplo: "00:30:00" (30 minutos). |Não |
-| sqlWriterStoredProcedureName |Nome do procedimento armazenado que upserts (atualiza/insere) na tabela de destino. |Não |
-| storedProcedureParameters |Parâmetros para o procedimento armazenado.<br/>Os valores permitidos são: pares nome/valor. Nomes e uso de maiúsculas e minúsculas de parâmetros devem corresponder aos nomes e o uso de maiúsculas e minúsculas dos parâmetros do procedimento armazenado. |Não |
-| sqlWriterTableType |Especifique um nome do tipo de tabela a ser usado no procedimento armazenado. A atividade de cópia disponibiliza aqueles dados sendo movidos em uma tabela temporária com esse tipo de tabela. O código de procedimento armazenado pode mesclar os dados sendo copiados com dados existentes. |Não |
-| preCopyScript |Especifique uma consulta SQL para a atividade de cópia executar antes de gravar dados no SQL Server em cada execução. Você pode usar essa propriedade para limpar os dados previamente carregados. |Não |
+| writeBatchTimeout |Tempo de espera para a operação de inserção em lotes ser concluída antes de atingir o tempo limite.<br/>Os valores permitidos são: período. Exemplo: "00:30:00" (30 minutos). |Não  |
+| sqlWriterStoredProcedureName |Nome do procedimento armazenado que upserts (atualiza/insere) na tabela de destino. |Não  |
+| storedProcedureParameters |Parâmetros para o procedimento armazenado.<br/>Os valores permitidos são: pares nome/valor. Nomes e uso de maiúsculas e minúsculas de parâmetros devem corresponder aos nomes e o uso de maiúsculas e minúsculas dos parâmetros do procedimento armazenado. |Não  |
+| sqlWriterTableType |Especifique um nome do tipo de tabela a ser usado no procedimento armazenado. A atividade de cópia disponibiliza aqueles dados sendo movidos em uma tabela temporária com esse tipo de tabela. O código de procedimento armazenado pode mesclar os dados sendo copiados com dados existentes. |Não  |
+| preCopyScript |Especifique uma consulta SQL para a atividade de cópia executar antes de gravar dados no SQL Server em cada execução. Você pode usar essa propriedade para limpar os dados previamente carregados. |Não  |
 
 > [!TIP]
 > Ao copiar dados para o SQL Server, a atividade de cópia acrescenta dados à tabela de coletor por padrão. Para executar um UPSERT ou lógica de negócios adicional, use o procedimento armazenado no SqlSink. Obtenha mais detalhes de [Invocando o procedimento armazenado para o coletor SQL](#invoking-stored-procedure-for-sql-sink).
@@ -482,12 +483,12 @@ Ao copiar dados do/para o SQL Server, os seguintes mapeamentos são usados de ti
 |:--- |:--- |
 | bigint |Int64 |
 | binário |Byte[] |
-| bit |Booliano |
+| bit |BOOLEAN |
 | char |String, Char[] |
-| data |DateTime |
-| DateTime |DateTime |
-| datetime2 |DateTime |
-| Datetimeoffset |Datetimeoffset |
+| data |Datetime |
+| DateTime |Datetime |
+| datetime2 |Datetime |
+| Datetimeoffset |DateTimeOffset |
 | Decimal |Decimal |
 | Atributo FILESTREAM (varbinary(max)) |Byte[] |
 | Float |Duplo |
@@ -500,11 +501,11 @@ Ao copiar dados do/para o SQL Server, os seguintes mapeamentos são usados de ti
 | nvarchar |String, Char[] |
 | real |Single |
 | rowversion |Byte[] |
-| smalldatetime |DateTime |
+| smalldatetime |Datetime |
 | smallint |Int16 |
 | smallmoney |Decimal |
 | sql_variant |Objeto * |
-| texto |String, Char[] |
+| text |String, Char[] |
 | tempo real |timespan |
 | timestamp |Byte[] |
 | tinyint |Int16 |
