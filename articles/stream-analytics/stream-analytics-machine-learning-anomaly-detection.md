@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 03/28/2017
 ms.author: dubansal
-ms.openlocfilehash: db72b1ca936e69a049d64f939d3399bfd9cdf89c
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: ff8571c6447f32ef9a435f5200803e76f6013ffa
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="using-the-anomalydetection-operator"></a>Usar o operador ANOMALYDETECTION
 
@@ -78,7 +78,7 @@ A função retorna um Registro que contém todas as três pontuações como sua 
 - SlowPosTrendScore
 - SlowNegTrendScore
 
-Para extrair os valores individuais do registro, use a função **GetRecordPropertyValue**. Por exemplo:
+Para extrair os valores individuais do registro, use a função **GetRecordPropertyValue**. Por exemplo: 
 
 `SELECT id, val FROM input WHERE (GetRecordPropertyValue(ANOMALYDETECTION(val) OVER(LIMIT DURATION(hour, 1)), 'BiLevelChangeScore')) > 3.25` 
 
@@ -89,7 +89,7 @@ Uma anomalia de um tipo específico é detectada quando uma dessas pontuações 
 
 **ANOMALYDETECTION** usa semântica de janela deslizante, o que significa que o cálculo é executado por evento que insere a função, e uma pontuação é gerada para o evento. O cálculo tem base em Permutabilidade Martingales, que opera verificando se a distribuição dos valores de evento foi alterado. Nesse caso, uma possível anomalia foi detectada. A pontuação retornada é uma indicação do nível de confiança dessa anomalia. Como uma otimização interna, **ANOMALYDETECTION** calcula a pontuação de anomalia de um evento com base em *d* a *2d* eventos, em que *d* é o tamanho da janela de detecção especificado.
 
-**ANOMALYDETECTION** espera que a série de tempo de entrada seja uniforme. Um fluxo de eventos pode ficar uniforme pela agregação sobre uma janela em cascata ou de salto. Em cenários onde a lacuna entre os eventos sempre é menor do que a janela de agregação, uma janela em cascata é suficiente para tornar a série temporal uniforme. Quando o intervalo puder ser maior, os intervalos poderão ser preenchidos repetindo o último valor usando uma janela de salto. Esses dois cenários podem ser tratados pelo exemplo a seguir. Atualmente, a etapa `FillInMissingValuesStep` não pode ser ignorada. A ausência dessa etapa resultará em um erro de compilação.
+**ANOMALYDETECTION** espera que a série de tempo de entrada seja uniforme. Um fluxo de eventos pode ficar uniforme pela agregação sobre uma janela em cascata ou de salto. Em cenários onde a lacuna entre os eventos sempre é menor do que a janela de agregação, uma janela em cascata é suficiente para tornar a série temporal uniforme. Quando o intervalo puder ser maior, os intervalos poderão ser preenchidos repetindo o último valor usando uma janela de salto. Esses dois cenários podem ser tratados pelo exemplo a seguir.
 
 ## <a name="performance-guidance"></a>Diretriz de desempenho
 
@@ -105,8 +105,6 @@ Uma anomalia de um tipo específico é detectada quando uma dessas pontuações 
 
 A consulta a seguir pode ser usada para gerar um alerta se uma anomalia for detectada.
 Quando o fluxo de entrada não é uniforme, a etapa de agregação pode ajudar a transformá-lo em uma série temporal uniforme. O exemplo usa **AVG**, mas o tipo específico de agregação depende do cenário do usuário. Além disso, quando uma série temporal tem lacunas maiores do que a janela de agregação, não haverá nenhum evento na série temporal para disparar a detecção de anomalias (de acordo com a semântica de janela deslizante). Como resultado, a suposição de uniformidade será interrompida quando o próximo evento chegar. Em tais situações, precisamos de um modo de preenchimento das lacunas na série temporal. Uma abordagem possível é colocar o último evento em cada janelas de salto, conforme mostrado abaixo.
-
-Conforme observado anteriormente, não ignore a etapa `FillInMissingValuesStep` por enquanto. A ausência dessa etapa resultará em um erro de compilação.
 
     WITH AggregationStep AS 
     (

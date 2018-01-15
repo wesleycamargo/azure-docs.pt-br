@@ -14,11 +14,11 @@ metadata:
   ms.topic: landing-page
   ms.date: 01-23-2017
   ms.author: carolz
-  ms.openlocfilehash: 05af130d89d78bedb43f4c5cf69203acfa17c64c
-  ms.sourcegitcommit: 29bac59f1d62f38740b60274cb4912816ee775ea
+  ms.openlocfilehash: 8e7bb72878af9d1e310ac2ffa7e90c14b3909633
+  ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 11/29/2017
+  ms.lasthandoff: 01/12/2018
 abstract:
   description: "O Azure Functions é um serviço de computação <a href=\"https://azure.microsoft.com/overview/serverless-computing/\">sem servidor</a> que permite executar o código sob demanda sem precisar provisionar explicitamente ou gerenciar a infraestrutura. Use o Azure Functions para executar um script ou parte do código em resposta a uma variedade de eventos. Saiba como usar o Azure Functions com nossos guias de início rápido, tutoriais e exemplos."
   aside:
@@ -39,7 +39,7 @@ sections:
     style: icon48
     items:
     - image:
-        src: https://docs.microsoft.com/en-us/media/common/i_http.svg
+        src: https://docs.microsoft.com/media/common/i_http.svg
       text: http
       href: /azure/azure-functions/functions-create-first-azure-function
     - image:

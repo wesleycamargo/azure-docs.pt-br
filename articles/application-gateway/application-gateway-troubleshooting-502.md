@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/09/2017
 ms.author: amsriva
-ms.openlocfilehash: 6a24e9598362b7c4ff9e2d3371d619fbbd41907f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e0099734a81cd8b1edf5cf80cb56b5c322a5feee
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Solução de problemas de erros de gateway incorreto no Application Gateway
 
@@ -78,7 +78,7 @@ Se o DNS estiver presente, verifique se o servidor DNS é capaz de resolver o FQ
 
 Os erros 502 também podem ser indicadores frequentes de que a investigação de integridade padrão não consegue acessar VMs de back-end. Quando uma instância do Gateway de Aplicativo é provisionada, configura automaticamente um teste de integridade padrão para cada BackendAddressPool usando as propriedades de BackendHttpSetting. Nenhuma entrada do usuário é necessária para definir essa investigação. Especificamente, quando uma regra de balanceamento de carga é configurada, é feita uma associação entre BackendHttpSetting e BackendAddressPool. Uma investigação padrão é configurada para cada um dessas associações, e o Gateway de Aplicativo inicia uma conexão de verificação de integridade periódica para cada instância em BackendAddressPool na porta especificada no elemento BackendHttpSetting. A tabela a seguir lista os valores associados à investigação de integridade padrão.
 
-| Propriedades da investigação | Valor | Descrição |
+| Propriedades da investigação | Valor | DESCRIÇÃO |
 | --- | --- | --- |
 | URL de investigação |http://127.0.0.1/ |Caminho da URL |
 | Intervalo |30 |Intervalo da investigação em segundos |
@@ -100,9 +100,9 @@ Os erros 502 também podem ser indicadores frequentes de que a investigação de
 
 Investigações de integridade personalizadas oferecem flexibilidade adicional para o comportamento de investigação padrão. Ao usar investigações personalizadas, os usuários podem configurar o intervalo de investigação, a URL e o caminho a testar e quantas respostas com falha devem ser aceitas antes de marcar a instância do pool de back-end como não íntegra. As propriedades adicionais a seguir são adicionadas.
 
-| Propriedades da investigação | Descrição |
+| Propriedades da investigação | DESCRIÇÃO |
 | --- | --- |
-| Name |O nome da investigação. Este é o nome usado para se referir à investigação nas configurações de HTTP de back-end. |
+| NOME |O nome da investigação. Este é o nome usado para se referir à investigação nas configurações de HTTP de back-end. |
 | Protocolo |O protocolo usado para enviar a investigação. A investigação usa o protocolo definido nas configurações de HTTP do back-end |
 | Host |O nome do host para enviar a investigação. Aplicável somente quando vários sites são configurados no Application Gateway. Isso é diferente do nome de host de VM. |
 | Caminho |O caminho relativo da investigação. Um caminho válido começa com '/'. A investigação é enviada para \<protocol\>://\<host\>:\<port\>\<path\> |
@@ -118,8 +118,7 @@ Valide se a Investigação de Integridade Personalizada está configurada corret
 * Se o Gateway de Aplicativo estiver configurado para um único site, por padrão, o nome do Host deverá ser especificado como '127.0.0.1', a menos que seja configurado de outra forma na investigação personalizada.
 * Verifique se uma chamada para http://\<host\>:\<port\>\<path\> retorna um código de resultado HTTP 200.
 * Verifique se Interval, Time-out e UnhealtyThreshold estão dentro dos intervalos aceitáveis.
-* Se usar uma investigação HTTPS, certifique-se de que o servidor de back-end não requer o SNI, configurando para isso um certificado fallback no próprio servidor de back-end. 
-* Verifique se Interval, Time-out e UnhealtyThreshold estão dentro dos intervalos aceitáveis.
+* Se usar uma investigação HTTPS, certifique-se de que o servidor de back-end não requer o SNI, configurando para isso um certificado fallback no próprio servidor de back-end.
 
 ## <a name="request-time-out"></a>Tempo limite de solicitação
 

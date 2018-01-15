@@ -14,21 +14,21 @@ metadata:
   ms.topic: landing-page
   ms.date: 01/23/2017
   ms.author: carolz
-  ms.openlocfilehash: 64a7fd57fa8a028ec1449f5347f376324a44afd9
-  ms.sourcegitcommit: dfd49613fce4ce917e844d205c85359ff093bb9c
+  ms.openlocfilehash: 91e400e46befa5664b0224d87948bf83ebbcc309
+  ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 10/31/2017
+  ms.lasthandoff: 01/12/2018
 abstract:
   description: "As Máquinas Virtuais do Windows Azure fornece infraestrutura sob demanda, de alta escala, segura e virtualizada usando o Windows Server. Aprenda a criar, configurar, gerenciar e dimensionar as VMs do Windows com nossos guias de início rápido, tutoriais e exemplos."
   aside:
     image:
       alt: 
       height: 110
-      src: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/media/index/create-windows-server-virtual-machine.png
+      src: https://docs.microsoft.com/azure/virtual-machines/windows/media/index/create-windows-server-virtual-machine.png
       width: 250
     title: "Criar uma Máquina Virtual do Windows Server. (3:58)"
-    href: https://azure.microsoft.com/en-us/resources/videos/create-windows-server-virtual-machine/
+    href: https://azure.microsoft.com/resources/videos/create-windows-server-virtual-machine/
     width: 250
 sections:
 - title: "Guia de início rápido de 5 minutos"
@@ -39,26 +39,26 @@ sections:
     style: icon48
     items:
     - image:
-        src: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/media/index/portal.svg
+        src: https://docs.microsoft.com/azure/virtual-machines/windows/media/index/portal.svg
       text: Portal do Azure
-      href: https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-quick-create-portal?toc=/azure/virtual-machines/windows/toc.json
+      href: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-quick-create-portal?toc=/azure/virtual-machines/windows/toc.json
     - image:
-        src: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/media/index/logo_powershell.svg
+        src: https://docs.microsoft.com/azure/virtual-machines/windows/media/index/logo_powershell.svg
       text: Azure PowerShell
-      href: https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-quick-create-powershell?toc=/azure/virtual-machines/windows/toc.json
+      href: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-quick-create-powershell?toc=/azure/virtual-machines/windows/toc.json
     - image:
-        src: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/media/index/cli.svg
+        src: https://docs.microsoft.com/azure/virtual-machines/windows/media/index/cli.svg
       text: CLI do Azure
-      href: https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-windows-quick-create-cli?toc=/azure/virtual-machines/windows/toc.json
+      href: https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-quick-create-cli?toc=/azure/virtual-machines/windows/toc.json
   - type: paragraph
     text: 'Saiba como implantar continuamente:'
   - type: list
     style: icon48
     items:
     - image:
-        src: https://docs.microsoft.com/en-us/azure/media/index/logo_vs-team-services.svg
+        src: https://docs.microsoft.com/azure/media/index/logo_vs-team-services.svg
       text: VSTS
-      href: https://docs.microsoft.com/en-us/vsts/build-release/apps/cd/deploy-webdeploy-iis-deploygroups?toc=/vsts/deploy-azure/toc.json&bc=/vsts/deploy-azure/breadcrumb/toc.json
+      href: https://docs.microsoft.com/vsts/build-release/apps/cd/deploy-webdeploy-iis-deploygroups?toc=/vsts/deploy-azure/toc.json&bc=/vsts/deploy-azure/breadcrumb/toc.json
 - title: Tutoriais Passo a Passo
   items:
   - type: paragraph
@@ -110,7 +110,7 @@ sections:
     className: spaced noBullet
     items:
     - html: <a href="/azure/virtual-machines/virtual-machines-windows-cli-samples?toc=/azure/virtual-machines/windows/toc.json">CLI do Azure</a>
-    - html: <a href="/azure/virtual-machines/virtual-machines-windows-powershell-samples?toc=/azure/virtual-machines/windows/toc.json">Azure PowerShell</a>
+    - html: <a href="/azure/virtual-machines/virtual-machines-windows-powershell-samples?toc=/azure/virtual-machines/windows/toc.json">PowerShell do Azure</a>
 - title: "Referência"
   items:
   - type: list
@@ -118,7 +118,7 @@ sections:
     className: cardsD
     items:
     - title: Linha de comando
-      html: <p><a href="/powershell/azureps-cmdlets-docs">Azure PowerShell</a></p><p><a href="/cli/azure/vm">CLI do Azure</a></p>
+      html: <p><a href="/powershell/azureps-cmdlets-docs">PowerShell do Azure</a></p><p><a href="/cli/azure/vm">CLI do Azure</a></p>
     - title: Linguagens
       html: <p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p><p><a href="/java/api">Java</a></p><p><a href="https://azure.microsoft.com/develop/nodejs/#azure-sdk">Node.js</a></p><p><a href="https://azure.microsoft.com/develop/python/">Python</a></p>
     - title: REST

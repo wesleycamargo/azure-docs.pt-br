@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: ab1a9dfa71c4b633392ef839bb848347fdd26431
-ms.sourcegitcommit: d6ad3203ecc54ab267f40649d3903584ac4db60b
+ms.author: crdun
+ms.openlocfilehash: 336da28bea7de313bced97e447fc6b7b1fb1390d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="how-to-use-the-azure-mobile-apps-nodejs-sdk"></a>Como usar o SDK do Node.js para Aplicativos Móveis do Azure
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -163,7 +163,7 @@ Se quiser que essa opção fique disponível apenas durante o desenvolvimento lo
 ## <a name="TableOperations"></a>Operações de tabela
 O SDK do servidor de Node.js do azure-mobile-apps fornece mecanismos para expor tabelas de dados armazenadas no Banco de Dados SQL do Azure como uma API Web.  Cinco operações são fornecidas.
 
-| Operação | Descrição |
+| Operação | DESCRIÇÃO |
 | --- | --- |
 | GET /tables/*tablename* |Obter todos os registros na tabela |
 | GET /tables/*tablename*/:id |Obter um registro específico na tabela |
@@ -318,9 +318,9 @@ Recomendamos que você adicione *azureMobile.js* ao arquivo *.gitignore* (ou out
 ### <a name="howto-appsettings"></a>Como definir configurações de aplicativo para seu aplicativo móvel
 A maioria das configurações no arquivo *azureMobile.js* tem uma Configuração do Aplicativo equivalente no [portal do Azure].  Use a lista a seguir para configurar seu aplicativo nas Configurações de Aplicativo:
 
-| Configurações de Aplicativo | *azureMobile.js*  | Descrição | Valores Válidos |
+| Configurações de Aplicativo | *azureMobile.js*  | DESCRIÇÃO | Valores Válidos |
 |:--- |:--- |:--- |:--- |
-| **MS_MobileAppName** |name |O nome do aplicativo |string |
+| **MS_MobileAppName** |Nome |O nome do aplicativo |cadeia de caracteres |
 | **MS_MobileLoggingLevel** |logging.level |Nível de log mínimo das mensagens a serem registradas |erro, aviso, informações, detalhado, depuração, simples |
 | **MS_DebugMode** |depurar |Habilitar ou desabilitar o modo de depuração |verdadeiro, falso |
 | **MS_TableSchema** |data.schema |Nome do esquema padrão para tabelas SQL |cadeia de caracteres (padrão: dbo) |

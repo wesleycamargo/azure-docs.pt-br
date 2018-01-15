@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/03/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 4877258c128d00f621eb198b0f0ec7d197e757ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5c00dc99950c25dedc94c17444881a049138a7c5
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="open-source-big-data-applications-that-work-with-azure-data-lake-store"></a>Aplicativos de Big Data de software livre que funcionam com o Repositório Azure Data Lake
 Este artigo lista os aplicativos de Big Data de software livre que funcionam com o Repositório Azure Data Lake. Para os aplicativos na tabela abaixo, há suporte apenas para as versões disponíveis com a distribuição listada. Para obter informações sobre quais versões desses aplicativos estão disponíveis com o HDInsight, veja [Controle de versão de componente do HDInsight](../hdinsight/hdinsight-component-versioning.md).

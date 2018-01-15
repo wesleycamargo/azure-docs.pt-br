@@ -4,7 +4,7 @@ description: "Referência conceitual e visão geral do recurso Autenticação/Au
 services: app-service\mobile
 documentationcenter: 
 author: mattchenderson
-manager: syntaxc4
+manager: cfowler
 editor: 
 ms.assetid: a46dbf70-867d-48f6-8885-7f5207ad102e
 ms.service: app-service-mobile
@@ -14,11 +14,11 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: mahender
-ms.openlocfilehash: 4105392f58eaf37e88c1d9ffb74f3f4133fa5482
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 90c11b09351f019c45f5f1b025d67947b69b3b0a
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="authentication-and-authorization-in-azure-mobile-apps"></a>Autenticação e Autorização nos Aplicativos Móveis do Azure
 ## <a name="what-is-app-service-authentication--authorization"></a>O que é a Autenticação/Autorização do Serviço de Aplicativo?
@@ -67,7 +67,7 @@ Se não desejar configurar um SDK do provedor, você poderá permitir que os Apl
 O código necessário para iniciar esse fluxo é abordado no tutorial de autenticação de cada plataforma. No final do fluxo, o SDK do cliente tem um token do Serviço de Aplicativo, e o token é anexado automaticamente a todas as solicitações para o back-end.
 
 ### <a name="how-authentication-with-a-provider-sdk-works"></a>Como funciona a autenticação com um SDK do provedor
-Trabalhar com um SDK do provedor possibilita que a experiência de logon interaja mais intimamente com o SO da plataforma em que o aplicativo está sendo executado. Isso também lhe fornece um token do provedor e algumas informações de usuário no cliente, o que torna muito mais fácil consumir Graph APIs e personalizar a experiência do usuário. Ocasionalmente, em blogs e fóruns você verá isso designado como “fluxo do cliente” ou “fluxo direcionado pelo cliente”, já que o código no cliente está manipulando o logon, e o código do cliente tem acesso a um token do provedor.
+Trabalhar com um SDK do provedor possibilita que a experiência de logon interaja mais intimamente com o SO da plataforma em que o aplicativo está sendo executado. Isso também lhe fornece um token do provedor e algumas informações de usuário no cliente, o que torna muito mais fácil consumir API do Graphs e personalizar a experiência do usuário. Ocasionalmente, em blogs e fóruns você verá isso designado como “fluxo do cliente” ou “fluxo direcionado pelo cliente”, já que o código no cliente está manipulando o logon, e o código do cliente tem acesso a um token do provedor.
 
 Depois que um token do provedor é obtido, ele precisa ser enviado ao Serviço de Aplicativo para validação. No final do fluxo, o SDK do cliente tem um token do Serviço de Aplicativo, e o token é anexado automaticamente a todas as solicitações para o back-end. O desenvolvedor também pode manter uma referência ao token do provedor se desejar.
 

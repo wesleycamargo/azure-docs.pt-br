@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/27/2017
+ms.date: 01/12/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6a96e52bad725acb70a429c8eaafd6942b13d9b8
-ms.sourcegitcommit: 295ec94e3332d3e0a8704c1b848913672f7467c8
+ms.openlocfilehash: 7d4d680e3460fbeff73c2f334c6461da7967374d
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/06/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="use-storsimple-device-manager-to-manage-alerts-for-the-storsimple-virtual-array"></a>Usar o Gerenciador de Dispositivos do StorSimple para gerenciar alertas do StorSimple Virtual Array
 
@@ -31,7 +31,7 @@ Este tutorial descreve como configurar notificações de alerta, condições de 
 
 ![Página de alertas](./media/storsimple-virtual-array-manage-alerts/alerts1.png)
 
-## <a name="configure-alert-settings"></a>Definir configurações de alerta
+## <a name="configure-alert-settings"></a>Definição de configurações de alerta
 
 Você pode escolher se deseja ser notificado por email das condições de alerta para cada uma das Matrizes Virtuais do StorSimple. Além disso, você pode identificar outros destinatários da notificação de alerta, digitando seus endereços de email na caixa **Destinatários de email adicionais** , separados por ponto e vírgula.
 
@@ -125,7 +125,6 @@ As tabelas a seguir listam alguns dos alertas do StorSimple que você pode encon
 * [Alertas de falha nos trabalhos](#job-failure-alerts)
 * [Alertas de desempenho](#performance-alerts)
 * [Alertas de segurança](#security-alerts)
-* [Alertas de atualização](#update-alerts)
 
 ### <a name="cloud-connectivity-alerts"></a>Alertas de conectividade de nuvem
 
@@ -164,13 +163,6 @@ As tabelas a seguir listam alguns dos alertas do StorSimple que você pode encon
 | Texto de alerta | Evento | Mais informações / ações recomendadas |
 |:--- |:--- |:--- |
 | A senha de <*nome do dispositivo*> expirará em <*número*> dias. |Aviso de senha. |Sua senha expirará em < número> dias. Considere alterar sua senha. Para saber mais, vá para [Alterar a senha de administrador do dispositivo StorSimple Virtual Array](storsimple-virtual-array-change-device-admin-password.md). |
-
-### <a name="update-alerts"></a>Alertas de atualização
-
-| Texto de alerta | Evento | Mais informações / ações recomendadas |
-|:--- |:--- |:--- |
-| Novas atualizações estão disponíveis para seu dispositivo. |Estão disponíveis atualizações para a Matriz Virtual StorSimple. |Você pode instalar novas atualizações da página **Manutenção** . |
-| Não foi possível verificar novas atualizações do <*nome do dispositivo*>. |Falha de atualização. |Ocorreu um erro durante a instalação de novas atualizações. Você pode instalar manualmente as atualizações. Se o problema persistir, contate o [Suporte da Microsoft](storsimple-contact-microsoft-support.md). |
 
 ## <a name="next-steps"></a>Próximas etapas
 

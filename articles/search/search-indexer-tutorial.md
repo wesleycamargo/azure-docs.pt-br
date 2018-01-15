@@ -15,11 +15,11 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.date: 11/10/2017
 ms.author: heidist
-ms.openlocfilehash: c5b7d5a5f20a4a70cbbbe43e33fdf65f12cb8e7d
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: bebfdfdf72014019a49a6da0e512e72932b096ac
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="how-to-crawl-an-azure-sql-database-using-azure-search-indexers"></a>Como rastrear um banco de dados SQL do Azure usando indexadores do Azure Search
 
@@ -119,7 +119,7 @@ Você pode usar o portal do Azure e o arquivo *hotels.sql* de exemplo para criar
 
 O exercício a seguir pressupõe que não há nenhum servidor ou banco de dados existentes e instrui você a criar os dois na etapa 2. Opcionalmente, se você tiver um recurso existente, pode adicionar a tabela hotéis, começando na etapa 4.
 
-1. Entre no [Portal do Azure](https://portal.azure.com/). 
+1. Entre no [portal do Azure](https://portal.azure.com/). 
 
 2. Clique em **Novo** > **Banco de Dados SQL** para criar um banco de dados, um servidor e um grupo de recursos. Você pode usar os padrões e o tipo de preço com o valor mais baixo. Uma vantagem de criar um servidor é que você pode especificar um nome de usuário e senha do administrador, necessários para criar e carregar tabelas em uma etapa posterior.
 
@@ -286,7 +286,7 @@ Se você não for mais usar estes serviços, siga as seguintes etapas para exclu
 Para obter mais informações e tarefas específicas de outras fontes de dados com suporte, confira os artigos a seguir:
 
 * [Banco de Dados SQL do Azure ou SQL Server em uma máquina virtual do Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Banco de dados do Azure Cosmos](search-howto-index-documentdb.md)
+* [Banco de dados do Azure Cosmos](search-howto-index-cosmosdb.md)
 * [Armazenamento de Tabelas do Azure](search-howto-indexing-azure-tables.md)
 * [Armazenamento de Blobs do Azure](search-howto-indexing-azure-blob-storage.md)
 * [Indexação de blobs CSV usando o indexador de Blobs do Azure Search](search-howto-index-csv-blobs.md)

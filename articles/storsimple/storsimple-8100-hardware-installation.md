@@ -4,7 +4,7 @@ description: Descreve como desembalar, montar em rack e cabear do dispositivo do
 services: storsimple
 documentationcenter: NA
 author: alkohli
-manager: carmonm
+manager: jeconnoc
 editor: 
 ms.assetid: 6098a01e-c031-488a-a8d7-0b607ce665e1
 ms.service: storsimple
@@ -12,13 +12,13 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/17/2016
+ms.date: 01/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 102dffcd73f3d3b9362d7b2853faa060e9c645dd
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5fbc407a9792d033037fdaa2b14f4055d94c15ab
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="unpack-rack-mount-and-cable-your-storsimple-8100-device"></a>Desembalar, montar em rack e cabear o dispositivo StorSimple 8100.
 ## <a name="overview"></a>Visão geral
@@ -38,14 +38,14 @@ Antes de desempacotar o dispositivo, leia as informações a seguir.
 Conclua as etapas a seguir para desempacotar o dispositivo.
 
 #### <a name="to-unpack-your-device"></a>Para desempacotar o dispositivo
-1. Inspecione a caixa e a espuma da embalagem para verificar se não há amassados, cortes, danos por água ou qualquer outro dano visível. Se a caixa ou a embalagem estiver muito danificada, não a abra. [Contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md) para receber ajuda e saber se o dispositivo está em boas condições de funcionamento.
+1. Inspecione a caixa e a espuma da embalagem para verificar se não há amassados, cortes, danos por água ou qualquer outro dano visível. Se a caixa ou a embalagem estiver muito danificada, não a abra. [Contate o Suporte da Microsoft](storsimple-8000-contact-microsoft-support.md) para receber ajuda e saber se o dispositivo está em boas condições de funcionamento.
 2. Abra a caixa. A imagem a seguir mostra a exibição desempacotada do dispositivo StorSimple.
    
      ![Desempacotar o dispositivo de armazenamento](./media/storsimple-8100-hardware-installation/HCSUnpackyour2Udevice.png)
    
     **Exibição do dispositivo de armazenamento desempacotado**
    
-   | Rótulo | Descrição |
+   | Rótulo | DESCRIÇÃO |
    | --- | --- |
    |   1 |Embalagem |
    |   2 |Espuma inferior |
@@ -64,7 +64,7 @@ Conclua as etapas a seguir para desempacotar o dispositivo.
    * 1 kit de montagem em rack (2 trilhos laterais com hardware de montagem)
    * Documentação de Introdução
      
-     Se você não tiver recebido algum dos itens listados acima, [contate o Suporte da Microsoft](storsimple-contact-microsoft-support.md).
+     Se você não tiver recebido algum dos itens listados acima, [contate o Suporte da Microsoft](storsimple-8000-contact-microsoft-support.md).
 
 A próxima etapa é montar o dispositivo em rack.
 
@@ -107,7 +107,7 @@ Um conjunto de trilhos de montagem é fornecido para ser usado com o gabinete de
 
     **Fixando corrediças do trilho interno às laterais do compartimento**
    
-    Rótulo | Descrição
+    Rótulo | DESCRIÇÃO
     ----- | -----------
     1     | Parafusos de cabeça abaulada M 3x4
     2     | Corrediças dos chassis
@@ -121,7 +121,7 @@ Um conjunto de trilhos de montagem é fornecido para ser usado com o gabinete de
    
     **Fixando os conjuntos de trilhos internos ao rack**
    
-   | Rótulo | Descrição |
+   | Rótulo | DESCRIÇÃO |
    | --- | --- |
    |   1 |Parafuso de travamento |
    |   2 |Parafuso da coluna do rack frontal para orifício quadrado |
@@ -147,7 +147,7 @@ Usando os trilhos do rack que acabaram de ser instalados, execute as etapas a se
    
     **Instalando as tampas do flange**
    
-   | Rótulo | Descrição |
+   | Rótulo | DESCRIÇÃO |
    | --- | --- |
    |   1 |Parafuso de fixação do compartimento |
 
@@ -187,7 +187,7 @@ Para oferecer suporte a este failover de controlador redundante, você precisa c
    
     **Parte traseira do dispositivo mostrando as portas de dados**
    
-   | Rótulo | Descrição |
+   | Rótulo | DESCRIÇÃO |
    | --- | --- |
    |   0,1,4,5 |Interfaces de rede de 1 GbE |
    |   2,3 |Interfaces de rede de 10 GbE |
@@ -198,9 +198,9 @@ Para oferecer suporte a este failover de controlador redundante, você precisa c
 
     **Cabeamento de rede para o dispositivo**
 
-   |Rótulo | Descrição |
+   |Rótulo | DESCRIÇÃO |
    |----- | ----------- |
-   | Uma    | LAN com acesso à Internet |
+   | O     | LAN com acesso à Internet |
    | B    | Controlador 0 |
    | C    | PCM 0 |
    | D    | Controlador 1 |
@@ -220,7 +220,7 @@ Lembre-se disso no caso de alta disponibilidade e desempenho:
 * Quando for possível, configure um par de interfaces de rede para acesso à nuvem (1 GbE) e outro par para iSCSI (10 GbE recomendados) em cada controlador.
 * Quando for possível, conecte as interfaces de rede de cada controlador a pelo menos dois comutadores diferentes para garantir disponibilidade no caso de falha do comutador. A figura ilustra duas interfaces de rede de 10 GbE, DATA 2 e DATA 3, de cada controlador conectado a dois comutadores diferentes.
 
-Para saber mais, consulte **Interfaces de rede** em [Requisitos de alta disponibilidade para seu dispositivo StorSimple](storsimple-system-requirements.md#high-availability-requirements-for-storsimple).
+Para saber mais, consulte **Interfaces de rede** em [Requisitos de alta disponibilidade para seu dispositivo StorSimple](storsimple-8000-system-requirements.md#high-availability-requirements-for-storsimple).
 
 > [!NOTE]
 > Se você estiver usando transceptores SFP+ com suas interfaces de rede 10 GbE, use os adaptadores QSFP-SFP+ fornecidos. Para obter mais informações, acesse [Suporte para hardware de interfaces de rede de 10 GbE em seu dispositivo StorSimple](storsimple-supported-hardware-for-10-gbe-network-interfaces.md).
@@ -246,5 +246,5 @@ Execute as etapas a seguir para cabear a porta serial.
 Agora o dispositivo está cabeado para energia, acesso à rede e conectividade serial. A próxima etapa será configurar o software e implantar o dispositivo.
 
 ## <a name="next-steps"></a>Próximas etapas
-Saiba como [implantar e configurar seu dispositivo StorSimple local](storsimple-deployment-walkthrough-u2.md).
+Saiba como [implantar e configurar seu dispositivo StorSimple local](storsimple-8000-deployment-walkthrough-u2.md).
 

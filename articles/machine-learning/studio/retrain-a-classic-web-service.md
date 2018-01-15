@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: v-donglo
-ms.openlocfilehash: 75b1862f288152fa2ff4619f807b86f94dc00e3f
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: ad18d82109e3048625f32d90af9677956350fb84
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="retrain-a-classic-web-service"></a>Treinar novamente um serviço Web Clássico
 O Serviço Web Preditivo implantado é o ponto de extremidade de pontuação padrão. Os pontos de extremidade padrão são mantidos em sincronização com o experimento de origem e os experimentos de pontuação; portanto, o modelo treinado para o ponto de extremidade padrão não pode ser substituído. Para adaptar novamente o serviço Web, você deve adicionar um novo ponto de extremidade ao serviço Web. 
@@ -66,7 +66,7 @@ Para recuperar a URL do caminho:
 
 1. Copie e cole a URL no navegador.
 2. Clique no link Atualizar Recurso.
-3. Copie a URL POST da solicitação PATCH. Por exemplo:
+3. Copie a URL POST da solicitação PATCH. Por exemplo: 
    
      URL DO PATCH: https://management.azureml.net/workspaces/00bf70534500b34rebfa1843d6/webservices/af3er32ad393852f9b30ac9a35b/endpoints/newendpoint2
 
@@ -116,7 +116,7 @@ O código de exemplo a seguir mostra como usar *BaseLocation*, *RelativeLocation
 
 O valor do parâmetro *Nome* em *Recursos* deve corresponder ao Nome do Recurso do Modelo Treinado Salvo no Experimento Preditivo. Para obter o Nome do Recurso:
 
-1. Entre no [portal clássico do Azure](https://manage.windowsazure.com).
+1. Entre no [Portal do Azure](https://portal.azure.com).
 2. No menu esquerdo, clique em **Machine Learning**.
 3. Em Nome, clique em seu espaço de Em Nome, clique em seu espaço de trabalho e, em seguida, clique em **Serviços Web**.
 4. Em Nome, clique em **Modelo de Censo [exp. preditivo]**.

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: 20d6f463d135028bf272c23de9f34be66e73325a
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 4ab0ddcc3a42ab4ebb7c9555f57bc2533989b071
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-sap-business-warehouse-using-azure-data-factory"></a>Copiar dados do SAP Business Warehouse usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -50,7 +50,8 @@ Para usar esse conector do SAP Business Warehouse, você precisa:
 > Coloque as dlls extraídas do SDK do RFC do NetWeaver na pasta system32.
 
 ## <a name="getting-started"></a>Introdução
-Você pode criar um pipeline com atividade de cópia usando o SDK do .NET, o SDK do Python, o Azure PowerShell, a API REST ou o modelo do Azure Resource Manager. Confira o [Tutorial de atividade de cópia](quickstart-create-data-factory-dot-net.md) para obter instruções passo a passo sobre a criação de um pipeline com uma atividade de cópia.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 As seções que se seguem fornecem detalhes sobre as propriedades que são usadas para definir entidades do Data Factory específicas ao conector do SAP Business Warehouse.
 
@@ -58,10 +59,10 @@ As seções que se seguem fornecem detalhes sobre as propriedades que são usada
 
 As propriedades a seguir têm suporte no serviço vinculado do SAP BW (Business Warehouse):
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type deve ser definida como: **SapBw** | Sim |
-| server | Nome do servidor no qual reside a instância do SAP BW. | Sim |
+| Tipo | A propriedade type deve ser definida como: **SapBw** | Sim |
+| Servidor | Nome do servidor no qual reside a instância do SAP BW. | Sim |
 | systemNumber | Número de sistema do sistema SAP BW.<br/>Valor permitido: número decimal de dois dígitos representado como uma cadeia de caracteres. | Sim |
 | clientId | ID de Cliente do cliente no sistema SAP W.<br/>Valor permitido: número decimal de três dígitos representado como uma cadeia de caracteres. | Sim |
 | userName | Nome do usuário que tem acesso ao servidor SAP. | Sim |
@@ -123,9 +124,9 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados do SAP BW, defina o tipo de origem na atividade de cópia como **RelationalSource**. As propriedades a seguir têm suporte na seção **source** da atividade de cópia:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type da fonte da atividade de cópia deve ser definida como: **RelationalSource** | Sim |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **RelationalSource** | Sim |
 | query | Especifica a consulta MDX para ler dados da instância do SAP BW. | Sim |
 
 **Exemplo:**
@@ -176,7 +177,7 @@ Ao copiar dados do SAP BW, os seguintes mapeamentos são usados de tipos de dado
 | INT1 | Byte |
 | INT2 | Int16 |
 | INT4 | int |
-| LANG | string |
+| LANG | Cadeia de caracteres |
 | LCHR | Cadeia de caracteres |
 | LRAW | Byte[] |
 | PREC | Int16 |
@@ -184,7 +185,7 @@ Ao copiar dados do SAP BW, os seguintes mapeamentos são usados de tipos de dado
 | RAW | Byte[] |
 | RAWSTRING | Byte[] |
 | STRING | Cadeia de caracteres |
-| UNIDADE | string |
+| UNIDADE | Cadeia de caracteres |
 | DATS | Cadeia de caracteres |
 | NUMC | Cadeia de caracteres |
 | TIMS | Cadeia de caracteres |

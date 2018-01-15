@@ -11,14 +11,14 @@ ms.service: automation
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 08/18/2017
 ms.author: magoedte
-ms.openlocfilehash: dc4bfa4a94eaa2fb4e0e821c4931dcd1963f3109
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 0397b45753ea64d1a33916d5e0dff12d6e1d80aa
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>Como criar conta autônoma de automação do Azure
 Este tópico mostra como criar uma conta de automação no portal do Azure, se desejar avaliar e aprender a automação do Azure sem incluir a integração com o Log Analytics do OMS para fornecer monitoramento avançado de trabalhos de runbook ou soluções de gerenciamento adicionais.  Você pode adicionar essas soluções de gerenciamento ou integrar o Log Analytics a qualquer momento no futuro.  Com a conta de automação, você será capaz de autenticar runbooks gerenciamento de recursos no Azure Resource Manager ou implantação clássica do Azure.
@@ -67,7 +67,7 @@ Nesta seção, execute as seguintes etapas para criar uma conta da Automação d
 ### <a name="resources-included"></a>Recursos incluídos
 Quando a criação da conta de Automação tiver sido criada com êxito, vários recursos serão criados automaticamente para você.  A tabela a seguir resume os recursos para a conta Executar como.<br>
 
-| Recurso | Descrição |
+| Recurso | DESCRIÇÃO |
 | --- | --- |
 | Runbook AzureAutomationTutorial |Um exemplo de runbook Gráfico que demonstra como autenticar usando a conta Executar como e que obtém todos os recursos do Resource Manager. |
 | Runbook do AzureAutomationTutorialScript |Um exemplo de runbook do PowerShell que demonstra como autenticar usando a conta Executar como e que obtém todos os recursos do Resource Manager. |
@@ -77,7 +77,7 @@ Quando a criação da conta de Automação tiver sido criada com êxito, vários
 
 A tabela a seguir resume os recursos para a conta Executar como Clássica.<br>
 
-| Recurso | Descrição |
+| Recurso | DESCRIÇÃO |
 | --- | --- |
 | Runbook do AzureClassicAutomationTutorial |Um runbook gráfico de exemplo que obtém todas as VMs clássicas em uma assinatura usando a conta Executar como clássica (certificado) e, em seguida, exibe o nome e o status da VM. |
 | Runbook do script AzureClassicAutomationTutorial |Um runbook do PowerShell de exemplo que obtém todas as VMs clássicas em uma assinatura usando a conta Executar como clássica (certificado) e, em seguida, exibe o nome e o status da VM. |

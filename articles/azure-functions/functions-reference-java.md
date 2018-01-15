@@ -13,11 +13,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/07/2017
 ms.author: routlaw
-ms.openlocfilehash: 8586bc63ad9c1b3896b21f494ebbe14e6d25a439
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 09a48d61cb27b4db0778295565d167a0688cc99f
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guia do desenvolvedor de Java do Azure Functions
 > [!div class="op_single_selector"]
@@ -276,7 +276,7 @@ que deverá definir a associação de saída em `function.json`:
 | `HttpResponseMessage<T>` | Associação de saída HTTP | Retornar status diferentes de 200   |
 
 > [!NOTE] 
-> Você também pode usar a anotação `@BindingName` para obter cabeçalhos e consultas HTTP. Por exemplo, `@Bind("name") String query` itera os cabeçalhos e consultas de solicitação HTTP e passa esse valor para o método. Por exemplo, `query` será `"test"` se a URL de solicitação for `http://example.org/api/echo?name=test`.
+> Você também pode usar a anotação `@BindingName` para obter cabeçalhos e consultas HTTP. Por exemplo, `@BindingName("name") String query` itera os cabeçalhos e consultas de solicitação HTTP e passa esse valor para o método. Por exemplo, `query` será `"test"` se a URL de solicitação for `http://example.org/api/echo?name=test`.
 
 ### <a name="metadata"></a>Metadados
 
@@ -330,4 +330,4 @@ Para saber mais, consulte os recursos a seguir:
 
 * [Práticas recomendadas para o Azure Functions](functions-best-practices.md)
 * [Referência do desenvolvedor do Azure Functions](functions-reference.md)
-* [Gatilhos e de associações do Azure Functions](functions-triggers-bindings.md)
+* [Gatilhos e associações de Azure Functions](functions-triggers-bindings.md)

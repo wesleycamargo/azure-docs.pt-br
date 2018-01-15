@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/26/2017
 ms.author: maheshu
-ms.openlocfilehash: 23506804ee41688bfebeb0674d99154ff1c77e61
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 2c00d324adfc1b71d436cb017214af98ff3002cf
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-active-directory-ad-domain-services"></a>Azure Active Directory (AD) Domain Services
 ## <a name="overview"></a>Visão geral
@@ -37,15 +37,17 @@ Todas essas abordagens tem o defeito de ser de alto custo e gerar sobrecarga adm
 Criamos os Serviços de Domínio do Azure AD para fornecer uma alternativa mais fácil.
 
 ### <a name="watch-an-introductory-video"></a>Assistir a um vídeo de Introdução
-<iframe width="560" height="315" src="https://www.youtube.com/embed/T1Nd9APNceQ" frameborder="0" allowfullscreen></iframe>
 
+>[!VIDEO https://www.youtube.com/embed/T1Nd9APNceQ]
 
 ## <a name="introducing-azure-ad-domain-services"></a>Apresentando os Serviços de Domínio do AD do Azure
+
 Os Serviços de Domínio do Azure AD fornecem serviços de domínio gerenciado, como ingresso no domínio, política de grupo, LDAP, autenticação Kerberos/NTLM e outros, que são totalmente compatíveis com o Active Directory do Windows Server. Você pode consumir esses serviços de domínio sem a necessidade de implantar, gerenciar e aplicar um patch em controladores de domínio na nuvem. Os Serviços de Domínio do Azure AD se integram ao locatário existente do Azure AD, permitindo aos usuários fazer logon usando suas credenciais corporativas. Além disso, você pode usar contas de usuário e grupos existentes para proteger o acesso a recursos, garantindo uma “mudança” mais tranquila dos recursos locais para os Serviços de Infraestrutura do Azure.
 
 A funcionalidade dos Serviços de Domínio do Azure AD funciona perfeitamente, esteja o locatário do Azure AD somente em nuvem ou sincronizado com o Active Directory local.
 
 ### <a name="azure-ad-domain-services-for-cloud-only-organizations"></a>Serviços de domínio do AD do Azure para organizações somente em nuvem
+
 Um locatário do Azure AD somente em nuvem (também conhecidos como 'locatários gerenciados') não tem qualquer superfície de identidade no local. Em outras palavras, as contas de usuário, suas senhas e associações de grupo são todos nativos na nuvem, ou seja, criados e gerenciados no Azure AD. Considere por um momento que a Contoso é um locatário somente em nuvem do Azure AD. Como mostra a ilustração a seguir, o administrador da Contoso configurou uma rede virtual nos Serviços de Infraestrutura do Azure. Aplicativos e cargas de trabalho de servidor são implantados nessa rede virtual em máquinas virtuais do Azure. Como a Contoso é um locatário somente em nuvem, todas as identidades de usuário, suas credenciais e associações de grupo são criadas e gerenciadas no Azure AD.
 
 ![Visão geral dos Serviços de Domínio do AD do Azure](./media/active-directory-domain-services-overview/aadds-overview.png)

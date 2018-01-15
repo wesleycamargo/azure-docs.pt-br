@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/12/2017
 ms.author: mimig
-ms.openlocfilehash: 8ec4cf774306a5b74627adc0d405bab09645ec9a
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: aeef39294bbf3ad4192fe116c6972e52bfa1c816
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: computação de banco de dados sem servidor usando o Azure Functions
 
@@ -34,6 +34,9 @@ O Azure Cosmos DB e o Azure Functions permitem integrar bancos de dados e aplica
 * Como alternativa, associe um Azure Function a uma coleção do Azure Cosmos DB usando uma **associação de entrada**. As associações de entrada leem dados de um contêiner quando uma função é executada.
 * Associe uma função a uma coleção do Azure Cosmos DB usando uma **associação de saída**. As associações de saída gravam dados em um contêiner quando uma função é concluída.
 
+> [!NOTE]
+> Neste momento, o gatilho, as associações de entrada e as associações de saída do Azure Cosmos DB funcionam apenas com contas da API do Graph e a API do SQL.
+
 O seguinte diagrama ilustra cada uma destas três integrações: 
 
 ![Como o Azure Cosmos DB e o Azure Functions são integrados](./media/serverless-computing-database/cosmos-db-azure-functions-integration.png)
@@ -42,9 +45,6 @@ O gatilho, a associação de entrada e a associação de saída do Azure Cosmos 
 * Um gatilho do Azure Cosmos DB pode ser usado com uma associação de saída para um contêiner diferente do Azure Cosmos DB. Depois que uma função executa uma ação em um item no feed de alterações, você pode gravá-la em outro contêiner (sua gravação no mesmo contêiner de origem efetivamente criará um loop recursivo). Outra opção é usar um gatilho do Azure Cosmos DB para migrar efetivamente todos os itens alterados de um contêiner para um contêiner diferente, com o uso de uma associação de saída.
 * As associações de entrada e as associações de saída do Azure Cosmos DB podem ser usadas no mesmo Azure Function. Isso funciona bem em casos em que você deseja localizar determinados dados com a associação de entrada, modificá-los no Azure Function e, em seguida, salvá-los no mesmo contêiner ou em um contêiner diferente, após a modificação.
 * Uma associação de entrada a um contêiner do Azure Cosmos DB pode ser usada na mesma função de um gatilho do Azure Cosmos DB e pode ser usada com ou sem uma associação de saída também. Use essa combinação para aplicar informações de moeda atualizadas (extraídas com uma associação de entrada a um contêiner de câmbio) ao feed de alterações de novos pedidos em seu serviço de carrinho de compras. O total do carrinho de compras atualizado, com a conversão de moeda atual aplicada, pode ser gravado em um terceiro contêiner usando uma associação de saída.
-
-> [!NOTE]
-> Neste momento, o gatilho, as associações de entrada e as associações de saída do Azure Cosmos DB funcionam apenas com contas da API do Graph e a API do SQL.
 
 ## <a name="use-cases"></a>Casos de uso
 
@@ -153,7 +153,7 @@ Agora vamos conectar o Azure Cosmos DB e o Azure Functions de verdade:
 * [Criar um gatilho do Azure Cosmos DB no portal do Azure](https://aka.ms/cosmosdbtriggerportalfunc)
 * [Criar um gatilho HTTP do Azure Functions com uma associação de entrada do Azure Cosmos DB](https://aka.ms/cosmosdbinputbind)
 * [Armazenar dados não estruturados usando o Azure Functions e o Cosmos DB](../azure-functions/functions-integrate-store-unstructured-data-cosmosdb.md)
-* [Associações e gatilhos do Azure Cosmos DB](../azure-functions/functions-bindings-documentdb.md)
+* [Associações e gatilhos do Azure Cosmos DB](../azure-functions/functions-bindings-cosmosdb.md)
 
 
  

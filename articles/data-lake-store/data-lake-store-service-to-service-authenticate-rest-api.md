@@ -11,13 +11,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/28/2017
+ms.date: 01/09/2018
 ms.author: nitinme
-ms.openlocfilehash: 754e65c4bcf8574a16b9620e2f21938ecc62b735
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 80934d3e5ded5c01e473f8450a3484d84c46e94e
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="service-to-service-authentication-with-data-lake-store-using-rest-api"></a>Autenticação serviço a serviço com o Data Lake Store usando a API REST
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.lasthandoff: 12/21/2017
 Neste artigo, você aprenderá como usar a API REST para fazer a autenticação serviço a serviço com o Azure Data Lake Store. Para a autenticação do usuário final com o Data Lake Store usando a API REST, consulte [Autenticação do usuário final com Data Lake Store usando a API REST](data-lake-store-end-user-authenticate-rest-api.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
+* **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 * **Criar um aplicativo "Web" do Azure Active Directory**. Você deve ter concluído as etapas em [Autenticação serviço a serviço com o Data Lake Store usando o Azure Active Directory](data-lake-store-service-to-service-authenticate-using-active-directory.md).
 
@@ -55,5 +55,4 @@ Neste artigo, você aprendeu a usar a autenticação serviço a serviço para au
 
 * [Operações de gerenciamento de contas no Data Lake Store usando a API REST](data-lake-store-get-started-rest-api.md)
 * [Operações de dados no Data Lake Store usando a API REST](data-lake-store-data-operations-rest-api.md)
-
 

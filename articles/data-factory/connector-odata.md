@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: jingwang
-ms.openlocfilehash: d26adec8c273d015a671c745f2136fc6251fd291
-ms.sourcegitcommit: 6a6e14fdd9388333d3ededc02b1fb2fb3f8d56e5
+ms.openlocfilehash: 6a3941efcc7d9cebe49024fa7aa792cf12e9937d
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-odata-source-using-azure-data-factory"></a>Copiar dados de uma fonte OData usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -39,7 +39,8 @@ Especificamente, este conector OData dá suporte:
 - À cópia de dados usando as seguintes autenticações: **Anônima**, **Básica** e **Windows**.
 
 ## <a name="getting-started"></a>Introdução
-Você pode criar um pipeline com atividade de cópia usando o SDK do .NET, o SDK do Python, o Azure PowerShell, a API REST ou o modelo do Azure Resource Manager. Confira o [Tutorial de atividade de cópia](quickstart-create-data-factory-dot-net.md) para obter instruções passo a passo sobre a criação de um pipeline com uma atividade de cópia.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 As seções a seguir fornecem detalhes sobre as propriedades usadas para definir entidades do Data Factory específicas ao conector OData.
 
@@ -47,14 +48,14 @@ As seções a seguir fornecem detalhes sobre as propriedades usadas para definir
 
 As propriedades a seguir têm suporte para o serviço vinculado do OData:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade de tipo deve ser definida como: **OData** |Sim |
+| Tipo | A propriedade de tipo deve ser definida como: **OData** |Sim |
 | url | URL raiz do serviço OData. |Sim |
 | authenticationType | Tipo de autenticação usada para se conectar ao armazenamento de dados OData.<br/>Os valores permitidos são: **Anônima**, **Básica** e **Windows**. Observe que não há suporte para OAuth. | Sim |
-| userName | Especifique o nome de usuário se você estiver usando a autenticação Basic ou Windows. | Não |
-| Senha | Especifique a senha da conta de usuário que você especificou para userName. Marque esse campo como SecureString. | Não |
-| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime do Azure ou o Integration Runtime auto-hospedado (se o armazenamento de dados estiver localizado em uma rede privada). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não |
+| userName | Especifique o nome de usuário se você estiver usando a autenticação Basic ou Windows. | Não  |
+| Senha | Especifique a senha da conta de usuário que você especificou para userName. Marque esse campo como SecureString. | Não  |
+| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Você pode usar o Integration Runtime do Azure ou o Integration Runtime auto-hospedado (se o armazenamento de dados estiver localizado em uma rede privada). Se não for especificado, ele usa o Integration Runtime padrão do Azure. |Não  |
 
 **Exemplo 1: usando a autenticação Anônima**
 
@@ -129,10 +130,10 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados do OData, defina a propriedade type do conjunto de dados como **ODataResource**. Há suporte para as seguintes propriedades:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type do conjunto de dados deve ser definida como: **ODataResource** | Sim |
-| path | Caminho para o recurso OData. | Não |
+| Tipo | A propriedade type do conjunto de dados deve ser definida como: **ODataResource** | Sim |
+| caminho | Caminho para o recurso OData. | Não  |
 
 **Exemplo**
 
@@ -162,10 +163,10 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados do OData, defina o tipo de origem na atividade de cópia como **RelationalSource**. As propriedades a seguir têm suporte na seção **source** da atividade de cópia:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type da fonte da atividade de cópia deve ser definida como: **RelationalSource** | Sim |
-| query | Opções de consulta OData para filtrar os dados. Exemplo: "?$select=Name,Description&$top=5".<br/><br/>Observe ainda que o conector do OData copia os dados da URL combinada: `[url specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Consulte [Componentes de URL do OData](http://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Não |
+| Tipo | A propriedade type da fonte da atividade de cópia deve ser definida como: **RelationalSource** | Sim |
+| query | Opções de consulta OData para filtrar os dados. Exemplo: "?$select=Name,Description&$top=5".<br/><br/>Observe ainda que o conector do OData copia os dados da URL combinada: `[url specified in linked service]/[path specified in dataset][query specified in copy activity source]`. Consulte [Componentes de URL do OData](http://www.odata.org/documentation/odata-version-3-0/url-conventions/). | Não  |
 
 **Exemplo:**
 
@@ -208,7 +209,7 @@ Ao copiar dados do OData, os seguintes mapeamentos são usados de tipos de dados
 | Edm.Binary | Byte[] |
 | Edm.Boolean | Bool |
 | Edm.Byte | Byte[] |
-| Edm.DateTime | DateTime |
+| Edm.DateTime | Datetime |
 | Edm.Decimal | Decimal |
 | Edm.Double | Duplo |
 | Edm.Single | Single |
@@ -218,8 +219,8 @@ Ao copiar dados do OData, os seguintes mapeamentos são usados de tipos de dados
 | Edm.Int64 | Int64 |
 | Edm.SByte | Int16 |
 | Edm.String | Cadeia de caracteres |
-| Edm.Time | TimeSpan |
-| Edm.DateTimeOffset | Datetimeoffset |
+| Edm.Time | timespan |
+| Edm.DateTimeOffset | DateTimeOffset |
 
 > [!Note]
 > Os tipos de dados complexos do OData (como Objeto) não tem suporte.

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: jingwang
-ms.openlocfilehash: ad3bc7ba38f5ea20586031bdcc3ae44f03f9da0b
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: e580c3f36ce19679d3edcf7a8861e4e492dfa9c5
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>Copiar dados do SAP Cloud for Customer (C4C) usando o Azure Data Factory
 
@@ -34,7 +34,7 @@ Especificamente, este conector permite que o Azure Data Factory copie dados de/p
 
 ## <a name="getting-started"></a>Introdução
 
-Você pode criar um pipeline com atividade de cópia usando o SDK do .NET, o SDK do Python, o Azure PowerShell, a API REST ou o modelo do Azure Resource Manager. Confira o [Tutorial de atividade de cópia](quickstart-create-data-factory-dot-net.md) para obter instruções passo a passo sobre a criação de um pipeline com uma atividade de cópia.
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 As seções a seguir fornecem detalhes sobre propriedades usadas para definir entidades de Data Factory específicas do conector do SAP Cloud for Customer.
 
@@ -42,9 +42,9 @@ As seções a seguir fornecem detalhes sobre propriedades usadas para definir en
 
 As propriedades a seguir são compatíveis com o serviço vinculado SAP Cloud for Customer:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type deve ser definida como: **SapCloudForCustomer**. | Sim |
+| Tipo | A propriedade type deve ser definida como: **SapCloudForCustomer**. | Sim |
 | url | A URL do serviço SAP C4C OData. | Sim |
 | Nome de Usuário | Especifique o nome de usuário para se conectar ao SAP C4C. | Sim |
 | Senha | Especifique a senha da conta de usuário que você especificou para o nome de usuário. Marque esse campo como uma SecureString. | Sim |
@@ -82,10 +82,10 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados do SAP Cloud for Customer, defina a propriedade type do conjunto de dados como **SapCloudForCustomerResource**. Há suporte para as seguintes propriedades:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type do conjunto de dados deve ser definida como: **SapCloudForCustomerResource** |Sim |
-| path | Especifique o caminho da entidade SAP C4C OData. |Sim |
+| Tipo | A propriedade type do conjunto de dados deve ser definida como: **SapCloudForCustomerResource** |Sim |
+| caminho | Especifique o caminho da entidade SAP C4C OData. |Sim |
 
 **Exemplo:**
 
@@ -113,10 +113,10 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados do SAP Cloud for Customer, defina o tipo de origem na atividade de cópia como **SapCloudForCustomerSource**. As propriedades a seguir têm suporte na seção **source** da atividade de cópia:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type deve ser definida como: **SapCloudForCustomerSource**  | Sim |
-| query | Especifique a consulta OData personalizada para ler dados. | Não |
+| Tipo | A propriedade type deve ser definida como: **SapCloudForCustomerSource**  | Sim |
+| query | Especifique a consulta OData personalizada para ler dados. | Não  |
 
 Consulta de exemplo para obter dados de um dia específico:`"query": "$filter=CreatedOn ge datetimeoffset'2017-07-31T10:02:06.4202620Z' and CreatedOn le datetimeoffset'2017-08-01T10:02:06.4202620Z'"`
 
@@ -156,11 +156,11 @@ Consulta de exemplo para obter dados de um dia específico:`"query": "$filter=Cr
 
 Para copiar dados do SAP Cloud for Customer, defina o tipo de coletor na atividade de cópia como **SapCloudForCustomerSource**. As propriedades a seguir têm suporte na seção **sink** da atividade de cópia:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type deve ser definida como: **SapCloudForCustomerSink**  | Sim |
-| writeBehavior | O comportamento da operação de gravação. Pode ser “Inserir”, “Atualizar”. | Não. Padrão “Inserir”. |
-| writeBatchSize | O tamanho do lote da operação de gravação. O tamanho do lote para obter o melhor desempenho pode ser diferente da tabela ou do servidor diferente. | Não. Padrão 10. |
+| Tipo | A propriedade type deve ser definida como: **SapCloudForCustomerSink**  | Sim |
+| writeBehavior | O comportamento da operação de gravação. Pode ser “Inserir”, “Atualizar”. | Nº Padrão “Inserir”. |
+| writeBatchSize | O tamanho do lote da operação de gravação. O tamanho do lote para obter o melhor desempenho pode ser diferente da tabela ou do servidor diferente. | Nº Padrão 10. |
 
 **Exemplo:**
 
@@ -210,7 +210,7 @@ Durante a cópia de dados do SAP Cloud for Customer, os mapeamentos a seguir sã
 | Edm.Binary | Byte[] |
 | Edm.Boolean | Bool |
 | Edm.Byte | Byte[] |
-| Edm.DateTime | DateTime |
+| Edm.DateTime | Datetime |
 | Edm.Decimal | Decimal |
 | Edm.Double | Duplo |
 | Edm.Single | Single |
@@ -220,8 +220,8 @@ Durante a cópia de dados do SAP Cloud for Customer, os mapeamentos a seguir sã
 | Edm.Int64 | Int64 |
 | Edm.SByte | Int16 |
 | Edm.String | Cadeia de caracteres |
-| Edm.Time | TimeSpan |
-| Edm.DateTimeOffset | Datetimeoffset |
+| Edm.Time | timespan |
+| Edm.DateTimeOffset | DateTimeOffset |
 
 
 ## <a name="next-steps"></a>Próximas etapas

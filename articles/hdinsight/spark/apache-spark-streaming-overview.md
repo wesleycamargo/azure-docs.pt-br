@@ -14,13 +14,13 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2017
-ms.author: nitinme
-ms.openlocfilehash: 4699673255706a69d597ce28b47ab05a5f8eb957
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.date: 01/09/2018
+ms.author: maxluk
+ms.openlocfilehash: 6a57576704d1814d08514dc436070cab07f12b39
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="overview-of-spark-streaming"></a>Visão geral do Spark Streaming
 
@@ -138,7 +138,7 @@ Em seguida, é possível consultar o DataFrame periodicamente para ver o conjunt
 
 A saída resultante é semelhante a:
 
-| valor | tempo real |
+| value | tempo real |
 | --- | --- |
 |10 | 1497314465256 |
 |11 | 1497314470272 |
@@ -183,7 +183,7 @@ No exemplo a seguir, o código que usa o DummySource foi atualizado para coletar
 
 Após o primeiro minuto, isso gerará 12 entradas – seis entradas de cada um dos dois lotes coletados na janela.
 
-| valor | tempo real |
+| value | tempo real |
 | --- | --- |
 | 1 | 1497316294139 |
 | 2 | 1497316299158

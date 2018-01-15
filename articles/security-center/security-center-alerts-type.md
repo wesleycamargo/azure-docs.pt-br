@@ -12,13 +12,13 @@ ms.topic: hero-article
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/19/2017
+ms.date: 01/04/2018
 ms.author: yurid
-ms.openlocfilehash: f4614ac55cde26e921edfe41160e2766aef6bb2c
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: b304ce8c60aefc417993574a0baa43cfc2298d66
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="understanding-security-alerts-in-azure-security-center"></a>Noções básicas de alertas de segurança na Central de Segurança do Azure
 Este artigo ajuda você a compreender os diferentes tipos de alertas de segurança e as informações relacionadas disponíveis na Central de Segurança do Azure. Para saber mais sobre como gerenciar os alertas e os incidentes, confira [Gerenciar e responder aos alertas de segurança na Central de Segurança do Azure](security-center-managing-and-responding-alerts.md).
@@ -144,7 +144,6 @@ A Central de Segurança usa análises avançadas para identificar recursos compr
 * **Credenciais de documento suspeitas**: esse alerta indica que um hash de senha comum e pré-calculado suspeito e usado por malware está sendo usado para executar um arquivo.
 * **Criação dinâmica de script do PS**: esse alerta indica um script do PowerShell que está sendo construído dinamicamente. Os invasores usam essa técnica para compilar um script progressivamente para fugir de sistemas IDS.
 * **Indicadores de Metasploit**: esse alerta indica atividades associadas com a estrutura Metasploit, que fornece uma variedade de ferramentas e recursos ao invasor.
-* **Violação do SENSE**: esse alerta indica uma tentativa de desabilitar o SENSE, o serviço de monitoramento de segurança do Windows Defender ATP.
 * **Atividade suspeita da conta**: esse alerta indica uma tentativa de se conectar a um computador usando uma conta que foi comprometida recentemente.
 * **Acesso possivelmente suspeito a tarefas de agendamento**: esse alerta indica que um trabalho cron foi executado, o que pode ser usado por invasores para executar programas mal-intencionados de forma programada.
 * **Acesso possivelmente suspeito a arquivos de histórico de comando**: esse alerta indica acesso anormal ao arquivo de histórico de comandos.
@@ -189,7 +188,7 @@ A detecção de ameaças da rede da Central de Segurança funciona coletando aut
 
 A análise de recursos da Central de Segurança concentra-se em serviços PaaS (plataforma como serviço), como a integração com o recurso [Detecção de ameaças do Banco de Dados SQL do Azure](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection). Com base nos resultados da análise dessas áreas, a Central de Segurança dispara um alerta relacionado aos recursos.
 
-* **Potencial injeção de SQL**: a injeção de SQL é um ataque em que o código mal-intencionado é inserido em cadeias de caracteres, passadas posteriormente para uma instância do SQL Server para análise e execução. Qualquer procedimento que constrói instruções SQL deve ser revisado em busca de vulnerabilidades de injeção, pois o SQL Server executa todas as consultas sintaticamente válidas que recebe. A Detecção de Ameaças SQL usa o aprendizado de máquina, análise de comportamento e detecção de anomalias para determinar os eventos suspeitos que podem estar ocorrendo em seus Bancos de Dados SQL do Azure. Por exemplo: 
+* **Potencial injeção de SQL**: a injeção de SQL é um ataque em que o código mal-intencionado é inserido em cadeias de caracteres, passadas posteriormente para uma instância do SQL Server para análise e execução. Qualquer procedimento que constrói instruções SQL deve ser revisado em busca de vulnerabilidades de injeção, pois o SQL Server executa todas as consultas sintaticamente válidas que recebe. A Detecção de Ameaças SQL usa o aprendizado de máquina, análise de comportamento e detecção de anomalias para determinar os eventos suspeitos que podem estar ocorrendo em seus Bancos de Dados SQL do Azure. Por exemplo:  
     * Tentativa de acesso do banco de dados por um antigo funcionário
     * Ataques de injeção de SQL
     * Acesso incomum e um banco de dados de produção de um usuário em casa

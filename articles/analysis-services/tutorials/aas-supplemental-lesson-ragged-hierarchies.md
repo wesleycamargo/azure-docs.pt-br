@@ -13,17 +13,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 10/16/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 89a0f388815b3a0e2a6e020690f9a644e73bbcad
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: c5c4a687ffe512b15372d152b517834771e46328
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="supplemental-lesson---ragged-hierarchies"></a>Lição suplementar – hierarquias desbalanceadas
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
 Nesta lição suplementar, você resolver um problema comum ao dinamizar hierarquias que contêm valores em branco (membros) em diferentes níveis. Por exemplo, uma organização em que um gerente de alto nível tem tanto gerentes departamentais quanto não gerentes como subordinados diretos. Ou então, hierarquias geográficas compostas por país-região-cidade, em que algumas cidades não têm um estado ou província pai, por exemplo, Washington D.C. e Cidade do Vaticano. Quando uma hierarquia tem membros em branco, ela geralmente desce a níveis diferentes ou desbalanceados.
 
@@ -53,8 +51,8 @@ Se você criou o projeto de vendas pela Internet da AW como parte do tutorial, o
     | Tabela 1           | Coluna       | Direção do Filtro   | Tabela 2     | Coluna      | Ativo |
     |-------------------|--------------|--------------------|-------------|-------------|--------|
     | FactResellerSales | OrderDateKey | Padrão            | DimDate     | Data        | Sim    |
-    | FactResellerSales | DueDate      | Padrão            | DimDate     | Data        | Não     |
-    | FactResellerSales | ShipDateKey  | Padrão            | DimDate     | Data        | Não     |
+    | FactResellerSales | DueDate      | Padrão            | DimDate     | Data        | Não      |
+    | FactResellerSales | ShipDateKey  | Padrão            | DimDate     | Data        | Não      |
     | FactResellerSales | ProductKey   | Padrão            | DimProduct  | ProductKey  | Sim    |
     | FactResellerSales | EmployeeKey  | Para Ambas as Tabelas | DimEmployee | EmployeeKey | Sim    |
 
@@ -125,7 +123,7 @@ Se você criou o projeto de vendas pela Internet da AW como parte do tutorial, o
 
     Agora isso tem uma aparência muito melhor!
 
-## <a name="see-also"></a>Consulte também   
+## <a name="see-also"></a>Veja também   
 [Lição 9: criar hierarquias](../tutorials/aas-lesson-9-create-hierarchies.md)  
 [Lição Suplementar – Segurança Dinâmica](../tutorials/aas-supplemental-lesson-dynamic-security.md)  
 [Lição suplementar – linhas de detalhes](../tutorials/aas-supplemental-lesson-detail-rows.md)  
