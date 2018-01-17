@@ -13,21 +13,16 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 09/04/2017
+ms.date: 01/05/2018
 ms.author: markgal;jimpark
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 954afd6d47f9bccdd2512ab92ba0d416231fb623
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 913cdd7906c5dc4ff48968230ce37c95fb441394
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vaults"></a>Fazer backup de máquinas virtuais do Azure em cofres dos Serviços de Recuperação
-> [!div class="op_single_selector"]
-> * [Proteger VMs em um cofre de serviços de recuperação](backup-azure-vms-first-look-arm.md)
-> * [Proteger VMs com um cofre de backup](backup-azure-vms-first-look.md)
->
->
 
 Este tutorial apresenta as etapas para criar um cofre de Serviços de Recuperação e fazer backup de uma VM (máquina virtual) do Azure. Os cofres dos Serviços de Recuperação protegem:
 
@@ -48,15 +43,13 @@ Para saber mais sobre o que você pode incluir no backup e o que não pode, cons
 >
 >
 
-[!INCLUDE [learn-about-Azure-Backup-deployment-models](../../includes/backup-deployment-models.md)]
-
 Dependendo do número de máquinas virtuais que você deseja proteger, é possível começar de diferentes pontos de partida. Se você quiser fazer backup de várias máquinas virtuais em uma única operação, acesse o Cofre de Serviços de Recuperação e [inicie o trabalho de backup no painel do cofre](backup-azure-vms-first-look-arm.md#configure-the-backup-job-from-the-recovery-services-vault). Se quiser fazer backup de uma única máquina virtual, inicie o trabalho de backup na folha de gerenciamento da VM.
 
 ## <a name="configure-the-backup-job-from-the-vm-management-blade"></a>Configurar o trabalho de backup na folha de gerenciamento da VM
 
-Use as etapas a seguir para configurar o trabalho de backup na folha de gerenciamento da máquina virtual no Portal do Azure. Essas etapas não se aplicam às máquinas virtuais no portal clássico.
+Use as etapas a seguir para configurar o trabalho de backup na folha de gerenciamento da máquina virtual no Portal do Azure. As etapas a seguir se aplicam somente a máquinas virtuais no portal do Azure.
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 2. No menu do Hub, clique em **Mais Serviços** e, na caixa de diálogo Filtrar, digite **Máquinas virtuais**. A lista de recursos é filtrada enquanto você digita. Ao ver Máquinas virtuais, selecione-a.
 
   ![No menu do Hub, clique em Mais Serviços para abrir a caixa de diálogo de texto e digite Máquinas virtuais](./media/backup-azure-vms-first-look-arm/open-vm-from-hub.png)

@@ -16,11 +16,11 @@ ms.date: 12/12/2017
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 4f5275584d75c88ce3ef5b607f315f3b425d2c3f
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: e063e6a46b6b99c4bbe749347e6887a930adb882
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="how-to-associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Como associar ou adicionar uma assinatura do Azure ao Azure Active Directory
 
@@ -46,7 +46,7 @@ Todos os usuários têm um único diretório inicial que os autentica, mas eles 
 
     ![Captura de tela mostrando interface de usuário de alteração do diretório](./media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.PNG)
 5. Clique em **Alterar**.
-6. Sucesso! Use o seletor de diretório para ir até o novo diretório.
+6. Sucesso! Use o seletor de diretório para ir até o novo diretório. Pode levar até 10 minutos para que tudo seja mostrado corretamente.
 
     ![Captura de tela mostrando a notificação de êxito de alteração do diretório](./media/active-directory-how-subscriptions-associated-directory/edit-directory-success.PNG)
 
@@ -59,7 +59,7 @@ A alteração do diretório da assinatura é uma operação de nível de serviç
 
 * Para saber mais sobre como criar um novo diretório gratuito do Azure AD, consulte [Como obter um locatário do Azure Active Directory](develop/active-directory-howto-tenant.md)
 * Para saber mais sobre como transferir a propriedade da cobrança, confira [Transferir a propriedade de uma assinatura do Azure para outra conta](../billing/billing-subscription-transfer.md)
-* Para saber mais sobre como o acesso aos recursos é controlado no Microsoft Azure, confira [Noções básicas sobre o acesso aos recursos do Azure](active-directory-understanding-resource-access.md)
+* Para saber mais sobre como o acesso aos recursos é controlado no Microsoft Azure, confira [Noções básicas sobre o acesso a recursos no Azure](active-directory-understanding-resource-access.md)
 * Para saber sobre como atribuir funções no AD do Azure, veja [Atribuindo funções de administrador no Active Directory do Azure](active-directory-assign-admin-roles-azure-portal.md)
 
 <!--Image references-->

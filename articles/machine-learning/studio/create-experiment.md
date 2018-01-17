@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 03/20/2017
 ms.author: garye
-ms.openlocfilehash: 4cc8e78e3ce22d70546d8a25da17b56f4b7cc166
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 11496f0ca225baf0e6647a62aae09b8992f825c8
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="machine-learning-tutorial-create-your-first-data-science-experiment-in-azure-machine-learning-studio"></a>Tutorial de aprendizado de máquina: Crie sua primeira experiência no Azure Machine Learning Studio
 
@@ -81,7 +81,7 @@ Neste tutorial de machine learning, você seguirá cinco etapas básicas para cr
 [Etapa 5: Prever novos preços de automóveis]: #step-5-predict-new-automobile-prices
 
 > [!TIP] 
-> Você pode encontrar uma cópia funcional do seguinte experimento na [Galeria do Cortana Intelligence](https://gallery.cortanaintelligence.com). Vá para **[Seu primeiro experimento de ciência de dados – previsão de preço de automóvel](https://gallery.cortanaintelligence.com/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** e clique em **Abrir no Studio** para baixar uma cópia do experimento no seu espaço de trabalho do Machine Learning Studio.
+> Você pode encontrar uma cópia funcional do seguinte experimento na [Galeria de IA do Azure](https://gallery.cortanaintelligence.com). Vá para **[Seu primeiro experimento de ciência de dados – previsão de preço de automóvel](https://gallery.cortanaintelligence.com/Experiment/Your-first-data-science-experiment-Automobile-price-prediction-1)** e clique em **Abrir no Studio** para baixar uma cópia do experimento no seu espaço de trabalho do Machine Learning Studio.
 
 
 ## <a name="step-1-get-data"></a>Etapa 1: Obter dados
@@ -327,7 +327,7 @@ O experimento final deve se parecer como o seguinte:
 Agora que concluiu o primeiro tutorial de machine learning e seu experimento foi configurado, você pode continuar a melhorar o modelo e, em seguida, implantá-lo como um serviço Web de previsão.
 
 - **Iterar para tentar melhorar o modelo** – Por exemplo, você pode alterar os recursos usados em sua previsão. Ou é possível modificar as propriedades do algoritmo [Regressão Linear][linear-regression] ou tentar um algoritmo diferente. Ainda é possível adicionar vários algoritmos de Machine Learning à sua experiência de aprendizagem e comparar dois usando o módulo [Avaliar modelo][evaluate-model].
-Para obter um exemplo de como comparar vários modelos em um único experimento, consulte [Comparar Regressores](https://gallery.cortanaintelligence.com/Experiment/Compare-Regressors-5) na [Galeria do Cortana Intelligence](https://gallery.cortanaintelligence.com).
+Para obter um exemplo de como comparar vários modelos em um único experimento, veja [Comparar Regressores](https://gallery.cortanaintelligence.com/Experiment/Compare-Regressors-5) na [Galeria de IA do Azure](https://gallery.cortanaintelligence.com).
 
     > [!TIP]
     > Para copiar qualquer iteração do experimento, use o botão **SALVAR COMO** na parte inferior da página. Você pode ver todas as iterações do experimento clicando em **EXIBIR HISTÓRICO DE EXECUÇÃO** na parte inferior da página. Para obter mais detalhes, consulte [Gerenciar iterações do experimento no Azure Machine Learning Studio][runhistory].

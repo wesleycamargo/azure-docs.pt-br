@@ -2,7 +2,7 @@
 
 Para permitir que o Mobile Engagement envie notificações por push em seu nome, é preciso conceder acesso à sua chave de API. Isso é feito configurando e inserindo sua chave no portal do Mobile Engagement.
 
-1. No Portal Clássico do Azure, verifique se você está no aplicativo que estamos usando para este projeto e clique no botão **Acionar** na parte inferior:
+1. No portal do Azure, verifique se você está no aplicativo que estamos usando para este projeto e clique no botão **Acionar** na parte inferior:
 
     ![](./media/mobile-engagement-create-app-in-portal-new/engage-button.png)
 

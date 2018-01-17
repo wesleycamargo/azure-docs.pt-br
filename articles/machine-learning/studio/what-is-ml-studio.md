@@ -1,7 +1,7 @@
 ---
 title: "O que é o Azure Machine Learning Studio? | Microsoft Docs"
-description: "Visão geral do Estúdio AM do Azure, uma ferramenta do tipo \"arrastar e soltar\" para criar rapidamente modelos em de uma biblioteca de algoritmos e módulos pronta para uso."
-keywords: "aprendizado de máquina do azure, am do azure, estúdio am"
+description: "Visão geral do Azure ML Studio, uma ferramenta do tipo \"arrastar e soltar\" para criar rapidamente modelos em de uma biblioteca de algoritmos e módulos pronta para uso."
+keywords: "aprendizado de máquina do azure, azure ml, ml studio"
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 03/20/2017
 ms.author: garye
-ms.openlocfilehash: 923bf1163e4d27e8c453fc2fcd58ebb80222bd6a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a96e80fa3ece14c40159c6937a0e34c1ebc634ff
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>O que é o Azure Machine Learning Studio?
 O Microsoft Azure Machine Learning Studio é uma ferramenta colaborativa do tipo "arrastar e soltar", que você pode usar para criar, testar e implantar soluções de análise preditiva em seus dados. O Machine Learning Studio publica modelos como serviços Web que podem ser facilmente consumidos por aplicativos personalizados ou ferramentas de BI como o Excel.
@@ -40,7 +40,7 @@ Não há necessidade de programação, basta conectar visualmente os conjuntos d
 > 
 > 
 
-![Diagrama do Estúdio AM do Azure: criar testes, ler dados de várias fontes, gravar dados de pontuação, escrever modelos.][ml-studio-overview]
+![Diagrama do Azure ML Studio: criar testes, ler dados de várias fontes, gravar dados de pontuação, escrever modelos.][ml-studio-overview]
 
 ## <a name="get-started-with-machine-learning-studio"></a>Introdução ao Machine Learning Studio
 Ao entrar pela primeira vez no [Machine Learning Studio,](https://studio.azureml.net) você verá a página **Inicial** . Aqui você pode exibir a documentação, vídeos, seminários na Web e obter outros recursos valiosos.
@@ -64,9 +64,9 @@ Clique em **Studio** e você será levado para o **Azure Machine Learning Studio
 * **CONFIGURAÇÕES** – Uma coleção das configurações que você pode usar para configurar sua conta e recursos.
 
 ### <a name="gallery"></a>Galeria
-Clique em **Gallery** e você será levado para a **[Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/)**. A Galeria é um lugar no qual uma comunidade de desenvolvedores e cientistas de dados podem compartilhar soluções criadas usando os componentes do Cortana Intelligence Suite.
+Clique em **Galeria** e você será levado para a **[Galeria de IA do Azure](http://gallery.cortanaintelligence.com/)**. A Galeria é um lugar no qual uma comunidade de desenvolvedores e cientistas de dados podem compartilhar soluções criadas usando os componentes do Cortana Intelligence Suite.
 
-Para saber mais sobre a Galeria, consulte as [Soluções de compartilhamento e descoberta na Galeria do Cortana Intelligence](gallery-how-to-use-contribute-publish.md).
+Para saber mais sobre a Galeria, veja as [Soluções de compartilhamento e descoberta na Galeria de IA do Azure](gallery-how-to-use-contribute-publish.md).
 
 ## <a name="components-of-an-experiment"></a>Componentes de um teste
 Um teste consiste em conjuntos de dados que fornecem dados para módulos analíticos, os quais você conecta para construir um modelo de análise preditiva. Especificamente, um teste válido possui três características:
@@ -83,7 +83,7 @@ Para obter um exemplo de criação de um teste simples, consulte [Criar um teste
 
 Para obter uma explicação mais completa da criação de uma solução de análise preditiva, consulte [Desenvolver uma solução preditiva com o Azure Machine Learning](walkthrough-develop-predictive-solution.md).
 
-### <a name="datasets"></a>CONJUNTOS DE DADOS
+### <a name="datasets"></a>Conjunto de dados
 Um conjunto de dados inclui dados que foram atualizados no Machine Learning Studio, de forma que possam ser usados no processo de modelagem. Alguns conjuntos de dados de amostra estão incluídos no Machine Learning Studio, com os quais você pode testar, além de ser possível também carregar mais conjuntos de dados, caso necessário. Aqui estão alguns exemplos dos conjuntos de dados incluídos:
 
 * **Dados MPG para vários automóveis** – valores MPG (milhas por galão) para automóveis identificados por número de cilindros, cavalo-vapor, etc.

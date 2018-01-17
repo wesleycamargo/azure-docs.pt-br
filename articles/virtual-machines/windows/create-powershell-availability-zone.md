@@ -16,11 +16,11 @@ ms.workload: infrastructure
 ms.date: 09/19/2017
 ms.author: danlep
 ms.custom: 
-ms.openlocfilehash: e86fcb4dbf170e5bc07553165e09d6fc3d3cf283
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ada47536dbd736386a4efc76249f4ff3a1cfd527
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-a-windows-virtual-machine-in-an-availability-zone-with-powershell"></a>Crie uma máquina virtual do Windows em uma zona de Disponibilidade com o PowerShell
 
@@ -37,6 +37,34 @@ Faça logon na sua assinatura do Azure com o comando `Login-AzureRmAccount` e si
 ```powershell
 Login-AzureRmAccount
 ```
+
+## <a name="check-vm-sku-availability"></a>Verificar a disponibilidade do SKU de VM
+A disponibilidade de tamanhos de VM, ou de SKUs, pode variar por região e por zona. Para ajudá-lo a planejar o uso de Zonas de Disponibilidade, você poderá listar os SKUs de VM disponíveis por região e zona do Azure. Essa capacidade garante que você escolha um tamanho adequado de VM e obtenha a resiliência desejada entre as zonas. Para saber mais sobre os diferentes tipos e tamanhos de VM, confira [Visão geral de tamanhos de VM](sizes.md).
+
+Você pode exibir os SKUs de VM disponíveis com o comando [Get-AzureRmComputeResourceSku](/powershell/module/azurerm.compute/get-azurermcomputeresourcesku). O exemplo a seguir lista os SKUs de VM disponíveis na região *eastus2*:
+
+```powershell
+Get-AzureRmComputeResourceSku | where {$_.Locations.Contains("eastus2")};
+```
+
+A saída é semelhante ao exemplo condensado a seguir, que mostra as Zonas de Disponibilidade nas quais cada tamanho de VM está disponível:
+
+```powershell
+ResourceType                Name  Location      Zones
+------------                ----  --------      -----
+virtualMachines  Standard_DS1_v2   eastus2  {1, 2, 3}
+virtualMachines  Standard_DS2_v2   eastus2  {1, 2, 3}
+[...]
+virtualMachines     Standard_F1s   eastus2  {1, 2, 3}
+virtualMachines     Standard_F2s   eastus2  {1, 2, 3}
+[...]
+virtualMachines  Standard_D2s_v3   eastus2  {1, 2, 3}
+virtualMachines  Standard_D4s_v3   eastus2  {1, 2, 3}
+[...]
+virtualMachines   Standard_E2_v3   eastus2  {1, 2, 3}
+virtualMachines   Standard_E4_v3   eastus2  {1, 2, 3}
+```
+
 
 ## <a name="create-resource-group"></a>Criar grupo de recursos
 

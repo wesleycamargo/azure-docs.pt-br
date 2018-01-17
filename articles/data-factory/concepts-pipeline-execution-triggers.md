@@ -11,28 +11,28 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/10/2017
+ms.date: 01/03/2018
 ms.author: shlo
-ms.openlocfilehash: c472cf080f8138ec6d0210f3ca4a8b3f3c33e7ae
-ms.sourcegitcommit: 4ac89872f4c86c612a71eb7ec30b755e7df89722
+ms.openlocfilehash: 88ae5dfbf6246ecf92d6528ad3d9a8e5fb57e4b0
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Gatilhos e execução de pipeline no Azure Data Factory 
+# <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Gatilhos e execução de pipeline no Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Versão 1 – já disponível](v1/data-factory-scheduling-and-execution.md)
 > * [Versão 2 – Versão prévia](concepts-pipeline-execution-triggers.md)
 
-Uma **execução de pipeline** é um termo no Azure Data Factory Versão 2 que define uma instância de uma execução de pipeline. Por exemplo, digamos que você tem um pipeline que é executado às 8h, 9h e 10h. Haveria três execuções de pipeline separadas nesse caso. Cada execução de pipeline tem uma ID de execução de pipeline exclusiva, que é um GUID que define exclusivamente essa execução do pipeline específica. As execuções de pipeline normalmente são instanciadas por meio da passagem de argumentos para parâmetros definidos nos pipelines. Há duas maneiras de executar um pipeline: **manualmente** ou por meio de um **gatilho**. Este artigo fornece detalhes sobre as duas as maneiras de executar um pipeline. 
+Uma **execução de pipeline** é um termo no Azure Data Factory Versão 2 que define uma instância de uma execução de pipeline. Por exemplo, digamos que você tem um pipeline que é executado às 8h, 9h e 10h. Haveria três execuções de pipeline separadas nesse caso. Cada execução de pipeline tem uma ID de execução de pipeline exclusiva, que é um GUID que define exclusivamente essa execução do pipeline específica. As execuções de pipeline normalmente são instanciadas por meio da passagem de argumentos para parâmetros definidos nos pipelines. Há duas maneiras de executar um pipeline: **manualmente** ou por meio de um **gatilho**. Este artigo fornece detalhes sobre as duas as maneiras de executar um pipeline.
 
 > [!NOTE]
 > Este artigo aplica-se à versão 2 do Data Factory, que está atualmente em versão prévia. Se você estiver usando a versão 1 do serviço Data Factory, que está em GA (disponível ao público em geral), consulte [agendamento e execução no Data Factory V1](v1/data-factory-scheduling-and-execution.md).
 
 ## <a name="run-pipeline-on-demand"></a>Executar o pipeline sob demanda
-Nesse método, você executa o pipeline manualmente. Ele também é considerado como uma execução de um pipeline sob demanda. 
+Nesse método, você executa o pipeline manualmente. Ele também é considerado como uma execução de um pipeline sob demanda.
 
-Por exemplo, digamos que você tem um pipeline denominado **copyPipeline** que você deseja executar. Trata-se de um pipeline simples com uma única atividade que copia de uma pasta de origem no Armazenamento de Blobs do Azure para uma pasta de destino no mesmo armazenamento. Aqui está a definição do pipeline de exemplo: 
+Por exemplo, digamos que você tem um pipeline denominado **copyPipeline** que você deseja executar. Trata-se de um pipeline simples com uma única atividade que copia de uma pasta de origem no Armazenamento de Blobs do Azure para uma pasta de destino no mesmo armazenamento. Aqui está a definição do pipeline de exemplo:
 
 ```json
 {
@@ -76,9 +76,9 @@ Por exemplo, digamos que você tem um pipeline denominado **copyPipeline** que v
 }
 
 ```
-O pipeline usa dois parâmetros: sourceBlobContainer e sinkBlobContainer, conforme mostrado na definição JSON. Você passa valores para esses parâmetros em tempo de execução. 
+O pipeline usa dois parâmetros: sourceBlobContainer e sinkBlobContainer, conforme mostrado na definição JSON. Você passa valores para esses parâmetros em tempo de execução.
 
-Para executar o pipeline manualmente, você pode usar uma das seguintes maneiras: .NET, REST, PowerShell e Python. 
+Para executar o pipeline manualmente, você pode usar uma das seguintes maneiras: .NET, REST, PowerShell e Python.
 
 ### <a name="rest-api"></a>API REST
 Aqui está uma amostra de comando REST:  
@@ -90,7 +90,7 @@ https://management.azure.com/subscriptions/mySubId/resourceGroups/myResourceGrou
 Consulte [Guia de início rápido: criar um data factory usando a API REST](quickstart-create-data-factory-rest-api.md) para obter uma amostra completa.
 
 ### <a name="powershell"></a>PowerShell
-Aqui está uma amostra de comando do PowerShell: 
+Aqui está uma amostra de comando do PowerShell:
 
 ```powershell
 Invoke-AzureRmDataFactoryV2Pipeline -DataFactory $df -PipelineName "Adfv2QuickStartPipeline" -ParameterFile .\PipelineParameters.json
@@ -116,8 +116,8 @@ O conteúdo da resposta é uma ID exclusiva do pipeline de execução:
 
 Consulte [Guia de início rápido: criar um data factory usando o PowerShell](quickstart-create-data-factory-powershell.md) para obter uma amostra completa.
 
-### <a name="net"></a>.NET 
-Aqui está uma amostra de chamada .NET: 
+### <a name="net"></a>.NET
+Aqui está uma amostra de chamada .NET:
 
 ```csharp
 client.Pipelines.CreateRunWithHttpMessagesAsync(resourceGroup, dataFactoryName, pipelineName, parameters)
@@ -129,11 +129,11 @@ Consulte [Guia de início rápido: criar um data factory usando o .NET](quicksta
 > Você pode usar a API .NET para invocar os pipelines do Data Factory do Azure Functions, seus próprios serviços Web, etc.
 
 ## <a name="triggers"></a>Gatilhos
-Gatilhos fornecem a segunda maneira de realizar uma execução de pipeline. Os gatilhos representam uma unidade de processamento que determina quando uma execução de pipeline precisa ser inicializada. Atualmente, o Data Factory dá suporte a um gatilho que invoca um pipeline em um agendamento de relógio. Ele é chamado de **Gatilho do Agendador**. Atualmente, o Data Factory não dá suporte a gatilhos baseados em evento como um gatilho de uma execução de pipeline no evento de uma entrada de arquivo.
+Gatilhos fornecem a segunda maneira de realizar uma execução de pipeline. Os gatilhos representam uma unidade de processamento que determina quando uma execução de pipeline precisa ser inicializada. No momento, o Data Factory oferece suporte a dois tipos de gatilhos: 1)**Gatilho de agendador**, um gatilho que invoca um pipeline em um agendamento de relógio de parede 2)**Gatilho de janela em cascata**: para os gatilhos que operam em um intervalo periódico enquanto mantém o estado. Atualmente, o Data Factory não dá suporte a gatilhos baseados em evento como um gatilho de uma execução de pipeline no evento de uma entrada de arquivo.
 
 Pipelines e gatilhos têm uma relação de muitos para muitos. Vários gatilhos podem disparar um único pipeline ou um único gatilho pode disparar vários pipelines. Na seguinte definição JSON de um gatilho, a propriedade **pipelines** se refere a uma lista dos pipelines que são disparados pelo gatilho específico, bem como valores para parâmetros de pipeline.
 
-### <a name="basic-trigger-definition"></a>Definição básica do gatilho: 
+### <a name="basic-trigger-definition"></a>Definição básica do gatilho:
 ```json
     "properties": {
         "name": "MyTrigger",
@@ -159,8 +159,14 @@ Pipelines e gatilhos têm uma relação de muitos para muitos. Vários gatilhos 
     }
 ```
 
-## <a name="scheduler-trigger"></a>Gatilho de agendador
-O gatilho de agendador executa pipelines em um agendamento de relógio. Esse gatilho dá suporte a opções de calendário periódicas e avançadas (semanalmente, segunda-feira às 17h e quinta-feira às 21h). Ele é flexível, sendo independente de padrão de conjunto de dados, sem distinção entre dados de série temporal e dados de outros tipos.
+## <a name="schedule-trigger"></a>Gatilho de agendamento
+O gatilho de agendamento executa pipelines em um agendamento de relógio de parede. Esse gatilho dá suporte a opções de calendário periódicas e avançadas (semanalmente, segunda-feira às 17h e quinta-feira às 21h). Ele é flexível, sendo independente de padrão de conjunto de dados, sem distinção entre dados de série temporal e dados de outros tipos.
+
+Para obter informações mais específicas sobre os gatilhos de agendamento, bem como exemplos, veja [Como: criar um gatilho de agendamento](how-to-create-schedule-trigger.md)
+
+## <a name="tumbling-window-trigger"></a>Gatilho de janela em cascata
+Os gatilhos de janela em cascata são um tipo de gatilho acionado em um intervalo de tempo periódico a partir de uma hora de início especificada, enquanto mantém o estado. As janelas em cascata são uma série de intervalos de tempo de tamanho fixo, não sobrepostos e contíguos.
+Para obter informações mais específicas sobre gatilhos de janela em cascata e exemplos, veja [Como: criar um gatilho de janela em cascata](how-to-create-tumbling-window-trigger.md)
 
 ### <a name="scheduler-trigger-json-definition"></a>Definição JSON de gatilho de agendador
 Quando você cria um gatilho de agendador, você pode especificar o agendamento e a recorrência usando JSON, conforme mostrado no exemplo nesta seção. 
@@ -174,7 +180,7 @@ Para que o gatilho de agendador dispare uma execução de pipeline, inclua uma r
     "typeProperties": {
       "recurrence": {
         "frequency": <<Minute, Hour, Day, Week, Year>>,
-        "interval": <<int>>,             // optional, how often to fire (default to 1)
+        "interval": <<int>>,             // how often to fire
         "startTime": <<datetime>>,
         "endTime": <<datetime>>,
         "timeZone": "UTC"
@@ -218,7 +224,7 @@ Para que o gatilho de agendador dispare uma execução de pipeline, inclua uma r
 ### <a name="overview-scheduler-trigger-schema"></a>Visão geral: esquema de gatilho de agendador
 A tabela a seguir fornece uma visão geral de alto nível dos principais elementos relacionados a recorrência e planejamento em um gatilho:
 
-Propriedade JSON |     Descrição
+Propriedade JSON |     DESCRIÇÃO
 ------------- | -------------
 startTime | startTime é uma Data/Hora. Para agendamentos simples, startTime é a primeira ocorrência. Para agendamentos complexos, o gatilho não inicia antes de startTime.
 endTime | Especifica a data/hora de término para o gatilho. O gatilho não é executado após esse horário. Não é válido ter um endTime no passado.
@@ -228,6 +234,16 @@ frequência | Representa a unidade de frequência com que o gatilho se repete. O
 intervalo | O valor interval é um inteiro positivo. Ele denota o intervalo para a frequência que determina a periodicidade com que o gatilho é executado. Por exemplo, se interval for 3 e frequency for "week", o gatilho se repetirá a cada três semanas.
 schedule | Um gatilho com uma frequência especificada altera sua recorrência com base em um agendamento de recorrência. Um elemento schedule contém as modificações com base em minutos, em horas, em dias da semana, em dias do mês e em número da semana.
 
+
+## <a name="tumbling-window-trigger-vs-schedule-trigger"></a>Gatilho de janela em cascata versus gatilho de agendamento
+Como tanto o gatilho de janela em cascata quanto o gatilho de agendamento operam sobre pulsações de tempo, qual é a diferença entre eles?
+Para o gatilho de janela em cascata:
+* **Cenários de aterramento**: os gatilhos de janela em cascata são compatíveis com cenários de aterramento, sendo possível agendar execuções de janelas no passado. O gatilho de agendamento só pode ser executado em períodos de tempo do presente em diante.
+* **Confiabilidade:** os gatilhos de janela em cascata agendarão execuções de pipeline para todas as janelas desde uma data de início sem intervalos com confiabilidade de 100%.
+* **Repetição**: os gatilhos de janela em cascata têm a funcionalidade de repetição. As execuções de pipeline falhas têm o padrão de política de repetição como 0 ou um especificado pelo usuário como parte da definição do gatilho. Também repetirá automaticamente em instâncias quando as execuções falham devido a limites de simultaneidade/servidor/limitação, ou seja, isso inclui o código de status 400 (erro do usuário), 429 (há muitas solicitações), 500 (erro interno do servidor).
+* **Simultaneidade**: os gatilhos de janela em cascata permitem que os usuários definam explicitamente os limites de simultaneidade para o gatilho (1 a 50 execuções de pipeline disparadas simultâneas máximas)
+* **Variáveis de início da janela e de fim da janela**: para os gatilhos de janela em cascata, os usuários podem acessar triggerOutputs().windowStartTime e triggerOutputs().windowEndTime como variáveis de sistema de gatilho na definição do gatilho, que serão as horas de início e de fim da janela, respectivamente. Por exemplo, se você tiver um gatilho de janela em cascata em execução toda hora, para a janela 1h - 2h, o triggerOutputs().WindowStartTime = 2017-09-01T01:00:00Z e triggerOutputs().WindowEndTime = 2017-09-01T02:00:00Z.
+* **Relação entre o pipeline e o gatilho**: os gatilhos de agendamento têm uma relação de n:m com os pipelines. Um gatilho de agendamento pode disparar vários pipelines. Os gatilhos de janela em cascata têm uma relação de 1:1 com pipelines. Um gatilho de janela em cascata só pode disparar um pipeline.
 
 ### <a name="schedule-trigger-example"></a>Exemplo de gatilho de elemento schedule
 
@@ -269,9 +285,9 @@ Nome JSON | Tipo de valor | Obrigatório? | Valor padrão | Valores válidos | E
 --------- | ---------- | --------- | ------------- | ------------ | -------
 startTime | Cadeia de caracteres | Sim | Nenhum | Data e hora ISO 8601 | ```"startTime" : "2013-01-09T09:30:00-08:00"```
 recurrence | Objeto | Sim | Nenhum | Objeto de recorrência | ```"recurrence" : { "frequency" : "monthly", "interval" : 1 }```
-intervalo | Número | Não | 1 | 1 a 1000. | ```"interval":10```
+intervalo | Número | Sim | Nenhum | 1 a 1000. | ```"interval":10```
 endTime | Cadeia de caracteres | Sim | Nenhum | Valor de data e hora que representa um momento no futuro | `"endTime" : "2013-02-09T09:30:00-08:00"`
-schedule | Objeto | Não | Nenhum | Objeto Agendamento | `"schedule" : { "minute" : [30], "hour" : [8,17] }`
+schedule | Objeto | Não  | Nenhum | Objeto Agendamento | `"schedule" : { "minute" : [30], "hour" : [8,17] }`
 
 ### <a name="deep-dive-starttime"></a>Análise aprofundada: startTime
 A tabela a seguir mostra como startTime controla a execução de um gatilho:
@@ -299,13 +315,13 @@ Se forem especificados vários elementos schedule, a ordem de avaliação será 
 A tabela a seguir descreve elementos schedule em detalhes:
 
 
-Nome JSON | Descrição | Valores Válidos
+Nome JSON | DESCRIÇÃO | Valores Válidos
 --------- | ----------- | ------------
-minutes | Minutos da hora em que o gatilho será executado. | <ul><li>Número inteiro</li><li>Matriz de inteiros</li></ul>
-hours | As horas do dia em que o gatilho será executado. | <ul><li>Número inteiro</li><li>Matriz de inteiros</li></ul>
-weekDays | Dias da semana em que o gatilho será executado. Só pode ser especificado com uma frequência semanal. | <ul><li>Monday, Tuesday, Wednesday, Thursday, Friday, Saturday ou Sunday</li><li>Matriz de qualquer um dos valores (tamanho máximo da matriz: 7)</li></p>Não diferencia maiúsculas de minúsculas</p>
+minutes | Minutos da hora em que o gatilho será executado. | <ul><li>Matriz de inteiros</li></ul>
+hours | As horas do dia em que o gatilho será executado. | <ul><li>Matriz de inteiros</li></ul>
+weekDays | Dias da semana em que o gatilho será executado. Só pode ser especificado com uma frequência semanal. | <ul><li>Matriz de qualquer um dos valores abaixo (tamanho máximo da matriz: 7)<ul><li>Monday</li><li>Terça</li><li>Quarta</li><li>Quinta</li><li>Friday</li><li>Sábado</li><li>Sunday</li></ul></li></p>Não diferencia maiúsculas de minúsculas</p>
 monthlyOccurrences | Determina em quais dias do mês o gatilho será executado. Só pode ser especificado com uma frequência mensal. | Matriz de objetos monthlyOccurence: `{ "day": day,  "occurrence": occurence }`. <p> O valor do elemento day é o dia da semana no qual o gatilho será executado, por exemplo, `{Sunday}` representa todos os domingos do mês. Obrigatório.<p>O valor do elemento ocurrence é a ocorrência do dia em questão no mês, por exemplo, `{Sunday, -1}` é o último domingo do mês. Opcional.
-monthDays | Dia do mês em que o gatilho será executado. Só pode ser especificado com uma frequência mensal. | <ul><li>Qualquer valor <= -1 e >= -31</li><li>Qualquer valor >= 1 e <= 31</li><li>Uma matriz de valores</li>
+monthDays | Dia do mês em que o gatilho será executado. Só pode ser especificado com uma frequência mensal. | <ul><li>Uma matriz dos valores abaixo</li><ul><li>Qualquer valor <= -1 e >= -31</li><li>Qualquer valor >= 1 e <= 31</li></ul></ul> |
 
 
 ## <a name="examples-recurrence-schedules"></a>Exemplos: agendamentos de recorrência
@@ -313,7 +329,7 @@ Esta seção fornece exemplos de agendamentos de recorrência focados no objeto 
 
 Os agendamentos de exemplo pressupõem que o elemento interval esteja definido como 1. Além disso, pressuponha a frequência correta de acordo com o valor do elemento schedule (por exemplo, não é possível usar um valor "day" para o elemento frequency e realizar uma modificação a "monthDays" no elemento schedule). Essas restrições são mencionadas na tabela na seção anterior. 
 
-Exemplo | Descrição
+Exemplo | DESCRIÇÃO
 ------- | -----------
 `{"hours":[5]}` | Executa às 5h todos os dias
 `{"minutes":[15], "hours":[5]}` | Executa às 5:15 todos os dias
@@ -346,6 +362,8 @@ Exemplo | Descrição
 
 
 ## <a name="next-steps"></a>Próximas etapas
-Consulte os seguintes tutoriais: 
+Consulte os seguintes tutoriais:
 
 - [Início rápido: criar um data factory usando o .NET](quickstart-create-data-factory-dot-net.md)
+- [Como: criar um gatilho de agendamento](how-to-create-schedule-trigger.md)
+- [Como: criar um gatilho de janela em cascata](how-to-create-tumbling-window-trigger.md)

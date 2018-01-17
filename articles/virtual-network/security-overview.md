@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: jdial
-ms.openlocfilehash: 38101134beb59d9cae46e8ca00354e14d5c16c54
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: c3cba0c9ba38e7b0539fde7dc6460c76a47a19d6
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="network-security"></a>Segurança de rede
 
@@ -48,12 +48,12 @@ Um grupo de segurança de rede pode conter nenhuma ou quantas regras você desej
 
 |Propriedade  |Explicação  |
 |---------|---------|
-|Nome|Um nome exclusivo dentro do grupo de segurança de rede.|
+|NOME|Um nome exclusivo dentro do grupo de segurança de rede.|
 |Prioridade | Um número entre 100 e 4096. As regras são processadas na ordem de prioridade, com números mais baixos processados antes de números mais altos, pois os números mais baixos têm prioridade mais alta. Depois que o tráfego corresponde a uma regra, o processamento é interrompido. Assim, as regras existentes com baixa prioridade (números mais altos) que têm os mesmos atributos das regras com prioridades mais altas não são processadas.|
 |Origem ou destino| Qualquer um: um endereço IP individual, um bloco CIDR (10.0.0.0/24, por exemplo), uma marca de serviço ou um grupo de segurança do aplicativo. Saiba mais sobre [marcas de serviço](#service-tags) e [grupos de segurança de aplicativo](#application-security-groups). A especificação de um intervalo, uma etiqueta de serviço ou um grupo de segurança de aplicativos permite que você crie menos regras de segurança. A capacidade de especificar vários endereços IP individuais e intervalos (você não pode especificar várias marcas de serviço ou grupos de aplicativos) em uma regra é conhecida como regras de segurança aumentadas. Saiba mais sobre [regras de segurança aumentadas](#augmented-security-rules). As regras de segurança aumentadas só podem ser criadas em grupos de segurança de rede criados pelo modelo de implantação do Gerenciador de Recursos. Você não pode especificar vários endereços IP e intervalos de endereços IP em grupos de segurança de rede criados pelo modelo de implantação clássica.|
 |Protocolo     | TCP, UDP ou Qualquer um, o que inclui TCP, UDP e ICMP. Você não pode especificar o ICMP sozinho e, portanto, se precisar de ICMP, use a opção Qualquer um. |
 |Direção| Se a regra se aplica ao tráfego de entrada ou de saída.|
-|Intervalo de portas     |Você pode especificar uma porta individual ou um intervalo de portas. Por exemplo, você pode especificar 80 ou 10000-10005. A especificação de intervalos permite que você crie menos regras de segurança. A capacidade de especificar vários intervalos de porta e portas individuais em uma regra está em versão prévia e é conhecida como regras de segurança aumentadas. Antes de usar as regras de segurança aumentadas, leia [Recursos de versão prévia](#preview-features) para obter informações importantes. As regras de segurança aumentadas só podem ser criadas em grupos de segurança de rede criados pelo modelo de implantação do Gerenciador de Recursos. Você não pode especificar várias portas ou intervalos de porta na mesma regra de segurança em grupos de segurança de rede criados pelo modelo de implantação clássica.   |
+|Intervalo de portas     |Você pode especificar uma porta individual ou um intervalo de portas. Por exemplo, você pode especificar 80 ou 10000-10005. A especificação de intervalos permite que você crie menos regras de segurança. As regras de segurança aumentadas só podem ser criadas em grupos de segurança de rede criados pelo modelo de implantação do Gerenciador de Recursos. Você não pode especificar várias portas ou intervalos de porta na mesma regra de segurança em grupos de segurança de rede criados pelo modelo de implantação clássica.   |
 |Ação     | Permitir ou negar        |
 
 As regras de segurança são com estado. Se você especificar uma regra de segurança de saída para algum endereço pela porta 80, por exemplo, não será necessário especificar uma regra de segurança de entrada para a resposta ao tráfego de saída. Você precisa especificar uma regra de segurança de entrada se a comunicação for iniciada externamente. O oposto também é verdadeiro. Se o tráfego de entrada é permitido por uma porta, não é necessário especificar uma regra de segurança de saída para responder ao tráfego pela porta. Para saber mais sobre limites durante a criação de regras de segurança, confira [Limites do Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits).
@@ -86,7 +86,7 @@ Se um grupo de segurança de rede não está associado a um adaptador de rede ou
 
 |Prioridade|Fonte|Portas de origem|Destino|Portas de destino|Protocolo|Access|
 |---|---|---|---|---|---|---|
-|65500|0.0.0.0/0|0-65535|0.0.0.0/0|0-65535|Todos|NEGAR|
+|65500|0.0.0.0/0|0-65535|0.0.0.0/0|0-65535|Todos|Negar|
 
 ### <a name="outbound"></a>Saída
 
@@ -106,7 +106,7 @@ Se um grupo de segurança de rede não está associado a um adaptador de rede ou
 
 |Prioridade|Fonte|Portas de origem| Destino | Portas de destino | Protocolo | Access |
 |---|---|---|---|---|---|---|
-| 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | Todos | NEGAR |
+| 65500 | 0.0.0.0/0 | 0-65535 | 0.0.0.0/0 | 0-65535 | Todos | Negar |
 
 Nas colunas **Origem** e **Destino**, *VirtualNetwork*, *AzureLoadBalancer* e *Internet* são [marcas de serviço](#tags) em vez de endereços IP. Na coluna de protocolo, a opção **Todos** abrange TCP, UDP e ICMP. Ao criar uma regra, você pode especificar TCP, UDP ou Tudo, mas não é possível especificar somente ICMP. Portanto, se sua regra requer ICMP, você deverá selecionar *Tudo* como protocolo. *0.0.0.0/0* nas colunas **Origem** e **Destino** representa todos os endereços.
  
@@ -144,8 +144,7 @@ Para saber mais sobre limites durante a criação de grupos de segurança de apl
 Os grupos de segurança de aplicativo estão disponíveis na versão prévia. Os recursos da versão prévia não têm o mesmo nível de disponibilidade e confiabilidade dos recursos da versão geral. Antes de usar grupos de segurança de aplicativo, primeiro você deve se registrar para usá-los concluindo as etapas de 1 a 5 nas seções do Azure ou PowerShell de [Criar um grupo de segurança de rede com grupos de segurança de aplicativo](create-network-security-group-preview.md). Os grupos de segurança do aplicativo têm as seguintes restrições:
 
 -   Todas as interfaces de rede dentro de um grupo de segurança do aplicativo devem existir na mesma rede virtual. Você não pode adicionar interfaces de rede de redes virtuais diferentes ao mesmo grupo de segurança do aplicativo. A primeira interface de rede da rede virtual atribuída ao grupo de segurança do aplicativo define a rede virtual em que todas as interfaces de rede subsequentes deverão existir.
-- Se você especificar grupos de segurança do aplicativo como a origem e o destino em uma regra de segurança, as interfaces de rede em ambos os grupos de segurança do aplicativo deverão existir na mesma rede virtual. Por exemplo, se ASG1 contiver interfaces de rede da VNet1 e se ASG2 contiver interfaces de rede da VNet2, você não poderá atribuir ASG1 como a origem e o ASG2 como o destino em uma regra, todas as interfaces de rede precisam existir em VNet1. 
-- Estão disponíveis para uso somente na região Centro-Oeste dos EUA.
+- Se você especificar grupos de segurança do aplicativo como a origem e o destino em uma regra de segurança, as interfaces de rede em ambos os grupos de segurança do aplicativo deverão existir na mesma rede virtual. Por exemplo, se ASG1 contiver interfaces de rede da VNet1 e se ASG2 contiver interfaces de rede da VNet2, você não poderá atribuir ASG1 como a origem e o ASG2 como o destino em uma regra, todas as interfaces de rede precisam existir em VNet1.
 
 ## <a name="azure-platform-considerations"></a>Considerações sobre a plataforma do Azure
 
@@ -159,7 +158,7 @@ Os grupos de segurança de aplicativo estão disponíveis na versão prévia. Os
 
      - **Contrato Enterprise**: a comunicação de saída da porta 25 é permitida. É possível enviar emails de saída diretamente a partir de máquinas virtuais para provedores de email externos, sem restrições da plataforma do Azure. 
      - **Pré-pago:** a comunicação de saída da porta 25 está bloqueada de todos os recursos. Se você precisar enviar emails de uma máquina virtual diretamente para os provedores de email externos (não usando uma retransmissão SMTP autenticada), pode fazer uma solicitação para remover a restrição. As solicitações são examinadas e aprovadas a critério da Microsoft e somente são concedidas após a realização de verificações antifraude. Para fazer uma solicitação, abra um caso de suporte com o tipo de problema *Técnico*, *Conectividade de rede virtual*, *Não é possível enviar email (SMTP/Porta 25)*. No seu caso de suporte, isso inclui detalhes sobre por que você precisa enviar emails diretamente aos provedores de email, em vez de passar por um retransmissor SMTP autenticado. Se sua assinatura for isenta, somente as máquinas virtuais criadas após a data de isenção serão capazes de se comunicar pela porta 25.
-     - **MSDN, Azure Pass, Azure via Open, Educação, BizSpark, e Avaliação gratuita**: a comunicação de saída da porta 25 está bloqueada para todos os recursos. Nenhuma solicitação para remover a restrição pode ser feita, pois as solicitações não foram concedidas. Se você tiver que enviar um email de sua máquina virtual, deve usar um serviço de retransmissão de SMTP.
+     - **CSP (provedor de serviços de nuvem), MSDN, Azure Pass, Azure via Open, Educação, BizSpark, e Avaliação gratuita**: a comunicação de saída da porta 25 está bloqueada para todos os recursos. Nenhuma solicitação para remover a restrição pode ser feita, pois as solicitações não foram concedidas. Se você tiver que enviar um email de sua máquina virtual, deve usar um serviço de retransmissão de SMTP.
 
   Se o Azure permitir que você envie emails pela porta 25, a Microsoft não garante que os provedores de email aceitarão emails de entrada provenientes de sua máquina virtual. Se um provedor específico rejeitar um email de sua máquina virtual, você deve trabalhar diretamente com o provedor para resolver qualquer entrega de mensagens ou problemas de filtragem de spam ou usar um serviço de retransmissão de SMTP autenticado. 
 

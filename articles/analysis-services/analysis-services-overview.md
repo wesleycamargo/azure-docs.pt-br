@@ -1,5 +1,5 @@
 ---
-title: "O que é o Azure Analysis Services | Microsoft Docs"
+title: "Visão geral do Azure Analysis Services | Microsoft Docs"
 description: "Obtenha uma visão geral do Azure Analysis Services."
 services: analysis-services
 documentationcenter: 
@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 12/08/2017
+ms.date: 01/04/2017
 ms.author: owend
-ms.openlocfilehash: 60097a18afc76e09ecd7d69eececea53e9712bec
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: fe46b3c099c4fd4e04a39e2b2f127c1206711e60
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="what-is-azure-analysis-services"></a>O que é o Azure Analysis Services?
+# <a name="azure-analysis-services-overview"></a>Visão geral do Azure Analysis Services
 ![Azure Analysis Services](./media/analysis-services-overview/aas-overview-aas-icon.png)
 
 O Azure Analysis Services fornece modelagem de dados de nível empresarial na nuvem. É uma plataforma totalmente gerenciada como um serviço (PaaS), integrada com os serviços de plataforma de dados do Azure. 
@@ -126,7 +126,7 @@ Os clientes usam [bibliotecas de cliente](analysis-services-data-providers.md) M
 #### <a name="documentation"></a>Documentação
 O Azure Analysis Services é simples de configurar e gerenciar. Você pode encontrar todas as informações necessárias para criar e gerenciar seus serviços de servidor aqui. A criação de um modelo de dados para implantar no seu servidor é muito semelhante à criação de um modelo de dados para implantar em um servidor local. Existe uma ampla biblioteca de artigos conceituais, procedimentais, tutoriais e de referência em [Ajuda do SQL Server Analysis Services](https://docs.microsoft.com/sql/analysis-services/analysis-services).
 
-#### <a name="videos"></a>Vídeos
+#### <a name="videos"></a>vídeos
 Confira alguns vídeos úteis em [Azure Analysis Services no Channel 9](https://channel9.msdn.com/series/Azure-Analysis-Services).
 
 #### <a name="blogs"></a>Blogs

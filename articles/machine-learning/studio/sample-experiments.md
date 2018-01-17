@@ -1,7 +1,7 @@
 ---
-title: Copiar os experimentos de exemplo de machine learning | Microsoft Docs
-description: "Saiba como usar os experimentos de amostra do aprendizado de máquina para criar novos experimentos com a Galeria do Cortana Intelligence e o Microsoft Azure Machine Learning."
-keywords: "exemplos de machine learning, experiência de exemplo, amostra de machine learning"
+title: "Criar experiências desde exemplos de machine learning - Azure | Microsoft Docs"
+description: Saiba como usar os experimentos de amostra do machine learning para criar novos experimentos com a Galeria do IA do Azure e o Azure Machine Learning.
+keywords: "exemplos de machine learning, experiência de exemplo, amostra de machine learning, exemplos de IA"
 services: machine-learning
 documentationcenter: 
 author: cjgronlund
@@ -13,16 +13,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/28/2017
+ms.date: 01/05/2018
 ms.author: cgronlun
-ms.openlocfilehash: f798ac1b46d702dbb96a2384d96f2d14eb3cac0e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9ea19f137acb23d3527315aae2624c746e138545
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="copy-example-experiments-to-create-new-machine-learning-experiments"></a>Copiar os experimentos de exemplo para criar novos experimentos de machine learning
-Saiba como usar os experimentos de exemplo na [Galeria do Cortana Intelligence](https://gallery.cortanaintelligence.com/), em vez de criar experimentos de machine learning a partir do zero. Use os exemplos para compilar sua própria solução de machine learning.
+# <a name="create-machine-learning-experiments-from-working-examples-in-azure-ai-gallery"></a>Criar experiências de machine learning desde exemplos de trabalho na Galeria de IA do Azure
+
+Saiba como usar os experimentos de exemplo na [Galeria de IA do Azure](https://gallery.cortanaintelligence.com/), em vez de criar experimentos de machine learning a partir do zero. Use os exemplos para compilar sua própria solução de machine learning.
 
 A galeria contém experimentos de exemplo da equipe de Microsoft Azure Machine Learning, bem como exemplos compartilhados pela comunidade de Machine Learning. Você pode fazer perguntas ou postar comentários sobre os experimentos
 
@@ -30,7 +31,7 @@ Para saber como usar a galeria, assista ao vídeo de 3 minutos [Copiar o trabalh
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
-## <a name="find-an-experiment-to-copy-in-cortana-intelligence-gallery"></a>Localizar um experimento para copiar na Galeria do Cortana Intelligence
+## <a name="find-an-experiment-to-copy-in-azure-ai-gallery"></a>Localizar uma experiência para copiar na Galeria de IA do Azure
 Para ver quais experimentos estão disponíveis, vá para a [Galeria](https://gallery.cortanaintelligence.com/) e clique em **Experimentos** na parte superior da página.
 
 ### <a name="find-the-newest-or-most-popular-experiments"></a>Localizar os experimentos mais recentes ou mais populares
@@ -42,8 +43,8 @@ Para procurar todos os experimentos:
 1. Clique em **Procurar tudo** na parte superior da página.
 2. No lado esquerdo, em **Refinar por**, na seção **Categorias**, selecione **Experimento** para ver todos os experimentos na Galeria.
 3. Você pode encontrar os experimentos que atendem aos seus requisitos de duas maneiras diferentes:
-   * **Selecione os filtros à esquerda.** Por exemplo, para procurar experimentos que usam um algoritmo de detecção de anomalias baseado em PCA, selecione **Experimento** em **Categorias**, clique em **Mostrar tudo**. Em seguida, em **Algoritmos Usados**, escolha **Detecção de Anomalias Baseada em PCA**. <br></br>
-     ![Selecione os filtros](./media/sample-experiments/refine-the-view.png)
+   * **Selecione os filtros à esquerda.** Por exemplo, para procurar experimentos que usem um algoritmo de detecção de anomalias baseado em PCA: em **Categorias**, clique em **Experimento**. Em seguida, em **Algoritmos Usados**, clique em **Mostrar tudo** e, na caixa de diálogo, escolha **Detecção de Anomalias Baseada em PCA**. Talvez seja necessário rolar para vê-lo.<br></br>
+     ![Selecionar filtros](./media/sample-experiments/choose-an-algorithm.png)
    * **Use a caixa de pesquisa.** Por exemplo, para encontrar os experimentos fornecidos pela Microsoft relacionados ao reconhecimento de dígito e que usam um algoritmo de máquina do vetor com suporte de duas classes, digite "reconhecimento de dígito" na caixa de pesquisa. Em seguida, selecione os filtros **Experimento**, **Apenas o conteúdo da Microsoft** e **Máquina do Vetor com Suporte de Duas Classes**:<br></br>
      ![Usar a caixa de pesquisa](./media/sample-experiments/search-for-experiments.png)
 4. Clique em um experimento para saber mais sobre ele.

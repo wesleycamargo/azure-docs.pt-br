@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/24/2017
 ms.author: briz
-ms.openlocfilehash: 6d667d42bfef2ec61b055009210d5621f51c17df
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 458b316ba76ff7cace56eb21eaf105233e508741
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="overview-of-device-management-with-iot-hub"></a>Visão geral do gerenciamento de dispositivos com o Hub IoT
 ## <a name="introduction"></a>Introdução
@@ -57,7 +57,7 @@ Em cada um desses cinco estágios, existem vários requisitos de operador de dis
     *Leitura adicional*: [Introdução aos gêmeos de dispositivos][lnk-twins-getstarted], [Entender os gêmeos de dispositivos][lnk-twins-devguide], [Como usar as propriedades gêmeo de dispositivo][lnk-twin-properties].
 * **Provisionar**: provisionar novos dispositivos para o Hub IoT e habilitar operadores descobrir imediatamente os recursos do dispositivo com segurança.  Use o Registro de identidade do Hub IoT para criar as credenciais e identidades flexíveis de dispositivos e executar essa operação em massa usando um trabalho. Crie dispositivos para relatar seus recursos e condições por meio de propriedades do dispositivo no twin de dispositivo.
   
-    *Leitura adicional*: [Gerenciar identidades de dispositivo][lnk-identity-registry], [Gerenciamento em massa de identidades de dispositivo][lnk-bulk-identity], [Como usar as propriedades gêmeo de dispositivo][lnk-twin-properties].
+    *Leitura adicional*: [Gerenciar identidades de dispositivo][lnk-identity-registry], [Gerenciamento em massa de identidades de dispositivo][lnk-bulk-identity], [Como usar as propriedades gêmeo de dispositivo][lnk-twin-properties], [Serviço de Provisionamento de Dispositivo do Hub IoT do Azure][lnk-dps].
 * **Configurar**: facilite as alterações de configuração em massa e atualizações de firmware em dispositivos enquanto mantém a integridade e a segurança. Execute essas operações de gerenciamento de dispositivo em massa usando propriedades desejadas ou com trabalhos de difusão e métodos diretos.
   
     *Leitura adicional*: [Usar métodos diretos][lnk-c2d-methods], [Invocar um método direto em um dispositivo][lnk-methods-devguide], [Como usar propriedades gêmeo de dispositivo][lnk-twin-properties], [Agendar e difundir trabalhos][lnk-jobs], [Agendar trabalhos em vários dispositivos][lnk-jobs-devguide].
@@ -85,7 +85,7 @@ O Hub IoT habilita o seguinte conjunto de padrões de gerenciamento de dispositi
     ![Gráfico de padrão de atualização de firmware de gerenciamento de dispositivos][img-fwupdate_pattern]
 * **Relatório de progresso e status** - o back-end da solução executa consultas do dispositivo gêmeo, em um conjunto de dispositivos, para reportar o status e o progresso das ações em execução no dispositivo.
   
-    ![Gráfico de padrão de status e progresso de relatório de gerenciamento de dispositivos][img-report_progress_pattern]
+    ![Grafo de padrão de status e progresso de relatório de gerenciamento de dispositivos][img-report_progress_pattern]
 
 ## <a name="next-steps"></a>Próximas etapas
 As funcionalidades, os padrões e as bibliotecas de código que o gerenciamento de dispositivos do Hub IoT fornece para gerenciamento de dispositivos, permitem que você crie aplicativos IoT que atendam aos requisitos corporativos de operador IoT em cada estágio do ciclo de vida do dispositivo.
@@ -113,3 +113,4 @@ Para continuar a aprender sobre as funcionalidades de gerenciamento de dispositi
 [lnk-methods-devguide]: iot-hub-devguide-direct-methods.md
 [lnk-jobs]: iot-hub-node-node-schedule-jobs.md
 [lnk-jobs-devguide]: iot-hub-devguide-jobs.md
+[lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps

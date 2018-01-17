@@ -3,7 +3,7 @@ title: "Sobre Aplicativos Móveis no Serviço de Aplicativo do Azure"
 description: "Saiba mais sobre as vantagens que o Serviço de Aplicativo traz para seus aplicativos móveis corporativos."
 services: app-service\mobile
 documentationcenter: 
-author: ggailey777
+author: conceptdev
 manager: yochayk
 editor: 
 ms.assetid: 4e96cb9d-a632-4cf6-8219-0810d8ade3f9
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: na
 ms.topic: hero-article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: f0731237c9376d5f762eea1c7559bc6a70a2025d
-ms.sourcegitcommit: 0e4491b7fdd9ca4408d5f2d41be42a09164db775
+ms.author: crdun
+ms.openlocfilehash: b55d186aba49e91bab6814da2380a372f61f39cb
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="getting-started"> </a>Sobre Aplicativos Móveis no Serviço de Aplicativo do Azure
 O Serviço de Aplicativo do Azure é uma oferta de [PaaS](https://azure.microsoft.com/overview/what-is-paas/) (plataforma como um serviço) para desenvolvedores profissionais. O serviço oferece um conjunto avançado de recursos para cenários Web, móveis e de integração. 
@@ -65,7 +65,7 @@ Os recursos de plataforma abaixo são úteis para sites de produção móvel:
 
   Descubra mais sobre [ambientes de preparo].
 
-* **Implantação contínua**: o Serviço de Aplicativo pode integrar sistemas SCM (Gerenciador de Controle de Serviço) comuns, permitindo que você implante automaticamente uma nova versão do seu back-end por push para uma ramificação de seu sistema SCM.
+* **Implantação contínua**: o Serviço de Aplicativo pode integrar sistemas SCM (gerenciamento de controle de origem comum), permitindo que você implante automaticamente uma nova versão do seu back-end por push para uma ramificação de seu sistema SCM.
 
   Descubra mais sobre [opções de implantação](../app-service/app-service-deploy-local-git.md).
 

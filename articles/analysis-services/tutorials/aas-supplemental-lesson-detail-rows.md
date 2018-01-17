@@ -13,31 +13,29 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: fbc6187e80a42330c96ebaa1195ea188430894cc
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 5a4dc7004245923fa6bda779114166ecf08d075f
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="supplemental-lesson---detail-rows"></a>Lição suplementar – Linhas de Detalhes
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
 
 Nesta lição suplementar, você pode usar o Editor do DAX para definir uma expressão de linhas de detalhes personalizada. Uma expressão de linhas de detalhes é uma propriedade em uma medida, fornecendo aos usuários finais mais informações sobre os resultados agregados de uma medida. 
   
 Tempo estimado para conclusão desta lição: **10 minutos**  
   
 ## <a name="prerequisites"></a>Pré-requisitos  
-Este tópico de lição suplementar faz parte de um tutorial de modelagem Tabular. Antes de executar as tarefas desta lição suplementar, você deve ter concluído todas as lições anteriores ou ter um projeto de modelo de amostra de Vendas pela Internet da Adventure Works concluído.  
+Esta lição suplementar faz parte de um tutorial de modelagem tabular. Antes de executar as tarefas desta lição suplementar, você deve ter concluído todas as lições anteriores ou ter um projeto de modelo de amostra de Vendas pela Internet da Adventure Works concluído.  
   
-## <a name="what-do-we-need-to-solve"></a>O que precisamos resolver?
+## <a name="whats-the-issue"></a>Qual é o problema?
 Examinaremos os detalhes de nossa medida InternetTotalSales antes de adicionarmos uma expressão de linhas de detalhes.
 
 1.  No SSDT, clique no menu **Modelo** > **Analisar no Excel** para abrir o Excel e criar uma tabela dinâmica em branco.
   
-2.  Em **Campos de Tabela Dinâmica**, adicione a medida **InternetTotalSales** da tabela FactInternetSales a **Valores**, **CalendarYear** da tabela DimDate a **Colunas** e **EnglishCountryRegionName** a **Linhas**. Nossa tabela dinâmica agora nos oferece resultados agregados da medida InternetTotalSales por regiões e por ano. 
+2.  Em **Campos de Tabela Dinâmica**, adicione a medida **InternetTotalSales** da tabela FactInternetSales a **Valores**, **CalendarYear** da tabela DimDate a **Colunas** e **EnglishCountryRegionName** a **Linhas**. Nossa Tabela Dinâmica agora nos oferece resultados agregados da medida InternetTotalSales por regiões e por ano. 
 
     ![aas-lesson-detail-rows-pivottable](../tutorials/media/aas-lesson-detail-rows-pivottable.png)
 
@@ -51,7 +49,7 @@ O que gostaríamos de ver aqui é uma tabela contendo colunas e linhas de dados 
 
 #### <a name="to-create-a-detail-rows-expression"></a>Para criar uma expressão de linhas de detalhes 
   
-1. No SSDT, na grade de medida da tabela FactInternetSales, clique na medida **InternetTotalSales**. 
+1. Na grade de medida da tabela FactInternetSales, clique na medida **InternetTotalSales**. 
 
 2. Em **Propriedades** > **Expressão de Linhas de Detalhes**, clique no botão do editor para abrir o Editor do DAX.
 
@@ -82,6 +80,6 @@ O que gostaríamos de ver aqui é uma tabela contendo colunas e linhas de dados 
 
   
 ## <a name="see-also"></a>Consulte também  
-[Função SELECTCOLUMNS (DAX)](https://msdn.microsoft.com/library/mt761759.aspx)   
-[Lição Suplementar – Segurança Dinâmica](../tutorials/aas-supplemental-lesson-dynamic-security.md)  
-[Lição Suplementar – hierarquias desbalanceadas](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  
+[Função SELECTCOLUMNS (DAX)](https://msdn.microsoft.com/library/mt761759.aspx)  
+[Lição suplementar - segurança dinâmica](../tutorials/aas-supplemental-lesson-dynamic-security.md)  
+[Lição suplementar - hierarquias desbalanceadas](../tutorials/aas-supplemental-lesson-ragged-hierarchies.md)  

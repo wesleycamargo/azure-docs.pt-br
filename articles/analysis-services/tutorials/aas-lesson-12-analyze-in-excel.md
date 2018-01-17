@@ -13,21 +13,19 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: be23d25fe9765025b86e86687fb38b2dab61269e
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 8d7f79db612ee02eaf585f9b45d888b3533a91b2
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="lesson-12-analyze-in-excel"></a>Lição 12: analisar no Excel
-
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+# <a name="analyze-in-excel"></a>Analisar no Excel
 
 Nesta lição, você usa o recurso Analisar no Excel para abrir o Microsoft Excel, criar automaticamente uma conexão ao espaço de trabalho de modelo e adicionar automaticamente uma tabela dinâmica à planilha. O recurso Analisar no Excel destina-se a fornecer uma maneira rápida e fácil de testar a eficácia do design de modelo antes de implantar seu modelo. Você não executará nenhuma análise de dados nesta lição. O objetivo desta lição é familiarizar você, o autor do modelo, com as ferramentas que você pode usar para testar seu design de modelo.   
   
-Para concluir esta lição, o Excel deverá estar instalado no mesmo computador que o SSDT.
+Para concluir esta lição, o Excel deverá estar instalado no mesmo computador que o Visual Studio.
   
 Tempo estimado para a conclusão desta lição: **Cinco minutos**  
   
