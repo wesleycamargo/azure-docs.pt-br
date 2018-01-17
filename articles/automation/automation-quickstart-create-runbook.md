@@ -7,11 +7,12 @@ ms.author: csand
 ms.date: 12/14/2017
 ms.topic: quickstart
 ms.service: automation
-ms.openlocfilehash: 55bed1bc4788799465e87e65b136ff9e51318fbd
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.custom: mvc
+ms.openlocfilehash: 34ae160c5e19e161f4412838e377a844c737728d
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="create-an-azure-automation-runbook"></a>Criar um runbook de Automação do Azure
 
@@ -71,7 +72,7 @@ Depois de criar o runbook, teste-o para validar se funciona.
 
 1. Na página **Editar Runbook do PowerShell** clique em **Publicar** para publicar o runbook como a versão oficial do runbook na conta.
 
-   ![Visão geral do runbook](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-overview.png)
+   ![Trabalho de teste do runbook](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job.png)
 
 ## <a name="run-the-runbook"></a>Executar o runbook
 
@@ -83,11 +84,11 @@ Quando o runbook é publicado, a página de visão geral é exibida.
 
 1. Deixe **Name** em branco, para que o valor padrão seja usado e clique em **OK**. O trabalho do runbook é enviado e a página do trabalho é exibida.
 
-   ![Trabalho de teste do runbook](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job.png)
+   ![Trabalho de teste do runbook](./media/automation-quickstart-create-runbook/automation-job-page.png)
 
 1. Quando o **Status do trabalho** for **Em execução** ou **Concluído**, clique em **Saída** para abrir o painel **Saída** e exibir a saída do runbook.
 
-    ![Trabalho de teste do runbook](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job-output.png)
+   ![Trabalho de teste do runbook](./media/automation-quickstart-create-runbook/automation-hello-world-runbook-job-output.png)
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
