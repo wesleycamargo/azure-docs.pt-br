@@ -10,11 +10,11 @@ ms.topic: article
 ms.date: 12/15/2017
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: fdbf9b1b77c2c64b3ebfcdbc5463916f317e4881
-ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
+ms.openlocfilehash: e823aeb4291b3e765b35181c24b41fa58c170cca
+ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/16/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Ferramentas de diagnóstico de pilha do Azure
 
@@ -121,7 +121,7 @@ if($s)
    | ACS                     | ACSFabric              | ACSFrontEnd        |
    | ACSTableMaster          | ACSTableServer         | ACSWac             |
    | ADFS                    | ASAppGateway           | BareMetal          |
-   | BRP                     | CA                     | IDC                |
+   | BRP                     | CA                     | CPI                |
    | CRP                     | DeploymentMachine      | DHCP               |
    | Domínio                  | ECE                    | ECESeedRing        | 
    | FabricRing              | FabricRingServices     | FRP                |
@@ -135,7 +135,7 @@ if($s)
    | FOI                     | WASPUBLIC              | WDS                |
 
 
-### <a name="collect-logs-using-a-graphical-user-interface"></a>Coletar logs usando a interface gráfica do usuário
+### <a name="bkmk_gui"></a>Coletar logs usando a interface gráfica do usuário
 Em vez de fornecer os parâmetros necessários para o cmdlet Get-AzureStackLog recuperar os logs de pilha do Azure, você também pode aproveitar as ferramentas de pilha do Azure de código aberto disponíveis localizadas na pilha do Azure ferramentas GitHub ferramentas repositório principal no http://aka.ms/AzureStackTools.
 
 O **ERCS_AzureStackLogs.ps1** script do PowerShell é armazenado no repositório GitHub ferramentas e é atualizado regularmente. Para garantir que você tem a versão mais recente disponível, você deve baixá-lo diretamente do http://aka.ms/ERCS. O script iniciado a partir de uma sessão do PowerShell administrativa, conecta-se ao ponto de extremidade com privilégios e executa o Get-AzureStackLog com parâmetros fornecidos. Se nenhum parâmetro for fornecido, o script padrão para solicitar parâmetros por meio de uma interface gráfica do usuário.
@@ -159,3 +159,4 @@ Para saber mais sobre o script do PowerShell ERCS_AzureStackLogs.ps1, você pode
 
 ## <a name="next-steps"></a>Próximas etapas
 [Solução de problemas do Microsoft Azure Stack](azure-stack-troubleshooting.md)
+

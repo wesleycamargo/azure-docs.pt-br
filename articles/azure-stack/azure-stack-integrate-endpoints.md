@@ -5,14 +5,14 @@ services: azure-stack
 author: troettinger
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/18/2017
+ms.date: 01/16/2018
 ms.author: victorh
 keywords: 
-ms.openlocfilehash: 0d15252079b62f6a74a1279309fb9b1b3ed5711e
-ms.sourcegitcommit: 6acb46cfc07f8fade42aff1e3f1c578aa9150c73
+ms.openlocfilehash: 1cc74cb2214918d6bfd0c0827cf5d9832b84f317
+ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/18/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure pilha datacenter integração - publicar pontos de extremidade
 
@@ -37,19 +37,19 @@ Infraestrutura interna que VIPs não são listadas porque eles não são necess�
 
 |Ponto de extremidade (VIP)|Um registro de host DNS|Protocolo|Portas|
 |---------|---------|---------|---------|
-|AD FS|`Adfs.[Region].[External FQDN]`|HTTPS|443|
-|Portal (administrador)|`Adminportal.[Region].[External FQDN]`|HTTPS|443<br>12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13020<br>13021<br>13026<br>30015|
-|Gerenciador de recursos do Azure (administrador)|`Adminmanagement.[Region].[External FQDN]`|HTTPS|443<br>30024|
-|Portal (usuário)|`Portal. [Region].[External FQDN]`|HTTPS|443<br>12495<br>12649<br>13001<br>13010<br>13011<br>13020<br>13021<br>30015<br>13003|
-|Gerenciador de recursos do Azure (usuário)|`Management.[Region].[External FQDN]`|HTTPS|443<br>30024|
-|Gráfico|`Graph.[Region].[External FQDN]`|HTTPS|443|
-|Lista de certificados revogados|`Crl.[Region].[External FQDN]`|HTTP|80|
-|DNS|`*.[Region].[External FQDN]`|TCP E UDP|53|
-|Cofre de chaves (usuário)|`*.vault.[Region].[External FQDN]`|TCP|443|
-|Cofre de chaves (administrador)|`*.adminvault.[Region].[External FQDN]`|TCP|443|
-|Fila de Armazenamento|`*.queue.[Region].[External FQDN]`|HTTP<br>HTTPS|80<br>443|
-|Tabela de Armazenamento|`*.table.[Region].[External FQDN]`|HTTP<br>HTTPS|80<br>443|
-|Blob de Armazenamento|`*.blob.[Region].[External FQDN]`|HTTP<br>HTTPS|80<br>443|
+|AD FS|Adfs.*&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Portal (administrador)|Adminportal.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>12495<br>12499<br>12646<br>12647<br>12648<br>12649<br>12650<br>13001<br>13003<br>13010<br>13011<br>13020<br>13021<br>13026<br>30015|
+|Gerenciador de recursos do Azure (administrador)|Adminmanagement.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>30024|
+|Portal (usuário)|Portal.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>12495<br>12649<br>13001<br>13010<br>13011<br>13020<br>13021<br>30015<br>13003|
+|Gerenciador de recursos do Azure (usuário)|Management.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>30024|
+|Grafo|Graph.*&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Lista de certificados revogados|Crl.*&lt;region>.&lt;fqdn>*|HTTP|80|
+|DNS|&#42;.*&lt;region>.&lt;fqdn>*|TCP E UDP|53|
+|Cofre de chaves (usuário)|*.vault.*&lt;region>.&lt;fqdn>*|TCP|443|
+|Cofre de chaves (administrador)|&#42;.adminvault.*&lt;region>.&lt;fqdn>*|TCP|443|
+|Fila de Armazenamento|&#42;.queue.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
+|Tabela de Armazenamento|&#42;.table.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
+|Blob de Armazenamento|&#42;.blob.*&lt;region>.&lt;fqdn>*|HTTP<br>HTTPS|80<br>443|
 
 ## <a name="ports-and-urls-outbound"></a>Portas e URLs (saídas)
 
@@ -58,11 +58,11 @@ Pilha do Azure oferece suporte somente a servidores de proxy transparente. Em um
 
 |Finalidade|URL|Protocolo|Portas|
 |---------|---------|---------|---------|
-|Identidade|`login.windows.net`<br>`login.microsoftonline.com`<br>`graph.windows.net`|HTTP<br>HTTPS|80<br>443|
-|Distribuição do Marketplace|`https://management.azure.com`<br>`https://*.blob.core.windows.net`<br>`https://*.azureedge.net`<br>`https://*.microsoftazurestack.com`|HTTPS|443|
-|Patch e atualização|`https://*.azureedge.net`|HTTPS|443|
-|Registro|`https://management.azure.com`|HTTPS|443|
-|Uso|`https://*.microsoftazurestack.com`<br>`https://*.trafficmanager.com`|HTTPS|443|
+|Identidade|login.windows.net<br>login.microsoftonline.com<br>graph.windows.net|HTTP<br>HTTPS|80<br>443|
+|Distribuição do Marketplace|https://management.azure.com<br>https://&#42;.blob.core.windows.net<br>https://*.azureedge.net<br>https://&#42;.microsoftazurestack.com|HTTPS|443|
+|Patch e atualização|https://&#42;.azureedge.net|HTTPS|443|
+|Registro|https://management.azure.com|HTTPS|443|
+|Uso|https://&#42;.microsoftazurestack.com<br>https://*.trafficmanager.com|HTTPS|443|
 
 ## <a name="firewall-publishing"></a>Publicação de firewall
 

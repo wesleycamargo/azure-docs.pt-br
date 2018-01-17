@@ -285,6 +285,9 @@
               href: apache-hadoop-use-sqoop-dotnet-sdk.md
             - name: Executar usando o Azure PowerShell
               href: apache-hadoop-use-sqoop-powershell.md
+        - name: Operacionalize um pipeline de análise de dados
+          href: ../hdinsight-operationalize-data-pipeline.md
+          maintainContext: true
         - name: Usar o Oozie para fluxos de trabalho
           href: ../hdinsight-use-oozie-linux-mac.md
           maintainContext: true

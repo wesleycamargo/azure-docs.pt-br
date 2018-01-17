@@ -19,7 +19,7 @@
 - name: Guia de início rápido
   expanded: true
   items:
-    - name: Implantar o Azure Stack
+    - name: Avaliar a pilha do Azure
       href: azure-stack-deploy-overview.md
 - name: Tutoriais
   items:
@@ -31,8 +31,6 @@
       href: azure-stack-tutorial-app-service.md
 - name: Conceitos
   items:
-    - name: Considerações sobre planejamento
-      href: azure-stack-planning-considerations.md
     - name: Política de manutenção
       href: azure-stack-servicing-policy.md
     - name: Principais recursos e conceitos
@@ -43,7 +41,7 @@
       href: azure-stack-manage-basics.md
 - name: Guias de instruções
   items:
-    - name: Implantar
+    - name: Implantar o ASDK
       items:
         - name: Pré-requisitos
           href: azure-stack-deploy.md
@@ -61,6 +59,23 @@
           href: azure-stack-add-default-image.md
         - name: Criar uma VM de teste
           href: azure-stack-provision-vm.md
+    - name: Implantar sistemas de pilha do Azure integrado
+      items:
+        - name: Considerações de planejamento de implantação
+          href: azure-stack-deployment-planning.md
+        - name: Decisões de planejamento de implantação
+          href: azure-stack-deployment-decisions.md
+        - name: Implantar conectado ao Azure
+          href: azure-stack-connected-deployment.md
+        - name: Implantar desconectado do Azure
+          href: azure-stack-disconnected-deployment.md
+        - name: Requisitos de PKI de implantação de pilha do Azure
+          href: azure-stack-pki-certs.md
+          items:
+            - name: Obter certificados PKI para a implantação de pilha do Azure
+              href: azure-stack-get-pki-certs.md
+        - name: Registrar a pilha do Azure
+          href: azure-stack-registration.md
     - name: Integração do datacenter
       items:
         - name: DNS

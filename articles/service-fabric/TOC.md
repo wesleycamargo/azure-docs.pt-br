@@ -91,11 +91,12 @@
 #### [ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
 
 ### [Ciclo de vida do aplicativo](service-fabric-application-lifecycle.md)
-#### [Atualização de aplicativo](service-fabric-application-upgrade.md)
+#### [Atualização do aplicativo](service-fabric-application-upgrade.md)
 ##### [Configuração](service-fabric-visualstudio-configure-upgrade.md)
 ##### [Parâmetros de atualização de aplicativo](service-fabric-application-upgrade-parameters.md)
 ##### [Serialização de dados nas atualizações de aplicativo](service-fabric-application-upgrade-data-serialization.md)
 ##### [Tópicos avançados de atualização de aplicativo](service-fabric-application-upgrade-advanced.md)
+#### [Gerenciar aplicativos para vários ambientes](service-fabric-manage-multiple-environment-app-configuration.md)
 #### [Testando aplicativos com análise de falhas](service-fabric-testability-overview.md)
 #### [A configuração ImageStoreConnectionString](service-fabric-image-store-connection-string.md)
 
@@ -226,7 +227,6 @@
 ## Trabalhar em um ambiente de desenvolvimento do Windows/VS
 ### [Gerenciar aplicativos no Visual Studio](service-fabric-manage-application-in-visual-studio.md)
 ### [Configurar conexões seguras no Visual Studio](service-fabric-visualstudio-configure-secure-connections.md)
-### [Configurar seu aplicativo para vários ambientes](service-fabric-manage-multiple-environment-app-configuration.md)
 ### [Depurar um serviço .NET no VS](service-fabric-debugging-your-application.md)
 ### [Erros e exceções comuns](service-fabric-errors-and-exceptions.md)
 ### [Monitorar e diagnosticar localmente](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
@@ -244,10 +244,13 @@
 
 ## Gerenciar ciclo de vida do aplicativo
 ### [Preparar um aplicativo](service-fabric-package-apps.md)
+### [Usar parâmetros com arquivos de configuração](service-fabric-how-to-parameterize-configuration-files.md)
+### [Especificar os números de porta usando parâmetros](service-fabric-how-to-specify-port-number-using-parameters.md)
+### [Especificar variáveis de ambiente](service-fabric-how-to-specify-environment-variables.md)
 
 ### Implantar ou remover aplicativos
 #### [Implantar aplicativos em um cluster local](service-fabric-get-started-with-a-local-cluster.md)
-#### [Gerenciador de Recursos do Azure](service-fabric-application-arm-resource.md)
+#### [Azure Resource Manager](service-fabric-application-arm-resource.md)
 #### [PowerShell do Azure](service-fabric-deploy-remove-applications.md)
 #### [CLI do Service Fabric](service-fabric-application-lifecycle-sfctl.md)
 #### [APIs de FabricClient](service-fabric-deploy-remove-applications-fabricclient.md)
@@ -273,8 +276,8 @@
 ## Criar e gerenciar clusters
 ### Clusters no Azure
 #### Criar
-##### [Portal do Azure](service-fabric-cluster-creation-via-portal.md)
-##### [Gerenciador de Recursos do Azure](service-fabric-cluster-creation-via-arm.md)
+##### [portal do Azure](service-fabric-cluster-creation-via-portal.md)
+##### [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
 #### Escala
 ##### [Manualmente](service-fabric-cluster-scale-up-down.md)
 ##### [Programaticamente](service-fabric-cluster-programmatic-scaling.md)
@@ -328,6 +331,7 @@
 ## [.NET](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet)
 ## [REST](/rest/api/servicefabric)
 ## [Esquema XML do modelo de serviço](service-fabric-service-model-schema.md)
+## [Variáveis de ambiente](service-fabric-environment-variables-reference.md)
 
 # Recursos
 ## [Roteiro do Azure](https://azure.microsoft.com/roadmap/)

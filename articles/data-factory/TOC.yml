@@ -11,6 +11,10 @@
   items:
     - name: Criar um data factory
       items:
+        - name: Interface do Usuário (IU)
+          href: quickstart-create-data-factory-portal.md
+        - name: Ferramenta Copiar Dados
+          href: quickstart-create-data-factory-copy-data-tool.md
         - name: PowerShell
           href: quickstart-create-data-factory-powershell.md
         - name: .NET
@@ -19,35 +23,75 @@
           href: quickstart-create-data-factory-python.md
         - name: REST
           href: quickstart-create-data-factory-rest-api.md
-        - name: Portal
-          href: quickstart-create-data-factory-portal.md
         - name: Modelo do Resource Manager
           href: quickstart-create-data-factory-resource-manager-template.md
 - name: Tutoriais
   items:
     - name: 1 – Implantar pacotes do SSIS para o Azure
-      href: tutorial-deploy-ssis-packages-azure.md
+      items:
+        - name: Interface do Usuário (IU)
+          href: tutorial-create-azure-ssis-runtime-portal.md
+        - name: PowerShell
+          href: tutorial-deploy-ssis-packages-azure.md
     - name: 2 – Copiar dados na nuvem
-      href: tutorial-copy-data-dot-net.md
+      items:
+        - name: Ferramenta Copiar Dados
+          href: tutorial-copy-data-tool.md
+        - name: Interface do Usuário (IU)
+          href: tutorial-copy-data-portal.md
+        - name: PowerShell
+          href: tutorial-copy-data-dot-net.md
     - name: 3 – Copiar dados locais na nuvem
-      href: tutorial-hybrid-copy-powershell.md
+      items:
+        - name: Ferramenta Copiar Dados
+          href: tutorial-hybrid-copy-data-tool.md
+        - name: Interface do Usuário (IU)
+          href: tutorial-hybrid-copy-portal.md
+        - name: PowerShell
+          href: tutorial-hybrid-copy-powershell.md
     - name: 4 – Copiar dados em massa
-      href: tutorial-bulk-copy.md
+      items:
+        - name: Interface do Usuário (IU)
+          href: tutorial-bulk-copy-portal.md
+        - name: PowerShell
+          href: tutorial-bulk-copy.md
     - name: 5 – Copiar dados incrementalmente
       href: tutorial-incremental-copy-overview.md
       items:
         - name: 5.1 - Cópia de uma tabela
-          href: tutorial-incremental-copy-powershell.md
+          items:
+            - name: Interface do Usuário (IU)
+              href: tutorial-incremental-copy-portal.md
+            - name: PowerShell
+              href: tutorial-incremental-copy-powershell.md
         - name: 5.2 - Cópia de várias tabelas
-          href: tutorial-incremental-copy-multiple-tables-powershell.md
+          items:
+            - name: PowerShell
+              href: tutorial-incremental-copy-multiple-tables-powershell.md
         - name: 5.3 - Usar o recurso de rastreamento de alterações
-          href: tutorial-incremental-copy-change-tracking-feature-powershell.md
+          items:
+            - name: Interface do Usuário (IU)
+              href: tutorial-incremental-copy-change-tracking-feature-portal.md
+            - name: PowerShell
+              href: tutorial-incremental-copy-change-tracking-feature-powershell.md
     - name: 6 – Transformar dados na nuvem usando o Spark
-      href: tutorial-transform-data-spark-powershell.md
+      items:
+        - name: Interface do Usuário (IU)
+          href: tutorial-transform-data-spark-portal.md
+        - name: PowerShell
+          href: tutorial-transform-data-spark-powershell.md
     - name: 7 – Transformar dados na rede virtual
-      href: tutorial-transform-data-hive-virtual-network.md
+      items:
+        - name: Interface do Usuário (IU)
+          href: tutorial-transform-data-hive-virtual-network-portal.md
+        - name: PowerShell
+          href: tutorial-transform-data-hive-virtual-network.md
     - name: 8 – Controlar o fluxo
-      href: tutorial-control-flow.md
+      items:
+        - name: Interface do Usuário (IU)
+          href: tutorial-control-flow-portal.md
+        - name: PowerShell
+          href: tutorial-control-flow.md
 - name: Exemplos
   items:
     - name: Exemplos de código
@@ -66,10 +110,14 @@
       href: concepts-integration-runtime.md
 - name: Guias de instruções
   items:
+    - name: Criar visualmente as fábricas de dados
+      href: author-visually.md
     - name: Copiar dados
       items:
-        - name: Copiar dados de fontes com suporte para os destinos
+        - name: Copiar dados usando Atividade de Cópia
           href: copy-activity-overview.md
+        - name: Ferramenta Copiar Dados
+          href: copy-data-tool.md
         - name: Ler ou gravar dados particionados
           href: how-to-read-write-partitioned-data.md
         - name: Conectores
@@ -86,6 +134,9 @@
               href: connector-azure-cosmos-db.md
             - name: Repositório Azure Data Lake
               href: connector-azure-data-lake-store.md
+              items:
+                - name: Carregar Data Lake Store
+                  href: load-azure-data-lake-store.md
             - name: Banco de Dados do Azure para MySQL
               href: connector-azure-database-for-mysql.md
             - name: Banco de Dados do Azure para PostgreSQL
@@ -98,6 +149,9 @@
               href: connector-azure-sql-database.md
             - name: SQL Data Warehouse do Azure
               href: connector-azure-sql-data-warehouse.md
+              items:
+                - name: Carregar SQL Data Warehouse
+                  href: load-azure-sql-data-warehouse.md
             - name: Armazenamento de Tabelas do Azure
               href: connector-azure-table-storage.md
             - name: Cassandra
@@ -289,8 +343,6 @@
           href: create-azure-ssis-integration-runtime.md
     - name: Executar pacotes SSIS no Azure
       items:
-        - name: Criar o tempo de execução de integração do Azure-SSIS
-          href: create-azure-ssis-integration-runtime.md
         - name: Ingressar o tempo de execução de integração do Azure-SSIS a uma Rede virtual
           href: join-azure-ssis-integration-runtime-virtual-network.md
         - name: Gerenciar tempo de execução de integração do Azure-SSIS
