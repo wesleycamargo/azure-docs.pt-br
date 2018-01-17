@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/10/2017
 ms.author: tamram
-ms.openlocfilehash: ff0f6446b51c4549e5a367b5b767d4777a1d946d
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: e0da76d1c99de94762a54f552e49f7ee75eba26f
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="introduction-to-microsoft-azure-storage"></a>Introdução ao Armazenamento do Microsoft Azure
 
@@ -35,9 +35,7 @@ Neste artigo, você aprenderá sobre o seguinte:
 * transferência de dados para dentro ou fora do armazenamento
 * as várias bibliotecas de clientes de armazenamento disponíveis.
 
-Para colocar o Armazenamento do Azure em funcionamento rapidamente, consulte um dos Inícios Rápidos a seguir:
-* [Criar uma conta de armazenamento usando o PowerShell](storage-quickstart-create-storage-account-powershell.md)
-* [Criar uma conta de armazenamento usando a CLI](storage-quickstart-create-storage-account-cli.md)
+Para colocar o Armazenamento do Azure em funcionamento, confira [Criar uma conta de armazenamento](storage-quickstart-create-account.md).
 
 ## <a name="introducing-the-azure-storage-services"></a>Introdução aos serviços de Armazenamento do Azure
 
@@ -219,9 +217,7 @@ Os recursos do Armazenamento do Azure podem ser acessados por qualquer linguagem
 * [Saiba mais sobre o Armazenamento de Arquivos](../storage-files-introduction.md)
 * [Saiba mais sobre o Armazenamento de Filas](../queues/storage-queues-introduction.md)
 
-Para colocar o Armazenamento do Azure em funcionamento rapidamente, consulte um dos Inícios Rápidos a seguir:
-* [Criar uma conta de armazenamento usando o PowerShell](storage-quickstart-create-storage-account-powershell.md)
-* [Criar uma conta de armazenamento usando a CLI](storage-quickstart-create-storage-account-cli.md)
+Para colocar o Armazenamento do Azure em funcionamento, confira [Criar uma conta de armazenamento](storage-quickstart-create-account.md).
 
 <!-- FIGURE OUT WHAT TO DO WITH ALL THESE LINKS.
 

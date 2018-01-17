@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 04/17/2017
 ms.author: juliako
-ms.openlocfilehash: e3090da9b2c5b8f99545a1f7f9601bfd8d5221f1
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 707d5db04d66760a12d0c947c8a86347fd0c73d9
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
-# <a name="upload-files-into-a-media-services-account-using-the-aspera-server-on-demand-service-on-azure"></a>Carregar arquivos em uma conta de Serviços de Mídia usando o serviço de Servidor Aspera sob demanda no Azure
+# <a name="upload-files-into-a-media-services-account-using-the-aspera-server-on-demand-service-on-azure"></a>Carregar arquivos em uma conta de Serviços de Mídia usando o serviço Aspera Server On-Demand no Azure
 
 ## <a name="overview"></a>Visão geral
 
@@ -28,12 +28,12 @@ ms.lasthandoff: 10/11/2017
   
 O **Servidor Aspera sob demanda** para Azure está disponível para compra no [Azure marketplace](https://azure.microsoft.com/en-us/marketplace/). Para concluir uma compra do **Servidor Aspera sob demanda** no Azure, faça logon no Azure Marketplace com sua Windows Live ID.
 
-Este tutorial orienta você pelas etapas de carregamento de arquivos em uma conta de armazenamento que está associada a uma conta dos Serviços de Mídia usando o serviço **Servidor Aspera sob demanda** no Azure. 
+Este tutorial orienta você pelas etapas de carregamento de arquivos em uma conta de armazenamento que está associada a uma conta dos Serviços de Mídia usando o serviço **Aspera Server On-Demand** no Azure. 
 
 Você pode encontrar um exemplo que mostra como usar as funções do Azure com o Aspera e os Serviços de Mídia [aqui](https://github.com/Azure-Samples/media-services-dotnet-functions-integration/tree/master/103-aspera-ingest).
 
 >[!NOTE]
->Há um limite para o tamanho máximo do arquivo suportado para processamento com processadores de mídia (MPs) dos Serviços de Mídia do Azure. Confira [este](media-services-quotas-and-limitations.md) tópico para obter detalhes sobre a limitação de tamanho de arquivo.
+>Há um limite para o tamanho máximo do arquivo suportado para processamento com processadores de mídia (MPs) dos Serviços de Mídia do Azure. Confira [este](media-services-quotas-and-limitations.md) artigo para obter detalhes sobre a limitação de tamanho do arquivo.
 >
 
 ## <a name="prerequisites"></a>Pré-requisitos 
@@ -56,7 +56,7 @@ Depois que você entrar no Azure Marketplace, siga estas etapas básicas para co
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera002.png)
 
-3. Preencha as especificidades de seu Servidor sob demanda na assinatura.
+3. Preencha com as especificidades da sua assinatura do Servidor Sob Demanda.
 
    ![Aspera](./media/media-services-upload-files-with-aspera/media-services-upload-files-with-aspera003.png)
 

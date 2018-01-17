@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/08/2017
 ms.author: renash
-ms.openlocfilehash: 712f66ade5709311721e5a4a8416f305f2e16e6b
-ms.sourcegitcommit: b723436807176e17e54f226fe00e7e977aba36d5
+ms.openlocfilehash: f96aa9fe12aba28e1ac3429f012419341bdf92c1
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/19/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="introduction-to-azure-files"></a>Introdução aos Arquivos do Azure
 Os Arquivos do Azure oferecem compartilhamentos de arquivos totalmente gerenciados na nuvem, acessíveis por meio do protocolo [SMB (Service Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) padrão do setor (também conhecido como CIFS ou Common Internet File System). Os compartilhamentos de Arquivos do Azure podem ser montados de maneira simultânea por implantações locais ou na nuvem do Windows, do Linux e do MacOS. Além disso, compartilhamentos dos Arquivos do Azure pode ser armazenado em cache nos Windows Servers com a Sincronização de Arquivos do Azure (versão prévia) para acesso rápido perto de onde os dados estão sendo usados.
 
-## <a name="videos"></a>Vídeos
+## <a name="videos"></a>vídeos
 | Introdução à Sincronização de Arquivos do Azure (2 m) | Arquivos do Azure com Sincronização (Ignite 2017) (85 m)  |
 |-|-|
 | [![Screencast do vídeo Introdução à Sincronização de Arquivos do Azure - clique para reproduzir!](./media/storage-files-introduction/azure-file-sync-video-snapshot.png)](https://www.youtube.com/watch?v=Zm2w8-TRn-o) | [![Screencast da apresentação Arquivos do Azure com Sincronização - clique para reproduzir!](./media/storage-files-introduction/azure-files-ignite-2017-video.png)](https://www.youtube.com/watch?v=r26jWDGF_rg) |
@@ -32,18 +32,18 @@ Os Arquivos do Azure oferecem compartilhamentos de arquivos totalmente gerenciad
 Os compartilhamentos de Arquivos do Azure podem ser usados para:
 
 * **Substituir ou complementar os servidores de arquivos locais**:  
-    Os Arquivos do Azure podem ser usados para substituir completamente ou complementar os servidores de arquivos tradicionais no local ou dispositivos NAS. Sistemas operacionais conhecidos, como o Linux, Windows e macOS podem montar diretamente compartilhamentos de Arquivos do Azure em qualquer lugar do mundo. Os compartilhamentos dos Arquivos do Azure também podem ser replicados com Sincronização de Arquivos do Azure para Windows Servers, no local ou na nuvem, para armazenamento dos dados em cache distribuído e com desempenho onde estão sendo usados.
+    Os Arquivos do Azure podem ser usados para substituir completamente ou complementar os servidores de arquivos tradicionais no local ou dispositivos NAS. Sistemas operacionais conhecidos, como o Linux, Windows e macOS podem montar diretamente compartilhamentos de Arquivos do Azure em qualquer lugar do mundo. Os compartilhamentos dos Arquivos do Azure também podem ser replicados com a Sincronização de arquivos do Azure para Windows Servers, no local ou na nuvem, para armazenamento dos dados em cache distribuído e com desempenho onde estão sendo usados.
 
 * **Aplicativos de "Deslocamento e comparação"**:  
     O serviço Arquivos do Azure facilita "comparar e deslocar" aplicativos para a nuvem que espera que o compartilhamento de arquivos armazene o aplicativo de arquivo ou os dados do usuário. O serviço Arquivos do Azure permite o cenário “clássico” de comparar e deslocar, em que o aplicativo e os dados são movidos para o Azure, e o cenário “híbrido”, em que os dados do aplicativo são movidos para o serviço Arquivos do Azure e o aplicativo continua a ser executado no local. 
 
 * **Simplificar o desenvolvimento na nuvem**:  
-    Os Arquivos do Azure também podem ser usados de várias maneiras para simplificar novos projetos de desenvolvimento na nuvem. Por exemplo:
+    Os Arquivos do Azure também podem ser usados de várias maneiras para simplificar novos projetos de desenvolvimento na nuvem. Por exemplo: 
     * **Configurações de aplicativo compartilhado**:  
         Um padrão comum para aplicativos distribuídos é fazer com que os arquivos de configuração fiquem em um local centralizado, onde possam ser acessados de diversas instâncias de aplicativos. As instâncias do aplicativo podem carregar sua configuração por meio da API REST de Arquivo e os usuários podem acessá-las conforme necessário com a montagem local do compartilhamento SMB.
 
     * **Compartilhamento de diagnóstico**:  
-        Um compartilhamento dos Arquivos do Azure é um local conveniente para aplicativos em nuvem gravarem seus logs, métricas e despejos de memória. Os logs podem ser gravados pelas instâncias do aplicativo por meio da API REST de Arquivo e os desenvolvedores podem acessá-los ao montar o compartilhamento de arquivos em seu computador local. Isso permite maior flexibilidade, já que os desenvolvedores podem adotar o desenvolvimento em nuvem sem a necessidade de abandonar as ferramentas existentes que conhecemos e amamos.
+        Um compartilhamento dos Arquivos do Azure é um local conveniente para aplicativos de nuvem gravarem seus logs, métricas e despejos de memória. Os logs podem ser gravados pelas instâncias do aplicativo por meio da API REST de Arquivo e os desenvolvedores podem acessá-los ao montar o compartilhamento de arquivos em seu computador local. Isso permite maior flexibilidade, já que os desenvolvedores podem adotar o desenvolvimento em nuvem sem a necessidade de abandonar as ferramentas existentes que conhecemos e amamos.
 
     * **Desenv/Teste/Depuração**:  
         Quando desenvolvedores ou administradores estão trabalhando em máquinas virtuais na nuvem, eles frequentemente precisam de um conjunto de ferramentas ou utilitários. Copiar tais ferramentas e utilitários em cada VM pode ser uma atividade demorada. Ao montar um compartilhamento dos Arquivos do Azure localmente nas máquinas virtuais, o desenvolvedor e o administrador podem acessar rapidamente suas ferramentas e utilitários sem precisar copiá-las.

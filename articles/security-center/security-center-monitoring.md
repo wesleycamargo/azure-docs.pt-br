@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/28/2017
+ms.date: 01/03/2018
 ms.author: yurid
-ms.openlocfilehash: a14528013b34b912f4f2e1bc07094c7b20a0f63c
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 04f2dd3dcaa44a243cb9620ab8192e15aae82a01
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="security-health-monitoring-in-azure-security-center"></a>Monitoramento de integridade de segurança na Central de segurança do Azure
 Este artigo o ajuda a usar os recursos de monitoramento na Central de segurança do Azure para monitorar a conformidade com as políticas.
@@ -48,11 +48,11 @@ Ao clicar no bloco **Computação**, você verá três guias:
 Há várias seções em cada guia e, em cada seção, você pode selecionar uma opção individual para ver mais detalhes sobre as etapas recomendadas e resolver esse problema específico.
 
 #### <a name="monitoring-recommendations"></a>Recomendações de monitoramento
-Esta seção mostra o número total de máquinas virtuais e computadores que foram inicializados para provisionamento automático e seus status atuais. Quando você clicar nesta entrada, a seção **Problemas de integridade do agente de monitoramento** é aberta.
+Esta seção mostra o número total de máquinas virtuais e computadores que foram inicializados para provisionamento automático e seus status atuais. Neste exemplo, há uma recomendação, **Monitoramento de problemas de integridade do agente**.  Selecione essa recomendação.
 
 ![Problemas de integridade do agente de monitoramento](./media/security-center-monitoring/security-center-monitoring-fig1-new003-2017.png)
 
-VMs e computadores em que a Central de Segurança não pode monitorar com êxito são listados. Selecione uma VM ou um computador para obter informações detalhadas. O **ESTADO DO MONITORAMENTO** define o problema.
+**Monitoramento de problemas de integridade do agente** é aberto. VMs e computadores em que a Central de Segurança não pode monitorar com êxito são listados. Selecione uma VM ou um computador para obter informações detalhadas. **ESTADO DE MONITORAMENTO** fornece um motivo porque a Central de Segurança não é capaz de monitorar. Veja o [guia de solução de problemas da Central de Segurança](security-center-troubleshooting-guide.md#monitoring-agent-health-issues) para obter uma lista de valores, descrições e etapas de resolução do **ESTADO DE MONITORAMENTO**.
 
 #### <a name="recommendations"></a>Recomendações
 Esta seção tem um conjunto de [recomendações para cada máquina virtual e computador](security-center-virtual-machine-recommendations.md) que a Central de Segurança do Azure monitora. A primeira coluna lista a recomendação. A segunda coluna mostra o número total de máquinas virtuais e computadores que são afetados por essa recomendação. A terceira coluna mostra a severidade do problema, conforme ilustrado na captura de tela abaixo:

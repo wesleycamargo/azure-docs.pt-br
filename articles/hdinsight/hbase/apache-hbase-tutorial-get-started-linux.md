@@ -16,11 +16,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/03/2017
 ms.author: jgao
-ms.openlocfilehash: e4f2a4d5263b30b16ffd137c47fb63caa8340e16
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 1073c8eb0bfb8176f81826c4ea8967d5c04098ec
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="get-started-with-an-apache-hbase-example-in-hdinsight"></a>Introdução a um exemplo do Apache HBase no HDInsight
 
@@ -31,14 +31,14 @@ Saiba como criar um cluster HBase no HDInsight, criar tabelas HBase e consultar 
 ## <a name="prerequisites"></a>Pré-requisitos
 Antes de começar este tutorial do HBase, você deverá ter os seguintes itens:
 
-* **Uma assinatura do Azure**. Consulte [Obter avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+* **Uma assinatura do Azure**. Consulte [Obter a avaliação gratuita do Azure](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * [Secure Shell(SSH)](../hdinsight-hadoop-linux-use-ssh-unix.md). 
 * [curl](http://curl.haxx.se/download.html).
 
 ## <a name="create-hbase-cluster"></a>Nome do cluster HBase
 O procedimento a seguir usa um modelo do Azure Resource Manager para criar um cluster do HBase e a conta de Armazenamento do Azure padrão dependente. Para compreender os parâmetros usados no procedimento e em outros métodos de criação de cluster, consulte [Criar clusters Hadoop baseados em Linux no HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 
-1. Clique na imagem a seguir para abrir o modelo no portal do Azure. O modelo está localizado em um contêiner de blob público. 
+1. Clique na imagem a seguir para abrir o modelo no portal do Azure. O modelo está localizado em [Modelos de Início Rápido do Azure](https://azure.microsoft.com/resources/templates/).
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux%2Fazuredeploy.json" target="_blank"><img src="./media/apache-hbase-tutorial-get-started-linux/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. Na folha **Implantação personalizada**, insira os seguintes valores:

@@ -13,23 +13,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/31/2017
+ms.date: 01/03/2018
 ms.author: billmath
 ms.reviewer: jesakowi
 ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 9f51f46b0dc942bb9749f8e962a2872a8618245a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d3e14c18d5e4cd77f4c68d8a5d9d0b915e896695
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="apps-permissions-and-consent-in-azure-active-directory"></a>Aplicativos, permissões e consentimento no Azure Active Directory
-Dentro do Azure Active Directory, você pode adicionar aplicativos ao seu diretório.  Os aplicativos podem variar dependendo do tipo de aplicativo.  Para exibir os aplicativos no portal clássico, selecione um diretório e escolha os aplicativos.
-
-![](media/active-directory-apps-permissions-consent/apps1.png)
+Dentro do Azure Active Directory, você pode adicionar aplicativos ao seu diretório.  Os aplicativos podem variar dependendo do tipo de aplicativo.  Para exibir os aplicativos no portal, selecione um diretório e escolha os aplicativos.
 
 > [!IMPORTANT]
-> A Microsoft recomenda que você gerencie o Azure AD usando o [Centro de administração do AD do Azure](https://aad.portal.azure.com) no portal do Azure em vez de usar o portal clássico do Azure mencionado neste artigo.
+> A Microsoft recomenda que você gerencie o Azure AD usando o [Centro de administração do AD do Azure](https://aad.portal.azure.com) no portal do Azure em vez de usar o portal do Azure mencionado neste artigo.
 
 ## <a name="types-of-apps"></a>Tipos de aplicativos
 
@@ -73,9 +71,7 @@ Resumindo:
 
 ## <a name="controls"></a>Controles
 
-A seguir está uma lista dos controles de administrador diferentes disponíveis para todo esse comportamento. Os controles de administrador podem ser acessados no Portal Clássico da configuração sob o diretório.
-
-![](media/active-directory-apps-permissions-consent/apps7.png)
+A seguir está uma lista dos controles de administrador diferentes disponíveis para todo esse comportamento.
 
 No Portal do Azure, em **gerenciar**, **configurações de usuário**.
 
@@ -85,18 +81,14 @@ No Portal do Azure, em **gerenciar**, **configurações de usuário**.
 
 - Você pode controlar se os usuários podem ou não dar consentimento para aplicativos:
 
-No portal clássico, selecione **Os usuários podem dar permissões a aplicativos para que acessem seus dados.**
-![](media/active-directory-apps-permissions-consent/apps8.png)
-
 No portal do Azure, **usuários selecionados podem permitir que aplicativos acessem seus dados**.
 ![](media/active-directory-apps-permissions-consent/apps12.png)
 
 
 
-- Você pode controlar se os usuários podem ou não registrar seus próprios aplicativos de LOB de locatário único: no Portal Clássico, selecione **Os usuários podem adicionar aplicativos integrados.**
-![](media/active-directory-apps-permissions-consent/apps9.png)
+- Você pode controlar se os usuários podem registrar seus próprios aplicativos LOB de único locatário:
 
-No portal do Azure, **usuários selecionados podem permitir que aplicativos acessem seus dados**.
+No portal do Azure, selecione **usuários podem registrar aplicativos**.
 ![](media/active-directory-apps-permissions-consent/apps13.png)
 
 >[!NOTE]
@@ -108,20 +100,6 @@ No portal do Azure, **usuários selecionados podem permitir que aplicativos aces
 >- Ao registrar os aplicativos LOB de locatário único, os usuários não poderão solicitar permissões delegadas a outros aplicativos se essas permissões exigirem o consentimento do administrador.
 >- Usuários não podem fazer alterações em aplicativos dos quais eles não são proprietários.
 
-
-
-- Você pode controlar se os usuários podem ou não adicionar por conta própria aplicativos pré-integrados que usam o SSO de senha (também conhecido como "cofre para senhas") ![](media/active-directory-apps-permissions-consent/apps10.png)
-
-
-
-- Você pode controlar as condições sob as quais aplicativos podem ser acessados (ou seja, acesso condicional). Lembre-se de que isso se aplica ao aplicativo cliente e ao aplicativo de recurso. Digamos então que você defina uma política de acesso condicional que diz que o aplicativo "Office 365 Exchange Online" só pode ser acessado de computadores que são compatíveis.  Essa política também se aplicará quando um usuário tentar usar um aplicativo cliente que solicite permissões para o Exchange Online.
-
-
-
-- Você tem visibilidade de quais aplicativos receberam consentimento e quais estão sendo usados.
-
-1.  Quando um usuário dá consentimento para um aplicativo, um objeto ServicePrincipal é criado no locatário. A criação do ServicePrincipal está incluída no relatório de auditoria.
-2.  Os relatórios de atividade de entrada do usuário informam a você em qual aplicativo o usuário está entrando. 
 
 ## <a name="example"></a>Exemplo
 

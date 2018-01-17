@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/02/2017
 ms.author: nisoneji
-ms.openlocfilehash: 815148d2a39ce8b18092619c9687a56b457c8339
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 0baf595266e71fad2df16996d63af3ba7d23a6ac
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Planejador de Implantações do Azure Site Recovery para Hyper-V para o Azure
 Este artigo é o guia do usuário do Planejador de Implantações do Azure Site Recovery para implantações de produção do Hyper-V para o Azure.
@@ -28,7 +28,7 @@ Antes de começar a proteger quaisquer máquinas virtuais (VMs) do Hyper-V usand
 
 Você também precisa criar o tipo e o número correto de contas de armazenamento do Azure de destino. Você cria contas de armazenamento standard ou premium, acrescentando o crescimento nos servidores de produção de origem devido ao aumento no uso ao longo do tempo. Você escolhe o tipo de armazenamento por VM, com base nas características de carga de trabalho, por exemplo, operações de E/S de leitura/gravação por segundo (IOPS) ou variação de dados, e nos limites do Azure Site Recovery. 
 
-O planejador de implantação do Azure Site Recovery (versão 2) é uma ferramenta de linha de comando disponível para ambos os cenários de recuperação de desastre do Hyper-V para o Azure e do VMware para o Azure. Você pode analisar remotamente as máquinas virtuais do Hyper-V presentes em vários hosts Hyper-V usando essa ferramenta (sem nenhum impacto na produção) para entender os requisitos de largura de banda e do Armazenamento do Azure para o êxito da replicação e do failover de teste/failover. Você pode executar a ferramenta sem instalar componentes do Azure Site Recovery no local. No entanto, para obter resultados precisos da taxa de transferência obtida, recomendamos que você execute o planejador em um Windows Server que tenha a mesma configuração de hardware de um dos servidores do Hyper-V que você usará para habilitar a proteção de recuperação de desastre no Azure. 
+O planejador de implantação do Azure Site Recovery é uma ferramenta de linha de comando para ambos os cenários de recuperação de desastre do Hyper-V para o Azure e do VMware para o Azure. Você pode analisar remotamente as máquinas virtuais do Hyper-V presentes em vários hosts Hyper-V usando essa ferramenta (sem nenhum impacto na produção) para entender os requisitos de largura de banda e do Armazenamento do Azure para o êxito da replicação e do failover de teste/failover. Você pode executar a ferramenta sem instalar componentes do Azure Site Recovery no local. No entanto, para obter resultados precisos da taxa de transferência obtida, recomendamos que você execute o planejador em um Windows Server que tenha a mesma configuração de hardware de um dos servidores do Hyper-V que você usará para habilitar a proteção de recuperação de desastre no Azure. 
 
 A ferramenta fornece os seguintes detalhes:
 
@@ -78,7 +78,7 @@ A ferramenta fornece os seguintes detalhes:
 
 | | **VMware no Azure** |**Hyper-V para Azure**|**Azure para Azure**|**Hyper-V para site secundário**|**VMware para o site secundário**
 --|--|--|--|--|--
-Cenários com suporte |Sim|Sim|Não|Sim*|Não
+Cenários com suporte |Sim|Sim|Não |Sim*|Não 
 Versão com suporte | vCenter 6.5, 6.0 ou 5.5| Windows Server 2016, Windows Server 2012 R2 | ND |Windows Server 2016, Windows Server 2012 R2|ND
 Configuração com suporte|vCenter, ESXi| cluster do Hyper-V, host do Hyper-V|ND|cluster do Hyper-V, host do Hyper-V|ND|
 Número de servidores que podem ser analisados por instância em execução do Planejador de Implantações do Azure Site Recovery |Único (máquinas virtuais que pertencem a um vCenter Server ou um servidor ESXi podem ser criados em um momento)|Vários (as máquinas virtuais em vários hosts ou clusters de hosts podem ser analisadas de cada vez)| ND |Vários (as máquinas virtuais em vários hosts ou clusters de hosts podem ser analisadas de cada vez)| ND
@@ -88,7 +88,7 @@ Número de servidores que podem ser analisados por instância em execução do P
 ## <a name="prerequisites"></a>Pré-requisitos
 A ferramenta tem três fases principais para o Hyper-v: obter lista de VMs, análise e geração de relatórios. Também há uma quarta opção para calcular apenas a taxa de transferência. Os requisitos para o servidor no qual as diferentes fases precisam ser executadas são apresentados na tabela a seguir:
 
-| Requisito de servidor | Descrição |
+| Requisito de servidor | DESCRIÇÃO |
 |---|---|
 |Obter lista de VMs, criação de perfis e medida de taxa de transferência |<ul><li>Sistema operacional: Microsoft Windows Server 2016 ou Microsoft Windows Server 2012 R2 </li><li>Configuração de máquina: 8 vCPUs, 16 GB de RAM, 300 GB de disco rígido</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Microsoft Visual C++ redistribuível para Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Acesso à Internet para o Azure neste servidor</li><li>Conta de Armazenamento do Azure</li><li>Acesso de administrador no servidor</li><li>Mínimo de 100 GB de espaço livre em disco (supondo que haja 1000 VMs com uma média de três discos em cada, com criação de perfil por 30 dias)</li><li>A VM de onde você está executando a ferramenta de planejamento de implantação do Azure Site Recovery deve ser adicionada à lista TrustedHosts de todos os servidores do Hyper-V.</li><li>As máquinas virtuais de servidores Hyper-V a serem analisadas devem ser adicionadas à lista TrustedHosts da VM cliente de onde a ferramenta está sendo executada. [Saiba mais sobre como adicionar servidores à lista TrustedHosts](#steps-to-add-servers-into-trustedhosts-list). </li><li> A ferramenta deve ser executada com privilégios administrativos do PowerShell ou do console de linha de comando no cliente</ul></ul>|
 | Geração de relatórios | Um PC Windows ou Windows Server com o Microsoft Excel 2013 ou posterior |
@@ -121,9 +121,9 @@ A configuração recomendada da VM: 8 vCPUs, 16 GB de RAM, disco rígido de 300 
 3.  Extraia a pasta .zip.
 A pasta contém vários arquivos e subpastas. O arquivo executável é ASRDeploymentPlanner.exe na pasta pai.
 
-Exemplo: copiar o arquivo .zip para a unidade E:\ e extraí-lo. E:\ASR Deployment Planner_v2.0.zip
+Exemplo: copiar o arquivo .zip para a unidade E:\ e extraí-lo. E:\ASR Deployment Planner_v2.1.zip
 
-E:\ASR Deployment Planner_v2.0\ASRDeploymentPlanner.exe
+E:\ASR Deployment Planner_v2.1\ASRDeploymentPlanner.exe
 
 ### <a name="updating-to-the-latest-version-of-deployment-planner"></a>Atualização para a versão mais recente do Planejador de Implantações
 Se você tiver uma versão anterior do Planejador de Implantações, siga um destes procedimentos:
@@ -136,6 +136,11 @@ Se você tiver uma versão anterior do Planejador de Implantações, siga um des
   >Ao iniciar a criação de perfil com a nova versão, passe o mesmo caminho de diretório de saída para que a ferramenta acrescente dados de perfil aos arquivos existentes. Um conjunto completo de dados com criação de perfil será ser usado para gerar o relatório. Se você passar um diretório de saída diferente, novos arquivos serão criados, e os dados de criação de perfil antigos não serão usados para gerar o relatório.
   >
   >Cada novo planejador de implantação é uma atualização cumulativa do arquivo .zip. Você não precisa copiar os arquivos mais recentes para a pasta anterior. Você pode criar e usar uma nova pasta.
+
+## <a name="version-history"></a>Histórico de versão
+A versão mais recente da ferramenta Planejador de Implantações do ASR é a 2.1.
+Consulte a página [Histórico de versões do Planejador de Implantações do ASR](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) para obter as correções adicionadas em cada atualização.
+
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Execute o Planejador de Implantações](site-recovery-hyper-v-deployment-planner-run.md).

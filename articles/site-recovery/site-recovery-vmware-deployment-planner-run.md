@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/04/2017
 ms.author: nisoneji
-ms.openlocfilehash: aee19cd515e1cb75dcd791363270e1b6a6d094e4
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 71090d897634989a061181f4471368cfb5f14be0
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Executar o Planejador de Implantações do Azure Site Recovery para VMware para o Azure
 Este artigo é o guia do usuário do Planejador de Implantação do Azure Site Recovery para implantações de produção do VMware para o Azure.
@@ -63,6 +63,7 @@ Substitua &lsaquo;nome do servidor&rsaquo;, &lsaquo;nome de usuário&rsaquo;, &l
 
     ![Lista de nomes de VM no planejador de implantação
 ](media/site-recovery-vmware-deployment-planner-run/profile-vm-list-v2a.png)
+
 ### <a name="start-profiling"></a>Iniciar criação de perfil
 Após obter a lista de VMs para criação de perfil, você pode executar a ferramenta no modo de criação de perfil. Aqui está a lista de parâmetros obrigatórios e opcionais da ferramenta para execução no modo de criação de perfil.
 
@@ -70,7 +71,7 @@ Após obter a lista de VMs para criação de perfil, você pode executar a ferra
 ASRDeploymentPlanner.exe -Operation StartProfiling /?
 ```
 
-| Nome do parâmetro | Descrição |
+| Nome do parâmetro | DESCRIÇÃO |
 |---|---|
 | -Operation | StartProfiling |
 | -Server | O nome de domínio totalmente qualificado ou o endereço IP do servidor vCenter/host ESXi vSphere cujas VMs devem ser submetidas à criação de perfil.|
@@ -94,6 +95,17 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 Durante a criação de perfil, opcionalmente, você pode passar um nome de conta de armazenamento e uma chave para obter a taxa de transferência que o Azure Site Recovery pode alcançar no momento da replicação do servidor de configuração ou do servidor de processo para o Azure. Se a chave e o nome da conta de armazenamento não forem passados durante a criação de perfil, a ferramenta não calculará a taxa de transferência possível.
 
 Você pode executar várias instâncias da ferramenta para diversos conjuntos de VMs. Verifique se os nomes de VM não são repetidos nos conjuntos de criação de perfil. Por exemplo, se tiver criado o perfil de dez VMs (VM1 a VM10) e, após alguns dias, quiser criar o perfil de outras cinco VMs (VM11 a VM15), você poderá executar a ferramenta em outro console de linha de comando para o segundo conjunto de VMs (VM11 a VM15). Verifique se o segundo conjunto de VMs não tem nomes de VM da primeira instância de criação de perfil ou use um diretório de saída diferente para a segunda execução. Se forem usadas duas instâncias da ferramenta para a criação de perfil das mesmas VMs e for usado o mesmo diretório de saída, o relatório gerado será incorreto.
+
+Por padrão, a ferramenta é configurada para analisar e gerar relatórios de até 1000 VMs. Você pode alterar o limite ao mudar o valor da chave MaxVMsSupported no arquivo *ASRDeploymentPlanner.exe.config*.
+```
+<!-- Maximum number of vms supported-->
+<add key="MaxVmsSupported" value="1000"/>
+```
+Com as configurações padrão, para criar o perfil de, digamos, 1500 VMs, crie dois arquivos VMList.txt. Um com 1000 VMs e outro com uma lista de 500 VMs. Execute as duas instâncias do Planejador de Implantações do ASR, uma com VMList1.txt e outra com VMList2.txt. Você pode usar o mesmo caminho de diretório para armazenar os dados analisados das VMs VMList. 
+
+Já vimos que, com base na configuração de hardware, especialmente o tamanho da RAM do servidor no qual a ferramenta é executada para gerar o relatório, a operação poderá falhar com memória insuficiente. Se você tiver um bom hardware, poderá alterar o MaxVMsSupported para qualquer valor mais alto.  
+
+Se você tiver vários servidores vCenter, precisará executar uma instância de ASRDeploymentPlanner para cada servidor vCenter para criação de perfil.
 
 As configurações de VM são capturadas uma vez no início da operação de criação de perfil e armazenadas em um arquivo chamado VMDetailList.xml. Essas informações são usadas quando o relatório é gerado. Não é capturada alteração alguma na configuração de VM (por exemplo, um número maior de núcleos, discos ou NICs) do início ao fim da criação de perfil. Se uma configuração de VM com criação de perfil foi alterada durante a criação de perfil, na visualização pública, aqui está a solução alternativa para obter os detalhes mais recentes da VM ao gerar o relatório:
 
@@ -136,7 +148,7 @@ Após a conclusão da criação de perfil, você poderá executar a ferramenta n
 
 `ASRDeploymentPlanner.exe -Operation GenerateReport /?`
 
-|Nome do parâmetro | Descrição |
+|Nome do parâmetro | DESCRIÇÃO |
 |-|-|
 | -Operation | GenerateReport |
 | -Server |  O nome de domínio totalmente qualificado ou o endereço IP do servidor vCenter/vSphere (use o mesmo nome ou endereço IP que usou no momento da criação de perfil) em que se encontram as VMs com criação de perfil cujo relatório deve ser gerado. Observe que, se usou um servidor vCenter no momento da criação de perfil, você não pode usar um servidor vSphere para geração de relatórios e vice-versa.|
@@ -158,6 +170,12 @@ Após a conclusão da criação de perfil, você poderá executar a ferramenta n
 |-TargetRegion|(Opcional) A região do Azure que é o destino da replicação. Como o Azure tem custos diferentes por região, para gerar o relatório com a região do Azure de destino específica, use este parâmetro.<br>O padrão é WestUS2 ou a última região de destino usada.<br>Consulte a lista de [regiões de destino com suporte](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-target-regions).|
 |-OfferId|(Opcional) A oferta associada a determinada assinatura. O padrão é MS-AZR - 0003P (Pré-pago).|
 |-Currency|(Opcional) A moeda na qual o custo é mostrado no relatório gerado. O padrão é dólar americano ($) ou a última moeda usada.<br>Consulte a lista de [moedas com suporte](site-recovery-vmware-deployment-planner-cost-estimation.md#supported-currencies).|
+
+Por padrão, a ferramenta é configurada para analisar e gerar relatórios de até 1000 VMs. Você pode alterar o limite ao mudar o valor da chave MaxVMsSupported no arquivo *ASRDeploymentPlanner.exe.config*.
+```
+<!-- Maximum number of vms supported-->
+<add key="MaxVmsSupported" value="1000"/>
+```
 
 #### <a name="example-1-generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>Exemplo 1: gerar um relatório com os valores padrão quando os dados de criação de perfil estiverem na unidade local
 ```
@@ -240,7 +258,7 @@ Abra um console de linha de comando e acesse a pasta da ferramenta de planejamen
 
 `ASRDeploymentPlanner.exe -Operation GetThroughput /?`
 
-|Nome do parâmetro | Descrição |
+|Nome do parâmetro | DESCRIÇÃO |
 |-|-|
 | -Operation | GetThroughput |
 |-Virtualization|Especifique o tipo de virtualização (Hyper-V ou VMware).|

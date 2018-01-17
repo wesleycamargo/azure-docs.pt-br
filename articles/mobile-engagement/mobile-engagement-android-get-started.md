@@ -14,11 +14,11 @@ ms.devlang: Java
 ms.topic: hero-article
 ms.date: 08/10/2016
 ms.author: piyushjo;ricksal
-ms.openlocfilehash: 4acd06591b05b9328b35400e0932cfcf92cb7e80
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 2c5d9c5458b77263a5d1da93e5305e61999f229f
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="get-started-with-azure-mobile-engagement-for-android-apps"></a>Introdução ao Azure Mobile Engagement para Aplicativos Android
 [!INCLUDE [Hero tutorial switcher](../../includes/mobile-engagement-hero-tutorial-switcher.md)]
@@ -32,7 +32,7 @@ A conclusão deste tutorial requer as [Ferramentas para desenvolvedores do Andro
 Também é necessário baixar o [SDK do Mobile Engagement Android](https://aka.ms/vq9mfn).
 
 > [!IMPORTANT]
-> Para concluir este tutorial, você precisa de uma conta ativa do Azure. Se você não tiver uma conta, poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-android-get-started).
+> Para concluir este tutorial, você precisa de uma conta ativa do Azure. Se não tiver uma conta, você poderá criar uma conta de avaliação gratuita em apenas alguns minutos. Para obter detalhes, consulte [Avaliação Gratuita do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A0E0E5C02&amp;returnurl=http%3A%2F%2Fazure.microsoft.com%2Fen-us%2Fdocumentation%2Farticles%2Fmobile-engagement-android-get-started).
 >
 >
 
@@ -48,7 +48,7 @@ A documentação de integração completa pode ser encontrada na [Integração d
 1. Inicie o **Android Studio** e no pop-up, selecione **Iniciar um novo projeto do Android Studio**.
 
     ![][1]
-2. Forneça um nome de aplicativo e um domínio da empresa. Anote o que você está preenchendo, porque precisará disso posteriormente. Clique em **Avançar**.
+2. Forneça um nome de aplicativo e um domínio da empresa. Anote o que você está preenchendo, porque precisará disso posteriormente. Clique em **Próximo**.
 
     ![][2]
 3. Selecione o fator forma de destino e o nível de API e clique em **Avançar**.
@@ -91,7 +91,7 @@ O Android Studio agora criará o aplicativo de demonstração no qual integrarem
 
         import com.microsoft.azure.engagement.EngagementAgent;
         import com.microsoft.azure.engagement.EngagementConfiguration;
-3. Volte para o Portal Clássico do Azure na página **Informações da Conexão** do seu aplicativo e copie a **Cadeia de Conexão**.
+3. Volte para o portal do Azure na página **Informações de Conexão** do seu aplicativo e copie a **Cadeia de Conexão**.
 
       ![](../../includes/media/mobile-engagement-create-app-in-portal-new/app-connection-info.png)
 

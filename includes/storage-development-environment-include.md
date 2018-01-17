@@ -2,15 +2,15 @@
 Em seguida, configure seu ambiente de desenvolvimento no Visual Studio para poder ficar pronto para experimentar os exemplos de código neste guia.
 
 ### <a name="create-a-windows-console-application-project"></a>Criar um projeto de aplicativo de console do Windows.
-No Visual Studio, crie um novo aplicativo de console do Windows. As etapas a seguir mostram como criar um aplicativo de console no Visual Studio 2017. No entanto, as etapas são semelhantes em outras versões do Visual Studio.
+No Visual Studio, crie um novo aplicativo de console do Windows. As etapas a seguir mostram como criar um aplicativo de console no Visual Studio 2017. As etapas são semelhantes em outras versões do Visual Studio.
 
-1. Selecione **Arquivo** > **Novo** > **Projeto**
-2. Selecione **Instalado** > **Modelos** > **Visual C#** > **Área de trabalho clássica do Windows**
-3. Selecione **Aplicativo do Console (.NET Framework)**
-4. Insira um nome para seu aplicativo no campo **Nome:**
-5. Selecione **OK**
+1. Selecione **Arquivo** > **Novo** > **Projeto**.
+2. Selecione **Instalado** > **Modelos** > **Visual C#** > **Área de Trabalho Clássica do Windows**.
+3. Selecione **Aplicativo do Console (.NET Framework)**.
+4. No campo **Nome**, insira um nome para seu aplicativo.
+5. Selecione **OK**.
 
-![Diálogo de criação de projeto no Visual Studio](./media/storage-development-environment-include/storage-development-environment-include-1.png)
+![Captura de tela da caixa de diálogo Novo Projeto no Visual Studio](./media/storage-development-environment-include/storage-development-environment-include-1.png)
 
 Todos os exemplos de código neste tutorial podem ser adicionados ao método `Main()` no arquivo`Program.cs` do aplicativo de console.
 
@@ -25,8 +25,8 @@ Há dois pacotes que você precisará referenciar em seu projeto para concluir e
 Você pode usar NuGet para obter os dois pacotes. Siga estas etapas:
 
 1. Clique com o botão direito do mouse no seu projeto no **Gerenciador de Soluções** e escolha **Gerenciar Pacotes NuGet**.
-2. Pesquise online por "Windowsazure.Storage" e clique em **Instalar** para instalar a Biblioteca de Cliente de Armazenamento e suas dependências.
-3. Pesquise online por "WindowsAzure.ConfigurationManager" e clique em **Instalar** para instalar o Gerenciador de Configuração do Azure.
+2. Pesquise online por "Windowsazure.Storage" e selecione **Instalar** para instalar a Biblioteca de Cliente de Armazenamento e suas dependências.
+3. Pesquise online por "WindowsAzure.ConfigurationManager" e clique em **Instalar** para instalar o Azure Configuration Manager.
 
 > [!NOTE]
 > O pacote de Biblioteca de Cliente do Armazenamento também está incluído no [SDK do Azure para .NET](https://azure.microsoft.com/downloads/). No entanto, também recomendamos a instalação da Biblioteca de Cliente de Armazenamento do NuGet para garantir que você tenha sempre a versão mais recente da biblioteca do cliente.
@@ -39,7 +39,7 @@ Você pode usar NuGet para obter os dois pacotes. Siga estas etapas:
 Você tem duas opções de ambiente para executar os exemplos neste guia:
 
 * Você pode executar o código em uma conta de Armazenamento do Azure na nuvem. 
-* Você pode executar o código em um emulador de armazenamento do Azure. O emulador de armazenamento é um ambiente local que emula uma conta de Armazenamento do Azure na nuvem. O emulador é uma opção gratuita para testar e depurar seu código enquanto o aplicativo está em desenvolvimento. O emulador usa uma conta e chave bem conhecidas. Para saber mais, confira [Usar o Emulador de Armazenamento do Azure para desenvolvimento e teste](../articles/storage/common/storage-use-emulator.md)
+* Você pode executar o código em um emulador de armazenamento do Azure. O emulador de armazenamento é um ambiente local que emula uma conta de Armazenamento do Azure na nuvem. O emulador é uma opção gratuita para testar e depurar seu código enquanto o aplicativo está em desenvolvimento. O emulador usa uma conta e chave bem conhecidas. Para saber mais, confira [Usar o emulador de armazenamento do Azure para desenvolvimento e teste](../articles/storage/common/storage-use-emulator.md).
 
 Se você estiver selecionando uma conta de armazenamento na nuvem, copie a chave de acesso primário para sua conta de armazenamento a partir do portal do Azure. Para saber mais, confira [Exibir e copiar chaves de acesso de armazenamento](../articles/storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys).
 

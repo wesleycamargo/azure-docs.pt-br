@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/04/2017
 ms.author: nisoneji
-ms.openlocfilehash: 0910d5802d64ca637b3ecd1e392a6df8629c7f25
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: 2985ed0b4bf5d9525bc2274d71b703922524f5a8
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Planejador de Implantações do Azure Site Recovery para VMware para o Azure
 Este artigo é o guia do usuário do Planejador de Implantação do Azure Site Recovery para implantações de produção do VMware para o Azure.
@@ -29,7 +29,7 @@ Antes de começar a proteger VMs (máquinas virtuais) VMware usando o Site Recov
 
 Você também precisa criar o tipo e o número correto de contas de armazenamento do Azure de destino. Você cria contas de armazenamento standard ou premium, acrescentando o crescimento nos servidores de produção de origem devido ao aumento no uso ao longo do tempo. Você escolhe o tipo de armazenamento por VM, com base nas características de carga de trabalho (por exemplo, operações de E/S de leitura/gravação por segundo [IOPS] ou variação de dados) e nos limites do Site Recovery.
 
-O planejador de implantação do Azure Site Recovery (versão 2) é uma ferramenta de linha de comando disponível para ambos os cenários de recuperação de desastre do Hyper-V para o Azure e do VMware para o Azure. Você pode criar o perfil remotamente das VMs do VMware usando essa ferramenta (sem impacto na produção) para entender os requisitos de largura de banda e do Armazenamento do Azure para o êxito da replicação e do failover de teste. Você pode executar a ferramenta sem instalar componentes do Site Recovery no local. No entanto, para obter resultados precisos da taxa de transferência obtida, recomendamos que você execute o planejador em um Windows Server que atenda aos requisitos mínimos do servidor de configuração de Site Recovery que você provavelmente precisará implantar como uma das primeiras etapas da implantação de produção.
+O planejador de implantação do Azure Site Recovery é uma ferramenta de linha de comando para ambos os cenários de recuperação de desastre do Hyper-V para o Azure e do VMware para o Azure. Você pode criar o perfil remotamente das VMs do VMware usando essa ferramenta (sem impacto na produção) para entender os requisitos de largura de banda e do Armazenamento do Azure para o êxito da replicação e do failover de teste. Você pode executar a ferramenta sem instalar componentes do Site Recovery no local. No entanto, para obter resultados precisos da taxa de transferência obtida, recomendamos que você execute o planejador em um Windows Server que atenda aos requisitos mínimos do servidor de configuração de Site Recovery que você provavelmente precisará implantar como uma das primeiras etapas da implantação de produção.
 
 A ferramenta fornece os seguintes detalhes:
 
@@ -71,7 +71,7 @@ A ferramenta fornece os seguintes detalhes:
 
 | | **VMware no Azure** |**Hyper-V para Azure**|**Azure para Azure**|**Hyper-V para site secundário**|**VMware para o site secundário**
 --|--|--|--|--|--
-Cenários com suporte |Sim|Sim|Não|Sim*|Não
+Cenários com suporte |Sim|Sim|Não |Sim*|Não 
 Versão com suporte | vCenter 6.5, 6.0 ou 5.5| Windows Server 2016, Windows Server 2012 R2 | ND |Windows Server 2016, Windows Server 2012 R2|ND
 Configuração com suporte|vCenter, ESXi| cluster do Hyper-V, host do Hyper-V|ND|cluster do Hyper-V, host do Hyper-V|ND|
 Número de servidores que podem ser analisados por instância em execução do Planejador de Implantações do Azure Site Recovery |Único (máquinas virtuais que pertencem a um vCenter Server ou um servidor ESXi podem ser criados em um momento)|Vários (as máquinas virtuais em vários hosts ou clusters de hosts podem ser analisadas de cada vez)| ND |Vários (as máquinas virtuais em vários hosts ou clusters de hosts podem ser analisadas de cada vez)| ND
@@ -81,7 +81,7 @@ Número de servidores que podem ser analisados por instância em execução do P
 ## <a name="prerequisites"></a>Pré-requisitos
 A ferramenta tem duas fases principais: criação de perfil e geração de relatórios. Também há uma terceira opção para calcular apenas a taxa de transferência. Os requisitos para o servidor do qual a medida de taxa de transferência e criação de perfil é iniciada são apresentados na seguinte tabela:
 
-| Requisito de servidor | Descrição|
+| Requisito de servidor | DESCRIÇÃO|
 |---|---|
 |Medida de taxa de transferência e criação de perfil| <ul><li>Sistema operacional: Microsoft Windows Server 2016 ou Microsoft Windows Server 2012 R2<br>(a correspondência ideal são pelo menos as [recomendações de tamanho para o servidor de configuração](https://aka.ms/asr-v2a-on-prem-components))</li><li>Configuração de máquina: 8 vCPUs, 16 GB de RAM, 300 GB de disco rígido</li><li>[Microsoft .NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Microsoft Visual C++ redistribuível para Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Acesso à Internet para o Azure neste servidor</li><li>Conta de Armazenamento do Azure</li><li>Acesso de administrador no servidor</li><li>Mínimo de 100 GB de espaço livre em disco (supondo que haja 1000 VMs com uma média de três discos em cada, com criação de perfil por 30 dias)</li><li>As configurações no nível das estatísticas do VMware vCenter devem ser definidas para o nível 2 ou superior</li><li>Permitir porta 443: o Planejador de implantação da ASR usa essa porta para se conectar ao host de ESXi/servidor do vCenter</ul></ul>|
 | Geração de relatórios | Um PC Windows ou Windows Server com o Microsoft Excel 2013 ou posterior |
@@ -106,9 +106,9 @@ A pasta contém vários arquivos e subpastas. O arquivo executável é ASRDeploy
 
     Exemplo:  
     Copie o arquivo .zip para a unidade E:\ e extraia-o.
-   E:\ASR Deployment Planner_v2.0zip
+   E:\ASR Deployment Planner_v2.1zip
 
-    E:\ASR Deployment Planner_v2.0\ASRDeploymentPlanner.exe
+    E:\ASR Deployment Planner_v2.1\ASRDeploymentPlanner.exe
 
 ### <a name="updating-to-the-latest-version-of-deployment-planner"></a>Atualização para a versão mais recente do Planejador de Implantações
 Se você tiver uma versão anterior do Planejador de Implantações, siga um destes procedimentos:
@@ -121,6 +121,11 @@ Se você tiver uma versão anterior do Planejador de Implantações, siga um des
  >Ao iniciar a criação de perfil com a nova versão, passe o mesmo caminho de diretório de saída para que a ferramenta acrescente dados de perfil aos arquivos existentes. Um conjunto completo de dados com criação de perfil será ser usado para gerar o relatório. Se você passar um diretório de saída diferente, novos arquivos serão criados, e os dados de criação de perfil antigos não serão usados para gerar o relatório.
  >
  >Cada novo planejador de implantação é uma atualização cumulativa do arquivo .zip. Você não precisa copiar os arquivos mais recentes para a pasta anterior. Você pode criar e usar uma nova pasta.
+
+
+## <a name="version-history"></a>Histórico de versão
+A versão mais recente da ferramenta Planejador de Implantações do ASR é a 2.1.
+Consulte a página [Histórico de versões do Planejador de Implantações do ASR](https://social.technet.microsoft.com/wiki/contents/articles/51049.asr-deployment-planner-version-history.aspx) para obter as correções adicionadas em cada atualização.
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Execute o Planejador de Implantações](site-recovery-vmware-deployment-planner-run.md).

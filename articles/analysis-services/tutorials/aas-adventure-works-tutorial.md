@@ -13,27 +13,25 @@ ms.devlang: NA
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 11/01/2017
+ms.date: 01/08/2018
 ms.author: owend
-ms.openlocfilehash: 0e223222c482d6d3aeaed85388f3a1ce1b53a78d
-ms.sourcegitcommit: d41d9049625a7c9fc186ef721b8df4feeb28215f
+ms.openlocfilehash: 9b81e011d3e1ed23465bbd554a0c7376b432b585
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/02/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-analysis-services---adventure-works-tutorial"></a>Azure Analysis Services – tutorial da Adventure Works
 
-[!INCLUDE[analysis-services-appliesto-aas-sql2017-later](../../../includes/analysis-services-appliesto-aas-sql2017-later.md)]
+Este tutorial fornece lições sobre como criar e implantar um modelo tabular no nível de compatibilidade 1400 usando o Visual Studio com [SSDT (SQL Server Data Tools)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
 
-Este tutorial fornece lições sobre como criar e implantar um modelo tabular no nível de compatibilidade 1.400 usando [SSDT (SQL Server Data Tools)](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt).  
-
-Se você estiver pouco familiarizado com o Analysis Services e a modelagem tabular, concluir este tutorial é a maneira mais rápida de aprender a criar e a implantar um modelo tabular básico. Uma vez satisfeitos todos o pré-requisitos, ele deverá levar cerca de duas ou três horas para ser concluído.  
+Se você estiver pouco familiarizado com o Analysis Services e a modelagem tabular, concluir este tutorial é a maneira mais rápida de aprender a criar e a implantar um modelo tabular básico usando o Visual Studio. Uma vez satisfeitos todos o pré-requisitos, ele deverá levar cerca de duas ou três horas para ser concluído.  
   
 ## <a name="what-you-learn"></a>O que você aprenderá   
   
--   Como criar um novo projeto de modelo tabular no **nível de compatibilidade 1.400** no SSDT.
+-   Como criar um novo projeto de modelo tabular no **nível de compatibilidade 1400** no Visual Studio com SSDT.
   
--   Como importar dados de um banco de dados relacional para um projeto de modelo tabular.  
+-   Como importar dados de um banco de dados relacional para um banco de dados de espaço de trabalho de projeto de modelo tabular.  
   
 -   Como criar e gerenciar relações entre tabelas no modelo.  
   
@@ -50,13 +48,13 @@ Se você estiver pouco familiarizado com o Analysis Services e a modelagem tabul
 ## <a name="prerequisites"></a>Pré-requisitos  
 Para concluir este tutorial, você precisará:  
   
--   Uma instância do Azure Analysis Services ou SQL Server 2017 Analysis Services na qual implantar seu modelo. Inscreva-se para uma [avaliação gratuita do Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) e [crie um servidor](../analysis-services-create-server.md). Ou então, inscreva-se e baixe o [SQL Server 2017 Community Technology Preview](https://www.microsoft.com/evalcenter/evaluate-sql-server-vnext-ctp). 
+-   Um servidor do Analysis Services do Azure. Inscreva-se para uma [avaliação gratuita do Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) e [crie um servidor](../analysis-services-create-server.md). 
 
--   Um SQL Server Data Warehouse ou SQL Data Warehouse do Azure com o [banco de dados de exemplo AdventureWorksDW2014](http://go.microsoft.com/fwlink/?LinkID=335807). Esse banco de dados de exemplo inclui os dados necessários para concluir este tutorial. Baixe as [edições gratuitas do SQL Server](https://www.microsoft.com/sql-server/sql-server-downloads). Ou então, inscreva-se para uma [avaliação gratuita do Banco de Dados SQL do Azure](https://azure.microsoft.com/services/sql-database/). 
+-   Um [SQL Data Warehouse do Azure](../../sql-data-warehouse/create-data-warehouse-portal.md) com o **banco de dados de exemplo AdventureWorksDW** ou um SQL Server Data Warehouse com o [banco de dados de exemplo da Adventure Works](http://go.microsoft.com/fwlink/?LinkID=335807).
 
-    **Importante:** se você instalou o banco de dados de exemplo em um SQL Server local e você está implantando seu modelo em um servidor do Azure Analysis Services, um [gateway de dados local](../analysis-services-gateway.md) é necessário.
+    **Importante:** se você tiver instalado o banco de dados de exemplo em um SQL Server Warehouse Server local e está implantando seu modelo em um servidor do Azure Analysis Services, um [gateway de dados local](../analysis-services-gateway.md) é necessário.
 
--   A versão mais recente do [SSDT (SQL Server Data Tools)](https://msdn.microsoft.com/library/mt204009.aspx).
+-   A versão mais recente do [SSDT (SQL Server Data Tools)](https://msdn.microsoft.com/library/mt204009.aspx) para Visual Studio.
 
 -   A versão mais recente do [SSMS (SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)).    
 

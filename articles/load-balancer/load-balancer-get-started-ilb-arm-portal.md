@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 5b983ca9ff28aac7f0e0501f353c48deeb6adcd5
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 8f0f575319eec0517366079c637ad7565530ac70
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="create-an-internal-load-balancer-in-the-azure-portal"></a>Criar um Balanceador de carga interno no portal do Azure
 
 > [!div class="op_single_selector"]
-> * [Portal do Azure](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
+> * [portal do Azure](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
 > * [CLI do Azure](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [Modelo](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
@@ -43,7 +43,7 @@ Use as etapas a seguir para criar um balanceador de carga interno no portal do A
 1. Abra um navegador, navegue até o [portal do Azure](http://portal.azure.com) e entre com sua conta do Azure.
 2. No canto superior esquerdo da tela, clique em **Novo** > **Rede** > **Balanceador de carga**.
 3. Na folha **Criar balanceador de carga**, insira um **Nome** para o balanceador de carga.
-4. Em **Esquema**, clique em **Interno**.
+4. Em **Tipo**, clique em **Interno**.
 5. Clique em **Rede virtual**e selecione a rede virtual na qual você deseja criar o balanceador de carga.
 
    > [!NOTE]
@@ -66,16 +66,16 @@ Configure um pool de endereços back-end e uma investigação antes de configura
 ### <a name="step-1-configure-a-backend-pool"></a>Etapa 1: Configurar um pool de back-end
 
 1. No portal do Azure, clique em **Procurar** > **Balanceadores de carga** e então clique no balanceador de carga que você criou anteriormente.
-2. Na folha **Configurações**, clique nos **Pools de back-end**.
-3. Na folha **Pools de endereços de back-end**, clique em **Adicionar**.
-4. Na folha **Adicionar pool de back-end**, insira um **Nome** para o pool de back-end e clique em **OK**.
+2. Na página **Configurações**, clique nos **Pools de back-end**.
+3. Na página **Pools de endereços de back-end**, clique em **Adicionar**.
+4. Na página **Adicionar pool de back-end**, insira um **Nome** para o pool de back-end e clique em **OK**.
 
 ### <a name="step-2-configure-a-probe"></a>Etapa 2: Configurar uma investigação
 
 1. No portal do Azure, clique em **Procurar** > **Balanceadores de carga** e então clique no balanceador de carga que você criou anteriormente.
-2. Na folha **Configurações**, clique em **Investigações**.
-3. Na folha **Investigações**, clique em **Adicionar**.
-4. Na folha **Adicionar investigação**, insira um **Nome** para a investigação.
+2. Na página **Configurações**, clique em **Sondas de integridade**.
+3. Na página **Investigações de integridade**, clique em **Adicionar**.
+4. Na página **Adicionar investigação de integridade**, insira um **Nome** para a investigação.
 5. Em **Protocolo**, selecione **HTTP** (para sites) ou **TCP** (para outros aplicativos baseados em TCP).
 6. Em **Porta**, especifique a porta a ser usada ao acessar a investigação.
 7. Em **Caminho** (apenas para investigações HTTP), especifique o caminho a ser usado como uma investigação.
@@ -86,10 +86,10 @@ Configure um pool de endereços back-end e uma investigação antes de configura
 ### <a name="step-3-configure-load-balancing-rules"></a>Etapa 3: Configurar regras de balanceamento de carga
 
 1. No portal do Azure, clique em **Procurar** > **Balanceadores de carga** e então clique no balanceador de carga que você criou anteriormente.
-2. Na folha **Configurações**, clique em **Regras de balanceamento da carga**.
-3. Na folha **Regras de balanceamento da carga**, clique em **Adicionar**.
-4. Na folha **Adicionar regra balanceamento da carga**, insira um **Nome** para a regra.
-5. Em **Protocolo**, selecione **HTTP** (para sites) ou **TCP** (para outros aplicativos baseados em TCP).
+2. Na página **Configurações**, clique em **Regras de balanceamento da carga**.
+3. Na página **Regras de balanceamento da carga**, clique em **Adicionar**.
+4. Na página **Adicionar regra balanceamento da carga**, insira um **Nome** para a regra.
+5. Em **Protocolo**, selecione **TCP** ou **UDP**.
 6. Em **Porta**, especifique a porta que os clientes conectam no balanceador de carga.
 7. Em **Porta back-end**, especifique a porta a ser usada no pool de back-end (normalmente, a porta do balanceador de carga e a porta de back-end são iguais).
 8. Em **Pool de back-end**, selecione o pool de back-end criado anteriormente.

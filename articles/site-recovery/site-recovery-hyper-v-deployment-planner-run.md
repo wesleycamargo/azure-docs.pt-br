@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: hero-article
 ms.date: 12/02/2017
 ms.author: nisoneji
-ms.openlocfilehash: bb4ec5cfd455ab0cc22ab693c2a07eed9883dc76
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 5c7ff99c2f67f82f9a7d605d9960960f84e96900
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Executar o planejador de implantações do Azure Site Recovery para Hyper-V para o Azure
 
@@ -41,7 +41,7 @@ A tabela a seguir contém uma lista de parâmetros obrigatórios e opcionais da 
 ```
 ASRDeploymentPlanner.exe -Operation GetVMList /?
 ```
-| Nome do parâmetro | Descrição |
+| Nome do parâmetro | DESCRIÇÃO |
 |---|---|
 | -Operation | GetVMList |
 | -User | Nome de usuário para se conectar ao host do Hyper-V ou ao cluster do Hyper-V. O usuário precisa ter acesso administrativo.|
@@ -86,7 +86,7 @@ A tabela a seguir contém uma lista de parâmetros obrigatórios e opcionais da 
 ```
 ASRDeploymentPlanner.exe -Operation StartProfiling /?
 ```
-| Nome do parâmetro | Descrição |
+| Nome do parâmetro | DESCRIÇÃO |
 |---|---|
 | -Operation | StartProfiling |
 | -User | Nome de usuário para se conectar ao host do Hyper-V ou ao cluster do Hyper-V. O usuário precisa ter acesso administrativo.|
@@ -106,6 +106,15 @@ ASRDeploymentPlanner.exe -Operation StartProfiling /?
 Durante a criação de perfil, opcionalmente, você pode passar um nome de conta de armazenamento e uma chave para obter a taxa de transferência que o Azure Site Recovery pode alcançar no momento da replicação do servidor do Hyper-V para o Azure. Se a chave e o nome da conta de armazenamento não forem passados durante a criação de perfil, a ferramenta não calculará a taxa de transferência possível.
 
 Você pode executar várias instâncias da ferramenta para diversos conjuntos de VMs. Verifique se os nomes de VM não são repetidos nos conjuntos de criação de perfil. Por exemplo, se tiver criado o perfil de 10 VMs (VM1 a VM10) e, após alguns dias, quiser criar o perfil de outras cinco VMs (VM11 a VM15), você poderá executar a ferramenta em outro console de linha de comando para o segundo conjunto de VMs (VM11 a VM15). Verifique se o segundo conjunto de VMs não tem nomes de VM da primeira instância de criação de perfil ou use um diretório de saída diferente para a segunda execução. Se forem usadas duas instâncias da ferramenta para a criação de perfil das mesmas VMs e for usado o mesmo diretório de saída, o relatório gerado será incorreto. 
+
+Por padrão, a ferramenta é configurada para analisar e gerar relatórios de até 1000 VMs. Você pode alterar o limite ao mudar o valor da chave MaxVMsSupported no arquivo *ASRDeploymentPlanner.exe.config*.
+```
+<!-- Maximum number of vms supported-->
+<add key="MaxVmsSupported" value="1000"/>
+```
+Com as configurações padrão, para criar o perfil de, digamos, 1500 VMs, crie dois arquivos VMList.txt. Um com 1000 VMs e outro com uma lista de 500 VMs. Execute as duas instâncias do Planejador de Implantações do ASR, uma com VMList1.txt e outra com VMList2.txt. Você pode usar o mesmo caminho de diretório para armazenar os dados analisados das VMs VMList. 
+
+Já vimos que, com base na configuração de hardware, especialmente o tamanho da RAM do servidor no qual a ferramenta é executada para gerar o relatório, a operação poderá falhar com memória insuficiente. Se você tiver um bom hardware, poderá alterar o MaxVMsSupported para qualquer valor mais alto.  
 
 As configurações de VM são capturadas uma vez no início da operação de criação de perfil e armazenadas em um arquivo chamado VMDetailList.xml. Essas informações são usadas quando o relatório é gerado. Não é capturada alteração alguma na configuração de VM (por exemplo, um número maior de núcleos, discos ou NICs) do início ao fim da criação de perfil. Se uma configuração de VM com criação de perfil tiver sido alterada durante a criação de perfil, aqui está a solução alternativa para obter os detalhes mais recentes da VM ao gerar o relatório:
 
@@ -150,7 +159,7 @@ A tabela a seguir contém uma lista de parâmetros obrigatórios e opcionais da 
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport /?
 ```
-| Nome do parâmetro | Descrição |
+| Nome do parâmetro | DESCRIÇÃO |
 |---|---|
 | -Operation | GenerateReport |
 |-VMListFile | O arquivo que contém a lista de VMs com criação de perfil para as quais o relatório deve ser gerado. O caminho do arquivo pode ser absoluto ou relativo. Para o Hyper-V, esse é o arquivo de saída da operação GetVMList. Se você estiver preparando manualmente, o arquivo deverá conter um nome de servidor ou endereço IP, seguido pelo nome da VM separado por uma \ por linha. O nome da VM especificado no arquivo deve ser o mesmo que o nome da VM no host do Hyper-V.<ul>Por exemplo: o arquivo "VMList.txt" contém as seguintes VMs:<ul><li>Host_1\VM_A</li><li>10.8.59.27\VM_B</li><li>Host_2\VM_C</li><ul>|
@@ -168,6 +177,12 @@ ASRDeploymentPlanner.exe -Operation GenerateReport /?
 |-TargetRegion|(Opcional) A região do Azure que é o destino da replicação. Como o Azure tem custos diferentes por região, para gerar o relatório com a região do Azure de destino específica, use este parâmetro.<br>O padrão é WestUS2 ou a última região de destino usada.<br>Consulte a lista de [regiões de destino com suporte](site-recovery-hyper-v-deployment-planner-cost-estimation.md#supported-target-regions).|
 |-OfferId|(Opcional) A oferta associada a determinada assinatura. O padrão é MS-AZR - 0003P (Pré-pago).|
 |-Currency|(Opcional) A moeda na qual o custo é mostrado no relatório gerado. O padrão é dólar americano ($) ou a última moeda usada.<br>Consulte a lista de [moedas com suporte](site-recovery-hyper-v-deployment-planner-cost-estimation.md#supported-currencies).|
+
+Por padrão, a ferramenta é configurada para analisar e gerar relatórios de até 1000 VMs. Você pode alterar o limite ao mudar o valor da chave MaxVMsSupported no arquivo *ASRDeploymentPlanner.exe.config*.
+```
+<!-- Maximum number of vms supported-->
+<add key="MaxVmsSupported" value="1000"/>
+```
 
 ### <a name="examples"></a>Exemplos
 #### <a name="example-1-generate-a-report-with-default-values-when-the-profiled-data-is-on-the-local-drive"></a>Exemplo 1: gerar um relatório com os valores padrão quando os dados de criação de perfil estiverem na unidade local
@@ -206,6 +221,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Dire
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Directory “E:\Hyper-V_ProfiledData” -VMListFile “E:\Hyper-V_ProfiledData\ProfileVMList1.txt”  -SubscriptionID 4d19f16b-3e00-4b89-a2ba-8645edf42fe5 -OfferID MS-AZR-0148P -TargetRegion southindia -Currency INR
 ```
+
 
 ## <a name="percentile-value-used-for-the-calculation"></a>Valor de percentil usado para o cálculo
 **Qual valor de percentil padrão das métricas de desempenho coletadas durante a criação de perfil a ferramenta usa ao gerar um relatório?**
@@ -253,7 +269,7 @@ Abra um console de linha de comando e acesse a pasta da ferramentas de planejame
 ```
 ASRDeploymentPlanner.exe -Operation GetThroughput /?
 ```
- Nome do parâmetro | Descrição |
+ Nome do parâmetro | DESCRIÇÃO |
 |---|---|
 | -Operation | GetThroughtput |
 |-Virtualization|Especifique o tipo de virtualização (Hyper-V ou VMware).|

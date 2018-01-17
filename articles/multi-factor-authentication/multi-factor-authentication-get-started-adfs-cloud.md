@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 05/29/2017
 ms.author: joflore
-ms.openlocfilehash: 99052718d268135e1b9c51d019513aa59afede84
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c94b20ec984c96cfb8e7339826ee933ea4194bfc
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Protegendo os recursos de nuvem usando a Autenticação Multifator do Azure e o AD FS
 Se sua organização for federada com o Azure Active Directory, use a Autenticação Multifator do Azure ou os Serviços de Federação do Active Directory (AD FS) para proteger os recursos que são acessados pelo Azure AD. Use os procedimentos a seguir para proteger os recursos do Azure Active Directory com Autenticação Multifator do Azure ou os Serviços de Federação do Active Directory.
@@ -83,16 +83,13 @@ A primeira coisa que precisamos fazer é configurar as declarações do AD FS. C
 ### <a name="configure-azure-multi-factor-authentication-trusted-ips-with-federated-users"></a>Configurar IPs confiáveis da Autenticação Multifator do Azure com usuários federados
 Agora que as declarações estão prontas, podemos configurar IPs confiáveis.
 
-1. Entre no [portal clássico do Azure](https://manage.windowsazure.com).
-2. À esquerda, clique em **Active Directory**.
-3. Em Diretório, selecione o diretório onde você deseja configurar IPs confiáveis.
-4. No Diretório que você selecionou, clique em **Configurar**.
-5. Na seção autenticação multifator, clique em **Gerenciar configurações de serviço**.
-6. Na página Configurações de Serviço, em IPs confiáveis, selecione **Ignorar autenticação multifator para solicitações de usuários federados na minha intranet**.  
+1. Entre no [portal do Azure](https://portal.com).
+2. Selecione **Azure Active Directory** > **Acesso condicional** > **Locais nomeados**.
+3. Na folha **Acesso condicional - Locais nomeados**, selecione **Configurar IPs confiáveis do MFA**
 
-   ![Nuvem](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip6.png)
-   
-7. Clique em **Salvar**.
-8. Depois que as atualizações forem aplicadas, clique em **fechar**.
+   ![Configurar IPs confiáveis do MFA de locais nomeados de acesso condicional do Azure AD](./media/multi-factor-authentication-get-started-adfs-cloud/trustedip6.png)
+
+4. Na página Configurações de Serviço, em **IPs confiáveis**, selecione **Ignorar autenticação multifator para solicitações de usuários federados na minha intranet**.  
+5. Clique em **Salvar**.
 
 É isso! Neste ponto, os usuários federados do Office 365 devem somente ter que usar MFA quando uma declaração for originada fora da intranet corporativa.
