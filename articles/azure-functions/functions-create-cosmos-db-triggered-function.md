@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 12/07/2017
 ms.author: glenga
 ms.custom: 
-ms.openlocfilehash: 2a4037d68413fb02ab3fe0c9a82af2ae22d10e68
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: ff0c468179ef7b71151b64426bf2e6701d5032fe
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Criar uma função disparada pelo Azure Cosmos DB
 
@@ -28,7 +28,7 @@ Saiba como criar uma função disparada quando dados são adicionados ou alterad
 
 ![Exiba a mensagem nos logs.](./media/functions-create-cosmos-db-triggered-function/quickstart-completed.png)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para concluir este tutorial:
 
@@ -71,7 +71,7 @@ Em seguida, crie uma nova função no novo aplicativo de funções.
 
 6. Ao criar uma nova conta do Cosmos DB, use as configurações de **Nova conta**, conforme especificado na tabela.
 
-    | Configuração      | Valor sugerido  | Descrição                                |
+    | Configuração      | Valor sugerido  | DESCRIÇÃO                                |
     | ------------ | ---------------- | ------------------------------------------ |
     | **ID** | Nome do banco de dados | ID exclusiva para o banco de dados do Azure Cosmos DB  |
     | **API** | SQL (DocumentDB) | Este tópico usa a API do banco de dados do documento.  |
@@ -107,7 +107,7 @@ Em seguida, você conecta-se à sua conta do Azure Cosmos DB e cria a coleção 
  
     ![Definir taskCollection](./media/functions-create-cosmos-db-triggered-function/cosmosdb-create-collection2.png)
  
-    | Configuração|Valor sugerido|Descrição |
+    | Configuração|Valor sugerido|DESCRIÇÃO |
     | ---|---|--- |
     | **ID do banco de dados** | Tarefas |O nome do novo banco de dados. Isso deve corresponder ao nome definido na sua associação de função. |
     | **ID da coleção** | Itens | O nome da nova coleção. Isso deve corresponder ao nome definido na sua associação de função.  |
@@ -149,4 +149,4 @@ Você criou uma função que é executada quando um documento é adicionado ou m
 
 [!INCLUDE [Next steps note](../../includes/functions-quickstart-next-steps.md)]
 
-Para obter mais informações sobre gatilhos do Azure Cosmos DB, consulte [Associações do Azure Cosmos DB para Azure Functions](functions-bindings-documentdb.md).
+Para obter mais informações sobre gatilhos do Azure Cosmos DB, consulte [Associações do Azure Cosmos DB para Azure Functions](functions-bindings-cosmosdb.md).
