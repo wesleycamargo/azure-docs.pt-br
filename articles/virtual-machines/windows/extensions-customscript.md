@@ -15,11 +15,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/16/2017
 ms.author: danis
-ms.openlocfilehash: 25677c2a4ab78c601f4d4a8630787f6f16dda3c4
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 9a8eae62d2dcb4c422b707909a27c84c7bf1aab3
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="custom-script-extension-for-windows"></a>Extensão de script personalizado para o Windows
 
@@ -28,6 +28,11 @@ A extensão de script personalizado baixa e executa scripts em máquinas virtuai
 Este documento detalha como usar a Extensão de Script Personalizado usando o módulo do Azure PowerShell e modelos do Azure Resource Manager, além de detalhar as etapas da solução de problemas em sistemas Windows.
 
 ## <a name="prerequisites"></a>Pré-requisitos
+
+> [!NOTE]  
+> Não use a Extensão de Script Personalizado para executar Update-AzureRmVM com a mesma VM que seu parâmetro, pois ela aguardará por si própria.  
+>   
+> 
 
 ### <a name="operating-system"></a>Sistema operacional
 
@@ -79,11 +84,11 @@ O JSON a seguir mostra o esquema para a Extensão de Script Personalizado. A ext
 
 ### <a name="property-values"></a>Valores de propriedade
 
-| Nome | Valor/Exemplo |
+| NOME | Valor/Exemplo |
 | ---- | ---- |
 | apiVersion | 2015-06-15 |
 | publicador | Microsoft.Compute |
-| type | extensions |
+| Tipo | extensions |
 | typeHandlerVersion | 1.9 |
 | fileUris (por exemplo) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 |
 | commandToExecute (por exemplo) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 |
@@ -131,7 +136,7 @@ em que `<n>` é um inteiro decimal que pode ser alterado entre as execuções da
 
 Ao executar o comando `commandToExecute`, a extensão terá definido esse diretório (por exemplo, `...\Downloads\2`) como o diretório de trabalho atual. Isso permite o uso de caminhos relativos para localizar os arquivos baixados por meio da propriedade `fileURIs`. Veja a tabela abaixo para obter exemplos.
 
-Como o caminho absoluto do download pode variar ao longo do tempo, é melhor optar por caminhos de arquivo/script relativos na cadeia de caracteres `commandToExecute` sempre que possível. Por exemplo:
+Como o caminho absoluto do download pode variar ao longo do tempo, é melhor optar por caminhos de arquivo/script relativos na cadeia de caracteres `commandToExecute` sempre que possível. Por exemplo: 
 ```json
     "commandToExecute": "powershell.exe . . . -File './scripts/myscript.ps1'"
 ```

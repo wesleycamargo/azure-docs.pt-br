@@ -1,5 +1,5 @@
 ---
-title: Grupos de computadores em pesquisas de log do Log Analytics | Microsoft Docs
+title: Grupos de computadores em pesquisas de log do Azure Log Analytics | Microsoft Docs
 description: "Os grupos de computadores no Log Analytics permitem analisar pesquisas de log para um conjunto específico de computadores.  Este artigo descreve os diferentes métodos que você pode usar para criar grupos de computadores e como usá-los em uma pesquisa de log."
 services: log-analytics
 documentationcenter: 
@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/02/2017
+ms.date: 01/09/2018
 ms.author: bwren
-ms.openlocfilehash: 17a59a38b6a445a7f42df171a711669f95fc84c2
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 4d6a80082711f09e9c189d53fb4fda00a7d73c29
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Grupos de computadores em pesquisas de log do Log Analytics
 
@@ -27,7 +27,7 @@ Os grupos de computadores no Log Analytics permitem analisar [pesquisas de log](
 ## <a name="creating-a-computer-group"></a>Criando um grupo de computadores
 Você pode criar um grupo de computadores no Log Analytics usando qualquer um dos métodos na tabela a seguir.  Detalhes sobre cada método são fornecidos nas seções a seguir. 
 
-| Método | Descrição |
+| Método | DESCRIÇÃO |
 |:--- |:--- |
 | Pesquisa de log |Criar uma pesquisa de logs que retorna uma lista de computadores. |
 | API da Pesquisa de Log |Use a API da Pesquisa de Log para criar um grupo de computadores programaticamente com base nos resultados de uma pesquisa de log. |
@@ -44,7 +44,7 @@ Você pode usar qualquer consulta de um grupo de computadores, mas ela deve reto
 
 A tabela a seguir descreve as propriedades que definem um grupo de computadores.
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 |:---|:---|
 | Nome de exibição   | Nome da pesquisa para exibir no portal. |
 | Categoria       | Categoria para organizar as pesquisas no portal. |
@@ -83,7 +83,7 @@ Configure o Log Analytics para importar os grupos de segurança do Active Direct
 Quando os grupos são importados, o menu lista o número de computadores com a associação de grupo detectada e o número de grupos importados.  Você pode clicar em qualquer um desses links para retornar os registros de **ComputerGroup** com essas informações.
 
 ### <a name="windows-server-update-service"></a>Serviços de Atualização do Windows Server
-Ao configurar o Log Analytics para importar associações de grupo do WSUS, ele analisa a associação de grupo de destino de todos os computadores com o agente do OMS.  Se você estiver utilizando o direcionamento do lado do cliente, qualquer computador que estiver conectado ao OMS e fizer parte de qualquer grupo de direcionamento do WSUS terá sua associação de grupo importada para o Log Analytics. Se você estiver usando o direcionamento do lado do servidor, o agente do OMS deverá ser instalado no servidor do WSUS para que as informações de associação do grupo sejam importadas ao OMS.  Essa associação é atualizada continuamente a cada 4 horas. 
+Ao configurar o Log Analytics para importar associações de grupo do WSUS, ele analisa a associação de grupo de destino de todos os computadores com o agente do OMS.  Se você estiver utilizando o direcionamento do lado do cliente, qualquer computador que estiver conectado ao Log Analytics e fizer parte de qualquer grupo de direcionamento do WSUS terá sua associação de grupo importada para o Log Analytics. Se você estiver usando o direcionamento do lado do servidor, o agente do OMS deverá ser instalado no servidor do WSUS para que as informações de associação do grupo sejam importadas para o Log Analytics.  Essa associação é atualizada continuamente a cada 4 horas. 
 
 Configure o Log Analytics para importar grupos do WSUS das **configurações avançadas** do Log Analytics no portal do Azure.  Selecione **Grupos de Computadores**, **WSUS** e, em seguida, **Importar associações de grupo do WSUS**.  Não é necessária nenhuma configuração.
 
@@ -145,11 +145,11 @@ A consulta a seguir retornaria registros UpdateSummary apenas para computadores 
 
 
 ## <a name="computer-group-records"></a>Registros de grupo de computadores
-Um registro é criado no repositório do OMS para cada associação do grupo do computadores criada no Active Directory ou no WSUS.  Esses registros de desempenho têm um tipo de **ComputerGroup** e têm as propriedades na tabela a seguir.  Registros não são criados para grupos de computadores com base em pesquisas de log.
+Um registro é criado no espaço de trabalho do Log Analytics para cada associação do grupo do computadores criada no Active Directory ou no WSUS.  Esses registros de desempenho têm um tipo de **ComputerGroup** e têm as propriedades na tabela a seguir.  Registros não são criados para grupos de computadores com base em pesquisas de log.
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 |:--- |:--- |
-| Tipo |*ComputerGroup* |
+| type |*ComputerGroup* |
 | SourceSystem |*SourceSystem* |
 | Computador |Nome do computador membro. |
 | Agrupar |Nome do grupo. |

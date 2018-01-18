@@ -15,15 +15,16 @@ ms.workload: na
 ms.date: 10/19/2017
 ms.author: elioda
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: afadedf72562452e4d57d4545efe59cd8d37c907
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 3b2b2877efe5f898b5759c03ac0ddcf3ecc03901
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Entender e usar dispositivos gêmeos no Hub IoT
 
 *Dispositivos gêmeos* são documentos JSON que armazenam informações do estado do dispositivo, incluindo metadados, configurações e condições. O Hub IoT do Azure mantém um dispositivo gêmeo para cada dispositivo que você conecta ao Hub IoT. Este artigo descreve:
+
 
 * A estrutura do dispositivo gêmeo: *marcas*, *propriedades desejadas* e *relatadas*.
 * As operações que os aplicativos e back-ends de dispositivo podem executar em dispositivos gêmeos.
@@ -51,8 +52,7 @@ Um dispositivo gêmeo é um documento JSON que inclui:
 * **Marcas**. Uma seção do documento JSON que o back-end de solução pode ler e na qual pode gravar. As marcas não ficam visíveis para os aplicativos do dispositivo.
 * **Propriedades desejadas**. Usado junto com as propriedades relatadas para sincronizar a configuração de dispositivo ou condições. O back-end da solução pode definir as propriedades desejadas e o aplicativo de dispositivo pode lê-las. O aplicativo do dispositivo também pode receber notificações de alterações nas propriedades desejadas.
 * **Propriedades reportadas**. Usado junto com as propriedades desejadas para sincronizar a configuração de dispositivo ou condições. O aplicativo de dispositivo pode definir as propriedades relatadas e o back-end da solução pode lê-las e consultá-las.
-
-Além disso, a raiz do documento JSON do dispositivo gêmeo contém as propriedades somente leitura da identidade de dispositivo correspondente armazenada no [registro identidade][lnk-identity].
+* **Propriedades de identidade do dispositivo**. A raiz do documento JSON do dispositivo gêmeo contém as propriedades somente leitura da identidade de dispositivo correspondente armazenada no [registro identidade][lnk-identity].
 
 ![][img-twin]
 
@@ -60,13 +60,19 @@ O seguinte exemplo mostra um documento JSON de dispositivo gêmeo:
 
         {
             "deviceId": "devA",
-            "generationId": "123",
+            "etag": "AAAAAAAAAAc=", 
             "status": "enabled",
             "statusReason": "provisioned",
+            "statusUpdateTime": "0001-01-01T00:00:00",
             "connectionState": "connected",
-            "connectionStateUpdatedTime": "2015-02-28T16:24:48.789Z",
             "lastActivityTime": "2015-02-30T16:24:48.789Z",
-
+            "cloudToDeviceMessageCount": 0, 
+            "authenticationType": "sas",
+            "x509Thumbprint": {     
+                "primaryThumbprint": null, 
+                "secondaryThumbprint": null 
+            }, 
+            "version": 2, 
             "tags": {
                 "$etag": "123",
                 "deploymentLocation": {
@@ -94,7 +100,7 @@ O seguinte exemplo mostra um documento JSON de dispositivo gêmeo:
             }
         }
 
-No objeto raiz estão as propriedades do sistema e os objetos de contêiner para `tags`, além das propriedades `reported` e `desired`. O contêiner `properties` tem alguns elementos somente leitura (`$metadata`, `$etag` e `$version`), descritos nas seções [Metadados de dispositivo gêmeo][lnk-twin-metadata] e [Simultaneidade otimista][lnk-concurrency].
+No objeto raiz estão as propriedades de identidade do dispositivo e os objetos de contêiner para `tags`, além das propriedades `reported` e `desired`. O contêiner `properties` tem alguns elementos somente leitura (`$metadata`, `$etag` e `$version`), descritos nas seções [Metadados de dispositivo gêmeo][lnk-twin-metadata] e [Simultaneidade otimista][lnk-concurrency].
 
 ### <a name="reported-property-example"></a>Exemplo da propriedade reportada
 No exemplo anterior, o dispositivo gêmeo contém uma propriedade `batteryLevel` que é reportada pelo aplicativo do dispositivo. Essa propriedade torna possível a consultar e operação em dispositivos com base no último nível da bateria reportado. Outros exemplos incluem os recursos de dispositivo de relatórios de aplicativo de dispositivo ou as opções de conectividade.
@@ -103,7 +109,7 @@ No exemplo anterior, o dispositivo gêmeo contém uma propriedade `batteryLevel`
 > As propriedades relatadas simplificam cenários nos quais o back-end da solução está interessado no último valor conhecido de uma propriedade. Use as [mensagens do dispositivo para a nuvem][lnk-d2c] se o back-end da solução precisar processar telemetria do dispositivo na forma de sequências de eventos com carimbo de data e hora, como uma série temporal.
 
 ### <a name="desired-property-example"></a>Exemplo da propriedade desejada
-No exemplo anterior, as propriedades relatadas e desejadas do dispositivo gêmeo `telemetryConfig` são usadas pelo aplicativo do dispositivo e pelo back-end da solução para sincronizar a configuração de telemetria para o dispositivo em questão. Por exemplo:
+No exemplo anterior, as propriedades relatadas e desejadas do dispositivo gêmeo `telemetryConfig` são usadas pelo aplicativo do dispositivo e pelo back-end da solução para sincronizar a configuração de telemetria para o dispositivo em questão. Por exemplo: 
 
 1. O back-end da solução define a propriedade desejada com o valor de configuração desejado. Aqui está a parte do documento com o conjunto de propriedades desejado:
    
@@ -156,9 +162,9 @@ O back-end da solução funciona no dispositivo gêmeo usando as seguintes opera
 * **Substituir marcas**. Esta operação permite que o back-end da solução substitua completamente todas as marcas existentes e substitui um novo documento JSON por `tags`.
 * **Receba notificações gêmeas**. Esta operação permite que o back-end de solução seja notificado quando o gêmeo é modificado. Para fazer isso, sua solução de IoT precisa para criar uma rota e definir a Fonte de Dados como *twinChangeEvents*. Por padrão, nenhuma notificação gêmea é enviada, ou seja, nenhuma dessas rotas existe previamente. Se a taxa de alteração for alta demais ou então por outros motivos como falhas internas, o Hub IoT poderá enviar apenas uma notificação contendo todas as alterações. Portanto, se seu aplicativo precisar de auditoria e registro em log confiáveis de todos os estados intermediários, ainda será recomendável que você use mensagens D2C. A mensagem de notificação gêmea inclui propriedades e corpo.
 
-    - Propriedades
+    - propriedades
 
-    | Nome | Valor |
+    | NOME | Valor |
     | --- | --- |
     $content-type | aplicativo/json |
     $iothub-enqueuedtime |  Hora em que a notificação foi enviada |
@@ -240,13 +246,13 @@ Marcas, propriedades desejadas e propriedades reportadas são objetos JSON com a
 * Todos os valores de cadeia de caracteres podem ter no máximo 4 KB de comprimento.
 
 ## <a name="device-twin-size"></a>Tamanho do dispositivo gêmeo
-O Hub IoT impõe um limite de tamanho de 8 KB nos valores totais de `tags`, `properties/desired` e `properties/reported`, excluindo elementos somente leitura.
+O Hub IoT impõe um limite de tamanho de 8 KB em cada um dos valores totais respectivos de `tags`, `properties/desired` e `properties/reported`, excluindo elementos somente leitura.
 O tamanho é calculado pela contagem de todos os caracteres, exceto caracteres de controle UNICODE (segmentos C0 e C1) e espaços que estão fora das constantes da cadeia de caracteres.
 O Hub IoT rejeita com erro todas as operações que podem aumentar o tamanho desses documentos acima do limite.
 
 ## <a name="device-twin-metadata"></a>Metadados do dispositivo gêmeo
 O Hub IoT mantém o carimbo de data e hora da última atualização de cada objeto JSON nas propriedades desejadas e reportadas do dispositivo gêmeo. Os carimbos de data e hora estão em UTC e são codificados no formato [ISO8601]`YYYY-MM-DDTHH:MM:SS.mmmZ`.
-Por exemplo:
+Por exemplo: 
 
         {
             ...

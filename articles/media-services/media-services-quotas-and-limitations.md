@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: juliako
-ms.openlocfilehash: 4b55b6cb87443871decf6f14ef3949e76433afcc
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 79de06407a66e936f19579574ef90478799c9953
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/04/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="quotas-and-limitations"></a>Cotas e limitações
 Este artigo descreve as cotas e as limitações associadas aos Serviços de Mídia do Microsoft Azure.
@@ -29,17 +29,8 @@ Este artigo descreve as cotas e as limitações associadas aos Serviços de Míd
 Abra um tíquete de suporte para solicitar alterações nas cotas padrão fornecidas. Inclua informações detalhadas na solicitação sobre as alterações de cota desejadas, cenários de caso de uso e regiões necessárias.
 
 ### <a name="how-to-open-a-support-ticket"></a>Como abrir um tíquete de suporte
-Para abrir um tíquete de suporte, faça o seguinte:
+No Portal do Azure, acesse [Ajuda + suporte](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Se você não estiver conectado no Azure, você será solicitado a inserir suas credenciais.
 
-1. Clique em [Obter suporte](https://manage.windowsazure.com/?getsupport=true). Se você não estiver conectado, você será solicitado a inserir suas credenciais.
-2. Selecione sua assinatura.
-3. Em tipo de suporte, selecione “Técnico”.
-4. Clique em “Criar Tíquete”.
-5. Selecione "Serviços de Mídia do Azure" na lista de produtos apresentados na próxima página.
-6. Selecione um "tipo de problema" que é apropriado para o seu problema.
-7. Clique em Continuar.
-8. Siga as instruções na próxima página e, em seguida, insira os detalhes sobre o problema.
-9. Clique em Enviar para abrir o tíquete.
 
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

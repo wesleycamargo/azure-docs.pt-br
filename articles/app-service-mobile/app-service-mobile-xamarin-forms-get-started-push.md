@@ -3,8 +3,8 @@ title: "Adicionar notificações por push ao aplicativo Xamarin.Forms | Microsof
 description: "Aprenda a usar os serviços do Azure para enviar notificações por push aos aplicativos Xamarin.Forms."
 services: app-service\mobile
 documentationcenter: xamarin
-author: ysxu
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: d9b1ba9a-b3f2-4d12-affc-2ee34311538b
 ms.service: app-service-mobile
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/12/2016
-ms.author: yuaxu
-ms.openlocfilehash: 912367636f1b26b3b07fbd5fe3fe8ed053218fd5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: a9c7c5dbbc50ccf8c5383be28e96dfb82af48559
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="add-push-notifications-to-your-xamarinforms-app"></a>Adicionar notificações por push ao aplicativo Xamarin.Forms
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
@@ -49,221 +49,153 @@ Conclua esta seção para habilitar notificações por push para o projeto Droid
 ### <a name="add-push-notifications-to-the-android-project"></a>Adicionar notificações por push ao projeto Droid
 Com o back-end configurado com o FCM, é possível adicionar componentes e códigos ao cliente para registrá-lo no FCM. Também é possível se registrar para receber notificações por push com os Hubs de Notificação do Azure por meio do back-end dos Aplicativos Móveis e receber as notificações.
 
-1. No projeto **Droid**, clique com o botão direito do mouse na pasta **Componentes** e clique em **Obter Mais Componentes...**. Depois, pesquise o componente **Cliente do Google Cloud Messaging** e adicione-o ao projeto. Esse componente oferece suporte a notificações por push para um projeto Android Xamarin.
-2. Abra o arquivo de projeto MainActivity.cs e adicione a seguinte instrução à parte superior do arquivo:
+1. No projeto **Droid**, clique com o botão direito do mouse em **Referências > Gerenciar pacotes NuGet...**.
+1. Na janela do Gerenciador de Pacotes do NuGet, procure o pacote **Xamarin.Firebase.Messaging** e adicione-o ao projeto.
+1. Nas propriedades do projeto para o **Droid** de projeto, defina o aplicativo para compilar usando o Android versão 7.0 ou superior.
+1. Adicione o arquivo **google-services.json** baixado do console Firebase na raiz do projeto **Droid** e defina sua ação de compilação ao **GoogleServicesJson**. Para obter mais informações, consulte [Adicionar o arquivo JSON de serviços do Google](https://developer.xamarin.com/guides/android/data-and-cloud-services/google-messaging/remote-notifications-with-fcm/#Add_the_Google_Services_JSON_File).
 
-        using Gcm.Client;
-3. Adicione o código a seguir ao método **OnCreate**, após a chamada a **LoadApplication**:
+#### <a name="registering-with-firebase-cloud-messaging"></a>Registrando com o Firebase Cloud Messaging
 
-        try
+1. Abra o arquivo **AndroidManifest.xml** e insira os seguintes elementos `<receiver>` no elemento `<application>`:
+
+        <receiver android:name="com.google.firebase.iid.FirebaseInstanceIdInternalReceiver" android:exported="false" />
+        <receiver android:name="com.google.firebase.iid.FirebaseInstanceIdReceiver" android:exported="true" android:permission="com.google.android.c2dm.permission.SEND">
+          <intent-filter>
+            <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            <action android:name="com.google.android.c2dm.intent.REGISTRATION" />
+            <category android:name="${applicationId}" />
+          </intent-filter>
+        </receiver>
+
+#### <a name="implementing-the-firebase-instance-id-service"></a>Implementando o serviço de ID da instância do Firebase
+
+1. Adicione uma nova classe ao projeto **Droid** chamada `FirebaseRegistrationService` e verifique se as instruções de `using` a seguir estão presentes na parte superior do arquivo:
+
+        using System.Threading.Tasks;
+        using Android.App;
+        using Android.Util;
+        using Firebase.Iid;
+        using Microsoft.WindowsAzure.MobileServices;
+
+1. Substitua a classe `FirebaseRegistrationService` vazia pelo seguinte código:
+
+        [Service]
+        [IntentFilter(new[] { "com.google.firebase.INSTANCE_ID_EVENT" })]
+        public class FirebaseRegistrationService : FirebaseInstanceIdService
         {
-            // Check to ensure everything's set up right
-            GcmClient.CheckDevice(this);
-            GcmClient.CheckManifest(this);
+            const string TAG = "FirebaseRegistrationService";
 
-            // Register for push notifications
-            System.Diagnostics.Debug.WriteLine("Registering...");
-            GcmClient.Register(this, PushHandlerBroadcastReceiver.SENDER_IDS);
-        }
-        catch (Java.Net.MalformedURLException)
-        {
-            CreateAndShowDialog("There was an error creating the client. Verify the URL.", "Error");
-        }
-        catch (Exception e)
-        {
-            CreateAndShowDialog(e.Message, "Error");
-        }
-4. Adicione um novo método auxiliar **CreateAndShowDialog** , desta maneira:
-
-        private void CreateAndShowDialog(String message, String title)
-        {
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-
-            builder.SetMessage (message);
-            builder.SetTitle (title);
-            builder.Create().Show ();
-        }
-5. Adicione o código a seguir à classe **MainActivity** :
-
-        // Create a new instance field for this activity.
-        static MainActivity instance = null;
-
-        // Return the current activity instance.
-        public static MainActivity CurrentActivity
-        {
-            get
+            public override void OnTokenRefresh()
             {
-                return instance;
+                var refreshedToken = FirebaseInstanceId.Instance.Token;
+                Log.Debug(TAG, "Refreshed token: " + refreshedToken);
+                SendRegistrationTokenToAzureNotificationHub(refreshedToken);
+            }
+
+            void SendRegistrationTokenToAzureNotificationHub(string token)
+            {
+                // Update notification hub registration
+                Task.Run(async () =>
+                {
+                    await AzureNotificationHubService.RegisterAsync(TodoItemManager.DefaultManager.CurrentClient.GetPush(), token);
+                });
             }
         }
 
-    Isso expõe a instância **MainActivity** atual e, portanto, podemos executar no thread principal da interface do usuário.
-6. Inicialize a variável `instance` no início do método **OnCreate** como mostrado a seguir.
+    A classe `FirebaseRegistrationService` é responsável pela geração de tokens de segurança que autorizam o aplicativo a acessar o FCM. O método `OnTokenRefresh` é invocado quando o aplicativo recebe um token de registro do FCM. O método retorna o token da propriedade `FirebaseInstanceId.Instance.Token`, que é atualizada de forma assíncrona pelo FCM. O método `OnTokenRefresh` é invocado com pouca frequência, isso porque o token só é atualizado quando o aplicativo é instalado ou desinstalado, quando o usuário exclui dados de aplicativos, quando o aplicativo apaga a ID da instância ou quando a segurança do token tiver sido comprometida. Além disso, o serviço de ID de instância do FCM solicita que o aplicativo atualize seu token periodicamente, em geral, a cada 6 meses.
 
-        // Set the current instance of MainActivity.
-        instance = this;
-7. Adicione um novo arquivo de classe ao projeto **Droid** chamado `GcmService.cs` e verifique se as instruções **using** a seguir estão presentes na parte superior do arquivo:
+    O método `OnTokenRefresh` também invoca o método `SendRegistrationTokenToAzureNotificationHub`, que é usado para associar o token de registro do usuário com o Hub de Notificação do Azure.
+
+#### <a name="registering-with-the-azure-notification-hub"></a>Registrando com Hub de Notificação do Azure
+
+1. Adicione uma nova classe ao projeto **Droid** chamada `AzureNotificationHubService` e verifique se as instruções de `using` a seguir estão presentes na parte superior do arquivo:
+
+        using System;
+        using System.Threading.Tasks;
+        using Android.Util;
+        using Microsoft.WindowsAzure.MobileServices;
+        using Newtonsoft.Json.Linq;
+
+1. Substitua a classe `AzureNotificationHubService` vazia pelo seguinte código:
+
+        public class AzureNotificationHubService
+        {
+            const string TAG = "AzureNotificationHubService";
+
+            public static async Task RegisterAsync(Push push, string token)
+            {
+                try
+                {
+                    const string templateBody = "{\"data\":{\"message\":\"$(messageParam)\"}}";
+                    JObject templates = new JObject();
+                    templates["genericMessage"] = new JObject
+                    {
+                        {"body", templateBody}
+                    };
+
+                    await push.RegisterAsync(token, templates);
+                    Log.Info("Push Installation Id: ", push.InstallationId.ToString());
+                }
+                catch (Exception ex)
+                {
+                    Log.Error(TAG, "Could not register with Notification Hub: " + ex.Message);
+                }
+            }
+        }
+
+    O método `RegisterAsync` cria um modelo de mensagem de notificação simples como JSON e se registra para receber notificações de modelo do hub de notificação usando o token de registro do Firebase. Isso garante que todas as notificações enviadas a partir do Hub de Notificação do Azure terão como destino o dispositivo representado pelo token de registro.
+
+#### <a name="displaying-the-contents-of-a-push-notification"></a>Exibindo o conteúdo de uma notificação por Push
+
+1. Adicione uma nova classe ao projeto **Droid** chamada `FirebaseNotificationService` e verifique se as instruções de `using` a seguir estão presentes na parte superior do arquivo:
 
         using Android.App;
         using Android.Content;
         using Android.Media;
-        using Android.Support.V4.App;
         using Android.Util;
-        using Gcm.Client;
-        using Microsoft.WindowsAzure.MobileServices;
-        using Newtonsoft.Json.Linq;
-        using System;
-        using System.Collections.Generic;
-        using System.Diagnostics;
-        using System.Text;
-8. Adicione as seguintes solicitações de permissão na parte superior do arquivo, após as instruções **using** e antes da declaração **namespace**.
+        using Firebase.Messaging;
 
-        [assembly: Permission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
-        [assembly: UsesPermission(Name = "@PACKAGE_NAME@.permission.C2D_MESSAGE")]
-        [assembly: UsesPermission(Name = "com.google.android.c2dm.permission.RECEIVE")]
-        [assembly: UsesPermission(Name = "android.permission.INTERNET")]
-        [assembly: UsesPermission(Name = "android.permission.WAKE_LOCK")]
-        //GET_ACCOUNTS is only needed for android versions 4.0.3 and below
-        [assembly: UsesPermission(Name = "android.permission.GET_ACCOUNTS")]
-9. Adicione a seguinte definição de classe ao namespace.
+1. Substitua a classe `FirebaseNotificationService` vazia pelo seguinte código:
 
-       [BroadcastReceiver(Permission = Gcm.Client.Constants.PERMISSION_GCM_INTENTS)]
-       [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_MESSAGE }, Categories = new string[] { "@PACKAGE_NAME@" })]
-       [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_REGISTRATION_CALLBACK }, Categories = new string[] { "@PACKAGE_NAME@" })]
-       [IntentFilter(new string[] { Gcm.Client.Constants.INTENT_FROM_GCM_LIBRARY_RETRY }, Categories = new string[] { "@PACKAGE_NAME@" })]
-       public class PushHandlerBroadcastReceiver : GcmBroadcastReceiverBase<GcmService>
-       {
-           public static string[] SENDER_IDS = new string[] { "<PROJECT_NUMBER>" };
-       }
-
-   > [!NOTE]
-   > Substitua **<PROJECT_NUMBER>** pelo número do projeto que você anotou anteriormente.    
-   >
-   >
-10. Substitua a classe **GcmService** vazia pelo código a seguir, que usa o novo receptor de difusão:
-
-         [Service]
-         public class GcmService : GcmServiceBase
-         {
-             public static string RegistrationID { get; private set; }
-
-             public GcmService()
-                 : base(PushHandlerBroadcastReceiver.SENDER_IDS){}
-         }
-11. Adicione o código a seguir à classe **GcmService**. Isso substitui o manipulador de eventos **OnRegistered** e implementa um método **Register**.
-
-        protected override void OnRegistered(Context context, string registrationId)
+        [Service]
+        [IntentFilter(new[] { "com.google.firebase.MESSAGING_EVENT" })]
+        public class FirebaseNotificationService : FirebaseMessagingService
         {
-            Log.Verbose("PushHandlerBroadcastReceiver", "GCM Registered: " + registrationId);
-            RegistrationID = registrationId;
+            const string TAG = "FirebaseNotificationService";
 
-            var push = TodoItemManager.DefaultManager.CurrentClient.GetPush();
-
-            MainActivity.CurrentActivity.RunOnUiThread(() => Register(push, null));
-        }
-
-        public async void Register(Microsoft.WindowsAzure.MobileServices.Push push, IEnumerable<string> tags)
-        {
-            try
+            public override void OnMessageReceived(RemoteMessage message)
             {
-                const string templateBodyGCM = "{\"data\":{\"message\":\"$(messageParam)\"}}";
+                Log.Debug(TAG, "From: " + message.From);
 
-                JObject templates = new JObject();
-                templates["genericMessage"] = new JObject
-                {
-                    {"body", templateBodyGCM}
-                };
+                // Pull message body out of the template
+                var messageBody = message.Data["message"];
+                if (string.IsNullOrWhiteSpace(messageBody))
+                    return;
 
-                await push.RegisterAsync(RegistrationID, templates);
-                Log.Info("Push Installation Id", push.InstallationId.ToString());
-            }
-            catch (Exception ex)
-            {
-                System.Diagnostics.Debug.WriteLine(ex.Message);
-                Debugger.Break();
-            }
-        }
-
-    Observe que esse código usa o parâmetro `messageParam` no registro do modelo.
-12. Adicione o seguinte código que implementa **OnMessage**:
-
-        protected override void OnMessage(Context context, Intent intent)
-        {
-            Log.Info("PushHandlerBroadcastReceiver", "GCM Message Received!");
-
-            var msg = new StringBuilder();
-
-            if (intent != null && intent.Extras != null)
-            {
-                foreach (var key in intent.Extras.KeySet())
-                    msg.AppendLine(key + "=" + intent.Extras.Get(key).ToString());
+                Log.Debug(TAG, "Notification message body: " + messageBody);
+                SendNotification(messageBody);
             }
 
-            //Store the message
-            var prefs = GetSharedPreferences(context.PackageName, FileCreationMode.Private);
-            var edit = prefs.Edit();
-            edit.PutString("last_msg", msg.ToString());
-            edit.Commit();
-
-            string message = intent.Extras.GetString("message");
-            if (!string.IsNullOrEmpty(message))
+            void SendNotification(string messageBody)
             {
-                createNotification("New todo item!", "Todo item: " + message);
-                return;
-            }
+                var intent = new Intent(this, typeof(MainActivity));
+                intent.AddFlags(ActivityFlags.ClearTop);
+                var pendingIntent = PendingIntent.GetActivity(this, 0, intent, PendingIntentFlags.OneShot);
 
-            string msg2 = intent.Extras.GetString("msg");
-            if (!string.IsNullOrEmpty(msg2))
-            {
-                createNotification("New hub message!", msg2);
-                return;
-            }
-
-            createNotification("Unknown message details", msg.ToString());
-        }
-
-        void createNotification(string title, string desc)
-        {
-            //Create notification
-            var notificationManager = GetSystemService(Context.NotificationService) as NotificationManager;
-
-            //Create an intent to show ui
-            var uiIntent = new Intent(this, typeof(MainActivity));
-
-            //Use Notification Builder
-            NotificationCompat.Builder builder = new NotificationCompat.Builder(this);
-
-            //Create the notification
-            //we use the pending intent, passing our ui intent over which will get called
-            //when the notification is tapped.
-            var notification = builder.SetContentIntent(PendingIntent.GetActivity(this, 0, uiIntent, 0))
-                    .SetSmallIcon(Android.Resource.Drawable.SymActionEmail)
-                    .SetTicker(title)
-                    .SetContentTitle(title)
-                    .SetContentText(desc)
-
-                    //Set the notification sound
+                var notificationBuilder = new Notification.Builder(this)
+                    .SetSmallIcon(Resource.Drawable.ic_stat_ic_notification)
+                    .SetContentTitle("New Todo Item")
+                    .SetContentText(messageBody)
+                    .SetContentIntent(pendingIntent)
                     .SetSound(RingtoneManager.GetDefaultUri(RingtoneType.Notification))
+                    .SetAutoCancel(true);
 
-                    //Auto cancel will remove the notification once the user touches it
-                    .SetAutoCancel(true).Build();
-
-            //Show the notification
-            notificationManager.Notify(1, notification);
+                var notificationManager = NotificationManager.FromContext(this);
+                notificationManager.Notify(0, notificationBuilder.Build());
+            }
         }
 
-    Isso manipula as notificações recebidas e as envia para o gerenciador de notificações a ser exibido.
-13. **GcmServiceBase** também exige que você implemente os métodos de manipulador **OnUnRegistered** e **OnError**, o que pode ser feito da seguinte maneira:
-
-        protected override void OnUnRegistered(Context context, string registrationId)
-        {
-            Log.Error("PushHandlerBroadcastReceiver", "Unregistered RegisterationId : " + registrationId);
-        }
-
-        protected override void OnError(Context context, string errorId)
-        {
-            Log.Error("PushHandlerBroadcastReceiver", "GCM Error: " + errorId);
-        }
+    O método `OnMessageReceived`, que é invocado quando um aplicativo recebe uma notificação do FCM, extrai o conteúdo da mensagem e chama o método `SendNotification`. Esse método converte o conteúdo da mensagem em uma notificação de local que é iniciada enquanto o aplicativo está em execução, com a notificação aparecendo na área de notificação.
 
 Agora, você está pronto para testar as notificações por push no aplicativo em execução em um dispositivo ou no emulador Android.
 
@@ -344,7 +276,7 @@ A seguir, você definirá a configuração do projeto do iOS no Xamarin Studio o
 
     Isso habilita o suporte para notificações remotas e solicitações de registro por push.
 
-Seu aplicativo foi atualizado para oferecer suporte a notificações de push.
+Seu aplicativo foi atualizado para dar suporte a notificações por push.
 
 #### <a name="test-push-notifications-in-your-ios-app"></a>Testar notificações por push em seu aplicativo iOS
 1. Clique com o botão direito do mouse no projeto do iOS e, depois, clique em **Definir como Projeto de Inicialização**.
@@ -418,6 +350,9 @@ Esta seção trata da execução dos projetos WinApp e WinPhone81 de Xamarin.For
 ## <a name="next-steps"></a>Próximas etapas
 Saiba mais sobre as notificações por push:
 
+* [Enviar notificações por push a partir de aplicativos móveis do Azure](https://developer.xamarin.com/guides/xamarin-forms/cloud-services/push-notifications/azure/)
+* [Firebase Cloud Messaging](https://developer.xamarin.com/guides/android/data-and-cloud-services/google-messaging/firebase-cloud-messaging/)
+* [Notificações remotas com o Firebase Cloud Messaging](https://developer.xamarin.com/guides/android/data-and-cloud-services/google-messaging/remote-notifications-with-fcm/)
 * [Diagnosticar problemas com notificações por push](../notification-hubs/notification-hubs-push-notification-fixer.md)  
   há vários motivos por que as notificações podem ser abandonadas ou não irem terminar nos dispositivos. Este tópico mostra como analisar e descobrir a causa de falhas de notificação por push.
 

@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 04/20/2017
 ms.author: samacha
-ms.openlocfilehash: 5e7bab0b0c3222ba093a93dc2d15f1e41898e62c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 2898e3404dcfa3d75e3920f9c83e4efa7201998e
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="test-azure-stream-analytics-queries-in-the-azure-portal"></a>Testar as consultas do Stream Analytics do Azure no portal do Azure
 
@@ -27,7 +27,7 @@ Com o Stream Analytics do Azure, você pode testar consultas no portal do Azure 
 
 ## <a name="test-the-input"></a>Testar a entrada
 
-1. Para testar com dados de entrada de exemplo, clique com o botão direito do mouse em qualquer uma de suas entradas e, em seguida, selecione **Carregar dados de exemplo do arquivo**.
+1. Para testar com dados de entrada de exemplo, clique com o botão direito do mouse em qualquer uma de suas entradas e, em seguida, selecione **Carregar dados de exemplo do arquivo**. No momento, você pode carregar apenas os dados formatados em JSON. Se os dados estiverem em um formato diferente, como CSV, você deverá convertê-los em JSON antes de carregar. Você pode usar qualquer ferramenta de conversão de código-fonte aberto, como [conversor de CSV para JSON](http://www.convertcsv.com/csv-to-json.htm), para converter seus dados em JSON.
 
     ![consulta de teste do editor de consultas do stream analytics](media/stream-analytics-test-query/stream-analytics-test-query-editor-upload.png)
 

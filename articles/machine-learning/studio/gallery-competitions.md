@@ -1,6 +1,6 @@
 ---
-title: "Competições da Galeria do Cortana Intelligence | Microsoft Docs"
-description: "Descubra competições na Cortana Intelligence Gallery."
+title: "Competições da Galeria de IA do Azure | Microsoft Docs"
+description: "Descobrir competições na Galeria de IA do Azure."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: e9c1ae9448ad7179c33bbbafa34a4643a4840d0a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1e39d636b3322201465700a4c9de83dda1bbefcc
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="discover-competitions-in-the-cortana-intelligence-gallery"></a>Descobrir competições na Cortana Intelligence Gallery
+# <a name="discover-competitions-in-the-azure-ai-gallery"></a>Descobrir competições na Galeria de IA do Azure
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="cortana-intelligence-competitions"></a>Competições do Cortana Intelligence
@@ -29,12 +29,12 @@ ms.lasthandoff: 10/11/2017
 Para respostas a perguntas frequentes sobre as Competições, consulte [Perguntas frequentes sobre as Competições do Microsoft Cortana Intelligence](competition-faq.md).
 
 ## <a name="discover"></a>Descobrir
-  Para navegar pelas competições na Galeria, abra a [Galeria](http://gallery.cortanaintelligence.com), aponte o mouse para **Mais** na parte superior da home page da Galeria e escolha **Competições**.
+A página **[Competições](https://gallery.cortanaintelligence.com/competitions)** ([aka.ms/CIComp](http://aka.ms/CIComp)) exibe uma lista das competições mais populares.
 
 ![Escolher competições na home page da Galeria](./media/gallery-competitions/select-competitions-in-gallery.png)
 
- A página **[Competições](https://gallery.cortanaintelligence.com/competitions)** exibe uma lista das competições mais populares.
-Clique em **Ver todos** para exibir todos as competições.
+ 
+ Clique em **Ver todos** para exibir todos as competições.
 Nessa página, você pode procurar todas as competições na Galeria. Você também pode pesquisar selecionando critérios de filtragem à esquerda da página e inserindo termos de pesquisa na parte superior.
 
  Clique em qualquer competição para abrir a página de detalhes da competição e ler mais informações sobre ela. Nessa página, você pode dar sua opinião, fazer comentários ou fazer perguntas na seção de opiniões. É possível até mesmo compartilhá-la com amigos ou colegas usando os recursos de compartilhamento do LinkedIn ou Twitter. Você também pode enviar um link por email para a competição de modo a convidar outros usuários para exibir a página.

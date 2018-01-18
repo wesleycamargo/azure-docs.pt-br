@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2016
 ms.author: dariagrigoriu
-ms.openlocfilehash: ed0239df7bf1e4d37987aaa929d0c67bec595b30
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 19681564ef48649d4d44da1d0a2a65044f494ce4
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Implantação do Git local para o Serviço de Aplicativo do Azure
 Este tutorial mostra como implantar seu aplicativo nos [Aplicativos Web do Azure](app-service-web-overview.md) de um repositório do Git no computador local. O Serviço de Aplicativo dá suporte a essa abordagem com a opção de implantação do **Git Local** no [Portal do Azure].  
@@ -72,7 +72,7 @@ Execute as seguintes etapas para habilitar um repositório do Git para seu aplic
 2. Na folha do seu aplicativo do Serviço de Aplicativo, clique em **Configurações > Origem da implantação**. Clique em **Escolher fonte**, em seguida, clique em **Repositório Git Local** e clique em **OK**.  
    
     ![Repositório Git local](./media/app-service-deploy-local-git/local_git_selection.png)
-3. Se for a primeira vez que você configura um repositório no Azure, você precisa criar as credenciais de logon para ele. Você as usará para fazer logon no repositório do Azure e enviar por push as alterações do seu repositório Git Local. Na folha do aplicativo, clique em **Configurações > Credenciais da implantação**, em seguida, configure o nome de usuário da implantação e a senha. Quando terminar, clique em **Salvar**.
+3. Se for a primeira vez que você configura um repositório no Azure, você precisa criar as credenciais de logon para ele. Você as usará para fazer logon no repositório do Azure e enviar por push as alterações do seu repositório Git Local. Na folha do aplicativo, clique em **Implantação > Credenciais da implantação**, em seguida, configure o nome de usuário da implantação e a senha. Quando terminar, clique em **Salvar**.
    
     ![](./media/app-service-deploy-local-git/deployment_credentials.png)
 
@@ -125,7 +125,7 @@ Estes são erros ou problemas comumente encontrados ao usar o Git para publicar 
 
 **Causa**: este erro pode ocorrer se você não especificar uma ramificação ao executar uma operação de envio de git e não tiver definido o valor de push.default usado pelo Git.
 
-**Solução**: execute a operação de envio novamente, especificando a ramificação mestre. Por exemplo:
+**Solução**: execute a operação de envio novamente, especificando a ramificação mestre. Por exemplo: 
 
 ```bash  
 git push azure master
@@ -135,7 +135,7 @@ git push azure master
 
 **Causa**: este erro pode ocorrer se você tentar enviar para uma ramificação que não seja a mestre no remote 'azure'.
 
-**Solução**: execute a operação de envio novamente, especificando a ramificação mestre. Por exemplo:
+**Solução**: execute a operação de envio novamente, especificando a ramificação mestre. Por exemplo: 
 
 ```bash  
 git push azure master

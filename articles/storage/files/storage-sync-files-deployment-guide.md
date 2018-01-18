@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 7d6cb91f97020ad60bd2ea74b24df76511956f38
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: d5864b8df85a5b3cec086d4cb2edc6d288f1639a
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="deploy-azure-file-sync-preview"></a>Implantar a Sincronização de arquivos do Azure (versão prévia)
 Use a Sincronização de arquivos do Azure (versão prévia) para centralizar os compartilhamentos de arquivos de sua organização em Arquivos do Azure, sem abrir mão da flexibilidade, do desempenho e da compatibilidade de um servidor de arquivos local. A Sincronização de arquivos do Azure transforma o Windows Server em um cache rápido do compartilhamento de arquivos do Azure. Use qualquer protocolo disponível no Windows Server para acessar seus dados localmente, incluindo SMB, NFS e FTPS. Você pode ter tantos caches quantos precisar em todo o mundo.
@@ -26,7 +26,7 @@ Use a Sincronização de arquivos do Azure (versão prévia) para centralizar os
 É altamente recomendável que você leia [Planejando uma implantação de Arquivos do Azure](storage-files-planning.md) e [Planejando uma implantação de Sincronização de arquivos do Azure](storage-sync-files-planning.md) antes de completar as etapas descritas neste artigo.
 
 ## <a name="prerequisites"></a>Pré-requisitos
-* Uma conta de Armazenamento do Microsoft Azure e um compartilhamento do Arquivo do Azure na mesma região em que você deseja implantar a Sincronização de arquivos do Azure. Para obter mais informações, consulte:
+* Uma conta de Armazenamento do Microsoft Azure e um compartilhamento do Arquivo do Azure na mesma região em que você deseja implantar a Sincronização de arquivos do Azure. Para obter mais informações, confira:
     - [Disponibilidade de região](storage-sync-files-planning.md#region-availability) para Sincronização de arquivos do Azure.
     - Para orientações passo a passo sobre como criar uma conta de armazenamento, consulte [Criar uma conta de armazenamento](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
     - Para orientações passo a passo sobre como criar uma conta de compartilhamento, consulte [Criar uma conta de compartilhamento](storage-how-to-create-file-share.md).
@@ -71,6 +71,7 @@ O agente de Sincronização de arquivos do Azure é um pacote baixável que perm
 
 > [!Important]  
 > Se você pretende usar a Sincronização de arquivos do Azure com um Cluster de Failover, o agente de Sincronização de Arquivo do Azure precisa ser instalado em cada nó no cluster.
+
 
 O pacote de instalação do agente de Sincronização de arquivos do Azure deve ser instalado relativamente rápido sem muitos prompts adicionais. Recomendamos que você faça o seguinte:
 - Deixe o caminho de instalação padrão (C:\Program Files\Azure\StorageSyncAgent), para simplificar a manutenção do servidor e solução de problemas.
@@ -118,6 +119,36 @@ Selecione **Criar** para adicionar o ponto de extremidade do servidor. Os arquiv
 
 > [!Important]  
 > Você pode fazer alterações a qualquer Ponto de extremidade de Nuvem ou de Servidor no Grupo de sincronização e ter seus arquivos sincronizados com os outros pontos de extremidade no Grupo de sincronização. Se você fizer uma alteração diretamente no Ponto de extremidade de nuvem (compartilhamento de Arquivos do Azure), observe que as alterações devem primeiro ser descobertas por um trabalho de detecção de alteração de sincronização de arquivos do Azure. Um trabalho de detecção de alteração é iniciado para um ponto de extremidade da nuvem apenas uma vez a cada 24 horas. Para obter mais informações, consulte [Perguntas frequentes sobre os Arquivos do Azure](storage-files-faq.md#afs-change-detection).
+
+## <a name="onboarding-with-azure-file-sync"></a>Integração com a Sincronização de arquivos do Azure
+As etapas recomendadas para se integrar à Sincronização de arquivos do Azure pela primeira vez com zero tempo de inatividade e ainda preservar a fidelidade do arquivo completo e a lista de controle de acesso (ACL) são as seguintes:
+ 
+1.  Implantar um Serviço de sincronização de armazenamento.
+2.  Criar um grupo de sincronização.
+3.  Instalar o agente de Sincronização de arquivos do Azure no servidor com o conjunto de dados completo.
+4.  Registrar esse servidor e criar um ponto de extremidade do servidor no compartilhamento. 
+5.  Permitir que a sincronização faça o upload completo ao compartilhamento de arquivos do Azure (ponto de extremidade de nuvem).  
+6.  Após a conclusão do upload inicial, instalar o agente de Sincronização de arquivos do Azure em cada um dos servidores restantes.
+7.  Criar novos compartilhamentos de arquivo em cada um dos servidores restantes.
+8.  Criar pontos de extremidade do servidor em novos compartilhamentos de arquivo com a política de camadas de nuvem, se desejado. (Essa etapa requer que haja armazenamento adicional disponível para a configuração inicial.)
+9.  Permitir que o agente de Sincronização de arquivos do Azure faça uma restauração rápida do namespace completo sem a transferência de dados reais. Após a sincronização completa de namespace, o mecanismo de sincronização preencherá o espaço de disco local com base na política de camadas de nuvem do ponto de extremidade do servidor. 
+10. Certifique-se de que a sincronização seja concluída e teste a sua topologia conforme desejado. 
+11. Redirecionar usuários e aplicativos para esse novo compartilhamento.
+12. Outra opção é excluir compartilhamentos duplicados nos servidores.
+ 
+Caso não tenha armazenamento extra para a integração inicial e gostaria de anexar aos compartilhamentos existentes, você pode pré-propagar os dados nos compartilhamentos de arquivos do Azure. Essa abordagem é sugerida se e somente se você puder aceitar o tempo de inatividade e não garante absolutamente nenhuma alteração de dados em compartilhamentos do servidor durante o processo de migração inicial. 
+ 
+1.  Verifique se os dados presentes nos servidores não podem ser alterados durante o processo de integração.
+2.  Faça a pré-propagação de compartilhamentos de arquivos do Azure com os dados de servidor usando qualquer ferramenta de transferência de dados via SMB, por exemplo, Robocopy, cópia direta do SMB. Como o AzCopy não carrega dados via SMB, ele não pode ser usado para pré-propagar.
+3.  Crie a topologia da Sincronização de arquivos do Azure com os pontos de extremidade desejados do servidor apontando para os compartilhamentos existentes.
+4.  Deixe a sincronização concluir o processo de reconciliação em todos os pontos de extremidade. 
+5.  Assim que a reconciliação for concluída, você pode abrir compartilhamentos para alterações.
+ 
+Esteja ciente de que, no momento, a abordagem de pré-propagação tem algumas limitações: 
+- A fidelidade total nos arquivos não é preservada. Por exemplo, arquivos perdem ACLs e carimbo de data/hora.
+- Alterações de dados no servidor antes de a topologia de sincronização estar totalmente ativa e em execução podem causar conflitos nos pontos de extremidade do servidor.  
+- Depois que o ponto de extremidade da nuvem for criado, a Sincronização de arquivos do Azure executa um processo para detectar os arquivos na nuvem antes de iniciar a sincronização inicial. O tempo necessário para concluir esse processo varia dependendo de vários fatores, como velocidade da rede, largura de banda disponível e quantidade de arquivos e pastas. Para obter uma estimativa aproximada na versão prévia, o processo de detecção é executado a aproximadamente 10 arquivos por segundo. Portanto, mesmo se a pré-propagação for executada rapidamente, o tempo geral para obter um sistema totalmente em execução pode ser significativamente maior quando os dados forem pré-propagados na nuvem.
+
 
 ## <a name="migrate-a-dfs-replication-dfs-r-deployment-to-azure-file-sync"></a>Migrar uma implantação de replicação do DFS (DFS-R) para sincronização de arquivos do Azure
 Para migrar uma implantação de DFS-R para sincronização de arquivos do Azure:

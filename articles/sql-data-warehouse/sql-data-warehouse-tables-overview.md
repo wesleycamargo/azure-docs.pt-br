@@ -1,90 +1,149 @@
 ---
-title: "Visão geral das tabelas no SQL Data Warehouse | Microsoft Docs"
-description: "Introdução às Tabelas do SQL Data Warehouse do Azure."
+title: "Introdução de design de tabela - SQL Data Warehouse do Azure | Microsoft Docs"
+description: "Introdução à criação de tabelas no SQL Data Warehouse do Azure."
 services: sql-data-warehouse
 documentationcenter: NA
 author: barbkess
-manager: jenniehubbard
+manager: jhubbard
 editor: 
-ms.assetid: 2114d9ad-c113-43da-859f-419d72604bdf
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.custom: tables
-ms.date: 12/14/2017
+ms.custom: performance
+ms.date: 01/05/2018
 ms.author: barbkess
-ms.openlocfilehash: 46f7d2ea19a88e65b2d039fdf36d1619c4d74020
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 8e48d771ffcefe31c89a0d70f65ca867653a2163
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/08/2018
 ---
-# <a name="overview-of-tables-in-sql-data-warehouse"></a>Visão geral das tabelas no SQL Data Warehouse
-> [!div class="op_single_selector"]
-> * [Visão geral][Overview]
-> * [Tipos de Dados][Data Types]
-> * [Distribuir][Distribute]
-> * [Índice][Index]
-> * [Partição][Partition]
-> * [Estatísticas][Statistics]
-> * [Temporário][Temporary]
-> 
-> 
+# <a name="introduction-to-designing-tables-in-azure-sql-data-warehouse"></a>Introdução à criação de tabelas no SQL Data Warehouse do Azure
 
-A introdução à criação de tabelas no SQL Data Warehouse é simples.  A sintaxe básica de [CREATE TABLE][CREATE TABLE] segue a sintaxe comum que provavelmente você já conhece de trabalhar com outros bancos de dados.  Para criar uma tabela, basta nomear sua tabela, nomear suas colunas e definir os tipos de dados para cada coluna.  Se você criou tabelas em outros bancos de dados, isso deve ser bastante familiar.
+Aprenda os conceitos principais para a criação de tabelas no SQL Data Warehouse do Azure. 
 
-```sql  
-CREATE TABLE Customers (FirstName VARCHAR(25), LastName VARCHAR(25))
- ``` 
+## <a name="determining-table-category"></a>Como definir a categoria da tabela 
 
-O exemplo acima cria uma tabela denominada Clientes com duas colunas, FirstName e LastName.  Cada coluna é definida com um tipo de dados VARCHAR (25), que limita os dados a 25 caracteres.  Esses atributos fundamentais de uma tabela, bem como outros, são em grande parte os mesmos dos outros bancos de dados.  Os tipos de dados são definidos para cada coluna e garantem a integridade dos dados.  Os índices podem ser adicionados para melhorar o desempenho reduzindo a E/S.  O particionamento pode ser adicionado para melhorar o desempenho quando você precisa modificar os dados.
+Um [esquema em estrela](https://en.wikipedia.org/wiki/Star_schema) organiza dados em tabelas de fatos e dimensões. Algumas tabelas são usadas para dados de integração ou de preparo antes de movê-las para uma tabela de fatos ou dimensões. Ao criar uma tabela, decida se os dados da tabela pertencem a uma tabela de integração, de dimensão ou de fato. Essa decisão informa a distribuição e a estrutura da tabela apropriadas. 
 
-[Renomear][RENAME] uma tabela do SQL Data Warehouse fica assim:
+- As **Tabelas de fatos** contêm dados quantitativos normalmente gerados em um sistema transacional e, depois, carregados no data warehouse. Por exemplo, uma empresa de varejo gera transações de vendas todos os dias e, em seguida, carrega os dados para uma tabela de fatos do data warehouse para análise.
 
-```sql  
-RENAME OBJECT Customer TO CustomerOrig; 
- ```
+- As **Tabelas de dimensões** contêm dados de atributo que podem ser alterados, mas essas alterações são raras. Por exemplo, um nome e endereço do cliente são armazenados em uma tabela de dimensões e só são atualizados quando o perfil do cliente é alterado. Para minimizar o tamanho de uma tabela de fatos grande, não deixe o nome e o endereço do cliente em todas as linhas de uma tabela de fatos. Em vez disso, a tabela de fatos e a tabela de dimensões podem compartilhar uma ID do cliente. Uma consulta pode unir as duas tabelas para associar o perfil e as transações de um cliente. 
 
-## <a name="distributed-tables"></a>Tabelas distribuídas
-Um novo atributo fundamental introduzido pelos sistemas distribuídos, como o SQL Data Warehouse, é a **coluna de distribuição**.  A coluna de distribuição é o que parece ser.  É a coluna que determina como distribuir ou dividir seus dados nos bastidores.  Quando você cria uma tabela sem especificar a coluna de distribuição, a tabela é automaticamente distribuída usando **round robin**.  Embora as tabelas round robin possam ser suficientes em alguns cenários, definir colunas de distribuição pode reduzir muito a movimentação dos dados durante as consultas, otimizando o desempenho.  Em situações em que há um pequeno volume de dados em uma tabela, optar por criar a tabela com o tipo de distribuição de **replicação** significa copiar dados para cada nó de computação e salvar a movimentação dos dados no tempo de execução da consulta. Confira [Distribuir uma Tabela][Distribute] para saber mais sobre como selecionar uma coluna de distribuição.
+- As **Tabelas de integrações** oferecem um local para dados de preparo ou integração. Essas tabelas podem ser criadas como tabelas regulares, tabelas externas ou tabelas temporárias. Por exemplo, é possível carregar dados em uma tabela de preparo, executar transformações nos dados de preparo e, em seguida, inserir os dados em uma tabela de produção.
 
-## <a name="indexing-and-partitioning-tables"></a>Indexação e particionamento de tabelas
-Conforme você se tornar mais avançado usando o SQL Data Warehouse e quiser otimizar o desempenho, desejará saber mais sobre o Design da Tabela.  Para saber mais, consulte os artigos sobre [Tipos de dados da tabela][Data Types], [Distribuir uma tabela][Distribute], [Indexar uma tabela][Index] e [Particionar uma tabela][Partition].
+## <a name="schema-and-table-names"></a>Nomes de tabelas e esquemas
+No SQL Data Warehouse, um data warehouse é um tipo de banco de dados. Todas as tabelas no data warehouse estão contidas no mesmo banco de dados.  Você não pode unir tabelas de diversos data warehouses. Esse comportamento é diferente do SQL Server, que oferece suporte a junções entre bancos de dados. 
 
-## <a name="table-statistics"></a>Estatísticas da tabela
-As estatísticas são extremamente importantes para obter o melhor desempenho do SQL Data Warehouse.  Já que o SQL Data Warehouse ainda não cria nem atualiza automaticamente as estatísticas tal como você talvez já espere que ocorra no Banco de Dados SQL do Azure, a leitura de nosso artigo em [Estatísticas][Statistics] poderá ser uma das mais importantes para garantir que você obtenha o melhor desempenho de suas consultas.
+Em um banco de dados do SQL Server, você pode usar fato, dimensão ou integração nos nomes de esquemas. A transferência de um banco de dados do SQL Server para o SQL Data Warehouse funciona melhor se migrar todo o armazenamento das tabelas de fato, dimensão e integração para um esquema no SQL Data Warehouse. Por exemplo, você pode armazenar todas as tabelas do data warehouse de exemplo [WideWorldImportersDW](/sql/sample/world-wide-importers/database-catalog-wwi-olap) em um esquema chamado WWI. O código a seguir cria um [esquema definido pelo usuário](/sql/t-sql/statements/create-schema-transact-sql) chamado WWI.
 
-## <a name="temporary-tables"></a>Tabelas temporárias
-Tabelas temporárias são as tabelas que só existem durante o logon e não podem ser vistas por outros usuários.  As tabelas temporárias podem ser uma boa maneira de evitar que outras pessoas vejam os resultados temporários e também reduzem a necessidade de limpeza.  Como as tabelas temporárias também utilizam o armazenamento local, podem oferecer um desempenho mais rápido para algumas operações.  Confira o artigo [Tabelas Temporárias][Temporary] para obter mais detalhes sobre elas.
+```sql
+CREATE SCHEMA WWI;
+```
 
-## <a name="external-tables"></a>Tabelas externas
-Tabelas externas, também conhecidas como tabelas Polybase, são tabelas que podem ser consultadas no SQL Data Warehouse, mas apontam para os dados externos do SQL Data Warehouse.  Por exemplo, você pode criar uma tabela externa que aponta para os arquivos no Armazenamento de Blobs do Azure ou no Azure Data Lake Store.  Para obter mais detalhes sobre como criar e consultar uma tabela externa, confira [Carregar dados com o Polybase][Load data with Polybase].  
+Para mostrar a organização das tabelas no SQL Data Warehouse, use fato, dim e int como prefixos para os nomes das tabelas. A tabela a seguir mostra alguns dos nomes de tabelas e esquema para WideWorldImportersDW. Ele compara os nomes no SQL Server e no SQL Data Warehouse. 
+
+| Tabelas de dimensões WWI  | SQL Server | SQL Data Warehouse |
+|:-----|:-----|:------|
+| City | Dimension.City | WWI.DimCity |
+| Cliente | Dimension.Customer | WWI.DimCustomer |
+| Data | Dimension.Date | WWI.DimDate |
+
+| Tabelas de fatos WWI | SQL Server | SQL Data Warehouse |
+|:---|:---|:---|
+| Classificar | Fact.Order | WWI.FactOrder |
+| Venda  | Fact.Sale  | WWI.FactSale  |
+| Purchase | Fato | WWI.FactPurchase |
+
+
+## <a name="table-definition"></a>Definição da tabela 
+
+Os conceitos a seguir explicam os principais aspectos da definição de tabelas. 
+
+### <a name="standard-table"></a>Tabela padrão
+
+Uma tabela padrão é armazenada no Armazenamento do Azure como parte do data warehouse. A tabela e os dados persistem independentemente se há uma sessão aberta.  Este exemplo cria uma tabela com duas colunas. 
+
+```sql
+CREATE TABLE MyTable (col1 int, col2 int );  
+```
+
+### <a name="temporary-table"></a>Tabela temporária
+Uma tabela temporária só existe durante a sessão. As tabelas temporárias são boas opções para evitar que outros usuários vejam os resultados temporários, além de reduzirem a necessidade de limpeza.  Como as tabelas temporárias também utilizam o armazenamento local, podem oferecer um desempenho mais rápido para algumas operações.  Para obter mais informações, confira [Tabelas temporárias](sql-data-warehouse-tables-temporary.md).
+
+### <a name="external-table"></a>Tabela externa
+Uma tabela externa aponta para dados localizados no Armazenamento de Blobs do Azure ou do Azure Data Lake Store. Quando usada em conjunto com a instrução CREATE TABLE AS SELECT, selecionar a partir de uma tabela externa importa dados no SQL Data Warehouse. Ou seja, as tabelas externas são úteis para carregar dados. Para ver um tutorial de carregamento, confira [Usar o PolyBase para carregar dados do Armazenamento de Blobs do Azure](load-data-from-azure-blob-storage-using-polybase.md).
+
+### <a name="data-types"></a>Tipos de dados
+O SQL Data Warehouse oferece suporte aos tipos comuns de dados usados. Para obter uma lista dos tipos de dados com suporte, consulte [tipos de dados](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes) na instrução CREATE TABLE. Minimizar o tamanho dos tipos de dados ajuda a melhorar o desempenho da consulta. Para obter orientação sobre os tipos de dados, confira [Tipos de dados](sql-data-warehouse-tables-data-types.md).
+
+### <a name="distributed-tables"></a>Tabelas distribuídas
+Um recurso fundamental do SQL Data Warehouse é a maneira como ele pode armazenar tabelas em 60 locais distribuídos, chamados distribuições, no sistema distribuído.  O SQL Data Warehouse pode armazenar uma tabela de três maneiras:
+
+- **Round robin** armazena linhas de tabela aleatoriamente, mas uniformemente entre as distribuições. A tabela de round robin atinge o desempenho de carregamento rápido, mas requer mais movimentação de dados que os outros métodos para consultas que unem colunas. 
+- **Hash** distribui linhas com base no valor na coluna de distribuição. A tabela de hash distribuída tem mais potencial para obter um alto desempenho para junções de consulta em tabelas grandes. Há vários fatores que afetam a escolha da coluna de distribuição. Para obter mais informações, confira [Tabelas distribuídas](sql-data-warehouse-tables-distribute.md).
+- As tabelas **Replicadas** disponibilizam uma cópia completa das tabelas disponíveis em cada nó de computação. Consultas de execução rápida em tabelas replicadas como junções em tabelas replicadas não exigem a movimentação de dados. No entanto, a replicação exige armazenamento extra e não é prática para tabelas grandes. Para obter mais informações, confira [Criação de diretrizes para tabelas replicadas](design-guidance-for-replicated-tables.md).
+
+A categoria da tabela geralmente determina qual opção escolher para a distribuição da tabela.  
+
+| Categoria de tabela | Opção de distribuição recomendada |
+|:---------------|:--------------------|
+| Fato           | Use a distribuição de hash com índice columnstore clusterizado. O desempenho melhora quando duas tabelas de hash são unidas na mesma coluna de distribuição. |
+| Dimensão      | Use a replicada para tabelas menores. Se as tabelas forem grandes demais para serem armazenadas em cada nó de computação, use a distribuição de hash. |
+| Staging        | Use um round robin para a tabela de preparo. A carga com CTAS é rápida. Quando os dados estiverem na tabela de preparo, use INSERT...SELECT para mover os dados para uma tabela de produção. |
+
+### <a name="table-partitions"></a>Partições de tabela
+Uma tabela particionada armazena e executa operações nas linhas da tabela de acordo com os intervalos de dados. Por exemplo, uma tabela pode ser particionada por dia, mês ou ano. Você pode melhorar a eliminação de partições de desempenho de consultas, o que limita uma verificação de consulta para dados dentro de uma partição. Você também pode manter os dados por meio de alternância de partição. Como os dados no SQL Data Warehouse já foram distribuídos, um número excessivo de partições pode diminuir o desempenho da consulta. Para saber mais informações, confira [Diretrizes de particionamento](sql-data-warehouse-tables-partition.md).
+
+### <a name="columnstore-indexes"></a>Índices ColumnStore
+Por padrão, o SQL Data Warehouse armazena uma tabela como um índice columnstore clusterizado. Essa forma de armazenamento de dados atinge a alta compactação de dados e o desempenho de consultas em tabelas grandes.  Normalmente, o índice columnstore clusterizado é a melhor opção, mas existem alguns casos onde um índice clusterizado ou um heap são estruturas de armazenamento mais adequadas.
+
+Para obter uma lista de recursos columnstore, confira [Quais são as novidades dos índices columnstores](/sql/relational-databases/indexes/columnstore-indexes-what-s-new). Para melhorar o desempenho do índice columnstore, confira [Como maximizar a qualidade do rowgroup para índices columnstore](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md).
+
+### <a name="statistics"></a>Estatísticas
+O otimizador de consulta usa estatísticas de nível de coluna quando cria o plano para executar uma consulta. Para melhorar o desempenho de consulta, é importante criar estatísticas em colunas individuais, especialmente nas colunas usadas em junções de consulta. Criar e atualizar estatísticas não acontece automaticamente. [Crie estatísticas](/sql/t-sql/statements/create-statistics-transact-sql) depois de criar uma tabela. Atualize as estatísticas depois que um número significativo de linhas for adicionado ou alterado. Por exemplo, atualize as estatísticas depois de uma carga. Para obter mais informações, confira [Diretrizes sobre estatísticas](sql-data-warehouse-tables-statistics.md).
+
+## <a name="ways-to-create-tables"></a>Maneiras de criar tabelas
+Você pode criar uma tabela como uma nova tabela vazia. Você também pode criar e popular uma tabela com os resultados de uma instrução de seleção. A seguir estão os comandos T-SQL para criar uma tabela.
+
+| Instruções T-SQL | DESCRIÇÃO |
+|:----------------|:------------|
+| [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse) | Cria uma tabela vazia com a definição de todas as opções e colunas da tabela. |
+| [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql) | Cria uma tabela externa. A definição da tabela é armazenada no SQL Data Warehouse. Os dados da tabela são armazenados no Armazenamento de Blobs do Azure ou do Azure Data Lake Store. |
+| [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) | Popula uma tabela nova com os resultados de uma instrução selecionada. Os tipos de dados e colunas de tabela baseiam-se nos resultados da instrução selecionada. Para importar dados, essa instrução pode selecionar de uma tabela externa. |
+| [CREATE EXTERNAL TABLE AS SELECT](/sql/t-sql/statements/create-external-table-as-select-transact-sql) | Cria uma tabela externa nova exportando os resultados de uma instrução selecionada para um local externo.  O local é o armazenamento de Blobs do Azure ou o Azure Data Lake Store. |
+
+## <a name="aligning-source-data-with-the-data-warehouse"></a>Como alinhar dados de origem com o data warehouse
+
+As tabelas do data warehouse são populadas pelo carregamento de dados de outra fonte de dados. Para executar um carregamento bem-sucedido, os números e os tipos de dados das colunas na fonte de dados devem se alinhar com a definição da tabela no data warehouse. Obter os dados para alinhar pode ser a parte mais difícil da criação de tabelas. 
+
+Se os dados são provenientes de vários armazenamentos de dados, você pode trazer os dados para o data warehouse e armazená-los em uma tabela de integração. Quando os dados estiverem na tabela de integração, você poderá usar o SQL Data Warehouse para executar operações de transformação.
 
 ## <a name="unsupported-table-features"></a>Recursos da tabela sem suporte
-Embora o SQL Data Warehouse contenha muitos dos mesmos recursos da tabela oferecidos por outros bancos de dados, há alguns recursos que ainda não têm suporte.  Abaixo, está uma lista de alguns dos recursos da tabela que ainda não têm suporte.
+O SQL Data Warehouse oferece suporte a muitos, mas não a todos, os recursos de tabela oferecidos por outros bancos de dados.  A lista a seguir mostra alguns dos recursos de tabela que não têm suporte no SQL Data Warehouse.
 
-| Recursos sem suporte |
-| --- |
-| Chave primária, Chaves estrangeiras, Exclusiva e Verificação [Restrições da Tabela][Table Constraints] |
-| [Índices Exclusivos][Unique Indexes] |
-| [Colunas Computadas][Computed Columns] |
-| [Colunas Esparsas][Sparse Columns] |
-| [Tipos Definidos pelo Usuário][User-Defined Types] |
-| [Sequência][Sequence] |
-| [Gatilhos][Triggers] |
-| [Exibições Indexadas][Indexed Views] |
-| [Sinônimos][Synonyms] |
+- Chave primária, Chaves estrangeiras, Exclusiva: verifique as [restrições da tabela](/sql/t-sql/statements/alter-table-table-constraint-transact-sql)
+
+- [Colunas Computadas](/sql/t-sql/statements/alter-table-computed-column-definition-transact-sql)
+- [Exibições Indexadas](/sql/relational-databases/views/create-indexed-views)
+- [Sequência](/sql/t-sql/statements/create-sequence-transact-sql)
+- [Colunas Esparsas](/sql/relational-databases/tables/use-sparse-columns)
+- [Chaves substitutas](). Implementar com [identidade](sql-data-warehouse-tables-identity.md).
+- [Sinônimos](/sql/t-sql/statements/create-synonym-transact-sql)
+- [Gatilhos](/sql/t-sql/statements/create-trigger-transact-sql)
+- [Índices Exclusivos](/sql/t-sql/statements/create-index-transact-sql)
+- [Tipos Definidos pelo Usuário](/sql/relational-databases/native-client/features/using-user-defined-types)
 
 ## <a name="table-size-queries"></a>Consultas do tamanho da tabela
-Uma maneira simples de identificar o espaço e as linhas consumidas por uma tabela em cada uma das 60 distribuições é usar [DBCC PDW_SHOWSPACEUSED][DBCC PDW_SHOWSPACEUSED].
+Uma maneira simples de identificar o espaço e as linhas consumidas por uma tabela em cada uma das 60 distribuições é usar o [DBCC PDW_SHOWSPACEUSED][DBCC PDW_SHOWSPACEUSED].
 
 ```sql
 DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
 ```
 
-No entanto, usar comandos DBCC pode ser bastante limitado.  As exibições de gerenciamento dinâmico (DMVs) permitirão que você confira muito mais detalhes, bem como oferecem muito mais controle sobre os resultados da consulta.  Comece criando essa exibição, que será referenciada por muitos dos nossos exemplos neste e em outros artigos.
+No entanto, usar comandos DBCC pode ser bastante limitado.  Exibições de gerenciamento dinâmico (DMVs) mostram mais detalhes que os comandos DBCC. Comece criando essa exibição.
 
 ```sql
 CREATE VIEW dbo.vTableSizes
@@ -199,7 +258,8 @@ FROM size
 ```
 
 ### <a name="table-space-summary"></a>Resumo do espaço da tabela
-Esta consulta retorna as linhas e o espaço por tabela.  Essa é uma ótima consulta ver quais tabelas são as maiores e se elas são distribuídas em round robin, replicadas ou em hash.  Para as tabelas de hash distribuídas, também mostra a coluna de distribuição.  Na maioria dos casos, suas tabelas maiores devem ser distribuídas em hash com um índice columnstore clusterizado.
+
+Esta consulta retorna as linhas e o espaço por tabela.  E permite que você veja quais são as tabelas maiores e se elas são distribuídas em hash, round robin ou replicadas.  Nas tabelas distribuídas em hash, a consulta exibe a coluna de distribuição.  Na maioria dos casos, as tabelas maiores devem ser distribuídas em hash com um índice columnstore clusterizado.
 
 ```sql
 SELECT 
@@ -230,6 +290,7 @@ ORDER BY
 ```
 
 ### <a name="table-space-by-distribution-type"></a>Espaço da tabela pelo tipo de distribuição
+
 ```sql
 SELECT 
      distribution_policy_name
@@ -244,6 +305,7 @@ GROUP BY distribution_policy_name
 ```
 
 ### <a name="table-space-by-index-type"></a>Espaço da tabela pelo tipo de índice
+
 ```sql
 SELECT 
      index_type_desc
@@ -258,6 +320,7 @@ GROUP BY index_type_desc
 ```
 
 ### <a name="distribution-space-summary"></a>Resumo do espaço de distribuição
+
 ```sql
 SELECT 
     distribution_id
@@ -273,33 +336,4 @@ ORDER BY    distribution_id
 ```
 
 ## <a name="next-steps"></a>Próximas etapas
-Para saber mais, consulte os artigos [Table Data Types][Data Types] (Tipos de Dados da Tabela), [Distributing a Table][Distribute] (Distribuir uma Tabela), [Indexing a Table][Index] (Indexar uma Tabela), [Partitioning a Table][Partition] (Particionar uma Tabela), [Maintaining Table Statistics][Statistics] (Manter Estatísticas de Tabela) e [Temporary Tables][Temporary] (Tabelas Temporárias).  Para saber mais sobre as práticas recomendadas, consulte [Práticas Recomendadas do SQL Data Warehouse][SQL Data Warehouse Best Practices].
-
-<!--Image references-->
-
-<!--Article references-->
-[Overview]: ./sql-data-warehouse-tables-overview.md
-[Data Types]: ./sql-data-warehouse-tables-data-types.md
-[Distribute]: ./sql-data-warehouse-tables-distribute.md
-[Index]: ./sql-data-warehouse-tables-index.md
-[Partition]: ./sql-data-warehouse-tables-partition.md
-[Statistics]: ./sql-data-warehouse-tables-statistics.md
-[Temporary]: ./sql-data-warehouse-tables-temporary.md
-[SQL Data Warehouse Best Practices]: ./sql-data-warehouse-best-practices.md
-[Load data with Polybase]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
-
-<!--MSDN references-->
-[CREATE TABLE]: https://msdn.microsoft.com/library/mt203953.aspx
-[RENAME]: https://msdn.microsoft.com/library/mt631611.aspx
-[DBCC PDW_SHOWSPACEUSED]: https://msdn.microsoft.com/library/mt204028.aspx
-[Table Constraints]: https://msdn.microsoft.com/library/ms188066.aspx
-[Computed Columns]: https://msdn.microsoft.com/library/ms186241.aspx
-[Sparse Columns]: https://msdn.microsoft.com/library/cc280604.aspx
-[User-Defined Types]: https://msdn.microsoft.com/library/ms131694.aspx
-[Sequence]: https://msdn.microsoft.com/library/ff878091.aspx
-[Triggers]: https://msdn.microsoft.com/library/ms189799.aspx
-[Indexed Views]: https://msdn.microsoft.com/library/ms191432.aspx
-[Synonyms]: https://msdn.microsoft.com/library/ms177544.aspx
-[Unique Indexes]: https://msdn.microsoft.com/library/ms188783.aspx
-
-<!--Other Web references-->
+Depois de criar as tabelas para o data warehouse, a próxima etapa é carregar dados na tabela.  Para obter um tutorial de carregamento, confira [Carregamento de dados do Armazenamento de Blobs do Azure com o PolyBase](load-data-from-azure-blob-storage-using-polybase.md).

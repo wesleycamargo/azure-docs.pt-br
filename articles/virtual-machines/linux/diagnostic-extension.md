@@ -9,11 +9,11 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 05/09/2017
 ms.author: jasonzio
-ms.openlocfilehash: 7d5252cab8c6238126c802b8c6a5293bb448e65e
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 1eae6d302827c977b9258174dec68fd8f3009a11
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Use a Extensão de Diagnóstico Linux para monitorar as métricas e os logs
 
@@ -127,13 +127,17 @@ Esse conjunto de informações de configuração contém informações confidenc
 }
 ```
 
-Nome | Valor
+NOME | Valor
 ---- | -----
 storageAccountName | O nome da conta de armazenamento na qual os dados são gravados pela extensão.
 storageAccountEndPoint | (opcional) O ponto de extremidade que identifica a nuvem na qual existe a conta de armazenamento. Se essa configuração estiver ausente, o LAD utiliza como padrão a nuvem pública do Azure, `https://core.windows.net`. Para usar uma conta de armazenamento no Azure Alemanha, no Azure Governamental ou Azure China, defina este valor corretamente.
 storageAccountSasToken | Um [Token de SAS de conta](https://azure.microsoft.com/blog/sas-update-account-sas-now-supports-all-storage-services/) para serviços Blob e de tabela (`ss='bt'`), aplicável a contêineres e objetos (`srt='co'`), que concede permissão para adicionar, criar, listar, atualizar e gravar (`sp='acluw'`). *Não* inclua o ponto de interrogação (?) no início.
 mdsdHttpProxy | (opcional) As informações de proxy de HTTP necessárias para habilitar a extensão para se conectar ao ponto de extremidade e à conta de armazenamento especificados.
 sinksConfig | (opcional) Detalhes de destinos alternativos para os quais as métricas e os eventos podem ser entregues. Os detalhes específicos de cada coletor de dados compatível com a extensão são abordados nas seções a seguir.
+
+
+> [!NOTE]
+> Ao implantar a extensão com um modelo de implantação do Azure, a conta de armazenamento e o token SAS devem ser criados com antecedência e, em seguida, passados para o modelo. Você não pode implantar uma VM, uma conta de armazenamento e configurar a extensão em um único modelo. Atualmente não há suporte para a criação de um token SAS dentro de um modelo.
 
 Você pode facilmente construir o token de SAS necessário por meio do Portal do Azure.
 
@@ -165,8 +169,8 @@ Esta seção opcional define os destinos adicionais para os quais a extensão en
 
 Elemento | Valor
 ------- | -----
-name | Uma cadeia de caracteres usada para se referir a esse coletor em outro lugar na configuração da extensão.
-type | O tipo de coletor que está sendo definido. Determina os outros valores (se houver) em instâncias desse tipo.
+Nome | Uma cadeia de caracteres usada para se referir a esse coletor em outro lugar na configuração da extensão.
+Tipo | O tipo de coletor que está sendo definido. Determina os outros valores (se houver) em instâncias desse tipo.
 
 A extensão de Diagnóstico do Linux versão 3.0 oferece suporte a dois tipos de coletor: EventHub e JsonBlob.
 
@@ -267,7 +271,7 @@ sampleRateInSeconds | (opcional) O intervalo padrão entre a coleta de métricas
 
 Elemento | Valor
 ------- | -----
-resourceId | A ID de recurso do Azure Resource Manager da VM ou conjunto de dimensionamento de máquinas virtuais à qual pertence a VM. Essa configuração também deverá ser especificada se algum coletor JsonBlob for usado na configuração.
+ResourceId | A ID de recurso do Azure Resource Manager da VM ou conjunto de dimensionamento de máquinas virtuais à qual pertence a VM. Essa configuração também deverá ser especificada se algum coletor JsonBlob for usado na configuração.
 scheduledTransferPeriod | A frequência na qual as métricas agregadas serão computadas e transferidas para as Métricas do Azure, expressas como um intervalo de tempo de IS 8601. O menor período de transferência é 60 segundos, ou seja, PT1M. Você deve especificar pelo menos um scheduledTransferPeriod.
 
 As amostras de métricas especificados na seção performanceCounters são coletados a cada 15 segundos ou na taxa de amostra explicitamente definidas para o contador. Se várias frequências scheduledTransferPeriod aparecerem (como no exemplo), cada agregação será calculada independentemente.
@@ -308,7 +312,7 @@ Essa seção opcional controla a coleção de métricas. As amostras brutas são
 Elemento | Valor
 ------- | -----
 coletores | (opcional) Uma lista separada por vírgulas de nomes de coletores para os quais o LAD envia resultados de métricas agregadas. Todas as métricas agregadas são publicadas em cada coletor listado. Veja [sinksConfig](#sinksconfig). Exemplo: `"EHsink1, myjsonsink"`.
-type | Identifica o provedor real da métrica.
+Tipo | Identifica o provedor real da métrica.
 class | Junto com "counter", identifica a métrica específica dentro do namespace do provedor.
 contador | Junto com "class", identifica a métrica específica dentro do namespace do provedor.
 counterSpecifier | Identifica a métrica específica dentro do namespace de Métricas do Azure.

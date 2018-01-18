@@ -11,13 +11,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 01/04/2018
 ms.author: mbullwin
-ms.openlocfilehash: 978af1a57a5fc3d9c95d517288a074c636874984
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: ddaf7bf12854aa5f80c1d292613c3049850ca3ff
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Usar o Stream Analytics para processar os dados exportados do Application Insights
 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) é a ferramenta ideal para processar dados [exportados do Application Insights](app-insights-export-telemetry.md). O Stream Analytics pode extrair dados de várias fontes. Ele pode transformar e filtrar os dados e depois roteá-los a uma variedade de coletores.
@@ -76,27 +76,27 @@ Exportação contínua sempre gera dados para uma conta de armazenamento do Azur
 Os eventos são gravados em arquivos blob formato JSON. Cada arquivo pode conter um ou mais eventos. Portanto, gostaríamos de escrever um código para ler os dados de evento e filtrar os campos desejados. Podemos fazer todos os tipos de coisas com os dados, mas nosso plano para hoje é usar o Stream Analytics para redirecionar os dados ao Power BI.
 
 ## <a name="create-an-azure-stream-analytics-instance"></a>Criar uma instância do Azure Stream Analytics
-No [Portal do Azure Clássico](https://manage.windowsazure.com/), selecione o serviço do Azure Stream Analytics e crie um novo trabalho do Stream Analytics:
+No [Portal do Azure](https://portal.azure.com/), selecione o serviço do Azure Stream Analytics e crie um novo trabalho do Stream Analytics:
 
-![](./media/app-insights-export-stream-analytics/090.png)
+![](./media/app-insights-export-stream-analytics/SA001.png)
 
-![](./media/app-insights-export-stream-analytics/100.png)
+![](./media/app-insights-export-stream-analytics/SA002.png)
 
-Quando o novo trabalho for criado, expanda seus detalhes:
+Após a criação do novo trabalho, escolha **Ir para o recurso**.
 
-![](./media/app-insights-export-stream-analytics/110.png)
+![](./media/app-insights-export-stream-analytics/SA003.png)
 
-### <a name="set-blob-location"></a>Definir local de blob
+### <a name="add-a-new-input"></a>Adicionar uma nova entrada
+
+![](./media/app-insights-export-stream-analytics/SA004.png)
+
 Defina a entrada do seu blob de Exportação Contínua:
 
-![](./media/app-insights-export-stream-analytics/120.png)
+![](./media/app-insights-export-stream-analytics/SA005.png)
 
 Agora, você precisará da Chave de Acesso Primária da sua Conta de Armazenamento, previamente anotada. Defina isso como a chave da conta de armazenamento.
 
-![](./media/app-insights-export-stream-analytics/130.png)
-
 ### <a name="set-path-prefix-pattern"></a>Definir padrão de prefixo de caminho
-![](./media/app-insights-export-stream-analytics/140.png)
 
 **Defina o Formato de Data como AAAA-MM-DD (com traços).**
 
@@ -114,33 +114,19 @@ Neste exemplo:
 > [!NOTE]
 > Inspecione o armazenamento para garantir que o caminho está certo.
 > 
-> 
 
-### <a name="finish-initial-setup"></a>Concluir a configuração inicial
-Confirme o formato de serialização:
+## <a name="add-new-output"></a>Adicionar nova saída
+Agora, selecione seu trabalho > **Saídas** > **Adicionar**.
 
-![Confirme e feche o assistente](./media/app-insights-export-stream-analytics/150.png)
+![](./media/app-insights-export-stream-analytics/SA006.png)
 
-Feche o assistente e aguarde até que a instalação seja concluída.
 
-> [!TIP]
-> Use o comando Sample para baixar alguns dados. Mantenha-os como exemplo de teste para depurar sua consulta.
-> 
-> 
-
-## <a name="set-the-output"></a>Definir a saída
-Agora, selecione seu trabalho e defina a saída.
-
-![Selecione o novo canal, clique em Saídas, Adicionar, Power BI](./media/app-insights-export-stream-analytics/160.png)
+![Selecione o novo canal, clique em Saídas, Adicionar, Power BI](./media/app-insights-export-stream-analytics/SA010.png)
 
 Forneça sua **conta corporativa ou de estudante** para autorizar o Stream Analytics a acessar seu recurso do Power BI. Em seguida, crie um nome para a saída, bem como para a tabela e o conjunto de dados do Power BI de destino.
 
-![Crie três nomes](./media/app-insights-export-stream-analytics/170.png)
-
 ## <a name="set-the-query"></a>Definir a consulta
 A consulta controla a conversão de entrada para a saída.
-
-![Selecione o trabalho e clique em Consulta. Cole o exemplo a seguir.](./media/app-insights-export-stream-analytics/180.png)
 
 Use a função Test para verificar se você obteve a saída certa. Atribua a ela os exemplos de dados que você obteve da página de entradas. 
 
@@ -162,7 +148,7 @@ Cole esta consulta:
 
 * export-input é o alias que atribuímos à entrada do fluxo
 * pbi-output é o alias de saída que definimos
-* Usamos [OUTER APPLY GetElements](https://msdn.microsoft.com/library/azure/dn706229.aspx) porque o nome do evento está em uma matriz JSON aninhada. Em seguida, o Select seleciona o nome do evento, juntamente com uma contagem do número de instâncias com esse nome no período de tempo. A cláusula [Agrupar Por](https://msdn.microsoft.com/library/azure/dn835023.aspx) agrupa os elementos em períodos de tempo de 1 minuto.
+* Usamos [OUTER APPLY GetElements](https://msdn.microsoft.com/library/azure/dn706229.aspx) porque o nome do evento está em uma matriz JSON aninhada. Em seguida, o Select seleciona o nome do evento, juntamente com uma contagem do número de instâncias com esse nome no período de tempo. A cláusula [Agrupar por](https://msdn.microsoft.com/library/azure/dn835023.aspx) agrupa os elementos em períodos de tempo de um minuto.
 
 ### <a name="query-to-display-metric-values"></a>Consulta para exibir valores de métricas
 ```SQL
@@ -206,7 +192,7 @@ Cole esta consulta:
 ## <a name="run-the-job"></a>Executar o trabalho
 Você pode selecionar uma data no passado a partir da qual iniciar o trabalho. 
 
-![Selecione o trabalho e clique em Consulta. Cole o exemplo a seguir.](./media/app-insights-export-stream-analytics/190.png)
+![Selecione o trabalho e clique em Consulta. Cole o exemplo a seguir.](./media/app-insights-export-stream-analytics/SA008.png)
 
 Aguarde até o trabalho estar Em execução.
 

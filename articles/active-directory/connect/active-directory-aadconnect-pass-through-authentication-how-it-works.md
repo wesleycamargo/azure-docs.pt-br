@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 01/04/2018
 ms.author: billmath
-ms.openlocfilehash: e8eb95649d9af1c8bf801df82f0f78aae0656d9e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: cd42278048b8162a06af21de04397a959be33586
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-technical-deep-dive"></a>Autenticação de Passagem do Azure Active Directory: aprofundamento técnico
 Este artigo descreve como funciona a Autenticação de Passagem do Azure AD (Azure Active Directory). Para obter informações técnicas e de segurança aprofundadas, veja o artigo [Aprofundamento sobre segurança](active-directory-aadconnect-pass-through-authentication-security-deep-dive.md).
@@ -31,7 +31,7 @@ Quando um usuário tenta entrar em um aplicativo protegido pelo Azure AD, e se a
 2. Se o usuário ainda não tiver entrado, ele será redirecionado para a página **Entrada de Usuário** do Azure AD.
 3. O usuário insere o nome de usuário e a senha na página de entrada do Azure AD e seleciona o botão **Entrar**.
 4. O Azure AD, ao receber a solicitação de entrada, coloca o nome de usuário e a senha (criptografada com o uso de uma chave pública) em uma fila.
-5. Um Agente de Autenticação local recupera o nome de usuário e a senha criptografada da fila.
+5. Um Agente de Autenticação local recupera o nome de usuário e a senha criptografada da fila. Observe que o Agente não realiza com frequência uma sondagem por solicitações da fila, mas recupera as solicitações por uma conexão persistente pré-estabelecida.
 6. O agente descriptografa a senha usando sua chave privada.
 7. Em seguida, o agente valida o nome de usuário e a senha no Active Directory usando APIs padrão do Windows, que é um mecanismo semelhante ao usado pelos Serviços de Federação do Active Directory (AD FS). O nome de usuário pode ser o nome de usuário local padrão, normalmente `userPrincipalName`, ou outro atributo configurado no Azure AD Connect (também conhecido como `Alternate ID`).
 8. Em seguida, o DC (Controlador de Domínio) do Active Directory local avalia a solicitação e retorna a resposta apropriada (êxito, falha, senha expirada ou usuário bloqueado) para o agente.

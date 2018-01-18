@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
 ms.author: deli
-ms.openlocfilehash: 20c3e3c1cb85308cad47054c2efa87f61cae0f22
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: e1e45d394a4c442a4fb255ed6d838a589e98860e
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="how-to-build-complex-schedules-and-advanced-recurrence-with-azure-scheduler"></a>Como criar agendamentos complexos e recorrência avançada com o Agendador do Azure
 ## <a name="overview"></a>Visão geral
@@ -59,7 +59,7 @@ Para criar um agendamento simples usando a [API REST do Agendador do Azure](http
         "recurrence":                     // optional
         {
             "frequency": "week",     // can be "year" "month" "day" "week" "hour" "minute"
-            "interval": 1,                // optional, how often to fire (default to 1)
+            "interval": 1,                // how often to fire
             "schedule":                   // optional (advanced scheduling specifics)
             {
                 "weekDays": ["monday", "wednesday", "friday"],
@@ -89,13 +89,13 @@ Após essa visão geral, vamos examinar cada um desses elementos em detalhes.
 
 | **Nome JSON** | **Tipo de valor** | **Obrigatório?** | **Valor padrão** | **Valores válidos** | **Exemplo** |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| ***startTime*** |Cadeia de caracteres |Não |Nenhum |Data e hora ISO 8601 |<code>"startTime" : "2013-01-09T09:30:00-08:00"</code> |
-| ***recurrence*** |Objeto |Não |Nenhum |Objeto de recorrência |<code>"recurrence" : { "frequency" : "monthly", "interval" : 1 }</code> |
-| ***frequency*** |string |Sim |Nenhum |"minuto", "hora", "dia", "semana", "mês" |<code>"frequency" : "hour"</code> |
-| ***interval*** |Número |Não |1 |1 a 1000. |<code>"interval":10</code> |
-| ***endTime*** |Cadeia de caracteres |Não |Nenhum |Valor de data e hora que representa um momento no futuro |<code>"endTime" : "2013-02-09T09:30:00-08:00"</code> |
-| ***count*** |Número |Não |Nenhum |>= 1 |<code>"count": 5</code> |
-| ***schedule*** |Objeto |Não |Nenhum |Objeto Agendamento |<code>"schedule" : { "minute" : [30], "hour" : [8,17] }</code> |
+| ***startTime*** |Cadeia de caracteres |Não  |Nenhum |Data e hora ISO 8601 |<code>"startTime" : "2013-01-09T09:30:00-08:00"</code> |
+| ***recurrence*** |Objeto |Não  |Nenhum |Objeto de recorrência |<code>"recurrence" : { "frequency" : "monthly", "interval" : 1 }</code> |
+| ***frequency*** |Cadeia de caracteres |Sim |Nenhum |"minuto", "hora", "dia", "semana", "mês" |<code>"frequency" : "hour"</code> |
+| ***interval*** |Número |Sim |Nenhum |1 a 1000. |<code>"interval":10</code> |
+| ***endTime*** |Cadeia de caracteres |Não  |Nenhum |Valor de data e hora que representa um momento no futuro |<code>"endTime" : "2013-02-09T09:30:00-08:00"</code> |
+| ***count*** |Número |Não  |Nenhum |>= 1 |<code>"count": 5</code> |
+| ***schedule*** |Objeto |Não  |Nenhum |Objeto Agendamento |<code>"schedule" : { "minute" : [30], "hour" : [8,17] }</code> |
 
 ## <a name="deep-dive-starttime"></a>Análise aprofundada: *startTime*
 A tabela a seguir mostra como *startTime* controla a execução de um trabalho.
@@ -125,11 +125,11 @@ A tabela a seguir descreve elementos de *schedule* em detalhes.
 
 | **Nome JSON** | **Descrição** | **Valores Válidos** |
 |:--- |:--- |:--- |
-| **minutos** |Minutos da hora em que o trabalho será executado |<ul><li>Inteiro ou</li><li>Matriz de inteiros</li></ul> |
-| **horas** |Horas do dia em que o trabalho será executado |<ul><li>Inteiro ou</li><li>Matriz de inteiros</li></ul> |
-| **Dias da semana** |Dias da semana em que o trabalho será executado. Só pode ser especificado com uma frequência semanal. |<ul><li>"Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" ou "Sunday"</li><li>Matriz de qualquer um dos valores acima (tamanho máximo da matriz: 7)</li></ul>*Não* diferencia maiúsculas de minúsculas |
+| **minutos** |Minutos da hora em que o trabalho será executado |<ul><li>Matriz de inteiros</li></ul> |
+| **horas** |Horas do dia em que o trabalho será executado |<ul><li>Matriz de inteiros</li></ul> |
+| **Dias da semana** |Dias da semana em que o trabalho será executado. Só pode ser especificado com uma frequência semanal. |<ul><li>Matriz de qualquer um dos valores abaixo (o tamanho máximo da matriz é 7)<ul><li>"Segunda-feira"</li><li>"Terça-feira"</li><li>"Quarta-feira"</li><li>"Quinta-Feira"</li><li>"Sexta-feira"</li><li>"Sábado"</li><li>"Domingo"</li></ul></li></ul>*Não* diferencia maiúsculas de minúsculas |
 | **monthlyOccurences** |Determina em quais dias do mês o trabalho será executado. Só pode ser especificado com uma frequência mensal. |<ul><li>Matriz de objetos monthlyOccurrence:</li></ul> <pre>{ "day": *day*,<br />  "occurrence": *occurrence*<br />}</pre><p> *dia* é o dia da semana no qual o trabalho será executado, por exemplo, {Sunday} representa todos os domingos do mês. Obrigatório.</p><p>*ocorrência* é o valor do elemento ocurrence que se refere ao dia durante o mês, por exemplo, {Sunday, -1} é o último domingo do mês. Opcional.</p> |
-| **Dias do mês** |Dia do mês em que o trabalho será executado. Só pode ser especificado com uma frequência mensal. |<ul><li>Qualquer valor <= -1 e >= -31.</li><li>Qualquer valor >= 1 e <= 31.</li><li>Uma matriz dos valores acima</li></ul> |
+| **Dias do mês** |Dia do mês em que o trabalho será executado. Só pode ser especificado com uma frequência mensal. |<ul><li>Uma matriz dos valores abaixo</li><ul><li>Qualquer valor <= -1 e >= -31.</li><li>Qualquer valor >= 1 e <= 31.</li></ul></ul> |
 
 ## <a name="examples-recurrence-schedules"></a>Exemplos: agendamentos de recorrência
 Seguem diversos exemplos de agendamentos de recorrência voltados para o objeto de agendamento e seus subelementos.
@@ -170,7 +170,7 @@ Todos os agendamentos abaixo pressupõem que o *intervalo* é definido como 1\. 
 | <code>{"minutes":[0,15,30,45], "monthlyOccurrences":[{"day":"friday", "occurrence":-1}]}</code> |Executar a cada 15 minutos na última sexta-feira do mês |
 | <code>{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}</code> |Executar às 5:15, 5:45, 17:15 e 17:45 na terceira quarta-feira de cada mês |
 
-## <a name="see-also"></a>Consulte também
+## <a name="see-also"></a>Veja também
  [O que é o Agendador?](scheduler-intro.md)
 
  [Conceitos, terminologia e hierarquia de entidades do Agendador do Azure](scheduler-concepts-terms.md)

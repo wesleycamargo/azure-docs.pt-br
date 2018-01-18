@@ -12,13 +12,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2017
+ms.date: 01/04/2018
 ms.author: chackdan
-ms.openlocfilehash: cf690b7e5b0a2b19282c1655b6dc32e9eec6884c
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 8e2fceaf7e8a0d6c177d3122bd07de5b8c11f295
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considerações de planejamento de capacidade de cluster do Service Fabric
 Para qualquer implantação de produção, o planejamento de capacidade é uma etapa importante. Aqui estão alguns dos itens que você precisa considerar como parte desse processo.
@@ -69,7 +69,7 @@ A camada de durabilidade é usada para indicar ao sistema os privilégios que as
 
 Esse privilégio é expresso nos seguintes valores:
 
-* Ouro – os Trabalhos de infraestrutura podem permanecer em pausa por duas horas por UD. A durabilidade ouro pode ser habilitada apenas em skus de VM de nó completo como D15_V2, G5 etc.
+* Ouro – os Trabalhos de infraestrutura podem permanecer em pausa por duas horas por UD. A durabilidade Ouro pode ser habilitada somente em skus de VM de nó completo, como L32s, GS5, G5, DS15_v2, D15_v2 etc (em geral, todos os tamanhos de VM listados em http://aka.ms/vmspecs, que são marcados como "Instância é isolada no hardware dedicado para um único cliente" na anotação, são VMs de nó completo)
 * Prata – os Trabalhos de infraestrutura podem permanecer em pausa por um período de dez minutos por UD e estão disponíveis em todas as VMs padrão de núcleo único e superior.
 * Bronze - sem privilégios. Esse é o padrão. Use esse nível de durabilidade somente para Tipos de nós que executam _somente_ cargas de trabalho sem estado. 
 

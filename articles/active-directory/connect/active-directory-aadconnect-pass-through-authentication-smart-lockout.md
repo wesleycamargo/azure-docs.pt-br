@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2017
+ms.date: 01/09/2018
 ms.author: billmath
-ms.openlocfilehash: abd9b8559cb70be6d03b85cfe19a6b37b7069985
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: fc46fe1d68538757ba5a8c5aa1acb4b51f8a171b
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-active-directory-pass-through-authentication-smart-lockout"></a>Autenticação de passagem do Azure Active Directory: bloqueio inteligente
 
@@ -36,7 +36,7 @@ O Bloqueio Inteligente também faz a distinção entre entradas de usuários rea
 A Autenticação de Passagem encaminha solicitações de validação de senha para o AD (Active Directory) local, portanto, você precisa impedir que invasores bloqueiem contas de usuários do Active Directory. O Active Directory tem suas próprias políticas de bloqueio de conta, especificamente, as políticas de [Limite de bloqueios de conta](https://technet.microsoft.com/library/hh994574(v=ws.11).aspx) e [Redefinir contador de bloqueios de conta após](https://technet.microsoft.com/library/hh994568(v=ws.11).aspx). Configure os valores de limite de bloqueio do Azure AD e duração de bloqueio adequadamente para filtrar os ataques na nuvem antes que eles atinjam o Active Directory no local.
 
 >[!NOTE]
->O recurso de Bloqueio inteligente é gratuito e está _ativado_ por padrão para todos os clientes. Entretanto, se você quiser modificar os valores de limite de bloqueio e de duração de bloqueio do Azure AD usando a API do Graph, seu locatário precisa ter pelo menos uma licença do Azure AD Premium P2. Você não precisa de uma licença do Azure AD Premium P2 _por usuário_ para obter o recurso de bloqueio inteligente com Autenticação de Passagem.
+>>O recurso de Bloqueio inteligente é gratuito e está _ativado_ por padrão para todos os clientes. Entretanto, modificar os valores de Limite de Bloqueio e de Duração de Bloqueio do Azure AD usando a API do Graph precisa que seu locatário seja ativado para o Azure AD Premium P2. 
 
 Para garantir que as contas do Active Directory locais dos seus usuários também sejam protegidas, você precisa garantir que:
 

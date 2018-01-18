@@ -15,39 +15,39 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: ce238a3093e29c3091f979bbd9e80f28495307da
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 88133aff36aaef544d555cb121e23ff23fcc3367
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Cloud-init para máquinas virtuais no Azure
 Este artigo mostra que o suporte que existe para a [cloud-init](https://cloudinit.readthedocs.io) para configurar uma máquina virtual VM ou conjunto de dimensionamento de máquinas virtuais (VMSS) no momento do provisionamento no Azure. Esses scripts de cloud-init são executados na primeira inicialização depois que os recursos são provisionados pelo Azure.  
 
 ## <a name="cloud-init-overview"></a>Visão geral da inicialização de nuvem
-[Inicialização de nuvem](https://cloudinit.readthedocs.io) é uma abordagem amplamente utilizada para personalizar uma VM do Linux, quando ela é inicializada pela primeira vez. Você pode utilizar a inicialização de nuvem para instalar pacotes e gravar arquivos, ou para configurar usuários e segurança. Como cloud-init é executado durante o processo de inicialização inicial, não há etapa adicional ou agentes necessários para aplicar a configuração.  Para obter mais informações sobre como formatar corretamente seus arquivos `#cloud-config`, consulte o [site de documentação de cloud-init](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  Os arquivos `#cloud-config`são arquivos de texto codificados em base64.
+[Inicialização de nuvem](https://cloudinit.readthedocs.io) é uma abordagem amplamente utilizada para personalizar uma VM do Linux, quando ela é inicializada pela primeira vez. Você pode utilizar a inicialização de nuvem para instalar pacotes e gravar arquivos, ou para configurar usuários e segurança. Como o cloud-init é executado durante o processo de inicialização inicial, não há etapa adicional ou agentes necessários para aplicar a configuração.  Para obter mais informações sobre como formatar corretamente seus arquivos `#cloud-config`, consulte o [site de documentação de cloud-init](http://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  Os arquivos `#cloud-config` são arquivos de texto codificados em base64.
 
 A inicialização de nuvem também funciona em distribuições. Por exemplo, você não usa **apt-get install** nem **yum install** para instalar um pacote. Em vez disso, você pode definir uma lista de pacotes para instalar. Inicialização de nuvem usa automaticamente a ferramenta de gerenciamento de pacote nativo de distribuição que você selecionar.
 
- Trabalhamos ativamente com nossos parceiros endossados de distribuição de Linux para termos imagens de cloud-init habilitadas disponíveis no marketplace do Azure. Essas imagens farão com que as suas configurações e implantações de cloud-init funcionem perfeitamente com máquinas virtuais e conjuntos de dimensionamento de máquinas virtuais do Microsoft Azure (VMSS). A tabela a seguir descreve a disponibilidade de imagens habilitadas de cloud-init na plataforma do Azure:
+ Trabalhamos ativamente com nossos parceiros endossados de distribuição de Linux para termos imagens de cloud-init habilitadas disponíveis no marketplace do Azure. Essas imagens farão com que as suas configurações e implantações de cloud-init funcionem perfeitamente com VMs e Conjuntos de Dimensionamento de VM (VMSS). A tabela a seguir descreve a disponibilidade de imagens habilitadas de cloud-init na plataforma do Azure:
 
-| Editor | Oferta | SKU | Versão | Cloud-init pronto
+| Publicador | Oferta | SKU | Versão | Cloud-init pronto
 |:--- |:--- |:--- |:--- |:--- |:--- |
-|Canônico |UbuntuServer |16.04-LTS |mais recente |sim | 
-|Canônico |UbuntuServer |14.04.5-LTS |mais recente |sim |
-|CoreOS |CoreOS |Estável |mais recente |sim |
+|Canônico |UbuntuServer |16.04-LTS |mais recente |Sim | 
+|Canônico |UbuntuServer |14.04.5-LTS |mais recente |Sim |
+|CoreOS |CoreOS |Estável |mais recente |Sim |
 |OpenLogic |CentOS |7-CI |mais recente |preview |
 |RedHat |RHEL |7-RAW-CI |mais recente |preview |
 
 ## <a name="what-is-the-difference-between-cloud-init-and-the-linux-agent-wala"></a>Qual é a diferença entre cloud-init e o Agente do Linux (WALA)?
 WALA é um agente específico da plataforma do Azure usado para provisionar e configurar VMs e lidar com extensões do Azure. Estamos aprimorando a tarefa de configuração de VMs para usar cloud-init em vez do agente do Linux, para permitir que os clientes existentes de cloud-init usem seus scripts atuais de cloud-init.  Se você tiver investimentos existentes em scripts de cloud-init para configurar os sistemas Linux, não há **nenhuma configuração adicional necessária** para habilitá-los. 
 
-Se você não incluir a opção de linha de comando do AzureCLI `--custom-data` no momento de provisionamento, WALA usa os parâmetros necessários mínimos para provisionar a VM e concluir a implantação com os padrões.  Se você fizer referência ao interruptor `--custom-data` do cloud-init, tudo o que estiver contido em seus dados personalizados (configurações individuais ou script completo) substituirá os padrões WALA definidos. 
+Se você não incluir a opção `--custom-data` da CLI do Azure no momento de provisionamento, WALA usa os parâmetros necessários mínimos para provisionar a VM e concluir a implantação com os padrões.  Se você fizer referência à opção `--custom-data` do cloud-init, tudo o que estiver contido em seus dados personalizados (configurações individuais ou script completo) substituirá os padrões WALA. 
 
-As configurações de WALA de VMs são restringidas ao tempo para trabalharem dentro do tempo máximo de provisionamento da VM.  As configurações de cloud-init aplicadas às VMs não têm restrições de tempo e não farão com que uma implantação falhe por tempo limite. 
+As configurações de WALA de VMs possuem limites de tempo para trabalharem dentro do tempo máximo de provisionamento da VM.  As configurações de cloud-init aplicadas às VMs não têm restrições de tempo e não farão com que uma implantação falhe por tempo limite. 
 
 ## <a name="deploying-a-cloud-init-enabled-virtual-machine"></a>Implantando uma Máquina Virtual habilitada para cloud-init
-Implantar uma máquina virtual habilitada para cloud-init é tão simples quanto fazer referência a uma distribuição habilitada para cloud-init durante a implantação.  Os mantenedores da distribuição de Linux precisam optar por habilitar e integrar o cloud-init em suas imagens publicadas da base do Azure. Depois de confirmar, a imagem que você deseja implantar é habilitada para cloud-init, e você pode usar o AzureCLI para implantar a imagem. 
+Implantar uma máquina virtual habilitada para cloud-init é tão simples quanto fazer referência a uma distribuição habilitada para cloud-init durante a implantação.  Os mantenedores da distribuição de Linux precisam optar por habilitar e integrar o cloud-init em suas imagens publicadas da base do Azure. Depois de confirmar, a imagem que você deseja implantar é habilitada para cloud-init, e você pode usar a CLI do Azure para implantar a imagem. 
 
 A primeira etapa para implantar essa imagem é criar um grupo de recursos com o comando [az group create](/cli/azure/group#create). Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. 
 

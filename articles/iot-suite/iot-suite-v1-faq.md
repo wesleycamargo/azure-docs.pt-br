@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: corywink
-ms.openlocfilehash: db928795cc38dea4ca9fc441e6053e3bb44da23e
-ms.sourcegitcommit: f67f0bda9a7bb0b67e9706c0eb78c71ed745ed1d
+ms.openlocfilehash: 6c644395aa7ad51c289cdc4a23b02e9e0239a0fe
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/20/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="frequently-asked-questions-for-iot-suite"></a>Perguntas frequentes sobre o IoT Suite
 
@@ -86,13 +86,16 @@ Duas. Você só pode criar dois Bing Mapas de Transações Internas de Nível 1 
 
 ### <a name="can-i-create-a-preconfigured-solution-if-i-have-microsoft-azure-for-dreamspark"></a>Posso criar uma solução pré-configurada se possuo o Microsoft Azure para DreamSpark?
 
-Atualmente, você não pode criar uma solução pré-configurada com uma conta do [Microsoft Azure para DreamSpark][lnk-dreamspark]. No entanto, você pode criar uma [conta de avaliação gratuita do Azure][lnk-30daytrial] em apenas alguns minutos que permite a você criar uma solução pré-configurada.
+> [!NOTE]
+> O Microsoft Azure para DreamSpark agora é conhecido como Microsoft Imagine para alunos.
+
+Atualmente, você não pode criar uma solução pré-configurada com uma conta do [Microsoft Azure para DreamSpark](https://azure.microsoft.com/pricing/member-offers/imagine/). No entanto, você pode criar uma [conta de avaliação gratuita do Azure](https://azure.microsoft.com/free/) em apenas alguns minutos que permite a você criar uma solução pré-configurada.
 
 ### <a name="can-i-create-a-preconfigured-solution-if-i-have-cloud-solution-provider-csp-subscription"></a>Poderei criar uma solução pré-configurada se eu tiver uma assinatura do CSP (Provedor de Soluções na Nuvem)?
 
 Atualmente, não é possível criar uma solução pré-configurada com uma assinatura do CSP (Provedor de Soluções na Nuvem). No entanto, você pode criar uma [conta de avaliação gratuita do Azure][lnk-30daytrial] em apenas alguns minutos que permite a você criar uma solução pré-configurada.
 
-### <a name="how-do-i-delete-an-aad-tenant"></a>Como posso excluir um locatário do AAD?
+### <a name="how-do-i-delete-an-azure-ad-tenant"></a>Como fazer para excluir um locatário do Azure AD?
 
 Veja a postagem do blog de Eric Golpe, [Walkthrough of Deleting an Azure AD Tenant][lnk-delete-aad-tennant] (Passo a passo da exclusão de um locatário do Azure AD).
 

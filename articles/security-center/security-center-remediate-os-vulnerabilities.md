@@ -1,6 +1,6 @@
 ---
-title: "Corrigir as vulnerabilidades do sistema operacional na Central de Segurança do Azure | Microsoft Docs"
-description: "Este documento mostra como implementar a recomendação da Central de Segurança do Azure para **Corrigir as vulnerabilidades do sistema operacional**."
+title: "Corrigir configurações de segurança na Central de Segurança do Azure | Microsoft Docs"
+description: "Este documento mostra como implementar a recomendação da Central de Segurança do Azure para **Corrigir configurações de segurança**."
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -12,33 +12,30 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/11/2017
+ms.date: 01/04/2018
 ms.author: terrylan
-ms.openlocfilehash: 39879c22278a55f841e294cda5a89bec2bdf6988
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 412234b1486fa15cbc399bcf43be8ce90aac252a
+ms.sourcegitcommit: 719dd33d18cc25c719572cd67e4e6bce29b1d6e7
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
-# <a name="remediate-os-vulnerabilities-in-azure-security-center"></a>Corrigir as vulnerabilidades do sistema operacional na Central de Segurança do Azure
-A Central de Segurança do Azure analisa diariamente o SO (sistema operacional) de suas VMs (máquinas virtuais) e computadores para verificar a existência de configuração que possa tornar as VMs e computadores mais vulneráveis a ataques. A Central de Segurança recomenda que você resolva as vulnerabilidades quando sua configuração de sistema operacional não coincide com as regras de configuração recomendada e sugere alterações de configuração para resolver essas vulnerabilidades.
+# <a name="remediate-security-configurations-in-azure-security-center"></a>Corrigir as configurações de segurança na Central de Segurança do Azure
+A Central de Segurança do Azure analisa diariamente o SO (sistema operacional) de suas VMs (máquinas virtuais) e computadores para verificar a existência de configuração que possa tornar as VMs e computadores mais vulneráveis a ataques. A Central de Segurança recomenda que você resolva as vulnerabilidades quando sua configuração de sistema operacional não coincide com as regras de configuração de segurança recomendadas e sugere alterações de configuração para resolver essas vulnerabilidades.
 
-> [!NOTE]
-> Para obter mais informações sobre configurações específicas que estão sendo monitoradas, consulte a [lista de regras de configuração recomendadas](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335).
->
->
+Para obter mais informações sobre configurações específicas que estão sendo monitoradas, consulte a [lista de regras de configuração recomendadas](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). Veja [Personalização de configurações de segurança do sistema operacional](security-center-customize-os-security-config.md) para aprender a personalizar avaliações de configuração de segurança na Central de Segurança.
 
 ## <a name="implement-the-recommendation"></a>Implementar a recomendação
-A correção das vulnerabilidades do sistema operacional é apresentada como uma recomendação na Central de Segurança. Essa recomendação será exibida em **Recomendações** e em **Computação**.
+A incompatibilidade de correção de configurações de segurança é apresentada como uma recomendação na Central de Segurança. Essa recomendação será exibida em **Recomendações** e em **Computação**.
 
-Neste exemplo, examinaremos a recomendação **Corrigir vulnerabilidades do SO (pela Microsoft)** em **Computação**.
+Neste exemplo, examinaremos as recomendações de **Corrigir as configurações de segurança** em **Computação**.
 1. Selecione **Computação** no menu principal da Central de Segurança.
 
-   ![Corrigir as vulnerabilidades do sistema operacional][1]
+   ![Corrigir as configurações de segurança][1]
 
-2. Em **Computação**, selecione **Corrigir vulnerabilidades do SO (pela Microsoft)**. O painel **Incompatibilidade de Vulnerabilidades do Sistema Operacional (da Microsoft)** é aberto.
+2. Em **Computação**, selecione **Corrigir as configurações de segurança**. **Configurações de segurança** é aberto.
 
-   ![Corrigir as vulnerabilidades do sistema operacional][2]
+   ![Configurações de segurança][2]
 
   A parte superior do painel fornece:
 
@@ -77,11 +74,11 @@ Neste exemplo, examinaremos a recomendação **Corrigir vulnerabilidades do SO (
   - VALOR REAL -- o valor retornado após a análise da configuração do SO da VM em relação à regra
   - OPERAÇÃO DA REGRA -- a operação da regra usada pela Central de Segurança durante a análise da configuração do SO da VM em relação à regra
 
-4. Selecione o ícone **Pesquisar** na faixa de opções superior. A Pesquisa é aberta, listando espaços de trabalho que têm VMs e computadores com a vulnerabilidade de sistema operacional selecionada. Esta folha de seleção do espaço de trabalho é mostrada apenas se a regra selecionada se aplicar a várias VMs que estejam conectadas aos diferentes espaços de trabalho.
+4. Selecione o ícone **Pesquisar** na faixa de opções superior. A Pesquisa é aberta, listando espaços de trabalho que têm VMs e computadores com a incompatibilidade de configurações de segurança selecionadas. Esta folha de seleção do espaço de trabalho é mostrada apenas se a regra selecionada se aplicar a várias VMs que estejam conectadas aos diferentes espaços de trabalho.
 
   ![Espaços de trabalho listados][4]
 
-5. Selecione um espaço de trabalho. Uma consulta de pesquisa do Log Analytics é aberta, filtrada para o espaço de trabalho com a vulnerabilidade do sistema operacional.
+5. Selecione um espaço de trabalho. Uma consulta de pesquisa do Log Analytics é aberta, filtrada para o espaço de trabalho com a incompatibilidade de configurações de segurança.
 
   ![Espaço de trabalho com a vulnerabilidade do sistema operacional][5]
 
@@ -90,7 +87,9 @@ Neste exemplo, examinaremos a recomendação **Corrigir vulnerabilidades do SO (
   ![Filtrado para esse computador][6]
 
 ## <a name="next-steps"></a>Próximas etapas
-Este artigo mostrou como implementar a recomendação da Central de Segurança para "Corrigir vulnerabilidades do sistema operacional". Você pode conferir o conjunto de regras de configuração [aqui](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). A Central de Segurança usa a Common Configuration Enumeration (CCE) para atribuir identificadores exclusivos para as regras de configuração. Visite o site da [CCE](https://nvd.nist.gov/cce/index.cfm) para obter mais informações.
+Este artigo mostrou como implementar a recomendação da Central de Segurança para "Corrigir configurações de segurança". Veja [Personalização de configurações de segurança do sistema operacional](security-center-customize-os-security-config.md) para aprender a personalizar avaliações de configuração de segurança na Central de Segurança.
+
+Você pode conferir o conjunto de regras de configuração [aqui](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335). A Central de Segurança usa a Common Configuration Enumeration (CCE) para atribuir identificadores exclusivos para as regras de configuração. Visite o site da [CCE](https://nvd.nist.gov/cce/index.cfm) para obter mais informações.
 
 Para saber mais sobre a Central de Segurança, confira os seguintes recursos:
 

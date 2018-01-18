@@ -1,6 +1,6 @@
 ---
-title: Tutoriais na Galeria do Cortana Intelligence | Microsoft Docs
-description: Descubra e compartilhe tutoriais na Galeria do Cortana Intelligence.
+title: Tutoriais na Galeria de IA do Azure | Microsoft Docs
+description: Descobrir e compartilhar tutoriais na Galeria de IA do Azure.
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: eee86899c14905655c4217d5fcf3865ca594366f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: be5ecf81c71dbf39593b2afb46ac0ae09ede466a
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="discover-and-share-tutorials-in-cortana-intelligence-gallery"></a>Descubra e compartilhe tutoriais na Galeria do Cortana Intelligence
+# <a name="discover-and-share-tutorials-in-azure-ai-gallery"></a>Descobrir e compartilhar tutoriais na Galeria de IA do Azure
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="tutorials"></a>Tutoriais
-A Galeria do Cortana Intelligence oferece vários [tutoriais](https://gallery.cortanaintelligence.com/tutorials) que pode orientá-lo sobre os conceitos e tecnologias do aprendizado de máquina. Os tutoriais também podem descrever métodos avançados de solucionar problemas de aprendizado de máquina.
+A Galeria de IA do Azure oferece vários [tutoriais](https://gallery.cortanaintelligence.com/tutorials) que pode orientá-lo sobre os conceitos e tecnologias do aprendizado de máquina. Os tutoriais também podem descrever métodos avançados de solucionar problemas de aprendizado de máquina.
 
 ## <a name="discover"></a>Descobrir
 Para procurar tutoriais [na Galeria](http://gallery.cortanaintelligence.com), acesse **Mais** e selecione **Tutoriais**.
@@ -72,7 +72,7 @@ Você pode adicionar um tutorial à Galeria para ajudar outros usuários a resol
 
 7. Selecione **Criar**.
 
-Seu tutorial agora faz parte da Galeria do Cortana Intelligence. Seus tutoriais são listados na página da sua conta, na guia **Itens**.
+Agora, o tutorial está na Galeria de IA do Azure. Seus tutoriais são listados na página da sua conta, na guia **Itens**.
 
 **[Vá para a Galeria](http://gallery.cortanaintelligence.com)**
 

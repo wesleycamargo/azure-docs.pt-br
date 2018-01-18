@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/06/2015
 ms.author: mbullwin
-ms.openlocfilehash: e935350fbcdeb7a3192778b3dafb288aac281886
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 8d008727d964df56d128265b632dafa4ab776f98
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Passo a passo: exportar para SQL do Application Insights usando o Stream Analytics
 Este artigo mostra como mover os dados de telemetria do [Azure Application Insights][start] em um banco de dados SQL do Azure usando [Exportação Contínua][export] e [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
@@ -141,29 +141,29 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 Neste exemplo, estamos usando dados de modos de exibição de página. Para ver os outros dados disponíveis, inspecione a saída JSON e veja o [modelo de exportação de dados](app-insights-export-data-model.md).
 
 ## <a name="create-an-azure-stream-analytics-instance"></a>Criar uma instância do Azure Stream Analytics
-No [Portal do Azure Clássico](https://manage.windowsazure.com/), selecione o serviço do Azure Stream Analytics e crie um novo trabalho do Stream Analytics:
+No [Portal do Azure](https://portal.azure.com/), selecione o serviço do Azure Stream Analytics e crie um novo trabalho do Stream Analytics:
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/37-create-stream-analytics.png)
+![](./media/app-insights-code-sample-export-sql-stream-analytics/SA001.png)
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/38-create-stream-analytics-form.png)
+![](./media/app-insights-code-sample-export-sql-stream-analytics/SA002.png)
 
-Quando o novo trabalho for criado, expanda seus detalhes:
+Após a criação do novo trabalho, escolha **Ir para o recurso**.
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/41-sa-job.png)
+![](./media/app-insights-code-sample-export-sql-stream-analytics/SA003.png)
 
-#### <a name="set-blob-location"></a>Definir local de blob
+#### <a name="add-a-new-input"></a>Adicionar uma nova entrada
+
+![](./media/app-insights-code-sample-export-sql-stream-analytics/SA004.png)
+
 Defina a entrada do seu blob de Exportação Contínua:
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/42-sa-wizard1.png)
+![](./media/app-insights-code-sample-export-sql-stream-analytics/SA005.png)
 
 Agora, você precisará da Chave de Acesso Primária da sua Conta de Armazenamento, previamente anotada. Defina isso como a chave da conta de armazenamento.
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/46-sa-wizard2.png)
-
 #### <a name="set-path-prefix-pattern"></a>Definir padrão de prefixo de caminho
-![](./media/app-insights-code-sample-export-sql-stream-analytics/47-sa-wizard3.png)
 
-Defina o Formato de Data como **AAAA-MM-DD** (com **traços**).
+**Defina o Formato de Data como AAAA-MM-DD (com traços).**
 
 O Padrão de Prefixo de Caminho especifica como o Stream Analytics encontra os arquivos de entrada no armazenamento. Você precisa configurá-lo para corresponder à maneira como a Exportação Contínua armazena os dados. Defina-o assim:
 
@@ -178,22 +178,12 @@ Neste exemplo:
 
 Para obter o nome e iKey do seu recurso do Application Insights, abra Essentials na sua página de visão geral ou abra as Configurações.
 
-#### <a name="finish-initial-setup"></a>Concluir a configuração inicial
-Confirme o formato de serialização:
-
-![Confirme e feche o assistente](./media/app-insights-code-sample-export-sql-stream-analytics/48-sa-wizard4.png)
-
-Feche o assistente e aguarde até que a instalação seja concluída.
-
 > [!TIP]
 > Use a função Amostra para verificar se configurou corretamente o caminho de entrada. Se ele falhar: verifique se há dados no armazenamento para o intervalo de tempo de amostra que você escolheu. Edite a definição de entrada e verifique se definiu corretamente a conta de armazenamento, o prefixo de caminho e o formato de data.
 > 
 > 
-
 ## <a name="set-query"></a>Definir a consulta
 Abra a seção de consulta:
-
-![No Stream Analytics, selecione Consulta](./media/app-insights-code-sample-export-sql-stream-analytics/51-query.png)
 
 Substitua a consulta padrão por:
 
@@ -238,22 +228,20 @@ Observe que as primeiras propriedades são específicas aos dados de exibição 
 ## <a name="set-up-output-to-database"></a>Configurar a saída para o banco de dados
 Selecione SQL como a saída.
 
-![No Stream Analytics, selecione Saídas](./media/app-insights-code-sample-export-sql-stream-analytics/53-store.png)
+![No Stream Analytics, selecione Saídas](./media/app-insights-code-sample-export-sql-stream-analytics/SA006.png)
 
 Especifique o Banco de Dados SQL.
 
-![Preencha os detalhes do seu banco de dados](./media/app-insights-code-sample-export-sql-stream-analytics/55-output.png)
+![Preencha os detalhes do seu banco de dados](./media/app-insights-code-sample-export-sql-stream-analytics/SA007.png)
 
 Feche o assistente e aguarde uma notificação de que a saída foi configurada.
 
 ## <a name="start-processing"></a>Iniciar o processamento
 Inicie o trabalho na barra de ação:
 
-![No Stream Analytics, clique em Iniciar](./media/app-insights-code-sample-export-sql-stream-analytics/61-start.png)
+![No Stream Analytics, clique em Iniciar](./media/app-insights-code-sample-export-sql-stream-analytics/SA008.png)
 
 Você pode optar por iniciar o processamento de dados neste momento ou iniciar com dados anteriores. O último é útil se você tiver Exportação Contínua já em execução por um tempo.
-
-![No Stream Analytics, clique em Iniciar](./media/app-insights-code-sample-export-sql-stream-analytics/63-start.png)
 
 Depois de alguns minutos, volte para as Ferramentas de Gerenciamento do SQL Server e observe os dados entrando. Por exemplo, use uma consulta como esta:
 

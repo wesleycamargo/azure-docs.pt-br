@@ -1,5 +1,5 @@
 ---
-title: "Introdução à Central de Segurança do Azure | Microsoft Docs"
+title: "O que é a Central de Segurança do Azure? | Microsoft Docs"
 description: "Saiba mais sobre a Central de Segurança do Azure, seus principais recursos e como ela funciona."
 services: security-center
 documentationcenter: na
@@ -12,65 +12,105 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2017
+ms.date: 01/08/2018
 ms.author: terrylan
-ms.openlocfilehash: 21415af0d449d639d000e07afdb4de3680a64774
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 50a54b8d2a73807aa9a0217f7ccf971b8c516494
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
-# <a name="introduction-to-azure-security-center"></a>Introdução à Central de Segurança do Azure
-Saiba mais sobre a Central de Segurança do Azure, seus principais recursos e como ela funciona.
+# <a name="what-is-azure-security-center"></a>O que é a Central de Segurança do Azure?
+A Central de Segurança do Azure fornece um gerenciamento de segurança unificado e proteção avançada contra ameaças nas cargas de trabalho de nuvem híbrida. Com a Central de Segurança, é possível aplicar políticas de segurança em suas cargas de trabalho, limitar a exposição a ameaças e detectar e responder a ataques.
 
-## <a name="what-is-azure-security-center"></a>O que é a Central de Segurança do Azure?
-A Central de Segurança do Azure fornece gerenciamento de segurança unificado e proteção avançada contra ameaças para cargas de trabalho em execução no Azure, localmente e em outras nuvens.  Ela proporciona visibilidade e controle sobre cargas de trabalho de nuvem híbrida, defesas ativas que reduzem a exposição a ameaças e detecção inteligente para ajudá-lo a acompanhar o ritmo veloz da evolução dos ataques cibernéticos.
+Por que usar a Central de Segurança?
 
-A Visão Geral da Central de Segurança fornece uma exibição rápida sobre a postura de segurança de suas cargas de trabalho do Azure e não Azure, permitindo que você descubra e avalie a segurança de suas cargas de trabalho e identifique e reduza riscos.
+- **Gerenciamento de política centralizado** – garanta a conformidade com requisitos de segurança da empresa ou de regulamentação, gerenciando políticas de segurança de forma centralizada em todas as suas cargas de trabalho de nuvem híbrida.
+- **Avaliação de segurança contínua** – monitore a segurança de computadores, redes, armazenamento e serviços de dados e aplicativos para descobrir problemas potenciais de segurança.
+- **Recomendações acionáveis** – corrija a vulnerabilidades de segurança antes que elas sejam exploradas por invasores, usando recomendações de segurança priorizadas e práticas.
+- **Defesas avançadas de nuvem** – reduza ameaças com acesso just in time a portas de gerenciamento e lista de permissões para controlar aplicativos em execução em suas VMs.
+- **Alertas e incidentes priorizados** – concentre-se primeiro nas ameaças mais importantes com alertas de segurança e incidentes priorizados.
+- **Soluções de segurança integradas** – colete, pesquise e analise dados de segurança de uma variedade de fontes, inclusive soluções de parceiros conectadas.
 
-![Visão geral](./media/security-center-intro/security-center-intro-fig1.png)
+A **Central de Segurança – Visão geral** fornece uma exibição rápida sobre a postura de segurança de suas cargas de trabalho do Azure e não Azure, permitindo que você descubra e avalie a segurança de suas cargas de trabalho e identifique e reduza riscos. O painel interno fornece informações instantâneas sobre alertas de segurança e vulnerabilidades que exigem atenção.
 
-## <a name="why-use-security-center"></a>Por que usar a Central de Segurança?
+![Visão geral][1]
 
-**Visibilidade e controle unificados**
+## <a name="centralized-policy-management"></a>Gerenciamento de política centralizado
+Uma política de segurança define a configuração desejada de suas cargas de trabalho e ajuda a garantir a conformidade com requisitos de regulamentação de segurança ou da empresa. Na Central de Segurança, você define políticas e as adapta ao tipo de carga de trabalho ou à confidencialidade dos seus dados.
 
-- **Compreender o estado de segurança em cargas de trabalho híbridas**. Gerencie a segurança em todas as suas cargas de trabalho de nuvem híbrida – locais, Azure e outras plataformas de nuvem – em um único console. Painéis internos oferecem informações instantâneas sobre problemas de segurança que exigem atenção.
-- **Visibilidade de cargas de trabalho de nuvem**. Acompanhe as cargas de trabalho de nuvem que mudam rapidamente. Descubra e integre automaticamente novos recursos criados nas assinaturas do Azure.
-- **Gerenciamento de política centralizado**. Garanta a conformidade com requisitos de segurança da empresa ou de regulamentação, gerenciando políticas de segurança de forma centralizada em todas as suas cargas de trabalho de nuvem híbrida.
-- **Dados de segurança de muitas fontes**. Colete, pesquise e analise dados de segurança de uma variedade de fontes, inclusive soluções de parceiros conectadas como os firewalls de rede e outros serviços da Microsoft. 
-- **Integração com fluxos de trabalho de segurança existentes**. Acesse, integre e analise as informações de segurança usando APIs REST para conectar-se a processos e ferramentas existentes.
-- **Relatórios de conformidade**. Use dados e informações de segurança para demonstrar a conformidade e gerar evidência para auditores com facilidade.
+As políticas de Central de Segurança contêm os seguintes componentes:
 
-**Prevenção de ameaças adaptável**
+- **Coleta de dados**: determina configurações de provisionamento de agente e de [coleta de dados](security-center-enable-data-collection.md) de segurança.
+- **Política de segurança**: determina que controles a Central de Segurança monitora e recomenda por meio da edição da [política de segurança](security-center-policies.md).
+- **Notificações por email**: determina contatos de segurança e configurações de [notificação por email](security-center-provide-security-contact-details.md).
+- **Tipo de preço**: define a [seleção de preço](security-center-pricing.md) Gratuito ou Standard. A camada que você escolhe determina quais recursos da Central de Segurança estão disponíveis para os recursos no escopo.
 
-- **Avaliação contínua de segurança**. Monitore a segurança de computadores, redes e serviços do Azure, usando centenas de avaliações de segurança internas ou criadas por você. Identifique software e configurações que são vulneráveis a ataques.
-- **Recomendações práticas**. Corrija vulnerabilidades de segurança antes que eles sejam exploradas por invasores, com as recomendações de segurança priorizadas e práticas e com os guias estratégicos internos de automação.
-- **Controles de aplicativo adaptáveis**. Bloqueie malwares e outros aplicativos indesejados aplicando recomendações de lista de permissões adaptada às suas cargas de trabalho específicas do Azure e baseada em aprendizado de máquina. 
-- **Segurança de acesso de rede**. Reduza a superfície de ataque da rede com acesso controlado Just-In-Time às portas de gerenciamento em VMs do Azure, reduzindo drasticamente a exposição à ataques de força bruta e outros ataques de rede.
+![Política de segurança][2]
 
-**Resposta e detecção de ameaças inteligentes**
+Consulte [Visão geral das políticas](security-center-policies-overview.md) para obter mais informações.
 
-- **Inteligência de ameaça mais ampla do setor**. Explore o Gráfico de segurança inteligente da Microsoft, que usa trilhões de sinais de sistemas e serviços da Microsoft em todo o mundo para identificar ameaças novas e em evolução.
-- **Detecção avançada de ameaças**. Use a análise comportamental interna e o aprendizado de máquina para identificar ataques e explorações de dia zero. Monitore redes, computadores e serviços de nuvem contra ataques recebidos e atividade pós-violação.
-- **Alertas e incidentes priorizados**. Concentre-se primeiro nas ameaças mais importantes com alertas de segurança e incidentes priorizados que mapeiam diferentes tipos de alertas para uma campanha de ataque único. Crie também seus alertas de segurança personalizados.
-- **Investigação simplificada**. Avalie rapidamente o escopo e o impacto de um ataque com uma experiência visual e interativa. Use consultas ad hoc ou predefinidas para uma exploração mais detalhada dos dados de segurança. 
-- **Inteligência contextual contra ameaças**. Visualize a origem dos ataques em um mapa mundial interativo. Use relatórios internos de inteligência contra ameaças para obter informações valiosas sobre as técnicas e os objetivos de atores mal-intencionados conhecidos.
+## <a name="continuous-security-assessment"></a>Avaliação contínua de segurança
+A Central de Segurança analisa o estado de segurança de seus recursos de computação, redes virtuais, armazenamento e serviços de dados e aplicativos. A avaliação contínua ajuda você a descobrir problemas potenciais de segurança, como sistemas com atualizações de segurança ausentes ou portas de rede expostas. Selecione um bloco na seção Prevenção para exibir mais informações, incluindo uma lista de recursos e quaisquer vulnerabilidades de segurança que foram identificadas.
 
-## <a name="get-started"></a>Introdução
-Para começar a usar a Central de Segurança, você precisa ter uma assinatura do Microsoft Azure. A Central de segurança é habilitada com sua assinatura do Azure. Se você não tiver uma assinatura, você pode se inscrever em uma [avaliação gratuita](https://azure.microsoft.com/pricing/free-trial/). 
+![Monitoramento de integridade de segurança][3]
 
-[Introdução à Central de Segurança do Azure](https://docs.microsoft.com/azure/security-center/security-center-get-started) o orienta rapidamente quanto ao monitoramento de segurança e aos componentes de gerenciamento da política da Central de Segurança. 
+Consulte [Monitoramento de integridade de segurança](security-center-monitoring.md) para obter mais informações.
 
+## <a name="actionable-recommendations"></a>Recomendações práticas
+A Central de Segurança analisa o estado de segurança de seus recursos do Azure e não Azure para identificar possíveis vulnerabilidades na segurança. Uma lista de recomendações de segurança priorizadas guia você pelo processo de lidar com problemas de segurança.
+
+![Recomendações][4]
+
+Consulte [Gerenciando recomendações de segurança](security-center-recommendations.md) para obter mais informações.
+
+## <a name="just-in-time-vm-access"></a>Acesso just in time à VM
+Reduza a superfície de ataque da rede com acesso controlado just in time às portas de gerenciamento em VMs do Azure, reduzindo drasticamente a exposição à ataques de força bruta e outros ataques de rede.
+
+![Acesso just in time à VM][5]
+
+Especifique regras sobre como os usuários podem se conectar a máquinas virtuais. Quando necessário, o acesso pode ser solicitado na Central de Segurança ou por meio do PowerShell. Desde que a solicitação esteja em conformidade com as regras, o acesso é concedido automaticamente para o tempo solicitado.
+
+Consulte [Gerenciar o acesso à máquina virtual usando o just in time](security-center-just-in-time.md) para obter mais informações.
+
+## <a name="adaptive-application-controls"></a>Controles de aplicativo adaptáveis
+Bloqueie malwares e outros aplicativos indesejados aplicando recomendações de lista de permissões adaptada às suas cargas de trabalho específicas do Azure e baseada em aprendizado de máquina.
+
+![Controles de aplicativo adaptáveis][6]
+
+Analise e clique para aplicar as regras de lista de permissões recomendadas do aplicativo geradas pela Central de Segurança ou edite regras já configuradas.
+
+Consulte [Controles de aplicativo adaptável](security-center-adaptive-application.md) para obter mais informações.
+
+## <a name="prioritized-alerts-and-incidents"></a>Alertas e incidentes priorizados
+A Central de Segurança usa a análise avançada e a inteligência contra ameaça global para detectar ataques e atividade pós-violação. Os alertas são priorizados e agrupados em incidentes, ajudando a focar as ameaças mais importantes primeiro. Também é possível criar seus alertas de segurança personalizados.
+
+![Alertas e incidentes priorizados][7]
+
+Você pode avaliar rapidamente o escopo e o impacto de um ataque com uma experiência visual e interativa de investigação e usar consultas ad hoc ou predefinidas para exploração mais profunda dos dados de segurança.
+
+Consulte [Gerenciar e responder a alertas de segurança](security-center-managing-and-responding-alerts.md) para obter mais informações.
+
+## <a name="integrate-your-security-solutions"></a>Integrar suas soluções de segurança
+É possível coletar, pesquisar e analisar dados de segurança a partir de uma variedade de fontes, inclusive soluções de parceiros conectadas como os firewalls de rede e outros serviços da Microsoft na Central de Segurança.
+
+![Integrar soluções de segurança][8]
+
+Consulte [Integrar soluções de segurança](security-center-partner-integration.md) para obter mais informações.
 
 ## <a name="next-steps"></a>Próximas etapas
-Neste documento, você foi apresentado à Central de Segurança, seus principais recursos e como começar. Para saber mais, consulte os seguintes recursos:
 
-* [Guia de planejamento e operações da Central de Segurança do Azure](security-center-planning-and-operations-guide.md) – saiba como otimizar seu uso da Central de Segurança com base no modelo de gerenciamento de nuvem e nos requisitos de segurança de sua organização.
-* [Configurando políticas de segurança](https://docs.microsoft.com/azure/security-center/security-center-policies) – saiba como configurar políticas de segurança para suas assinaturas e grupos de recursos do Azure.
-* [Gerenciar recomendações de segurança](https://docs.microsoft.com/azure/security-center/security-center-recommendations) – saiba como as recomendações ajudam a proteger seus recursos do Azure e não Azure.
-* [Monitoramento da integridade da segurança](https://docs.microsoft.com/azure/security-center/security-center-monitoring) – saiba como monitorar a integridade dos seus recursos do Azure e não Azure.
-* [Gerenciar e responder aos alertas de segurança](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts) – aprenda a gerenciar e responder aos alertas de segurança.
-* [Monitorar as soluções de parceiros](https://docs.microsoft.com/azure/security-center/security-center-partner-solutions) – saiba como monitorar o status de integridade de suas soluções de parceiros.
-* [Perguntas frequentes da Central de Segurança](https://docs.microsoft.com/azure/security-center/security-center-faq) – encontre as perguntas frequentes sobre como usar a Central de Segurança.
+- Para começar a usar a Central de Segurança, você precisa ter uma assinatura do Microsoft Azure. Se você não tiver uma assinatura, você pode se inscrever em uma [avaliação gratuita](https://azure.microsoft.com/free/).
+- O tipo de preço Gratuito da Central de Segurança é habilitado com sua assinatura do Azure. Para obter vantagem do gerenciamento de segurança avançado e dos recursos de detecção de ameaças, você deve atualizar para o tipo de preço Standard. A camada Standard é gratuita pelos 60 primeiros dias. Consulte a [página de preços da Central de Segurança](https://azure.microsoft.com/pricing/details/security-center/) para obter mais informações.
+- Se estiver pronto para habilitar a Central de Segurança Standard agora, o [Início rápido: Integração da assinatura do Azure à Central de Segurança Standard](security-center-get-started.md) orienta você quanto às etapas.
 
 
+<!--Image references-->
+[1]: ./media/security-center-intro/overview.png
+[2]: ./media/security-center-intro/security-policy.png
+[3]: ./media/security-center-intro/compute.png
+[4]: ./media/security-center-intro/recommendations.png
+[5]: ./media/security-center-intro/just-in-time-vm-access.png
+[6]: ./media/security-center-intro/adaptive-app-controls.png
+[7]: ./media/security-center-intro/security-alerts.png
+[8]: ./media/security-center-intro/security-solutions.png

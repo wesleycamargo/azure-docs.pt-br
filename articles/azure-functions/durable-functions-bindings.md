@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 02c3e0e919b556bc6d4bb41d9c66b4a6d29bdd68
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 3be59e32de22e0939ee887fba1d20829f1ef22eb
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>Associações para Funções Duráveis (Azure Functions)
 
@@ -85,7 +85,7 @@ public static string Run([OrchestrationTrigger] DurableOrchestrationContext cont
 }
 ```
 
-A maioria das funções de orquestrador chamam outras funções. Sendo assim, este é um exemplo de "Olá, Mundo" que demonstra como chamar uma função:
+A maioria das funções de orquestrador chamam funções de atividade, sendo assim, este é um exemplo de "Olá, Mundo" que demonstra como chamar uma função de atividade:
 
 ```csharp
 [FunctionName("HelloWorld")]
@@ -141,7 +141,7 @@ Veja algumas observações sobre o gatilho de atividade:
 A associação de gatilho de atividade dá suporte a entradas e saídas, assim como no caso do gatilho de orquestração. Estas são algumas coisas que você precisa saber sobre a manipulação de entradas e saídas:
 
 * **entradas** – nativamente, as funções de atividade usam [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) como um tipo de parâmetro. Como alternativa, uma função de atividade pode ser declarada com qualquer tipo de parâmetro que possa ser serializado em JSON. Quando usa `DurableActivityContext`, você pode chamar [GetInput\<T>](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html#Microsoft_Azure_WebJobs_DurableActivityContext_GetInput__1) para buscar e desserializar a entrada da função de atividade.
-* **saídas** – gatilhos de atividade dão suporte a valores de saída, bem como entradas. O valor retornado da função é usado para atribuir o valor de saída e deve ser serializável em JSON. Se uma função retornar `Task` ou `void`, um valor `null` será salvo como a saída.
+* **saídas** – Funções de atividade dão suporte a valores de saída, bem como entradas. O valor retornado da função é usado para atribuir o valor de saída e deve ser serializável em JSON. Se uma função retornar `Task` ou `void`, um valor `null` será salvo como a saída.
 * **metadados** – funções de atividade podem ser associadas a um parâmetro `string instanceId` para obter a ID da instância da orquestração pai.
 
 > [!NOTE]
@@ -180,7 +180,7 @@ A associação do cliente de orquestração permite que você escreva funções 
 
 Se estiver usando o Visual Studio, você poderá associar ao cliente de orquestração usando o atributo .NET [OrchestrationClientAttribute](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.OrchestrationClientAttribute.html).
 
-Se você estiver usando linguagens de script (por exemplo, arquivos *.csx*) para desenvolvimento, o gatilho de orquestração será definido pelo seguinte objeto JSON na matriz `bindings` de function.json:
+Se você estiver usando linguagens de script (por exemplo, arquivos *.csx*) para desenvolvimento, o gatilho de orquestração será definido pelo seguinte objeto JSON na matriz `bindings` de *function.json*:
 
 ```json
 {
@@ -193,7 +193,7 @@ Se você estiver usando linguagens de script (por exemplo, arquivos *.csx*) para
 ```
 
 * `taskHub` – usado em cenários em que vários aplicativos de funções compartilham a mesma conta de armazenamento, mas precisam ser isolados uns dos outros. Se não for especificado, o valor padrão de `host.json` será usado. Esse valor deve corresponder ao valor usado pelas funções de orquestrador de destino.
-* `connectionName` – o nome de uma configuração de aplicativo que contém uma cadeia de conexão de armazenamento. A conta de armazenamento representada por essa cadeia de conexão deve ser a mesma usada pelas funções de orquestrador de destino. Se não for especificada, a cadeia de conexão padrão do aplicativo de funções será usada.
+* `connectionName` – O nome de uma configuração de aplicativo que contém uma cadeia de conexão de armazenamento. A conta de armazenamento representada por essa cadeia de conexão deve ser a mesma usada pelas funções de orquestrador de destino. Se não for especificada, a cadeia de conexão da conta de armazenamento padrão do aplicativo de funções será usada.
 
 > [!NOTE]
 > Na maioria dos casos, é recomendável omitir essas propriedades e contar com o comportamento padrão.
@@ -228,7 +228,7 @@ public static Task Run(
 
 ### <a name="client-sample-not-visual-studio"></a>Exemplo de cliente (fora do Visual Studio)
 
-Se não estiver usando o Visual Studio para desenvolvimento, você poderá criar o seguinte arquivo function.json. Este exemplo mostra como configurar uma função disparada em fila que usa a associação de cliente de orquestração durável:
+Se não estiver usando o Visual Studio para desenvolvimento, você poderá criar o seguinte arquivo *function.json*. Este exemplo mostra como configurar uma função disparada em fila que usa a associação de cliente de orquestração durável:
 
 ```json
 {

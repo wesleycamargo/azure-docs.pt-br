@@ -1,5 +1,5 @@
 ---
-title: "Associações de arquivo externo do Azure Functions (versão prévia) | Microsoft Docs"
+title: "Associações de arquivo externo do Azure Functions (experimental)"
 description: "Usando associações de arquivo externo no Azure Functions"
 services: functions
 documentationcenter: 
@@ -14,20 +14,21 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: alkarche
-ms.openlocfilehash: c7a1ff4d4488b37b1969edfbb6f935eccd63413c
-ms.sourcegitcommit: cfd1ea99922329b3d5fab26b71ca2882df33f6c2
+ms.openlocfilehash: 4e9c2c336df465d7488de84bd2a02cc5d9e42f30
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/30/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="azure-functions-external-file-bindings-preview"></a>Associações de arquivo externo do Azure Functions (versão prévia)
-Este artigo mostra como manipular arquivos de provedores SaaS diferentes (por exemplo, OneDrive, Dropbox) em sua função utilizando associações internas. O Azure Functions dá suporte a associações de gatilho, entrada e saída de arquivos externos.
+# <a name="azure-functions-external-file-bindings-experimental"></a>Associações de arquivo externo do Azure Functions (experimental)
+Este artigo mostra como manipular arquivos de diferentes provedores de SaaS (por exemplo, Dropbox ou Google Drive) no Azure Functions. O Azure Functions dá suporte a associações de gatilho, de entrada e de saída para arquivos externos. Essas associações criam conexões de API com provedores SaaS ou usa conexões de API existentes a partir do grupo de recursos do aplicativo de funções.
 
-Essa associação cria conexões de API com provedores SaaS, ou usa conexões de API existentes do grupo de recursos do aplicativo da função.
+> [!IMPORTANT]
+> As associações de arquivo externo são experimentais e podem nunca alcançar o status de GA (Geralmente disponível). Elas são incluídas somente no Azure Functions 1.x e não há plano de adicioná-las ao Azure Functions 2.x. Para os cenários que exigem acesso aos dados de provedores de SaaS, considere o uso de [aplicativos lógicos que chamem funções](functions-twitter-email.md). Consulte o [Conector do sistema de arquivos de aplicativos lógicos](../logic-apps/logic-apps-using-file-connector.md).
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="supported-file-connections"></a>Conexões de arquivo com suporte
+## <a name="available-file-connections"></a>Conexões de arquivo disponíveis
 
 |Conector|Gatilho|Entrada|Saída|
 |:-----|:---:|:---:|:---:|
@@ -40,35 +41,95 @@ Essa associação cria conexões de API com provedores SaaS, ou usa conexões de
 |[Google Drive](https://www.google.com/drive/)||x|x|
 
 > [!NOTE]
-> Conexões de arquivo externo também podem ser usadas no [Aplicativo Lógico do Azure](https://docs.microsoft.com/azure/connectors/apis-list)
+> Conexões de arquivo externo também podem ser usadas nos [Aplicativos Lógicos do Azure](https://docs.microsoft.com/azure/connectors/apis-list).
 
-## <a name="external-file-trigger-binding"></a>Associação de gatilho de arquivo externo
+## <a name="trigger"></a>Gatilho
 
-O gatilho de arquivo externo do Azure permite monitorar uma pasta remota e executar o código da função quando são detectadas alterações.
+O gatilho de arquivo externo permite monitorar uma pasta remota e executar o código da função quando são detectadas alterações.
 
-O gatilho de arquivo externo usa os seguintes objetos JSON na matriz `bindings` de function.json
+## <a name="trigger---example"></a>Gatilho - exemplo
+
+Consulte o exemplo específico a um idioma:
+
+* [Script C#](#trigger---c-script-example)
+* [JavaScript](#trigger---javascript-example)
+
+### <a name="trigger---c-script-example"></a>Gatilho - exemplo de script C#
+
+O exemplo a seguir mostra uma associação de gatilho de arquivo externo em um arquivo *function.json* e uma [função C# script](functions-reference-csharp.md) que usa a associação. A função registra o conteúdo de cada arquivo adicionado à pasta monitorada.
+
+Aqui estão os dados de associação no arquivo *function.json*:
 
 ```json
 {
-  "type": "apiHubFileTrigger",
-  "name": "<Name of input parameter in function signature>",
-  "direction": "in",
-  "path": "<folder to monitor, and optionally a name pattern - see below>",
-  "connection": "<name of external file connection - see above>"
+    "disabled": false,
+    "bindings": [
+        {
+            "name": "myFile",
+            "type": "apiHubFileTrigger",
+            "direction": "in",
+            "path": "samples-workitems",
+            "connection": "<name of external file connection>"
+        }
+    ]
 }
 ```
-<!---
-See one of the following subheadings for more information:
 
-* [Name patterns](#pattern)
-* [File receipts](#receipts)
-* [Handling poison files](#poison)
---->
+Aqui está o código de script do C#:
 
-<a name="pattern"></a>
+```cs
+public static void Run(string myFile, TraceWriter log)
+{
+    log.Info($"C# File trigger function processed: {myFile}");
+}
+```
+
+### <a name="trigger---javascript-example"></a>Gatilho - exemplo de JavaScript
+
+O exemplo a seguir mostra uma associação de gatilho de arquivo externo em um arquivo *function.json* e uma [função JavaScript](functions-reference-node.md) que usa a associação. A função registra o conteúdo de cada arquivo adicionado à pasta monitorada.
+
+Aqui estão os dados de associação no arquivo *function.json*:
+
+```json
+{
+    "disabled": false,
+    "bindings": [
+        {
+            "name": "myFile",
+            "type": "apiHubFileTrigger",
+            "direction": "in",
+            "path": "samples-workitems",
+            "connection": "<name of external file connection>"
+        }
+    ]
+}
+```
+
+Aqui está o código JavaScript:
+
+```javascript
+module.exports = function(context) {
+    context.log('Node.js File trigger function processed', context.bindings.myFile);
+    context.done();
+};
+```
+
+## <a name="trigger---configuration"></a>Gatilho – configuração
+
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json*.
+
+|Propriedade function.json | DESCRIÇÃO|
+|---------|---------|----------------------|
+|**tipo** | Deve ser definido como `apiHubFileTrigger`. Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure.|
+|**direction** | Deve ser definido como `in`. Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure. |
+|**name** | O nome da variável que representa o item de evento no código de função. | 
+|**conexão**| Identifica a configuração de aplicativo que armazena a cadeia de conexão. A configuração do aplicativo é criada automaticamente quando se adiciona uma conexão à interface de usuário integrada no Portal do Azure.|
+|**path** | A pasta a ser monitorada e, opcionalmente, um padrão de nome.|
 
 ### <a name="name-patterns"></a>Padrões de nome
+
 É possível especificar um padrão de nome de arquivo na propriedade `path`. A pasta referenciada deve existir no provedor de SaaS.
+
 Exemplos:
 
 ```json
@@ -85,7 +146,7 @@ Outro exemplo:
 
 Esse caminho também poderia ser um blob chamado *original-File1.txt* e o valor das variáveis `filename` e `fileextension` no código de função seria *original-File1* e *txt*.
 
-Você pode restringir o tipo de arquivo dos arquivos usando um valor fixo para a extensão de arquivo. Por exemplo:
+Você pode restringir o tipo de arquivo dos arquivos usando um valor fixo para a extensão de arquivo. Por exemplo: 
 
 ```json
 "path": "samples/{name}.png",
@@ -94,7 +155,7 @@ Você pode restringir o tipo de arquivo dos arquivos usando um valor fixo para a
 Nesse caso, apenas arquivos *.png* na pasta *amostras* disparam a função.
 
 As chaves são caracteres especiais nos padrões de nome. Para especificar nomes de arquivo com chaves, duplique as chaves.
-Por exemplo:
+Por exemplo: 
 
 ```json
 "path": "images/{{20140101}}-{name}",
@@ -102,39 +163,8 @@ Por exemplo:
 
 Esse caminho encontraria um arquivo denominado *{20140101}-soundfile.mp3* na pasta *imagens* e o valor da variável `name` no código da função seria *soundfile.mp3*.
 
-<a name="receipts"></a>
+## <a name="trigger---usage"></a>Gatilho - uso
 
-<!--- ### File receipts
-The Azure Functions runtime makes sure that no external file trigger function gets called more than once for the same new or updated file.
-It does so by maintaining *file receipts* to determine if a given file version has been processed.
-
-File receipts are stored in a folder named *azure-webjobs-hosts* in the Azure storage account for your function app
-(specified by the `AzureWebJobsStorage` app setting). A file receipt has the following information:
-
-* The triggered function ("*&lt;function app name>*.Functions.*&lt;function name>*", for example: "functionsf74b96f7.Functions.CopyFile")
-* The folder name
-* The file type ("BlockFile" or "PageFile")
-* The file name
-* The ETag (a file version identifier, for example: "0x8D1DC6E70A277EF")
-
-To force reprocessing of a file, delete the file receipt for that file from the *azure-webjobs-hosts* folder manually.
---->
-<a name="poison"></a>
-
-### <a name="handling-poison-files"></a>Tratando arquivos suspeitos
-Quando a função de gatilho de um arquivo externo falha, o Azure Functions repete essa função até 5 vezes por padrão (incluindo a primeira tentativa) para determinado arquivo.
-Se todas as 5 tentativas falharem, o Functions adicionará uma mensagem para uma fila de armazenamento denominada *webjobs-apihubtrigger-poison*. A mensagem da fila para arquivos suspeitos é um objeto JSON que contém as seguintes propriedades:
-
-* FunctionId (no formato *&lt;nome do aplicativo de funções>*.Functions.*&lt;nome da função>*)
-* FileType
-* FolderName
-* FileName
-* ETag (um identificador de versão de arquivo, por exemplo: "0x8D1DC6E70A277EF")
-
-
-<a name="triggerusage"></a>
-
-## <a name="trigger-usage"></a>Uso de gatilho
 Em funções do C#, você associa aos dados do arquivo de entrada usando um parâmetro nomeado na assinatura da função, como `<T> <name>`.
 Em que `T` é o tipo de dados no qual você deseja desserializar os dados e `paramName` é o nome especificado no [gatilho JSON](#trigger). Em funções do Node.js, você acessa os dados do arquivo de entrada usando `context.bindings.<name>`.
 
@@ -152,148 +182,49 @@ Em funções do C#, você também pode associar a qualquer um dos seguintes tipo
 * `StreamReader`
 * `TextReader`
 
-## <a name="trigger-sample"></a>Exemplo de gatilho
-Suponha que você tem o seguinte function.json, que define um gatilho de arquivo externo:
+<!--- ## Trigger - file receipts
+The Azure Functions runtime makes sure that no external file trigger function gets called more than once for the same new or updated file.
+It does so by maintaining *file receipts* to determine if a given file version has been processed.
 
-```json
-{
-    "disabled": false,
-    "bindings": [
-        {
-            "name": "myFile",
-            "type": "apiHubFileTrigger",
-            "direction": "in",
-            "path": "samples-workitems",
-            "connection": "<name of external file connection>"
-        }
-    ]
-}
-```
+File receipts are stored in a folder named *azure-webjobs-hosts* in the Azure storage account for your function app
+(specified by the `AzureWebJobsStorage` app setting). A file receipt has the following information:
 
-Veja a amostra específica a um idioma que registra o conteúdo de cada arquivo adicionado à pasta monitorada.
+* The triggered function ("*&lt;function app name>*.Functions.*&lt;function name>*", for example: "functionsf74b96f7.Functions.CopyFile")
+* The folder name
+* The file type ("BlockFile" or "PageFile")
+* The file name
+* The ETag (a file version identifier, for example: "0x8D1DC6E70A277EF")
 
-* [C#](#triggercsharp)
-* [Node.js](#triggernodejs)
+To force reprocessing of a file, delete the file receipt for that file from the *azure-webjobs-hosts* folder manually.
+--->
 
-<a name="triggercsharp"></a>
+## <a name="trigger---poison-files"></a>Gatilho - arquivos suspeitos
 
-### <a name="trigger-usage-in-c"></a>Uso de gatilhos em C# #
+Quando a função de gatilho de um arquivo externo falha, o Azure Functions repete essa função até 5 vezes por padrão (incluindo a primeira tentativa) para determinado arquivo.
+Se todas as 5 tentativas falharem, o Functions adicionará uma mensagem para uma fila de armazenamento denominada *webjobs-apihubtrigger-poison*. A mensagem da fila para arquivos suspeitos é um objeto JSON que contém as seguintes propriedades:
 
-```cs
-public static void Run(string myFile, TraceWriter log)
-{
-    log.Info($"C# File trigger function processed: {myFile}");
-}
-```
+* FunctionId (no formato *&lt;nome do aplicativo de funções>*.Functions.*&lt;nome da função>*)
+* FileType
+* FolderName
+* FileName
+* ETag (um identificador de versão de arquivo, por exemplo: "0x8D1DC6E70A277EF")
 
-<!--
-<a name="triggerfsharp"></a>
-### Trigger usage in F# ##
-```fsharp
+## <a name="input"></a>Entrada
 
-```
--->
-
-<a name="triggernodejs"></a>
-
-### <a name="trigger-usage-in-nodejs"></a>Uso de gatilho em Node.js
-
-```javascript
-module.exports = function(context) {
-    context.log('Node.js File trigger function processed', context.bindings.myFile);
-    context.done();
-};
-```
-
-<a name="input"></a>
-
-## <a name="external-file-input-binding"></a>Associação de entrada de arquivo externo
 A associação de entrada de arquivo externo do Azure permite que você use um arquivo de uma pasta externa em sua função.
 
-A entrada do arquivo externo em uma função usa os seguintes objetos JSON na matriz `bindings` de function.json:
+## <a name="input---example"></a>Entrada - exemplo
 
-```json
-{
-  "name": "<Name of input parameter in function signature>",
-  "type": "apiHubFile",
-  "direction": "in",
-  "path": "<Path of input file - see below>",
-  "connection": "<name of external file connection>"
-},
-```
+Consulte o exemplo específico a um idioma:
 
-Observe o seguinte:
+* [Script C#](#input---c-script-example)
+* [JavaScript](#input---javascript-example)
 
-* `path` deve conter o nome da pasta e o nome do arquivo. Por exemplo, se você tiver um [gatilho de fila](functions-bindings-storage-queue.md) em sua função, poderá usar `"path": "samples-workitems/{queueTrigger}"` para apontar para um arquivo na pasta `samples-workitems` com um nome que corresponda ao nome do arquivo especificado na mensagem de gatilho.   
+### <a name="input---c-script-example"></a>Entrada - exemplo de script C#
 
-<a name="inputusage"></a>
+O exemplo a seguir mostra associações de saída e de entrada de arquivo externo em um arquivo *function.json* e uma [função de script C#](functions-reference-csharp.md) que usa a associação. A função copia um arquivo de entrada para um arquivo de saída.
 
-## <a name="input-usage"></a>Uso de entrada
-Em funções do C#, você associa aos dados do arquivo de entrada usando um parâmetro nomeado na assinatura da função, como `<T> <name>`.
-Em que `T` é o tipo de dados no qual você deseja desserializar os dados e `paramName` é o nome especificado na [associação de entrada](#input). Em funções do Node.js, você acessa os dados do arquivo de entrada usando `context.bindings.<name>`.
-
-O arquivo pode ser desserializado em qualquer um destes tipos:
-
-* Qualquer [Objeto](https://msdn.microsoft.com/library/system.object.aspx) – útil para dados de arquivo serializado para JSON.
-  Se você declarar um tipo de entrada personalizado (por exemplo, `InputType`), o Azure Functions tenta desserializar os dados JSON para o tipo especificado.
-* Cadeia de caracteres – útil para dados de arquivo de texto.
-
-Em funções do C#, você também pode associar a qualquer um dos seguintes tipos e o tempo de execução do Functions tentará desserializar os dados da tabela usando esse tipo:
-
-* `string`
-* `byte[]`
-* `Stream`
-* `StreamReader`
-* `TextReader`
-
-
-<a name="output"></a>
-
-## <a name="external-file-output-binding"></a>Associação de saída de arquivo externo
-A associação de saída de arquivo externo do Azure permite que você grave arquivos em uma pasta externa de sua função.
-
-A saída do arquivo externo para uma função usa os seguintes objetos JSON na matriz `bindings` de function.json:
-
-```json
-{
-  "name": "<Name of output parameter in function signature>",
-  "type": "apiHubFile",
-  "direction": "out",
-  "path": "<Path of input file - see below>",
-  "connection": "<name of external file connection>"
-}
-```
-
-Observe o seguinte:
-
-* `path` deve conter o nome da pasta e o nome do arquivo no qual gravar. Por exemplo, se você tiver um [gatilho de fila](functions-bindings-storage-queue.md) em sua função, poderá usar `"path": "samples-workitems/{queueTrigger}"` para apontar para um arquivo na pasta `samples-workitems` com um nome que corresponda ao nome do arquivo especificado na mensagem de gatilho.   
-
-<a name="outputusage"></a>
-
-## <a name="output-usage"></a>Uso de saída
-Em funções C#, você associa ao arquivo de saída usando o parâmetro `out` nomeado na assinatura da função, como `out <T> <name>`, em que `T` é o tipo de dados no qual você quer serializar os dados e `paramName` é o nome especificado na [associação de saída](#output). Nas funções do Node.js, você acessa o arquivo de saída usando `context.bindings.<name>`.
-
-Você pode gravar no arquivo de saída usando qualquer um dos seguintes tipos:
-
-* Qualquer [Objeto](https://msdn.microsoft.com/library/system.object.aspx) - útil para serialização JSON.
-  Se você declarar um tipo de saída personalizada (por exemplo, `out OutputType paramName`), o Azure Functions tenta serializar o objeto em JSON. Se o parâmetro de saída for nulo quando a função for encerrada, o tempo de execução do Functions criará um arquivo como um objeto nulo.
-* Cadeia de caracteres – (`out string paramName`) útil para dados de arquivo de texto. O tempo de execução do Functions só criará um arquivo se o parâmetro de cadeia de caracteres não for nulo quando a função for encerrada.
-
-Em funções do C#, também é possível executar a saída para qualquer um dos seguintes tipos:
-
-* `TextWriter`
-* `Stream`
-* `CloudFileStream`
-* `ICloudFile`
-* `CloudBlockFile`
-* `CloudPageFile`
-
-<a name="outputsample"></a>
-
-<a name="sample"></a>
-
-## <a name="input--output-sample"></a>Amostra de entrada + saída
-Suponha que você tem o function.json a seguir, que define um [gatilho de fila de armazenamento](functions-bindings-storage-queue.md), uma entrada de arquivo externo e uma saída de arquivo externo:
+Aqui estão os dados de associação no arquivo *function.json*:
 
 ```json
 {
@@ -324,14 +255,7 @@ Suponha que você tem o function.json a seguir, que define um [gatilho de fila d
 }
 ```
 
-Consulte a amostra específica a um idioma que copia o arquivo de entrada no arquivo de saída.
-
-* [C#](#incsharp)
-* [Node.js](#innodejs)
-
-<a name="incsharp"></a>
-
-### <a name="usage-in-c"></a>Uso em C# #
+Aqui está o código de script do C#:
 
 ```cs
 public static void Run(string myQueueItem, string myInputFile, out string myOutputFile, TraceWriter log)
@@ -341,17 +265,42 @@ public static void Run(string myQueueItem, string myInputFile, out string myOutp
 }
 ```
 
-<!--
-<a name="infsharp"></a>
-### Input usage in F# ##
-```fsharp
+### <a name="input---javascript-example"></a>Entrada - exemplo de JavaScript
 
+O exemplo a seguir mostra associações de saída e de entrada de arquivo externo em um arquivo *function.json* e uma [função JavaScript](functions-reference-node.md) que usa a associação. A função copia um arquivo de entrada para um arquivo de saída.
+
+Aqui estão os dados de associação no arquivo *function.json*:
+
+```json
+{
+  "bindings": [
+    {
+      "queueName": "myqueue-items",
+      "connection": "MyStorageConnection",
+      "name": "myQueueItem",
+      "type": "queueTrigger",
+      "direction": "in"
+    },
+    {
+      "name": "myInputFile",
+      "type": "apiHubFile",
+      "path": "samples-workitems/{queueTrigger}",
+      "connection": "<name of external file connection>",
+      "direction": "in"
+    },
+    {
+      "name": "myOutputFile",
+      "type": "apiHubFile",
+      "path": "samples-workitems/{queueTrigger}-Copy",
+      "connection": "<name of external file connection>",
+      "direction": "out"
+    }
+  ],
+  "disabled": false
+}
 ```
--->
 
-<a name="innodejs"></a>
-
-### <a name="usage-in-nodejs"></a>Uso em Node.js
+Aqui está o código JavaScript:
 
 ```javascript
 module.exports = function(context) {
@@ -360,6 +309,75 @@ module.exports = function(context) {
     context.done();
 };
 ```
+
+## <a name="input---configuration"></a>Entrada - configuração
+
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json*.
+
+|Propriedade function.json | DESCRIÇÃO|
+|---------|---------|----------------------|
+|**tipo** | Deve ser definido como `apiHubFile`. Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure.|
+|**direction** | Deve ser definido como `in`. Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure. |
+|**name** | O nome da variável que representa o item de evento no código de função. | 
+|**conexão**| Identifica a configuração de aplicativo que armazena a cadeia de conexão. A configuração do aplicativo é criada automaticamente quando se adiciona uma conexão à interface de usuário integrada no Portal do Azure.|
+|**path** | Deve conter o nome da pasta e o nome do arquivo. Por exemplo, se você tiver um [gatilho de fila](functions-bindings-storage-queue.md) em sua função, poderá usar `"path": "samples-workitems/{queueTrigger}"` para apontar para um arquivo na pasta `samples-workitems` com um nome que corresponda ao nome do arquivo especificado na mensagem de gatilho.   
+
+## <a name="input---usage"></a>Entrada - uso
+
+Em funções do C#, você associa aos dados do arquivo de entrada usando um parâmetro nomeado na assinatura da função, como `<T> <name>`. `T` é o tipo de dados no qual você deseja desserializar os dados e `name` é o nome especificado na associação de entrada. Em funções do Node.js, você acessa os dados do arquivo de entrada usando `context.bindings.<name>`.
+
+O arquivo pode ser desserializado em qualquer um destes tipos:
+
+* Qualquer [Objeto](https://msdn.microsoft.com/library/system.object.aspx) – útil para dados de arquivo serializado para JSON.
+  Se você declarar um tipo de entrada personalizado (por exemplo, `InputType`), o Azure Functions tenta desserializar os dados JSON para o tipo especificado.
+* Cadeia de caracteres – útil para dados de arquivo de texto.
+
+Em funções do C#, você também pode associar a qualquer um dos seguintes tipos e o tempo de execução do Functions tentará desserializar os dados da tabela usando esse tipo:
+
+* `string`
+* `byte[]`
+* `Stream`
+* `StreamReader`
+* `TextReader`
+
+## <a name="output"></a>Saída
+
+A associação de saída de arquivo externo do Azure permite que você grave arquivos em uma pasta externa de sua função.
+
+## <a name="output---example"></a>Saída - exemplo
+
+Consulte o [exemplo de associação de entrada](#input---example).
+
+## <a name="output---configuration"></a>Saída - configuração
+
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json*.
+
+|Propriedade function.json | DESCRIÇÃO|
+|---------|---------|----------------------|
+|**tipo** | Deve ser definido como `apiHubFile`. Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure.|
+|**direction** | Deve ser definido como `out`. Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure. |
+|**name** | O nome da variável que representa o item de evento no código de função. | 
+|**conexão**| Identifica a configuração de aplicativo que armazena a cadeia de conexão. A configuração do aplicativo é criada automaticamente quando se adiciona uma conexão à interface de usuário integrada no Portal do Azure.|
+|**path** | Deve conter o nome da pasta e o nome do arquivo. Por exemplo, se você tiver um [gatilho de fila](functions-bindings-storage-queue.md) em sua função, poderá usar `"path": "samples-workitems/{queueTrigger}"` para apontar para um arquivo na pasta `samples-workitems` com um nome que corresponda ao nome do arquivo especificado na mensagem de gatilho.   
+
+## <a name="output---usage"></a>Saída - uso
+
+Em funções C#, você faz a associação ao arquivo de saída usando o parâmetro `out` nomeado na assinatura da função, como `out <T> <name>`, em que `T` é o tipo de dados no qual você quer serializar os dados e `name` é o nome especificado na associação de saída. Nas funções do Node.js, você acessa o arquivo de saída usando `context.bindings.<name>`.
+
+Você pode gravar no arquivo de saída usando qualquer um dos seguintes tipos:
+
+* Qualquer [Objeto](https://msdn.microsoft.com/library/system.object.aspx) - útil para serialização JSON.
+  Se você declarar um tipo de saída personalizada (por exemplo, `out OutputType paramName`), o Azure Functions tenta serializar o objeto em JSON. Se o parâmetro de saída for nulo quando a função for encerrada, o tempo de execução do Functions criará um arquivo como um objeto nulo.
+* Cadeia de caracteres – (`out string paramName`) útil para dados de arquivo de texto. O tempo de execução do Functions só criará um arquivo se o parâmetro de cadeia de caracteres não for nulo quando a função for encerrada.
+
+Em funções do C#, também é possível executar a saída para qualquer um dos seguintes tipos:
+
+* `TextWriter`
+* `Stream`
+* `CloudFileStream`
+* `ICloudFile`
+* `CloudBlockFile`
+* `CloudPageFile`
 
 ## <a name="next-steps"></a>Próximas etapas
 

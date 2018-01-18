@@ -11,15 +11,15 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 09/12/2017
-ms.openlocfilehash: 9ceb299b3ee521aeefb45c21920bd3b6e0049d26
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 6f9786b75f5160ceaa4dd269a91d7f3a4b6700d5
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="collect-model-data-by-using-data-collection"></a>Coletar dados de modelo usando a coleta de dados
 
-Você pode usar o recurso de coleta de dados de modelo no Azure Machine Learning Workbench para arquivar entradas e previsões do modelo de um serviço Web.
+Você pode usar o recurso de coleta de dados de modelo no Azure Machine Learning para arquivar entradas e previsões do modelo de um serviço Web.
 
 ## <a name="install-the-data-collection-package"></a>Instalar o pacote de coleta de dados
 Você pode instalar a biblioteca de coleta de dados nativamente no Linux e no Windows.
@@ -37,6 +37,12 @@ No Linux, instale primeiro a biblioteca libxml ++. Execute o comando a seguir, q
 Em seguida, execute o seguinte comando:
 
     pip install azureml.datacollector
+
+## <a name="set-environment-variables"></a>Configurar variáveis de ambiente
+
+A coleta de dados do modelo depende de duas variáveis de ambiente. AML_MODEL_DC_STORAGE_ENABLED deve ser definida como **true** (todas as letras minúsculas) e AML_MODEL_DC_STORAGE deve ser definida como a cadeia de conexão para a conta de Armazenamento do Azure onde você deseja armazenar os dados.
+
+Essas variáveis de ambiente já estão definidas para você quando o serviço Web está em execução em um cluster no Azure. Ao executar localmente, você mesmo precisa configurá-las. Se você estiver usando o Docker, use o parâmetro -e do comando docker run para passar variáveis de ambiente.
 
 ## <a name="collect-data"></a>Coletar dados
 

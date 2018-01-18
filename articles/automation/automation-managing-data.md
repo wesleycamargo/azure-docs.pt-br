@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/02/201
 ms.author: magoedte;bwren;sngun
-ms.openlocfilehash: 58ba74585f650c570b5962408a3935e9cd2e591c
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 2afcf918ffa104bd0e13048c152e04992f55ffe1
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="managing-azure-automation-data"></a>Gerenciando dados da Automação do Azure
 Este artigo contém vários tópicos sobre o gerenciamento de um ambiente da Automação do Azure.
@@ -49,13 +49,13 @@ No entanto, se você precisar manter os dados por um período de tempo maior, po
 Quando você exclui uma conta de automação no Microsoft Azure, todos os objetos na conta são excluídos, incluindo runbooks, módulos, configurações, trabalhos e ativos. Os objetos não podem ser recuperados depois que a conta é excluída.  Você pode usar as informações a seguir para fazer backup do conteúdo de sua conta de automação antes de excluí-la. 
 
 ### <a name="runbooks"></a>Runbooks
-Você pode exportar seus runbooks para arquivos de script usando o Portal de Gerenciamento do Azure ou o cmdlet [Get-AzureAutomationRunbookDefinition](https://msdn.microsoft.com/library/dn690269.aspx) no Windows PowerShell.  Esses arquivos de script podem ser importados para outra conta de automação, conforme discutido em [Criando ou importando um runbook](https://msdn.microsoft.com/library/dn643637.aspx).
+Você pode exportar seus runbooks para arquivos de script usando o Portal do Azure ou o cmdlet [Get-AzureAutomationRunbookDefinition](https://msdn.microsoft.com/library/dn690269.aspx) no Windows PowerShell.  Esses arquivos de script podem ser importados para outra conta de automação, conforme discutido em [Criando ou importando um runbook](https://msdn.microsoft.com/library/dn643637.aspx).
 
 ### <a name="integration-modules"></a>Módulos de integração
 Você não pode exportar módulos de integração da Automação do Azure.  Você deve garantir que eles estejam disponíveis fora da conta de automação.
 
 ### <a name="assets"></a>Ativos
-Não é possível exportar [ativos](https://msdn.microsoft.com/library/dn939988.aspx) da Automação do Azure.  Usando o Portal de Gerenciamento do Azure, você deve observar os detalhes de variáveis, credenciais, certificados, conexões e agendas.  Você deve criar manualmente qualquer ativo que seja usado por runbooks importados para outra automação.
+Não é possível exportar [ativos](https://msdn.microsoft.com/library/dn939988.aspx) da Automação do Azure.  Usando o Portal do Azure, você deve observar os detalhes de variáveis, credenciais, certificados, conexões e agendas.  Você deve criar manualmente qualquer ativo que seja usado por runbooks importados para outra automação.
 
 Você pode usar [cmdlets do Azure](https://msdn.microsoft.com/library/dn690262.aspx) para recuperar os detalhes de ativos não criptografados e salvá-los para referência futura ou criar ativos equivalentes em outra conta de automação.
 
@@ -64,7 +64,7 @@ Não é possível recuperar o valor de variáveis criptografadas nem o campo de 
 Você não pode exportar certificados da Automação do Azure.  Você deve garantir que todos os certificados estejam disponíveis fora do Azure.
 
 ### <a name="dsc-configurations"></a>Configurações DSC
-Você pode exportar suas configurações para arquivos de script usando o Portal de Gerenciamento do Azure ou o cmdlet [Export-AzureRmAutomationDscConfiguration](https://msdn.microsoft.com/library/mt603485.aspx) no Windows PowerShell. Essas configurações podem ser importadas e usadas em outra conta de automação.
+Você pode exportar suas configurações para arquivos de script usando o Portal do Azure ou o cmdlet [Export-AzureRmAutomationDscConfiguration](https://msdn.microsoft.com/library/mt603485.aspx) no Windows PowerShell. Essas configurações podem ser importadas e usadas em outra conta de automação.
 
 ## <a name="geo-replication-in-azure-automation"></a>Replicação geográfica na Automação do Azure
 A replicação geográfica, padrão em contas da Automação do Azure, faz o backup de dados da conta em uma região geográfica diferente para obter redundância. Você pode escolher uma região primária durante a configuração de sua conta e, em seguida, uma região secundária é atribuída automaticamente a ela. Os dados secundários, copiados da região primária, são atualizados continuamente em caso de perda de dados.  

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: 84d6c6b134d74e3d739fd1d65134672f2285787f
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 40b684fe5681123f3c32d3984b2725f97b427f1b
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-instance-metadata-service"></a>Serviço de Metadados de Instância do Azure
 
@@ -279,10 +279,10 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 ## <a name="instance-metadata-data-categories"></a>Categorias de dados de metadados de instância
 As seguintes categorias de dados estão disponíveis por meio do serviço de metadados da instância:
 
-Dados | Descrição | Versão introduzida 
+Dados | DESCRIÇÃO | Versão introduzida 
 -----|-------------|-----------------------
 location | Região do Azure na qual a máquina virtual está sendo executada | 2017-04-02 
-name | Nome da VM | 2017-04-02
+Nome | Nome da VM | 2017-04-02
 oferta | Oferece informações para a imagem VM. Esse valor só está presente para as imagens implantadas na Galeria de imagens do Azure. | 2017-04-02
 publicador | Publicador da imagem da máquina virtual | 2017-04-02
 sku | SKU específica para a imagem da máquina virtual | 2017-04-02
@@ -377,13 +377,16 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 Linguagem | Exemplo 
 ---------|----------------
 Ruby     | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
-Linguagem Go  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go            
+Go  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go            
 Python   | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
 C++      | https://github.com/Microsoft/azureimds/blob/master/IMDSSample-windows.cpp
 C#       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs
 JavaScript | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.js
 PowerShell | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.ps1
 Bash       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.sh
+Perl       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.pl
+Java       | https://github.com/Microsoft/azureimds/blob/master/imdssample.java
+Visual Basic | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.vb
     
 
 ## <a name="faq"></a>Perguntas frequentes

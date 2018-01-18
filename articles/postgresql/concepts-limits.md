@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.custom: mvc
 ms.topic: article
-ms.date: 11/03/2017
-ms.openlocfilehash: dbb88e033d5be73b7b069d69c095d8df2c1faf1b
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.date: 12/04/2017
+ms.openlocfilehash: 6dbed1a834d74047178a9f996683d65520047e66
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Limitações no Banco de Dados do Azure para PostgreSQL
 O Banco de Dados do Azure para o serviço PostgreSQL está em visualização pública. As seções a seguir descrevem a capacidade e os limites funcionais no serviço de banco de dados.
@@ -27,12 +27,12 @@ Há um número máximo de conexões, unidades de computação e armazenamento em
 | | |
 | :------------------------- | :---------------- |
 | **Conexões máximas**        |                   |
-| 50 unidades de computação básica     | 50 conexões    |
-| 100 unidades de computação básica    | 100 conexões   |
-| 100 unidades de computação standard | 200 conexões   |
-| 200 unidades de computação standard | 300 conexões   |
-| 400 unidades de computação standard | 400 conexões   |
-| 800 unidades de computação standard | 500 conexões   |
+| 50 unidades de computação básica     | 55 conexões    |
+| 100 unidades de computação básica    | 105 conexões   |
+| 100 unidades de computação standard | 150 conexões   |
+| 200 unidades de computação standard | 250 conexões   |
+| 400 unidades de computação standard | 480 conexões   |
+| 800 unidades de computação standard | 950 conexões   |
 | **Unidades de computação máxima**      |                   |
 | Camada de serviço Básica         | 100 Unidades de computação |
 | Camada de serviço Standard      | 800 Unidades de computação |
@@ -40,8 +40,9 @@ Há um número máximo de conexões, unidades de computação e armazenamento em
 | Camada de serviço Básica         | 1 TB              |
 | Camada de serviço Standard      | 1 TB              |
 
-Quando um número excessivo de conexões for atingido, você receberá o seguinte erro:
+O sistema do Azure exige cinco conexões para monitorar o Banco de Dados do Azure para o servidor PostgreSQL. Quando um número excessivo de conexões for atingido, você receberá o seguinte erro:
 > FATAL: já existem muitos clientes
+
 
 ## <a name="preview-functional-limitations"></a>Limitações funcionais da versão prévia
 ### <a name="scale-operations"></a>Operações de dimensionamento

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: powershell
 ms.workload: TBD
 ms.date: 12/13/2016
 ms.author: gwallace
-ms.openlocfilehash: 0c399a24962efc1263ed35361a96c98bc60633ee
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: bfdec6d3982bb7744374a8026a41c3d548aca612
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-dsc"></a>Máquinas de integração para o gerenciamento pelo DSC de Automação do Azure
 
@@ -36,7 +36,7 @@ O DSC de Automação do Azure pode ser usado para gerenciar uma variedade de má
 Além disso, se você não estiver pronto para gerenciar a configuração da máquina a partir da nuvem, o DSC da Automação do Azure também poderá ser usado como um ponto de extremidade apenas para relatório. Isso permite que você defina a configuração desejada (push) por meio do DSC local e exiba relatórios detalhados sobre a conformidade de nó com o estado desejado na Automação do Azure.
 
 > [!NOTE]
-> Gerenciar VMs do Azure com DSC é incluído sem custo adicional, se a extensão de DSC da máquina virtual instalada é maior que 2.7.  Consulte a [**página de preços de Automação**](https://azure.microsoft.com/en-us/pricing/details/automation/) para obter mais detalhes.
+> Gerenciar VMs do Azure com DSC está incluído sem custo adicional, se a extensão de DSC da máquina virtual instalada é maior que 2.70. Consulte a [**página de preços de Automação**](https://azure.microsoft.com/en-us/pricing/details/automation/) para obter mais detalhes.
 
 
 As seções a seguir descrevem como você pode integrar cada tipo de máquina ao DSC de Automação do Azure.
@@ -393,5 +393,5 @@ Um novo registro pode ser executado da mesma maneira que você registrou o nó i
 ## <a name="related-articles"></a>Artigos relacionados
 
 * [Visão geral do DSC de Automação do Azure](automation-dsc-overview.md)
-* [cmdlets da DSC de Automação do Azure](/powershell/module/azurerm.automation/#automation)
+* [cmdlets do DSC de Automação do Azure](/powershell/module/azurerm.automation/#automation)
 * [preço da DSC de Automação do Azure](https://azure.microsoft.com/pricing/details/automation/)
