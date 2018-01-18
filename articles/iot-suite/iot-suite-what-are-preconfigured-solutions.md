@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/10/2017
+ms.date: 17/01/2018
 ms.author: dobett
-ms.openlocfilehash: c9e0441ec42e5710f43bbe7fa8af4a9fe7447a69
-ms.sourcegitcommit: 2e540e6acb953b1294d364f70aee73deaf047441
+ms.openlocfilehash: 0ac6226b1e5773b1212b70172e2c13a0a5c925a8
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/03/2018
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="what-is-azure-iot-suite"></a>O que é o Azure IoT Suite?
 
@@ -62,7 +62,7 @@ A tabela a seguir mostra como essas soluções são mapeadas para recursos espec
 | ------------------------------------------------------------ | -- | -- | -- | -- | -- | -- | -- |
 | [Monitoramento remoto](iot-suite-remote-monitoring-explore.md)  |sim |sim |sim |-   |sim |sim |-   |
 | [Manutenção preditiva](iot-suite-predictive-overview.md)   |sim |sim |-   |-   |sim |sim |sim |
-| [Fábrica conectada](iot-suite-connected-factory-overview.md) |sim |sim |sim |sim |sim |sim |-   |
+| [Fábrica conectada](iot-suite-connected-factory-overview.md) |sim |- |- |sim |sim |sim |-   |
 
 * *Ingestão de dados*: entrada de dados em escala para a nuvem.
 * *Identidade do dispositivo*: gerenciar identidades exclusivas de dispositivo e controlar o acesso do dispositivo à solução.
@@ -83,11 +83,11 @@ Quando você implanta uma solução pré-configurada, o processo de provisioname
 | Hub IoT              | sim                |                        | sim               |
 | Hubs de evento           |                    | sim                    |                   |
 | Análises de Séries Temporais |                    |                        | sim               |
-| Serviços de Contêiner   | sim                |                        | sim               |
+| Serviços de Contêiner   | sim                |                        |                   |
 | Análise de fluxo     |                    | sim                    |                   |
 | Aplicativos Web             | sim                | sim                    | sim               |
-| Banco de Dados Cosmos            | sim                | sim                    | sim               |
-| Tabelas do Azure         |                    | sim                    | sim               |
+| Banco de Dados Cosmos            | sim                | sim                    |                    |
+| Armazenamento do Azure         |                    | sim                    | sim               |
 
 > [!NOTE]
 > Para obter mais informações sobre os recursos implantados na solução pré-configurada de monitoramento remoto, consulte este [artigo](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/blob/master/README.md#basic-vs-standard-deployments) no GitHub.
