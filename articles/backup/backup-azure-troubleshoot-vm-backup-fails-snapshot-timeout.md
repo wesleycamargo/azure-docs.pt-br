@@ -13,13 +13,13 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 09/08/2017
-ms.author: genli;markgal;
-ms.openlocfilehash: a07fb9388f1e83bd167cf7c65cd3cd1e4f51ecd1
-ms.sourcegitcommit: 93902ffcb7c8550dcb65a2a5e711919bd1d09df9
+ms.date: 01/09/2018
+ms.author: genli;markgal;sogup;
+ms.openlocfilehash: 5eb326dfd89d9cc64eb0e05286e64c87e090e0a1
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/09/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-agent-andor-extension"></a>Solucionar problemas de falha de Backup do Azure: problemas com o agente e/ou extensão
 
@@ -28,12 +28,20 @@ Este artigo fornece etapas de solução de problemas para ajudar você a resolve
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
 ## <a name="vm-agent-unable-to-communicate-with-azure-backup"></a>Agente de VM não consegue se comunicar com o Backup do Azure
+
+> [!NOTE]
+> Se os seus backups de VMs de Linux do Azure começarem a apresentar falhas com esse erro a partir de 4 de janeiro de 2018, execute o comando abaixo nas VMs afetadas e tente novamente fazer os backups
+
+    sudo rm -f /var/lib/waagent/*.[0-9]*.xml
+
 Depois de registrar e agendar uma máquina virtual para o serviço de Backup do Azure, o Backup inicia o trabalho comunicando-se com o agente de backup de VM para obter um instantâneo pontual. Qualquer uma das condições a seguir pode impedir que o instantâneo seja disparado, o que, por sua vez, pode levar a falhas de backup. Siga as etapas de solução de problemas abaixo na ordem em que são fornecidas e repita a operação.
+
 ##### <a name="cause-1-the-vm-has-no-internet-accessthe-vm-has-no-internet-access"></a>Causa 1: [A VM tem sem acesso à Internet](#the-vm-has-no-internet-access)
 ##### <a name="cause-2-the-agent-is-installed-in-the-vm-but-is-unresponsive-for-windows-vmsthe-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>Causa 2: [o agente está instalado na VM, mas sem resposta (para VMs do Windows)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)
 ##### <a name="cause-3-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vmsthe-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>Causa 3: [O agente instalado na VM está desatualizado (para VMs do Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
 ##### <a name="cause-4-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-takenthe-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Causa 4: [O status do instantâneo não pode ser recuperado ou não é possível obter um instantâneo](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
 ##### <a name="cause-5-the-backup-extension-fails-to-update-or-loadthe-backup-extension-fails-to-update-or-load"></a>Causa 5: [A extensão de backup falha ao ser atualizada ou carregada](#the-backup-extension-fails-to-update-or-load)
+##### <a name="cause-6-azure-classic-vms-may-require-additional-step-to-complete-registrationazure-classic-vms-may-require-additional-step-to-complete-registration"></a>Causa 6: [VMs clássicas do Azure podem exigir etapas adicionais para concluir o registro](#azure-classic-vms-may-require-additional-step-to-complete-registration)
 
 ## <a name="snapshot-operation-failed-due-to-no-network-connectivity-on-the-virtual-machine"></a>Houve falha na operação de instantâneo por falta de conectividade à rede na máquina virtual
 Depois de registrar e agendar uma máquina virtual para o serviço de Backup do Azure, o Backup inicia o trabalho comunicando-se com a extensão de backup de VM para obter um instantâneo point-in-time. Qualquer uma das condições a seguir pode impedir que o instantâneo seja disparado, o que, por sua vez, pode levar a falhas de backup. Siga as etapas de solução de problemas abaixo na ordem em que são fornecidas e repita a operação.
@@ -65,6 +73,7 @@ Depois de registrar e agendar uma máquina virtual para o serviço de Backup do 
 ##### <a name="cause-3-the-agent-installed-in-the-vm-is-out-of-date-for-linux-vmsthe-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>Causa 3: [O agente instalado na VM está desatualizado (para VMs do Linux)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)
 ##### <a name="cause-4-the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-takenthe-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken"></a>Causa 4: [O status do instantâneo não pode ser recuperado ou não é possível obter um instantâneo](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)
 ##### <a name="cause-5-the-backup-extension-fails-to-update-or-loadthe-backup-extension-fails-to-update-or-load"></a>Causa 5: [A extensão de backup falha ao ser atualizada ou carregada](#the-backup-extension-fails-to-update-or-load)
+##### <a name="cause-6-backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lockbackup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock"></a>Causa 6: [O serviço de Backup não tem permissão para excluir os pontos de restauração antigos devido a um bloqueio de grupo de recursos](#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock)
 
 ## <a name="the-specified-disk-configuration-is-not-supported"></a>Não há suporte para a Configuração de disco especificada
 
@@ -99,7 +108,7 @@ Para resolver o problema, tente um dos seguintes métodos listados aqui.
 1. Se você tiver alguma restrição de rede no local (um grupo de segurança de rede, por exemplo), implante um servidor proxy HTTP para rotear o tráfego.
 2. Para permitir o acesso à Internet por meio do proxy HTTP, adicione regras ao grupo de segurança de rede, se você tiver uma.
 
-Para saber como configurar um proxy HTTP para backups VM, veja [preparar seu ambiente para fazer backup de máquinas virtuais do Azure](backup-azure-vms-prepare.md#using-an-http-proxy-for-vm-backups).
+Para saber como configurar um proxy HTTP para backups VM, veja [preparar seu ambiente para fazer backup de máquinas virtuais do Azure](backup-azure-arm-vms-prepare.md#establish-network-connectivity).
 
 Caso você esteja usando o Managed Disks, talvez seja necessário uma porta adicional (8443) aberta nos firewalls.
 
@@ -115,7 +124,7 @@ O agente da VM pode ter sido corrompido ou o serviço deve ter sido interrompido
 6. Em seguida, você deve ser capaz de exibir os serviços do agente de convidado do Windows nos serviços
 7. Tente executar um backup sob demanda/adhoc clicando em "Fazer Backup agora" no portal.
 
-Verifique também se sua máquina Virtual possui o **[.NET 4.5 instalado no sistema](https://docs.microsoft.com/en-us/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed)**. Ele é necessário para o agente da VM se comunicar com o serviço
+Verifique também se sua máquina Virtual possui o **[.NET 4.5 instalado no sistema](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed)**. Ele é necessário para o agente da VM se comunicar com o serviço
 
 ### <a name="the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>O agente instalado na VM está desatualizado (para VMs Linux)
 
@@ -183,4 +192,49 @@ Para desinstalar a extensão, faça o seguinte:
 6. Clique em **Desinstalar**.
 
 Este procedimento faz com que a extensão seja reinstalada durante o próximo backup.
+
+### <a name="azure-classic-vms-may-require-additional-step-to-complete-registration"></a>As VMs clássicas do Azure podem exigir etapas adicionais para concluir o registro
+O agente nas VMs clássicas do Azure deve ser registrado para estabelecer a conexão ao serviço de backup e iniciar o backup
+
+#### <a name="solution"></a>Solução
+
+Depois de instalar o agente convidado da VM, inicialize o Microsoft Azure PowerShell <br>
+1. Entrando na Conta do Azure usando <br>
+       `Login-AzureAsAccount`<br>
+2. Verifique se a propriedade ProvisionGuestAgent da VM está definida como True, de acordo com os comandos a seguir <br>
+        `$vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>`<br>
+        `$vm.VM.ProvisionGuestAgent`<br>
+3. Se a propriedade for definida como FALSE, siga os comandos abaixo para defini-la como TRUE<br>
+        `$vm = Get-AzureVM –ServiceName <cloud service name> –Name <VM name>`<br>
+        `$vm.VM.ProvisionGuestAgent = $true`<br>
+4. Em seguida, execute o comando a seguir para atualizar a VM <br>
+        `Update-AzureVM –Name <VM name> –VM $vm.VM –ServiceName <cloud service name>` <br>
+5. Tente iniciar o backup. <br>
+
+### <a name="backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock"></a>O serviço de Backup não tem permissão para excluir os pontos de restauração antigos devido a um bloqueio de grupo de recursos
+Esse problema é específico para VMs gerenciadas onde o usuário bloqueia o grupo de recursos e o serviço de backup não é capaz de excluir os pontos de restauração mais antigos. Devido a isso, os novos backups começam a falhar, porque há um limite de um máximo de 18 pontos de restauração impostos pelo back-end.
+
+#### <a name="solution"></a>Solução
+
+Para resolver o problema, use as etapas a seguir para remover a coleção de pontos de restauração: <br>
+ 
+1. Remova o bloqueio do grupo de recursos no qual reside a VM 
+     
+2. Instale o ARMClient usando Chocolatey <br>
+   https://github.com/projectkudu/ARMClient
+     
+3. Logon no ARMClient <br>
+             `.\armclient.exe login`
+         
+4. Obtenha a coleção do ponto de restauração correspondente para a VM <br>
+    `.\armclient.exe get https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30`
+
+    Exemplo: `.\armclient.exe get https://management.azure.com/subscriptions/f2edfd5d-5496-4683-b94f-b3588c579006/resourceGroups/winvaultrg/providers/Microsoft.Compute/restorepointcollections/AzureBackup_winmanagedvm?api-version=2017-03-30`
+             
+5. Exclua a coleção do ponto de restauração <br>
+            `.\armclient.exe delete https://management.azure.com/subscriptions/<SubscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.Compute/restorepointcollections/AzureBackup_<VM-Name>?api-version=2017-03-30` 
+ 
+6. O próximo backup agendado criará automaticamente a coleção de pontos de restauração e novos ponto de restauração 
+ 
+7. O problema reaparecerá se você bloquear o grupo de recursos novamente, já que há um limite de 18 pontos de restauração após o qual os backups começam a falhar 
 

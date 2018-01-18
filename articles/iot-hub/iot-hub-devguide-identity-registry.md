@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/19/2017
 ms.author: dobett
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 32e63b250467f5733b2e691614fe52f96f2f9d91
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: 653c31fb1115c79216f882a52484cd37303e0322
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Entender o registro de identidade no Hub IoT
 
@@ -84,7 +84,7 @@ Para obter informações detalhadas sobre as APIs de importação e exportação
 
 Os dados de dispositivo que uma determinada solução IoT armazena dependem dos requisitos específicos dessa solução. Porém, no mínimo, uma solução deve armazenar identidades e chaves de autenticação. O Hub IoT do Azure inclui um registro de identidades que pode armazenar valores para cada dispositivo, como IDs, chaves de autenticação e códigos de status. Uma solução pode usar outros serviços do Azure como armazenamento de tabelas, armazenamento de blobs ou Cosmos DB para armazenar outros dados de dispositivo.
 
-*Provisionamento de dispositivos* é o processo de adição dos dados iniciais do dispositivo para as lojas em sua solução. Para permitir que um dispositivo se conecte ao hub, você deve adicionar uma ID e chaves de dispositivo ao registro de identidade do Hub IoT. Como parte do processo de provisionamento, talvez seja necessário inicializar dados específicos do dispositivo em outros repositórios da solução.
+*Provisionamento de dispositivos* é o processo de adição dos dados iniciais do dispositivo para as lojas em sua solução. Para permitir que um dispositivo se conecte ao hub, você deve adicionar uma ID e chaves de dispositivo ao registro de identidade do Hub IoT. Como parte do processo de provisionamento, talvez seja necessário inicializar dados específicos do dispositivo em outros repositórios da solução. Você também pode usar o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure para habilitar o provisionamento sem toque e Just-In-Time para um ou mais hubs IoT sem a necessidade de intervenção humana. Para obter mais informações, consulte a [documentação do serviço de provisionamento][lnk-dps].
 
 ## <a name="device-heartbeat"></a>Pulsação do dispositivo
 
@@ -105,7 +105,7 @@ O Hub IoT pode notificar sua solução de IoT quando uma identidade de dispositi
 
 Propriedades: as propriedades do sistema de mensagens são prefixadas com o símbolo `'$'`.
 
-| Nome | Valor |
+| NOME | Valor |
 | --- | --- |
 $content-type | aplicativo/json |
 $iothub-enqueuedtime |  Hora em que a notificação foi enviada |
@@ -144,7 +144,7 @@ Corpo: esta seção está no formato JSON e representa o gêmeo da identidade de
 
 As identidades do dispositivo são representadas como documentos JSON com as seguintes propriedades:
 
-| Propriedade | Opções | Descrição |
+| Propriedade | Opções | DESCRIÇÃO |
 | --- | --- | --- |
 | deviceId |obrigatória, somente leitura em atualizações |Uma cadeia de caracteres que diferencia maiúsculas de minúsculas (com até 128 caracteres) de caracteres alfanuméricos ASCII de 7 bits, mais determinados caracteres especiais: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
 | generationId |obrigatória, somente leitura |Uma cadeia de caracteres que diferencia maiúsculas de minúsculas com até 128 caracteres gerada pelo Hub IoT. Esse valor é usado para distinguir os dispositivos com a mesma **deviceId** quando são excluídos e recriados. |
@@ -184,6 +184,11 @@ Se você quiser experimentar alguns dos conceitos descritos neste artigo, talvez
 
 * [Introdução ao Hub IoT do Azure][lnk-getstarted-tutorial]
 
+Para explorar usando o Serviço de Provisionamento de Dispositivos do Hub IoT para habilitar o provisionamento sem toque e Just-In-Time, consulte: 
+
+* [Serviço de Provisionamento de Dispositivos no Hub IoT do Azure][lnk-dps]
+
+
 <!-- Links and images -->
 
 [lnk-endpoints]: iot-hub-devguide-endpoints.md
@@ -205,3 +210,4 @@ Se você quiser experimentar alguns dos conceitos descritos neste artigo, talvez
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
 
 [lnk-getstarted-tutorial]: iot-hub-csharp-csharp-getstarted.md
+[lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps

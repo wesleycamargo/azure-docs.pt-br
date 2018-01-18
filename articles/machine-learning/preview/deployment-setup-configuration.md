@@ -9,12 +9,12 @@ ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.topic: article
-ms.date: 08/29/2017
-ms.openlocfilehash: 61ecea71874b05c2c5f7572aa6128fc320422b1f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.date: 12/6/2017
+ms.openlocfilehash: c8949e4f66623951ef66005b3acc2b2279486b4d
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="model-management-setup"></a>Configuração do gerenciamento de modelos
 
@@ -25,8 +25,8 @@ Usando o gerenciamento de modelos de ML do Azure, você pode implantar e gerenci
 Ao final deste documento, seu ambiente de gerenciamento de modelos deverá estar configurado e pronto para implantar seus modelos do Machine Learning.
 
 ## <a name="what-you-need-to-get-started"></a>Para começar, você precisa do seguinte:
-Para aproveitar este guia ao máximo, você deve ter acesso de proprietário a uma assinatura do Azure na qual você possa implantar seus modelos.
-A CLI vem pré-instalada no Azure Machine Learning Workbench e nas [DSVMs do Azure](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).
+Para aproveitar este guia ao máximo, você deve ter acesso de Colaborador a uma assinatura do Azure ou um grupo de recursos onde você possa implantar seus modelos.
+A CLI vem pré-instalada no Azure Machine Learning Workbench e nas [DSVMs do Azure](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-virtual-machine-overview).
 
 ## <a name="using-the-cli"></a>Usando a CLI
 Para usar as CLIs (interfaces de linha de comando) do Workbench, clique em **Arquivo** -> **Abrir o Prompt de Comando**. 
@@ -81,13 +81,15 @@ Para começar, você precisa configurar seu ambiente de implantação. A configu
 
 Ao concluir a configuração do ambiente:
 - Será solicitado que você entre no Azure. Para entrar, use um navegador da Web para abrir a página https://aka.ms/devicelogin e insira o código fornecido para autenticar.
-- Durante o processo de autenticação, será solicitado que você se autentique com uma conta. Importante: selecione uma conta que tenha uma assinatura válida do Azure e permissões suficientes para criar recursos na conta.- Quando o logon estiver concluído, as informações da sua assinatura serão apresentadas e você será consultado sobre se deseja continuar com a conta selecionada.
+- Durante o processo de autenticação, será solicitado que você se autentique com uma conta. Importante: Selecione uma conta que tenha uma assinatura do Azure válida e permissões suficientes para criar recursos na conta. Quando o log-in é concluído, as suas informações de assinatura são apresentadas e você é perguntado se deseja continuar com a conta selecionada.
 
 ### <a name="environment-setup"></a>Configuração do ambiente
-Para iniciar o processo de instalação, você precisa registrar o provedor de ambiente inserindo o seguinte comando:
+Para iniciar o processo de instalação, você precisa registrar alguns provedores de ambiente inserindo os seguintes comandos:
 
 ```azurecli
 az provider register -n Microsoft.MachineLearningCompute
+az provider register -n Microsoft.ContainerRegistry
+az provider register -n Microsoft.ContainerService
 ```
 #### <a name="local-deployment"></a>Implantação local
 Para implantar e testar o serviço Web no computador local, configure um ambiente local usando o comando a seguir. O nome do grupo de recursos é opcional.
@@ -128,7 +130,7 @@ O comando de instalação do ambiente de cluster cria os seguintes recursos na s
 - Uma conta do Application Insights
 
 >[!IMPORTANT]
-> Para criar com êxito um ambiente de cluster, você precisará ser um proprietário na assinatura do Azure e também poder criar uma Entidade de Serviço. Para verificar se você tem privilégios suficientes, siga as instruções nesta página: [Criar uma entidade de serviço no Azure](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-create-service-principal-portal)
+> Para criar com êxito um ambiente de cluster, você precisará ter acesso de Colaborador na assinatura do Azure ou o grupo de recursos.
 
 O grupo de recursos, a conta de armazenamento e o ACR são criados rapidamente. A implantação do ACS pode levar até 20 minutos. 
 

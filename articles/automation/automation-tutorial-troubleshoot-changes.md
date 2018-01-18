@@ -6,14 +6,14 @@ keywords: "alteração, controle, automação"
 author: jennyhunter-msft
 ms.author: jehunte
 ms.date: 12/14/2017
-ms.topic: hero-article
+ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: ae9ac6baaaeca418fcd3478145c50d1fa7917d7e
-ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
+ms.openlocfilehash: 0aefa175d676bd7e98841d3a1e9ff5a8c90b7deb
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Solucionar problemas de alterações em seu ambiente
 
@@ -30,7 +30,7 @@ Neste tutorial, você aprenderá a:
 > * Disparar um evento
 > * Exibir alterações
 
-## <a name="prerequisites"></a>pré-requisitos
+## <a name="prerequisites"></a>Pré-requisitos
 
 Para concluir este tutorial, você precisará:
 
@@ -158,7 +158,7 @@ Depois que a solução Controle de alterações e Inventário estiver habilitada
 
 Na sua VM, selecione **Controle de alterações** em **OPERAÇÕES**.
 
-![Criando um alerta no portal clássico do OMS](./media/automation-tutorial-troubleshoot-changes/change-tracking-list.png)
+![Captura de tela que mostra a lista de alterações para a VM](./media/automation-tutorial-troubleshoot-changes/change-tracking-list.png)
 
 O gráfico mostra as alterações que ocorreram ao longo do tempo.
 Depois de adicionar uma conexão do Log de Atividades, o grafo da linha na parte superior exibe eventos do Log de Atividades do Azure.

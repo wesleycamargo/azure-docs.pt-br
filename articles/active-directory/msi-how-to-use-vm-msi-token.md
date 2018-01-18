@@ -13,15 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: bryanla
-ms.openlocfilehash: 9d80e0e4dbaa010aabd0e7aad91ac79cf2d433d5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6a02b52e7103c9b6e60b09617026fbf6010e76c8
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="how-to-use-an-azure-vm-managed-service-identity-msi-for-token-acquisition"></a>Como usar uma MSI (Identidade de Serviço Gerenciado) da VM do Azure para aquisição de token 
 
-[!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)] Este artigo fornece vários exemplos de código e de script para aquisição de token, assim como diretrizes sobre tópicos importantes como a manipulação de expiração de token e erros HTTP.
+[!INCLUDE[preview-notice](../../includes/active-directory-msi-preview-notice.md)]  
+Este artigo fornece vários exemplos de código e de script para aquisição de token, assim como diretrizes sobre tópicos importantes como a manipulação de expiração de token e erros HTTP.
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -59,7 +60,7 @@ GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.
 Metadata: true
 ```
 
-| Elemento | Descrição |
+| Elemento | DESCRIÇÃO |
 | ------- | ----------- |
 | `GET` | O verbo HTTP, indicando que você deseja recuperar os dados do ponto de extremidade. Neste caso, um token de acesso OAuth. | 
 | `http://localhost:50342/oauth2/token` | O ponto de extremidade da MSI em que 50342 é a porta padrão e é configurável. |
@@ -82,7 +83,7 @@ Content-Type: application/json
 }
 ```
 
-| Elemento | Descrição |
+| Elemento | DESCRIÇÃO |
 | ------- | ----------- |
 | `access_token` | O token de acesso solicitado. Ao chamar uma API REST protegida, o token é inserido no campo de cabeçalho de solicitação `Authorization` como um token "portador", permitindo que a API autentique o chamador. | 
 | `refresh_token` | Não é usado pela MSI. |
@@ -252,7 +253,7 @@ O ponto de extremidade da MSI sinaliza os erros por meio do campo de código de 
 
 Se ocorrer um erro, o corpo da resposta HTTP correspondente conterá o JSON com os detalhes do erro:
 
-| Elemento | Descrição |
+| Elemento | DESCRIÇÃO |
 | ------- | ----------- |
 | error   | Identificador do erro. |
 | error_description | Descrição detalhada do erro. **Descrições de erro podem ser alteradas a qualquer momento. Não escreva código que se ramifique com base nos valores na descrição do erro.**|

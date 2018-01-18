@@ -3,7 +3,7 @@ title: "Upgrades automáticos de sistema operacional com conjuntos de dimensiona
 description: "Sabia como atualizar automaticamente o sistema operacional em instâncias de VM em um conjunto de dimensionamento"
 services: virtual-machine-scale-sets
 documentationcenter: 
-author: gbowerman
+author: gatneil
 manager: jeconnoc
 editor: 
 tags: azure-resource-manager
@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2017
-ms.author: guybo
-ms.openlocfilehash: 32358b23bb0a0a878e986150dd992513579d61c4
-ms.sourcegitcommit: f8437edf5de144b40aed00af5c52a20e35d10ba1
+ms.date: 12/07/2017
+ms.author: negat
+ms.openlocfilehash: 145f4ec92b142a1585ba17bf6e49c7824cc32529
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/03/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="azure-virtual-machine-scale-set-automatic-os-upgrades"></a>Upgrades automáticos de sistema operacional do conjunto de dimensionamento de máquinas virtuais do Azure
 
@@ -39,10 +39,10 @@ A atualização de sistema operacional do Azure tem as seguintes característica
 ## <a name="preview-notes"></a>Notas de versão prévia 
 Enquanto estão na versão prévia, as seguintes limitações e restrições se aplicam:
 
-- Os upgrades automáticos do sistema operacional dão suporte a apenas [três SKUs de sistema operacional](#supported-os-images). Não há nenhum SLA ou garantias. Recomendamos que você não use upgrades automáticos em cargas de trabalho críticas de produção durante a versão prévia.
+- Os upgrades automáticos do sistema operacional dão suporte a apenas [quatro SKUs de sistema operacional](#supported-os-images). Não há nenhum SLA ou garantias. Recomendamos que você não use upgrades automáticos em cargas de trabalho críticas de produção durante a versão prévia.
 - O suporte para conjuntos de dimensionamento nos clusters do Service Fabric estará disponível em breve.
 - No momento, **não** há suporte para a criptografia de disco do Azure (atualmente em versão prévia) com atualização automática do sistema operacional do conjunto de dimensionamento de máquinas virtuais.
-- Experiência do portal disponível em breve.
+- Uma experiência do portal disponível em breve.
 
 
 ## <a name="register-to-use-automatic-os-upgrade"></a>Registrar-se para usar a atualização automática do sistema operacional
@@ -76,11 +76,13 @@ No momento, há suporte apenas determinadas imagens de plataforma do sistema ope
 
 No momento, há suporte para os seguintes SKUs (serão adicionados mais):
     
-| Editor               | Oferta         |  Sku               | Versão  |
+| Publicador               | Oferta         |  Sku               | Versão  |
 |-------------------------|---------------|--------------------|----------|
+| Canônico               | UbuntuServer  | 16.04-LTS          | mais recente   |
 | MicrosoftWindowsServer  | WindowsServer | 2012-R2-Datacenter | mais recente   |
 | MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter    | mais recente   |
-| Canônico               | UbuntuServer  | 16.04-LTS          | mais recente   |
+| MicrosoftWindowsServer  | WindowsServer | 2016-Datacenter-Smalldisk | mais recente   |
+
 
 
 ## <a name="application-health"></a>Integridade do aplicativo
@@ -90,6 +92,15 @@ Um conjunto de dimensionamento pode opcionalmente ser configurado com Investiga�
 
 Se o conjunto de dimensionamento estiver configurado para usar vários grupos de posicionamento, as investigações que usarem o [Load Balancer Standard](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview) precisarão ser usadas.
 
+### <a name="important-keep-credentials-up-to-date"></a>Importante: Mantenha as credenciais atualizadas
+Se o seu conjunto de escala usar quaisquer credenciais para acessar recursos externos, por exemplo, se uma extensão de VM for configurada, uma que use um token SAS para a conta de armazenamento, você precisará se certificar que as credenciais sejam mantidas atualizadas. Se quaisquer credenciais, incluindo certificados e tokens, tiveram expirado, a atualização falhará e o primeiro lote de VMs será deixado em estado de falha.
+
+As etapas recomendadas para recuperar as VMs e habilitar novamente a atualização automática do sistema operacional, se houver uma falha de autenticação do recurso, são as seguintes:
+
+* Gerar novamente o token (ou qualquer outra credencial) passado para suas extensões.
+* Certificar-se de que qualquer credencial usada de dentro da VM para se comunicar com entidades externas esteja atualizada.
+* Atualizar extensões no modelo do conjunto de escala com quaisquer tokens novos.
+* Implantar o conjunto de escala atualizado, que atualizará todas as instâncias de VM, incluindo aquelas com falha. 
 
 ### <a name="configuring-a-custom-load-balancer-probe-as-application-health-probe-on-a-scale-set"></a>Configurando uma Investigação personalizada do Load Balancer como uma investigação de integridade do aplicativo em um conjunto de dimensionamento
 Como uma melhor prática, crie uma investigação do balanceador de carga explicitamente para a integridade do conjunto de dimensionamento. Poderá ser usado o mesmo ponto de extremidade para uma investigação HTTP ou TCP existente, mas uma investigação de integridade pode exigir um comportamento diferente de uma investigação tradicional do balanceador de carga. Por exemplo, uma investigação tradicional do balanceador de carga poderá ser retornada não íntegra se a carga na instância for alta demais, enquanto que isso pode não ser adequado para determinar a integridade da instância durante uma atualização automática do sistema operacional. Configure a investigação para que ela tenha uma alta taxa de sondagem de menos de 2 minutos.
@@ -141,7 +152,7 @@ Update-AzureRmVmss -ResourceGroupName $rgname -VMScaleSetName $vmssname -Virtual
 
 O exemplo a seguir usa a CLI do Azure (2.0.20 ou posterior) para configurar atualizações automáticas para o conjunto de dimensionamento denominado *myVMSS* no grupo de recursos denominado *myResourceGroup*:
 
-```azure-cli
+```azurecli
 rgname="myResourceGroup"
 vmssname="myVMSS"
 az vmss update --name $vmssname --resource-group $rgname --set upgradePolicy.AutomaticOSUpgrade=true
@@ -161,7 +172,7 @@ Get-AzureRmVmssRollingUpgrade -ResourceGroupName myResourceGroup -VMScaleSetName
 ### <a name="azure-cli-20"></a>CLI do Azure 2.0
 O exemplo a seguir usa a CLI do Azure (2.0.20 ou posterior) para verificar o status do conjunto de dimensionamento denominado *myVMSS* no grupo de recursos denominado *myResourceGroup*:
 
-```azure-cli
+```azurecli
 az vmss rolling-upgrade get-latest --resource-group myResourceGroup --name myVMSS
 ```
 

@@ -6,16 +6,16 @@ keywords:
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 11/16/2017
+ms.date: 01/11/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: bfa6652eac34f88baf09f55353cf58227a20e4cf
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 440b70f4d04728973d77e54e7f6303e1ad7fcd89
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="quickstart-deploy-your-first-iot-edge-module-from-the-azure-portal-to-a-linux-device---preview"></a>Início rápido: implantar seu primeiro módulo IoT Edge do Portal do Azure para um dispositivo Linux – versão prévia
+# <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-or-mac-device---preview"></a>Início rápido: implantar seu primeiro módulo IoT Edge em um dispositivo Linux ou Mac – versão prévia
 
 O Azure IoT Edge leva o poder da nuvem para seus dispositivos Internet das Coisas. Neste tópico, aprenda a usar a interface de nuvem do Azure IoT Edge para implantar remotamente um código pré-compilado em um dispositivo IoT Edge.
 
@@ -23,10 +23,14 @@ Se você não tiver uma assinatura do Azure ativa, crie uma [conta gratuita][lnk
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Para realizar esta tarefa, use seu computador ou uma máquina virtual para simular um dispositivo de Internet das Coisas. Os serviços a seguir são necessários para implantar com êxito um dispositivo IoT Edge:
+Este guia de início rápido usa seu computador ou máquina virtual como um dispositivo de Internet das Coisas. Para transformar seu computador em um dispositivo IoT Edge, os serviços a seguir são necessários:
 
-- [Instale o Docker no Linux][lnk-docker-ubuntu] e verifique se ele está em execução. 
-- A maioria das distribuições Linux, incluindo o Ubuntu, já tem o Python 2.7 instalado. Use o seguinte comando para verificar se o pip está instalado: `sudo apt-get install python-pip`.
+* Python Pip, para instalar o tempo de execução do IoT Edge.
+   * Linux: `sudo apt-get install python-pip`.
+   * MacOS: `sudo easy_install pip`.
+* Docker, para executar os módulos de IoT Edge
+   * [Instale o Docker para Linux][lnk-docker-ubuntu] e verifique se ele está em execução. 
+   * [Instale o Docker para Mac][lnk-docker-mac] e verifique se ele está em execução. 
 
 ## <a name="create-an-iot-hub-with-azure-cli"></a>Criar um hub IoT usando a CLI do Azure
 
@@ -85,7 +89,7 @@ Verifique o Docker para ver se o agente IoT Edge está sendo executado como um m
 sudo docker ps
 ```
 
-![Conferir o edgeAgent no Docker](./media/tutorial-simulate-device-linux/docker-ps.png)
+![Confira o agente Edge no Docker](./media/tutorial-simulate-device-linux/docker-ps.png)
 
 ## <a name="deploy-a-module"></a>Implantar um módulo
 
@@ -135,6 +139,7 @@ Você sabe como implantar um módulo IoT Edge a um dispositivo IoT Edge. Agora t
 
 <!-- Links -->
 [lnk-docker-ubuntu]: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/ 
+[lnk-docker-mac]: https://docs.docker.com/docker-for-mac/install/
 [lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
 [lnk-account]: https://azure.microsoft.com/free
 [lnk-portal]: https://portal.azure.com

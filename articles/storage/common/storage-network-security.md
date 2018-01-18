@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: storage
 ms.date: 10/25/2017
 ms.author: cbrooks
-ms.openlocfilehash: 2ea1c217031761e93d393aefa07eedd03f88d9b0
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9b00faa06684be353cfcf5f67f182a56511210c5
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks-preview"></a>Configurar redes virtuais e firewalls de armazenamento do Azure (versão prévia)
 O Armazenamento do Azure fornece um modelo de segurança em camadas, permitindo que você proteja suas contas de armazenamento para um conjunto específico de redes permitidas.  Quando as regras de rede são configuradas, somente aplicativos das redes permitidas podem acessar uma conta de armazenamento.  Ao chamar de uma rede permitida, os aplicativos continuam a exigir a autorização apropriada (uma chave de acesso ou token SAS válido) para acessar a conta de armazenamento.
@@ -39,6 +39,10 @@ As regras de rede podem ser aplicadas a contas de armazenamento existentes ou du
 Depois que as regras de rede são aplicadas, elas são impostas para todas as solicitações.  Os tokens SAS que concedem acesso a um serviço de endereço IP específico servem para **limitar** o acesso do proprietário do token, mas eles não concedem um novo acesso além das regras de rede configuradas. 
 
 O tráfego de disco da máquina virtual (incluindo as operações de montagem e desmontagem e E/S de disco) **não** é afetado pelas regras de rede.  O acesso REST a blobs de página é protegido pelas regras de rede.
+
+> [!NOTE]
+> Não há suporte atualmente para backup e restauração de máquinas virtuais usando discos não gerenciados em contas de armazenamento com as regras de rede aplicadas.  Para mais informações, consulte [Limitações ao fazer backup e restaurar uma VM](/azure/backup/backup-azure-arm-vms-prepare#limitations-when-backing-up-and-restoring-a-vm)
+>
 
 As contas de armazenamento clássicas **não** dão suporte a firewalls e redes virtuais.
 
@@ -291,14 +295,13 @@ Para permitir que esse tipo de serviço funcione como esperado, você pode permi
 
 Quando a exceção "Serviços Microsoft Confiáveis" estiver habilitada, os seguintes serviços (quando registrados em sua assinatura) terão o acesso à conta de armazenamento concedido:
 
-|O Barramento de|Nome do provedor de recursos|Finalidade|
+|Serviço|Nome do provedor de recursos|Finalidade|
 |:------|:---------------------|:------|
 |Azure DevTest Labs|Microsoft.DevTestLab|Criação de imagem personalizada e instalação de artefato.  [Saiba mais](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-overview).|
 |Grade de Eventos do Azure|Microsoft.EventGrid|Habilitar a publicação de eventos do Armazenamento de Blobs.  [Saiba mais](https://docs.microsoft.com/azure/event-grid/overview).|
 |Hubs de eventos do Azure|Microsoft.EventHub|Arquivar dados com a Captura de Hubs de Evento.  [Saiba mais](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview).|
 |Azure HDInsight|Microsoft.HDInsight|Provisionamento e instalação de cluster.  [Saiba mais](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-blob-storage).|
 |Rede do Azure|Microsoft.Networking|Armazenar e analisar os logs de tráfego de rede.  [Saiba mais](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-overview).|
-|Serviço de Backup do Azure|Microsoft.RecoveryServices|Backup e restauração de discos não gerenciados.  [Saiba mais](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup).|
 ||||
 
 ### <a name="storage-analytics-data-access"></a>Acesso a dados de análise de armazenamento

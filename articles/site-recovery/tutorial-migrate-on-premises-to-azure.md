@@ -2,66 +2,70 @@
 title: "Migrar máquinas locais para o Azure com o Azure Site Recovery | Microsoft Docs"
 description: "Este artigo descreve como migrar máquinas locais para o Azure, usando o Azure Site Recovery."
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: jwhit
-editor: 
-ms.assetid: ddb412fd-32a8-4afa-9e39-738b11b91118
 ms.service: site-recovery
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 11/01/2017
+ms.topic: tutorial
+ms.date: 01/07/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: cfd44f7f06faa7d1d00efa9427dbf5d1d0a89ef1
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: ee9397406cbca21d8bd53019d9daac5a037f508c
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migrar máquinas locais para o Azure
 
-O serviço [Azure Site Recovery](site-recovery-overview.md) gerencia e orquestra a replicação, o failover e o failback de máquinas locais e de VMs (máquinas virtuais) do Azure.
+Além de usar o serviço [Azure Site Recovery](site-recovery-overview.md) para gerenciar e coordenar a recuperação de desastres de máquinas locais e VMs do Azure para fins de continuidade de negócios e recuperação de desastres (BCDR), você também pode usar o Site Recovery para gerenciar a migração de computadores locais para o Azure.
 
-Este tutorial mostra como migrar VMs locais e servidores físicos para o Azure, com o Site Recovery. Neste tutorial, você aprenderá como:
+
+Este tutorial mostra como migrar VMs locais e servidores físicos para o Azure. Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
-> * Configurar pré-requisitos para a implantação
-> * Criar um cofre de Serviços de Recuperação para o Site Recovery
-> * Implantar servidores de gerenciamento locais
-> * Configurar uma política de replicação e habilitar a replicação
-> * Executar uma simulação de recuperação de desastre para verificar se tudo está funcionando
+> * Selecione uma meta de replicação
+> * Configure o ambiente de origem e de destino
+> * Configurar uma política de replicação
+> * Habilitar a replicação
+> * Execute uma migração de teste para verificar se tudo está funcionando como esperado
 > * Executar um failover avulso para o Azure
 
-## <a name="overview"></a>Visão geral
+Este é o terceiro tutorial de uma série. Este tutorial presume que você já tenha concluído as tarefas nos tutoriais anteriores:
 
-Migre um computador habilitando a replicação para ela e executando seu failover para o Azure.
+1. [Preparar o Azure](tutorial-prepare-azure.md)
+2. Preparar servidores [VMware](tutorial-prepare-on-premises-vmware.md) ou Hyper-V locais.
+
+Antes de começar, é aconselhável examinar as arquiteturas do [VMware](concepts-vmware-to-azure-architecture.md) ou [Hyper-V](concepts-hyper-v-to-azure-architecture.md) quanto à recuperação de desastre.
 
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
-Aqui está o que você precisa fazer para este tutorial.
-
-- [Preparar](tutorial-prepare-azure.md) recursos do Azure, incluindo uma assinatura do Azure, uma rede virtual do Azure e uma conta de armazenamento.
-- [Preparar](tutorial-prepare-on-premises-vmware.md) os servidores e as VMs VMware locais.
-- Observe que não há suporte para dispositivos exportados por drivers paravirtualizados.
+Não há suporte para dispositivos exportados por drivers paravirtualizados.
 
 
 ## <a name="create-a-recovery-services-vault"></a>Criar um cofre dos Serviços de Recuperação
 
-[!INCLUDE [site-recovery-create-vault](../../includes/site-recovery-create-vault.md)]
+1. Entre no [portal do Azure](https://portal.azure.com) > **Serviços de Recuperação**.
+2. Clique em **Novo** > **Monitoramento e Gerenciamento** > **Backup e Site Recovery**.
+3. Em **Nome**, especifique o nome amigável **ContosoVMVault**. Se você tiver mais de uma assinatura, selecione uma delas.
+4. Crie um grupo de recursos **ContosoRG**.
+5. Especifique uma região do Azure. Para verificar as regiões com suporte, confira a disponibilidade geográfica nos [Detalhes dos Preços de Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
+6. Para acessar rapidamente o cofre no painel, clique em **Fixar no painel** e em **Criar**.
 
-## <a name="select-a-protection-goal"></a>Selecionar uma meta de proteção
+   ![Novo cofre](./media/tutorial-migrate-on-premises-to-azure/onprem-to-azure-vault.png)
+
+O novo cofre é adicionado ao **Painel** em **Todos os recursos** e na página principal **Cofres dos Serviços de Recuperação**.
+
+
+
+## <a name="select-a-replication-goal"></a>Selecione uma meta de replicação
 
 Selecione o que você deseja replicar e para onde deseja replicar.
 1. Clique em **Cofres dos Serviços de Recuperação** > cofre.
 2. No Menu Recursos, clique em **Site Recovery** > **Preparar Infraestrutura** > **Meta de proteção**.
-3. Em **Meta de proteção**, selecione:
+3. Em **Objetivo de proteção**, selecione o que você deseja migrar.
     - **VMware**: selecione **Para o Azure** > **Sim, com o VMWare vSphere Hypervisor**.
     - **Computador físico**: selecione **Para o Azure** > **Não virtualizados/outros**.
-    - **Hyper-V**: selecione **Para o Azure** > **Sim, com o Hyper-V**.
+    - **Hyper-V**: selecione **Para o Azure** > **Sim, com o Hyper-V**. Se as VMs do Hyper-V são gerenciadas pelo VMM, selecione **Sim**.
 
 
 ## <a name="set-up-the-source-environment"></a>Configurar o ambiente de origem
@@ -75,17 +79,21 @@ Selecione o que você deseja replicar e para onde deseja replicar.
 Selecione e verifique os recursos de destino.
 
 1. Clique em **Preparar infraestrutura** > **Destino** e selecione a assinatura do Azure que você deseja usar.
-2. Especifique o modelo de implantação de destino.
+2. Especifique o modelo de implantação do Gerenciador de Recursos.
 3. A Recuperação de Site verifica se você tem uma ou mais contas de armazenamento e redes do Azure compatíveis.
 
-## <a name="create-a-replication-policy"></a>Criar uma política de replicação
+## <a name="set-up-a-replication-policy"></a>Configurar uma política de replicação
 
 - [Configure uma política de replicação](tutorial-vmware-to-azure.md#create-a-replication-policy) para VMs VMware.
+- [Configure uma política de replicação](tutorial-physical-to-azure.md#create-a-replication-policy) para servidores físicos.
+- [Configure uma política de replicação](tutorial-hyper-v-to-azure.md#set-up-a-replication-policy) para VMs do Hyper-V.
 
 
 ## <a name="enable-replication"></a>Habilitar a replicação
 
 - [Habilite a replicação](tutorial-vmware-to-azure.md#enable-replication) para VMs VMware.
+- [Habilite a replicação](tutorial-physical-to-azure.md#enable-replication) para servidores físicos.
+- [Habilite a replicação](tutorial-hyper-v-to-azure.md#enable-replication) para VMs Hyper-V.
 
 
 ## <a name="run-a-test-migration"></a>Execute um teste de migração
@@ -100,7 +108,7 @@ Execute um failover para as máquinas que você deseja migrar.
 1. Em **Configurações** > **Itens replicados** clique no computador > **Failover**.
 2. Em **Failover**, selecione um **Ponto de Recuperação** para executar o failover. Selecione o ponto de recuperação mais recente.
 3. A configuração de chave de criptografia não é relevante para esse cenário.
-4. Selecione **Desligue o computador antes do início do failover** se quiser que o Site Recovery tente realizar um desligamento das máquinas virtuais de origem antes de disparar o failover. O failover continuará mesmo o desligamento falhar. Você pode acompanhar o progresso do failover na página **Trabalhos** .
+4. Selecione **Desligar o computador antes do início do failover**. O Site Recovery tentará fazer um desligamento das máquinas virtuais de origem antes de disparar o failover. O failover continuará mesmo o desligamento falhar. Você pode acompanhar o progresso do failover na página **Trabalhos** .
 5. Verifique se a VM do Azure aparece no Azure, conforme o esperado.
 6. Em **Itens replicados**, clique com o botão direito do mouse em VM > **Concluir Migração**. Isso conclui o processo de migração, interrompe a replicação da VM e interrompe a cobrança do Site Recovery para a VM.
 
@@ -108,12 +116,14 @@ Execute um failover para as máquinas que você deseja migrar.
 
 
 > [!WARNING]
-> **Não cancelar um failover em andamento**: antes de iniciar o failover, a replicação da VM é interrompida. Se você cancelar um failover em andamento, o failover será interrompido, mas a VM não será replicada novamente.
+> **Não cancelar um failover em andamento**: a replicação da VM é interrompida antes do início do failover. Se você cancelar um failover em andamento, o failover será interrompido, mas a VM não será replicada novamente.
 
 Em alguns cenários, o failover requer um processamento adicional que leva cerca de oito a dez minutos para ser concluído. É possível observar um tempo de failover de teste mais longo para servidores físicos, máquinas VMware Linux, VMs VMware que não têm o serviço DHCP habilitado e VMs VMware que não têm os seguintes drivers de inicialização: storvsc, vmbus, storflt, intelide, atapi.
 
 
 ## <a name="next-steps"></a>Próximas etapas
 
+Neste tutorial, você migrou máquinas virtuais locais para máquinas virtuais do Azure. Agora é possível configurar a recuperação de desastres para VMs do Azure.
+
 > [!div class="nextstepaction"]
-> [Replicando VMs do Azure para outra região após a migração para o Azure](site-recovery-azure-to-azure-after-migration.md)
+> [Configurar a recuperação de desastres](site-recovery-azure-to-azure-after-migration.md) para VMs do Azure após a migração de um site local.

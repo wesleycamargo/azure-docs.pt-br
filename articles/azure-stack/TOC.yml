@@ -233,9 +233,9 @@
               href: azure-stack-supported-os.md
             - name: Adicionar uma imagem de máquina virtual personalizada
               href: azure-stack-add-vm-image.md
-            - name: Adicionar conjuntos de dimensionamento de máquinas virtuais
+            - name: Oferece um conjunto de escala de máquinas virtuais
               href: azure-stack-compute-add-scalesets.md
-            - name: Implantar máquinas virtuais do Linux
+            - name: Oferecer máquinas virtuais do Linux
               href: azure-stack-linux.md
         - name: Uso e cobrança
           items:

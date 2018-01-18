@@ -11,13 +11,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/24/2017
+ms.date: 01/05/2018
 ms.author: jingwang
-ms.openlocfilehash: d5bad9a3be9c3165e5d26001353b8955ff81a764
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: 7cd86922b0445fc81766ca54080e2fd3e64a6c61
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="copy-data-fromto-salesforce-using-azure-data-factory"></a>Copiar dados de/para Salesforce usando o Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -52,7 +52,8 @@ O Salesforce tem limites para o total de solicitações de API e as solicitaçõ
 Você também pode receber o erro "REQUEST_LIMIT_EXCEEDED" em ambos os cenários. Veja a seção "Limites de Solicitações da API" no artigo [Salesforce Developer Limits](http://resources.docs.salesforce.com/200/20/en-us/sfdc/pdf/salesforce_app_limits_cheatsheet.pdf) (Limites do Desenvolvedor Salesforce) para obter detalhes.
 
 ## <a name="getting-started"></a>Introdução
-Você pode criar um pipeline com atividade de cópia usando o SDK do .NET, o SDK do Python, o Azure PowerShell, a API REST ou o modelo do Azure Resource Manager. Confira o [Tutorial de atividade de cópia](quickstart-create-data-factory-dot-net.md) para obter instruções passo a passo sobre a criação de um pipeline com uma atividade de cópia.
+
+[!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
 As seções que se seguem fornecem detalhes sobre as propriedades que são usadas para definir entidades do Data Factory específicas ao conector do Salesforce.
 
@@ -60,17 +61,17 @@ As seções que se seguem fornecem detalhes sobre as propriedades que são usada
 
 As propriedades a seguir têm suporte para o serviço vinculado do Salesforce:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type |A propriedade type deve ser definida para: **Salesforce**. |Sim |
-| environmentUrl | Especifica a URL da instância do Salesforce. <br> – O padrão é `"https://login.salesforce.com"`. <br> – Para copiar dados da área restrita, especifique `"https://test.salesforce.com"`. <br> – Para copiar dados do domínio personalizado, especifique, por exemplo, `"https://[domain].my.salesforce.com"`. |Não |
+| Tipo |A propriedade type deve ser definida para: **Salesforce**. |Sim |
+| environmentUrl | Especifica a URL da instância do Salesforce. <br> – O padrão é `"https://login.salesforce.com"`. <br> – Para copiar dados da área restrita, especifique `"https://test.salesforce.com"`. <br> – Para copiar dados do domínio personalizado, especifique, por exemplo, `"https://[domain].my.salesforce.com"`. |Não  |
 | Nome de Usuário |Especifique um nome de usuário para a conta de usuário. |Sim |
 | Senha |Especifique um senha para a conta de usuário.<br/><br/>Você pode optar por marcar este campo como um SecureString para armazená-lo com segurança no ADF, ou armazenar a senha no Azure Key Vault e permitir que o pull de atividade de cópia possa agir a partir daí ao executar a cópia de dados - Saiba mais em [Armazenar Credenciais no Key Vault](store-credentials-in-key-vault.md). |Sim |
 | securityToken |Especifique um token de segurança para a conta de usuário. Veja [Obter token de segurança](https://help.salesforce.com/apex/HTViewHelpDoc?id=user_security_token.htm) para ver instruções sobre como redefinir/obter o token de segurança. Para saber mais sobre os tokens de segurança em geral, veja [Security and the API](https://developer.salesforce.com/docs/atlas.en-us.api.meta/api/sforce_api_concepts_security.htm) (Segurança e a API).<br/><br/>Você pode optar por marcar este campo como um SecureString para armazená-lo com segurança no ADF, ou armazenar o token de segurança no Azure Key Vault e permitir que o pull de atividade de cópia possa agir a partir daí ao executar a cópia de dados - Saiba mais em [Armazenar Credenciais no Key Vault](store-credentials-in-key-vault.md). |Sim |
-| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Se não for especificado, ele usa o Integration Runtime padrão do Azure. | Não para fonte, Sim para o coletor |
+| connectVia | O [Integration Runtime](concepts-integration-runtime.md) a ser usado para se conectar ao armazenamento de dados. Se não for especificado, ele usa o Integration Runtime padrão do Azure. | Não para a origem, Sim para o coletor se o serviço vinculado à fonte não possuir IR |
 
 >[!IMPORTANT]
->Para copiar dados em Salesforce, explicitamente [Crie um IR Azure](create-azure-integration-runtime.md#create-azure-ir) com um local perto de seu Salesforce e associe no serviço vinculado como o exemplo a seguir.
+>Ao copiar dados **para o** Salesforce, o Microsoft Integration Runtime não poderá ser usado para executar a cópia. Em outras palavras, se seu serviço vinculado à fonte não tiver um IR especificado, explicitamente [crie um IR do Azure](create-azure-integration-runtime.md#create-azure-ir) com um local perto de seu Salesforce e associe no serviço vinculado do Salesforce como o exemplo a seguir.
 
 **Exemplo: armazenar credenciais no ADF**
 
@@ -138,9 +139,9 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados do Salesforce, defina a propriedade tipo do conjunto de dados como **SalesforceObject**. Há suporte para as seguintes propriedades:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade tipo deve ser definida para: **SalesforceObject**  | Sim |
+| Tipo | A propriedade tipo deve ser definida para: **SalesforceObject**  | Sim |
 | objectApiName | O nome do objeto de Salesforce para recuperar dados. | Não para fonte, Sim para o coletor |
 
 > [!IMPORTANT]
@@ -169,9 +170,9 @@ Para copiar dados do Salesforce, defina a propriedade tipo do conjunto de dados 
 >[!NOTE]
 >Para retrocompatibilidade, ao copiar dados de Salesforce, usar o conjunto de dados de tipo "RelationalTable" anterior continuará funcionando, enquanto são sugeridas para alternar para o novo tipo de "SalesforceObject".
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type do conjunto de dados deve ser definida como: **RelationalTable** | Sim |
+| Tipo | A propriedade type do conjunto de dados deve ser definida como: **RelationalTable** | Sim |
 | tableName | Nome da tabela no Salesforce. | Não (se "query" na fonte da atividade for especificada) |
 
 ## <a name="copy-activity-properties"></a>Propriedades da atividade de cópia
@@ -182,9 +183,9 @@ Para obter uma lista completa das seções e propriedades disponíveis para defi
 
 Para copiar dados do Salesforce, defina o tipo de origem na atividade de cópia como **SalesforceSource**. As propriedades a seguir têm suporte na seção **source** da atividade de cópia:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade tipo da fonte da atividade de cópia deve ser definida como: **SalesforceSource** | Sim |
+| Tipo | A propriedade tipo da fonte da atividade de cópia deve ser definida como: **SalesforceSource** | Sim |
 | query |Utiliza a consulta personalizada para ler os dados. Você pode usar uma consulta SQL-92 ou uma consulta [SOQL (Salesforce Object Query Language)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm). Por exemplo: `select * from MyTable__c`. | Não (se a "tableName" no conjunto de dados for especificada) |
 
 > [!IMPORTANT]
@@ -231,9 +232,9 @@ Para copiar dados do Salesforce, defina o tipo de origem na atividade de cópia 
 
 Para copiar dados do Salesforce, defina o tipo de coletor na atividade de cópia como **SalesforceSink**. As propriedades a seguir têm suporte na seção **sink** da atividade de cópia:
 
-| Propriedade | Descrição | Obrigatório |
+| Propriedade | DESCRIÇÃO | Obrigatório |
 |:--- |:--- |:--- |
-| type | A propriedade type do coletor da atividade de cópia deve ser definida como: **SalesforceSink** | Sim |
+| Tipo | A propriedade type do coletor da atividade de cópia deve ser definida como: **SalesforceSink** | Sim |
 | writeBehavior | O comportamento da operação de gravação.<br/>Valores permitidos são: **inserir**, e **Upsert**. | Não (o padrão é Insert) |
 | externalIdFieldName | O nome do campo de ID externo para operação upsert. O campo especificado deve ser definido como "Campo de Id externa" no objeto de Salesforce, e ele não pode ter valores nulos nos dados de entrada correspondentes. | Sim para "Upsert" |
 | writeBatchSize | A contagem de linhas de dados gravados no Salesforce em cada lote. | Não (o padrão é 5000) |
@@ -289,7 +290,7 @@ Para consultar os registros excluídos pelo software da lixeira do Salesforce, v
 
 ### <a name="retrieving-data-using-where-clause-on-datetime-column"></a>Recuperando dados usando a cláusula where na coluna DateTime
 
-Ao especificar a consulta SQL ou SOQL, preste atenção à diferença de formato DateTime. Por exemplo:
+Ao especificar a consulta SQL ou SOQL, preste atenção à diferença de formato DateTime. Por exemplo: 
 
 * **Exemplo de SOQL**:`SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= @{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-ddTHH:mm:ssZ')} AND LastModifiedDate < @{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-ddTHH:mm:ssZ')}`
 * **Exemplo de SQL**: `SELECT * FROM Account WHERE LastModifiedDate >= {ts'@{formatDateTime(pipeline().parameters.StartTime,'yyyy-MM-dd HH:mm:ss')}'} AND LastModifiedDate < {ts'@{formatDateTime(pipeline().parameters.EndTime,'yyyy-MM-dd HH:mm:ss')}'}"`
@@ -301,10 +302,10 @@ Ao copiar dados do Salesforce, os seguintes mapeamentos são usados de tipos de 
 | Tipo de dados do Salesforce | Tipo de dados provisório do Data Factory |
 |:--- |:--- |
 | Numeração automática |Cadeia de caracteres |
-| Caixa de seleção |Booliano |
+| Caixa de seleção |BOOLEAN |
 | Moeda |Duplo |
-| Data |DateTime |
-| Data/hora |DateTime |
+| Data |Datetime |
+| Data/hora |Datetime |
 | Email |Cadeia de caracteres |
 | ID |Cadeia de caracteres |
 | Relação de pesquisa |Cadeia de caracteres |

@@ -12,23 +12,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2017
+ms.date: 01/11/2018
 ms.author: tomfitz
-ms.openlocfilehash: 78e5749369de1dd9865f61baefd70e6ce4bde31d
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 7f88cd2a9e23ec1b142fc754ada49a8562e774bc
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/12/2018
 ---
-# <a name="using-linked-templates-when-deploying-azure-resources"></a>Usando modelos vinculados ao implantar os recursos do Azure
+# <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Usando modelos vinculados e aninhados ao implantar os recursos do Azure
 
-Para implantar sua solução, você pode usar um único modelo, ou um modelo principal com vários modelos vinculados. Para pequenas e médias soluções, um único modelo é mais fácil de entender e manter. É possível ver todos os recursos e valores em um único arquivo. Para cenários avançados, modelos vinculados permitem dividir a solução em componentes desejados e reutilizar modelos.
+Para implantar sua solução, você pode usar um único modelo, ou um modelo principal com vários modelos relacionados. O modelo relacionado pode ser um arquivo separado que é vinculado a partir do modelo principal ou um modelo que está aninhado dentro do modelo principal.
+
+Para pequenas e médias soluções, um único modelo é mais fácil de entender e manter. É possível ver todos os recursos e valores em um único arquivo. Para cenários avançados, modelos vinculados permitem dividir a solução em componentes desejados e reutilizar modelos.
 
 Ao usar o modelo vinculado, você criar um modelo principal que recebe os valores do parâmetro durante a implantação. O modelo principal contém todos os modelos vinculados e passa valores para esses modelos, conforme necessário.
 
 ![modelos vinculados](./media/resource-group-linked-templates/nestedTemplateDesign.png)
 
-## <a name="link-to-a-template"></a>Vincular a um modelo
+## <a name="link-or-nest-a-template"></a>Vincular ou aninhar um modelo
 
 Para vincular a outro modelo, adicione um recurso de **implantações** no seu modelo principal.
 
@@ -40,17 +42,17 @@ Para vincular a outro modelo, adicione um recurso de **implantações** no seu m
       "type": "Microsoft.Resources/deployments",
       "properties": {
           "mode": "Incremental",
-          <inline-template-or-external-template>
+          <nested-template-or-external-template>
       }
   }
 ]
 ```
 
-As propriedades que você fornece para o recurso de implantação variam com base em se você está vinculando a um modelo externo ou inserindo um modelo embutido no modelo principal.
+As propriedades que você fornece para o recurso de implantação variam com base em se você está vinculando a um modelo externo ou inserindo um modelo aninhado no modelo principal.
 
-### <a name="inline-template"></a>Modelo embutido
+### <a name="nested-template"></a>Modelo aninhado
 
-Para inserir o modelo vinculado, use a propriedade **template** e inclua o modelo.
+Para aninhar o modelo no modelo principal, use a propriedade **modelo** e especifique a sintaxe do modelo.
 
 ```json
 "resources": [
@@ -63,8 +65,6 @@ Para inserir o modelo vinculado, use a propriedade **template** e inclua o model
       "template": {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
         "contentVersion": "1.0.0.0",
-        "parameters": {},
-        "variables": {},
         "resources": [
           {
             "type": "Microsoft.Storage/storageAccounts",
@@ -76,12 +76,13 @@ Para inserir o modelo vinculado, use a propriedade **template** e inclua o model
             }
           }
         ]
-      },
-      "parameters": {}
+      }
     }
   }
 ]
 ```
+
+Para modelos aninhados, você não pode usar parâmetros ou variáveis que são definidas no modelo aninhado. Você pode usar parâmetros e variáveis do modelo principal. No exemplo anterior, `[variables('storageName')]` recupera um valor de modelo principal, não o modelo aninhado. Essa restrição não se aplica a modelos externos.
 
 ### <a name="external-template-and-external-parameters"></a>Modelo externo e parâmetros externos
 
@@ -176,7 +177,7 @@ Os exemplos a seguir demonstram como fazer referência a um modelo vinculado e r
 }
 ```
 
-O modelo pai implanta o modelo vinculado e obtém o valor retornado. Observe que ele faz referência aos recursos de implantação por nome, e ele usa o nome da propriedade retornada pelo modelo vinculado.
+O modelo principal implanta o modelo vinculado e obtém o valor retornado. Observe que ele faz referência aos recursos de implantação por nome, e ele usa o nome da propriedade retornada pelo modelo vinculado.
 
 ```json
 {
@@ -309,9 +310,9 @@ Para usar o endereço IP público do modelo anterior ao implantar um balanceador
 }
 ```
 
-## <a name="linked-templates-in-deployment-history"></a>Modelos vinculados no histórico de implantação
+## <a name="linked-and-nested-templates-in-deployment-history"></a>Modelos vinculados e aninhados no histórico de implantação
 
-O Gerenciador de Recursos trata cada modelo vinculado como uma implantação separada no histórico de implantações. Portanto, o modelo pai com três modelos vinculados aparece no histórico de implantação, como:
+O Gerenciador de Recursos trata cada modelo como uma implantação separada no histórico de implantações. Portanto, o modelo principal com três modelos vinculados ou aninhados aparece no histórico de implantação, como:
 
 ![Histórico de implantações](./media/resource-group-linked-templates/deployment-history.png)
 
@@ -480,7 +481,7 @@ az group deployment create --resource-group ExampleGroup --template-uri $url?$to
 
 Os exemplos a seguir mostram os usos comuns dos modelos vinculados.
 
-|Modelo principal  |Modelo vinculado |Descrição  |
+|Modelo principal  |Modelo vinculado |DESCRIÇÃO  |
 |---------|---------| ---------|
 |[Olá mundo](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[modelo vinculado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | Retorna a cadeia de caracteres do modelo vinculado. |
 |[Azure Load Balancer com o endereço IP público](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[modelo vinculado](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |Retorna o endereço IP público do modelo vinculado e define esse valor no balanceador de carga. |

@@ -83,7 +83,7 @@
       items:
         - name: Preparar a VM
           items:
-            - name: Preparar as máquinas virtuais implantadas pelo Resource Manager
+            - name: Preparar VMs implantadas com o Resource Manager
               href: backup-azure-arm-vms-prepare.md
             - name: Backups consistentes do aplicativo das VMs Linux
               href: backup-azure-linux-app-consistent.md
@@ -93,23 +93,23 @@
               href: backup-azure-vms-introduction.md
         - name: Fazer backup de VMs
           items:
-            - name: Fazer backup de máquinas virtuais do Azure em um cofre dos Serviços de Recuperação
+            - name: Fazer backup de máquinas virtuais do Azure para um cofre dos Serviços de Recuperação
               href: backup-azure-arm-vms.md
-            - name: Fazer backup de máquinas virtuais criptografadas
+            - name: Fazer backup de VMs criptografadas
               href: backup-azure-vms-encryption.md
         - name: Gerenciar e monitorar VMs
           items:
             - name: Gerenciar backups de VM do Azure no Portal do Azure
               href: backup-azure-manage-vms.md
-            - name: Monitorar alertas de backups de VM do Azure no Portal do Azure
+            - name: Monitorar alertas de backups de VM do Azure
               href: backup-azure-monitor-vms.md
         - name: Restaurar dados das VMs
           items:
             - name: Recuperar arquivos de backups de VM do Azure
               href: backup-azure-restore-files-from-vm.md
-            - name: Restaurar VMs implantadas com o Resource Manager na Portal do Azure
+            - name: Restaurar VMs no portal do Azure
               href: backup-azure-arm-restore-vms.md
-            - name: Restaurar máquinas virtuais criptografadas
+            - name: Restaurar VMs criptografadas
               href: backup-azure-vms-encryption.md
             - name: Restaurar chave e segredo do Key Vault para VMs criptografadas
               href: backup-azure-restore-key-secret.md
@@ -125,7 +125,7 @@
       items:
         - name: Preparar as cargas de trabalho do DPM no portal do Azure
           href: backup-azure-dpm-introduction.md
-        - name: Usar o DPM do System Center para fazer backup de um servidor do Exchange
+        - name: Usar o DPM para fazer backup do Exchange Server
           href: backup-azure-backup-exchange-server.md
         - name: Recuperar dados em um servidor DPM alternativo
           href: backup-azure-alternate-dpm-server.md
@@ -201,5 +201,5 @@
       href: 'https://azure.microsoft.com/pricing/calculator/'
     - name: Atualizações de serviço
       href: 'https://azure.microsoft.com/updates/?product=backup'
-    - name: Vídeos
+    - name: vídeos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=backup'

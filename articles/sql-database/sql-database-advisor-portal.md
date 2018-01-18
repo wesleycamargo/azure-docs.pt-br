@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: On Demand
 ms.date: 07/05/2017
 ms.author: sstein
-ms.openlocfilehash: 3c621fc557ed466ddf2b514136a32d98be454325
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: 2b725c60dbcb9737b00ffd5fb43273b26dda1ea8
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Localizar e aplicar recomendações de desempenho
 
@@ -31,7 +31,7 @@ Para exibir e aplicar as recomendações de desempenho, você precisa das permis
 
 Use as etapas a seguir para localizar as recomendações de desempenho no Portal do Azure:
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 2. Acesse **Mais serviços** > **Bancos de Dados SQL** e selecione seu banco de dados.
 3. Navegue até **Recomendação de desempenho** para exibir as recomendações disponíveis para o banco de dados selecionado.
 
@@ -41,7 +41,7 @@ As recomendações de desempenho são exibidas na tabela semelhante à exibida n
 
 As recomendações são classificadas de acordo com seu impacto em potencial no desempenho nas seguintes categorias:
 
-| Impacto | Descrição |
+| Impacto | DESCRIÇÃO |
 |:--- |:--- |
 | Alto |Recomendações de alto impacto devem fornecer o impacto mais significativo no desempenho. |
 | Média |Recomendações de médio impacto devem melhorar o desempenho, mas não substancialmente. |
@@ -91,6 +91,10 @@ Se desejar, você poderá adicionar itens descartados de volta para a lista de *
 2. Selecione um item descartado na lista para exibir seus detalhes.
 3. Outra alternativa é clicar em **Desfazer Descarte** para adicionar o índice de volta à lista principal de **Recomendações**.
 
+> [!NOTE]
+> Observe que se o [ajuste automático](sql-database-automatic-tuning.md) do Banco de Dados SQL estiver habilitado, e se você descartou manualmente uma recomendação na lista, essa recomendação nunca será aplicada automaticamente. Descartar uma recomendação é uma maneira útil para que os usuários tenham o ajuste automático habilitado em casos ao exigir que uma recomendação específica não deve ser aplicada.
+> Você pode reverter esse comportamento adicionando recomendações descartadas à lista de recomendações selecionando a opção de Desfazer Descartar.
+> 
 
 ### <a name="enable-automatic-tuning"></a>Habilitar o ajuste automático
 Você pode definir o Banco de Dados SQL do Azure para implementar as recomendações automaticamente. Conforme as recomendações são disponibilizadas, elas são aplicadas automaticamente. Assim como em todas as recomendações gerenciadas pelo serviço, se o impacto ao desempenho for negativo, a recomendação será revertida.
@@ -116,7 +120,7 @@ Recomendações que estão com status **Pendente**, **Verificando** ou **Sucesso
 ## <a name="monitoring-operations"></a>Monitoramento de operações
 A aplicação de uma recomendação pode não acontecer instantaneamente. O portal fornece detalhes sobre o status da recomendação. Um índice pode estar em um dos estados a seguir:
 
-| Status | Descrição |
+| Status | DESCRIÇÃO |
 |:--- |:--- |
 | Pendente |O comando Aplicar recomendação foi recebido e está programado para execução. |
 | Executando |A recomendação está sendo aplicada. |

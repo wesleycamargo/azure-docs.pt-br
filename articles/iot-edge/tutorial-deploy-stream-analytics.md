@@ -9,11 +9,11 @@ ms.author: v-masebo
 ms.date: 11/28/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 5c9231f400b00f455f30692c58f007bd63d3cc76
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f40fb81fc03e796b906db12bf3bf6904b27b46eb
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="deploy-azure-stream-analytics-as-an-iot-edge-module---preview"></a>Implantar o Azure Stream Analytics como um módulo do IoT Edge – versão prévia
 
@@ -153,7 +153,7 @@ Agora você está pronto para implantar o trabalho do Azure Stream Analytics em 
 
     ![Definir módulo][6]
 
-6. Copie o nome que foi gerado automaticamente para o módulo do Azure Stream Analytics. 
+6. Copie o nome do seu módulo do Azure Stream Analytics. 
 
     ![Módulo de temperatura][11]
 

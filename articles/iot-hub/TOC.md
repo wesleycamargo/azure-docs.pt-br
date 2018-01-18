@@ -35,6 +35,7 @@
 ### [Visualização de dados com Aplicativos Web](iot-hub-live-data-visualization-in-web-apps.md)
 ### [Previsão do tempo usando o Azure Machine Learning](iot-hub-weather-forecast-machine-learning.md)
 ### [Gerenciamento de dispositivos com o iothub-explorer](iot-hub-device-management-iothub-explorer.md)
+### [Gerenciamento de dispositivos com a extensão de IoT para a CLI 2.0 do Azure](iot-hub-device-management-iot-extension-azure-cli-2-0.md)
 ### [Monitoramento remoto e notificações com Aplicativos Lógicos](iot-hub-monitoring-notifications-with-azure-logic-apps.md)
 
 # Guias de instruções

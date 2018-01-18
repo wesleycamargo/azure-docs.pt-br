@@ -12,13 +12,13 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 8/9/2017
+ms.date: 1/5/2018
 ms.author: subramar
-ms.openlocfilehash: 1dacbbef915580b0095ef588f3dafad35daf1bde
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: d541e5a1af5e57cd5956a026d7772076509c8514
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="service-fabric-container-networking-modes"></a>Modos de rede de contêiner do Service Fabric
 
@@ -179,10 +179,10 @@ Quando um serviço de contêiner é reiniciado ou movido para outro nó no clust
    |Configuração |Valor | |
    | --- | --- | --- |
    |Prioridade |2000 | |
-   |Nome |Custom_Dns  | |
+   |NOME |Custom_Dns  | |
    |Fonte |VirtualNetwork | |
    |Destino | VirtualNetwork | |
-   |O Barramento de | DNS (UDP/53) | |
+   |Serviço | DNS (UDP/53) | |
    |Ação | PERMITIR  | |
    | | |
 
@@ -220,6 +220,16 @@ Quando um serviço de contêiner é reiniciado ou movido para outro nó no clust
     >[!NOTE]
     >Em clusters do Linux, não há suporte para a combinação de modos de rede para serviços diferentes. 
     >
+
+5. Quando o modo **Abrir** é selecionado, a definição do **ponto de extremidade** no manifesto do serviço deve apontar explicitamente para o pacote de código correspondente ao ponto de extremidade, mesmo se o pacote de serviço tiver somente um pacote de código nele. 
+   
+   ```xml
+   <Resources>
+     <Endpoints>
+       <Endpoint Name="ServiceEndpoint" Protocol="http" Port="80" CodePackageRef="Code"/>
+     </Endpoints>
+   </Resources>
+   ```
 
 ## <a name="next-steps"></a>Próximas etapas
 * [Entender o modelo de aplicativo do Service Fabric](service-fabric-application-model.md)

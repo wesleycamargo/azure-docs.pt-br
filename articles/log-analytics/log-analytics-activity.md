@@ -1,5 +1,5 @@
 ---
-title: Exibir logs de atividades do Azure com o Log Analytics | Microsoft Docs
+title: Coletar e analisar logs de atividades do Azure no Log Analytics | Microsoft Docs
 description: "Você pode usar a solução de Logs de atividade do Azure para analisar e pesquisar o log de atividades do Azure em todas as suas assinaturas do Azure."
 services: log-analytics
 documentationcenter: 
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/07/2017
 ms.author: banders
-ms.openlocfilehash: fa8f51d621bc262ec72ef03929689c4af3c339a6
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: e4f112a221221c7f68cc31c80fb43417bb617632
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/09/2018
 ---
-# <a name="view-azure-activity-logs"></a>Exibir logs de atividade do Azure
+# <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Coletar e analisar os logs de atividades do Azure no Log Analytics
 
 ![Símbolo dos logs de atividades do Azure](./media/log-analytics-activity/activity-log-analytics.png)
 
@@ -50,12 +50,12 @@ Quando você está no tipo de preço Gratuito, os logs de atividade não se apli
 
 Ao contrário da maioria das outras soluções do Log Analytics, dados não são coletados para logs de atividade por agentes. Todos os dados usados pela solução vêm diretamente do Azure.
 
-| Fonte Conectada | Suportado | Descrição |
+| Fonte Conectada | Com suporte | DESCRIÇÃO |
 | --- | --- | --- |
-| [Agentes do Windows](log-analytics-windows-agent.md) | Não | A solução não coleta informações de agentes do Windows. |
-| [Agentes do Linux](log-analytics-linux-agents.md) | Não | A solução não coleta informações de agentes do Linux. |
-| [Grupo de gerenciamento do SCOM](log-analytics-om-agents.md) | Não | A solução não coleta informações de agentes em um grupo de gerenciamento de SCOM conectado. |
-| [Conta de armazenamento do Azure](log-analytics-azure-storage.md) | Não | A solução não coleta informações de armazenamento do Azure. |
+| [Agentes do Windows](log-analytics-windows-agent.md) | Não  | A solução não coleta informações de agentes do Windows. |
+| [Agentes do Linux](log-analytics-linux-agents.md) | Não  | A solução não coleta informações de agentes do Linux. |
+| [Grupo de gerenciamento do SCOM](log-analytics-om-agents.md) | Não  | A solução não coleta informações de agentes em um grupo de gerenciamento de SCOM conectado. |
+| [Conta de armazenamento do Azure](log-analytics-azure-storage.md) | Não  | A solução não coleta informações de armazenamento do Azure. |
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
@@ -88,7 +88,7 @@ Clique no bloco **Logs de Atividade do Azure** para abrir o painel **Logs de Ati
 
 Os dados do log de atividades aparecem apenas *depois* que você os configura para ir para a solução, portanto você não pode ver os dados antes disso.
 
-| Folha | Descrição |
+| Folha | DESCRIÇÃO |
 | --- | --- |
 | Entradas de log de atividades do Azure | Mostra um gráfico de barras na parte superior dos totais de registro da entrada de log de atividades do Azure para o intervalo de datas selecionado e uma lista dos principais 10 chamadores da atividade. Clique no gráfico de barras para executar uma pesquisa de logs para <code>Type=AzureActivity</code>. Clique em um item do chamador para executar uma pesquisa de logs que retorna todas as entradas de log de atividades desse item. |
 | Logs de atividade por status | Mostra um gráfico de rosca do status do log de atividades do Azure para o intervalo de datas que você selecionou. Também mostra uma lista dos dez principais registros de status. Clique no gráfico para executar uma pesquisa de logs para <code>Type=AzureActivity &#124; measure count() by ActivityStatus</code>. Clique em um item do chamador para executar uma pesquisa de logs que retorna todas as entradas de log de atividades desse registro de status. |

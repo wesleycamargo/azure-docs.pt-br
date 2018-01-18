@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/08/2017
 ms.author: wgries
-ms.openlocfilehash: 2ab14183a0ca4ade7873dbdece407937a746b663
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 1619b3c67fb68f05c4af999a38794e4a52c22264
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="addremove-an-azure-file-sync-preview-server-endpoint"></a>Adicionar/remover um ponto de extremidade do servidor da Sincronização de Arquivo do Azure (versão prévia)
 A Sincronização de Arquivos do Azure (versão prévia) permite que você centralize os compartilhamentos de arquivos da sua organização em Arquivos do Azure sem abrir mão da flexibilidade, do desempenho e da compatibilidade de um servidor de arquivos local. Ele faz isso transformando Windows Servers em um cache rápido do seu compartilhamento de Arquivos do Azure. Você pode usar qualquer protocolo disponível no Windows Server para acessar seus dados localmente (incluindo SMB, NFS e FTPS) e pode ter todos os caches de que precisar ao redor do mundo.
@@ -32,7 +32,7 @@ Para criar um ponto de extremidade do servidor, primeiro você deve garantir que
 - O servidor tem o agente de Sincronização de Arquivo do Azure instalado e foi registrado. As instruções para instalar o agente de Sincronização de Arquivo do Azure podem ser encontradas no artigo [Registrar/cancelar o registro de um servidor com a Sincronização de Arquivo do Azure (versão prévia)](storage-sync-files-server-registration.md). 
 - Certifique-se de que um Serviço de Sincronização de Armazenamento foi implantado. Consulte [Como implantar a Sincronização de Arquivo do Azure (versão prévia)](storage-sync-files-deployment-guide.md) para obter detalhes sobre como implantar um Serviço de Sincronização de Armazenamento. 
 - Certifique-se de que um Grupo de Sincronização tenha sido implantado. Saiba como [Criar um Grupo de Sincronização](storage-sync-files-deployment-guide.md#create-a-sync-group).
-- Certifique-se de que o servidor está conectado à Internet e que o Azure está acessível.
+- Certifique-se de que o servidor está conectado à Internet e que o Azure está acessível. Usamos a porta 443 para toda a comunicação entre o servidor e o nosso serviço.
 
 ## <a name="add-a-server-endpoint"></a>Adicionar um ponto de extremidade do servidor
 Para adicionar um ponto de extremidade do servidor, navegue até o Grupo de Sincronização desejado e selecione “Adicionar ponto de extremidade do servidor”.
@@ -49,7 +49,7 @@ As informações a seguir são necessárias em **Adicionar ponto de extremidade 
 Selecione **Criar** para adicionar o ponto de extremidade do servidor. Agora, os arquivos dentro de um namespace de um Grupo de Sincronização serão mantidos sincronizados. 
 
 ## <a name="remove-a-server-endpoint"></a>Remover um ponto de extremidade do servidor
-Quando habilitadas para um ponto de extremidade de servidor, as camadas de nuvem colocarão os arquivos em *camadas* para seus compartilhamentos de Arquivo do Azure. Isso permite que os compartilhamentos de arquivos locais atuem como um cache, em vez de uma cópia completa do conjunto de dados, para utilizar o espaço no servidor de arquivos de forma eficiente. No entanto, se um ponto de extremidade do servidor for removido com arquivos em camadas ainda localmente no servidor, esses arquivos se tornarão inacessíveis. Portanto, se o acesso contínuo ao arquivo for desejado, será necessário realizar o recall de todos os arquivos em camadas dos Arquivos do Azure antes de continuar com o cancelamento de registro. 
+Quando habilitada para um ponto de extremidade do servidor, a definição de camadas de nuvem *colocará os arquivos em camadas* nos compartilhamentos de arquivos do Azure. Isso permite que os compartilhamentos de arquivos locais atuem como um cache, em vez de uma cópia completa do conjunto de dados, para utilizar o espaço no servidor de arquivos de forma eficiente. No entanto, se um ponto de extremidade do servidor for removido e ainda houver arquivos em camadas localmente no servidor, esses arquivos ficarão inacessíveis. Portanto, se o acesso contínuo ao arquivo for desejado, será necessário realizar o recall de todos os arquivos em camadas dos Arquivos do Azure antes de continuar com o cancelamento de registro. 
 
 Isso pode ser feito com o cmdlet do PowerShell como mostrado abaixo:
 
@@ -67,7 +67,7 @@ Para remover o ponto de extremidade do servidor:
 2. Navegue até o Grupo de Sincronização desejado.
 3. Remova o ponto de extremidade do servidor que você desejar no Grupo de Sincronização no Serviço de Sincronização de Armazenamento. Isso pode ser feito clicando com o botão direito do mouse no ponto de extremidade do servidor relevante no painel Grupo de Sincronização.
 
-    ![Removendo um ponto de extremidade de servidor de um Grupo de Sincronização](media/storage-sync-files-server-endpoint/remove-server-endpoint-1.png)
+    ![Removendo um ponto de extremidade do servidor de um grupo de sincronização](media/storage-sync-files-server-endpoint/remove-server-endpoint-1.png)
 
 ## <a name="next-steps"></a>Próximas etapas
 - [Registrar/cancelar o registro de um servidor com a Sincronização de Arquivo do Azure (versão prévia)](storage-sync-files-server-registration.md)

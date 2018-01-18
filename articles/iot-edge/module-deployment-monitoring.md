@@ -9,11 +9,11 @@ ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: d8688ab2daefd400e9c0948853459dd238fa0d43
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 0fb8c55937c1f4c29c542204673a2f41e3ae29db
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="understand-iot-edge-deployments-for-single-devices-or-at-scale---preview"></a>Noções básicas sobre implantações do IoT Edge para dispositivos únicos ou em escala – versão prévia
 
@@ -49,7 +49,7 @@ Um manifesto de implantação é um documento JSON que descreve os módulos a se
 
 Os metadados de configuração para cada módulo incluem: 
 * Versão 
-* Tipo 
+* type 
 * Status (por exemplo, em execução ou parado) 
 * Política de reinicialização 
 * Repositório de imagem e contêiner 
@@ -57,7 +57,23 @@ Os metadados de configuração para cada módulo incluem:
 
 ### <a name="target-condition"></a>Condição de destino
 
-As condições especificam se um dispositivo IoT Edge deve estar no escopo de uma implantação. As condições de destino se baseiam em marcas do gêmeo do dispositivo. 
+A condição de destino é avaliada continuamente para incluir quaisquer novos dispositivos que atendam aos requisitos ou remover os dispositivos que não atendem mais, durante toda a vida útil da implantação. A implantação será reativada se o serviço detectar qualquer alteração de condição de destino. Por exemplo, você tem uma implantação A que tenha uma condição de destino tags.environment = 'prod'. Quando você iniciar a implantação, há 10 dispositivos de produção. Os módulos são instalados com êxito nesses 10 dispositivos. O Status do agente IoT Edge é mostrado como 10 dispositivos totais, 10 respostas bem sucedidas, 0 respostas com falhas e 0 respostas pendentes. Agora, adicione mais 5 dispositivos com tags.environment = 'prod'. O serviço detecta a alteração e o Status do agente de IoT Edge se torna 15 dispositivos totais, 10 respostas bem sucedidas, 0 respostas com falhas e 5 respostas pendentes ao tentar implantar em cinco novos dispositivos.
+
+Use qualquer condição booliana em marcas de dispositivo gêmeo ou deviceId para selecionar os dispositivos de destino. Se você quiser usar a condição com marcas, você precisa adicionar a seção "tags":{} no dispositivo gêmeo no mesmo nível como propriedades. [Saiba mais sobre as marcas em dispositivo gêmeo](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins)
+
+Exemplos de condição de destino:
+* deviceId ='linuxprod1'
+* tags.environment ='prod'
+* tags.environment = 'prod' E tags.location = 'westus'
+* tags.environment = 'prod' OU tags.location = 'westus'
+* tags.operator = 'John' E tags.environment = 'prod' NÃO deviceId = 'linuxprod1'
+
+Encontre aqui algumas restrições ao construir uma condição de destino:
+
+* Em dispositivo gêmeo, você só pode compilar uma condição de destino usando marcas ou deviceId.
+* Aspas duplas não são permitidas em nenhuma parte da condição de destino. Use aspas simples.
+* Aspas simples representam os valores da condição de destino. Portanto, você deve usar as aspas simples com outras aspas simples se isso fizer parte do nome do dispositivo. Por exemplo, a condição de destino para: operator'sDevice precisaria ser gravada como deviceId='operator''sDevice'.
+* Números, letras e os caracteres a seguir são permitidos nos valores de condição de destino:-:.+%_#*?!(),=@;$
 
 ### <a name="priority"></a>Prioridade
 

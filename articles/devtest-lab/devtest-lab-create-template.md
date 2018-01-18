@@ -12,13 +12,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/10/2017
+ms.date: 01/10/2018
 ms.author: v-craic
-ms.openlocfilehash: 7605a65d784a9586a4d88625996f4a1c8f154e9d
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: d1f1b9948fb591484c107818a01e141932effbba
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="create-a-custom-image-from-a-vhd-file"></a>Criar uma imagem personalizada de um arquivo VHD
 
@@ -34,15 +34,15 @@ As seguintes etapas orientam você durante a criação de uma imagem personaliza
 
 1. Entre no [Portal do Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Selecione **Mais serviços** e selecione **Laboratórios de Desenvolvimento/Teste** na lista.
+1. Selecione **Todos os serviços** e selecione **Laboratórios de Desenvolvimento/Teste** na lista.
 
 1. Na lista de laboratórios, selecione o laboratório desejado.  
 
-1. Na folha do laboratório, selecione **Configuração**. 
+1. No painel principal do laboratório, selecione **Configuração e políticas**. 
 
-1. Na folha **Configuração** do laboratório, selecione **Imagens personalizadas (VHDs)**.
+1. No painel **Configuração e políticas**, selecione **Imagens personalizadas**.
 
-1. Na folha **Imagens personalizadas**, selecione **+Adicionar**.
+1. No painel **Imagens personalizadas**, selecione **+Adicionar**.
 
     ![Imagem de Adicionar Personalizado](./media/devtest-lab-create-template/add-custom-image.png)
 
@@ -50,21 +50,21 @@ As seguintes etapas orientam você durante a criação de uma imagem personaliza
 
 1. Insira a descrição da imagem personalizada. Essa descrição é exibida na lista de imagens base durante a criação de uma VM.
 
-1. Selecione **VHD**.
+1. Para **Tipo de sistema operacional**, selecione **Windows** ou **Linux**.
 
-1. Na folha **VHD**, selecione o arquivo VHD desejado.
+    - Se selecionar **Windows**, especifique por meio da caixa de seleção se o *sysprep* foi executado no computador. 
+    - Se selecionar **Linux**, especifique por meio da caixa de seleção se o *deprovision* foi executado no computador. 
 
-1. Selecione **OK** para fechar a folha **VHD**.
+1. Selecione um **VHD** no menu suspenso. Este é o VHD que será usado para criar a nova imagem personalizada. Se necessário, selecione para **Carregar um VHD usando PowerShell**.
 
-1. Selecione **Configuração do SO**.
-
-1. Na guia **Configuração do SO**, selecione **Windows** ou **Linux**.
-
-1. Se **Windows** for selecionado, especifique por meio da caixa de seleção se o *Sysprep* foi executado na máquina. 
-
-1. Selecione **OK** para fechar a folha **Configuração do SO**.
+1. Você também pode inserir um nome do plano, uma oferta do plano e um publicador de planos se a imagem usada para criar a imagem personalizada não for publicada pela Microsoft.
 
 1. Selecione **OK** para criar a imagem personalizada.
+
+Depois de alguns minutos, a imagem personalizada é criada e é armazenada dentro da conta de armazenamento do laboratório. Quando um usuário de laboratório quiser criar uma nova VM, a imagem estará disponível na lista de imagens básicas.
+
+![Imagem personalizada disponível na lista de imagens básicas](./media/devtest-lab-create-template/custom-image-available-as-base.png)
+
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
@@ -73,6 +73,6 @@ As seguintes etapas orientam você durante a criação de uma imagem personaliza
 - [Imagens personalizadas ou fórmulas?](https://blogs.msdn.microsoft.com/devtestlab/2016/04/06/custom-images-or-formulas/)
 - [Copiar imagens personalizadas entre Azure DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/How-To-Move-CustomImages-VHD-Between-AzureDevTestLabs#copying-custom-images-between-azure-devtest-labs)
 
-##<a name="next-steps"></a>Próximas etapas
+## <a name="next-steps"></a>Próximas etapas
 
 - [Adicionar uma VM ao laboratório](./devtest-lab-add-vm.md)

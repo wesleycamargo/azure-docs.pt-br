@@ -5,26 +5,26 @@ services: azure-policy
 keywords: 
 author: bandersmsft
 ms.author: banders
-ms.date: 12/06/2017
+ms.date: 01/10/2018
 ms.topic: quickstart
 ms.service: azure-policy
 ms.custom: mvc
-ms.openlocfilehash: b28e442a075e38a4fbe7b0d9d46f2c9d23e7c6fb
-ms.sourcegitcommit: cc03e42cffdec775515f489fa8e02edd35fd83dc
+ms.openlocfilehash: 4287b139f26d17e58f6caffbadb2c7da2a9b7b82
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/07/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="create-a-policy-assignment-to-identify-non-compliant-resources-in-your-azure-environment"></a>Criar uma atribuição de política para identificar recursos sem conformidade em seu ambiente do Azure
-A primeira etapa para compreender a conformidade no Azure é saber qual é a situação de seus recursos atuais. Este guia de início rápido orienta você no processo de criação de uma atribuição de política para identificar máquinas virtuais que não estão usando discos gerenciados.
+A primeira etapa para compreender a conformidade no Azure é identificar o status de seus recursos. Este guia de início rápido orienta você no processo de criação de uma atribuição de política para identificar máquinas virtuais que não estão usando discos gerenciados.
 
-No final deste processo, você terá identificado com êxito quais máquinas virtuais não estão usando discos gerenciados e, portanto, *não estão em conformidade*.
+No final deste processo, você identificará com êxito quais máquinas virtuais não estão usando discos gerenciados. Eles *não estão em conformidade* com a atribuição da política.
 
 Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
 ## <a name="create-a-policy-assignment"></a>Criar uma atribuição de política
 
-Neste guia de início rápido, criamos uma atribuição de política e atribuímos a definição da política *Auditar máquinas virtuais sem Managed Disks*.
+Neste guia de início rápido, você cria uma atribuição de política e atribuímos a definição da política *Auditar máquinas virtuais sem Managed Disks*.
 
 1. Selecione **Atribuições** no painel esquerdo da página de Política do Azure.
 2. Selecione **Atribuir Política** na parte superior do painel **Atribuições**.
@@ -41,21 +41,23 @@ Neste guia de início rápido, criamos uma atribuição de política e atribuím
    - Aplicar marca e seu valor
    - Requer o SQL Server versão 12.0
 
-4. Pesquise suas definições de política para encontrar a definição *Auditar VMs que não usam discos gerenciados*. Clique na política e clique em **Atribuir**.
+    Para uma lista completa de todas as políticas internas disponíveis, veja [Modelos de política](json-samples.md).
+
+4. Pesquise suas definições de política para encontrar a definição *Auditar VMs que não usam discos gerenciados*. Clique na política e clique em **Selecionar**.
 
    ![Encontre a definição de política correta](media/assign-policy-definition/select-available-definition.png)
 
-5. Forneça um **Nome** de exibição para a atribuição de política. Nesse caso, vamos usar *Auditar VMs que não usam discos gerenciados*. Você também pode adicionar uma **Descrição**opcional. A descrição fornece detalhes sobre como essa atribuição de política identifica todas as máquinas virtuais criadas nesse ambiente que não usam discos gerenciados.
+5. Forneça um **Nome** de exibição para a atribuição de política. Nesse caso, vamos usar *Auditar VMs que não usam discos gerenciados*. Você também pode adicionar uma **Descrição**opcional. A descrição fornece detalhes sobre como a atribuição de política identifica todas as máquinas virtuais que não usam discos gerenciados.
 6. Altere o tipo de preço para **Standard** para garantir que a política seja aplicada aos recursos existentes.
 
-   Há dois tipos de preço na Política do Azure – *Gratuito* e *Standard*. Com a camada Gratuita, você só pode impor políticas para recursos futuros, enquanto com a Standard, você também pode impô-las para recursos existentes para compreender melhor seu estado de conformidade. Como estamos na versão prévia limitada, ainda não lançamos um modelo de preços, de modo que você não receberá uma fatura por selecionar a opção *Standard*. Para saber mais sobre os preços, veja: [Preços da Política do Azure](https://azure.microsoft.com/pricing/details/azure-policy/).
+   Há dois tipos de preço na Política do Azure – *Gratuito* e *Standard*. Com a camada Gratuita, você só pode impor políticas para recursos futuros, enquanto com a Standard, você também pode impô-las para recursos existentes para compreender melhor seu estado de conformidade. Para saber mais sobre os preços, veja [Preços do Azure Policy](https://azure.microsoft.com/pricing/details/azure-policy/).
 
 7. Selecione o **Escopo** a que você gostaria que a política fosse aplicado.  Um escopo determina em quais recursos ou agrupamento de recursos a atribuição de política é imposta. Pode variar de uma assinatura a grupos de recursos.
-8. Selecione a assinatura (ou grupo de recursos) que você registrou anteriormente. Neste exemplo, estamos usando esta assinatura – **Azure Analytics Capacity Dev**, mas suas opções serão diferentes.
+8. Selecione a assinatura (ou grupo de recursos) que você registrou anteriormente. Neste exemplo, é usada a assinatura **Azure Analytics Capacity Dev**, mas suas opções poderão ser diferentes. Clique em **Selecionar**.
 
    ![Encontre a definição de política correta](media/assign-policy-definition/assign-policy.png)
 
-9. Selecione **Atribuir**.
+9. Deixe **Exclusões** em branco por enquanto e, em seguida, clique em **Atribuir**.
 
 Agora, você está pronto para identificar recursos sem conformidade para compreender o estado de conformidade de seu ambiente.
 
@@ -65,24 +67,24 @@ Selecione **Conformidade** no painel esquerdo e pesquise a atribuição de polí
 
 ![Conformidade da política](media/assign-policy-definition/policy-compliance.png)
 
-Se houver recursos sem conformidade com essa nova atribuição, eles aparecerão na guia **Recursos sem conformidade**.
+Se houver recursos sem conformidade com essa nova atribuição, aparecem em **Recursos sem conformidade**.
 
-Se uma condição for avaliada em recursos existentes e seu resultado for true para alguns deles, esses recursos serão marcados como sem conformidade com a política. Veja uma tabela de como as ações diferentes que temos disponíveis atualmente funcionam com o resultado da avaliação da condição e com o estado de conformidade de seus recursos.
+Quando uma condição é avaliada em relação a seus recursos existentes e resulta ser verdadeira, então esses recursos são marcados como em não conformidade com a política. A imagem do exemplo anterior exibe os recursos não compatíveis. A tabela a seguir mostra como as diferentes ações da política funcionam com a avaliação da condição para o estado de conformidade resultante. Embora você não veja a lógica de avaliação no portal do Azure, os resultados do estado de conformidade são mostrados. O resultado do estado de conformidade pode ser ou compatível ou incompatível.
 
 |Recurso  |Se a condição na política for avaliada como  |Ação na política   |Estado de conformidade  |
 |-----------|---------|---------|---------|
-|Exists     |Verdadeiro     |NEGAR     |Sem conformidade |
-|Exists     |Falso    |NEGAR     |Em conformidade     |
-|Exists     |Verdadeiro     |Acrescentar   |Sem conformidade |
+|Exists     |True     |Negar     |Sem conformidade |
+|Exists     |Falso    |Negar     |Em conformidade     |
+|Exists     |True     |Acrescentar   |Sem conformidade |
 |Exists     |Falso    |Acrescentar   |Em conformidade     |
-|Exists     |Verdadeiro     |Audit    |Sem conformidade |
+|Exists     |True     |Audit    |Sem conformidade |
 |Exists     |Falso    |Audit    |Sem conformidade |
 
 ## <a name="clean-up-resources"></a>Limpar recursos
 
 Outros guias desta coleção dão continuidade a este guia de início rápido. Se você planeja continuar trabalhando com os tutoriais subsequentes, não limpe os recursos criados neste guia de início rápido. Caso contrário, siga estas etapas para excluir todos os recursos criados por esse início rápido no Portal do Azure.
 1. Selecione **Atribuições** no painel esquerdo.
-2. Pesquise pela atribuição que você acabou de criar.
+2. Procure a atribuição que você criou e, em seguida, clique com o botão direito.
 
    ![Excluir uma atribuição](media/assign-policy-definition/delete-assignment.png)
 
@@ -90,7 +92,7 @@ Outros guias desta coleção dão continuidade a este guia de início rápido. S
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Neste guia de início rápido, você atribuiu uma definição de política a um escopo para garantir que todos os recursos nesse escopo estejam em conformidade e para identificar quais não são.
+Neste guia de início rápido, você atribuiu uma definição de política para um escopo. A definição de política garante que todos os recursos no escopo estão em conformidade e identifica quais não estão.
 
 Para saber mais sobre a atribuição de políticas, para garantir que recursos que você criar no **futuro** estejam em conformidade, continue com o tutorial:
 

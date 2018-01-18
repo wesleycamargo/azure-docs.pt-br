@@ -14,11 +14,11 @@ ms.topic: article
 ms.devlang: na
 ms.date: 08/04/2017
 ms.author: yoelh
-ms.openlocfilehash: 54bf10acfb885042278c4457a70ec86248c96c1c
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d389a44ce38d84e510060f3b0a53cda58513dee5
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-active-directory-b2c-add-google-as-an-oauth2-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: Adicionar Google+ como um provedor de identidade OAuth2 usando políticas personalizadas
 
@@ -175,7 +175,7 @@ O provedor de identidade foi configurado.  No entanto, ele não está disponíve
 1.  Abra o arquivo base da política (por exemplo, TrustFrameworkBase.xml).
 2.  Localize o elemento `<UserJourneys>` e copie todo o conteúdo do nó `<UserJourneys>`.
 3.  Abra o arquivo de extensão (por exemplo, TrustFrameworkExtensions.xml) e localize o elemento `<UserJourneys>`. Se o elemento não existir, adicione um.
-4.  Cole todo o conteúdo do nó `<UserJournesy>` copiado como um filho do elemento `<UserJourneys>`.
+4.  Cole todo o conteúdo do nó `<UserJourney>` copiado como um filho do elemento `<UserJourneys>`.
 
 ### <a name="display-the-button"></a>Exibir o botão
 O elemento `<ClaimsProviderSelections>` define a lista de opções de seleção de provedor de declarações e sua ordem.  O elemento `<ClaimsProviderSelection>` é análogo a um botão de provedor de identidade em uma página de inscrição/entrada. Se você adicionar um elemento `<ClaimsProviderSelection>` para a conta do Google+, um novo botão será exibido quando um usuário chegar à página. Para adicionar este elemento:
@@ -243,6 +243,14 @@ Convém adicionar também o provedor de identidade da conta do Google+ ao percur
 ```xml
 <ClaimsExchange Id="GoogleExchange" TechnicalProfileReferenceId="Google-OAUTH" />
 ```
+
+### <a name="upload-the-policy-to-your-tenant"></a>Carregar a política ao seu locatário
+1.  No [Portal do Azure](https://portal.azure.com), alterne para o [contexto do seu locatário do Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md) e abra a folha do **Azure AD B2C**.
+2.  Selecione **Estrutura de Experiência de Identidade**.
+3.  Abra a folha **Todas as Políticas**.
+4.  Selecione **Carregar Política**.
+5.  Marque a caixa **Substituir a política caso ela exista**.
+6.  **Carregue** TrustFrameworkExtensions.xml e verifique se ele não falhou na validação.
 
 ### <a name="test-the-custom-profile-edit-policy-by-using-run-now"></a>Testar a política personalizada de Edição de Perfil usando Executar Agora
 
