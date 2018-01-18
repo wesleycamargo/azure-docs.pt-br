@@ -1,6 +1,6 @@
 ---
-title: Cortana Intelligence Gallery | Microsoft Docs
-description: "Compartilhe e descubra soluções de análise e muito mais na Galeria do Cortana Intelligence. Aprenda com os outros e faça suas próprias contribuições à comunidade."
+title: Galeria de IA do Azure | Microsoft Docs
+description: "Compartilhe e descubra soluções de análise e muito mais na Galeria de IA do Azure. Aprenda com os outros e faça suas próprias contribuições à comunidade."
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: 9da6cc9d306930fbec33ecebc85784d0d1e1532d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d60815e848277637e3d692a676dbde838b249754
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="share-and-discover-resources-in-the-cortana-intelligence-gallery"></a>Compartilhar e descobrir soluções na Galeria do Cortana Intelligence
+# <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Compartilhar e descobrir recursos na Galeria de IA do Azure
 [!INCLUDE [gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 <!-- separating these 2 includes -->
@@ -28,7 +28,7 @@ ms.lasthandoff: 10/11/2017
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
 ## <a name="what-can-i-find-in-the-gallery"></a>O que posso encontrar na Galeria?
-A Cortana Intelligence Gallery contém uma variedade de recursos que você pode usar para desenvolver suas próprias soluções de análise.
+A Galeria de IA do Azure contém uma variedade de recursos que você pode usar para desenvolver suas próprias soluções de análise.
 
 * **[Testes](gallery-experiments.md)** -a Galeria contém uma grande variedade de testes que foram desenvolvidos no Azure Machine Learning Studio. Eles variam de testes de verificação de conceito rápidos que demonstram uma técnica de aprendizado de máquina específica a soluções totalmente desenvolvidas para problemas de aprendizado de máquina complexos.
 * **[Notebooks Jupyter](gallery-jupyter-notebooks.md)** – os notebooks Jupyter incluem código, visualizações de dados e documentação em uma única tela interativa.
@@ -48,7 +48,7 @@ Esses recursos básicos da Galeria podem ser agrupados logicamente em duas manei
 
 Por fim, **[Competições](gallery-competitions.md)** oferecem uma oportunidade empolgante de concorrer com a comunidade de cientistas de dados para resolver problemas complexos usando o Cortana Intelligence Suite.
 
-![Página Inicial da Galeria do Cortana Intelligence](./media/gallery-how-to-use-contribute-publish/gallery-home-page.png)
+![Home page da Galeria de IA do Azure](./media/gallery-how-to-use-contribute-publish/gallery-home-page.png)
 
 ## <a name="discover-and-learn"></a>Descobrir e aprender
 Qualquer pessoa pode pesquisar e procurar os tipos diferentes de recurso na Galeria que foram fornecidos pela Microsoft e pela comunidade de análises avançadas.

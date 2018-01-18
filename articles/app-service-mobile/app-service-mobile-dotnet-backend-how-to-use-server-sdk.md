@@ -4,8 +4,8 @@ description: "Aprenda como trabalhar com o servidor .NET back-end do SDK para Ap
 keywords: "serviço de aplicativo, serviço de aplicativo do azure, aplicativo móvel, serviço móvel, escala, escalonável, implantação de aplicativo, implantação de aplicativo do azure"
 services: app-service\mobile
 documentationcenter: 
-author: ggailey777
-manager: syntaxc4
+author: conceptdev
+manager: crdun
 editor: 
 ms.assetid: 0620554f-9590-40a8-9f47-61c48c21076b
 ms.service: app-service-mobile
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: glenga
-ms.openlocfilehash: 1728e1d76f075eae8f5500afa34674785f8e3848
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: crdun
+ms.openlocfilehash: a1a29d87864bff8cb2ecda70d8a0a7833c70d481
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Trabalhar com o servidor .NET back-end do SDK para Aplicativos Móveis do Azure
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
@@ -35,7 +35,7 @@ Este tópico mostra como usar o SDK do servidor de back-end do .NET nos principa
 A documentação de referência para o SDK do servidor está localizada aqui: [Referência do .NET dos Aplicativos Móveis do Azure][1].
 
 ## <a name="create-app"></a>Como criar um back-end do aplicativo móvel do .NET
-Se você estiver começando um novo projeto, será possível criar um aplicativo do Serviço de Aplicativo usando o [Portal do Azure] ou o Visual Studio. Você pode executar o aplicativo do Serviço de Aplicativo localmente ou publicar o projeto em seu aplicativo móvel do Serviço de Aplicativo baseado em nuvem.
+Se você estiver começando um novo projeto, será possível criar um aplicativo do Serviço de Aplicativo usando o [portal do Azure] ou o Visual Studio. Você pode executar o aplicativo do Serviço de Aplicativo localmente ou publicar o projeto em seu aplicativo móvel do Serviço de Aplicativo baseado em nuvem.
 
 Se você estiver adicionando recursos móveis a um projeto existente, veja a seção [Baixar e inicializar o SDK](#install-sdk) .
 
@@ -151,7 +151,7 @@ Defina um Controlador de Tabela para expor uma tabela SQL a clientes móveis.  A
 2. Configurar uma referência de tabela na classe DbContext móvel.
 3. Criar um controlador de tabela.
 
-Um DTO (objeto de transferência de dados) é um objeto C# simples que herda de `EntityData`.  Por exemplo:
+Um DTO (objeto de transferência de dados) é um objeto C# simples que herda de `EntityData`.  Por exemplo: 
 
     public class TodoItem : EntityData
     {
@@ -244,6 +244,10 @@ Você pode adicionar autenticação ao seu projeto de servidor estendendo o obje
 Para saber como autenticar clientes no back-end dos Aplicativos Móveis, veja [Adicionar autenticação ao seu aplicativo](app-service-mobile-ios-get-started-users.md).
 
 ### <a name="custom-auth"></a>Como usar a autenticação personalizada para o seu aplicativo
+> [!IMPORTANT]
+> Para habilitar a autenticação personalizada, você deve primeiro habilitar Autenticação do Serviço de Aplicativo sem selecionar um provedor para seu Serviço de Aplicativo no Portal do Azure. Isso habilitará a variável de ambiente WEBSITE_AUTH_SIGNING_KEY quando hospedado.
+> 
+> 
 Caso não queria usar um dos provedores de Autenticação/Autorização do Serviço de Aplicativo, você pode implementar seu próprio sistema de logon. Instale o pacote [Microsoft.Azure.Mobile.Server.Login] para ajudá-lo na geração de token de autenticação.  Forneça seu próprio código para validar as credenciais do usuário. Por exemplo, você pode comparar com senhas com sal e hash aplicados em um banco de dados. No exemplo abaixo, o método `isValidAssertion()` (definido em outro lugar) é responsável por essas verificações.
 
 A autenticação personalizada é exposta criando um ApiController e expondo as ações `register` e `login`. O cliente deve usar uma interface do usuário personalizada para coletar as informações do usuário.  As informações são enviadas para a API com uma chamada HTTP POST padrão. Depois que o servidor valida a asserção, um token é emitido usando o método `AppServiceLoginHandler.CreateToken()` .  O ApiController **não deve** usar o atributo `[MobileAppController]`.
@@ -304,7 +308,7 @@ A SID é derivado da ID de usuário específica do provedor e é estática para 
 
 O Serviço de Aplicativo também permite solicitar declarações específicas do provedor de logon. Cada provedor de identidade pode fornecer mais informações usando o SDK do provedor de identidade.  Por exemplo, você pode usar a API do Graph do Facebook para obter informações de amigos.  Você pode especificar as declarações solicitadas na folha do provedor no portal do Azure. Algumas declarações exigem configuração adicional com o provedor de identidade.
 
-O código a seguir chama o método de extensão **GetAppServiceIdentityAsync** para obter as credenciais de logon, que incluem o token de acesso necessário para fazer solicitações na Graph API do Facebook:
+O código a seguir chama o método de extensão **GetAppServiceIdentityAsync** para obter as credenciais de logon, que incluem o token de acesso necessário para fazer solicitações na API do Graph do Facebook:
 
     // Get the credentials for the logged-in user.
     var credentials =
@@ -450,7 +454,7 @@ Verifique se seu back-end móvel tem o [Microsoft.Azure.Mobile.Server.Authentica
 No exemplo anterior, você deve definir as configurações de aplicativo *authAudience* e *authIssuer* no arquivo Web.config para que cada uma seja a URL da raiz do aplicativo usando o esquema HTTPS. Da mesma forma, você deve definir *authSigningKey* como o valor da chave de autenticação de seu aplicativo.
 Para obter a chave de assinatura:
 
-1. Navegue até o aplicativo no [Portal do Azure]
+1. Navegue até o aplicativo no [portal do Azure]
 2. Clique em **Ferramentas**, **Kudu**, **Ir**.
 3. No site de gerenciamento do Kudu, clique em **Ambiente**.
 4. Localize o valor para *WEBSITE\_AUTH\_SIGNING\_KEY*.
@@ -463,7 +467,7 @@ Use a chave de assinatura para o parâmetro *authSigningKey* em sua configuraç�
 [4]: https://azure.microsoft.com/downloads/
 [5]: https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#client-added-push-notification-tags
 [6]: https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#push-to-users
-[Portal do Azure]: https://portal.azure.com
+[portal do Azure]: https://portal.azure.com
 [NuGet.org]: http://www.nuget.org/
 [Microsoft.Azure.Mobile.Server]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/
 [Microsoft.Azure.Mobile.Server.Quickstart]: http://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Quickstart/

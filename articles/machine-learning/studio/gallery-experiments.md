@@ -1,6 +1,6 @@
 ---
-title: Experimentos na Galeria do Cortana Intelligence | Microsoft Docs
-description: Descubra e compartilhe experimentos na Galeria do Cortana Intelligence.
+title: Experimentos na Galeria de IA do Azure | Microsoft Docs
+description: Descubra e compartilhe experimentos na Galeria de IA do Azure.
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: 472ecac4ac1d9a86f0a3ad8271dd96257c331e5f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: ad41d431b78a69e54bb5e4df3aaea1ec7c858b7f
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="discover-experiments-in-cortana-intelligence-gallery"></a>Descubra experimentos na Galeria do Cortana Intelligence
+# <a name="discover-experiments-in-azure-ai-gallery"></a>Descobrir experimentos na Galeria de IA do Azure
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="experiments-for-machine-learning-studio"></a>Experimentos para o Machine Learning Studio
@@ -45,7 +45,7 @@ Obtenha mais informações sobre um experimento em sua página de detalhes. Para
 ## <a name="download"></a>Baixar
 Você pode baixar uma cópia de qualquer experimento da Galeria em seu espaço de trabalho do Machine Learning Studio. Em seguida, você pode modificar sua cópia para criar suas próprias soluções.
 
-A Galeria do Cortana Intelligence oferece duas maneiras de importar uma cópia de um experimento:
+A Galeria de IA do Azure oferece duas maneiras de importar uma cópia de um experimento:
 
 * **Da Galeria**. Se você encontrar um experimento de seu interesse na Galeria, baixe uma cópia e abra-a em seu espaço de trabalho do Machine Learning Studio.
 * **Do Machine Learning Studio**. No Machine Learning Studio, você pode usar qualquer experimento na Galeria como um modelo para criar um novo experimento.
@@ -86,7 +86,7 @@ Ao entrar na Galeria, você vira um membro da comunidade da Galeria. Como um mem
     ![Insira o título e marcas para publicação](./media/gallery-experiments/experiment-description.png)
 5. Na caixa **RESUMO**, digite um resumo do seu experimento. Descreva resumidamente o problema que o experimento resolve e como você o abordou.
 6. Na caixa **DESCRIÇÃO DETALHADA**, descreva as etapas executadas em cada parte do seu experimento. Alguns tópicos úteis a serem incluídos são:
-   * Captura de tela de gráfico do experimento
+   * Captura de tela de grafo do experimento
    * Explicação e fontes de dados
    * Processamento de dados
    * Engenharia de recursos
@@ -166,7 +166,7 @@ Para excluir o experimento da Galeria, selecione **Excluir**.
 ### <a name="tips-for-documenting-and-publishing-your-experiment"></a>Dicas para documentar e publicar seu experimento
 * Você pode supor que o leitor esteja familiarizado com ciência de dados, porém pode ser útil usar uma linguagem simples. Explique as coisas detalhadamente sempre que possível.
 * O Cortana Intelligence Suite é relativamente novo. Nem todos os leitores estão familiarizados com seu uso. Forneça informações e explicações detalhadas suficientes para ajudar os leitores a navegar por seu experimento.
-* Elementos visuais podem ser úteis para os leitores interpretarem e usarem a documentação do seu experimento corretamente. Elementos visuais incluem elementos gráficos do experimento e capturas de tela de dados. Para obter mais informações sobre como incluir imagens na documentação do experimento, consulte o [Diretrizes de publicação e coleção de exemplos](https://gallery.cortanaintelligence.com/Collection/Publishing-Guidelines-and-Examples-1).
+* Elementos visuais podem ser úteis para os leitores interpretarem e usarem a documentação do seu experimento corretamente. Elementos visuais incluem elementos grafos do experimento e capturas de tela de dados. Para obter mais informações sobre como incluir imagens na documentação do experimento, consulte o [Diretrizes de publicação e coleção de exemplos](https://gallery.cortanaintelligence.com/Collection/Publishing-Guidelines-and-Examples-1).
 * Se você incluir um conjunto de dados em seu experimento (ou seja, não importar o conjunto de dados por meio do módulo Importar Dados), o conjunto de dados fará parte do seu experimento e será publicado na Galeria. Verifique se o conjunto de dados que você publicou tem os termos de licença que permitem compartilhamento e download por qualquer pessoa. As contribuições à Galeria são tratadas nos [Termos de Uso](https://azure.microsoft.com/support/legal/website-terms-of-use/)do Azure.
 
 ## <a name="frequently-asked-questions"></a>Perguntas frequentes

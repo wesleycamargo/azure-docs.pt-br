@@ -4,7 +4,7 @@ description: "Saiba como configurar o logon único entre o Azure Active Director
 services: active-directory
 documentationCenter: na
 author: jeevansd
-manager: mtillman
+manager: femila
 ms.reviewer: joflore
 ms.assetid: 0ebdab6c-83a8-4737-a86a-974f37269c31
 ms.service: active-directory
@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 12/28/2017
 ms.author: jeedes
-ms.openlocfilehash: a525bab0409dc212da9fe46a23b8320aed9a4463
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 5a6d9ea9de1035bf9c84cf3c451cc1121f04a82a
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoom"></a>Tutorial: Integração do Active Directory do Azure com o Zoom
 
@@ -51,7 +51,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o Zoom da galeria
-2. Configurar e testar o logon único do AD do Azure
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-zoom-from-the-gallery"></a>Adicionar o Zoom da galeria
 Para configurar a integração do Zoom com o Azure AD, você precisará adicionar o Zoom da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -113,29 +113,57 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     b. Na caixa de texto **Identificador**, digite uma URL usando o seguinte padrão: `<companyname>.zoom.us`
 
     > [!NOTE] 
-    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao cliente do Zoom](https://support.zoom.us/hc) para obter esses valores. 
+    > Esses valores não são reais. Atualize esses valores com a URL de Entrada e o Identificador reais. Contate a [equipe de suporte ao cliente do Zoom](https://support.zoom.us/hc) para obter esses valores.
+
+4. O aplicativo Zoom espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados de acordo com a sua configuração de atributos do token SAML. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos da seção "**Atributos de Usuário**" na página de integração do aplicativo. 
+
+    ![Configurar o logon único](./media/active-directory-saas-Zoom-tutorial/tutorial_attribute.png)
+
+5. Na seção **Atributos de Usuário** da caixa de diálogo **Logon único**, configure o atributo do token SAML, conforme mostrado na imagem anterior e realize as seguintes etapas:
+    
+    | Nome do atributo | Valor do atributo | Valor de namespace |
+    | ------------------- | -----------|--------- |    
+    | Endereço de email | user.mail | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/mail`|
+    | Nome | user.givenname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname`|
+    | Sobrenome | user.surname | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname `|
+    | Número de telefone | user.telephonenumber | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/phone`|
+    | department | user.department | `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/department`|
+
+    a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
+
+    ![Configurar o logon único](./media/active-directory-saas-Zoom-tutorial/tutorial_attribute_04.png)
+
+    ![Configurar o logon único](./media/active-directory-saas-Zoom-tutorial/tutorial_attribute_05.png)
+
+    b. Na caixa de texto **Nome** , digite o nome do atributo mostrado para essa linha.
+
+    c. Na lista **Valor**, digite o valor do atributo mostrado para essa linha.
+
+    d. Na caixa de texto **Namespace**, digite o valor de namespace mostrado para essa linha.
+    
+    e. Clique em **OK**. 
  
-4. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
+6. Na seção **Certificado de Autenticação SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado em seu computador.
 
-    ![O link de download do Certificado](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_certificate.png) 
+    ![O link de download do Certificado](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_certificate.png)
 
-5. Clique no botão **Salvar** .
+7. Clique no botão **Salvar** .
 
     ![Botão Salvar em Configurar Logon Único](./media/active-directory-saas-zoom-tutorial/tutorial_general_400.png)
 
-6. Na seção **Configuração do Zoom**, clique em **Configurar o Zoom** para abrir a janela **Configurar logon**. Copie a **URL de saída, a ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.**
+8. Na seção **Configuração do Zoom**, clique em **Configurar o Zoom** para abrir a janela **Configurar logon**. Copie a **URL de saída, a ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.**
 
-    ![Configuração do Zoom](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_configure.png) 
+    ![Configuração do Zoom](./media/active-directory-saas-zoom-tutorial/tutorial_zoom_configure.png)
 
-7. Em uma janela diferente do navegador da Web, faça logon no site da sua empresa Zoom como administrador.
+9. Em uma janela diferente do navegador da Web, faça logon no site da sua empresa Zoom como administrador.
 
-8. Clique na guia **Logon Único** .
+10. Clique na guia **Logon Único** .
    
     ![Guia Logon único](./media/active-directory-saas-zoom-tutorial/IC784700.png "Logon único")
 
-9. Clique na guia **Controle de Segurança** e vá para as configurações de **Logon Único**.
+11. Clique na guia **Controle de Segurança** e vá para as configurações de **Logon Único**.
 
-10. Na seção de Configurações de Logon Único, execute as seguintes etapas:
+12. Na seção de Configurações de Logon Único, execute as seguintes etapas:
    
     ![Seção Logon único](./media/active-directory-saas-zoom-tutorial/IC784701.png "Logon único")
    
@@ -148,6 +176,9 @@ Nesta seção, você habilitará o logon único do Azure AD no Portal do Azure e
     d. Na caixa de texto **Emissor**, cole o valor da **ID de Entidade do SAML** que você copiou do portal do Azure. 
 
     e. Clique em **Salvar**.
+
+    > [!NOTE] 
+    > Para saber mais, consulte a documentação do zoom [https://zoomus.zendesk.com/hc/en-us/articles/115005887566](https://zoomus.zendesk.com/hc/en-us/articles/115005887566)
 
 > [!TIP]
 > É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)

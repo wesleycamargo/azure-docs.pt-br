@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: haining;garye
-ms.openlocfilehash: 848d0a0882d538cadadf3172a20e628799488042
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: f7c839a8471dc54daebc47d0bb5a450358f5250d
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>Perguntas frequentes sobre as Competições do Microsoft Cortana Intelligence
 **O que são as Competições do Cortana Intelligence?**
 
-As Competições do Microsoft Cortana Intelligence permitem unir uma comunidade global de entusiastas de dados para resolver coletivamente alguns dos problemas de ciência de dados mais complexos do mundo. As Competições do Cortana Intelligence permitem que entusiastas de dados em todo o mundo compitam e criem modelos de ciência de dados altamente precisos e inteligentes. As competições que patrocinamos são baseadas em conjuntos de dados exclusivos que são disponibilizados publicamente pela primeira vez. Os participantes podem ganhar prêmios ou reconhecimento em nosso placar de líderes público dos 10 primeiros colocados. Acesse [aqui](http://aka.ms/CIComp) para visitar a home page das Competições.
+As Competições do Microsoft Cortana Intelligence une uma comunidade global de entusiastas de dados para resolver coletivamente alguns dos problemas de ciência de dados mais complexos do mundo. As Competições do Cortana Intelligence permitem que entusiastas de dados em todo o mundo compitam e criem modelos de ciência de dados altamente precisos e inteligentes. Essas competições patrocinadas baseiam-se em conjuntos de dados exclusivos que foram disponibilizados publicamente pela primeira vez. Os participantes podem ganhar prêmios ou reconhecimento em nosso placar de líderes público dos 10 primeiros colocados. Acesse a home page das Competições em [aka.ms/CIComp](http://aka.ms/CIComp).
 
 **Com que frequência a Microsoft lançará novas competições?**
 
@@ -31,33 +31,33 @@ Lançaremos competições patrocinadas pela Microsoft regularmente, mais ou meno
 
 **Onde posso fazer perguntas gerais sobre a ciência de dados?**
 
-Use nosso [fórum do Microsoft Azure Machine Learning](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning).
+Para perguntas gerais, use o [Fórum do Microsoft Azure Machine Learning](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning).
 
 **Como faço para participar de uma competição?**
 
-Acesse a home page das [Competições](https://gallery.cortanaintelligence.com/competitions) na [Galeria do Cortana Intelligence](https://gallery.cortanaintelligence.com/) ou acesse [http://aka.ms/CIComp](http://aka.ms/CIComp). A home page lista todas as competições que estão em execução no momento. As instruções, regras de participação, prêmios e duração da competição são detalhadas na página de inscrição.
+Acesse a home page das [Competições](https://gallery.cortanaintelligence.com/competitions) na [Galeria de IA do Azure](https://gallery.cortanaintelligence.com/) ou acesse [http://aka.ms/CIComp](http://aka.ms/CIComp). A home page lista todas as competições que estão em execução no momento. As instruções, regras de participação, prêmios e duração da competição são detalhadas na página de inscrição.
 
-1. Encontre a competição de que você gostaria de participar, leia todas as instruções e assista ao vídeo do tutorial. Em seguida, clique no botão **Participar da Competição** para copiar o Teste Inicial para seu espaço de trabalho existente do Azure Machine Learning. Se você ainda não tiver acesso ao espaço de trabalho, crie um com antecedência. Execute o Teste Inicial, observe a métrica de desempenho e use sua criatividade para melhorar o desempenho do modelo. Provavelmente, você passará a maior parte do seu tempo nessa etapa.   
+1. Localize a competição da qual gostaria de participar, leia todas as instruções e assista ao vídeo de tutorial. Em seguida, clique no botão **Entrar na competição** e copie o Experimento de iniciante para seu espaço de trabalho existente do Azure Machine Learning. Se você ainda não tiver acesso ao espaço de trabalho, crie um com antecedência. Execute o Teste Inicial, observe a métrica de desempenho e use sua criatividade para melhorar o desempenho do modelo. Provavelmente, você passará a maior parte do seu tempo nessa etapa.   
 
-2. Crie um Teste Preditivo com o modelo treinado fora do Teste Inicial. Em seguida, ajuste cuidadosamente o esquema de entrada e saída do serviço Web para garantir que eles estejam em conformidade com os requisitos especificados nas regras da competição. Geralmente, o documento do tutorial terá instruções detalhadas sobre como fazer isso. Também será possível assistir ao vídeo do tutorial, se ele estiver disponível.   
+2. Crie um Teste Preditivo com o modelo treinado fora do Teste Inicial. Em seguida, ajuste cuidadosamente o esquema de entrada e saída do serviço Web para garantir que eles estejam em conformidade com os requisitos especificados nas regras da competição. Geralmente, o documento do tutorial tem instruções detalhadas sobre como fazer isso. Também será possível assistir ao vídeo do tutorial, se ele estiver disponível.   
 
 3. Implante um serviço Web fora do Teste Preditivo. Teste o serviço Web usando o botão **Teste**ou o modelo do Excel criado automaticamente para verificar se ele está funcionando corretamente.   
 
-4. Envie seu serviço Web como entrada da competição e veja sua pontuação pública na página da competição da Galeria do Cortana Intelligence. Comemore se você estiver no placar de líderes!  
+4. Envie seu serviço Web como a entrada na competição e veja sua pontuação pública na página da competição da Galeria de IA do Azure. Comemore se você estiver no placar de líderes!  
 
-Depois de enviar uma entrada, é possível retornar ao Teste Inicial copiado, iterar e atualizar seu Teste Preditivo, atualizar o serviço Web e enviar uma nova entrada.   
+Depois de enviar uma entrada, você poderá voltar ao seu Experimento de iniciante. Em seguida, itere e atualize seu Experimento de previsão, atualize o serviço Web e envie uma nova entrada.   
 
 **Posso usar ferramentas de software livre para participar dessas competições?**
 
-Os participantes da competição usam o Azure Machine Learning Studio, um serviço baseado em nuvem no Cortana Intelligence Suite para o desenvolvimento de modelos de ciência de dados e a criação de entradas da competição para envio. O Machine Learning Studio não só fornece uma GUI para construir testes de aprendizado de máquina, mas também permite colocar seus próprios scripts de R e/ou Python para execução nativa. Os tempos de execução de R e Python no Estúdio vêm com um amplo conjunto de pacotes de R/Python de software livre e também é possível importar seus próprios pacotes como parte do teste. O Estúdio também tem um serviço interno do Jupyter Notebook para você explorar dados livremente. Claro, você sempre pode baixar os conjuntos de dados usados na competição e explorá-los em sua ferramenta favorita fora do Machine Learning Studio. 
+Os participantes da competição usam o Azure Machine Learning Studio, um serviçoe m nuvem do Cortana Intelligence Suite para o desenvolvimento de modelos de ciência de dados e a criação de entradas na competição a serem enviadas. O Machine Learning Studio não só fornece uma GUI para construir testes de aprendizado de máquina, mas também permite colocar seus próprios scripts de R e/ou Python para execução nativa. Os tempos de execução R e Python no Studio vêm com um rico conjunto de pacotes de R/Python de software livre. Você pode importar seus próprios pacotes como parte do experimento também. O Estúdio também tem um serviço interno do Jupyter Notebook para você explorar dados livremente. Claro, você sempre pode baixar os conjuntos de dados usados na competição e explorá-los em sua ferramenta favorita fora do Machine Learning Studio. 
 
 **É necessário ser um cientista de dados para participar?**
 
-Nº Na verdade, incentivamos entusiastas de dados, pessoas que têm curiosidade a respeito da ciência de dados e outros aspirantes a cientista de dados para participar de nossa competição. Criamos documentos de suporte para permitir que todos possam participar. Nosso público-alvo é:
+Nº Na verdade, incentivamos entusiastas de dados, pessoas que têm curiosidade a respeito da ciência de dados e outros aspirantes a cientista de dados a participar de nossa competição. Criamos documentos de suporte para permitir que todos possam participar. O público-alvo é:
 
 * **Desenvolvedores de Dados**, **Cientistas de Dados**, profissionais de **BI** e de **Análise**: aqueles responsáveis por produzir conteúdo de dados e análises para outras pessoas consumirem
 * **Administradores de Dados**: aqueles que têm conhecimento sobre os dados, o que eles significam, como eles devem ser usados e para qual finalidade
-* **Estudantes** & **Pesquisadores:** aqueles que estão aprendendo e obtendo habilidades relacionadas a dados em programas acadêmicos universitários ou participantes de MOOCs (Cursos Online de Acesso Livre)
+* **Estudantes** & **Pesquisadores:** aqueles que estão aprendendo e obtendo habilidades relacionadas a dados em programas acadêmicos nas universidades ou participantes de MOOCs (Cursos Online de Acesso Livre)
 
 **Posso me inscrever com meus colegas como uma equipe?**
 
@@ -78,7 +78,7 @@ Veja o que acontece:
 * O conjunto de dados inteiro usado na competição será dividido aleatoriamente com estratificação em dados de treinamento e de teste (restantes). A divisão aleatória é estratificada para garantir que as distribuições de rótulos nos dados de treinamento e de teste são consistentes.
 * Os dados de treinamento são carregados e fornecidos a você como parte do Experimento Inicial na configuração do módulo Importar Dados.
 * Os dados de teste adicionais são divididos em dados de teste públicos e privados usando a mesma estratificação.
-* Os dados de teste públicos são usados na fase inicial de pontuação. O resultado é chamado de pontuação pública e é isso que você vê em seu histórico de envio ao enviar sua entrada. Essa pontuação é calculada para cada entrada que você enviar. Essa pontuação pública é usada para classificá-lo no placar de líderes público.
+* Os dados de teste públicos são usados na fase inicial de pontuação. O resultado é conhecido como a pontuação pública. É o que você vê no seu histórico de envio ao enviar sua entrada. Essa pontuação é calculada para cada entrada que você enviar. Essa pontuação pública é usada para classificá-lo no placar de líderes público.
 * Os dados de teste privado são usados na fase final de pontuação após o encerramento da competição. Eles são chamados de pontuação privada. 
 * Para cada participante, um número fixo de entradas com as pontuações públicas mais altas são selecionadas automaticamente para entrar na rodada de pontuação privada (esse número pode variar de acordo com a competição). A entrada com a pontuação privada mais alta é selecionada para entrar na classificação final, que, em última análise, determina os vencedores do prêmio.  
 
@@ -92,7 +92,7 @@ Uma competição típica pode optar por limitar o número de entradas que você 
 
 **O que acontecerá se eu ganhar uma competição?**
 
-A Microsoft verificará os resultados do placar de líderes privado e entrará em contato com você. Certifique-se de que o endereço de email em seu perfil do usuário está atualizado.
+A Microsoft verificará os resultados do placar de líderes privado e entrará em contato com você. Garanta que o endereço de email em seu perfil do usuário esteja atualizado.
 
 **Como faço para receber a recompensa se eu ganhar uma competição?**
 

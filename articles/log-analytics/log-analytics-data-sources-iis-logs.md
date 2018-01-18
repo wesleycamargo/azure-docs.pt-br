@@ -1,6 +1,6 @@
 ---
-title: Logs do IIS no Log Analytics | Microsoft Docs
-description: "O IIS (Serviços de Informações da Internet) armazena a atividade do usuário em arquivos de log que podem ser coletados pelo Log Analytics.  Este artigo descreve como configurar a coleta de logs do IIS e os detalhes dos registros que eles criam no repositório do OMS."
+title: Logs do IIS no Azure Log Analytics | Microsoft Docs
+description: "O IIS (Serviços de Informações da Internet) armazena a atividade do usuário em arquivos de log que podem ser coletados pelo Log Analytics.  Este artigo descreve como configurar a coleta de logs do IIS e os detalhes dos registros que eles criam no espaço de trabalho do Log Analytics."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2017
+ms.date: 01/07/2018
 ms.author: bwren
-ms.openlocfilehash: 20155e7f0ad817993b5926a1a83b8683ab124075
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: b8ce4e6fe6e12aa3edb81abad1589924e3e121e4
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="iis-logs-in-log-analytics"></a>Logs do IIS no Log Analytics
 O IIS (Serviços de Informações da Internet) armazena a atividade do usuário em arquivos de log que podem ser coletados pelo Log Analytics.  
@@ -41,7 +41,7 @@ O Log Analytics coleta as entradas de log do IIS de cada fonte conectada a cada 
 ## <a name="iis-log-record-properties"></a>Propriedades de registro de log do IIS
 Os registros log do IIS têm um tipo de **W3CIISLog** e têm as propriedades na tabela a seguir:
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 |:--- |:--- |
 | Computador |Nome do computador do qual o evento foi coletado. |
 | cIP |Endereço IP do cliente. |
@@ -68,7 +68,7 @@ Os registros log do IIS têm um tipo de **W3CIISLog** e têm as propriedades na 
 ## <a name="log-searches-with-iis-logs"></a>Pesquisas de log com logs do IIS
 A tabela a seguir fornece diferentes exemplos de consultas de log que recuperam registros do log do IIS.
 
-| Consultar | Descrição |
+| Consultar | DESCRIÇÃO |
 |:--- |:--- |
 | W3CIISLog |Todos os registros de log do IIS. |
 | W3CIISLog &#124; where scStatus==500 |Todos os registros de log do IIS com um status de retorno de 500. |

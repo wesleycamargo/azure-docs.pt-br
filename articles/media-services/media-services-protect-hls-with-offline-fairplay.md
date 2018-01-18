@@ -15,44 +15,50 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: willzhan, dwgeo
-ms.openlocfilehash: b68ceac2056f0a9a7a9c4df7984789858c77a626
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 15f6d422f3171ae5161e0d4d4bcd8ec98529c766
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="offline-fairplay-streaming"></a>Streaming de FairPlay Offline
-Os serviços de mídia do Microsoft Azure fornecem um conjunto de [serviços de proteção de conteúdo](https://azure.microsoft.com/services/media-services/content-protection/) bem-projetados, abrangendo:
+ Os Serviços de Mídia do Azure fornecem um conjunto de [serviços de proteção de conteúdo](https://azure.microsoft.com/services/media-services/content-protection/) bem projetados, que abrangem:
+
 - Microsoft PlayReady
 - Google Widevine
 - Apple FairPlay
 - Criptografia AES-128
 
-A criptografia DRM/AES do conteúdo é executada dinamicamente após a solicitação de vários protocolos de streaming. Os serviços de distribuição de chaves de descriptografia de licença DRM/AES também são fornecidos pelos serviços de mídia do Azure.
+A criptografia de gerenciamento de direitos digitais (DRM)/AES do conteúdo é executada dinamicamente após a solicitação de vários protocolos de streaming. Os serviços de distribuição de chaves de descriptografia de licença DRM/AES também são fornecidos pelos Serviços de Mídia.
 
 Além de proteger o conteúdo de streaming online por meio de vários protocolos de streaming, o modo offline para conteúdo protegido também é um recurso que normalmente é solicitado. O suporte ao modo offline é necessário para os seguintes cenários:
-1. Reprodução quando a conexão de Internet não estiver disponível, como durante viagens;
-2. Alguns provedores de conteúdo podem não permitir a entrega de licença do DRM além das fronteiras do país. Se um usuário quiser ver o conteúdo durante uma viagem para o exterior, é necessário fazer o download offline.
-3. Em alguns países, a disponibilidade de Internet e/ou a largura de banda ainda é limitada. Os usuários podem optar por fazer o download primeiro para que seja possível assistir o conteúdo em resolução alta o suficiente para uma experiência de exibição satisfatória. Nesse caso, com mais frequência, o problema não é a disponibilidade da rede, mas a limitação da largura de banda. Provedores OTT/OVP solicitando suporte ao modo offline.
 
-Este artigo aborda o suporte ao modo offline de Streaming de FairPlay (FPS), focalizando dispositivos que executam o iOS 10 ou posterior. Não há suporte para esse recurso para outras plataformas da Apple, como watchOS, tvOS ou Safari no macOS.
+* Reprodução quando a conexão de Internet não estiver disponível, como durante viagens.
+* Alguns provedores de conteúdo podem não permitir a entrega de licença do DRM além das fronteiras do país. Se os usuários desejarem inspecionar o conteúdo quando estiverem viajando fora do seu país, é necessário baixá-lo offline.
+* Em alguns países, a disponibilidade de Internet e/ou a largura de banda ainda é limitada. Os usuários podem optar por fazer o download primeiro para que seja possível assistir o conteúdo em uma resolução que seja alta o suficiente para uma experiência de exibição satisfatória. Nesse caso, o problema geralmente não é a disponibilidade da rede, mas largura de banda de rede limitada. Os provedores de over-the-top (OTT)/plataforma de vídeo online (OVP) solicitam suporte para o modo offline.
+
+Este artigo aborda o suporte ao modo offline de Streaming de FairPlay (FPS), focando em dispositivos que executam o iOS 10 ou posterior. Não há suporte para esse recurso para outras plataformas da Apple, como watchOS, tvOS ou Safari no macOS.
 
 ## <a name="preliminary-steps"></a>Etapas preliminares
-Antes de implementar o DRM offline para FairPlay em um dispositivo iOS 10 +, você deve primeiro:
-1. Familiarizar-se com a proteção de conteúdo online para o FairPlay. Isso é abordado em detalhes nos artigos/exemplos a seguir:
-- [Apple FairPlay Streaming para Serviços de Mídia do Azure normalmente disponível](https://azure.microsoft.com/blog/apple-FairPlay-streaming-for-azure-media-services-generally-available/)
-- [Proteger o conteúdo do HLS com o Apple FairPlay ou Microsoft PlayReady](https://docs.microsoft.com/azure/media-services/media-services-protect-hls-with-FairPlay)
-- [Uma amostra para o streaming de FPS online](https://azure.microsoft.com/resources/samples/media-services-dotnet-dynamic-encryption-with-FairPlay/)
-2. Obter o SDK de FPS da rede de Desenvolvedor da Apple. O SDK de FPS contém dois componentes:
-- SDK de servidor de FPS, que contém KSM (módulo de segurança de chave), exemplos de cliente, uma especificação e um conjunto de vetores de teste;
-- Pacote de implantação de FPS, que contém a função D, a especificação com instruções sobre como gerar o certificado FPS, chave privada específica do cliente e a chave de segredo do aplicativo (SOLICITAR). A Apple emite o pacote de implantação de FPS apenas para provedores de conteúdo licenciados.
+Antes de implementar o DRM offline para FairPlay em um dispositivo iOS 10 +:
 
-## <a name="configuration-in-azure-media-services"></a>Configuração nos serviços de mídia do Azure
-Para a configuração do modo offline de FPS via [SDK .NET dos Serviços de Mídia do Azure](https://www.nuget.org/packages/windowsazure.mediaservices), você precisa usar o SDK .NET dos Serviços de Mídia do Azure v. 4.0.0.4 ou posterior, que forneceu a API necessária para configurar o modo offline de FPS.
-Como indicado nas suposições acima, assumimos que você tem o código de trabalho para a configuração de proteção de conteúdo de FPS de modo online. Uma vez que você tiver o código para configurar a proteção de conteúdo de modo online para FPS, você só precisa realizar as duas seguintes alterações.
+* Familiarizar-se com a proteção de conteúdo online para o FairPlay. Para obter mais informações, consulte os seguintes artigos e exemplos:
 
-## <a name="code-change-in-fairplay-configuration"></a>Alteração de código na configuração de FairPlay
-Vamos definir uma lógica booleana “habilitar o modo offline”, chamada objDRMSettings.EnableOfflineMode que é verdadeira ao habilitar o cenário de DRm offline. Dependendo deste indicador, podemos fazer a seguinte alteração na configuração de FairPlay:
+    - [Apple FairPlay Streaming para Serviços de Mídia do Azure já está disponível](https://azure.microsoft.com/blog/apple-FairPlay-streaming-for-azure-media-services-generally-available/)
+    - [Proteger o conteúdo do HLS com o Apple FairPlay ou Microsoft PlayReady](https://docs.microsoft.com/azure/media-services/media-services-protect-hls-with-FairPlay)
+    - [Uma amostra para o streaming de FPS online](https://azure.microsoft.com/resources/samples/media-services-dotnet-dynamic-encryption-with-FairPlay/)
+
+* Obter o SDK de FPS da Rede de Desenvolvedor da Apple. O SDK de FPS contém dois componentes:
+
+    - O SDK de servidor de FPS, que contém o Módulo de Segurança de Chave (KSM), exemplos de cliente, uma especificação e um conjunto de vetores de teste.
+    - O Pacote de Implantação de FPS, que contém a função D, a especificação com instruções sobre como gerar o certificado FPS, chave privada específica do cliente e a Chave de Segredo do Aplicativo. A Apple emite o Pacote de Implantação de FPS apenas para provedores de conteúdo licenciados.
+
+## <a name="configuration-in-media-services"></a>Configuração nos Serviços de Mídia
+Para configurar o modo offline de FPS por meio do [SDK dos Serviços de Mídia do .NET](https://www.nuget.org/packages/windowsazure.mediaservices), use a versão 4.0.0.4 ou posterior SDK dos Serviços de Mídia do .NET, que fornece a API necessária para configurar o modo offline de FPS.
+Também é necessário o código de trabalho para configurar a proteção de conteúdo do modo online de FPS. Após obter o código para configurar a proteção de conteúdo de modo online para FPS, você só precisa realizar duas alterações.
+
+## <a name="code-change-in-the-fairplay-configuration"></a>Alteração de código na configuração de FairPlay
+A primeira alteração é definir uma lógica booleana “habilitar o modo offline”, chamada objDRMSettings.EnableOfflineMode que é verdadeira ao habilitar o cenário de DRM offline. Dependendo deste indicador, faça a seguinte alteração na configuração de FairPlay:
 
 ```csharp
 if (objDRMSettings.EnableOfflineMode)
@@ -77,9 +83,10 @@ if (objDRMSettings.EnableOfflineMode)
     }
 ```
 
-## <a name="code-change-in-asset-delivery-policy-configuration"></a>Alteração de código na configuração de política de entrega de ativo
-A segunda alteração é adicionar a terceira chave no dicionário Dictionary<AssetDeliveryPolicyConfigurationKey, string>.
-A terceira AssetDeliveryPolicyConfigurationKey precisa ser adicionada como abaixo: 
+## <a name="code-change-in-the-asset-delivery-policy-configuration"></a>Alteração de código na configuração de política de entrega de ativo
+A segunda alteração é adicionar a terceira chave em Dictionary<AssetDeliveryPolicyConfigurationKey, string>.
+Adicione AssetDeliveryPolicyConfigurationKey conforme mostrado aqui:
+ 
 ```csharp
 // FPS offline mode
     if (drmSettings.EnableOfflineMode)
@@ -96,25 +103,29 @@ A terceira AssetDeliveryPolicyConfigurationKey precisa ser adicionada como abaix
             objDictionary_AssetDeliveryPolicyConfigurationKey);
 ```
 
-Após essta etapa, a política de entrega de ativos Dictionary<AssetDeliveryPolicyConfigurationKey, string> in FPS conterá as três seguintes entradas:
-1. AssetDeliveryPolicyConfigurationKey.FairPlayBaseLicenseAcquisitionUrl ou AssetDeliveryPolicyConfigurationKey.FairPlayLicenseAcquisitionUrl dependendo de fatores tais como FPS KSM/principal servidor usado e se queremos reutilizar a mesma Política de Entrega de Ativo em diversos ativos
-2. AssetDeliveryPolicyConfigurationKey.CommonEncryptionIVForCbcs
-3. AssetDeliveryPolicyConfigurationKey.AllowPersistentLicense
+Após essa etapa, a cadeia de caracteres <Dictionary_AssetDeliveryPolicyConfigurationKey> na política de entrega de conteúdo de FPS contém as três entradas a seguir:
 
-Agora, a sua conta de serviços de mídia está configurada para licenças de FairPlay entregues offline.
+* AssetDeliveryPolicyConfigurationKey.FairPlayBaseLicenseAcquisitionUrl ou AssetDeliveryPolicyConfigurationKey.FairPlayLicenseAcquisitionUrl dependendo de fatores tais como FPS KSM/principal servidor usado e se você reutiliza a mesma política de entrega de ativo em diversos ativos
+* AssetDeliveryPolicyConfigurationKey.CommonEncryptionIVForCbcs
+* AssetDeliveryPolicyConfigurationKey.AllowPersistentLicense
+
+Agora, a sua conta de Serviços de Mídia está configurada para licenças de FairPlay distribuídas offline.
 
 ## <a name="sample-ios-player"></a>Exemplo de Player iOS
-Primeiro, devemos observar que o suporte ao modo offline de FPS está disponível apenas no iOS 10 e posterior. Devemos obter o SDK do Servidor de FPS (v3.0 ou posterior) que contém o documento e exemplo para o modo offline de FPS. Especificamente, o SDK do servidor de FPS (v3.0 ou posterior) contém os dois seguintes itens relacionados ao modo offline:
-1. Documento: Reprodução Offline com Streaming de FairPlay e HTTP Live Streaming. Apple, 14/9/2016. No SDK do servidor de FPS v4.0, este documento foi mesclado no documento de streaming de FPS principal.
-2. Código de exemplo: exemplo HLSCatalog para o modo offline de FPS em \FairPlay Streaming Server SDK v3.1\Development\Client\HLSCatalog_With_FPS\HLSCatalog\. No aplicativo de exemplo HLSCatalog, os arquivos de código a seguir são particularmente para a implementação dos recursos de modo offline:
-- Arquivo de código AssetPersistenceManager.swift: AssetPersistenceManager é a classe principal neste exemplo que demonstra
-    - Como gerenciar streams de download de HLS, como APIs para iniciar e cancelar o download, excluir ativos existentes do dispositivo do usuário;
-    - Como monitorar o andamento do download.
-- Arquivos de código AssetListTableViewController.swift e AssetListTableViewCell.swift: AssetListTableViewController é a principal interface deste exemplo. Ele fornece uma lista de ativos. O exemplo pode reproduzir, fazer download, excluir ou cancelar um download. 
+O suporte ao modo offline de FPS está disponível apenas no iOS 10 e posterior. O SDK do Servidor de FPS (versão 3.0 ou posterior) contém o documento e exemplo para o modo offline de FPS. Especificamente, o SDK do Servidor de FPS (versão 3.0 ou posterior) contém os dois seguintes itens relacionados ao modo offline:
 
-Encontre abaixo as etapas detalhadas para configurar um player iOS em execução. Vamos supor que você inicialize a partir do exemplo HLSCatalog no SDK do Servidor de FPS v 4.0.1.  Precisamos fazer as seguintes alterações de código:
+* Documento: “Reprodução Offline com Streaming de FairPlay e HTTP Live Streaming”. Apple, 14 de setembro de 2016. Na versão 4.0 do SDK do Servidor de FPS, este documento é mesclado no documento FPS principal.
+* Código de exemplo: exemplo HLSCatalog para o modo offline de FPS em \FairPlay Streaming Server SDK version 3.1\Development\Client\HLSCatalog_With_FPS\HLSCatalog\. No aplicativo de exemplo HLSCatalog, os arquivos de código a seguir são usados para a implementação dos recursos do modo offline:
 
-Em HLSCatalog\Shared\Managers\ContentKeyDelegate.swift, implemente o método `requestContentKeyFromKeySecurityModule(spcData: Data, assetID: String)` utilizando o seguinte código: Deixe que drmUr seja uma variável atribuída ao URL de streaming de HLS.
+    - Arquivo de código AssetPersistenceManager.swift: AssetPersistenceManager é a classe principal neste exemplo que demonstra como:
+
+        - Gerencie o download de fluxos HLS, como as APIs usadas para iniciar e cancelar downloads e excluir ativos existentes dos dispositivos.
+        - Monitorar o andamento do download.
+    - Arquivos de código AssetListTableViewController.swift e AssetListTableViewCell.swift: AssetListTableViewController é a principal interface deste exemplo. Ele fornece uma lista de ativos que o exemplo pode usar para reproduzir, baixar, excluir ou cancelar um download. 
+
+Estas etapas mostram como configurar um player iOS em execução. Supondo que você começa com o exemplo HLSCatalog na versão 4.0.1 do SDK do Servidor de FPS, faça as alterações de código a seguir:
+
+Em HLSCatalog\Shared\Managers\ContentKeyDelegate.swift, implemente o método `requestContentKeyFromKeySecurityModule(spcData: Data, assetID: String)` usando o código a seguir. Permitir que "drmUr" seja uma variável atribuída à URL do HLS.
 
 ```swift
     var ckcData: Data? = nil
@@ -147,7 +158,7 @@ Em HLSCatalog\Shared\Managers\ContentKeyDelegate.swift, implemente o método `re
     return ckcData
 ```
 
-Em HLSCatalog\Shared\Managers\ContentKeyDelegate.swift, implemente o método `requestApplicationCertificate()`. Essa implementação depende se você inseriu o certificado (apenas a chave pública) com o dispositivo ou hospedou o certificado na web. Encontre abaixo uma implementação usando o certificado do aplicativo hospedado usado em nossos exemplos de teste. Permitir que certUrl seja uma variável que contenha a URL do certificado do aplicativo.
+Em HLSCatalog\Shared\Managers\ContentKeyDelegate.swift, implemente o método `requestApplicationCertificate()`. Essa implementação depende se você inseriu o certificado (apenas a chave pública) com o dispositivo ou hospedou o certificado na web. A implementação a seguir usa um certificado do aplicativo hospedado usado nos exemplos de teste. Permitir que “certUrl” seja uma variável que contém a URL do certificado do aplicativo.
 
 ```swift
 func requestApplicationCertificate() throws -> Data {
@@ -163,36 +174,38 @@ func requestApplicationCertificate() throws -> Data {
     }
 ```
 
-Para o teste integrado final, tanto o URL do vídeo quanto o URL do certificado do aplicativo serão fornecidos na seção de "Teste integrado".
+Para o teste integrado final, tanto a URL do vídeo quanto a URL do certificado do aplicativo serão fornecidas na seção de "Teste Integrado".
 
-Em HLSCatalog\Shared\Resources\Streams.plist, adicione o seu URL de vídeo de teste e, para a ID de chave de conteúdo, podemos simplesmente usar a URL de aquisição de licença de FairPlay com o protocolo skd como o valor único.
+No HLSCatalog\Shared\Resources\Streams.plist, adicione a URL do vídeo de teste. Para a ID da chave de conteúdo, use a URL de aquisição de licença FairPlay com o protocolo skd como o valor exclusivo.
 
 ![Streams do App de iOS FairPlay Offline](media/media-services-protect-hls-with-offline-FairPlay/media-services-offline-FairPlay-ios-app-streams.png)
 
-Para a URL de vídeo de teste, a URL de aquisição de licenças de FairPlay e URL de certificado do aplicativo, você pode usar as suas próprias se já as tiver configuradas, ou você puder continuar para a próxima seção que contém exemplos de teste.
+Use sua própria URL de vídeo de teste, URL de aquisição de licença FairPlay e URL de certificado do aplicativo, se você as tiver configurado. Ou você pode continuar para a próxima seção, que contém exemplos de teste.
 
 ## <a name="integrated-test"></a>Teste integrado
-Três exemplos de teste foram configurados nos serviços de mídia do Azure abrangendo os três cenários a seguir:
-1.  FPS protegido com faixa de vídeo, áudio e áudio alternativo;
-2.  FPS protegido com faixa de vídeo, áudio, mas sem áudio alternativo;
-3.  FPS protegido com vídeo somente, sem áudio.
+Três exemplos de teste nos Serviços de Mídia abrangem os três cenários a seguir:
 
-Esses exemplos podem ser encontrados neste [site de demonstração](http://aka.ms/poc#22), com o certificado correspondente do aplicativo hospedado em um aplicativo web do Azure.
-Observamos que com o exemplo v3 ou v4 de SDK do servidor de FPS, se uma lista de reprodução mestre contiver áudio alternativo, durante o modo offline, ela toca somente o áudio. Portanto, precisamos da faixa de áudio alternativo. Em outras palavras, entre os três exemplos acima, (2) e (3) funcionam no modo online e offline. Mas (1) executará o áudio somente durante o modo offline, enquanto streaming online funcionará sem problemas.
+* FPS protegido com faixa de vídeo, áudio e áudio alternativo
+* FPS protegido com faixa de vídeo e áudio, mas sem áudio alternativo
+* FPS protegido com vídeo somente e sem áudio
+
+Você pode encontrar esses exemplos [neste site de demonstração](http://aka.ms/poc#22), com o certificado correspondente do aplicativo hospedado em um aplicativo Web do Azure.
+Observamos que com o exemplo da versão 3 ou versão 4 de SDK do Servidor de FPS, se uma lista de reprodução mestre contiver áudio alternativo, durante o modo offline, ela toca somente o áudio. Portanto, você precisa da faixa de áudio alternativo. Em outras palavras, o segundo e terceiro exemplos listados anteriormente trabalham nos modos online e offline. O exemplo listado reproduz primeiro somente o áudio durante o modo offline, enquanto o streaming online funciona sem problemas.
 
 ## <a name="faq"></a>Perguntas frequentes
-Algumas perguntas frequentes sobre resolução de problemas:
-- **Por que apenas o áudio toca, mas nenhum vídeo aparece durante o modo offline?** Esse comportamento parece estar relacionado ao design do aplicativo de exemplo. Quando a faixa de áudio alternativa está presente (que é o caso para HLS) durante o modo offline, tanto iOS 10 e iOS 11 apresentarão por padrão uma faixa de áudio alternativa. Para compensar esse comportamento para o modo offline de FPS, é preciso remover a faixa de áudio alternativa da transmissão. Para fazer isso por parte dos Serviços de Mídia do Azure, podemos simplesmente adicionar o filtro de manifestação dinâmica “audio-only=false”. Em outras palavras, uma URL de HLS terminaria com .ism/manifest(format=m3u8-aapl,audio-only=false). 
-- **Por que ele ainda toca áudio somente sem vídeo durante o modo offline após eu ter adicionado audio-only=false?** Dependendo do projeto da chave de cache de CDN, o conteúdo pode ser armazenado em cache. Você precisa limpar o cache.
-- **O modo de FPS offline também tem suporte em iOS 11 além do iOS 10?** Sim, o modo offline de FPS tem suporte para iOS 10 e iOS 11.
-- **Por que eu não consigo encontrar o documento de Reprodução Offline com o Streaming de FairPlay e HTTP Live Streaming no SDK do Servidor de FPS?** Desde o SDK do Servidor de FPS v 4, este documento foi mesclado no documento do guia de programação de streaming de FairPlay.
+As perguntas frequentes a seguir fornecem assistência com a solução de problemas:
+
+- **Por que apenas o áudio toca, mas nenhum vídeo aparece durante o modo offline?** Esse comportamento parece estar relacionado ao design do aplicativo de exemplo. Quando a faixa de áudio alternativo está presente (que é o caso para HLS) durante o modo offline, tanto iOS 10 e iOS 11 apresentarão por padrão uma faixa de áudio alternativo. Para compensar esse comportamento para o modo offline de FPS, é preciso remover a faixa de áudio alternativo da transmissão. Para fazer isso nos Serviços de Mídia, adicione o filtro de manifestação dinâmica “audio-only=false”. Em outras palavras, uma URL de HLS termina com .ism/manifest(format=m3u8-aapl,audio-only=false). 
+- **Por que ela ainda toca áudio somente sem vídeo durante o modo offline após eu adicionar audio-only=false?** Dependendo do design da chave do cache de rede de distribuição de conteúdo (CDN), o conteúdo pode ser armazenado em cache. Limpe o cache.
+- **O modo de FPS offline também tem suporte em iOS 11 além do iOS 10?** Sim. O modo offline de FPS tem suporte para iOS 10 e iOS 11.
+- **Por que eu não consigo encontrar o documento “Reprodução Offline com o Streaming de FairPlay e HTTP Live Streaming no SDK do Servidor de FPS”?** Desde a versão 4 do SDK do Servidor de FPS, este documento foi mesclado no “Guia de Programação de Streaming de FairPlay”.
 - **O que o último parâmetro significa na seguinte API para o modo de FPS offline?**
 `Microsoft.WindowsAzure.MediaServices.Client.FairPlay.FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration(objX509Certificate2, pfxPassword, pfxPasswordId, askId, iv, RentalAndLeaseKeyType.PersistentUnlimited, 0x9999);`
 
-A documentação para essa API pode ser encontrada [aqui](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.FairPlay.FairPlayconfiguration.createserializedFairPlayoptionconfiguration?view=azure-dotnet). O parâmetro representa a duração do aluguel offline com hora como a unidade.
-- **O que é a estrutura de arquivos offline/baixados em dispositivos iOS?** A estrutura do arquivo baixado em um dispositivo iOS tem a aparência abaixo (captura de tela). `_keys` a pasta armazena licenças de FPS baixadas, uma armazena arquivo para cada host de serviço de licença. `.movpkg` a pasta armazena conteúdo de áudio e vídeo. A primeira pasta com o nome que termina com um traço seguido por um numero contém conteúdo de vídeo. O valor numérico é o "PeakBandwidth" das representações de vídeo. A segunda pasta com o nome que termina com um traço seguido por 0 contém o conteúdo de áudio. A terceira pasta denominada "Dados" contém a lista de reprodução mestre do conteúdo de FPS. Boot.XML fornece uma descrição completa do conteúdo da pasta `.movpkg` (veja abaixo um exemplo de arquivo boot.xml).
+    Para obter a documentação para essa API, consulte [FairPlayConfiguration.CreateSerializedFairPlayOptionConfiguration Method](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.mediaservices.client.FairPlay.FairPlayconfiguration.createserializedFairPlayoptionconfiguration?view=azure-dotnet). O parâmetro representa a duração do aluguel offline com hora como a unidade.
+- **O que é a estrutura de arquivos offline/baixados em dispositivos iOS?** A estrutura do arquivo baixado em um dispositivo iOS tem a aparência da captura de tela abaixo. A pasta `_keys` armazena licenças de FPS baixadas, com um arquivo de armazenamento para cada host de serviço de licença. A pasta `.movpkg` armazena conteúdo de áudio e vídeo. A primeira pasta com o nome que termina com um traço seguido por um numero contém o conteúdo de vídeo. O valor numérico é o PeakBandwidth das representações de vídeo. A segunda pasta com um nome que termina com um traço seguido por 0 contém o conteúdo de áudio. A terceira pasta denominada "Dados" contém a lista de reprodução mestre do conteúdo de FPS. Por fim, boot.xml fornece uma descrição completa do conteúdo da pasta `.movpkg`. 
 
-![Estrutura do Arquivo de Aplicativo iOS de Exemplo do FairPlay Offline](media/media-services-protect-hls-with-offline-FairPlay/media-services-offline-FairPlay-file-structure.png)
+![Estrutura do arquivo de aplicativo iOS de Exemplo do FairPlay Offline](media/media-services-protect-hls-with-offline-FairPlay/media-services-offline-FairPlay-file-structure.png)
 
 Um arquivo de exemplo boot.xml:
 ```xml
@@ -224,8 +237,9 @@ Um arquivo de exemplo boot.xml:
 ```
 
 ## <a name="summary"></a>Resumo
-Neste documento, nós fornecemos informações e etapas detalhadas para implementar o modo offline de FPS, incluindo:
-1. Configuração de proteção de conteúdo de serviços de mídia do Azure através da API .NET AMS. Isso configura a criptografia dinâmica de FairPlay e a entrega de licenças de FairPlay em AMS.
-2. Player de iOS com base no exemplo do SDK do servidor de FPS da Apple. Isso pode configurar um player iOS que pode reproduzir conteúdo de FPS em modo de streaming online ou offline.
-3. Vídeos de FPS de exemplo para testar o streaming em modo offline e online.
-4. Perguntas Frequentes sobre o modo offline de FPS.
+Este documento inclui as seguintes etapas e informações que você pode usar para implementar o modo offline de FPS:
+
+* Configuração de proteção de conteúdo dos Serviços de Mídia por meio da API dos Serviços de Mídia do .NET configura a criptografia de FairPlay dinâmica e distribuição de licenças FairPlay nos Serviços de Mídia.
+* Um player iOS baseado no exemplo do SDK do Servidor de FPS pode configurar um player iOS que pode reproduzir conteúdo de FPS em modo de streaming online ou offline.
+* Vídeos de FPS de exemplo são usados para testar o streaming em modo offline e online.
+* Perguntas Frequentes responde a perguntas sobre o modo offline de FPS.

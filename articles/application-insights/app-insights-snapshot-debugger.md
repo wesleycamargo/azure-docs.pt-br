@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 2f1f9f306d7759cbd1202c985da27a2a3b879ebd
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: f3cdcaf49999d2d5d1ee639cb41916a2584b84f2
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Depurar instantâneos em exceções em aplicativos .NET
 
@@ -62,8 +62,6 @@ Os ambientes a seguir são suportados:
         <MaximumCollectionPlanSize>50</MaximumCollectionPlanSize>
         <!-- How often to reset problem counters. -->
         <ProblemCounterResetInterval>06:00:00</ProblemCounterResetInterval>
-        <!-- The maximum number of snapshots allowed in one minute. -->
-        <SnapshotsPerMinuteLimit>2</SnapshotsPerMinuteLimit>
         <!-- The maximum number of snapshots allowed per day. -->
         <SnapshotsPerDayLimit>50</SnapshotsPerDayLimit>
         </Add>
@@ -77,8 +75,8 @@ Os ambientes a seguir são suportados:
 
 1. [Habilite o Application Insights no seu aplicativo web Núcleo do ASP.NET](app-insights-asp-net-core.md), se você ainda não tiver feito isso.
 
-> [!NOTE]
-> Verifique se o seu aplicativo faz referência à versão 2.1.1 ou mais recente do pacote Microsoft.ApplicationInsights.AspNetCore.
+    > [!NOTE]
+    > Verifique se o seu aplicativo faz referência à versão 2.1.1 ou mais recente do pacote Microsoft.ApplicationInsights.AspNetCore.
 
 2. Inclua o pacote do NuGet [Microsoft.ApplicationInsights.SnapshotCollector](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) em seu aplicativo.
 
@@ -122,7 +120,7 @@ Os ambientes a seguir são suportados:
    }
    ```
 
-4. Configure o Coletor de Instantâneo adicionando uma seção SnapshotCollectorConfiguration ao appsettings.json. Por exemplo:
+4. Configure o Coletor de Instantâneo adicionando uma seção SnapshotCollectorConfiguration ao appsettings.json. Por exemplo: 
 
    ```json
    {
@@ -174,8 +172,8 @@ Para conceder permissão, atribua a função `Application Insights Snapshot Debu
 1. Clique no botão Salvar para adicionar o usuário à função.
 
 
-[!IMPORTANT]
-    Os instantâneos potencialmente podem conter informações pessoais e outras informações confidenciais em valores de parâmetro e variável.
+> [!IMPORTANT]
+> Os instantâneos potencialmente podem conter informações pessoais e outras informações confidenciais em valores de parâmetro e variável.
 
 ## <a name="debug-snapshots-in-the-application-insights-portal"></a>Depurar instantâneos no portal do Application Insights
 
@@ -218,7 +216,7 @@ Para a Computação do Azure e outros tipos, certifique-se de que os arquivos de
 ### <a name="optimized-builds"></a>Builds otimizados
 Em alguns casos, variáveis locais não podem ser visualiados em builds de versão devido a otimizações que são aplicadas durante o processo de compilação.
 
-## <a name="troubleshooting"></a>Solucionar problemas
+## <a name="troubleshooting"></a>solução de problemas
 
 Estas dicas ajudarão a solucionar problemas com o Depurador do Instantâneo.
 
@@ -276,6 +274,41 @@ MinidumpUploader.exe Information: 0 : Deleted PDB scan marker D:\local\Temp\Dump
 ```
 
 Para aplicativos que _não_ estão hospedados no Serviço de Aplicativo, os logs de carregador estão na mesma pasta que o minidespejos: `%TEMP%\Dumps\<ikey>` (onde `<ikey>` é a sua chave de instrumentação).
+
+### <a name="troubleshooting-cloud-services"></a>Solucionando problemas dos Serviços de Nuvem
+Para funções nos Serviços de Nuvem, a pasta temporária padrão pode ser muito pequena para conter os arquivos de minidespejo, levando a instantâneos perdidos.
+O espaço necessário depende do conjunto de trabalho total do seu aplicativo e o número de instantâneos simultâneos.
+O conjunto de trabalho de uma função Web do ASP.NET de 32 bits tem normalmente entre 200 MB e 500 MB.
+Você deve permitir pelo menos dois instantâneos simultâneos.
+Por exemplo, se seu aplicativo usar 1 GB do conjunto de trabalho total, você deve garantir que há pelo menos 2 GB de espaço em disco para armazenar os instantâneos.
+Siga estas etapas para configurar a função Serviço de Nuvem com um recurso local dedicado para instantâneos.
+
+1. Adicione um novo recurso de local para seu Serviço de Nuvem ao editar o arquivo de definição (.csdf) do Serviço de Nuvem. O exemplo a seguir define um recurso chamado `SnapshotStore` com um tamanho de 5 GB.
+```xml
+   <LocalResources>
+     <LocalStorage name="SnapshotStore" cleanOnRoleRecycle="false" sizeInMB="5120" />
+   </LocalResources>
+```
+
+2. Modificar o método `OnStart` da função para adicionar uma variável de ambiente que aponta para o recurso local `SnapshotStore`.
+```C#
+   public override bool OnStart()
+   {
+       Environment.SetEnvironmentVariable("SNAPSHOTSTORE", RoleEnvironment.GetLocalResource("SnapshotStore").RootPath);
+       return base.OnStart();
+   }
+```
+
+3. Atualizar o arquivo ApplicationInsights.config da função para substituir o local da pasta temporária usada pelo `SnapshotCollector`
+```xml
+  <TelemetryProcessors>
+    <Add Type="Microsoft.ApplicationInsights.SnapshotCollector.SnapshotCollectorTelemetryProcessor, Microsoft.ApplicationInsights.SnapshotCollector">
+      <!-- Use the SnapshotStore local resource for snapshots -->
+      <TempFolder>%SNAPSHOTSTORE%</TempFolder>
+      <!-- Other SnapshotCollector configuration options -->
+    </Add>
+  </TelemetryProcessors>
+```
 
 ### <a name="use-application-insights-search-to-find-exceptions-with-snapshots"></a>Usar a pesquisa do Application Insights para encontrar exceções com instantâneos
 

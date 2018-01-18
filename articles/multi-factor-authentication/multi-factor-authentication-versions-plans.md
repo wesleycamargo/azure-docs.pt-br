@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: joflore
-ms.openlocfilehash: c7e880b6632e3a1456cf2fa535e6218d3bb31e4a
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: af86434e1205d67829fc7079d97a37f013c0f2d8
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Como obter a Autenticação Multifator do Azure
 
@@ -35,11 +35,11 @@ Este artigo explica a diferença entre as versões oferecidas aos administradore
 
 A tabela a seguir descreve as diferenças entre as três versões de autenticação multifator:
 
-| Versão | Descrição |
+| Versão | DESCRIÇÃO |
 | --- | --- |
 | Autenticação Multifator para Office 365 |Esta versão funciona exclusivamente com os aplicativos do Office 365 e é gerenciada a partir do portal do Office 365. Os administradores podem [proteger recursos do Office 365 com a verificação de duas etapas](https://support.office.com/article/Set-up-multi-factor-authentication-for-Office-365-users-8f0454b2-f51a-4d9c-bcde-2c48e41621c6). Esta versão faz parte de uma assinatura do Office 365. |
-| Autenticação Multifator para administradores do Azure | Administradores globais do Azure podem habilitar a verificação em duas etapas para suas contas de administrador globais sem custo adicional.|
-| Autenticação Multifator do Azure | Geralmente conhecida como a versão "completa", a Autenticação Multifator do Azure oferece o conjunto mais avançado de recursos. Ela fornece opções de configuração adicionais por meio do [portal clássico do Azure](https://manage.windowsazure.com), relatórios avançados e suporte para uma variedade de aplicativos locais e na nuvem. A Autenticação Multifator do Azure está incluída nos [planos do Azure Active Directory Premium](https://www.microsoft.com/cloud-platform/azure-active-directory-features) e nos [planos do Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-pricing) e pode ser implantada na nuvem ou localmente. |
+| Autenticação Multifator para Administradores do Azure AD | Os usuários atribuídos à função de administrador Global nos locatários do Azure AD podem habilitar a verificação em duas etapas para suas contas de administrador global sem custo adicional.|
+| Autenticação Multifator do Azure | Geralmente conhecida como a versão "completa", a Autenticação Multifator do Azure oferece o conjunto mais avançado de recursos. Ela fornece opções de configuração adicionais por meio do [portal do Azure](https://portal.azure.com), relatórios avançados e suporte para uma variedade de aplicativos locais e na nuvem. A Autenticação Multifator do Azure está incluída nos [planos do Azure Active Directory Premium](https://www.microsoft.com/cloud-platform/azure-active-directory-features) e nos [planos do Enterprise Mobility + Security](https://www.microsoft.com/cloud-platform/enterprise-mobility-security-pricing) e pode ser implantada na nuvem ou localmente. |
 
 ## <a name="feature-comparison-of-versions"></a>Comparação de recursos dasversões
 A tabela a seguir fornece uma lista dos recursos que estão disponíveis em várias versões do Autenticação Multifator do Azure.
@@ -48,9 +48,9 @@ A tabela a seguir fornece uma lista dos recursos que estão disponíveis em vár
 > Esta tabela de comparação aborda os recursos que fazem parte de cada versão da Autenticação Multifator. Se você tiver o serviço completo da Autenticação Multifator do Azure, alguns recursos podem não estar disponíveis caso você use [MFA na nuvem ou MFA no local](multi-factor-authentication-get-started.md).
 
 
-| Recurso | Autenticação Multifator para Office 365 | Autenticação Multifator para administradores do Azure | Autenticação Multifator do Azure |
+| Recurso | Autenticação Multifator para Office 365 | Autenticação Multifator para Administradores do Azure AD | Autenticação Multifator do Azure |
 | --- |:---:|:---:|:---:|
-| Proteger contas de administrador com MFA |● |● (Apenas para contas de Administrador Global) |● |
+| Proteger contas de administrador do Azure AD com MFA |● |● (Apenas para contas de Administrador Global do Azure AD) |● |
 | Aplicativos móveis como um fator secundário |● |● |● |
 | Chamada telefônica como um fator secundário |● |● |● |
 | SMS como um fator secundário |● |● |● |

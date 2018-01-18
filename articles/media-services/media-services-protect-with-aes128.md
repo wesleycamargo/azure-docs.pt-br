@@ -1,6 +1,6 @@
 ---
-title: "Uso da criptografia dinâmica AES-128 e serviço de distribuição de chaves | Microsoft Docs"
-description: "Os Serviços de Mídia do Microsoft Azure permitem que você entregue o conteúdo criptografado com chaves criptografia AES de 128 bits. Os Serviços de Mídia também fornecem o serviço de distribuição de chaves, que distribui chaves de criptografia para usuários autorizados. Este tópico mostra como criptografar dinamicamente com o AES-128 e usar o serviço de distribuição de chaves."
+title: "Usar a criptografia dinâmica AES-128 e o serviço de distribuição de chaves | Microsoft Docs"
+description: "Entregue o conteúdo criptografado com chaves de criptografia AES de 128 bits usando os Serviços de Mídia do Microsoft Azure. Os Serviços de Mídia também fornecem o serviço de distribuição de chaves, que distribui chaves de criptografia para usuários autorizados. Este tópico mostra como criptografar dinamicamente com o AES-128 e usar o serviço de distribuição de chaves."
 services: media-services
 documentationcenter: 
 author: Juliako
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/25/2017
 ms.author: juliako
-ms.openlocfilehash: fd90c63baaf254f5086cbc99a2a22d61587ee365
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: 013c14c00096c9958a732d1f0eaacc9248f57da9
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="using-aes-128-dynamic-encryption-and-key-delivery-service"></a>Uso da criptografia dinâmica AES-128 e serviço de distribuição de chaves
+# <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Use a criptografia dinâmica AES-128 e o serviço de distrbuição de chaves
 > [!div class="op_single_selector"]
 > * [.NET](media-services-protect-with-aes128.md)
 > * [Java](https://github.com/southworkscom/azure-sdk-for-media-services-java-samples)
@@ -28,92 +28,96 @@ ms.lasthandoff: 12/21/2017
 > 
 
 > [!NOTE]
-> Para obter a versão mais recente do SDK do Java e começar a desenvolver com Java, consulte [Introdução ao SDK de cliente Java para Serviços de Mídia](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
+> Para obter a versão mais recente do SDK do Java e começar a desenvolver com Java, confira [Introdução ao SDK de cliente Java para os Serviços de Mídia do Azure](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use). <br/>
 > Para baixar o SDK mais recente do PHP para os Serviços de Mídia, procure a versão 0.5.7 do pacote do Microsoft/WindowsAzure no [Repositório do Packagist](https://packagist.org/packages/microsoft/windowsazure#v0.5.7).  
 
 ## <a name="overview"></a>Visão geral
 > [!NOTE]
-> Consulte essa [postagem de blog](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/) de criptografar conteúdo com AES para entrega para **Safari no macOS**.
-> Consulte [isso](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-Protecting-your-Media-Content-with-AES-Encryption) vídeo para uma visão geral de como proteger seu Conteúdo de Mídia com a criptografia AES.
+> Para obter informações sobre como criptografar conteúdo com a criptografia AES para entrega para o Safari no macOS, consulte [esta postagem no blog](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
+> Para ter uma visão geral de como proteger seu conteúdo de mídia com a criptografia AES, consulte [este vídeo](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Media-Services-Protecting-your-Media-Content-with-AES-Encryption).
 > 
 > 
 
-Os Serviços de Mídia do Microsoft Azure permitem distribuir conteúdo HLS (Http Live Streaming) e Smooth Streams criptografados com criptografia AES (padrão avançado) (usando chaves de criptografia de 128 bits). Os Serviços de Mídia também fornecem o serviço de distribuição de chaves, que distribui chaves de criptografia para usuários autorizados. Se você desejar que os Serviços de Mídia criptografem um ativo, você precisa associar uma chave de criptografia ao ativo e também configurar políticas de autorização para a chave. Quando um fluxo é solicitado por um player, os Serviços de Mídia usam a chave especificada para criptografar dinamicamente o conteúdo usando a criptografia AES. Para descriptografar o fluxo, o player solicita a chave do serviço de distribuição de chaves. Para decidir se o usuário está autorizado para obter a chave ou não, o serviço avalia as políticas de autorização que você especificou para a chave.
+ Você pode usar os Serviços de Mídia para a distribuição HTTP Live Streaming (HLS) e Smooth Streaming criptografado com o AES usando chaves de criptografia de 128 bits. Os Serviços de Mídia também fornecem o serviço de distribuição de chaves, que distribui chaves de criptografia para usuários autorizados. Se você desejar que os Serviços de Mídia criptografem um ativo, você associa uma chave de criptografia ao ativo e também configurar políticas de autorização para a chave. Quando um fluxo é solicitado por um player, os Serviços de Mídia usam a chave especificada para criptografar dinamicamente o conteúdo usando a criptografia AES. Para descriptografar o fluxo, o player solicita a chave do serviço de distribuição de chaves. Para determinar se o usuário está autorizado a obter a chave, o serviço avalia as políticas de autorização que você especificou para a chave.
 
-Os serviços de mídia oferecem suporte a várias maneiras de autenticar os usuários que fazem solicitações de chave. A política de autorização de chave de conteúdo pode ter uma ou mais restrições de autorização: aberta ou restrição de token. A política restrita do token deve ser acompanhada por um token emitido por um Secure Token Service (STS). Os Serviços de Mídia dão suporte a tokens no formato [Simple Web Tokens](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) (SWT) e no formato [Token Web JSON](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT). Para saber mais, consulte [Configure a política de autorização de chave de conteúdo](media-services-protect-with-aes128.md#configure_key_auth_policy).
+Os serviços de mídia oferecem suporte a várias maneiras de autenticar os usuários que fazem solicitações de chave. A política de autorização da chave de conteúdo pode ter uma ou mais restrições de autorização: abertas ou de token. A política restrita do token deve ser acompanhada por um token emitido por um Serviço de Token de Segurança (STS). Os Serviços de Mídia oferecem suporte a tokens nos formatos [Simple Web Token](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) (SWT) e [Token Web JSON](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT). Para saber mais, veja [Configure a política de autorização da chave de conteúdo](media-services-protect-with-aes128.md#configure_key_auth_policy).
 
-Para tirar proveito da criptografia dinâmica, você precisa ter um ativo que contenha um conjunto de arquivos MP4 com múltiplas taxas de bits ou arquivos de origem de Smooth Streaming com múltiplas taxas de bits. Você também precisa configurar a política de entrega para o ativo (descrita mais adiante neste artigo). Em seguida, com base no formato especificado na URL de streaming, o servidor de streaming sob demanda garante que você receba o fluxo no protocolo escolhido por você. Como resultado você só precisa armazenar e pagar pelos arquivos em um único formato de armazenamento, e os Serviços de Mídia compilam e fornecem a resposta apropriada com base nas solicitações de um cliente.
+Para tirar proveito da criptografia dinâmica, você precisa ter um ativo que contenha um conjunto de arquivos MP4 com múltiplas taxas de bits ou arquivos de origem de Smooth Streaming com múltiplas taxas de bits. Você também precisa configurar a política de entrega para o ativo (descrita mais adiante neste artigo). Em seguida, com base no formato especificado na URL de streaming, o servidor de streaming sob demanda garante que você receba o fluxo no protocolo escolhido. Como resultado, você precisa armazenar e pagar por arquivos em um único formato de armazenamento. Os Serviços de Mídia criam e fornecem a resposta apropriada com base nas solicitações de um cliente.
 
-Este artigo poderá ser útil para desenvolvedores que trabalham em aplicativos que entregam mídia protegida. O artigo mostra como configurar o serviço de distribuição de chaves com políticas de autorização para que somente clientes autorizados possam receber as chaves de criptografia. Ele também mostra como usar criptografia dinâmica.
+Este artigo é útil para desenvolvedores que trabalham em aplicativos que distribuem mídia protegida. O artigo mostra como configurar o serviço de distribuição de chaves com políticas de autorização para que somente clientes autorizados possam receber as chaves de criptografia. Ele também mostra como usar criptografia dinâmica.
 
 
 ## <a name="aes-128-dynamic-encryption-and-key-delivery-service-workflow"></a>Criptografia dinâmica AES-128 e fluxo de trabalho de serviço de distribuição de chaves
 
-A seguir estão as etapas gerais que você precisará executar ao criptografar seus ativos com o AES, usando o serviço de distribuição de chaves dos Serviços de Mídia e também usando criptografia dinâmica.
+Execute as seguintes etapas gerais ao criptografar seus ativos com AES usando o serviço de distribuição de chaves dos Serviços de Mídia, bem como usando a criptografia dinâmica:
 
-1. [Criar um ativo e carregar arquivos no ativo](media-services-protect-with-aes128.md#create_asset).
-2. [Codificar o ativo contendo o arquivo para o conjunto de MP4 de taxa de bits adaptável](media-services-protect-with-aes128.md#encode_asset).
-3. [Criar uma chave de conteúdo e associá-la ao ativo codificado](media-services-protect-with-aes128.md#create_contentkey). Nos Serviços de Mídia, a chave de conteúdo contém a chave de criptografia do ativo.
-4. [Configurar a política de autorização da chave de conteúdo](media-services-protect-with-aes128.md#configure_key_auth_policy). A política de autorização de chave de conteúdo deve ser configurada por você e atendida pelo cliente para que a chave de conteúdo seja entregue ao cliente.
-5. [Configure a política de entrega para um ativo](media-services-protect-with-aes128.md#configure_asset_delivery_policy). A configuração da política de entrega inclui: URL de aquisição de chave e IV (Vetor de Inicialização) (o AES 128 exige que o mesmo IV seja fornecido durante a criptografia e descriptografia), protocolo de entrega (por exemplo, MPEG DASH, HLS, Smooth Streaming ou todos), o tipo de criptografia dinâmica (por exemplo, envelope ou sem criptografia dinâmica).
+1. [Crie um ativo e carregue os arquivos no ativo](media-services-protect-with-aes128.md#create_asset).
 
-    Você poderia aplicar uma política diferente a cada protocolo no mesmo ativo. Por exemplo, você poderia aplicar criptografia PlayReady a Smooth/DASH e aplicar Envelope de AES a HLS. Todos os protocolos que não são definidos em uma política de entrega (por exemplo, você adicionar uma única política que só especifica HLS como o protocolo) será bloqueado a partir do streaming. A exceção a isso é se você não tiver nenhuma política de entrega de ativos definida em todos. Em seguida, todos os protocolos podem ser criptografados.
+2. [Codifique o ativo que contém o arquivo para o conjunto de MP4 da taxa de bits adaptável](media-services-protect-with-aes128.md#encode_asset).
+
+3. [Crie uma chave de conteúdo e associe-a ao ativo codificado](media-services-protect-with-aes128.md#create_contentkey). Nos Serviços de Mídia, a chave de conteúdo contém a chave de criptografia do ativo.
+
+4. [Configure a política de autorização da chave de conteúdo](media-services-protect-with-aes128.md#configure_key_auth_policy). Você deve configurar a política de autorização da chave de conteúdo. O cliente deve estar em conformidade com a política antes de a chave de conteúdo ser entregue ao cliente.
+
+5. [Configure a política de entrega para um ativo](media-services-protect-with-aes128.md#configure_asset_delivery_policy). A configuração de política de entrega inclui a URL de aquisição de chave e um vetor de inicialização (IV). (AES-128 exige o mesmo IV para criptografia e descriptografia). A configuração também inclui o protocolo de entrega (por exemplo, MPEG DASH, HLS, Smooth Streaming ou todos) e o tipo de criptografia dinâmica (por exemplo, envelope ou sem criptografia dinâmica).
+
+    Você pode aplicar uma política diferente a cada protocolo no mesmo ativo. Por exemplo, você poderia aplicar a criptografia PlayReady a Smooth/DASH e aplicar Envelope de AES a HLS. Todos os protocolos que não estão definidos em uma política de entrega são impedidos de fazer transmissão por streaming. (Um exemplo é se você adicionar uma única política que especifica somente HLS como o protocolo). Só há exceção se você não tiver nenhuma política de entrega de ativos definida. Em seguida, todos os protocolos podem ser criptografados.
 
 6. [Criar um localizador OnDemand](media-services-protect-with-aes128.md#create_locator) para obter uma URL de streaming.
 
 O artigo também mostra [como um aplicativo cliente pode solicitar uma chave do serviço de distribuição de chaves](media-services-protect-with-aes128.md#client_request).
 
-Você encontra um [exemplo](media-services-protect-with-aes128.md#example) de .NET completo no final do artigo.
+Você encontra um [exemplo de .NET](media-services-protect-with-aes128.md#example) completo no final do artigo.
 
-A imagem a seguir demonstra o fluxo de trabalho descrito acima. Aqui, o token é usado para autenticação.
+A imagem a seguir demonstra o fluxo de trabalho descrito acima. Aqui, o token é usado para a autenticação.
 
 ![Proteger com o AES-128](./media/media-services-content-protection-overview/media-services-content-protection-with-aes.png)
 
-O restante deste artigo fornece explicações detalhadas, exemplos de código e links para tópicos que mostram como realizar as tarefas descritas acima.
+O restante deste artigo fornece explicações, exemplos de código e links para tópicos que mostram como realizar as tarefas descritas anteriormente.
 
 ## <a name="current-limitations"></a>Limitações atuais
-Se você adicionar ou atualizar a política de fornecimento do ativo, você deve excluir um localizador existente (se houver) e criar um novo localizador.
+Se você adicionar ou atualizar a política de entrega do ativo, deverá excluir um localizador existente e criar um novo localizador.
 
 ## <a id="create_asset"></a>Criar um ativo e carregar arquivos no ativo
-Para gerenciar, codificar e transmitir seus vídeos, você deve primeiro carregar o conteúdo nos Serviços de Mídia do Microsoft Azure. Depois de carregado, seu conteúdo é armazenado com segurança na nuvem para processamento adicional e transmissão. 
+Para gerenciar, codificar e transmitir seus vídeos, você deve primeiro carregar o conteúdo nos Serviços de Mídia. Depois de carregado, seu conteúdo é armazenado com segurança na nuvem para processamento adicional e transmissão. 
 
-Para obter informações detalhadas, consulte [Carregar arquivos em uma conta dos Serviços de Mídia](media-services-dotnet-upload-files.md).
+Para mais informações, veja [Carregar arquivos em uma conta dos Serviços de Mídia](media-services-dotnet-upload-files.md).
 
-## <a id="encode_asset"></a>Codificar o ativo contendo o arquivo para o conjunto de MP4 de taxa de bits adaptável
-Com a criptografia dinâmica, tudo o que você precisa fazer é criar um ativo que contenha um conjunto de arquivos MP4 com múltiplas taxas de bits ou arquivos de origem de Smooth Streaming com múltiplas taxas de bits. Em seguida, com base no formato especificado na solicitação de fragmento ou manifesto, o servidor de Streaming OnDemand garante que você receba o fluxo no protocolo escolhido por você. Como resultado você só precisa armazenar e pagar pelos arquivos em um único formato de armazenamento, e os Serviços de Mídia vão criar e fornecer a resposta apropriada com base nas solicitações de um cliente. Para saber mais, consulte o artigo [Visão geral sobre o empacotamento dinâmico](media-services-dynamic-packaging-overview.md).
+## <a id="encode_asset"></a>Codificar o ativo que contém o arquivo para o conjunto de MP4 da taxa de bits adaptável
+Com a criptografia dinâmica, você cria um ativo que contenha um conjunto de arquivos MP4 com múltiplas taxas de bits ou arquivos de origem de Smooth Streaming com múltiplas taxas de bits. Em seguida, com base no formato especificado na solicitação de fragmento ou de manifesto, o servidor de Streaming OnDemand garante que você receba o fluxo no protocolo escolhido por você. Depois, você só precisa armazenar e pagar por arquivos em um único formato de armazenamento. Os Serviços de Mídia criam e fornecem a resposta apropriada com base nas solicitações de um cliente. Para saber mais, confira [Visão geral do empacotamento dinâmico](media-services-dynamic-packaging-overview.md).
 
 >[!NOTE]
->Quando sua conta AMS é criada, um ponto de extremidade de streaming **padrão** é adicionado à sua conta em estado **Parado**. Para iniciar seu conteúdo de streaming e tirar proveito do empacotamento dinâmico e da criptografia dinâmica, o ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar em estado **Executando**. 
+>Quando sua conta dos Serviços de Mídia é criada, um ponto de extremidade de streaming padrão é adicionado à sua conta em estado "Parado". Para iniciar seu conteúdo de streaming e aproveitar o empacotamento dinâmico e a criptografia dinâmica, o ponto de extremidade de streaming do qual você deseja transmitir o conteúdo deve estar no estado "Executando". 
 >
->Além disso, para poder usar o empacotamento dinâmico e a criptografia dinâmica, seu ativo deve conter um conjunto de arquivos MP4 de taxa de bits adaptável ou de Smooth Streaming de taxa de bits adaptável.
+>Além disso, para usar o empacotamento dinâmico e a criptografia dinâmica, seu ativo deve conter um conjunto de arquivos MP4 de taxa de bits adaptável ou de Smooth Streaming de taxa de bits adaptável.
 
-Para obter instruções sobre como codificar, consulte [Como codificar um ativo usando o Codificador de mídia padrão](media-services-dotnet-encode-with-media-encoder-standard.md).
+Para obter instruções sobre como codificar, veja [Codificar um ativo usando o Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md).
 
 ## <a id="create_contentkey"></a>Criar uma chave de conteúdo e associá-la ao ativo codificado
 Nos Serviços de Mídia, a chave de conteúdo contém a chave com a qual você deseja criptografar um ativo.
 
-Para obter informações detalhadas, consulte [Criar chave de conteúdo](media-services-dotnet-create-contentkey.md).
+Para saber mais, consute [Criar uma chave de conteúdo](media-services-dotnet-create-contentkey.md).
 
 ## <a id="configure_key_auth_policy"></a>Configurar a política de autorização da chave de conteúdo
-Os serviços de mídia oferecem suporte a várias maneiras de autenticar os usuários que fazem solicitações de chave. A política de autorização de chave de conteúdo deve ser configurada por você e atendida pelo cliente (player) para que a chave seja entregue ao cliente. A política de autorização de chave de conteúdo pode ter uma ou mais restrições de autorização: aberta, restrição de token ou restrição de IP.
+Os serviços de mídia oferecem suporte a várias maneiras de autenticar os usuários que fazem solicitações de chave. Você deve configurar a política de autorização da chave de conteúdo. O cliente (player) deve estar em conformidade com a política antes de a chave poder ser entregue ao cliente. A política de autorização de chave de conteúdo pode ter uma ou mais restrições de autorização, aberta, restrição de token ou restrição de IP.
 
-Para obter informações detalhadas, consulte [Configurar política de autorização de chave de conteúdo](media-services-dotnet-configure-content-key-auth-policy.md).
+Para saber mais, veja [Configurar uma política de autorização da chave de conteúdo](media-services-dotnet-configure-content-key-auth-policy.md).
 
-## <a id="configure_asset_delivery_policy"></a>Configurar política de entrega de ativos
-Configure a política de entrega para seu ativo. Algumas coisas incluídas na configuração de política de entrega de ativos:
+## <a id="configure_asset_delivery_policy"></a>Configurar uma política de entrega de ativos
+Configure a política de entrega para seu ativo. Algumas coisas incluídas na configuração de política de entrega de ativos são:
 
 * A URL de aquisição de chave. 
-* O VI (vetor de inicialização) a ser usado para a criptografia de envelope. O AES 128 requer que o mesmo VI seja fornecido tanto ao criptografar quanto ao descriptografar. 
+* O vetor de inicialização (IV) a ser usado para a criptografia de envelope. AES-128 exige o mesmo IV para criptografia e descriptografia. 
 * O protocolo de entrega de ativos (por exemplo, MPEG DASH, HLS, Smooth Streaming ou todos).
 * O tipo de criptografia dinâmica (por exemplo, envelope de AES) ou ausência de criptografia dinâmica. 
 
-Para obter informações detalhadas, consulte [Configurar política de entrega de ativos ](media-services-dotnet-configure-asset-delivery-policy.md).
+Para obter mais informações, consulte [Configurar a política de entrega de ativos](media-services-dotnet-configure-asset-delivery-policy.md).
 
 ## <a id="create_locator"></a>Criar um localizador de streaming OnDemand para obter uma URL de streaming
-Você precisa fornecer ao seu usuário a URL para Smooth Streaming, DASH ou HLS.
+Você precisa fornecer ao seu usuário a URL de streaming para Smooth Streaming, DASH ou HLS.
 
 > [!NOTE]
-> Se você adicionar ou atualizar a política de fornecimento do ativo, você deve excluir um localizador existente (se houver) e criar um novo localizador.
+> Se você adicionar ou atualizar a política de entrega do ativo, deverá excluir um localizador existente e criar um novo localizador.
 > 
 > 
 
@@ -128,18 +132,18 @@ Obtenha um token de teste com base na restrição de token que foi usada para a 
         TokenRestrictionTemplateSerializer.Deserialize(tokenTemplateString);
 
     // Generate a test token based on the data in the given TokenRestrictionTemplate.
-    //The GenerateTestToken method returns the token without the word “Bearer” in front
+    //The GenerateTestToken method returns the token without the word "Bearer" in front
     //so you have to add it in front of the token string. 
     string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTemplate);
     Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
 
-É possível usar o [AMS Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html) para testar seu fluxo.
+Pode usar o [Azure Media Services Player](http://amsplayer.azurewebsites.net/azuremediaplayer.html) para testar seu fluxo.
 
 ## <a id="client_request"></a>Como seu cliente pode solicitar uma chave do serviço de distribuição de chaves?
-Na etapa anterior, você construiu a URL que aponta para um arquivo de manifesto. O cliente precisa extrair as informações necessárias dos arquivos de manifesto de streaming para que possa fazer uma solicitação para o serviço de distribuição de chaves.
+Na etapa anterior, você construiu a URL que aponta para um arquivo de manifesto. O cliente precisa extrair as informações necessárias dos arquivos de manifesto de streaming para fazer uma solicitação para o serviço de distribuição de chaves.
 
 ### <a name="manifest-files"></a>Arquivos de manifesto
-O cliente precisa extrair o valor da URL (que também contém a kid (ID da chave de conteúdo)) do arquivo de manifesto. O cliente tentará obter a chave de criptografia por meio do serviço de distribuição de chaves. O cliente também precisa extrair o valor do IV e usá-lo para descriptografar o fluxo. O trecho de código a seguir mostra o <Protection> elemento do manifesto Smooth Streaming.
+O cliente precisa extrair o valor da URL (que também contém a ID da chave de conteúdo [kid]) do arquivo de manifesto. O cliente então tenta obter a chave de criptografia por meio do serviço de distribuição de chaves. O cliente também precisa extrair o valor do IV e usá-lo para descriptografar o fluxo. O trecho de código a seguir mostra o elemento <Protection> do manifesto Smooth Streaming:
 
     <Protection>
       <ProtectionHeader SystemID="B47B251A-2409-4B42-958E-08DBAE7B4EE9">
@@ -155,7 +159,7 @@ O cliente precisa extrair o valor da URL (que também contém a kid (ID da chave
 
 No caso de HLS, o manifesto raiz é dividido em arquivos de segmento. 
 
-Por exemplo, o manifesto raiz é http://test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/manifest(format=m3u8-aapl) e ele contém uma lista de nomes de arquivo de segmento.
+Por exemplo, o manifesto raiz é: http://test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/manifest(format=m3u8-aapl). Ele contém uma lista de nomes de arquivo de segmento.
 
     . . . 
     #EXT-X-STREAM-INF:PROGRAM-ID=1,BANDWIDTH=630133,RESOLUTION=424x240,CODECS="avc1.4d4015,mp4a.40.2",AUDIO="audio"
@@ -164,7 +168,7 @@ Por exemplo, o manifesto raiz é http://test001.origin.mediaservices.windows.net
     QualityLevels(842459)/Manifest(video,format=m3u8-aapl)
     …
 
-Se você abrir um dos arquivos de segmento no editor de texto (por exemplo, http://test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/QualityLevels(514369)/Manifest(video,format=m3u8-aapl), ele deverá conter #EXT-X-KEY, que indica que o arquivo está criptografado.
+Se você abrir um dos arquivos de segmento em um editor de texto (por exemplo, http://test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/QualityLevels(514369)/Manifest(video,format=m3u8-aapl), ele contém #EXT-X-KEY, que indica que o arquivo está criptografado.
 
     #EXTM3U
     #EXT-X-VERSION:4
@@ -181,11 +185,11 @@ Se você abrir um dos arquivos de segmento no editor de texto (por exemplo, http
     #EXT-X-ENDLIST
 
 >[!NOTE] 
->Se você pretende executar um HLS criptografado para AES no Safari, visite [este blog](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
+>Se você pretende executar um HLS criptografado para AES no Safari, consulte [este blog](https://azure.microsoft.com/blog/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/).
 
 ### <a name="request-the-key-from-the-key-delivery-service"></a>Solicitar a chave ao serviço de distribuição de chaves
 
-O código a seguir mostra como enviar uma solicitação ao serviço de distribuição de chaves dos Serviços de Mídia usando um URI de distribuição de chaves (que foi extraído do manifesto) e um token (este artigo não trata de como obter Tokens Web Simples de um Serviço de Token Seguro).
+O código a seguir mostra como enviar uma solicitação ao serviço de distribuição de chaves dos Serviços de Mídia usando um URI de distribuição de chaves (que foi extraído do manifesto) e um token. (Este artigo não explica como obter SWTs de um STS).
 
     private byte[] GetDeliveryKey(Uri keyDeliveryUri, string token)
     {
@@ -227,12 +231,13 @@ O código a seguir mostra como enviar uma solicitação ao serviço de distribui
         return key;
     }
 
-## <a name="protect-your-content-with-aes-128-using-net"></a>Proteger o conteúdo com o AES-128 usando o .NET
+## <a name="protect-your-content-with-aes-128-by-using-net"></a>Proteger o conteúdo com o AES-128 usando o .NET
 
 ### <a name="create-and-configure-a-visual-studio-project"></a>Criar e configurar um projeto do Visual Studio
 
-1. Configure seu ambiente de desenvolvimento e preencha o arquivo de configuração app.config com as informações de conexão, conforme descrito em [Desenvolvimento de Serviços de Mídia com o .NET](media-services-dotnet-how-to-use.md). 
-2. Adicione os seguintes elementos para **appSettings** definidos no seu arquivo app.config:
+1. Configure seu ambiente de desenvolvimento e preencha o arquivo de configuração app.config com as informações de conexão, conforme descrito em [Desenvolvimento dos Serviços de Mídia com o .NET](media-services-dotnet-how-to-use.md).
+
+2. Adicione os seguintes elementos para appSettings, conforme definidos no seu arquivo app.config:
 
         <add key="Issuer" value="http://testacs.com"/>
         <add key="Audience" value="urn:test"/>
@@ -242,11 +247,11 @@ O código a seguir mostra como enviar uma solicitação ao serviço de distribui
 Substitua o código no seu arquivo Program.cs pelo código mostrado nesta seção.
  
 >[!NOTE]
->Há um limite de 1.000.000 políticas para diferentes políticas de AMS (por exemplo, para política de Localizador ou ContentKeyAuthorizationPolicy). Use a mesma ID de política, se você estiver sempre usando os mesmos dias/permissões de acesso, por exemplo, políticas de localizadores que devem permanecer no local por um longo período (políticas de não carregamento). Para saber mais, confira [este artigo](media-services-dotnet-manage-entities.md#limit-access-policies).
+>Há um limite de 1 milhão de políticas para diferentes políticas dos Serviços de Mídia (por exemplo, para política de Localizador ou ContentKeyAuthorizationPolicy). Use a mesma ID de política se você sempre usa as mesmas permissões de acesso/dias. Podemos citar como exemplo as políticas de localizadores que devam permanecer em vigor por um longo período (políticas sem carregamento). Para obter mais informações, consulte a seção “Limitar políticas de acesso” na seção [Gerenciar ativos e entidades relacionadas ao SDK dos Serviços de Mídia .NET](media-services-dotnet-manage-entities.md#limit-access-policies).
 
 Certifique-se de atualizar as variáveis para que indiquem as pastas onde estão localizados os arquivos de entrada.
 
-[!code-csharp[Main](../../samples-mediaservices-encryptionaes/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs)]
+    [!code-csharp[Main](../../samples-mediaservices-encryptionaes/DynamicEncryptionWithAES/DynamicEncryptionWithAES/Program.cs)]
 
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

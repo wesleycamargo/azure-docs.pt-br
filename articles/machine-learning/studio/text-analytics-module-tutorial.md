@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: roastala
-ms.openlocfilehash: 5f45a500c7cc28b6d6ad3fcac780791d43067ff3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: a43dc7162be4b2f3cfd122c6a87921caf2e3e418
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="create-text-analytics-models-in-azure-machine-learning-studio"></a>Criar modelos de análise de texto no Azure Machine Learning Studio
 Você pode usar o Azure Machine Learning para criar e operacionalizar modelos de análise de texto. Esses modelos podem ajudá-lo a resolver, por exemplo, problemas de classificação de documento ou análise de sentimento.
@@ -33,7 +33,7 @@ Em um experimento de análise de texto, geralmente, você pode:
 
 Neste tutorial, você aprenderá essas etapas conforme examinamos um modelo de análise de sentimento usando o conjunto de dados Amazon Book Reviews (consulte o artigo de pesquisa “Biographies, Bollywood, Boom-boxes and Blenders: Domain Adaptation for Sentiment Classification” de John Blitzer, Mark Dredze e Fernando Pereira; Association of Computational Linguistics (ACL), 2007). Esse conjunto de dados consiste em pontuações de crítica (1-2 ou 4-5) e um texto de forma livre. O objetivo é prever a pontuação da crítica: baixa (1-2) ou alta (4-5).
 
-Você pode encontrar os experimentos abordados neste tutorial na Galeria do Cortana Intelligence:
+Você pode encontrar os experimentos abordados neste tutorial na Galeria de IA do Azure:
 
 [Prever crítica literária](https://gallery.cortanaintelligence.com/Experiment/Predict-Book-Reviews-1)
 
@@ -57,7 +57,7 @@ Para criar um modelo para dados de texto, normalmente, você precisa converter o
 
 ![Extrair N-gramas](./media/text-analytics-module-tutorial/extract-ngrams.png)
 
-Aplicamos a pesagem TF*IDF (Frequência de Termo Frequência Inversa do Documento) a contagens de N-grama. Essa abordagem adiciona o peso de palavras que aparecem frequentemente em um único registro, mas que são raras em todo o conjunto de dados. Outras opções incluem o binário, TF e a pesagem de gráfico.
+Aplicamos a pesagem TF*IDF (Frequência de Termo Frequência Inversa do Documento) a contagens de N-grama. Essa abordagem adiciona o peso de palavras que aparecem frequentemente em um único registro, mas que são raras em todo o conjunto de dados. Outras opções incluem o binário, TF e a pesagem de grafo.
 
 Geralmente, esses recursos de texto têm alta dimensionalidade. Por exemplo, se seu corpus tiver 100.000 palavras exclusivas, seu espaço de recurso terá 100.000 dimensões ou mais, caso sejam usados N-gramas. O módulo Extrair Recursos de N-grama fornece um conjunto de opções para reduzir a dimensionalidade. Você pode optar por excluir palavras que são curtas ou longas, muito incomuns ou muito frequentes que têm um valor preditivo significativo. Neste tutorial, excluímos N-gramas que aparecem em menos de 5 registros ou em mais de 80% dos registros.
 
@@ -80,7 +80,7 @@ Depois que a coluna de texto nos dados de teste foi transformada em colunas de r
 ## <a name="step-5-deploy-the-model-to-production"></a>Etapa 5: Implantar o modelo na produção
 O modelo está quase pronto para ser implantado na produção. Quando implantado como um serviço Web, ele usa a cadeia de caracteres de texto de forma livre como entrada e retorna uma previsão “alta” ou “baixa”. Ele usa o vocabulário de N-gram aprendido para transformar o texto em recursos e o modelo de regressão logística treinado para fazer uma previsão desses recursos. 
 
-Para configurar o experimento preditivo, primeiro salvamos o vocabulário de N-grama como conjunto de dados e o modelo de regressão logística treinado da ramificação de treinamento do experimento. Em seguida, salvamos o experimento usando “Salvar Como” para criar um gráfico de experimento para o experimento preditivo. Removemos o módulo Dividir Dados e a ramificação de treinamento do experimento. Em seguida, conectamos o vocabulário de N-grama salvo e o modelo anteriormente aos módulos Extrair Recursos de N-grama e Pontuar Modelo, respectivamente. Também removemos o módulo Avaliar Modelo.
+Para configurar o experimento preditivo, primeiro salvamos o vocabulário de N-grama como conjunto de dados e o modelo de regressão logística treinado da ramificação de treinamento do experimento. Em seguida, salvamos o experimento usando “Salvar Como” para criar um grafo de experimento para o experimento preditivo. Removemos o módulo Dividir Dados e a ramificação de treinamento do experimento. Em seguida, conectamos o vocabulário de N-grama salvo e o modelo anteriormente aos módulos Extrair Recursos de N-grama e Pontuar Modelo, respectivamente. Também removemos o módulo Avaliar Modelo.
 
 Inserimos o módulo Selecionar Colunas no Conjunto de Dados antes do módulo Pré-processar Texto para remover a coluna de rótulo e desmarcamos a opção “Acrescentar a coluna de pontuação ao conjunto de dados” em Pontuar Módulo. Dessa forma, o serviço Web não solicita o rótulo que está tentando prever e não retorna os recursos de entrada em resposta.
 

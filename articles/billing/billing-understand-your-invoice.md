@@ -1,5 +1,5 @@
 ---
-title: Compreenda sua fatura do Azure | Microsoft Docs
+title: Compreenda sua fatura do Azure
 description: Saiba como ler e entender o uso e a fatura da sua assinatura do Azure
 services: 
 documentationcenter: 
@@ -14,13 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
-ms.openlocfilehash: edd4702ccab9162329bf83993d236eec9ec40b3f
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 54de5e123dbb51948eb62d90b444ebd78f9879cb
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="understand-terms-on-your-microsoft-azure-invoice"></a>Compreenda os termos na sua fatura do Microsoft Azure
+
 A fatura fornece um resumo de seus encargos e fornece instruções para pagamento. Ela está disponível para download no formato .pdf (Portable Document Format) no [Portal do Azure](https://portal.azure.com/) ou pode ser enviada via email. Para saber mais, confira [How to get your Azure billing invoice and daily usage data](billing-download-azure-invoice-daily-usage-date.md) (Como obter sua fatura de cobrança e os dados de uso diário do Azure).
 
 Algumas coisas a serem observadas:
@@ -31,9 +32,7 @@ Algumas coisas a serem observadas:
 
 -   Os encargos listados nos demonstrativos de cobrança para clientes internacionais servem somente para fins de estimativa. Os bancos podem ter custos diferentes para as taxas de conversão.
 
-<div style="padding-top: 56.25%; position: relative; width: 100%;">
-<iframe style="position: absolute;top: 0;left: 0;right: 0;bottom: 0;" width="100%" height="100%" src="https://www.youtube.com/embed/jWG1lyJe3Mg" frameborder="0" allowfullscreen></iframe>
-</div>
+>[!VIDEO https://www.youtube.com/embed/jWG1lyJe3Mg]
 
 ## <a name="detailed-terms-and-descriptions-of-your-invoice"></a>Descrições e termos detalhados da fatura
 As seções a seguir listam os termos importantes que você vê em sua fatura, junto com descrições para cada termo.
@@ -44,7 +43,7 @@ A seção de dados da conta da fatura é na parte superior da primeira página e
 
 ![Seção de dados da conta da fatura](./media/billing-understand-your-invoice/1.png)
 
-| Termo | Descrição |
+| Termo | DESCRIÇÃO |
 | --- | --- |
 | OC do cliente No. |Um número de ordem de compra opcional, atribuído por você para acompanhamento |
 | Nº da Fatura |Um número de fatura exclusivo gerado pela Microsoft, usado para fins de acompanhamento |
@@ -65,7 +64,7 @@ O nome da assinatura ("Armazenamento de Produção") é o nome da assinatura par
 #### <a name="understand-the-previous-charges"></a>Entender as cobranças anteriores
 A seção saldo anterior, pagamentos e saldo pendente da fatura resume as transações desde o último período de cobrança.
 
-| Termo | Descrição |
+| Termo | DESCRIÇÃO |
 | --- | --- |
 | Saldo anterior |O valor total devido no último período de cobrança |
 | Pagamentos |Os pagamentos totais e créditos aplicados ao último período de cobrança |
@@ -74,7 +73,7 @@ A seção saldo anterior, pagamentos e saldo pendente da fatura resume as transa
 #### <a name="understand-the-current-charges"></a>Entender os encargos atuais
 A seção Encargos Atuais da fatura mostra detalhes sobre seus encargos mensais para o último período de cobrança.
 
-| Termo | Descrição |
+| Termo | DESCRIÇÃO |
 | --- | --- |
 | Encargos de uso |Encargos de uso são o total de encargos mensais em uma assinatura para o período de cobrança atual|
 | Descontos |Descontos de serviço aplicados ao período de cobrança atual|
@@ -84,7 +83,7 @@ A seção Encargos Atuais da fatura mostra detalhes sobre seus encargos mensais 
 
 A tabela a seguir descreve as instruções de venda e pagamento mostradas na segunda página da fatura.
 
-| Termo |Descrição |
+| Termo |DESCRIÇÃO |
 | --- | --- |
 | Vendido para |O endereço de perfil que está na conta. <br/><br/>Se você precisar alterar o endereço, confira [Como alterar as informações de perfil de sua conta do Azure, como email de contato, endereço e número de telefone](billing-how-to-change-azure-account-profile.md).|
 | Instruções de pagamento |Instruções sobre como pagar dependendo da forma de pagamento (por exemplo, por cartão de crédito ou por fatura). |
@@ -97,10 +96,10 @@ A seção Encargos de uso da fatura exibe informações de nível de medidor nos
 
 A tabela a seguir descreve os cabeçalhos de coluna de encargos de uso mostrados na fatura.
 
-| Termo |Descrição |
+| Termo |DESCRIÇÃO |
 | --- | --- |
-| Nome |Identifica o serviço de nível superior para o uso |
-| Tipo |Define o tipo de serviço do Azure e pode afetar a tarifa |
+| NOME |Identifica o serviço de nível superior para o uso |
+| type |Define o tipo de serviço do Azure e pode afetar a tarifa |
 | Recurso |Identifica a unidade de medida para o medidor sendo consumido |
 | Região |Identifica o local do datacenter para determinados serviços que são cobrados com base no local do datacenter |
 | Consumido |O valor do medidor usado durante o período de cobrança |

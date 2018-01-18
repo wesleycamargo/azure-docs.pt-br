@@ -14,20 +14,20 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: 1115408443e11c8b0d26b83217c5f63e4b6ba819
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 036c192c5f52a1943bc2799ad6c7e6db7bbffcc4
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Codecs e formatos padrão do codificador de mídia
 Este documento contém uma lista dos formatos de arquivo de importação e importação mais comuns que você pode usar com o Codificador de Mídia padrão.
 
 ## <a name="input-containerfile-formats"></a>Formatos de arquivo/contêiner de entrada
-| Formatos de arquivo (extensões de arquivo) | Suportado |
+| Formatos de arquivo (extensões de arquivo) | Com suporte |
 | --- | --- | --- | --- |
-| FLV (com codecs H.264 e AAC) (.flv) |sim |
-| MXF    (.mxf) |sim |
+| FLV (com codecs H.264 e AAC) (.flv) |Sim |
+| MXF    (.mxf) |Sim |
 | GXF    (.gxf) |Sim |
 | MPEG2-PS, MPEG2-TS, 3GP (.ts, .ps, .3gp, .3gpp, .mpg) |Sim |
 | Vídeo do Windows Media (WMV)/ASF (.wmv, .asf) |Sim |
@@ -52,10 +52,10 @@ ou o
 
 * Arquivos MXF, GXF e QuickTime onde o áudio é executado como faixas PCM separadas, mas o mapeamento de canal (para estéreo ou 5.1) pode ser deduzido dos metadados do arquivo
 
-Observe que o suporte para mapeamento de canal explícito/fornecido pelo usuário será fornecido em um futuro próximo.
+O suporte para mapeamento de canal explícito/fornecido pelo usuário será fornecido em um futuro próximo.
 
 ## <a name="input-video-codecs"></a>Codecs de vídeo de entrada
-| Codecs de vídeo de entrada | Suportado |
+| Codecs de vídeo de entrada | Com suporte |
 | --- | --- | --- | --- |
 | AVC de 8 bits/10 bits até 4:2:2, incluindo AVCIntra |8 bits 4:2:0 e 4:2:2 |
 | DNxHD ávido (em MXF) |Sim |
@@ -65,7 +65,7 @@ Observe que o suporte para mapeamento de canal explícito/fornecido pelo usuári
 | MPEG-2 (até perfil e de alto nível 422; incluindo variantes como XDCAM, XDCAM HD, XDCAM IMX, CableLabs ® e D10) |Até perfil 422 |
 | MPEG-1 |Sim |
 | VC-1/WMV9 |Sim |
-| Canopus HQ/HQX |Não |
+| Canopus HQ/HQX |Não  |
 | MPEG-4, parte 2 |Sim |
 | [Theora](https://en.wikipedia.org/wiki/Theora) |Sim |
 | YUV420 descompactado, ou mezzanine |Sim |
@@ -77,7 +77,7 @@ Observe que o suporte para mapeamento de canal explícito/fornecido pelo usuári
 | Apple ProRes 4444 XQ |Sim |
 
 ## <a name="input-audio-codecs"></a>Codecs de áudio de entrada
-| Codecs de áudio de entrada | Suportado |
+| Codecs de áudio de entrada | Com suporte |
 | --- | --- | --- | --- |
 | AAC (AAC-LC, AAC-HE e AAC-HEv2; até 5.1) |Sim |
 | MPEG Layer 2 |Sim |
@@ -88,10 +88,10 @@ Observe que o suporte para mapeamento de canal explícito/fornecido pelo usuári
 | [Opus](http://go.microsoft.com/fwlink/?LinkId=822667) |Sim |
 | [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |Sim |
 | AMR (multitaxa adaptável) |Sim |
-| AES (SMPTE 331M e 302M, AES3-2003) |Não |
-| Dolby® E |Não |
-| Dolby® Digital (AC3) |Não |
-| Dolby® Digital Plus (E-AC3) |Não |
+| AES (SMPTE 331M e 302M, AES3-2003) |Não  |
+| Dolby® E |Não  |
+| Dolby® Digital (AC3) |Não  |
+| Dolby® Digital Plus (E-AC3) |Não  |
 
 ## <a name="output-formats-and-codecs"></a>Formatos e codecs de saída
 A tabela a seguir lista os codecs e formatos de arquivo com suporte para exportação.

@@ -6,11 +6,11 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: raynew
-ms.openlocfilehash: 2b274244cc7b7fd0fc3eee22a57a51db77370370
-ms.sourcegitcommit: aaba209b9cea87cb983e6f498e7a820616a77471
+ms.openlocfilehash: b8075f0e1149a6fc5194347fc34e2a16d5eb2ffc
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/12/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="assessment-calculations"></a>Cálculos de avaliação
 
@@ -47,10 +47,11 @@ As máquinas que você deseja migrar para o Azure devem atender aos requisitos e
 
 Após uma máquina ser indicada como adequada ao Azure, as Migrações para Azure a mapeiam para um tamanho de VM no Azure, usando os seguintes critérios:
 
-- **Verificação de armazenamento**: as Migrações para Azure tentam mapear todo disco anexado à máquina para um disco no Azure: As Migrações para Azure multiplicam a IOPS (E/S por segundo) pelo fator de conforto. Também multiplicam a taxa de transferência (em MBps) de cada disco pelo fator de conforto. Isso fornece a IOPS efetiva do disco e a taxa de transferência. Com base nisso, as Migrações para Azure mapeiam o disco para um disco padrão ou premium no Azure.
-    - Se o serviço não conseguir encontrar um disco com a IOPS e a taxa de transferência necessárias, ele marcará a máquina como inadequada para o Azure.
-    - Se ele encontrar um conjunto de discos adequados, as Migrações para Azure selecionarão aqueles que dão suporte ao método de redundância de armazenamento e ao local especificado nas configurações de avaliação.
-    - Se houver vários discos qualificados, elas selecionarão os que têm o menor custo.
+- **Verificação de armazenamento**: as Migrações para Azure tentam mapear todos os discos anexados à máquina para um disco no Azure:
+    - As Migrações para Azure multiplicam a E/S por segundo (IOPS) pelo fator de conforto. Também multiplicam a taxa de transferência (em MBps) de cada disco pelo fator de conforto. Isso fornece a IOPS efetiva do disco e a taxa de transferência. Com base nisso, as Migrações para Azure mapeiam o disco para um disco padrão ou premium no Azure.
+      - Se o serviço não conseguir encontrar um disco com a IOPS e a taxa de transferência necessárias, ele marcará a máquina como inadequada para o Azure.
+      - Se ele encontrar um conjunto de discos adequados, as Migrações para Azure selecionarão aqueles que dão suporte ao método de redundância de armazenamento e ao local especificado nas configurações de avaliação.
+      - Se houver vários discos qualificados, elas selecionarão os que têm o menor custo.
 - **Taxa de transferência de disco de armazenamento**: [Saiba mais](../azure-subscription-service-limits.md#storage-limits) sobre os limites do Azure por disco e VM.
 - **Tipo de disco**: as Migrações para Azure oferecem suporte somente a discos gerenciados.
 - **Verificação de rede**: as Migrações para Azure tentam localizar uma VM do Azure que possa dar suporte ao número de NICs na máquina local.

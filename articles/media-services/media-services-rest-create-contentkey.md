@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/07/2017
 ms.author: juliako
-ms.openlocfilehash: 6ff8e5ccdc7e14ed39466b4525fdbae86fdc4e9a
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: b9673376d0b2d2fab9254ab4e9f20484a46adc4b
+ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-content-keys-with-rest"></a>Criar chaves de conteúdo com REST
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.lasthandoff: 12/13/2017
 > 
 > 
 
-Os serviços de mídia permitem que você crie novos ativos e forneça ativos criptografados. Uma **ContentKey** fornece acesso seguro aos seus **ativos**. 
+Os Serviços de Mídia permitem que você forneça ativos criptografados. Uma **ContentKey** fornece acesso seguro aos seus **ativos**. 
 
 Ao criar um novo ativo (por exemplo, antes de [carregar arquivos](media-services-rest-upload-files.md)), você pode especificar as seguintes opções de criptografia: **StorageEncrypted**, **CommonEncryptionProtected** ou **EnvelopeEncryptionProtected**. 
 

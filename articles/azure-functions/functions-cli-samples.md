@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: functions
-ms.date: 04/11/2017
+ms.date: 01/09/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 8c2f0cb27e6e06f70018b7acae7ea5ff7f728d98
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: ebeec7a9e88cd1c654128da2c197589aaf7c1b5e
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="azure-cli-samples"></a>Exemplos de CLI do Azure
 
@@ -34,12 +34,17 @@ A tabela a seguir inclui links para scripts bash criados para Azure Functions qu
 | | |
 |**Integração**||
 | [Criar um aplicativo de funções e conectá-lo a uma conta de armazenamento](scripts/functions-cli-create-function-app-connect-to-storage-account.md) | Crie um aplicativo de funções e conecte-o a uma conta de armazenamento. |
-| [Criar um aplicativo de funções e conectá-lo a um Banco de Dados Cosmo do Azure](scripts/functions-cli-create-function-app-connect-to-cosmos-db.md) | Criar um aplicativo de funções e conectá-lo a um Banco de Dados Cosmo do Azure |
+| [Criar um aplicativo de funções e conectá-lo a um Banco de Dados Cosmo do Azure](scripts/functions-cli-create-function-app-connect-to-cosmos-db.md) | Criar um aplicativo de funções e conectá-lo a um Azure Cosmos DB. |
+| | |
+|**Implantação contínua**||
+| [Implantar do GitHub](scripts/functions-cli-create-function-app-github-continuous.md) | Crie um aplicativo de função que implanta de um repositório do GitHub.  |
+| [Implantar do VSTS](scripts/functions-cli-create-function-app-vsts-continuous.md) | Crie um aplicativo de função que implanta de um repositório do VSTS (Visual Studio Team Services).  |
 | | |
 |**Como configurar o aplicativo**||
 | [Mapear um domínio personalizado para um aplicativo de funções](scripts/functions-cli-configure-custom-domain.md) | Defina um domínio personalizado para suas funções.  |
 | [Associar um certificado SSL em um Aplicativo de funções](scripts/functions-cli-configure-ssl-certificate.md)  |  Carregue certificados SSL para funções em um domínio personalizado. |
-<!--
+
+<!---
 
 |**Scale app**||
 

@@ -15,18 +15,18 @@ ms.technology:
 ms.assetid: 
 services: active-directory
 ms.custom: it-pro
-ms.openlocfilehash: eb428b6ce8af85f06506fb9edc2696477d87c70e
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 9e1a7337c2477455aa0b56f2147f46f3bf5293a8
+ms.sourcegitcommit: 6fb44d6fbce161b26328f863479ef09c5303090f
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="get-started-with-azure-ad"></a>Introdução ao Azure AD
 O gerenciamento de identidade moderno requer confiabilidade consistente e dimensionável para garantir a disponibilidade de aplicativos e serviços somente a usuários autenticados. Para oferecer suporte adequado às necessidades de gerenciamento de identidade de usuários, TI precisa de uma maneira de fornecer acesso a aplicativos SaaS (software como serviço) públicos aprovados, uma maneira de hospedar aplicativos de linha de negócios internos e até mesmo maneiras de melhorar o desenvolvimento e o uso de aplicativo local. Todos esses requisitos apontam para a necessidade de uma solução de gerenciamento de identidade baseada em nuvem.      
 
 O Azure AD (Azure Active Directory) é o serviço de gerenciamento de identidade e diretório multilocatário baseado em nuvem da Microsoft. O Azure AD combina serviços de diretório principais, governança avançada de identidade e gerenciamento de acesso a aplicativos. O projeto multilocatário, distribuído geograficamente e de alta disponibilidade do AD do Azure significa que você pode confiar nele para suas necessidades comerciais mais críticas.
 
-O Azure AD inclui um pacote completo de recursos de gerenciamento de identidade, incluindo a capacidade de sincronizar as informações de recursos locais, identidade visual da empresa personalizável, gerenciamento de licenças simples e até mesmo gerenciamento de senha por autoatendimento.  Esses recursos fáceis de configurar podem ajudar a começar a usar o Azure AD para proteger aplicativos baseados em nuvem, simplificar os processos de TI, cortar custos e ajudar a garantir que as metas de conformidade corporativa sejam atingidas.
+O Azure AD inclui um pacote completo de recursos de gerenciamento de identidade, incluindo a capacidade de sincronizar as informações de recursos locais, identidade visual da empresa personalizável, gerenciamento de licenças simples e até mesmo gerenciamento de senha por autoatendimento. Esses recursos fáceis de implantar podem ajudar você a começar a usar o Azure AD para proteger aplicativos baseados em nuvem, simplificar os processos de TI, cortar custos e ajudar a garantir que as metas de conformidade corporativa sejam atingidas.
 
 ![AD do Azure ](./media/get-started-azure-ad/Azure_Active_Directory.png)
 
@@ -88,6 +88,6 @@ Examine as propriedades SSPR habilitadas em **Azure Active Directory** > **Redef
 
 
 ## <a name="next-steps"></a>Próximas etapas
-[Página do produto do Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
+[Página de serviço do Azure Active Directory](https://azure.microsoft.com/services/active-directory/)
 
 [Página de informações sobre preços do Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/)

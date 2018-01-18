@@ -1,6 +1,6 @@
 ---
-title: Notebooks Jupyter na Galeria do Cortana Intelligence | Microsoft Docs
-description: Descubra notebooks Jupyter na Galeria do Cortana Intelligence.
+title: Notebooks Jupyter na Galeria de IA do Azure| Microsoft Docs
+description: Descobrir os notebooks Jupyter na Galeria de IA do Azure.
 services: machine-learning
 documentationcenter: 
 author: garyericson
@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: roopalik;garye
-ms.openlocfilehash: 10828d78f6e16b57c21f4d05b6d6116428ea4039
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 59092514705d998fcf9ff835b3fde8a04f81aac5
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/06/2018
 ---
-# <a name="discover-jupyter-notebooks-in-the-cortana-intelligence-gallery"></a>Descobrir notebooks Jupyter na Galeria do Cortana Intelligence
+# <a name="discover-jupyter-notebooks-in-the-azure-ai-gallery"></a>Descobrir os notebooks Jupyter na Galeria de IA do Azure
 [!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
 ## <a name="jupyter-notebooks"></a>Notebooks Jupyter

@@ -1,5 +1,5 @@
 ---
-title: "Associação de tabela externa do Azure Functions (versão prévia) | Microsoft Docs"
+title: "Associação de tabela externa do Azure Functions (experimental)"
 description: "Usar as associações de tabela externa no Azure Functions"
 services: functions
 documentationcenter: 
@@ -14,14 +14,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: alkarche
-ms.openlocfilehash: 1d983a6924a939a8eb89355fab0c90596dbf2ed3
-ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
+ms.openlocfilehash: 8a4358fa67e45d0b7a2df1519d649099b5ef5850
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/22/2017
+ms.lasthandoff: 01/05/2018
 ---
-# <a name="azure-functions-external-table-binding-preview"></a>Associação de tabela externa do Azure Functions (versão prévia)
-Este artigo mostra como manipular dados tabulares em provedores de SaaS (por exemplo, Sharepoint, Dynamics) com sua função com associações internas. O Azure Functions dá suporte a associações de entrada e saída para tabelas externas.
+# <a name="external-table-binding-for-azure-functions-experimental"></a>Associação de tabela externa do Azure Functions (experimental)
+
+Este artigo explica como trabalhar com dados tabulares em provedores de SaaS, como o Sharepoint e o Dynamics, no Azure Functions. O Azure Functions dá suporte a associações de entrada e saída para tabelas externas.
+
+> [!IMPORTANT]
+> A associação de Tabela Externa é experimental e pode nunca alcançar o status de GA (Disponibilidade Geral). Ela foi incluída somente no Azure Functions 1.x e não há planos de adicioná-la ao Azure Functions 2.x. Para os cenários que exigem acesso aos dados de provedores de SaaS, considere o uso de [aplicativos lógicos que chamem funções](functions-twitter-email.md).
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -29,9 +33,9 @@ Este artigo mostra como manipular dados tabulares em provedores de SaaS (por exe
 
 As associações de tabela aproveitam conexões de API externas para autenticar com provedores de SaaS terceirizados. 
 
-Ao atribuir uma associação você pode criar uma nova conexão de API ou usar uma conexão de API existente dentro do mesmo grupo de recursos
+Ao atribuir uma associação você pode criar uma nova conexão de API ou usar uma conexão de API existente dentro do mesmo grupo de recursos.
 
-### <a name="supported-api-connections-tables"></a>Conexões de API com suporte (Tabela)s
+### <a name="available-api-connections-tables"></a>Conexões de API disponíveis (tabelas)
 
 |Conector|Gatilho|Entrada|Saída|
 |:-----|:---:|:---:|:---:|
@@ -52,26 +56,35 @@ Ao atribuir uma associação você pode criar uma nova conexão de API ou usar u
 |UserVoice||x|x
 |Zendesk||x|x
 
-
 > [!NOTE]
-> Conexões de tabela externa também podem ser usadas nos [Aplicativo Lógico do Azure](https://docs.microsoft.com/azure/connectors/apis-list)
+> Conexões de tabela externa também podem ser usadas nos [Aplicativos Lógicos do Azure](https://docs.microsoft.com/azure/connectors/apis-list).
 
-### <a name="creating-an-api-connection-step-by-step"></a>Criar uma conexão de API: passo a passo
+## <a name="creating-an-api-connection-step-by-step"></a>Criar uma conexão de API: passo a passo
 
-1. Criar uma função > função personalizada ![Criar uma função personalizada](./media/functions-bindings-storage-table/create-custom-function.jpg)
-1. Modelo `Experimental` > `ExternalTable-CSharp` de cenário > Criar uma nova `External Table connection`
-![Escolher modelo de entrada de tabela](./media/functions-bindings-storage-table/create-template-table.jpg)
-1. Escolha seu provedor de SaaS > escolha/crie uma conexão ![Configurar conexão de SaaS](./media/functions-bindings-storage-table/authorize-API-connection.jpg)
-1. Selecione sua conexão de API > crie a função ![Criar função de tabela](./media/functions-bindings-storage-table/table-template-options.jpg)
-1. Selecionar `Integrate` > `External Table`
-    1. Configure a conexão para usar sua tabela de destino. Essas configurações irão variar entre provedores de SaaS. Elas estão destacados abaixo nas [configurações de fonte de dados](#datasourcesettings)
-![Configurar tabela](./media/functions-bindings-storage-table/configure-API-connection.jpg)
+1. Na página portal do Azure para seu aplicativo de função, selecione o sinal de adição (**+**) para criar uma função.
 
-## <a name="usage"></a>Uso
+1. Na caixa **Cenário**, selecione **Experimental**.
+
+1. Selecione **Tabela externa**.
+
+1. Selecione um idioma.
+
+2. Em **Conexão da Tabela externa**, selecione uma conexão existente ou selecione **Nova**.
+
+1. Para uma nova conexão, defina as configurações e selecione **Autorizar**.
+
+1. Selecione **Criar** para criar a função.
+
+1. Selecione **Integrar > Tabela Externa**.
+
+1. Configure a conexão para usar sua tabela de destino. Essas configurações irão variar entre provedores de SaaS. Os exemplos são mostrados na seção a seguir.
+
+## <a name="example"></a>Exemplo
 
 Este exemplo conecta a uma tabela denominada "Contato" com as colunas Id, Nome e Sobrenome. O código lista as entidades de contato na tabela e registra os nomes e sobrenomes.
 
-### <a name="bindings"></a>Associações
+Aqui está o arquivo *function.json*:
+
 ```json
 {
   "bindings": [
@@ -93,29 +106,8 @@ Este exemplo conecta a uma tabela denominada "Contato" com as colunas Id, Nome e
   "disabled": false
 }
 ```
-`entityId` deve estar vazia para associações de tabela.
 
-`ConnectionAppSettingsKey` identifica a configuração de aplicativo que armazena a sequência da conexão da API. A configuração do aplicativo é criada automaticamente quando você adiciona uma conexão de API à interface de usuário integrada.
-
-Um conector tabular fornece conjuntos de dados e cada conjunto de dados contém tabelas. O nome do conjunto de dados padrão é “padrão”. Os títulos de um conjunto de dados e uma tabela em vários provedores de SaaS estão listados abaixo:
-
-|Conector|Conjunto de dados|Tabela|
-|:-----|:---|:---| 
-|**SharePoint**|Site|Lista do SharePoint
-|**SQL**|Banco de dados|Tabela 
-|**Google Sheet**|Planilha|Planilha 
-|**Excel**|Arquivo do Excel|Folha 
-
-<!--
-See the language-specific sample that copies the input file to the output file.
-
-* [C#](#incsharp)
-* [Node.js](#innodejs)
-
--->
-<a name="incsharp"></a>
-
-### <a name="usage-in-c"></a>Uso em C# #
+Aqui está o código de script do C#:
 
 ```cs
 #r "Microsoft.Azure.ApiHub.Sdk"
@@ -154,25 +146,9 @@ public static async Task Run(string input, ITable<Contact> table, TraceWriter lo
 }
 ```
 
-<!--
-<a name="innodejs"></a>
+### <a name="sql-server-data-source"></a>Fonte de dados do SQL Server
 
-### Usage in Node.js
-
-```javascript
-module.exports = function(context) {
-    context.log('Node.js Queue trigger function processed', context.bindings.myQueueItem);
-    context.bindings.myOutputFile = context.bindings.myInputFile;
-    context.done();
-};
-```
--->
-<a name="datasourcesettings"></a>
-## Configurações de Fonte de Dados
-
-### <a name="sql-server"></a>SQL Server
-
-O script para criar e preencher a tabela Contato pode ser encontrado abaixo. dataSetName é “padrão”.
+Para criar uma tabela no SQL Server para usar com este exemplo, veja um script. `dataSetName` é “padrão”.
 
 ```sql
 CREATE TABLE Contact
@@ -191,11 +167,36 @@ INSERT INTO Contact(Id, LastName, FirstName)
 GO
 ```
 
-### <a name="google-sheets"></a>Google Sheets
-No Google Docs, crie uma planilha com uma planilha chamada `Contact`. O conector não pode usar o nome de exibição da planilha. O nome interno (em negrito) precisa ser usado como dataSetName, por exemplo: `docs.google.com/spreadsheets/d/`**`1UIz545JF_cx6Chm_5HpSPVOenU4DZh4bDxbFgJOSMz0`** adicione os nomes de coluna `Id`, `LastName`, `FirstName` à primeira linha e, em seguida, preencha os dados nas linhas seguintes.
+### <a name="google-sheets-data-source"></a>Fonte de dados de Planilhas do Google
+
+Para criar uma tabela a ser usada com este exemplo no Google Docs, crie uma planilha com uma planilha denominada `Contact`. O conector não pode usar o nome de exibição da planilha. O nome interno (em negrito) precisa ser usado como dataSetName, por exemplo: `docs.google.com/spreadsheets/d/`**`1UIz545JF_cx6Chm_5HpSPVOenU4DZh4bDxbFgJOSMz0`** adicione os nomes de coluna `Id`, `LastName`, `FirstName` à primeira linha e, em seguida, preencha os dados nas linhas seguintes.
 
 ### <a name="salesforce"></a>Salesforce
-dataSetName é “padrão”.
+
+Para usar este exemplo com o Salesforce, `dataSetName` é "padrão".
+
+## <a name="configuration"></a>Configuração
+
+A tabela a seguir explica as propriedades de configuração de associação que você define no arquivo *function.json*.
+
+|Propriedade function.json | DESCRIÇÃO|
+|---------|----------------------|
+|**tipo** | Deve ser definido como `apiHubTable`. Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure.|
+|**direction** | Deve ser definido como `in`. Essa propriedade é definida automaticamente quando você cria o gatilho no portal do Azure. |
+|**name** | O nome da variável que representa o item de evento no código de função. | 
+|**conexão**| Identifica a configuração de aplicativo que armazena a cadeia de conexão da API. A configuração do aplicativo é criada automaticamente quando você adiciona uma conexão de API à interface de usuário integrada.|
+|**dataSetName**|O nome do conjunto de dados que contém a tabela a ser lida.|
+|**tableName**|O nome da tabela|
+|**entityId**|Deve estar vazia para associações de tabela.
+
+Um conector tabular fornece conjuntos de dados e cada conjunto de dados contém tabelas. O nome do conjunto de dados padrão é “padrão”. Os títulos de um conjunto de dados e uma tabela em vários provedores de SaaS estão listados abaixo:
+
+|Conector|Conjunto de dados|Tabela|
+|:-----|:---|:---| 
+|**SharePoint**|Site|Lista do SharePoint
+|**SQL**|Banco de dados|Tabela 
+|**Google Sheet**|Planilha|Planilha 
+|**Excel**|Arquivo do Excel|Folha 
 
 ## <a name="next-steps"></a>Próximas etapas
 

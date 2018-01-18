@@ -14,11 +14,11 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkdin;anilmur
-ms.openlocfilehash: e831048f34ecf6e89595adc4bfd58b5977e04bdb
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.openlocfilehash: be84225eca9cbaa25b9a0dfb8e74e0981b283096
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="use-the-fmle-encoder-to-send-a-single-bitrate-live-stream"></a>Usar o codificador FMLE para enviar uma transmissão ao vivo de taxa de bits única
 > [!div class="op_single_selector"]
@@ -29,11 +29,11 @@ ms.lasthandoff: 12/21/2017
 >
 >
 
-Este tópico mostra como configurar o codificador [FMLE](http://www.adobe.com/products/flash-media-encoder.html) (Flash Media Live Encoder) para enviar uma transmissão de taxa de bits única para os canais do AMS que são habilitados para codificação ativa. Para obter mais informações, consulte [Trabalhando com canais habilitados para executar codificação ao vivo com os Serviços de Mídia do Azure](media-services-manage-live-encoder-enabled-channels.md).
+Este artigo mostra como configurar o codificador [Flash Media Live Encoder](http://www.adobe.com/products/flash-media-encoder.html) (FLME) para enviar uma transmissão de taxa de bits única para os canais do AMS que são habilitados para codificação ativa. Para obter mais informações, consulte [trabalhando com canais habilitados a executar codificação ativa com os Serviços de Mídia do Azure](media-services-manage-live-encoder-enabled-channels.md).
 
 Este tutorial mostra como gerenciar o AMS (Serviços de Mídia do Azure) com a ferramenta AMSE (Gerenciador de Serviços de Mídia da Azure). Essa ferramenta é executada apenas em PCs com Windows. Se você estiver no Mac ou Linux, use o portal do Azure para criar [canais](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) e [programas](media-services-portal-creating-live-encoder-enabled-channel.md).
 
-Observe que este tutorial descreve como usar o AAC. No entanto, por padrão, o FMLE dá suporte ao AAC. Você precisa comprar um plug-in para codificação do AAC como MainConcept: [AAC plug-in](http://www.mainconcept.com/products/plug-ins/plug-ins-for-adobe/aac-encoder-fmle.html)
+Este tutorial descreve como usar o AAC. No entanto, por padrão, o FMLE dá suporte ao AAC. Você precisa comprar um plug-in para codificação do AAC como MainConcept: [AAC plug-in](http://www.mainconcept.com/products/plug-ins/plug-ins-for-adobe/aac-encoder-fmle.html)
 
 ## <a name="prerequisites"></a>Pré-requisitos
 * [Criar uma conta dos Serviços de Mídia do Azure](media-services-portal-create-account.md)
@@ -91,7 +91,7 @@ Neste tutorial, são usadas as configurações de saída abaixo. O restante dest
 ### <a name="configuration-steps"></a>Etapas da configuração
 1. Navegue até a interface do Flash Media Live Encoder (FMLE) no computador que está sendo usado.
 
-    A interface é uma página principal de configurações. Por favor, anote as seguintes configurações recomendadas para introdução à transmissão usando FMLE.
+    A interface é uma página principal de configurações. Anote as seguintes configurações recomendadas para introdução ao streaming usando FMLE.
 
    * Formato: Taxa de quadros H. 264: 30,00
    * Tamanho de entrada: 1280x720
@@ -120,7 +120,7 @@ Neste tutorial, são usadas as configurações de saída abaixo. O restante dest
 
     Quando o canal estiver em execução, clique com o botão direito no nome dele, navegue até parar sobre **Copiar URL de entrada para área de transferência**, em seguida, selecione **URL da Entrada Principal**.  
 
-    ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle6.png)
+    ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle6.png)
 5. Cole essas informações no campo **URL do FMS** da seção de saída e atribua um nome de transmissão.
 
     ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle7.png)
@@ -142,12 +142,12 @@ Navegue até a ferramenta AMSE e clique com botão direito do mouse no canal a s
 
 Se a transmissão for exibida no player, isso significa que o codificador foi corretamente configurado para se conectar ao AMS.
 
-Se um erro for recebido, será necessário redefinir o canal e ajustar as configurações do codificador. Veja o tópico [solução de problemas](media-services-troubleshooting-live-streaming.md) para obter orientações.  
+Se um erro for recebido, será necessário redefinir o canal e ajustar as configurações do codificador. Confira o artigo de [solução de problemas](media-services-troubleshooting-live-streaming.md) para obter diretrizes.  
 
 ## <a name="create-a-program"></a>Criar um programa
-1. Depois que a reprodução do canal for confirmada, crie um programa. Na guia **Ativo** na ferramenta AMSE, clique com o botão direito na área do programa e selecione **Criar Novo Programa**.  
+1. Depois que a reprodução do canal for confirmada, crie um programa. Na guia **Ativo** na ferramenta AMSE, clique com o botão direito do mouse na área do programa e selecione **Criar Novo Programa**.  
 
-    ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle9.png)
+    ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle9.png)
 2. Nomeie o programa e, se necessário, ajuste a **Duração da Janela de Arquivo** (cujo padrão é de 4 horas). Você também pode especificar um local de armazenamento ou deixar como o padrão.  
 3. Marque a caixa **Iniciar o Programa agora** .
 4. Clique em **Criar Programa**.  
@@ -155,13 +155,13 @@ Se um erro for recebido, será necessário redefinir o canal e ajustar as config
     >[!NOTE]
     >A criação do programa leva menos tempo do que a criação do canal.
         
-5. Quando o programa estiver em execução, confirme a reprodução clicando com o botão direito do programa e navegando até **Reproduzi o(s) programa(s)**, em seguida, selecionando **com o Player de Mídia do Azure**.  
-6. Depois de confirmar, clique novamente com botão direito no programa e selecione **Copie a URL de Saída para Área de Transferência** (ou recupere essas informações na opção **Informações e configurações do programa** do menu).
+5. Quando o programa estiver em execução, confirme a reprodução clicando com o botão direito do mouse do programa e navegando até **Reproduzir o(s) programa(s)**, em seguida, selecionando **com o Player de Mídia do Azure**.  
+6. Depois de confirmar, clique novamente com botão direito no programa e selecione **Copiar a URL de Saída para Área de Transferência** (ou recupere essas informações na opção **Informações e configurações do programa** do menu).
 
 A transmissão agora está pronta para ser inserida em um player ou distribuída para um público para a exibição ao vivo.  
 
 ## <a name="troubleshooting"></a>solução de problemas
-Veja o tópico [solução de problemas](media-services-troubleshooting-live-streaming.md) para obter orientações.
+Confira o artigo de [solução de problemas](media-services-troubleshooting-live-streaming.md) para obter diretrizes.
 
 ## <a name="media-services-learning-paths"></a>Roteiros de aprendizagem dos Serviços de Mídia
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]

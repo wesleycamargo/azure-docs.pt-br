@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/10/2017
 ms.author: carlrab
-ms.openlocfilehash: 9b218756277e52a4d582b1e8e42200f78d38580e
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: e75facfd77fc1cb3c23aa4e1f6f7f799620fef39
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="configure-and-restore-from-azure-sql-database-long-term-backup-retention"></a>Configurar e restaurar de uma retenção de backup de longo prazo do Banco de Dados SQL do Azure
 
@@ -82,6 +82,9 @@ Você [configura um cofre dos Serviços de Recuperação do Azure para reter os 
 12. Na página **Configurar**, forneça um nome válido para a nova política de retenção, modifique a política de retenção padrão, conforme apropriado e clique em **OK**.
 
    ![definir política de retenção](./media/sql-database-get-started-backup-recovery/define-retention-policy.png)
+   
+   >[!NOTE]
+   >Os nomes de política de retenção não permitem alguns caracteres, incluindo espaços.
 
 13. Na página **Retenção de backup de longo prazo** do banco de dados, clique em **Salvar** e em **OK** para aplicar a política de retenção de backup de longo prazo a todos os bancos de dados selecionados.
 

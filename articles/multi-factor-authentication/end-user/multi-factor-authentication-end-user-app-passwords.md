@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/12/2017
+ms.date: 01/05/2018
 ms.author: barlan
 ms.custom: end-user
-ms.openlocfilehash: 166a04fa18a57b239c195cbdd7b53a3baafbad65
-ms.sourcegitcommit: d247d29b70bdb3044bff6a78443f275c4a943b11
+ms.openlocfilehash: 55ca5ada0db30440e4599c77b7a6834ef671c7a4
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="what-are-app-passwords-in-azure-multi-factor-authentication"></a>O que são as senhas de aplicativo na Autenticação Multifator do Azure?
 Determinados aplicativos que não usam navegador, como o cliente de email nativo da Apple, que usa o Exchange Active Sync, atualmente, não oferecem suporte à autenticação multifator. O Multi-Factor Authentication é habilitado por usuário. Isso significa que se um usuário tiver sido habilitado para autenticação multifator e tentar usar aplicativos sem navegador, ele não conseguirá usá-lo. Uma senha de aplicativo permite que isso ocorra. Caso você imponha a Autenticação Multifator do Microsoft Azure por meio de políticas de acesso condicional e não por MFA por usuário, não será possível criar senhas de aplicativo. Aplicativos que usam políticas de acesso condicional para controlar o acesso não precisam de senhas de aplicativo.
@@ -55,30 +55,12 @@ Durante a conexão inicial, você recebe uma senha de aplicativo que pode usar. 
 ## <a name="manage-app-passwords-in-the-azure-portal"></a>Gerenciar senhas de aplicativo no portal do Azure
 Se você usa a autenticação em duas etapas com o Azure, talvez seja conveniente criar senhas de aplicativo por meio do portal do Azure.
 
-### <a name="to-create-app-passwords-in-the-azure-portal"></a>Para criar senhas de aplicativo no portal do Azure
-1. Entre no portal clássico do Azure.
-2. Na parte superior, clique com o botão direito do mouse no seu nome de usuário e selecione Verificação de Segurança Adicional.
-3. Na parte superior da página de prova, selecione as senhas de aplicativo
-4. Clique em **Criar**.
-5. Insira um nome para a senha de aplicativo e clique em **Avançar**
-6. Copie a senha de aplicativo na área de transferência e cole-a no seu aplicativo.
-
-   ![Nuvem](./media/multi-factor-authentication-end-user-app-passwords/app2.png)
-
-
-### <a name="to-delete-app-passwords-in-the-azure-portal"></a>Para excluir senhas de aplicativo no portal do Azure
-1. Entre no portal clássico do Azure.
-2. Na parte superior, clique com o botão direito do mouse no seu nome de usuário e selecione Verificação de Segurança Adicional.
-3. Na parte superior, ao lado de verificação de segurança adicional, clique em **senhas de aplicativo.**
-4. Ao lado da senha de aplicativo que deseja excluir, selecione **Excluir**.
-5. Confirme a exclusão clicando em **sim**.
-6. Quando a senha do aplicativo for excluída, clique em **Fechar**.
 
 
 ## <a name="manage-app-passwords-with-the-myapps-portal"></a>Gerenciar senhas de aplicativo no portal do MyApps.
 Se não tiver certeza de como você usa a autenticação multifator, será possível criar e excluir senhas de aplicativo por meio do portal do Myapps.
 
-### <a name="to-create-an-app-password-using-the-myapps-portal"></a>Para criar uma senha de aplicativo usando o portal do Myapps
+### <a name="to-create-an-app-password-using-the-myapps-portal"></a>Para criar uma senha de aplicativo usando o portal do MyApps
 1. Entre em [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Clique no seu nome na parte superior direita e selecione **Perfil**.
 3. Escolha **Verificação de Segurança Adicional**.
@@ -92,7 +74,7 @@ Se não tiver certeza de como você usa a autenticação multifator, será poss�
 7. Copie a senha de aplicativo na área de transferência e cole-a no seu aplicativo.
    ![Criar uma senha de aplicativo](./media/multi-factor-authentication-end-user-app-passwords/create2.png)
 
-### <a name="to-delete-an-app-password-using-the-myapps-portal"></a>Para excluir uma senha de aplicativo usando o portal do Myapps
+### <a name="to-delete-an-app-password-using-the-myapps-portal"></a>Para excluir uma senha de aplicativo usando o portal do MyApps
 1. Entre em [https://myapps.microsoft.com](https://myapps.microsoft.com)
 2. Na parte superior, selecione Perfil.
 3. Escolha **Verificação de Segurança Adicional**.

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2017
 ms.author: v-jysur
-ms.openlocfilehash: d1f6d3af5fc414d06f4a6d3aeda660b759a88353
-ms.sourcegitcommit: 7d107bb9768b7f32ec5d93ae6ede40899cbaa894
+ms.openlocfilehash: ee5d8d118234ca0335922be1a29c6ce1e68eb7b6
+ms.sourcegitcommit: 7d4b3cf1fc9883c945a63270d3af1f86e3bfb22a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector-preview"></a>Conectar produtos/serviços ITSM ao Conector de Gerenciamento do Serviço de TI (Versão Prévia)
 Este artigo fornece informações sobre como conectar seu produto ou serviço ITSMC (Conector de Gerenciamento de Serviços de TI) no OMS e gerenciar centralmente os seus itens de trabalho. Para saber mais sobre ITSMC, consulte [Visão geral](log-analytics-itsmc-overview.md).
@@ -91,7 +91,7 @@ Execute o script fornecendo os seguintes detalhes necessários:
 
 - Detalhes da assinatura do Azure
 - Nome do grupo de recursos
-- Local
+- Local padrão
 - Detalhes do servidor do Service Manager (nome do servidor, domínio, nome de usuário e senha)
 - Prefixo de nome do site para seu aplicativo Web
 - Namespace do ServiceBus.
@@ -171,17 +171,21 @@ O exemplo a seguir mostra os detalhes de uma conexão bem-sucedida:
 As seções a seguir fornecem detalhes sobre como conectar seu produto ServiceNow ao ITSMC no OMS.
 
 ### <a name="prerequisites"></a>Pré-requisitos
-
 Verifique se os seguintes pré-requisitos foram atendidos:
-
 - ITSMC instalado. Mais informações: [Adicionando o Conector de Gerenciamento de Serviço de TI](log-analytics-itsmc-overview.md#adding-the-it-service-management-connector-solution).
-- Versões com suporte do ServiceNow – Fuji, Geneva, Helsinki.
+- Versões com suporte do ServiceNow: Jacarta, Istambul, Helsinque, Geneva
 
-Os administradores do ServiceNow devem fazer o seguinte em sua instância do ServiceNow:
-- Gere a ID do cliente e o segredo do cliente para o produto ServiceNow. Para obter informações sobre como gerar o ID do cliente e o segredo, consulte [configuração OAuth](http://wiki.servicenow.com/index.php?title=OAuth_Setup).
-- Instale o aplicativo de usuário para integração com o Microsoft OMS (aplicativo ServiceNow). [Saiba mais](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.0 ).
+**Os administradores do ServiceNow devem fazer o seguinte em sua instância do ServiceNow**:
+- Gere a ID do cliente e o segredo do cliente para o produto ServiceNow. Para saber mais sobre como gerar o ID e o segredo do cliente, consulte as informações conforme o necessário:
+
+    - [Configurar o OAuth para Jacarta](https://docs.servicenow.com/bundle/jakarta-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
+    - [Configurar o OAuth para Istambul](https://docs.servicenow.com/bundle/istanbul-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
+    - [Configurar o OAuth para Helsinque](https://docs.servicenow.com/bundle/helsinki-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
+    - [Configurar o OAuth para Geneva](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
+
+
+- Instale o aplicativo de usuário para integração com o Microsoft OMS (aplicativo ServiceNow). [Saiba mais](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1).
 - Crie função de usuário de integração para o aplicativo de usuário instalado. Veja informações sobre como criar a função de usuário de integração [aqui](#create-integration-user-role-in-servicenow-app).
-
 
 ### <a name="connection-procedure"></a>**Procedimento de conexão**
 Use o procedimento a seguir para criar uma conexão do ServiceNow:

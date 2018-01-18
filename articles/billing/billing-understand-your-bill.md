@@ -1,5 +1,5 @@
 ---
-title: Entenda sua fatura do Azure | Microsoft Docs
+title: "Entenda sua cobrança do Azure"
 description: Saiba como ler e entender o uso e a fatura da sua assinatura do Azure
 services: 
 documentationcenter: 
@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: tonguyen
-ms.openlocfilehash: ade40f8937d56cc561741e251095c4f14b4bb304
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: be15c74456b0cec64455f03dd72b8b64eef2bd5d
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Entenda sua fatura do Microsoft Azure
 Para entender sua fatura do Azure, compare sua fatura com o arquivo de uso diário detalhado e os relatórios de gerenciamento de custo no Portal do Azure.
@@ -34,9 +34,8 @@ Para termos e descrições detalhados de sua fatura e arquivo de uso diário det
 Para obter detalhes sobre os relatórios de gerenciamento de custo, consulte [Gerenciamento de custos do portal do Azure](https://docs.microsoft.com/azure/billing/billing-getting-started).
 
 ## <a name="charges"></a>Como fazer para ter certeza de que os encargos na minha fatura estão corretos?
-<div style="padding-top: 56.25%; position: relative; width: 100%;">
-<iframe style="position: absolute;top: 0;left: 0;right: 0;bottom: 0;" width="100%" height="100%" src="https://www.youtube.com/embed/3YegFD769Pk" frameborder="0" allowfullscreen></iframe>
-</div>
+
+>[!VIDEO https://www.youtube.com/embed/3YegFD769Pk]
 
 Se há um encargo na fatura sobre o qual você deseja obter mais detalhes, há duas opções.
 
@@ -49,8 +48,8 @@ Os encargos de uso são exibidos no nível do medidor. Os termos na lista a segu
  | Fatura (PDF) | Uso detalhado (CSV)|
  | --- | --- |
 |Ciclo de cobrança | Período de Cobrança |
- |Nome |Categoria de medidor |
- |Tipo |Subcategoria de medidor |
+ |NOME |Categoria de medidor |
+ |type |Subcategoria de medidor |
  |Recurso |Nome do medidor |
  |Região |Região do medidor |
  |Consumido |Quantidade consumida |

@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2017
 ms.author: xpouyat
-ms.openlocfilehash: b5a36ac6771bef220afe29446cd56c1b65a498d9
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 87a5a1981b05722f25a70fcb73a06db65bcbe0fd
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="licensing-microsoft-smooth-streaming-client-porting-kit"></a>Licenciamento do kit de portabilidade de cliente do Microsoft® Smooth Streaming
 ## <a name="overview"></a>Visão geral
 O Kit de Portabilidade de Cliente do Microsoft Smooth Streaming (**SSPK** ) é uma implementação de cliente do Smooth Streaming otimizada para ajudar fabricantes de dispositivos inseridos, operadoras de serviços móveis e a cabo, fornecedores de serviços de conteúdo, fabricantes de celulares, fornecedores de software independentes (ISVs) e fornecedores de soluções a criar produtos e serviços para transmitir conteúdo de streaming adaptativo no formato Smooth Streaming. O SSPK é uma implementação independente de dispositivo e de plataforma do cliente do Smooth Streaming que pode ser movida pelo licenciado para qualquer dispositivo e plataforma. 
 
-A seguir, uma arquitetura de alto nível e a caixa do Kit de Portabilidade do IIS Smooth Streaming é a implementação do Cliente do Smooth Streaming fornecida pela Microsoft e inclui toda a lógica básica para a reprodução de conteúdo do Smooth Streaming. Em seguida, isso será portado por parceiros para um dispositivo ou plataforma específicos, implementando interfaces apropriadas. 
+A seguir, uma arquitetura de alto nível e a caixa do Kit de Portabilidade do IIS Smooth Streaming é a implementação do Cliente do Smooth Streaming fornecida pela Microsoft e inclui toda a lógica básica para a reprodução de conteúdo do Smooth Streaming. Em seguida, o conteúdo será transferido por parceiros para um dispositivo ou plataforma específicos, implementando interfaces apropriadas. 
 
 ![SSPK](./media/media-services-sspk/sspk-arch.png)
 
-## <a name="description"></a>Descrição
+## <a name="description"></a>DESCRIÇÃO
 O SSPK é licenciado em termos que oferecem excelente valor comercial. A licença do SSPK fornece ao setor:
 
 * a fonte do Kit de Portabilidade de Smooth Streaming em C++ 
@@ -103,7 +103,7 @@ Licenciados provisórios e finais do SSPK podem enviar perguntas técnicas para 
 * SoftAtHome
 * Sony Corporation
 * Tatung Technology Inc.
-* TCL Technoly Electronics (Huizhou) Co., Ltd.
+* TCL Technology Electronics (Huizhou) Co., Ltd.
 * Top Victory Investments, Ltd.
 * Vestel Elektronik Sanayi ve Ticaret A.S.
 * VisualOn, Inc.
@@ -130,7 +130,7 @@ Licenciados provisórios e finais do SSPK podem enviar perguntas técnicas para 
 * Haier Information Applicantion S.R.L
 * HANDAN BroadInfoCom Co., Ltd.
 * Hisense International Co., Ltd. 
-* Homecast Co.,Ltd
+* Homecast Co., Ltd
 * Hon Hai Precision Industry Co., Ltd.
 * Infomir GMBH
 * Kaonmedia Co., Ltd.
@@ -140,7 +140,7 @@ Licenciados provisórios e finais do SSPK podem enviar perguntas técnicas para 
 * Saffron Digital Limited
 * Sagemcom Broadband SAS
 * Shenzhen Coship Electronics CO., LTD
-* Shenzhen Jiuzhou Electric Co.,Ltd
+* Shenzhen Jiuzhou Electric Co., Ltd
 * Shenzhen Skyworth Digital Technology Co., Ltd
 * Sichuan Changhong Electric Co., Ltd.
 * Skardin Industrial Corp.

@@ -13,11 +13,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/02/2017
 ms.author: bruceper
-ms.openlocfilehash: c5b5fd7f16faf17d16ecc82269fb1264adf4dd06
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5b03f5092ee4236ca3e7b12db37dc47bd6d3a309
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="azure-key-vault-net-20---release-notes-and-migration-guide"></a>.NET 2.0 para Cofre de Chaves do Azure - Notas de versão e guia de migração
 As anotações e as diretrizes a seguir são para desenvolvedores que trabalham com a biblioteca .NET/C# do Azure Key Vault. Na transição da versão 1.0 para a versão 2.0, diversas atualizações feitas exigirão o trabalho de migração em seu código para que você se beneficie de aprimoramentos funcionais e adições de recurso, como suporte a **certificados do Key Vault**.
@@ -36,8 +36,9 @@ Os certificados do Cofre de Chaves oferecem suporte ao gerenciamento de seus cer
 
 ## <a name="net-support"></a>Suporte ao .NET
 
-* **.NET 4.0** não tem suporte na versão 2.0 da biblioteca .NET/C# do Cofre de Chaves do Azure
-* **.NET Core** tem suporte na versão 2.0 da biblioteca .NET/C# do Cofre de Chaves do Azure
+* **.NET 4.0** não tem suporte na versão 2.0 da biblioteca .NET do Azure Key Vault
+* **.NET Framework 4.5.2** tem suporte na versão 2.0 da biblioteca .NET do Azure Key Vault
+* **.NET Standard 1.4** tem suporte na versão 2.0 da biblioteca .NET do Azure Key Vault
 
 ## <a name="namespaces"></a>Namespaces
 
