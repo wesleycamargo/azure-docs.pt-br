@@ -6,13 +6,13 @@ author: djrosanova
 manager: timlt
 ms.service: event-grid
 ms.topic: article
-ms.date: 08/11/2017
+ms.date: 01/10/2018
 ms.author: darosa
-ms.openlocfilehash: e0f8afdfd84ea3c0c061459c27da285f6ae8957e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: fe9089334deceb38186add56ce3fb1d6ecc20363
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Entrega e repetição de mensagens da Grade de Eventos 
 
@@ -62,9 +62,10 @@ A Grade de Eventos adiciona uma pequena aleatoriedade a todos os intervalos de r
 
 ## <a name="retry-duration"></a>Duração da repetição
 
-Durante a versão prévia, a Grade de Eventos do Azure expira todos os eventos que não foram entregues em até duas horas. Antes da Disponibilidade Geral, esse tempo será aumentado para 24 horas. 
+Durante a versão prévia, a Grade de Eventos do Azure expira todos os eventos que não foram entregues em até duas horas.
 
 ## <a name="next-steps"></a>Próximas etapas
 
+* Para exibir o status de entregas de evento, consulte [Entrega de mensagens da Grade de Eventos do Monitor](monitor-event-delivery.md).
 * Para ver uma introdução à Grade de Eventos, confira [About Event Grid](overview.md) (Sobre a Grade de Eventos).
 * Para começar a usar rapidamente a Grade de Eventos, confira [Create and route custom events with Azure Event Grid](custom-event-quickstart.md) (Criar e rotear eventos personalizados com a Grade de Eventos do Azure).

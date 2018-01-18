@@ -4,58 +4,53 @@ description: "Descreve como usar o recurso de relatórios da Autenticação Mult
 services: multi-factor-authentication
 documentationcenter: 
 author: MicrosoftGuyJFlo
-manager: femila
-editor: curtand
+manager: mtillman
 ms.assetid: 3f6b33c4-04c8-47d4-aecb-aa39a61c4189
 ms.service: multi-factor-authentication
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/03/2017
+ms.date: 12/15/2017
 ms.author: joflore
 ms.reviewer: richagi
-ms.openlocfilehash: a0ac1711b6bfb8f461cd775ed1f3409925643615
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 696f4ae3cb479a208e73e53a9a9a437caeabd294
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="reports-in-azure-multi-factor-authentication"></a>Relatórios na Autenticação Multifator do Azure
 
-A Autenticação Multifator do Azure fornece vários relatórios que podem ser usados por você e sua organização. Esses relatórios podem ser acessados por meio do Portal de Gerenciamento da Autenticação Multifator. A tabela a seguir lista os relatórios possíveis:
+A Autenticação Multifator do Azure fornece vários relatórios que podem ser usados por você e sua organização, acessíveis através do portal do Azure. A tabela a seguir lista os relatórios possíveis:
 
-| Relatório | Descrição |
-|:--- |:--- |
-| Uso |Os relatórios de uso exibem informações sobre o uso geral, resumo do usuário e detalhes do usuário. |
-| Status do servidor |Este relatório exibe o status dos servidores da autenticação multifator associada à sua conta. |
-| Histórico de usuário bloqueado |Esses relatórios mostram o histórico de solicitações para bloquear ou desbloquear usuários. |
-| Histórico de usuário desviado |Mostra o histórico de solicitações para desviar da autenticação multifator para o número de telefone de um usuário. |
-| Alerta de fraude |Mostra um histórico dos alertas de fraude apresentados durante o intervalo de datas especificado. |
-| Em fila |Lista os relatórios em fila para processamento e seu status. Um link para baixar ou exibir o relatório é fornecido quando o relatório é concluído. |
+| Relatório | Local padrão | DESCRIÇÃO |
+|:--- |:--- |:--- |
+| Histórico de usuário bloqueado | Microsoft Azure AD > Servidor MFA > Bloquear/desbloquear usuários | Mostra o histórico de solicitações para bloquear ou desbloquear usuários. |
+| Alertas de fraudes e uso | Microsoft Azure AD > Entradas | Fornece informações sobre o uso geral, resumo do usuário e detalhes do usuário, assim como um histórico de alertas de fraude enviados durante o intervalo de datas especificado. |
+| Uso para componentes locais | Microsoft Azure AD > Servidor MFA > Relatórios de Atividade | Fornece informações sobre o uso geral do MFA por meio da extensão do NPS, ADFS e do servidor MFA. |
+| Histórico de usuário desviado | Microsoft Azure AD > Servidor MFA > Bypass avulso | Fornece um histórico de solicitações para ignorar a Autenticação Multifator para um usuário. |
+| Status do servidor | Microsoft Azure AD > Servidor MFA > Status do Servidor | Exibe o status dos Servidores de Autenticação Multifator associado à sua conta. |
 
-## <a name="view-reports"></a>Exibir relatórios
+## <a name="view-reports"></a>Exibir relatórios 
 
-1. Entre no [portal clássico do Azure](https://manage.windowsazure.com).
-2. Selecione Active Directory à esquerda.
-3. Siga uma destas duas opções, dependendo de se você usa Provedores de Autenticação:
-   * **Opção 1**: clique na guia Provedores de Multi-Factor Authentication. Selecione seu provedor de MFA e clique no botão **Gerenciar** na parte inferior.
-   * **Opção 2**: selecione seu diretório e acesse a guia **Configurar**. Na seção da autenticação multifator, escolha **Gerenciar configurações de serviço**. Na parte inferior da página Configurações do Serviço de MFA, clique em Ir para o link para portal.
-4. No Portal de Gerenciamento da Autenticação Multifator do Azure, selecione o tipo de relatório desejado na seção **Exibir um Relatório** no painel de navegação esquerdo.
+1. Entre no [Portal do Azure](https://portal.azure.com).
+2. À esquerda, selecione **Azure Active Directory** > **Servidor MFA**.
+3. Selecione o relatório que você deseja exibir.
 
-<center>![Nuvem](./media/multi-factor-authentication-manage-reports/report.png)</center>
+   <center>![Nuvem](./media/multi-factor-authentication-manage-reports/report.png)</center>
 
 ## <a name="powershell-reporting"></a>Relatórios do PowerShell
 
-Identifique os usuários que se registraram para MFA usando o Powershell a seguir.
+Identifique os usuários que se registraram para MFA usando o PowerShell a seguir.
 
 ```Get-MsolUser -All | where {$_.StrongAuthenticationMethods -ne $null} | Select-Object -Property UserPrincipalName```
 
-Identifique os usuários que não se registraram para MFA usando o Powershell a seguir.
+Identifique os usuários que não se registraram para MFA usando o PowerShell a seguir.
 
 ```Get-MsolUser -All | where {$_.StrongAuthenticationMethods.Count -eq 0} | Select-Object -Property UserPrincipalName```
 
-**Recursos adicionais**
+## <a name="next-steps"></a>Próximas etapas
 
 * [Para usuários](end-user/multi-factor-authentication-end-user.md)
-* [Autenticação Multifator do Azure no MSDN](https://msdn.microsoft.com/library/azure/dn249471.aspx)
+* [Onde implantar](multi-factor-authentication-get-started.md)

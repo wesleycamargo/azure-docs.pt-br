@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/06/2016
 ms.author: swkrish
-ms.openlocfilehash: 27bc191c66b195692e324d1a10ab276b561ef129
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c0a10869477647820828b22b6291522be255844d
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-active-directory-b2c-set-up-self-service-password-reset-for-your-consumers"></a>Azure Active Directory B2C: configurar a redefinição de senha por autoatendimento para seus consumidores
 Com o recurso de redefinição de senha por autoatendimento, seus consumidores (que tenham se registrado com contas locais) poderão redefinir as respectivas senhas por conta própria. Isso reduz significativamente a sobrecarga da equipe de suporte, principalmente se milhões de consumidores usarem seu aplicativo regularmente. Atualmente, só há suporte para usar um endereço de email verificado como um método de recuperação. Vamos incluir mais métodos de recuperação (número de telefone verificado, perguntas de segurança, etc.) futuramente.
@@ -30,14 +30,11 @@ Com o recurso de redefinição de senha por autoatendimento, seus consumidores (
 
 Por padrão, o diretório não terá a redefinição de senha por autoatendimento ativada. Use as etapas a seguir para ativá-la:
 
-1. Entre no [portal clássico do Azure](https://manage.windowsazure.com/) como o Administrador da Assinatura. Essa é a mesma conta corporativa, de estudante ou da Microsoft que você usou para criar o diretório.
-2. Navegue até a extensão do Active Directory na barra de navegação do lado esquerdo.
-3. Localize o diretório na guia **Diretório** e clique nele.
-4. Clique na guia **Configurar** .
-5. Role para baixo até a seção **Política de redefinição de senha do usuário** e alterne a opção **Usuários habilitados para redefinição de senha** para **SIM**. Observe que a opção **Endereço de Email Alternativo** está marcada; deixe-a como está.
-   
-    ![Redefinição de senha de autoatendimento](./media/active-directory-b2c-reference-sspr/sspr.png)
-6. Na parte inferior da página, clique em **Salvar** . Pronto!
+1. Entre no [portal do Azure](https://portal.azure.com/) como o Administrador da Assinatura. Essa é a mesma conta corporativa, de estudante ou da Microsoft que você usou para criar o diretório.
+2. Abra o Active Directory (na barra de navegação à esquerda).
+3. Selecione **Propriedades**.
+4. Role para baixo até a seção **redefinição de senha por autoatendimento habilitada** e ative para **Todos**. 
+5. Clique em **Salvar** na parte superior da página. Pronto!
 
 Para testar, use o recurso "Executar agora" em qualquer política de entrada que tenha contas locais como um provedor de identidade. Na página de entrada da conta local (na qual você insere um endereço de email e a senha ou um nome de usuário e a senha), clique em **Não consegue acessar sua conta?** para verificar a experiência do consumidor.
 

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2017
 ms.author: mimig
-ms.openlocfilehash: 407a9a3be4ae8a9b00a953914e6b4414d8dac8b6
-ms.sourcegitcommit: ccb84f6b1d445d88b9870041c84cebd64fbdbc72
+ms.openlocfilehash: 835f6ffce9b2e1bb4b6cfd7476bb3fdb24a4f092
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/14/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Log de diagnósticos do Azure Cosmos DB
 
@@ -30,7 +30,7 @@ Use este tutorial para começar a usar o log do Azure Cosmos DB por meio do port
 
 ## <a name="what-is-logged"></a>O que é registrado?
 
-* Todas as solicitações de API REST do DocumentDB (SQL) autenticadas são registradas, o que inclui as solicitações que falharam devido a permissões de acesso, erros do sistema ou solicitações inválidas. O suporte para APIs do MongoDB, do Graph e de Tabela não está disponível no momento.
+* Todas as solicitações de API SQL REST autenticadas são registradas, o que inclui as solicitações que falharam devido a permissões de acesso, erros do sistema ou solicitações inválidas. O suporte para APIs do MongoDB, do Graph e de Tabela não está disponível no momento.
 * Operações no próprio banco de dados, que inclui operações CRUD em todos os documentos, contêineres e bancos de dados.
 * Operações em chaves de conta, que incluem a criação, modificação ou exclusão dessas chaves.
 * Solicitações não autenticadas que resultam em uma resposta 401. Por exemplo, solicitações que não têm um token de portador, estão malformadas ou expiradas ou têm um token inválido.
@@ -38,7 +38,7 @@ Use este tutorial para começar a usar o log do Azure Cosmos DB por meio do port
 ## <a name="prerequisites"></a>Pré-requisitos
 Para concluir este tutorial, você deve ter os seguintes recursos:
 
-* Uma conta existente, banco de dados e contêiner do Azure Cosmos DB. Para obter instruções sobre como criar esses recursos, consulte [Criar uma conta de banco de dados usando o portal do Azure](create-documentdb-dotnet.md#create-a-database-account), [Amostras da CLI](cli-samples.md) ou [Amostras do PowerShell](powershell-samples.md).
+* Uma conta existente, banco de dados e contêiner do Azure Cosmos DB. Para obter instruções sobre como criar esses recursos, consulte [Criar uma conta de banco de dados usando o portal do Azure](create-sql-api-dotnet.md#create-a-database-account), [Amostras da CLI](cli-samples.md) ou [Amostras do PowerShell](powershell-samples.md).
 
 <a id="#turn-on"></a>
 ## <a name="turn-on-logging-in-the-azure-portal"></a>Ativar o log no portal do Azure
@@ -54,13 +54,13 @@ Para concluir este tutorial, você deve ter os seguintes recursos:
     * **Arquivar em uma conta de armazenamento**. Para usar essa opção, você precisa de uma conta de armazenamento existente à qual se conectar. Para criar uma nova conta de armazenamento no portal, consulte [Criar uma conta de armazenamento](../storage/common/storage-create-storage-account.md) e siga as instruções para criar uma conta de uso geral do Resource Manager. Em seguida, retorne a esta página no portal para selecionar sua conta de armazenamento. Pode levar alguns minutos para que as contas de armazenamento recém-criadas sejam exibidas no menu suspenso.
     * **Transmitir para um hub de eventos**. Para usar essa opção, é necessário ter um namespace existente do Hub de Eventos e um hub de evento ao qual se conectar. Para criar um namespace do Hubs de Eventos, consulte [Criar um namespace dos Hubs de Eventos e um hub de eventos usando o portal do Azure](../event-hubs/event-hubs-create.md). Em seguida, retorne a esta página no portal para selecionar o namespace e o nome da política do Hub de Eventos.
     * **Enviar para o Log Analytics**.     Para usar essa opção, use um espaço de trabalho existente ou crie um novo espaço de trabalho do Log Analytics seguindo as etapas para [criar um novo espaço de trabalho](../log-analytics/log-analytics-quick-collect-azurevm.md#create-a-workspace) no portal. Para obter mais informações sobre como exibir os logs no Log Analytics, consulte [Exibir logs no Log Analytics](#view-in-loganalytics).
-    * **Registrar DataPlaneRequests**. Selecione esta opção para registrar o log de diagnóstico para contas do DocumentDB, Graph e API de Tabela. Se você estiver arquivando em uma conta de armazenamento, poderá selecionar o período de retenção para os logs de diagnóstico. Os logs são excluídos automaticamente depois que o período de retenção expira.
+    * **Registrar DataPlaneRequests**. Selecione esta opção para registrar o log de diagnóstico para contas do SQL, Graph e API de Tabela. Se você estiver arquivando em uma conta de armazenamento, poderá selecionar o período de retenção para os logs de diagnóstico. Os logs são excluídos automaticamente depois que o período de retenção expira.
     * **Registrar em Log MongoRequests**. Selecione essa opção para registrar em log diagnóstico para contas de API do MongoDB. Se você estiver arquivando em uma conta de armazenamento, poderá selecionar o período de retenção para os logs de diagnóstico. Os logs são excluídos automaticamente depois que o período de retenção expira.
-    * **Solicitações de Métricas**. Selecione esta opção para armazenar dados detalhados em [Métricas do Azure](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftdocumentdbdatabaseaccounts-cosmosdb). Se você estiver arquivando em uma conta de armazenamento, poderá selecionar o período de retenção para os logs de diagnóstico. Os logs são excluídos automaticamente depois que o período de retenção expira.
+    * **Solicitações de Métricas**. Selecione esta opção para armazenar dados detalhados em [Métricas do Azure](../monitoring-and-diagnostics/monitoring-supported-metrics.md). Se você estiver arquivando em uma conta de armazenamento, poderá selecionar o período de retenção para os logs de diagnóstico. Os logs são excluídos automaticamente depois que o período de retenção expira.
 
 3. Clique em **Salvar**.
 
-    Se você receber um erro que diga "Falha ao atualizar o diagnóstico para \<nome do espaço de trabalho>. A assinatura \<id da assinatura> não está registrada para usar o microsoft.insights." siga as instruções para [Solucionar Problemas de Diagnóstico do Azure](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-storage) para registrar a conta, então repita este procedimento.
+    Se você receber um erro que diga "Falha ao atualizar o diagnóstico para \<nome do espaço de trabalho>. A assinatura \<id da assinatura> não está registrada para usar o microsoft.insights." siga as instruções para [Solucionar Problemas de Diagnóstico do Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-storage) para registrar a conta, então repita este procedimento.
 
     Se você quiser alterar como os seus logs de diagnóstico são salvos em qualquer ponto no futuro, poderá retornar a esta página a qualquer momento para modificar as configurações de log de diagnóstico para sua conta.
 
@@ -239,7 +239,7 @@ Os valores de data e hora usam UTC.
 
 Como a mesma conta de armazenamento pode ser usada para coletar logs de vários recursos, a ID totalmente qualificada do recurso no nome do blob é muito útil para acessar ou baixar apenas os blobs de que você precisa. Mas, antes de fazer isso, primeiro vamos mostrar como baixar todos os blobs.
 
-Primeiro, crie uma pasta para baixar os blobs. Por exemplo:
+Primeiro, crie uma pasta para baixar os blobs. Por exemplo: 
 
 ```powershell
 New-Item -Path 'C:\Users\username\ContosoCosmosDBLogs'`
@@ -261,7 +261,7 @@ $blobs | Get-AzureStorageBlobContent `
 
 Quando você executa esse segundo comando, o delimitador **/** nos nomes de blob cria uma estrutura de pastas completa na pasta de destino. Essa estrutura de pastas é usada para baixar e armazenar os blobs como arquivos.
 
-Use caracteres curinga para baixar seletivamente os blobs. Por exemplo:
+Use caracteres curinga para baixar seletivamente os blobs. Por exemplo: 
 
 * Caso você tenha vários bancos de dados e deseje baixar apenas os logs de um banco de dados, chamado CONTOSOCOSMOSDB3:
 
@@ -383,7 +383,7 @@ Para saber mais sobre o significado dos dados retornados pelas pesquisas de logs
 * Quais operações demoram mais de 3 milissegundos.
 
     ```
-    AzureDiagnostics | where toint(duration_s) > 3000 and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by clientIpAddress_s, TimeGenerated
+    AzureDiagnostics | where toint(duration_s) > 30000 and ResourceProvider=="MICROSOFT.DOCUMENTDB" and Category=="DataPlaneRequests" | summarize count() by clientIpAddress_s, TimeGenerated
     ```
 
 * Qual agente está executando as operações.
@@ -406,10 +406,10 @@ Dados de diagnóstico armazenados no Armazenamento do Azure e Log Analytics usam
 
 A tabela a seguir descreve o conteúdo de cada entrada de log.
 
-| Propriedade ou campo de Armazenamento do Azure | Propriedade do Log Analytics | Descrição |
+| Propriedade ou campo de Armazenamento do Azure | Propriedade do Log Analytics | DESCRIÇÃO |
 | --- | --- | --- |
 | tempo real | TimeGenerated | A data e hora (UTC) em que a operação ocorreu. |
-| resourceId | Recurso | A conta do Azure Cosmos DB na qual os logs estão habilitados.|
+| ResourceId | Recurso | A conta do Azure Cosmos DB na qual os logs estão habilitados.|
 | categoria | Categoria | Para os logs do Azure Cosmos DB, DataPlaneRequests é o único valor disponível. |
 | operationName | OperationName | Nome da operação. Esse valor pode ser uma das seguintes operações: Create, Update, Read, ReadFeed, Delete, Replace, Execute, SqlQuery, Query, JSQuery, Head, HeadFeed ou Upsert.   |
 | propriedades | n/d | O conteúdo desse campo é descrito nas linhas a seguir. |

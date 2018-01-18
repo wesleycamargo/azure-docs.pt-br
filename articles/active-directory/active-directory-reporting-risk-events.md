@@ -4,21 +4,21 @@ description: "Este tópico fornece uma visão geral detalhada do que são os eve
 services: active-directory
 keywords: "proteção de identidade do azure active directory, segurança, risco, nível de risco, vulnerabilidade, política de segurança"
 author: MarkusVi
-manager: femila
+manager: mtillman
 ms.assetid: fa2c8b51-d43d-4349-8308-97e87665400b
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 12/07/2017
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 5ff0bcf9bdf9eaf1b4f0084acf9e5ee6ccfeba19
-ms.sourcegitcommit: 5d3e99478a5f26e92d1e7f3cec6b0ff5fbd7cedf
+ms.openlocfilehash: 59c8932f7676a5388413baf2edb5d9e259769f93
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="azure-active-directory-risk-events"></a>Eventos de risco do Azure Active Directory
 
@@ -31,9 +31,13 @@ Atualmente, o Azure Active Directory detecta seis tipos de eventos de risco:
 - [Viagem impossível a locais atípicos](#impossible-travel-to-atypical-locations) 
 - [Entradas de dispositivos infectados](#sign-ins-from-infected-devices) 
 - [Entradas de endereços de IP com atividade suspeita](#sign-ins-from-ip-addresses-with-suspicious-activity) 
-- [Entradas de locais desconhecidos](#sign-in-from-unfamiliar-locations) (exclusivo para edições **Azure Active Directory Premium P2**)
+- [Entradas de locais desconhecidos](#sign-in-from-unfamiliar-locations) 
+
 
 ![Evento de risco](./media/active-directory-reporting-risk-events/91.png)
+
+O insight obtido para um evento de risco detectado está vinculado à sua assinatura do Microsoft Azure AD. Com a edição Azure AD Premium P2, você obtém as informações mais detalhadas sobre todas as detecções subjacentes. Com a edição Azure AD Premium P1, detecções não cobertas por sua licença aparecem como o evento de risco **Entrada com risco adicional detectado**.
+
 
 Este tópico fornece a você uma visão detalhada de o que são eventos de risco e como usá-los para proteger suas identidades do Azure AD.
 
@@ -87,7 +91,7 @@ Atualmente, a maioria dos eventos de risco é detectada offline em uma operaçã
 
 A tabela a seguir lista a quantidade de tempo que leva para um tipo de detecção aparecer em um relatório relacionado:
 
-| Tipo de detecção | Relatório de latência |
+| Tipo de Detecção | Relatório de latência |
 | --- | --- |
 | Tempo real | De 5 a 10 minutos |
 | Off-line | De 2 a 4 horas |

@@ -7,6 +7,7 @@ author: daden
 manager: mithal
 editor: daden
 ms.assetid: 
+ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -14,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/15/2017
 ms.author: daden
-ms.openlocfilehash: c7ed8e695097d0cf2f5c99f8ccf3378c4e553c3b
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: f2482c7a47c72d192f26f3d8d9b9249af53da25d
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="server-workload-forecasting-on-terabytes-of-data"></a>Previsão de carga de trabalho de servidor em terabytes de dados
 
@@ -46,9 +47,11 @@ Neste cenário, você vai se concentrar na previsão de carga de trabalho para c
 Os pré-requisitos para executar este exemplo são os seguintes:
 
 * Uma [conta do Azure](https://azure.microsoft.com/free/) (avaliações gratuitas estão disponíveis).
-* Uma cópia instalada do [Machine Learning Workbench](./overview-what-is-azure-ml.md). Para instalar o programa e criar um espaço de trabalho, consulte o [guia de instalação de início rápido](./quickstart-installation.md).
+* Uma cópia instalada do [Azure Machine Learning Workbench](./overview-what-is-azure-ml.md). Para instalar o programa e criar um espaço de trabalho, consulte o [guia de instalação de início rápido](./quickstart-installation.md). Se você tiver várias assinaturas, você pode [definir a assinatura desejada para a assinatura ativa atual](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az_account_set).
 * Windows 10 (as instruções neste exemplo são geralmente as mesmas para sistemas macOS).
-* Uma DSVM (Máquina Virtual de Ciência de Dados) para Linux (Ubuntu). É possível provisionar uma DSVM Ubuntu seguindo estas [instruções](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-provision-vm). Você também pode ver [este guia de início rápido](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu). Recomendamos usar uma máquina virtual com pelo menos 8 núcleos e 32 GB de memória. Você precisa do endereço IP da DSVM, nome de usuário e senha para testar este exemplo. Salve a tabela a seguir com as informações da DSVM para etapas posteriores:
+* Uma máquina Virtual de ciência de dados (DSVM) para Linux (Ubuntu), preferencialmente na região Leste dos EUA, onde os dados se localizam. É possível provisionar uma DSVM Ubuntu seguindo estas [instruções](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Você também pode ver [este guia de início rápido](https://ms.portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu). Recomendamos usar uma máquina virtual com pelo menos 8 núcleos e 32 GB de memória. 
+
+Siga as [instruções](https://docs.microsoft.com/azure/machine-learning/preview/known-issues-and-troubleshooting-guide#remove-vm-execution-error-no-tty-present) para habilitar o acesso sem senha na VM para o AML Workbench.  Você pode optar por usar [a autenticação baseada em chave SSH para criar e usar a VM no Workbench AML](https://docs.microsoft.com/azure/machine-learning/preview/experimentation-service-configuration#using-ssh-key-based-authentication-for-creating-and-using-compute-targets). Neste exemplo, usamos a senha para acessar a máquina virtual.  Salve a tabela a seguir com as informações da DSVM para etapas posteriores:
 
  Nome do campo| Valor |  
  |------------|------|
@@ -56,9 +59,10 @@ Endereço IP da DSVM | xxx|
  Nome de usuário  | xxx|
  Senha   | xxx|
 
+
  É possível optar por usar qualquer VM com o [Mecanismo do Docker](https://docs.docker.com/engine/) instalado.
 
-* Um cluster Spark do HDInsight com Hortonworks Data Platform versão 3.6 e Spark versão 2.1. x. Visite [Criar um cluster Apache Spark no Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-apache-spark-jupyter-spark-sql) para obter detalhes sobre como criar clusters HDInsight. Recomendamos usar um cluster de três trabalhos com cada trabalho tendo 16 núcleos e 112 GB de memória. Ou é possível escolher apenas o tipo de VM `D12 V2` para o nó de cabeçalho e `D14 V2` para o nó de trabalho. A implantação do cluster leva cerca de 20 minutos. Você precisa do nome do cluster, nome de usuário do SSH e senha para testar este exemplo. Salve a tabela a seguir com as informações do cluster do Azure HDInsight para etapas posteriores:
+* Um cluster Spark do HDInsight com Hortonworks Data Platform versão 3.6 e Spark versão 2.1. x, preferencialmente na região Leste dos EUA, onde os dados se localizam. Visite [Criar um cluster Apache Spark no Azure HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters) para obter detalhes sobre como criar clusters HDInsight. Recomendamos usar um cluster de três trabalhos com cada trabalho tendo 16 núcleos e 112 GB de memória. Ou é possível escolher apenas o tipo de VM `D12 V2` para o nó de cabeçalho e `D14 V2` para o nó de trabalho. A implantação do cluster leva cerca de 20 minutos. Você precisa do nome do cluster, nome de usuário do SSH e senha para testar este exemplo. Salve a tabela a seguir com as informações do cluster do Azure HDInsight para etapas posteriores:
 
  Nome do campo| Valor |  
  |------------|------|
@@ -91,24 +95,24 @@ Execute `git status` para inspecionar o status dos arquivos para controle de ver
 
 ## <a name="data-description"></a>Descrição dos dados
 
-Os dados usados neste exemplo são dados de carga de trabalho de servidor sintetizados. Eles estão hospedados em uma conta de armazenamento de Blobs do Azure publicamente acessível. As informações da conta de armazenamento específicas podem ser encontradas no campo `dataFile` de [`Config/storageconfig.json`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldata_storageconfig.json). É possível usar os dados diretamente do armazenamento de blobs. Se o armazenamento é usado por muitos usuários simultaneamente, é possível usar [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux) para baixar os dados para seu próprio armazenamento. 
+Os dados usados neste exemplo são dados de carga de trabalho de servidor sintetizados. Eles estão hospedados em uma conta de armazenamento de Blobs do Azure, publicamente acessível na região Leste dos EUA. Informações específicas de conta de armazenamento podem ser encontradas no campo `dataFile` de [ `Config/storageconfig.json` ](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldata_storageconfig.json) no formato "wasb://<BlobStorageContainerName>@<StorageAccountName>.blob.core.windows.net/<path>". É possível usar os dados diretamente do armazenamento de blobs. Se o armazenamento for usado por muitos usuários simultaneamente, é possível usar [azcopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux) para fazer o download dos dados para seu próprio armazenamento para uma melhor experiência. 
 
 O tamanho total dos dados é de aproximadamente 1 TB. Cada arquivo tem cerca de 1 a 3 GB e está no formato de arquivo CSV sem cabeçalho. Cada linha de dados representa a carga de uma transação em um servidor específico. As informações detalhadas do esquema de dados são as seguintes:
 
-Número da coluna | Nome do campo| Tipo | Descrição |  
+Número da coluna | Nome do campo| type | DESCRIÇÃO |  
 |------------|------|-------------|---------------|
-1  | `SessionStart` | Datetime |    Hora de início da sessão
-2  |`SessionEnd`    | Datetime | Hora de término da sessão
+1  | `SessionStart` | DateTime |    Hora de início da sessão
+2  |`SessionEnd`    | DateTime | Hora de término da sessão
 3 |`ConcurrentConnectionCounts` | Número inteiro | Número de conexões simultâneas
 4 | `MbytesTransferred` | Duplo | Dados normalizados transferidos em megabytes
 5 | `ServiceGrade` | Número inteiro |  Nível de serviço da sessão
 6 | `HTTP1` | Número inteiro|  Sessão usa HTTP1 ou HTTP2
 7 |`ServerType` | Número inteiro   |Tipo de servidor
 8 |`SubService_1_Load` | Duplo |   Carga do subserviço 1
-9 | `SubService_1_Load` | Duplo |  Carga do subserviço 2
-10 | `SubService_1_Load` | Duplo |     Carga do subserviço 3
-11 |`SubService_1_Load` | Duplo |  Carga do subserviço 4
-12 | `SubService_1_Load`| Duplo |      Carga do subserviço 5
+9 | `SubService_2_Load` | Duplo |  Carga do subserviço 2
+10 | `SubService_3_Load` | Duplo |     Carga do subserviço 3
+11 |`SubService_4_Load` | Duplo |  Carga do subserviço 4
+12 | `SubService_5_Load`| Duplo |      Carga do subserviço 5
 13 |`SecureBytes_Load`  | Duplo | Carga de bytes seguros
 14 |`TotalLoad` | Duplo | Carga total no servidor
 15 |`ClientIP` | Cadeia de caracteres|    Endereço IP do cliente
@@ -123,7 +127,7 @@ Observe que os tipos de dados esperados estão listados na tabela anterior. Devi
 
 Os arquivos neste exemplo são organizados da seguinte maneira.
 
-| Nome do arquivo | Tipo | Descrição |
+| Nome do arquivo | type | DESCRIÇÃO |
 |-----------|------|-------------|
 | `Code` | Pasta | A pasta contém todo o código no exemplo. |
 | `Config` | Pasta | A pasta contém os arquivos de configuração. |
@@ -154,7 +158,7 @@ O código no [`Code/etl.py`](https://github.com/Azure/MachineLearningSamples-Big
 
 Você deve usar um contêiner para experimentação no conjunto de dados de um mês e outro para experimentação no conjunto de dados completo. Como os dados e os modelos são salvos como arquivo Parquet, cada arquivo é realmente uma pasta no contêiner que contém vários blobs. O contêiner resultante tem a seguinte aparência:
 
-| Nome do prefixo do blob | Tipo | Descrição |
+| Nome do prefixo do blob | type | DESCRIÇÃO |
 |-----------|------|-------------|
 | featureScaleModel | Parquet | Modelo do scaler padrão para recursos numéricos. |
 | stringIndexModel | Parquet | Modelo do indexador de cadeia de caracteres para recursos não numéricos.|
@@ -180,7 +184,7 @@ O arquivo [ `Code/etl.py` ](https://github.com/Azure/MachineLearningSamples-BigD
 
 O primeiro argumento, `configFilename`, é um arquivo de configuração local em que você armazena as informações de armazenamento de blobs e especifica para onde carregar os dados. Por padrão, é o [`Config/storageconfig.json`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/storageconfig.json) e será usado na execução de dados de um mês. Também incluímos o [`Config/fulldata_storageconfig.json`](https://github.com/Azure/MachineLearningSamples-BigData/blob/master/Config/fulldatastorageconfig.json), de que você precisa para usar na execução do conjunto de dados completo. O conteúdo na configuração é o seguinte: 
 
-| Campo | Tipo | Descrição |
+| Campo | type | DESCRIÇÃO |
 |-----------|------|-------------|
 | storageAccount | Cadeia de caracteres | Nome da conta de armazenamento do Microsoft Azure |
 | storageContainer | Cadeia de caracteres | Contêiner na conta de armazenamento do Microsoft Azure para armazenar resultados intermediários |
@@ -270,7 +274,7 @@ Quando você tiver concluído com êxito a experimentação nos dados pequenos, 
 
 Os dois arquivos abaixo são criados na pasta aml_config:
     
--  myhdo.compute: o arquivo contém informações de conexão e configuração de um destino de execução remota.
+-  myhdo.compute: Este arquivo contém informações de conexão e configuração de um destino de execução remota.
 -  myhdi.runconfig: o arquivo é um conjunto de opções de execução usado dentro do aplicativo Workbench.
 
 
@@ -324,7 +328,7 @@ Na barra lateral direita do Workbench, navegue até **Execuções** para ver o h
 
 ### <a name="operationalize-the-model"></a>Operacionalizar o modelo
 
-Nesta seção, você vai operacionalizar o modelo criado nas etapas anteriores como um serviço Web. Você também aprenderá a usar o serviço Web para prever a carga de trabalho. Use CLIs (interfaces de linha de comando) de operacionalização de Machine Language para empacotar o código e as dependências como imagens do Docker e publicar o modelo como serviço Web em contêineres. Para obter mais informações, confira [esta visão geral](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/operationalization-overview.md).
+Nesta seção, você vai operacionalizar o modelo criado nas etapas anteriores como um serviço Web. Você também aprenderá a usar o serviço Web para prever a carga de trabalho. Use CLIs (interfaces de linha de comando) de operacionalização de Machine Language para empacotar o código e as dependências como imagens do Docker e publicar o modelo como serviço Web em contêineres.
 
 Você pode usar o prompt de linha de comando no Machine Learning Workbench para executar as CLIs.  Você também pode executar as CLIs no Ubuntu Linux seguindo o [guia de instalação](https://github.com/Azure/Machine-Learning-Operationalization/blob/master/documentation/install-on-ubuntu-linux.md). 
 

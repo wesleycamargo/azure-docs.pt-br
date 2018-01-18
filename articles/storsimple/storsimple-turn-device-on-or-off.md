@@ -4,7 +4,7 @@ description: "Explica como ativar um novo dispositivo StorSimple, ativar um disp
 services: storsimple
 documentationcenter: 
 author: alkohli
-manager: timlt
+manager: jeconnoc
 editor: 
 ms.assetid: 8e9c6e6c-965c-4a81-81bd-e1c523a14c82
 ms.service: storsimple
@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/03/2017
+ms.date: 01/09/2018
 ms.author: alkohli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e6a6b0ab5c493aa99438f27222d1112053951c97
-ms.sourcegitcommit: 0930aabc3ede63240f60c2c61baa88ac6576c508
+ms.openlocfilehash: 95fd00608be9cfafb4c703c32ec3ed4713855ca5
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/07/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="turn-on-or-turn-off-your-storsimple-8000-series-device"></a>Ativar ou desativar seu dispositivo StorSimple série 8000
 
@@ -147,16 +147,16 @@ Um dispositivo StorSimple em execução poderá precisar ser desligado se estive
 * [Dispositivo com o compartimento EBOD](#8600a)
 
 ### <a name="device-with-primary-enclosure-a-name8100a"></a>Dispositivo com o compartimento primário <a name="8100a">
-Você pode desligar o dispositivo de forma ordenada e controlada por meio do Portal Clássico do Azure ou do Windows PowerShell para o StorSimple. 
+Você pode desligar o dispositivo de forma ordenada e controlada por meio do Portal do Azure ou do Windows PowerShell para o StorSimple. 
 
 > [!IMPORTANT]
 > Não desligue um dispositivo em execução usando o botão de energia na parte posterior do dispositivo.
 > 
-> Antes de desligar o dispositivo, certifique-se de que todos os componentes de dispositivo estejam íntegros. No Portal Clássico do Azure, navegue até **Dispositivos** > **Manutenção** > **Status de Hardware** e verifique se o status de todos os componentes está verde. Isso se aplica apenas a um sistema íntegro. Se o sistema estiver sendo desligado para substituir um componente com funcionamento incorreto, você verá um status de falha (vermelho) ou degradado (amarelo) para o respectivo componente no **Status de Hardware**.
+> Antes de desligar o dispositivo, certifique-se de que todos os componentes de dispositivo estejam íntegros. No portal do Azure, navegue até **Dispositivos** > **Monitor** > **Integridade do hardware**e verifique se os status de todos os componentes estão verdes. Isso se aplica apenas a um sistema íntegro. Se o sistema estiver sendo desligado para substituir um componente com funcionamento incorreto, você verá um status de falha (vermelho) ou degradado (amarelo) para o respectivo componente no **Status de Hardware**.
 > 
 > 
 
-Depois de acessar o Windows PowerShell para o StorSimple ou o Portal Clássico do Azure, siga as etapas em [Desligar um dispositivo StorSimple](storsimple-manage-device-controller.md#shut-down-a-storsimple-device). 
+Depois de acessar o Windows PowerShell para o StorSimple ou o Portal do Azure, siga as etapas em [Desligar um dispositivo StorSimple](storsimple-8000-manage-device-controller.md#shut-down-a-storsimple-device). 
 
 ### <a name="device-with-ebod-enclosure-a-name8600a"></a>Dispositivo com o compartimento EBOD <a name="8600a">
 > [!IMPORTANT]

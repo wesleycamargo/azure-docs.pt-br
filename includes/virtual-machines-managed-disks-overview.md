@@ -51,9 +51,9 @@ Vamos examinar esses itens com mais detalhes.
 
 Estes são os tamanhos de disco disponíveis para um disco gerenciado premium:
 
-| **Tipo de Premium Managed <br>Disk** | **P4** | **P6** |**P10** | **P20** | **P30** | **P40** | **P50** | 
-|------------------|---------|---------|---------|---------|----------------|----------------|----------------|  
-| Tamanho do disco        | 32 GB   | 64 GB   | 128 GB  | 512 GB  | 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
+| **Tipo de Premium Managed <br>Disk** | **P4** | **P6** |**P10** | **P15** | **P20** | **P30** | **P40** | **P50** | 
+|------------------|---------|---------|---------|---------|---------|----------------|----------------|----------------|  
+| Tamanho do disco        | 32 GB   | 64 GB   | 128 GB  | 256 GB  | 512 GB  | 1024 GB (1 TB) | 2048 GB (2 TB) | 4095 GB (4 TB) | 
 
 
 Estes são os tamanhos de disco disponíveis para um disco gerenciado padrão:

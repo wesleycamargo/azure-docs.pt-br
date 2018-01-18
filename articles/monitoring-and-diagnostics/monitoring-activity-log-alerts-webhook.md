@@ -12,11 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
 ms.author: johnkem
-ms.openlocfilehash: b0e301f58ec0b5a14254935d6c269cc8006f4eff
-ms.sourcegitcommit: afc78e4fdef08e4ef75e3456fdfe3709d3c3680b
+ms.openlocfilehash: 7816efd44c01c3ed60c95d8699042f89cf6de5ec
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/16/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="webhooks-for-azure-activity-log-alerts"></a>Webhook para alertas de log de atividades do Azure
 Como parte da definição de um grupo de ações, você pode configurar pontos de extremidade de webhook para receber notificações de alerta do log de atividades. Os webhooks permitem rotear uma notificação de alerta do Azure para outros sistemas para pós-processamento ou notificações personalizadas. Este artigo mostra a aparência do conteúdo para o HTTP POST para um webhook.
@@ -131,18 +131,18 @@ Para obter detalhes de esquema específico sobre alertas de log de atividades de
 
 Para obter detalhes de esquema específico em todos os outros alertas do log de atividades, veja [Visão geral do log de atividades do Azure](monitoring-overview-activity-logs.md).
 
-| Nome do elemento | Descrição |
+| Nome do elemento | DESCRIÇÃO |
 | --- | --- |
 | status |Usado para alertas de métrica. Sempre definido como "ativado" para alertas do log de atividades. |
 | context |Contexto do evento. |
 | resourceProviderName |O provedor de recursos do recurso afetado. |
 | conditionType |Sempre "Evento". |
-| name |Nome da regra de alerta. |
+| Nome |Nome da regra de alerta. |
 | ID |ID do recurso do alerta. |
-| description |Descrição do alerta definida quando o alerta é criado. |
+| Descrição |Descrição do alerta definida quando o alerta é criado. |
 | subscriptionId |Id de assinatura do Azure. |
 | timestamp |Hora quando o evento foi gerado pelo serviço do Azure que processou a solicitação. |
-| resourceId |ID de recurso do recurso afetado. |
+| ResourceId |ID de recurso do recurso afetado. |
 | resourceGroupName |Nome do grupo de recursos do recurso afetado. |
 | propriedades |Conjunto de pares `<Key, Value>` (ou seja, `Dictionary<String, String>`) que inclui detalhes sobre o evento. |
 | evento |Elemento que contém metadados sobre o evento. |
@@ -154,7 +154,7 @@ Para obter detalhes de esquema específico em todos os outros alertas do log de 
 | eventDataId |Identificador exclusivo do evento. |
 | eventSource |Nome do serviço ou infraestrutura do Azure que gerou o evento. |
 | httpRequest |A solicitação geralmente inclui o clientRequestId, clientIpAddress e método HTTP (por exemplo, PUT). |
-| level |Um dos seguintes valores: Crítico, Erro, Aviso, Informativo e Detalhado. |
+| level |Um dos seguintes valores: Crítico, Erro, Aviso e Informativo. |
 | operationId |Geralmente um GUID compartilhado entre os eventos correspondentes a uma única operação. |
 | operationName |Nome da operação. |
 | propriedades |Propriedades do evento. |

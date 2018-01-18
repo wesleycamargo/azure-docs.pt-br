@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 11/27/2017
 ms.author: robinsh
-ms.openlocfilehash: 73921f7fd4de65513f647db92b737a79f1043182
-ms.sourcegitcommit: 310748b6d66dc0445e682c8c904ae4c71352fef2
+ms.openlocfilehash: 521487c3ed38f191308e14e4d542358438945556
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="using-the-azure-storage-rest-api"></a>Usando a API REST de Armazenamento do Azure
 
@@ -32,7 +32,7 @@ O aplicativo lista os contêineres no armazenamento de blobs de uma conta de arm
 
 * Uma assinatura do Azure. Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) antes de começar.
 
-* Uma conta de armazenamento de uso geral. Se você não tiver contas de armazenamento, poderá criar uma usando o [portal do Azure](https://portal.azure.com), o [PowerShell](storage-quickstart-create-storage-account-powershell.md) ou a [CLI do Azure](storage-quickstart-create-storage-account-cli.md).
+* Uma conta de armazenamento de uso geral. Se você ainda não tiver uma conta de armazenamento, consulte o artigo [Criar uma conta de armazenamento](storage-quickstart-create-account.md).
 
 * O exemplo neste artigo mostra como listar os contêineres em uma conta de armazenamento. Para ver a saída, adicione alguns contêineres de armazenamento de blobs na conta de armazenamento antes de iniciar.
 

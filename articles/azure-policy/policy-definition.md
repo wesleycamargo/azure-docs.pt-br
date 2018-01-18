@@ -9,11 +9,11 @@ ms.date: 10/31/2017
 ms.topic: article
 ms.service: azure-policy
 ms.custom: 
-ms.openlocfilehash: 1b8fd12e071bfbd01567803370e510e7e07ccb99
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: c4cb8acd12cbda5784d0ea48f7782e47f57db8b5
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="azure-policy-definition-structure"></a>Estrutura de definição da Política do Azure
 
@@ -64,7 +64,7 @@ Por exemplo, o JSON a seguir mostra uma política que limita os locais em que os
 
 Todos os exemplos de modelo do Azure Policy estão em [Modelos para o Azure Policy](json-samples.md).
 
-## <a name="mode"></a>Modo
+## <a name="mode"></a>Mode
 
 Recomendamos que você defina `mode` como `all` para que uma atribuição de política avalie todos os grupos e tipos de recursos. Você pode ver um exemplo de uma definição de política que impõe marcas em um grupo de recursos em [Permitir imagem personalizada da VM de um Grupo de Recursos](scripts/allow-custom-vm-image.md).
 
@@ -200,7 +200,6 @@ A política é compatível com os seguintes tipos de efeito:
 * **Acrescentar**: adiciona o conjunto de campos definido à solicitação
 * **AuditIfNotExists**: habilitará a auditoria se um recurso não existir
 * **DeployIfNotExists**: implantará um recurso se ele ainda não existir. Atualmente, esse efeito tem suporte apenas por meio de políticas internas.
-* **DenyIfNotExists**: negará a criação de uma existência se ela não existir
 
 Para **acrescentar**, você precisa fornecer os detalhes abaixo:
 
@@ -216,7 +215,7 @@ Para **acrescentar**, você precisa fornecer os detalhes abaixo:
 
 O valor pode ser uma cadeia de caracteres ou um objeto no formato JSON.
 
-Com **AuditIfNotExists**, **DeployIfNotExists** e **DenyIfNotExists**, você pode avaliar a existência de um recurso filho e aplicar uma regra e um efeito correspondente quando esse recurso não existir. Por exemplo, você pode exigir que um observador de rede seja implantado para todas as redes virtuais.
+Com **AuditIfNotExists**, e **DeployIfNotExists**, você pode avaliar a existência de um recurso filho e aplicar uma regra e um efeito correspondente quando esse recurso não existir. Por exemplo, você pode exigir que um observador de rede seja implantado para todas as redes virtuais.
 Para obter um exemplo de como fazer auditoria quando uma extensão da máquina virtual não está implantada, consulte [Auditoria se não existir extensão](scripts/audit-ext-not-exist.md).
 
 
@@ -226,7 +225,7 @@ Você pode usar aliases de propriedade para acessar propriedades específicas pa
 
 **Microsoft.Cache/Redis**
 
-| Alias | Descrição |
+| Alias | DESCRIÇÃO |
 | ----- | ----------- |
 | Microsoft.Cache/Redis/enableNonSslPort | Defina se a porta (6379) do servidor Redis não ssl está habilitada. |
 | Microsoft.Cache/Redis/shardCount | Defina o número de fragmentos a serem criados em um Cache de Cluster Premium.  |
@@ -236,13 +235,13 @@ Você pode usar aliases de propriedade para acessar propriedades específicas pa
 
 **Microsoft.Cdn/profiles**
 
-| Alias | Descrição |
+| Alias | DESCRIÇÃO |
 | ----- | ----------- |
 | Microsoft.CDN/profiles/sku.name | Defina o nome do tipo de preços. |
 
 **Microsoft.Compute/disks**
 
-| Alias | Descrição |
+| Alias | DESCRIÇÃO |
 | ----- | ----------- |
 | Microsoft.Compute/imageOffer | Defina a oferta da imagem da plataforma ou da imagem do marketplace usada para criar a máquina virtual. |
 | Microsoft.Compute/imagePublisher | Defina o editor da imagem da plataforma ou da imagem do marketplace usada para criar a máquina virtual. |
@@ -252,7 +251,7 @@ Você pode usar aliases de propriedade para acessar propriedades específicas pa
 
 **Microsoft.Compute/virtualMachines**
 
-| Alias | Descrição |
+| Alias | DESCRIÇÃO |
 | ----- | ----------- |
 | Microsoft.Compute/imageId | Defina o identificador da imagem usada para criar a máquina virtual. |
 | Microsoft.Compute/imageOffer | Defina a oferta da imagem da plataforma ou da imagem do marketplace usada para criar a máquina virtual. |
@@ -269,7 +268,7 @@ Você pode usar aliases de propriedade para acessar propriedades específicas pa
 
 **Microsoft.Compute/virtualMachines/extensions**
 
-| Alias | Descrição |
+| Alias | DESCRIÇÃO |
 | ----- | ----------- |
 | Microsoft.Compute/virtualMachines/extensions/publisher | Defina o nome do publicador da extensão. |
 | Microsoft.Compute/virtualMachines/extensions/type | Defina o tipo de extensão. |
@@ -277,7 +276,7 @@ Você pode usar aliases de propriedade para acessar propriedades específicas pa
 
 **Microsoft.Compute/virtualMachineScaleSets**
 
-| Alias | Descrição |
+| Alias | DESCRIÇÃO |
 | ----- | ----------- |
 | Microsoft.Compute/imageId | Defina o identificador da imagem usada para criar a máquina virtual. |
 | Microsoft.Compute/imageOffer | Defina a oferta da imagem da plataforma ou da imagem do marketplace usada para criar a máquina virtual. |
@@ -293,26 +292,26 @@ Você pode usar aliases de propriedade para acessar propriedades específicas pa
 
 **Microsoft.Network/applicationGateways**
 
-| Alias | Descrição |
+| Alias | DESCRIÇÃO |
 | ----- | ----------- |
 | Microsoft.Network/applicationGateways/sku.name | Defina o tamanho do gateway. |
 
 **Microsoft.Network/virtualNetworkGateways**
 
-| Alias | Descrição |
+| Alias | DESCRIÇÃO |
 | ----- | ----------- |
 | Microsoft.Network/virtualNetworkGateways/gatewayType | Defina o tipo deste gateway de rede virtual. |
 | Microsoft.Network/virtualNetworkGateways/sku.name | Defina o nome da SKU de gateway. |
 
 **Microsoft.Sql/servers**
 
-| Alias | Descrição |
+| Alias | DESCRIÇÃO |
 | ----- | ----------- |
 | Microsoft.Sql/servers/version | Defina a versão do servidor. |
 
 **Microsoft.Sql/databases**
 
-| Alias | Descrição |
+| Alias | DESCRIÇÃO |
 | ----- | ----------- |
 | Microsoft.Sql/servers/databases/edition | Defina a edição do banco de dados. |
 | Microsoft.Sql/servers/databases/elasticPoolName | Defina o nome do pool elástico em que o banco de dados está. |
@@ -321,14 +320,14 @@ Você pode usar aliases de propriedade para acessar propriedades específicas pa
 
 **Microsoft.Sql/elasticpools**
 
-| Alias | Descrição |
+| Alias | DESCRIÇÃO |
 | ----- | ----------- |
 | servidores/elasticpools | Microsoft.Sql/servers/elasticPools/dtu | Defina o DTU compartilhado total para o pool elástico de banco de dados. |
 | servidores/elasticpools | Microsoft.Sql/servers/elasticPools/edition | Defina a edição do pool elástico. |
 
 **Microsoft.Storage/storageAccounts**
 
-| Alias | Descrição |
+| Alias | DESCRIÇÃO |
 | ----- | ----------- |
 | Microsoft.Storage/storageAccounts/accessTier | Defina o nível de acesso usado para cobrança. |
 | Microsoft.Storage/storageAccounts/accountType | Defina o nome da SKU. |

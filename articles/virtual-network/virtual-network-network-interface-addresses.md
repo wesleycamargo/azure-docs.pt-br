@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/24/2017
 ms.author: jdial
-ms.openlocfilehash: d06dd0a8ec63202825be347c4b69e21a6dd4b7db
-ms.sourcegitcommit: 234c397676d8d7ba3b5ab9fe4cb6724b60cb7d25
+ms.openlocfilehash: 637b380dacc91e4ad55044c1d92936be2435138d
+ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/20/2017
+ms.lasthandoff: 01/10/2018
 ---
 # <a name="add-change-or-remove-ip-addresses-for-an-azure-network-interface"></a>Adicionar, alterar ou remover endereços IP para um adaptador de rede do Azure
 
@@ -50,9 +50,9 @@ Você pode adicionar quantos endereços [IPv4](#ipv4) [privados](#private) e [p�
 
     |Configuração|Obrigatório?|Detalhes|
     |---|---|---|
-    |NOME|sim|Deve ser exclusivo ao adaptador de rede|
-    |type|sim|Como você está adicionando uma configuração de IP a um adaptador de rede existente, e cada adaptador de rede deve ter uma configuração de IP [primária](#primary), sua única opção é **Secundária**.|
-    |Método de atribuição de endereço IP privado|sim|[**Dinâmico**](#dynamic): o Azure atribui o próximo endereço disponível para o intervalo de endereços de sub-rede na qual o adaptador de rede está implantado. [**Estático**](#static): você atribui um endereço não utilizado ao intervalo de endereços de sub-rede na qual o adaptador de rede está implantado.|
+    |NOME|Sim|Deve ser exclusivo ao adaptador de rede|
+    |type|Sim|Como você está adicionando uma configuração de IP a um adaptador de rede existente, e cada adaptador de rede deve ter uma configuração de IP [primária](#primary), sua única opção é **Secundária**.|
+    |Método de atribuição de endereço IP privado|Sim|[**Dinâmico**](#dynamic): o Azure atribui o próximo endereço disponível para o intervalo de endereços de sub-rede na qual o adaptador de rede está implantado. [**Estático**](#static): você atribui um endereço não utilizado ao intervalo de endereços de sub-rede na qual o adaptador de rede está implantado.|
     |Endereço IP público|Não |**Desabilitado:** no momento, nenhum recurso de endereço IP público está associado à configuração de IP. **Habilitado:** selecione um endereço IP público IPv4 existente ou crie um novo. Para saber como criar um endereço IP público, leia o artigo [Endereços IP públicos](virtual-network-public-ip-address.md#create-a-public-ip-address).|
 7. Adicione manualmente endereços IP privados secundários ao sistema operacional da máquina virtual seguindo as instruções do artigo [Como atribuir vários endereços IP a sistemas operacionais de máquina virtual](virtual-network-multiple-ip-addresses-portal.md#os-config). Confira endereços IP [privados](#private) para ver considerações especiais antes de adicionar manualmente os endereços IP ao sistema operacional de uma máquina virtual. Não adicione endereços IP públicos ao sistema operacional da máquina virtual.
 
@@ -138,9 +138,9 @@ Por padrão, os servidores DHCP do Azure atribuem o endereço IPv4 privado à [c
 > [!WARNING]
 > Se o endereço IPv4 definido como o endereço IP primário de um adaptador de rede no sistema operacional de uma máquina virtual for sempre diferente de endereço IPv4 privado atribuído à configuração de IP primário do adaptador de rede primário anexado a uma máquina virtual no Azure, você perderá a conectividade com a máquina virtual.
 
-Há cenários nos quais é necessário definir manualmente o endereço IP de um adaptador de rede no sistema operacional da máquina virtual. Por exemplo, você deve definir manualmente os endereços IP primários e secundários de um sistema operacional Windows ao adicionar vários endereços IP a uma máquina virtual do Azure. Para uma máquina virtual Linux, talvez você só precise definir manualmente os endereços IP secundários. Confira [Adicionar endereços IP a um sistema operacional de VM](virtual-network-multiple-ip-addresses-portal.md#os-config) para obter detalhes. Quando você define manualmente o endereço IP dentro do sistema operacional, é recomendável sempre atribuir os endereços à configuração de IP de um adaptador de rede usando o método estático (em vez de dinâmico) de atribuição. A atribuição do endereço usando o método estático assegura que o endereço não mude no Azure. Se algum dia você precisar alterar o endereço atribuído a uma configuração de IP, é recomendável que você:
+Há cenários nos quais é necessário definir manualmente o endereço IP de um adaptador de rede no sistema operacional da máquina virtual. Por exemplo, você deve definir manualmente os endereços IP primários e secundários de um sistema operacional Windows ao adicionar vários endereços IP a uma máquina virtual do Azure. Para uma máquina virtual Linux, talvez você só precise definir manualmente os endereços IP secundários. Confira [Adicionar endereços IP a um sistema operacional de VM](virtual-network-multiple-ip-addresses-portal.md#os-config) para obter detalhes. Se algum dia você precisar alterar o endereço atribuído a uma configuração de IP, é recomendável que você:
 
-1. A fim de garantir que a máquina virtual receba um endereço de servidores DHCP do Azure, altere a atribuição do endereço IP novamente para DHCP dentro do sistema operacional e reinicie a máquina virtual.
+1. Certifique-se de que a máquina virtual está recebendo um endereço de servidores DHCP do Azure. Depois, altere a atribuição do endereço IP novamente para DHCP dentro do sistema operacional e reinicie a máquina virtual.
 2. Interrompa (desaloque) a máquina virtual.
 3. Altere o endereço IP da configuração de IP no Azure.
 4. Iniciar a máquina virtual.

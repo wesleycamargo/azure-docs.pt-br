@@ -5,20 +5,20 @@ services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: femila
+ms.reviewer: joflore
 ms.assetid: 7561c20b-2325-4d97-887f-693aa383c7be
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 1/3/2017
 ms.author: jeedes
-ms.reviewer: jeedes
-ms.openlocfilehash: 0fb9c8f428368271b548e3f174726fa01ea910c5
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b4d96df72fd7f8f817140e7599e22a63ddd79910
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="tutorial-azure-active-directory-integration-with-amazon-web-services-aws"></a>Tutorial: Integração do Azure Active Directory com o AWS (Amazon Web Services)
 
@@ -26,26 +26,18 @@ Neste tutorial, você aprenderá a integrar o AWS (Amazon Web Services) ao Azure
 
 A integração do AWS (Amazon Web Services) ao Azure AD oferece os seguintes benefícios:
 
-- Você pode controlar no Azure AD quem tem acesso ao AWS (Amazon Web Services)
-- Você pode habilitar seus usuários a fazerem logon automaticamente no AWS (Amazon Web Services) (logon único) com suas contas do Azure AD
-- Você pode gerenciar suas contas em um única localização: o Portal do Azure
+- Você pode controlar no Microsoft Azure AD quem tem acesso ao AWS (Amazon Web Services).
+- Você pode habilitar seus usuários a fazerem logon automaticamente no AWS (Amazon Web Services) (logon único) com suas contas do Microsoft Azure AD.
+- Você pode gerenciar suas contas em um único local central – o portal do Azure.
 
-Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao AD do Azure, consulte [O que é o acesso a aplicativos e logon único com o Active Directory do Azure](active-directory-appssoaccess-whatis.md).
-
-<!--## Overview
-
-To enable single sign-on with Amazon Web Services (AWS), it must be configured to use Azure Active Directory as an identity provider. This guide provides information and tips on how to perform this configuration in Amazon Web Services (AWS).
-
->[!Note]: 
->This embedded guide is brand new in the new Azure portal, and we’d love to hear your thoughts. Use the Feedback ? button at the top of the portal to provide feedback. The older guide for using the [Azure classic portal](https://manage.windowsazure.com) to configure this application can be found [here](https://github.com/Azure/AzureAD-App-Docs/blob/master/articles/en-us/_/sso_configure.md).-->
-
+Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## <a name="prerequisites"></a>Pré-requisitos
 
 Para configurar a integração do Azure AD com o AWS (Amazon Web Services), você precisa dos seguintes itens:
 
 - Uma assinatura do AD do Azure
-- Uma assinatura habilitada para logon único do AWS (Amazon Web Services)
+- Uma assinatura habilitada de logon único do AWS (Amazon Web Services)
 
 > [!NOTE]
 > Para testar as etapas deste tutorial, nós não recomendamos o uso de um ambiente de produção.
@@ -53,81 +45,74 @@ Para configurar a integração do Azure AD com o AWS (Amazon Web Services), voc�
 Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 
 - Não use o ambiente de produção, a menos que seja necessário.
-- Se não tiver um ambiente de avaliação do Azure AD, você poderá obter uma avaliação de um mês [aqui](https://azure.microsoft.com/pricing/free-trial/).
+- Se não tiver um ambiente de avaliação do Azure AD, você pode [obter uma versão de avaliação de um mês](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Descrição do cenário
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionar o AWS (Amazon Web Services) da galeria
-2. Configurar e testar o logon único do AD do Azure
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-amazon-web-services-aws-from-the-gallery"></a>Adicionar o AWS (Amazon Web Services) da galeria
 Para configurar a integração do AWS (Amazon Web Services) com o Azure AD, você precisa adicionar o AWS (Amazon Web Services), por meio da galeria, à sua lista de aplicativos de SaaS gerenciados.
 
 **Para adicionar o AWS (Amazon Web Services) da galeria, execute as seguintes etapas:**
 
-1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação esquerdo, clique no ícone **Azure Active Directory**. 
+1. No **[Portal do Azure](https://portal.azure.com)**, no painel navegação à esquerda, clique no ícone **Azure Active Directory**. 
 
-    ![Active Directory][1]
+    ![O botão Azure Active Directory][1]
 
 2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
-    ![Aplicativos][2]
+    ![A folha Aplicativos empresariais][2]
     
-3. Clique em **adicionar** botão na parte superior da caixa de diálogo.
+3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-    ![Aplicativos][3]
+    ![O botão Novo aplicativo][3]
 
-4. Na caixa de pesquisa, digite **serviço AWS (Amazon Web Services)**.
+4. Na caixa de pesquisa, digite **AWS (Amazon Web Services)**, selecione **AWS (Amazon Web Services)** no painel de resultados e clique no botão **Adicionar** para adicionar o aplicativo.
 
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices_search.png)
+    ![AWS (Amazon Web Services) na lista de resultados](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_addfromgallery.png)
 
-5. No painel de resultados, selecione **AWS (Amazon Web Services)** e clique no botão **Adicionar** para adicionar o aplicativo.
+## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurar e testar logon único do Azure AD
 
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices_addfromgallery.png)
-
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
 Nesta seção, você vai configurar e testar o logon único do Azure AD com o AWS (Amazon Web Services), com base em um usuário de teste chamado "Brenda Fernandes".
 
 Para que o logon único funcione, o Azure AD precisa saber qual usuário do AWS (Amazon Web Services) é equivalente a um usuário do Azure AD. Em outras palavras, uma relação de link entre um usuário do Azure AD e o usuário relacionado no serviço AWS (Amazon Web Services) deve ser estabelecida.
 
-Essa relação de vínculo é estabelecida, atribuindo-se o valor do **nome de usuário** no Azure AD como o valor da **nome de usuário** no AWS (Amazon Web Services).
+No Amazon Web Services (AWS), atribua o valor do **nome de usuário** no Microsoft Azure AD como o valor do **Nome de usuário** para estabelecer a relação de vínculo.
 
 Para configurar e testar o logon único do Azure AD com o AWS (Amazon Web Services), você precisa concluir os seguintes blocos de construção:
 
-1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
-3. **[Criação de um usuário de teste do Amazon Web Services](#creating-an-amazon-web-services-test-user)**: para ter um equivalente de Brenda Fernandes no AWS (Amazon Web Services) que esteja vinculado à representação dela no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
+1. **[Configurar o logon único do Azure AD](#configure-azure-ad-single-sign-on)** – para habilitar seus usuários a usar esse recurso.
+2. **[Criar um usuário de teste do Azure AD](#create-an-azure-ad-test-user)** – para testar o logon único do Azure AD com Brenda Fernandes.
+3. **[Criar um usuário de teste do AWS (Amazon Web Services)](#create-an-amazon-web-services-aws-test-user)** – para ter um equivalente de Brenda Fernandes no AWS (Amazon Web Services) que esteja vinculado à representação do usuário no Microsoft Azure AD.
+4. **[Atribuir o usuário de teste do Azure AD](#assign-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do Azure AD.
+5. **[Teste o logon único](#test-single-sign-on)** – para verificar se a configuração funciona.
 
-### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
+### <a name="configure-azure-ad-single-sign-on"></a>Configurar o logon único do Azure AD
 
 Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure e configurar o logon único em seu aplicativo AWS (Amazon Web Services).
 
 **Para configurar o logon único do Azure AD com o AWS (Amazon Web Services), execute as seguintes etapas:**
 
-1. No Portal do Azure, na página de integração de aplicativos do **AWS (Amazon Web Services)**, clique em **Logon único**.
+1. No portal do Azure, na página de integração de aplicativos do **AWS (Amazon Web Services)**, clique em **Logon único**.
 
-    ![Configurar Logon Único][4]
+    ![Link Configurar logon único][4]
 
-2. Na caixa de diálogo **Logon único**, como **Modo**, selecione **Logon baseado em SAML** para habilitar o logon único.
+2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
-    ![Configurar Logon Único](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices_samlbase.png)
+    ![Caixa de diálogo Logon único](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_samlbase.png)
 
 3. Na seção **Domínio e URLs do AWS (Amazon Web Services)**, o usuário não precisa seguir as etapas, uma vez que o aplicativo já está pré-integrado ao Azure.
 
-    ![Configurar Logon Único](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices_url.png)
+    ![Informações de logon único de Domínio e URLs do AWS (Amazon Web Services)](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_url.png)
 
-4. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo XML em seu computador.
-    
-    ![Configurar Logon Único](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices_certificate.png)
+4. O aplicativo AWS (Amazon Web Services) espera que as declarações SAML estejam em um formato específico. Configure as declarações a seguir para este aplicativo. Você pode gerenciar os valores desses atributos da seção "**Atributos de Usuário**" na página de integração do aplicativo. A captura de tela a seguir mostra um exemplo disso.
 
-5. O aplicativo AWS (Amazon Web Services) espera que as declarações SAML estejam em um formato específico. Configure as seguintes declarações para o aplicativo. Você pode gerenciar os valores desses atributos da seção "**Atributos de Usuário**" na página de integração do aplicativo. A captura de tela a seguir mostra um exemplo disso.
+    ![Configurar logon único attb](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_attribute.png)   
 
-    ![Configurar Logon Único](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices_attribute.png)
-
-6. Na seção **Atributos do usuário**, na caixa de diálogo **Logon único**, configure o atributo do token SAML na imagem acima e siga as etapas abaixo:
+5. Na seção **Atributos do usuário**, na caixa de diálogo **Logon único**, configure o atributo do token SAML na imagem acima e siga as etapas abaixo:
     
     | Nome do atributo  | Valor do atributo | Namespace |
     | --------------- | --------------- | --------------- |
@@ -139,65 +124,69 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
 
     a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_attribute_04.png)
+    ![Configurar logon único Add](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_attribute_04.png)
+
+    ![Configurar logon único Addattb](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_attribute_05.png)
 
     b. Na caixa de texto **Nome** , digite o nome do atributo mostrado para essa linha.
 
-    ![Configurar o logon único](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_attribute_05.png)
-
-    c. Na lista **Valor**, digite o valor do atributo mostrado para essa linha. Adicione o valor de Namespace conforme indicado acima.
+    c. Na lista **Valor**, digite o valor do atributo mostrado para essa linha.
     
     d. Clique em **OK**.
 
-7. Clique no botão **Salvar** para salvar as configurações no Azure.
+6. Na seção **Certificado de Autenticação SAML**, clique em **Metadados XML** e, em seguida, salve o arquivo de metadados em seu computador.
 
-    ![Configurar Logon Único](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_general_400.png)
+    ![O link de download do Certificado](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_certificate.png) 
+
+7. Clique no botão **Salvar** .
+
+    ![Botão Salvar em Configurar Logon Único](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_general_400.png)
 
 8. Em uma janela de navegador diferente, entre no site de sua empresa do AWS (Amazon Web Services) como administrador.
 
 9. Clique em **página inicial do Console**.
    
-    ![Configurar Logon Único][11]
+    ![Configurar página inicial de logon único][11]
 
-10. Clique em **IAM** no serviço **Segurança, Identidade e Conformidade**.
+10. Clique em **Gerenciamento de identidades e acesso**. 
    
-    ![Configurar Logon Único][12]
+    ![Configurar identidade de logon único][12]
 
-11. Clique em **Provedores de identidade**, e, em seguida, clique em **Criar provedor**.
+11. Clique em **Provedores de identidade**, e, em seguida, clique em **Criar provedor**. 
    
-    ![Configurar Logon Único][13]
+    ![Configurar provedor de logon único][13]
 
-12. Na página da caixa de diálogo **Configurar provedor** , execute as seguintes etapas:
+12. Na página da caixa de diálogo **Configurar provedor** , execute as seguintes etapas: 
    
-    ![Configurar Logon Único][14]
+    ![Configurar diálogo logon único][14]
  
     a. Como **Tipo de provedor**, selecione **SAML**.
 
-    b. Na caixa de texto **Nome do provedor**, digite um nome de provedor (p. ex.: *WAAD*).
+    b. Na caixa de texto **Nome do provedor**, digite um nome de provedor (por exemplo: *WAAD*).
 
-    c. Para carregar o arquivo de metadados baixado, clique em **Escolher arquivo**.
+    c. Para carregar seu **arquivo de metadados** baixado do Portal do Azure, clique em **Escolher Arquivo**.
 
     d. Clique em **Próxima etapa**.
 
 13. Na página de diálogo **Verificar informações do provedor**, clique em **Criar**. 
     
-    ![Configurar Logon Único][15]
+    ![Configurar verificação de logon único][15]
 
 14. Clique em **Funções** e, em seguida, clique em **Criar Nova Função**. 
     
-    ![Configurar o logon único][16]
+    ![Configurar funções de logon único][16]
 
 15. Na caixa de diálogo **Definir Nome de Função** , execute as seguintes etapas: 
     
-    ![Configurar Logon Único][17] 
+    ![Configurar nome de logon único][17] 
 
-    a. Na caixa de texto **Nome da função** , digite um nome de função (por exemplo: *TestUser*). 
+    a. Na caixa de texto **Nome da função**, digite um nome de função (por exemplo: *TestUser*). 
 
     b. Clique em **Próxima etapa**.
 
 16. Na caixa de diálogo **Selecionar Tipo de Função** , execute as seguintes etapas: 
     
-    ![Configurar Logon Único][18] 
+    ![Configurar tipo de função de logon único][18] 
 
     a. Selecione **Função de acesso do provedor de identidade**. 
 
@@ -205,142 +194,203 @@ Nesta seção, você vai habilitar o logon único do Azure AD no Portal do Azure
 
 17. Na caixa de diálogo **Estabelecer Confiança** , execute as seguintes etapas:  
     
-    ![Configurar Logon Único][19] 
+    ![Configurar confiança de logon único][19] 
 
-    a. Como provedor SAML, selecione o provedor SAML criado anteriormente (por exemplo: *WAAD*)
+    a. Como provedor SAML, selecione o provedor SAML criado anteriormente (por exemplo: *WAAD*) 
   
     b. Clique em **Próxima etapa**.
 
-18. Na caixa de diálogo **Verificar Confiança na Função**, clique em **Próxima Etapa**.
+18. Na caixa de diálogo **Verificar Confiança na Função**, clique em **Próxima Etapa**. 
     
-    ![Configurar o logon único][32]
+    ![Configurar confiança de função de logon único][32]
 
-19. Na caixa de diálogo **Anexar Política**, clique em **Próxima Etapa**.
+19. Na caixa de diálogo **Anexar Política**, clique em **Próxima Etapa**.  
     
-    ![Configurar Logon Único][33]
+    ![Configurar política de logon único][33]
 
-20. Na caixa de diálogo **Examinar** , execute as seguintes etapas:
+20. Na caixa de diálogo **Examinar** , execute as seguintes etapas:   
     
-    ![Configurar Logon Único][34]
- 
+    ![Configurar revisão de logon único][34] 
+
     a. Clique em **Criar função**.
 
     b. Crie quantas funções forem necessárias e mapeie-as para o Provedor de Identidade.
 
-21. Agora, configure o provisionamento de usuário para buscar todas as funções no AWS
+21. Use as credenciais de conta de serviço AWS para buscar as funções da conta AWS no Provisionamento de Usuário do Microsoft Azure AD. Para isso, abra a página inicial do console AWS.
 
-    a. No Console do AWS, faça logon com sua conta raiz
+22. Clique em **Serviços** -> **Segurança, identidade e conformidade** -> **IAM**.
 
-    b. No canto superior direito, clique em seu nome e na opção **Minhas Credenciais de Segurança**. Isso abrirá uma tela como uma mensagem de aviso. Clique no botão **Credenciais de Segurança** para passar a tela.
-        
-       ![Configurar o logon único][36]
+    ![buscando as funções da conta AWS](./media/active-directory-saas-amazon-web-service-tutorial/fetchingrole1.png)
 
-       ![Configurar Logon Único][37]
+23. Selecione a guia **Políticas** na seção IAM.
 
-    c. Na seção Chaves de Acesso, clique no botão **Criar Nova Chave de Acesso**. Isso gera a ID da Chave de Acesso e um valor de token.
+    ![buscando as funções da conta AWS](./media/active-directory-saas-amazon-web-service-tutorial/fetchingrole2.png)
+
+24. Crie uma nova política clicando em **Criar política**.
+
+    ![Criar nova política](./media/active-directory-saas-amazon-web-service-tutorial/fetchingrole3.png)
+ 
+25. Crie sua própria política para buscar todas as funções de contas AWS. Na seção **Criar sua própria política** clique no botão **Selecionar**.
     
-       ![Configurar o logon único][38]
+    ![Criar nova política](./media/active-directory-saas-amazon-web-service-tutorial/policy1.png)
 
-    d. Copie esses dois valores e baixe-os também para não perdê-los.
+26. Defina a nova política executando as etapas a seguir:
 
-    e. No Portal do Azure, na página de integração de aplicativos do AWS (Amazon Web Services), clique em **Provisionamento**.
-        
-       ![Configurar o logon único][35]
+    ![Definir a nova política](./media/active-directory-saas-amazon-web-service-tutorial/policy2.png)
 
-    f. Defina o Modo de provisionamento como **Automático**
-        
-       ![Configurar Logon Único][39]
+    a. Forneça o **Nome da política** como **AzureAD_SSOUserRole_Policy**.
 
-    g. Agora, em **clientsecret** e **Token Secreto**, cole os valores correspondentes, aqueles copiados do Console do AWS.
+    b. Você pode fornecer **Descrição** para a política como **Essa política permitirá buscar as funções de contas AWS**.
     
-    h. Você pode clicar no botão **Testar Conectividade** para testar a conectividade. Depois que for bem-sucedida, você poderá iniciar o conector de provisionamento.
-       
-       ![Configurar o logon único][40]
+    c. No documento de política, adicione o JSON abaixo.
+    
+    ```
+    
+    {
 
-    i. Agora, habilite o Status do Provisionamento para **Ativado**. Isso inicia a busca das funções no aplicativo.
+    "Version": "2012-10-17",
 
-       ![Configurar o logon único][41]
+    "Statement": [
 
-    > [!NOTE]
-    > O serviço Provisionamento do Azure AD é executado sempre de tempos em tempos para sincronizar as funções do AWS. Você deve ver todas as funções do AWS anexadas ao Provedor de Identidade no Azure AD e pode usá-las ao atribuir o aplicativo a usuários ou grupos.
+    {
 
-<!--### Next steps
+    "Effect": "Allow",
+        
+    "Action": [
+        
+    "iam: ListRoles"
+        
+    ],
 
-To ensure users can sign-in to Amazon Web Services (AWS) after it has been configured to use Azure Active Directory, review the following tasks and topics:
+    "Resource": "*"
 
-- User accounts must be pre-provisioned into Amazon Web Services (AWS) prior to sign-in. To set this up, see Provisioning.
+    }
+
+    ]
+
+    }
+    
+    ```
+    
+    d. Certifique-se de verificar em **Usar formatação automática para edição de política**.
+    
+    e. Clique no botão **Validar política** na parte inferior.
+    
+    f. Depois que a política for validada corretamente você pode clicar no botão **Criar política**.
+    
+27. Crie uma nova conta de usuário no serviço de IAM do AWS executando as etapas a seguir:
+
+    a. Clique na navegação **Usuários** no console IAM do AWS.
+
+    ![Definir a nova política](./media/active-directory-saas-amazon-web-service-tutorial/policy3.png)
+    
+    b. Clique no botão **Adicionar usuário** para criar um novo usuário.
+
+    ![Adicionar usuário](./media/active-directory-saas-amazon-web-service-tutorial/policy4.png)
+
+    c. Na seção **Adicionar usuário**, execute as etapas a seguir:
+    
+    ![Adicionar usuário](./media/active-directory-saas-amazon-web-service-tutorial/adduser1.png)
+    
+    * Digite o nome de usuário como **AzureADRoleManager**.
+    
+    * No tipo de acesso, selecione a opção **Acesso programático**. Dessa forma, o usuário pode invocar as APIs e buscar as funções da conta AWS.
+    
+    * Clique no botão **Próximas permissões** no canto inferior direito.
+
+28. Agora, crie uma nova política para esse usuário executando as etapas a seguir:
+
+    ![Adicionar usuário](./media/active-directory-saas-amazon-web-service-tutorial/adduser2.png)
+    
+    a. Clique no botão **Anexar políticas existentes diretamente**.
+
+    b. Pesquise a política recém-criada na seção filtro **AzureAD_SSOUserRole_Policy**.
+    
+    c. Selecione a **política** e, em seguida, clique no botão **Próxima: Revisão**.
+
+29. Examine a política para o usuário conectado executando as etapas a seguir:
+
+    ![Adicionar usuário](./media/active-directory-saas-amazon-web-service-tutorial/adduser3.png)
+    
+    a. Examine o nome de usuário, tipo de acesso e política mapeados para o usuário.
+    
+    b. Clique no botão **Criar usuário** no canto inferior direito para criar o usuário.
+
+30. Faça o download das credenciais do usuário de um usuário executando as etapas a seguir:
+
+    ![Adicionar usuário](./media/active-directory-saas-amazon-web-service-tutorial/adduser4.png)
+    
+    a. Copie a **ID de chave de acesso** do usuário e a **Chave de acesso secreta**.
+    
+    b. Insira essas credenciais na seção de provisionamento de usuário do Microsoft Azure AD para buscar as funções do console AWS.
+    
+    c. Clique no botão **Editar** na parte inferior.
+
+31. Navegue até a seção **Provisionamento de usuário** do aplicativo do Amazon Web Services no Portal de Gerenciamento do Microsoft Azure AD.
+
+    ![Adicionar usuário](./media/active-directory-saas-amazon-web-service-tutorial/provisioning.png)
+
+32. Insira a **Chave de Acesso** e o **Segredo** nos campos **Segredo do Cliente** e **Token do Segredo** respectivamente.
+
+    ![Adicionar usuário](./media/active-directory-saas-amazon-web-service-tutorial/provisioning1.png)
+    
+    a. Insira a chave de acesso do usuário do AWS no campo **Segredo do cliente**.
+    
+    b. Insira o segredo do usuário do AWS no campo **Segredo do Token**.
+    
+    c. Clique no botão **Testar Conexão** e você deverá poder testar com êxito essa conexão.
+
+    d. Salve a configuração clicando no botão **Salvar** na parte superior.
  
-- Users must be assigned access to Amazon Web Services (AWS) in Azure AD to sign-in. To assign users, see Users.
- 
-- To configure access polices for Amazon Web Services (AWS) users, see Access Policies.
- 
-- For additional information on deploying single sign-on to users, see [this article](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis#deploying-azure-ad-integrated-applications-to-users).-->
+33. Agora, certifique-se de habilitar o Status de Provisionamento **Ativo** na seção Configurações ativando o comutador e, em seguida, clicando no botão **Salvar** botão na parte superior.
 
+    ![Adicionar usuário](./media/active-directory-saas-amazon-web-service-tutorial/provisioning2.png)
 
-### <a name="creating-an-azure-ad-test-user"></a>Criação de um usuário de teste do AD do Azure
+> [!TIP]
+> É possível ler uma versão concisa dessas instruções no [Portal do Azure](https://portal.azure.com), enquanto você estiver configurando o aplicativo!  Depois de adicionar esse aplicativo da seção **Active Directory > Aplicativos Empresariais**, basta clicar na guia **Logon Único** e acessar a documentação inserida por meio da seção **Configuração** na parte inferior. Saiba mais sobre a funcionalidade de documentação inserida aqui: [Documentação inserida do Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
+> 
+
+### <a name="create-an-azure-ad-test-user"></a>Criar um usuário de teste do Azure AD
+
 O objetivo desta seção é criar um usuário de teste no Portal do Azure chamado Brenda Fernandes.
 
-![Criar um usuário do AD do Azure][100]
+   ![Criar um usuário de teste do Azure AD][100]
 
 **Para criar um usuário de teste no AD do Azure, execute as seguintes etapas:**
 
-1. No **Portal do Azure**, no painel de navegação esquerdo, clique no ícone **Azure Active Directory**.
+1. No portal do Azure, no painel esquerdo, clique no botão **Azure Active Directory**.
 
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-amazon-web-service-tutorial/create_aaduser_01.png) 
+    ![O botão Azure Active Directory](./media/active-directory-saas-amazon-web-service-tutorial/create_aaduser_01.png)
 
-2. Vá para **usuários e grupos** e clique em **todos os usuários** para exibir a lista de usuários.
-    
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-amazon-web-service-tutorial/create_aaduser_02.png) 
+2. Para exibir a lista de usuários, acesse **Usuários e grupos** e, depois, clique em **Todos os usuários**.
 
-3. Na parte superior da caixa de diálogo clique **adicionar** para abrir o **usuário** caixa de diálogo.
- 
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-amazon-web-service-tutorial/create_aaduser_03.png) 
+    ![Os links “Usuários e grupos” e “Todos os usuários”](./media/active-directory-saas-amazon-web-service-tutorial/create_aaduser_02.png)
 
-4. Na página do diálogo **Usuário**, execute as seguintes etapas:
- 
-    ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-amazon-web-service-tutorial/create_aaduser_04.png) 
+3. Para abrir a caixa de diálogo **Usuário**, clique em **Adicionar** na parte superior da caixa de diálogo **Todos os Usuários**.
 
-    a. Na caixa de texto **Nome**, digite **Brenda Fernandes**.
+    ![O botão Adicionar](./media/active-directory-saas-amazon-web-service-tutorial/create_aaduser_03.png)
 
-    b. Na caixa de texto **Nome de usuário**, digite o **endereço de email** da conta de Brenda Fernandes.
+4. Na caixa de diálogo **Usuário**, execute as seguintes etapas:
 
-    c. Selecione **Mostrar senha** e anote o valor de **senha**.
+    ![A caixa de diálogo Usuário](./media/active-directory-saas-amazon-web-service-tutorial/create_aaduser_04.png)
+
+    a. Na caixa **Nome**, digite **BrendaFernandes**.
+
+    b. Na caixa **Nome de usuário**, digite o endereço de email do usuário Brenda Fernandes.
+
+    c. Marque a caixa de seleção **Mostrar Senha** e, em seguida, anote o valor exibido na caixa **Senha**.
 
     d. Clique em **Criar**.
  
-### <a name="creating-an-amazon-web-services-test-user"></a>Criação de um usuário de teste do Amazon Web Services
+### <a name="create-an-amazon-web-services-aws-test-user"></a>Criar um usuário de teste do AWS (Amazon Web Services)
 
-Para permitir que os usuários do Azure AD façam logon no AWS (Amazon Web Services), eles devem ser provisionados no AWS. No caso do AWS, o provisionamento é uma tarefa manual.
+O objetivo desta seção é criar uma usuária chamada Brenda Fernandes no AWS (Amazon Web Services). O AWS (Amazon Web Services) não precisa que um usuário seja criado em seu sistema para o SSO, portanto você não precisa realizar nenhuma ação aqui.
 
-**Para provisionar uma conta de usuário, execute as seguintes etapas:**
+### <a name="assign-the-azure-ad-test-user"></a>Atribuir o usuário de teste do Azure AD
 
-1. Faça logon no site da sua empresa **AWS (Amazon Web Services)** como administrador.
+Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo acesso ao AWS (Amazon Web Services).
 
-2. Clique no ícone **Página Inicial do Console** . 
-   
-    ![Configurar Logon Único][11]
-
-3. Clique em Gerenciamento de identidades e acesso. 
-   
-    ![Configurar Logon Único][28]
-
-4. No Painel, clique em **Usuários** e em **Criar Novos Usuários**. 
-   
-    ![Configurar o logon único][29]
-
-5. No diálogo Criar Usuário, realize as seguintes etapas: 
-   
-    ![Configurar Logon Único][30]   
-    
-    a. Na caixa de texto **Inserir Nomes de Usuário** , digite o nome de usuário (userprincipalname) de Brenda Fernandes no AD do Azure.
-
-    b. Clicar em **Criar.**
-        
-### <a name="assigning-the-azure-ad-test-user"></a>Atribuição do usuário de teste do AD do Azure
-
-Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure concedendo a ela acesso ao AWS (Amazon Web Services).
-
-![Atribuir usuário][200] 
+![Atribuir a função de usuário][200] 
 
 **Para atribuir Brenda Fernandes ao AWS (Amazon Web Services), execute as seguintes etapas:**
 
@@ -350,29 +400,28 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 2. Na lista de aplicativos, selecione **AWS (Amazon Web Services)**.
 
-    ![Configurar o logon único](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices_app.png) 
+    ![O link do AWS (Amazon Web Services) na lista Aplicativos](./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices(aws)_app.png)  
 
 3. No menu à esquerda, clique em **usuários e grupos**.
 
-    ![Atribuir usuário][202] 
+    ![O link “Usuários e grupos”][202]
 
 4. Clique no botão **Adicionar**. Em seguida, selecione **usuários e grupos** na **Adicionar atribuição** caixa de diálogo.
 
-    ![Atribuir usuário][203]
+    ![O painel Adicionar Atribuição][203]
 
 5. Em **usuários e grupos** caixa de diálogo, selecione **Britta Simon** na lista de usuários.
 
 6. Clique em **selecione** botão **usuários e grupos** caixa de diálogo.
 
-7. Na guia **Selecionar Função**, selecione a função apropriada para o usuário. Todas essas funções são mostradas com o nome de função e o nome do provedor de identidade. Dessa forma, você pode identificar facilmente as funções do AWS.
-
-8. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
+7. Clique em **atribuir** botão **Adicionar atribuição** caixa de diálogo.
     
-### <a name="testing-single-sign-on"></a>Teste do logon único
+### <a name="test-single-sign-on"></a>Testar logon único
 
 Nesta seção, você testará sua configuração de logon único do Azure AD usando o Painel de Acesso.
 
-Ao clicar no bloco AWS (Amazon Web Services) no Painel de Acesso, você deve fazer logon automaticamente em seu aplicativo AWS (Amazon Web Services). 
+Ao clicar no bloco AWS (Amazon Web Services) no Painel de Acesso, você deve fazer logon automaticamente em seu aplicativo AWS (Amazon Web Services).
+Para saber mais sobre o Painel de Acesso, veja [Introdução ao Painel de Acesso](active-directory-saas-access-panel-introduction.md). 
 
 ## <a name="additional-resources"></a>Recursos adicionais
 
@@ -403,23 +452,14 @@ Ao clicar no bloco AWS (Amazon Web Services) no Painel de Acesso, você deve faz
 [17]: ./media/active-directory-saas-amazon-web-service-tutorial/ic795023.png
 [18]: ./media/active-directory-saas-amazon-web-service-tutorial/ic795024.png
 [19]: ./media/active-directory-saas-amazon-web-service-tutorial/ic795025.png
-[20]: ./media/active-directory-saas-amazon-web-service-tutorial/ic7950351.png
-[21]: ./media/active-directory-saas-amazon-web-service-tutorial/tutorial_general_80.png
-[22]: ./media/active-directory-saas-amazon-web-service-tutorial/ic7950352.png
-[23]: ./media/active-directory-saas-amazon-web-service-tutorial/tutorial_general_81.png
-[24]: ./media/active-directory-saas-amazon-web-service-tutorial/ic7950353.png
-[25]: ./media/active-directory-saas-amazon-web-service-tutorial/tutorial_general_15.png
-
-[28]: ./media/active-directory-saas-amazon-web-service-tutorial/ic7950321.png
-[29]: ./media/active-directory-saas-amazon-web-service-tutorial/ic795037.png
-[30]: ./media/active-directory-saas-amazon-web-service-tutorial/ic795038.png
 [32]: ./media/active-directory-saas-amazon-web-service-tutorial/ic7950251.png
 [33]: ./media/active-directory-saas-amazon-web-service-tutorial/ic7950252.png
-[34]: ./media/active-directory-saas-amazon-web-service-tutorial/ic7950253.png
 [35]: ./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices_provisioning.png
+[34]: ./media/active-directory-saas-amazon-web-service-tutorial/ic7950253.png
 [36]: ./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices_securitycredentials.png
 [37]: ./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices_securitycredentials_continue.png
 [38]: ./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices_createnewaccesskey.png
 [39]: ./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices_provisioning_automatic.png
 [40]: ./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices_provisioning_testconnection.png
 [41]: ./media/active-directory-saas-amazon-web-service-tutorial/tutorial_amazonwebservices_provisioning_on.png
+

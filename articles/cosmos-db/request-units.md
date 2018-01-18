@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/02/2017
 ms.author: mimig
-ms.openlocfilehash: 57e8274d67bff86832d9cd070b781ade6575dee7
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: c7aadb4e535ed221f882f251324b6d4e633c2d5e
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unidades de Solicitação no Azure Cosmos DB
 Agora disponível: [calculadora de unidades de solicitação](https://www.documentdb.com/capacityplanner) do Azure Cosmos DB. Saiba mais em [Estimativa das necessidades de produção](request-units.md#estimating-throughput-needs).
@@ -55,7 +55,7 @@ Recomendamos que você comece assistindo ao vídeo a seguir, no qual Aravind Ram
 ## <a name="specifying-request-unit-capacity-in-azure-cosmos-db"></a>Especificando a capacidade de unidades de solicitação no Azure Cosmos DB
 Ao iniciar uma nova coleção, tabela ou um novo grafo, especifique o número de unidades de solicitação por segundo (RU por segundo) que você deseja ter reservado. Com base na produtividade provisionada, o Azure Cosmos DB aloca partições físicas para hospedar sua coleção e divide/redistribui os dados entre partições conforme eles aumentam.
 
-O Azure Cosmos DB exige que uma chave de partição seja especificada quando uma coleção é provisionada com 2.500 unidades de solicitação ou mais. Uma chave de partição também é necessária para dimensionar a produtividade da coleção além das 2.500 unidades de solicitação no futuro. Portanto, é altamente recomendável configurar uma [chave de partição](partition-data.md) durante a criação de um contêiner, independentemente da produtividade inicial. Uma vez que seus dados talvez precisem ser divididos em várias partições, é necessário selecionar uma chave de partição que tenha alta cardinalidade (100 milhões de valores distintos). Ao selecionar uma chave de partição com muitos valores distintos, você garante que sua coleção/tabela/gráfico e solicitações possam ser colocados em escala de maneira uniforme pelo Azure Cosmos DB. 
+Os contêineres do Azure Cosmos DB podem ser criados como fixos ou ilimitados. Contêineres de tamanho fixo têm um limite máximo de 10 GB e taxa de transferência de 10.000 RU/s. Para criar um contêiner ilimitado, você deve especificar uma taxa de transferência mínima de 1.000 RU/s e uma [chave de partição](partition-data.md). Uma vez que seus dados talvez precisem ser divididos em várias partições, é necessário selecionar uma chave de partição que tenha alta cardinalidade (100 milhões de valores distintos). Ao selecionar uma chave de partição com muitos valores distintos, você garante que sua coleção/tabela/gráfico e solicitações possam ser colocados em escala de maneira uniforme pelo Azure Cosmos DB. 
 
 > [!NOTE]
 > Uma chave de partição é um limite lógico e não físico. Portanto, não é necessário limitar o número de valores de chave de partição distinta. Na verdade, já que o Azure Cosmos DB tem mais opções de balanceamento de carga, é melhor ter mais valores de chave de partição distintos do que menos.
@@ -201,7 +201,7 @@ Tendo isso em mente, um método para estimar a quantidade de produtividade reser
 > 
 > 
 
-Por exemplo:
+Por exemplo: 
 
 1. Registre o encargo de unidades de solicitação para a criação (inserção) de um item típico. 
 2. Registre o encargo de unidades de solicitação para a leitura de um item típico.
@@ -210,7 +210,7 @@ Por exemplo:
 5. Registre o encargo de unidade de solicitação de quaisquer scripts personalizados (procedimentos armazenados, gatilhos, funções definidas pelo usuário) utilizados pelo aplicativo
 6. Calcule as unidades de solicitação necessárias, dado o número estimado de operações que você prevê que executará por segundo.
 
-### <a id="GetLastRequestStatistics"></a>Usar o comando GetLastRequestStatistics da API para MongoDB
+## <a id="GetLastRequestStatistics"></a>Usar o comando GetLastRequestStatistics da API para MongoDB
 A API para MongoDB dá suporte a um comando personalizado, *getLastRequestStatistics*, para recuperar a carga de solicitação de operações especificadas.
 
 Por exemplo, no Shell do Mongo, execute a operação para a qual você deseja verificar a carga de solicitação.

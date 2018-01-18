@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2017
 ms.author: bradsev
-ms.openlocfilehash: d0a9926f49e2be66a9d51a1bb0e4e19342205880
-ms.sourcegitcommit: e5355615d11d69fc8d3101ca97067b3ebb3a45ef
+ms.openlocfilehash: d71d8e44d0327515ed302c5c902ce87587e36c7d
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/31/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Provisionar a Máquina Virtual de Ciência de Dados do Windows no Azure
 A Máquina Virtual de Ciência de Dados da Microsoft é uma imagem de VM (máquina virtual) do Microsoft Azure pré-instalada e configurada com diversas ferramentas populares que são usadas para a análise de dados e o aprendizado de máquina. As ferramentas incluídas são:
@@ -38,7 +38,7 @@ A Máquina Virtual de Ciência de Dados da Microsoft é uma imagem de VM (máqui
   * [Rattle](http://rattle.togaware.com/) (a "R Analytical Tool To Learn Easily" – Ferramenta Analítica do R para Aprender com Facilidade): uma ferramenta que facilita a introdução à análise de dados e ao machine learning em R, com uma exploração de dados baseada em GUI e modelagem com geração de código R automática.
   * [Weka](http://www.cs.waikato.ac.nz/ml/weka/): um software de mineração de dados visual e machine learning em Java.
   * [Apache Drill](https://drill.apache.org/): um Mecanismo de consulta SQL, livre de esquema, para Hadoop, NoSQL e Armazenamento em Nuvem.  Oferece suporte a interfaces ODBC e JDBC para habilitar consultas NoSQL e arquivos de ferramentas de BI padrão, como Power BI, Excel, Tableau.
-* Bibliotecas em R e Python para uso no Azure Machine Learning e outros serviços do Azure
+* Bibliotecas em R e Python para uso em Azure Machine Learning e outros serviços do Azure
 * Git, incluindo Git Bash para trabalhar com repositórios de código-fonte, incluindo GitHub e Visual Studio Team Services
 * Portas do Windows de vários utilitários de linha de comando populares do Linux (incluindo awk, sed, perl, grep, find, wget, curl, etc.) acessíveis pelo prompt de comando. 
 
@@ -174,7 +174,7 @@ Para ajudá-lo a compilar ótimos painéis e visualizações, o **Power BI Deskt
 O [**Microsoft Web Platform Installer**](https://www.microsoft.com/web/downloads/platform.aspx) pode ser usado para descobrir e baixar outras ferramentas de desenvolvimento da Microsoft. Também é um atalho para a ferramenta fornecida na área de trabalho de Máquina de Virtual de Ciência de Dados da Microsoft.  
 
 ## <a name="important-directories-on-the-vm"></a>Diretórios importantes na VM
-| Item | Diretório |
+| item | Diretório |
 | --- | --- |
 | Configurações de servidor do bloco de anotações do Jupyter |C:\ProgramData\jupyter |
 | Diretório base de amostras do Bloco de Anotações do Jupyter |c:\dsvm\notebooks |
@@ -200,5 +200,5 @@ Veja algumas das próximas etapas para continuar sua aprendizagem e exploração
 * Navegue até **C:\Arquivos de Programas\Microsoft\ML Server\R_SERVER\library\RevoScaleR\demoScripts** para obter amostras de como usar a biblioteca RevoScaleR no R, que dá suporte à análise de dados em escala empresarial.  
 * Leia o artigo: [Dez coisas que você pode fazer na Máquina Virtual de Ciência de Dados](http://aka.ms/dsvmtenthings)
 * Saiba como criar soluções completas de análise sistematicamente usando o [Processo de Ciência de Dados de Equipe](https://azure.microsoft.com/documentation/learning-paths/data-science-process/).
-* Visite a [Galeria do Azure Machine Learning](http://gallery.cortanaintelligence.com) para obter exemplos de Machine Learning e de análise de dados que usam o Azure Machine Learning e os serviços de dados relacionados no Azure. Também fornecemos um ícone no menu **Iniciar** e na área de trabalho na máquina virtual para essa galeria.
+* Visite a [Galeria de IA do Azure](http://gallery.cortanaintelligence.com) para obter exemplos de Machine Learning e de análise de dados que usam o Azure Machine Learning e os serviços de dados relacionados no Azure. Também fornecemos um ícone no menu **Iniciar** e na área de trabalho na máquina virtual para essa galeria.
 

@@ -54,7 +54,10 @@
 ### [Desenvolver em .NET](search-howto-dotnet-sdk.md)
 ### [Desenvolver em Node.js](search-get-started-nodejs.md)
 ### [Desenvolver em Java](search-get-started-java.md)
-### [Atualizar o SDK](search-dotnet-sdk-migration.md)
+### Atualizar o SDK
+#### [.NET SDK 3.0](search-dotnet-sdk-migration.md)
+#### [.NET SDK 1.1](search-dotnet-sdk-migration-version-1.md)
+#### [SDK do Gerenciamento do .NET](search-dotnet-mgmt-sdk-migration.md)
 ### [Atualizar a API REST](search-api-migration.md)
 ### [Modelar tipos de dados complexos](search-howto-complex-data-types.md)
 ### [Suporte a atualizações simultâneas](search-howto-concurrency.md)

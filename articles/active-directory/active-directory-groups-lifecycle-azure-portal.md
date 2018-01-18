@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2017
+ms.date: 01/05/2018
 ms.author: curtand
 ms.reviewer: kairaz.contractor
 ms.custom: it-pro
-ms.openlocfilehash: d485d2e7d22ea79a87dc52dbc063a811f4a1a2ec
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 6b454ed7257e8d3f91e585cee2b559c54371fb15
+ms.sourcegitcommit: 1d423a8954731b0f318240f2fa0262934ff04bd9
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="configure-expiration-for-office-365-groups-preview"></a>Configurar a expiração dos grupos do Office 365 (visualização)
 
@@ -30,9 +30,7 @@ Agora é possível gerenciar o ciclo de vida de grupos do Office 365 definindo-s
 -   Os proprietários ou os administradores de grupos poderão restaurar, dentro de 30 dias, qualquer grupo do Office 365 excluído
 
 > [!NOTE]
-> A configuração da expiração dos grupos do Office 365 requer uma licença do Azure AD Premium ou uma licença do Azure AD Basic EDU para todos os membros dos grupos aos quais são aplicadas as configurações de expiração.
-> 
-> Para clientes do Azure AD Basic EDU licenciados: para configurar essa política pela primeira vez, use os cmdlets do PowerShell do Azure Active Directory. Depois disso, você poderá atualizar as configurações de expiração usando o PowerShell ou o portal do Azure AD, com uma conta que seja um Administrador de Conta de Usuário ou Administrador Global em seu locatário do Azure AD.
+> A configuração da expiração dos grupos do Office 365 requer uma licença do Azure AD Premium para todos os membros dos grupos aos quais são aplicadas as configurações de expiração.
 
 Para obter informações sobre como baixar e instalar os cmdlets do PowerShell do Azure AD, confira [PowerShell do Azure Active Directory para Graph - Versão de visualização pública 2.0.0.137](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
 

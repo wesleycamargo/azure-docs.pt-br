@@ -1,5 +1,5 @@
 ---
-title: "Notas de versão do Gerenciador de Armazenamento do Microsoft Azure (Visualização) | Microsoft Docs"
+title: "Notas de versão do Gerenciador de Armazenamento do Microsoft Azure (Visualização)"
 description: "Notas de versão do Gerenciador de Armazenamento do Microsoft Azure (Visualização)"
 services: storage
 documentationcenter: na
@@ -14,25 +14,76 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2017
 ms.author: cawa
-ms.openlocfilehash: b5cd022c87a6a7a9e18f33b869db04e72be5cef7
-ms.sourcegitcommit: 7136d06474dd20bb8ef6a821c8d7e31edf3a2820
+ms.openlocfilehash: 6268cff5f6c87d269f431dcdf5e6a1ee2e2bcf1f
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/05/2017
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="microsoft-azure-storage-explorer-preview-release-notes"></a>Notas de versão do Gerenciador de Armazenamento do Microsoft Azure (Visualização)
 
-Este artigo contém as notas de versão para a versão do Gerenciador de Armazenamento do Azure 0.9.2 (Versão Prévia), bem como notas de versão para versões anteriores.
+Este artigo contém as notas de versão para a versão do Gerenciador de Armazenamento do Microsoft Azure 0.9.3 (Versão Prévia), bem como notas de versão para versões anteriores.
 
 O [Gerenciador de Armazenamento do Microsoft Azure (Visualização)](./vs-azure-tools-storage-manage-with-storage-explorer.md) é um aplicativo autônomo que permite que você trabalhe facilmente com dados do Armazenamento do Azure no Windows, no macOS e no Linux.
+
+## <a name="version-093"></a>Versão 0.9.3
+12/08/2017
+
+### <a name="download-azure-storage-explorer-093-preview"></a>Fazer o download do Gerenciador de Armazenamento do Microsoft Azure 0.9.3 (Versão Prévia)
+- [Gerenciador de Armazenamento do Microsoft Azure 0.9.3 (Versão Prévia) para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Gerenciador de Armazenamento do Microsoft Azure 0.9.3 (Versão Prévia) para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Gerenciador de Armazenamento do Microsoft Azure 0.9.3 (Versão Prévia) para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>Novo
+* Sua janela existente do Gerenciador de Armazenamento do Azure será reutilizada quando:
+    * Abrir links diretos gerados no Gerenciador de Armazenamento.
+    * Abrir o Gerenciador de Armazenamento a partir do portal.
+    * Abrir o Gerenciador de Armazenamento do Microsoft Azure VS Armazenamento da extensão de código (em breve).
+* A capacidade adicional de abrir uma nova janela do Gerenciador de Armazenamento de dentro do Gerenciador de armazenamento.
+    * Para o Windows, há uma opção 'Nova janela' sob o Menu Arquivo e no menu de contexto da barra de tarefas.
+    * Para o Mac, há uma opção 'Nova janela' sob o Menu Aplicativo.
+
+### <a name="fixes"></a>Correções
+* Atividades antigas estavam sendo limpas adequadamente. Isso afetou o desempenho dos trabalhos de longa execução. Agora, elas estão sendo limpas corretamente.
+* Ações que envolvem grandes números de arquivos e diretórios podem causar, ocasionalmente, o congelamento do Gerenciador de Armazenamento. As solicitações para o Azure para compartilhamentos de arquivos agora são estranguladas para limitar o uso de recursos do sistema.
+
+### <a name="known-issues"></a>Problemas conhecidos
+* O Gerenciador de Armazenamento não dá suporte a contas do AD FS.
+* As teclas de atalho para a “Exibir Gerenciador” e “Exibir Gerenciamento de Conta” deverão ser Ctrl/Cmd+Shift+E e Ctrl/Cmd+Shift+A, respectivamente.
+* Pode ocorrer uma falha ao carregar certos arquivos como blobs acrescentados durante o direcionamento para o Azure Stack.
+* Depois de clicar em "Cancelar" em uma tarefa, talvez demore algum tempo para a tarefa ser cancelada. Isso ocorre porque estamos usando a solução alternativa de filtro de cancelamento descrita aqui.
+* Se você escolher o PIN/Certificado de cartão inteligente incorreto, será necessário reiniciar para que o Gerenciador de Armazenamento se esqueça dessa decisão.
+* O painel de configurações de conta pode mostrar que você precisa reinserir as credenciais para filtrar as assinaturas.
+* Renomear blobs (individualmente ou dentro de um contêiner de blob renomeado) não preserva os instantâneos. Todas as outras propriedades e metadados de blobs, arquivos e entidades são preservadas durante uma renomeação.
+* Embora o Azure Stack não dê suporte no momento a Compartilhamentos de Arquivos, um nó de Compartilhamentos de Arquivos ainda aparece em uma conta de armazenamento do Azure Stack anexada.
+* O shell Electron usado pelo Gerenciador de Armazenamento tem conflitos com a aceleração de hardware de algumas GPUs (unidade de processamento gráfico). Se o Gerenciador de Armazenamento estiver exibindo uma janela principal em banco (vazia), experimente iniciar o Gerenciador de Armazenamento na linha de comando e desabilitar a aceleração de GPU adicionando a opção `--disable-gpu`:
+```
+./StorageExplorer --disable-gpu
+```
+* Para usuários no Ubuntu 14.04, será necessário verificar se o GCC está atualizado – isso pode ser feito executando os comandos a seguir e, depois, reiniciando seu computador:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Para usuários no Ubuntu 17.04, será necessário instalar o GConf – isso pode ser feito executando os comandos a seguir e, depois, reiniciando seu computador:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
 
 ## <a name="version-092"></a>Versão 0.9.2
 11/01/2017
 
 ### <a name="download-azure-storage-explorer-092-preview"></a>Baixar o Gerenciador de Armazenamento do Azure 0.9.2 (Versão Prévia)
-- [Gerenciador de Armazenamento do Azure 0.9.2 (Versão Prévia) para Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Gerenciador de Armazenamento do Azure 0.9.2 (Versão Prévia) para Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Gerenciador de Armazenamento do Azure 0.9.2 (Versão Prévia) para Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+* [Fazer o download do Gerenciador de Armazenamento do Microsoft Azure 0.9.2 (Versão Prévia) para Windows](https://go.microsoft.com/fwlink/?LinkId=809306)
+* [Fazer o download do Gerenciador de Armazenamento do Azure 0.9.2 (Versão Prévia) para Mac](https://go.microsoft.com/fwlink/?LinkId=809307)
+* [Fazer o download do Gerenciador de Armazenamento do Azure 0.9.2 (Versão Prévia) para Linux](https://go.microsoft.com/fwlink/?LinkId=809308)
+
+
 
 ### <a name="hotfixes"></a>Hotfixes
 * Alterações de dados inesperadas eram possíveis ao editar valores de Edm.DateTime para entidades de tabela, dependendo do fuso horário local. O editor agora usa uma caixa de texto sem formatação, oferecendo controle preciso e consistente sobre valores Edm.DateTime.
@@ -95,13 +146,32 @@ O [Gerenciador de Armazenamento do Microsoft Azure (Visualização)](./vs-azure-
 
 
 
+
+
+
+## <a name="previous-releases"></a>Versões anteriores
+
+* [Versão 0.9.1 / 0.9.0](#version-091)
+* [Versão 0.8.16](#version-0816)
+* [Versão 0.8.14](#version-0814)
+* [Versão 0.8.13](#version-0813)
+* [Versão 0.8.12 / 0.8.11 / 0.8.10](#version-0812--0811--0810)
+* [Versão 0.8.9 / 0.8.8](#version-089--088)
+* [Versão 0.8.7](#version-087)
+* [Versão 0.8.6](#version-086)
+* [Versão 0.8.5](#version-085)
+* [Versão 0.8.4](#version-084)
+* [Versão 0.8.3](#version-083)
+* [Versão 0.8.2](#version-082)
+* [Versão 0.8.0](#version-080)
+* [Versão 0.7.20160509.0](#version-07201605090)
+* [Versão 0.7.20160325.0](#version-07201603250)
+* [Versão 0.7.20160129.1](#version-07201601291)
+* [Versão 0.7.20160105.0](#version-07201601050)
+* [Versão 0.7.20151116.0](#version-07201511160)
+
 ## <a name="version-091--090-preview"></a>Versão 0.9.1 / 0.9.0 (Versão Prévia)
 10/20/2017
-### <a name="download-azure-storage-explorer-091-preview"></a>Baixar o Gerenciador de Armazenamento do Azure 0.9.1 (Versão Prévia)
-* [Fazer o download do Gerenciador de Armazenamento do Azure 0.9.1 (Versão Prévia) para Windows](https://go.microsoft.com/fwlink/?LinkId=809306)
-* [Fazer o download do Gerenciador de Armazenamento do Azure 0.9.1 (Versão Prévia) para Mac](https://go.microsoft.com/fwlink/?LinkId=809307)
-* [Fazer o download do Gerenciador de Armazenamento do Azure 0.9.1 (Versão Prévia) para Linux](https://go.microsoft.com/fwlink/?LinkId=809308)
-
 ### <a name="new"></a>Novo
 * Suporte da versão prévia para Azure Cosmos DB:
     * [Documentação online](./cosmos-db/tutorial-documentdb-and-mongodb-in-storage-explorer.md)
@@ -153,28 +223,6 @@ O [Gerenciador de Armazenamento do Microsoft Azure (Visualização)](./vs-azure-
     ```
     sudo apt-get install libgconf-2-4
     ```
-
-
-
-## <a name="previous-releases"></a>Versões anteriores
-
-* [Versão 0.8.16](#version-0816)
-* [Versão 0.8.14](#version-0814)
-* [Versão 0.8.13](#version-0813)
-* [Versão 0.8.12 / 0.8.11 / 0.8.10](#version-0812--0811--0810)
-* [Versão 0.8.9 / 0.8.8](#version-089--088)
-* [Versão 0.8.7](#version-087)
-* [Versão 0.8.6](#version-086)
-* [Versão 0.8.5](#version-085)
-* [Versão 0.8.4](#version-084)
-* [Versão 0.8.3](#version-083)
-* [Versão 0.8.2](#version-082)
-* [Versão 0.8.0](#version-080)
-* [Versão 0.7.20160509.0](#version-07201605090)
-* [Versão 0.7.20160325.0](#version-07201603250)
-* [Versão 0.7.20160129.1](#version-07201601291)
-* [Versão 0.7.20160105.0](#version-07201601050)
-* [Versão 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-0816"></a>Versão 0.8.16
 8/21/2017
@@ -324,9 +372,9 @@ O [Gerenciador de Armazenamento do Microsoft Azure (Visualização)](./vs-azure-
 ### <a name="version-089--088"></a>Versão 0.8.9 / 0.8.8
 02/23/2017
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/R6gonK3cYAc?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/R6gonK3cYAc?ecver=1]
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/SrRPCm94mfE?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/SrRPCm94mfE?ecver=1]
 
 
 #### <a name="new"></a>Novo
@@ -357,7 +405,7 @@ O [Gerenciador de Armazenamento do Microsoft Azure (Visualização)](./vs-azure-
 12/16/2016
 ### <a name="version-087"></a>Versão 0.8.7
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Me4Y4jxoer8?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/Me4Y4jxoer8?ecver=1]
 
 #### <a name="new"></a>Novo
 
@@ -445,7 +493,7 @@ O [Gerenciador de Armazenamento do Microsoft Azure (Visualização)](./vs-azure-
 09/12/2016
 ### <a name="version-084"></a>Versão 0.8.4
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/cr5tOGyGrIQ?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/cr5tOGyGrIQ?ecver=1]
 
 #### <a name="new"></a>Novo
 
@@ -466,7 +514,7 @@ O [Gerenciador de Armazenamento do Microsoft Azure (Visualização)](./vs-azure-
 08/03/2016
 ### <a name="version-083"></a>Versão 0.8.3
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/HeGW-jkSd9Y?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/HeGW-jkSd9Y?ecver=1]
 
 #### <a name="new"></a>Novo
 
@@ -492,7 +540,7 @@ O [Gerenciador de Armazenamento do Microsoft Azure (Visualização)](./vs-azure-
 07/07/2016
 ### <a name="version-082"></a>Versão 0.8.2
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/nYgKbRUNYZA?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/nYgKbRUNYZA?ecver=1]
 
 #### <a name="new"></a>Novo
 
@@ -515,11 +563,11 @@ O [Gerenciador de Armazenamento do Microsoft Azure (Visualização)](./vs-azure-
 06/15/2016
 ### <a name="version-080"></a>Versão 0.8.0
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ycfQhKztSIY?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/ycfQhKztSIY?ecver=1]
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/k4_kOUCZ0WA?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/k4_kOUCZ0WA?ecver=1]
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/3zEXJcGdl_k?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/3zEXJcGdl_k?ecver=1]
 
 #### <a name="new"></a>Novo
 
@@ -560,10 +608,9 @@ O [Gerenciador de Armazenamento do Microsoft Azure (Visualização)](./vs-azure-
 
 ### <a name="version-07201603250"></a>Versão 0.7.20160325.0
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/imbgBRHX65A?ecver=1" frameborder="0" allowfullscreen></iframe>
+>[!VIDEO https://www.youtube.com/embed/imbgBRHX65A?ecver=1]
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/ceX-P8XZ-s8?ecver=1" frameborder="0" allowfullscreen></iframe>
-
+>[!VIDEO https://www.youtube.com/embed/ceX-P8XZ-s8?ecver=1]
 
 #### <a name="new"></a>Novo
 

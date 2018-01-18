@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: dobett
-ms.openlocfilehash: f3fbccdbd00fb64348e2132ca6adc3a06ad18535
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: d2a6660b93fee1e1fc24269eb7075e5243ce88ed
+ms.sourcegitcommit: c4cc4d76932b059f8c2657081577412e8f405478
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="manage-your-iot-hub-device-identities-in-bulk"></a>Gerenciar identidades de dispositivo do Hub IoT em massa
 
@@ -27,6 +27,8 @@ Cada hub IoT tem um registro de identidade que você pode usar para criar recurs
 As operações de importação e exportação ocorrem no contexto de *Trabalhos* , que permitem aos usuários executar operações de serviço em massa em um Hub IoT.
 
 A classe **RegistryManager** inclui os métodos **ExportDevicesAsync** e **ImportDevicesAsync** que usam a estrutura **Job**. Esses métodos permitem exportar, importar e sincronizar todo o registro de identidade de um Hub IoT.
+
+Este tópico discute o uso da classe **RegistryManager** e do sistema de **trabalho** para executar importações e exportações em massa de dispositivos para e do registro de identidade de um hub IoT. Você também pode usar o Serviço de Provisionamento de Dispositivos no Hub IoT do Azure para habilitar o provisionamento sem toque e Just-In-Time para um ou mais hubs IoT sem a necessidade de intervenção humana. Para obter mais informações, consulte a [documentação do serviço de provisionamento][lnk-dps].
 
 ## <a name="what-are-jobs"></a>O que são trabalhos?
 
@@ -234,7 +236,7 @@ Se o arquivo de importação incluir metadados gêmeos, esses metadados substitu
 
 Use a propriedade opcional **importMode** nos dados de serialização de importação para cada dispositivo para controlar o processo de importação por dispositivo. A propriedade **importMode** tem as seguintes opções:
 
-| importMode | Descrição |
+| importMode | DESCRIÇÃO |
 | --- | --- |
 | **createOrUpdate** |Se não houver um dispositivo com a **id**especificada, isso significará que ele foi registrado recentemente. <br/>Se o dispositivo já existir, as informações existentes serão substituídas pelos dados de entrada fornecidos sem considerar o valor de **ETag** . <br> Opcionalmente, o usuário pode especificar dados gêmeos junto com os dados do dispositivo. A etag do gêmeo, se especificada, será processada independentemente da etag do dispositivo. Se houver uma incompatibilidade com a etag do gêmeo existente, um erro será registrado no arquivo de log. |
 | **create** |Se não houver um dispositivo com a **id**especificada, isso significará que ele foi registrado recentemente. <br/>Se o dispositivo já existir, um erro será gravado no arquivo de log. <br> Opcionalmente, o usuário pode especificar dados gêmeos junto com os dados do dispositivo. A etag do gêmeo, se especificada, será processada independentemente da etag do dispositivo. Se houver uma incompatibilidade com a etag do gêmeo existente, um erro será registrado no arquivo de log. |
@@ -407,8 +409,14 @@ Para explorar melhor as funcionalidades do Hub IoT, consulte:
 * [Guia do desenvolvedor do Hub IoT][lnk-devguide]
 * [Implantação do IA em dispositivos de borda com o Azure IoT Edge][lnk-iotedge]
 
+Para explorar usando o Serviço de Provisionamento de Dispositivos do Hub IoT para habilitar o provisionamento sem toque e Just-In-Time, consulte: 
+
+* [Serviço de Provisionamento de Dispositivos no Hub IoT do Azure][lnk-dps]
+
+
 [lnk-metrics]: iot-hub-metrics.md
 [lnk-monitor]: iot-hub-operations-monitoring.md
 
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
+[lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps

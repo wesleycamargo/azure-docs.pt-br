@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2017
 ms.author: juliako
-ms.openlocfilehash: c175d359f93e7cd8cd73aa498ad8b71c4ec497f2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c8792535eeeb71e7233c42bd9ea2a446a1c4d43c
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="output-metadata"></a>Metadados de saída
 ## <a name="overview"></a>Visão geral
@@ -26,10 +26,10 @@ Um trabalho de codificação é associado um ativo (ou ativos) de entrada no qua
 
 Se desejar examinar o arquivo de metadados, você poderá criar um localizador **SAS** e baixar o arquivo em seu computador local.  
 
-Este tópico discute os elementos e tipos do esquema XML no qual os metadados de saída (&lt;nome_do_arquivo_de_origem&gt;_manifest. xml) é baseado. Para obter informações sobre o arquivo que contém metadados sobre o ativo de entrada, veja [Metadados de Entrada](media-services-input-metadata-schema.md).  
+Este artigo discute os elementos e tipos do esquema XML no qual os metadados de saída (&lt;nome_do_arquivo_de_origem&gt;_manifest. xml) é baseado. Para obter informações sobre o arquivo que contém metadados sobre o ativo de entrada, veja [Metadados de Entrada](media-services-input-metadata-schema.md).  
 
 > [!NOTE]
-> Você pode encontrar o código de esquema completo e o exemplo XML no final deste tópico.  
+> Você pode encontrar o código de esquema completo e o exemplo XML no final deste artigo.  
 >
 >
 
@@ -37,7 +37,7 @@ Este tópico discute os elementos e tipos do esquema XML no qual os metadados de
 Coleção de entradas AssetFile do trabalho de codificação.  
 
 ### <a name="child-elements"></a>Elementos filho
-| Nome | Descrição |
+| NOME | DESCRIÇÃO |
 | --- | --- |
 | **AssetFile**<br/><br/> minOccurs="0" maxOccurs="1" |Um [elemento AssetFile](media-services-output-metadata-schema.md) que faz parte da coleção de AssetFiles. |
 
@@ -45,17 +45,17 @@ Coleção de entradas AssetFile do trabalho de codificação.
 Você pode encontrar um exemplo XML [exemplo XML](media-services-output-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Atributos
-| Nome | Tipo | Descrição |
+| NOME | type | DESCRIÇÃO |
 | --- | --- | --- |
 | **Nome**<br/><br/> Obrigatório |**xs:string** |O nome de arquivo de ativo de mídia. |
 | **Tamanho**<br/><br/> minInclusive ="0"<br/><br/> Obrigatório |**xs:long** |Tamanho do arquivo de ativo em bytes. |
 | **Duração**<br/><br/> Obrigatório |**xs:duration** |Duração de reprodução de conteúdo. |
 
 ### <a name="child-elements"></a>Elementos filho
-| Nome | Descrição |
+| NOME | DESCRIÇÃO |
 | --- | --- |
 | **Fontes** |Coleção de arquivos de mídia de entrada/origem, que foi processada para produzir esse AssetFile. Para obter mais informações, veja [Elemento Origem](media-services-output-metadata-schema.md). |
-| **VideoTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Cada AssetFile físico pode conter zero ou mais faixas de vídeo intercaladas em um formato de contêiner apropriado. Esta é a coleção de todas essas faixas de vídeo. Para obter mais informações, veja [Elemento VideoTracks](media-services-output-metadata-schema.md). |
+| **VideoTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Cada AssetFile físico pode conter zero ou mais faixas de vídeos intercaladas em um formato de contêiner apropriado. Para obter mais informações, veja [Elemento VideoTracks](media-services-output-metadata-schema.md). |
 | **AudioTracks**<br/><br/> minOccurs="0" maxOccurs="1" |Cada AssetFile físico pode conter zero ou mais faixas de áudio intercaladas em um formato de contêiner apropriado. Esta é a coleção de todas essas faixas de áudio. Para obter mais informações, veja [Elemento AudioTracks](media-services-output-metadata-schema.md). |
 
 ## <a name="Sources "></a> Elemento Origens
@@ -64,7 +64,7 @@ Coleção de arquivos de mídia de entrada/origem, que foi processada para produ
 Você pode encontrar um exemplo XML [exemplo XML](media-services-output-metadata-schema.md#xml).  
 
 ### <a name="child-elements"></a>Elementos filho
-| Nome | Descrição |
+| NOME | DESCRIÇÃO |
 | --- | --- |
 | **Fonte**<br/><br/> minOccurs="1" maxOccurs="unbounded" |Um arquivo de entrada/origem usado ao gerar esse ativo. Para obter mais informações, veja [Elemento Origem](media-services-output-metadata-schema.md). |
 
@@ -74,17 +74,17 @@ Um arquivo de entrada/origem usado ao gerar esse ativo.
 Você pode encontrar um exemplo XML [exemplo XML](media-services-output-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Atributos
-| Nome | Tipo | Descrição |
+| NOME | type | DESCRIÇÃO |
 | --- | --- | --- |
 | **Nome**<br/><br/> Obrigatório |**xs:string** |Nome do arquivo de fonte de entrada. |
 
 ## <a name="VideoTracks "></a> Elemento VideoTracks
-Cada AssetFile físico pode conter zero ou mais faixas de vídeo intercaladas em um formato de contêiner apropriado. Esta é a coleção de todas essas faixas de vídeo.  
+Cada AssetFile físico pode conter zero ou mais faixas de vídeos intercaladas em um formato de contêiner apropriado. O elemento **VideoTracks** representa uma coleção de todas as faixas de vídeos.  
 
 Você pode encontrar um exemplo XML [exemplo XML](media-services-output-metadata-schema.md#xml).  
 
 ### <a name="child-elements"></a>Elementos filho
-| Nome | Descrição |
+| NOME | DESCRIÇÃO |
 | --- | --- |
 | **VideoTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |Uma faixa de vídeo específica no AssetFile pai. Para obter mais informações, veja [Elemento VideoTrack](media-services-output-metadata-schema.md#VideoTrack). |
 
@@ -94,9 +94,9 @@ Uma faixa de vídeo específica no AssetFile pai.
 Você pode encontrar um exemplo XML [exemplo XML](media-services-output-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Atributos
-| Nome | Tipo | Descrição |
+| NOME | type | DESCRIÇÃO |
 | --- | --- | --- |
-| **Id**<br/><br/> minInclusive ="0"<br/><br/> Obrigatório |**xs:int** |Índice baseado em zero dessa faixa de vídeo. **Observação:** isso não é necessariamente o TrackID assim como utilizado em um arquivo MP4. |
+| **Id**<br/><br/> minInclusive ="0"<br/><br/> Obrigatório |**xs:int** |Índice baseado em zero dessa faixa de vídeo. **Observação:** essa **ID** não é necessariamente o TrackID assim como utilizado em um arquivo MP4. |
 | **FourCC**<br/><br/> Obrigatório |**xs:string** |Código FourCC de codec de vídeo. |
 | **Perfil** |**xs:string** |Perfil H264 (aplicável somente ao codec H264). |
 | **Level** |**xs:string** |Nível H264 (aplicável somente ao codec H264). |
@@ -111,12 +111,12 @@ Você pode encontrar um exemplo XML [exemplo XML](media-services-output-metadata
 | **MaxGOPBitrate**<br/><br/> minInclusive ="0" |**xs:int** |Taxa de bits média do GOP máximo para esta faixa de vídeo em quilobits por segundo. |
 
 ## <a name="AudioTracks "></a> Elemento AudioTracks
-Cada AssetFile físico pode conter zero ou mais faixas de áudio intercaladas em um formato de contêiner apropriado. Esta é a coleção de todas essas faixas de áudio.  
+Cada AssetFile físico pode conter zero ou mais faixas de áudio intercaladas em um formato de contêiner apropriado. O elemento **AudioTracks** representa uma coleção de todas essas faixas de áudio.  
 
 Você pode encontrar um exemplo XML [exemplo XML](media-services-output-metadata-schema.md#xml).  
 
 ### <a name="child-elements"></a>Elementos filho
-| Nome | Descrição |
+| NOME | DESCRIÇÃO |
 | --- | --- |
 | **AudioTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |Uma faixa de áudio específica no AssetFile pai. Para obter mais informações, veja [Elemento AudioTrack](media-services-output-metadata-schema.md). |
 
@@ -126,7 +126,7 @@ Uma faixa de áudio específica no AssetFile pai.
 Você pode encontrar um exemplo XML [exemplo XML](media-services-output-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Atributos
-| Nome | Tipo | Descrição |
+| NOME | type | DESCRIÇÃO |
 | --- | --- | --- |
 | **Id**<br/><br/> minInclusive ="0"<br/><br/> Obrigatório |**xs:int** |Índice baseado em zero dessa faixa de áudio. **Observação:** isso não é necessariamente o TrackID assim como utilizado em um arquivo MP4. |
 | **Codec** |**xs:string** |Cadeia de caracteres de codec de faixa de áudio. |
@@ -137,7 +137,7 @@ Você pode encontrar um exemplo XML [exemplo XML](media-services-output-metadata
 | **BitsPerSample**<br/><br/> minInclusive ="0"<br/><br/> Obrigatório |**xs:int** |Vits por amostra para o tipo de formato wFormatTag. |
 
 ### <a name="child-elements"></a>Elementos filho
-| Nome | Descrição |
+| NOME | DESCRIÇÃO |
 | --- | --- |
 | **LoudnessMeteringResultParameters**<br/><br/> minOccurs="0" maxOccurs="1" |Parâmetros de resultado de medição de intensidade. Para obter mais informações, veja [Elemento LoudnessMeteringResultParameters](media-services-output-metadata-schema.md). |
 
@@ -147,7 +147,7 @@ Parâmetros de resultado de medição de intensidade.
 Você pode encontrar um exemplo XML [exemplo XML](media-services-output-metadata-schema.md#xml).  
 
 ### <a name="attributes"></a>Atributos
-| Nome | Tipo | Descrição |
+| NOME | type | DESCRIÇÃO |
 | --- | --- | --- |
 | **DPLMVersionInformation** |**xs:string** |Versão do kit de desenvolvimento de medição de intensidade profissional **Dolby**. |
 | **DialogNormalization**<br/><br/> minInclusive="-31" maxInclusive="-1"<br/><br/> Obrigatório |**xs:int** |DialogNormalization gerado através de DPLM, necessário quando LoudnessMetering é definido |
@@ -509,8 +509,9 @@ Você pode encontrar um exemplo XML [exemplo XML](media-services-output-metadata
 
 
 
-## <a name="xml"></a> Exemplo XML
- A seguir, um exemplo do arquivo de metadados de saída.  
+## <a name="xml"></a> Exemplo de XML
+
+O XML a seguir é um exemplo do arquivo de metadados de saída.  
 
     <AssetFiles xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"   
                 xmlns="http://schemas.microsoft.com/windowsazure/mediaservices/2013/05/mediaencoder/metadata">  

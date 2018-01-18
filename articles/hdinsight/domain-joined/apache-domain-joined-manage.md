@@ -14,21 +14,73 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/25/2016
+ms.date: 01/11/2018
 ms.author: saurinsh
-ms.openlocfilehash: 0fc32960fc2f1ae69315dbfd6bfb8c34c4adc0fa
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 6a43ea602052b9b3338567571075742adc5a3ca0
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/01/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="manage-domain-joined-hdinsight-clusters"></a>Gerenciar clusters HDInsight ingressados no domínio
 Conheça os usuários e as funções do HDInsight Ingressado no Domínio e como gerenciar seus clusters.
 
+## <a name="access-the-clusters-with-enterprise-security-package"></a>Acesse os clusters com o Pacote de Segurança Enterprise.
+
+O Pacote de Segurança Enterprise (anteriormente conhecido como HDInsight Premium) fornece acesso de vários usuário ao cluster, onde a autenticação é feita pelo Active Directory e a autorização pelo Apache Ranger e ACLs de armazenamento (ACLs do ADLS). A autorização fornece limites de segurança entre vários usuários e permite que somente usuários privilegiados tenham acesso aos dados com base nas políticas de autorização.
+
+Segurança e isolamento de usuários são importantes para um cluster de HDInsight com o Pacote de Segurança Enterprise. Para atender a esses requisitos, o acesso do SSH ao cluster com o Pacote de Segurança Enterprise é bloqueado. A tabela a seguir mostra os métodos de acesso recomendados para cada tipo de cluster:
+
+|Carga de trabalho|Cenário|Método de Acesso|
+|--------|--------|-------------|
+|O Hadoop|Hive – trabalhos/consultas interativas |<ul><li>[Beeline](#beeline)</li><li>[Exibição de Hive](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Ferramentas do Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Spark|Trabalhos/consultas interativas, PySpark interativo|<ul><li>[Beeline](#beeline)</li><li>[Zeppelin com Livy](../spark/apache-spark-zeppelin-notebook.md)</li><li>[Exibição de Hive](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Ferramentas do Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Spark|Cenários em lote – envio de Spark, PySpark|<ul><li>[Livy](../spark/apache-spark-livy-rest-interface.md)</li></ul>|
+|Consulta Interativa (LLAP)|Interativo|<ul><li>[Beeline](#beeline)</li><li>[Exibição de Hive](../hadoop/apache-hadoop-use-hive-ambari-view.md)</li><li>[ODBC/JDBC – Power BI](../hadoop/apache-hadoop-connect-hive-power-bi.md)</li><li>[Ferramentas do Visual Studio](../hadoop/apache-hadoop-visual-studio-tools-get-started.md)</li></ul>|
+|Qualquer|Instalar Aplicativo Personalizado|<ul><li>[Ações de Script](../hdinsight-hadoop-customize-cluster-linux.md)</li></ul>|
+
+
+Usar as APIs padrão ajuda da perspectiva de segurança. Além disso, você obtém os benefícios a seguir:
+
+1.  **Gerenciamento** – você pode gerenciar seu código e automatizar trabalhos usando APIs padrão – Livy, HS2 etc.
+2.  **Auditoria** – com SSH, não é possível auditar quais usuários o SSH tinha para o cluster. Esse seria o caso em que os trabalhos seriam criados por meio de pontos de extremidade padrão conforme eles fossem executados no contexto do usuário. 
+
+
+
+### <a name="beeline"></a>Usar o Beeline 
+Instale o Beeline no seu computador e conecte-se pela internet pública, use os seguintes parâmetros: 
+
+```
+- Connection string: -u 'jdbc:hive2://&lt;clustername&gt;.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2'
+- Cluster login name: -n admin
+- Cluster login password -p 'password'
+```
+
+Se você tiver Beeline instalado localmente e conectar-se pela Rede Virtual do Azure, use os seguintes parâmetros: 
+
+```
+- Connection string: -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
+```
+
+Para localizar o nome de domínio totalmente qualificado de um nó principal, use as informações do documento Gerenciar HDInsight usando a API de REST do Ambari.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## <a name="users-of-domain-joined-hdinsight-clusters"></a>Usuários dos clusters do HDInsight Ingressado no Domínio
 Um cluster do HDInsight que não for ingressado no domínio terá duas contas de usuário que serão criadas durante a elaboração do cluster:
 
-* **Administração do Ambari**: essa conta também é conhecida como *usuário do Hadoop* ou *usuário HTTP*. Essa conta pode ser usada para fazer logon no Ambari em https://&lt;clustername>.azurehdinsight.net. Ela também pode ser usada para executar consultas nas exibições do Ambari, para executar trabalhos por meio de ferramentas externas (ou seja, PowerShell, Templeton, Visual Studio) e para autenticar com o driver ODBC do Hive e com ferramentas de BI (por exemplo, Excel, PowerBI ou Tableau).
+* **Administração do Ambari**: essa conta também é conhecida como *usuário do Hadoop* ou *usuário HTTP*. Essa conta pode ser usada para fazer logon no Ambari em https://&lt;clustername>.azurehdinsight.net. Ela também pode ser usada para executar consultas nas exibições do Ambari, para executar trabalhos por meio de ferramentas externas (por exemplo, PowerShell, Templeton, Visual Studio) e para autenticar com o driver ODBC do Hive e com ferramentas de BI (por exemplo, Excel, PowerBI ou Tableau).
 * **Usuário do SSH**: essa conta pode ser usada com o SSH e executar comandos sudo. Ela tem privilégios raiz sobre as VMs do Linux.
 
 Um cluster do HDInsight ingressado no domínio tem três novos usuários, além da Administração do Ambari e do Usuário do SSH.
@@ -43,7 +95,7 @@ Um cluster do HDInsight ingressado no domínio tem três novos usuários, além 
     Observe que os usuários do AD também têm esses privilégios.
 
     Há alguns pontos de extremidade do cluster (por exemplo, Templeton) que não são gerenciados pelo Ranger e, portanto, não são seguros. Esses pontos de extremidade estão bloqueados para todos os usuários, exceto para o usuário de domínio do administrador do cluster.
-* **Regular**: durante a criação do cluster, você poderá fornecer vários grupos do Active Directory. Os usuários nesses grupos serão sincronizados ao Ranger e ao Ambari. Esses usuários são usuários de domínio e eles terão acesso apenas aos pontos de extremidade gerenciados pelo Ranger (por exemplo, Hiveserver2). Todas as políticas de RBAC e a auditoria serão aplicáveis a esses usuários.
+* **Regular**: durante a criação do cluster, você poderá fornecer vários grupos do Active Directory. Os usuários nesses grupos são sincronizados ao Ranger e ao Ambari. Esses usuários são usuários de domínio e têm acesso apenas aos pontos de extremidade gerenciados pelo Ranger (por exemplo, Hiveserver2). Todas as políticas de RBAC e a auditoria serão aplicáveis a esses usuários.
 
 ## <a name="roles-of-domain-joined-hdinsight-clusters"></a>Funções dos clusters do HDInsight Ingressado no Domínio
 O HDInsight Ingressado no Domínio tem as seguintes funções:
@@ -63,8 +115,9 @@ O HDInsight Ingressado no Domínio tem as seguintes funções:
     ![Permissões das funções do HDInsight Ingressado no Domínio](./media/apache-domain-joined-manage/hdinsight-domain-joined-roles-permissions.png)
 
 ## <a name="open-the-ambari-management-ui"></a>Abra a interface do usuário do Ambari Management
-1. Entre no [portal do Azure](https://portal.azure.com).
-2. Abra seu cluster do HDInsight em uma folha. Confira [Listar e mostrar clusters](../hdinsight-administer-use-management-portal.md#list-and-show-clusters).
+
+1. Entre no [Portal do Azure](https://portal.azure.com).
+2. Apra seu cluster HDInsight. Confira [Listar e mostrar clusters](../hdinsight-administer-use-management-portal.md#list-and-show-clusters).
 3. Clique em **Painel** no menu superior para abrir o Ambari.
 4. Faça logon no Ambari usando o nome de usuário e a senha de domínio de administrador do cluster.
 5. Clique no menu suspenso **Administrador** no canto superior direito e, em seguida, clique em **Gerenciar o Ambari**.

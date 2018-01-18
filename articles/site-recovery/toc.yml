@@ -69,10 +69,12 @@
       href: concepts-hyper-v-to-secondary-architecture.md
     - name: Matriz de suporte do Azure para o Azure
       href: site-recovery-support-matrix-azure-to-azure.md
-    - name: Matriz de suporte local para o Azure
-      href: site-recovery-support-matrix-to-azure.md
+    - name: Matriz de suporte do Azure para o VMware
+      href: support-matrix-vmware-to-azure.md
     - name: Matriz de suporte do Hyper-V para o Azure
       href: support-matrix-hyper-v-to-azure.md
+    - name: Matriz de suporte local para o Azure
+      href: site-recovery-support-matrix-to-azure.md
     - name: Matriz de suporte de site local para secundário
       href: site-recovery-support-matrix-to-sec-site.md
     - name: Recuperação de desastre para cargas de trabalho
@@ -181,6 +183,8 @@
           items:
             - name: Ambiente de origem do VMware para Azure
               href: site-recovery-set-up-vmware-to-azure.md
+            - name: Implantar o servidor de configuração para VMware e servidores físicos
+              href: how-to-deploy-configuration-server.md
             - name: Ambiente de origem físico para Azure
               href: site-recovery-set-up-physical-to-azure.md
         - name: Configurar o ambiente de origem
