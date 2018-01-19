@@ -12,7 +12,7 @@
 
 # Como
 ## Carregar e mover dados
-### [Usar o Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)
+### [Usar o Azure Data Factory](../data-factory/load-azure-data-lake-store.md)
 ### [Como usar AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)
 ### [Como usar DistCp](data-lake-store-copy-data-wasb-distcp.md)
 ### [Como usar o Sqoop](data-lake-store-data-transfer-sql-sqoop.md)
@@ -66,7 +66,7 @@
 ### [Acesso de VMs na VNET do Azure](data-lake-store-connectivity-from-vnets.md)
 ### [Usar com Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 ### [Usar com os Hubs de Eventos do Azure](data-lake-store-archive-eventhub-capture.md)
-### [Usar com Data Factory](../data-factory/connector-azure-data-lake-store.md)
+### [Usar com Data Factory](../data-factory/load-azure-data-lake-store.md)
 ### [Usar com Stream Analytics](data-lake-store-stream-analytics.md)
 ### [Usar com Power BI](data-lake-store-power-bi.md)
 ### [Usar com Catálogo de Dados](data-lake-store-with-data-catalog.md)

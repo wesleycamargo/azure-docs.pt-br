@@ -21,7 +21,6 @@
 ### [PHP](service-bus-php-how-to-use-topics-subscriptions.md)
 ### [Python](service-bus-python-how-to-use-topics-subscriptions.md)
 ### [Ruby](service-bus-ruby-how-to-use-topics-subscriptions.md)
-## [Criar um aplicativo de barramento de serviço de várias camadas](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 
 # Como
 ## Planejar e projetar
@@ -29,6 +28,7 @@
 ### [Controle de Acesso Baseado em Função (versão prévia)](service-bus-role-based-access-control.md)
 ### [Mensagens premium](service-bus-premium-messaging.md)
 ### [Comparar filas do Azure e filas do Barramento de Serviço](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+### [Criar um aplicativo de barramento de serviço de várias camadas](service-bus-dotnet-multi-tier-app-using-service-bus-queues.md)
 ### [Otimizar desempenho](service-bus-performance-improvements.md)
 ### [Recuperação de desastres geográficos e replicação geográfica](service-bus-geo-dr.md)
 ### [Mensagens assíncronas e de alta disponibilidade](service-bus-async-messaging.md)
