@@ -17,15 +17,15 @@ ms.workload: big-data
 ms.date: 10/25/2016
 ms.author: saurinsh
 ms.openlocfilehash: 35a74ffb6a30fe2ae7db686be5b6774800ce37b1
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/13/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="configure-hive-policies-in-domain-joined-hdinsight"></a>Configurar políticas do Hive no HDInsight ingressado no domínio
 Saiba como configurar políticas do Ranger Apache para o Hive. Neste artigo, você criará duas políticas do Ranger para restringir o acesso a hivesampletable. O hivesampletable fornecido com clusters HDInsight. Depois de configurar as políticas, você usa o Excel e o driver ODBC para conectar-se a tabelas do Hive no HDInsight.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 * Um cluster HDInsight associado a um domínio. Confira [Configurar clusters HDInsight associados ao domínio](apache-domain-joined-configure.md).
 * Uma estação de trabalho com Office 2016, Office 2013 Professional Plus, Office 365 Pro Plus, Excel 2013 Standalone ou Office 2010 Professional Plus.
 
@@ -82,7 +82,7 @@ Nesta seção, você criará duas políticas do Ranger para acessar hivesampleta
 ## <a name="create-hive-odbc-data-source"></a>Criar uma fonte de dados ODBC do Hive
 As instruções podem ser encontradas em [Criar fonte de dados ODBC do Hive](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md).  
 
- | Propriedade  |Descrição |
+ | Propriedade  |DESCRIÇÃO |
  | --- | --- |
  | Nome da fonte de dados | Forneça um nome para a sua fonte de dados |
  | Host | Digite &lt;HDInsightClusterName>.azurehdinsight.net. Por exemplo, meu_Cluster_HDI.azurehdinsight.net |
@@ -91,7 +91,7 @@ As instruções podem ser encontradas em [Criar fonte de dados ODBC do Hive](../
  | Tipo de servidor Hive | Selecione **Servidor Hive 2** |
  | Mecanismo | Selecione **Serviço do Azure HDInsight** |
  | Caminho HTTP | Deixe em branco. |
- | Nome de usuário | Digite hiveuser1@contoso158.onmicrosoft.com. Atualize o nome de domínio se ele for diferente. |
+ | Nome do Usuário | Digite hiveuser1@contoso158.onmicrosoft.com. Atualize o nome de domínio se ele for diferente. |
  | Senha | Digite a senha para hiveuser1. |
 
 Clique em **Testar** antes de salvar a fonte de dados.

@@ -12,13 +12,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2017
+ms.date: 12/15/2017
 ms.author: maheshu
-ms.openlocfilehash: e070dfad6ca51b941f1af60f85463f4534493dff
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d55abe651f69e3539e7584b40a7aedf419bccda1
+ms.sourcegitcommit: 821b6306aab244d2feacbd722f60d99881e9d2a4
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/16/2017
 ---
 # <a name="configure-secure-ldap-ldaps-for-an-azure-ad-domain-services-managed-domain"></a>Configurar o LDAPS (LDAP Seguro) para um domínio gerenciado do Azure AD Domain Services
 
@@ -110,13 +110,14 @@ A tabela a seguir ilustra um exemplo de NSG que você pode configurar para bloqu
 <br>
 
 
-## <a name="troubleshooting"></a>Solucionar problemas
+## <a name="troubleshooting"></a>solução de problemas
 Se você tiver problemas para se conectar ao domínio gerenciado usando o LDAP seguro, siga as etapas de solução de problemas a seguir:
 * Certifique-se de que a cadeia de emissor do certificado LDAP seguro é confiável no cliente. Você pode optar por adicionar a autoridade de certificação raiz ao repositório de certificados raiz confiável no cliente para estabelecer a confiança.
 * Verifique se o certificado LDAP seguro não é emitido por uma autoridade de certificado intermediária que não é confiável por padrão em um computador do Windows atualizado.
 * Verifique se o cliente LDAP (por exemplo, ldp.exe) se conecta ao ponto de extremidade LDAP seguro usando um nome DNS, não o endereço IP.
 * Verifique se o nome DNS do cliente LDAP conecta-se para resolver o endereço IP público para o LDAP seguro no domínio gerenciado.
 * Verifique se o certificado LDAP seguro para seu domínio gerenciado tem o nome DNS no atributo Entidade ou Nome Alternativo da Entidade.
+* Se você estiver se conectando pelo LDAP seguro através da internet, certifique-se de que as configurações do NSG para a rede virtual permitem o tráfego para a porta 636 da internet.
 
 Se você ainda tiver problemas para se conectar com o domínio gerenciado usando o LDAP seguro, [contate a equipe do produto](active-directory-ds-contact-us.md) para obter ajuda. Inclua as seguintes informações para ajudar a diagnosticar melhor o problema:
 * Uma captura de tela de ldp.exe fazendo a conexão e falhando.

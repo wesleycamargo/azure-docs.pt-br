@@ -15,11 +15,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 286f4df74bcacfa2e7d559f1135b9fba2a915bd1
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: ab55281b6adcc8867f207e6887c88a26c1a8616b
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/11/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions"></a>Associações do Azure Cosmos DB para Azure Functions
 
@@ -186,7 +186,7 @@ A associação de dados de entrada do Azure Cosmos DB recupera um ou mais docume
 Consulte o exemplo de linguagem específica que lê um único documento:
 
 * [C#](#input---c-example)
-* [Script do C# (. CSx)](#input---c-script-example)
+* [Script do C# (.csx)](#input---c-script-example)
 * [F#](#input---f-example)
 * [JavaScript](#input---javascript-example)
 
@@ -384,7 +384,7 @@ Aqui estão os dados de associação no arquivo *function.json*:
     "direction": "in",
     "databaseName": "MyDb",
     "collectionName": "MyCollection",
-    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}"
+    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}",
     "connection": "CosmosDBConnection"
 }
 ```
@@ -423,7 +423,7 @@ Aqui estão os dados de associação no arquivo *function.json*:
     "direction": "in",
     "databaseName": "MyDb",
     "collectionName": "MyCollection",
-    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}"
+    "sqlQuery": "SELECT * from c where c.departmentId = {departmentId}",
     "connection": "CosmosDBConnection"
 }
 ```
@@ -485,7 +485,7 @@ A saída do Azure Cosmos DB permite que você grave um novo documento para um ba
 Consulte o exemplo específico a um idioma:
 
 * [C#](#output---c-example)
-* [Script do C# (. CSx)](#output---c-script-example)
+* [Script do C# (.csx)](#output---c-script-example)
 * [F#](#output---f-example)
 * [JavaScript](#output---javascript-example)
 
