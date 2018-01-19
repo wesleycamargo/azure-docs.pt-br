@@ -1,6 +1,6 @@
 ---
-title: "Restrições de segurança com o Azure Search"
-description: "Implementar restrições de segurança usando filtros do Azure Search."
+title: "Filtros de segurança para resultados de corte no Azure Search | Microsoft Docs"
+description: "Controle de acesso no conteúdo do Azure Search usando filtros de segurança e identidades de usuário."
 ms.custom: 
 ms.date: 08/07/2017
 ms.service: search
@@ -11,15 +11,15 @@ caps.latest.revision: "26"
 author: revitalbarletz
 ms.author: revitalb
 manager: jlembicz
-ms.openlocfilehash: 7ca5502efa281dcc0f374312d8f36f8c64d9c6c9
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: c829399f9c21846d8ee5b43945e2565565279820
+ms.sourcegitcommit: 357afe80eae48e14dffdd51224c863c898303449
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/15/2017
 ---
-# <a name="security-trimming-with-azure-search"></a>Restrições de segurança com o Azure Search
+# <a name="security-filters-for-trimming-results-in-azure-search"></a>Filtros de segurança para resultados de corte no Azure Search
 
-Você pode aplicar filtros de segurança aos resultados da pesquisa para restringir o acesso a documentos com base na identidade do usuário. Essa experiência de pesquisa geralmente requer comparar a identidade de qualquer pessoa que solicite a pesquisa em relação a um campo contendo os princípios que têm permissões ao documento. Quando uma correspondência é encontrada, o usuário ou a entidade (como um grupo ou função) tem acesso ao documento.
+Você pode aplicar filtros de segurança para cortar os resultados da pesquisa no Azure Search com base na identidade do usuário. Essa experiência de pesquisa geralmente requer comparar a identidade de qualquer pessoa que solicite a pesquisa em relação a um campo contendo os princípios que têm permissões ao documento. Quando uma correspondência é encontrada, o usuário ou a entidade (como um grupo ou função) tem acesso ao documento.
 
 Uma maneira de obter filtragem de segurança é por meio de uma disjunção complicada de expressões de igualdade: por exemplo, `Id eq 'id1' or Id eq 'id2'` e assim por diante. Essa abordagem está propensa a erros, é de difícil manutenção e, em casos em que a lista contém centenas ou milhares de valores, diminui o tempo de resposta de consulta em muitos segundos. 
 
@@ -34,7 +34,7 @@ Este artigo mostra como realizar a filtragem de segurança usando as seguintes e
 >[!NOTE]
 > O processo de recuperar os identificadores de entidade não é abordado neste documento. Você deve obtê-lo do seu provedor de serviço de identidade.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Este artigo pressupõe que você tenha uma [assinatura do Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F), um [serviço do Azure Search](https://docs.microsoft.com/azure/search/search-create-service-portal) e um [Índice do Azure Search](https://docs.microsoft.com/azure/search/search-create-index-portal).  
 
@@ -155,3 +155,8 @@ Você deve obter os documentos de volta, em que `group_ids` contém "group_id1" 
 
 É assim que você pode filtrar os resultados com base na identidade do usuário e na função `search.in()` do Azure Search. Você pode usar essa função para passar identificadores de entidade ao usuário solicitante para correspondência com os identificadores de entidade associados a cada documento de destino. Quando uma solicitação de pesquisa é manipulada, a função `search.in` filtra os resultados da pesquisa aos quais nenhuma das entidades do usuário têm acesso de leitura. Os identificadores de entidade podem representar itens como grupos de segurança, funções ou até mesmo a própria identidade do usuário.
  
+## <a name="see-also"></a>Consulte também
+
++ [Controle de acesso baseado na identidade do Active Directory usando filtros do Azure Search](search-security-trimming-for-azure-search-with-aad.md)
++ [Filtros no Azure Search](search-filters.md)
++ [Controle de acesso e segurança de dados no Azure Search](search-security-overview.md)

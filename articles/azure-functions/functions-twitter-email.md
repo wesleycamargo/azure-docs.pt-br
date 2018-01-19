@@ -17,10 +17,10 @@ ms.date: 12/08/2017
 ms.author: glenga
 ms.custom: mvc
 ms.openlocfilehash: 9402dbbf66bbbf7ff23f3fc29cbb38f8aa8615e6
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.sourcegitcommit: 828cd4b47fbd7d7d620fbb93a592559256f9d234
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Criar uma função que se integra aos Aplicativos Lógicos do Azure
 
@@ -40,7 +40,7 @@ Neste tutorial, você aprenderá como:
 > * Conecte o aplicativo lógico à função.
 > * Envie um email com base na resposta da função.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 + Uma conta do [Twitter](https://twitter.com/) ativa. 
 + Uma conta do [Outlook.com](https://outlook.com/) (para enviar notificações).
@@ -51,7 +51,7 @@ Se você ainda não fez isso, conclua estas etapas agora para criar seu aplicati
 
 As APIs de Serviços Cognitivos estão disponíveis no Azure como recursos individuais. Use a API de Análise de Texto para detectar o sentimento dos tweets que estão sendo monitorados.
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 
 2. Clique no botão **Novo** no canto superior esquerdo do Portal do Azure.
 
@@ -165,7 +165,7 @@ Primeiro, crie uma conexão para sua conta do Twitter. O aplicativo lógico sond
 
     ![Configurações do conector do Twitter](media/functions-twitter-email/azure_tweet.png)
 
-    | Configuração      |  Valor sugerido   | Descrição                                        |
+    | Configuração      |  Valor sugerido   | DESCRIÇÃO                                        |
     | ----------------- | ------------ | ------------- |
     | **Texto da pesquisa** | #Azure | Use uma hashtag que seja popular o suficiente para gerar novos tweets no intervalo escolhido. Quando você usa a camada gratuita e a hashtag é muito popular, é possível consumir rapidamente a cota de transação na API dos Serviços Cognitivos. |
     | **Frequência** | Minuto | A unidade de frequência usada para sondar o Twitter.  |
@@ -228,7 +228,7 @@ A última parte do fluxo de trabalho é disparar um email quando o sentimento fo
 
     ![Configure o email para enviar uma ação de email.](media/functions-twitter-email/send_email.png)
 
-    | Configuração      |  Valor sugerido   | Descrição  |
+    | Configuração      |  Valor sugerido   | DESCRIÇÃO  |
     | ----------------- | ------------ | ------------- |
     | **Para** | Digitar endereço de email | O endereço de email que recebe a notificação. |
     | **Assunto** | Sentimento de tweet negativo detectado  | A linha de assunto do email de notificação.  |
