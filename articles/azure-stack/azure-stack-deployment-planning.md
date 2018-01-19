@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 01/16/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 6ba6bed8321e1ffde8bc8959443682725da36827
-ms.sourcegitcommit: 5108f637c457a276fffcf2b8b332a67774b05981
+ms.openlocfilehash: cd14f0e5259e5c0b6cbf11790bbdf08164267ffa
+ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/17/2018
+ms.lasthandoff: 01/19/2018
 ---
 # <a name="planning-considerations-for-azure-stack-integrated-systems"></a>Considerações de planejamento para a pilha do Azure sistemas integrados
 Se você estiver interessado em um sistema de pilha do Azure integrado, você deve compreender alguns das principais considerações de planejamento em torno de implantação e como o sistema se encaixa no seu datacenter. Este artigo fornece uma visão geral dessas considerações para ajudá-lo a tomar decisões importantes de infra-estrutura para seu sistema de vários nó de pilha do Azure. Ajuda a entender essas considerações ao trabalhar com o fornecedor do hardware OEM implantação de pilha do Azure para seu datacenter.  
@@ -31,12 +31,12 @@ Para implantar a pilha do Azure, há um conjunto das decisões que você precisa
 
 As informações necessárias intervalos em rede, segurança e informações de identidade com muitas decisões importantes que podem exigir conhecimento em muitas áreas diferentes e tomadores de decisão. Portanto, você talvez precise efetuar pull de pessoas de várias equipes em sua organização para garantir que você tenha todas as informações necessárias prontas antes do início da implantação. Ele pode ajudar a se comunicar com o fornecedor do hardware ao coletar essas informações, como talvez tenham conselhos úteis para tomar as decisões.
 
-Durante a pesquisa e coletar as informações necessárias, você precisará fazer algumas alterações de configuração antes da implantação para seu ambiente de rede. Isso pode incluir a reserva de espaços de endereço IP para a solução de pilha do Azure, configurar seus roteadores, comutadores e firewalls para se preparar para a conectividade com as novas opções de solução de pilha do Azure. Certifique-se de ter o especialista de área de assunto embutido até ajudá-lo com seu planejamento.
+Durante a pesquisa e coletar as informações necessárias, você precisará fazer algumas alterações de configuração antes da implantação para seu ambiente de rede. Isso pode incluir a reserva de espaços de endereço IP para a solução de pilha do Azure e configurar seus roteadores, comutadores e firewalls para se preparar para a conectividade com as novas opções de solução de pilha do Azure. Certifique-se que o especialista de área de assunto alinhados e envolvidos no projeto de implantação para ajudá-lo com seu planejamento.
 
 ## <a name="management-considerations"></a>Considerações sobre gerenciamento
 A pilha do Azure é um sistema de lacrado, onde a infraestrutura é bloqueada ambos a partir de um permissões e a perspectiva de rede. Listas de controle de acesso de rede (ACLs) são aplicadas para bloquear todo o tráfego de entrada não autorizado e todas as comunicações desnecessárias entre componentes de infraestrutura. Isso torna difícil para usuários não autorizados acessar o sistema.
 
-Para operações e gerenciamento diário, há sem acesso de administrador sem restrições para a infraestrutura. Operadores de pilha do Azure devem gerenciar o sistema por meio do portal de administrador ou por meio do Azure Resource Manager (por meio do PowerShell ou a API REST). Não há nenhum acesso ao sistema por outras ferramentas de gerenciamento, como o Gerenciador do Hyper-V ou o Gerenciador de Cluster de Failover. Para ajudar a proteger o sistema, o software de terceiros (por exemplo, agentes) não pode ser instalado dentro dos componentes da infraestrutura de pilha do Azure. Interoperabilidade com o software de gerenciamento e segurança externa ocorre por meio do PowerShell ou a API REST.
+Para operações e gerenciamento diário, há sem acesso de administrador sem restrições para a infraestrutura. Operadores de pilha do Azure devem gerenciar o sistema por meio do portal de administrador ou por meio do Azure Resource Manager (via CLI do Azure, o PowerShell ou a API REST). Não há nenhum acesso ao sistema por outras ferramentas de gerenciamento, como o Gerenciador do Hyper-V ou o Gerenciador de Cluster de Failover. Para ajudar a proteger o sistema, o software de terceiros (por exemplo, agentes) não pode ser instalado dentro dos componentes da infraestrutura de pilha do Azure. Interoperabilidade com o software de segurança e gerenciamento externo ocorre por meio de CLI do Azure, o PowerShell ou a API REST.
 
 Quando um nível mais alto de acesso é necessário para a solução de problemas não resolvidos por meio de etapas de mediação de alerta, você deve trabalhar com suporte. Por meio do suporte, há um método para fornecer acesso de administrador completo temporário para o sistema para executar operações mais avançadas. 
 
@@ -93,9 +93,9 @@ Para obter mais informações sobre quais PKI certificados necessários para imp
 
 
 ## <a name="time-synchronization"></a>Sincronização de horário
-Você deve escolher um horário específico de servidor com é usado para sincronizar a pilha do Azure.  Symbolization de tempo é essencial para a pilha do Azure e suas funções de infraestrutura, como ele é usado para gerar os tíquetes Kerberos que são usados para autenticar os serviços internos uns com os outros.
+Você deve escolher um horário específico de servidor com é usado para sincronizar a pilha do Azure.  Sincronização de hora é essencial para a pilha do Azure e suas funções de infraestrutura, como ele é usado para gerar os tíquetes Kerberos que são usados para autenticar os serviços internos uns com os outros.
 
-Você deve especificar que um IP para o servidor de sincronização de hora, embora a maioria dos componentes da infra-estrutura pode resolver uma URL, algumas suporta apenas endereços IP. Se você estiver usando a opção de implantação desconectado, você deve especificar um servidor de horário em sua rede corporativa que você está se pode ser alcançado na rede de infraestrutura na pilha do Azure.
+Você deve especificar um IP para o servidor de sincronização de hora, como Embora a maioria dos componentes da infra-estrutura pode resolver uma URL, algumas suporta apenas endereços IP. Se você estiver usando a opção de implantação desconectado, você deve especificar um servidor de horário em sua rede corporativa que você está se pode ser alcançado na rede de infraestrutura na pilha do Azure. Isso pode exigir uma consideração adicional durante o planejamento da parte de integração da rede do projeto de implantação.
 
 
 ## <a name="network-connectivity"></a>Conectividade de rede
@@ -120,31 +120,31 @@ A infraestrutura de rede para a pilha do Azure consiste em várias redes lógica
 ![Conexões de diagrama e o comutador de rede lógica](media/azure-stack-deployment-planning/NetworkDiagram.png)
 
 #### <a name="bmc-network"></a>Rede do BMC
-Esta rede dedicada para se conectar a todos os controladores BMC (também conhecido como processadores de serviço, por exemplo, iDRAC iLO, iBMC, etc.) para a rede de gerenciamento. Se estiver presente, o host do ciclo de vida de hardware (HLH) estarão localizado na rede e pode fornecer o software específico do OEM para manutenção de hardware e/ou o monitoramento. 
+Esta rede dedicada para se conectar a todos os controladores BMC (também conhecido como processadores de serviço, por exemplo, iDRAC iLO, iBMC, etc.) para a rede de gerenciamento. Se estiver presente, o host de ciclo de vida de hardware (HLH) estarão localizado na rede e pode fornecer o software específico do OEM para manutenção de hardware e/ou o monitoramento. 
 
 #### <a name="private-network"></a>Rede privada
-Este /24 254 host da rede de IP) (é privada à região de pilha do Azure (não expandir além dos dispositivos de switch de borda da região de pilha do Azure) e é dividido em duas sub-redes:
+Este /24 (254 host IPs) é privada à região de pilha do Azure (não expandir além dos dispositivos de switch de borda da região de pilha do Azure) e é dividido em duas sub-redes de rede:
 
-- **Rede de armazenamento**. Migração ao vivo de um /25 126 host da rede de IP) (é usado para suporte ao uso do tráfego de armazenamento direto de espaços e bloco de mensagens de servidor (SMB) e a máquina virtual. 
-- **Rede IP virtual interna**. Um/25 VIPs dedicados a somente interno para o balanceador de carga do software de rede.
+- **Rede de armazenamento**. Um /25 (126 host IPs) usado para dar suporte ao uso de espaços de armazenamento diretos (S2D) e o tráfego de armazenamento de bloco de mensagens de servidor (SMB) e a migração ao vivo de máquina virtual de rede. 
+- **Rede IP virtual interna**. Um/25 rede VIPs dedicados a somente interno para o balanceador de carga de software (SLB).
 
 #### <a name="azure-stack-infrastructure-network"></a>Rede de infraestrutura de pilha do Azure
-Isso/24 de rede dedicado para componentes internos de pilha do Azure para que eles possam se comunicar e trocar dados entre si. Essa sub-rede requer endereços IP roteáveis, mas é mantida privada para a solução usando listas de controle de acesso (ACLs), não se espera que ele deve ser roteada além as opções de borda, exceto um intervalo muito pequena equivalente em tamanho um /27 rede utilizada por alguns deles serviços quando eles requerem acesso a recursos externos e/ou a internet. 
+Isso/24 de rede dedicado para componentes internos de pilha do Azure para que eles possam se comunicar e trocar dados entre si. Essa sub-rede requer endereços IP roteáveis, mas é mantida privada para a solução usando listas de controle de acesso (ACLs).  Não se espera que ele deve ser roteada além as opções de borda, exceto um intervalo muito pequena equivalente em tamanho um /27 rede, que é utilizada por alguns desses serviços quando eles requerem acesso a recursos externos e/ou a internet. 
 
 #### <a name="public-infrastructure-network"></a>Rede de infraestrutura pública
-Isso/27 de rede é muito pequeno intervalo de sub-rede de infraestrutura do Azure pilha mencionado anteriormente, ele não requer que os endereços IP públicos, mas exige acesso à internet por meio de um NAT ou um Proxy transparente. Esta rede será alocada para sistema de Console de recuperação de emergência (ERCS), a VM ERCS requer acesso à internet durante o registro para o Azure e deve ser roteável à sua rede de gerenciamento para fins de solução de problemas.
+Isso/27 de rede é muito pequeno intervalo de sub-rede de infraestrutura do Azure pilha mencionado anteriormente, ele não requer que os endereços IP públicos, mas exige acesso à internet por meio de um NAT ou um Proxy transparente. Esta rede será alocada para sistema de Console de recuperação de emergência (ERCS). A VM ERCS requer acesso à internet durante o registro para o Azure e deve ser roteável à sua rede de gerenciamento para fins de solução de problemas.
 
 #### <a name="public-vip-network"></a>Rede pública de VIP
 Rede pública VIP é atribuída ao controlador de rede na pilha do Azure. Não é uma rede lógica no comutador. O SLB usa o pool de endereços e atribui/32 redes para cargas de trabalho de locatário. Na tabela de roteamento de comutador, desses IPs 32 são publicados como uma rota disponível por meio do BGP. Esta rede contém os endereços IP externo acessível ou públicos. A infraestrutura de pilha do Azure usa pelo menos 8 endereços da rede pública VIP enquanto o restante é usado pelas máquinas virtuais do locatário. O tamanho da rede nesta sub-rede pode variar de um mínimo de /26 (64 hosts) a um máximo de /22 (1022 hosts), é recomendável que você planejar um /24 rede.
 
 #### <a name="switch-infrastructure-network"></a>Rede de infraestrutura de chave
-Isso/26 de rede é a sub-rede que contém sub-redes de IP de ponto a ponto roteável /30 (IP host 2) e o loopbacks que são dedicados/32 sub-redes de banda no comutador gerenciamento e a ID do roteador BGP. Esse intervalo de endereços IP deve ser roteável externamente da solução de pilha do Azure para o data center, podem ser IPs privadas ou públicas.
+Isso/26 de rede é a sub-rede que contém sub-redes de IP de ponto a ponto roteável /30 (IP host 2) e o loopbacks que são dedicados/32 sub-redes de banda no comutador gerenciamento e a ID do roteador BGP. Este intervalo de endereços IP deve ser roteável externamente da solução de pilha do Azure para seu datacenter e podem ser IPs privadas ou públicas. Por exemplo, em um cenário de provedor de serviços com locatário vários que IPS públicos podem ser necessários, enquanto em uma implantação corporativa rigidamente controlada, IPs privados poderia ser preferencial.
 
 #### <a name="switch-management-network"></a>Rede de gerenciamento de switch
 Este /29 (6 host IPs) dedicada para conectar as portas de gerenciamento dos comutadores de rede. Ele permite acesso de fora da banda para implantação, gerenciamento e solução de problemas. Ele é calculado da rede de infraestrutura de comutador mencionado acima.
 
 ### <a name="transparent-proxy"></a>PROXY TRANSPARENTE
-A solução de pilha do Azure não oferece suporte a proxies da web normal. Se o datacenter requer que todo o tráfego para usar um proxy, você deve configurar um proxy transparente para processar todo o tráfego do rack para tratá-la de acordo com a política, separar o tráfego entre as zonas em sua rede. Um proxy transparente (também conhecido como uma interceptação, embutido ou proxy forçado) intercepta comunicação normal na camada de rede sem a necessidade de qualquer configuração especial do cliente. Os clientes não precisam estar atento a existência do proxy.
+A solução de pilha do Azure não oferece suporte a proxies da web normal. Se o datacenter requer que todo o tráfego para usar um proxy, você deve configurar um proxy transparente para processar todo o tráfego do rack para tratá-la de acordo com a política, separar o tráfego entre as zonas em sua rede. Um proxy transparente (também conhecido como uma interceptação, embutido ou proxy forçado) intercepta comunicação normal na camada de rede sem a necessidade de qualquer configuração especial do cliente. Clientes não precisam estar cientes da existência do proxy.
 
 ### <a name="publish-azure-stack-services"></a>Publicar os serviços do Azure pilha
 
@@ -203,7 +203,7 @@ O diagrama a seguir mostra a rota expressa para um cenário de vários locatári
 ## <a name="external-monitoring"></a>Monitoramento externo
 Para obter uma única exibição de todos os alertas de seus dispositivos e a implantação da pilha do Azure e para integrar a IT service management fluxos de trabalho existentes para tíquetes de alertas, você pode integrar o Azure pilha com soluções de monitoramento de datacenter externo.
 
-Incluído com a solução de pilha do Azure, o host de ciclo de vida de hardware é um computador fora da pilha do Azure que executa as ferramentas de gerenciamento fornecida pelo fornecedor OEM para hardware. Você pode usar essas ferramentas ou outras soluções que integram-se diretamente a soluções de monitoramento existentes em seu data center.
+Incluído com a solução de pilha do Azure, o host de ciclo de vida de hardware (HLH) é um computador fora da pilha do Azure que executa as ferramentas de gerenciamento fornecida pelo fornecedor OEM para hardware. Você pode usar essas ferramentas ou outras soluções que integram-se diretamente a soluções de monitoramento existentes em seu data center.
 
 A tabela a seguir resume a lista de opções disponíveis no momento.
 
