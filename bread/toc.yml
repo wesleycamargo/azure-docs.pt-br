@@ -27,7 +27,7 @@
     - name: Serviços de análise
       tocHref: /azure/analysis-services/
       topicHref: /azure/analysis-services/
-    - name: Gerenciamento de API
+    - name: Gerenciamento da API
       tocHref: /azure/api-management/
       topicHref: /azure/api-management/
       items:
@@ -56,7 +56,7 @@
     - name: Supervisor
       tocHref: /azure/advisor/
       topicHref: /azure/advisor/
-    - name: Gateway de Aplicativo
+    - name: "Gateway de Aplicativo\r\n"
       tocHref: /azure/application-gateway/
       topicHref: /azure/application-gateway/
     - name: Application Insights
@@ -187,7 +187,7 @@
     - name: Data Factory
       tocHref: /azure/data-factory/
       topicHref: /azure/data-factory/
-    - name: Análises Data Lake
+    - name: Data Lake Analytics
       tocHref: /azure/data-lake-analytics/
       topicHref: /azure/data-lake-analytics/
     - name: Repositório Data Lake
@@ -202,7 +202,7 @@
     - name: Grade de Eventos
       tocHref: /azure/event-grid/
       topicHref: /azure/event-grid
-    - name: Hubs de Eventos
+    - name: Hubs de evento
       tocHref: /azure/event-hubs/
       topicHref: /azure/event-hubs/
     - name: Expressroute
@@ -239,6 +239,9 @@
         - name: Storm
           tocHref: /azure/hdinsight/storm
           topicHref: /azure/hdinsight/storm/apache-storm-overview
+    - name: IoT Edge
+      tocHref: /azure/iot-edge/
+      topicHref: /azure/iot-edge/
     - name: Hub IoT
       tocHref: /azure/iot-hub/
       topicHref: /azure/iot-hub/
@@ -362,7 +365,7 @@
     - name: Agendador
       tocHref: /azure/scheduler/
       topicHref: /azure/scheduler/
-    - name: Pesquisar
+    - name: Search
       tocHref: /azure/search/
       topicHref: /azure/search/
     - name: Segurança
@@ -383,13 +386,13 @@
     - name: Service Fabric
       tocHref: /azure/service-fabric/
       topicHref: /azure/service-fabric/
-    - name: Recuperação de Site
+    - name: Site Recovery
       tocHref: /azure/site-recovery/
       topicHref: /azure/site-recovery/
     - name: SQL Data Warehouse
       tocHref: /azure/sql-data-warehouse/
       topicHref: /azure/sql-data-warehouse/
-    - name: Banco de Dados SQL
+    - name: Banco de dados SQL
       tocHref: /azure/sql-database/
       topicHref: /azure/sql-database/
     - name: SQL Server Stretch Database
@@ -411,7 +414,7 @@
     - name: StorSimple
       tocHref: /azure/storsimple/
       topicHref: /azure/storsimple/
-    - name: Stream Analytics
+    - name: Análise de fluxo
       tocHref: /azure/stream-analytics/
       topicHref: /azure/stream-analytics/
     - name: Análises de Séries Temporais
