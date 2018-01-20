@@ -158,7 +158,7 @@
       href: 'https://azure.microsoft.com/updates/?product=storage'
     - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/windows-azure-storage'
-    - name: Vídeos
+    - name: vídeos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=storage'
     - name: Gerenciador de Armazenamento do Azure
       items:
