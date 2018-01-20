@@ -128,6 +128,8 @@
           href: azure-stack-manage-storage-shares.md
         - name: Gerenciar VMs do Microsoft Azure Pack
           href: azure-stack-manage-windows-azure-pack.md
+        - name: Iniciar e parar a pilha do Azure
+          href: azure-stack-start-and-stop.md
         - name: Substituir hardware
           items:
             - name: Ações de nó
