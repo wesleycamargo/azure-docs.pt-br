@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/04/2017
+ms.date: 01/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 367288e313ae5517b126b17c905ae291b5b37975
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: bbaa5a6bbc01af4529c657aee3b2916942b4269f
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-powershell"></a>Configurar uma conexão Ponto a Site a uma VNet usando a autenticação de certificado nativa do Azure: PowerShell
 
 Este artigo mostra como criar uma rede virtual com uma conexão Ponto a Site no modelo de implantação do Resource Manager usando o portal o PowerShell. Essa configuração usa certificados para autenticação. Nessa configuração, o gateway de VPN do Azure executa a validação do certificado, em vez de um servidor RADIUS. Você também pode criar essa configuração usando uma ferramenta de implantação ou um modelo de implantação diferente, selecionando uma opção diferente na lista a seguir:
 
 > [!div class="op_single_selector"]
-> * [Portal do Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> * [portal do Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 > * [Portal do Azure (clássico)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 >
@@ -98,7 +98,7 @@ Nesta seção, faça logon e declare os valores usados para esta configuração.
   ```powershell
   Get-AzureRmSubscription
   ```
-3. Especifique a assinatura que você quer usar.
+3. Especifique a assinatura que você deseja usar.
 
   ```powershell
   Select-AzureRmSubscription -SubscriptionName "Name of subscription"
@@ -165,7 +165,7 @@ Configurar e criar o gateway de rede virtual para sua rede virtual.
 
 * O -GatewayType deve ser **Vpn** e o -VpnType deve ser **RouteBased**.
 * O -VpnClientProtocols é usado para especificar os tipos de túneis que você deseja habilitar. As duas opções de túneis são **SSTP** e **IKEv2**. Você pode habilitar um deles ou ambos. Se você quiser habilitar os dois, especifique os dois nomes separados por uma vírgula. O cliente Strongswan no Android e no Linux, e o cliente VPN IKEv2 nativo no iOS e no OSX usarão somente o túnel IKEv2 para se conectar. Os clientes Windows tentam o IKEv2 primeiro e, se isso gerar a conexão, retornarão ao SSTP.
-* Um gateway de VPN pode levar até 45 minutos para ser concluído, dependendo do [SKU de gateway](vpn-gateway-about-vpn-gateway-settings.md) selecionado. Este exemplo usa IKEv2, que está atualmente disponível em versão prévia.
+* Um gateway de VPN pode levar até 45 minutos para ser concluído, dependendo do [SKU de gateway](vpn-gateway-about-vpn-gateway-settings.md) selecionado. Este exemplo usa IKEv2.
 
 ```powershell
 New-AzureRmVirtualNetworkGateway -Name $GWName -ResourceGroupName $RG `

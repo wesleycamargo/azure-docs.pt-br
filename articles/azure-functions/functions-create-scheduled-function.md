@@ -13,22 +13,22 @@ ms.devlang: multiple
 ms.topic: quickstart
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 12/07/2017
+ms.date: 01/03/2018
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: b1c5ef3868a14f42d75720984ea19bb495b887e4
-ms.sourcegitcommit: fa28ca091317eba4e55cef17766e72475bdd4c96
+ms.openlocfilehash: 33f6cd9e10782bb8ff1b0ddf6d047aebc83f8008
+ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/14/2017
+ms.lasthandoff: 01/04/2018
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Criar uma função no Azure que é disparada por um temporizador
 
-Saiba como usar o Azure Functions para criar uma função que é executada com base em uma agendamento definido por você.
+Saiba como usar o Azure Functions para criar uma função [sem servidor](https://azure.microsoft.com/overview/serverless-computing/) que é executada com base em um agendamento definido por você.
 
 ![Criar um aplicativo de funções no portal do Azure](./media/functions-create-scheduled-function/function-app-in-portal-editor.png)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para concluir este tutorial:
 
@@ -71,13 +71,13 @@ Em seguida, crie uma nova função no novo aplicativo de funções.
 
     ![Visualizador de log de função no Portal do Azure.](./media/functions-create-scheduled-function/functions-timer-trigger-view-logs2.png)
 
-Agora, você pode alterar o agendamento da função para que ela seja executada com menos frequência, por exemplo, uma vez por hora. 
+Agora você altera o agendamento da função para que ela seja executada uma vez por hora em vez de uma vez por minuto. 
 
 ## <a name="update-the-timer-schedule"></a>Atualizar o agendamento do temporizador
 
 1. Expanda sua função e clique em **Integrar**. É aqui que você define as associações de entrada e saída de sua função e também define o agendamento. 
 
-2. Insira um novo valor de **Agendamento** de `0 0 */1 * * *` e, em seguida, clique em **Salvar**.  
+2. Insira um novo valor de **Agendamento** por hora de `0 0 */1 * * *` e depois clique em **Salvar**.  
 
 ![As funções atualizam o agendamento do temporizador no Portal do Azure.](./media/functions-create-scheduled-function/functions-timer-trigger-change-schedule.png)
 

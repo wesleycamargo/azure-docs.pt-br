@@ -29,7 +29,7 @@
           maintainContext: true
     - name: Desenvolver
       items:
-        - name: Utilizar o SDK .NET HBase
+        - name: Use o SDK .NET do HBase
           href: apache-hbase-rest-sdk.md
         - name: Desenvolver aplicativos Java
           href: apache-hbase-build-java-maven-linux.md
@@ -43,6 +43,11 @@
           href: apache-hbase-phoenix-squirrel-linux.md
         - name: Utilizar o SDK REST de Phoenix Query Server
           href: apache-hbase-using-phoenix-query-server-rest-sdk.md
+    - name: Analisar big data
+      items:
+        - name: Usar o Spark para ler e gravar dados do HBase
+          href: ../hdinsight-using-spark-query-hbase.md
+          maintainContext: true
     - name: Estender clusters
       items:
         - name: Personalizar clusters usando Bootstrap

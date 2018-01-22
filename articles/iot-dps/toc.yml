@@ -52,9 +52,15 @@
     - name: 2 - Configurar dispositivo
       href: tutorial-set-up-device.md
     - name: 3 - Provisionar um dispositivo para um hub IoT
-      href: tutorial-provision-device-to-hub.md
+      items:
+        - name: C
+          href: tutorial-provision-device-to-hub.md
+        - name: 'C#'
+          href: tutorial-net-provision-device-to-hub.md
     - name: 4 - Provisionar dispositivos para vários hubs
       href: tutorial-provision-multiple-hubs.md
+    - name: 5 - Provisionar registros do grupo
+      href: tutorial-group-enrollments.md
 - name: Conceitos
   items:
     - name: Conceitos do dispositivo
@@ -73,6 +79,8 @@
           href: how-to-manage-enrollments-sdks.md
     - name: Revogar o acesso do dispositivo
       href: how-to-revoke-device-access-portal.md
+    - name: Remover provisionamento dos dispositivos
+      href: how-to-unprovision-devices.md
     - name: Usar um HSM com SDK
       href: use-hsm-with-sdk.md
     - name: Controlar o acesso ao Serviço de Provisionamento

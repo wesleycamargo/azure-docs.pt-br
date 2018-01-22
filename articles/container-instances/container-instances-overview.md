@@ -9,11 +9,11 @@ ms.topic: overview
 ms.date: 01/02/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: 83666edc75a6c75fd2361e79192f9717d69fd746
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 01e539856adbdcf02dc4e49087a3ab71b328db5a
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="azure-container-instances"></a>Instâncias de Contêiner do Azure
 
@@ -43,7 +43,9 @@ Para recuperar e persistir estados com as Instâncias de Contêiner do Azure, n�
 
 ## <a name="linux-and-windows-containers"></a>Contêineres do Windows e do Linux
 
-Com as Instâncias de Contêiner do Azure, você pode agendar contêineres do Windows e do Linux com a mesma API. Basta indicar o tipo de sistema operacional base e todo o resto é idêntico.
+Com as Instâncias de Contêiner do Azure, você pode agendar contêineres do Windows e do Linux com a mesma API. Basta especificar o tipo de sistema operacional ao criar seus [grupos de contêiner](container-instances-container-groups.md).
+
+Alguns recursos são atualmente restritos a contêineres do Linux. Enquanto estamos trabalhando para trazer todos os recursos para contêineres do Windows, você pode encontrar as diferenças atuais de plataforma em [Cotas e disponibilidade de região para Instâncias de Contêiner do Azure](container-instances-quotas.md).
 
 ## <a name="co-scheduled-groups"></a>Grupos coagendados
 

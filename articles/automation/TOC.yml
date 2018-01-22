@@ -115,7 +115,7 @@
       items:
         - name: Certificados
           href: automation-certificates.md
-        - name: Conexões
+        - name: conexões
           href: automation-connections.md
         - name: Credenciais
           href: automation-credentials.md
@@ -131,10 +131,10 @@
       items:
         - name: Galeria de Runbook
           href: automation-runbook-gallery.md
+        - name: Iniciar um runbook a partir de alertas do Azure
+          href: automation-create-alert-triggered-runbook.md
         - name: Criar VM do Serviço Web da Amazon
           href: automation-scenario-aws-deployment.md
-        - name: Corrigir alerta da VM do Azure
-          href: automation-azure-vm-alert-integration.md
         - name: Iniciar/parar VM com marcações JSON
           href: automation-scenario-start-stop-vm-wjson-tags.md
         - name: Remover grupo de recursos
@@ -215,5 +215,5 @@
       href: 'https://azure.microsoft.com/updates/?product=automation'
     - name: Stack Overflow
       href: 'http://stackoverflow.com/questions/tagged/azure-automation'
-    - name: Vídeos
+    - name: vídeos
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=automation'

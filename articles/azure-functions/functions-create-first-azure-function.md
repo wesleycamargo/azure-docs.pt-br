@@ -16,11 +16,11 @@ ms.workload: na
 ms.date: 10/17/2017
 ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 16680aaf2f49ae8ece440d0e44b49d6cd1f8fad7
-ms.sourcegitcommit: 7f1ce8be5367d492f4c8bb889ad50a99d85d9a89
+ms.openlocfilehash: 754ca6e5297c3be9166efa7a40a5ba3714911c99
+ms.sourcegitcommit: 48fce90a4ec357d2fb89183141610789003993d2
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/06/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="create-your-first-function-in-the-azure-portal"></a>Criar sua primeira função no portal do Azure
 
@@ -52,21 +52,25 @@ Em seguida, crie uma nova função no novo aplicativo de funções.
    
     ![Início rápido de funções no Portal do Azure.](./media/functions-create-first-azure-function/function-app-quickstart-node-webhook.png)
 
-Uma função é criada na linguagem escolhida por você usando o modelo de uma função disparada por HTTP. Você pode executar a nova função enviando uma solicitação HTTP.
+Uma função é criada na linguagem escolhida por você usando o modelo de uma função disparada por HTTP. Este tópico mostra uma função de script C# no portal, mas você pode criar uma função em qualquer [linguagem suportada](supported-languages.md). 
+
+Agora você pode executar a nova função enviando uma solicitação HTTP.
 
 ## <a name="test-the-function"></a>Testar a função
 
-1. Em sua nova função, clique em **</> Obter URL da função**, selecione **padrão (Tecla de função)** e clique em **Copiar**. 
+1. Em sua nova função, clique em **</> Obter URL da função** na parte superior direita, selecione **padrão (Tecla de função)** e depois clique em **Copiar**. 
 
     ![Copiar a URL da função do Portal do Azure](./media/functions-create-first-azure-function/function-app-develop-tab-testing.png)
 
-2. Cole a URL de função na barra de endereços do navegador. Acrescente a cadeia de caracteres de consulta `&name=<yourname>` a esta URL e pressione `Enter` em seu teclado para executar a solicitação. A seguir, um exemplo de resposta retornada pela função no navegador Edge:
+2. Cole a URL de função na barra de endereços do navegador. Adicione o valor da cadeia de caracteres de consulta `&name=<yourname>` ao final desta URL e pressione `Enter` em seu teclado para executar a solicitação. Você deverá ver a resposta retornada pela função exibida no navegador.  
+
+    A seguir há um exemplo da resposta no navegador Edge (outros navegadores podem incluir XML exibido):
 
     ![Resposta da função no navegador.](./media/functions-create-first-azure-function/function-app-browser-testing.png)
 
     A URL da solicitação inclui uma chave que é necessária, por padrão, para acessar sua função via HTTP.   
 
-3. Quando a função é executada, informações de rastreamento são gravadas nos logs. Para ver a saída do rastreamento da execução anterior, volte para sua função no portal e clique na seta para cima na parte inferior da tela para expandir **Logs**. 
+3. Quando a função é executada, informações de rastreamento são gravadas nos logs. Para ver a saída do rastreamento da execução anterior, volte para sua função no portal e clique na seta na parte inferior da tela para expandir os **Logs**. 
 
    ![Visualizador de log de função no Portal do Azure.](./media/functions-create-first-azure-function/function-view-logs.png)
 

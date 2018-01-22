@@ -13,14 +13,14 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 9/29/2017
+ms.date: 1/5/2018
 ms.author: markgal;trinadhk;anuragm
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 4a917fbbc1beff9a8b16ba044052cc9864cd9728
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: 59beaac1d8619c3f4afa1c75074546a849dfce6b
+ms.sourcegitcommit: 0e1c4b925c778de4924c4985504a1791b8330c71
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/06/2018
 ---
 # <a name="overview-of-the-features-in-azure-backup"></a>Visão geral dos recursos do Backup do Azure
 O Backup do Azure é o serviço baseado no Azure que você pode usar para fazer backup (ou proteger) e restaurar os dados na nuvem da Microsoft. Ele substitui a solução de backup local ou externa existente por uma solução confiável, segura e econômica baseada em nuvem. O Backup do Azure oferece vários componentes que você pode baixar e implantar em um computador, servidor, ou na nuvem. O componente ou o agente que você implanta depende daquilo que deseja proteger. Todos os componentes do Backup do Azure (independentemente de você estar protegendo dados localmente ou na nuvem) podem ser usados para fazer backup de dados em um cofre dos Serviços de Recuperação no Azure. Confira a [Tabela de componentes do Backup do Azure](backup-introduction-to-azure-backup.md#which-azure-backup-components-should-i-use) (mais adiante neste artigo) para obter informações sobre qual componente usar para proteger dados, aplicativos ou cargas de trabalho específicos.
@@ -224,12 +224,7 @@ Um cofre dos Serviços de Recuperação é uma entidade de armazenamento online 
 Os cofres de backup, que são baseados no Gerenciador de Serviços do Azure, foram a primeira versão do cofre. Os cofres dos Serviços de Recuperação, que adicionam os recursos do Azure Resource Manager, são a segunda versão do cofre. Consulte o [artigo de visão geral do cofre dos Serviços de Recuperação](backup-azure-recovery-services-vault-overview.md) para obter uma descrição completa das diferenças entre os recursos. Você não pode mais criar nem usar o portal para criar cofres de Backup, mas eles ainda têm suporte. Você deve usar o portal do Azure para gerenciar os cofres de Backup.
 
 > [!IMPORTANT]
-> Você pode atualizar os cofres de Backup para cofres dos Serviços de Recuperação. Para obter detalhes, veja o artigo [Atualizar um cofre de Backup para um cofre dos Serviços de Recuperação](backup-azure-upgrade-backup-to-recovery-services.md). A Microsoft incentiva você a atualizar os cofres de Backup para os cofres dos Serviços de Recuperação.<br/> Depois de **30 de novembro de 2017**, você não poderá mais usar o PowerShell para criar cofres de Backup. <br/>
-Em 30 de novembro de 2017:
-- Todos os Cofres do Backup restantes serão atualizados automaticamente para os cofres dos Serviços de Recuperação.
-- Você não poderá acessar os dados de backup no portal Clássico. Em vez disso, use o portal do Azure para acessar os dados de backup nos cofres dos Serviços de Recuperação.
-
-
+> Você pode atualizar os cofres de Backup para cofres dos Serviços de Recuperação. Para obter detalhes, veja o artigo [Atualizar um cofre de Backup para um cofre dos Serviços de Recuperação](backup-azure-upgrade-backup-to-recovery-services.md). A Microsoft incentiva você a atualizar os cofres de Backup para os cofres dos Serviços de Recuperação.<br/> Após 30 de novembro de 2017, não será mais possível usar o PowerShell para criar cofres de Backup, e todos os cofres de Backup restantes serão atualizados automaticamente para cofres dos Serviços de Recuperação.
 
 ## <a name="how-does-azure-backup-differ-from-azure-site-recovery"></a>Qual a diferença entre o Backup do Azure e o Azure Site Recovery?
 O Backup do Azure e o Azure Site Recovery são relacionados, pois ambos são serviços de backup de dados e podem restaurar esses dados. No entanto, esses serviços têm finalidades diferentes para permitir a continuidade dos negócios e a recuperação de desastres no seu negócio. Use o Backup do Azure para proteger e restaurar dados em um nível mais detalhado. Por exemplo, se uma apresentação em um laptop fosse corrompida, você usaria o Azure Backup para restaurar a apresentação. Se você quiser replicar a configuração e os dados de uma máquina virtual em outro datacenter, use o Azure Site Recovery.

@@ -14,11 +14,11 @@ ms.workload: na
 ms.date: 11/07/2017
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 3762a6e267540ef79577c3bf94ce27b648bd3534
-ms.sourcegitcommit: c7215d71e1cdeab731dd923a9b6b6643cee6eb04
+ms.openlocfilehash: c0984075cd8e372cce09ea100378dcd4e8cddabe
+ms.sourcegitcommit: 3cdc82a5561abe564c318bd12986df63fc980a5a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/17/2017
+ms.lasthandoff: 01/05/2018
 ---
 # <a name="create-your-first-function-with-java-and-maven-preview"></a>Criar sua primeira função com Java e Maven (versão prévia)
 
@@ -31,7 +31,7 @@ Este guia de início rápido fornece orientação para a criação de um projeto
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 Para desenvolver aplicativos de funções com Java, você deve ter o seguinte instalado:
 
 -  [.NET core](https://www.microsoft.com/net/core), a versão mais recente.
@@ -88,12 +88,29 @@ O Maven cria os arquivos de projeto em uma nova pasta com um nome de _artifactId
 
 ```java
 public class Function {
+    /**
+     * This function listens at endpoint "/api/hello". Two ways to invoke it using "curl" command in bash:
+     * 1. curl -d "HTTP Body" {your host}/api/hello
+     * 2. curl {your host}/api/hello?name=HTTP%20Query
+     */
     @FunctionName("hello")
-    public String hello(@HttpTrigger(name = "req", methods = {"get", "post"}, authLevel = AuthorizationLevel.ANONYMOUS) String req,
-                        ExecutionContext context) {
-        return String.format("Hello, %s!", req);
+    public HttpResponseMessage<String> hello(
+            @HttpTrigger(name = "req", methods = {"get", "post"}, authLevel = AuthorizationLevel.ANONYMOUS) HttpRequestMessage<Optional<String>> request,
+            final ExecutionContext context) {
+        context.getLogger().info("Java HTTP trigger processed a request.");
+
+        // Parse query parameter
+        String query = request.getQueryParameters().get("name");
+        String name = request.getBody().orElse(query);
+
+        if (name == null) {
+            return request.createResponse(400, "Please pass a name on the query string or in the request body");
+        } else {
+            return request.createResponse(200, "Hello, " + name);
+        }
     }
 }
+
 ```
 
 ## <a name="run-the-function-locally"></a>Executar a função localmente
@@ -105,6 +122,9 @@ cd fabrikam-function
 mvn clean package 
 mvn azure-functions:run
 ```
+
+> [!NOTE]
+> Caso esteja presenciando esta exceção: `javax.xml.bind.JAXBException`com o Java 9, consulte a solução alternativa no [GitHub](https://github.com/jOOQ/jOOQ/issues/6477).
 
 Esse resultado será exibido quando a função estiver em execução:
 

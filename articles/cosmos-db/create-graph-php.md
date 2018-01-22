@@ -13,13 +13,13 @@ ms.workload:
 ms.tgt_pltfrm: na
 ms.devlang: 
 ms.topic: quickstart
-ms.date: 12/15/2017
+ms.date: 01/05/2018
 ms.author: lbosq
-ms.openlocfilehash: 75be5be0bef4dd07c8560076f47055105a70ee05
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 3f80e682a89dcf6b5d3d5d6f2f15c4eeab2046e7
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-php-and-the-azure-portal"></a>Azure Cosmos DB: Criar um banco de dados de grafo usando o PHP e o Portal do Azure
 
@@ -137,7 +137,9 @@ Agora, volte ao Portal do Azure para obter as informações de conexão e copiá
     ]);
     ```
 
-3. Altere o parâmetro `username` no objeto de Conexão com o banco de dados e o nome do gráfico. Se você utilizou os valores recomendados de `sample-database` e `sample-graph`, ele devem ser semelhantes a esses:
+3. Se sua conta de banco de dados do gráfico foi criada em 20 de dezembro de 2017 ou depois dessa data, altere `graphs.azure.com` no nome do host para `gremlin.cosmosdb.azure.com`.
+
+4. Altere o parâmetro `username` no objeto de Conexão com o banco de dados e o nome do gráfico. Se você utilizou os valores recomendados de `sample-database` e `sample-graph`, ele devem ser semelhantes a esses:
 
     `'username' => '/dbs/sample-database/colls/sample-graph'`
 
@@ -155,7 +157,7 @@ Agora, volte ao Portal do Azure para obter as informações de conexão e copiá
     ]);
     ```
 
-4. No Portal do Azure, utilize o botão de cópia para copiar a CHAVE PRIMÁRIA e cole-a sobre `your_primary_key` no parâmetro de senha.
+5. No Portal do Azure, utilize o botão de cópia para copiar a CHAVE PRIMÁRIA e cole-a sobre `your_primary_key` no parâmetro de senha.
 
     A inicialização do objeto DE Conexão deverá ser assim:
 
@@ -171,7 +173,7 @@ Agora, volte ao Portal do Azure para obter as informações de conexão e copiá
     ]);
     ```
 
-5. Salve o arquivo `connect.php`.
+6. Salve o arquivo `connect.php`.
 
 ## <a name="run-the-console-app"></a>Execute o aplicativo de console
 

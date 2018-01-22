@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/11/2017
 ms.author: kuhussai
-ms.openlocfilehash: b8f0f899dff0f9e238017cb77126b3ca1275f3cd
-ms.sourcegitcommit: b7adce69c06b6e70493d13bc02bd31e06f291a91
+ms.openlocfilehash: be84f68a044a73673e991f04c7fe36a7787b9c3c
+ms.sourcegitcommit: 7edfa9fbed0f9e274209cec6456bf4a689a4c1a6
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/17/2018
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Armazenamento de Blobs do Azure: camadas de armazenamento frequentes, esporádicas e de arquivo
 
@@ -151,7 +151,7 @@ Sim, você pode alterar a camada de armazenamento padrão definindo o atributo *
 
 **Posso configurar minha camada de acesso de conta padrão para arquivar?**
 
-Não. Apenas as camadas de armazenamento frequente e esporádica podem ser definidas como a camada de acesso de conta padrão. A camada arquivo só pode ser definida no nível do objeto.
+Nº Apenas as camadas de armazenamento frequente e esporádica podem ser definidas como a camada de acesso de conta padrão. A camada arquivo só pode ser definida no nível do objeto.
 
 **Em quais regiões ficam disponíveis as camadas de armazenamento frequente, esporádica e arquivo?**
 
@@ -189,7 +189,7 @@ O armazenamento de dados e outros limites são definidos no nível da conta e n�
 
 ## <a name="next-steps"></a>Próximas etapas
 
-### <a name="evaluate-hot-cool-and-archvie-in-gpv2-blob-storage-accounts"></a>Avaliar frequente, esporádica e de arquivo em contas de Armazenamento de Blobs e de GPv2
+### <a name="evaluate-hot-cool-and-archive-in-gpv2-blob-storage-accounts"></a>Avaliar os mais acessados, os menos acessados e os arquivados em contas do Armazenamento de Blobs GPv2
 
 [Verificar a disponibilidade de frequente, esporádica e de arquivo por região](https://azure.microsoft.com/regions/#services)
 

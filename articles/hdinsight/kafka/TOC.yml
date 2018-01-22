@@ -45,6 +45,10 @@
           maintainContext: true
     - name: Desenvolver
       items:
+        - name: Usando a API Kafka do Produtor e Consumidor
+          href: apache-kafka-producer-consumer-api.md
+        - name: Usando a API do Kafka Streams
+          href: apache-kafka-streams-api.md
         - name: Usar nós de borda vazios
           href: ../hdinsight-apps-use-edge-node.md
           maintainContext: true

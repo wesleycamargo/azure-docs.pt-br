@@ -4,13 +4,13 @@ description: "Fornece uma visão geral do serviço Migrações para Azure."
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 12/19/2017
+ms.date: 01/08/2018
 ms.author: raynew
-ms.openlocfilehash: e998a085399718340e2e3ce2524244844f4e6a14
-ms.sourcegitcommit: c87e036fe898318487ea8df31b13b328985ce0e1
+ms.openlocfilehash: 0bd3d7a9961e7a095684262ae1031f5a3ac0c3fb
+ms.sourcegitcommit: 9a8b9a24d67ba7b779fa34e67d7f2b45c941785e
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/19/2017
+ms.lasthandoff: 01/08/2018
 ---
 # <a name="about-azure-migrate"></a>Sobre as Migrações para Azure
 
@@ -66,7 +66,7 @@ Uma avaliação ajuda a identificar a adequação do Azure de VMs locais, a obte
 3.  Você se conecta à VM usando a conexão de console no vCenter Server, especifica uma nova senha para a máquina virtual durante a conexão e, em seguida, executa o aplicativo coletor na VM para iniciar a descoberta.
 4.  O coletor coleta metadados da VM usando os cmdlets de VMware PowerCLI. A descoberta não tem agente, e não instala nada em VMs ou hosts VMware. Os metadados coletados incluem informações da VM (núcleos, memória, discos, tamanhos de disco e adaptadores de rede). Também coleta dados de desempenho para VMs, incluindo CPU e uso da memória, IOPS de disco, taxa de transferência do disco (MBps) e saída da rede (MBps).
 5.  Os metadados são enviados para o projeto das Migrações para Azure. Consulte-os no Portal do Azure.
-6.  Para fins de avaliação, junte as VMs descobertas em grupos. Por exemplo, agrupe as VMs que executam o mesmo aplicativo. Você pode agrupar máquinas virtuais no portal de Migrações para Azure ou usar a marcação no vCenter Server. Além disso, você pode usar a visualização de dependência para exibir as dependências de um computador específico ou para todos os computadores em um grupo e refinar o grupo.
+6.  Para fins de avaliação, junte as VMs descobertas em grupos. Por exemplo, agrupe as VMs que executam o mesmo aplicativo. Para um agrupamento mais preciso, você pode usar a visualização de dependência para exibir as dependências de um computador específico ou para todos os computadores em um grupo e refinar o grupo.
 7.  Depois que o grupo for formado, você poderá criar uma avaliação para o grupo. 
 8.  Após a conclusão da avaliação, você poderá exibi-la no portal ou baixá-la no formato do Excel.
 
