@@ -16,7 +16,7 @@ Este guia se baseia no cenário em que um navegador acessa um site ASP.NET, soli
 
 Este guia usa as seguintes bibliotecas:
 
-|Biblioteca|Descrição|
+|Biblioteca|DESCRIÇÃO|
 |---|---|
 |[Microsoft.Owin.Security.OpenIdConnect](https://www.nuget.org/packages/Microsoft.Owin.Security.OpenIdConnect/)|Middleware que permite que um aplicativo use OpenIdConnect para autenticação|
 |[Microsoft.Owin.Security.Cookies](https://www.nuget.org/packages/Microsoft.Owin.Security.Cookies)|Middleware que permite que um aplicativo mantenha a sessão de usuário usando cookies|

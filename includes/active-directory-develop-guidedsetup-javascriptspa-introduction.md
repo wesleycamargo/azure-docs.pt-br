@@ -18,7 +18,7 @@ O aplicativo de exemplo criado por este guia permite que um SPA JavaScript consu
 
 Este guia usa a seguinte biblioteca:
 
-|Biblioteca|Descrição|
+|Biblioteca|DESCRIÇÃO|
 |---|---|
 |[msal.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)|Versão prévia da Biblioteca de Autenticação da Microsoft para JavaScript|
 
