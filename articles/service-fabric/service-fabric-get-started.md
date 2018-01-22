@@ -14,11 +14,11 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/28/2017
 ms.author: ryanwi, mikhegn
-ms.openlocfilehash: 323c1e7bb4703833cfc3047db9e6116eb7237162
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 6cfc9891af9de88dddca717711148cbb53276e84
+ms.sourcegitcommit: 384d2ec82214e8af0fc4891f9f840fb7cf89ef59
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/16/2018
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Preparar seu ambiente de desenvolvimento no Windows
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.lasthandoff: 12/18/2017
 
  Para compilar e executar os [aplicativos do Azure Service Fabric][1] em seu computador de desenvolvimento do Windows, instale o tempo de execução, o SDK e as ferramentas. Você também precisa habilitar a execução dos scripts do Windows PowerShell incluídos no SDK.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 ### <a name="supported-operating-system-versions"></a>Versões de sistema operacional com suporte
 Há suporte de desenvolvimento para as seguintes versões de sistema operacional:
 
@@ -41,9 +41,10 @@ Há suporte de desenvolvimento para as seguintes versões de sistema operacional
 * Windows 10
 
 > [!NOTE]
-> O Windows 7 inclui, por padrão, apenas o Windows PowerShell 2.0. Cmdlets de PowerShell do Service Fabric exigem o PowerShell 3.0 ou superior. É possível [baixar o Windows PowerShell 5.0][powershell5-download] do Centro de Download da Microsoft.
-> 
-> 
+> Suporte do Windows 7:
+> - O Windows 7 inclui, por padrão, apenas o Windows PowerShell 2.0. Cmdlets de PowerShell do Service Fabric exigem o PowerShell 3.0 ou superior. É possível [baixar o Windows PowerShell 5.0][powershell5-download] do Centro de Download da Microsoft.
+> - O Proxy Reverso do Service Fabric não está disponível no Windows 7.
+>
 
 ## <a name="install-the-sdk-and-tools"></a>Instalar o SDK e as ferramentas
 ### <a name="to-use-visual-studio-2017"></a>Para usar o Virtual Studio 2017

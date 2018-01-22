@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/12/2017
+ms.date: 01/17/2018
 ms.author: cherylmc
-ms.openlocfilehash: 00a9e580a324ded8e979c2a3c58d51319091b628
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 150b6fcc80a57c0cded110e19cf81f5a2883e583
+ms.sourcegitcommit: f1c1789f2f2502d683afaf5a2f46cc548c0dea50
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 01/18/2018
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-certificate-authentication-classic-azure-portal"></a>Configurar uma conexão Ponto a Site a uma autenticação de certificado usando VNet (clássico): Portal do Azure
 
@@ -28,7 +28,7 @@ ms.lasthandoff: 12/18/2017
 Este artigo mostra como criar uma rede virtual com uma conexão Ponto a Site no modelo de implantação clássico usando o portal do Azure. Essa configuração usa certificados para autenticar o cliente de conexão. Você também pode criar essa configuração usando uma ferramenta de implantação ou um modelo de implantação diferente, selecionando uma opção diferente na lista a seguir:
 
 > [!div class="op_single_selector"]
-> * [Portal do Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> * [portal do Azure](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
 > * [Portal do Azure (clássico)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 >
@@ -59,7 +59,7 @@ Para saber mais sobre conexões Ponto a site, consulte as [Perguntas frequentes 
 Você pode usar os seguintes valores para criar um ambiente de teste ou fazer referência a esses valores para entender melhor os exemplos neste artigo:
 
 * **Nome: VNet1**
-* **Espaço de endereço: 192.168.0.0/16**<br>Neste exemplo, usamos apenas um espaço de endereço. Você pode ter mais de um espaço de endereço para sua rede virtual.
+* **Espaço de endereço: 192.168.0.0/16**<br>Neste exemplo, usamos apenas um espaço de endereço. Você pode ter mais de um espaço de endereço para a sua rede virtual, conforme mostrado no diagrama.
 * **Nome da sub-rede: FrontEnd**
 * **Intervalo de endereços da sub-rede: 192.168.1.0/24**
 * **Assinatura:** verifique se você tem mais de uma assinatura, verifique se está usando a correta.
@@ -90,7 +90,7 @@ Se você ainda não tiver uma rede virtual, crie uma. Capturas de tela são forn
 
   ![Criar página da rede virtual](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/vnet125.png)
 5. Verifique se a **Assinatura** é a correta. Você pode alterar as assinaturas usando o menu suspenso.
-6. Clique em **Grupo de recursos** e selecione um grupo de recursos existente ou crie um novo digitando um nome para seu novo grupo de recursos. Se estiver criando um novo grupo de recursos, dê o nome do grupo de recursos de acordo com os valores de configuração planejados. Para saber mais sobre grupos de recursos, acesse [Visão geral do Azure Resource Manager](../azure-resource-manager/resource-group-overview.md#resource-groups).
+6. Clique em **Grupo de recursos** e selecione um grupo de recursos existente ou crie um novo digitando um nome para seu novo grupo de recursos. Se estiver criando um novo grupo de recursos, dê o nome do grupo de recursos de acordo com os valores de configuração planejados. Para saber mais sobre grupos de recursos, visite [Visão geral do Gerenciador de Recursos do Azure](../azure-resource-manager/resource-group-overview.md#resource-groups).
 7. Em seguida, selecione as configurações do **Local** para sua VNet. O local determina onde ficarão os recursos que você implanta nessa rede virtual.
 8. Selecione **Fixar no painel** se quiser ser capaz de encontrar sua VNet facilmente no painel, em seguida, clique em **Criar**.
 
@@ -103,7 +103,7 @@ Se você ainda não tiver uma rede virtual, crie uma. Capturas de tela são forn
 
 ### <a name="gateway"></a>Parte 2: criar um gateway de roteamento dinâmico e de sub-rede de gateway
 
-Nesta etapa, você cria uma sub-rede de gateway e um gateway de roteamento Dinâmico. No portal do Azure para o modelo de implantação clássico, a criação da sub-rede de gateway e do gateway pode ser feita com as mesmas páginas de configuração.
+Nesta etapa, você cria uma sub-rede de gateway e um gateway de roteamento Dinâmico. No portal do Azure para o modelo de implantação clássico, a criação da sub-rede de gateway e do gateway pode ser feita com as mesmas páginas de configuração. A sub-rede de gateway é usada somente para os serviços de gateway. Nunca implante algo diretamente na sub-rede do gateway (como VMs ou outros serviços).
 
 1. No portal, navegue até a rede virtual para a qual você deseja criar um gateway.
 2. Na página de sua rede virtual, na página **Visão geral**, na seção de conexões VPN, clique em **Gateway**.
@@ -112,25 +112,22 @@ Nesta etapa, você cria uma sub-rede de gateway e um gateway de roteamento Dinâ
 3. Na página **Nova Conexão VPN**, selecione **Ponto a site**.
 
   ![Tipo de conexão Ponto a Site](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/newvpnconnect.png)
-4. Para **Espaço de Endereço de Cliente**, adicione o intervalo de endereços IP. É o intervalo do qual os clientes VPN recebem um endereço IP ao se conectar. Use um intervalo de endereço IP privado que não coincida com o local que você irá se conectar a partir da, ou com a rede virtual que você deseja se conectar. Você pode excluir o intervalo de preenchimento automático e adicionar o intervalo de endereços IP privado que você deseja usar.
+4. Para **Espaço de Endereço de Cliente**, adicione o intervalo de endereços IP. É o intervalo do qual os clientes VPN recebem um endereço IP ao se conectar. Use um intervalo de endereço IP privado que não coincida com o local que você irá se conectar a partir da, ou com a rede virtual que você deseja se conectar. Você pode excluir o intervalo de preenchimento automático e adicionar o intervalo de endereços IP privado que você deseja usar. Este exemplo mostra o preenchimento automático à distância. Exclua-o para adicionar o valor desejado.
 
   ![Espaço de endereço de cliente](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/clientaddress.png)
-5. Marque a caixa de seleção **Criar gateway imediatamente**.
-
-  ![Criar gateway imediatamente](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/creategwimm.png)
-6. Clique em **Configuração do gateway opcional** para abrir a página **Configuração do gateway**.
+5. Marque a caixa de seleção **Criar gateway imediatamente**. Clique em **Configuração do gateway opcional** para abrir a página **Configuração do gateway**.
 
   ![Clique em configuração de gateway opcional](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/optsubnet125.png)
-7. Clique em **Definir configurações de sub-rede necessárias** para adicionar a **sub-rede de gateway**. Embora seja possível criar uma sub-rede de gateway tão pequena quanto /29, recomendamos que você crie uma sub-rede maior que inclua mais endereços selecionando pelo menos /28 ou /27. Isso permitirá endereços suficientes a fim de acomodar as possíveis configurações adicionais que você possa querer no futuro. Ao trabalhar com sub-redes de gateway, evite a associação de um NSG (grupo de segurança de rede) à sub-rede de gateway. Associar um grupo de segurança de rede a essa sub-rede pode fazer com que seu gateway de VPN para parar de funcionar conforme o esperado.
+6. Clique em **Definir configurações de sub-rede necessárias** para adicionar a **sub-rede de gateway**. Embora seja possível criar uma sub-rede de gateway tão pequena quanto /29, recomendamos que você crie uma sub-rede maior que inclua mais endereços selecionando pelo menos /28 ou /27. Isso permitirá endereços suficientes a fim de acomodar as possíveis configurações adicionais que você possa querer no futuro. Ao trabalhar com sub-redes de gateway, evite a associação de um NSG (grupo de segurança de rede) à sub-rede de gateway. Associar um grupo de segurança de rede a essa sub-rede pode fazer com que seu gateway de VPN para parar de funcionar conforme o esperado.
 
   ![Adicionar GatewaySubnet](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/gwsubnet125.png)
-8. Selecionar o **tamanho** do gateway. O tamanho é o SKU de gateway do gateway de rede virtual. No portal, a SKU padrão é **Básica**. Para obter informações sobre os SKUs de gateway, confira [Sobre configurações de Gateway de VPN](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+7. Selecionar o **tamanho** do gateway. O tamanho é o SKU de gateway do gateway de rede virtual. No portal, a SKU padrão é **Básica**. Para obter informações sobre os SKUs de gateway, confira [Sobre configurações de Gateway de VPN](vpn-gateway-about-vpn-gateway-settings.md#gwsku).
 
   ![Tamanho de gateway](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/gwsize125.png)
-9. Selecione o **Tipo de Roteamento** para seu gateway. Configurações de P2S requerem um tipo de roteamento **Dinâmico**. Clique em **OK** quando terminar de configurar esta página.
+8. Selecione o **Tipo de Roteamento** para seu gateway. Configurações de P2S requerem um tipo de roteamento **Dinâmico**. Clique em **OK** quando terminar de configurar esta página.
 
   ![Configurar o tipo de roteamento](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/routingtype125.png)
-10. Na página **Nova Conexão VPN**, clique em **OK** na parte inferior da página para começar a criar o gateway de rede virtual. Um gateway de VPN pode levar até 45 minutos para ser concluído, dependendo do sku de gateway que você selecionar.
+9. Na página **Nova Conexão VPN**, clique em **OK** na parte inferior da página para começar a criar o gateway de rede virtual. Um gateway de VPN pode levar até 45 minutos para ser concluído, dependendo do sku de gateway que você selecionar.
 
 ## <a name="generatecerts"></a>2. Criar certificados
 
@@ -202,7 +199,7 @@ Se você quiser criar uma conexão P2S de um computador cliente diferente daquel
 
 ### <a name="verifyvpnconnect"></a>Verificar a conexão VPN
 
-1. Para verificar se a conexão VPN está ativa, abra um prompt de comandos com privilégios elevados e execute *ipconfig/all*.
+1. Para verificar se a conexão VPN está ativa, do seu computador cliente, abra um prompt de comandos com privilégios elevados e execute *ipconfig/all*.
 2. Exiba os resultados. Observe que o endereço IP que você recebeu está dentro do intervalo de endereços de conectividade ponto a site que você especificou quando criou a sua VNet. Os resultados devem ser semelhantes a este exemplo:
 
   ```
@@ -261,7 +258,7 @@ Você pode revogar um certificado de cliente adicionando a impressão digital à
 
 ## <a name="faq"></a>Perguntas frequentes sobre Ponto a site
 
-[!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-faq-point-to-site-include.md)]
+[!INCLUDE [Point-to-Site FAQ](../../includes/vpn-gateway-faq-point-to-site-classic-include.md)]
 
 ## <a name="next-steps"></a>Próximas etapas
 Quando sua conexão for concluída, você poderá adicionar máquinas virtuais às suas redes virtuais. Para saber mais, veja [Máquinas virtuais](https://docs.microsoft.com/azure/#pivot=services&panel=Compute). Para saber mais sobre redes e máquinas virtuais, consulte [Visão geral de rede do Azure e VM Linux](../virtual-machines/linux/azure-vm-network-overview.md).

@@ -17,21 +17,24 @@ ms.workload: na
 ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: b64d994dbc8f53418981e33a1dcd3cf513838b92
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b9bb71adf85490fe68bf6b73133017c5e9c377e1
+ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/11/2018
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>Armazenar dados não estruturados usando o Azure Functions e o Azure Cosmos DB
 
 O [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) é uma ótima maneira de armazenar dados não estruturados e JSON. Combinado com o Azure Functions, o Cosmos DB torna o armazenamento de dados rápido e fácil com muito menos código do que o necessário para armazenar dados em um banco de dados relacional.
 
+> [!NOTE]
+> Neste momento, o gatilho, as associações de entrada e as associações de saída do Azure Cosmos DB funcionam apenas com contas da API do Graph e a API do SQL.
+
 No Azure Functions, associações de entrada e saída fornecem uma maneira declarativa para se conectar a dados de serviço externo de sua função. Neste tópico, saiba como atualizar uma função existente em C# a fim de adicionar uma associação de saída que armazena dados não estruturados em um documento do Cosmos DB. 
 
 ![Banco de Dados Cosmos](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-cosmosdb.png)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para concluir este tutorial:
 
@@ -49,7 +52,7 @@ Para concluir este tutorial:
 
     ![Configurar associação de saída do Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-integrate-tab-configure-cosmosdb-binding.png)
 
-    | Configuração      | Valor sugerido  | Descrição                                |
+    | Configuração      | Valor sugerido  | DESCRIÇÃO                                |
     | ------------ | ---------------- | ------------------------------------------ |
     | **Nome do parâmetro do documento** | taskDocument | Nome que se refere ao objeto do Cosmos DB no código. |
     | **Nome do banco de dados** | taskDatabase | Nome do banco de dados para salvar os documentos. |
@@ -62,10 +65,10 @@ Para concluir este tutorial:
 
     ![Configurar a conexão do Cosmos DB](./media/functions-integrate-store-unstructured-data-cosmosdb/functions-create-CosmosDB.png)
 
-    | Configuração      | Valor sugerido  | Descrição                                |
+    | Configuração      | Valor sugerido  | DESCRIÇÃO                                |
     | ------------ | ---------------- | ------------------------------------------ |
     | **ID** | Nome do banco de dados | ID exclusiva para o banco de dados do Azure Cosmos DB  |
-    | **API** | SQL (DocumentDB) | Selecione a API do banco de dados do documento.  |
+    | **API** | SQL | Selecione a API do SQL. Neste momento, o gatilho, as associações de entrada e as associações de saída do Azure Cosmos DB funcionam apenas com contas da API do Graph e a API do SQL. |
     | **Assinatura** | Assinatura do Azure | Assinatura do Azure  |
     | **Grupo de recursos** | myResourceGroup |  Use o grupo de recursos existente que contém seu aplicativo de função. |
     | **Localidade**  | WestEurope | Selecione um local próximo ao seu aplicativo de função ou a outros aplicativos que usam os documentos armazenados.  |
@@ -142,4 +145,4 @@ Você adicionou com êxito uma associação ao gatilho HTTP que armazena dados n
 
 [!INCLUDE [functions-quickstart-next-steps](../../includes/functions-quickstart-next-steps.md)]
 
-Para saber mais sobre a associação a um banco de dados Cosmos DB, veja [Associações do Azure Functions Cosmos DB](functions-bindings-documentdb.md).
+Para saber mais sobre a associação a um banco de dados Cosmos DB, veja [Associações do Azure Functions Cosmos DB](functions-bindings-cosmosdb.md).

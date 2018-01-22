@@ -9,17 +9,17 @@ ms.topic: quickstart
 ms.date: 01/02/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 3d8516c0f3f6cc8185b16f4cdabcc391e31cc605
-ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
+ms.openlocfilehash: 18a342fed7e99e82082764d6f5a3429a3ce794b7
+ms.sourcegitcommit: 176c575aea7602682afd6214880aad0be6167c52
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 01/02/2018
+ms.lasthandoff: 01/09/2018
 ---
 # <a name="create-your-first-container-in-azure-container-instances"></a>Criar o primeiro contêiner nas Instâncias de Contêiner do Azure
 
 As Instâncias de Contêiner do Azure facilitam criar e gerenciar contêineres do Docker no Azure, sem a necessidade de provisionar máquinas virtuais ou adotar um serviço de nível superior.
 
-Neste guia de início rápido, você cria um contêiner do Windows no Azure e o expõe à Internet com um endereço IP público. Essa operação é concluída com um único comando. Em alguns minutos, você pode ver o aplicativo em execução seu navegador:
+Neste guia de início rápido, você cria um contêiner do Windows no Azure e o expõe à Internet com um endereço IP público. Essa operação é concluída com um único comando. Em apenas alguns minutos, você consegue ver o aplicativo em execução no seu navegador:
 
 ![Os aplicativos implantados usando Instâncias de Contêiner do Azure são exibidos no navegador][qs-powershell-01]
 
@@ -29,7 +29,7 @@ Se você não tiver uma assinatura do Azure, crie uma [conta gratuita](https://a
 
 Se você optar por instalar e usar o PowerShell localmente, este tutorial exigirá o módulo do Azure PowerShell versão 3.6 ou posterior. Execute `Get-Module -ListAvailable AzureRM` para encontrar a versão. Se você precisa atualizar, consulte [Instalar o módulo do Azure PowerShell](/powershell/azure/install-azurerm-ps). Se você estiver executando o PowerShell localmente, também precisará executar o `Login-AzureRmAccount` para criar uma conexão com o Azure.
 
-## <a name="create-resource-group"></a>Criar grupo de recursos
+## <a name="create-a-resource-group"></a>Criar um grupo de recursos
 
 Crie um grupo de recursos do Azure com [New-AzureRmResourceGroup][New-AzureRmResourceGroup]. Um grupo de recursos é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados.
 
@@ -39,7 +39,7 @@ New-AzureRmResourceGroup -Name myResourceGroup -Location EastUS
 
 ## <a name="create-a-container"></a>Criar um contêiner
 
-Você pode criar um contêiner fornecendo um nome, uma imagem do Docker e um grupo de recursos do Azure para o cmdlet [New-AzureRmContainerGroup][New-AzureRmContainerGroup]. Opcionalmente, você pode expor o contêiner à Internet com um endereço IP público. Nesse caso, usaremos um contêiner do Windows Nano Server executando IIS (Serviços de Informações da Internet).
+Você pode criar um contêiner fornecendo um nome, uma imagem do Docker e um grupo de recursos do Azure para o cmdlet [New-AzureRmContainerGroup][New-AzureRmContainerGroup]. Opcionalmente, você pode expor o contêiner à Internet com um endereço IP público. Nesse caso, usaremos um contêiner do Nano Server executando Serviços de Informações da Internet (IIS).
 
  ```azurepowershell-interactive
 New-AzureRmContainerGroup -ResourceGroupName myResourceGroup -Name mycontainer -Image microsoft/iis:nanoserver -OsType Windows -IpAddressType Public

@@ -15,19 +15,19 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 08/02/2017
+ms.date: 01/10/2018
 ms.author: ayolubek
-ms.openlocfilehash: 7f85d569fee4e13c28a09347159f16fc4b4ae626
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: 131a1f77fa9c8d8e7b9ac5b01dee655b1aa1c3df
+ms.sourcegitcommit: 562a537ed9b96c9116c504738414e5d8c0fd53b1
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 01/12/2018
 ---
 # <a name="azure-portal-use-the-sql-query-editor-to-connect-and-query-data"></a>Portal do Azure: usar o Editor de consultas SQL para se conectar e consultar dados
 
-O Editor de consultas SQL é uma ferramenta de consulta no navegador que fornece uma maneira eficiente e leve para executar consultas SQL em seu Banco de dados SQL do Azure ou SQL Data Warehouse do Azure sem sair do portal do Azure. Este guia rápido demonstra como usar o Editor de consultas para se conectar a um banco de dados SQL e depois usar instruções do Transact-SQL para consultar, inserir, atualizar e excluir dados no banco de dados. 
+O Editor de consultas SQL é uma ferramenta de consulta no navegador que fornece uma maneira eficiente e leve para executar consultas SQL em seu Banco de dados SQL do Azure ou SQL Data Warehouse do Azure sem sair do portal do Azure. Este guia rápido demonstra como usar o Editor de consultas para se conectar a um banco de dados SQL e depois usar instruções do Transact-SQL para consultar, inserir, atualizar e excluir dados no banco de dados.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Este início rápido usa como ponto de partida os recursos criados em um destes inícios rápidos:
 
@@ -44,17 +44,15 @@ Faça logon no [Portal do Azure](https://portal.azure.com/).
 
 1. Clique em **bancos de dados SQL** no menu esquerdo e clique no banco de dados que deseja consultar.
 
-2. Na página do banco de dados SQL do seu banco de dados, clique em **Ferramentas** na barra de ferramentas. A página Ferramentas é aberta.
+2. Na página do banco de dados SQL para o seu banco de dados, localize e clique em **Data Explorer (versão prévia)** no menu à esquerda.
 
-    ![menu ferramentas](./media/sql-database-connect-query-portal/tools-menu.png)
+    ![localizar editor de consultas](./media/sql-database-connect-query-portal/find-query-editor.PNG)
 
-3. Clique em **Editor de consultas (visualização)**, clique na caixa de seleção **Visualizar termos** e clique em **OK**. A página do Editor de consulta é aberta.
+3. Clique em **Login** e, quando receber solicitação, selecione **Autenticação do SQL Server** e forneça o logon de administrador do servidor e a senha fornecida ao criar o banco de dados.
 
-4. Clique em **Login** e, quando receber solicitação, selecione **Autenticação do SQL Server** e forneça o logon de administrador do servidor e a senha fornecida ao criar o banco de dados.
+    ![logon](./media/sql-database-connect-query-portal/login-menu.png)
 
-    ![logon](./media/sql-database-connect-query-portal/login-menu.png) 
-
-5. Clique em **OK para fazer logon**.
+4. Clique em **OK para fazer logon**.
 
 
 ## <a name="connect-using-azure-ad"></a>Conecte-se usando o Azure Active Directory
@@ -70,11 +68,11 @@ Configurar um administrador do Active Directory permite que você use uma única
 
 3. Na folha do Administrador do Active Directory, clique no comando **Definir administrador** e selecione o usuário ou grupo que será o administrador do Active Directory.
 
-    ![selecionar active directory](./media/sql-database-connect-query-portal/select-active-directory.png) 
+    ![selecionar active directory](./media/sql-database-connect-query-portal/select-active-directory.png)
 
 4. Na parte superior da folha do Administrador do Active Directory, clique no comando **Salvar** para definir o administrador do Active Directory.
 
-Navegue até o banco de dados do SQL que deseja consultar, clique no **comando Ferramentas** na barra de ferramentas e selecione a opção **Editor de consultas (versão prévia)**. A página do Editor de consultas se abre e conecta você automaticamente ao banco de dados.
+Navegue até o banco de dados SQL o qual deseja consultar e clique em **Data Explorer (versão prévia)** no menu à esquerda. A página do Data Explorer é aberta e o conecta automaticamente ao banco de dados.
 
 
 ## <a name="run-query-using-query-editor"></a>Execute a consulta usando o Editor de consultas
@@ -154,13 +152,13 @@ Há algumas coisas que se deve saber ao trabalhar com o Editor de consultas enqu
 
 1. Verifique se a opção "Permitir acesso aos serviços do Azure" nas configurações do firewall do Azure SQL Server foi definida como "Ativada". Essa opção dá ao Editor de consultas SQL o acesso aos seus bancos de dados e data warehouses SQL.
 
-2. O logon no Administrador do Azure Active Directory não funciona com contas que têm a autenticação de dois fatores habilitada. 
+2. O logon no Administrador do Azure Active Directory não funciona com contas que têm a autenticação de dois fatores habilitada.
 
 3. Contas de email (por exemplo, outlook.com, hotmail.com, live.com, gmail.com, yahoo.com) ainda não contam com suporte como administradoras de Active Directory. Verifique se escolheu um usuário que foi originalmente criado ou federado no Azure Active Directory
 
 4. Consultas de tipos de dados espaciais ainda não têm suporte no Editor de consultas. Consultar colunas espaciais resultará em um erro de 'System.IO.FileNotFoundException'.
 
-5. Não há suporte para IntelliSense para tabelas e exibições de banco de dados. No entanto, o editor oferece suporte de preenchimento automático nos nomes que já foram digitados. 
+5. Não há suporte para IntelliSense para tabelas e exibições de banco de dados. No entanto, o editor oferece suporte de preenchimento automático nos nomes que já foram digitados.
 
 6. Pressionar a tecla F5 atualiza a página do Editor de consultas e faz perder a consulta que está sendo trabalhada. Use o botão Executar na barra de ferramentas para executar consultas.
 
