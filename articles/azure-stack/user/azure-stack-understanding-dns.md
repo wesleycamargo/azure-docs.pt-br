@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 9/25/2017
 ms.author: scottnap
-ms.openlocfilehash: 8c023eda179ace41a082bf4a4fadc281c14db7ba
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 381947a5c936b2bbcae1cf61cdd36eb1653be30b
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="introducing-idns-for-azure-stack"></a>Introdução ao iDNS pilha do Azure
 
@@ -30,7 +30,7 @@ Ele também permite que você registre nomes de rede virtual interna. Fazendo is
 Isso é algo que sempre tenha sido existe no Azure, mas está disponível no Windows Server 2016 e do Azure pilha muito.
 
 ## <a name="what-does-idns-do"></a>O que faz iDNS?
-Com iDNS na pilha do Azure, você tem os seguintes recursos, sem precisar especificar entradas personalizadas de servidor DNS.
+Com iDNS na pilha do Azure, você tem os seguintes recursos, sem precisar especificar entradas personalizadas de servidor DNS:
 
 * Compartilhado serviços de resolução de nome DNS para cargas de trabalho de locatário.
 * Serviço DNS autoritativo para a resolução de nome e o registro DNS na rede virtual do locatário.
@@ -47,7 +47,7 @@ No Azure, você tem a opção de especificar um rótulo de nome DNS que pode ser
 
 Na imagem acima, o Azure criará um registro "A" no DNS para o rótulo de nome DNS especificado na zona **westus.cloudapp.azure.com**. O prefixo e o sufixo junto compõem um totalmente qualificado domínio FQDN (nome) que pode ser resolvido a partir de qualquer lugar na Internet pública.
 
-A pilha do Azure somente dá suporte a iDNS para o registro de nome interno para que ele não pode fazer o seguinte.
+A pilha do Azure somente dá suporte a iDNS para o registro de nome interno para que ele não pode fazer o seguinte:
 
 * Crie um registro DNS em uma zona DNS hospedado (por exemplo, local.azurestack.external) existente.
 * Crie uma zona DNS (por exemplo, Contoso.com).

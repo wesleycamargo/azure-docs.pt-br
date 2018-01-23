@@ -33,9 +33,9 @@
           href: logic-apps-create-logic-apps-from-templates.md
         - name: Criar modelos personalizados
           href: logic-apps-create-deploy-azure-resource-manager-templates.md
-        - name: Criar um aplicativo lógico - VS
+        - name: Criar um aplicativo lógico - Visual Studio
           href: logic-apps-deploy-from-vs.md
-        - name: Criar um aplicativo sem servidor - VS
+        - name: Criar um aplicativo sem servidor - Visual Studio
           href: logic-apps-serverless-get-started-vs.md
         - name: Migrar dos Serviços BizTalk
           href: logic-apps-move-from-mabs.md
@@ -91,80 +91,6 @@
               href: logic-apps-custom-api-host-deploy-call.md
         - name: Solucionar problemas de erros
           href: logic-apps-diagnosing-failures.md
-    - name: Gerenciar
-      items:
-        - name: Gerenciar aplicativos lógicos - VS
-          href: logic-apps-manage-from-vs.md
-        - name: Gerenciar contas de integração
-          href: logic-apps-enterprise-integration-accounts.md
-    - name: 'Conectores: tópicos detalhados'
-      items:
-        - name: AS2
-          href: logic-apps-enterprise-integration-as2.md
-        - name: Armazenamento do Blobs do Azure
-          href: ../connectors/connectors-create-api-azureblobstorage.md
-        - name: Funções do Azure
-          href: logic-apps-azure-functions.md
-        - name: Aplicativo Lógico do Azure
-          href: logic-apps-http-endpoint.md
-        - name: Banco de Dados SQL do Azure
-          href: ../connectors/connectors-create-api-sqlazure.md
-        - name: APIs personalizadas/aplicativos Web
-          href: logic-apps-create-api-app.md
-        - name: DB2
-          href: ../connectors/connectors-create-api-db2.md
-        - name: Dynamics 365 CRM Online
-          href: ../connectors/connectors-create-api-crmonline.md
-        - name: EDIFACT
-          href: logic-apps-enterprise-integration-edifact.md
-        - name: Hubs de evento
-          href: ../connectors/connectors-create-api-azure-event-hubs.md
-        - name: Sistema de Arquivos
-          href: logic-apps-using-file-connector.md
-        - name: Arquivo simples
-          href: logic-apps-enterprise-integration-flatfile.md
-        - name: FTP
-          href: ../connectors/connectors-create-api-ftp.md
-        - name: HTTP
-          href: ../connectors/connectors-native-http.md
-        - name: HTTP + Swagger
-          href: ../connectors/connectors-native-http-swagger.md
-        - name: Webhook HTTP
-          href: ../connectors/connectors-native-webhook.md
-        - name: Informix
-          href: ../connectors/connectors-create-api-informix.md
-        - name: Conta de integração
-          href: logic-apps-enterprise-integration-metadata.md
-        - name: MQ
-          href: ../connectors/connectors-create-api-mq.md
-        - name: Outlook do Office 365
-          href: ../connectors/connectors-create-api-office365-outlook.md
-        - name: Banco de dados Oracle
-          href: ../connectors/connectors-create-api-oracledatabase.md
-        - name: Solicitação/Resposta
-          href: ../connectors/connectors-native-reqres.md
-        - name: Salesforce
-          href: ../connectors/connectors-create-api-salesforce.md
-        - name: SAP
-          href: logic-apps-using-sap-connector.md
-        - name: Agenda
-          href: ../connectors/connectors-native-recurrence.md
-        - name: Barramento de Serviço
-          href: ../connectors/connectors-create-api-servicebus.md
-        - name: SharePoint Online
-          href: ../connectors/connectors-create-api-sharepointonline.md
-        - name: SharePoint Server
-          href: ../connectors/connectors-create-api-sharepointserver.md
-        - name: SQL Server
-          href: ../connectors/connectors-create-api-sqlazure.md
-        - name: Transformar XML
-          href: logic-apps-enterprise-integration-transform.md
-        - name: Twitter
-          href: ../connectors/connectors-create-api-twitter.md
-        - name: X12
-          href: logic-apps-enterprise-integration-x12.md
-        - name: Validação do XML
-          href: logic-apps-enterprise-integration-xml-validation.md
     - name: Desenvolver para cenários B2B
       items:
         - name: Criar uma conta de integração
@@ -226,6 +152,80 @@
           href: logic-apps-gateway-install.md
         - name: Conectar-se a dados locais
           href: logic-apps-gateway-connection.md
+    - name: 'Conectores: tópicos detalhados'
+      items:
+        - name: AS2
+          href: logic-apps-enterprise-integration-as2.md
+        - name: Armazenamento do Blobs do Azure
+          href: ../connectors/connectors-create-api-azureblobstorage.md
+        - name: Funções do Azure
+          href: logic-apps-azure-functions.md
+        - name: Aplicativo Lógico do Azure
+          href: logic-apps-http-endpoint.md
+        - name: Banco de Dados SQL do Azure
+          href: ../connectors/connectors-create-api-sqlazure.md
+        - name: APIs personalizadas e aplicativos Web
+          href: logic-apps-create-api-app.md
+        - name: DB2
+          href: ../connectors/connectors-create-api-db2.md
+        - name: Dynamics 365 CRM Online
+          href: ../connectors/connectors-create-api-crmonline.md
+        - name: EDIFACT
+          href: logic-apps-enterprise-integration-edifact.md
+        - name: Hubs de evento
+          href: ../connectors/connectors-create-api-azure-event-hubs.md
+        - name: Sistema de Arquivos
+          href: logic-apps-using-file-connector.md
+        - name: Arquivo simples
+          href: logic-apps-enterprise-integration-flatfile.md
+        - name: FTP
+          href: ../connectors/connectors-create-api-ftp.md
+        - name: HTTP
+          href: ../connectors/connectors-native-http.md
+        - name: HTTP + Swagger
+          href: ../connectors/connectors-native-http-swagger.md
+        - name: Webhook HTTP
+          href: ../connectors/connectors-native-webhook.md
+        - name: Informix
+          href: ../connectors/connectors-create-api-informix.md
+        - name: Conta de integração
+          href: logic-apps-enterprise-integration-metadata.md
+        - name: MQ
+          href: ../connectors/connectors-create-api-mq.md
+        - name: Outlook do Office 365
+          href: ../connectors/connectors-create-api-office365-outlook.md
+        - name: Banco de dados Oracle
+          href: ../connectors/connectors-create-api-oracledatabase.md
+        - name: Solicitação/Resposta
+          href: ../connectors/connectors-native-reqres.md
+        - name: Salesforce
+          href: ../connectors/connectors-create-api-salesforce.md
+        - name: SAP
+          href: logic-apps-using-sap-connector.md
+        - name: Agenda
+          href: ../connectors/connectors-native-recurrence.md
+        - name: Barramento de Serviço do Azure
+          href: ../connectors/connectors-create-api-servicebus.md
+        - name: SharePoint Online
+          href: ../connectors/connectors-create-api-sharepointonline.md
+        - name: SharePoint Server
+          href: ../connectors/connectors-create-api-sharepointserver.md
+        - name: SQL Server
+          href: ../connectors/connectors-create-api-sqlazure.md
+        - name: Transformar XML
+          href: logic-apps-enterprise-integration-transform.md
+        - name: Twitter
+          href: ../connectors/connectors-create-api-twitter.md
+        - name: X12
+          href: logic-apps-enterprise-integration-x12.md
+        - name: Validação do XML
+          href: logic-apps-enterprise-integration-xml-validation.md
+    - name: Gerenciar
+      items:
+        - name: Gerenciar aplicativos lógicos - VS
+          href: logic-apps-manage-from-vs.md
+        - name: Gerenciar contas de integração
+          href: logic-apps-enterprise-integration-accounts.md
     - name: Implantar
       items:
         - name: Criar modelos de implantação automatizados
@@ -256,7 +256,7 @@
           href: logic-apps-enterprise-integration-b2b.md
 - name: Referência
   items:
-    - name: 'Conectores: detalhes completos'
+    - name: Conectores - Detalhes completos
       href: 'https://docs.microsoft.com/connectors/'
     - name: Limites e configurações
       href: logic-apps-limits-and-config.md
@@ -269,7 +269,7 @@
     - name: Esquema da Linguagem de Definição do Fluxo de Trabalho
       href: logic-apps-workflow-definition-language.md
       items:
-        - name: GA - histórico do esquema
+        - name: GA - Histórico do esquema
           href: logic-apps-schema-2016-04-01.md
     - name: Gatilhos e ações do fluxo de trabalho
       href: logic-apps-workflow-actions-triggers.md
