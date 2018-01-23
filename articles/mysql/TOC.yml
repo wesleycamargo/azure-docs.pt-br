@@ -109,7 +109,7 @@
           href: concepts-migrate-dump-restore.md
         - name: Importação e exportação
           href: concepts-migrate-import-export.md
-        - name: Migração com tempo de inatividade mínimo
+        - name: Migração com inatividade mínima
           href: howto-migrate-online.md
     - name: Conectar aplicativos
       items:

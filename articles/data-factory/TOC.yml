@@ -9,7 +9,7 @@
 - name: Guia de início rápido
   expanded: true
   items:
-    - name: Criar fábrica de dados - Interface do Usuário (IU)
+    - name: Criar data factory - Interface do Usuário (IU)
       href: quickstart-create-data-factory-portal.md
     - name: Criar fábrica de dados - Ferramenta Copiar Dados
       href: quickstart-create-data-factory-copy-data-tool.md
@@ -27,7 +27,7 @@
   items:
     - name: 1 – Implantar pacotes do SSIS para o Azure
       items:
-        - name: Interface do Usuário (IU)
+        - name: Interface do usuário (IU)
           href: tutorial-create-azure-ssis-runtime-portal.md
         - name: Azure PowerShell
           href: tutorial-deploy-ssis-packages-azure.md
@@ -35,7 +35,7 @@
       items:
         - name: Ferramenta Copiar Dados
           href: tutorial-copy-data-tool.md
-        - name: Interface do Usuário (IU)
+        - name: Interface do usuário (IU)
           href: tutorial-copy-data-portal.md
         - name: Azure PowerShell
           href: tutorial-copy-data-dot-net.md
@@ -43,13 +43,13 @@
       items:
         - name: Ferramenta Copiar Dados
           href: tutorial-hybrid-copy-data-tool.md
-        - name: Interface do Usuário (IU)
+        - name: Interface do usuário (IU)
           href: tutorial-hybrid-copy-portal.md
         - name: Azure PowerShell
           href: tutorial-hybrid-copy-powershell.md
     - name: 4 – Copiar dados em massa
       items:
-        - name: Interface do Usuário (IU)
+        - name: Interface do usuário (IU)
           href: tutorial-bulk-copy-portal.md
         - name: Azure PowerShell
           href: tutorial-bulk-copy.md
@@ -58,35 +58,37 @@
       items:
         - name: 5.1 - Cópia de uma tabela
           items:
-            - name: Interface do Usuário (IU)
+            - name: Interface do usuário (IU)
               href: tutorial-incremental-copy-portal.md
             - name: Azure PowerShell
               href: tutorial-incremental-copy-powershell.md
         - name: 5.2 - Cópia de várias tabelas
           items:
+            - name: Interface do usuário (IU)
+              href: tutorial-incremental-copy-multiple-tables-portal.md
             - name: Azure PowerShell
               href: tutorial-incremental-copy-multiple-tables-powershell.md
         - name: 5.3 - Usar o recurso de rastreamento de alterações
           items:
-            - name: Interface do Usuário (IU)
+            - name: Interface do usuário (IU)
               href: tutorial-incremental-copy-change-tracking-feature-portal.md
             - name: Azure PowerShell
               href: tutorial-incremental-copy-change-tracking-feature-powershell.md
     - name: 6 – Transformar dados na nuvem usando o Spark
       items:
-        - name: Interface do Usuário (IU)
+        - name: Interface do usuário (IU)
           href: tutorial-transform-data-spark-portal.md
         - name: Azure PowerShell
           href: tutorial-transform-data-spark-powershell.md
     - name: 7 – Transformar dados na rede virtual
       items:
-        - name: Interface do Usuário (IU)
+        - name: Interface do usuário (IU)
           href: tutorial-transform-data-hive-virtual-network-portal.md
         - name: Azure PowerShell
           href: tutorial-transform-data-hive-virtual-network.md
     - name: 8 – Controlar o fluxo
       items:
-        - name: Interface do Usuário (IU)
+        - name: Interface do usuário (IU)
           href: tutorial-control-flow-portal.md
         - name: Azure PowerShell
           href: tutorial-control-flow.md
