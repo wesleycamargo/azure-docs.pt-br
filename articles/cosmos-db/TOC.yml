@@ -341,7 +341,7 @@
         - name: Gerenciar chaves e consistência
           href: manage-account.md
         - name: Gerenciador de Armazenamento do Azure
-          href: tutorial-documentdb-and-mongodb-in-storage-explorer.md
+          href: storage-explorer.md
         - name: Segurança
           items:
             - name: Criptografia em repouso
