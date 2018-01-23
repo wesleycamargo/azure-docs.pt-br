@@ -12,94 +12,149 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/15/2017
+ms.date: 12/11/2017
 ms.author: eamono
-ms.openlocfilehash: 0ddd31f7ce2217c1136eccd391bb30bd4461c3e5
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 294faa48f9840919b087594835706bad8048d45b
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/22/2017
+ms.lasthandoff: 12/22/2017
 ---
-# <a name="azure-automation-watcher-tasks-enable-you-to-respond-to-events-happening-in-your-local-datacenter"></a>As tarefas de observador de Automação do Azure permitem responder a eventos que ocorrem no seu datacenter local
+# <a name="create-an-azure-automation-watcher-tasks-to-track-file-changes-on-a-local-machine"></a>Criar tarefas de observador de Automação do Azure para controlar alterações de arquivo em um computador local
 
-Neste tutorial, saiba como criar uma tarefa de observador para:
+A Automação do Azure usa tarefas de observador para cuidar de eventos e disparar ações. Este tutorial orienta na criação de uma tarefa de observador para monitorar quando um novo arquivo é adicionado a um diretório.
+
+Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
-> * Criar um runbook de observador que procura novos arquivos em um diretório.
-> * Criar uma variável de automação para manter a última vez em que um arquivo foi processado pelo observador.
-> * Criar um runbook de ação que é chamado quando o runbook de observador encontra um novo arquivo.
-> * Criar uma tarefa de observador que escolhe o runbook de observador e de ação.
-> * Disparar um observador adicionando um novo arquivo a um diretório.
-> * Inspecionar a saída do runbook de ação que mostra informações sobre o novo arquivo.  
+> * Importar um runbook observador
+> * Criar uma variável da Automação
+> * Criar um runbook de ação
+> * Criar uma tarefa de observador
+> * Disparar um observador
+> * Inspecionar a saída
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
-Para concluir este tutorial, os itens a seguir são necessários.
-+ Assinatura do Azure. Se você ainda não tiver uma, poderá [ativar os benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se em uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-+ [Conta de automação](automation-offering-get-started.md) para manter os runbooks de observador e de ação e a tarefa do observador.
-+ Um [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md) no qual a tarefa do observador é executada.
+Para concluir este tutorial, os itens a seguir são necessários:
 
-## <a name="create-a-watcher-runbook-that-looks-for-new-files"></a>Criar um runbook de observador que procura novos arquivos
-1.  Abra a conta de automação e clique na página Runbooks.
-2.  Clique no botão "Procurar na galeria".
-![Lista de runbooks da interface do usuário](media/automation-watchers-tutorial/WatcherTasksRunbookList.png)
-3.  Procure "Watch-NewFile" e importe o runbook para a conta de automação.
-![Publicar runbook por meio da interface do usuário](media/automation-watchers-tutorial/Watch-NewFileRunbook.png)
-4.  Clique em "Editar" para exibir a origem do Runbook e clique no botão "Publicar".
+* Assinatura do Azure. Se você ainda não tiver uma, poderá [ativar os benefícios de assinante do MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) ou inscrever-se em uma [conta gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+* [Conta de automação](automation-offering-get-started.md) para manter os runbooks de observador e de ação e a tarefa do observador.
+* Um [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md) no qual a tarefa do observador é executada.
 
-## <a name="create-an-automation-variable-to-keep-the-last-time-a-file-was-processed-by-the-watcher"></a>Criar uma variável de automação para manter a última vez em que um arquivo foi processado pelo observador
-1.  Abra a página de variáveis em RECURSOS COMPARTILHADOS e clique em "Adicionar variável" ![Listar variáveis da interface do usuário](media/automation-watchers-tutorial/WatcherVariableList.png)
-2.  Digite "Watch-NewFileTimestamp" para o nome
-3.  Selecione o tipo como DateTime e, em seguida, clique no botão "Criar".
-![Criar variável de marca-d'água por meio da interface do usuário](media/automation-watchers-tutorial/WatcherWatermarkVariable.png)
+## <a name="import-a-watcher-runbook"></a>Importar um runbook observador
 
-## <a name="create-an-action-runbook-that-is-called-when-the-watcher-runbook-finds-a-new-file"></a>Criar um runbook de ação que é chamado quando o runbook de observador encontra um novo arquivo
-1.  Clique na página Runbooks sob a categoria "AUTOMAÇÃO DE PROCESSO".
-2.  Clique no botão "Procurar na galeria".
-3.  Procure "Process-NewFile" e importe o runbook para a conta de automação.
-4.  Clique em "Editar" para exibir a origem do Runbook e clique no botão "Publicar".
-![Observador do processo da interface do usuário](media/automation-watchers-tutorial/Watch-ProcessNewFile.png)
+Este tutorial usa um runbook observador chamado **Watch-NewFile** para procurar novos arquivos em um diretório. O runbook observador recupera a última hora de gravação conhecido dos arquivos de uma pasta e examina todos os arquivos que sejam mais recentes do que essa marca-d'água. Nesta etapa, você importará esse runbook na sua conta de automação.
+
+1. Abra a sua conta da Automação e clique na página **Runbooks**.
+1. Clique no botão **Procurar na galeria**.
+1. Pesquise "Runbook observador", selecione **Runbook observador que procura novos arquivos em um diretório** e selecione **Importar**.
+  ![Importar o runbook de automação por meio da interface do usuário](media/automation-watchers-tutorial/importsourcewatcher.png)
+1. Dê um nome e uma descrição ao runbook e selecione **OK** para importar o runbook na sua conta da Automação.
+1. Selecione **Editar** e, em seguida, clique em **Publicar**. Quando solicitado, selecione **Sim** para publicar o runbook.
+
+## <a name="create-an-automation-variable"></a>Criar uma variável da Automação
+
+Uma [variável de automação](automation-variables.md) é usada para armazenar os carimbos de data/hora que o runbook anterior lê e armazena de cada arquivo. 
+
+1. Selecione **Variáveis** em **RECURSOS COMPARTILHADOS** e selecione **+ Adicionar uma variável**.
+1. Digite "Watch-NewFileTimestamp" para o nome
+1. Selecione a DateTime para o Tipo.
+1. Clique no botão **Criar**. Isso cria a variável de automação.
+
+## <a name="create-an-action-runbook"></a>Criar um runbook de ação
+
+Um runbook de ação é usado em uma tarefa de observador para realizar ação nos dados passados para ela, provenientes de um runbook observador. Nesta etapa, você atualiza a importação de um runbook de ação predefinido chamado "Process-NewFile".
+
+1. Navegue até a sua conta de automação e selecione **Runbooks** na categoria **AUTOMAÇÃO DE PROCESSO**.
+1. Clique no botão **Procurar na galeria**.
+1. Pesquise "Ação de observador" e selecione **Ação de observador que processa eventos disparados por um runbook observador** e selecione **Importar**.
+  ![Importar runbook de ação por meio da interface do usuário](media/automation-watchers-tutorial/importsourceaction.png)
+1. Dê um nome e uma descrição ao runbook e selecione **OK** para importar o runbook na sua conta da Automação.
+1. Selecione **Editar** e, em seguida, clique em **Publicar**. Quando solicitado, selecione **Sim** para publicar o runbook.
+
+## <a name="create-a-watcher-task"></a>Criar uma tarefa de observador
+
+A tarefa de observador de contém duas partes. O observador e a ação. O observador é executado em um intervalo definido na tarefa de observador. Os dados do runbook observador são passados para o runbook de ação. Nesta etapa, você configura a tarefa de observador, referenciando os runbooks de ação e observador definidos nas etapas anteriores.
+
+1. Navegue até a sua conta de automação e selecione **Tarefas de observador** na categoria **AUTOMAÇÃO DE PROCESSO**.
+1. Selecione a página Tarefas do observador e clique no botão **+ Adicionar uma tarefa de observador**.
+1. Digite "WatchMyFolder" como nome.
+
+1. Selecione **Configurar observador** e selecione o runbook **Watch-NewFile**.
+
+1. Insira os seguintes valores para os parâmetros:
+
+   * **FOLDERPATH** – uma pasta no Hybrid Worker em que os novos arquivos são criados. d:\examplefiles
+   * **EXTENSION** – deixe em branco para processar todas as extensões de arquivo.
+   * **RECURSE** – deixe este valor como o padrão.
+   * **RUN SETTINGS** – escolha o Hybrid Worker.
+
+1. Clique em OK e selecione Voltar à página do observador.
+1. Selecione **Configurar ação** e o runbook "Process-NewFile".
+1. Digite os seguintes valores para os parâmetros:
+
+   *    **EVENTDATA** – deixe em branco. Os dados são passados do runbook de observador.  
+   *    **Run Settings** – deixe como Azure, pois este runbook é executado no serviço da Automação.
+
+1. Clique em **OK** e, sem seguida, em Selecionar para voltar à página do observador.
+1. Clique em **OK** para criar a tarefa de observador.
+
+![Configurar ação do observador por meio da interface do usuário](media/automation-watchers-tutorial/watchertaskcreation.png)
+
+## <a name="trigger-a-watcher"></a>Disparar um observador
+
+Para testar se o observador está funcionando conforme o esperado, você precisa criar um arquivo de teste.
+
+Deixe remoto para o Hybrid Worker. Abra o **PowerShell** e crie um arquivo de teste na pasta.
+  
+   ```PowerShell-interactive
+   New-Item -Name ExampleFile1.txt
+   ```
+
+O exemplo a seguir mostra a saída esperada.
+
+```
+    Directory: D:\examplefiles
 
 
-## <a name="create-a-watcher-task-that-selects-the-watcher-runbook-and-action-runbook"></a>Criar uma tarefa de observador que escolhe o runbook de observador e de ação
-1.  Abra a página Tarefas do observador e clique no botão "Adicionar uma tarefa de observador".
-![Lista do observador da interface do usuário](media/automation-watchers-tutorial/WatchersList.png)
-2.  Digite "WatchMyFolder" como nome.
-3.  Selecione "Configurar observador" e selecione o runbook "Watch-NewFile".
-![Configurar observador por meio da interface do usuário](media/automation-watchers-tutorial/ConfigureWatcher.png)
-4.  Digite os seguintes valores para os parâmetros:
-    *   FOLDERPATH. Uma pasta no Hybrid Worker em que os novos arquivos são criados
-    *   EXTENSION. Deixe em branco para processar todas as extensões de arquivo.
-    *   RECURSE. Deixar o padrão.
-    *   RUN SETTINGS. Escolha o Hybrid Worker.
-5.  Clique em OK e selecione Voltar à página do observador.
-6.  Selecione "Configurar ação" e o runbook "Process-NewFile".
-![Configurar ação do observador por meio da interface do usuário](media/automation-watchers-tutorial/ConfigureAction.png)
-7.  Digite os seguintes valores para os parâmetros:
-    *   EVENTDATA. Deixe em branco. Os dados são passados do runbook de observador.
-    *   Run Settings. Deixe como Azure, pois este runbook é executado no serviço de automação.
-8.  Clique em OK e selecione Voltar à página do observador.
-9.  Clique em OK para criar a tarefa do observador.
+Mode                LastWriteTime         Length Name
+----                -------------         ------ ----
+-a----       12/11/2017   9:05 PM              0 ExampleFile1.txt
+```
 
-## <a name="trigger-a-watcher-by-adding-a-new-file-to-a-directory"></a>Disparar um observador adicionando um novo arquivo a um diretório
-1.  Deixe remoto para o Hybrid Worker
-2.  Adicione um novo arquivo de texto à pasta que está sendo monitorada pela tarefa de observador.
+## <a name="inspect-the-output"></a>Inspecionar a saída
 
-## <a name="inspect-the-output-from-the-action-runbook-that-shows-information-on-the-new-file"></a>Inspecionar a saída do runbook de ação que mostra informações sobre o novo arquivo
-1.  Clique na tarefa de inspetor para "WatchMyFolder"
-2.  Clique em "Exibir fluxos de dados do observador" para ver que o observador encontrou o novo arquivo e iniciou o runbook de ação.
-3.  Clique em "Exibir trabalhos de ação do observador" para ver o trabalho de runbook de ação.
-![Trabalhos de ação do observador por meio da interface do usuário](media/automation-watchers-tutorial/WatcherActionJobs.png)
+1. Navegue até a sua conta de automação e selecione **Tarefas de observador** na categoria **AUTOMAÇÃO DE PROCESSO**.
+1. Selecione a tarefa de observador "WatchMyFolder".
+1. Clique em **Exibir fluxos do observador** em **Fluxos** para ver que o observador encontrou o novo arquivo e iniciou o runbook de ação.
+1. Para ver os trabalhos do runbook de ação, clique em **Exibir trabalhos de ação do observador**. Cada trabalho pode ser selecionado para exibir os respectivos detalhes.
 
+   ![Trabalhos de ação do observador por meio da interface do usuário](media/automation-watchers-tutorial/WatcherActionJobs.png)
 
-## <a name="next-steps"></a>Próximas etapas:
+A saída esperada, quando o novo arquivo é encontrado, pode ser vista no exemplo a seguir:
 
-Para obter mais informações, veja [Meu primeiro runbook do PowerShell](automation-first-runbook-textual-powershell.md).
+```
+Message is Process new file...
 
 
 
+Passed in data is @{FileName=D:\examplefiles\ExampleFile1.txt; Length=0}
+```
 
+## <a name="next-steps"></a>Próximas etapas
 
+Neste tutorial, você aprendeu como:
 
+> [!div class="checklist"]
+> * Importar um runbook observador
+> * Criar uma variável da Automação
+> * Criar um runbook de ação
+> * Criar uma tarefa de observador
+> * Disparar um observador
+> * Inspecionar a saída
 
+Siga este link para saber mais sobre como criar seu próprio runbook.
 
+> [!div class="nextstepaction"]
+> [Meu primeiro runbook do PowerShell](automation-first-runbook-textual-powershell.md).

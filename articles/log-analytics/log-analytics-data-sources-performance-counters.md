@@ -1,6 +1,6 @@
 ---
 title: Coletar e analisar contadores de desempenho no Azure Log Analytics | Microsoft Docs
-description: "Os contadores de desempenho são coletados pelo Log Analytics para analisar o desempenho em agentes do Windows e Linux.  Este artigo descreve como configurar a coleta de contadores de desempenho para agentes do Windows e do Linux, os detalhes deles que são armazenados no repositório do OMS e como analisá-los no portal do OMS."
+description: "Os contadores de desempenho são coletados pelo Log Analytics para analisar o desempenho em agentes do Windows e Linux.  Este artigo descreve como configurar a coleta de contadores de desempenho para agentes do Linux e do Windows, cujos detalhes são armazenados no espaço de trabalho, e como analisá-los no portal do Azure."
 services: log-analytics
 documentationcenter: 
 author: mgoedtel
@@ -12,27 +12,27 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/28/2017
+ms.date: 12/19/2017
 ms.author: magoedte
-ms.openlocfilehash: d0345155b2c13bd0b4341ce53272e7d84cd233fb
-ms.sourcegitcommit: 5735491874429ba19607f5f81cd4823e4d8c8206
+ms.openlocfilehash: 0f7119f280f2eb51222ade2ea7984b560a02f667
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/16/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="windows-and-linux-performance-data-sources-in-log-analytics"></a>Fontes de dados de desempenho do Windows e Linux no Log Analytics
 Os contadores de desempenho no Windows e Linux fornecem informações sobre o desempenho de componentes de hardware, sistemas operacionais e aplicativos.  O Log Analytics pode coletar contadores de desempenho em intervalos frequentes para análises NRT (Quase em Tempo Real) além de agregar dados de desempenho para análise e relatório de longo prazo.
 
-![Contadores de desempenho](media/log-analytics-data-sources-performance-counters/overview.png)
+![contadores de desempenho](media/log-analytics-data-sources-performance-counters/overview.png)
 
 ## <a name="configuring-performance-counters"></a>Configurando os contadores de desempenho
-Configure os contadores de desempenho no portal do OMS do [menu Dados nas Configurações do Log Analytics](log-analytics-data-sources.md#configuring-data-sources).
+Configure contadores de desempenho usando o [menu Dados nas configurações do Log Analytics](log-analytics-data-sources.md#configuring-data-sources).
 
-Quando você configurar os contadores de desempenho do Linux ou Windows para um novo espaço de trabalho do OMS pela primeira vez, você tem a opção de criar rapidamente vários contadores comuns.  Eles são listados com uma caixa de seleção ao lado de cada um.  Garanta que todos os contadores que deseja criar inicialmente estejam marcados e clique em **Add the selected performance counters**(Adicionar os contadores de desempenho selecionados).
+Quando você configura os contadores de desempenho do Windows ou do Linux para um novo espaço de trabalho do Log Analytics pela primeira vez, existe a opção de criar rapidamente vários contadores comuns.  Eles são listados com uma caixa de seleção ao lado de cada um.  Garanta que todos os contadores que deseja criar inicialmente estejam marcados e clique em **Add the selected performance counters**(Adicionar os contadores de desempenho selecionados).
 
 Para os contadores de desempenho do Windows, você pode escolher uma instância específica para cada contador de desempenho. Para os contadores de desempenho do Linux, a instância de cada contador escolhido se aplicará a todos os contadores filhos do contador pai. A tabela a seguir mostra as instâncias comuns disponíveis para os contadores de desempenho do Linux e do Windows.
 
-| Nome da instância | Descrição |
+| Nome da instância | DESCRIÇÃO |
 | --- | --- |
 | \_Total |Total de todas as instâncias |
 | \* |Todas as instâncias |
@@ -65,7 +65,7 @@ Siga este procedimento para adicionar um novo contador de desempenho do Linux pa
 5. Quando terminar de adicionar contadores, clique no botão **Salvar** na parte superior da tela para salvar a configuração.
 
 #### <a name="configure-linux-performance-counters-in-configuration-file"></a>Configurar contadores de desempenho do Linux no arquivo de configuração
-Em vez de configurar contadores de desempenho do Linux usando o portal do OMS, você tem a opção de editar arquivos de configuração no agente do Linux.  As métricas de desempenho a serem coletadas são controladas pela configuração em **/etc/opt/microsoft/omsagent/\<workspace id\>/conf/omsagent.conf**.
+Em vez de configurar contadores de desempenho do Linux usando o portal do Azure, existe a opção de editar arquivos de configuração no agente do Linux.  As métricas de desempenho a serem coletadas são controladas pela configuração em **/etc/opt/microsoft/omsagent/\<workspace id\>/conf/omsagent.conf**.
 
 Cada objeto, ou categoria, de métricas de desempenho a ser coletado deve ser definido no arquivo de configuração como um único elemento `<source>` . A sintaxe segue o padrão abaixo.
 
@@ -80,7 +80,7 @@ Cada objeto, ou categoria, de métricas de desempenho a ser coletado deve ser de
 
 Os parâmetros usados com este comando são descritos na tabela a seguir.
 
-| Parâmetros | Descrição |
+| parâmetros | DESCRIÇÃO |
 |:--|:--|
 | object\_name | O nome do objeto da coleção. |
 | instance\_regex |  Uma *expressão regular* que define quais instâncias serão coletadas. O valor: `.*` especifica todas as instâncias. Para coletar métricas de processador somente para a instância \_Total, você poderia especificar `_Total`. Para coletar métricas de processador somente para a instância _Total, você poderia especificar: `(crond\|sshd)`. |
@@ -182,12 +182,12 @@ A seguir está a configuração padrão para as métricas de desempenho.
     </source>
 
 ## <a name="data-collection"></a>Coleta de dados
-O Log Analytics coleta todos os contadores de desempenho especificados no seu intervalo de amostragem especificado em todos os agentes que têm o contador instalado.  Os dados não estão agregados e os dados brutos estão disponíveis em todas as exibições de pesquisa de log pela duração especificada por sua assinatura do OMS.
+O Log Analytics coleta todos os contadores de desempenho especificados no seu intervalo de amostragem especificado em todos os agentes que têm o contador instalado.  Os dados não são agregados e os dados brutos ficam disponíveis em todas as exibições de pesquisa de logs durante o período especificado pela sua assinatura.
 
 ## <a name="performance-record-properties"></a>Propriedades do registro de desempenho
 Os registros de desempenho têm um tipo de **Perf** e têm as propriedades na tabela a seguir.
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 |:--- |:--- |
 | Computador |Computador do qual o evento foi coletado. |
 | CounterName |Nome do contador de desempenho |
@@ -206,7 +206,7 @@ Os registros de desempenho têm um tipo de **Perf** e têm as propriedades na ta
 ## <a name="log-searches-with-performance-records"></a>Pesquisas de log com registros de desempenho
 A tabela a seguir fornece diferentes exemplos de pesquisas de log que recuperam registros de desempenho.
 
-| Consultar | Descrição |
+| Consultar | DESCRIÇÃO |
 |:--- |:--- |
 | Perf |Todos os dados de desempenho |
 | Perf &#124; where Computer == "MyComputer" |Todos os dados de desempenho de um computador específico |
@@ -220,12 +220,7 @@ A tabela a seguir fornece diferentes exemplos de pesquisas de log que recuperam 
 | Perf &#124; where CounterName == "% Processor Time" and InstanceName == "_Total" and Computer == "MyComputer" &#124; summarize ["min(CounterValue)"] = min(CounterValue), ["avg(CounterValue)"] = avg(CounterValue), ["percentile75(CounterValue)"] = percentile(CounterValue, 75), ["max(CounterValue)"] = max(CounterValue) by bin(TimeGenerated, 1h), Computer |Por hora média, mínima, máximo e percentil de 75 da CPU para um computador específico |
 | Perf &#124; where ObjectName == "MSSQL$INST2:Databases" and InstanceName == "master" | Todos os dados de desempenho do objeto de desempenho de Banco de Dados para o banco de dados mestre da instância nomeada do SQL Server INST2.  
 
-## <a name="viewing-performance-data"></a>Exibindo dados de desempenho
-Quando você executa uma pesquisa de logs de dados de desempenho, a exibição **List** é mostrada por padrão.  Para exibir os dados em formato gráfico, clique em **Métricas**.  Para obter uma exibição gráfica detalhada, clique em **+** ao lado de um contador.  
 
-![Exibição de métricas recolhida](media/log-analytics-data-sources-performance-counters/metricscollapsed.png)
-
-Para agregar dados de desempenho em uma pesquisa de log, confira [Agregação métrica sob demanda e visualização de OMS](http://blogs.technet.microsoft.com/msoms/2016/02/26/on-demand-metric-aggregation-and-visualization-in-oms/).
 
 
 ## <a name="next-steps"></a>Próximas etapas

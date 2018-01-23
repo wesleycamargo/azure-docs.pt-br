@@ -12,18 +12,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: 1a5922506a0db4277b205ba3390c9c30034c177d
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 964475ba8b42ac41707fa78468bfe551677c595f
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="event-hubs-messaging-exceptions"></a>Exceções de mensagens dos Hubs de Eventos
-Este artigo relaciona algumas das exceções geradas pelas APIs de mensagens do Barramento de Serviço do Azure, incluindo Hubs de Eventos. Essa referência está sujeita a alterações, então verifique se há atualizações.
+
+Este artigo lista algumas das exceções geradas pela biblioteca de APIs das mensagens do Barramento de Serviço do Azure, que inclui APIs de Hubs de Eventos. Essa referência está sujeita a alterações, então verifique se há atualizações.
 
 ## <a name="exception-categories"></a>Categorias de exceções
+
 As APIs dos Hubs de Eventos geram exceções que podem se enquadrar nas categorias a seguir, junto com a ação associada que pode ser tomada para tentar corrigi-las.
 
 1. Erro de codificação do usuário: [System.ArgumentException](https://msdn.microsoft.com/library/system.argumentexception.aspx), [System.InvalidOperationException](https://msdn.microsoft.com/library/system.invalidoperationexception.aspx), [System.OperationCanceledException](https://msdn.microsoft.com/library/system.operationcanceledexception.aspx), [System.Runtime.Serialization.SerializationException](https://msdn.microsoft.com/library/system.runtime.serialization.serializationexception.aspx). Ação geral: tentar corrigir o código antes de prosseguir.
@@ -56,7 +58,7 @@ A tabela a seguir relaciona os tipos de mensagens de exceção e suas causas e a
 
 Isso pode acontecer se o número máximo de destinatários (5) já foi aberto em um nível de grupo por consumidor.
 
-### <a name="event-hubs"></a>Hubs de Eventos
+### <a name="event-hubs"></a>Hubs de evento
 Os Hubs de Eventos têm um limite de 20 grupos de consumidores por Hub de Eventos. Quando você tenta criar mais, recebe [QuotaExceededException](/dotnet/api/microsoft.servicebus.messaging.quotaexceededexception). 
 
 ## <a name="timeoutexception"></a>TimeoutException
@@ -78,13 +80,13 @@ A [Microsoft.ServiceBus.Messaging.ServerBusyException](/dotnet/api/microsoft.ser
 
 Esse erro pode ocorrer por um dos seguintes motivos:
 
-1. A carga não é distribuída igualmente entre todas as partições no Hub de Eventos e uma partição atinge a limitação de unidade de taxa de transferência local.
+1. A carga não é distribuída igualmente entre todas as partições no Hub de Eventos e uma partição atinge a limitação de unidade de produtividade local.
     
     Resolução: Revisar a estratégia de distribuição de partição ou tentando [EventHubClient.Send(eventDataWithOutPartitionKey)](/dotnet/api/microsoft.servicebus.messaging.eventhubclient#Microsoft_ServiceBus_Messaging_EventHubClient_Send_Microsoft_ServiceBus_Messaging_EventData_) pode ajudar.
 
-2. O namespace de Hubs de Eventos não tem unidades de taxa de transferência suficiente (você pode verificar a folha **Métricas** na folha do namespace de Hubs de Eventos no [portal do Azure](https://portal.azure.com) para confirmar). Observe que o portal mostra informações agregadas (1 minuto), mas medimos a taxa de transferência em tempo real – portanto, é apenas uma estimativa.
+2. O namespace dos Hubs de Eventos não tem unidades de produtividade suficientes (você pode verificar a tela **Métricas** na janela Namespace de Hubs de Eventos no [portal do Azure](https://portal.azure.com) para confirmar). Observe que o portal mostra informações agregadas (1 minuto), mas medimos a taxa de transferência em tempo real – portanto, é apenas uma estimativa.
 
-    Resolução: Aumentar as unidades de taxa de transferência no namespace pode ajudar. Você pode fazer isso no portal, na folha **Escala** da folha do namespace de Hubs de Eventos.
+    Resolução: Aumentar as unidades de taxa de transferência no namespace pode ajudar. Você pode fazer isso no portal, na janela **Escala** da tela Namespace de Hubs de Eventos.
 
 ### <a name="error-code-50001"></a>Código do erro 50001
 
@@ -94,6 +96,6 @@ Esse erro deve ocorrer raramente. Isso acontece quando o contêiner executando o
 ## <a name="next-steps"></a>Próximas etapas
 Você pode saber mais sobre Hubs de Eventos visitando os links abaixo:
 
-* [Visão Geral dos Hubs de Eventos](event-hubs-what-is-event-hubs.md)
+* [Visão geral de Hubs de Evento](event-hubs-what-is-event-hubs.md)
 * [Criar um Hub de Eventos](event-hubs-create.md)
 * [Perguntas frequentes sobre os Hubs de Eventos](event-hubs-faq.md)

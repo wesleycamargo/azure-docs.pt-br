@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 68ada2da62958948dbf232b5f83f69d7942b9c10
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 01e4395d5b2baaaf130f7a0fa7aaa29d611559b7
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lessonly"></a>Tutorial: integração do Active Directory do Azure com o Lesson.ly
 
@@ -31,7 +31,7 @@ A integração do Lesson.ly com o Azure AD oferece os seguintes benefícios:
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do AD do Azure ao Lesson.ly, você precisará dos seguintes itens:
 
@@ -50,7 +50,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o Lesson.ly da galeria
-2. Configurar e testar o logon único do AD do Azure
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-lessonly-from-the-gallery"></a>Adicionando o Lesson.ly da galeria
 Para configurar a integração do Lesson.ly ao AD do Azure, você precisa adicionar o Lesson.ly da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -63,11 +63,11 @@ Para configurar a integração do Lesson.ly ao AD do Azure, você precisa adicio
 
 2. Navegue até **aplicativos empresariais**. Em seguida, vá para **todos os aplicativos**.
 
-    ![Aplicativos][2]
+    ![APLICATIVOS][2]
     
 3. Clique no botão **Novo aplicativo** na parte superior da caixa de diálogo para adicionar o novo aplicativo.
 
-    ![Aplicativos][3]
+    ![APLICATIVOS][3]
 
 4. Na caixa de pesquisa, digite **Lesson.ly**.
 
@@ -77,7 +77,7 @@ Para configurar a integração do Lesson.ly ao AD do Azure, você precisa adicio
 
     ![Criação de um usuário de teste do AD do Azure](./media/active-directory-saas-lessonly-tutorial/tutorial_lesson.ly_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configurar e testar o logon único do AD do Azure
+##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>configurar e testar o logon único do AD do Azure
 Nesta seção, você configurará e testará o logon único do Azure AD com o Lesson.ly, com base em um usuário de teste chamado “Brenda Fernandes”.
 
 Para que o logon único funcione, o Azure AD precisa saber qual usuário do Lesson.ly é equivalente a um usuário do Azure AD. Em outras palavras, é necessário estabelecer uma relação de vinculação entre um usuário do Azure AD e o usuário relacionado do Lesson.ly.
@@ -86,11 +86,11 @@ No Lesson.ly, atribua o valor do **nome de usuário** no Azure AD como o valor d
 
 Para configurar e testar o logon único do AD do Azure com o Lesson.ly, você precisa concluir os seguintes blocos de construção:
 
-1. **[Configuração do logon único do AD do Azure](#configuring-azure-ad-single-sign-on)** : para habilitar seus usuários a usar esse recurso.
-2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do AD do Azure com Brenda Fernandes.
+1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - para habilitar seus usuários a usar esse recurso.
+2. **[Criação de um usuário de teste do AD do Azure](#creating-an-azure-ad-test-user)** : para testar o logon único do Azure AD com Brenda Fernandes.
 3. **[Criar um usuário de teste do Lesson.ly](#creating-a-lessonly-test-user)**: para ter um equivalente de Brenda Fernandes no Lesson.ly que esteja vinculado à representação do usuário no Azure AD.
-4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** : para permitir que Brenda Fernandes use o logon único do AD do Azure.
-5. **[Testing Single Sign-On](#testing-single-sign-on)** : para verificar se a configuração funciona.
+4. **[Atribuição do usuário de teste do AD do Azure](#assigning-the-azure-ad-test-user)** – para permitir que Brenda Fernandes use o logon único do AD do Azure.
+5. **[Teste do logon único](#testing-single-sign-on)** : para verificar se a configuração funciona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configuração do logon único do Azure AD
 
@@ -100,15 +100,15 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 
 1. No Portal do Azure, na página de integração de aplicativos do **Lesson.ly**, clique em **Logon único**.
 
-    ![Configurar Logon Único][4]
+    ![Configurar o logon único][4]
 
 2. Na caixa de diálogo **Logon único**, selecione **Modo** como **Logon baseado em SAML** para habilitar o logon único.
  
-    ![Configurar Logon Único](./media/active-directory-saas-lessonly-tutorial/tutorial_lesson.ly_samlbase.png)
+    ![Configurar o logon único](./media/active-directory-saas-lessonly-tutorial/tutorial_lesson.ly_samlbase.png)
 
 3. Na seção **Domínio e URLs do Lesson.ly**, execute as seguintes etapas:
 
-    ![Configurar Logon Único](./media/active-directory-saas-lessonly-tutorial/tutorial_lesson.ly_url.png)
+    ![Configurar o logon único](./media/active-directory-saas-lessonly-tutorial/tutorial_lesson.ly_url.png)
 
     a. Na caixa de texto **URL de Logon**, digite uma URL usando o seguinte padrão:
     | |
@@ -130,11 +130,11 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 
 4. Na seção **Certificado de Autenticação do SAML**, clique em **Certificado (Base64)** e, em seguida, salve o arquivo do certificado no computador.
 
-    ![Configurar Logon Único](./media/active-directory-saas-lessonly-tutorial/tutorial_lesson.ly_certificate.png)
+    ![Configurar o logon único](./media/active-directory-saas-lessonly-tutorial/tutorial_lesson.ly_certificate.png)
 
 5. O aplicativo Lesson.ly espera as declarações do SAML em um formato específico, o que exige que você adicione mapeamentos de atributo personalizados à sua configuração de **Atributos do Token SAML**. A seguinte captura de tela mostra um exemplo disso.
 
-    ![Configurar Logon Único](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_06.png)
+    ![Configurar o logon único](./media/active-directory-saas-lessonly-tutorial/tutorial_lessonly_06.png)
            
 6. Na seção **Atributos de Usuário** da caixa de diálogo **Logon único**, configure o atributo do token SAML, conforme mostrado na imagem anterior e realize as seguintes etapas:
 
@@ -142,13 +142,14 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
     | ---------------  | ----------------|
     | urn: oid:2.5.4.42 |user.givenname |
     | urn: oid:2.5.4.4  |user.surname |
-    | urn:oid:0.9.2342.19200300.1001.3 |user.mail |
+    | urn:oid:0.9.2342.19200300.100.1.3 |user.mail |
+    | urn:oid:1.3.6.1.4.1.5923.1.1.1.10 |user.objectid |
 
     a. Clique em **Adicionar atributo** para abrir o diálogo **Adicionar Atributo**.
 
     ![Configurar o logon único](./media/active-directory-saas-lessonly-tutorial/tutorial_attribute_04.png)
 
-    ![Configurar Logon Único](./media/active-directory-saas-lessonly-tutorial/tutorial_attribute_05.png)
+    ![Configurar o logon único](./media/active-directory-saas-lessonly-tutorial/tutorial_attribute_05.png)
 
     b. Na caixa de texto **Nome** , digite o nome do atributo mostrado para essa linha.
 
@@ -158,11 +159,11 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 
 7. Clique no botão **Salvar** .
 
-    ![Configurar Logon Único](./media/active-directory-saas-lessonly-tutorial/tutorial_general_400.png)
+    ![Configurar o logon único](./media/active-directory-saas-lessonly-tutorial/tutorial_general_400.png)
 
 8. Na seção **Configuração do Lesson.ly**, clique em **Configurar o Lesson.ly** para abrir a janela **Configurar logon**. Copie a **URL de saída, a ID da Entidade SAML e a URL do Serviço de Logon Único SAML** da **seção de Referência Rápida.**
 
-    ![Configurar Logon Único](./media/active-directory-saas-lessonly-tutorial/tutorial_lesson.ly_configure.png)
+    ![Configurar o logon único](./media/active-directory-saas-lessonly-tutorial/tutorial_lesson.ly_configure.png)
 
 9. Para configurar o logon único no lado do **Lesson.ly**, é necessário enviar o **Certificado (Base64)** baixado, a **URL de Saída, ID da Entidade SAML e URL do Serviço de Logon Único SAML** para a [equipe de suporte do Lesson.ly](mailto:dev@lessonly.com).
 
@@ -223,7 +224,7 @@ Nesta seção, você permitirá que Brenda Fernandes use o logon único do Azure
 
 2. Na lista de aplicativos, selecione **Lesson.ly**.
 
-    ![Configurar Logon Único](./media/active-directory-saas-lessonly-tutorial/tutorial_lesson.ly_app.png) 
+    ![Configurar o logon único](./media/active-directory-saas-lessonly-tutorial/tutorial_lesson.ly_app.png) 
 
 3. No menu à esquerda, clique em **usuários e grupos**.
 

@@ -4,7 +4,7 @@ description: "Saiba como adicionar uma imagem personalizada a um modelo existent
 services: virtual-machine-scale-sets
 documentationcenter: 
 author: gatneil
-manager: timlt
+manager: jeconnoc
 editor: 
 tags: azure-resource-manager
 ms.assetid: 76ac7fd7-2e05-4762-88ca-3b499e87906e
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/10/2017
 ms.author: negat
-ms.openlocfilehash: cf52fc9e95267c4bc5c0106aadf626685ddd5c24
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 28d2c080048a7f82e83ad9c1794c9757b330a8c7
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="add-a-custom-image-to-an-azure-scale-set-template"></a>Adicionar uma imagem personalizada a um modelo de conjunto de dimensionamento do Azure
 
@@ -27,13 +27,13 @@ Esse artigo mostra como modificar o [modelo do conjunto de dimensionamento míni
 
 ## <a name="change-the-template-definition"></a>Alterar a definição do modelo
 
-Nosso modelo de conjunto de dimensionamento mínimo viável pode ser visto [aqui](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json) e nosso modelo para implantar o conjunto de dimensionamento de uma imagem personalizada pode ser visto [aqui](https://raw.githubusercontent.com/gatneil/mvss/custom-image/azuredeploy.json). Vamos examinar a comparação usada para criar esse modelo (`git diff minimum-viable-scale-set custom-image`), parte por parte:
+O modelo do conjunto de dimensionamento mínimo viável pode ser visto [aqui](https://raw.githubusercontent.com/gatneil/mvss/minimum-viable-scale-set/azuredeploy.json) e o modelo para implantar o conjunto de dimensionamento de uma imagem personalizada pode ser visto [aqui](https://raw.githubusercontent.com/gatneil/mvss/custom-image/azuredeploy.json). Vamos examinar a comparação usada para criar esse modelo (`git diff minimum-viable-scale-set custom-image`), parte por parte:
 
 ### <a name="creating-a-managed-disk-image"></a>Criando uma imagem de disco gerenciada
 
 Se você já tiver uma imagem de disco gerenciado personalizado (um recurso do tipo `Microsoft.Compute/images`), você poderá ignorar esta seção.
 
-Primeiro, vamos adicionar um parâmetro `sourceImageVhdUri`, que é o URI para o blob generalizado no Armazenamento do Azure que contém a imagem personalizada da qual implantar.
+Primeiro, adicione um parâmetro `sourceImageVhdUri`, que é o URI para o blob generalizado no Armazenamento do Azure que contém a imagem personalizada a ser usada para a implantação.
 
 
 ```diff
@@ -51,7 +51,7 @@ Primeiro, vamos adicionar um parâmetro `sourceImageVhdUri`, que é o URI para o
    "variables": {},
 ```
 
-Em seguida, adicionamos um recurso do tipo `Microsoft.Compute/images`, que é a imagem de disco gerenciada com base no blob generalizado localizado no URI `sourceImageVhdUri`. Essa imagem deve estar na mesma região que o conjunto de dimensionamento que a utiliza. Nas propriedades da imagem, especificamos o tipo do sistema operacional, a localização do blob (do parâmetro `sourceImageVhdUri`) e o tipo de conta de armazenamento:
+Em seguida, adicione um recurso do tipo `Microsoft.Compute/images`, que é a imagem do disco gerenciado no blob generalizado localizado no URI `sourceImageVhdUri`. Essa imagem deve estar na mesma região que o conjunto de dimensionamento que a utiliza. Nas propriedades da imagem, especifique o tipo do sistema operacional, a localização do blob (do parâmetro `sourceImageVhdUri`) e o tipo de conta de armazenamento:
 
 ```diff
    "resources": [
@@ -78,7 +78,7 @@ Em seguida, adicionamos um recurso do tipo `Microsoft.Compute/images`, que é a 
 
 ```
 
-No recurso de conjunto de dimensionamento, adicionamos uma cláusula `dependsOn` referindo-se à imagem personalizada para garantir que a imagem seja criada antes de o conjunto de dimensionamento tentar realizar a implantação dessa imagem:
+No recurso de conjunto de dimensionamento, adicione uma cláusula `dependsOn` referindo-se à imagem personalizada para garantir que a imagem seja criada antes que o conjunto de dimensionamento tente implantar usando essa imagem:
 
 ```diff
        "location": "[resourceGroup().location]",
@@ -95,7 +95,7 @@ No recurso de conjunto de dimensionamento, adicionamos uma cláusula `dependsOn`
 
 ### <a name="changing-scale-set-properties-to-use-the-managed-disk-image"></a>Alterando as propriedades do conjunto de dimensionamento para usar a imagem de disco gerenciado
 
-Na `imageReference` do conjunto de dimensionamento `storageProfile`, em vez especificar o editor, a oferta, o SKU e a versão de uma imagem de plataforma, especificamos o `id` do recurso `Microsoft.Compute/images`:
+Na `imageReference` do conjunto de dimensionamento `storageProfile`, em vez especificar o editor, a oferta, o SKU e a versão de uma imagem de plataforma, especifique o `id` do recurso `Microsoft.Compute/images`:
 
 ```diff
          "virtualMachineProfile": {
@@ -111,7 +111,7 @@ Na `imageReference` do conjunto de dimensionamento `storageProfile`, em vez espe
            "osProfile": {
 ```
 
-Neste exemplo, usamos a função `resourceId` para obter a ID de recurso da imagem criada no mesmo modelo. Se você criou a imagem de disco gerenciado com antecedência, deve fornecer a ID da imagem. Essa ID deve estar no formato: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Compute/images/<image-name>`.
+Neste exemplo, use a função `resourceId` para obter a ID do recurso da imagem criada no mesmo modelo. Se você já criou a imagem do disco gerenciado com antecedência, forneça a ID da imagem. Essa ID deve estar no formato: `/subscriptions/<subscription-id>resourceGroups/<resource-group-name>/providers/Microsoft.Compute/images/<image-name>`.
 
 
 ## <a name="next-steps"></a>Próximas etapas

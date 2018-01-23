@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2017
 ms.author: jeedes
-ms.openlocfilehash: 25d99ad3048612722b75cf6ec9b8d07729770c8d
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: d23f1c4d6613d525695ed222e0d84736b9007833
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="tutorial-azure-active-directory-integration-with-benefitsolver"></a>Tutorial: Integração do Active Directory do Azure ao Benefitsolver
 
@@ -32,7 +32,7 @@ A integração do Benefitsolver ao Azure AD oferece os seguintes benefícios:
 
 Para conhecer mais detalhadamente a integração de aplicativos de SaaS ao Azure AD, consulte [o que é o acesso a aplicativos e logon único com o Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para configurar a integração do Azure AD ao Benefitsolver, você precisará dos seguintes itens:
 
@@ -51,7 +51,7 @@ Para testar as etapas deste tutorial, você deve seguir estas recomendações:
 Neste tutorial, você testará o logon único do Azure AD em um ambiente de teste. O cenário descrito neste tutorial consiste em dois blocos de construção principais:
 
 1. Adicionando o Benefitsolver da galeria
-2. Configurar e testar o logon único do AD do Azure
+2. configurar e testar o logon único do AD do Azure
 
 ## <a name="adding-benefitsolver-from-the-gallery"></a>Adicionando o Benefitsolver da galeria
 Para configurar a integração do Benefitsolver ao Azure AD, você precisará adicionar o Benefitsolver da galeria à sua lista de aplicativos SaaS gerenciados.
@@ -150,7 +150,7 @@ Nesta seção, você habilita o logon único do Azure AD no Portal do Azure e co
 
     ![Botão Salvar em Configurar Logon Único](./media/active-directory-saas-benefitsolver-tutorial/tutorial_general_400.png)
 
-8. Para configurar o logon único no lado do **Benefitsolver**, é necessário enviar o **XML de Metadados** baixado para a [equipe de suporte do Benefitsolver](https://www.businessolver.com/contact).
+8. Para configurar o logon único no **Benefitsolver**, é necessário enviar o **XML de Metadados** baixado para a [equipe de suporte do Benefitsolver](https://www.businessolver.com/contact).
 
     > [!NOTE]
     > A equipe de suporte do Benefitsolver precisa fazer a configuração real do SSO. Você receberá uma notificação quando o SSO tiver sido habilitado para sua assinatura.

@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 511076935d06ed0908341044e37069e74530be49
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: dbdf263d9d7fdfbe4fbc47db9ba9f30637e8c3ad
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="integrate-an-azure-storage-account-with-azure-cdn"></a>Integrar uma conta de armazenamento do Azure com a CDN do Azure
 CDN pode ser habilitada em cache o conteúdo do armazenamento do Azure. Ela oferece aos desenvolvedores uma solução global para entrega de conteúdo de largura de banda armazenando em cache blobs e conteúdo estático de instâncias de computação em nós físicos nos Estados Unidos, Europa, Ásia, Austrália e América do Sul.
@@ -82,7 +82,7 @@ Com a integração mais recente, agora você pode habilitar a CDN para sua conta
     ![novo ponto de extremidade do armazenamento da cdn][cdn-storage-new-endpoint]
 
 > [!NOTE]
-> Você também pode ir para a extensão da CDN do Azure para habilitar o CDN.[Tutorial](#Tutorial-cdn-create-profile).
+> Também é possível ir para a extensão da CDN do Azure para habilitar a CDN. [Tutorial](#Tutorial-cdn-create-profile).
 > 
 > 
 

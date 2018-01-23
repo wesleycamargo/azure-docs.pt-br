@@ -12,11 +12,11 @@ ms.workload: storage-backup-recovery
 ms.date: 12/08/2017
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 5464eea75c89a95e6bf74b3f24fe92f3652f5db9
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: 3db1ead1f1a8b83cc47f53b915ed54bb78db7ab3
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region-preview"></a>Configurar a recuperação de desastre para VMs do Azure para uma região do Azure secundária (versão prévia)
 
@@ -30,7 +30,7 @@ Este tutorial mostra como configurar a recuperação de desastre em uma região 
 > * Configurar o acesso de saída para VMs
 > * Habilitar a replicação para uma VM
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 Para concluir este tutorial:
 
@@ -73,7 +73,7 @@ Se você está usando um proxy de firewall baseado em URL para controlar a conec
 | *.blob.core.windows.net | Permite que os dados sejam gravados da VM para a conta de armazenamento de cache da região de origem. |
 | login.microsoftonline.com | Fornece autorização e autenticação para as URLs do serviço Site Recovery. |
 | *.hypervrecoverymanager.windowsazure.com | Permite que a VM se comunique com o serviço Site Recovery. |
-| *.servicebus.windows.net | Permite que a VM grave o monitoramento do Site Recovery e os dados de diagnóstico. |
+| * .servicebus.windows.net | Permite que a VM grave o monitoramento do Site Recovery e os dados de diagnóstico. |
 
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>Conectividade de saída para intervalos de endereços IP
 
@@ -129,10 +129,10 @@ O Site Recovery recupera uma lista das VMs associadas ao serviço de nuvem/grupo
 
 O Site Recovery cria as configurações padrão e a política de replicação para a região de destino. Você pode alterar as configurações com base nas suas necessidades.
 
-1. Clique em **Configurações** para exibir as configurações de destino.
-2. Para substituir as configurações de destino padrão, clique em **Personalizar**. 
+1. Clique em **Configurações** para exibir o destino e as configurações de replicação.
+2. Para substituir as configurações de destino padrão, clique em **Personalizar** ao lado de **Grupo de recursos, Rede, Armazenamento e Conjuntos de Disponibilidade**.
 
-![Configurar definições](./media/azure-to-azure-tutorial-enable-replication/settings.png)
+  ![Configurar definições](./media/azure-to-azure-tutorial-enable-replication/settings.png)
 
 
 - **Localização de destino**: a região de destino usada para recuperação de desastre. É recomendável que a localização de destino corresponda à localização do cofre do Site Recovery.
@@ -148,11 +148,23 @@ O Site Recovery cria as configurações padrão e a política de replicação pa
 
 - **Conjuntos de disponibilidade de destino**: por padrão, o Site Recovery cria um novo conjunto de disponibilidade na região de destino, com o sufixo "asr". Somente será possível adicionar conjuntos de disponibilidade se as VMs forem parte de um conjunto na região de origem.
 
+Para substituir as configurações de política de replicação padrão, clique em **Personalizar** ao lado de **Política de replicação**.  
+
 - **Nome da política de replicação**: nome da política.
 
 - **Retenção de ponto de recuperação**: por padrão, o Site Recovery mantém os pontos de recuperação por 24 horas. É possível configurar um valor entre 1 e 72 horas.
 
 - **Frequência de instantâneo consistente com o aplicativo**: por padrão, o Site Recovery obtém um instantâneo consistente com o aplicativo a cada 4 horas. É possível configurar qualquer valor entre 1 e 12 horas. Um instantâneo consistente com o aplicativo é um instantâneo em um ponto no tempo dos dados do aplicativo dentro da VM. O VSS (Serviço de Cópias de Sombra de Volume) garante que o aplicativo na VM esteja em um estado consistente quando o instantâneo for criado.
+
+- **Grupo de replicação**: se seu aplicativo precisa de consistência de VMs múltiplas entre VMs, você pode criar um grupo de replicação para essas VMs. Por padrão, as VMs selecionadas não fazem parte de nenhum grupo de replicação.
+
+  Clique em **Personalizar** ao lado de **Política de replicação** e, em seguida, selecione **Sim** para que a consistência de VMs faça com que as VMs se tornem parte de um grupo de replicação. Você pode criar um novo grupo de replicação ou usar um grupo de replicação existente. Selecione as VMs que devem fazer parte do grupo de replicação e clique em **OK**.
+
+> [!IMPORTANT]
+  Todos os computadores de um grupo de replicação terão pontos de recuperação consistentes com o aplicativo e consistentes com falhas quando passarem por failover. Habilitar a consistência de VMs múltiplas pode afetar o desempenho da carga de trabalho e só deve ser usada se os computadores estão executando a mesma carga de trabalho e se você precisa de consistência entre vários computadores.
+
+> [!IMPORTANT]
+  Se você habilitar a consistência de várias VMs, as máquinas virtuais no grupo de replicação se comunicarão entre si pela porta 20004. Veja se não há nenhum dispositivo de firewall bloqueando a comunicação interna entre as VMs através da porta 20004. Se você quiser que VMs do Linux façam parte de um grupo de replicação, abra manualmente o tráfego de saída na porta 20004, de acordo com as diretrizes da versão específica do Linux.
 
 ### <a name="track-replication-status"></a>Acompanhar o status de replicação
 

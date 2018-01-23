@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2017
+ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: 52015dc2f8450bb1af1587df8c0ccc3bda3c9db8
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7a2a55a6ad6a721a39c9f064aad817f841dd3235
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="migrate-from-azure-active-directory-access-control-service-to-shared-access-signature-authorization"></a>Migrar da autorização do Serviço de Controle de Acesso do Azure Active Directory para Assinatura de Acesso Compartilhado
 
-Historicamente, os aplicativos de Barramento de Serviço podiam usar dois modelos de autorização diferentes: o modelo do token [SAS (Assinatura de Acesso Compartilhado)](service-bus-sas.md) fornecido diretamente pelo Barramento de Serviço, e um modelo federado no qual o gerenciamento de regras de autorização é feito internamente pelo ACS (Serviço de Controle de Acesso) do [Active Directory do Azure](/azure/active-directory/), e os tokens obtidos do ACS são passados para o Barramento de Serviço para autorização do acesso aos recursos desejados.
+Anteriormente, os aplicativos do Barramento de Serviço podiam usar dois modelos de autorização diferentes: o modelo do token [SAS (Assinatura de Acesso Compartilhado)](service-bus-sas.md) fornecido diretamente pelo Barramento de Serviço, e um modelo federado no qual o gerenciamento de regras de autorização era feito internamente pelo ACS (Serviço de Controle de Acesso) do [Azure Active Directory](/azure/active-directory/), e os tokens obtidos do ACS eram passados para o Barramento de Serviço para autorização do acesso aos recursos desejados.
 
-O modelo de autorização do ACS foi substituído já tempos pela [autorização SAS](service-bus-authentication-and-authorization.md) como o modelo preferido, e toda a documentação, diretrizes e exemplos usam exclusivamente SAS hoje em dia. Além disso, não é mais possível criar novos namespaces do Barramento de Serviço emparelhados com o ACS.
+O modelo de autorização do ACS foi substituído há tempos pela [autorização SAS](service-bus-authentication-and-authorization.md) como o modelo preferido e toda a documentação, diretrizes e exemplos usam exclusivamente SAS hoje em dia. Além disso, não é mais possível criar novos namespaces do Barramento de Serviço emparelhados com o ACS.
 
 O SAS tem a vantagem de não ser imediatamente dependente de outro serviço, mas pode ser usado diretamente de um cliente sem qualquer intermediário fornecendo ao cliente o acesso ao nome da regra e à chave da regra de SAS. A SAS também pode ser facilmente integrada a uma abordagem na qual um cliente tenha que passar primeiro por uma verificação de autorização com outro serviço para, depois, ter um token emitido. A segunda abordagem é semelhante ao padrão de uso do ACS, mas permite a emissão de tokens de acesso com base nas condições específicas do aplicativo, que são difíceis de expressar no ACS.
 
@@ -31,7 +31,7 @@ Para todos os aplicativos existentes que dependem do ACS, solicitamos que os cli
 
 ## <a name="migration-scenarios"></a>Cenários de migração
 
-O ACS e o Barramento de Serviço são integrados por meio do conhecimento compartilhado de uma *chave de assinatura*. A chave de assinatura é usada por um namespace do ACS para assinar tokens de autorização, e é usada pelo Barramento de Serviço para verificar se o token foi emitido pelo namespace emparelhado do ACS. O namespace do ACS contém identidades de serviço e as regras de autorização. As regras de autorização definem qual identidade de serviço, ou token emitido pelo provedor de identidade externo, recebe qual tipo de acesso a uma parte do gráfico de namespace do Barramento de Serviço, na forma de uma correspondência de prefixo mais longa.
+O ACS e o Barramento de Serviço são integrados por meio do conhecimento compartilhado de uma *chave de assinatura*. A chave de assinatura é usada por um namespace do ACS para assinar tokens de autorização, e é usada pelo Barramento de Serviço para verificar se o token foi emitido pelo namespace emparelhado do ACS. O namespace do ACS contém identidades de serviço e as regras de autorização. As regras de autorização definem qual identidade de serviço, ou token emitido pelo provedor de identidade externo, recebe qual tipo de acesso a uma parte do grafo de namespace do Barramento de Serviço, na forma de uma correspondência de prefixo mais longa.
 
 Por exemplo, uma regra do ACS pode conceder a declaração **Enviar** no prefixo de caminho `/` a uma identidade de serviço, o que significa que um token emitido pelo ACS com base nessa regra concede ao cliente os direitos para enviar a todas as entidades no namespace. Se o prefixo de caminho for `/abc`, a identidade ficará restrita ao envio para entidades chamadas `abc` ou organizadas sob esse prefixo. Presume-se que os leitores destas diretrizes de migração já estejam familiarizados com esses conceitos.
 

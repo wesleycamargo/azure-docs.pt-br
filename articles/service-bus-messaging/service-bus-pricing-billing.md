@@ -12,16 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/28/2017
+ms.date: 12/21/2017
 ms.author: sethm
-ms.openlocfilehash: 8f693bc51fc9635fae4376137e7e573bf74da7cb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8ccb44b5009588c28bc79bb45e1a7640ead6c817
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="service-bus-pricing-and-billing"></a>Barramento de Serviço, preços e cobrança
-O Barramento de Serviço é oferecido nas camadas Standard e [Premium](service-bus-premium-messaging.md). É possível escolher uma camada de serviço para cada namespace de serviço do Barramento de Serviço criado por você, e essa seleção de camada aplica-se a todas as entidades criadas dentro desse namespace.
+
+O Barramento de Serviço do Azure é oferecido nas camadas Standard e [Premium](service-bus-premium-messaging.md). É possível escolher uma camada de serviço para cada namespace de serviço do Barramento de Serviço criado por você, e essa seleção de camada aplica-se a todas as entidades criadas dentro desse namespace.
 
 > [!NOTE]
 > Para obter informações detalhadas sobre os preços atuais do Barramento de Serviço, consulte a [Azure Service Bus pricing page (Página de preços do Barramento de Serviço do Azure)](https://azure.microsoft.com/pricing/details/service-bus/) e [Perguntas frequentes sobre o Barramento de Serviço](service-bus-faq.md#pricing).
@@ -42,18 +43,20 @@ Observe que o custo base da faixa Standard é cobrado apenas uma vez por mês po
 A tabela [Preços do Barramento de Serviço](https://azure.microsoft.com/pricing/details/service-bus/) resume as diferenças funcionais entre as camadas Standard e Premium.
 
 ## <a name="messaging-operations"></a>Operações de sistema de mensagens
-Como parte do novo modelo de preço, a cobrança para filas e tópicos/assinaturas está mudando. Essas entidades estão fazendo a transição de cobrança por mensagem para cobrança por operação. Uma “operação” se refere a qualquer chamada à API feita em relação a um ponto de extremidade de serviço de fila ou tópico/assinatura. Isso inclui operações de gerenciamento, envio/recebimento e estado da sessão.
 
-| Tipo de operação | Descrição |
+Filas e tópicos/assinaturas são cobrados por "operação", não por mensagem. Uma operação se refere a qualquer chamada à API feita em relação a um ponto de extremidade de serviço de fila ou tópico/assinatura. Isso inclui operações de gerenciamento, envio/recebimento e estado da sessão.
+
+| Tipo de operação | DESCRIÇÃO |
 | --- | --- |
 | Gerenciamento |Criar, ler, atualizar, excluir (CRUD) em relação a filas ou tópicos/assinaturas. |
-| Mensagens |Enviando e recebendo mensagens com filas ou tópicos/assinaturas. |
-| Estado de sessão |Obter ou definir o estado de sessão em uma fila ou tópico/assinatura. |
+| Mensagens |Envie e receba mensagens com filas ou tópicos/assinaturas. |
+| Estado de sessão |Obtenha ou defina o estado de sessão em uma fila ou tópico/assinatura. |
 
 Para obter detalhes de custo, consulte os preços listados na página [Preços do Barramento de Serviço](https://azure.microsoft.com/pricing/details/service-bus/).
 
 ## <a name="brokered-connections"></a>Conexões orientadas
-*Conexões agenciadas* acomodam padrões de uso do cliente que envolvem um grande número de remetentes/destinatários “persistentemente conectados” em filas, tópicos ou assinaturas. Remetentes/destinatários persistentemente conectados são aqueles que se conectam com AMQP ou HTTP diferente com tempo limite de recebimento diferente de zero (por exemplo, sondagem longa de HTTP). Remetentes e receptores HTTP com um tempo limite imediato não geram conexões orientadas.
+
+*Conexões agenciadas* acomodam padrões de uso que envolvem um grande número de remetentes/destinatários "persistentemente conectados" em filas, tópicos ou assinaturas. Remetentes/destinatários persistentemente conectados são aqueles que se conectam com AMQP ou HTTP diferente com tempo limite de recebimento diferente de zero (por exemplo, sondagem longa de HTTP). Remetentes e receptores HTTP com um tempo limite imediato não geram conexões orientadas.
 
 Para cotas de conexão e outros limites de serviço, consulte o artigo [Cotas do Barramento de Serviço](service-bus-quotas.md). Para obter mais informações sobre conexões agenciadas, consulte a seção [Perguntas frequentes](#faq) mais adiante neste tópico.
 
@@ -78,6 +81,7 @@ As conexões orientadas não são cobradas na camada Premium.
 ## <a name="faq"></a>Perguntas frequentes
 
 ### <a name="what-are-brokered-connections-and-how-do-i-get-charged-for-them"></a>O que são conexões orientadas e como serei cobrado para elas?
+
 Uma conexão orientada é definida como uma das conexões a seguir:
 
 1. Uma conexão AMQP de um cliente com uma fila ou tópico/assinatura do Barramento de Serviço.
@@ -85,15 +89,17 @@ Uma conexão orientada é definida como uma das conexões a seguir:
 
 Encargos de Barramento de Serviço para o número máximo de conexões orientadas simultâneas orientadas que excedem a quantidade incluída (1.000 na camada Standard). Os picos são medidos por hora, rateados dividindo por 744 horas por mês e adicionados ao longo do período de faturamento mensal. A quantidade incluída (1.000 conexões orientadas por mês) é aplicada ao final do período de cobrança em relação à soma dos picos de hora em hora rateados.
 
-Por exemplo:
+Por exemplo: 
 
 1. Cada um dos 10.000 dispositivos se conecta por meio de uma única conexão AMQP e recebe comandos de um tópico do Barramento de Serviço. Os dispositivos enviam eventos de telemetria para um Hub de eventos. Se todos os dispositivos ficam conectados 12 horas por dia, os encargos de conexão a seguir se aplicam (além de quaisquer outros encargos de tópico do Barramento de Serviço): 10.000 conexões * 12 horas * 31 dias / 744 = 5.000 conexões orientadas. Após o limite mensal de 1.000 conexões orientadas, você seria cobrado por 4.000 conexões orientadas, a uma taxa de US $0,03 por conexão orientada, para um total de US $120.
 2. 10.000 dispositivos recebem mensagens de uma fila do Barramento de Serviço por meio de HTTP, especificando um tempo limite diferente de zero. Se todos os dispositivos ficam conectados 12 horas por dia, os encargos de conexão a seguir se aplicam (além de quaisquer outros encargos de tópico do Barramento de Serviço): 10.000 conexões de recebimento de HTTP * 12 horas * 31 dias / 744 = 5.000 conexões orientadas.
 
 ### <a name="do-brokered-connection-charges-apply-to-queues-and-topicssubscriptions"></a>Os encargos de conexão gerenciada são aplicáveis a filas e tópicos/assinaturas?
+
 Sim. Não há cobranças de conexão para enviar eventos usando HTTP, independentemente do número de sistemas ou dispositivos remetentes. O recebimento de eventos com HTTP usando um tempo limite maior que zero, às vezes chamado de "sondagem longa", gera encargos de conexão gerenciada. Conexões do AMQP geram encargos de conexão gerenciada independentemente se as conexões estão sendo usadas para enviar ou receber. As primeiras 1.000 conexões orientadas em todos os namespaces da camada Standard em uma assinatura do Azure são incluídas sem custo adicional (além do custo base). Como essas permissões são suficientes para cobrir muitos cenários de mensagens de serviço para serviço, os encargos de conexão gerenciada normalmente apenas se tornam relevantes se você planeja usar sondagem longa AMQP ou HTTP com um grande número de clientes; por exemplo, para obter um fluxo de eventos mais eficiente ou habilitar a comunicação bidirecional com muitos dispositivos ou instâncias do aplicativo.
 
 ## <a name="next-steps"></a>Próximas etapas
+
 * Para obter detalhes completos sobre os preços do Barramento de Serviço, veja a página [Preços do Barramento de Serviço](https://azure.microsoft.com/pricing/details/service-bus/).
 * Consulte as [Perguntas frequentes sobre Barramento de Serviço](service-bus-faq.md#pricing) para ver algumas perguntas frequentes comuns sobre preços e cobrança do Barramento de Serviço.
 

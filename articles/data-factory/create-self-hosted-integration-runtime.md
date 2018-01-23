@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: abnarain
-ms.openlocfilehash: 0fcc245369d90042066cbfc516a8c32db7272bd3
-ms.sourcegitcommit: bc8d39fa83b3c4a66457fba007d215bccd8be985
+ms.openlocfilehash: 2c7df5c0a976aae8e3e0b99b083bbde942493bfa
+ms.sourcegitcommit: 901a3ad293669093e3964ed3e717227946f0af96
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/10/2017
+ms.lasthandoff: 12/21/2017
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Como criar e configurar o Integration Runtime do auto-hospedado
 O IR (Integration Runtime) é a infraestrutura de computação usada pelo Azure Data Factory para fornecer funcionalidades de integração de dados entre diferentes ambientes de rede. Para obter detalhes sobre o IR, consulte [Visão geral do Integration Runtime](concepts-integration-runtime.md).
@@ -66,7 +66,7 @@ Aqui está o fluxo de dados de alto nível para e o resumo das etapas para a có
 - Trate a fonte de dados como local (isto é, protegida por um firewall) mesmo quando você usar o **ExpressRoute**. Use o Integration Runtime auto-hospedado para estabelecer a conectividade entre o serviço e a fonte de dados.
 - Você deverá usar o Integration Runtime auto-hospedado mesmo se o armazenamento de dados estiver na nuvem em uma **máquina virtual de IaaS do Azure**.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 - As versões de **Sistema Operacional** com suporte são Windows 7 Service Pack 1, Windows 8.1, Windows 10, Windows Server 2008 R2 SP1, Windows Server 2012, Windows Server 2012 R2 e Windows Server 2016. A instalação do Integration Runtime auto-hospedado em um **controlador de domínio não tem suporte**.
 - O **.NET Framework 4.6.1 ou superior** é necessário. Se você estiver instalando o Integration Runtime auto-hospedado em um computador com Windows 7, instale o .NET Framework 4.6.1 ou posterior. Confira [Requisitos de sistema do .NET Framework](/dotnet/framework/get-started/system-requirements) para obter detalhes.
@@ -110,7 +110,20 @@ Um Integration Runtime auto-hospedado pode ser associado a vários computadores 
 Você pode associar vários nós simplesmente instalando o software de Integration Runtime auto-hospedado do [Centro de download](https://www.microsoft.com/download/details.aspx?id=39717) e registrando-o por uma das Chaves de Autenticação obtidas do cmdlet New-AzureRmDataFactoryV2IntegrationRuntimeKey conforme descrito no [Tutorial](tutorial-hybrid-copy-powershell.md)
 
 > [!NOTE]
-> Você não precisa criar um novo Integration Runtime auto-hospedado para associar cada nó.
+> Você não precisa criar um novo Integration Runtime auto-hospedado para associar cada nó. Você pode instalar o tempo de execução de integração auto-hospedado em outro computador e registrá-lo usando a mesma Chave de Autenticação. 
+
+> [!NOTE]
+> Antes de adicionar outro nó para **Alta Disponibilidade e Escalabilidade**, verifique se a opção **"Acesso remoto à intranet"** está **Habilitada** no primeiro nó (Gerenciador de Configurações do Microsoft Integration Runtime -> Configurações -> Acesso remoto à intranet). 
+
+### <a name="tlsssl-certificate-requirements"></a>Requisitos de certificado TLS/SSL
+Aqui estão os requisitos para o certificado TLS/SSL usado para proteger as comunicações entre os nós do tempo de execução de integração:
+
+- O certificado deve ser um certificado X509 v3 publicamente confiável. É recomendável que você use certificados emitidos por uma AC (autoridade de certificação) pública (de terceiros).
+- Cada nó do tempo de execução de integração deve confiar nesse certificado.
+- Há suporte para certificados curinga. Se o nome FQDN for **node1.domain.contoso.com**, você poderá usar ***.domain.contoso.com** como nome da entidade do certificado.
+- Certificados SAN não são recomendados, já que apenas o último item dos Nomes Alternativos de Entidade será usado e todos os outros serão ignorados devido à limitação atual. Por exemplo você tem um certificado SAN cujo SAN é **node1.domain.contoso.com** e **node2.domain.contoso.com**, você só pode usar este certificado no computador cujo FQDN é **node2.domain.contoso.com**.
+- Dá suporte a qualquer tamanho de chave com suporte pelo Windows Server 2012 R2 para certificados SSL.
+- Não há suporte para certificado usando chaves CNG. Não dá suporte a certificados que usam chaves CNG.
 
 ## <a name="system-tray-icons-notifications"></a>Ícones/notificações da bandeja do sistema
 Se você mover o cursor sobre o ícone de bandeja do sistema/mensagem de notificação, poderá encontrar detalhes sobre o estado do Integration Runtime auto-hospedado.
@@ -124,7 +137,7 @@ Há dois firewalls que você precisa levar em consideração: o **firewall corpo
 
 No nível do **firewall corporativo**, você precisa configurar os seguintes domínios e portas de saída:
 
-Nomes de domínio | Portas | Descrição
+Nomes de domínio | Portas | DESCRIÇÃO
 ------------ | ----- | ------------
 *.servicebus.windows.net | 443, 80 | Usado para comunicação com o back-end do Serviço de Movimentação de Dados
 *.core.windows.net | 443 | Usado para cópia em etapas usando Blobs do Azure (se estiver configurado)
@@ -225,14 +238,20 @@ Se você encontrar erros similares aos descritos a seguir, eles provavelmente se
     A component of Integration Runtime has become unresponsive and restarts automatically. Component name: Integration Runtime (Self-hosted).
     ```
 
-### <a name="open-port-8060-for-credential-encryption"></a>Abrir a porta 8060 para criptografia de credencial
-O aplicativo **Definindo Credenciais** (sem suporte no momento) usa a porta de entrada 8060 para retransmitir credenciais ao Integration Runtime auto-hospedado quando você configura um serviço vinculado local no Portal do Azure. Durante a instalação do Integration Runtime auto-hospedado, por padrão, a instalação do Integration Runtime auto-hospedado o abre no computador do Integration Runtime auto-hospedado.
+### <a name="enable-remote-access-from-intranet"></a>Habilitar acesso remoto pela intranet  
+Caso você use o **PowerShell** ou **aplicativo Gerenciador de Credenciais** para criptografar as credenciais de outro computador (na rede), diferente daquele em que o tempo de execução de integração auto-hospedado está instalado, você precisará que a opção **"Acesso remoto pela intranet"** seja habilitada. Se você executa o **PowerShell** ou o **aplicativo Gerenciador de Credenciais** para criptografar credenciais no mesmo computador em que o tempo de execução de integração auto-hospedado está instalado, a opção **"Acesso remoto pela intranet"** não pode ser habilitada.
 
-Se estiver usando um firewall de terceiros, você poderá abrir manualmente a porta 8050. Se tiver problemas de firewall durante a configuração do Integration Runtime auto-hospedado, você poderá tentar usar o comando a seguir para instalar o Integration Runtime auto-hospedado sem configurar o firewall.
+O Acesso remoto pela intranet deve ser **habilitado** antes de adicionar outro nó para **Alta Disponibilidade e Escalabilidade**.  
+
+Durante a instalação do tempo de execução de integração auto-hospedado (v 3.3.xxxx.x em diante), a instalação do tempo de execução de integração auto-hospedado desabilita a opção **"Acesso remoto pela intranet"** no computador do tempo de execução de integração auto-hospedado por padrão.
+
+Se estiver usando um firewall de terceiros, você poderá abrir manualmente a porta 8060 (ou a porta configurada pelo usuário). Se tiver problemas de firewall durante a configuração do Integration Runtime auto-hospedado, você poderá tentar usar o comando a seguir para instalar o Integration Runtime auto-hospedado sem configurar o firewall.
 
 ```
 msiexec /q /i IntegrationRuntime.msi NOFIREWALL=1
 ```
+> [!NOTE]
+> O **aplicativo Gerenciador de Credenciais** ainda não está disponível para criptografar credenciais em ADFv2. Vamos adicionar essa compatibilidade mais tarde.  
 
 Se optar por não abrir a porta 8060 no computador do Integration Runtime auto-hospedado, use mecanismos diferentes do aplicativo **Definindo Credenciais** para configurar as credenciais do armazenamento de dados. Por exemplo, você pode usar o cmdlet do PowerShell New-AzureRmDataFactoryV2LinkedServiceEncryptCredential. Confira a seção Definir credenciais e segurança para saber como as credenciais do armazenamento de dados podem ser definidas.
 

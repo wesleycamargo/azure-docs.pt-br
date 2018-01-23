@@ -15,11 +15,11 @@ ms.topic: article
 ms.date: 09/18/2017
 ms.author: barclayn
 ms.custom: pim
-ms.openlocfilehash: 9a013820689742faa732971c00b82c7ad8638a95
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: c35b0c4171d411bd0c0483866f88780757cb3ee8
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>O que é o Azure AD Privileged Identity Management?
 
@@ -57,7 +57,7 @@ Você pode começar a usar o Azure AD Privileged Identity Management acessando o
 3. Selecione **Mais serviços** e use a caixa de texto Filtrar para procurar **Azure AD Privileged Identity Management**.
 4. Marque **Fixar no painel** e então clique em **Criar**. O aplicativo Privileged Identity Management é aberto.
 
-Se você for a primeira pessoa a usar o Azure AD Privileged Identity Management em seu diretório, e navegar até as funções de diretório do Azure AD, um [assistente de segurança](active-directory-privileged-identity-management-security-wizard.md) guiará você pela experiência de atribuição inicial. Depois disso, você se tornará automaticamente o primeiro **Administrador de segurança** e o **Administrador com privilégios de função** do diretório.
+Se você for a primeira pessoa a usar o Azure AD Privileged Identity Management em seu diretório e navegar até as funções do diretório do Azure AD, um [assistente de segurança](active-directory-privileged-identity-management-security-wizard.md) o guiará pela experiência de atribuição inicial. Depois disso, você se tornará automaticamente o primeiro **Administrador de segurança** e o **Administrador com privilégios de função** do diretório.
 
 Para funções do Azure AD, apenas um usuário que está na função de Administrador de Função Privilegiada pode gerenciar atribuições para outros administradores no Azure AD PIM. Você pode [conceder a outros usuários a capacidade de gerenciar funções de diretório no PIM](active-directory-privileged-identity-management-how-to-give-access-to-pim.md). Os Administradores Globais, Administradores de Segurança e Leitores de Segurança podem exibir atribuições às funções do Azure AD no Azure AD PIM.
 Para funções de RBAC do Azure, somente um administrador de assinatura, um proprietário de recurso ou um administrador de acesso de usuário de recursos pode gerenciar atribuições para outros administradores no Azure AD PIM.  Por padrão, o usuários que são Administradores de Funções com Privilégio, Administradores de Segurança ou Leitores de Segurança não têm acesso para exibir as atribuições a funções de RBAC do Azure no Azure AD PIM.

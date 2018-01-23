@@ -16,11 +16,11 @@ ms.workload: identity
 ms.date: 11/07/2017
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: 4dd24e4dddfedf58f1016511dfad087f91a0dbf8
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 3ca9157823a52bd0e4e8dd3b2656fc2724c8b4b6
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="conditional-access-in-azure-active-directory"></a>Acesso condicional no Azure Active Directory
 
@@ -200,7 +200,7 @@ Se você quiser adicionar outra camada de proteção para esses aplicativos, pod
 
 Esse cenário é semelhante ao cenário anterior porque adiciona um requisito para a autenticação multifator.
 No entanto, a principal diferença é a condição para esse requisito.  
-Embora o foco do cenário anterior fosse aplicativos com acesso a dados confidenciais, o foco deste cenário é em locais confiáveis.  
+Embora o foco do cenário anterior fosse em aplicativos com acesso a dados confidenciais, o foco deste cenário é em locais confiáveis.  
 Em outras palavras, você pode ter um requisito para autenticação multifator se um aplicativo for acessado por um usuário de uma rede em que você não confia.
 
 
@@ -209,6 +209,9 @@ Em outras palavras, você pode ter um requisito para autenticação multifator s
 Se você estiver usando o Intune em seu ambiente, poderá começar imediatamente usando a interface de política de acesso condicional no console do Azure.
 
 Muitos clientes do Intune estão usando o acesso condicional para garantir que somente os dispositivos confiáveis possam acessar os serviços do Office 365. Isso significa que os dispositivos móveis estão registrados no Intune e atendem aos requisitos da política de conformidade e que os computadores com Windows fazem parte de um domínio local. Uma melhoria-chave é que você não precisa definir a mesma política para cada um dos serviços do Office 365.  Quando você criar uma nova política, configure os aplicativos de nuvem para incluir cada um dos aplicativos do O365 que você deseja proteger com o acesso condicional.
+
+### <a name="switching-a-device-from-corporate-owned-to-bring-your-own-device-byod"></a>Alternância de um dispositivo de corporativo para BYOD (traga seu próprio dispositivo)
+Se quiser bloquear os dispositivos registrados alterando a propriedade do dispositivo de corporativa para pessoal, você poderá fazer isso usando o acesso condicional do AAD (Azure Active Directory). Primeiro, você precisa criar uma política de acesso condicional em que **Bloquear o acesso** esteja selecionado na folha **Concessão** dos controles de acesso. Em seguida, crie um grupo **Dispositivo Dinâmico** definindo a propriedade **deviceOwnership** como **Pessoal**. Em seguida, direcione a política acima ao novo grupo.
 
 ## <a name="next-steps"></a>Próximas etapas
 

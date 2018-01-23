@@ -12,11 +12,11 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
 ms.author: jonatul
-ms.openlocfilehash: 70a1ad070e812951fca3d2b19da12c67f0725dd0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 08f4f4aca20efad8f51ebc9ca8c6df8de8d0d4c7
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="overview-of-reverse-dns-and-support-in-azure"></a>Visão geral de DNS reverso e suporte no Azure
 
@@ -34,7 +34,7 @@ Os registros do DNS reverso são hospedados em zonas DNS especiais, conhecidas c
 
 Por exemplo, o registro DNS 'www.contoso.com' é implementado usando um registro DNS 'A' com o nome ‘www’ na zona ‘contoso.com’.  Este registro A aponta para o endereço IP correspondente, neste caso, 64.4.6.100.  A pesquisa inversa é implementada separadamente, usando um registro 'PTR' chamado '100' na zona '6.4.64.in-addr.arpa' (observe que os endereços IP são revertidos em zonas ARPA).  Esse registro PTR, caso tenha sido configurado corretamente, aponta para o nome ‘www.contoso.com’.
 
-Quando uma organização recebe um bloco de endereços IP, também adquirem o direito de gerenciar a zona ARPA correspondente. As zonas ARPA correspondentes aos blocos de endereços IP usados pelo Azure são hospedadas e gerenciadas pela Microsoft. Seu ISP pode hospedar a zona ARPA para seus próprios endereços IP para você, ou pode permitir que você hospede a zona ARPA em um serviço DNS de sua escolha, como o Azure DNS.
+Quando uma organização recebe um bloco de endereços IP, também adquirem o direito de gerenciar a zona ARPA correspondente. As zonas ARPA correspondentes aos blocos de endereços IP usados pelo Azure são hospedadas e gerenciadas pela Microsoft. Seu ISP pode hospedar a zona ARPA para seus próprios endereços IP ou pode permitir que você hospede a zona ARPA em um serviço DNS de sua escolha, como o DNS do Azure.
 
 > [!NOTE]
 > As pesquisas DNS diretas e as pesquisas DNS inversas são implementadas em hierarquias de DNS separadas e paralelas. A pesquisa inversa para 'www.contoso.com' **não** é hospedada na zona ‘contoso.com’, mas na região ARPA para o bloco de endereços IP correspondente. Zonas separadas são usadas para blocos de endereço IPv4 e IPv6.

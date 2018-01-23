@@ -1,6 +1,6 @@
 ---
-title: Coletar logs personalizados no OMS Log Analytics | Microsoft Docs
-description: "O Log Analytics pode coletar eventos de arquivos de texto em computadores com Windows e Linux.  Este artigo descreve como definir um novo log personalizado e os detalhes dos registros que ele cria no repositório do OMS."
+title: Coletar logs personalizados no Azure Log Analytics | Microsoft Docs
+description: "O Log Analytics pode coletar eventos de arquivos de texto em computadores com Windows e Linux.  Este artigo descreve como definir um novo log personalizado e os detalhes dos registros que serão criados no espaço de trabalho do Log Analytics."
 services: log-analytics
 documentationcenter: 
 author: bwren
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/17/2017
+ms.date: 12/14/2017
 ms.author: bwren
-ms.openlocfilehash: addb1c8f4c71bb1979229c597665fd301dfb9fdf
-ms.sourcegitcommit: 933af6219266cc685d0c9009f533ca1be03aa5e9
+ms.openlocfilehash: 401fbb39194a24721274f55f0fc2a4cdc235a32b
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/18/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="custom-logs-in-log-analytics"></a>Logs personalizados no Log Analytics
-A fonte de dados de logs personalizados no Log Analytics permite que você colete eventos de arquivos de texto em computadores com Windows e Linux. Muitos aplicativos registram informações em arquivos de texto em vez de serviços de registro standard, como o log de eventos do Windows ou Syslog.  Depois de coletados, você pode analisar cada registro no log em campos individuais usando o recurso [Campos Personalizados](log-analytics-custom-fields.md) do Log Analytics.
+A fonte de dados de logs personalizados no Log Analytics permite que você colete eventos de arquivos de texto em computadores com Windows e Linux. Muitos aplicativos registram informações em arquivos de texto em vez de serviços de registro standard, como o log de eventos do Windows ou Syslog.  Depois de coletados, você pode analisar cada registro no logon em campos individuais usando o recurso [Campos Personalizados](log-analytics-custom-fields.md) do Log Analytics.
 
 ![Coleta de log personalizado](media/log-analytics-data-sources-custom-logs/overview.png)
 
@@ -42,10 +42,10 @@ Os arquivos de log a serem coletados devem corresponder aos critérios a seguir.
 Use o procedimento a seguir para definir um arquivo de log personalizado.  Role até o final deste artigo para encontrar um passo a passo de um exemplo de adição de um log personalizado.
 
 ### <a name="step-1-open-the-custom-log-wizard"></a>Etapa 1. Abrir o Custom Log Wizard (Assistente de Log Personalizado)
-O Custom Log Wizard (Assistente de Log Personalizado) é executado no portal do OMS e permite que você defina um novo log personalizado para coletar.
+O Assistente de Log Personalizado é executado no portal do Azure e permite que você defina um novo log personalizado para ser coletado.
 
-1. No portal do OMS, vá para **Configurações**.
-2. Clique em **Dados** e em **Custom logs**.
+1. No portal do Azure, selecione **Log Analytics** > seu espaço de trabalho > **Configurações Avançadas**.
+2. Clique em **Dados** > **Logs personalizados**.
 3. Por padrão, todas as alterações de configuração são automaticamente envidas por push para todos os agentes.  Para agentes do Linux, um arquivo de configuração é enviado para o coletor de dados Fluentd.  Se você quiser modificar esse arquivo manualmente em cada agente do Linux, desmarque a caixa *Apply below configuration to my Linux machines*(Aplicar as configurações abaixo aos computadores Linux).
 4. Clique e **Adicionar+** para abrir o Custom Log Wizard (Assistente de Log Personalizado).
 
@@ -54,14 +54,14 @@ Inicie carregando um exemplo de log personalizado.  O assistente analisará e ex
 
 **Nova Linha** é o delimitador padrão e é usado para arquivos de log que têm uma única entrada por linha.  Se a linha começar com uma data e hora em um dos formatos disponíveis, você poderá especificar um delimitador **Carimbo de data/hora** , que dá suporte a entradas que se estendem por mais de uma linha.
 
-Se for usado um delimitador de carimbo de data/hora, a propriedade TimeGenerated de cada registro armazenado no OMS será populada com a data/hora especificada para a entrada no arquivo de log.  Se um delimitador de nova linha for usado, TimeGenerated será populada com a data e hora em que o Log Analytics coletou a entrada.
+Se um delimitador de carimbo de data/hora for usado, a propriedade TimeGenerated de cada registro armazenado no Log Analytics será populada com a data/hora especificada para essa entrada no arquivo de log.  Se um delimitador de nova linha for usado, TimeGenerated será populada com a data e hora em que o Log Analytics coletou a entrada.
 
 
 1. Clique em **Procurar** e navegue até um arquivo de exemplo.  Observe que esse botão pode ser rotulado como **Escolher Arquivo** em alguns navegadores.
-2. Clique em **Avançar**.
+2. Clique em **Próximo**.
 3. O Custom Log Wizard (Assistente de Log Personalizado) carregará o arquivo e listará os registros que identificar.
 4. Altere o delimitador usado para identificar um novo registro e selecione o delimitador que melhor identifica os registros no arquivo de log.
-5. Clique em **Avançar**.
+5. Clique em **Próximo**.
 
 ### <a name="step-3-add-log-collection-paths"></a>Etapa 3. Adicionar caminhos de coleta de log
 Você deve definir um ou mais caminhos no agente no qual ele pode localizar o log personalizado.  Você pode fornecer um caminho e um nome específicos para o arquivo de log ou pode especificar um caminho com um caractere curinga para o nome.  Isso dá suporte a aplicativos que criam um novo arquivo por dia ou quando um arquivo atinge um determinado tamanho.  Você também pode fornecer vários caminhos para um único arquivo de log.
@@ -70,7 +70,7 @@ Por exemplo, um aplicativo pode criar um arquivo de log por dia com a data inclu
 
 A tabela a seguir fornece exemplos de padrões válidos para especificar diferentes arquivos de log.
 
-| Descrição | Caminho |
+| DESCRIÇÃO | Caminho |
 |:--- |:--- |
 | Todos os arquivos em *C:\Logs* com extensão .txt no agente do Windows |C:\Logs\\\*.txt |
 | Todos os arquivos em *C:\Logs* cujo nome começa com log e uma extensão .txt no agente do Windows |C:\Logs\log\*.txt |
@@ -103,13 +103,12 @@ A entrada de log inteira será armazenada em uma única propriedade chamada **Ra
 
 As etapas detalhadas para analisar a entrada de log personalizado não são fornecidas aqui.  Consulte a documentação dos [Campos Personalizados](log-analytics-custom-fields.md) para encontrar essas informações.
 
-## <a name="disabling-a-custom-log"></a>Desabilitar um log personalizado
-Você não pode remover uma definição de log personalizado depois de ele ter sido criado, mas pode desabilitá-lo, removendo todos os seus caminhos de coleção.
+## <a name="removing-a-custom-log"></a>Removendo um log personalizado
+Use o seguinte processo no portal do Azure para remover um log personalizado que você definiu anteriormente.
 
-1. No portal do OMS, vá para **Configurações**.
-2. Clique em **Dados** e em **Custom logs**.
-3. Clique em **Detalhes**, ao lado da definição do log personalizado, para desabilitar.
-4. Remova cada um dos caminhos de coleção para a definição do log personalizado.
+1. No menu **Dados** nas **Configurações Avançadas** do espaço de trabalho, selecione **Logs Personalizados** para listar todos os seus logs personalizados.
+2. Clique em **Remover** ao lado do log personalizado a ser removido.
+
 
 ## <a name="data-collection"></a>Coleta de dados
 O Log Analytics coletará novas entradas de cada log personalizado aproximadamente a cada cinco minutos.  O agente registrará seu lugar em cada arquivo de log do qual ele realiza a coleta.  Se o agente ficar offline por um período de tempo, o Log Analytics coletará entradas de onde ele parou, mesmo que as entradas tenham sido criadas enquanto o agente estava offline.
@@ -119,7 +118,7 @@ Todo o conteúdo da entrada de log é gravado em uma única propriedade chamada 
 ## <a name="custom-log-record-properties"></a>Propriedades de registro do log personalizado
 Os registros de log personalizado têm um tipo com o nome do log que você fornece e as propriedades na tabela a seguir.
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 |:--- |:--- |
 | TimeGenerated |Data e hora em que o registro foi coletado pelo Log Analytics.  Se o log usar um delimitador baseado na hora, essa será a hora coletada da entrada. |
 | SourceSystem |Tipo de registro do qual os dados foram coletados. <br> OpsManager – agente do Windows, conexão direta ou System Center Operations Manager <br> Linux: todos os agentes do Linux |
@@ -127,11 +126,11 @@ Os registros de log personalizado têm um tipo com o nome do log que você forne
 | ManagementGroupName |Nome do grupo de gerenciamento para agentes do System Center Operations Manager.  Para outros agentes, ele é AOI-\<ID do espaço de trabalho\> |
 
 ## <a name="log-searches-with-custom-log-records"></a>Pesquisas de log com registros de log personalizados
-Os registros de logs personalizados são armazenados no repositório do OMS, exatamente como registros de qualquer outra fonte de dados.  Eles terão um tipo correspondente ao nome que você fornecer ao definir o log, então você pode usar a propriedade Type em sua pesquisa para recuperar registros coletados de um log específico.
+Os registros dos logs personalizados são armazenados no espaço de trabalho do Log Analytics, exatamente como os registros de qualquer outra fonte de dados.  Eles terão um tipo correspondente ao nome que você fornecer ao definir o log, então você pode usar a propriedade Type em sua pesquisa para recuperar registros coletados de um log específico.
 
 A tabela a seguir fornece diferentes exemplos de pesquisas de log que recuperam registros de logs personalizados.
 
-| Consultar | Descrição |
+| Consultar | DESCRIÇÃO |
 |:--- |:--- |
 | MyApp_CL |Todos os eventos de um log personalizado chamado MyApp_CL. |
 | MyApp_CL &#124; where Severity_CF=="error" |Todos os eventos de um log personalizado chamado MyApp_CL com um valor de *erro* em um campo personalizado chamado *Severity_CF*. |
@@ -172,5 +171,5 @@ Usamos campos personalizados para definir os campos *EventTime*, *Code*, *Status
 ![Consulta de log com campos personalizados](media/log-analytics-data-sources-custom-logs/query-02.png)
 
 ## <a name="next-steps"></a>Próximas etapas
-* Use [Campos Personalizados](log-analytics-custom-fields.md) para analisar as entradas no log personalizado em campos personalizados.
+* Use os [Campos Personalizados](log-analytics-custom-fields.md) para analisar as entradas no logon personalizado em campos personalizados.
 * Saiba mais sobre [pesquisas de log](log-analytics-log-searches.md) para analisar os dados coletados de fontes de dados e soluções.

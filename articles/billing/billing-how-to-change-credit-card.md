@@ -13,13 +13,13 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2017
+ms.date: 12/22/2017
 ms.author: genli
-ms.openlocfilehash: 03764377b3ea0e17d4a192a7e05bb495ec56f331
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 9cab81b6072c6f096f6f1a419cebcca9630ebde3
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="add-update-or-remove-a-credit-or-debit-card-for-azure"></a>Adicionar, atualizar ou remover um cartão de crédito ou débito do Azure
 
@@ -77,7 +77,7 @@ Caso seu cartão de crédito esteja associado a outras assinaturas ativas da Mic
 
 Depois que sua assinatura estiver desabilitada ou cancelada, poderemos esperar 90 dias antes de excluir permanentemente a sua assinatura. Mantemos sua forma de pagamento no arquivo durante o período de retenção caso você deseje reativar a assinatura. Depois disso, a assinatura será completamente excluída.
 
-Se você precisar remover seu cartão de crédito ou débito antes do período de retenção de 90 dias terminar, [entre em contato com o suporte do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Se precisar remover seu cartão de crédito ou débito antes do período de retenção de 90 dias terminar, [reative sua assinatura](billing-subscription-become-disable.md). Se não conseguir reativar, [entre em contato com o suporte do Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ### <a name="why-do-i-keep-getting-your-login-session-has-expired-please-click-here-to-log-back-in"></a>Por que continuo recebendo "Sua sessão de logon expirou. Clique aqui para fazer logon novamente"?
 
@@ -96,6 +96,10 @@ Se estiver [pagando por fatura](billing-how-to-pay-by-invoice.md), envie seu pag
 ### <a name="how-do-i-make-a-one-time-payment"></a>Como fazer um pagamento único?
 
 Infelizmente, o Azure não dá suporte a pagamentos únicos no momento para cartões de crédito ou débito. 
+
+### <a name="how-do-i-change-the-tax-id"></a>Como alterar a ID de imposto?
+
+Para adicionar ou atualizar a ID de imposto, visite [**Perfil** no Centro de Contas do Azure](https://account.azure.com/Profile) e selecione **Registro fiscal**. Essa ID de imposto é usada para cálculos de isenção de impostos e aparece em sua fatura.
 
 ## <a name="need-help-contact-support"></a>Precisa de ajuda? Contate o suporte
 

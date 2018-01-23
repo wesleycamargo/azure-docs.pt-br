@@ -14,11 +14,11 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 09/29/2017
 ms.author: azfuncdf
-ms.openlocfilehash: 10ce74097388a0283797e4692126c5039e8d4dd0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cc4c643b8d0e8de1b5c38ca7bb1b0193d6b0f05b
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Desempenho e escala nas Funções Duráveis (Azure Functions)
 
@@ -34,7 +34,7 @@ A tabela de histórico é uma tabela do Armazenamento do Azure que contém event
 
 Funções de orquestrador e funções de atividade são disparadas por filas internas na conta de armazenamento padrão do aplicativo de funções. Há dois tipos de filas nas Funções Duráveis: a **fila de controle** e a **fila de itens de trabalho**.
 
-### <a name="the-work-item-queue"></a>A fila de itens de trabalho
+### <a name="the-work-item-queue"></a>A fila de item de trabalho
 
 Há uma fila de itens de trabalho por hub de tarefas nas Funções Duráveis. Essa é uma fila básica, que se comporta da mesma forma que qualquer outra fila `queueTrigger` no Azure Functions. Essa fila é usada para disparar *funções de atividade* sem monitoração de estado. Quando um aplicativo de Funções Duráveis é expandido para várias VMs, todas essas VMs concorrem para obter trabalho da fila de itens de trabalho.
 
@@ -59,13 +59,13 @@ Como você pode ver, todas as VMs podem concorrer por mensagens na fila de itens
 Instâncias de orquestração são distribuídas entre instâncias de fila de controle executando uma função de hash interna na ID da instância de orquestração. IDs de instância são geradas automaticamente e são aleatórias por padrão, o que garante que as instâncias sejam balanceadas entre todas as filas de controle disponíveis. O atual número padrão de partições de fila de controle com suporte é **4**.
 
 > [!NOTE]
-> No momento, não é possível configurar o número de partições no Azure Functions. [O trabalho para dar suporte a essa opção de configuração está sendo acompanhado](https://github.com/Azure/azure-functions-durable-extension/issues/73).
+> No momento, não é possível configurar o número de partições de fila de controle no Azure Functions. [O trabalho para dar suporte a essa opção de configuração está sendo acompanhado](https://github.com/Azure/azure-functions-durable-extension/issues/73).
 
 De modo geral, funções de orquestrador devem ser leves e não devem precisar de muita capacidade de computação. Por esse motivo, não é necessário criar um grande número de partições de fila de controle para obter uma boa taxa de transferência. Em vez disso, a maior parte do trabalho pesado é feito em funções de atividade sem monitoração de estado, que podem ser expandidas infinitamente.
 
 ## <a name="auto-scale"></a>Dimensionamento automático
 
-Assim como ocorre com todas as funções do Azure Functions em execução no Plano de Consumo, as Funções Duráveis dão suporte ao dimensionamento automático por meio do [Controlador de escala do Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-scale#runtime-scaling). O Controlador de Escala monitora o tamanho da fila de itens de trabalho e de cada uma das filas de controle, adicionando ou removendo recursos de VM adequadamente. Se os tamanhos das filas de controle aumentarem ao longo do tempo, o controlador de escala continuará adicionando instâncias até atingir a contagem de partições da fila de controle. Se os tamanhos das filas de itens de trabalho aumentarem ao longo do tempo, o controlador de escala continuará adicionando recursos de VM até corresponder `a carga, independentemente da contagem de partições da fila de controle.
+Assim como ocorre com todas as funções do Azure Functions em execução no Plano de Consumo, as Funções Duráveis dão suporte ao dimensionamento automático por meio do [Controlador de escala do Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-scale#runtime-scaling). O Controlador de escala monitora o tamanho da fila de itens de trabalho e de cada uma das filas de controle, adicionando ou removendo instâncias de VM adequadamente. Se os tamanhos das filas de controle aumentarem ao longo do tempo, o controlador de escala continuará adicionando instâncias de VM até atingir a contagem de partições da fila de controle. Se os tamanhos das filas de itens de trabalho aumentarem ao longo do tempo, o controlador de escala continuará adicionando instâncias de VM até corresponder à carga, independentemente da contagem de partições da fila de controle.
 
 ## <a name="thread-usage"></a>Uso de thread
 
