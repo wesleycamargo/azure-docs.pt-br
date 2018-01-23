@@ -15,11 +15,11 @@ ms.workload: na
 ms.date: 10/19/2017
 ms.author: nberdy
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d23bf20e4483b102fe5d946cb017dce1769b39a1
-ms.sourcegitcommit: e6029b2994fa5ba82d0ac72b264879c3484e3dd0
+ms.openlocfilehash: f0520e97a8b4f218b87683464d342bf7a08b2383
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/24/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>Entender e chamar métodos diretos do Hub IoT
 O Hub IoT permite invocar métodos diretos em dispositivos da nuvem. Os métodos diretos representam uma interação entre solicitação e resposta com um dispositivo semelhante a uma chamada HTTP, na qual eles são bem-sucedidos ou falham imediatamente (depois que o tempo limite especificado pelo usuário é atingido). Essa abordagem é útil para cenários em que a ação imediata é diferente dependendo da capacidade de resposta do dispositivo, como enviar uma ativação por SMS para um dispositivo se o dispositivo está offline (com o SMS sendo mais caro do que uma chamada de método).
@@ -30,10 +30,10 @@ Qualquer pessoa com permissões de **conectar serviço** no Hub IoT pode invocar
 
 Os métodos diretos seguem um padrão de solicitação e resposta e se destinam a comunicações que exigem confirmação imediata de seus resultados, normalmente controle interativo do dispositivo, por exemplo, ligar uma ventoinha.
 
-Veja [Cloud-to-device communication guidance][lnk-c2d-guidance] (Diretrizes de comunicação da nuvem para o dispositivo) se estiver em dúvida entre o uso de propriedades desejadas, métodos diretos ou mensagens da nuvem para o dispositivo.
+Veja as [diretrizes de comunicação da nuvem para o dispositivo][lnk-c2d-guidance] se está em dúvida entre o uso de propriedades desejadas, métodos diretos ou mensagens da nuvem para o dispositivo.
 
 ## <a name="method-lifecycle"></a>Ciclo de vida do método
-Os métodos diretos são implementados no dispositivo e podem precisar ou não de entradas no conteúdo do método para instanciar corretamente. Você invoca um método direto por meio de um URI voltado para serviços (`{iot hub}/twins/{device id}/methods/`). Um dispositivo recebe métodos diretos por meio de um tópico MQTT específico ao dispositivo (`$iothub/methods/POST/{method name}/`). Podemos dar suporte a métodos diretos em mais protocolos de rede do lado do dispositivo no futuro.
+Os métodos diretos são implementados no dispositivo e podem precisar ou não de entradas no conteúdo do método para instanciar corretamente. Você invoca um método direto por meio de um URI voltado para serviços (`{iot hub}/twins/{device id}/methods/`). Um dispositivo recebe métodos diretos por meio de um tópico MQTT específico do dispositivo (`$iothub/methods/POST/{method name}/`) ou de links do AMQP (propriedades de aplicativo `IoThub-methodname` e `IoThub-status`). 
 
 > [!NOTE]
 > Quando você invoca um método direto em um dispositivo, os valores e nomes de propriedade só podem conter caracteres alfanuméricos imprimíveis US-ASCII, exceto pelo seguinte conjunto: ``{'$', '(', ')', '<', '>', '@', ',', ';', ':', '\', '"', '/', '[', ']', '?', '=', '{', '}', SP, HT}``.
@@ -68,15 +68,14 @@ As invocações de método direto em um dispositivo são chamadas HTTPS, que com
 
 Tempo limite em segundos. Se o tempo limite não tiver sido definido, o padrão será 30 segundos.
 
-### <a name="response"></a>Resposta
+### <a name="response"></a>Response
 O aplicativo de back-end recebe uma resposta que inclui:
 
 * *Código de status HTTP*, que é usado para erros provenientes do Hub IoT, incluindo um erro 404 para dispositivos que não estão conectados
 * *Cabeçalhos* que contêm a ETag, ID da solicitação, tipo de conteúdo e codificação de conteúdo
 * Um *corpo* JSON no seguinte formato:
 
-   ```
-   {
+   ```   {
        "status" : 201,
        "payload" : {...}
    }
@@ -85,7 +84,8 @@ O aplicativo de back-end recebe uma resposta que inclui:
    `status` e `body` são fornecidos pelo dispositivo e usados para responder com o código de status e/ou descrição do dispositivo.
 
 ## <a name="handle-a-direct-method-on-a-device"></a>Tratar um método direto em um dispositivo
-### <a name="method-invocation"></a>Invocação de método
+### <a name="mqtt"></a>MQTT
+#### <a name="method-invocation"></a>Invocação de método
 Os dispositivos recebem solicitações de método direto sobre o tópico MQTT: `$iothub/methods/POST/{method name}/?$rid={request id}`
 
 O corpo que o dispositivo recebe está no seguinte formato:
@@ -99,13 +99,30 @@ O corpo que o dispositivo recebe está no seguinte formato:
 
 As solicitações de método são QoS 0.
 
-### <a name="response"></a>Resposta
+#### <a name="response"></a>Response
 O dispositivo envia as respostas para `$iothub/methods/res/{status}/?$rid={request id}`, em que:
 
 * A propriedade `status` é o status de execução fornecido pelo dispositivo da execução do método.
 * A propriedade `$rid` é a ID de solicitação de invocação do método recebida do Hub IoT.
 
 O corpo é definido pelo dispositivo e pode ter qualquer status.
+
+### <a name="amqp"></a>AMQP
+#### <a name="method-invocation"></a>Invocação de método
+O dispositivo recebe solicitações de método direto criando um link de recebimento no endereço `amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound`
+
+A mensagem do AMQP chega ao link de recebimento que representa a solicitação do método. Ele contém o seguinte:
+* A propriedade de ID de correlação, que contém uma ID de solicitação que deve ser passada de volta com a resposta do método correspondente
+* Uma propriedade de aplicativo chamada `IoThub-methodname`, que contém o nome do método que está sendo invocado
+* O corpo da mensagem do AMQP que contém a carga do método como JSON
+
+#### <a name="response"></a>Response
+O dispositivo cria um link de envio para retornar a resposta do método no endereço `amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound`
+
+A resposta do método é retornada no link de envio e é estruturada da seguinte forma:
+* A propriedade de ID de correlação, que contém a ID da solicitação passada na mensagem de solicitação do método
+* Uma propriedade de aplicativo chamada `IoThub-status`, que contém o status do método fornecido pelo usuário
+* O corpo da mensagem do AMQP que contém a resposta do método como JSON
 
 ## <a name="additional-reference-material"></a>Material de referência adicional
 Outros tópicos de referência no Guia do desenvolvedor do Hub IoT incluem:

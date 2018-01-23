@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: mbullwin
-ms.openlocfilehash: 6886d1239fa074a6316b243e574833f5554ac298
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 3310239b5569ca5b63bd39acb4d192a4e54780e4
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="smart-detection---performance-anomalies"></a>Detecção Inteligente - anomalias de desempenho
 
@@ -68,7 +68,7 @@ Emails sobre anomalias de desempenho de Detecção Inteligente são limitados a 
 ## <a name="faq"></a>Perguntas frequentes
 
 * *Portanto, a equipe da Microsoft examina os meus dados?*
-  * Não. O serviço é totalmente automático. Somente você recebe as notificações. Os dados são [privados](app-insights-data-retention-privacy.md).
+  * Nº O serviço é totalmente automático. Somente você recebe as notificações. Os dados são [privados](app-insights-data-retention-privacy.md).
 * *Todos os dados coletados pelo Application Insights são analisados?*
   * Não no momento. Atualmente, analisamos o tempo de resposta de solicitação, o tempo de resposta da dependência e o tempo de carregamento da página. A análise de métricas adicionais está em nossa lista de pendências para o futuro.
 
@@ -84,7 +84,7 @@ Emails sobre anomalias de desempenho de Detecção Inteligente são limitados a 
 
   * Executamos diariamente a análise da telemetria do dia anterior (dia inteiro no fuso-horário UTC).
 * *Então isso substitui os [alertas de métrica](app-insights-alerts.md)?*
-  * Não.  Nosso compromisso não é detectar todos os comportamentos que você pode considerar anormais.
+  * Nº  Nosso compromisso não é detectar todos os comportamentos que você pode considerar anormais.
 
 
 * *Se não fizer nada em resposta a uma notificação, eu posso receber um lembrete?*
@@ -157,7 +157,7 @@ Observe o que ele diz:
 
 ## <a name="smart-detection-of-slow-performing-patterns"></a>Detecção Inteligente de padrões de desempenho lentos 
 
-O Application Insights encontra problemas de desempenho que afetam apenas alguns dos seus usuários ou só afetam os usuários em alguns casos. Por exemplo, pode haver uma notificação de que o carregamento de páginas é mais lento em um tipo de navegador do que em outros ou de que solicitações forem atendidas de modo mais lento de um servidor específico. Ele também pode descobrir problemas associados com combinações de propriedades, como carregamentos de página lentos em uma área geográfica para clientes que usam um sistema operacional específico.  
+O Application Insights encontra problemas de desempenho que afetam apenas alguns dos seus usuários ou só afetam os usuários em alguns casos. Por exemplo, pode haver uma notificação de que o carregamento de páginas é mais lento em um tipo de navegador do que em outros ou de que solicitações são atendidas mais lentamente em um servidor específico. Ele também pode descobrir problemas associados com combinações de propriedades, como carregamentos de página lentos em uma área geográfica para clientes que usam um sistema operacional específico.  
 
 Anomalias como essas são muito difíceis de detectar apenas inspecionando os dados, mas são mais comuns do que você imagina. Elas geralmente só surgem quando seus clientes reclamam. Nesse momento, é tarde demais: os usuários afetados já estão mudando para a concorrência!
 

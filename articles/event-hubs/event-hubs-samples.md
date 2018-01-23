@@ -12,13 +12,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2017
+ms.date: 12/19/2017
 ms.author: sethm
-ms.openlocfilehash: ae9fbd97a1747d8f14c561f247a0973bb11fd039
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0af3f6bc6e074fae4d830f163419d6437d04e2df
+ms.sourcegitcommit: f46cbcff710f590aebe437c6dd459452ddf0af09
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 12/20/2017
 ---
 # <a name="event-hubs-samples"></a>Exemplos de Hubs de Eventos 
 
@@ -27,9 +27,9 @@ O conjunto de exemplos de Hubs de Eventos do Azure demonstra os principais recur
 No momento da redação deste artigo, exemplos de Hubs de Eventos estão localizados em vários lugares diferentes:
 
 - [Exemplos de código do desenvolvedor do MSDN](https://code.msdn.microsoft.com/site/search?query=event%20hubs&f%5B0%5D.Value=event%20hubs&f%5B0%5D.Type=SearchText&ac=5)
-- [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples)
+- [Github](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 
-Para saber mais sobre as diferentes versões do .NET Framework, veja [estruturas e destinos](/dotnet/articles/standard/frameworks).
+Para saber mais sobre as diferentes versões do .NET Framework, veja [Estruturas e destinos](/dotnet/articles/standard/frameworks).
 
 Mais exemplos será adicionado ao longo do tempo, então verifique novamente com frequência para atualizações.
 
@@ -78,6 +78,6 @@ Saiba mais sobre as versões do .NET Framework visitando os links a seguir:
 
 Você pode saber mais sobre os Hubs de Eventos nestes artigos:
 
-- [Visão Geral dos Hubs de Eventos](event-hubs-what-is-event-hubs.md)
+- [Visão geral de Hubs de Evento](event-hubs-what-is-event-hubs.md)
 - [Criar um hub de eventos](event-hubs-create.md)
 - [Perguntas frequentes sobre os Hubs de Eventos](event-hubs-faq.md)

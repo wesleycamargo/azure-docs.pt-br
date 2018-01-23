@@ -14,11 +14,11 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/19/2017
 ms.author: apimpm
-ms.openlocfilehash: 89e1115291fbb2ba3499801981b70e10eb23eb94
-ms.sourcegitcommit: b854df4fc66c73ba1dd141740a2b348de3e1e028
+ms.openlocfilehash: e6b11145506780f9a08799c4c9daf55ba17b366d
+ms.sourcegitcommit: 6f33adc568931edf91bfa96abbccf3719aa32041
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/04/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="create-and-publish-a-product"></a>Criar e publicar um produto  
 
@@ -32,7 +32,7 @@ Neste tutorial, você aprenderá como:
 
 ![produto adicionado](media/api-management-howto-add-products/added-product.png)
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 
 + Conclua o seguinte guia de início rápido: [Criar uma instância do Gerenciamento de API do Azure](get-started-create-service-instance.md).
 + Além disso, conclua o seguinte tutorial: [Importar e publicar sua primeira API](import-and-publish.md).
@@ -48,18 +48,18 @@ Neste tutorial, você aprenderá como:
 
     Quando você adicionar um produto, precisará fornecer as seguintes informações: 
 
-    |Nome|Descrição|
+    |NOME|DESCRIÇÃO|
     |---|---|
     |Nome de exibição|O nome que você deseja que seja mostrado no **Portal do Desenvolvedor**.|
-    |Nome|Um nome descritivo do produto.|
-    |Descrição|O campo **Descrição** permite que você forneça informações detalhadas sobre o produto, como sua finalidade, as APIs a que fornece acesso, entre outras informações úteis.|
+    |NOME|Um nome descritivo do produto.|
+    |DESCRIÇÃO|O campo **Descrição** permite que você forneça informações detalhadas sobre o produto, como sua finalidade, as APIs a que fornece acesso, entre outras informações úteis.|
     |Estado|Pressione **Publicado** se você deseja publicar o produto. Antes que as APIs de um produto possam ser chamadas, o produto precisa ser publicado. Por padrão, novos produtos não são publicados e ficam visíveis somente para o grupo **Administradores** .|
     |Requer aprovação|Marque **Requerer aprovação de assinatura** se desejar que um administrador revise e aceite ou rejeite as tentativas de assinatura para o produto. Se a caixa não estiver marcada, as tentativas de assinatura serão aprovadas automaticamente. |
     |Limite de contagem de assinaturas|Para limitar a contagem de várias assinaturas simultâneas, insira o limite de assinaturas. |
     |Termos legais|Você pode incluir os termos de uso para o produto que os assinantes devem aceitar a fim de usá-lo.|
-    |APIs|Produtos são associações de uma ou mais APIs. Você pode incluir várias APIs e oferecê-las aos desenvolvedores por meio do portal do desenvolvedor. <br/> Você pode adicionar uma API existente durante a criação do produto. Você pode adicionar uma API ao produto mais tarde, seja na página **Configurações** dos Produtos ou durante a criação de uma API.|<br/>Os Desenvolvedores devem primeiro se inscrever em um produto para obter acesso à API. Com a inscrição, eles obtêm uma chave de assinatura que funciona para qualquer API no produto.<br/> Se você criou a instância do APIM, já é um administrador e, portanto, está inscrito em cada produto por padrão.|
+    |APIs|Os produtos são associações de uma ou mais APIs. Você pode incluir várias APIs e oferecê-las aos desenvolvedores por meio do portal do desenvolvedor. <br/> Você pode adicionar uma API existente durante a criação do produto. Você pode adicionar uma API ao produto mais tarde, seja na página **Configurações** dos Produtos ou durante a criação de uma API.|<br/>Os Desenvolvedores devem primeiro se inscrever em um produto para obter acesso à API. Com a assinatura, eles obtêm uma chave de assinatura que funciona para qualquer API no produto.<br/> Se você criou a instância do APIM, já é um administrador e, portanto, está inscrito em cada produto por padrão.|
 
-3. Clique em **Salvar** para criar o novo produto.
+3. Clique em **Criar** para criar o novo produto.
 
 ### <a name="add-more-configurations"></a>Adicionar mais configurações
 
@@ -71,9 +71,9 @@ Defina a visibilidade de um produto para desenvolvedores ou convidados na guia *
 
 ## <a name="add-apis"> </a>Adicionar APIs a um produto
 
-Produtos são associações de uma ou mais APIs. Você pode incluir várias APIs e oferecê-las aos desenvolvedores por meio do portal do desenvolvedor. Você pode adicionar uma API existente durante a criação do produto. Você pode adicionar uma API ao produto mais tarde, seja na página **Configurações** dos Produtos ou durante a criação de uma API.
+Os produtos são associações de uma ou mais APIs. Você pode incluir várias APIs e oferecê-las aos desenvolvedores por meio do portal do desenvolvedor. Você pode adicionar uma API existente durante a criação do produto. Você pode adicionar uma API ao produto mais tarde, seja na página **Configurações** dos Produtos ou durante a criação de uma API.
 
-Os Desenvolvedores devem primeiro se inscrever em um produto para obter acesso à API. Com a inscrição, eles obtêm uma chave de assinatura que funciona para qualquer API no produto. Se você criou a instância do APIM, já é um administrador e, portanto, está inscrito em cada produto por padrão.
+Os Desenvolvedores devem primeiro se inscrever em um produto para obter acesso à API. Com a assinatura, eles obtêm uma chave de assinatura que funciona para qualquer API no produto. Se você criou a instância do APIM, já é um administrador e, portanto, está inscrito em cada produto por padrão.
 
 ### <a name="add-an-api-to-an-existing-product"></a>Adicionar uma API a um produto existente
 

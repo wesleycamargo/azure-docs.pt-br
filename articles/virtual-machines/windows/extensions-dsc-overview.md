@@ -16,11 +16,11 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 01/09/2017
 ms.author: zachal
-ms.openlocfilehash: c05c2d541a5f526f362f9cd72fe6d878374112b6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: deb360e36b68f7ddb13b00946c700d0c83890ca6
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Introdução ao manipulador de extensão de configuração do estado desejado do Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -29,7 +29,7 @@ O agente de VM do Azure e as extensões associadas são parte dos serviços de i
 
 Este artigo apresenta a extensão de configuração de estado desejado (DSC) do PowerShell para VMs do Azure como parte do SDK do Azure PowerShell. Você pode usar os novos cmdlets para carregar e aplicar uma DSC do PowerShell em uma VM do Azure habilitada com a extensão de DSC do PowerShell. A extensão de DSC do PowerShell chama a DSC do PowerShell para aplicar a configuração DSC recebida na VM. Essa funcionalidade também está disponível por meio do portal do Azure.
 
-## <a name="prerequisites"></a>Pré-requisitos
+## <a name="prerequisites"></a>pré-requisitos
 **Máquina local** Para interagir com a extensão de VM do Azure, você precisa usar o Portal do Azure ou o SDK do Azure PowerShell. 
 
 **Agente convidado** A VM do Azure a configurar pela configuração do DSC precisa ter um sistema operacional compatível com Windows Management Framework (WMF) 4.0 ou 5.0. A lista completa de versões com suporte do sistema operacional pode ser encontrada no [Histórico de versões da extensão de DSC](https://blogs.msdn.microsoft.com/powershell/2014/11/20/release-history-for-the-azure-dsc-extension/).
@@ -37,11 +37,9 @@ Este artigo apresenta a extensão de configuração de estado desejado (DSC) do 
 ## <a name="terms-and-concepts"></a>Termos e conceitos
 Este guia presume familiaridade com os seguintes conceitos:
 
-Configuração - um documento de configuração DSC. 
-
-Nó - um destino para uma configuração de DSC. Neste documento, "nó" sempre faz referência a uma VM do Azure.
-
-Dados de configuração - um arquivo .psd1 contendo dados ambientais para uma configuração
+* **Configuração** – um documento de configuração DSC. 
+* **Nó** – um destino para uma configuração DSC. Neste documento, "nó" sempre faz referência a uma VM do Azure.
+* **Dados de configuração** – um arquivo .psd1 contendo dados ambientais de uma configuração
 
 ## <a name="architectural-overview"></a>Visão geral da arquitetura
 A extensão de DSC do Azure usa a estrutura do Agente de VM do Azure para entregar, aplicar e gerar relatórios sobre configurações da DSC executadas em VMs do Azure. A extensão de DSC espera um arquivo .zip contendo pelo menos um documento de configuração e um conjunto de parâmetros fornecidos por meio do SDK do Azure PowerShell ou do portal do Azure.
@@ -146,7 +144,9 @@ Set-AzureRmVmDscExtension -Version 2.21 -ResourceGroupName $resourceGroup -VMNam
 ## <a name="logging"></a>Registro em log
 Os logs são colocados em:
 
-C:\WindowsAzure\Logs\Plugins\Microsoft.Powershell.DSC\[Número de versão]
+```
+C:\WindowsAzure\Logs\Plugins\Microsoft.Powershell.DSC\[Version Number]
+```
 
 ## <a name="next-steps"></a>Próximas etapas
 Para saber mais sobre a DSC do PowerShell, [visite o centro de documentação do PowerShell](https://msdn.microsoft.com/powershell/dsc/overview). 

@@ -2,30 +2,23 @@
 title: Criar recursos para usar com o Azure Site Recovery | Microsoft Docs
 description: "Saiba como preparar o Azure para a replicação de máquinas locais usando o serviço Azure Site Recovery."
 services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: 321e304f-b29e-49e4-aa64-453878490ea7
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
-ms.date: 11/01/2017
+ms.topic: tutorial
+ms.date: 12/31/2017
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 2fa7e731a05e19697603058829f130074bb5b522
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 71d740107eb2082e3f112941e1d4abd715d25807
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="prepare-azure-resources-for-replication-of-on-premises-machines"></a>Preparar recursos do Azure para replicação de máquinas locais
 
 O serviço [Azure Site Recovery](site-recovery-overview.md) contribui para sua estratégia de BCDR (continuidade de negócios e recuperação de desastre) por manter seus aplicativos de negócios em execução e disponíveis durante interrupções planejadas e não planejadas. O Site Recovery gerencia e orquestra a recuperação de desastre de máquinas locais e de VMs (máquinas virtuais) do Azure, incluindo replicação, failover e recuperação.
 
-Este tutorial mostra como preparar componentes do Azure, quando você deseja replicar VMs locais e servidores físicos para o Azure. Neste tutorial, você aprenderá como:
+Este tutorial mostra como preparar componentes do Azure quando você deseja replicar VMs locais (Hyper-V ou VMware) ou servidores físicos Windows/Linux para o Azure. Neste tutorial, você aprenderá como:
 
 > [!div class="checklist"]
 > * Verifique se sua conta tem permissões de replicação
@@ -40,11 +33,11 @@ Faça logon no Portal do Azure em http://portal.azure.com.
 
 ## <a name="verify-account-permissions"></a>Verificar permissões de conta
 
-Se você acabou de criar sua conta gratuita do Azure, você é o administrador da assinatura. Se você não for o administrador da assinatura, peça para o administrador atribuir as permissões necessárias. Para habilitar a replicação para uma nova máquina virtual, você deve ter:
+Se acabou de criar sua conta gratuita do Azure, você é o administrador da assinatura. Se você não for o administrador da assinatura, peça para o administrador atribuir as permissões necessárias. Para habilitar a replicação para uma nova máquina virtual, você deve ter:
 
-- Permissão para criar uma máquina virtual no grupo de recursos selecionado
-- Permissão para criar uma máquina virtual na rede virtual selecionada
-- Permissão de gravação para a conta de armazenamento selecionada
+- Permissão para criar uma VM no grupo de recursos selecionado
+- Permissão para criar uma VM na rede virtual selecionada
+- Permissão para gravar na conta de armazenamento selecionada
 
 A função interna 'Colaborador da Máquina Virtual' tem essas permissões. Você também precisa de permissão para gerenciar operações de recuperação do Azure Site Recovery. A função 'Colaborador do Site Recovery' tem todas as permissões necessárias para gerenciar operações do Site Recovery em um cofre de Serviços de Recuperação.
 
@@ -59,7 +52,7 @@ As imagens de máquinas replicadas são mantidas no armazenamento do Azure. As V
 5. Selecione o padrão **RA-GRS** para redundância de armazenamento.
 6. Selecione a assinatura na qual você deseja criar a nova conta de armazenamento.
 7. Especifique um novo grupo de recursos. Um grupo de recursos do Azure é um contêiner lógico no qual os recursos do Azure são implantados e gerenciados. Para esses tutoriais usamos o nome **ContosoRG**.
-8. Selecione a região geográfica para sua conta de armazenamento. A conta de armazenamento deve estar na mesma região do cofre de Serviços de Recuperação. Para estes tutoriais usamos o local **Europa Ocidental**.
+8. Selecione a região geográfica para sua conta de armazenamento. A conta de armazenamento deve estar na mesma região do cofre de Serviços de Recuperação. Para estes tutoriais usamos a região **Europa Ocidental**.
 
    ![create-storageacct](media/tutorial-prepare-azure/create-storageacct.png)
 
@@ -71,14 +64,14 @@ As imagens de máquinas replicadas são mantidas no armazenamento do Azure. As V
    **Backup e Site Recovery**.
 2. Em **Nome**, especifique um nome amigável para identificar o cofre. Para este tutorial, usamos **ContosoVMVault**.
 3. Selecione o grupo de recursos existente denominado **contosoRG**.
-4. Especifique a região do Azure **Europa Ocidental**.
+4. Especifique a região do Azure **Europa Ocidental**, que estamos usando neste conjunto de tutoriais.
 5. Para acessar rapidamente o cofre do painel, clique em **Fixar no painel** > **Criar**.
 
    ![Novo cofre](./media/tutorial-prepare-azure/new-vault-settings.png)
 
    O novo cofre será exibido no **Painel** > **Todos os recursos** e na página **Cofres de Serviços de Recuperação** principal.
 
-## <a name="set-up-an-azure-network"></a>Configurar uma rede do Azure
+## <a name="set-up-an-azure-network"></a>Configure uma rede do Azure
 
 Quando as VMs do Azure são criadas do armazenamento após o failover, elas são associadas a esta rede.
 

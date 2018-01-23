@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: 
-ms.date: 11/15/2017
+ms.date: 01/02/2018
 ms.author: lbosq
-ms.openlocfilehash: f95a0abcd50b94714a76b36a0b5f9c73da909879
-ms.sourcegitcommit: a5f16c1e2e0573204581c072cf7d237745ff98dc
+ms.openlocfilehash: 59d926f54c8dfc2991929f2eb42b20056e3a09c3
+ms.sourcegitcommit: 9ea2edae5dbb4a104322135bef957ba6e9aeecde
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="azure-cosmos-db-gremlin-graph-support"></a>Suporte do Azure Cosmos DB para grafo do Gremlin
 O Azure Cosmos DB dá suporte à linguagem de cruzamento de grafo [Gremlin](http://tinkerpop.apache.org) da [Apache Tinkerpop](http://tinkerpop.apache.org/docs/current/reference/#graph-traversal-steps), que é uma API do Graph para criar entidades de grafo e executar operações de consulta de grafo. É possível usar a linguagem Gremlin para criar entidades de grafo (vértices e bordas), modificar propriedades dentro dessas entidades, executar consultas e passagens e excluir entidades. 
 
 O Azure Cosmos DB traz recursos prontos para empresas para bancos de dados de grafo. Isso inclui distribuição global, dimensionamento independente do armazenamento e da taxa de transferência, latências de milissegundos de dígito único previsíveis, indexação automática e SLAs, leitura disponível para contas de bancos de dados abrangendo duas ou mais regiões do Azure. Como o Azure Cosmos DB dá suporte a TinkerPop/Gremlin, você pode migrar com facilidade aplicativos escritos usando outro banco de dados de grafo sem a necessidade de fazer alterações no código. Além disso, devido ao suporte para Gremlin, o Azure Cosmos DB integra-se perfeitamente com estruturas de análise habilitadas para TinkerPop, como o [Apache Spark GraphX](http://spark.apache.org/graphx/). 
 
-Neste artigo, fornecemos uma explicação rápida do Gremlin e listamos os recursos e etapas do Gremlin que têm suporte na versão prévia do suporte para API do Graph.
+Neste artigo, fornecemos uma explicação rápida do Gremlin e listamos os recursos e etapas do Gremlin compatíveis com a API do Graph.
 
 ## <a name="gremlin-by-example"></a>Gremlin pelo exemplo
 Vamos usar um grafo de exemplo para entender como as consultas podem ser expressas no Gremlin. A figura a seguir mostra um aplicativo de negócios que gerencia dados sobre usuários, interesses e dispositivos na forma de um grafo.  
@@ -80,7 +80,7 @@ A tabela a seguir lista os recursos do TinkerPop que são implementados pelo BD 
 
 | Categoria | Implementação do BD Cosmos do Azure |  Observações | 
 | --- | --- | --- |
-| Recursos de grafo | Fornece Persistence e ConcurrentAccess na versão prévia. Projetado para dar suporte a Transactions | Métodos de computador podem ser implementados por meio do conector Spark. |
+| Recursos de grafo | Fornece persistência e ConcurrentAccess. Projetado para dar suporte a Transactions | Métodos de computador podem ser implementados por meio do conector Spark. |
 | Recursos variáveis | Dá suporte a Boolean, Integer, Byte, Double, Float, Integer, Long, String | Dá suporte a tipos primitivos, é compatível com tipos complexos por meio do modelo de dados |
 | Recursos do vértice | Dá suporte a RemoveVertices, MetaProperties, AddVertices, MultiProperties, StringIds, UserSuppliedIds, AddProperty, RemoveProperty  | Dá suporte à criação, modificação e exclusão de vértices |
 | Recursos de propriedade do vértice | StringIds, UserSuppliedIds, AddProperty, RemoveProperty, BooleanValues, ByteValues, DoubleValues, FloatValues, IntegerValues, LongValues, StringValues | Dá suporte à criação, modificação e exclusão de propriedades do vértice |
@@ -132,18 +132,18 @@ Por exemplo, o trecho a seguir mostra uma representação em GraphSON de um vér
 
 As propriedades usadas por GraphSON para vértices são as seguintes:
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
 | ID | A ID do vértice. Deve ser exclusiva (em combinação com o valor de _partition, se aplicável) |
 | label | O rótulo do vértice. É opcional e é usado para descrever o tipo de entidade. |
-| type | Usado para distinguir vértices de documentos que não são grafos |
+| Tipo | Usado para distinguir vértices de documentos que não são grafos |
 | propriedades | Recipiente de propriedades definidas pelo usuário associadas ao vértice. Cada propriedade pode ter vários valores. |
 | _partition (configurável) | A chave de partição do vértice. Pode ser usada para escalar horizontalmente os grafos para vários servidores |
 | outE | Contém uma lista de bordas externas de um vértice. Armazenar as informações de adjacência com o vértice permite a execução rápida de passagens. As bordas são agrupadas com base em seus rótulos. |
 
 E a borda contém as seguintes informações para ajudar com a navegação para outras partes do grafo.
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
 | ID | A ID da borda. Deve ser exclusiva (em combinação com o valor de _partition, se aplicável) |
 | label | O rótulo da borda. Esta propriedade é opcional e é usada para descrever o tipo de relacionamento. |
@@ -152,9 +152,9 @@ E a borda contém as seguintes informações para ajudar com a navegação para 
 
 Cada propriedade pode armazenar diversos valores em uma matriz. 
 
-| Propriedade | Descrição |
+| Propriedade | DESCRIÇÃO |
 | --- | --- |
-| valor | O valor da propriedade
+| value | O valor da propriedade
 
 ## <a name="gremlin-partitioning"></a>Particionamento do Gremlin
 
@@ -165,7 +165,7 @@ As operações de Gremlin funcionam perfeitamente em dados de grafo que abrangem
 ## <a name="gremlin-steps"></a>Etapas do Gremlin
 Agora, vejamos as etapas do Gremlin com suporte do BD Cosmos do Azure. Para obter uma referência completa sobre o Gremlin, consulte [Referência do TinkerPop](http://tinkerpop.apache.org/docs/current/reference).
 
-| Etapa | Descrição | Documentação do TinkerPop 3.2 | Observações |
+| Etapa | DESCRIÇÃO | Documentação do TinkerPop 3.2 | Observações |
 | --- | --- | --- | --- |
 | `addE` | Adiciona uma borda entre dois vértices | [Etapa addE](http://tinkerpop.apache.org/docs/current/reference/#addedge-step) | |
 | `addV` | Adiciona um vértice ao grafo | [Etapa addV](http://tinkerpop.apache.org/docs/current/reference/#addvertex-step) | |

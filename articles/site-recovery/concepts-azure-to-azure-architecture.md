@@ -1,29 +1,21 @@
 ---
-title: "Examine a arquitetura para a replicação de máquinas virtuais do Azure entre regiões do Azure | Microsoft Docs"
+title: "Arquitetura de replicação do Azure para o Azure no Azure Site Recovery | Microsoft Docs"
 description: "Este artigo fornece uma visão geral dos componentes e da arquitetura usados ao replicar VMs do Azure entre regiões do Azure com o serviço Azure Site Recovery."
-services: site-recovery
-documentationcenter: 
 author: rayne-wiselman
-manager: carmonm
-editor: 
-ms.assetid: 
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: storage-backup-recovery
-ms.date: 12/08/2017
+ms.date: 12/19/2017
 ms.author: raynew
-ms.openlocfilehash: 8251534b2e1e0d223f5e1df5dbd33831604615cb
-ms.sourcegitcommit: 094061b19b0a707eace42ae47f39d7a666364d58
+ms.openlocfilehash: b37af3462a58f4418653d0e1b2300b5805e0a864
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="azure-to-azure-replication-architecture"></a>Arquitetura de replicação do Azure para o Azure
 
 
-Este artigo descreve a arquitetura e os processos usados quando você faz a replicação, o failover e a recuperação de máquinas virtuais (VMs) do Azure entre regiões do Azure, usando o serviço [Azure Site Recovery](site-recovery-overview.md).
+Este artigo descreve a arquitetura usada quando você faz a replicação, o failover e a recuperação de VMs (máquinas virtuais) do Azure entre regiões do Azure, usando o serviço [Azure Site Recovery](site-recovery-overview.md).
 
 >[!NOTE]
 >Atualmente, a replicação de VM do Azure com o serviço Site Recovery está em versão prévia.
@@ -45,7 +37,7 @@ O gráfico a seguir fornece uma exibição de alto nível de um ambiente de VM d
 
 ### <a name="step-1"></a>Etapa 1
 
-Quando você habilita a replicação de VM do Azure, os recursos mostrados abaixo são criados automaticamente na região de destino, com base nas configurações de região de origem. Você pode personalizar as configurações de recursos de destino conforme necessário. 
+Ao habilitar a replicação de VM do Azure, os seguintes recursos são criados automaticamente na região de destino, com base nas configurações da região de origem. Você pode personalizar as configurações de recursos de destino conforme necessário.
 
 ![Habilitar o processo de replicação, etapa 1](./media/concepts-azure-to-azure-architecture/enable-replication-step-1.png)
 
@@ -53,7 +45,7 @@ Quando você habilita a replicação de VM do Azure, os recursos mostrados abaix
 --- | ---
 **Grupo de recursos de destino** | O grupo de recursos ao qual as VMs replicadas pertencem após o failover.
 **Rede virtual de destino** | A rede virtual na qual as VMs replicadas estão localizadas após o failover. Um mapeamento de rede é criado entre redes virtuais de origem e de destino e vice-versa.
-**Contas de armazenamento de cache** | Antes que as alterações nas VMs de origem sejam replicadas para uma conta de armazenamento de destino, elas são acompanhadas e enviadas para a conta de armazenamento de cache no local de destino. Isso garante um impacto mínimo sobre os aplicativos de produção em execução na VM.
+**Contas de armazenamento de cache** | Antes que as alterações nas VMs de origem sejam replicadas para uma conta de armazenamento de destino, elas são rastreadas e enviadas para a conta de armazenamento de cache no local de origem. Essa etapa garante um impacto mínimo sobre os aplicativos de produção em execução na VM.
 **Contas de armazenamento de destino**  | Contas de armazenamento no local de destino para as quais os dados são replicados.
 **Conjuntos de disponibilidade de destino**  | Conjuntos de disponibilidade nos quais as VMs replicadas estão localizadas após o failover.
 
@@ -67,8 +59,17 @@ Conforme a replicação é habilitada, a extensão Serviço de mobilidade do Sit
 
    ![Habilitar o processo de replicação, etapa 2](./media/concepts-azure-to-azure-architecture/enable-replication-step-2.png)
 
-  
- O Site Recovery nunca precisa de conectividade de entrada à VM. Somente a conectividade de saída é necessária para os endereços IP/URLs do serviço Site Recovery, os endereços IP/URLs de autenticação do Office 365 e os endereços IP da conta de armazenamento de cache.
+
+ O Site Recovery nunca precisa de conectividade de entrada à VM. Somente conectividade de saída é necessária para o seguinte.
+
+ - Endereços IP/URLs do serviço Site Recovery
+ - Endereços IP/URLs da autenticação do Office 365
+ - Endereços IP da conta de armazenamento de cache
+
+Se você habilitar a consistência de várias VMs, as máquinas virtuais no grupo de replicação se comunicarão entre si pela porta 20004. Veja se não há nenhum dispositivo de firewall bloqueando a comunicação interna entre as VMs através da porta 20004.
+
+> [!IMPORTANT]
+Se você quiser que VMs do Linux façam parte de um grupo de replicação, abra manualmente o tráfego de saída na porta 20004, de acordo com as diretrizes da versão específica do Linux.
 
 ### <a name="step-3"></a>Etapa 3
 
@@ -82,5 +83,4 @@ Quando você inicia um failover, as VMs são criadas no grupo de recursos de des
 
 ## <a name="next-steps"></a>Próximas etapas
 
-Examine a matriz de suporte e siga o tutorial para habilitar a replicação de VM do Azure para uma região secundária.
-Execute um failover e um failback.
+[Replicar rapidamente](azure-to-azure-quickstart.md) uma VM do Azure para uma região secundária.

@@ -1,5 +1,5 @@
 
-O código para todas as funções em um determinado aplicativo de funções reside em uma pasta raiz que contém um arquivo de configuração de host e uma ou mais subpastas, cada qual contendo o código para uma função distinta, como no exemplo a seguir:
+O código para todas as funções em um aplicativo de função específica está localizado em uma pasta raiz que contém um arquivo de configuração de host e uma ou mais subpastas. Cada subpasta contém o código para uma função distinta, como no exemplo a seguir:
 
 ```
 wwwroot
@@ -15,7 +15,7 @@ wwwroot
  | | - run.csx
 ```
 
-O arquivo *host.json* contém uma configuração específica de tempo de execução e reside na pasta raiz do aplicativo de funções. Para obter informações sobre as configurações disponíveis, consulte a referência [host.json](../articles/azure-functions/functions-host-json.md).
+O arquivo host.json contém algumas configurações específicas do tempo de execução e encontra-se na pasta raiz do aplicativo de função. Para obter informações sobre as configurações que estão disponíveis, consulte a [referência do host.json](../articles/azure-functions/functions-host-json.md).
 
-Cada função tem uma pasta que contém arquivos de código, a configuração function.json e outras dependências.
+Cada função tem uma pasta que contém um ou mais arquivos de código, a configuração function.json e outras dependências.
 

@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: mbullwin
-ms.openlocfilehash: ecb6dd0343c36a0f1571b416817aad5e7a52fccb
-ms.sourcegitcommit: c25cf136aab5f082caaf93d598df78dc23e327b9
+ms.openlocfilehash: 95c5195ac2ea832586211cce37eb2094e06eaf03
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/15/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="manage-pricing-and-data-volume-in-application-insights"></a>Gerenciar preços e volume de dados no Application Insights
 
@@ -90,7 +90,7 @@ Como [recentemente anunciado](https://blogs.technet.microsoft.com/msoms/2017/05/
  
 ## <a name="review-pricing-plans-and-estimate-costs"></a>Examine os planos de preços e estime os custos
 
-Application Insights torna fácil de entender os planos de preços disponíveis e que os custos podem ser baseados em padrões de uso recentes. Comece abrindo a folha **Recursos + Preço** no recurso do Application Insights no portal do Azure:
+O Application Insights facilita entender os planos de preços disponíveis e quais custos podem ser baseados em padrões de uso recentes. Comece abrindo a folha **Recursos + Preço** no recurso do Application Insights no portal do Azure:
 
 ![Escolha Preço.](./media/app-insights-pricing/01-pricing.png)
 
@@ -134,7 +134,7 @@ Veja abaixo o que é possível fazer para reduzir o volume de dados:
 
 ## <a name="managing-the-maximum-daily-data-volume"></a>Gerenciar o volume diário máximo de dados
 
-Você pode usar o limite do volume diário para limitar os dados coletados, mas se o limite for atingido, isso resultará em perda de toda a telemetria enviada do seu aplicativo durante o restante do dia. **Não é aconselhável** que o aplicativo atinja o limite diário, pois você não pode controlar a integridade e o desempenho do seu aplicativo após esse limite ser atingido. 
+Você pode usar o limite de volume diário para limitar os dados coletados, mas, se o limite for atingido, isso resultará em perda de toda a telemetria enviada de seu aplicativo durante o restante do dia. **Não é aconselhável** que o aplicativo atinja o limite diário, pois você não pode controlar a integridade e o desempenho do seu aplicativo após esse limite ser atingido. 
 
 Em vez disso, use [Amostragem](app-insights-sampling.md) para ajustar o volume de dados para o nível que você desejar e use o limite diário apenas como "último recurso" caso o aplicativo comece a enviar volumes de telemetria muito mais altos inesperadamente. 
 

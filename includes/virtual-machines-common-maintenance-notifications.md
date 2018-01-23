@@ -15,14 +15,13 @@ Quando uma onda de manutenção planejada estiver agendada, e as notificações 
 
    **Manutenção** -mostra o status de manutenção para a máquina virtual. Estes são os valores possíveis:
       
-      | Valor | Descrição |
+      | Valor | DESCRIÇÃO |
       |-------|-------------|
       | Comece agora | A VM está na janela de manutenção de autoatendimento que permite a você iniciar a manutenção por conta própria. Veja abaixo sobre como iniciar a manutenção em sua VM | 
       | Agendado | A VM está programada para manutenção sem a opção para iniciar a manutenção. Você pode saber da janela de manutenção, selecionando a janela Agendado Automaticamente neste modo de exibição ou clicando na VM | 
       | Concluído | Você iniciou e concluiu com êxito a manutenção em sua VM. | 
-      | Ignorado| Você optou por iniciar a manutenção sem sucesso. O Azure cancelou a manutenção da sua VM e irá reagendá-la em um momento posterior | 
-      | Tente novamente mais tarde| Você optou por iniciar a manutenção e o Azure não pôde atender à sua solicitação. Nesse caso, você pode tentar novamente em um momento posterior. | 
-   
+      | Ignorado| Você optou por iniciar a manutenção sem sucesso. Você não poderá usar a opção de manutenção de autoatendimento. A VM precisará ser reinicializada pelo Azure durante a fase de manutenção agendada. | 
+
    **Manutenção proativa** -mostra a janela de tempo quando você pode iniciar automaticamente a manutenção em suas VMs.
    
    **Manutenção agendada** -mostra a janela de tempo quando o Azure reiniciará sua VM para concluir a manutenção. 

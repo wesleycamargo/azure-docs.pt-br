@@ -15,21 +15,21 @@ ms.workload: web
 ms.date: 7/24/2017
 ms.author: mlearned
 ms.custom: Jenkins
-ms.openlocfilehash: e38c69ec55d894053792fbf284d07944d7f44dc0
-ms.sourcegitcommit: b979d446ccbe0224109f71b3948d6235eb04a967
+ms.openlocfilehash: 9b79e3b498e51e626e7e9a87d2bb1a66366acff5
+ms.sourcegitcommit: a648f9d7a502bfbab4cd89c9e25aa03d1a0c412b
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/25/2017
+ms.lasthandoff: 12/22/2017
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Implantar no Serviço de Aplicativo do Azure usando o plugin Jenkins 
 
 Para implantar um aplicativo Web do Java no Azure, você pode usar a CLI do Azure no [Pipeline do Jenkins](/azure/jenkins/execute-cli-jenkins-pipeline) ou pode usar o [Plugin Jenkins do Serviço de Aplicativo do Azure](https://plugins.jenkins.io/azure-app-service). A versão 1.0 do plugin Jenkins dá suporte à implantação contínua usando o recurso de aplicativos Web do Serviço de Aplicativo do Azure por meio de:
-* Git e FTP.
+* Git ou FTP.
 * Docker para Aplicativos Web no Linux.
 
 Neste tutorial, você aprenderá como:
 > [!div class="checklist"]
-> * Configure o Jenkins para implantar Aplicativos Web por meio de Git e FTP.
+> * Configurar o Jenkins para implantar aplicativos Web por meio de Git ou FTP.
 > * Configure o Jenkins para implantar Aplicativos Web para Contêineres.
 
 ## <a name="create-and-configure-a-jenkins-instance"></a>Criar e configurar uma instância do Jenkins
@@ -64,7 +64,7 @@ Para implantar Aplicativos Web para Contêineres, instale o Docker no Jenkins me
 3. Para adicionar uma entidade de serviço do Microsoft Azure, selecione **Adicionar credenciais**. Forneça valores para os campos **ID de assinatura**, **ID do cliente**, **Segredo do cliente** e **Ponto de extremidade de token do OAuth 2.0**. Defina o campo **ID** como **mySp**. Usaremos essa ID em etapas subsequentes nesse artigo.
 
 
-## <a name="configure-jenkins-to-deploy-web-apps-through-git-and-ftp"></a>Configurar Jenkins para implantar aplicativos Web por meio de Git e FTP
+## <a name="configure-jenkins-to-deploy-web-apps-by-uploading-files"></a>Configurar o Jenkins para implantar aplicativos Web ao carregar arquivos
 
 Para implantar seu projeto em Aplicativos Web, você pode carregar seus artefatos de build (por exemplo, o arquivo WAR em Java) usando o Git ou FTP.
 
@@ -104,7 +104,7 @@ Antes de configurar o trabalho em Jenkins, você precisa de um plano do Serviço
 8. Se desejar implantar em um slot que não seja de produção, você também poderá definir o nome do **Slot**.
 9. Salve o projeto e compile-o. Seu aplicativo Web é implantado no Azure quando o build estiver concluído.
 
-### <a name="deploy-web-apps-through-ftp-by-using-jenkins-pipeline"></a>Implantar Aplicativos Web via FTP usando o pipeline do Jenkins
+### <a name="deploy-web-apps-by-uploading-files-using-jenkins-pipeline"></a>Implantar aplicativos Web, carregando arquivos usando o Pipeline do Jenkins
 
 O plugin do Jenkins do Serviço de Aplicativo do Azure vem pronto para pipeline. Você pode se referir à seguinte amostra no repositório GitHub.
 

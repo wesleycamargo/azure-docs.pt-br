@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 9/3/2017
-ms.author: markgal;trinadhk;
-ms.openlocfilehash: 686cc45f219a10259c1b5cc0f0793c4ee392ee74
-ms.sourcegitcommit: b5c6197f997aa6858f420302d375896360dd7ceb
+ms.author: markgal;trinadhk;sogup;
+ms.openlocfilehash: 3c2ea9e5872454b0bac67c39362a1f94b6fa47b8
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/21/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Preparar seu ambiente para fazer backup das máquinas virtuais implantadas com o Gerenciador de Recursos
 
@@ -28,7 +28,7 @@ Este artigo fornece as etapas para preparar seu ambiente para fazer backup de um
 O serviço de Backup do Azure tem dois tipos de cofres para proteger suas VMs: cofres de backup e de Serviços de Recuperação. Um cofre de backup ajuda a proteger as VMs implantadas por meio do modelo de implantação clássico. Um cofre de Serviços de Recuperação protege *tanto as VMs implantadas com o modelo de implantação Clássico quanto aquelas implantadas com o Resource Manager*. Você deverá usar um cofre dos Serviços de Recuperação se desejar proteger uma VM implantada com o Resource Manager.
 
 > [!NOTE]
-> O Azure tem dois modelos de implantação para criar e trabalhar com recursos: [Gerenciador de Recursos e Clássico](../azure-resource-manager/resource-manager-deployment-model.md).
+> O Azure tem dois modelos de implantação para a criação e o trabalho com recursos: [Gerenciador de Recursos e clássico](../azure-resource-manager/resource-manager-deployment-model.md).
 
 Antes de proteger ou fazer backup de uma máquina virtual implantada com o Resource Manager, verifique se esses pré-requisitos existem:
 
@@ -63,6 +63,7 @@ Antes de preparar seu ambiente, certifique-se de compreender essas limitações:
 * Os dados de backup não incluem unidades de rede montadas anexadas à VM.
 * Não há suporte para a substituição de uma máquina virtual existente durante a restauração. Se você tentar restaurar a VM quando ela existir, a operação de restauração falhará.
 * Não há suporte para backup e restauração entre regiões.
+* Por enquanto, não há suporte para backup e restauração do armazenamento de VMs do ACLed. Não haverá suporte para o backup de VMs se você tiver habilitado o recurso de VNET que permite que as contas de armazenamento sejam acessadas apenas em determinadas VNETs/sub-redes e/ou IPs.
 * Você pode fazer backup de máquinas virtuais em todas as regiões públicas do Azure. (Consulte a [lista de verificação](https://azure.microsoft.com/regions/#services) das regiões compatíveis.) Se a região que você procura ainda não for compatível, ela não aparecerá na lista suspensa durante a criação de cofre.
 * A restauração de uma VM DC (controladora de domínio) que é parte de uma configuração multi-DC tem suporte somente usando o PowerShell. Para saber mais, consulte [Restaurando um controlador de domínio com vários DCs](backup-azure-arm-restore-vms.md#restore-domain-controller-vms).
 * Apenas há suporte para a restauração de máquinas virtuais que têm as seguintes configurações de rede especial por meio do PowerShell. VMs criadas por meio do fluxo de trabalho de restauração na interface do usuário não terão essas configurações de rede depois que a operação de restauração for concluída. Para saber mais, confira [Restaurando VMs com configurações de rede especiais](backup-azure-arm-restore-vms.md#restore-vms-with-special-network-configurations).
@@ -75,7 +76,7 @@ Um cofre dos Serviços de Recuperação é uma entidade que armazena os backups 
 
 Para criar um cofre de Serviços de Recuperação:
 
-1. Entre no [Portal do Azure](https://portal.azure.com/).
+1. Entre no [portal do Azure](https://portal.azure.com/).
 2. No menu **Hub**, selecione **Procurar** e digite **Serviços de Recuperação**. Conforme você começa a digitar, sua entrada filtra a lista de recursos. Selecione **Cofres de Serviços de Recuperação**.
 
     ![Digitando na caixa e selecionando "Cofres de Serviços de Recuperação" nos resultados](./media/backup-azure-arm-vms-prepare/browse-to-rs-vaults-updated.png) <br/>

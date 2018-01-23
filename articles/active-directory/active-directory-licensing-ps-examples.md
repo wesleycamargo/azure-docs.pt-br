@@ -15,11 +15,11 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/05/2017
 ms.author: curtand
-ms.openlocfilehash: cbc432c411e80c7fc49daecd727d8e1969faede5
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 82d4bdbe60fe403ea07ed958e9aec9dbf4e9fbb8
+ms.sourcegitcommit: 3f33787645e890ff3b73c4b3a28d90d5f814e46c
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 01/03/2018
 ---
 # <a name="powershell-examples-for-group-based-licensing-in-azure-ad"></a>Exemplos do PowerShell para licenciamento baseado em grupo no Azure AD
 
@@ -141,7 +141,7 @@ ObjectId                             DisplayName             GroupType Descripti
 ```
 ## <a name="get-all-users-with-license-errors-in-a-group"></a>Obter todos os usuários com erros de licença em um grupo
 
-Dado um grupo que contém alguns erros relacionados a licença, agora é possível listar todos os usuários afetados por esses erros. Um jser pode ter erros de outros grupos também. No entanto, neste exemplo, limitamos os resultados apenas a erros relevantes para o grupo em questão marcando a propriedade **ReferencedObjectId** de cada entrada **IndirectLicenseError** do usuário.
+Dado um grupo que contém alguns erros relacionados a licença, agora é possível listar todos os usuários afetados por esses erros. Um usuário pode ter erros de outros grupos também. No entanto, neste exemplo, limitamos os resultados apenas a erros relevantes para o grupo em questão marcando a propriedade **ReferencedObjectId** de cada entrada **IndirectLicenseError** do usuário.
 
 ```
 #a sample group with errors

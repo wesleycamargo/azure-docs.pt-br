@@ -15,11 +15,11 @@ ms.date: 07/14/2017
 ms.author: joflore
 ms.reviewer: richagi
 ms.custom: it-pro
-ms.openlocfilehash: 53c9bde37215e4b7e315b6bc28f0e638816a48f4
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 7960a398ac25ad0192300632dd6d5add94fd4a7c
+ms.sourcegitcommit: 4256ebfe683b08fedd1a63937328931a5d35b157
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 12/11/2017
+ms.lasthandoff: 12/23/2017
 ---
 # <a name="resolve-error-messages-from-the-nps-extension-for-azure-multi-factor-authentication"></a>Resolver mensagens de erro da extensão NPS da Autenticação Multifator do Azure
 
@@ -106,9 +106,10 @@ Se os usuários estiverem [tendo problemas com a verificação em duas etapas](.
 
 Caso você precise de mais ajuda, contate um profissional de suporte por meio do [suporte do Servidor de Autenticação Multifator do Azure](https://support.microsoft.com/oas/default.aspx?prid=14947). Ao entrar em contato conosco, é útil incluir o máximo possível de informações sobre o problema. As informações que você pode fornecer incluem a página em que viu o erro, o código de erro específico, a ID da sessão específica, a ID do usuário que viu o erro e os logs de depuração.
 
-Para coletar os logs de depuração para dar suporte ao diagnóstico, use as seguintes etapas: 
+Para coletar logs de depuração para o diagnóstico de suporte, use as seguintes etapas no servidor de NPS:
 
-1. Abra um prompt de comando do Administrador e execute estes comandos:
+1. Abra o Editor do Registro e navegue até HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa e defina **VERBOSE_LOG** como **TRUE**
+2. Abra um prompt de comando do Administrador e execute estes comandos:
 
    ```
    Mkdir c:\NPS
@@ -118,9 +119,9 @@ Para coletar os logs de depuração para dar suporte ao diagnóstico, use as seg
    logman update trace "NPSExtension" -p {EC2E6D3A-C958-4C76-8EA4-0262520886FF} 0xffffffffffffffff 0xff -ets
    ```
 
-2. Reproduzir o problema
+3. Reproduzir o problema
 
-3. Pare o rastreamento com estes comandos:
+4. Pare o rastreamento com estes comandos:
 
    ```
    logman stop "NPSExtension" -ets
@@ -131,6 +132,7 @@ Para coletar os logs de depuração para dar suporte ao diagnóstico, use as seg
    Start .
    ```
 
-4. Compacte o conteúdo da pasta C:\NPS e anexe o arquivo compactado ao caso de suporte.
+5. Abra o Editor do Registro e navegue até HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa e defina **VERBOSE_LOG** como **FALSE**
+6. Compacte o conteúdo da pasta C:\NPS e anexe o arquivo compactado ao caso de suporte.
 
 

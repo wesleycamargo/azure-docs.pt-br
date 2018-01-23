@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2017
 ms.author: kraigb
-ms.openlocfilehash: a6f9b300cd832c5f9615f70ee297e3c5ad728e44
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 8125ef36f730b745d63c39493f48d14a5a33d76c
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="configuring-your-azure-project-in-visual-studio-to-use-multiple-service-configurations"></a>Configurando seu projeto do Azure no Visual Studio para usar várias configurações de serviço
 
@@ -77,7 +77,7 @@ Para cadeias de conexão novas ou existentes, selecione **...** * à direita do 
 
 1. Em **Conectar usando**, escolha a opção **Sua assinatura** para selecionar uma conta de armazenamento de uma assinatura. O Visual Studio, em seguida, obtém as credenciais da conta de armazenamento automaticamente do arquivo `.publishsettings`.
 1. Selecionar **Credenciais inseridas manualmente** permite que você especifique o nome da conta e a chave diretamente usando as informações do Portal do Azure. Para copiar a chave da conta: a. Navegue até a conta de armazenamento do Portal do Azure e selecione **Gerenciar Chaves**.
-    2. Na página **Gerenciar Chaves de Acesso**, selecione o texto da tecla de acesso primário e pressione Ctrl+C para copiar.
+    2. Para copiar a chave de conta, navegue até a conta de armazenamento no portal do Azure, selecione **Configurações > Chaves de acesso** e, em seguida, use o botão Copiar para copiar a chave de acesso primária para a área de transferência.
 1. Selecione uma das opções de conexão. **Especificar pontos de extremidade personalizados** solicitará que você especifique URLs específicas para blobs, tabelas e filas. Os pontos de extremidade personalizados permitem que você use [domínios personalizados](storage/blobs/storage-custom-domain-name.md) e controle o acesso mais exatamente. Veja [Configurar cadeias de conexão do Armazenamento do Azure](./storage/common/storage-configure-connection-string.md).
 1. Selecione **OK**, em seguida, **Arquivo > Salvar** para atualizar a configuração com a nova cadeia de conexão.
 
