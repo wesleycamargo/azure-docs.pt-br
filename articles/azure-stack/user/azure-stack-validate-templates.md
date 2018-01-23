@@ -14,11 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: helaw
-ms.openlocfilehash: c99e5ebc2612e10f42bddbbd2f1c17d7404305d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c30b0a78cf3421554cf8f7c887c7973c7b9f4b9c
+ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
 ms.translationtype: MT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/23/2018
 ---
 # <a name="check-your-templates-for-azure-stack-with-template-validator"></a>Verifique seus modelos de pilha do Azure com o validador de modelo
 
@@ -58,15 +58,15 @@ Quaisquer erros ou avisos de validação de modelo são conectados ao console do
 
 ### <a name="parameters"></a>parâmetros
 
-| Parâmetro | Descrição | Obrigatório |
+| Parâmetro | DESCRIÇÃO | Obrigatório |
 | ----- | -----| ----- |
 | TemplatePath | Especifica o caminho para recursivamente encontrar modelos do Gerenciador de recursos | Sim | 
-| TemplatePattern | Especifica o nome dos arquivos de modelo para fazer a correspondência. | Não |
+| TemplatePattern | Especifica o nome dos arquivos de modelo para fazer a correspondência. | Não  |
 | CapabilitiesPath | Especifica o caminho para o arquivo JSON de recursos de nuvem | Sim | 
-| IncludeComputeCapabilities | Inclui a avaliação dos recursos de IaaS como tamanhos de VM e extensões de VM | Não |
-| IncludeStorageCapabilities | Inclui a avaliação dos recursos de armazenamento como tipos SKU | Não |
-| Relatório | Especifica o nome do relatório HTML gerado | Não |
-| Detalhado | Registra erros e avisos para o console | Não|
+| IncludeComputeCapabilities | Inclui a avaliação dos recursos de IaaS como tamanhos de VM e extensões de VM | Não  |
+| IncludeStorageCapabilities | Inclui a avaliação dos recursos de armazenamento como tipos SKU | Não  |
+| Relatório | Especifica o nome do relatório HTML gerado | Não  |
+| Detalhado | Registra erros e avisos para o console | Não |
 
 
 ### <a name="examples"></a>Exemplos
@@ -93,7 +93,7 @@ Os arquivos baixados incluem um padrão *AzureStackCloudCapabilities_with_AddOns
 3.  Use o cmdlet Get-CloudCapabilities para recuperar versões de serviço e criar um arquivo JSON de recursos de nuvem:
 
     ```PowerShell
-    Get-AzureRMCloudCapabilities -Location 'local' -Verbose
+    Get-AzureRMCloudCapability -Location 'local' -Verbose
     ```             
 
 
