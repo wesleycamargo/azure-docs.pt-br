@@ -14,11 +14,11 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/27/2017
 ms.author: seguler
-ms.openlocfilehash: 7890159574de0db58dd2e7d1b6a19305381d29d6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: eb96f3697d5369ba96a1b0c491e3eacf09e7aac4
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 10/11/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="transfer-data-with-the-microsoft-azure-storage-data-movement-library"></a>Transferir dados com a Biblioteca de Movimentação de Dados do Armazenamento do Microsoft Azure
 
@@ -27,7 +27,7 @@ A Biblioteca de Movimentação de Dados do Armazenamento do Microsoft Azure é u
 
 Essa biblioteca também usa o .NET Core, que significa que você pode usá-la ao criar aplicativos .NET para Windows, Linux e macOS. Para saber mais sobre o .NET Core, consulte a [documentação do .NET Core](https://dotnet.github.io/). Essa biblioteca também funciona para aplicativos tradicionais do .NET Framework para Windows. 
 
-Este documento demonstra como criar um aplicativo de console .NET Core que é executado no Windows, Linux e macOS e executa os seguintes cenários:
+Este documento demonstra como criar um aplicativo de console .NET Core que é executado no Windows, no Linux e no macOS e executa os seguintes cenários:
 
 - Carregar arquivos e diretórios no Armazenamento de Blobs.
 - Definir o número de operações paralelas durante a transferência de dados.

@@ -14,11 +14,11 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 11/10/2017
 ms.author: kraigb
-ms.openlocfilehash: d5d41ab47c17a024900efc88ba0a006da63ab246
-ms.sourcegitcommit: f847fcbf7f89405c1e2d327702cbd3f2399c4bc2
+ms.openlocfilehash: 1ced364bed821a9391f8ffd049f61ac236d98309
+ms.sourcegitcommit: 85012dbead7879f1f6c2965daa61302eb78bd366
 ms.translationtype: HT
 ms.contentlocale: pt-BR
-ms.lasthandoff: 11/28/2017
+ms.lasthandoff: 01/02/2018
 ---
 # <a name="how-to-migrate-and-publish-a-web-application-to-an-azure-cloud-service-from-visual-studio"></a>Como migrar e publicar um aplicativo Web em um serviço de nuvem do Azure por meio do Visual Studio
 
@@ -29,7 +29,7 @@ Para tirar proveito dos serviços de hospedagem e a escalabilidade do Azure, voc
 
 ## <a name="migrate-a-project-to-cloud-services"></a>Migrar um projeto para serviços de nuvem
 
-1. Clique com o botão direito no projeto de aplicativo Web e selecione **Converter > Converter em Projeto de Serviço de Nuvem do Microsoft Azure**. (Esse comando não é exibido se você já tiver um projeto de função web na solução.)
+1. Clique com o botão direito no projeto de aplicativo Web e selecione **Converter > Converter em Projeto de Serviço de Nuvem do Microsoft Azure**. (Observe que esse comando não será exibido se você já tiver um projeto de função web na solução.)
 1. O Visual Studio cria um projeto de serviço de nuvem na solução que contém a função web necessária. O nome desse projeto é o mesmo que o seu projeto de aplicativo com a adição do sufixo `.Azure`.
 1. O Visual Studio também define a propriedade **Copiar Local** como verdadeira para todos os assemblies que são necessários para MVC 2, MVC 3, MVC 4 e Aplicativos de negócios do Silverlight. Essa propriedade adiciona esses assemblies ao pacote de serviço usado para a implantação.
 
