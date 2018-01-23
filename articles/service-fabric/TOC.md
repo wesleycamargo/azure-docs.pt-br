@@ -311,6 +311,7 @@
 ### Monitoramento de desempenho
 #### [Monitoramento do desempenho com WAD](service-fabric-diagnostics-perf-wad.md)
 
+
 # Referência
 ## [PowerShell do Azure](/powershell/module/azurerm.servicefabric/)
 ## [PowerShell](/powershell/module/servicefabric/?view=azureservicefabricps)
@@ -328,6 +329,7 @@
 ### [serviço sfctl](service-fabric-sfctl-service.md)
 ### [repositório sfctl](service-fabric-sfctl-store.md)
 ## [API Java](/java/api/overview/azure/servicefabric)
+### [API do cliente Java REST](service-fabric-java-rest-api-usage.md)
 ## [.NET](/dotnet/api/overview/azure/service-fabric?view=azure-dotnet)
 ## [REST](/rest/api/servicefabric)
 ## [Esquema XML do modelo de serviço](service-fabric-service-model-schema.md)

@@ -13,13 +13,13 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/06/2017
   ms.author: garye
-  ms.openlocfilehash: c5873c1a9f5a73f700a07fe1050180750bf59cd4
-  ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+  ms.openlocfilehash: 98d106418472f66b8e5fe5d887eb8e75f5ce4a1b
+  ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
   ms.translationtype: HT
   ms.contentlocale: pt-BR
-  ms.lasthandoff: 12/09/2017
+  ms.lasthandoff: 01/23/2018
 abstract:
-  description: "Saiba como preparar dados, criar e implantar modelos com nossos tutoriais e guias de início rápido. Os recursos de versão prévia do Azure Machine Learning do Azure permitem criar, implantar e gerenciar modelos ML e AI usando quaisquer ferramentas Python e bibliotecas. Você pode usar uma ampla variedade de dados e serviços de computação no Azure para armazenar e processar seus dados."
+  description: "Saiba como preparar dados, criar e implantar modelos com nossos tutoriais e guias de início rápido. Os recursos de versão prévia do Azure Machine Learning permitem criar, implantar e gerenciar modelos ML e AI usando quaisquer ferramentas Python e bibliotecas. Você pode usar uma ampla variedade de dados e serviços de computação no Azure para armazenar e processar seus dados."
 sections:
 - title: "Guia de início rápido de 5 minutos"
   items:

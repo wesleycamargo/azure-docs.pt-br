@@ -95,7 +95,7 @@
           href: howto-migrate-using-dump-and-restore.md
         - name: Importação e exportação
           href: howto-migrate-using-export-and-import.md
-        - name: Migração com tempo de inatividade mínimo
+        - name: Migração com inatividade mínima
           href: howto-migrate-online.md
     - name: Configurar parâmetros do servidor
       items:
